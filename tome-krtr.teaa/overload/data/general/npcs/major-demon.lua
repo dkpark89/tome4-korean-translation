@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -71,7 +71,7 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
-	name = "dúathedlen", color=colors.GREY, -- Darkness exiled
+	name = "d첬athedlen", color=colors.GREY, -- Darkness exiled
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_duathedlen.png", display_h=2, display_y=-1}}},
 	desc = "Under a shroud of darkness you discern an evil shape.",
 	level_range = {30, nil}, exp_worth = 1,

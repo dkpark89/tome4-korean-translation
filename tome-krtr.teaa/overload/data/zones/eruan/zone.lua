@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return {
-	name = "Erúan",
+	name = "Er첬an",
 	level_range = {30, 45},
 	level_scheme = "player",
 	max_level = 4,

@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -592,7 +592,7 @@ newEntity{ base="ZONE_PLAINS", define_as = "ARDHUNGOL",
 }
 
 newEntity{ base="ZONE_DESERT", define_as = "ERUAN",
-	name="The arid wastes of Erúan",
+	name="The arid wastes of Er첬an",
 	color=colors.UMBER,
 	add_displays={mod.class.Grid.new{image="terrain/road_upwards_01.png", display_h=2, display_y=-1}},
 	change_zone="eruan",
