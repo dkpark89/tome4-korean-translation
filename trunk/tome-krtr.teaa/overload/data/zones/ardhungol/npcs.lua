@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -25,7 +25,7 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ define_as = "UNGOLE", base = "BASE_NPC_SPIDER",
 	allow_infinite_dungeon = true,
-	name = "Ungolë", color=colors.VIOLET, unique = true,
+	name = "Ungol챘", color=colors.VIOLET, unique = true,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_ungole.png", display_h=2, display_y=-1}}},
 	desc = [[A huge spider, shrouded in darkness, with red glowing eyes darting at you. She looks hungry.]],
 	killer_message = "and devoured alongside a Sun Paladin",

@@ -1,4 +1,4 @@
-local Talents = require("engine.interface.ActorTalents")
+﻿local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
 	define_as = "BASE_NPC_CRYSTAL",

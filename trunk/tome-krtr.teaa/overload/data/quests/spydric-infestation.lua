@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ desc = function(self, who)
 		desc[#desc+1] = "Enter the caverns of Ardhungol and look for Sun Paladin Rashim."
 		desc[#desc+1] = "But be careful; those are not small spiders..."
 	else
-		desc[#desc+1] = "#LIGHT_GREEN#You have killed Ungolë in Ardhungol and saved the Sun Paladin."
+		desc[#desc+1] = "#LIGHT_GREEN#You have killed Ungol챘 in Ardhungol and saved the Sun Paladin."
 	end
 	return table.concat(desc, "\n")
 end

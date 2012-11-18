@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -55,7 +55,7 @@ Thank you for your kindness!]]}
 	end
 
 	self.c_donate = Numberbox.new{title="Donation amount: ", number=10, max=1000, min=5, chars=5, fct=function() end}
-	local euro = Textzone.new{auto_width=true, auto_height=true, text=[[€]]}
+	local euro = Textzone.new{auto_width=true, auto_height=true, text=[[??]}
 	self.c_recur = Checkbox.new{title="Make it a recurring montly donation", default=recur, fct=function() end}
 	local ok = require("engine.ui.Button").new{text="Accept", fct=function() self:ok() end}
 	local cancel = require("engine.ui.Button").new{text="Cancel", fct=function() self:cancel() end}

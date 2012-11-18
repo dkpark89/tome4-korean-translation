@@ -1,4 +1,4 @@
--- ToME - Tales of Middle-Earth
+﻿-- ToME - Tales of Middle-Earth
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify

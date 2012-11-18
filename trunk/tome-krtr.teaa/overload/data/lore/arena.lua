@@ -1,4 +1,4 @@
-newLore{
+﻿newLore{
 	id = "arena-scoring",
 	category = "arena",
 	name = "Arena for dummies",
