@@ -21,10 +21,11 @@
 newBirthDescriptor{
 	type = "sex",
 	name = "Female",
+	display_name = "여성",
 	desc =
 	{
-		"You are a female of the species.",
-		"There is no in-game difference between the two sexes.",
+		"당신은 생물적으로 여성입니다.",
+		"게임 내에서 두 성별에 따른 차이점은 없습니다.",
 	},
 	copy = { female=true, },
 }
@@ -32,10 +33,11 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "sex",
 	name = "Male",
+	display_name = "남성",
 	desc =
 	{
-		"You are a male of the species.",
-		"There is no in-game difference between the two sexes.",
+		"당신은 생물적으로 남성입니다.",
+		"게임 내에서 두 성별에 따른 차이점은 없습니다.",
 	},
 	copy = { male=true, },
 }

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Bow Mastery",
+	display_name = "활 숙련",
 	type = {"technique/archery-bow", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 12 + level * 6 end }, },
@@ -28,11 +29,11 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d. Also increases damage done with bows by %d%%.
-		Also, when using Reload:
-		At level 2 it grants one more reload per turn.
-		At level 4 it grants two more reloads per turn.
-		At level 5 it grants three more reloads per turn.
+		return ([[활을 사용할 때 물리력을 %d , 활 피해량을 %d%% 증가시킵니다.
+		또한, 재장전을 할 때:
+		2 레벨에는 턴 당 장전량이 1 증가하며,
+		4 레벨에는 턴 당 장전량이 2 증가하며,
+		5 레벨에서는 턴 당 장전량이 3 증가합니다.
 		]]):
 		format(damage, inc * 100)
 	end,
@@ -40,6 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Piercing Arrow",
+	display_name = "관통 사격",
 	type = {"technique/archery-bow", 2},
 	no_energy = "fake",
 	points = 5,
@@ -49,9 +51,9 @@ newTalent{
 	range = archery_range,
 	tactical = { ATTACK = { weapon = 2 } },
 	requires_target = true,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("bow") then if not silent then game.logPlayer(self, "You require a bow for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("bow") then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이 필요합니다.") end return false end return true end,
 	action = function(self, t)
-		if not self:hasArcheryWeapon("bow") then game.logPlayer(self, "You must wield a bow!") return nil end
+		if not self:hasArcheryWeapon("bow") then game.logPlayer(self, "활을 장착해야 합니다!") return nil end
 
 		local targets = self:archeryAcquireTargets({type="beam"}, {one_shot=true})
 		if not targets then return end
@@ -59,12 +61,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire an arrow that cuts right through anything, piercing multiple targets if possible with nigh infinite armor penetration, doing %d%% damage.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
+		return ([[어떤 것이든 꿰뚫는 화살을 쏴서, 다수의 대상을 관통하여 방어도를 무시하고 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
 
 newTalent{
 	name = "Dual Arrows",
+	display_name = "이중 사격",
 	type = {"technique/archery-bow", 3},
 	no_energy = "fake",
 	points = 5,
@@ -77,9 +80,9 @@ newTalent{
 	target = function(self, t)
 		return {type="ball", radius=self:getTalentRadius(t), range=self:getTalentRange(t)}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("bow") then if not silent then game.logPlayer(self, "You require a bow for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("bow") then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이 필요합니다.") end return false end return true end,
 	action = function(self, t)
-		if not self:hasArcheryWeapon("bow") then game.logPlayer(self, "You must wield a bow!") return nil end
+		if not self:hasArcheryWeapon("bow") then game.logPlayer(self, "활을 장착해야 합니다!") return nil end
 
 		local tg = self:getTalentTarget(t)
 		local targets = self:archeryAcquireTargets(tg, {limit_shots=2})
@@ -88,13 +91,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire two arrows at your target, hitting it and a nearby foe if possible, doing %d%% damage
-		This talent does not use any stamina.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
+		return ([[대상에게 화살을 동시에 두 발 쏴서 대상과, 인접한 다른 대상에게 %d%% 의 무기 피해를 줍니다.
+		이 기술은 체력을 전혀 소모하지 않습니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
 
 newTalent{
 	name = "Volley of Arrows",
+	display_name = "연발 사격",
 	type = {"technique/archery-bow", 4},
 	no_energy = "fake",
 	points = 5,
@@ -111,9 +115,9 @@ newTalent{
 	target = function(self, t)
 		return {type="ball", radius=self:getTalentRadius(t), range=self:getTalentRange(t), selffire=false}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("bow") then if not silent then game.logPlayer(self, "You require a bow for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("bow") then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이 필요합니다.") end return false end return true end,
 	action = function(self, t)
-		if not self:hasArcheryWeapon("bow") then game.logPlayer(self, "You must wield a bow!") return nil end
+		if not self:hasArcheryWeapon("bow") then game.logPlayer(self, "활을 장착해야 합니다!") return nil end
 
 		local tg = self:getTalentTarget(t)
 		local targets = self:archeryAcquireTargets(tg)
@@ -122,7 +126,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire multiple arrows at the area of %d radius, doing %d%% damage.]])
+		return ([[타일 반경의 지역에 화살을 퍼부어 %d%% 의 무기 피해를 줍니다.]])
 		:format(2 + self:getTalentLevel(t)/3,
 		100 * self:combatTalentWeaponDamage(t, 0.6, 1.3))
 	end,

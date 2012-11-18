@@ -66,6 +66,7 @@ newEntity{ base = "BASE_NPC_SKELETON",
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "skeleton warrior", color=colors.SLATE, image="npc/skeleton_warrior.png",
+	display_name = "해골 전사",
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(90,100),

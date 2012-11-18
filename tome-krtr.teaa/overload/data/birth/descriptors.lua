@@ -31,6 +31,7 @@ setStepNames{
 newBirthDescriptor{
 	type = "base",
 	name = "base",
+	display_name = "기본",
 	desc = {
 	},
 	descriptor_choices =
@@ -93,14 +94,15 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Tutorial",
+	display_name = "초보자 입문용 연습게임",
 	never_show = true,
 	desc =
 	{
-		"#GOLD##{bold}#Tutorial mode",
-		"#WHITE#Start with a simplified character and discover the game in a simple quest.#{normal}#",
-		"All damage done to the player reduced by 20%",
-		"All healing for the player increased by 10%",
-		"No main game achievements possible.",
+		"#GOLD##{bold}#입문용 연습게임",
+		"#WHITE#간단한 케릭터를 가지고 간단한 퀘스트를 통해서 게임에 대해 배우게됩니다.#{normal}#",
+		"플레이어가 받는 모든 피해는 20% 감소됩니다",
+		"플레이어가 받는 모든 치유효과가 10% 증가됩니다",
+		"본 게임의 업적은 달성할 수 없습니다.",
 	},
 	descriptor_choices =
 	{
@@ -137,15 +139,15 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Easy",
-	display_name = "Easier",
+	display_name = "쉬움",
 	desc =
 	{
-		"#GOLD##{bold}#Easier mode#WHITE##{normal}#",
-		"Provides an easier game experience.",
-		"Use it if you feel uneasy tackling the harder modes.",
-		"All damage done to the player decreased by 30%",
-		"All healing for the player increased by 30%",
-		"Achievements are not granted.",
+		"#GOLD##{bold}#쉬운 난이도#WHITE##{normal}#",
+		"좀 더 쉬운 게임을 할 수 있습니다.",
+		"더 어려운 모드에서 플레이하기 힘들다면 선택하세요.",
+		"플레이어가 받는 모든 피해가 30% 감소됩니다",
+		"플레이어가 받는 모든 치유효과가 30% 증가됩니다",
+		"업적을 달성할 수 없습니다.",
 	},
 	descriptor_choices =
 	{
@@ -159,11 +161,12 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Normal",
+	display_name = "보통",
 	selection_default = true,
 	desc =
 	{
-		"#GOLD##{bold}#Adventure mode#WHITE##{normal}#",
-		"Provides the normal level of chalenges.",
+		"#GOLD##{bold}#모험 난이도#WHITE##{normal}#",
+		"도전하기에 적당한 난이도를 제공합니다.",
 	},
 	descriptor_choices =
 	{
@@ -177,14 +180,15 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Insane",
+	display_name = "미치광이",
 	desc =
 	{
-		"#GOLD##{bold}#Insane mode#WHITE##{normal}#",
-		"Absolutely unfair game setting",
-		"All zone levels increased by 100% + 10",
-		"All creatures talent levels increased by 100%",
-		"Player rank is normal instead of elite",
-		"Player can earn Insane version of achievements if also playing in Roguelike permadeath mode.",
+		"#GOLD##{bold}#미치광이 난이도#WHITE##{normal}#",
+		"아주 불리한 게임 설정입니다.",
+		"모든 지역의 레벨이 100% + 10 증가됩니다",
+		"모든 적들의 기술 레벨이 100% 증가됩니다",
+		"플레이어의 등급이 정예 대신 보통으로 설정됩니다",
+		"미치광이 난이도에서 로그라이크식 영구사망 모드로 플레이한다면 미치광이 등급의 업적을 달성할 수 있습니다. 멋있을꺼에요.",
 	},
 	descriptor_choices =
 	{
@@ -198,17 +202,18 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Exploration",
+	display_name = "탐사 모드",
 	locked = function(birther) return birther:isDonator() end,
-	locked_desc = "Exploration mode: Infinite lives (donator feature)",
+	locked_desc = "탐사 모드: 무한한 생명 (기부자용 모드)",
 	locked_select = function(birther) birther:selectExplorationNoDonations() end,
 	selection_default = config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Exploration",
 	desc =
 	{
-		"#GOLD##{bold}#Exploration mode#WHITE#",
-		"Provides you with infinite lives.#{normal}#",
-		"This is not the way the game is meant to be played, but it allows you to have a more forgiving experience.",
-		"Remember though that dying is an integral part of the game and helps you become a better player.",
-		"Exploration version of achievements will be granted in this mode.",
+		"#GOLD##{bold}#탐사 모드#WHITE#",
+		"부활 횟수에 제한이 없습니다.#{normal}#",
+		"이 모드는 원래 의도했던 플레이 방식은 아니지만, 좀 더 편하게 게임을 플레이 할 수 있게 해줍니다.",
+		"하지만, 케릭터의 사망은 게임에 있어서 중요한 요소이며 당신이 더 능숙한 플레이어가 되도록 해준다는 것을 기억하세요.",
+		"탐사 모드용 업적을 얻을 수 있습니다.",
 	},
 	copy = {
 		infinite_lifes = 1,
@@ -217,13 +222,14 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Adventure",
+	display_name = "모험 모드",
 	selection_default = (not config.settings.tome.default_birth) or (config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Adventure"),
 	desc =
 	{
-		"#GOLD##{bold}#Adventure mode#WHITE#",
-		"Provides you with limited extra lives.",
-		"Use it if you want normal playing conditions but do not feel ready for just one life.#{normal}#",
-		"At level 1,2,5,7,14,24,35 get one more 'life' that allows to resurrect at the start of the level.",
+		"#GOLD##{bold}#모험 모드#WHITE#",
+		"제한된 횟수의 부활기회를 제공합니다.",
+		"적당한 조건에서 플레이하고 싶지만, 아직 로그라이크 모드를 할 준비가 되지 않았다고 생각한다면 선택하세요.#{normal}#",
+		"1,2,5,7,14,24,35 레벨에서 추가 생명을 부여받습니다.",
 	},
 	copy = {
 		easy_mode_lifes = 1,
@@ -232,13 +238,14 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Roguelike",
+	display_name = "로그라이크 모드",
 	selection_default = config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Roguelike",
 	desc =
 	{
-		"#GOLD##{bold}#Roguelike mode#WHITE#",
-		"Provides the closer experience to 'classic' roguelike games.",
-		"You will only have one life; you *ARE* your character.#{normal}#",
-		"Only one life, unless ways to self-resurrect are found in-game.",
+		"#GOLD##{bold}#로그라이크 모드#WHITE#",
+		"'정통' 로그라이크 게임에 가까운 게임 플레이를 제공합니다.",
+		"단 하나의 생명만을 지니게 되며, 당신이 *바로* 당신의 케릭터입니다.#{normal}#",
+		"게임상에서 찾을 수 있는 부활 기회를 제외하면 하나의 생명 뿐입니다.",
 	},
 }
 

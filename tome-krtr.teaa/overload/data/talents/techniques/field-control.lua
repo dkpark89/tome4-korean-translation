@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Disengage",
+	display_name = "전투 회피",
 	type = {"technique/field-control", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -38,12 +39,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Jump away %d grids from your target.]]):format(math.floor(2 + self:getTalentLevel(t)))
+		return ([[%d 타일 뒤로 도약하여, 대상에게서 멀어집니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
 	end,
 }
 
 newTalent{
 	name = "Track",
+	display_name = "추적",
 	type = {"technique/field-control", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -62,13 +64,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[Sense foes around you in a radius of %d for %d turns.
-		The radius will increase with the Cunning stat]]):format(rad, 3 + self:getTalentLevel(t))
+		return ([[%d 타일 반경 안에 있는 적들을 %d 턴 동안 감지합니다.
+		감지 반경은 교활함 능력치에 영향을 받아 증가됩니다.]]):format(rad, 3 + self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Heave",
+	display_name = "밀어차기",
 	type = {"technique/field-control", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -88,7 +91,7 @@ newTalent{
 			if target:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				return true
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s 에게 밀어차기를 사용했지만, 저항했습니다!", target.name:capitalize())
 			end
 		end
 
@@ -100,14 +103,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[A mighty kick that pushes your target away %d grids.
-		If another creature is in the way it will also be pushed away.
-		Knockback chance increase with your Dexterity stat.]]):format(math.floor(2 + self:getTalentLevel(t)))
+		return ([[대상을 %d 타일 떨어진 곳까지 차서 날리는 강력한 발차기입니다.
+		날아가는 방향에 다른 대상이 있다면 같이 밀려나게 됩니다.
+		밀어내기 확률은 민첩 능력치에 영향을 받아 증가됩니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
 	end,
 }
 
 newTalent{
 	name = "Slow Motion",
+	display_name = "발사체 포착",
 	type = {"technique/field-control", 4},
 	require = techs_dex_req4,
 	mode = "sustained",
@@ -127,7 +131,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your great dexterity allows you to see incoming projectiles (spells, arrows, ...), slowing them down by %d%%.]]):
+		return ([[날아오는 발사체(주문, 화살, ...)를 기민한 반사신경으로 포착하여, %d%% 느리게 날아오는 것처럼 인지해서 회피하기 쉽게 됩니다.]]):
 		format(math.min(90, 15 + self:getDex(10, true) * self:getTalentLevel(t)))
 	end,
 }

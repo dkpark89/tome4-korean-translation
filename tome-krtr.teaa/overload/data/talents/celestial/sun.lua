@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Searing Light",
+	display_name = "타오르는 빛",
 	type = {"celestial/sun", 1},
 	require = divi_req1,
 	random_ego = "attack",
@@ -55,14 +56,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
-		return ([[Calls the power of the Sun into a searing lance doing %0.2f damage and leaving a spot on the ground for 4 turns doing %0.2f light damage.
-		The damage will increase with the Magic stat.]]):
+		return ([[태양의 힘을 실은 불타는 창을 던져 %0.2f 의 피해를 주고, 창이 박힌 자리에 4 턴 동안 %0.2f 의 빛 피해를 줍니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), damageonspot)
 	end,
 }
 
 newTalent{
 	name = "Sun Flare",
+	display_name = "태양의 섬광",
 	type = {"celestial/sun", 2},
 	require = divi_req2,
 	points = 5,
@@ -100,15 +102,16 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Invokes Sun flare with radius of %d, blinding your foes for %d turns and lighting up your immediate area (radius %d).
-		At level 3 it will start dealing %0.2f light damage (radius %d).
-		The damage will increase with the Magic stat.]]):
+		return ([[%d 타일 반경에 태양의 섬광을 일으켜, 적들을 %d 턴 동안 실명시키고 즉시 그 지역을 밝힙니다(%d 타일 반경).
+		기술 레벨이 3 이상이면 %0.2f 의 빛 피해도 줍니다(%d 타일 반경).
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, duration, radius * 2, damDesc(self, DamageType.LIGHT, damage), radius)
    end,
 }
 
 newTalent{
 	name = "Firebeam",
+	display_name = "태양의 불길",
 	type = {"celestial/sun",3},
 	require = divi_req3,
 	points = 5,
@@ -136,14 +139,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Fire a beam of Sun flames at your foes, burning all those in a line for %0.2f fire damage.
-		The damage will increase with the Magic stat.]]):
+		return ([[적에게 태양의 불길을 쏘아내어, 궤도 내의 모든 대상을 불태워서 %0.2f 의 화염 피해를 줍니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Sunburst",
+	display_name = "태양 파열",
 	type = {"celestial/sun", 4},
 	require = divi_req4,
 	points = 5,
@@ -170,7 +174,7 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures a furious burst of Sunlight, dealing %0.2f light damage to all those around you in a radius of %d.
-		The damage will increase with the Magic stat.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
+		return ([[태양광을 격렬하게 폭발시켜, %0.2f 의 빛 피해를 %d 타일 반경 내에 있는 모든 대상에게 줍니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
 	end,
 }

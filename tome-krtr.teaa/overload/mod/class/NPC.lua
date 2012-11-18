@@ -301,8 +301,8 @@ function _M:tooltip(x, y, seen_by)
 
 	str:add(
 		true,
-		("Killed by you: "):format(killed), true,
-		"Target: ", self.ai_target.actor and self.ai_target.actor.name or "none"
+		("당신에게 죽은 횟수: "):format(killed), true,
+		"대상: ", self.ai_target.actor and self.ai_target.actor.name or "none"
 	)
 	if config.settings.cheat then str:add(true, "UID: "..self.uid, true, self.image) end
 

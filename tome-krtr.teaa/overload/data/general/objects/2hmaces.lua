@@ -37,7 +37,7 @@ newEntity{
 }
 
 newEntity{ base = "BASE_GREATMAUL",
-	name = "iron greatmaul", short_name = "iron",
+	name = "iron greatmaul", display_name = "철제 대형 망치", short_name = "철제",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -51,7 +51,7 @@ newEntity{ base = "BASE_GREATMAUL",
 }
 
 newEntity{ base = "BASE_GREATMAUL",
-	name = "steel greatmaul", short_name = "steel",
+	name = "steel greatmaul", display_name = "강철 대형 망치", short_name = "강철",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -65,7 +65,7 @@ newEntity{ base = "BASE_GREATMAUL",
 }
 
 newEntity{ base = "BASE_GREATMAUL",
-	name = "dwarven-steel greatmaul", short_name = "d.steel",
+	name = "dwarven-steel greatmaul", display_name = "드워프-강철 대형 망치", short_name = "드워프강철",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -79,7 +79,7 @@ newEntity{ base = "BASE_GREATMAUL",
 }
 
 newEntity{ base = "BASE_GREATMAUL",
-	name = "stralite greatmaul", short_name = "stralite",
+	name = "stralite greatmaul", display_name = "스트랄라이트 대형 망치", short_name = "스트랄라이트",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -93,7 +93,7 @@ newEntity{ base = "BASE_GREATMAUL",
 }
 
 newEntity{ base = "BASE_GREATMAUL",
-	name = "voratun greatmaul", short_name = "voratun",
+	name = "voratun greatmaul", display_name = "보라툰 대형 망치", short_name = "보라툰",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

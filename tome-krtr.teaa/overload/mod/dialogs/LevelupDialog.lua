@@ -48,7 +48,7 @@ function _M:init(actor, on_finish, on_birth)
 	self.talent_types_learned = {}
 	self.stats_increased = {}
 
-	self.font = core.display.newFont("/data/font/DroidSansMono.ttf", 12)
+	self.font = core.display.newFont("/data/font/soya.ttf", 14)
 	self.font_h = self.font:lineSkip()
 
 	self.actor.__hidden_talent_types = self.actor.__hidden_talent_types or {}
@@ -61,7 +61,7 @@ function _M:init(actor, on_finish, on_birth)
 		if v.type == "subclass" and v.name == actor.descriptor.subclass then self.desc_def = v break end
 	end
 
-	Dialog.init(self, "Levelup: "..actor.name, game.w * 0.9, game.h * 0.9, game.w * 0.05, game.h * 0.05)
+	Dialog.init(self, "능력치와 기술: "..actor.name, game.w * 0.9, game.h * 0.9, game.w * 0.05, game.h * 0.05)
 	if game.w * 0.9 >= 1000 then
 		self.no_tooltip = true
 	end
@@ -84,7 +84,7 @@ function _M:init(actor, on_finish, on_birth)
 		EXIT = function()
 			if self.actor.unused_stats~=self.actor_dup.unused_stats or self.actor.unused_talents_types~=self.actor_dup.unused_talents_types or
 			self.actor.unused_talents~=self.actor_dup.unused_talents or self.actor.unused_generics~=self.actor_dup.unused_generics then
-				self:yesnocancelPopup("Finish","Do you accept changes?", function(yes, cancel)
+				self:yesnocancelPopup("변경사항을 적용하시겠습니까?","", function(yes, cancel)
 				if cancel then
 					return nil
 				else
@@ -171,20 +171,20 @@ end
 function _M:incStat(sid, v)
 	if v == 1 then
 		if self.actor.unused_stats <= 0 then
-			self:simplePopup("Not enough stat points", "You have no stat points left!")
+			self:simplePopup("능력치 점수가 부족합니다!", "")
 			return
 		end
 		if self.actor:getStat(sid, nil, nil, true) >= self.actor.level * 1.4 + 20 then
-			self:simplePopup("Stat is at the maximum for your level", "You cannot increase this stat further until next level!")
+			self:simplePopup("현재 레벨에서 올릴수 있는 한계치입니다", "")
 			return
 		end
 		if self.actor:isStatMax(sid) or self.actor:getStat(sid, nil, nil, true) >= 60 + math.max(0, (self.actor.level - 50)) then
-			self:simplePopup("Stat is at the maximum", "You cannot increase this stat further!")
+			self:simplePopup("더 이상 이 능력치를 올릴 수 없습니다", "You cannot increase this stat further!")
 			return
 		end
 	else
 		if self.actor_dup:getStat(sid, nil, nil, true) == self.actor:getStat(sid, nil, nil, true) then
-			self:simplePopup("Impossible", "You cannot take out more points!")
+			self:simplePopup("점수를 더 반환할 수 없습니다!", "")
 			return
 		end
 	end
@@ -276,15 +276,15 @@ function _M:learnTalent(t_id, v)
 	if not t.generic then
 		if v then
 			if self.actor.unused_talents < 1 then
-				self:simplePopup("Not enough class talent points", "You have no class talent points left!")
+				self:simplePopup("직업기술 점수가 부족합니다!", "")
 				return
 			end
 			if not self.actor:canLearnTalent(t) then
-				self:simplePopup("Cannot learn talent", "Prerequisites not met!")
+				self:simplePopup("선행조건에 부합하지 않아 배울 수 없습니다!", "")
 				return
 			end
 			if self.actor:getTalentLevelRaw(t_id) >= self:getMaxTPoints(t) then
-				self:simplePopup("Already known", "You already fully know this talent!")
+				self:simplePopup("이미 이 기술은 완벽히 배웠습니다!", "")
 				return
 			end
 			self.actor:learnTalent(t_id, true)
@@ -294,11 +294,11 @@ function _M:learnTalent(t_id, v)
 			self.new_talents_changed = true
 		else
 			if not self.actor:knowTalent(t_id) then
-				self:simplePopup("Impossible", "You do not know this talent!")
+				self:simplePopup("이 기술은 배우지 않았습니다!", "")
 				return
 			end
 			if not self:isUnlearnable(t, true) and self.actor_dup:getTalentLevelRaw(t_id) >= self.actor:getTalentLevelRaw(t_id) then
-				self:simplePopup("Impossible", "You cannot unlearn talents!")
+				self:simplePopup("기술 습득을 취소할 수 없습니다!", "")
 				return
 			end
 			self.actor:unlearnTalent(t_id, nil, true)
@@ -318,15 +318,15 @@ function _M:learnTalent(t_id, v)
 	else
 		if v then
 			if self.actor.unused_generics < 1 then
-				self:simplePopup("Not enough generic talent points", "You have no generic talent points left!")
+				self:simplePopup("일반기술 점수가 부족합니다!", "")
 				return
 			end
 			if not self.actor:canLearnTalent(t) then
-				self:simplePopup("Cannot learn talent", "Prerequisites not met!")
+				self:simplePopup("선행조건에 부합하지 않아 배울 수 없습니다!", "")
 				return
 			end
 			if self.actor:getTalentLevelRaw(t_id) >= self:getMaxTPoints(t) then
-				self:simplePopup("Already known", "You already fully know this talent!")
+				self:simplePopup("이미 이 기술은 완벽히 배웠습니다!", "")
 				return
 			end
 			self.actor:learnTalent(t_id)
@@ -336,11 +336,11 @@ function _M:learnTalent(t_id, v)
 			self.new_talents_changed = true
 		else
 			if not self.actor:knowTalent(t_id) then
-				self:simplePopup("Impossible", "You do not know this talent!")
+				self:simplePopup("이 기술은 배우지 않았습니다!", "")
 				return
 			end
 			if not self:isUnlearnable(t, true) and self.actor_dup:getTalentLevelRaw(t_id) >= self.actor:getTalentLevelRaw(t_id) then
-				self:simplePopup("Impossible", "You cannot unlearn talents!")
+				self:simplePopup("기술 습득을 취소할 수 없습니다!", "")
 				return
 			end
 			self.actor:unlearnTalent(t_id, nil, true)
@@ -365,15 +365,15 @@ function _M:learnType(tt, v)
 	self.talent_types_learned[tt] = self.talent_types_learned[tt] or {}
 	if v then
 		if self.actor:knowTalentType(tt) and self.actor.__increased_talent_types[tt] and self.actor.__increased_talent_types[tt] >= 1 then
-			self:simplePopup("Impossible", "You can only improve a category mastery once!")
+			self:simplePopup("기술계열 숙련은 한 번만 가능합니다!", "")
 			return
 		end
 		if self.actor.unused_talents_types <= 0 then
-			self:simplePopup("Not enough talent category points", "You have no category points left!")
+			self:simplePopup("기술계열 점수가 부족합니다!", "")
 			return
 		end
 		if not self.actor.talents_types_def[tt] or (self.actor.talents_types_def[tt].min_lev or 0) > self.actor.level then
-			self:simplePopup("Too low level", ("This talent tree only provides talents starting at level %d. Learning it now would be useless."):format(self.actor.talents_types_def[tt].min_lev))
+			self:simplePopup("레벨이 낮아 이 기술계열을 습득할 수 없습니다", ("요구레벨: %d"):format(self.actor.talents_types_def[tt].min_lev))
 			return
 		end
 		if not self.actor:knowTalentType(tt) then
@@ -389,15 +389,15 @@ function _M:learnType(tt, v)
 		self.new_talents_changed = true
 	else
 		if self.actor_dup:knowTalentType(tt) == true and self.actor:knowTalentType(tt) == true and (self.actor_dup.__increased_talent_types[tt] or 0) >= (self.actor.__increased_talent_types[tt] or 0) then
-			self:simplePopup("Impossible", "You cannot take out more points!")
+			self:simplePopup("점수를 더 반환할 수 없습니다!", "")
 			return
 		end
 		if self.actor_dup:knowTalentType(tt) == true and self.actor:knowTalentType(tt) == true and (self.actor.__increased_talent_types[tt] or 0) == 0 then
-			self:simplePopup("Impossible", "You cannot unlearn this category!")
+			self:simplePopup("기술계열 숙련을 취소할 수 없습니다!", "")
 			return
 		end
 		if not self.actor:knowTalentType(tt) then
-			self:simplePopup("Impossible", "You do not know this category!")
+			self:simplePopup("이 기술계열은 배우지 않았습니다!", "")
 			return
 		end
 
@@ -435,12 +435,29 @@ function _M:generateList()
 	for i, tt in ipairs(self.actor.talents_types_def) do
 		if not tt.hide and not (self.actor.talents_types[tt.type] == nil) then
 			local cat = tt.type:gsub("/.*", "")
+			-- @@
+			local ttn = cat
+			if ttn == "technique" then ttn = "기술" end
+			if ttn == "celestial" then ttn = "천공" end
+			if ttn == "chronomancy" then ttn = "시공" end
+			if ttn == "corruption" then ttn = "타락" end
+			if ttn == "cunning" then ttn = "교활" end
+			if ttn == "cursed" then ttn = "고통" end
+			if ttn == "wild-gift" then ttn = "자연의 권능" end
+			if ttn == "base" then ttn = "기본" end
+			if ttn == "inscriptions" then ttn = "각인" end
+			if ttn == "race" then ttn = "종족" end
+			if ttn == "tutorial" then ttn = "입문" end
+			if ttn == "psionic" then ttn = "초능력" end
+			if ttn == "spell" then ttn = "주문" end
+			if ttn == "undead" then ttn = "언데드" end
+			-- @@
 			local ttknown = self.actor:knowTalentType(tt.type)
 			local isgeneric = self.actor.talents_types_def[tt.type].generic
 			local tshown = (self.actor.__hidden_talent_types[tt.type] == nil and ttknown) or (self.actor.__hidden_talent_types[tt.type] ~= nil and not self.actor.__hidden_talent_types[tt.type])
 			local node = {
-				name=function(item) return tstring{{"font", "bold"}, cat:capitalize().." / "..tt.name:capitalize() ..(" (%s)"):format((isgeneric and "generic" or "class")), {"font", "normal"}} end,
-				rawname=function(item) return cat:capitalize().." / "..tt.name:capitalize() ..(" (x%.2f)"):format(self.actor:getTalentTypeMastery(item.type)) end,
+				name=function(item) return tstring{{"font", "bold"}, ttn.." / "..tt.name:capitalize() ..(" (%s)"):format((isgeneric and "generic" or "class")), {"font", "normal"}} end,
+				rawname=function(item) return ttn.." / "..tt.name:capitalize() ..(" (x%.2f)"):format(self.actor:getTalentTypeMastery(item.type)) end,
 				type=tt.type,
 				color=function(item) return ((self.actor:knowTalentType(item.type) ~= self.actor_dup:knowTalentType(item.type)) or ((self.actor.__increased_talent_types[item.type] or 0) ~= (self.actor_dup.__increased_talent_types[item.type] or 0))) and {255, 215, 0} or self.actor:knowTalentType(item.type) and {0,200,0} or {175,175,175} end,
 				shown = tshown,
@@ -459,14 +476,16 @@ function _M:generateList()
 				if not t.hide or self.actor.__show_special_talents[t.id] then
 					self:computeDeps(t)
 					local isgeneric = self.actor.talents_types_def[tt.type].generic
+					local tdn = t.display_name
+					if tdn == nil then tdn = t.name end
 
 					-- Pregenenerate icon with the Tiles instance that allows images
 					if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
-
+					
 					list[#list+1] = {
 						__id=t.id,
 						name=t.name:toTString(),
-						rawname=t.name,
+						rawname=tdn,
 						entity=t.display_entity,
 						talent=t.id,
 						isgeneric=isgeneric and 0 or 1,
@@ -556,7 +575,7 @@ Generic talent points left: #00FF00#%d#LAST#]]
 
 function _M:createDisplay()
 	self.c_ctree = TalentTrees.new{
-		font = core.display.newFont("/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont("/data/font/soya.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.ctree,
 		width=320, height=self.ih-50,
@@ -576,7 +595,7 @@ function _M:createDisplay()
 	}
 
 	self.c_gtree = TalentTrees.new{
-		font = core.display.newFont("/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont("/data/font/soya.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.gtree,
 		width=320, height=self.ih-50,
@@ -596,7 +615,7 @@ function _M:createDisplay()
 	}
 
 	self.c_stat = TalentTrees.new{
-		font = core.display.newFont("/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont("/data/font/soya.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.tree_stats, no_cross = true,
 		width=50, height=self.ih,
@@ -624,10 +643,10 @@ function _M:createDisplay()
 	local vsep2 = Separator.new{dir="horizontal", size=self.ih - 20}
 	local hsep = Separator.new{dir="vertical", size=180}
 
-	self.b_stat = Button.new{text="Stats: "..self.actor.unused_stats, fct=function() end}
-	self.b_class = Button.new{text="Class points: "..self.actor.unused_talents, fct=function() end}
-	self.b_generic = Button.new{text="Generic points: "..self.actor.unused_generics, fct=function() end}
-	self.b_types = Button.new{text="Category points: "..self.actor.unused_talents_types, fct=function() end}
+	self.b_stat = Button.new{text="능력치: "..self.actor.unused_stats, fct=function() end}
+	self.b_class = Button.new{text="직업기술 점수: "..self.actor.unused_talents, fct=function() end}
+	self.b_generic = Button.new{text="일반기술 점수: "..self.actor.unused_generics, fct=function() end}
+	self.b_types = Button.new{text="기술계열 점수: "..self.actor.unused_talents_types, fct=function() end}
 
 	local ret = {
 		{left=-10, top=0, ui=self.b_stat},
@@ -666,51 +685,51 @@ function _M:getStatDesc(item)
 	local color = diff >= 0 and {"color", "LIGHT_GREEN"} or {"color", "RED"}
 	local dc = {"color", "LAST"}
 
-	text:add("Current value: ", {"color", "LIGHT_GREEN"}, ("%d"):format(self.actor:getStat(stat_id)), dc, true)
-	text:add("Base value: ", {"color", "LIGHT_GREEN"}, ("%d"):format(self.actor:getStat(stat_id, nil, nil, true)), dc, true, true)
+	text:add("현재 수치: ", {"color", "LIGHT_GREEN"}, ("%d"):format(self.actor:getStat(stat_id)), dc, true)
+	text:add("기본 수치: ", {"color", "LIGHT_GREEN"}, ("%d"):format(self.actor:getStat(stat_id, nil, nil, true)), dc, true, true)
 
-	text:add({"color", "LIGHT_BLUE"}, "Stat gives:", dc, true)
+	text:add({"color", "LIGHT_BLUE"}, "능력치 상승시:", dc, true)
 	if stat_id == self.actor.STAT_CON then
 		local multi_life = 4 + (self.actor.inc_resource_multi.life or 0)
-		text:add("Max life: ", color, ("%0.2f"):format(diff * multi_life), dc, true)
-		text:add("Physical save: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("최대 생명력(Max HP): ", color, ("%0.2f"):format(diff * multi_life), dc, true)
+		text:add("물리 내성(Physical Save): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 	elseif stat_id == self.actor.STAT_WIL then
 		if self.actor:knowTalent(self.actor.T_MANA_POOL) then
 			local multi_mana = 5 + (self.actor.inc_resource_multi.mana or 0)
-			text:add("Max mana: ", color, ("%0.2f"):format(diff * multi_mana), dc, true)
+			text:add("최대 마나(Mana): ", color, ("%0.2f"):format(diff * multi_mana), dc, true)
 		end
 		if self.actor:knowTalent(self.actor.T_STAMINA_POOL) then
 			local multi_stamina = 2.5 + (self.actor.inc_resource_multi.stamina or 0)
-			text:add("Max stamina: ", color, ("%0.2f"):format(diff * multi_stamina), dc, true)
+			text:add("최대 체력(Stamina): ", color, ("%0.2f"):format(diff * multi_stamina), dc, true)
 		end
 		if self.actor:knowTalent(self.actor.T_PSI_POOL) then
 			local multi_psi = 1 + (self.actor.inc_resource_multi.psi or 0)
-			text:add("Max psi: ", color, ("%0.2f"):format(diff * multi_psi), dc, true)
+			text:add("최대 염력(Psi): ", color, ("%0.2f"):format(diff * multi_psi), dc, true)
 		end
-		text:add("Mindpower: ", color, ("%0.2f"):format(diff * 0.7), dc, true)
-		text:add("Mental save: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
-		text:add("Spell save: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("정신력(Mindpower): ", color, ("%0.2f"):format(diff * 0.7), dc, true)
+		text:add("정신 내성(Mental save): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("주문 내성(Spell save): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 		if self.actor.use_psi_combat then
-			text:add("Accuracy: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+			text:add("정확도(Accuracy): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 		end
 	elseif stat_id == self.actor.STAT_STR then
-		text:add("Physical power: ", color, ("%0.2f"):format(diff), dc, true)
-		text:add("Max encumberance: ", color, ("%0.2f"):format(diff * 1.8), dc, true)
-		text:add("Physical save: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("물리력(Physical power): ", color, ("%0.2f"):format(diff), dc, true)
+		text:add("최대 운반가능 무게: ", color, ("%0.2f"):format(diff * 1.8), dc, true)
+		text:add("물리 내성(Physical save): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 	elseif stat_id == self.actor.STAT_CUN then
-		text:add("Crit. chance: ", color, ("%0.2f"):format(diff * 0.3), dc, true)
-		text:add("Mental save: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
-		text:add("Mindpower: ", color, ("%0.2f"):format(diff * 0.4), dc, true)
+		text:add("치명타 확률: ", color, ("%0.2f"):format(diff * 0.3), dc, true)
+		text:add("정신 내성(Mental save): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("정신력(Mindpower): ", color, ("%0.2f"):format(diff * 0.4), dc, true)
 		if self.actor.use_psi_combat then
-			text:add("Accuracy: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+			text:add("정확도(Accuracy): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 		end
 	elseif stat_id == self.actor.STAT_MAG then
-		text:add("Spell save: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
-		text:add("Spellpower: ", color, ("%0.2f"):format(diff * 1), dc, true)
+		text:add("주문 내성(Spell save): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("주문력(Spellpower): ", color, ("%0.2f"):format(diff * 1), dc, true)
 	elseif stat_id == self.actor.STAT_DEX then
-		text:add("Defense: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
-		text:add("Ranged defense: ", color, ("%0.2f"):format(diff * 0.35), dc, true)
-		text:add("Accuracy: ", color, ("%0.2f"):format(diff), dc, true)
+		text:add("회피도(Defense): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("원거리 회피도(Ranged defense): ", color, ("%0.2f"):format(diff * 0.35), dc, true)
+		text:add("정확도(Accuracy): ", color, ("%0.2f"):format(diff), dc, true)
 	end
 
 	if self.actor.player and self.desc_def and self.desc_def.getStatDesc and self.desc_def.getStatDesc(stat_id, self.actor) then
@@ -723,20 +742,19 @@ end
 
 function _M:getTalentDesc(item)
 	local text = tstring{}
-
- 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
+	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
 	text:add(true, true)
 
 	if item.type then
-		text:add({"color",0x00,0xFF,0xFF}, "Talent Category", true)
-		text:add({"color",0x00,0xFF,0xFF}, "A talent category contains talents you may learn. You gain a talent category point at level 10, 20 and 30. You may also find trainers or artifacts that allow you to learn more.\nA talent category point can be used either to learn a new category or increase the mastery of a known one.", true, true, {"color", "WHITE"})
+		text:add({"color",0x00,0xFF,0xFF}, "기술계열", true)
+		text:add({"color",0x00,0xFF,0xFF}, "기술계열에는 여러가지 습득가능한 기술들이 포함되어 있습니다. 10, 20, 30 레벨 마다 1점씩 받을 수 있습니다.\n기술계열 점수로는 새로운 기술계열을 배우거나 기존의 기술계열의 효율을 향상시키는데 쓸 수 있습니다.", true, true, {"color", "WHITE"})
 
 		if self.actor.talents_types_def[item.type].generic then
-			text:add({"color",0x00,0xFF,0xFF}, "Generic talent tree", true)
-			text:add({"color",0x00,0xFF,0xFF}, "A generic talent allows you to perform various utility actions and improve your character. It represents a skill anybody can learn (should you find a trainer for it). You gain one point every level (except every 5th level). You may also find trainers or artifacts that allow you to learn more.", true, true, {"color", "WHITE"})
+			text:add({"color",0x00,0xFF,0xFF}, "일반기술 계통", true)
+			text:add({"color",0x00,0xFF,0xFF}, "일반기술은 케릭터의 기본적인 능력을 향상시키거나 여러가지 유용한 기술을 배우는데 쓸 수 있습니다. 누구나 배울 수 있는 기술들을 의미하며, 레벨 상승시 1점을 받습니다(예외로 5의 배수 레벨에는 못받음). 일반기술 점수를 추가로 획득할 수 있는 아티팩트나 기회를 발견할 수도 있습니다.", true, true, {"color", "WHITE"})
 		else
-			text:add({"color",0x00,0xFF,0xFF}, "Class talent tree", true)
-			text:add({"color",0x00,0xFF,0xFF}, "A class talent allows you to perform new combat moves, cast spells, and improve your character. It represents the core function of your class. You gain one point every level and two every 5th level. You may also find trainers or artifacts that allow you to learn more.", true, true, {"color", "WHITE"})
+			text:add({"color",0x00,0xFF,0xFF}, "직업기술 계통", true)
+			text:add({"color",0x00,0xFF,0xFF}, "직업기술은 당신이 선택한 직업의 핵심적인 능력들을 나타내며, 새로운 전투법이나 주문, 강화효과등을 얻을 수 있습니다. 레벨 상승시 1점을 받으며 5의 배수 레벨에서는 2점을 받습니다. 일반기술 점수를 추가로 획득할 수 있는 아티팩트나 기회를 발견할 수도 있습니다.", true, true, {"color", "WHITE"})
 		end
 
 		text:add(self.actor:getTalentTypeFrom(item.type).description)
@@ -746,9 +764,9 @@ function _M:getTalentDesc(item)
 
 		if self:isUnlearnable(t, true) then
 			local max = tostring(self.actor:lastLearntTalentsMax(t.generic and "generic" or "class"))
-			text:add({"color","LIGHT_BLUE"}, "This talent was recently learnt, you can still unlearn it.", true, "The last ", max, t.generic and " generic" or " class", " talents you learnt are always unlearnable.", {"color","LAST"}, true, true)
+			text:add({"color","LIGHT_BLUE"}, "이 기술은 최근에 습득했으므로, 아직 습득을 취소할 수 있습니다.", true, "최근에 배운 ", max, t.generic and " 일반" or " 직업", " 기술은 습득 취소가 가능합니다.", {"color","LAST"}, true, true)
 		elseif t.no_unlearn_last then
-			text:add({"color","YELLOW"}, "This talent can alter the world in a permanent way, as such you can never unlearn it once known.", {"color","LAST"}, true, true)
+			text:add({"color","YELLOW"}, "이 기술은 영구적으로 세계에 영향을 끼치기에, 한번 배우면 다시는 습득을 취소할 수 없습니다.", {"color","LAST"}, true, true)
 		end
 
 		local traw = self.actor:getTalentLevelRaw(t.id)
@@ -758,7 +776,7 @@ function _M:getTalentDesc(item)
 		if traw == 0 then
 			local req = self.actor:getTalentReqDesc(item.talent, 1):toTString():tokenize(" ()[]")
 			text:add{"color","WHITE"}
-			text:add({"font", "bold"}, "First talent level: ", tostring(traw+1), {"font", "normal"})
+			text:add({"font", "bold"}, "처음 기술 레벨: ", tostring(traw+1), {"font", "normal"})
 			text:add(true)
 			text:merge(req)
 			text:merge(self.actor:getTalentFullDescription(t, 1))
@@ -766,13 +784,13 @@ function _M:getTalentDesc(item)
 			local req = self.actor:getTalentReqDesc(item.talent):toTString():tokenize(" ()[]")
 			local req2 = self.actor:getTalentReqDesc(item.talent, 1):toTString():tokenize(" ()[]")
 			text:add{"color","WHITE"}
-			text:add({"font", "bold"}, traw == 0 and "Next talent level" or "Current talent level: ", tostring(traw), " [-> ", tostring(traw + 1), "]", {"font", "normal"})
+			text:add({"font", "bold"}, traw == 0 and "다음 기술 레벨" or "현재 기술 레벨: ", tostring(traw), " [-> ", tostring(traw + 1), "]", {"font", "normal"})
 			text:add(true)
 			text:merge(req2:diffWith(req, diff))
 			text:merge(self.actor:getTalentFullDescription(t, 1):diffWith(self.actor:getTalentFullDescription(t), diff))
 		else
 			local req = self.actor:getTalentReqDesc(item.talent)
-			text:add({"font", "bold"}, "Current talent level: "..traw, {"font", "normal"})
+			text:add({"font", "bold"}, "현재 기술 레벨: "..traw, {"font", "normal"})
 			text:add(true)
 			text:merge(req)
 			text:merge(self.actor:getTalentFullDescription(t))
@@ -799,13 +817,13 @@ function _M:onUseTalent(item, inc)
 		self.c_gtree:redrawAllItems()
 	end
 
-	self.b_stat.text = "Stats: "..self.actor.unused_stats
+	self.b_stat.text = "능력치: "..self.actor.unused_stats
 	self.b_stat:generate()
-	self.b_class.text = "Class points: "..self.actor.unused_talents
+	self.b_class.text = "직업기술 점수: "..self.actor.unused_talents
 	self.b_class:generate()
-	self.b_generic.text = "Generic points: "..self.actor.unused_generics
+	self.b_generic.text = "일반기술 점수: "..self.actor.unused_generics
 	self.b_generic:generate()
-	self.b_types.text = "Category points: "..self.actor.unused_talents_types
+	self.b_types.text = "기술계열 점수: "..self.actor.unused_talents_types
 	self.b_types:generate()
 end
 
