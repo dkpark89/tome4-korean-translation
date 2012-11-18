@@ -26,7 +26,7 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(actions)
 	self:generateList(actions)
 
-	Dialog.init(self, "Game Menu", 300, 20)
+	Dialog.init(self, "게임 메뉴", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 

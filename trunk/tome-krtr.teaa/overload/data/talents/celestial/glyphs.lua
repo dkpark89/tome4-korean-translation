@@ -21,6 +21,7 @@ local Trap = require "mod.class.Trap"
 
 newTalent{
 	name = "Glyph of Paralysis",
+	display_name = "마비의 문양",
 	type = {"celestial/glyphs", 1},
 	require = divi_req_high1,
 	random_ego = "attack",
@@ -79,13 +80,14 @@ newTalent{
 	info = function(self, t)
 		local dazeduration = t.getDazeDuration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets passing by will be dazed for %d turns.
-		The glyph lasts for %d turns.]]):format(dazeduration, duration)
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d 턴 동안 혼절하게 됩니다.
+		문양은 %d 턴 동안 유지됩니다.]]):format(dazeduration, duration)
 	end,
 }
 
 newTalent{
 	name = "Glyph of Repulsion",
+	display_name = "격퇴의 문양",
 	type = {"celestial/glyphs", 2},
 	require = divi_req_high2,
 	random_ego = "attack",
@@ -150,15 +152,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets passing by will be hit by a blast of light doing %0.2f damage and knocked back.
-		The glyph lasts for %d turns.
-		The damage will increase with the Magic stat]]):
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f 의 피해를 받고 밀려납니다.
+		문양은 %d 턴 동안 유지됩니다.
+		피해량은 마법 능력치의 영향을 받아 유지됩니다.]]):
 		format(damage, duration)
 	end,
 }
 
 newTalent{
 	name = "Glyph of Explosion",
+	display_name = "폭발의 문양",
 	type = {"celestial/glyphs", 3},
 	require = divi_req_high3,
 	random_ego = "attack",
@@ -218,15 +221,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets passing by will trigger blast of light doing %0.2f damage.
-		The glyph lasts for %d turns.
-		The damage will increase with the Magic stat]]):
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 1 타일 반경의 빛의 폭발에 휘말려 %0.2f 의 피해를 받습니다.
+		문양은 %d 턴 동안 유지됩니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), duration)
 	end,
 }
 
 newTalent{
 	name = "Glyph of Fatigue",
+	display_name = "피로의 문양",
 	type = {"celestial/glyphs", 4},
 	require = divi_req_high4,
 	random_ego = "attack",
@@ -285,7 +289,7 @@ newTalent{
 	info = function(self, t)
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets passing by will be slowed by %d%%.
-		The glyph lasts for %d turns.]]):format(100 * slow, duration)
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d%% 감속됩니다.
+		문양은 %d 턴 동안 유지됩니다.]]):format(100 * slow, duration)
 	end,
 }

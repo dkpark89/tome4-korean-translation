@@ -28,6 +28,7 @@ end
 
 newTalent{
 	name = "Chant of Fortitude",
+	display_name = "인내의 찬가",
 	type = {"celestial/chants", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -62,16 +63,17 @@ newTalent{
 	info = function(self, t)
 		local saves = t.getResists(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the sun, granting you %d physical and spell save.
-		In addition it surrounds you with a shield of light, damaging anything that attacks you for %0.2f light damage.
-		You may only have one Chant active at once.
-		The saves and damage will increase with the Magic stat]]):
+		return ([[태양의 영광을 노래하여, 물리와 주문 내성을 %d 상승시킵니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
+		동시에 하나의 찬가만을 유지할 수 있습니다.
+		내성과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(saves, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
 
 newTalent{
 	name = "Chant of Fortress",
+	display_name = "보루의 찬가",
 	type = {"celestial/chants", 2},
 	mode = "sustained",
 	require = divi_req2,
@@ -103,16 +105,17 @@ newTalent{
 	info = function(self, t)
 		local physicalresistance = t.getPhysicalResistance(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the sun, granting you %d%% physical damage resistance.
-		In addition it surrounds you with a shield of light, damaging anything that attacks you for %0.2f light damage.
-		You may only have one Chant active at once.
-		The resistance and damage will increase with the Magic stat]]):
+		return ([[태양의 영광을 노래하여, 물리 피해 저항을 %d%% 상승시킵니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
+		동시에 하나의 찬가만을 유지할 수 있습니다.
+		저항과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(physicalresistance, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
 
 newTalent{
 	name = "Chant of Resistance",
+	display_name = "저항의 찬가",
 	type = {"celestial/chants",3},
 	mode = "sustained",
 	require = divi_req3,
@@ -150,16 +153,17 @@ newTalent{
 	info = function(self, t)
 		local resists = t.getResists(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the sun, granting you %d%% elemental resistances.
-		In addition it surrounds you with a shield of light, damaging anything that attacks you for %0.2f light damage.
-		You may only have one Chant active at once.
-		The resistance and damage will increase with the Magic stat]]):
+		return ([[태양의 영광을 노래하여, 원소 저항을 %d%% 상승시킵니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
+		동시에 하나의 찬가만을 유지할 수 있습니다.
+		내성과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(resists, damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
 
 newTalent{
 	name = "Chant of Light",
+	display_name = "빛의 찬가",
 	type = {"celestial/chants", 4},
 	mode = "sustained",
 	require = divi_req4,
@@ -195,11 +199,11 @@ newTalent{
 		local damageinc = t.getLightDamageIncrease(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local lite = t.getLite(self, t)
-		return ([[Chant the glory of the sun, granting you %d%% more light damage.
-		In addition it surrounds you with a shield of light, damaging anything that attacks you for %0.2f light damage.
-		Your lite radius is also increased by %d.
-		You may only have one Chant active at once.
-		The effects will increase with the Magic stat]]):
+		return ([[태양의 영광을 노래하여, 당신이 가하는 빛 피해량을 %d%% 증가시킵니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
+		또한 광원 반경이 %d 타일 증가됩니다.
+		동시에 하나의 찬가만을 유지할 수 있습니다.
+		이 효과는 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(damageinc, damDesc(self, DamageType.LIGHT, damage), lite)
 	end,
 }

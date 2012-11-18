@@ -20,6 +20,7 @@
 -- Default archery attack
 newTalent{
 	name = "Shoot",
+	display_name = "사격",
 	type = {"technique/archery-base", 1},
 	no_energy = "fake",
 	hide = true,
@@ -29,7 +30,7 @@ newTalent{
 	message = "@Source@ shoots!",
 	requires_target = true,
 	tactical = { ATTACK = { weapon = 1 } },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	no_unlearn_last = true,
 	use_psi_archery = function(self, t)
 		local inven = self:getInven("PSIONIC_FOCUS")
@@ -48,16 +49,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Shoot your bow or sling!]])
+		return ([[활이나 투석구를 발사합니다!]])
 	end,
 }
 newTalent{
 	name = "Reload",
+	display_name = "재장전",
 	type = {"technique/archery-base", 1},
 	cooldown = 0,
 	points = 1,
 	tactical = { AMMO = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasAmmo() then if not silent then game.logPlayer(self, "You must have a quiver or pouch equipped.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasAmmo() then if not silent then game.logPlayer(self, "화살통이나 탄환 주머니를 착용해야 합니다.") end return false end return true end,
 	shots_per_turn = function(self, t)
 		local v = math.max(self:getTalentLevelRaw(self.T_BOW_MASTERY), self:getTalentLevelRaw(self.T_SLING_MASTERY))
 		local add = 0
@@ -74,7 +76,7 @@ newTalent{
 			return
 		end
 		if q.combat.shots_left >= q.combat.capacity then
-			game.logPlayer(self, "Your %s is full.", q.name)
+			game.logPlayer(self, "발사체 재장전을 끝냈습니다(%s).", q.name)
 			return
 		end
 		self:setEffect(self.EFF_RELOADING, q.combat.capacity, {ammo = q, shots_per_turn = t.shots_per_turn(self, t)})
@@ -82,12 +84,13 @@ newTalent{
 	end,
 	info = function(self, t)
 		local spt = t.shots_per_turn(self, t)
-		return ([[Reload your quiver or shot pouch at the rate of %d shot%s per turn (depends of the ammo used).]]):format(spt, (spt > 1 and "s") or "")
+		return ([[화살통이나 탄환 주머니에 매 턴마다 %d 발씩 발사체를 장전합니다.]]):format(spt)
 	end,
 }
 
 newTalent{
 	name = "Steady Shot",
+	display_name = "정밀 사격",
 	type = {"technique/archery-training", 1},
 	no_energy = "fake",
 	points = 5,
@@ -98,7 +101,7 @@ newTalent{
 	range = archery_range,
 	requires_target = true,
 	tactical = { ATTACK = { weapon = 2 } },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local targets = self:archeryAcquireTargets(nil, {one_shot=true})
 		if not targets then return end
@@ -106,12 +109,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[A steady shot, doing %d%% damage.]]):format(self:combatTalentWeaponDamage(t, 1.1, 2.2) * 100)
+		return ([[안정된 자세로 정확하게 사격을 하여 %d%% 의 무기 피해를 줍니다.]]):format(self:combatTalentWeaponDamage(t, 1.1, 2.2) * 100)
 	end,
 }
 
 newTalent{
 	name = "Aim",
+	display_name = "조준",
 	type = {"technique/archery-training", 2},
 	mode = "sustained",
 	points = 5,
@@ -121,11 +125,11 @@ newTalent{
 	no_energy = true,
 	tactical = { BUFF = 2 },
 	no_npc_use = true,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	activate = function(self, t)
 		local weapon = self:hasArcheryWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Aim without a bow or sling!")
+			game.logPlayer(self, "활이나 투석구 없이는 조준 기술을 쓸 수 없습니다!")
 			return nil
 		end
 
@@ -150,8 +154,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You enter a calm, focused stance, increasing your physical power(+%d), accuracy(+%d), armor penetration(+%d), and critical chance(+%d%%) but reducing your firing speed by %d%% and making you unable to move.
-		The effects will increase with your Dexterity stat.]]):
+		return ([[냉정하고 집중된 자세를 취하여, 물리력(+%d), 정확도(+%d), 방어 관통(+%d), 치명타율(+%d%%)을 증가시키지만, 사격 속도가 %d%% 감소되고 그 자리에서 움직일 수 없게 됩니다.
+		증가되는 효과들은 민첩 능력치에 영향을 받습니다.]]):
 		format(4 + self:getTalentLevel(t) * self:getDex(10, true), 4 + self:getTalentLevel(t) * self:getDex(10, true),
 		3 + self:getTalentLevel(t) * self:getDex(10, true), 7 + self:getTalentLevel(t) * self:getDex(10, true),
 		self:getTalentLevelRaw(t) * 5)
@@ -160,6 +164,7 @@ newTalent{
 
 newTalent{
 	name = "Rapid Shot",
+	display_name = "속사",
 	type = {"technique/archery-training", 3},
 	mode = "sustained",
 	points = 5,
@@ -168,11 +173,11 @@ newTalent{
 	sustain_stamina = 20,
 	no_energy = true,
 	tactical = { BUFF = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	activate = function(self, t)
 		local weapon = self:hasArcheryWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Aim without a bow or sling!")
+			game.logPlayer(self, "활이나 투석구 없이는 속사 기술을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -193,13 +198,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You switch to a fluid and fast battle stance, increasing your firing speed by %d%% at the cost of your accuracy(%d), physical powere(%d), and critical chance(%d).]]):
+		return ([[유연하고 재빠른 전투 자세로 전환하여, 발사 속도를 %d%% 증가시키는 대신 정확도(%d), 물리력(%d), 치명타율(%d)이 감소됩니다.]]):
 		format(self:getTalentLevel(t) * 10, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4)
 	end,
 }
 
 newTalent{
 	name = "Relaxed Shot",
+	display_name = "숨 돌리기",
 	type = {"technique/archery-training", 4},
 	no_energy = "fake",
 	points = 5,
@@ -209,7 +215,7 @@ newTalent{
 	range = archery_range,
 	requires_target = true,
 	tactical = { ATTACK = { weapon = 1 }, STAMINA = 1 },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local targets = self:archeryAcquireTargets(nil, {one_shot=true})
 		if not targets then return end
@@ -218,8 +224,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a shot without putting much strength in it, doing %d%% damage.
-		That brief moment of relief allows you to regain %d stamina.]]):format(self:combatTalentWeaponDamage(t, 0.5, 1.1) * 100, 12 + self:getTalentLevel(t) * 8)
+		return ([[힘을 넣지 않은 사격을 가하여 %d%% 의 무기 피해를 줍니다.
+		그 사이에 한숨 돌릴 수 있게 되어 체력을 %d 얻습니다.]]):format(self:combatTalentWeaponDamage(t, 0.5, 1.1) * 100, 12 + self:getTalentLevel(t) * 8)
 	end,
 }
 
@@ -227,6 +233,7 @@ newTalent{
 
 newTalent{
 	name = "Flare",
+	display_name = "조명 사격",
 	type = {"technique/archery-utility", 1},
 	no_energy = "fake",
 	points = 5,
@@ -241,7 +248,7 @@ newTalent{
 	end,
 	require = techs_dex_req1,
 	tactical = { ATTACKAREA = { FIRE = 2 }, DISABLE = { blind = 2 } },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	requires_target = true,
 	target = function(self, t)
 		return {type="ball", x=x, y=y, radius=self:getTalentRadius(t), range=self:getTalentRange(t)}
@@ -265,14 +272,15 @@ newTalent{
 		local rad = 1
 		if self:getTalentLevel(t) >= 3 then rad = rad + 1 end
 		if self:getTalentLevel(t) >= 5 then rad = rad + 1 end
-		return ([[You fire a flame shot, doing %d%% fire damage and lighting up the target area in a radius of %d.
-		At level 3 it also has a chance to blind for 3 turns.]]):
+		return ([[발사체에 불을 붙여 쏴서 %d%% 의 화염 피해를 주고, %d 타일 반경에 빛을 밝힙니다.
+		기술 레벨이 3 이상이면 3 턴 동안 실명 상태로 만들 확률도 생깁니다.]]):
 		format(self:combatTalentWeaponDamage(t, 0.5, 1.2) * 100, rad)
 	end,
 }
 
 newTalent{
 	name = "Crippling Shot",
+	display_name = "장애유발 사격",
 	type = {"technique/archery-utility", 2},
 	no_energy = "fake",
 	points = 5,
@@ -283,7 +291,7 @@ newTalent{
 	range = archery_range,
 	tactical = { ATTACK = { weapon = 1 }, DISABLE = 1 },
 	requires_target = true,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	archery_onhit = function(self, t, target, x, y)
 		target:setEffect(target.EFF_SLOW, 7, {power=util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4), apply_power=self:combatAttack()})
 	end,
@@ -294,12 +302,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a crippling shot, doing %d%% damage and reducing your target's speed by %d%% for 7 turns.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
+		return ([[대상의 신체를 손상시키는 사격을 가하여 %d%% 의 무기 피해를 주고, 속도를 %d%% 감소시키는 효과를 7 턴 동안 지속되게 합니다.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
 	end,
 }
 
 newTalent{
 	name = "Pinning Shot",
+	display_name = "속박 사격",
 	type = {"technique/archery-utility", 3},
 	no_energy = "fake",
 	points = 5,
@@ -311,12 +320,12 @@ newTalent{
 	tactical = { ATTACK = { weapon = 1 }, DISABLE = { pin = 2 } },
 	requires_target = true,
 	getDur = function(self, t) return ({2, 3, 4, 4, 5})[util.bound(self:getTalentLevelRaw(t), 1, 5)] end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	archery_onhit = function(self, t, target, x, y)
 		if target:canBe("pin") then
 			target:setEffect(target.EFF_PINNED, t.getDur(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 에게 속박 사격을 사용했지만, 저항했습니다!", target.name:capitalize())
 		end
 	end,
 	action = function(self, t)
@@ -326,8 +335,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a pinning shot, doing %d%% damage and pinning your target to the ground for %d turns.
-		Pinning chance increase with your Dexterity stat.]])
+		return ([[대상의 발을 그 자리에 묶는 사격을 가하여 %d%% 의 무기 피해를 주고, %d 턴 동안 속박 상태로 만듭니다.
+		속박 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
 		:format(self:combatTalentWeaponDamage(t, 1, 1.4) * 100,
 		t.getDur(self, t))
 	end,
@@ -335,6 +344,7 @@ newTalent{
 
 newTalent{
 	name = "Scatter Shot",
+	display_name = "산탄 사격",
 	type = {"technique/archery-utility", 4},
 	no_energy = "fake",
 	points = 5,
@@ -351,12 +361,12 @@ newTalent{
 	target = function(self, t)
 		return {type="ball", radius=self:getTalentRadius(t), range=self:getTalentRange(t)}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	archery_onhit = function(self, t, target, x, y)
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevelRaw(t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 에게 산탄 사격을 사용했지만, 저항했습니다!", target.name:capitalize())
 		end
 	end,
 	action = function(self, t)
@@ -367,8 +377,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire multiple shots in a circular pattern with radius %d, doing %d%% damage and stunning your targets for %d turns.
-		Stun chance increase with your Dexterity stat.]])
+		return ([[착탄 지점에서 발사체가 산산조각나 파편이 %d 반경의 원형으로 방사되는 사격을 가하여 %d%% 의 무기 피해를 주고 %d 턴 동안 기절시킵니다.
+		기절 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
 		:format(self:getTalentRadius(t), self:combatTalentWeaponDamage(t, 0.5, 1.5) * 100, 2 + self:getTalentLevelRaw(t))
 	end,
 }

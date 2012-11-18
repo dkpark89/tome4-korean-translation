@@ -86,18 +86,18 @@ end
 
 function _M:run()
 	self.delayed_log_damage = {}
-	self.calendar = Calendar.new("/data/calendar_allied.lua", "Today is the %s %s of the %s year of the Age of Ascendancy of Maj'Eyal.\nThe time is %02d:%02d.", 122, 167, 11)
+	self.calendar = Calendar.new("/data/calendar_allied.lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
 
 	self.uiset:activate()
 
 	local flysize = ({normal=14, small=12, big=16})[config.settings.tome.fonts.size]
 	self.tooltip = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
 	self.tooltip2 = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
-	self.flyers = FlyingText.new("/data/font/INSULA__.ttf", flysize, "/data/font/INSULA__.ttf", flysize + 3)
+	self.flyers = FlyingText.new("/data/font/soya.ttf", flysize, "/data/font/soya.ttf", flysize + 3)
 	self.flyers:enableShadow(0.6)
 	game:setFlyingText(self.flyers)
 
-	self.bignews = BigNews.new("/data/font/DroidSansMono.ttf", 30)
+	self.bignews = BigNews.new("/data/font/soya.ttf", 30)
 
 	self.nicer_tiles = NicerTiles.new()
 
@@ -109,7 +109,7 @@ function _M:run()
 
 	self:setupDisplayMode(false, "postinit")
 	if self.level and self.level.data.day_night then self.state:dayNightCycle() end
-	if self.level and self.player then self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "Today is the %s %s of the %s year of the Age of Ascendancy of Maj'Eyal.\nThe time is %02d:%02d.", 122, 167, 11) end
+	if self.level and self.player then self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11) end
 
 	-- Setup inputs
 	self:setupCommands()
@@ -137,14 +137,14 @@ function _M:run()
 	end)
 
 	-- Create the map scroll text overlay
-	local lfont = core.display.newFont("/data/font/DroidSans.ttf", 30)
+	local lfont = core.display.newFont("/data/font/soya.ttf", 30)
 	lfont:setStyle("bold")
-	local s = core.display.drawStringBlendedNewSurface(lfont, "<Scroll mode, press keys to scroll, caps lock to exit>", unpack(colors.simple(colors.GOLD)))
+	local s = core.display.drawStringBlendedNewSurface(lfont, "<스크롤 모드, 방향키로 화면을 이동시킵니다, caps lock을 누르면 종료합니다>", unpack(colors.simple(colors.GOLD)))
 	lfont:setStyle("normal")
 	self.caps_scroll = {s:glTexture()}
 	self.caps_scroll.w, self.caps_scroll.h = s:getSize()
 
-	self.zone_font = core.display.newFont("/data/font/DroidSans.ttf", 12)
+	self.zone_font = core.display.newFont("/data/font/soya.ttf", 12)
 
 	self.inited = true
 end
@@ -215,9 +215,9 @@ function _M:newGame()
 	self.always_target = true
 	local nb_unlocks, max_unlocks = self:countBirthUnlocks()
 	self.creating_player = true
-	local birth; birth = Birther.new("Character Creation ("..nb_unlocks.."/"..max_unlocks.." unlocked birth options)", self.player, {"base", "world", "difficulty", "permadeath", "race", "subrace", "sex", "class", "subclass" }, function(loaded)
+	local birth; birth = Birther.new("케릭터 생성 ("..nb_unlocks.."/"..max_unlocks.." 해제된 생성 항목)", self.player, {"base", "world", "difficulty", "permadeath", "race", "subrace", "sex", "class", "subclass" }, function(loaded)
 		if not loaded then
-			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "Today is the %s %s of the %s year of the Age of Ascendancy of Maj'Eyal.\nThe time is %02d:%02d.", 122, 167, 11)
+			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
 			self.player:check("make_tile")
 			self.player.make_tile = nil
 			self.player:check("before_starting_zone")
@@ -248,7 +248,7 @@ function _M:newGame()
 			self.paused = true
 			print("[PLAYER BIRTH] resolved!")
 			local birthend = function()
-				local d = require("engine.dialogs.ShowText").new("Welcome to ToME", "intro-"..self.player.starting_intro, {name=self.player.name}, nil, nil, function()
+				local d = require("engine.dialogs.ShowText").new("ToME에 오신 것을 환영합니다", "intro-"..self.player.starting_intro, {name=self.player.name}, nil, nil, function()
 					self.player:resetToFull()
 					self.player:registerCharacterPlayed()
 					self.player:onBirth(birth)
@@ -272,7 +272,7 @@ function _M:newGame()
 
 		-- Player was loaded from a premade
 		else
-			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "Today is the %s %s of the %s year of the Age of Ascendancy of Maj'Eyal.\nThe time is %02d:%02d.", 122, 167, 11)
+			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
 			Map:setViewerFaction(self.player.faction)
 			if self.player.__game_difficulty then self:setupDifficulty(self.player.__game_difficulty) end
 			self:setupPermadeath(self.player)
@@ -388,7 +388,7 @@ function _M:setupDisplayMode(reboot, mode)
 
 		local map_x, map_y, map_w, map_h = self.uiset:getMapSize()
 		if th <= 20 then
-			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, "/data/font/FSEX300.ttf", pot_th, do_bg)
+			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, "/data/font/soya.ttf", pot_th, do_bg)
 		else
 			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, nil, fsize, do_bg)
 		end
@@ -553,15 +553,15 @@ end
 function _M:changeLevel(lev, zone, params)
 	params = params or {}
 	if not self.player.can_change_level then
-		self.logPlayer(self.player, "#LIGHT_RED#You may not change level without your own body!")
+		self.logPlayer(self.player, "#LIGHT_RED#육체에서 벗어난 상태로는 지역을 이동할 수 없습니다!")
 		return
 	end
 	if zone and not self.player.can_change_zone then
-		self.logPlayer(self.player, "#LIGHT_RED#You may not leave the zone with this character!")
+		self.logPlayer(self.player, "#LIGHT_RED#이 케릭터로는 지역에서 벗어날 수 없습니다!")
 		return
 	end
 	if self.player:hasEffect(self.player.EFF_PARADOX_CLONE) or self.player:hasEffect(self.player.EFF_IMMINENT_PARADOX_CLONE) then
-		self.logPlayer(self.player, "#LIGHT_RED#You cannot escape your fate by leaving the level!")
+		self.logPlayer(self.player, "#LIGHT_RED#지역 이동으로 당신의 운명에서 도망칠 수는 없습니다!")
 		return
 	end
 
@@ -595,7 +595,7 @@ function _M:changeLevel(lev, zone, params)
 		-- Select the chest tab
 		d.c_inven.dont_update_last_tabs = true
 		d.c_inven:switchTab{kind="transmo"}
-		d:simplePopup("Transmogrification Chest", "When you close the inventory window, all items in the chest will be transmogrified.")
+		d:simplePopup("Transmogrification Chest", "소지품 목록을 닫으면, 상자 내의 모든 물품이 변환됩니다.")
 	end
 
 	-- Finish stuff registered for the previous level
@@ -642,7 +642,7 @@ function _M:changeLevel(lev, zone, params)
 		self.level.temp_shift_level = ol
 	-- We switch back
 	elseif params.temporary_zone_shift_back then
-		popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		popup = Dialog:simpleWaiter("지역을 불러들이는 중", "불러들이는 중입니다. 잠시만 기다려주세요...", nil, 10000)
 		core.display.forceRedraw()
 
 		local old = self.level
@@ -843,11 +843,11 @@ function _M:changeLevel(lev, zone, params)
 		local lev = self.zone.base_level + self.level.level - 1
 		if self.zone.level_adjust_level then lev = self.zone:level_adjust_level(self.level) end
 		local diff = lev - self.player.level
-		if diff >= 5 then feeling = "You feel a thrill of terror and your heart begins to pound in your chest. You feel terribly threatened upon entering this area."
-		elseif diff >= 2 then feeling = "You feel mildly anxious, and walk with caution."
+		if diff >= 5 then feeling = "공포로 전율하며, 심장이 가슴 속에서 요동치기 시작합니다. 지독한 위협감이 이 지역을 감돕니다."
+		elseif diff >= 2 then feeling = "약간의 불안감이 일어 조심스럽게 발걸음을 옮깁니다."
 		elseif diff >= -2 then feeling = nil
-		elseif diff >= -5 then feeling = "You feel very confident walking into this place."
-		else feeling = "You stride into this area without a second thought, while stifling a yawn. You feel your time might be better spent elsewhere."
+		elseif diff >= -5 then feeling = "이 곳에 오니 상당한 자신감이 생깁니다."
+		else feeling = "늘어지게 하품을 하며, 별 생각없이 성큼성큼 걸어 들어왔습니다. 다른 곳에서 시간을 보내는게 나을듯 합니다."
 		end
 	end
 	if feeling then self.log("#TEAL#%s", feeling) end
@@ -916,7 +916,7 @@ end
 
 --- Clones the game world for chronomancy spells
 function _M:chronoClone(name)
-	local d = Dialog:simpleWaiter("Chronomancy", "Folding the space time structure...")
+	local d = Dialog:simpleWaiter("시공 제어 마법", "시공간 구조체를 왜곡하고 있습니다...")
 
 	local to_reload = {}
 	for uid, e in pairs(self.level.entities) do
@@ -948,7 +948,7 @@ function _M:chronoRestore(name, remove)
 	else ngame = name end
 	if not ngame then return false end
 
-	local d = Dialog:simpleWaiter("Chronomancy", "Unfolding the space time structure...")
+	local d = Dialog:simpleWaiter("시공 제어 마법", "시공간 구조체를 복구합니다...")
 
 	ngame:cloneReloaded()
 	_G.game = ngame
@@ -1012,9 +1012,9 @@ function _M:displayDelayedLogDamage()
 	for src, tgts in pairs(self.delayed_log_damage) do
 		for target, dams in pairs(tgts) do
 			if #dams.descs > 1 then
-				self.logSeen(target, "%s hits %s for %s damage (total %0.2f).", src.name:capitalize(), target.name, table.concat(dams.descs, ", "), dams.total)
+				self.logSeen(target, "%s의 공격이 %s에게 적중하여 %s 피해를 입혔습니다(합계 %0.2f).", (src.display_name or src.name:capitalize()), (target.display_name or target.name), table.concat(dams.descs, ", "), dams.total)
 			else
-				self.logSeen(target, "%s hits %s for %s damage.", src.name:capitalize(), target.name, table.concat(dams.descs, ", "))
+				self.logSeen(target, "%s의 공격이 %s에게 적중하여 %s 피해를 입혔습니다.", (src.display_name or src.name:capitalize()), (target.display_name or target.name), table.concat(dams.descs, ", "))
 			end
 
 			local rsrc = src.resolveSource and src:resolveSource() or src
@@ -1024,7 +1024,7 @@ function _M:displayDelayedLogDamage()
 			if target.dead then
 				if self.level.map.seens(x, y) and (rsrc == self.player or rtarget == self.player or self.party:hasMember(rsrc) or self.party:hasMember(rtarget)) then
 					self.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, rng.float(-2.5, -1.5), ("Kill (%d)!"):format(dams.total), {255,0,255}, true)
-					game.logSeen(target, "#{bold}#%s killed %s!#{normal}#", src.name:capitalize(), target.name)
+					game.logSeen(target, "#{bold}#%s의 공격을 받고 대상(%s)이 죽었습니다!#{normal}#", (src.display_name or src.name:capitalize()), (target.display_name or target.name))
 				end
 			else
 				if self.level.map.seens(x, y) and (rsrc == self.player or self.party:hasMember(rsrc)) then
@@ -1207,7 +1207,7 @@ function _M:setupCommands()
 	self.gestures = Gestures.new("Gesture: ", self.key, true)
 
 	-- Helper function to not allow some actions on the wilderness map
-	local not_wild = function(f) return function(...) if self.zone and not self.zone.wilderness then f(...) else self.logPlayer(self.player, "You cannot do that on the world map.") end end end
+	local not_wild = function(f) return function(...) if self.zone and not self.zone.wilderness then f(...) else self.logPlayer(self.player, "세계를 이동하는 중에는 그 행동을 할 수 없습니다.") end end end
 
 	-- Debug mode
 	self.key:addCommands{
@@ -1272,7 +1272,7 @@ do return end
 		MOVE_STAY = function() if core.key.modState("caps") and self.level then self.level.map:centerViewAround(self.player.x, self.player.y) else if self.player:enoughEnergy() then self.player:describeFloor(self.player.x, self.player.y) self.player:useEnergy() end end end,
 
 		RUN = function()
-			self.log("Run in which direction?")
+			self.log("어느 방향으로 달릴까요?")
 			local co = coroutine.create(function()
 				local x, y = self.player:getTarget{type="hit", no_restrict=true, range=1, immediate_keys=true, default_target=self.player}
 				if x and y then self.player:runInit(util.getDir(x, y, self.player.x, self.player.y)) end
@@ -1293,14 +1293,14 @@ do return end
 							self.player:canSee(actor) and self.level.map.seens(x, y) then seen[#seen + 1] = {x=x, y=y, actor=actor} end
 					end, nil)
 				if self.zone.no_autoexplore or self.level.no_autoexplore then
-					self.log("You may not auto-explore this level.")
+					self.log("이 곳에서는 자동탐사를 할 수 없습니다.")
 				elseif #seen > 0 then
-					self.log("You may not auto-explore with enemies in sight!")
+					self.log("적이 시야에 들어온 상태에서는 자동탐사를 할 수 없습니다!")
 					for _, node in ipairs(seen) do
 						node.actor:addParticles(engine.Particles.new("notice_enemy", 1))
 					end
 				elseif not self.player:autoExplore() then
-					self.log("There is nowhere left to explore.")
+					self.log("이 곳은 완벽히 탐사되었습니다.")
 				end
 			end
 		end,
@@ -1325,8 +1325,8 @@ do return end
 
 		-- Hotkeys
 		-- bindings done after
-		HOTKEY_PREV_PAGE = not_wild(function() self.player:prevHotkeyPage() self.log("Hotkey page %d is now displayed.", self.player.hotkey_page) end),
-		HOTKEY_NEXT_PAGE = not_wild(function() self.player:nextHotkeyPage() self.log("Hotkey page %d is now displayed.", self.player.hotkey_page) end),
+		HOTKEY_PREV_PAGE = not_wild(function() self.player:prevHotkeyPage() self.log("단축키 %d 페이지가 표시됩니다.", self.player.hotkey_page) end),
+		HOTKEY_NEXT_PAGE = not_wild(function() self.player:nextHotkeyPage() self.log("단축키 %d 페이지가 표시됩니다.", self.player.hotkey_page) end),
 
 		-- Party commands
 		SWITCH_PARTY_1 = not_wild(function() self.party:select(1) end),
@@ -1351,7 +1351,7 @@ do return end
 		CHANGE_LEVEL = function()
 			local e = self.level.map(self.player.x, self.player.y, Map.TERRAIN)
 			if self.player:enoughEnergy() and e.change_level then
-				if self.player:attr("never_move") then self.log("You cannot currently leave the level.") return end
+				if self.player:attr("never_move") then self.log("지금은 이 장소에서 벗어날 수 없습니다.") return end
 
 				local stop = {}
 				for eff_id, p in pairs(self.player.tmp) do
@@ -1360,14 +1360,14 @@ do return end
 				end
 
 				if e.change_zone and #stop > 0 and e.change_zone:find("^wilderness") then
-					self.log("You cannot go into the wilds with the following effects: %s", table.concat(stop, ", "))
+					self.log("상태이상 효과에 걸린 채로 빠져나갈 수는 없습니다: %s", table.concat(stop, ", "))
 				else
 					-- Do not unpause, the player is allowed first move on next level
 					if e.change_level_check and e:change_level_check(self.player) then return end
 					self:changeLevel(e.change_zone and e.change_level or self.level.level + e.change_level, e.change_zone, {keep_old_lev=e.keep_old_lev, force_down=e.force_down, auto_zone_stair=e.change_zone_auto_stairs, temporary_zone_shift_back=e.change_level_shift_back})
 				end
 			else
-				self.log("There is no way out of this level here.")
+				self.log("이 장소에서 나갈 길이 없습니다.")
 			end
 		end,
 
@@ -1386,7 +1386,7 @@ do return end
 		SHOW_INVENTORY = function()
 			if self.player.no_inventory_access then return end
 			local d
-			local titleupdator = self.player:getEncumberTitleUpdator("Inventory")
+			local titleupdator = self.player:getEncumberTitleUpdator("소지품 목록")
 			d = self.player:showEquipInven(titleupdator(), nil, function(o, inven, item, button, event)
 				if not o then return end
 				local ud = require("mod.dialogs.UseItemDialog").new(event == "button", self.player, o, item, inven, function(_, _, _, stop)
@@ -1438,7 +1438,7 @@ do return end
 		end,
 
 		SHOW_MESSAGE_LOG = function()
-			self:registerDialog(require("mod.dialogs.ShowChatLog").new("Message Log", 0.6, self.uiset.logdisplay, profile.chat))
+			self:registerDialog(require("mod.dialogs.ShowChatLog").new("메시지 기록", 0.6, self.uiset.logdisplay, profile.chat))
 		end,
 
 		-- Show time
@@ -1468,9 +1468,9 @@ do return end
 			self.player.changed = true
 
 			if (self.show_npc_list) then
-				self.log("Displaying creatures.")
+				self.log("크리처를 표시합니다.")
 			else
-				self.log("Displaying talents.")
+				self.log("기술을 표시합니다.")
 			end
 		end,
 
@@ -1484,20 +1484,19 @@ do return end
 				game.log("Tooltip %s", self.tooltip.locked and "locked" or "unlocked")
 			end
 			local l = {
-				"resume",
-				"achievements",
-				{ "Show known Lore", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal Lore", self.player)) end },
-				{ "Show ingredients", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowIngredients").new(self.party)) end },
-				"highscores",
-				{ "Inventory", function() self:unregisterDialog(menu) self.key:triggerVirtual("SHOW_INVENTORY") end },
-				{ "Character Sheet", function() self:unregisterDialog(menu) self.key:triggerVirtual("SHOW_CHARACTER_SHEET") end },
-				"keybinds",
-				{"Graphic Mode", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.GraphicMode").new()) end},
-				{"Game Options", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.GameOptions").new()) end},
-				"video",
-				"sound",
-				"save",
-				"quit"
+				{ "달성한 업적을 표시", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.ShowAchievements").new("업적", self.player)) end },
+				{ "알게된 지식을 표시", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowLore").new("마즈'에이알에 얽힌 이야기와 지식", self.player)) end },
+				{ "연금술 재료를 표시", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowIngredients").new(self.party)) end },
+				{ "고득점 기록 보기", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.ViewHighScores").new()) end},
+				{ "소지품 목록", function() self:unregisterDialog(menu) self.key:triggerVirtual("SHOW_INVENTORY") end },
+				{ "케릭터 시트", function() self:unregisterDialog(menu) self.key:triggerVirtual("SHOW_CHARACTER_SHEET") end },
+				{ "키보드 설정", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.KeyBinder").new(game.normal_key, true, game.gestures)) end},
+				{ "그래픽 모드", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.GraphicMode").new()) end},
+				{ "게임 설정", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.GameOptions").new()) end},
+				{ "화면 설정", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.VideoOptions").new()) end},
+				{ "소리 설정", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.AudioOptions").new()) end},
+				{ "저장하기", function() game:unregisterDialog(self) game:saveGame() end },
+				{ "저장하고 끝내기", function() game:unregisterDialog(self) game:onQuit() end }
 			}
 			local adds = self.uiset:getMainMenuItems()
 			for i = #adds, 1, -1 do table.insert(l, 10, adds[i]) end

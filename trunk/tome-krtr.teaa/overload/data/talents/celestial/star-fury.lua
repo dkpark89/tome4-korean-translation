@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Moonlight Ray",
+	display_name = "한 줄기 달빛",
 	type = {"celestial/star-fury", 1},
 	require = divi_req1,
 	points = 5,
@@ -46,14 +47,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Calls the power of the Moon into a beam of shadows doing %0.2f damage.
-		The damage will increase with the Magic stat]]):
+		return ([[달의 힘을 끌어내어 적에게 날려서 %0.2f 의 피해를 줍니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
 
 newTalent{
 	name = "Shadow Blast",
+	display_name = "그림자 확산",
 	type = {"celestial/star-fury", 2},
 	require = divi_req2,
 	points = 5,
@@ -96,14 +98,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Invokes a blast of shadows dealing %0.2f darkness damage and leaving a field of radius 3 that does %0.2f darkness damage per turn for %d turns.
-		The damage will increase with the Magic stat]]):
+		return ([[그림자를 퍼뜨려서 %0.2f 의 어둠 피해를 주고, 3 타일 반경의 지역에 매 턴마다 %0.2f 의 어둠 피해를 %d 턴 동안 줍니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage),damDesc(self, DamageType.DARKNESS, damageonspot),duration)
 	end,
 }
 
 newTalent{
 	name = "Twilight Surge",
+	display_name = "밀려드는 황혼",
 	type = {"celestial/star-fury",3},
 	require = divi_req3,
 	points = 5,
@@ -133,15 +136,16 @@ newTalent{
 		local lightdam = t.getLightDamage(self, t)
 		local darknessdam = t.getDarknessDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[A surge of twilight pulses from you, doing %0.2f light and %0.2f darkness damage within radius %d.
-		It also regenerates both your negative and positive energies.
-		The damage will increase with the Magic stat]]):
+		return ([[당신에게서 황혼의 물결이 퍼져나가, %0.2f 의 빛 피해와 %0.2f 의 어둠 피해를 %d 반경 내의 대상에게 줍니다.
+		또한 음기와 양기를 동시에 얻습니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, lightdam),damDesc(self, DamageType.DARKNESS, darknessdam), radius)
 	end,
 }
 
 newTalent{
 	name = "Starfall",
+	display_name = "별똥별",
 	type = {"celestial/star-fury", 4},
 	require = divi_req4,
 	points = 5,
@@ -173,8 +177,8 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[A star falls into area of radius %d, stunning all for 4 turns and doing %0.2f darkness damage.
-		The damage will increase with the Magic stat.]]):
+		return ([[%d 반경의 지역에 별을 떨어뜨려, 4 턴 동안 기절시키고 %0.2f 의 어둠 피해를 줍니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }

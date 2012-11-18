@@ -28,6 +28,7 @@ end
 
 newTalent{
 	name = "Hymn of Shadows",
+	display_name = "그림자의 송가",
 	type = {"celestial/hymns", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -59,16 +60,17 @@ newTalent{
 	info = function(self, t)
 		local darknessinc = t.getDarknessDamageIncrease(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the moon, granting you %d%% more darkness damage.
-		In addition it surrounds you with a shield of shadows, damaging anything that attacks you for %0.2f darkness damage.
-		You may only have one Hymn active at once.
-		The damage and damage increase will improve with the Magic stat]]):
+		return ([[달의 영광을 노래하여, 적에게 주는 어둠 피해량을 %d%% 증가시킵니다.
+		그리고 주변을 그림자로 감싸, 당신을 공격하는 적에게 %0.2f 의 어둠 피해를 입힙니다.
+		동시에 하나의 송가만을 유지할 수 있습니다.
+		피해량과 피해 증가효과는 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(darknessinc, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Hymn of Detection",
+	display_name = "간파의 송가",
 	type = {"celestial/hymns", 2},
 	mode = "sustained",
 	require = divi_req2,
@@ -108,16 +110,17 @@ newTalent{
 		local invis = t.getSeeInvisible(self, t)
 		local stealth = t.getSeeStealth(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the moon, granting you infravision up to %d grids, stealth detection (+%d power), invisibility detection (+%d power).
-		In addition it surrounds you with a shield of darkness, damaging anything that attacks you for %0.2f darkness damage.
-		You may only have one Hymn active at once.
-		The damage will increase with the Magic stat]]):
+		return ([[달의 영광을 노래하여, 야간 투시력을 %d 만큼, 은신 감지를 %d 만큼, 투명화 감지를 %d 만큼 증가시킵니다.
+		그리고 주변을 그림자로 감싸, 당신을 공격하는 적에게 %0.2f 의 어둠 피해를 입힙니다.
+		동시에 하나의 송가만을 유지할 수 있습니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(infra, stealth, invis, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Hymn of Perseverance",
+	display_name = "불굴의 송가",
 	type = {"celestial/hymns",3},
 	mode = "sustained",
 	require = divi_req3,
@@ -154,16 +157,17 @@ newTalent{
 	info = function(self, t)
 		local immunities = t.getImmunities(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the moon, granting you %d%% stun, blindness and confusion resistances.
-		In addition it surrounds you with a shield of darkness, damaging anything that attacks you for %0.2f darkness damage.
-		You may only have one Hymn active at once.
-		The damage will increase with the Magic stat]]):
+		return ([[달의 영광을 노래하여, %d%%의 기절, 실명, 혼란 저항을 얻습니다.
+		그리고 주변을 그림자로 감싸, 당신을 공격하는 적에게 %0.2f 의 어둠 피해를 입힙니다.
+		동시에 하나의 송가만을 유지할 수 있습니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(100 * (immunities), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Hymn of Moonlight",
+	display_name = "달빛의 송가",
 	type = {"celestial/hymns",4},
 	mode = "sustained",
 	require = divi_req4,
@@ -208,22 +212,22 @@ newTalent{
 	activate = function(self, t)
 		cancelHymns(self)
 		game:playSoundNear(self, "talents/spell_generic")
-		game.logSeen(self, "#DARK_GREY#A shroud of shadow dances around %s!", self.name)
+		game.logSeen(self, "#DARK_GREY#그림자가 %s 의 주변에서 춤을 추기 시작합니다!", self.name)
 		return {
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#DARK_GREY#The shroud of shadows around %s disappears.", self.name)
+		game.logSeen(self, "#DARK_GREY#%s 의 주변에서 춤 추던 그림자가 사라집니다.", self.name)
 		return true
 	end,
 	info = function(self, t)
 		local targetcount = t.getTargetCount(self, t)
 		local damage = t.getDamage(self, t)
 		local drain = t.getNegativeDrain(self, t)
-		return ([[Conjures a shroud of dancing shadows with a radius of 5 that follows you as long as this spell is active.
-		Each turn a random shadow beam will hit up to %d of your foes for 1 to %0.2f damage.
-		This powerful spell will drain %d negative energy for each beam, no beam will fire if energy is too low.
-		The damage will increase with the Magic stat]]):
+		return ([[주문이 지속되는 동안 당신을 따르는, 춤추는 그림자를 불러들입니다.
+		매 턴마다 5 타일 반경 내의 %d 대상에게 그림자의 빔이 발사되어 1 에서 %0.2f 의 피해를 줍니다.
+		이 강력한 주문은 빔이 발사될 때마다 %d 의 음기가 소모되며, 부족하다면 효과가 발동되지 않습니다.
+		피해량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(targetcount, damDesc(self, DamageType.DARKNESS, damage), drain)
 	end,
 }
