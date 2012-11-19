@@ -24,7 +24,7 @@ long_name = "ToME4 korean translation"
 short_name = "krtr"
 
 for_module = "tome"
-version = {3,9,42}
+version = {0,9,42}
 
 weight = 100
 
