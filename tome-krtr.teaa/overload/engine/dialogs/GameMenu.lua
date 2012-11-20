@@ -84,7 +84,7 @@ function _M:generateList(actions)
 			game:registerDialog(menu)
 	  end },
 		save = { "Save Game", function() game:unregisterDialog(self) game:saveGame() end },
-		quit = { "Save and Exit", function() game:unregisterDialog(self) game:onQuit() end },
+		quit = { "저장하고 끝내기", function() game:unregisterDialog(self) game:onQuit() end }, --"Save and Exit"
 	}
 
 	-- Makes up the list
