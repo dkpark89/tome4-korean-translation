@@ -1496,7 +1496,7 @@ do return end
 				{ "화면 설정", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.VideoOptions").new()) end},
 				{ "소리 설정", function() self:unregisterDialog(menu) self:registerDialog(require("engine.dialogs.AudioOptions").new()) end},
 				{ "저장하기", function() game:unregisterDialog(self) game:saveGame() end },
-				{ "저장하고 끝내기", function() game:unregisterDialog(self) game:onQuit() end }
+				"quit" --{ "저장하고 끝내기", function() game:unregisterDialog(self) game:onQuit() end }
 			}
 			local adds = self.uiset:getMainMenuItems()
 			for i = #adds, 1, -1 do table.insert(l, 10, adds[i]) end

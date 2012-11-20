@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+ï»¿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -25,7 +25,7 @@ homepage = "http://te4.org/"
 version = {0,9,42}
 engine = {0,9,42,"te4"}
 description = [[
-¸¶Áî'¿¡ÀÌ¾Ë¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù.
+ë§ˆì¦ˆ'ì—ì´ì•Œì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤.
 
 This is the Age of Ascendancy. After over ten thousand years of strife, pain and chaos the known world is at last at relative peace.
 The last effects of the #FF0000#Spellblaze#WHITE# have been tamed. The land slowly heals itself and the civilisations rebuild themselves after the Age of Pyre.
