@@ -1,5 +1,6 @@
 ﻿-- ToME4 korean Translation addon
 -- utility functions for korean Translation 
+-- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils" 
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index
@@ -28,7 +29,10 @@ function string.addJosa(str, temp)
 		josa1 = "와"
 		josa2 = "과"
 		index = 6
-	else return str .. temp end
+	else
+		if type(temp) == string then return str .. temp
+		else return str end 
+	end
 
 	local length = str:len()
 	
