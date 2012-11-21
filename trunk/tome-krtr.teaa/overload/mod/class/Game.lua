@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.GameTurnBased"
 require "engine.interface.GameMusic"
@@ -1012,9 +1013,9 @@ function _M:displayDelayedLogDamage()
 	for src, tgts in pairs(self.delayed_log_damage) do
 		for target, dams in pairs(tgts) do
 			if #dams.descs > 1 then
-				self.logSeen(target, "%s의 공격이 %s에게 적중하여 %s 피해를 입혔습니다(합계 %0.2f).", (src.display_name or src.name:capitalize()), (target.display_name or target.name), table.concat(dams.descs, ", "), dams.total)
+				self.logSeen(target, "%s %s 공격하여 %s 피해를 입혔습니다(합계 %0.2f).", (src.display_name or src.name:capitalize()):addJosa("가"), (target.display_name or target.name):addJosa("을"), table.concat(dams.descs, ", "), dams.total)
 			else
-				self.logSeen(target, "%s의 공격이 %s에게 적중하여 %s 피해를 입혔습니다.", (src.display_name or src.name:capitalize()), (target.display_name or target.name), table.concat(dams.descs, ", "))
+				self.logSeen(target, "%s %s 공격하여 %s 피해를 입혔습니다.", (src.display_name or src.name:capitalize()):addJosa("가"), (target.display_name or target.name):addJosa("을"), table.concat(dams.descs, ", "))
 			end
 
 			local rsrc = src.resolveSource and src:resolveSource() or src
@@ -1024,7 +1025,7 @@ function _M:displayDelayedLogDamage()
 			if target.dead then
 				if self.level.map.seens(x, y) and (rsrc == self.player or rtarget == self.player or self.party:hasMember(rsrc) or self.party:hasMember(rtarget)) then
 					self.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, rng.float(-2.5, -1.5), ("Kill (%d)!"):format(dams.total), {255,0,255}, true)
-					game.logSeen(target, "#{bold}#%s의 공격을 받고 대상(%s)이 죽었습니다!#{normal}#", (src.display_name or src.name:capitalize()), (target.display_name or target.name))
+					game.logSeen(target, "#{bold}#%s의 공격을 받고 %s 죽었습니다!#{normal}#", (src.display_name or src.name:capitalize()), (target.display_name or target.name):addJosa("이"))
 				end
 			else
 				if self.level.map.seens(x, y) and (rsrc == self.player or self.party:hasMember(rsrc)) then
