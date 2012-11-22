@@ -87,7 +87,7 @@ end
 
 function _M:run()
 	self.delayed_log_damage = {}
-	self.calendar = Calendar.new("/data/calendar_allied.lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
+	self.calendar = Calendar.new("/data/calendar_allied.lua", "오늘은 주도의 시대를 맞은 마즈'에이알 %s년 %s가 뜨는 달 %s일 입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
 
 	self.uiset:activate()
 
@@ -110,7 +110,7 @@ function _M:run()
 
 	self:setupDisplayMode(false, "postinit")
 	if self.level and self.level.data.day_night then self.state:dayNightCycle() end
-	if self.level and self.player then self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11) end
+	if self.level and self.player then self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알 %s년 %s가 뜨는 달 %s일 입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11) end
 
 	-- Setup inputs
 	self:setupCommands()
@@ -218,7 +218,7 @@ function _M:newGame()
 	self.creating_player = true
 	local birth; birth = Birther.new("케릭터 생성 ("..nb_unlocks.."/"..max_unlocks.." 해제된 생성 항목)", self.player, {"base", "world", "difficulty", "permadeath", "race", "subrace", "sex", "class", "subclass" }, function(loaded)
 		if not loaded then
-			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
+			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알 %s년 %s가 뜨는 달 %s일 입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
 			self.player:check("make_tile")
 			self.player.make_tile = nil
 			self.player:check("before_starting_zone")
@@ -273,7 +273,7 @@ function _M:newGame()
 
 		-- Player was loaded from a premade
 		else
-			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알의 %s 일 %s 의 달 %s 해입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
+			self.calendar = Calendar.new("/data/calendar_"..(self.player.calendar or "allied")..".lua", "오늘은 주도의 시대를 맞은 마즈'에이알 %s년 %s가 뜨는 달 %s일 입니다.\n현재 시간은 %02d시 %02d분입니다.", 122, 167, 11)
 			Map:setViewerFaction(self.player.faction)
 			if self.player.__game_difficulty then self:setupDifficulty(self.player.__game_difficulty) end
 			self:setupPermadeath(self.player)
@@ -1566,10 +1566,10 @@ do return end
 			local game_or_player = not config.settings.tome.actor_based_movement_mode and self or game.player
 
 			if game_or_player.bump_attack_disabled then
-				self.log("Movement Mode: #LIGHT_GREEN#Default#LAST#.")
+				self.log("이동방식: #LIGHT_GREEN#기본공격#LAST#.")
 				game_or_player.bump_attack_disabled = false
 			else
-				self.log("Movement Mode: #LIGHT_RED#Passive#LAST#.")
+				self.log("이동방식: #LIGHT_RED#공격금지#LAST#.")
 				game_or_player.bump_attack_disabled = true
 			end
 		end
