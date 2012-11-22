@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.Actor"
 require "engine.interface.PlayerRest"
@@ -184,7 +185,7 @@ function _M:describeFloor(x, y)
 				if self:attr("auto_id") and obj:getPowerRank() <= self.auto_id then obj:identify(true) end
 				nb = nb + 1
 				i = i + 1
-				game.logSeen(self, "There is an item here: %s", obj:getName{do_color=true})
+				game.logSeen(self, "놓여진 아이템: %s", obj:getName{do_color=true})
 			end
 			obj = game.level.map:getObject(x, y, i)
 		end
@@ -192,9 +193,9 @@ function _M:describeFloor(x, y)
 
 	local g = game.level.map(x, y, game.level.map.TERRAIN)
 	if g and g.change_level then
-		game.logPlayer(self, "#YELLOW_GREEN#There is "..g.name:a_an().." here (press '<', '>' or right click to use).")
+		game.logPlayer(self, "#YELLOW_GREEN#여기에  "..g.name:addJosa("이").." 있다. ( '<', '>' 키를 누르거나 마우스 우클릭을 하세요).")
 		local sx, sy = game.level.map:getTileToScreen(x, y)
-		game.flyers:add(sx, sy, 60, 0, -1.5, ("Level change (%s)!"):format(g.name), colors.simple(colors.YELLOW_GREEN), true)
+		game.flyers:add(sx, sy, 60, 0, -1.5, ("층 변경 (%s)!"):format(g.name), colors.simple(colors.YELLOW_GREEN), true)
 	end
 end
 
@@ -248,7 +249,7 @@ function _M:act()
 	if self.summon_time then
 		self.summon_time = self.summon_time - 1
 		if self.summon_time <= 0 then
-			game.logPlayer(self, "#PINK#Your summoned %s disappears.", self.name)
+			game.logPlayer(self, "#PINK#당신의 소환물 %s 사라졌다.", self.name:addJora("가"))
 			self:die()
 			return true
 		end
@@ -519,7 +520,7 @@ function _M:onTakeHit(value, src)
 	local ret = mod.class.Actor.onTakeHit(self, value, src)
 	if self.life < self.max_life * 0.3 then
 		local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
-		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, 2, "LOW HEALTH!", {255,0,0}, true)
+		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, 2, "생명력 낮음!", {255,0,0}, true)
 	end
 
 	-- Hit direction warning
@@ -585,8 +586,8 @@ function _M:onTalentCooledDown(tid)
 	local t = self:getTalentFromId(tid)
 
 	local x, y = game.level.map:getTileToScreen(self.x, self.y)
-	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s available"):format(t.name:capitalize()), {0,255,00})
-	game.log("#00ff00#%sTalent %s is ready to use.", (t.display_entity and t.display_entity:getDisplayString() or ""), t.name)
+	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(t.name:capitalize()), {0,255,00})
+	game.log("#00ff00#%s기술 %s 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), t.name:addJosa("을"))
 end
 
 --- Tries to get a target from the user
@@ -872,7 +873,7 @@ end
 
 function _M:doDrop(inven, item, on_done)
 	if game.zone.wilderness then
-		Dialog:yesnoLongPopup("Warning", "You cannot drop items on the world map.\nIf you drop it, it will be lost forever.", 300, function(ret)
+		Dialog:yesnoLongPopup("Warning", "월드맵에서는 아이템을 내려놓을 수 없습니다.\n만약 그런다면 그 아이템은 영원히 사라질 것입니다.", 300, function(ret)
 			-- The test is reversed because the buttons are reversed, to prevent mistakes
 			if not ret then
 				local o = self:removeObject(inven, item, true)
@@ -984,7 +985,7 @@ function _M:playerTakeoff()
 end
 
 function _M:playerUseItem(object, item, inven)
-	if game.zone.wilderness then game.logPlayer(self, "You cannot use items on the world map.") return end
+	if game.zone.wilderness then game.logPlayer(self, "월드맵에서는 아이템을 사용할 수 없습니다.") return end
 
 	local use_fct = function(o, inven, item)
 		if not o then return end
@@ -993,7 +994,7 @@ function _M:playerUseItem(object, item, inven)
 
 			-- Count magic devices
 			if (o.power_source and o.power_source.arcane) and self:attr("forbid_arcane") then
-				game.logPlayer(self, "Your antimagic disrupts %s.", o:getName{no_count=true, do_color=true})
+				game.logPlayer(self, "당신의 안티매직이 %s 방해한다.", o:getName{no_count=true, do_color=true}:addJosa("을"))
 				return true
 			end
 
@@ -1008,9 +1009,9 @@ function _M:playerUseItem(object, item, inven)
 				else
 					local _, del = self:removeObject(self:getInven(inven), item)
 					if del then
-						game.log("You have no more %s.", o:getName{no_count=true, do_color=true})
+						game.log("당신은 더이상 %s 없다.", o:getName{no_count=true, do_color=true}:addJosa("이"))
 					else
-						game.log("You have %s.", o:getName{do_color=true})
+						game.log("당신은 %s 가지고있다.", o:getName{do_color=true}:addJosa("을"))
 					end
 					self:sortInven(self:getInven(inven))
 				end
@@ -1114,7 +1115,7 @@ function _M:quickSwitchWeapons()
 
 	self:playerCheckSustains()
 
-	game.logPlayer(self, "You switch your weapons to: %s.", names)
+	game.logPlayer(self, "무기변경: %s.", names)
 	self.off_weapon_slots = not self.off_weapon_slots
 	self.changed = true
 end
@@ -1160,7 +1161,7 @@ function _M:useOrbPortal(portal)
 	if portal.special then portal:special(self) return end
 
 	local spotted = spotHostiles(self)
-	if #spotted > 0 then game.logPlayer(self, "You can not use the Orb with foes in sight.") return end
+	if #spotted > 0 then game.logPlayer(self, "적이 보여 오브를 사용할 수 없습니다.") return end
 
 	if portal.on_preuse then portal:on_preuse(self) end
 
@@ -1202,7 +1203,7 @@ function _M:useCommandOrb(o)
 	local g = game.level.map(self.x, self.y, Map.TERRAIN)
 	if not g then return end
 	if not g.define_as or not o.define_as or o.define_as ~= g.define_as then
-		game.logPlayer(self, "This does not seem to have any effect.")
+		game.logPlayer(self, "이것은 어떤 효과도 나타나지 않습니다.")
 		return
 	end
 
@@ -1211,7 +1212,7 @@ function _M:useCommandOrb(o)
 		return
 	end
 
-	game.logPlayer(self, "You use the %s on the pedestal. There is a distant 'clonk' sound.", o:getName{do_colour=true})
+	game.logPlayer(self, "당신이 받침대 위에 %s 놓자 멀리서 ' 클랑' 하는 소리가 납니다.", o:getName{do_colour=true}:addJosa("을"))
 	self:grantQuest("orb-command")
 	self:setQuestStatus("orb-command", engine.Quest.COMPLETED, o.define_as)
 end
@@ -1228,32 +1229,32 @@ end
 function _M:on_targeted(act)
 	if self:attr("invisible") or self:attr("stealth") then
 		if self:canSee(act) and game.level.map.seens(act.x, act.y) then
-			game.logPlayer(self, "#LIGHT_RED#%s has seen you!", act.name:capitalize())
+			game.logPlayer(self, "#LIGHT_RED#%s 보입니다!", act.name:capitalize():addJosa("가"))
 		else
-			game.logPlayer(self, "#LIGHT_RED#Something has seen you!")
+			game.logPlayer(self, "#LIGHT_RED#무언가가 보입니다!")
 		end
 	end
 end
 
 ------ Quest Events
 function _M:on_quest_grant(quest)
-	game.logPlayer(game.player, "#LIGHT_GREEN#Accepted quest '%s'! #WHITE#(Press 'j' to see the quest log)", quest.name)
-	game.bignews:say(60, "#LIGHT_GREEN#Accepted quest '%s'!", quest.name)
+	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
+	game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", quest.name)
 end
 
 function _M:on_quest_status(quest, status, sub)
 	if sub then
-		game.logPlayer(game.player, "#LIGHT_GREEN#Quest '%s' status updated! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#Quest '%s' updated!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 갱신!", quest.name)
 	elseif status == engine.Quest.COMPLETED then
-		game.logPlayer(game.player, "#LIGHT_GREEN#Quest '%s' completed! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#Quest '%s' completed!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 완료! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 완료!", quest.name)
 	elseif status == engine.Quest.DONE then
-		game.logPlayer(game.player, "#LIGHT_GREEN#Quest '%s' is done! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#Quest '%s' done!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#이미 완료된 퀘스트 '%s'! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
+		game.bignews:say(60, "#LIGHT_GREEN#완료된 퀘스트  '%s'!", quest.name)
 	elseif status == engine.Quest.FAILED then
-		game.logPlayer(game.player, "#LIGHT_RED#Quest '%s' is failed! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_RED#Quest '%s' failed!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_RED#'%s' 퀘스트 실패! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
+		game.bignews:say(60, "#LIGHT_RED#'%s' 퀘스트 실패!", quest.name)
 	end
 end
 
