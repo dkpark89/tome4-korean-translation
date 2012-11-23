@@ -249,7 +249,7 @@ function _M:act()
 	if self.summon_time then
 		self.summon_time = self.summon_time - 1
 		if self.summon_time <= 0 then
-			game.logPlayer(self, "#PINK#당신의 소환물 %s 사라졌다.", self.name:addJora("가"))
+			game.logPlayer(self, "#PINK#당신의 소환물 %s 사라졌다.", self.name:addJosa("가"))
 			self:die()
 			return true
 		end

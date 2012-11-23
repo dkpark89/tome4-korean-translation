@@ -45,7 +45,7 @@ function _M:init()
 
 	local t_per_w, t_per_h = math.floor(mw / self.bsize), math.floor(mh / self.bsize)
 
-	Dialog.init(self, "Map: #0080FF#"..game.old_zone_name, 1, 1)
+	Dialog.init(self, "지도: #0080FF#"..game.old_zone_name, 1, 1)
 
 	local mc = GenericContainer.new{width=mw, height=mh}
 	local uis = { {left=0, top=0, ui=mc} }

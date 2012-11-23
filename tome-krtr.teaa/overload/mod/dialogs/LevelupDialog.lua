@@ -171,20 +171,20 @@ end
 function _M:incStat(sid, v)
 	if v == 1 then
 		if self.actor.unused_stats <= 0 then
-			self:simplePopup("능력치 점수가 부족합니다!", "")
+			self:simplePopup("능력치 점수 부족", "남아있는 능력치 점수가 없습니다!")
 			return
 		end
 		if self.actor:getStat(sid, nil, nil, true) >= self.actor.level * 1.4 + 20 then
-			self:simplePopup("현재 레벨에서 올릴수 있는 한계치입니다", "")
+			self:simplePopup("레벨 한계치", "레벨이 더 올라야 이 능력치를 올릴수 있습니다.")
 			return
 		end
 		if self.actor:isStatMax(sid) or self.actor:getStat(sid, nil, nil, true) >= 60 + math.max(0, (self.actor.level - 50)) then
-			self:simplePopup("더 이상 이 능력치를 올릴 수 없습니다", "You cannot increase this stat further!")
+			self:simplePopup("최대 능력치 도달", "더 이상 이 능력치는 올릴 수 없습니다!")
 			return
 		end
 	else
 		if self.actor_dup:getStat(sid, nil, nil, true) == self.actor:getStat(sid, nil, nil, true) then
-			self:simplePopup("점수를 더 반환할 수 없습니다!", "")
+			self:simplePopup("불가능", "점수를 더 반환할 수 없습니다!")
 			return
 		end
 	end
@@ -276,15 +276,15 @@ function _M:learnTalent(t_id, v)
 	if not t.generic then
 		if v then
 			if self.actor.unused_talents < 1 then
-				self:simplePopup("직업기술 점수가 부족합니다!", "")
+				self:simplePopup("직업기술 점수 부족", "남아있는 직업기술 점수가 없습니다!")
 				return
 			end
 			if not self.actor:canLearnTalent(t) then
-				self:simplePopup("선행조건에 부합하지 않아 배울 수 없습니다!", "")
+				self:simplePopup("기술을 배울수 없음", "선행조건에 부합하지 않아 배울 수 없습니다!")
 				return
 			end
 			if self.actor:getTalentLevelRaw(t_id) >= self:getMaxTPoints(t) then
-				self:simplePopup("이미 이 기술은 완벽히 배웠습니다!", "")
+				self:simplePopup("이미 습득한 기술", "이미 이 기술은 완벽히 배웠습니다!")
 				return
 			end
 			self.actor:learnTalent(t_id, true)
@@ -294,11 +294,11 @@ function _M:learnTalent(t_id, v)
 			self.new_talents_changed = true
 		else
 			if not self.actor:knowTalent(t_id) then
-				self:simplePopup("이 기술은 배우지 않았습니다!", "")
+				self:simplePopup("불가능", "이 기술은 배우지 않았습니다!")
 				return
 			end
 			if not self:isUnlearnable(t, true) and self.actor_dup:getTalentLevelRaw(t_id) >= self.actor:getTalentLevelRaw(t_id) then
-				self:simplePopup("기술 습득을 취소할 수 없습니다!", "")
+				self:simplePopup("불가능", "기술 습득을 취소할 수 없습니다!")
 				return
 			end
 			self.actor:unlearnTalent(t_id, nil, true)
@@ -318,15 +318,15 @@ function _M:learnTalent(t_id, v)
 	else
 		if v then
 			if self.actor.unused_generics < 1 then
-				self:simplePopup("일반기술 점수가 부족합니다!", "")
+				self:simplePopup("일반기술 점수 부족", "남아있는 일반기술 점수가 없습니다!")
 				return
 			end
 			if not self.actor:canLearnTalent(t) then
-				self:simplePopup("선행조건에 부합하지 않아 배울 수 없습니다!", "")
+				self:simplePopup("기술을 배울수 없음", "선행조건에 부합하지 않아 배울 수 없습니다!")
 				return
 			end
 			if self.actor:getTalentLevelRaw(t_id) >= self:getMaxTPoints(t) then
-				self:simplePopup("이미 이 기술은 완벽히 배웠습니다!", "")
+				self:simplePopup("이미 습득한 기술", "이미 이 기술은 완벽히 배웠습니다!")
 				return
 			end
 			self.actor:learnTalent(t_id)
@@ -336,11 +336,11 @@ function _M:learnTalent(t_id, v)
 			self.new_talents_changed = true
 		else
 			if not self.actor:knowTalent(t_id) then
-				self:simplePopup("이 기술은 배우지 않았습니다!", "")
+				self:simplePopup("불가능", "이 기술은 배우지 않았습니다!")
 				return
 			end
 			if not self:isUnlearnable(t, true) and self.actor_dup:getTalentLevelRaw(t_id) >= self.actor:getTalentLevelRaw(t_id) then
-				self:simplePopup("기술 습득을 취소할 수 없습니다!", "")
+				self:simplePopup("불가능", "기술 습득을 취소할 수 없습니다!")
 				return
 			end
 			self.actor:unlearnTalent(t_id, nil, true)

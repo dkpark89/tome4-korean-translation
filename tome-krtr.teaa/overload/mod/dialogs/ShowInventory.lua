@@ -31,7 +31,7 @@ function _M:init(title, inven, filter, action, actor)
 	self.filter = filter
 	self.action = action
 	self.actor = actor
-	Dialog.init(self, title or "Inventory", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
+	Dialog.init(self, title or "소지품", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
 
 	self.c_desc = TextzoneList.new{scrollbar = true, width=math.floor(self.iw / 2 - 10), height=self.ih}
 
