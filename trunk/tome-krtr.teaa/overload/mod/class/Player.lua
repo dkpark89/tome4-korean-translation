@@ -653,7 +653,7 @@ function _M:restCheck()
 		for _, node in ipairs(spotted) do
 			node.actor:addParticles(engine.Particles.new("notice_enemy", 1))
 		end
-		return false, ("hostile spotted (%s%s)"):format(spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - offscreen")
+		return false, ("적대적 존재 발견 (%s%s)"):format(spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면밖")
 	end
 
 	-- Resting improves regen
@@ -676,8 +676,8 @@ function _M:restCheck()
 
 	-- Check resources, make sure they CAN go up, otherwise we will never stop
 	if not self.resting.rest_turns then
-		if self.air_regen < 0 then return false, "losing breath!" end
-		if self.life_regen <= 0 then return false, "losing health!" end
+		if self.air_regen < 0 then return false, "숨쉬기 불가능!" end
+		if self.life_regen <= 0 then return false, "생명력 회복 불능!" end
 		if self:getMana() < self:getMaxMana() and self.mana_regen > 0 then return true end
 		if self:getStamina() < self:getMaxStamina() and self.stamina_regen > 0 then return true end
 		if self:getPsi() < self:getMaxPsi() and self.psi_regen > 0 then return true end
@@ -725,7 +725,7 @@ function _M:restCheck()
 
 	self.resting.wait_recall = nil
 
-	return false, "all resources and life at maximum"
+	return false, "모든 원천력과 생명력이 최대치에 도달"
 end
 
 --- Can we continue running?
@@ -734,9 +734,9 @@ end
 -- 'ignore_memory' is only used when checking for paths around traps.  This ensures we don't remember items "obj_seen" that we aren't supposed to
 function _M:runCheck(ignore_memory)
 	local spotted = spotHostiles(self)
-	if #spotted > 0 then return false, ("hostile spotted (%s%s)"):format(spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - offscreen") end
+	if #spotted > 0 then return false, ("적대적 존재 발견 (%s%s)"):format(spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면밖") end
 
-	if self.air_regen < 0 then return false, "losing breath!" end
+	if self.air_regen < 0 then return false, "숨쉬기 불가능!" end
 
 	-- Notice any noticeable terrain
 	local noticed = false
@@ -745,7 +745,7 @@ function _M:runCheck(ignore_memory)
 		if what == "self" and not game.level.map.attrs(x, y, "obj_seen") then
 			local obj = game.level.map:getObject(x, y, 1)
 			if obj then
-				noticed = "object seen"
+				noticed = "아이템 발견"
 				if not ignore_memory then game.level.map.attrs(x, y, "obj_seen", true) end
 				return
 			end
@@ -763,22 +763,22 @@ function _M:runCheck(ignore_memory)
 				game.level.map:checkEntity(self.running.path[1].x, self.running.path[1].y, Map.TERRAIN, "orb_portal"))))
 		then
 			if self.running and self.running.explore and self.running.path and self.running.explore ~= "unseen" and self.running.cnt == #self.running.path + 1 then
-				noticed = "at " .. self.running.explore
+				noticed = self.running.explore .. "에 도착"
 			else
-				noticed = "interesting terrain"
+				noticed = "흥미로운 지형"
 			end
 			-- let's only remember and ignore standard interesting terrain
 			if not ignore_memory and (grid.change_level or grid.orb_portal) then game.level.map.attrs(x, y, "noticed", true) end
 			return
 		end
-		if grid and grid.type and grid.type == "store" then noticed = "store entrance spotted"; return end
+		if grid and grid.type and grid.type == "store" then noticed = "상점 입구 발견"; return end
 
 		-- Only notice interesting characters
 		local actor = game.level.map(x, y, Map.ACTOR)
-		if actor and actor.can_talk then noticed = "interesting character"; return end
+		if actor and actor.can_talk then noticed = "흥미로운 인물"; return end
 
 		-- We let the engine take care of traps, but we should still notice "trap" stores.
-		if game.level.map:checkAllEntities(x, y, "store") then noticed = "store entrance spotted"; return end
+		if game.level.map:checkAllEntities(x, y, "store") then noticed = "상점 입구 발견"; return end
 	end)
 	if noticed then return false, noticed end
 
@@ -858,7 +858,7 @@ function _M:hotkeyInventory(name)
 
 	local o, item, inven = find(name)
 	if not o then
-		Dialog:simplePopup("Item not found", "You do not have any "..name..".")
+		Dialog:simplePopup("아이템 없음", "당신은 "..name:addJosa("를").." 찾지 못했습니다.")
 	else
 		-- Wear it ??
 		if o:wornInven() and not o.wielded and inven == self.INVEN_INVEN then
@@ -873,16 +873,16 @@ end
 
 function _M:doDrop(inven, item, on_done)
 	if game.zone.wilderness then
-		Dialog:yesnoLongPopup("Warning", "월드맵에서는 아이템을 내려놓을 수 없습니다.\n만약 그런다면 그 아이템은 영원히 사라질 것입니다.", 300, function(ret)
+		Dialog:yesnoLongPopup("경고", "월드맵에서는 아이템을 내려놓을 수 없습니다.\n만약 그런다면 그 아이템은 영원히 사라질 것입니다.", 300, function(ret)
 			-- The test is reversed because the buttons are reversed, to prevent mistakes
 			if not ret then
 				local o = self:removeObject(inven, item, true)
-				game.logPlayer(self, "You destroy %s.", o:getName{do_colour=true, do_count=true})
+				game.logPlayer(self, "당신은 %s 파괴했습니다.", (o:getName{do_colour=true, do_count=true}):addJosa("를"))
 				self:sortInven()
 				self:useEnergy()
 				if on_done then on_done() end
 			end
-		end, "Cancel", "Destroy")
+		end, "취소", "파괴")
 		return
 	end
 	self:dropFloor(inven, item, true, true)
@@ -927,14 +927,14 @@ function _M:getEncumberTitleUpdator(title)
 		elseif enc > max * 0.9 then color = "#ff8a00#"
 		elseif enc > max * 0.75 then color = "#fcff00#"
 		end
-		return ("%s - %sEncumberance %d/%d"):format(title, color, enc, max)
+		return ("%s - %무게 %d/%d"):format(title, color, enc, max)
 	end
 end
 
 function _M:playerPickup()
 	-- If 2 or more objects, display a pickup dialog, otherwise just picks up
 	if game.level.map:getObject(self.x, self.y, 2) then
-		local titleupdator = self:getEncumberTitleUpdator("Pickup")
+		local titleupdator = self:getEncumberTitleUpdator("물건 줍기")
 		local d d = self:showPickupFloor(titleupdator(), nil, function(o, item)
 			local o = self:pickupFloor(item, true)
 			if o and type(o) == "table" then o.__new_pickup = true end
@@ -955,7 +955,7 @@ end
 
 function _M:playerDrop()
 	local inven = self:getInven(self.INVEN_INVEN)
-	local titleupdator = self:getEncumberTitleUpdator("Drop object")
+	local titleupdator = self:getEncumberTitleUpdator("물건 버리기")
 	local d d = self:showInventory(titleupdator(), inven, nil, function(o, item)
 		self:doDrop(inven, item)
 		d:updateTitle(titleupdator())
@@ -965,7 +965,7 @@ end
 
 function _M:playerWear()
 	local inven = self:getInven(self.INVEN_INVEN)
-	local titleupdator = self:getEncumberTitleUpdator("Wield/wear object")
+	local titleupdator = self:getEncumberTitleUpdator("아이템 착용")
 	local d d = self:showInventory(titleupdator(), inven, function(o)
 		return o:wornInven() and self:getInven(o:wornInven()) and true or false
 	end, function(o, item)
@@ -976,7 +976,7 @@ function _M:playerWear()
 end
 
 function _M:playerTakeoff()
-	local titleupdator = self:getEncumberTitleUpdator("Take off object")
+	local titleupdator = self:getEncumberTitleUpdator("아이템 착용 해제")
 	local d d = self:showEquipment(titleupdator(), nil, function(o, inven, item)
 		self:doTakeoff(inven, item, o)
 		d:updateTitle(titleupdator())
@@ -994,7 +994,7 @@ function _M:playerUseItem(object, item, inven)
 
 			-- Count magic devices
 			if (o.power_source and o.power_source.arcane) and self:attr("forbid_arcane") then
-				game.logPlayer(self, "당신의 안티매직이 %s 방해한다.", o:getName{no_count=true, do_color=true}:addJosa("을"))
+				game.logPlayer(self, "당신의 안티매직이 %s 방해한다.", (o:getName{no_count=true, do_color=true}):addJosa("을"))
 				return true
 			end
 
@@ -1036,7 +1036,7 @@ function _M:playerUseItem(object, item, inven)
 
 	if object and item then return use_fct(object, inven, item) end
 
-	local titleupdator = self:getEncumberTitleUpdator("Use object")
+	local titleupdator = self:getEncumberTitleUpdator("아이템 사용")
 	self:showEquipInven(titleupdator(),
 		function(o)
 			return o:canUseObject()
