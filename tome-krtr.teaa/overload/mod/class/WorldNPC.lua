@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local ActorAI = require "engine.interface.ActorAI"
 local Faction = require "engine.Faction"
@@ -166,11 +167,11 @@ function _M:encounterAttack(target, x, y)
 	end
 
 	if self.unit_power <= 0 then
-		game.logSeen(self, "%s kills %s.", target.name:capitalize(), self.name)
+		game.logSeen(self, "%s %s 죽였습니다.", (target.name:capitalize()):addJosa("가"), (self.name):addJosa("를"))
 		self:die(target)
 	end
 	if target.unit_power <= 0 then
-		game.logSeen(target, "%s kills %s.", self.name:capitalize(), target.name)
+		game.logSeen(target, "%s %s 죽였습니다.", (self.name:capitalize()):addJosa("가"), (target.name):addJosa("를"))
 		target:die(src)
 	end
 end
@@ -197,9 +198,9 @@ end
 
 function _M:tooltip(x, y, seen_by)
 	if seen_by and not seen_by:canSee(self) then return end
-	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "neutral", self:reactionToward(game.player)
-	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "hostile"
-	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "friendly"
+	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "중립", self:reactionToward(game.player)
+	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "적대"
+	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "친근"
 	end
 
 	local rank, rank_color = self:TextRank()
@@ -207,12 +208,12 @@ function _M:tooltip(x, y, seen_by)
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.name, {"color", "WHITE"}, true)
 	ts:add(self.type:capitalize(), " / ", self.subtype:capitalize(), true)
-	ts:add("Rank: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
+	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
 	ts:add(self.desc, true)
-	ts:add("Faction: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true)
+	ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true)
 	ts:add(
-		("Killed by you: "):format(killed), true,
-		"Target: ", self.ai_target.actor and self.ai_target.actor.name or "none", true,
+		("당신에게 죽은 횟수: "):format(killed), true,
+		"목표: ", self.ai_target.actor and self.ai_target.actor.name or "없음", true,
 		"UID: "..self.uid
 	)
 
