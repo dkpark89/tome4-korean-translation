@@ -34,15 +34,15 @@ function _M:init(title, store_inven, actor_inven, store_filter, actor_filter, ac
 	self.actor_inven = actor_inven
 	self.store_filter = store_filter
 	self.actor_filter = actor_filter
-	Dialog.init(self, title or "Store", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
+	Dialog.init(self, title or "상점", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
 
 	self.c_inven = Inventory.new{actor=actor_actor, inven=actor_inven, filter=actor_filter, width=math.floor(self.iw / 2 - 10), height=self.ih - 10,
 		columns={
 			{name="", width={20,"fixed"}, display_prop="char", sort="id"},
 			{name="", width={24,"fixed"}, display_prop="object", direct_draw=function(item, x, y) item.object:toScreen(nil, x+4, y, 16, 16) end},
-			{name="Inventory", width=80, display_prop="name", sort="name"},
-			{name="Category", width=20, display_prop="cat", sort="cat"},
-			{name="Price", width={70,"fixed"}, display_prop=function(item) return self.descprice("sell", item.object) end, sort=function(a, b) return descprice("sell", a.object) < descprice("sell", b.object) end},
+			{name="소지품", width=80, display_prop="name", sort="name"},
+			{name="종류", width=20, display_prop="cat", sort="cat"},
+			{name="가격", width={70,"fixed"}, display_prop=function(item) return self.descprice("sell", item.object) end, sort=function(a, b) return descprice("sell", a.object) < descprice("sell", b.object) end},
 		},
 		fct=function(item, sel, button, event) self:use(item, button, event) end,
 		select=function(item, sel) self:select(item) end,
@@ -76,9 +76,9 @@ function _M:init(title, store_inven, actor_inven, store_filter, actor_filter, ac
 		columns={
 			{name="", width={20,"fixed"}, display_prop="char", sort="id"},
 			{name="", width={24,"fixed"}, display_prop="object", direct_draw=direct_draw},
-			{name="Store", width=80, display_prop="name"},
-			{name="Category", width=20, display_prop="cat"},
-			{name="Price", width={70,"fixed"}, display_prop=function(item) return self.descprice("buy", item.object) end, sort=function(a, b) return descprice("buy", a.object) < descprice("buy", b.object) end},
+			{name="상점", width=80, display_prop="name"},
+			{name="종류", width=20, display_prop="cat"},
+			{name="가격", width={70,"fixed"}, display_prop=function(item) return self.descprice("buy", item.object) end, sort=function(a, b) return descprice("buy", a.object) < descprice("buy", b.object) end},
 		},
 		fct=function(item, sel, button, event) self:use(item, button, event) end,
 		select=function(item, sel) self:select(item) end,

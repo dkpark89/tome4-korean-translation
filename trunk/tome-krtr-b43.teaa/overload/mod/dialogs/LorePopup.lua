@@ -32,7 +32,7 @@ function _M:init(l, w, force_height)
 
 	self.ui = l.special_ui or "parchment"
 
-	Dialog.init(self, "Lore found: #0080FF#"..l.name, 1, 1)
+	Dialog.init(self, "지식 발견: #0080FF#"..l.name, 1, 1)
 
 	local text = util.getval(l.lore).."\n"
 	local list = text:splitLines(w - 10, self.font)
