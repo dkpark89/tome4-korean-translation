@@ -28,12 +28,12 @@ module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(title, actor)
 	self.actor = actor
-	print("Lore of player", actor.name)
+	print("플레이어의 지식", actor.name)
 	local total = #actor.lore_defs + actor.additional_lore_nb
 	local nb = 0
 	for id, data in pairs(actor.lore_known) do nb = nb + 1 end
 
-	Dialog.init(self, (title or "Lore").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, (title or "지식").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
 
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), scrollbar=true, height=self.ih}
 
@@ -41,8 +41,8 @@ function _M:init(title, actor)
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - 10), height=self.ih - 10, scrollbar=true, sortable=true, columns={
 		{name="", width={40,"fixed"}, display_prop="order", sort="order"},
-		{name="Lore", width=60, display_prop="name", sort="name"},
-		{name="Category", width=40, display_prop="cat", sort="cat"},
+		{name="지식", width=60, display_prop="name", sort="name"},
+		{name="종류", width=40, display_prop="cat", sort="cat"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -75,7 +75,7 @@ end
 
 function _M:select(item)
 	if item then
-		self.c_desc:switchItem(item, ("#GOLD#Category:#AQUAMARINE# %s\n#GOLD#Found as:#0080FF# %s\n#GOLD#Text:#ANTIQUE_WHITE# %s"):format(item.cat, item.name, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#발견 장소:#0080FF# %s\n#GOLD#내용:#ANTIQUE_WHITE# %s"):format(item.cat, item.name, item.desc))
 		if item.image then
 			if type(item.image) == "string" then
 				self.image = Image.new{file="lore/"..item.image, auto_width=true, auto_height=true}

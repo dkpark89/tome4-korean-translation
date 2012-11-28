@@ -29,16 +29,16 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(party)
 	self.party = party
 
-	Dialog.init(self, "Ingredients collected", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, "획득한 연금술 재료", game.w * 0.8, game.h * 0.8)
 
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), scrollbar=true, height=self.ih}
 
 	self:generateList()
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - 10), height=self.ih - 10, scrollbar=true, sortable=true, columns={
-		{name="Ingredient", width=50, display_prop="name", sort="name"},
-		{name="Category", width=30, display_prop="cat", sort="cat"},
-		{name="Quantity", width=20, display_prop="nb", sort="nb"},
+		{name="재료명", width=50, display_prop="name", sort="name"},
+		{name="종류", width=30, display_prop="cat", sort="cat"},
+		{name="수량", width=20, display_prop="nb", sort="nb"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -71,6 +71,6 @@ end
 
 function _M:select(item)
 	if item then
-		self.c_desc:switchItem(item, ("#GOLD#Category:#AQUAMARINE# %s\n#GOLD#Ingredient:#0080FF# %s\n#GOLD#Quantity:#0080FF# %s\n#GOLD#Text:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.nb, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.nb, item.desc))
 	end
 end

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Base = require "engine.ui.Base"
 local Dialog = require "engine.ui.Dialog"
@@ -34,10 +35,10 @@ function _M:init(title, actor, filter, action, on_select)
 	
 	game.tooltip.add_map_str = nil
 
-	Dialog.init(self, title or "Inventory", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
+	Dialog.init(self, title or "소지품", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
 
-	self.c_main_set = Tab.new{title="Main Set", default=not actor.off_weapon_slots, fct=function() end, on_change=function(s) if s then self:switchSets("main") end end}
-	self.c_off_set = Tab.new{title="Off Set", default=actor.off_weapon_slots, fct=function() end, on_change=function(s) if s then self:switchSets("off") end end}
+	self.c_main_set = Tab.new{title="기본 장비", default=not actor.off_weapon_slots, fct=function() end, on_change=function(s) if s then self:switchSets("main") end end}
+	self.c_off_set = Tab.new{title="보조 장비", default=actor.off_weapon_slots, fct=function() end, on_change=function(s) if s then self:switchSets("off") end end}
 
 	-- Add tooltips
 	self.on_select = function(item)
@@ -180,7 +181,7 @@ function _M:defineHotkey(id)
 	if not item or not item.object then return end
 
 	self.actor.hotkey[id] = {"inventory", item.object:getName{no_add_name=true, no_count=true}}
-	self:simplePopup("Hotkey "..id.." assigned", item.object:getName{no_add_name=true, no_count=true}:capitalize().." assigned to hotkey "..id)
+	self:simplePopup("단축키 "..id.." 설정", (item.object:getName{no_add_name=true, no_count=true}:capitalize()):addJosa("가").." 단축키 "..id:addJosa("로").." 설정되었습니다.")
 	self.actor.changed = true
 end
 

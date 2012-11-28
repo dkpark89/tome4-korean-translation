@@ -26,7 +26,7 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(actions)
 	self:generateList(actions)
 
-	Dialog.init(self, "Game Menu", 300, 20)
+	Dialog.init(self, "게임 메뉴", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 
@@ -47,44 +47,44 @@ end
 
 function _M:generateList(actions)
 	local default_actions = {
-		resume = { "Resume", function() game:unregisterDialog(self) end },
-		keybinds = { "Key Bindings", function()
+		resume = { "게임 계속하기", function() game:unregisterDialog(self) end },
+		keybinds = { "키보드 명령 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, nil, game.gestures)
 			game:registerDialog(menu)
 		end },
-		keybinds_all = { "Key Bindings", function()
+		keybinds_all = { "키보드 명령 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, true, game.gestures)
 			game:registerDialog(menu)
 		end },
-		video = { "Video Options", function()
+		video = { "화면 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.VideoOptions").new()
 			game:registerDialog(menu)
 		end },
-		resolution = { "Display Resolution", function()
+		resolution = { "화면 해상도 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.DisplayResolution").new()
 			game:registerDialog(menu)
 		end },
-		achievements = { "Show Achievements", function()
+		achievements = { "달성한 업적을 표시", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.ShowAchievements").new(nil, game:getPlayer())
 			game:registerDialog(menu)
 		end },
-		sound = { "Audio Options", function()
+		sound = { "소리 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.AudioOptions").new()
 			game:registerDialog(menu)
 		end },
-		highscores = { "View High Scores", function()
+		highscores = { "고득점 기록 보기", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.ViewHighScores").new()
 			game:registerDialog(menu)
 	  end },
-		save = { "Save Game", function() game:unregisterDialog(self) game:saveGame() end },
-		quit = { "Save and Exit", function() game:unregisterDialog(self) game:onQuit() end },
+		save = { "저장하기", function() game:unregisterDialog(self) game:saveGame() end },
+		quit = { "저장하고 끝내기", function() game:unregisterDialog(self) game:onQuit() end },
 	}
 
 	-- Makes up the list

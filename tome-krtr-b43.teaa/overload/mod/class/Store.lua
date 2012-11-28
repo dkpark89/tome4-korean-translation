@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Store = require "engine.Store"
 local Dialog = require "engine.ui.Dialog"
@@ -36,7 +37,7 @@ function _M:init(t, no_default)
 	t.store.purse = t.store.purse or 20
 	Store.init(self, t, no_default)
 
-	self.name = self.name .. (" (Max buy %0.2f gold)"):format(self.store.purse)
+	self.name = self.name .. (" (최대 구입 가능금액 %0.2f)"):format(self.store.purse)
 
 	if not self.store.actor_filter then
 		self.store.actor_filter = function(o)
@@ -69,7 +70,7 @@ function _M:loadup(level, zone)
 	end
 	-- clear chrono worlds and their various effects
 	if game._chronoworlds then
-		game.log("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.")
+		game.log("#CRIMSON#당신의 시간여행은 이와 같이 미리 결정된 결과에는 영향을 주지 못합니다.")
 		game._chronoworlds = nil
 	end
 end
@@ -91,7 +92,7 @@ function _M:tryBuy(who, o, item, nb)
 	if who.money >= price * nb then
 		return nb, price * nb
 	else
-		Dialog:simplePopup("Not enough gold", "You do not have enough gold!")
+		Dialog:simplePopup("금화 부족", "가지고 있는 금화가 부족합니다!")
 	end
 end
 
@@ -120,7 +121,7 @@ function _M:onBuy(who, o, item, nb, before)
 	local price = self:getObjectPrice(o, "buy")
 	if who.money >= price * nb then
 		who:incMoney(- price * nb)
-		game.log("Bought: %s for %0.2f gold.", o:getName{do_color=true}, price * nb)
+		game.log("구입: %s 금화 %0.2f 개에 구입.", (o:getName{do_color=true}):addJosa("를"), price * nb)
 	end
 end
 
@@ -139,7 +140,7 @@ function _M:onSell(who, o, item, nb, before)
 	price = math.min(price * nb, self.store.purse * nb)
 	who:incMoney(price)
 	o:forAllStack(function(so) so.__force_store_forget = true end) -- Make sure the store does forget about it when it restocks
-	game.log("Sold: %s for %0.2f gold.", o:getName{do_color=true}, price)
+	game.log("판매: %s 금화 %0.2f 개에 판매.", (o:getName{do_color=true}):addJosa("를"), price)
 end
 
 --- Override the default
@@ -148,7 +149,7 @@ function _M:doBuy(who, o, item, nb, store_dialog)
 	local price
 	nb, price = self:tryBuy(who, o, item, nb)
 	if nb then
-		Dialog:yesnoPopup("Buy", ("Buy %d %s for %0.2f gold"):format(nb, o:getName{do_color=true, no_count=true}, price), function(ok) if ok then
+		Dialog:yesnoPopup("구입", ("%d개의 %s 금화 %0.2f 개에 사시겠습니까?"):format(nb, (o:getName{do_color=true, no_count=true}):addJosa("를"), price), function(ok) if ok then
 			self:onBuy(who, o, item, nb, true)
 			-- Learn lore ?
 			if who.player and o.lore then
@@ -159,7 +160,7 @@ function _M:doBuy(who, o, item, nb, store_dialog)
 			end
 			self:onBuy(who, o, item, nb, false)
 			if store_dialog then store_dialog:updateStore() end
-		end end, "Buy", "Cancel")
+		end end, "구입", "취소")
 	end
 end
 
@@ -169,12 +170,12 @@ function _M:doSell(who, o, item, nb, store_dialog)
 	local price
 	nb, price = self:trySell(who, o, item, nb)
 	if nb then
-		Dialog:yesnoPopup("Sell", ("Sell %d %s for %0.2f gold"):format(nb, o:getName{do_color=true, no_count=true}, price), function(ok) if ok then
+		Dialog:yesnoPopup("판매", ("%d개의 %s 금화 %0.2f 개에 파시겠습니까?"):format(nb, o:getName{do_color=true, no_count=true}):addJosa("를"), price), function(ok) if ok then
 			self:onSell(who, o, item, nb, true)
 			self:transfer(who, self, item, nb)
 			self:onSell(who, o, item, nb, false)
 			if store_dialog then store_dialog:updateStore() end
-		end end, "Sell", "Cancel")
+		end end, "판매", "취소")
 	end
 end
 
@@ -185,11 +186,11 @@ end
 -- @return a string (possibly multiline) describing the object
 function _M:descObject(who, what, o)
 	if what == "buy" then
-		local desc = tstring({"font", "bold"}, {"color", "GOLD"}, ("Buy for: %0.2f gold (You have %0.2f gold)"):format(self:getObjectPrice(o, "buy"), who.money), {"font", "normal"}, {"color", "LAST"}, true, true)
+		local desc = tstring({"font", "bold"}, {"color", "GOLD"}, ("구입 금액: %0.2f (소지금 %0.2f)"):format(self:getObjectPrice(o, "buy"), who.money), {"font", "normal"}, {"color", "LAST"}, true, true)
 		desc:merge(o:getDesc())
 		return desc
 	else
-		local desc = tstring({"font", "bold"}, {"color", "GOLD"}, ("Sell for: %0.2f gold (You have %0.2f gold)"):format(self:getObjectPrice(o, "sell"), who.money), {"font", "normal"}, {"color", "LAST"}, true, true)
+		local desc = tstring({"font", "bold"}, {"color", "GOLD"}, ("판매 금액: %0.2f (소지금 %0.2f)"):format(self:getObjectPrice(o, "sell"), who.money), {"font", "normal"}, {"color", "LAST"}, true, true)
 		desc:merge(o:getDesc())
 		return desc
 	end
