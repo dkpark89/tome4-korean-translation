@@ -20,8 +20,9 @@
 newBirthDescriptor{
 	type = "class",
 	name = "None",
+	display_name = "없음",
 	desc = {
-		"Your race can not select a class, it has its own powers.",
+		"해당 종족은 직업을 선택할 수 없고, 독자적인 힘을 가집니다.",
 	},
 	descriptor_choices =
 	{
@@ -36,8 +37,9 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "None",
+	display_name = "없음",
 	desc = {
-		"Your race can not select a class, it has its own powers.",
+		"해당 종족은 직업을 선택할 수 없고, 독자적인 힘을 가집니다.",
 	},
 	not_on_random_boss = true,
 }

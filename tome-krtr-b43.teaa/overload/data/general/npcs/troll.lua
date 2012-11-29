@@ -21,7 +21,7 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
 	define_as = "BASE_NPC_TROLL",
-	type = "giant", subtype = "troll",
+	type = "giant", subtype = "troll", type_name = "거인형", stype_name = "트롤",
 	display = "T", color=colors.UMBER,
 	sound_moam = {"creatures/trolls/troll_moan_%d", 1, 2},
 	sound_die = {"creatures/trolls/troll_die_%d", 1, 2},
@@ -52,8 +52,8 @@ newEntity{
 }
 
 newEntity{ base = "BASE_NPC_TROLL",
-	name = "forest troll", color=colors.YELLOW_GREEN, image="npc/troll_f.png",
-	desc = [[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.]],
+	name = "forest troll", display_name="숲 트롤", color=colors.YELLOW_GREEN, image="npc/troll_f.png",
+	desc = [[녹색 피부를 가진 못생기고 커다란 인간형 생물이, 울퉁불퉁한 주먹을 꽉 쥔채 당신을 노려보고 있습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,120),

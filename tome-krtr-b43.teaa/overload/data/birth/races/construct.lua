@@ -22,12 +22,12 @@
 ---------------------------------------------------------
 newBirthDescriptor{
 	type = "race",
-	name = "Construct",
+	name = "구조체",
 	locked = function() return profile.mod.allow_build.construct and true or "hide" end,
 	locked_desc = "",
 	desc = {
-		"Constructs are not natural creatures.",
-		"The most usual contructs are golems, but they can vary in shape, form and abilities.",
+		"구조체는 자연적인 생물이 아닙니다.",
+		"구조체는 대부분 골렘이지만, 형태와 양식, 그리고 능력은 다양합니다.",
 	},
 	descriptor_choices =
 	{
@@ -44,16 +44,17 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Runic Golem",
+	display_name = "룬 골렘",
 	locked = function() return profile.mod.allow_build.construct_runic_golem and true or "hide" end,
 	locked_desc = "",
 	desc = {
-		"Runic Golems are creatures made of solid rock and animated using arcane forces.",
-		"They cannot be of any class, but they have many intrinsic abilities.",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +3 Strength, -2 Dexterity, +3 Constitution",
-		"#LIGHT_BLUE# * +2 Magic, +2 Willpower, -5 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# 13",
-		"#GOLD#Experience penalty:#LIGHT_BLUE# 50%",
+		"룬 골렘은 마법의 힘으로 움직이는 단단한 바위 피조물입니다.",
+		"특정한 직업의 능력을 가질수는 없지만, 다양한 고유 능력을 지니고 있습니다.",
+		"#GOLD#능력치 변경:",
+		"#LIGHT_BLUE# * 힘+3, 민첩-2, 체격+3",
+		"#LIGHT_BLUE# * 마법+2, 의지+2, 교활함-5",
+		"#GOLD#레벨 당 생명력:#LIGHT_BLUE# 13",
+		"#GOLD#경험치 불이익:#LIGHT_BLUE# 50%",
 	},
 	descriptor_choices =
 	{
