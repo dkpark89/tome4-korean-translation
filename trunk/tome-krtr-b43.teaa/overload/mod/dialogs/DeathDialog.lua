@@ -196,7 +196,7 @@ function _M:use(item)
 		if item.subaction == "none" then
 			util.showMainMenu()
 		elseif item.subaction == "restart" then
-			util.showMainMenu(false, engine.version[4], engine.version[1].."."..engine.version[2].."."..engine.version[3], game.__mod_info.short_name, game.save_name, true, ("auto_quickbirth=%q"):format(game:getPlayer(true).name))
+			util.showMainMenu(false, engine.version[4], engine.version[1].."."..engine.version[2].."."..engine.version[3], game.__mod_info.short_name, game.save_name, true, ("같은 캐릭터 자동생성=%q"):format(game:getPlayer(true).name))
 		elseif item.subaction == "restart-new" then
 			util.showMainMenu(false, engine.version[4], engine.version[1].."."..engine.version[2].."."..engine.version[3], game.__mod_info.short_name, game.save_name, true)
 		end

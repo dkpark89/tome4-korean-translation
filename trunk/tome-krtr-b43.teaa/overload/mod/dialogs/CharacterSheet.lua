@@ -51,8 +51,8 @@ function _M:init(actor)
 	self.vs = Separator.new{dir="vertical", size=self.iw}
 
 	self.c_tut = Textzone.new{width=self.iw * 0.6, auto_height=true, no_color_bleed=true, font = self.font, text=[[
-#00FF00#( ) 괄호 안의 수치#LAST#는 마지막으로 케릭터 시트를 열어봤을 때의 수치와의 차이를 나타냅니다.
-#00FF00#'d' 키#LAST#를 누르면 케릭터 덤프를 저장합니다. #00FF00#TAB 키#LAST#로 페이지 탭을 전환합니다.
+#00FF00#( ) 괄호 안의 수치#LAST#는 마지막으로 캐릭터 시트를 열어봤을 때의 수치와의 차이를 나타냅니다.
+#00FF00#'d' 키#LAST#를 누르면 캐릭터 덤프를 저장합니다. #00FF00#TAB 키#LAST#로 페이지 탭을 전환합니다.
 능력치에 마우스 커서를 올려놓으면 자세한 정보가 나옵니다.
 ]]}
 
