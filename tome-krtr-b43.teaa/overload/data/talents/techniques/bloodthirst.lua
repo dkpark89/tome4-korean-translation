@@ -17,9 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Bloodbath",
+	display_name = "피바다",
 	type = {"technique/bloodthirst", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -32,14 +34,15 @@ newTalent{
 	info = function(self, t)
 		local regen = t.getRegen(self, t)
 		local max_regen = t.getMax(self, t)
-		return ([[Delight in spilling the blood of your foes.  After scoring a critical hit your maximum hit points will be increased by %d%%, your life regeneration by %0.2f per turn, and your stamina regeneration by %0.2f per turn.
-		The life and stamina regeneration will stack up to five times for a maximum of %0.2f and %0.2f each turn, respectively.]]):
+		return ([[적들의 피를 흩뿌리며 기뻐합니다. 적에게 치명타를 가하면, 최대 생명력이 %d%%, 턴 당 생명력 재생이 %0.2f, 체력 재생이 %0.2f 증가됩니다.
+		생명력과 체력 재생 증가는 5회까지 중첩되며, 최대치는 턴당 %0.2f과 %0.2f 입니다.]]):
 		format(math.floor(self:getTalentLevel(t) * 2), regen, regen/5, max_regen, max_regen/5)
 	end,
 }
 
 newTalent{
 	name = "Mortal Terror",
+	display_name = "죽음의 공포",
 	type = {"technique/bloodthirst", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -56,7 +59,7 @@ newTalent{
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_DAZED, 5, {apply_power=self:combatPhysicalpower()})
 		else
-			game.logSeen(target, "%s resists the terror!", target.name:capitalize())
+			game.logSeen(target, "%s 죽음의 공포에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	on_learn = function(self, t)
@@ -66,15 +69,16 @@ newTalent{
 		self.combat_physcrit = self.combat_physcrit - 2.8
 	end,
 	info = function(self, t)
-		return ([[Your mighty blows inspire utter terror on your foes. Any melee strike you do that deals more than %d%% of the target's total life puts them in a mortal terror, dazing them for 5 turns.
-		Your critical strike chance also increase by %d%%.
-		Daze chance increase with your Strength stat.]]):
+		return ([[강렬한 타격으로 적을 극심한 공포에 떨게 만듭니다. 적의 최대 생명력을 %d%% 이상 감소시키는 타격을 가하면, 대상은 극심한 공포에 빠져 5턴 동안 혼절합니다.
+		또한 당신의 치명타율이 %d%% 증가됩니다.
+		혼절 확률은 힘 능력치의 영향을 받아 증가됩니다.]]):
 		format(20 + (30 - self:getTalentLevelRaw(t) * 5), self:getTalentLevelRaw(t) * 2.8)
 	end,
 }
 
 newTalent{
 	name = "Bloodrage",
+	display_name = "피의 분노",
 	type = {"technique/bloodthirst", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -83,13 +87,14 @@ newTalent{
 		self:setEffect(self.EFF_BLOODRAGE, math.floor(5 + self:getTalentLevel(t)), {max=math.floor(self:getTalentLevel(t) * 6), inc=2})
 	end,
 	info = function(self, t)
-		return ([[Each time one of your foes bites the dust you feel a surge of power, increasing your strength by 2 up to a maximum of %d for %d turns.]]):
-		format(math.floor(self:getTalentLevel(t) * 6), math.floor(5 + self:getTalentLevel(t)))
+		return ([[적의 눈에 흙이 들어갈 때마다 당신에게 강력한 힘이 솟구쳐, %d턴 동안 최대 %d까지 힘이 2씩 증가합니다.]]):
+		format(math.floor(5 + self:getTalentLevel(t)), math.floor(self:getTalentLevel(t) * 6))
 	end,
 }
 
 newTalent{
 	name = "Unstoppable",
+	display_name = "무쌍",
 	type = {"technique/bloodthirst", 4},
 	require = techs_req_high4,
 	points = 5,
@@ -101,8 +106,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You enter a battle frenzy for %d turns. During the time you can not use items, healing has no effect and your health can not drop below 1.
-		At the end of the frenzy you regain %d%% of your health per foes slain during the frenzy.]]):
+		return ([[%d턴 동안 전투 광란 상태가 됩니다. 효과가 지속되는 동안에는 물품을 사용할 수도 없고 치유를 받을 수도 없으며, 생명력이 1밑으로 떨어지지 않습니다.
+		광란 상태가 끝나면, 그동안 살해한 적 하나당 전체 생명력의 %d%%를 회복하게 됩니다.]]):
 		format(2 + self:getTalentLevelRaw(t), math.floor(self:getTalentLevel(t) * 3.5))
 	end,
 }

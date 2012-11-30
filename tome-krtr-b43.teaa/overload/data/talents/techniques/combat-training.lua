@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Thick Skin",
+	display_name = "튼튼한 피부",
 	type = {"technique/combat-training", 1},
 	mode = "passive",
 	points = 5,
@@ -32,13 +35,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local res = t.getRes(self, t)
-		return ([[Your skin becomes more resilient to damage. Increases resistance to all damage by %d%%]]):
+		return ([[당신은 여러가지 손상에 좀 더 잘 견디게 되었습니다. 모든 피해 저항이 %d%% 증가됩니다.]]):
 		format(res)
 	end,
 }
 
 newTalent{
 	name = "Armour Training",
+	display_name = "방어구 숙련",
 	type = {"technique/combat-training", 1},
 	mode = "passive",
 	points = 10,
@@ -49,7 +53,7 @@ newTalent{
 				local o = inven[i]
 				local ok, err = self:canWearObject(o)
 				if not ok and err == "missing dependency" then
-					game.logPlayer(self, "You can not use your %s anymore.", o:getName{do_color=true})
+					game.logPlayer(self, "%s 다룰 수 없게 되었습니다.", o:getName{do_color=true}:addJosa("를"))
 					local o = self:removeObject(inven, i, true)
 					self:addObject(self.INVEN_INVEN, o)
 					self:sortInven()
@@ -66,17 +70,17 @@ newTalent{
 		local criticalreduction = t.getCriticalChanceReduction(self, t)
 		local classrestriction = ""
 		if self.descriptor and self.descriptor.subclass == "Brawler" then
-			classrestriction = "(Note that brawlers will be unable to perform many of their talents in massive armour.)"
+			classrestriction = "(격투가는 판갑을 입은 상태에서는 대다수의 기술을 사용할 수 없습니다.)"
 		end
 		if self:knowTalent(self.T_STEALTH) then
-			classrestriction = "(Note that wearing mail or plate armour will interfere with stealth.)"
+			classrestriction = "(중갑이나 판갑은 은신하는데 방해가 됩니다.)"
 		end
-		return ([[Teaches the usage of armours. Increases armour value by %d and reduces chance to be critically hit by %d%% when wearing a heavy mail armour or a massive plate armour.
-		It also increases armour hardiness by %d%%.
-		At level 1 it allows you to wear gauntlets, helms and heavy boots.
-		At level 2 it allows you to wear heavy mail armour.
-		At level 3 it allows you to wear shields.
-		At level 4 it allows you to wear massive plate armour.
+		return ([[방어구를 다루는 방법을 배웁니다. 방어도를 %d 상승시키고, 적에게 치명타를 맞을 확률을 %d%% 감소시킵니다(중갑, 판갑 착용시에만).
+		또한 방어 효율이 %d%% 증가됩니다.
+		1 레벨에서는 건틀릿과 투구, 중장화를 착용할 수 있게 되며,
+		2 레벨에서는 중갑을 착용할 수 있게 되며,
+		3 레벨에서는 방패를 장착할 수 있게 되고,
+		4 레벨에서는 판갑을 착용할 수 있게 됩니다.
 		%s]]):
 		format(armor, criticalreduction, hardiness, classrestriction)
 	end,
@@ -84,6 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Combat Accuracy", short_name = "WEAPON_COMBAT",
+	display_name = "정확한 전투",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { level=function(level) return (level - 1) * 4 end },
@@ -91,13 +96,14 @@ newTalent{
 	getAttack = function(self, t) return self:getTalentLevel(t) * 10 end,
 	info = function(self, t)
 		local attack = t.getAttack(self, t)
-		return ([[Increases accuracy of unarmed, melee and ranged weapons by %d.]]):
+		return ([[맨손 전투와 근접, 원거리 무기를 사용할 때의 정확도를 %d 증가시킵니다.]]):
 		format(attack)
 	end,
 }
 
 newTalent{
 	name = "Weapons Mastery",
+	display_name = "무기 숙련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { stat = { str=function(level) return 12 + level * 6 end }, },
@@ -107,7 +113,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d and increases weapon damage by %d%% when using swords, axes or maces.]]):
+		return ([[물리력을 %d 증가시킵니다. 또한 검, 도끼, 철퇴의 피해량을 %d%% 증가시킵니다.]]):
 		format(damage, 100*inc)
 	end,
 }
@@ -115,6 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Dagger Mastery", short_name = "KNIFE_MASTERY",
+	display_name = "단검 숙련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 10 + level * 6 end }, },
@@ -124,13 +131,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d and increases weapon damage by %d%% when using daggers.]]):
+		return ([[물리력을 %d 증가시킵니다. 또한 단검의 피해량을 %d%% 증가시킵니다.]]):
 		format(damage, 100*inc)
 	end,
 }
 
 newTalent{
 	name = "Exotic Weapons Mastery",
+	display_name = "이형 무기 숙련",
 	type = {"technique/combat-training", 1},
 	hide = true,
 	points = 5,
@@ -141,7 +149,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d and increases weapon damage by %d%% when using exotic weapons.]]):
+		return ([[물리력을 %d 증가시킵니다. 또한 이형 무기의 피해량을 %d%% 증가시킵니다.]]):
 		format(damage, 100*inc)
 	end,
 }

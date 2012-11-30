@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Shield of Light",
+	display_name = "빛의 방패",
 	type = {"celestial/guardian", 1},
 	mode = "sustained",
 	require = divi_req_high1,
@@ -31,7 +32,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Shield of Light without a shield!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 빛의 방패를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -45,15 +46,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Infuse your shield with light energy, healing you for %0.2f each time you take damage and costing up to 2 positive energy.
-		If you do not have enough positive energy, the effect will not trigger.
-		The healing done will increase with the Magic stat]]):
+		return ([[방패에 빛의 힘을 불어넣어, 피해를 받을 때마다 양기를 2점 소모하여 생명력을 %0.2f 만큼 회복합니다.
+		양기가 부족하면 이 효과는 발동되지 않습니다.
+		치유량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(heal)
 	end,
 }
 
 newTalent{
 	name = "Brandish",
+	display_name = "광휘",
 	type = {"celestial/guardian", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -70,7 +72,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Brandish without a shield!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 광휘를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -101,14 +103,15 @@ newTalent{
 		local shielddamage = t.getShieldDamage(self, t)
 		local lightdamage = t.getLightDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Hits the target with your weapon doing %d%% damage and a shield strike doing %d%% damage.  If the shield strike hits your shield will explode in a burst of light, inflicting %0.2f light damage on all within a radius of %d of the target, lighting up the affected grids.
-		Light damage will increase with your Magic stat.]]):
+		return ([[대상을 무기로 공격하여 %d%%의 무기 피해를 준 뒤, 방패로 쳐서 %d%%의 방패 피해를 줍니다. 방패 공격이 적중됐을 경우에, 찬란한 빛이 분출되어 %0.2f의 빛 피해를 %d칸 반경 내의 적들에게 주고 어두운 곳을 밝힙니다.
+		빛 피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(100 * weapondamage, 100 * shielddamage, damDesc(self, DamageType.LIGHT, lightdamage), radius)
 	end,
 }
 
 newTalent{
 	name = "Retribution",
+	display_name = "응보",
 	type = {"celestial/guardian", 3},
 	require = divi_req_high3, no_sustain_autoreset = true,
 	points = 5,
@@ -121,7 +124,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Retribution without a shield!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 응보를 사용할 수 없습니다!")
 			return nil
 		end
 		local power = t.getDamage(self, t)
@@ -140,14 +143,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Negates half of all damage you take.  Once retribution has negated %0.2f damage your shield will explode in a burst of light, inflicting damage equal to the amount negated in a radius of %d and deactivating the talent.
-		The amount absorbed will increase with the Magic stat.]]):
+		return ([[당신이 받는 피해량의 절반을 흡수합니다. 응보로 %0.2f의 피해를 흡수했을 때, 방패에서 찬란한 빛이 분출되어 %d칸 반경에 흡수했던 피해량과 동일한 피해를 적들에게 준 뒤, 기술이 해제됩니다.
+		흡수량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damage, self:getTalentRange(t))
 	end,
 }
 
 newTalent{
 	name = "Second Life",
+	display_name = "두번째 생명",
 	type = {"celestial/guardian", 4},
 	require = divi_req_high4, no_sustain_autoreset = true,
 	points = 5,
@@ -168,7 +172,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Any attack that would drop you below 1 hit point triggers Second Life, deactivating the talent and setting your hit points to %d.]]):
+		return ([[공격을 받아 당신의 생명력이 1 밑으로 떨어지게 되면, 두번째 생명이 발동되어 기술 유지가 해제되고 %d의 생명력을 가지게 됩니다.]]):
 		format(t.getLife(self, t))
 	end,
 }

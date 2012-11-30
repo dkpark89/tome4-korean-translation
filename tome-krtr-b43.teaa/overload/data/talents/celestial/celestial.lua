@@ -18,20 +18,20 @@
 -- darkgod@te4.org
 
 -- Corruptions
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/guardian", name = "guardian", min_lev = 10, description = "Your devotion grants you additional protection." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/chants", name = "chants", generic = true, description = "Chant the glory of the sun." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/light", name = "light", generic = true, description = "Invoke the power of light to heal and mend." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/combat", name = "combat", description = "Your devotion allows you to combat your foes with indomitable determination." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/sun", name = "sun", description = "Summon the power of the Sun to burn your foes." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/glyphs", name = "glyphs", min_lev = 10, description = "Bind the holy powers into glyphs to trap your foes." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/twilight", name = "twilight", description = "Stand between the darkness and the light, harnessing both." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/star-fury", name = "star fury", description = "Call fury of the stars and moon to destroy your foes." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/hymns", name = "hymns", generic = true, description = "Chant the glory of the moon." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/circles", name = "circles", min_lev = 10, description = "Bind the power of the moon into circles at your feet." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/eclipse", name = "eclipse", description = "The moment of the Eclipse is the moment of Truth, when Sun and Moon are in tandem and the energies of the world hang in balance. Intense focus allows the greatest Anorithils to harness these energies to unleash devastating forces.." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/guardian", name = "빛의 수호자", min_lev = 10, description = "당신의 헌신으로, 한층 더 강력한 비호를 받게 됩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/chants", name = "태양의 찬가", generic = true, description = "태양의 영광을 노래합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/light", name = "빛", generic = true, description = "빛의 힘으로 치유와 보호의 힘을 일으킵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/combat", name = "빛의 전투", description = "당신의 헌신으로, 불굴의 마음을 가지고 적에게 맞설 수 있게 됩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/sun", name = "태양", description = "태양의 힘으로 적을 불사릅니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/glyphs", name = "문양", min_lev = 10, description = "문양에 힘을 불어넣어 함정으로 사용합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/twilight", name = "황혼", description = "빛과 어둠의 중간에 서서 그 두 힘을 동시에 휘두릅니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/star-fury", name = "별의 분노", description = "별과 달의 분노로 적을 파괴합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/hymns", name = "달의 송가", generic = true, description = "달의 영광을 노래합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/circles", name = "권역", min_lev = 10, description = "발 아래의 땅에 태양과 달의 힘을 부여합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/eclipse", name = "금환식", description = "태양과 달이 겹치는 금환식이 일어나면, 세계의 힘은 조화를 이루게 됩니다. 강력한 아노리실은 이 힘으로 압도적인 파괴를 일으킬 수 있습니다." }
 
 
-newTalentType{ no_silence=true, is_spell=true, type="celestial/other", name = "other", description = "Various celestial talents." }
+newTalentType{ no_silence=true, is_spell=true, type="celestial/other", name = "기타", description = "다양한 천공 기술." }
 
 -- Generic requires for corruptions based on talent level
 divi_req1 = {

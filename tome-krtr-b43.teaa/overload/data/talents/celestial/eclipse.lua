@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blood Red Moon",
+	display_name = "핏빛 달",
 	type = {"celestial/eclipse", 1},
 	mode = "passive",
 	require = divi_req1,
@@ -30,13 +31,14 @@ newTalent{
 		self.combat_spellcrit = self.combat_spellcrit - 3
 	end,
 	info = function(self, t)
-		return ([[Increases your spell critical chance by %d%%.]]):
+		return ([[주문 치명타율을 %d%% 증가시킵니다.]]):
 		format(3 * self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Totality",
+	display_name = "개기 일월식",
 	type = {"celestial/eclipse", 2},
 	require = divi_req2,
 	points = 5,
@@ -61,14 +63,15 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local penetration = t.getResistancePenetration(self, t)
 		local cooldownreduction = t.getCooldownReduction(self, t)
-		return ([[Increases your light and darkness resistance penetration by %d%% for %d turns and brings all your celestial talents on cooldown, %d turns closer to being off cooldown.
-		The resistance penetration will increase with your Cunning stat.]]):
+		return ([[빛과 어둠 저항 관통을 %d턴 동안 %d%% 증가시키고, 재사용 대기중인 천공 계열 기술의 대기 시간을 %d턴 감소시킵니다.
+		저항 관통은 교활함 능력치에 영향을 받아 증가됩니다.]]):
 		format(penetration, duration, cooldownreduction)
 	end,
 }
 
 newTalent{
 	name = "Corona",
+	display_name = "코로나",
 	type = {"celestial/eclipse", 3},
 	mode = "sustained",
 	require = divi_req3,
@@ -126,15 +129,16 @@ newTalent{
 		local targetcount = t.getTargetCount(self, t)
 		local lightdamage = t.getLightDamage(self, t)
 		local darknessdamage = t.getDarknessDamage(self, t)
-		return ([[Each time one of your spells is a critical you project a bolt of light or shadow at %d targets in a radius of 10, doing %0.2f light damage or %0.2f darkness damage.
-		This effect costs 2 positive or 2 negative energy each time it's triggered and will not trigger if either your positive or negative energy is below 2.
-		The damage scales with the Magic stat.]]):
+		return ([[당신의 주문이 치명타로 적중할 때마다, 10칸 반경 내에 있는 %d명의 대상에게 빛이나 어둠의 볼트를 발사하여 %0.2f의 빛 피해나 %0.2f의 어둠 피해를 줍니다.
+		이 효과가 발동될 때마다 2의 양기나 음기가 소모되며, 부족하다면 효과가 발동되지 않습니다.
+		피해량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(targetcount, damDesc(self, DamageType.LIGHT, lightdamage), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Darkest Light",
+	display_name = "가장 어두운 빛",
 	type = {"celestial/eclipse", 4},
 	mode = "sustained",
 	require = divi_req4,
@@ -178,10 +182,10 @@ newTalent{
 		local convert = t.getEnergyConvert(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[This powerful spell grants you %d bonus invisibility, but converts %d negative energy into positive energy each turn.  Once your positive energy exceeds your negative energy, or you deactivate the talent, the effect ends in an explosion of light, converting all of your positive energy into damage and inflicting an additional %0.2f damage on everything in a radius of %d.
-		As you become invisible you fade out of phase with reality, all your damage is reduced by 50%%.
-		You may not cast Twilight while this spell is active and you should take off your light source otherwise you will still easily be spotted.
-		The invisibility bonus will increase with your Cunning stat and the explosion damage will increase with the Magic Stat..]]):
+		return ([[이 강력한 주문을 유지하는 동안 %d의 투명화 능력을 얻으며, 매 턴마다 %d의 음기를 양기로 전환합니다. 양기가 음기를 초과하게 되거나 유지를 해제하면, 효과가 끝나면서 찬란한 빛이 폭발하면서 양기의 총량에 %0.2f의 피해를 추가하여 %d칸 반경 내의 모든 대상에게 줍니다.
+		투명화를 유지하는 동안에는 현실에서 유리되기에, 당신이 적에게 주는 피해가 50%% 감소됩니다.
+		이 주문이 유지되는 동안에는 황혼 주문을 사용할 수 없으며, 광원을 장착하면 투명화가 소용없어지기에 착용을 해제해야 합니다.
+		투명화는 교활함 능력치의 영향을 받으며, 폭발 피해량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(invisibilitypower, convert, damDesc(self, DamageType.LIGHT, damage), radius)
 	end,
 }
