@@ -37,7 +37,7 @@ newEntity{
 }
 
 newEntity{ base = "BASE_BATTLEAXE",
-	name = "iron battleaxe", short_name = "iron",
+	name = "iron battleaxe", display_name = "철제 전투 도끼", short_name = "iron",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -51,7 +51,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 }
 
 newEntity{ base = "BASE_BATTLEAXE",
-	name = "steel battleaxe", short_name = "steel",
+	name = "steel battleaxe", display_name = "강철 전투 도끼", short_name = "steel",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -65,7 +65,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 }
 
 newEntity{ base = "BASE_BATTLEAXE",
-	name = "dwarven-steel battleaxe", short_name = "d.steel",
+	name = "dwarven-steel battleaxe", display_name = "드워프-강철 전투 도끼", short_name = "d.steel",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -79,7 +79,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 }
 
 newEntity{ base = "BASE_BATTLEAXE",
-	name = "stralite battleaxe", short_name = "stralite",
+	name = "stralite battleaxe", display_name = "스트랄라이트 전투 도끼", short_name = "stralite",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -93,7 +93,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 }
 
 newEntity{ base = "BASE_BATTLEAXE",
-	name = "voratun battleaxe", short_name = "voratun",
+	name = "voratun battleaxe", display_name = "보라툰 전투 도끼", short_name = "voratun",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

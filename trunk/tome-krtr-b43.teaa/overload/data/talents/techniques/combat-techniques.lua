@@ -22,8 +22,9 @@
 ----------------------------------------------------
 newTalent{
 	name = "Rush",
+	display_name = "돌진",
 	type = {"technique/combat-techniques-active", 1},
-	message = "@Source@ rushes out!",
+	message = "@Source1@ 돌진 합니다!",
 	require = techs_strdex_req1,
 	points = 5,
 	random_ego = "attack",
@@ -46,7 +47,7 @@ newTalent{
 		local l = self:lineFOV(x, y, block_actor)
 		local lx, ly, is_corner_blocked = l:step()
 		if is_corner_blocked or game.level.map:checkAllEntities(lx, ly, "block_move", self) then
-			game.logPlayer(self, "You are too close to build up momentum!")
+			game.logPlayer(self, "너무 가까이 있어서 돌진할 힘이 붙지 않습니다!")
 			return
 		end
 		local tx, ty = lx, ly
@@ -77,14 +78,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Rushes toward your target with incredible speed. If the target is reached you get a free attack doing 120% weapon damage.
-		If the attack hits the target is dazed for 3 turns.
-		You must rush from at least 2 tiles away.]])
+		return ([[굉장한 속도로 대상에게 돌진하여 들이받아서 120%의 무기 피해를 줍니다.
+		공격에 성공하면 대상을 3턴 동안 혼절시킵니다.
+		돌진하려면 적어도 2칸은 떨어져 있어야 합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Precise Strikes",
+	display_name = "정밀 타격",
 	type = {"technique/combat-techniques-active", 2},
 	mode = "sustained",
 	points = 5,
@@ -106,14 +108,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You focus your strikes, reducing your attack speed by %d%% and increasing your accuracy by %d and critical chance by %d%%.
-		The effects will increase with your Dexterity stat.]]):
+		return ([[타격에 집중하여 공격 속도를 %d%% 감소시키는 대신, 정확도를 %d, 치명타율을 %d%% 증가시킵니다.
+		이 효과는 민첩 능력치에 영향을 받아 증가됩니다.]]):
 		format(10, 4 + (self:getTalentLevel(t) * self:getDex()) / 15, 4 + (self:getTalentLevel(t) * self:getDex()) / 25)
 	end,
 }
 
 newTalent{
 	name = "Perfect Strike",
+	display_name = "완벽한 타격",
 	type = {"technique/combat-techniques-active", 3},
 	points = 5,
 	random_ego = "attack",
@@ -127,12 +130,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You have learned to focus your blows to hit your target, granting +100 accuracy and allowing you to attack creatures you can not see without penalty for the next %d turns.]]):format(1 + self:getTalentLevel(t))
+		return ([[적을 공격하는데 집중하여, 정확도를 100 증가시키고 보이지 않는 적을 공격할 때 받는 불이익을 상쇄하는 효과를 %d턴 동안 얻습니다.]]):format(1 + self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Blinding Speed",
+	display_name = "불감 속도",
 	type = {"technique/combat-techniques-active", 4},
 	points = 5,
 	random_ego = "utility",
@@ -146,7 +150,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Through rigorous training you have learned to focus your actions for a short while, increasing your speed by %d%% for 5 turns.]]):format(self:getTalentLevel(t) * 9)
+		return ([[혹독한 훈련을 거쳐서 일시적으로 행동을 가속하는 방법을 익혔습니다. 5턴 동안 전체 속도가 %d%% 증가됩니다.]]):format(self:getTalentLevel(t) * 9)
 	end,
 }
 
@@ -155,6 +159,7 @@ newTalent{
 ----------------------------------------------------
 newTalent{
 	name = "Quick Recovery",
+	display_name = "빠른 회복",
 	type = {"technique/combat-techniques-passive", 1},
 	require = techs_strdex_req1,
 	mode = "passive",
@@ -166,12 +171,13 @@ newTalent{
 		self.stamina_regen = self.stamina_regen - 0.5
 	end,
 	info = function(self, t)
-		return ([[Your combat focus allows you to regenerate stamina faster (+%0.2f stamina/turn).]]):format(self:getTalentLevelRaw(t) / 2)
+		return ([[전투에 숙련되어, 체력 재생이 빨라졌습니다(+%0.2f 체력/턴).]]):format(self:getTalentLevelRaw(t) / 2)
 	end,
 }
 
 newTalent{
 	name = "Fast Metabolism",
+	display_name = "빠른 신진대사",
 	type = {"technique/combat-techniques-passive", 2},
 	require = techs_strdex_req2,
 	mode = "passive",
@@ -183,12 +189,13 @@ newTalent{
 		self.life_regen = self.life_regen - 1
 	end,
 	info = function(self, t)
-		return ([[Your combat focus allows you to regenerate life faster (+%0.2f life/turn).]]):format(self:getTalentLevelRaw(t))
+		return ([[전투에 숙련되어, 생명력 재생이 빨라졌습니다(+%0.2f 생명력/턴).]]):format(self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Spell Shield",
+	display_name = "주문 방어",
 	type = {"technique/combat-techniques-passive", 3},
 	require = techs_strdex_req3,
 	mode = "passive",
@@ -200,18 +207,19 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 8
 	end,
 	info = function(self, t)
-		return ([[Rigorous training allows you to be more resistant to some spell effects. (+%d spell save).]]):format(self:getTalentLevelRaw(t) * 8)
+		return ([[혹독한 훈련으로, 주문 효과에 좀 더 잘 견디게 되었습니다(+%d 주문 내성).]]):format(self:getTalentLevelRaw(t) * 8)
 	end,
 }
 
 newTalent{
 	name = "Unending Frenzy",
+	display_name = "끝없는 격분",
 	type = {"technique/combat-techniques-passive", 4},
 	require = techs_strdex_req4,
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[You revel in the death of your foes, regaining %d stamina with each death.]]):format(self:getTalentLevel(t) * 4)
+		return ([[적의 죽음에 고무되어, 적을 쓰러뜨릴 때마다 체력을 %d씩 얻습니다.]]):format(self:getTalentLevel(t) * 4)
 	end,
 }
 

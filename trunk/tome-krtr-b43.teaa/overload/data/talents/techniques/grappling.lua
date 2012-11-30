@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Grappling Stance",
+	display_name = "잡기 자세",
 	type = {"technique/unarmed-other", 1},
 	mode = "sustained",
 	hide = true,
@@ -46,14 +49,15 @@ newTalent{
 	info = function(self, t)
 		local save = t.getSave(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Increases your physical saves by %d and your physical power by %d.
-		The bonuses will scale with the strength stat.]])
+		return ([[물리 내성을 %d 증가시키고 물리력을 %d 증가시킵니다.
+		이 효과는 힘 능력치에 영향을 받아 증가됩니다.]])
 		:format(save, damage)
 	end,
 }
 
 newTalent{
 	name = "Clinch",
+	display_name = "붙잡기",
 	type = {"technique/grappling", 1},
 	require = techs_req1,
 	points = 5,
@@ -123,16 +127,17 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
 		local drain = t.getDrain(self, t)
-		return ([[Grapples a target up to one size category larger then yourself for %d turns. A grappled opponent will be unable to move and its attack and defense will be reduced by %d.  Any movement from the target or you will break the grapple.  Maintaining a grapple drains %d stamina per turn.
-		You may only grapple a single target at a time and using any targeted unarmed talent on a target that you're not grappling will break the grapple.
-		The grapple attack and defense reduction as well as success chance will scale with your physical power.
-		Performing this action will switch your stance to Grappling Stance.]])
+		return ([[당신의 신체 크기보다 한 단계 큰 대상까지, %d턴 동안 붙잡습니다. 붙잡힌 대상은 이동할 수 없게 되고 정확도와 회피도가 %d 감소됩니다. 붙잡은 상태에서 이동하게 되면 기술이 풀립니다. 붙잡기를 유지하는 동안에는 매 턴마다 체력이 %d씩 소모됩니다.
+		한번에 하나의 대상만 붙잡을 수 있으며, 다른 대상에게 맨손 전투 기술을 사용하면 붙잡은 대상이 풀려납니다.
+		붙잡을 확률과 잡힌 대상의 정확도, 회피도 감소는 물리력에 영향을 받아 증가됩니다.
+		이 기술을 사용하면 잡기 자세로 전환됩니다.]])
 		:format(duration, power, drain)
 	end,
 }
 
 newTalent{
 	name = "Maim",
+	display_name = "꺽기",
 	type = {"technique/grappling", 2},
 	require = techs_req2,
 	points = 5,
@@ -184,14 +189,15 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local maim = t.getMaim(self, t)
-		return ([[Grapples the target and inflicts %0.2f physical damage.  If the target is already grappled the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
-		The grapple effects will be based off your grapple talent effect if you have it and the damage will with your physical power.]])
+		return ([[대상을 잡고 %0.2f의 물리 피해를 줍니다. 대상이 이미 잡혀있는 상태라면, 붙잡은 상태로 꺽어서 대상의 공격력을 %d 감소시키고 전체 속도를 30%% 감소시키는 효과를 %d턴 동안 유지합니다.
+		이 효과는 물리력에 영향을 받아 증가됩니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (damage)), maim, duration)
 	end,
 }
 
 newTalent{
 	name = "Crushing Hold",
+	display_name = "눌러 조르기",
 	type = {"technique/grappling", 3},
 	require = techs_req3,
 	mode = "passive",
@@ -201,15 +207,16 @@ newTalent{
 	getDamage = function(self, t) return self:combatTalentPhysicalDamage(t, 5, 50) * getUnarmedTrainingBonus(self) end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Your clinch talent now starts a crushing hold that deals %0.2f physical damage each turn.  If the target is already grappled the hold will instead become a strangle hold, silencing the target and inflicting %0.2f physical damage each turn.
-		Undead, targets immune to silence, and creatures that do not breathe are immune to the strangle effect and will only be affected by the crushing hold.
-		The damage will scale with your physical power.]])
+		return ([[붙잡기 기술에 매 턴마다 %0.2f의 물리 피해를 입히는, 눌러 조르기 효과가 추가됩니다. 대상이 이미 잡혀있는 상태라면, 붙잡은 상태로 숨통을 졸라서 침묵시키고 매 턴마다 %0.2f의 물리 피해를 줍니다.
+		대상이 침묵 효과에 면역이거나, 숨을 쉬지 않거나, 언데드라면 숨통 조르기 대신 눌러 조르기 효과만 받게 됩니다.
+		이 효과는 물리력에 영향을 받아 증가됩니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damage * 1.5)))
 	end,
 }
 
 newTalent{
 	name = "Take Down",
+	display_name = "넘어뜨리기",
 	type = {"technique/grappling", 4},
 	require = techs_req4,
 	points = 5,
@@ -271,14 +278,14 @@ newTalent{
 					if target:canBe("stun") then
 						target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 					else
-						game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+						game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
 					end
 				else
 					self:project(target, x, y, DamageType.PHYSICAL, self:physicalCrit(t.getTakeDown(self, t), nil, target, self:combatAttack(), target:combatDefense()))
 					if target:canBe("stun") then
 						target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 					else
-						game.logSeen(target, "%s resists the daze!", target.name:capitalize())
+						game.logSeen(target, "%s 혼절 효과에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 			end
@@ -290,8 +297,8 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local takedown = t.getTakeDown(self, t)
 		local slam = t.getSlam(self, t)
-		return ([[Rushes forward and attempts to take the target to the ground, starting a grapple, inflicting %0.2f physical damage, and dazing the target for %d turns.  If you're already grappling the target you'll instead slam them into the ground for %0.2f physical damage and potentially stun them for %d turns.
-		The grapple effects and duration will be based off your grapple talent effect if you have it and the damage will scale with your physical power.]])
+		return ([[대상에게 달려들어서 땅바닥에 넘어뜨린 뒤, 잡아서 %0.2f의 물리 피해를 주고 %d 턴 동안 혼절시킵니다. 대상이 이미 잡혀있는 상태라면 땅바닥에 내동댕이 쳐서, %0.2f의 물리 피해를 입히고 %d턴 동안 기절시킵니다.
+		이 효과는 물리력에 영향을 받아 증가됩니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (takedown)), duration, damDesc(self, DamageType.PHYSICAL, (slam)), duration)
 	end,
 }

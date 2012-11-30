@@ -94,11 +94,11 @@ function _M:run()
 	local flysize = ({normal=14, small=12, big=16})[config.settings.tome.fonts.size]
 	self.tooltip = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
 	self.tooltip2 = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
-	self.flyers = FlyingText.new("/data/font/soya.ttf", flysize, "/data/font/soya.ttf", flysize + 3)
+	self.flyers = FlyingText.new("/data/font/soya.ttf" or "/data/font/INSULA__.ttf", flysize, "/data/font/soya.ttf" or "/data/font/INSULA__.ttf", flysize + 3)
 	self.flyers:enableShadow(0.6)
 	game:setFlyingText(self.flyers)
 
-	self.bignews = BigNews.new("/data/font/soya.ttf", 30)
+	self.bignews = BigNews.new("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", 30)
 
 	self.nicer_tiles = NicerTiles.new()
 
@@ -138,14 +138,14 @@ function _M:run()
 	end)
 
 	-- Create the map scroll text overlay
-	local lfont = core.display.newFont("/data/font/soya.ttf", 30)
+	local lfont = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 30)
 	lfont:setStyle("bold")
 	local s = core.display.drawStringBlendedNewSurface(lfont, "<스크롤 모드, 방향키로 화면을 이동시킵니다, caps lock을 누르면 종료합니다>", unpack(colors.simple(colors.GOLD)))
 	lfont:setStyle("normal")
 	self.caps_scroll = {s:glTexture()}
 	self.caps_scroll.w, self.caps_scroll.h = s:getSize()
 
-	self.zone_font = core.display.newFont("/data/font/soya.ttf", 12)
+	self.zone_font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 12)
 
 	self.inited = true
 end
@@ -1552,20 +1552,20 @@ do return end
 			if self.always_target == true then
 				self.always_target = "health"
 				Map:setViewerFaction(nil)
-				self.log("Showing healthbars only.")
+				self.log("체력바만 표시.")
 			elseif self.always_target == nil then
 				self.always_target = true
 				Map:setViewerFaction(self.player.faction)
-				self.log("Showing healthbars and tactical borders.")
+				self.log("체력바와 경계를 표시.")
 			elseif self.always_target == "health" then
 				self.always_target = nil
 				Map:setViewerFaction(nil)
-				self.log("Showing no tactical information.")
+				self.log("아무런 정보도 표시하지 않음.")
 			end
 		end,
 
 		LOOK_AROUND = function()
-			self.log("Looking around... (direction keys to select interesting things, shift+direction keys to move freely)")
+			self.log("주위를 둘러봅니다... (방향키로 흥미로운 것을 선택할 수 있고, 시프트+방향키로 자유롭게 화면을 움직일 수 있습니다)")
 			local co = coroutine.create(function()
 				local x, y = self.player:getTarget{type="hit", no_restrict=true, range=2000}
 				if x and y then
