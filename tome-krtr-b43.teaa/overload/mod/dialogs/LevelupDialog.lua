@@ -65,7 +65,7 @@ function _M:init(actor, on_finish, on_birth)
 	self.talent_types_learned = {}
 	self.stats_increased = {}
 
-	self.font = core.display.newFont("/data/font/soya.ttf", 12)
+	self.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", 12)
 	self.font_h = self.font:lineSkip()
 
 	self.actor.__hidden_talent_types = self.actor.__hidden_talent_types or {}
@@ -400,7 +400,7 @@ function _M:learnType(tt, v)
 			return
 		end
 		if not self.actor.talents_types_def[tt] or (self.actor.talents_types_def[tt].min_lev or 0) > self.actor.level then
-			self:simplePopup("미숙한 레벨", ("이 기술계열은 레벨%d부터 사용할 수 있습니다. 지금 이 기술계열을 익히는 것은 쓸모가 없습니다."):format(self.actor.talents_types_def[tt].min_lev))
+			self:simplePopup("미숙한 레벨", ("이 기술계열은 레벨 %d부터 사용할 수 있습니다. 지금 이 기술계열을 익히는 것은 쓸모가 없습니다."):format(self.actor.talents_types_def[tt].min_lev))
 			return
 		end
 		if not self.actor:knowTalentType(tt) then
@@ -853,7 +853,7 @@ function _M:getTalentDesc(item)
 
 		if self.actor.talents_types_def[item.type].generic then
 			text:add({"color",0x00,0xFF,0xFF}, "일반기술 계통", true)
-			text:add({"color",0x00,0xFF,0xFF}, "일반기술은 케릭터의 기본적인 능력을 향상시키거나 여러가지 유용한 기술을 배우는데 쓸 수 있습니다. 누구나 배울 수 있는 기술들을 의미하며, 레벨 상승시 1점을 받습니다(예외로 5의 배수 레벨에는 못받음). 일반기술 점수를 추가로 획득할 수 있는 아티팩트나 기회를 발견할 수도 있습니다.", true, true, {"color", "WHITE"})
+			text:add({"color",0x00,0xFF,0xFF}, "일반기술은 캐릭터의 기본적인 능력을 향상시키거나 여러가지 유용한 기술을 배우는데 쓸 수 있습니다. 누구나 배울 수 있는 기술들을 의미하며, 레벨 상승시 1점을 받습니다(예외로 5의 배수 레벨에는 못받음). 일반기술 점수를 추가로 획득할 수 있는 아티팩트나 기회를 발견할 수도 있습니다.", true, true, {"color", "WHITE"})
 		else
 			text:add({"color",0x00,0xFF,0xFF}, "직업기술 계통", true)
 			text:add({"color",0x00,0xFF,0xFF}, "직업기술은 당신이 선택한 직업의 핵심적인 능력들을 나타내며, 새로운 전투법이나 주문, 강화효과등을 얻을 수 있습니다. 레벨 상승시 1점을 받으며 5의 배수 레벨에서는 2점을 받습니다. 일반기술 점수를 추가로 획득할 수 있는 아티팩트나 기회를 발견할 수도 있습니다.", true, true, {"color", "WHITE"})

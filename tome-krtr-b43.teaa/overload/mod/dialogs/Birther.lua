@@ -628,7 +628,7 @@ function _M:getLock(d)
 end
 
 function _M:generateCampaigns()
-	local locktext = "\n\n#GOLD#이 케릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
 	local list = {}
 
 	for i, d in ipairs(self.birth_descriptor_def.world) do
@@ -649,7 +649,7 @@ function _M:generateCampaigns()
 end
 
 function _M:generateDifficulties()
-	local locktext = "\n\n#GOLD#이 케릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
 	local list = {}
 
 	local oldsel = nil
@@ -681,7 +681,7 @@ function _M:generateDifficulties()
 end
 
 function _M:generatePermadeaths()
-	local locktext = "\n\n#GOLD#이 케릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
 	local list = {}
 
 	local oldsel = nil
@@ -713,7 +713,7 @@ function _M:generatePermadeaths()
 end
 
 function _M:generateRaces()
-	local locktext = "\n\n#GOLD#이 케릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
 
 	local oldtree = {}
 	for i, t in ipairs(self.all_races or {}) do oldtree[t.id] = t.shown end
@@ -767,7 +767,7 @@ function _M:generateRaces()
 end
 
 function _M:generateClasses()
-	local locktext = "\n\n#GOLD#이 케릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
 
 	local oldtree = {}
 	for i, t in ipairs(self.all_classes or {}) do oldtree[t.id] = t.shown end
@@ -938,7 +938,7 @@ function _M:loadPremadeUI()
 
 	local load = Button.new{text=" 불러오기 ", fct=function() if sel then self:loadPremade(sel) game:unregisterDialog(d) end end}
 	local del = Button.new{text="삭제", fct=function() if sel then
-		self:yesnoPopup(sel.name, "만들었던 케릭터를 삭제하시겠습니까?: "..sel.name, function(ret) if ret then
+		self:yesnoPopup(sel.name, "만들었던 캐릭터를 삭제하시겠습니까?: "..sel.name, function(ret) if ret then
 			local vault = CharacterVaultSave.new(sel.short_name)
 			vault:delete()
 			vault:close()
@@ -1084,9 +1084,9 @@ function _M:selectExplorationNoDonations()
 
 만약 이 기능을 사용하고 싶으시고 이 게임이 마음에 드신다면 기부를 부탁드립니다.
 이 게임은 무료이고 취미삼아 만든 것이지만, 제 가족의 생계에 약간이나마 도움이 되게 된다면, 간혹 현실이 가혹하더라도 불평없이 기쁜 마음으로 제작을 계속할 수 있을꺼에요.
-온라인 프로파일이 활성화되어 있고 접속중이라면 커스텀 케릭터 타일을 선택할 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
+온라인 프로파일이 활성화되어 있고 접속중이라면 커스텀 캐릭터 타일을 선택할 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
 
-기부해주신 분들은 커스텀 케릭터 타일도 사용하실 수 있습니다.]], 400, function(ret)
+기부해주신 분들은 커스텀 캐릭터 타일도 사용하실 수 있습니다.]], 400, function(ret)
 		if not ret then
 			game:registerDialog(require("mod.dialogs.Donation").new("exploration-mode"))
 		end
@@ -1094,13 +1094,13 @@ function _M:selectExplorationNoDonations()
 end
 
 function _M:selectTileNoDonations()
-	Dialog:yesnoLongPopup("커스텀 케릭터 타일",
-	[[커스텀 케릭터 타일은 ToME을 위해 기부해주신 분들께 감사드리기 위해 추가되었습니다.
-특별한 인간형 타일에서부터 게임상에서 흔히 본 것들까지 총 180가지에 이르는 재미난 케릭터 타일을 제공합니다(나중에 더 추가됩니다!)
+	Dialog:yesnoLongPopup("커스텀 캐릭터 타일",
+	[[커스텀 캐릭터 타일은 ToME을 위해 기부해주신 분들께 감사드리기 위해 추가되었습니다.
+특별한 인간형 타일에서부터 게임상에서 흔히 본 것들까지 총 180가지에 이르는 재미난 캐릭터 타일을 제공합니다(나중에 더 추가됩니다!)
 
 만약 이 기능을 사용하고 싶으시고 이 게임이 마음에 드신다면 기부를 부탁드립니다.
 이 게임은 무료이고 취미삼아 만든 것이지만, 제 가족의 생계에 약간이나마 도움이 되게 된다면, 간혹 현실이 가혹하더라도 불평없이 기쁜 마음으로 제작을 계속할 수 있을꺼에요.
-온라인 프로파일이 활성화되어 있고 접속중이라면 커스텀 케릭터 타일을 선택할 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
+온라인 프로파일이 활성화되어 있고 접속중이라면 커스텀 캐릭터 타일을 선택할 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
 
 기부해주신 분들은 탐사 모드도 사용하실 수 있습니다.]], 400, function(ret)
 		if not ret then

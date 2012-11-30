@@ -446,11 +446,11 @@ function _M:display()
 			self:makeTexture(("점수: %d"):format(arena.score), x, h, 255, 255, 255) h = h + self.font_h
 		end
 		if arena.currentWave > world.arena.bestWave then
-			self:makeTexture(("쇄도(기록갱신) %d"):format(arena.currentWave), x, h, 255, 255, 100)
+			self:makeTexture(("%d차 쇄도(기록갱신)"):format(arena.currentWave), x, h, 255, 255, 100)
 		elseif arena.currentWave > world.arena.lastScore.wave then
-			self:makeTexture(("쇄도 %d"):format(arena.currentWave), x, h, 100, 100, 255)
+			self:makeTexture(("%d차 쇄도"):format(arena.currentWave), x, h, 100, 100, 255)
 		else
-			self:makeTexture(("쇄도 %d"):format(arena.currentWave), x, h, 255, 255, 255)
+			self:makeTexture(("%d차 쇄도"):format(arena.currentWave), x, h, 255, 255, 255)
 		end
 		if arena.event > 0 then
 			if arena.event == 1 then
