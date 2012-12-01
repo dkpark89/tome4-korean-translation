@@ -140,11 +140,11 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임화면이 어떤 방식으로 보일지 결정합니다. 기본은 '금속'방식입니다. '단순'방식은 가장 기본적이지만 장식에 쓰이는 화면 공간이 가장 적습니다.\n이 설정의 효과는 게임을 다시 시작해야 적용됩니다."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임화면이 어떤 방식으로 보일지 결정합니다. 기본은 'Metal'방식입니다. 'Simple'방식은 가장 기본적이지만 장식에 쓰이는 화면 공간이 가장 적습니다.\n이 설정의 효과는 게임을 다시 시작해야 적용됩니다."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#게임화면 형식#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.ui_theme2):capitalize()
 	end, fct=function(item)
-		Dialog:listPopup("게임화면 형식", "원하는 형식을 고르시오.", {{name="금속", ui="metal"}, {name="돌", ui="stone"}, {name="단순", ui="simple"}}, 300, 200, function(sel)
+		Dialog:listPopup("게임화면 형식", "원하는 형식을 고르시오.", {{name="Metal", ui="metal"}, {name="Stone", ui="stone"}, {name="Simple", ui="simple"}}, 300, 200, function(sel)
 			if not sel or not sel.ui then return end
 			game:saveSettings("tome.ui_theme2", ("tome.ui_theme2 = %q\n"):format(sel.ui))
 			config.settings.tome.ui_theme2 = sel.ui
@@ -152,11 +152,11 @@ function _M:generateList()
 		end)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"HUD를 어떤방식으로 보일지 결정합니다. 기본은 '최소'방식입니다.\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"HUD를 어떤방식으로 보일지 결정합니다. 기본은 'Minimalist'방식입니다.\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#HUD 형식#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.uiset_mode):capitalize()
 	end, fct=function(item)
-		local huds = {{name="최소", ui="Minimalist"}, {name="고전", ui="Classic"}}
+		local huds = {{name="Minimalist", ui="Minimalist"}, {name="Classic", ui="Classic"}}
 		self:triggerHook{"GameOptions:HUDs", huds=huds}
 		Dialog:listPopup("HUD 형식", "원하는 형식을 고르시오", huds, 300, 200, function(sel)
 			if not sel or not sel.ui then return end

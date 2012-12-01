@@ -53,7 +53,7 @@ function _M:generateList(actions)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, nil, game.gestures)
 			game:registerDialog(menu)
 		end },
-		keybinds_all = { "키보드 명령 설정", function()
+		keybinds_all = { "명령어 입력 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, true, game.gestures)
 			game:registerDialog(menu)
