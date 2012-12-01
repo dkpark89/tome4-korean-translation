@@ -34,11 +34,11 @@ function _M:init(title, player)
 	local nb = 0
 	for id, data in pairs(world.achieved) do nb = nb + 1 end
 
-	Dialog.init(self, (title or "Achievements").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, (title or "달성 과제").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
 
-	self.c_self = Checkbox.new{title="Yours only", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
-	self.c_main = Checkbox.new{title="All achieved", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
-	self.c_all = Checkbox.new{title="Everything", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("all") end end}
+	self.c_self = Checkbox.new{title="현재 캐릭터 달성", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
+	self.c_main = Checkbox.new{title="모든 캐릭터 달성", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
+	self.c_all = Checkbox.new{title="모든 과제", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("all") end end}
 
 	self.c_image = Image.new{file="trophy_gold.png", width=64, height=64, shadow=true}
 	self.c_desc = TextzoneList.new{scrollbar=true, width=math.floor(self.iw * 0.4 - 10), height=self.ih - self.c_self.h}
@@ -67,9 +67,9 @@ function _M:init(title, player)
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw * 0.6 - 10), height=self.ih - 10 - self.c_self.h, floating_headers = true, scrollbar=true, sortable=true, columns={
 		{name="", width={24,"fixed"}, display_prop="--", direct_draw=direct_draw},
-		{name="Achievement", width=60, display_prop="name", sort="name"},
-		{name="When", width=20, display_prop="when", sort="when"},
-		{name="Who", width=20, display_prop="who", sort="who"},
+		{name="달성 과제", width=60, display_prop="name", sort="name"},
+		{name="달성시기", width=20, display_prop="when", sort="when"},
+		{name="달성자", width=20, display_prop="who", sort="who"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -106,13 +106,13 @@ function _M:select(item)
 	if item then
 		local also = ""
 		if self.player and self.player.achievements and self.player.achievements[item.id] then
-			also = "#GOLD#Also achieved by your current character#LAST#\n"
+			also = "#GOLD#현재 캐릭터도 달성했습니다.#LAST#\n"
 		end
 		self.c_image.item = item.tex
 		local track = self:getTrack(item.a)
-		local desc = ("#GOLD#Achieved on:#LAST# %s\n#GOLD#Achieved by:#LAST# %s\n%s\n#GOLD#Description:#LAST# %s"):format(item.when, item.who, also, item.desc):toTString()
+		local desc = ("#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.when, item.who, also, item.desc):toTString()
 		if track then
-			desc:add(true, true, {"color","GOLD"}, "Progress: ", {"color","LAST"})
+			desc:add(true, true, {"color","GOLD"}, "진행정도: ", {"color","LAST"})
 			desc:merge(track)
 		end
 		self.c_desc:switchItem(item, desc)
@@ -168,9 +168,9 @@ function _M:generateList(kind)
 			if a.show == "full" or not data.notdone then
 				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "none" then
-				list[#list+1] = { name="???", color=color, desc="-- Unknown --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name="???", color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "name" then
-				list[#list+1] = { name=a.name, color=color, desc="-- Unknown --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name=a.name, color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			else
 				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			end

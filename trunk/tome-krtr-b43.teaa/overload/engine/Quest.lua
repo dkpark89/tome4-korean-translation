@@ -28,10 +28,10 @@ DONE = 100
 FAILED = 101
 
 status_text = {
-	[PENDING] = "active",
-	[COMPLETED] = "completed",
-	[DONE] = "done",
-	[FAILED] = "failed",
+	[PENDING] = "진행중",
+	[COMPLETED] = "완료",
+	[DONE] = "성공",
+	[FAILED] = "실패",
 }
 
 function _M:init(q, who)

@@ -221,7 +221,7 @@ end
 
 function _M:getMainMenuItems()
 	return {
-		{"Reset interface positions", function() self:resetPlaces() self:saveSettings() end},
+		{"인터페이스 위치 초기화", function() self:resetPlaces() self:saveSettings() end},
 	}
 end
 
