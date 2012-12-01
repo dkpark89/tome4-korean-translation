@@ -237,7 +237,8 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = ( self.display_name or self.name )
+	local name = self.display_name
+	if name == nil then name = self.name end
 
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 

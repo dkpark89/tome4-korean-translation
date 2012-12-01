@@ -45,6 +45,6 @@ newAI("move_quest_limmir", function(self)
 		game.level.turn_counter_desc = "북동쪽에서 몰려오는 악마들로부터 리미르(Limmir)를 보호하시오. 악마들을 잡아 죽이세요!"
 		game.player.changed = true
 		self.ai = "none"
-		self:doEmote("여기는 더렵혀졌어! 내가 정화시키겠어! 그동안 날 좀 보호해줘!", 120)
+		self:doEmote("여기는 더렵혀졌어! 내가 정화시켜야겠어! 그동안 날 좀 보호해줘!", 120)
 	end
 end)

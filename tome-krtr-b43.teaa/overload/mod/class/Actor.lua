@@ -1374,9 +1374,12 @@ function _M:tooltip(x, y, seen_by)
 	end
 	
 	--@@
-	local tn = self.type_name or self.type:capitalize()
-	local tsn = self.stype_name or self.subtype:capitalize()
-	local nn = self.display_name or self.name
+	local tn = self.type_name
+	if tn==nil then tn = self.type:capitalize() end
+	local tsn = self.stype_name
+	if tsn==nil then tsn = self.subtype:capitalize() end
+	local nn = self.display_name
+	if nn==nil then nn = self.name end
 
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(nn, {"color", "WHITE"})
