@@ -17,13 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newAI("summoned", function(self)
 	-- Run out of time ?
 	if self.summon_time then
 		self.summon_time = self.summon_time - 1
 		if self.summon_time <= 0 then
 			if not self.summon_quiet then
-				game.logPlayer(self.summoner, "#PINK#Your summoned %s disappears.", self.name)
+				game.logPlayer(self.summoner, "#PINK#당신의 소환수 %s 사라집니다.", (self.display_name or self.name):addJosa("가"))
 			end
 			self:die()
 		end

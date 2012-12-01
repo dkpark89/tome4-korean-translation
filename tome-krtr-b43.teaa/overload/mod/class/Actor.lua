@@ -1341,9 +1341,9 @@ end
 
 function _M:tooltip(x, y, seen_by)
 	if seen_by and not seen_by:canSee(self) then return end
-	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "neutral", Faction:factionReaction(self.faction, game.player.faction)
-	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "hostile"
-	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "friendly"
+	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "중립", Faction:factionReaction(self.faction, game.player.faction)
+	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "적대"
+	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "우호"
 	end
 
 	-- Debug feature, mousing over with ctrl pressed will give detailed FOV info
@@ -1358,9 +1358,9 @@ function _M:tooltip(x, y, seen_by)
 		print("==============================================")
 	end
 
-	local pfactcolor, pfactstate, pfactlevel = "#ANTIQUE_WHITE#", "neutral", self:reactionToward(game.player)
-	if pfactlevel < 0 then pfactcolor, pfactstate = "#LIGHT_RED#", "hostile"
-	elseif pfactlevel > 0 then pfactcolor, pfactstate = "#LIGHT_GREEN#", "friendly"
+	local pfactcolor, pfactstate, pfactlevel = "#ANTIQUE_WHITE#", "중립", self:reactionToward(game.player)
+	if pfactlevel < 0 then pfactcolor, pfactstate = "#LIGHT_RED#", "적대"
+	elseif pfactlevel > 0 then pfactcolor, pfactstate = "#LIGHT_GREEN#", "우호"
 	end
 
 	local rank, rank_color = self:TextRank()
@@ -1372,41 +1372,46 @@ function _M:tooltip(x, y, seen_by)
 			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "all" or DamageType:get(t).name)
 		end
 	end
+	
+	--@@
+	local tn = self.type_name or self.type:capitalize()
+	local tsn = self.stype_name or self.subtype:capitalize()
+	local nn = self.display_name or self.name
 
 	local ts = tstring{}
-	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.name, {"color", "WHITE"})
-	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, "(", self.female and "female" or "male", ")", {"font","normal"}, true) else ts:add(true) end
-	ts:add(self.type:capitalize(), " / ", self.subtype:capitalize(), true)
-	ts:add("Rank: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
-	ts:add({"color", 0, 255, 255}, ("Level: %d"):format(self.level), {"color", "WHITE"}, true)
-	if self.life < 0 then ts:add({"color", 255, 0, 0}, "HP: unknown", {"color", "WHITE"}, true)
-	else ts:add({"color", 255, 0, 0}, ("HP: %d (%d%%)"):format(self.life, self.life * 100 / self.max_life), {"color", "WHITE"}, true)
+	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(nn, {"color", "WHITE"})
+	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, "(", self.female and "여성" or "남성", ")", {"font","normal"}, true) else ts:add(true) end
+	ts:add(tn, " / ", tsn, true)
+	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
+	ts:add({"color", 0, 255, 255}, ("레벨: %d"):format(self.level), {"color", "WHITE"}, true)
+	if self.life < 0 then ts:add({"color", 255, 0, 0}, "생명력: 확인불가", {"color", "WHITE"}, true)
+	else ts:add({"color", 255, 0, 0}, ("생명력: %d (%d%%)"):format(self.life, self.life * 100 / self.max_life), {"color", "WHITE"}, true)
 	end
 
 	if self:attr("encased_in_ice") then
 		local eff = self:hasEffect(self.EFF_FROZEN)
-		ts:add({"color", 0, 255, 128}, ("Iceblock: %d"):format(eff.hp), {"color", "WHITE"}, true)
+		ts:add({"color", 0, 255, 128}, ("얼음덩이: %d"):format(eff.hp), {"color", "WHITE"}, true)
 	end
 	--ts:add(("Stats: %d / %d / %d / %d / %d / %d"):format(self:getStr(), self:getDex(), self:getCon(), self:getMag(), self:getWil(), self:getCun()), true)
-	if #resists > 0 then ts:add("Resists: ", table.concat(resists, ','), true) end
-	ts:add("Hardiness/Armour: ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
-	ts:add("Size: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory(), {"color", "WHITE"}, true)
+	if #resists > 0 then ts:add("저항: ", table.concat(resists, ','), true) end
+	ts:add("방어효율/방어도: ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
+	ts:add("크기: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory(), {"color", "WHITE"}, true)
 
-	ts:add("#FFD700#Accuracy#FFFFFF#: ", self:colorStats("combatAttack"), "  ")
-	ts:add("#0080FF#Defense#FFFFFF#:  ", self:colorStats("combatDefense"), true)
-	ts:add("#FFD700#P. power#FFFFFF#: ", self:colorStats("combatPhysicalpower"), "  ")
-	ts:add("#0080FF#P. save#FFFFFF#:  ", self:colorStats("combatPhysicalResist"), true)
-	ts:add("#FFD700#S. power#FFFFFF#: ", self:colorStats("combatSpellpower"), "  ")
-	ts:add("#0080FF#S. save#FFFFFF#:  ", self:colorStats("combatSpellResist"), true)
-	ts:add("#FFD700#M. power#FFFFFF#: ", self:colorStats("combatMindpower"), "  ")
-	ts:add("#0080FF#M. save#FFFFFF#:  ", self:colorStats("combatMentalResist"), true)
+	ts:add("#FFD700#정확도  #FFFFFF#: ", self:colorStats("combatAttack"), "  ")
+	ts:add("#0080FF#회피도  #FFFFFF#:  ", self:colorStats("combatDefense"), true)
+	ts:add("#FFD700#물리력  #FFFFFF#: ", self:colorStats("combatPhysicalpower"), "  ")
+	ts:add("#0080FF#물리내성#FFFFFF#:  ", self:colorStats("combatPhysicalResist"), true)
+	ts:add("#FFD700#주문력  #FFFFFF#: ", self:colorStats("combatSpellpower"), "  ")
+	ts:add("#0080FF#주문내성#FFFFFF#:  ", self:colorStats("combatSpellResist"), true)
+	ts:add("#FFD700#정신력  #FFFFFF#: ", self:colorStats("combatMindpower"), "  ")
+	ts:add("#0080FF#정신내성#FFFFFF#:  ", self:colorStats("combatMentalResist"), true)
 	ts:add({"color", "WHITE"})
 	if self.summon_time then
-		ts:add("Time left: ", {"color", "ANTIQUE_WHITE"}, ("%d"):format(self.summon_time), {"color", "WHITE"}, true)
+		ts:add("남은 시간: ", {"color", "ANTIQUE_WHITE"}, ("%d"):format(self.summon_time), {"color", "WHITE"}, true)
 	end
 	if self.desc then ts:add(self.desc, true) end
-	if self.faction and Faction.factions[self.faction] then ts:add("Faction: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true) end
-	if game.player ~= self then ts:add("Personal reaction: ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
+	if self.faction and Faction.factions[self.faction] then ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true) end
+	if game.player ~= self then ts:add("개별 성향: ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
 
 	for tid, act in pairs(self.sustain_talents) do
 		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, self:getTalentFromId(tid).name, {"color", "WHITE"} ) end
@@ -3779,12 +3784,12 @@ function _M:getTalentFullDescription(t, addlevel, config)
 
 	local d = tstring{}
 
-	d:add({"color",0x6f,0xff,0x83}, "Effective talent level: ", {"color",0x00,0xFF,0x00}, ("%.1f"):format(self:getTalentLevel(t)), true)
+	d:add({"color",0x6f,0xff,0x83}, "실질 기술 레벨: ", {"color",0x00,0xFF,0x00}, ("%.1f"):format(self:getTalentLevel(t)), true)
 
 	if not config.ignore_mode then
-		if t.mode == "passive" then d:add({"color",0x6f,0xff,0x83}, "Use mode: ", {"color",0x00,0xFF,0x00}, "Passive", true)
-		elseif t.mode == "sustained" then d:add({"color",0x6f,0xff,0x83}, "Use mode: ", {"color",0x00,0xFF,0x00}, "Sustained", true)
-		else d:add({"color",0x6f,0xff,0x83}, "Use mode: ", {"color",0x00,0xFF,0x00}, "Activated", true)
+		if t.mode == "passive" then d:add({"color",0x6f,0xff,0x83}, "사용 형태: ", {"color",0x00,0xFF,0x00}, "지속형", true)
+		elseif t.mode == "sustained" then d:add({"color",0x6f,0xff,0x83}, "사용 형태: ", {"color",0x00,0xFF,0x00}, "유지형", true)
+		else d:add({"color",0x6f,0xff,0x83}, "사용 형태: ", {"color",0x00,0xFF,0x00}, "사용형", true)
 		end
 	end
 
@@ -3793,54 +3798,54 @@ function _M:getTalentFullDescription(t, addlevel, config)
 		d:add(true)
 	end
 	if not config.ignore_ressources then
-		if t.mana then d:add({"color",0x6f,0xff,0x83}, "Mana cost: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.mana, self, t) * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.stamina then d:add({"color",0x6f,0xff,0x83}, "Stamina cost: ", {"color",0xff,0xcc,0x80}, ""..(t.stamina * (100 + self:combatFatigue()) / 100), true) end
-		if t.equilibrium then d:add({"color",0x6f,0xff,0x83}, "Equilibrium cost: ", {"color",0x00,0xff,0x74}, ""..(t.equilibrium), true) end
-		if t.vim then d:add({"color",0x6f,0xff,0x83}, "Vim cost: ", {"color",0x88,0x88,0x88}, ""..(t.vim), true) end
-		if t.positive then d:add({"color",0x6f,0xff,0x83}, "Positive energy cost: ", {"color",255, 215, 0}, ""..(t.positive * (100 + self:combatFatigue()) / 100), true) end
-		if t.negative then d:add({"color",0x6f,0xff,0x83}, "Negative energy cost: ", {"color", 127, 127, 127}, ""..(t.negative * (100 + self:combatFatigue()) / 100), true) end
-		if t.hate then d:add({"color",0x6f,0xff,0x83}, "Hate cost:  ", {"color", 127, 127, 127}, ""..(t.hate * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.paradox then d:add({"color",0x6f,0xff,0x83}, "Paradox cost: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.paradox * (1 + (self.paradox / 300))), true) end
-		if t.psi then d:add({"color",0x6f,0xff,0x83}, "Psi cost: ", {"color",0x7f,0xff,0xd4}, ""..(t.psi * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.feedback then d:add({"color",0x6f,0xff,0x83}, "Feedback cost: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.feedback * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.mana then d:add({"color",0x6f,0xff,0x83}, "마나 소모량: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.mana, self, t) * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.stamina then d:add({"color",0x6f,0xff,0x83}, "체력 소모량: ", {"color",0xff,0xcc,0x80}, ""..(t.stamina * (100 + self:combatFatigue()) / 100), true) end
+		if t.equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 증가량: ", {"color",0x00,0xff,0x74}, ""..(t.equilibrium), true) end
+		if t.vim then d:add({"color",0x6f,0xff,0x83}, "정력 소모량: ", {"color",0x88,0x88,0x88}, ""..(t.vim), true) end
+		if t.positive then d:add({"color",0x6f,0xff,0x83}, "양기 소모량: ", {"color",255, 215, 0}, ""..(t.positive * (100 + self:combatFatigue()) / 100), true) end
+		if t.negative then d:add({"color",0x6f,0xff,0x83}, "음기 소모량: ", {"color", 127, 127, 127}, ""..(t.negative * (100 + self:combatFatigue()) / 100), true) end
+		if t.hate then d:add({"color",0x6f,0xff,0x83}, "증오심 소모량:  ", {"color", 127, 127, 127}, ""..(t.hate * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.paradox then d:add({"color",0x6f,0xff,0x83}, "괴리 증가량: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.paradox * (1 + (self.paradox / 300))), true) end
+		if t.psi then d:add({"color",0x6f,0xff,0x83}, "염력 소모량: ", {"color",0x7f,0xff,0xd4}, ""..(t.psi * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.feedback then d:add({"color",0x6f,0xff,0x83}, "반작용 소모량: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.feedback * (100 + 2 * self:combatFatigue()) / 100), true) end
 
-		if t.sustain_mana then d:add({"color",0x6f,0xff,0x83}, "Sustain mana cost: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.sustain_mana, self, t)), true) end
-		if t.sustain_stamina then d:add({"color",0x6f,0xff,0x83}, "Sustain stamina cost: ", {"color",0xff,0xcc,0x80}, ""..(t.sustain_stamina), true) end
-		if t.sustain_equilibrium then d:add({"color",0x6f,0xff,0x83}, "Sustain equilibrium cost: ", {"color",0x00,0xff,0x74}, ""..(t.sustain_equilibrium), true) end
-		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "Sustain vim cost: ", {"color",0x88,0x88,0x88}, ""..(t.sustain_vim), true) end
-		if t.sustain_positive then d:add({"color",0x6f,0xff,0x83}, "Sustain positive energy cost: ", {"color",255, 215, 0}, ""..(t.sustain_positive), true) end
-		if t.sustain_negative then d:add({"color",0x6f,0xff,0x83}, "Sustain negative energy cost: ", {"color", 127, 127, 127}, ""..(t.sustain_negative), true) end
-		if t.sustain_hate then d:add({"color",0x6f,0xff,0x83}, "Sustain hate cost:  ", {"color", 127, 127, 127}, ""..(t.sustain_hate), true) end
-		if t.sustain_paradox then d:add({"color",0x6f,0xff,0x83}, "Sustain paradox cost: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.sustain_paradox), true) end
-		if t.sustain_psi then d:add({"color",0x6f,0xff,0x83}, "Sustain psi cost: ", {"color",0x7f,0xff,0xd4}, ""..(t.sustain_psi), true) end
-		if t.sustain_feedback then d:add({"color",0x6f,0xff,0x83}, "Sustain feedback cost: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.sustain_feedback), true) end
+		if t.sustain_mana then d:add({"color",0x6f,0xff,0x83}, "마나 유지량: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.sustain_mana, self, t)), true) end
+		if t.sustain_stamina then d:add({"color",0x6f,0xff,0x83}, "체력 유지량: ", {"color",0xff,0xcc,0x80}, ""..(t.sustain_stamina), true) end
+		if t.sustain_equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 유지량: ", {"color",0x00,0xff,0x74}, ""..(t.sustain_equilibrium), true) end
+		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "정력 유지량: ", {"color",0x88,0x88,0x88}, ""..(t.sustain_vim), true) end
+		if t.sustain_positive then d:add({"color",0x6f,0xff,0x83}, "양기 유지량: ", {"color",255, 215, 0}, ""..(t.sustain_positive), true) end
+		if t.sustain_negative then d:add({"color",0x6f,0xff,0x83}, "음기 유지량: ", {"color", 127, 127, 127}, ""..(t.sustain_negative), true) end
+		if t.sustain_hate then d:add({"color",0x6f,0xff,0x83}, "증오심 유지량:  ", {"color", 127, 127, 127}, ""..(t.sustain_hate), true) end
+		if t.sustain_paradox then d:add({"color",0x6f,0xff,0x83}, "괴리 유지량: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.sustain_paradox), true) end
+		if t.sustain_psi then d:add({"color",0x6f,0xff,0x83}, "염력 유지량: ", {"color",0x7f,0xff,0xd4}, ""..(t.sustain_psi), true) end
+		if t.sustain_feedback then d:add({"color",0x6f,0xff,0x83}, "반작용 유지량: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.sustain_feedback), true) end
 	end
 	if t.mode ~= "passive" then
-		if self:getTalentRange(t) > 1 then d:add({"color",0x6f,0xff,0x83}, "Range: ", {"color",0xFF,0xFF,0xFF}, ("%0.2f"):format(self:getTalentRange(t)), true)
-		else d:add({"color",0x6f,0xff,0x83}, "Range: ", {"color",0xFF,0xFF,0xFF}, "melee/personal", true)
+		if self:getTalentRange(t) > 1 then d:add({"color",0x6f,0xff,0x83}, "사정거리: ", {"color",0xFF,0xFF,0xFF}, ("%0.2f"):format(self:getTalentRange(t)), true)
+		else d:add({"color",0x6f,0xff,0x83}, "사정거리: ", {"color",0xFF,0xFF,0xFF}, "근접", true)
 		end
 		if not config.ignore_ressources then
-			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "Cooldown: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
+			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "재사용 대기시간: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
 		end
 		local speed = self:getTalentProjectileSpeed(t)
-		if speed then d:add({"color",0x6f,0xff,0x83}, "Travel Speed: ", {"color",0xFF,0xFF,0xFF}, ""..(speed * 100).."% of base", true)
-		else d:add({"color",0x6f,0xff,0x83}, "Travel Speed: ", {"color",0xFF,0xFF,0xFF}, "instantaneous", true)
+		if speed then d:add({"color",0x6f,0xff,0x83}, "발사 속도: ", {"color",0xFF,0xFF,0xFF}, "기본 속도의 "..(speed * 100).."%", true)
+		else d:add({"color",0x6f,0xff,0x83}, "발사 속도: ", {"color",0xFF,0xFF,0xFF}, "즉시명중", true)
 		end
 		if not config.ignore_use_time then
-			local uspeed = "1 turn"
-			if t.no_energy and type(t.no_energy) == "boolean" and t.no_energy == true then uspeed = "instant" end
-			d:add({"color",0x6f,0xff,0x83}, "Usage Speed: ", {"color",0xFF,0xFF,0xFF}, uspeed, true)
+			local uspeed = "1 턴"
+			if t.no_energy and type(t.no_energy) == "boolean" and t.no_energy == true then uspeed = "즉시사용" end
+			d:add({"color",0x6f,0xff,0x83}, "사용 속도: ", {"color",0xFF,0xFF,0xFF}, uspeed, true)
 		end
 		if t.is_spell then
-			d:add({"color",0x6f,0xff,0x83}, "Is Spell: ", {"color",0xFF,0xFF,0xFF}, "true", true)
+			d:add({"color",0x6f,0xff,0x83}, "이 기술은 주문으로 분류됩니다.", {"color",0xFF,0xFF,0xFF}, ".", true)
 		end
 	else
 		if not config.ignore_ressources then
-			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "Cooldown: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
+			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "재사용 대기시간: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
 		end
 	end
 
-	d:add({"color",0x6f,0xff,0x83}, "Description: ", {"color",0xFF,0xFF,0xFF})
+	d:add({"color",0x6f,0xff,0x83}, "설명: ", {"color",0xFF,0xFF,0xFF})
 	d:merge(t.info(self, t):toTString():tokenize(" ()[]"))
 
 	self.talents[t.id] = old

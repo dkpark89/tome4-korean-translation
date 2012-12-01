@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local DamageType = require "engine.DamageType"
 local Map = require "engine.Map"
@@ -32,11 +33,11 @@ module(..., package.seeall, class.make)
 function _M:archeryAcquireTargets(tg, params)
 	local weapon, ammo = self:hasArcheryWeapon()
 	if not weapon then
-		game.logPlayer(self, "You must wield a bow or a sling (%s)!", ammo)
+		game.logPlayer(self, "활이나 투석구로 무장해야 합니다 (%s)!", ammo)
 		return nil
 	end
 	if not ammo or (ammo.combat.shots_left <= 0 and not ammo.infinite) then
-		game.logPlayer(self, "You do not have enough ammo left!")
+		game.logPlayer(self, "준비된 탄환이 부족합니다!")
 		return nil
 	end
 	params = params or {}
@@ -177,7 +178,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 		dam = dam * mult
 		print("[ATTACK ARCHERY] after mult", dam)
 
-		if crit then game.logSeen(self, "#{bold}#%s performs a critical strike!#{normal}#", self.name:capitalize()) end
+		if crit then game.logSeen(self, "#{bold}#%s 치명타를 성공합니다!#{normal}#", self.name:capitalize():addJosa("가")) end
 
 		-- Damage conversion?
 		-- Reduces base damage but converts it into another damage type
@@ -217,7 +218,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 		if talent.archery_onhit then talent.archery_onhit(self, talent, target, target.x, target.y) end
 	else
 		local srcname = game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
-		game.logSeen(target, "%s misses %s.", srcname, target.name)
+		game.logSeen(target, "%s %s로의 공격에 실패했습니다.", srcname:addJosa("이"), target.name)
 	end
 
 	-- cross-tier effect for accuracy vs. defense
@@ -400,11 +401,11 @@ end
 function _M:archeryShoot(targets, talent, tg, params)
 	local weapon, ammo = self:hasArcheryWeapon()
 	if not weapon then
-		game.logPlayer(self, "You must wield a bow or a sling (%s)!", ammo)
+		game.logPlayer(self, "활이나 투석구로 무장해야 합니다 (%s)!", ammo)
 		return nil
 	end
 	if self:attr("disarmed") then
-		game.logPlayer(self, "You are disarmed!")
+		game.logPlayer(self, "당신은 무장해제 되었습니다!")
 		return nil
 	end
 	print("[SHOOT WITH]", weapon.name, ammo.name)
@@ -430,11 +431,11 @@ end
 --- Check if the actor has a bow or sling and corresponding ammo
 function _M:hasArcheryWeapon(type)
 	if self:attr("disarmed") then
-		return nil, "disarmed"
+		return nil, "무장해제 상태효과"
 	end
 
-	if not self:getInven("MAINHAND") then return nil, "no shooter" end
-	if not self:getInven("QUIVER") then return nil, "no ammo" end
+	if not self:getInven("MAINHAND") then return nil, "장거리 무기 없음" end
+	if not self:getInven("QUIVER") then return nil, "탄환 없음" end
 	local weapon = self:getInven("MAINHAND")[1]
 	local ammo = self:getInven("QUIVER")[1]
 	if self.inven[self.INVEN_PSIONIC_FOCUS] then
@@ -444,28 +445,28 @@ function _M:hasArcheryWeapon(type)
 		end
 	end
 	if not weapon or not weapon.archery then
-		return nil, "no shooter"
+		return nil, "장거리 무기 없음"
 	end
 	if not ammo then
-		return nil, "no ammo"
+		return nil, "탄환 없음"
 	else
 		if not ammo.archery_ammo or weapon.archery ~= ammo.archery_ammo then
-			return nil, "bad ammo"
+			return nil, "잘못된 탄환"
 		end
 	end
-	if type and weapon.archery ~= type then return nil, "bad type" end
+	if type and weapon.archery ~= type then return nil, "잘못된 무기" end
 	return weapon, ammo
 end
 
 --- Check if the actor has a bow or sling and corresponding ammo
 function _M:hasAmmo(type)
-	if not self:getInven("QUIVER") then return nil, "no ammo" end
+	if not self:getInven("QUIVER") then return nil, "탄환 없음" end
 	local ammo = self:getInven("QUIVER")[1]
 
-	if not ammo then return nil, "no ammo" end
-	if not ammo.archery_ammo then return nil, "bad ammo" end
-	if not ammo.combat then return nil, "bad ammo" end
-	if not ammo.combat.capacity then return nil, "bad ammo" end
-	if type and ammo.archery_ammo ~= type then return nil, "bad type" end
+	if not ammo then return nil, "탄환 없음" end
+	if not ammo.archery_ammo then return nil, "잘못된 탄환" end
+	if not ammo.combat then return nil, "잘못된 탄환" end
+	if not ammo.combat.capacity then return nil, "잘못된 탄환" end
+	if type and ammo.archery_ammo ~= type then return nil, "잘못된 무기" end
 	return ammo
 end
