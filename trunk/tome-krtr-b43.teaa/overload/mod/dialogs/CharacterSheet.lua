@@ -812,7 +812,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		h = 0
 		w = self.w * 0.25
 
-		s:drawColorStringBlended(self.font, "#LIGHT_BLUE#정항력 기본 / 한계:", w, h, 255, 255, 255, true) h = h + self.font_h
+		s:drawColorStringBlended(self.font, "#LIGHT_BLUE#저항력 기본 / 한계:", w, h, 255, 255, 255, true) h = h + self.font_h
 
 		local resists = {}
 		for i, t in ipairs(DamageType.dam_def) do

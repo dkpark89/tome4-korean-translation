@@ -639,7 +639,7 @@ function _M:generateCampaigns()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				list[#list+1] = { name = tstring{d.display_name}:toString(), id=d.name, desc=desc }
+				list[#list+1] = { name = tstring{d.display_name or d.name}:toString(), id=d.name, desc=desc }
 			end
 		end
 	end
@@ -665,7 +665,7 @@ function _M:generateDifficulties()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				list[#list+1] = { name = tstring{d.display_name}:toString(), id=d.name, desc=desc }
+				list[#list+1] = { name = tstring{d.display_name or d.name}:toString(), id=d.name, desc=desc }
 				if oldsel == d.name then oldsel = #list end
 				if util.getval(d.selection_default) then self.default_difficulty = d.name end
 			end
@@ -697,7 +697,7 @@ function _M:generatePermadeaths()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				list[#list+1] = { name = tstring{d.display_name}:toString(), id=d.name, desc=desc }
+				list[#list+1] = { name = tstring{d.display_name or d.name}:toString(), id=d.name, desc=desc }
 				if oldsel == d.name then oldsel = #list end
 				if util.getval(d.selection_default) then self.default_permadeath = d.name end
 			end
@@ -732,7 +732,7 @@ function _M:generateRaces()
 					elseif locked == false then
 						local desc = sd.desc
 						if type(desc) == "table" then desc = table.concat(sd.desc, "\n") end
-						nodes[#nodes+1] = { name = sd.display_name, basename = sd.display_name, id=sd.name, pid=d.name, desc=desc }
+						nodes[#nodes+1] = { name = sd.display_name or sd.name, basename = sd.display_name or sd.name, id=sd.name, pid=d.name, desc=desc }
 						if self.sel_race and self.sel_race.id == sd.name then newsel = nodes[#nodes] end
 					end
 				end
@@ -744,7 +744,7 @@ function _M:generateRaces()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.display_name, {"font", "normal"}}, id=d.name, shown = oldtree[d.name], nodes = nodes, desc=desc }
+				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.display_name or d.name, {"font", "normal"}}, id=d.name, shown = oldtree[d.name], nodes = nodes, desc=desc }
 			end
 		end
 	end
@@ -792,7 +792,7 @@ function _M:generateClasses()
 						if how == "nolore" and self.descriptors_by_type.subrace then
 							desc = "#CRIMSON#이 직업은 선택한 종족과 썩 어울려 보이지 않습니다. 게임이 불가능한 것은 아니지만, 특정 퀘스트는 불가능할 수도 있습니다/...#WHITE#\n" .. desc
 						end
-						nodes[#nodes+1] = { name = sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc }
+						nodes[#nodes+1] = { name = sd.display_name or sd.name, basename=sd.display_name or sd.name, id=sd.name, pid=d.name, desc=desc }
 						if self.sel_class and self.sel_class.id == sd.name then newsel = nodes[#nodes] end
 					end
 				end
@@ -804,7 +804,7 @@ function _M:generateClasses()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.display_name, {"font", "normal"}}, id=d.name, shown=oldtree[d.name], nodes = nodes, desc=desc }
+				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.display_name or d.name, {"font", "normal"}}, id=d.name, shown=oldtree[d.name], nodes = nodes, desc=desc }
 			end
 		end
 	end
