@@ -21,6 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Skullcracker",
+	display_name = "두개골 부수기",
 	type = {"technique/thuggery", 1},
 	points = 5,
 	cooldown = 12,
