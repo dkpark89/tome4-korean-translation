@@ -313,7 +313,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		local cur_exp, max_exp = player.exp, player:getExpChart(player.level+1)
 		h = 0
 		w = 0
-		s:drawStringBlended(self.font, "성별  : "..((player.descriptor and player.descriptor.sex) or (player.female and "여성" or "남성")), w, h, 0, 200, 255, true) h = h + self.font_h
+		s:drawStringBlended(self.font, "성별  : "..(player.female and "여성" or "남성"), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, (player.descriptor and "종족  : " or "종류  : ")..((player.descriptor and player.descriptor.subrace) or player.type:capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, (player.descriptor and "직업  : " or "유형  : ")..((player.descriptor and player.descriptor.subclass) or player.subtype:capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, "크기  : "..(player:TextSizeCategory():capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h

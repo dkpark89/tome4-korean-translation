@@ -435,7 +435,18 @@ function _M:getTextualDesc(compare_with)
 		compare_with = compare_with or {}
 		local dm = {}
 		for stat, i in pairs(combat.dammod or {}) do
-			dm[#dm+1] = ("%d%% %s"):format((i + (add_table.dammod[stat] or 0)) * 100, Stats.stats_def[stat].short_name:capitalize())
+			local stt = Stats.stats_def[stat].short_name
+			local stn
+			if stt == "str" then stn = "힘"
+			elseif stt == "dex" then stn = "민첩"
+			elseif stt == "con" then stn = "체격"
+			elseif stt == "mag" then stn = "마법"
+			elseif stt == "wil" then stn = "의지"
+			elseif stt == "cun" then stn = "교활"
+			elseif stt == "lck" then stn = "행운"
+			else stn = stt end
+			
+			dm[#dm+1] = ("%d%% %s"):format((i + (add_table.dammod[stat] or 0)) * 100, stn:capitalize())
 		end
 		if #dm > 0 or combat.dam then
 			local power_diff = ""
