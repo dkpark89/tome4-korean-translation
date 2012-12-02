@@ -144,42 +144,42 @@ function _M:descAttribute(attr)
 		return (i and i > 0 and "+"..i or tostring(i)).."%"
 	elseif attr == "REGEN" then
 		local i = self.wielder.mana_regen or self.wielder.stamina_regen or self.wielder.life_regen or self.wielder.hate_regen or self.wielder.positive_regen
-		return ("%s%0.2f/turn"):format(i > 0 and "+" or "-", math.abs(i))
+		return ("%s%0.2f/턴"):format(i > 0 and "+" or "-", math.abs(i))
 	elseif attr == "COMBAT" then
 		local c = self.combat
-		return c.dam.."-"..(c.dam*(c.damrange or 1.1)).." power, "..(c.apr or 0).." apr"
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)
 	elseif attr == "COMBAT_AMMO" then
 		local c = self.combat
-		return c.shots_left.."/"..math.floor(c.capacity)..", "..c.dam.."-"..(c.dam*(c.damrange or 1.1)).." power, "..(c.apr or 0).." apr"
+		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)
 	elseif attr == "COMBAT_DAMTYPE" then
 		local c = self.combat
-		return c.dam.."-"..(c.dam*(c.damrange or 1.1)).." power, "..(c.apr or 0).." apr, "..DamageType:get(c.damtype).name.." damage"
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)..", 속성 "..DamageType:get(c.damtype).name
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
-			return c.dam.." dam, "..c.block.." block"
+			return "공격력 "..c.dam..", 막기 "..c.block
 		else
-			return c.block.." block"
+			return "막기 "..c.block
 		end
 	elseif attr == "ARMOR" then
-		return (self.wielder and self.wielder.combat_def or 0).." def, "..(self.wielder and self.wielder.combat_armor or 0).." armour"
+		return "회피도 "..(self.wielder and self.wielder.combat_def or 0)..", 방어도 "..(self.wielder and self.wielder.combat_armor or 0)
 	elseif attr == "ATTACK" then
-		return (self.wielder and self.wielder.combat_atk or 0).." accuracy, "..(self.wielder and self.wielder.combat_apr or 0).." apr, "..(self.wielder and self.wielder.combat_dam or 0).." power"
+		return "정확도 "..(self.wielder and self.wielder.combat_atk or 0)..", 관통력 "..(self.wielder and self.wielder.combat_apr or 0)..", 공격력 "..(self.wielder and self.wielder.combat_dam or 0)
 	elseif attr == "MONEY" then
-		return ("worth %0.2f"):format(self.money_value / 10)
+		return ("금화 %0.2f개 가치"):format(self.money_value / 10)
 	elseif attr == "USE_TALENT" then
 		return self:getTalentFromId(self.use_talent.id).name:lower()
 	elseif attr == "DIGSPEED" then
-		return ("dig speed %d turns"):format(self.digspeed)
+		return ("굴착 속도 %d 턴"):format(self.digspeed)
 	elseif attr == "CHARM" then
-		return (" [power %d]"):format(self:getCharmPower())
+		return (" [힘 %d]"):format(self:getCharmPower())
 	elseif attr == "CHARGES" then
 		if self.talent_cooldown and (self.use_power or self.use_talent) then
 			local cd = game.player.talents_cd[self.talent_cooldown]
 			if cd and cd > 0 then
-				return " ("..cd.."/"..(self.use_power or self.use_talent).power.." cooldown)"
+				return " (지연시간 "..cd.."/"..(self.use_power or self.use_talent).power..")"
 			else
-				return " ("..(self.use_power or self.use_talent).power.." cooldown)"
+				return " (지연시간 "..(self.use_power or self.use_talent).power..")"
 			end
 		elseif self.use_power or self.use_talent then
 			return (" (%d/%d)"):format(math.floor(self.power / (self.use_power or self.use_talent).power), math.floor(self.max_power / (self.use_power or self.use_talent).power))
@@ -302,7 +302,7 @@ function _M:getTextualDesc(compare_with)
 
 	if self.quest then desc:add({"color", "VIOLET"},"[플롯 아이템]", {"color", "LAST"}, true) end
 
-	desc:add(("종류: %s / %s"):format(rawget(self, 'display_type') or rawget(self, 'type') or "unknown", rawget(self, 'display_subtype') or rawget(self, 'subtype') or "unknown"))
+	desc:add(("종류: %s / %s"):format(self.display_type or rawget(self, 'type') or "unknown", self.display_subtype or rawget(self, 'subtype') or "unknown")) --@@??
 	if self.material_level then desc:add(" ; ", tostring(self.material_level), "단계") end
 	desc:add(true)
 	if self.slot_forbid == "OFFHAND" then desc:add("양손으로 쥐는 무기입니다.", true) end
@@ -494,14 +494,14 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_hit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					desc:add({"color","RED"}, ("공격 성공시: %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+					desc:add({"color","RED"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
 			end
 		end
 		for tid, data in pairs(talents) do
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시: %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 		
 		local talents = {}
@@ -513,14 +513,14 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_crit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					desc:add({"color","RED"}, ("치명타 성공시: %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+					desc:add({"color","RED"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
 			end
 		end
 		for tid, data in pairs(talents) do
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시: %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
 		local special = ""
@@ -1046,7 +1046,7 @@ function _M:getTextualDesc(compare_with)
 		end
 
 		if (w and w.combat or can_combat_unarmed) and (game.player:knowTalent(game.player.T_EMPTY_HAND) or game.player:attr("show_gloves_combat")) then
-			desc:add({"color","YELLOW"}, "When used to modify unarmed attacks:", {"color", "LAST"}, true) --@@??
+			desc:add({"color","YELLOW"}, "맨손 격투시 적용:", {"color", "LAST"}, true)
 			compare_tab = { dam=1, atk=1, apr=0, physcrit=0, physspeed =0.6, dammod={str=1}, damrange=1.1 }
 			desc_combat(w, compare_unarmed, "combat", compare_tab)
 		end
@@ -1080,7 +1080,7 @@ function _M:getTextualDesc(compare_with)
 	end
 
 	if (self.special_combat or can_special_combat) and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
-		desc:add({"color","YELLOW"}, "When used to attack (with talents):", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "(관련 기술이 있을때) 공격시 적용:", {"color", "LAST"}, true)
 		desc_combat(self, compare_with, "special_combat")
 	end
 
@@ -1092,39 +1092,39 @@ function _M:getTextualDesc(compare_with)
 	end
 
 	if self.no_teleport then
-		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "It is immune to teleportation, if you teleport it will fall on the ground.", {"color", "LAST"}, true)
+		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "전이효과에 대해 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
 	elseif found then
-		desc:add({"color","RED"}, "It is immune to teleportation, if you teleport it will fall on the ground.", {"color", "LAST"}, true)
+		desc:add({"color","RED"}, "전이효과에 대해 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
 	end
 
 	if self.wielder or can_wielder then
-		desc:add({"color","YELLOW"}, "When wielded/worn:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "착용시 적용:", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "wielder")
 		if self:attr("skullcracker_mult") and game.player:knowTalent(game.player.T_SKULLCRACKER) then
-			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "Skullcracker multiplicator: ")
+			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "두개골 부수기 배수: ")
 		end
 	end
 
 	if self.carrier or can_carrier then
-		desc:add({"color","YELLOW"}, "When carried:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "보유시 적용:", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "carrier")
 	end
 
 	if self.imbue_powers or can_imbue_powers then
-		desc:add({"color","YELLOW"}, "When used to imbue an object:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "아이템에 합성시 적용:", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "imbue_powers")
 	end
 
 	if self.alchemist_bomb then
 		local a = self.alchemist_bomb
-		desc:add({"color","YELLOW"}, "When used as an alchemist bomb:", {"color", "LAST"}, true)
-		if a.power then desc:add(("Bomb damage +%d%%"):format(a.power), true) end
-		if a.range then desc:add(("Bomb thrown range +%d"):format(a.range), true) end
-		if a.mana then desc:add(("Mana regain %d"):format(a.mana), true) end
-		if a.daze then desc:add(("%d%% chance to daze for %d turns"):format(a.daze.chance, a.daze.dur), true) end
-		if a.stun then desc:add(("%d%% chance to stun for %d turns"):format(a.stun.chance, a.stun.dur), true) end
-		if a.splash then desc:add(("Additional %d %s damage"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).name), true) end
-		if a.leech then desc:add(("Life regen %d%% of max life"):format(a.leech), true) end
+		desc:add({"color","YELLOW"}, "연금술 폭탄 사용시:", {"color", "LAST"}, true)
+		if a.power then desc:add(("폭발 피해량 +%d%%"):format(a.power), true) end
+		if a.range then desc:add(("폭탄 사정거리 +%d"):format(a.range), true) end
+		if a.mana then desc:add(("마나 회복 %d"):format(a.mana), true) end
+		if a.daze then desc:add(("%d턴 동안 %d%% 확률로 혼절"):format(a.daze.dur, a.daze.chance), true) end
+		if a.stun then desc:add(("%d턴 동안 %d%% 확률로 기절"):format(a.stun.dur, a.stun.chance), true) end
+		if a.splash then desc:add(("추가적인 %d %s 피해"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).name), true) end
+		if a.leech then desc:add(("최대 생명력의 %d%% 생명력 재생"):format(a.leech), true) end
 	end
 
 	if self.inscription_data and self.inscription_talent then
@@ -1132,7 +1132,7 @@ function _M:getTextualDesc(compare_with)
 		local t = self:getTalentFromId("T_"..self.inscription_talent.."_1")
 		local tdesc = game.player:getTalentFullDescription(t)
 		game.player.__inscription_data_fake = nil
-		desc:add({"color","YELLOW"}, "When inscribed on your body:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "각인시 적용:", {"color", "LAST"}, true)
 		desc:merge(tdesc)
 		desc:add(true)
 	end
@@ -1147,14 +1147,14 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_spell or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				desc:add({"color","RED"}, ("Talent on hit(spell): %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("Talent on hit(spell): %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	local talents = {}
@@ -1167,14 +1167,14 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_wild_gift or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				desc:add({"color","RED"}, ("Talent on hit(nature): %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("Talent on hit(nature): %s (%d%% chance level %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	if self.curse then
@@ -1195,29 +1195,32 @@ function _M:getUseDesc()
 	local ret = tstring{}
 	if self.use_power then
 		if self.show_charges then
-			ret = tstring{{"color","YELLOW"}, ("It can be used to %s, with %d charges out of %d."):format(util.getval(self.use_power.name, self), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power)), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s (현재 가능한 사용횟수 %d/%d)."):format(util.getval(self.use_power.name, self), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power)), {"color","LAST"}}
 		elseif self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, ("It can be used to %s, placing all other charms into a %d cooldown."):format(util.getval(self.use_power.name, self):format(self:getCharmPower()), self.use_power.power), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s, 사용시 다른 모든 부적의 지연시간을 %d턴 늘립니다."):format(util.getval(self.use_power.name, self):format(self:getCharmPower()), self.use_power.power), {"color","LAST"}}
 		else
-			ret = tstring{{"color","YELLOW"}, ("It can be used to %s, costing %d power out of %d/%d."):format(util.getval(self.use_power.name, self), self.use_power.power, self.power, self.max_power), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s (소모력 %d, 현재 보유력 %d/%d)"):format(util.getval(self.use_power.name, self), self.use_power.power, self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
-		ret = tstring{{"color","YELLOW"}, ("It can be used to %s."):format(self.use_simple.name), {"color","LAST"}}
+		ret = tstring{{"color","YELLOW"}, ("사용처: %s"):format(self.use_simple.name), {"color","LAST"}}
 	elseif self.use_talent then
 		local t = game.player:getTalentFromId(self.use_talent.id)
 		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(self.use_talent.power, self.power, self.max_power)}})
+		--@@
+		local tn = t.display_name
+		if tn == nil then tn = t.name end
 		if self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, "It can be used to activate talent ", t.name,", placing all other charms into a ", tostring(math.floor(self.use_talent.power)) ," cooldown :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", tn," 기술이 발동하고, 다른 모든 부적의 지연시간을 ", tostring(math.floor(self.use_talent.power)) ,"턴 늘립니다 :", {"color","LAST"}, true}
 		else
-			ret = tstring{{"color","YELLOW"}, "It can be used to activate talent ", t.name," (costing ", tostring(math.floor(self.use_talent.power)), " power out of ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", tn," 기술이 발동합니다 (소모력 ", tostring(math.floor(self.use_talent.power)), " 현재 보유력 ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
 		end
 		ret:merge(desc)
 	end
 
 	if self.charm_on_use then
-		ret:add(true, "When used:", true)
+		ret:add(true, "사용시:", true)
 		for fct, d in pairs(self.charm_on_use) do
-			ret:add(tostring(d[1]), "% chances to ", d[2](self, game.player), ".", true)
+			ret:add(tostring(d[1]), "% 확률로 ", d[2](self, game.player), "에게 적용.", true)
 		end
 	end
 
@@ -1229,10 +1232,10 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	local desc = tstring{}
 
 	if self.__new_pickup then
-		desc:add({"font","bold"},{"color","LIGHT_BLUE"},"Newly picked up",{"font","normal"},{"color","LAST"},true)
+		desc:add({"font","bold"},{"color","LIGHT_BLUE"},"새로 획득했음",{"font","normal"},{"color","LAST"},true)
 	end
 	if self.__transmo then
-		desc:add({"font","bold"},{"color","YELLOW"},"This item will automatically be transmogrified when you leave the level.",{"font","normal"},{"color","LAST"},true)
+		desc:add({"font","bold"},{"color","YELLOW"},"이 아이템은 현재 층을 벗어날 때 자동으로 돈으로 바뀝니다.",{"font","normal"},{"color","LAST"},true)
 	end
 
 	name_param = name_param or {}
@@ -1247,19 +1250,19 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	end
 
 	if self.power_source then
-		if self.power_source.arcane then desc:add("Powered by ", {"color", "VIOLET"}, "arcane forces", {"color", "LAST"}, true) end
-		if self.power_source.nature then desc:add("Infused by ", {"color", "OLIVE_DRAB"}, "nature", {"color", "LAST"}, true) end
-		if self.power_source.antimagic then desc:add("Infused by ", {"color", "ORCHID"}, "arcane disrupting forces", {"color", "LAST"}, true) end
-		if self.power_source.technique then desc:add("Crafted by ", {"color", "LIGHT_UMBER"}, "a master", {"color", "LAST"}, true) end
-		if self.power_source.psionic then desc:add("Infused by ", {"color", "YELLOW"}, "psionic forces", {"color", "LAST"}, true) end
-		if self.power_source.unknown then desc:add("Powered by ", {"color", "CRIMSON"}, "unknown forces", {"color", "LAST"}, true) end
+		if self.power_source.arcane then desc:add({"color", "VIOLET"}, "마법의 힘", {"color", "LAST"}, " 부여", true) end
+		if self.power_source.nature then desc:add({"color", "OLIVE_DRAB"}, "자연의 힘", {"color", "LAST"}, " 주입", true) end
+		if self.power_source.antimagic then desc:add({"color", "ORCHID"}, "반마법의 힘", {"color", "LAST"}, " 주입", true) end
+		if self.power_source.technique then desc:add({"color", "LIGHT_UMBER"}, "장인", {"color", "LAST"}, "이 만듦", true) end
+		if self.power_source.psionic then desc:add({"color", "YELLOW"}, "염동력", {"color", "LAST"}, " 주입", true) end
+		if self.power_source.unknown then desc:add({"color", "CRIMSON"}, "알수없는 힘", {"color", "LAST"}, " 부여", true) end
 	end
 
 	if self.encumber then
-		desc:add({"color",0x67,0xAD,0x00}, ("%0.2f Encumbrance."):format(self.encumber), {"color", "LAST"})
+		desc:add({"color",0x67,0xAD,0x00}, ("무게 %0.2f."):format(self.encumber), {"color", "LAST"})
 	end
 	if self.ego_bonus_mult then
-		desc:add(true, {"color",0x67,0xAD,0x00}, ("%0.2f Ego Multiplier."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
+		desc:add(true, {"color",0x67,0xAD,0x00}, ("에고 배수 %0.2f."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
 	end
 
 	local could_compare = false
@@ -1277,7 +1280,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 		desc:add({"color", "WHITE"})
 	end
 
-	if could_compare and not never_compare then desc:add(true, {"font","italic"}, {"color","GOLD"}, "Press <control> to compare", {"color","LAST"}, {"font","normal"}) end
+	if could_compare and not never_compare then desc:add(true, {"font","italic"}, {"color","GOLD"}, "비교하려면 <control>키를 누르시오", {"color","LAST"}, {"font","normal"}) end
 
 	return desc
 end
