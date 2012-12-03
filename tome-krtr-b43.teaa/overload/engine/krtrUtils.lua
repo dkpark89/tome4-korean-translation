@@ -247,7 +247,7 @@ function string.krItemType(str)
 	elseif ori == "infusion" then return "인퓨전"
 	elseif ori == "rune" then return "룬"
 	elseif ori == "taint" then return "얼룩"
-	elseif ori == "sher'tul" then return "쉐르툴"
+	elseif ori == "sher'tul" then return "쉐르'툴"
 	else return str end
 end
 
@@ -1076,7 +1076,7 @@ function string.krTalentType(str)
 	-- undeads
 	elseif ori == "ghoul" then return "구울"
 	elseif ori == "skeleton" then return "스켈레톤"
-	elseif ori == "vampire" then return "뱀파이어"
+	elseif ori == "vampire" then return "흡혈귀"
 	elseif ori == "lich" then return "리치"
 	-- techniques
 	elseif ori == "two-handed weapons" then return "양손무기 공격기술"
@@ -1169,11 +1169,11 @@ function string.krTalentType(str)
 	elseif ori == "call of the wild" then return "야생의 부름"
 	elseif ori == "harmony" then return "조화"
 	elseif ori == "antimagic" then return "반마법"
-	elseif ori == "summoning (melee)" then return "소환 (근거리)"
-	elseif ori == "summoning (distance)" then return "소환 (장거리)"
-	elseif ori == "summoning (utility)" then return "소환 (유용)"
+	elseif ori == "summoning (melee)" then return "근접 공격 소환수"
+	elseif ori == "summoning (distance)" then return "정거리 공격 소환수 소환"
+	elseif ori == "summoning (utility)" then return "유용한 소환"
 	elseif ori == "summoning (augmentation)" then return "소환기술 향상"
-	elseif ori == "summoning (advanced)" then return "소환 (숙련)"
+	elseif ori == "summoning (advanced)" then return "숙련된 소환술"
 	elseif ori == "slime aspect" then return "슬라임 형태"
 	elseif ori == "fungus" then return "미생물"
 	elseif ori == "sand drake aspect" then return "모래 드레이크 형태"
@@ -1251,7 +1251,7 @@ end
 function string.krRace(str)
 	local ori = str:lower()
 	if ori == "construct" then return "구조체"
-	elseif ori == "Runic Golem" then return "룬 골렘"
+	elseif ori == "runic golem" then return "룬 골렘"
 	elseif ori == "dwarf" then return "드워프"
 	elseif ori == "elf" then return "엘프"
 	elseif ori == "shalore" then return "샬로레"
@@ -1267,6 +1267,66 @@ function string.krRace(str)
 	elseif ori == "ghoul" then return "구울"
 	elseif ori == "skeleton" then return "스켈레톤"
 	elseif ori == "yeek" then return "이크"
+	-- 위는 캐릭터 종족, 아래는 npc 종족
+	elseif ori == "insect" then return "곤충"
+	elseif ori == "ant" then return "개미"
+	elseif ori == "aquatic" then return "수생동물"
+	elseif ori == "critter" then return "미생물"
+	elseif ori == "demon" then return "악마"
+	elseif ori == "animal" then return "동물"
+	elseif ori == "bear" then return "곰"
+	elseif ori == "bird" then return "조류"
+	elseif ori == "giant" then return "거인"
+	elseif ori == "canine" then return "갯과"
+	elseif ori == "dragon" then return "드래곤"
+	elseif ori == "cold" then return "냉동"
+	elseif ori == "golem" then return "골렘"
+	elseif ori == "immovable" then return "부동생물"
+	elseif ori == "crystal" then return "크리스탈"
+	elseif ori == "elemental" then return "엘리멘탈"
+	elseif ori == "light" then return "빛"
+	elseif ori == "humanoid" then return "영장류"
+	elseif ori == "fire" then return "화염"
+	elseif ori == "feline" then return "고양이과"
+	elseif ori == "ghost" then return "유령"
+	elseif ori == "air" then return "공기"
+	elseif ori == "horror" then return "무서운자"
+	elseif ori == "temporal" then return "시간"
+	elseif ori == "corrupted" then return "타락한자"
+	elseif ori == "eldritch" then return "섬뜩한자"
+	elseif ori == "human" then return "인간"
+	elseif ori == "jelly" then return "젤리"
+	elseif ori == "lich" then return "리치"
+	elseif ori == "void" then return "공허"
+	elseif ori == "major" then return "상위"
+	elseif ori == "minor" then return "하위"
+	elseif ori == "minotaur" then return "미노타우루스"
+	elseif ori == "molds" then return "곰팡이"
+	elseif ori == "multihued" then return "다중속성"
+	elseif ori == "mummy" then return "미이라"
+	elseif ori == "naga" then return "나가"
+	elseif ori == "vermin" then return "해충"
+	elseif ori == "oozes" then return "오즈"
+	elseif ori == "orc" then return "오크"
+	elseif ori == "plants" then return "식물"
+	elseif ori == "ritch" then return "릿치"
+	elseif ori == "rodent" then return "바퀴벌레"
+	elseif ori == "sandworm" then return "지렁이"
+	elseif ori == "shade" then return "그림자"
+	elseif ori == "sher'tul" then return "쉐르'툴"
+	elseif ori == "snake" then return "뱀"
+	elseif ori == "spiderkin" then return "거미류"
+	elseif ori == "spider" then return "거미"
+	elseif ori == "storm" then return "폭풍"
+	elseif ori == "swarms" then return "벌떼"
+	elseif ori == "troll" then return "트롤"
+	elseif ori == "vampire" then return "흡혈귀"
+	elseif ori == "venom" then return "독성"
+	elseif ori == "worms" then return "벌레"
+	elseif ori == "wight" then return "와이트"
+	elseif ori == "wild" then return "야생"
+	elseif ori == "xorn" then return "쏜"
+	elseif ori == "yaech" then return "야크"
 	else return str end
 end
 
@@ -1308,5 +1368,45 @@ function string.krClass(str)
 	elseif ori == "wilder" then return "자연의 추종자"
 	elseif ori == "summoner" then return "소환술사"
 	elseif ori == "wyrmic" then return "워믹"
+	else return str end
+end
+
+function string.krSize(str)
+	local ori = str:lower()
+	if ori == "tiny" then return "조그마함"
+	elseif ori == "small" then return "작음"
+	elseif ori == "medium" then return "평균적"
+	elseif ori == "big" then return "큼"
+	elseif ori == "huge" then return "거대함"
+	elseif ori == "gargantuan" then return "어마어마함"
+	else return str end
+end
+
+function string.krRank(str)
+	local ori = str:lower()
+	if ori == "normal" then return "평범"
+	elseif ori == "critter" then return "떨어짐"
+	elseif ori == "elite" then return "정예"
+	elseif ori == "rare" then return "진귀함"
+	elseif ori == "unique" then return "유일함"
+	elseif ori == "boss" then return "보스"
+	elseif ori == "elite boss" then return "정예 보스"
+	else return str end
+end
+
+function string.krFaction(str)
+	local ori = str:lower()
+	if ori == "rhalore" then return "랄로레"
+	elseif ori == "fearscape" then return "피어스케이프"
+	elseif ori == "orc-pride" then return "오크의 자부심"
+	elseif ori == "sunwall" then return "해의 장벽"
+	elseif ori == "zigur" then return "지구르"
+	elseif ori == "angolwen" then return "앙골웬"
+	elseif ori == "iron-throne" then return "철의 왕좌"
+	elseif ori == "undead" then return "언데드"
+	elseif ori == "shalore" then return "샬로레"
+	elseif ori == "thalore" then return "탈로레"
+	elseif ori == "allied kingdoms" then return "왕국연합"
+	elseif ori == "the way" then return "한길"
 	else return str end
 end
