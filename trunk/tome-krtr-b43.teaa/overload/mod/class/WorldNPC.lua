@@ -200,17 +200,17 @@ function _M:tooltip(x, y, seen_by)
 	if seen_by and not seen_by:canSee(self) then return end
 	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "중립", self:reactionToward(game.player)
 	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "적대"
-	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "친근"
+	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "우호"
 	end
 
 	local rank, rank_color = self:TextRank()
 
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.name, {"color", "WHITE"}, true)
-	ts:add(self.type:capitalize(), " / ", self.subtype:capitalize(), true)
-	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
+	ts:add(self.type:capitalize():krRace(), " / ", self.subtype:capitalize():krRace(), true)
+	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krRank(), {"color", "WHITE"}, true)
 	ts:add(self.desc, true)
-	ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true)
+	ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true)
 	ts:add(
 		("당신에게 죽은 횟수: "):format(killed), true,
 		"목표: ", self.ai_target.actor and self.ai_target.actor.name or "없음", true,

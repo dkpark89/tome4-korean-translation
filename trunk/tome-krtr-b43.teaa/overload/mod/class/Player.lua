@@ -596,8 +596,8 @@ function _M:onTalentCooledDown(tid)
 	local t = self:getTalentFromId(tid)
 
 	local x, y = game.level.map:getTileToScreen(self.x, self.y)
-	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(t.name:capitalize()), {0,255,00})
-	game.log("#00ff00#%s기술 %s 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), t.name:addJosa("을"))
+	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(t.name:capitalize():krTalent()), {0,255,00})
+	game.log("#00ff00#%s기술 %s 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), t.name:krTalent():addJosa("을"))
 end
 
 --- Tries to get a target from the user

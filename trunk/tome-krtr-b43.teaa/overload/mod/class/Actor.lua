@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Actor"
 require "engine.Autolevel"
@@ -1369,23 +1370,19 @@ function _M:tooltip(x, y, seen_by)
 	for t, v in pairs(self.resists) do
 		if v ~= 0 then
 			if t ~= "all" then v = self:combatGetResist(t) end
-			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "all" or DamageType:get(t).name)
+			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "전체" or DamageType:get(t).name:krDamageType())
 		end
 	end
 	
 	--@@
-	local tn = self.type_name
-	if tn==nil then tn = self.type:capitalize() end
-	local tsn = self.stype_name
-	if tsn==nil then tsn = self.subtype:capitalize() end
 	local nn = self.display_name
 	if nn==nil then nn = self.name end
 
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(nn, {"color", "WHITE"})
 	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, "(", self.female and "여성" or "남성", ")", {"font","normal"}, true) else ts:add(true) end
-	ts:add(tn, " / ", tsn, true)
-	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
+	ts:add(self.type:capitalize():krRace(), " / ", self.subtype:capitalize():krRace(), true)
+	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krRank(), {"color", "WHITE"}, true)
 	ts:add({"color", 0, 255, 255}, ("레벨: %d"):format(self.level), {"color", "WHITE"}, true)
 	if self.life < 0 then ts:add({"color", 255, 0, 0}, "생명력: 확인불가", {"color", "WHITE"}, true)
 	else ts:add({"color", 255, 0, 0}, ("생명력: %d (%d%%)"):format(self.life, self.life * 100 / self.max_life), {"color", "WHITE"}, true)
@@ -1398,7 +1395,7 @@ function _M:tooltip(x, y, seen_by)
 	--ts:add(("Stats: %d / %d / %d / %d / %d / %d"):format(self:getStr(), self:getDex(), self:getCon(), self:getMag(), self:getWil(), self:getCun()), true)
 	if #resists > 0 then ts:add("저항: ", table.concat(resists, ','), true) end
 	ts:add("방어효율/방어도: ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
-	ts:add("크기: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory(), {"color", "WHITE"}, true)
+	ts:add("크기: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory():krSize(), {"color", "WHITE"}, true)
 
 	ts:add("#FFD700#정확도  #FFFFFF#: ", self:colorStats("combatAttack"), "  ")
 	ts:add("#0080FF#회피도  #FFFFFF#:  ", self:colorStats("combatDefense"), true)
@@ -1413,11 +1410,11 @@ function _M:tooltip(x, y, seen_by)
 		ts:add("남은 시간: ", {"color", "ANTIQUE_WHITE"}, ("%d"):format(self.summon_time), {"color", "WHITE"}, true)
 	end
 	if self.desc then ts:add(self.desc, true) end
-	if self.faction and Faction.factions[self.faction] then ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true) end
+	if self.faction and Faction.factions[self.faction] then ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) end
 	if game.player ~= self then ts:add("개별 성향: ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
 
 	for tid, act in pairs(self.sustain_talents) do
-		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, self:getTalentFromId(tid).name, {"color", "WHITE"} ) end
+		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, self:getTalentFromId(tid).name:krTalent(), {"color", "WHITE"} ) end
 	end
 	for eff_id, p in pairs(self.tmp) do
 		local e = self.tempeffect_def[eff_id]
