@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 
@@ -462,29 +463,12 @@ function _M:generateList()
 	for i, tt in ipairs(self.actor.talents_types_def) do
 		if not tt.hide and not (self.actor.talents_types[tt.type] == nil) then
 			local cat = tt.type:gsub("/.*", "")
-			-- @@
-			local ttn = cat
-			if ttn == "technique" then ttn = "기술"
-			elseif ttn == "celestial" then ttn = "천공"
-			elseif ttn == "chronomancy" then ttn = "시공"
-			elseif ttn == "corruption" then ttn = "타락"
-			elseif ttn == "cunning" then ttn = "교활"
-			elseif ttn == "cursed" then ttn = "고통"
-			elseif ttn == "wild-gift" then ttn = "자연의 권능"
-			elseif ttn == "base" then ttn = "기본"
-			elseif ttn == "inscriptions" then ttn = "각인"
-			elseif ttn == "race" then ttn = "종족"
-			elseif ttn == "tutorial" then ttn = "입문"
-			elseif ttn == "psionic" then ttn = "초능력"
-			elseif ttn == "spell" then ttn = "주문"
-			elseif ttn == "undead" then ttn = "언데드" end
-			-- @@
 			local ttknown = self.actor:knowTalentType(tt.type)
 			local isgeneric = self.actor.talents_types_def[tt.type].generic
 			local tshown = (self.actor.__hidden_talent_types[tt.type] == nil and ttknown) or (self.actor.__hidden_talent_types[tt.type] ~= nil and not self.actor.__hidden_talent_types[tt.type])
 			local node = {
-				name=function(item) return tstring{{"font", "bold"}, ttn:capitalize().." / "..tt.name:capitalize() ..(" (%s)"):format((isgeneric and "generic" or "class")), {"font", "normal"}} end,
-				rawname=function(item) return ttn:capitalize().." / "..tt.name:capitalize() ..(" (x%.2f)"):format(self.actor:getTalentTypeMastery(item.type)) end,
+				name=function(item) return tstring{{"font", "bold"}, cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() ..(" (%s)"):format((isgeneric and "일반" or "직업")), {"font", "normal"}} end,
+				rawname=function(item) return cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() ..(" (x%.2f)"):format(self.actor:getTalentTypeMastery(item.type)) end,
 				type=tt.type,
 				color=function(item) return ((self.actor:knowTalentType(item.type) ~= self.actor_dup:knowTalentType(item.type)) or ((self.actor.__increased_talent_types[item.type] or 0) ~= (self.actor_dup.__increased_talent_types[item.type] or 0))) and {255, 215, 0} or self.actor:knowTalentType(item.type) and {0,200,0} or {175,175,175} end,
 				shown = tshown,
@@ -503,8 +487,8 @@ function _M:generateList()
 				if not t.hide or self.actor.__show_special_talents[t.id] then
 					self:computeDeps(t)
 					local isgeneric = self.actor.talents_types_def[tt.type].generic
-					local tdn = t.display_name
-					if tdn == nil then tdn = t.name end
+--					local tdn = t.display_name --@@
+--					if tdn == nil then tdn = t.name end
 
 					-- Pregenenerate icon with the Tiles instance that allows images
 					if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
@@ -512,7 +496,7 @@ function _M:generateList()
 					list[#list+1] = {
 						__id=t.id,
 						name=t.name:toTString(),
-						rawname=tdn,
+						rawname= t.name:krTalent(), --tdn
 						entity=t.display_entity,
 						talent=t.id,
 						isgeneric=isgeneric and 0 or 1,
