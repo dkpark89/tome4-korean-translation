@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 local Dialog = require "engine.ui.Dialog"
@@ -314,8 +315,8 @@ function _M:drawDialog(kind, actor_to_compare)
 		h = 0
 		w = 0
 		s:drawStringBlended(self.font, "성별  : "..(player.female and "여성" or "남성"), w, h, 0, 200, 255, true) h = h + self.font_h
-		s:drawStringBlended(self.font, (player.descriptor and "종족  : " or "종류  : ")..((player.descriptor and player.descriptor.subrace) or player.type:capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h
-		s:drawStringBlended(self.font, (player.descriptor and "직업  : " or "유형  : ")..((player.descriptor and player.descriptor.subclass) or player.subtype:capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h
+		s:drawStringBlended(self.font, (player.descriptor and "종족  : " or "종류  : ")..((player.descriptor and player.descriptor.subrace) or player.type:capitalize()):krRace(), w, h, 0, 200, 255, true) h = h + self.font_h
+		s:drawStringBlended(self.font, (player.descriptor and "직업  : " or "유형  : ")..((player.descriptor and player.descriptor.subclass) or player.subtype:capitalize()):krClass(), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, "크기  : "..(player:TextSizeCategory():capitalize()), w, h, 0, 200, 255, true) h = h + self.font_h
 
 		h = h + self.font_h
@@ -894,7 +895,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			if player:knowTalent(t.id) and (not t.hide or t.hide ~= "always") then
 				local lvl = player:getTalentLevelRaw(t)
 				list[#list+1] = {
-					name = ("%s (%d)"):format(t.name, lvl),
+					name = ("%s (%d)"):format(t.name:krTalent(), lvl),
 					desc = player:getTalentFullDescription(t):toString(),
 				}
 			end

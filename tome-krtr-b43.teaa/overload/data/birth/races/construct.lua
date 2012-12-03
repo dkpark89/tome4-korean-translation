@@ -22,7 +22,8 @@
 ---------------------------------------------------------
 newBirthDescriptor{
 	type = "race",
-	name = "구조체",
+	name = "Construct",
+	display_name = "구조체",
 	locked = function() return profile.mod.allow_build.construct and true or "hide" end,
 	locked_desc = "",
 	desc = {

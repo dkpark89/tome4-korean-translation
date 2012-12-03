@@ -777,7 +777,7 @@ function _M:getTextualDesc(compare_with)
 			for ttn, ttid in pairs(masteries) do
 				local tt = Talents.talents_types_def[ttn]
 				local cat = tt.type:gsub("/.*", "")
-				local name = cat:capitalize().." / "..tt.name:capitalize()
+				local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType()
 				local diff = (ttid[2] or 0) - (ttid[1] or 0)
 				if diff ~= 0 then
 					if ttid[1] then
@@ -846,7 +846,7 @@ function _M:getTextualDesc(compare_with)
 			desc:add("기술 보장: ")
 			for tid, tl in pairs(learn_talents) do
 				local diff = (tl[2] or 0) - (tl[1] or 0)
-				local name = Talents.talents_def[tid].name
+				local name = Talents.talents_def[tid].name:krTalent()
 				if diff ~= 0 then
 					if tl[1] then
 						desc:add(("+%d"):format(tl[2] or 0), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(+%d) "):format(diff), {"color","LAST"}, ("%s "):format(name))
@@ -1148,14 +1148,14 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_spell or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				desc:add({"color","RED"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name:krTalent(), data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name:krTalent(), talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	local talents = {}
@@ -1168,14 +1168,14 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_wild_gift or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name:krTalent(), data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name:krTalent(), talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	if self.curse then
@@ -1207,13 +1207,10 @@ function _M:getUseDesc()
 	elseif self.use_talent then
 		local t = game.player:getTalentFromId(self.use_talent.id)
 		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(self.use_talent.power, self.power, self.max_power)}})
-		--@@
-		local tn = t.display_name
-		if tn == nil then tn = t.name end
 		if self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, "사용시 ", tn," 기술이 발동하고, 다른 모든 부적의 지연시간을 ", tostring(math.floor(self.use_talent.power)) ,"턴 늘립니다 :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", t.name:krTalent()," 기술 발동, 다른 모든 부적의 지연시간을 ", tostring(math.floor(self.use_talent.power)) ,"턴 늘림 :", {"color","LAST"}, true}
 		else
-			ret = tstring{{"color","YELLOW"}, "사용시 ", tn," 기술이 발동합니다 (소모력 ", tostring(math.floor(self.use_talent.power)), " 현재 보유력 ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", t.name:krTalent()," 기술 발동 (소모력 ", tostring(math.floor(self.use_talent.power)), " 현재 보유력 ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
 		end
 		ret:merge(desc)
 	end
