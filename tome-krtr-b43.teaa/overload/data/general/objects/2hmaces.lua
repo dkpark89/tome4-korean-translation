@@ -22,7 +22,6 @@ newEntity{
 	slot = "MAINHAND",
 	slot_forbid = "OFFHAND",
 	type = "weapon", subtype="greatmaul",
-	display_type = "무기", display_subtype ="대형망치",
 	add_name = " (#COMBAT#)",
 	display = "\\", color=colors.SLATE, image = resolvers.image_material("2hmace", "metal"),
 	moddable_tile = resolvers.moddable_tile("mace"),
