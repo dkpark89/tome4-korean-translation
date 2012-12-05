@@ -487,8 +487,10 @@ function _M:generateList()
 				if not t.hide or self.actor.__show_special_talents[t.id] then
 					self:computeDeps(t)
 					local isgeneric = self.actor.talents_types_def[tt.type].generic
---					local tdn = t.display_name --@@
---					if tdn == nil then tdn = t.name end
+
+					-- @@
+					local tdn = t.display_name
+					if tdn == nil then tdn = t.name end
 
 					-- Pregenenerate icon with the Tiles instance that allows images
 					if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
@@ -496,7 +498,7 @@ function _M:generateList()
 					list[#list+1] = {
 						__id=t.id,
 						name=t.name:toTString(),
-						rawname= t.name:krTalent(), --tdn
+						rawname= tdn,
 						entity=t.display_entity,
 						talent=t.id,
 						isgeneric=isgeneric and 0 or 1,

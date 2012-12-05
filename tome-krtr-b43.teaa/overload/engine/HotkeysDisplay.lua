@@ -17,7 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils"
 require "engine.class"
 
 module(..., package.seeall, class.make)
@@ -105,17 +104,20 @@ function _M:display()
 		if ts[3] == "talent" then
 			local tid = ts[1]
 			local t = a:getTalentFromId(tid)
+			--@@
+			local tn = t.display_name
+			if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
 			if a:isTalentCoolingDown(t) then
-				txt = ("%s (%d)"):format(t.name:krTalent(), a:isTalentCoolingDown(t))
+				txt = ("%s (%d)"):format(tn, a:isTalentCoolingDown(t))
 				color = {255,0,0}
 			elseif a:isTalentActive(t.id) then
-				txt = t.name:krTalent()
+				txt = tn
 				color = {255,255,0}
 			elseif not a:preUseTalent(t, true, true) then
-				txt = t.name:krTalent()
+				txt = tn
 				color = {190,190,190}
 			else
-				txt = t.name:krTalent()
+				txt = tn
 				color = {0,255,0}
 			end
 		elseif ts[3] == "inventory" then
@@ -195,7 +197,11 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 					local text = ""
 					if a.hotkey[i] and a.hotkey[i][1] == "talent" then
 						local t = self.actor:getTalentFromId(a.hotkey[i][2])
-						text = tstring{{"color","GOLD"}, {"font", "bold"}, t.name:krTalent(), {"font", "normal"}, {"color", "LAST"}, true}
+						--@@
+					--@@
+						local tn = t.display_name
+						if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+						text = tstring{{"color","GOLD"}, {"font", "bold"}, tn, {"font", "normal"}, {"color", "LAST"}, true}
 						text:merge(self.actor:getTalentFullDescription(t))
 					elseif a.hotkey[i] and a.hotkey[i][1] == "inventory" then
 						local o = a:findInAllInventories(a.hotkey[i][2])

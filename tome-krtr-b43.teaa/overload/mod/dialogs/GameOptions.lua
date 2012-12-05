@@ -219,7 +219,7 @@ function _M:generateList()
 	end, fct=function(item)
 		game:registerDialog(require("engine.dialogs.ChatFilter").new({
 			{name="죽음", kind="death"},
-			{name="Object & Creatures links", kind="link"}, ---- 번역 필요: "Object & Creatures links"
+			{name="물건 & 생물체 링크", kind="link"},
 		}))
 	end,}
 

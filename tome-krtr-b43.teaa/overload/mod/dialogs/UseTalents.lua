@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils"
+--require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local TreeList = require "engine.ui.TreeList"
@@ -98,7 +98,12 @@ function _M:defineHotkey(id)
 	end
 
 	self.actor.hotkey[id] = {"talent", item.talent}
-	self:simplePopup("단축키 "..id.." 설정", (t.name:capitalize():krTalent()):addJosa("가").." 단축키 "..id:addJosa("로").." 설정되었습니다.")
+	
+	--@@
+	local tn = t.display_name
+	if tn == nil then tn = t.name:capitalize() end
+		
+	self:simplePopup("단축키 "..id.." 설정", tn:addJosa("가").." 단축키 "..id:addJosa("로").." 설정되었습니다.")
 	self.c_list:drawTree()
 	self.actor.changed = true
 end
@@ -145,20 +150,28 @@ function _M:use(item, button)
 		end
 
 		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
-		Dialog:listPopup("기술 연결: "..item.name:toString():krTalent(), "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
+		
+		--@@
+		local itn = item.display_name()
+		if itn == nil then itn = item.name:toString() end
+		
+		local tn = self.actor:getTalentFromId(item.talent).display_name
+		if tn == nil then tn = self.actor:getTalentFromId(item.talent).name:capitalize() end
+		
+		Dialog:listPopup("기술 연결: "..itn, "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
 			if not b then return end
 			if type(b.what) == "number" then
 				for i = 1, 12 * self.actor.nb_hotkey_pages do
 					if self.actor.hotkey[i] and self.actor.hotkey[i][1] == "talent" and self.actor.hotkey[i][2] == item.talent then self.actor.hotkey[i] = nil end
 				end
 				self.actor.hotkey[b.what] = {"talent", item.talent}
-				self:simplePopup("단축키 "..b.what.." 설정", (self.actor:getTalentFromId(item.talent).name:capitalize():krTalent()):addJosa("가").." 단축키 "..(b.what):addJosa("로").." 설정되었습니다.")
+				self:simplePopup("단축키 "..b.what.." 설정", tn:addJosa("가").." 단축키 "..(b.what):addJosa("로").." 설정되었습니다.")
 			elseif b.what == "middle" then
 				self.actor.auto_shoot_midclick_talent = item.talent
-				self:simplePopup("마우스 중간버튼 클릭 연결", (self.actor:getTalentFromId(item.talent).name:capitalize():krTalent()):addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.")
+				self:simplePopup("마우스 중간버튼 클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.")
 			elseif b.what == "left" then
 				self.actor.auto_shoot_talent = item.talent
-				self:simplePopup("마우스 클릭 연결", (self.actor:getTalentFromId(item.talent).name:capitalize():krTalent()):addJosa("가").." 목표에게 마우스 클릭시 사용되도록 연결되었습니다.")
+				self:simplePopup("마우스 클릭 연결", tn:addJosa("가").." 목표에게 마우스 클릭시 사용되도록 연결되었습니다.")
 			elseif b.what == "unbind" then
 				if self.actor.auto_shoot_talent == item.talent then self.actor.auto_shoot_talent = nil end
 				if self.actor.auto_shoot_midclick_talent == item.talent then self.actor.auto_shoot_midclick_talent = nil end
@@ -275,8 +288,9 @@ function _M:generateList()
 			if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 			nodes[#nodes+1] = {
-				name=((t.display_entity and t.display_entity:getDisplayString() or "")..t.name:krTalent()):toTString(),
-				cname=t.name:krTalent(),
+				--@@
+				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name)):toTString(),
+				cname = (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name),
 				status=status,
 				entity=t.display_entity,
 				talent=t.id,
