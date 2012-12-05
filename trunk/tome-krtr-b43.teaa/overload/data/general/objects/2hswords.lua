@@ -37,7 +37,7 @@ newEntity{
 }
 
 newEntity{ base = "BASE_GREATSWORD",
-	name = "iron greatsword", display_name = "철제 대검", short_name = "iron",
+	name = "iron greatsword", kr_display_name = "철제 대검", short_name = "iron",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -51,7 +51,7 @@ newEntity{ base = "BASE_GREATSWORD",
 }
 
 newEntity{ base = "BASE_GREATSWORD",
-	name = "steel greatsword", display_name = "강철 대검", short_name = "steel",
+	name = "steel greatsword", kr_display_name = "강철 대검", short_name = "steel",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -65,7 +65,7 @@ newEntity{ base = "BASE_GREATSWORD",
 }
 
 newEntity{ base = "BASE_GREATSWORD",
-	name = "dwarven-steel greatsword", display_name = "드워프-강철 대검", short_name = "d.steel",
+	name = "dwarven-steel greatsword", kr_display_name = "드워프-강철 대검", short_name = "d.steel",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -79,7 +79,7 @@ newEntity{ base = "BASE_GREATSWORD",
 }
 
 newEntity{ base = "BASE_GREATSWORD",
-	name = "stralite greatsword", display_name = "스트랄라이트 대검", short_name = "stralite",
+	name = "stralite greatsword", kr_display_name = "스트랄라이트 대검", short_name = "stralite",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -93,7 +93,7 @@ newEntity{ base = "BASE_GREATSWORD",
 }
 
 newEntity{ base = "BASE_GREATSWORD",
-	name = "voratun greatsword", display_name = "보라툰 대검", short_name = "voratun",
+	name = "voratun greatsword", kr_display_name = "보라툰 대검", short_name = "voratun",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

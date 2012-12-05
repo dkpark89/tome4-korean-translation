@@ -39,7 +39,7 @@ Tridents require the exotic weapons mastery talent to use correctly.]],
 }
 
 newEntity{ base = "BASE_TRIDENT",
-	name = "coral trident", display_name = "산호 삼지창", short_name = "coral",
+	name = "coral trident", kr_display_name = "산호 삼지창", short_name = "coral",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -53,7 +53,7 @@ newEntity{ base = "BASE_TRIDENT",
 }
 
 newEntity{ base = "BASE_TRIDENT",
-	name = "blue-steel trident", display_name = "푸른-강철 삼지창", short_name = "b.steel",
+	name = "blue-steel trident", kr_display_name = "푸른-강철 삼지창", short_name = "b.steel",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -67,7 +67,7 @@ newEntity{ base = "BASE_TRIDENT",
 }
 
 newEntity{ base = "BASE_TRIDENT",
-	name = "deep-steel trident", display_name = "심해-강철 삼지창", short_name = "d.steel",
+	name = "deep-steel trident", kr_display_name = "심해-강철 삼지창", short_name = "d.steel",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -81,7 +81,7 @@ newEntity{ base = "BASE_TRIDENT",
 }
 
 newEntity{ base = "BASE_TRIDENT",
-	name = "orite trident", display_name = "오라이트 삼지창", short_name = "orite",
+	name = "orite trident", kr_display_name = "오라이트 삼지창", short_name = "orite",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -95,7 +95,7 @@ newEntity{ base = "BASE_TRIDENT",
 }
 
 newEntity{ base = "BASE_TRIDENT",
-	name = "orichalcum trident", display_name = "오리하르콘 삼지창", short_name = "orichalcum",
+	name = "orichalcum trident", kr_display_name = "오리하르콘 삼지창", short_name = "orichalcum",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,
