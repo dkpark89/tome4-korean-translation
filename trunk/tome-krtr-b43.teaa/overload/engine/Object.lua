@@ -193,24 +193,7 @@ function _M:getRequirementDesc(who)
 	if req.stat then
 		for s, v in pairs(req.stat) do
 			local c = (who:getStat(s) >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-			--str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name, v), {"color", "LAST"}, true)
-			if who.stats_def[s].name == "Strength" then
-				str:add(c, "- ", ("%s %d"):format("힘", v), {"color", "LAST"}, true)
-			elseif who.stats_def[s].name == "Dexterity" then
-				str:add(c, "- ", ("%s %d"):format("민첩", v), {"color", "LAST"}, true)
-			elseif who.stats_def[s].name == "Constitution" then
-				str:add(c, "- ", ("%s %d"):format("체격", v), {"color", "LAST"}, true)
-			elseif who.stats_def[s].name == "Magic" then
-				str:add(c, "- ", ("%s %d"):format("마법", v), {"color", "LAST"}, true)
-			elseif who.stats_def[s].name == "Willpower" then
-				str:add(c, "- ", ("%s %d"):format("의지", v), {"color", "LAST"}, true)
-			elseif who.stats_def[s].name == "Cunning" then
-				str:add(c, "- ", ("%s %d"):format("교활함", v), {"color", "LAST"}, true)
-			elseif who.stats_def[s].name == "Luck" then
-				str:add(c, "- ", ("%s %d"):format("행운", v), {"color", "LAST"}, true)
-			else
-				str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name, v), {"color", "LAST"}, true)
-			end
+			str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name:krStat(), v), {"color", "LAST"}, true)
 		end
 	end
 	if req.level then
@@ -220,11 +203,17 @@ function _M:getRequirementDesc(who)
 	if req.talent then
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
+				--@@
+				local tn = who:getTalentFromId(tid[1]).display_name
+				if tn == nil or type(tn) ~="string" then tn = who:getTalentFromId(tid[1]).name end
 				local c = (who:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				str:add(c, "- ", ("%s 기술 (레벨 %d)"):format(who:getTalentFromId(tid[1]).name, tid[2]), {"color", "LAST"}, true)
+				str:add(c, "- ", ("%s 기술 (레벨 %d)"):format(tn, tid[2]), {"color", "LAST"}, true)
 			else
+				--@@
+				local tn = who:getTalentFromId(tid).display_name
+				if tn == nil or type(tn) ~="string" then tn = who:getTalentFromId(tid).name end
 				local c = who:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				str:add(c, "- ", ("%s 기술"):format(who:getTalentFromId(tid).name), {"color", "LAST"}, true)
+				str:add(c, "- ", ("%s 기술"):format(tn), {"color", "LAST"}, true)
 			end
 		end
 	end

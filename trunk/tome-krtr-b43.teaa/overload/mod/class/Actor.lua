@@ -562,7 +562,9 @@ function _M:act()
 			local t = self:getTalentFromId(tid)
 			if t.is_spell and rng.percent(self:attr("spell_failure")/10)then
 				self:forceUseTalent(tid, {ignore_energy=true})
-				if not silent then game.logPlayer(self, "%s has been disrupted by #ORCHID#anti-magic forces#LAST#!", t.name) end
+				--@@
+				local tn = (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name)
+				if not silent then game.logPlayer(self, "%s #ORCHID#반마법력#LAST#으로 중단되었다!", tn:addJosa("는")) end
 			end
 		end
 	end
@@ -591,7 +593,7 @@ function _M:act()
 		else
 			-- We are saved for this turn
 			self.paralyzed_counter = self.paralyzed_counter - 100
-			game.logSeen(self, "%s temporarily fights the paralyzation.", self.name:capitalize())
+			game.logSeen(self, "%s 잠시 마비되지 않으려 애썼다.", self.name:capitalize():addJosa("는"))
 		end
 	end
 	if self:attr("stoned") then self.energy.value = 0 end
