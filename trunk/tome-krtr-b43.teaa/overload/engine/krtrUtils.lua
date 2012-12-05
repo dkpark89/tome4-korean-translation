@@ -672,3 +672,11 @@ function string.krMonth(str)
 	else return str end
 end
 
+function string.krQuestStatus(str)
+	local ori = str:lower()
+	if ori == "active" then return "진행중"
+	elseif ori == "completed" then return "완료"
+	elseif ori == "done" then return "성공"
+	elseif ori == "failed" then return "실패"
+	else return str end
+end

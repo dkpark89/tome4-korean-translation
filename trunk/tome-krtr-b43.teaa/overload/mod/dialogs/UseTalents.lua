@@ -101,9 +101,9 @@ function _M:defineHotkey(id)
 	
 	--@@
 	local tn = t.kr_display_name
-	if tn == nil then tn = t.name:capitalize() end
+	if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name:capitalize() end
 		
-	self:simplePopup("단축키 "..id.." 설정", tn:addJosa("가").." 단축키 "..id:addJosa("로").." 설정되었습니다.")
+	self:simplePopup("단축키 "..id.." 설정", tn:addJosa("가").." 단축키 "..("%d"):format(id):addJosa("로").." 설정되었습니다.")
 	self.c_list:drawTree()
 	self.actor.changed = true
 end
@@ -152,7 +152,7 @@ function _M:use(item, button)
 		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
 		
 		--@@
-		local itn = item.kr_display_name()
+		local itn = item.kr_display_name
 		if itn == nil then itn = item.name:toString() end
 		
 		local tn = self.actor:getTalentFromId(item.talent).kr_display_name
@@ -165,7 +165,7 @@ function _M:use(item, button)
 					if self.actor.hotkey[i] and self.actor.hotkey[i][1] == "talent" and self.actor.hotkey[i][2] == item.talent then self.actor.hotkey[i] = nil end
 				end
 				self.actor.hotkey[b.what] = {"talent", item.talent}
-				self:simplePopup("단축키 "..b.what.." 설정", tn:addJosa("가").." 단축키 "..(b.what):addJosa("로").." 설정되었습니다.")
+				self:simplePopup("단축키 "..(b.what).." 설정", tn:addJosa("가").." 단축키 "..("%d"):format(b.what):addJosa("로").." 설정되었습니다.")
 			elseif b.what == "middle" then
 				self.actor.auto_shoot_midclick_talent = item.talent
 				self:simplePopup("마우스 중간버튼 클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.")

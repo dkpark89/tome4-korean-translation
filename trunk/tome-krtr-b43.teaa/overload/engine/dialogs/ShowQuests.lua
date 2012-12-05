@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -71,7 +72,7 @@ function _M:generateList()
 			elseif q:isStatus(q.FAILED) then color = colors.simple(colors.RED)
 			end
 
-			list[#list+1] = {  name=q.name, quest=q, color = color, status=q.status_text[q.status], status_order=q.status, desc=q:desc(self.actor) }
+			list[#list+1] = {  name=q.name, quest=q, color = color, status=q.status_text[q.status]:krQuestStatus(), status_order=q.status, desc=q:desc(self.actor) }
 		end
 	end
 	if game.turn then

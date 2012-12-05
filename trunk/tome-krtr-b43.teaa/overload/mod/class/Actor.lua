@@ -3916,33 +3916,36 @@ end
 --- Setups a talent automatic use
 function _M:checkSetTalentAuto(tid, v, opt)
 	local t = self:getTalentFromId(tid)
+	--@@
+	local tn = t.kr_display_name
+	if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
 	if v then
 		local doit = function()
 			self:setTalentAuto(tid, true, opt)
-			Dialog:simplePopup("Automatic use enabled", t.name:capitalize().." will now be used as often as possible automatically.")
+			Dialog:simplePopup("자동사용 설정", tn:capitalize():addJosa("는").." 이제 가능한 경우 자동으로 사용될 것입니다.")
 		end
 
 		local list = {}
-		if t.no_energy ~= true then list[#list+1] = "- requires a turn to use" end
-		if t.requires_target then list[#list+1] = "- requires a target, your last hostile one will be automatically used" end
+		if t.no_energy ~= true then list[#list+1] = "- 사용하는데 시간이 걸립니다." end
+		if t.requires_target then list[#list+1] = "- 목표가 필요한데, 마지막으로 선택한 적이 자동으로 선택됩니다" end
 		if t.auto_use_warning then list[#list+1] = t.auto_use_warning end
 		if opt == 2 then 
-			list[#list+1] = "- will only trigger if no enemies are visible" 
-			list[#list+1] = "- will automatically target you if a target is required" 
+			list[#list+1] = "- 시야에 적이 없을때에만 사용합니다" 
+			list[#list+1] = "- 목표 설정이 필요한 경우 자동으로 자신을 목표로 합니다" 
 		end
-		if opt == 3 then list[#list+1] = "- will only trigger if enemies are visible" end
-		if opt == 4 then list[#list+1] = "- will only trigger if enemies are visible and adjacent" end
+		if opt == 3 then list[#list+1] = "- 시야에 적이 있을때에만 사용합니다" end
+		if opt == 4 then list[#list+1] = "- 시야에 근접한 적이 있을때에만 사용합니다" end
 
 		if #list == 0 then
 			doit()
 		else
-			Dialog:yesnoLongPopup("Automatic use", t.name:capitalize()..":\n"..table.concat(list, "\n").."\n Are you sure?", 500, function(ret)
+			Dialog:yesnoLongPopup("자동사용", tn:capitalize()..":\n"..table.concat(list, "\n").."\n 정말 자동으로 사용합니까?", 500, function(ret)
 				if ret then doit() end
 			end)
 		end
 	else
 		self:setTalentAuto(tid, false)
-		Dialog:simplePopup("Automatic use disabled", t.name:capitalize().." will not be automatically used.")
+		Dialog:simplePopup("자동사용 해제", tn:capitalize():addJosa("는").." 더이상 자동으로 사용되지 않습니다.")
 	end
 end
 
