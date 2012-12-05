@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Soul Rot",
+	display_name = "영혼의 부패",
 	type = {"corruption/vim", 1},
 	require = corrs_req1,
 	points = 5,
@@ -45,6 +46,7 @@ newTalent{
 
 newTalent{
 	name = "Vimsense",
+	display_name = "원혼의 기운",
 	type = {"corruption/vim", 2},
 	require = corrs_req2,
 	points = 5,
@@ -76,6 +78,7 @@ newTalent{
 
 newTalent{
 	name = "Leech",
+	display_name = "착취",
 	type = {"corruption/vim", 3},
 	require = corrs_req3,
 	mode = "passive",
@@ -88,6 +91,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Portal",
+	display_name = "어둠의 포탈",
 	type = {"corruption/vim", 4},
 	require = corrs_req4,
 	points = 5,

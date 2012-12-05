@@ -36,6 +36,7 @@ local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end re
 -- Multiply!!!
 newTalent{
 	name = "Multiply",
+	display_name = "자기복제",
 	type = {"other/other", 1},
 	cooldown = 3,
 	range = 10,
@@ -75,6 +76,7 @@ newTalent{
 newTalent{
 	short_name = "CRAWL_POISON",
 	name = "Poisonous Crawl",
+	display_name = "독성 발톱",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ crawls poison onto @target@.",
@@ -100,6 +102,7 @@ newTalent{
 newTalent{
 	short_name = "CRAWL_ACID",
 	name = "Acidic Crawl",
+	display_name = "산성 발톱",
 	points = 5,
 	type = {"technique/other", 1},
 	message = "@Source@ crawls acid onto @target@.",
@@ -125,6 +128,7 @@ newTalent{
 newTalent{
 	short_name = "SPORE_BLIND",
 	name = "Blinding Spores",
+	display_name = "실명의 포자",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ releases blinding spores at @target@.",
@@ -158,6 +162,7 @@ newTalent{
 newTalent{
 	short_name = "SPORE_POISON",
 	name = "Poisonous Spores",
+	display_name = "독성 포자",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ releases poisonous spores at @target@.",
@@ -182,6 +187,7 @@ newTalent{
 
 newTalent{
 	name = "Stun",
+	display_name = "기절",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -214,6 +220,7 @@ newTalent{
 
 newTalent{
 	name = "Disarm",
+	display_name = "무장해제",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -244,6 +251,7 @@ newTalent{
 
 newTalent{
 	name = "Constrict",
+	display_name = "압축",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -276,6 +284,7 @@ newTalent{
 
 newTalent{
 	name = "Knockback",
+	display_name = "밀어내기",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -310,6 +319,7 @@ newTalent{
 newTalent{
 	short_name = "BITE_POISON",
 	name = "Poisonous Bite",
+	display_name = "독성 깨물기",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ bites poison into @target@.",
@@ -332,6 +342,7 @@ newTalent{
 
 newTalent{
 	name = "Summon",
+	display_name = "소환",
 	type = {"wild-gift/other", 1},
 	cooldown = 1,
 	range = 10,
@@ -395,6 +406,7 @@ newTalent{
 
 newTalent{
 	name = "Rotting Disease",
+	display_name = "부패형 질병",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
@@ -426,6 +438,7 @@ newTalent{
 
 newTalent{
 	name = "Decrepitude Disease",
+	display_name = "노화형 질병",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
@@ -457,6 +470,7 @@ newTalent{
 
 newTalent{
 	name = "Weakness Disease",
+	display_name = "약화형 질병",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
@@ -488,6 +502,7 @@ newTalent{
 
 newTalent{
 	name = "Mind Disruption",
+	display_name = "정신 방해",
 	type = {"spell/other", 1},
 	points = 5,
 	cooldown = 10,
@@ -510,6 +525,7 @@ newTalent{
 
 newTalent{
 	name = "Water Bolt",
+	display_name = "물줄기 볼트",
 	type = {"spell/other", },
 	points = 5,
 	mana = 10,
@@ -534,6 +550,7 @@ newTalent{
 
 newTalent{
 	name = "Water Jet",
+	display_name = "물줄기 분출",
 	type = {"spell/other", },
 	points = 5,
 	mana = 10,
@@ -559,6 +576,7 @@ newTalent{
 
 newTalent{
 	name = "Void Blast",
+	display_name = "공허의 탄",
 	type = {"spell/other", },
 	points = 5,
 	mana = 3,
@@ -585,6 +603,7 @@ newTalent{
 
 newTalent{
 	name = "Restoration",
+	display_name = "회복",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 30,
@@ -631,6 +650,7 @@ newTalent{
 
 newTalent{
 	name = "Regeneration",
+	display_name = "재생",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 30,
@@ -653,6 +673,7 @@ newTalent{
 
 newTalent{
 	name = "Grab",
+	display_name = "붙잡기",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -685,6 +706,7 @@ newTalent{
 
 newTalent{
 	name = "Blinding Ink",
+	display_name = "먹물로 눈가리기",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 12,
@@ -720,6 +742,7 @@ newTalent{
 
 newTalent{
 	name = "Spit Poison",
+	display_name = "독 뱉기",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 4,
@@ -745,6 +768,7 @@ newTalent{
 
 newTalent{
 	name = "Spit Blight",
+	display_name = "황폐물질 뱉기",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 4,
@@ -768,6 +792,7 @@ newTalent{
 
 newTalent{
 	name = "Rushing Claws",
+	display_name = "돌진하는 발톱",
 	type = {"wild-gift/other", 1},
 	message = "@Source@ rushes out, claws sharp and ready!",
 	points = 5,
@@ -816,6 +841,7 @@ newTalent{
 
 newTalent{
 	name = "Throw Bones",
+	display_name = "뼈 던지기",
 	type = {"undead/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -843,6 +869,7 @@ newTalent{
 
 newTalent{
 	name = "Lay Web",
+	display_name = "거미줄치기",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 4,
@@ -884,6 +911,7 @@ newTalent{
 
 newTalent{
 	name = "Darkness",
+	display_name = "어둠",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 4,
@@ -920,6 +948,7 @@ newTalent{
 
 newTalent{
 	name = "Throw Boulder",
+	display_name = "돌덩이 던지기",
 	type = {"wild-gift/other", },
 	points = 5,
 	equilibrium = 5,
@@ -948,6 +977,7 @@ newTalent{
 
 newTalent{
 	name = "Howl",
+	display_name = "울부짖기",
 	type = {"wild-gift/other", },
 	points = 5,
 	equilibrium = 5,
@@ -980,6 +1010,7 @@ newTalent{
 
 newTalent{
 	name = "Shriek",
+	display_name = "비명",
 	type = {"wild-gift/other", },
 	points = 5,
 	equilibrium = 5,
@@ -1012,6 +1043,7 @@ newTalent{
 
 newTalent{
 	name = "Crush",
+	display_name = "분쇄",
 	type = {"technique/other", 1},
 	require = techs_req1,
 	points = 5,
@@ -1050,6 +1082,7 @@ newTalent{
 
 newTalent{
 	name = "Silence",
+	display_name = "침묵",
 	type = {"psionic/other", 1},
 	points = 5,
 	cooldown = 10,
@@ -1073,6 +1106,7 @@ newTalent{
 
 newTalent{
 	name = "Telekinetic Blast",
+	display_name = "염동탄",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	cooldown = 2,
@@ -1100,6 +1134,7 @@ newTalent{
 
 newTalent{
 	name = "Blightzone",
+	display_name = "황폐지역",
 	type = {"corruption/other", 1},
 	points = 5,
 	cooldown = 13,
@@ -1139,6 +1174,7 @@ newTalent{
 
 newTalent{
 	name = "Invoke Tentacle",
+	display_name = "촉수 발동",
 	type = {"wild-gift/other", 1},
 	cooldown = 1,
 	range = 10,
@@ -1185,6 +1221,7 @@ newTalent{
 
 newTalent{
 	name = "Explode",
+	display_name = "폭발",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ explodes! @target@ is enveloped in searing light.",
@@ -1210,6 +1247,7 @@ newTalent{
 
 newTalent{
 	name = "Will o' the Wisp Explode",
+	display_name = "윌 오'위스프 폭발",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ explodes! @target@ is enveloped in frost.",
@@ -1235,6 +1273,7 @@ newTalent{
 
 newTalent{
 	name = "Elemental bolt",
+	display_name = "엘리멘탈 탄",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 10,
@@ -1271,6 +1310,7 @@ newTalent{
 
 newTalent{
 	name = "Volcano",
+	display_name = "화산",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 10,
@@ -1347,6 +1387,7 @@ newTalent{
 
 newTalent{
 	name = "Speed Sap",
+	display_name = "재빨리 움켜쥐기",
 	type = {"chronomancy/other", 1},
 	points = 5,
 	paradox = 10,
@@ -1384,6 +1425,7 @@ newTalent{
 
 newTalent{
 	name = "Dredge Frenzy",
+	display_name = "Dredge 광란", --@@
 	type = {"chronomancy/other", 1},
 	points = 5,
 	cooldown = 12,
@@ -1433,6 +1475,7 @@ newTalent{
 
 newTalent{
 	name = "Sever Lifeline",
+	display_name = "생명선 절단",
 	type = {"chronomancy/other", 1},
 	points = 5,
 	paradox = 1,
@@ -1464,6 +1507,7 @@ newTalent{
 
 newTalent{
 	name = "Call of Amakthel",
+	display_name = "아마크텔의 부름",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 2,
@@ -1497,6 +1541,7 @@ newTalent{
 
 newTalent{
 	name = "Gift of Amakthel",
+	display_name = "아마크텔의 선물",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -1540,6 +1585,7 @@ newTalent{
 newTalent{
 	short_name = "STRIKE",
 	name = "Strike",
+	display_name = "타격",
 	type = {"spell/other", 1},
 	points = 5,
 	random_ego = "attack",
@@ -1572,6 +1618,7 @@ newTalent{
 
 newTalent{
 	name = "Corrosive Vapour",
+	display_name = "산성 증기",
 	type = {"spell/other",1},
 	require = spells_req1,
 	points = 5,
@@ -1616,6 +1663,7 @@ newTalent{
 
 newTalent{
 	name = "Manaflow",
+	display_name = "마나의 흐름",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 0,
@@ -1637,6 +1685,7 @@ newTalent{
 }
 newTalent{
 	name = "Infernal Breath", image = "talents/flame_of_urh_rok.png",
+	display_name = "지옥의 브레쓰",
 	type = {"spell/other",1},
 	random_ego = "attack",
 	cooldown = 20,
@@ -1677,6 +1726,7 @@ newTalent{
 
 newTalent{
 	name = "Frost Hands", image = "talents/shock_hands.png",
+	display_name = "냉기의 손",
 	type = {"spell/other", 3},
 	points = 5,
 	mode = "sustained",
@@ -1708,6 +1758,7 @@ newTalent{
 
 newTalent{
 	name = "Meteor Rain",
+	display_name = "유성 비",
 	type = {"spell/other", 3},
 	points = 5,
 	cooldown = 30,
@@ -1785,6 +1836,7 @@ newTalent{
 
 newTalent{
 	name = "Heal", short_name = "HEAL_NATURE", image = "talents/heal.png",
+	display_name = "치료",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 10,
@@ -1809,6 +1861,7 @@ newTalent{
 
 newTalent{
 	name = "Call Lightning", image = "talents/lightning.png",
+	display_name = "번개 소환",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equi = 4,
@@ -1845,6 +1898,7 @@ newTalent{
 newTalent{
 	short_name = "KEEPSAKE_FADE",
 	name = "Fade",
+	display_name = "흐려짐",
 	type = {"undead/keepsake",1},
 	points = 5,
 	cooldown = function(self, t)
@@ -1862,6 +1916,7 @@ newTalent{
 newTalent{
 	short_name = "KEEPSAKE_PHASE_DOOR",
 	name = "Phase Door",
+	display_name = "근거리 공간이동",
 	type = {"undead/keepsake",1},
 	points = 5,
 	range = 10,
@@ -1881,6 +1936,7 @@ newTalent{
 newTalent{
 	short_name = "KEEPSAKE_BLINDSIDE",
 	name = "Blindside",
+	display_name = "맹점",
 	type = {"undead/keepsake", 1},
 	points = 5,
 	random_ego = "attack",
@@ -1919,6 +1975,7 @@ newTalent{
 
 newTalent{
 	name = "Suspended", image = "talents/arcane_feed.png",
+	display_name = "대기",
 	type = {"other/other", 1},
 	points = 1,
 	mode = "sustained",

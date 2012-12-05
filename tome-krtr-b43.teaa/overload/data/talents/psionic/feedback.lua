@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Biofeedback",
+	display_name = "생체 반작용",
 	type = {"psionic/feedback", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -33,6 +34,7 @@ newTalent{
 
 newTalent{
 	name = "Resonance Field",
+	display_name = "공명장막",
 	type = {"psionic/feedback", 2},
 	points = 5,
 	feedback = 25,
@@ -56,6 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Amplification",
+	display_name = "증폭",
 	type = {"psionic/feedback", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -78,6 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Conversion",
+	display_name = "변환",
 	type = {"psionic/feedback", 4},
 	points = 5,
 	feedback = 25,

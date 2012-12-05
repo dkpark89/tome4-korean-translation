@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Mindhook",
+	display_name = "염동 갈고리",
 	type = {"psionic/augmented-mobility", 1},
 	require = psi_cun_high1,
 	cooldown = function(self, t)
@@ -62,6 +63,7 @@ newTalent{
 
 newTalent{
 	name = "Quick as Thought",
+	display_name = "생각의 빠르기",
 	type = {"psionic/augmented-mobility", 2},
 	points = 5,
 	random_ego = "utility",
@@ -89,6 +91,7 @@ newTalent{
 newTalent{
 	--name = "Super"..self.race.." Leap",
 	name = "Telekinetic Leap",
+	display_name = "염동적 도약",
 	type = {"psionic/augmented-mobility", 3},
 	require = psi_cun_high3,
 	cooldown = 15,
@@ -126,6 +129,7 @@ newTalent{
 
 newTalent{
 	name = "Shattering Charge",
+	display_name = "파쇄적 돌진",
 	type = {"psionic/augmented-mobility", 4},
 	require = psi_cun_high4,
 	points = 5,

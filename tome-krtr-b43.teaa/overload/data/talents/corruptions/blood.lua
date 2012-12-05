@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blood Spray",
+	display_name = "피 뿌리기",
 	type = {"corruption/blood", 1},
 	require = corrs_req1,
 	points = 5,
@@ -58,6 +59,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Grasp",
+	display_name = "피의 지배",
 	type = {"corruption/blood", 2},
 	require = corrs_req2,
 	points = 5,
@@ -86,6 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Boil",
+	display_name = "피 끓이기",
 	type = {"corruption/blood", 3},
 	require = corrs_req3,
 	points = 5,
@@ -115,6 +118,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Fury",
+	display_name = "피의 분노",
 	type = {"corruption/blood", 4},
 	mode = "sustained",
 	require = corrs_req4,

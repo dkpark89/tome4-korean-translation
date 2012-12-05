@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Solipsism",
+	display_name = "유아론",
 	type = {"psionic/solipsism", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -62,6 +63,7 @@ newTalent{
 
 newTalent{
 	name = "Balance",
+	display_name = "균형",
 	type = {"psionic/solipsism", 2},
 	points = 5, 
 	require = psi_wil_req2,
@@ -100,6 +102,7 @@ newTalent{
 
 newTalent{
 	name = "Clarity",
+	display_name = "명석",
 	type = {"psionic/solipsism", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -138,6 +141,7 @@ newTalent{
 
 newTalent{
 	name = "Dismissal",
+	display_name = "해산",
 	type = {"psionic/solipsism", 4},
 	points = 5, 
 	require = psi_wil_req4,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Pacification Hex",
+	display_name = "진압의 매혹술",
 	type = {"corruption/hexes", 1},
 	require = corrs_req1,
 	points = 5,
@@ -52,6 +53,7 @@ newTalent{
 
 newTalent{
 	name = "Burning Hex",
+	display_name = "회염의 매혹술",
 	type = {"corruption/hexes", 2},
 	require = corrs_req2,
 	points = 5,
@@ -86,6 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Empathic Hex",
+	display_name = "감정 이입의 매혹술",
 	type = {"corruption/hexes", 3},
 	require = corrs_req3,
 	points = 5,
@@ -119,6 +122,7 @@ newTalent{
 
 newTalent{
 	name = "Domination Hex",
+	display_name = "지배의 매혹술",
 	type = {"corruption/hexes", 4},
 	require = corrs_req4,
 	points = 5,

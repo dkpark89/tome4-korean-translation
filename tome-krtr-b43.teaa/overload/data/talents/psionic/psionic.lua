@@ -18,20 +18,20 @@
 -- darkgod@te4.org
 
 -- Talent trees
-newTalentType{ allow_random=true, type="psionic/absorption", name = "absorption", description = "Absorb damage and gain energy." }
-newTalentType{ allow_random=true, type="psionic/projection", name = "projection", description = "Project energy to damage foes." }
-newTalentType{ allow_random=true, type="psionic/psi-fighting", name = "psi-fighting", description = "Wield melee weapons with mentally-manipulated forces." }
-newTalentType{ allow_random=true, type="psionic/focus", name = "focus", description = "Use gems to focus your energies." }
-newTalentType{ allow_random=true, type="psionic/augmented-mobility", name = "augmented mobility", min_lev = 10, description = "Use energy to move yourself and others." }
-newTalentType{ allow_random=true, type="psionic/voracity", generic = true, name = "voracity", description = "Pull energy from your surroundings." }
-newTalentType{ allow_random=true, type="psionic/finer-energy-manipulations", min_lev = 10, generic = true, name = "finer energy manipulations", description = "Subtle applications of the psionic arts." }
-newTalentType{ allow_random=true, type="psionic/mental-discipline", generic = true, name = "mental discipline", description = "Increase mental capacity, endurance, and flexibility." }
-newTalentType{ type="psionic/other", name = "other", description = "Various psionic talents." }
+newTalentType{ allow_random=true, type="psionic/absorption", name = "absorption", description = "데미지를 흡수하고 에너지를 얻는다." }
+newTalentType{ allow_random=true, type="psionic/projection", name = "projection", description = "에너지를 발산하여 적에게 피해를 끼친다." }
+newTalentType{ allow_random=true, type="psionic/psi-fighting", name = "psi-fighting", description = "정신력으로 조종하는 근접무기 착용." }
+newTalentType{ allow_random=true, type="psionic/focus", name = "focus", description = "보석을 사용하여 에너지를 집중시킨다." }
+newTalentType{ allow_random=true, type="psionic/augmented-mobility", name = "augmented mobility", min_lev = 10, description = "에너지를 이용하여 스스로를 움직이거나 다른 존재를 움직인다." }
+newTalentType{ allow_random=true, type="psionic/voracity", generic = true, name = "voracity", description = "주위를 둘러싼 에너지를 가져온다." }
+newTalentType{ allow_random=true, type="psionic/finer-energy-manipulations", min_lev = 10, generic = true, name = "finer energy manipulations", description = "염동적 기술을 이용한 미세작업." }
+newTalentType{ allow_random=true, type="psionic/mental-discipline", generic = true, name = "mental discipline", description = "정신력과 끈기 그리고 유연성을 높인다." }
+newTalentType{ type="psionic/other", name = "other", description = "여러가지 염동적 기술." }
 
 -- Advanced Talent Trees
-newTalentType{ allow_random=true, type="psionic/grip", name = "grip", min_lev = 10, description = "Augment your telekinetic grip." }
-newTalentType{ allow_random=true, type="psionic/psi-archery", name = "psi-archery", min_lev = 10, description = "Use your telekinetic powers to wield bows with deadly effectiveness." }
-newTalentType{ allow_random=true, type="psionic/greater-psi-fighting", name = "greater psi-fighting", description = "Elevate psi-fighting prowess to epic levels." }
+newTalentType{ allow_random=true, type="psionic/grip", name = "grip", min_lev = 10, description = "염동적 악력을 높인다." }
+newTalentType{ allow_random=true, type="psionic/psi-archery", name = "psi-archery", min_lev = 10, description = "염동력을 이용하여 활을 쥐고, 그 치명적인 효과를 사용한다." }
+newTalentType{ allow_random=true, type="psionic/greater-psi-fighting", name = "greater psi-fighting", description = "염동전투 기술의 숙련도를 서사적인 단계로 끄집어 올린다." }
 newTalentType{ allow_random=true, type="psionic/brainstorm", name = "brainstorm", description = "Focus your telekinetic powers in ways undreamed of by most mindslayers." }
 
 -- Solipsist Talent Trees

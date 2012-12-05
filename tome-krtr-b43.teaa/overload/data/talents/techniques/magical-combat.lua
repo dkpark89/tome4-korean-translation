@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Arcane Combat",
+	display_name = "마법 전투",
 	type = {"technique/magical-combat", 1},
 	mode = "sustained",
 	points = 5,
@@ -86,6 +87,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Cunning",
+	display_name = "교활함의 마법",
 	type = {"technique/magical-combat", 2},
 	mode = "passive",
 	points = 5,
@@ -98,6 +100,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Feed",
+	display_name = "마력 공급",
 	type = {"technique/magical-combat", 3},
 	mode = "sustained",
 	points = 5,
@@ -128,6 +131,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Destruction",
+	display_name = "마력 폭발",
 	type = {"technique/magical-combat", 4},
 	mode = "passive",
 	points = 5,

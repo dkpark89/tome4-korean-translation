@@ -27,6 +27,7 @@ local trap_range = function(self, t) return 1 + math.floor(self:getTalentLevel(s
 
 newTalent{
 	name = "Trap Mastery",
+	display_name = "함정기술 숙련",
 	type = {"cunning/trapping", 1},
 	points = 5,
 	mode = "passive",
@@ -74,6 +75,7 @@ newTalent{
 
 newTalent{
 	name = "Lure",
+	display_name = "미끼",
 	type = {"cunning/trapping", 2},
 	points = 5,
 	cooldown = 20,
@@ -149,6 +151,7 @@ newTalent{
 }
 newTalent{
 	name = "Sticky Smoke",
+	display_name = "끈적이는 연기",
 	type = {"cunning/trapping", 3},
 	points = 5,
 	cooldown = 15,
@@ -177,6 +180,7 @@ newTalent{
 
 newTalent{
 	name = "Trap Launcher",
+	display_name = "함정 발사",
 	type = {"cunning/trapping", 4},
 	points = 5,
 	mode = "passive",
@@ -217,6 +221,7 @@ end
 
 newTalent{
 	name = "Explosion Trap",
+	display_name = "폭발형 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 8,
@@ -262,6 +267,7 @@ newTalent{
 
 newTalent{
 	name = "Bear Trap",
+	display_name = "곰 덫",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 12,
@@ -311,6 +317,7 @@ newTalent{
 
 newTalent{
 	name = "Catapult Trap",
+	display_name = "밀어내기형 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 10,
@@ -366,6 +373,7 @@ newTalent{
 
 newTalent{
 	name = "Disarming Trap",
+	display_name = "무장해제형 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 25,
@@ -412,6 +420,7 @@ newTalent{
 
 newTalent{
 	name = "Nightshade Trap",
+	display_name = "중독형 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 8,
@@ -459,6 +468,7 @@ newTalent{
 
 newTalent{
 	name = "Flash Bang Trap",
+	display_name = "실명형 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 12,
@@ -514,6 +524,7 @@ newTalent{
 
 newTalent{
 	name = "Poison Gas Trap",
+	display_name = "독구름 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 10,
@@ -570,6 +581,7 @@ newTalent{
 
 newTalent{
 	name = "Gravitic Trap",
+	display_name = "중력형 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 15,

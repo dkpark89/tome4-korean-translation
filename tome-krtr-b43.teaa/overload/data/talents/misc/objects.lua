@@ -27,6 +27,7 @@ newTalentType{ type="wild-gift/objects", name = "object techniques", description
 
 newTalent{
 	name = "charms", short_name = "GLOBAL_CD",
+	display_name = "부적",
 	type = {"spell/objects",1},
 	points = 1,
 	cooldown = 1,
@@ -43,6 +44,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Supremacy",
+	display_name = "지고의 마법",
 	type = {"spell/objects",1},
 	points = 1,
 	mana = 40,
@@ -106,6 +108,7 @@ newTalent{
 
 newTalent{
 	name = "Command Staff",
+	display_name = "지팡이 부리기",
 	type = {"spell/objects", 1},
 	cooldown = 5,
 	points = 5,
@@ -131,6 +134,7 @@ newTalent{
 
 newTalent{
 	name = "Ward",
+	display_name = "보호",
 	type = {"spell/objects", 1},
 	cooldown = function(self, t)
 		return math.max(10, 28 - 3 * self:getTalentLevel(t))
@@ -157,6 +161,7 @@ newTalent{
 
 newTalent{
 	name = "Teleport to the ground", short_name = "YIILKGUR_BEAM_DOWN",
+	display_name = "지표면으로의 공간이동",
 	type = {"sher'tul/fortress", 1},
 	points = 1,
 	no_npc_use = true,
@@ -170,6 +175,7 @@ newTalent{
 
 newTalent{
 	name = "Block",
+	display_name = "막기",
 	type = {"technique/objects", 1},
 	cooldown = function(self, t)
 		return 8 - util.bound(self:getTalentLevelRaw(t), 1, 5)
@@ -269,6 +275,7 @@ newTalent{
 newTalent{
 	short_name = "BLOOM_HEAL", image = "talents/regeneration.png",
 	name = "Bloom Heal",
+	display_name = "꽃피우는 치료",
 	type = {"wild-gift/objects", 1},
 	points = 1,
 	no_energy = true,
@@ -288,6 +295,7 @@ newTalent{
 newTalent{
 	image = "talents/mana_clash.png",
 	name = "Destroy Magic",
+	display_name = "마법 부수기",
 	type = {"wild-gift/objects", 1},
 	points = 5,
 	no_energy = true,
