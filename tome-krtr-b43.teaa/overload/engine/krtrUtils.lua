@@ -248,6 +248,7 @@ function string.krItemType(str)
 	elseif ori == "rune" then return "룬"
 	elseif ori == "taint" then return "얼룩"
 	elseif ori == "sher'tul" then return "쉐르'툴"
+	elseif ori == "organic" then return "장기"
 	else return str end
 end
 

@@ -95,6 +95,8 @@ function _M:generateList()
 
 				n[#n+1] = {
 					rawname = (( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name),
+					--@@
+					oriname = t.name,
 					talent = t.id,
 					entity=t.display_entity,
 					do_shadow = function(item) if not self.actor:canLearnTalent(t) then return true else return false end end,
@@ -181,6 +183,7 @@ function _M:getTalentDesc(item)
 	local text = tstring{}
 
  	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
+ 	text:add(" (", util.getval(item.oriname, item), ") ")
 	text:add(true, true)
 
 	if item.talent then
