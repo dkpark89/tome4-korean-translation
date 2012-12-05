@@ -94,7 +94,7 @@ function _M:generateList()
 				if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 				n[#n+1] = {
-					rawname = t.name,
+					rawname = (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name),
 					talent = t.id,
 					entity=t.display_entity,
 					do_shadow = function(item) if not self.actor:canLearnTalent(t) then return true else return false end end,

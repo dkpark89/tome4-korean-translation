@@ -169,7 +169,10 @@ function _M:descAttribute(attr)
 	elseif attr == "MONEY" then
 		return ("금화 %0.2f개 가치"):format(self.money_value / 10)
 	elseif attr == "USE_TALENT" then
-		return self:getTalentFromId(self.use_talent.id).name:lower()
+		--@@
+		local tn = self:getTalentFromId(self.use_talent.id).display_name
+		if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(self.use_talent.id).name end
+		return tn:lower()
 	elseif attr == "DIGSPEED" then
 		return ("굴착 속도 %d 턴"):format(self.digspeed)
 	elseif attr == "CHARM" then
@@ -190,7 +193,7 @@ function _M:descAttribute(attr)
 	elseif attr == "INSCRIPTION" then
 		game.player.__inscription_data_fake = self.inscription_data
 		local t = self:getTalentFromId("T_"..self.inscription_talent.."_1")
-		local desc = t.short_info(game.player, t)
+		local desc = t.short_info(game.player, t)	--@@
 		game.player.__inscription_data_fake = nil
 		return ("%s"):format(desc)
 	end
@@ -495,14 +498,20 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_hit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					desc:add({"color","RED"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+					--@@
+					local tn = self:getTalentFromId(tid).display_name
+					if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid).name end
+					desc:add({"color","RED"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
 			end
 		end
 		for tid, data in pairs(talents) do
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			--@@
+			local tn = self:getTalentFromId(tid).display_name
+			if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid).name end
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 		
 		local talents = {}
@@ -514,14 +523,20 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_crit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					desc:add({"color","RED"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, data.chance, data.level), {"color","LAST"}, true)
+					--@@
+					local tn = self:getTalentFromId(tid).display_name
+					if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid).name end
+					desc:add({"color","RED"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
 			end
 		end
 		for tid, data in pairs(talents) do
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(self:getTalentFromId(tid).name, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			--@@
+			local tn = self:getTalentFromId(tid).display_name
+			if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid).name end
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
 		local special = ""
@@ -627,9 +642,9 @@ function _M:getTextualDesc(compare_with)
 		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "다음 상대에게 피해량 증가: ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
-					return st:capitalize()
+					return st:capitalize():krRace()
 				else
-					return t:capitalize()
+					return t:capitalize():krRace()
 				end
 			end)
 
@@ -708,17 +723,17 @@ function _M:getTextualDesc(compare_with)
 		local esps_compare = {}
 		for i, v in ipairs(compare_with or {}) do
 			if v[field] and v[field].esp_all then
-				esps_compare["All"] = esps_compare["All"] or {}
-				esps_compare["All"][1] = true
+				esps_compare["전체"] = esps_compare["전체"] or {}
+				esps_compare["전체"][1] = true
 				any_esp = true
 			end
 			for type, i in pairs(v[field] and (v[field].esp or {}) or {}) do
 				local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 				local esp = ""
 				if st and st ~= "" then
-					esp = t:capitalize().."/"..st:capitalize()
+					esp = t:capitalize():krRace().."/"..st:capitalize():krRace()
 				else
-					esp = t:capitalize()
+					esp = t:capitalize():krRace()
 				end
 				esps_compare[esp] = esps_compare[esp] or {}
 				esps_compare[esp][1] = true
@@ -728,7 +743,7 @@ function _M:getTextualDesc(compare_with)
 
 		local esps = {}
 		if w.esp_all then
-			esps[#esps+1] = "All"
+			esps[#esps+1] = "전체"
 			esps_compare[esps[#esps]] = esps_compare[esps[#esps]] or {}
 			esps_compare[esps[#esps]][2] = true
 			any_esp = true
@@ -736,9 +751,9 @@ function _M:getTextualDesc(compare_with)
 		for type, i in pairs(w.esp or {}) do
 			local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 			if st and st ~= "" then
-				esps[#esps+1] = t:capitalize().."/"..st:capitalize()
+				esps[#esps+1] = t:capitalize():krRace().."/"..st:capitalize():krRace()
 			else
-				esps[#esps+1] = t:capitalize()
+				esps[#esps+1] = t:capitalize():krRace()
 			end
 			esps_compare[esps[#esps]] = esps_compare[esps[#esps]] or {}
 			esps_compare[esps[#esps]][2] = true
@@ -812,14 +827,17 @@ function _M:getTextualDesc(compare_with)
 			desc:add("기술 대기시간:")
 			for tid, cds in pairs(cd_reductions) do
 				local diff = (cds[2] or 0) - (cds[1] or 0)
+				--@@
+				local tn = Talents.talents_def[tid].display_name
+				if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = Talents.talents_def[tid].name end
 				if diff ~= 0 then
 					if cds[1] then
-						desc:add((" %s ("):format(Talents.talents_def[tid].name), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "턴)")
+						desc:add((" %s ("):format(tn), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "턴)")
 					else
-						desc:add((" %s ("):format(Talents.talents_def[tid].name), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " 턴)")
+						desc:add((" %s ("):format(tn), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " 턴)")
 					end
 				else
-					desc:add({"color","WHITE"}, (" %s (%+d(-) 턴)"):format(Talents.talents_def[tid].name, -(cds[2] or cds[1])), {"color","LAST"})
+					desc:add({"color","WHITE"}, (" %s (%+d(-) 턴)"):format(tn, -(cds[2] or cds[1])), {"color","LAST"})
 				end
 			end
 			desc:add(true)
@@ -848,7 +866,7 @@ function _M:getTextualDesc(compare_with)
 				local diff = (tl[2] or 0) - (tl[1] or 0)
 				--@@
 				local name = Talents.talents_def[tid].display_name
-				if name == nil then name = Talents.talents_def[tid].name end
+				if name == nil or type(name) ~= "string" or name:len() < 1 then name = Talents.talents_def[tid].name end
 				if diff ~= 0 then
 					if tl[1] then
 						desc:add(("+%d"):format(tl[2] or 0), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(+%d) "):format(diff), {"color","LAST"}, ("%s "):format(name))
