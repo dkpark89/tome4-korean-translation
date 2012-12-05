@@ -76,7 +76,7 @@ function _M:init(actor)
 		playtime = ("%s 초"):format(seconds)
 	end
 
-	self.c_playtime = Textzone.new{width=self.iw * 0.4, auto_height=true, no_color_bleed=true, font = self.font, text=("#GOLD#모험 일수 / 현재 달:#LAST# %d / %s\n#GOLD#플레이 시간:#LAST# %s"):format(game.turn / game.calendar.DAY, game.calendar:getMonthName(game.calendar:getDayOfYear(game.turn)), playtime)}
+	self.c_playtime = Textzone.new{width=self.iw * 0.4, auto_height=true, no_color_bleed=true, font = self.font, text=("#GOLD#모험 일수 / 현재 달:#LAST# %d / %s\n#GOLD#플레이 시간:#LAST# %s"):format(game.turn / game.calendar.DAY, game.calendar:getMonthName(game.calendar:getDayOfYear(game.turn)):krMonth(), playtime)}
 
 	self.c_desc = SurfaceZone.new{width=self.iw, height=self.ih - self.c_general.h - self.vs.h - self.c_tut.h,alpha=0}
 
@@ -519,7 +519,10 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i = 1, player.max_inscriptions do if player.inscriptions[i] then
 			local t = player:getTalentFromId("T_"..player.inscriptions[i])
 			local desc = player:getTalentFullDescription(t)
-			self:mouseTooltip("#GOLD##{bold}#"..t.name.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(t.name), w, h, 255, 255, 255, true)) h = h + self.font_h
+			--@@
+			local tn = t.display_name
+			if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+			self:mouseTooltip("#GOLD##{bold}#"..t.name.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end end
 
 		if any_esp then
@@ -895,7 +898,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			if player:knowTalent(t.id) and (not t.hide or t.hide ~= "always") then
 				local lvl = player:getTalentLevelRaw(t)
 				list[#list+1] = {
-					name = ("%s (%d)"):format(t.name:krTalent(), lvl),
+					name = ("%s (%d)"):format( (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name), lvl ), --@@
 					desc = player:getTalentFullDescription(t):toString(),
 				}
 			end

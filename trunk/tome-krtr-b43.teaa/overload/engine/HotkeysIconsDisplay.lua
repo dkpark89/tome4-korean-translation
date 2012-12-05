@@ -17,7 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils"
 require "engine.class"
 local Entity = require "engine.Entity"
 local Tiles = require "engine.Tiles"
@@ -339,7 +338,10 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 					local text = ""
 					if a.hotkey[i] and a.hotkey[i][1] == "talent" then
 						local t = self.actor:getTalentFromId(a.hotkey[i][2])
-						text = tstring{{"color","GOLD"}, {"font", "bold"}, t.name:krTalent(), {"font", "normal"}, {"color", "LAST"}, true}
+						--@@
+						local tn = t.display_name
+						if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+						text = tstring{{"color","GOLD"}, {"font", "bold"}, tn, {"font", "normal"}, {"color", "LAST"}, true}
 						text:merge(self.actor:getTalentFullDescription(t))
 					elseif a.hotkey[i] and a.hotkey[i][1] == "inventory" then
 						local o = a:findInAllInventories(a.hotkey[i][2], {no_add_name=true, force_id=true, no_count=true})

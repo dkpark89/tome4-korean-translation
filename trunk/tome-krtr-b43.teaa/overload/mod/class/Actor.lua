@@ -1414,7 +1414,12 @@ function _M:tooltip(x, y, seen_by)
 	if game.player ~= self then ts:add("개별 성향: ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
 
 	for tid, act in pairs(self.sustain_talents) do
-		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, self:getTalentFromId(tid).name:krTalent(), {"color", "WHITE"} ) end
+		if act then
+			--@@
+			local tn = self:getTalentFromId(tid).display_name
+			if tn == nil then tn = self:getTalentFromId(tid).name end
+			ts:add(true, "- ", {"color", "LIGHT_GREEN"}, tn, {"color", "WHITE"} ) 
+		end
 	end
 	for eff_id, p in pairs(self.tmp) do
 		local e = self.tempeffect_def[eff_id]
