@@ -35,7 +35,7 @@ load("/data/talents/misc/tutorial.lua")
 -- Default melee attack
 newTalent{
 	name = "Attack",
-	display_name = "공격",
+	kr_display_name = "공격",
 	type = {"base/class", 1},
 	no_energy = "fake",
 	hide = "always",
@@ -224,7 +224,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_ANGOLWEN",
 	name = "Teleport: Angolwen",
-	display_name = "공간이동: 앙골웬",
+	kr_display_name = "공간이동: 앙골웬",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -258,7 +258,7 @@ newTalent{
 
 newTalent{
 	name = "Relentless Pursuit",
-	display_name = "사정없는 추적",
+	kr_display_name = "사정없는 추적",
 	type = {"base/class", 1},
 	points = 5,
 	no_energy = true,

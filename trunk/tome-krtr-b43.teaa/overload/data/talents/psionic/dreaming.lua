@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Sleep",
-	display_name = "재우기",
+	kr_display_name = "재우기",
 	type = {"psionic/dreaming", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -100,7 +100,7 @@ newTalent{
 
 newTalent{
 	name = "Lucid Dreamer",
-	display_name = "자각몽",
+	kr_display_name = "자각몽",
 	type = {"psionic/dreaming", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -139,7 +139,7 @@ newTalent{
 
 newTalent{
 	name = "Dream Walk",
-	display_name = "꿈속을 걷는자",
+	kr_display_name = "꿈속을 걷는자",
 	type = {"psionic/dreaming", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -192,7 +192,7 @@ newTalent{
 
 newTalent{
 	name = "Dream Prison",
-	display_name = "꿈의 감옥",
+	kr_display_name = "꿈의 감옥",
 	type = {"psionic/dreaming", 4},
 	points = 5,
 	require = psi_wil_req4,

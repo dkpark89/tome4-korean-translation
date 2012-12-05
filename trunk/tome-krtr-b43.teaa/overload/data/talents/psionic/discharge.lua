@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Mind Storm",
-	display_name = "정신적 폭풍",
+	kr_display_name = "정신적 폭풍",
 	type = {"psionic/discharge", 1},
 	points = 5, 
 	require = psi_wil_high1,
@@ -109,7 +109,7 @@ newTalent{
 
 newTalent{
 	name = "Feedback Loop",
-	display_name = "반작용 회로",
+	kr_display_name = "반작용 회로",
 	type = {"psionic/discharge", 2},
 	points = 5, 
 	require = psi_wil_high2,
@@ -134,7 +134,7 @@ newTalent{
 
 newTalent{
 	name = "Backlash",
-	display_name = "반동",
+	kr_display_name = "반동",
 	type = {"psionic/discharge", 3},
 	points = 5, 
 	require = psi_wil_high3,
@@ -174,7 +174,7 @@ newTalent{
 
 newTalent{
 	name = "Focused Wrath",
-	display_name = "집중된 분노",   
+	kr_display_name = "집중된 분노",   
 	type = {"psionic/discharge", 4},
 	points = 5, 
 	require = psi_wil_high4,

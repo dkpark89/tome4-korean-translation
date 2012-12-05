@@ -21,7 +21,7 @@
 
 newTalent{
 	name = "Empty Hand",
-	display_name = "맨손 격투술",
+	kr_display_name = "맨손 격투술",
 	type = {"technique/unarmed-other", 1},
 	innate = true,
 	hide = true,
@@ -40,7 +40,7 @@ newTalent{
 -- generic unarmed training
 newTalent{
 	name = "Unarmed Mastery",
-	display_name = "맨손 격투 숙련",
+	kr_display_name = "맨손 격투 숙련",
 	type = {"technique/unarmed-training", 1},
 	points = 5,
 	require = { stat = { cun=function(level) return 12 + level * 6 end }, },
@@ -58,7 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Steady Mind",
-	display_name = "확고한 정신",
+	kr_display_name = "확고한 정신",
 	type = {"technique/unarmed-training", 2},
 	mode = "passive",
 	points = 5,
@@ -76,7 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Heightened Reflexes",
-	display_name = "향상된 반사신경",
+	kr_display_name = "향상된 반사신경",
 	type = {"technique/unarmed-training", 3},
 	require = techs_cun_req3,
 	mode = "passive",
@@ -94,7 +94,7 @@ newTalent{
 
 newTalent{
 	name = "Combo String",
-	display_name = "연계기",
+	kr_display_name = "연계기",
 	type = {"technique/unarmed-training", 4},
 	require = techs_cun_req4,
 	mode = "passive",

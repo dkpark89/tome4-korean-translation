@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Uppercut",
-	display_name = "올려치기",
+	kr_display_name = "올려치기",
 	type = {"technique/finishing-moves", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -53,7 +53,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -74,7 +74,7 @@ newTalent{
 
 newTalent{
 	name = "Concussive Punch",
-	display_name = "충격타",
+	kr_display_name = "충격타",
 	type = {"technique/finishing-moves", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -132,7 +132,7 @@ newTalent{
 
 newTalent{
 	name = "Body Shot",
-	display_name = "몸통 치기",
+	kr_display_name = "몸통 치기",
 	type = {"technique/finishing-moves", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -166,7 +166,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 몸통 치기를 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 몸통 치기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 
 			target:incStamina(- t.getDrain(self, t))
@@ -191,7 +191,7 @@ newTalent{
 
 newTalent{
 	name = "Haymaker",
-	display_name = "죽음의 강타",
+	kr_display_name = "죽음의 강타",
 	type = {"technique/finishing-moves", 4},
 	require = techs_dex_req4,
 	points = 5,
@@ -226,10 +226,10 @@ newTalent{
 		if hit then
 			if target:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("instakill") and target.life > target.die_at and target.life < target.max_life * 0.2 then
 				-- KILL IT !
-				game.logSeen(target, "%s에게 죽음의 고통을 안겨줬습니다!", (target.display_name or target.name):capitalize())
+				game.logSeen(target, "%s에게 죽음의 고통을 안겨줬습니다!", (target.kr_display_name or target.name):capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s 죽음의 강타를 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 죽음의 강타를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 

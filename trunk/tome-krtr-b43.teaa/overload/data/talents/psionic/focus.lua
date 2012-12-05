@@ -24,7 +24,7 @@
 
 newTalent{
 	name = "Mindlash",
-	display_name = "정신 채찍",
+	kr_display_name = "정신 채찍",
 	type = {"psionic/focus", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -108,7 +108,7 @@ newTalent{
 
 newTalent{
 	name = "Pyrokinesis",
-	display_name = "염화",
+	kr_display_name = "염화",
 	type = {"psionic/focus", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -152,7 +152,7 @@ newTalent{
 
 newTalent{
 	name = "Reach",
-	display_name = "도달",
+	kr_display_name = "도달",
 	type = {"psionic/focus", 3},
 	require = psi_wil_req3,
 	mode = "passive",
@@ -166,7 +166,7 @@ newTalent{
 
 newTalent{
 	name = "Focused Channeling",
-	display_name = "집중된 전달",
+	kr_display_name = "집중된 전달",
 	type = {"psionic/focus", 4},
 	require = psi_wil_req4,
 	mode = "passive",

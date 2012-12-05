@@ -32,7 +32,7 @@ local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end re
 -- Devourer Powers
 newTalent{
 	name = "Frenzied Bite",
-	display_name = "광란적 깨물기",
+	kr_display_name = "광란적 깨물기",
 	type = {"technique/horror", 3},
 	points = 5,
 	cooldown = 12,
@@ -68,7 +68,7 @@ newTalent{
 
 newTalent{
 	name = "Frenzied Leap", -- modified ghoulish leap, only usable while in a frenzy
-	display_name = "광란적 도약",
+	kr_display_name = "광란적 도약",
 	type = {"technique/horror", 1},
 	points = 5,
 	cooldown = 5,
@@ -112,7 +112,7 @@ newTalent{
 
 newTalent{
 	name = "Gnashing Teeth",
-	display_name = "이빨 갈기",
+	kr_display_name = "이빨 갈기",
 	type = {"technique/horror", 1},
 	points = 5,
 	cooldown = 3,
@@ -175,7 +175,7 @@ newTalent{
 -- Nightmare Horror Powers
 newTalent{
 	name = "Abyssal Shroud",
-	display_name = "심연의 덮개",
+	kr_display_name = "심연의 덮개",
 	type = {"spell/horror", 1},
 	points = 5,
 	cooldown = 10,
@@ -225,7 +225,7 @@ newTalent{
 -- Void Horror Powers
 newTalent{
 	name = "Echoes From The Void",
-	display_name = "공허로부터의 메아리",
+	kr_display_name = "공허로부터의 메아리",
 	type = {"other/horror", 1},
 	points = 5,
 	message = "@Source@ shows @Target@ the madness of the void.",
@@ -264,7 +264,7 @@ newTalent{
 
 newTalent{
 	name = "Void Shards",
-	display_name = "공허의 파편",
+	kr_display_name = "공허의 파편",
 	type = {"other/horror", 1},
 	points = 5,
 	message = "@Source@ summons void shards.",
@@ -353,7 +353,7 @@ newTalent{
 -- Worm that Walks Powers
 newTalent{
 	name = "Worm Rot",
-	display_name = "부패 벌레",
+	kr_display_name = "부패 벌레",
 	type = {"corruption/horror", 1},
 	points = 5,
 	cooldown = 8,
@@ -413,7 +413,7 @@ newTalent{
 --Bladed Horror Talents
 newTalent{
 	name = "Knife Storm",
-	display_name = "칼날 폭붕",
+	kr_display_name = "칼날 폭붕",
 	type = {"psionic/horror",1},
 	points = 5,
 	random_ego = "attack",
@@ -456,7 +456,7 @@ newTalent{
 
 newTalent{
 	name = "Psionic Pull",
-	display_name = "염동적 당기기",
+	kr_display_name = "염동적 당기기",
 	type = {"psionic/horror", 1},
 	points = 5,
 	cooldown = 6,
@@ -493,7 +493,7 @@ The damage will increase with your mindpower.]]):format(damDesc(self, DamageType
 
 newTalent{
 	name = "Razor Knife",
-	display_name = "레이저 칼날",
+	kr_display_name = "레이저 칼날",
 	type = {"psionic/horror", 1},
 	points = 5,
 	psi = 18,
@@ -523,7 +523,7 @@ newTalent{
 --Oozing Horror Talents
 newTalent{
 	name = "Slime Wave",
-	display_name = "슬라임 파동",
+	kr_display_name = "슬라임 파동",
 	type = {"wild-gift/horror",1},
 	points = 5,
 	random_ego = "attack",
@@ -570,7 +570,7 @@ newTalent{
 
 newTalent{
 	name = "Tentacle Grab",
-	display_name = "촉수 휘감기",
+	kr_display_name = "촉수 휘감기",
 	type = {"wild-gift/horror",1},
 	points = 5,
 	equilibrium = 10,
@@ -618,7 +618,7 @@ newTalent{
 newTalent{
 	short_name = "OOZE_SPIT", image = "talents/slime_spit.png",
 	name = "Ooze Spit",
-	display_name = "오즈 뱉기",
+	kr_display_name = "오즈 뱉기",
 	type = {"wild-gift/horror", 1},
 	require = gifts_req3,
 	points = 5,
@@ -646,7 +646,7 @@ newTalent{
 newTalent{
 	short_name = "OOZE_ROOTS",
 	name = "Slime Roots",
-	display_name = "슬라임 묻어두기",
+	kr_display_name = "슬라임 묻어두기",
 	type = {"wild-gift/horror", 1},
 	points = 5,
 	random_ego = "utility",
@@ -689,7 +689,7 @@ newTalent{
 --Ak'Gishil
 newTalent{
 	name = "Animate Blade",
-	display_name = "살아있는 칼날",
+	kr_display_name = "살아있는 칼날",
 	type = {"spell/horror", 1},
 	cooldown = 1,
 	range = 10,

@@ -22,7 +22,7 @@
 
 newTalent{
 	name = "Aura Discipline",
-	display_name = "오러 숙련",
+	kr_display_name = "오러 숙련",
 	type = {"psionic/mental-discipline", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -37,7 +37,7 @@ newTalent{
 
 newTalent{
 	name = "Shield Discipline",
-	display_name = "방어막 숙련",
+	kr_display_name = "방어막 숙련",
 	type = {"psionic/mental-discipline", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -55,7 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Iron Will",
-	display_name = "곧은 의지",
+	kr_display_name = "곧은 의지",
 	type = {"psionic/mental-discipline", 3},
 	require = psi_wil_req3,
 	points = 5,
@@ -77,7 +77,7 @@ newTalent{
 
 newTalent{
 	name = "Highly Trained Mind",
-	display_name = "고도로 훈련된 정신",
+	kr_display_name = "고도로 훈련된 정신",
 	type = {"psionic/mental-discipline", 4},
 	mode = "passive",
 	require = psi_wil_req4,

@@ -28,7 +28,7 @@ end
 
 newTalent{
 	name = "Chant of Fortitude",
-	display_name = "인내의 찬가",
+	kr_display_name = "인내의 찬가",
 	type = {"celestial/chants", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -73,7 +73,7 @@ newTalent{
 
 newTalent{
 	name = "Chant of Fortress",
-	display_name = "보루의 찬가",
+	kr_display_name = "보루의 찬가",
 	type = {"celestial/chants", 2},
 	mode = "sustained",
 	require = divi_req2,
@@ -115,7 +115,7 @@ newTalent{
 
 newTalent{
 	name = "Chant of Resistance",
-	display_name = "저항의 찬가",
+	kr_display_name = "저항의 찬가",
 	type = {"celestial/chants",3},
 	mode = "sustained",
 	require = divi_req3,
@@ -163,7 +163,7 @@ newTalent{
 
 newTalent{
 	name = "Chant of Light",
-	display_name = "빛의 찬가",
+	kr_display_name = "빛의 찬가",
 	type = {"celestial/chants", 4},
 	mode = "sustained",
 	require = divi_req4,

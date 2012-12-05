@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Nightmare",
-	display_name = "악몽",
+	kr_display_name = "악몽",
 	type = {"psionic/nightmare", 1},
 	points = 5, 
 	require = psi_wil_high1,
@@ -89,7 +89,7 @@ newTalent{
 
 newTalent{
 	name = "Inner Demons",
-	display_name = "내면의 악마",
+	kr_display_name = "내면의 악마",
 	type = {"psionic/nightmare", 2},
 	points = 5,
 	require = psi_wil_high2,
@@ -219,7 +219,7 @@ newTalent{
 
 newTalent{
 	name = "Waking Nightmare",
-	display_name = "눈뜨고 겪는 악몽",
+	kr_display_name = "눈뜨고 겪는 악몽",
 	type = {"psionic/nightmare", 3},
 	points = 5,
 	require = psi_wil_high3,
@@ -265,7 +265,7 @@ newTalent{
 
 newTalent{
 	name = "Night Terror",
-	display_name = "밤의 공포",
+	kr_display_name = "밤의 공포",
 	type = {"psionic/nightmare", 4},
 	points = 5,
 	require = psi_wil_high4,

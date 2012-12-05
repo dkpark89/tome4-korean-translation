@@ -49,7 +49,7 @@ load("/data/talents/undeads/skeleton.lua")
 newTalent{
 	short_name = "UNDEAD_ID",
 	name = "Knowledge of the Past",
-	display_name = "과거의 지식",
+	kr_display_name = "과거의 지식",
 	type = {"undead/base", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,

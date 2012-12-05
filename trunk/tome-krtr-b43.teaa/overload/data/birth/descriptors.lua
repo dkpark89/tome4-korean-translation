@@ -31,7 +31,7 @@ setStepNames{
 newBirthDescriptor{
 	type = "base",
 	name = "base",
-	display_name = "기본",
+	kr_display_name = "기본",
 	desc = {
 	},
 	descriptor_choices =
@@ -94,7 +94,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Tutorial",
-	display_name = "초보자 입문용 연습게임",
+	kr_display_name = "초보자 입문용 연습게임",
 	never_show = true,
 	desc =
 	{
@@ -139,7 +139,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Easy",
-	display_name = "쉬움",
+	kr_display_name = "쉬움",
 	desc =
 	{
 		"#GOLD##{bold}#쉬운 난이도#WHITE##{normal}#",
@@ -161,7 +161,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Normal",
-	display_name = "보통",
+	kr_display_name = "보통",
 	selection_default = true,
 	desc =
 	{
@@ -180,7 +180,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Insane",
-	display_name = "미치광이",
+	kr_display_name = "미치광이",
 	desc =
 	{
 		"#GOLD##{bold}#미치광이 난이도#WHITE##{normal}#",
@@ -202,7 +202,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Exploration",
-	display_name = "탐사 모드",
+	kr_display_name = "탐사 모드",
 	locked = function(birther) return birther:isDonator() end,
 	locked_desc = "탐사 모드: 무한한 생명 (기부자용 모드)",
 	locked_select = function(birther) birther:selectExplorationNoDonations() end,
@@ -222,7 +222,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Adventure",
-	display_name = "모험 모드",
+	kr_display_name = "모험 모드",
 	selection_default = (not config.settings.tome.default_birth) or (config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Adventure"),
 	desc =
 	{
@@ -238,7 +238,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Roguelike",
-	display_name = "로그라이크 모드",
+	kr_display_name = "로그라이크 모드",
 	selection_default = config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Roguelike",
 	desc =
 	{

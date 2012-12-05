@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Undead",
-	display_name = "언데드",
+	kr_display_name = "언데드",
 	locked = function() return profile.mod.allow_build.undead end,
 	locked_desc = "죽음의 힘, 무시무시한 의지, 이 육신은 멈추질 못하리. 왕은 죽고, 지배자는 쓰러지나, 우리는 그들보다 오래가리라.",
 	desc = {
@@ -73,7 +73,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Ghoul",
-	display_name = "구울",
+	kr_display_name = "구울",
 	locked = function() return profile.mod.allow_build.undead_ghoul end,
 	locked_desc = "걸을 때는 느리게, 물어뜯을 때는 빠르게, 주인님께 배운 대로, 밤을 지배하리!",
 	desc = {
@@ -127,7 +127,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Skeleton",
-	display_name = "스켈레톤",
+	kr_display_name = "스켈레톤",
 	locked = function() return profile.mod.allow_build.undead_skeleton end,
 	locked_desc = "진군하는 뼈의 군단, 걸음마다 덜그럭 덜그럭. 그러나 더는 섬기지 않으리, 우리는 싸우기 위해 진군한다!",
 	desc = {

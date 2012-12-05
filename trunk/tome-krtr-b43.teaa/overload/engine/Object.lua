@@ -86,7 +86,7 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.display_name or self.name
+	local name = self.kr_display_name or self.name
 
 	if qty == 1 or t.no_count then return name
 	else return qty.." "..name
@@ -95,7 +95,7 @@ end
 
 --- Gets the full desc of the object
 function _M:getDesc()
-	return self.display_name or self.name
+	return self.kr_display_name or self.name
 end
 
 --- Returns the inventory type an object is worn on
@@ -204,13 +204,13 @@ function _M:getRequirementDesc(who)
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
 				--@@
-				local tn = who:getTalentFromId(tid[1]).display_name
+				local tn = who:getTalentFromId(tid[1]).kr_display_name
 				if tn == nil or type(tn) ~="string" then tn = who:getTalentFromId(tid[1]).name end
 				local c = (who:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
 				str:add(c, "- ", ("%s 기술 (레벨 %d)"):format(tn, tid[2]), {"color", "LAST"}, true)
 			else
 				--@@
-				local tn = who:getTalentFromId(tid).display_name
+				local tn = who:getTalentFromId(tid).kr_display_name
 				if tn == nil or type(tn) ~="string" then tn = who:getTalentFromId(tid).name end
 				local c = who:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
 				str:add(c, "- ", ("%s 기술"):format(tn), {"color", "LAST"}, true)

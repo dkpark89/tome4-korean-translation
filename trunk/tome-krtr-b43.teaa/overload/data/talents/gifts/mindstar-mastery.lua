@@ -27,7 +27,7 @@ end
 
 newTalent{
 	name = "Psiblades",
-	display_name = "염동칼날",
+	kr_display_name = "염동칼날",
 	type = {"wild-gift/mindstar-mastery", 1},
 	require = gifts_req1,
 	points = 5,
@@ -69,7 +69,7 @@ newTalent{
 
 newTalent{
 	name = "Thorn Grab",
-	display_name = "덩쿨 휘감기",
+	kr_display_name = "덩쿨 휘감기",
 	type = {"wild-gift/mindstar-mastery", 2},
 	require = gifts_req2,
 	points = 5,
@@ -99,7 +99,7 @@ newTalent{
 
 newTalent{
 	name = "Leaves Tide",
-	display_name = "파편의 흐름",
+	kr_display_name = "파편의 흐름",
 	type = {"wild-gift/mindstar-mastery", 3},
 	require = gifts_req3,
 	points = 5,
@@ -140,7 +140,7 @@ newTalent{
 
 newTalent{
 	name = "Nature's Equilibrium",
-	display_name = "자연의 평정",
+	kr_display_name = "자연의 평정",
 	type = {"wild-gift/mindstar-mastery", 4},
 	require = gifts_req4,
 	points = 5,

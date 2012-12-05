@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Taunt",
-	display_name = "약올리기",
+	kr_display_name = "약올리기",
 	type = {"technique/other",1},
 	points = 1,
 	cooldown = 5,
@@ -45,7 +45,7 @@ newTalent{
 
 newTalent{
 	name = "Shell Shield",
-	display_name = "등껍질 방패",
+	kr_display_name = "등껍질 방패",
 	type = {"technique/other",1},
 	points = 5,
 	cooldown = 10,
@@ -63,7 +63,7 @@ newTalent{
 
 newTalent{ short_name="SPIDER_WEB",
 	name = "Web",
-	display_name = "거미줄",
+	kr_display_name = "거미줄",
 	type = {"wild-gift/other",1},
 	points = 5,
 	equilibrium = 5,
@@ -90,7 +90,7 @@ newTalent{ short_name="SPIDER_WEB",
 
 newTalent{
 	name = "Turtle",
-	display_name = "거북이 소환",
+	kr_display_name = "거북이 소환",
 	type = {"wild-gift/summon-utility", 1},
 	require = gifts_req1,
 	random_ego = "attack",
@@ -198,7 +198,7 @@ newTalent{
 
 newTalent{
 	name = "Spider",
-	display_name = "거미 소환",
+	kr_display_name = "거미 소환",
 	type = {"wild-gift/summon-utility", 2},
 	require = gifts_req2,
 	points = 5,
@@ -304,7 +304,7 @@ newTalent{
 
 newTalent{
 	name = "Frantic Summoning",
-	display_name = "굉장한 소환기술",
+	kr_display_name = "굉장한 소환기술",
 	type = {"wild-gift/summon-utility", 3},
 	require = gifts_req3,
 	points = 5,
@@ -330,7 +330,7 @@ newTalent{
 
 newTalent{
 	name = "Summon Control",
-	display_name = "소환수 제어",
+	kr_display_name = "소환수 제어",
 	type = {"wild-gift/summon-utility", 4},
 	require = gifts_req4,
 	mode = "passive",

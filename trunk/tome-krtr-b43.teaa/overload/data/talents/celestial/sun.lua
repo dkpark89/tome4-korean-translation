@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Searing Light",
-	display_name = "타오르는 빛",
+	kr_display_name = "타오르는 빛",
 	type = {"celestial/sun", 1},
 	require = divi_req1,
 	random_ego = "attack",
@@ -64,7 +64,7 @@ newTalent{
 
 newTalent{
 	name = "Sun Flare",
-	display_name = "태양의 섬광",
+	kr_display_name = "태양의 섬광",
 	type = {"celestial/sun", 2},
 	require = divi_req2,
 	points = 5,
@@ -111,7 +111,7 @@ newTalent{
 
 newTalent{
 	name = "Firebeam",
-	display_name = "태양의 불길",
+	kr_display_name = "태양의 불길",
 	type = {"celestial/sun",3},
 	require = divi_req3,
 	points = 5,
@@ -147,7 +147,7 @@ newTalent{
 
 newTalent{
 	name = "Sunburst",
-	display_name = "태양 파열",
+	kr_display_name = "태양 파열",
 	type = {"celestial/sun", 4},
 	require = divi_req4,
 	points = 5,

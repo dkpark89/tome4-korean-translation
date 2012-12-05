@@ -28,7 +28,7 @@ end
 
 newTalent{
 	name = "Telekinetic Smash",
-	display_name = "염동적 강타",
+	kr_display_name = "염동적 강타",
 	type = {"psionic/psi-fighting", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -62,7 +62,7 @@ newTalent{
 
 newTalent{
 	name = "Augmentation",
-	display_name = "증대",
+	kr_display_name = "증대",
 	type = {"psionic/psi-fighting", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -98,7 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Conduit",
-	display_name = "도랑",
+	kr_display_name = "도랑",
 	type = {"psionic/psi-fighting", 3},
 	require = psi_wil_req3, no_sustain_autoreset = true,
 	cooldown = 1,
@@ -164,7 +164,7 @@ newTalent{
 
 newTalent{
 	name = "Frenzied Psifighting",
-	display_name = "광란하는 염동전투",
+	kr_display_name = "광란하는 염동전투",
 	type = {"psionic/psi-fighting", 4},
 	require = psi_wil_req4,
 	cooldown = 20,

@@ -19,7 +19,7 @@
 
 uberTalent{
 	name = "Draconic Will",
-	display_name = "드래곤의 의지",
+	kr_display_name = "드래곤의 의지",
 	cooldown = 15,
 	no_energy = true,
 	requires_target = true,
@@ -39,7 +39,7 @@ uberTalent{
 
 uberTalent{
 	name = "Meteoric Crash",
-	display_name = "유성 충돌",
+	kr_display_name = "유성 충돌",
 	mode = "passive",
 	cooldown = 15,
 	getDamage = function(self, t) return 100 + self:combatSpellpower() * 4 end,
@@ -114,7 +114,7 @@ uberTalent{
 
 uberTalent{
 	name = "Garkul's Revenge",
-	display_name = "가르쿨의 복수",
+	kr_display_name = "가르쿨의 복수",
 	mode = "passive",
 	on_learn = function(self, t)
 		self.inc_damage_actor_type = self.inc_damage_actor_type or {}
@@ -144,7 +144,7 @@ uberTalent{
 
 uberTalent{
 	name = "Hidden Resources",
-	display_name = "숨겨진 원천력",
+	kr_display_name = "숨겨진 원천력",
 	cooldown = 15,
 	no_energy = true,
 	tactical = { BUFF = 2 },
@@ -163,7 +163,7 @@ uberTalent{
 
 uberTalent{
 	name = "Lucky Day",
-	display_name = "행운의 날",
+	kr_display_name = "행운의 날",
 	mode = "passive",
 	require = { special={desc="Be lucky already (at least +5 luck)", fct=function(self) return self:getLck() >= 55 end} },
 	on_learn = function(self, t)
@@ -182,7 +182,7 @@ uberTalent{
 
 uberTalent{
 	name = "Unbreakable Will",
-	display_name = "불굴의 의지",
+	kr_display_name = "불굴의 의지",
 	mode = "passive",
 	cooldown = 7,
 	trigger = function(self, t)
@@ -199,7 +199,7 @@ uberTalent{
 
 uberTalent{
 	name = "Spell Feedback",
-	display_name = "주문 반작용",
+	kr_display_name = "주문 반작용",
 	mode = "passive",
 	cooldown = 3,
 	require = { special={desc="Antimagic", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },

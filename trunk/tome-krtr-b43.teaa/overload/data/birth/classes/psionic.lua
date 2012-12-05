@@ -22,7 +22,7 @@ local Particles = require "engine.Particles"
 newBirthDescriptor{
 	type = "class",
 	name = "Psionic",
-	display_name = "초능력자 (Psionic)",
+	kr_display_name = "초능력자 (Psionic)",
 	locked = function() return profile.mod.allow_build.psionic end,
 	locked_desc = "비록 육체가 약하더라도 정신의 단련으로 극복할 수 있다. '길'을 찾고 '길'을 위해 싸워 너의 정신을 개방하라.",
 	desc = {
@@ -46,7 +46,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Mindslayer",
-	display_name = "정신 파괴자 (Mindslayer)",
+	kr_display_name = "정신 파괴자 (Mindslayer)",
 	locked = function() return profile.mod.allow_build.psionic_mindslayer end,
 	locked_desc = "생각으로 감화시킬 수도 있으며, 생각으로 죽일 수도 있다. 억압과 구속의 세월이 끝나고, 생각이 우리를 자유롭게 할 것이며 우리의 어두운 꿈 속에서 복수가 몰아치리라.",
 	desc = {
@@ -164,7 +164,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Solipsist",
-	display_name = "유아론자 (Solipsist)",
+	kr_display_name = "유아론자 (Solipsist)",
 	locked = function() return profile.mod.allow_build.psionic_solipsist end,
 	locked_desc = "세계가 그저 그곳에 거하는 자들이 꾸는 꿈의 퇴적에 지나지 않는다 믿는 자도 있다. 잠자는 자를 깨워 꿈의 잠재력을 개방하라.",
 	desc = {

@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Tutorial Adventurer",
-	display_name = "초보자 입문용 모험가",
+	kr_display_name = "초보자 입문용 모험가",
 	desc = {
 		"모험가는 초보자에게 가르쳐줄 수 있는 일반 기술계열을 가지고 있습니다.",
 	},
@@ -46,7 +46,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Tutorial Adventurer",
-	display_name = "초보자 입문용 모험가",
+	kr_display_name = "초보자 입문용 모험가",
 	desc = {
 		"모험가는 초보자에게 가르쳐줄 수 있는 일반 기술계열을 가지고 있습니다.",
 	},

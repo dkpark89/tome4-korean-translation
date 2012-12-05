@@ -564,8 +564,7 @@ end
 
 function string.krClass(str)
 	local ori = str:lower()
-	if ori == "technique" then return "물리"
-	elseif ori == "higher" then return "하이어"
+	if ori == "higher" then return "하이어"
 	elseif ori == "adventurer" then return "모험가"
 	elseif ori == "afflicted" then return "고통받는 자"
 	elseif ori == "cursed" then return "저주받은 자"

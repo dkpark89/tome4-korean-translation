@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Sling Mastery",
-	display_name = "투석구 숙련",
+	kr_display_name = "투석구 숙련",
 	type = {"technique/archery-sling", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 12 + level * 6 end }, },
@@ -41,7 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Eye Shot",
-	display_name = "눈 맞추기",
+	kr_display_name = "눈 맞추기",
 	type = {"technique/archery-sling", 2},
 	no_energy = "fake",
 	points = 5,
@@ -77,7 +77,7 @@ newTalent{
 
 newTalent{
 	name = "Inertial Shot",
-	display_name = "밀어내기 사격",
+	kr_display_name = "밀어내기 사격",
 	type = {"technique/archery-sling", 3},
 	no_energy = "fake",
 	points = 5,
@@ -113,7 +113,7 @@ newTalent{
 
 newTalent{
 	name = "Multishot",
-	display_name = "여러발 쏘기",
+	kr_display_name = "여러발 쏘기",
 	type = {"technique/archery-sling", 4},
 	no_energy = "fake",
 	points = 5,

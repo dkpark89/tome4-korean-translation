@@ -21,7 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Psychometry",
-	display_name = "사이코메트리",
+	kr_display_name = "사이코메트리",
 	type = {"psionic/mentalism", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -60,7 +60,7 @@ newTalent{
 
 newTalent{
 	name = "Mental Shielding",
-	display_name = "정신 방어",
+	kr_display_name = "정신 방어",
 	type = {"psionic/mentalism", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -117,7 +117,7 @@ newTalent{
 
 newTalent{
 	name = "Projection",
-	display_name = "투영",
+	kr_display_name = "투영",
 	type = {"psionic/mentalism", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -241,7 +241,7 @@ newTalent{
 
 newTalent{
 	name = "Mind Link",
-	display_name = "정신 연결",
+	kr_display_name = "정신 연결",
 	type = {"psionic/mentalism", 4},
 	points = 5, 
 	require = psi_wil_req4,

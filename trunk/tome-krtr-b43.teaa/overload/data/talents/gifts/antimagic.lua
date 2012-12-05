@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Resolve",
-	display_name = "결의",
+	kr_display_name = "결의",
 	type = {"wild-gift/antimagic", 1},
 	require = gifts_req1,
 	mode = "passive",
@@ -49,7 +49,7 @@ newTalent{
 
 newTalent{
 	name = "Aura of Silence",
-	display_name = "침묵의 오러",
+	kr_display_name = "침묵의 오러",
 	type = {"wild-gift/antimagic", 2},
 	require = gifts_req2,
 	points = 5,
@@ -75,7 +75,7 @@ newTalent{
 
 newTalent{
 	name = "Antimagic Shield",
-	display_name = "반마법 방어막",
+	kr_display_name = "반마법 방어막",
 	type = {"wild-gift/antimagic", 3},
 	require = gifts_req3,
 	mode = "sustained",
@@ -128,7 +128,7 @@ newTalent{
 
 newTalent{
 	name = "Mana Clash",
-	display_name = "마나 충돌",
+	kr_display_name = "마나 충돌",
 	type = {"wild-gift/antimagic", 4},
 	require = gifts_req4,
 	points = 5,

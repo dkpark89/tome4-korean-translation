@@ -21,7 +21,7 @@ local DamageType = require "engine.DamageType"
 
 newTalent{
 	name = "Rend",
-	display_name = "분쇄",
+	kr_display_name = "분쇄",
 	type = {"corruption/scourge", 1},
 	require = corrs_req1,
 	points = 5,
@@ -74,7 +74,7 @@ newTalent{
 
 newTalent{
 	name = "Ruin",
-	display_name = "붕괴",
+	kr_display_name = "붕괴",
 	type = {"corruption/scourge", 2},
 	mode = "sustained",
 	require = corrs_req2,
@@ -101,7 +101,7 @@ newTalent{
 
 newTalent{
 	name = "Acid Strike",
-	display_name = "산성 타격",
+	kr_display_name = "산성 타격",
 	type = {"corruption/scourge", 3},
 	require = corrs_req3,
 	points = 5,
@@ -151,7 +151,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Surprise",
-	display_name = "어둠의 선물",
+	kr_display_name = "어둠의 선물",
 	type = {"corruption/scourge", 4},
 	require = corrs_req4,
 	points = 5,

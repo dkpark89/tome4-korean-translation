@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Possess",
-	display_name = "소유",
+	kr_display_name = "소유",
 	type = {"psionic/possession", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -123,7 +123,7 @@ newTalent{
 
 newTalent{
 	name = "Physical Possession",
-	display_name = "물리적 소유",
+	kr_display_name = "물리적 소유",
 	type = {"psionic/possession", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -137,7 +137,7 @@ newTalent{
 
 newTalent{
 	name = "Wild Possession",
-	display_name = "야생적 소유",
+	kr_display_name = "야생적 소유",
 	type = {"psionic/possession", 3},
 	require = psi_wil_req3,
 	mode = "passive",
@@ -151,7 +151,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Possession",
-	display_name = "마법적 소유",
+	kr_display_name = "마법적 소유",
 	type = {"psionic/possession", 4},
 	require = psi_wil_req4,
 	mode = "passive",

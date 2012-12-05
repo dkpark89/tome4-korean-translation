@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Construct",
-	display_name = "구조체",
+	kr_display_name = "구조체",
 	locked = function() return profile.mod.allow_build.construct and true or "hide" end,
 	locked_desc = "",
 	desc = {
@@ -45,7 +45,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Runic Golem",
-	display_name = "룬 골렘",
+	kr_display_name = "룬 골렘",
 	locked = function() return profile.mod.allow_build.construct_runic_golem and true or "hide" end,
 	locked_desc = "",
 	desc = {

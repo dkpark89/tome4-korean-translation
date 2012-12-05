@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Chronomancer",
-	display_name = "시공 제어사 (Chronomancer)",
+	kr_display_name = "시공 제어사 (Chronomancer)",
 	locked = function() return profile.mod.allow_build.chronomancer end,
 	locked_desc = "평범히 인생을 시간에 흘려보내지 않고, 시간의 샛길을 거니는 자들도 있다.",
 	desc = {
@@ -42,7 +42,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Paradox Mage",
-	display_name = "괴리 마법사 (Paradox Mage)",
+	kr_display_name = "괴리 마법사 (Paradox Mage)",
 	locked = function() return profile.mod.allow_build.chronomancer_paradox_mage end,
 	locked_desc = "일시에 반대방향으로도 힘을 가할 수 있다면 한손만 가지고도 박수를 칠 수 있으니, 괴리에서 힘을 구하라.",
 	desc = {
@@ -94,7 +94,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Temporal Warden",
-	display_name = "시간의 감시자 (Temporal Warden)",
+	kr_display_name = "시간의 감시자 (Temporal Warden)",
 	locked = function() return profile.mod.allow_build.chronomancer_temporal_warden end,
 	locked_desc = "우리는 미래를 위해 과거를 수호한다. 시간의 손길을 보호하는 것은 전투의 병기일지니.",
 	desc = {

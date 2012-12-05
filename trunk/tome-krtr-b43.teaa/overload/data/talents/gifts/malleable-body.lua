@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "azdadazdazdazd",
-	display_name = "azdadazdazdazd",
+	kr_display_name = "azdadazdazdazd",
 	type = {"wild-gift/malleable-body", 1},
 	require = gifts_req1,
 	points = 5,
@@ -46,7 +46,7 @@ newTalent{
 
 newTalent{
 	name = "ervevev",
-	display_name = "ervevev",
+	kr_display_name = "ervevev",
 	type = {"wild-gift/malleable-body", 2},
 	require = gifts_req2,
 	points = 5,
@@ -64,7 +64,7 @@ newTalent{
 
 newTalent{
 	name = "zeczczeczec", 
-	display_name = "zeczczeczec",
+	kr_display_name = "zeczczeczec",
 	type = {"wild-gift/malleable-body", 3},
 	require = gifts_req3,
 	points = 5,
@@ -85,7 +85,7 @@ newTalent{
 
 newTalent{
 	name = "Indiscernible Anatomy",
-	display_name = "알수없는 신체구조",
+	kr_display_name = "알수없는 신체구조",
 	type = {"wild-gift/malleable-body", 4},
 	require = gifts_req4,
 	points = 5,

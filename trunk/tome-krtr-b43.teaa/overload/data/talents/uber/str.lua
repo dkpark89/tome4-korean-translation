@@ -19,7 +19,7 @@
 
 uberTalent{
 	name = "Flexible Combat",
-	display_name = "유연한 전투기술",
+	kr_display_name = "유연한 전투기술",
 	mode = "passive",
 	on_learn = function(self, t)
 		self:attr("unharmed_attack_on_hit", 1)
@@ -37,7 +37,7 @@ uberTalent{
 
 uberTalent{
 	name = "You Shall Be My Weapon!", short_name="TITAN_S_SMASH", image = "talents/titan_s_smash.png",
-	display_name = "너는 내 무기다!",
+	kr_display_name = "너는 내 무기다!",
 	mode = "activated",
 	require = { special={desc="Be of at least size category 'huge' (also required to use it) and know at least 20 talent levels of stamina using talents.", fct=function(self) return self.size_category and self.size_category >= 5 and knowRessource(self, "stamina", 20) end} },
 	requires_target = true,
@@ -77,7 +77,7 @@ uberTalent{
 
 uberTalent{
 	name = "Massive Blow",
-	display_name = "강력한 일격",
+	kr_display_name = "강력한 일격",
 	mode = "activated",
 	require = { special={desc="Dug at least 30 walls/trees/... and know at least 20 talent levels of stamina using talents.", fct=function(self) return self.dug_times and self.dug_times >= 30 and knowRessource(self, "stamina", 20) end} },
 	requires_target = true,
@@ -110,7 +110,7 @@ uberTalent{
 
 uberTalent{
 	name = "Steamroller",
-	display_name = "스팀롤러",
+	kr_display_name = "스팀롤러",
 	mode = "passive",
 	require = { special={desc="Know the Rush talent.", fct=function(self) return self:knowTalent(self.T_RUSH) end} },
 	info = function(self, t)
@@ -121,7 +121,7 @@ uberTalent{
 
 uberTalent{
 	name = "Irresistible Sun",
-	display_name = "피할수없는 태양",
+	kr_display_name = "피할수없는 태양",
 	cooldown = 25,
 	requires_target = true,
 	range = 5,
@@ -147,7 +147,7 @@ uberTalent{
 
 uberTalent{
 	name = "I Can Carry The World!", short_name = "NO_FATIGUE",
-	display_name = "난 세상을 들수있다!",
+	kr_display_name = "난 세상을 들수있다!",
 	mode = "passive",
 	require = { special={desc="Be able to use massive armours.", fct=function(self) return self:getTalentLevelRaw(self.T_ARMOUR_TRAINING) >= 4 end} },
 	info = function(self, t)
@@ -159,7 +159,7 @@ uberTalent{
 
 uberTalent{
 	name = "Legacy of the Naloren",
-	display_name = "날로렌의 유산",
+	kr_display_name = "날로렌의 유산",
 	mode = "passive",
 	require = { special={desc="Side wih Slasul and kill Ukllmswwik.", fct=function(self)
 		if game.state.birth.ignore_prodigies_special_reqs then return true end

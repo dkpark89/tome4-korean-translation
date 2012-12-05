@@ -22,7 +22,7 @@ local Particles = require "engine.Particles"
 newBirthDescriptor{
 	type = "class",
 	name = "Mage",
-	display_name = "마법사 (Mage)",
+	kr_display_name = "마법사 (Mage)",
 	desc = {
 		"마법사들은 강력한 파괴 주문을 시전하거나 생각만으로도 상처를 치유할 수 있는 신비한 힘을 사용합니다.",
 	},
@@ -46,7 +46,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Alchemist",
-	display_name = "연금술사 (Alchemist)",
+	kr_display_name = "연금술사 (Alchemist)",
 	desc = {
 		"연금술사는 마법으로 물질을 조작하는 자들입니다.",
 		"스펠블레이즈 이후로는, 자연을 어지럽히는 금지된 옛 마법들을 수련하면 따돌림을 받거나 잡혀죽을 수도 있기 때문에 그런 마법은 사용하지 않습니다.",
@@ -111,7 +111,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Archmage",
-	display_name = "대마법사 (Archmage)",
+	kr_display_name = "대마법사 (Archmage)",
 	locked = function() return profile.mod.allow_build.mage end,
 	locked_desc = "증오받고, 꺼려지며, 사냥당하고, 숨는다... 우리의 기예는 금지당했지만, 우리의 이유는 정당하다. 감춰진 계곡에서 우리는 세상의 분노로부터 도망쳐 안식을 구하며, 기예를 연마한다. 호의와 우정으로만 우리에게 신뢰받으리라.",
 	desc = {
@@ -209,7 +209,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Necromancer",
-	display_name = "사령술사 (Necromancer)",
+	kr_display_name = "사령술사 (Necromancer)",
 	locked = function() return profile.mod.allow_build.mage_necromancer end,
 	locked_desc = "사자와 동행하며 부정한 지식을 들이킬지니, 사령 마법은 실로 죽음의 길이로다.",
 	desc = {

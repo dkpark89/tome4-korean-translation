@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Human",
-	display_name = "인간",
+	kr_display_name = "인간",
 	desc = {
 		"인간은 하플링과 더불어 마즈'에이알에서 가장 흔한 종족입니다. 오래 전, 스펠블레이즈가 일어나고 위대한 인물들이 인간과 하플링을 하나의 규율 아래 단결시키기 전에는 수천년간 인간과 하플링은 서로 싸워왔었습니다.",
 		"그 후 연합 왕국의 백성은 한 세기가 넘는 평화를 지금껏 누려왔습니다.",
@@ -73,7 +73,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Higher",
-	display_name = "하이어",
+	kr_display_name = "하이어",
 	desc = {
 		"하이어는 미혹의 시대 때 마법의 잠재력을 받은 인종입니다.",
 		"다른 인종과 피를 섞지 않고, 자신들의 '순수한' 혈통을 보존하려합니다.",
@@ -106,7 +106,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Cornac",
-	display_name = "코르낙",
+	kr_display_name = "코르낙",
 	desc = {
 		"코르낙은 연맹 왕국의 북부 지방 사람들입니다.",
 		"적응력이 매우 뛰어나기 때문에 #GOLD#기술계열 점수#WHITE#를 시작할때 1점 받습니다(다른 종족은 10,20,30 레벨에서만 받을 수 있음).",

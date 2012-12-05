@@ -22,7 +22,7 @@
 ----------------------------------------------------
 newTalent{
 	name = "Rush",
-	display_name = "돌진",
+	kr_display_name = "돌진",
 	type = {"technique/combat-techniques-active", 1},
 	message = "@Source1@ 돌진 합니다!",
 	require = techs_strdex_req1,
@@ -86,7 +86,7 @@ newTalent{
 
 newTalent{
 	name = "Precise Strikes",
-	display_name = "정밀 타격",
+	kr_display_name = "정밀 타격",
 	type = {"technique/combat-techniques-active", 2},
 	mode = "sustained",
 	points = 5,
@@ -116,7 +116,7 @@ newTalent{
 
 newTalent{
 	name = "Perfect Strike",
-	display_name = "완벽한 타격",
+	kr_display_name = "완벽한 타격",
 	type = {"technique/combat-techniques-active", 3},
 	points = 5,
 	random_ego = "attack",
@@ -136,7 +136,7 @@ newTalent{
 
 newTalent{
 	name = "Blinding Speed",
-	display_name = "불감 속도",
+	kr_display_name = "불감 속도",
 	type = {"technique/combat-techniques-active", 4},
 	points = 5,
 	random_ego = "utility",
@@ -159,7 +159,7 @@ newTalent{
 ----------------------------------------------------
 newTalent{
 	name = "Quick Recovery",
-	display_name = "빠른 회복",
+	kr_display_name = "빠른 회복",
 	type = {"technique/combat-techniques-passive", 1},
 	require = techs_strdex_req1,
 	mode = "passive",
@@ -177,7 +177,7 @@ newTalent{
 
 newTalent{
 	name = "Fast Metabolism",
-	display_name = "빠른 신진대사",
+	kr_display_name = "빠른 신진대사",
 	type = {"technique/combat-techniques-passive", 2},
 	require = techs_strdex_req2,
 	mode = "passive",
@@ -195,7 +195,7 @@ newTalent{
 
 newTalent{
 	name = "Spell Shield",
-	display_name = "주문 방어",
+	kr_display_name = "주문 방어",
 	type = {"technique/combat-techniques-passive", 3},
 	require = techs_strdex_req3,
 	mode = "passive",
@@ -213,7 +213,7 @@ newTalent{
 
 newTalent{
 	name = "Unending Frenzy",
-	display_name = "끝없는 격분",
+	kr_display_name = "끝없는 격분",
 	type = {"technique/combat-techniques-passive", 4},
 	require = techs_strdex_req4,
 	mode = "passive",

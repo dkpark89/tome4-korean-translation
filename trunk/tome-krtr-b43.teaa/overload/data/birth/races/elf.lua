@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Elf",
-	display_name = "엘프",
+	kr_display_name = "엘프",
 	desc = {
 		"엘프 종족은 흔히 엘프로 싸잡아 불리지만, 이는 잘못된 것입니다.",
 		"엘프는 세 종족으로 나뉘어지며, 현재는 두 종족만이 남아있습니다.",
@@ -63,7 +63,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Shalore",
-	display_name = "샬로레",
+	kr_display_name = "샬로레",
 	desc = {
 		"샬로레 엘프 족은 마법과 깊은 관계에 있기에 과거 많은 대마법사를 배출하였습니다.",
 		"그들의 뇌리에 아직도 선명히 남아있는 스펠블레이즈와 뒤이어 벌어진 스펠헌트 때문에, 마법을 숨기고 조용히 살고 있습니다.",
@@ -100,7 +100,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Thalore",
-	display_name = "탈로레",
+	kr_display_name = "탈로레",
 	desc = {
 		"탈로레 엘프 족은 대부분의 시간을 숲 속에서 은둔하며 지내며, 거의 벗어나질 않습니다.",
 		"아무리 세월이 흘러도 그들의 생태는 변하지 않습니다.",

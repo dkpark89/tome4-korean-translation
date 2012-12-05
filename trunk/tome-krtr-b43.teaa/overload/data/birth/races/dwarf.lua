@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Dwarf",
-	display_name = "드워프",
+	kr_display_name = "드워프",
 	desc = {
 		"드워프는 철의 왕좌라는 지하왕국에서 살고 있는 무뚝뚝한 종족입니다.",
 		"강인한 육체와 그들이 만든 걸작품으로 명성 높지만, 과거에 있었던 전란에서 다른 종족들과 연합하지 않고 홀로 싸운 일 때문에, 그리 환영받지는 못합니다.",
@@ -60,7 +60,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Dwarf",
-	display_name = "드워프",
+	kr_display_name = "드워프",
 	desc = {
 		"드워프는 철의 왕좌라는 지하왕국에서 살고 있는 무뚝뚝한 종족입니다.",
 		"강인한 육체와 그들이 만든 걸작품으로 명성 높지만, 과거에 있었던 전란에서 다른 종족들과 연합하지 않고 홀로 싸운 일 때문에, 그리 환영받지는 못합니다.",

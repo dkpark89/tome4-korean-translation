@@ -20,7 +20,7 @@
 
 newTalent{
 	name = "Juggernaut",
-	display_name = "거대함",
+	kr_display_name = "거대함",
 	type = {"technique/superiority", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -41,7 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Onslaught",
-	display_name = "맹습",
+	kr_display_name = "맹습",
 	type = {"technique/superiority", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -70,7 +70,7 @@ newTalent{
 
 newTalent{
 	name = "Battle Call",
-	display_name = "전장의 부름",
+	kr_display_name = "전장의 부름",
 	type = {"technique/superiority", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -105,7 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Shattering Impact",
-	display_name = "충격파",
+	kr_display_name = "충격파",
 	type = {"technique/superiority", 4},
 	require = techs_req_high4,
 	points = 5,

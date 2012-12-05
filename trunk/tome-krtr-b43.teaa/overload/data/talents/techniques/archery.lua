@@ -22,7 +22,7 @@ require "engine.krtrUtils"
 -- Default archery attack
 newTalent{
 	name = "Shoot",
-	display_name = "사격",
+	kr_display_name = "사격",
 	type = {"technique/archery-base", 1},
 	no_energy = "fake",
 	hide = true,
@@ -56,7 +56,7 @@ newTalent{
 }
 newTalent{
 	name = "Reload",
-	display_name = "재장전",
+	kr_display_name = "재장전",
 	type = {"technique/archery-base", 1},
 	cooldown = 0,
 	innate = true,
@@ -79,7 +79,7 @@ newTalent{
 			return
 		end
 		if q.combat.shots_left >= q.combat.capacity then
-			game.logPlayer(self, "%s가 꽉 찼습니다.", (q.display_name or q.name):addJosa("가"))
+			game.logPlayer(self, "%s가 꽉 찼습니다.", (q.kr_display_name or q.name):addJosa("가"))
 			return
 		end
 		self:setEffect(self.EFF_RELOADING, q.combat.capacity, {ammo = q, shots_per_turn = t.shots_per_turn(self, t)})
@@ -93,7 +93,7 @@ newTalent{
 
 newTalent{
 	name = "Steady Shot",
-	display_name = "정밀 사격",
+	kr_display_name = "정밀 사격",
 	type = {"technique/archery-training", 1},
 	no_energy = "fake",
 	points = 5,
@@ -118,7 +118,7 @@ newTalent{
 
 newTalent{
 	name = "Aim",
-	display_name = "조준",
+	kr_display_name = "조준",
 	type = {"technique/archery-training", 2},
 	mode = "sustained",
 	points = 5,
@@ -167,7 +167,7 @@ newTalent{
 
 newTalent{
 	name = "Rapid Shot",
-	display_name = "속사",
+	kr_display_name = "속사",
 	type = {"technique/archery-training", 3},
 	mode = "sustained",
 	points = 5,
@@ -208,7 +208,7 @@ newTalent{
 
 newTalent{
 	name = "Relaxed Shot",
-	display_name = "힘빼고 쏘기",
+	kr_display_name = "힘빼고 쏘기",
 	type = {"technique/archery-training", 4},
 	no_energy = "fake",
 	points = 5,
@@ -236,7 +236,7 @@ newTalent{
 
 newTalent{
 	name = "Flare",
-	display_name = "조명 사격",
+	kr_display_name = "조명 사격",
 	type = {"technique/archery-utility", 1},
 	no_energy = "fake",
 	points = 5,
@@ -283,7 +283,7 @@ newTalent{
 
 newTalent{
 	name = "Crippling Shot",
-	display_name = "장애유발 사격",
+	kr_display_name = "장애유발 사격",
 	type = {"technique/archery-utility", 2},
 	no_energy = "fake",
 	points = 5,
@@ -311,7 +311,7 @@ newTalent{
 
 newTalent{
 	name = "Pinning Shot",
-	display_name = "속박 사격",
+	kr_display_name = "속박 사격",
 	type = {"technique/archery-utility", 3},
 	no_energy = "fake",
 	points = 5,
@@ -328,7 +328,7 @@ newTalent{
 		if target:canBe("pin") then
 			target:setEffect(target.EFF_PINNED, t.getDur(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s 속박을 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 속박을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)
@@ -347,7 +347,7 @@ newTalent{
 
 newTalent{
 	name = "Scatter Shot",
-	display_name = "산탄 사격",
+	kr_display_name = "산탄 사격",
 	type = {"technique/archery-utility", 4},
 	no_energy = "fake",
 	points = 5,
@@ -369,7 +369,7 @@ newTalent{
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevelRaw(t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s 기절을 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 기절을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)

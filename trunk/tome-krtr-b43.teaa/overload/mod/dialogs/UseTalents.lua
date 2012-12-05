@@ -100,7 +100,7 @@ function _M:defineHotkey(id)
 	self.actor.hotkey[id] = {"talent", item.talent}
 	
 	--@@
-	local tn = t.display_name
+	local tn = t.kr_display_name
 	if tn == nil then tn = t.name:capitalize() end
 		
 	self:simplePopup("단축키 "..id.." 설정", tn:addJosa("가").." 단축키 "..id:addJosa("로").." 설정되었습니다.")
@@ -152,10 +152,10 @@ function _M:use(item, button)
 		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
 		
 		--@@
-		local itn = item.display_name()
+		local itn = item.kr_display_name()
 		if itn == nil then itn = item.name:toString() end
 		
-		local tn = self.actor:getTalentFromId(item.talent).display_name
+		local tn = self.actor:getTalentFromId(item.talent).kr_display_name
 		if tn == nil then tn = self.actor:getTalentFromId(item.talent).name:capitalize() end
 		
 		Dialog:listPopup("기술 연결: "..itn, "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
@@ -289,8 +289,8 @@ function _M:generateList()
 
 			nodes[#nodes+1] = {
 				--@@
-				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name)):toTString(),
-				cname = (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name),
+				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name)):toTString(),
+				cname = (( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name),
 				status=status,
 				entity=t.display_entity,
 				talent=t.id,

@@ -489,7 +489,7 @@ function _M:generateList()
 					local isgeneric = self.actor.talents_types_def[tt.type].generic
 
 					-- @@
-					local tdn = t.display_name
+					local tdn = t.kr_display_name
 					if tdn == nil then tdn = t.name end
 
 					-- Pregenenerate icon with the Tiles instance that allows images

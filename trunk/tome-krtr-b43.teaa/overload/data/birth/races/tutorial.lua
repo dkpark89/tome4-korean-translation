@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Tutorial Human",
-	display_name = "연습게임용 인간 ",
+	kr_display_name = "연습게임용 인간 ",
 	desc = {
 		"연습게임에 쓰이는 특수 종족.",
 	},
@@ -47,7 +47,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Tutorial Basic",
-	display_name = "연습게임용 기본 종족",
+	kr_display_name = "연습게임용 기본 종족",
 	desc = {
 		"데르스 북쪽 출신의 인간. 어디로보나 평범하기 그지없는 사람.",
 	},
@@ -65,7 +65,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Tutorial Stats",
-	display_name = "연습게임용 능력치",
+	kr_display_name = "연습게임용 능력치",
 	desc = {
 		"데르스 북쪽 출신의 인간. 어디로보나 평범하기 그지없는 사람.",
 	},

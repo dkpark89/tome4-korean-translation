@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Lethality",
-	display_name = "치명적인 자",
+	kr_display_name = "치명적인 자",
 	type = {"cunning/lethality", 1},
 	mode = "passive",
 	points = 5,
@@ -41,7 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Deadly Strikes",
-	display_name = "치명적 타격",
+	kr_display_name = "치명적 타격",
 	type = {"cunning/lethality", 2},
 	points = 5,
 	random_ego = "attack",
@@ -79,7 +79,7 @@ newTalent{
 
 newTalent{
 	name = "Willful Combat",
-	display_name = "계획적 전투기술",
+	kr_display_name = "계획적 전투기술",
 	type = {"cunning/lethality", 3},
 	points = 5,
 	random_ego = "attack",
@@ -105,7 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Snap",
-	display_name = "빠른 결정",
+	kr_display_name = "빠른 결정",
 	type = {"cunning/lethality",4},
 	require = cuns_req4,
 	points = 5,

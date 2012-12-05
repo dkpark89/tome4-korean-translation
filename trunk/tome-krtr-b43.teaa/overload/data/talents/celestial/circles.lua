@@ -20,7 +20,7 @@
 
 newTalent{
 	name = "Circle of Shifting Shadows",
-	display_name = "뒤바뀌는 그림자의 권역",
+	kr_display_name = "뒤바뀌는 그림자의 권역",
 	type = {"celestial/circles", 1},
 	require = divi_req_high1,
 	points = 5,
@@ -62,7 +62,7 @@ newTalent{
 
 newTalent{
 	name = "Circle of Blazing Light",
-	display_name = "타오르는 빛의 권역",
+	kr_display_name = "타오르는 빛의 권역",
 	type = {"celestial/circles", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -107,7 +107,7 @@ newTalent{
 
 newTalent{
 	name = "Circle of Sanctity",
-	display_name = "고결함의 권역",
+	kr_display_name = "고결함의 권역",
 	type = {"celestial/circles", 3},
 	require = divi_req_high3,
 	points = 5,
@@ -147,7 +147,7 @@ newTalent{
 
 newTalent{
 	name = "Circle of Warding",
-	display_name = "배척의 권역",
+	kr_display_name = "배척의 권역",
 	type = {"celestial/circles", 4},
 	require = divi_req_high4,
 	points = 5,

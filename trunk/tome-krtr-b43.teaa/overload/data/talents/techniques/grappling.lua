@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Grappling Stance",
-	display_name = "잡기 자세",
+	kr_display_name = "잡기 자세",
 	type = {"technique/unarmed-other", 1},
 	mode = "sustained",
 	hide = true,
@@ -57,7 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Clinch",
-	display_name = "붙잡기",
+	kr_display_name = "붙잡기",
 	type = {"technique/grappling", 1},
 	require = techs_req1,
 	points = 5,
@@ -137,7 +137,7 @@ newTalent{
 
 newTalent{
 	name = "Maim",
-	display_name = "꺽기",
+	kr_display_name = "꺽기",
 	type = {"technique/grappling", 2},
 	require = techs_req2,
 	points = 5,
@@ -197,7 +197,7 @@ newTalent{
 
 newTalent{
 	name = "Crushing Hold",
-	display_name = "눌러 조르기",
+	kr_display_name = "눌러 조르기",
 	type = {"technique/grappling", 3},
 	require = techs_req3,
 	mode = "passive",
@@ -216,7 +216,7 @@ newTalent{
 
 newTalent{
 	name = "Take Down",
-	display_name = "넘어뜨리기",
+	kr_display_name = "넘어뜨리기",
 	type = {"technique/grappling", 4},
 	require = techs_req4,
 	points = 5,
@@ -278,14 +278,14 @@ newTalent{
 					if target:canBe("stun") then
 						target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 					else
-						game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+						game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				else
 					self:project(target, x, y, DamageType.PHYSICAL, self:physicalCrit(t.getTakeDown(self, t), nil, target, self:combatAttack(), target:combatDefense()))
 					if target:canBe("stun") then
 						target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 					else
-						game.logSeen(target, "%s 혼절 효과에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+						game.logSeen(target, "%s 혼절 효과에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 			end

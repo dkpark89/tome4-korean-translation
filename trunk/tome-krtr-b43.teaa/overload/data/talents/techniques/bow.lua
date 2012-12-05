@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Bow Mastery",
-	display_name = "활 숙련",
+	kr_display_name = "활 숙련",
 	type = {"technique/archery-bow", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 12 + level * 6 end }, },
@@ -41,7 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Piercing Arrow",
-	display_name = "관통 사격",
+	kr_display_name = "관통 사격",
 	type = {"technique/archery-bow", 2},
 	no_energy = "fake",
 	points = 5,
@@ -67,7 +67,7 @@ newTalent{
 
 newTalent{
 	name = "Dual Arrows",
-	display_name = "이중 사격",
+	kr_display_name = "이중 사격",
 	type = {"technique/archery-bow", 3},
 	no_energy = "fake",
 	points = 5,
@@ -98,7 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Volley of Arrows",
-	display_name = "연발 사격",
+	kr_display_name = "연발 사격",
 	type = {"technique/archery-bow", 4},
 	no_energy = "fake",
 	points = 5,

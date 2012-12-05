@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Weapon of Light",
-	display_name = "빛의 무기",
+	kr_display_name = "빛의 무기",
 	type = {"celestial/combat", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -49,7 +49,7 @@ newTalent{
 
 newTalent{
 	name = "Martyrdom",
-	display_name = "고난",
+	kr_display_name = "고난",
 	type = {"celestial/combat", 2},
 	require = divi_req2,
 	points = 5,
@@ -84,7 +84,7 @@ newTalent{
 
 newTalent{
 	name = "Wave of Power",
-	display_name = "힘의 파동",
+	kr_display_name = "힘의 파동",
 	type = {"celestial/combat",3},
 	require = divi_req3,
 	points = 5,
@@ -118,7 +118,7 @@ newTalent{
 
 newTalent{
 	name = "Crusade",
-	display_name = "박멸",
+	kr_display_name = "박멸",
 	type = {"celestial/combat", 4},
 	require = divi_req4,
 	random_ego = "attack",

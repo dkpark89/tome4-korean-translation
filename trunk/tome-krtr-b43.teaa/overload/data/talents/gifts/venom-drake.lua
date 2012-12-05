@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Acidic Spray",
-	display_name = "산성 분사",
+	kr_display_name = "산성 분사",
 	type = {"wild-gift/venom-drake", 1},
 	require = gifts_req1,
 	points = 5,
@@ -65,7 +65,7 @@ newTalent{
 
 newTalent{
 	name = "Corrosive Mist",
-	display_name = "부식성 안개",
+	kr_display_name = "부식성 안개",
 	type = {"wild-gift/venom-drake", 2},
 	require = gifts_req2,
 	points = 5,
@@ -128,7 +128,7 @@ newTalent{
 
 newTalent{
 	name = "Dissolve",
-	display_name = "용해",
+	kr_display_name = "용해",
 	type = {"wild-gift/venom-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -161,7 +161,7 @@ newTalent{
 
 newTalent{
 	name = "Corrosive Breath",
-	display_name = "부식성 브레쓰",
+	kr_display_name = "부식성 브레쓰",
 	type = {"wild-gift/venom-drake", 4},
 	require = gifts_req4,
 	points = 5,

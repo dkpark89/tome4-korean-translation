@@ -28,7 +28,7 @@ end
 
 newTalent{
 	name = "Hymn of Shadows",
-	display_name = "그림자의 송가",
+	kr_display_name = "그림자의 송가",
 	type = {"celestial/hymns", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -70,7 +70,7 @@ newTalent{
 
 newTalent{
 	name = "Hymn of Detection",
-	display_name = "간파의 송가",
+	kr_display_name = "간파의 송가",
 	type = {"celestial/hymns", 2},
 	mode = "sustained",
 	require = divi_req2,
@@ -120,7 +120,7 @@ newTalent{
 
 newTalent{
 	name = "Hymn of Perseverance",
-	display_name = "불굴의 송가",
+	kr_display_name = "불굴의 송가",
 	type = {"celestial/hymns",3},
 	mode = "sustained",
 	require = divi_req3,
@@ -167,7 +167,7 @@ newTalent{
 
 newTalent{
 	name = "Hymn of Moonlight",
-	display_name = "달빛의 송가",
+	kr_display_name = "달빛의 송가",
 	type = {"celestial/hymns",4},
 	mode = "sustained",
 	require = divi_req4,

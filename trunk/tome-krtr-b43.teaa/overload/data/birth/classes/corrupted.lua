@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Defiler",
-	display_name = "모독자 (Defiler)",
+	kr_display_name = "모독자 (Defiler)",
 	locked = function() return profile.mod.allow_build.corrupter end,
 	locked_desc = "사악한 마음, 검은 피, 타락한 행위... 동포의 피로 땅을 적시는 자가 힘을 얻으리라.",
 	desc = {
@@ -43,7 +43,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Reaver",
-	display_name = "파괴자 (Reaver)",
+	kr_display_name = "파괴자 (Reaver)",
 	locked = function() return profile.mod.allow_build.corrupter_reaver end,
 	locked_desc = "그대에게 대적하는 자들의 영혼을 거두라, 그리하면 그대의 육신에 어둠의 권능이 깃들지니.",
 	desc = {
@@ -91,7 +91,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Corruptor",
-	display_name = "타락자 (Corruptor)",
+	kr_display_name = "타락자 (Corruptor)",
 	locked = function() return profile.mod.allow_build.corrupter_corruptor end,
 	locked_desc = "타락과 사악한 행위에는 강력한 힘이 있나니, 유혹을 받아들여 타락하라.",
 	desc = {
