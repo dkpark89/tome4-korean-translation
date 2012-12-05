@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Virulent Disease",
-	display_name = "전염성 질병",
+	kr_display_name = "전염성 질병",
 	type = {"corruption/plague", 1},
 	require = corrs_req1,
 	points = 5,
@@ -73,7 +73,7 @@ newTalent{
 
 newTalent{
 	name = "Cyst Burst",
-	display_name = "포낭 터뜨리기",
+	kr_display_name = "포낭 터뜨리기",
 	type = {"corruption/plague", 2},
 	require = corrs_req2,
 	points = 5,
@@ -154,7 +154,7 @@ newTalent{
 
 newTalent{
 	name = "Catalepsy",
-	display_name = "강경증",
+	kr_display_name = "강경증",
 	type = {"corruption/plague", 3},
 	require = corrs_req3,
 	points = 5,
@@ -224,7 +224,7 @@ newTalent{
 
 newTalent{
 	name = "Epidemic",
-	display_name = "유행성 질병",
+	kr_display_name = "유행성 질병",
 	type = {"corruption/plague", 4},
 	require = corrs_req4,
 	points = 5,

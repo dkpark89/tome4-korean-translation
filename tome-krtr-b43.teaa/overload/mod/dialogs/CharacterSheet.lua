@@ -520,9 +520,9 @@ function _M:drawDialog(kind, actor_to_compare)
 			local t = player:getTalentFromId("T_"..player.inscriptions[i])
 			local desc = player:getTalentFullDescription(t)
 			--@@
-			local tn = t.display_name
+			local tn = t.kr_display_name
 			if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
-			self:mouseTooltip("#GOLD##{bold}#"..t.name.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
+			self:mouseTooltip("#GOLD##{bold}#"..tn.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end end
 
 		if any_esp then
@@ -544,11 +544,11 @@ function _M:drawDialog(kind, actor_to_compare)
 			if act then
 				local t = player:getTalentFromId(tid)
 				--@@
-				local tn = t.display_name
+				local tn = t.kr_display_name
 				if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
 				local desc = "#GOLD##{bold}#"..tn.."#{normal}##WHITE#\n"..tostring(player:getTalentFullDescription(t))
 				--@@
-				local ptn = player:getTalentFromId(tid).display_name
+				local ptn = player:getTalentFromId(tid).kr_display_name
 				if ptn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = player:getTalentFromId(tid).name end
 				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(ptn), w, h, 255, 255, 255, true)) h = h + self.font_h
 			end
@@ -700,13 +700,13 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i, ts in pairs(inc_damages) do
 			if ts[1] then
 				if ts[2] and ts[2] ~= ts[1] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format((i.text_color or "#WHITE#"), i.name:capitalize().."#LAST# damage", ts[1] + (player.inc_damage.all or 0), ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format((i.text_color or "#WHITE#"), i.name:capitalize():krDamageType().."#LAST# damage", ts[1] + (player.inc_damage.all or 0), ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				else
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%"):format((i.text_color or "#WHITE#"), i.name:capitalize().."#LAST# damage", ts[1] + (player.inc_damage.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%"):format((i.text_color or "#WHITE#"), i.name:capitalize():krDamageType().."#LAST# damage", ts[1] + (player.inc_damage.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			else
 				if ts[2] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%(%+.0f%%)"):format((i.text_color or "#WHITE#"), i.name:capitalize().."#LAST# damage", (player.inc_damage.all or 0),-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%(%+.0f%%)"):format((i.text_color or "#WHITE#"), i.name:capitalize():krDamageType().."#LAST# damage", (player.inc_damage.all or 0),-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			end
 		end
@@ -731,13 +731,13 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i, ts in pairs(inc_damage_actor_types) do
 			if ts[1] then
 				if ts[2] and ts[2] ~= ts[1] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format(i:capitalize().."#LAST# 피해량", ts[1], ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format(i:capitalize():krDamageType().."#LAST# 피해량", ts[1], ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				else
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%"):format(i:capitalize().."#LAST# 피해량", ts[1]), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%"):format(i:capitalize():krDamageType().."#LAST# 피해량", ts[1]), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			else
 				if ts[2] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%(%+.0f%%)"):format(i:capitalize().."#LAST# 피해량", 0,-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%(%+.0f%%)"):format(i:capitalize():krDamageType().."#LAST# 피해량", 0,-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			end
 		end
@@ -904,7 +904,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			if player:knowTalent(t.id) and (not t.hide or t.hide ~= "always") then
 				local lvl = player:getTalentLevelRaw(t)
 				list[#list+1] = {
-					name = ("%s (%d)"):format( (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name), lvl ), --@@
+					name = ("%s (%d)"):format( (( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name), lvl ), --@@
 					desc = player:getTalentFullDescription(t):toString(),
 				}
 			end

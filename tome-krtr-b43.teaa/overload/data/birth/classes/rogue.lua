@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Rogue",
-	display_name = "도적 (Rogue)",
+	kr_display_name = "도적 (Rogue)",
 	desc = {
 		"도적은 속임수의 달인입니다. 적을 암습하거나 치명적인 함정으로 유인하며 싸웁니다.",
 	},
@@ -42,7 +42,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Rogue",
-	display_name = "도적 (Rogue)",
+	kr_display_name = "도적 (Rogue)",
 	desc = {
 		"도적은 속임수의 달인입니다. 적이 눈치채지 못하게 뒤를 잡은 뒤 공격하여 엄청난 피해를 입힐 수 있습니다.",
 		"단검으로 쌍수 무장을 선호하며, 함정을 놓거나 탐지하고 해체하는 전문가가 될 수도 있습니다.",
@@ -89,7 +89,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Shadowblade",
-	display_name = "쉐도우블레이드 (Shadowblade)",
+	kr_display_name = "쉐도우블레이드 (Shadowblade)",
 	desc = {
 		"쉐도우블레이드는 강화 주문을 사용하면서 몸을 숨긴 채 적을 단검으로 찔러 죽일 수 있는, 마법에 재능이 있는 도적입니다.",
 		"그들의 마법능력은 체득한 것이 아니라 선천적인 것이어서, 자연적으로 마나를 재생할 수는 없고 다른 수단을 써야 합니다.",
@@ -138,7 +138,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Marauder",
-	display_name = "약탈자 (Marauder)",
+	kr_display_name = "약탈자 (Marauder)",
 	locked = function() return profile.mod.allow_build.rogue_marauder end,
 	locked_desc = "숨지도 않고 도망치지도 않겠다. 와서 함께 칼춤을 춰보면 어느 쪽이 약한지 알게 되겠지. 뼈가 부서지고 두개골이 쪼개지는 소리야말로 삶을 충만케 하는 전장의 소리다!",
 	desc = {

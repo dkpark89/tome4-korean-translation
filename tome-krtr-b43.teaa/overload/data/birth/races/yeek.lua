@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Yeek",
-	display_name = "이크",
+	kr_display_name = "이크",
 	locked = function() return profile.mod.allow_build.yeek end,
 	locked_desc = "하나의 종족, 하나의 정신, 하나의 길. 억압은 끝나고, 이제 에이알을 물려받으리라. 우리가 약하리라 넘겨짚지마라 - 우리의 길은 진실되며, 우리를 돕는 자만이 우리의 힘을 보게 될 것이다.",
 	desc = {
@@ -62,7 +62,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Yeek",
-	display_name = "이크",
+	kr_display_name = "이크",
 	locked = function() return profile.mod.allow_build.yeek end,
 	locked_desc = "하나의 종족, 하나의 정신, 하나의 길. 억압은 끝나고, 에이알을 물려받으리라. 우리가 약하리라 넘겨짚지말라 - 우리의 길은 진실되며, 우리를 돕는 자만이 우리의 힘을 보게되리라.",
 	desc = {

@@ -28,7 +28,7 @@ end
 
 newTalent{
 	name = "Tactical Expert",
-	display_name = "전술적 달인",
+	kr_display_name = "전술적 달인",
 	type = {"cunning/tactical", 1},
 	require = cuns_req1,
 	mode = "passive",
@@ -63,7 +63,7 @@ newTalent{
 
 newTalent{
 	name = "Counter Attack",
-	display_name = "반격",
+	kr_display_name = "반격",
 	type = {"cunning/tactical", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -80,7 +80,7 @@ newTalent{
 
 newTalent{
 	name = "Set Up",
-	display_name = "몸가짐",
+	kr_display_name = "몸가짐",
 	type = {"cunning/tactical", 3},
 	require = cuns_req3,
 	points = 5,
@@ -107,7 +107,7 @@ newTalent{
 
 newTalent{
 	name = "Exploit Weakness",
-	display_name = "약점 이용",
+	kr_display_name = "약점 이용",
 	type = {"cunning/tactical", 4},
 	require = cuns_req4,
 	mode = "sustained",

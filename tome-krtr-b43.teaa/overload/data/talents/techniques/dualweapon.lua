@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Dual Weapon Training",
-	display_name = "쌍수 무기 숙련",
+	kr_display_name = "쌍수 무기 숙련",
 	type = {"technique/dualweapon-training", 1},
 	mode = "passive",
 	points = 5,
@@ -33,7 +33,7 @@ newTalent{
 
 newTalent{
 	name = "Dual Weapon Defense",
-	display_name = "쌍수 무기 방어술",
+	kr_display_name = "쌍수 무기 방어술",
 	type = {"technique/dualweapon-training", 2},
 	mode = "passive",
 	points = 5,
@@ -46,7 +46,7 @@ newTalent{
 
 newTalent{
 	name = "Precision",
-	display_name = "허점 포착",
+	kr_display_name = "허점 포착",
 	type = {"technique/dualweapon-training", 3},
 	mode = "sustained",
 	points = 5,
@@ -79,7 +79,7 @@ newTalent{
 
 newTalent{
 	name = "Momentum",
-	display_name = "공격 가속",
+	kr_display_name = "공격 가속",
 	type = {"technique/dualweapon-training", 4},
 	mode = "sustained",
 	points = 5,
@@ -117,7 +117,7 @@ newTalent{
 ------------------------------------------------------
 newTalent{
 	name = "Dual Strike",
-	display_name = "이중 타격",
+	kr_display_name = "이중 타격",
 	type = {"technique/dualweapon-attack", 1},
 	points = 5,
 	random_ego = "attack",
@@ -147,7 +147,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s 기절 공격에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절 공격에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 
 			-- Attack after the stun, to benefit from backstabs
@@ -167,7 +167,7 @@ newTalent{
 
 newTalent{
 	name = "Flurry",
-	display_name = "질풍",
+	kr_display_name = "질풍",
 	type = {"technique/dualweapon-attack", 2},
 	points = 5,
 	random_ego = "attack",
@@ -201,7 +201,7 @@ newTalent{
 
 newTalent{
 	name = "Sweep",
-	display_name = "휩쓸기",
+	kr_display_name = "휩쓸기",
 	type = {"technique/dualweapon-attack", 3},
 	points = 5,
 	random_ego = "attack",
@@ -256,7 +256,7 @@ newTalent{
 
 newTalent{
 	name = "Whirlwind",
-	display_name = "회오리",
+	kr_display_name = "회오리",
 	type = {"technique/dualweapon-attack", 4},
 	points = 5,
 	random_ego = "attack",

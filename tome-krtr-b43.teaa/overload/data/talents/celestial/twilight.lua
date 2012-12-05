@@ -21,7 +21,7 @@
 
 newTalent{
 	name = "Twilight",
-	display_name = "황혼",
+	kr_display_name = "황혼",
 	type = {"celestial/twilight", 1},
 	require = divi_req1,
 	points = 5,
@@ -49,7 +49,7 @@ newTalent{
 
 newTalent{
 	name = "Jumpgate: Teleport To", short_name = "JUMPGATE_TELEPORT",
-	display_name = "도약문: 이동",
+	kr_display_name = "도약문: 이동",
 	type = {"celestial/other", 1},
 	points = 1,
 	cooldown = 7,
@@ -83,7 +83,7 @@ newTalent{
 
 newTalent{
 	name = "Jumpgate",
-	display_name = "도약문",
+	kr_display_name = "도약문",
 	type = {"celestial/twilight", 2},
 	require = divi_req2,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -140,7 +140,7 @@ newTalent{
 
 newTalent{
 	name = "Mind Blast",
-	display_name = "정신 붕괴",
+	kr_display_name = "정신 붕괴",
 	type = {"celestial/twilight",3},
 	require = divi_req3,
 	points = 5,
@@ -175,7 +175,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Simulacrum",
-	display_name = "그림자 투영",
+	kr_display_name = "그림자 투영",
 	type = {"celestial/twilight", 4},
 	require = divi_req4,
 	random_ego = "attack",
@@ -208,7 +208,7 @@ newTalent{
 			target:reactionToward(self) >= 0 or -- No friends
 			target.size_category > allowed
 			then
-			game.logPlayer(self, "%s 저항합니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+			game.logPlayer(self, "%s 저항합니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			return true
 		end
 
@@ -269,7 +269,7 @@ newTalent{
 
 newTalent{
 	name = "Jumpgate Two",
-	display_name = "두번째 도약문",
+	kr_display_name = "두번째 도약문",
 	type = {"celestial/other", 1},
 	mode = "sustained", no_sustain_autoreset = true,
 	points = 1,
@@ -321,7 +321,7 @@ newTalent{
 
 newTalent{
 	name = "Jumpgate Two: Teleport To", short_name = "JUMPGATE_TELEPORT_TWO",
-	display_name = "두번째 도약문: 이동",
+	kr_display_name = "두번째 도약문: 이동",
 	type = {"celestial/other", 1},
 	points = 1,
 	cooldown = 7,

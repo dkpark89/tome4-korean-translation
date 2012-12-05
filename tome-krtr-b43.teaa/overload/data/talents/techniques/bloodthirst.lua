@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Bloodbath",
-	display_name = "피바다",
+	kr_display_name = "피바다",
 	type = {"technique/bloodthirst", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -42,7 +42,7 @@ newTalent{
 
 newTalent{
 	name = "Mortal Terror",
-	display_name = "죽음의 공포",
+	kr_display_name = "죽음의 공포",
 	type = {"technique/bloodthirst", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -59,7 +59,7 @@ newTalent{
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_DAZED, 5, {apply_power=self:combatPhysicalpower()})
 		else
-			game.logSeen(target, "%s 죽음의 공포에 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 죽음의 공포에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	on_learn = function(self, t)
@@ -78,7 +78,7 @@ newTalent{
 
 newTalent{
 	name = "Bloodrage",
-	display_name = "피의 분노",
+	kr_display_name = "피의 분노",
 	type = {"technique/bloodthirst", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -94,7 +94,7 @@ newTalent{
 
 newTalent{
 	name = "Unstoppable",
-	display_name = "무쌍",
+	kr_display_name = "무쌍",
 	type = {"technique/bloodthirst", 4},
 	require = techs_req_high4,
 	points = 5,

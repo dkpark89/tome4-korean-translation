@@ -20,7 +20,7 @@
 
 newTalent{
 	name = "Greater Weapon Focus",
-	display_name = "고도의 집중 공격",
+	kr_display_name = "고도의 집중 공격",
 	type = {"technique/battle-tactics", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -41,7 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Step Up",
-	display_name = "진격",
+	kr_display_name = "진격",
 	type = {"technique/battle-tactics", 2},
 	require = techs_req_high2,
 	mode = "passive",
@@ -55,7 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Bleeding Edge",
-	display_name = "출혈상",
+	kr_display_name = "출혈상",
 	type = {"technique/battle-tactics", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -96,7 +96,7 @@ newTalent{
 
 newTalent{
 	name = "True Grit",
-	display_name = "진정한 용기",
+	kr_display_name = "진정한 용기",
 	type = {"technique/battle-tactics", 4},
 	require = techs_req_high4,
 	points = 5,

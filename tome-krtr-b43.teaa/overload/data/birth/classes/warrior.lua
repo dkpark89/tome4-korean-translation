@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Warrior",
-	display_name = "전사 (Warrior)",
+	kr_display_name = "전사 (Warrior)",
 	desc = {
 		"전사는 여러가지 전투법을 수련합니다. 양손 대검을 휘두르는 파괴의 전차가 될 수도 있고, 번쩍이는 방패를 들고 온몸을 철갑옷으로 두른 수호자가 될 수도 있습니다.",
 	},
@@ -44,7 +44,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Berserker",
-	display_name = "광전사 (Berserker)",
+	kr_display_name = "광전사 (Berserker)",
 	desc = {
 		"광전사는 거대한 양손 무기를 휘둘러 적을 둘로 쪼개서 고통과 죽음을 선사합니다.",
 		"방어를 포기하고 그들이 가장 잘 할 수 있는 일인, 살육에 집중합니다.",
@@ -92,7 +92,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Bulwark",
-	display_name = "수호자 (Bulwark)",
+	kr_display_name = "수호자 (Bulwark)",
 	desc = {
 		"수호자는 다양한 방어기술을 구사하며, 무기와 방패를 이용한 전투에 특화되었습니다",
 		"훌륭한 수호자는 전방위에서 닥치는 무시무시한 공격을 방패로 견뎌낼 수 있으며, 반격의 기회가 오면 엄청난 힘으로 적에게 덤벼듭니다.",
@@ -141,7 +141,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Archer",
-	display_name = "궁수 (Archer)",
+	kr_display_name = "궁수 (Archer)",
 	desc = {
 		"궁수는 적의 발을 묶거나 화살비를 퍼부을 수 있는 민첩한 사격수입니다.",
 		"숙련된 궁수는 적을 불구로 만들고 발을 묶거나, 관통하는 특수한 사격을 할 수 있습니다.",
@@ -195,7 +195,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Arcane Blade",
-	display_name = "마법 검사 (Arcane Blade)",
+	kr_display_name = "마법 검사 (Arcane Blade)",
 	desc = {
 		"마법 검사는 마법에 재능이 있는 전사입니다.",
 		"그들의 마법능력은 습득한것이 아니라 선천적인 것이어서, 자연적으로 마나를 재생할 수는 없고 다른 수단을 써야 합니다.",
@@ -250,7 +250,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Brawler",
-	display_name = "격투가 (Brawler)",
+	kr_display_name = "격투가 (Brawler)",
 	locked = function() return profile.mod.allow_build.warrior_brawler end,
 	locked_desc = "수많은 적에게 홀로 맞설지라도, 죽을때까지 싸울 운명일지라도, 그대는 굴하지 않는다. 피에 젖은 투기장에서 그대는 두 주먹으로 세계와 대적할 수 있다는 것을 배웠다.",
 	desc = {

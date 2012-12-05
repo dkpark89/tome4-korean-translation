@@ -339,7 +339,7 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 					if a.hotkey[i] and a.hotkey[i][1] == "talent" then
 						local t = self.actor:getTalentFromId(a.hotkey[i][2])
 						--@@
-						local tn = t.display_name
+						local tn = t.kr_display_name
 						if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
 						text = tstring{{"color","GOLD"}, {"font", "bold"}, tn, {"font", "normal"}, {"color", "LAST"}, true}
 						text:merge(self.actor:getTalentFullDescription(t))

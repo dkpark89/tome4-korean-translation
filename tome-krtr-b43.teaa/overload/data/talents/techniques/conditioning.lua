@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Vitality",
-	display_name = "활력",
+	kr_display_name = "활력",
 	type = {"technique/conditioning", 1},
 	require = techs_con_req1,
 	mode = "passive",
@@ -46,7 +46,7 @@ newTalent{
 
 newTalent{
 	name = "Daunting Presence",
-	display_name = "위협적인 존재감",
+	kr_display_name = "위협적인 존재감",
 	type = {"technique/conditioning", 2},
 	require = techs_con_req2,
 	points = 5,
@@ -70,7 +70,7 @@ newTalent{
 					target:setEffect(target.EFF_INTIMIDATED, 4, {apply_power=self:combatAttackStr(), power=t.getPenalty(self, t), no_ct_effect=true})
 					game.level.map:particleEmitter(target.x, target.y, 1, "flame")
 				else
-					game.logSeen(target, "%s에게 위협적인 존재감을 드러냈지만, 소용이 없었습니다!", (target.display_name or target.name):capitalize())
+					game.logSeen(target, "%s에게 위협적인 존재감을 드러냈지만, 소용이 없었습니다!", (target.kr_display_name or target.name):capitalize())
 				end
 			end
 		end)
@@ -94,7 +94,7 @@ newTalent{
 
 newTalent{
 	name = "Unflinching Resolve",
-	display_name = "단호한 결의",
+	kr_display_name = "단호한 결의",
 	type = {"technique/conditioning", 3},
 	require = techs_con_req3,
 	mode = "passive",
@@ -125,7 +125,7 @@ newTalent{
 			if eff[1] == "effect" and rng.percent(t.getChance(self, t)) then
 				self:removeEffect(eff[2])
 				game.logSeen(self, "%s has recovered!", self.name:capitalize())
-				game.logSeen(self, "%s 회복되었습니다!", (self.display_name or self.name):capitalize():addJosa("가"))
+				game.logSeen(self, "%s 회복되었습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -140,7 +140,7 @@ newTalent{
 
 newTalent{
 	name = "Adrenaline Surge", -- no stamina cost; it's main purpose is to give the player an alternative means of using stamina based talents
-	display_name = "솟구치는 아드레날린",
+	kr_display_name = "솟구치는 아드레날린",
 	type = {"technique/conditioning", 4},
 	require = techs_con_req4,
 	points = 5,

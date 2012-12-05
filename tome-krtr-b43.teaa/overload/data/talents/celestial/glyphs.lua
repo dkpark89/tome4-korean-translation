@@ -21,7 +21,7 @@ local Trap = require "mod.class.Trap"
 
 newTalent{
 	name = "Glyph of Paralysis",
-	display_name = "마비의 문양",
+	kr_display_name = "마비의 문양",
 	type = {"celestial/glyphs", 1},
 	require = divi_req_high1,
 	random_ego = "attack",
@@ -88,7 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Glyph of Repulsion",
-	display_name = "격퇴의 문양",
+	kr_display_name = "격퇴의 문양",
 	type = {"celestial/glyphs", 2},
 	require = divi_req_high2,
 	random_ego = "attack",
@@ -163,7 +163,7 @@ newTalent{
 
 newTalent{
 	name = "Glyph of Explosion",
-	display_name = "폭발의 문양",
+	kr_display_name = "폭발의 문양",
 	type = {"celestial/glyphs", 3},
 	require = divi_req_high3,
 	random_ego = "attack",
@@ -233,7 +233,7 @@ newTalent{
 
 newTalent{
 	name = "Glyph of Fatigue",
-	display_name = "피로의 문양",
+	kr_display_name = "피로의 문양",
 	type = {"celestial/glyphs", 4},
 	require = divi_req_high4,
 	random_ego = "attack",

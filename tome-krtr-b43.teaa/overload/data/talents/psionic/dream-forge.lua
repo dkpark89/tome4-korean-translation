@@ -21,7 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Forge Shield",
-	display_name = "방패 연마",
+	kr_display_name = "방패 연마",
 	type = {"psionic/dream-forge", 1},
 	points = 5, 
 	require = psi_wil_high1,
@@ -98,7 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Forge Bellows",
-	display_name = "연마의 굉음",
+	kr_display_name = "연마의 굉음",
 	type = {"psionic/dream-forge", 2},
 	points = 5, 
 	require = psi_wil_high2,
@@ -184,7 +184,7 @@ newTalent{
 
 newTalent{
 	name = "Forge Armor",
-	display_name = "갑옷 연마",
+	kr_display_name = "갑옷 연마",
 	type = {"psionic/dream-forge", 3},
 	points = 5,
 	require = psi_wil_high3,
@@ -203,7 +203,7 @@ newTalent{
 
 newTalent{
 	name = "Dreamforge",
-	display_name = "꿈의 연마장",
+	kr_display_name = "꿈의 연마장",
 	type = {"psionic/dream-forge", 4},
 	points = 5, 
 	require = psi_wil_high4,

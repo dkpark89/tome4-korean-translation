@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Celestial",
-	display_name = "천공의 사도 (Celestial)",
+	kr_display_name = "천공의 사도 (Celestial)",
 	locked = function() return profile.mod.allow_build.divine end,
 	locked_desc = "해와 별과 달 같은 천체를 다루는 마법은 극히 일부분의 지식만이 동쪽 대륙으로 전해졌고, 에이알에서는 잊혀졌습니다.",
 	desc = {
@@ -53,7 +53,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Sun Paladin",
-	display_name = "태양의 기사 (Sun Paladin)",
+	kr_display_name = "태양의 기사 (Sun Paladin)",
 	locked = function() return profile.mod.allow_build.divine_sun_paladin end,
 	locked_desc = "태양은 영광으로 가득 찬 동녘에서 떠오르나, 어둠에 둘러싸여 있을 때에도 갈구해야 하리.",
 	desc = {
@@ -104,7 +104,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Anorithil",
-	display_name = "아노리실 (Anorithil)",
+	kr_display_name = "아노리실 (Anorithil)",
 	locked = function() return profile.mod.allow_build.divine_anorithil end,
 	locked_desc = "천체의 힘을 조율하는 것은 경외스런 일이다. 빛과 어둠을 뜻대로 다루며 황혼에 거하는 자들은 강대하다.",
 	desc = {

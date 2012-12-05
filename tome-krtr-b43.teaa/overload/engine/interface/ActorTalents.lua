@@ -193,8 +193,8 @@ function _M:useTalentMessage(ab)
 	local str = util.getval(ab.message, self, ab)
 	local _, _, target = self:getTarget()
 	local tname = "unknown"
-	if target then tname = target.display_name or target.name end
-	local sname = self.display_name or self.name
+	if target then tname = target.kr_display_name or target.name end
+	local sname = self.kr_display_name or self.name
 	str = str:gsub("@Source@", sname:capitalize())
 	str = str:gsub("@source@", sname)
 	str = str:gsub("@Source1@", sname:capitalize():addJosa("가"))
@@ -462,7 +462,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 			if type(tid) == "table" then
 				if type(tid[2]) == "boolean" and tid[2] == false then
 					--@@
-					local tn = self:getTalentFromId(tid[1]).display_name
+					local tn = self:getTalentFromId(tid[1]).kr_display_name
 					if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid[1]).name end
 					local c = (not self:knowTalent(tid[1])) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
 					str:add(c, ("- Talent %s (not known)\n"):format(tn), true)
@@ -473,7 +473,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 			else
 				local c = self:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
 				--@@
-				local tn = self:getTalentFromId(tid).display_name
+				local tn = self:getTalentFromId(tid).kr_display_name
 				if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid).name end
 				str:add(c, ("- Talent %s\n"):format(tn), true)
 			end
@@ -634,9 +634,9 @@ end
 
 --- Returns display name
 function _M:getTalentDisplayName(t)
-	if not t.display_name then return t.name end
-	if type(t.display_name) == "function" then return t.display_name(self, t) end
-	return t.display_name
+	if not t.kr_display_name then return t.name end
+	if type(t.kr_display_name) == "function" then return t.kr_display_name(self, t) end
+	return t.kr_display_name
 end
 
 --- Cooldown all talents by one

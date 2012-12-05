@@ -21,7 +21,7 @@
 newBirthDescriptor{
 	type = "sex",
 	name = "Female",
-	display_name = "여성",
+	kr_display_name = "여성",
 	desc =
 	{
 		"당신은 생물적으로 여성입니다.",
@@ -33,7 +33,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "sex",
 	name = "Male",
-	display_name = "남성",
+	kr_display_name = "남성",
 	desc =
 	{
 		"당신은 생물적으로 남성입니다.",

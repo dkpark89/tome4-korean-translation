@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Disengage",
-	display_name = "전투 회피",
+	kr_display_name = "전투 회피",
 	type = {"technique/field-control", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -50,7 +50,7 @@ newTalent{
 
 newTalent{
 	name = "Track",
-	display_name = "추적",
+	kr_display_name = "추적",
 	type = {"technique/field-control", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -76,7 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Heave",
-	display_name = "밀어차기",
+	kr_display_name = "밀어차기",
 	type = {"technique/field-control", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -96,7 +96,7 @@ newTalent{
 			if target:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				return true
 			else
-				game.logSeen(target, "%s 밀어내기를 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀어내기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -116,7 +116,7 @@ newTalent{
 
 newTalent{
 	name = "Slow Motion",
-	display_name = "발사체 포착",
+	kr_display_name = "발사체 포착",
 	type = {"technique/field-control", 4},
 	require = techs_dex_req4,
 	mode = "sustained",

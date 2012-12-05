@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Wraithform",
-	display_name = "악령 변신",
+	kr_display_name = "악령 변신",
 	type = {"corruption/shadowflame", 1},
 	require = corrs_req1,
 	points = 5,
@@ -40,7 +40,7 @@ newTalent{
 
 newTalent{
 	name = "Darkfire",
-	display_name = "어둠의 열화",
+	kr_display_name = "어둠의 열화",
 	type = {"corruption/shadowflame", 2},
 	require = corrs_req2,
 	points = 5,
@@ -81,7 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Flame of Urh'Rok",
-	display_name = "울흐'록의 화염",
+	kr_display_name = "울흐'록의 화염",
 	type = {"corruption/shadowflame", 3},
 	require = corrs_req3,
 	mode = "sustained",
@@ -124,7 +124,7 @@ newTalent{
 
 newTalent{
 	name = "Fearscape", short_name = "DEMON_PLANE",
-	display_name = "공포의 영역",
+	kr_display_name = "공포의 영역",
 	type = {"corruption/shadowflame", 4},
 	require = corrs_req4,
 	mode = "sustained",

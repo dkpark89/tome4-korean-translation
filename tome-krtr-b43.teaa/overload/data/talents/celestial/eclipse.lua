@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Blood Red Moon",
-	display_name = "핏빛 달",
+	kr_display_name = "핏빛 달",
 	type = {"celestial/eclipse", 1},
 	mode = "passive",
 	require = divi_req1,
@@ -38,7 +38,7 @@ newTalent{
 
 newTalent{
 	name = "Totality",
-	display_name = "개기 일월식",
+	kr_display_name = "개기 일월식",
 	type = {"celestial/eclipse", 2},
 	require = divi_req2,
 	points = 5,
@@ -71,7 +71,7 @@ newTalent{
 
 newTalent{
 	name = "Corona",
-	display_name = "코로나",
+	kr_display_name = "코로나",
 	type = {"celestial/eclipse", 3},
 	mode = "sustained",
 	require = divi_req3,
@@ -138,7 +138,7 @@ newTalent{
 
 newTalent{
 	name = "Darkest Light",
-	display_name = "가장 어두운 빛",
+	kr_display_name = "가장 어두운 빛",
 	type = {"celestial/eclipse", 4},
 	mode = "sustained",
 	require = divi_req4,

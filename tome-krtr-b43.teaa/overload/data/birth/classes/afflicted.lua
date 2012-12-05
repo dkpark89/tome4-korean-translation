@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Afflicted",
-	display_name = "고통받는 자 (Afflicted)",
+	kr_display_name = "고통받는 자 (Afflicted)",
 	locked = function() return profile.mod.allow_build.afflicted end,
 	locked_desc = "사랑받지도 못하고, 아무도 원하지 않는 자가 홀로 그림자 속을 걷는다. 휘두르는 힘이 강대할지는 모르나, 그 이름은 영원히 저주받으리.",
 	desc = {
@@ -43,7 +43,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Cursed",
-	display_name = "저주받은 자 (Cursed)",
+	kr_display_name = "저주받은 자 (Cursed)",
 	locked = function() return profile.mod.allow_build.afflicted_cursed end,
 	locked_desc = "고통은 영혼에까지 이를 수 있으며, 누군가를 증오로 가득 채울 수도 있다. 타인의 증오 서린 저주를 뛰어넘어 그 의미를 알라.",
 	desc = {
@@ -95,7 +95,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Doomed",
-	display_name = "파멸당한 자 (Doomed)",
+	kr_display_name = "파멸당한 자 (Doomed)",
 	locked = function() return profile.mod.allow_build.afflicted_doomed end,
 	locked_desc = "미지의 땅, 그늘진 곳에서 그대는 스스로를 극복하고 그 운명과 마주 해야 하리.",
 	desc = {

@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Healing Light",
-	display_name = "치유의 빛",
+	kr_display_name = "치유의 빛",
 	type = {"celestial/light", 1},
 	require = spells_req1,
 	points = 5,
@@ -46,7 +46,7 @@ newTalent{
 
 newTalent{
 	name = "Bathe in Light",
-	display_name = "빛의 세례",
+	kr_display_name = "빛의 세례",
 	type = {"celestial/light", 2},
 	require = spells_req2,
 	random_ego = "defensive",
@@ -89,7 +89,7 @@ newTalent{
 
 newTalent{
 	name = "Barrier",
-	display_name = "방벽",
+	kr_display_name = "방벽",
 	type = {"celestial/light", 3},
 	require = spells_req3,
 	points = 5,
@@ -113,7 +113,7 @@ newTalent{
 
 newTalent{
 	name = "Providence",
-	display_name = "빛의 뜻",
+	kr_display_name = "빛의 뜻",
 	type = {"celestial/light", 4},
 	require = spells_req4,
 	points = 5,

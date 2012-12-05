@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Telekinetic Grasp",
-	display_name = "염동적 악력",
+	kr_display_name = "염동적 악력",
 	type = {"psionic/other", 1},
 	points = 1,
 	cooldown = 0,
@@ -86,7 +86,7 @@ newTalent{
 
 newTalent{
 	name = "Beyond the Flesh",
-	display_name = "탈육체적 존재",
+	kr_display_name = "탈육체적 존재",
 	type = {"psionic/other", 1},
 	points = 1,
 	mode = "sustained",

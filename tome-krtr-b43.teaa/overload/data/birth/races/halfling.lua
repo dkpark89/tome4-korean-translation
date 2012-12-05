@@ -23,7 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Halfling",
-	display_name = "하플링",
+	kr_display_name = "하플링",
 	desc = {
 		"하플링은 대부분 키가 4피트를 넘지 못하는 조그만 종족입니다.",
 		"생각한 일을 행동에 옮기는 기민함은 인간과 비슷하지만, 계획성과 학습능력은 더 뛰어납니다.",
@@ -65,7 +65,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Halfling",
-	display_name = "하플링",
+	kr_display_name = "하플링",
 	desc = {
 		"하플링은 대부분 키가 4피트를 넘지 못하는 조그만 종족입니다",
 		"생각한 일을 행동에 옮기는 기민함은 인간과 비슷하지만, 계획성과 학습능력은 더 뛰어납니다.",

@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Rage",
-	display_name = "격노",
+	kr_display_name = "격노",
 	type = {"wild-gift/summon-augmentation", 1},
 	require = gifts_req1,
 	points = 5,
@@ -42,7 +42,7 @@ newTalent{
 
 newTalent{
 	name = "Detonate",
-	display_name = "소환수 폭발",
+	kr_display_name = "소환수 폭발",
 	type = {"wild-gift/summon-augmentation", 2},
 	require = gifts_req2,
 	points = 5,
@@ -101,7 +101,7 @@ newTalent{
 
 newTalent{
 	name = "Resilience",
-	display_name = "활기찬 소환수",
+	kr_display_name = "활기찬 소환수",
 	type = {"wild-gift/summon-augmentation", 3},
 	require = gifts_req3,
 	mode = "passive",
@@ -113,7 +113,7 @@ newTalent{
 
 newTalent{
 	name = "Phase Summon",
-	display_name = "소환수와 위치바꾸기",
+	kr_display_name = "소환수와 위치바꾸기",
 	type = {"wild-gift/summon-augmentation", 4},
 	require = gifts_req4,
 	points = 5,

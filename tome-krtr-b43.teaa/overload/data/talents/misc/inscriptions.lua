@@ -24,13 +24,15 @@ local newInscription = function(t)
 		tt.short_name = tt.name:upper():gsub("[ ]", "_").."_"..i
 		tt.display_name = function(self, t)
 			local data = self:getInscriptionData(t.short_name)
+			--@@
+			local tn = (t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name or t.name)
 			if data.item_name then
-				local n = tstring{t.name, " ["}
+				local n = tstring{tn, " ["}
 				n:merge(data.item_name)
 				n:add("]")
 				return n
 			else
-				return t.name
+				return tn
 			end
 		end
 		if tt.type[1] == "inscriptions/infusions" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_INFUSION_COOLDOWN) end
@@ -65,7 +67,7 @@ end
 -----------------------------------------------------------------------
 newInscription{
 	name = "Infusion: Regeneration",
-	display_name = "주입: 재생",
+	kr_display_name = "주입: 재생",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { HEAL = 2 },
@@ -87,7 +89,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Healing",
-	display_name = "주입: 회복",
+	kr_display_name = "주입: 회복",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { HEAL = 2 },
@@ -111,7 +113,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Wild",
-	display_name = "주입: 야생성",
+	kr_display_name = "주입: 야생성",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -185,7 +187,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Movement",
-	display_name = "주입: 이동",
+	kr_display_name = "주입: 이동",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -211,7 +213,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Sun",
-	display_name = "주입: 태양",
+	kr_display_name = "주입: 태양",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACKAREA = 1, DISABLE = { blind = 2 } },
@@ -245,7 +247,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Heroism",
-	display_name = "주입: 영웅주의",
+	kr_display_name = "주입: 영웅주의",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -269,7 +271,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Insidious Poison",
-	display_name = "주입: 반회복형 중독",
+	kr_display_name = "주입: 반회복형 중독",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACK = { NATURE = 1 }, DISABLE=1 },
@@ -299,7 +301,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Wild Growth",
-	display_name = "주입: 야생의 성장",
+	kr_display_name = "주입: 야생의 성장",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACKAREA = { PHYSICAL = 1, NATURE = 1 }, DISABLE = 3 },
@@ -336,7 +338,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Rune: Phase Door",
-	display_name = "룬: 근거리 공간이동",
+	kr_display_name = "룬: 근거리 공간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -361,7 +363,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Controlled Phase Door",
-	display_name = "룬: 제어된 근거리 공간이동",
+	kr_display_name = "룬: 제어된 근거리 공간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -401,7 +403,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Teleportation",
-	display_name = "룬: 장거리 공간이동",
+	kr_display_name = "룬: 장거리 공간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -426,7 +428,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Shielding",
-	display_name = "룬: 방어막",
+	kr_display_name = "룬: 방어막",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -453,7 +455,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Reflection Shield", image = "talents/rune__shielding.png",
-	display_name = "룬: 반사 방어막",
+	kr_display_name = "룬: 반사 방어막",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -481,7 +483,7 @@ The effect will scale with your magic stat.]]):format(100+1.5*self:getMag(), 5)
 
 newInscription{
 	name = "Rune: Invisibility",
-	display_name = "룬: 투명화",
+	kr_display_name = "룬: 투명화",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -505,7 +507,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Speed",
-	display_name = "룬: 가속",
+	kr_display_name = "룬: 가속",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -528,7 +530,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Vision",
-	display_name = "룬: 시야",
+	kr_display_name = "룬: 시야",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -568,7 +570,7 @@ end
 
 newInscription{
 	name = "Rune: Heat Beam",
-	display_name = "룬: 뜨거운 빔",
+	kr_display_name = "룬: 뜨거운 빔",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -608,7 +610,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Frozen Spear",
-	display_name = "룬: 빙결의 창",
+	kr_display_name = "룬: 빙결의 창",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -645,7 +647,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Acid Wave",
-	display_name = "룬: 산성 파동",
+	kr_display_name = "룬: 산성 파동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -683,7 +685,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Lightning",
-	display_name = "룬: 전기",
+	kr_display_name = "룬: 전기",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -725,7 +727,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Manasurge",
-	display_name = "룬: 마나 집중",
+	kr_display_name = "룬: 마나 집중",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -760,7 +762,7 @@ newInscription{
 -- This is mostly a copy of Time Skip :P
 newInscription{
 	name = "Rune of the Rift",
-	display_name = "균열의 룬",
+	kr_display_name = "균열의 룬",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -843,7 +845,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Taint: Devourer",
-	display_name = "얼룩: 먹깨비",
+	kr_display_name = "얼룩: 먹깨비",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,
@@ -909,7 +911,7 @@ newInscription{
 
 newInscription{
 	name = "Taint: Telepathy",
-	display_name = "얼룩: 투시",
+	kr_display_name = "얼룩: 투시",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,

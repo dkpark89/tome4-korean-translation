@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Death Dance",
-	display_name = "죽음의 춤",
+	kr_display_name = "죽음의 춤",
 	type = {"technique/2hweapon-offense", 1},
 	require = techs_req1,
 	points = 5,
@@ -60,7 +60,7 @@ newTalent{
 
 newTalent{
 	name = "Berserker",
-	display_name = "광전사",
+	kr_display_name = "광전사",
 	type = {"technique/2hweapon-offense", 2},
 	require = techs_req2,
 	points = 5,
@@ -109,7 +109,7 @@ newTalent{
 
 newTalent{
 	name = "Warshout",
-	display_name = "전투의 외침",
+	kr_display_name = "전투의 외침",
 	type = {"technique/2hweapon-offense",3},
 	require = techs_req3,
 	points = 5,
@@ -153,7 +153,7 @@ newTalent{
 
 newTalent{
 	name = "Death Blow",
-	display_name = "죽음의 일격",
+	kr_display_name = "죽음의 일격",
 	type = {"technique/2hweapon-offense", 4},
 	require = techs_req4,
 	points = 5,
@@ -193,10 +193,10 @@ newTalent{
 		if hit then
 			if target:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("instakill") and target.life > 0 and target.life < target.max_life * 0.2 then
 				-- KILL IT !
-				game.logSeen(target, "%s 에게 죽음의 고통을 안겨줬습니다!", (target.display_name or target.name):capitalize())
+				game.logSeen(target, "%s 에게 죽음의 고통을 안겨줬습니다!", (target.kr_display_name or target.name):capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s 죽음의 일격을 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 죽음의 일격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return true
@@ -213,7 +213,7 @@ newTalent{
 -----------------------------------------------------------------------------
 newTalent{
 	name = "Stunning Blow",
-	display_name = "기절시키기",
+	kr_display_name = "기절시키기",
 	type = {"technique/2hweapon-cripple", 1},
 	require = techs_req1,
 	points = 5,
@@ -241,7 +241,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 기절시키기를 저항했습니다!", (target.display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절시키기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -257,7 +257,7 @@ newTalent{
 
 newTalent{
 	name = "Sunder Armour",
-	display_name = "방어구 부수기",
+	kr_display_name = "방어구 부수기",
 	type = {"technique/2hweapon-cripple", 2},
 	require = techs_req2,
 	points = 5,
@@ -300,7 +300,7 @@ newTalent{
 
 newTalent{
 	name = "Sunder Arms",
-	display_name = "무기 부수기",
+	kr_display_name = "무기 부수기",
 	type = {"technique/2hweapon-cripple", 3},
 	require = techs_req3,
 	points = 5,
@@ -343,7 +343,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Frenzy",
-	display_name = "피의 광란",
+	kr_display_name = "피의 광란",
 	type = {"technique/2hweapon-cripple", 4},
 	require = techs_req4,
 	points = 5,

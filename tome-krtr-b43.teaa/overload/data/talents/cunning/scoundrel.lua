@@ -21,7 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Lacerating Strikes",
-	display_name = "찢기 공격",
+	kr_display_name = "찢기 공격",
 	type = {"cunning/scoundrel", 1},
 	mode = "passive",
 	points = 5,
@@ -41,7 +41,7 @@ newTalent{
 
 newTalent{
 	name = "Scoundrel's Strategies", short_name = "SCOUNDREL",
-	display_name = "무뢰배의 전략",
+	kr_display_name = "무뢰배의 전략",
 	type = {"cunning/scoundrel", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -77,7 +77,7 @@ newTalent{
 
 newTalent{
 	name = "Nimble Movements",
-	display_name = "재빠른 이동",
+	kr_display_name = "재빠른 이동",
 	type = {"cunning/scoundrel",3},
 	message = "@Source@ dashes quickly!",
 	no_break_stealth = true,
@@ -128,7 +128,7 @@ newTalent{
 
 newTalent{
 	name = "Misdirection",
-	display_name = "착각 유발",
+	kr_display_name = "착각 유발",
 	type = {"cunning/scoundrel", 4},
 	mode = "passive",
 	points = 5,

@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Willful Tormenter",
-	display_name = "의욕넘치는 고문기술자",
+	kr_display_name = "의욕넘치는 고문기술자",
 	type = {"corruption/torment", 1},
 	require = corrs_req1,
 	mode = "sustained",
@@ -56,7 +56,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Lock",
-	display_name = "피의 고정",
+	kr_display_name = "피의 고정",
 	type = {"corruption/torment", 2},
 	require = corrs_req2,
 	points = 5,
@@ -91,7 +91,7 @@ newTalent{
 
 newTalent{
 	name = "Overkill",
-	display_name = "과잉 살육",
+	kr_display_name = "과잉 살육",
 	type = {"corruption/torment", 3},
 	require = corrs_req3,
 	points = 5,
@@ -117,7 +117,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Vengeance",
-	display_name = "피의 복수",
+	kr_display_name = "피의 복수",
 	type = {"corruption/torment", 4},
 	require = corrs_req4,
 	points = 5,

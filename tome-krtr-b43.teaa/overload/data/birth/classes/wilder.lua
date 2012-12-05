@@ -22,7 +22,7 @@ local Particles = require "engine.Particles"
 newBirthDescriptor{
 	type = "class",
 	name = "Wilder",
-	display_name = "자연의 추종자 (Wilder)",
+	kr_display_name = "자연의 추종자 (Wilder)",
 	locked = function() return profile.mod.allow_build.wilder_wyrmic or profile.mod.allow_build.wilder_summoner or profile.mod.allow_build.wilder_stone_warden end,
 	locked_desc = "자연의 힘은 기술을 초월하는 위력을 지녔으니, 자연의 진정한 힘을 경험하고 놀라운 은총을 배우라.",
 	desc = {
@@ -46,7 +46,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Summoner",
-	display_name = "소환술사 (Summoner)",
+	kr_display_name = "소환술사 (Summoner)",
 	locked = function() return profile.mod.allow_build.wilder_summoner end,
 	locked_desc = "Not all might comes from within. Hear the invocations of nature, hear its calling power. See that from without we can find our true strengths.",
 	desc = {
@@ -105,7 +105,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Wyrmic",
-	display_name = "워믹 (Wyrmic)",
+	kr_display_name = "워믹 (Wyrmic)",
 	locked = function() return profile.mod.allow_build.wilder_wyrmic end,
 	locked_desc = " 우리는 용의 길을 걸으며, 그들의 숨결은 우리의 숨결이다. 그들의 맥동하는 심장을 보고, 이빨로 그들의 위엄을 맛봐라.",
 	desc = {

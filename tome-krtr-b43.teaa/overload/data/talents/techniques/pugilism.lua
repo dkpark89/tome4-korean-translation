@@ -28,7 +28,7 @@ getRelentless = function(self, cd)
 
 newTalent{
 	name = "Striking Stance",
-	display_name = "타격 자세",
+	kr_display_name = "타격 자세",
 	type = {"technique/unarmed-other", 1},
 	mode = "sustained",
 	hide = true,
@@ -62,7 +62,7 @@ newTalent{
 
 newTalent{
 	name = "Double Strike",  -- no stamina cost attack that will replace the bump attack under certain conditions
-	display_name = "두번 치기",
+	kr_display_name = "두번 치기",
 	type = {"technique/pugilism", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -138,7 +138,7 @@ newTalent{
 
 newTalent{
 	name = "Relentless Strikes",
-	display_name = "무자비한 타격",
+	kr_display_name = "무자비한 타격",
 	type = {"technique/pugilism", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -157,7 +157,7 @@ newTalent{
 
 newTalent{
 	name = "Spinning Backhand",
-	display_name = "회전하며 손등치기",
+	kr_display_name = "회전하며 손등치기",
 	type = {"technique/pugilism", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -258,7 +258,7 @@ newTalent{
 
 newTalent{
 	name = "Flurry of Fists",
-	display_name = "돌풍치기",
+	kr_display_name = "돌풍치기",
 	type = {"technique/pugilism", 4},
 	require = techs_dex_req4,
 	points = 5,

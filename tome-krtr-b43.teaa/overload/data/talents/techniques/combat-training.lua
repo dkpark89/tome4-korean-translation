@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 newTalent{
 	name = "Thick Skin",
-	display_name = "튼튼한 피부",
+	kr_display_name = "튼튼한 피부",
 	type = {"technique/combat-training", 1},
 	mode = "passive",
 	points = 5,
@@ -42,7 +42,7 @@ newTalent{
 
 newTalent{
 	name = "Armour Training",
-	display_name = "방어구 숙련",
+	kr_display_name = "방어구 숙련",
 	type = {"technique/combat-training", 1},
 	mode = "passive",
 	points = 10,
@@ -88,7 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Combat Accuracy", short_name = "WEAPON_COMBAT",
-	display_name = "정확한 전투",
+	kr_display_name = "정확한 전투",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { level=function(level) return (level - 1) * 4 end },
@@ -103,7 +103,7 @@ newTalent{
 
 newTalent{
 	name = "Weapons Mastery",
-	display_name = "무기 숙련",
+	kr_display_name = "무기 숙련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { stat = { str=function(level) return 12 + level * 6 end }, },
@@ -121,7 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Dagger Mastery", short_name = "KNIFE_MASTERY",
-	display_name = "단검 숙련",
+	kr_display_name = "단검 숙련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 10 + level * 6 end }, },
@@ -138,7 +138,7 @@ newTalent{
 
 newTalent{
 	name = "Exotic Weapons Mastery",
-	display_name = "이형 무기 숙련",
+	kr_display_name = "이형 무기 숙련",
 	type = {"technique/combat-training", 1},
 	hide = true,
 	points = 5,

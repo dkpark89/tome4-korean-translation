@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Master Summoner",
-	display_name = "소환기술 숙련",
+	kr_display_name = "소환기술 숙련",
 	type = {"wild-gift/summon-advanced", 1},
 	require = gifts_req_high1,
 	mode = "sustained",
@@ -56,7 +56,7 @@ newTalent{
 
 newTalent{
 	name = "Grand Arrival",
-	display_name = "웅대한 도달",
+	kr_display_name = "웅대한 도달",
 	type = {"wild-gift/summon-advanced", 2},
 	require = gifts_req_high2,
 	points = 5,
@@ -84,7 +84,7 @@ newTalent{
 
 newTalent{
 	name = "Nature's Cycle", short_name = "NATURE_CYCLE",
-	display_name = "자연의 주기",
+	kr_display_name = "자연의 주기",
 	type = {"wild-gift/summon-advanced", 3},
 	require = gifts_req_high3,
 	mode = "passive",
@@ -99,7 +99,7 @@ newTalent{
 
 newTalent{
 	name = "Wild Summon",
-	display_name = "야생의 소환수",
+	kr_display_name = "야생의 소환수",
 	type = {"wild-gift/summon-advanced", 4},
 	require = gifts_req_high4,
 	points = 5,

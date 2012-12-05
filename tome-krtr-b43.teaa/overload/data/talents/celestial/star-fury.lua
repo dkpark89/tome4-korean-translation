@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Moonlight Ray",
-	display_name = "한 줄기 달빛",
+	kr_display_name = "한 줄기 달빛",
 	type = {"celestial/star-fury", 1},
 	require = divi_req1,
 	points = 5,
@@ -55,7 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Blast",
-	display_name = "그림자 확산",
+	kr_display_name = "그림자 확산",
 	type = {"celestial/star-fury", 2},
 	require = divi_req2,
 	points = 5,
@@ -106,7 +106,7 @@ newTalent{
 
 newTalent{
 	name = "Twilight Surge",
-	display_name = "밀려드는 황혼",
+	kr_display_name = "밀려드는 황혼",
 	type = {"celestial/star-fury",3},
 	require = divi_req3,
 	points = 5,
@@ -145,7 +145,7 @@ newTalent{
 
 newTalent{
 	name = "Starfall",
-	display_name = "별똥별",
+	kr_display_name = "별똥별",
 	type = {"celestial/star-fury", 4},
 	require = divi_req4,
 	points = 5,

@@ -563,7 +563,7 @@ function _M:act()
 			if t.is_spell and rng.percent(self:attr("spell_failure")/10)then
 				self:forceUseTalent(tid, {ignore_energy=true})
 				--@@
-				local tn = (( t.display_name ~= nil and type(t.display_name) == "string" and t.display_name:len() >= 1 and t.display_name ) or t.name)
+				local tn = (( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name)
 				if not silent then game.logPlayer(self, "%s #ORCHID#반마법력#LAST#으로 중단되었다!", tn:addJosa("는")) end
 			end
 		end
@@ -1377,7 +1377,7 @@ function _M:tooltip(x, y, seen_by)
 	end
 	
 	--@@
-	local nn = self.display_name
+	local nn = self.kr_display_name
 	if nn==nil then nn = self.name end
 
 	local ts = tstring{}
@@ -1418,7 +1418,7 @@ function _M:tooltip(x, y, seen_by)
 	for tid, act in pairs(self.sustain_talents) do
 		if act then
 			--@@
-			local tn = self:getTalentFromId(tid).display_name
+			local tn = self:getTalentFromId(tid).kr_display_name
 			if tn == nil then tn = self:getTalentFromId(tid).name end
 			ts:add(true, "- ", {"color", "LIGHT_GREEN"}, tn, {"color", "WHITE"} ) 
 		end

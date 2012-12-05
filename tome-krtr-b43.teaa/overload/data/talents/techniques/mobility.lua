@@ -21,7 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Hack'n'Back",
-	display_name = "치고 빠지기",
+	kr_display_name = "치고 빠지기",
 	type = {"technique/mobility", 1},
 	points = 5,
 	cooldown = 14,
@@ -58,7 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Mobile Defence",
-	display_name = "기동 회피",
+	kr_display_name = "기동 회피",
 	type = {"technique/mobility", 2},
 	mode = "passive",
 	points = 5,
@@ -73,7 +73,7 @@ newTalent{
 
 newTalent{
 	name = "Light of Foot",
-	display_name = "가벼운 발놀림",
+	kr_display_name = "가벼운 발놀림",
 	type = {"technique/mobility", 3},
 	mode = "passive",
 	points = 5,
@@ -95,7 +95,7 @@ newTalent{
 
 newTalent{
 	name = "Strider",
-	display_name = "파발꾼",
+	kr_display_name = "파발꾼",
 	type = {"technique/mobility", 4},
 	mode = "passive",
 	points = 5,

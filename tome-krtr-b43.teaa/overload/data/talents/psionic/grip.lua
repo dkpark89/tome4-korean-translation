@@ -21,7 +21,7 @@
 
 newTalent{
 	name = "Deflect Projectiles",
-	display_name = "발사체 굴절",
+	kr_display_name = "발사체 굴절",
 	type = {"psionic/grip", 1},
 	require = psi_cun_high1,
 	points = 5,
@@ -51,7 +51,7 @@ newTalent{
 
 newTalent{
 	name = "Bind",
-	display_name = "묶기",
+	kr_display_name = "묶기",
 	type = {"psionic/grip", 2},
 	require = psi_cun_high2,
 	points = 5,
@@ -102,7 +102,7 @@ newTalent{
 
 newTalent{
 	name = "Implode",
-	display_name = "내파",
+	kr_display_name = "내파",
 	type = {"psionic/grip", 3},
 	require = psi_cun_high3,
 	points = 5,
@@ -155,7 +155,7 @@ newTalent{
 
 newTalent{
 	name = "Greater Telekinetic Grasp",
-	display_name = "향상된 염동적 악력",
+	kr_display_name = "향상된 염동적 악력",
 	type = {"psionic/grip", 4},
 	require = psi_cun_high4,
 	points = 5,

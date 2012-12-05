@@ -25,7 +25,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Vile Poisons",
-	display_name = "비열한 하독",
+	kr_display_name = "비열한 하독",
 	type = {"cunning/poisons", 1},
 	points = 5,
 	mode = "passive",
@@ -79,7 +79,7 @@ newTalent{
 
 newTalent{
 	name = "Venomous Strike",
-	display_name = "중독성 타격",
+	kr_display_name = "중독성 타격",
 	type = {"cunning/poisons", 2},
 	points = 5,
 	cooldown = 5,
@@ -127,7 +127,7 @@ newTalent{
 }
 newTalent{
 	name = "Empower Poisons",
-	display_name = "향상된 독성",
+	kr_display_name = "향상된 독성",
 	type = {"cunning/poisons", 3},
 	points = 5,
 	cooldown = 24,
@@ -164,7 +164,7 @@ newTalent{
 
 newTalent{
 	name = "Toxic Death",
-	display_name = "중독성 죽음",
+	kr_display_name = "중독성 죽음",
 	type = {"cunning/poisons", 4},
 	points = 5,
 	mode = "passive",
@@ -226,7 +226,7 @@ end
 
 newTalent{
 	name = "Deadly Poison",
-	display_name = "치명적 중독",
+	kr_display_name = "치명적 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -260,7 +260,7 @@ newTalent{
 
 newTalent{
 	name = "Numbing Poison",
-	display_name = "마비형 중독",
+	kr_display_name = "마비형 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -295,7 +295,7 @@ newTalent{
 
 newTalent{
 	name = "Insidious Poison",
-	display_name = "반회복형 중독",
+	kr_display_name = "반회복형 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -330,7 +330,7 @@ newTalent{
 
 newTalent{
 	name = "Crippling Poison",
-	display_name = "장애유발형 중독",
+	kr_display_name = "장애유발형 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -365,7 +365,7 @@ newTalent{
 
 newTalent{
 	name = "Stoning Poison",
-	display_name = "석화형 중독",
+	kr_display_name = "석화형 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -402,7 +402,7 @@ newTalent{
 
 newTalent{
 	name = "Vulnerability Poison",
-	display_name = "약화형 중독",
+	kr_display_name = "약화형 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",

@@ -19,7 +19,7 @@
 
 uberTalent{
 	name = "Spectral Shield",
-	display_name = "스펙트럼 방어막",
+	kr_display_name = "스펙트럼 방어막",
 	mode = "passive",
 	require = { special={desc="Block talent, have mana and a block value over 200.", fct=function(self)
 		return self:knowTalent(self.T_BLOCK) and self:getTalentFromId(self.T_BLOCK).getBlockValue(self) >= 200 and self:getMaxMana() >= 70
@@ -41,7 +41,7 @@ uberTalent{
 
 uberTalent{
 	name = "Aether Permeation",
-	display_name = "에테르 방출",
+	kr_display_name = "에테르 방출",
 	mode = "passive",
 	require = { special={desc="At least 25% arcane damage reduction and having been exposed to the void of space.", fct=function(self)
 		return (game.state.birth.ignore_prodigies_special_reqs or self:attr("planetary_orbit")) and self:combatGetResist(DamageType.ARCANE) >= 25
@@ -67,7 +67,7 @@ uberTalent{
 
 uberTalent{
 	name = "Mystical Cunning", image = "talents/vulnerability_poison.png",
-	display_name = "신비한 교활함",
+	kr_display_name = "신비한 교활함",
 	mode = "passive",
 	require = { special={desc="Know either traps or poisons.", fct=function(self)
 		return self:knowTalent(self.T_VILE_POISONS) or self:knowTalent(self.T_TRAP_MASTERY)
@@ -92,7 +92,7 @@ uberTalent{
 
 uberTalent{
 	name = "Arcane Might",
-	display_name = "마법적 완력",
+	kr_display_name = "마법적 완력",
 	mode = "passive",
 	info = function(self, t)
 		return ([[You have learnt to harness your latent arcane powers, channeling them through your weapon.
@@ -103,7 +103,7 @@ uberTalent{
 
 uberTalent{
 	name = "Temporal Form",
-	display_name = "시간의 모습",
+	kr_display_name = "시간의 모습",
 	cooldown = 30,
 	require = { special={desc="Dealt over 50000 temporal damage and visited an out-of-time zone", fct=function(self) return
 		self.damage_log and (self.damage_log[DamageType.TEMPORAL] and self.damage_log[DamageType.TEMPORAL] >= 50000) and (game.state.birth.ignore_prodigies_special_reqs or self:attr("temporal_touched"))
@@ -128,7 +128,7 @@ uberTalent{
 
 uberTalent{
 	name = "Blighted Summoning",
-	display_name = "황폐화된 소환술",
+	kr_display_name = "황폐화된 소환술",
 	mode = "passive",
 	on_learn = function(self, t)
 		if self.alchemy_golem then self.alchemy_golem:learnTalent(self.alchemy_golem.T_DRAIN, true, 3) end
@@ -164,7 +164,7 @@ uberTalent{
 
 uberTalent{
 	name = "Revisionist History",
-	display_name = "수정주의적 역사",
+	kr_display_name = "수정주의적 역사",
 	cooldown = 40,
 	no_energy = true,
 	is_spell = true,

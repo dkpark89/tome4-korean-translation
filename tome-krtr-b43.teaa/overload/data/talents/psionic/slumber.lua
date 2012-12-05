@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Slumber",
-	display_name = "선잠",
+	kr_display_name = "선잠",
 	type = {"psionic/slumber", 1},
 	points = 5,
 	require = psi_wil_req1,
@@ -81,7 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Restless Night",
-	display_name = "쉴수없는 밤",
+	kr_display_name = "쉴수없는 밤",
 	type = {"psionic/slumber", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -96,7 +96,7 @@ newTalent{
 
 newTalent{
 	name = "Sandman",
-	display_name = "꿈귀신",
+	kr_display_name = "꿈귀신",
 	type = {"psionic/slumber", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -114,7 +114,7 @@ newTalent{
 
 newTalent{
 	name = "Dreamscape",
-	display_name = "꿈의 세계",
+	kr_display_name = "꿈의 세계",
 	type = {"psionic/slumber", 4},
 	points = 5,
 	require = psi_wil_req4,

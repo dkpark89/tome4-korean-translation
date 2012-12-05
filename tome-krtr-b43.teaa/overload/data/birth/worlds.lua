@@ -65,7 +65,7 @@ end
 newBirthDescriptor{
 	type = "world",
 	name = "Maj'Eyal",
-	display_name = "마즈'에이알: 주도의 시대",
+	kr_display_name = "마즈'에이알: 주도의 시대",
 	desc =
 	{
 		"마즈'에이알에 사는 종족은 인간, 하플링, 엘프, 그리고 드워프입니다.",
@@ -84,7 +84,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "world",
 	name = "Infinite",
-	display_name = "무한의 던전: 끝없는 내리막",
+	kr_display_name = "무한의 던전: 끝없는 내리막",
 	locked = function() return profile.mod.allow_build.campaign_infinite_dungeon end,
 	locked_desc = "더 깊게, 끝없이, 멈추지 않고, 내려가네. 옛 폐허속, 잠긴 문을 지나, 수수께끼가 풀리면, 그대의 운명과 마주하리.",
 	desc =
@@ -143,7 +143,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "world",
 	name = "Arena",
-	display_name = "투기장: 정복자의 도전",
+	kr_display_name = "투기장: 정복자의 도전",
 	locked = function() return profile.mod.allow_build.campaign_arena end,
 	locked_desc = "피에 젖은 모래 위에선 강한자만이 살아남습니다. 자신을 증명하세요.",
 	desc =

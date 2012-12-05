@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "None",
-	display_name = "없음",
+	kr_display_name = "없음",
 	desc = {
 		"해당 종족은 직업을 선택할 수 없고, 독자적인 힘을 가집니다.",
 	},
@@ -37,7 +37,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "None",
-	display_name = "없음",
+	kr_display_name = "없음",
 	desc = {
 		"해당 종족은 직업을 선택할 수 없고, 독자적인 힘을 가집니다.",
 	},

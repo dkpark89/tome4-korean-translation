@@ -30,7 +30,7 @@ end
 
 newTalent{
 	name = "Trance of Purity",
-	display_name = "순수함의 최면",
+	kr_display_name = "순수함의 최면",
 	type = {"psionic/trance", 1},
 	points = 5,
 	require = psi_wil_req1,
@@ -92,7 +92,7 @@ newTalent{
 newTalent{
 	short_name = "TRANCE_OF_WELL_BEING",
 	name = "Trance of Well-Being",
-	display_name = "웰빙의 최면",
+	kr_display_name = "웰빙의 최면",
 	type = {"psionic/trance", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -134,7 +134,7 @@ newTalent{
 
 newTalent{
 	name = "Trance of Focus",
-	display_name = "집중된 최면",
+	kr_display_name = "집중된 최면",
 	type = {"psionic/trance", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -175,7 +175,7 @@ newTalent{
 
 newTalent{
 	name = "Deep Trance",
-	display_name = "깊은 최면",
+	kr_display_name = "깊은 최면",
 	type = {"psionic/trance", 4},
 	points = 5,
 	require = psi_wil_req4,

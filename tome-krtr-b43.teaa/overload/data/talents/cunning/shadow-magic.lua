@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Shadow Combat",
-	display_name = "그림자 전투기술",
+	kr_display_name = "그림자 전투기술",
 	type = {"cunning/shadow-magic", 1},
 	mode = "sustained",
 	points = 5,
@@ -45,7 +45,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Cunning",
-	display_name = "교활한 그림자",
+	kr_display_name = "교활한 그림자",
 	type = {"cunning/shadow-magic", 2},
 	mode = "passive",
 	points = 5,
@@ -60,7 +60,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Feed",
-	display_name = "그림자 부양",
+	kr_display_name = "그림자 부양",
 	type = {"cunning/shadow-magic", 3},
 	mode = "sustained",
 	points = 5,
@@ -88,7 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Shadowstep",
-	display_name = "그림자 걷기",
+	kr_display_name = "그림자 걷기",
 	type = {"cunning/shadow-magic", 4},
 	points = 5,
 	random_ego = "attack",

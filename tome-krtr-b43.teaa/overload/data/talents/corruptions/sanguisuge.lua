@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Drain",
-	display_name = "생명력 빼앗기",
+	kr_display_name = "생명력 빼앗기",
 	type = {"corruption/sanguisuge", 1},
 	require = corrs_req1,
 	points = 5,
@@ -91,7 +91,7 @@ newTalent{
 ]]
 newTalent{
 	name = "Bloodcasting",
-	display_name = "피의 주문",
+	kr_display_name = "피의 주문",
 	type = {"corruption/sanguisuge", 2},
 	require = corrs_req2,
 	points = 5,
@@ -113,7 +113,7 @@ newTalent{
 
 newTalent{
 	name = "Absorb Life",
-	display_name = "생명 흡수",
+	kr_display_name = "생명 흡수",
 	type = {"corruption/sanguisuge", 3},
 	mode = "sustained",
 	require = corrs_req3,
@@ -144,7 +144,7 @@ newTalent{
 
 newTalent{
 	name = "Life Tap",
-	display_name = "생명 건드리기",
+	kr_display_name = "생명 건드리기",
 	type = {"corruption/sanguisuge", 4},
 	require = corrs_req4,
 	points = 5,

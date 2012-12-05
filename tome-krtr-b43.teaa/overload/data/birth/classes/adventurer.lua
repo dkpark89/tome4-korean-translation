@@ -20,7 +20,7 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Adventurer",
-	display_name = "모험가 (Adventurer)",
+	kr_display_name = "모험가 (Adventurer)",
 	locked = function() return profile.mod.allow_build.adventurer and true or "hide"  end,
 	desc = {
 		"모험가는 모든 기술을 배워서 쓸 수 있습니다.",
@@ -42,7 +42,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Adventurer",
-	display_name = "모험가 (Adventurer)",
+	kr_display_name = "모험가 (Adventurer)",
 	locked = function() return profile.mod.allow_build.adventurer and true or "hide"  end,
 	desc = {
 		"모험가는 모든 기술을 배워서 쓸 수 있습니다.",

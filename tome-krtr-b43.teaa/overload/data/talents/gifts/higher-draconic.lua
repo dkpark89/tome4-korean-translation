@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Prismatic Slash",
-	display_name = "무지개 난도질",
+	kr_display_name = "무지개 난도질",
 	type = {"wild-gift/higher-draconic", 1},
 	require = gifts_req_high1,
 	points = 5,
@@ -98,7 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Venomous Breath",
-	display_name = "중독 브레쓰",
+	kr_display_name = "중독 브레쓰",
 	type = {"wild-gift/higher-draconic", 2},
 	require = gifts_req_high2,
 	points = 5,
@@ -138,7 +138,7 @@ newTalent{
 
 newTalent{
 	name = "Wyrmic Guile",
-	display_name = "워믹의 꾀",
+	kr_display_name = "워믹의 꾀",
 	type = {"wild-gift/higher-draconic", 3},
 	require = gifts_req_high3,
 	points = 5,
@@ -166,7 +166,7 @@ newTalent{
 
 newTalent{
 	name = "Chromatic Fury",
-	display_name = "다속성 드래곤의 분노",
+	kr_display_name = "다속성 드래곤의 분노",
 	type = {"wild-gift/higher-draconic", 4},
 	require = gifts_req_high4,
 	points = 5,

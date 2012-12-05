@@ -21,7 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Dirty Fighting",
-	display_name = "비열한 전투기술",
+	kr_display_name = "비열한 전투기술",
 	type = {"cunning/dirty", 1},
 	points = 5,
 	random_ego = "attack",
@@ -60,7 +60,7 @@ newTalent{
 
 newTalent{
 	name = "Backstab",
-	display_name = "뒤치기",
+	kr_display_name = "뒤치기",
 	type = {"cunning/dirty", 2},
 	mode = "passive",
 	points = 5,
@@ -74,7 +74,7 @@ newTalent{
 }
 newTalent{
 	name = "Switch Place",
-	display_name = "자리 바꾸기",
+	kr_display_name = "자리 바꾸기",
 	type = {"cunning/dirty", 3},
 	points = 5,
 	random_ego = "defensive",
@@ -117,7 +117,7 @@ newTalent{
 
 newTalent{
 	name = "Cripple",
-	display_name = "장애유발 공격",
+	kr_display_name = "장애유발 공격",
 	type = {"cunning/dirty", 4},
 	points = 5,
 	random_ego = "attack",

@@ -195,7 +195,7 @@ newAI("shadow", function(self)
 
 	-- out of summon time? summoner gone?
 	if self.summon_time <= 0 or self.summoner.dead then
-		game.logPlayer(self.summoner, "#PINK#%s 그림자로 되돌아갑니다.", (self.display_name or self.name):capitalize():addJosa("가"))
+		game.logPlayer(self.summoner, "#PINK#%s 그림자로 되돌아갑니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		self:die()
 	end
 	self.summon_time = self.summon_time - 1

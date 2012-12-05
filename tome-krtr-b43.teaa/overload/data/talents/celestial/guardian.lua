@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Shield of Light",
-	display_name = "빛의 방패",
+	kr_display_name = "빛의 방패",
 	type = {"celestial/guardian", 1},
 	mode = "sustained",
 	require = divi_req_high1,
@@ -55,7 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Brandish",
-	display_name = "광휘",
+	kr_display_name = "광휘",
 	type = {"celestial/guardian", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -111,7 +111,7 @@ newTalent{
 
 newTalent{
 	name = "Retribution",
-	display_name = "응보",
+	kr_display_name = "응보",
 	type = {"celestial/guardian", 3},
 	require = divi_req_high3, no_sustain_autoreset = true,
 	points = 5,
@@ -151,7 +151,7 @@ newTalent{
 
 newTalent{
 	name = "Second Life",
-	display_name = "두번째 생명",
+	kr_display_name = "두번째 생명",
 	type = {"celestial/guardian", 4},
 	require = divi_req_high4, no_sustain_autoreset = true,
 	points = 5,

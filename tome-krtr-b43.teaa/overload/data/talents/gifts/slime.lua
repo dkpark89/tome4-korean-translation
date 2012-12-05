@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Slime Spit",
-	display_name = "슬라임 뱉기",
+	kr_display_name = "슬라임 뱉기",
 	type = {"wild-gift/slime", 1},
 	require = gifts_req1,
 	points = 5,
@@ -47,7 +47,7 @@ newTalent{
 
 newTalent{
 	name = "Poisonous Spores",
-	display_name = "중독성 포자",
+	kr_display_name = "중독성 포자",
 	type = {"wild-gift/slime", 2},
 	require = gifts_req2,
 	random_ego = "attack",
@@ -84,7 +84,7 @@ newTalent{
 
 newTalent{
 	name = "Acidic Skin",
-	display_name = "산성 피부",
+	kr_display_name = "산성 피부",
 	type = {"wild-gift/slime", 3},
 	require = gifts_req3,
 	points = 5,
@@ -113,7 +113,7 @@ newTalent{
 
 newTalent{
 	name = "Slime Roots",
-	display_name = "슬라임 묻어두기",
+	kr_display_name = "슬라임 묻어두기",
 	type = {"wild-gift/slime", 4},
 	require = gifts_req4,
 	points = 5,

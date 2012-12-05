@@ -21,7 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Shadow Leash",
-	display_name = "그림자 묶기",
+	kr_display_name = "그림자 묶기",
 	type = {"cunning/ambush", 1},
 	require = cuns_req_high1,
 	points = 5,
@@ -56,7 +56,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Ambush",
-	display_name = "그림자 습격",
+	kr_display_name = "그림자 습격",
 	type = {"cunning/ambush", 2},
 	require = cuns_req_high2,
 	points = 5,
@@ -103,7 +103,7 @@ newTalent{
 
 newTalent{
 	name = "Ambuscade",
-	display_name = "매복",
+	kr_display_name = "매복",
 	type = {"cunning/ambush", 3},
 	points = 5,
 	cooldown = 20,
@@ -204,7 +204,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Veil",
-	display_name = "그림자 드리우기",
+	kr_display_name = "그림자 드리우기",
 	type = {"cunning/ambush", 4},
 	points = 5,
 	cooldown = 18,
