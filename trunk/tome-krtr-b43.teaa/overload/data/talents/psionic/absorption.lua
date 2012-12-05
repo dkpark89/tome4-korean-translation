@@ -37,6 +37,7 @@ end
 
 newTalent{
 	name = "Kinetic Shield",
+	display_name = "동역학적 방어막",
 	type = {"psionic/absorption", 1},
 	require = psi_absorb,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -151,6 +152,7 @@ newTalent{
 
 newTalent{
 	name = "Thermal Shield",
+	display_name = "열역학적 방어막",
 	type = {"psionic/absorption", 1},
 	require = psi_absorb,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -261,6 +263,7 @@ newTalent{
 
 newTalent{
 	name = "Charged Shield",
+	display_name = "전하적 방어막",
 	type = {"psionic/absorption", 1},
 	require = psi_absorb,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -369,6 +372,7 @@ newTalent{
 
 newTalent{
 	name = "Absorption Mastery",
+	display_name = "충격 흡수 숙련",
 	type = {"psionic/absorption", 4},
 	require = psi_wil_req2,
 	cooldown = function(self, t)

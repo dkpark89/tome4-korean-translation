@@ -19,6 +19,7 @@
 
 uberTalent{
 	name = "Fast As Lightning",
+	display_name = "번개같은 빠름",
 	mode = "passive",
 	trigger = function(self, t, ox, oy)
 		local dx, dy = (self.x - ox), (self.y - oy)
@@ -69,6 +70,7 @@ uberTalent{
 
 uberTalent{
 	name = "Tricky Defenses",
+	display_name = "교묘한 방어",
 	mode = "passive",
 	require = { special={desc="Antimagic", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	info = function(self, t)
@@ -80,6 +82,7 @@ uberTalent{
 
 uberTalent{
 	name = "Endless Woes",
+	display_name = "끝없는 비통",
 	mode = "passive",
 	require = { special={desc="Dealt over 50000 acid, blight or darkness damage", fct=function(self) return 
 		self.damage_log and (
@@ -113,6 +116,7 @@ uberTalent{
 
 uberTalent{
 	name = "Secrets of Telos",
+	display_name = "궁극적 비밀",
 	mode = "passive",
 	require = { special={desc="Possess Telos Top Half, Telos Bottom Half, Telos Staff Crystal.", fct=function(self)
 		local o1 = self:findInAllInventoriesBy("define_as", "GEM_TELOS")
@@ -147,6 +151,7 @@ uberTalent{
 
 uberTalent{
 	name = "Elemental Surge",
+	display_name = "자연요소의 쇄도",
 	mode = "passive",
 	cooldown = 12,
 	require = { special={desc="Dealt over 50000 arcane, fire, cold, lightning, light or nature damage", fct=function(self) return 
@@ -188,6 +193,7 @@ uberTalent{
 
 uberTalent{
 	name = "Eye of the Tiger",
+	display_name = "호랑이의 눈",
 	mode = "passive",
 	trigger = function(self, t, kind)
 		if self.turn_procs.eye_tiger then return end
@@ -240,6 +246,7 @@ uberTalent{
 
 uberTalent{
 	name = "Worldly Knowledge",
+	display_name = "세상의 지식",
 	mode = "passive",
 	on_learn = function(self, t, kind)
 		local Chat = require "engine.Chat"

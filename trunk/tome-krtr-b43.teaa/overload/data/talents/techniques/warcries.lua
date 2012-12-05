@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Shattering Shout",
+	display_name = "공격의 외침",
 	type = {"technique/warcries", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -50,6 +51,7 @@ newTalent{
 
 newTalent{
 	name = "Second Wind",
+	display_name = "제2호흡",
 	type = {"technique/warcries", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -68,6 +70,7 @@ newTalent{
 
 newTalent{
 	name = "Battle Shout",
+	display_name = "전장의 외침",
 	type = {"technique/warcries", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -86,6 +89,7 @@ newTalent{
 
 newTalent{
 	name = "Battle Cry",
+	display_name = "전장의 포효",
 	type = {"technique/warcries", 4},
 	require = techs_req_high4,
 	points = 5,

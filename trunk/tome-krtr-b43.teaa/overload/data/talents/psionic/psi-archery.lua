@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Guided Shot",
+	display_name = "유도 사격",
 	type = {"psionic/psi-archery", 1},
 	require = psi_cun_high1,
 	no_energy = "fake",
@@ -56,6 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Augmented Shot",
+	display_name = "증대된 사격술",
 	type = {"psionic/psi-archery", 2},
 	no_energy = "fake",
 	points = 5,
@@ -94,6 +96,7 @@ newTalent{
 
 newTalent{
 	name = "Thought-quick Shot",
+	display_name = "순간 사격",
 	type = {"psionic/psi-archery", 3},
 	require = psi_cun_high3,
 	no_energy = true,
@@ -130,6 +133,7 @@ newTalent{
 
 newTalent{
 	name = "Masterful Telekinetic Archery",
+	display_name = "숙련된 염동 궁술",
 	type = {"psionic/psi-archery", 4},
 	require = psi_cun_high4,
 	points = 5,

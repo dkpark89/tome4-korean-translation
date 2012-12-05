@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Mitosis",
+	display_name = "유사분열",
 	type = {"wild-gift/ooze", 1},
 	require = gifts_req1,
 	mode = "sustained",
@@ -89,6 +90,7 @@ newTalent{
 
 newTalent{
 	name = "Reabsorb",
+	display_name = "재흡수",
 	type = {"wild-gift/ooze", 2},
 	require = gifts_req2,
 	points = 5,
@@ -109,6 +111,7 @@ newTalent{
 
 newTalent{
 	name = "Swap", short_name = "MITOSIS_SWAP",
+	display_name = "교환",
 	type = {"wild-gift/ooze", 3},
 	require = gifts_req3,
 	points = 5,
@@ -147,6 +150,7 @@ newTalent{
 
 newTalent{
 	name = "One With The Ooze",
+	display_name = "오즈와의 교감",
 	type = {"wild-gift/ooze", 4},
 	require = gifts_req4,
 	points = 5,

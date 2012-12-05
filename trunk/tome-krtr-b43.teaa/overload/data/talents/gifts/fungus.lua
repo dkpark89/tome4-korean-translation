@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Wild Growth",
+	display_name = "미생물 배양",
 	type = {"wild-gift/fungus", 1},
 	require = gifts_req1,
 	points = 5,
@@ -54,6 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Fungal Growth",
+	display_name = "세균 성장",
 	type = {"wild-gift/fungus", 2},
 	require = gifts_req2,
 	points = 5,
@@ -70,6 +72,7 @@ newTalent{
 
 newTalent{
 	name = "Ancestral Life",
+	display_name = "선구자적 생명력",
 	type = {"wild-gift/fungus", 3},
 	require = gifts_req3,
 	points = 5,
@@ -88,6 +91,7 @@ newTalent{
 
 newTalent{
 	name = "Sudden Growth",
+	display_name = "급박한 성장",
 	type = {"wild-gift/fungus", 4},
 	require = gifts_req4,
 	points = 5,

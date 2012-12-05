@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Trap Handling",
+	display_name = "함정 취급",
 	type = {"cunning/survival", 1},
 	require = cuns_req1,
 	mode = "passive",
@@ -32,6 +33,7 @@ newTalent{
 
 newTalent{
 	name = "Heightened Senses",
+	display_name = "향상된 감각",
 	type = {"cunning/survival", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -55,6 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Piercing Sight",
+	display_name = "꿰뚫어보기",
 	type = {"cunning/survival", 3},
 	require = cuns_req3,
 	mode = "passive",
@@ -69,6 +72,7 @@ newTalent{
 
 newTalent{
 	name = "Evasion",
+	display_name = "회피",
 	type = {"cunning/survival", 4},
 	points = 5,
 	require = cuns_req4,

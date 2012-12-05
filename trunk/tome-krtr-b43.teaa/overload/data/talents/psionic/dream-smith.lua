@@ -53,6 +53,7 @@ end
 
 newTalent{
 	name = "Dream Smith's Hammer",
+	display_name = "꿈의 망치 소환",
 	short_name = "DREAM_HAMMER",
 	type = {"psionic/dream-smith", 1},
 	points = 5, 
@@ -122,6 +123,7 @@ newTalent{
 
 newTalent{
 	name = "Hammer Toss",
+	display_name = "꿈의 망치 던지기",
 	type = {"psionic/dream-smith", 2},
 	points = 5, 
 	require = psi_wil_req2,
@@ -185,6 +187,7 @@ newTalent{
 
 newTalent{
 	name = "Dream Crusher",
+	display_name = "꿈의 망치 분쇄공격",
 	type = {"psionic/dream-smith", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -233,6 +236,7 @@ newTalent{
 
 newTalent{
 	name = "Forge Echoes",
+	display_name = "꿈의 망치 메아리 공격",
 	type = {"psionic/dream-smith", 4},
 	points = 5, 
 	require = psi_wil_req4,

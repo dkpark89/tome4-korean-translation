@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Meditation",
+	display_name = "명상",
 	type = {"wild-gift/call", 1},
 	require = gifts_req1,
 	points = 5,
@@ -73,6 +74,7 @@ newTalent{
 
 newTalent{ short_name = "NATURE_TOUCH",
 	name = "Nature's Touch",
+	display_name = "자연의 작용",
 	type = {"wild-gift/call", 2},
 	require = gifts_req2,
 	random_ego = "defensive",
@@ -105,6 +107,7 @@ newTalent{ short_name = "NATURE_TOUCH",
 
 newTalent{
 	name = "Earth's Eyes",
+	display_name = "대지의 눈",
 	type = {"wild-gift/call", 3},
 	require = gifts_req3,
 	points = 5,
@@ -131,6 +134,7 @@ newTalent{
 
 newTalent{
 	name = "Nature's Balance",
+	display_name = "자연의 균형",
 	type = {"wild-gift/call", 4},
 	require = gifts_req4,
 	points = 5,

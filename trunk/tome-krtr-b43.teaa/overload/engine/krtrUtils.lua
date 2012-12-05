@@ -244,7 +244,7 @@ function string.krItemType(str)
 	elseif ori == "totem" then return "토템"
 	elseif ori == "wand" then return "마법막대"
 	elseif ori == "whip" then return "채찍"
-	elseif ori == "infusion" then return "인퓨전"
+	elseif ori == "infusion" then return "주입"
 	elseif ori == "rune" then return "룬"
 	elseif ori == "taint" then return "얼룩"
 	elseif ori == "sher'tul" then return "쉐르'툴"
@@ -420,7 +420,7 @@ function string.krTalentType(str)
 	elseif ori == "malleable body" then return "유연한 신체"
 	-- psionic
 	elseif ori == "absorption" then return "충격 흡수"
-	elseif ori == "projection" then return "오러"
+	elseif ori == "projection" then return "오러 발산"
 	elseif ori == "psi-fighting" then return "염력 전투기술"
 	elseif ori == "focus" then return "집중"
 	elseif ori == "augmented mobility" then return "증대된 기동성"

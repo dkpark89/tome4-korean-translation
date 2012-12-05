@@ -18,19 +18,19 @@
 -- darkgod@te4.org
 
 -- Cunning talents
-newTalentType{ allow_random=true, type="cunning/stealth-base", name = "stealth", description = "Allows the user to enter stealth." }
-newTalentType{ allow_random=true, type="cunning/stealth", name = "stealth", description = "Allows the user to enter stealth." }
-newTalentType{ allow_random=true, type="cunning/trapping", name = "trapping", description = "The knowledge of trap laying and assorted trickeries." }
-newTalentType{ allow_random=true, type="cunning/traps", name = "traps", description = "Collection of known traps." }
-newTalentType{ allow_random=true, type="cunning/poisons", name = "poisons", min_lev = 10, description = "The knowledge of poisons and how to apply them to 'good' effects." }
-newTalentType{ allow_random=true, type="cunning/poisons-effects", name = "poisons", description = "Collection of known poisons." }
-newTalentType{ allow_random=true, type="cunning/dirty", name = "dirty fighting", description = "Teaches various talents to cripple your foes." }
-newTalentType{ allow_random=true, type="cunning/lethality", name = "lethality", description = "How to make your foes feel the pain." }
-newTalentType{ allow_random=true, type="cunning/shadow-magic", name = "shadow magic", description = "Blending magic and shadows." }
-newTalentType{ allow_random=true, type="cunning/ambush", name = "ambush", min_lev = 10, description = "Using darkness and a bit of magic you manipulate the shadows." }
-newTalentType{ allow_random=true, type="cunning/survival", name = "survival", generic = true, description = "The knowledge of the dangers of the world, and how to best avoid them." }
-newTalentType{ allow_random=true, type="cunning/tactical", name = "tactical", description = "Tactical combat abilities." }
-newTalentType{ allow_random=true, type="cunning/scoundrel", name = "scoundrel", generic = true, description = "The use of ungentlemanly techniques." }
+newTalentType{ allow_random=true, type="cunning/stealth-base", name = "stealth", description = "은신 상태로 들어설 수 있게 된다." }
+newTalentType{ allow_random=true, type="cunning/stealth", name = "stealth", description = "은신 상태로 들어설 수 있게 된다." }
+newTalentType{ allow_random=true, type="cunning/trapping", name = "trapping", description = "함정 설치와 함정 숨기기에 관련된 지식." }
+newTalentType{ allow_random=true, type="cunning/traps", name = "traps", description = "함정 기술 모음" }
+newTalentType{ allow_random=true, type="cunning/poisons", name = "poisons", min_lev = 10, description = "독물에 대한 지식과 그것들에서 '좋은' 효과를 볼 수 있는 방법." }
+newTalentType{ allow_random=true, type="cunning/poisons-effects", name = "poisons", description = "독물 기술 모음" }
+newTalentType{ allow_random=true, type="cunning/dirty", name = "dirty fighting", description = "적에게 장애를 유발하는 여러가지 기술." }
+newTalentType{ allow_random=true, type="cunning/lethality", name = "lethality", description = "적이 고통을 느끼게 만드는 법." }
+newTalentType{ allow_random=true, type="cunning/shadow-magic", name = "shadow magic", description = "마법과 그림자의 혼합." }
+newTalentType{ allow_random=true, type="cunning/ambush", name = "ambush", min_lev = 10, description = "어둠을 이용하고, 그림자를 조종하는 약간의 마법." }
+newTalentType{ allow_random=true, type="cunning/survival", name = "survival", generic = true, description = "세상의 위험에 관한 지식과, 그것들을 피하는 방법." }
+newTalentType{ allow_random=true, type="cunning/tactical", name = "tactical", description = "전략적 전투 기술." }
+newTalentType{ allow_random=true, type="cunning/scoundrel", name = "scoundrel", generic = true, description = "신사적이지 못한 기술들의 사용법." }
 
 -- Generic requires for cunning based on talent level
 cuns_req1 = {

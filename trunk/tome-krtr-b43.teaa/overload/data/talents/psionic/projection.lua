@@ -70,6 +70,7 @@ end
 
 newTalent{
 	name = "Kinetic Aura",
+	display_name = "동역학적 오러",
 	type = {"psionic/projection", 1},
 	require = psi_wil_req1, no_sustain_autoreset = true,
 	points = 5,
@@ -190,6 +191,7 @@ newTalent{
 
 newTalent{
 	name = "Thermal Aura",
+	display_name = "열역학적 오러",
 	type = {"psionic/projection", 2},
 	require = psi_wil_req2, no_sustain_autoreset = true,
 	points = 5,
@@ -307,6 +309,7 @@ newTalent{
 
 newTalent{
 	name = "Charged Aura",
+	display_name = "전하적 오러",
 	type = {"psionic/projection", 3},
 	require = psi_wil_req3, no_sustain_autoreset = true,
 	points = 5,
@@ -468,6 +471,7 @@ newTalent{
 
 newTalent{
 	name = "Projection Mastery",
+	display_name = "오러 발산 숙련",
 	type = {"psionic/projection", 4},
 	require = psi_wil_req4,
 	cooldown = function(self, t)

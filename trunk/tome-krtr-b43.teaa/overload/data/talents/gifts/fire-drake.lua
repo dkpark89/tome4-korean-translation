@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Bellowing Roar",
+	display_name = "으르렁거리기",
 	type = {"wild-gift/fire-drake", 1},
 	require = gifts_req1,
 	points = 5,
@@ -57,6 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Wing Buffet",
+	display_name = "공격하는 날개더미",
 	type = {"wild-gift/fire-drake", 2},
 	require = gifts_req2,
 	points = 5,
@@ -92,6 +94,7 @@ newTalent{
 
 newTalent{
 	name = "Devouring Flame",
+	display_name = "화염의 구름",
 	type = {"wild-gift/fire-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -146,6 +149,7 @@ newTalent{
 
 newTalent{
 	name = "Fire Breath",
+	display_name = "화염 브레쓰",
 	type = {"wild-gift/fire-drake", 4},
 	require = gifts_req4,
 	points = 5,

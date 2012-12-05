@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Corrupted Strength",
+	display_name = "타락한 힘",
 	type = {"corruption/reaving-combat", 1},
 	mode = "passive",
 	points = 5,
@@ -42,6 +43,7 @@ newTalent{
 
 newTalent{
 	name = "Bloodlust",
+	display_name = "피에 굻주림",
 	type = {"corruption/reaving-combat", 2},
 	mode = "passive",
 	require = str_corrs_req2,
@@ -56,6 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Carrier",
+	display_name = "보균자",
 	type = {"corruption/reaving-combat", 3},
 	mode = "passive",
 	require = str_corrs_req3,
@@ -74,6 +77,7 @@ newTalent{
 
 newTalent{
 	name = "Acid Blood",
+	display_name = "산성 피",
 	type = {"corruption/reaving-combat", 4},
 	mode = "passive",
 	require = str_corrs_req4,
