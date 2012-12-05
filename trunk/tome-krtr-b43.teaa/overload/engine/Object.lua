@@ -86,7 +86,7 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.kr_display_name or self.name
+	local name = self.kr_display_name ~= nil and type(self.kr_display_name) == "string" and self.kr_display_name or self.name
 
 	if qty == 1 or t.no_count then return name
 	else return qty.." "..name

@@ -291,6 +291,8 @@ function _M:generateList()
 				--@@
 				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name)):toTString(),
 				cname = (( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name),
+				--@@
+				oriname=t.name,
 				status=status,
 				entity=t.display_entity,
 				talent=t.id,

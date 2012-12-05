@@ -465,17 +465,17 @@ function _M:getTalentReqDesc(t_id, levmod)
 					local tn = self:getTalentFromId(tid[1]).kr_display_name
 					if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid[1]).name end
 					local c = (not self:knowTalent(tid[1])) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-					str:add(c, ("- Talent %s (not known)\n"):format(tn), true)
+					str:add(c, ("- %s 기술 (모름)\n"):format(tn), true)
 				else
 					local c = (self:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-					str:add(c, ("- Talent %s (%d)\n"):format(tn, tid[2]), true)
+					str:add(c, ("- %s 기술 (%d)\n"):format(tn, tid[2]), true)
 				end
 			else
 				local c = self:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
 				--@@
 				local tn = self:getTalentFromId(tid).kr_display_name
 				if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = self:getTalentFromId(tid).name end
-				str:add(c, ("- Talent %s\n"):format(tn), true)
+				str:add(c, ("- %s 기술\n"):format(tn), true)
 			end
 		end
 	end
@@ -634,9 +634,9 @@ end
 
 --- Returns display name
 function _M:getTalentDisplayName(t)
-	if not t.kr_display_name then return t.name end
-	if type(t.kr_display_name) == "function" then return t.kr_display_name(self, t) end
-	return t.kr_display_name
+	if not t.display_name then return t.name end
+	if type(t.display_name) == "function" then return t.display_name(self, t) end
+	return t.display_name
 end
 
 --- Cooldown all talents by one

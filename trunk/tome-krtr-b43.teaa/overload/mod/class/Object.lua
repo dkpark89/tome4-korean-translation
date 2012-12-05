@@ -1278,6 +1278,8 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	compare_with = compare_with or {}
 
 	desc:merge(self:getName(name_param):toTString())
+	--@@ 아이템은 원래 이름이 필요없을듯 - 필요시 아랫줄을 주석해제하면 이름뒤에 원문 이름이 나옴
+	--desc:add(" (",self.name,")")
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(game.player)
 	if reqs then
