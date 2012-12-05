@@ -26,7 +26,7 @@ short_name = "krtr-b43"
 for_module = "tome"
 version = {0,9,43}
 
-weight = 100
+weight = 10 -- 한글화가 먼저되고 다른 애드온이 실행되는게 애드온끼리의 충돌이 적을거 같아 무게를 가볍게 잡음 (100이 제일 나중인 듯)
 
 author = { "nethackboard", "blank@blank.com" }
 homepage = "http://tome.te4.org/"
