@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Congeal Time",
+	kr_display_name = "시간 얼리기",
 	type = {"spell/temporal",1},
 	require = spells_req1,
 	points = 5,
@@ -54,6 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Time Shield",
+	kr_display_name = "시간의 방어막",
 	type = {"spell/temporal", 2},
 	require = spells_req2,
 	points = 5,
@@ -87,6 +89,7 @@ newTalent{
 
 newTalent{
 	name = "Time Prison",
+	kr_display_name = "시간의 감옥",
 	type = {"spell/temporal", 3},
 	require = spells_req3,
 	points = 5,
@@ -118,6 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Essence of Speed",
+	kr_display_name = "속도의 본질",
 	type = {"spell/temporal",4},
 	require = spells_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Flame",
+	kr_display_name = "화염",
 	type = {"spell/fire",1},
 	require = spells_req1,
 	points = 5,
@@ -76,6 +77,7 @@ newTalent{
 
 newTalent{
 	name = "Flameshock",
+	kr_display_name = "화염충격",
 	type = {"spell/fire",2},
 	require = spells_req2,
 	points = 5,
@@ -129,6 +131,7 @@ newTalent{
 
 newTalent{
 	name = "Fireflash",
+	kr_display_name = "화염의 섬광",
 	type = {"spell/fire",3},
 	require = spells_req3,
 	points = 5,
@@ -178,6 +181,7 @@ newTalent{
 
 newTalent{
 	name = "Inferno",
+	kr_display_name = "지옥의 열화",
 	type = {"spell/fire",4},
 	require = spells_req4,
 	points = 5,

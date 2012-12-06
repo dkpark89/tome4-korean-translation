@@ -544,8 +544,8 @@ function _M:on_set_temporary_effect(eff_id, e, p)
 	mod.class.Actor.on_set_temporary_effect(self, eff_id, e, p)
 
 	if e.status == "detrimental" and not e.no_stop_resting then
-		self:runStop("detrimental status effect")
-		self:restStop("detrimental status effect")
+		self:runStop("나쁜 상태 효과")
+		self:restStop("나쁜 상태 효과")
 	end
 end
 
@@ -559,8 +559,8 @@ function _M:heal(value, src)
 end
 
 function _M:die(src, death_note)
-	self:runStop("died")
-	self:restStop("died")
+	self:runStop("죽음")
+	self:restStop("죽음")
 	
 	if self:hasEffect(self.EFF_PRECOGNITION) then
 		self:removeEffect(self.EFF_PRECOGNITION)
@@ -574,15 +574,15 @@ end
 function _M:suffocate(value, src, death_msg)
 	local dead, affected = mod.class.Actor.suffocate(self, value, src, death_msg)
 	if affected and value > 0 and self.runStop then
-		self:runStop("suffocating")
-		self:restStop("suffocating")
+		self:runStop("숨막힘")
+		self:restStop("숨막힘")
 	end
 	return dead, affected
 end
 
 function _M:onChat()
-	self:runStop("chat started")
-	self:restStop("chat started")
+	self:runStop("채팅 시작")
+	self:restStop("채팅 시작")
 end
 
 function _M:setName(name)
@@ -690,7 +690,7 @@ function _M:restCheck()
 		for _, node in ipairs(spotted) do
 			node.actor:addParticles(engine.Particles.new("notice_enemy", 1))
 		end
-		return false, ("적대적 존재 발견 (%s%s)"):format(spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - offscreen")
+		return false, ("적대적 존재 발견 (%s%s)"):format(spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 	end
 
 	-- Resting improves regen

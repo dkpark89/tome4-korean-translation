@@ -45,7 +45,7 @@ ToME에서 죽음은 보통 영원하지만, 당신은 아래 선택지에 나�
 ]]
 
 	if #game.party.on_death_show_achieved > 0 then
-		text = text.."#LIGHT_GREEN#During your game you#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ") ---- 변역 필요: During your game you
+		text = text.."#LIGHT_GREEN#During your game you#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ") --@@ 변역 필요: During your game you
 	end
 
 	self.c_desc = Textzone.new{width=self.iw, auto_height=true, text=text}

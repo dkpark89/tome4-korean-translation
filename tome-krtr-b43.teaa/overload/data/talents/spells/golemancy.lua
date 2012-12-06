@@ -143,6 +143,7 @@ end
 
 newTalent{
 	name = "Refit Golem",
+	kr_display_name = "골렘 수리",
 	type = {"spell/golemancy-base", 1},
 	require = spells_req1,
 	points = 1,
@@ -250,6 +251,7 @@ newTalent{
 
 newTalent{
 	name = "Golem Power",
+	kr_display_name = "골렘의 힘",
 	type = {"spell/golemancy", 1},
 	mode = "passive",
 	require = spells_req1,
@@ -279,6 +281,7 @@ newTalent{
 
 newTalent{
 	name = "Golem Resilience",
+	kr_display_name = "골렘의 활기",
 	type = {"spell/golemancy", 2},
 	mode = "passive",
 	require = spells_req2,
@@ -314,6 +317,7 @@ newTalent{
 
 newTalent{
 	name = "Invoke Golem",
+	kr_display_name = "골렘 호출",
 	type = {"spell/golemancy",3},
 	require = spells_req3,
 	points = 5,
@@ -351,6 +355,7 @@ newTalent{
 
 newTalent{
 	name = "Golem Portal",
+	kr_display_name = "골렘 포탈",
 	type = {"spell/golemancy",4},
 	require = spells_req4,
 	points = 5,

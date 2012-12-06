@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Chill of the Tomb",
+	kr_display_name = "무덤의 차가움",
 	type = {"spell/grave",1},
 	require = spells_req1,
 	points = 5,
@@ -59,6 +60,7 @@ newTalent{
 
 newTalent{
 	name = "Will o' the Wisp",
+	kr_display_name = "윌 오' 위스프",
 	type = {"spell/grave",2},
 	require = spells_req2,
 	mode = "sustained",
@@ -132,6 +134,7 @@ newTalent{
 -- Kinda copied from Creeping Darkness
 newTalent{
 	name = "Cold Flames",
+	kr_display_name = "차가운 화염",
 	type = {"spell/grave",3},
 	require = spells_req3,
 	points = 5,
@@ -323,6 +326,7 @@ newTalent{
 
 newTalent{
 	name = "Vampiric Gift",
+	kr_display_name = "흡혈의 선물",
 	type = {"spell/grave",4},
 	require = spells_req4,
 	points = 5,

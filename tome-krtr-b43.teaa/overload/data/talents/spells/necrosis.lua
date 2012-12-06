@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blurred Mortality",
+	kr_display_name = "흐릿해지는 죽음",
 	type = {"spell/necrosis",1},
 	require = spells_req1,
 	mode = "sustained",
@@ -45,6 +46,7 @@ newTalent{
 
 newTalent{
 	name = "Impending Doom",
+	kr_display_name = "임박한 운명",
 	type = {"spell/necrosis",2},
 	require = spells_req2,
 	points = 5,
@@ -77,6 +79,7 @@ newTalent{
 
 newTalent{
 	name = "Undeath Link",
+	kr_display_name = "멀어지는 죽음",
 	type = {"spell/necrosis",3},
 	require = spells_req3,
 	points = 5,
@@ -133,6 +136,7 @@ newTalent{
 
 newTalent{
 	name = "Lichform",
+	kr_display_name = "리치되기",
 	type = {"spell/necrosis",4},
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },

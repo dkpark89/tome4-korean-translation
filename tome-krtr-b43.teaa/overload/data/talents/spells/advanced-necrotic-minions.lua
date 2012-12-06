@@ -173,6 +173,7 @@ local minions_list = {
 
 newTalent{
 	name = "Undead Explosion",
+	kr_display_name = "언데드 폭발",
 	type = {"spell/advanced-necrotic-minions",1},
 	require = spells_req_high1,
 	points = 5,
@@ -208,6 +209,7 @@ newTalent{
 
 newTalent{
 	name = "Assemble",
+	kr_display_name = "조합",
 	type = {"spell/advanced-necrotic-minions",2},
 	require = spells_req_high2,
 	points = 5,
@@ -284,6 +286,7 @@ newTalent{
 
 newTalent{
 	name = "Sacrifice",
+	kr_display_name = "희생",
 	type = {"spell/advanced-necrotic-minions",3},
 	require = spells_req_high3,
 	points = 5,
@@ -339,6 +342,7 @@ newTalent{
 
 newTalent{
 	name = "Minion Mastery",
+	kr_display_name = "추종기술 숙련",
 	type = {"spell/advanced-necrotic-minions",4},
 	require = spells_req_high4,
 	points = 5,

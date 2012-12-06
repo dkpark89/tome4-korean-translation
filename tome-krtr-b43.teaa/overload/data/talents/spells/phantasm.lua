@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Illuminate",
+	kr_display_name = "환영",
 	type = {"spell/phantasm",1},
 	require = spells_req1,
 	random_ego = "utility",
@@ -69,6 +70,7 @@ newTalent{
 
 newTalent{
 	name = "Blur Sight",
+	kr_display_name = "시야 흐리기",
 	type = {"spell/phantasm", 2},
 	mode = "sustained",
 	require = spells_req2,
@@ -99,6 +101,7 @@ newTalent{
 
 newTalent{
 	name = "Phantasmal Shield",
+	kr_display_name = "환영의 방어막",
 	type = {"spell/phantasm", 3},
 	mode = "sustained",
 	require = spells_req3,
@@ -129,6 +132,7 @@ newTalent{
 
 newTalent{
 	name = "Invisibility",
+	kr_display_name = "투명화",
 	type = {"spell/phantasm", 4},
 	mode = "sustained",
 	require = spells_req4,

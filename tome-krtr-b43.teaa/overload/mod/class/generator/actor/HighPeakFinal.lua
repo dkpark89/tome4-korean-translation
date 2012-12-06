@@ -57,7 +57,7 @@ function _M:generateOne()
 			m.never_anger = true
 			m:setTarget(game.player)
 			self.zone:addEntity(self.level, m, "actor", x, y)
-			game.logSeen(m, "An entity appears through the portal!")
+			game.logSeen(m, "실체가 포탈을 통해 나타났다!")
 		end
 	end
 end

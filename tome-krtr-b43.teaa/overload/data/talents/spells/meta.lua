@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Disperse Magic",
+	kr_display_name = "마법 흩뜨리기",
 	type = {"spell/meta",1},
 	require = spells_req1,
 	points = 5,
@@ -97,6 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Spellcraft",
+	kr_display_name = "정교한 주문",
 	type = {"spell/meta",2},
 	require = spells_req2,
 	points = 5,
@@ -126,6 +128,7 @@ newTalent{
 
 newTalent{
 	name = "Quicken Spells",
+	kr_display_name = "빠른 주문",
 	type = {"spell/meta",3},
 	require = spells_req3,
 	points = 5,
@@ -153,6 +156,7 @@ newTalent{
 
 newTalent{
 	name = "Metaflow",
+	kr_display_name = "마력의 흐름",
 	type = {"spell/meta",4},
 	require = spells_req4,
 	points = 5,

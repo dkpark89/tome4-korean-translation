@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Nova",
+	kr_display_name = "번개 발산",
 	type = {"spell/storm",1},
 	require = spells_req_high1,
 	points = 5,
@@ -69,6 +70,7 @@ newTalent{
 
 newTalent{
 	name = "Shock",
+	kr_display_name = "전기 충격",
 	type = {"spell/storm",2},
 	require = spells_req_high2,
 	points = 5,
@@ -98,6 +100,7 @@ newTalent{
 
 newTalent{
 	name = "Hurricane",
+	kr_display_name = "허리케인",
 	type = {"spell/storm",3},
 	require = spells_req_high3,
 	points = 5,
@@ -138,6 +141,7 @@ newTalent{
 
 newTalent{
 	name = "Tempest",
+	kr_display_name = "폭풍우",
 	type = {"spell/storm",4},
 	require = spells_req_high4,
 	points = 5,

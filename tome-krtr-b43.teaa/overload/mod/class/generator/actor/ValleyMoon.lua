@@ -51,7 +51,7 @@ function _M:tick()
 
 	-- Fire a light AOE, healing allies damaging demons
 	if _M.limmir and not _M.limmir.dead and game.turn % 100 == 0 then
-		game.logSeen(_M.limmir, "Limmir summons a blast of holy light!")
+		game.logSeen(_M.limmir, "리미르가 성스러운 빛의 덩어리를 소환합니다!")
 		local rad = 2
 		local dam = 50 + (800 - self.level.turn_counter / 10) / 7
 		local grids = _M.limmir:project({type="ball", radius=rad, selffire=false}, _M.limmir.x, _M.limmir.y, DamageType.HOLY_LIGHT, dam)
