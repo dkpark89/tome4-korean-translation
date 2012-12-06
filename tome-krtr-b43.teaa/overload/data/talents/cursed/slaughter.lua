@@ -21,6 +21,7 @@ local Stats = require "engine.interface.ActorStats"
 
 newTalent{
 	name = "Slash",
+	kr_display_name = "난도질",
 	type = {"cursed/slaughter", 1},
 	require = cursed_str_req1,
 	points = 5,
@@ -70,6 +71,7 @@ newTalent{
 
 newTalent{
 	name = "Frenzy",
+	kr_display_name = "광분",
 	type = {"cursed/slaughter", 2},
 	require = cursed_str_req2,
 	points = 5,
@@ -132,6 +134,7 @@ newTalent{
 
 newTalent{
 	name = "Reckless Charge",
+	kr_display_name = "무모한 돌진",
 	type = {"cursed/slaughter", 3},
 	require = cursed_str_req3,
 	points = 5,
@@ -280,6 +283,7 @@ newTalent{
 
 newTalent{
 	name = "Cleave",
+	kr_display_name = "쪼개기",
 	type = {"cursed/slaughter", 4},
 	mode = "sustained",
 	require = cursed_str_req4,

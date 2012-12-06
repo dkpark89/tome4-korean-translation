@@ -23,6 +23,7 @@ end
 
 newTalent{
 	name = "Unnatural Body",
+	kr_display_name = "육체변이",
 	type = {"cursed/cursed-form", 1},
 	mode = "passive",
 	require = cursed_wil_req1,
@@ -79,6 +80,7 @@ newTalent{
 
 newTalent{
 	name = "Relentless",
+	kr_display_name = "무자비함",
 	type = {"cursed/cursed-form", 2},
 	mode = "passive",
 	require = cursed_wil_req2,
@@ -104,6 +106,7 @@ newTalent{
 
 newTalent{
 	name = "Seethe",
+	kr_display_name = "끓어오름",
 	type = {"cursed/cursed-form", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -119,6 +122,7 @@ newTalent{
 
 newTalent{
 	name = "Grim Resolve",
+	kr_display_name = "냉혹한 결심",
 	type = {"cursed/cursed-form", 4},
 	require = cursed_wil_req4,
 	mode = "passive",

@@ -20,6 +20,7 @@
 newTalent{
 	short_name = "SHADOW_FADE",
 	name = "Fade",
+	kr_display_name = "흐려짐",
 	type = {"spell/other",1},
 	points = 5,
 	cooldown = function(self, t)
@@ -37,6 +38,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_PHASE_DOOR",
 	name = "Phase Door",
+	kr_display_name = "근거리 공간이동",
 	type = {"spell/other",1},
 	points = 5,
 	range = 10,
@@ -65,6 +67,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_BLINDSIDE",
 	name = "Blindside",
+	kr_display_name = "습격",
 	type = {"spell/other", 1},
 	points = 5,
 	random_ego = "attack",
@@ -103,6 +106,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_LIGHTNING",
 	name = "Shadow Lightning",
+	kr_display_name = "그림자 번개",
 	type = {"spell/other", 1},
 	require = { },
 	points = 5,
@@ -134,6 +138,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_FLAMES",
 	name = "Shadow Flames",
+	kr_display_name = "그림자 화염",
 	type = {"spell/other", 1},
 	require = { },
 	points = 5,
@@ -163,6 +168,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_REFORM",
 	name = "Reform",
+	kr_display_name = "재형성",
 	type = {"spell/other", 1},
 	require = { },
 	points = 5,
@@ -318,6 +324,7 @@ end
 
 newTalent{
 	name = "Call Shadows",
+	kr_display_name = "그림자 소환",
 	type = {"cursed/shadows", 1},
 	mode = "sustained",
 	no_energy = true,
@@ -427,6 +434,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Warriors",
+	kr_display_name = "그림자 전사",
 	type = {"cursed/shadows", 2},
 	mode = "passive",
 	require = cursed_cun_req2,
@@ -484,6 +492,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Mages",
+	kr_display_name = "그림자 마법사",
 	type = {"cursed/shadows", 3},
 	mode = "passive",
 	require = cursed_cun_req3,
@@ -562,6 +571,7 @@ newTalent{
 
 newTalent{
 	name = "Focus Shadows",
+	kr_display_name = "그림자 집중",
 	type = {"cursed/shadows", 4},
 	require = cursed_cun_req4,
 	points = 5,

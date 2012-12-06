@@ -26,6 +26,7 @@ local curses_weapon
 
 newTalent{
 	name = "Defiling Touch",
+	kr_display_name = "더러운 손길",
 	type = {"cursed/cursed-aura", 1},
 	require = cursed_lev_req1,
 	points = 5,
@@ -250,6 +251,7 @@ At level 5 you can activate this talent to surround yourself with an aura that a
 
 newTalent{
 	name = "Dark Gifts",
+	kr_display_name = "어둠의 선물",
 	type = {"cursed/cursed-aura", 2},
 	mode = "passive",
 	require = cursed_lev_req2,
@@ -271,6 +273,7 @@ newTalent{
 
 newTalent{
 	name = "Ruined Earth",
+	kr_display_name = "망가진 대지",
 	type = {"cursed/cursed-aura", 3},
 	require = cursed_lev_req3,
 	points = 5,
@@ -318,6 +321,7 @@ newTalent{
 
 newTalent{
 	name = "Cursed Sentry",
+	kr_display_name = "저주받은 파수꾼",
 	type = {"cursed/cursed-aura", 4},
 	require = cursed_lev_req4,
 	points = 5,

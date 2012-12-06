@@ -32,26 +32,26 @@ newTalentType{ type="psionic/other", name = "other", description = "여러가지
 newTalentType{ allow_random=true, type="psionic/grip", name = "grip", min_lev = 10, description = "염동적 악력을 높인다." }
 newTalentType{ allow_random=true, type="psionic/psi-archery", name = "psi-archery", min_lev = 10, description = "염동력을 이용하여 활을 쥐고, 그 치명적인 효과를 사용한다." }
 newTalentType{ allow_random=true, type="psionic/greater-psi-fighting", name = "greater psi-fighting", description = "염동전투 기술의 숙련도를 서사적인 단계로 끄집어 올린다." }
-newTalentType{ allow_random=true, type="psionic/brainstorm", name = "brainstorm", description = "Focus your telekinetic powers in ways undreamed of by most mindslayers." }
+newTalentType{ allow_random=true, type="psionic/brainstorm", name = "brainstorm", description = "Focus your telekinetic powers in ways undreamed of by most mindslayers." } --@@??
 
 -- Solipsist Talent Trees
-newTalentType{ allow_random=true, type="psionic/discharge", name = "discharge", description = "Project feedback on the world around you." }
-newTalentType{ allow_random=true, type="psionic/distortion", name = "distortion", description = "Distort reality with your mental energy." }
-newTalentType{ allow_random=true, type="psionic/dream-forge", name = "Dream Forge", description = "Master the dream forge to create powerful armor and effects." }
-newTalentType{ allow_random=true, type="psionic/dream-smith", name = "Dream Smith", description = "Call the dream-forge hammer to smite your foes." }
-newTalentType{ allow_random=true, type="psionic/nightmare", name = "nightmare", description = "Manifest your enemies nightmares." }
-newTalentType{ allow_random=true, type="psionic/psychic-assault", name = "Psychic Assault", description = "Directly attack your opponents minds." }
-newTalentType{ allow_random=true, type="psionic/slumber", name = "slumber", description = "Force enemies into a deep sleep." }
-newTalentType{ allow_random=true, type="psionic/solipsism", name = "solipsism", description = "Nothing exists outside the minds ability to perceive it." }
-newTalentType{ allow_random=true, type="psionic/thought-forms", name = "Thought-Forms", description = "Manifest your thoughts as psionic summons." }
+newTalentType{ allow_random=true, type="psionic/discharge", name = "discharge", description = "주변의 세상을 반작용으로 둘러싼다." }
+newTalentType{ allow_random=true, type="psionic/distortion", name = "distortion", description = "정신의 힘으로 실제 세상을 왜곡시킨다." }
+newTalentType{ allow_random=true, type="psionic/dream-forge", name = "Dream Forge", description = "강력한 갑옷을 만들고 그 효과를 볼 수 있는 꿈의 연마장을 다루는데 숙달한다." }
+newTalentType{ allow_random=true, type="psionic/dream-smith", name = "Dream Smith", description = "꿈의 연마장에서 망치를 소환하여 적을 공격한다." }
+newTalentType{ allow_random=true, type="psionic/nightmare", name = "nightmare", description = "적들을 악몽으로 이끈다." }
+newTalentType{ allow_random=true, type="psionic/psychic-assault", name = "Psychic Assault", description = "상대방의 정신에 대한 직접적인 공격 기술." }
+newTalentType{ allow_random=true, type="psionic/slumber", name = "slumber", description = "적들을 깊은 잠에 빠지게 만든다." }
+newTalentType{ allow_random=true, type="psionic/solipsism", name = "solipsism", description = "스스로를 인지하기 위한 정신 능력 이외에는 아무것도 존재하지 않는다." }
+newTalentType{ allow_random=true, type="psionic/thought-forms", name = "Thought-Forms", description = "생각만으로 염동체 소환수를 구현한다." }
 
 -- Generic Solipsist Trees
-newTalentType{ allow_random=true, type="psionic/dreaming", generic = true, name = "dreaming", description = "Manipulate the sleep cycles of yourself and your enemies." }
-newTalentType{ allow_random=true, type="psionic/mentalism", generic = true, name = "mentalism", description = "Various mind based effects." }
-newTalentType{ allow_random=true, type="psionic/feedback", generic = true, name = "feedback", description = "Store feedback as you get damaged and use it to protect and heal your body." }
-newTalentType{ allow_random=true, type="psionic/trance", generic = true, name = "trance", description = "Put your mind into a deep trance." }
+newTalentType{ allow_random=true, type="psionic/dreaming", generic = true, name = "dreaming", description = "자신이나 적들의 수면 주기를 다룬다." }
+newTalentType{ allow_random=true, type="psionic/mentalism", generic = true, name = "mentalism", description = "정신력에 기초한 여러가지 효과." }
+newTalentType{ allow_random=true, type="psionic/feedback", generic = true, name = "feedback", description = "피해에 대한 반작용을 가지고 있다가 스스로의 보호나 치료에 사용한다." }
+newTalentType{ allow_random=true, type="psionic/trance", generic = true, name = "trance", description = "정신을 깊은 최면의 세계로 인도한다." }
 
-newTalentType{ allow_random=true, type="psionic/possession", name = "possession", description = "You have learnt to shed away your body, allowing you to possess any other." }
+newTalentType{ allow_random=true, type="psionic/possession", name = "possession", description = "스스로의 육체를 벗어나는 방법을 배워, 다른 육체를 소유할 수 있게 된다." }
 
 
 -- Level 0 wil tree requirements:

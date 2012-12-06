@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Feed",
+	kr_display_name = "공급",
 	type = {"cursed/dark-sustenance", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -83,6 +84,7 @@ newTalent{
 
 newTalent{
 	name = "Devour Life",
+	kr_display_name = "생명력 갉아먹기",
 	type = {"cursed/dark-sustenance", 2},
 	require = cursed_wil_req2,
 	points = 5,
@@ -161,6 +163,7 @@ newTalent{
 ]]
 newTalent{
 	name = "Feed Power",
+	kr_display_name = "공격력 공급",
 	type = {"cursed/dark-sustenance", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -177,6 +180,7 @@ newTalent{
 
 newTalent{
 	name = "Feed Strengths",
+	kr_display_name = "힘의 공급",
 	type = {"cursed/dark-sustenance", 4},
 	mode = "passive",
 	require = cursed_wil_req4,
