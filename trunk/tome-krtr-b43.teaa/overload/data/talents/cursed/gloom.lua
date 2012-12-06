@@ -27,6 +27,7 @@ end
 
 newTalent{
 	name = "Gloom",
+	kr_display_name = "우울함",
 	type = {"cursed/gloom", 1},
 	mode = "sustained",
 	require = cursed_wil_req1,
@@ -149,6 +150,7 @@ newTalent{
 
 newTalent{
 	name = "Weakness",
+	kr_display_name = "약화",
 	type = {"cursed/gloom", 2},
 	mode = "passive",
 	require = cursed_wil_req2,
@@ -178,6 +180,7 @@ newTalent{
 
 newTalent{
 	name = "Dismay",
+	kr_display_name = "경악",
 	type = {"cursed/gloom", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -220,6 +223,7 @@ newTalent{
 
 newTalent{
 	name = "Sanctuary",
+	kr_display_name = "피난처",
 	type = {"cursed/gloom", 4},
 	mode = "passive",
 	require = cursed_wil_req4,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Rampage",
+	kr_display_name = "돌진",
 	type = {"cursed/rampage", 1},
 	require = cursed_str_req1,
 	points = 5,
@@ -97,6 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Brutality",
+	kr_display_name = "난폭",
 	type = {"cursed/rampage", 2},
 	mode = "passive",
 	require = cursed_str_req2,
@@ -126,6 +128,7 @@ newTalent{
 
 newTalent{
 	name = "Tenacity",
+	kr_display_name = "고집",
 	type = {"cursed/rampage", 3},
 	mode = "passive",
 	require = cursed_str_req3,
@@ -151,6 +154,7 @@ newTalent{
 
 newTalent{
 	name = "Slam",
+	kr_display_name = "부딪치기",
 	type = {"cursed/rampage", 4},
 	require = cursed_str_req4,
 	points = 5,

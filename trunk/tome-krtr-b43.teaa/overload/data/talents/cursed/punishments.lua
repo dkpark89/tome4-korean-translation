@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Reproach",
+	kr_display_name = "비난",
 	type = {"cursed/punishments", 1},
 	require = cursed_cun_req1,
 	points = 5,
@@ -71,6 +72,7 @@ newTalent{
 
 newTalent{
 	name = "Hateful Whisper",
+	kr_display_name = "증오의 속삭임",
 	type = {"cursed/punishments", 2},
 	require = cursed_cun_req2,
 	points = 5,
@@ -262,6 +264,7 @@ newTalent{
 
 newTalent{
 	name = "Agony",
+	kr_display_name = "고통",
 	type = {"cursed/punishments", 3},
 	require = cursed_cun_req3,
 	points = 5,
@@ -307,6 +310,7 @@ newTalent{
 
 newTalent{
 	name = "Madness",
+	kr_display_name = "광기",
 	type = {"cursed/punishments", 4},
 	mode = "passive",
 	require = cursed_cun_req4,

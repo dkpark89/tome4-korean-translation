@@ -18,26 +18,26 @@
 -- darkgod@te4.org
 
 -- Cursed
-newTalentType{ allow_random=true, type="cursed/slaughter", name = "slaughter", description = "Your weapon yearns for its next victim." }
-newTalentType{ allow_random=true, type="cursed/endless-hunt", name = "endless hunt", description = "Each day you lift your weary body and begin the unending hunt." }
-newTalentType{ allow_random=true, type="cursed/strife", name = "strife", description = "The battlefield is your home; death and confusion, your comfort." }
-newTalentType{ allow_random=true, type="cursed/gloom", name = "gloom", description = "All those in your sight must share your despair." }
-newTalentType{ allow_random=true, type="cursed/rampage", name = "rampage", description = "Let loose the hate that has grown within." }
-newTalentType{ allow_random=true, type="cursed/predator", name = "predator", description = "Track and kill your prey with single-minded focus." }
+newTalentType{ allow_random=true, type="cursed/slaughter", name = "slaughter", description = "당신의 무기는 다음 희상자를 갈망한다." }
+newTalentType{ allow_random=true, type="cursed/endless-hunt", name = "endless hunt", description = "매일 지친 육체를 이끌고 끝나지 않는 사냥을 시작한다." }
+newTalentType{ allow_random=true, type="cursed/strife", name = "strife", description = "죽음과 혼돈이 있는 전장을 집처럼 편한하게 느낀다." }
+newTalentType{ allow_random=true, type="cursed/gloom", name = "gloom", description = "시야의 모든 존재가 당신의 절망을 공유한다." }
+newTalentType{ allow_random=true, type="cursed/rampage", name = "rampage", description = "내부에서 자라난 증오심을 풀어놓는다." }
+newTalentType{ allow_random=true, type="cursed/predator", name = "predator", description = "한가지 집중된 마음으로 사냥감을 쫒아가 죽인다." }
 
 -- Doomed
-newTalentType{ allow_random=true, type="cursed/dark-sustenance", name = "dark sustenance", generic = true, description = "Invoke the powerful force of your will." }
-newTalentType{ allow_random=true, type="cursed/force-of-will", name = "force of will", description = "Invoke the powerful force of your will." }
-newTalentType{ allow_random=true, type="cursed/darkness", name = "darkness", description = "Harness the power of darkness to envelop your foes." }
-newTalentType{ allow_random=true, type="cursed/shadows", name = "shadows", description = "Summon shadows from the darkness to aid you." }
-newTalentType{ allow_random=true, type="cursed/punishments", name = "punishments", description = "Your hate becomes punishment in the minds of your foes." }
+newTalentType{ allow_random=true, type="cursed/dark-sustenance", name = "dark sustenance", generic = true, description = "의지력으로부터 강력한 힘을 얻는다." }
+newTalentType{ allow_random=true, type="cursed/force-of-will", name = "force of will", description = "의지력으로부터 강력한 힘을 얻는다." }
+newTalentType{ allow_random=true, type="cursed/darkness", name = "darkness", description = "어둠의 힘으로 적들을 감싸 그들을 괴롭힌다." }
+newTalentType{ allow_random=true, type="cursed/shadows", name = "shadows", description = "어둠속에서 그림자를 소환하여 당신을 돕게 만든다." }
+newTalentType{ allow_random=true, type="cursed/punishments", name = "punishments", description = "당신의 증오심은 적들의 정신에게 족쇄가 된다." }
 
 -- Generic
-newTalentType{ allow_random=true, type="cursed/gestures", name = "gestures", generic = true, description = "Enhance the power of you mind with gestures." }
-newTalentType{ allow_random=true, type="cursed/cursed-form", name = "cursed form", generic = true, description = "You are wracked with the dark energies of the curse." }
-newTalentType{ allow_random=true, type="cursed/cursed-aura", name = "cursed aura", generic = true, description = "The things you surround yourself with soon wither away." }
-newTalentType{ allow_random=false, type="cursed/curses", name = "curses", hide = true, description = "The effects of cursed objects." }
-newTalentType{ allow_random=true, type="cursed/fears", name = "fears", description = "Use the fear that lies at the heart of your curse to attack the minds of your enemies." }
+newTalentType{ allow_random=true, type="cursed/gestures", name = "gestures", generic = true, description = "몸짓으로 정신의 힘을 높인다." }
+newTalentType{ allow_random=true, type="cursed/cursed-form", name = "cursed form", generic = true, description = "저주받은 어둠의 힘으로 당신은 파멸했다." }
+newTalentType{ allow_random=true, type="cursed/cursed-aura", name = "cursed aura", generic = true, description = "당신을 둘러싼 것들이 시들어버린다." }
+newTalentType{ allow_random=false, type="cursed/curses", name = "curses", hide = true, description = "저주받은 물건들의 효과." }
+newTalentType{ allow_random=true, type="cursed/fears", name = "fears", description = "저주받은 심장에서 나오는 공포를 사용하여 적들의 정신을 공격한다." }
 
 cursed_wil_req1 = {
 	stat = { wil=function(level) return 12 + (level-1) * 2 end },

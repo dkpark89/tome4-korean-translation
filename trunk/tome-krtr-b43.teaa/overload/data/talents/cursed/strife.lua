@@ -21,6 +21,7 @@ local Stats = require "engine.interface.ActorStats"
 
 newTalent{
 	name = "Dominate",
+	kr_display_name = "지배",
 	type = {"cursed/strife", 1},
 	require = cursed_str_req1,
 	points = 5,
@@ -77,6 +78,7 @@ newTalent{
 
 newTalent{
 	name = "Preternatural Senses",
+	kr_display_name = "초자연적 감각",
 	type = {"cursed/strife", 2},
 	mode = "passive",
 	require = cursed_str_req2,
@@ -219,6 +221,7 @@ newTalent{
 
 newTalent{
 	name = "Blindside",
+	kr_display_name = "습격",
 	type = {"cursed/strife", 3},
 	require = cursed_str_req3,
 	points = 5,
@@ -357,6 +360,7 @@ newTalent{
 
 newTalent{
 	name = "Repel",
+	kr_display_name = "격퇴",
 	type = {"cursed/strife", 4},
 	mode = "sustained",
 	require = cursed_str_req4,

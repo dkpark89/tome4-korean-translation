@@ -27,6 +27,7 @@ end
 
 newTalent{
 	name = "Arcane Bolts",
+	kr_display_name = "마법의 탄",
 	type = {"cursed/primal-magic", 1},
 	require = cursed_mag_req1,
 	points = 5,
@@ -99,6 +100,7 @@ newTalent{
 
 newTalent{
 	name = "Displace",
+	kr_display_name = "위치이동",
 	type = {"cursed/primal-magic", 2},
 	require = cursed_mag_req2,
 	points = 5,
@@ -142,6 +144,7 @@ newTalent{
 
 newTalent{
 	name = "Primal Skin",
+	kr_display_name = "원시적 피부",
 	type = {"cursed/primal-magic", 3},
 	require = cursed_mag_req3,
 	points = 5,
@@ -157,6 +160,7 @@ newTalent{
 
 newTalent{
 	name = "Vaporize",
+	kr_display_name = "증발",
 	type = {"cursed/primal-magic", 4},
 	require = cursed_mag_req4,
 	points = 5,

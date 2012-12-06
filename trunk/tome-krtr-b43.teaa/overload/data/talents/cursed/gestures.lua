@@ -34,6 +34,7 @@ end
 
 newTalent{
 	name = "Gesture of Pain",
+	kr_display_name = "고통의 몸짓",
 	type = {"cursed/gestures", 1},
 	mode = "sustained",
 	no_energy = true,
@@ -132,6 +133,7 @@ newTalent{
 
 newTalent{
 	name = "Gesture of Malice",
+	kr_display_name = "악의의 몸짓",
 	type = {"cursed/gestures", 2},
 	require = cursed_cun_req2,
 	mode = "passive",
@@ -152,6 +154,7 @@ newTalent{
 
 newTalent{
 	name = "Gesture of Power",
+	kr_display_name = "힘의 몸짓",
 	type = {"cursed/gestures", 3},
 	require = cursed_cun_req3,
 	mode = "passive",
@@ -176,6 +179,7 @@ newTalent{
 
 newTalent{
 	name = "Gesture of Guarding",
+	kr_display_name = "수호의 몸짓",
 	type = {"cursed/gestures", 4},
 	require = cursed_cun_req4,
 	mode = "passive",
