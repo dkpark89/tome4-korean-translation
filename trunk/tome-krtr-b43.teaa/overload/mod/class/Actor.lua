@@ -719,7 +719,7 @@ function _M:useBuildOrder()
 						self:learnTalent(t.id, true)
 						--@@
 						local tn = t.display_name
-						if tn = nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+						if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
 						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.name):addJosa("를"), tn)
 						self.unused_talents = self.unused_talents - 1
 						table.remove(b.talents, i)
@@ -743,7 +743,7 @@ function _M:useBuildOrder()
 						self:learnTalent(t.id, true)
 						--@@
 						local tn = t.display_name
-						if tn = nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+						if tn == nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
 						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.name):addJosa("를"), tn)
 						self.unused_generics = self.unused_generics - 1
 						table.remove(b.talents, i)
