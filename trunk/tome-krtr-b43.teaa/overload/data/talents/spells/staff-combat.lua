@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Channel Staff",
+	kr_display_name = "지팡이의 힘 당겨쓰기",
 	type = {"spell/staff-combat", 1},
 	require = spells_req1,
 	points = 5,
@@ -87,6 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Staff Mastery",
+	kr_display_name = "마법지팡이 숙련",
 	type = {"spell/staff-combat", 2},
 	mode = "passive",
 	require = spells_req2,
@@ -103,6 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Defensive Posture",
+	kr_display_name = "방어 자세",
 	type = {"spell/staff-combat", 3},
 	require = spells_req3,
 	mode = "sustained",
@@ -135,6 +138,7 @@ newTalent{
 
 newTalent{
 	name = "Blunt Thrust",
+	kr_display_name = "둔기 찔러넣기",
 	type = {"spell/staff-combat",4},
 	require = spells_req4,
 	points = 5,

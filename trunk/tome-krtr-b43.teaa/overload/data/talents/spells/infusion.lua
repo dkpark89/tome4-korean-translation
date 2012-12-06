@@ -28,6 +28,7 @@ end
 
 newTalent{
 	name = "Fire Infusion",
+	kr_display_name = "화염 주입",
 	type = {"spell/infusion", 1},
 	mode = "passive",
 	require = spells_req1,
@@ -42,6 +43,7 @@ newTalent{
 
 newTalent{
 	name = "Acid Infusion",
+	kr_display_name = "산성 주입",
 	type = {"spell/infusion", 2},
 	mode = "sustained",
 	require = spells_req2,
@@ -73,6 +75,7 @@ newTalent{
 
 newTalent{
 	name = "Lightning Infusion",
+	kr_display_name = "번개 주입",
 	type = {"spell/infusion", 3},
 	mode = "sustained",
 	require = spells_req3,
@@ -104,6 +107,7 @@ newTalent{
 
 newTalent{
 	name = "Frost Infusion",
+	kr_display_name = "서리 주입",
 	type = {"spell/infusion", 4},
 	mode = "sustained",
 	require = spells_req4,

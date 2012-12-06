@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Phase Door",
+	kr_display_name = "근거리 공간이동",
 	type = {"spell/conveyance",1},
 	require = spells_req1,
 	points = 5,
@@ -98,6 +99,7 @@ newTalent{
 
 newTalent{
 	name = "Teleport",
+	kr_display_name = "장거리 공간이동",
 	type = {"spell/conveyance",2},
 	require = spells_req2,
 	points = 5,
@@ -172,6 +174,7 @@ newTalent{
 
 newTalent{
 	name = "Displacement Shield",
+	kr_display_name = "치환의 방어막",
 	type = {"spell/conveyance", 3},
 	require = spells_req3,
 	points = 5,
@@ -210,6 +213,7 @@ newTalent{
 
 newTalent{
 	name = "Probability Travel",
+	kr_display_name = "확률적 공간이동",
 	type = {"spell/conveyance",4},
 	mode = "sustained",
 	require = spells_req4,

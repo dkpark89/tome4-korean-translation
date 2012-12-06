@@ -23,6 +23,7 @@
 
 newTalent{
 	name = "Knockback", short_name = "GOLEM_KNOCKBACK",
+	kr_display_name = "밀어내기",
 	type = {"golem/fighting", 1},
 	require = techs_req1,
 	points = 5,
@@ -97,6 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Taunt", short_name = "GOLEM_TAUNT",
+	kr_display_name = "약올리기",
 	type = {"golem/fighting", 2},
 	require = techs_req2,
 	points = 5,
@@ -140,6 +142,7 @@ newTalent{
 
 newTalent{
 	name = "Crush", short_name = "GOLEM_CRUSH",
+	kr_display_name = "충돌",
 	type = {"golem/fighting", 3},
 	require = techs_req3,
 	points = 5,
@@ -213,6 +216,7 @@ newTalent{
 
 newTalent{
 	name = "Pound", short_name = "GOLEM_POUND",
+	kr_display_name = "찧기",
 	type = {"golem/fighting", 4},
 	require = techs_req4,
 	points = 5,
@@ -298,6 +302,7 @@ newTalent{
 
 newTalent{
 	name = "Eye Beam", short_name = "GOLEM_BEAM",
+	kr_display_name = "눈에서 빔!!!", --@@ 이걸 뭐라 불러야 할지...
 	type = {"golem/arcane", 1},
 	require = spells_req1,
 	points = 5,
@@ -364,6 +369,7 @@ newTalent{
 
 newTalent{
 	name = "Reflective Skin", short_name = "GOLEM_REFLECTIVE_SKIN",
+	kr_display_name = "피해 반사 피부",
 	type = {"golem/arcane", 2},
 	require = spells_req2,
 	points = 5,

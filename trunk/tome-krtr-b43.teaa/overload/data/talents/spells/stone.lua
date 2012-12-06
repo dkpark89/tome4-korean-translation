@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Earthen Missiles",
+	kr_display_name = "대지의 미사일",
 	type = {"spell/stone",1},
 	require = spells_req_high1,
 	points = 5,
@@ -71,6 +72,7 @@ newTalent{
 
 newTalent{
 	name = "Body of Stone",
+	kr_display_name = "돌로된 육체",
 	type = {"spell/stone",2},
 	require = spells_req_high2,
 	points = 5,
@@ -128,6 +130,7 @@ newTalent{
 
 newTalent{
 	name = "Earthquake",
+	kr_display_name = "지진",
 	type = {"spell/stone",3},
 	require = spells_req_high3,
 	points = 5,
@@ -176,6 +179,7 @@ newTalent{
 
 newTalent{
 	name = "Crystalline Focus",
+	kr_display_name = "맑은 집중",
 	type = {"spell/stone",4},
 	require = spells_req_high4,
 	points = 5,

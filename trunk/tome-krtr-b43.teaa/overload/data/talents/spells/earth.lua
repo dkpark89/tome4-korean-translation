@@ -21,6 +21,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Stone Skin",
+	kr_display_name = "돌 피부",
 	type = {"spell/earth", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -52,7 +53,8 @@ newTalent{
 
 newTalent{
 	name = "Mudslide",
-        type = {"spell/earth",2},
+	kr_display_name = "미끄러운 진흙",
+	type = {"spell/earth",2},
 	require = spells_req2,
 	points = 5,
 	random_ego = "attack",
@@ -85,6 +87,7 @@ newTalent{
 
 newTalent{
 	name = "Dig",
+	kr_display_name = "굴착",
 	type = {"spell/earth",3},
 	require = spells_req3,
 	points = 5,
@@ -114,6 +117,7 @@ newTalent{
 
 newTalent{
 	name = "Stone Wall",
+	kr_display_name = "돌 벽",
 	type = {"spell/earth",4},
 	require = spells_req4,
 	points = 5,

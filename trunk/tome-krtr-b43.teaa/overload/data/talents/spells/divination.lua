@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Arcane Eye",
+	kr_display_name = "마법의 눈",
 	type = {"spell/divination", 1},
 	require = spells_req1,
 	points = 5,
@@ -57,6 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Keen Senses",
+	kr_display_name = "날카로운 감각",
 	type = {"spell/divination", 2},
 	require = spells_req2,
 	mode = "sustained",
@@ -96,6 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Vision",
+	kr_display_name = "시야",
 	type = {"spell/divination", 3},
 	require = spells_req3,
 	points = 5,
@@ -118,6 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Premonition",
+	kr_display_name = "예감",
 	type = {"spell/divination", 4},
 	mode = "sustained",
 	require = spells_req4,

@@ -392,7 +392,7 @@ function _M:actBase()
 	-- Break darkest light
 	if self:isTalentActive (self.T_DARKEST_LIGHT) and self.positive > self.negative then
 		self:forceUseTalent(self.T_DARKEST_LIGHT, {ignore_energy=true})
-		game.logSeen(self, "%s's darkness can no longer hold back the light!", self.name:capitalize())
+		game.logSeen(self, "%s의 어둠이 더이상 빛을 밀어내지 않는다!", self.name:capitalize())
 	end
 	-- Break mind links
 	if self:isTalentActive(self.T_MIND_LINK) then
@@ -528,7 +528,7 @@ function _M:actBase()
 	local air_level, air_condition = game.level.map:checkEntity(self.x, self.y, Map.TERRAIN, "air_level"), game.level.map:checkEntity(self.x, self.y, Map.TERRAIN, "air_condition")
 	if air_level then
 		if not air_condition or not self.can_breath[air_condition] or self.can_breath[air_condition] <= 0 then
-			self:suffocate(-air_level, self, air_condition == "water" and "drowned to death" or nil)
+			self:suffocate(-air_level, self, air_condition == "water" and "익사" or nil)
 		end
 	end
 end
@@ -564,7 +564,7 @@ function _M:act()
 				self:forceUseTalent(tid, {ignore_energy=true})
 				--@@
 				local tn = (( t.kr_display_name ~= nil and type(t.kr_display_name) == "string" and t.kr_display_name:len() >= 1 and t.kr_display_name ) or t.name)
-				if not silent then game.logPlayer(self, "%s #ORCHID#반마법력#LAST#으로 중단되었다!", tn:addJosa("는")) end
+				if not silent then game.logPlayer(self, "%s #ORCHID#반마법력#LAST#으로 중단되었다!", tn:capitalize():addJosa("는")) end
 			end
 		end
 	end
@@ -675,7 +675,7 @@ function _M:useBuildOrder()
 				self:incStat(stat, 1)
 				self.unused_stats = self.unused_stats - 1
 				nb = -1
-				game.log("#VIOLET#Following build order %s; increasing %s by 1.", b.name, self.stats_def[stat].name)
+				game.log("#VIOLET#성장 순서 %s 따라서, %s 1 올라갑니다.", (b.name):addJosa("를"), self.stats_def[stat].name:krStat():addJosa("가"))
 			end
 			b.stats.i = util.boundWrap(b.stats.i + 1, 1, #b.stats)
 			nb = nb + 1
@@ -697,7 +697,7 @@ function _M:useBuildOrder()
 						self:setTalentTypeMastery(tt, self:getTalentTypeMastery(tt) + 0.2)
 					end
 
-					game.log("#VIOLET#Following build order %s; learning talent category %s.", b.name, tt)
+					game.log("#VIOLET#성장 순서 %s 따라서, %s 기술 계열을 배웁니다.", (b.name):addJosa("를"), tt:krTalentType())
 					self.unused_talents_types = self.unused_talents_types - 1
 					table.remove(b.types, i)
 					learn = true
@@ -717,7 +717,10 @@ function _M:useBuildOrder()
 
 					if self.unused_talents > 0 and self:canLearnTalent(t) and self:getTalentLevelRaw(t.id) < t.points then
 						self:learnTalent(t.id, true)
-						game.log("#VIOLET#Following build order %s; learning talent %s.", b.name, t.name)
+						--@@
+						local tn = t.display_name
+						if tn = nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.name):addJosa("를"), tn)
 						self.unused_talents = self.unused_talents - 1
 						table.remove(b.talents, i)
 						learn = true
@@ -738,7 +741,10 @@ function _M:useBuildOrder()
 
 					if self.unused_generics > 0 and self:canLearnTalent(t) and self:getTalentLevelRaw(t.id) < t.points then
 						self:learnTalent(t.id, true)
-						game.log("#VIOLET#Following build order %s; learning talent %s.", b.name, t.name)
+						--@@
+						local tn = t.display_name
+						if tn = nil or type(tn) ~= "string" or tn:len() < 1 then tn = t.name end
+						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.name):addJosa("를"), tn)
 						self.unused_generics = self.unused_generics - 1
 						table.remove(b.talents, i)
 						learn = true
@@ -949,7 +955,7 @@ function _M:move(x, y, force)
 		elseif not force and self:attr("never_move") then
 			-- A bit weird, but this simple asks the collision code to detect an attack
 			if not game.level.map:checkAllEntities(x, y, "block_move", self, true) then
-				game.logPlayer(self, "You are unable to move!")
+				game.logPlayer(self, "이동할 수 없습니다!")
 			end
 		else
 			moved = engine.Actor.move(self, x, y, force)
@@ -982,7 +988,7 @@ function _M:move(x, y, force)
 			if trap and not trap:knownBy(self) and self:checkHit(power, trap.detect_power) then
 				trap:setKnown(self, true)
 				game.level.map:updateMap(x, y)
-				game.logPlayer(self, "You have found a trap (%s)!", trap:getName())
+				game.logPlayer(self, "함정을 발견했습니다 (%s)!", trap:getName())
 			end
 		end end
 	end
@@ -1028,7 +1034,7 @@ function _M:move(x, y, force)
 	if moved and not force and self:hasEffect(self.EFF_RAMPAGE) then
 		local eff = self:hasEffect(self.EFF_RAMPAGE)
 		if not eff.moved and eff.actualDuration < eff.maxDuration then
-			game.logPlayer(self, "#F53CBE#Your movements fuel your rampage! (+1 duration)")
+			game.logPlayer(self, "#F53CBE#당신의 움직임이 돌진의 추진력을 더했다! (지속시간 +1)")
 			eff.moved = true
 			eff.actualDuration = eff.actualDuration + 1
 			eff.dur = eff.dur + 1
@@ -1081,7 +1087,7 @@ function _M:dropNoTeleportObjects()
 			local o = inven[item]
 			if o.no_teleport then
 				self:dropFloor(inven, item, false, true)
-				game.logPlayer(self, "#LIGHT_RED#Your %s is immune to the teleportation and drops to the floor!", o:getName{do_color=true})
+				game.logPlayer(self, "#LIGHT_RED#당신의 %s 공간이동을 방해한 뒤, 땅으로 딸어졌다!", o:getName{do_color=true}:addJosa("가"))
 			end
 		end
 	end
@@ -1491,9 +1497,9 @@ function _M:onHeal(value, src)
 		eff.src.heal_leech_active = nil
 		eff.src:incEquilibrium(-eff.eq)
 		if eff.src == self then
-			game.logSeen(self, "%s heal is doubled!", self.name)
+			game.logSeen(self, "%s 두배로 회복되었다!", self.name:addJosa("가"))
 		else
-			game.logSeen(self, "%s steals %s heal!", eff.src.name:capitalize(), self.name)
+			game.logSeen(self, "%s %s의 회복력을 훔쳐갔다!", eff.src.name:capitalize():addJosa("가"), self.name)
 			return 0
 		end
 	end
@@ -1597,7 +1603,7 @@ function _M:onTakeHit(value, src)
 			self:forceUseTalent(self.T_RETRIBUTION, {ignore_energy=true})
 
 			-- Explode!
-			game.logSeen(self, "%s unleashes the stored damage in retribution!", self.name:capitalize())
+			game.logSeen(self, "%s 응보로 지금까지 흡수한 비축된 피해를 폭발시켰다!", self.name:capitalize():addJosa("가"))
 			local tg = {type="ball", range=0, radius=self:getTalentRange(self:getTalentFromId(self.T_RETRIBUTION)), selffire=false, talent=t}
 			local grids = self:project(tg, self.x, self.y, DamageType.LIGHT, dam)
 			game.level.map:particleEmitter(self.x, self.y, tg.radius, "sunburst", {radius=tg.radius, grids=grids, tx=self.x, ty=self.y})
@@ -1617,7 +1623,7 @@ function _M:onTakeHit(value, src)
 
 		local a = rng.table(tgts)
 		if a then
-			game.logSeen(self, "Some of the damage has been displaced onto %s!", a.name:capitalize())
+			game.logSeen(self, "일부분의 피해가 %s에게로 돌아갔다!", a.name:capitalize())
 			a:takeHit(value / 2, self)
 			value = value / 2
 		end
@@ -1653,7 +1659,7 @@ function _M:onTakeHit(value, src)
 
 		-- If we are at the end of the capacity, release the time shield damage
 		if self.time_shield_absorb <= 0 then
-			game.logPlayer(self, "Your time shield crumbles under the damage!")
+			game.logPlayer(self, "시간의 방어막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_TIME_SHIELD)
 		end
 	end
@@ -1684,12 +1690,12 @@ function _M:onTakeHit(value, src)
 			local a = game.level.map(src.x, src.y, Map.ACTOR)
 			if a and self:reactionToward(a) < 0 then
 				a:takeHit(math.ceil(reflect_damage * reflection), self)
-				game.logSeen(self, "The damage shield reflects %d damage back to %s!", math.ceil(reflect_damage * reflection), a.name:capitalize())
+				game.logSeen(self, "방어막이 %d의 피해를 %s에게 되돌려줬다!", math.ceil(reflect_damage * reflection), a.name:capitalize())
 			end
 		end
 		-- If we are at the end of the capacity, release the time shield damage
 		if not self.damage_shield_absorb or self.damage_shield_absorb <= 0 then
-			game.logPlayer(self, "Your shield crumbles under the damage!")
+			game.logPlayer(self, "방어막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_DAMAGE_SHIELD)
 		end
 	end
@@ -1698,7 +1704,7 @@ function _M:onTakeHit(value, src)
 		-- Absorb damage into the displacement shield
 		if rng.percent(self.displacement_shield_chance) then
 			if value <= self.displacement_shield then
-				game.logSeen(self, "The displacement shield teleports the damage to %s!", self.displacement_shield_target.name)
+				game.logSeen(self, "치환의 방어막이 %s에게 피해를 이동시켰다!", self.displacement_shield_target.name)
 				self.displacement_shield = self.displacement_shield - value
 				self.displacement_shield_target:takeHit(value, src)
 				value = 0
@@ -1816,7 +1822,7 @@ function _M:onTakeHit(value, src)
 			self.resonance_field_absorb = 0
 		end
 		if self.resonance_field_absorb <= 0 then
-			game.logPlayer(self, "Your resonance field crumbles under the damage!")
+			game.logPlayer(self, "공진장막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_RESONANCE_FIELD)
 		end
 	end
@@ -1861,7 +1867,7 @@ function _M:onTakeHit(value, src)
 	if self:attr("stoned") and value >= self.max_life * 0.3 then
 		-- Make the damage high enough to kill it
 		value = self.max_life + 1
-		game.logSeen(self, "%s shatters into pieces!", self.name:capitalize())
+		game.logSeen(self, "%s 산산히 부서졌다!", self.name:capitalize():addJosa("가"))
 	end
 
 	-- Adds hate
@@ -1872,19 +1878,19 @@ function _M:onTakeHit(value, src)
 		if value / self.max_life >= 0.15 then
 			-- you take a big hit..adds 2 + 2 for each 5% over 15%
 			hateGain = hateGain + 2 + (((value / self.max_life) - 0.15) * 100 * 0.5)
-			hateMessage = "#F53CBE#You fight through the pain!"
+			hateMessage = "#F53CBE#고통을 뚫고 싸워라!"
 		end
 
 		if value / self.max_life >= 0.05 and (self.life - value) / self.max_life < 0.25 then
 			-- you take a hit with low health
 			hateGain = hateGain + 4
-			hateMessage = "#F53CBE#Your hatred grows even as your life fades!"
+			hateMessage = "#F53CBE#증오심은 스스로의 생명력이 줄어드는 만큼 자라난다!"
 		end
 
 		if hateGain >= 1 then
 			self:incHate(hateGain)
 			if hateMessage then
-				game.logPlayer(self, hateMessage.." (+%d hate)", hateGain)
+				game.logPlayer(self, hateMessage.." (+%d 증오심)", hateGain)
 			end
 		end
 	end
@@ -1895,13 +1901,13 @@ function _M:onTakeHit(value, src)
 		if value / src.max_life > 0.33 then
 			-- you deliver a big hit
 			hateGain = hateGain + src.hate_per_powerful_hit
-			hateMessage = "#F53CBE#Your powerful attack feeds your madness!"
+			hateMessage = "#F53CBE#강력한 공격은 당신의 광기를 충족시킨다!"
 		end
 
 		if hateGain >= 0.1 then
 			src.hate = math.min(src.max_hate, src.hate + hateGain)
 			if hateMessage then
-				game.logPlayer(src, hateMessage.." (+%d hate)", hateGain)
+				game.logPlayer(src, hateMessage.." (+%d 증오심)", hateGain)
 			end
 		end
 	end
@@ -1936,7 +1942,7 @@ function _M:onTakeHit(value, src)
 			a:removeAllMOs()
 			a.x, a.y = nil, nil
 			game.zone:addEntity(game.level, a, "actor", x, y)
-			game.logSeen(self, "%s is split in two!", self.name:capitalize())
+			game.logSeen(self, "%s 둘로 갈라졌다!", self.name:capitalize():addJosa("는"))
 			value = value / 2
 		end
 	end
@@ -1951,7 +1957,7 @@ function _M:onTakeHit(value, src)
 			damage_to_psi = self:getPsi()
 			self:incPsi(-damage_to_psi)
 		end
-		game.logSeen(self, "%s's mind suffers #YELLOW#%d psi#LAST# damage from the attack.", self.name:capitalize(), damage_to_psi)
+		game.logSeen(self, "%s의 정신이 상대의 공격으로인해 피해를 받아 #YELLOW#%d점의 염력#LAST#이 감소했다.", self.name:capitalize(), damage_to_psi)
 		value = value - damage_to_psi
 	end
 
@@ -1985,7 +1991,7 @@ function _M:onTakeHit(value, src)
 		local sl = self.max_life * (0.05 + self:getTalentLevelRaw(self.T_SECOND_LIFE)/25)
 		value = 0
 		self.life = sl
-		game.logSeen(self, "%s has been saved by a blast of positive energy!", self.name:capitalize())
+		game.logSeen(self, "%s 양기의 폭발로 인해 목숨을 구했다!", self.name:capitalize():addJosa("가"))
 		self:forceUseTalent(self.T_SECOND_LIFE, {ignore_energy=true})
 	end
 
@@ -1995,7 +2001,7 @@ function _M:onTakeHit(value, src)
 		if rng.percent(t.getChance(self, t)) then
 			value = 0
 			self.life = self.max_life
-			game.logSeen(self, "%s fades for a moment and then reforms whole again!", self.name:capitalize())
+			game.logSeen(self, "%s 잠시 흐릿해졌다가 다시 모습을 갖췄다!", self.name:capitalize():addJosa("가"))
 			game.level.map:particleEmitter(self.x, self.y, 1, "teleport_out")
 			game:playSoundNear(self, "talents/heal")
 			game.level.map:particleEmitter(self.x, self.y, 1, "teleport_in")
@@ -2006,7 +2012,7 @@ function _M:onTakeHit(value, src)
 	if self:knowTalent(self.T_LEECH) and src.hasEffect and src:hasEffect(src.EFF_VIMSENSE) then
 		self:incVim(3 + self:getTalentLevel(self.T_LEECH) * 0.7)
 		self:heal(5 + self:getTalentLevel(self.T_LEECH) * 3)
-		game.logPlayer(self, "#AQUAMARINE#You leech a part of %s vim.", src.name:capitalize())
+		game.logPlayer(self, "#AQUAMARINE#당신은 %s의 정력을 갈취했다.", src.name:capitalize())
 	end
 
 	-- Invisible on hit

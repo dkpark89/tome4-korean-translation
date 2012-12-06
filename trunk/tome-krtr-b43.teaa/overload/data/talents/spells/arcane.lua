@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Arcane Power",
+	kr_display_name = "마법의 힘",
 	type = {"spell/arcane", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -52,6 +53,7 @@ newTalent{
 
 newTalent{
 	name = "Manathrust",
+	kr_display_name = "마나 분출",
 	type = {"spell/arcane", 2},
 	require = spells_req2,
 	points = 5,
@@ -94,6 +96,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Vortex",
+	kr_display_name = "마법의 소용돌이",
 	type = {"spell/arcane", 3},
 	require = spells_req3,
 	points = 5,
@@ -128,6 +131,7 @@ newTalent{
 
 newTalent{
 	name = "Disruption Shield",
+	kr_display_name = "파열의 방어막",
 	type = {"spell/arcane",4},
 	require = spells_req4, no_sustain_autoreset = true,
 	points = 5,

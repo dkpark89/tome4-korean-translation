@@ -25,6 +25,7 @@ end
 
 newTalent{
 	name = "Invoke Darkness",
+	kr_display_name = "어두움 발사",
 	type = {"spell/nightfall",1},
 	require = spells_req1,
 	points = 5,
@@ -72,6 +73,7 @@ newTalent{
 
 newTalent{
 	name = "Circle of Death",
+	kr_display_name = "죽음의 고리",
 	type = {"spell/nightfall",2},
 	require = spells_req2,
 	points = 5,
@@ -117,6 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Fear the Night",
+	kr_display_name = "밤의 공포",
 	type = {"spell/nightfall",3},
 	require = spells_req3,
 	points = 5,
@@ -150,6 +153,7 @@ newTalent{
 
 newTalent{
 	name = "Rigor Mortis",
+	kr_display_name = "사후 경직",
 	type = {"spell/nightfall",4},
 	require = spells_req4,
 	points = 5,
