@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Tiles = require "engine.Tiles"
 local Dialog = require "engine.ui.Dialog"
@@ -67,7 +68,7 @@ function _M:init(title, player)
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw * 0.6 - 10), height=self.ih - 10 - self.c_self.h, floating_headers = true, scrollbar=true, sortable=true, columns={
 		{name="", width={24,"fixed"}, display_prop="--", direct_draw=direct_draw},
-		{name="달성 과제", width=60, display_prop="name", sort="name"},
+		{name="달성 과제", width=60, display_prop="kr_name", sort="kr_name"},
 		{name="달성시기", width=20, display_prop="when", sort="when"},
 		{name="달성자", width=20, display_prop="who", sort="who"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
@@ -110,7 +111,7 @@ function _M:select(item)
 		end
 		self.c_image.item = item.tex
 		local track = self:getTrack(item.a)
-		local desc = ("#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.when, item.who, also, item.desc):toTString()
+		local desc = ("#GOLD#%s#LAST#\n(%s)\n\n#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.kr_name, item.name, item.when, item.who, also, item.desc):toTString()
 		if track then
 			desc:add(true, true, {"color","GOLD"}, "진행정도: ", {"color","LAST"})
 			desc:merge(track)
@@ -165,14 +166,17 @@ function _M:generateList(kind)
 			end
 		end
 		if not data.notdone or a.show then
+			--@@
+			local an = a.kr_display_name
+			if an == nil or type(an) ~= "string" then an = a.name end
 			if a.show == "full" or not data.notdone then
-				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { kr_name=an, name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "none" then
-				list[#list+1] = { name="???", color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { kr_name="???", name="???", color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "name" then
-				list[#list+1] = { name=a.name, color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { kr_name=an, name=a.name, color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			else
-				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { kr_name=an, name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			end
 			i = i + 1
 		end

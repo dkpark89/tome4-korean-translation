@@ -596,8 +596,11 @@ function _M:onTalentCooledDown(tid)
 	local t = self:getTalentFromId(tid)
 
 	local x, y = game.level.map:getTileToScreen(self.x, self.y)
-	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(t.name:capitalize():krTalent()), {0,255,00})
-	game.log("#00ff00#%s기술 %s 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), t.name:krTalent():addJosa("을"))
+	--@@
+	local tn = t.kr_display_name
+	if tn == nil or type(tn) ~= "string" then tn = t.name end
+	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(tn:capitalize()), {0,255,00})
+	game.log("#00ff00#%s기술 %s 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), tn:addJosa("을"))
 end
 
 --- Tries to get a target from the user
@@ -1290,23 +1293,29 @@ end
 
 ------ Quest Events
 function _M:on_quest_grant(quest)
-	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
-	game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", quest.name)
+	--@@
+	local qn = quest.kr_display_name
+	if qn == nil or type(qn) ~= "string" then qn = quest.name end
+	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+	game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", qn)
 end
 
 function _M:on_quest_status(quest, status, sub)
+	--@@
+	local qn = quest.kr_display_name
+	if qn == nil or type(qn) ~= "string" then qn = quest.name end
 	if sub then
-		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 갱신!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 갱신!", qn)
 	elseif status == engine.Quest.COMPLETED then
-		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 완료! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 완료!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 완료! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 완료!", qn)
 	elseif status == engine.Quest.DONE then
-		game.logPlayer(game.player, "#LIGHT_GREEN#이미 완료된 퀘스트 '%s'! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#완료된 퀘스트  '%s'!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#이미 완료된 퀘스트 '%s'! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_GREEN#완료된 퀘스트  '%s'!", qn)
 	elseif status == engine.Quest.FAILED then
-		game.logPlayer(game.player, "#LIGHT_RED#'%s' 퀘스트 실패! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", quest.name)
-		game.bignews:say(60, "#LIGHT_RED#'%s' 퀘스트 실패!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_RED#'%s' 퀘스트 실패! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_RED#'%s' 퀘스트 실패!", qn)
 	end
 end
 

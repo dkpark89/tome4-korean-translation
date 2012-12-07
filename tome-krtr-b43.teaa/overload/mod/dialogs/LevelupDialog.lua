@@ -838,7 +838,7 @@ function _M:getTalentDesc(item)
 
  	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
  	--@@
- 	text:add(" (", util.getval(item.oriname, item), ") ")
+ 	text:add("\n(", util.getval(item.oriname, item), ") ")
 	text:add(true, true)
 
 	if item.type then

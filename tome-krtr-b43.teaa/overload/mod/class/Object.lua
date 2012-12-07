@@ -193,7 +193,7 @@ function _M:descAttribute(attr)
 	elseif attr == "INSCRIPTION" then
 		game.player.__inscription_data_fake = self.inscription_data
 		local t = self:getTalentFromId("T_"..self.inscription_talent.."_1")
-		local desc = t.short_info(game.player, t)	--@@
+		local desc = t.short_info(game.player, t)	--@@ ??
 		game.player.__inscription_data_fake = nil
 		return ("%s"):format(desc)
 	end
@@ -241,8 +241,9 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.kr_display_name
-	if name == nil then name = self.name end
+	--@@
+	local name = self.kr_display_name 
+	if name == nil or type(name) ~= "string" then name = self.name end
 
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
@@ -1279,7 +1280,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 
 	desc:merge(self:getName(name_param):toTString())
 	--@@ 아이템은 원래 이름이 필요없을듯 - 필요시 아랫줄을 주석해제하면 이름뒤에 원문 이름이 나옴
-	--desc:add(" (",self.name,")")
+	desc:add("\n (",self.name,")")
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(game.player)
 	if reqs then

@@ -183,7 +183,7 @@ function _M:getTalentDesc(item)
 	local text = tstring{}
 
  	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
- 	text:add(" (", util.getval(item.oriname, item), ") ")
+ 	text:add("\n(", util.getval(item.oriname, item), ") ")
 	text:add(true, true)
 
 	if item.talent then
