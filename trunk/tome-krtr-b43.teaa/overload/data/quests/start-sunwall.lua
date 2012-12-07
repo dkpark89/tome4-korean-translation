@@ -18,6 +18,7 @@
 -- darkgod@te4.org
 
 name = "Serpentine Invaders"
+kr_display_name = "음흉한 침략자"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "Nagas are invading the slazish fens. The Sunwall cannot fight on two fronts; you need to stop the invaders before it is too late.\n Locate and destroy the invaders' portal."

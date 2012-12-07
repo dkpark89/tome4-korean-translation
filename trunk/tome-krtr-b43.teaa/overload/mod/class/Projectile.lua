@@ -39,10 +39,13 @@ function _M:move(x, y, force)
 	return moved
 end
 function _M:tooltip(x, y)
-	local tstr = tstring("Projectile: ", self.name)
+	--@@
+	local sn = self.kr_display_name
+	if sn == nil or type(sn) ~= "string" then sn = self.name end
+	local tstr = tstring("발사체: ", sn)
 
 	if config.settings.cheat then
-		tstr:add(true, "UID: ", tostring(self.uid), true, "Coords: ", tostring(x), "x", tostring(y))
+		tstr:add(true, "UID: ", tostring(self.uid), true, "좌표: ", tostring(x), "x", tostring(y))
 	end
 	return tstr
 end

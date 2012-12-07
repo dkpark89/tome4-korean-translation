@@ -2056,7 +2056,7 @@ function _M:onTakeHit(value, src)
 		local leech = math.min(value, self.life) * src.life_leech_value / 100
 		if leech > 0 then
 			src:heal(leech)
-			game.logSeen(src, "#CRIMSON#%s leeches life from its victim!", src.name:capitalize())
+			game.logSeen(src, "#CRIMSON#%s 희생자로부터 생명력을 갈추했다!", src.name:capitalize():addJosa("가"))
 		end
 	end
 
@@ -2074,7 +2074,7 @@ function _M:onTakeHit(value, src)
 		src:incStamina(leech * 0.65)
 		src:incHate(leech * 0.2)
 		src:incPsi(leech * 0.2)
-		game.logSeen(src, "#CRIMSON#%s leeches energies from its victim!", src.name:capitalize())
+		game.logSeen(src, "#CRIMSON#%s 희생자로부터 에너지를 갈취했다!", src.name:capitalize():addJosa("가"))
 	end
 
 	if self:knowTalent(self.T_DRACONIC_BODY) then
@@ -2145,7 +2145,7 @@ function _M:die(src, death_note)
 
 	-- Hack: even if the boss dies from something else, give the player exp
 	if (not killer or not killer.player) and self.rank > 3 and not game.party:hasMember(self) then
-		game.logPlayer(game.player, "You feel a surge of power as a powerful creature falls nearby.")
+		game.logPlayer(game.player, "가까이있던 강력한 존재의 죽음으로 힘이 몰려옴을 느꼈다.")
 		killer = game.player:resolveSource()
 		killer:gainExp(self:worthExp(killer))
 	end
@@ -2257,7 +2257,7 @@ function _M:die(src, death_note)
 	if src and src.summoner and src.summoner_hate_per_kill then
 		if src.summoner.knowTalent and src.summoner:knowTalent(src.summoner.T_HATE_POOL) then
 			src.summoner.hate = math.min(src.summoner.max_hate, src.summoner.hate + src.summoner_hate_per_kill)
-			game.logPlayer(src.summoner, "%s feeds you hate from it's latest victim. (+%d hate)", src.name:capitalize(), src.summoner_hate_per_kill)
+			game.logPlayer(src.summoner, "%s 그 마지막 희생자로부터 증오심을 받아간다. (+%d 증오심)", src.name:capitalize():addJosa("가"), src.summoner_hate_per_kill)
 		end
 	end
 
@@ -2534,8 +2534,11 @@ function _M:levelup()
 	-- Notify party levelups
 	if self.x and self.y and game.party:hasMember(self) and not self.silent_levelup then
 		local x, y = game.level.map:getTileToScreen(self.x, self.y)
-		game.flyers:add(x, y, 80, 0.5, -2, "LEVEL UP!", {0,255,255})
-		game.log("#00ffff#Welcome to level %d [%s].", self.level, self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name
+		if sn == nil then sn = self.name end
+		game.flyers:add(x, y, 80, 0.5, -2, "레벨 상승!", {0,255,255})
+		game.log("#00ffff#레벨 %d이 된걸 환영합니다 [%s].", self.level, sn:capitalize())
 		local more = "Press p to use them."
 		if game.player ~= self then more = "Select "..self.name.. " in the party list and press G to use them." end
 		local points = {}
@@ -2561,7 +2564,7 @@ function _M:levelup()
 			self.level == 35
 			) then
 			self.easy_mode_lifes = (self.easy_mode_lifes or 0) + 1
-			game.logPlayer(self, "#AQUAMARINE#You have gained one more life (%d remaining).", self.easy_mode_lifes)
+			game.logPlayer(self, "#AQUAMARINE#당신의 생명이 하나 늘어났습니다 (%d개 남음).", self.easy_mode_lifes)
 		end
 		game:updateCurrentChar()
 
@@ -2642,8 +2645,8 @@ function _M:checkEncumbrance()
 
 	-- We are pinned to the ground if we carry too much
 	if not self.encumbered and enc > max then
-		game.logPlayer(self, "#FF0000#You carry too much--you are encumbered!")
-		game.logPlayer(self, "#FF0000#Drop some of your items.")
+		game.logPlayer(self, "#FF0000#가진 것이 너무 많아, 무거움을 느낍니다!")
+		game.logPlayer(self, "#FF0000#아이템을 좀 버리세요.")
 		self.encumbered = self:addTemporaryValue("never_move", 1)
 
 		if self.x and self.y then
@@ -2653,7 +2656,7 @@ function _M:checkEncumbrance()
 	elseif self.encumbered and enc <= max then
 		self:removeTemporaryValue("never_move", self.encumbered)
 		self.encumbered = nil
-		game.logPlayer(self, "#00FF00#You are no longer encumbered.")
+		game.logPlayer(self, "#00FF00#이제 더이상 무겁지 않습니다.")
 
 		if self.x and self.y then
 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
@@ -3190,24 +3193,24 @@ local previous_incParadox = _M.incParadox
 function _M:incParadox(paradox)
 	-- Failure checks
 	if self:getModifiedParadox() < 200 and self:getModifiedParadox() + paradox >= 200 then
-		game.logPlayer(self, "#LIGHT_RED#You feel the edges of time begin to fray!")
+		game.logPlayer(self, "#LIGHT_RED#시간의 가장자리가 닳기 시작함을 느낀다!")
 	end
 	if self:getModifiedParadox() > 200 and self:getModifiedParadox() + paradox <= 200 then
-		game.logPlayer(self, "#LIGHT_BLUE#Time feels more stable.")
+		game.logPlayer(self, "#LIGHT_BLUE#시간이 훨씬 안정적으로 느껴진다.")
 	end
 	-- Anomaly checks
 	if self:getModifiedParadox() < 300 and self:getModifiedParadox() + paradox >= 300 then
-		game.logPlayer(self, "#LIGHT_RED#You feel the edges of space begin to ripple and bend!")
+		game.logPlayer(self, "#LIGHT_RED#공간의 가장자리가 잘게 흔들리면서 휘기 시작하는 것을 느낀다!")
 	end
 	if self:getModifiedParadox() > 300 and self:getModifiedParadox() + paradox <= 300 then
-		game.logPlayer(self, "#LIGHT_BLUE#Space feels more stable.")
+		game.logPlayer(self, "#LIGHT_BLUE#공안이 훨신 안정적으로 느껴진다.")
 	end
 	-- Backfire checks
 	if self:getModifiedParadox() < 400 and self:getModifiedParadox() + paradox >= 400 then
-		game.logPlayer(self, "#LIGHT_RED#Space and time both fight against your control!")
+		game.logPlayer(self, "#LIGHT_RED#시공간이 당신의 조종과 충돌한다!")
 	end
 	if self:getParadox() > 400 and self:getParadox() + paradox <= 400 then
-		game.logPlayer(self, "#LIGHT_BLUE#Space and time have calmed...  somewhat.")
+		game.logPlayer(self, "#LIGHT_BLUE#시공간이 약간 진정되었다...")
 	end
 	return previous_incParadox(self, paradox)
 end

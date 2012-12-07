@@ -680,3 +680,51 @@ function string.krQuestStatus(str)
 	elseif ori == "failed" then return "실패"
 	else return str end
 end
+
+--@@ 아래 번역은 지형 이름들을 번역하에 그에 맞춰 바꿀 필요가 있음
+function string.krLoreCategoty(str)
+	local ori = str:lower()
+	if ori == "adventures" then return "모험"
+	elseif ori == "age of allure" then return "매혹의 시대"
+	elseif ori == "age of dusk" then return "황혼의 시대"
+	elseif ori == "age of pyre" then return "장작더미의 시대"
+	elseif ori == "ancient elven ruins" then return "고대 엘프의 폐허 "
+	elseif ori == "angolwen" then return "앙골웬"
+	elseif ori == "arena" then return "투기장"
+	elseif ori == "artifacts" then return "아티팩트"
+	elseif ori == "blighted ruins" then return "황폐화된 폐허"
+	elseif ori == "boss" then return "보스"
+	elseif ori == "daikara" then return "다이카라"
+	elseif ori == "dogroth caldera" then return "도그로쓰 화산분지"
+	elseif ori == "dreadfell" then return "공포의 절벽"
+	elseif ori == "dreamscape" then return "꿈의 세계"
+	elseif ori == "eyal" then return "에이알"
+	elseif ori == "fearscape" then return "공포의 땅"
+	elseif ori == "high peak" then return "최고봉"
+	elseif ori == "history of the sunwall" then return "해의 장벽에 대한 역사"
+	elseif ori == "infinite dungeon" then return "무한던전"
+	elseif ori == "iron throne" then return "철의 왕좌"
+	elseif ori == "keepsake" then return "유품"
+	elseif ori == "kor'pul" then return "코르'풀"
+	elseif ori == "last hope graveyard" then return "마지막 희망 공동묘지"
+	elseif ori == "last hope" then return "마지막 희망"
+	elseif ori == "misc" then return "기타"
+	elseif ori == "myths of creation" then return "창조 신화"
+	elseif ori == "old forest" then return "오래된 숲"
+	elseif ori == "orc prides" then return "오크의 자부심"
+	elseif ori == "races" then return "종족"
+	elseif ori == "rhaloren" then return "랄로렌"
+	elseif ori == "ruined dungeon" then return "파괴된 던전"
+	elseif ori == "sandworm lair" then return "지렁이 굴"
+	elseif ori == "scintillating caves" then return "번득이는 동굴"
+	elseif ori == "shatur" then return "샤툴"
+	elseif ori == "sher'tul" then return "쉐르'툴"
+	elseif ori == "slazish fens" then return "슬라지쉬 울타리"
+	elseif ori == "southspar" then return "남쪽스파" --@@?? spar의 뜻
+	elseif ori == "spellblaze" then return "스펠블레이즈"
+	elseif ori == "temple of creation" then return "창조의 사원"
+	elseif ori == "trollmire" then return "트롤늪"
+	elseif ori == "vault" then return "금고"
+	elseif ori == "zigur" then return "지구르"
+	else return str end
+end

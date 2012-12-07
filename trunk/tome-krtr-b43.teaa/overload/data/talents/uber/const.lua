@@ -101,7 +101,6 @@ uberTalent{
 uberTalent{
 	name = "Armour of Shadows",
 	kr_display_name = "그림자 갑옷",
-	kr_display_name = "",
 	mode = "passive",
 	require = { special={desc="Dealt over 50000 darkness damage", fct=function(self) return
 		self.damage_log and (

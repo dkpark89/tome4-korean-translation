@@ -35,8 +35,8 @@ function _M:init(actor)
 	self:generateList()
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - 10), height=self.ih - 10, scrollbar=true, sortable=true, columns={
-		{name="퀘스트", width=70, display_prop="name", sort="name"},
-		{name="상태", width=30, display_prop="status", sort="status_order"},
+		{name="퀘스트", width=70, display_prop="kr_name", sort="kr_name"},
+		{name="상태", width=30, display_prop="kr_status", sort="status_order"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -71,14 +71,18 @@ function _M:generateList()
 			elseif q:isStatus(q.DONE) then color = colors.simple(colors.GREEN)
 			elseif q:isStatus(q.FAILED) then color = colors.simple(colors.RED)
 			end
+			
+			--@@
+			local qn = q.kr_display_name
+			if qn == nil or type(qn) ~= "string" then qn = q.name end
 
-			list[#list+1] = {  name=q.name, quest=q, color = color, status=q.status_text[q.status]:krQuestStatus(), status_order=q.status, desc=q:desc(self.actor) }
+			list[#list+1] = { kr_name=qn, name = q.name, quest=q, color = color, kr_status=q.status_text[q.status]:krQuestStatus(), status=q.status_text[q.status], status_order=q.status, desc=q:desc(self.actor) }
 		end
 	end
 	if game.turn then
 		table.sort(list, function(a, b) return a.quest.gained_turn < b.quest.gained_turn end)
 	else
-		table.sort(list, function(a, b) return a.quest.name < b.quest.name end)
+		table.sort(list, function(a, b) return a.quest.kr_name < b.quest.kr_name end)
 	end
 	self.list = list
 end

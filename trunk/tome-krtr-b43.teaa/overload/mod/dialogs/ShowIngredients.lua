@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -36,8 +37,8 @@ function _M:init(party)
 	self:generateList()
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - 10), height=self.ih - 10, scrollbar=true, sortable=true, columns={
-		{name="재료명", width=50, display_prop="name", sort="name"},
-		{name="종류", width=30, display_prop="cat", sort="cat"},
+		{name="재료명", width=50, display_prop="kr_name", sort="kr_name"},
+		{name="종류", width=30, display_prop="kr_cat", sort="kr_cat"},
 		{name="수량", width=20, display_prop="nb", sort="nb"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
@@ -61,7 +62,10 @@ function _M:generateList()
 	local i = 0
 	for id, nb in pairs(self.party.ingredients) do
 		local d = self.party:getIngredient(id)
-		list[#list+1] = { dname=d.name, name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), cat=d.type, nb=nb==-1 and "inf" or tostring(nb) }
+		--@@
+		local dn = d.kr_display_name
+		if dn == nil or type(dn) ~= "string" then dn = d.name end
+		list[#list+1] = { dname=d.name, kr_name=d.display_entity:getDisplayString(true):add(dn), name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), kr_cat=d.type:krItemType(), cat=d.type, nb=nb==-1 and "inf" or tostring(nb) }
 		i = i + 1
 	end
 	-- Add known artifacts
@@ -71,6 +75,6 @@ end
 
 function _M:select(item)
 	if item then
-		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.nb, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n        (%s)\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.kr_cat, item.kr_name:toString(), item.name:toString(), item.nb, item.desc))
 	end
 end
