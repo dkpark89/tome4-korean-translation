@@ -195,7 +195,7 @@ function _M:describeFloor(x, y, force)
 
 	local g = game.level.map(x, y, game.level.map.TERRAIN)
 	if g and g.change_level then
-		game.logPlayer(self, "#YELLOW_GREEN#여기에  "..g.name:addJosa("이").." 있다. ( '<', '>' 키를 누르거나 마우스 우클릭을 하세요).")
+		game.logPlayer(self, "#YELLOW_GREEN#여기에  "..g.name:addJosa("이").." 있습니다. ( '<'나 '>' 키를 누르거나 마우스 우클릭을 하세요).")
 		local sx, sy = game.level.map:getTileToScreen(x, y)
 		game.flyers:add(sx, sy, 60, 0, -1.5, ("층 변경 (%s)!"):format(g.name), colors.simple(colors.YELLOW_GREEN), true)
 	end

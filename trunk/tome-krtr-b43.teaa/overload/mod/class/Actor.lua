@@ -3203,7 +3203,7 @@ function _M:incParadox(paradox)
 		game.logPlayer(self, "#LIGHT_RED#공간의 가장자리가 잘게 흔들리면서 휘기 시작하는 것을 느낀다!")
 	end
 	if self:getModifiedParadox() > 300 and self:getModifiedParadox() + paradox <= 300 then
-		game.logPlayer(self, "#LIGHT_BLUE#공안이 훨신 안정적으로 느껴진다.")
+		game.logPlayer(self, "#LIGHT_BLUE#공간이 훨신 안정적으로 느껴진다.")
 	end
 	-- Backfire checks
 	if self:getModifiedParadox() < 400 and self:getModifiedParadox() + paradox >= 400 then

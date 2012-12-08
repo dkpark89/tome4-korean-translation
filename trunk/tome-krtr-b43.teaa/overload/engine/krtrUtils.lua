@@ -682,7 +682,7 @@ function string.krQuestStatus(str)
 end
 
 --@@ 아래 번역은 지형 이름들을 번역하에 그에 맞춰 바꿀 필요가 있음
-function string.krLoreCategoty(str)
+function string.krLoreCategory(str)
 	local ori = str:lower()
 	if ori == "adventures" then return "모험"
 	elseif ori == "age of allure" then return "매혹의 시대"
