@@ -203,6 +203,7 @@ function string.krItemType(str)
 	elseif ori == "orb" then return "오브"
 	elseif ori == "chest" then return "상자"
 	elseif ori == "inscription" then return "각인"
+	elseif ori == "ammo" then return "탄환"
 	-- 위는 type, 아래는 subtype
 	elseif ori == "battleaxe" then return "대형도끼"
 	elseif ori == "greatmaul" then return "대형망치"
@@ -249,6 +250,8 @@ function string.krItemType(str)
 	elseif ori == "taint" then return "얼룩"
 	elseif ori == "sher'tul" then return "쉐르'툴"
 	elseif ori == "organic" then return "장기"
+	elseif ori == "arrow" then return "화살"
+	elseif ori == "shot" then return "투석"
 	else return str end
 end
 
