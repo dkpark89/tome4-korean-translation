@@ -53,8 +53,15 @@ function string.addJosa(str, temp)
 	end
 end
 
-function string.krStat(engStat)
-	local ori = engStat:lower()
+function string.krSex(str)
+	local ori = str:lower()
+	if ori == "female" then return "여성"
+	elseif ori == "male" then return "남성"
+	else return str end
+end
+
+function string.krStat(str)
+	local ori = str:lower()
 	if ori == "strength" or ori == "str" then return "힘"
 	elseif ori == "dexterity" or ori == "dex" then return "민첩"
 	elseif ori == "constitution" or ori == "con" then return "체격"
@@ -63,7 +70,7 @@ function string.krStat(engStat)
 	elseif ori == "cunning" then return "교활함"
 	elseif ori == "cun" then return "교활"
 	elseif ori == "luck" or ori == "lck" then return "행운"
-	else return engStat end
+	else return str end
 end
 
 function string.krDamageType(str)
