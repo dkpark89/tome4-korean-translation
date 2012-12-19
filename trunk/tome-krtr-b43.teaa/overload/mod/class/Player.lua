@@ -600,7 +600,7 @@ function _M:onTalentCooledDown(tid)
 	local tn = t.kr_display_name
 	if tn == nil or type(tn) ~= "string" then tn = t.name end
 	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(tn:capitalize()), {0,255,00})
-	game.log("#00ff00#%s기술 %s 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), tn:addJosa("을"))
+	game.log("#00ff00#%s %s 기술을 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), tn)
 end
 
 --- Tries to get a target from the user

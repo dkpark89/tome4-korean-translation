@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local DamageType = require "engine.DamageType"
 local Map = require "engine.Map"
@@ -95,7 +96,10 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act * speed)
 			self.did_energy = true
 		end
-		game.logSeen(self, "%s is too afraid to attack.", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name
+		if sn == nil or type(sn) ~= "string" then sn = self.name end
+		game.logSeen(self, "%s 공격할 수 없을만큼 무섭습니다.", sn:capitalize():addJosa("는"))
 		return false
 	end
 
@@ -104,7 +108,10 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act)
 			self.did_energy = true
 		end
-		game.logSeen(self, "%s is too terrified to attack.", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name
+		if sn == nil or type(sn) ~= "string" then sn = self.name end
+		game.logSeen(self, "%s 공격할 수 없을만큼 두렵습니다.", sn:capitalize():addJosa("는"))
 		return false
 	end
 
@@ -112,7 +119,10 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 	if self:isTalentActive(self.T_STEALTH) and target:canSee(self) then
 		self:useTalent(self.T_STEALTH)
 		self.changed = true
-		game.logPlayer(self, "%s notices you at the last moment!", target.name:capitalize())
+		--@@
+		local tn = target.kr_display_name
+		if tn == nil or type(tn) ~= "string" then tn = target.name end
+		game.logPlayer(self, "%s 마지막 순간에 당신을 알아차렸습니다!", tn:capitalize():addJosa("는"))
 	end
 
 	-- Change attack type if using gems
@@ -324,6 +334,12 @@ end
 
 --- Attacks with one weapon
 function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
+	--@@
+	local sn = self.kr_display_name
+	if sn == nil or type(sn) ~= "string" then sn = self.name end
+	local tn = target.kr_display_name
+	if tn == nil or type(tn) ~= "string" then tn = target.name end
+	
 	damtype = damtype or (weapon and weapon.damtype) or DamageType.PHYSICAL
 	mult = mult or 1
 
@@ -373,10 +389,10 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	local crit = false
 	local evaded = false
 	if repelled then
-		game.logSeen(target, "%s repels an attack from %s.", target.name:capitalize(), self.name)
+		game.logSeen(target, "%s %s의 공격을 저지했습니다.", tn:capitalize():addJosa("는"), sn)
 	elseif self:checkEvasion(target) then
 		evaded = true
-		game.logSeen(target, "%s evades %s.", target.name:capitalize(), self.name)
+		game.logSeen(target, "%s %s 회피했습니다.", tn:capitalize():addJosa(""), sn:addJosa("를"))
 	elseif self:checkHit(atk, def) and (self:canSee(target) or self:attr("blind_fight") or rng.chance(3)) then
 		local pres = util.bound(target:combatArmorHardiness() / 100, 0, 1)
 		print("[ATTACK] raw dam", dam, "versus", armor, pres, "with APR", apr)
@@ -406,7 +422,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 			print("[ATTACK] after inc by type", dam)
 		end
 
-		if crit then game.logSeen(self, "#{bold}#%s performs a critical strike!#{normal}#", self.name:capitalize()) end
+		if crit then game.logSeen(self, "#{bold}#%s 치명타를 주는데 성공했습니다!#{normal}#", sn:capitalize():addJosa("는")) end
 
 		-- Phasing, percent of weapon damage bypasses shields
 		-- It's done like this because onTakeHit has no knowledge of the weapon
@@ -449,8 +465,8 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 
 		hitted = true
 	else
-		local srcname = game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
-		game.logSeen(target, "%s misses %s.", srcname, target.name)
+		local srcname = game.level.map.seens(self.x, self.y) and sn:capitalize() or "무엇인가"
+		game.logSeen(target, "%s %s 빗맞힙니다.", srcname:addJosa("가"), tn:addJosa("를"))
 	end
 
 	-- cross-tier effect for accuracy vs. defense
@@ -727,7 +743,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 
 	-- Counter Attack!
 	if not hitted and not target.dead and not evaded and not target:attr("stunned") and not target:attr("dazed") and not target:attr("stoned") and target:knowTalent(target.T_COUNTER_ATTACK) and rng.percent(target:getTalentLevel(target.T_COUNTER_ATTACK) * (5 + target:getCun(5, true))) then
-		game.logSeen(self, "%s counters the attack!", target.name:capitalize())
+		game.logSeen(self, "%s 반격을 합니다!", tn:capitalize():addJosa("가"))
 		local t = target:getTalentFromId(target.T_COUNTER_ATTACK)
 		target:attackTarget(self, nil, t.getDamage(target, t), true)
 	end
@@ -748,7 +764,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	local gwf = self:hasEffect(self.EFF_GREATER_WEAPON_FOCUS)
 	if hitted and not target.dead and weapon and gwf and not gwf.inside and rng.percent(gwf.chance) then
 		gwf.inside = true
-		game.logSeen(self, "%s focuses and gains an extra blow!", self.name:capitalize())
+		game.logSeen(self, "%s 집중하여 추가타격을 합니다!", sn:capitalize():addJosa("가"))
 		self:attackTargetWith(target, weapon, damtype, mult)
 		gwf.inside = nil
 	end
@@ -768,7 +784,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	-- Weakness hate bonus
 	if hitted and effGloomWeakness and effGloomWeakness.hateBonus or 0 > 0 then
 		self:incHate(effGloomWeakness.hateBonus)
-		game.logPlayer(self, "#F53CBE#You revel in attacking a weakened foe! (+%d hate)", effGloomWeakness.hateBonus)
+		game.logPlayer(self, "#F53CBE#당신은 약해진 적을 공격하는데 기뻐합니다! (증오심 +%d)", effGloomWeakness.hateBonus)
 		effGloomWeakness.hateBonus = nil
 	end
 
@@ -776,7 +792,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if hitted and crit then
 		local eff = self:hasEffect(self.EFF_RAMPAGE)
 		if eff and not eff.critHit and eff.actualDuration < eff.maxDuration then
-			game.logPlayer(self, "#F53CBE#Your rampage is invigorated by your fierce attack! (+1 duration)")
+			game.logPlayer(self, "#F53CBE#맹렬한 공격으로 당신의 돌진이 탄력을 받습니다! (지속시간 +1)")
 			eff.critHit = true
 			eff.actualDuration = eff.actualDuration + 1
 			eff.dur = eff.dur + 1
@@ -791,7 +807,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 3, {})
 				else
-					game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+					game.logSeen(target, "%s 기절 효과에 저항했습니다!", tn:capitalize():addJosa("가"))
 				end
 			end
 
@@ -1300,7 +1316,10 @@ function _M:spellCrit(dam, add_chance, crit_power_add)
 		self.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		dam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		crit = true
-		game.logSeen(self, "#{bold}#%s's spell attains critical power!#{normal}#", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name
+		if sn == nil or type(sn) ~= "string" then sn = self.name end
+		game.logSeen(self, "#{bold}#%s의 주문이 치명타가 됐습니다!#{normal}#", sn:capitalize())
 
 		if self:attr("mana_on_crit") then self:incMana(self:attr("mana_on_crit")) end
 		if self:attr("vim_on_crit") then self:incVim(self:attr("vim_on_crit")) end
@@ -1347,7 +1366,10 @@ function _M:mindCrit(dam, add_chance, crit_power_add)
 		self.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		dam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		crit = true
-		game.logSeen(self, "#{bold}#%s's mind surges with critical power!#{normal}#", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name
+		if sn == nil or type(sn) ~= "string" then sn = self.name end
+		game.logSeen(self, "#{bold}#%s의 정신 공격이 치명타가 됐습니다!#{normal}#", sn:capitalize())
 
 		if self:attr("hate_on_crit") then self:incHate(self:attr("hate_on_crit")) end
 		if self:attr("psi_on_crit") then self:incPsi(self:attr("psi_on_crit")) end
@@ -1784,7 +1806,12 @@ end
 function _M:grappleSizeCheck(target)
 	size = target.size_category - self.size_category
 	if size > 1 then
-		game.logSeen(target, "%s fails because %s is too big!", self.name:capitalize(), target.name:capitalize())
+		--@@
+		local sn = self.kr_display_name
+		if sn == nil or type(sn) ~= "string" then sn = self.name end
+		local tn = target.kr_display_name
+		if tn == nil or type(tn) ~= "string" then tn = target.name end
+		game.logSeen(target, "%s %s 너무 커서 잡는데 실패했습니다!", sn:capitalize():addJosa("는"), tn:capitalize():addJosa("가"))
 		return true
 	else
 		return false
@@ -1816,7 +1843,10 @@ function _M:startGrapple(target)
 		self:setEffect(self.EFF_GRAPPLING, duration, {trgt=target})
 		return true
 	else
-		game.logSeen(target, "%s resists the grapple!", target.name:capitalize())
+		--@@
+		local tn = target.kr_display_name
+		if tn == nil or type(tn) ~= "string" then tn = target.name end
+		game.logSeen(target, "%s 잡기 공격에 저항했습니다!", tn:capitalize():addJosa("는"))
 		return false
 	end
 end

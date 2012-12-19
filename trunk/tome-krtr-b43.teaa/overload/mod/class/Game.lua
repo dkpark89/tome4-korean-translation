@@ -1581,7 +1581,7 @@ do return end
 			if not self.tooltip.empty then
 				self.tooltip.locked = not self.tooltip.locked
 				self.tooltip.container.focused = self.tooltip.locked
-				game.log("Tooltip %s", self.tooltip.locked and "locked" or "unlocked")
+				game.log("툴팁 %s", self.tooltip.locked and "잠김" or "잠김 해제")
 			end
 		end,
 
@@ -1589,7 +1589,7 @@ do return end
 			if not self.tooltip.empty then
 				self.tooltip.locked = not self.tooltip.locked
 				self.tooltip.container.focused = self.tooltip.locked
-				game.log("Tooltip %s", self.tooltip.locked and "locked" or "unlocked")
+				game.log("툴팁 %s", self.tooltip.locked and "잠김" or "잠김 해제")
 			end
 		end,
 
@@ -1842,7 +1842,7 @@ function _M:saveGame()
 
 		self.party:setPlayer(oldplayer, true)
 	end
-	self.log("Saving game...")
+	self.log("게임을 저장합니다...")
 end
 
 --- Take a screenshot of the game
