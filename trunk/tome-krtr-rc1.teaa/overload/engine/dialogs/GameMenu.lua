@@ -48,7 +48,7 @@ end
 function _M:generateList(actions)
 	local default_actions = {
 		resume = { "게임 계속하기", function() game:unregisterDialog(self) end },
-		keybinds_all = { "명령어 입력 설정", function()
+		keybinds = { "명령어 입력 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, nil, game.gestures)
 			game:registerDialog(menu)
