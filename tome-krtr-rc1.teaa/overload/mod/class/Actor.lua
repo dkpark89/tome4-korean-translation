@@ -1402,7 +1402,7 @@ function _M:tooltip(x, y, seen_by)
 	for t, v in pairs(self.resists) do
 		if v ~= 0 then
 			if t ~= "all" then v = self:combatGetResist(t) end
-			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "전체" or DamageType:get(t).name:krDamageType()) --@@
+			resists[#resists+1] = string.format("%s %d%%", t == "all" and "전체" or DamageType:get(t).name:krDamageType(), v) --@@
 		end
 	end
 	

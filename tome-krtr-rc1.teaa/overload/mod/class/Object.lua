@@ -306,7 +306,7 @@ function _M:getTextualDesc(compare_with)
 
 	if self.quest then desc:add({"color", "VIOLET"},"[플롯 아이템]", {"color", "LAST"}, true) end
 
-	desc:add(("Type: %s / %s"):format(rawget(self, 'type') or "알수없음", rawget(self, 'subtype') or "알수없음"))
+	desc:add(("종류: %s / %s"):format(rawget(self, 'type'):krItemType() or "알수없음", rawget(self, 'subtype'):krItemType() or "알수없음"))
 	if self.material_level then desc:add(" ; ", tostring(self.material_level), "단계") end
 	desc:add(true)
 	if self.slot_forbid == "OFFHAND" then desc:add("양손으로 쥐는 무기입니다.", true) end
@@ -440,7 +440,7 @@ function _M:getTextualDesc(compare_with)
 		local dm = {}
 		for stat, i in pairs(combat.dammod or {}) do
 			 --@@
-			dm[#dm+1] = ("%d%% %s"):format((i + (add_table.dammod[stat] or 0)) * 100, Stats.stats_def[stat].short_name:capitalize():krStat())
+			dm[#dm+1] = ("%s %d%%"):format(Stats.stats_def[stat].short_name:capitalize():krStat(), (i + (add_table.dammod[stat] or 0)) * 100)
 		end
 		if #dm > 0 or combat.dam then
 			local power_diff = ""
@@ -836,7 +836,7 @@ function _M:getTextualDesc(compare_with)
 						desc:add((" %s ("):format(tn), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " 턴)") --@@
 					end
 				else
-					desc:add({"color","WHITE"}, (" %s (%+d(-) 턴)"):format(Talents.talents_def[tid].name, -(cds[2] or cds[1])), {"color","LAST"}) --@@
+					desc:add({"color","WHITE"}, (" %s (%+d(-) 턴)"):format(tn, -(cds[2] or cds[1])), {"color","LAST"}) --@@
 				end
 			end
 			desc:add(true)
@@ -1326,7 +1326,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 		desc:add({"color",0x67,0xAD,0x00}, ("무게 %0.2f."):format(self.encumber), {"color", "LAST"})
 	end
 	if self.ego_bonus_mult then
-		desc:add(true, {"color",0x67,0xAD,0x00}, ("에고등급(Ego) 배수 %0.2f."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
+		desc:add(true, {"color",0x67,0xAD,0x00}, ("에고 지수 %0.2f."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
 	end
 
 	local could_compare = false

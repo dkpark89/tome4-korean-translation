@@ -317,7 +317,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		local cur_exp, max_exp = player.exp, player:getExpChart(player.level+1)
 		h = 0
 		w = 0
-		s:drawStringBlended(self.font, "성별  : "..((player.descriptor and player.descriptor.sex) or (player.female and "여성" or "남성")), w, h, 0, 200, 255, true) h = h + self.font_h
+		s:drawStringBlended(self.font, "성별  : "..((player.descriptor and player.descriptor.sex) or (player.female and "여성" or "남성")):krSex(), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, (player.descriptor and "종족  : " or "종류  : ")..((player.descriptor and player.descriptor.subrace) or player.type:capitalize()):krRace(), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, (player.descriptor and "직업  : " or "유형  : ")..((player.descriptor and player.descriptor.subclass) or player.subtype:capitalize()):krClass(), w, h, 0, 200, 255, true) h = h + self.font_h
 		s:drawStringBlended(self.font, "크기  : "..(player:TextSizeCategory():capitalize():krSize()), w, h, 0, 200, 255, true) h = h + self.font_h
@@ -525,7 +525,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			local desc = player:getTalentFullDescription(t)
 			--@@
 			local tn = t.kr_display_name or t.name
-			self:mouseTooltip("#GOLD##{bold}#"..tn.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(t.name), w, h, 255, 255, 255, true)) h = h + self.font_h
+			self:mouseTooltip("#GOLD##{bold}#"..tn.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end end
 
 		if any_esp then

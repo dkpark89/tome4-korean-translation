@@ -63,7 +63,7 @@ function _M:generateList()
 	for id, nb in pairs(self.party.ingredients) do
 		local d = self.party:getIngredient(id)
 		--@@
-		local dn = d.kr_display_name or dn = d.name
+		local dn = d.kr_display_name or d.name
 		list[#list+1] = { dname=dn, name=d.display_entity:getDisplayString(true):add(dn), ori_name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), cat=d.type:krItemType(), ori_cat=d.type, nb=nb==-1 and "inf" or tostring(nb) }
 		i = i + 1
 	end

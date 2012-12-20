@@ -55,7 +55,7 @@ function _M:getTimeDate(turn, dstr)
 	local doy, year = self:getDayOfYear(turn)
 	local hour, min = self:getTimeOfDay(turn)
 	--@@
-	return (dstr or self.datestring):format(tostring(year):ordinal(), self:getMonthName(doy):krMonth(), tostring(self:getDayOfMonth(doy)):ordinal(), hour, min)
+	return (dstr or self.datestring):format(tostring(year), self:getMonthName(doy):krMonth(), tostring(self:getDayOfMonth(doy)), hour, min)
 end
 
 function _M:getDayOfYear(turn)
