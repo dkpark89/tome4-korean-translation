@@ -1058,7 +1058,7 @@ function _M:displayDelayedLogDamage()
 	for src, tgts in pairs(self.delayed_log_damage) do
 		for target, dams in pairs(tgts) do
 			--@@
-			local srn = src.kr_display_name or srn = src.name
+			local srn = src.kr_display_name or src.name
 			local tn = target.kr_display_name or target.name
 			
 			if #dams.descs > 1 then
