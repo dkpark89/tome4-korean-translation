@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Spacetime Tuning",
+	kr_display_name = "시공간 조율",
 	type = {"chronomancy/other", 1},
 	mode = "sustained",
 	sustain_paradox = 0,
@@ -55,6 +56,7 @@ newTalent{
 
 newTalent{
 	name = "Precognition",
+	kr_display_name = "사전 인지",
 	type = {"chronomancy/chronomancy",1},
 	require = temporal_req1,
 	points = 5,
@@ -79,6 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Foresight",
+	kr_display_name = "선견",
 	type = {"chronomancy/chronomancy",2},
 	mode = "passive",
 	require = temporal_req2,
@@ -102,6 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Moment of Prescience",
+	kr_display_name = "예견의 순간",
 	type = {"chronomancy/chronomancy", 3},
 	require = temporal_req3,
 	points = 5,
@@ -136,6 +140,7 @@ newTalent{
 
 newTalent{
 	name = "Spin Fate",
+	kr_display_name = "숙명의 전개",
 	type = {"chronomancy/chronomancy", 4},
 	require = temporal_req4,
 	mode = "passive",

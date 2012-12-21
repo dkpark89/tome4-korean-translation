@@ -64,7 +64,7 @@ newTalent{
 		local saves = t.getResists(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
 		return ([[태양의 영광을 노래하여, 물리와 주문 내성을 %d 상승시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f의 빛 피해를 줍니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
 		동시에 하나의 찬가만을 유지할 수 있습니다.
 		내성과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(saves, damDesc(self, DamageType.LIGHT, damageonmeleehit))
@@ -106,7 +106,7 @@ newTalent{
 		local physicalresistance = t.getPhysicalResistance(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
 		return ([[태양의 영광을 노래하여, 물리 피해 저항을 %d%% 상승시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f의 빛 피해를 줍니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
 		동시에 하나의 찬가만을 유지할 수 있습니다.
 		저항과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(physicalresistance, damDesc(self, DamageType.LIGHT, damageonmeleehit))
@@ -154,7 +154,7 @@ newTalent{
 		local resists = t.getResists(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		return ([[태양의 영광을 노래하여, 원소 저항을 %d%% 상승시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f의 빛 피해를 줍니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
 		동시에 하나의 찬가만을 유지할 수 있습니다.
 		내성과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(resists, damDesc(self, DamageType.LIGHT, damage))
@@ -200,8 +200,8 @@ newTalent{
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local lite = t.getLite(self, t)
 		return ([[태양의 영광을 노래하여, 당신이 가하는 빛 피해량을 %d%% 증가시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f의 빛 피해를 줍니다.
-		또한 광원 반경이 %d칸 증가됩니다.
+		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
+		또한 광원 반경이 %d 칸 증가됩니다.
 		동시에 하나의 찬가만을 유지할 수 있습니다.
 		이 효과는 마법 능력치에 영향을 받아 증가됩니다]]):
 		format(damageinc, damDesc(self, DamageType.LIGHT, damage), lite)

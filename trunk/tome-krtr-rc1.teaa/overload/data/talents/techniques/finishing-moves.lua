@@ -28,7 +28,7 @@ newTalent{
 	random_ego = "attack",
 	cooldown = 10,
 	stamina = 12,
-	message = "@Source1@ 마무리 올려치기를 날렸습니다.",
+	message = "@Source1@ 마무리 올려치기를 가했습니다.",
 	tactical = { ATTACK = { weapon = 2 }, DISABLE = { stun = 2 } },
 	requires_target = true,
 	--on_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_COMBO) then if not silent then game.logPlayer(self, "You must have a combo going to use this ability.") end return false end return true end,
@@ -65,7 +65,7 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local stun = math.ceil(self:getTalentLevel(t) * 0.25)
 		local stunmax = math.ceil (self:getTalentLevel(t) * 1.25)
-		return ([[마무리로 적을 올려쳐서 %d%%의 피해를 주고, 연계 점수에 따라 %d에서 %d턴 동안 기절시킵니다.
+		return ([[마무리로 적을 올려쳐서 %d%% 의 피해를 주고, 연계 점수에 따라 %d 에서 %d 턴 동안 기절시킵니다.
 		기절 확률은 힘 능력치에 영향을 받아 증가됩니다.
 		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, stun, stunmax)
@@ -123,7 +123,7 @@ newTalent{
 		local area = t.getAreaDamage(self, t) * 0.25
 		local areamax = t.getAreaDamage(self, t) * 1.25
 		local radius = self:getTalentRadius(t)
-		return ([[강력한 충격이 실린 펀치로 대상을 가격하여 %d%%의 피해를 주고, 공격이 성공하면 연계 점수에 따라 반경 %d칸 내의 모든 대상에게 %0.2f - %0.2f의 물리 피해를 줍니다.
+		return ([[강력한 충격이 실린 펀치로 대상을 가격하여 %d%% 의 피해를 주고, 공격이 성공하면 연계 점수에 따라 반경 %d 칸 내의 모든 대상에게 %0.2f - %0.2f 의 물리 피해를 줍니다.
 		광역 피해량은 힘 능력치에 영향을 받고, 피해 반경은 기술 레벨이 4 증가할 때마다 1씩 증가합니다.
 		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, radius, damDesc(self, DamageType.PHYSICAL, area), damDesc(self, DamageType.PHYSICAL, areamax))
@@ -183,7 +183,7 @@ newTalent{
 		local drain = self:getTalentLevel(t) * 2
 		local daze = math.ceil(self:getTalentLevel(t) * 0.25)
 		local dazemax = math.ceil (self:getTalentLevel(t) * 1.25)
-		return ([[몸통을 가격하는 펀치로 %d%%의 피해를 주고, 연계 점수당 대상의 체력을 %d씩 소진시키며 %d에서 %d턴 동안 혼절시킵니다.
+		return ([[몸통을 가격하는 펀치로 %d%% 의 피해를 주고, 연계 점수당 대상의 체력을 %d 씩 소진시키며 %d 에서 %d 턴 동안 혼절시킵니다.
 		혼절 확률은 힘 능력치에 영향을 받아 증가됩니다.
 		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, drain, daze, dazemax)
@@ -247,8 +247,8 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local stamina = math.ceil((self:getTalentLevel(t) + 1)) * 2
 		local staminamax = math.ceil((self:getTalentLevel(t) + 5)) * 2
-		return ([[%d%%의 피해에 추가로 연계 점수당 10%%의 피해를 주는 치명적인 타격을 가합니다. 공격을 받은 대상이 빈사상태(생명력<20%%)가 되면 즉시 사망합니다.
-		죽음의 강타로 적을 쓰러뜨리면 연계 점수에 따라 %d%%에서 %d%%의 체력이 회복됩니다.
+		return ([[%d%% 의 피해에 추가로 연계 점수당 10%%의 피해를 주는 치명적인 타격을 가합니다. 공격을 받은 대상이 빈사상태(생명력<20%%)가 되면 즉시 사망합니다.
+		죽음의 강타로 적을 쓰러뜨리면 연계 점수에 따라 %d%% 에서 %d%% 의 체력이 회복됩니다.
 		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, stamina, staminamax)
 	end,

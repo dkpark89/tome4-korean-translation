@@ -56,7 +56,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
-		return ([[태양의 힘을 실은 불타는 창을 던져 %0.2f의 피해를 주고, 창이 박힌 자리에 4턴 동안 %0.2f의 빛 피해를 줍니다.
+		return ([[태양의 힘을 실은 불타는 창을 던져 %0.2f 의 피해를 주고, 창이 박힌 자리에 4턴 동안 %0.2f 의 빛 피해를 줍니다.
 		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), damageonspot)
 	end,
@@ -102,8 +102,8 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[%d칸 반경으로 태양의 섬광을 일으켜, 적들을 %d턴 동안 실명시키고 즉시 그 주변(%d칸 반경)을 밝힙니다.
-		기술 레벨이 3 이상이면 %0.2f의 빛 피해도 줍니다(%d칸 반경).
+		return ([[ %d 칸 반경으로 태양의 섬광을 일으켜, 적들을 %d 턴 동안 실명시키고 즉시 그 주변( %d 칸 반경)을 밝힙니다.
+		기술 레벨이 3 이상이면 %0.2f 의 빛 피해도 줍니다( %d 칸 반경).
 		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, duration, radius * 2, damDesc(self, DamageType.LIGHT, damage), radius)
    end,
@@ -139,7 +139,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[적에게 태양의 불길을 쏘아내어, 궤도 내의 모든 대상을 불태워서 %0.2f의 화염 피해를 줍니다.
+		return ([[적에게 태양의 불길을 쏘아내어, 궤도 내의 모든 대상을 불태워서 %0.2f 의 화염 피해를 줍니다.
 		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
@@ -174,7 +174,7 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[태양광을 격렬하게 폭발시켜, %0.2f의 빛 피해를 %d칸 반경 내에 있는 모든 대상에게 줍니다.
+		return ([[태양광을 격렬하게 폭발시켜, %0.2f 의 빛 피해를 %d칸 반경 내에 있는 모든 대상에게 줍니다.
 		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
 	end,
 }

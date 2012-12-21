@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Phase Shot",
+	kr_display_name = "동조 사격",
 	type = {"chronomancy/temporal-archery", 1},
 	require = temporal_req1,
 	points = 5,
@@ -46,6 +47,7 @@ newTalent{
 
 newTalent{
 	name = "Unerring Shot",
+	kr_display_name = "무결점 사격",
 	type = {"chronomancy/temporal-archery", 2},
 	require = temporal_req2,
 	points = 5,
@@ -74,6 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Perfect Aim",
+	kr_display_name = "완벽한 사격",
 	type = {"chronomancy/temporal-archery", 3},
 	require = temporal_req3,
 	mode = "sustained",
@@ -106,6 +109,7 @@ newTalent{
 
 newTalent{
 	name = "Quick Shot",
+	kr_display_name = "빠른 사격",
 	type = {"chronomancy/temporal-archery", 4},
 	require = temporal_req4,
 	points = 5,

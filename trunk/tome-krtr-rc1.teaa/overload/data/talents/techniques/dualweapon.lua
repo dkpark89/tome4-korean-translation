@@ -157,7 +157,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[보조 무기로 공격하여 %d%%의 무기 피해를 줍니다. 이 공격이 성공하면 대상은 %d턴 동안 기절하게 되고, 바로 주 무기를 휘둘러 %d%%의 무기 피해를 줍니다.
+		return ([[보조 무기로 공격하여 %d%% 의 무기 피해를 줍니다. 이 공격이 성공하면 대상은 %d 턴 동안 기절하게 되고, 바로 주 무기를 휘둘러 %d%% 의 무기 피해를 줍니다.
 		기절 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 0.7, 1.5),
 		2 + self:getTalentLevel(t),
@@ -195,7 +195,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[질풍같이 무기를 휘둘러, 각 무기로 3번씩 걸쳐 %d%%의 무기 피해를 적에게 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.4, 1.0))
+		return ([[질풍같이 무기를 휘둘러, 각 무기로 3번씩 걸쳐 %d%% 의 무기 피해를 적에게 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.4, 1.0))
 	end,
 }
 
@@ -249,7 +249,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전장에 근접한 적들에게 %d%%의 무기 피해를 주고, 매 턴마다 %d의 무기 피해를 %d턴 동안 주는 출혈 상태를 일으킵니다.]]):
+		return ([[전장에 근접한 적들에게 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 무기 피해를 %d 턴 동안 주는 출혈 상태를 일으킵니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), self:getDex() * 0.5, 3 + self:getTalentLevel(t))
 	end,
 }
@@ -288,7 +288,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한바퀴 회전하며 공격하여, 주변에 근접한 모든 대상에게 %d%%의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
+		return ([[한바퀴 회전하며 공격하여, 주변에 근접한 모든 대상에게 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
 

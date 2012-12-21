@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Dust to Dust",
+	kr_display_name = "먼지는 먼지로",
 	type = {"chronomancy/matter",1},
 	require = chrono_req1,
 	points = 5,
@@ -54,6 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Carbon Spikes",
+	kr_display_name = "탄소 가시",
 	type = {"chronomancy/matter", 2},
 	require = chrono_req2, no_sustain_autoreset = true,
 	points = 5,
@@ -104,6 +106,7 @@ newTalent{
 
 newTalent{
 	name = "Destabilize",
+	kr_display_name = "불안정",
 	type = {"chronomancy/matter", 3},
 	require = chrono_req3,
 	points = 5,
@@ -141,6 +144,7 @@ newTalent{
 
 newTalent{
 	name = "Quantum Spike",
+	kr_display_name = "양자 가시",
 	type = {"chronomancy/matter", 4},
 	require = chrono_req4,
 	points = 5,

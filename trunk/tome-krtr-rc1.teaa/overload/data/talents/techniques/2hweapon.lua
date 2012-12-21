@@ -54,7 +54,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한바퀴 돌면서, 근접한 주변의 적들에게 %d%%의 무기 피해를 입힙니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1))
+		return ([[한바퀴 돌면서, 근접한 주변의 적들에게 %d%% 의 무기 피해를 입힙니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1))
 	end,
 }
 
@@ -96,8 +96,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격적인 전투 자세를 취합니다, 회피도와 방어력을 10씩 감소시키고, 정확도를 %d, 물리력을 %d 증가시킵니다.
-		광전사 상태인 사람을 멈춰세우기란 거의 불가능하기 때문에, %d%%의 기절과 속박 저항을 얻습니다.
+		return ([[공격적인 전투 자세를 취합니다, 회피도와 방어력을 10씩 감소시키고, 정확도를 %d , 물리력을 %d 증가시킵니다.
+		광전사 상태인 사람을 멈춰세우기란 거의 불가능하기 때문에, %d%% 의 기절과 속박 저항을 얻습니다.
 		정확도는 민첩, 피해량은 힘 능력치의 영향을 받아 증가됩니다.]]):
 		format(
 			5 + self:getDex(7, true) * self:getTalentLevel(t),
@@ -146,7 +146,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전방 %d칸 반경에 전투의 외침을 내지릅니다. 범위 내의 대상들은 %d턴 동안 혼란 상태에 빠집니다.]]):
+		return ([[전방 %d 칸 반경에 전투의 외침을 내지릅니다. 범위 내의 대상들은 %d 턴 동안 혼란 상태에 빠집니다.]]):
 		format(self:getTalentRadius(t), 3 + self:getTalentLevelRaw(t))
 	end,
 }
@@ -202,7 +202,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[항상 치명타로 적중하며, %d%%의 무기 피해를 주는 즉사 공격을 시도합니다. 공격을 받은 대상이 빈사상태(생명력<20%%)가 되면 즉시 사망합니다.
+		return ([[항상 치명타로 적중하며, %d%% 의 무기 피해를 주는 즉사 공격을 시도합니다. 공격을 받은 대상이 빈사상태(생명력<20%%)가 되면 즉시 사망합니다.
 		기술 레벨이 4 이상이면, 남은 체력의 절반을 쏟아부어 추가 피해를 입힙니다.
 		즉사 확률은 힘 능력치에 영향을 받아 증가됩니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
 	end,
@@ -248,7 +248,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 머리를 무기로 내리쳐서 %d%%의 무기 피해를 주고, 공격에 성공하면 %d턴 동안 기절시킵니다.
+		return ([[대상을 머리를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 기절시킵니다.
 		기절 확률은 힘 능력치에 영향을 받아 증가됩니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 		2 + math.floor(self:getTalentLevel(t)))
@@ -288,7 +288,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 방어구를 무기로 내리쳐서 %d%%의 무기 피해를 주고, 공격에 성공하면 방어도가 %d 감소하는 효과를 %d턴 동안 지속되게 합니다.
+		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 방어도가 %d 감소하는 효과를 %d 턴 동안 지속되게 합니다.
 		방어도 감소 확률은 힘 능력치에 영향을 받아 증가됩니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
@@ -331,7 +331,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 무기로 내리쳐서 %d%%의 무기 피해를 줍니다. 공격에 성공하면 대상의 정확도가 %d 감소하는 효과를 %d턴 동안 지속되게 합니다.
+		return ([[대상을 무기로 내리쳐서 %d%% 의 무기 피해를 줍니다. 공격에 성공하면 대상의 정확도가 %d 감소하는 효과를 %d 턴 동안 지속되게 합니다.
 		정확도 감소 확률은 힘 능력치에 영향을 받아 증가됩니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
@@ -375,7 +375,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[매 턴마다 체력이 2씩 감소하는 피의 광란 상태에 빠집니다. 이 상태에서 적을 죽일 때마다, 물리력이 %d씩 중첩되어 상승합니다.
+		return ([[매 턴마다 체력이 2씩 감소하는 피의 광란 상태에 빠집니다. 이 상태에서 적을 죽일 때마다, 물리력이 %d 씩 중첩되어 상승합니다.
 		추가로 얻은 물리력은 턴이 지날 때마다 2씩 감소합니다.]]):format(2 * self:getTalentLevel(t))
 	end,
 }

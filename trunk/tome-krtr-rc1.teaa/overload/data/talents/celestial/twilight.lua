@@ -45,8 +45,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[어둠과 빛의 가운데에 선 자의 권능으로, 15의 양기를 %d의 음기로 전환합니다.
-		In addition, change the default level of positive and negative energies to %d%% of their maximum. Each turn the energies will slowly fall/raise to this value instead of 0.
+		return ([[어둠과 빛의 가운데에 선 자의 권능으로, 15의 양기를 %d 의 음기로 전환합니다.
+		또, 양기와 음기의 기본값이 최대치의 %d%% 로 변경됩니다. 0대신 이 기본값을 향하여 매 턴마다 에너지가 조금씩 변화됩니다.
 		이 효과는 교활함 능력치의 영향을 받아 증가됩니다.]]):
 		format(t.getNegativeGain(self, t), t.getRestValue(self, t))
 	end,
@@ -82,7 +82,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[%d칸 내에 있는 도약문으로 즉시 이동합니다.]]):format(t.getRange(self, t))
+		return ([[%d 칸 내에 있는 도약문으로 즉시 이동합니다.]]):format(t.getRange(self, t))
  	end,
 }
 
@@ -136,7 +136,7 @@ newTalent{
 	info = function(self, t)
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
-		return ([[위치한 장소에 그림자 도약문을 생성합니다. 이 주문이 유지되는 동안에는 '도약문: 이동' 주문을 사용하여 %d칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.
+		return ([[위치한 장소에 그림자 도약문을 생성합니다. 이 주문이 유지되는 동안에는 '도약문: 이동' 주문을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.
 		도약문이 생성된 위치에 있는 계단은 사용할 수 없으므로, 계단을 이용하려면 도약문 주문의 유지를 해제해야 합니다.
 		기술 레벨이 4 이상이면 두번째 도약문을 생성할 수 있습니다.]]):format(range)
  	end,
@@ -172,7 +172,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
-		return ([[마음의 절규를 내질러서, 3칸 반경 내 모든 대상의 의지를 꺽어 %d턴 동안 혼란 상태로 만듭니다.
+		return ([[마음의 절규를 내질러서, 3칸 반경 내 모든 대상의 의지를 꺽어 %d 턴 동안 혼란 상태로 만듭니다.
 		지속 시간은 교활함 능력치에 영향을 받아 증가됩니다.]]):
 		format(duration)
 	end,
@@ -270,7 +270,7 @@ newTalent{
 			size = "huge"
 		end
 		return ([[크기 %s 이하의 대상에게서 그림자를 본뜹니다. 복제된 대상은 즉시 자신의 본체를 공격합니다.
-		%d턴 동안 유지되며, 복제된 대상의 지속시간과 생명력, 저항은 교활함 능력치에 영향을 받습니다.]]):
+		%d 턴 동안 유지되며, 복제된 대상의 지속시간과 생명력, 저항은 교활함 능력치에 영향을 받습니다.]]):
 		format(size, duration)
 	end,
 }
@@ -325,7 +325,7 @@ newTalent{
 	info = function(self, t)
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT_TWO)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
-		return ([[위치한 장소에 그림자 도약문을 생성합니다. 이 주문이 유지되는 동안에는 '도약문: 이동' 주문을 사용하여 %d칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.]]):format(range)
+		return ([[위치한 장소에 그림자 도약문을 생성합니다. 이 주문이 유지되는 동안에는 '도약문: 이동' 주문을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.]]):format(range)
 	end,
 }
 
@@ -359,6 +359,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[%d칸 내에 있는 두번째 도약문으로 즉시 이동합니다.]]):format(t.getRange(self, t))
+		return ([[%d 칸 내에 있는 두번째 도약문으로 즉시 이동합니다.]]):format(t.getRange(self, t))
 	end,
 }

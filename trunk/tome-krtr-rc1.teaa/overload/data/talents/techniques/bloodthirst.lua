@@ -34,8 +34,8 @@ newTalent{
 	info = function(self, t)
 		local regen = t.getRegen(self, t)
 		local max_regen = t.getMax(self, t)
-		return ([[적들의 피를 흩뿌리며 기뻐합니다. 적에게 치명타를 가하면, 최대 생명력이 %d%%, 턴 당 생명력 재생이 %0.2f, 체력 재생이 %0.2f 증가됩니다.
-		생명력과 체력 재생 증가는 5회까지 중첩되며, 최대치는 턴당 %0.2f과 %0.2f 입니다.]]):
+		return ([[적들의 피를 흩뿌리며 기뻐합니다. 적에게 치명타를 가하면, 최대 생명력이 %d%% , 턴 당 생명력 재생이 %0.2f , 체력 재생이 %0.2f 증가됩니다.
+		생명력과 체력 재생 증가는 5회까지 중첩되며, 최대치는 턴당 %0.2f 과 %0.2f 입니다.]]):
 		format(math.floor(self:getTalentLevel(t) * 2), regen, regen/5, max_regen, max_regen/5)
 	end,
 }
@@ -87,7 +87,7 @@ newTalent{
 		self:setEffect(self.EFF_BLOODRAGE, math.floor(5 + self:getTalentLevel(t)), {max=math.floor(self:getTalentLevel(t) * 6), inc=2})
 	end,
 	info = function(self, t)
-		return ([[적의 눈에 흙이 들어갈 때마다 당신에게 강력한 힘이 솟구쳐, %d턴 동안 최대 %d까지 힘이 2씩 증가합니다.]]):
+		return ([[적의 눈에 흙이 들어갈 때마다 당신에게 강력한 힘이 솟구쳐, %d 턴 동안 최대 %d 까지 힘이 2씩 증가합니다.]]):
 		format(math.floor(5 + self:getTalentLevel(t)), math.floor(self:getTalentLevel(t) * 6)) --@@
 	end,
 }
@@ -106,8 +106,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[%d턴 동안 전투 광란 상태가 됩니다. 효과가 지속되는 동안에는 물품을 사용할 수도 없고 치유를 받을 수도 없으며, 생명력이 1밑으로 떨어지지 않습니다.
-		광란 상태가 끝나면, 그동안 살해한 적 하나당 전체 생명력의 %d%%를 회복하게 됩니다.]]):
+		return ([[%d 턴 동안 전투 광란 상태가 됩니다. 효과가 지속되는 동안에는 물품을 사용할 수도 없고 치유를 받을 수도 없으며, 생명력이 1밑으로 떨어지지 않습니다.
+		광란 상태가 끝나면, 그동안 살해한 적 하나당 전체 생명력의 %d%% 를 회복하게 됩니다.]]):
 		format(2 + self:getTalentLevelRaw(t), math.floor(self:getTalentLevel(t) * 3.5))
 	end,
 }

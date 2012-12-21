@@ -44,7 +44,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[%d칸 뒤로 도약하여, 대상에게서 멀어집니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
+		return ([[%d 칸 뒤로 도약하여, 대상에게서 멀어집니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
 	end,
 }
 
@@ -69,7 +69,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[%d 타일 반경 안에 있는 적들을 %d턴 동안 감지합니다.
+		return ([[%d 타일 반경 안에 있는 적들을 %d 턴 동안 감지합니다.
 		감지 반경은 교활함 능력치에 영향을 받아 증가됩니다.]]):format(rad, 3 + self:getTalentLevel(t))
 	end,
 }
@@ -108,7 +108,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 %d칸 떨어진 곳까지 차서 날리는 강력한 발차기입니다.
+		return ([[대상을 %d 칸 떨어진 곳까지 차서 날리는 강력한 발차기입니다.
 		날아가는 방향에 다른 존재가 있다면 같이 밀려나게 됩니다.
 		밀어내기 확률은 민첩 능력치에 영향을 받아 증가됩니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
 	end,

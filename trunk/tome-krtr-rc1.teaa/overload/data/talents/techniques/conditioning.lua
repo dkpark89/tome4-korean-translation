@@ -38,7 +38,7 @@ newTalent{
 		local regen = t.getLifeRegen(self, t)
 		local healmod = t.getHealMod(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[중독, 질병, 출혈 상태에서 더 빠르게 회복합니다(지속 시간 %d%% 감소). 추가로 생명력이 50%% 밑으로 떨어지면, 생명력 재생이 %0.2f, 치유량 증가가 %d%% 증가되며 %d턴 동안 유지됩니다.
+		return ([[중독, 질병, 출혈 상태에서 더 빠르게 회복합니다(지속 시간 %d%% 감소). 추가로 생명력이 50%% 밑으로 떨어지면, 생명력 재생이 %0.2f , 치유량 증가가 %d%% 증가되며 %d 턴 동안 유지됩니다.
 		치유량 증가와 생명력 재생 효과는 체격 능력치에 영향을 받아 감소됩니다.]]):
 		format(wounds, regen, healmod, duration)
 	end,
@@ -86,7 +86,7 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		local penalty = t.getPenalty(self, t)
 		local min_life = t.getMinimumLife(self, t)
-		return ([[공격에도 꿈쩍하지 않는 당신을 보고 적들이 두려움에 빠집니다. 최대 생명력의 5%% 이상을 피해를 단번에 받으면, 반경 %d칸 이내의 적들이 두려움에 떨게 되어 물리력, 정신력, 주문력을 4턴 동안 %d만큼 잃게 됩니다.
+		return ([[공격에도 꿈쩍하지 않는 당신을 보고 적들이 두려움에 빠집니다. 최대 생명력의 5%% 이상을 피해를 단번에 받으면, 반경 %d 칸 이내의 적들이 두려움에 떨게 되어 물리력, 정신력, 주문력을 4턴 동안 %d 만큼 잃게 됩니다.
 		생명력이 %d 밑으로 떨어지면 위협적인 존재감이 사라져서, 기술 유지가 해제됩니다. 두려움 효과는 체격 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, penalty, min_life)
 	end,
@@ -155,7 +155,7 @@ newTalent{
 	info = function(self, t)
 		local attack_power = t.getAttackPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[아드레날린 분비를 자극하여, 물리력을 %d 증가시키며 %d턴 동안 피로의 한계를 넘어 전투를 지속할 수 있게 됩니다.
+		return ([[아드레날린 분비를 자극하여, 물리력을 %d 증가시키며 %d 턴 동안 피로의 한계를 넘어 전투를 지속할 수 있게 됩니다.
 		체력이 바닥나도 유지형 기술들이 해제되지 않으며, 생명력을 체력 대신 소모하여 기술을 사용할 수 있게 됩니다.
 		증가되는 물리력은 체격 능력치에 영향을 받습니다.
 		이 기술은 턴을 소모하지 않고 즉시 사용할 수 있습니다.]]):

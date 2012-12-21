@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Turn Back the Clock",
+	kr_display_name = "시간 되돌리기",
 	type = {"chronomancy/age-manipulation", 1},
 	require = chrono_req1,
 	points = 5,
@@ -65,6 +66,7 @@ newTalent{
 
 newTalent{
 	name = "Temporal Fugue",
+	kr_display_name = "시간의 푸가",
 	type = {"chronomancy/age-manipulation", 2},
 	require = chrono_req2,
 	points = 5,
@@ -106,6 +108,7 @@ newTalent{
 
 newTalent{
 	name = "Ashes to Ashes",
+	kr_display_name = "재는 재로",
 	type = {"chronomancy/age-manipulation",3},
 	require = chrono_req3,
 	points = 5,
@@ -152,6 +155,7 @@ newTalent{
 
 newTalent{
 	name = "Body Reversion",
+	kr_display_name = "신체 역행",
 	type = {"chronomancy/age-manipulation", 4},
 	require = chrono_req4,
 	points = 5,
