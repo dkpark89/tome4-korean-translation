@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Repulsion Blast",
+	kr_display_name = "반발의 돌풍",
 	type = {"chronomancy/gravity",1},
 	require = chrono_req1,
 	points = 5,
@@ -56,6 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Gravity Spike",
+	kr_display_name = "중력 가시",
 	type = {"chronomancy/gravity", 2},
 	require = chrono_req2,
 	points = 5,
@@ -103,6 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Repulsion Field",
+	kr_display_name = "반발 역장",
 	type = {"chronomancy/gravity",3},
 	require = chrono_req3,
 	points = 5,
@@ -150,6 +153,7 @@ newTalent{
 
 newTalent{
 	name = "Gravity Well",
+	kr_display_name = "중력 장벽",
 	type = {"chronomancy/gravity", 4},
 	require = chrono_req4,
 	points = 5,

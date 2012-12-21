@@ -111,7 +111,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[타격에 집중하여 공격 속도를 %d%% 감소시키는 대신, 정확도를 %d, 치명타율을 %d%% 증가시킵니다.
+		return ([[타격에 집중하여 공격 속도를 %d%% 감소시키는 대신, 정확도를 %d , 치명타율을 %d%% 증가시킵니다.
 		이 효과는 민첩 능력치에 영향을 받아 증가됩니다.]]):
 		format(10, 4 + (self:getTalentLevel(t) * self:getDex()) / 15, 4 + (self:getTalentLevel(t) * self:getDex()) / 25)
 	end,
@@ -133,7 +133,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[적을 공격하는데 집중하여, 정확도를 100 증가시키고 보이지 않는 적을 공격할 때 받는 불이익을 상쇄하는 효과를 %d턴 동안 얻습니다.]]):format(1 + self:getTalentLevel(t))
+		return ([[적을 공격하는데 집중하여, 정확도를 100 증가시키고 보이지 않는 적을 공격할 때 받는 불이익을 상쇄하는 효과를 %d 턴 동안 얻습니다.]]):format(1 + self:getTalentLevel(t))
 	end,
 }
 
@@ -210,7 +210,7 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 8
 	end,
 	info = function(self, t)
-		return ([[혹독한 훈련으로, 주문 효과에 좀 더 잘 견디게 되었습니다(주문 내성 +%d).]]):format(self:getTalentLevelRaw(t) * 8)
+		return ([[혹독한 훈련으로, 주문 효과에 좀 더 잘 견디게 되었습니다(주문 내성 +%d ).]]):format(self:getTalentLevelRaw(t) * 8)
 	end,
 }
 
@@ -222,7 +222,7 @@ newTalent{
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[적의 죽음에 고무되어, 적을 쓰러뜨릴 때마다 체력을 %d씩 얻습니다.]]):format(self:getTalentLevel(t) * 4)
+		return ([[적의 죽음에 고무되어, 적을 쓰러뜨릴 때마다 체력을 %d 씩 얻습니다.]]):format(self:getTalentLevel(t) * 4)
 	end,
 }
 

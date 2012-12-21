@@ -949,7 +949,7 @@ function _M:hotkeyInventory(name)
 
 	local o, item, inven = find(name)
 	if not o then
-		Dialog:simplePopup("아이템 없음", "당신은 "..name:addJosa("를").." 찾지 못했습니다.")
+		Dialog:simpleLongPopup("아이템 없음", "당신은 "..name:addJosa("를").." 찾지 못했습니다.", game.w * 0.4)
 	else
 		-- Wear it ??
 		if o:wornInven() and not o.wielded and inven == self.INVEN_INVEN then

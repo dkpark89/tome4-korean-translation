@@ -38,7 +38,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[당신에게 내리비치는 태양의 독려를 받아, %d의 생명력을 회복합니다.
+		return ([[당신에게 내리비치는 태양의 독려를 받아, %d 의 생명력을 회복합니다.
 		회복량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(heal)
 	end,
@@ -80,7 +80,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local heal = t.getHeal(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[햇빛이 내리비치는 마력 지대를 만들어서, %d칸 반경 내의 모든 대상을 매 턴마다 %0.2f 만큼 치유하고, 치유 효과를 %d%% 증가시킵니다. 효과는 %d턴 동안 지속됩니다.
+		return ([[햇빛이 내리비치는 마력 지대를 만들어서, %d 칸 반경 내의 모든 대상을 매 턴마다 %0.2f 만큼 치유하고, 치유 효과를 %d%% 증가시킵니다. 효과는 %d 턴 동안 지속됩니다.
 		또한 해당 지역에 빛이 밝혀집니다.
 		치유량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, heal, heal, duration)
@@ -105,7 +105,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local absorb = t.getAbsorb(self, t)
-		return ([[10턴 동안 당신을 보호하는 방벽을 생성하여 %d의 피해를 흡수합니다.
+		return ([[10턴 동안 당신을 보호하는 방벽을 생성하여 %d 의 피해를 흡수합니다.
 		방벽의 흡수량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(absorb)
 	end,
@@ -131,7 +131,7 @@ newTalent{
 	info = function(self, t)
 		local regen = t.getRegeneration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[빛의 보호를 받아, 매 턴마다 %d의 생명력을 회복하고 한 개의 상태이상 효과를 해제합니다. 빛의 보호는 %d턴 동안 유지됩니다.
+		return ([[빛의 보호를 받아, 매 턴마다 %d 의 생명력을 회복하고 한 개의 상태이상 효과를 해제합니다. 빛의 보호는 %d 턴 동안 유지됩니다.
 		치유량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(regen, duration)
 	end,

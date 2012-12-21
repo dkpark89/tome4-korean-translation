@@ -604,7 +604,7 @@ function _M:changeLevel(lev, zone, params)
 		-- Select the chest tab
 		d.c_inven.dont_update_last_tabs = true
 		d.c_inven:switchTab{kind="transmo"}
-		d:simplePopup("변환 상자", "소지품 목록을 닫으면, 상자 내의 모든 물품이 돈으로 바뀝니다.")
+		d:simpleLongPopup("변환 상자", "소지품 목록을 닫으면, 상자 내의 모든 물품이 돈으로 바뀝니다.", game.w * 0.4)
 	else
 		self:changeLevelReal(lev, zone, params)
 	end
@@ -716,7 +716,7 @@ function _M:changeLevelReal(lev, zone, params)
 				if lev == 1 and game.state:tier1Killed(3) then
 					lev = self.zone.max_level
 					self.zone.tier1 = nil
-					Dialog:simplePopup("쉬움!", "이 지역은 당신에게 너무 쉬워서, 마지막 층까지 산책을 했습니다.")
+					Dialog:simpleLongPopup("쉬움!", "이 지역은 당신에게 너무 쉬워서, 마지막 층까지 산책을 했습니다.", game.w * 0.4)
 				end
 			end
 			if type(self.zone.save_per_level) == "nil" then self.zone.save_per_level = config.settings.tome.save_zone_levels and true or false end

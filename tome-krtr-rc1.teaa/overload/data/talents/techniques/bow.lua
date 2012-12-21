@@ -29,7 +29,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[활을 사용할 때 물리력을 %d, 활 피해량을 %d%% 증가시킵니다.
+		return ([[활을 사용할 때 물리력을 %d , 활 피해량을 %d%% 증가시킵니다.
 		또한, 재장전을 할 때:
 		2 레벨에는 턴 당 장전량이 1 증가하며,
 		4 레벨에는 턴 당 장전량이 2 증가하며,
@@ -61,7 +61,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[어떤 것이든 꿰뚫는 화살을 쏴서, 다수의 대상을 관통하여 방어도를 무시하고 %d%%의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
+		return ([[어떤 것이든 꿰뚫는 화살을 쏴서, 다수의 대상을 관통하여 방어도를 무시하고 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
 
@@ -91,7 +91,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상에게 화살을 동시에 두 발 쏴서 대상과, 인접한 다른 대상에게 %d%%의 무기 피해를 줍니다.
+		return ([[대상에게 화살을 동시에 두 발 쏴서 대상과, 인접한 다른 대상에게 %d%% 의 무기 피해를 줍니다.
 		이 기술은 체력을 전혀 소모하지 않습니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
@@ -126,7 +126,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[%d칸 반경의 지역에 화살을 퍼부어 %d%% 의 무기 피해를 줍니다.]])
+		return ([[%d 칸 반경의 지역에 화살을 퍼부어 %d%% 의 무기 피해를 줍니다.]])
 		:format(2 + self:getTalentLevel(t)/3,
 		100 * self:combatTalentWeaponDamage(t, 0.6, 1.3))
 	end,

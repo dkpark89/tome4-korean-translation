@@ -100,7 +100,7 @@ function _M:defineHotkey(id)
 	self.actor.hotkey[id] = {"talent", item.talent}
 	--@@
 	local tn = t.kr_display_name or t.name
-	self:simplePopup("단축키 "..id.." 설정", tn:capitalize():addJosa("가").." 단축키 "..("%d"):format(id):addJosa("로").." 설정되었습니다.")
+	self:simpleLongPopup("단축키 "..id.." 설정", tn:capitalize():addJosa("가").." 단축키 "..("%d"):format(id):addJosa("로").." 설정되었습니다.", game.w * 0.4)
 	self.c_list:drawTree()
 	self.actor.changed = true
 end
@@ -158,13 +158,13 @@ function _M:use(item, button)
 					if self.actor.hotkey[i] and self.actor.hotkey[i][1] == "talent" and self.actor.hotkey[i][2] == item.talent then self.actor.hotkey[i] = nil end
 				end
 				self.actor.hotkey[b.what] = {"talent", item.talent}
-				self:simplePopup("단축키 "..(b.what).." 설정", tn:addJosa("가").." 단축키 "..("%d"):format(b.what):addJosa("로").." 설정되었습니다.")
+				self:simpleLongPopup("단축키 "..(b.what).." 설정", tn:addJosa("가").." 단축키 "..("%d"):format(b.what):addJosa("로").." 설정되었습니다.", game.w * 0.4)
 			elseif b.what == "middle" then
 				self.actor.auto_shoot_midclick_talent = item.talent
-				self:simplePopup("마우스 중간버튼 클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.")
+				self:simpleLongPopup("마우스 중간버튼 클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.", game.w * 0.4)
 			elseif b.what == "left" then
 				self.actor.auto_shoot_talent = item.talent
-				self:simplePopup("마우스 클릭 연결", tn:addJosa("가").." 목표에게 마우스 클릭시 사용되도록 연결되었습니다.")
+				self:simpleLongPopup("마우스 클릭 연결", tn:addJosa("가").." 목표에게 마우스 클릭시 사용되도록 연결되었습니다.", game.w * 0.4)
 			elseif b.what == "unbind" then
 				if self.actor.auto_shoot_talent == item.talent then self.actor.auto_shoot_talent = nil end
 				if self.actor.auto_shoot_midclick_talent == item.talent then self.actor.auto_shoot_midclick_talent = nil end

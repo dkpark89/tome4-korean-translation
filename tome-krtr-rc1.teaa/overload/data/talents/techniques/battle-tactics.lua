@@ -33,7 +33,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격에 집중하여 매 타격시 %d%% 확률로 다시 한 번 더 공격하게 되며, 이 상태는 %d턴 동안 유지됩니다.
+		return ([[공격에 집중하여 매 타격시 %d%% 확률로 다시 한 번 더 공격하게 되며, 이 상태는 %d 턴 동안 유지됩니다.
 		다른 기술이나 방패를 사용한 공격 등의 모든 형태의 공격에 적용됩니다.
 		이 확률은 민첩에 영향을 받아 증가됩니다.]]):format(self:combatTalentStatDamage(t, "dex", 10, 90), math.floor(4 + self:getTalentLevel(t) * 1.3))
 	end,
@@ -88,8 +88,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 휘둘러 쳐서 %d%%의 무기 피해를 줍니다.
-		공격이 성공하면, 대상은 출혈 상태가 되어 7 턴 동안 %d%%의 무기 피해를 입으며 모든 치유 효과를 %d%% 적게 받습니다.]]):
+		return ([[대상을 휘둘러 쳐서 %d%% 의 무기 피해를 줍니다.
+		공격이 성공하면, 대상은 출혈 상태가 되어 7 턴 동안 %d%% 의 무기 피해를 입으며 모든 치유 효과를 %d%% 적게 받습니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), 100 * self:combatTalentWeaponDamage(t, 2, 3.2), self:getTalentLevel(t) * 10)
 	end,
 }
@@ -130,7 +130,7 @@ newTalent{
 		local drain = t.getStaminaDrain(self, t)
 		return ([[방어 자세를 취하여 적의 맹공에 저항합니다.
 		최대 생명력의 10%%가 감소 될 때마다, 5%%의 전체 피해 저항과 저항 최대치를 증가시킵니다.
-		이 동안에는 체력이 급격히 감소됩니다(%d 체력/턴).]]):
+		이 동안에는 체력이 급격히 감소됩니다(체력 %d/턴).]]):
 		format(drain)
 	end,
 }

@@ -88,7 +88,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local spt = t.shots_per_turn(self, t)
-		return ([[화살통이나 탄환 주머니에 매 턴마다 %d발씩 발사체를 장전합니다.]]):format(spt) --@@
+		return ([[화살통이나 탄환 주머니에 매 턴마다 %d 발 씩 발사체를 장전합니다.]]):format(spt) --@@
 	end,
 }
 
@@ -113,7 +113,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[안정된 자세로 정확하게 사격을 하여 %d%%의 무기 피해를 줍니다.]]):format(self:combatTalentWeaponDamage(t, 1.1, 2.2) * 100)
+		return ([[안정된 자세로 정확하게 사격을 하여 %d%% 의 무기 피해를 줍니다.]]):format(self:combatTalentWeaponDamage(t, 1.1, 2.2) * 100)
 	end,
 }
 
@@ -228,8 +228,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[힘을 넣지 않은 사격을 가하여 %d%%의 무기 피해를 줍니다.
-		그 사이에 한숨을 돌릴 수 있게 되어 체력을 %d얻습니다.]]):format(self:combatTalentWeaponDamage(t, 0.5, 1.1) * 100, 12 + self:getTalentLevel(t) * 8)
+		return ([[힘을 넣지 않은 사격을 가하여 %d%% 의 무기 피해를 줍니다.
+		그 사이에 한숨을 돌릴 수 있게 되어 체력을 %d 얻습니다.]]):format(self:combatTalentWeaponDamage(t, 0.5, 1.1) * 100, 12 + self:getTalentLevel(t) * 8)
 	end,
 }
 
@@ -276,7 +276,7 @@ newTalent{
 		local rad = 1
 		if self:getTalentLevel(t) >= 3 then rad = rad + 1 end
 		if self:getTalentLevel(t) >= 5 then rad = rad + 1 end
-		return ([[발사체에 불을 붙여 쏴서 %d%%의 화염 피해를 주고, %d칸 반경으로 빛을 밝힙니다.
+		return ([[발사체에 불을 붙여 쏴서 %d%% 의 화염 피해를 주고, %d 칸 반경으로 빛을 밝힙니다.
 		기술 레벨이 3 이상이면 3턴 동안 실명 상태로 만들 확률도 생깁니다.]]):
 		format(self:combatTalentWeaponDamage(t, 0.5, 1.2) * 100, rad)
 	end,
@@ -306,7 +306,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 신체를 손상시키는 사격을 가하여 %d%%의 무기 피해를 주고, 속도를 %d%% 감소시키는 효과를 7턴 동안 지속되게 합니다.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
+		return ([[대상의 신체를 손상시키는 사격을 가하여 %d%% 의 무기 피해를 주고, 속도를 %d%% 감소시키는 효과를 7턴 동안 지속되게 합니다.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
 	end,
 }
 
@@ -339,7 +339,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 발을 그 자리에 묶는 사격을 가하여 %d%%의 무기 피해를 주고, %d턴 동안 속박 상태로 만듭니다.
+		return ([[대상의 발을 그 자리에 묶는 사격을 가하여 %d%% 의 무기 피해를 주고, %d 턴 동안 속박 상태로 만듭니다.
 		속박 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
 		:format(self:combatTalentWeaponDamage(t, 1, 1.4) * 100,
 		t.getDur(self, t))
@@ -381,7 +381,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[착탄 지점에서 발사체가 산산조각나 파편이 %d칸 반경으로 방사되는 사격을 가하여 %d%%의 무기 피해를 주고 %d턴 동안 기절시킵니다.
+		return ([[착탄 지점에서 발사체가 산산조각나 파편이 %d 칸 반경으로 방사되는 사격을 가하여 %d%% 의 무기 피해를 주고 %d 턴 동안 기절시킵니다.
 		기절 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
 		:format(self:getTalentRadius(t), self:combatTalentWeaponDamage(t, 0.5, 1.5) * 100, 2 + self:getTalentLevelRaw(t))
 	end,

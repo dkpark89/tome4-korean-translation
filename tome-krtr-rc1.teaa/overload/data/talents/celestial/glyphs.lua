@@ -81,8 +81,8 @@ newTalent{
 	info = function(self, t)
 		local dazeduration = t.getDazeDuration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d턴 동안 혼절하게 됩니다.
-		문양은 %d턴 동안 유지됩니다.]]):format(dazeduration, duration)
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d 턴 동안 혼절하게 됩니다.
+		문양은 %d 턴 동안 유지됩니다.]]):format(dazeduration, duration)
 	end,
 }
 
@@ -154,8 +154,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f의 피해를 받고 밀려납니다.
-		문양은 %d턴 동안 유지됩니다.
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f 의 피해를 받고 밀려납니다.
+		문양은 %d 턴 동안 유지됩니다.
 		피해량은 마법 능력치의 영향을 받아 유지됩니다.]]):
 		format(damage, duration)
 	end,
@@ -224,8 +224,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f의 피해를 받습니다.
-		문양은 %d턴 동안 유지됩니다.
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f 의 피해를 받습니다.
+		문양은 %d 턴 동안 유지됩니다.
 		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), duration)
 	end,
@@ -294,6 +294,6 @@ newTalent{
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d%% 감속됩니다.
-		문양은 %d턴 동안 유지됩니다.]]):format(100 * slow, duration)
+		문양은 %d 턴 동안 유지됩니다.]]):format(100 * slow, duration)
 	end,
 }

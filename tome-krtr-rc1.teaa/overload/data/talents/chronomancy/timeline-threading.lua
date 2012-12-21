@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Gather the Threads",
+	kr_display_name = "시간흐름 모으기",
 	type = {"chronomancy/timeline-threading", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -44,6 +45,7 @@ newTalent{
 
 newTalent{
 	name = "Rethread",
+	kr_display_name = "시간흐름 조정",
 	type = {"chronomancy/timeline-threading", 2},
 	require = chrono_req_high2,
 	points = 5,
@@ -79,6 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Temporal Clone",
+	kr_display_name = "시간의 복제",
 	type = {"chronomancy/timeline-threading", 3},
 	require = chrono_req_high3,
 	points = 5,
@@ -167,6 +170,7 @@ newTalent{
 
 newTalent{
 	name = "See the Threads",
+	kr_display_name = "시간흐름 보기",
 	type = {"chronomancy/timeline-threading", 4},
 	require = chrono_req_high4,
 	points = 5,

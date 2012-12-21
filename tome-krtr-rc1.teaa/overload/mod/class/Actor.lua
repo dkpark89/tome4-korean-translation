@@ -1402,7 +1402,7 @@ function _M:tooltip(x, y, seen_by)
 	for t, v in pairs(self.resists) do
 		if v ~= 0 then
 			if t ~= "all" then v = self:combatGetResist(t) end
-			resists[#resists+1] = string.format("%s %d%%", t == "all" and "전체" or DamageType:get(t).name:krDamageType(), v) --@@
+			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "전체" or DamageType:get(t).name:krDamageType()) --@@
 		end
 	end
 	
@@ -4067,7 +4067,7 @@ function _M:checkSetTalentAuto(tid, v, opt)
 	if v then
 		local doit = function()
 			self:setTalentAuto(tid, true, opt)
-			Dialog:simplePopup("자동사용 설정", tn:capitalize():addJosa("는").." 이제 가능한 경우 자동으로 사용될 것입니다.")
+			Dialog:simpleLongPopup("자동사용 설정", tn:capitalize():addJosa("는").." 이제 가능한 경우 자동으로 사용될 것입니다.", game.w * 0.4)
 		end
 
 		local list = {}
@@ -4090,7 +4090,7 @@ function _M:checkSetTalentAuto(tid, v, opt)
 		end
 	else
 		self:setTalentAuto(tid, false)
-		Dialog:simplePopup("자동사용 해제", tn:capitalize():addJosa("는").." 더이상 자동으로 사용되지 않습니다.")
+		Dialog:simpleLongPopup("자동사용 해제", tn:capitalize():addJosa("는").." 더이상 자동으로 사용되지 않습니다.", game.w * 0.4)
 	end
 end
 

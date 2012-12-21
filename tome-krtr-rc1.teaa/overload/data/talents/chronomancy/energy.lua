@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Energy Decomposition",
+	kr_display_name = "에너지 해체",
 	type = {"chronomancy/energy",1},
 	mode = "sustained",
 	require = chrono_req1,
@@ -54,6 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Entropic Field",
+	kr_display_name = "엔트로피 역장",
 	type = {"chronomancy/energy",2},
 	mode = "sustained",
 	require = chrono_req2,
@@ -85,6 +87,7 @@ newTalent{
 
 newTalent{
 	name = "Energy Absorption",
+	kr_display_name = "에너지 흡수",
 	type = {"chronomancy/energy", 3},
 	require = chrono_req3,
 	points = 5,
@@ -158,6 +161,7 @@ newTalent{
 
 newTalent{
 	name = "Redux",
+	kr_display_name = "재현",
 	type = {"chronomancy/energy",4},
 	require = chrono_req4,
 	points = 5,

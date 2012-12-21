@@ -650,6 +650,23 @@ function string.krFaction(str)
 	elseif ori == "thalore" then return "탈로레"
 	elseif ori == "allied kingdoms" then return "왕국연합"
 	elseif ori == "the way" then return "한길"
+	elseif ori == "enemies" then return "적"
+	elseif ori == "keepers of reality" then return "진실 감시원"
+	elseif ori == "dreadfell" then return "불안의 영역"
+	elseif ori == "temple of creation" then return "창조의 사원"
+	elseif ori == "water lair" then return "수중단"
+	elseif ori == "assassin lair" then return "암살단"
+	elseif ori == "vargh republic" then return "바르그흐 공화국"
+	elseif ori == "sandworm burrowers" then return "굴파는 지렁이"
+	elseif ori == "victim" then return "제물"
+	elseif ori == "slavers" then return "노예"
+	elseif ori == "sorcerers" then return ""
+	elseif ori == "sher'tul" then return "쉐르'툴"
+	elseif ori == "neutral" then return "중립"
+	elseif ori == "unaligned" then return "비동맹"
+	elseif ori == "merchant caravan" then return "대상인"
+	elseif ori == "point zero onslaught" then return "영점 맹습자"
+	elseif ori == "point zero guardians" then return "영점 수호자"
 	else return str end
 end
 

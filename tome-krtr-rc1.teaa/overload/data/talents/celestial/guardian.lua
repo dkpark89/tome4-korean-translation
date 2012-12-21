@@ -103,7 +103,7 @@ newTalent{
 		local shielddamage = t.getShieldDamage(self, t)
 		local lightdamage = t.getLightDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[대상을 무기로 공격하여 %d%%의 무기 피해를 준 뒤, 방패로 쳐서 %d%%의 방패 피해를 줍니다. 방패 공격이 적중됐을 경우에, 찬란한 빛이 분출되어 %0.2f의 빛 피해를 %d칸 반경 내의 적들에게 주고 어두운 곳을 밝힙니다.
+		return ([[대상을 무기로 공격하여 %d%% 의 무기 피해를 준 뒤, 방패로 쳐서 %d%% 의 방패 피해를 줍니다. 방패 공격이 적중됐을 경우에, 찬란한 빛이 분출되어 %0.2f 의 빛 피해를 %d 칸 반경 내의 적들에게 주고 어두운 곳을 밝힙니다.
 		빛 피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(100 * weapondamage, 100 * shielddamage, damDesc(self, DamageType.LIGHT, lightdamage), radius)
 	end,
@@ -143,7 +143,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[당신이 받는 피해량의 절반을 흡수합니다. 응보로 %0.2f의 피해를 흡수했을 때, 방패에서 찬란한 빛이 분출되어 %d칸 반경에 흡수했던 피해량과 동일한 피해를 적들에게 준 뒤, 기술이 해제됩니다.
+		return ([[당신이 받는 피해량의 절반을 흡수합니다. 응보로 %0.2f 의 피해를 흡수했을 때, 방패에서 찬란한 빛이 분출되어 %d 칸 반경에 흡수했던 피해량과 동일한 피해를 적들에게 준 뒤, 기술이 해제됩니다.
 		흡수량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damage, self:getTalentRange(t))
 	end,
@@ -172,7 +172,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격을 받아 당신의 생명력이 1 밑으로 떨어지게 되면, 두번째 생명이 발동되어 기술 유지가 해제되고 %d의 생명력을 가지게 됩니다.]]):
+		return ([[공격을 받아 당신의 생명력이 1 밑으로 떨어지게 되면, 두번째 생명이 발동되어 기술 유지가 해제되고 %d 의 생명력을 가지게 됩니다.]]):
 		format(t.getLife(self, t))
 	end,
 }
