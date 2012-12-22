@@ -21,7 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Distortion Bolt",
-	kr_display_name = "왜곡 볼트",
+	kr_display_name = "왜곡의 탄",
 	type = {"psionic/distortion", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -105,7 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Ravage",
-	kr_display_name = "약탈",
+	kr_display_name = "손상",
 	type = {"psionic/distortion", 3},
 	points = 5, 
 	require = psi_wil_req3,

@@ -648,7 +648,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 	local new_level = false
 	-- Load persistent level?
 	if type(level_data.persistent) == "string" and level_data.persistent == "zone_temporary" then
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		self.temp_memory_levels = self.temp_memory_levels or {}
@@ -663,7 +663,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 		end
 		popup:done()
 	elseif type(level_data.persistent) == "string" and level_data.persistent == "zone" and not self.save_per_level then
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		self.memory_levels = self.memory_levels or {}
@@ -678,7 +678,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 		end
 		popup:done()
 	elseif type(level_data.persistent) == "string" and level_data.persistent == "memory" then
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		game.memory_levels = game.memory_levels or {}
@@ -693,7 +693,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 		end
 		popup:done()
 	elseif level_data.persistent then
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		-- Try to load from a savefile
@@ -708,7 +708,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 
 	-- In any cases, make one if none was found
 	if not level then
-		local popup = Dialog:simpleWaiter("Generating level", "Please wait while generating the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 생성중", "현재층을 만드는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		level = self:newLevel(level_data, lev, old_lev, game)

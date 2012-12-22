@@ -93,7 +93,7 @@ newTalent{
 
 newTalent{
 	name = "Beckon",
-	kr_display_name = "수신호",
+	kr_display_name = "목표지정",
 	type = {"cursed/endless-hunt", 2},
 	require = cursed_wil_req2,
 	points = 5,

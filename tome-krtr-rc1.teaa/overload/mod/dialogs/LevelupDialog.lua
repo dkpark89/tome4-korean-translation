@@ -67,7 +67,7 @@ function _M:init(actor, on_finish, on_birth)
 	self.stats_increased = {}
 
 	--@@
-	self.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", 12)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12)
 	self.font_h = self.font:lineSkip()
 
 	self.actor.__hidden_talent_types = self.actor.__hidden_talent_types or {}
@@ -647,7 +647,7 @@ function _M:createDisplay()
 
 	self.c_ctree = TalentTrees.new{
 		--@@
-		font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.ctree,
 		width=320, height=self.ih-50,
@@ -668,7 +668,7 @@ function _M:createDisplay()
 
 	self.c_gtree = TalentTrees.new{
 		--@@
-		font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.gtree,
 		width=320, height=self.ih-50 - (not self.b_prodigies and 0 or self.b_prodigies.h + 5),
@@ -689,7 +689,7 @@ function _M:createDisplay()
 
 	self.c_stat = TalentTrees.new{
 		--@@
-		font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.tree_stats, no_cross = true,
 		width=50, height=self.ih,

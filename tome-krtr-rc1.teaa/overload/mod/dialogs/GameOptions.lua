@@ -83,7 +83,7 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"지역 정보를 지역별로 저장을 하는 대신, 지역의 모든 층마다 별도로 저장합니다.\n이 방식은 저장을 더 자주하지만, 깊은 던전에서 메모리 사용량을 줄일 수 있습니다.\n\n#LIGHT_RED#이미 방문한 지역정보는 변경되지 않습니다.\n*층이 바뀔때마다 자동으로 저장을 하지는 않습니다*.#WHITE#Forces the game to save each level instead of each zone.\nThis makes it save more often but the game will use less memory when deep in a dungeon.\n\n#LIGHT_RED#Changing this option will not affect already visited zones.\n*THIS DOES NOT MAKE A FULL SAVE EACH LEVEL*.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"지역 정보를 지역별로 저장을 하는 대신, 지역의 모든 층마다 별도로 저장합니다.\n이 방식은 저장을 더 자주하지만, 깊은 던전에서 메모리 사용량을 줄일 수 있습니다.\n\n#LIGHT_RED#이미 방문한 지역정보는 변경되지 않습니다.\n*층이 바뀔때마다 자동으로 저장을 하지는 않습니다*.#WHITE#\n\nForces the game to save each level instead of each zone.\nThis makes it save more often but the game will use less memory when deep in a dungeon.\n\n#LIGHT_RED#Changing this option will not affect already visited zones.\n*THIS DOES NOT MAKE A FULL SAVE EACH LEVEL*.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#지역의 층마다 따로 저장#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.save_zone_levels and "사용" or "사용안함")
 	end, fct=function(item)
@@ -295,7 +295,7 @@ function _M:generateList()
 	end,}
 
 	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지않으면, 모든 게임을 통틀어 처음으로 알게된 지식만 보여줍니다.\n이 설정을 사용하면, 캐릭터마다 처음으로 알게된 지식을 보여줍니다.\n\nIf disabled lore popups will only appear the first time you see the lore on your profile.\nIf enabled it will appear the first time you see it with each character.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#항상 지식 보여주기.#WHITE##{normal}#", status=function(item)
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#항상 지식 보여주기#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.lore_popup and "사용" or "사용안함")
 	end, fct=function(item)
 		config.settings.tome.lore_popup = not config.settings.tome.lore_popup

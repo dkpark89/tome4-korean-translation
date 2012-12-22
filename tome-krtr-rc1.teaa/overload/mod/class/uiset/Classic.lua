@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local UISet = require "mod.class.uiset.UISet"
 local DebugConsole = require "engine.DebugConsole"
@@ -40,13 +41,13 @@ function _M:activate()
 	if config.settings.tome.fonts.type == "fantasy" then
 		size = ({normal=16, small=14, big=18})[config.settings.tome.fonts.size]
 		size_mono = ({normal=14, small=10, big=16})[config.settings.tome.fonts.size]
-		font = "/data/font/USENET_.ttf"
-		font_mono = "/data/font/SVBasicManual.ttf"
+		font = krFont or "/data/font/USENET_.ttf" --@@
+		font_mono = krFont or "/data/font/SVBasicManual.ttf" --@@
 	else
 		size = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
 		size_mono = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
-		font = "/data/font/Vera.ttf"
-		font_mono = "/data/font/VeraMono.ttf"
+		font = krFont or "/data/font/Vera.ttf" --@@
+		font_mono = krFont or "/data/font/VeraMono.ttf" --@@
 	end
 	local f = core.display.newFont(font, size)
 	font_h = f:lineSkip()

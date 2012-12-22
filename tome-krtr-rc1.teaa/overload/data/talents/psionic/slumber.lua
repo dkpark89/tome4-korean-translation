@@ -119,7 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Dreamscape",
-	kr_display_name = "꿈의 세계",
+	kr_display_name = "꿈의 영역",
 	type = {"psionic/slumber", 4},
 	points = 5,
 	require = psi_wil_req4,

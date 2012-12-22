@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 -- Configure Map
 --dofile("/mod/map_config.lua")
 
@@ -100,9 +102,9 @@ UIBase:setTextShadow(0.6)
 if config.settings.tome.fonts.type == "fantasy" then
 	local size = ({normal=16, small=12, big=18})[config.settings.tome.fonts.size]
 	--@@
-	UIBase.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", size)
-	UIBase.font_bold = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", size)
-	UIBase.font_mono = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", size)
+	UIBase.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", size)
+	UIBase.font_bold = core.display.newFont(krFont or "/data/font/DroidSans.ttf", size)
+	UIBase.font_mono = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", size)
 	UIBase.font_bold:setStyle("bold")
 	UIBase.font_h = UIBase.font:lineSkip()
 	UIBase.font_bold_h = UIBase.font_bold:lineSkip()
@@ -111,9 +113,9 @@ if config.settings.tome.fonts.type == "fantasy" then
 else
 	local size = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
 	--@@
-	UIBase.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/Vera.ttf", size)
-	UIBase.font_mono = core.display.newFont("/data/font/soya.ttf" or "/data/font/VeraMono.ttf", size)
-	UIBase.font_bold = core.display.newFont("/data/font/soya.ttf" or "/data/font/VeraBd.ttf", size)
+	UIBase.font = core.display.newFont(krFont or "/data/font/Vera.ttf", size)
+	UIBase.font_mono = core.display.newFont(krFont or "/data/font/VeraMono.ttf", size)
+	UIBase.font_bold = core.display.newFont(krFont or "/data/font/VeraBd.ttf", size)
 	UIBase.font_h = 	UIBase.font:lineSkip()
 	UIBase.font_mono_w = 	UIBase.font_mono:size(" ")
 	UIBase.font_mono_h = 	UIBase.font_mono:lineSkip()

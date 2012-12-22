@@ -181,7 +181,7 @@ function _M:defineHotkey(id)
 	if not item or not item.object then return end
 
 	self.actor.hotkey[id] = {"inventory", item.object:getName{no_add_name=true, no_count=true}}
-	self:simplePopup("단축키 "..id.." 설정", (item.object:getName{no_add_name=true, no_count=true}:capitalize()):addJosa("가").." 단축키 "..id:addJosa("로").." 설정되었습니다.")
+	self:simplePopup("단축키 "..id.." 설정", (item.object:getName{no_add_name=true, no_count=true}:capitalize()):addJosa("가").." 단축키 "..id.."로 설정되었습니다.")
 	self.actor.changed = true
 end
 

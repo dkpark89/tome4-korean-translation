@@ -424,7 +424,7 @@ function _M:onResolutionChange()
 	-- Unregister old dialog if there was one
 	if self.change_res_dialog and type(self.change_res_dialog) == "table" then self:unregisterDialog(self.change_res_dialog) end
 	-- Ask if we want to switch
-	self.change_res_dialog = require("engine.ui.Dialog"):yesnoPopup("Resolution changed", "Accept the new resolution?", function(ret)
+	self.change_res_dialog = require("engine.ui.Dialog"):yesnoPopup("해상도 변경", "새로운 해상도를 적용합니까?", function(ret)
 		if ret then
 			if not self.creating_player then self:saveGame() end
 			util.showMainMenu(false, nil, nil, self.__mod_info.short_name, self.save_name, false)
@@ -434,7 +434,7 @@ function _M:onResolutionChange()
 			self.change_res_dialog = nil
 			self.change_res_dialog_oldw, self.change_res_dialog_oldh = nil, nil
 		end
-	end, "Accept", "Revert")
+	end, "적용", "되돌리기")
 end
 
 --- Checks if we must reload to change resolution

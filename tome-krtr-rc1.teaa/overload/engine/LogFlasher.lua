@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 
 --- Module that handles a single message line, with pausing and flashing
@@ -33,7 +34,7 @@ function _M:init(x, y, w, h, max, fontname, fontsize, color, bgcolor)
 	self.display_x, self.display_y = math.floor(x), math.floor(y)
 	self.w, self.h = math.floor(w), math.floor(h)
 	--@@
-	self.font = core.display.newFont("/data/font/soya.ttf" or fontname or "/data/font/DroidSans.ttf", fontsize or 16)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 16)
 	self.font_h = self.font:lineSkip()
 	self.surface = core.display.newSurface(w, h)
 	self.texture, self.texture_w, self.texture_h = self.surface:glTexture()

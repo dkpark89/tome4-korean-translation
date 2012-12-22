@@ -28,7 +28,7 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(errs)
 	errs = table.concat(errs, "\n")
 	self.errs = errs
-	Dialog.init(self, "Lua Error", 700, 500)
+	Dialog.init(self, "루아 오류", 700, 500)
 
 	local md5 = require "md5"
 	local errmd5 = md5.sumhexa(errs)
@@ -45,26 +45,28 @@ function _M:init(errs)
 		if pcall(f) then infos.loaded = true end
 	end
 
-	local reason = "If you already reported that error, you do not have to do it again (unless you feel the situation is different)."
+	local reason = "이미 오류 보고서를 보냈다면, (그리고 같은 상황이라 생각된다면) 또 보낼 필요는 없습니다."
 	if infos.loaded then
-		if infos.reported then reason = "You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different)."
-		else reason = "You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do."
+		if infos.reported then reason = "#LIGHT_GREEN#보고한 적 있는#WHITE# 오류네요, (같은 상황이라 생각된다면) 또 보낼 필요는 없습니다."
+		else reason = "이 오류를 경험한 적은 있지만 #LIGHT_RED#보고된 적은 없는#WHITE# 오류네요, 보고서를 보내주시기 바랍니다."
 		end
-	else reason = "You have #LIGHT_RED#never seen#WHITE# that error, please report it."
+	else reason = "#LIGHT_RED#처음 보는#WHITE# 오류네요, 보고서를 보내주시기 바랍니다."
 	end
 
 	self:saveError(true, infos.reported)
 
-	local errmsg = Textzone.new{text=[[#{bold}#Oh my! It seems there was an error!
-The game might still work but this is suspect, please type in your current situation and click on "Send" to send an error report to the game creator.
-If you are not currently connected to the internet, please report this bug when you can on the forums at http://forums.te4.org/
+	local errmsg = Textzone.new{text=[[#{bold}#이런! 여기에 오류가 있는것 같습니다!
+게임은 여전히 동작하지만 이 상황은 오류로 의심되므로, 현재 상황을 (영어로) 입력해주신다음 "보내기"로 오류 보고서를 제작자에게 보내주십시오.
+(한글화하면서 발생한 문제일수도 있으니, 가능하면 한글화 애드온을 비활성화한 뒤 다시 테스트해 주십시오. 한글화시 발생한 오류는 제작자에게 보내지 말고 한글화팀에게 연락해주세요.)
+현재 인터넷에 연결이 안 되는 상황이라면, 오류 보고서를 공식 웹 포럼( http://forums.te4.org/ )에 작성해 주십시오.
+(한글화시 발생한 문제는 한글화팀이 있는 게시판( http://nethack.byus.net )에 올려주십시오.)
 
 ]]..reason..[[#{normal}#]], width=690, auto_height=true}
 	local errzone = Textzone.new{text=errs, width=690, height=400}
-	self.what = Textbox.new{title="What happened?: ", text="", chars=60, max_len=1000, fct=function(text) self:send() end}
-	local ok = require("engine.ui.Button").new{text="Send", fct=function() self:send() end}
-	local cancel = require("engine.ui.Button").new{text="Close", fct=function() game:unregisterDialog(self) end}
-	local cancel_all = require("engine.ui.Button").new{text="Close All", fct=function()
+	self.what = Textbox.new{title="무슨 일이지?: ", text="", chars=60, max_len=1000, fct=function(text) self:send() end}
+	local ok = require("engine.ui.Button").new{text="보내기", fct=function() self:send() end}
+	local cancel = require("engine.ui.Button").new{text="닫기", fct=function() game:unregisterDialog(self) end}
+	local cancel_all = require("engine.ui.Button").new{text="모두 닫기", fct=function()
 		for i = #game.dialogs, 1, -1 do
 			local d = game.dialogs[i]
 			if d.__CLASSNAME == "engine.dialogs.ShowErrorStack" then
@@ -106,6 +108,6 @@ end
 function _M:send()
 	game:unregisterDialog(self)
 	profile:sendError(self.what.text, self.errs)
-	game.log("#YELLOW#Error report sent, thank you.")
+	game.log("#YELLOW#오류 보고서를 보냈습니다, 고맙습니다.")
 	self:saveError(true, true)
 end

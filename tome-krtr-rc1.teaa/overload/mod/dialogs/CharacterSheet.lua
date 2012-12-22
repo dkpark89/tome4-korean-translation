@@ -40,7 +40,7 @@ function _M:init(actor)
 	Dialog.init(self, "캐릭터 상태: "..self.actor.name, math.max(game.w * 0.7, 950), 500)
 
 	--@@
-	self.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", 12)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 14)
 	self.font_h = self.font:lineSkip()
 
 	self.c_general = Tab.new{title="일반", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("general") end end}

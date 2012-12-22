@@ -101,7 +101,7 @@ newTalent{
 
 newTalent{
 	name = "Leaves Tide",
-	kr_display_name = "파편의 흐름",
+	kr_display_name = "흐르는 잎사귀",
 	type = {"wild-gift/mindstar-mastery", 3},
 	require = gifts_req3,
 	points = 5,

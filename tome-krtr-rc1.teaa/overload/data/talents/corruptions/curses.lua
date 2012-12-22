@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Curse of Defenselessness",
-	kr_display_name = "회피력 저하의 저주",
+	kr_display_name = "비보호의 저주",
 	type = {"corruption/curses", 1},
 	require = corrs_req1,
 	points = 5,

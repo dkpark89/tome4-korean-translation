@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local KeyBind = require "engine.KeyBind"
 
@@ -28,7 +29,7 @@ function _M:init(text, key_source, force_all)
 	self.gesture = ""
 	self.gestures = {}
 	--@@
-	self.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 12)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 12)
 
 	local gesttext = self.text.."WWWWW"
 	self.fontmax_w, self.font_h = self.font:size(gesttext)

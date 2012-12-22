@@ -475,7 +475,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 		for s, v in pairs(req.stat) do
 			v = util.getval(v, tlev)
 			local c = (self:getStat(s) >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-			str:add(c, ("- %s %d"):format(self.stats_def[s].name:krStat(), v), true)
+			str:add(c, ("- %s %d"):format(self.stats_def[s].name:krStat(), v), true) --@@
 		end
 	end
 	if req.level then
