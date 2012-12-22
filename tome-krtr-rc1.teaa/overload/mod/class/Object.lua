@@ -154,7 +154,9 @@ function _M:descAttribute(attr)
 		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)
 	elseif attr == "COMBAT_DAMTYPE" then
 		local c = self.combat
-		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)..", "..DamageType:get(c.damtype).name:krDamageType().." 속성"
+		--@@
+		local dtn = DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)..", "..dtn.." 속성"
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
@@ -467,8 +469,9 @@ function _M:getTextualDesc(compare_with)
 			desc:add(true)
 			desc:add(("적용 능력치: %s"):format(table.concat(dm, ', ')), true)
 			local col = (combat.damtype and DamageType:get(combat.damtype) and DamageType:get(combat.damtype).text_color or "#WHITE#"):toTString()
-			 --@@
-			desc:add("공격 속성: ", col[2],DamageType:get(combat.damtype or DamageType.PHYSICAL).name:capitalize():krDamageType(),{"color","LAST"}, true)
+			--@@
+			local dtn = ( combat.damtype and (DamageType:get(combat.damtype).kr_display_name or DamageType:get(combat.damtype).name)) or (DamageType:get(DamageType.PHYSICAL).kr_display_name or DamageType:get(DamageType.PHYSICAL).name)
+			desc:add("공격 속성: ", col[2],dtn:capitalize(),{"color","LAST"}, true)
 		end
 
 		if combat.wil_attack then
@@ -614,35 +617,35 @@ function _M:getTextualDesc(compare_with)
 
 		compare_table_fields(combat, compare_with, field, "melee_project", "%+d", "공격 성공시 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(combat, compare_with, field, "ranged_project", "%+d", "장거리 공격 성공시 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(combat, compare_with, field, "burst_on_hit", "%+d", "공격 성공시 폭발(1칸 반경) 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(combat, compare_with, field, "burst_on_crit", "%+d", "치명타 성공시 폭발(2칸 반경) 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(combat, compare_with, field, "convert_damage", "%d%%", "공격 속성 변환: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "다음 상대에게 피해량 증가: ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
-					return st:capitalize():krRace() --@@
+					return st:capitalize():krActorType() --@@
 				else
-					return t:capitalize():krRace() --@@
+					return t:capitalize():krActorType() --@@
 				end
 			end)
 
@@ -672,47 +675,47 @@ function _M:getTextualDesc(compare_with)
 
 		compare_table_fields(w, compare_with, field, "melee_project", "%d", "근접 공격 피해 반사: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "ranged_project", "%d", "장거리 공격 피해 반사: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "on_melee_hit", "%d", "피해 반사: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].name:krDamageType()),{"color","LAST"} --@@
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "resists", "%+d%%", "저항력 변화: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].name:krDamageType()), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "resists_cap", "%+d%%", "저항력 최대치 변화: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].name:krDamageType()), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호량(wards): ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].name:krDamageType()), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "resists_pen", "%+d%%", "관통 억제: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].name:krDamageType()), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "inc_damage", "%+d%%", "공격 피해량 변화: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].name:krDamageType()), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
 		compare_table_fields(w, compare_with, field, "damage_affinity", "%+d%%", "생명력 강탈: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].name:krDamageType()), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
 		compare_fields(w, compare_with, field, "esp_range", "%+d", "투시 거리 변화 : ")
@@ -1152,7 +1155,7 @@ function _M:getTextualDesc(compare_with)
 			--@@
 			if a.daze then desc:add(("%d턴 동안 %d%% 확률로 혼절"):format(a.daze.dur, a.daze.chance), true) end
 			if a.stun then desc:add(("%d턴 동안 %d%% 확률로 기절"):format(a.stun.dur, a.stun.chance), true) end
-			if a.splash then desc:add(("추가적인 %d %s 피해"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).name:krDamageType()), true) end
+			if a.splash then desc:add(("추가적인 %d %s 피해"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).kr_display_name or DamageType:get(DamageType[a.splash.type]).name), true) end --@@
 			if a.leech then desc:add(("최대 생명력의 %d%% 생명력 재생"):format(a.leech), true) end
 		end
 	end
