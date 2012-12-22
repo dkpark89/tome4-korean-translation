@@ -34,7 +34,7 @@ newTalent{
 
 newTalent{
 	name = "Resonance Field",
-	kr_display_name = "공명장막",
+	kr_display_name = "공진장막",
 	type = {"psionic/feedback", 2},
 	points = 5,
 	feedback = 25,

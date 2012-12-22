@@ -134,7 +134,7 @@ newTalent{
 
 newTalent{
 	name = "Ward",
-	kr_display_name = "보호",
+	kr_display_name = "배척",
 	type = {"spell/objects", 1},
 	cooldown = function(self, t)
 		return math.max(10, 28 - 3 * self:getTalentLevel(t))

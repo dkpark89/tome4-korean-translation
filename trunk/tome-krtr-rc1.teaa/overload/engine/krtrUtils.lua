@@ -2,6 +2,10 @@
 -- utility functions for korean Translation 
 -- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils" 
 
+-- 한글 글꼴 설정
+krFont = "/data/font/soya.ttf" -- 용량(288kB)이 작아 빠름 
+--krFont = "/data/font/HYSUPM.TTF" -- 용량(428kB)이 조금 더 커서 아직 조금 느리지만, 글꼴이 보기 좋음
+
 function string.addJosa(str, temp)
 	local josa1, josa2, index
 
@@ -206,7 +210,7 @@ function string.krItemType(str)
 	elseif ori == "mount" then return "탈것"
 	elseif ori == "potion" then return "물약"
 	elseif ori == "charm" then return "부적"
-	elseif ori == "scroll" then return "마법기"
+	elseif ori == "scroll" then return "두루마리"
 	elseif ori == "orb" then return "오브"
 	elseif ori == "chest" then return "상자"
 	elseif ori == "inscription" then return "각인"
@@ -368,7 +372,7 @@ function string.krTalentType(str)
 	elseif ori == "anomalies" then return "이상현상"
 	-- corruptions
 	elseif ori == "sanguisuge" then return "생명력 조작"
-	elseif ori == "torment" then return "고통"
+	elseif ori == "torment" then return "격통"
 	elseif ori == "vim" then return "활력 조작"
 	elseif ori == "bone" then return "해골 조작"
 	elseif ori == "hexes" then return "매혹술"

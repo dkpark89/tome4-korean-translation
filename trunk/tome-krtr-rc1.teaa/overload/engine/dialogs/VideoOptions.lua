@@ -104,7 +104,7 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"화면의 프레임 버퍼를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 효과를 볼 수 있습니다.\n만약 화면이 이상하게 갑작스런 변화(glitch)가 발생하면 이 설정을 사용안함으로 바꿔보십시오.\n\nActivates framebuffers.\nThis option allows for some special graphical effects.\nIf you encounter weird graphical glitches try to disable it.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"화면의 프레임 버퍼를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 효과를 볼 수 있습니다.\n만약 화면이 이상하게 갑작스런 변화(glitch)가 발생하면 이 설정을 사용안함으로 바꿔보십시오.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates framebuffers.\nThis option allows for some special graphical effects.\nIf you encounter weird graphical glitches try to disable it.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#프레임버퍼#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.fbo_active and "사용" or "사용안함")
 	end, fct=function(item)

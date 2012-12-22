@@ -130,9 +130,9 @@ ammo_shot = {core.display.loadImage("/data/gfx/ui/resources/ammo_shot.png"):glTe
 _M['ammo_shadow_alchemist-gem'] = {core.display.loadImage("/data/gfx/ui/resources/ammo_shadow_alchemist-gem.png"):glTexture()}
 _M['ammo_alchemist-gem'] = {core.display.loadImage("/data/gfx/ui/resources/ammo_alchemist-gem.png"):glTexture()}
 
-font_sha = core.display.newFont("/data/font/DroidSans.ttf", 14, true)
+font_sha = core.display.newFont("/data/font/DroidSans.ttf", 14, true) --@@ 일부러 font 놔둠
 font_sha:setStyle("bold")
-sfont_sha = core.display.newFont("/data/font/DroidSans.ttf", 12, true)
+sfont_sha = core.display.newFont("/data/font/DroidSans.ttf", 12, true) --@@ 일부러 font 놔둠
 sfont_sha:setStyle("bold")
 
 icon_green = { core.display.loadImage("/data/gfx/ui/talent_frame_ok.png"):glTexture() }
@@ -314,13 +314,13 @@ function _M:activate()
 	if config.settings.tome.fonts.type == "fantasy" then
 		size = ({normal=16, small=14, big=18})[config.settings.tome.fonts.size]
 		size_mono = ({normal=14, small=10, big=16})[config.settings.tome.fonts.size]
-		font = "/data/font/DroidSans.ttf"
-		font_mono = "/data/font/DroidSansMono.ttf"
+		font = "/data/font/DroidSans.ttf" --@@ 일부러 font 놔둠
+		font_mono = "/data/font/DroidSansMono.ttf" --@@ 일부러 font 놔둠
 	else
 		size = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
 		size_mono = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
-		font = "/data/font/Vera.ttf"
-		font_mono = "/data/font/VeraMono.ttf"
+		font = "/data/font/Vera.ttf" --@@ 일부러 font 놔둠
+		font_mono = "/data/font/VeraMono.ttf" --@@ 일부러 font 놔둠
 	end
 	local f = core.display.newFont(font, size)
 	font_h = f:lineSkip()
@@ -1217,7 +1217,7 @@ function _M:handleEffect(player, eff_id, e, p, x, y, hs, bx, by, is_first, scale
 	local dur = p.dur + 1
 
 	if not self.tbuff[eff_id..":"..dur] then
-		local name = e.desc
+		local name = e.kr_display_name or e.desc --@@
 		local desc = nil
 		local eff_subtype = table.concat(table.keys(e.subtype), "/")
 		if e.display_desc then name = e.display_desc(self, p) end
@@ -1303,7 +1303,7 @@ function _M:displayBuffs(scale, bx, by)
 			if act then
 				if not self.pbuff[tid] then
 					local t = player:getTalentFromId(tid)
-					local displayName = t.name
+					local displayName = t.kr_display_name or t.name --@@
 					if t.getDisplayName then displayName = t.getDisplayName(player, t, player:isTalentActive(tid)) end
 
 					local is_first = is_first

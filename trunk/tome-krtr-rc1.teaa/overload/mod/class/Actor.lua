@@ -1452,10 +1452,12 @@ function _M:tooltip(x, y, seen_by)
 	for eff_id, p in pairs(self.tmp) do
 		local e = self.tempeffect_def[eff_id]
 		local dur = p.dur + 1
+		--@@
+		local ed = e.kr_display_name or e.desc
 		if e.status == "detrimental" then
-			if act then ts:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(e.desc,dur) or e.desc, {"color", "WHITE"} ) end
+			if act then ts:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(ed,dur) or ed, {"color", "WHITE"} ) end
 		else
-			if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, (e.decrease > 0) and ("%s(%d)"):format(e.desc,dur) or e.desc, {"color", "WHITE"} ) end
+			if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, (e.decrease > 0) and ("%s(%d)"):format(ed,dur) or ed, {"color", "WHITE"} ) end
 		end
 	end
 
@@ -4377,7 +4379,8 @@ function _M:on_set_temporary_effect(eff_id, e, p)
 		if e.status == "detrimental" and self:checkHit(save, p.apply_power, 0, 95) and p.dur > 0 then
 			--@@
 			local sn = self.kr_display_name or self.name
-			game.logSeen(self, "#ORANGE#%s '%s' 효과를 벗어납니다!", sn:capitalize():addJosa("는"), e.desc)
+			local ed = e.kr_display_name or e.desc
+			game.logSeen(self, "#ORANGE#%s '%s' 효과를 벗어납니다!", sn:capitalize():addJosa("는"), ed)
 			p.dur = 0
 		end
 

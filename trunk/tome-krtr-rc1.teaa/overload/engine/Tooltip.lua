@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Base = require "engine.ui.Base"
 local TextzoneList = require "engine.ui.TextzoneList"
@@ -37,7 +38,7 @@ function _M:init(fontname, fontsize, color, bgcolor, max, lockstatus_icon)
 	
 	self.fontsize = fontsize
 	--@@
-	self.font = core.display.newFont("/data/font/soya.ttf" or fontname or "/data/font/DroidSans.ttf", fontsize or 12)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 12)
 
 	self.default_ui = { TextzoneList.new{weakstore=true, width=self.max, height=500, variable_height=true, font=self.font, ui=self.ui} }
 	self.locked = false

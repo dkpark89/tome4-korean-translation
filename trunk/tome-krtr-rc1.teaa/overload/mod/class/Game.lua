@@ -95,12 +95,12 @@ function _M:run()
 	self.tooltip = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
 	self.tooltip2 = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
 	--@@
-	self.flyers = FlyingText.new("/data/font/soya.ttf" or "/data/font/INSULA__.ttf", flysize, "/data/font/INSULA__.ttf", flysize + 3)
+	self.flyers = FlyingText.new(krFont or "/data/font/INSULA__.ttf", flysize, "/data/font/INSULA__.ttf", flysize + 3)
 	self.flyers:enableShadow(0.6)
 	game:setFlyingText(self.flyers)
 
 	--@@
-	self.bignews = BigNews.new("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", 30)
+	self.bignews = BigNews.new(krFont or "/data/font/DroidSansMono.ttf", 30)
 
 	self.nicer_tiles = NicerTiles.new()
 
@@ -141,7 +141,7 @@ function _M:run()
 
 	-- Create the map scroll text overlay
 	--@@
-	local lfont = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 30)
+	local lfont = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 30)
 	lfont:setStyle("bold")
 	local s = core.display.drawStringBlendedNewSurface(lfont, "<스크롤 모드, 방향키로 화면을 이동시킵니다, caps lock을 누르면 종료합니다>", unpack(colors.simple(colors.GOLD)))
 	lfont:setStyle("normal")
@@ -149,7 +149,7 @@ function _M:run()
 	self.caps_scroll.w, self.caps_scroll.h = s:getSize()
 
 	--@@
-	self.zone_font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 12)
+	self.zone_font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 12)
 
 	self.inited = true
 end
@@ -399,7 +399,7 @@ function _M:setupDisplayMode(reboot, mode)
 		local map_x, map_y, map_w, map_h = self.uiset:getMapSize()
 		if th <= 20 then
 			--@@
-			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, "/data/font/soya.ttf" or "/data/font/FSEX300.ttf", pot_th, do_bg)
+			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, krFont or "/data/font/FSEX300.ttf", pot_th, do_bg)
 		else
 			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, nil, fsize, do_bg)
 		end

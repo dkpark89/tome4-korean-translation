@@ -369,7 +369,7 @@ newTalent{
 
 newTalent{
 	name = "Reflective Skin", short_name = "GOLEM_REFLECTIVE_SKIN",
-	kr_display_name = "피해 반사 피부",
+	kr_display_name = "피해반사 피부",
 	type = {"golem/arcane", 2},
 	require = spells_req2,
 	points = 5,

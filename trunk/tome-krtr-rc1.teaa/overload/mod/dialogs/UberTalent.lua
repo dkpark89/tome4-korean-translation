@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 
@@ -35,7 +36,7 @@ function _M:init(actor, levelup_end_prodigies)
 	self.levelup_end_prodigies = levelup_end_prodigies
 
 	--@@
-	self.font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSansMono.ttf", 12)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12)
 	self.font_h = self.font:lineSkip()
 
 	self.actor_dup = actor:clone()
@@ -136,7 +137,7 @@ function _M:createDisplay()
 	
 	self.c_list = TalentGrid.new{
 		--@@
-		font = core.display.newFont("/data/font/soya.ttf" or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		grid=self.list,
 		width=370, height=self.ih - self.c_tut.h,

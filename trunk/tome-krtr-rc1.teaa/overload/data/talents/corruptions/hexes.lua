@@ -53,7 +53,7 @@ newTalent{
 
 newTalent{
 	name = "Burning Hex",
-	kr_display_name = "회염의 매혹술",
+	kr_display_name = "화염의 매혹술",
 	type = {"corruption/hexes", 2},
 	require = corrs_req2,
 	points = 5,

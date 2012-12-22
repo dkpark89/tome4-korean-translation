@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Waters of Life",
-	kr_display_name = "생명수",
+	kr_display_name = "생명의 물",
 	type = {"wild-gift/harmony", 1},
 	require = gifts_req1,
 	points = 5,
@@ -63,7 +63,7 @@ newTalent{
 
 newTalent{
 	name = "Elemental Harmony",
-	kr_display_name = "엘리멘트의 조화",
+	kr_display_name = "엘리먼트의 조화",
 	type = {"wild-gift/harmony", 2},
 	require = gifts_req2,
 	points = 5,

@@ -165,7 +165,7 @@ end
 function _M:handleEffect(eff_id, e, p, ex, h)
 	local player = game.player
 	local dur = p.dur + 1
-	local name = e.desc
+	local name = e.kr_display_name or e.desc --@@
 	local desc = nil
 	local eff_subtype = table.concat(table.keys(e.subtype), "/")
 	if e.display_desc then name = e.display_desc(self, p) end
@@ -408,7 +408,7 @@ function _M:display()
 	for tid, act in pairs(player.sustain_talents) do
 		if act then
 			local t = player:getTalentFromId(tid)
-			local displayName = t.name
+			local displayName = t.kr_display_name or t.name --@@
 			if t.getDisplayName then displayName = t.getDisplayName(player, t, player:isTalentActive(tid)) end
 			local desc = "#GOLD##{bold}#"..displayName.."#{normal}##WHITE#\n"..tostring(player:getTalentFullDescription(t))
 
