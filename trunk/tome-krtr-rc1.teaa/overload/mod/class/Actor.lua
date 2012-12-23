@@ -4165,7 +4165,7 @@ function _M:suffocate(value, src, death_message)
 		--@@
 		local sn = self.kr_display_name or self.name
 		game.logSeen(self, "%s 죽을만큼 숨이 막힙니다!", sn:capitalize():addJosa("는"))
-		return self:die(src, {special_death_msg=death_message or "suffocated to death"}), true
+		return self:die(src, {special_death_msg=death_message or "숨막혀 죽음"}), true
 	end
 	return false, true
 end

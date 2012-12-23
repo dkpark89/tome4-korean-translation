@@ -2448,7 +2448,7 @@ function _M:autoExplore()
 					-- don't bump into special terrain if we've already been running
 					if target_type == "special" then
 						if #path == 1 then
-							self:runStop("something interesting")
+							self:runStop("흥미로운 것")
 							game.level.map.attrs(x, y, "autoexplore_ignore", true)
 							return false
 						end
@@ -2460,7 +2460,7 @@ function _M:autoExplore()
 							self.running.busy = { type = "opening door", do_move = true, no_energy = true }
 						elseif not game.level.map.attrs(x, y, "noticed") then
 							if terrain.change_level or terrain.orb_portal or terrain.escort_portal then game.level.map.attrs(x, y, "noticed", true) end
-							self:runStop("interesting terrain")
+							self:runStop("흥미로운 지형")
 							return false
 						end
 					end
@@ -2499,7 +2499,7 @@ function _M:autoExplore()
 					self.running = {
 						path = path,
 						cnt = 1,
-						dialog = Dialog:simplePopup("Running...", "You are exploring, press any key to stop.", function()
+						dialog = Dialog:simplePopup("달리는 중...", "탐사 중입니다, 멈추려면 아무키나 누르세요.", function()
 							self:runStop()
 						end, false, true),
 						explore = target_type,
@@ -2579,7 +2579,7 @@ function _M:checkAutoExplore()
 					end
 				end
 			end
-			self:runStop("at " .. self.running.explore)
+			self:runStop(self.running.explore .. "에 도달")
 			return false
 		end
 	end
@@ -2589,16 +2589,16 @@ function _M:checkAutoExplore()
 	-- game.level.map:checkAllEntities(cx, cy, "block_move", self) then
 		if terrain.notice then
 			if terrain.change_level or terrain.orb_portal or terrain.escort_portal then game.level.map.attrs(cx, cy, "noticed", true) end
-			self:runStop("interesting terrain")
+			self:runStop("흥미로운 지형")
 			return false
 		elseif self.running.explore == "unseen" or self.running.explore == "object" and self.running.cnt ~= #self.running.path then
 			return self:autoExplore()
 		else
 			if self.running.explore == "object" and self.running.cnt == #self.running.path then
 				game.level.map.attrs(cx, cy, "obj_seen", true)
-				self:runStop("at object (diggable)")
+				self:runStop("(굴착가능한) 물체에 도달")
 			else
-				self:runStop("the path is blocked")
+				self:runStop("길이 막힘")
 			end
 			return false
 		end

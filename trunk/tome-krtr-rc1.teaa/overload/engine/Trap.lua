@@ -74,7 +74,7 @@ end
 --- Get trap name
 -- Can be overloaded to do trap identification if needed
 function _M:getName()
-	return self.name
+	return (self.kr_display_name or self.name)
 end
 
 --- Setup the trap
