@@ -34,9 +34,9 @@ function _M:init(actor)
 	Dialog.init(self, "기술 사용: "..actor.name, game.w * 0.8, game.h * 0.8)
 
 	self.c_tut = Textzone.new{width=math.floor(self.iw / 2 - 10), height=1, auto_height=true, no_color_bleed=true, text=[[
-You can bind a non-passive talent to a hotkey by pressing the corresponding hotkey while selecting a talent or by right-clicking on the talent.
-Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control or shift).
-Right click or press '@' to configure.
+지속형이 아닌 기술은 선택후 원하는 단축키를 누르거나 우클릭을 해서 단축키로 연결할 수 있습니다.
+게임 메뉴의 명령어 입력 설정에서 단축키로 사용할 명령어를 정할 수 있습니다 (기본은 숫자키와 '-'키, '='키에 컨트롤, 알트, 쉬프트 키가 조합됩니다).
+우클릭을 하면 단축키 연결창을 볼 수 있습니다.
 ]]}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), height=self.ih - self.c_tut.h - 20, scrollbar=true, no_color_bleed=true}
 
@@ -44,12 +44,12 @@ Right click or press '@' to configure.
 
 	local cols = {
 		{name="", width={40,"fixed"}, display_prop="char"},
-		{name="Talent", width=80, display_prop="name"},
-		{name="Status", width=20, display_prop="status"},
-		{name="Hotkey", width={75,"fixed"}, display_prop="hotkey"},
-		{name="Mouse Click", width={60,"fixed"}, display_prop=function(item)
-			if item.talent and item.talent == self.actor.auto_shoot_talent then return "LeftClick"
-			elseif item.talent and item.talent == self.actor.auto_shoot_midclick_talent then return "MiddleClick"
+		{name="기술", width=80, display_prop="name"},
+		{name="상태", width=20, display_prop="status"},
+		{name="단축키", width={75,"fixed"}, display_prop="hotkey"},
+		{name="마우스 클릭", width={60,"fixed"}, display_prop=function(item)
+			if item.talent and item.talent == self.actor.auto_shoot_talent then return "클릭"
+			elseif item.talent and item.talent == self.actor.auto_shoot_midclick_talent then return "중간클릭"
 			else return "" end
 		end},
 	}

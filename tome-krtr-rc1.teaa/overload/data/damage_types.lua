@@ -633,6 +633,7 @@ newDamageType{
 -- Temporal damage
 newDamageType{
 	name = "temporal", type = "TEMPORAL", text_color = "#LIGHT_STEEL_BLUE#",
+	kr_display_name = "시간",
 	antimagic_resolve = true,
 	death_message = {"timewarped", "temporally distorted", "spaghettified across the whole of space and time", "paradoxed", "replaced by a time clone (and no one ever knew the difference)", "grandfathered", "time dilated"},
 }

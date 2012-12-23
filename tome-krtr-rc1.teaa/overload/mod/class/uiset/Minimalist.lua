@@ -514,18 +514,18 @@ function _M:showResourceTooltip(x, y, w, h, id, desc, is_first)
 					if event == "button" and button == "right" then
 						local player = game.player
 						local list = {}
-						if player:knowTalent(player.T_STAMINA_POOL) then list[#list+1] = {name="Stamina", id="stamina"} end
-						if player:knowTalent(player.T_MANA_POOL) then list[#list+1] = {name="Mana", id="mana"} end
-						if player:isTalentActive(player.T_NECROTIC_AURA) then list[#list+1] = {name="Necrotic", id="soul"} end
-						if player:knowTalent(player.T_EQUILIBRIUM_POOL) then list[#list+1] = {name="Equilibrium", id="equilibrium"} end
-						if player:knowTalent(player.T_POSITIVE_POOL) then list[#list+1] = {name="Positive", id="positive"} end
-						if player:knowTalent(player.T_NEGATIVE_POOL) then list[#list+1] = {name="Negative", id="negative"} end
-						if player:knowTalent(player.T_PARADOX_POOL) then list[#list+1] = {name="Paradox", id="paradox"} end
-						if player:knowTalent(player.T_VIM_POOL) then list[#list+1] = {name="Vim", id="vim"} end
-						if player:knowTalent(player.T_HATE_POOL) then list[#list+1] = {name="Hate", id="hate"} end
-						if player:knowTalent(player.T_PSI_POOL) then list[#list+1] = {name="Psi", id="psi"} end
-						if player:knowTalent(player.T_FEEDBACK_POOL) then list[#list+1] = {name="Feedback", id="feedback"} end
-						Dialog:listPopup("Display/Hide resources", "Toggle:", list, 300, 300, function(sel)
+						if player:knowTalent(player.T_STAMINA_POOL) then list[#list+1] = {name="체력", id="stamina"} end
+						if player:knowTalent(player.T_MANA_POOL) then list[#list+1] = {name="마나", id="mana"} end
+						if player:isTalentActive(player.T_NECROTIC_AURA) then list[#list+1] = {name="원혼", id="soul"} end
+						if player:knowTalent(player.T_EQUILIBRIUM_POOL) then list[#list+1] = {name="평정", id="equilibrium"} end
+						if player:knowTalent(player.T_POSITIVE_POOL) then list[#list+1] = {name="양기", id="positive"} end
+						if player:knowTalent(player.T_NEGATIVE_POOL) then list[#list+1] = {name="음기", id="negative"} end
+						if player:knowTalent(player.T_PARADOX_POOL) then list[#list+1] = {name="괴리", id="paradox"} end
+						if player:knowTalent(player.T_VIM_POOL) then list[#list+1] = {name="정력", id="vim"} end
+						if player:knowTalent(player.T_HATE_POOL) then list[#list+1] = {name="증오심", id="hate"} end
+						if player:knowTalent(player.T_PSI_POOL) then list[#list+1] = {name="염력", id="psi"} end
+						if player:knowTalent(player.T_FEEDBACK_POOL) then list[#list+1] = {name="반작용", id="feedback"} end
+						Dialog:listPopup("보이거나 가릴 원천력", "토글:", list, 300, 300, function(sel)
 							if not sel or not sel.id then return end
 							game.player["_hide_resource_"..sel.id] = not game.player["_hide_resource_"..sel.id]
 						end)
@@ -1133,35 +1133,35 @@ function _M:displayResources(scale, bx, by, a)
 				surf[1]:toScreenFull(_x, _y, surf[6], surf[7], surf[2], surf[3], 1, 1, 1, a)
 			end
 			if arena.score > world.arena.scores[1].score then
-				aprint(px, py, ("Score[1st]: %d"):format(arena.score), 255, 255, 100)
+				aprint(px, py, ("점수[1등]: %d"):format(arena.score), 255, 255, 100)
 			else
-				aprint(px, py, ("Score: %d"):format(arena.score), 255, 255, 255)
+				aprint(px, py, ("점수: %d"):format(arena.score), 255, 255, 255)
 			end
 			local _event
 			if arena.event > 0 then
 				if arena.event == 1 then
-					_event = "[MiniBoss]"
+					_event = "[미니보스]"
 				elseif arena.event == 2 then
-					_event = "[Boss]"
+					_event = "[보스]"
 				elseif arena.event == 3 then
-					_event = "[Final]"
+					_event = "[최종]"
 				end
 			else
 				_event = ""
 			end
 			py = py + h
 			if arena.currentWave > world.arena.bestWave then
-				aprint(px, py, ("Wave(TOP) %d %s"):format(arena.currentWave, _event), 255, 255, 100)
+				aprint(px, py, ("%d차 쇄도(최고기록) %s"):format(arena.currentWave, _event), 255, 255, 100)
 			elseif arena.currentWave > world.arena.lastScore.wave then
-				aprint(px, py, ("Wave %d %s"):format(arena.currentWave, _event), 100, 100, 255)
+				aprint(px, py, ("%d차 쇄도 %s"):format(arena.currentWave, _event), 100, 100, 255)
 			else
-				aprint(px, py, ("Wave %d %s"):format(arena.currentWave, _event), 255, 255, 255)
+				aprint(px, py, ("%d차 쇄도 %s"):format(arena.currentWave, _event), 255, 255, 255)
 			end
 			py = py + h
 			if arena.pinch == true then
-				aprint(px, py, ("Bonus: %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 50, 50)
+				aprint(px, py, ("보너스: %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 50, 50)
 			else
-				aprint(px, py, ("Bonus: %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 255, 255)
+				aprint(px, py, ("보너스: %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 255, 255)
 			end
 			py = py + h
 			if arena.display then
@@ -1169,7 +1169,7 @@ function _M:displayResources(scale, bx, by, a)
 				aprint(px, py + h, " VS", 255, 0, 255)
 				aprint(px, py + h + h,  arena.display[2], 255, 0, 255)
 			else
-				aprint(px, py, "Rank: "..arena.printRank(arena.rank, arena.ranks), 255, 255, 255)
+				aprint(px, py, "등급: "..arena.printRank(arena.rank, arena.ranks), 255, 255, 255)
 			end
 		end
 
