@@ -25,6 +25,7 @@ newEntity{
 	define_as = "LAVA_FLOOR",
 	type = "floor", subtype = "lava",
 	name = "lava floor", image = "terrain/lava_floor.png",
+	kr_display_name = "용암 바닥",
 	display = '.', color=colors.RED, back_color=colors.DARK_GREY,
 	shader = "lava",
 	mindam = resolvers.mbonus(5, 15),
@@ -32,7 +33,7 @@ newEntity{
 	on_stand = function(self, x, y, who)
 		local DT = engine.DamageType
 		local dam = DT:get(DT.FIRE).projector(self, x, y, DT.FIRE, rng.range(self.mindam, self.maxdam))
-		if dam > 0 then game.logPlayer(who, "The lava burns you!") end
+		if dam > 0 then game.logPlayer(who, "용암이 당신을 태운다!") end
 	end,
 	nice_tiler = { method="replace", base={"LAVA_FLOOR", 100, 1, 16}},
 	nice_editer = lava_editer,
@@ -43,6 +44,7 @@ newEntity{
 	define_as = "LAVA_WALL",
 	type = "wall", subtype = "lava",
 	name = "lava wall", image = "terrain/lava/lava_mountain5.png",
+	kr_display_name = "용암 벽",
 	display = '#', color=colors.RED, back_color=colors.DARK_GREY,
 	always_remember = true,
 	does_block_move = true,
@@ -57,6 +59,7 @@ newEntity{
 	define_as = "LAVA",
 	type = "floor", subtype = "molten_lava",
 	name = "molten lava", image = "terrain/lava/molten_lava_5_01.png",
+	kr_display_name = "용해된 용암",
 	display = '%', color=colors.LIGHT_RED, back_color=colors.RED,
 	special_minimap = colors.RED,
 	does_block_move = true,

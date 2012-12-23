@@ -95,7 +95,7 @@ end
 
 --- Gets the full desc of the object
 function _M:getDesc()
-	return self.name
+	return self.kr_display_name or self.name --@@
 end
 
 --- Returns the inventory type an object is worn on

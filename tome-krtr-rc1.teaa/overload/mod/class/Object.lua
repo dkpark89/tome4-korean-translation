@@ -244,7 +244,8 @@ function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
 	--@@
-	local name = self.kr_display_name or self.name
+	local name = self.kr_display_name 
+	if name == nil or type(name) ~= "string" then name = self.name end
 	
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
@@ -308,7 +309,7 @@ function _M:getTextualDesc(compare_with)
 
 	if self.quest then desc:add({"color", "VIOLET"},"[플롯 아이템]", {"color", "LAST"}, true) end
 
-	desc:add(("종류: %s / %s"):format(rawget(self, 'type'):krItemType() or "알수없음", rawget(self, 'subtype'):krItemType() or "알수없음"))
+	desc:add(("종류: %s / %s"):format(rawget(self, 'type'):krItemType() or "알수없음", rawget(self, 'subtype'):krItemType() or "알수없음")) --@@
 	if self.material_level then desc:add(" ; ", tostring(self.material_level), "단계") end
 	desc:add(true)
 	if self.slot_forbid == "OFFHAND" then desc:add("양손으로 쥐는 무기입니다.", true) end
@@ -732,9 +733,9 @@ function _M:getTextualDesc(compare_with)
 				local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 				local esp = ""
 				if st and st ~= "" then
-					esp = t:capitalize():krRace().."/"..st:capitalize():krRace() --@@
+					esp = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@@
 				else
-					esp = t:capitalize():krRace() --@@
+					esp = t:capitalize():krActorType() --@@
 				end
 				esps_compare[esp] = esps_compare[esp] or {}
 				esps_compare[esp][1] = true
@@ -752,9 +753,9 @@ function _M:getTextualDesc(compare_with)
 		for type, i in pairs(w.esp or {}) do
 			local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 			if st and st ~= "" then
-				esps[#esps+1] = t:capitalize():krRace().."/"..st:capitalize():krRace() --@@
+				esps[#esps+1] = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@@
 			else
-				esps[#esps+1] = t:capitalize():krRace() --@@
+				esps[#esps+1] = t:capitalize():krActorType() --@@
 			end
 			esps_compare[esps[#esps]] = esps_compare[esps[#esps]] or {}
 			esps_compare[esps[#esps]][2] = true

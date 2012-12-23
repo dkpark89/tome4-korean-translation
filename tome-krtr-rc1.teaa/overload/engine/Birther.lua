@@ -82,7 +82,7 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 	self.order = order
 	if order.get_name then
 		self.at_end = function()
-			game:registerDialog(require('engine.dialogs.GetText').new("Enter your character's name", "Name", 2, 25, function(text)
+			game:registerDialog(require('engine.dialogs.GetText').new("캐릭터의 이름을 입력하세요", "이름", 2, 25, function(text)
 				game:setPlayerName(text)
 				at_end()
 			end, function()

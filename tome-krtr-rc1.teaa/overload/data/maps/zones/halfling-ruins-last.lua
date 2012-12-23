@@ -25,6 +25,7 @@ quickEntity('>', {
 	always_remember = true,
 	show_tooltip=true,
 	name="Long tunnel to the island of Rel",
+	kr_display_name = "렐 섬으로 연결된 긴 통로",
 	display='>',
 	image = "terrain/marble_floor.png", add_displays = {mod.class.Grid.new{image="terrain/stair_down.png"}},
 	color=colors.VIOLET,
@@ -40,7 +41,7 @@ quickEntity('>', {
 			end)
 			return
 		end
-		require("engine.ui.Dialog"):simplePopup("Long tunnel", "As you enter the tunnel you feel a strange compulsion to go backward.")
+		require("engine.ui.Dialog"):simplePopup("긴 통로", "통로로 들어서자 돌아나가야 한다는 이상한 충동을 느낍니다.")
 		return true
 	end,
 	notice = true,

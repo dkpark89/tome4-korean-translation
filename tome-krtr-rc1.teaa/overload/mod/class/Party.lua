@@ -179,7 +179,7 @@ function _M:canControl(actor, vocal)
 		return false
 	end
 	if actor.dead or (game.level and not game.level:hasEntity(actor)) then
-		if vocal then game.logPlayer(game.player, "Can not switch control to this creature.") end
+		if vocal then game.logPlayer(game.player, "이 존재의 제어권을 가져올수 없습니다.") end
 		print("[PARTY] error trying to set player, no entity or dead")
 		return false
 	end
@@ -252,7 +252,9 @@ function _M:setPlayer(actor, bypass)
 
 	if not actor.hotkeys_sorted then actor:sortHotkeys() end
 
-	game.logPlayer(actor, "#MOCCASIN#Character control switched to %s.", actor.name)
+	--@@
+	local anm = actor.kr_display_name or actor.name
+	game.logPlayer(actor, "#MOCCASIN#캐릭터 제어를 %s에게로 바꿉니다..", anm)
 
 	return true
 end
@@ -282,7 +284,7 @@ function _M:canOrder(actor, order, vocal)
 		return false
 	end
 	if actor.dead or (game.level and not game.level:hasEntity(actor)) then
-		if vocal then game.logPlayer(game.player, "Can not give orders to this creature.") end
+		if vocal then game.logPlayer(game.player, "이 존재에게는 명령을 내릴수 없습니다.") end
 		return false
 	end
 	if actor.on_can_order and not actor:on_can_order(vocal) then
@@ -316,11 +318,14 @@ function _M:giveOrder(actor, order)
 	if not ok then return nil, err end
 
 	local def = self.members[actor]
+	
+	--@@
+	local anm = actor.kr_display_name or actor.name
 
 	if order == "leash" then
-		game:registerDialog(GetQuantity.new("Set action radius: "..actor.name, "Set the maximun distance this creature can go from the party master", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
+		game:registerDialog(GetQuantity.new("행동 반경 설정: "..anm, "동료의 대표로부터 떨어질수 있는 최대 거리를 설정합니다", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
 			actor.ai_state.tactic_leash = util.bound(qty, 1, actor.ai_state.tactic_leash_max or 100)
-			game.logPlayer(game.player, "%s maximum action radius set to %d.", actor.name:capitalize(), actor.ai_state.tactic_leash)
+			game.logPlayer(game.player, "%s의 최대 행동 반경이 %d으로 설정되었습니다..", anm:capitalize(), actor.ai_state.tactic_leash)
 		end), 1)
 	elseif order == "anchor" then
 		local co = coroutine.create(function()
@@ -333,7 +338,9 @@ function _M:giveOrder(actor, order)
 					anchor = {x=x, y=y, name="that location"}
 				end
 				actor.ai_state.tactic_leash_anchor = anchor
-				game.logPlayer(game.player, "%s will stay near %s.", actor.name:capitalize(), anchor.name)
+				--@@
+				local acn = anchor.kr_display_name or anchor.name
+				game.logPlayer(game.player, "%s %s의 주변에 머뭅니다.", anm:capitalize():addJosa("가"), acn)
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -343,7 +350,9 @@ function _M:giveOrder(actor, order)
 			local x, y, act = game.player:getTarget({type="hit", range=10})
 			if act then
 				actor:setTarget(act)
-				game.logPlayer(game.player, "%s targets %s.", actor.name:capitalize(), act.name)
+				--@@
+				local acn = act.kr_display_name or act.name
+				game.logPlayer(game.player, "%s %s 목표로 합니다.", anm:capitalize():addJosa("가"), acn:addJosa("를"))
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -358,18 +367,18 @@ function _M:giveOrder(actor, order)
 	-------------------------------------------
 	elseif order == "escort_rest" then
 		-- Rest for a few turns
-		if actor.ai_state.tactic_escort_rest then actor:doEmote("No, we must hurry!", 40) return true end
+		if actor.ai_state.tactic_escort_rest then actor:doEmote("안돼요, 우린 좀 서둘러야 해요!", 40) return true end
 		actor.ai_state.tactic_escort_rest = rng.range(6, 10)
-		actor:doEmote("Ok, but not for long.", 40)
+		actor:doEmote("알겠어요, 하지만 너무 오래는 안 돼요.", 40)
 	elseif order == "escort_portal" then
 		local dist = core.fov.distance(actor.escort_target.x, actor.escort_target.y, actor.x, actor.y)
-		if dist < 8 then dist = "very close"
-		elseif dist < 16 then dist = "close"
-		else dist = "still far away"
+		if dist < 8 then dist = "아주 가까이"
+		elseif dist < 16 then dist = "가까이"
+		else dist = "아직 멀리"
 		end
 
 		local dir = game.level.map:compassDirection(actor.escort_target.x - actor.x, actor.escort_target.y - actor.y)
-		actor:doEmote(("The portal is %s, to the %s."):format(dist, dir or "???"), 45)
+		actor:doEmote(("포탈은 %s 방향으로 %s 있어요."):format(dir or "???", dist), 45) --@@
 	end
 
 	return true

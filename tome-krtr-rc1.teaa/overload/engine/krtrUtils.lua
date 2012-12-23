@@ -3,8 +3,8 @@
 -- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils" 
 
 -- 한글 글꼴 설정
-krFont = "/data/font/soya.ttf" -- 용량(288kB)이 작아 빠름 
---krFont = "/data/font/HYSUPM.TTF" -- 용량(428kB)이 조금 더 커서 아직 조금 느리지만, 글꼴이 보기 좋음
+--krFont = "/data/font/soya.ttf" -- 소야논8 글꼴, 용량(288kB)이 작아 빠름 
+krFont = "/data/font/HYSUPM.TTF" -- HY수평선M 글꼴, 용량(428kB)이 조금 더 커서 아직 조금 느리지만, 글꼴이 보기 좋음
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index

@@ -62,13 +62,14 @@ defineTile('S', "FLOOR", nil, nil, {random_filter={name="summoning alarm"}})
 
 defineTile('D', "FLOOR", nil, {random_filter={name="greater multi-hued wyrm", add_levels=30}})
 defineTile('c', "FLOOR", {random_filter={add_levels=15, tome_mod="vault"}}, {random_filter={add_levels=20}})
-defineTile('=', "HARDWALL", nil, nil, nil, {on_block_change="DOOR", on_block_change_msg="You've discovered a secret door!"})
-defineTile('_', "HARDMOUNTAIN_WALL", nil, nil, nil, {on_block_change="FLOOR", on_block_change_msg="You've discovered a secret passage!"})
+defineTile('=', "HARDWALL", nil, nil, nil, {on_block_change="DOOR", on_block_change_msg="비밀의 문을 찾았습니다!"})
+defineTile('_', "HARDMOUNTAIN_WALL", nil, nil, nil, {on_block_change="FLOOR", on_block_change_msg="비밀의 통로를 찾았습니다!"})
 
 defineTile('1', mod.class.Grid.new{
 	define_as = "TELEPORT_FLOOR_1",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_display_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 	grow = "WALL",
 	on_move = function(self, x, y, actor, forced)
@@ -80,7 +81,7 @@ defineTile('1', mod.class.Grid.new{
 		end
 		actor:move(fx, fy, true)
 
-		game.logPlayer(actor, "Something in the floor clicks ominously, and suddenly the world spins around you!")
+		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들리고, 갑자기 주변의 세상이 뒤집혔습니다!")
 		local g = game.zone:makeEntityByName(game.level, "terrain", "FLOOR")
 		if not g then return end
 		game.zone:addEntity(game.level, g, "terrain", x, y)
@@ -92,6 +93,7 @@ defineTile('2', mod.class.Grid.new{
 	define_as = "WALL_UP_FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_display_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 	grow = "WALL",
 	on_move = function(self, x, y, actor, forced)
@@ -112,7 +114,7 @@ defineTile('2', mod.class.Grid.new{
 		game.nicer_tiles:updateAround(game.level, x, y)
 
 
-		game.logPlayer(actor, "Something in the floor clicks ominously, and the crypt rearranges itself around you!")
+		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들리고, 주변의 토굴이 재배열 되었습니다!")
 
 	end,
 }
@@ -122,6 +124,7 @@ defineTile('3', mod.class.Grid.new{
 	define_as = "WALL_DOWN_FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_display_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 	grow = "WALL",
 	on_move = function(self, x, y, actor, forced)
@@ -132,7 +135,7 @@ defineTile('3', mod.class.Grid.new{
 		game.zone:addEntity(game.level, g, "terrain", x + 1, y)
 		game.nicer_tiles:updateAround(game.level, x + 1, y)
 
-		game.logPlayer(actor, "Something in the floor clicks ominously.")
+		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들립니다.")
 	end,
 }
 )
@@ -141,6 +144,7 @@ defineTile('4', mod.class.Grid.new{
 	define_as = "WALL_UP_FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_display_name = "바닥",
 	display = '.', color=colors.UMBER, back_color=colors.LIGHT_UMBER,
 	grow = "WALL",
 	on_move = function(self, x, y, actor, forced)
@@ -164,7 +168,7 @@ defineTile('4', mod.class.Grid.new{
 		game.zone:addEntity(game.level, f, "terrain", x, y)
 		game.nicer_tiles:updateAround(game.level, x, y)
 
-		game.logPlayer(actor, "Something underfoot clicks ominously, and the crypt rearranges itself around you!")
+		game.logPlayer(actor, "발밑의 뭔가가 불길하게 동작하는 소리가 들리고, 주변의 토굴이 재배열 되었습니다!")
 
 	end,
 }
@@ -174,6 +178,7 @@ defineTile('5', mod.class.Grid.new{
 	define_as = "WALL_DOWN_FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_display_name = "바닥",
 	display = '.', color=colors.UMBER, back_color=colors.LIGHT_UMBER,
 	grow = "WALL",
 	on_move = function(self, x, y, actor, forced)
@@ -186,7 +191,7 @@ defineTile('5', mod.class.Grid.new{
 		game.zone:addEntity(game.level, g, "terrain", x, y)
 		game.nicer_tiles:updateAround(game.level, x, y)
 
-		game.logPlayer(actor, "Something beneath you clicks ominously.")
+		game.logPlayer(actor, "바로 밑의 뭔가가 불길하게 동작하는 소리가 들립니다.")
 	end,
 }
 )
