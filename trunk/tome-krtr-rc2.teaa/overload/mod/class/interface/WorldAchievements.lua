@@ -34,16 +34,19 @@ function _M:newAchievement(t)
 		local t2 = table.clone(t)
 		t2.id = "EXPLORATION_"..t2.id
 		t2.name = t2.name.." (Exploration mode)"
+		t2.kr_display_name = (t2.kr_display_name or t2.name).." (탐사 모드)" --@@
 		WA.newAchievement(self, t2)
 
 		local t2 = table.clone(t)
 		t2.id = "NIGHTMARE_"..t2.id
 		t2.name = t2.name.." (Nightmare difficulty)"
+		t2.kr_display_name = (t2.kr_display_name or t2.name).." (악몽 난이도)" --@@
 		WA.newAchievement(self, t2)
 
 		local t2 = table.clone(t)
 		t2.id = "INSANE_"..t2.id
 		t2.name = t2.name.." (Insane difficulty)"
+		t2.kr_display_name = (t2.kr_display_name or t2.name).." (미친 난이도)" --@@
 		WA.newAchievement(self, t2)
 	end
 end
