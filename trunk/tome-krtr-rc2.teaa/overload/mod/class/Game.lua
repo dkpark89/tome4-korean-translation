@@ -1558,7 +1558,7 @@ do return end
 			local l = {
 				"resume",
 				"achievements",
-				{ "알게된 지식 보기", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal Lore", self.player)) end },
+				{ "알게된 지식 보기", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal Lore", self.party)) end },
 				{ "연금술 재료 보기", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowIngredients").new(self.party)) end },
 				"highscores",
 				{ "소지품 목록", function() self:unregisterDialog(menu) self.key:triggerVirtual("SHOW_INVENTORY") end },

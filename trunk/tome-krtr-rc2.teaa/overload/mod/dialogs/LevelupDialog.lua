@@ -109,7 +109,7 @@ function _M:init(actor, on_finish, on_birth)
 
 			if self.actor.unused_stats~=self.actor_dup.unused_stats or self.actor.unused_talents_types~=self.actor_dup.unused_talents_types or
 			self.actor.unused_talents~=self.actor_dup.unused_talents or self.actor.unused_generics~=self.actor_dup.unused_generics or self.actor.unused_prodigies~=self.actor_dup.unused_prodigies or changed then
-				self:yesnocancelPopup("완료","변경사항을 적용하시겠습니까?", function(yes, cancel)
+				self:yesnocancelLongPopup("완료","변경사항을 적용합니까?", game.w * 0.4, function(yes, cancel)
 				if cancel then
 					return nil
 				else
@@ -648,7 +648,7 @@ function _M:createDisplay()
 	if self.actor.inscriptions_slots_added < 2 then
 		self.b_inscriptions = Button.new{text="각인 슬롯", fct=function()
 				if self.actor.unused_talents_types > 0 then
-					Dialog:yesnoPopup("각인 슬롯", ("당신은 %d개의 새 각인 슬롯을 얻을 수 있습니다. 지금 기술계열 점수를 사용하여 하나를 늘리겠습니까?"):format(2 - self.actor.inscriptions_slots_added), function(ret) if ret then
+					Dialog:yesnoLongPopup("각인 슬롯", ("당신은 %d개의 새 각인 슬롯을 얻을 수 있습니다. 지금 기술계열 점수를 사용하여 하나를 늘리겠습니까?"):format(2 - self.actor.inscriptions_slots_added), game.w * 0.4, function(ret) if ret then
 						self.actor.unused_talents_types = self.actor.unused_talents_types - 1
 						self.actor.max_inscriptions = self.actor.max_inscriptions + 1
 						self.actor.inscriptions_slots_added = self.actor.inscriptions_slots_added + 1
