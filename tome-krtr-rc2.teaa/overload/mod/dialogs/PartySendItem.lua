@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 require "engine.ui.Dialog"
 local List = require "engine.ui.List"
@@ -30,7 +31,7 @@ function _M:init(source, o, inven, item, on_end)
 	self.inven = inven
 	self.item = item
 	self.o = o
-	engine.ui.Dialog.init(self, "Give item to a party member", 1, 1)
+	engine.ui.Dialog.init(self, "동료에게 아이템 주기", 1, 1)
 
 	local list = List.new{width=400, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 
@@ -57,7 +58,9 @@ function _M:use(item)
 	self.source:sortInven(self.inven)
 	item.actor:addObject(item.actor.INVEN_INVEN, self.o)
 	item.actor:sortInven(item.actor.INVEN_INVEN)
-	game.log("You give %s to %s.", self.o:getName{do_color=true}, item.actor.name)
+	--@@
+	local ian = item.actor.kr_display_name or item.actor.name
+	game.log("당신은 %s %s에게 줬습니다.", self.o:getName{do_color=true}:addJosa("를"), ian)
 	self.on_end()
 end
 

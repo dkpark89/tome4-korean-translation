@@ -20,6 +20,7 @@
 newEntity{
 	define_as = "HEAVY_ARMOR",
 	name = "heavy armour smith",
+	kr_display_name = "중갑 대장간",
 	display = '2', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -36,6 +37,7 @@ newEntity{
 newEntity{
 	define_as = "LIGHT_ARMOR",
 	name = "tanner",
+	kr_display_name = "무두장이",
 	display = '2', color=colors.LIGHT_UMBER,
 	store = {
 		purse = 25,
@@ -52,6 +54,7 @@ newEntity{
 newEntity{
 	define_as = "CLOTH_ARMOR",
 	name = "tailor",
+	kr_display_name = "재단사",
 	display = '2', color=colors.WHITE,
 	store = {
 		purse = 25,
@@ -68,6 +71,7 @@ newEntity{
 newEntity{
 	define_as = "SWORD_WEAPON",
 	name = "sword smith",
+	kr_display_name = "검 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -82,6 +86,7 @@ newEntity{
 newEntity{
 	define_as = "AXE_WEAPON",
 	name = "axe smith",
+	kr_display_name = "도끼 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -96,6 +101,7 @@ newEntity{
 newEntity{
 	define_as = "MINDSTAR",
 	name = "mindstar collector",
+	kr_display_name = "마석 수집가",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -111,6 +117,7 @@ newEntity{
 newEntity{
 	define_as = "MAUL_WEAPON",
 	name = "mace smith",
+	kr_display_name = "둔기 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -125,6 +132,7 @@ newEntity{
 newEntity{
 	define_as = "TWO_HANDS_WEAPON",
 	name = "two handed weapons",
+	kr_display_name = "양손 무기점",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -138,6 +146,7 @@ newEntity{
 newEntity{
 	define_as = "ONE_HAND_WEAPON",
 	name = "one handed weapons",
+	kr_display_name = "한손 무기점",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -151,6 +160,7 @@ newEntity{
 newEntity{
 	define_as = "ARCHER_WEAPON",
 	name = "archery",
+	kr_display_name = "궁술 용구점",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -166,6 +176,7 @@ newEntity{
 newEntity{
 	define_as = "KNIFE_WEAPON",
 	name = "knife smith",
+	kr_display_name = "단검 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -178,6 +189,7 @@ newEntity{
 newEntity{
 	define_as = "STAFF_WEAPON",
 	name = "staff carver",
+	kr_display_name = "마법지팡이 조각가",
 	display = '3', color=colors.RED,
 	store = {
 		purse = 25,
@@ -191,6 +203,7 @@ newEntity{
 newEntity{
 	define_as = "POTION",
 	name = "infusion store",
+	kr_display_name = "주입물 상점",
 	display = '4', color=colors.LIGHT_BLUE,
 	store = {
 		purse = 10,
@@ -204,6 +217,7 @@ newEntity{
 newEntity{
 	define_as = "SCROLL",
 	name = "rune store",
+	kr_display_name = "룬 상점",
 	display = '5', color=colors.WHITE,
 	store = {
 		purse = 10,
@@ -217,6 +231,7 @@ newEntity{
 newEntity{
 	define_as = "GEMSTORE",
 	name = "gem store",
+	kr_display_name = "보석 상점",
 	display = '9', color=colors.BLUE,
 	store = {
 		purse = 30,
@@ -234,6 +249,7 @@ newEntity{
 newEntity{
 	define_as = "ANGOLWEN_STAFF_WAND",
 	name = "staves and wands store",
+	kr_display_name = "마법지팡이와 마법막대 상점",
 	display = '6', color=colors.RED,
 	store = {
 		purse = 25,
@@ -252,6 +268,7 @@ newEntity{
 newEntity{
 	define_as = "ANGOLWEN_JEWELRY",
 	name = "jewelry store",
+	kr_display_name = "장신구 상점",
 	display = '2', color=colors.BLUE,
 	store = {
 		purse = 20,
@@ -273,6 +290,7 @@ newEntity{
 newEntity{
 	define_as = "ANGOLWEN_SCROLL",
 	name = "rune store and library",
+	kr_display_name = "룬과 도서 상점",
 	display = '5', color=colors.WHITE,
 	store = {
 		purse = 10,
@@ -293,6 +311,7 @@ newEntity{
 newEntity{
 	define_as = "LOST_MERCHANT",
 	name = "rare goods",
+	kr_display_name = "진귀품 가게",
 	display = '7', color=colors.BLUE,
 	store = {
 		nb_fill = 20,
@@ -308,6 +327,7 @@ newEntity{
 newEntity{
 	define_as = "LAST_HOPE_LIBRARY",
 	name = "library",
+	kr_display_name = "책방",
 	display = '*', color=colors.LIGHT_RED,
 	store = {
 		purse = 10,
@@ -336,6 +356,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_LIBRARY",
 	name = "library",
+	kr_display_name = "책방",
 	display = '*', color=colors.LIGHT_RED,
 	store = {
 		purse = 5,
@@ -349,6 +370,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_HARMOR",
 	name = "armour smith",
+	kr_display_name = "갑옷 대장간",
 	display = '2', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -368,6 +390,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_LARMOR",
 	name = "tanner",
+	kr_display_name = "무두장이",
 	display = '2', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -388,6 +411,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_SWORD_WEAPON",
 	name = "sword smith",
+	kr_display_name = "검 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -406,6 +430,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_AXE_WEAPON",
 	name = "axe smith",
+	kr_display_name = "도끼 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -424,6 +449,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_MACE_WEAPON",
 	name = "mace smith",
+	kr_display_name = "둔기 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -442,6 +468,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_KNIFE_WEAPON",
 	name = "knife smith",
+	kr_display_name = "단검 대장간",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -459,6 +486,7 @@ newEntity{
 newEntity{
 	define_as = "ZIGUR_ARCHER_WEAPON",
 	name = "archery",
+	kr_display_name = "궁술 용구점",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -481,6 +509,7 @@ newEntity{
 newEntity{
 	define_as = "ELVALA_LIBRARY",
 	name = "shady library",
+	kr_display_name = "불법 도서 개래소",
 	display = '*', color=colors.LIGHT_RED,
 	store = {
 		purse = 10,
@@ -507,6 +536,7 @@ newEntity{
 newEntity{
 	define_as = "ARENA_SHOP",
 	name = "gladiator's wares",
+	kr_display_name = "검투사 장비점",
 	display = '*', colors=colors.BLACK,
 	store = {
 		purse = 1,

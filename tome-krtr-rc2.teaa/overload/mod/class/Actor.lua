@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 require "engine.Actor"
 require "engine.Autolevel"
@@ -398,7 +399,9 @@ function _M:actBase()
 	-- Break darkest light
 	if self:isTalentActive (self.T_DARKEST_LIGHT) and self.positive > self.negative then
 		self:forceUseTalent(self.T_DARKEST_LIGHT, {ignore_energy=true})
-		game.logSeen(self, "%s's darkness can no longer hold back the light!", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name or self.name
+		game.logSeen(self, "%s의 어둠이 더이상 빛을 밀어내지 않는다!", sn:capitalize())
 	end
 	-- Break mind links
 	if self:isTalentActive(self.T_MIND_LINK) then
@@ -547,7 +550,7 @@ function _M:actBase()
 	local air_level, air_condition = game.level.map:checkEntity(self.x, self.y, Map.TERRAIN, "air_level"), game.level.map:checkEntity(self.x, self.y, Map.TERRAIN, "air_condition")
 	if air_level then
 		if not air_condition or not self.can_breath[air_condition] or self.can_breath[air_condition] <= 0 then
-			self:suffocate(-air_level, self, air_condition == "water" and "drowned to death" or nil)
+			self:suffocate(-air_level, self, air_condition == "water" and "익사" or nil)
 		end
 	end
 end
@@ -583,7 +586,9 @@ function _M:act()
 			local t = self:getTalentFromId(tid)
 			if t.is_spell and rng.percent(self:attr("spell_failure")/10)then
 				self:forceUseTalent(tid, {ignore_energy=true})
-				if not silent then game.logSeen(self, "%s has been disrupted by #ORCHID#anti-magic forces#LAST#!", t.name) end
+				--@@
+				local tn =  t.kr_display_name or t.name
+				if not silent then game.logPlayer(self, "%s #ORCHID#반마법력#LAST#에 의해 중단되었다!", tn:capitalize():addJosa("는")) end
 			end
 		end
 	end
@@ -612,7 +617,9 @@ function _M:act()
 		else
 			-- We are saved for this turn
 			self.paralyzed_counter = self.paralyzed_counter - 100
-			game.logSeen(self, "%s temporarily fights the paralyzation.", self.name:capitalize())
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logSeen(self, "%s 잠시 마비되지 않으려 애썼다.", sn:capitalize():addJosa("는"))
 		end
 	end
 	if self:attr("stoned") then self.energy.value = 0 end
@@ -694,7 +701,8 @@ function _M:useBuildOrder()
 				self:incStat(stat, 1)
 				self.unused_stats = self.unused_stats - 1
 				nb = -1
-				game.log("#VIOLET#Following build order %s; increasing %s by 1.", b.name, self.stats_def[stat].name)
+				--@@
+				game.log("#VIOLET#성장 순서 %s 따라서, %s 1 올라갑니다.", b.name:addJosa("를"), self.stats_def[stat].name:krStat():addJosa("가"))
 			end
 			b.stats.i = util.boundWrap(b.stats.i + 1, 1, #b.stats)
 			nb = nb + 1
@@ -716,7 +724,8 @@ function _M:useBuildOrder()
 						self:setTalentTypeMastery(tt, self:getTalentTypeMastery(tt) + 0.2)
 					end
 
-					game.log("#VIOLET#Following build order %s; learning talent category %s.", b.name, tt)
+					--@@
+					game.log("#VIOLET#성장 순서 %s 따라서, %s 기술 계열을 배웁니다.", b.name:addJosa("를"), tt:krTalentType())
 					self.unused_talents_types = self.unused_talents_types - 1
 					table.remove(b.types, i)
 					learn = true
@@ -736,7 +745,9 @@ function _M:useBuildOrder()
 
 					if self.unused_talents > 0 and self:canLearnTalent(t) and self:getTalentLevelRaw(t.id) < t.points then
 						self:learnTalent(t.id, true)
-						game.log("#VIOLET#Following build order %s; learning talent %s.", b.name, t.name)
+						--@@
+						local tn = t.display_name or t.name
+						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", b.name:addJosa("를"), tn)
 						self.unused_talents = self.unused_talents - 1
 						table.remove(b.talents, i)
 						learn = true
@@ -757,7 +768,9 @@ function _M:useBuildOrder()
 
 					if self.unused_generics > 0 and self:canLearnTalent(t) and self:getTalentLevelRaw(t.id) < t.points then
 						self:learnTalent(t.id, true)
-						game.log("#VIOLET#Following build order %s; learning talent %s.", b.name, t.name)
+						--@@
+						local tn = t.display_name or t.name
+						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", b.name:addJosa("를"), tn)
 						self.unused_generics = self.unused_generics - 1
 						table.remove(b.talents, i)
 						learn = true
@@ -968,7 +981,7 @@ function _M:move(x, y, force)
 		elseif not force and self:attr("never_move") then
 			-- A bit weird, but this simple asks the collision code to detect an attack
 			if not game.level.map:checkAllEntities(x, y, "block_move", self, true) then
-				game.logPlayer(self, "You are unable to move!")
+				game.logPlayer(self, "이동할 수 없습니다!")
 			end
 		else
 			moved = engine.Actor.move(self, x, y, force)
@@ -1001,7 +1014,7 @@ function _M:move(x, y, force)
 			if trap and not trap:knownBy(self) and self:checkHit(power, trap.detect_power) then
 				trap:setKnown(self, true)
 				game.level.map:updateMap(x, y)
-				game.logPlayer(self, "You have found a trap (%s)!", trap:getName())
+				game.logPlayer(self, "함정(%s)을 발견했습니다!", trap:getName())
 			end
 		end end
 	end
@@ -1047,7 +1060,7 @@ function _M:move(x, y, force)
 	if moved and not force and ox and oy and (ox ~= self.x or oy ~= self.y) and self:hasEffect(self.EFF_RAMPAGE) then
 		local eff = self:hasEffect(self.EFF_RAMPAGE)
 		if not eff.moved and eff.actualDuration < eff.maxDuration then
-			game.logPlayer(self, "#F53CBE#Your movements fuel your rampage! (+1 duration)")
+			game.logPlayer(self, "#F53CBE#당신의 움직임이 돌진의 추진력을 더했다! (지속시간 +1)")
 			eff.moved = true
 			eff.actualDuration = eff.actualDuration + 1
 			eff.dur = eff.dur + 1
@@ -1100,7 +1113,7 @@ function _M:dropNoTeleportObjects()
 			local o = inven[item]
 			if o.no_teleport then
 				self:dropFloor(inven, item, false, true)
-				game.logPlayer(self, "#LIGHT_RED#Your %s is immune to the teleportation and drops to the floor!", o:getName{do_color=true})
+				game.logPlayer(self, "#LIGHT_RED#당신의 %s 공간이동을 방해한 뒤, 땅으로 딸어졌다!", o:getName{do_color=true}:addJosa("가"))
 			end
 		end
 	end
@@ -1364,9 +1377,9 @@ end
 
 function _M:tooltip(x, y, seen_by)
 	if seen_by and not seen_by:canSee(self) then return end
-	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "neutral", Faction:factionReaction(self.faction, game.player.faction)
-	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "hostile"
-	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "friendly"
+	local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "중립", Faction:factionReaction(self.faction, game.player.faction)
+	if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "적대"
+	elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "우호"
 	end
 
 	-- Debug feature, mousing over with ctrl pressed will give detailed FOV info
@@ -1381,9 +1394,9 @@ function _M:tooltip(x, y, seen_by)
 		print("==============================================")
 	end
 
-	local pfactcolor, pfactstate, pfactlevel = "#ANTIQUE_WHITE#", "neutral", self:reactionToward(game.player)
-	if pfactlevel < 0 then pfactcolor, pfactstate = "#LIGHT_RED#", "hostile"
-	elseif pfactlevel > 0 then pfactcolor, pfactstate = "#LIGHT_GREEN#", "friendly"
+	local pfactcolor, pfactstate, pfactlevel = "#ANTIQUE_WHITE#", "중립", self:reactionToward(game.player)
+	if pfactlevel < 0 then pfactcolor, pfactstate = "#LIGHT_RED#", "적대"
+	elseif pfactlevel > 0 then pfactcolor, pfactstate = "#LIGHT_GREEN#", "우호"
 	end
 
 	local rank, rank_color = self:TextRank()
@@ -1392,55 +1405,63 @@ function _M:tooltip(x, y, seen_by)
 	for t, v in pairs(self.resists) do
 		if v ~= 0 then
 			if t ~= "all" then v = self:combatGetResist(t) end
-			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "all" or DamageType:get(t).name)
+			--@@
+			resists[#resists+1] = string.format("%d%% %s", v, t == "all" and "전체" or DamageType:get(t).kr_display_name or DamageType:get(t).name)
 		end
 	end
 
+	--@@
+	local sn = self.kr_display_name or self.name
+
 	local ts = tstring{}
-	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.name, {"color", "WHITE"})
-	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, "(", self.female and "female" or "male", ")", {"font","normal"}, true) else ts:add(true) end
-	ts:add(self.type:capitalize(), " / ", self.subtype:capitalize(), true)
-	ts:add("Rank: ") ts:merge(rank_color:toTString()) ts:add(rank, {"color", "WHITE"}, true)
-	ts:add({"color", 0, 255, 255}, ("Level: %d"):format(self.level), {"color", "WHITE"}, true)
-	if self.life < 0 then ts:add({"color", 255, 0, 0}, "HP: unknown", {"color", "WHITE"}, true)
-	else ts:add({"color", 255, 0, 0}, ("HP: %d (%d%%)"):format(self.life, self.life * 100 / self.max_life), {"color", "WHITE"}, true)
+	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(sn, {"color", "WHITE"})
+	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, "(", self.female and "여성" or "남성", ")", {"font","normal"}, true) else ts:add(true) end
+	ts:add(self.type:capitalize():krActorType(), " / ", self.subtype:capitalize():krActorType(), true) --@@
+	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krRank(), {"color", "WHITE"}, true) --@@
+	ts:add({"color", 0, 255, 255}, ("레벨: %d"):format(self.level), {"color", "WHITE"}, true)
+	if self.life < 0 then ts:add({"color", 255, 0, 0}, "생명력: 확인불가", {"color", "WHITE"}, true)
+	else ts:add({"color", 255, 0, 0}, ("생명력: %d (%d%%)"):format(self.life, self.life * 100 / self.max_life), {"color", "WHITE"}, true)
 	end
 
 	if self:attr("encased_in_ice") then
 		local eff = self:hasEffect(self.EFF_FROZEN)
-		ts:add({"color", 0, 255, 128}, ("Iceblock: %d"):format(eff.hp), {"color", "WHITE"}, true)
+		ts:add({"color", 0, 255, 128}, ("얼음덩이: %d"):format(eff.hp), {"color", "WHITE"}, true)
 	end
 	--ts:add(("Stats: %d / %d / %d / %d / %d / %d"):format(self:getStr(), self:getDex(), self:getCon(), self:getMag(), self:getWil(), self:getCun()), true)
-	if #resists > 0 then ts:add("Resists: ", table.concat(resists, ','), true) end
-	ts:add("Hardiness/Armour: ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
-	ts:add("Size: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory(), {"color", "WHITE"}, true)
+	if #resists > 0 then ts:add("저항: ", table.concat(resists, ','), true) end
+	ts:add("방어효율/방어도: ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
+	ts:add("크기: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory():krSize(), {"color", "WHITE"}, true) --@@
 
-	ts:add("#FFD700#Accuracy#FFFFFF#: ", self:colorStats("combatAttack"), "  ")
-	ts:add("#0080FF#Defense#FFFFFF#:  ", self:colorStats("combatDefense"), true)
-	ts:add("#FFD700#P. power#FFFFFF#: ", self:colorStats("combatPhysicalpower"), "  ")
-	ts:add("#0080FF#P. save#FFFFFF#:  ", self:colorStats("combatPhysicalResist"), true)
-	ts:add("#FFD700#S. power#FFFFFF#: ", self:colorStats("combatSpellpower"), "  ")
-	ts:add("#0080FF#S. save#FFFFFF#:  ", self:colorStats("combatSpellResist"), true)
-	ts:add("#FFD700#M. power#FFFFFF#: ", self:colorStats("combatMindpower"), "  ")
-	ts:add("#0080FF#M. save#FFFFFF#:  ", self:colorStats("combatMentalResist"), true)
+	ts:add("#FFD700#정확도   #FFFFFF#: ", self:colorStats("combatAttack"), "  ")
+	ts:add("#0080FF#회피도   #FFFFFF#: ", self:colorStats("combatDefense"), true)
+	ts:add("#FFD700#물리력   #FFFFFF#: ", self:colorStats("combatPhysicalpower"), "  ")
+	ts:add("#0080FF#물리내성#FFFFFF#: ", self:colorStats("combatPhysicalResist"), true)
+	ts:add("#FFD700#주문력   #FFFFFF#: ", self:colorStats("combatSpellpower"), "  ")
+	ts:add("#0080FF#주문내성#FFFFFF#: ", self:colorStats("combatSpellResist"), true)
+	ts:add("#FFD700#정신력   #FFFFFF#: ", self:colorStats("combatMindpower"), "  ")
+	ts:add("#0080FF#정신내성#FFFFFF#: ", self:colorStats("combatMentalResist"), true)
 	ts:add({"color", "WHITE"})
 	if self.summon_time then
-		ts:add("Time left: ", {"color", "ANTIQUE_WHITE"}, ("%d"):format(self.summon_time), {"color", "WHITE"}, true)
+		ts:add("남은 시간: ", {"color", "ANTIQUE_WHITE"}, ("%d"):format(self.summon_time), {"color", "WHITE"}, true)
 	end
 	if self.desc then ts:add(self.desc, true) end
-	if self.faction and Faction.factions[self.faction] then ts:add("Faction: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name, factstate, factlevel), {"color", "WHITE"}, true) end
-	if game.player ~= self then ts:add("Personal reaction: ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
+	if self.faction and Faction.factions[self.faction] then ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) end --@@
+	if game.player ~= self then ts:add("개별 성향: ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
 
 	for tid, act in pairs(self.sustain_talents) do
-		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, self:getTalentFromId(tid).name, {"color", "WHITE"} ) end
+		--@@
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, tn, {"color", "WHITE"} ) end
 	end
 	for eff_id, p in pairs(self.tmp) do
 		local e = self.tempeffect_def[eff_id]
 		local dur = p.dur + 1
+		--@@
+		local ed = e.kr_display_name or e.desc
 		if e.status == "detrimental" then
-			if act then ts:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(e.desc,dur) or e.desc, {"color", "WHITE"} ) end
+			if act then ts:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(ed,dur) or ed, {"color", "WHITE"} ) end
 		else
-			if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, (e.decrease > 0) and ("%s(%d)"):format(e.desc,dur) or e.desc, {"color", "WHITE"} ) end
+			if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, (e.decrease > 0) and ("%s(%d)"):format(ed,dur) or ed, {"color", "WHITE"} ) end
 		end
 	end
 
@@ -1501,10 +1522,14 @@ function _M:onHeal(value, src)
 		eff.src:heal(value * eff.pct, src)
 		eff.src.heal_leech_active = nil
 		eff.src:incEquilibrium(-eff.eq)
+		--@@
+		local sn = self.kr_display_name or self.name
 		if eff.src == self then
-			game.logSeen(self, "%s heal is doubled!", self.name)
+			game.logSeen(self, "%s 두배로 회복되었다!", sn:addJosa("가"))
 		else
-			game.logSeen(self, "%s steals %s heal!", eff.src.name:capitalize(), self.name)
+			--@@
+			local esn = eff.src.kr_display_name or eff.src.name
+			game.logSeen(self, "%s %s의 회복력을 훔쳐갔다!", esn:capitalize():addJosa("가"), sn)
 			return 0
 		end
 	end
@@ -1604,7 +1629,9 @@ function _M:onTakeHit(value, src)
 			self:forceUseTalent(self.T_RETRIBUTION, {ignore_energy=true})
 
 			-- Explode!
-			game.logSeen(self, "%s unleashes the stored damage in retribution!", self.name:capitalize())
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logSeen(self, "%s 응보로 지금까지 흡수한 비축된 피해를 폭발시켰다!", sn:capitalize():addJosa("가"))
 			local tg = {type="ball", range=0, radius=self:getTalentRange(self:getTalentFromId(self.T_RETRIBUTION)), selffire=false, talent=t}
 			local grids = self:project(tg, self.x, self.y, DamageType.LIGHT, dam)
 			game.level.map:particleEmitter(self.x, self.y, tg.radius, "sunburst", {radius=tg.radius, grids=grids, tx=self.x, ty=self.y})
@@ -1624,7 +1651,9 @@ function _M:onTakeHit(value, src)
 
 		local a = rng.table(tgts)
 		if a then
-			game.logSeen(self, "Some of the damage has been displaced onto %s!", a.name:capitalize())
+			--@@
+			local anm = a.kr_display_name or a.name
+			game.logSeen(self, "일부분의 피해가 %s에게로 돌아갔다!", anm:capitalize())
 			a:takeHit(value / 2, self)
 			value = value / 2
 		end
@@ -1660,7 +1689,7 @@ function _M:onTakeHit(value, src)
 
 		-- If we are at the end of the capacity, release the time shield damage
 		if self.time_shield_absorb <= 0 then
-			game.logPlayer(self, "Your time shield crumbles under the damage!")
+			game.logPlayer(self, "시간의 방어막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_TIME_SHIELD)
 		end
 	end
@@ -1691,12 +1720,14 @@ function _M:onTakeHit(value, src)
 			local a = game.level.map(src.x, src.y, Map.ACTOR)
 			if a and self:reactionToward(a) < 0 then
 				a:takeHit(math.ceil(reflect_damage * reflection), self)
-				game.logSeen(self, "The damage shield reflects %d damage back to %s!", math.ceil(reflect_damage * reflection), a.name:capitalize())
+				--@@
+				local anm = a.kr_display_name or a.name
+				game.logSeen(self, "방어막이 %d의 피해를 %s에게 되돌려줬다!", math.ceil(reflect_damage * reflection), anm:capitalize())
 			end
 		end
 		-- If we are at the end of the capacity, release the time shield damage
 		if not self.damage_shield_absorb or self.damage_shield_absorb <= 0 then
-			game.logPlayer(self, "Your shield crumbles under the damage!")
+			game.logPlayer(self, "방어막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_DAMAGE_SHIELD)
 		end
 	end
@@ -1705,7 +1736,9 @@ function _M:onTakeHit(value, src)
 		-- Absorb damage into the displacement shield
 		if rng.percent(self.displacement_shield_chance) then
 			if value <= self.displacement_shield then
-				game.logSeen(self, "The displacement shield teleports the damage to %s!", self.displacement_shield_target.name)
+				--@@
+				local stn = self.displacement_shield_target.kr_display_name or self.displacement_shield_target.name
+				game.logSeen(self, "치환의 방어막이 %s에게 피해를 이동시켰다!", stn)
 				self.displacement_shield = self.displacement_shield - value
 				self.displacement_shield_target:takeHit(value, src)
 				value = 0
@@ -1824,7 +1857,7 @@ function _M:onTakeHit(value, src)
 			self.resonance_field_absorb = 0
 		end
 		if self.resonance_field_absorb <= 0 then
-			game.logPlayer(self, "Your resonance field crumbles under the damage!")
+			game.logPlayer(self, "공진장막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_RESONANCE_FIELD)
 		end
 	end
@@ -1869,7 +1902,9 @@ function _M:onTakeHit(value, src)
 	if self:attr("stoned") and value >= self.max_life * 0.3 then
 		-- Make the damage high enough to kill it
 		value = self.max_life + 1
-		game.logSeen(self, "%s shatters into pieces!", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name or self.name
+		game.logSeen(self, "%s 산산히 부서졌다!", sn:capitalize():addJosa("가"))
 	end
 
 	-- Adds hate
@@ -1880,19 +1915,19 @@ function _M:onTakeHit(value, src)
 		if value / self.max_life >= 0.15 then
 			-- you take a big hit..adds 2 + 2 for each 5% over 15%
 			hateGain = hateGain + 2 + (((value / self.max_life) - 0.15) * 100 * 0.5)
-			hateMessage = "#F53CBE#You fight through the pain!"
+			hateMessage = "#F53CBE#고통을 뚫고 싸워라!"
 		end
 
 		if value / self.max_life >= 0.05 and (self.life - value) / self.max_life < 0.25 then
 			-- you take a hit with low health
 			hateGain = hateGain + 4
-			hateMessage = "#F53CBE#Your hatred grows even as your life fades!"
+			hateMessage = "#F53CBE#증오심은 자신의 생명력이 줄어드는 만큼 자라난다!"
 		end
 
 		if hateGain >= 1 then
 			self:incHate(hateGain)
 			if hateMessage then
-				game.logPlayer(self, hateMessage.." (+%d hate)", hateGain)
+				game.logPlayer(self, hateMessage.." (증오심 +%d)", hateGain)
 			end
 		end
 	end
@@ -1903,13 +1938,13 @@ function _M:onTakeHit(value, src)
 		if value / src.max_life > 0.33 then
 			-- you deliver a big hit
 			hateGain = hateGain + src.hate_per_powerful_hit
-			hateMessage = "#F53CBE#Your powerful attack feeds your madness!"
+			hateMessage = "#F53CBE#강력한 공격은 당신의 광기를 충족시킨다!"
 		end
 
 		if hateGain >= 0.1 then
 			src.hate = math.min(src.max_hate, src.hate + hateGain)
 			if hateMessage then
-				game.logPlayer(src, hateMessage.." (+%d hate)", hateGain)
+				game.logPlayer(src, hateMessage.." (증오심 +%d)", hateGain)
 			end
 		end
 	end
@@ -1944,7 +1979,9 @@ function _M:onTakeHit(value, src)
 			a:removeAllMOs()
 			a.x, a.y = nil, nil
 			game.zone:addEntity(game.level, a, "actor", x, y)
-			game.logSeen(self, "%s is split in two!", self.name:capitalize())
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logSeen(self, "%s 둘로 갈라졌다!", sn:capitalize():addJosa("는"))
 			value = value / 2
 		end
 	end
@@ -1959,7 +1996,9 @@ function _M:onTakeHit(value, src)
 			damage_to_psi = self:getPsi()
 			self:incPsi(-damage_to_psi)
 		end
-		game.logSeen(self, "%s's mind suffers #YELLOW#%d psi#LAST# damage from the attack.", self.name:capitalize(), damage_to_psi)
+		--@@
+		local sn = self.kr_display_name or self.name
+		game.logSeen(self, "상대의 공격으로 %s의 정신이 피해를 받아 #YELLOW#%d점의 염력#LAST#이 감소했다.", sn:capitalize(), damage_to_psi)
 		value = value - damage_to_psi
 	end
 
@@ -1993,7 +2032,9 @@ function _M:onTakeHit(value, src)
 		local sl = self.max_life * (0.05 + self:getTalentLevelRaw(self.T_SECOND_LIFE)/25)
 		value = 0
 		self.life = sl
-		game.logSeen(self, "%s has been saved by a blast of positive energy!", self.name:capitalize())
+		--@@
+		local sn = self.kr_display_name or self.name
+		game.logSeen(self, "%s 양기의 폭발로 인해 목숨을 구했다!", sn:capitalize():addJosa("가"))
 		self:forceUseTalent(self.T_SECOND_LIFE, {ignore_energy=true})
 	end
 
@@ -2003,7 +2044,9 @@ function _M:onTakeHit(value, src)
 		if rng.percent(t.getChance(self, t)) then
 			value = 0
 			self.life = self.max_life
-			game.logSeen(self, "%s fades for a moment and then reforms whole again!", self.name:capitalize())
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logSeen(self, "%s 잠시 흐릿해졌다가 다시 모습을 갖췄다!", sn:capitalize():addJosa("가"))
 			game.level.map:particleEmitter(self.x, self.y, 1, "teleport_out")
 			game:playSoundNear(self, "talents/heal")
 			game.level.map:particleEmitter(self.x, self.y, 1, "teleport_in")
@@ -2014,7 +2057,9 @@ function _M:onTakeHit(value, src)
 	if self:knowTalent(self.T_LEECH) and src.hasEffect and src:hasEffect(src.EFF_VIMSENSE) then
 		self:incVim(3 + self:getTalentLevel(self.T_LEECH) * 0.7)
 		self:heal(5 + self:getTalentLevel(self.T_LEECH) * 3)
-		game.logPlayer(self, "#AQUAMARINE#You leech a part of %s vim.", src.name:capitalize())
+		--@@
+		local srn = src.kr_display_name or src.name
+		game.logPlayer(self, "#AQUAMARINE#당신은 %s의 정력을 갈취했다.", srn:capitalize())
 	end
 
 	-- Invisible on hit
@@ -2058,7 +2103,9 @@ function _M:onTakeHit(value, src)
 		local leech = math.min(value, self.life) * src.life_leech_value / 100
 		if leech > 0 then
 			src:heal(leech)
-			game.logSeen(src, "#CRIMSON#%s leeches life from its victim!", src.name:capitalize())
+			--@@
+			local srn = src.kr_display_name or src.name 
+			game.logSeen(src, "#CRIMSON#%s 희생자로부터 생명력을 갈취했다!", srn:capitalize():addJosa("는"))
 		end
 	end
 
@@ -2076,7 +2123,9 @@ function _M:onTakeHit(value, src)
 		src:incStamina(leech * 0.65)
 		src:incHate(leech * 0.2)
 		src:incPsi(leech * 0.2)
-		game.logSeen(src, "#CRIMSON#%s leeches energies from its victim!", src.name:capitalize())
+		--@@
+		local srn = src.kr_display_name or src.name 
+		game.logSeen(src, "#CRIMSON#%s 희생자로부터 에너지를 갈취했다!", srn:capitalize():addJosa("는"))
 	end
 
 	if self:knowTalent(self.T_DRACONIC_BODY) then
@@ -2153,7 +2202,7 @@ function _M:die(src, death_note)
 
 	-- Hack: even if the boss dies from something else, give the player exp
 	if (not killer or not killer.player) and self.rank > 3 and not game.party:hasMember(self) then
-		game.logPlayer(game.player, "You feel a surge of power as a powerful creature falls nearby.")
+		game.logPlayer(game.player, "가까이있던 강력한 존재의 죽음으로 힘이 몰려옴을 느꼈다.")
 		killer = game.player:resolveSource()
 		killer:gainExp(self:worthExp(killer))
 	end
@@ -2265,7 +2314,9 @@ function _M:die(src, death_note)
 	if src and src.summoner and src.summoner_hate_per_kill then
 		if src.summoner.knowTalent and src.summoner:knowTalent(src.summoner.T_HATE_POOL) then
 			src.summoner.hate = math.min(src.summoner.max_hate, src.summoner.hate + src.summoner_hate_per_kill)
-			game.logPlayer(src.summoner, "%s feeds you hate from it's latest victim. (+%d hate)", src.name:capitalize(), src.summoner_hate_per_kill)
+			--@@
+			local srn = src.kr_display_name or src.name
+			game.logPlayer(src.summoner, "%s 그의 마지막 희생자로부터 증오심을 받아간다. (증오심 +%d)", srn:capitalize():addJosa("는"), src.summoner_hate_per_kill)
 		end
 	end
 
@@ -2340,7 +2391,7 @@ function _M:die(src, death_note)
 		local kill = true
 		game:onTickEnd(function()
 			if game._chronoworlds == nil then
-				game.logPlayer(game.player, "#LIGHT_RED#The cease to exist spell fizzles and cancels, leaving the timeline intact.")
+				game.logPlayer(game.player, "#LIGHT_RED#The cease to exist spell fizzles and cancels, leaving the timeline intact.") --@@ 번역필요
 				kill = false
 				return
 			end
@@ -2543,17 +2594,19 @@ function _M:levelup()
 	-- Notify party levelups
 	if self.x and self.y and game.party:hasMember(self) and not self.silent_levelup then
 		local x, y = game.level.map:getTileToScreen(self.x, self.y)
-		game.flyers:add(x, y, 80, 0.5, -2, "LEVEL UP!", {0,255,255})
-		game.log("#00ffff#Welcome to level %d [%s].", self.level, self.name:capitalize())
-		local more = "Press p to use them."
-		if game.player ~= self then more = "Select "..self.name.. " in the party list and press G to use them." end
+		--@@
+		local sn = self.kr_display_name or self.name
+		game.flyers:add(x, y, 80, 0.5, -2, "레벨 상승!", {0,255,255})
+		game.log("#00ffff#레벨 %d이 된걸 환영합니다 [%s].", self.level, sn:capitalize())
+		local more = "사용하려면 'p'키를 누르세요."
+		if game.player ~= self then more = sn:addJosa("를").. "파티 목록에서 선택한 뒤 G키를 눌러 사용하세요" end
 		local points = {}
-		if self.unused_stats > 0 then points[#points+1] = ("%d stat point(s)"):format(self.unused_stats) end
-		if self.unused_talents > 0 then points[#points+1] = ("%d class talent point(s)"):format(self.unused_talents) end
-		if self.unused_generics > 0 then points[#points+1] = ("%d generic talent point(s)"):format(self.unused_generics) end
-		if self.unused_talents_types > 0 then points[#points+1] = ("%d category point(s)"):format(self.unused_talents_types) end
-		if self.unused_prodigies > 0 then points[#points+1] = ("#VIOLET#%d prodigies point(s)#WHITE#"):format(self.unused_prodigies) end
-		if #points > 0 then game.log("%s has %s to spend. %s", self.name:capitalize(), table.concat(points, ", "), more) end
+		if self.unused_stats > 0 then points[#points+1] = ("능력치 점수 %d점"):format(self.unused_stats) end
+		if self.unused_talents > 0 then points[#points+1] = ("직업 기술 점수 %d점"):format(self.unused_talents) end
+		if self.unused_generics > 0 then points[#points+1] = ("일반 기술 점수 %d점"):format(self.unused_generics) end
+		if self.unused_talents_types > 0 then points[#points+1] = ("기술 계열 점수 %d점"):format(self.unused_talents_types) end
+		if self.unused_prodigies > 0 then points[#points+1] = ("#VIOLET#특수 기술 점수 %d점#WHITE#"):format(self.unused_prodigies) end
+		if #points > 0 then game.log("%s 사용할 수 있는 %s이 남아 있습니다. %s", sn:capitalize():addJosa("가"), table.concat(points, ", "), more) end
 
 		if self.level == 10 then world:gainAchievement("LEVEL_10", self) end
 		if self.level == 20 then world:gainAchievement("LEVEL_20", self) end
@@ -2570,7 +2623,7 @@ function _M:levelup()
 			self.level == 35
 			) then
 			self.easy_mode_lifes = (self.easy_mode_lifes or 0) + 1
-			game.logPlayer(self, "#AQUAMARINE#You have gained one more life (%d remaining).", self.easy_mode_lifes)
+			game.logPlayer(self, "#AQUAMARINE#당신의 생명이 하나 늘어났습니다 (%d개 남음).", self.easy_mode_lifes)
 		end
 		game:updateCurrentChar()
 
@@ -2653,8 +2706,8 @@ function _M:checkEncumbrance()
 
 	-- We are pinned to the ground if we carry too much
 	if not self.encumbered and enc > max then
-		game.logPlayer(self, "#FF0000#You carry too much--you are encumbered!")
-		game.logPlayer(self, "#FF0000#Drop some of your items.")
+		game.logPlayer(self, "#FF0000#가진 것이 너무 많아, 무겁습니다!")
+		game.logPlayer(self, "#FF0000#아이템을 좀 버리세요.")
 		self.encumbered = self:addTemporaryValue("never_move", 1)
 
 		if self.x and self.y then
@@ -2664,7 +2717,7 @@ function _M:checkEncumbrance()
 	elseif self.encumbered and enc <= max then
 		self:removeTemporaryValue("never_move", self.encumbered)
 		self.encumbered = nil
-		game.logPlayer(self, "#00FF00#You are no longer encumbered.")
+		game.logPlayer(self, "#00FF00#이제 더이상 무겁지 않습니다.")
 
 		if self.x and self.y then
 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
@@ -3254,24 +3307,24 @@ local previous_incParadox = _M.incParadox
 function _M:incParadox(paradox)
 	-- Failure checks
 	if self:getModifiedParadox() < 200 and self:getModifiedParadox() + paradox >= 200 then
-		game.logPlayer(self, "#LIGHT_RED#You feel the edges of time begin to fray!")
+		game.logPlayer(self, "#LIGHT_RED#시간의 가장자리가 닳기 시작함을 느낀다!")
 	end
 	if self:getModifiedParadox() > 200 and self:getModifiedParadox() + paradox <= 200 then
-		game.logPlayer(self, "#LIGHT_BLUE#Time feels more stable.")
+		game.logPlayer(self, "#LIGHT_BLUE#시간이 훨씬 안정적으로 느껴진다.")
 	end
 	-- Anomaly checks
 	if self:getModifiedParadox() < 300 and self:getModifiedParadox() + paradox >= 300 then
-		game.logPlayer(self, "#LIGHT_RED#You feel the edges of space begin to ripple and bend!")
+		game.logPlayer(self, "#LIGHT_RED#공간의 가장자리가 잘게 흔들리면서 휘기 시작하는 것을 느낀다!")
 	end
 	if self:getModifiedParadox() > 300 and self:getModifiedParadox() + paradox <= 300 then
-		game.logPlayer(self, "#LIGHT_BLUE#Space feels more stable.")
+		game.logPlayer(self, "#LIGHT_BLUE#공간이 훨씬 안정적으로 느껴진다.")
 	end
 	-- Backfire checks
 	if self:getModifiedParadox() < 400 and self:getModifiedParadox() + paradox >= 400 then
-		game.logPlayer(self, "#LIGHT_RED#Space and time both fight against your control!")
+		game.logPlayer(self, "#LIGHT_RED#시공간이 당신의 조종과 충돌한다!")
 	end
 	if self:getParadox() > 400 and self:getParadox() + paradox <= 400 then
-		game.logPlayer(self, "#LIGHT_BLUE#Space and time have calmed...  somewhat.")
+		game.logPlayer(self, "#LIGHT_BLUE#시공간이 약간 진정되었다...")
 	end
 	return previous_incParadox(self, paradox)
 end
@@ -3377,27 +3430,31 @@ end
 -- @param ab the talent (not the id, the table)
 -- @return true to continue, false to stop
 function _M:preUseTalent(ab, silent, fake)
+	--@@
+	local sn = self.kr_display_name or self.name
+	local abn = ab.kr_display_name or ab.name
+	
 	if self:attr("feared") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) then
-		if not silent then game.logSeen(self, "%s is too afraid to use %s.", self.name:capitalize(), ab.name) end
+		if not silent then game.logSeen(self, "%s %s 사용할 수 없을만큼 무섭습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를")) end
 		return false
 	end
 	-- When silenced you can deactivate spells but not activate them
 	if ab.no_silence and self:attr("silence") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) then
-		if not silent then game.logSeen(self, "%s is silenced and cannot use %s.", self.name:capitalize(), ab.name) end
+		if not silent then game.logSeen(self, "%s 침묵상태이므로 %s 사용할 수 없습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를")) end
 		return false
 	end
 	if ab.is_spell and self:attr("forbid_arcane") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) then
-		if not silent then game.logSeen(self, "The spell fizzles.") end
+		if not silent then game.logSeen(self, "주문이 실패했습니다.") end
 		return false
 	end
 	-- Nature is forbidden to undead (just wild-gifts for now)
 	if ab.is_nature and self:attr("forbid_nature") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) then
-		if not silent then game.logSeen(self, "%s is too disconnected from Nature to use %s.", self.name:capitalize(), ab.name) end
+		if not silent then game.logSeen(self, "%s %s 사용하기에는 자연과 너무 떨어져 있습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를")) end
 		return false
 	end
 
 	if ab.is_inscription and self.inscription_restrictions and not self.inscription_restrictions[ab.type[1]] then
-		if not silent then game.logSeen(self, "%s is unable to use this kind of inscription.", self.name:capitalize()) end
+		if not silent then game.logSeen(self, "%s 이 종류의 각인을 사용할 수 없습니다.", sn:capitalize():addJosa("는")) end
 		return
 	end
 
@@ -3405,11 +3462,11 @@ function _M:preUseTalent(ab, silent, fake)
 	if ab.is_unarmed and not (ab.mode == "sustained" and self:isTalentActive(ab.id)) then
 		-- first check for heavy and massive armor
 		if self:hasMassiveArmor() then
-			if not silent then game.logSeen(self, "You are too heavily armoured to use this talent.") end
+			if not silent then game.logSeen(self, "당신은 이 기술을 사용하기에는 너무 무거운 무장을 갖추고 있습니다.") end
 			return false
 		-- next make sure we're unarmed
 		elseif not self:isUnarmed() then
-			if not silent then game.logSeen(self, "You can't use this talent while holding a weapon or shield.") end
+			if not silent then game.logSeen(self, "무기나 방패를 쥐고있으면 이 기술을 사용할 수 없습니다.") end
 			return false
 		end
 	end
@@ -3419,68 +3476,68 @@ function _M:preUseTalent(ab, silent, fake)
 
 	if ab.mode == "sustained" then
 		if ab.sustain_mana and self.max_mana < ab.sustain_mana and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough mana to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 마나가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_stamina and self.max_stamina < ab.sustain_stamina and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough stamina to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 체력이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_vim and self.max_vim < ab.sustain_vim and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough vim to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 정력이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_positive and self.max_positive < ab.sustain_positive and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough positive energy to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 양기가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_negative and self.max_negative < ab.sustain_negative and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough negative energy to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 음기가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_hate and self.max_hate < ab.sustain_hate and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough hate to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 증오심이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_psi and self.max_psi < ab.sustain_psi and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "You do not have enough energy to activate %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 염력이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 	elseif not self:attr("force_talent_ignore_ressources") then
 		if ab.mana and self:getMana() < util.getval(ab.mana, self, ab) * (100 + 2 * self:combatFatigue()) / 100 then
-			if not silent then game.logPlayer(self, "You do not have enough mana to cast %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 마나가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.stamina and self:getStamina() < ab.stamina * (100 + self:combatFatigue()) / 100 and (not self:hasEffect(self.EFF_ADRENALINE_SURGE) or self.life < ab.stamina * (100 + self:combatFatigue()) / 100) then
-			if not silent then game.logPlayer(self, "You do not have enough stamina to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 체력이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.vim and self:getVim() < ab.vim and (not self:attr("bloodcasting") or self.life < ab.vim) then
-			if not silent then game.logPlayer(self, "You do not have enough vim to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 정력이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.positive and self:getPositive() < ab.positive * (100 + self:combatFatigue()) / 100 then
-			if not silent then game.logPlayer(self, "You do not have enough positive energy to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 양기가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.negative and self:getNegative() < ab.negative * (100 + self:combatFatigue()) / 100 then
-			if not silent then game.logPlayer(self, "You do not have enough negative energy to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 음기가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.hate and self:getHate() < ab.hate * (100 + self:combatFatigue()) / 100 then
-			if not silent then game.logPlayer(self, "You do not have enough hate to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 증오심이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.psi and self:getPsi() < ab.psi * (100 + 2 * self:combatFatigue()) / 100 then
-			if not silent then game.logPlayer(self, "You do not have enough energy to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 염력이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.feedback and self:getFeedback() < ab.feedback * (100 + 2 * self:combatFatigue()) / 100 then
-			if not silent then game.logPlayer(self, "You do not have enough feedback to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 반작용이 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.fortress_energy and game:getPlayer(true):hasQuest("shertul-fortress") and game:getPlayer(true):hasQuest("shertul-fortress").shertul_energy < ab.fortress_energy then
-			if not silent then game.logPlayer(self, "You do not have enough fortress energy to use %s.", ab.name) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 요새 에너지가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 	end
@@ -3490,7 +3547,7 @@ function _M:preUseTalent(ab, silent, fake)
 	if (ab.equilibrium or (ab.sustain_equilibrium and not self:isTalentActive(ab.id))) and not fake and not self:attr("force_talent_ignore_ressources") then
 		-- Fail ? lose energy and 1/10 more equilibrium
 		if (not self:attr("no_equilibrium_fail") and (not self:attr("no_equilibrium_summon_fail") or not ab.is_summon)) and not self:equilibriumChance(ab.equilibrium or ab.sustain_equilibrium) then
-			if not silent then game.logPlayer(self, "You fail to use %s due to your equilibrium!", ab.name) end
+			if not silent then game.logPlayer(self, "당신의 평정 상태에 의하여 %s 사용하는데 실패했습니다!", abn:addJosa("를")) end
 			self:incEquilibrium((ab.equilibrium or ab.sustain_equilibrium) / 10)
 			self:useEnergy()
 			return false
@@ -3500,7 +3557,7 @@ function _M:preUseTalent(ab, silent, fake)
 	-- Spells can fail
 	if (ab.is_spell and not self:isTalentActive(ab.id)) and not fake and self:attr("spell_failure") then
 		if rng.percent(self:attr("spell_failure")) then
-			if not silent then game.logSeen(self, "%s's %s has been disrupted by #ORCHID#anti-magic forces#LAST#!", self.name:capitalize(), ab.name) end
+			if not silent then game.logSeen(self, "%s의 %s #ORCHID#반마법장#LAST#에 의해 중단되었습니다!", sn:capitalize(), abn:addJosa("는")) end
 			self:useEnergy()
 			return false
 		end
@@ -3516,7 +3573,7 @@ function _M:preUseTalent(ab, silent, fake)
 			for id, t in pairs(self.talents_def) do
 				if t.type[1] == "chronomancy/anomalies" then ts[#ts+1] = id end
 			end
-			if not silent then game.logPlayer(self, "#LIGHT_RED#You lose control and unleash an anomaly!") end
+			if not silent then game.logPlayer(self, "#LIGHT_RED#당신은 제어를 잃었고, 이상현상이 발생했습니다!") end
 			self:forceUseTalent(rng.table(ts), {ignore_energy=true})
 			-- Anomalies correct the timeline and reduce Paradox
 			self:incParadox(- (ab.paradox and (ab.paradox * paradox_scaling) or ab.sustain_paradox) * 2)
@@ -3525,7 +3582,7 @@ function _M:preUseTalent(ab, silent, fake)
 			return false
 		-- Now check for failure
 		elseif not self:attr("no_paradox_fail") and self:paradoxFailChance() and not self:hasEffect(self.EFF_SPACETIME_STABILITY) then
-			if not silent then game.logPlayer(self, "#LIGHT_RED#You fail to use %s due to your paradox!", ab.name) end
+			if not silent then game.logPlayer(self, "#LIGHT_RED#당신의 괴리 상태에 의해 %s 사용하는데 실패했습니다!", abn:addJosa("를")) end
 			self:incParadox(ab.paradox and (ab.paradox * paradox_scaling) or ab.sustain_paradox)
 			self:useEnergy()
 			game:playSoundNear(self, "talents/dispel")
@@ -3536,7 +3593,7 @@ function _M:preUseTalent(ab, silent, fake)
 	-- Confused ? lose a turn!
 	if self:attr("confused") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) and ab.no_energy ~= true and not fake and not self:attr("force_talent_ignore_ressources") then
 		if rng.percent(self:attr("confused")) then
-			if not silent then game.logSeen(self, "%s is confused and fails to use %s.", self.name:capitalize(), ab.name) end
+			if not silent then game.logSeen(self, "%s 혼란스러워 %s 사용하는데 실패했습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를")) end
 			self:useEnergy()
 			return false
 		end
@@ -3545,7 +3602,7 @@ function _M:preUseTalent(ab, silent, fake)
 	-- Failure chance?
 	if self:attr("talent_fail_chance") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) and ab.no_energy ~= true and not fake and not self:attr("force_talent_ignore_ressources") then
 		if rng.percent(self:attr("talent_fail_chance")) then
-			if not silent then game.logSeen(self, "%s fails to use %s.", self.name:capitalize(), ab.name) end
+			if not silent then game.logSeen(self, "%s %s 사용하는데 실패했습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를")) end
 			self:useEnergy()
 			return false
 		end
@@ -3555,7 +3612,7 @@ function _M:preUseTalent(ab, silent, fake)
 	if self:attr("terrified") and (ab.mode ~= "sustained" or not self:isTalentActive(ab.id)) and ab.no_energy ~= true and not fake and not self:attr("force_talent_ignore_ressources") then
 		local eff = self:hasEffect(self.EFF_TERRIFIED)
 		if rng.percent(self:attr("terrified")) then
-			if not silent then game.logSeen(self, "%s is too terrified to use %s.", self.name:capitalize(), ab.name) end
+			if not silent then game.logSeen(self, "%s %s 사용할 수 없을만큼 두렵습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를")) end
 			self:useEnergy()
 			return false
 		end
@@ -3577,13 +3634,13 @@ function _M:preUseTalent(ab, silent, fake)
 				game.logSeen(self, "%s", self:useTalentMessage(ab))
 			end
 		elseif ab.mode == "sustained" and not self:isTalentActive(ab.id) then
-			game.logSeen(self, "%s activates %s.", self.name:capitalize(), ab.name)
+			game.logSeen(self, "%s %s 활성화 했습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를"))
 		elseif ab.mode == "sustained" and self:isTalentActive(ab.id) then
-			game.logSeen(self, "%s deactivates %s.", self.name:capitalize(), ab.name)
+			game.logSeen(self, "%s %s 비활성화 했습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를"))
 		elseif ab.is_spell then
-			game.logSeen(self, "%s casts %s.", self.name:capitalize(), ab.name)
-		elseif not ab.no_message then
-			game.logSeen(self, "%s uses %s.", self.name:capitalize(), ab.name)
+			game.logSeen(self, "%s %s 주문을 사용했습니다.", sn:capitalize():addJosa("는"), abn)
+		else
+			game.logSeen(self, "%s %s 사용했습니다.", sn:capitalize():addJosa("는"), abn:addJosa("를"))
 		end
 	end
 
@@ -3887,12 +3944,12 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 
 	local d = tstring{}
 
-	d:add({"color",0x6f,0xff,0x83}, "Effective talent level: ", {"color",0x00,0xFF,0x00}, ("%.1f"):format(self:getTalentLevel(t)), true)
+	d:add({"color",0x6f,0xff,0x83}, "실질 기술 레벨: ", {"color",0x00,0xFF,0x00}, ("%.1f"):format(self:getTalentLevel(t)), true)
 
 	if not config.ignore_mode then
-		if t.mode == "passive" then d:add({"color",0x6f,0xff,0x83}, "Use mode: ", {"color",0x00,0xFF,0x00}, "Passive", true)
-		elseif t.mode == "sustained" then d:add({"color",0x6f,0xff,0x83}, "Use mode: ", {"color",0x00,0xFF,0x00}, "Sustained", true)
-		else d:add({"color",0x6f,0xff,0x83}, "Use mode: ", {"color",0x00,0xFF,0x00}, "Activated", true)
+		if t.mode == "passive" then d:add({"color",0x6f,0xff,0x83}, "사용 형태: ", {"color",0x00,0xFF,0x00}, "지속형", true)
+		elseif t.mode == "sustained" then d:add({"color",0x6f,0xff,0x83}, "사용 형태: ", {"color",0x00,0xFF,0x00}, "유지형", true)
+		else d:add({"color",0x6f,0xff,0x83}, "사용 형태: ", {"color",0x00,0xFF,0x00}, "사용형", true)
 		end
 	end
 
@@ -3901,62 +3958,62 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 		d:add(true)
 	end
 	if not config.ignore_ressources then
-		if t.mana then d:add({"color",0x6f,0xff,0x83}, "Mana cost: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.mana, self, t) * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.stamina then d:add({"color",0x6f,0xff,0x83}, "Stamina cost: ", {"color",0xff,0xcc,0x80}, ""..(t.stamina * (100 + self:combatFatigue()) / 100), true) end
-		if t.equilibrium then d:add({"color",0x6f,0xff,0x83}, "Equilibrium cost: ", {"color",0x00,0xff,0x74}, ""..(t.equilibrium), true) end
-		if t.vim then d:add({"color",0x6f,0xff,0x83}, "Vim cost: ", {"color",0x88,0x88,0x88}, ""..(t.vim), true) end
-		if t.positive then d:add({"color",0x6f,0xff,0x83}, "Positive energy cost: ", {"color",255, 215, 0}, ""..(t.positive * (100 + self:combatFatigue()) / 100), true) end
-		if t.negative then d:add({"color",0x6f,0xff,0x83}, "Negative energy cost: ", {"color", 127, 127, 127}, ""..(t.negative * (100 + self:combatFatigue()) / 100), true) end
-		if t.hate then d:add({"color",0x6f,0xff,0x83}, "Hate cost:  ", {"color", 127, 127, 127}, ""..(t.hate * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.paradox then d:add({"color",0x6f,0xff,0x83}, "Paradox cost: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.paradox * (1 + (self.paradox / 300))), true) end
-		if t.psi then d:add({"color",0x6f,0xff,0x83}, "Psi cost: ", {"color",0x7f,0xff,0xd4}, ""..(t.psi * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.feedback then d:add({"color",0x6f,0xff,0x83}, "Feedback cost: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.feedback * (100 + 2 * self:combatFatigue()) / 100), true) end
-		if t.fortress_energy then d:add({"color",0x6f,0xff,0x83}, "Fortress Energy cost: ", {"color",0x00,0xff,0xa0}, ""..(t.fortress_energy), true) end
+		if t.mana then d:add({"color",0x6f,0xff,0x83}, "마나 소모량: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.mana, self, t) * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.stamina then d:add({"color",0x6f,0xff,0x83}, "체력 소모량: ", {"color",0xff,0xcc,0x80}, ""..(t.stamina * (100 + self:combatFatigue()) / 100), true) end
+		if t.equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 증가량: ", {"color",0x00,0xff,0x74}, ""..(t.equilibrium), true) end
+		if t.vim then d:add({"color",0x6f,0xff,0x83}, "정력 소모량: ", {"color",0x88,0x88,0x88}, ""..(t.vim), true) end
+		if t.positive then d:add({"color",0x6f,0xff,0x83}, "양기 소모량: ", {"color",255, 215, 0}, ""..(t.positive * (100 + self:combatFatigue()) / 100), true) end
+		if t.negative then d:add({"color",0x6f,0xff,0x83}, "음기 소모량: ", {"color", 127, 127, 127}, ""..(t.negative * (100 + self:combatFatigue()) / 100), true) end
+		if t.hate then d:add({"color",0x6f,0xff,0x83}, "증오심 소모량:  ", {"color", 127, 127, 127}, ""..(t.hate * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.paradox then d:add({"color",0x6f,0xff,0x83}, "괴리 증가량: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.paradox * (1 + (self.paradox / 300))), true) end
+		if t.psi then d:add({"color",0x6f,0xff,0x83}, "염력 소모량: ", {"color",0x7f,0xff,0xd4}, ""..(t.psi * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.feedback then d:add({"color",0x6f,0xff,0x83}, "반작용 소모량: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.feedback * (100 + 2 * self:combatFatigue()) / 100), true) end
+		if t.fortress_energy then d:add({"color",0x6f,0xff,0x83}, "요새 에너지 소모량: ", {"color",0x00,0xff,0xa0}, ""..(t.fortress_energy), true) end
 
-		if t.sustain_mana then d:add({"color",0x6f,0xff,0x83}, "Sustain mana cost: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.sustain_mana, self, t)), true) end
-		if t.sustain_stamina then d:add({"color",0x6f,0xff,0x83}, "Sustain stamina cost: ", {"color",0xff,0xcc,0x80}, ""..(t.sustain_stamina), true) end
-		if t.sustain_equilibrium then d:add({"color",0x6f,0xff,0x83}, "Sustain equilibrium cost: ", {"color",0x00,0xff,0x74}, ""..(t.sustain_equilibrium), true) end
-		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "Sustain vim cost: ", {"color",0x88,0x88,0x88}, ""..(t.sustain_vim), true) end
-		if t.sustain_positive then d:add({"color",0x6f,0xff,0x83}, "Sustain positive energy cost: ", {"color",255, 215, 0}, ""..(t.sustain_positive), true) end
-		if t.sustain_negative then d:add({"color",0x6f,0xff,0x83}, "Sustain negative energy cost: ", {"color", 127, 127, 127}, ""..(t.sustain_negative), true) end
-		if t.sustain_hate then d:add({"color",0x6f,0xff,0x83}, "Sustain hate cost:  ", {"color", 127, 127, 127}, ""..(t.sustain_hate), true) end
-		if t.sustain_paradox then d:add({"color",0x6f,0xff,0x83}, "Sustain paradox cost: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.sustain_paradox), true) end
-		if t.sustain_psi then d:add({"color",0x6f,0xff,0x83}, "Sustain psi cost: ", {"color",0x7f,0xff,0xd4}, ""..(t.sustain_psi), true) end
-		if t.sustain_feedback then d:add({"color",0x6f,0xff,0x83}, "Sustain feedback cost: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.sustain_feedback), true) end
+		if t.sustain_mana then d:add({"color",0x6f,0xff,0x83}, "마나 유지량: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.sustain_mana, self, t)), true) end
+		if t.sustain_stamina then d:add({"color",0x6f,0xff,0x83}, "체력 유지량: ", {"color",0xff,0xcc,0x80}, ""..(t.sustain_stamina), true) end
+		if t.sustain_equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 유지량: ", {"color",0x00,0xff,0x74}, ""..(t.sustain_equilibrium), true) end
+		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "정력 유지량: ", {"color",0x88,0x88,0x88}, ""..(t.sustain_vim), true) end
+		if t.sustain_positive then d:add({"color",0x6f,0xff,0x83}, "양기 유지량: ", {"color",255, 215, 0}, ""..(t.sustain_positive), true) end
+		if t.sustain_negative then d:add({"color",0x6f,0xff,0x83}, "음기 유지량: ", {"color", 127, 127, 127}, ""..(t.sustain_negative), true) end
+		if t.sustain_hate then d:add({"color",0x6f,0xff,0x83}, "증오심 유지량:  ", {"color", 127, 127, 127}, ""..(t.sustain_hate), true) end
+		if t.sustain_paradox then d:add({"color",0x6f,0xff,0x83}, "괴리 유지량: ", {"color",  176, 196, 222}, ("%0.2f"):format(t.sustain_paradox), true) end
+		if t.sustain_psi then d:add({"color",0x6f,0xff,0x83}, "염력 유지량: ", {"color",0x7f,0xff,0xd4}, ""..(t.sustain_psi), true) end
+		if t.sustain_feedback then d:add({"color",0x6f,0xff,0x83}, "반작용 유지량: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.sustain_feedback), true) end
 	end
 	if t.mode ~= "passive" then
-		if self:getTalentRange(t) > 1 then d:add({"color",0x6f,0xff,0x83}, "Range: ", {"color",0xFF,0xFF,0xFF}, ("%0.2f"):format(self:getTalentRange(t)), true)
-		else d:add({"color",0x6f,0xff,0x83}, "Range: ", {"color",0xFF,0xFF,0xFF}, "melee/personal", true)
+		if self:getTalentRange(t) > 1 then d:add({"color",0x6f,0xff,0x83}, "사정거리: ", {"color",0xFF,0xFF,0xFF}, ("%0.2f"):format(self:getTalentRange(t)), true)
+		else d:add({"color",0x6f,0xff,0x83}, "사정거리: ", {"color",0xFF,0xFF,0xFF}, "근접", true)
 		end
 		if not config.ignore_ressources then
-			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "Cooldown: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
+			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "재사용 대기시간: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
 		end
 		local speed = self:getTalentProjectileSpeed(t)
-		if speed then d:add({"color",0x6f,0xff,0x83}, "Travel Speed: ", {"color",0xFF,0xFF,0xFF}, ""..(speed * 100).."% of base", true)
-		else d:add({"color",0x6f,0xff,0x83}, "Travel Speed: ", {"color",0xFF,0xFF,0xFF}, "instantaneous", true)
+		if speed then d:add({"color",0x6f,0xff,0x83}, "발사체 속도: ", {"color",0xFF,0xFF,0xFF}, "기본 속도의 "..(speed * 100).."%", true)
+		else d:add({"color",0x6f,0xff,0x83}, "발사체 속도: ", {"color",0xFF,0xFF,0xFF}, "즉시명중", true)
 		end
 		if not config.ignore_use_time then
-			local uspeed = "1 turn"
-			if t.no_energy and type(t.no_energy) == "boolean" and t.no_energy == true then uspeed = "instant" end
-			d:add({"color",0x6f,0xff,0x83}, "Usage Speed: ", {"color",0xFF,0xFF,0xFF}, uspeed, true)
+			local uspeed = "1 턴"
+			if t.no_energy and type(t.no_energy) == "boolean" and t.no_energy == true then uspeed = "즉시사용" end
+			d:add({"color",0x6f,0xff,0x83}, "사용 속도: ", {"color",0xFF,0xFF,0xFF}, uspeed, true)
 		end
 		local is_a = {}
-		if t.is_spell then is_a[#is_a+1] = "a spell" end
-		if t.is_mind then is_a[#is_a+1] = "a mind power" end
-		if t.is_nature then is_a[#is_a+1] = "a nature gift" end
-		if t.is_summon then is_a[#is_a+1] = " a summon power" end
+		if t.is_spell then is_a[#is_a+1] = "주문" end
+		if t.is_mind then is_a[#is_a+1] = "정신 능력" end
+		if t.is_nature then is_a[#is_a+1] = "자연의 힘" end
+		if t.is_summon then is_a[#is_a+1] = " 소환 능력" end
 		if #is_a > 0 then
-			d:add({"color",0x6f,0xff,0x83}, "Is: ", {"color",0xFF,0xFF,0xFF}, table.concatNice(is_a, ", ", " and "), true)
+			d:add({"color",0x6f,0xff,0x83}, "분류: ", {"color",0xFF,0xFF,0xFF}, table.concatNice(is_a, ", ", " 그리고 "), true)
 		end
 	else
 		if not config.ignore_ressources then
-			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "Cooldown: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
+			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "재사용 대기시간: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end
 		end
 	end
 
 	self:triggerHook{"Actor:getTalentFullDescription", str=d, t=t, addlevel=addlevel, config=config, fake_mastery=fake_mastery}
 
-	d:add({"color",0x6f,0xff,0x83}, "Description: ", {"color",0xFF,0xFF,0xFF})
+	d:add({"color",0x6f,0xff,0x83}, "설명: ", {"color",0xFF,0xFF,0xFF})
 	d:merge(t.info(self, t):toTString():tokenize(" ()[]"))
 
 	self.talents[t.id] = old
@@ -4024,33 +4081,36 @@ end
 --- Setups a talent automatic use
 function _M:checkSetTalentAuto(tid, v, opt)
 	local t = self:getTalentFromId(tid)
+	--@@
+	local tn = t.kr_display_name or t.name
+	
 	if v then
 		local doit = function()
 			self:setTalentAuto(tid, true, opt)
-			Dialog:simplePopup("Automatic use enabled", t.name:capitalize().." will now be used as often as possible automatically.")
+			Dialog:simpleLongPopup("자동사용 설정", tn:capitalize():addJosa("는").." 이제 가능한 경우 자동으로 사용될 것입니다.", game.w * 0.4)
 		end
 
 		local list = {}
-		if t.no_energy ~= true then list[#list+1] = "- requires a turn to use" end
-		if t.requires_target then list[#list+1] = "- requires a target, your last hostile one will be automatically used" end
+		if t.no_energy ~= true then list[#list+1] = "- 사용하는데 시간이 걸립니다." end
+		if t.requires_target then list[#list+1] = "- 마지막으로 선택한 적이 자동으로 목표가 됩니다" end
 		if t.auto_use_warning then list[#list+1] = t.auto_use_warning end
 		if opt == 2 then 
-			list[#list+1] = "- will only trigger if no enemies are visible" 
-			list[#list+1] = "- will automatically target you if a target is required" 
+			list[#list+1] = "- 시야에 적이 없을때에만 사용합니다" 
+			list[#list+1] = "- 목표가 필요한 경우 자동으로 자신을 목표로 합니다"
 		end
-		if opt == 3 then list[#list+1] = "- will only trigger if enemies are visible" end
-		if opt == 4 then list[#list+1] = "- will only trigger if enemies are visible and adjacent" end
+		if opt == 3 then list[#list+1] = "- 시야에 적이 있을때에만 사용합니다" end
+		if opt == 4 then list[#list+1] = "- 시야에 근접한 적이 있을때에만 사용합니다" end
 
 		if #list == 0 then
 			doit()
 		else
-			Dialog:yesnoLongPopup("Automatic use", t.name:capitalize()..":\n"..table.concat(list, "\n").."\n Are you sure?", 500, function(ret)
+			Dialog:yesnoLongPopup("자동사용", tn:capitalize()..":\n"..table.concat(list, "\n").."\n 정말 자동으로 사용합니까?", 500, function(ret)
 				if ret then doit() end
 			end)
 		end
 	else
 		self:setTalentAuto(tid, false)
-		Dialog:simplePopup("Automatic use disabled", t.name:capitalize().." will not be automatically used.")
+		Dialog:simpleLongPopup("자동사용 해제", tn:capitalize():addJosa("는").." 더이상 자동으로 사용되지 않습니다.", game.w * 0.4)
 	end
 end
 
@@ -4119,8 +4179,10 @@ function _M:suffocate(value, src, death_message)
 	self.air = self.air - value
 	local ae = game.level.map(self.x, self.y, Map.ACTOR)
 	if self.air <= 0 then
-		game.logSeen(self, "%s suffocates to death!", self.name:capitalize())
-		return self:die(src, {special_death_msg=death_message or "suffocated to death"}), true
+		--@@
+		local sn = self.kr_display_name or self.name
+		game.logSeen(self, "%s 죽을만큼 숨이 막힙니다!", sn:capitalize():addJosa("는"))
+		return self:die(src, {special_death_msg=death_message or "숨막혀 죽음"}), true
 	end
 	return false, true
 end
@@ -4332,7 +4394,10 @@ function _M:on_set_temporary_effect(eff_id, e, p)
 		p.total_dur = p.dur
 
 		if e.status == "detrimental" and self:checkHit(save, p.apply_power, 0, 95) and p.dur > 0 then
-			game.logSeen(self, "#ORANGE#%s shrugs off the effect '%s'!", self.name:capitalize(), e.desc)
+			--@@
+			local sn = self.kr_display_name or self.name
+			local ed = e.kr_display_name or e.desc
+			game.logSeen(self, "#ORANGE#%s '%s' 효과를 벗어납니다!", sn:capitalize():addJosa("는"), ed)
 			p.dur = 0
 		end
 
@@ -4393,11 +4458,14 @@ function _M:on_project_acquire(tx, ty, who, t, x, y, damtype, dam, particles, is
 		
 		local dir = game.level.map:compassDirection(mods.x-x, mods.y-y)
 		if not dir then
-			dir = "but fumbles!"
+			dir = "실수로"
 		else
-			dir = "to the "..dir.."!"
+			dir = ""..dir.."에서"
 		end
-		game.logSeen(self, "%s deflects the projectile from %s %s", self.name:capitalize(), who.name, dir)
+		--@@
+		local sn = self.kr_display_name or self.name
+		local whn = who.kr_display_name or who.name
+		game.logSeen(self, "%s %s %s 보낸 발사체를 굴절시켰습니다!", sn:capitalize():addJosa("는"), whn:addJosa("가"), dir)
 		return true
 	end
 end
@@ -4405,9 +4473,12 @@ end
 --- Called when we are projected upon
 -- This is used to do spell reflection, antimagic, ...
 function _M:on_project(tx, ty, who, t, x, y, damtype, dam, particles)
+	--@@
+	local sn = self.kr_display_name or self.name
+	
 	-- Spell reflect
 	if self:attr("spell_reflect") and (t.talent and t.talent.reflectable and t.talent.is_spell) and rng.percent(self:attr("spell_reflect")) then
-		game.logSeen(self, "%s reflects the spell!", self.name:capitalize())
+		game.logSeen(self, "%s 주문을 반사시켰습니다!", sn:capitalize():addJosa("는"))
 		-- Setup the bypass so it does not eternally reflect between two actors
 		t.bypass = true
 		who:project(t, x, y, damtype, dam, particles)
@@ -4416,7 +4487,7 @@ function _M:on_project(tx, ty, who, t, x, y, damtype, dam, particles)
 
 	-- Spell absorb
 	if self:attr("spell_absorb") and (t.talent and t.talent.is_spell) and rng.percent(self:attr("spell_absorb")) then
-		game.logSeen(self, "%s ignores the spell!", self.name:capitalize())
+		game.logSeen(self, "%s 주문을 무시합니다!", sn:capitalize():addJosa("는"))
 		return true
 	end
 
@@ -4534,7 +4605,8 @@ function _M:transmoInven(inven, idx, o)
 
 			if gprice > price then
 				price = gprice
-				game.logPlayer(self, "You extract %s from %s", gem:getName{do_color=true, do_count=true}, o:getName{do_color=true, do_count=true})
+			--@@
+			game.logPlayer(self, "당신은 %s %s에서 추출했습니다.", gem:getName{do_color=true, do_count=true}:addJosa("를"), o:getName{do_color=true, do_count=true})
 				o = gem
 			end
 		end
@@ -4543,7 +4615,7 @@ function _M:transmoInven(inven, idx, o)
 	self:sortInven()
 	self:incMoney(price)
 	if self.hasQuest and self:hasQuest("shertul-fortress") and self:isQuestStatus("shertul-fortress", engine.Quest.COMPLETED, "transmo-chest") then self:hasQuest("shertul-fortress"):gain_energy(price/10) end
-	game.log("You gain %0.2f gold from the transmogrification of %s.", price, o:getName{do_count=true, do_color=true})
+	game.log("당신은 %s 변화시켜 금화 %0.2f개를 얻었습니다.", o:getName{do_count=true, do_color=true}:addJosa("를"), price) --@@
 end
 
 function _M:transmoGetNumberItems()

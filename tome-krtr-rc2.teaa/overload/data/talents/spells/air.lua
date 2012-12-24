@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Lightning",
+	kr_display_name = "번개",
 	type = {"spell/air", 1},
 	require = spells_req1,
 	points = 5,
@@ -58,6 +59,7 @@ newTalent{
 
 newTalent{
 	name = "Chain Lightning",
+	kr_display_name = "연쇄적 번개",
 	type = {"spell/air", 2},
 	require = spells_req2,
 	points = 5,
@@ -142,6 +144,7 @@ newTalent{
 
 newTalent{
 	name = "Feather Wind",
+	kr_display_name = "가벼운 바람",
 	type = {"spell/air",3},
 	require = spells_req3,
 	points = 5,
@@ -192,6 +195,7 @@ newTalent{
 
 newTalent{
 	name = "Thunderstorm",
+	kr_display_name = "뇌우",
 	type = {"spell/air", 4},
 	require = spells_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Weapon Folding",
+	kr_display_name = "무기공간 접기",
 	type = {"chronomancy/spacetime-folding", 1},
 	mode = "sustained",
 	require = temporal_req1,
@@ -44,6 +45,7 @@ newTalent{
 
 newTalent{
 	name = "Swap",
+	kr_display_name = "교환",
 	type = {"chronomancy/spacetime-folding", 2},
 	require = temporal_req2,
 	points = 5,
@@ -114,6 +116,7 @@ newTalent{
 
 newTalent{
 	name = "Displace Damage",
+	kr_display_name = "피해 치환",
 	type = {"chronomancy/spacetime-folding", 3},
 	mode = "sustained",
 	require = temporal_req3,
@@ -136,6 +139,7 @@ newTalent{
 
 newTalent{
 	name = "Temporal Wake",
+	kr_display_name = "시간의 각성",
 	type = {"chronomancy/spacetime-folding", 4},
 	require = temporal_req4,
 	points = 5,
@@ -194,6 +198,7 @@ newTalent{
 
 --[=[newTalent{
 	name = "Kinetic Folding",
+	kr_display_name = "동역학적 공간접기",
 	type = {"chronomancy/spacetime-folding", 4},
 	require = temporal_req4,
 	points = 5,

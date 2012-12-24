@@ -66,12 +66,13 @@ newBirthDescriptor{
 	type = "world",
 	name = "Maj'Eyal",
 	display_name = "Maj'Eyal: The Age of Ascendancy",
+	kr_display_name = "마즈'에이알: 주도의 시대",
 	desc =
 	{
-		"The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.",
-		"The known world has been at relative peace for over one hundred years, and people are prospering again.",
-		"You are an adventurer, setting out to find lost treasure and glory.",
-		"But what lurks in the shadows of the world?",
+		"마즈'에이알에 사는 종족은 인간, 하플링, 엘프, 그리고 드워프입니다.",
+		"알려진 바에 의하면 세상은 100년 넘게 평화를 유지해왔고, 여러 종족은 다시 번영을 구가하고 있습니다.",
+		"당신은 보물과 영광을 찾아 길을 떠난 모험가입니다.",
+		"하지만 세상의 그늘 속에는 무엇이 도사리고 있을지..",
 	},
 	descriptor_choices = default_eyal_descriptors{},
 	game_state = {
@@ -85,15 +86,16 @@ newBirthDescriptor{
 	type = "world",
 	name = "Infinite",
 	display_name = "Infinite Dungeon: The Neverending Descent",
+	kr_display_name = "무한의 던전: 끝없는 내리막",
 	locked = function() return profile.mod.allow_build.campaign_infinite_dungeon end,
-	locked_desc = "Ever deeper, never ending, no reprieve, keep descending. In ruins old, through barred gate, once riddle solved, find thy fate.",
+	locked_desc = "더 깊게, 끝없이, 멈추지 않고, 내려가네. 옛 폐허속, 잠긴 문을 지나, 수수께끼가 풀리면, 그대의 운명과 마주하리.",
 	desc =
 	{
-		"Play as your favorite race and class and venture into the infinite dungeon.",
-		"The only limit to how far you can go is your own skill!",
-		"Inside the infinite dungeon you will yourself be limitless. You can level up beyond level 50 and continue to gain stat and talent points (at a reduced rate).",
-		"Every level after level 50 the maximum of stats will increase by one.",
-		"Every 10 levels after level 50 the maximum points of each talent will increase by one.",
+		"가장 마음에 드는 종족과 직업을 골라서 무한의 던전에 도전하세요.",
+		"얼마나 더 깊게 내려갈 수 있는 가는 전적으로 당신의 실력에 달렸습니다!",
+		"무함의 던전 내에서 당신에게 한계란 없습니다. 50 레벨을 넘어서도 계속 능력치와 기술 점수를 얻으며 성장할 수 있습니다.",
+		"50레벨 이후의 레벨 상승 때마다, 능력치의 한계가 1씩 증가합니다.",
+		"50레벨 이후의 10레벨 상승 때마다, 각 기술의 한계 점수가 1씩 증가합니다.",
 	},
 	descriptor_choices = default_eyal_descriptors{ difficulty = { Tutorial = "never"} },
 	copy = {
@@ -144,14 +146,15 @@ newBirthDescriptor{
 	type = "world",
 	name = "Arena",
 	display_name = "The Arena: Challenge of the Master",
+	kr_display_name = "투기장: 정복자의 도전",
 	locked = function() return profile.mod.allow_build.campaign_arena end,
-	locked_desc = "Blood spilled on sand, only the strong survive. Prove yourself worthy to enter.",
+	locked_desc = "피에 젖은 모래 위에선 강한자만이 살아남습니다. 자신을 증명하세요.",
 	desc =
 	{
-		"Play as a lone warrior facing the Arena's challenge!",
-		"You can use any class and race for it.",
-		"See how far you can go! Can you become the new Master of the Arena?",
-		"If so, you will battle your own champion next time!",
+		"투기장에서 밀려 닥치는 도전에 맞서는 고독한 전투사로 플레이하게 됩니다!",
+		"어떠한 종족이나 직업도 선택가능합니다.",
+		"언제까지 버틸수 있을지 도전해보세요! 당신이 투기장의 새로운 지배자가 될 수 있을까요?",
+		"만약 투기장을 제패하는 데 성공한다면, 다음번 도전에는 당신의 케릭터와 맞붙게 될 것입니다!",
 	},
 	descriptor_choices = default_eyal_descriptors{ difficulty = { Tutorial = "never" }, permadeath = { Exploration = "never", Adventure = "never" } },
 	copy = {

@@ -496,12 +496,14 @@ end
 
 newDamageType{
 	name = "physical", type = "PHYSICAL",
+	kr_display_name = "물리",
 	death_message = {"battered", "bludgeoned", "sliced", "maimed", "raked", "bled", "impaled", "dissected", "disembowelled", "decapitated", "stabbed", "pierced", "torn limb from limb", "crushed", "shattered", "smashed", "cleaved", "swiped", "struck", "mutilated", "tortured", "skewered", "squished", "mauled", "chopped into tiny pieces", "splattered", "ground", "minced", "punctured", "hacked apart", "eviscerated"},
 }
 
 -- Arcane is basic (usually) unresistable damage
 newDamageType{
 	name = "arcane", type = "ARCANE", text_color = "#PURPLE#",
+	kr_display_name = "마법",
 	antimagic_resolve = true,
 	death_message = {"blasted", "energised", "mana-torn", "dweomered", "imploded"},
 }
@@ -509,6 +511,7 @@ newDamageType{
 newDamageType{
 	name = "fire", type = "FIRE", text_color = "#LIGHT_RED#",
 	antimagic_resolve = true,
+	kr_display_name = "화염",
 	projector = function(src, x, y, type, dam)
 		if src.fire_convert_to then
 			return DamageType:get(src.fire_convert_to[1]).projector(src, x, y, src.fire_convert_to[1], dam * src.fire_convert_to[2] / 100)
@@ -523,6 +526,7 @@ newDamageType{
 }
 newDamageType{
 	name = "cold", type = "COLD", text_color = "#1133F3#",
+	kr_display_name = "추위",
 	antimagic_resolve = true,
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
@@ -535,6 +539,7 @@ newDamageType{
 }
 newDamageType{
 	name = "lightning", type = "LIGHTNING", text_color = "#ROYAL_BLUE#",
+	kr_display_name = "번개",
 	antimagic_resolve = true,
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
@@ -545,6 +550,7 @@ newDamageType{
 -- Acid destroys potions
 newDamageType{
 	name = "acid", type = "ACID", text_color = "#GREEN#",
+	kr_display_name = "산성",
 	antimagic_resolve = true,
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
@@ -556,11 +562,13 @@ newDamageType{
 -- Nature & Blight: Opposing damage types
 newDamageType{
 	name = "nature", type = "NATURE", text_color = "#LIGHT_GREEN#",
+	kr_display_name = "자연",
 	antimagic_resolve = true,
 	death_message = {"slimed", "splurged", "treehugged", "naturalised"},
 }
 newDamageType{
 	name = "blight", type = "BLIGHT", text_color = "#DARK_GREEN#",
+	kr_display_name = "황폐",
 	antimagic_resolve = true,
 	projector = function(src, x, y, type, dam, extra)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
@@ -581,6 +589,7 @@ newDamageType{
 -- Light damage
 newDamageType{
 	name = "light", type = "LIGHT", text_color = "#YELLOW#",
+	kr_display_name = "빛",
 	antimagic_resolve = true,
 	death_message = {"radiated", "seared", "purified", "sun baked", "jerkied", "tanned"},
 }
@@ -588,6 +597,7 @@ newDamageType{
 -- Darkness damage
 newDamageType{
 	name = "darkness", type = "DARKNESS", text_color = "#GREY#",
+	kr_display_name = "어둠",
 	antimagic_resolve = true,
 	death_message = {"shadowed", "darkened", "swallowed by the void"},
 	projector = function(src, x, y, type, dam, extra)
@@ -605,6 +615,7 @@ newDamageType{
 -- Mind damage
 newDamageType{
 	name = "mind", type = "MIND", text_color = "#YELLOW#",
+	kr_display_name = "정신",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local thought_form
@@ -631,6 +642,7 @@ newDamageType{
 -- Temporal damage
 newDamageType{
 	name = "temporal", type = "TEMPORAL", text_color = "#LIGHT_STEEL_BLUE#",
+	kr_display_name = "시간",
 	antimagic_resolve = true,
 	death_message = {"timewarped", "temporally distorted", "spaghettified across the whole of space and time", "paradoxed", "replaced by a time clone (and no one ever knew the difference)", "grandfathered", "time dilated"},
 }
@@ -638,6 +650,7 @@ newDamageType{
 -- Temporal + Stun
 newDamageType{
 	name = "temporalstun", type = "TEMPORALSTUN",
+	kr_display_name = "시간적 기절",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -654,6 +667,7 @@ newDamageType{
 -- Lite up the room
 newDamageType{
 	name = "lite", type = "LITE", text_color = "#YELLOW#",
+	kr_display_name = "조명",
 	projector = function(src, x, y, type, dam)
 		-- Dont lit magically unlit grids
 		local g = game.level.map(x, y, Map.TERRAIN+1)
@@ -669,6 +683,7 @@ newDamageType{
 -- Break stealth
 newDamageType{
 	name = "break stealth", type = "BREAK_STEALTH",
+	kr_display_name = "은신해제",
 	projector = function(src, x, y, type, dam)
 		-- Dont lit magically unlit grids
 		local a = game.level.map(x, y, Map.ACTOR)
@@ -681,6 +696,7 @@ newDamageType{
 -- Silence
 newDamageType{
 	name = "SILENCE", type = "SILENCE",
+	kr_display_name = "침묵",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -696,6 +712,7 @@ newDamageType{
 -- Silence
 newDamageType{
 	name = "arcane silence", type = "ARCANE_SILENCE",
+	kr_display_name = "마법적 침묵",
 	projector = function(src, x, y, type, dam)
 		local chance = 100
 		if _G.type(dam) == "table" then dam, chance = dam.dam, dam.chance end
@@ -716,6 +733,7 @@ newDamageType{
 -- Silence
 newDamageType{
 	name = "% chance to silence target", type = "RANDOM_SILENCE",
+	kr_display_name = "% 확률적 침묵",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and rng.percent(dam) then
@@ -731,6 +749,7 @@ newDamageType{
 -- Blinds
 newDamageType{
 	name = "blindness", type = "BLIND",
+	kr_display_name = "실명",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -744,6 +763,7 @@ newDamageType{
 }
 newDamageType{
 	name = "blindness", type = "BLINDPHYSICAL",
+	kr_display_name = "실명",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -757,6 +777,7 @@ newDamageType{
 }
 newDamageType{
 	name = "blinding ink", type = "BLINDING_INK",
+	kr_display_name = "눈 가리기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -770,6 +791,7 @@ newDamageType{
 }
 newDamageType{
 	name = "blindness", type = "BLINDCUSTOMMIND",
+	kr_display_name = "실명",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -785,6 +807,7 @@ newDamageType{
 -- Lite + Light damage
 newDamageType{
 	name = "bright light", type = "LITE_LIGHT",
+	kr_display_name = "빛의 조명",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.LITE).projector(src, x, y, DamageType.LITE, 1)
 		return DamageType:get(DamageType.LIGHT).projector(src, x, y, DamageType.LIGHT, dam)
@@ -794,6 +817,7 @@ newDamageType{
 -- Fire damage + DOT
 newDamageType{
 	name = "fire burn", type = "FIREBURN", text_color = "#LIGHT_RED#",
+	kr_display_name = "지속형 화염",
 	projector = function(src, x, y, type, dam)
 		local dur = 3
 		local perc = 50
@@ -811,6 +835,7 @@ newDamageType{
 }
 newDamageType{
 	name = "fireburn", type = "GOLEM_FIREBURN",
+	kr_display_name = "지속형 화염",
 	projector = function(src, x, y, type, dam)
 		local realdam = 0
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -824,6 +849,7 @@ newDamageType{
 -- Darkness + Fire
 newDamageType{
 	name = "shadowflame", type = "SHADOWFLAME",
+	kr_display_name = "어두운 화염",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, dam / 2)
 		DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam / 2)
@@ -833,6 +859,7 @@ newDamageType{
 -- Darkness + Stun
 newDamageType{
 	name = "darkstun", type = "DARKSTUN",
+	kr_display_name = "암흑의 기절",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -850,6 +877,7 @@ newDamageType{
 -- Darkness but not over minions
 newDamageType{
 	name = "minions darkness", type = "MINION_DARKNESS",
+	kr_display_name = "어둠의 소환수",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and (not target.necrotic_minion or target.summoner ~= src) then
@@ -861,6 +889,7 @@ newDamageType{
 -- Fore but not over minions
 newDamageType{
 	name = "firey no friends", type = "FIRE_FRIENDS",
+	kr_display_name = "안전한 화염",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and target.summoner ~= src then
@@ -872,6 +901,7 @@ newDamageType{
 -- Cold + Stun
 newDamageType{
 	name = "coldstun", type = "COLDSTUN",
+	kr_display_name = "기절할 추위",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -888,6 +918,7 @@ newDamageType{
 -- Fire DOT + Stun
 newDamageType{
 	name = "flameshock", type = "FLAMESHOCK",
+	kr_display_name = "기절할 열기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -904,6 +935,7 @@ newDamageType{
 -- Cold damage + freeze chance
 newDamageType{
 	name = "ice", type = "ICE", text_color = "#1133F3#",
+	kr_display_name = "냉동",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam)
 		if rng.percent(25) then
@@ -916,6 +948,7 @@ newDamageType{
 -- Cold damage + freeze ground
 newDamageType{
 	name = "coldnevermove", type = "COLDNEVERMOVE",
+	kr_display_name = "얼림",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=4} end
 		DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam.dam)
@@ -931,6 +964,7 @@ newDamageType{
 -- Freezes target, checks for spellresistance
 newDamageType{
 	name = "freeze", type = "FREEZE",
+	kr_display_name = "빙결",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -950,6 +984,7 @@ newDamageType{
 -- Dim vision
 newDamageType{
 	name = "sticky smoke", type = "STICKY_SMOKE",
+	kr_display_name = "끈적이는 연기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -965,6 +1000,7 @@ newDamageType{
 -- Acid damage + blind chance
 newDamageType{
 	name = "acid blind", type = "ACID_BLIND", text_color = "#GREEN#",
+	kr_display_name = "실명형 산성",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -982,6 +1018,7 @@ newDamageType{
 -- Darkness damage + blind chance
 newDamageType{
 	name = "blinding darkness", type = "DARKNESS_BLIND",
+	kr_display_name = "실명의 어둠",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -999,6 +1036,7 @@ newDamageType{
 -- Lightning damage + daze chance
 newDamageType{
 	name = "lightning daze", type = "LIGHTNING_DAZE", text_color = "#ROYAL_BLUE#",
+	kr_display_name = "혼절형 번개",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, daze=25} end
 		local realdam = DamageType:get(DamageType.LIGHTNING).projector(src, x, y, DamageType.LIGHTNING, dam.dam)
@@ -1021,6 +1059,7 @@ newDamageType{
 -- Cold/physical damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "wave", type = "WAVE",
+	kr_display_name = "파동",
 	projector = function(src, x, y, type, dam)
 		local srcx, srcy = dam.x, dam.y
 		local base = dam
@@ -1047,6 +1086,7 @@ newDamageType{
 -- Fireburn damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "fire knockback", type = "FIREKNOCKBACK",
+	kr_display_name = "화염의 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if _G.type(dam) ~= "table" then dam = {dam=dam, dist=3} end
@@ -1068,6 +1108,7 @@ newDamageType{
 -- Fireburn damage + repulsion; checks for mind power against physical resistance
 newDamageType{
 	name = "fire knockback mind", type = "FIREKNOCKBACK_MIND",
+	kr_display_name = "정신적 화염의 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if _G.type(dam) ~= "table" then dam = {dam=dam, dist=3} end
@@ -1089,6 +1130,7 @@ newDamageType{
 -- Darkness damage + repulsion; checks for spell power against mental resistance
 newDamageType{
 	name = "darkness knockback", type = "DARKKNOCKBACK",
+	kr_display_name = "어둠의 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if _G.type(dam) ~= "table" then dam = {dam=dam, dist=3} end
@@ -1110,6 +1152,7 @@ newDamageType{
 -- Physical damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "spell knockback", type = "SPELLKNOCKBACK",
+	kr_display_name = "주문형 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local realdam = 0
@@ -1133,6 +1176,7 @@ newDamageType{
 -- Physical damage + repulsion; checks for mind power against physical resistance
 newDamageType{
 	name = "mind knockback", type = "MINDKNOCKBACK",
+	kr_display_name = "정신적 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1153,6 +1197,7 @@ newDamageType{
 -- Physical damage + repulsion; checks for attack power against physical resistance
 newDamageType{
 	name = "physknockback", type = "PHYSKNOCKBACK",
+	kr_display_name = "물리적 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1174,6 +1219,7 @@ newDamageType{
 -- Fear check + repulsion; checks for mind power against physical resistance
 newDamageType{
 	name = "fear knockback", type = "FEARKNOCKBACK",
+	kr_display_name = "공포의 밀어내기",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1193,6 +1239,7 @@ newDamageType{
 -- Poisoning damage
 newDamageType{
 	name = "poison", type = "POISON", text_color = "#LIGHT_GREEN#",
+	kr_display_name = "중독",
 	projector = function(src, x, y, t, dam)
 		local power
 		if type(dam) == "table" then
@@ -1211,6 +1258,7 @@ newDamageType{
 -- Inferno: fire and maybe remove suff
 newDamageType{
 	name = "inferno", type = "INFERNO",
+	kr_display_name = "열화",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1235,6 +1283,7 @@ newDamageType{
 -- Spydric poison: prevents movement
 newDamageType{
 	name = "spydric poison", type = "SPYDRIC_POISON",
+	kr_display_name = "속박형 중독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=3} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1248,6 +1297,7 @@ newDamageType{
 -- Crippling poison: failure to act
 newDamageType{
 	name = "crippling poison", type = "CRIPPLING_POISON", text_color = "#LIGHT_GREEN#",
+	kr_display_name = "장애형 중독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=3} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1261,6 +1311,7 @@ newDamageType{
 -- Insidious poison: prevents healing
 newDamageType{
 	name = "insidious poison", type = "INSIDIOUS_POISON", text_color = "#LIGHT_GREEN#",
+	kr_display_name = "반회복형 중독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=7, heal_factor=dam} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1274,6 +1325,7 @@ newDamageType{
 -- Bleeding damage
 newDamageType{
 	name = "bleed", type = "BLEED",
+	kr_display_name = "출혈",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 6)
 		dam = dam - dam / 6
@@ -1288,6 +1340,7 @@ newDamageType{
 -- Physical damage + bleeding % of it
 newDamageType{
 	name = "physical + bleeding", type = "PHYSICALBLEED",
+	kr_display_name = "물리적 출혈",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1300,6 +1353,7 @@ newDamageType{
 -- Slime damage
 newDamageType{
 	name = "slime", type = "SLIME", text_color = "#LIGHT_GREEN#",
+	kr_display_name = "슬라임",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, power=0.15} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam)
@@ -1313,6 +1367,7 @@ newDamageType{
 
 newDamageType{
 	name = "dig", type = "DIG",
+	kr_display_name = "굴착",
 	projector = function(src, x, y, typ, dam)
 		local feat = game.level.map(x, y, Map.TERRAIN)
 		if feat then
@@ -1333,6 +1388,7 @@ newDamageType{
 -- Slowness
 newDamageType{
 	name = "slow", type = "SLOW",
+	kr_display_name = "감속",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1345,6 +1401,7 @@ newDamageType{
 
 newDamageType{
 	name = "congeal time", type = "CONGEAL_TIME",
+	kr_display_name = "시간 멈추기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1358,6 +1415,7 @@ newDamageType{
 -- Time prison, invulnerability and stun
 newDamageType{
 	name = "time prison", type = "TIME_PRISON",
+	kr_display_name = "시간의 감옥",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1379,6 +1437,7 @@ newDamageType{
 -- Confusion
 newDamageType{
 	name = "confusion", type = "CONFUSION",
+	kr_display_name = "혼란",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1394,6 +1453,7 @@ newDamageType{
 -- Confusion
 newDamageType{
 	name = "% chances to confuse", type = "RANDOM_CONFUSION",
+	kr_display_name = "% 확률적 혼란",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1409,6 +1469,7 @@ newDamageType{
 
 newDamageType{
 	name = "% chances to cause a gloom effect", type = "RANDOM_GLOOM",
+	kr_display_name = "% 확률적 침울",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and rng.percent(dam) then
@@ -1437,6 +1498,7 @@ newDamageType{
 -- gBlind
 newDamageType{
 	name = "% chances to blind", type = "RANDOM_BLIND",
+	kr_display_name = "% 확률적 실명",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1453,6 +1515,7 @@ newDamageType{
 -- Physical + Blind
 newDamageType{
 	name = "sand", type = "SAND",
+	kr_display_name = "수면",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1469,6 +1532,7 @@ newDamageType{
 -- Physical + Pinned
 newDamageType{
 	name = "pinning", type = "PINNING",
+	kr_display_name = "속박",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1485,6 +1549,7 @@ newDamageType{
 -- Drain Exp
 newDamageType{
 	name = "drain experience", type = "DRAINEXP",
+	kr_display_name = "경험치 감소",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local realdam = DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
@@ -1504,6 +1569,7 @@ newDamageType{
 -- Drain Life
 newDamageType{
 	name = "drain life", type = "DRAINLIFE", text_color = "#DARK_GREEN#",
+	kr_display_name = "생명력 감소",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, healfactor=0.4} end
 		local target = game.level.map(x, y, Map.ACTOR) -- Get the target first to make sure we heal even on kill
@@ -1519,6 +1585,7 @@ newDamageType{
 -- Drain Vim
 newDamageType{
 	name = "drain vim", type = "DRAIN_VIM",
+	kr_display_name = "정력 감소",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, vim=0.2} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1533,6 +1600,7 @@ newDamageType{
 -- Demonfire: heal demon; damage others
 newDamageType{
 	name = "demonfire", type = "DEMONFIRE",
+	kr_display_name = "악마의 불길",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and target:attr("demon") then
@@ -1548,6 +1616,7 @@ newDamageType{
 -- Retch: heal undead; damage living
 newDamageType{
 	name = "retch", type = "RETCH",
+	kr_display_name = "구역질",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and (target:attr("undead") or target.retch_heal) then
@@ -1561,6 +1630,7 @@ newDamageType{
 -- Holy light, damage demon/undead; heal others
 newDamageType{
 	name = "holy light", type = "HOLY_LIGHT",
+	kr_display_name = "성스런 빛",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") and not target:attr("demon") then
@@ -1574,6 +1644,7 @@ newDamageType{
 -- Heals
 newDamageType{
 	name = "healing", type = "HEAL",
+	kr_display_name = "치료",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1586,6 +1657,7 @@ newDamageType{
 
 newDamageType{
 	name = "healing power", type = "HEALING_POWER",
+	kr_display_name = "회복력",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") then
@@ -1601,6 +1673,7 @@ newDamageType{
 
 newDamageType{
 	name = "healing nature", type = "HEALING_NATURE",
+	kr_display_name = "자연의 치료",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") then
@@ -1616,6 +1689,7 @@ newDamageType{
 -- Corrupted blood, blight damage + potential diseases
 newDamageType{
 	name = "corrupted blood", type = "CORRUPTED_BLOOD", text_color = "#DARK_GREEN#",
+	kr_display_name = "타락한 피",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
@@ -1630,6 +1704,7 @@ newDamageType{
 -- blood boiled, blight damage + slow
 newDamageType{
 	name = "blood boil", type = "BLOOD_BOIL",
+	kr_display_name = "끓는 피",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1642,6 +1717,7 @@ newDamageType{
 -- life leech (used cursed gloom skill)
 newDamageType{
 	name = "life leech",
+	kr_display_name = "생명력 강탈",
 	type = "LIFE_LEECH",
 	text_color = "#F53CBE#",
 	hideMessage=true,
@@ -1651,6 +1727,7 @@ newDamageType{
 -- Physical + Stun Chance
 newDamageType{
 	name = "physical stun", type = "PHYSICAL_STUN",
+	kr_display_name = "물리적 기절",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1667,6 +1744,7 @@ newDamageType{
 -- Physical Damage/Cut Split
 newDamageType{
 	name = "split bleed", type = "SPLIT_BLEED",
+	kr_display_name = "피 튀기기",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 2)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 12)
@@ -1682,6 +1760,7 @@ newDamageType{
 -- Temporal/Physical damage
 newDamageType{
 	name = "matter", type = "MATTER",
+	kr_display_name = "물질",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam / 2)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 2)
@@ -1691,6 +1770,7 @@ newDamageType{
 -- Temporal/Darkness damage
 newDamageType{
 	name = "void", type = "VOID", text_color = "#GREY#",
+	kr_display_name = "공허",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam / 2)
 		DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam / 2)
@@ -1700,6 +1780,7 @@ newDamageType{
 -- Gravity damage types
 newDamageType{
 	name = "gravity", type = "GRAVITY",
+	kr_display_name = "중력",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if not target then return end
@@ -1712,6 +1793,7 @@ newDamageType{
 
 newDamageType{
 	name = "gravity pin", type = "GRAVITYPIN",
+	kr_display_name = "속박의 중력",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1735,6 +1817,7 @@ newDamageType{
 
 newDamageType{
 	name = "repulsion", type = "REPULSION",
+	kr_display_name = "혐오",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1759,6 +1842,7 @@ newDamageType{
 
 newDamageType{
 	name = "grow", type = "GROW",
+	kr_display_name = "성장",
 	projector = function(src, x, y, typ, dam)
 		local feat = game.level.map(x, y, Map.TERRAIN)
 		if feat then
@@ -1777,6 +1861,7 @@ newDamageType{
 -- Circles
 newDamageType{
 	name = "sanctity", type = "SANCTITY",
+	kr_display_name = "신성",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1793,6 +1878,7 @@ newDamageType{
 
 newDamageType{
 	name = "shiftingshadows", type = "SHIFTINGSHADOWS",
+	kr_display_name = "그림자 변형",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1807,6 +1893,7 @@ newDamageType{
 
 newDamageType{
 	name = "blazinglight", type = "BLAZINGLIGHT",
+	kr_display_name = "타오르는빛",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1822,6 +1909,7 @@ newDamageType{
 
 newDamageType{
 	name = "warding", type = "WARDING",
+	kr_display_name = "배척",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1844,6 +1932,7 @@ newDamageType{
 
 newDamageType{
 	name = "mindslow", type = "MINDSLOW",
+	kr_display_name = "정신적 감속",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1856,6 +1945,7 @@ newDamageType{
 -- Freezes target, checks for physresistance
 newDamageType{
 	name = "mindfreeze", type = "MINDFREEZE",
+	kr_display_name = "정신적 빙결",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1872,6 +1962,7 @@ newDamageType{
 
 newDamageType{
 	name = "implosion", type = "IMPLOSION",
+	kr_display_name = "파열",
 	projector = function(src, x, y, type, dam)
 		local dur = 3
 		local perc = 50
@@ -1888,6 +1979,7 @@ newDamageType{
 -- Temporal + Stat damage
 newDamageType{
 	name = "reverse aging", type = "CLOCK",
+	kr_display_name = "젊어지기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1902,6 +1994,7 @@ newDamageType{
 -- Temporal Over Time
 newDamageType{
 	name = "wasting", type = "WASTING", text_color = "#LIGHT_STEEL_BLUE#",
+	kr_display_name = "낭비",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local dur = 3
@@ -1920,6 +2013,7 @@ newDamageType{
 
 newDamageType{
 	name = "stop", type = "STOP",
+	kr_display_name = "멈춤",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1934,6 +2028,7 @@ newDamageType{
 
 newDamageType{
 	name = "rethread", type = "RETHREAD",
+	kr_display_name = "재구축",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local chance = rng.range(1, 4)
@@ -1973,6 +2068,7 @@ newDamageType{
 
 newDamageType{
 	name = "temporal echo", type = "TEMPORAL_ECHO",
+	kr_display_name = "시간의 메아리",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1984,6 +2080,7 @@ newDamageType{
 
 newDamageType{
 	name = "devour life", type = "DEVOUR_LIFE",
+	kr_display_name = "생명력 먹어치우기",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR) -- Get the target first to make sure we heal even on kill
@@ -2004,6 +2101,7 @@ newDamageType{
 
 newDamageType{
 	name = "chronoslow", type = "CHRONOSLOW",
+	kr_display_name = "시간의 느려짐",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2023,6 +2121,7 @@ newDamageType{
 
 newDamageType{
 	name = "molten rock", type = "MOLTENROCK",
+	kr_display_name = "용해된 바위",
 	projector = function(src, x, y, type, dam)
 		return DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, dam / 2) +
 		       DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 2)
@@ -2031,6 +2130,7 @@ newDamageType{
 
 newDamageType{
 	name = "entangle", type = "ENTANGLE",
+	kr_display_name = "얽힘",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam/3)
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, 2*dam/3)
@@ -2047,6 +2147,7 @@ newDamageType{
 
 newDamageType{
 	name = "manaworm", type = "MANAWORM",
+	kr_display_name = "마나벌레",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.ARCANE).projector(src, x, y, DamageType.ARCANE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2066,6 +2167,7 @@ newDamageType{
 
 newDamageType{
 	name = "void blast", type = "VOID_BLAST",
+	kr_display_name = "공허의 돌풍",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.ARCANE).projector(src, x, y, DamageType.ARCANE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2078,6 +2180,7 @@ newDamageType{
 
 newDamageType{
 	name = "circle of death", type = "CIRCLE_DEATH",
+	kr_display_name = "죽음의 고리",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and (src:reactionToward(target) < 0 or dam.ff) then
@@ -2099,6 +2202,7 @@ newDamageType{
 -- Darkness damage + speed reduction + minion damage inc
 newDamageType{
 	name = "rigor mortis", type = "RIGOR_MORTIS",
+	kr_display_name = "사후 경직",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2111,6 +2215,7 @@ newDamageType{
 
 newDamageType{
 	name = "abyssal shroud", type = "ABYSSAL_SHROUD",
+	kr_display_name = "심연의 수의",
 	projector = function(src, x, y, type, dam)
 		--make it dark
 		game.level.map.remembers(x, y, false)
@@ -2134,6 +2239,7 @@ newDamageType{
 
 newDamageType{
 	name = "% chance to summon an orc spirit", type = "GARKUL_INVOKE",
+	kr_display_name = "% 확률적 오크 정신체 소환",
 	projector = function(src, x, y, type, dam)
 		if not rng.percent(dam) then return end
 		local target = game.level.map(x, y, engine.Map.ACTOR)
@@ -2199,6 +2305,7 @@ newDamageType{
 -- speed reduction, hateful whisper
 newDamageType{
 	name = "nightmare", type = "NIGHTMARE",
+	kr_display_name = "악몽",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -2215,6 +2322,7 @@ newDamageType{
 
 newDamageType{
 	name = "weakness", type = "WEAKNESS",
+	kr_display_name = "약화",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2227,6 +2335,7 @@ newDamageType{
 -- Generic apply temporary effect
 newDamageType{
 	name = "temp effect", type = "TEMP_EFFECT",
+	kr_display_name = "일시 효과",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2242,6 +2351,7 @@ newDamageType{
 
 newDamageType{
 	name = "manaburn", type = "MANABURN", text_color = "#PURPLE#",
+	kr_display_name = "마나태우기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2269,6 +2379,7 @@ newDamageType{
 
 newDamageType{
 	name = "leaves", type = "LEAVES",
+	kr_display_name = "나뭇잎",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2286,6 +2397,7 @@ newDamageType{
 -- Distortion; Includes knockback, penetrate, stun, and explosion paramters
 newDamageType{
 	name = "distortion", type = "DISTORTION",
+	kr_display_name = "왜곡",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if not target then return end
@@ -2345,6 +2457,7 @@ newDamageType{
 -- Mind/Fire damage with lots of parameter options
 newDamageType{
 	name = "dreamforge", type = "DREAMFORGE",
+	kr_display_name = "꿈의 연마",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if not target then return end
@@ -2391,6 +2504,7 @@ newDamageType{
 
 newDamageType{
 	name = "mucus", type = "MUCUS",
+	kr_display_name = "점액",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target.turn_procs.mucus then
@@ -2412,6 +2526,7 @@ newDamageType{
 
 newDamageType{
 	name = "acid disarm", type = "ACID_DISARM", text_color = "#GREEN#",
+	kr_display_name = "산성 무장해제",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {chance=25, dam=dam} end
 		local realdam = DamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam.dam)
@@ -2430,6 +2545,7 @@ newDamageType{
 -- Acid damage + Accuracy/Defense/Armor Down Corrosion
 newDamageType{
 	name = "corrosive acid", type = "ACID_CORRODE",
+	kr_display_name = "산성 부식",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2442,6 +2558,7 @@ newDamageType{
 -- Bouncy slime!
 newDamageType{
 	name = "bouncing slime", type = "BOUNCE_SLIME",
+	kr_display_name = "활발한 슬라임",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then

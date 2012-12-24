@@ -107,9 +107,9 @@ function _M:generate()
 	self.c_inven = ListColumns.new{width=self.w, height=self.h - (self.c_tabs and self.c_tabs.h or 0), sortable=true, scrollbar=true, columns=self.columns or {
 		{name="", width={33,"fixed"}, display_prop="char", sort="id"},
 		{name="", width={24,"fixed"}, display_prop="object", sort="sortname", direct_draw=direct_draw},
-		{name="Inventory", width=72, display_prop="name", sort="sortname"},
-		{name="Category", width=20, display_prop="cat", sort="cat"},
-		{name="Enc.", width=8, display_prop="encumberance", sort="encumberance"},
+		{name="소지품", width=72, display_prop="name", sort="sortname"},
+		{name="종류", width=20, display_prop="cat", sort="cat"},
+		{name="무게", width=8, display_prop="encumberance", sort="encumberance"},
 	}, list={},
 		fct=function(item, sel, button, event) if self.fct then self.fct(item, button, event) end end,
 		select=self.on_select,
@@ -248,7 +248,8 @@ function _M:generateList(no_update)
 			local enc = 0
 			o:forAllStack(function(o) enc=enc+o.encumber end)
 
-			list[#list+1] = { id=#list+1, char=char, name=o:getName(), sortname=o:getName():toString():removeColorCodes(), color=o:getDisplayColor(), object=o, inven=self.actor.INVEN_INVEN, item=item, cat=o.subtype, encumberance=enc, special_bg=self.special_bg }
+			--@@
+			list[#list+1] = { id=#list+1, char=char, name=o:getName(), sortname=o:getName():toString():removeColorCodes(), color=o:getDisplayColor(), object=o, inven=self.actor.INVEN_INVEN, item=item, cat=o.subtype:krItemType(), encumberance=enc, special_bg=self.special_bg }
 			chars[char] = #list
 			i = i + 1
 		end

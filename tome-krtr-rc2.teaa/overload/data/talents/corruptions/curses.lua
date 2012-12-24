@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Curse of Defenselessness",
+	kr_display_name = "비보호의 저주",
 	type = {"corruption/curses", 1},
 	require = corrs_req1,
 	points = 5,
@@ -48,6 +49,7 @@ newTalent{
 
 newTalent{
 	name = "Curse of Impotence",
+	kr_display_name = "무기력의 저주",
 	type = {"corruption/curses", 2},
 	require = corrs_req2,
 	points = 5,
@@ -77,6 +79,7 @@ newTalent{
 
 newTalent{
 	name = "Curse of Death",
+	kr_display_name = "죽음의 저주",
 	type = {"corruption/curses", 3},
 	require = corrs_req3,
 	points = 5,
@@ -106,6 +109,7 @@ newTalent{
 
 newTalent{
 	name = "Curse of Vulnerability",
+	kr_display_name = "약화의 저주",
 	type = {"corruption/curses", 4},
 	require = corrs_req4,
 	points = 5,

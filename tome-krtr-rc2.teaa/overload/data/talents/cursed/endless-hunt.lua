@@ -21,6 +21,7 @@ local Stats = require "engine.interface.ActorStats"
 
 newTalent{
 	name = "Stalk",
+	kr_display_name = "추적",
 	type = {"cursed/endless-hunt", 1},
 	mode = "sustained",
 	require = cursed_wil_req1,
@@ -92,6 +93,7 @@ newTalent{
 
 newTalent{
 	name = "Beckon",
+	kr_display_name = "목표지정",
 	type = {"cursed/endless-hunt", 2},
 	require = cursed_wil_req2,
 	points = 5,
@@ -139,6 +141,7 @@ newTalent{
 
 newTalent{
 	name = "Harass Prey",
+	kr_display_name = "사냥감 괴롭히기",
 	type = {"cursed/endless-hunt", 3},
 	require = cursed_wil_req3,
 	points = 5,
@@ -204,6 +207,7 @@ newTalent{
 
 newTalent{
 	name = "Surge",
+	kr_display_name = "쇄도",
 	type = {"cursed/endless-hunt", 4},
 	mode = "sustained",
 	require = cursed_wil_req4,

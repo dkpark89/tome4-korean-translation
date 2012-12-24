@@ -17,31 +17,36 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Dual Weapon Training",
+	kr_display_name = "쌍수 무기 숙련",
 	type = {"technique/dualweapon-training", 1},
 	mode = "passive",
 	points = 5,
 	require = techs_dex_req1,
 	info = function(self, t)
-		return ([[Increases the damage of your off-hand weapon to %d%%.]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
+		return ([[보조 무기의 피해량을 %d%% 증가시킵니다.]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
 	end,
 }
 
 newTalent{
 	name = "Dual Weapon Defense",
+	kr_display_name = "쌍수 무기 방어술",
 	type = {"technique/dualweapon-training", 2},
 	mode = "passive",
 	points = 5,
 	require = techs_dex_req2,
 	info = function(self, t)
-		return ([[You have learned to block incoming blows with your weapons.  When dual wielding, your defense is increased by %d.
-		Defense scales with Dexterity]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 12)
+		return ([[무기로 공격을 막아내는 방법을 익혀, 회피도를 %d 증가시킵니다.
+		회피도는 민첩성 능력치에 영향을 받아 증가됩니다.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 12)
 	end,
 }
 
 newTalent{
 	name = "Precision",
+	kr_display_name = "허점 포착",
 	type = {"technique/dualweapon-training", 3},
 	mode = "sustained",
 	points = 5,
@@ -50,11 +55,11 @@ newTalent{
 	cooldown = 10,
 	sustain_stamina = 20,
 	tactical = { BUFF = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require a two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	activate = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Precision without dual wielding!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 허점 포착을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -67,13 +72,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You have learned to hit the right spot, increasing your armor penetration by %d when dual wielding.
-		The Armour penetration bonus will increase with your Dexterity.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 20)
+		return ([[허점을 정확히 노리는 자세를 취해서, 방어도 관통력을 %d 증가시킵니다.
+		방어도 관통력은 민첩 능력치에 영향을 받아 증가됩니다.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 20)
 	end,
 }
 
 newTalent{
 	name = "Momentum",
+	kr_display_name = "공격 가속",
 	type = {"technique/dualweapon-training", 4},
 	mode = "sustained",
 	points = 5,
@@ -81,11 +87,11 @@ newTalent{
 	sustain_stamina = 50,
 	require = techs_dex_req4,
 	tactical = { BUFF = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	activate = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Momentum without dual wielding!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 공격 가속을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -102,7 +108,7 @@ newTalent{
 	info = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		weapon = weapon or {}
-		return ([[Increases attack speed by %d%%, but drains stamina quickly (-6 stamina/turn).]]):format(self:getTalentLevel(t) * 14)
+		return ([[공격 속도를 %d%% 증가시키지만, 체력을 급격히 소진하게 됩니다(체력 -6/턴).]]):format(self:getTalentLevel(t) * 14)
 	end,
 }
 
@@ -111,6 +117,7 @@ newTalent{
 ------------------------------------------------------
 newTalent{
 	name = "Dual Strike",
+	kr_display_name = "이중 타격",
 	type = {"technique/dualweapon-attack", 1},
 	points = 5,
 	random_ego = "attack",
@@ -119,11 +126,11 @@ newTalent{
 	require = techs_dex_req1,
 	requires_target = true,
 	tactical = { ATTACK = { weapon = 1 }, DISABLE = { stun = 2 } },
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require a two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Dual Strike without dual wielding!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 이중 타격을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -140,7 +147,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s resists the stunning strike!", target.name:capitalize())
+				game.logSeen(target, "%s 기절 공격에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 
 			-- Attack after the stun, to benefit from backstabs
@@ -150,8 +157,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Attack with your offhand weapon for %d%% damage. If the attack hits, the target is stunned for %d turns, and you hit it with your mainhand weapon doing %d%% damage.
-		The stun chance increases with your Accuracy.]])
+		return ([[보조 무기로 공격하여 %d%% 의 무기 피해를 줍니다. 이 공격이 성공하면 대상은 %d 턴 동안 기절하게 되고, 바로 주 무기를 휘둘러 %d%% 의 무기 피해를 줍니다.
+		기절 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 0.7, 1.5),
 		2 + self:getTalentLevel(t),
 		100 * self:combatTalentWeaponDamage(t, 0.7, 1.5))
@@ -160,6 +167,7 @@ newTalent{
 
 newTalent{
 	name = "Flurry",
+	kr_display_name = "질풍",
 	type = {"technique/dualweapon-attack", 2},
 	points = 5,
 	random_ego = "attack",
@@ -168,11 +176,11 @@ newTalent{
 	require = techs_dex_req2,
 	requires_target = true,
 	tactical = { ATTACK = { weapon = 4 } },
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require a two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Flurry without dual wielding!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 질풍을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -187,12 +195,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lashes out with a flurry of blows, hitting your target three times with each weapon for %d%% damage.]]):format(100 * self:combatTalentWeaponDamage(t, 0.4, 1.0))
+		return ([[질풍같이 무기를 휘둘러, 각 무기로 3번씩 걸쳐 %d%% 의 무기 피해를 적에게 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.4, 1.0))
 	end,
 }
 
 newTalent{
 	name = "Sweep",
+	kr_display_name = "휩쓸기",
 	type = {"technique/dualweapon-attack", 3},
 	points = 5,
 	random_ego = "attack",
@@ -201,11 +210,11 @@ newTalent{
 	require = techs_dex_req3,
 	requires_target = true,
 	tactical = { ATTACKAREA = { weapon = 1, cut = 1 } },
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require a two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Sweep without dual wielding!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 휩쓸기를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -240,13 +249,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Attack your foes in a frontal arc, doing %d%% weapon damage and making your targets bleed for %d each turn for %d turns.]]):
+		return ([[전장에 근접한 적들에게 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 무기 피해를 %d 턴 동안 주는 출혈 상태를 일으킵니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), self:getDex() * 0.5, 3 + self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Whirlwind",
+	kr_display_name = "회오리",
 	type = {"technique/dualweapon-attack", 4},
 	points = 5,
 	random_ego = "attack",
@@ -259,11 +269,11 @@ newTalent{
 	target = function(self, t)
 		return {type="ball", radius=self:getTalentRadius(t), range=self:getTalentRange(t)}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require a two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Whirlwind without dual wielding!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 회오리를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -278,7 +288,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Spin around, damaging all targets around you with both weapons for %d%%.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
+		return ([[한바퀴 회전하며 공격하여, 주변에 근접한 모든 대상에게 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
 

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Healing Light",
+	kr_display_name = "치유의 빛",
 	type = {"celestial/light", 1},
 	require = spells_req1,
 	points = 5,
@@ -37,14 +38,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[An invigorating ray of Sunlight shines on you, healing your body for %d life.
-		The amount healed will increase with your Spellpower.]]):
+		return ([[당신에게 내리비치는 태양의 독려를 받아, %d 의 생명력을 회복합니다.
+		회복량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(heal)
 	end,
 }
 
 newTalent{
 	name = "Bathe in Light",
+	kr_display_name = "빛의 세례",
 	type = {"celestial/light", 2},
 	require = spells_req2,
 	random_ego = "defensive",
@@ -78,15 +80,16 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local heal = t.getHeal(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[A magical zone of Sunlight appears around you, healing all within radius %d for %0.2f per turn and increasing healing effects on everyone within by %d%%. The effect lasts for %d turns.
-		It also lights up the affected zone.
-		The amount healed will increase with the Magic stat]]):
+		return ([[햇빛이 내리비치는 마력 지대를 만들어서, %d 칸 반경 내의 모든 대상을 매 턴마다 %0.2f 만큼 치유하고, 치유 효과를 %d%% 증가시킵니다. 효과는 %d 턴 동안 지속됩니다.
+		또한 해당 지역에 빛이 밝혀집니다.
+		치유량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, heal, heal, duration)
 	end,
 }
 
 newTalent{
 	name = "Barrier",
+	kr_display_name = "방벽",
 	type = {"celestial/light", 3},
 	require = spells_req3,
 	points = 5,
@@ -102,14 +105,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local absorb = t.getAbsorb(self, t)
-		return ([[A protective shield forms around you that lasts for up to 10 turns and negates %d damage.
-		The total damage the barrier can absorb will increase with your Spellpower.]]):
+		return ([[10턴 동안 당신을 보호하는 방벽을 생성하여 %d 의 피해를 흡수합니다.
+		방벽의 흡수량은 마법 능력치의 영향을 받아 증가됩니다.]]):
 		format(absorb)
 	end,
 }
 
 newTalent{
 	name = "Providence",
+	kr_display_name = "빛의 뜻",
 	type = {"celestial/light", 4},
 	require = spells_req4,
 	points = 5,
@@ -127,9 +131,9 @@ newTalent{
 	info = function(self, t)
 		local regen = t.getRegeneration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Places you under the protection of Light itself. For %d turns, the light heals %d life and removes a single negative effect from you.
-		The amount healed will increase with your Spellpower.]]):
-		format(duration, regen)
+		return ([[빛의 보호를 받아, 매 턴마다 %d 의 생명력을 회복하고 한 개의 상태이상 효과를 해제합니다. 빛의 보호는 %d 턴 동안 유지됩니다.
+		치유량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		format(regen, duration) --@@
 	end,
 }
 

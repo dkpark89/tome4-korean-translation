@@ -40,7 +40,7 @@ end
 
 --- Gets the full name of the object
 function _M:getName()
-	local name = self.name
+	local name = self.kr_display_name or self.name --@@
 	if not self:isIdentified() and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 	return name
 end
@@ -49,9 +49,9 @@ end
 function _M:tooltip()
 	if self:knownBy(game.player) then
 		local res = tstring{{"uid", self.uid}, self:getName()}
-		if self.is_store then res:add(true, {"font","italic"}, "<Store>", {"font","normal"}) end
+		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		if config.settings.cheat then
-			res:add(true, "UID: "..self.uid, true, "Detect: "..self.detect_power, true, "Disarm: "..self.disarm_power)
+			res:add(true, "UID: "..self.uid, true, "탐지: "..self.detect_power, true, "해체: "..self.disarm_power)
 		end
 		return res
 	end
@@ -91,7 +91,7 @@ function _M:canTrigger(x, y, who, no_random)
 	if self.faction and who.reactionToward and who:reactionToward(self) >= 0 then return false end
 	if not no_random and who.trap_avoidance and rng.percent(who.trap_avoidance) then
 		if self:knownBy(who) then
-			game.logPlayer(who, "You carefully avoid the trap (%s).", self:getName())
+			game.logPlayer(who, "당신은 조심스럽게 %s 함정을 피해갑니다.", self:getName())
 		end
 		return false
 	end
@@ -102,7 +102,7 @@ end
 function _M:trigger(x, y, who)
 	engine.Trap.trigger(self, x, y, who)
 
-	if who.runStop then who:runStop("trap") end
+	if who.runStop then who:runStop("함정") end
 end
 
 function _M:resolveSource()

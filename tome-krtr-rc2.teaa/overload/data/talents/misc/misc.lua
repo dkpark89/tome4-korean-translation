@@ -35,6 +35,7 @@ load("/data/talents/misc/tutorial.lua")
 -- Default melee attack
 newTalent{
 	name = "Attack",
+	kr_display_name = "공격",
 	type = {"base/class", 1},
 	no_energy = "fake",
 	hide = "always",
@@ -223,6 +224,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_ANGOLWEN",
 	name = "Teleport: Angolwen",
+	kr_display_name = "공간이동: 앙골웬",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -258,6 +260,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_POINT_ZERO",
 	name = "Timeport: Point Zero",
+	kr_display_name = "공간이동: 영점",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -293,6 +296,7 @@ newTalent{
 
 newTalent{
 	name = "Relentless Pursuit",
+	kr_display_name = "사정없는 추적",
 	type = {"base/class", 1},
 	points = 5,
 	no_energy = true,
@@ -347,6 +351,7 @@ newTalent{
 newTalent{
 	short_name = "SHERTUL_FORTRESS_GETOUT",
 	name = "Teleport to the ground",
+	kr_display_name = "지표면으로의 공간이동",
 	type = {"base/race", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,
@@ -366,6 +371,7 @@ newTalent{
 newTalent{
 	short_name = "SHERTUL_FORTRESS_BEAM",
 	name = "Fire a blast of energy", --FINISH ME
+	kr_display_name = "에너지탄 발사",
 	type = {"base/race", 1},
 	fortress_energy = 10,
 	no_npc_use = true,

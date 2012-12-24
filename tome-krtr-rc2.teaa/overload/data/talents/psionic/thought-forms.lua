@@ -165,6 +165,7 @@ end
 -- Thought-forms
 newTalent{
 	name = "Thought-Form: Bowman",
+	kr_display_name = "생각의 구현:궁사",
 	short_name = "TF_BOWMAN",
 	type = {"psionic/other", 1},
 	points = 5, 
@@ -276,6 +277,7 @@ newTalent{
 
 newTalent{
 	name = "Thought-Form: Warrior",
+	kr_display_name = "생각의 구현: 전사",
 	short_name = "TF_WARRIOR",
 	type = {"psionic/other", 1},
 	points = 5, 
@@ -377,6 +379,7 @@ newTalent{
 
 newTalent{
 	name = "Thought-Form: Defender",
+	kr_display_name = "생각의 구현: 수호자",
 	short_name = "TF_DEFENDER",
 	type = {"psionic/other", 1},
 	points = 5, 
@@ -480,6 +483,7 @@ newTalent{
 
 newTalent{
 	name = "Thought-Forms",
+	kr_display_name = "생각의 구현",
 	short_name = "THOUGHT_FORMS",
 	type = {"psionic/thought-forms", 1},
 	points = 5, 
@@ -521,6 +525,7 @@ newTalent{
 
 newTalent{
 	name = "Transcendent Thought-Forms",
+	kr_display_name = "탁월한 생각의 구현",
 	short_name = "TRANSCENDENT_THOUGHT_FORMS",
 	type = {"psionic/thought-forms", 2},
 	points = 5, 
@@ -534,6 +539,7 @@ newTalent{
 
 newTalent{
 	name = "Over Mind",
+	kr_display_name = "정신 이동",
 	type = {"psionic/thought-forms", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -613,6 +619,7 @@ newTalent{
 
 newTalent{
 	name = "Thought-Form Unity",
+	kr_display_name = "생각의 구현체 연동",
 	short_name = "TF_UNITY",
 	type = {"psionic/thought-forms", 4},
 	points = 5, 

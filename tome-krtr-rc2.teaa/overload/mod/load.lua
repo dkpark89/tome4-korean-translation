@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 -- Configure Map
 --dofile("/mod/map_config.lua")
 
@@ -100,9 +102,10 @@ UIBase:setTextShadow(0.6)
 -- Dialogs fonts
 if config.settings.tome.fonts.type == "fantasy" then
 	local size = ({normal=16, small=12, big=18})[config.settings.tome.fonts.size]
-	UIBase.font = core.display.newFont("/data/font/DroidSans.ttf", size)
-	UIBase.font_bold = core.display.newFont("/data/font/DroidSans.ttf", size)
-	UIBase.font_mono = core.display.newFont("/data/font/DroidSansMono.ttf", size)
+	--@@
+	UIBase.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", size)
+	UIBase.font_bold = core.display.newFont(krFont or "/data/font/DroidSans.ttf", size)
+	UIBase.font_mono = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", size)
 	UIBase.font_bold:setStyle("bold")
 	UIBase.font_h = UIBase.font:lineSkip()
 	UIBase.font_bold_h = UIBase.font_bold:lineSkip()
@@ -110,9 +113,10 @@ if config.settings.tome.fonts.type == "fantasy" then
 	UIBase.font_mono_h = UIBase.font_mono:lineSkip()+2
 else
 	local size = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
-	UIBase.font = core.display.newFont("/data/font/Vera.ttf", size)
-	UIBase.font_mono = core.display.newFont("/data/font/VeraMono.ttf", size)
-	UIBase.font_bold = core.display.newFont("/data/font/VeraBd.ttf", size)
+	--@@
+	UIBase.font = core.display.newFont(krFont or "/data/font/Vera.ttf", size)
+	UIBase.font_mono = core.display.newFont(krFont or "/data/font/VeraMono.ttf", size)
+	UIBase.font_bold = core.display.newFont(krFont or "/data/font/VeraBd.ttf", size)
 	UIBase.font_h = 	UIBase.font:lineSkip()
 	UIBase.font_mono_w = 	UIBase.font_mono:size(" ")
 	UIBase.font_mono_h = 	UIBase.font_mono:lineSkip()
@@ -122,13 +126,13 @@ end
 -- Define how quick hotkeys are saved
 PlayerHotkeys.quickhotkeys_specifics = {
 	function(a)
-		local race = ((a.descriptor and a.descriptor.race) and a.descriptor.race or (a.type and a.type:capitalize() or "No Race"))
-		local subrace = ((a.descriptor and a.descriptor.subrace) and (" (%s)"):format(a.descriptor.subrace) or (a.type and "" or " (No Subrace)"))
+		local race = ((a.descriptor and a.descriptor.race) and a.descriptor.race or (a.type and a.type:capitalize() or "종족 없음"))
+		local subrace = ((a.descriptor and a.descriptor.subrace) and (" (%s)"):format(a.descriptor.subrace) or (a.type and "" or " (세부종족 없음)"))
 		return ("%s"):format(race .. subrace)
 	end,
 	function(a)
-		local class = ((a.descriptor and a.descriptor.class) and a.descriptor.class or (a.subtype and a.subtype:capitalize() or "No Class"))
-		local subclass = ((a.descriptor and a.descriptor.subclass) and (" (%s)"):format(a.descriptor.subclass) or (a.subtype and "" or " (No Subclass)"))
+		local class = ((a.descriptor and a.descriptor.class) and a.descriptor.class or (a.subtype and a.subtype:capitalize() or "직업 없음"))
+		local subclass = ((a.descriptor and a.descriptor.subclass) and (" (%s)"):format(a.descriptor.subclass) or (a.subtype and "" or " (세부직업 없음)"))
 		return ("%s"):format(class .. subclass)
 	end,
 }
@@ -155,25 +159,25 @@ KeyBind:load("move,hotkeys,inventory,actions,interface,tome,debug")
 dofile("/mod/resolvers.lua")
 
 -- Body parts
-ActorInventory:defineInventory("MAINHAND", "In main hand", true, "Most weapons are wielded in the main hand.", nil, {equipdoll_back="ui/equipdoll/mainhand_inv.png"})
-ActorInventory:defineInventory("OFFHAND", "In off hand", true, "You can use shields or a second weapon in your off-hand, if you have the talents for it.", nil, {equipdoll_back="ui/equipdoll/offhand_inv.png"})
-ActorInventory:defineInventory("PSIONIC_FOCUS", "Psionic focus", true, "Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers.", nil, {equipdoll_back="ui/equipdoll/psionic_inv.png"})
-ActorInventory:defineInventory("FINGER", "On fingers", true, "Rings are worn on fingers.", nil, {equipdoll_back="ui/equipdoll/ring_inv.png"})
-ActorInventory:defineInventory("NECK", "Around neck", true, "Amulets are worn around the neck.", nil, {equipdoll_back="ui/equipdoll/amulet_inv.png"})
-ActorInventory:defineInventory("LITE", "Light source", true, "A light source allows you to see in the dark places of the world.", nil, {equipdoll_back="ui/equipdoll/light_inv.png"})
-ActorInventory:defineInventory("BODY", "Main armor", true, "Armor protects you from physical attacks. The heavier the armor the more it hinders the use of talents and spells.", nil, {equipdoll_back="ui/equipdoll/body_inv.png"})
-ActorInventory:defineInventory("CLOAK", "Cloak", true, "A cloak can simply keep you warm or grant you wondrous powers should you find a magical one.", nil, {equipdoll_back="ui/equipdoll/cloak_inv.png"})
-ActorInventory:defineInventory("HEAD", "On head", true, "You can wear helmets or crowns on your head.", nil, {equipdoll_back="ui/equipdoll/head_inv.png"})
-ActorInventory:defineInventory("BELT", "Around waist", true, "Belts are worn around your waist.", nil, {equipdoll_back="ui/equipdoll/belt_inv.png"})
-ActorInventory:defineInventory("HANDS", "On hands", true, "Various gloves can be worn on your hands.", nil, {equipdoll_back="ui/equipdoll/hands_inv.png"})
-ActorInventory:defineInventory("FEET", "On feet", true, "Sandals or boots can be worn on your feet.", nil, {equipdoll_back="ui/equipdoll/boots_inv.png"})
-ActorInventory:defineInventory("TOOL", "Tool", true, "This is your readied tool, always available immediately.", nil, {equipdoll_back="ui/equipdoll/tool_inv.png"})
-ActorInventory:defineInventory("QUIVER", "Quiver", true, "Your readied ammo.", nil, {equipdoll_back="ui/equipdoll/ammo_inv.png"})
-ActorInventory:defineInventory("GEM", "Socketed Gems", true, "Socketed gems.", nil, {equipdoll_back="ui/equipdoll/gem_inv.png"})
-ActorInventory:defineInventory("QS_MAINHAND", "Second weapon set: In main hand", false, "Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", true)
-ActorInventory:defineInventory("QS_OFFHAND", "Second weapon set: In off hand", false, "Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", true)
-ActorInventory:defineInventory("QS_PSIONIC_FOCUS", "Second weapon set: psionic focus", false, "Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", true)
-ActorInventory:defineInventory("QS_QUIVER", "Second weapon set: Quiver", false, "Weapon Set 2: Your readied ammo.", true)
+ActorInventory:defineInventory("MAINHAND", "In main hand", true, "대부분의 무기는 편한쪽 손으로 쥡니다.", nil, {equipdoll_back="ui/equipdoll/mainhand_inv.png"})
+ActorInventory:defineInventory("OFFHAND", "In off hand", true, "해당하는 기술이 있는 경우, 반대쪽 손으로는 방패를 잡거나 보조 무기를 듭니다.", nil, {equipdoll_back="ui/equipdoll/offhand_inv.png"})
+ActorInventory:defineInventory("PSIONIC_FOCUS", "Psionic focus", true, "염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 아이템이 주는 혜택을 받기 위해 다른 아이템을 잡을 수도 있습니다.", nil, {equipdoll_back="ui/equipdoll/psionic_inv.png"})
+ActorInventory:defineInventory("FINGER", "On fingers", true, "손가락에는 반지를 끼울 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/ring_inv.png"})
+ActorInventory:defineInventory("NECK", "Around neck", true, "목 주변에 장신구를 걸칠 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/amulet_inv.png"})
+ActorInventory:defineInventory("LITE", "Light source", true, "광원은 세상의 어두운 장소를 볼 수 있도록 도와줍니다.", nil, {equipdoll_back="ui/equipdoll/light_inv.png"})
+ActorInventory:defineInventory("BODY", "Main armor", true, "갑옷은 물리적 공격으로부터 보호해 줍니다. 갑옷이 무거울수록 기술이나 주문을 사용하는데 더 많이 방해됩니다.", nil, {equipdoll_back="ui/equipdoll/body_inv.png"})
+ActorInventory:defineInventory("CLOAK", "Cloak", true, "망토는 체온을 유지할수 있게 도와줍니다. 마법이 걸린 것을 찾는다면 엄청난 힘을 제공하는 것도 있습니다.", nil, {equipdoll_back="ui/equipdoll/cloak_inv.png"})
+ActorInventory:defineInventory("HEAD", "On head", true, "머리에는 모자나 투구 혹은 왕관을 쓸 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/head_inv.png"})
+ActorInventory:defineInventory("BELT", "Around waist", true, "허리에는 허리끈을 걸칩니다.", nil, {equipdoll_back="ui/equipdoll/belt_inv.png"})
+ActorInventory:defineInventory("HANDS", "On hands", true, "손에는 여러가지 장갑을 낄 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/hands_inv.png"})
+ActorInventory:defineInventory("FEET", "On feet", true, "발에는 신발을 신을 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/boots_inv.png"})
+ActorInventory:defineInventory("TOOL", "Tool", true, "여기에는 언제든 바로 쓸 수 있도록 도구를 준비해 둡니다.", nil, {equipdoll_back="ui/equipdoll/tool_inv.png"})
+ActorInventory:defineInventory("QUIVER", "Quiver", true, "준비된 탄환입니다.", nil, {equipdoll_back="ui/equipdoll/ammo_inv.png"})
+ActorInventory:defineInventory("GEM", "Socketed Gems", true, "보석이 들어갈 구멍입니다.", nil, {equipdoll_back="ui/equipdoll/gem_inv.png"})
+ActorInventory:defineInventory("QS_MAINHAND", "Second weapon set: In main hand", false, "두번째 무장: 대부분의 무기는 편한쪽 손으로 쥡니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_OFFHAND", "Second weapon set: In off hand", false, "두번째 무장: 반대쪽 손으로는 방패를 잡거나 보조 무기를 듭니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_PSIONIC_FOCUS", "Second weapon set: psionic focus", false, "두번째 무장: 염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 아이템이 주는 혜택을 받기 위해 다른 아이템을 잡을 수도 있습니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_QUIVER", "Second weapon set: Quiver", false, "두번째 무장: 준비된 탄환입니다.", true)
 ActorInventory.equipdolls = {
 	default = { w=48, h=48, itemframe="ui/equipdoll/itemframe48.png", itemframe_sel="ui/equipdoll/itemframe-sel48.png", ix=3, iy=3, iw=42, ih=42, doll_x=116, doll_y=168+64, list={
 		PSIONIC_FOCUS = {{weight=1, x=48, y=48}},
@@ -212,27 +216,27 @@ ActorTalents:loadDefinition("/data/talents.lua")
 ActorTemporaryEffects:loadDefinition("/data/timed_effects.lua")
 
 -- Actor resources
-ActorResource:defineResource("Air", "air", nil, "air_regen", "Air capacity in your lungs. Entities that need not breath are not affected.")
-ActorResource:defineResource("Stamina", "stamina", ActorTalents.T_STAMINA_POOL, "stamina_regen", "Stamina represents your physical fatigue. Each physical ability used reduces it.")
-ActorResource:defineResource("Mana", "mana", ActorTalents.T_MANA_POOL, "mana_regen", "Mana represents your reserve of magical energies. Each spell cast consumes mana and each sustained spell reduces your maximum mana.")
-ActorResource:defineResource("Equilibrium", "equilibrium", ActorTalents.T_EQUILIBRIUM_POOL, "equilibrium_regen", "Equilibrium represents your standing in the grand balance of nature. The closer it is to 0 the more balanced you are. Being out of equilibrium will negatively affect your ability to use Wild Gifts.", 0, false)
-ActorResource:defineResource("Vim", "vim", ActorTalents.T_VIM_POOL, "vim_regen", "Vim represents the amount of life energy/souls you have stolen. Each corruption talent requires some.")
-ActorResource:defineResource("Positive", "positive", ActorTalents.T_POSITIVE_POOL, "positive_regen", "Positive energy represents your reserve of positive power. It slowly decreases.")
-ActorResource:defineResource("Negative", "negative", ActorTalents.T_NEGATIVE_POOL, "negative_regen", "Negative energy represents your reserve of negative power. It slowly decreases.")
-ActorResource:defineResource("Hate", "hate", ActorTalents.T_HATE_POOL, "hate_regen", "Hate represents the level of frenzy of a cursed soul.")
-ActorResource:defineResource("Paradox", "paradox", ActorTalents.T_PARADOX_POOL, "paradox_regen", "Paradox represents how much damage you've done to the space-time continuum. A high Paradox score makes Chronomancy less reliable and more dangerous to use but also amplifies the effects.", 0, false)
-ActorResource:defineResource("Psi", "psi", ActorTalents.T_PSI_POOL, "psi_regen", "Psi represents the power available to your mind.")
+ActorResource:defineResource("Air", "air", nil, "air_regen", "폐활량을 의미합니다. 숨쉴 필요가 없는 자에게는 영향을 끼치지 않습니다.")
+ActorResource:defineResource("Stamina", "stamina", ActorTalents.T_STAMINA_POOL, "stamina_regen", "체력은 물리적 피로도를 표현합니다. 물리적 능력을 사용할 때 줄어듭니다.")
+ActorResource:defineResource("Mana", "mana", ActorTalents.T_MANA_POOL, "mana_regen", "마나는 마법 에너지의 축적량을 나타냅니다. 사용형 주문을 시전하면 마나가 감소되고, 유지형 주문을 시전하면 마나의 최대치가 감소됩니다.")
+ActorResource:defineResource("Equilibrium", "equilibrium", ActorTalents.T_EQUILIBRIUM_POOL, "equilibrium_regen", "평정은 위대한 자연의 조화를 따르는 정도를 나타냅니다. 0에 가까울수록 평온한 상태를 의미합니다. 평온하지 못할수록 자연의 권능을 제대로 쓸 수 없게 됩니다.", 0, false)
+ActorResource:defineResource("Vim", "vim", ActorTalents.T_VIM_POOL, "vim_regen", "정력은 타인에게서 빼앗은 생명의 기운과 영혼의 양을 나타냅니다. 타락한 기술이 필요로 합니다.")
+ActorResource:defineResource("Positive", "positive", ActorTalents.T_POSITIVE_POOL, "positive_regen", "양기는 보유한 빚의 에너지를 나타냅니다. 시간에 따라 천천히 감소합니다.")
+ActorResource:defineResource("Negative", "negative", ActorTalents.T_NEGATIVE_POOL, "negative_regen", "음기는 보유한 어둠의 에너지를 나타냅니다. 시간에 따라 천천히 감소합니다.")
+ActorResource:defineResource("Hate", "hate", ActorTalents.T_HATE_POOL, "hate_regen", "증오심은 저주받은 영혼이 광란하는 정도를 나타냅니다.")
+ActorResource:defineResource("Paradox", "paradox", ActorTalents.T_PARADOX_POOL, "paradox_regen", "괴리는 당신이 시공 연속체에 입힌 손상 정도를 나타냅니다. 괴리가 심해질수록 주문은 강력해지지만, 동시에 신뢰하기 힘들어지고 더욱 위험해집니다.", 0, false)
+ActorResource:defineResource("Psi", "psi", ActorTalents.T_PSI_POOL, "psi_regen", "염력은 정신이 다룰 수 있는 힘의 세기를 나타냅니다.")
 
 -- Actor stats
 
-ActorStats:defineStat("Strength",	"str", 10, 1, 100, "Strength defines your character's ability to apply physical force. It increases your melee damage, damage done with heavy weapons, your chance to resist physical effects, and carrying capacity.")
-ActorStats:defineStat("Dexterity",	"dex", 10, 1, 100, "Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.")
-ActorStats:defineStat("Magic",		"mag", 10, 1, 100, "Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.")
-ActorStats:defineStat("Willpower",	"wil", 10, 1, 100, "Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.")
-ActorStats:defineStat("Cunning",	"cun", 10, 1, 100, "Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.")
-ActorStats:defineStat("Constitution",	"con", 10, 1, 100, "Constitution defines your character's ability to withstand and resist damage. It increases your maximum life and physical resistance.")
+ActorStats:defineStat("Strength",	"str", 10, 1, 100, "힘은 케릭터의 물리력을 의미합니다. 운반 가능한 무게와, 근력을 사용하는 무기(장검, 철퇴, 도끼 등)의 피해량, 그리고 물리 내성을 상승시킵니다.")
+ActorStats:defineStat("Dexterity",	"dex", 10, 1, 100, "민첩은 케릭터가 얼마나 재빠르고 반사신경이 좋은지를 나타냅니다. 공격이 성공할 확률과, 적의 공격을 회피할 확률, 그리고 단검이나 채찍같은 가벼운 무기의 피해량을 상승시킵니다.")
+ActorStats:defineStat("Magic",		"mag", 10, 1, 100, "마법은 케릭터가 마력을 얼마나 잘 제어하는지를 나타냅니다. 주문력과 주문 내성, 그리고 다른 마법 아이템의 효과를 상승시킵니다.")
+ActorStats:defineStat("Willpower",	"wil", 10, 1, 100, "의지는 케릭터의 집중력을 나타냅니다. 마나와 체력, 그리고 염력 수치를 늘려주며, 정신력과 주문, 정신 내성을 상승시킵니다.")
+ActorStats:defineStat("Cunning",	"cun", 10, 1, 100, "교활함은 치명적인 공격을 가할 기회와, 정신력, 그리고 정신 내성을 상승시킵니다.")
+ActorStats:defineStat("Constitution",	"con", 10, 1, 100, "체격은 케릭터가 얼마나 적의 공격에 잘 버티는지를 나타냅니다. 최대 생명력과 물리 내성을 상승시킵니다.")
 -- Luck is hidden and starts at half max value (50) which is considered the standard
-ActorStats:defineStat("Luck",		"lck", 50, 1, 100, "Luck defines your character's fortune when dealing with unknown events. It increases your critical strike chance, your chance of random encounters, ...")
+ActorStats:defineStat("Luck",		"lck", 50, 1, 100, "행운은 케릭터가 예상치못한 사태에 대처하는 상황에서의 운을 나타냅니다. 치명타 기회와 돌반 사건의 발생 빈도등 여러가지 요소에 영향을 줍니다. ")
 
 -- Actor leveling, player is restricted to 50 but npcs can go higher
 ActorLevel:defineMaxLevel(nil)
@@ -288,16 +292,16 @@ require("engine.dialogs.Chat").show_portraits = true
 -- Inventory tabs
 InventoryUI.default_tabslist = function(self)
 	local tabslist = {
-		{image="metal-ui/inven_tabs/weapons.png", 	kind="weapons",		desc="All kinds of weapons",		filter=function(o) return not o.__transmo and (o.type == "weapon") end},
-		{image="metal-ui/inven_tabs/armors.png", 	kind="armors",		desc="All kinds of armours",		filter=function(o) return not o.__transmo and (o.type == "armor") end},
-		{image="metal-ui/inven_tabs/jewelry.png", 	kind="jewelry",		desc="Rings and Amulets",		filter=function(o) return not o.__transmo and (o.type == "jewelry") end},
-		{image="metal-ui/inven_tabs/gems.png", 		kind="gems",		desc="Gems"		,		filter=function(o) return not o.__transmo and (o.type == "gem" or o.type == "alchemist-gem") end},
-		{image="metal-ui/inven_tabs/inscriptions.png", 	kind="inscriptions",	desc="Infusions, Runes, ...",		filter=function(o) return not o.__transmo and (o.type == "scroll") end},
-		{image="metal-ui/inven_tabs/misc.png", 		kind="misc",		desc="Miscellaneous",			filter="others"},
-		{image="metal-ui/inven_tabs/quests.png", 	kind="quests",		desc="Quest and plot related items",	filter=function(o) return not o.__transmo and (o.plot or o.quest) end},
+		{image="metal-ui/inven_tabs/weapons.png", 	kind="weapons",		desc="무기류",		filter=function(o) return not o.__transmo and (o.type == "weapon") end},
+		{image="metal-ui/inven_tabs/armors.png", 	kind="armors",		desc="방어구류",		filter=function(o) return not o.__transmo and (o.type == "armor") end},
+		{image="metal-ui/inven_tabs/jewelry.png", 	kind="jewelry",		desc="장신구류",		filter=function(o) return not o.__transmo and (o.type == "jewelry") end},
+		{image="metal-ui/inven_tabs/gems.png", 		kind="gems",		desc="보석류"		,		filter=function(o) return not o.__transmo and (o.type == "gem" or o.type == "alchemist-gem") end},
+		{image="metal-ui/inven_tabs/inscriptions.png", 	kind="inscriptions",	desc="각인",		filter=function(o) return not o.__transmo and (o.type == "scroll") end},
+		{image="metal-ui/inven_tabs/misc.png", 		kind="misc",		desc="기타",			filter="others"},
+		{image="metal-ui/inven_tabs/quests.png", 	kind="quests",		desc="퀘스트나 게임 진행에 관련된 물품",	filter=function(o) return not o.__transmo and (o.plot or o.quest) end},
 	}
-	if self.actor:attr("has_transmo") then tabslist[#tabslist+1] = {image="metal-ui/inven_tabs/chest.png", kind="transmo", desc="Transmogrification Chest", filter=function(o) return o.__transmo end} end
-	tabslist[#tabslist+1] = {image="metal-ui/inven_tabs/all.png", kind="all", desc="All", filter="all"}
+	if self.actor:attr("has_transmo") then tabslist[#tabslist+1] = {image="metal-ui/inven_tabs/chest.png", kind="transmo", desc="변환 상자", filter=function(o) return o.__transmo end} end
+	tabslist[#tabslist+1] = {image="metal-ui/inven_tabs/all.png", kind="all", desc="전부", filter="all"}
 	return tabslist
 end
 

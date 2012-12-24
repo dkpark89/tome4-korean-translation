@@ -45,7 +45,7 @@ function _M:runInit(dir)
 		block_hard_left = false,
 		block_hard_right = false,
 		cnt = 1,
-		dialog = Dialog:simplePopup("Running...", "You are running, press Enter to stop.", function()
+		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 Enter키를 누르세요.", function()
 			self:runStop()
 		end, false, true),
 	}
@@ -88,14 +88,14 @@ function _M:runFollow(path)
 	end
 
 	if #runpath == 0 then
-		game.logPlayer(self, "You don't see how to get there...")
+		game.logPlayer(self, "그 곳으로 갈수 있는 방법을 모릅니다...")
 		return
 	end
 
 	self.running = {
 		path = runpath,
 		cnt = 1,
-		dialog = Dialog:simplePopup("Running...", "You are running, press any key to stop.", function()
+		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 아무키나 누르세요.", function()
 			self:runStop()
 		end, false, true),
 	}
@@ -139,7 +139,7 @@ function _M:runStep()
 				self:runMoved()
 				-- Did not move ? no use in running unless we were busy
 				if self.running and not self.running.busy and self.x == oldx and self.y == oldy then
-					self:runStop("didn't move")
+					self:runStop("움직이지 않음")
 				end
 			end
 			if not self.running then return false end
@@ -181,7 +181,7 @@ function _M:runStep()
 				self.running = running_bak
 				-- Can't run around the trap
 				if not ret2 then
-					self:runStop("trap spotted")
+					self:runStop("함정 발견")
 					return false
 				end
 			end
@@ -200,7 +200,7 @@ function _M:runStep()
 					self.running.ignore_left = nil
 					-- We do this check here because it is path/time dependent, not terrain configuration dependent
 					if dir_is_cardinal and checkDir(self, sides.left) and checkDir(self, self.running.dir, 2) then
-						self:runStop("terrain change on the left")
+						self:runStop("왼쪽 지형 변경")
 						return false
 					end
 				end
@@ -213,7 +213,7 @@ function _M:runStep()
 					self.running.ignore_right = nil
 					-- We do this check here because it is path/time dependent, not terrain configuration dependent
 					if dir_is_cardinal and checkDir(self, sides.right) and checkDir(self, self.running.dir, 2) then
-						self:runStop("terrain change on the right")
+						self:runStop("오른쪽 지형 변경")
 						return false
 					end
 				end
@@ -256,7 +256,7 @@ function _M:runCheck()
 					-- Turn soft left
 					if not blocked_left and (blocked_hard_left or not dir_is_cardinal) then
 						if not dir_is_cardinal and not blocked_hard_left and not (checkDir(self, sides.left, 2) and blocked_back_left) then
-							return false, "terrain changed ahead"
+							return false, "앞쪽 지형 변경"
 						end
 						self.running.dir = util.dirSides(self.running.dir, self.x, self.y).left
 						self.running.block_right = true
@@ -266,10 +266,10 @@ function _M:runCheck()
 					-- Turn hard left
 					if not blocked_hard_left and (not self.running.ignore_left or (self.running.block_hard_left and self.running.block_right)) then
 						if dir_is_cardinal and not blocked_left and not checkDir(self, sides.hard_left, 2) then
-							return false, "terrain change on the left"
+							return false, "왼쪽 지형 변경"
 						end
 						if not dir_is_cardinal and not blocked_back_left then
-							return false, "terrain ahead blocks"
+							return false, "앞쪽 지형이 막힘"
 						end
 						self.running.dir = sides.hard_left
 						if self.running.block_hard_left and self.running.ignore_left and self.running.ignore_left == 1 then
@@ -285,7 +285,7 @@ function _M:runCheck()
 					-- Turn soft right
 					if not blocked_right and (blocked_hard_right or not dir_is_cardinal) then
 						if not dir_is_cardinal and not blocked_hard_right and not (checkDir(self, sides.right, 2) and blocked_back_right) then
-							return false, "terrain changed ahead"
+							return false, "앞쪽 지형 변경"
 						end
 						self.running.dir = sides.right
 						self.running.block_left = true
@@ -295,10 +295,10 @@ function _M:runCheck()
 					-- Turn hard right
 					if not blocked_hard_right and (not self.running.ignore_right or (self.running.block_hard_right and self.running.block_left)) then
 						if dir_is_cardinal and not blocked_right and not checkDir(self, sides.hard_right, 2) then
-							return false, "terrain change on the right"
+							return false, "오른쪽 지형 변경"
 						end
 						if not dir_is_cardinal and not blocked_back_right then
-							return false, "terrain ahead blocks"
+							return false, "앞쪽 지형이 막힘"
 						end
 						self.running.dir = sides.hard_right
 						if self.running.block_hard_right and self.running.ignore_right and self.running.ignore_right == 1 then
@@ -318,7 +318,7 @@ function _M:runCheck()
 							self.running.block_right = true
 							return true
 						else
-							return false, "terrain changed ahead"
+							return false, "앞쪽 지형 변경"
 						end
 					end
 					-- Turn soft right
@@ -329,13 +329,13 @@ function _M:runCheck()
 							self.running.block_right = true
 							return true
 						else
-							return false, "terrain changed ahead"
+							return false, "앞쪽 지형 변경"
 						end
 					end
 				end
 				if checkDir(self, self.running.dir, 2) then
 					if not dir_is_cardinal and ((self.running.block_left and not blocked_hard_left and not self.running.ignore_left) or (self.running.block_right and not blocked_hard_right and not self.running.ignore_right)) then
-						return false, "terrain changed ahead"
+						return false, "앞쪽 지형 변경"
 					end
 					-- Continue forward so we may turn
 					if (blocked_left and not blocked_right) or (blocked_right and not blocked_left) then return true end
@@ -344,13 +344,13 @@ function _M:runCheck()
 		end
 
 		if not self.running.ignore_left and (self.running.block_left ~= blocked_left or self.running.block_left ~= blocked_hard_left) then
-			return false, "terrain change on left side"
+			return false, "왼쪽 지형 변경"
 		end
 		if not self.running.ignore_right and (self.running.block_right ~= blocked_right or self.running.block_right ~= blocked_hard_right) then
-			return false, "terrain change on right side"
+			return false, "오른쪽 지형 변경"
 		end
 		if blocked_ahead then
-			return false, "terrain ahead blocks"
+			return false, "앞쪽 지형이 막힘"
 		end
 	end
 
@@ -364,10 +364,11 @@ function _M:runStop(msg)
 	game:unregisterDialog(self.running.dialog)
 
 	if not msg and self.running.explore and self.running.path and self.running.cnt == #self.running.path + 1 then
-		msg = "at " .. self.running.explore
+		--@@
+		msg = self.running.explore .. "에 도착"
 	end
 	if msg then
-		game.log("Ran for %d turns (stop reason: %s).", self.running.cnt, msg)
+		game.log("%d턴 동안 달렸습니다 (중지 이유: %s).", self.running.cnt, msg)
 	end
 
 	self:runStopped(self.running.cnt, msg)

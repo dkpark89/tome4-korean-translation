@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Bone Spear",
+	kr_display_name = "뼈의 창",
 	type = {"corruption/bone", 1},
 	require = corrs_req1,
 	points = 5,
@@ -48,6 +49,7 @@ newTalent{
 
 newTalent{
 	name = "Bone Grab",
+	kr_display_name = "뼈의 속박",
 	type = {"corruption/bone", 2},
 	require = corrs_req2,
 	points = 5,
@@ -90,6 +92,7 @@ newTalent{
 
 newTalent{
 	name = "Bone Nova",
+	kr_display_name = "뼈의 산란",
 	type = {"corruption/bone", 3},
 	require = corrs_req3,
 	points = 5,
@@ -117,6 +120,7 @@ newTalent{
 
 newTalent{
 	name = "Bone Shield",
+	kr_display_name = "뼈의 방패",
 	type = {"corruption/bone", 4},
 	points = 5,
 	mode = "sustained", no_sustain_autoreset = true,

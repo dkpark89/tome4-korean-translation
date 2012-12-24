@@ -29,7 +29,7 @@ local GetText = require "engine.dialogs.GetText"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(key_source, force_all, gesture_source)
-	Dialog.init(self, "Key bindings", 800, game.h * 0.9)
+	Dialog.init(self, "명령어 입력 설정", 800, game.h * 0.9)
 	self.gesture = gesture_source
 	self.key_source = key_source
 
@@ -77,7 +77,7 @@ function _M:use(item)
 	-- Make a dialog to ask for the key
 	--
 	if curcol == 1 or curcol == 2 then
-		local title = "Press a key (or escape) for: "..tostring(t.name)
+		local title = "연결할 키를 누르시오 (취소시 ESC): "..tostring(t.name)
 		local font = self.font
 		local w, h = font:size(title)
 		local d = engine.Dialog.new(title, w + 8, h + 25, nil, nil, nil, font)
@@ -126,11 +126,11 @@ function _M:use(item)
 		}
 
 		d.drawDialog = function(self, s)
-			s:drawColorStringBlendedCentered(self.font, curcol == 1 and "Bind key" or "Bind alternate key", 2, 2, self.iw - 2, self.ih - 2)
+			s:drawColorStringBlendedCentered(self.font, curcol == 1 and "명령어 연결" or "명령어 추가 연결", 2, 2, self.iw - 2, self.ih - 2)
 		end
 		game:registerDialog(d)
 	elseif curcol == 3 then
-		local title = "Make gesture (using right mouse button) or type it (or escape) for: "..tostring(t.name)
+		local title = "마우스 움직임을 그리거나(우클릭+움직임) 입력하시오 (취소시 ESC): "..tostring(t.name)
 		local font = self.font
 		local w, h = font:size(title)
 		local d = GetText.new(title, "Gesture", 0, 5,

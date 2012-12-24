@@ -3,8 +3,8 @@
 -- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils" 
 
 -- 한글 글꼴 설정
---krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 빠름, 글자 가독성이 좀 떨어짐
-krFont = "/data/font/HYSUPM.TTF" -- HY수평선M 글꼴(428kB), 아직 조금 느림, 글꼴이 잘 어울림
+krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 빠름, 글자 가독성이 좀 떨어짐
+--krFont = "/data/font/HYSUPM.TTF" -- HY수평선M 글꼴(428kB), 아직 조금 느림, 글꼴이 잘 어울림
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index
@@ -481,7 +481,7 @@ function string.krClass(str)
 	elseif ori == "curruptor" then return "타락자"
 	elseif ori == "mage" then return "마법사"
 	elseif ori == "alchemist" then return "연금술사"
-	elseif ori == "archmage" then return "대마법사"
+	elseif ori == "archmage" then return "마도사"
 	elseif ori == "necromancer" then return "사령술사"
 	elseif ori == "none" then return "없음"
 	elseif ori == "psionic" then return "초능력자"

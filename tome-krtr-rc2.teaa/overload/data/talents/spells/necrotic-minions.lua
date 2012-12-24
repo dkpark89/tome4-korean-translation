@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Necrotic Aura", image = "talents/aura_mastery.png",
+	kr_display_name = "사령술의 오러",
 	type = {"spell/other", 1},
 	points = 1,
 	mode = "sustained",
@@ -656,6 +657,7 @@ end
 
 newTalent{
 	name = "Create Minions",
+	kr_display_name = "추종차 생성",
 	type = {"spell/necrotic-minions",1},
 	require = spells_req1,
 	points = 5,
@@ -750,6 +752,7 @@ newTalent{
 
 newTalent{
 	name = "Aura Mastery",
+	kr_display_name = "오러 숙련",
 	type = {"spell/necrotic-minions",2},
 	require = spells_req2,
 	points = 5,
@@ -770,6 +773,7 @@ newTalent{
 
 newTalent{
 	name = "Surge of Undeath",
+	kr_display_name = "언데드의 격동",
 	type = {"spell/necrotic-minions",3},
 	require = spells_req3,
 	points = 5,
@@ -806,6 +810,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Empathy",
+	kr_display_name = "어둠의 공감",
 	type = {"spell/necrotic-minions",4},
 	require = spells_req4,
 	points = 5,

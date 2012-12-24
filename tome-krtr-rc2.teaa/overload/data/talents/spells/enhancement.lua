@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Fiery Hands",
+	kr_display_name = "불타오르는 손",
 	type = {"spell/enhancement",1},
 	require = spells_req1,
 	points = 5,
@@ -54,6 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Earthen Barrier",
+	kr_display_name = "대지의 장벽",
 	type = {"spell/enhancement", 2},
 	points = 5,
 	random_ego = "utility",
@@ -78,6 +80,7 @@ newTalent{
 
 newTalent{
 	name = "Shock Hands",
+	kr_display_name = "전격의 손",
 	type = {"spell/enhancement", 3},
 	require = spells_req3,
 	points = 5,
@@ -113,6 +116,7 @@ newTalent{
 
 newTalent{
 	name = "Inner Power",
+	kr_display_name = "내재되 힘",
 	type = {"spell/enhancement", 4},
 	require = spells_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blastwave",
+	kr_display_name = "충격폭발",
 	type = {"spell/wildfire",1},
 	require = spells_req_high1,
 	points = 5,
@@ -65,6 +66,7 @@ newTalent{
 
 newTalent{
 	name = "Burning Wake",
+	kr_display_name = "화염의 자국",
 	type = {"spell/wildfire",2},
 	require = spells_req_high2,
 	mode = "sustained",
@@ -95,6 +97,7 @@ newTalent{
 
 newTalent{
 	name = "Cleansing Flames",
+	kr_display_name = "정화의 화염",
 	type = {"spell/wildfire",3},
 	require = spells_req_high3,
 	mode = "passive",
@@ -109,6 +112,7 @@ newTalent{
 
 newTalent{
 	name = "Wildfire",
+	kr_display_name = "야생의 화염",
 	type = {"spell/wildfire",4},
 	require = spells_req_high4,
 	points = 5,
