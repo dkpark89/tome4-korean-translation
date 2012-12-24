@@ -553,10 +553,12 @@ function _M:drawDialog(kind, actor_to_compare)
 		for eff_id, p in pairs(player.tmp) do
 			local e = player.tempeffect_def[eff_id]
 			local desc = e.long_desc(player, p)
+			--@@
+			local ed = e.kr_display_name or e.desc
 			if e.status == "detrimental" then
-				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_RED#%s"):format(e.desc), w, h, 255, 255, 255, true)) h = h + self.font_h
+				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_RED#%s"):format(ed), w, h, 255, 255, 255, true)) h = h + self.font_h
 			else
-				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(e.desc), w, h, 255, 255, 255, true)) h = h + self.font_h
+				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(ed), w, h, 255, 255, 255, true)) h = h + self.font_h
 			end
 		end
 	elseif kind=="attack" then
