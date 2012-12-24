@@ -184,7 +184,7 @@ end
 function _M:checkNew(fct)
 	local savename = self.c_name.text:gsub("[^a-zA-Z0-9_-.]", "_")
 	if fs.exists(("/save/%s/game.teag"):format(savename)) then
-		Dialog:yesnoPopup("캐릭터를 덮어쓰시겠습니까?", "이미 동일한 이름의 캐릭터가 있습니다. 덮어쓰시겠습니까?", function(ret)
+		Dialog:yesnoLongPopup("캐릭터를 덮어쓰시겠습니까?", "이미 동일한 이름의 캐릭터가 있습니다. 덮어쓰시겠습니까?", game.w * 0.4, function(ret)
 			if not ret then fct() end
 		end, "아니오", "예")
 	else
@@ -946,7 +946,7 @@ function _M:loadPremadeUI()
 
 	local load = Button.new{text="불러오기", fct=function() if sel then self:loadPremade(sel) game:unregisterDialog(d) end end}
 	local del = Button.new{text="삭제", fct=function() if sel then
-		self:yesnoPopup(sel.name, "만들었던 캐릭터를 삭제하시겠습니까?: "..sel.name, function(ret) if ret then
+		self:yesnoLongPopup(sel.name, "만들었던 캐릭터를 삭제하시겠습니까?: "..sel.name, game.w * 0.4, function(ret) if ret then
 			local vault = CharacterVaultSave.new(sel.short_name)
 			vault:delete()
 			vault:close()
