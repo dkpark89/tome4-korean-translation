@@ -44,6 +44,7 @@ end
 
 newTalent{
 	name = "Aether Beam",
+	kr_display_name = "에테르 빔",
 	type = {"spell/aether", 1},
 	require = spells_req_high1,
 	mana = 20,
@@ -124,6 +125,7 @@ newTalent{
 
 newTalent{
 	name = "Aether Breach",
+	kr_display_name = "에테르 브레쓰",
 	type = {"spell/aether", 2},
 	require = spells_req_high2,
 	points = 5,
@@ -165,6 +167,7 @@ newTalent{
 
 newTalent{
 	name = "Aether Avatar",
+	kr_display_name = "에테르 화신",
 	type = {"spell/aether", 3},
 	require = spells_req_high3,
 	points = 5,
@@ -190,6 +193,7 @@ newTalent{
 
 newTalent{
 	name = "Pure Aether",
+	kr_display_name = "순수한 에테르",
 	type = {"spell/aether",4},
 	require = spells_req_high4,
 	points = 5,

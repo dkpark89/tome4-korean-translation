@@ -82,6 +82,7 @@ newTalent{
 
 newTalent{
 	name = "Indiscernible Anatomy",
+	kr_display_name = "알수없는 신체구조",
 	type = {"wild-gift/malleable-body", 4},
 	require = gifts_req4,
 	points = 5,

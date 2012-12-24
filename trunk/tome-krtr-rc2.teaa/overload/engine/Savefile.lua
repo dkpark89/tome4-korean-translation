@@ -137,7 +137,7 @@ function _M:saveWorld(world, no_dialog)
 
 	local popup
 	if not no_dialog then
-		popup = Dialog:simpleWaiter("Saving world", "Please wait while saving the world...")
+		popup = Dialog:simpleWaiter("세계 저장중", "세계를 저장하는 동안 잠시 기다려 주십시오...")
 	end
 	core.display.forceRedraw()
 
@@ -208,7 +208,7 @@ function _M:saveGame(game, no_dialog)
 
 	local popup
 	if not no_dialog then
-		popup = Dialog:simpleWaiter("Saving game", "Please wait while saving the game...")
+		popup = Dialog:simpleWaiter("게임 저장중", "게임을 저장하는 동안 잠시 기다려 주십시오...")
 	end
 	core.display.forceRedraw()
 
@@ -281,7 +281,7 @@ function _M:saveZone(zone, no_dialog)
 
 	local popup
 	if not no_dialog then
-		popup = Dialog:simpleWaiter("Saving zone", "Please wait while saving the zone...")
+		popup = Dialog:simpleWaiter("지역 저장중", "지역을 저장하는 동안 잠시 기다려 주십시오...")
 	end
 	core.display.forceRedraw()
 
@@ -312,7 +312,7 @@ function _M:saveLevel(level, no_dialog)
 
 	local popup
 	if not no_dialog then
-		popup = Dialog:simpleWaiter("Saving level", "Please wait while saving the level...")
+		popup = Dialog:simpleWaiter("현재층 저장중", "현재층을 저장하는 동안 잠시 기다려 주십시오...")
 	end
 	core.display.forceRedraw()
 
@@ -343,7 +343,7 @@ function _M:saveEntity(e, no_dialog)
 
 	local popup
 	if not no_dialog then
-		popup = Dialog:simpleWaiter("Saving entity", "Please wait while saving the entity...")
+		popup = Dialog:simpleWaiter("존재 저장중", "존재를 저장하는 동안 잠시 기다려 주십시오...")
 	end
 	core.display.forceRedraw()
 
@@ -403,7 +403,7 @@ function _M:loadWorld()
 
 	fs.mount(path, self.load_dir)
 
-	local popup = Dialog:simpleWaiter("Loading world", "Please wait while loading the world...")
+	local popup = Dialog:simpleWaiter("세계 불러오는중", "세계를 불러오는 동안 잠시 기다려 주십시오...")
 	core.display.forceRedraw()
 
 	local loadedWorld = self:loadReal("main")
@@ -449,7 +449,7 @@ function _M:loadGame()
 
 	fs.mount(path, self.load_dir)
 
-	local popup = Dialog:simpleWaiter("Loading game", "Please wait while loading the game...")
+	local popup = Dialog:simpleWaiter("게임 불러오는중", "게임을 불러오는 동안 잠시 기다려 주십시오...")
 	core.display.forceRedraw()
 
 	local loadedGame = self:loadReal("main")
@@ -509,7 +509,7 @@ function _M:loadZone(zone)
 		f:close()
 	end
 
-	local popup = Dialog:simpleWaiter("Loading zone", "Please wait while loading the zone...", nil, nil, nb > 0 and nb)
+	local popup = Dialog:simpleWaiter("지역 불러오는중", "지역을 불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
 	core.wait.enableManualTick(true)
 	core.display.forceRedraw()
 
@@ -547,7 +547,7 @@ function _M:loadLevel(zone, level)
 		f:close()
 	end
 
-	local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, nil, nb > 0 and nb)
+	local popup = Dialog:simpleWaiter("현재층 불러오는중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
 	core.display.forceRedraw()
 
 	local loadedLevel = self:loadReal("main")
@@ -583,7 +583,7 @@ function _M:loadEntity(name)
 		f:close()
 	end
 
-	local popup = Dialog:simpleWaiter("Loading entity", "Please wait while loading the entity...", nil, nil, nb > 0 and nb)
+	local popup = Dialog:simpleWaiter("존재 불러오는중", "존재를  불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
 	core.display.forceRedraw()
 
 	local loadedEntity = self:loadReal("main")

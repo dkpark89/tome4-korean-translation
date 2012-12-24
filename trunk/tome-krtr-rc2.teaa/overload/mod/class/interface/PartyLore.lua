@@ -81,10 +81,12 @@ function _M:learnLore(lore, nopopup, silent, nostop)
 	if not config.settings.tome.lore_popup and profile.mod.lore and profile.mod.lore.lore and profile.mod.lore.lore[lore] and not l.always_pop then nopopup = true end
 
 	if not self:knownLore(lore) or l.always_pop then
-		game.logPlayer(self, "Lore found: #0080FF#%s", l.name)
+		--@@
+		local ln = l.kr_display_name or l.name
+		game.logPlayer(self, "지식 발견: #0080FF#%s", ln)
 		if not nopopup then
 			LorePopup.new(l, game.w * 0.6, 0.8)
-			game.logPlayer(self, "You can read all your collected lore in the game menu, by pressing Escape.")
+			game.logPlayer(self, "ESC키를 누르면 나오는 게임 메뉴에서 지금까지 모은 지식을 읽을 수 있습니다.")
 		end
 		learnt = true
 	end
@@ -95,7 +97,7 @@ function _M:learnLore(lore, nopopup, silent, nostop)
 	if learnt then if l.on_learn then l.on_learn(self:findMember{main=true}) end end
 
 	if self.runStop and not nostop then
-		self:runStop("learnt lore")
-		self:restStop("learnt lore")
+		self:runStop("지식 습득")
+		self:restStop("지식 습득")
 	end
 end

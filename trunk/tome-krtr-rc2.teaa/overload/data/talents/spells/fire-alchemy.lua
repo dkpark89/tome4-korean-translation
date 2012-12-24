@@ -20,6 +20,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Heat",
+	kr_display_name = "가열",
 	type = {"spell/fire-alchemy", 1},
 	require = spells_req1,
 	points = 5,
@@ -50,6 +51,7 @@ newTalent{
 
 newTalent{
 	name = "Smoke Bomb",
+	kr_display_name = "연기 폭탄",
 	type = {"spell/fire-alchemy", 2},
 	require = spells_req2,
 	points = 5,
@@ -98,6 +100,7 @@ newTalent{
 
 newTalent{
 	name = "Fire Storm",
+	kr_display_name = "화염 폭풍",
 	type = {"spell/fire-alchemy",3},
 	require = spells_req3,
 	points = 5,
@@ -143,6 +146,7 @@ newTalent{
 
 newTalent{
 	name = "Body of Fire",
+	kr_display_name = "화염의 육체",
 	type = {"spell/fire-alchemy",4},
 	require = spells_req4,
 	mode = "sustained",

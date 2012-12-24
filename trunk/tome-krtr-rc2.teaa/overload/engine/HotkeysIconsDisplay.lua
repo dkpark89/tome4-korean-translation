@@ -32,8 +32,8 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize, icon_w, icon_h)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	self.font = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", fontsize or 10)
-	self.fontbig = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", (fontsize or 10) * 2)
+	self.font = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", fontsize or 10) --@@ 글꼴 일부러 그냥둠 
+	self.fontbig = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", (fontsize or 10) * 2) --@@ 글꼴 일부러 그냥둠
 	self.font_h = self.font:lineSkip()
 	self.dragclics = {}
 	self.clics = {}
@@ -41,7 +41,7 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize, icon_w, icon_h)
 	self.cache = {}
 	setmetatable(self.cache, {__mode="v"})
 	self.icon_w, self.icon_h = icon_w, icon_h
-	self.tiles = Tiles.new(icon_w, icon_h, fontname or "/data/font/DroidSansMono.ttf", fontsize or 10, true, true)
+	self.tiles = Tiles.new(icon_w, icon_h, fontname or "/data/font/DroidSansMono.ttf", fontsize or 10, true, true) --@@ 글꼴 일부러 그냥둠
 	self.tiles.use_images = true
 	self.tiles.force_back_color = {r=0, g=0, b=0}
 
@@ -341,7 +341,9 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 					local text = ""
 					if a.hotkey[i] and a.hotkey[i][1] == "talent" then
 						local t = self.actor:getTalentFromId(a.hotkey[i][2])
-						text = tstring{{"color","GOLD"}, {"font", "bold"}, t.name, {"font", "normal"}, {"color", "LAST"}, true}
+						--@@
+						local tn = t.kr_display_name or t.name
+						text = tstring{{"color","GOLD"}, {"font", "bold"}, tn, {"font", "normal"}, {"color", "LAST"}, true}
 						text:merge(self.actor:getTalentFullDescription(t))
 					elseif a.hotkey[i] and a.hotkey[i][1] == "inventory" then
 						local o = a:findInAllInventories(a.hotkey[i][2], {no_add_name=true, force_id=true, no_count=true})

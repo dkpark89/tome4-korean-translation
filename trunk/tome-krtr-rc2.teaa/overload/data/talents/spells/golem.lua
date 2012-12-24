@@ -23,6 +23,7 @@
 
 newTalent{
 	name = "Knockback", short_name = "GOLEM_KNOCKBACK",
+	kr_display_name = "밀어내기",
 	type = {"golem/fighting", 1},
 	require = techs_req1,
 	points = 5,
@@ -97,6 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Taunt", short_name = "GOLEM_TAUNT",
+	kr_display_name = "약올리기",
 	type = {"golem/fighting", 2},
 	require = techs_req2,
 	points = 5,
@@ -140,6 +142,7 @@ newTalent{
 
 newTalent{
 	name = "Crush", short_name = "GOLEM_CRUSH",
+	kr_display_name = "충돌",
 	type = {"golem/fighting", 3},
 	require = techs_req3,
 	points = 5,
@@ -213,6 +216,7 @@ newTalent{
 
 newTalent{
 	name = "Pound", short_name = "GOLEM_POUND",
+	kr_display_name = "찧기",
 	type = {"golem/fighting", 4},
 	require = techs_req4,
 	points = 5,
@@ -298,6 +302,7 @@ newTalent{
 
 newTalent{
 	name = "Eye Beam", short_name = "GOLEM_BEAM",
+	kr_display_name = "눈에서 빔!!!", --@@ 이걸 뭐라 불러야 할지...
 	type = {"golem/arcane", 1},
 	require = spells_req1,
 	points = 5,
@@ -364,6 +369,7 @@ newTalent{
 
 newTalent{
 	name = "Reflective Skin", short_name = "GOLEM_REFLECTIVE_SKIN",
+	kr_display_name = "피해반사 피부",
 	type = {"golem/arcane", 2},
 	require = spells_req2,
 	points = 5,
@@ -395,6 +401,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Pull", short_name = "GOLEM_ARCANE_PULL",
+	kr_display_name = "마법적 당기기",
 	type = {"golem/arcane", 3},
 	require = spells_req3,
 	points = 5,
@@ -439,6 +446,7 @@ newTalent{
 
 newTalent{
 	name = "Molten Skin", short_name = "GOLEM_MOLTEN_SKIN",
+	kr_display_name = "용해된 피부",
 	type = {"golem/arcane", 4},
 	require = spells_req4,
 	points = 5,
@@ -482,6 +490,7 @@ newTalent{
 
 newTalent{
 	name = "Self-destruction", short_name = "GOLEM_DESTRUCT",
+	kr_display_name = "자폭",
 	type = {"golem/golem", 1},
 	points = 1,
 	range = 0,
@@ -512,6 +521,7 @@ newTalent{
 -- Compensate for changes to Armour Training by introducing a new golem skill
 newTalent{
 	name = "Armour Configuration", short_name = "GOLEM_ARMOUR",
+	kr_display_name = "갑옷 형성",
 	type = {"golem/golem", 1},
 	mode = "passive",
 	points = 6,

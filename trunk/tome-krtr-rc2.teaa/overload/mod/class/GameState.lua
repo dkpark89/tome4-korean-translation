@@ -567,7 +567,7 @@ function _M:spawnWorldAmbush(enc, dx, dy)
 	game.player.energy.value = game.energy_to_act
 	game.paused = true
 	game:changeLevel(1, zone, {temporary_zone_shift=true})
-	engine.ui.Dialog:simplePopup("Ambush!", "You have been ambushed!")
+	engine.ui.Dialog:simplePopup("습격!", "습격 당했습니다!")
 
 	end)
 end
@@ -1294,7 +1294,7 @@ end
 
 local random_zone_layouts = {
 	-- Forest
-	{ name="forest", rarity=3, gen=function(data) return {
+	{ name="forest", kr_display_name="숲", rarity=3, gen=function(data) return {
 		class = "engine.generator.map.Forest",
 		edge_entrances = {data.less_dir, data.more_dir},
 		zoom = rng.range(2,6),
@@ -1306,7 +1306,7 @@ local random_zone_layouts = {
 		down = data:getDown(),
 	} end },
 	-- Cavern
-	{ name="cavern", rarity=3, gen=function(data)
+	{ name="cavern", kr_display_name="동굴", rarity=3, gen=function(data)
 		local floors = data.w * data.h * 0.4
 		return {
 		class = "engine.generator.map.Cavern",
@@ -1318,7 +1318,7 @@ local random_zone_layouts = {
 		down = data:getDown(),
 	} end },
 	-- Rooms
-	{ name="rooms", rarity=3, gen=function(data)
+	{ name="rooms", kr_display_name="방", rarity=3, gen=function(data)
 		local rooms = {"random_room"}
 		if rng.percent(30) then rooms = {"forest_clearing"} end
 		return {
@@ -1333,7 +1333,7 @@ local random_zone_layouts = {
 		door = data:getDoor(),
 	} end },
 	-- Maze
-	{ name="maze", rarity=3, gen=function(data)
+	{ name="maze", kr_display_name="미로", rarity=3, gen=function(data)
 		return {
 		class = "engine.generator.map.Maze",
 		floor = data:getFloor(),
@@ -1343,7 +1343,7 @@ local random_zone_layouts = {
 		door = data:getDoor(),
 	} end, guardian_alert=true },
 	-- Sets
-	{ name="sets", rarity=3, gen=function(data)
+	{ name="sets", kr_display_name="시설", rarity=3, gen=function(data)
 		local set = rng.table{
 			{"3x3/base", "3x3/tunnel", "3x3/windy_tunnel"},
 			{"5x5/base", "5x5/tunnel", "5x5/windy_tunnel", "5x5/crypt"},
@@ -1360,7 +1360,7 @@ local random_zone_layouts = {
 		["'"] = data:getDoor(),
 	} end },
 	-- Building
---[[ not yet	{ name="building", rarity=4, gen=function(data)
+--[[ not yet	{ name="building", kr_display_name="건물", rarity=4, gen=function(data)
 		return {
 		class = "engine.generator.map.Building",
 		lite_room_chance = rng.range(0, 100),
@@ -1374,7 +1374,7 @@ local random_zone_layouts = {
 	} end },
 ]]
 	-- "Octopus"
-	{ name="octopus", rarity=6, gen=function(data)
+	{ name="octopus", kr_display_name="문어", rarity=6, gen=function(data)
 		return {
 		class = "engine.generator.map.Octopus",
 		main_radius = {0.3, 0.4},
@@ -1391,7 +1391,7 @@ local random_zone_layouts = {
 
 local random_zone_themes = {
 	-- Trees
-	{ name="trees", rarity=3, gen=function() return {
+	{ name="trees", kr_display_name="나무", rarity=3, gen=function() return {
 		load_grids = {"/data/general/grids/forest.lua"},
 		getDoor = function(self) return "GRASS" end,
 		getFloor = function(self) return function() if rng.chance(20) then return "FLOWER" else return "GRASS" end end end,
@@ -1400,7 +1400,7 @@ local random_zone_themes = {
 		getDown = function(self) return "GRASS_DOWN"..self.more_dir end,
 	} end },
 	-- Walls
-	{ name="walls", rarity=2, gen=function() return {
+	{ name="walls", kr_display_name="벽", rarity=2, gen=function() return {
 		load_grids = {"/data/general/grids/basic.lua"},
 		getDoor = function(self) return "DOOR" end,
 		getFloor = function(self) return "FLOOR" end,
@@ -1409,7 +1409,7 @@ local random_zone_themes = {
 		getDown = function(self) return "DOWN" end,
 	} end },
 	-- Underground
-	{ name="underground", rarity=5, gen=function() return {
+	{ name="underground", kr_display_name="지하", rarity=5, gen=function() return {
 		load_grids = {"/data/general/grids/underground.lua"},
 		getDoor = function(self) return "UNDERGROUND_FLOOR" end,
 		getFloor = function(self) return "UNDERGROUND_FLOOR" end,
@@ -1418,7 +1418,7 @@ local random_zone_themes = {
 		getDown = function(self) return "UNDERGROUND_LADDER_DOWN" end,
 	} end },
 	-- Crystals
-	{ name="crystal", rarity=4, gen=function() return {
+	{ name="crystal", kr_display_name="크리스탈", rarity=4, gen=function() return {
 		load_grids = {"/data/general/grids/underground.lua"},
 		getDoor = function(self) return "CRYSTAL_FLOOR" end,
 		getFloor = function(self) return "CRYSTAL_FLOOR" end,
@@ -1427,7 +1427,7 @@ local random_zone_themes = {
 		getDown = function(self) return "CRYSTAL_LADDER_DOWN" end,
 	} end },
 	-- Sand
-	{ name="sand", rarity=3, gen=function() return {
+	{ name="sand", kr_display_name="모래", rarity=3, gen=function() return {
 		load_grids = {"/data/general/grids/sand.lua"},
 		getDoor = function(self) return "UNDERGROUND_SAND" end,
 		getFloor = function(self) return "UNDERGROUND_SAND" end,
@@ -1436,7 +1436,7 @@ local random_zone_themes = {
 		getDown = function(self) return "SAND_LADDER_DOWN" end,
 	} end },
 	-- Desert
-	{ name="desert", rarity=3, gen=function() return {
+	{ name="desert", kr_display_name="사막", rarity=3, gen=function() return {
 		load_grids = {"/data/general/grids/sand.lua"},
 		getDoor = function(self) return "SAND" end,
 		getFloor = function(self) return "SAND" end,
@@ -1445,7 +1445,7 @@ local random_zone_themes = {
 		getDown = function(self) return "SAND_DOWN"..self.more_dir end,
 	} end },
 	-- Slime
-	{ name="slime", rarity=4, gen=function() return {
+	{ name="slime", kr_display_name="슬라임", rarity=4, gen=function() return {
 		load_grids = {"/data/general/grids/slime.lua"},
 		getDoor = function(self) return "SLIME_DOOR" end,
 		getFloor = function(self) return "SLIME_FLOOR" end,
@@ -1550,6 +1550,7 @@ function _M:createRandomZone(zbase)
 	------------------------------------------------------------
 	local zone = mod.class.Zone.new(short_name, {
 		name = name,
+		kr_display_name = kr_display_name or name, --@@ 
 		level_range = {data.min_lev, data.max_lev},
 		level_scheme = "player",
 		max_level = data.depth,

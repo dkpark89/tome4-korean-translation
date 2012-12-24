@@ -602,7 +602,7 @@ function _M:saveScreenshot()
 	f:close()
 
 	local Dialog = require "engine.ui.Dialog"
-	Dialog:simplePopup("Screenshot taken!", "File: "..fs.getRealPath(file))
+	Dialog:simplePopup("스크린샷 저장!", "파일: "..fs.getRealPath(file))
 end
 
 --- Register a hook that will be saved in the savefile

@@ -19,6 +19,7 @@
 
 newTalent{ short_name = "RITCH_FLAMESPITTER_BOLT",
 	name = "Flamespit",
+	kr_display_name = "불꽃 뱉기",
 	type = {"wild-gift/other",1},
 	points = 5,
 	equilibrium = 2,
@@ -43,6 +44,7 @@ newTalent{ short_name = "RITCH_FLAMESPITTER_BOLT",
 
 newTalent{
 	name = "Flame Fury", image = "talents/blastwave.png",
+	kr_display_name = "화염의 분노",
 	type = {"wild-gift/other",1},
 	points = 5,
 	eqilibrium = 5,
@@ -73,6 +75,7 @@ newTalent{
 
 newTalent{
 	name = "Acid Breath",
+	kr_display_name = "산성 브레쓰",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,
@@ -103,6 +106,7 @@ newTalent{
 
 newTalent{
 	name = "Lightning Breath", short_name = "LIGHTNING_BREATH_HYDRA", image = "talents/lightning_breath.png",
+	kr_display_name = "번개 브레쓰",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,
@@ -140,6 +144,7 @@ newTalent{
 
 newTalent{
 	name = "Poison Breath",
+	kr_display_name = "독성 브레쓰",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,
@@ -170,6 +175,7 @@ newTalent{
 
 newTalent{
 	name = "Winter's Fury",
+	kr_display_name = "겨울의 분노",
 	type = {"wild-gift/other",1},
 	require = gifts_req4,
 	points = 5,
@@ -212,6 +218,7 @@ newTalent{
 
 newTalent{
 	name = "Ritch Flamespitter",
+	kr_display_name = "불꽂뿜는 릿치 소환",
 	type = {"wild-gift/summon-distance", 1},
 	require = gifts_req1,
 	points = 5,
@@ -310,6 +317,7 @@ newTalent{
 
 newTalent{
 	name = "Hydra",
+	kr_display_name = "히드라 소환",
 	type = {"wild-gift/summon-distance", 2},
 	require = gifts_req2,
 	points = 5,
@@ -415,6 +423,7 @@ newTalent{
 
 newTalent{
 	name = "Rimebark",
+	kr_display_name = "서리여우 소환",
 	type = {"wild-gift/summon-distance", 3},
 	require = gifts_req3,
 	points = 5,
@@ -515,6 +524,7 @@ newTalent{
 
 newTalent{
 	name = "Fire Drake",
+	kr_display_name = "화염 드레이크 소환",
 	type = {"wild-gift/summon-distance", 4},
 	require = gifts_req4,
 	points = 5,

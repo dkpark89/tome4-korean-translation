@@ -61,5 +61,7 @@ function _M:gainAchievement(id, src, ...)
 	local knew = self.achieved[id]
 
 	mod.class.interface.WorldAchievements.gainAchievement(self, id, src, ...)
-	if not knew and self.achieved[id] then game.party.on_death_show_achieved[#game.party.on_death_show_achieved+1] = "Gained new achievement: "..a.name end
+	--@@
+	local anm = a.kr_display_name or a.name
+	if not knew and self.achieved[id] then game.party.on_death_show_achieved[#game.party.on_death_show_achieved+1] = "새 업적 달성: "..anm end
 end

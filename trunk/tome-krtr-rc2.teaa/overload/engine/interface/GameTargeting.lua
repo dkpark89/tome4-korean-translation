@@ -93,7 +93,7 @@ function _M:targetMode(v, msg, co, typ)
 
 	if not v then
 		Map:setViewerFaction(self.always_target == true and self.player.faction or nil)
-		if msg then self.log(type(msg) == "string" and msg or "Tactical display disabled. Press shift+'t' to enable.") end
+		if msg then self.log(type(msg) == "string" and msg or "전략적 화면이 비활성화됩니다. 활성화하려면 쉬프트+'t'를 누르세요.") end
 		self.level.map.changed = true
 		self.target:setActive(false)
 
@@ -115,14 +115,14 @@ function _M:targetMode(v, msg, co, typ)
 				end
 			end
 			if self.target_warning and self.target.target.x == self.player.x and self.target.target.y == self.player.y then
-				Dialog:yesnoPopup(type(self.target_warning) == "string" and self.target_warning or "Target yourself?", "Are you sure you want to target yourself?", fct, "No", "Yes", nil, true)
+				Dialog:yesnoPopup(type(self.target_warning) == "string" and self.target_warning or "스스로가 목표입니까?", "정말 자기 자신을 목표로 하길 원합니까?", fct, "아니오", "예", nil, true)
 			else
 				fct(false)
 			end
 		end
 	else
 		Map:setViewerFaction(self.player.faction)
-		if msg then self.log(type(msg) == "string" and msg or "Tactical display enabled. Press shift+'t' to disable.") end
+		if msg then self.log(type(msg) == "string" and msg or "전략적 화면이 활성화됩니다. 비활성화하려면 쉬프트+'t'를 누르세요.") end
 		self.level.map.changed = true
 		self.target:setActive(true, typ)
 		self.target_style = "lock"

@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Greater Weapon Focus",
+	kr_display_name = "고도의 집중 공격",
 	type = {"technique/battle-tactics", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -32,27 +33,29 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Concentrate on your blows; each strike has a %d%% chance to deal another, similar, blow for %d turns.
-		This works for all blows, even ones from other talents and from shield bashes.
-		The chance increases with your Dexterity.]]):format(self:combatTalentStatDamage(t, "dex", 10, 90), math.floor(4 + self:getTalentLevel(t) * 1.3))
+		return ([[공격에 집중하여 매 타격시 %d%% 확률로 다시 한 번 더 공격하게 되며, 이 상태는 %d 턴 동안 유지됩니다.
+		다른 기술이나 방패를 사용한 공격 등의 모든 형태의 공격에 적용됩니다.
+		이 확률은 민첩에 영향을 받아 증가됩니다.]]):format(self:combatTalentStatDamage(t, "dex", 10, 90), math.floor(4 + self:getTalentLevel(t) * 1.3))
 	end,
 }
 
 newTalent{
 	name = "Step Up",
+	kr_display_name = "진격",
 	type = {"technique/battle-tactics", 2},
 	require = techs_req_high2,
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[After killing a foe, you have a %d%% chance to gain a 1000%% movement speed bonus for 1 game turn.
-		The bonus disappears as soon as any action other than moving is done.
-		Note: since you will be moving very fast, game turns will pass very slowly.]]):format(self:getTalentLevelRaw(t) * 20)
+		return ([[적을 쓰러뜨린 후, %d%% 확률로 이동 속도가 1턴 동안 1000%% 증가됩니다.
+		이 효과는 이동 이외의 행동을 취하면 사라집니다.
+		굉장히 빠르게 이동하기 때문에, 그 동안에는 전체 턴이 느리게 진행됩니다.]]):format(self:getTalentLevelRaw(t) * 20)
 	end,
 }
 
 newTalent{
 	name = "Bleeding Edge",
+	kr_display_name = "출혈상",
 	type = {"technique/battle-tactics", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -85,14 +88,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lashes at the target, doing %d%% weapon damage.
-		If the attack hits, the target will bleed for %d%% weapon damage over 7 turns, and all healing will be reduced by %d%%.]]):
+		return ([[대상을 휘둘러 쳐서 %d%% 의 무기 피해를 줍니다.
+		공격이 성공하면, 대상은 출혈 상태가 되어 7 턴 동안 %d%% 의 무기 피해를 입으며 모든 치유 효과를 %d%% 적게 받습니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), 100 * self:combatTalentWeaponDamage(t, 2, 3.2), self:getTalentLevel(t) * 10)
 	end,
 }
 
 newTalent{
 	name = "True Grit",
+	kr_display_name = "진정한 용기",
 	type = {"technique/battle-tactics", 4},
 	require = techs_req_high4,
 	points = 5,
@@ -124,9 +128,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local drain = t.getStaminaDrain(self, t)
-		return ([[Take a defensive stance to resist the onslaught of your foes.
-		For each 10%% of your health below maximum you are currently at,, you gain 5%% all damage resistance and all damage resistance cap.
-		This consumes stamina rapidly (%d stamina/turn).]]):
+		return ([[방어 자세를 취하여 적의 맹공에 저항합니다.
+		최대 생명력의 10%%가 감소 될 때마다, 5%%의 전체 피해 저항과 저항 최대치를 증가시킵니다.
+		이 동안에는 체력이 급격히 감소됩니다(체력 %d/턴).]]):
 		format(drain)
 	end,
 }

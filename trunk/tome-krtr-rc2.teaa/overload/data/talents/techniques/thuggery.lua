@@ -21,6 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Skullcracker",
+	kr_display_name = "두개골 부수기",
 	type = {"technique/thuggery", 1},
 	points = 5,
 	cooldown = 12,
@@ -79,6 +80,7 @@ newTalent{
 
 newTalent{
 	name = "Riot-born",
+	kr_display_name = "폭동에서 태어난 자",
 	type = {"technique/thuggery", 2},
 	mode = "passive",
 	points = 5,
@@ -98,6 +100,7 @@ newTalent{
 }
 newTalent{
 	name = "Vicious Strikes",
+	kr_display_name = "잔인한 타격",
 	type = {"technique/thuggery", 3},
 	mode = "passive",
 	points = 5,
@@ -118,6 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Total Thuggery",
+	kr_display_name = "총 공격",
 	type = {"technique/thuggery", 4},
 	points = 5,
 	mode = "sustained",

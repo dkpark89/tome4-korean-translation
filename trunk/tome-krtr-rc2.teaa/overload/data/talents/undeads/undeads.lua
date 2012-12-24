@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 -- Undead talents
-newTalentType{ type="undead/base", name = "base", generic = true, description = "Undead's innate abilities." }
-newTalentType{ type="undead/ghoul", name = "ghoul", generic = true, description = "Ghoul's innate abilities." }
-newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "Skeleton's innate abilities." }
-newTalentType{ type="undead/vampire", name = "vampire", generic = true, description = "Vampire's innate abilities." }
-newTalentType{ type="undead/lich", name = "lich", generic = true, description = "Liches innate abilities." }
+newTalentType{ type="undead/base", name = "base", generic = true, description = "언데드의 선천적 능력." }
+newTalentType{ type="undead/ghoul", name = "ghoul", generic = true, description = "구울의 선천적 능력." }
+newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "스켈레톤의 선천적 능력." }
+newTalentType{ type="undead/vampire", name = "vampire", generic = true, description = "흡혈귀의 선천적 능력." }
+newTalentType{ type="undead/lich", name = "lich", generic = true, description = "리치의 선천적 능력." }
 
 -- Generic requires for undeads based on talent level
 undeads_req1 = {
@@ -49,6 +49,7 @@ load("/data/talents/undeads/skeleton.lua")
 newTalent{
 	short_name = "UNDEAD_ID",
 	name = "Knowledge of the Past",
+	kr_display_name = "과거로부터의 지식",
 	type = {"undead/base", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,

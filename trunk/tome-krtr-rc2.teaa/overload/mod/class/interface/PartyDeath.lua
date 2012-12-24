@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local DamageType = require "engine.DamageType"
@@ -54,7 +55,7 @@ function _M:onPartyDeath(src, death_note)
 		game.player.killedBy = src
 		game.player.died_times[#game.player.died_times+1] = {name=src.name, level=game.player.level, turn=game.turn}
 		game.player:registerDeath(game.player.killedBy)
-		local dialog = require("mod.dialogs."..(game.player.death_dialog or "DeathDialog")).new(game.player)
+		local dialog = require("mod.dialogs."..(game.player.death_dialog or "죽음의 창")).new(game.player)
 		if not dialog.dont_show then
 			game:registerDialog(dialog)
 		end
@@ -81,35 +82,35 @@ function _M:onPartyDeath(src, death_note)
 
 		local msg
 		if not death_note.special_death_msg then
-			msg = "%s the level %d %s %s was %s to death by %s%s%s on level %s of %s."
-			local srcname = src.unique and src.name or src.name:a_an()
-			local killermsg = (src.killer_message and " "..src.killer_message or ""):gsub("#sex#", game.player.female and "her" or "him")
+			msg = "%s 레벨 %d %s %s - %s%s의 %s%s 죽음 : %s 지역의 %s 층."
+			local srcname = src.kr_display_name or src.name --@@
+			local killermsg = (src.killer_message and src.killer_message:addJosa("와").." " or ""):gsub("#sex#", "스스로의") --@@
 			if src.name == game.player.name then
-				srcname = game.player.female and "herself" or "himself"
+				srcname = "스스로" --@@
 				killermsg = rng.table{
-					" (the fool)",
-					" in an act of extreme incompetence",
-					" out of supreme humility",
-					", by accident of course,",
-					" in some sort of fetish experiment gone wrong",
-					", providing a free meal to the wildlife",
-					" (how embarrassing)",
+					"(멍청한) ",
+					"극단적으로 무능한 행동으로 ",
+					"극도의 굴욕을 넘어 ",
+					"우연한 ",
+					"어떤 종류의 집착적인 엇나간 실험에서 ",
+					"야생으로 공짜 고기를 제공하기 위한 ",
+					"(당황스러운) ",
 				}
 			end
 			msg = msg:format(
-				game.player.name, game.player.level, game.player.descriptor.subrace:lower(), game.player.descriptor.subclass:lower(),
-				death_mean or "battered",
+				game.player.name, game.player.level, game.player.descriptor.subrace:lower():krRace(), game.player.descriptor.subclass:lower():krClass(), --@@
+				src.name == top_killer and "(또다시) " or "", --@@
 				srcname,
-				src.name == top_killer and " (yet again)" or "",
-				killermsg,
-				game.level.level, game.zone.name
+				killermsg, --@@
+				(death_mean or "학대"):addJosa("로"), --@@
+				(game.zone.kr_display_name or game.zone.name), game.level.level --@@ 
 			)
 		else
-			msg = "%s the level %d %s %s %s on level %s of %s."
+			msg = "%s 레벨 %d %s %s - %s : %s 지역의 %s 층."
 			msg = msg:format(
-				game.player.name, game.player.level, game.player.descriptor.subrace:lower(), game.player.descriptor.subclass:lower(),
+				game.player.name, game.player.level, game.player.descriptor.subrace:lower():krRace(), game.player.descriptor.subclass:lower():krClass(), --@@
 				death_note.special_death_msg,
-				game.level.level, game.zone.name
+				(game.zone.kr_display_name or game.zone.name), game.level.level --@@
 			)
 		end
 

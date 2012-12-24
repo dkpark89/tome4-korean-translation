@@ -86,7 +86,7 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.name
+	local name = self.kr_display_name or self.name --@@
 
 	if qty == 1 or t.no_count then return name
 	else return qty.." "..name
@@ -95,7 +95,7 @@ end
 
 --- Gets the full desc of the object
 function _M:getDesc()
-	return self.name
+	return self.kr_display_name or self.name --@@
 end
 
 --- Returns the inventory type an object is worn on
@@ -188,26 +188,33 @@ function _M:getRequirementDesc(who)
 	local req = rawget(self, "require")
 	if not req then return nil end
 
-	local str = tstring{"Requires:", true}
+	local str = tstring{"필요조건:", true}
 
 	if req.stat then
 		for s, v in pairs(req.stat) do
 			local c = (who:getStat(s) >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-			str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name, v), {"color", "LAST"}, true)
+			--@@
+			str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name:krStat(), v), {"color", "LAST"}, true)
 		end
 	end
 	if req.level then
 		local c = (who.level >= req.level) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-		str:add(c, "- ", ("Level %d"):format(req.level), {"color", "LAST"}, true)
+		str:add(c, "- ", ("레벨 %d"):format(req.level), {"color", "LAST"}, true)
 	end
 	if req.talent then
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
 				local c = (who:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				str:add(c, "- ", ("Talent %s (level %d)"):format(who:getTalentFromId(tid[1]).name, tid[2]), {"color", "LAST"}, true)
+				--@@
+				local tn = who:getTalentFromId(tid[1]).kr_display_name or who:getTalentFromId(tid[1]).name
+				
+				str:add(c, "- ", ("%s 기술 (레벨 %d)"):format(tn, tid[2]), {"color", "LAST"}, true)
 			else
 				local c = who:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				str:add(c, "- ", ("Talent %s"):format(who:getTalentFromId(tid).name), {"color", "LAST"}, true)
+				--@@
+				local tn = who:getTalentFromId(tid).kr_display_name or who:getTalentFromId(tid).name
+				
+				str:add(c, "- ", ("%s 기술"):format(tn), {"color", "LAST"}, true)
 			end
 		end
 	end

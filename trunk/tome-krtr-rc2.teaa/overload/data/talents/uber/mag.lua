@@ -19,6 +19,7 @@
 
 uberTalent{
 	name = "Spectral Shield",
+	kr_display_name = "스펙트럼 방어막",
 	mode = "passive",
 	require = { special={desc="Block talent, have cast at least 100 spells and a block value over 200.", fct=function(self)
 		return self:knowTalent(self.T_BLOCK) and self:getTalentFromId(self.T_BLOCK).getBlockValue(self) >= 200 and self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 100
@@ -37,6 +38,7 @@ uberTalent{
 
 uberTalent{
 	name = "Aether Permeation",
+	kr_display_name = "에테르 방출",
 	mode = "passive",
 	require = { special={desc="At least 25% arcane damage reduction and having been exposed to the void of space.", fct=function(self)
 		return (game.state.birth.ignore_prodigies_special_reqs or self:attr("planetary_orbit")) and self:combatGetResist(DamageType.ARCANE) >= 25
@@ -58,6 +60,7 @@ uberTalent{
 
 uberTalent{
 	name = "Mystical Cunning", image = "talents/vulnerability_poison.png",
+	kr_display_name = "신비한 교활함",
 	mode = "passive",
 	require = { special={desc="Know either traps or poisons.", fct=function(self)
 		return self:knowTalent(self.T_VILE_POISONS) or self:knowTalent(self.T_TRAP_MASTERY)
@@ -82,6 +85,7 @@ uberTalent{
 
 uberTalent{
 	name = "Arcane Might",
+	kr_display_name = "마법적 완력",
 	mode = "passive",
 	info = function(self, t)
 		return ([[You have learnt to harness your latent arcane powers, channeling them through your weapon.
@@ -92,6 +96,7 @@ uberTalent{
 
 uberTalent{
 	name = "Temporal Form",
+	kr_display_name = "시간의 모습",
 	cooldown = 30,
 	require = { special={desc="Cast over 1000 spells and visited an out-of-time zone", fct=function(self) return
 		self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 1000 and (game.state.birth.ignore_prodigies_special_reqs or self:attr("temporal_touched"))
@@ -116,6 +121,7 @@ uberTalent{
 
 uberTalent{
 	name = "Blighted Summoning",
+	kr_display_name = "황폐화된 소환술",
 	mode = "passive",
 	on_learn = function(self, t)
 		if self.alchemy_golem then 
@@ -157,6 +163,7 @@ uberTalent{
 
 uberTalent{
 	name = "Revisionist History",
+	kr_display_name = "수정주의적 역사",
 	cooldown = 40,
 	no_energy = true,
 	is_spell = true,

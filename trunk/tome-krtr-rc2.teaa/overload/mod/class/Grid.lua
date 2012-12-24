@@ -50,14 +50,16 @@ function _M:block_move(x, y, e, act, couldpass)
 	if self.door_opened and e.open_door and act then
 		if self.door_player_check then
 			if e.player then
-				Dialog:yesnoPopup(self.name, self.door_player_check, function(ret)
+				--@@
+				local sn = self.kr_display_name or self.name
+				Dialog:yesnoPopup(sn, self.door_player_check, function(ret)
 					if ret then
 						game.level.map(x, y, engine.Map.TERRAIN, game.zone.grid_list[self.door_opened])
 						game:playSoundNear({x=x,y=y}, {"ambient/door_creaks/creak_%d",1,4})
 
 						if game.level.map.attrs(x, y, "vault_id") and e.openVault then e:openVault(game.level.map.attrs(x, y, "vault_id")) end
 					end
-				end, "Open", "Leave")
+				end, "열기", "놔두기")
 			end
 		elseif self.door_player_stop then
 			if e.player then
@@ -125,32 +127,35 @@ end
 
 function _M:tooltip(x, y)
 	local tstr
+	--@@
+	local sn = self.kr_display_name or self.name
+	
 	if self.show_tooltip then
-		local name = ((self.show_tooltip == true) and self.name or self.show_tooltip)
+		local name = ((self.show_tooltip == true) and sn or self.show_tooltip) --@@
 		if self.desc then
 			tstr = tstring{{"uid", self.uid}, name, true, self.desc, true}
 		else
 			tstr = tstring{{"uid", self.uid}, name, true}
 		end
 	else
-		tstr = tstring{{"uid", self.uid}, self.name, true}
+		tstr = tstring{{"uid", self.uid}, sn, true} --@@
 	end
 
 	if game.level.entrance_glow and self.change_zone and not game.visited_zones[self.change_zone] then
-		tstr:add(true, {"font","bold"}, {"color","CRIMSON"}, "Never visited yet", {"color", "LAST"}, {"font","normal"}, true)
+		tstr:add(true, {"font","bold"}, {"color","CRIMSON"}, "아직 들어가본적 없음", {"color", "LAST"}, {"font","normal"}, true)
 	end
 
-	if game.player:hasLOS(x, y) then tstr:add({"color", "CRIMSON"}, "In sight", {"color", "LAST"}, true) end
-	if game.level.map.lites(x, y) then tstr:add({"color", "YELLOW"}, "Lit", {"color", "LAST"}, true) end
-	if self:check("block_sight", x, y) then tstr:add({"color", "UMBER"}, "Blocks sight", {"color", "LAST"}, true) end
-	if self:check("block_move", x, y, game.player) then tstr:add({"color", "UMBER"}, "Blocks movement", {"color", "LAST"}, true) end
-	if self:attr("air_level") then tstr:add({"color", "LIGHT_BLUE"}, "Special breathing method required", {"color", "LAST"}, true) end
-	if self:attr("dig") then tstr:add({"color", "LIGHT_UMBER"}, "Diggable", {"color", "LAST"}, true) end
-	if game.level.map.attrs(x, y, "no_teleport") then tstr:add({"color", "VIOLET"}, "Cannot teleport to this place", {"color", "LAST"}, true) end
+	if game.player:hasLOS(x, y) then tstr:add({"color", "CRIMSON"}, "시야 안쪽", {"color", "LAST"}, true) end
+	if game.level.map.lites(x, y) then tstr:add({"color", "YELLOW"}, "밝음", {"color", "LAST"}, true) end
+	if self:check("block_sight", x, y) then tstr:add({"color", "UMBER"}, "시야를 가림", {"color", "LAST"}, true) end
+	if self:check("block_move", x, y, game.player) then tstr:add({"color", "UMBER"}, "이동을 막음", {"color", "LAST"}, true) end
+	if self:attr("air_level") then tstr:add({"color", "LIGHT_BLUE"}, "특별한 호흡법이 필요", {"color", "LAST"}, true) end
+	if self:attr("dig") then tstr:add({"color", "LIGHT_UMBER"}, "굴착가능", {"color", "LAST"}, true) end
+	if game.level.map.attrs(x, y, "no_teleport") then tstr:add({"color", "VIOLET"}, "이 곳으로 공간이동 불가능", {"color", "LAST"}, true) end
 
 	if config.settings.cheat then
 		tstr:add(true, tostring(rawget(self, "type")), " / ", tostring(rawget(self, "subtype")))
-		tstr:add(true, "UID: ", tostring(self.uid), true, "Coords: ", tostring(x), "x", tostring(y))
+		tstr:add(true, "UID: ", tostring(self.uid), true, "좌표: ", tostring(x), "x", tostring(y))
 	end
 	return tstr
 end

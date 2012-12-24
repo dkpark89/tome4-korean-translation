@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 require "mod.class.Actor"
 require "engine.interface.PlayerRest"
@@ -205,7 +206,7 @@ function _M:describeFloor(x, y, force)
 				if self:attr("auto_id") and obj:getPowerRank() <= self.auto_id then obj:identify(true) end
 				nb = nb + 1
 				i = i + 1
-				game.logSeen(self, "There is an item here: %s", obj:getName{do_color=true})
+				game.logSeen(self, "놓여있는 아이템: %s", obj:getName{do_color=true})
 			end
 			obj = game.level.map:getObject(x, y, i)
 		end
@@ -213,9 +214,11 @@ function _M:describeFloor(x, y, force)
 
 	local g = game.level.map(x, y, game.level.map.TERRAIN)
 	if g and g.change_level then
-		game.logPlayer(self, "#YELLOW_GREEN#There is "..g.name:a_an().." here (press '<', '>' or right click to use).")
+		--@@
+		local gn = g.kr_display_name or g.name
+		game.logPlayer(self, "#YELLOW_GREEN#여기에 "..gn:addJosa("이").." 있습니다. ( '<'나 '>' 키를 누르거나 마우스 우클릭을 하세요).")
 		local sx, sy = game.level.map:getTileToScreen(x, y)
-		game.flyers:add(sx, sy, 60, 0, -1.5, ("Level change (%s)!"):format(g.name), colors.simple(colors.YELLOW_GREEN), true)
+		game.flyers:add(sx, sy, 60, 0, -1.5, ("층 변경 (%s)!"):format(gn), colors.simple(colors.YELLOW_GREEN), true)
 	end
 end
 
@@ -287,7 +290,9 @@ function _M:act()
 	if self.summon_time then
 		self.summon_time = self.summon_time - 1
 		if self.summon_time <= 0 then
-			game.logPlayer(self, "#PINK#Your summoned %s disappears.", self.name)
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logPlayer(self, "#PINK#당신의 소환물 %s 사라졌다.", sn:addJosa("가"))
 			self:die()
 			return true
 		end
@@ -562,7 +567,7 @@ function _M:onTakeHit(value, src)
 	local ret = mod.class.Actor.onTakeHit(self, value, src)
 	if self.life < self.max_life * 0.3 then
 		local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
-		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, 2, "LOW HEALTH!", {255,0,0}, true)
+		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, 2, "생명력 낮음!", {255,0,0}, true)
 	end
 
 	-- Hit direction warning
@@ -581,8 +586,8 @@ function _M:on_set_temporary_effect(eff_id, e, p)
 	mod.class.Actor.on_set_temporary_effect(self, eff_id, e, p)
 
 	if e.status == "detrimental" and not e.no_stop_resting and p.dur > 0 then
-		self:runStop("detrimental status effect")
-		self:restStop("detrimental status effect")
+		self:runStop("나쁜 상태 효과")
+		self:restStop("나쁜 상태 효과")
 	end
 end
 
@@ -596,8 +601,8 @@ function _M:heal(value, src)
 end
 
 function _M:die(src, death_note)
-	if self.runStop then self:runStop("died") end
-	if self.restStop then self:restStop("died") end
+	if self.runStop then self:runStop("죽음") end
+	if self.restStop then self:restStop("죽음") end
 	
 	if self:hasEffect(self.EFF_PRECOGNITION) then
 		self:removeEffect(self.EFF_PRECOGNITION)
@@ -612,15 +617,15 @@ function _M:suffocate(value, src, death_msg)
 	local dead, affected = mod.class.Actor.suffocate(self, value, src, death_msg)
 	if affected and value > 0 and self.runStop then
 		-- only stop autoexplore when air is less than 75% of max.
-		if self.air < 0.75 * self.max_air then self:runStop("suffocating") end
-		self:restStop("suffocating")
+		if self.air < 0.75 * self.max_air then self:runStop("숨막힘") end
+		self:restStop("숨막힘")
 	end
 	return dead, affected
 end
 
 function _M:onChat()
-	self:runStop("chat started")
-	self:restStop("chat started")
+	self:runStop("채팅 시작")
+	self:restStop("채팅 시작")
 end
 
 function _M:setName(name)
@@ -634,8 +639,10 @@ function _M:onTalentCooledDown(tid)
 	local t = self:getTalentFromId(tid)
 
 	local x, y = game.level.map:getTileToScreen(self.x, self.y)
-	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s available"):format(t.name:capitalize()), {0,255,00})
-	game.log("#00ff00#%sTalent %s is ready to use.", (t.display_entity and t.display_entity:getDisplayString() or ""), t.name)
+	--@@
+	local tn = t.kr_display_name or t.name
+	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(tn:capitalize()), {0,255,00})
+	game.log("#00ff00#%s %s 기술을 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), tn)
 end
 
 --- Tries to get a target from the user
@@ -739,7 +746,9 @@ function _M:restCheck()
 			node.actor:addParticles(engine.Particles.new("notice_enemy", 1))
 		end
 		local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
-		return false, ("hostile spotted to the %s (%s%s)"):format(dir or "???", spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - offscreen")
+		--@@
+		local san = spotted[1].actor.kr_display_name or spotted[1].actor.name
+		return false, ("%s의 적대적 존재 발견 (%s%s)"):format(dir or "???", san, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 	end
 
 	-- Resting improves regen
@@ -762,8 +771,8 @@ function _M:restCheck()
 
 	-- Check resources, make sure they CAN go up, otherwise we will never stop
 	if not self.resting.rest_turns then
-		if self.air_regen < 0 then return false, "losing breath!" end
-		if self.life_regen <= 0 then return false, "losing health!" end
+		if self.air_regen < 0 then return false, "숨쉬기 불가능!" end
+		if self.life_regen <= 0 then return false, "생명력 회복 불능!" end
 		if self:getMana() < self:getMaxMana() and self.mana_regen > 0 then return true end
 		if self:getStamina() < self:getMaxStamina() and self.stamina_regen > 0 then return true end
 		if self:getPsi() < self:getMaxPsi() and self.psi_regen > 0 then return true end
@@ -812,7 +821,7 @@ function _M:restCheck()
 	self.resting.wait_recall = nil
 	self.resting.rested_fully = true
 
-	return false, "all resources and life at maximum"
+	return false, "모든 원천력과 생명력이 최대치에 도달"
 end
 
 --- Can we continue running?
@@ -823,10 +832,12 @@ function _M:runCheck(ignore_memory)
 	local spotted = spotHostiles(self)
 	if #spotted > 0 then
 		local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
-		return false, ("hostile spotted to the %s (%s%s)"):format(dir or "???", spotted[1].actor.name, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - offscreen")
+		--@@
+		local san = spotted[1].actor.kr_display_name or spotted[1].actor.name
+		return false, ("%s의 적대적 존재 발견 (%s%s)"):format(dir or "???", san, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 	end
 
-	if self.air_regen < 0 and self.air < 0.75 * self.max_air then return false, "losing breath!" end
+	if self.air_regen < 0 and self.air < 0.75 * self.max_air then return false, "숨쉬기 불가능!" end
 
 	-- Notice any noticeable terrain
 	local noticed = false
@@ -836,7 +847,7 @@ function _M:runCheck(ignore_memory)
 			local obj = game.level.map:getObject(x, y, 1)
 			if obj then
 				if not ignore_memory then game.level.map.attrs(x, y, "obj_seen", true) end
-				noticed = "object seen"
+				noticed = "아이템 발견"
 				return false, noticed
 			end
 		end
@@ -844,7 +855,7 @@ function _M:runCheck(ignore_memory)
 		local grid = game.level.map(x, y, Map.TERRAIN)
 		if grid and grid.special and not grid.autoexplore_ignore and not game.level.map.attrs(x, y, "autoexplore_ignore") and self.running and self.running.path then
 			game.level.map.attrs(x, y, "autoexplore_ignore", true)
-			noticed = "something interesting"
+			noticed = "흥미로운 것"
 			return false, noticed
 		end
 
@@ -861,24 +872,24 @@ function _M:runCheck(ignore_memory)
 		then
 			if grid and grid.special then
 				game.level.map.attrs(x, y, "autoexplore_ignore", true)
-				noticed = "something interesting"
+				noticed = "흥미로운 것"
 			elseif self.running and self.running.explore and self.running.path and self.running.explore ~= "unseen" and self.running.cnt == #self.running.path + 1 then
-				noticed = "at " .. self.running.explore
+				noticed = self.running.explore .. "에 도착"
 			else
-				noticed = "interesting terrain"
+				noticed = "흥미로운 지형"
 			end
 			-- let's only remember and ignore standard interesting terrain
 			if not ignore_memory and (grid.change_level or grid.orb_portal or grid.escort_portal) then game.level.map.attrs(x, y, "noticed", true) end
 			return false, noticed
 		end
-		if grid and grid.type and grid.type == "store" then noticed = "store entrance spotted" ; return false, noticed end
+		if grid and grid.type and grid.type == "store" then noticed = "상점 입구 발견" ; return false, noticed end
 
 		-- Only notice interesting characters
 		local actor = game.level.map(x, y, Map.ACTOR)
-		if actor and actor.can_talk then noticed = "interesting character" ; return false, noticed end
+		if actor and actor.can_talk then noticed = "흥미로운 인물" ; return false, noticed end
 
 		-- We let the engine take care of traps, but we should still notice "trap" stores.
-		if game.level.map:checkAllEntities(x, y, "store") then noticed = "store entrance spotted" ; return false, noticed end
+		if game.level.map:checkAllEntities(x, y, "store") then noticed = "상점 입구 발견" ; return false, noticed end
 	end)
 	if noticed then return false, noticed end
 
@@ -958,7 +969,7 @@ function _M:hotkeyInventory(name)
 
 	local o, item, inven = find(name)
 	if not o then
-		Dialog:simplePopup("Item not found", "You do not have any "..name..".")
+		Dialog:simpleLongPopup("아이템 없음", "당신은 "..name:addJosa("가").." 없습니다.", game.w * 0.4)
 	else
 		-- Wear it ??
 		if o:wornInven() and not o.wielded and inven == self.INVEN_INVEN then
@@ -973,16 +984,16 @@ end
 
 function _M:doDrop(inven, item, on_done, nb)
 	if game.zone.wilderness then
-		Dialog:yesnoLongPopup("Warning", "You cannot drop items on the world map.\nIf you drop it, it will be lost forever.", 300, function(ret)
+		Dialog:yesnoLongPopup("경고", "월드맵에서는 아이템을 내려놓을 수 없습니다.\n만약 그 아이템을 버리면 영원히 사라질 것입니다.", 300, function(ret)
 			-- The test is reversed because the buttons are reversed, to prevent mistakes
 			if not ret then
 				local o = self:removeObject(inven, item, true)
-				game.logPlayer(self, "You destroy %s.", o:getName{do_colour=true, do_count=true})
+				game.logPlayer(self, "당신은 %s 파괴했습니다.", o:getName{do_colour=true, do_count=true}:addJosa("를"))
 				self:sortInven()
 				self:useEnergy()
 				if on_done then on_done() end
 			end
-		end, "Cancel", "Destroy")
+		end, "취소", "파괴")
 		return
 	end
 	if nb == nil or nb >= self:getInven(inven)[item]:getNumber() then
@@ -1031,14 +1042,14 @@ function _M:getEncumberTitleUpdator(title)
 		elseif enc > max * 0.9 then color = "#ff8a00#"
 		elseif enc > max * 0.75 then color = "#fcff00#"
 		end
-		return ("%s - %sEncumberance %d/%d"):format(title, color, enc, max)
+		return ("%s - %s무게 %d/%d"):format(title, color, enc, max)
 	end
 end
 
 function _M:playerPickup()
 	-- If 2 or more objects, display a pickup dialog, otherwise just picks up
 	if game.level.map:getObject(self.x, self.y, 2) then
-		local titleupdator = self:getEncumberTitleUpdator("Pickup")
+		local titleupdator = self:getEncumberTitleUpdator("물건 줍기")
 		local d d = self:showPickupFloor(titleupdator(), nil, function(o, item)
 			local o = self:pickupFloor(item, true)
 			if o and type(o) == "table" then o.__new_pickup = true end
@@ -1059,7 +1070,7 @@ end
 
 function _M:playerDrop()
 	local inven = self:getInven(self.INVEN_INVEN)
-	local titleupdator = self:getEncumberTitleUpdator("Drop object")
+	local titleupdator = self:getEncumberTitleUpdator("물건 버리기")
 	local d d = self:showInventory(titleupdator(), inven, nil, function(o, item)
 		self:doDrop(inven, item)
 		d:updateTitle(titleupdator())
@@ -1069,7 +1080,7 @@ end
 
 function _M:playerWear()
 	local inven = self:getInven(self.INVEN_INVEN)
-	local titleupdator = self:getEncumberTitleUpdator("Wield/wear object")
+	local titleupdator = self:getEncumberTitleUpdator("아이템 착용")
 	local d d = self:showInventory(titleupdator(), inven, function(o)
 		return o:wornInven() and self:getInven(o:wornInven()) and true or false
 	end, function(o, item)
@@ -1080,7 +1091,7 @@ function _M:playerWear()
 end
 
 function _M:playerTakeoff()
-	local titleupdator = self:getEncumberTitleUpdator("Take off object")
+	local titleupdator = self:getEncumberTitleUpdator("아이템 착용 해제")
 	local d d = self:showEquipment(titleupdator(), nil, function(o, inven, item)
 		self:doTakeoff(inven, item, o)
 		d:updateTitle(titleupdator())
@@ -1089,7 +1100,7 @@ function _M:playerTakeoff()
 end
 
 function _M:playerUseItem(object, item, inven)
-	if not game.zone or game.zone.wilderness then game.logPlayer(self, "You cannot use items on the world map.") return end
+	if not game.zone or game.zone.wilderness then game.logPlayer(self, "세계지도에서는 아이템을 사용할 수 없습니다.") return end
 
 	local use_fct = function(o, inven, item)
 		if not o then return end
@@ -1098,7 +1109,7 @@ function _M:playerUseItem(object, item, inven)
 
 			-- Count magic devices
 			if (o.power_source and o.power_source.arcane) and self:attr("forbid_arcane") then
-				game.logPlayer(self, "Your antimagic disrupts %s.", o:getName{no_count=true, do_color=true})
+				game.logPlayer(self, "당신의 반마법 상태가 %s 방해한다.", o:getName{no_count=true, do_color=true}:addJosa("을"))
 				return true
 			end
 
@@ -1113,9 +1124,9 @@ function _M:playerUseItem(object, item, inven)
 				else
 					local _, del = self:removeObject(self:getInven(inven), item)
 					if del then
-						game.log("You have no more %s.", o:getName{no_count=true, do_color=true})
+						game.log("당신은 더이상 %s 없다.", o:getName{no_count=true, do_color=true}:addJosa("이"))
 					else
-						game.log("You have %s.", o:getName{do_color=true})
+						game.log("당신은 %s 가지고있다.", o:getName{do_color=true}:addJosa("을"))
 					end
 					self:sortInven(self:getInven(inven))
 				end
@@ -1140,7 +1151,7 @@ function _M:playerUseItem(object, item, inven)
 
 	if object and item then return use_fct(object, inven, item) end
 
-	local titleupdator = self:getEncumberTitleUpdator("Use object")
+	local titleupdator = self:getEncumberTitleUpdator("아이템 사용")
 	self:showEquipInven(titleupdator(),
 		function(o)
 			return o:canUseObject()
@@ -1219,7 +1230,7 @@ function _M:quickSwitchWeapons()
 
 	self:playerCheckSustains()
 
-	game.logPlayer(self, "You switch your weapons to: %s.", names)
+	game.logPlayer(self, "무기 변경: %s.", names)
 	self.off_weapon_slots = not self.off_weapon_slots
 	self.changed = true
 end
@@ -1346,7 +1357,9 @@ function _M:useOrbPortal(portal)
 	local spotted = spotHostiles(self)
 	if #spotted > 0 then
 		local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
-		game.logPlayer(self, "You can not use the Orb with foes in sight (%s to the %s%s)", spotted[1].actor.name, dir, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - offscreen")
+		--@@
+		local san = spotted[1].actor.kr_display_name or spotted[1].actor.name
+		game.logPlayer(self, "적이 있을때에는 오브를 사용할 수 없습니다 (%s : %s%s)", san, dir, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 		return
 	end
 	if portal.on_preuse then portal:on_preuse(self) end
@@ -1389,7 +1402,7 @@ function _M:useCommandOrb(o)
 	local g = game.level.map(self.x, self.y, Map.TERRAIN)
 	if not g then return end
 	if not g.define_as or not o.define_as or o.define_as ~= g.define_as then
-		game.logPlayer(self, "This does not seem to have any effect.")
+		game.logPlayer(self, "이것은 아무런 효과도 나타나지 않습니다.")
 		return
 	end
 
@@ -1398,7 +1411,7 @@ function _M:useCommandOrb(o)
 		return
 	end
 
-	game.logPlayer(self, "You use the %s on the pedestal. There is a distant 'clonk' sound.", o:getName{do_colour=true})
+	game.logPlayer(self, "당신이 받침대 위에 %s 놓자 멀리서 '클랑' 하는 소리가 납니다.", o:getName{do_colour=true}:addJosa("을"))
 	self:grantQuest("orb-command")
 	self:setQuestStatus("orb-command", engine.Quest.COMPLETED, o.define_as)
 end
@@ -1415,32 +1428,38 @@ end
 function _M:on_targeted(act)
 	if self:attr("invisible") or self:attr("stealth") then
 		if self:canSee(act) and game.level.map.seens(act.x, act.y) then
-			game.logPlayer(self, "#LIGHT_RED#%s has seen you!", act.name:capitalize())
+			--@@
+			local acn = act.kr_display_name or act.name
+			game.logPlayer(self, "#LIGHT_RED#%s 보입니다!", acn:capitalize():addJosa("가"))
 		else
-			game.logPlayer(self, "#LIGHT_RED#Something has seen you!")
+			game.logPlayer(self, "#LIGHT_RED#무언가가 보입니다!")
 		end
 	end
 end
 
 ------ Quest Events
 function _M:on_quest_grant(quest)
-	game.logPlayer(game.player, "#LIGHT_GREEN#Accepted quest '%s'! #WHITE#(Press 'j' to see the quest log)", quest.name)
-	game.bignews:say(60, "#LIGHT_GREEN#Accepted quest '%s'!", quest.name)
+	--@@
+	local qn = quest.kr_display_name or quest.name
+	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+	game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", qn)
 end
 
 function _M:on_quest_status(quest, status, sub)
+	--@@
+	local qn = quest.kr_display_name or quest.name
 	if sub then
-		game.logPlayer(game.player, "#LIGHT_GREEN#Quest '%s' status updated! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#Quest '%s' updated!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 갱신!", qn)
 	elseif status == engine.Quest.COMPLETED then
-		game.logPlayer(game.player, "#LIGHT_GREEN#Quest '%s' completed! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#Quest '%s' completed!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 완료! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 완료!", qn)
 	elseif status == engine.Quest.DONE then
-		game.logPlayer(game.player, "#LIGHT_GREEN#Quest '%s' is done! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_GREEN#Quest '%s' done!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 성공! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 성공!", qn)
 	elseif status == engine.Quest.FAILED then
-		game.logPlayer(game.player, "#LIGHT_RED#Quest '%s' is failed! #WHITE#(Press 'j' to see the quest log)", quest.name)
-		game.bignews:say(60, "#LIGHT_RED#Quest '%s' failed!", quest.name)
+		game.logPlayer(game.player, "#LIGHT_RED#'%s' 퀘스트 실패! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
+		game.bignews:say(60, "#LIGHT_RED#'%s' 퀘스트 실패!", qn)
 	end
 end
 

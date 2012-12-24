@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 
 module(..., package.seeall, class.make)
@@ -29,7 +30,8 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	self.font = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", fontsize or 10)
+	--@@
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 10)
 	self.font_h = self.font:lineSkip()
 	self:resize(x, y, w, h)
 	self.nb_cols = 1

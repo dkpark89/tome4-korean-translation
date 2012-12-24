@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 
 --- Handles actors stats
@@ -117,9 +118,12 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent)
 	local ab = _M.talents_def[id]
 	assert(ab, "trying to cast talent "..tostring(id).." but it is not defined")
 
+	--@@
+	local abn = ab.kr_display_name or ab.name
+	
 	if ab.mode == "activated" and ab.action then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s is still on cooldown for %d turns.", ab.name:capitalize(), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", abn:capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		if not self:preUseTalent(ab, silent) then return end
@@ -145,7 +149,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent)
 		if not ok and err then print(debug.traceback(co)) error(err) end
 	elseif ab.mode == "sustained" and ab.activate and ab.deactivate then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s is still on cooldown for %d turns.", ab.name:capitalize(), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", abn:capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		if not self:preUseTalent(ab, silent) then return end
@@ -193,12 +197,18 @@ function _M:useTalentMessage(ab)
 	if not ab.message then return nil end
 	local str = util.getval(ab.message, self, ab)
 	local _, _, target = self:getTarget()
-	local tname = "unknown"
-	if target then tname = target.name end
-	str = str:gsub("@Source@", self.name:capitalize())
-	str = str:gsub("@source@", self.name)
+	local tname = "누군가"
+	--@@
+	if target then tname = target.kr_display_name or target.name end
+	local sname = self.kr_display_name or self.name
+	str = str:gsub("@Source@", sname:capitalize())
+	str = str:gsub("@source@", sname)
+	str = str:gsub("@Source1@", sname:capitalize():addJosa("가"))
+	str = str:gsub("@source1@", sname:addJosa("가"))
 	str = str:gsub("@target@", tname)
 	str = str:gsub("@Target@", tname:capitalize())
+	str = str:gsub("@target1@", tname:addJosa("가"))
+	str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
 	return str
 end
 
@@ -451,13 +461,13 @@ function _M:getTalentReqDesc(t_id, levmod)
 	local str = tstring{}
 
 	if not t.type_no_req then
-		str:add((self:knowTalentType(t.type[1]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}), "- Talent category known", true)
+		str:add((self:knowTalentType(t.type[1]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}), "- 기술 계열 습득", true)
 	end
 
 	if t.type[2] and t.type[2] > 1 then
 		local known = self:numberKnownTalent(t.type[1], t.id)
 		local c = (known >= t.type[2] - 1) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-		str:add(c, ("- Talents of the same category: %d"):format(t.type[2] - 1), true)
+		str:add(c, ("- 같은 계열의 기술: %d"):format(t.type[2] - 1), true)
 	end
 
 	-- Obviously this requires the ActorStats interface
@@ -465,13 +475,13 @@ function _M:getTalentReqDesc(t_id, levmod)
 		for s, v in pairs(req.stat) do
 			v = util.getval(v, tlev)
 			local c = (self:getStat(s) >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-			str:add(c, ("- %s %d"):format(self.stats_def[s].name, v), true)
+			str:add(c, ("- %s %d"):format(self.stats_def[s].name:krStat(), v), true) --@@
 		end
 	end
 	if req.level then
 		local v = util.getval(req.level, tlev)
 		local c = (self.level >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-		str:add(c, ("- Level %d"):format(v), true)
+		str:add(c, ("- 레벨 %d"):format(v), true)
 	end
 	if req.special then
 		local c = (req.special.fct(self, t, offset)) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
@@ -480,16 +490,22 @@ function _M:getTalentReqDesc(t_id, levmod)
 	if req.talent then
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
+				--@@
+				local tn = self:getTalentFromId(tid[1]).kr_display_name or self:getTalentFromId(tid[1]).name
+				
 				if type(tid[2]) == "boolean" and tid[2] == false then
 					local c = (not self:knowTalent(tid[1])) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-					str:add(c, ("- Talent %s (not known)\n"):format(self:getTalentFromId(tid[1]).name), true)
+					str:add(c, ("- %s 기술 (모름)\n"):format(tn), true)
 				else
 					local c = (self:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-					str:add(c, ("- Talent %s (%d)\n"):format(self:getTalentFromId(tid[1]).name, tid[2]), true)
+					str:add(c, ("- %s 기술 (%d)\n"):format(tn, tid[2]), true)
 				end
 			else
+				--@@
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+				
 				local c = self:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				str:add(c, ("- Talent %s\n"):format(self:getTalentFromId(tid).name), true)
+				str:add(c, ("- %s 기술\n"):format(tn), true)
 			end
 		end
 	end

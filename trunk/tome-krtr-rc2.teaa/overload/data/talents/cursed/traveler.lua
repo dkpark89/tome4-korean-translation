@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Hardened",
+	kr_display_name = "단단함",
 	type = {"cursed/traveler", 1},
 	require = cursed_wil_req1,
 	mode = "passive",
@@ -36,6 +37,7 @@ newTalent{
 
 newTalent{
 	name = "Wary",
+	kr_display_name = "신중",
 	type = {"cursed/traveler", 2},
 	require = cursed_wil_req2,
 	mode = "passive",
@@ -53,6 +55,7 @@ newTalent{
 
 newTalent{
 	name = "Weathered",
+	kr_display_name = "풍화",
 	type = {"cursed/traveler", 3},
 	require = cursed_wil_req3,
 	mode = "passive",
@@ -73,6 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Savvy",
+	kr_display_name = "경험적 지식",
 	type = {"cursed/traveler", 4},
 	require = cursed_wil_req4,
 	mode = "passive",

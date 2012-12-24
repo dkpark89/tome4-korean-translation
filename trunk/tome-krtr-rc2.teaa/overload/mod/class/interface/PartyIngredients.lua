@@ -86,7 +86,9 @@ function _M:collectIngredient(id, nb, silent)
 			self.ingredients[id] = math.min(self.ingredients[id], d.max)
 		end
 
-		game.log("You collect a new ingredient: #LIGHT_GREEN#%s%s#WHITE#.", d.display_entity:getDisplayString(), d.name)
+		--@@
+		local dn = d.kr_display_name or d.name
+		game.log("새로운 연금술재료를 얻었습니다: #LIGHT_GREEN#%s%s#WHITE#.", d.display_entity:getDisplayString(), dn)
 	end
 end
 

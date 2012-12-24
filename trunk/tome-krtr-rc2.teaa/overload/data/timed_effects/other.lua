@@ -27,6 +27,7 @@ local Level = require "engine.Level"
 newEffect{
 	name = "INFUSION_COOLDOWN", image = "effects/infusion_cooldown.png",
 	desc = "Infusion Saturation",
+	kr_display_name = "주입 포화",
 	long_desc = function(self, eff) return ("The more you use infusions, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
 	type = "other",
 	subtype = { infusion=true },
@@ -43,6 +44,7 @@ newEffect{
 newEffect{
 	name = "RUNE_COOLDOWN", image = "effects/rune_cooldown.png",
 	desc = "Runic Saturation",
+	kr_display_name = "룬 포화",
 	long_desc = function(self, eff) return ("The more you use runes, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
 	type = "other",
 	subtype = { rune=true },
@@ -59,6 +61,7 @@ newEffect{
 newEffect{
 	name = "TAINT_COOLDOWN", image = "effects/tainted_cooldown.png",
 	desc = "Tainted",
+	kr_display_name = "얼룩짐",
 	long_desc = function(self, eff) return ("The more you use taints, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
 	type = "other",
 	subtype = { taint=true },
@@ -75,6 +78,7 @@ newEffect{
 newEffect{
 	name = "TIME_PRISON", image = "talents/time_prison.png",
 	desc = "Time Prison",
+	kr_display_name = "시간의 감옥",
 	long_desc = function(self, eff) return "The target is removed from the normal time stream, unable to act but unable to take any damage. Time does not pass for this creature." end,
 	type = "other",
 	subtype = { time=true },
@@ -103,6 +107,7 @@ newEffect{
 newEffect{
 	name = "TIME_SHIELD", image = "talents/time_shield.png",
 	desc = "Time Shield",
+	kr_display_name = "시간의 방어막",
 	long_desc = function(self, eff) return ("The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%."):format(self.time_shield_absorb, eff.power, eff.time_reducer) end,
 	type = "other",
 	subtype = { time=true, shield=true },
@@ -154,6 +159,7 @@ newEffect{
 newEffect{
 	name = "TIME_DOT",
 	desc = "Temporal Wake",
+	kr_display_name = "시간의 각성",
 	long_desc = function(self, eff) return ("The time distortion protecting the target has ended. All damage forwarded in time is now appearing as temporal vortexes each turn. Temporal Vortexes do %0.2f temporal damage per turn for 3 turn."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -183,6 +189,7 @@ newEffect{
 newEffect{
 	name = "GOLEM_OFS",
 	desc = "Golem out of sight",
+	kr_display_name = "시야를 벗어난 골렘",
 	long_desc = function(self, eff) return "The golem is out of sight of the alchemist; direct control will be lost!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
@@ -210,6 +217,7 @@ newEffect{
 newEffect{
 	name = "CONTINUUM_DESTABILIZATION",
 	desc = "Continuum Destabilization",
+	kr_display_name = "불안정한 연속성",
 	long_desc = function(self, eff) return ("The target has been affected by space or time manipulations and is becoming more resistant to them (+%d)."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -240,6 +248,7 @@ newEffect{
 newEffect{
 	name = "SUMMON_DESTABILIZATION",
 	desc = "Summoning Destabilization",
+	kr_display_name = "불안정한 소환",
 	long_desc = function(self, eff) return ("The more the target summons creatures the longer it will take to summon more (+%d turns)."):format(eff.power) end,
 	type = "other", -- Type "other" so that nothing can dispel it
 	subtype = { miscellaneous=true },
@@ -265,6 +274,7 @@ newEffect{
 newEffect{
 	name = "DAMAGE_SMEARING", image = "talents/damage_smearing.png",
 	desc = "Damage Smearing",
+	kr_display_name = "피해 문지르기",
 	long_desc = function(self, eff) return ("Passes damage received in the present off onto the future self."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -283,6 +293,7 @@ newEffect{
 newEffect{
 	name = "SMEARED",
 	desc = "Smeared",
+	kr_display_name = "번짐",
 	long_desc = function(self, eff) return ("Damage received in the past is returned as %0.2f temporal damage per turn."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -307,6 +318,7 @@ newEffect{
 newEffect{
 	name = "PRECOGNITION", image = "talents/precognition.png",
 	desc = "Precognition",
+	kr_display_name = "사전 인지",
 	long_desc = function(self, eff) return "You walk into the future; when the effect ends, if you are not dead, you are brought back to the past." end,
 	type = "other",
 	subtype = { time=true },
@@ -342,6 +354,7 @@ newEffect{
 newEffect{
 	name = "SEE_THREADS", image = "talents/see_the_threads.png",
 	desc = "See the Threads",
+	kr_display_name = "시간흐름 보기",
 	long_desc = function(self, eff) return ("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d)."):format(eff.thread) end,
 	type = "other",
 	subtype = { time=true },
@@ -397,6 +410,7 @@ newEffect{
 newEffect{
 	name = "IMMINENT_PARADOX_CLONE",
 	desc = "Imminent Paradox Clone",
+	kr_display_name = "일촉즉발의 괴리적 복제",
 	long_desc = function(self, eff) return "When the effect expires you'll be pulled into the past." end,
 	type = "other",
 	subtype = { time=true },
@@ -449,6 +463,7 @@ newEffect{
 newEffect{
 	name = "PARADOX_CLONE", image = "talents/paradox_clone.png",
 	desc = "Paradox Clone",
+	kr_display_name = "괴리적 복제",
 	long_desc = function(self, eff) return "You've been pulled into the past." end,
 	type = "other",
 	subtype = { time=true },
@@ -474,6 +489,7 @@ newEffect{
 newEffect{
 	name = "MILITANT_MIND", image = "talents/militant_mind.png",
 	desc = "Militant Mind",
+	kr_display_name = "투쟁적 정신",
 	long_desc = function(self, eff) return ("Increases physical power, physical save, spellpower, spell save, mindpower, and mental save by %d."):format(eff.power) end,
 	type = "other",
 	subtype = { miscellaneous=true },
@@ -500,6 +516,7 @@ newEffect{
 newEffect{
 	name = "SEVER_LIFELINE", image = "talents/sever_lifeline.png",
 	desc = "Sever Lifeline",
+	kr_display_name = "생명선 절단",
 	long_desc = function(self, eff) return ("The target lifeline is being cut. When the effect ends %0.2f temporal damage will hit the target."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -517,6 +534,7 @@ newEffect{
 newEffect{
 	name = "SPACETIME_STABILITY",
 	desc = "Spacetime Stability",
+	kr_display_name = "시공간 안정화",
 	long_desc = function(self, eff) return "Chronomancy spells cast by the target will not fail." end,
 	type = "other",
 	subtype = { time=true },
@@ -533,6 +551,7 @@ newEffect{
 newEffect{
 	name = "FADE_FROM_TIME", image = "talents/fade_from_time.png",
 	desc = "Fade From Time",
+	kr_display_name = "시간에서 벗어나기",
 	long_desc = function(self, eff) return ("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage recieved by %d%%, and the duration of all detrimental effects by %d%%."):
 	format(eff.dur * 2 + 2, eff.cur_power or eff.power, eff.cur_power or eff.power) end,
 	type = "other",
@@ -573,6 +592,7 @@ newEffect{
 newEffect{
 	name = "SHADOW_VEIL", image = "talents/shadow_veil.png",
 	desc = "Shadow Veil",
+	kr_display_name = "그림자 드리우기",
 	long_desc = function(self, eff) return ("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, gain %d%% all damage reduction and each turn you blink to a nearby foe, hitting it for %d%% darkness weapon damage. While this goes on you can not be stopped unless you are killed and can not control you character."):format(eff.res, eff.dam * 100) end,
 	type = "other",
 	subtype = { darkness=true },
@@ -611,6 +631,7 @@ newEffect{
 newEffect{
 	name = "ZERO_GRAVITY", image = "effects/zero_gravity.png",
 	desc = "Zero Gravity",
+	kr_display_name = "무중력",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("There is no gravity here, you float in the air. Movement three times as slow, any melee or archery blows have a chance to knockback. Maximum encumberance is greatly increased.") end,
 	decrease = 0, no_remove = true,
@@ -636,6 +657,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_CORPSES",
 	desc = "Curse of Corpses",
+	kr_display_name = "시체의 저주",
 	short_desc = "Corpses",
 	type = "other",
 	subtype = { curse=true },
@@ -774,6 +796,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_MADNESS",
 	desc = "Curse of Madness",
+	kr_display_name = "광기의 저주",
 	short_desc = "Madness",
 	type = "other",
 	subtype = { curse=true },
@@ -883,6 +906,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_SHROUDS",
 	desc = "Curse of Shrouds",
+	kr_display_name = "수의의 저주",
 	short_desc = "Shrouds",
 	type = "other",
 	subtype = { curse=true },
@@ -982,6 +1006,7 @@ newEffect{
 newEffect{
 	name = "SHROUD_OF_WEAKNESS",
 	desc = "Shroud of Weakness",
+	kr_display_name = "약화의 수의",
 	long_desc = function(self, eff) return ("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (reduces damage dealt by %d%%)."):format(-eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -999,6 +1024,7 @@ newEffect{
 newEffect{
 	name = "SHROUD_OF_PASSING",
 	desc = "Shroud of Passing",
+	kr_display_name = "흐려짐의 수의",
 	long_desc = function(self, eff) return ("The target is enveloped in a shroud that seems to not only obscure it but also to fade it's form (+%d%% resist all)."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -1016,6 +1042,7 @@ newEffect{
 newEffect{
 	name = "SHROUD_OF_DEATH",
 	desc = "Shroud of Death",
+	kr_display_name = "죽음의 수의",
 	long_desc = function(self, eff) return ("The target is enveloped in a shroud that seems to not only obscure it but also to fade it's form (+%d%% resist all)."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -1032,6 +1059,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_NIGHTMARES",
 	desc = "Curse of Nightmares",
+	kr_display_name = "악몽의 저주",
 	short_desc = "Nightmares",
 	type = "other",
 	subtype = { curse=true },
@@ -1216,6 +1244,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_MISFORTUNE",
 	desc = "Curse of Misfortune",
+	kr_display_name = "불운의 저주",
 	short_desc = "Misfortune",
 	type = "other",
 	subtype = { curse=true },
@@ -1309,6 +1338,7 @@ newEffect{
 newEffect{
 	name = "RELOADING", image = "talents/reload.png",
 	desc = "Reloading",
+	kr_display_name = "재장전",
 	long_desc = function(self, eff) return ("Reloading ammo.") end,
 	decrease = 0,
 	type = "other",
@@ -1333,6 +1363,7 @@ newEffect{
 newEffect{
 	name = "PROB_TRAVEL_UNSTABLE", image = "talents/probability_travel.png",
 	desc = "Time Prison",
+	kr_display_name = "시간의 감옥",
 	long_desc = function(self, eff) return "The target has recently blinked through a wall using probability travel." end,
 	type = "other",
 	subtype = { time=true, space=true },
@@ -1349,6 +1380,7 @@ newEffect{
 newEffect{
 	name = "HEIGHTEN_FEAR", image = "talents/heighten_fear.png",
 	desc = "Heighten Fear",
+	kr_display_name = "향상된 공포",
 	long_desc = function(self, eff) return ("The target is in a state of growing fear. If they spend %d more turns in a range or %d and in sight of the source of this fear (%s), they will be subjected to a new fear."):
 	format(eff.turns_left, eff.range, eff.source.name) end,
 	type = "other",
@@ -1394,6 +1426,7 @@ newEffect{
 newEffect{
 	name = "CURSED_FORM", image = "talents/seethe.png",
 	desc = "Cursed Form",
+	kr_display_name = "저주받은 신체",
 	type = "other",
 	subtype = { curse=true },
 	status = "beneficial",
@@ -1484,6 +1517,7 @@ newEffect{
 newEffect{
 	name = "FADED", image = "talents/shadow_fade.png",
 	desc = "Faded",
+	kr_display_name = "흐려짐",
 	long_desc = function(self, eff) return "The target has faded and is no longer taking damage." end,
 	type = "other",
 	subtype = { },
@@ -1507,6 +1541,7 @@ newEffect{
 newEffect{
 	name = "POSSESSION", image = "talents/possess.png",
 	desc = "Psionic Consume",
+	kr_display_name = "염동적 소모",
 	long_desc = function(self, eff) return "This creature's mind has been destroyed and a possessor is now controlling the husk. However the intense psionic energies are burning the body away, it will soon disappear." end,
 	type = "other",
 	subtype = { psionic=true, possess=true },
@@ -1525,6 +1560,7 @@ newEffect{
 newEffect{
 	name = "HIGHBORN_S_BLOOM", image = "talents/highborn_s_bloom.png",
 	desc = "Highborn's Bloom",
+	kr_display_name = "꽃피운 고귀함",
 	long_desc = function(self, eff) return "The target is using talents without consuming resources." end,
 	type = "other",
 	subtype = { arcane=true },
@@ -1541,6 +1577,7 @@ newEffect{
 newEffect{
 	name = "VICTORY_RUSH_ZIGUR", image = "talents/arcane_destruction.png",
 	desc = "Victory Rush",
+	kr_display_name = "승리의 돌진",
 	long_desc = function(self, eff) return "The thrill of victory makes this creature invulnerable." end,
 	type = "other",
 	subtype = { arcane=true },
@@ -1557,6 +1594,7 @@ newEffect{
 newEffect{
 	name = "SOLIPSISM", image = "talents/solipsism.png",
 	desc = "Solipsism",
+	kr_display_name = "유아론",
 	long_desc = function(self, eff) return ("This creature has fallen into a solipsistic state and is caught up in its own egoic thoughts (-%d%% global speed)."):format(eff.power * 100) end,
 	type = "other",
 	subtype = { psionic=true },
@@ -1575,6 +1613,7 @@ newEffect{
 newEffect{
 	name = "CLARITY", image = "talents/clarity.png",
 	desc = "Clarity",
+	kr_display_name = "명석",
 	long_desc = function(self, eff) return ("The creature has found a state of clarity and sees the world for what it is (+%d%% global speed)."):format(eff.power * 100) end,
 	type = "other",
 	subtype = { psionic=true },
@@ -1593,6 +1632,7 @@ newEffect{
 newEffect{
 	name = "DREAMSCAPE", image = "talents/dreamscape.png",
 	desc = "Dreamscape",
+	kr_display_name = "꿈의 영역",
 	long_desc = function(self, eff) return ("This target has invaded %s's dreams and has gained a %d%% bonus to all damage."):format(eff.target.name, eff.power) end,
 	type = "other",
 	subtype = { psionic=true },
@@ -1811,6 +1851,7 @@ newEffect{
 newEffect{
 	name = "DISTORTION", image = "talents/maelstrom.png",
 	desc = "Distortion",
+	kr_display_name = "왜곡",
 	long_desc = function(self, eff) return "The target has recently taken distortion damage and is vulnerable to distortion effects." end,
 	type = "other",
 	subtype = { distortion=true },
@@ -1822,6 +1863,7 @@ newEffect{
 newEffect{
 	name = "REVISIONIST_HISTORY", image = "talents/revisionist_history.png",
 	desc = "Revisionist History",
+	kr_display_name = "수정주의적 역사",
 	long_desc = function(self, eff) return "While this effect holds you can decide recent history did not happen this way it did." end,
 	type = "other",
 	subtype = { time=true },
@@ -1852,6 +1894,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_FIRE",
 	desc = "Oil mist",
+	kr_display_name = "기름 안개",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% fire damage, -10% fire resistance, -10% armour, -2 sight range.") end,
 	decrease = 0, no_remove = true,
@@ -1873,6 +1916,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_COLD",
 	desc = "Grave chill",
+	kr_display_name = "무덤의 차가움",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.") end,
 	decrease = 0, no_remove = true,
@@ -1894,6 +1938,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_LIGHTNING",
 	desc = "Static discharge",
+	kr_display_name = "정전기 방출",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.") end,
 	decrease = 0, no_remove = true,
@@ -1915,6 +1960,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_ACID",
 	desc = "Noxious fumes",
+	kr_display_name = "유독가스",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.") end,
 	decrease = 0, no_remove = true,
@@ -1936,6 +1982,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_DARKNESS",
 	desc = "Echoes of the void",
+	kr_display_name = "공허로부터의 메아리",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.") end,
 	decrease = 0, no_remove = true,
@@ -1957,6 +2004,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_MIND",
 	desc = "Eerie silence",
+	kr_display_name = "으스스한 침묵",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.") end,
 	decrease = 0, no_remove = true,
@@ -1978,6 +2026,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_LIGHT",
 	desc = "Aura of light",
+	kr_display_name = "빛의 오러",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.") end,
 	decrease = 0, no_remove = true,
@@ -1999,6 +2048,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_ARCANE",
 	desc = "Aether residue",
+	kr_display_name = "에테르 잔여물",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% arcane damage, -10% arcane resistance, -10% armour hardiness, -20% stoning immunity.") end,
 	decrease = 0, no_remove = true,
@@ -2020,6 +2070,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_TEMPORAL",
 	desc = "Impossible geometries",
+	kr_display_name = "불가능한 지형",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% temporal damage, -10% temporal resistance, -10% spell save, -20% pinning immunity.") end,
 	decrease = 0, no_remove = true,
@@ -2041,6 +2092,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_PHYSICAL",
 	desc = "Uncontrolled anger",
+	kr_display_name = "억제되지 않는 분노",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% physical damage, -10% physical resistance, -10% mindpower, -20% knockback immunity.") end,
 	decrease = 0, no_remove = true,
@@ -2062,6 +2114,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_BLIGHT",
 	desc = "Miasma",
+	kr_display_name = "망령",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% blight damage, -10% blight resistance, -20% healing mod, -20% disease immunity.") end,
 	decrease = 0, no_remove = true,
@@ -2083,6 +2136,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_NATURE",
 	desc = "Slimy floor",
+	kr_display_name = "질척한 바닥",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% nature damage, -10% nature resistance, -10% ranged defense, -20% poison immunity.") end,
 	decrease = 0, no_remove = true,
@@ -2104,6 +2158,7 @@ newEffect{
 newEffect{
 	name = "VAULTED", image = "talents/time_prison.png",
 	desc = "In Vault",
+	kr_display_name = "금고 내부",
 	long_desc = function(self, eff) return "The target is part of a vault and can not act until it has been openend." end,
 	decrease = 0, no_remove = true,
 	type = "other",

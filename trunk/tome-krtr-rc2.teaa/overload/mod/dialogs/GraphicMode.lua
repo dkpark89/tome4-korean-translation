@@ -45,7 +45,7 @@ function _M:init()
 	self:generateList()
 	self.changed = false
 
-	Dialog.init(self, "Change graphic mode", 300, 20)
+	Dialog.init(self, "그래픽 모양 변경", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=7, list=self.list, fct=function(item) self:use(item) end}
 
@@ -64,15 +64,15 @@ function _M:init()
 end
 
 function _M:doCustomTiles()
-	local d = Dialog.new("Custom Tileset", 100, 100)
+	local d = Dialog.new("사용자 타일셋", 100, 100)
 
-	local help = Textzone.new{width=500, auto_height=true, text=[[You can configure the game to use a custom tileset.
-You must place all files of your tileset in a subfolder of the modules's data/gfx/ folder, just like the existing tilesets.
-Each tile must be correctly named according to the existing tilesets.]]}
-	local dir = Textbox.new{title="Folder: ", text="", chars=30, max_len=50, fct=function() end}
-	local moddable_tiles = Checkbox.new{title="Use moddable tiles (equipment showing on player)", default=false, fct=function() end }
-	local adv_tiles = Checkbox.new{title="Use advanced tiles (transitions, wide tiles, ...)", default=false, fct=function() end }
-	local ok = Button.new{text="Use custom tileset", fct=function()
+	local help = Textzone.new{width=500, auto_height=true, text=[[사용자 타일셋을 사용하도록 게임을 설정할 수 있습니다.
+기존의 타일셋과 같이, 사용하려는 타일셋의 모든 파일이 해당 모듈의 data/gfx/ 폴더의 하위에 존재해야만 합니다.
+각 타일의 이름은 기존의 타일셋에 있는 이름과 같아야 합니다.]]}
+	local dir = Textbox.new{title="폴더: ", text="", chars=30, max_len=50, fct=function() end}
+	local moddable_tiles = Checkbox.new{title="조정(moddable) 타일 사용 (플레이어 장비가 보임)", default=false, fct=function() end }
+	local adv_tiles = Checkbox.new{title="향상된 타일 사용 (변화, 큰 타일, ...)", default=false, fct=function() end }
+	local ok = Button.new{text="사용자 타일셋 사용", fct=function()
 		config.settings.tome.gfx.tiles = "customtiles"
 		config.settings.tome.gfx.tiles_custom_dir = dir.text
 		config.settings.tome.gfx.tiles_custom_moddable = moddable_tiles.checked
@@ -81,7 +81,7 @@ Each tile must be correctly named according to the existing tilesets.]]}
 		self:use{change_sel = "main"}
 		game:unregisterDialog(d)
 	end}
-	local cancel = Button.new{text="Cancel", fct=function() game:unregisterDialog(d) end}
+	local cancel = Button.new{text="취소", fct=function() game:unregisterDialog(d) end}
 
 	d:loadUI{
 		{left=0, top=0, ui=help},
@@ -102,7 +102,7 @@ function _M:use(item)
 
 	if item.sub and item.val then
 		if item.val == "customsize" then
-			game:registerDialog(GetQuantity.new("Tile size", "From 10 to 128", Map.tile_w or 64, 128, function(qty)
+			game:registerDialog(GetQuantity.new("타일 크기", "10에서 128 사이", Map.tile_w or 64, 128, function(qty)
 				qty = math.floor(util.bound(qty, 10, 128))
 				self:use{name=qty.."x"..qty, sub=item.sub, val=qty.."x"..qty}
 			end, 10))
@@ -129,8 +129,8 @@ function _M:generateList()
 	if self.cur_sel == "main" then
 		local cur = tiles_packs[config.settings.tome.gfx.tiles]
 		list = {
-			{name="Select style [current: "..(cur and cur.name or "???").."]", change_sel="tiles"},
-			{name="Select tiles size [current: "..config.settings.tome.gfx.size.."]", change_sel="size"},
+			{name="모양 결정 [현재: "..(cur and cur.name or "???").."]", change_sel="tiles"},
+			{name="타일 크기 결정 [현재: "..config.settings.tome.gfx.size.."]", change_sel="size"},
 		}
 	elseif self.cur_sel == "tiles" then
 		list = {}
@@ -144,7 +144,7 @@ function _M:generateList()
 			{name="48x48", sub="size", val="48x48"},
 			{name="32x32", sub="size", val="32x32"},
 			{name="16x16", sub="size", val="16x16"},
-			{name="Custom", sub="size", val="customsize"},
+			{name="사용자입력", sub="size", val="customsize"},
 		}
 	end
 

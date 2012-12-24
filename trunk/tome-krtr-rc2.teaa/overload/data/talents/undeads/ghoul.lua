@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Ghoul",
+	kr_display_name = "구울",
 	type = {"undead/ghoul", 1},
 	mode = "passive",
 	require = undeads_req1,
@@ -42,6 +43,7 @@ newTalent{
 
 newTalent{
 	name = "Ghoulish Leap",
+	kr_display_name = "구울의 도약",
 	type = {"undead/ghoul", 2},
 	require = undeads_req2,
 	points = 5,
@@ -83,6 +85,7 @@ newTalent{
 
 newTalent{
 	name = "Retch",
+	kr_display_name = "구역질",
 	type = {"undead/ghoul",3},
 	require = undeads_req3,
 	points = 5,
@@ -116,6 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Gnaw",
+	kr_display_name = "물어뜯기",
 	type = {"undead/ghoul", 4},
 	require = undeads_req4,
 	points = 5,

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 local Entity = require "engine.Entity"
 local Map = require "engine.Map"
@@ -73,7 +74,7 @@ end
 --- Get trap name
 -- Can be overloaded to do trap identification if needed
 function _M:getName()
-	return self.name
+	return (self.kr_display_name or self.name)
 end
 
 --- Setup the trap
@@ -98,15 +99,18 @@ end
 
 --- Try to disarm the trap
 function _M:disarm(x, y, who)
+	--@@
+	local wn = who.kr_display_name or who.name
+		
 	if not self:canDisarm(x, y, who) then
-		game.logSeen(who, "%s fails to disarm a trap (%s).", who.name:capitalize(), self:getName())
+		game.logSeen(who, "%s 함정(%s)을 해제하는데 실패했습니다.", wn:capitalize():addJosa("가"), self:getName())
 		return false
 	end
 	game.level.map:remove(x, y, Map.TRAP)
 	if self.removed then
 		self:removed(x, y, who)
 	end
-	game.logSeen(who, "%s disarms a trap (%s).", who.name:capitalize(), self:getName())
+	game.logSeen(who, "%s 함정(%s)을 해제하였습니다.", wn:capitalize():addJosa("가"), self:getName())
 	self:onDisarm(x, y, who)
 	return true
 end
@@ -124,14 +128,18 @@ function _M:trigger(x, y, who)
 	if not self:canTrigger(x, y, who) then return end
 
 	if self.message == nil then
-		game.logSeen(who, "%s triggers a trap (%s)!", who.name:capitalize(), self:getName())
+		--@@
+		local wn = who.kr_display_name or who.name
+		game.logSeen(who, "%s 함정(%s)을 발동시켰습니다!", wn:capitalize():addJosa("가"), self:getName())
 	elseif self.message == false then
 		-- Nothing
 	else
-		local tname = who.name
+		local tname = who.kr_display_name or who.name --@@
 		local str =self.message
 		str = str:gsub("@target@", tname)
 		str = str:gsub("@Target@", tname:capitalize())
+		str = str:gsub("@target1@", tname:addJosa("가"))
+		str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
 		game.logSeen(who, "%s", str)
 	end
 	local known, del = false, false

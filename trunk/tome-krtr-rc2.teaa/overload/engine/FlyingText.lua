@@ -17,13 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 
 module(..., package.seeall, class.make)
 
 function _M:init(fontname, fontsize, bigfontname, bigfontsize)
-	self.font = core.display.newFont(fontname or "/data/font/DroidSans.ttf", fontsize or 12)
-	self.bigfont = core.display.newFont(bigfontname or "/data/font/DroidSans-Bold.ttf", bigfontsize or 14)
+	--@@
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 12)
+	self.bigfont = core.display.newFont(krFont or bigfontname or "/data/font/DroidSans-Bold.ttf", bigfontsize or 14)
 	self.font_h = self.font:lineSkip()
 	self.flyers = {}
 end

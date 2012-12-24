@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Static History",
+	kr_display_name = "고정된 역사",
 	type = {"chronomancy/timetravel", 1},
 	require = chrono_req1,
 	points = 5,
@@ -52,6 +53,7 @@ newTalent{
 
 newTalent{
 	name = "Time Skip",
+	kr_display_name = "시간 건너뛰기",
 	type = {"chronomancy/timetravel",2},
 	require = chrono_req2,
 	points = 5,
@@ -134,6 +136,7 @@ newTalent{
 
 newTalent{
 	name = "Echoes From The Past",
+	kr_display_name = "과거로부터의 메아리",
 	type = {"chronomancy/timetravel", 3},
 	require = chrono_req3,
 	points = 5,
@@ -171,6 +174,7 @@ newTalent{
 
 newTalent{
 	name = "Temporal Reprieve",
+	kr_display_name = "시간적 집행유예",
 	type = {"chronomancy/timetravel", 4},
 	require = chrono_req4,
 	points = 5,
@@ -211,6 +215,7 @@ newTalent{
 --[=[
 newTalent{
 	name = "Door to the Past",
+	kr_display_name = "과거로의 문",
 	type = {"chronomancy/timetravel", 4},
 	require = chrono_req4, no_sustain_autoreset = true,
 	points = 5,
@@ -280,6 +285,7 @@ newTalent{
 
 newTalent{
 	name = "Revision",
+	kr_display_name = "교정",
 	type = {"chronomancy/other", 1},
 	type_no_req = true,
 	points = 1,
