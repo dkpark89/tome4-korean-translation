@@ -20,7 +20,7 @@
 -- defineTile section
 defineTile("g", "FLOOR", nil, "DROLEM")
 defineTile("X", "HARDWALL")
-quickEntity('=', {name='open sky', display=' ', does_block_move=true})
+quickEntity('=', {name='open sky', kr_display_name='허공', display=' ', does_block_move=true})
 defineTile("p", "FLOOR", nil, "TANNEN")
 defineTile(".", "FLOOR")
 

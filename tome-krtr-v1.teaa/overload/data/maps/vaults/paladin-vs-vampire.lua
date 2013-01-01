@@ -26,6 +26,7 @@ setStatusAll{no_teleport=true}
 defineTile('~', mod.class.Grid.new{
 	define_as = "NECRO",
 	name = "lava floor", image = "terrain/lava_floor.png",
+	kr_display_name = "용암 바닥",
 	display = '.', color=colors.RED, back_color=colors.DARK_GREY,
 	shader = "lava",
 	mindam = resolvers.mbonus(5, 15),
@@ -33,7 +34,7 @@ defineTile('~', mod.class.Grid.new{
 	on_stand = function(self, x, y, who)
 		local DT = engine.DamageType
 		local dam = DT:get(DT.RETCH).projector(self, x, y, DT.RETCH, rng.range(self.mindam, self.maxdam))
-		if not who:attr("undead") then game.logPlayer(who, "Dark energies course upwards through the lava.") end
+		if not who:attr("undead") then game.logPlayer(who, "용암을 뚫고 어두운 에너지가 올라옵니다.") end
 		if who.dead and not who:attr("undead") then
 			--add undead
 			local m = game.zone:makeEntityByName(game.level, "actor", "RISEN_CORPSE")
@@ -46,6 +47,7 @@ defineTile('S', "FLOOR", nil, mod.class.NPC.new{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.GOLD,
 	name = "human sun-paladin",
+	kr_display_name = "인간 태양의 기사",
 	faction = "sunwall", hard_faction = "sunwall",
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 	desc = [[A Human in shining plate armour.]],

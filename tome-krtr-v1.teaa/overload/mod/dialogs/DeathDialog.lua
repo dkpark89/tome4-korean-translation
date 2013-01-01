@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local Textzone = require "engine.ui.Textzone"
@@ -29,7 +30,7 @@ module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(actor)
 	self.actor = actor
-	Dialog.init(self, "Death!", 500, 300)
+	Dialog.init(self, "죽음!", 500, 300)
 
 	actor:saveUUID()
 
@@ -37,13 +38,13 @@ function _M:init(actor)
 	if self.dont_show then return end
 	if not config.settings.cheat then game:saveGame() end
 
-	local text = [[You have #LIGHT_RED#died#LAST#!
-Death in ToME is usually permanent, but if you have a means of resurrection it will be proposed in the menu below.
-You can dump your character data to a file to remember her/him forever, or you can exit and try once again to survive in the wilds!
+	local text = [[당신은 #LIGHT_RED#죽었습니다#LAST#!
+ToME에서 죽음은 보통 영원하지만, 당신은 아래 선택지에 나오는 방법으로 부활할 수도 있습니다.
+영원히 이 캐릭터를 기억하기 위해 여기서 덤프 기록을 파일로 남길 수도 있습니다. 부활시, 살아남기 위해 현재 위치가 아닌 바깥으로 빠져나갈 수도 있습니다!  
 ]]
 
 	if #game.party.on_death_show_achieved > 0 then
-		self.c_achv = Textzone.new{width=self.iw, scrollbar=true, height=100, text="#LIGHT_GREEN#During your game you#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ")}
+		self.c_achv = Textzone.new{width=self.iw, scrollbar=true, height=100, text="#LIGHT_GREEN#게임하는 동안 발생한 것#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ")} --@@ 번역 맞을지 확인 필요
 	end
 
 	self.c_desc = Textzone.new{width=self.iw, auto_height=true, text=text}
@@ -141,7 +142,7 @@ function _M:eidolonPlane()
 	game:onTickEnd(function()
 		if not self.actor:attr("infinite_lifes") then
 			self.actor:attr("easy_mode_lifes", -1)
-			game.log("#LIGHT_RED#You have %s left.", (self.actor:attr("easy_mode_lifes") and self.actor:attr("easy_mode_lifes").." life(s)") or "no more lives")
+			game.log("#LIGHT_RED#이제 %s", (self.actor:attr("easy_mode_lifes") and self.actor:attr("easy_mode_lifes").." 번의 생명이 남았습니다.") or "생명이 다했습니다.")
 		end
 
 		self:cleanActor(self.actor)
@@ -189,7 +190,7 @@ function _M:eidolonPlane()
 			end
 		end
 
-		game.log("#LIGHT_RED#From the brink of death you seem to be yanked to another plane.")
+		game.log("#LIGHT_RED#죽음의 끝에서 당신은 다른 차원으로 빨려 들어갑니다.")
 		game.player:updateMainShader()
 		if not config.settings.cheat then game:saveGame() end
 	end)
@@ -213,7 +214,7 @@ function _M:use(item)
 	elseif act == "log" then
 		game:registerDialog(require("mod.dialogs.ShowChatLog").new("Message Log", 0.6, game.uiset.logdisplay, profile.chat))
 	elseif act == "cheat" then
-		game.logPlayer(self.actor, "#LIGHT_BLUE#You resurrect! CHEATER!")
+		game.logPlayer(self.actor, "#LIGHT_BLUE#부활했습니다! 사기꾼(CHEATER)이로군요!")
 
 		self:cleanActor(self.actor)
 		self:resurrectBasic(self.actor)
@@ -221,7 +222,7 @@ function _M:use(item)
 		self.actor:check("on_resurrect", "cheat")
 	elseif act == "blood_life" then
 		self.actor.blood_life = false
-		game.logPlayer(self.actor, "#LIGHT_RED#The Blood of Life rushes through your dead body. You come back to life!")
+		game.logPlayer(self.actor, "#LIGHT_RED#생명의 피(the Blood of Life)가 죽은 육체에 흐르기 시작합니다. 다시 살아났습니다!")
 
 		self:cleanActor(self.actor)
 		self:resurrectBasic(self.actor)
@@ -242,7 +243,7 @@ function _M:use(item)
 		self:eidolonPlane()
 	elseif act == "skeleton" then
 		self.actor:attr("re-assembled", 1)
-		game.logPlayer(self.actor, "#YELLOW#Your bones magically knit back together. You are once more able to dish out pain to your foes!")
+		game.logPlayer(self.actor, "#YELLOW#당신의 뼈가 마법같이 서로 붙기 시작합니다. 한번 더 적들에게 고통을 나누어줄 수 있게 되었습니다!")
 
 		self:cleanActor(self.actor)
 		self:resurrectBasic(self.actor)
@@ -252,7 +253,7 @@ function _M:use(item)
 	elseif act:find("^consume") then
 		local inven, item, o = item.inven, item.item, item.object
 		self.actor:removeObject(inven, item)
-		game.logPlayer(self.actor, "#YELLOW#Your %s is consumed and disappears! You come back to life!", o:getName{do_colour=true})
+		game.logPlayer(self.actor, "#YELLOW#가지고 있던 %s 사용했습니다! 다시 살아났습니다!", o:getName{do_colour=true}:addJosa("를"))
 
 		self:cleanActor(self.actor)
 		self:resurrectBasic(self.actor)
@@ -273,12 +274,12 @@ function _M:generateList()
 	end)
 
 	if game.zone.is_eidolon_plane then
-		game.logPlayer(self, "You managed to die on the eidolon plane! DIE!")
+		game.logPlayer(self, "에이돌론 차원(eidolon plane)에서 당신의 죽음을 다룹니다! 죽었습니다!")
 		game:onTickEnd(function() world:gainAchievement("EIDOLON_DEATH", self.actor) end)
 		allow_res = false
 	end
 
-	if config.settings.cheat then list[#list+1] = {name="Resurrect by cheating", action="cheat"} end
+	if config.settings.cheat then list[#list+1] = {name="사기(cheating)로 부활하기", action="cheat"} end
 	if not self.actor.no_resurrect and allow_res then
 		if self.actor:isTalentActive(self.actor.T_LICHFORM) then
 			self:use{action="lichform"}
@@ -290,23 +291,23 @@ function _M:generateList()
 			self.dont_show = true
 			return
 		end
-		if self.actor:attr("blood_life") and not self.actor:attr("undead") then list[#list+1] = {name="Resurrect with the Blood of Life", action="blood_life"} end
-		if self.actor:getTalentLevelRaw(self.actor.T_SKELETON_REASSEMBLE) >= 5 and not self.actor:attr("re-assembled") then list[#list+1] = {name="Re-assemble your bones and resurrect (Skeleton ability)", action="skeleton"} end
+		if self.actor:attr("blood_life") and not self.actor:attr("undead") then list[#list+1] = {name="생명의 피(the Blood of Life)로 부활하기", action="blood_life"} end
+		if self.actor:getTalentLevelRaw(self.actor.T_SKELETON_REASSEMBLE) >= 5 and not self.actor:attr("re-assembled") then list[#list+1] = {name="뼈의 재조합으로 부활하기 (스켈레톤 능력)", action="skeleton"} end
 
 		local consumenb = 1
 		self.actor:inventoryApplyAll(function(inven, item, o)
 			if o.one_shot_life_saving and (not o.slot or inven.worn) then
-				list[#list+1] = {name="Resurrect by consuming "..o:getName{do_colour=true}, action="consume"..consumenb, inven=inven, item=item, object=o}
+				list[#list+1] = {name=o:getName{do_colour=true}:addJosa("를").." 사용하여 부활하기", action="consume"..consumenb, inven=inven, item=item, object=o}
 				consumenb = consumenb + 1
 			end
 		end)
 	end
 
-	list[#list+1] = {name=(not profile.auth and "Message Log" or "Message/Chat log (allows to talk)"), action="log"}
-	list[#list+1] = {name="Character dump", action="dump"}
-	list[#list+1] = {name="Restart the same character", action="exit", subaction="restart"}
-	list[#list+1] = {name="Restart with a new character", action="exit", subaction="restart-new"}
-	list[#list+1] = {name="Exit to main menu", action="exit", subaction="none"}
+	list[#list+1] = {name=(not profile.auth and "메세지 로그" or "메세지/대화 로그 (대화 가능)"), action="log"}
+	list[#list+1] = {name="캐릭터 덤프 기록 생성", action="dump"}
+	list[#list+1] = {name="같은 캐릭터로 다시 시작하기", action="exit", subaction="restart"}
+	list[#list+1] = {name="새로운 캐릭터로 다시 시작하기", action="exit", subaction="restart-new"}
+	list[#list+1] = {name="메인 메뉴로 나가기", action="exit", subaction="none"}
 
 	self.list = list
 end

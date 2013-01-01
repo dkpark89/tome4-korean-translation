@@ -20,7 +20,7 @@
 
 -- defineTile section
 defineTile("#", "MOUNTAIN_WALL")
-quickEntity('-', {name='open sky', display=' ', does_block_move=true})
+quickEntity('-', {name='open sky', kr_display_name='허공', display=' ', does_block_move=true})
 defineTile(">", "DOWN")
 defineTile(".", "ROCKY_GROUND")
 

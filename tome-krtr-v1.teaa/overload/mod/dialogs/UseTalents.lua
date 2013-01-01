@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local TreeList = require "engine.ui.TreeList"
@@ -30,12 +31,12 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(actor)
 	self.actor = actor
 	actor.hotkey = actor.hotkey or {}
-	Dialog.init(self, "Use Talents: "..actor.name, game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, "기술 사용: "..actor.name, game.w * 0.8, game.h * 0.8)
 
 	self.c_tut = Textzone.new{width=math.floor(self.iw / 2 - 10), height=1, auto_height=true, no_color_bleed=true, text=[[
-You can bind a non-passive talent to a hotkey by pressing the corresponding hotkey while selecting a talent or by right-clicking on the talent.
-Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control or shift).
-Right click or press '@' to configure.
+지속형이 아닌 기술은 선택후 원하는 단축키를 누르거나 우클릭을 해서 단축키로 연결할 수 있습니다.
+게임 메뉴의 명령어 입력 설정에서 단축키로 사용할 명령어를 정할 수 있습니다 (기본은 숫자키와 '-'키, '='키에 컨트롤, 알트, 쉬프트 키가 조합됩니다).
+우클릭을 하면 단축키 연결창을 볼 수 있습니다.
 ]]}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), height=self.ih - self.c_tut.h - 20, scrollbar=true, no_color_bleed=true}
 
@@ -43,12 +44,12 @@ Right click or press '@' to configure.
 
 	local cols = {
 		{name="", width={40,"fixed"}, display_prop="char"},
-		{name="Talent", width=80, display_prop="name"},
-		{name="Status", width=20, display_prop="status"},
-		{name="Hotkey", width={75,"fixed"}, display_prop="hotkey"},
-		{name="Mouse Click", width={60,"fixed"}, display_prop=function(item)
-			if item.talent and item.talent == self.actor.auto_shoot_talent then return "LeftClick"
-			elseif item.talent and item.talent == self.actor.auto_shoot_midclick_talent then return "MiddleClick"
+		{name="기술", width=80, display_prop="name"},
+		{name="상태", width=20, display_prop="status"},
+		{name="단축키", width={75,"fixed"}, display_prop="hotkey"},
+		{name="마우스 클릭", width={60,"fixed"}, display_prop=function(item)
+			if item.talent and item.talent == self.actor.auto_shoot_talent then return "클릭"
+			elseif item.talent and item.talent == self.actor.auto_shoot_midclick_talent then return "중간클릭"
 			else return "" end
 		end},
 	}
@@ -97,7 +98,9 @@ function _M:defineHotkey(id)
 	end
 
 	self.actor.hotkey[id] = {"talent", item.talent}
-	self:simplePopup("Hotkey "..id.." assigned", t.name:capitalize().." assigned to hotkey "..id)
+	--@@
+	local tn = t.kr_display_name or t.name
+	self:simpleLongPopup("단축키 "..id.." 설정", tn:capitalize():addJosa("가").." 단축키 "..("%d"):format(id):addJosa("로").." 설정되었습니다.", game.w * 0.4)
 	self.c_list:drawTree()
 	self.actor.changed = true
 end
@@ -129,35 +132,39 @@ function _M:use(item, button)
 	if t.mode == "passive" then return end
 	if button == "right" then
 		local list = {
-			{name="Unbind", what="unbind"},
-			{name="Bind to left mouse click (on a target)", what="left"},
-			{name="Bind to middle mouse click (on a target)", what="middle"},
+			{name="단축키 해제", what="unbind"},
+			{name="(목표에게) 마우스 클릭으로 사용", what="left"},
+			{name="(목표에게) 마우스 중간버튼 클릭으로 사용", what="middle"},
 		}
 
 		--local t = self.actor:getTalentFromId(item.talent)
-		if self.actor:isTalentAuto(t) then table.insert(list, 1, {name="Disable automatic use", what="auto-dis"})
+		if self.actor:isTalentAuto(t) then table.insert(list, 1, {name="자동적 사용 비활성화", what="auto-dis"})
 		else 
-			table.insert(list, 1, {name="Auto-use when enemies are visible and adjacent", what="auto-en-4"})
-			table.insert(list, 1, {name="Auto-use when enemies are visible", what="auto-en-3"})
-			table.insert(list, 1, {name="Auto-use when no enemies are visible", what="auto-en-2"})
-			table.insert(list, 1, {name="Auto-use when available", what="auto-en-1"})
+			table.insert(list, 1, {name="인접한 적이 있을때 항상 자동 사용", what="auto-en-4"})
+			table.insert(list, 1, {name="적이 있을때 항상 자동 사용", what="auto-en-3"})
+			table.insert(list, 1, {name="적이 없을때 항상 자동 사용", what="auto-en-2"})
+			table.insert(list, 1, {name="가능한 경우 항상 자동 사용", what="auto-en-1"})
 		end
 
-		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="Hotkey "..i, what=i} end
-		Dialog:listPopup("Bind talent: "..item.name:toString(), "How do you want to bind this talent?", list, 400, 500, function(b)
+		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
+		
+		--@@
+		local itn = item.kr_display_name or item.name:toString()
+		local tn = (self.actor:getTalentFromId(item.talent).kr_display_name or self.actor:getTalentFromId(item.talent).name):capitalize()
+		Dialog:listPopup("기술 연결: "..itn, "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
 			if not b then return end
 			if type(b.what) == "number" then
 				for i = 1, 12 * self.actor.nb_hotkey_pages do
 					if self.actor.hotkey[i] and self.actor.hotkey[i][1] == "talent" and self.actor.hotkey[i][2] == item.talent then self.actor.hotkey[i] = nil end
 				end
 				self.actor.hotkey[b.what] = {"talent", item.talent}
-				self:simplePopup("Hotkey "..b.what.." assigned", self.actor:getTalentFromId(item.talent).name:capitalize().." assigned to hotkey "..b.what)
+				self:simpleLongPopup("단축키 "..(b.what).." 설정", tn:addJosa("가").." 단축키 "..("%d"):format(b.what):addJosa("로").." 설정되었습니다.", game.w * 0.4)
 			elseif b.what == "middle" then
 				self.actor.auto_shoot_midclick_talent = item.talent
-				self:simplePopup("Middle mouse click assigned", self.actor:getTalentFromId(item.talent).name:capitalize().." assigned to middle mouse click on an hostile target.")
+				self:simpleLongPopup("마우스 중간클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.", game.w * 0.4)
 			elseif b.what == "left" then
 				self.actor.auto_shoot_talent = item.talent
-				self:simplePopup("Left mouse click assigned", self.actor:getTalentFromId(item.talent).name:capitalize().." assigned to left mouse click on an hostile target.")
+				self:simpleLongPopup("마우스 클릭 연결", tn:addJosa("가").." 목표에게 마우스 클릭시 사용되도록 연결되었습니다.", game.w * 0.4)
 			elseif b.what == "unbind" then
 				if self.actor.auto_shoot_talent == item.talent then self.actor.auto_shoot_talent = nil end
 				if self.actor.auto_shoot_midclick_talent == item.talent then self.actor.auto_shoot_midclick_talent = nil end
@@ -255,27 +262,30 @@ function _M:generateList()
 		if self.actor:knowTalent(t.id) and not (t.hide and t.mode == "passive") then
 			local typename = "talent"
 			local nodes = (t.mode == "sustained" and sustains) or (t.mode =="passive" and passives) or actives
-			local status = tstring{{"color", "LIGHT_GREEN"}, "Active"}
+			local status = tstring{{"color", "LIGHT_GREEN"}, "사용가능"}
 			if self.actor:isTalentCoolingDown(t) then
 				nodes = cooldowns
-				status = tstring{{"color", "LIGHT_RED"}, self.actor:isTalentCoolingDown(t).." turns"}
+				status = tstring{{"color", "LIGHT_RED"}, self.actor:isTalentCoolingDown(t).." 턴"}
 			elseif not self.actor:preUseTalent(t, true, true) then
 				nodes = unavailables
-				status = tstring{{"color", "GREY"}, "Unavailable"}
+				status = tstring{{"color", "GREY"}, "불가능"}
 			elseif t.mode == "sustained" then
 				if self.actor:isTalentActive(t.id) then nodes = sustained end
-				status = self.actor:isTalentActive(t.id) and tstring{{"color", "YELLOW"}, "Sustaining"} or tstring{{"color", "LIGHT_GREEN"}, "Sustain"}
+				status = self.actor:isTalentActive(t.id) and tstring{{"color", "YELLOW"}, "유지중"} or tstring{{"color", "LIGHT_GREEN"}, "유지가능"}
 			elseif t.mode == "passive" then
 				nodes = passives
-				status = tstring{{"color", "LIGHT_BLUE"}, "Passive"}
+				status = tstring{{"color", "LIGHT_BLUE"}, "지속"}
 			end
 
 			-- Pregenenerate icon with the Tiles instance that allows images
 			if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 			nodes[#nodes+1] = {
-				name=((t.display_entity and t.display_entity:getDisplayString() or "")..t.name):toTString(),
-				cname=t.name,
+				--@@
+				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(t.kr_display_name or t.name)):toTString(),
+				cname = t.kr_display_name or t.name,
+				oriname=t.name,
+				
 				status=status,
 				entity=t.display_entity,
 				talent=t.id,
@@ -284,7 +294,7 @@ function _M:generateList()
 				hotkey=function(item)
 					if t.mode == "passive" then return "" end
 					for i = 1, 12 * self.actor.nb_hotkey_pages do if self.actor.hotkey[i] and self.actor.hotkey[i][1] == "talent" and self.actor.hotkey[i][2] == item.talent then
-						return "H.Key "..i..""
+						return "단축 "..i..""
 					end end
 					return ""
 				end,
@@ -306,12 +316,12 @@ function _M:generateList()
 
 
 	list = {
-		{ char='', name=('#{bold}#Activable talents#{normal}#'):toTString(), status='', hotkey='', desc="All activable talents you can currently use.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=actives, shown=true },
-		{ char='', name=('#{bold}#Sustainable talents#{normal}#'):toTString(), status='', hotkey='', desc="All sustainable talents you can currently use.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=sustains, shown=true },
-		{ char='', name=('#{bold}#Sustained talents#{normal}#'):toTString(), status='', hotkey='', desc="All sustainable talents you currently sustain, using them will de-activate them.", color=function() return colors.simple(colors.YELLOW) end, nodes=sustained, shown=true },
-		{ char='', name=('#{bold}#Cooling down talents#{normal}#'):toTString(), status='', hotkey='', desc="All talents you have used that are still cooling down.", color=function() return colors.simple(colors.LIGHT_RED) end, nodes=cooldowns, shown=true },
-		{ char='', name=('#{bold}#Unavailable talents#{normal}#'):toTString(), status='', hotkey='', desc="All talents you have that do not have enough resources, or satisfy other dependencies.", color=function() return colors.simple(colors.GREY) end, nodes=unavailables, shown=true },
-		{ char='', name=('#{bold}#Passive talents#{normal}#'):toTString(), status='', hotkey='', desc="All your passive talents, they are always active.", color=function() return colors.simple(colors.WHITE) end, nodes=passives, shown=true },
+		{ char='', name=('#{bold}#사용가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 사용가능 기술은 현재 사용할 수 있습니다.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=actives, shown=true },
+		{ char='', name=('#{bold}#유지가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 유지가능 기술은 현재 사용할 수 있습니다.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=sustains, shown=true },
+		{ char='', name=('#{bold}#유지중 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 유지중 기술은 현재 유지상태로 사용중이고, 다시 사용하면 유지상태가 풀립니다.", color=function() return colors.simple(colors.YELLOW) end, nodes=sustained, shown=true },
+		{ char='', name=('#{bold}#대기중 기술#{normal}#'):toTString(), status='', hotkey='', desc="기술을 사용하여 대기시간이 남아있는 기술입니다.", color=function() return colors.simple(colors.LIGHT_RED) end, nodes=cooldowns, shown=true },
+		{ char='', name=('#{bold}#사용 불가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="필요한 원천력이 부족하거나 다른 조건을 만족하지 못해 현재 사용이 불가능한 기술입니다.", color=function() return colors.simple(colors.GREY) end, nodes=unavailables, shown=true },
+		{ char='', name=('#{bold}#지속형 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 지속형 기술은 항상 사용하고 있습니다.", color=function() return colors.simple(colors.WHITE) end, nodes=passives, shown=true },
 		chars = chars,
 	}
 	self.list = list
