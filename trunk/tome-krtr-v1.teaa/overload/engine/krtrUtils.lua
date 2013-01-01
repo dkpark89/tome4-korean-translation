@@ -64,6 +64,36 @@ function string.krSex(str)
 	else return str end
 end
 
+function string.krFontShape(str)
+	local ori = str:lower()
+	if ori == "fantasy" then return "판타지"
+	elseif ori == "basic" then return "기본"
+	else return str end
+end
+
+function string.krHUDStyle(str)
+	local ori = str:lower()
+	if ori == "minimalist" then return "최소"
+	elseif ori == "classic" then return "전통"
+	else return str end
+end
+
+function string.krUIStyle(str)
+	local ori = str:lower()
+	if ori == "metal" then return "금속"
+	elseif ori == "stone" then return "돌"
+	elseif ori == "simple" then return "단순"
+	else return str end
+end
+
+function string.krFontSize(str)
+	local ori = str:lower()
+	if ori == "small" then return "작음"
+	elseif ori == "normal" then return "보통"
+	elseif ori == "big" then return "큼"
+	else return str end
+end
+
 function string.krStat(str)
 	local ori = str:lower()
 	if ori == "strength" or ori == "str" then return "힘"

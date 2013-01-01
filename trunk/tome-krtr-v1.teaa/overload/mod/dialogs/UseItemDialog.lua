@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 require "engine.ui.Dialog"
 local List = require "engine.ui.List"
@@ -64,7 +65,7 @@ function _M:use(item)
 
 	if act == "use" then
 		if self.object:wornInven() and not self.object.wielded and not self.object.use_no_wear then
-			self:simplePopup("Impossible", "You must wear this object to use it!")
+			self:simpleLongPopup("사용 불가", "이것은 착용해야 사용할 수 있습니다!", game.w * 0.4)
 		else
 			self.actor:playerUseItem(self.object, self.item, self.inven, self.onuse)
 			self.onuse(self.inven, self.item, self.object, true)
@@ -74,7 +75,7 @@ function _M:use(item)
 		self.onuse(self.inven, self.item, self.object, false)
 	elseif act == "drop" then
 		if self.object:getNumber() > 1 then
-			game:registerDialog(GetQuantity.new("Drop how many?", "1 to "..self.object:getNumber(), self.object:getNumber(), self.object:getNumber(), function(qty)
+			game:registerDialog(GetQuantity.new("버릴 수량은?", "1에서 "..self.object:getNumber().." 사이", self.object:getNumber(), self.object:getNumber(), function(qty)
 				qty = util.bound(qty, 1, self.object:getNumber())
 				self.actor:doDrop(self.inven, self.item, function() self.onuse(self.inven, self.item, self.object, false) end, qty)
 			end, 1))
@@ -92,7 +93,7 @@ function _M:use(item)
 			self.onuse(self.inven, self.item, self.object, false)
 		end))		
 	elseif act == "transmo" then
-		self:yesnoPopup("Transmogrify", "Really transmogrify "..self.object:getName{}, function(ret)
+		self:yesnoPopup("아이템 변환", "정말 "..(self.object:getName{}):addJosa("을").." 돈으로 바꾸시겠습니까?", function(ret)
 			if not ret then return end
 			self.actor:transmoInven(self.inven, self.item, self.object)
 			self.onuse(self.inven, self.item, self.object, false)
@@ -112,15 +113,15 @@ function _M:generateList()
 
 	local transmo_chest = self.actor:attr("has_transmo")
 
-	if not self.object:isIdentified() and self.actor:attr("auto_id") and self.actor:attr("auto_id") >= 2 then list[#list+1] = {name="Identify", action="identify"} end
-	if self.object.__transmo then list[#list+1] = {name="Move to normal inventory", action="toinven"} end
-	if not self.object.__transmo and not self.no_use_allowed then if self.object:canUseObject() then list[#list+1] = {name="Use", action="use"} end end
-	if self.inven == self.actor.INVEN_INVEN and self.object:wornInven() and self.actor:getInven(self.object:wornInven()) then list[#list+1] = {name="Wield/Wear", action="wear"} end
-	if not self.object.__transmo then if self.inven ~= self.actor.INVEN_INVEN and self.object:wornInven() then list[#list+1] = {name="Take off", action="takeoff"} end end
-	if self.inven == self.actor.INVEN_INVEN then list[#list+1] = {name="Drop", action="drop"} end
-	if self.inven == self.actor.INVEN_INVEN and game.party:countInventoryAble() >= 2 then list[#list+1] = {name="Transfer to party", action="transfer"} end
-	if self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="Transmogrify now", action="transmo"} end
-	if profile.auth and profile.hash_valid then list[#list+1] = {name="Link item in chat", action="chat-link"} end
+	if not self.object:isIdentified() and self.actor:attr("auto_id") and self.actor:attr("auto_id") >= 2 then list[#list+1] = {name="감정", action="identify"} end
+	if self.object.__transmo then list[#list+1] = {name="일반 소지품 목록으로 이동", action="toinven"} end
+	if not self.object.__transmo and not self.no_use_allowed then if self.object:canUseObject() then list[#list+1] = {name="사용", action="use"} end end
+	if self.inven == self.actor.INVEN_INVEN and self.object:wornInven() and self.actor:getInven(self.object:wornInven()) then list[#list+1] = {name="착용", action="wear"} end
+	if not self.object.__transmo then if self.inven ~= self.actor.INVEN_INVEN and self.object:wornInven() then list[#list+1] = {name="착용 해제", action="takeoff"} end end
+	if self.inven == self.actor.INVEN_INVEN then list[#list+1] = {name="버리기", action="drop"} end
+	if self.inven == self.actor.INVEN_INVEN and game.party:countInventoryAble() >= 2 then list[#list+1] = {name="동료에게 건네주기", action="transfer"} end
+	if self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="돈으로 바꾸기", action="transmo"} end
+	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 아이템 연결", action="chat-link"} end
 
 	self:triggerHook{"UseItemMenu:generate", actor=self.actor, object=self.object, inven=self.inven, item=self.item, menu=list}
 

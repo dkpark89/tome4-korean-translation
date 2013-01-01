@@ -29,6 +29,7 @@ defineTile('u', mod.class.Grid.new{
 	define_as = "DOOR_OPENING_FLOOR",
 	type = "floor", subtype = "trapped_floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_display_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 	grow = "WALL",
 	on_move = function(self, x, y, actor, forced)
@@ -43,7 +44,7 @@ defineTile('u', mod.class.Grid.new{
 		game.nicer_tiles:updateAround(game.level, x + 4, y - 4)
 		game.nicer_tiles:updateAround(game.level, x + 4, y + 4)
 		game.nicer_tiles:updateAround(game.level, x - 4, y + 4)
-		game.logPlayer(actor, "Something in the floor clicks ominously.")
+		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들립니다.")
 		local g = game.zone:makeEntityByName(game.level, "terrain", "FLOOR")
 		game.zone:addEntity(game.level, g, "terrain", x, y)
 	end,

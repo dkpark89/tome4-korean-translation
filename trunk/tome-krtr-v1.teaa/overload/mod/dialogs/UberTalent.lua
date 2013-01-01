@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 
@@ -34,13 +35,14 @@ function _M:init(actor, levelup_end_prodigies)
 	self.actor = actor
 	self.levelup_end_prodigies = levelup_end_prodigies
 
-	self.font = core.display.newFont("/data/font/DroidSansMono.ttf", 12)
+	--@@
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12)
 	self.font_h = self.font:lineSkip()
 
 	self.actor_dup = actor:clone()
 	self.actor_dup.uid = actor.uid -- Yes ...
 
-	Dialog.init(self, "Prodigies: "..actor.name, 800, game.h * 0.9)
+	Dialog.init(self, "특수기술: "..actor.name, 800, game.h * 0.9)
 
 	self:generateList()
 
@@ -94,7 +96,9 @@ function _M:generateList()
 				if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 				n[#n+1] = {
-					rawname = t.name,
+					--@@
+					rawname = t.kr_display_name or t.name,
+					oriname = t.name,
 					talent = t.id,
 					entity=t.display_entity,
 					do_shadow = function(item) if not self.actor:canLearnTalent(t) then return true else return false end end,
@@ -121,9 +125,9 @@ end
 -- UI Stuff
 -----------------------------------------------------------------
 
-local tuttext = [[Prodigies are special talents that only the most powerful of characters can attain.
-All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 30 and 42.
-#LIGHT_GREEN#Prodigies available: %d]]
+local tuttext = [[특수기술은 캐릭터가 얻을 수 있는 기술 중 가장 강력한 특별한 기술입니다.
+모든 특수기술은 주요 능력치가 50이 넘고 각각의 특별한 조건을 갖추어야 익힐수 있습니다. 레벨 30과 42가 될 때, 새로운 특수기술을 배울수 있는 특수기술 점수가 1씩 늘어납니다.  
+#LIGHT_GREEN#보유 특수기술 점수: %d]]
 
 function _M:createDisplay()
 	self.c_tut = Textzone.new{ width=self.iw, auto_height = true, text=tuttext:format(self.actor.unused_prodigies or 0)}
@@ -132,7 +136,8 @@ function _M:createDisplay()
 	self.c_desc = TextzoneList.new{ focus_check = true, scrollbar = true, width=self.iw - 380 - 30, height = self.ih - self.c_tut.h, dest_area = { h = self.ih } }
 	
 	self.c_list = TalentGrid.new{
-		font = core.display.newFont("/data/font/DroidSans.ttf", 14),
+		--@@
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
 		tiles=game.uiset.hotkeys_display_icons,
 		grid=self.list,
 		width=370, height=self.ih - self.c_tut.h,

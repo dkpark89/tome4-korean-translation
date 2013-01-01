@@ -114,19 +114,19 @@ function _M:generateList()
 	local a = game.level.map(self.tmx, self.tmy, Map.ACTOR)
 
 	-- Generic actions
-	if g and g.change_level and self.on_player then list[#list+1] = {name="Change level", action="change_level", color=colors.simple(colors.VIOLET)} end
-	if o and self.on_player then list[#list+1] = {name="Pickup item", action="pickup", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if g and not self.on_player then list[#list+1] = {name="Move to", action="move_to", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if a and not self.on_player and game.party:canControl(a, false) then list[#list+1] = {name="Control", action="control", color=colors.simple(colors.TEAL), actor=a} end
-	if a and not self.on_player and game.party:canOrder(a, false) then list[#list+1] = {name="Give order", action="order", color=colors.simple(colors.TEAL), actor=a} end
-	if a and not self.on_player and config.settings.cheat then list[#list+1] = {name="Target player", action="target-player", color=colors.simple(colors.RED), actor=a} end
-	if self.on_player then list[#list+1] = {name="Rest a while", action="rest", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if self.on_player then list[#list+1] = {name="Auto-explore", action="autoexplore", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if self.on_player then list[#list+1] = {name="Inventory", action="inventory", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if self.on_player then list[#list+1] = {name="Quest Log", action="quests", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if a then list[#list+1] = {name="Inspect Creature", action="character_sheet", color=colors.simple(colors.ANTIQUE_WHITE), actor=a} end
-	if not self.on_player and a and profile.auth and profile.hash_valid then list[#list+1] = {name="Link creature in chat", action="chat-link"} end
-	if self.on_player and (player.unused_stats > 0 or player.unused_talents > 0 or player.unused_generics > 0 or player.unused_talents_types > 0) then list[#list+1] = {name="Levelup!", action="levelup", color=colors.simple(colors.YELLOW)} end
+	if g and g.change_level and self.on_player then list[#list+1] = {name="층 변경", action="change_level", color=colors.simple(colors.VIOLET)} end
+	if o and self.on_player then list[#list+1] = {name="아이템 줍기", action="pickup", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if g and not self.on_player then list[#list+1] = {name="이동", action="move_to", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if a and not self.on_player and game.party:canControl(a, false) then list[#list+1] = {name="조종", action="control", color=colors.simple(colors.TEAL), actor=a} end
+	if a and not self.on_player and game.party:canOrder(a, false) then list[#list+1] = {name="명령 주문", action="order", color=colors.simple(colors.TEAL), actor=a} end
+	if a and not self.on_player and config.settings.cheat then list[#list+1] = {name="목표로 지정", action="target-player", color=colors.simple(colors.RED), actor=a} end
+	if self.on_player then list[#list+1] = {name="휴식", action="rest", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if self.on_player then list[#list+1] = {name="자동탐사", action="autoexplore", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if self.on_player then list[#list+1] = {name="소지품목록", action="inventory", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if self.on_player then list[#list+1] = {name="퀘스트 기록", action="quests", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if a then list[#list+1] = {name="생명체 조사", action="character_sheet", color=colors.simple(colors.ANTIQUE_WHITE), actor=a} end
+	if not self.on_player and a and profile.auth and profile.hash_valid then list[#list+1] = {name="채팅으로 생명체 연결", action="chat-link"} end
+	if self.on_player and (player.unused_stats > 0 or player.unused_talents > 0 or player.unused_generics > 0 or player.unused_talents_types > 0) then list[#list+1] = {name="레벨 상승!", action="levelup", color=colors.simple(colors.YELLOW)} end
 
 	-- Talents
 	if game.zone and not game.zone.wilderness then
@@ -161,10 +161,12 @@ function _M:generateList()
 				local e = t.display_entity
 				-- Pregenenerate icon with the Tiles instance that allows images
 				if t.display_entity and game.uiset.hotkeys_display_icons then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
+				--@@
+				local tn = t.kr_display_name or t.name
 				if self.on_player and not rt then
-					tals[#tals+1] = {name=e:getDisplayString()..t.name, dname=t.name, talent=t, action="talent", color=colors.simple(colors.GOLD)}
+					tals[#tals+1] = {name=e:getDisplayString()..tn, dname=t.name, talent=t, action="talent", color=colors.simple(colors.GOLD)}
 				elseif not self.on_player and rt then
-					tals[#tals+1] = {name=e:getDisplayString()..t.name, dname=t.name, talent=t, action="talent", set_target=tg or default_tg, color=colors.simple(colors.GOLD)}
+					tals[#tals+1] = {name=e:getDisplayString()..tn, dname=t.name, talent=t, action="talent", set_target=tg or default_tg, color=colors.simple(colors.GOLD)}
 				end
 			end
 		end

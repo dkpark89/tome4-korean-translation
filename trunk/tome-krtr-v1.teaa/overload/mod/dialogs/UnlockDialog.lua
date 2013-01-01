@@ -30,10 +30,10 @@ function _M:init(what)
 	if not f and err then error(err) end
 	setfenv(f, {})
 	self.name, self.str = f()
+	
+	game.logPlayer(game.player, "#VIOLET#잠김 해제: "..self.name)
 
-	game.logPlayer(game.player, "#VIOLET#Option unlocked: "..self.name)
-
-	Dialog.init(self, "Option unlocked: "..self.name, 600, 400)
+	Dialog.init(self, "잠김 해제: "..self.name, 600, 400)
 
 	self.c_desc = Textzone.new{width=math.floor(self.iw - 10), height=self.ih, no_color_bleed=true, auto_height=true, text=self.str}
 
