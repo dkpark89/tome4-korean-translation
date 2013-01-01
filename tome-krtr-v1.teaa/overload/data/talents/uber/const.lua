@@ -19,6 +19,7 @@
 
 uberTalent{
 	name = "Draconic Body",
+	kr_display_name = "드래곤의 육체",
 	mode = "passive",
 	cooldown = 40,
 	require = { special={desc="Be close to the draconic world", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("drake_touched") and self:attr("drake_touched") >= 2) end} },
@@ -37,6 +38,7 @@ uberTalent{
 
 uberTalent{
 	name = "Bloodspring",
+	kr_display_name = "피의 반발",
 	mode = "passive",
 	cooldown = 12,
 	require = { special={desc="Have let Melinda be sacrificed", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:hasQuest("kryl-feijan-escape") and self:hasQuest("kryl-feijan-escape"):isStatus(engine.Quest.FAILED)) end} },
@@ -66,6 +68,7 @@ uberTalent{
 
 uberTalent{
 	name = "Eternal Guard",
+	kr_display_name = "영원한 수호",
 	mode = "passive",
 	require = { special={desc="Know the Block talent", fct=function(self) return self:knowTalent(self.T_BLOCK) end} },
 	info = function(self, t)
@@ -76,6 +79,7 @@ uberTalent{
 
 uberTalent{
 	name = "Never Stop Running",
+	kr_display_name = "멈추지 않는 자",
 	mode = "sustained",
 	cooldown = 20,
 	sustain_stamina = 10,
@@ -97,6 +101,7 @@ uberTalent{
 
 uberTalent{
 	name = "Armour of Shadows",
+	kr_display_name = "그림자 갑옷",
 	mode = "passive",
 	require = { special={desc="Have dealt over 50000 darkness damage", fct=function(self) return
 		self.damage_log and (
@@ -118,6 +123,7 @@ uberTalent{
 
 uberTalent{
 	name = "Spine of the World",
+	kr_display_name = "세계의 기둥",
 	mode = "passive",
 	trigger = function(self, t)
 		if self:hasEffect(self.EFF_SPINE_OF_THE_WORLD) then return end
@@ -131,6 +137,7 @@ uberTalent{
 
 uberTalent{
 	name = "Fungal Blood",
+	kr_display_name = "혈관속 미생물",
 	require = { special={desc="Be able to use infusions", fct=function(self) return not self.inscription_restrictions or self.inscription_restrictions['inscriptions/infusions'] end} },
 	tactical = { HEAL = function(self) return not self:hasEffect(self.EFF_FUNGAL_BLOOD) and 0 or math.ceil(self:hasEffect(self.EFF_FUNGAL_BLOOD).power / 150) end },
 	on_pre_use = function(self, t) return self:hasEffect(self.EFF_FUNGAL_BLOOD) and self:hasEffect(self.EFF_FUNGAL_BLOOD).power > 0 and not self:attr("undead") end,
@@ -155,6 +162,7 @@ uberTalent{
 
 uberTalent{
 	name = "Corrupted Shell",
+	kr_display_name = "타락한 껍질",
 	mode = "passive",
 	require = { special={desc="Have received at least 50000 blight damage and destroyed Zigur with the Grand Corruptor.", fct=function(self) return
 		(self.damage_intake_log and self.damage_intake_log[DamageType.BLIGHT] and self.damage_intake_log[DamageType.BLIGHT] >= 50000) and

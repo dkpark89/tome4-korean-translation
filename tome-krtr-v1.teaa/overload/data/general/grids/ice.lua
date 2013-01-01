@@ -23,6 +23,7 @@ newEntity{
 	define_as = "ICY_FLOOR",
 	type = "floor", subtype = "ice",
 	name = "icy floor", image = "terrain/frozen_ground.png",
+	kr_display_name = "얼음 바닥",
 	display = '.', color=colors.LIGHT_BLUE, back_color=colors.WHITE,
 	nice_editer = ice_editer,
 	on_stand = function(self, x, y, who)
@@ -33,6 +34,7 @@ newEntity{
 	define_as = "FROZEN_WATER",
 	type = "floor", subtype = "ice",
 	name = "frozen water", image = "terrain/water_grass_5_1.png",
+	kr_display_name = "얼어붙은 물",
 	display = ';', color=colors.LIGHT_BLUE, back_color=colors.WHITE,
 	nice_editer = ice_editer,
 	nice_tiler = { method="replace", base={"FROZEN_WATER", 100, 1, 4}},

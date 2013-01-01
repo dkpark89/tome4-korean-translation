@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Skeleton",
+	kr_display_name = "스켈레톤",
 	type = {"undead/skeleton", 1},
 	mode = "passive",
 	require = undeads_req1,
@@ -42,6 +43,7 @@ newTalent{
 
 newTalent{
 	name = "Bone Armour",
+	kr_display_name = "해골 갑옷",
 	type = {"undead/skeleton", 2},
 	require = undeads_req2,
 	points = 5,
@@ -60,6 +62,7 @@ newTalent{
 
 newTalent{
 	name = "Resilient Bones",
+	kr_display_name = "재생하는 뼈",
 	type = {"undead/skeleton", 3},
 	require = undeads_req3,
 	points = 5,
@@ -73,6 +76,7 @@ newTalent{
 
 newTalent{ short_name = "SKELETON_REASSEMBLE",
 	name = "Re-assemble",
+	kr_display_name = "재조합",
 	type = {"undead/skeleton",4},
 	require = undeads_req4,
 	points = 5,
