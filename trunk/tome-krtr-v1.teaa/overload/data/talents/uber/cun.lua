@@ -19,6 +19,7 @@
 
 uberTalent{
 	name = "Fast As Lightning",
+	kr_display_name = "번개같은 빠름",
 	mode = "passive",
 	trigger = function(self, t, ox, oy)
 		local dx, dy = (self.x - ox), (self.y - oy)
@@ -69,6 +70,7 @@ uberTalent{
 
 uberTalent{
 	name = "Tricky Defenses",
+	kr_display_name = "교묘한 방어",
 	mode = "passive",
 	require = { special={desc="Antimagic", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	info = function(self, t)
@@ -80,6 +82,7 @@ uberTalent{
 
 uberTalent{
 	name = "Endless Woes",
+	kr_display_name = "끝없는 비통",
 	mode = "passive",
 	require = { special={desc="Have dealt over 50000 acid, blight, darkness, mind or temporal damage", fct=function(self) return 
 		self.damage_log and (
@@ -121,6 +124,7 @@ uberTalent{
 
 uberTalent{
 	name = "Secrets of Telos",
+	kr_display_name = "텔로스의 비밀",
 	mode = "passive",
 	require = { special={desc="Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", fct=function(self)
 		local o1 = self:findInAllInventoriesBy("define_as", "GEM_TELOS")
@@ -155,6 +159,7 @@ uberTalent{
 
 uberTalent{
 	name = "Elemental Surge",
+	kr_display_name = "엘리먼트의 쇄도",
 	mode = "passive",
 	cooldown = 12,
 	require = { special={desc="Have dealt over 50000 arcane, fire, cold, lightning, light or nature damage", fct=function(self) return 
@@ -196,6 +201,7 @@ uberTalent{
 
 uberTalent{
 	name = "Eye of the Tiger",
+	kr_display_name = "호랑이의 눈",
 	mode = "passive",
 	trigger = function(self, t, kind)
 		if self.turn_procs.eye_tiger then return end
@@ -248,6 +254,7 @@ uberTalent{
 
 uberTalent{
 	name = "Worldly Knowledge",
+	kr_display_name = "세상의 지식",
 	mode = "passive",
 	on_learn = function(self, t, kind)
 		local Chat = require "engine.Chat"
@@ -278,6 +285,7 @@ uberTalent{
 
 uberTalent{
 	name = "Tricks of the Trade",
+	kr_display_name = "거래의 속임수",
 	mode = "passive",
 	require = { special={desc="Have sided with the Assassin Lord", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:isQuestStatus("lost-merchant", engine.Quest.COMPLETED, "evil")) end} },
 	on_learn = function(self, t) 

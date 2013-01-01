@@ -375,6 +375,7 @@ newEntity{ base = "BASE_ROD",
 	add_name = false,
 	identified=true, force_lore_artifact=true,
 	name = "Transmogrification Chest", display = '~', color=colors.GOLD, unique=true, image = "object/chest4.png",
+	kr_display_name = "변형상자",
 	desc = [[This chest is an extension of Yiilkgur, any items dropped inside is transported to the Fortress, processed by the core and destroyed to extract energy.
 The byproduct of this effect is the creation of gold, which is useless to the Fortress, so it is sent back to you.
 

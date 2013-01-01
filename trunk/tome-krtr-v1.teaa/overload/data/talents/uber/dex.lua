@@ -19,6 +19,7 @@
 
 uberTalent{
 	name = "Through The Crowd",
+	kr_display_name = "군중 속으로",
 	mode = "passive",
 	on_learn = function(self, t)
 		self:attr("bump_swap_speed_divide", 10)
@@ -37,6 +38,7 @@ uberTalent{
 
 uberTalent{
 	name = "Swift Hands",
+	kr_display_name = "재빠른 손",
 	mode = "passive",
 	on_learn = function(self, t)
 		self:attr("quick_weapon_swap", 1)
@@ -55,6 +57,7 @@ uberTalent{
 
 uberTalent{
 	name = "Windblade",
+	kr_display_name = "바람의 칼날",
 	mode = "activated",
 	require = { special={desc="Have dealt over 50000 damage with dual wielded weapons", fct=function(self) return self.damage_log and self.damage_log.weapon.dualwield and self.damage_log.weapon.dualwield >= 50000 end} },
 	cooldown = 20,
@@ -86,6 +89,7 @@ uberTalent{
 
 uberTalent{
 	name = "Windtouched Speed",
+	kr_display_name = "바람을 탄 속도",
 	mode = "passive",
 	require = { special={desc="Know at least 20 talent levels of equilibrium-using talents", fct=function(self) return knowRessource(self, "equilibrium", 20) end} },
 	on_learn = function(self, t)
@@ -107,6 +111,7 @@ uberTalent{
 
 uberTalent{
 	name = "Giant Leap",
+	kr_display_name = "거인의 도약",
 	mode = "activated",
 	require = { special={desc="Have dealt over 50000 damage with any weapon or unarmed", fct=function(self) return 
 		self.damage_log and (
@@ -163,6 +168,7 @@ uberTalent{
 
 uberTalent{
 	name = "Crafty Hands",
+	kr_display_name = "전문가의 손",
 	mode = "passive",
 	require = { special={desc="Know Imbue Item to level 5", fct=function(self)
 		return self:getTalentLevelRaw(self.T_IMBUE_ITEM) >= 5
@@ -175,6 +181,7 @@ uberTalent{
 
 uberTalent{
 	name = "Roll With It",
+	kr_display_name = "공격 흘리기",
 	mode = "sustained",
 	cooldown = 10,
 	tactical = { ESCAPE = 1 },
@@ -198,6 +205,7 @@ uberTalent{
 
 uberTalent{
 	name = "Vital Shot",
+	kr_display_name = "생사의 사격",
 	no_energy = "fake",
 	cooldown = 20,
 	range = archery_range,

@@ -23,8 +23,9 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Tutorial Human",
+	kr_display_name = "연습게임용 인간 ",
 	desc = {
-		"A special tutorial race.",
+		"연습게임에 쓰이는 특수 종족.",
 	},
 	descriptor_choices =
 	{
@@ -46,8 +47,9 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Tutorial Basic",
+	kr_display_name = "연습게임용 기본 종족",
 	desc = {
-		"A Human hailing from the northern town of Derth. A common kind of man, unremarkable in all respects.",
+		"데르스 북쪽 출신의 인간. 어디로보나 평범하기 그지없는 사람.",
 	},
 	copy = {
 		default_wilderness = {1, 1, "wilderness"},
@@ -63,8 +65,9 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Tutorial Stats",
+	kr_display_name = "연습게임용 능력치",
 	desc = {
-		"A Human hailing from the northern town of Derth. A common kind of man, unremarkable in all respects.",
+		"데르스 북쪽 출신의 인간. 어디로보나 평범하기 그지없는 사람.",
 	},
 	copy = {
 		default_wilderness = {1, 1, "wilderness"},
