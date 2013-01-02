@@ -48,7 +48,9 @@ end
 --- Returns a tooltip for the trap
 function _M:tooltip()
 	if self:knownBy(game.player) then
-		local res = tstring{{"uid", self.uid}, self:getName()}
+		--@@
+		local sn = self:getName().."("..self.name..")"
+		local res = tstring{{"uid", self.uid}, sn}
 		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		if config.settings.cheat then
 			res:add(true, "UID: "..self.uid, true, "탐지: "..self.detect_power, true, "해체: "..self.disarm_power)

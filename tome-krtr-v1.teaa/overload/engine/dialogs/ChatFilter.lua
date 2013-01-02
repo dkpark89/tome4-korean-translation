@@ -28,14 +28,14 @@ function _M:init(adds)
 	Dialog.init(self, "Chat filters", 500, 400)
 
 	local list = {
-		{name = "Public chat", kind = "talk"},
-		{name = "Private whispers", kind = "whisper"},
-		{name = "Join/part messages", kind = "join"},
-		{name = "Achievements", kind = "achievement"},
+		{name = "공개적 대화", kind = "talk"},
+		{name = "개인적 귓속말", kind = "whisper"},
+		{name = "메세지 참가", kind = "join"},
+		{name = "업적", kind = "achievement"},
 	}
 	for i, l in ipairs(adds or {}) do list[#list+1] = l end
 
-	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="Select which types of chat events to see or not."}
+	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="보거나 보지않을 이벤트를 선택하세요."}
 	local uis = { {left=0, top=0, ui=c_desc} }
 	for i, l in ipairs(list) do
 		local l = l

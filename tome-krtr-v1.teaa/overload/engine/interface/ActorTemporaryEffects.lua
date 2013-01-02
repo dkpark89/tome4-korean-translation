@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 
 --- Handles actors temporary effects (temporary boost of a stat, ...)
@@ -122,7 +123,9 @@ function _M:setEffect(eff_id, dur, p, silent)
 		local ret, fly = _M.tempeffect_def[eff_id].on_gain(self, p)
 		if not silent and not had then
 			if ret then
-				game.logSeen(self, ret:gsub("#Target#", self.name:capitalize()):gsub("#target#", self.name))
+				--@@
+				local sn = self.kr_display_name or self.name 
+				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")))
 			end
 			if fly and game.flyers and self.x and self.y and game.level.map.seens(self.x, self.y) then
 				local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
@@ -152,7 +155,9 @@ function _M:removeEffect(eff, silent, force)
 		local ret, fly = _M.tempeffect_def[eff].on_lose(self, p)
 		if not silent then
 			if ret then
-				game.logSeen(self, ret:gsub("#Target#", self.name:capitalize()):gsub("#target#", self.name))
+				--@@
+				local sn = self.kr_display_name or self.name
+				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")))
 			end
 			if fly and game.flyers and self.x and self.y then
 				local sx, sy = game.level.map:getTileToScreen(self.x, self.y)

@@ -563,8 +563,8 @@ end
 
 --- Called before taking a hit, overload mod.class.Actor:onTakeHit() to stop resting and running
 function _M:onTakeHit(value, src)
-	self:runStop("taken damage")
-	self:restStop("taken damage")
+	self:runStop("피해 발생")
+	self:restStop("피해 발생")
 	local ret = mod.class.Actor.onTakeHit(self, value, src)
 	if self.life < self.max_life * 0.3 then
 		local sx, sy = game.level.map:getTileToScreen(self.x, self.y)

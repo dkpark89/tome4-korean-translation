@@ -27,7 +27,7 @@ function _M:init(on_change)
 	self.on_change = on_change
 	self:generateList()
 
-	Dialog.init(self, "Switch Resolution", 300, 20)
+	Dialog.init(self, "해상도 변경", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 

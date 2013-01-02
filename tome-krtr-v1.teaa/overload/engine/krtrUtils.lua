@@ -4,7 +4,7 @@
 
 -- 한글 글꼴 설정
 krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 빠름, 글자 가독성이 좀 떨어짐
---krFont = "/data/font/HG172.ttf" -- 헤움고딕172(467kB), 아직 조금 느림, 가독성은 괜찮은편
+--krFont = "/data/font/HG172.ttf" -- 헤움고딕172(467kB), 아직 느림, 가독성은 괜찮은편
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index
@@ -41,7 +41,7 @@ function string.addJosa(str, temp)
 	local length = str:len()
 	
 	if length < 3 then
-		return str .. josa2
+		return str .. josa1
 	end
 	
 	local c1 = str:byte(length-2)
@@ -65,6 +65,7 @@ function string.krSex(str)
 end
 
 function string.krFontShape(str)
+	-- 관련내용 /mod/dialogs/GameOptions.lua:174
 	local ori = str:lower()
 	if ori == "fantasy" then return "판타지"
 	elseif ori == "basic" then return "기본"
@@ -72,6 +73,7 @@ function string.krFontShape(str)
 end
 
 function string.krHUDStyle(str)
+	-- 관련내용 /mod/dialogs/GameOptions.lua:160
 	local ori = str:lower()
 	if ori == "minimalist" then return "최소"
 	elseif ori == "classic" then return "전통"
@@ -79,6 +81,7 @@ function string.krHUDStyle(str)
 end
 
 function string.krUIStyle(str)
+	-- 관련내용 /mod/dialogs/GameOptions.lua:148
 	local ori = str:lower()
 	if ori == "metal" then return "금속"
 	elseif ori == "stone" then return "돌"
@@ -87,6 +90,7 @@ function string.krUIStyle(str)
 end
 
 function string.krFontSize(str)
+	-- 관련내용 /mod/dialogs/GameOptions.lua:186
 	local ori = str:lower()
 	if ori == "small" then return "작음"
 	elseif ori == "normal" then return "보통"
@@ -108,6 +112,7 @@ function string.krStat(str)
 end
 
 function string.krItemType(str)
+	-- 관련내용 /data/general/objects/ 하위 파일들
 	local ori = str:lower()
 	if ori == "weapon" then return "무기"
 	elseif ori == "armor" then return "갑옷"
@@ -177,6 +182,7 @@ function string.krItemType(str)
 end
 
 function string.krTalentType(str)
+	-- 관련내용 /data/talents/ 하위 파일들
 	local ori = str:lower()
 	if ori == "technique" then return "물리"
 	elseif ori == "celestial" then return "천공"
@@ -412,6 +418,7 @@ function string.krActorType(str)
 end
 
 function string.krRace(str)
+	-- 관련내용 /data/birth/races/ 하위 파일들, /data/general/npcs/ 하위 파일들, /data/zones/ 하위 파일 중 추가 생명체 정보
 	local ori = str:lower()
 	if ori == "construct" then return "구조체"
 	elseif ori == "runic golem" then return "룬 골렘"
@@ -494,6 +501,7 @@ function string.krRace(str)
 end
 
 function string.krClass(str)
+	-- 관련내용 /data/birth/classes/ 하위 파일들, /data/general/npcs/ 하위 파일들, /data/zones/ 하위 파일 중 추가 생명체 정보
 	local ori = str:lower()
 	if ori == "higher" then return "하이어"
 	elseif ori == "adventurer" then return "모험가"
@@ -534,6 +542,7 @@ function string.krClass(str)
 end
 
 function string.krSize(str)
+	-- 관련내용 /mod/class/Actor.lua:1347~1357
 	local ori = str:lower()
 	if ori == "tiny" then return "조그마함"
 	elseif ori == "small" then return "작음"
@@ -545,6 +554,7 @@ function string.krSize(str)
 end
 
 function string.krRank(str)
+	-- 관련내용 /mod/class/Actor.lua:1334~1345
 	local ori = str:lower()
 	if ori == "normal" then return "평범"
 	elseif ori == "critter" then return "떨어짐"
@@ -557,6 +567,7 @@ function string.krRank(str)
 end
 
 function string.krFaction(str)
+	-- 관련내용 /data/factions.lua (한글화에는 제외되는 파일)
 	local ori = str:lower()
 	if ori == "rhalore" then return "랄로레"
 	elseif ori == "fearscape" then return "공포의 영역"
@@ -591,6 +602,7 @@ function string.krFaction(str)
 end
 
 function string.krMonth(str)
+	-- 관련내용 /data/calendar_allied.lua, /data/calendar_dwarf.lua (둘다 한글화에는 제외되는 파일)
 	local ori = str:lower()
 	if ori == "wintertide" then return "밀려오는 추위의 달"
 	elseif ori == "allure" then return "매혹의 달"
@@ -620,6 +632,7 @@ function string.krMonth(str)
 end
 
 function string.krQuestStatus(str)
+	-- 관련내용 /engine/Quest.lua:31~34 (한글화에는 제외되는 파일)
 	local ori = str:lower()
 	if ori == "active" then return "진행중"
 	elseif ori == "completed" then return "완료"
@@ -630,6 +643,7 @@ end
 
 --@@ 아래 번역은 지형 이름들을 번역하에 그에 맞춰 바꿀 필요가 있음
 function string.krLoreCategory(str)
+	-- 관련내용 /data/lore 하위 파일들 전체, /data/general/ 하위 일부, /data/quests/ 하위 일부, /data/zones/ 하위 일부
 	local ori = str:lower()
 	if ori == "adventures" then return "모험"
 	elseif ori == "age of allure" then return "매혹의 시대"

@@ -25,21 +25,21 @@ module(..., package.seeall, class.make)
 
 --- Initializes resting
 function _M:restInit(turns, what, past, on_end, on_very_end)
-	what = what or "resting"
-	past = past or "rested"
+	what = what or "휴식"
+	past = past or "휴식"
 	self.resting = {
 		rest_turns = turns,
 		past = past,
 		on_end = on_end,
 		on_very_end = on_very_end,
 		cnt = 0,
-		dialog = Dialog:simplePopup(what:capitalize().."...", "You are "..what..", press Enter to stop.", function()
+		dialog = Dialog:simpleLongPopup(what:capitalize().."...", "당신은 "..what.." 중 입니다, 엔터키를 누르면 멈춥니다.", game.w * 0.4, function()
 			self:restStop()
 		end),
 	}
 	self.resting.dialog.__showup = nil
 
-	game.log(what:capitalize().." starts...")
+	game.log(what:capitalize().." 시작...")
 
 	self:onRestStart()
 
@@ -98,9 +98,9 @@ function _M:restStop(msg)
 	game:unregisterDialog(self.resting.dialog)
 
 	if msg then
-		game.log(self.resting.past:capitalize().." for %d turns (stop reason: %s).", self.resting.cnt, msg)
+		game.log("%d턴 동안 "..self.resting.past:capitalize().."을 취했습니다 (중지 이유: %s).", self.resting.cnt, msg)
 	else
-		game.log(self.resting.past:capitalize().." for %d turns.", self.resting.cnt)
+		game.log("%d턴 동안 "..self.resting.past:capitalize().."을 취했습니다.", self.resting.cnt)
 	end
 
 	local finish = self.resting.cnt and self.resting.rest_turns and self.resting.cnt > self.resting.rest_turns
