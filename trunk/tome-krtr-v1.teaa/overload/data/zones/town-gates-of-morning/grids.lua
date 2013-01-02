@@ -25,6 +25,7 @@ load("/data/general/grids/sand.lua")
 
 newEntity{ base = "FLOOR", define_as = "ROAD",
 	name="cobblestone road",
+	kr_display_name = "조약돌 포장도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }
@@ -32,12 +33,13 @@ newEntity{ base = "FLOOR", define_as = "ROAD",
 newEntity{
 	define_as = "WEST_PORTAL",
 	name = "Farportal: Last Hope",
+	kr_display_name = "장거리포탈: 마지막 희망",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the town of Last Hope in Maj'Eyal.]],
+	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
+이 것의 목표지점은 마즈'에이알의 도시 마지막 희망의 근방인 것 같습니다.]],
 
 	orb_portal = {
 		change_level = 1,
@@ -45,7 +47,7 @@ This one seems to go near the town of Last Hope in Maj'Eyal.]],
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="last-hope"},
 		},
-		message = "#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...",
+		message = "#VIOLET#당신이 소용돌이치는 포탈로 들어서 눈을 깜박이자, 포탈의 흔적은 없고 마지막 희망의 변두리에 서 있었다...",
 		on_use = function(self, who)
 		end,
 	},
@@ -66,6 +68,7 @@ newEntity{
 	define_as = "GOLDEN_MOUNTAIN",
 	type = "rockwall", subtype = "grass",
 	name = "Sunwall mountain", image = "terrain/golden_mountain5_1.png",
+	kr_display_name = "태양의 장벽 산맥",
 	display = '#', color=colors.GOLD, back_color={r=44,g=95,b=43},
 	always_remember = true,
 	does_block_move = true,
@@ -80,6 +83,7 @@ for i = 1, 6 do newEntity{ base="GOLDEN_MOUNTAIN", define_as = "GOLDEN_MOUNTAIN_
 
 newEntity{ define_as = "FENS",
 	name = "Way into the Slazish fens",
+	kr_display_name = "슬라지쉬 늪지로의 길",
 	display = '>', color = colors.YELLOW,
 	image="terrain/marble_floor.png", add_displays = {class.new{image="terrain/golden_cave_entrance02.png", z=8}},
 	change_zone="slazish-fen", change_level = 1,

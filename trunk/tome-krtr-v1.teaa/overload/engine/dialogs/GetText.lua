@@ -36,8 +36,8 @@ function _M:init(title, text, min, max, action, cancel, absolute)
 
 	local c_box = Textbox.new{title=text..": ", text="", chars=30, max_len=max, fct=function(text) self:okclick() end}
 	self.c_box = c_box
-	local ok = require("engine.ui.Button").new{text="Accept", fct=function() self:okclick() end}
-	local cancel = require("engine.ui.Button").new{text="Cancel", fct=function() self:cancelclick() end}
+	local ok = require("engine.ui.Button").new{text="수락", fct=function() self:okclick() end}
+	local cancel = require("engine.ui.Button").new{text="취소", fct=function() self:cancelclick() end}
 
 	self:loadUI{
 		{left=0, top=0, padding_h=10, ui=c_box},
@@ -58,7 +58,7 @@ function _M:okclick()
 		game:unregisterDialog(self)
 		self.action(self.name)
 	else
-		Dialog:simplePopup("Error", ("Must be between %i and %i characters."):format(self.min, self.max))
+		Dialog:simpleLongPopup("잘못된 숫자", ("%i에서 %i 글자 사이여야 합니다."):format(self.min, self.max), game.w * 0.4)
 	end
 end
 

@@ -1260,7 +1260,7 @@ function _M:getUseDesc()
 	local usepower = function(power) return math.ceil(power * reduce / 100) end
 	if self.use_power then
 		if self.show_charges then
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s (현재 가능한 사용횟수 %d/%d)."):format(util.getval(self.use_power.name, self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s (현재 사용가능 횟수 %d/%d)."):format(util.getval(self.use_power.name, self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
 		elseif self.talent_cooldown then
 			ret = tstring{{"color","YELLOW"}, ("사용처: %s, 사용시 다른 모든 부적의 지연시간을 %d턴 늘립니다."):format(util.getval(self.use_power.name, self):format(self:getCharmPower()), usepower(self.use_power.power)), {"color","LAST"}}
 		else

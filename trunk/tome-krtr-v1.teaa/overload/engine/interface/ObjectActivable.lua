@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 
 --- Handles activable objects, much more simple than actor's resource
@@ -45,18 +46,24 @@ end
 
 function _M:getUseDesc()
 	if self.use_power then
+		--@@
+		local spn = self.use_power.kr_display_name or self.use_power.name
 		if self.show_charges then
-			return ("It can be used to %s, with %d charges out of %d."):format(self.use_power.name, math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power))
+			return ("%s에 사용 가능: 사용가능 횟수 %d/%d."):format(spn:capitalize(), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power))
 		else
-			return ("It can be used to %s, costing %d power out of %d/%d."):format(self.use_power.name, self.use_power.power, self.power, self.max_power)
+			return ("%s에 사용 가능: 소모력 %d, 현재 보유력 %d/%d."):format(spn:capitalize(), self.use_power.power, self.power, self.max_power)
 		end
 	elseif self.use_simple then
-		return ("It can be used to %s."):format(self.use_simple.name)
+		--@@
+		local ssn = self.use_simple.kr_display_name or self.use_simple.name
+		return ("%s에 사용 가능."):format(ssn:capitalize())
 	elseif self.use_talent then
+		--@@
+		local stn = self:getTalentFromId(self.use_talent.id).kr_display_name or self:getTalentFromId(self.use_talent.id).name
 		if not self.use_talent.power then
-			return ("It can be used to activate talent: %s (level %d)."):format(self:getTalentFromId(self.use_talent.id).name, self.use_talent.level)
+			return ("사용시 기술 발동: %s (레벨 %d)."):format(stn, self.use_talent.level)
 		else
-			return ("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d."):format(self:getTalentFromId(self.use_talent.id).name, self.use_talent.level, self.use_talent.power, self.power, self.max_power)
+			return ("사용시 기술 발동: %s (레벨 %d), 소모력 %d, 현재 보유력 %d/%d."):format(stn, self.use_talent.level, self.use_talent.power, self.power, self.max_power)
 		end
 	end
 end
@@ -83,9 +90,9 @@ function _M:useObject(who, ...)
 			return ret
 		else
 			if self.talent_cooldown or (self.power_regen and self.power_regen ~= 0) then
-				game.logPlayer(who, "%s is still recharging.", self:getName{no_count=true})
+				game.logPlayer(who, "%s 아직 충전중입니다.", self:getName{no_count=true}:addJosa("는"))
 			else
-				game.logPlayer(who, "%s can not be used anymore.", self:getName{no_count=true})
+				game.logPlayer(who, "%s 더이상 쓸 수 없습니다.", self:getName{no_count=true}:addJosa("는"))
 			end
 			return {}
 		end
@@ -111,9 +118,9 @@ function _M:useObject(who, ...)
 			return {used=ret}
 		else
 			if self.talent_cooldown or (self.power_regen and self.power_regen ~= 0) then
-				game.logPlayer(who, "%s is still recharging.", self:getName{no_count=true})
+				game.logPlayer(who, "%s 아직 충전중입니다.", self:getName{no_count=true}:addJosa("는"))
 			else
-				game.logPlayer(who, "%s can not be used anymore.", self:getName{no_count=true})
+				game.logPlayer(who, "%s 더이상 쓸 수 없습니다.", self:getName{no_count=true}:addJosa("는"))
 			end
 			return {}
 		end

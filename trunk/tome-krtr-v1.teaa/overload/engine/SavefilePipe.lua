@@ -116,7 +116,7 @@ function _M:doThread()
 
 		table.remove(self.pipe, 1)
 	end
-	if game.log then game.log("Saving done.") end
+	if game.log then game.log("저장 완료.") end
 --	collectgarbage("restart")
 	self.saving = false
 	if game:getPlayer() then game:getPlayer().changed = true end
@@ -134,7 +134,7 @@ end
 function _M:forceWait()
 	if #self.pipe == 0 then return end
 
-	local popup = Dialog:simpleWaiter("Saving...", "Please wait while saving...", nil, 1000, self.total_nb)
+	local popup = Dialog:simpleWaiter("저장중...", "저장하는 동안 기다려 주십시오...", nil, 1000, self.total_nb)
 	core.display.forceRedraw()
 
 	local cnt = 0
