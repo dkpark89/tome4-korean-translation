@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Shadow Combat",
+	kr_display_name = "그림자 전투기술",
 	type = {"cunning/shadow-magic", 1},
 	mode = "sustained",
 	points = 5,
@@ -46,6 +47,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Cunning",
+	kr_display_name = "교활한 그림자",
 	type = {"cunning/shadow-magic", 2},
 	mode = "passive",
 	points = 5,
@@ -60,6 +62,7 @@ newTalent{
 
 newTalent{
 	name = "Shadow Feed",
+	kr_display_name = "그림자 부양",
 	type = {"cunning/shadow-magic", 3},
 	mode = "sustained",
 	points = 5,
@@ -93,6 +96,7 @@ newTalent{
 
 newTalent{
 	name = "Shadowstep",
+	kr_display_name = "그림자 걷기",
 	type = {"cunning/shadow-magic", 4},
 	points = 5,
 	random_ego = "attack",
@@ -106,7 +110,7 @@ newTalent{
 	getDuration = function(self, t) return math.min(5, 2 + math.ceil(self:getTalentLevel(t) / 2)) end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.2, 2.5) end,
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "You cannot do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "You can not do that currently.") return end
 
 		local tg = {type="hit", range=self:getTalentRange(t)}
 		local x, y, target = self:getTarget(tg)
@@ -131,7 +135,7 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[Step through the shadows to your target, dazing it for %d turns and hitting it with all your weapons for %d%% darkness weapon damage.
-		Dazed targets cannot act, but any damage will free them.
+		Dazed targets can not act, but any damage will free them.
 		To Shadowstep, you need to be able to see the target.]]):
 		format(duration, t.getDamage(self, t) * 100)
 	end,

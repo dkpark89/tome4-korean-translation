@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Waters of Life",
+	kr_display_name = "생명의 물",
 	type = {"wild-gift/harmony", 1},
 	require = gifts_req1,
 	points = 5,
@@ -62,6 +63,7 @@ newTalent{
 
 newTalent{
 	name = "Elemental Harmony",
+	kr_display_name = "엘리먼트의 조화",
 	type = {"wild-gift/harmony", 2},
 	require = gifts_req2,
 	points = 5,
@@ -98,6 +100,7 @@ newTalent{
 
 newTalent{
 	name = "One with Nature",
+	kr_display_name = "자연과의 교감",
 	type = {"wild-gift/harmony", 3},
 	require = gifts_req3,
 	points = 5,
@@ -133,6 +136,7 @@ newTalent{
 
 newTalent{
 	name = "Healing Nexus",
+	kr_display_name = "회복력 집중",
 	type = {"wild-gift/harmony", 4},
 	require = gifts_req4,
 	points = 5,

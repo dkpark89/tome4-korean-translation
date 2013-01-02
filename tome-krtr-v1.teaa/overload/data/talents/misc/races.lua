@@ -38,6 +38,7 @@ newTalentType{ type="race/higher", name = "higher", generic = true, description 
 
 newTalent{
 	short_name = "HIGHER_HEAL",
+	kr_display_name = "고귀한 피의 재능",
 	name = "Gift of the Highborn",
 	type = {"race/higher", 1},
 	require = racial_req1,
@@ -58,6 +59,7 @@ newTalent{
 
 newTalent{
 	name = "Overseer of Nations",
+	kr_display_name = "자연의 감독자",
 	type = {"race/higher", 2},
 	require = racial_req2,
 	points = 5,
@@ -82,6 +84,7 @@ newTalent{
 
 newTalent{
 	name = "Born into Magic",
+	kr_display_name = "마법같은 탄생",
 	type = {"race/higher", 3},
 	require = racial_req3,
 	points = 5,
@@ -105,6 +108,7 @@ newTalent{
 
 newTalent{
 	name = "Highborn's Bloom",
+	kr_display_name = "꽃피운 고귀함",
 	type = {"race/higher", 4},
 	require = racial_req4,
 	points = 5,
@@ -131,6 +135,7 @@ newTalentType{ type="race/shalore", name = "shalore", generic = true, is_spell=t
 newTalent{
 	short_name = "SHALOREN_SPEED",
 	name = "Grace of the Eternals",
+	kr_display_name = "불멸의 은총",
 	type = {"race/shalore", 1},
 	require = racial_req1,
 	points = 5,
@@ -150,6 +155,7 @@ newTalent{
 
 newTalent{
 	name = "Magic of the Eternals",
+	kr_display_name = "불멸의 마법",
 	type = {"race/shalore", 2},
 	require = racial_req2,
 	points = 5,
@@ -172,6 +178,7 @@ newTalent{
 
 newTalent{
 	name = "Secrets of the Eternals",
+	kr_display_name = "불멸의 비밀",
 	type = {"race/shalore", 3},
 	require = racial_req3,
 	points = 5,
@@ -203,6 +210,7 @@ newTalent{
 
 newTalent{
 	name = "Timeless",
+	kr_display_name = "시간의 초월",
 	type = {"race/shalore", 4},
 	require = racial_req4,
 	points = 5,
@@ -261,6 +269,7 @@ newTalentType{ type="race/thalore", name = "thalore", generic = true, descriptio
 newTalent{
 	short_name = "THALOREN_WRATH",
 	name = "Wrath of the Woods",
+	kr_display_name = "나무의 분노",
 	type = {"race/thalore", 1},
 	require = racial_req1,
 	points = 5,
@@ -279,6 +288,7 @@ newTalent{
 
 newTalent{
 	name = "Unshackled",
+	kr_display_name = "구속탈피",
 	type = {"race/thalore", 2},
 	require = racial_req2,
 	points = 5,
@@ -299,6 +309,7 @@ newTalent{
 
 newTalent{
 	name = "Guardian of the Wood",
+	kr_display_name = "나무의 수호자",
 	type = {"race/thalore", 3},
 	require = racial_req3,
 	points = 5,
@@ -321,6 +332,7 @@ newTalent{
 
 newTalent{
 	name = "Nature's Pride",
+	kr_display_name = "자연의 긍지",
 	type = {"race/thalore", 4},
 	require = racial_req4,
 	points = 5,
@@ -400,6 +412,7 @@ newTalentType{ type="race/dwarf", name = "dwarf", generic = true, description = 
 newTalent{
 	short_name = "DWARF_RESILIENCE",
 	name = "Resilience of the Dwarves",
+	kr_display_name = "드워프의 활기",
 	type = {"race/dwarf", 1},
 	require = racial_req1,
 	points = 5,
@@ -422,6 +435,7 @@ newTalent{
 
 newTalent{
 	name = "Stoneskin",
+	kr_display_name = "단단한 피부",
 	type = {"race/dwarf", 2},
 	require = racial_req2,
 	points = 5,
@@ -440,6 +454,7 @@ newTalent{
 
 newTalent{
 	name = "Power is Money",
+	kr_display_name = "돈의 힘",
 	type = {"race/dwarf", 3},
 	require = racial_req3,
 	points = 5,
@@ -453,6 +468,7 @@ newTalent{
 
 newTalent{
 	name = "Stone Walking",
+	kr_display_name = "돌 사이로 걷기",
 	type = {"race/dwarf", 4},
 	require = racial_req4,
 	points = 5,
@@ -485,6 +501,7 @@ newTalentType{ type="race/halfling", name = "halfling", generic = true, descript
 newTalent{
 	short_name = "HALFLING_LUCK",
 	name = "Luck of the Little Folk",
+	kr_display_name = "작은이의 행운",
 	type = {"race/halfling", 1},
 	require = racial_req1,
 	points = 5,
@@ -507,6 +524,7 @@ newTalent{
 
 newTalent{
 	name = "Duck and Dodge",
+	kr_display_name = "웅크려 피하기",
 	type = {"race/halfling", 2},
 	require = racial_req2,
 	points = 5,
@@ -526,6 +544,7 @@ newTalent{
 
 newTalent{
 	name = "Militant Mind",
+	kr_display_name = "투쟁적 정신",
 	type = {"race/halfling", 3},
 	require = racial_req3,
 	points = 5,
@@ -539,6 +558,7 @@ newTalent{
 
 newTalent{
 	name = "Indomitable",
+	kr_display_name = "불굴",
 	type = {"race/halfling", 4},
 	require = racial_req4,
 	points = 5,
@@ -586,6 +606,7 @@ newTalentType{ type="race/orc", name = "orc", generic = true, description = "The
 newTalent{
 	short_name = "ORC_FURY",
 	name = "Orcish Fury",
+	kr_display_name = "오크의 분노",
 	type = {"race/orc", 1},
 	require = racial_req1,
 	points = 5,
@@ -604,6 +625,7 @@ newTalent{
 
 newTalent{
 	name = "Hold the Ground",
+	kr_display_name = "자리 지킴이",
 	type = {"race/orc", 2},
 	require = racial_req2,
 	points = 5,
@@ -624,6 +646,7 @@ newTalent{
 
 newTalent{
 	name = "Skirmisher",
+	kr_display_name = "척후병",
 	type = {"race/orc", 3},
 	require = racial_req3,
 	points = 5,
@@ -642,6 +665,7 @@ newTalent{
 
 newTalent{
 	name = "Pride of the Orcs",
+	kr_display_name = "오크의 자부심",
 	type = {"race/orc", 4},
 	require = racial_req4,
 	points = 5,
@@ -697,6 +721,7 @@ newTalentType{ type="race/yeek", name = "yeek", generic = true, description = "T
 newTalent{
 	short_name = "YEEK_WILL",
 	name = "Dominant Will",
+	kr_display_name = "우월한 의지",
 	type = {"race/yeek", 1},
 	require = racial_req1,
 	points = 5,
@@ -735,6 +760,7 @@ newTalent{
 
 newTalent{
 	name = "Unity",
+	kr_display_name = "연합",
 	type = {"race/yeek", 2},
 	require = racial_req2,
 	points = 5,
@@ -757,6 +783,7 @@ newTalent{
 
 newTalent{
 	name = "Quickened",
+	kr_display_name = "빨라짐",
 	type = {"race/yeek", 3},
 	require = racial_req3,
 	points = 5,
@@ -777,6 +804,7 @@ newTalent{
 
 newTalent{
 	name = "Wayist",
+	kr_display_name = "한길의 지도자",
 	type = {"race/yeek", 4},
 	require = racial_req4,
 	points = 5,
@@ -857,6 +885,7 @@ newTalent{
 newTalent{
 	short_name = "YEEK_ID",
 	name = "Knowledge of the Way",
+	kr_display_name = "한길의 지식",
 	type = {"base/race", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,

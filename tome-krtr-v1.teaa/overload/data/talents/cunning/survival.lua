@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Heightened Senses",
+	kr_display_name = "향상된 감각",
 	type = {"cunning/survival", 1},
 	require = cuns_req1,
 	mode = "passive",
@@ -38,6 +39,7 @@ newTalent{
 
 newTalent{
 	name = "Charm Mastery",
+	kr_display_name = "숙련된 부적사용",
 	type = {"cunning/survival", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -59,6 +61,7 @@ newTalent{
 
 newTalent{
 	name = "Piercing Sight",
+	kr_display_name = "꿰뚫어보기",
 	type = {"cunning/survival", 3},
 	require = cuns_req3,
 	mode = "passive",
@@ -73,6 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Evasion",
+	kr_display_name = "회피",
 	type = {"cunning/survival", 4},
 	points = 5,
 	require = cuns_req4,

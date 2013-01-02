@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Shadow Tunnel",
+	kr_display_name = "그림자 통로",
 	type = {"spell/shades",1},
 	require = spells_req_high1,
 	points = 5,
@@ -63,6 +64,7 @@ newTalent{
 
 newTalent{
 	name = "Curse of the Meek",
+	kr_display_name = "온순함의 저주",
 	type = {"spell/shades",2},
 	require = spells_req_high2,
 	points = 5,
@@ -160,6 +162,7 @@ newTalent{
 
 newTalent{
 	name = "Forgery of Haze",
+	kr_display_name = "아지랑이 모조",
 	type = {"spell/shades",3},
 	require = spells_req_high3,
 	points = 5,
@@ -238,6 +241,7 @@ newTalent{
 
 newTalent{
 	name = "Frostdusk",
+	kr_display_name = "황혼의 추위",
 	type = {"spell/shades",4},
 	require = spells_req_high4,
 	points = 5,

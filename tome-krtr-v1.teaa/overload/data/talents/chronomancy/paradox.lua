@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Paradox Mastery",
+	kr_display_name = "괴리 숙련",
 	type = {"chronomancy/paradox", 1},
 	mode = "passive",
 	require = chrono_req_high1,
@@ -39,6 +40,7 @@ newTalent{
 
 newTalent{
 	name = "Cease to Exist",
+	kr_display_name = "중지된 실존",
 	type = {"chronomancy/paradox", 2},
 	require = chrono_req_high2,
 	points = 5,
@@ -122,6 +124,7 @@ newTalent{
 
 newTalent{
 	name = "Fade From Time",
+	kr_display_name = "시간에서 벗어나기",
 	type = {"chronomancy/paradox", 3},
 	require = chrono_req_high3,
 	points = 5,
@@ -145,6 +148,7 @@ newTalent{
 
 newTalent{
 	name = "Paradox Clone",
+	kr_display_name = "괴리적 복제",
 	type = {"chronomancy/paradox", 4},
 	require = chrono_req_high4,
 	points = 5,

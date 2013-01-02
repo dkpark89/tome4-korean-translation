@@ -139,6 +139,7 @@ newTalent{
 
 newTalent{
 	name = "Lichform",
+	kr_display_name = "리치화",
 	type = {"spell/necrosis",4},
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },

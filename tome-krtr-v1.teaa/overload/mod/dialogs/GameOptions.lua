@@ -216,7 +216,7 @@ function _M:generateList()
 
 	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"화면에 보여줄 대화 메세지 종류를 결정합니다.\n\nConfigure the chat filters to select what kind of messages to see.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#대화 메세지 표시#WHITE##{normal}#", status=function(item)
-		return "select to configure"
+		return "설정을 선택"
 	end, fct=function(item)
 		game:registerDialog(require("engine.dialogs.ChatFilter").new({
 			{name="죽음", kind="death"},

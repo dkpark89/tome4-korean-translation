@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Weapon of Light",
+	kr_display_name = "빛의 무기",
 	type = {"celestial/combat", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -39,15 +40,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Infuse your weapon with the power of the Sun, doing %0.2f light damage at the cost of 3 positive energy for each blow dealt.
-		If you do not have enough positive energy, the sustain will have no effect.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[무기에 태양의 힘을 불어넣어, 매 타격마다 3의 양기를 소모하여 %0.2f 의 빛 피해를 추가로 줍니다.
+		양기가 부족하면 이 효과는 발동되지 않습니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
 
 newTalent{
 	name = "Martyrdom",
+	kr_display_name = "고난",
 	type = {"celestial/combat", 2},
 	require = divi_req2,
 	points = 5,
@@ -75,13 +77,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local returndamage = t.getReturnDamage(self, t)
-		return ([[Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.]]):
+		return ([[대상을 10턴 동안 고난을 받을 자로 지정합니다. 고난을 받을 자는 남에게 피해를 줄 때마다 %d%% 의 피해를 자신도 받게 됩니다.]]):
 		format(returndamage)
 	end,
 }
 
 newTalent{
 	name = "Wave of Power",
+	kr_display_name = "힘의 파동",
 	type = {"celestial/combat",3},
 	require = divi_req3,
 	points = 5,
@@ -107,14 +110,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[In a pure display of power, you project a melee attack, doing %d%% damage.
-		The range will increase with your Strength.]]):
+		return ([[순수한 힘을 방출하여, 원거리에 있는 적에게 %d%% 의 무기 피해를 줍니다.
+		사정거리는 힘 능력치에 영향을 받아 증가됩니다.]]):
 		format(100 * damage)
 	end,
 }
 
 newTalent{
 	name = "Crusade",
+	kr_display_name = "박멸",
 	type = {"celestial/combat", 4},
 	require = divi_req4,
 	random_ego = "attack",
@@ -136,7 +140,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Concentrate the power of the Sun into two blows; each blow does %d%% of your weapon damage as light damage.]]):
+		return ([[태양의 힘을 모아 두 번 공격하여, 각각 무기 공격력의 %d%% 에 해당하는 빛 피해를 줍니다.]]):
 		format(100 * damage)
 	end,
 }

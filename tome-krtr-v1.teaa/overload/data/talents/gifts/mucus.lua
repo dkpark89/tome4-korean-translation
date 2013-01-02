@@ -25,6 +25,7 @@ end
 
 newTalent{
 	name = "Mucus",
+	kr_display_name = "점액",
 	type = {"wild-gift/mucus", 1},
 	require = gifts_req1,
 	points = 5,
@@ -66,6 +67,7 @@ newTalent{
 
 newTalent{
 	name = "Acid Splash",
+	kr_display_name = "산성 튀기기",
 	type = {"wild-gift/mucus", 2},
 	require = gifts_req2,
 	points = 5,
@@ -129,6 +131,7 @@ newTalent{
 
 newTalent{ short_name = "MUCUS_OOZE_SPIT", 
 	name = "Slime Spit", image = "talents/slime_spit.png",
+	kr_display_name = "슬라임 뱉기",
 	type = {"wild-gift/other",1},
 	points = 5,
 	equilibrium = 2,
@@ -153,6 +156,7 @@ newTalent{ short_name = "MUCUS_OOZE_SPIT",
 
 newTalent{
 	name = "Living Mucus",
+	kr_display_name = "살아있는 점액",
 	type = {"wild-gift/mucus", 3},
 	require = gifts_req3,
 	points = 5,
@@ -241,6 +245,7 @@ newTalent{
 
 newTalent{
 	name = "Oozewalk",
+	kr_display_name = "오즈의 길",
 	type = {"wild-gift/mucus", 4},
 	require = gifts_req4,
 	points = 5,

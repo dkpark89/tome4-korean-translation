@@ -101,6 +101,7 @@ end
 
 newTalent{
 	name = "Willful Strike",
+	kr_display_name = "의지의 타격",
 	type = {"cursed/force-of-will", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -148,6 +149,7 @@ newTalent{
 
 newTalent{
 	name = "Deflection",
+	kr_display_name = "굴절",
 	type = {"cursed/force-of-will", 2},
 	mode = "sustained",
 	no_energy = true,
@@ -222,6 +224,7 @@ newTalent{
 
 newTalent{ 
 	name = "Blast",
+	kr_display_name = "돌풍",
 	type = {"cursed/force-of-will", 3},
 	require = cursed_wil_req3,
 	points = 5,
@@ -299,6 +302,7 @@ newTalent{
 
 newTalent{
 	name = "Unseen Force",
+	kr_display_name = "보이지않는 힘",
 	type = {"cursed/force-of-will", 4},
 	require = cursed_wil_req4,
 	points = 5,

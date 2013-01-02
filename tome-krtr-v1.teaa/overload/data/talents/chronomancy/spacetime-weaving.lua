@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Dimensional Step",
+	kr_display_name = "차원의 걸음",
 	type = {"chronomancy/spacetime-weaving", 1},
 	require = temporal_req1,
 	points = 5,
@@ -70,6 +71,7 @@ newTalent{
 
 newTalent{
 	name = "Banish",
+	kr_display_name = "추방",
 	type = {"chronomancy/spacetime-weaving", 2},
 	require = temporal_req2,
 	points = 5,
@@ -135,6 +137,7 @@ newTalent{
 
 newTalent{
 	name = "Wormhole",
+	kr_display_name = "웜홀",
 	type = {"chronomancy/spacetime-weaving", 3},
 	require = temporal_req3,
 	points = 5,
@@ -279,6 +282,7 @@ newTalent{
 
 newTalent{
 	name = "Spacetime Mastery",
+	kr_display_name = "시공축 숙련",
 	type = {"chronomancy/spacetime-weaving", 4},
 	mode = "passive",
 	require = temporal_req4,

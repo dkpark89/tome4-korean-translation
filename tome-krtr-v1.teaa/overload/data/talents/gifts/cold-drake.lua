@@ -21,6 +21,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Ice Claw",
+	kr_display_name = "얼음 발톱",
 	type = {"wild-gift/cold-drake", 1},
 	require = gifts_req1,
 	points = 5,
@@ -49,6 +50,7 @@ newTalent{
 
 newTalent{
 	name = "Icy Skin",
+	kr_display_name = "얼음 피부",
 	type = {"wild-gift/cold-drake", 2},
 	require = gifts_req2,
 	mode = "sustained",
@@ -81,6 +83,7 @@ newTalent{
 
 newTalent{
 	name = "Ice Wall",
+	kr_display_name = "얼음 벽",
 	type = {"wild-gift/cold-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -147,6 +150,7 @@ newTalent{
 
 newTalent{
 	name = "Ice Breath",
+	kr_display_name = "얼음 브레쓰",
 	type = {"wild-gift/cold-drake", 4},
 	require = gifts_req4,
 	points = 5,

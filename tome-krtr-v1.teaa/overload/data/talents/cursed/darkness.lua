@@ -151,6 +151,7 @@ end
 
 newTalent{
 	name = "Creeping Darkness",
+	kr_display_name = "섬뜩한 어두움",
 	type = {"cursed/darkness", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -345,6 +346,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Vision",
+	kr_display_name = "어둠의 시야",
 	type = {"cursed/darkness", 2},
 	require = cursed_wil_req2,
 	points = 5,
@@ -367,6 +369,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Torrent",
+	kr_display_name = "어둠의 급류",
 	type = {"cursed/darkness", 3},
 	require = cursed_wil_req3,
 	points = 5,
@@ -425,6 +428,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Tendrils",
+	kr_display_name = "어둠의 덩쿨",
 	type = {"cursed/darkness", 4},
 	require = cursed_wil_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Glacial Vapour",
+	kr_display_name = "빙하의 증기",
 	type = {"spell/water",1},
 	require = spells_req1,
 	points = 5,
@@ -63,6 +64,7 @@ newTalent{
 
 newTalent{
 	name = "Freeze",
+	kr_display_name = "얼리기",
 	type = {"spell/water", 2},
 	require = spells_req2,
 	points = 5,
@@ -94,6 +96,7 @@ newTalent{
 
 newTalent{
 	name = "Tidal Wave",
+	kr_display_name = "조수의 파동",
 	type = {"spell/water",3},
 	require = spells_req3,
 	points = 5,
@@ -142,6 +145,7 @@ newTalent{
 
 newTalent{
 	name = "Shivgoroth Form",
+	kr_display_name = "쉬브고로쓰 변신",
 	type = {"spell/water",4},
 	require = spells_req4,
 	points = 5,
@@ -172,6 +176,7 @@ newTalent{
 
 newTalent{
 	name = "Ice Storm",
+	kr_display_name = "얼음 폭풍",
 	type = {"spell/other",1},
 	points = 5,
 	random_ego = "attack",

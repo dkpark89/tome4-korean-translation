@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Instill Fear",
+	kr_display_name = "공포 주입",
 	type = {"cursed/fears", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -153,6 +154,7 @@ newTalent{
 
 newTalent{
 	name = "Heighten Fear",
+	kr_display_name = "향상된 공포",
 	type = {"cursed/fears", 2},
 	require = cursed_wil_req2,
 	mode = "passive",
@@ -185,6 +187,7 @@ newTalent{
 
 newTalent{
 	name = "Tyrant",
+	kr_display_name = "폭군",
 	type = {"cursed/fears", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -216,6 +219,7 @@ newTalent{
 
 newTalent{
 	name = "Panic",
+	kr_display_name = "공황",
 	type = {"cursed/fears", 4},
 	require = cursed_wil_req4,
 	points = 5,

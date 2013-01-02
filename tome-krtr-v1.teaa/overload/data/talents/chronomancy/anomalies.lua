@@ -41,6 +41,7 @@ end
 
 newTalent{
 	name = "Anomaly Teleport",
+	kr_display_name = "모순적 장거리 공간이동",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -81,6 +82,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Rearrange",
+	kr_display_name = "모순적 재배열",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -122,6 +124,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Stop",
+	kr_display_name = "모순적 중지",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -161,6 +164,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Slow",
+	kr_display_name = "모순적 감속",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -200,6 +204,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Haste",
+	kr_display_name = "모순적 가속",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -238,6 +243,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Temporal Storm",
+	kr_display_name = "모순적 시간의 폭풍",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -267,6 +273,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Summon Time Elemental",
+	kr_display_name = "모순적 시간 엘리먼트 소환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -355,6 +362,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Temporal Bubble",
+	kr_display_name = "모순적 시간의 거품",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -393,6 +401,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Dig",
+	kr_display_name = "모순적 굴착",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -412,6 +421,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Swap",
+	kr_display_name = "모순적 교환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	direct_hit = true,
@@ -470,6 +480,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Gravity Spike",
+	kr_display_name = "모순적 중력 가시",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -520,6 +531,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Entropy",
+	kr_display_name = "모순적 엔트로피",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -574,6 +586,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Summon Townsfolk",
+	kr_display_name = "모순적 시민 소환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -687,6 +700,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Call",
+	kr_display_name = "모순적 호출",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	direct_hit = true,
@@ -730,6 +744,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Flawed Design",
+	kr_display_name = "모순적 잘못된 설계",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -769,6 +784,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Dues Ex",
+	kr_display_name = "모순적 듀스 엑스",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -810,6 +826,7 @@ newTalent{
 
 --[[newTalent{
 	name = "Anomaly Terrain Change",
+	kr_display_name = "모순적 지형 변화",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -823,6 +840,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Stat Reorder",
+	kr_display_name = "모순적 능력치 재분배",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -836,6 +854,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Heal",
+	kr_display_name = "모순적 치료",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -849,6 +868,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Double",
+	kr_display_name = "모순적 복제",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -862,6 +882,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Sex Change",
+	kr_display_name = "모순적 성전환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -876,6 +897,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Money Changer",
+	kr_display_name = "모순적 금액 변화",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -890,6 +912,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Spacetime Folding",
+	kr_display_name = "모순적 시공간 접기",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -903,6 +926,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Charge/Drain",
+	kr_display_name = "모순적 충전/방전",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -917,6 +941,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Vertigo",
+	kr_display_name = "모순적 어지러움",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -931,6 +956,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Evil Twin",
+	kr_display_name = "모순적 사악한 쌍둥이",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,

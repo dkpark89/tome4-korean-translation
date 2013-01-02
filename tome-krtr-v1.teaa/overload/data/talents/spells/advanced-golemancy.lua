@@ -20,6 +20,7 @@ local Chat = require "engine.Chat"
 
 newTalent{
 	name = "Life Tap", short_name = "GOLEMANCY_LIFE_TAP",
+	kr_display_name = "생명의 손길",
 	type = {"spell/advanced-golemancy", 1},
 	require = spells_req_high1,
 	points = 5,
@@ -53,6 +54,7 @@ newTalent{
 
 newTalent{
 	name = "Gem Golem",
+	kr_display_name = "보석 골렘",
 	type = {"spell/advanced-golemancy",2},
 	require = spells_req_high2,
 	mode = "passive",
@@ -66,6 +68,7 @@ newTalent{
 
 newTalent{
 	name = "Supercharge Golem",
+	kr_display_name = "골렘 과충전",
 	type = {"spell/advanced-golemancy", 3},
 	require = spells_req_high3,
 	points = 5,
@@ -117,6 +120,7 @@ newTalent{
 
 newTalent{
 	name = "Runic Golem",
+	kr_display_name = "룬 골렘",
 	type = {"spell/advanced-golemancy",4},
 	require = spells_req_high4,
 	mode = "passive",

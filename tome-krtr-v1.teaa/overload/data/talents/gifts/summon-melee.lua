@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "War Hound",
+	kr_display_name = "전투견 소환",
 	type = {"wild-gift/summon-melee", 1},
 	require = gifts_req1,
 	points = 5,
@@ -112,6 +113,7 @@ newTalent{
 
 newTalent{
 	name = "Jelly",
+	kr_display_name = "젤리 소환",
 	type = {"wild-gift/summon-melee", 2},
 	require = gifts_req2,
 	points = 5,
@@ -214,6 +216,7 @@ newTalent{
 
 newTalent{
 	name = "Minotaur",
+	kr_display_name = "미노타우루스 소환",
 	type = {"wild-gift/summon-melee", 3},
 	require = gifts_req3,
 	points = 5,
@@ -316,6 +319,7 @@ newTalent{
 
 newTalent{
 	name = "Stone Golem",
+	kr_display_name = "돌 골렘 소환",
 	type = {"wild-gift/summon-melee", 4},
 	require = gifts_req4,
 	points = 5,

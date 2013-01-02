@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Celerity",
+	kr_display_name = "기민함",
 	type = {"chronomancy/speed-control", 1},
 	require = chrono_req1,
 	points = 5,
@@ -38,6 +39,7 @@ newTalent{
 
 newTalent{
 	name = "Stop",
+	kr_display_name = "멈추기",
 	type = {"chronomancy/speed-control",2},
 	require = chrono_req2,
 	points = 5,
@@ -80,6 +82,7 @@ newTalent{
 
 newTalent{
 	name = "Slow",
+	kr_display_name = "감속",
 	type = {"chronomancy/speed-control", 3},
 	require = chrono_req3,
 	points = 5,
@@ -129,6 +132,7 @@ newTalent{
 
 newTalent{
 	name = "Haste",
+	kr_display_name = "가속",
 	type = {"chronomancy/speed-control", 4},
 	require = chrono_req4,
 	points = 5,
