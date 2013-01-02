@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Throw Bomb",
+	kr_display_name = "폭탄 던지기",
 	type = {"spell/explosives", 1},
 	require = spells_req1,
 	points = 5,
@@ -152,6 +153,7 @@ newTalent{
 
 newTalent{
 	name = "Alchemist Protection",
+	kr_display_name = "연금술적 보호",
 	type = {"spell/explosives", 2},
 	require = spells_req2,
 	mode = "passive",
@@ -177,6 +179,7 @@ newTalent{
 
 newTalent{
 	name = "Explosion Expert",
+	kr_display_name = "폭발의 숙련자",
 	type = {"spell/explosives", 3},
 	require = spells_req3,
 	mode = "passive",
@@ -195,6 +198,7 @@ newTalent{
 
 newTalent{
 	name = "Shockwave Bomb",
+	kr_display_name = "충격파 폭탄",
 	type = {"spell/explosives",4},
 	require = spells_req4,
 	points = 5,

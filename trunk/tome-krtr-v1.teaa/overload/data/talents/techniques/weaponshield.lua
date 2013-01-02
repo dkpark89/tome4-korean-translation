@@ -23,6 +23,7 @@
 
 newTalent{
 	name = "Shield Pummel",
+	kr_display_name = "방패 치기",
 	type = {"technique/shield-offense", 1},
 	require = techs_req1,
 	points = 5,
@@ -68,6 +69,7 @@ newTalent{
 
 newTalent{
 	name = "Riposte",
+	kr_display_name = "방패 반격",
 	type = {"technique/shield-offense", 2},
 	require = techs_req2,
 	mode = "passive",
@@ -90,6 +92,7 @@ newTalent{
 
 newTalent{
 	name = "Overpower",
+	kr_display_name = "과도한 힘",
 	type = {"technique/shield-offense", 3},
 	require = techs_req3,
 	points = 5,
@@ -138,6 +141,7 @@ newTalent{
 
 newTalent{
 	name = "Assault",
+	kr_display_name = "방패 가격",
 	type = {"technique/shield-offense", 4},
 	require = techs_req4,
 	points = 5,
@@ -184,6 +188,7 @@ newTalent{
 ----------------------------------------------------------------------
 newTalent{
 	name = "Shield Wall",
+	kr_display_name = "방패의 벽",
 	type = {"technique/shield-defense", 1},
 	require = techs_req1,
 	mode = "sustained",
@@ -227,6 +232,7 @@ newTalent{
 
 newTalent{
 	name = "Repulsion",
+	kr_display_name = "반발",
 	type = {"technique/shield-defense", 2},
 	require = techs_req2,
 	points = 5,
@@ -271,6 +277,7 @@ newTalent{
 
 newTalent{
 	name = "Shield Expertise",
+	kr_display_name = "방패 전문가",
 	type = {"technique/shield-defense", 3},
 	require = techs_req3,
 	mode = "passive",
@@ -290,6 +297,7 @@ newTalent{
 
 newTalent{
 	name = "Last Stand",
+	kr_display_name = "끝까지 버티기",
 	type = {"technique/shield-defense", 4},
 	require = techs_req4,
 	mode = "sustained",

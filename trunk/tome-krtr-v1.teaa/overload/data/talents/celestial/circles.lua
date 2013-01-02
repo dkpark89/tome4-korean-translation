@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Circle of Shifting Shadows",
+	kr_display_name = "뒤바뀌는 그림자의 권역",
 	type = {"celestial/circles", 1},
 	require = divi_req_high1,
 	points = 5,
@@ -53,14 +54,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Creates a circle of radius %d at your feet; the circle increases your Defense by %d, and deals %0.2f darkness damage per turn to everyone else with in its radius. The circle lasts %d turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[발 아래에 %d 칸 반경의 권역을 생성하여, 회피도를 %d 증가시키고, 권역에 발을 들이는 자들에게 매 턴마다 %0.2f 의 어둠 피해를 줍니다. 권역은 %d 턴 간 유지됩니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, damage, (damDesc (self, DamageType.DARKNESS, damage)), duration)
 	end,
 }
 
 newTalent{
 	name = "Circle of Blazing Light",
+	kr_display_name = "타오르는 빛의 권역",
 	type = {"celestial/circles", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -97,14 +99,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Creates a circle of radius %d at your feet; the circle lights up affected tiles, increases your positive energy by %d each turn, and deals %0.2f light damage and %0.2f fire damage per turn to everyone else within its radius.  The circle lasts %d turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[발 아래에 %d 칸 반경의 권역을 생성하여, 빛을 밝히고 매 턴마다 %d 의 양기를 획득하며, 권역에 발을 들이는 자들에게 매 턴마다 %0.2f 의 빛 피해와 %0.2f의 화염 피해를 줍니다. 권역은 %d 턴 간 유지됩니다.
+		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, 1 + (damage / 4), (damDesc (self, DamageType.LIGHT, damage)), (damDesc (self, DamageType.FIRE, damage)), duration)
 	end,
 }
 
 newTalent{
 	name = "Circle of Sanctity",
+	kr_display_name = "고결함의 권역",
 	type = {"celestial/circles", 3},
 	require = divi_req_high3,
 	points = 5,
@@ -137,13 +140,14 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Creates a circle of radius %d at your feet; the circle protects you from silence effects while you remain in its radius, and silences everyone else who enters. The circle lasts %d turns.]]):
+		return ([[발 아래에 %d 칸 반경의 권역을 생성하여, 권역에 발을 들이는 자들을 침묵시키고 자신은 침묵 효과에 걸리지 않게 됩니다. 권역은 %d 턴 간 유지됩니다.]]):
 		format(radius, duration)
 	end,
 }
 
 newTalent{
 	name = "Circle of Warding",
+	kr_display_name = "배척의 권역",
 	type = {"celestial/circles", 4},
 	require = divi_req_high4,
 	points = 5,
@@ -178,8 +182,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Creates a circle of radius %d at your feet; the circle slows incoming projectiles by %d%%, and attempts to push all creatures other then yourself out of its radius, inflicting %0.2f light damage and %0.2f darkness damage per turn as it does so.  The circle lasts %d turns.
-		The effects will increase with your Spellpower.]]):
+		return ([[발 아래에 %d 칸 반경의 권역을 생성하여, 날아오는 발사체의 속도를 %d%% 감속시키고, 권역에 발을 들이는 자들을 밀어내며 매 턴마다 %0.2f 의 빛 피해와 %0.2f 의 어둠 피해를 줍니다. 권역은 %d 턴 간 유지됩니다.
+		감속 효과와 피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(radius, damage*5, (damDesc (self, DamageType.LIGHT, damage)), (damDesc (self, DamageType.DARKNESS, damage)), duration)
 	end,
 }

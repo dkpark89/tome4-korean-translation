@@ -22,6 +22,7 @@ newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "T
 
 newTalent{
 	name = "Shove", short_name = "TUTORIAL_PHYS_KB",
+	kr_display_name = "삽질",
 	type = {"tutorial", 1},
 	points = 5,
 	random_ego = "attack",
@@ -47,6 +48,7 @@ newTalent{
 
 newTalent{
 	name = "Mana Gale", short_name = "TUTORIAL_SPELL_KB",
+	kr_display_name = "마나폭발",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -76,6 +78,7 @@ newTalent{
 
 newTalent{
 	name = "Telekinetic Punt", short_name = "TUTORIAL_MIND_KB",
+	kr_display_name = "염동펀치",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -104,6 +107,7 @@ newTalent{
 
 newTalent{
 	name = "Blink", short_name = "TUTORIAL_SPELL_BLINK",
+	kr_display_name = "단거리 공간이동",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -132,6 +136,7 @@ newTalent{
 
 newTalent{
 	name = "Fear", short_name = "TUTORIAL_MIND_FEAR",
+	kr_display_name = "공포",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -160,6 +165,7 @@ newTalent{
 
 newTalent{
 	name = "Bleed", short_name = "TUTORIAL_SPELL_BLEED",
+	kr_display_name = "출혈",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 5,
@@ -184,6 +190,7 @@ newTalent{
 
 newTalent{
 	name = "Confusion", short_name = "TUTORIAL_MIND_CONFUSION",
+	kr_display_name = "혼란",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,

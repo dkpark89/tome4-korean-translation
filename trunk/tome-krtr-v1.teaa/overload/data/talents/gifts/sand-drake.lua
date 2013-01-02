@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Swallow",
+	kr_display_name = "삼키기 공격",
 	type = {"wild-gift/sand-drake", 1},
 	require = gifts_req1,
 	points = 5,
@@ -68,6 +69,7 @@ newTalent{
 
 newTalent{
 	name = "Quake",
+	kr_display_name = "진각",
 	type = {"wild-gift/sand-drake", 2},
 	require = gifts_req2,
 	points = 5,
@@ -105,6 +107,7 @@ newTalent{
 
 newTalent{
 	name = "Burrow",
+	kr_display_name = "굴 파기",
 	type = {"wild-gift/sand-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -126,6 +129,7 @@ newTalent{
 
 newTalent{
 	name = "Sand Breath",
+	kr_display_name = "모래 브레쓰",
 	type = {"wild-gift/sand-drake", 4},
 	require = gifts_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Mind Sear",
+	kr_display_name = "정신 말리기",
 	type = {"psionic/psychic-assault", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -49,6 +50,7 @@ newTalent{
 
 newTalent{
 	name = "Psychic Lobotomy",
+	kr_display_name = "사고 방해",
 	type = {"psionic/psychic-assault", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -95,6 +97,7 @@ newTalent{
 
 newTalent{
 	name = "Synaptic Static",
+	kr_display_name = "시냅스 정전기 발동",
 	type = {"psionic/psychic-assault", 3},
 	require = psi_wil_req3,
 	points = 5,
@@ -124,6 +127,7 @@ newTalent{
 
 newTalent{
 	name = "Sunder Mind",
+	kr_display_name = "정신 부수기",
 	type = {"psionic/psychic-assault", 4},
 	require = psi_wil_req4,
 	points = 5,

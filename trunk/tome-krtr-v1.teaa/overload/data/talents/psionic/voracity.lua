@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Kinetic Leech",
+	kr_display_name = "동역학적 갈취",
 	type = {"psionic/voracity", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -68,6 +69,7 @@ newTalent{
 
 newTalent{
 	name = "Thermal Leech",
+	kr_display_name = "열역학적 갈취",
 	type = {"psionic/voracity", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -117,6 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Charge Leech",
+	kr_display_name = "전하적 갈취",
 	type = {"psionic/voracity", 3},
 	require = psi_wil_req3,
 	points = 5,
@@ -176,6 +179,7 @@ newTalent{
 }
 newTalent{
 	name = "Insatiable",
+	kr_display_name = "탐욕",
 	type = {"psionic/voracity", 4},
 	mode = "passive",
 	points = 5,

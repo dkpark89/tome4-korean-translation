@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Strength of Purpose",
+	kr_display_name = "목표의 힘",
 	type = {"chronomancy/temporal-combat", 1},
 	require = temporal_req1,
 	mode = "sustained",
@@ -51,6 +52,7 @@ newTalent{
 
 newTalent{
 	name = "Invigorate",
+	kr_display_name = "기운 돋우기",
 	type = {"chronomancy/temporal-combat", 2},
 	require = temporal_req2,
 	points = 5,
@@ -73,6 +75,7 @@ newTalent{
 
 newTalent{
 	name = "Quantum Feed",
+	kr_display_name = "양자 공급",
 	type = {"chronomancy/temporal-combat", 3},
 	require = temporal_req3,
 	mode = "sustained",
@@ -105,6 +108,7 @@ newTalent{
 
 newTalent{
 	name = "Damage Smearing",
+	kr_display_name = "피해 문지르기",
 	type = {"chronomancy/temporal-combat",4},
 	require = temporal_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Radiant Fear",
+	kr_display_name = "눈부신 공포",
 	type = {"cursed/dark-figure", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -55,6 +56,7 @@ newTalent{
 
 newTalent{
 	name = "Suppression",
+	kr_display_name = "억압",
 	type = {"cursed/dark-figure", 2},
 	mode = "passive",
 	require = cursed_wil_req2,
@@ -72,6 +74,7 @@ newTalent{
 
 newTalent{
 	name = "Cruel Vigor",
+	kr_display_name = "잔인한 활력",
 	type = {"cursed/dark-figure", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -117,6 +120,7 @@ newTalent{
 
 newTalent{
 	name = "Pity",
+	kr_display_name = "불쌍함",
 	type = {"cursed/dark-figure", 4},
 	mode = "sustained", no_sustain_autoreset = true,
 	require = cursed_wil_req4,

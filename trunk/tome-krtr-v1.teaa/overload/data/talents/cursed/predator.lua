@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Mark Prey",
+	kr_display_name = "사냥감 지정",
 	type = {"cursed/predator", 1},
 	require = cursed_lev_req1,
 	points = 5,
@@ -81,6 +82,7 @@ newTalent{
 
 newTalent{
 	name = "Anatomy",
+	kr_display_name = "해부학",
 	type = {"cursed/predator", 2},
 	mode = "passive",
 	require = cursed_lev_req2,
@@ -117,6 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Outmaneuver",
+	kr_display_name = "의표 찌르기",
 	type = {"cursed/predator", 3},
 	mode = "passive",
 	require = cursed_lev_req3,
@@ -165,6 +168,7 @@ newTalent{
 
 newTalent{
 	name = "Mimic",
+	kr_display_name = "흉내내기",
 	type = {"cursed/predator", 4},
 	mode = "passive",
 	require = cursed_lev_req4,

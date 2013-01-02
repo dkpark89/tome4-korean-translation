@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Ice Shards",
+	kr_display_name = "얼음 파편",
 	type = {"spell/ice",1},
 	require = spells_req_high1,
 	points = 5,
@@ -59,6 +60,7 @@ newTalent{
 
 newTalent{
 	name = "Frozen Ground",
+	kr_display_name = "얼어붙은 대지",
 	type = {"spell/ice",2},
 	require = spells_req_high2,
 	points = 5,
@@ -90,6 +92,7 @@ newTalent{
 
 newTalent{
 	name = "Shatter",
+	kr_display_name = "파쇄",
 	type = {"spell/ice",3},
 	require = spells_req_high3,
 	points = 5,
@@ -146,6 +149,7 @@ newTalent{
 
 newTalent{
 	name = "Uttercold",
+	kr_display_name = "완전한 냉기",
 	type = {"spell/ice",4},
 	require = spells_req_high4,
 	points = 5,

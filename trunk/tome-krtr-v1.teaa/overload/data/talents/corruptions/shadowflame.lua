@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Wraithform",
+	kr_display_name = "악령 변신",
 	type = {"corruption/shadowflame", 1},
 	require = corrs_req1,
 	points = 5,
@@ -39,6 +40,7 @@ newTalent{
 
 newTalent{
 	name = "Darkfire",
+	kr_display_name = "어둠의 열화",
 	type = {"corruption/shadowflame", 2},
 	require = corrs_req2,
 	points = 5,
@@ -79,6 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Flame of Urh'Rok",
+	kr_display_name = "울흐'록의 화염",
 	type = {"corruption/shadowflame", 3},
 	require = corrs_req3,
 	mode = "sustained",
@@ -121,6 +124,7 @@ newTalent{
 
 newTalent{
 	name = "Fearscape", short_name = "DEMON_PLANE",
+	kr_display_name = "공포의 영역",
 	type = {"corruption/shadowflame", 4},
 	require = corrs_req4,
 	mode = "sustained",
@@ -135,11 +139,11 @@ newTalent{
 	on_pre_use = function(self, t) return self:canBe("planechange") and self:getVim() >= 10 end,
 	activate = function(self, t)
 		if game.zone.is_demon_plane then
-			game.logPlayer(self, "This spell cannot be used from within the Fearscape.")
+			game.logPlayer(self, "This spell can not be used from within the Fearscape.")
 			return
 		end
 		if game.zone.no_planechange then
-			game.logPlayer(self, "This spell cannot be cast here.")
+			game.logPlayer(self, "This spell can not be cast here.")
 			return
 		end
 

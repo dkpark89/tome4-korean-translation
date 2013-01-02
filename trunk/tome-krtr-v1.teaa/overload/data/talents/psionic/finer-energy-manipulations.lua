@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Perfect Control",
+	kr_display_name = "완벽한 제어",
 	type = {"psionic/finer-energy-manipulations", 1},
 	require = psi_cun_high1,
 	cooldown = 50,
@@ -43,6 +44,7 @@ newTalent{
 
 newTalent{
 	name = "Reshape Weapon",
+	kr_display_name = "무기 재형성",
 	type = {"psionic/finer-energy-manipulations", 2},
 	require = psi_cun_high2,
 	cooldown = 1,
@@ -89,6 +91,7 @@ newTalent{
 
 newTalent{
 	name = "Reshape Armour", short_name = "RESHAPE_ARMOR",
+	kr_display_name = "갑옷 재형성",
 	type = {"psionic/finer-energy-manipulations", 3},
 	require = psi_cun_high3,
 	cooldown = 1,
@@ -163,6 +166,7 @@ newTalent{
 
 newTalent{
 	name = "Matter is Energy",
+	kr_display_name = "에너지 추출",
 	type = {"psionic/finer-energy-manipulations", 4},
 	require = psi_cun_high4,
 	cooldown = 50,

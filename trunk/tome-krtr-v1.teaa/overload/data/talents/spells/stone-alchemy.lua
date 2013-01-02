@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Create Alchemist Gems",
+	kr_display_name = "연금술의 보석 생성",
 	type = {"spell/stone-alchemy-base", 1},
 	require = spells_req1,
 	points = 1,
@@ -66,6 +67,7 @@ newTalent{
 
 newTalent{
 	name = "Extract Gems",
+	kr_display_name = "보석 추출",
 	type = {"spell/stone-alchemy", 1},
 	require = spells_req1,
 	points = 5,
@@ -124,6 +126,7 @@ newTalent{
 
 newTalent{
 	name = "Imbue Item",
+	kr_display_name = "아이템에 보석 합성",
 	type = {"spell/stone-alchemy", 2},
 	require = spells_req2,
 	points = 5,
@@ -159,6 +162,7 @@ newTalent{
 }
 newTalent{
 	name = "Gem Portal",
+	kr_display_name = "보석 포탈",
 	type = {"spell/stone-alchemy",3},
 	require = spells_req3,
 	cooldown = function(self, t) return math.max(5, 20 - (self:getTalentLevelRaw(t) * 2)) end,
@@ -201,6 +205,7 @@ newTalent{
 
 newTalent{
 	name = "Stone Touch",
+	kr_display_name = "석화의 손길",
 	type = {"spell/stone-alchemy",4},
 	require = spells_req4,
 	points = 5,

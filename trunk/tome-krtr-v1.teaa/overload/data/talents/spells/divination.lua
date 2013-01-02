@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Arcane Eye",
+	kr_display_name = "마법의 눈",
 	type = {"spell/divination", 1},
 	require = spells_req1,
 	points = 5,
@@ -45,8 +46,8 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[Summons an ethereal magical eye at the designated location that lasts for %d turns.
-		The eye cannot be seen or attacked by other creatures, and possesses magical vision that allows it to see any creature in a %d range around it.
-		It does not require light to do so, but it cannot see through walls.
+		The eye can not be seen or attacked by other creatures, and possesses magical vision that allows it to see any creature in a %d range around it.
+		It does not require light to do so, but it can not see through walls.
 		Casting the eye does not take a turn.
 		Only one arcane eye can exist at any given time.
 		At level 4, if cast on a creature it will follow it until it expires, or until the creature dies.
@@ -57,6 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Keen Senses",
+	kr_display_name = "날카로운 감각",
 	type = {"spell/divination", 2},
 	require = spells_req2,
 	mode = "sustained",
@@ -94,6 +96,7 @@ newTalent{
 
 newTalent{
 	name = "Vision",
+	kr_display_name = "시야",
 	type = {"spell/divination", 3},
 	require = spells_req3,
 	points = 5,
@@ -116,6 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Premonition",
+	kr_display_name = "예감",
 	type = {"spell/divination", 4},
 	mode = "sustained",
 	require = spells_req4,

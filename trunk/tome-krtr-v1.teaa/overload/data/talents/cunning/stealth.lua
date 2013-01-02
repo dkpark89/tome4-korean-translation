@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Stealth",
+	kr_display_name = "은신",
 	type = {"cunning/stealth", 1},
 	require = cuns_req1,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -85,6 +86,7 @@ newTalent{
 
 newTalent{
 	name = "Shadowstrike",
+	kr_display_name = "은신 타격",
 	type = {"cunning/stealth", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -100,6 +102,7 @@ newTalent{
 
 newTalent{
 	name = "Hide in Plain Sight",
+	kr_display_name = "평지에서의 은닉",
 	type = {"cunning/stealth",3},
 	require = cuns_req3,
 	no_energy = "fake",
@@ -133,6 +136,7 @@ newTalent{
 
 newTalent{
 	name = "Unseen Actions",
+	kr_display_name = "보이지않는 행동",
 	type = {"cunning/stealth", 4},
 	require = cuns_req4,
 	mode = "passive",

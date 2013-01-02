@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Push Kick",
+	kr_display_name = "밀어차기",
 	type = {"technique/unarmed-discipline", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -75,6 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Defensive Throw",
+	kr_display_name = "공격자 넘어뜨리기",
 	type = {"technique/unarmed-discipline", 2},
 	require = techs_dex_req2,
 	mode = "passive",
@@ -110,6 +112,7 @@ newTalent{
 
 newTalent{
 	name = "Breath Control",
+	kr_display_name = "호흡 조절",
 	type = {"technique/unarmed-discipline", 3},
 	require = techs_dex_req3,
 	mode = "sustained",
@@ -140,6 +143,7 @@ newTalent{
 
 newTalent{
 	name = "Roundhouse Kick",
+	kr_display_name = "돌려차기",
 	type = {"technique/unarmed-discipline", 4},
 	require = techs_dex_req4,
 	points = 5,
