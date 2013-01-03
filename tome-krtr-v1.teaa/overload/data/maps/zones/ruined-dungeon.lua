@@ -39,7 +39,7 @@ defineTile(" ", "OLD_FLOOR", nil, {random_filter={random_elite={name_scheme="#rn
 	local spot = game.level:pickSpotRemove{type="portal", subtype="portal"}
 	if spot then
 		game.level.map(spot.x, spot.y, engine.Map.TERRAIN).orb_allowed = true
-		require("engine.ui.Dialog"):simpleLongPopup("수호자", "마법장치가 시동하는 소리가 들립니다.", game.w * 0.4)
+		require("engine.ui.Dialog"):simplePopup("수호자", "마법장치가 시동하는 소리가 들립니다.")
 	end
 end}, add_levels=5}})
 

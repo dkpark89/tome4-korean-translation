@@ -41,7 +41,7 @@ quickEntity('>', {
 			end)
 			return
 		end
-		require("engine.ui.Dialog"):simpleLongPopup("긴 통로", "통로로 들어서자 돌아나가야 한다는 이상한 충동을 느낍니다.", game.w * 0.4)
+		require("engine.ui.Dialog"):simplePopup("긴 통로", "통로로 들어서자 돌아나가야 한다는 이상한 충동을 느낍니다.")
 		return true
 	end,
 	notice = true,

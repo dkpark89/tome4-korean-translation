@@ -1290,5 +1290,5 @@ function _M:dump()
 
 	fff:close()
 
-	Dialog:simpleLongPopup("캐릭터 덤프 완료", "파일: "..fs.getRealPath(file), game.w * 0.4)
+	Dialog:simplePopup("캐릭터 덤프 완료", "파일: "..fs.getRealPath(file))
 end

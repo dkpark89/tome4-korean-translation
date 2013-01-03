@@ -156,7 +156,7 @@ function _M:on_register()
 			self.do_quickbirth = true
 			self:quickBirth()
 		else
-			self:yesnoLongPopup("빠른 생성", "기존의 같은 캐릭터로 다시 시작하길 원하십니까?", game.w * 0.4, function(ret)
+			self:yesnoPopup("빠른 생성", "기존의 같은 캐릭터로 다시 시작하길 원하십니까?", function(ret)
 				if ret then
 					self.do_quickbirth = true
 					self:quickBirth()

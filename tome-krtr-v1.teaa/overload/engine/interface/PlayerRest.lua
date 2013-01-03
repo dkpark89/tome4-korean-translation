@@ -33,7 +33,7 @@ function _M:restInit(turns, what, past, on_end, on_very_end)
 		on_end = on_end,
 		on_very_end = on_very_end,
 		cnt = 0,
-		dialog = Dialog:simpleLongPopup(what:capitalize().."...", "당신은 "..what.." 중 입니다, 엔터키를 누르면 멈춥니다.", game.w * 0.4, function()
+		dialog = Dialog:simplePopup(what:capitalize().."...", "당신은 "..what.." 중 입니다, 엔터키를 누르면 멈춥니다.", function()
 			self:restStop()
 		end),
 	}
