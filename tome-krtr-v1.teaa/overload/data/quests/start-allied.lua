@@ -19,18 +19,19 @@
 
 -- Quest for Trollmire & Amon Sul
 name = "Of trolls and damp caves"
+kr_display_name = "트롤과 축축한 동굴"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Explore the caves below the ruins of Kor'Pul and the Trollmire in search of treasure and glory!\n"
+	desc[#desc+1] = "보물과 영예를 찾아 Kor'Pul 유적 아래에 있는 동굴과 Trollmire를 탐험하라!\n"
 	if self:isCompleted("trollmire") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 Trollmire를 탐험해 the Prox the Troll을 물리쳤습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 Trollmire를 탐험해 그곳에 무슨 위험이 도사리는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
 	end
 	if self:isCompleted("kor-pul") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Shade.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 Kor'Pul 유적을 탐험해 the Shade를 물리쳤습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the ruins of Kor'Pul and find out what lurks there and what treasures are to be gained!#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 Kor'Pul 유적을 탐험해 그곳에 무슨 위험이 도사리는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

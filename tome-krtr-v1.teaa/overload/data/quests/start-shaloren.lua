@@ -16,21 +16,21 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
-
 name = "Echoes of the Spellblaze"
+kr_display_name = "the Spellblaze의 울림"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have heard that within the scintillating caves lie strange crystals imbued with Spellblaze energies.\n"
-	desc[#desc+1] = "There are also rumours of a regenade Shaloren camp to the west.\n"
+	desc[#desc+1] = "당신은 the scintillating caves 안에 Spellblaze 기운이 서려있는 수상한 crystals가 있다는 얘기를 들었습니다.\n"
+	desc[#desc+1] = "서쪽의 a renegade Shaloren camp에도 많은 소문이 있습니다.\n"
 	if self:isCompleted("spellblaze") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the scintillating caves and destroyed the Spellblaze Crystal.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 the scintillating caves를 탐험해 the Spellblaze Crystal을 파괴했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the scintillating caves.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 the scintillating caves를 탐험해야 합니다.#WHITE#"
 	end
 	if self:isCompleted("rhaloren") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Rhaloren camp and killed the Inquisitor.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 the Rhaloren camp를 탐험해 the Inquisitor를 죽였습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the renegade Shaloren camp.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 the renegade Shaloren camp를 탐험해야 합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

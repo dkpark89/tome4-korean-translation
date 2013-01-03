@@ -18,19 +18,20 @@
 -- darkgod@te4.org
 
 name = "Madness of the Ages"
+kr_display_name = "시대의 광기"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "The Thaloren forest is disrupted. Corruption is spreading. Norgos the guardian bear is said to have gone mad.\n"
-	desc[#desc+1] = "On the western border of the forest a gloomy aura has been set up. Things inside are... twisted.\n"
+	desc[#desc+1] = "The Thaloren Forest는 망했습니다. 오염이 번지고 있습니다. Norgos the guardian bear는 미쳐버렸다고 합니다.\n"
+	desc[#desc+1] = "숲의 서쪽 경계에 음울한 기운이 생겨났습니다. 그 안에 들어있는 것들은... 뒤틀렸습니다.\n"
 	if self:isCompleted("norgos") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored Norgos' Lair and put it to rest.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 Norgos' Lair를 탐험하고 그것을 묻었습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore Norgos' Lair.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 Norgos' Lair를 탐험해야 합니다.#WHITE#"
 	end
 	if self:isCompleted("heart-gloom") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Heart of the Gloom and slain the Withering Thing.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 the Heart of the Gloom을 탐험해 the Withering Thing을 죽였습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the Heart of the Gloom.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 the Heart of the Gloom을 탐험해야 합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

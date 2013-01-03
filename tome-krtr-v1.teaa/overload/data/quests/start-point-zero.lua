@@ -18,18 +18,19 @@
 -- darkgod@te4.org
 
 name = "Future Echoes"
+kr_display_name = "미래의 메아리"
 stables = 0
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "The unhallowed morass is the name of the 'zone' surrounding Point Zero."
-	desc[#desc+1] = "The temporal spiders that inhabit it are growing restless and started attacking at random. You need to investigate what is going on."
+	desc[#desc+1] = "The unhallowed morass는 Point Zero 주위 '지역'의 이름입니다."
+	desc[#desc+1] = "그곳에 사는 시간의 거미들은 쉴새없이 자라고 있으며 아무나 닥치는대로 공격하기 시작했습니다. 당신은 무슨 일이 일어나고 있는지 조사해야 합니다."
 	if self:isCompleted("morass") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the morass and destroyed the weaver queen, finding strange traces on it.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 the morass를 탐험하면서 이상한 흔적을 찾아내 the weaver queen을 파괴했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the morass.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 the morass를 탐험해야합니다.#WHITE#"
 	end
 	if self:isCompleted("saved") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have helped defend Point Zero.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 Point Zero를 지켜냈습니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end
