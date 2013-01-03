@@ -45,7 +45,7 @@ function _M:runInit(dir)
 		block_hard_left = false,
 		block_hard_right = false,
 		cnt = 1,
-		dialog = Dialog:simpleLongPopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 Enter키를 누르세요.", game.w * 0.4, function()
+		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 Enter키를 누르세요.", function()
 			self:runStop()
 		end, false, true),
 	}
@@ -95,7 +95,7 @@ function _M:runFollow(path)
 	self.running = {
 		path = runpath,
 		cnt = 1,
-		dialog = Dialog:simpleLongPopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 아무키나 누르세요.", game.w * 0.4, function()
+		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 아무키나 누르세요.", function()
 			self:runStop()
 		end, false, true),
 	}

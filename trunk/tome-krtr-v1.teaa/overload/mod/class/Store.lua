@@ -102,7 +102,7 @@ function _M:tryBuy(who, o, item, nb)
 	if who.money >= price * nb then
 		return nb, price * nb
 	else
-		Dialog:simpleLongPopup("금화 부족", "가지고 있는 금화가 부족합니다!", game.w * 0.4)
+		Dialog:simplePopup("금화 부족", "가지고 있는 금화가 부족합니다!")
 	end
 end
 
@@ -159,7 +159,7 @@ function _M:doBuy(who, o, item, nb, store_dialog)
 	local price
 	nb, price = self:tryBuy(who, o, item, nb)
 	if nb then
-		Dialog:yesnoLongPopup("구입", ("%d개의 %s 금화 %0.2f 개에 사겠습니까?"):format(nb, (o:getName{do_color=true, no_count=true}):addJosa("를"), price), game.w * 0.4, function(ok) if ok then
+		Dialog:yesnoPopup("구입", ("%d개의 %s 금화 %0.2f 개에 사겠습니까?"):format(nb, (o:getName{do_color=true, no_count=true}):addJosa("를"), price), function(ok) if ok then
 			self:onBuy(who, o, item, nb, true)
 			-- Learn lore ?
 			if who.player and o.lore then
@@ -180,7 +180,7 @@ function _M:doSell(who, o, item, nb, store_dialog)
 	local price
 	nb, price = self:trySell(who, o, item, nb)
 	if nb then
-		Dialog:yesnoLongPopup("판매", ("%d개의 %s 금화 %0.2f 개에 팔겠습니까?"):format(nb, (o:getName{do_color=true, no_count=true}):addJosa("를"), price), game.w * 0.4, function(ok) if ok then
+		Dialog:yesnoPopup("판매", ("%d개의 %s 금화 %0.2f 개에 팔겠습니까?"):format(nb, (o:getName{do_color=true, no_count=true}):addJosa("를"), price), function(ok) if ok then
 			self:onSell(who, o, item, nb, true)
 			self:transfer(who, self, item, nb)
 			self:onSell(who, o, item, nb, false)

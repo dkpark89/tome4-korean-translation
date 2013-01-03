@@ -4120,7 +4120,7 @@ function _M:checkSetTalentAuto(tid, v, opt)
 	if v then
 		local doit = function()
 			self:setTalentAuto(tid, true, opt)
-			Dialog:simpleLongPopup("자동사용 설정", tn:capitalize():addJosa("는").." 이제 가능한 경우 자동으로 사용될 것입니다.", game.w * 0.4)
+			Dialog:simplePopup("자동사용 설정", tn:capitalize():addJosa("는").." 이제 가능한 경우 자동으로 사용될 것입니다.")
 		end
 
 		local list = {}
@@ -4143,7 +4143,7 @@ function _M:checkSetTalentAuto(tid, v, opt)
 		end
 	else
 		self:setTalentAuto(tid, false)
-		Dialog:simpleLongPopup("자동사용 해제", tn:capitalize():addJosa("는").." 더이상 자동으로 사용되지 않습니다.", game.w * 0.4)
+		Dialog:simplePopup("자동사용 해제", tn:capitalize():addJosa("는").." 더이상 자동으로 사용되지 않습니다.")
 	end
 end
 

@@ -109,7 +109,7 @@ function _M:init(actor, on_finish, on_birth)
 
 			if self.actor.unused_stats~=self.actor_dup.unused_stats or self.actor.unused_talents_types~=self.actor_dup.unused_talents_types or
 			self.actor.unused_talents~=self.actor_dup.unused_talents or self.actor.unused_generics~=self.actor_dup.unused_generics or self.actor.unused_prodigies~=self.actor_dup.unused_prodigies or changed then
-				self:yesnocancelLongPopup("완료","변경사항을 적용합니까?", game.w * 0.4, function(yes, cancel)
+				self:yesnocancelPopup("완료","변경사항을 적용합니까?", function(yes, cancel)
 				if cancel then
 					return nil
 				else
@@ -197,20 +197,20 @@ end
 function _M:incStat(sid, v)
 	if v == 1 then
 		if self.actor.unused_stats <= 0 then
-			self:simpleLongPopup("능력치 점수 부족", "남아있는 능력치 점수가 없습니다!", game.w * 0.4)
+			self:simplePopup("능력치 점수 부족", "남아있는 능력치 점수가 없습니다!")
 			return
 		end
 		if self.actor:getStat(sid, nil, nil, true) >= self.actor.level * 1.4 + 20 then
-			self:simpleLongPopup("레벨 한계치", "레벨이 더 올라야 이 능력치를 올릴수 있습니다.", game.w * 0.4)
+			self:simplePopup("레벨 한계치", "레벨이 더 올라야 이 능력치를 올릴수 있습니다.")
 			return
 		end
 		if self.actor:isStatMax(sid) or self.actor:getStat(sid, nil, nil, true) >= 60 + math.max(0, (self.actor.level - 50)) then
-			self:simpleLongPopup("최대 능력치 도달", "더 이상 이 능력치는 올릴 수 없습니다!", game.w * 0.4)
+			self:simplePopup("최대 능력치 도달", "더 이상 이 능력치는 올릴 수 없습니다!")
 			return
 		end
 	else
 		if self.actor_dup:getStat(sid, nil, nil, true) == self.actor:getStat(sid, nil, nil, true) then
-			self:simpleLongPopup("불가능", "점수를 더 반환할 수 없습니다!", game.w * 0.4)
+			self:simplePopup("불가능", "점수를 더 반환할 수 없습니다!")
 			return
 		end
 	end
@@ -307,15 +307,15 @@ function _M:learnTalent(t_id, v)
 	if not t.generic then
 		if v then
 			if self.actor.unused_talents < 1 then
-				self:simpleLongPopup("직업기술 점수 부족", "남아있는 직업기술 점수가 없습니다!", game.w * 0.4)
+				self:simplePopup("직업기술 점수 부족", "남아있는 직업기술 점수가 없습니다!")
 				return
 			end
 			if not self.actor:canLearnTalent(t) then
-				self:simpleLongPopup("기술을 배울수 없음", "선행조건에 부합하지 않아 배울 수 없습니다!", game.w * 0.4)
+				self:simplePopup("기술을 배울수 없음", "선행조건에 부합하지 않아 배울 수 없습니다!")
 				return
 			end
 			if self.actor:getTalentLevelRaw(t_id) >= self:getMaxTPoints(t) then
-				self:simpleLongPopup("이미 습득한 기술", "이미 이 기술은 완벽히 배웠습니다!", game.w * 0.4)
+				self:simplePopup("이미 습득한 기술", "이미 이 기술은 완벽히 배웠습니다!")
 				return
 			end
 			self.actor:learnTalent(t_id, true)
@@ -325,11 +325,11 @@ function _M:learnTalent(t_id, v)
 			self.new_talents_changed = true
 		else
 			if not self.actor:knowTalent(t_id) then
-				self:simpleLongPopup("불가능", "이 기술은 배우지 않았습니다!", game.w * 0.4)
+				self:simplePopup("불가능", "이 기술은 배우지 않았습니다!")
 				return
 			end
 			if not self:isUnlearnable(t, true) and self.actor_dup:getTalentLevelRaw(t_id) >= self.actor:getTalentLevelRaw(t_id) then
-				self:simpleLongPopup("불가능", "기술 습득을 취소할 수 없습니다!", game.w * 0.4)
+				self:simplePopup("불가능", "기술 습득을 취소할 수 없습니다!")
 				return
 			end
 			self.actor:unlearnTalent(t_id, nil, true)
@@ -349,15 +349,15 @@ function _M:learnTalent(t_id, v)
 	else
 		if v then
 			if self.actor.unused_generics < 1 then
-				self:simpleLongPopup("일반기술 점수 부족", "남아있는 일반기술 점수가 없습니다!", game.w * 0.4)
+				self:simplePopup("일반기술 점수 부족", "남아있는 일반기술 점수가 없습니다!")
 				return
 			end
 			if not self.actor:canLearnTalent(t) then
-				self:simpleLongPopup("기술을 배울수 없음", "선행조건에 부합하지 않아 배울 수 없습니다!", game.w * 0.4)
+				self:simplePopup("기술을 배울수 없음", "선행조건에 부합하지 않아 배울 수 없습니다!")
 				return
 			end
 			if self.actor:getTalentLevelRaw(t_id) >= self:getMaxTPoints(t) then
-				self:simpleLongPopup("이미 습득한 기술", "이미 이 기술은 완벽히 배웠습니다!", game.w * 0.4)
+				self:simplePopup("이미 습득한 기술", "이미 이 기술은 완벽히 배웠습니다!")
 				return
 			end
 			self.actor:learnTalent(t_id)
@@ -367,11 +367,11 @@ function _M:learnTalent(t_id, v)
 			self.new_talents_changed = true
 		else
 			if not self.actor:knowTalent(t_id) then
-				self:simpleLongPopup("불가능", "이 기술은 배우지 않았습니다!", game.w * 0.4)
+				self:simplePopup("불가능", "이 기술은 배우지 않았습니다!")
 				return
 			end
 			if not self:isUnlearnable(t, true) and self.actor_dup:getTalentLevelRaw(t_id) >= self.actor:getTalentLevelRaw(t_id) then
-				self:simpleLongPopup("불가능", "기술 습득을 취소할 수 없습니다!", game.w * 0.4)
+				self:simplePopup("불가능", "기술 습득을 취소할 수 없습니다!")
 				return
 			end
 			self.actor:unlearnTalent(t_id, nil, true)
@@ -396,15 +396,15 @@ function _M:learnType(tt, v)
 	self.talent_types_learned[tt] = self.talent_types_learned[tt] or {}
 	if v then
 		if self.actor:knowTalentType(tt) and self.actor.__increased_talent_types[tt] and self.actor.__increased_talent_types[tt] >= 1 then
-			self:simpleLongPopup("불가능", "기술계열 숙련은 한 번만 가능합니다!", game.w * 0.4)
+			self:simplePopup("불가능", "기술계열 숙련은 한 번만 가능합니다!")
 			return
 		end
 		if self.actor.unused_talents_types <= 0 then
-			self:simpleLongPopup("기술계열 점수 부족", "남아있는 기술계열 점수가 없습니다!", game.w * 0.4)
+			self:simplePopup("기술계열 점수 부족", "남아있는 기술계열 점수가 없습니다!")
 			return
 		end
 		if not self.actor.talents_types_def[tt] or (self.actor.talents_types_def[tt].min_lev or 0) > self.actor.level then
-			self:simpleLongPopup("미숙한 레벨", ("이 기술계열은 레벨 %d부터 사용할 수 있습니다. 지금 이 기술계열을 익히는 것은 쓸모가 없습니다."):format(self.actor.talents_types_def[tt].min_lev), game.w * 0.4)
+			self:simplePopup("미숙한 레벨", ("이 기술계열은 레벨 %d부터 사용할 수 있습니다. 지금 이 기술계열을 익히는 것은 쓸모가 없습니다."):format(self.actor.talents_types_def[tt].min_lev))
 			return
 		end
 		if not self.actor:knowTalentType(tt) then
@@ -420,15 +420,15 @@ function _M:learnType(tt, v)
 		self.new_talents_changed = true
 	else
 		if self.actor_dup:knowTalentType(tt) == true and self.actor:knowTalentType(tt) == true and (self.actor_dup.__increased_talent_types[tt] or 0) >= (self.actor.__increased_talent_types[tt] or 0) then
-			self:simpleLongPopup("불가능", "점수를 더 반환할 수 없습니다!", game.w * 0.4)
+			self:simplePopup("불가능", "점수를 더 반환할 수 없습니다!")
 			return
 		end
 		if self.actor_dup:knowTalentType(tt) == true and self.actor:knowTalentType(tt) == true and (self.actor.__increased_talent_types[tt] or 0) == 0 then
-			self:simpleLongPopup("불가능", "기술계열 숙련을 취소할 수 없습니다!", game.w * 0.4)
+			self:simplePopup("불가능", "기술계열 숙련을 취소할 수 없습니다!")
 			return
 		end
 		if not self.actor:knowTalentType(tt) then
-			self:simpleLongPopup("불가능", "이 기술계열은 배우지 않았습니다!", game.w * 0.4)
+			self:simplePopup("불가능", "이 기술계열은 배우지 않았습니다!")
 			return
 		end
 
@@ -648,10 +648,10 @@ function _M:createDisplay()
 	if self.actor.inscriptions_slots_added < 2 then
 		self.b_inscriptions = Button.new{text="각인 슬롯", fct=function()
 				if self.actor.inscriptions_slots_added >= 2 then
-					Dialog:simpleLongPopup("각인 슬롯", "당신은 벌써 최대치의 각인 슬롯을 가지고 있습니다.", game.w * 0.4)
+					Dialog:simplePopup("각인 슬롯", "당신은 벌써 최대치의 각인 슬롯을 가지고 있습니다.")
 				else
 					if self.actor.unused_talents_types > 0 then
-					Dialog:yesnoLongPopup("각인 슬롯", ("당신은 %d개의 새 각인 슬롯을 얻을 수 있습니다. 지금 기술계열 점수를 사용하여 하나를 늘리겠습니까?"):format(2 - self.actor.inscriptions_slots_added), game.w * 0.4, function(ret) if ret then
+					Dialog:yesnoPopup("각인 슬롯", ("당신은 %d개의 새 각인 슬롯을 얻을 수 있습니다. 지금 기술계열 점수를 사용하여 하나를 늘리겠습니까?"):format(2 - self.actor.inscriptions_slots_added), function(ret) if ret then
 							self.actor.unused_talents_types = self.actor.unused_talents_types - 1
 							self.actor.max_inscriptions = self.actor.max_inscriptions + 1
 							self.actor.inscriptions_slots_added = self.actor.inscriptions_slots_added + 1
@@ -659,7 +659,7 @@ function _M:createDisplay()
 							self.b_types:generate()
 						end end)
 					else
-						Dialog:simpleLongPopup("각인", ("당신은 아직 %d개의 새 각인 슬롯을 얻을 수 있지만, 기술계열 점수가 필요합니다."):format(2 - self.actor.inscriptions_slots_added), game.w * 0.4)
+						Dialog:simplePopup("각인", ("당신은 아직 %d개의 새 각인 슬롯을 얻을 수 있지만, 기술계열 점수가 필요합니다."):format(2 - self.actor.inscriptions_slots_added))
 					end
 				end
 			end, on_select=function()

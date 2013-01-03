@@ -65,7 +65,7 @@ function _M:use(item)
 
 	if act == "use" then
 		if self.object:wornInven() and not self.object.wielded and not self.object.use_no_wear then
-			self:simpleLongPopup("사용 불가", "이것은 착용해야 사용할 수 있습니다!", game.w * 0.4)
+			self:simplePopup("사용 불가", "이것은 착용해야 사용할 수 있습니다!")
 		else
 			self.actor:playerUseItem(self.object, self.item, self.inven, self.onuse)
 			self.onuse(self.inven, self.item, self.object, true)

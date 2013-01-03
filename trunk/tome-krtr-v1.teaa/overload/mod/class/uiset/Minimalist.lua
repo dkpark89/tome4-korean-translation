@@ -1249,7 +1249,7 @@ function _M:handleEffect(player, eff_id, e, p, x, y, hs, bx, by, is_first, scale
 				if not self.locked and bx >= self.mhandle_pos.buffs.x and bx <= self.mhandle_pos.buffs.x + move_handle[6] and by >= self.mhandle_pos.buffs.y and by <= self.mhandle_pos.buffs.y + move_handle[7] then self:uiMoveResize("buffs", button, mx, my, xrel, yrel, bx, by, event) end
 			end
 			if allow_remove and event == "button" and button == "right" then
-				Dialog:yesnoLongPopup(name, "정말 "..name:addJosa("를").." 취소합니까?", game.w * 0.4, function(ret)
+				Dialog:yesnoPopup(name, "정말 "..name:addJosa("를").." 취소합니까?", function(ret)
 					if ret then
 						player:removeEffect(eff_id)
 					end

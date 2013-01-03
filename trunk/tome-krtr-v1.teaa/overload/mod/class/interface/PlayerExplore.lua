@@ -2499,7 +2499,7 @@ function _M:autoExplore()
 					self.running = {
 						path = path,
 						cnt = 1,
-						dialog = Dialog:simpleLongPopup("달리는 중...", "탐사 중입니다, 멈추려면 아무키나 누르세요.", game.w * 0.4, function()
+						dialog = Dialog:simplePopup("달리는 중...", "탐사 중입니다, 멈추려면 아무키나 누르세요.", function()
 							self:runStop()
 						end, false, true),
 						explore = target_type,

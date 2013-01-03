@@ -246,9 +246,9 @@ end
 -- Do not touch!
 function _M:block_move(x, y, e, act)
 	if act and e == game.player then
-		Dialog:yesnoLongPopup(self.name, "요새로 공간이동하기를 원합니까?", game.w * 0.4, function(ret) if ret then
+		Dialog:yesnoPopup(self.name, "요새로 공간이동하기를 원합니까?", function(ret) if ret then
 			if not game.zone.wilderness then
-				Dialog:simpleLongPopup(self.name, "공간이동이 실패했습니다!", game.w * 0.4)
+				Dialog:simplePopup(self.name, "공간이동이 실패했습니다!")
 				return
 			end
 			self:takeControl(e)
