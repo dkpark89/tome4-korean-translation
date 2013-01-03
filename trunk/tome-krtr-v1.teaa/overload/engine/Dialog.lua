@@ -99,11 +99,11 @@ function _M:yesnoPopup(title, text, fct, yes_text, no_text)
 	d.drawDialog = function(self, s)
 		s:drawColorStringCentered(self.font, text, 2, 2, self.iw - 2, 25 - 2)
 		if d.sel == 0 then
-			s:drawColorStringCentered(self.font, yes_text or "Yes", 2, 25, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
-			s:drawColorStringCentered(self.font, no_text or "No", 2 + self.iw / 2, 25, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
+			s:drawColorStringCentered(self.font, yes_text or "예", 2, 25, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
+			s:drawColorStringCentered(self.font, no_text or "아니오", 2 + self.iw / 2, 25, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
 		else
-			s:drawColorStringCentered(self.font, yes_text or "Yes", 2, 25, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
-			s:drawColorStringCentered(self.font, no_text or "No", 2 + self.iw / 2, 25, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
+			s:drawColorStringCentered(self.font, yes_text or "예", 2, 25, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
+			s:drawColorStringCentered(self.font, no_text or "아니오", 2 + self.iw / 2, 25, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
 		end
 		self.changed = false
 	end
@@ -141,11 +141,11 @@ function _M:yesnoLongPopup(title, text, w, fct, yes_text, no_text)
 		end
 
 		if d.sel == 0 then
-			s:drawColorStringCentered(self.font, yes_text or "Yes", 2, 10 + h, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
-			s:drawColorStringCentered(self.font, no_text or "No", 2 + self.iw / 2, 10 + h, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
+			s:drawColorStringCentered(self.font, yes_text or "예", 2, 10 + h, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
+			s:drawColorStringCentered(self.font, no_text or "아니오", 2 + self.iw / 2, 10 + h, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
 		else
-			s:drawColorStringCentered(self.font, yes_text or "Yes", 2, 10 + h, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
-			s:drawColorStringCentered(self.font, no_text or "No", 2 + self.iw / 2, 10 + h, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
+			s:drawColorStringCentered(self.font, yes_text or "예", 2, 10 + h, self.iw / 2 - 2, 50 - 2, 255, 255, 255)
+			s:drawColorStringCentered(self.font, no_text or "아니오", 2 + self.iw / 2, 10 + h, self.iw / 2 - 2, 50 - 2, 0, 255, 255)
 		end
 		self.changed = false
 	end

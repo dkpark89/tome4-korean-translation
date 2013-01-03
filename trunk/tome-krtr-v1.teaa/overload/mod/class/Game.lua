@@ -1022,10 +1022,12 @@ function _M:updateZoneName()
 	else
 		local lev = self.level.level
 		if self.level.data.reverse_level_display then lev = 1 + self.level.data.max_level - lev end
+		--@@
+		local szn = self.zone.kr_display_name or self.zone.name
 		if self.zone.max_level == 1 then
-			name = self.zone.name
+			name = szn
 		else
-			name = ("%s (%d)"):format(self.zone.name, lev)
+			name = ("%s (%d)"):format(szn, lev)
 		end
 	end
 	if self.zone_name_s and self.old_zone_name == name then return end

@@ -151,7 +151,9 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 				game:onTickEnd(function() src:removeEffect(src.EFF_FROZEN) end)
 				eff.begone = game.turn
 			else
-				game:delayedLogDamage(src, {name="Iceblock", x=src.x, y=src.y}, dam, ("%s%d %s#LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), DamageType:get(type).name))
+				--@@
+				local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name
+				game:delayedLogDamage(src, {name="Iceblock", x=src.x, y=src.y}, dam, ("%s%d %s#LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), dtn))
 				if eff.begone and eff.begone < game.turn and eff.hp < 0 then
 					game.logSeen(src, "%s forces the iceblock to shatter.", src.name:capitalize())
 					src:removeEffect(src.EFF_FROZEN)
@@ -349,10 +351,12 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		-- Log damage for later
 		if not DamageType:get(type).hideMessage then
 			local srcname = src.x and src.y and game.level.map.seens(src.x, src.y) and src.name:capitalize() or "Something"
+			--@@
+			local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name
 			if src.turn_procs and src.turn_procs.is_crit then
-				game:delayedLogDamage(src, target, dam, ("#{bold}#%s%d %s#{normal}##LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), DamageType:get(type).name), true)
+				game:delayedLogDamage(src, target, dam, ("#{bold}#%s%d %s#{normal}##LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), dtn), true)
 			else
-				game:delayedLogDamage(src, target, dam, ("%s%d %s#LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), DamageType:get(type).name), false)
+				game:delayedLogDamage(src, target, dam, ("%s%d %s#LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), dtn), false)
 			end
 		end
 
