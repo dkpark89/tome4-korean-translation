@@ -2209,7 +2209,9 @@ newEffect{
 		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="burnt to death by cauterize"})
 
 		local srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
-		game:delayedLogDamage(self, self, val, ("%s%d %s#LAST#"):format(DamageType:get(DamageType.FIRE).text_color or "#aaaaaa#", math.ceil(val), DamageType:get(DamageType.FIRE).name), false)
+		--@@
+		local dtn = DamageType:get(DamageType.FIRE).kr_display_name or DamageType:get(DamageType.FIRE).name
+		game:delayedLogDamage(self, self, val, ("%s%d %s#LAST#"):format(DamageType:get(DamageType.FIRE).text_color or "#aaaaaa#", math.ceil(val), dtn), false)
 	end,
 }
 
