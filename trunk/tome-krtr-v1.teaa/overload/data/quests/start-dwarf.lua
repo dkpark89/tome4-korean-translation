@@ -16,16 +16,16 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
-
 name = "Reknor is lost!"
+kr_display_name = "Reknor은 함락되었다!"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You were part of a group of dwarves sent to investigate the situation of the kingdom of Reknor."
-	desc[#desc+1] = "When you arrived there you found nothing but orcs, well organized and very powerful."
-	desc[#desc+1] = "Most of your team was killed there and now you and Norgan (the sole survivor besides you) must hurry back to the Iron Council to bring the news."
-	desc[#desc+1] = "Let nothing stop you."
+	desc[#desc+1] = "당신은 the kingdom of Reknor의 상황을 조사하기 위해 파견된 드워프의 일원이었습니다."
+	desc[#desc+1] = "당신이 그곳에 도착하여 찾아낸 것은 잘 조직되고 매우 강력한 오크들 뿐이었습니다."
+	desc[#desc+1] = "대부분의 동료는 거기서 죽어버렸으니 이제 유일한 생존자인 당신과 Norgan은 최대한 빨리 the Iron Council에 돌아가 이 사실을 알려야합니다."
+	desc[#desc+1] = "그 무엇도 막지 못하도록 하십시오."
 	if self:isCompleted("norgan-survived") then
-		desc[#desc+1] = "Both Norgan and you made it home."
+		desc[#desc+1] = "Norgan과 당신은 고향에 돌아왔습니다."
 	end
 	return table.concat(desc, "\n")
 end

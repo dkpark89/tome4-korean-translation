@@ -21,14 +21,14 @@ name = "Spellblaze Fallouts"
 stables = 0
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "The Abashed Expanse is a part of Eyal torn apart by the Spellblaze and thrown into the void between the stars.\n"
-	desc[#desc+1] = "It has recently begun to destabilize, threatening to crash onto Eyal, destroying everything in its path.\n"
-	desc[#desc+1] = "You have entered it and must now stabilize three wormholes by firing any spell at them.\n"
-	desc[#desc+1] = "Remember, the floating islands are not stable and might teleport randomly. However, the disturbances also help you: your Phase Door spell is fully controllable even if not of high level yet.\n"
+	desc[#desc+1] = "The Abashed Expanse는 Eyal의 일부로, the Spellblaze에 의해 떨어져나가 별들 사이의 공허로 내던져졌습니다.\n"
+	desc[#desc+1] = "그것은 최근 불안정해지기 시작했고, 앞을 가로막는 것들을 모조리 파괴하며 Eyal을 향해 날아오고 있습니다.\n"
+	desc[#desc+1] = "당신은 그 안에 들어가 웜홀에 아무 주문이나 발사하여 세 개의 웜홀을 안정화 해야합니다.\n"
+	desc[#desc+1] = "조심하십시오. 그 떠돌이 섬은 불안정하기 때문에 무작위로 공간이동을 당할 수도 있습니다. 하지만 나쁜 점만 있는것은 아닙니다. 당신은 레벨에 상관없이 Phase Door 주문을 완벽히 제어할 수 있게됩니다.\n"
 	if self:isCompleted("abashed") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the expanse and closed all three wormholes.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 the expanse를 탐험하여 세 개의 웜홀을 모두 닫았습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You have closed "..self.stables.." wormhole(s).#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 "..self.stables.." 웜홀을 닫았습니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

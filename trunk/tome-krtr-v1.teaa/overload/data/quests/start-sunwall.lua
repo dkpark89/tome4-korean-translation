@@ -18,19 +18,20 @@
 -- darkgod@te4.org
 
 name = "Serpentine Invaders"
+kr_display_name = "음흉한 침략자"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Nagas are invading the slazish fens. The Sunwall cannot fight on two fronts; you need to stop the invaders before it is too late.\n Locate and destroy the invaders' portal."
+	desc[#desc+1] = "나가들이 the slazish fens를 침략합니다. The Sunwall은 두 전선에서 동시에 싸울 수 없습니다. 너무 늦기전에 당신이 침략자들을 막아야 합니다.\n 침략자들의 포탈을 찾아 파괴하십시오."
 	if self:isCompleted("slazish") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have destroyed the naga portal. The invasion is stopped.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 나가 포탈을 파괴했습니다. 침략이 멈췄습니다.#WHITE#"
 
 		if self:isCompleted("return") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You are back in Var'Eyal, the Far East as the people from the west call it.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 서역 사람들이 극동지역이라 부르던 Var'Eyal로 돌아왔습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#SLATE#* However, you were teleported to a distant land. You must find a way back to the Gates of Morning.#WHITE#"
+			desc[#desc+1] = "#SLATE#* 하지만 당신은 머나먼 땅에 떨어졌습니다. the Gates of Morning으로 돌아갈 방법을 찾아야 합니다.#WHITE#"
 		end
 	else
-		desc[#desc+1] = "#SLATE#* You must stop the nagas.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 나가를 막아야합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end
