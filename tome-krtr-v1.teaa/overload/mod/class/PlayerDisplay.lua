@@ -457,7 +457,7 @@ function _M:display()
 		end
 		if arena.event > 0 then
 			if arena.event == 1 then
-				self:makeTexture((" [미니보스]"), x + (self.font_w * 13), h, 255, 255, 100)
+				self:makeTexture((" [중간보스]"), x + (self.font_w * 13), h, 255, 255, 100)
 			elseif arena.event == 2 then
 				self:makeTexture((" [보스]"), x + (self.font_w * 13), h, 255, 0, 255)
 			elseif arena.event == 3 then
