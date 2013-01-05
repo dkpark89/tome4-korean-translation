@@ -1145,7 +1145,7 @@ function _M:displayResources(scale, bx, by, a)
 			local _event = ""
 			if arena.event > 0 then
 				if arena.event == 1 then
-					_event = "[미니보스]"
+					_event = "[중간보스]"
 				elseif arena.event == 2 then
 					_event = "[보스]"
 				elseif arena.event == 3 then

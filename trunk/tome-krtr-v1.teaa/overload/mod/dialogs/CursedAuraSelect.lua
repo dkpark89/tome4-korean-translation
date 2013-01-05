@@ -29,11 +29,11 @@ module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(actor)
 	self.actor = actor
-	Dialog.init(self, "Cursed Aura Selection", 1, 1)
+	Dialog.init(self, "저주의 오러 선택", 1, 1)
 
 	self:generateList()
 
-	local c_desc = Textzone.new{width=350, auto_height=true, text="A malevolent aura begins to form around you. Choose your curse:"}
+	local c_desc = Textzone.new{width=350, auto_height=true, text="사악한 오러가 당신의 주변에 자리잡습니다. 저주를 선택하세요:"}
 	local c_list = List.new{width=350, height=400, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 	self:loadUI{
 		{left=0, top=0, ui=c_desc},

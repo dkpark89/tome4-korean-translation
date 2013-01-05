@@ -1971,6 +1971,7 @@ function _M:placeRandomLoreObject(define, zone)
 	end
 end
 
+--@@ 아랫부분이 번역이 필요한지?
 unlocks_list = {
 	birth_transmo_chest = "Birth option: Transmogrification Chest",
 	birth_zigur_sacrifice = "Birth option: Zigur sacrifice",
