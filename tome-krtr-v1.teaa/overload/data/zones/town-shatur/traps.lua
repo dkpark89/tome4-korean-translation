@@ -21,6 +21,7 @@ load("/data/general/traps/store.lua")
 
 newEntity{ base = "BASE_STORE", define_as = "HEAVY_ARMOR_STORE",
 	name="Armoury",
+	kr_display_name = "방어구점",
 	display='2', color=colors.UMBER, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -31,6 +32,7 @@ newEntity{ base = "BASE_STORE", define_as = "HEAVY_ARMOR_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "LIGHT_ARMOR_STORE",
 	name="Tanner",
+	kr_display_name = "무두장이",
 	display='2', color=colors.UMBER, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -41,6 +43,7 @@ newEntity{ base = "BASE_STORE", define_as = "LIGHT_ARMOR_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "SWORD_WEAPON_STORE",
 	name="Swordsmith",
+	kr_display_name = "검의 대장간",
 	display='3', color=colors.UMBER, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_snow_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -51,6 +54,7 @@ newEntity{ base = "BASE_STORE", define_as = "SWORD_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "MAUL_WEAPON_STORE",
 	name="Nature's Punch",
+	kr_display_name = "자연의 충격",
 	display='3', color=colors.UMBER, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_snow_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -61,6 +65,7 @@ newEntity{ base = "BASE_STORE", define_as = "MAUL_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 	name="Silent Hunter",
+	kr_display_name = "조용한 사냥꾼",
 	display='3', color=colors.UMBER, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_snow_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -71,6 +76,7 @@ newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "HERBALIST",
 	name="Herbalist",
+	kr_display_name = "약초상",
 	display='4', color=colors.LIGHT_BLUE,image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -81,6 +87,7 @@ newEntity{ base = "BASE_STORE", define_as = "HERBALIST",
 
 newEntity{ base = "BASE_STORE", define_as = "MINDSTAR",
 	name="Night's Star",
+	kr_display_name = "밤의 별",
 	display='3', color=colors.LIGHT_GREEN, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,

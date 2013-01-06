@@ -21,48 +21,56 @@ load("/data/general/traps/store.lua")
 
 newEntity{ base = "BASE_STORE", define_as = "HEAVY_ARMOR_STORE",
 	name="Armoury",
+	kr_display_name = "방어구점",
 	display='2', color=colors.UMBER,
 	resolvers.store("HEAVY_ARMOR", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_armory.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "LIGHT_ARMOR_STORE",
 	name="Tanner",
+	kr_display_name = "무두장이",
 	display='2', color=colors.UMBER,
 	resolvers.store("LIGHT_ARMOR", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_tanner.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "SWORD_WEAPON_STORE",
 	name="Swordsmith",
+	kr_display_name = "검의 대장간",
 	display='3', color=colors.UMBER,
 	resolvers.store("SWORD_WEAPON", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_swordsmith.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "KNIFE_WEAPON_STORE",
 	name="Knives and daggers",
+	kr_display_name = "비수와 단검",
 	display='3', color=colors.UMBER,
 	resolvers.store("KNIFE_WEAPON", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_knives.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 	name="Death from Afar",
+	kr_display_name = "죽음에서 멀어지는 법",
 	display='3', color=colors.UMBER,
 	resolvers.store("ARCHER_WEAPON", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_bows.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "HERBALIST",
 	name="Herbalist",
+	kr_display_name = "약초상",
 	display='4', color=colors.LIGHT_BLUE,
 	resolvers.store("POTION", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_herbalist.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "JEWELRY",
 	name="Jewelry",
+	kr_display_name = "장신구",
 	display='9', color=colors.LIGHT_RED,
 	resolvers.store("GEMSTORE", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_jewelry.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "ALCHEMIST",
 	name="Home of Stire the Alchemist",
+	kr_display_name = "연금술사 스티르의 집",
 	display='*', color=colors.UMBER, image = "store/shop_door_barred.png",
 	resolvers.chatfeature("alchemist-derth", "allied-kingdoms"),
 }

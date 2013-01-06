@@ -23,11 +23,13 @@ load("/data/general/grids/water.lua")
 
 newEntity{ base = "GRASS", define_as = "FIELDS",
 	name="cultivated fields",
+	kr_display_name = "경작지",
 	display=';', image="terrain/cultivation.png"
 }
 
 newEntity{ base = "FLOOR", define_as = "COBBLESTONE",
 	name="cobblestone road",
+	kr_display_name = "조약돌 포장도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }

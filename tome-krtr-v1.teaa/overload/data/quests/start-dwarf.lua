@@ -17,10 +17,10 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 name = "Reknor is lost!"
-kr_display_name = "렌코르는 함락되었다!"
+kr_display_name = "레크놀는 함락되었다!"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "당신은 렌코르 왕국(the kingdom of Reknor)의 상황을 조사하기 위해 파견된 드워프의 일원이었습니다."
+	desc[#desc+1] = "당신은 레크놀 왕국(the kingdom of Reknor)의 상황을 조사하기 위해 파견된 드워프의 일원이었습니다."
 	desc[#desc+1] = "당신이 그곳에 도착하여 찾아낸 것은 잘 조직되고 매우 강력한 오크들 뿐이었습니다."
 	desc[#desc+1] = "대부분의 동료는 거기서 죽어버렸으니 이제 유일한 생존자인 당신과 놀간(Norgan)은 최대한 빨리 철의 평의회(the Iron Council)에 돌아가 이 사실을 알려야합니다."
 	desc[#desc+1] = "그 무엇도 막지 못하도록 하십시오."

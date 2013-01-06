@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "dwarf",
 	display = "p", color=colors.WHITE,
 	faction = "iron-throne",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -52,7 +52,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_IRON_COUNCIL_TOWN",
 	name = "dwarven guard", color=colors.LIGHT_UMBER,
-	desc = [[A stocky dwarf, he looks angry.]],
+	kr_display_name = "드워프 경비",
+	desc = [[옹골차 보이는 드워프로, 그는 화난것처럼 보입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_IRON_COUNCIL_TOWN",
 
 newEntity{ base = "BASE_NPC_IRON_COUNCIL_TOWN",
 	name = "dwarven earthwarden", color=colors.RED,
-	desc = [[A stocky dwarf, he looks angry.]],
+	kr_display_name = "드워프 대지의 감시자",
+	desc = [[옹골차 보이는 드워프로, 그는 화난것처럼 보입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),

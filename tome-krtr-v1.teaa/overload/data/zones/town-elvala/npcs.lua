@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "shalore",
 	display = "p", color=colors.WHITE,
 	faction = "shalore",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -51,7 +51,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "elvala guard", color=colors.LIGHT_UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_display_name = "엘발라 경비",
+	desc = [[엄격해 보이는 경비입니다. 그는 당신이 마을을 어지럽히는걸 용납하지 않을것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "shalore rune master", color=colors.RED,
-	desc = [[A tall elf, his skin covered in runes.]],
+	kr_display_name = "샬로레 룬의 명인",
+	desc = [[온몸이 룬으로 뒤덮힌 키 큰 엘프입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),

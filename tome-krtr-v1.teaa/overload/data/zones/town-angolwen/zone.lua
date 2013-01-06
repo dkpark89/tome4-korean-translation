@@ -19,6 +19,7 @@
 
 return {
 	name = "Angolwen",
+	kr_display_name = "앙골웬",
 	level_range = {20, 50},
 	level_scheme = "player",
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,

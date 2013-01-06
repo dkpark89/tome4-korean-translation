@@ -19,6 +19,7 @@
 
 return {
 	name = "Small lumberjack village",
+	kr_display_name = "작은 나무꾼 마을",
 	level_range = {8, 14},
 	max_level = 1,
 	width = 25, height = 25,

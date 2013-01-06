@@ -19,6 +19,7 @@
 
 return {
 	name = "Point Zero",
+	kr_display_name = "영점",
 	level_range = {1, 15},
 	level_scheme = "player",
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,
@@ -92,6 +93,7 @@ return {
 
 				local g = game.level.map(z.x1, z.y1, engine.Map.TERRAIN):cloneFull()
 				g.name = "temporal beam endpoint"
+				g.kr_display_name = "시간의 빔의 끝"
 				g:removeAllMOs()
 				g.nice_tiler = nil
 				g.exit = {x=z.x2, y=z.y2}
@@ -111,6 +113,7 @@ return {
 
 				local g = game.level.map(z.x2, z.y2, engine.Map.TERRAIN):cloneFull()
 				g.name = "temporal beam endpoint"
+				g.kr_display_name = "시간의 빔의 끝"
 				g:removeAllMOs()
 				g.nice_tiler = nil
 				g.exit = {x=z.x1, y=z.y1}

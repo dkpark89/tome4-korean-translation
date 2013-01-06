@@ -19,6 +19,7 @@
 
 return {
 	name = "Last Hope",
+	kr_display_name = "마지막 희망",
 	level_range = {15, 35},
 	level_scheme = "player",
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,
