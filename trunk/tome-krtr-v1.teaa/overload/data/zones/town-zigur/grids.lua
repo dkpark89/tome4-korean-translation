@@ -25,7 +25,8 @@ load("/data/general/grids/forest.lua")
 newEntity{
 	define_as = "POST",
 	name = "Zigur Postsign", lore="zigur-post",
-	desc = [[The laws of the Ziguratnh]],
+	kr_display_name = "지구르 공고판",
+	desc = [[지구르 추종자의 규율]],
 	image = "terrain/grass.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},
@@ -37,6 +38,7 @@ newEntity{
 
 newEntity{ define_as = "LAVA",
 	name='lava pit',
+	kr_display_name = "용암 구덩이",
 	display='~', color=colors.LIGHT_RED, back_color=colors.RED,
 	always_remember = true, does_block_move = true,
 	image="terrain/lava_floor.png",
@@ -44,6 +46,7 @@ newEntity{ define_as = "LAVA",
 
 newEntity{ base = "GRASS", define_as = "FIELDS",
 	name="cultivated fields",
+	kr_display_name = "경작지",
 	display=';', image="terrain/cultivation.png",
 	nice_tiler = { method="replace", base={"FIELDS", 100, 1, 4}},
 }
@@ -51,12 +54,14 @@ for i = 1, 4 do newEntity{ base = "FIELDS", define_as = "FIELDS"..i, image="terr
 
 newEntity{ base = "FLOOR", define_as = "COBBLESTONE",
 	name="cobblestone road",
+	kr_display_name = "조약돌 포장도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }
 
 newEntity{ base = "HARDWALL", define_as = "ROCK",
 	name="giant rock",
+	kr_display_name = "거대한 바위",
 	image="terrain/oldstone_floor.png", z=1, add_displays = {class.new{z=2, image="terrain/huge_rock.png"}},
 	nice_tiler = false,
 }
@@ -64,6 +69,7 @@ newEntity{ base = "HARDWALL", define_as = "ROCK",
 newEntity{
 	define_as = "CLOSED_GATE",
 	name = "closed gate", image = "terrain/sealed_door.png",
+	kr_display_name = "닫힌 관문",
 	display = '+', color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -75,6 +81,7 @@ newEntity{
 	define_as = "OPEN_GATE",
 	type = "wall", subtype = "floor",
 	name = "open gate", image = "terrain/sealed_door_cracked.png",
+	kr_display_name = "열린 관문",
 	display = "'", color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,

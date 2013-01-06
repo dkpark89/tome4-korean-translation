@@ -1427,7 +1427,7 @@ local random_zone_themes = {
 		getDown = function(self) return "UNDERGROUND_LADDER_DOWN" end,
 	} end },
 	-- Crystals
-	{ name="crystal", kr_display_name="크리스탈", rarity=4, gen=function() return {
+	{ name="crystal", kr_display_name="수정", rarity=4, gen=function() return {
 		load_grids = {"/data/general/grids/underground.lua"},
 		getDoor = function(self) return "CRYSTAL_FLOOR" end,
 		getFloor = function(self) return "CRYSTAL_FLOOR" end,

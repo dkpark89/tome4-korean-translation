@@ -225,7 +225,7 @@ function _M:checkAngered(src, set, value)
 
 	if not was_hostile and self:reactionToward(src) < 0 then
 		if self.anger_emote then
-			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "her" or "him"), 30)
+			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "그녀를" or "그를"), 30) --@@
 		end
 	end
 end

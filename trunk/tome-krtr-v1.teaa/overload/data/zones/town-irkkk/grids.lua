@@ -24,5 +24,6 @@ load("/data/general/grids/water.lua")
 
 newEntity{ base="BAMBOO_HUT_FLOOR", define_as="BAMBOO_HUT_COOKING3",
 	name = "cooking pit", display = '*',
+	kr_display_name = "조리대",
 	add_mos = {{image="terrain/bamboo/floor_deco_cooking_pit_c_01.png"}},
 }

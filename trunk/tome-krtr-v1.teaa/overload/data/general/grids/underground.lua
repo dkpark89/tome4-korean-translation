@@ -84,7 +84,7 @@ newEntity{
 	define_as = "CRYSTAL_WALL"..(i > 1 and i or ""),
 	type = "wall", subtype = "underground",
 	name = "crystals",
-	kr_display_name = "크리스탈",
+	kr_display_name = "수정",
 	image = "terrain/crystal_floor1.png",
 	add_displays = class:makeCrystals("terrain/crystal_alpha"),
 	display = '#', color=colors.LIGHT_BLUE, back_color=colors.UMBER,
