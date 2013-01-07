@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newEntity{ define_as = "TRAP_ALARM",
 	type = "annoy", subtype="alarm", id_by_type=true, unided_name = "trap",
 	display = '^',
@@ -25,10 +27,11 @@ newEntity{ define_as = "TRAP_ALARM",
 
 newEntity{ base = "TRAP_ALARM",
 	name = "intruder alarm", auto_id = true, image = "trap/trap_intruder_alarm_01.png",
+	kr_display_name = "침입감지 경보",
 	detect_power = 20, disarm_power = 36,
 	rarity = 3, level_range = {1, 50},
 	color=colors.UMBER,
-	message = "@Target@ triggers an alarm!",
+	message = "@Target1@ 경보가 울게 만들었습니다!",
 	pressure_trap = true,
 	triggered = function(self, x, y, who)
 		for i = x - 20, x + 20 do for j = y - 20, y + 20 do if game.level.map:isBound(i, j) then
@@ -50,11 +53,12 @@ newEntity{ base = "TRAP_ALARM",
 
 newEntity{ base = "TRAP_ALARM",
 	name = "summoning alarm", auto_id = true, image = "trap/trap_summoning_alarm_01.png",
+	kr_display_name = "소환 경보",
 	detect_power = 8, disarm_power = 2,
 	rarity = 3, level_range = {10, 50},
 	color=colors.DARK_UMBER,
 	nb_summon = resolvers.mbonus(3, 2),
-	message = "An alarm rings!",
+	message = "경보가 울립니다!",
 	triggered = function(self, sx, sy, who)
 		for i = 1, self.nb_summon do
 			-- Find space
@@ -67,7 +71,9 @@ newEntity{ base = "TRAP_ALARM",
 			local m = game.zone:makeEntity(game.level, "actor")
 			if m then
 				game.zone:addEntity(game.level, m, "actor", x, y)
-				game.logSeen(who, "%s appears out of the thin air!", m.name:capitalize())
+				--@@
+				local mn = m.kr_display_name or m.name
+				game.logSeen(who, "%s 짙은 대기를 뚫고 나타납니다!", mn:capitalize():addJosa("가"))
 			end
 		end
 		return true, true

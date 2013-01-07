@@ -27,7 +27,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 	display = "p",
 	faction = "sunwall",
 	name = "High Sun Paladin Aeryn", color=colors.VIOLET, unique = true,
-	kr_idsplay_name = "고위 태양의 기사 아에린",
+	kr_display_name = "고위 태양의 기사 아에린",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_high_sun_paladin_aeryn.png", display_h=2, display_y=-1}}},
 	desc = [[빛나는 판갑을 입은 아름다운 여성입니다. 그녀로부터 힘이 퍼져나갑니다.]],
 	level_range = {50, nil}, exp_worth = 2,
@@ -73,7 +73,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 		if not game.player:hasQuest("orc-pride") then
 			game.player:setQuestStatus("orc-hunt", engine.Quest.DONE)
 			game.player:grantQuest("orc-pride")
-			game.logPlayer(game.player, "아에린의 육체에서 오크의 자부심의 위치가 적현 종이를 발견했습니다.")
+			game.logPlayer(game.player, "아에린의 육체에서 오크 무리의 위치가 적현 종이를 발견했습니다.")
 		end
 	end,
 

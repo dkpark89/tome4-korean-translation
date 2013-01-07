@@ -243,8 +243,8 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.kr_display_name or self.name --@@
-
+	local name = self.name --self.kr_display_name or self.name --@@ 일단 원래 이름만 나오도록 만듦
+	
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
 	-- To extend later
@@ -1305,7 +1305,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	compare_with = compare_with or {}
 
 	desc:merge(self:getName(name_param):toTString())
-	desc:add("\n (",self.name,")") --@@ 원래이름 덧붙이기
+	-- desc:add("\n (",self.name,")") --@@ 원래이름 덧붙이기 --@@ 일단 원래 이름만 나오도록 만듦
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(game.player)
 	if reqs then

@@ -25,11 +25,12 @@ newEntity{ define_as = "TRAP_TELEPORT",
 
 newEntity{ base = "TRAP_TELEPORT",
 	name = "teleport trap", auto_id = true, image = "trap/trap_teleport_01.png",
+	kr_display_name = "공간이동 함정",
 	desc = [[Now you know why nobody ever got close enough to disarm this trap...]],
 	detect_power = resolvers.mbonus(5, 40), disarm_power = resolvers.mbonus(10, 50),
 	rarity = 5, level_range = {5, 50},
 	color=colors.UMBER,
-	message = "@Target@ is teleported away.",
+	message = "@Target1@ 멀리 공간이동됩니다.",
 	pressure_trap = true,
 	triggered = function(self, x, y, who)
 		who:teleportRandom(x, y, 100)

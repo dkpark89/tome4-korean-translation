@@ -49,7 +49,7 @@ end
 function _M:tooltip()
 	if self:knownBy(game.player) then
 		--@@
-		local sn = self:getName().."("..self.name..")"
+		local sn = self:getName().." ["..self.name.."]"
 		local res = tstring{{"uid", self.uid}, sn}
 		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		if config.settings.cheat then

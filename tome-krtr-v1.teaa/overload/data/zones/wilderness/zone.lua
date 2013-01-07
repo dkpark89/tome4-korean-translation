@@ -19,6 +19,7 @@
 
 return {
 	name = "World of Eyal",
+	kr_display_name = "마즈'에이알",
 	display_name = function(x, y) return game.level and game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename") or "Eyal" end,
 	variable_zone_name = true,
 	level_range = {1, 1},

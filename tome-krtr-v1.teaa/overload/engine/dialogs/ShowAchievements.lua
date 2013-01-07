@@ -112,7 +112,7 @@ function _M:select(item)
 		end
 		self.c_image.item = item.tex
 		local track = self:getTrack(item.a)
-		local desc = ("#GOLD#%s#LAST#\n(%s)\n\n#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@@
+		local desc = ("#GOLD#%s#LAST#\n[%s]\n\n#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@@
 		if track then
 			desc:add(true, true, {"color","GOLD"}, "진행정도: ", {"color","LAST"})
 			desc:merge(track)
