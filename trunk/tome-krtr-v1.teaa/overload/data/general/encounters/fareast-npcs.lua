@@ -21,6 +21,7 @@ class = require("mod.class.WorldNPC")
 
 newEntity{
 	name = "Sun Paladins patrol",
+	kr_display_name = "태양의 기사 순찰대",
 	type = "patrol", subtype = "sunwall",
 	display = 'p', color = colors.GOLD,
 	faction = "sunwall",
@@ -47,6 +48,7 @@ newEntity{
 
 newEntity{
 	name = "Anorithil patrol",
+	kr_display_name = "아노리실 순찰대",
 	type = "patrol", subtype = "sunwall",
 	display = 'p', color = colors.YELLOW,
 	faction = "sunwall",
@@ -73,6 +75,7 @@ newEntity{
 
 newEntity{
 	name = "Orcs patrol",
+	kr_display_name = "오크 순찰대",
 	type = "patrol", subtype = "orc pride",
 	display = 'o', color = colors.GREY,
 	faction = "orc-pride",

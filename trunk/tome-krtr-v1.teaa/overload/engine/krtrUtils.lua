@@ -571,7 +571,7 @@ function string.krFaction(str)
 	local ori = str:lower()
 	if ori == "rhalore" then return "랄로레"
 	elseif ori == "fearscape" then return "공포의 영역"
-	elseif ori == "orc pride" then return "오크의 자부심"
+	elseif ori == "orc pride" then return "오크 무리"
 	elseif ori == "sunwall" then return "태양의 장벽"
 	elseif ori == "zigur" then return "지구르"
 	elseif ori == "angolwen" then return "앙골웬"
@@ -672,7 +672,7 @@ function string.krLoreCategory(str)
 	elseif ori == "misc" then return "기타"
 	elseif ori == "myths of creation" then return "창조 신화"
 	elseif ori == "old forest" then return "오래된 숲"
-	elseif ori == "orc prides" then return "오크의 자부심"
+	elseif ori == "orc prides" then return "오크 무리"
 	elseif ori == "races" then return "종족"
 	elseif ori == "rhaloren" then return "랄로레"
 	elseif ori == "ruined dungeon" then return "파괴된 던전"

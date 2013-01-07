@@ -1417,7 +1417,7 @@ function _M:tooltip(x, y, seen_by)
 	end
 
 	--@@
-	local sn = self.kr_display_name or self.name
+	local sn = self.kr_display_name and self.kr_display_name.." ["..self.name.."]" or self.name
 
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(sn, {"color", "WHITE"})

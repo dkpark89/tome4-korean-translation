@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "Underwater Cave",
+	kr_display_name = "수중 동굴",
 	type = "harmless", subtype = "special", unique = true,
 	level_range = {30, 40},
 	rarity = 1,
@@ -33,6 +34,7 @@ newEntity{
 		g:removeAllMOs()
 		g.__nice_tile_base = nil
 		g.name = "Entrance to an underwater cave"
+		g.kr_display_name = "수중 동굴로의 입구"
 		g.display='>' g.color_r=colors.AQUAMARINE.r g.color_g=colors.AQUAMARINE.g g.color_b=colors.AQUAMARINE.b g.notice = true
 		g.change_level=1 g.change_zone="flooded-cave" g.glow=true
 		g.add_displays = g.add_displays or {}
@@ -41,13 +43,14 @@ newEntity{
 		g.does_block_move = nil
 		g:initGlow()
 		game.zone:addEntity(game.level, g, "terrain", x, y)
-		game.logPlayer(who, "#LIGHT_BLUE#You notice an entrance to an underwater cave.")
+		game.logPlayer(who, "#LIGHT_BLUE#당신은 수중동굴로의 입구를 발견했습니다.")
 		return true
 	end,
 }
 
 newEntity{
 	name = "Shadow Crypt",
+	kr_display_name = "그림자 지하실",
 	type = "hostile", subtype = "special", unique = true,
 	immediate = {"world-encounter", "fareast"},
 	on_encounter = function(self, who)
@@ -57,6 +60,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Entrance to a dark crypt"
+		g.kr_display_name = "어두운 지하실로의 입구"
 		g.display='>' g.color_r=128 g.color_g=128 g.color_b=128 g.notice = true
 		g.change_level=1 g.change_zone="shadow-crypt" g.glow=true
 		g.add_displays = g.add_displays or {}
@@ -70,6 +74,7 @@ newEntity{
 
 newEntity{
 	name = "Orc Breeding Pit",
+	kr_display_name = "오크 사육 구덩이",
 	type = "hostile", subtype = "special", unique = true,
 	immediate = {"world-encounter", "fareast"},
 	on_encounter = function(self, who)
@@ -79,6 +84,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Entrance to the orc breeding pit"
+		g.kr_display_name = "오크 사육 구덩이로의 입구"
 		g.display='>' g.color_r=colors.GREEN.r g.color_g=colors.GREEN.g g.color_b=colors.GREEN.b g.notice = true
 		g.change_level=1 g.change_zone="orc-breeding-pit" g.glow=true
 		g.add_displays = g.add_displays or {}

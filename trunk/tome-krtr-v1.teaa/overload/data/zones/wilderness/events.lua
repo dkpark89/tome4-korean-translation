@@ -18,5 +18,5 @@
 -- darkgod@te4.org
 
 return {
-	{name="noxious-caldera", percent=30, special=function() if game:getPlayer(true) and game:getPlayer(true).descriptor and game:getPlayer(true).descriptor.race == "Yeek" then return true end end},
+	{name="noxious-caldera", kr_display_name="유독성 용암분지", percent=30, special=function() if game:getPlayer(true) and game:getPlayer(true).descriptor and game:getPlayer(true).descriptor.race == "Yeek" then return true end end},
 }

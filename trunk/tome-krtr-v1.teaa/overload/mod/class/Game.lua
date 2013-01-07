@@ -1023,7 +1023,7 @@ function _M:updateZoneName()
 		local lev = self.level.level
 		if self.level.data.reverse_level_display then lev = 1 + self.level.data.max_level - lev end
 		--@@
-		local szn = self.zone.kr_display_name or self.zone.name
+		local szn = (self.zone.kr_display_name and self.zone.kr_display_name.." ["..self.zone.name.."]") or self.zone.name
 		if self.zone.max_level == 1 then
 			name = szn
 		else

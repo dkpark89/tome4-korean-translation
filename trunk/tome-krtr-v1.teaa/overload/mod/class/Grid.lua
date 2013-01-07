@@ -128,7 +128,7 @@ end
 function _M:tooltip(x, y)
 	local tstr
 	--@@
-	local sn = self.kr_display_name and self.kr_display_name.."("..self.name..")" or self.name
+	local sn = self.kr_display_name and self.kr_display_name.." ["..self.name.."]" or self.name
 	
 	if self.show_tooltip then
 		local name = ((self.show_tooltip == true) and sn or self.show_tooltip) --@@

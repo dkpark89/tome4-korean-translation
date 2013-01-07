@@ -75,6 +75,6 @@ end
 function _M:select(item)
 	if item then
 		--@@
-		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n        (%s)\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.ori_name:toString(), item.nb, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n        [%s]\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.ori_name:toString(), item.nb, item.desc))
 	end
 end

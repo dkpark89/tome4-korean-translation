@@ -21,6 +21,7 @@ class = require("mod.class.WorldNPC")
 
 newEntity{
 	name = "Allied Kingdoms human patrol",
+	kr_display_name = "왕국 연합 인간 순찰대",
 	type = "patrol", subtype = "allied kingdoms",
 	display = 'p', color = colors.LIGHT_UMBER,
 	faction = "allied-kingdoms",
@@ -47,6 +48,7 @@ newEntity{
 
 newEntity{
 	name = "Allied Kingdoms halfling patrol",
+	kr_display_name = "왕국 연합 하플링 순찰대",
 	type = "patrol", subtype = "allied kingdoms",
 	display = 'p', color = colors.UMBER,
 	faction = "allied-kingdoms",
@@ -73,6 +75,7 @@ newEntity{
 
 newEntity{
 	name = "adventurers party",
+	kr_display_name = "여행자 무리",
 	type = "hostile", subtype = "humanoid",
 	display = '@', color = colors.UMBER,
 	level_range = {14, nil},
@@ -106,8 +109,9 @@ newEntity{
 
 newEntity{
 	name = "ziguranth patrol",
+	kr_display_name = "지구르 추종자 순찰대",
 	type = "hostile", subtype = "humanoid",
-	desc = "You have got nothing to fear if you are not using filthy arcane magic. Otherwise: DIE!",
+	desc = "당신이 추잡한 마법을 사용하지 않는다면, 무서움을 느낄 필요는 전혀 없습니다. 그게 아니라면, 죽어!",
 	display = '@', color = colors.GREEN,
 	level_range = {14, nil},
 	faction = "zigur",
