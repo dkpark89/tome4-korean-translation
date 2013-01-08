@@ -1338,7 +1338,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	compare_with = compare_with or {}
 
 	desc:merge(self:getKrName(name_param):toTString()) --@@ 한글 이름 붙이기
-	desc:add( ("\n[%s]\n"):format(self.name) ) --@@ 원래이름 덧붙이기
+	desc:add("\n[", self.name, "]\n") --@@ 원래이름 덧붙이기
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(game.player)
 	if reqs then
