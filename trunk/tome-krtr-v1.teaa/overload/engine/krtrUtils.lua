@@ -689,3 +689,15 @@ function string.krLoreCategory(str)
 	elseif ori == "zigur" then return "지구르"
 	else return str end
 end
+
+-- 새로운 아이템의 랜덤 이름 생성시 확인되지 않은 이름의 접두사
+function string.krUnIDPreName(str)
+	-- 관련내용 /mod/class/GameState.lua:348
+	local ori = str:lower()
+	if ori == "glowing" then return "빛나는"
+	elseif ori == "scintillating" then return "남성"
+	elseif ori == "rune-covered" then return "남성"
+	elseif ori == "unblemished" then return "남성"
+	elseif ori == "jewel-encrusted" then return "남성"
+	else return str end
+end

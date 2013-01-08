@@ -25,7 +25,7 @@ local Textzone = require "engine.ui.Textzone"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(adds)
-	Dialog.init(self, "Chat filters", 500, 400)
+	Dialog.init(self, "보여줄 대화 메세지", 500, 400)
 
 	local list = {
 		{name = "공개적 대화", kind = "talk"},

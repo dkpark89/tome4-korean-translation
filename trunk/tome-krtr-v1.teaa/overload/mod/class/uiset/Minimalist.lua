@@ -1253,7 +1253,7 @@ function _M:handleEffect(player, eff_id, e, p, x, y, hs, bx, by, is_first, scale
 					if ret then
 						player:removeEffect(eff_id)
 					end
-				end)
+				end, "예", "아니오") --@@
 			end
 			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, desc)
 		end

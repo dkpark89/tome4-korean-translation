@@ -252,7 +252,7 @@ function _M:block_move(x, y, e, act)
 				return
 			end
 			self:takeControl(e)
-		end end)
+		end end, "예", "아니오") --@@
 	end
 	return false
 end

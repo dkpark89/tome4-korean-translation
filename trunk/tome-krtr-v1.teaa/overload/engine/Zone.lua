@@ -381,11 +381,18 @@ function _M:finishEntity(level, type, e, ego_filter)
 
 		if #egos_list > 0 then
 			for ie, ego in ipairs(egos_list) do
+				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
 				print("addon", ego.__CLASSNAME, ego.name, getmetatable(ego))
 				ego = ego:clone()
-				local newname
-				if ego.prefix then newname = ego.name .. e.name
-				else newname = e.name .. ego.name end
+				local newname, newKrName --@@
+				if ego.prefix then 
+					newname = ego.name .. e.name
+					newKrName = (ego.kr_display_name or ego.name) .. (e.kr_display_name or e.name) --@@
+				else 
+					newname = e.name .. ego.name
+					newKrName = ego.kr_display_name and (ego.kr_display_name..(e.kr_display_name or e.name)) or ((e.kr_display_name or e.name)..ego.name) --@@ 덧붙이는 한글 이름은 무조건 앞에 붙음
+				end
+				
 				print("applying addon", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
 				ego.__CLASSNAME = nil
@@ -397,6 +404,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 				-- Merge additively but with array appending, so that nameless resolvers are not lost
 				table.mergeAddAppendArray(e, ego, true)
 				e.name = newname
+				e.kr_display_name = newKrName --@@
 				e.egoed = true
 			end
 			-- Re-resolve with the (possibly) new resolvers
@@ -469,11 +477,17 @@ function _M:finishEntity(level, type, e, ego_filter)
 
 		if #egos_list > 0 then
 			for ie, ego in ipairs(egos_list) do
+				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
 				print("ego", ego.__CLASSNAME, ego.name, getmetatable(ego))
 				ego = ego:clone()
-				local newname
-				if ego.prefix then newname = ego.name .. e.name
-				else newname = e.name .. ego.name end
+				local newname, newKrName --@@
+				if ego.prefix then 
+					newname = ego.name .. e.name
+					newKrName = (ego.kr_display_name or ego.name) .. (e.kr_display_name or e.name) --@@
+				else 
+					newname = e.name .. ego.name 
+					newKrName = ego.kr_display_name and (ego.kr_display_name..(e.kr_display_name or e.name)) or ((e.kr_display_name or e.name)..ego.name) --@@ 덧붙이는 한글 이름은 무조건 앞에 붙음
+				end
 				print("applying ego", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
 				ego.__CLASSNAME = nil
@@ -485,6 +499,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 				-- Merge additively but with array appending, so that nameless resolvers are not lost
 				table.mergeAddAppendArray(e, ego, true)
 				e.name = newname
+				e.kr_display_name = newKrName --@@
 				e.egoed = true
 			end
 			-- Re-resolve with the (possibly) new resolvers

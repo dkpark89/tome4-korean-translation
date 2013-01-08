@@ -4139,7 +4139,7 @@ function _M:checkSetTalentAuto(tid, v, opt)
 		else
 			Dialog:yesnoLongPopup("자동사용", tn:capitalize()..":\n"..table.concat(list, "\n").."\n 정말 자동으로 사용합니까?", 500, function(ret)
 				if ret then doit() end
-			end)
+			end, "예", "아니오") --@@
 		end
 	else
 		self:setTalentAuto(tid, false)

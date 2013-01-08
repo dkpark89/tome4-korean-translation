@@ -954,7 +954,7 @@ function _M:loadPremadeUI()
 			list.list = lss
 			list:generate()
 			sel = nil
-		end end)
+		end end, "예", "아니오") --@@
 	end end}
 
 	d:loadUI{

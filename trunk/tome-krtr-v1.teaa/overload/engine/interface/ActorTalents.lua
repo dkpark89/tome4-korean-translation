@@ -684,7 +684,7 @@ end
 
 --- Returns display name
 function _M:getTalentDisplayName(t)
-	if not t.display_name then return t.name end
+	if not t.display_name then return (t.kr_display_name or t.name) end --@@
 	if type(t.display_name) == "function" then return t.display_name(self, t) end
 	return t.display_name
 end

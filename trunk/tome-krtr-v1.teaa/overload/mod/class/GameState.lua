@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
 require "engine.class"
 require "engine.Entity"
 local Particles = require "engine.Particles"
@@ -314,25 +315,41 @@ function _M:generateRandart(data)
 	-----------------------------------------------------------
 	-- Make up a name
 	-----------------------------------------------------------
+	--@@ 새 아이템 랜덤 이름 결정 부분 - 통채 kr_display_name도 조합하도록 수정 -> 실제 이름 덮어쓰는 부분은 줄493
+	--@@ 새로 랜덤하게 덧붙는 이름의 한글화시 이 부분 수정 필요
 	local themename = power_themes[#power_themes]
 	themename = themename and themename[1] or nil
 	local ngd = NameGenerator.new(rng.chance(2) and randart_name_rules.default or randart_name_rules.default2)
 	local ngt = (themename and randart_name_rules[themename] and NameGenerator.new(randart_name_rules[themename])) or ngd
-	local name
+	local name, krName --@@
 	local namescheme = data.namescheme or ((ngt ~= ngd) and rng.range(1, 4) or rng.range(1, 3))
 	if namescheme == 1 then
-		name = o.name.." '"..ngt:generate().."'"
+		--@@
+		local ngtg = ngt:generate()
+		name = o.name.." '"..ngtg.."'"
+		krName = (o.kr_display_name or o.name).." '"..ngtg.."'" --@@
 	elseif namescheme == 2 then
-		name = ngt:generate().." the "..o.name
+		--@@
+		local ngtg = ngt:generate()
+		name = ngtg.." the "..o.name
+		krName = ngtg.." "..(o.kr_display_name or o.name) --@@
 	elseif namescheme == 3 then
 		name = ngt:generate()
+		krName = name --@@
 	elseif namescheme == 4 then
-		name = ngd:generate().." the "..ngt:generate()
+		--@@
+		local ngtg = ngt:generate()
+		local ngdg = ngd:generate()
+		name = ngdg.." the "..ngtg
+		krName = ngdg.." "..ngtg --@@
 	end
 	o.define_as = name:upper():gsub("[^A-Z]", "_")
 
-	o.unided_name = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted"}.." "..(o.unided_name or o.name)
-	o.unique = name
+	--@@
+	local rnts = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted"}
+	o.unided_name = rnts.." "..(o.unided_name or o.name)
+	o.kr_unided_name = rnts:krUnIDPreName().." "..(o.kr_unided_name or o.unided_name or o.kr_display_name or o.name) --@@
+	o.unique = krName or name --@@
 	o.randart = true
 	o.no_unique_lore = true
 	o.rarity = rng.range(200, 290)
@@ -474,6 +491,7 @@ function _M:generateRandart(data)
 
 	-- Setup the name
 	o.name = name
+	o.kr_display_name = krName --@@
 
 	if data.post then
 		data.post(o)
