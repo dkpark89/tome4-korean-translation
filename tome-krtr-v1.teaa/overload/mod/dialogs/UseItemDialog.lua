@@ -97,7 +97,7 @@ function _M:use(item)
 			if not ret then return end
 			self.actor:transmoInven(self.inven, self.item, self.object)
 			self.onuse(self.inven, self.item, self.object, false)
-		end)
+		end, "예", "아니오") --@@
 	elseif act == "toinven" then
 		self.object.__transmo = false
 		self.onuse(self.inven, self.item, self.object, false)

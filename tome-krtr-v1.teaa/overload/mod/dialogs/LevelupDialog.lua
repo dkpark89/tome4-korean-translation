@@ -120,7 +120,7 @@ function _M:init(actor, on_finish, on_birth)
 					self.actor_dup = {}
 					if self.on_finish then self.on_finish() end
 				end
-				end)
+				end, "예", "아니오") --@@
 			else
 				game:unregisterDialog(self)
 				self.actor_dup = {}
@@ -657,7 +657,7 @@ function _M:createDisplay()
 							self.actor.inscriptions_slots_added = self.actor.inscriptions_slots_added + 1
 						self.b_types.text = "기술계열 점수: "..self.actor.unused_talents_types
 							self.b_types:generate()
-						end end)
+						end end, "예", "아니오") --@@
 					else
 						Dialog:simplePopup("각인", ("당신은 아직 %d개의 새 각인 슬롯을 얻을 수 있지만, 기술계열 점수가 필요합니다."):format(2 - self.actor.inscriptions_slots_added))
 					end
@@ -879,7 +879,7 @@ end
 function _M:getTalentDesc(item)
 	local text = tstring{}
 
- 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
+ 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), "\n[", util.getval(item.oriname, item), "]", {"color", "LAST"}, {"font", "normal"}) --@@
 	text:add(true, true)
 
 	if item.type then
@@ -901,7 +901,7 @@ function _M:getTalentDesc(item)
 
 		if self:isUnlearnable(t, true) then
 			local max = tostring(self.actor:lastLearntTalentsMax(t.generic and "generic" or "class"))
-			text:add({"color","LIGHT_BLUE"}, "이 기술은 최근에 습득했으므로, 아직 습득을 취소할 수 있습니다.", true, "최근에 배운 ", max, t.generic and " 일반" or " 직업", " 기술은 습득 취소가 가능합니다.", {"color","LAST"}, true, true)
+			text:add({"color","LIGHT_BLUE"}, "이 기술은 최근에 습득했으므로, 아직 습득을 취소할 수 있습니다.", true, "최근에 배운 ", t.generic and "일반" or "직업", "기술 ", max, "가지는 습득 취소가 가능합니다.", {"color","LAST"}, true, true) --@@
 		elseif t.no_unlearn_last then
 			text:add({"color","YELLOW"}, "이 기술은 영구적으로 세계에 영향을 끼치기에, 한번 배우면 다시는 습득을 취소할 수 없습니다.", {"color","LAST"}, true, true)
 		end

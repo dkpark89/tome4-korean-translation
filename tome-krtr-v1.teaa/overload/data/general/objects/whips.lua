@@ -28,7 +28,7 @@ newEntity{
 	rarity = 5,
 	metallic = true,
 	combat = { talented = "whip", damrange = 1.1, sound = "actions/melee", sound_miss = "actions/melee_miss",},
-	desc = [[Sharp, long and deadly.]],
+	desc = [[날카롭고 기다랗고 치명적입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/weapon.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

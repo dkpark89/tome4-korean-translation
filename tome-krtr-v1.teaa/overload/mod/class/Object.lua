@@ -271,6 +271,39 @@ function _M:getName(t)
 	end
 end
 
+--@@ 한글 이름 만드는 함수 추가: 기본은 위의 getName(t)함수
+--- Gets the full name of the object
+function _M:getKrName(t)
+	t = t or {}
+	local qty = self:getNumber()
+	local name = self.kr_display_name or self.name --@@
+	
+	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
+
+	-- To extend later
+	name = name:gsub("~", ""):gsub("&", "a"):gsub("#([^#]+)#", function(attr)
+		return self:descAttribute(attr)
+	end)
+
+	if not t.no_add_name and self.add_name and self:isIdentified() then
+		name = name .. self.add_name:gsub("#([^#]+)#", function(attr)
+			return self:descAttribute(attr)
+		end)
+	end
+
+	if not t.do_color then
+		if qty == 1 or t.no_count then return name
+		else return qty.." "..name
+		end
+	else
+		local _, c = self:getDisplayColor()
+		local ds = t.no_image and "" or self:getDisplayString()
+		if qty == 1 or t.no_count then return c..ds..name.."#LAST#"
+		else return c..qty.." "..ds..name.."#LAST#"
+		end
+	end
+end
+
 --- Gets the short name of the object
 function _M:getShortName(t)
 	if not self.short_name then return self:getName(t) end
@@ -1304,8 +1337,8 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	name_param.do_color = true
 	compare_with = compare_with or {}
 
-	desc:merge(self:getName(name_param):toTString())
-	-- desc:add("\n (",self.name,")") --@@ 원래이름 덧붙이기 --@@ 일단 원래 이름만 나오도록 만듦
+	desc:merge(self:getKrName(name_param):toTString()) --@@ 한글 이름 붙이기
+	desc:add( ("\n[%s]\n"):format(self.name) ) --@@ 원래이름 덧붙이기
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(game.player)
 	if reqs then

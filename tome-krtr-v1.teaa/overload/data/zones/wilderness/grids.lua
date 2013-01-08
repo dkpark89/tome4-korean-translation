@@ -351,7 +351,7 @@ newEntity{ base="TOWN", define_as = "TOWN_ANGOLWEN_PORTAL",
 	kr_display_name = "숨겨진 마법도시 앙골웬으로 통하는 숨겨진 공간이동 포탈",
 	display='&', color=colors.LIGHT_BLUE, back_color=colors.DARK_GREEN,
 	image="terrain/grass.png", add_displays = {mod.class.Grid.new{image="terrain/maze_teleport.png"}},
-	change_level_check = function() local p = game.party:findMember{main=true} if p:attr("forbid_arcane") then game.log("The portal fizzles.") return true end return false end,
+	change_level_check = function() local p = game.party:findMember{main=true} if p:attr("forbid_arcane") then game.log("포탈이 파직거립니다.") return true end return false end,
 	change_zone="town-angolwen",
 }
 newEntity{ base="TOWN", define_as = "TOWN_SHATUR",
@@ -520,7 +520,7 @@ newEntity{ base="ZONE_JUNGLE_PLAINS", define_as = "REL_TUNNEL",
 	colors.LIGHT_BLUE,
 	add_mos={{image="terrain/ruin_entrance01.png"}},
 	force_down=true, change_level=4, change_zone="halfling-ruins",
-	change_level_check = function() local p = game.party:findMember{main=true} if p:hasQuest("start-yeek") and not p:isQuestStatus("start-yeek", engine.Quest.DONE) then require("engine.ui.Dialog"):simplePopup("Long tunnel", "You cannot abandon the yeeks of Rel to the dangers that lie within the island.") return true end p:setQuestStatus("rel-tunnel", engine.Quest.DONE) return false end,
+	change_level_check = function() local p = game.party:findMember{main=true} if p:hasQuest("start-yeek") and not p:isQuestStatus("start-yeek", engine.Quest.DONE) then require("engine.ui.Dialog"):simplePopup("긴 터널", "당신은 렐 섬을 떠나 여기 살고있는 이크들을 위험에 빠뜨릴 수는 없습니다.") return true end p:setQuestStatus("rel-tunnel", engine.Quest.DONE) return false end,
 }
 
 newEntity{ base="ZONE_PLAINS", define_as = "UNREMARKABLE_CAVE",
@@ -564,8 +564,8 @@ newEntity{ base="ZONE_PLAINS", define_as = "TEMPEST_PEAK",
 	change_level_check = function()
 		game.turn = game.turn + 5 * game.calendar.HOUR
 		if not game.player:hasQuest("lightning-overload").walked then
-			require("engine.ui.Dialog"):simpleLongPopup("Danger...", [[After walking many hours, you finally reach the end of the way. You are nearly on top of one of the highest peaks you can see.
-The storm is raging above your head.]], 400)
+			require("engine.ui.Dialog"):simpleLongPopup("위험...", [[몇시간을 걸은 뒤, 당신은 드디어 이 길의 끝에 도착했습니다. 보이는 곳에서 가장 높은 봉우리 중 하나의 정상에 있는 것 같습니다.
+폭풍이 머리 위에서 울부짖고 있습니다.]], 400)
 			game.player:hasQuest("lightning-overload").walked = true
 		end
 	end,
