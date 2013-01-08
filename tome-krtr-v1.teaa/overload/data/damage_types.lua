@@ -678,7 +678,7 @@ newDamageType{
 				return DamageType.defaultProjector(src, x, y, type, dam)
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 정신 공격을 저항했습니다!", tn:capitalize():addJosa("가"))
 				return DamageType.defaultProjector(src, x, y, type, dam / 2)
 			end
