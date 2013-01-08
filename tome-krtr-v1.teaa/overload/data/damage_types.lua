@@ -708,7 +708,7 @@ newDamageType{
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 기절 효과를 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -755,7 +755,7 @@ newDamageType{
 				target:setEffect(target.EFF_SILENCED, math.ceil(dam.dur), {apply_power=dam.power_check or src:combatMindpower() * 0.7})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -777,7 +777,7 @@ newDamageType{
 				target:setEffect(target.EFF_SILENCED, 3, {apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -796,7 +796,7 @@ newDamageType{
 				target:setEffect(target.EFF_SILENCED, 4, {apply_power=src:combatAttack()*0.7, no_ct_effect=true})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -814,7 +814,7 @@ newDamageType{
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -830,7 +830,7 @@ newDamageType{
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatAttack()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -846,7 +846,7 @@ newDamageType{
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatPhysicalpower(), apply_save="combatPhysicalResist"})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 실명의 먹물을 피했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -862,7 +862,7 @@ newDamageType{
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam.turns), {apply_power=dam.power, apply_save="combatMentalResist", no_ct_effect=true})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -934,7 +934,7 @@ newDamageType{
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 어둠을 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -977,7 +977,7 @@ newDamageType{
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 기절 효과를 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -996,7 +996,7 @@ newDamageType{
 				target:setEffect(target.EFF_BURNING_SHOCK, dam.dur, {src=src, power=dam.dam / dam.dur, apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 타오르는 화염을 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -1047,7 +1047,7 @@ newDamageType{
 			else
 				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "Resist!", {0,255,155})
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -1065,7 +1065,7 @@ newDamageType{
 				target:setEffect(target.EFF_DIM_VISION, 7, {sight=dam, apply_power=src:combatAttack()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -1084,7 +1084,7 @@ newDamageType{
 				target:setEffect(target.EFF_BLINDED, 3, {src=src, apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -1104,7 +1104,7 @@ newDamageType{
 				target:setEffect(target.EFF_BLINDED, 3, {src=src, apply_power=src:combatSpellpower()})
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -1129,7 +1129,7 @@ newDamageType{
 				end
 			else
 				--@@
-				local tn = targer.kr_display_name or target.name
+				local tn = target.kr_display_name or target.name
 				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
 			end
 		end
@@ -1154,7 +1154,7 @@ newDamageType{
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(base.power or src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(srcx, srcy, 1)
@@ -1179,7 +1179,7 @@ newDamageType{
 			tmp[target] = true
 			DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam.dam)
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
@@ -1204,7 +1204,7 @@ newDamageType{
 			tmp[target] = true
 			DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam.dam)
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatMindpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
@@ -1229,7 +1229,7 @@ newDamageType{
 			tmp[target] = true
 			DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam.dam)
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatSpellpower(), target:combatMentalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
@@ -1255,7 +1255,7 @@ newDamageType{
 			tmp[target] = true
 			realdam = DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
@@ -1280,7 +1280,7 @@ newDamageType{
 			tmp[target] = true
 			DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam)
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatMindpower() * 0.8, target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, 3)
@@ -1305,7 +1305,7 @@ newDamageType{
 			tmp[target] = true
 			DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(dam.x or src.x, dam.y or src.y, dam.dist)
@@ -1328,7 +1328,7 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			--@@
-			local tn = targer.kr_display_name or target.name
+			local tn = target.kr_display_name or target.name
 			
 			if target:checkHit(src:combatMindpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("fear") then
 				target:knockback(dam.x, dam.y, dam.dist)
