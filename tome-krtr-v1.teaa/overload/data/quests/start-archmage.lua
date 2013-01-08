@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 name = "Spellblaze Fallouts"
-kr_display_name = "스펠블레이즈의 낙오자들",
+kr_display_name = "스펠블레이즈의 낙오자들"
 stables = 0
 desc = function(self, who)
 	local desc = {}
