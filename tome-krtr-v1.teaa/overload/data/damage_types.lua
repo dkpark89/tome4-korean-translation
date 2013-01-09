@@ -584,7 +584,7 @@ newDamageType{
 }
 newDamageType{
 	name = "lightning", type = "LIGHTNING", text_color = "#ROYAL_BLUE#",
-	kr_display_name = "번개",
+	kr_display_name = "전기",
 	antimagic_resolve = true,
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)

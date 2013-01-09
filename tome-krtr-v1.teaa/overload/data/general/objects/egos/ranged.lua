@@ -27,6 +27,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = "mighty ", prefix=true, instant_resolve=true,
+	kr_display_name = "강력한 ",
 	keywords = {mighty=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -42,6 +43,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "ranger's ", prefix=true, instant_resolve=true,
+	kr_display_name = "순찰대 ",
 	keywords = {ranger=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -59,6 +61,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "steady ", prefix=true, instant_resolve=true,
+	kr_display_name = "안정된 ",
 	keywords = {steady=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -72,6 +75,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of power", suffix=true, instant_resolve=true,
+	kr_display_name = "세력의 ",
 	keywords = {power=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -86,6 +90,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "swiftstrike ", prefix=true, instant_resolve=true,
+	kr_display_name = "빠른공격 ",
 	keywords = {swiftstrike=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -100,6 +105,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of true flight", suffix=true, instant_resolve=true,
+	kr_display_name = "참비행의 ",
 	keywords = {flight=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -120,6 +126,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of fire", suffix=true, instant_resolve=true,
+	kr_display_name = "화염의 ",
 	keywords = {fire=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -135,6 +142,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of cold", suffix=true, instant_resolve=true,
+	kr_display_name = "추위의 ",
 	keywords = {cold=true},
 	level_range = {15, 50},
 	rarity = 5,
@@ -150,6 +158,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of acid", suffix=true, instant_resolve=true,
+	kr_display_name = "산성의 ",
 	keywords = {cunning=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -165,6 +174,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of lightning", suffix=true, instant_resolve=true,
+	kr_display_name = "번개의 ",
 	keywords = {lightning=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -181,6 +191,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "penetrating ", prefix=true, instant_resolve=true,
+	kr_display_name = "관통 ",
 	keywords = {penetrating=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -198,6 +209,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "runic ", prefix=true, instant_resolve=true,
+	kr_display_name = "룬 ",
 	keywords = {runic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -217,6 +229,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "warden's ", prefix=true, instant_resolve=true,
+	kr_display_name = "감시원 ",
 	keywords = {wardens=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -240,6 +253,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of recursion", suffix=true, instant_resolve=true,
+	kr_display_name = "재귀의 ",
 	keywords = {recursion=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -258,6 +272,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "fungal ", prefix=true, instant_resolve=true,
+	kr_display_name = "균사체 ",
 	keywords = {fungal=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -269,7 +284,7 @@ newEntity{
 	},
 	charm_power = resolvers.mbonus_material(100, 5),
 	charm_power_def = {add=50, max=200, floor=true},
-	resolvers.charm("regenerate %d life over 5 turns", 20,
+	resolvers.charm("5턴간 생명력 %d 재생", 20,
 		function(self, who)
 			who:setEffect(who.EFF_REGENERATION, 5, {power=self:getCharmPower()/5})
 			return {id=true, used=true}
@@ -281,6 +296,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "blazebringer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "화염유발자 ",
 	keywords = {blaze=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -302,6 +318,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "caustic ", prefix=true, instant_resolve=true,
+	kr_display_name = "부식성 ",
 	keywords = {caustic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -323,6 +340,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "glacial ", prefix=true, instant_resolve=true,
+	kr_display_name = "빙하 ",
 	keywords = {glacial=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -344,6 +362,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "thunderous ", prefix=true, instant_resolve=true,
+	kr_display_name = "우레같은 ",
 	keywords = {thunder=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -372,6 +391,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of nature", suffix=true, instant_resolve=true,
+	kr_display_name = "자연의 ",
 	keywords = {nature=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -394,6 +414,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of dampening", suffix=true, instant_resolve=true,
+	kr_display_name = "축축함의 ",
 	keywords = {dampening=true},
 	level_range = {1, 50},
 	rarity = 18,
@@ -412,6 +433,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "mage-hunter's ", prefix=true, instant_resolve=true,
+	kr_display_name = "반마법 ",
 	keywords = {magehunters=true},
 	level_range = {30, 50},
 	rarity = 18,
@@ -433,6 +455,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "throat-seeking ", prefix=true, instant_resolve=true,
+	kr_display_name = "침묵 ",
 	keywords = {throat=true},
 	level_range = {30, 50},
 	rarity = 18,
@@ -447,7 +470,7 @@ newEntity{
 		ranged_project = { 
 			[DamageType.NATURE] = resolvers.mbonus_material(20, 5),
 		},
-		special_on_crit = {desc="silences the target", fct=function(combat, who, target)
+		special_on_crit = {desc="상대를 침묵시킴", fct=function(combat, who, target)
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, 2, {apply_power=who:combatAttack(), no_ct_effect=true})
 			end
@@ -465,6 +488,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "psychic's ", prefix=true, instant_resolve=true,
+	kr_display_name = "제사용 ",
 	keywords = {psychic=true},
 	level_range = {30, 50},
 	greater_ego = 1,

@@ -26,6 +26,7 @@ load("/data/general/objects/egos/armor.lua")
 newEntity{
 	power_source = {nature=true},
 	name = "troll-hide ", prefix=true, instant_resolve=true,
+	kr_display_name = "트롤가죽 ",
 	keywords = {troll=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -39,6 +40,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "nimble ", prefix=true, instant_resolve=true,
+	kr_display_name = "민첩한 ",
 	keywords = {nimble=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -53,6 +55,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "marauder's ", prefix=true, instant_resolve=true,
+	kr_display_name = "약탈자 ",
 	keywords = {marauder=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -71,6 +74,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the sky", suffix=true, instant_resolve=true,
+	kr_display_name = "창공의 ",
 	keywords = {sky=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -92,6 +96,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of Toknor", suffix=true, instant_resolve=true,
+	kr_display_name = "토크놀의 ",
 	keywords = {toknor=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -107,6 +112,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the wind", suffix=true, instant_resolve=true,
+	kr_display_name = "바람의 ",
 	keywords = {wind=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -126,6 +132,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "multi-hued ", prefix=true, instant_resolve=true,
+	kr_display_name = "무지개빛 ",
 	keywords = {multihued=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -150,6 +157,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "caller's ", prefix=true, instant_resolve=true,
+	kr_display_name = "선도자 ",
 	keywords = {callers=true},
 	level_range = {40, 50},
 	greater_ego = 1,

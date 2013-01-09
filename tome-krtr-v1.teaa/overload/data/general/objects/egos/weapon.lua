@@ -98,7 +98,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "warbringer's ", prefix=true, instant_resolve=true,
-	kr_display_name = "전투유발자의 ",
+	kr_display_name = "전투유발자 ",
 	keywords = {warbringer=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -211,7 +211,7 @@ newEntity{
 		melee_project={
 			[DamageType.ACID] = resolvers.mbonus_material(15, 5)
 		},
-		special_on_crit = {desc="대상을 산성액을 튀김", fct=function(combat, who, target)
+		special_on_crit = {desc="대상에게 산성액을 튀김", fct=function(combat, who, target)
 			local power = 5 + (who:combatSpellpower()/10)
 			target:setEffect(target.EFF_ACID_SPLASH, 5, {src=who, dam=power, atk=power, armor=power})
 		end},
@@ -373,7 +373,7 @@ newEntity{
 			[DamageType.ACID] = resolvers.mbonus_material(15, 10),
 			[DamageType.LIGHTNING] = resolvers.mbonus_material(15, 10),
 		},
-		special_on_hit = {desc="임의의 엘리멘탈 효과", fct=function(combat, who, target)
+		special_on_hit = {desc="임의의 원소 효과", fct=function(combat, who, target)
 			local dam = 20 + (who:combatSpellpower()/5)
 			local tg = {type="hit", range=1}
 			local elem = rng.table{
@@ -390,7 +390,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "plaguebringer's ", prefix=true, instant_resolve=true,
-	kr_display_name = "질병유발자의 ",
+	kr_display_name = "질병유발자 ",
 	keywords = {plague=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -503,7 +503,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "blazebringer's ", prefix=true, instant_resolve=true,
-	kr_display_name = "화염유발자의 ",
+	kr_display_name = "화염유발자 ",
 	keywords = {blaze=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -613,7 +613,7 @@ newEntity{
 		melee_project={
 			[DamageType.GRAVITY] = resolvers.mbonus_material(15, 5),
 		},
-		special_on_hit = {desc="25% 확률로 대상을 으깸", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 대상을 짓누름", fct=function(combat, who, target)
 			if not rng.percent(25) then return end
 			if target:attr("never_move") then
 				local tg = {type="hit", range=1}
@@ -706,7 +706,7 @@ newEntity{
 	cost = 20,
 	combat = {
 		melee_project={[DamageType.NATURE] = resolvers.mbonus_material(15, 5)},
-		special_on_hit = {desc="25% 확률로 마법효과를 없앰", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 마법효과를 하나 없앰", fct=function(combat, who, target)
 			if not rng.percent(25) then return end
 
 			local effs = {}
@@ -745,7 +745,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "inquisitor's ", prefix=true, instant_resolve=true,
-	kr_display_name = "심문의 ",
+	kr_display_name = "종교재판 ",
 	keywords = {inquisitors=true},
 	level_range = {30, 50},
 	rarity = 45,
@@ -851,7 +851,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "thought-forged ", prefix=true, instant_resolve=true,
-	kr_display_name = "사고연마의 ",
+	kr_display_name = "사고연마 ",
 	keywords = {thought=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -889,7 +889,9 @@ newEntity{
 			if not rng.percent(25) then return nil end
 			local turns = 1 + math.ceil(who:combatMindpower() / 20)
 			local number = 2 + math.ceil(who:combatMindpower() / 50)
-			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s resists!", target.name:capitalize()) return nil end
+			--@@
+			local tn = target.kr_display_name or target.name
+			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가")) return nil end
 
 			local tids = {}
 			for tid, lev in pairs(target.talents) do
@@ -902,7 +904,6 @@ newEntity{
 				if not t then break end
 				target.talents_cd[t.id] = turns
 				--@@
-				local tn = target.kr_display_name or target.name
 				local tnm = t.kr_display_name or t.name
 				game.logSeen(target, "%s 일시적으로 %s 잊습니다!", tn:capitalize():addJosa("가"), tnm:addJosa("를"))
 			end
@@ -943,7 +944,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "psychic's ", prefix=true, instant_resolve=true,
-	kr_display_name = "무당의 ",
+	kr_display_name = "제사용 ",
 	keywords = {psychic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -961,7 +962,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of torment", suffix=true, instant_resolve=true,
-	kr_display_name = "성가신 ",
+	kr_display_name = "괴롭힘의 ",
 	keywords = {torment=true},
 	level_range = {30, 50},
 	greater_ego = 1,
