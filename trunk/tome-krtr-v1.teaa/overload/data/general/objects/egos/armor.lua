@@ -25,6 +25,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = " of fire resistance", suffix=true, instant_resolve=true,
+	kr_display_name = "화염저항의 ",
 	keywords = {['fire res']=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -36,6 +37,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of cold resistance", suffix=true, instant_resolve=true,
+	kr_display_name = "추위저항의 ",
 	keywords = {['cold res']=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -47,6 +49,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of acid resistance", suffix=true, instant_resolve=true,
+	kr_display_name = "산성저항의 ",
 	keywords = {['acid res']=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -58,6 +61,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of lightning resistance", suffix=true, instant_resolve=true,
+	kr_display_name = "전기저항의 ",
 	keywords = {['lightning res']=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -69,6 +73,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of temporal resistance", suffix=true, instant_resolve=true,
+	kr_display_name = "시간저항의 ",
 	keywords = {['temporal res']=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -80,6 +85,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "prismatic ", prefix=true, instant_resolve=true,
+	kr_display_name = "프리즘 ",
 	keywords = {primatic=true},
 	level_range = {10, 50},
 	rarity = 10,
@@ -94,6 +100,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "cleansing ", prefix=true, instant_resolve=true,
+	kr_display_name = "청결 ",
 	keywords = {cleansing=true},
 	level_range = {10, 50},
 	rarity = 10,
@@ -109,6 +116,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of stability", suffix=true, instant_resolve=true,
+	kr_display_name = "안정의 ",
 	keywords = {stable=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -120,6 +128,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of spell shielding", suffix=true, instant_resolve=true,
+	kr_display_name = "마법저항의 ",
 	keywords = {shielding=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -131,6 +140,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
+	kr_display_name = "명석의 ",
 	keywords = {clarity=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -144,6 +154,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "spiked ", prefix=true, instant_resolve=true,
+	kr_display_name = "가시돋은 ",
 	keywords = {spiked=true},
 	level_range = {5, 50},
 	rarity = 6,
@@ -155,6 +166,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "searing ", prefix=true, instant_resolve=true,
+	kr_display_name = "시든 ",
 	keywords = {searing=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -174,6 +186,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "radiant ", prefix=true, instant_resolve=true,
+	kr_display_name = "발광하는 ",
 	keywords = {radiant=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -194,6 +207,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of Eyal", suffix=true, instant_resolve=true,
+	kr_display_name = "에이알의 ",
 	keywords = {eyal=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -208,6 +222,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "enlightening ", prefix=true, instant_resolve=true,
+	kr_display_name = "분명한 ",
 	keywords = {enlight=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -224,6 +239,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of command", suffix=true, instant_resolve=true,
+	kr_display_name = "명령의 ",
 	keywords = {command=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -241,6 +257,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of delving", suffix=true, instant_resolve=true,
+	kr_display_name = "탐구의 ",
 	keywords = {delving=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -257,6 +274,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the deep", suffix=true, instant_resolve=true,
+	kr_display_name = "심해의 ",
 	keywords = {deep=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -274,6 +292,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of thunder", suffix=true, instant_resolve=true,
+	kr_display_name = "천둥의 ",
 	keywords = {thunder=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -292,6 +311,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "rejuvenating ", prefix=true, instant_resolve=true,
+	kr_display_name = "쇄신 ",
 	keywords = {rejuv=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -304,6 +324,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resilience", suffix=true, instant_resolve=true,
+	kr_display_name = "활기의 ",
 	keywords = {resilience=true},
 	level_range = {1, 50},
 	rarity = 9,

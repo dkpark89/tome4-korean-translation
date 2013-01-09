@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 -- TODO:  More greater suffix psionic; more lesser suffix and prefix psionic
 
 local Stats = require "engine.interface.ActorStats"
@@ -29,6 +31,7 @@ local DamageType = require "engine.DamageType"
  newEntity{
 	power_source = {nature=true},
 	name = "blooming ", prefix=true, instant_resolve=true,
+	kr_display_name = "번영 ",
 	keywords = {blooming=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -42,6 +45,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {nature=true},
 	name = "gifted ", prefix=true, instant_resolve=true,
+	kr_display_name = "천부적 ",
 	keywords = {gifted=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -54,6 +58,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "nature's ", prefix=true, instant_resolve=true,
+	kr_display_name = "자연 ",
 	keywords = {nature=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -72,6 +77,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of balance", suffix=true, instant_resolve=true,
+	kr_display_name = "균형의 ",
 	keywords = {balance=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -87,6 +93,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of life", suffix=true, instant_resolve=true,
+	kr_display_name = "생명의 ",
 	keywords = {life=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -100,6 +107,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of slime", suffix=true, instant_resolve=true,
+	kr_display_name = "슬라임의 ",
 	keywords = {slime=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -120,6 +128,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "horrifying ", prefix=true, instant_resolve=true,
+	kr_display_name = "무시무시한 ",
 	keywords = {horrifying=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -139,6 +148,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "radiant ", prefix=true, instant_resolve=true,
+	kr_display_name = "발광하는 ",
 	keywords = {radiant=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -156,6 +166,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
+	kr_display_name = "명석의 ",
 	keywords = {clarity=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -169,6 +180,7 @@ newEntity{
  newEntity{
 	power_source = {psionic=true},
 	name = "hungering ", prefix=true, instant_resolve=true,
+	kr_display_name = "갈망하는 ",
 	keywords = {hungering=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -185,7 +197,7 @@ newEntity{
 
 	charm_power = resolvers.mbonus_material(80, 20),
 	charm_power_def = {add=5, max=10, floor=true},
-	resolvers.charm("inflict mind damage; gain psi and hate", 20,
+	resolvers.charm("정신 피해를 주고 염력과 증오심을 얻음", 20,
 		function(self, who)
 			local tg = {type="hit", range=10,}
 			local x, y, target = who:getTarget(tg)
@@ -197,7 +209,9 @@ newEntity{
 					who:incPsi(damage/10)
 					who:incHate(damage/10)
 				else
-					game.logSeen(target, "%s resists the mind attack!", target.name:capitalize())
+					--@@
+					local tn = target.kr_display_name or target.name
+					game.logSeen(target, "%s 정신 공격을 저항했습니다!", tn:capitalize():addJosa("가"))
 				end
 			end
 			return {id=true, used=true}
@@ -208,6 +222,7 @@ newEntity{
  newEntity{
 	power_source = {psionic=true},
 	name = " of nightfall", suffix=true, instant_resolve=true,
+	kr_display_name = "황혼의 ",
 	keywords = {nightfall=true},
 	level_range = {30, 50},
 	rarity = 30,
@@ -236,6 +251,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "harmonious ", prefix=true, instant_resolve=true,
+	kr_display_name = "조화로운 ",
 	keywords = {harmonious=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -256,13 +272,15 @@ newEntity{
 			[DamageType.NATURE] = resolvers.mbonus_material(8, 2),
 		},
 	},
-	resolvers.charm("completes a nature powered mindstar set", 20,
+	resolvers.charm("마석 조합으로 자연력 보강", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "You cannot use %s while using it as a psionic focus.", self.name)
+				--@@
+				local sn = self.kr_display_name or self.name
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", sn:addJosa("를"))
 				return
 			end		
-			who:showEquipment("Harmonize with which mindstar?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self  and o.power_source and o.power_source.nature and not o.set_complete end, function(o)
+			who:showEquipment("어느 마석과 조화시키겠습니까?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self  and o.power_source and o.power_source.nature and not o.set_complete end, function(o)
 				-- remove any existing set properties
 				self.define_as =nil
 				self.set_list = nil
@@ -287,6 +305,7 @@ newEntity{
  newEntity{
 	power_source = {psionic=true},
 	name = "resonating ", prefix=true, instant_resolve=true,
+	kr_display_name = "공명하는 ",
 	keywords = {resonating=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -305,13 +324,15 @@ newEntity{
 			[DamageType.MIND] = resolvers.mbonus_material(8, 2),
 		},
 	},
-	resolvers.charm("completes a psionic powered mindstar set", 20,
+	resolvers.charm("마석 조합으로 염력 보강", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "You cannot use %s while using it as a psionic focus.", self.name)
+				--@@
+				local sn = self.kr_display_name or self.name
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", sn:addJosa("를"))
 				return
 			end		
-			who:showEquipment("Resonate with which mindstar?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self and o.power_source and o.power_source.psionic and not o.set_complete end, function(o)
+			who:showEquipment("어느 마석과 공명시키겠습니까?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self and o.power_source and o.power_source.psionic and not o.set_complete end, function(o)
 				-- remove any existing set properties
 				self.define_as =nil
 				self.set_list = nil
@@ -337,6 +358,7 @@ newEntity{
  newEntity{
 	power_source = {nature=true},  define_as = "MS_EGO_SET_CALLERS",
 	name = "caller's ", prefix=true, instant_resolve=true,
+	kr_display_name = "선도자 ",
 	keywords = {callers=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -358,17 +380,18 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_SUMMONERS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#GREEN#Your mindstars resonate with Nature's purity.")
+		game.logPlayer(who, "#GREEN#당신의 마석이 자연의 순수함과 공명합니다.")
 		self:specialSetAdd({"wielder","nature_summon_regen"}, self.material_level)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The link between the mindstars is broken.")
+		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 	end
 }
 
  newEntity{
 	power_source = {nature=true}, define_as = "MS_EGO_SET_SUMMONERS",
 	name = "summoner's ", prefix=true, instant_resolve=true,
+	kr_display_name = "소환수 ",
 	keywords = {summoners=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -380,11 +403,11 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_CALLERS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#GREEN#Your mindstars resonate with Nature's purity.")
+		game.logPlayer(who, "#GREEN#당신의 마석이 자연의 순수함과 공명합니다.")
 		self:specialSetAdd({"wielder","nature_summon_max"}, 1)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The link between the mindstars is broken.")
+		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 	end
 }
 
@@ -393,6 +416,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, define_as = "MS_EGO_SET_WYRM",
 	name = "wyrm's ", prefix=true, instant_resolve=true,
+	kr_display_name = "워믹 ",
 	keywords = {wyrms=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -416,20 +440,22 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_DRAKE_STAR"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#PURPLE#You feel the spirit of the wyrm stirring inside you!")
+		game.logPlayer(who, "#PURPLE#당신의 내부에서 활발한 워믹의 영혼이 느껴집니다!")
 		self:specialSetAdd({"wielder","blind_immune"}, self.material_level / 10)
 		self:specialSetAdd({"wielder","stun_immune"}, self.material_level / 10)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The link between the mindstars is broken.")
+		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 	end,
-	resolvers.charm("call the drake in an elemental mindstar (this will remove other set bonuses)", 20,
+	resolvers.charm("엘리멘탈 마석 속의 드레이크 호출 (이것은 다른 조합 보너스를 없앰)", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "You cannot use %s while using it as a psionic focus.", self.name)
+				--@@
+				local sn = self.kr_display_name or self.name
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고있는 동안 사용할 수 없습니다.", sn:addJosa("를"))
 				return
 			end		
-			who:showEquipment("Call the drake in which mindstar (this will destroy other set bonuses)?", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
+			who:showEquipment("어느 마석의 드레이크를 호출합니까 (이것은 다른 조합 보너스를 파괴함)?", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
 				-- remove any existing sets from the mindstar
 				o.set_list = nil
 				o.on_set_complete = nil
@@ -483,6 +509,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, is_drake_star = true,
 	name = " of flames", suffix=true, instant_resolve=true,
+	kr_display_name = "화염의 ",
 	keywords = {flames=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -507,6 +534,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, is_drake_star = true,
 	name = " of frost", suffix=true, instant_resolve=true,
+	kr_display_name = "냉기의 ",
 	keywords = {frost=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -531,6 +559,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, is_drake_star = true,
 	name = " of sand", suffix=true, instant_resolve=true,
+	kr_display_name = "모래의 ",
 	keywords = {sand=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -555,6 +584,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, is_drake_star = true,
 	name = " of storms", suffix=true, instant_resolve=true,
+	kr_display_name = "폭풍의 ",
 	keywords = {storms=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -580,6 +610,7 @@ newEntity{
  newEntity{
 	power_source = {psionic=true},  define_as = "MS_EGO_SET_DREAMERS",
 	name = "dreamer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "몽상가 ",
 	keywords = {dreamers=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -592,17 +623,18 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_EPIPHANOUS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#YELLOW#Your mindstars resonate with psionic energy.")
+		game.logPlayer(who, "#YELLOW#당신의 마석이 염력과 공명합니다.")
 		self:specialSetAdd({"wielder","psi_regen"}, self.material_level / 10)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The link between the mindstars is broken.")
+		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 	end
 }
 
  newEntity{
 	power_source = {psionic=true}, define_as = "MS_EGO_SET_EPIPHANOUS",
 	name = "epiphanous ", prefix=true, instant_resolve=true,
+	kr_display_name = "계시 ",
 	keywords = {epiphanous=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -615,11 +647,11 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_DREAMERS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#YELLOW#Your mindstars resonate with psionic energy.")
+		game.logPlayer(who, "#YELLOW#당신의 마석이 염력과 공명합니다.")
 		self:specialSetAdd({"wielder","psi_on_crit"}, self.material_level)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The link between the mindstars is broken.")
+		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 	end
 }
 
@@ -627,6 +659,7 @@ newEntity{
  newEntity{
 	power_source = {nature=true},
 	name = "mitotic ", prefix=true, instant_resolve=true,
+	kr_display_name = "유사분열 ",
 	keywords = {mitotic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -636,16 +669,18 @@ newEntity{
 		physcrit = resolvers.mbonus_material(10, 2),
 		melee_project = { [DamageType.ACID_BLIND]= resolvers.mbonus_material(15, 5), [DamageType.SLIME]= resolvers.mbonus_material(15, 5),},
 	},
-	resolvers.charm("divide the mindstar in two", 1,
+	resolvers.charm("마석을 둘로 나눔", 1,
 		function(self, who)
 			-- Check for free slot first
+			--@@
+			local sn = self.kr_display_name or self.name
 			if who:getFreeHands() == 0 then
-				game.logPlayer(who, "You must have a free hand to divide %s", self.name)
+				game.logPlayer(who, "당신이 %s 나누려면 빈손이 필요합니다", sn:addJosa("를"))
 			return
 			end
 
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "You cannot split %s while using it as a psionic focus.", self.name)
+				game.logPlayer(who, "당신은 %s 염동력으로 잡고 있는 동안 나눌 수 없습니다.", sn:addJosa("를"))
 				return
 			end
 
@@ -666,10 +701,10 @@ newEntity{
 
 			o.on_set_complete = function(self, who)
 				self:specialWearAdd({"combat","burst_on_crit"}, { [engine.DamageType.ACID_BLIND] = 10 * self.material_level } )
-				game.logPlayer(who, "#GREEN#The mindstars pulse with life.")
+				game.logPlayer(who, "#GREEN#마석의 맥동이 생명력과 동화됩니다.")
 			end
 			o.on_set_broken = function(self, who)
-				game.logPlayer(who, "#SLATE#The link between the mindstars is broken.")
+				game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 			end
 
 			o2.on_set_complete = function(self, who)
@@ -689,6 +724,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true}, define_as = "MS_EGO_SET_HATEFUL",
 	name = "hateful ", prefix=true, instant_resolve=true,
+	kr_display_name = "불쾌한 ",
 	keywords = {hateful=true},
 	level_range = {30, 50},
 	greater_ego =1,
@@ -708,16 +744,17 @@ newEntity{
 	set_list = { {"define_as", "MS_EGO_SET_WRATHFUL"} },
 	on_set_complete = function(self, who)
 		self:specialSetAdd({"wielder","combat_mindpower"}, 2 * self.material_level)
-		game.logPlayer(who, "#GREY#You feel a swell of hatred from your mindstars.")
+		game.logPlayer(who, "#GREY#당신은 마석으로인해 불쾌함이 커짐을 느낍니다.")
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The mindstar resonance has faded.")
+		game.logPlayer(who, "#SLATE#마석의 공명이 희미해집니다.")
 	end,
 }
 
  newEntity{
 	power_source = {psionic=true}, define_as = "MS_EGO_SET_WRATHFUL",
 	name = "wrathful ", prefix=true, instant_resolve=true,
+	kr_display_name = "격노한 ",
 	keywords = {wrath=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -731,9 +768,9 @@ newEntity{
 	set_list = { {"define_as", "MS_EGO_SET_HATEFUL"} },
 	on_set_complete = function(self, who)
 		self:specialSetAdd({"wielder","max_hate"}, 2 * self.material_level)
-		game.logPlayer(who, "#GREY#You feel a swell of hatred from your mindstars.")
+		game.logPlayer(who, "#GREY#당신은 마석으로인해 불쾌함이 커짐을 느낍니다.")
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#The mindstar resonance has faded.")
+		game.logPlayer(who, "#SLATE#마석의 공명이 희미해집니다.")
 	end,
 }

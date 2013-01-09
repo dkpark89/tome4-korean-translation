@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
 local DamageType = require "engine.DamageType"
@@ -28,6 +30,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = "cruel ", prefix=true, instant_resolve=true,
+	kr_display_name = "잔인한 ",
 	keywords = {cruel=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -40,6 +43,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "earthen ", prefix=true, instant_resolve=true,
+	kr_display_name = "대지 ",
 	keywords = {earthen=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -53,6 +57,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "potent ", prefix=true, instant_resolve=true,
+	kr_display_name = "유력한 ",
 	keywords = {potent=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -73,6 +78,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "shimmering ", prefix=true, instant_resolve=true,
+	kr_display_name = "아른거리는 ",
 	keywords = {shimmering=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -85,6 +91,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "surging ", prefix=true, instant_resolve=true,
+	kr_display_name = "쇄도 ",
 	keywords = {surging=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -97,6 +104,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "blighted ", prefix=true, instant_resolve=true,
+	kr_display_name = "황폐 ",
 	keywords = {blight=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -111,6 +119,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "ethereal ", prefix=true, instant_resolve=true,
+	kr_display_name = "에테르 ",
 	keywords = {ethereal=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -125,6 +134,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "greater ", prefix=true, instant_resolve=true,
+	kr_display_name = "대단한 ",
 	keywords = {greater=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -147,6 +157,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "void walker's ", prefix=true, instant_resolve=true,
+	kr_display_name = "공허를 걷는 ",
 	keywords = {['v. walkers']=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -162,6 +173,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of fate", suffix=true, instant_resolve=true,
+	kr_display_name = "숙명의 ",
 	keywords = {fate=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -176,6 +188,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of illumination", suffix=true, instant_resolve=true,
+	kr_display_name = "조명의 ",
 	keywords = {illumination=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -189,6 +202,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of might", suffix=true, instant_resolve=true,
+	kr_display_name = "힘의 ",
 	keywords = {might=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -201,6 +215,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of power", suffix=true, instant_resolve=true,
+	kr_display_name = "세력의 ",
 	keywords = {power=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -213,16 +228,17 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of projection", suffix=true, instant_resolve=true,
+	kr_display_name = "사출의 ",
 	keywords = {projection=true},
 	level_range = {1, 50},
 	rarity = 10,
 	cost = 15,
-	resolvers.charm("projects a bolt from the staff", 5,
+	resolvers.charm("마법지팡이의 힘을 발사", 5,
 		function(self, who)
 			local tg = {type="bolt", range= 5 + self.material_level, speed=20, display = {particle=particle, trail=trail},}
 			local weapon = who:hasStaffWeapon()
 			if not weapon then
-				game.logPlayer(who, "You have no appropriate weapon.")
+				game.logPlayer(who, "당신은 적합한 무기를 쥐고 있지 않습니다.")
 				return
 			end
 			local combat = weapon.combat
@@ -253,7 +269,10 @@ newEntity{
 
 			who:projectile(tg, x, y, damtype, dam, {type=explosion})
 
-			game.logSeen(who, "%s fires a bolt from %s!", who.name:capitalize(), self.name)
+			--@@
+			local wn = who.kr_display_name or who.name
+			local sn = self.kr_display_name or self.name
+			game.logSeen(who, "%s %s의 힘을 발사했습니다!", wn:capitalize():addJosa("가"), sn)
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end
@@ -263,6 +282,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of warding", suffix=true, instant_resolve=true,
+	kr_display_name = "배척의 ",
 	keywords = {warding=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -284,6 +304,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of breaching", suffix=true, instant_resolve=true,
+	kr_display_name = "단절의 ",
 	keywords = {breaching=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -303,12 +324,13 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of blasting", suffix=true, instant_resolve=true,
+	kr_display_name = "폭발의 ",
 	keywords = {blasting=true},
 	level_range = {30, 50},
 	greater_ego = 1,
 	rarity = 30,
 	cost = 40,
-	resolvers.charm("projects damage in a circle from the staff", 10,
+	resolvers.charm("마법지팡이에서 탄을 발사", 10,
 		function(self, who)
 			local tg = {type="ball", range=0, radius=self.material_level + 1, selffire=false}
 			local weapon = who:hasStaffWeapon()
@@ -337,7 +359,10 @@ newEntity{
 
 			who:project(tg, who.x, who.y, damtype, dam, {type=explosion})
 
-			game.logSeen(who, "%s unleashes an elemental blastwave from %s!", who.name:capitalize(), self.name)
+			--@@
+			local wn = who.kr_display_name or who.name
+			local sn = self.kr_display_name or self.name
+			game.logSeen(who, "%s %s에서 원소탄을 발사했습니다!", wn:capitalize():addJosa("가"), sn)
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end
@@ -347,6 +372,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of channeling", suffix=true, instant_resolve=true,
+	kr_display_name = "공급의 ",
 	keywords = {channeling=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -356,20 +382,22 @@ newEntity{
 		combat_spellpower = resolvers.mbonus_material(10, 2),
 		mana_regen = resolvers.mbonus_material(30, 10, function(e, v) v=v/100 return 0, v end),
 	},
-	resolvers.charm("channel mana (increasing mana regen by 500%% for ten turns)", 30,
+	resolvers.charm("마나 공급 (10턴간 마나 재생 500%% 상승)", 30,
 		function(self, who)
 			if who.mana_regen > 0 and not who:hasEffect(who.EFF_MANASURGE) then
 				who:setEffect(who.EFF_MANASURGE, 10, {power=who.mana_regen * 5})
 			else
 				if who.mana_regen < 0 then
-					game.logPlayer(who, "Your negative mana regeneration rate is unaffected by the staff.")
+					game.logPlayer(who, "당신의 마나 재생력은 0보다 낮아 마법지팡이의 영향을 받지 못합니다.")
 				elseif who:hasEffect(who.EFF_MANASURGE) then
-					game.logPlayer(who, "Another mana surge is currently active.")
+					game.logPlayer(who, "또다른 마나의 쇄도가 활성화되었습니다.")
 				else
-					game.logPlayer(who, "Your nonexistant mana regeneration rate is unaffected by the staff.")
+					game.logPlayer(who, "당신은 마나 재생력이 없어 마법지팡이의 영향을 받지 못합니다.")
 				end
 			end
-			game.logSeen(who, "%s is channeling mana!", who.name:capitalize())
+			--@@
+			local wn = who.kr_display_name or who.name
+			game.logSeen(who, "%s 마나를 공급받습니다!", wn:capitalize():addJosa("가"))
 			return {id=true, used=true}
 		end
 	),
@@ -378,6 +406,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of greater warding", suffix=true, instant_resolve=true,
+	kr_display_name = "상위 배척의 ",
 	keywords = {['g. warding']=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -400,12 +429,13 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of invocation", suffix=true, instant_resolve=true,
+	kr_display_name = "발동의 ",
 	keywords = {invocation=true},
 	level_range = {30, 50},
 	greater_ego = 1,
 	rarity = 30,
 	cost = 40,
-	resolvers.charm("projects damage in a cone from the staff", 8,
+	resolvers.charm("마법지팡이의 힘을 원뿔영역으로 발사", 8,
 		function(self, who)
 			local tg = {type="cone", range=0, radius=self.material_level * 2, selffire=false}
 			local weapon = who:hasStaffWeapon()
@@ -437,7 +467,10 @@ newEntity{
 
 			who:project(tg, x, y, damtype, dam, {type=explosion})
 
-			game.logSeen(who, "%s conjures a cone of elemental energy from %s!", who.name:capitalize(), self.name)
+			--@@
+			local wn = who.kr_display_name or who.name
+			local sn = self.kr_display_name or self.name
+			game.logSeen(who, "%s %s의 원소 에너지를 전방의 원뿔영역으로 불러냈습니다!", wn:capitalize():addJosa("가"), sn)
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end
@@ -447,6 +480,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of protection", suffix=true, instant_resolve=true,
+	kr_display_name = "보호의 ",
 	keywords = {protection=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -466,6 +500,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of wizardry", suffix=true, instant_resolve=true,
+	kr_display_name = "마법의 ",
 	keywords = {wizardry=true},
 	level_range = {30, 50},
 	greater_ego = 1,

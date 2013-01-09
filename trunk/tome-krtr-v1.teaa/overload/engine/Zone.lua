@@ -380,18 +380,24 @@ function _M:finishEntity(level, type, e, ego_filter)
 		pick_ego(self, level, e, e.addons, egos_list, type, {}, "addon", nil)
 
 		if #egos_list > 0 then
+			local newKrName, krAdd, krMain --@@
+			krMain = (e.kr_display_name or e.name) --@@
+			krAdd = "" --@@
+			
 			for ie, ego in ipairs(egos_list) do
 				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
 				print("addon", ego.__CLASSNAME, ego.name, getmetatable(ego))
 				ego = ego:clone()
-				local newname, newKrName --@@
+				local newname
 				if ego.prefix then 
 					newname = ego.name .. e.name
-					newKrName = (ego.kr_display_name or ego.name) .. (e.kr_display_name or e.name) --@@
+					krAdd = krAdd..(ego.kr_display_name or ego.name) --@@
 				else 
 					newname = e.name .. ego.name
-					newKrName = ego.kr_display_name and (ego.kr_display_name..(e.kr_display_name or e.name)) or ((e.kr_display_name or e.name)..ego.name) --@@ 덧붙이는 한글 이름은 무조건 앞에 붙음
+					if ego.kr_display_name then krAdd = ego.kr_display_name..krAdd --@@
+					else krMain = krMain..ego.name end --@@
 				end
+				newKrName = krAdd .. krMain --@@
 				
 				print("applying addon", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
@@ -476,18 +482,25 @@ function _M:finishEntity(level, type, e, ego_filter)
 		end
 
 		if #egos_list > 0 then
+			local newKrName, krAdd, krMain --@@
+			krMain = (e.kr_display_name or e.name) --@@
+			krAdd = "" --@@
+			
 			for ie, ego in ipairs(egos_list) do
 				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
 				print("ego", ego.__CLASSNAME, ego.name, getmetatable(ego))
 				ego = ego:clone()
-				local newname, newKrName --@@
+				local newname
 				if ego.prefix then 
 					newname = ego.name .. e.name
-					newKrName = (ego.kr_display_name or ego.name) .. (e.kr_display_name or e.name) --@@
+					krAdd = krAdd..(ego.kr_display_name or ego.name) --@@
 				else 
-					newname = e.name .. ego.name 
-					newKrName = ego.kr_display_name and (ego.kr_display_name..(e.kr_display_name or e.name)) or ((e.kr_display_name or e.name)..ego.name) --@@ 덧붙이는 한글 이름은 무조건 앞에 붙음
+					newname = e.name .. ego.name
+					if ego.kr_display_name then krAdd = ego.kr_display_name..krAdd --@@
+					else krMain = krMain..ego.name end --@@
 				end
+				newKrName = krAdd .. krMain --@@
+				
 				print("applying ego", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
 				ego.__CLASSNAME = nil

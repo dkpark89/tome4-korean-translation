@@ -26,6 +26,7 @@ load("/data/general/objects/egos/ranged.lua")
 newEntity{
 	power_source = {technique=true},
 	name = " of dexterity (#STATBONUS#)", suffix=true, instant_resolve=true,
+	kr_display_name = "민첩(#STATBONUS#)의 ",
 	keywords = {dex=true},
 	level_range = {20, 50},
 	rarity = 7,
@@ -38,6 +39,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "thaloren ", prefix=true, instant_resolve=true,
+	kr_display_name = "탈로레 ",
 	keywords = {thaloren=true},
 	level_range = {30, 50},
 	greater_ego = 1,
