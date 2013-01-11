@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
 local DamageType = require "engine.DamageType"
@@ -24,6 +26,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = " of stability", suffix=true, instant_resolve=true,
+	kr_display_name = "안정의 ",
 	keywords = {stability=true},
 	level_range = {20, 50},
 	rarity = 12,
@@ -36,6 +39,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of tirelessness", suffix=true, instant_resolve=true,
+	kr_display_name = "끈기의 ",
 	keywords = {tireless=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -49,6 +53,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "traveler's ", prefix=true, instant_resolve=true,
+	kr_display_name = "여행자 ",
 	keywords = {traveler=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -62,6 +67,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "stalker's ", prefix=true, instant_resolve=true,
+	kr_display_name = "스토커 ",
 	keywords = {stalker=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -74,6 +80,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "scholar's ", prefix=true, instant_resolve=true,
+	kr_display_name = "학자 ",
 	keywords = {scholar=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -86,6 +93,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "miner's ", prefix=true, instant_resolve=true,
+	kr_display_name = "광부 ",
 	keywords = {miner=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -98,6 +106,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of phasing", suffix=true, instant_resolve=true,
+	kr_display_name = "위상의 ",
 	keywords = {phasing=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -111,11 +120,13 @@ newEntity{
 	},
 	charm_power = resolvers.mbonus_material(80, 20),
 	charm_power_def = {add=5, max=10, floor=true},
-	resolvers.charm("blink to a nearby random location", 25, function(self, who)
+	resolvers.charm("임의의 위치로 단거리 공간이동", 25, function(self, who)
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, self:getCharmPower())
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		--@@
+		local wn = who.kr_display_name or who.name
+		game.logSeen(who, "%s %s 사용했습니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }
@@ -123,6 +134,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of uncanny dodging", suffix=true, instant_resolve=true,
+	kr_display_name = "뛰어난 회피의 ",
 	keywords = {['u.dodge']=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -136,6 +148,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of speed", suffix=true, instant_resolve=true,
+	kr_display_name = "속도의 ",
 	keywords = {speed=true},
 	level_range = {15, 50},
 	greater_ego = 1,
@@ -149,6 +162,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of rushing", suffix=true, instant_resolve=true,
+	kr_display_name = "돌진의 ",
 	keywords = {rushing=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -166,6 +180,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of void walking", suffix=true, instant_resolve=true,
+	kr_display_name = "공허를 걷는자의 ",
 	keywords = {void=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -181,6 +196,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of disengagement", suffix=true, instant_resolve=true,
+	kr_display_name = "해방의 ",
 	keywords = {disengage=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -198,6 +214,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "blood-soaked ", prefix=true, instant_resolve=true,
+	kr_display_name = "피에 절은 ",
 	keywords = {blood=true},
 	level_range = {15, 50},
 	greater_ego = 1,
@@ -213,6 +230,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "restorative ", prefix=true, instant_resolve=true,
+	kr_display_name = "회복 ",
 	keywords = {restorative=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -227,6 +245,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "invigorating ", prefix=true, instant_resolve=true,
+	kr_display_name = "기운나는 ",
 	keywords = {['invigor.']=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -242,6 +261,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "blightbringer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "황폐유발자 ",
 	keywords = {blight=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -258,6 +278,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "wanderer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "방랑자 ",
 	keywords = {wanderer=true},
 	level_range = {15, 50},
 	greater_ego = 1,
@@ -275,6 +296,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "reinforced ", prefix=true, instant_resolve=true,
+	kr_display_name = "보강된 ",
 	keywords = {reinforced=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -294,6 +316,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "eldritch ", prefix=true, instant_resolve=true,
+	kr_display_name = "섬뜩한 ",
 	keywords = {eldritch=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -309,6 +332,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of heaving", suffix=true, instant_resolve=true,
+	kr_display_name = "융기의 ",
 	keywords = {heaving=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -325,6 +349,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of invasion", suffix=true, instant_resolve=true,
+	kr_display_name = "칩임의 ",
 	keywords = {invasion=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -342,6 +367,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of spellbinding", suffix=true, instant_resolve=true,
+	kr_display_name = "주문동결의 ",
 	keywords = {spellbinding=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -359,6 +385,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of evasion", suffix=true, instant_resolve=true,
+	kr_display_name = "도피의 ",
 	keywords = {evasion=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -373,6 +400,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
+	kr_display_name = "단열 ",
 	keywords = {insulate=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -388,6 +416,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
+	kr_display_name = "접지 ",
 	keywords = {grounding=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -403,6 +432,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "dreamer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "몽상가 ",
 	keywords = {dreamer=true},
 	level_range = {15, 50},
 	greater_ego = 1,
@@ -418,6 +448,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of strife", suffix=true, instant_resolve=true,
+	kr_display_name = "투쟁의 ",
 	keywords = {rushing=true},
 	level_range = {40, 50},
 	greater_ego = 1,

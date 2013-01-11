@@ -24,11 +24,11 @@ newEntity{
 	display = "\\", color=colors.LIGHT_BLUE, image = resolvers.image_material("pickaxe", "metal"),
 	encumber = 3,
 	rarity = 14,
-	desc = [[Allows you to dig a wall, remove a tree, create ways.]],
+	desc = [[벽을 파고, 나무를 없애고, 길을 만들수 있도록 해 줍니다.]],
 	add_name = " (#DIGSPEED#)",
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "dig a wall, cut a tree, ...", power = 1, use = function(self, who)
+	use_power = { name = "벽을 파고, 나무를 자르고, ...", power = 1, use = function(self, who)
 		local tg = {type="bolt", range=1, nolock=true}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end
@@ -36,13 +36,13 @@ newEntity{
 		local wait = function()
 			local co = coroutine.running()
 			local ok = false
-			who:restInit(self.digspeed, "digging", "dug", function(cnt, max)
+			who:restInit(self.digspeed, "굴착", "굴착", function(cnt, max)
 				if cnt > max then ok = true end
 				coroutine.resume(co)
 			end)
 			coroutine.yield()
 			if not ok then
-				game.logPlayer(who, "You have been interrupted!")
+				game.logPlayer(who, "굴착을 방해받았습니다!")
 				return false
 			end
 			return true
@@ -58,6 +58,7 @@ newEntity{
 
 newEntity{ base = "BASE_DIGGER",
 	name = "iron pickaxe", short_name = "iron",
+	kr_display_name = "무쇠 곡괭이",
 	level_range = {1, 20},
 	cost = 3,
 	material_level = 1,
@@ -66,6 +67,7 @@ newEntity{ base = "BASE_DIGGER",
 
 newEntity{ base = "BASE_DIGGER",
 	name = "dwarven-steel pickaxe", short_name = "d.steel",
+	kr_display_name = "드워프강철 곡괭이",
 	level_range = {20, 40},
 	cost = 3,
 	material_level = 3,
@@ -74,6 +76,7 @@ newEntity{ base = "BASE_DIGGER",
 
 newEntity{ base = "BASE_DIGGER",
 	name = "voratun pickaxe", short_name = "voratun",
+	kr_display_name = "보라툰 곡괭이",
 	level_range = {40, 50},
 	cost = 3,
 	material_level = 5,

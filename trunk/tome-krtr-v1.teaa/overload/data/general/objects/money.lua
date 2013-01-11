@@ -27,7 +27,7 @@ newEntity{
 	desc = [[All that glitters is not gold; all that is gold does not glitter.]],
 	on_prepickup = function(self, who, id)
 		who:incMoney(self.money_value / 10)
-		game.logPlayer(who, "You pickup %0.2f gold pieces.", self.money_value / 10)
+		game.logPlayer(who, "당신은 금화 %0.2f개를 주웠습니다.", self.money_value / 10)
 		-- Remove from the map
 		game.level.map:removeObject(who.x, who.y, id)
 		return true
@@ -37,6 +37,7 @@ newEntity{
 
 newEntity{ base = "BASE_MONEY", define_as = "MONEY_SMALL",
 	name = "gold pieces", image = "object/money_small.png",
+	kr_display_name = "금화",
 	add_name = " (#MONEY#)",
 	level_range = {1, 50},
 	resolvers.generic(function(e)
@@ -46,6 +47,7 @@ newEntity{ base = "BASE_MONEY", define_as = "MONEY_SMALL",
 
 newEntity{ base = "BASE_MONEY", define_as = "MONEY_BIG",
 	name = "huge pile of gold pieces", image = "object/money_large.png",
+	kr_display_name = "금화 뭉치",
 	add_name = " (#MONEY#)",
 	level_range = {30, 50},
 	color=colors.GOLD,

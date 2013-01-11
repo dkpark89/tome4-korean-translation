@@ -100,7 +100,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "cleansing ", prefix=true, instant_resolve=true,
-	kr_display_name = "청결 ",
+	kr_display_name = "깨끗한 ",
 	keywords = {cleansing=true},
 	level_range = {10, 50},
 	rarity = 10,

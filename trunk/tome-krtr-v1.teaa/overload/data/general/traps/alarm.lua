@@ -20,7 +20,7 @@
 require "engine.krtrUtils" --@@
 
 newEntity{ define_as = "TRAP_ALARM",
-	type = "annoy", subtype="alarm", id_by_type=true, unided_name = "trap",
+	type = "annoy", subtype="alarm", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function() end,
 }

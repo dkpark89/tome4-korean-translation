@@ -1300,7 +1300,9 @@ function _M:getUseDesc()
 			ret = tstring{{"color","YELLOW"}, ("사용처: %s (소모력 %d, 현재 보유력 %d/%d)."):format(util.getval(self.use_power.name, self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
-		ret = tstring{{"color","YELLOW"}, ("사용처: %s."):format(self.use_simple.name), {"color","LAST"}}
+		--@@
+		local susn = self.use_simple.kr_display_name or self.use_simple.name
+		ret = tstring{{"color","YELLOW"}, ("사용처: %s."):format(susn), {"color","LAST"}}
 	elseif self.use_talent then
 		local t = game.player:getTalentFromId(self.use_talent.id)
 		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
@@ -1315,7 +1317,7 @@ function _M:getUseDesc()
 	if self.charm_on_use then
 		ret:add(true, "사용시:", true)
 		for i, d in ipairs(self.charm_on_use) do
-			ret:add(tostring(d[1]), "% 확률로 ", d[2](self, game.player), "에게 적용.", true)
+			ret:add(tostring(d[1]), "% 확률로 ", d[2](self, game.player), ".", true)
 		end
 	end
 

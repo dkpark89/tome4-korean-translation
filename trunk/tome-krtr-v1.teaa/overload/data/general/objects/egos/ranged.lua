@@ -61,7 +61,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "steady ", prefix=true, instant_resolve=true,
-	kr_display_name = "안정된 ",
+	kr_display_name = "정밀한 ",
 	keywords = {steady=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -488,7 +488,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "psychic's ", prefix=true, instant_resolve=true,
-	kr_display_name = "제사용 ",
+	kr_display_name = "초능력자 ",
 	keywords = {psychic=true},
 	level_range = {30, 50},
 	greater_ego = 1,

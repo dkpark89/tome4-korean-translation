@@ -56,7 +56,7 @@ function _M:getUseDesc()
 	elseif self.use_simple then
 		--@@
 		local ssn = self.use_simple.kr_display_name or self.use_simple.name
-		return ("%s에 사용 가능."):format(ssn:capitalize())
+		return ("%s 사용 가능."):format(ssn:capitalize():addJosa("로"))
 	elseif self.use_talent then
 		--@@
 		local stn = self:getTalentFromId(self.use_talent.id).kr_display_name or self:getTalentFromId(self.use_talent.id).name

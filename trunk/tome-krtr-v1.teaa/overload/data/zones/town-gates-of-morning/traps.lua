@@ -84,7 +84,7 @@ newEntity{ base = "BASE_STORE", define_as = "STAFF_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "HERBALIST",
 	name="Sarah's Herbal Infusions",
-	kr_display_name="사라의 약초 주입",
+	kr_display_name="사라의 약초 주입물",
 	display='4', color=colors.LIGHT_GREEN,
 	resolvers.store("POTION", "sunwall", "store/shop_door.png", "store/shop_sign_saras_herbal_infusions.png"),
 }

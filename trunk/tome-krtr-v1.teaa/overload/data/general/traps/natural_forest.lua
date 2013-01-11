@@ -20,7 +20,7 @@
 require "engine.krtrUtils" --@@
 
 newEntity{ define_as = "TRAP_NATURAL_FOREST",
-	type = "natural", subtype="forest", id_by_type=true, unided_name = "trap",
+	type = "natural", subtype="forest", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function(self, x, y, who)
 		self:project({type="hit",x=x,y=y}, x, y, self.damtype, self.dam or 10, self.particles and {type=self.particles})

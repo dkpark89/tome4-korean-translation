@@ -23,12 +23,13 @@ newEntity{
 	type = "mount",
 	display = "&", color=colors.SLATE,
 	encumber = 0,
-	desc = [[A mount]],
+	desc = [[올라타는 용도입니다]],
 }
 
 newEntity{ base = "BASE_MOUNT", define_as = "ALCHEMIST_GOLEM_MOUNT",
 	subtype = "golem",
 	name = "alchemist golem mount",
+	kr_display_name = "연금술사 탑재용 골렘",
 	cost = 0,
 	mount = {
 		share_damage = 75,

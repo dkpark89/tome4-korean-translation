@@ -20,7 +20,7 @@
 local DamageType = require "engine.DamageType"
 
 newEntity{ define_as = "TRAP_COMPLEX",
-	type = "complex", id_by_type=true, unided_name = "trap",
+	type = "complex", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function(self, x, y, who)
 		return true

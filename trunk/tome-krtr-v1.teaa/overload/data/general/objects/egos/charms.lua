@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "quick ", prefix=true,
+	kr_display_name = "빠른 ",
 	keywords = {quick=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -32,6 +33,7 @@ newEntity{
 
 newEntity{
 	name = "supercharged ", prefix=true,
+	kr_display_name = "과충전된 ",
 	keywords = {['super.c']=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -45,6 +47,7 @@ newEntity{
 
 newEntity{
 	name = "overpowered ", prefix=true,
+	kr_display_name = "압도하는 ",
 	keywords = {['overpower']=true},
 	level_range = {30, 50},
 	greater_ego = 1,

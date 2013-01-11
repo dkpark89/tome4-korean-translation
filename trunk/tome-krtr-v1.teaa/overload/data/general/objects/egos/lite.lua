@@ -26,6 +26,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = "bright ", prefix=true, instant_resolve=true,
+	kr_display_name = "밝은 ",
 	keywords = {bright=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -38,6 +39,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the sun", suffix=true, instant_resolve=true,
+	kr_display_name = "태양의 ",
 	keywords = {sun=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -58,6 +60,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the moons", suffix=true, instant_resolve=true,
+	kr_display_name = "달의 ",
 	keywords = {moons=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -78,6 +81,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "scorching ", prefix=true, instant_resolve=true,
+	kr_display_name = "뜨거운 ",
 	keywords = {scorching=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -90,6 +94,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of the forge", suffix=true, instant_resolve=true,
+	kr_display_name = "연마의 ",
 	keywords = {forge=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -104,6 +109,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "burglar's ", prefix=true, instant_resolve=true,
+	kr_display_name = "강도의 ",
 	keywords = {burglar=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -121,6 +127,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of revealing", suffix=true, instant_resolve=true,
+	kr_display_name = "감지의 ",
 	keywords = {revealing=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -135,6 +142,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
+	kr_display_name = "명석의 ",
 	keywords = {clarity=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -147,6 +155,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of health", suffix=true, instant_resolve=true,
+	kr_display_name = "생명력의 ",
 	keywords = {health=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -159,6 +168,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "guard's ", prefix=true, instant_resolve=true,
+	kr_display_name = "경비 ",
 	keywords = {guard=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -171,6 +181,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "healer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "치료사 ",
 	keywords = {healer=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -183,6 +194,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "preserving ", prefix=true, instant_resolve=true,
+	kr_display_name = "보존 ",
 	keywords = {preserve=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -199,6 +211,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "piercing ", prefix=true, instant_resolve=true,
+	kr_display_name = "관통 ",
 	keywords = {piercing=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -216,6 +229,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "dreamer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "몽상가 ",
 	keywords = {guide=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -231,6 +245,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "void-walker's ", prefix=true, instant_resolve=true,
+	kr_display_name = "공허를 걷는 ",
 	keywords = {void=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -246,6 +261,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "nightwalker's ", prefix=true, instant_resolve=true,
+	kr_display_name = "밤을 걷는 ",
 	keywords = {nightwalker=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -263,6 +279,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of illusion", suffix=true, instant_resolve=true,
+	kr_display_name = "환상의 ",
 	keywords = {illusion=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -279,6 +296,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of corpselight", suffix=true, instant_resolve=true,
+	kr_display_name = "시쳇빛의 ",
 	keywords = {corpselight=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -294,6 +312,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of the zealot", suffix=true, instant_resolve=true,
+	kr_display_name = "광신의 ",
 	keywords = {zealot=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -306,6 +325,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of focus", suffix=true, instant_resolve=true,
+	kr_display_name = "집중의 ",
 	keywords = {focus=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -323,6 +343,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "ethereal ", prefix=true, instant_resolve=true,
+	kr_display_name = "에테르 ",
 	keywords = {ethereal=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -341,6 +362,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "watchleader's ", prefix=true, instant_resolve=true,
+	kr_display_name = "감시통솔자 ",
 	keywords = {watchleader=true},
 	level_range = {30, 50},
 	greater_ego = 1,

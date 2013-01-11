@@ -27,6 +27,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = "stealthy ", prefix=true, instant_resolve=true,
+	kr_display_name = "은밀한 ",
 	keywords = {stealth=true},
 	level_range = {20, 50},
 	rarity = 5,

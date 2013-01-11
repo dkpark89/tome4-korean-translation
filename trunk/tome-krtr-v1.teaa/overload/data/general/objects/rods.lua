@@ -21,6 +21,7 @@ newEntity{
 	define_as = "BASE_ROD",
 	type = "charm", subtype="rod",
 	unided_name = "rod", id_by_type = true,
+	kr_unided_name = "장대",
 	display = "-", color=colors.WHITE, image = resolvers.image_material("wand", "wood"),
 	encumber = 2,
 	rarity = 9,
