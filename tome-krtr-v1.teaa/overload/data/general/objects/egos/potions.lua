@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "acid-proof ", prefix=true,
+	kr_display_name = "내산성 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 0.5,
@@ -27,6 +28,7 @@ newEntity{
 
 newEntity{
 	name = "giant ", prefix=true,
+	kr_display_name = "거인 ",
 	level_range = {1, 50},
 	rarity = 5,
 	cost = 0.5,

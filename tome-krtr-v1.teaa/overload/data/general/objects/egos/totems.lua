@@ -24,13 +24,14 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "natural ", prefix=true,
+	kr_display_nema = "자연 ",
 	keywords = {natural=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d equilibrium"):format(self:getCharmPower(true) / 5) end, function(self, who)
+		{100, function(self, who) return ("평정 %d 재생"):format(self:getCharmPower(true) / 5) end, function(self, who)
 			who:incEquilibrium(-self:getCharmPower(true) / 5)
 		end},
 	}
@@ -38,13 +39,14 @@ newEntity{
 
 newEntity{
 	name = "forcefull ", prefix=true,
+	kr_display_nema = "힘찬 ",
 	keywords = {force=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d stamina"):format(self:getCharmPower(true) / 6) end, function(self, who)
+		{100, function(self, who) return ("체력 %d 재생"):format(self:getCharmPower(true) / 6) end, function(self, who)
 			who:incStamina(self:getCharmPower(true) / 6)
 		end},
 	}
@@ -52,6 +54,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true,
+	kr_display_nema = "배척 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -70,6 +73,7 @@ newEntity{
 
 newEntity{
 	name = "rushing ", prefix=true,
+	kr_display_nema = "돌진 ",
 	keywords = {rushing=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -83,6 +87,7 @@ newEntity{
 
 newEntity{
 	name = "webbed ", prefix=true,
+	kr_display_nema = "거미줄 ",
 	keywords = {webbed=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -96,6 +101,7 @@ newEntity{
 
 newEntity{
 	name = "tentacled ", prefix=true,
+	kr_display_nema = "촉수 ",
 	keywords = {tentacled=true},
 	level_range = {30, 50},
 	rarity = 12,

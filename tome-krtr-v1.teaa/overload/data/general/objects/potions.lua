@@ -21,11 +21,12 @@ newEntity{
 	define_as = "BASE_POTION",
 	type = "potion", subtype="potion",
 	unided_name = "potion", id_by_type = true,
+	kr_unided_name = "물약",
 	display = "!", color=colors.WHITE, image="object/potion-0x0.png",
 	use_sound = "actions/quaff",
 	encumber = 0.2,
 	stacking = true,
 	acid_destroy = {{10,1}, {20,2}, {40,5}, {60,10}, {120,20}},
-	desc = [[Magical potions can have wildly different effects, from healing to killing you -- beware! Most of them function better with a high Magic score]],
+	desc = [[마법의 물약은 치료부터 살해까지 다양한 효과를 가지고 있으니 주의하세요! 대부분은 마법 능력치가 높을수록 더 높은 효과를 보입니다.]],
 	egos = "/data/general/objects/egos/potions.lua", egos_chance = resolvers.mbonus(10, 5),
 }

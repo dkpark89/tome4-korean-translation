@@ -38,7 +38,7 @@ function _M:init(actor)
 
 	self.actor = actor
 	--@@
-	local san = self.actor.kr_display_name or self.actor.name
+	local san = self.actor.kr_display_name and (self.actor.kr_display_name.."["..self.actor.name.."]") or self.actor.name
 	Dialog.init(self, "캐릭터 상태: "..san, math.max(game.w * 0.7, 950), 500)
 
 	--@@

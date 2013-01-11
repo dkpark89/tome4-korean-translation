@@ -857,7 +857,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Taint: Devourer",
-	kr_display_name = "얼룩: 먹깨비",
+	kr_display_name = "오염: 먹깨비",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,
@@ -923,7 +923,7 @@ newInscription{
 
 newInscription{
 	name = "Taint: Telepathy",
-	kr_display_name = "얼룩: 투시",
+	kr_display_name = "오염: 투시",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,

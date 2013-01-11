@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 newEntity{ define_as = "TRAP_ANNOY",
-	type = "annoy", subtype="annoy", id_by_type=true, unided_name = "trap",
+	type = "annoy", subtype="annoy", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function() end,
 }

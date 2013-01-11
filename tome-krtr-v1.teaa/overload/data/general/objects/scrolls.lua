@@ -21,6 +21,7 @@ newEntity{
 	define_as = "BASE_SCROLL",
 	type = "scroll", subtype="scroll",
 	unided_name = "scroll", id_by_type = true,
+	kr_unided_name = "두루마리",
 	display = "?", color=colors.WHITE, image="object/scroll.png",
 	encumber = 0.1,
 	stacking = true,
@@ -28,7 +29,7 @@ newEntity{
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{10,1}, {20,2}, {40,5}, {60,10}, {120,20}},
-	desc = [[Magical scrolls can have wildly different effects! Most of them function better with a high Magic score]],
+	desc = [[마법의 두루마리는 여러가지 다른 효과를 가질 수 있습니다! 대부분은 마법 능력치가 높을수록 더 높은 효과를 보입니다.]],
 	egos = "/data/general/objects/egos/scrolls.lua", egos_chance = resolvers.mbonus(10, 5),
 }
 
@@ -36,18 +37,19 @@ newEntity{
 	define_as = "BASE_INFUSION",
 	type = "scroll", subtype="infusion", add_name = " (#INSCRIPTION#)",
 	unided_name = "infusion", id_by_type = true,
+	kr_unided_name = "주입물",
 	display = "?", color=colors.LIGHT_GREEN, image="object/rune_green.png",
 	encumber = 0.1,
 	use_sound = "actions/read",
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{100,1}, {200,2}, {400,5}, {600,10}, {1200,20}},
-	desc = [[Natural infusions may be grafted onto your body, granting you an on-demand ability.]],
+	desc = [[자연적 주입물을 당신의 육체로 이식하여, 필요한 기술을 가질 수 있습니다.]],
 	egos = "/data/general/objects/egos/infusions.lua", egos_chance = resolvers.mbonus(30, 5),
 	material_level_min_only = true,
 
 	power_source = {nature=true},
-	use_simple = { name="inscribe your skin with the infusion.", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the infusion.", kr_display_name = "주입물을 피부에 새김", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -58,18 +60,19 @@ newEntity{
 	define_as = "BASE_RUNE",
 	type = "scroll", subtype="rune", add_name = " (#INSCRIPTION#)",
 	unided_name = "rune", id_by_type = true,
+	kr_unided_name = "룬",
 	display = "?", color=colors.LIGHT_BLUE, image="object/rune_red.png",
 	encumber = 0.1,
 	use_sound = "actions/read",
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{10,1}, {20,2}, {40,5}, {60,10}, {120,20}},
-	desc = [[Magical runes may be inscribed onto your body, granting you an on-demand ability.]],
+	desc = [[마법의 룬을 당신의 육체에 새겨, 필요한 기술을 가질 수 있습니다.]],
 	egos = "/data/general/objects/egos/infusions.lua", egos_chance = resolvers.mbonus(30, 5),
 	material_level_min_only = true,
 
 	power_source = {arcane=true},
-	use_simple = { name="inscribe your skin with the rune.", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the rune.", kr_display_name = "룬을 피부에 새김", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -80,17 +83,18 @@ newEntity{
 	define_as = "BASE_TAINT",
 	type = "scroll", subtype="taint", add_name = " (#INSCRIPTION#)",
 	unided_name = "taint", id_by_type = true,
+	kr_unided_name = "오염",
 	display = "?", color=colors.LIGHT_BLUE, image="object/rune_yellow.png",
 	encumber = 0.1,
 	use_sound = "actions/read",
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{10,1}, {20,2}, {40,5}, {60,10}, {120,20}},
-	desc = [[Corrupted taints may be inscribed onto your body, granting you an on-demand ability.]],
+	desc = [[타락한 오염을 당신의 육체에 새겨, 필요한 기술을 가질 수 있습니다.]],
 	egos = "/data/general/objects/egos/infusions.lua", egos_chance = resolvers.mbonus(30, 5),
 
 	power_source = {arcane=true},
-	use_simple = { name="inscribe your skin with the taint.", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the taint.", kr_display_name = "오염을 피부에 새김", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -101,20 +105,22 @@ newEntity{
 	define_as = "BASE_LORE",
 	type = "lore", subtype="lore", not_in_stores=true, no_unique_lore=true,
 	unided_name = "scroll", identified=true,
+	kr_unided_name = "두루마리",
 	display = "?", color=colors.ANTIQUE_WHITE, image="object/scroll-lore.png",
 	encumber = 0,
 	checkFilter = function(self) if self.lore and game.party.lore_known and game.party.lore_known[self.lore] then print('[LORE] refusing', self.lore) return false else return true end end,
-	desc = [[This parchment contains some lore.]],
+	desc = [[이 양피지는 어떤 지식을 담고 있습니다.]],
 }
 
 newEntity{
 	define_as = "BASE_LORE_RANDOM",
 	type = "lore", subtype="lore", not_in_stores=true, no_unique_lore=true,
 	unided_name = "scroll", identified=true,
+	kr_unided_name = "두루마리",
 	display = "?", color=colors.ANTIQUE_WHITE, image="object/scroll.png",
 	encumber = 0,
 	checkFilter = function(self) if self.lore and game.party.lore_known and game.party.lore_known[self.lore] then print('[LORE] refusing', self.lore) return false else return true end end,
-	desc = [[This parchment contains some lore.]],
+	desc = [[이 양피지는 어떤 지식을 담고 있습니다.]],
 }
 
 -----------------------------------------------------------
@@ -122,6 +128,7 @@ newEntity{
 -----------------------------------------------------------
 newEntity{ base = "BASE_INFUSION",
 	name = "healing infusion",
+	kr_display_name = "치료 주입물",
 	level_range = {7, 50},
 	rarity = 16,
 	cost = 10,
@@ -138,6 +145,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "regeneration infusion",
+	kr_display_name = "재생 주입물",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 10,
@@ -155,6 +163,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "wild infusion",
+	kr_display_name = "야생성 주입물",
 	level_range = {1, 50},
 	rarity = 13,
 	cost = 20,
@@ -184,6 +193,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "movement infusion",
+	kr_display_name = "이동 주입물",
 	level_range = {10, 50},
 	rarity = 15,
 	cost = 30,
@@ -201,6 +211,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "sun infusion",
+	kr_display_name = "태양 주입물",
 	level_range = {1, 50},
 	rarity = 13,
 	cost = 10,
@@ -219,6 +230,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "heroism infusion",
+	kr_display_name = "영웅주의 주입물",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 40,
@@ -237,6 +249,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "insidious poison infusion",
+	kr_display_name = "반회복형 중독 주입물",
 	level_range = {10, 50},
 	rarity = 16,
 	cost = 20,
@@ -258,6 +271,7 @@ newEntity{ base = "BASE_INFUSION",
 -----------------------------------------------------------
 newEntity{ base = "BASE_RUNE",
 	name = "phase door rune",
+	kr_display_name = "근거리 공간이동 룬",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 10,
@@ -274,6 +288,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "controlled phase door rune",
+	kr_display_name = "제어된 근거리 공간이동 룬",
 	level_range = {35, 50},
 	rarity = 17,
 	cost = 50,
@@ -290,6 +305,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "teleportation rune",
+	kr_display_name = "장거리 공간이동 룬",
 	level_range = {10, 50},
 	rarity = 15,
 	cost = 10,
@@ -306,6 +322,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "shielding rune",
+	kr_display_name = "방어막 룬",
 	level_range = {5, 50},
 	rarity = 15,
 	cost = 20,
@@ -323,6 +340,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "invisibility rune",
+	kr_display_name = "투명화 룬",
 	level_range = {18, 50},
 	rarity = 19,
 	cost = 40,
@@ -340,6 +358,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "vision rune",
+	kr_display_name = "시야 룬",
 	level_range = {15, 50},
 	rarity = 16,
 	cost = 30,
@@ -358,6 +377,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "heat beam rune",
+	kr_display_name = "열기의 빔 룬",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 20,
@@ -375,6 +395,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "frozen spear rune",
+	kr_display_name = "빙결의 창 룬",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 20,
@@ -392,6 +413,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "acid wave rune",
+	kr_display_name = "산성 파동 룬",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 20,
@@ -409,6 +431,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "lightning rune",
+	kr_display_name = "번개 룬",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 20,
@@ -426,6 +449,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "manasurge rune",
+	kr_display_name = "마나집중 룬",
 	level_range = {1, 50},
 	rarity = 22,
 	cost = 10,
@@ -447,6 +471,7 @@ newEntity{ base = "BASE_RUNE",
 --[[
 newEntity{ base = "BASE_TAINT",
 	name = "taint of the devourer",
+	kr_display_name = "먹깨비 오염",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 10,

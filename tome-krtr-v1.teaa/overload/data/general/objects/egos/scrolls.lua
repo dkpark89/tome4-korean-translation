@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "fire-proof ", prefix=true,
+	kr_display_name = "내열성 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 0.5,
@@ -27,6 +28,7 @@ newEntity{
 
 newEntity{
 	name = "long ", prefix=true,
+	kr_display_name = "기다란 ",
 	level_range = {1, 50},
 	rarity = 5,
 	cost = 2,

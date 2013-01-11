@@ -202,7 +202,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of might", suffix=true, instant_resolve=true,
-	kr_display_name = "힘의 ",
+	kr_display_name = "완력의 ",
 	keywords = {might=true},
 	level_range = {1, 50},
 	rarity = 3,

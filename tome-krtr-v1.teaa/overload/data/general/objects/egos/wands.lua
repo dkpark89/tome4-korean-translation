@@ -24,13 +24,14 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "arcane ", prefix=true, second=true,
+	kr_display_nema = "마법 ",
 	keywords = {arcane=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d mana"):format(self:getCharmPower(true) / 5) end, function(self, who)
+		{100, function(self, who) return ("마나 %d 재생"):format(self:getCharmPower(true) / 5) end, function(self, who)
 			who:incMana(self:getCharmPower(true) / 5)
 		end},
 	}
@@ -38,13 +39,14 @@ newEntity{
 
 newEntity{
 	name = "defiled ", prefix=true, second=true,
+	kr_display_nema = "모독 ",
 	keywords = {defiled=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d vim"):format(self:getCharmPower(true) / 6) end, function(self, who)
+		{100, function(self, who) return ("정력 %d 재생"):format(self:getCharmPower(true) / 6) end, function(self, who)
 			who:incVim(self:getCharmPower(true) / 6)
 		end},
 	}
@@ -52,13 +54,14 @@ newEntity{
 
 newEntity{
 	name = "bright ", prefix=true, second=true,
+	kr_display_nema = "밝은 ",
 	keywords = {bright=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d positive energy"):format(self:getCharmPower(true) / 8) end, function(self, who)
+		{100, function(self, who) return ("양기 %d 재생"):format(self:getCharmPower(true) / 8) end, function(self, who)
 			who:incPositive(self:getCharmPower(true) / 8)
 		end},
 	}
@@ -66,13 +69,14 @@ newEntity{
 
 newEntity{
 	name = "shadowy ", prefix=true, second=true,
+	kr_display_nema = "어두운 ",
 	keywords = {shadow=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d negative energy"):format(self:getCharmPower(true) / 8) end, function(self, who)
+		{100, function(self, who) return ("음기 %d 재생"):format(self:getCharmPower(true) / 8) end, function(self, who)
 			who:incNegative(self:getCharmPower(true) / 8)
 		end},
 	}
@@ -80,6 +84,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true, second=true,
+	kr_display_nema = "배척 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -100,6 +105,7 @@ newEntity{
 
 newEntity{
 	name = "void ", prefix=true, second=true,
+	kr_display_nema = "공허 ",
 	keywords = {void=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -114,6 +120,7 @@ newEntity{
 
 newEntity{
 	name = "volcanic ", prefix=true, second=true,
+	kr_display_nema = "화산 ",
 	keywords = {volcanic=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -127,6 +134,7 @@ newEntity{
 
 newEntity{
 	name = "striking ", prefix=true, second=true,
+	kr_display_nema = "타격 ",
 	keywords = {striking=true},
 	level_range = {30, 50},
 	rarity = 12,

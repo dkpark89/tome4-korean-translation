@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 newEntity{ define_as = "TRAP_ELEMENTAL",
-	type = "elemental", id_by_type=true, unided_name = "trap",
+	type = "elemental", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	pressure_trap = true,
 	triggered = function(self, x, y, who)
@@ -27,7 +27,7 @@ newEntity{ define_as = "TRAP_ELEMENTAL",
 	end,
 }
 newEntity{ define_as = "TRAP_ELEMENTAL_BLAST",
-	type = "elemental", id_by_type=true, unided_name = "trap",
+	type = "elemental", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function(self, x, y, who)
 		self:project({type="ball",x=x,y=y, radius=self.radius or 2}, x, y, self.damtype, self.dam, self.particles and {type=self.particles})

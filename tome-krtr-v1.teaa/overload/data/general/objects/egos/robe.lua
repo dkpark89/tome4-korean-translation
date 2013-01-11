@@ -28,6 +28,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {nature=true},
 	name = " of fire (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "화염(#RESIST#)의 ",
 	keywords = {fire=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -42,6 +43,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of frost (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "냉기(#RESIST#)의 ",
 	keywords = {frost=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -56,6 +58,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of nature (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "자연(#RESIST#)의 ",
 	keywords = {nature=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -70,6 +73,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of lightning (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "번개(#RESIST#)의 ",
 	keywords = {lightning=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -84,6 +88,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of light (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "빛(#RESIST#)의 ",
 	keywords = {light=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -98,6 +103,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of darkness (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "어둠의 ",
 	keywords = {darkness=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -112,6 +118,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of corrosion (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "부식(#RESIST#)의 ",
 	keywords = {corrosion=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -127,6 +134,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of blight (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "황폐(#RESIST#)의 ",
 	keywords = {blight=true},
 	level_range = {1, 50},
 	rarity = 24,
@@ -141,6 +149,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the mountain (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "산맥(#RESIST#)의 ",
 	keywords = {mountain=true},
 	level_range = {1, 50},
 	rarity = 24,
@@ -155,6 +164,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of the mind (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "정신(#RESIST#)의 ",
 	keywords = {mind=true},
 	level_range = {1, 50},
 	rarity = 24,
@@ -169,6 +179,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of time (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_display_name = "시간(#RESIST#)의 ",
 	keywords = {time=true},
 	level_range = {1, 50},
 	rarity = 24,
@@ -183,6 +194,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "shimmering ", prefix=true, instant_resolve=true,
+	kr_display_name = "어른거리는 ",
 	keywords = {shimmering=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -197,6 +209,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of stability", suffix=true, instant_resolve=true,
+	kr_display_name = "안정의 ",
 	keywords = {stable=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -208,6 +221,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of spell shielding", suffix=true, instant_resolve=true,
+	kr_display_name = "마법저항의 ",
 	keywords = {shielding=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -219,6 +233,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
+	kr_display_name = "명석의 ",
 	keywords = {clarity=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -230,6 +245,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "dreamer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "몽상가 ",
 	keywords = {dreamer=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -244,6 +260,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "dispeller's ", prefix=true, instant_resolve=true,
+	kr_display_name = "떨치기 ",
 	keywords = {dispeller=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -260,6 +277,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of retribution", suffix=true, instant_resolve=true,
+	kr_display_name = "응보의 ",
 	keywords = {retribution=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -277,6 +295,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spellwoven ", prefix=true, instant_resolve=true,
+	kr_display_name = "주문엮인 ",
 	keywords = {spellwoven=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -289,6 +308,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of Linaniil", suffix=true, instant_resolve=true,
+	kr_display_name = "리나니일의 ",
 	keywords = {Linaniil=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -305,6 +325,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of Angolwen", suffix=true, instant_resolve=true,
+	kr_display_name = "앙골웬의 ",
 	keywords = {Angolwen=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -321,6 +342,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "stargazer's ", prefix=true, instant_resolve=true,
+	kr_display_name = "점성가 ",
 	keywords = {stargazer=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -340,6 +362,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "ancient ", prefix=true, instant_resolve=true,
+	kr_display_name = "고대 ",
 	keywords = {ancient=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -360,6 +383,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of power", suffix=true, instant_resolve=true,
+	kr_display_name = "세력의 ",
 	keywords = {power=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -382,6 +406,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of chaos", suffix=true, instant_resolve=true,
+	kr_display_name = "혼돈의 ",
 	keywords = {chaos=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -406,6 +431,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "sunsealed ", prefix=true, instant_resolve=true,
+	kr_display_name = "태양력 ",
 	keywords = {sunseal=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -428,6 +454,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of life", suffix=true, instant_resolve=true,
+	kr_display_name = "생명의 ",
 	keywords = {life=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -446,6 +473,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "slimy ", prefix=true, instant_resolve=true,
+	kr_display_name = "슬라임 ",
 	keywords = {slimy=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -457,6 +485,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "stormlord's ", prefix=true, instant_resolve=true,
+	kr_display_name = "폭풍군주 ",
 	keywords = {stormlord=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -479,6 +508,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "verdant ", prefix=true, instant_resolve=true,
+	kr_display_name = "신록 ",
 	keywords = {verdant=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -497,6 +527,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "mindwoven ", prefix=true, instant_resolve=true,
+	kr_display_name = "정신이 엮인 ",
 	keywords = {mindwoven=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -509,6 +540,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "tormentor's ", prefix=true, instant_resolve=true,
+	kr_display_name = "괴롭히는 ",
 	keywords = {tormentor=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -525,6 +557,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "focusing ", prefix=true, instant_resolve=true,
+	kr_display_name = "집중시키는 ",
 	keywords = {focus=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -537,6 +570,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "fearwoven ", prefix=true, instant_resolve=true,
+	kr_display_name = "공포가 엮인 ",
 	keywords = {fearwoven=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -554,6 +588,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "psion's ", prefix=true, instant_resolve=true,
+	kr_display_name = "염동력자 ",
 	keywords = {psion=true},
 	level_range = {40, 50},
 	greater_ego = 1,

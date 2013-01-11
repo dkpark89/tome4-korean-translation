@@ -61,7 +61,7 @@ newEffect{
 newEffect{
 	name = "TAINT_COOLDOWN", image = "effects/tainted_cooldown.png",
 	desc = "Tainted",
-	kr_display_name = "얼룩짐",
+	kr_display_name = "오염됨",
 	long_desc = function(self, eff) return ("The more you use taints, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
 	type = "other",
 	subtype = { taint=true },

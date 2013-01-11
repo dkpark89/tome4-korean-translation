@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "warrior's ", prefix=true,
+	kr_display_name = "전사의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -26,6 +27,7 @@ newEntity{
 }
 newEntity{
 	name = "duelist's ", prefix=true,
+	kr_display_name = "결투의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -33,6 +35,7 @@ newEntity{
 }
 newEntity{
 	name = "wizard's ", prefix=true,
+	kr_display_name = "마법사의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -40,6 +43,7 @@ newEntity{
 }
 newEntity{
 	name = "psychic's ", prefix=true,
+	kr_display_name = "초능력자의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -47,6 +51,7 @@ newEntity{
 }
 newEntity{
 	name = "sneak's ", prefix=true,
+	kr_display_name = "은밀함의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -54,6 +59,7 @@ newEntity{
 }
 newEntity{
 	name = "titan's ", prefix=true,
+	kr_display_name = "타이탄의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,

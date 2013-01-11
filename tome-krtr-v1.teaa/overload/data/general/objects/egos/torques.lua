@@ -24,13 +24,14 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "psionic ", prefix=true,
+	kr_display_name = "염동술사 ",
 	keywords = {psi=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d psi"):format(self:getCharmPower(true) / 7) end, function(self, who)
+		{100, function(self, who) return ("염력 %d 재생"):format(self:getCharmPower(true) / 7) end, function(self, who)
 			who:incPsi(self:getCharmPower(true) / 7)
 		end},
 	}
@@ -38,13 +39,14 @@ newEntity{
 
 newEntity{
 	name = "hateful ", prefix=true,
+	kr_display_name = "불쾌한 ",
 	keywords = {hate=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d hate"):format(self:getCharmPower(true) / 7) end, function(self, who)
+		{100, function(self, who) return ("증오심 %d 재생"):format(self:getCharmPower(true) / 7) end, function(self, who)
 			who:incHate(self:getCharmPower(true) / 7)
 		end},
 	}
@@ -52,6 +54,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true,
+	kr_display_name = "배척 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -70,6 +73,7 @@ newEntity{
 
 newEntity{
 	name = "quiet ", prefix=true,
+	kr_display_name = "조용한 ",
 	keywords = {quiet=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -84,6 +88,7 @@ newEntity{
 
 newEntity{
 	name = "telekinetic ", prefix=true,
+	kr_display_name = "염동 ",
 	keywords = {telekinetic=true},
 	level_range = {30, 50},
 	rarity = 12,

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 --[[
 Totems
 *healing
@@ -27,12 +29,13 @@ Totems
 
 newEntity{
 	name = " of cure illness", addon=true, instant_resolve=true,
+	kr_display_nema = "질병치료의 ",
 	keywords = {cureill=true},
 	level_range = {15, 50},
 	rarity = 8,
 
 	charm_power_def = {add=1, max=5, floor=true},
-	resolvers.charm("removes up to %d diseases from the target", 20, function(self, who)
+	resolvers.charm("대상의 질병을 %d개까지 제거", 20, function(self, who)
 		local tg = {default_target=who, type="hit", nowarning=true, range=6 + who:getWil(4), first_target="friend"}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end
@@ -60,19 +63,22 @@ newEntity{
 			end
 		end)
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		--@@
+		local wn = who.kr_display_name or who.name
+		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
 
 newEntity{
 	name = " of cure poisons", addon=true, instant_resolve=true,
+	kr_display_nema = "중독치료의 ",
 	keywords = {curepoison=true},
 	level_range = {1, 50},
 	rarity = 8,
 
 	charm_power_def = {add=1, max=5, floor=true},
-	resolvers.charm("removes up to %d poisons from the target", 20, function(self, who)
+	resolvers.charm("대상의 중독을 %d개까지 제거", 20, function(self, who)
 		local tg = {default_target=who, type="hit", nowarning=true, range=6 + who:getWil(4), first_target="friend"}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end
@@ -100,41 +106,49 @@ newEntity{
 			end
 		end)
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		--@@
+		local wn = who.kr_display_name or who.name
+		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
 
 newEntity{
 	name = " of thorny skin", addon=true, instant_resolve=true,
+	kr_display_nema = "가시돋은 피부의 ",
 	keywords = {thorny=true},
 	level_range = {1, 50},
 	rarity = 6,
 
 	charm_power_def = {add=5, max=50, floor=true},
-	resolvers.charm(function(self) return ("hardens the skin for 6 turns increasing armour by %d and armour hardiness by %d%%%%"):format(self:getCharmPower(), 20 + self.material_level * 10) end, 20, function(self, who)
+	resolvers.charm(function(self) return ("6턴간 피부를 단단하게 만들어, 방어도 %d 방어효율 %d%% 증가"):format(self:getCharmPower(), 20 + self.material_level * 10) end, 20, function(self, who)
 		who:setEffect(who.EFF_THORNY_SKIN, 6, {ac=self:getCharmPower(), hard=20 + self.material_level * 10})
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		--@@
+		local wn = who.kr_display_name or who.name
+		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
 
 newEntity{
 	name = " of healing", addon=true, instant_resolve=true,
+	kr_display_nema = "치료의 ",
 	keywords = {heal=true},
 	level_range = {25, 50},
 	rarity = 20,
 
 	charm_power_def = {add=50, max=250, floor=true},
-	resolvers.charm("heals the target for %d", 35, function(self, who)
+	resolvers.charm("대상의 생명력 %d 치료", 35, function(self, who)
 		local tg = {default_target=who, type="hit", nowarning=true, range=6 + who:getWil(4), first_target="friend"}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end
 		local dam = self:getCharmPower()
 		who:project(tg, x, y, engine.DamageType.HEAL, dam)
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		--@@
+		local wn = who.kr_display_name or who.name
+		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
