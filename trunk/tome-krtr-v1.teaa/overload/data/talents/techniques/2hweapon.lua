@@ -96,9 +96,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격적인 전투 자세를 취합니다, 회피도와 방어력을 10씩 감소시키고, 정확도를 %d , 물리력을 %d 증가시킵니다.
+		return ([[공격적인 전투 자세를 취합니다. 회피도와 방어력이 10 씩 감소하는 대신, 정확도가 %d, 물리력이 %d 증가합니다.
 		광전사 상태인 사람을 멈춰세우기란 거의 불가능하기 때문에, %d%% 의 기절과 속박 저항을 얻습니다.
-		정확도는 민첩, 피해량은 힘 능력치의 영향을 받아 증가됩니다.]]):
+		정확도는 민첩, 물리력은 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(
 			5 + self:getDex(7, true) * self:getTalentLevel(t),
 			5 + self:getStr(7, true) * self:getTalentLevel(t),
@@ -114,7 +114,7 @@ newTalent{
 	require = techs_req3,
 	points = 5,
 	random_ego = "attack",
-	message = function(self) if self.subtype == "rodent" then return "@Source1@ 전투의 찍찍거림을 사용합니다." else return "@Source1@ 전투의 외침을 사용합니다." end end ,
+	message = function(self) if self.subtype == "rodent" then return "@Source1@ 전투의 외침을 내지릅니다. 찍찍!" else return "@Source1@ 전투의 외침을 내지릅니다." end end ,
 	stamina = 30,
 	cooldown = 18,
 	tactical = { ATTACKAREA = { confusion = 1 }, DISABLE = { confusion = 3 } },
@@ -196,15 +196,16 @@ newTalent{
 				game.logSeen(target, "%s에게 죽음의 고통을 안겨줬습니다!", (target.kr_display_name or target.name):capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s 죽음의 일격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) --@@
+				game.logSeen(target, "%s 죽음의 고통을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) --@@
 			end
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[항상 치명타로 적중하며, %d%% 의 무기 피해를 주는 즉사 공격을 시도합니다. 공격을 받은 대상이 빈사상태(생명력<20%%)가 되면 즉시 사망합니다.
-		기술 레벨이 4 이상이면, 남은 체력의 절반을 쏟아부어 추가 피해를 입힙니다.
-		즉사 확률은 힘 능력치에 영향을 받아 증가됩니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
+		return ([[적중시 무조건 치명타 효과가 발생하며, %d%% 의 무기 피해를 주는 즉사 공격을 시도합니다. 
+		공격을 받은 대상이 빈사상태 (생명력 20%% 미만) 이며 대상이 저항하지 못했을 경우, 대상은 즉사합니다.
+		기술 레벨이 4 이상이면, 남은 체력의 절반을 쏟아부어 그만큼 더 강력한 공격을 할 수 있습니다.
+		즉사 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
 	end,
 }
 
@@ -241,15 +242,15 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 기절시키기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 머리를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 기절시킵니다.
-		기절 확률은 힘 능력치에 영향을 받아 증가됩니다.]])
+		return ([[대상의 머리를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 기절시킵니다.
+		기절 확률은 물리력 능력치의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 		2 + math.floor(self:getTalentLevel(t)))
 	end,
@@ -288,8 +289,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 방어도가 %d 감소하는 효과를 %d 턴 동안 지속되게 합니다.
-		방어도 감소 확률은 힘 능력치에 영향을 받아 증가됩니다.]])
+		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 대상의 방어도를 %d 만큼, %d 턴 동안 감소시킵니다.
+		방어도 감소 확률은 물리력 능력치의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 			5 * self:getTalentLevel(t),
@@ -331,8 +332,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 팔을 무기로 내리쳐서 %d%% 의 무기 피해를 줍니다. 공격에 성공하면 대상의 정확도가 %d 감소하는 효과를 %d 턴 동안 지속되게 합니다.
-		정확도 감소 확률은 힘 능력치에 영향을 받아 증가됩니다.]])
+		return ([[대상의 팔을 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 대상의 정확도를 %d 만큼, %d 턴 동안 감소시킵니다.
+		정확도 감소 확률은 물리력 능력치의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 			3 * self:getTalentLevel(t),
@@ -375,8 +376,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[매 턴마다 체력이 2씩 감소하는 피의 광란 상태에 빠집니다. 이 상태에서 적을 죽일 때마다, 물리력이 %d 씩 중첩되어 상승합니다.
-		추가로 얻은 물리력은 턴이 지날 때마다 2씩 감소합니다.]]):format(2 * self:getTalentLevel(t))
+		return ([[매 턴마다 체력이 2씩 감소하는 피의 광란 상태에 빠지며, 이 상태에서 적을 죽일 때마다 물리력이 %d 씩 상승합니다.
+		물리력 상승 효과는 중첩되며 한계도 없지만, 추가로 얻은 물리력은 턴이 지날 때마다 2씩 감소합니다.]]):format(2 * self:getTalentLevel(t))
 	end,
 }
 

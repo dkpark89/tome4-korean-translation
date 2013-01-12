@@ -77,10 +77,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Allows you to use a melee weapon to focus your spells, granting a %d%% chance per melee attack to deliver a Flame, Lightning or Earthen Missiles spell as a free action on the target.
-		When using two weapons, the chance is halved for each weapon.
-		Delivering the spell this way will not trigger a spell cooldown, but only works if the spell is not cooling down.
-		The chance increases with your Cunning.]]):
+		return ([[근접 무기를 통해 마법을 사용할 수 있게 됩니다. 근접공격을 할 때마다 %d%% 확률로 대상에게 '불꽃', '전격', '암석 화살' 마법 중 하나를 사용합니다.
+		쌍수 무기를 사용할 경우, 이 확률은 각 무기에 절반씩 분배됩니다.
+		이렇게 사용된 마법은 지연시간을 발생시키지 않지만, 사용할 준비가 되지 않은 마법은 발사되지 않습니다.
+		마법이 사용될 확률은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(20 + self:getTalentLevel(t) * (1 + self:getCun(9, true)))
 	end,
 }
@@ -93,14 +93,14 @@ newTalent{
 	points = 5,
 	require = techs_req2,
 	info = function(self, t)
-		return ([[The user gains a bonus to Spellpower equal to %d%% of their Cunning.]]):
+		return ([[교활함 능력치의 %d%% 에 해당하는 수치만큼 주문력이 상승합니다.]]):
 		format(15 + self:getTalentLevel(t) * 5)
 	end,
 }
 
 newTalent{
 	name = "Arcane Feed",
-	kr_display_name = "마력 공급",
+	kr_display_name = "마력 주입",
 	type = {"technique/magical-combat", 3},
 	mode = "sustained",
 	points = 5,
@@ -125,21 +125,21 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Regenerates %0.2f mana per turn, and increases physical and spell critical chance by %d%% while active.]]):format(self:getTalentLevel(t) / 7, self:getTalentLevel(t) * 2.2)
+		return ([[지속되는 동안 매 턴마다 마나를 %0.2f 회복하며, 물리 치명타율과 마법 치명타율이 %d%% 상승합니다.]]):format(self:getTalentLevel(t) / 7, self:getTalentLevel(t) * 2.2)
 	end,
 }
 
 newTalent{
 	name = "Arcane Destruction",
-	kr_display_name = "마력 폭발",
+	kr_display_name = "파괴적 마력",
 	type = {"technique/magical-combat", 4},
 	mode = "passive",
 	points = 5,
 	require = techs_req4,
 	info = function(self, t)
-		return ([[Raw magical damage channels through the caster's weapon, increasing Physical Power by %d.
-		Each time your crit with a melee blow, you will unleash a radius 2 ball of either fire, lightning or arcane damage, doing %0.2f.
-		The bonus scales with your Spellpower.]]):
+		return ([[순수한 마력을 무기에 흘려보내, 물리력을 %d 향상시킵니다.
+		또한 근접무기로 치명타를 발생시킬 때마다, 주위 2 칸 반경에 %0.2f 의 화염, 전기, 마법 피해 중 하나를 줍니다.
+		화염, 전기, 마법 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(self:combatSpellpower() * self:getTalentLevel(Talents.T_ARCANE_DESTRUCTION) / 7, self:combatSpellpower() * 2)
 	end,
 }

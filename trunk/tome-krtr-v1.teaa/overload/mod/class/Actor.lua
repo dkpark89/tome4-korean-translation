@@ -1698,7 +1698,7 @@ function _M:onTakeHit(value, src)
 
 		-- If we are at the end of the capacity, release the time shield damage
 		if self.time_shield_absorb <= 0 then
-			game.logPlayer(self, "시간의 방어막이 피해로 인해 부서졌다!")
+			game.logPlayer(self, "시간의 보호막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_TIME_SHIELD)
 		end
 	end
@@ -1731,12 +1731,12 @@ function _M:onTakeHit(value, src)
 				a:takeHit(math.ceil(reflect_damage * reflection), self)
 				--@@
 				local anm = a.kr_display_name or a.name
-				game.logSeen(self, "방어막이 %d의 피해를 %s에게 되돌려줬다!", math.ceil(reflect_damage * reflection), anm:capitalize())
+				game.logSeen(self, "보호막이 %d의 피해를 %s에게 되돌려줬다!", math.ceil(reflect_damage * reflection), anm:capitalize())
 			end
 		end
 		-- If we are at the end of the capacity, release the time shield damage
 		if not self.damage_shield_absorb or self.damage_shield_absorb <= 0 then
-			game.logPlayer(self, "방어막이 피해로 인해 부서졌다!")
+			game.logPlayer(self, "보호막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_DAMAGE_SHIELD)
 		end
 	end
@@ -1747,7 +1747,7 @@ function _M:onTakeHit(value, src)
 			if value <= self.displacement_shield then
 				--@@
 				local stn = self.displacement_shield_target.kr_display_name or self.displacement_shield_target.name
-				game.logSeen(self, "치환의 방어막이 %s에게 피해를 이동시켰다!", stn)
+				game.logSeen(self, "왜곡의 보호막이 %s에게 피해를 이동시켰다!", stn)
 				self.displacement_shield = self.displacement_shield - value
 				self.displacement_shield_target:takeHit(value, src)
 				value = 0

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blurred Mortality",
+	kr_display_name = "희미해진 필멸성",
 	type = {"spell/necrosis",1},
 	require = spells_req1,
 	mode = "sustained",
@@ -30,7 +31,7 @@ newTalent{
 		if self.player and not self:hasQuest("lichform") and not self:attr("undead") then
 			self:grantQuest("lichform")
 			if game.state.birth.campaign_name ~= "maj-eyal" then self:setQuestStatus("lichform", engine.Quest.DONE) end
-			require("engine.ui.Dialog"):simplePopup("Lichform", "You have mastered the lesser arts of overcoming death, but your true goal is before you: the true immortality of Lichform!")
+			require("engine.ui.Dialog"):simplePopup("Lichform", "죽음을 극복하는 첫걸음을 성공적으로 내딛었지만, 진정한 불사는 이 마법으로 달성할 수 없습니다 : 오직 리치가 되는 것만이 진정한 불멸자가 되는 방법입니다!")
 		end
 
 		local ret = {
@@ -43,14 +44,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[The line between life and death blurs for you; you can only die when you reach -%d life.
-		However, when below 0 HP, you cannot see how much life you have left.]]):
+		return ([[삶과 죽음의 경계가 모호해져, 생명력이 -%d 까지 떨어져야 사망합니다.
+		하지만 생명력이 0 이하로 떨어지면, 현재 생명력을 확인할 수 없게 됩니다.]]):
 		format(50 * self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Impending Doom",
+	kr_display_name = "임박한 종말",
 	type = {"spell/necrosis",2},
 	require = spells_req2,
 	points = 5,
@@ -75,14 +77,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your target's doom draws near. It cannot regenerate or heal at all, and will take %d%% of its remaining life (or %0.2f, whichever is lower) over 10 turns as arcane damage.
-		The damage will increase with your Spellpower.]]):
+		return ([[대상의 종말을 앞당깁니다. 대상은 생명력 재생 및 회복을 할 수 없게 되며, 10 턴 동안 남은 생명력의 %d%% 에 해당하는 마법 피해 또는 %0.2f 마법 피해를 입게 됩니다. (둘 중 더 작은 쪽)
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getDamage(self, t), t.getMax(self, t))
 	end,
 }
 
 newTalent{
 	name = "Undeath Link",
+	kr_display_name = "마법 흩뜨리기",
 	type = {"spell/necrosis",3},
 	require = spells_req3,
 	points = 5,
@@ -131,20 +134,20 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Absorb %d%% of all your minions' life (possibly destroying them) and use this energy to heal you for %d%% of your total life.
-		The healing will increase with your Spellpower.]]):
+		return ([[모든 언데드 추종자로부터 최대 생명력의 %d%% 만큼 생명력을 흡수합니다. 그리고 이를 이용하여, 시전자의 생명력을 최대 생명력의 %d%% 만큼 회복합니다.
+		언데드 추종자는 이 흡수로 인해 파괴될 수도 있으며, 치유량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(heal, heal)
 	end,
 }
 
 newTalent{
 	name = "Lichform",
-	kr_display_name = "리치화",
+	kr_display_name = "리치 변신",
 	type = {"spell/necrosis",4},
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },
 		level = function(level) return 20 + (level-1)  end,
-		special = { desc="'From Death, Life' quest completed", fct=function(self, t) return self:isQuestStatus("lichform", engine.Quest.DONE) end},
+		special = { desc="'From Death, Life' 퀘스트 완료", fct=function(self, t) return self:isQuestStatus("lichform", engine.Quest.DONE) end}, --@@ 해당 퀘스트 번역시 이 부분도 변경 필요
 	},
 	mode = "sustained",
 	points = 5,
@@ -209,10 +212,10 @@ newTalent{
 
 		if self:attr("blood_life") then
 			self.blood_life = nil
-			game.log("#GREY#As you turn into a powerful undead you feel your body violently rejecting the Blood of Life.")
+			game.log("#GREY#강력한 언데드로 변신하자, 당신의 육체가 떨리면서 생명의 피(Blood of Life)를 거부하는 것을 느낍니다.")
 		end
 
-		require("engine.ui.Dialog"):simplePopup("Lichform", "#GREY#You feel your life slip away, only to be replaced by pure arcane forces! Your flesh starts to rot on your bones, and your eyes fall apart as you are reborn into a Lich!")
+		require("engine.ui.Dialog"):simplePopup("리치 변신", "#GREY#당신의 생명력이 빠져나가고, 순수한 마법의 힘이 그 자리를 대신합니다! 당신의 살은 썩어 뼈만 남고, 눈이 떨어져 나가면서 리치로 다시 태어났습니다!")
 
 		game.level.map:particleEmitter(self.x, self.y, 1, "demon_teleport")
 	end,
@@ -230,23 +233,23 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[This is your true goal and the purpose of all necromancy - to become a powerful and everliving Lich!
-		If you are killed while this spell is active, the arcane forces you unleash will be able to rebuild your body into the desired Lichform.
-		All liches gain the following intrinsics:
-		- Poison, cut, and fear immunity.
-		- 50%% disease and stun resistance.
-		- 20%% cold and darkness resistance.
-		- No need to breathe.
-		- Infusions do not work.
-		Also:
-		At level 1: -3 to all stats, -10%% to all resistances. Such meagre devotion!
-		At level 2: Nothing.
-		At level 3: +3 Magic and Willpower, +1 life rating (not retroactive).
-		At level 4: +3 Magic and Willpower, +2 life rating (not retroactive), +10 spell and mental saves, Celestial/Star Fury category (0.7) and 0.1 negative energies regeneration.
-		At level 5: +5 Magic and Willpower, +2 life rating (not retroactive), +10 spell and mental saves, all resistance caps raised by 10%%, Celestial/Star Fury category (0.9) and 0.5 negative energy regeneration.
-		At level 6: +6 Magic, Willpower and Cunning, +3 life rating (not retroactive), +15 spell and mental saves, all resistance caps raised by 15%%, Celestial/Star Fury category (1.1) and 1.0 negative energy regeneration. Fear my power!
-		The undead cannot use this talent.
-		While active, it will drain 4 mana per turn.]]):
+		return ([[모든 강령술사들의 꿈이자 진정한 목표, 영원히 죽지 않는 리치가 됩니다!
+		리치 상태에서는 죽어도, 마력이 리치의 육신을 강제로 재구성하여 1 번 부활할 수 있게 됩니다.
+		리치가 되면 기본적으로 다음과 같은 특성을 얻게 됩니다.
+		- 중독, 출혈, 공포 상태효과 면역
+		- 기절, 질병 저항력 50%% 증가
+		- 냉기, 어둠 저항력 20%% 증가
+		- 호흡이 필요없어짐
+		- 각인 사용 불가
+		그리고 기술 레벨에 따라, 다음과 같은 특성을 얻습니다. (이 특성들은 누적되지 않습니다!)
+		기술 레벨 1 : 모든 능력치가 3 감소하며, 모든 저항력이 10%% 감소합니다. 허약한 리치로군요!
+		기술 레벨 2 : 능력치 증감 효과가 없습니다.
+		기술 레벨 3 : 마법과 의지 능력치가 3 증가하고, 1 번 더 부활할 수 있습니다.
+		기술 레벨 4 : 마법과 의지 능력치가 3 증가하고, 2 번 더 부활할 수 있습니다. 주문 내성과 정신 내성이 10 증가합니다. 천공 / 별의 분노 계열을 (x0.7) 적성으로 사용할 수 있게 되며, 턴 당 음기 재생이 0.1 증가합니다.
+		기술 레벨 5 : 마법과 의지 능력치가 5 증가하고, 2 번 더 부활할 수 있습니다. 주문 내성과 정신 내성이 10 증가하며, 모든 저항력의 최대치가 10%% 증가합니다. 천공 / 별의 분노 계열을 (x0.9) 적성으로 사용할 수 있게 되며, 턴 당 음기 재생이 0.5 증가합니다.
+		기술 레벨 6 : 마법과 의지 능력치가 6 증가하고, 3 번 더 부활할 수 있습니다. 주문 내성과 정신 내성이 15 증가하며, 모든 저항력의 최대치가 15%% 증가합니다. 천공 / 별의 분노 계열을 (x1.1) 적성으로 사용할 수 있게 되며, 턴 당 음기 재생이 1.0 증가합니다. 나의 힘 앞에 무릎 꿇으라!
+		언데드 종족은 리치가 될 수 없습니다.
+		리치 상태를 활성화시키면, 턴 당 마나가 4 소진됩니다.]]):
 		format()
 	end,
 }

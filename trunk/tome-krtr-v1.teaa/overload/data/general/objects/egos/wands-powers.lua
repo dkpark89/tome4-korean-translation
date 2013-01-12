@@ -100,13 +100,13 @@ newEntity{
 
 newEntity{
 	name = " of lightning", addon=true, instant_resolve=true,
-	kr_display_nema = "번개의 ",
+	kr_display_nema = "뇌전의 ",
 	keywords = {lightning=true},
 	level_range = {15, 50},
 	rarity = 10,
 
 	charm_power_def = {add=45, max=300, floor=true},
-	resolvers.charm(function(self) return ("번개빔 발사 (피해 %d-%d)"):format(self:getCharmPower()/3, self:getCharmPower()) end, 6, function(self, who)
+	resolvers.charm(function(self) return ("전기빔 발사 (피해 %d-%d)"):format(self:getCharmPower()/3, self:getCharmPower()) end, 6, function(self, who)
 		local tg = {type="beam", range=6 + who:getMag(4)}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end

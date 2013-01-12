@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
 
@@ -29,11 +31,12 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 	unique = true,
 	name = "Telos Spire of Power", image = "object/artifact/telos_spire_of_power.png",
 	unided_name = "pulsing staff",
+	kr_display_name = "텔로스의 힘의 정수", kr_unided_name = "맥동하는 마법지팡이",
 	flavor_name = "magestaff",
 	level_range = {37, 50},
 	color=colors.VIOLET,
 	rarity = false,
-	desc = [[Telos was an extremely powerful mage during the Age of Dusk, hated by his peers, feared by the common folk he was hunted for a long while. He finaly fell in his place of power, Telmur, but his spirit still lingered on.]],
+	desc = [[텔로스는 황혼의 시대에 살던 아주 강력한 마법사였습니다. 그를 동료들은 미워했고, 일반 사람들은 무서워하여, 그는 아주 긴시간 동안 쫒겨다녔습니다. 마침내 그의 힘이 모인 장소 텔무르에서 그가 추락했지만, 그의 영혼은 아직 그 장소에 머무르고 있습니다.]],
 	cost = 400,
 	material_level = 5,
 	plot = true,
@@ -65,9 +68,11 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 		vim_on_crit = 6,
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "turn into a corrupted losgoroth (poison, disease, cut and confusion immune; converts half damage into life drain; does not requrie breath", power = 30,
+	use_power = { name = "타락한 로스코로스로 변신 (중독과 질병, 출혈, 혼란에 면역; 피해의 반만큼 생명력 흡수; 숨쉴 필요없음)", power = 30,
 		use = function(self, who)
-			game.logSeen(who, "%s brandishes %s, turning into a corrupted losgoroth!", who.name:capitalize(), self:getName())
+			--@@
+			local wn = who.kr_display_name or who.name
+			game.logSeen(who, "%s %s 휘둘러, 타락한 로스고로스로 변신합니다!", wn:capitalize():addJosa("가"), self:getName():addJosa("를"))
 			who:setEffect(who.EFF_CORRUPT_LOSGOROTH_FORM, 8, {})
 			return {id=true, used=true}
 		end

@@ -180,7 +180,7 @@ newTalent{
 
 newTalent{
 	name = "Lightning Breath",
-	kr_display_name = "번개 브레쓰",
+	kr_display_name = "전격 브레쓰",
 	type = {"wild-gift/storm-drake", 4},
 	require = gifts_req4,
 	points = 5,

@@ -49,8 +49,8 @@ newTalent{
 	info = function(self, t)
 		local save = t.getSave(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[물리 내성을 %d 증가시키고 물리력을 %d 증가시킵니다.
-		이 효과는 힘 능력치에 영향을 받아 증가됩니다.]])
+		return ([[잡기 자세를 취해 물리 내성을 %d 증가시키고, 물리력을 %d 증가시킵니다.
+		이 효과는 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(save, damage)
 	end,
 }
@@ -127,17 +127,18 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
 		local drain = t.getDrain(self, t)
-		return ([[당신의 신체 크기보다 한 단계 큰 대상까지, %d 턴 동안 붙잡습니다. 붙잡힌 대상은 이동할 수 없게 되고 정확도와 회피도가 %d 감소됩니다. 붙잡은 상태에서 이동하게 되면 기술이 풀립니다. 붙잡기를 유지하는 동안에는 매 턴마다 체력이 %d 씩 소모됩니다.
-		한번에 하나의 대상만 붙잡을 수 있으며, 다른 대상에게 맨손 전투 기술을 사용하면 붙잡은 대상이 풀려납니다.
-		붙잡을 확률과 잡힌 대상의 정확도, 회피도 감소는 물리력에 영향을 받아 증가됩니다.
-		이 기술을 사용하면 잡기 자세로 전환됩니다.]])
+		return ([[당신의 신체 크기보다 한 단계 큰 대상까지를 %d 턴 동안 붙잡고, 즉시 잡기 자세로 전환합니다. 
+		붙잡힌 대상은 이동할 수 없게 되고, 붙잡힌 동안 정확도와 회피도가 %d 감소됩니다. 
+		붙잡은 상태에서 이동하게 되면 기술이 풀리며, 붙잡기를 유지하는 동안에는 매 턴마다 체력이 %d 씩 소모됩니다.
+		한 번에 하나의 대상만을 붙잡을 수 있으며, 다른 대상에게 맨손 전투 기술을 사용하면 붙잡은 대상이 풀려납니다.
+		대상을 붙잡을 확률, 그리고 잡힌 대상의 정확도, 회피도 감소는 물리력의 영향을 받아 증가합니다.]])
 		:format(duration, power, drain)
 	end,
 }
 
 newTalent{
 	name = "Maim",
-	kr_display_name = "꺽기",
+	kr_display_name = "관절기",
 	type = {"technique/grappling", 2},
 	require = techs_req2,
 	points = 5,
@@ -189,8 +190,9 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local maim = t.getMaim(self, t)
-		return ([[대상을 잡고 %0.2f 의 물리 피해를 줍니다. 대상이 이미 잡혀있는 상태라면, 붙잡은 상태로 꺽어서 대상의 공격력을 %d 감소시키고 전체 속도를 30%% 감소시키는 효과를 %d 턴 동안 유지합니다.
-		이 효과는 물리력에 영향을 받아 증가됩니다.]])
+		return ([[대상을 붙잡아 %0.2f 의 물리 피해를 줍니다. 
+		대상이 이미 붙잡힌 상태라면 대상에게 관절기를 걸어서, 대상의 공격력을 %d 감소시키고 전체 속도를 30%% 감소시키는 효과를 %d 턴 동안 유지시킵니다.
+		붙잡기 효과는 다른 붙잡기 기술들의 영향을 받으며, 물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (damage)), maim, duration)
 	end,
 }
@@ -207,9 +209,10 @@ newTalent{
 	getDamage = function(self, t) return self:combatTalentPhysicalDamage(t, 5, 50) * getUnarmedTrainingBonus(self) end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[붙잡기 기술에 매 턴마다 %0.2f 의 물리 피해를 입히는, 눌러 조르기 효과가 추가됩니다. 대상이 이미 잡혀있는 상태라면, 붙잡은 상태로 숨통을 졸라서 침묵시키고 매 턴마다 %0.2f 의 물리 피해를 줍니다.
+		return ([[붙잡기 기술에 매 턴마다 %0.2f 의 물리 피해를 입히는, 눌러 조르기 효과가 추가됩니다. 
+		대상이 이미 붙잡힌 상태라면, 대상의 숨통을 졸라서 침묵시키고 매 턴마다 %0.2f 의 물리 피해를 줍니다.
 		대상이 침묵 효과에 면역이거나, 숨을 쉬지 않거나, 언데드라면 숨통 조르기 대신 눌러 조르기 효과만 받게 됩니다.
-		이 효과는 물리력에 영향을 받아 증가됩니다.]])
+		물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damage * 1.5)))
 	end,
 }
@@ -278,14 +281,14 @@ newTalent{
 					if target:canBe("stun") then
 						target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 					else
-						game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+						game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				else
 					self:project(target, x, y, DamageType.PHYSICAL, self:physicalCrit(t.getTakeDown(self, t), nil, target, self:combatAttack(), target:combatDefense()))
 					if target:canBe("stun") then
 						target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 					else
-						game.logSeen(target, "%s 혼절 효과에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+						game.logSeen(target, "%s 혼절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 			end
@@ -297,8 +300,8 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local takedown = t.getTakeDown(self, t)
 		local slam = t.getSlam(self, t)
-		return ([[대상에게 달려들어서 땅바닥에 넘어뜨린 뒤, 잡아서 %0.2f 의 물리 피해를 주고 %d 턴 동안 혼절시킵니다. 대상이 이미 잡혀있는 상태라면 땅바닥에 내동댕이 쳐서, %0.2f 의 물리 피해를 입히고 %d 턴 동안 기절시킵니다.
-		이 효과는 물리력에 영향을 받아 증가됩니다.]])
+		return ([[대상에게 달려들어 %0.2f 의 물리 피해를 주고, 넘어뜨려 %d 턴 동안 혼절시키며, 대상을 붙잡습니다. 대상이 이미 붙잡힌 상태라면, 대상을 땅바닥에 내동댕이 쳐서 %0.2f 의 물리 피해를 주고 %d 턴 동안 기절시킵니다.
+		붙잡기 효과는 다른 붙잡기 기술들의 영향을 받으며, 물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (takedown)), duration, damDesc(self, DamageType.PHYSICAL, (slam)), duration)
 	end,
 }

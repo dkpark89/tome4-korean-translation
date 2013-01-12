@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Taunt",
-	kr_display_name = "약올리기",
+	kr_display_name = "도발",
 	type = {"technique/other",1},
 	points = 1,
 	cooldown = 5,

@@ -29,10 +29,10 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[활을 사용할 때 물리력을 %d , 활 피해량을 %d%% 증가시킵니다.
-		또한, 재장전을 할 때:
-		2 레벨에는 턴 당 장전량이 1 증가하며,
-		4 레벨에는 턴 당 장전량이 2 증가하며,
+		return ([[활을 사용하면 물리력이 %d 증가합니다. 또한 활의 피해량이 %d%% 증가합니다.
+		그리고 재장전을 할 때 화살 장전량이 늘어납니다 :
+		2 레벨에서는 턴 당 장전량이 1 증가하며,
+		4 레벨에서는 턴 당 장전량이 2 증가하며,
 		5 레벨에서는 턴 당 장전량이 3 증가합니다.
 		]]):
 		format(damage, inc * 100)
@@ -61,7 +61,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[어떤 것이든 꿰뚫는 화살을 쏴서, 다수의 대상을 관통하여 방어도를 무시하고 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
+		return ([[어떤 것이든 꿰뚫는 화살을 쏴서, %d%% 의 무기 피해를 주고 적을 관통합니다.
+		아주 특수한 경우가 아닌 한, 적의 방어도는 무시됩니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
 
@@ -91,14 +92,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상에게 화살을 동시에 두 발 쏴서 대상과, 인접한 다른 대상에게 %d%% 의 무기 피해를 줍니다.
+		return ([[화살을 동시에 두 발 쏴서 대상과, (가능하다면) 인접한 다른 대상에게 %d%% 의 무기 피해를 줍니다.
 		이 기술은 체력을 전혀 소모하지 않습니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
 
 newTalent{
 	name = "Volley of Arrows",
-	kr_display_name = "집중 사격",
+	kr_display_name = "일제 사격",
 	type = {"technique/archery-bow", 4},
 	no_energy = "fake",
 	points = 5,
@@ -126,7 +127,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[%d 칸 반경의 지역에 화살을 퍼부어 %d%% 의 무기 피해를 줍니다.]])
+		return ([[주변 %d 칸 반경의 지역에 화살을 퍼부어, 각 화살마다 %d%% 의 무기 피해를 줍니다.]])
 		:format(self:getTalentRadius(t),
 		100 * self:combatTalentWeaponDamage(t, 0.6, 1.3))
 	end,

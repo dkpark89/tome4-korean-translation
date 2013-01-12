@@ -21,7 +21,7 @@ require "engine.krtrUtils" --@@
 
 newTalent{
 	name = "Disengage",
-	kr_display_name = "전투 회피",
+	kr_display_name = "작전상 후퇴",
 	type = {"technique/field-control", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -69,14 +69,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[%d 타일 반경 안에 있는 적들을 %d 턴 동안 감지합니다.
-		감지 반경은 교활함 능력치에 영향을 받아 증가됩니다.]]):format(rad, 3 + self:getTalentLevel(t))
+		return ([[%d 칸 반경 안에 있는 적들을 %d 턴 동안 감지합니다.
+		감지 반경은 교활함 능력치의 영향을 받아 증가합니다.]]):format(rad, 3 + self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Heave",
-	kr_display_name = "밀어차기",
+	kr_display_name = "걷어차기",
 	type = {"technique/field-control", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -96,7 +96,7 @@ newTalent{
 			if target:checkHit(math.max(self:combatAttack(), self:combatPhysicalpower()), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				return true
 			else
-				game.logSeen(target, "%s 밀어내기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -108,9 +108,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 %d 칸 떨어진 곳까지 차서 날리는 강력한 발차기입니다.
-		날아가는 방향에 다른 존재가 있다면 같이 밀려나게 됩니다.
-		밀어내기 확률은 민첩 능력치에 영향을 받아 증가됩니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
+		return ([[대상을 강력하게 걷어차, %d 칸 떨어진 곳까지 밀어냅니다.
+		날아가는 방향에 다른 대상이 있다면, 그 대상도 같이 밀려나게 됩니다.
+		밀어내기 확률은 정확도나 물리력 중 더 높은 능력치의 영향을 받아 증가합니다.]]):format(math.floor(2 + self:getTalentLevel(t)))
 	end,
 }
 
@@ -136,7 +136,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[날아오는 발사체(주문, 화살 등)를 기민한 반사신경으로 포착하여, %d%% 느리게 날아오는 것처럼 인지해서 회피하기 쉽게 됩니다.]]):
+		return ([[주문, 화살 등 날아오는 발사체를 기민한 반사신경으로 포착하여, 마치 %d%% 느리게 날아오는 것 같은 효과를 일으킵니다.]]):
 		format(math.min(90, 15 + self:getDex(10, true) * self:getTalentLevel(t)))
 	end,
 }

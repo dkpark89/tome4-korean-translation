@@ -81,7 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Flame of Urh'Rok",
-	kr_display_name = "울흐'록의 화염",
+	kr_display_name = "울흐'록의 불꽃",
 	type = {"corruption/shadowflame", 3},
 	require = corrs_req3,
 	mode = "sustained",

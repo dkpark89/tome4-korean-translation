@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Throw Bomb",
-	kr_display_name = "폭탄 던지기",
+	kr_display_name = "연금술 폭탄",
 	type = {"spell/explosives", 1},
 	require = spells_req1,
 	points = 5,
@@ -72,7 +72,7 @@ newTalent{
 	action = function(self, t)
 		local ammo = self:hasAlchemistWeapon()
 		if not ammo then
-			game.logPlayer(self, "You need to ready alchemist gems in your quiver.")
+			game.logPlayer(self, "연금술 폭탄을 던지려면 연금술용 보석을 손에 들고있어야 합니다.")
 			return
 		end
 
@@ -144,16 +144,15 @@ newTalent{
 		local dam, damtype = 1, DamageType.FIRE
 		if ammo then dam, damtype = t.computeDamage(self, t, ammo) end
 		dam = damDesc(self, damtype, dam)
-		return ([[Imbue an alchemist gem with an explosive charge of mana and throw it.
-		The gem will explode for %0.2f %s damage.
-		Each kind of gem will also provide a specific effect.
-		The damage will improve with better gems and with your Spellpower.]]):format(dam, DamageType:get(damtype).name)
+		return ([[연금술용 보석에 폭발력을 불어넣어 던집니다. 던져진 보석은 폭발하여 %0.2f 피해를 줍니다. (속성 : %s)
+		보석의 종류마다 폭발할 때 발생하는 효과가 달라집니다.
+		연금술 폭탄의 피해량은 보석의 등급과 주문력 능력치의 영향을 받아 증가합니다.]]):format(dam, DamageType:get(damtype).name)
 	end,
 }
 
 newTalent{
 	name = "Alchemist Protection",
-	kr_display_name = "연금술적 보호",
+	kr_display_name = "연금술 보호대책",
 	type = {"spell/explosives", 2},
 	require = spells_req2,
 	mode = "passive",
@@ -171,15 +170,16 @@ newTalent{
 		self.resists[DamageType.ACID] = self.resists[DamageType.ACID] - 3
 	end,
 	info = function(self, t)
-		return ([[Improves your resistance (and your golem's) against the elemental damage of your own bombs by %d%%, and against external elemental damage (fire, cold, lightning and acid) by %d%%.
-		At talent level 5 it also protects you against all side effects of your bombs.]]):
+		return ([[특수한 보호대책을 마련하여 자신의 연금술 폭탄에 대한 속성 피해를 %d%% 감소시키고, 기타 일반적인 속성 피해도 %d%% 감소시킵니다. (적용 속성 : 화염, 냉기, 전격, 산성)
+		기술 레벨이 5 가 되면, 연금술 폭탄으로 발생하는 특수효과까지 무시할 수 있습니다.
+		연금술 보호대책은 자신의 골렘에게도 적용됩니다.]]):
 		format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 3)
 	end,
 }
 
 newTalent{
 	name = "Explosion Expert",
-	kr_display_name = "폭발의 숙련자",
+	kr_display_name = "폭발물 전문가",
 	type = {"spell/explosives", 3},
 	require = spells_req3,
 	mode = "passive",
@@ -191,14 +191,14 @@ newTalent{
 		local max = theorical_nb
 		local max = (math.log10(max) / (6 - self:getTalentLevelRaw(self.T_EXPLOSION_EXPERT)))
 
-		return ([[Your alchemist bombs now affect a radius of %d around them.
-		Increases explosion damage by %d%% (one tile less than the full effect) to %d%% (explosion concentrated on only 1 tile)]]):format(self:getTalentLevelRaw(t), min*100, max*100)
+		return ([[연금술 폭탄의 폭발 범위가 %d 칸 넓어집니다.
+		또한 최대 폭발 범위에서 1 칸 부족한 범위까지는 폭발 피해량이 %d%% 증가하며, 폭발의 중심부는 피해량이 %d%% 증가합니다.]]):format(self:getTalentLevelRaw(t), min*100, max*100)
 	end,
 }
 
 newTalent{
 	name = "Shockwave Bomb",
-	kr_display_name = "충격파 폭탄",
+	kr_display_name = "충격적 폭탄",
 	type = {"spell/explosives",4},
 	require = spells_req4,
 	points = 5,
@@ -233,7 +233,7 @@ newTalent{
 	action = function(self, t)
 		local ammo = self:hasAlchemistWeapon()
 		if not ammo or ammo:getNumber() < 2 then
-			game.logPlayer(self, "You need to ready at least two alchemist gems in your quiver.")
+			game.logPlayer(self, "이 기술을 사용하려면 2 개의 연금술용 보석을 손에 들고있어야 합니다.")
 			return
 		end
 
@@ -292,9 +292,8 @@ newTalent{
 		local dam, damtype = 1
 		if ammo then dam = t.computeDamage(self, t, ammo) end
 		dam = damDesc(self, DamageType.PHYSICAL, dam)
-		return ([[Crush together two alchemist gems, making them extremely unstable.
-		You then throw them to a target area, where they explode on impact, dealing %0.2f physical damage and knocking back any creatures in the blast radius.
-		Each kind of gem will also provide a specific effect.
-		The damage will improve with better gems and with your Spellpower.]]):format(dam)
+		return ([[두 개의 연금술용 보석을 강제로 섞어, 극도로 불안정한 상태로 만듭니다. 이렇게 만들어진 연금술 폭탄으로 강렬한 폭발을 만들어내 %0.2f 물리 피해를 주고, 폭발에 휩쓸린 모든 적들을 밀어냅니다.
+		폭발할 때,두 개의 보석이 원래 가지고 있던 특수효과가 각각 발생합니다.
+		폭발의 피해량은 보석의 등급과 주문력 능력치의 영향을 받아 증가합니다.]]):format(dam)
 	end,
 }

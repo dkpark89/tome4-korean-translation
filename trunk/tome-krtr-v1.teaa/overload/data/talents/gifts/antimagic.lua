@@ -75,7 +75,7 @@ newTalent{
 
 newTalent{
 	name = "Antimagic Shield",
-	kr_display_name = "반마법 방어막",
+	kr_display_name = "반마법 보호막",
 	type = {"wild-gift/antimagic", 3},
 	require = gifts_req3,
 	mode = "sustained",

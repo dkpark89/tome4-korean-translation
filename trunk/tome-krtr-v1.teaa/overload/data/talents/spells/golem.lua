@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 ------------------------------------------------------------------
 -- Melee
 ------------------------------------------------------------------
@@ -37,7 +39,7 @@ newTalent{
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.8, 1.6) end,
 	tactical = { DEFEND = { knockback = 2 }, DISABLE = { knockback = 1 } },
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "Your golem cannot do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "골렘이 활성화되지 않았습니다.") return end
 
 		local tg = self:getTalentTarget(t)
 		local olds = game.target.source_actor
@@ -54,7 +56,7 @@ newTalent{
 			local l = self:lineFOV(x, y, block_actor)
 			local lx, ly, is_corner_blocked = l:step()
 			if is_corner_blocked or game.level.map:checkAllEntities(lx, ly, "block_move", self) then
-				game.logPlayer(self, "You are too close to build up momentum!")
+				game.logPlayer(self, "너무 가까이 있어서 돌진할 힘이 붙지 않습니다!")
 				return
 			end
 			local tx, ty = lx, ly
@@ -83,7 +85,7 @@ newTalent{
 				target:knockback(self.x, self.y, 3)
 				target:crossTierEffect(target.EFF_OFFBALANCE, self:combatPhysicalpower())
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -91,14 +93,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Your golem rushes to the target, knocking it back and doing %d%% damage.
-		Knockback chance will increase with talent level.]]):format(100 * damage)
+		return ([[골렘이 대상에게 돌진하여, %d%% 피해를 주고 대상을 밀어냅니다.
+		밀어내기 확률은 기술 레벨의 영향을 받아 증가합니다.]]):format(100 * damage)
 	end,
 }
 
 newTalent{
 	name = "Taunt", short_name = "GOLEM_TAUNT",
-	kr_display_name = "약올리기",
+	kr_display_name = "도발",
 	type = {"golem/fighting", 2},
 	require = techs_req2,
 	points = 5,
@@ -130,19 +132,19 @@ newTalent{
 			if self:reactionToward(target) < 0 then
 				if self.ai_target then self.ai_target.target = target end
 				target:setTarget(self)
-				game.logSeen(self, "%s provokes %s to attack it.", self.name:capitalize(), target.name)
+				game.logSeen(self, "%s 도발하여 %s 공격하도록 만들었습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), (target.kr_display_name or target.name):addJosa("가"))
 			end
 		end)
 		return true
 	end,
 	info = function(self, t)
-		return ([[Orders your golem to taunt targets in a radius of %d, forcing them to attack the golem.]]):format(self:getTalentLevelRaw(t) / 2 + 1)
+		return ([[주변 %d 칸 반경의 적들을 도발하여, 골렘을 공격하도록 만듭니다.]]):format(self:getTalentLevelRaw(t) / 2 + 1)
 	end,
 }
 
 newTalent{
 	name = "Crush", short_name = "GOLEM_CRUSH",
-	kr_display_name = "충돌",
+	kr_display_name = "짓밟기",
 	type = {"golem/fighting", 3},
 	require = techs_req3,
 	points = 5,
@@ -154,7 +156,7 @@ newTalent{
 	getPinDuration = function(self, t) return 2 + self:getTalentLevel(t) end,
 	tactical = { ATTACK = { PHYSICAL = 0.5 }, DISABLE = { pin = 2 } },
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "Your golem cannot do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "골렘이 활성화되지 않았습니다.") return end
 
 		local tg = {type="hit", range=self:getTalentRange(t)}
 		local olds = game.target.source_actor
@@ -171,7 +173,7 @@ newTalent{
 			local l = self:lineFOV(x, y, block_actor)
 			local lx, ly, is_corner_blocked = l:step()
 			if is_corner_blocked or game.level.map:checkAllEntities(lx, ly, "block_move", self) then
-				game.logPlayer(self, "You are too close to build up momentum!")
+				game.logPlayer(self, "너무 가까이 있어서 돌진할 힘이 붙지 않습니다!")
 				return
 			end
 			local tx, ty = lx, ly
@@ -199,7 +201,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, t.getPinDuration(self, t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the crushing!", target.name:capitalize())
+				game.logSeen(target, "%s 속박되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -208,15 +210,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getPinDuration(self, t)
-		return ([[Your golem rushes to the target, crushing it into the ground for %d turns and doing %d%% damage.
-		Pinning chance will increase with talent level.]]):
-		format(duration, 100 * damage)
+		return ([[골렘이 대상에게 돌진하여, %d%% 피해를 주고 대상을 짓밟아 땅에 %d 턴 동안 고정시킵니다.
+		속박 확률은 기술 레벨의 영향을 받아 증가합니다.]]):
+		format(100 * damage, duration)
 	end,
 }
 
 newTalent{
 	name = "Pound", short_name = "GOLEM_POUND",
-	kr_display_name = "찧기",
+	kr_display_name = "들이받기",
 	type = {"golem/fighting", 4},
 	require = techs_req4,
 	points = 5,
@@ -234,7 +236,7 @@ newTalent{
 	getDazeDuration = function(self, t) return 2 + self:getTalentLevel(t) end,
 	tactical = { ATTACKAREA = { PHYSICAL = 0.5 }, DISABLE = { daze = 3 } },
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "Your golem cannot do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "골렘이 활성화되지 않았습니다.") return end
 
 		local tg = self:getTalentTarget(t)
 		local olds = game.target.source_actor
@@ -249,7 +251,7 @@ newTalent{
 			local l = self:lineFOV(x, y, block_actor)
 			local lx, ly, is_corner_blocked = l:step()
 			if is_corner_blocked or game.level.map:checkAllEntities(lx, ly, "block_move", self) then
-				game.logPlayer(self, "You are too close to build up momentum!")
+				game.logPlayer(self, "너무 가까이 있어서 돌진할 힘이 붙지 않습니다!")
 				return
 			end
 			local tx, ty = lx, ly
@@ -279,7 +281,7 @@ newTalent{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_DAZED, t.getDazeDuration(self, t), {apply_power=self:combatPhysicalpower()})
 				else
-					game.logSeen(target, "%s resists the dazing blow!", target.name:capitalize())
+					game.logSeen(target, "%s 혼절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end)
@@ -289,8 +291,8 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDazeDuration(self, t)
 		local damage = t.getGolemDamage(self, t)
-		return ([[Your golem rushes to the target and creates a shockwave with radius 2, dazing all foes for %d turns and doing %d%% damage.
-		Daze chance increases with talent level.]]):
+		return ([[골렘이 대상에게 돌진하여 주변 2 칸 반경에 충격파를 만들어냅니다. 주변의 적들은 %d 턴 동안 혼절 상태가 되며, %d%% 피해를 입습니다.
+		혼절 확률은 기술 레벨의 영향을 받아 증가합니다.]]):
 		format(duration, 100 * damage)
 	end,
 }
@@ -302,7 +304,7 @@ newTalent{
 
 newTalent{
 	name = "Eye Beam", short_name = "GOLEM_BEAM",
-	kr_display_name = "눈에서 빔!!!", --@@ 이걸 뭐라 불러야 할지...
+	kr_display_name = "눈에서 빔!", --@@
 	type = {"golem/arcane", 1},
 	require = spells_req1,
 	points = 5,
@@ -361,15 +363,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Your golem fires a beam from his eyes, doing %0.2f fire damage, %0.2f cold damage or %0.2f lightning damage.
-		The damage will increase with your golem's Spellpower.]]):
+		return ([[골렘이 눈에서 빔을 발사하여 %0.2f 의 화염 피해, %0.2f 의 냉기 피해, %0.2f 의 전기 피해 중 하나를 줍니다.
+		피해량은 골렘의 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage), damDesc(self, DamageType.COLD, damage), damDesc(self, DamageType.LIGHTNING, damage))
 	end,
 }
 
 newTalent{
 	name = "Reflective Skin", short_name = "GOLEM_REFLECTIVE_SKIN",
-	kr_display_name = "피해반사 피부",
+	kr_display_name = "반발성 피부",
 	type = {"golem/arcane", 2},
 	require = spells_req2,
 	points = 5,
@@ -391,17 +393,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your golem's skin shimmers with eldritch energies.
-		Any damage it takes is partly reflected (%d%%) to the attacker.
-		The golem still takes full damage.
-		Damage returned will increase with your golem's Spellpower.]]):
+		return ([[골렘의 피부에 신비한 힘을 불어넣어, 골렘이 받는 모든 피해를 %d%% 반사합니다.
+		단, 골렘이 받는 피해가 줄어들지는 않습니다.
+		피해 반사율은 골렘의 주문력의 영향을 받아 증가합니다]]):
 		format(20 + self:combatTalentSpellDamage(t, 12, 40))
 	end,
 }
 
 newTalent{
 	name = "Arcane Pull", short_name = "GOLEM_ARCANE_PULL",
-	kr_display_name = "마법적 당기기",
+	kr_display_name = "끌어오기 마법",
 	type = {"golem/arcane", 3},
 	require = spells_req3,
 	points = 5,
@@ -431,7 +432,7 @@ newTalent{
 		table.sort(tgts, "sqdist")
 		for i, target in ipairs(tgts) do
 			target.actor:pull(self.x, self.y, tg.radius)
-			game.logSeen(target.actor, "%s is pulled by %s!", target.actor.name:capitalize(), self.name)
+			game.logSeen(target.actor, "%s %s에 의해 끌려옵니다!", (target.actor.kr_display_name or target.actor.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 			DamageType:get(DamageType.ARCANE).projector(self, target.actor.x, target.actor.y, DamageType.ARCANE, t.getDamage(self, t))
 		end
 		return true
@@ -439,7 +440,7 @@ newTalent{
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
 		local dam = t.getDamage(self, t)
-		return ([[Your golem pulls all foes within radius %d toward itself while dealing %0.2f arcane damage.]]):
+		return ([[골렘이 주변 %d 칸 반경의 적들에게 %0.2f 마법 피해를 주고, 적들을 끌어당깁니다.]]):
 		format(rad, dam)
 	end,
 }
@@ -480,11 +481,11 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Turns the golem's skin into molten rock. The heat generated sets ablaze everything inside a radius of 3, doing %0.2f fire damage in 3 turns for %d turns.
-		Burning is cumulative; the longer they stay within range, they higher the fire damage they take.
-		In addition the golem gains %d%% fire resistance.
-		Molten Skin damage will not affect the golem's master.
-		The damage and resistance will increase with your Spellpower.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 120)), 5 + self:getTalentLevel(t), 30 + self:combatTalentSpellDamage(t, 12, 60))
+		return ([[골렘의 피부를 용암으로 변화시킵니다. 그 열기 때문에, 주변 3 칸 반경의 적들은 3 턴 동안 %0.2f 화염 피해를 입습니다. (기술 지속시간 : %d 턴)
+		화염 피해는 중첩됩니다. 즉, 범위 안에 오랫동안 있을수록 더 많은 화염 피해를 입습니다.
+		추가적으로, 골렘의 화염 저항이 %d%% 상승합니다.
+		골렘의 제작자는 이 기술로 인한 화염 피해를 입지 않습니다.
+		화염 피해량과 저항 상승량은 골렘 제작자의 주문력 능력치의 영향을 받아 상승합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 120)), 5 + self:getTalentLevel(t), 30 + self:combatTalentSpellDamage(t, 12, 60))
 	end,
 }
 
@@ -513,15 +514,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
-		This spell is only usable when the golem's master is dead.]]):format(rad, damDesc(self, DamageType.FIRE, 50 + 10 * self.level))
+		return ([[골렘이 자폭합니다. 주변 %d 칸 반경에 화염 폭발이 일어나, 범위 내에 있는 모든 적들에게 %0.2f 화염 피해를 줍니다.
+		골렘의 제작자가 죽었을 경우에만 이 기술을 사용할 수 있습니다.]]):format(rad, damDesc(self, DamageType.FIRE, 50 + 10 * self.level))
 	end,
 }
 
 -- Compensate for changes to Armour Training by introducing a new golem skill
 newTalent{
 	name = "Armour Configuration", short_name = "GOLEM_ARMOUR",
-	kr_display_name = "갑옷 형성",
+	kr_display_name = "갑옷 재배열",
 	type = {"golem/golem", 1},
 	mode = "passive",
 	points = 6,
@@ -532,9 +533,9 @@ newTalent{
 		local hardiness = t.getArmorHardiness(self, t)
 		local armor = t.getArmor(self, t)
 		local critreduce = t.getCriticalChanceReduction(self, t)
-		local dir = self:getTalentLevelRaw(t) >= 3 and "In" or "De"
-		return ([[The golem automatically reconfigures heavy mail and massive armours designed for living creatures to protect its own vital areas.
-	%screases armour value by %d, armour hardiness by %d%%, and provides %d%% critical hit reduction when wearing heavy mail or massive armour.]]):
-		format(dir, armor, hardiness, critreduce)
+		local dir = self:getTalentLevelRaw(t) >= 3 and "상승" or "하락"
+		return ([[골렘이 중갑과 판갑을 자동적으로 변형시켜, 자신이 착용할 수 있게 만듭니다.
+		갑옷의 방어도가 %d, 방어 효율이 %d%% %s하고, 그리고 적에게 치명타를 맞을 확률이 %d%% 만큼 낮아집니다.]]):
+		format(armor, hardiness, dir, critreduce) --@@
 	end,
 }

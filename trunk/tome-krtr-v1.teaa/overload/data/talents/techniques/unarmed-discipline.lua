@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Push Kick",
 	kr_display_name = "밀어차기",
@@ -46,7 +48,7 @@ newTalent{
 					return true
 				else
 					self:project(target, target.x, target.y, DamageType.PHYSICAL, t.getDamage(self, t))
-					game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+					game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 
 			end
@@ -59,7 +61,9 @@ newTalent{
 			self:buildCombo()
 
 		else
-			game.logSeen(target, "%s misses %s.", self.name:capitalize(), target.name:capitalize())
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logSeen(target, "%s %s 빗맞췄습니다.", sn:capitalize():addJosa("가"), (target.kr_display_name or target.name):capitalize():addJosa("를"))
 		end
 
 		return true
@@ -67,16 +71,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local push = t.getPush(self, t)
-		return ([[A push kick that knocks the target back %d tiles, moves you back 1 tile, and inflicts %0.2f physical damage.  If another creature is in the way, that creature will be affected as well.  Targets knocked into other targets may take extra damage.
-		This will earn one combo point, and break any grapples you're maintaining.
-		The damage will scale with your Physical Power.]]):
+		return ([[밀어차기를 날려 대상을 %d 칸 밀어내고 %0.2f 물리 피해를 줍니다. 반동으로 인해 자신도 1 칸 밀려나며, 대상이 밀려날 때 다른 대상과 부딪히면 추가 피해를 주고 다른 대상도 같이 밀려납니다.
+		이 기술을 통해 1 의 연계 점수를 획득할 수 있습니다. 무언가를 붙잡고 있을 때 이 기술을 사용하면, 붙잡기가 풀립니다.
+		피해량은 물리력의 영향을 받아 증가합니다.]]):
 		format(push, damDesc(self, DamageType.PHYSICAL, (damage)))
 	end,
 }
 
 newTalent{
 	name = "Defensive Throw",
-	kr_display_name = "공격자 넘어뜨리기",
+	kr_display_name = "되치기",
 	type = {"technique/unarmed-discipline", 2},
 	require = techs_dex_req2,
 	mode = "passive",
@@ -90,10 +94,10 @@ newTalent{
 			-- if grappled stun
 			if target:isGrappled(self) and target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2, {apply_power=self:combatAttack(), min_dur=1})
-				game.logSeen(target, "%s has been slammed into the ground!", target.name:capitalize())
+				game.logSeen(target, "%s 바닥에 내려꽂았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("를"))
 			-- if not grappled daze
 			else
-				game.logSeen(target, "%s has been thrown to the ground!", target.name:capitalize())
+				game.logSeen(target, "%s 바닥에 넘어뜨렸습니다!", (target.kr_display_name or target.name):capitalize():addJosa("를"))
 				-- see if the throw dazes the enemy
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_DAZED, 2, {apply_power=self:combatAttack(), min_dur=1})
@@ -104,8 +108,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local damagetwo = t.getDamageTwo(self, t)
-		return ([[When you avoid a melee blow, you have a %d%% chance to throw the target to the ground.  If the throw lands, the target will take %0.2f damage and be dazed for 2 turns, or %0.2f damage and be stunned for 2 turns if the target is grappled.
-		The chance of throwing increases with your Accuracy, and the damage will scale with your Physical Power.]]):
+		return ([[대상의 근접공격을 회피할 때마다, %d%% 확률로 대상을 넘어뜨립니다. 대상이 넘어지면 %0.2f 피해를 받고, 2 턴 동안 혼절합니다.
+		대상을 붙잡고 있었다면 %0.2f 피해를 주고, 2턴 동안 기절시킵니다.
+		되치기 확률은 정확도 능력치에 따라 증가하며, 피해량은 물리력 능력치에 따라 증가합니다.]]):
 		format(self:getTalentLevel(t) * (5 + self:getCun(5, true)), damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damagetwo)))
 	end,
 }
@@ -136,7 +141,7 @@ newTalent{
 	info = function(self, t)
 		local speed = t.getSpeed(self, t)
 		local stamina = t.getStamina(self, t)
-		return ([[You focus your breathing, increasing stamina regeneration by %0.2f per turn at the cost of %d%% global speed.]]):
+		return ([[호흡법에 집중하여 채력 재생량이 턴 당 %0.2f 증가하는 대신, 전체 속도가 %d%% 떨어집니다.]]):
 		format(stamina, speed * 100)
 	end,
 }
@@ -171,8 +176,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Attack your foes in a frontal arc with a roundhouse kick, which deals %0.2f physical damage and knocks your foes back.
-		This will break any grapples you're maintaining, and the damage will scale with your Physical Power.]]):
+		return ([[돌려차기로 전방의 적들을 공격해, %0.2f 물리 피해를 주고 적들을 뒤로 밀어냅니다.
+		무언가를 붙잡고 있을 때 이 기술을 사용하면, 붙잡기가 풀립니다.
+		물리 피해량은 물리력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, (damage)))
 	end,
 }

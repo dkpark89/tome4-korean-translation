@@ -243,39 +243,6 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.name --self.kr_display_name or self.name --@@ 일단 원래 이름만 나오도록 만듦
-	
-	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
-
-	-- To extend later
-	name = name:gsub("~", ""):gsub("&", "a"):gsub("#([^#]+)#", function(attr)
-		return self:descAttribute(attr)
-	end)
-
-	if not t.no_add_name and self.add_name and self:isIdentified() then
-		name = name .. self.add_name:gsub("#([^#]+)#", function(attr)
-			return self:descAttribute(attr)
-		end)
-	end
-
-	if not t.do_color then
-		if qty == 1 or t.no_count then return name
-		else return qty.." "..name
-		end
-	else
-		local _, c = self:getDisplayColor()
-		local ds = t.no_image and "" or self:getDisplayString()
-		if qty == 1 or t.no_count then return c..ds..name.."#LAST#"
-		else return c..qty.." "..ds..name.."#LAST#"
-		end
-	end
-end
-
---@@ 한글 이름 만드는 함수 추가: 기본은 위의 getName(t)함수
---- Gets the full name of the object
-function _M:getKrName(t)
-	t = t or {}
-	local qty = self:getNumber()
 	local name = self.kr_display_name or self.name --@@
 	
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
@@ -641,7 +608,7 @@ function _M:getTextualDesc(compare_with)
 
 		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "이동 속도: ", 100, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "방어막 관통 (이 무기에만 적용): ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "보호막 관통 (이 무기에만 적용): ", 1, false, false, add_table)
 
 		if combat.tg_type and combat.tg_type == "beam" then
 			desc:add({"color","YELLOW"}, ("빔 공격은 모든 상대를 꿰뚦고 지나갑니다."), {"color","LAST"}, true)
@@ -1033,7 +1000,7 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "resource_leech_chance", "%+d%%", "원천력 강탈 확률: ")
 		compare_fields(w, compare_with, field, "resource_leech_value", "%+d", "원천력 강탈: ")
 
-		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "방어막 관통력: ")
+		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "보호막 관통력: ")
 
 		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "발사체 굴절: ")
 
@@ -1159,7 +1126,7 @@ function _M:getTextualDesc(compare_with)
 		desc:add({"color","YELLOW"}, "착용시 적용:", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "wielder")
 		if self:attr("skullcracker_mult") and game.player:knowTalent(game.player.T_SKULLCRACKER) then
-			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "두개골 부수기 배수: ")
+			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "박치기 배수: ")
 		end
 	end
 
@@ -1339,7 +1306,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 	name_param.do_color = true
 	compare_with = compare_with or {}
 
-	desc:merge(self:getKrName(name_param):toTString()) --@@ 한글 이름 붙이기
+	desc:merge(self:getName(name_param):toTString()) --@@ 한글 이름 붙이기
 	desc:add("\n[", self.name, "]\n") --@@ 원래이름 덧붙이기
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(game.player)
@@ -1560,7 +1527,7 @@ function _M:on_prepickup(who, idx)
 		return true
 	end
 	if who.player and self.force_lore_artifact then
-		game.party:additionalLore(self.unique, self:getName(), "artifacts", self.desc)
+		game.party:additionalLore(self.unique, self:getName(), "artifacts", self.desc) --@@
 		game.party:learnLore(self.unique)
 	end
 end
@@ -1579,7 +1546,7 @@ function _M:on_identify()
 			game.party:learnLore(self.on_id_lore, false, false, true)
 		end
 		if self.unique and self.desc and not self.no_unique_lore then
-			game.party:additionalLore(self.unique, self:getName{no_add_name=true, do_color=false, no_count=true}, "artifacts", self.desc)
+			game.party:additionalLore(self.unique, self:getName{no_add_name=true, do_color=false, no_count=true}, "artifacts", self.desc) --@@
 			game.party:learnLore(self.unique, false, false, true)
 		end
 	end)

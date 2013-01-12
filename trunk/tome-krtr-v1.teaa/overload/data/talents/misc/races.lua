@@ -412,7 +412,7 @@ newTalentType{ type="race/dwarf", name = "dwarf", generic = true, description = 
 newTalent{
 	short_name = "DWARF_RESILIENCE",
 	name = "Resilience of the Dwarves",
-	kr_display_name = "드워프의 활기",
+	kr_display_name = "드워프의 활력",
 	type = {"race/dwarf", 1},
 	require = racial_req1,
 	points = 5,

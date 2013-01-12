@@ -90,8 +90,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local count = t.getRemoveCount(self, t)
-		return ([[Removes up to %d magical effects (good effects from foes, and bad effects from friends) from the target.
-		At level 3, it can be targeted.]]):
+		return ([[시전자의 마법적 효과를 %d 개 제거합니다. 
+		기술 레벨이 3 이상이면 대상을 지정할 수 있게 되며, 적에게 사용하면 좋은 효과를, 아군에게 사용하면 나쁜 효과를 제거할 수 있습니다.]]):
 		format(count)
 	end,
 }
@@ -119,16 +119,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[You learn to finely craft and tune your offensive spells.
-		You try to carve a hole in spells that affect an area to avoid damaging yourself.  The chance of success is %d%%.
-		In addition, you hone your damaging spells to spellshock their targets. This talent gives a bonus of %d to Spellpower solely for the purposes of overcoming the target's Spell Save. Spellshocked targets suffer a temporary 20%% penalty to damage resistances.]]):
+		return ([[공격 마법들의 주문을 더 정교화시켜, %d%% 확률로 자신이 사용한 공격 마법에 자신은 피해를 입지 않게 됩니다.
+		또한, 적들의 주문 내성을 뚫고 주문 충격을 주기 위해, 주문력이 %d 만큼 강화됩니다. (실제 주문력 상승은 일어나지 않으며, 피해량 상승 등의 효과 역시 일어나지 않습니다.)
+		이를 통해 주문 충격이 일어난 대상은, 피해 저항력이 20%% 감소하게 됩니다.]]):
 		format(chance, self:combatTalentSpellDamage(t, 10, 320) / 4)
 	end,
 }
 
 newTalent{
 	name = "Quicken Spells",
-	kr_display_name = "빠른 주문",
+	kr_display_name = "재빠른 주문",
 	type = {"spell/meta",3},
 	require = spells_req3,
 	points = 5,
@@ -149,7 +149,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local cooldownred = t.getCooldownReduction(self, t)
-		return ([[Reduces the cooldown of all spells by %d%%.]]):
+		return ([[모든 마법들의 지연시간이 %d%% 줄어듭니다.]]):
 		format(cooldownred * 100)
 	end,
 }
@@ -185,7 +185,7 @@ newTalent{
 	info = function(self, t)
 		local talentcount = t.getTalentCount(self, t)
 		local maxlevel = t.getMaxLevel(self, t)
-		return ([[Your mastery of the arcane flows allow you to reset the cooldown of %d of your spells of tier %d or less.]]):
-		format(talentcount, maxlevel)
+		return ([[마력의 흐름에 대한 깊은 이해를 통해, 마법의 지연시간을 초기화시킵니다. %d 레벨 이하의 마법 %d 개를 바로 사용할 수 있도록 만듭니다.]]):
+		format(maxlevel, talentcount)
 	end,
 }

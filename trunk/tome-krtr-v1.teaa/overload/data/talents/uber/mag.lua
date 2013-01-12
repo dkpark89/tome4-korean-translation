@@ -19,7 +19,7 @@
 
 uberTalent{
 	name = "Spectral Shield",
-	kr_display_name = "스펙트럼 방어막",
+	kr_display_name = "스펙트럼 보호막",
 	mode = "passive",
 	require = { special={desc="Know the Block talent, and have cast 100 spells, and have a block value over 200", fct=function(self)
 		return self:knowTalent(self.T_BLOCK) and self:getTalentFromId(self.T_BLOCK).getBlockValue(self) >= 200 and self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 100

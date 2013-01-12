@@ -17,9 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Channel Staff",
-	kr_display_name = "지팡이의 힘 사용",
+	kr_display_name = "지팡이 발동술",
 	type = {"spell/staff-combat", 1},
 	require = spells_req1,
 	points = 5,
@@ -38,7 +40,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasStaffWeapon()
 		if not weapon then
-			game.logPlayer(self, "You need a staff to use this spell.")
+			game.logPlayer(self, "이 마법을 사용하려면 지팡이를 장비해야 합니다.")
 			return
 		end
 		local combat = weapon.combat
@@ -79,16 +81,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damagemod = t.getDamageMod(self, t)
-		return ([[Channel raw mana through your staff, projecting a bolt of your staff's damage type, doing %d%% staff damage.
-		The bolt will only hurt hostile targets, and pass safely through friendly ones.
-		This attack always has a 100%% chance to hit, and ignores the target's Armour.]]):
+		return ([[지팡이에 잠든 순수한 마력을 끌어내, 지팡이 공격력의 %d%% 만큼 피해를 주는 마법 화살을 발사합니다.
+		마법 화살의 속성은 지팡이의 공격 속성을 따르며, 이 마법 화살은 아군을 무시하고 적에게만 피해를 줍니다.
+		이 기술의 명중률은 언제나 100%% 이며, 대상의 방어도를 무시합니다.]]):
 		format(damagemod * 100)
 	end,
 }
 
 newTalent{
 	name = "Staff Mastery",
-	kr_display_name = "마법지팡이 숙련",
+	kr_display_name = "지팡이 숙련",
 	type = {"spell/staff-combat", 2},
 	mode = "passive",
 	require = spells_req2,
@@ -98,7 +100,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d and increases weapon damage by %d%% when using staves.]]):
+		return ([[지팡이를 사용할 때 물리력을 %d, 무기 피해량을 %d%% 올려줍니다.]]):
 		format(damage, 100 * inc)
 	end,
 }
@@ -114,7 +116,7 @@ newTalent{
 	cooldown = 30,
 	tactical = { BUFF = 2 },
 	getDefense = function(self, t) return self:combatTalentSpellDamage(t, 10, 20) end,
-	on_pre_use = function(self, t, silent) if not self:hasStaffWeapon() then if not silent then game.logPlayer(self, "You need a staff to use this spell.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasStaffWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 지팡이를 장비해야 합니다.") end return false end return true end,
 	activate = function(self, t)
 
 		local power = t.getDefense(self, t)
@@ -131,14 +133,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local defense = t.getDefense(self, t)
-		return ([[Adopt a defensive posture, increasing your Defense and Armour by %d.]]):
+		return ([[방어 자세를 취해, 회피도와 방어도를 %d 올립니다.]]):
 		format(defense)
 	end,
 }
 
 newTalent{
 	name = "Blunt Thrust",
-	kr_display_name = "둔기 찔러넣기",
+	kr_display_name = "둔탁한 찌르기",
 	type = {"spell/staff-combat",4},
 	require = spells_req4,
 	points = 5,
@@ -155,7 +157,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasStaffWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Blunt Thrust without a two-handed weapon!")
+			game.logPlayer(self, "양손무기를 들지 않으면 둔탁한 찌르기를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -172,7 +174,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDazeDuration(self, t), {apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s resists the stunning blow!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -181,9 +183,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local dazedur = t.getDazeDuration(self, t)
-		return ([[Hit a target for %d%% melee damage and stun it for %d turns.
-		Stun chance will improve with talent level.
-		At level 5, this attack can not miss.]]):
+		return ([[대상에게 무기를 찔러넣어 %d%% 물리 피해를 주고, %d 턴 동안 기절시킵니다.
+		기절 확률은 기술 레벨의 영향을 받아 증가합니다.
+		기술 레벨이 5 이상이 되면, 공격이 절대 빗나가지 않습니다.]]):
 		format(100 * damage, dazedur)
 	end,
 }

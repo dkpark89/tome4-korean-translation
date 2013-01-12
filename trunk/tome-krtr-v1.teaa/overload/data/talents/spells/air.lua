@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Lightning",
-	kr_display_name = "번개",
+	kr_display_name = "전격",
 	type = {"spell/air", 1},
 	require = spells_req1,
 	points = 5,
@@ -50,8 +50,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up mana into a powerful beam of lightning, doing %0.2f to %0.2f damage
-		The damage will increase with your Spellpower.]]):
+		return ([[마나로 강력한 번개를 발사하여, 적들을 관통합니다. 적들에게 %0.2f - %0.2f 의 전기 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage / 3),
 		damDesc(self, DamageType.LIGHTNING, damage))
 	end,
@@ -59,7 +59,7 @@ newTalent{
 
 newTalent{
 	name = "Chain Lightning",
-	kr_display_name = "연쇄적 번개",
+	kr_display_name = "전격 연계",
 	type = {"spell/air", 2},
 	require = spells_req2,
 	points = 5,
@@ -133,9 +133,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local targets = t.getTargetCount(self, t)
-		return ([[Invokes a forking beam of lightning doing %0.2f to %0.2f damage and forking to another target.
-		It can hit up to %d targets up to 10 grids apart, and will never hit the same one twice; nor will it hit the caster.
-		The damage will increase with your Spellpower.]]):
+		return ([[번개를 발사하여 대상에게 %0.2f - %0.2f 전기 피해를 줍니다. 번개는 자동적으로 10 칸 이내의 다른 적에게 유도되며, 최대 %d 번의 전기 피해를 줍니다. 
+		번개는 같은 대상을 2 번 공격하지 않으며, 시전자도 공격하지 않습니다.
+		피해량은 주문력 능력치의 영향을 받아 상승합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage / 3),
 			damDesc(self, DamageType.LIGHTNING, damage),
 			targets)
@@ -186,9 +186,9 @@ newTalent{
 	info = function(self, t)
 		local encumberance = t.getEncumberance(self, t)
 		local rangedef = t.getRangedDefence(self, t)
-		return ([[A gentle wind circles around the caster, increasing carrying capacity by %d and increasing defense against projectiles by %d.
-		At level 4 it also makes you levitate slightly above the ground, allowing you to ignore some traps.
-		At level 5 it also grants %d%% movement speed and removes %d fatigue.]]):
+		return ([[부드러운 바람이 시전자 주변을 감싸 무게 제한을 %d 늘려주고, 장거리 회피도를 %d 올려줍니다.
+		기술 레벨이 4 이상이면 지면을 살짝 날아올라, 밟으면 작동되는 함정을 무시할 수 있습니다.
+		기술 레벨이 5 이상이면 이동 속도가 %d%% 증가하며, 피로도가 %d 감소합니다.]]):
 		format(encumberance, rangedef, t.getSpeed(self, t) * 100, t.getFatigue(self, t))
 	end,
 }
@@ -237,22 +237,22 @@ newTalent{
 	end,
 	activate = function(self, t)
 		game:playSoundNear(self, "talents/thunderstorm")
-		game.logSeen(self, "#0080FF#A furious lightning storm forms around %s!", self.name)
+		game.logSeen(self, "#0080FF#맹렬한 뇌우가 %s 주변에 나타났습니다!", (self.kr_display_name or self.name))
 		return {
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#0080FF#The furious lightning storm around %s calms down and disappears.", self.name)
+		game.logSeen(self, "#0080FF#%s 주변의 뇌우가 조금씩 사그라들다가, 완전히 사라졌습니다.", (self.kr_display_name or self.name))
 		return true
 	end,
 	info = function(self, t)
 		local targetcount = t.getTargetCount(self, t)
 		local damage = t.getDamage(self, t)
 		local manadrain = t.getManaDrain(self, t)
-		return ([[Conjures a furious, raging lightning storm with a radius of 6 that follows you as long as this spell is active.
-		Each turn, a random lightning bolt will hit up to %d of your foes for 1 to %0.2f damage in a radius of 1.
-		This powerful spell will drain %0.2f mana with each hit.
-		The damage will increase with your Spellpower.]]):
+		return ([[주변 6 칸 반경에 맹렬한 뇌우를 불러내, 지속시간 동안 시전자를 따라다니게 만듭니다.
+		매 턴마다 %d 개의 번개가 적들에게 떨어져, 주변 1 칸 반경에 1 - %0.2f 전기 피해를 줍니다.
+		번개가 1 개 떨어질 때마다, 마나가 %0.2f 소진됩니다.
+		피해량은 주문력 능력치의 영향을 받아 상승합니다.]]):
 		format(targetcount, damDesc(self, DamageType.LIGHTNING, damage),-manadrain)
 	end,
 }

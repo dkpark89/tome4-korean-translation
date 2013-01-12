@@ -95,7 +95,7 @@ newTalent{
 
 newTalent{
 	name = "Devouring Flame",
-	kr_display_name = "화염의 구름",
+	kr_display_name = "불꽃의 구름",
 	type = {"wild-gift/fire-drake", 3},
 	require = gifts_req3,
 	points = 5,

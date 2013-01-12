@@ -530,7 +530,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of crushing", suffix=true, instant_resolve=true,
-	kr_display_name = "짓누름의 ",
+	kr_display_name = "짓밟기의 ",
 	keywords = {crushing=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -548,7 +548,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resilience", suffix=true, instant_resolve=true,
-	kr_display_name = "활기의 ",
+	kr_display_name = "활력의 ",
 	keywords = {resilience=true},
 	level_range = {10, 50},
 	rarity = 10,
@@ -574,7 +574,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of displacement", suffix=true, instant_resolve=true,
-	kr_display_name = "치환의 ",
+	kr_display_name = "왜곡의 ",
 	keywords = {displacement=true},
 	level_range = {30, 50},
 	greater_ego = 1,

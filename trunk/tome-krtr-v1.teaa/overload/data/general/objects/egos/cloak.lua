@@ -180,7 +180,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resilience", suffix=true, instant_resolve=true,
-	kr_display_name = "활기의 ",
+	kr_display_name = "활력의 ",
 	keywords = {resilience=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -206,7 +206,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "lightening ", prefix=true, instant_resolve=true,
-	kr_display_name = "번개 ",
+	kr_display_name = "뇌전 ",
 	keywords = {lightening=true},
 	level_range = {1, 50},
 	rarity = 10,

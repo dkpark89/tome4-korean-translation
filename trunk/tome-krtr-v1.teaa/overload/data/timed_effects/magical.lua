@@ -122,7 +122,7 @@ newEffect{
 newEffect{
 	name = "EARTHEN_BARRIER", image = "talents/earthen_barrier.png",
 	desc = "Earthen Barrier",
-	kr_display_name = "대지의 장벽",
+	kr_display_name = "대지의 보호",
 	long_desc = function(self, eff) return ("Reduces physical damage received by %d%%."):format(eff.power) end,
 	type = "magical",
 	subtype = { earth=true },
@@ -164,7 +164,7 @@ newEffect{
 newEffect{
 	name = "REFLECTIVE_SKIN", image = "talents/golem_reflective_skin.png",
 	desc = "Reflective Skin",
-	kr_display_name = "피해반사 피부",
+	kr_display_name = "반발성 피부",
 	long_desc = function(self, eff) return ("Magically returns %d%% of any damage done to the attacker."):format(eff.power) end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -230,7 +230,7 @@ newEffect{
 newEffect{
 	name = "SENSE_HIDDEN", image = "talents/keen_senses.png",
 	desc = "Sense Hidden",
-	kr_display_name = "날카로운 감각",
+	kr_display_name = "예리한 감각",
 	long_desc = function(self, eff) return ("Improves/gives the ability to see invisible and stealthed creatures (power %d)."):format(eff.power) end,
 	type = "magical",
 	subtype = { sense=true },
@@ -306,7 +306,7 @@ newEffect{
 newEffect{
 	name = "SUPERCHARGE_GOLEM", image = "talents/supercharge_golem.png",
 	desc = "Supercharge Golem",
-	kr_display_name = "골렘 과충전",
+	kr_display_name = "과충전된 골렘",
 	long_desc = function(self, eff) return ("The target is supercharged, increasing life regen by %0.2f and damage done by 20%%."):format(eff.regen) end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -346,7 +346,7 @@ newEffect{
 newEffect{
 	name = "LIFE_TAP", image = "talents/life_tap.png",
 	desc = "Life Tap",
-	kr_display_name = "생명의 손길",
+	kr_display_name = "생명력 전이",
 	long_desc = function(self, eff) return ("The target taps its blood's hidden power, increasing all damage done by %d%%."):format(eff.power) end,
 	type = "magical",
 	subtype = { blight=true },
@@ -446,7 +446,7 @@ newEffect{
 newEffect{
 	name = "DISPLACEMENT_SHIELD", image = "talents/displacement_shield.png",
 	desc = "Displacement Shield",
-	kr_display_name = "치환의 방어막",
+	kr_display_name = "왜곡의 보호막",
 	long_desc = function(self, eff) return ("The target is surrounded by a space distortion that randomly sends (%d%% chance) incoming damage to another target (%s). Absorbs %d/%d damage before it crumbles."):format(eff.chance, eff.target and eff.target.name or "unknown", self.displacement_shield, eff.power) end,
 	type = "magical",
 	subtype = { teleport=true, shield=true },
@@ -489,7 +489,7 @@ newEffect{
 newEffect{
 	name = "DAMAGE_SHIELD", image = "talents/barrier.png",
 	desc = "Damage Shield",
-	kr_display_name = "피해 방어막",
+	kr_display_name = "피해 보호막",
 	long_desc = function(self, eff) return ("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles."):format(self.damage_shield_absorb, eff.power) end,
 	type = "magical",
 	subtype = { arcane=true, shield=true },
@@ -900,7 +900,7 @@ newEffect{
 newEffect{
 	name = "PREMONITION_SHIELD", image = "talents/premonition.png",
 	desc = "Premonition Shield",
-	kr_display_name = "예감의 방어막",
+	kr_display_name = "예감의 보호막",
 	long_desc = function(self, eff) return ("Reduces %s damage received by %d%%."):format(DamageType:get(eff.damtype).name, eff.resist) end,
 	type = "magical",
 	subtype = { sense=true },
@@ -1283,7 +1283,7 @@ newEffect{
 newEffect{
 	name = "SURGE_OF_UNDEATH", image = "talents/surge_of_undeath.png",
 	desc = "Surge of Undeath",
-	kr_display_name = "언데드의 격동",
+	kr_display_name = "죽지 못하는 자들의 분노",
 	long_desc = function(self, eff) return ("Increases the target combat power, spellpower, accuracy by %d, armour penetration by %d and critical chances by %d."):format(eff.power, eff.apr, eff.crit) end,
 	type = "magical",
 	subtype = { frenzy=true },
@@ -1898,7 +1898,7 @@ newEffect{
 newEffect{
 	name = "CONGEAL_TIME", image = "talents/congeal_time.png",
 	desc = "Congeal Time",
-	kr_display_name = "시간 얼리기",
+	kr_display_name = "얼어붙은 시간",
 	long_desc = function(self, eff) return ("Reduces global action speed by %d%% and all outgoing projectiles speed by %d%%."):format(eff.slow * 100, eff.proj) end,
 	type = "magical",
 	subtype = { temporal=true, slow=true },
@@ -1965,7 +1965,7 @@ newEffect{
 newEffect{
 	name = "AETHER_BREACH", image = "talents/aether_breach.png",
 	desc = "Aether Breach",
-	kr_display_name = "에테르 브레쓰",
+	kr_display_name = "에테르 파괴",
 	long_desc = function(self, eff) return ("Fires an arcane explosion each turn doing %0.2f arcane damage in radius 1."):format(eff.dam) end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -1995,7 +1995,7 @@ newEffect{
 newEffect{
 	name = "AETHER_AVATAR", image = "talents/aether_avatar.png",
 	desc = "Aether Avatar",
-	kr_display_name = "에테르 화신",
+	kr_display_name = "에테르의 화신",
 	long_desc = function(self, eff) return ("Filled with pure aether forces!") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2056,7 +2056,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_LIGHTNING", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Lightning",
-	kr_display_name = "엘리먼트의 쇄도: 번개",
+	kr_display_name = "엘리먼트의 쇄도: 전기",
 	long_desc = function(self, eff) return ("When hit you turn into pure lightning and reappear near where you where, ignoring the blow.") end,
 	type = "magical",
 	subtype = { arcane=true },

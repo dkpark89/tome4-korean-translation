@@ -1248,7 +1248,7 @@ newTalent{
 
 newTalent{
 	name = "Will o' the Wisp Explode",
-	kr_display_name = "윌 오'위스프 폭발",
+	kr_display_name = "윌 오 위습 폭발",
 	type = {"technique/other", 1},
 	points = 5,
 	message = "@Source@ explodes! @target@ is enveloped in frost.",
@@ -1865,7 +1865,7 @@ newTalent{
 
 newTalent{
 	name = "Call Lightning", image = "talents/lightning.png",
-	kr_display_name = "번개 소환",
+	kr_display_name = "뇌전 소환",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equi = 4,
@@ -1920,7 +1920,7 @@ newTalent{
 newTalent{
 	short_name = "KEEPSAKE_PHASE_DOOR",
 	name = "Phase Door",
-	kr_display_name = "근거리 공간이동",
+	kr_display_name = "근거리 순간이동",
 	type = {"undead/keepsake",1},
 	points = 5,
 	range = 10,

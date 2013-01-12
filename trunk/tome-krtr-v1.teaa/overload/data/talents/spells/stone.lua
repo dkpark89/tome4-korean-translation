@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Earthen Missiles",
-	kr_display_name = "대지의 미사일",
+	kr_display_name = "암석 화살",
 	type = {"spell/stone",1},
 	require = spells_req_high1,
 	points = 5,
@@ -64,15 +64,15 @@ newTalent{
 			count = count + 1
 		end
 		local damage = t.getDamage(self, t)
-		return ([[Conjures %d missile shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
-		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]]):format(count,damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/12))
+		return ([[화살 형태의 암석을 %d 개 만들어, 대상 (혹은 대상들) 에게 날립니다. 각각의 암석은 %0.2f 물리 피해를 주며, 5 턴 동안 매 턴마다 %0.2f 출혈 피해를 줍니다.
+		기술 레벨이 5 이상이면, 암석 화살을 하나 더 만들어낼 수 있습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(count,damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/12))
 	end,
 }
 
 newTalent{
 	name = "Body of Stone",
-	kr_display_name = "신체 석화",
+	kr_display_name = "자발적 석화",
 	type = {"spell/stone",2},
 	require = spells_req_high2,
 	points = 5,
@@ -119,11 +119,11 @@ newTalent{
 		local acidres = t.getAcidRes(self, t)
 		local cooldownred = t.getCooldownReduction(self, t)
 		local stunres = t.getStunRes(self, t)
-		return ([[You root yourself into the earth, and transform your flesh into stone.  While this spell is sustained, you may not move, and any forced movement will end the effect.
-		Your stone form and your affinity with the earth while the spell is active has the following effects:
-		* Reduces the cooldown of Earthen Missiles, Earthquake, and Mudslide by %d.
-		* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.
-		Resistances scale with your Spellpower.]])
+		return ([[대지와 일체화되어, 움직이지 못하는 석상이 됩니다. 석상 상태에서는 이동할 수 없으며, 강제적으로 위치가 옮겨질 경우 석상 상태가 해제됩니다.
+		석상 상태에서는 다음과 같은 효과가 발생합니다.
+		* 암석 화살, 지진, 산사태 마법의 지연시간이 %d 줄어듭니다.
+		* 화염 저항력이 %d%%, 전기 저항력이 %d%%, 산성 저항력이 %d%%, 기절 저항력이 %d%% 상승합니다.
+		저항력 증가량은 주문력 능력치의 영향을 받아 증가합니다.]])
 		:format(cooldownred, fireres, lightningres, acidres, stunres*100)
 	end,
 }
@@ -171,8 +171,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[Causes a violent earthquake that deals %0.2f physical damage in a radius of %d each turn for %d turns, and potentially stuns any and all creatures it affects.
-		The damage will increase with your Spellpower.]]):
+		return ([[지진을 일으켜서 매 턴마다 %0.2f 물리 피해를 줍니다. 주변 %d 칸 반경에 피해를 주며, 피해를 받은 적은 기절할 확률이 있습니다. (지속시간 : %d 턴)
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, damage), radius, duration)
 	end,
 }
@@ -218,8 +218,8 @@ newTalent{
 		local damageinc = t.getPhysicalDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local saves = t.getSaves(self, t)
-		return ([[Concentrate on maintaining a Crystalline Focus, increasing all your physical damage by %d%% and ignoring %d%% physical resistance of your targets.
-		Also raises your physical and magical saves by %d.]])
+		return ([[수정같이 맑은 정신을 유지하여 모든 물리 피해량을 %d%% 올리고, 적들의 물리 저항력을 %d%% 무시합니다.
+		또한, 시전자의 물리 저항과 정신 저항이 %d 상승합니다.]])
 		:format(damageinc, ressistpen, saves)
 	end,
 }

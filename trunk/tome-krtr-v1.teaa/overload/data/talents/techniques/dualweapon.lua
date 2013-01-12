@@ -27,7 +27,7 @@ newTalent{
 	points = 5,
 	require = techs_dex_req1,
 	info = function(self, t)
-		return ([[보조 무기의 피해량을 %d%% 증가시킵니다.]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
+		return ([[보조 무기의 피해량이 %d%% 증가합니다.]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
 	end,
 }
 
@@ -39,8 +39,8 @@ newTalent{
 	points = 5,
 	require = techs_dex_req2,
 	info = function(self, t)
-		return ([[무기로 공격을 막아내는 방법을 익혀, 회피도를 %d 증가시킵니다.
-		회피도는 민첩성 능력치에 영향을 받아 증가됩니다.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 12)
+		return ([[무기로 공격을 흘려내는 방법을 익혀, 회피도가 %d 증가합니다.
+		회피도는 민첩성 능력치의 영향을 받아 증가합니다.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 12)
 	end,
 }
 
@@ -72,14 +72,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[허점을 정확히 노리는 자세를 취해서, 방어도 관통력을 %d 증가시킵니다.
-		방어도 관통력은 민첩 능력치에 영향을 받아 증가됩니다.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 20)
+		return ([[허점을 정확히 노리는 자세를 취해서, 방어도 관통력이 %d 증가합니다.
+		방어도 관통력은 민첩 능력치의 영향을 받아 증가합니다.]]):format(4 + (self:getTalentLevel(t) * self:getDex()) / 20)
 	end,
 }
 
 newTalent{
 	name = "Momentum",
-	kr_display_name = "공격 가속",
+	kr_display_name = "탄력적 공격",
 	type = {"technique/dualweapon-training", 4},
 	mode = "sustained",
 	points = 5,
@@ -91,7 +91,7 @@ newTalent{
 	activate = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "쌍수 무장을 하지 않으면 공격 가속을 사용할 수 없습니다!")
+			game.logPlayer(self, "쌍수 무장을 하지 않으면 탄력적 공격을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -108,7 +108,7 @@ newTalent{
 	info = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		weapon = weapon or {}
-		return ([[공격 속도를 %d%% 증가시키지만, 체력을 급격히 소진하게 됩니다(체력 -6/턴).]]):format(self:getTalentLevel(t) * 14)
+		return ([[공격 속도가 %d%% 증가하지만, 체력을 급격히 소진하게 됩니다. (매 턴마다 체력 6 감소)]]):format(self:getTalentLevel(t) * 14)
 	end,
 }
 
@@ -147,7 +147,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s 기절 공격에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 
 			-- Attack after the stun, to benefit from backstabs
@@ -157,8 +157,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[보조 무기로 공격하여 %d%% 의 무기 피해를 줍니다. 이 공격이 성공하면 대상은 %d 턴 동안 기절하게 되고, 바로 주 무기를 휘둘러 %d%% 의 무기 피해를 줍니다.
-		기절 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
+		return ([[보조 무기로 공격하여 %d%% 의 무기 피해를 줍니다. 이 공격이 성공하면 대상은 %d 턴 동안 기절하며, 바로 주 무기를 휘둘러 %d%% 의 무기 피해를 줄 수 있습니다.
+		기절 확률은 정확도 능력치의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 0.7, 1.5),
 		2 + self:getTalentLevel(t),
 		100 * self:combatTalentWeaponDamage(t, 0.7, 1.5))
@@ -195,7 +195,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[질풍같이 무기를 휘둘러, 각 무기로 3번씩 걸쳐 %d%% 의 무기 피해를 적에게 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.4, 1.0))
+		return ([[질풍과 같은 속도로, 대상을 양손의 무기로 각각 3 번씩 공격합니다. 각 공격마다 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.4, 1.0))
 	end,
 }
 
@@ -249,7 +249,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전장에 근접한 적들에게 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 무기 피해를 %d 턴 동안 주는 출혈 상태를 일으킵니다.]]):
+		return ([[전방 1 칸 반경의 적들에게 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 피해를 총 %d 턴 동안 주는 출혈 상태를 일으킵니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), self:getDex() * 0.5, 3 + self:getTalentLevel(t))
 	end,
 }
@@ -288,7 +288,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한바퀴 회전하며 공격하여, 주변에 근접한 모든 대상에게 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
+		return ([[한바퀴 회전하여, 근접한 주변의 적들에게 양손의 무기로 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
 

@@ -44,14 +44,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Release a powerful shout, doing %0.2f physical damage in a radius %d cone in front of you.
-		The damage increases with your Strength.]]):format(damDesc(self, DamageType.PHYSICAL, (50 + self:getTalentLevel(t) * self:getStr()) / 2.3), 3 + self:getTalentLevelRaw(t))
+		return ([[강렬한 외침을 내질러, 전방의 적들에게 %0.2f 의 물리 피해를 줍니다. (전방 %d 칸 반경)
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, (50 + self:getTalentLevel(t) * self:getStr()) / 2.3), 3 + self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Second Wind",
-	kr_display_name = "제2호흡",
+	kr_display_name = "제 2 호흡",
 	type = {"technique/warcries", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -63,7 +63,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Take a deep breath to recover %d%% of your stamina.]]):
+		return ([[심호흡을 통해 체력을 %d%% 회복합니다.]]):
 		format(20 + self:getTalentLevel(t) * 7)
 	end,
 }
@@ -83,7 +83,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Boost your life and stamina by %d%% for %d turns by bellowing your battle shout.]]):format( 10 + self:getTalentLevelRaw(t), 5 + self:getTalentLevelRaw(t) * 2)
+		return ([[전장의 외침을 내질러, 생명력과 체력 최대치를 %d%% 증가시킵니다. (지속시간 %d 턴)]]):format( 10 + self:getTalentLevelRaw(t), 5 + self:getTalentLevelRaw(t) * 2)
 	end,
 }
 
@@ -117,8 +117,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.
-		The chance to hit increases with your Physical Power.]]):
+		return ([[전장의 포효를 들은 적들은 두려움에 사로잡혀 몸이 굳어버립니다. 전방 %d 칸 범위에 있는 적의 회피도를 7턴 동안 %d 감소시킵니다.
+		회피도 감소 효과는 물리력 능력치의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), 7 * self:getTalentLevel(t))
 	end,
 }

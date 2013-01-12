@@ -46,7 +46,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local spellpowerinc = t.getSpellpowerIncrease(self, t)
-		return ([[Your mastery of magic allows you to enter a state of deep concentration, increasing your Spellpower by %d.]]):
+		return ([[마법에 대한 이해를 바탕으로, 주문을 시전할 때 더 집중할 수 있게 됩니다. 주문력이 %d 상승합니다.]]):
 		format(spellpowerinc)
 	end,
 }
@@ -87,9 +87,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up mana into a powerful bolt doing %0.2f arcane damage.
-		At level 3, it becomes a beam.
-		The damage will increase with your Spellpower.]]):
+		return ([[마나를 화살 형태로 분출하여 %0.2f 마법 피해를 줍니다.
+		기술 레벨이 3 이상이면, 분출된 마나가 적들을 관통합니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ARCANE, damage))
 	end,
 }
@@ -122,17 +122,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Creates a vortex of arcane energies on the target for 6 turns. Each turn the vortex will look for another foe in sight and fire a manathrust doing %0.2f arcane damage to all foes in line.
-		If no foes are found, the target will take 150%% more arcane damage.
-		If the target dies, the vortex explodes, releasing all remaining damage in a radius 2 ball of arcane force.
-		The damage will increase with your Spellpower.]]):
+		return ([[마법의 소용돌이를 만들어 대상을 6 턴 동안 휘감습니다. 소용돌이는 매 턴마다 적들을 관통하는 마나를 분출하여, 주변의 적들에게 %0.2f 마법 피해를 줍니다.
+		주변에 적이 없다면, 대상에게 가해지는 마법 피해가 150%% 더 강력해집니다.
+		대상이 죽으면 소용돌이가 폭발하여, 주변 2 칸 반경에 남은 피해량을 한 번에 주는 마법 폭발을 일으킵니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ARCANE, dam))
 	end,
 }
 
 newTalent{
 	name = "Disruption Shield",
-	kr_display_name = "파열의 방어막",
+	kr_display_name = "불안정의 보호막",
 	type = {"spell/arcane",4},
 	require = spells_req4, no_sustain_autoreset = true,
 	points = 5,
@@ -145,7 +145,7 @@ newTalent{
 	getArcaneResist = function(self, t) return 50 + self:combatTalentSpellDamage(t, 10, 500) / 10 end,
 	on_pre_use = function(self, t) return (self:getMana() / self:getMaxMana() <= 0.25) or self:hasEffect(self.EFF_AETHER_AVATAR) or self:attr("disruption_shield") end,
 	explode = function(self, t, dam)
-		game.logSeen(self, "#VIOLET#%s's disruption shield collapses and then explodes in a powerful manastorm!", self.name:capitalize())
+		game.logSeen(self, "#VIOLET#%s의 보호막이 폭발하여, 강력한 마력 폭풍이 일어났습니다!", (self.kr_display_name or self.name):capitalize())
 
 		-- Add a lasting map effect
 		self:setEffect(self.EFF_ARCANE_STORM, 10, {power=t.getArcaneResist(self, t)})
@@ -191,12 +191,12 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Surround yourself with arcane forces, disrupting any attemps to harm you and instead generating mana.
-		Generates %0.2f mana per damage point taken (Aegis Shielding talent affects the ratio).
-		If your mana is brought too high by the shield, it will de-activate and the chain reaction will release a deadly arcane storm around you with radius 3 for 10 turns, dealing 10%% of the damage absorbed over the sustain's duration each turn.
-		While the arcane storm rages, you also get %d%% arcane resistance.
-		Only usable when below 25%% mana.
-		The damage to mana ratio increases with your Spellpower.]]):
+		return ([[시전자 주변을 불안정한 마법의 힘으로 둘러싸 모든 피해를 무효화시키고, 원래 받았어야 할 피해량 1 마다 마나를 %0.2f 회복합니다.
+		최대 마나량 이상의 마나가 회복되어 시전자가 마나를 수용할 수 없게 되면, 보호막이 깨지고 강력한 마력 폭풍이 일어납니다. 
+		마력 폭풍은 주변 3 칸 반경에 10 턴 동안 유지되며, 매 턴마다 지금까지 보호막이 흡수한 피해량의 10%% 에 해당하는 마법 피해를 줍니다.
+		마력 폭풍은 시전자에게도 피해를 주지만, 대신 시전자의 마법 저항력을 %d%% 올려줍니다.
+		현재 마나량이 최대 마나량의 25%% 이하가 되어야 이 마법을 사용할 수 있습니다.
+		마나 회복량은 주문 / 보호 계열의 '보호막 숙련' 기술과 주문력 능력치의 영향을 받아 감소합니다.]]):
 		format(t.getManaRatio(self, t), t.getArcaneResist(self, t))
 	end,
 }

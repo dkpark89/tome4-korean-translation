@@ -21,7 +21,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Stone Skin",
-	kr_display_name = "피부 석화",
+	kr_display_name = "단단한 피부",
 	type = {"spell/earth", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -44,8 +44,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local armor = t.getArmor(self, t)
-		return ([[The caster's skin grows as hard as stone, granting a %d bonus to Armour.
-		The bonus to Armour will increase with your Spellpower.]]):
+		return ([[시전자의 피부가 돌과 같이 단단해져, 방어도가 %d 상승합니다.
+		방어도 상승량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(armor)
 	end,
 }
@@ -53,7 +53,7 @@ newTalent{
 
 newTalent{
 	name = "Mudslide",
-	kr_display_name = "미끄러운 진흙",
+	kr_display_name = "산사태",
         type = {"spell/earth",2},
 	require = spells_req2,
 	points = 5,
@@ -79,9 +79,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Conjures a mudslide, dealing %0.2f physical damage in a radius of %d. Any creatures caught inside will be knocked back.
-		The damage will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.PHYSICAL, damage), self:getTalentRadius(t))
+		return ([[소규모 산사태를 만들어내, 주변 %d 칸 반경에 %0.2f 물리 피해를 줍니다. 산사태에 휩쓸린 적들은 밀려납니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 
@@ -110,14 +110,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = t.getRange(self, t)
-		return ([[Digs up to %d grids into walls, trees or other impassable terrain]]):
+		return ([[벽, 나무 등 이동할 수 없는 지형을 %d 칸 굴착합니다.]]):
 		format(range)
 	end,
 }
 
 newTalent{
 	name = "Stone Wall",
-	kr_display_name = "돌 벽",
+	kr_display_name = "이동식 요새",
 	type = {"spell/earth",4},
 	require = spells_req4,
 	points = 5,
@@ -146,6 +146,7 @@ newTalent{
 				local e = Object.new{
 					old_feat = oe,
 					name = "summoned wall", image = "terrain/granite_wall1.png",
+					kr_display_name = "소환된 벽",
 					display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 					always_remember = true,
 					can_pass = {pass_wall=1},
@@ -181,9 +182,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Entomb yourself in a wall of stone for %d turns.
-		At level 4, it becomes targetable.
-		Duration will improve with your Spellpower.]]):
+		return ([[시전자 주변에 암석 벽을 %d 턴 동안 만들어, 시전자를 보호합니다.
+		기술 레벨이 4 이상이면, 암석 벽을 원하는 곳에 만들어낼 수 있습니다.
+		마법의 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }

@@ -346,7 +346,7 @@ newTalent{
 
 newTalent{
 	name = "Dark Vision",
-	kr_display_name = "어둠의 시야",
+	kr_display_name = "어둠의 심안",
 	type = {"cursed/darkness", 2},
 	require = cursed_wil_req2,
 	points = 5,

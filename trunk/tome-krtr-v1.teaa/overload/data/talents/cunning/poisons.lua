@@ -330,7 +330,7 @@ newTalent{
 
 newTalent{
 	name = "Crippling Poison",
-	kr_display_name = "장애유발형 중독",
+	kr_display_name = "무력화형 중독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",

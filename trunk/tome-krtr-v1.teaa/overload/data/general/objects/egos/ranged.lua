@@ -174,7 +174,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of lightning", suffix=true, instant_resolve=true,
-	kr_display_name = "번개의 ",
+	kr_display_name = "뇌전의 ",
 	keywords = {lightning=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -340,7 +340,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "glacial ", prefix=true, instant_resolve=true,
-	kr_display_name = "빙하 ",
+	kr_display_name = "차가운 ",
 	keywords = {glacial=true},
 	level_range = {30, 50},
 	greater_ego = 1,

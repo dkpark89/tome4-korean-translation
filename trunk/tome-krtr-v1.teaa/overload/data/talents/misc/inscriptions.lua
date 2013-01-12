@@ -300,7 +300,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Wild Growth",
-	kr_display_name = "주입: 야생의 성장",
+	kr_display_name = "주입: 야생 성장",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACKAREA = { PHYSICAL = 1, NATURE = 1 }, DISABLE = 3 },
@@ -337,7 +337,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Rune: Phase Door",
-	kr_display_name = "룬: 근거리 공간이동",
+	kr_display_name = "룬: 근거리 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -362,7 +362,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Controlled Phase Door",
-	kr_display_name = "룬: 제어된 근거리 공간이동",
+	kr_display_name = "룬: 제어된 근거리 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -427,7 +427,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Shielding",
-	kr_display_name = "룬: 방어막",
+	kr_display_name = "룬: 보호막",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -454,7 +454,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Reflection Shield", image = "talents/rune__shielding.png",
-	kr_display_name = "룬: 반사 방어막",
+	kr_display_name = "룬: 반사 보호막",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -529,7 +529,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Vision",
-	kr_display_name = "룬: 시야",
+	kr_display_name = "룬: 심안",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -684,7 +684,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Lightning",
-	kr_display_name = "룬: 번개",
+	kr_display_name = "룬: 전격",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
