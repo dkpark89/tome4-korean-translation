@@ -20,7 +20,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Heat",
-	kr_display_name = "가열",
+	kr_display_name = "발열",
 	type = {"spell/fire-alchemy", 1},
 	require = spells_req1,
 	points = 5,
@@ -44,14 +44,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.FIRE, damage))
+		return ([[대상의 신체 일부를 불태워, 8 턴 동안 총 %0.2f 화염 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Smoke Bomb",
-	kr_display_name = "연기 폭탄",
+	kr_display_name = "연막탄",
 	type = {"spell/fire-alchemy", 2},
 	require = spells_req2,
 	points = 5,
@@ -108,9 +108,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Throw a smoke bomb, blocking everyone's line of sight. The smoke dissipates after %d turns.
-		If a creature inside is victim of fire burns the smoke will consume instantly, replicating the burns on all foes and increasing its duration by %d turns.
-		Duration will increase with your Spellpower.]]):
+		return ([[마법으로 만들어낸 연막탄을 던져, 해당 지역의 시야를 가립니다. 이 기술로 발생한 연막은 %d 턴 후에 사라집니다.
+		연막 내의 적 중 하나에게 화상 상태효과를 가하면, 연막 내의 모든 적이 동시에 화상 상태효과의 영향을 받으며 화상의 지속시간이 %d 턴 증가합니다.
+		연막의 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(duration, math.ceil(duration / 3))
 	end,
 }
@@ -153,9 +153,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[A furious fire storm rages around the caster, doing %0.2f fire damage in a radius of 3 each turn for %d turns.
-		You closely control the firestorm, preventing it from harming your party members.
-		The damage and duration will increase with your Spellpower.]]):
+		return ([[불타오르는 화염 폭풍을 주변에 만들어내, 주변 3 칸 반경에 %0.2f 화염 피해를 줍니다. (지속시간 : %d 턴)
+		화염 폭풍 근처에서는 마법을 제어할 수 있어, 동료들이 화염 폭풍에 휘말리지 않게 할 수 있습니다.
+		피해량과 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage), duration)
 	end,
 }
@@ -163,7 +163,7 @@ newTalent{
 
 newTalent{
 	name = "Body of Fire",
-	kr_display_name = "화염의 육체",
+	kr_display_name = "불타는 육신",
 	type = {"spell/fire-alchemy",4},
 	require = spells_req4,
 	mode = "sustained",
@@ -205,7 +205,7 @@ newTalent{
 	end,
 	activate = function(self, t)
 		game:playSoundNear(self, "talents/fireflash")
-		game.logSeen(self, "#FF8000#%s turns into pure flame!", self.name:capitalize())
+		game.logSeen(self, "#FF8000#%s 의 몸에 순수한 화염이 타오릅니다!", self.name:capitalize())
 		return {
 			onhit = self:addTemporaryValue("on_melee_hit", {[DamageType.FIRE]=t.getFireDamageOnHit(self, t)}),
 			res = self:addTemporaryValue("resists", {[DamageType.FIRE] = t.getResistance(self, t)}),
@@ -213,7 +213,7 @@ newTalent{
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#FF8000#The raging fire around %s calms down and disappears.", self.name)
+		game.logSeen(self, "#FF8000# %s의 주변에 타오르던 화염이 사그라들다가, 완전히 사라졌습니다.", (self.kr_display_name or self.name))
 		self:removeTemporaryValue("on_melee_hit", p.onhit)
 		self:removeTemporaryValue("resists", p.res)
 		self:removeTemporaryValue("mana_regen", p.drain)
@@ -224,10 +224,10 @@ newTalent{
 		local insightdam = t.getFireDamageInSight(self, t)
 		local res = t.getResistance(self, t)
 		local manadrain = t.getManaDrain(self, t)
-		return ([[Turn your body into pure flame, increasing your fire resistance by %d%%, burning any creatures attacking you for %0.2f fire damage, and projecting random slow-moving fire bolts at targets in sight, doing %0.2f fire damage with each bolt.
-		The projectiles safely go through your friends without harming them.
-		This powerful spell drains %0.2f mana while active.
-		The damage and resistance will increase with your Spellpower.]]):
+		return ([[몸에 순수한 화염이 타올라 화염 저항력이 %d%% 증가하고, 자신을 공격하는 적에게 %0.2f 화염 피해를 줍니다. 
+		또한 느리게 움직이며, 시야 내의 적들을 목표로 하고 %0.2f 화염 피해를 주는 불꽃을 무작위로 만들어냅니다. 이 불꽃은 아군에게 완전히 무해합니다.
+		마법을 유지하는 동안, 매 턴마다 %0.2f 마나가 소진됩니다.
+		피해량과 저항력 상승량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(res,onhitdam,insightdam,-manadrain)
 	end,
 }

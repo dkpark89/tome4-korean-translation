@@ -73,7 +73,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of lightning (#RESIST#)", suffix=true, instant_resolve=true,
-	kr_display_name = "번개(#RESIST#)의 ",
+	kr_display_name = "전기(#RESIST#)의 ",
 	keywords = {lightning=true},
 	level_range = {1, 50},
 	rarity = 6,

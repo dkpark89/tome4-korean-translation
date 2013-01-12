@@ -914,7 +914,7 @@ newDamageType{
 -- Darkness + Fire
 newDamageType{
 	name = "shadowflame", type = "SHADOWFLAME",
-	kr_display_name = "어두운 화염",
+	kr_display_name = "어둠의 불꽃",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, dam / 2)
 		DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam / 2)
@@ -1115,7 +1115,7 @@ newDamageType{
 -- Lightning damage + daze chance
 newDamageType{
 	name = "lightning daze", type = "LIGHTNING_DAZE", text_color = "#ROYAL_BLUE#",
-	kr_display_name = "혼절형 번개",
+	kr_display_name = "혼절형 뇌전",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, daze=25} end
 		local realdam = DamageType:get(DamageType.LIGHTNING).projector(src, x, y, DamageType.LIGHTNING, dam.dam)

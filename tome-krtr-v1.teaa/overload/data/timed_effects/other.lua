@@ -107,7 +107,7 @@ newEffect{
 newEffect{
 	name = "TIME_SHIELD", image = "talents/time_shield.png",
 	desc = "Time Shield",
-	kr_display_name = "시간의 방어막",
+	kr_display_name = "시간의 보호막",
 	long_desc = function(self, eff) return ("The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%."):format(self.time_shield_absorb, eff.power, eff.time_reducer) end,
 	type = "other",
 	subtype = { time=true, shield=true },
@@ -1916,7 +1916,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_COLD",
 	desc = "Grave chill",
-	kr_display_name = "무덤의 차가움",
+	kr_display_name = "묘지의 냉기",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.") end,
 	decrease = 0, no_remove = true,

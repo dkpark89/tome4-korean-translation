@@ -249,7 +249,7 @@ newEntity{
 newEntity{
 	define_as = "ANGOLWEN_STAFF_WAND",
 	name = "staves and wands store",
-	kr_display_name = "마법지팡이와 마법막대 상점",
+	kr_display_name = "마법지팡이와 마법봉 상점",
 	display = '6', color=colors.RED,
 	store = {
 		purse = 25,

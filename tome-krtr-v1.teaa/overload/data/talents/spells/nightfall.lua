@@ -25,7 +25,7 @@ end
 
 newTalent{
 	name = "Invoke Darkness",
-	kr_display_name = "어두움 호출",
+	kr_display_name = "어둠 화살",
 	type = {"spell/nightfall",1},
 	require = spells_req1,
 	points = 5,
@@ -63,10 +63,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up a bolt of darkness, doing %0.2f darkness damage.
-		At level 3, it will create a beam of shadows.
-		At level 5, none of your Nightfall spells will hurt your minions.
-		The damage will increase with your Spellpower.]]):
+		return ([[어둠을 화살의 형태로 만들어, 대상에게 %0.2f 암흑 피해를 줍니다.
+		기술 레벨이 3 이상이면, 어둠이 적들을 관통합니다.
+		기술 레벨이 5 이상이면, 모든 주문 / 일몰 계열의 마법들이 언데드 추종자들에게 피해를 주지 않습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
@@ -109,10 +109,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Dark fumes erupt from the ground for 5 turns. Any creature entering the circle will receive either a bane of confusion or a bane of blindness.
-		Only one bane can affect a creature.
-		Banes last for %d turns, and also deal %0.2f darkness damage.
-		The damage will increase with your Spellpower.]]):
+		return ([[5 턴 동안 대지에서 어둠의 구름을 불러냅니다. 구름에 들어간 적에게는 혼란의 표식이나 실명의 표식 중 하나가 새겨지며, 해당 상태효과를 일으킵니다.
+		표식은 %d 턴 동안 유지되며, 매 턴마다 %0.2f 암흑 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(4 + math.floor(self:getTalentLevel(t) / 2), damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
@@ -145,9 +144,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Invoke a cone dealing %0.2f darkness damage in a radius of %d. Any creatures caught inside must make check against their Mental Save or be knocked back 4 grids away.
-		The damage will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.DARKNESS, damage), self:getTalentRadius(t))
+		return ([[전방 %d 칸 반경에 %0.2f 암흑 피해를 주고, 범위 내의 적들에게 밤의 공포를 심어줍니다. 대상의 정신 내성 능력치에 따라 저항할 확률이 달라지며, 저항에 실패할 경우 대상은 4 칸 뒤로 도망치게 됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
 
@@ -182,10 +181,9 @@ newTalent{
 		local speed = t.getSpeed(self, t) * 100
 		local dur = t.getDur(self, t)
 		local minion = t.getMinion(self, t)
-		return ([[Invoke a ball of darkness that deals %0.2f darkness damage in a radius of %d. Every creature hit will start to become closer to death,  reducing their global speed by %d%%.
-		Necrotic minions' damage against those creatures is increased by %d%%.
-		The effects last for %d turns.
-		The damage done and the minions' damage increase will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.DARKNESS, damage), self:getTalentRadius(t), speed, minion, dur)
+		return ([[암흑의 구를 만들어내 주변 %d 칸 반경에 %0.2f 암흑 피해를 주고, %d 턴 동안 적들의 죽음을 앞당겨 전체 속도를 %d%% 감소시킵니다. 
+		죽음이 앞당겨진 적들은 언데드 추종자들에게 %d%% 더 많은 피해를 입습니다.
+		피해량과 언데드 추종자들의 피해량 증가는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage), dur, speed, minion) --@@
 	end,
 }

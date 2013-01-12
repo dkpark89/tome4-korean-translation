@@ -54,21 +54,21 @@ newTalent{
 	info = function(self, t)
 		local attack = t.getAttack(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Increases your Accuracy by %d, and the damage multiplier of your striking talents (Pugilism and Finishing Moves) by %d%%.
-		The bonuses will scale with your Dexterity.]]):
+		return ([[타격 자세를 취해 정확도를 %d 올리고, 모든 타격계 기술과 마무리 기술의 최종 피해량을 %d%% 증가시킵니다.
+		정확도와 피해량 상승은 민첩성 능력치의 영향을 받아 증가합니다.]]):
 		format(attack, damage)
 	end,
 }
 
 newTalent{
 	name = "Double Strike",  -- no stamina cost attack that will replace the bump attack under certain conditions
-	kr_display_name = "두번 치기",
+	kr_display_name = "2연격",
 	type = {"technique/pugilism", 1},
 	require = techs_dex_req1,
 	points = 5,
 	random_ego = "attack",
 	cooldown = function(self, t) return math.ceil(3 * getRelentless(self, cd)) end,
-	message = "@Source@ throws two quick punches.",
+	message = "@Source1@ 빠르게 두 번의 주먹을 날립니다.",
 	tactical = { ATTACK = { weapon = 2 } },
 	requires_target = true,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.1, 0.8) + getStrikingStyle(self, dam) end,
@@ -130,15 +130,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Deliver two quick punches that deal %d%% damage each, and switch your stance to Striking Stance.  If you already have Striking Stance active and Double Strike isn't on cooldown, this talent will automatically replace your normal attacks (and trigger the cooldown).
-		If either jab connects, you earn one combo point.  At talent level 4 or greater, if both jabs connect, you'll earn two combo points.]])
+		return ([[빠르게 두 번의 주먹을 날려 각각 %d%% 의 피해를 주고, 즉시 타격 자세로 전환합니다.
+		이미 타격 자세를 취하고 있으며 2연격 기술이 사용 가능하다면, 일반 공격 대신 자동적으로 2연격 기술을 사용합니다. 이 때 2연격 기술의 지연 시간은 일반적으로 기술을 사용했을 때와 같습니다.
+		한 번 이상 공격에 성공하면, 연계 점수를 1 획득합니다. 만약 기술 레벨이 4 이상이고 두 번의 공격이 모두 성공한다면, 연계 점수를 2 획득할 수 있습니다.]])
 		:format(damage)
 	end,
 }
 
 newTalent{
 	name = "Relentless Strikes",
-	kr_display_name = "무자비한 타격",
+	kr_display_name = "가차없는 공격",
 	type = {"technique/pugilism", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -149,15 +150,15 @@ newTalent{
 	info = function(self, t)
 		local stamina = t.getStamina(self, t)
 		local cooldown = t.getCooldownReduction(self, t)
-		return ([[Reduces the cooldown on all your Pugilism talents by %d%%.  Additionally, every time you earn a combo point, you will regain %0.2f stamina.
-		Note that stamina gains from combo points occur before any talent stamina costs.]])
+		return ([[모든 타격계 기술의 지연 시간을 %d%% 줄입니다. 그리고, 연계 점수를 1 획득할 때마다 체력을 %0.2f 회복합니다.
+		만약 현재 체력이 부족해 어떤 기술을 사용할 수 없더라도, 이 기술을 통해 어떤 기술을 사용할 수 있을만큼 체력을 확보할 수 있다면 그 기술을 사용할 수 있습니다.]])
 		:format(cooldown * 100, stamina)
 	end,
 }
 
 newTalent{
 	name = "Spinning Backhand",
-	kr_display_name = "회전하며 손등치기",
+	kr_display_name = "회전 손등치기",
 	type = {"technique/pugilism", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -165,7 +166,7 @@ newTalent{
 	cooldown = function(self, t) return math.ceil(12 * getRelentless(self, cd)) end,
 	stamina = 12,
 	range = function(self, t) return 2 + math.ceil(self:getTalentLevel(t)/2) end,
-	message = "@Source@ lashes out with a spinning backhand.",
+	message = "@Source1@ 회전하며 적을 손등으로 쳤습니다.",
 	tactical = { ATTACKAREA = { weapon = 2 }, CLOSEIN = 1 },
 	requires_target = true,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.0, 1.7) + getStrikingStyle(self, dam) end,
@@ -250,22 +251,23 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Attack your foes in a frontal arc with a spinning backhand, doing %d%% damage.  If you're not adjacent to the target, you'll step forward as you spin, gaining 10%% bonus damage for each tile you move.
-		This attack will remove any grapples you're maintaining, and earn one combo point (or one combo point per attack that connects, if the talent level is 4 or greater).]])
+		return ([[회전하면서 전방의 모든 적들을 손등으로 공격해, %d%% 의 피해를 줍니다. 무언가를 붙잡고 있을 때 이 기술을 사용하면, 붙잡기가 풀립니다.
+		만약 대상과 떨어져 있다면 회전하면서 대상에게 접근하며, 이 때 이동한 거리 1 칸마다 10%% 의 추가 피해를 입힙니다.
+		이 기술을 통해 연계 점수를 1 획득할 수 있습니다. 만약 기술 레벨이 4 이상이라면, 타격에 성공한 횟수만큼 연계 점수를 획득할 수 있습니다.]])
 		:format(damage)
 	end,
 }
 
 newTalent{
 	name = "Flurry of Fists",
-	kr_display_name = "돌풍치기",
+	kr_display_name = "질풍격",
 	type = {"technique/pugilism", 4},
 	require = techs_dex_req4,
 	points = 5,
 	random_ego = "attack",
 	cooldown = function(self, t) return math.ceil(24 * getRelentless(self, cd)) end,
 	stamina = 15,
-	message = "@Source@ lashes out with a flurry of fists.",
+	message = "@Source1@ 질풍격을 쏟아붓습니다.",
 	tactical = { ATTACK = { weapon = 2 } },
 	requires_target = true,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.4, 1.1) + getStrikingStyle(self, dam) end,
@@ -315,8 +317,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Lashes out at the target with three quick punches that each deal %d%% damage.
-		Earns one combo point.  If your talent level is 4 or greater, this instead earns one combo point per blow that connects.]])
+		return ([[아주 빠르게 세 번의 주먹을 날려, 각각 %d%% 의 피해를 줍니다.
+		이 기술을 통해 1의 연계 점수를 획득할 수 있습니다. 만약 기술 레벨이 4 이상이라면, 타격에 성공한 횟수만큼 연계 점수를 획득할 수 있습니다.]])
 		:format(damage)
 	end,
 }

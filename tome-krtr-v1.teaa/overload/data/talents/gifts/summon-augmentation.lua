@@ -102,7 +102,7 @@ newTalent{
 
 newTalent{
 	name = "Resilience",
-	kr_display_name = "활기찬 소환수",
+	kr_display_name = "활력있는 소환수",
 	type = {"wild-gift/summon-augmentation", 3},
 	require = gifts_req3,
 	mode = "passive",

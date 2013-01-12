@@ -44,7 +44,7 @@ newTalent{ short_name = "RITCH_FLAMESPITTER_BOLT",
 
 newTalent{
 	name = "Flame Fury", image = "talents/blastwave.png",
-	kr_display_name = "화염의 분노",
+	kr_display_name = "불꽃의 분노",
 	type = {"wild-gift/other",1},
 	points = 5,
 	eqilibrium = 5,
@@ -106,7 +106,7 @@ newTalent{
 
 newTalent{
 	name = "Lightning Breath", short_name = "LIGHTNING_BREATH_HYDRA", image = "talents/lightning_breath.png",
-	kr_display_name = "번개 브레쓰",
+	kr_display_name = "전격 브레쓰",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,

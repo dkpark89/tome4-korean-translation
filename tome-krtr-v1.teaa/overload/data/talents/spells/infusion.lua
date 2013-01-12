@@ -36,14 +36,14 @@ newTalent{
 	getIncrease = function(self, t) return self:getTalentLevel(t) * 0.07 end,
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with explosive fire, increasing damage by %d%%, and setting foes ablaze.]]):
+		return ([[연금술 폭탄을 던질 때 화염의 힘을 주입하여 연금술 폭탄의 피해량이 %d%% 증가하고, 적들에게 화상 상태효과를 일으킵니다.]]):
 		format(100 * daminc)
 	end,
 }
 
 newTalent{
 	name = "Acid Infusion",
-	kr_display_name = "산성 주입",
+	kr_display_name = "강산 주입",
 	type = {"spell/infusion", 2},
 	mode = "sustained",
 	require = spells_req2,
@@ -67,15 +67,15 @@ newTalent{
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
 		local conv = t.getConvert(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with explosive acid that can blind, increasing damage by %d%%.
-		In addition all fire damage you do, from any source, is converted to %d%% acid damage (without any special effects).]]):
+		return ([[연금술 폭탄을 던질 때 산을 주입하여 연금술 폭탄의 피해량이 %d%% 증가하고, 적들에게 실명 상태효과를 일으킵니다.
+		그리고 모든 화염 피해의 %d%% 가 산성 피해로 전환됩니다. (이 때, 특수효과는 발생하지 않습니다.)]]):
 		format(100 * daminc, conv)
 	end,
 }
 
 newTalent{
 	name = "Lightning Infusion",
-	kr_display_name = "번개 주입",
+	kr_display_name = "뇌전 주입",
 	type = {"spell/infusion", 3},
 	mode = "sustained",
 	require = spells_req3,
@@ -99,8 +99,8 @@ newTalent{
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
 		local conv = t.getConvert(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with lightning that can daze, increasing damage by %d%%.
-		In addition all fire damage you do, from any source, is converted to %d%% lightning damage (without any special effects).]]):
+		return ([[연금술 폭탄을 던질 때 번개의 힘을 주입하여 연금술 폭탄의 피해량이 %d%% 증가하고, 적들에게 혼절 상태효과를 일으킵니다.
+		그리고 모든 화염 피해의 %d%% 가 전격 피해로 전환됩니다. (이 때, 특수효과는 발생하지 않습니다.)]]):
 		format(100 * daminc, conv)
 	end,
 }
@@ -131,8 +131,8 @@ newTalent{
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
 		local conv = t.getConvert(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with frost that can freeze, increasing damage by %d%%.
-		In addition all fire damage you do, from any source, is converted to %d%% cold damage (without any special effects).]]):
+		return ([[연금술 폭탄을 던질 때 얼음의 힘을 주입하여 연금술 폭탄의 피해량이 %d%% 증가하고, 적들에게 빙결 상태효과를 일으킵니다.
+		그리고 모든 화염 피해의 %d%% 가 냉기 피해로 전환됩니다. (이 때, 특수효과는 발생하지 않습니다.)]]):
 		format(100 * daminc, conv)
 	end,
 }

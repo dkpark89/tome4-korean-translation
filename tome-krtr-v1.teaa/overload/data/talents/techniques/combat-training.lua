@@ -35,7 +35,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local res = t.getRes(self, t)
-		return ([[당신은 여러가지 피해에 좀 더 잘 견디게 되었습니다. 모든 피해 저항이 %d%% 증가됩니다.]]):
+		return ([[피부가 튼튼해져 피해를 약간 덜 입게 됩니다. 모든 저항력이 %d%% 증가합니다.]]):
 		format(res)
 	end,
 }
@@ -71,22 +71,23 @@ newTalent{
 		local criticalreduction = t.getCriticalChanceReduction(self, t)
 		local classrestriction = ""
 		if self.descriptor and self.descriptor.subclass == "Brawler" then
-			classrestriction = "(격투가는 판갑을 입은 상태에서는 대다수의 기술을 사용할 수 없습니다.)"
+			classrestriction = "(격투가는 판갑을 입으면 대다수의 기술을 사용할 수 없습니다.)"
 		end
 		if self:knowTalent(self.T_STEALTH) then
-			classrestriction = "(중갑이나 판갑은 은신하는데 방해가 됩니다.)"
+			classrestriction = "(중갑이나 판갑은 은신할 때 방해가 됩니다.)"
 		end
-		return ([[방어구를 다루는 방법을 배웁니다. 방어도를 %d 상승시키고, 방어 효율이 %d%% 증가되며, 적에게 치명타를 맞을 확률을 %d%% 감소시킵니다 (중갑, 판갑 착용시에만).
-		1 레벨에서는 중갑과 건틀릿, 투구, 중장화를 착용할 수 있게 되며,
-		2 레벨에서는 방패를 장착할 수 있게 되고,
-		3 레벨에서는 판갑을 착용할 수 있게 됩니다.
+		return ([[방어구를 더 능숙하게 다룰 수 있게 됩니다. 
+		중갑이나 판갑 착용시 방어도가 %d 상승하고, 방어 효율이 %d%% 증가하며, 적에게 치명타를 맞을 확률이 %d%% 줄어듭니다.
+		1 레벨에는 중갑과 갑옷용 장갑, 투구, 중장화를 착용할 수 있게 되며,
+		2 레벨에는 방패를 들 수 있게 되고,
+		3 레벨에는 판갑을 착용할 수 있게 됩니다.
 		%s]]):format(armor, hardiness, criticalreduction, classrestriction)
 	end,
 }
 
 newTalent{
 	name = "Combat Accuracy", short_name = "WEAPON_COMBAT",
-	kr_display_name = "정확한 전투",
+	kr_display_name = "정확도 수련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { level=function(level) return (level - 1) * 4 end },
@@ -94,7 +95,7 @@ newTalent{
 	getAttack = function(self, t) return self:getTalentLevel(t) * 10 end,
 	info = function(self, t)
 		local attack = t.getAttack(self, t)
-		return ([[맨손 전투와 근접, 원거리 무기를 사용할 때의 정확도를 %d 증가시킵니다.]]):
+		return ([[맨손 전투나 근접, 원거리 무기 중 하나를 사용하면 정확도가 %d 증가합니다.]]):
 		format(attack)
 	end,
 }
@@ -111,7 +112,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[대검, 장검, 도끼, 철퇴 사용시, 물리력을 %d 증가시킵니다. 또한 대검, 장검, 도끼, 철퇴의 피해량을 %d%% 증가시킵니다.]]):
+		return ([[장검, 대검, 도끼, 둔기 중 하나를 사용하면 물리력이 %d 증가합니다. 또한 해당 무기의 피해량이 %d%% 증가합니다.]]):
 		format(damage, 100*inc)
 	end,
 }
@@ -129,7 +130,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[단검 사용시, 물리력을 %d 증가시킵니다. 또한 단검의 피해량을 %d%% 증가시킵니다.]]):
+		return ([[단검을 사용하면 물리력이 %d 증가합니다. 또한 단검의 피해량이 %d%% 증가합니다.]]):
 		format(damage, 100*inc)
 	end,
 }
@@ -147,7 +148,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[이형 무기 사용시, 물리력을 %d 증가시킵니다. 또한 이형 무기의 피해량을 %d%% 증가시킵니다.]]):
+		return ([[이형 무기를 사용하면 물리력이 %d 증가합니다. 또한 이형 무기의 피해량이 %d%% 증가합니다.]]):
 		format(damage, 100*inc)
 	end,
 }

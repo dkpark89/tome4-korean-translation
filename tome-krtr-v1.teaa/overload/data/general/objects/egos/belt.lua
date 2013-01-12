@@ -459,7 +459,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resilience", suffix=true, instant_resolve=true,
-	kr_display_name = "활기의 ",
+	kr_display_name = "활력의 ",
 	keywords = {resilience=true},
 	level_range = {10, 50},
 	rarity = 6,

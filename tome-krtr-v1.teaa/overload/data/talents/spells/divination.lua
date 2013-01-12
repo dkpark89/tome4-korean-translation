@@ -45,20 +45,20 @@ newTalent{
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Summons an ethereal magical eye at the designated location that lasts for %d turns.
-		The eye can not be seen or attacked by other creatures, and possesses magical vision that allows it to see any creature in a %d range around it.
-		It does not require light to do so, but it can not see through walls.
-		Casting the eye does not take a turn.
-		Only one arcane eye can exist at any given time.
-		At level 4, if cast on a creature it will follow it until it expires, or until the creature dies.
-		At level 5, it will place a magical marker on the creatures, negating invisibility and stealth effects.]]):
+		return ([[지정한 곳에 %d 턴 동안 마법의 눈을 소환합니다.
+		마법의 눈은 발각되거나 공격받지 않으며, 주변 %d 칸 반경의 시야를 제공합니다.
+		빛이 없어도 시야 제공이 되지만, 벽에 가려진 부분은 볼 수 없습니다.
+		마법의 눈은 시전시간 없이 즉시 소환할 수 있습니다.
+		한번에 여러 개의 눈은 소환할 수 없습니다.
+		기술 레벨이 4 이상이면, 시전자를 포함한 특정 대상에 마법의 눈을 소환하여 따라다니게 할 수 있습니다.
+		기술 레벨이 5 이상이면, 투명하거나 은신 중인 적에 표식을 남겨 해당 효과를 무효화시킬 수 있습니다.]]):
 		format(duration, radius)
 	end,
 }
 
 newTalent{
 	name = "Keen Senses",
-	kr_display_name = "날카로운 감각",
+	kr_display_name = "예리한 감각",
 	type = {"spell/divination", 2},
 	require = spells_req2,
 	mode = "sustained",
@@ -87,16 +87,16 @@ newTalent{
 		local seeinvisible = t.getSeeInvisible(self, t)
 		local seestealth = t.getSeeStealth(self, t)
 		local criticalchance = t.getCriticalChance(self, t)
-		return ([[You focus your senses, getting information from moments in the future.
-		Improves your capacity to see invisible foes by +%d, to see through stealth by +%d, and to perform a critical spell cast by +%d%%.
-		The effects will improve with your Spellpower.]]):
+		return ([[마력으로 감각을 곤두세워, 주변의 적에 대한 정보를 파악합니다.
+		투명체 감지력이 %d, 은신 감지력이 %d 상승하며, 주문 치명타율이 %d%% 상승합니다.
+		상승 효과들은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(seeinvisible, seestealth, criticalchance)
 	end,
 }
 
 newTalent{
 	name = "Vision",
-	kr_display_name = "시야",
+	kr_display_name = "심안",
 	type = {"spell/divination", 3},
 	require = spells_req3,
 	points = 5,
@@ -112,7 +112,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[Form a map of your surroundings in your mind in a radius of %d]]):
+		return ([[주변 %d 칸 반경의 지형을 탐지합니다.]]):
 		format(radius)
 	end,
 }
@@ -133,7 +133,7 @@ newTalent{
 
 		if not self:hasEffect(self.EFF_PREMONITION_SHIELD) then
 			self:setEffect(self.EFF_PREMONITION_SHIELD, 5, {damtype=damtype, resist=t.getResist(self, t)})
-			game.logPlayer(self, "#OLIVE_DRAB#Your premonition allows you to raise a shield just in time!")
+			game.logPlayer(self, "#OLIVE_DRAB#공격을 예측하여, 피해를 입기 전에 저항력을 끌어올렸습니다!")
 		end
 	end,
 	activate = function(self, t)
@@ -146,9 +146,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local resist = t.getResist(self, t)
-		return ([[Echoes of the future flash before your eyes, allowing you to sense some incoming attacks.
-		If the attack is not physical, you will erect a temporary shield that reduces all damage of this type by %d%% for 5 turns.
-		This effect can only happen once every 5 turns, and happens before damage is taken.
-		The bonus will increase with your Spellpower.]]):format(resist)
+		return ([[미래의 편린들이 눈에 보여, 앞으로 다가올 공격을 예측할 수 있게 됩니다.
+		시전자에게 가해지는 공격이 물리 공격이 아니라면, 공격을 받기 전에 순간적으로 저항력을 끌어올려 해당 공격 속성의 저항력을 %d%% 올립니다.
+		한번 끌어올린 저항력은 5 턴 동안 사라지지 않으며, 그동안 다른 속성의 저항력은 올릴 수 없습니다.
+		저항력 상승량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(resist)
 	end,
 }

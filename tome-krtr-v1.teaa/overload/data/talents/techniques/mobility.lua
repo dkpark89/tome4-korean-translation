@@ -51,14 +51,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local dist = t.getDist(self, t)
-		return ([[You hit your target, doing %d%% damage, distracting it while you jump back %d squares away.]]):
+		return ([[대상을 공격하여 %d%% 의 피해를 입히고, %d 칸 뒤로 빠집니다.]]):
 		format(100 * damage, dist)
 	end,
 }
 
 newTalent{
 	name = "Mobile Defence",
-	kr_display_name = "기동 회피",
+	kr_display_name = "가볍지만 단단하게",
 	type = {"technique/mobility", 2},
 	mode = "passive",
 	points = 5,
@@ -66,7 +66,7 @@ newTalent{
 	getDef = function(self, t) return self:getTalentLevel(t) * 0.08 end,
 	getHardiness = function(self, t) return self:getTalentLevel(t) * 0.06 end,
 	info = function(self, t)
-		return ([[Whilst wearing leather or lighter armour, you gain %d%% Defense and %d%% Armour hardiness.]]):
+		return ([[경갑이나 가죽 갑옷을 입으면 회피도가 %d%%, 방어 효율이 %d%% 증가합니다.]]):
 		format(t.getDef(self, t) * 100, t.getHardiness(self, t) * 100)
 	end,
 }
@@ -87,15 +87,15 @@ newTalent{
 		if self:getTalentLevelRaw(t) == 2 then self:attr("avoid_pressure_traps", -1) end
 	end,
 	info = function(self, t)
-		return ([[You are light on foot, handling your armour better. Each step you take regenerates %0.2f stamina, and your fatigue is permanently reduced by %d%%.
-		At level 3 you are able to walk so lightly that you never trigger traps that require pressure.]]):
+		return ([[발놀림이 가벼워져, 갑옷의 무게를 덜 느끼게 됩니다. 발걸음을 옮길 때마다 체력이 %0.2f 만큼 추가로 재생되며, 영구적으로 피로도가 %d%% 감소합니다.
+		기술 레벨이 3 이상이 되면 발놀림이 극도로 가벼워져, 밟으면 작동되는 함정 위에 올라서도 함정이 발동하지 않습니다.]]):
 		format(self:getTalentLevelRaw(t) * 0.2, self:getTalentLevelRaw(t) * 1.5)
 	end,
 }
 
 newTalent{
 	name = "Strider",
-	kr_display_name = "파발꾼",
+	kr_display_name = "전장의 춤꾼",
 	type = {"technique/mobility", 4},
 	mode = "passive",
 	points = 5,
@@ -115,7 +115,7 @@ newTalent{
 		self.talent_cd_reduction[Talents.T_EVASION] = (self.talent_cd_reduction[Talents.T_EVASION] or 0) - 1
 	end,
 	info = function(self, t)
-		return ([[You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.]]):
+		return ([[적들의 사이에서 춤을 추듯 부드럽게 움직일 수 있게 됩니다. 이동 속도가 %d%% 빨라지며, '치고 빠지기', '돌진', '작전상 후퇴', '회피술' 의 지연 시간을 %d 턴 줄여줍니다.]]):
 		format(self:getTalentLevelRaw(t) * 2, self:getTalentLevelRaw(t))
 	end,
 }

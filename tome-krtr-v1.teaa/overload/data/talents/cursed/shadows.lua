@@ -38,7 +38,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_PHASE_DOOR",
 	name = "Phase Door",
-	kr_display_name = "근거리 공간이동",
+	kr_display_name = "근거리 순간이동",
 	type = {"spell/other",1},
 	points = 5,
 	range = 10,
@@ -106,7 +106,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_LIGHTNING",
 	name = "Shadow Lightning",
-	kr_display_name = "그림자 번개",
+	kr_display_name = "그림자 전격",
 	type = {"spell/other", 1},
 	require = { },
 	points = 5,
@@ -138,7 +138,7 @@ newTalent{
 newTalent{
 	short_name = "SHADOW_FLAMES",
 	name = "Shadow Flames",
-	kr_display_name = "그림자 화염",
+	kr_display_name = "그림자 불꽃",
 	type = {"spell/other", 1},
 	require = { },
 	points = 5,

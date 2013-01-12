@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Ice Shards",
 	kr_display_name = "얼음 파편",
@@ -51,9 +53,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Hurl ice shards at the targets in the selected area. Each shard travels slowly and does %0.2f ice damage, hitting all adjacent targets on impact.
-		This spell will never hit the caster.
-		The damage will increase with your Spellpower.]]):
+		return ([[해당 지역에 얼음 파편을 흩뿌려 %0.2f 냉기 피해를 줍니다. 파편은 느리게 발사되며, 근처의 모든 적들에게 피해를 줍니다.
+		얼음 파편은 시전자에게 절대 다가오지 않습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, damage))
 	end,
 }
@@ -84,9 +86,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Blast a wave of cold all around you with a radius of %d, doing %0.2f cold damage and freezing creatures to the ground for 4 turns.
-		Affected creatures can still act, but cannot move.
-		The damage will increase with your Spellpower.]]):format(radius, damDesc(self, DamageType.COLD, damage))
+		return ([[주변 %d 칸 반경의 기온을 급격하게 떨어트려 %0.2f 냉기 피해를 주고, 주변의 적들에게 4 턴 동안 빙결 상태효과를 일으킵니다.
+		빙결 상태효과에 걸리면 이동은 할 수 없지만, 행동은 여전히 할 수 있습니다.
+		피해량은 주문력 능력치의 영향을 받아 상승합니다.]]):format(radius, damDesc(self, DamageType.COLD, damage))
 	end,
 }
 
@@ -112,7 +114,7 @@ newTalent{
 				-- Instakill critters
 				if act.rank <= 1 then
 					if act:canBe("instakill") then
-						game.logSeen(act, "%s shatters!", act.name:capitalize())
+						game.logSeen(act, "%s 박살났습니다!", (act.kr_display_name or act.name):capitalize():addJosa("가"))
 						act:die(self)
 					end
 				end
@@ -136,20 +138,20 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local targetcount = t.getTargetCount(self, t)
-		return ([[Shatter all frozen targets in your line of sight, doing %0.2f cold damage.
-		Depending on the target's rank, there will also be an additional effect:
-		* Critters will be instantly killed
-		* +50%% critical chance against Normal rank
-		* +25%% critical chance against Elites or Bosses
-		At most, it will affect %d foes.
-		The damage will increase with your Spellpower.]]):
+		return ([[빙결 상태효과에 의해 얼음에 갇힌 적들을 부숴버립니다. 시야 내의 모든 적들에게 적용되며, %0.2f 냉기 피해를 줍니다.
+		대상의 등급에 따라, 추가 효과가 일어납니다 :
+		* '일반' 미만 등급의 적들은 즉사합니다.
+		* '일반' 등급의 적들에게는 치명타율이 50%% 증가합니다.
+		* '정예' 와 '보스' 등급의 적들에게는 치명타율이 25%% 증가합니다.
+		한번에 %d 개의 얼음까지 파괴할 수 있습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, damage), targetcount)
 	end,
 }
 
 newTalent{
 	name = "Uttercold",
-	kr_display_name = "완전한 냉기",
+	kr_display_name = "절대영도",
 	type = {"spell/ice",4},
 	require = spells_req_high4,
 	points = 5,
@@ -188,8 +190,8 @@ newTalent{
 		local damageinc = t.getColdDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local pierce = t.getPierce(self, t)
-		return ([[Surround yourself with Uttercold, increasing all your cold damage by %d%% and ignoring %d%% cold resistance of your targets
-		In addition you pierce through iceblocks easily, reducing damage absorbed from your attacks by iceblocks by %d%%.]])
+		return ([[주변의 온도를 극도로 낮춰, 모든 냉기 속성 피해량을 %d%% 올리고 적들의 냉기 저항력을 %d%% 무시합니다.
+		또한 빙결 상태효과에 의해 생긴 얼음을 더 쉽게 뚫을 수 있게 되어, 얼음에 의해 감소되는 피해량을 %d%% 무시합니다.]])
 		:format(damageinc, ressistpen, pierce)
 	end,
 }

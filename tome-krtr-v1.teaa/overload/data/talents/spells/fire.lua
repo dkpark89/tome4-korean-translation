@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Flame",
-	kr_display_name = "화염",
+	kr_display_name = "불꽃",
 	type = {"spell/fire",1},
 	require = spells_req1,
 	points = 5,
@@ -68,16 +68,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
-		At level 5, it will create a beam of flames.
-		The damage will increase with your Spellpower.]]):
+		return ([[불꽃 화살을 만들어내, 대상에게 화상을 입히고 3 턴 동안 총 %0.2f 화염 피해를 줍니다.
+		기술 레벨이 5 이상이면, 불꽃이 적들을 관통합니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Flameshock",
-	kr_display_name = "화염충격",
+	kr_display_name = "화염 충격",
 	type = {"spell/fire",2},
 	require = spells_req2,
 	points = 5,
@@ -123,15 +123,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local stunduration = t.getStunDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Conjures up a cone of flame with radius %d. Any target caught in the area will take %0.2f fire damage and be stunned for %d turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[전방 %d 칸 반경에 불길을 내뿜어 %0.2f 화염 피해를 주고, %d 턴 동안 기절시킵니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.FIRE, damage), stunduration)
 	end,
 }
 
 newTalent{
 	name = "Fireflash",
-	kr_display_name = "화염의 섬광",
+	kr_display_name = "화염 폭발",
 	type = {"spell/fire",3},
 	require = spells_req3,
 	points = 5,
@@ -173,9 +173,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.
-		The damage will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.FIRE, damage), radius)
+		return ([[화염구를 만들어내 대상에게 날립니다. 화염구는 천천히 날아가며, 주변 %d 칸 반경에 %0.2f 화염 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
@@ -220,9 +220,9 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Raging flames burn foes and allies alike, doing %0.2f fire damage in a radius of %d each turn for %d turns.
-		The damage will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.FIRE, damage), radius, duration)
+		return ([[모든 것을 불태우는 불길을 만들어내, 피아를 가리지 않고 %d 턴 동안 주변 %d 칸 반경에 %0.2f 화염 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(duration, radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 

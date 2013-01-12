@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Congeal Time",
-	kr_display_name = "시간 얼리기",
+	kr_display_name = "얼어붙은 시간",
 	type = {"spell/temporal",1},
 	require = spells_req1,
 	points = 5,
@@ -48,14 +48,14 @@ newTalent{
 	info = function(self, t)
 		local slow = t.getSlow(self, t)
 		local proj = t.getProj(self, t)
-		return ([[Project a bolt of time distortion, decreasing the target's global speed by %d%% and all projectiles it fires by %d%% for 7 turns.]]):
+		return ([[시간을 왜곡시키는 마법 화살을 발사하여, 7 턴 동안 대상의 전체 속도를 %d%% 감소시키고 대상이 발사하는 모든 발사체의 속도를 %d%% 느리게 만듭니다.]]):
 		format(100 * slow, proj)
 	end,
 }
 
 newTalent{
 	name = "Time Shield",
-	kr_display_name = "시간의 방어막",
+	kr_display_name = "시간의 보호막",
 	type = {"spell/temporal", 2},
 	require = spells_req2,
 	points = 5,
@@ -78,11 +78,12 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local dotdur = t.getDotDuration(self,t)
 		local time_reduc = t.getTimeReduction(self,t)
-		return ([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.
-		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal wake over time (%d turns).
-		Each turn the temporal wake is active, a temporal vortex will spawn at your feet, damaging any inside after one turn for three turns.
-		While under the effect of Time Shield, all newly applied magical, physical and mental effects will have their durations reduced by %d%%.
-		The shield's max absorption will increase with your Spellpower.]]):
+		return ([[시전자 주변에 시간의 보호막을 즉시 만들어내는, 복잡한 마법입니다. 
+		시간의 보호막은 모든 피해를 흡수하여 미래로 보내버리며, 보호막이 총 %d 이상의 피해량을 흡수하거나 %d 턴이 지나 지속시간이 끝나면 보호막이 사라집니다. 
+		보호막이 사라지면서, 보호막에 누적됐던 피해량이 %d 턴 동안 시간의 소용돌이 형태로 나타나게 됩니다.
+		시간의 소용돌이는 매 턴마다 시전자의 발 밑에 나타나며, 1 턴의 대기시간을 가진 뒤 3 턴 동안 해당 지역에 피해를 줍니다.
+		시간의 보호막이 시전된 동안 가해지는 모든 상태효과는, 보호막의 효과로 인해 지속시간이 %d%% 감소합니다.
+		보호막의 최대 흡수량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(maxabsorb, duration, dotdur, time_reduc)
 	end,
 }
@@ -112,9 +113,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.
-		Time does not pass at all for the target, no talents will cooldown, no resources will regen, and so forth.
-		The duration will increase with your Spellpower.]]):
+		return ([[대상을 %d 턴 동안 시간의 흐름에서 벗어나게 만듭니다. 그동안 대상은 행동할 수 없지만, 피해를 받지도 않습니다.
+		대상의 시간이 흐르지 않기 때문에 기술의 지연시간도 감소하지 않고, 각종 원천력의 재생도 일어나지 않는 등의 효과가 발생합니다.
+		마법의 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }
@@ -143,7 +144,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local haste = t.getHaste(self, t)
-		return ([[Increases the caster's global speed by %d%%.]]):
+		return ([[시전자의 전체 속도가 %d%% 상승합니다.]]):
 		format(100 * haste)
 	end,
 }

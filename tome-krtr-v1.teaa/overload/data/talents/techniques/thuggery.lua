@@ -17,11 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Map = require "engine.Map"
 
 newTalent{
 	name = "Skullcracker",
-	kr_display_name = "두개골 부수기",
+	kr_display_name = "박치기",
 	type = {"technique/thuggery", 1},
 	points = 5,
 	cooldown = 12,
@@ -59,7 +61,7 @@ newTalent{
 			if target:canBe("confusion") then
 				target:setEffect(target.EFF_CONFUSED, t.getDuration(self, t), {power=30 + self:getDex(70), apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s resists the headblow!", target.name:capitalize())
+				game.logSeen(target, "%s 박치기에 맞고도 멀쩡합니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			if target:attr("dead") then
 				world:gainAchievement("HEADBANG", self, target)
@@ -71,16 +73,16 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You smack your forehead against your enemy's head (or whatever sensitive part you can find), causing %0.2f physical damage. If the attack hits, the target is confused for %d turns.
-		Damage done increases with the quality of your headgear, your Strength, and your physical damage bonuses.
-		Confusion power and chance increase with your Dexterity and Accuracy.]]):
+		return ([[대상의 머리 (혹은 약점으로 보이는 어딘가) 에 박치기를 해서, %0.2f 의 물리 피해를 줍니다. 공격이 명중하면, 대상은 %d 턴 동안 혼란 상태에 빠집니다.
+		물리 피해량은 투구의 품질, 힘, 물리력 능력치의 영향을 받아 증가합니다.
+		혼란 효과와 확률은 민첩과 정확도 능력치의 영향을 받아 증가합니다.]]):
 		format(dam, duration)
 	end,
 }
 
 newTalent{
 	name = "Riot-born",
-	kr_display_name = "폭동에서 태어난 자",
+	kr_display_name = "폭도의 피",
 	type = {"technique/thuggery", 2},
 	mode = "passive",
 	points = 5,
@@ -94,7 +96,7 @@ newTalent{
 		self.confusion_immune = (self.confusion_immune or 0) - 0.1
 	end,
 	info = function(self, t)
-		return ([[Your attunement to violence has given you %d%% resistance to stuns and confusion arising in battle.]]):
+		return ([[폭력에 익숙해져, 기절과 혼란 상태에 대한 저항력이 %d%% 올라갑니다.]]):
 		format(self:getTalentLevelRaw(t) * 10)
 	end,
 }
@@ -114,14 +116,14 @@ newTalent{
 		self.combat_apr = self.combat_apr - 4
 	end,
 	info = function(self, t)
-		return ([[You know how to hit the right places, giving +%d%% critical damage modifier and %d Armour penetration.]]):
+		return ([[대상의 급소를 정확히 공격할 수 있게 됩니다. 치명타율이 +%d%% 증가하며, 방어도 관통력이 %d 증가합니다.]]):
 		format(self:getTalentLevelRaw(t) * 5, self:getTalentLevelRaw(t) * 4)
 	end,
 }
 
 newTalent{
 	name = "Total Thuggery",
-	kr_display_name = "총 공격",
+	kr_display_name = "총공격",
 	type = {"technique/thuggery", 4},
 	points = 5,
 	mode = "sustained",
@@ -150,8 +152,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You go all out, trying to burn down your foes as fast as possible.
-		Every hit in battle has +%d%% critical chance and +%d%% physical resistance penetration, but each strike drains %d stamina.]]):
+		return ([[전력을 다해 적을 부숴버립니다. 모든 공격의 치명타율이 %d%% 증가하며 물리 저항력을 %d%% 관통하게 되지만, 매 공격마다 체력이 %d 감소하게 됩니다.]]):
 		format(t.getCrit(self, t), t.getPen(self, t), t.getDrain(self, t))
 	end,
 }

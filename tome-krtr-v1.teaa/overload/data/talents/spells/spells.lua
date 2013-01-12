@@ -17,50 +17,52 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 -- Archmage spells
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/arcane", name = "arcane", description = "가공되지 않은 마법의 힘을 다뤄, 공격이나 수비적인 주문으로 변형한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/aether", name = "aether", description = "마법의 정수인 에테르의 힘에 닿아, 적들을 유린하는 효과를 가져온다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/arcane", name = "arcane", description = "가공되지 않은 마력을 다뤄, 적들을 공격하고 자신을 보호하는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/aether", name = "aether", description = "마력의 정수라고 할 수 있는 에테르의 힘을 다뤄, 적들에게 파멸을 불러오는 마법입니다." }
 
 -- Elemental spells
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/fire", name = "fire", description = "불의 힘으로 적을 재가 될때까지 태운다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/wildfire", name = "wildfire", min_lev = 10, description = "야생의 불로 적을 재가 될때까지 태운다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/earth", name = "earth", description = "땅의 힘으로 보호하고 파괴한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/stone", name = "stone", min_lev = 10, description = "돌의 힘으로 보호하고 파괴한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/water", name = "water", description = "물의 힘으로 적을 익사시킨다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/ice", name = "ice", min_lev = 10, description = "얼음의 힘으로 적을 얼리고 부순다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/air", name = "air", description = "공기의 힘으로 적을 튀긴다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/storm", name = "storm", min_lev = 10, description = "폭풍의 힘으로 적을 소각한다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/fire", name = "fire", description = "불꽃의 힘을 활용하여, 적들을 불태우는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/wildfire", name = "wildfire", min_lev = 10, description = "맹화의 힘을 활용하여, 적들을 한 줌 재로 만들어버리는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/earth", name = "earth", description = "땅의 힘을 활용하여, 보호와 공격을 동시에 하는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/stone", name = "stone", min_lev = 10, description = "암석의 힘을 활용하여, 수호와 파괴를 동시에 하는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/water", name = "water", description = "물의 힘을 활용하여, 적들을 익사시키는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/ice", name = "ice", min_lev = 10, description = "얼음의 힘을 활용하여, 적들을 얼리고 부수는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/air", name = "air", description = "전기의 힘으로, 적을 튀겨버리는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/storm", name = "storm", min_lev = 10, description = "폭풍의 힘으로, 적들을 소각해버리는 마법입니다." }
 
 -- Various other magic schools
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/meta", name = "meta", description = "메타 주문은 마법 그 자체에 적용되는 주문입니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/temporal", name = "temporal", description = "시간을 다루는 주문 학파." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/phantasm", name = "phantasm", description = "속임수와 환영의 힘을 조종한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/enhancement", name = "enhancement", description = "마법적인 육체 능력 향상." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/conveyance", name = "conveyance", generic = true, description = "전도는 이동에 관련된 주문입니다. 더 빠른 이동을 가능하게 만들어 주고 다른이를 추적해 줍니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/divination", name = "divination", generic = true, description = "예견은 시전자가 주변의 숨겨진 것들을 느낄 수 있게 만들어 줍니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/aegis", name = "aegis", generic = true, description = "마법의 힘으로 치료와 보호를 합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/meta", name = "meta", description = "마법의 기초를 수련하여, 모든 마법을 강화한다입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/temporal", name = "temporal", description = "시간을 다루는 마법 학파입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/phantasm", name = "phantasm", description = "속임수와 환영을 다루는 마법 학파입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/enhancement", name = "enhancement", description = "마법을 이용한 신체 능력 향상법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/conveyance", name = "conveyance", generic = true, description = "더 빨리 이동하고, 적을 추적하기 위한 마법 학파입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/divination", name = "divination", generic = true, description = "주변을 탐색하고, 숨겨진 것을 찾을 수 있는 마법 학파입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/aegis", name = "aegis", generic = true, description = "치료와 보호에 특화된 마법 학파입니다." }
 
 -- Alchemist spells
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/explosives", name = "explosive admixtures", description = "보석을 폭발하는 마법적 폭탄으로 바꾸고, 그것을 다루게 해 줍니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/infusion", name = "infusion", description = "보석 폭탄에 여러가지 엘리먼트의 힘을 주입합니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/golemancy-base", name = "golemancy", hide = true, description = "골렘을 만들고 향상시키는 방법을 배웁니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/golemancy", name = "golemancy", description = "골렘을 만들고 향상시키는 방법을 배웁니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/advanced-golemancy", name = "advanced-golemancy", min_lev = 10, description = "고급 골렘 기술." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/fire-alchemy", name = "fire alchemy", description = "불에 대한 연금술적 제어." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/stone-alchemy-base", name = "stone alchemy", hide = true, description = "보석을 다루고, 물체에 그 힘을 불어넣는다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/stone-alchemy", name = "stone alchemy", generic = true, description = "돌과 보석에 대한 연금술적 제어." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/staff-combat", name = "staff combat", generic = true, description = "마법 지팡이의 힘을 이용한다." }
-newTalentType{ type="golem/fighting", name = "fighting", description = "골렘의 근접전투 능력." }
-newTalentType{ type="golem/arcane", no_silence=true, is_spell=true, name = "arcane", description = "골렘의 마법 능력." }
-newTalentType{ type="golem/golem", name = "golem", description = "골렘의 기본 능력." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/explosives", name = "explosive admixtures", description = "연금술로 보석을 폭탄으로 바꾸고, 그것을 다루는 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/infusion", name = "infusion", description = "연금술 폭탄에 다양한 속성의 힘을 주입하는 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/golemancy-base", name = "golemancy", hide = true, description = "골렘을 만드는 기초적인 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/golemancy", name = "golemancy", description = "골렘을 만들고, 수리하고, 강화하는 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/advanced-golemancy", name = "advanced-golemancy", min_lev = 10, description = "더 강력한 골렘을 만들고, 조작하는 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/fire-alchemy", name = "fire alchemy", description = "연금술을 이용하여 불을 다루는 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/stone-alchemy-base", name = "stone alchemy", hide = true, description = "보석을 다루고, 그 힘을 이용하는 기초적인 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/stone-alchemy", name = "stone alchemy", generic = true, description = "다양한 보석을 다루고, 그 힘을 이용하는 방법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/staff-combat", name = "staff combat", generic = true, description = "마법 지팡이의 힘을 이용하는 방법입니다." }
+newTalentType{ type="golem/fighting", name = "fighting", description = "골렘의 전투 능력입니다." }
+newTalentType{ type="golem/arcane", no_silence=true, is_spell=true, name = "arcane", description = "골렘의 마법 능력입니다." }
+newTalentType{ type="golem/golem", name = "golem", description = "골렘의 기본 능력입니다." }
 
 -- Necromancer spells
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/necrotic-minions", name = "necrotic minions", description = "언데드 추종자를 만들고 힘을 주는 법." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/advanced-necrotic-minions", name = "advanced necrotic minions", min_lev = 10, description = "언데드 추종자를 만들고 힘을 주는 법." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/nightfall", name = "nightfall", description = "적을 죽이기 위해 어둠 그 자체를 다루는 방법" }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/shades", name = "shades", min_lev = 10, description = "그늘을 조종하고 불러오는 방법." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/necrosis", name = "necrosis", description = "죽음을 넘어선 제어술, 최종적으로는 리치가 되는 법까지." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/grave", name = "grave", description = "무덤에서 썩는 차가운 운명을 이용하여 적들을 나락으로 떨어뜨리는 방법." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/necrotic-minions", name = "necrotic minions", description = "언데드 추종자를 만들고 다루는 법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/advanced-necrotic-minions", name = "advanced necrotic minions", min_lev = 10, description = "강력한 언데드 추종자를 만들고 다루는 법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/nightfall", name = "nightfall", description = "적을 죽이기 위해, 어둠 그 자체를 다루는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/shades", name = "shades", min_lev = 10, description = "그림자를 조종하고 불러오는 마법입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/necrosis", name = "necrosis", description = "죽음을 넘어, 최종적으로는 리치가 되는 사령술입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/grave", name = "grave", description = "묘지의 차갑고 절망적인 기운을 이용하여, 적들을 나락으로 떨어뜨리는 마법입니다." }
 
 -- Generic requires for spells based on talent level
 spells_req1 = {
@@ -190,7 +192,7 @@ function necroSetupSummon(self, m, x, y, level, no_control, no_decay)
 			self.life = self.life - self.max_life * (p and p.necrotic_aura_decay or 10) / 100
 			self.changed = true
 			if self.life <= 0 then
-				game.logSeen(self, "#{bold}#%s decays into a pile of ash!#{normal}#", self.name:capitalize())
+				game.logSeen(self, "#{bold}#%s 부패하여 잿덩이로 변했습니다!#{normal}#", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 				local t = src:getTalentFromId(src.T_NECROTIC_AURA)
 				t.die_speach(self, t)
 				self:die(self)

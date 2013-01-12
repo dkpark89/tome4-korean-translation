@@ -509,7 +509,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, is_drake_star = true,
 	name = " of flames", suffix=true, instant_resolve=true,
-	kr_display_name = "화염의 ",
+	kr_display_name = "불꽃의 ",
 	keywords = {flames=true},
 	level_range = {30, 50},
 	greater_ego = 1,

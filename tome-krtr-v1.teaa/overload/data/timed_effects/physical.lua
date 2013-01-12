@@ -184,7 +184,7 @@ newEffect{
 newEffect{
 	name = "CRIPPLING_POISON", image = "talents/crippling_poison.png",
 	desc = "Crippling Poison",
-	kr_display_name = "장애유발형 중독",
+	kr_display_name = "무력화형 중독",
 	long_desc = function(self, eff) return ("The target is poisoned and sick, doing %0.2f nature damage per turn. Each time it tries to use a talent there is %d%% chance of failure."):format(eff.power, eff.fail) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
@@ -503,7 +503,7 @@ newEffect{
 newEffect{
 	name = "DWARVEN_RESILIENCE", image = "talents/dwarf_resilience.png",
 	desc = "Dwarven Resilience",
-	kr_display_name = "드워프의 활기",
+	kr_display_name = "드워프의 활력",
 	long_desc = function(self, eff) return ("The target's skin turns to stone, granting %d armour, %d physical save and %d spell save."):format(eff.armor, eff.physical, eff.spell) end,
 	type = "physical",
 	subtype = { earth=true },

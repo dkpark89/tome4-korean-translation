@@ -38,8 +38,9 @@ newTalent{
 		local regen = t.getLifeRegen(self, t)
 		local healmod = t.getHealMod(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[중독, 질병, 출혈 상태에서 더 빠르게 회복합니다(지속 시간 %d%% 감소). 추가로 생명력이 50%% 밑으로 떨어지면, 생명력 재생이 %0.2f , 치유량 증가가 %d%% 증가되며 %d 턴 동안 유지됩니다.
-		치유량 증가와 생명력 재생 효과는 체격 능력치에 영향을 받아 감소됩니다.]]):
+		return ([[중독, 질병, 출혈 상태의 지속 시간이 %d%% 감소합니다.
+		추가적으로, 현재 생명력이 최대 생명력의 50%% 밑으로 떨어지면 생명력 재생이 %0.2f, 치유 증가율이 %d%% 올라가며, %d 턴 동안 유지됩니다.
+		생명력 재생과 치유 증가율 상승량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(wounds, regen, healmod, duration)
 	end,
 }
@@ -60,7 +61,7 @@ newTalent{
 	getMinimumLife = function(self, t)
 		return self.max_life * (0.5 - (self:getTalentLevel(t)/20))
 	end,
-	on_pre_use = function(self, t, silent) if t.getMinimumLife(self, t) > self.life then if not silent then game.logPlayer(self, "이 기술을 사용하기엔 너무 심한 부상을 입었습니다.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if t.getMinimumLife(self, t) > self.life then if not silent then game.logPlayer(self, "부상이 심하여 적을 위협할 수 없습니다.") end return false end return true end,
 	do_daunting_presence = function(self, t)
 		local tg = {type="ball", range=0, radius=t.getRadius(self, t), friendlyfire=false, talent=t}
 		self:project(tg, self.x, self.y, function(px, py)
@@ -70,7 +71,7 @@ newTalent{
 					target:setEffect(target.EFF_INTIMIDATED, 4, {apply_power=self:combatAttackStr(), power=t.getPenalty(self, t), no_ct_effect=true})
 					game.level.map:particleEmitter(target.x, target.y, 1, "flame")
 				else
-					game.logSeen(target, "%s 위협 당하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 주눅들지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end)
@@ -86,15 +87,17 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		local penalty = t.getPenalty(self, t)
 		local min_life = t.getMinimumLife(self, t)
-		return ([[공격에도 꿈쩍하지 않는 당신을 보고 적들이 두려움에 빠집니다. 최대 생명력의 5%% 이상을 피해를 단번에 받으면, 반경 %d 칸 이내의 적들이 두려움에 떨게 되어 물리력, 정신력, 주문력을 4턴 동안 %d 만큼 잃게 됩니다.
-		생명력이 %d 밑으로 떨어지면 위협적인 존재감이 사라져서, 기술 유지가 해제됩니다. 두려움 효과는 체격 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[어떠한 공격에도 꿈쩍하지 않는 당신을 보고, 적들이 두려움에 빠집니다. 
+		최대 생명력의 5%% 이상에 해당하는 피해를 한 번에 받으면, 반경 %d 칸 이내의 적들이 두려움에 빠져 물리력, 정신력, 주문력을 4 턴 동안 %d 만큼 잃게 됩니다.
+		현재 생명력이 %d 밑으로 떨어지면 위협적인 존재감이 사라져서, 기술을 유지할 수 없게 됩니다. 
+		두려움 효과는 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, penalty, min_life)
 	end,
 }
 
 newTalent{
 	name = "Unflinching Resolve",
-	kr_display_name = "단호한 결의",
+	kr_display_name = "불굴의 의지",
 	type = {"technique/conditioning", 3},
 	require = techs_con_req3,
 	mode = "passive",
@@ -130,9 +133,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[여러가지 불리한 효과에서 빠르게 회복할 수 있게 됩니다. 매 턴마다 %d%% 확률로 기절 효과에서 벗어나며,
-		기술 레벨이 2 이상일 때는 실명, 3 이상일 때는 혼란, 4 이상일 때는 속박, 그리고 5 이상일 때는 감속 효과를 추가로 해제합니다. 
-		매 턴마다 단 한개의 효과만 해제할 수 있으며, 해제 확률은 체격 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[부정적인 상태 효과로부터 빠르게 회복할 수 있게 됩니다. 
+		매 턴마다 %d%% 확률로 기절 효과에서 벗어날 수 있게 되며, 기술 레벨이 2 이상일 때는 실명, 3 이상일 때는 혼란, 4 이상일 때는 속박, 그리고 5 이상일 때는 감속 효과를 추가로 해제합니다. 
+		매 턴마다 단 한 개의 효과만 해제할 수 있으며, 해제 확률은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(chance)
 	end,
 }
@@ -155,9 +158,9 @@ newTalent{
 	info = function(self, t)
 		local attack_power = t.getAttackPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[아드레날린 분비를 자극하여, 물리력을 %d 증가시키며 %d 턴 동안 피로의 한계를 넘어 전투를 지속할 수 있게 됩니다.
-		체력이 바닥나도 유지형 기술들이 해제되지 않으며, 생명력을 체력 대신 소모하여 기술을 사용할 수 있게 됩니다.
-		증가되는 물리력은 체격 능력치에 영향을 받습니다.
+		return ([[아드레날린 분비를 자극하여, 물리력을 %d 증가시키고 %d 턴 동안 육체의 한계를 넘어 전투를 지속할 수 있게 됩니다.
+		체력이 바닥나도 유지형 기술들이 해제되지 않으며, 체력 대신 생명력을 소모하여 기술을 사용할 수 있게 됩니다.
+		물리력은 체격 능력치의 영향을 받아 증가합니다.
 		이 기술은 턴을 소모하지 않고 즉시 사용할 수 있습니다.]]):
 		format(attack_power, duration)
 	end,

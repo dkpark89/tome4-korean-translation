@@ -113,7 +113,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[안정된 자세로 정확하게 사격을 하여 %d%% 의 무기 피해를 줍니다.]]):format(self:combatTalentWeaponDamage(t, 1.1, 2.2) * 100)
+		return ([[안정된 자세로 정확하게 사격하여, %d%% 의 무기 피해를 줍니다.]]):format(self:combatTalentWeaponDamage(t, 1.1, 2.2) * 100)
 	end,
 }
 
@@ -158,8 +158,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[냉정하고 집중된 자세를 취하여, 물리력(+%d), 정확도(+%d), 방어 관통(+%d), 치명타율(+%d%%)을 증가시키지만, 사격 속도가 %d%% 감소되고 그 자리에서 움직일 수 없게 됩니다.
-		증가되는 효과들은 민첩 능력치에 영향을 받습니다.]]):
+		return ([[사격할 때, 보다 차분하게 집중하여 적을 조준합니다. 물리력이 %d, 정확도가 %d, 방어도 관통이 %d, 치명타율이 %d%% 증가하는 대신 사격 속도가 %d%% 만큼 감소되고, 그 자리에서 움직일 수 없게 됩니다.
+		조준으로 인해 얻는 긍정적 효과들은 민첩 능력치의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t) * self:getDex(10, true), 4 + self:getTalentLevel(t) * self:getDex(10, true),
 		3 + self:getTalentLevel(t) * self:getDex(10, true), 7 + self:getTalentLevel(t) * self:getDex(10, true),
 		self:getTalentLevelRaw(t) * 5)
@@ -202,14 +202,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[유연하고 재빠른 전투 자세로 전환하여, 발사 속도를 %d%% 증가시키는 대신 정확도(%d), 물리력(%d), 치명타율(%d)이 감소됩니다.]]):
+		return ([[사격할 때, 낼 수 있는 최대한의 속도를 냅니다. 발사 속도가 %d%% 증가하는 대신 정확도가 %d, 물리력이 %d, 치명타율이 %d 감소합니다.]]):
 		format(self:getTalentLevel(t) * 10, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4)
 	end,
 }
 
 newTalent{
 	name = "Relaxed Shot",
-	kr_display_name = "힘빼고 쏘기",
+	kr_display_name = "느긋한 한 발",
 	type = {"technique/archery-training", 4},
 	no_energy = "fake",
 	points = 5,
@@ -228,8 +228,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[힘을 넣지 않은 사격을 가하여 %d%% 의 무기 피해를 줍니다.
-		그 사이에 한숨을 돌릴 수 있게 되어 체력을 %d 얻습니다.]]):format(self:combatTalentWeaponDamage(t, 0.5, 1.1) * 100, 12 + self:getTalentLevel(t) * 8)
+		return ([[힘을 빼고 사격하여 %d%% 의 무기 피해를 주고, 그동안 몸의 긴장을 풀어 %d 만큼의 체력을 회복합니다.]]):format(self:combatTalentWeaponDamage(t, 0.5, 1.1) * 100, 12 + self:getTalentLevel(t) * 8)
 	end,
 }
 
@@ -237,7 +236,7 @@ newTalent{
 
 newTalent{
 	name = "Flare",
-	kr_display_name = "조명 사격",
+	kr_display_name = "조명탄",
 	type = {"technique/archery-utility", 1},
 	no_energy = "fake",
 	points = 5,
@@ -276,15 +275,15 @@ newTalent{
 		local rad = 1
 		if self:getTalentLevel(t) >= 3 then rad = rad + 1 end
 		if self:getTalentLevel(t) >= 5 then rad = rad + 1 end
-		return ([[발사체에 불을 붙여 쏴서 %d%% 의 화염 피해를 주고, %d 칸 반경으로 빛을 밝힙니다.
-		기술 레벨이 3 이상이면 3턴 동안 실명 상태로 만들 확률도 생깁니다.]]):
+		return ([[화살이나 탄환을 발사할 때 불을 붙여, 대상에게 %d%% 의 화염 피해를 주고 주변 %d 칸 반경에 빛을 비춥니다.
+		기술 레벨이 3 이상이면, 3턴 동안 대상을 실명 상태로 만들 가능성도 있습니다.]]):
 		format(self:combatTalentWeaponDamage(t, 0.5, 1.2) * 100, rad)
 	end,
 }
 
 newTalent{
 	name = "Crippling Shot",
-	kr_display_name = "장애유발 사격",
+	kr_display_name = "무력화 사격",
 	type = {"technique/archery-utility", 2},
 	no_energy = "fake",
 	points = 5,
@@ -306,8 +305,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 신체를 손상시키는 사격을 가하여 %d%% 의 무기 피해를 주고, 속도를 %d%% 감소시키는 효과를 7턴 동안 지속되게 합니다.
-		공격력과 명중률 향상치는 모두 정확도를 향상시킵니다.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
+		return ([[대상을 무력화시키는 사격을 가하여 %d%% 의 무기 피해를 주고, 7턴 동안 전체 속도를 %d%% 감소시킵니다.
+		감속 효과와 확률은 정확도 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
 	end,
 }
 
@@ -330,7 +329,7 @@ newTalent{
 		if target:canBe("pin") then
 			target:setEffect(target.EFF_PINNED, t.getDur(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s 속박을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 속박되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)
@@ -341,7 +340,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상의 발을 그 자리에 묶는 사격을 가하여 %d%% 의 무기 피해를 주고, %d 턴 동안 속박 상태로 만듭니다.
-		속박 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
+		속박 확률은 민첩 능력치의 영향을 받아 증가합니다.]])
 		:format(self:combatTalentWeaponDamage(t, 1, 1.4) * 100,
 		t.getDur(self, t))
 	end,
@@ -372,7 +371,7 @@ newTalent{
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevelRaw(t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s 기절을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)
@@ -383,8 +382,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[착탄 지점에서 발사체가 산산조각나 파편이 %d 칸 반경으로 방사되는 사격을 가하여 %d%% 의 무기 피해를 주고 %d 턴 동안 기절시킵니다.
-		기절 확률은 민첩 능력치에 영향을 받아 증가됩니다.]])
+		return ([[특수한 화살이나 탄환을 발사하여 대상과 주변 %d 칸 반경에 %d%% 의 무기 피해를 주고, %d 턴 동안 기절시킵니다.
+		기절 확률은 민첩 능력치의 영향을 받아 증가합니다.]])
 		:format(self:getTalentRadius(t), self:combatTalentWeaponDamage(t, 0.5, 1.5) * 100, 2 + self:getTalentLevelRaw(t))
 	end,
 }

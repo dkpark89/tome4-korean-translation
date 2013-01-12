@@ -371,7 +371,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of vision", suffix=true, instant_resolve=true,
-	kr_display_nema = "시야의 ",
+	kr_display_nema = "심안의 ",
 	keywords = {vision=true},
 	level_range = {25, 50},
 	greater_ego = 1,

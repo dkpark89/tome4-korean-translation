@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 ----------------------------------------------------------------------
 -- Offense
 ----------------------------------------------------------------------
@@ -32,11 +34,11 @@ newTalent{
 	stamina = 8,
 	requires_target = true,
 	tactical = { ATTACK = 1, DISABLE = { stun = 3 } },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 방패가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Shield Pummel without a shield!")
+			game.logPlayer(self, "방패 없이는 방패 치기를 할 수 없습니다!")
 			return nil
 		end
 
@@ -52,15 +54,15 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t) / 2, {apply_power=self:combatAttackStr()})
 			else
-				game.logSeen(target, "%s resists the shield bash!", target.name:capitalize())
+				game.logSeen(target, "% 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with two shield strikes, doing %d%% and %d%% shield damage. If it hits a second time, it stuns the target for %d turns.
-		The stun chance increases with your Accuracy and your Strength.]])
+		return ([[대상을 방패로 두 번 내리쳐, 각각 %d%%, %d%% 의 방패 피해를 줍니다. 두 번째 타격이 명중하면, 대상은 %d 턴 동안 기절합니다.
+		기절 확률은 정확도와 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.7, self:getTalentLevel(self.T_SHIELD_EXPERTISE)),
 		100 * self:combatTalentWeaponDamage(t, 1.2, 2.1, self:getTalentLevel(self.T_SHIELD_EXPERTISE)),
 		2 + self:getTalentLevel(t) / 2)
@@ -69,7 +71,7 @@ newTalent{
 
 newTalent{
 	name = "Riposte",
-	kr_display_name = "방패 반격",
+	kr_display_name = "응수",
 	type = {"technique/shield-offense", 2},
 	require = techs_req2,
 	mode = "passive",
@@ -82,17 +84,18 @@ newTalent{
 	end,
 	info = function(self, t)
 		local inc = t.getDurInc(self, t)
-		return ([[Improves your ability to perform counterstrikes after blocks in the following ways:
-		Allows counterstrikes after incomplete blocks.
-		Increases the duration of the counterstrike debuff on attackers by %d turn%s.
-		Increases the number of counterstrikes you can perform on a target while they're vulnerable by %d.
-		Increases the crit chance of counterstrikes by %d%%. This increase scales with your Dexterity.]]):format(inc, (inc > 1 and "s" or ""), inc, t.getCritInc(self, t))
+		return ([[방패로 공격을 막은 뒤, 반격하는 능력을 다음과 같이 향상시킵니다 :
+		공격을 제대로 막지 못했어도 반격합니다.
+		반격 시 상대가 받는 상태효과 시간이 %d 턴 증가합니다.
+		대상이 무방비 상태일 때 반격할 수 있는 횟수가 %d 회 늘어납니다.
+		반격의 치명타율이 %d%% 증가합니다. 치명타율 증가 효과는 민첩성 능력치의 영향을 받아 증가합니다.]]):format(inc, inc, t.getCritInc(self, t))
 	end,
 }
 
+
 newTalent{
 	name = "Overpower",
-	kr_display_name = "과도한 힘",
+	kr_display_name = "압도",
 	type = {"technique/shield-offense", 3},
 	require = techs_req3,
 	points = 5,
@@ -101,11 +104,11 @@ newTalent{
 	stamina = 22,
 	requires_target = true,
 	tactical = { ATTACK = 2, ESCAPE = { knockback = 1 }, DISABLE = { knockback = 1 } },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 무기와 방패가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Overpower without a shield!")
+			game.logPlayer(self, "방패 없이는 적을 압도할 수 없습니다!")
 			return nil
 		end
 
@@ -126,22 +129,22 @@ newTalent{
 			if target:checkHit(self:combatAttack(shield.special_combat), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				target:knockback(self.x, self.y, 4)
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your weapon doing %d%% damage and two shield strikes doing %d%% damage, trying to overpower your target.
-		If the last attack hits, the target is knocked back. The chance for knockback increases with your Accuracy.]])
+		return ([[대상을 무기로 공격하여 %d%% 의 무기 피해를 주고, 방패로 두 번 밀어쳐 %d%% 의 방패 피해를 줍니다.
+		마지막 공격이 적중하면, 대상은 압도되어 밀려납니다. 밀어내기 확률은 정확도 능력치의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3), 100 * self:combatTalentWeaponDamage(t, 0.8, 1.3, self:getTalentLevel(self.T_SHIELD_EXPERTISE)))
 	end,
 }
 
 newTalent{
 	name = "Assault",
-	kr_display_name = "방패 가격",
+	kr_display_name = "급습",
 	type = {"technique/shield-offense", 4},
 	require = techs_req4,
 	points = 5,
@@ -150,11 +153,11 @@ newTalent{
 	stamina = 16,
 	requires_target = true,
 	tactical = { ATTACK = 4 },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 무기와 방패가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Assault without a shield!")
+			game.logPlayer(self, "방패 없이는 적을 급습할 수 없습니다!")
 			return nil
 		end
 
@@ -177,7 +180,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your shield, doing %d%% damage. If it hits, you follow up with two automatic critical hits with your weapon, doing %d%% base damage each.]]):
+		return ([[적을 방패로 급습하여 %d%% 의 방패 피해를 줍니다. 이 공격이 성공하면, 각각 %d%% 의 무기 피해를 주며 항상 치명타 효과가 발생하는 두 번의 무기 공격을 연속으로 가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.5, self:getTalentLevel(self.T_SHIELD_EXPERTISE)), 100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
@@ -196,11 +199,11 @@ newTalent{
 	cooldown = 30,
 	sustain_stamina = 30,
 	tactical = { DEFEND = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 무기와 방패가 필요합니다.") end return false end return true end,
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Shield Wall without a shield!")
+			game.logPlayer(self, "방패 없이는 방패의 벽을 세울수 없습니다!")
 			return nil
 		end
 
@@ -221,8 +224,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Enter a protective battle stance, increasing Defense by %d and Armour by %d at the cost of -20%% physical damage. The Defense and Armor increase is based on your Dexterity.
-		It also grants %d%% resistance to stunning and knockback.]]):format(
+		return ([[방어적 전투자세로 들어가서, 회피도 %d 와 방어도 %d 를 올리는 대신 물리 피해량이 -20%% 감소합니다. 회피도와 방어도의 상승 효과는 민첩의 영향을 받습니다.
+		또한 %d%% 의 기절과 밀어내기에 대한 저항력도 올라갑니다.]]):format(
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE)* 2,
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE),
 		10 * self:getTalentLevel(t), 10 * self:getTalentLevel(t)
@@ -240,7 +243,7 @@ newTalent{
 	cooldown = 10,
 	stamina = 30,
 	tactical = { ESCAPE = { knockback = 2 }, DEFEND = { knockback = 0.5 } },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 무기와 방패가 필요합니다.") end return false end return true end,
 	range = 0,
 	radius = 1,
 	target = function(self, t)
@@ -249,7 +252,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Repulsion without a shield!")
+			game.logPlayer(self, "방패 없이는 반발을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -261,7 +264,7 @@ newTalent{
 					target:knockback(self.x, self.y, 2 + self:getTalentLevel(t))
 					if target:canBe("stun") then target:setEffect(target.EFF_DAZED, 3 + self:getStr(8), {}) end
 				else
-					game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+					game.logSeen(target, "%s 밀려나지 않습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end)
@@ -269,9 +272,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Let all your foes pile up on your shield, then put all your strength in one mighty thrust and repel them all away %d grids.
-		In addition, all creature knocked back will also be dazed for %d turns.
-		The distance increases with your talent level, and the daze with your Strength.]]):format(math.floor(2 + self:getTalentLevel(t)), 3 + self:getStr(8))
+		return ([[모든 적들을 방패 앞에 쌓아놓고, 온힘을 다해 밀쳐 그들을 %d 칸 밀어냅니다.
+		이렇게 밀려나는 모든 존재는 %d 턴 동안 혼절 상태가 됩니다.
+		밀치는 거리는 기술 레벨의 영향을 받고, 혼절 시간은 힘의 영향을 받습니다.]]):format(math.floor(2 + self:getTalentLevel(t)), 3 + self:getStr(8))
 	end,
 }
 
@@ -291,7 +294,7 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 2
 	end,
 	info = function(self, t)
-		return ([[Improves your damage and defense with shield-based skills, and increases your Spell (+%d) and Physical (+%d) Saves.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
+		return ([[방패를 사용하는 기술의 피해량과 회피도를 향상시킵니다. 또 주문내성( +%d )과 물리내성( +%d )도 올려줍니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
 	end,
 }
 
@@ -306,11 +309,11 @@ newTalent{
 	sustain_stamina = 50,
 	tactical = { DEFEND = 3 },
 	no_npc_use = true,
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 무기와 방패가 필요합니다.") end return false end return true end,
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Last Stand without a shield!")
+			game.logPlayer(self, "방패 없이는 끝까지 버틸수 없습니다!")
 			return nil
 		end
 
@@ -327,8 +330,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You brace yourself for the final stand, increasing Defense by %d and maximum life by %d, but making you unable to move.
-		The increase in Defense is based on your Dexterity, and the increase in life is based on your Constitution.]]):
+		return ([[당신은 마지막 순간을 대비하여, 회피도를 %d 올리고 최대 생명력을 %d 높이지만, 이동할 수 없게 됩니다.
+		회피도 상승 효과는 민첩의 영향을 받고, 생명력 상승 효과는 체격의 영향을 받습니다.]]):
 		format(5 + self:getDex(4, true) * self:getTalentLevel(t),
 		(10 + self:getCon() * 0.7) * self:getTalentLevel(t))
 	end,

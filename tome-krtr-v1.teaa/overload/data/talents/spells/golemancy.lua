@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils" --@@
+
 local Chat = require "engine.Chat"
 
 function getGolem(self)
@@ -104,7 +107,7 @@ local function makeGolem(self)
 
 		on_can_control = function(self, vocal)
 			if not self:hasLOS(self.summoner.x, self.summoner.y) then
-				if vocal then game.logPlayer(game.player, "Your golem is out of sight; you cannot establish direct control.") end
+				if vocal then game.logPlayer(game.player, "골렘이 시야 밖에 있어, 직접 제어가 불가능합니다.") end
 				return false
 			end
 			return true
@@ -144,7 +147,7 @@ end
 
 newTalent{
 	name = "Refit Golem",
-	kr_display_name = "골렘 수리",
+	kr_display_name = "골렘 정비",
 	type = {"spell/golemancy-base", 1},
 	require = spells_req1,
 	points = 1,
@@ -179,13 +182,14 @@ newTalent{
 		if not self.alchemy_golem then return end
 		self.alchemy_golem.faction = self.faction
 		self.alchemy_golem.name = "golem (servant of "..self.name..")"
+		self.alchemy_golem.kr_display_name = "골렘 ("..(self.kr_display_name or self.name).."의 부하)" --@@
 		self.alchemy_golem.summoner = self
 		self.alchemy_golem.summoner_gain_exp = true
 
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to refit!")
+			game.logPlayer(self, "골렘이 있을 자리가 없습니다!")
 			return
 		end
 		game.zone:addEntity(game.level, self.alchemy_golem, "actor", x, y)
@@ -205,7 +209,7 @@ newTalent{
 			end)
 			coroutine.yield()
 			if not ok then
-				game.logPlayer(self, "You have been interrupted!")
+				game.logPlayer(self, "방해를 받았습니다!")
 				return false
 			end
 			return true
@@ -221,7 +225,7 @@ newTalent{
 		-- heal the golem
 		elseif (game.level:hasEntity(self.alchemy_golem) or self:hasEffect(self.EFF_GOLEM_MOUNT)) and self.alchemy_golem.life < self.alchemy_golem.max_life then
 			if not ammo or ammo:getNumber() < 2 then
-				game.logPlayer(self, "You need to ready 2 alchemist gems in your quiver to heal your golem.")
+				game.logPlayer(self, "골렘을 수리하려면 2개의 연금술용 보석을 손에 들고있어야 합니다.")
 				return
 			end
 			for i = 1, 2 do self:removeObject(self:getInven("QUIVER"), 1) end
@@ -232,7 +236,7 @@ newTalent{
 		-- resurrect the golem
 		elseif not self:hasEffect(self.EFF_GOLEM_MOUNT) then
 			if not ammo or ammo:getNumber() < 15 then
-				game.logPlayer(self, "You need to ready 15 alchemist gems in your quiver to heal your golem.")
+				game.logPlayer(self, "골렘을 다시 만들어내려면 15개의 연금술용 보석을 손에 들고있어야 합니다.")
 				return
 			end
 			if not wait() then return end
@@ -244,7 +248,7 @@ newTalent{
 			-- Find space
 			local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to refit!")
+				game.logPlayer(self, "골렘이 있을 자리가 없습니다!")
 				return
 			end
 			game.zone:addEntity(game.level, self.alchemy_golem, "actor", x, y)
@@ -258,10 +262,11 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Interact with your golem!
-		- If it is destroyed, you will take some time to reconstruct it (this takes 15 alchemist gems).
-		- If it is alive but hurt, you will be able to repair it for %d (takes 2 alchemist gems). Spellpower, alchemist gem and Golem Power talent all influence the healing done.
-		- If it is alive and unhurt, you can rename it, or adjust its equipment or gems.]]):
+		return ([[자신만의 골렘, 이제 스스로 조립해보세요!
+		- 골렘이 완전히 파괴되었다면, 시간을 들여 골렘을 다시 만들어냅니다. (연금술용 보석 15개가 소모됩니다!)
+		- 골렘이 손상되었다면, 골렘을 수리하여 생명력을 %d 회복시킵니다. (연금술용 보석 2개가 소모됩니다.) 
+		생명력 회복량은 주문력 능력치, 사용한 연금술용 보석, '골렘의 힘' 기술 레벨의 영향을 받아 증가합니다.
+		- 골렘이 파괴도 손상도 되지 않았다면, 골렘의 이름을 다시 지어주거나 골렘의 장비, 보석을 바꿔줄 수 있습니다.]]):
 		format(heal)
 	end,
 }
@@ -290,7 +295,7 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		if not self.alchemy_golem then return "Improves your golem's proficiency with weapons, increasing its attack and damage." end
+		if not self.alchemy_golem then return "골렘의 무기 숙련도가 오릅니다." end
 		local rawlev = self:getTalentLevelRaw(t)
 		local olda, oldd = self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY]
 		self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY] = 1 + rawlev, rawlev
@@ -299,14 +304,14 @@ newTalent{
 		local power = td.getDamage(self.alchemy_golem, td)
 		local damage = td.getPercentInc(self.alchemy_golem, td)
 		self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY] = olda, oldd
-		return ([[Improves your golem's proficiency with weapons, increasing its Accuracy by %d, Physical Power by %d and damage by %d%%.]]):
+		return ([[골렘의 무기 숙련도가 올라 무기의 정확도가 %d, 물리력이 %d, 피해량이 %d%% 상승합니다.]]):
 		format(attack, power, 100 * damage)
 	end,
 }
 
 newTalent{
 	name = "Golem Resilience",
-	kr_display_name = "골렘의 활기",
+	kr_display_name = "골렘의 활력",
 	type = {"spell/golemancy", 2},
 	mode = "passive",
 	require = spells_req2,
@@ -322,7 +327,7 @@ newTalent{
 		self.alchemy_golem.healing_factor = (self.alchemy_golem.healing_factor or 1) - 0.1
 	end,
 	info = function(self, t)
-		if not self.alchemy_golem then return "Improves your golem's armour training and damage resistance." end
+		if not self.alchemy_golem then return "골렘의 갑옷 숙련도와 저항력이 오릅니다." end
 		local rawlev = self:getTalentLevelRaw(t)
 		local oldh, olda = self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR]
 		self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR] = rawlev, 1 + rawlev
@@ -333,9 +338,9 @@ newTalent{
 		local crit = ta.getCriticalChanceReduction(self.alchemy_golem, ta) + ga.getCriticalChanceReduction(self.alchemy_golem, ga)
 		self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR] = oldh, olda
 
-		return ([[Improves your golem's armour training and damage resistance.
-		Increases all damage resistance by %d%%; increases Armour value by %d, Armour hardiness by %d%%, and reduces chance to be critically hit by %d%% when wearing heavy mail or massive plate armour; and increases healing factor by %d%%.
-		The golem can always use any kind of armour, including massive armours.]]):
+		return ([[골렘의 갑옷 숙련도와 저항력을 올려, 모든 피해 저항력이 %d%% 상승합니다.
+		중갑이나 판갑을 입으면 추가적으로 방어도가 %d, 방어 효율이 %d%% 오르며, 적에게 치명타를 맞을 확률이 %d%% 감소합니다.
+		골렘의 치유 증가율이 %d%% 상승하는 효과도 있으며, 골렘은 아무 제한 없이 판갑까지 착용할 수 있습니다.]]):
 		format(res, heavyarmor, hardiness, crit, rawlev * 10)
 	end,
 }
@@ -353,14 +358,14 @@ newTalent{
 	action = function(self, t)
 		local mover, golem = getGolem(self)
 		if not golem then
-			game.logPlayer(self, "Your golem is currently inactive.")
+			game.logPlayer(self, "골렘이 활성화되지 않았습니다.")
 			return
 		end
 
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to invoke!")
+			game.logPlayer(self, "골렘이 있을 자리가 없습니다!")
 			return
 		end
 
@@ -373,7 +378,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power=t.getPower(self, t)
-		return ([[You invoke your golem to your side, granting it a temporary melee power increase of %d for 5 turns.]]):
+		return ([[골렘을 호출하여 근처에 위치시키고, 5 턴 동안 골렘의 근접 공격력을 %d 상승시킵니다.]]):
 		format(power)
 	end,
 }
@@ -389,7 +394,7 @@ newTalent{
 	action = function(self, t)
 		local mover, golem = getGolem(self)
 		if not golem then
-			game.logPlayer(self, "Your golem is currently inactive.")
+			game.logPlayer(self, "골렘이 활성화되지 않았습니다.")
 			return
 		end
 
@@ -409,7 +414,7 @@ newTalent{
 				local _, _, tgt = e:getTarget()
 				if e:reactionToward(self) < 0 and tgt == self and rng.percent(chance) then
 					e:setTarget(golem)
-					game.logSeen(e, "%s focuses on %s.", e.name:capitalize(), golem.name)
+					game.logSeen(e, "%s %s에게 집중하기 시작했습니다.", (e.kr_display_name or e.name):capitalize():addJosa("가"), (golem.kr_display_name or golem.name))
 				end
 			end
 		end
@@ -417,7 +422,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Teleport to your golem, while your golem teleports to your location. Your foes will be confused, and those that were attacking you will have a %d%% chance to target your golem instead.]]):
+		return ([[자신과 골렘의 위치를 서로 바꿉니다. 적들은 혼란 상태가 되며, 자신을 공격하던 적은 %d%% 확률로 골렘을 공격하게 됩니다.]]):
 		format(self:getTalentLevelRaw(t) * 15 + 25)
 	end,
 }

@@ -33,9 +33,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격에 집중하여 매 타격시 %d%% 확률로 다시 한 번 더 공격하게 되며, 이 상태는 %d 턴 동안 유지됩니다.
-		다른 기술이나 방패를 사용한 공격 등의 모든 형태의 공격에 적용됩니다.
-		이 확률은 민첩에 영향을 받아 증가됩니다.]]):format(self:combatTalentStatDamage(t, "dex", 10, 90), math.floor(4 + self:getTalentLevel(t) * 1.3))
+		return ([[적을 공격하는 동작 하나하나에 집중하여, %d%% 확률로 한 번의 추가공격을 할 수 있게 됩니다.
+		다른 기술이나 방패를 사용한 공격 등 모든 형태의 근접공격에 적용되며, 이 경우 추가공격 역시 일반 공격이 아닌 해당 기술을 사용합니다.
+		이 상태는 %d 턴 동안 유지되며, 추가공격 확률은 민첩의 영향을 받아 증가합니다.]]):format(self:combatTalentStatDamage(t, "dex", 10, 90), math.floor(4 + self:getTalentLevel(t) * 1.3))
 	end,
 }
 
@@ -47,9 +47,9 @@ newTalent{
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[적을 쓰러뜨린 후, %d%% 확률로 이동 속도가 1턴 동안 1000%% 증가됩니다.
-		이 효과는 이동 이외의 행동을 취하면 사라집니다.
-		굉장히 빠르게 이동하기 때문에, 그 동안에는 전체 턴이 느리게 진행됩니다.]]):format(self:getTalentLevelRaw(t) * 20)
+		return ([[적을 죽일 때마다, %d%% 확률로 이동 속도가 1000%% 증가합니다.
+		이동 속도가 굉장히 빨라지기 때문에, 상대적으로 게임의 전체적인 턴은 느리게 진행됩니다.
+		이 효과는 게임의 전체적인 턴으로 1턴이 지나거나, 이동을 제외한 다른 행동을 하면 사라집니다.]]):format(self:getTalentLevelRaw(t) * 20)
 	end,
 }
 
@@ -88,15 +88,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 휘둘러 쳐서 %d%% 의 무기 피해를 줍니다.
-		공격이 성공하면, 대상은 출혈 상태가 되어 7 턴 동안 %d%% 의 무기 피해를 입으며 모든 치유 효과를 %d%% 적게 받습니다.]]):
+		return ([[대상을 후려쳐서 %d%% 의 무기 피해를 줍니다.
+		공격이 성공하면, 대상은 출혈 상태가 되어 7 턴 동안 총 %d%% 의 무기 피해를 입으며 모든 치유 효과가 %d%% 만큼 줄어듭니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), 100 * self:combatTalentWeaponDamage(t, 2, 3.2), self:getTalentLevel(t) * 10)
 	end,
 }
 
 newTalent{
 	name = "True Grit",
-	kr_display_name = "진정한 용기",
+	kr_display_name = "진정한 투지",
 	type = {"technique/battle-tactics", 4},
 	require = techs_req_high4,
 	points = 5,
@@ -129,8 +129,8 @@ newTalent{
 	info = function(self, t)
 		local drain = t.getStaminaDrain(self, t)
 		return ([[방어 자세를 취하여 적의 맹공에 저항합니다.
-		최대 생명력의 10%%가 감소 될 때마다, 5%%의 전체 피해 저항과 저항 최대치를 증가시킵니다.
-		이 동안에는 체력이 급격히 감소됩니다(체력 %d/턴).]]):
+		현재 생명력이 최대 생명력의 10%%만큼 감소할 때마다, 모든 저항력이 5%% 증가하고 저항력 최대치도 5%% 증가합니다.
+		투지를 불태우는 동안에는 체력이 급격히 감소됩니다. (턴당 체력 %d)]]):
 		format(drain)
 	end,
 }

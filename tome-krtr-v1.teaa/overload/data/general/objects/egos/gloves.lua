@@ -601,7 +601,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the juggernaut", suffix=true, instant_resolve=true,
-	kr_display_name = "거대함의 ",
+	kr_display_name = "저돌적전투의 ",
 	keywords = {juggernaut=true},
 	level_range = {30, 50},
 	greater_ego = 1,

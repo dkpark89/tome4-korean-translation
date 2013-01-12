@@ -121,7 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Cripple",
-	kr_display_name = "장애유발 공격",
+	kr_display_name = "무력화 공격",
 	type = {"cunning/dirty", 4},
 	points = 5,
 	random_ego = "attack",

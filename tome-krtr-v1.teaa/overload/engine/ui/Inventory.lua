@@ -249,7 +249,7 @@ function _M:generateList(no_update)
 			o:forAllStack(function(o) enc=enc+o.encumber end)
 
 			--@@
-			list[#list+1] = { id=#list+1, char=char, name=o:getKrName(), oriname=o:getName(), sortname=o:getName():toString():removeColorCodes(), color=o:getDisplayColor(), object=o, inven=self.actor.INVEN_INVEN, item=item, cat=o.subtype:krItemType(), encumberance=enc, special_bg=self.special_bg }
+			list[#list+1] = { id=#list+1, char=char, name=o:getName(), oriname=o.name, sortname=o:getName():toString():removeColorCodes(), color=o:getDisplayColor(), object=o, inven=self.actor.INVEN_INVEN, item=item, cat=o.subtype:krItemType(), encumberance=enc, special_bg=self.special_bg }
 			chars[char] = #list
 			i = i + 1
 		end

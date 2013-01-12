@@ -103,14 +103,14 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of crippling", suffix=true, instant_resolve=true,
-	kr_display_name = "장애유발의 ",
+	kr_display_name = "무력화의 ",
 	keywords = {crippling=true},
 	level_range = {1, 50},
 	rarity = 3,
 	cost = 4,
 	combat = {
 		physcrit = resolvers.mbonus_material(10, 5),
-		special_on_crit = {desc="대상에게 장애유발", fct=function(combat, who, target)
+		special_on_crit = {desc="대상을 무력화", fct=function(combat, who, target)
 			local power = 5 + (who:combatPhysicalpower()/5)
 			target:setEffect(target.EFF_CRIPPLE, 4, {src=who, atk=power, dam=power, apply_power=who:combatAttack(combat)})
 		end},
@@ -186,7 +186,7 @@ newEntity{
 		ranged_project={
 			[DamageType.LIGHTNING] = resolvers.mbonus_material(15, 5),
 		},
-		special_on_hit = {desc="25% 확률로 번개가 두번째 목표를 감전", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 뇌전이 두번째 목표를 감전", fct=function(combat, who, target)
 			if not rng.percent(25) then return end
 			local tgts = {}
 			local x, y = target.x, target.y
@@ -215,7 +215,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "flaming ", prefix=true, instant_resolve=true,
-	kr_display_name = "화염 ",
+	kr_display_name = "불꽃 ",
 	keywords = {flaming=true},
 	level_range = {1, 50},
 	rarity = 5,

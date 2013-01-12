@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Blastwave",
-	kr_display_name = "충격폭발",
+	kr_display_name = "화염 파동",
 	type = {"spell/wildfire",1},
 	require = spells_req_high1,
 	points = 5,
@@ -59,14 +59,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[A wave of fire emanates from you with a radius of %d, knocking back anything caught inside and setting them ablaze, doing %0.2f fire damage over 3 turns.
-		The damage will increase with your Spellpower.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
+		return ([[화염의 파동을 발하여 %d 칸 반경의 적들에게 3 턴 동안 총 %0.2f 화염 피해를 주고, 뒤로 밀어냅니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Burning Wake",
-	kr_display_name = "화염의 자국",
+	kr_display_name = "불타오른 흔적",
 	type = {"spell/wildfire",2},
 	require = spells_req_high2,
 	mode = "sustained",
@@ -90,29 +90,28 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Your Flame, Flameshock, Fireflash and Blastwave spells leave a burning wake on the ground, burning all within for %0.2f fire damage for 4 turns.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.FIRE, damage))
+		return ([[불꽃, 화염 충격, 화염 폭발, 화염 파동 마법이 휩쓸고 지나간 자리에 불을 붙여, 4 턴 동안 총 %0.2f 화염 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Cleansing Flames",
-	kr_display_name = "정화의 화염",
+	kr_display_name = "정화의 불꽃",
 	type = {"spell/wildfire",3},
 	require = spells_req_high3,
 	mode = "passive",
 	points = 5,
 	getChance = function(self, t) return self:getTalentLevelRaw(t) * 10 end,
 	info = function(self, t)
-		return ([[When your Burning Wake talent is active, your Inferno and Burning Wake effects have a %d%% chance, each turn, to remove a status effect (physical, magical, curse or hex) from the targets.
-		If the target is hostile, it will remove a beneficial effect.
-		If the target is friendly, it will remove a detrimental effect (but still burn).]]):format(t.getChance(self, t))
+		return ([['불타오른 흔적' 마법이 활성화 되었을 때, '지옥의 열화' 마법과 '불타오른 흔적' 마법의 피해를 입으면 %d%% 확률로 상태효과가 제거됩니다.
+		적이 피해를 입으면 이로운 상태효과가, 아군이 피해를 입으면 해로운 상태효과가 제거됩니다. 단, 화염 피해는 똑같이 입습니다.]]):format(t.getChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Wildfire",
-	kr_display_name = "야생의 화염",
+	kr_display_name = "염화",
 	type = {"spell/wildfire",4},
 	require = spells_req_high4,
 	points = 5,
@@ -150,7 +149,7 @@ newTalent{
 		local damageinc = t.getFireDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local selfres = t.getResistSelf(self, t)
-		return ([[Surround yourself with Wildfire, increasing all your fire damage by %d%%, ignoring %d%% fire resistance of your targets and reducing self-inflicted fire damage by %d%%.]])
+		return ([[시전자 주변에 염화를 둘러 모든 화염 피해량이 %d%% 상승하며, 적의 화염 저항력을 %d%% 무시합니다. 그리고 자신의 화염 마법에 자신이 피해를 입었을 때, 피해량이 %d%% 감소됩니다.]])
 		:format(damageinc, ressistpen, selfres)
 	end,
 }
