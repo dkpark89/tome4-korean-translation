@@ -349,7 +349,7 @@ function _M:generateRandart(data)
 	local rnts = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted"}
 	o.unided_name = rnts.." "..(o.unided_name or o.name)
 	o.kr_unided_name = rnts:krUnIDPreName().." "..(o.kr_unided_name or o.unided_name or o.kr_display_name or o.name) --@@
-	o.unique = krName or name --@@
+	o.unique = name --@@ unique는 게임 도중에 사용하는 곳이 있나? 코드 번역 확인 필요
 	o.randart = true
 	o.no_unique_lore = true
 	o.rarity = rng.range(200, 290)

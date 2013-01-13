@@ -1299,7 +1299,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 		desc:add({"font","bold"},{"color","LIGHT_BLUE"},"새로 획득했음",{"font","normal"},{"color","LAST"},true)
 	end
 	if self.__transmo then
-		desc:add({"font","bold"},{"color","YELLOW"},"이 아이템은 현재 층을 벗어날 때 자동으로 돈으로 바뀝니다.",{"font","normal"},{"color","LAST"},true)
+		desc:add({"font","bold"},{"color","YELLOW"},"이 아이템은 현재 층을 벗어날 때 자동으로 변형됩니다.",{"font","normal"},{"color","LAST"},true)
 	end
 
 	name_param = name_param or {}

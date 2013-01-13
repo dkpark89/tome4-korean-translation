@@ -120,7 +120,7 @@ function _M:init(actor, on_finish, on_birth)
 					self.actor_dup = {}
 					if self.on_finish then self.on_finish() end
 				end
-				end, "예", "아니오") --@@
+				end, "예", "아니오", "취소") --@@
 			else
 				game:unregisterDialog(self)
 				self.actor_dup = {}
@@ -157,7 +157,7 @@ function _M:finish()
 		return nil
 	end
 
-	local txt = "#LIGHT_BLUE#경고: 당신의 능력치나 기술이 올랐습니다. 그런데, 유지중인 기술들이 있습니다: \n %s 이 기술들 중 바뀐 능력치의 영향을 받는 기술들이 있다면, 그 효과를 보기 위해서는 해당 기술을 다시 사용하여야 합니다."
+	local txt = "#LIGHT_BLUE#경고: 당신의 능력치나 기술이 올랐습니다. 그런데, 유지중인 기술들이 있습니다: \n%s 이 기술들 중 바뀐 능력치의 영향을 받는 기술들이 있다면, 그 효과를 보기 위해서는 해당 기술을 다시 사용하여야 합니다."
 	local talents = ""
 	local reset = {}
 	for tid, act in pairs(self.actor.sustain_talents) do

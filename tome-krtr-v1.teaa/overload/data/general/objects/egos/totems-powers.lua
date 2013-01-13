@@ -29,7 +29,7 @@ Totems
 
 newEntity{
 	name = " of cure illness", addon=true, instant_resolve=true,
-	kr_display_nema = "질병치료의 ",
+	kr_display_name = "질병치료의 ",
 	keywords = {cureill=true},
 	level_range = {15, 50},
 	rarity = 8,
@@ -72,7 +72,7 @@ newEntity{
 
 newEntity{
 	name = " of cure poisons", addon=true, instant_resolve=true,
-	kr_display_nema = "중독치료의 ",
+	kr_display_name = "중독치료의 ",
 	keywords = {curepoison=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -115,13 +115,13 @@ newEntity{
 
 newEntity{
 	name = " of thorny skin", addon=true, instant_resolve=true,
-	kr_display_nema = "가시돋은 피부의 ",
+	kr_display_name = "가시돋은 피부의 ",
 	keywords = {thorny=true},
 	level_range = {1, 50},
 	rarity = 6,
 
 	charm_power_def = {add=5, max=50, floor=true},
-	resolvers.charm(function(self) return ("6턴간 피부를 단단하게 만들어, 방어도 %d 방어효율 %d%% 증가"):format(self:getCharmPower(), 20 + self.material_level * 10) end, 20, function(self, who)
+	resolvers.charm(function(self) return ("6턴간 피부를 단단하게 만들어, 방어도 %d 방어효율 %d%%%% 증가"):format(self:getCharmPower(), 20 + self.material_level * 10) end, 20, function(self, who)
 		who:setEffect(who.EFF_THORNY_SKIN, 6, {ac=self:getCharmPower(), hard=20 + self.material_level * 10})
 		game:playSoundNear(who, "talents/heal")
 		--@@
@@ -133,7 +133,7 @@ newEntity{
 
 newEntity{
 	name = " of healing", addon=true, instant_resolve=true,
-	kr_display_nema = "치료의 ",
+	kr_display_name = "치료의 ",
 	keywords = {heal=true},
 	level_range = {25, 50},
 	rarity = 20,

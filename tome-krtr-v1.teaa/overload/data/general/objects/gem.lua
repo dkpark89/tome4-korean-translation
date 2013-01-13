@@ -44,7 +44,7 @@ local function newGem(name, kr_display_name, image, cost, rarity, color, min_lev
 	-- Gems, randomly lootable
 	newEntity{ base = "BASE_GEM", define_as = "GEM_"..name:upper(),
 		name = name:lower(), subtype = color,
-		kr_display_name = "연금술 "..kr_display_name,
+		kr_display_name = kr_display_name,
 		color = colors[color:upper()], image=image,
 		level_range = {min_level, max_level},
 		rarity = rarity, cost = cost * 10,

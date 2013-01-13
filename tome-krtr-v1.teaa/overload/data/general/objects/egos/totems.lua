@@ -24,7 +24,7 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "natural ", prefix=true,
-	kr_display_nema = "자연 ",
+	kr_display_name = "자연 ",
 	keywords = {natural=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -39,7 +39,7 @@ newEntity{
 
 newEntity{
 	name = "forcefull ", prefix=true,
-	kr_display_nema = "힘찬 ",
+	kr_display_name = "힘찬 ",
 	keywords = {force=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -54,7 +54,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true,
-	kr_display_nema = "배척 ",
+	kr_display_name = "배척 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -73,7 +73,7 @@ newEntity{
 
 newEntity{
 	name = "rushing ", prefix=true,
-	kr_display_nema = "돌진 ",
+	kr_display_name = "돌진 ",
 	keywords = {rushing=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -87,7 +87,7 @@ newEntity{
 
 newEntity{
 	name = "webbed ", prefix=true,
-	kr_display_nema = "거미줄 ",
+	kr_display_name = "거미줄 ",
 	keywords = {webbed=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -101,7 +101,7 @@ newEntity{
 
 newEntity{
 	name = "tentacled ", prefix=true,
-	kr_display_nema = "촉수 ",
+	kr_display_name = "촉수 ",
 	keywords = {tentacled=true},
 	level_range = {30, 50},
 	rarity = 12,

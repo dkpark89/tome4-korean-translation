@@ -29,7 +29,7 @@ Torques
 
 newEntity{
 	name = " of psychoportation", addon=true, instant_resolve=true,
-	kr_display_nema = "시공간변화의 ",
+	kr_display_name = "시공간변화의 ",
 	keywords = {psyport=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -48,7 +48,7 @@ newEntity{
 
 newEntity{
 	name = " of kinetic psionic shield", addon=true, instant_resolve=true,
-	kr_display_nema = "동역학적 염동방어막의 ",
+	kr_display_name = "동역학적 염동방어막의 ",
 	keywords = {kinshield=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -65,7 +65,7 @@ newEntity{
 
 newEntity{
 	name = " of thermal psionic shield", addon=true, instant_resolve=true,
-	kr_display_nema = "열역학적 염동방어막의 ",
+	kr_display_name = "열역학적 염동방어막의 ",
 	keywords = {thermshield=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -82,7 +82,7 @@ newEntity{
 
 newEntity{
 	name = " of charged psionic shield", addon=true, instant_resolve=true,
-	kr_display_nema = "전하적 염동방어막의 ",
+	kr_display_name = "전하적 염동방어막의 ",
 	keywords = {chargedshield=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -99,7 +99,7 @@ newEntity{
 
 newEntity{
 	name = " of clear mind", addon=true, instant_resolve=true,
-	kr_display_nema = "맑은 정신의 ",
+	kr_display_name = "맑은 정신의 ",
 	keywords = {clearmind=true},
 	level_range = {15, 50},
 	rarity = 12,
@@ -116,7 +116,7 @@ newEntity{
 
 newEntity{
 	name = " of mindblast", addon=true, instant_resolve=true,
-	kr_display_nema = "염동탄의 ",
+	kr_display_name = "염동탄의 ",
 	keywords = {mindblast=true},
 	level_range = {15, 50},
 	rarity = 8,

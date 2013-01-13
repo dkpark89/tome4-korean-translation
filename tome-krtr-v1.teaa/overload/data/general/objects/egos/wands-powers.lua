@@ -31,7 +31,7 @@ Wands
 
 newEntity{
 	name = " of detection", addon=true, instant_resolve=true,
-	kr_display_nema = "간파의 ",
+	kr_display_name = "간파의 ",
 	keywords = {detect=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -52,7 +52,7 @@ newEntity{
 
 newEntity{
 	name = " of illumination", addon=true, instant_resolve=true,
-	kr_display_nema = "조명의 ",
+	kr_display_name = "조명의 ",
 	keywords = {illuminate=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -69,7 +69,7 @@ newEntity{
 
 newEntity{
 	name = " of trap destruction", addon=true, instant_resolve=true,
-	kr_display_nema = "함정파괴의 ",
+	kr_display_name = "함정파괴의 ",
 	keywords = {trap=true},
 	level_range = {1, 50},
 	rarity = 14,
@@ -100,7 +100,7 @@ newEntity{
 
 newEntity{
 	name = " of lightning", addon=true, instant_resolve=true,
-	kr_display_nema = "뇌전의 ",
+	kr_display_name = "뇌전의 ",
 	keywords = {lightning=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -124,7 +124,7 @@ newEntity{
 
 newEntity{
 	name = " of firewall", addon=true, instant_resolve=true,
-	kr_display_nema = "화염장벽의 ",
+	kr_display_name = "화염장벽의 ",
 	keywords = {firewall=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -148,7 +148,7 @@ newEntity{
 
 newEntity{
 	name = " of conjuration", addon=true, instant_resolve=true,
-	kr_display_nema = "요술의 ",
+	kr_display_name = "요술의 ",
 	keywords = {conjure=true},
 	level_range = {6, 50},
 	rarity = 6,
