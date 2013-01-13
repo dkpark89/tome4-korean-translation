@@ -609,7 +609,7 @@ function _M:changeLevel(lev, zone, params)
 		-- Select the chest tab
 		d.c_inven.dont_update_last_tabs = true
 		d.c_inven:switchTab{kind="transmo"}
-		d:simplePopup("변환 상자", "소지품 목록을 닫으면, 상자 내의 모든 물품이 돈으로 바뀝니다.")
+		d:simplePopup("변환 상자", "소지품 목록을 닫으면, 상자 내의 모든 물품을 변형합니다.")
 	else
 		self:changeLevelReal(lev, zone, params)
 	end

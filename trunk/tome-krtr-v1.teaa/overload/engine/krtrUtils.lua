@@ -669,6 +669,7 @@ function string.krLoreCategory(str)
 	elseif ori == "kor'pul" then return "코르'풀"
 	elseif ori == "last hope graveyard" then return "마지막 희망 공동묘지"
 	elseif ori == "last hope" then return "마지막 희망"
+	elseif ori == "maze" then return "미궁"
 	elseif ori == "misc" then return "기타"
 	elseif ori == "myths of creation" then return "창조 신화"
 	elseif ori == "old forest" then return "오래된 숲"

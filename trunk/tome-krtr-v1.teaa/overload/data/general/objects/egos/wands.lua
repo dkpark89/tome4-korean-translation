@@ -24,7 +24,7 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "arcane ", prefix=true, second=true,
-	kr_display_nema = "마법 ",
+	kr_display_name = "마법 ",
 	keywords = {arcane=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -39,7 +39,7 @@ newEntity{
 
 newEntity{
 	name = "defiled ", prefix=true, second=true,
-	kr_display_nema = "모독 ",
+	kr_display_name = "모독 ",
 	keywords = {defiled=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -54,7 +54,7 @@ newEntity{
 
 newEntity{
 	name = "bright ", prefix=true, second=true,
-	kr_display_nema = "밝은 ",
+	kr_display_name = "밝은 ",
 	keywords = {bright=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -69,7 +69,7 @@ newEntity{
 
 newEntity{
 	name = "shadowy ", prefix=true, second=true,
-	kr_display_nema = "어두운 ",
+	kr_display_name = "어두운 ",
 	keywords = {shadow=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -84,7 +84,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true, second=true,
-	kr_display_nema = "배척 ",
+	kr_display_name = "배척 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -105,7 +105,7 @@ newEntity{
 
 newEntity{
 	name = "void ", prefix=true, second=true,
-	kr_display_nema = "공허 ",
+	kr_display_name = "공허 ",
 	keywords = {void=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -120,7 +120,7 @@ newEntity{
 
 newEntity{
 	name = "volcanic ", prefix=true, second=true,
-	kr_display_nema = "화산 ",
+	kr_display_name = "화산 ",
 	keywords = {volcanic=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -134,7 +134,7 @@ newEntity{
 
 newEntity{
 	name = "striking ", prefix=true, second=true,
-	kr_display_nema = "타격 ",
+	kr_display_name = "타격 ",
 	keywords = {striking=true},
 	level_range = {30, 50},
 	rarity = 12,
