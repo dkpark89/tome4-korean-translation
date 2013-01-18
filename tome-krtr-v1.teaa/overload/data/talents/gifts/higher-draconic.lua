@@ -138,7 +138,7 @@ newTalent{
 
 newTalent{
 	name = "Wyrmic Guile",
-	kr_display_name = "워믹의 꾀",
+	kr_display_name = "용인의 꾀",
 	type = {"wild-gift/higher-draconic", 3},
 	require = gifts_req_high3,
 	points = 5,

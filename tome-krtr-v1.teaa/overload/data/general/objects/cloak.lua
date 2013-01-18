@@ -55,7 +55,7 @@ newEntity{ base = "BASE_CLOAK",
 
 newEntity{ base = "BASE_CLOAK",
 	name = "elven-silk cloak", short_name = "e.silk",
-	kr_display_name = "엘프실크 망토",
+	kr_display_name = "엘프비단 망토",
 	level_range = {40, 50},
 	cost = 7,
 	material_level = 5,

@@ -55,7 +55,7 @@ newEntity{ base = "BASE_WIZARD_HAT",
 
 newEntity{ base = "BASE_WIZARD_HAT",
 	name = "elven-silk wizard hat", short_name = "e.silk",
-	kr_display_name = "엘프실크 벙거지",
+	kr_display_name = "엘프비단 벙거지",
 	level_range = {40, 50},
 	cost = 7,
 	material_level = 5,

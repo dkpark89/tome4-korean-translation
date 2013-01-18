@@ -54,7 +54,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t) / 2, {apply_power=self:combatAttackStr()})
 			else
-				game.logSeen(target, "% 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
