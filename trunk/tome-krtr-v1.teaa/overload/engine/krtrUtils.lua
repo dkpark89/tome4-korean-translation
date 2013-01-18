@@ -537,7 +537,7 @@ function string.krClass(str)
 	elseif ori == "brawler" then return "격투가"
 	elseif ori == "wilder" then return "자연의 추종자"
 	elseif ori == "summoner" then return "소환술사"
-	elseif ori == "wyrmic" then return "워믹"
+	elseif ori == "wyrmic" then return "용인"
 	else return str end
 end
 
