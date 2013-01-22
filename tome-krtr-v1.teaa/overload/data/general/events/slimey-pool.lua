@@ -25,6 +25,7 @@ local list = mod.class.Grid:loadList("/data/general/grids/slime.lua")
 
 local g = list.SLIME_FLOOR:clone()
 g.name = "slimey pool"
+g.kr_display_name = "슬라임 웅덩이"
 g.on_stand = nil
 level.map(x, y, engine.Map.TERRAIN, g)
 game.nicer_tiles:updateAround(level, x, y)

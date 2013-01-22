@@ -43,6 +43,7 @@ for i = 1, 3 do
 
 	local g = game.level.map(i, j, engine.Map.TERRAIN):cloneFull()
 	g.name = "weird pedestal"
+	g.kr_display_name = "이상한 토대"
 	g.display='&' g.color_r=255 g.color_g=255 g.color_b=255 g.notice = true
 	g:removeAllMOs()
 	if engine.Map.tiles.nicer_tiles then
@@ -58,13 +59,13 @@ for i = 1, 3 do
 		if not who or not who.player or not act then return false end
 		who:runStop("weird pedestal")
 		if self.pedestal_activated then return false end
-		require("engine.ui.Dialog"):yesnoPopup("Weird Pedestal", "Do you wish to inspect the pedestal?", function(ret) if ret then
+		require("engine.ui.Dialog"):yesnoPopup("이상한 토대", "토대를 조사해 보시겠습니까?", function(ret) if ret then
 			who:restInit(20, "inspecting", "inspected", function(cnt, max)
 				if cnt > max then
 					self.pedestal_activated = true
 					self.block_move = nil
 					self.autoexplore_ignore = true
-					require("engine.ui.Dialog"):simplePopup("Weird Pedestal", "As you inspect it a shadow materializes near you, and suddenly it is no more a shadow!")
+					require("engine.ui.Dialog"):simplePopup("이상한 토대", "토대를 조사하자 주변의 그림자가 유형화되고, 갑자기 그것은 더이상 그림자가 아니게 됩니다!")
 
 					local m = game.zone:makeEntity(game.level, "actor", {
 						base_list=mod.class.NPC:loadList("/data/general/npcs/humanoid_random_boss.lua"),
@@ -76,13 +77,13 @@ for i = 1, 3 do
 							loot_quality = "store",
 							loot_quantity = 1,
 							no_loot_randart = true,
-							name_scheme = "#rng# the Invoker",
+							name_scheme = "#rng# the Invoker", --@@ 번역할지?
 					}}, nil, true)
 					local i, j = util.findFreeGrid(x, y, 5, true, {[engine.Map.ACTOR]=true})
 					if i then
 						game.level.map:particleEmitter(i, j, 1, "teleport")
 						game.zone:addEntity(game.level, m, "actor", i, j)
-						m.emote_random = {chance=30, "He shall come!", "You are dooooommmed!!", "He will consume all!", "My life for His!", "Die intruder!"}
+						m.emote_random = {chance=30, "그가 올것이다!", "너는 파멸되었다!!", "그가 모든것을 먹어치울거다!", "내 생명은 그의 것!", "칩입자는 죽어라!"}
 						m.pedestal_x = self.x
 						m.pedestal_y = self.y
 						m.on_die = function(self)
@@ -94,7 +95,7 @@ for i = 1, 3 do
 							end
 							game.level.map:updateMap(self.pedestal_x, self.pedestal_y)
 							game.level.pedestal_events = (game.level.pedestal_events or 0) + 1
-							game.logSeen(self, "%s's soul is absorbed by the pedestal. A glowing orb appears.", self.name:capitalize())
+							game.logSeen(self, "%s의 영혼이 토대에 흡수됩니다. 빛나는 오브가 나타났습니다.", (self.kr_display_name or self.name):capitalize())
 
 							if game.level.pedestal_events >= 3 then
 								game.level.pedestal_events = 0
@@ -107,7 +108,7 @@ for i = 1, 3 do
 										life_rating=function(v) return v * 2 + 5 end,
 										loot_quantity = 0,
 										no_loot_randart = true,
-										name_scheme = "#rng# the Bringer of Doom",
+										name_scheme = "#rng# the Bringer of Doom", --@@ 번역할지?
 										on_die = function(self) world:gainAchievement("EVENT_PEDESTALS", game:getPlayer(true)) end,
 								}}, nil, true)
 								local i, j = util.findFreeGrid(x, y, 5, true, {[engine.Map.ACTOR]=true})
@@ -120,14 +121,14 @@ for i = 1, 3 do
 										game.zone:addEntity(game.level, o, "object")
 										m:addObject(m.INVEN_INVEN, o)
 									end
-									require("engine.ui.Dialog"):simplePopup("Weird Pedestal", "You hear a terrible voice saying 'Their lives are mine! I am coming!'")
+									require("engine.ui.Dialog"):simplePopup("이상한 토대", "끔직한 목소리가 말하는 것이 들립니다. '그들의 생명은 내 것이다! 내가 간다!'")
 								end
 							end
 						end
 					end
 				end
 			end)
-		end end)
+		end end, "예", "아니오")
 		return false
 	end
 	game.zone:addEntity(game.level, g, "terrain", i, j)

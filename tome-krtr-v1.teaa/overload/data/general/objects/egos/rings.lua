@@ -87,7 +87,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of arcana(#REGEN#)", suffix=true, instant_resolve=true,
-	kr_display_name = "마법(#RESIST#)의 ",
+	kr_display_name = "마법(#REGEN#)의 ",
 	keywords = {arcana=true},
 	level_range = {1, 20},
 	rarity = 6,

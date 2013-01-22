@@ -25,6 +25,7 @@ local list = mod.class.Grid:loadList("/data/general/grids/lava.lua")
 
 local g = list.LAVA_FLOOR:clone()
 g.name = "spellblaze scar"
+g.kr_display_name = "스펠블레이즈의 자국"
 g.on_stand = nil
 level.map(x, y, engine.Map.TERRAIN, g)
 game.nicer_tiles:updateAround(level, x, y)

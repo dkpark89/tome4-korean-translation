@@ -28,6 +28,7 @@ level.data.on_enter_list.noxious_caldera = function()
 	local g = game.level.map(spot.x, spot.y, engine.Map.TERRAIN):cloneFull()
 	g.__nice_tile_base = nil
 	g.name = "Way into a volcanic caldera"
+	g.kr_display_name = "화산분지로의 길"
 	g.display='>' g.color_r=255 g.color_g=0 g.color_b=0 g.notice = true
 	g.change_level=1 g.change_zone="noxious-caldera" g.glow=true
 	g.add_displays = g.add_displays or {}
@@ -36,7 +37,7 @@ level.data.on_enter_list.noxious_caldera = function()
 	g:initGlow()
 	game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
 	print("[WORLDMAP] noxious caldera at", spot.x, spot.y)
-	require("engine.ui.Dialog"):simplePopup("Ground is shaking", "You feel a tremor in the ground for a few seconds and it disappears...")
+	require("engine.ui.Dialog"):simplePopup("흔들리는 땅", "몇초동안 땅이 흔들거린후 멈춤을 느꼈습니다...")
 end
 
 return true
