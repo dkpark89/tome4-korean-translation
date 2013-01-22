@@ -52,6 +52,7 @@ end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "glowing chest"
+g.kr_display_name = "빛나는 상자"
 g.display='~' g.color_r=255 g.color_g=215 g.color_b=0 g.notice = true
 g:removeAllMOs()
 if engine.Map.tiles.nicer_tiles then
@@ -66,24 +67,24 @@ g.block_move = function(self, x, y, who, act, couldpass)
 	if not who or not who.player or not act then return false end
 	if self.chest_opened then return false end
 
-	require("engine.ui.Dialog"):yesnoPopup("Glowing Chest", "Open the chest?", function(ret) if ret then
+	require("engine.ui.Dialog"):yesnoPopup("빛나는 상자", "상자를 열겠습니까?", function(ret) if ret then
 		self.chest_opened = true
 		if self.chest_item then
 			game.zone:addEntity(game.level, self.chest_item, "object", x, y)
-			game.logSeen(who, "#GOLD#An object rolls from the chest!")
+			game.logSeen(who, "#GOLD#상자 속에서 물건이 굴러 나왔습니다!")
 			if self.chest_guards then
 				for _, m in ipairs(self.chest_guards) do
 					local mx, my = util.findFreeGrid(x, y, 5, true, {[engine.Map.ACTOR]=true})
 					if mx then game.zone:addEntity(game.level, m, "actor", mx, my) end
 				end
-				game.logSeen(who, "#GOLD#But the chest was guarded!")
+				game.logSeen(who, "#GOLD#하지만 상자는 보호받고 있습니다!")
 			end
 		end
 		self.chest_item = nil
 		self.chest_guards = nil
 		self.block_move = nil
 		self.autoexplore_ignore = true
-	end end, "Open", "Leave")
+	end end, "열기", "그냥두기")
 
 	return false
 end

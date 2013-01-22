@@ -38,6 +38,7 @@ local changer = function(id, kind)
 	terrains.CAVE_LADDER_UP_WILDERNESS.change_zone_auto_stairs = true
 	local zone = mod.class.Zone.new(id, {
 		name = "Intimidating Cave",
+		kr_display_name = "위협적인 동굴",
 		level_range = {game.zone:level_adjust_level(game.level, game.zone, "actor"), game.zone:level_adjust_level(game.level, game.zone, "actor")},
 		level_scheme = "player",
 		max_level = 1,
@@ -84,6 +85,7 @@ end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "intimidating cave"
+g.kr_display_name = "위협적인 동굴"
 g.display='>' g.color_r=0 g.color_g=0 g.color_b=255 g.notice = true
 g.change_level=1 g.change_zone=id g.glow=true
 g:removeAllMOs()

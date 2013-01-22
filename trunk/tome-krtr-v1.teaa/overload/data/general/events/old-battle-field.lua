@@ -44,6 +44,7 @@ if tries < 100 then
 		terrains.CAVE_LADDER_UP_WILDERNESS.change_zone_auto_stairs = true
 		local zone = mod.class.Zone.new(id, {
 			name = "Cavern beneath tombstones",
+			kr_display_name = "묘비 아래의 공동",
 			level_range = {game.zone:level_adjust_level(game.level, game.zone, "actor"), game.zone:level_adjust_level(game.level, game.zone, "actor")},
 			level_scheme = "player",
 			max_level = 1,
@@ -67,7 +68,7 @@ if tries < 100 then
 			on_enter = function(lev)
 				game.level.turn_counter = 101 * 10
 				game.level.max_turn_counter = 101 * 10
-				game.level.turn_counter_desc = "Undead are rising from the ground! You must hold on!"
+				game.level.turn_counter_desc = "언데드가 땅속에서 올라옵니다! 계속 나아가야 합니다!"
 				game.level.nb_pop = 1
 			end,
 			on_turn = function(self)
@@ -92,7 +93,7 @@ if tries < 100 then
 						end
 
 						world:gainAchievement("EVENT_OLDBATTLEFIELD", game:getPlayer(true))
-						require("engine.ui.Dialog"):simpleLongPopup("Onslaught", "You have survived the onslaught of undead. You notice a way to climb up you had not seen before in a wall nearby.", 400)
+						require("engine.ui.Dialog"):simpleLongPopup("맹습", "당신은 언데드의 맹습으로부터 살아남았습니다. 당신은 근처의 벽에 올라갈 길이 나있는 것을 발견했습니다..", 400)
 					elseif game.level.turn_counter % 50 == 0 then
 						for i = 1, math.floor(game.level.nb_pop) do
 							local spot = game.level:pickSpot{type="pop", subtype="undead"}
@@ -115,6 +116,7 @@ if tries < 100 then
 
 		local g = game.level.map(p.x, p.y, engine.Map.TERRAIN):cloneFull()
 		g.name = "grave"
+		g.kr_display_name = "무덤"
 		g.display='&' g.color_r=255 g.color_g=255 g.color_b=255 g.notice = true
 		g:removeAllMOs()
 		if engine.Map.tiles.nicer_tiles then
@@ -128,7 +130,7 @@ if tries < 100 then
 			if not who or not who.player or not act then return false end
 			if game.level.event_battlefield_entered then return false end
 			who:runStop("grave")
-			require("engine.ui.Dialog"):yesnoPopup("Grave", "Do you wish to disturb the grave?", function(ret) if ret then
+			require("engine.ui.Dialog"):yesnoPopup("무덤", "무덤을 파헤치길 원합니까?", function(ret) if ret then
 				local g = game.level.map(x, y, engine.Map.TERRAIN)
 				g:removeAllMOs()
 				if g.add_displays then
@@ -140,8 +142,8 @@ if tries < 100 then
 				self.block_move = nil
 				self.autoexplore_ignore = true
 				self:change_level_check()
-				require("engine.ui.Dialog"):simplePopup("Fall...", "As you tried to dig the grave the ground fell under you. You find yourself stranded in an eerie lit cavern.")
-			end end)
+				require("engine.ui.Dialog"):simplePopup("추락...", "무덤을 파헤치다가 땅속으로 굴러 떨어졌습니다. 정신을 차려보니 으스스한 공동에 서 있습니다.")
+			end end, "예", "아니오")
 			return false
 		end
 		g.change_level=1 g.change_zone=id g.glow=true

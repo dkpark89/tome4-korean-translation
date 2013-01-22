@@ -23,6 +23,7 @@ if not x then return false end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "antimagic bush"
+g.kr_display_name = "반마법 덤불"
 g.display='~' g.color_r=0 g.color_g=255 g.color_b=100 g.notice = true
 g:removeAllMOs()
 if engine.Map.tiles.nicer_tiles then
