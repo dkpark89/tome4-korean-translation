@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Gather the Threads",
 	kr_display_name = "시간의 흐름 - 수집",
@@ -113,7 +115,7 @@ newTalent{
 			target:reactionToward(self) >= 0 or -- No friends
 			target.size_category > allowed
 			then
-			game.logPlayer(self, "%s 저항했습니다!", target.name:capitalize())
+			game.logPlayer(self, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			return true
 		end
 
@@ -191,7 +193,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[세 가지 미래를 엿봐, 각각 %d 턴 동안 미래에 일어날 일을 직접 체험할 수 있게 됩니다. 지속시간이 끝나면, 세 가지 미래 중 어떤 미래를 고를지 결정하게 됩니다. 
 		결정된 미래가 자신의 미래가 되며, 이 마법으로 자신의 죽음을 체험해버리면 치명적인 결과가 일어날 수 있습니다.
-		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다
+		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.
 		이 마법은 시전시간 없이 즉시 사용할 수 있습니다.]])
 		:format(duration)
 	end,

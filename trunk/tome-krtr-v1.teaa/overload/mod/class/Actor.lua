@@ -1119,7 +1119,7 @@ function _M:dropNoTeleportObjects()
 			local o = inven[item]
 			if o.no_teleport then
 				self:dropFloor(inven, item, false, true)
-				game.logPlayer(self, "#LIGHT_RED#당신의 %s 공간이동을 방해한 뒤, 땅으로 딸어졌다!", o:getName{do_color=true}:addJosa("가"))
+				game.logPlayer(self, "#LIGHT_RED#당신의 %s 순간이동을 방해한 뒤, 땅으로 딸어졌다!", o:getName{do_color=true}:addJosa("가"))
 			end
 		end
 	end
@@ -1640,7 +1640,7 @@ function _M:onTakeHit(value, src)
 			-- Explode!
 			--@@
 			local sn = self.kr_display_name or self.name
-			game.logSeen(self, "%s 응보로 지금까지 흡수한 비축된 피해를 폭발시켰다!", sn:capitalize():addJosa("가"))
+			game.logSeen(self, "%s 심판으로 지금까지 흡수한 비축된 피해를 폭발시켰습니다!", sn:capitalize():addJosa("가"))
 			local tg = {type="ball", range=0, radius=self:getTalentRange(self:getTalentFromId(self.T_RETRIBUTION)), selffire=false, talent=t}
 			local grids = self:project(tg, self.x, self.y, DamageType.LIGHT, dam)
 			game.level.map:particleEmitter(self.x, self.y, tg.radius, "sunburst", {radius=tg.radius, grids=grids, tx=self.x, ty=self.y})
@@ -1870,7 +1870,7 @@ function _M:onTakeHit(value, src)
 			self.resonance_field_absorb = 0
 		end
 		if self.resonance_field_absorb <= 0 then
-			game.logPlayer(self, "공진장막이 피해로 인해 부서졌다!")
+			game.logPlayer(self, "공진 장막이 피해로 인해 부서졌다!")
 			self:removeEffect(self.EFF_RESONANCE_FIELD)
 		end
 	end
@@ -2412,7 +2412,7 @@ function _M:die(src, death_note)
 		local kill = true
 		game:onTickEnd(function()
 			if game._chronoworlds == nil then
-				game.logPlayer(game.player, "#LIGHT_RED#중지된 실존 주문이 피식거리며 취소되고, 원래의 시공간으로 돌아갑니다.")
+				game.logPlayer(game.player, "#LIGHT_RED#중단된 실존 주문이 피식거리며 취소되고, 원래의 시공간으로 돌아갑니다.")
 				kill = false
 				return
 			end

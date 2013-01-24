@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils" --@@
+
 local Chat = require "engine.Chat"
 
 function getGolem(self)
@@ -179,6 +182,7 @@ newTalent{
 		if not self.alchemy_golem then return end
 		self.alchemy_golem.faction = self.faction
 		self.alchemy_golem.name = "golem (servant of "..self.name..")"
+		self.alchemy_golem.kr_display_name = "골렘 ("..(self.kr_display_name or self.name).."의 부하)" --@@
 		self.alchemy_golem.summoner = self
 		self.alchemy_golem.summoner_gain_exp = true
 
@@ -410,7 +414,7 @@ newTalent{
 				local _, _, tgt = e:getTarget()
 				if e:reactionToward(self) < 0 and tgt == self and rng.percent(chance) then
 					e:setTarget(golem)
-					game.logSeen(e, "%s 이제 %s 에게 집중하기 시작했습니다.", e.name:capitalize(), golem.name)
+					game.logSeen(e, "%s 이제 %s에게 집중하기 시작했습니다.", (e.kr_display_name or e.name):capitalize():addJosa("가"), (golem.kr_display_name or golem.name))
 				end
 			end
 		end

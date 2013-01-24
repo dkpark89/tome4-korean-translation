@@ -292,7 +292,7 @@ function _M:generateList()
 			return
 		end
 		if self.actor:attr("blood_life") and not self.actor:attr("undead") then list[#list+1] = {name="생명의 피(the Blood of Life)로 부활하기", action="blood_life"} end
-		if self.actor:getTalentLevelRaw(self.actor.T_SKELETON_REASSEMBLE) >= 5 and not self.actor:attr("re-assembled") then list[#list+1] = {name="뼈의 재조합으로 부활하기 (스켈레톤 능력)", action="skeleton"} end
+		if self.actor:getTalentLevelRaw(self.actor.T_SKELETON_REASSEMBLE) >= 5 and not self.actor:attr("re-assembled") then list[#list+1] = {name="뼈의 재조합으로 부활하기 (해골 능력)", action="skeleton"} end
 
 		local consumenb = 1
 		self.actor:inventoryApplyAll(function(inven, item, o)

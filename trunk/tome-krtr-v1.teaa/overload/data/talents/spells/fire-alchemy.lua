@@ -205,7 +205,7 @@ newTalent{
 	end,
 	activate = function(self, t)
 		game:playSoundNear(self, "talents/fireflash")
-		game.logSeen(self, "#FF8000#%s 의 몸에 순수한 화염이 타오릅니다!", self.name:capitalize())
+		game.logSeen(self, "#FF8000#%s의 몸에 순수한 화염이 타오릅니다!", (self.kr_display_name or self.name):capitalize())
 		return {
 			onhit = self:addTemporaryValue("on_melee_hit", {[DamageType.FIRE]=t.getFireDamageOnHit(self, t)}),
 			res = self:addTemporaryValue("resists", {[DamageType.FIRE] = t.getResistance(self, t)}),
@@ -213,7 +213,7 @@ newTalent{
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#FF8000# 주변에 타오르던 화염이 사그라들다가, 완전히 사라졌습니다. (%s)", self.name)
+		game.logSeen(self, "#FF8000#%s의 주변에 타오르던 화염이 사그라들다가, 완전히 사라졌습니다.", (self.kr_display_name or self.name))
 		self:removeTemporaryValue("on_melee_hit", p.onhit)
 		self:removeTemporaryValue("resists", p.res)
 		self:removeTemporaryValue("mana_regen", p.drain)

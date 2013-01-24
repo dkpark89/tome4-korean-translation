@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Skeleton",
-	kr_display_name = "스켈레톤",
+	kr_display_name = "해골",
 	type = {"undead/skeleton", 1},
 	mode = "passive",
 	require = undeads_req1,

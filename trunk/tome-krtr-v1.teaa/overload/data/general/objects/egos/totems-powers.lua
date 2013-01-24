@@ -78,7 +78,7 @@ newEntity{
 	rarity = 8,
 
 	charm_power_def = {add=1, max=5, floor=true},
-	resolvers.charm("대상의 중독을 %d개까지 제거", 20, function(self, who)
+	resolvers.charm("대상의 독을 %d개까지 제거", 20, function(self, who)
 		local tg = {default_target=who, type="hit", nowarning=true, range=6 + who:getWil(4), first_target="friend"}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end

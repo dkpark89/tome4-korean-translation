@@ -162,7 +162,7 @@ newTalent{
 
 newTalent{
 	name = "Teleport to the ground", short_name = "YIILKGUR_BEAM_DOWN",
-	kr_display_name = "지표면으로 공간이동",
+	kr_display_name = "지표면으로 순간이동",
 	type = {"sher'tul/fortress", 1},
 	points = 1,
 	no_npc_use = true,
@@ -170,7 +170,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Yiilkgur의 공간이동기를 사용하여 지표면으로 이동합니다.]])
+		return ([[이일크구르의 순간이동기를 사용하여 지표면으로 이동합니다.]])
 	end,
 }
 

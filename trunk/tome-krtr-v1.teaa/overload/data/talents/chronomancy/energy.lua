@@ -109,7 +109,7 @@ newTalent{
 		if not target then return end
 
 		if not self:checkHit(self:combatSpellpower(), target:combatSpellResist()) then
-			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			return true
 		end
 
@@ -126,7 +126,7 @@ newTalent{
 			local t = rng.tableRemove(tids)
 			if not t then break end
 			target.talents_cd[t.id] = cdr
-			game.logSeen(target, "%s 의 %s 기술 에너지가 흡수당했습니다!", target.name:capitalize(), t.name)
+			game.logSeen(target, "%s의 %s 기술 에너지가 흡수당했습니다!", (target.kr_display_name or target.name):capitalize(), (t.kr_display_name or t.name))
 			count = count + 1
 		end
 

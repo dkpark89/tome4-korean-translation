@@ -697,7 +697,7 @@ function _M:getTextualDesc(compare_with)
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
 
-		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 배척량(wards): ", function(item)
+		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호량(wards): ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
 			end)
@@ -1040,7 +1040,7 @@ function _M:getTextualDesc(compare_with)
 		end
 		
 		if w.lucid_dreamer then
-			desc:add({"color", "YELLOW"}, "자각몽을 꾸는자:", {"color", "LAST"}, "이 아이템은 착용자가 잠에 빠졌을 때에만 활성화 됩니다.", true)
+			desc:add({"color", "YELLOW"}, "자각몽:", {"color", "LAST"}, "이 아이템은 착용자가 잠에 빠졌을 때에만 활성화 됩니다.", true)
 		end
 
 		if w.no_breath then

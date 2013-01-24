@@ -151,7 +151,7 @@ function _M:tooltip(x, y)
 	if self:check("block_move", x, y, game.player) then tstr:add({"color", "UMBER"}, "이동을 막음", {"color", "LAST"}, true) end
 	if self:attr("air_level") then tstr:add({"color", "LIGHT_BLUE"}, "특별한 호흡법이 필요", {"color", "LAST"}, true) end
 	if self:attr("dig") then tstr:add({"color", "LIGHT_UMBER"}, "굴착가능", {"color", "LAST"}, true) end
-	if game.level.map.attrs(x, y, "no_teleport") then tstr:add({"color", "VIOLET"}, "이 곳으로 공간이동 불가능", {"color", "LAST"}, true) end
+	if game.level.map.attrs(x, y, "no_teleport") then tstr:add({"color", "VIOLET"}, "이 곳으로 순간이동 불가능", {"color", "LAST"}, true) end
 
 	if config.settings.cheat then
 		tstr:add(true, tostring(rawget(self, "type")), " / ", tostring(rawget(self, "subtype")))

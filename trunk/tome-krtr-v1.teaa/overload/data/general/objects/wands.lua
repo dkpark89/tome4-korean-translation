@@ -78,7 +78,7 @@ newEntity{ base = "BASE_WAND",
 
 newEntity{ base = "BASE_WAND",
 	name = "dragonbone wand", short_name = "dargonbone",
-	kr_display_name = "드래곤뼈 마법봉",
+	kr_display_name = "용뼈 마법봉",
 	color = colors.UMBER,
 	level_range = {40, 50},
 	cost = 5,

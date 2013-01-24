@@ -45,6 +45,7 @@ newTalent{
 		local dam = self:spellCrit(t.getDazeDuration(self, t))
 		local trap = Trap.new{
 			name = "glyph of paralysis",
+			kr_display_name = "마비의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_paralysis_01_64.png",
 			dam = dam,
@@ -113,6 +114,7 @@ newTalent{
 		local sp = self:combatSpellpower()
 		local trap = Trap.new{
 			name = "glyph of repulsion",
+			kr_display_name = "격퇴의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_repulsion_01_64.png",
 			dam = dam,
@@ -187,6 +189,7 @@ newTalent{
 		local dam = self:spellCrit(t.getDamage(self, t))
 		local trap = Trap.new{
 			name = "glyph of explosion",
+			kr_display_name = "폭발의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_explosion_01_64.png",
 			dam = dam,
@@ -257,6 +260,7 @@ newTalent{
 		local dam = self:spellCrit(t.getSlow(self, t))
 		local trap = Trap.new{
 			name = "glyph of fatigue",
+			kr_display_name = "피로의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_fatigue_01_64.png",
 			dam = dam,

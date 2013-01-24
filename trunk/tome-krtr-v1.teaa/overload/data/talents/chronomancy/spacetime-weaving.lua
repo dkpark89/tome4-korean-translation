@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Dimensional Step",
 	kr_display_name = "차원의 걸음",
@@ -104,7 +106,7 @@ newTalent{
 			if self:checkHit(power, target:combatSpellResist() + (target:attr("continuum_destabilization") or 0)) and target:canBe("teleport") then
 				actors[#actors+1] = target
 			else
-				game.logSeen(target, "%s 추방을 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 추방을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end)
 
@@ -208,10 +210,11 @@ newTalent{
 		-- Adding the entrance wormhole
 		local entrance = mod.class.Trap.new{
 			name = "wormhole",
+			kr_display_name = "웜홀",
 			type = "annoy", subtype="teleport", id_by_type=true, unided_name = "trap",
 			image = "terrain/wormhole.png",
 			display = '&', color_r=255, color_g=255, color_b=255, back_color=colors.STEEL_BLUE,
-			message = "@Target@ 웜홀로 이동했습니다.",
+			message = "@Target1@ 웜홀로 이동했습니다.",
 			temporary = t.getDuration(self, t),
 			x = entrance_x, y = entrance_y,
 			canAct = false,
@@ -226,13 +229,13 @@ newTalent{
 					local tx, ty = util.findFreeGrid(self.dest.x, self.dest.y, 5, true, {[engine.Map.ACTOR]=true})
 					if tx and ty then
 						if not who:teleportRandom(tx, ty, 0) then
-							game.logSeen(who, "%s tries to enter the wormhole but a violent force pushes it back.", who.name:capitalize())
+							game.logSeen(who, "%s 웜홀로 들어가려 했으나, 난폭한 힘이 밖으로 밀어냈습니다.", (who.kr_dislpay_name or who.name):capitalize():addJosa("가"))
 						elseif who ~= self.summoned_by then
 							who:setEffect(who.EFF_CONTINUUM_DESTABILIZATION, 100, {power=self.destabilization_power})
 						end
 					end
 				else
-					game.logSeen(who, "%s 웜홀을 무시했습니다.", who.name:capitalize())
+					game.logSeen(who, "%s 웜홀을 무시했습니다.", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 				end
 				return true
 			end,
@@ -268,7 +271,7 @@ newTalent{
 		entrance.dest = exit
 		exit.dest = entrance
 
-		game.logSeen(self, "%s 두 지점 사이의 공간을 접습니다.", self.name)
+		game.logSeen(self, "%s 두 지점 사이의 공간을 접습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		return true
 	end,
 	info = function(self, t)

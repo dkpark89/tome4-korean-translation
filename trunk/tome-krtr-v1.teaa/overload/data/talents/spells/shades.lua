@@ -108,26 +108,31 @@ newTalent{
 				local race = 5 -- rng.range(1, 5)
 				if race == 1 then
 					m.name = "human farmer"
+					m.kr_display_name = "인간 농부"
 					m.subtype = "human"
 					m.image = "npc/humanoid_human_human_farmer.png"
 					m.desc = [[평범한 인간 농부로, 뭐가 어떻게 된 것인지 모르겠다는 표정을 하고 있습니다.]]
 				elseif race == 2 then
 					m.name = "halfling gardener"
+					m.kr_display_name = "하플링 정원사"
 					m.subtype = "halfling"
 					m.desc = [[무뚝뚝한 하플링 정원사로, 지금 여기서 무슨 일이 일어나는지 혼란스러운 것 같습니다.]]
 					m.image = "npc/humanoid_halfling_halfling_gardener.png"
 				elseif race == 3 then
 					m.name = "shalore scribe"
+					m.kr_display_name = "샬로레 필경사"
 					m.subtype = "shalore"
 					m.desc = [[비쩍 마른 엘프 필경사로,주변 환경에 당황한 것 같습니다.]]
 					m.image = "npc/humanoid_shalore_shalore_rune_master.png"
 				elseif race == 4 then
 					m.name = "dwarven lumberjack"
+					m.kr_display_name = "드워프 나무꾼"
 					m.subtype = "dwarf"
 					m.desc = [[건장한 드워프 나무꾼으로, 갑작스러운 환경 변화에 살짝 화가 난 것 같습니다.]]
 					m.image = "npc/humanoid_dwarf_lumberjack.png"
 				elseif race == 5 then
 					m.name = "cute bunny"
+					m.kr_display_name = "귀여운 토끼"
 					m.type = "vermin" m.subtype = "rodent"
 					m.desc = [[귀여운 토끼입니다!]]
 					m.image = "npc/vermin_rodent_cute_little_bunny.png"
@@ -191,6 +196,7 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			name = "Forgery of Haze ("..self.name..")",
+			kr_display_name = "아지랑이 환영 ("..(self.kr_display_name or self.name)..")",
 			desc = [[당신을 닮은, 아지랑이 환영입니다.]],
 		})
 		m:removeAllMOs()

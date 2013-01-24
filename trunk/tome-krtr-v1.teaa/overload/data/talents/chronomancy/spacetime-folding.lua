@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Weapon Folding",
 	kr_display_name = "무기의 차원 접기",
@@ -99,7 +101,7 @@ newTalent{
 				game.logSeen(self, "주문이 헛나갔습니다!")
 			end
 		else
-			game.logSeen(target, "%s 자리 교체를 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 자리 교체를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		game:playSoundNear(self, "talents/teleport")
@@ -210,7 +212,7 @@ newTalent{
 	target = function(self, t)
 		return {type="hit", range=self:getTalentRange(t), talent=t}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "You require two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.1, 1.9) * getParadoxModifier(self, pm) end,
 	action = function(self, t)
 		local tg = self:getTalentTarget(t)
@@ -227,8 +229,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[You momentarily fold the space between yourself and your target, attacking it at range with both weapons for %d%% weapon damage.
-		The damage will scale with your Paradox.]]):
+		return ([[당신은 잠시 당신과 목표 사이의 공간을 접고, 두 손의 무기로 공격하여 %d%% 의 무기 피해를 줍니다.
+		피해량은 괴리 수치의 영향을 받아 증가합니다.]]):
 		format (damage*100)
 	end,
 }]=]

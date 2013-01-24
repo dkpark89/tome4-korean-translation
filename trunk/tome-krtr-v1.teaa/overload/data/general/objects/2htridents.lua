@@ -31,7 +31,7 @@ newEntity{
 	no_rust = true,
 	combat = { talented = "trident", damrange = 1.6, physspeed = 1, sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2} },
 	desc = [[양손으로 사용하는 커다란 삼지창입니다.
-삼지창은 이형무기여서, 제대로 사용하려면 이형 무기 숙련을 익혀야 합니다.]],
+삼지창은 이형무기이므로, 제대로 사용하려면 이형 무기 수련을 익혀야 합니다.]],
 	twohanded = true,
 	ego_bonus_mult = 0.2,
 	randart_able = "/data/general/objects/random-artifacts/melee.lua",

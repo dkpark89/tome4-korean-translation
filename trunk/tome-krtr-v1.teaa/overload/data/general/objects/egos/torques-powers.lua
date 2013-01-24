@@ -35,7 +35,7 @@ newEntity{
 	rarity = 10,
 
 	charm_power_def = {add=15, max=60, floor=true},
-	resolvers.charm("임의의 위치로 공간이동 (반경 %d)", 30, function(self, who)
+	resolvers.charm("임의의 위치로 순간이동 (반경 %d)", 30, function(self, who)
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, self:getCharmPower())
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
@@ -48,13 +48,13 @@ newEntity{
 
 newEntity{
 	name = " of kinetic psionic shield", addon=true, instant_resolve=true,
-	kr_display_name = "동역학적 염동방어막의 ",
+	kr_display_name = "동역학적 염동보호막의 ",
 	keywords = {kinshield=true},
 	level_range = {1, 50},
 	rarity = 7,
 
 	charm_power_def = {add=3, max=100, floor=true},
-	resolvers.charm("염동방어막을 배치하여, 6턴간 모든 물리나 산성 피해를 %d 감소", 20, function(self, who)
+	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 물리나 산성 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="kinetic", power=self:getCharmPower()})
 		--@@
 		local wn = who.kr_display_name or who.name
@@ -65,13 +65,13 @@ newEntity{
 
 newEntity{
 	name = " of thermal psionic shield", addon=true, instant_resolve=true,
-	kr_display_name = "열역학적 염동방어막의 ",
+	kr_display_name = "열역학적 염동보호막의 ",
 	keywords = {thermshield=true},
 	level_range = {1, 50},
 	rarity = 7,
 
 	charm_power_def = {add=3, max=100, floor=true},
-	resolvers.charm("염동방어막을 배치하여, 6턴간 모든 화염이나 추위 피해를 %d 감소", 20, function(self, who)
+	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 화염이나 추위 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="thermal", power=self:getCharmPower()})
 		--@@
 		local wn = who.kr_display_name or who.name
@@ -82,13 +82,13 @@ newEntity{
 
 newEntity{
 	name = " of charged psionic shield", addon=true, instant_resolve=true,
-	kr_display_name = "전하적 염동방어막의 ",
+	kr_display_name = "전하적 염동보호막의 ",
 	keywords = {chargedshield=true},
 	level_range = {10, 50},
 	rarity = 8,
 
 	charm_power_def = {add=3, max=100, floor=true},
-	resolvers.charm("염동방어막을 배치하여, 6턴간 모든 전기나 황폐 피해를 %d 감소", 20, function(self, who)
+	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 전기나 황폐 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="charged", power=self:getCharmPower()})
 		--@@
 		local wn = who.kr_display_name or who.name
@@ -116,7 +116,7 @@ newEntity{
 
 newEntity{
 	name = " of mindblast", addon=true, instant_resolve=true,
-	kr_display_name = "염동탄의 ",
+	kr_display_name = "염동빔의 ",
 	keywords = {mindblast=true},
 	level_range = {15, 50},
 	rarity = 8,

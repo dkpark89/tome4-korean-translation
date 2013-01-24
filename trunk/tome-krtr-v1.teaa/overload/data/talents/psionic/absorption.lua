@@ -174,7 +174,7 @@ newTalent{
 
 newTalent{
 	name = "Thermal Shield",
-	kr_display_name = "열역학적 방어막",
+	kr_display_name = "열역학적 보호막",
 	type = {"psionic/absorption", 2},
 	require = psi_wil_req2,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -286,7 +286,7 @@ newTalent{
 
 newTalent{
 	name = "Charged Shield",
-	kr_display_name = "전하적 방어막",
+	kr_display_name = "전하적 보호막",
 	type = {"psionic/absorption", 3},
 	require = psi_wil_req3,
 	mode = "sustained", no_sustain_autoreset = true,

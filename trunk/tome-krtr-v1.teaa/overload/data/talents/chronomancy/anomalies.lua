@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Object = require "engine.Object"
 
 -- A simple scaling damage formula
@@ -49,7 +51,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
 	getRange = function(self, t) return math.ceil(self:getParadox()/20) end,
-	message = "Reality has shifted.",
+	message = "진실이 변경되었습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -91,7 +93,7 @@ newTalent{
 	cooldown = 1,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/50) end,
 	getRange = function(self, t) return math.ceil(self:getParadox()/100) end,
-	message = "@Source@ 시공간의 구조에 약간의 문제를 일으켰습니다.",
+	message = "@Source1@ 시공간의 구조에 약간의 문제를 일으켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -133,7 +135,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
 	getStop = function(self, t) return math.ceil(self:getParadox()/100) end,
-	message = "@Source@ 무의 시간으로 이루어진 거품을 만들어냅니다.",
+	message = "@Source1@ 무의 시간으로 이루어진 거품을 만들어냅니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -173,7 +175,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
 	getSlow = function(self, t) return 1 - 1 / (1 + (self:getParadox()/15) / 100) end,
-	message = "@Source@ 느린 시간으로 이루어진 거품을 만들어냅니다.",
+	message = "@Source1@ 느린 시간으로 이루어진 거품을 만들어냅니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -212,7 +214,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/300) end,
 	getPower = function(self, t) return ((self:getParadox()/15) / 100) end,
-	message = "@Source@ 몇몇 시간의 구조를 가속시켰습니다.",
+	message = "@Source1@ 몇몇 시간의 구조를 가속시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -250,7 +252,7 @@ newTalent{
 	cooldown = 1,
 	getDamage = function(self, t) return getAnomalyDamage(self)/4 end,
 	getDuration = function(self, t) return math.ceil (self:getParadox()/50) end,
-	message = "A temporal storm rages around @Source@.",
+	message = "@Source@의 주변으로 시간의 폭풍이 몰아칩니다.",
 	action = function(self, t)
 		-- Add a lasting map effect
 		game.level.map:addEffect(self,
@@ -281,7 +283,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
 	getSummonTime = function(self, t) return math.ceil(self:getParadox()/50) end,
-	message = "@Source@ 간섭에 몇몇 시간의 정령들이 관심을 보였습니다.",
+	message = "@Source@의 간섭에 몇몇 시간의 정령들이 관심을 보였습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -310,6 +312,7 @@ newTalent{
 				type = "elemental", subtype = "temporal",
 				display = "E", color=colors.YELLOW,
 				name = "telugoroth", faction = a.faction,
+				kr_display_name = "정령",
 				desc = [[시간의 정령으로, 시간을 여행하는 자가 아닌 한 만나기 힘든 정령입니다. 그 형체가 끊임없이 변하고 있어, 눈에 흐릿하게 보입니다.]],
 				combat = { dam=resolvers.mbonus(40, 15), atk=15, apr=15, dammod={mag=0.8}, damtype=DamageType.TEMPORAL },
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
@@ -369,7 +372,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
 	getDuration = function(self, t) return math.ceil(self:getParadox()/100) end,
-	message = "@Source@ 시간의 구조를 정지시켰습니다.",
+	message = "@Source1@ 시간의 구조를 정지시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -429,7 +432,7 @@ newTalent{
 	getRange = function(self, t) return math.ceil(self:getParadox()/20) end,
 	getConfuseDuration = function(self, t) return math.floor(self:getParadox()/200)end,
 	getConfuseEfficency = function(self, t) return self:getParadox()/10 end,
-	message = "Reality has shifted.",
+	message = "진실이 변경되었습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, t.getRange(self, t))
@@ -463,10 +466,10 @@ newTalent{
 				else
 					-- return the target without effect
 					game.level.map(target.x, target.y, Map.ACTOR, target)
-					game.logSeen(self, "The spell fizzles!")
+					game.logSeen(self, "주문이 피식거리며 사라졌습니다!")
 				end
 			else
-				game.logSeen(target, "%s resists the swap!", target.name:capitalize())
+				game.logSeen(target, "%s 위치 교체를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			game:playSoundNear(self, "talents/teleport")
 		end
@@ -489,7 +492,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
 	getDamage = function(self, t) return getAnomalyDamage(self) end,
-	message = "@Source@ 중력 가시를 발생시켰습니다.",
+	message = "@Source1@ 중력 가시를 발생시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -513,7 +516,7 @@ newTalent{
 				local tx, ty = util.findFreeGrid(a.x, a.y, 5, true, {[Map.ACTOR]=true})
 				if tx and ty and target:canBe("knockback") then
 					target:move(tx, ty, true)
-					game.logSeen(target, "%s 중력 가시에 걸렸습니다!", target.name:capitalize())
+					game.logSeen(target, "%s 중력 가시에 걸렸습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end)
 
@@ -572,7 +575,7 @@ newTalent{
 					local t = rng.tableRemove(tids)
 					if not t then break end
 					target.talents_cd[t.id] = rng.range(2, power)
-					game.logSeen(target, "%s 방해되었습니다! (대상 : %s)", target.name:capitalize(), t.name)
+					game.logSeen(target, "%s의 %s 방해받았습니다!", (target.kr_display_name or target.name):capitalize(), (t.kr_display_name or t.name):addJosa("가"))
 				end
 				target.changed = true
 			end, nil)
@@ -655,6 +658,7 @@ newTalent{
 
 				if race == 1 then
 					m.name = "human farmer"
+					m.kr_display_name = "인간 농부"
 					m.subtype = "human"
 					m.image = "npc/humanoid_human_human_farmer.png"
 					m.desc = [[평범한 인간 농부로, 뭐가 어떻게 된 것인지 모르겠다는 표정을 하고 있습니다.]]
@@ -662,6 +666,7 @@ newTalent{
 					m.resolvers.inscriptions(1, "infusion")
 				elseif race == 2 then
 					m.name = "halfling gardner"
+					m.kr_display_name = "하플링 정원사"
 					m.subtype = "halfling"
 					m.desc = [[무뚝뚝한 하플링 정원사로, 지금 여기서 무슨 일이 일어나는지 혼란스러운 것 같습니다.]]
 					m.faction = "allied-kingdoms"
@@ -669,6 +674,7 @@ newTalent{
 					m.resolvers.inscriptions(1, "infusion")
 				elseif race == 3 then
 					m.name = "shalore scribe"
+					m.kr_display_name = "샬로레 필경사"
 					m.subtype = "shalore"
 					m.desc = [[비쩍 마른 엘프 필경사로,주변 환경에 당황한 것 같습니다.]]
 					m.faction = "shalore"
@@ -676,6 +682,7 @@ newTalent{
 					m.resolvers.inscriptions(1, "rune")
 				elseif race == 4 then
 					m.name = "dwarven lumberjack"
+					m.kr_display_name = "드워프 나무꾼"
 					m.subtype = "dwarf"
 					m.desc = [[건장한 드워프 나무꾼으로, 갑작스러운 환경 변화에 살짝 화가 난 것 같습니다.]]
 					m.faction = "iron-throne"
@@ -707,7 +714,7 @@ newTalent{
 	type_no_req = true,
 	getRange = function(self, t) return math.ceil(self:getParadox()/30) end,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
-	message = "Poof!!",
+	message = "펑!!",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, t.getRange(self, t))
@@ -752,7 +759,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/150) end,
 	getPower = function(self, t) return (self:getParadox()/30) end,
-	message = "@Source@ 몇몇 존재들을 우연히 약화시켰습니다.",
+	message = "@Source1@ 몇몇 존재들을 우연히 약화시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -793,7 +800,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getHastePower = function(self, t) return ((self:getParadox()/15) / 100) end,
 	getRegenPower = function(self, t) return (self:getParadox()/15) end,
-	message = "The odds have tilted.",
+	message = "승산이 기울었습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)

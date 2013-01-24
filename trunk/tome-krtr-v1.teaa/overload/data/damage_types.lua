@@ -1388,7 +1388,7 @@ newDamageType{
 -- Spydric poison: prevents movement
 newDamageType{
 	name = "spydric poison", type = "SPYDRIC_POISON",
-	kr_display_name = "속박형 중독",
+	kr_display_name = "속박형 독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=3} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1402,7 +1402,7 @@ newDamageType{
 -- Crippling poison: failure to act
 newDamageType{
 	name = "crippling poison", type = "CRIPPLING_POISON", text_color = "#LIGHT_GREEN#",
-	kr_display_name = "장애형 중독",
+	kr_display_name = "장애형 독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=3} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1416,7 +1416,7 @@ newDamageType{
 -- Insidious poison: prevents healing
 newDamageType{
 	name = "insidious poison", type = "INSIDIOUS_POISON", text_color = "#LIGHT_GREEN#",
-	kr_display_name = "반회복형 중독",
+	kr_display_name = "잠식형 독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=7, heal_factor=dam} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1509,7 +1509,7 @@ newDamageType{
 
 newDamageType{
 	name = "congeal time", type = "CONGEAL_TIME",
-	kr_display_name = "시간 멈추기",
+	kr_display_name = "얼어붙은 시간",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2049,7 +2049,7 @@ newDamageType{
 
 newDamageType{
 	name = "warding", type = "WARDING",
-	kr_display_name = "배척",
+	kr_display_name = "보호",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then

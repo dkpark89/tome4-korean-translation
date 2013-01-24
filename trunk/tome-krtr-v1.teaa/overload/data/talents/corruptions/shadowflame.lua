@@ -80,7 +80,7 @@ newTalent{
 
 newTalent{
 	name = "Flame of Urh'Rok",
-	kr_display_name = "Urh'Rok의 불꽃",
+	kr_display_name = "울흐'록의 불꽃",
 	type = {"corruption/shadowflame", 3},
 	require = corrs_req3,
 	mode = "sustained",
@@ -110,7 +110,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[강력한 악마의 군주 Urh'Rok의 정수를 불러와, 악마로 변신합니다.
+		return ([[강력한 악마의 군주 울흐'록(Urh'Rok)의 정수를 불러와, 악마로 변신합니다.
 		악마 상태에서는 %d%% 화염 저항력, %d%% 어둠 저항력을 얻으며, 전체 속도가 %d%% 상승합니다.
 		또한, 공포의 영역에서 뿜어져나오는 불길이 오히려 생명력을 회복시켜주게 됩니다.
 		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):

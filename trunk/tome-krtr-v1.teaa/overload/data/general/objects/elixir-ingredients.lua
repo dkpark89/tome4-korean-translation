@@ -155,9 +155,9 @@ newEntity{ define_as = "MULTIHUED_WYRM_SCALE",
 	encumber = 0,
 	unided_name = "shimmering scale",
 	name = "multi-hued wyrm scale",
-	kr_display_name = "여러색의 드래곤 비늘", kr_unided_name = "어른거리는 비늘",
+	kr_display_name = "여러색의 용 비늘", kr_unided_name = "어른거리는 비늘",
 	display = "~", color=colors.VIOLET,
-	desc = [[아릅답고 거의 난공불락입니다. 드래곤에게서 그걸 분리하는 것은 아주 힘든일입니다.]],
+	desc = [[아릅답고 거의 난공불락입니다. 용에게서 그걸 분리하는 것은 아주 힘든일입니다.]],
 	alch = "만약 이것들을 모으는게 힘들다고 생각한다면, 한번 용해시켜보게나.",
 }
 

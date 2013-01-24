@@ -281,7 +281,7 @@ newEntity{
 
 newEntity{ base = "BASE_TAINT",
 	name = "Taint of Telepathy",
-	kr_display_name = "투시의 오염",
+	kr_display_name = "투시의 감염",
 	define_as = "TAINT_TELEPATHY", image = "object/taint_of_telepathy.png",
 	unique = true,
 	identified = true,

@@ -83,14 +83,14 @@ newTalent{
 		local first = nil
 
 		self:project(tg, fx, fy, function(dx, dy)
-			print("[Chain lightning] 마법의 대상", fx, fy, "from", self.x, self.y)
+			print("[Chain lightning] targetting", fx, fy, "from", self.x, self.y)
 			local actor = game.level.map(dx, dy, Map.ACTOR)
 			if actor and not affected[actor] then
 				ignored = false
 				affected[actor] = true
 				first = actor
 
-				print("[Chain lightning] 다른 대상을 찾고 있습니다.", nb, " at ", dx, dy, "radius ", 10, "from", actor.name)
+				print("[Chain lightning] looking for more targets", nb, " at ", dx, dy, "radius ", 10, "from", actor.name)
 				self:project({type="ball", selffire=false, x=dx, y=dy, radius=10, range=0}, dx, dy, function(bx, by)
 					local actor = game.level.map(bx, by, Map.ACTOR)
 					if actor and not affected[actor] and self:reactionToward(actor) < 0 then
@@ -106,7 +106,7 @@ newTalent{
 		local targets = { first }
 		affected[first] = nil
 		local possible_targets = table.listify(affected)
-		print("[Chain lightning] 대상을 찾았습니다 :", #possible_targets)
+		print("[Chain lightning] Found targets:", #possible_targets)
 		for i = 2, nb do
 			if #possible_targets == 0 then break end
 			local act = rng.tableRemove(possible_targets)
@@ -116,7 +116,7 @@ newTalent{
 		local sx, sy = self.x, self.y
 		for i, actor in ipairs(targets) do
 			local tgr = {type="beam", range=self:getTalentRange(t), selffire=false, talent=t, x=sx, y=sy}
-			print("[Chain lightning] 연계됩니다.", sx, sy, "to", actor.x, actor.y)
+			print("[Chain lightning] jumping from", sx, sy, "to", actor.x, actor.y)
 			local dam = self:spellCrit(t.getDamage(self, t))
 			self:project(tgr, actor.x, actor.y, DamageType.LIGHTNING_DAZE, {dam=rng.avg(rng.avg(dam / 3, dam, 3), dam, 5), daze=self:attr("lightning_daze_tempest") or 0})
 			if core.shader.active() then game.level.map:particleEmitter(sx, sy, math.max(math.abs(actor.x-sx), math.abs(actor.y-sy)), "lightning_beam", {tx=actor.x-sx, ty=actor.y-sy}, {type="lightning"})
@@ -237,12 +237,12 @@ newTalent{
 	end,
 	activate = function(self, t)
 		game:playSoundNear(self, "talents/thunderstorm")
-		game.logSeen(self, "#0080FF#A 맹렬한 뇌우가 %s 주변에 나타났습니다!", self.name)
+		game.logSeen(self, "#0080FF#맹렬한 뇌우가 %s 주변에 나타났습니다!", (self.kr_display_name or self.name) )
 		return {
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#0080FF# %s 주변의 뇌우가 조금씩 사그라들다가, 완전히 사라졌습니다.", self.name)
+		game.logSeen(self, "#0080FF#%s 주변의 뇌우가 조금씩 사그라들다가, 완전히 사라졌습니다.", (self.kr_display_name or self.name) )
 		return true
 	end,
 	info = function(self, t)

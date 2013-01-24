@@ -146,7 +146,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상의 질병을 더욱 활성화시켜, 대상이 가지고 있는 질병마다 %0.2f 황폐화 피해를 줍니다.
-		또한 주변 %d 칸 반경의 적들에게 노쇠형, 심약형, 부패형, 전염형 질병들을 옮깁니다.
+		또한 주변 %d 칸 반경의 적들에게 노화성, 심약성, 부패성, 전염성 질병들을 옮깁니다.
 		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 85)), self:getTalentRadius(t))
 	end,

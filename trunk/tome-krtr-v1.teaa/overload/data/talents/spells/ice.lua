@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Ice Shards",
 	kr_display_name = "얼음 파편",
@@ -112,7 +114,7 @@ newTalent{
 				-- Instakill critters
 				if act.rank <= 1 then
 					if act:canBe("instakill") then
-						game.logSeen(act, "%s 박살났습니다!", act.name:capitalize())
+						game.logSeen(act, "%s 박살났습니다!", (act.kr_display_name or act.name):capitalize():addJosa("가"))
 						act:die(self)
 					end
 				end

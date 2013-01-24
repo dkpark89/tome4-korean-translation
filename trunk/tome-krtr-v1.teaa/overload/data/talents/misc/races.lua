@@ -772,7 +772,7 @@ newTalent{
 		self.combat_mentalresist = self.combat_mentalresist - 4
 	end,
 	info = function(self, t)
-		return ([['길'과 동화되어, 외부의 효과로부터 정신을 보호합니다.
+		return ([['한길'과 동화되어, 외부의 효과로부터 정신을 보호합니다.
 		혼란과 침묵 저항력이 %d%% 증가하고, 정신 내성이 %d 증가합니다.]]):format(self:getTalentLevelRaw(t) * 12, self:getTalentLevelRaw(t) * 4)
 	end,
 }
@@ -793,14 +793,14 @@ newTalent{
 		self:recomputeGlobalSpeed()
 	end,
 	info = function(self, t)
-		return ([[이크 종족은 빠르게 행동하고, 빠르게 생각하고, '길'을 위한 제물을 빠르게 준비합니다.
+		return ([[이크 종족은 빠르게 행동하고, 빠르게 생각하고, '한길'을 위한 제물을 빠르게 준비합니다.
 		전체 속도가 %d%% 증가합니다.]]):format(self:getTalentLevelRaw(t) * 3)
 	end,
 }
 
 newTalent{
 	name = "Wayist",
-	kr_display_name = "'길'의 일원",
+	kr_display_name = "'한길'의 일원",
 	type = {"race/yeek", 4},
 	require = racial_req4,
 	points = 5,
@@ -872,7 +872,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[이크들의 정신 통합체 '길'에 도움을 요청합니다.
+		return ([[이크들의 정신 통합체 '한길'에 도움을 요청합니다.
 		이크 정신 파괴자 3 명이 아군으로 소환됩니다.]])
 	end,
 }
@@ -881,7 +881,7 @@ newTalent{
 newTalent{
 	short_name = "YEEK_ID",
 	name = "Knowledge of the Way",
-	kr_display_name = "'길'의 지식",
+	kr_display_name = "'한길'의 지식",
 	type = {"base/race", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,
@@ -893,7 +893,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([['길'과 잠시 동화되어, 이크 종족이 가진 모든 지식에 접근합니다.
+		return ([['한길'과 잠시 동화되어, 이크 종족이 가진 모든 지식에 접근합니다.
 		이를 통해 알 수 없었던 도구나 장비를 감정해냅니다.]])
 	end,
 }

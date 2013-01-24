@@ -4,7 +4,6 @@
 
 -- 한글 글꼴 설정
 krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 빠름, 글자 가독성이 좀 떨어짐
---krFont = "/data/font/HG172.ttf" -- 헤움고딕172(467kB), 아직 느림, 가독성은 괜찮은편
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index
@@ -173,7 +172,7 @@ function string.krItemType(str)
 	elseif ori == "whip" then return "채찍"
 	elseif ori == "infusion" then return "주입물"
 	elseif ori == "rune" then return "룬"
-	elseif ori == "taint" then return "오염"
+	elseif ori == "taint" then return "감염"
 	elseif ori == "sher'tul" then return "쉐르'툴"
 	elseif ori == "organic" then return "장기"
 	elseif ori == "arrow" then return "화살"
@@ -200,7 +199,7 @@ function string.krTalentType(str)
 	elseif ori == "undead" then return "언데드"
 	---- celestial
 	elseif ori == "guardian" then return "빛의 수호"
-	elseif ori == "chants" then return "태양의 찬가"
+	elseif ori == "chants" then return "찬가"
 	elseif ori == "light" then return "빛"
 	elseif ori == "combat" then return "빛의 전투"
 	elseif ori == "sun" then return "태양"
@@ -297,12 +296,12 @@ function string.krTalentType(str)
 	elseif ori == "halfling" then return "하플링"
 	elseif ori == "dwarf" then return "드워프"
 	elseif ori == "ghoul" then return "구울"
-	elseif ori == "skeleton" then return "스켈레톤"
+	elseif ori == "skeleton" then return "해골"
 	elseif ori == "yeek" then return "이크"
 	elseif ori == "inscriptions" then return "각인"
 	elseif ori == "infusions" then return "인퓨전"
 	elseif ori == "runes" then return "룬"
-	elseif ori == "taints" then return "오염"
+	elseif ori == "taints" then return "감염"
 	elseif ori == "horror" then return "공포"
 	elseif ori == "objects" then return "물체"
 	elseif ori == "other" then return "기타"
@@ -405,7 +404,7 @@ function string.krTalentType(str)
 	elseif ori == "cunning" then return "교활함"
 	-- undeads
 	elseif ori == "ghoul" then return "구울"
-	elseif ori == "skeleton" then return "스켈레톤"
+	elseif ori == "skeleton" then return "해골"
 	elseif ori == "vampire" then return "흡혈귀"
 	elseif ori == "lich" then return "리치"
 
@@ -435,7 +434,7 @@ function string.krRace(str)
 	elseif ori == "tutorial stats" then return "연습게임용 능력자"
 	elseif ori == "undead" then return "언데드"
 	elseif ori == "ghoul" then return "구울"
-	elseif ori == "skeleton" then return "스켈레톤"
+	elseif ori == "skeleton" then return "해골"
 	elseif ori == "yeek" then return "이크"
 	-- 위는 캐릭터 종족, 아래는 npc 종족
 	elseif ori == "insect" then return "곤충"
@@ -448,12 +447,12 @@ function string.krRace(str)
 	elseif ori == "bird" then return "조류"
 	elseif ori == "giant" then return "거인"
 	elseif ori == "canine" then return "갯과"
-	elseif ori == "dragon" then return "드래곤"
+	elseif ori == "dragon" then return "용"
 	elseif ori == "cold" then return "냉동"
 	elseif ori == "golem" then return "골렘"
 	elseif ori == "immovable" then return "부동생물"
 	elseif ori == "crystal" then return "수정"
-	elseif ori == "elemental" then return "엘리멘탈"
+	elseif ori == "elemental" then return "정령"
 	elseif ori == "light" then return "빛"
 	elseif ori == "humanoid" then return "영장류"
 	elseif ori == "fire" then return "화염"
@@ -476,7 +475,7 @@ function string.krRace(str)
 	elseif ori == "mummy" then return "미이라"
 	elseif ori == "naga" then return "나가"
 	elseif ori == "vermin" then return "해충"
-	elseif ori == "oozes" then return "오즈"
+	elseif ori == "oozes" then return "진흙 덩어리"
 	elseif ori == "orc" then return "오크"
 	elseif ori == "plants" then return "식물"
 	elseif ori == "ritch" then return "릿치"
@@ -537,7 +536,7 @@ function string.krClass(str)
 	elseif ori == "brawler" then return "격투가"
 	elseif ori == "wilder" then return "자연의 추종자"
 	elseif ori == "summoner" then return "소환술사"
-	elseif ori == "wyrmic" then return "워믹"
+	elseif ori == "wyrmic" then return "용인"
 	else return str end
 end
 
