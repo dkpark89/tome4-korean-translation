@@ -18,7 +18,8 @@
 -- darkgod@te4.org
 
 return [[
-How did you do this time? Your #LIGHT_GREEN#Mental Save#WHITE# score is #00FF80#tier 3#WHITE#, and an item that granted you +6 #LIGHT_GREEN#Mental Save#WHITE# only increased this score by 2.
+예상이 맞았나요? #LIGHT_GREEN#정신 내성#WHITE# 수치는 현재 #00FF80#3 단계#WHITE# 능력치입니다.
+그리고 #LIGHT_GREEN#정신 내성#WHITE# 을 6 올려주는 장비는 원래 효과의 1/3 밖에 발휘하지 못했죠.
 
-Can you explain what's going on?
+이제 확실히 감이 오나요?
 ]]

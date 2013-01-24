@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Corrupted Strength",
-	kr_display_name = "타락한 힘",
+	kr_display_name = "오염된 힘",
 	type = {"corruption/reaving-combat", 1},
 	mode = "passive",
 	points = 5,
@@ -36,23 +36,22 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Allows you to dual wield any type of one handed weapons, and increases the damage of the off-hand weapon to %d%%.
-		Also, casting a spell (which uses a turn) will give a free melee attack at a random target in melee range for %d%% blight damage.]]):
+		return ([[보조 무기로 모든 한손 무기를 사용할 수 있게 되며, 보조 무기의 피해량이 %d%% 상승합니다.
+		그리고 1 턴 이상의 시전시간을 갖는 마법을 사용할 때, 턴 소모 없이 시전자 근처의 무작위한 적에게 무기 피해의 %d%% 에 해당하는 황폐화 피해를 줍니다.]]):
 		format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 9)), 100 * self:combatTalentWeaponDamage(t, 0.5, 1.1))
 	end,
 }
 
 newTalent{
 	name = "Bloodlust",
-	kr_display_name = "피에 굻주림",
+	kr_display_name = "피의 굻주림",
 	type = {"corruption/reaving-combat", 2},
 	mode = "passive",
 	require = str_corrs_req2,
 	points = 5,
 	info = function(self, t)
-		return ([[When you damage one of your foes, you enter a bloodlust, increasing your Spellpower by 1 for each target up to a maximum of %d per turn.
-		The maximum reachable is +%d Spellpower.
-		The bonus decreases by one point per turn.]]):
+		return ([[적에게 피해를 줄 때마다 피의 굶주림 상태가 되어, 주문력이 1 상승합니다. 적의 숫자에 따라 주문력 상승량도 달라집니다. (최대 : %d 주문력 / 턴)
+		추가 주문력의 최대 허용량은 +%d 이며, 매 턴마다 추가 주문력은 1 씩 떨어집니다.]]):
 		format(math.floor(self:getTalentLevel(t)), math.floor(6 * self:getTalentLevel(t)))
 	end,
 }
@@ -71,7 +70,7 @@ newTalent{
 		self:attr("disease_immune", -0.2)
 	end,
 	info = function(self, t)
-		return ([[You gain a %d%% resistance to diseases, and have a %d%% chance on melee attacks to spread any existing diseases on your target.]]):
+		return ([[질병 저항력이 %d%% 상승하며, 근접 공격을 할 때마다 %d%% 확률로 대상에게 무작위한 질병을 감염시킵니다.]]):
 		format(20 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
 	end,
 }
@@ -94,10 +93,10 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Your blood turns into an acidic mixture. When you get hit, the attacker is splashed with acid.
-		This deals %0.2f acid damage each turn for 5 turns, and reduces the attacker's Accuracy by %d.
-		At level 3, it will also reduce Armour by %d for 5 turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[피가 산성 혼합물이 되어, 자신을 공격한 적은 산성 피해를 받게 됩니다.
+		자신을 공격한 적은 5 턴 동안 매 턴마다 %0.2f 산성 피해를 받게 되며, 정확도가 %d 떨어지게 됩니다.
+		기술 레벨이 3 이상이면, 추가적으로 적의 방어도를 5 턴 동안 %d 감소시킵니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 5, 30)), self:combatTalentSpellDamage(t, 15, 35), self:combatTalentSpellDamage(t, 15, 40))
 	end,
 }

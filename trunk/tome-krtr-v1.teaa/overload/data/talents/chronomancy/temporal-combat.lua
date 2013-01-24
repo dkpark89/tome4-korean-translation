@@ -45,14 +45,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[You've learned to boost your strength through your control of the spacetime continuum.  Increases your Strength and your Physical Save by %d.
-		The effect will scale with your Willpower.]]):format(power)
+		return ([[시공간 연속체를 다루면서, 힘을 증가시키는 법을 알게 되었습니다. 힘 능력치와 물리 내성이 %d 상승합니다.
+		이 효과는 의지 능력치의 영향을 받아 증가합니다.]]):format(power)
 	end
 }
 
 newTalent{
 	name = "Invigorate",
-	kr_display_name = "기운 돋우기",
+	kr_display_name = "활성화",
 	type = {"chronomancy/temporal-combat", 2},
 	require = temporal_req2,
 	points = 5,
@@ -68,8 +68,8 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[For the next %d turns, you recover %d stamina each turn and all other talents on cooldown will refresh twice as fast as usual.
-		The duration will scale with your Paradox.]]):format(duration, power)
+		return ([[%d 턴 동안 매 턴마다 %d 체력을 회복하고, 모든 기술의 재사용 대기시간이 2 배 빨리 감소됩니다.
+		지속시간은 괴리 능력치의 영향을 받아 증가합니다.]]):format(duration, power)
 	end,
 }
 
@@ -101,14 +101,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[You've learned to boost your magic through your control over the spacetime continuum.  Increases your Magic and your Spell Save by %d.
-		The effect will scale with your Willpower.]]):format(power)
+		return ([[시공간 연속체를 다루면서, 마법을 다루는 법을 알게 되었습니다. 마법 능력치와 주문 내성이 %d 상승합니다.
+		이 효과는 의지 능력치의 영향을 받아 증가합니다.]]):format(power)
 	end
 }
 
 newTalent{
 	name = "Damage Smearing",
-	kr_display_name = "피해 문지르기",
+	kr_display_name = "피해 분산",
 	type = {"chronomancy/temporal-combat",4},
 	require = temporal_req4,
 	points = 5,
@@ -124,7 +124,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[For the next %d turns, you convert all non-temporal damage you receive into temporal damage spread out over six turns.
-		The duration will scale with your Paradox.]]):format (duration)
+		return ([[%d 턴 동안 자신이 받는 모든 공격의 속성을 시간 속성으로 바꾸고, 6 턴에 걸쳐 피해를 나눠입게 됩니다.
+		지속시간은 괴리 수치의 영향을 받아 증가합니다.]]):format (duration)
 	end,
 }

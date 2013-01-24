@@ -27,14 +27,14 @@ newTalent{
 	getHealRatio = function(self, t) return 0.5 + self:combatTalentMindDamage(t, 0.1, 1)end,
 	info = function(self, t)
 		local heal = t.getHealRatio(self, t)
-		return ([[Your Feedback decay now heals you for %d%% of the loss.
-		The healing effect will scale with your Mindpower.]]):format(heal*100)
+		return ([[받은 피해량의 %d%% 만큼 반작용 수치가 회복됩니다.
+		회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(heal*100)
 	end,
 }
 
 newTalent{
 	name = "Resonance Field",
-	kr_display_name = "공진장막",
+	kr_display_name = "공진 장막",
 	type = {"psionic/feedback", 2},
 	points = 5,
 	feedback = 25,
@@ -50,9 +50,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local shield_power = t.getShieldPower(self, t)
-		return ([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain.
-		Using this talent will not break psionic channels (such as Mind Storm).
-		The max absorption value will scale with your Mindpower, and the effect lasts up to ten turns.]]):format(shield_power)
+		return ([[공진 장막을 만들어, 받는 피해량의 50%% 를 흡수합니다. (최대 %d 피해량까지 흡수 가능)
+		공진 장막은 반작용 획득을 감소시키지 않으며, 염력 집중 또한 방해하지 않습니다.
+		최대 피해 흡수량은 정신력 능력치의 영향을 받아 증가하며, 공진 장막은 최대 10 턴 동안 유지할 수 있습니다.]]):format(shield_power)
 	end,
 }
 
@@ -74,8 +74,8 @@ newTalent{
 	info = function(self, t)
 		local max_feedback = t.getMaxFeedback(self, t)
 		local gain = t.getFeedbackGain(self, t)
-		return ([[Increases your maximum Feedback by %d, and increases your base Feedback gain ratio to %d%%.
-		The Feedback gain will scale with your Mindpower.]]):format(max_feedback, gain * 100)
+		return ([[최대 반작용 수치를 %d 증가시키고, 반작용 획득 기본 비율이 %d%% 가 됩니다.
+		반작용 획득 비율은 정신력 능력치의 영향을 받아 증가합니다.]]):format(max_feedback, gain * 100)
 	end,
 }
 
@@ -123,8 +123,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local data = t.getData(self, t)
-		return ([[Use Feedback to replenish yourself.  This heals you for %d life, and restores %d stamina, %d mana, %d equilibrium, %d vim, %d positive and negative energies, %d psi energy, and %d hate.
-		Using this talent will not break psionic channels (such as Mind Storm).
-		The heal and resource gain will improve with your Mindpower.]]):format(data.heal, data.stamina, data.mana, -data.equilibrium, data.vim, data.positive, data.psi, data.hate)
+		return ([[반작용을 사용하여 다른 원천력을 회복합니다. 생명력이 %d, 체력이 %d, 마나가 %d, 평정이 %d, 정력이 %d, 양기와 음기가 %d, 염력이 %d, 증오가 %d 회복됩니다.
+		이 기술은 염력 집중을 방해하지 않습니다.
+		회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(data.heal, data.stamina, data.mana, -data.equilibrium, data.vim, data.positive, data.psi, data.hate)
 	end,
 }

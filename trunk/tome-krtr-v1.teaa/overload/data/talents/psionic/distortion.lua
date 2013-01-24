@@ -21,7 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Distortion Bolt",
-	kr_display_name = "왜곡의 탄",
+	kr_display_name = "왜곡의 화살",
 	type = {"psionic/distortion", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -52,10 +52,10 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Fire a bolt of distortion that ignores resistance and inflicts %0.2f physical damage.  This damage will distort affected targets, rendering them vulnerable to distortion effects for two turns.
-		If the bolt comes in contact with a target that's already distorted, a detonation will occur, inflicting 150%% of the base damage in a radius of %d.
-		At talent level 5, you learn to shape your distortion effects, preventing them from hitting you or your allies.
-		The damage will scale with your Mindpower.]]):format(damDesc(self, DamageType.PHYSICAL, damage), radius)
+		return ([[왜곡의 화살을 발사하여, 저항을 무시하고 %0.2f 물리 피해를 줍니다. 화살에 맞은 적은 왜곡되며, 2 턴 동안 유지됩니다.
+		이미 왜곡된 적에게 왜곡의 화살을 맞출 경우, 왜곡 폭발이 일어나 주변 %d 칸 반경에 원래 피해량의 150%% 에 해당하는 피해를 줍니다.
+		기술 레벨이 5 이상이면, 왜곡의 형태를 조절하여 자신과 아군은 폭발에 휘말리지 않게 만들 수 있게 됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), radius)
 	end,
 }
 
@@ -96,16 +96,16 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local power = t.getPower(self, t)
-		return ([[Creates a distortion wave in a radius %d cone that deals %0.2f physical damage and knocks back targets in the blast radius.
-		This damage will distort affected targets, rendering them vulnerable to distortion effects for two turns.
-		If the target is already distorted, they'll be stunned for %d turns as well.
-		The damage will scale with your Mindpower.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), power)
+		return ([[전방 %d 칸 반경에 왜곡의 파동을 만들어내, %0.2f 물리 피해를 주고 적들을 뒤로 밀어냅니다.
+		파동의 영향을 받은 적은 왜곡되며, 2 턴 동안 유지됩니다.
+		이미 왜곡된 적에게 왜곡 파동을 맞출 경우, 대상은 %d 턴 동안 기절하게 됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), power)
 	end,
 }
 
 newTalent{
 	name = "Ravage",
-	kr_display_name = "손상",
+	kr_display_name = "유린",
 	type = {"psionic/distortion", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -141,16 +141,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Ravages the target with distortion, inflicting %0.2f physical damage each turn for %d turns.
-		This damage will distort affected targets, rendering them vulnerable to distortion effects for two turns.
-		If the target is already distorted when Ravage is applied, the damage will be increased by 50%% and the target will lose one beneficial physical effect or sustain each turn.
-		The damage will scale with your Mindpower.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration)
+		return ([[왜곡의 힘으로 대상을 유린하여, 매 턴마다 %0.2f 물리 피해를 줍니다. (지속시간 : %d 턴)
+		유린당한 대상은 왜곡되며, 2 턴 동안 유지됩니다.
+		이미 왜곡된 대상을 유린할 경우 피해량이 50%% 증가하며, 매 턴마다 대상의 이로운 물리적 상태효과나 유지형 기술이 해제됩니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 
 newTalent{
 	name = "Maelstrom",
-	kr_display_name = "큰 소용돌이",
+	kr_display_name = "염력의 소용돌이",
 	type = {"psionic/distortion", 4},
 	points = 5, 
 	require = psi_wil_req4,
@@ -205,7 +205,7 @@ newTalent{
 				for i, target in ipairs(tgts) do
 					if target.actor:canBe("knockback") then
 						target.actor:pull(self.x, self.y, 1)
-						game.logSeen(target.actor, "%s is pulled in by the %s!", target.actor.name:capitalize(), self.name)
+						game.logSeen(target.actor, "%s 끌어당겨집니다! (원인 : %s)", target.actor.name:capitalize(), self.name)
 					end
 					DamageType:get(DamageType.PHYSICAL).projector(self.summoner, target.actor.x, target.actor.y, DamageType.PHYSICAL, self.dam)
 					target.actor:setEffect(target.actor.EFF_DISTORTION, 2, {})
@@ -236,8 +236,8 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Create a powerful maelstorm for %d turns.  Each turn, the maelstrom will pull in targets within a radius of %d, and inflict %0.2f physical damage.
-		This damage will distort affected targets, rendering them vulnerable to distortion effects for two turns.
-		The damage will scale with your Mindpower.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
+		return ([[%d 턴 동안 강력한 소용돌이를 만들어냅니다. 매 턴마다 소용돌이는 주변 %d 칸 반경의 적들을 끌어당기며, %0.2f 물리 피해를 줍니다.
+		소용돌이의 영향을 받은 적은 왜곡되며, 2 턴 동안 유지됩니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }

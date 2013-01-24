@@ -21,7 +21,7 @@ require "engine.krtrUtils" --@@
 
 newTalent{
 	name = "Dual Weapon Training",
-	kr_display_name = "쌍수 무기 숙련",
+	kr_display_name = "쌍수 무기 수련",
 	type = {"technique/dualweapon-training", 1},
 	mode = "passive",
 	points = 5,

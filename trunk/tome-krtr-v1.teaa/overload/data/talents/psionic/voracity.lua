@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Kinetic Leech",
-	kr_display_name = "동역학적 갈취",
+	kr_display_name = "동역학적 흡수",
 	type = {"psionic/voracity", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -62,14 +62,14 @@ newTalent{
 		local range = self:getTalentRadius(t)
 		local slow = t.getSlow(self, t)
 		local en = t.getLeech(self, t)
-		return ([[You suck the kinetic energy out of your surroundings, slowing all targets in a radius of %d by %d%% for four turns.
-		For each target drained, you gain %d Psi. The Psi gain will improve with your Mindpower.]]):format(range, slow, en)
+		return ([[주변의 동역학적 에너지를 빨아들여, 주변 %d 칸 반경의 적들을 4 턴 동안 %d%% 만큼 느리게 만듭니다.
+		적을 1 명 흡수할 때마다 염력을 %d 회복하며, 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(range, slow, en)
 	end,
 }
 
 newTalent{
 	name = "Thermal Leech",
-	kr_display_name = "열역학적 갈취",
+	kr_display_name = "열역학적 흡수",
 	type = {"psionic/voracity", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -112,14 +112,15 @@ newTalent{
 		local dam = t.getDam(self, t)
 		local en = t.getLeech(self, t)
 		--local duration = self:getTalentLevel(t) + 2
-		return ([[You leech the heat out of all targets in a radius of %d, freezing them for up to %d turns. For each target drained, you gain %d Psi. The Psi gain will improve with your Mindpower.]]):
+		return ([[주변의 열역학적 에너지를 빨아들여, 주변 %d 칸 반경의 적들을 %d 턴 동안 얼립니다. (빙결 상태효과)
+		적을 1 명 흡수할 때마다 염력을 %d 회복하며, 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(range, dam, en)
 	end,
 }
 
 newTalent{
 	name = "Charge Leech",
-	kr_display_name = "전하적 갈취",
+	kr_display_name = "전하적 흡수",
 	type = {"psionic/voracity", 3},
 	require = psi_wil_req3,
 	points = 5,
@@ -174,12 +175,13 @@ newTalent{
 		local range = self:getTalentRadius(t)
 		local en = t.getLeech(self, t)
 		local dam = damDesc(self, DamageType.LIGHTNING, t.getDam(self, t))
-		return ([[You pull electric potential from all targets around you in a radius of %d, giving them a nasty shock in the process. Deals between %d and %d damage, and has a chance to daze. For each target drained, you gain %d Psi. The Psi gain and damage will improve with your Mindpower.]]):format(range, dam / 3, dam, en)
+		return ([[주변의 전하적 에너지를 빨아들여, 주변 %d 칸 반경의 적들에게 %d - %d 전기 피해를 줍니다. 피해를 받은 적은 혼절할 확률이 있습니다.
+		적을 1 명 흡수할 때마다 염력을 %d 회복하며, 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(range, dam / 3, dam, en)
 	end,
 }
 newTalent{
 	name = "Insatiable",
-	kr_display_name = "탐욕",
+	kr_display_name = "채울 수 없는 갈증",
 	type = {"psionic/voracity", 4},
 	mode = "passive",
 	points = 5,
@@ -191,7 +193,7 @@ newTalent{
 		self.max_psi = self.max_psi - 10
 	end,
 	info = function(self, t)
-		return ([[Increases your maximum energy by %d.]]):format(10 * self:getTalentLevelRaw(t))
+		return ([[더 많은 염력을 원하게 되어, 최대 염력량이 %d 늘어납니다.]]):format(10 * self:getTalentLevelRaw(t))
 	end,
 }
 

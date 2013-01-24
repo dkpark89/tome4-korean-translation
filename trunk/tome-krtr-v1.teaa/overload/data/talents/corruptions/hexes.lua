@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Pacification Hex",
-	kr_display_name = "진압의 매혹술",
+	kr_display_name = "진정의 매혹술",
 	type = {"corruption/hexes", 1},
 	require = corrs_req1,
 	points = 5,
@@ -46,8 +46,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target, dazing it and everything in a 2 radius ball around it for 3 turns, and giving %d%% chance to daze affected targets again each turn for 20 turns.
-		The chance will increase with your Spellpower.]]):format(self:combatTalentSpellDamage(t, 30, 50))
+		return ([[대상을 매혹시켜 3 턴 동안 혼절시키고, 20 턴 동안 매 턴마다 %d%% 확률로 다시 혼절하게 만듭니다.
+		이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
+		혼절 확률은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 30, 50))
 	end,
 }
 
@@ -80,15 +81,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target and everything within a radius 2 ball of your target for 20 turns. Each time your affected targets use a resource (stamina, mana, vim, ...), they take %0.2f fire damage.
-		In addition, the affected talent will have its cooldown increased by %d%% + 1 turn(s).
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 4, 90)), ((self:getTalentLevel(t) / 10))*100)
+		return ([[대상을 매혹시켜, 원천력 (체력, 마나, 원기 등) 을 사용할 때마다 %0.2f 화염 피해를 입히고 기술의 재사용 대기시간을 %d%% + 1 턴 증가시킵니다.
+		이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 4, 90)), ((self:getTalentLevel(t) / 10))*100)
 	end,
 }
 
 newTalent{
 	name = "Empathic Hex",
-	kr_display_name = "감정 이입의 매혹술",
+	kr_display_name = "공감의 매혹술",
 	type = {"corruption/hexes", 3},
 	require = corrs_req3,
 	points = 5,
@@ -115,8 +116,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target and everything within a radius 2 ball of your target. Each time they do damage, they take %d%% of the same damage for 20 turns.
-		The damage will increase with your Spellpower.]]):format(self:combatTalentSpellDamage(t, 4, 20))
+		return ([[대상을 매혹시켜, 20 턴 동안 대상이 누군가를 공격할 때마다 자신도 피해를 입게 만듭니다.
+		피해량의 %d%% 만큼 자신도 피해를 입게 되며, 이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 4, 20))
 	end,
 }
 
@@ -150,7 +152,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target, forcing it to be your thrall for %d turns.
-		If you damage the target, it will be freed from the hex.]]):format(2 + self:getTalentLevel(t))
+		return ([[대상을 매혹시켜, %d 턴 동안 노예로 부립니다.
+		시전자가 대상에게 피해를 주면, 매혹의 효과는 사라집니다.]]):format(2 + self:getTalentLevel(t))
 	end,
 }

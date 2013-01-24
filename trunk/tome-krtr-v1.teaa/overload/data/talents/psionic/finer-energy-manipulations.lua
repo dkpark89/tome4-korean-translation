@@ -36,15 +36,15 @@ newTalent{
 	info = function(self, t)
 		local boost = t.getBoost(self, t)
 		local dur = 5 + self:getTalentLevelRaw(t)
-		return ([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.
-		Increases Accuracy by %d and critical strike chance by %0.2f%% for %d turns.]]):
-		format(boost, 0.5*boost, dur)
+		return ([[염력으로 몸을 제어해, 몸의 불필요한 동작을 없애고 가장 효율적인 움직임만을 취할 수 있게 됩니다.
+		%d 턴 동안 정확도가 %d, 치명타율이 %0.2f%% 상승합니다.]]):
+		format(dur, boost, 0.5*boost)
 	end,
 }
 
 newTalent{
 	name = "Reshape Weapon",
-	kr_display_name = "무기 재형성",
+	kr_display_name = "무기 재구성",
 	type = {"psionic/finer-energy-manipulations", 2},
 	require = psi_cun_high2,
 	cooldown = 1,
@@ -56,7 +56,7 @@ newTalent{
 		return math.floor(self:combatStatTalentIntervalDamage(t, "combatMindpower", 3, 20))
 	end,
 	action = function(self, t)
-		local d d = self:showInventory("Reshape which weapon?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "weapon" and not o.fully_reshaped end, function(o, item)
+		local d d = self:showInventory("어떤 무기를 재구성합니까?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "weapon" and not o.fully_reshaped end, function(o, item)
 			--o.wielder = o.wielder or {}
 			if (o.old_atk or 0) < t.boost(self, t) then
 				o.combat.atk = (o.combat.atk or 0) - (o.old_atk or 0)
@@ -65,7 +65,7 @@ newTalent{
 				o.combat.dam = (o.combat.dam or 0) + t.boost(self, t)
 				o.old_atk = t.boost(self, t)
 				o.old_dam = t.boost(self, t)
-				game.logPlayer(self, "You reshape your %s.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s 무기의 재구성이 성공하였습니다.", o:getName{do_colour=true, no_count=true})
 				o.special = true
 				if not o.been_reshaped then
 					o.name = "reshaped" .. " "..o.name..""
@@ -73,7 +73,7 @@ newTalent{
 				end
 				d.used_talent = true
 			else
-				game.logPlayer(self, "You cannot reshape your %s any further.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s 무기는 더 이상 재구성할 수 없습니다.", o:getName{do_colour=true, no_count=true})
 			end
 		end)
 		local co = coroutine.running()
@@ -83,15 +83,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local weapon_boost = t.boost(self, t)
-		return ([[Manipulate forces on the molecular level to realign, rebalance, and hone your weapon. Permanently increases the Accuracy and damage of any weapon by %d.
-		These values scale with your Mindpower.]]):
+		return ([[무기를 원자 레벨에서부터 재구성해, 정확도와 피해량을 증가시킵니다. 무기의 정확도와 피해량이 영구적으로 %d 상승합니다.
+		상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(weapon_boost)
 	end,
 }
 
 newTalent{
 	name = "Reshape Armour", short_name = "RESHAPE_ARMOR",
-	kr_display_name = "갑옷 재형성",
+	kr_display_name = "갑옷 재구성",
 	type = {"psionic/finer-energy-manipulations", 3},
 	require = psi_cun_high3,
 	cooldown = 1,
@@ -122,7 +122,7 @@ newTalent{
 		return fat_values[index] * (self:getTalentLevel(t) / self:getTalentLevelRaw(t))
 	end,
 	action = function(self, t)
-		local d d = self:showInventory("Reshape which piece of armour?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "armor" and not o.fully_reshaped end, function(o, item)
+		local d d = self:showInventory("어떤 갑옷을 재구성합니까?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "armor" and not o.fully_reshaped end, function(o, item)
 			if (o.old_fat or 0) < t.fat_red(self, t) then
 				o.wielder = o.wielder or {}
 				if not o.been_reshaped then
@@ -140,14 +140,14 @@ newTalent{
 				end
 				o.old_fat = t.fat_red(self, t)
 				o.special = true
-				game.logPlayer(self, "You reshape your %s.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s 갑옷의 재구성이 성공하였습니다.", o:getName{do_colour=true, no_count=true})
 				if not o.been_reshaped then
 					o.name = "reshaped" .. " "..o.name..""
 					o.been_reshaped = true
 				end
 				d.used_talent = true
 			else
-				game.logPlayer(self, "You cannot reshape your %s any further.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s 갑옷은 더 이상 재구성할 수 없습니다.", o:getName{do_colour=true, no_count=true})
 			end
 		end)
 		local co = coroutine.running()
@@ -158,8 +158,8 @@ newTalent{
 	info = function(self, t)
 		local arm = t.arm_boost(self, t)
 		local fat = t.fat_red(self, t)
-		return ([[Manipulate forces on the molecular level to realign, rebalance, and reinforce a piece of armour. Permanently increases the armour rating of any piece of Armour by %d, and permanently reduces the fatigue rating of any piece of armour by %d.
-		These values scale with your Willpower.]]):
+		return ([[갑옷을 원자 레벨에서부터 재구성해, 방어도는 증가시키고 피로도는 감소시킵니다. 갑옷의 방어도가 영구적으로 %d 상승하고, 피로도가 영구적으로 %d 감소합니다.
+		방어도 상승량과 피로도 감소량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(arm, fat)
 	end,
 }
@@ -192,8 +192,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local amt = t.energy_per_turn(self, t)
-		return ([[Matter is energy, as any good Mindslayer knows. Unfortunately, the various bonds and particles involved are just too numerous and complex to make the conversion feasible in most cases. Fortunately, the organized, crystalline structure of gems makes it possible to transform a small percentage of its matter into usable energy.
-		Grants %d energy per turn for between five and thirteen turns, depending on the quality of the gem used.]]):
+		return ([[위대한 정신 파괴자의 말에 의하면, '모든 물체는 에너지의 근원이다' 고 합니다. 
+		하지만 불행하게도, 대부분의 물체들은 너무나 복잡한 구성 방식을 가지고 있어서 에너지로 활용할 수 없습니다. 
+		하지만 다행하게도, 보석이나 크리스탈로 이루어진 물체는 그 구조가 단순한 편이라서, 약간이나마 에너지를 추출해낼 수 있습니다.
+		물체를 분해하여, 5 - 13 턴 동안 매 턴마다 %d 염력을 추가로 회복합니다. 수준 높은 물체일수록, 더 오랫동안 염력을 회복시켜줍니다.]]):
 		format(amt)
 	end,
 }

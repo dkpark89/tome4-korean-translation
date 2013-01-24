@@ -23,7 +23,7 @@ newTalent{
 	type = {"chronomancy/timetravel", 1},
 	require = chrono_req1,
 	points = 5,
-	message = "@Source@ rearranges history.",
+	message = "@Source@ 역사를 재배열합니다.",
 	cooldown = 24,
 	tactical = { PARADOX = 2 },
 	getDuration = function(self, t)
@@ -45,15 +45,15 @@ newTalent{
 	info = function(self, t)
 		local reduction = t.getReduction(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[By slightly reorganizing history, you reduce your Paradox by %d and temporarily stabilize the timeline; this allows chronomancy to be used without chance of failure for %d turns (backfires and anomalies may still occur).
-		The paradox reduction will increase with your Spellpower.]]):
+		return ([[역사를 살짝 바꿔, 괴리 수치를 %d 감소시키고 시공간을 안정화시킵니다. 이를 통해 시공 계열 마법의 실패 확률을 %d 턴 동안 0%% 로 만듭니다. (이상 현상이나 역효과 확률은 바뀌지 않습니다)
+		괴리 수치 감소량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(reduction, duration)
 	end,
 }
 
 newTalent{
 	name = "Time Skip",
-	kr_display_name = "시간 건너뛰기",
+	kr_display_name = "시간 지우기",
 	type = {"chronomancy/timetravel",2},
 	require = chrono_req2,
 	points = 5,
@@ -78,7 +78,7 @@ newTalent{
 		if not target then return end
 
 		if target:attr("timetravel_immune") then
-			game.logSeen(target, "%s is immune!", target.name:capitalize())
+			game.logSeen(target, "%s 시간을 지울 수 없습니다!", target.name:capitalize())
 			return
 		end
 
@@ -118,7 +118,7 @@ newTalent{
 			summoner_gain_exp = true, summoner = self,
 		}
 		
-		game.logSeen(target, "%s has moved forward in time!", target.name:capitalize())
+		game.logSeen(target, "%s 시간의 흐름에서 벗어났습니다!", target.name:capitalize())
 		game.level:removeEntity(target, true)
 		game.level:addEntity(e)
 		game.level.map(x, y, Map.TERRAIN, e)
@@ -129,14 +129,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Inflicts %0.2f temporal damage, if the target fails a spell save.  If your target survives, it will be removed from time for %d turns.
-		The duration will scale with your Paradox.  The damage will scale with your Paradox and Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
+		return ([[대상이 주문 내성으로 저항에 실패했을 경우, %0.2f 시간 피해를 주고 %d 턴 동안 시간의 흐름에서 벗어나게 만듭니다.
+		지속시간은 괴리 수치에 따라, 피해량은 괴리 수치와 주문력 능력치에 따라 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
 	end,
 }
 
 newTalent{
 	name = "Echoes From The Past",
-	kr_display_name = "과거로부터의 메아리",
+	kr_display_name = "과거의 메아리",
 	type = {"chronomancy/timetravel", 3},
 	require = chrono_req3,
 	points = 5,
@@ -166,15 +166,15 @@ newTalent{
 		local percent = t.getPercent(self, t) * 100
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[Creates a temporal echo in a nova around you, in a radius of %d.  Affected targets will take %0.2f temporal damage, as well as %d%% of the difference between their current life and max life as additional temporal damage.
-		The percentage and damage scales with your Paradox and Spellpower.]]):
+		return ([[%d 칸 반경에 시간의 메아리를 만들어 범위 내의 적들에게 %0.2f 시간 피해를 주고, 최대 생명력에서 현재 생명력을 뺀 값의 %d%% 에 해당하는 시간 피해를 추가로 줍니다.
+		생명력 비율과 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, damage, percent)
 	end,
 }
 
 newTalent{
 	name = "Temporal Reprieve",
-	kr_display_name = "시간적 집행유예",
+	kr_display_name = "시간의 유예",
 	type = {"chronomancy/timetravel", 4},
 	require = chrono_req4,
 	points = 5,
@@ -206,8 +206,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getCooldownReduction(self, t)
-		return ([[Manipulate the flow of time, reducing the cooldown of all your talents on cooldown by %d turns, and reducing the duration of most status effects currently affecting you (good or bad) by %d turns.
-		The effect will scale with your Paradox.]]):
+		return ([[시간의 흐름을 조작하여 모든 재사용 대기시간을 %d 턴 줄이고, 모든 상태효과의 지속시간을 %d 턴 줄입니다.
+		좋은 상태효과의 지속시간도 줄어들며, 기술의 효과는 괴리 수치의 영향을 받아 증가합니다.]]):
 		format(reduction, reduction)
 	end,
 }

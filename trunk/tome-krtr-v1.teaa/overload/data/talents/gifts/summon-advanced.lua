@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Master Summoner",
-	kr_display_name = "소환기술 숙련",
+	kr_display_name = "최강의 소환술사",
 	type = {"wild-gift/summon-advanced", 1},
 	require = gifts_req_high1,
 	mode = "sustained",
@@ -49,7 +49,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local cooldownred = t.getCooldownReduction(self, t)
-		return ([[Reduces the cooldown of all summons by %d%%.]]):
+		return ([[모든 소환술의 재사용 대기시간이 %d%% 줄어듭니다.]]):
 		format(cooldownred * 100)
 	end,
 }
@@ -66,19 +66,19 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[While Master Summoner is active, when a creature you summon appears in the world, it will trigger a wild effect:
-		- Ritch Flamespitter: Reduce fire resistance of all foes in a radius
-		- Hydra: Generates a cloud of lingering poison
-		- Rimebark: Reduce cold resistance of all foes in a radius
-		- Fire Drake: Appears with one fire drake hatchling
-		- War Hound: Reduce physical resistance of all foes in a radius
-		- Jelly: Reduce nature resistance of all foes in a radius
-		- Minotaur: Reduces movement speed of all foes in a radius
-		- Stone Golem: Dazes all foes in a radius
-		- Turtle: Heals all friendly targets in a radius
-		- Spider: The spider is so hideous that foes around it are repelled
-		The effects improves with your Willpower.
-		Radius for effects is %d.]]):format(radius)
+		return ([['최강의 소환술사' 기술이 유지되는 동안, 소환수 주변에 특수한 효과가 나타나게 됩니다.
+		- 불꽃뿜는 리치 : 적들의 화염 저항력을 감소시킵니다.
+		- 히드라 : 독구름을 만들어냅니다.
+		- 서리나무 : 적들의 냉기 저항력을 감소시킵니다.
+		- 화염 드레이크 : 어린 화염 드레이크가 하나 더 나타납니다.
+		- 전투견 : 적들의 물리 저항력을 감소시킵니다.
+		- 젤리 : 적들의 자연 저항력을 감소시킵니다.
+		- 미노타우르스 : 적들의 이동속도를 감소시킵니다.
+		- 암석 골렘 : 적들을 혼절시킵니다.
+		- 거북이 : 아군을 회복시켜줍니다.
+		- 거미 : 적들이 근처에 오지 않으려 합니다.
+		기술의 효과는 의지 능력치의 영향을 받아 증가합니다.
+		이 효과들은 각 소환수 주변 %d 칸 반경에 영향을 줍니다.]]):format(radius)
 	end,
 }
 
@@ -92,8 +92,7 @@ newTalent{
 	getChance = function(self, t) return math.min(100, 30 + self:getTalentLevel(t) * 15) end,
 	getReduction = function(self, t) return math.ceil(self:getTalentLevel(t) / 2) end,
 	info = function(self, t)
-		return ([[While Master Summoner is active, each new summon will reduce the remaining cooldown of Rage, Detonate and Wild Summon.
-		%d%% chance to reduce them by %d.]]):format(t.getChance(self, t), t.getReduction(self, t))
+		return ([['최강의 소환술사' 기술이 유지되는 동안, 소환을 할 때마다 %d%% 확률로 분노, 소환수 폭발, 야생의 소환수 기술의 재사용 대기시간이 %d 턴 줄어들게 됩니다.]]):format(t.getChance(self, t), t.getReduction(self, t))
 	end,
 }
 
@@ -117,19 +116,19 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[For %d turn(s), you have 100%% chance that your summons appear as a wild version.
-		Each turn the chance disminishes.
-		Wild creatures have one more talent/power than the base versions:
-		- Ritch Flamespitter: sends a blast of flames around it, knocking foes away
-		- Hydra: Can disengage from melee range
-		- Rimebark: Becomes more resistant to magic damage
-		- Fire Drake: Can emit a powerful roar to silence its foes
-		- War Hound: Can rage, inreasing its critical chance and armour penetration
-		- Jelly: Can swallow foes that are low on life, regenerating your equilibrium
-		- Minotaur: Can rush toward its target
-		- Stone Golem: Melee blows can deal a small area of effect damage
-		- Turtle: Can force all foes in a radius into melee range
-		- Spider: Can project an insidious poison at its foes, reducing their healing
-		This talent requires Master Summoner to be active to be used.]]):format(math.floor(self:getTalentLevel(t)))
+		return ([[%d 턴 동안, 100%% 확률로 야생의 소환수를 소환합니다.
+		시간이 지날수록 이 확률은 점차 감소합니다.
+		야생의 소환수는 일반 소환수보다 하나 더 많은 기술을 가지고 있습니다.
+		- 불꽃뿜는 리치 : 화염 폭발을 일으켜, 적들을 밀어냅니다.
+		- 히드라 : 근접전이 벌어지면 후퇴합니다.
+		- 서리나무 : 마법 저항력이 증가합니다.
+		- 화염 드레이크 : 강렬한 외침으로 적들을 침묵시킵니다.
+		- 전투견 : 분노하여 치명타율과 관통력을 증가시킵니다.
+		- 젤리 : 빈사 상태의 적을 집어삼키고, 이를 통해 평정을 회복합니다.
+		- 미노타우르스 : 적에게 돌진합니다.
+		- 암석 골렘 : 근접공격이 주변에까지 피해를 줍니다.
+		- 거북이 : 적들을 자기 옆으로 불러들입니다.
+		- 거미 : 적에게 독을 뱉어 생명력 회복 효율을 감소시킵니다.
+		이 기술은 '최강의 소환술사' 기술이 유지되는 동안에만 사용할 수 있습니다.]]):format(math.floor(self:getTalentLevel(t)))
 	end,
 }

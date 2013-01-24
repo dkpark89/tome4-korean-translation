@@ -181,7 +181,7 @@ newTalent{
 
 newTalent{
 	name = "Inferno",
-	kr_display_name = "지옥의 열화",
+	kr_display_name = "지옥의 불꽃",
 	type = {"spell/fire",4},
 	require = spells_req4,
 	points = 5,

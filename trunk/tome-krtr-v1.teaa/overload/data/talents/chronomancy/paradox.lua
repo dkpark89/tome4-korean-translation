@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Paradox Mastery",
-	kr_display_name = "괴리 숙련",
+	kr_display_name = "괴리 수련",
 	type = {"chronomancy/paradox", 1},
 	mode = "passive",
 	require = chrono_req_high1,
@@ -33,14 +33,15 @@ newTalent{
 	info = function(self, t)
 		local resist = self:getTalentLevelRaw(t) * 7
 		local stability = math.floor(self:getTalentLevel(t)/2)
-		return ([[You've learned to focus your control over the spacetime continuum, and quell anomalous effects.  Increases your Temporal resistance by %d%%, extends the duration of the Static History stability effect by %d turns, and increases your effective willpower for failure, anomaly, and backfire calculations by %d%%.]]):
+		return ([[시공간 연속체에 대한 제어 방법을 익히고, 이상 현상을 억누르는 방법을 배웁니다. 시간 저항력이 %d%% 상승하고, '고정된 역사' 의 지속시간이 %d 턴 증가합니다.
+		또한 시공 계열 마법들의 실패 확률, 이상 현상 발생 확률, 역효과 확률을 계산할 때, %d 만큼 상승된 의지 능력치가 적용됩니다. (실제로 의지 능력치가 상승하지는 않습니다)]]):
 		format(resist, stability, self:getTalentLevel(t) * 10)
 	end,
 }
 
 newTalent{
 	name = "Cease to Exist",
-	kr_display_name = "중지된 실존",
+	kr_display_name = "중단된 실존",
 	type = {"chronomancy/paradox", 2},
 	require = chrono_req_high2,
 	points = 5,
@@ -67,7 +68,7 @@ newTalent{
 		if tg then
 			game:onTickEnd(function()
 				tg:removeEffect(tg.EFF_CEASE_TO_EXIST)
-				game.logSeen(tg, "#LIGHT_BLUE#%s never existed, this never happened!", tg.name:capitalize())
+				game.logSeen(tg, "#LIGHT_BLUE#%s 따위는 원래부터 없었던 존재였습니다!", tg.name:capitalize())
 				tg:die(self)
 			end)
 		end
@@ -88,7 +89,7 @@ newTalent{
 		if not target then return end
 
 		if target == self then
-			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s tries to remove %sself from existance!", self.name, string.his_her(self))
+			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s 은(는) %s 자기 자신의 존재를 지우려고 합니다!", self.name, string.his_her(self))
 			self:incParadox(400)
 			game.level.map:particleEmitter(self.x, self.y, 1, "ball_temporal", {radius=1, tx=self.x, ty=self.y})
 			return true
@@ -96,7 +97,7 @@ newTalent{
 		
 		-- does the spell hit?  if not nothing happens
 		if not self:checkHit(self:combatSpellpower(), target:combatSpellResist()) then
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
 			return true
 		end
 	
@@ -115,16 +116,17 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
-		return ([[Over the next %d turns, you attempt to remove the target from the timeline.  Its resistances will be reduced by %d%%, and if you manage to kill it while the spell is in effect, you'll be returned to the point in time you cast this spell and the target will be slain.
-		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
-		The duration will scale with your Paradox and the resistance penalty will scale with your Paradox and S	pellpower.]])
+		return ([[%d 턴 동안, 대상을 시공간에서 없애버리려고 시도합니다. 지속시간 동안 대상의 모든 저항력이 %d%% 감소합니다. 
+		지속시간 내에 대상을 죽이면 처음 마법을 시전했던 순간으로 돌아가며, 이 때 대상은 시공간에서 사라져버립니다.
+		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.
+		지속시간은 괴리 수치, 저항력 감소는 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]])
 		:format(duration, power)
 	end,
 }
 
 newTalent{
 	name = "Fade From Time",
-	kr_display_name = "시간에서 벗어나기",
+	kr_display_name = "시간에서 흐려진 자",
 	type = {"chronomancy/paradox", 3},
 	require = chrono_req_high3,
 	points = 5,
@@ -139,16 +141,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local resist = t.getResist(self, t)
-		return ([[You partially remove yourself from the timeline for 10 turns, increasing your resistance to all damage by %d%%, reducing the duration of all effects by %d%%, and reducing all damage you deal by 20%%.
-		The resistance bonus, effect reduction, and damage penalty will gradually lose power over the duration of the spell.
-		The effect will scale with your Paradox and Spellpower.]]):
+		return ([[10 턴 동안 시공간에서 자신의 일부분을 없애 모든 피해 저향력이 %d%% 상승하고, 모든 효과의 지속시간이 %d%%, 적에게 가하는 모든 공격의 피해량이 20%% 감소합니다.
+		마법의 효과는 지속시간이 지나면서 점점 그 힘을 잃게 됩니다.
+		마법의 효과는 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(resist, resist, resist/10)
 	end,
 }
 
 newTalent{
 	name = "Paradox Clone",
-	kr_display_name = "괴리적 복제",
+	kr_display_name = "모순된 복제",
 	type = {"chronomancy/paradox", 4},
 	require = chrono_req_high4,
 	points = 5,
@@ -173,7 +175,7 @@ newTalent{
 		
 		local x, y = util.findFreeGrid(tx, ty, 2, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -186,7 +188,7 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			ai_tactic = resolvers.tactic("ranged"), ai_state = { talent_in=1, ally_compassion=10},
-			desc = [[The real you... or so ]]..sex..[[ says.]]
+			desc = [[진짜 '자기 자신' 입니다... or so ]]..sex..[[ says.]]
 		})
 		m:removeAllMOs()
 		m.make_escort = nil
@@ -236,8 +238,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You summon your future self to fight alongside you for %d turns.  At some point in the future, you'll be pulled into the past to fight alongside your past self after the initial effect ends.
-		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
-		The duration will scale with your Paradox.]]):format(duration)
+		return ([[미래의 자신을 %d 턴 동안 소환하여 자신을 돕게 만듭니다. 이 효과가 끝나고 난 뒤의 어떤 순간에, 이번에는 자신이 과거에 끌려가 과거의 자신을 도와줘야 하는 상황이 오게 됩니다.
+		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.
+		지속시간은 괴리 수치의 영향을 받아 증가합니다.]]):format(duration)
 	end,
 }

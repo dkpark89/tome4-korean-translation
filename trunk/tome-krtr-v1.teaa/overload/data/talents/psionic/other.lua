@@ -29,7 +29,7 @@ newTalent{
 	no_npc_use = true,
 	action = function(self, t)
 		local inven = self:getInven("INVEN")
-		local d d = self:showInventory("Telekinetically grasp which item?", inven, function(o)
+		local d d = self:showInventory("염동력으로 무엇을 쥡니까?", inven, function(o)
 			return (o.type == "weapon" or o.type == "gem") and o.subtype ~= "sling"
 		end, function(o, item)
 			local pf = self:getInven("PSIONIC_FOCUS")
@@ -69,7 +69,7 @@ newTalent{
 			o = self:removeObject(inven, item)
 			-- Force "wield"
 			self:addObject(pf, o)
-			game.logSeen(self, "%s wears: %s.", self.name:capitalize(), o:getName{do_color=true})
+			game.logSeen(self, "%s 장비했습니다 : %s.", self.name:capitalize(), o:getName{do_color=true})
 
 			self:sortInven()
 			d.used_talent = true
@@ -80,13 +80,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Encase a weapon or gem in mentally-controlled forces, holding it aloft and bringing it to bear with the power of your mind alone.]])
+		return ([[염력을 이용해서, 무기나 보석을 들어올립니다.]])
 	end,
 }
 
 newTalent{
 	name = "Beyond the Flesh",
-	kr_display_name = "탈육체적 존재",
+	kr_display_name = "육신의 힘을 넘어",
 	type = {"psionic/other", 1},
 	points = 1,
 	mode = "sustained",
@@ -168,9 +168,8 @@ newTalent{
 		local o = self:getInven("PSIONIC_FOCUS") and self:getInven("PSIONIC_FOCUS")[1]
 		if type(o) == "boolean" then o = nil end
 		if not o then
-			return ([[Allows you to wield a weapon telekinetically, directing it with your willpower and cunning rather than crude flesh. When activated, the telekinetically-wielded weapon will attack a random melee-range target each turn.
-			The telekinetically-wielded weapon uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.
-			You are not telekinetically wielding anything right now.]])
+			return ([[염동력으로 들어올린 무기를 사용할 수 있게 됩니다. 무기의 피해량과 정확도는 힘과 민첩 능력치 대신 의지와 교활함 능력치로 결정되며, 매 턴마다 근접한 적을 무작위로 공격합니다.
+			현재 염동력으로 쥐고 있는 무기가 없습니다.]])
 		end
 		if o.type == "weapon" then
 			self.use_psi_combat = true
@@ -181,14 +180,13 @@ newTalent{
 			speed = self:combatSpeed(o.combat)
 			self.use_psi_combat = false
 		end
-		return ([[Allows you to wield a weapon telekinetically, directing it with your Willpower and Cunning rather than crude flesh. When activated, the telekinetically-wielded weapon will attack a random melee-range target each turn.
-		The telekinetically-wielded weapon uses Willpower in place of Strength, and Cunning in place of Dexterity, to determine Accuracy and damage.
-		Combat stats:
-		Accuracy: %d
-		Damage: %d
-		APR: %d
-		Crit: %0.2f
-		Speed: %0.2f]]):
+		return ([[염동력으로 들어올린 무기를 사용할 수 있게 됩니다. 무기의 피해량과 정확도는 힘과 민첩 능력치 대신 의지와 교활함 능력치로 결정되며, 매 턴마다 근접한 적을 무작위로 공격합니다.
+		현재 염동력으로 쥐고 있는 무기의 능력치는 다음과 같습니다.
+		- 정확도 : %d
+		- 피해량: %d
+		- 방어도 관통 : %d
+		- 치명타율 : %0.2f
+		- 공격 속도 : %0.2f]]):
 		format(atk, dam, apr, crit, speed)
 	end,
 }

@@ -34,7 +34,7 @@ newTalent{
 		if self:isTalentActive(t.id) then return true end
 		local armor = self:getInven("BODY") and self:getInven("BODY")[1]
 		if armor and (armor.subtype == "heavy" or armor.subtype == "massive") then
-			if not silent then game.logPlayer(self, "You cannot Stealth with such heavy armour on!") end
+			if not silent then game.logPlayer(self, "갑옷을 입으면 은신할 수 없습니다!") end
 			return nil
 		end
 
@@ -47,7 +47,7 @@ newTalent{
 				local actor = game.level.map(x, y, game.level.map.ACTOR)
 				if actor and actor ~= self and actor:reactionToward(self) < 0 then
 					if not actor:hasEffect(actor.EFF_DIM_VISION) then
-						if not silent then game.logPlayer(self, "You cannot Stealth with nearby foes watching!") end
+						if not silent then game.logPlayer(self, "적들이 보고 있는 동안에는 은신할 수 없습니다!") end
 						return nil
 					end
 				end
@@ -76,17 +76,17 @@ newTalent{
 	info = function(self, t)
 		local stealthpower = t.getStealthPower(self, t) + (self:attr("inc_stealth") or 0)
 		local radius = t.getRadius(self, t)
-		return ([[Enters stealth mode (power %d, based on Cunning), making you harder to detect.
-		If successful (re-checked each turn), enemies will not know exactly where you are, or may not notice you at all.
-		Stealth reduces your light radius to 0, and will not work with heavy or massive armours.
-		You cannot enter stealth if there are foes in sight within range %d.]]):
+		return ([[은신 상태가 되어, 적들이 자신을 발견하지 못하게 합니다. (은신 수치 +%d , 교활함 능력치 기반)
+		성공적으로 은신을 하면 적들이 자신의 정확한 위치를 알지 못하거나, 아예 자신의 존재를 모르게 됩니다. (매 턴마다 은신의 성공 여부를 다시 계산합니다)
+		은신 상태에서는 광원 반경이 0 으로 줄어들며, 중갑이나 판갑을 입으면 은신을 사용할 수 없습니다.
+		주변 %d 칸 반경에 적이 보이면, 은신 상태가 될 수 없습니다.]]):
 		format(stealthpower, radius)
 	end,
 }
 
 newTalent{
 	name = "Shadowstrike",
-	kr_display_name = "은신 타격",
+	kr_display_name = "그림자 베기",
 	type = {"cunning/stealth", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -94,15 +94,15 @@ newTalent{
 	getMultiplier = function(self, t) return self:getTalentLevel(t) / 7 end,
 	info = function(self, t)
 		local multiplier = t.getMultiplier(self, t)
-		return ([[When striking from stealth, hits are automatically criticals if the target does not notice you just before you land the blow.
-		Shadowstrikes do +%.02f%% damage versus a normal critical hit.]]):
+		return ([[은신 중에 적을 공격했으며 적이 자신의 존재를 알아채지 못했을 경우, 자동적으로 치명타가 발생합니다.
+		그림자 베기는 일반적인 치명타 공격보다 %.02f%% 더 큰 치명타 피해를 줍니다.]]):
 		format(multiplier * 100)
 	end,
 }
 
 newTalent{
 	name = "Hide in Plain Sight",
-	kr_display_name = "평지에서의 은닉",
+	kr_display_name = "존재감 없는 자",
 	type = {"cunning/stealth",3},
 	require = cuns_req3,
 	no_energy = "fake",
@@ -128,15 +128,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[You have learned how to be stealthy even when in plain sight of your foes, with a %d%% chance of success. This also resets the cooldown of your Stealth talent.
-		All creatures currently following you will lose all track.]]):
+		return ([[적들이 보고 있는 동안에도, %d%% 확률로 은신에 들어갈 수 있게 됩니다. 이 기술은 은신 기술의 재사용 대기시간도 초기화시켜주며, 자신을 추적하는 적들도 떨쳐낼 수 있습니다.]]):
 		format(chance)
 	end,
 }
 
 newTalent{
 	name = "Unseen Actions",
-	kr_display_name = "보이지않는 행동",
+	kr_display_name = "보이지 않는 행동",
 	type = {"cunning/stealth", 4},
 	require = cuns_req4,
 	mode = "passive",
@@ -144,7 +143,7 @@ newTalent{
 	getChance = function(self, t) return 10 + self:getTalentLevel(t) * 9 end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[When you perform an action from stealth (attacking, using objects, ...) you have a %d%% chance to not break stealth.]]):
+		return ([[은신 중에 행동 (공격, 도구 사용 등) 을 해도, %d%% 확률로 은신 상태가 해제되지 않게 됩니다.]]):
 		format(chance)
 	end,
 }

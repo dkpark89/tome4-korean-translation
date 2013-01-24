@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 -- race & classes
-newTalentType{ type="base/class", name = "class", hide = true, description = "The basic talents defining a class." }
-newTalentType{ type="base/race", name = "race", hide = true, description = "The various racial bonuses a character can have." }
-newTalentType{ is_nature = true, type="inscriptions/infusions", name = "infusions", hide = true, description = "Infusions are not class abilities, you must find them or learn them from other people." }
-newTalentType{ is_spell=true, no_silence=true, type="inscriptions/runes", name = "runes", hide = true, description = "Runes are not class abilities, you must find them or learn them from other people." }
-newTalentType{ is_spell=true, no_silence=true, type="inscriptions/taints", name = "taints", hide = true, description = "Taints are not class abilities, you must find them or learn them from other people." }
+newTalentType{ type="base/class", name = "class", hide = true, description = "각 직업들의 기본적인 기술들입니다." }
+newTalentType{ type="base/race", name = "race", hide = true, description = "다양한 종족적 특성들입니다." }
+newTalentType{ is_nature = true, type="inscriptions/infusions", name = "infusions", hide = true, description = "주입은 자연적으로 얻을 수 있는 특성이 아니며, 기술을 사용하기 위해서는 그 수단을 찾거나 다른 사람들에게 배워야합니다." }
+newTalentType{ is_spell=true, no_silence=true, type="inscriptions/runes", name = "runes", hide = true, description = "룬은 자연적으로 얻을 수 있는 특성이 아니며, 기술을 사용하기 위해서는 그 수단을 찾거나 다른 사람들에게 배워야합니다." }
+newTalentType{ is_spell=true, no_silence=true, type="inscriptions/taints", name = "taints", hide = true, description = "감염은 자연적으로 얻을 수 있는 특성이 아니며, 기술을 사용하기 위해서는 그 수단을 찾거나 다른 사람들에게 배워야합니다." }
 
 -- Load other misc things
 load("/data/talents/misc/objects.lua")
@@ -79,7 +79,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hack and slash, baby!]])
+		return ([[모든 것을 파.괴.한.다!]])
 	end,
 }
 
@@ -190,23 +190,23 @@ newTalent{
 		if target.level - 2 > self.level then
 			-- level bonus
 			hateGain = hateGain + (target.level - 2 - self.level) * 2
-			hateMessage = "#F53CBE#You have taken the life of an experienced foe!"
+			hateMessage = "#F53CBE#경험 많은 적의 생명을 취했습니다!"
 		end
 
 		if target.rank >= 4 then
 			-- boss bonus
 			hateGain = hateGain * 4
-			hateMessage = "#F53CBE#Your hate has conquered a great adversary!"
+			hateMessage = "#F53CBE#그 어떤 강력한 적이라도, 나의 증오를 당해낼 수 없으리라!"
 		elseif target.rank >= 3 then
 			-- elite bonus
 			hateGain = hateGain * 2
-			hateMessage = "#F53CBE#An elite foe has fallen to your hate!"
+			hateMessage = "#F53CBE#정예 등급인 적의 생명을 취했습니다!"
 		end
 		hateGain = math.min(hateGain, 100)
 
 		self.hate = math.min(self.max_hate, self.hate + hateGain)
 		if hateMessage then
-			game.logPlayer(self, hateMessage.." (+%d hate)", hateGain - self.hate_per_kill)
+			game.logPlayer(self, hateMessage.." (+%d 증오)", hateGain - self.hate_per_kill)
 		end
 	end,
 }
@@ -224,7 +224,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_ANGOLWEN",
 	name = "Teleport: Angolwen",
-	kr_display_name = "공간이동: 앙골웬",
+	kr_display_name = "공간이동 : 앙골웬",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -232,7 +232,7 @@ newTalent{
 	no_silence=true, is_spell=true,
 	action = function(self, t)
 		if not self:canBe("worldport") or self:attr("never_move") then
-			game.logPlayer(self, "The spell fizzles...")
+			game.logPlayer(self, "주문이 헛나갔습니다...")
 			return
 		end
 
@@ -243,24 +243,24 @@ newTalent{
 			if actor and actor ~= self then seen = true end
 		end, nil)
 		if seen then
-			game.log("There are creatures that could be watching you; you cannot take the risk.")
+			game.log("누군가 당신을 보고 있습니다. 섣부른 공간이동으로 앙골웬 마을의 위치를 노출시킬 수는 없습니다.")
 			return
 		end
 
 		self:setEffect(self.EFF_TELEPORT_ANGOLWEN, 40, {})
 		return true
 	end,
-	info = [[Allows a mage to teleport to the secret town of Angolwen.
-	You have studied the magic arts there and have been granted a special portal spell to teleport there.
-	Nobody must learn about this spell and so it should never be used while seen by any creatures.
-	The spell will take time to activate. You must be out of sight of any creature when you cast it and when the teleportation takes effect.]]
+	info = [[모든 마법사들의 성지, 앙골웬 마을로 공간이동합니다.
+	앙골웬에서 마법을 배운 모든 마법사들은 반드시 이 마법을 배우게 됩니다.
+	누구에게도 이 공간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
+	마법 발동을 위해서는 시간이 약간 필요합니다.]]
 }
 
 -- Chronomancer class talent, teleport to Point Zero
 newTalent{
 	short_name = "TELEPORT_POINT_ZERO",
 	name = "Timeport: Point Zero",
-	kr_display_name = "공간이동: 영점",
+	kr_display_name = "공간이동 : 영점",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -268,7 +268,7 @@ newTalent{
 	no_silence=true, is_spell=true,
 	action = function(self, t)
 		if not self:canBe("worldport") or self:attr("never_move") then
-			game.logPlayer(self, "The spell fizzles...")
+			game.logPlayer(self, "주문이 헛나갔습니다...")
 			return
 		end
 
@@ -279,7 +279,7 @@ newTalent{
 			if actor and actor ~= self then seen = true end
 		end, nil)
 		if seen then
-			game.log("There are creatures that could be watching you; you cannot take the risk.")
+			game.log("누군가 당신을 보고 있습니다. 섣부른 공간이동으로 영점의 위치를 노출시킬 수는 없습니다.")
 			return
 		end
 
@@ -288,15 +288,15 @@ newTalent{
 		self:attr("time_travel_times", 1)
 		return true
 	end,
-	info = [[Allows a chronomancer to timeport to Point Zero.
-	You have studied the chronomancy there and have been granted a special portal spell to teleport there.
-	Nobody must learn about this spell and so it should never be used while seen by any creatures.
-	The spell will take time to activate. You must be out of sight of any creature when you cast it and when the timeportation takes effect.]]
+	info = [[모든 시공 제어사들의 성지, '영점' 으로 공간이동합니다.
+	영점에서 온 모든 시공 제어사들은 언제든지 이곳으로 돌아갈 수 있습니다.
+	단 누구에게도 이 공간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
+	마법 발동을 위해서는 시간이 약간 필요합니다.]]
 }
 
 newTalent{
 	name = "Relentless Pursuit",
-	kr_display_name = "사정없는 추적",
+	kr_display_name = "끈질긴 추구",
 	type = {"base/class", 1},
 	points = 5,
 	no_energy = true,
@@ -323,7 +323,7 @@ newTalent{
 			if e.status == "detrimental" and save_for_effects[e.type] then
 				local save = self[save_for_effects[e.type]](self, true)
 				local decrease = math.floor(save/5)
-				print("About to reduce duration of... %s. Will use %s. Reducing duration by %d", e.desc, save_for_effects[e.type])
+				print("선택된 상태효과는... %s 입니다. %s 사용하여, 지속시간이 %d 턴 감소했습니다.", e.desc, save_for_effects[e.type])
 				p.dur = p.dur - decrease
 				if p.dur <= 0 then todel[#todel+1] = eff_id end
 			end
@@ -338,12 +338,10 @@ newTalent{
 		local physical_reduction = math.floor(self:combatPhysicalResist(true)/5)
 		local spell_reduction = math.floor(self:combatSpellResist(true)/5)
 		local mental_reduction = math.floor(self:combatMentalResist(true)/5)
-		return ([[Not the Master himself, nor all the orcs in fallen Reknor, nor even the terrifying unknown beyond Reknor's portal could slow your pursuit of the Staff of Absorption.
-		Children will hear of your relentlessness in song for years to come.
-		When activated, this ability reduces the duration of all active detrimental effects by the appropriate saving throw duration reduction.
-		Physical effect durations reduced by %d turns
-		Magical effect durations reduced by %d turns
-		Mental effect durations reduced by %d turns]]):
+		return ([['지배자' 그 자신만이 아닌, 타락한 레크놀의 오크들만이 아닌, 레크놀의 차원 관문 저 너머의 알 수 없는 존재들만이 아닌...
+		아이들이 당신의 끈질김을 대를 이어 전해지는 노래를 통해 듣고 기억할 것입니다.
+		발동하면, 모든 나쁜 상태효과의 지속시간이 해당 속성의 내성 수치에 따라 줄어듭니다.
+		물리적 상태효과는 %d 턴, 마법적 상태효과는 %d 턴, 정신적 상태효과는 %d 턴 줄어듭니다.]]):
 		format(physical_reduction, spell_reduction, mental_reduction)
 	end,
 }
@@ -351,12 +349,12 @@ newTalent{
 newTalent{
 	short_name = "SHERTUL_FORTRESS_GETOUT",
 	name = "Teleport to the ground",
-	kr_display_name = "지표면으로의 공간이동",
+	kr_display_name = "지표면으로 공간이동",
 	type = {"base/race", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,
 	action = function(self, t)
-		if game.level.map:checkAllEntities(self.x, self.y, "block_move") then game.log("You can not teleport there.") return true end
+		if game.level.map:checkAllEntities(self.x, self.y, "block_move") then game.log("여기서는 공간이동할 수 없습니다.") return true end
 		game:onTickEnd(function()
 			game.party:removeMember(self, true)
 			game.party:findSuitablePlayer()
@@ -365,7 +363,7 @@ newTalent{
 		end)
 		return true
 	end,
-	info = [[Use the onboard short-range teleport of the Fortress to beam down to the surface.]]
+	info = [[특수한 단거리 공간이동 마법으로, 지표면으로 돌아갈 수 있습니다.]]
 }
 
 newTalent{
@@ -395,5 +393,5 @@ newTalent{
 		game:playSoundNear(self, "talents/arcane")
 		return true
 	end,
-	info = [[Use 10 Fortress energy to send a powerful blast to the ground, directly below the Fortress, heavily damaging any creatures caught inside.]]
+	info = [[숲의 기운을 10 사용하여, 지면에 강력한 에너지탄을 발사합니다. 에너지탄에 휩쓸린 모든 적들은 큰 피해를 입습니다.]]
 }

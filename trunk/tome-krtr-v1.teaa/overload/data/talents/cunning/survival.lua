@@ -28,18 +28,18 @@ newTalent{
 		self:talentTemporaryValue(p, "heightened_senses", 4 + math.ceil(self:getTalentLevel(t)))
 	end,
 	info = function(self, t)
-		return ([[You notice the small things others do not notice, allowing you to "see" creatures in a %d radius even outside of light radius.
-		This is not telepathy, however, and it is still limited to line of sight.
-		Also, your attention to detail allows you to detect traps around you (%d detection 'power').
-		At level 3, you learn to disarm known traps (%d disarm 'power').
-		The trap detection and disarming ability improves with your Cunning.]]):
+		return ([[남들이 찾지 못하는 작은 것까지 볼 수 있게 되어, 주변 %d 칸 반경의 적들을 빛이 없어도 볼 수 있게 됩니다.
+		하지만 이 능력이 초능력은 아니기 때문에, 시야 반경 밖을 내다볼 수는 없습니다.
+		향상된 감각을 통해, 주변의 함정 역시 찾아낼 수 있게 됩니다. (함정 탐지력 +%d)
+		기술 레벨이 3 이상이면, 발견한 함정을 해체할 수 있게 됩니다. (함정 해체력 +%d)
+		함정 탐지 및 해체 능력은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(4 + math.ceil(self:getTalentLevel(t)), self:getTalentLevel(t) * self:getCun(25, true), self:getTalentLevel(t) * self:getCun(25, true))
 	end,
 }
 
 newTalent{
 	name = "Charm Mastery",
-	kr_display_name = "숙련된 부적사용",
+	kr_display_name = "도구 수련",
 	type = {"cunning/survival", 2},
 	require = cuns_req2,
 	mode = "passive",
@@ -54,22 +54,22 @@ newTalent{
 	on_unlearn = function(self, t)
 	end,
 	info = function(self, t)
-		return ([[Your cunning manipulations allows you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.]]):
+		return ([[마법봉, 토템, 주술고리 등의 도구를 더 효율적으로 사용할 수 있게 되어, 재사용 대기시간이 %d%% 감소합니다.]]):
 		format(t.cdReduc(self:getTalentLevel(t))) --I5
 	end,
 }
 
 newTalent{
 	name = "Piercing Sight",
-	kr_display_name = "꿰뚫어보기",
+	kr_display_name = "날카로운 시야",
 	type = {"cunning/survival", 3},
 	require = cuns_req3,
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[You look at your surroundings with more intensity than most people, allowing you to see stealthed or invisible creatures.
-		Increases stealth detection by %d and invisibility detection by %d.
-		The detection power increases with your Cunning.]]):
+		return ([[주변을 더 뚜렷하게 볼 수 있게 되어, 은신이나 투명한 적을 더 잘 발견할 수 있게 됩니다.
+		은신 감지력이 %d, 투명 감지력이 %d 증가합니다.
+		감지력은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(5 + self:getTalentLevel(t) * self:getCun(15, true), 5 + self:getTalentLevel(t) * self:getCun(15, true))
 	end,
 }
@@ -90,7 +90,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your quick wit allows you to see attacks before they land, granting you a %d%% chance to completely evade them for %d turns.
-		Duration increases with your Willpower, and the chance to evade improves with your Cunning and Dexterity.]]):format(5 * self:getTalentLevel(t) + self:getCun(25, true) + self:getDex(25, true), 5 + self:getWil(10))
+		return ([[재빠른 몸놀림을 통해 공격이 닿기 전에 피합니다. %d 턴 동안 %d%% 확률로 공격을 완전히 피합니다.
+		지속시간은 의지력, 회피 확률은 교활함과 민첩 능력치의 영향을 받아 증가합니다.]]):format(5 + self:getWil(10), 5 * self:getTalentLevel(t) + self:getCun(25, true) + self:getDex(25, true))
 	end,
 }

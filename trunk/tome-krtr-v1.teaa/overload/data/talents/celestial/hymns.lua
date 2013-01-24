@@ -60,10 +60,10 @@ newTalent{
 	info = function(self, t)
 		local darknessinc = t.getDarknessDamageIncrease(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[달의 영광을 노래하여, 적에게 주는 어둠 피해량을 %d%% 증가시킵니다.
-		그리고 주변을 그림자로 감싸, 당신을 공격하는 적에게 %0.2f 의 어둠 피해를 입힙니다.
+		return ([[달의 영광을 노래하여, 적에게 주는 어둠 속성 공격의 피해량을 %d%% 증가시킵니다.
+		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
-		피해량과 피해 증가효과는 마법 능력치에 영향을 받아 증가됩니다.]]):
+		피해량과 피해 증가효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(darknessinc, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -110,10 +110,10 @@ newTalent{
 		local invis = t.getSeeInvisible(self, t)
 		local stealth = t.getSeeStealth(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[달의 영광을 노래하여, 야간 투시력을 %d 만큼, 은신 감지를 %d 만큼, 투명화 감지를 %d 만큼 증가시킵니다.
-		그리고 주변을 그림자로 감싸, 당신을 공격하는 적에게 %0.2f 의 어둠 피해를 입힙니다.
+		return ([[달의 영광을 노래하여 야간 투시력을 %d, 은신 감지력을 %d, 투명화 감지력를 %d 증가시킵니다.
+		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(infra, stealth, invis, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -157,10 +157,10 @@ newTalent{
 	info = function(self, t)
 		local immunities = t.getImmunities(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[달의 영광을 노래하여, %d%% 의 기절, 실명, 혼란 저항을 얻습니다.
-		그리고 주변을 그림자로 감싸, 당신을 공격하는 적에게 %0.2f 의 어둠 피해를 입힙니다.
+		return ([[달의 영광을 노래하여, 기절, 실명, 혼란 저항이 %d%% 증가합니다.
+		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * (immunities), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -224,10 +224,10 @@ newTalent{
 		local targetcount = t.getTargetCount(self, t)
 		local damage = t.getDamage(self, t)
 		local drain = t.getNegativeDrain(self, t)
-		return ([[주문이 지속되는 동안 당신을 따르는, 춤추는 그림자를 불러들입니다.
-		매 턴마다 5칸 반경 내의 %d 명의 적에게 그림자의 빔이 발사되어 1에서 %0.2f 의 피해를 줍니다.
-		이 강력한 주문은 빔이 발사될 때마다 %d 의 음기가 소모되며, 부족하다면 효과가 발동되지 않습니다.
-		피해량은 마법 능력치의 영향을 받아 증가됩니다.]]):
+		return ([[기술이 지속되는 동안 자신을 따라다니는, 춤추는 그림자를 불러들입니다.
+		매 턴마다 주변 5 칸 반경에 있는 적 %d 명에게 그림자 화살이 발사되어, 1 - %0.2f 피해를 줍니다.
+		그림자 화살이 발사될 때마다 음기가 %d 소모되며, 음기가 부족하면 효과가 발동되지 않습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(targetcount, damDesc(self, DamageType.DARKNESS, damage), drain)
 	end,
 }

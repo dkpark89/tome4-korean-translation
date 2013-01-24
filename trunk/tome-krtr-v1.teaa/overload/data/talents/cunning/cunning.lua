@@ -18,19 +18,19 @@
 -- darkgod@te4.org
 
 -- Cunning talents
-newTalentType{ allow_random=true, type="cunning/stealth-base", name = "stealth", description = "은신 상태로 들어설 수 있게 된다." }
-newTalentType{ allow_random=true, type="cunning/stealth", name = "stealth", description = "은신 상태로 들어설 수 있게 된다." }
-newTalentType{ allow_random=true, type="cunning/trapping", name = "trapping", description = "함정 설치와 함정 숨기기에 관련된 지식." }
-newTalentType{ allow_random=true, type="cunning/traps", name = "traps", description = "함정 기술 모음" }
-newTalentType{ allow_random=true, type="cunning/poisons", name = "poisons", min_lev = 10, description = "독물에 대한 지식과 그것들에서 '좋은' 효과를 볼 수 있는 방법." }
-newTalentType{ allow_random=true, type="cunning/poisons-effects", name = "poisons", description = "독물 기술 모음" }
-newTalentType{ allow_random=true, type="cunning/dirty", name = "dirty fighting", description = "적에게 장애를 유발하는 여러가지 기술." }
-newTalentType{ allow_random=true, type="cunning/lethality", name = "lethality", description = "적이 고통을 느끼게 만드는 법." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="cunning/shadow-magic", name = "shadow magic", description = "마법과 그림자의 혼합." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="cunning/ambush", name = "ambush", min_lev = 10, description = "어둠을 이용하고, 그림자를 조종하는 약간의 마법." }
-newTalentType{ allow_random=true, type="cunning/survival", name = "survival", generic = true, description = "세상의 위험에 관한 지식과, 그것들을 피하는 방법." }
-newTalentType{ allow_random=true, type="cunning/tactical", name = "tactical", description = "전략적 전투 기술." }
-newTalentType{ allow_random=true, type="cunning/scoundrel", name = "scoundrel", generic = true, description = "신사적이지 못한 기술들의 사용법." }
+newTalentType{ allow_random=true, type="cunning/stealth-base", name = "stealth", description = "은신 상태로 돌입하는 기본적인 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/stealth", name = "stealth", description = "은신 상태로 돌입하는 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/trapping", name = "trapping", description = "함정을 설치하고 숨기는 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/traps", name = "traps", description = "설치 가능한 각종 함정들입니다." }
+newTalentType{ allow_random=true, type="cunning/poisons", name = "poisons", min_lev = 10, description = "독을 사용하여 '좋은' 효과를 발생시키는 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/poisons-effects", name = "poisons", description = "사용 가능한 각종 독물들입니다." }
+newTalentType{ allow_random=true, type="cunning/dirty", name = "dirty fighting", description = "다양한 방법으로 적을 무력화시키는 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/lethality", name = "lethality", description = "적에게 더 강렬한 고통을 주는 기술입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="cunning/shadow-magic", name = "shadow magic", description = "마법과 그림자를 사용한 전투기술입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="cunning/ambush", name = "ambush", min_lev = 10, description = "어둠을 이용하고, 그림자를 조종하는 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/survival", name = "survival", generic = true, description = "세상의 위험을 파악하고, 그 위험을 피하는 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/tactical", name = "tactical", description = "전략적인 전투를 위한 기술입니다." }
+newTalentType{ allow_random=true, type="cunning/scoundrel", name = "scoundrel", generic = true, description = "그다지 신사적이지 못한 각종 전투기술입니다." }
 
 -- Generic requires for cunning based on talent level
 cuns_req1 = {

@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 return [[
-A summary of the #GOLD#combat stat#WHITE# tiers:
+#GOLD#전투 능력치#WHITE# 의 단계 구분은 다음과 같습니다.
 
-#B4B4B4#Tier 1#WHITE# scores, those from one to twenty, are displayed in #B4B4B4#grey#WHITE#.
-#FFFFFF#Tier 2#WHITE# scores, those from twenty-one to forty, are displayed in #FFFFFF#white#WHITE#.
-#00FF80#Tier 3#WHITE# scores, those from forty-one to sixty, are displayed in #00FF80#green#WHITE#.
-#0080FF#Tier 4#WHITE# scores, those from sixty-one to eighty, are displayed in #0080FF#blue#WHITE#.
-#8d55ff#Tier 5#WHITE# scores, those from eighty-one to one-hundred, are displayed in #8d55ff#purple#WHITE#.
+#B4B4B4#1 단계#WHITE# 는 #GOLD#전투 능력치#WHITE#가 1 에서 20 까지인 것을 말하고, #B4B4B4#회색#WHITE# 으로 표시됩니다.
+#FFFFFF#2 단계#WHITE# 는 #GOLD#전투 능력치#WHITE#가 21 에서 40 까지인 것을 말하고, #FFFFFF#흰색#WHITE# 으로 표시됩니다.
+#00FF80#3 단계#WHITE# 는 #GOLD#전투 능력치#WHITE#가 41 에서 60 까지인 것을 말하고, #00FF80#녹색#WHITE# 으로 표시됩니다.
+#0080FF#4 단계#WHITE# 는 #GOLD#전투 능력치#WHITE#가 61 에서 80 까지인 것을 말하고, #0080FF#파란색#WHITE# 으로 표시됩니다.
+#8d55ff#5 단계#WHITE# 는 #GOLD#전투 능력치#WHITE#가 81 에서 100 까지인 것을 말하고, #8d55ff#보라색#WHITE# 으로 표시됩니다.
 ]]

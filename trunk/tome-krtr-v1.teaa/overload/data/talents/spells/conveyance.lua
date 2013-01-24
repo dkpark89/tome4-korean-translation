@@ -90,7 +90,7 @@ newTalent{
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
 		local range = t.getRange(self, t)
-		return ([[주변 %d 칸 반경 내 무작위한 곳으로 단거리 순간이동을 합니다.
+		return ([[주변 %d 칸 반경 내 무작위한 곳으로 단거리 순간이동합니다.
 		기술 레벨이 4 이상이면, 대상을 지정하여 순간이동시킬 수 있습니다.
 		기술 레벨이 5 이상이면, 순간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경) 단, 선택한 지역이 시야 밖의 지역일 경우 마법이 실패할 수도 있습니다.
 		순간이동 범위는 주문력 능력치의 영향을 받아 증가합니다.]]):format(range, radius)
@@ -169,7 +169,7 @@ newTalent{
 	info = function(self, t)
 		local range = t.getRange(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[주변 %d 칸 반경 내 무작위한 곳으로 장거리 공간이동을 합니다. 15 칸 미만의 거리는 공간이동할 수 없습니다.
+		return ([[주변 %d 칸 반경 내 무작위한 곳으로 장거리 공간이동합니다. 15 칸 미만의 거리는 공간이동할 수 없습니다.
 		기술 레벨이 4 이상이면, 대상을 지정하여 공간이동시킬 수 있습니다.
 		기술 레벨이 5 이상이면, 공간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경)
 		공간이동 범위는 주문력 능력치의 영향을 받아 증가합니다.]]):format(range, radius)

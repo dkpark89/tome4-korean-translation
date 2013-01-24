@@ -39,24 +39,24 @@ newTalent{
 		local _, failure = self:paradoxFailChance()
 		local _, backfire = self:paradoxBackfireChance()
 		local _, anomaly = self:paradoxAnomalyChance()
-		game.logPlayer(self, "Your current failure chance is %d%%, your current anomaly chance is %d%%, and your current backfire chance is %d%%.", failure, anomaly, backfire)
+		game.logPlayer(self, "현재 실패 확률은 %d%%, 현재 이상 현상 발생 확률은 %d%%, 현재 역효과 확률은 %d%% 입니다.", failure, anomaly, backfire)
 		return true
 	end,
 	info = function(self, t)
 		local _, failure = self:paradoxFailChance()
 		local _, anomaly = self:paradoxAnomalyChance()
 		local _, backfire = self:paradoxBackfireChance()
-		return ([[Reduces your paradox by one each turn while sustained.  Casting a spell will cancel this sustain.
+		return ([[괴리 수치를 매 턴마다 1 만큼 줄여줍니다. 마법을 사용하면 이 효과가 사라집니다.
 		
-		Current failure chance  : %d%%
-		Current anomaly chance  : %d%%
-		Current backfire chance : %d%%]]):format(failure, anomaly, backfire)
+		현재 실패 확률  : %d%%
+		현재 이상 현상 발생 확률 : %d%%
+		현재 역효과 확률 : %d%%]]):format(failure, anomaly, backfire)
 	end,
 }
 
 newTalent{
 	name = "Precognition",
-	kr_display_name = "사전 인지",
+	kr_display_name = "예지",
 	type = {"chronomancy/chronomancy",1},
 	require = temporal_req1,
 	points = 5,
@@ -74,14 +74,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You peer into the future, allowing you to explore your surroundings for %d turns.  When Precognition expires, you'll return to the point in time you first cast the spell.  Dying with precognition active will end the spell prematurely.
-		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.]]):format(duration)
+		return ([[미래를 엿봐, %d 턴 동안 미래에 일어날 일을 직접 체험할 수 있게 됩니다. 예지 효과가 끝나면 처음 마법을 시전했던 순간으로 돌아가며, 예지 도중에 사망했을 경우 마법의 효과가 사라집니다.
+		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.]]):format(duration)
 	end,
 }
 
 newTalent{
 	name = "Foresight",
-	kr_display_name = "선견",
+	kr_display_name = "예견",
 	type = {"chronomancy/chronomancy",2},
 	mode = "passive",
 	require = temporal_req2,
@@ -98,14 +98,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[When the duration of your Precognition expires, you'll be given a vision of your surroundings, sensing terrain, enemies, objects, and traps in a %d radius.]]):
+		return ([[예지의 지속시간이 끝나면 주변 %d 칸 반경의 지형, 적, 물체, 함정 등의 위치를 파악할 수 있게 됩니다.]]):
 		format(radius)
 	end,
 }
 
 newTalent{
 	name = "Moment of Prescience",
-	kr_display_name = "예견의 순간",
+	kr_display_name = "통찰의 순간",
 	type = {"chronomancy/chronomancy", 3},
 	require = temporal_req3,
 	points = 5,
@@ -131,16 +131,16 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You pull your awareness fully into the moment, increasing your stealth detection, see invisibility, defense, and accuracy by %d for %d turns.
-		If you have Spin Fate active when you cast this spell, you'll gain a bonus to these values equal to 50%% of your spin.
-		This spell takes no time to cast.]]):
-		format(power, duration)
+		return ([[현재 이 순간에 모든 신경을 집중해, %d 턴 동안 은신 감지력, 투명체 감지력, 회피도, 정확도가 %d 상승합니다.
+		통찰의 순간 동안 '운명 왜곡' 효과가 발생하면, 내성 상승량의 50%% 에 해당하는 수치만큼 위의 네 가지 수치가 추가로 상승합니다.
+		이 마법은 시전시간 없이 즉시 사용할 수 있습니다.]]):
+		format(duration, power)
 	end,
 }
 
 newTalent{
 	name = "Spin Fate",
-	kr_display_name = "숙명의 전개",
+	kr_display_name = "운명 왜곡",
 	type = {"chronomancy/chronomancy", 4},
 	require = temporal_req4,
 	mode = "passive",
@@ -162,8 +162,9 @@ newTalent{
 	info = function(self, t)
 		local save = t.getSaveBonus(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You've learned to make minor corrections in how future events unfold.  Each time you make a saving throw, all your saves are increased by %d (stacking up to a maximum increase of %d for each value).
-		The effect will last %d turns, but the duration will refresh everytime it's reapplied.]]):
+		return ([[미래의 일이 펼쳐질 때, 약간씩 그 미래를 수정할 수 있게 됩니다. 
+		적들의 각종 상태이상 공격으로 인해 자신의 내성을 사용할 때마다, 모든 내성이 %d 증가합니다. (최대 %d 까지 증가)
+		내성 증가는 %d 턴 동안 지속되지만, 내성 증가 효과가 발생할 때마다 지속시간이 초기화됩니다.]]):
 		format(save, save * 5, duration)
 	end,
 }

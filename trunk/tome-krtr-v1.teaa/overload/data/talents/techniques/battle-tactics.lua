@@ -49,7 +49,7 @@ newTalent{
 	info = function(self, t)
 		return ([[적을 죽일 때마다, %d%% 확률로 이동 속도가 1000%% 증가합니다.
 		이동 속도가 굉장히 빨라지기 때문에, 상대적으로 게임의 전체적인 턴은 느리게 진행됩니다.
-		이 효과는 게임의 전체적인 턴으로 1턴이 지나거나, 이동을 제외한 다른 행동을 하면 사라집니다.]]):format(self:getTalentLevelRaw(t) * 20)
+		이 효과는 게임의 전체적인 턴으로 1 턴이 지나거나, 이동을 제외한 다른 행동을 하면 사라집니다.]]):format(self:getTalentLevelRaw(t) * 20)
 	end,
 }
 

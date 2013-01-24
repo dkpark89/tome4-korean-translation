@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
-
 ------------------------------------------------------------------
 -- Melee
 ------------------------------------------------------------------
@@ -85,7 +83,7 @@ newTalent{
 				target:knockback(self.x, self.y, 3)
 				target:crossTierEffect(target.EFF_OFFBALANCE, self:combatPhysicalpower())
 			else
-				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
 			end
 		end
 
@@ -132,7 +130,7 @@ newTalent{
 			if self:reactionToward(target) < 0 then
 				if self.ai_target then self.ai_target.target = target end
 				target:setTarget(self)
-				game.logSeen(self, "%s 도발하여 %s 공격하도록 만들었습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), (target.kr_display_name or target.name):addJosa("가"))
+				game.logSeen(self, "%s 도발하여 %s 공격하도록 만들었습니다.", self.name:capitalize(), target.name)
 			end
 		end)
 		return true
@@ -201,7 +199,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, t.getPinDuration(self, t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 속박되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 속박되지 않았습니다!", target.name:capitalize())
 			end
 		end
 
@@ -281,7 +279,7 @@ newTalent{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_DAZED, t.getDazeDuration(self, t), {apply_power=self:combatPhysicalpower()})
 				else
-					game.logSeen(target, "%s 혼절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 혼절하지 않았습니다!", target.name:capitalize())
 				end
 			end
 		end)
@@ -304,7 +302,7 @@ newTalent{
 
 newTalent{
 	name = "Eye Beam", short_name = "GOLEM_BEAM",
-	kr_display_name = "눈에서 빔!", --@@
+	kr_display_name = "눈에서 빔!", --@@ 이걸 뭐라 불러야 할지...   --그냥 이렇게 부르는 것도 좋을듯 ^ㅆ^
 	type = {"golem/arcane", 1},
 	require = spells_req1,
 	points = 5,
@@ -432,7 +430,7 @@ newTalent{
 		table.sort(tgts, "sqdist")
 		for i, target in ipairs(tgts) do
 			target.actor:pull(self.x, self.y, tg.radius)
-			game.logSeen(target.actor, "%s %s에 의해 끌려옵니다!", (target.actor.kr_display_name or target.actor.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
+			game.logSeen(target.actor, "%s 끌려옵니다! (시전자 : %s)", target.actor.name:capitalize(), self.name)
 			DamageType:get(DamageType.ARCANE).projector(self, target.actor.x, target.actor.y, DamageType.ARCANE, t.getDamage(self, t))
 		end
 		return true
@@ -533,9 +531,9 @@ newTalent{
 		local hardiness = t.getArmorHardiness(self, t)
 		local armor = t.getArmor(self, t)
 		local critreduce = t.getCriticalChanceReduction(self, t)
-		local dir = self:getTalentLevelRaw(t) >= 3 and "상승" or "하락"
+		local dir = self:getTalentLevelRaw(t) >= 3 and "In" or "De"
 		return ([[골렘이 중갑과 판갑을 자동적으로 변형시켜, 자신이 착용할 수 있게 만듭니다.
-		갑옷의 방어도가 %d, 방어 효율이 %d%% %s하고, 그리고 적에게 치명타를 맞을 확률이 %d%% 만큼 낮아집니다.]]):
-		format(armor, hardiness, dir, critreduce) --@@
+		갑옷의 방어도가 %d, 방어 효율이 %d%%, 그리고 적에게 치명타를 맞을 확률이 %d%% 만큼 변경됩니다.]]):
+		format(armor, hardiness, critreduce)
 	end,
 }

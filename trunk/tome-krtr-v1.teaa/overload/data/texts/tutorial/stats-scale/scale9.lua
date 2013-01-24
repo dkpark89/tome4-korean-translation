@@ -18,7 +18,10 @@
 -- darkgod@te4.org
 
 return [[
-Did you accurately predict that +6 to a #FFFFFF#tier 2#WHITE# #GOLD#combat stat#WHITE# score would result in an increase of only 3?
+이제는 #LIGHT_GREEN#정확도#WHITE# 를 6 올려주는 투구를 썼는데 #LIGHT_GREEN#정확도#WHITE# 가 2 밖에 올라가지 않네요.
 
-Let's try again in the next room. What do you suppose will happen when you put on an item that grants you +6 #LIGHT_GREEN#Mental save#WHITE#?
+자... 눈치 채셨나요?
+
+다음 방에는 #LIGHT_GREEN#정신 내성#WHITE# 을 6 올려주는 장비가 있습니다. 
+이걸 착용하면 #LIGHT_GREEN#정신 내성#WHITE# 이 얼마나 올라갈까요?
 ]]

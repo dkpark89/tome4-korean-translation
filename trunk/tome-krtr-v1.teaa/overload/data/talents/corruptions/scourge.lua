@@ -33,7 +33,7 @@ newTalent{
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Rend without two weapons!")
+			game.logPlayer(self, "분쇄를 사용하려면 쌍수 무기가 필요합니다!")
 			return nil
 		end
 
@@ -52,29 +52,29 @@ newTalent{
 			if target:canBe("cut") then
 				target:setEffect(target.EFF_CUT, 5, {power=self:combatTalentSpellDamage(t, 5, 40), src=self, apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the cut!", target.name:capitalize())
+				game.logSeen(target, "%s 출혈을 저항했습니다!", target.name:capitalize())
 			end
 		end
 		if hit2 then
 			if target:canBe("cut") then
 				target:setEffect(target.EFF_CUT, 5, {power=self:combatTalentSpellDamage(t, 5, 40), src=self, apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the cut!", target.name:capitalize())
+				game.logSeen(target, "%s 출혈을 저항했습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hit the target with both weapons, doing %d%% damage with each hit. For each hit, the target will bleed for %0.2f damage each turn for 5 turns.
-		The bleeding effect will increase with your Spellpower.]]):
+		return ([[쌍수 무기로 대상을 공격하여, 각각 %d%% 피해를 줍니다. 매 타격마다 대상을 출혈 상태로 만들어, 5 턴 동안 매 턴마다 %0.2f 피해를 줄 수 있습니다.
+		출혈 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.6), self:combatTalentSpellDamage(t, 5, 40))
 	end,
 }
 
 newTalent{
 	name = "Ruin",
-	kr_display_name = "붕괴",
+	kr_display_name = "파멸",
 	type = {"corruption/scourge", 2},
 	mode = "sustained",
 	require = corrs_req2,
@@ -93,8 +93,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = damDesc(self, DamageType.BLIGHT, t.getDamage(self, t))
-		return ([[Concentrate on the corruption you bring, enhancing each of your melee strikes with %0.2f blight damage (which also heals you for %0.2f each hit).
-		The damage will increase with your Spellpower.]]):
+		return ([[오염과 타락의 힘에 집중하여, 근접 공격을 할 때마다 적에게 %0.2f 황폐화 피해를 주고 자신은 %0.2f 생명력을 회복합니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(dam, dam * 0.4)
 	end,
 }
@@ -118,7 +118,7 @@ newTalent{
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Acid Strike without two weapons!")
+			game.logPlayer(self, "산성 타격을 사용하려면 쌍수 무기가 필요합니다!")
 			return nil
 		end
 
@@ -143,16 +143,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Strike with each of your weapons, doing %d%% acid weapon damage with each hit. 
-		If at least one of the strikes hits, an acid splash is generated, doing %0.2f acid damage to all targets other than yourself adjacent to the foe you struck.
-		The splash damage will increase with your Spellpower.]]):
+		return ([[쌍수 무기로 대상을 공격하여, 각각 %d%% 무기 피해를 산성 속성으로 줍니다.
+		공격이 한 번이라도 적중하면, 산이 튀어 대상 주변의 적들에게 %0.2f 산성 피해를 줍니다.
+		산성 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.6), damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 10, 130)))
 	end,
 }
 
 newTalent{
 	name = "Dark Surprise",
-	kr_display_name = "어둠의 선물",
+	kr_display_name = "어둠의 기습",
 	type = {"corruption/scourge", 4},
 	require = corrs_req4,
 	points = 5,
@@ -164,7 +164,7 @@ newTalent{
 	action = function(self, t)
 		local weapon, offweapon = self:hasDualWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Dark Surprise without two weapons!")
+			game.logPlayer(self, "어둠의 기습을 사용하려면 쌍수 무기가 필요합니다!")
 			return nil
 		end
 
@@ -183,7 +183,7 @@ newTalent{
 			if hit2 and target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, 4, {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(self, "%s resists the darkness.", target.name:capitalize())
+				game.logSeen(self, "%s 어둠을 이겨냈습니다.", target.name:capitalize())
 			end
 		end
 		DamageType:projectingFor(self, nil)
@@ -191,7 +191,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your main weapon, doing %d%% darkness weapon damage. If the attack hits you attack with your second weapon, doing %d%% blight weapon damage and granting an automatic critical. If the second attack hits, the target is blinded for 4 turns.]]):
+		return ([[대상을 주무기로 공격하여 %d%% 무기 피해를 어둠 속성으로 줍니다. 첫 번째 공격이 성공하면, 대상을 보조무기로 공격하여 %d%% 황폐화 피해를 주며 이 공격은 언제나 치명타 효과가 발생합니다.
+		두 번째 공격까지 성공하면, 대상은 4 턴 동안 실명 상태가 됩니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.6, 1.4), 100 * self:combatTalentWeaponDamage(t, 0.6, 1.4))
 	end,
 }

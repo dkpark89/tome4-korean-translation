@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Mind Storm",
-	kr_display_name = "정신적 폭풍",
+	kr_display_name = "정신 폭풍",
 	type = {"psionic/discharge", 1},
 	points = 5, 
 	require = psi_wil_high1,
@@ -100,16 +100,16 @@ newTalent{
 		local targets = t.getTargetCount(self, t)
 		local damage = t.getDamage(self, t)
 		local charge_ratio = t.getOverchargeRatio(self, t)
-		return ([[Unleash your subconscious on the world around you.  While active, you fire up to %d bolts each turn (one per hostile target) that deal %0.2f mind damage.  Each bolt consumes 1 Feedback.
-		Feedback gains beyond your maximum allowed amount may generate extra bolts (one bolt per %d excess Feedback per target), but no more then %d extra bolts per turn.
-		This effect is a psionic channel, and will break if you move, use a talent that consumes a turn, or activate an item.
-		The damage will scale with your Mindpower.]]):format(targets, damDesc(self, DamageType.MIND, damage), charge_ratio, targets)
+		return ([[잠재의식을 불러내, 매 턴마다 최대 %d 개의 정신력으로 이루어진 화살을 발사하여 %0.2f 정신 피해를 줍니다. (적 1 마리 당 화살 1 개) 화살 1 개 당 반발력이 1 소진됩니다.
+		최대 반발력 이상의 반발력을 얻으면, 화살이 추가로 발사됩니다. (%d 반발력 당 화살 1 개, 최대 %d 개 까지)
+		이 기술을 사용하는 동안, 염력 집중이 필요합니다. (이동하거나, 1 턴 이상 걸리는 기술을 사용하거나, 도구를 사용하면 집중이 깨집니다)
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(targets, damDesc(self, DamageType.MIND, damage), charge_ratio, targets)
 	end,
 }
 
 newTalent{
 	name = "Feedback Loop",
-	kr_display_name = "반작용 회로",
+	kr_display_name = "힘의 순환",
 	type = {"psionic/discharge", 2},
 	points = 5, 
 	require = psi_wil_high2,
@@ -117,7 +117,7 @@ newTalent{
 	tactical = { FEEDBACK = 2 },
 	no_break_channel = true,
 	getDuration = function(self, t) return 2 + math.ceil(self:getTalentLevel(t) * 1.5) end,
-	on_pre_use = function(self, t, silent) if self:getFeedback() <= 0 then if not silent then game.logPlayer(self, "You have no feedback to start a feedback loop!") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:getFeedback() <= 0 then if not silent then game.logPlayer(self, "힘의 순환을 위해서는 약간이라도 반작용 수치가 필요합니다!") end return false end return true end,
 	action = function(self, t)
 		local wrath = self:hasEffect(self.EFF_FOCUSED_WRATH)
 		self:setEffect(self.EFF_FEEDBACK_LOOP, self:mindCrit(t.getDuration(self, t), nil, wrath and wrath.power or 0), {})
@@ -126,9 +126,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Activate to invert your Feedback decay for %d turns.  This effect can be a critical hit, increasing the duration even further.
-		Using this talent will not break psionic channels (such as Mind Storm).  You must have some Feedback in order to start the loop.
-		The maximum Feedback gain will scale with your Mindpower.]]):format(duration)
+		return ([[매 턴마다 감소하던 반작용이 %d 턴 동안 증가량으로 전환됩니다. 마법이 치명타로 적용되어, 지속시간이 더 길어질 수도 있습니다.
+		이 기술은 염력 집중을 방해하지 않으며, 힘의 순환을 위해서는 반작용 수치를 조금이라도 가지고 있어야 합니다.
+		최대 반작용 획득량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration)
 	end,
 }
 
@@ -170,9 +170,9 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		local damage = t.getDamage(self, t)
-		return ([[Your subconscious now retaliates when you take damage.  If the attacker is within range (%d), you'll inflict mind damage equal to the Feedback gained from the attack or %0.2f, whichever is lower.
-		This effect can only happen once per creature per turn.
-		The damage will scale with your Mindpower.]]):format(range, damDesc(self, DamageType.MIND, damage))
+		return ([[피해를 받으면, 잠재의식이 발현하여 적에게 복수합니다. 공격자가 주변 %d 칸 반경에 있으면, 자동적으로 반작용 획득량이나 %0.2f 중 낮은 수치의 정신 피해를 줍니다.
+		한 턴에 단 한 번의 복수만 가능합니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(range, damDesc(self, DamageType.MIND, damage))
 	end,
 }
 
@@ -211,8 +211,8 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local crit_bonus = t.getCritBonus(self, t)
-		return ([[Focus your mind on a single target, diverting all offensive Discharge talent effects to it for %d turns.  While this effect is active, all Discharge talents gain %d%% critical power.
-		Using this talent will not break psionic channels (such as Mind Storm).  If the target is killed, the effect will end early.
-		The damage bonus will scale with your Mindpower.]]):format(duration, damDesc(self, DamageType.MIND, crit_bonus))
+		return ([[하나의 대상에게 정신을 집중하여, 모든 방출 계열 기술이 %d 턴 동안 그 대상만을 공격하게 만듭니다.
+		이 효과가 적용되는 동안, 모든 방출 계열 기술의 치명타 위력이 %d%% 증가합니다.
+		이 기술은 염력 집중을 방해하지 않으며, 피해 증가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.MIND, crit_bonus))
 	end,
 }

@@ -16,9 +16,6 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
-
-require "engine.krtrUtils" --@@
-
 local Chat = require "engine.Chat"
 
 function getGolem(self)
@@ -182,7 +179,6 @@ newTalent{
 		if not self.alchemy_golem then return end
 		self.alchemy_golem.faction = self.faction
 		self.alchemy_golem.name = "golem (servant of "..self.name..")"
-		self.alchemy_golem.kr_display_name = "골렘 ("..(self.kr_display_name or self.name).."의 부하)" --@@
 		self.alchemy_golem.summoner = self
 		self.alchemy_golem.summoner_gain_exp = true
 
@@ -225,7 +221,7 @@ newTalent{
 		-- heal the golem
 		elseif (game.level:hasEntity(self.alchemy_golem) or self:hasEffect(self.EFF_GOLEM_MOUNT)) and self.alchemy_golem.life < self.alchemy_golem.max_life then
 			if not ammo or ammo:getNumber() < 2 then
-				game.logPlayer(self, "골렘을 수리하려면 2개의 연금술용 보석을 손에 들고있어야 합니다.")
+				game.logPlayer(self, "골렘을 수리하려면 2 개의 연금술용 보석을 손에 들고있어야 합니다.")
 				return
 			end
 			for i = 1, 2 do self:removeObject(self:getInven("QUIVER"), 1) end
@@ -236,7 +232,7 @@ newTalent{
 		-- resurrect the golem
 		elseif not self:hasEffect(self.EFF_GOLEM_MOUNT) then
 			if not ammo or ammo:getNumber() < 15 then
-				game.logPlayer(self, "골렘을 다시 만들어내려면 15개의 연금술용 보석을 손에 들고있어야 합니다.")
+				game.logPlayer(self, "골렘을 다시 만들어내려면 15 개의 연금술용 보석을 손에 들고있어야 합니다.")
 				return
 			end
 			if not wait() then return end
@@ -263,8 +259,8 @@ newTalent{
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
 		return ([[자신만의 골렘, 이제 스스로 조립해보세요!
-		- 골렘이 완전히 파괴되었다면, 시간을 들여 골렘을 다시 만들어냅니다. (연금술용 보석 15개가 소모됩니다!)
-		- 골렘이 손상되었다면, 골렘을 수리하여 생명력을 %d 회복시킵니다. (연금술용 보석 2개가 소모됩니다.) 
+		- 골렘이 완전히 파괴되었다면, 시간을 들여 골렘을 다시 만들어냅니다. (연금술용 보석 15 개가 소모됩니다!)
+		- 골렘이 손상되었다면, 골렘을 수리하여 생명력을 %d 회복시킵니다. (연금술용 보석 2 개가 소모됩니다) 
 		생명력 회복량은 주문력 능력치, 사용한 연금술용 보석, '골렘의 힘' 기술 레벨의 영향을 받아 증가합니다.
 		- 골렘이 파괴도 손상도 되지 않았다면, 골렘의 이름을 다시 지어주거나 골렘의 장비, 보석을 바꿔줄 수 있습니다.]]):
 		format(heal)
@@ -295,7 +291,7 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		if not self.alchemy_golem then return "골렘의 무기 숙련도가 오릅니다." end
+		if not self.alchemy_golem then return "골렘의 무기 수련도가 오릅니다." end
 		local rawlev = self:getTalentLevelRaw(t)
 		local olda, oldd = self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY]
 		self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY] = 1 + rawlev, rawlev
@@ -304,7 +300,7 @@ newTalent{
 		local power = td.getDamage(self.alchemy_golem, td)
 		local damage = td.getPercentInc(self.alchemy_golem, td)
 		self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY] = olda, oldd
-		return ([[골렘의 무기 숙련도가 올라 무기의 정확도가 %d, 물리력이 %d, 피해량이 %d%% 상승합니다.]]):
+		return ([[골렘의 무기 수련도가 올라 무기의 정확도가 %d, 물리력이 %d, 피해량이 %d%% 상승합니다.]]):
 		format(attack, power, 100 * damage)
 	end,
 }
@@ -327,7 +323,7 @@ newTalent{
 		self.alchemy_golem.healing_factor = (self.alchemy_golem.healing_factor or 1) - 0.1
 	end,
 	info = function(self, t)
-		if not self.alchemy_golem then return "골렘의 갑옷 숙련도와 저항력이 오릅니다." end
+		if not self.alchemy_golem then return "골렘의 갑옷 수련도와 저항력이 오릅니다." end
 		local rawlev = self:getTalentLevelRaw(t)
 		local oldh, olda = self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR]
 		self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR] = rawlev, 1 + rawlev
@@ -338,7 +334,7 @@ newTalent{
 		local crit = ta.getCriticalChanceReduction(self.alchemy_golem, ta) + ga.getCriticalChanceReduction(self.alchemy_golem, ga)
 		self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR] = oldh, olda
 
-		return ([[골렘의 갑옷 숙련도와 저항력을 올려, 모든 피해 저항력이 %d%% 상승합니다.
+		return ([[골렘의 갑옷 수련도와 저항력을 올려, 모든 피해 저항력이 %d%% 상승합니다.
 		중갑이나 판갑을 입으면 추가적으로 방어도가 %d, 방어 효율이 %d%% 오르며, 적에게 치명타를 맞을 확률이 %d%% 감소합니다.
 		골렘의 치유 증가율이 %d%% 상승하는 효과도 있으며, 골렘은 아무 제한 없이 판갑까지 착용할 수 있습니다.]]):
 		format(res, heavyarmor, hardiness, crit, rawlev * 10)
@@ -414,7 +410,7 @@ newTalent{
 				local _, _, tgt = e:getTarget()
 				if e:reactionToward(self) < 0 and tgt == self and rng.percent(chance) then
 					e:setTarget(golem)
-					game.logSeen(e, "%s %s에게 집중하기 시작했습니다.", (e.kr_display_name or e.name):capitalize():addJosa("가"), (golem.kr_display_name or golem.name))
+					game.logSeen(e, "%s 이제 %s 에게 집중하기 시작했습니다.", e.name:capitalize(), golem.name)
 				end
 			end
 		end

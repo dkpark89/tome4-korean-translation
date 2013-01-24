@@ -18,9 +18,11 @@
 -- darkgod@te4.org
 
 return [[
-Finally, suppose you're a rogue, and you use Dual Strike to attempt to knock somebody senseless. 
+마지막으로, 자신이 도적이 되어 적의 뒤통수를 기습하는 상황이라고 가정해봅시다.
 
-As with the berserker example, first you must hit, so you compare your #LIGHT_GREEN#Accuracy#WHITE# to the target's #LIGHT_GREEN#Defense#WHITE#.
+광전사의 예에서 봤듯이, 우선 공격이 명중해야겠죠. 자신의 #LIGHT_GREEN#정확도#WHITE# 와 적의 #LIGHT_GREEN#회피도#WHITE# 를 비교하여 공격의 성공 여부를 결정합니다.
 
-We can guess now that the target will use their #LIGHT_GREEN#Physical save#WHITE# to attempt to shrug off the stun. But what will you use? You're not getting the job done with raw muscle, like a berserker. You're doing this with finesse, so we'll use your #LIGHT_GREEN#Accuracy#WHITE#.
+적이 #LIGHT_GREEN#물리 내성#WHITE# 을 사용해서 기절하지 않으려는 것도 많이 봤으니 넘어가죠. 그렇다면 이번에는 어떤 #GOLD#전투 능력치#WHITE# 를 사용하여 적을 기절시킬까요?
+
+도적은 광전사같은 근육 덩어리가 아닙니다. 도적의 공격은 언제나 날렵하고, 민첩하지요. 그래서 적을 기절시킬 확률도 자신의 #LIGHT_GREEN#정확도#WHITE# 를 사용하여 결정합니다.
 ]]

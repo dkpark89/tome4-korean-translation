@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Shadow Combat",
-	kr_display_name = "그림자 전투기술",
+	kr_display_name = "그림자 전투",
 	type = {"cunning/shadow-magic", 1},
 	mode = "sustained",
 	points = 5,
@@ -39,9 +39,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local manacost = t.getManaCost(self, t)
-		return ([[Channel raw magical energy into your melee attacks; each blow you land will do an additional %.2f darkness damage and cost %.2f mana.
-		The damage will improve with your Spellpower.]]):
-		format(damDesc(self, DamageType.DARKNESS, damage), manacost)
+		return ([[근접 공격에 마력의 힘을 실어, 매 공격마다 %.2f 마나를 사용하여 %.2f 어둠 피해를 줄 수 있게 됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(manacost, damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
 
@@ -55,14 +55,14 @@ newTalent{
 	getSpellpower = function(self, t) return 15 + self:getTalentLevel(t) * 5 end,
 	info = function(self, t)
 		local spellpower = t.getSpellpower(self, t)
-		return ([[Your preparations give you greater magical capabilities. You gain a bonus to Spellpower equal to %d%% of your Cunning.]]):
+		return ([[준비를 통해, 마법적 능력을 높입니다. 교활함 수치의 %d%% 만큼 주문력이 상승하게 됩니다.]]):
 		format(spellpower)
 	end,
 }
 
 newTalent{
 	name = "Shadow Feed",
-	kr_display_name = "그림자 부양",
+	kr_display_name = "그림자 수급",
 	type = {"cunning/shadow-magic", 3},
 	mode = "sustained",
 	points = 5,
@@ -88,8 +88,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local manaregen = t.getManaRegen(self, t)
-		return ([[You draw energy from the depths of the shadows.
-		While sustained, you regenerate %0.2f mana per turn, and your physical and spell attack speed increases by %d%%.]]):
+		return ([[그림자의 심연에서 힘을 끌어옵니다.
+		기술이 유지되는 동안 매 턴마다 마나가 %0.2f 재생하며, 공격속도와 시전속도가 %d%% 상승하게 됩니다.]]):
 		format(manaregen, 2.2 * self:getTalentLevel(t))
 	end,
 }
@@ -110,7 +110,7 @@ newTalent{
 	getDuration = function(self, t) return math.min(5, 2 + math.ceil(self:getTalentLevel(t) / 2)) end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.2, 2.5) end,
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "You can not do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "지금은 그 기술을 사용할 수 없습니다.") return end
 
 		local tg = {type="hit", range=self:getTalentRange(t)}
 		local x, y, target = self:getTarget(tg)
@@ -127,16 +127,15 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {})
 			else
-				game.logSeen(target, "%s is not dazed!", target.name:capitalize())
+				game.logSeen(target, "%s 혼절하지 않았습니다!", target.name:capitalize())
 			end
 		end
 		return true
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Step through the shadows to your target, dazing it for %d turns and hitting it with all your weapons for %d%% darkness weapon damage.
-		Dazed targets can not act, but any damage will free them.
-		To Shadowstep, you need to be able to see the target.]]):
+		return ([[그림자를 통해 대상에게 다가가, %d 턴 동안 혼절시키고 %d%% 무기 피해를 어둠 속성으로 줍니다.
+		그림자 걷기를 사용하기 위해서는, 우선 대상을 볼 수 있어야 합니다.]]):
 		format(duration, t.getDamage(self, t) * 100)
 	end,
 }

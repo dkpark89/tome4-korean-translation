@@ -37,17 +37,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You transform into pure lightning, moving %d%% faster for %d game turns.
-		Also provides 30%% physical damage resistance and 100%% lightning resistance.
-		Any actions other than moving will stop this effect.
-		Note: since you will be moving very fast, game turns will pass very slowly.
-		Each point in storm drake talents also increases your lightning resistance by 1%%.]]):format(400 + self:getTalentLevel(t) * 70, math.ceil(1 + self:getTalentLevel(t) * 0.3))
+		return ([[순수한 번개의 형태로 변신하여, %d 게임 턴 동안 %d%% 더 빠르게 움직입니다.
+		또한 물리 저항력이 30%% 상승하며, 전기 저항력이 100%% 가 됩니다.
+		이동 이외의 행동을 하면 효과가 해제됩니다.
+		매우 빠르게 움직이기 때문에, 상대적으로 게임의 시간은 느려집니다.
+		이 기술의 레벨이 오를 때마다, 전기 저항력이 1%% 상승합니다.]]):format(math.ceil(1 + self:getTalentLevel(t) * 0.3), 400 + self:getTalentLevel(t) * 70)
 	end,
 }
 
 newTalent{
 	name = "Static Field",
-	kr_display_name = "전기장",
+	kr_display_name = "정전기장",
 	type = {"wild-gift/storm-drake", 2},
 	require = gifts_req2,
 	points = 5,
@@ -71,11 +71,11 @@ newTalent{
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target then return end
 			if not target:checkHit(self:combatMindpower(), target:combatPhysicalResist(), 10) then
-				game.logSeen(target, "%s resists the static field!", target.name:capitalize())
+				game.logSeen(target, "%s 전기장의 효과를 저항했습니다!", target.name:capitalize())
 				return
 			end
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatMindpower())
-			game.logSeen(target, "%s is caught in the static field!", target.name:capitalize())
+			game.logSeen(target, "%s 전기장에 걸려들었습니다!", target.name:capitalize())
 
 			local perc = t.getPercent(self, t)
 			if target.rank >= 5 then perc = perc / 3
@@ -87,23 +87,23 @@ newTalent{
 			if target.life - dam < 0 then dam = target.life end
 			target:takeHit(dam, self)
 
-			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 순수피해#LAST#"):format(math.ceil(dam))) --@@
+			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 피해#LAST#"):format(math.ceil(dam))) --@@
 		end, nil, {type="lightning_explosion"})
 		game:playSoundNear(self, "talents/lightning")
 		return true
 	end,
 	info = function(self, t)
 		local percent = t.getPercent(self, t)
-		return ([[Generate an electrical field around you in a radius of 1. Any creature caught inside will lose %d%% of its current life (effect decreased for higher creature ranks).
-		This effect cannot kill creatures.
-		Life loss will increase with your Mindpower.
-		Each point in storm drake talents also increases your lightning resistance by 1%%.]]):format(percent)
+		return ([[주변 1 칸 반경에 전기장을 만들어냅니다. 전기장에 들어온 적은 현재 생명력의 %d%% 를 잃게 됩니다. (높은 등급의 적에게는 효과가 감소됩니다)
+		이 효과로는 무언가를 죽일 수 없습니다.
+		생명력 감소량은 정신력 능력치의 영향을 받아 증가합니다.
+		이 기술의 레벨이 오를 때마다, 전기 저항력이 1%% 상승합니다.]]):format(percent)
 	end,
 }
 
 newTalent{
 	name = "Tornado",
-	kr_display_name = "대폭풍",
+	kr_display_name = "태풍",
 	type = {"wild-gift/storm-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -143,7 +143,7 @@ newTalent{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatMindpower()})
 				else
-					game.logSeen(target, "%s resists the tornado!", target.name:capitalize())
+					game.logSeen(target, "%s 태풍의 효과를 저항했습니다!", target.name:capitalize())
 				end
 
 				-- Lightning ball gets a special treatment to make it look neat
@@ -164,12 +164,11 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summons a tornado that moves slowly toward its target, following it if it changes position.
-		Any foe caught in its path takes %0.2f lightning damage.
-		When it reaches its target, it explodes in a radius of 1 for %0.2f lightning damage and %0.2f physical damage. All affected creatures will be knocked back, and the targeted creature will be stunned for 4 turns.
-		The tornado will last for %d turns, or until it reaches its target.
-		Damage will increase with your Mindpower.
-		Each point in storm drake talents also increases your lightning resistance by 1%%.]]):format(
+		return ([[대상을 향해 천천히 움직이는 태풍을 소환합니다.
+		태풍의 이동경로에 있는 적들은 %0.2f 전기 피해를 입습니다.
+		대상에게 접근하면 태풍이 폭발하여, 주변 1 칸 반경에 %0.2f 전기 피해와 %0.2f 물리 피해를 줍니다. 태풍은 폭발하면서 주변의 적들을 밀어내며, 대상은 4 턴 동안 기절하게 됩니다.
+		태풍은 %d 턴 동안 지속됩니다.
+		이 기술의 레벨이 오를 때마다, 전기 저항력이 1%% 상승합니다.]]):format(
 			damDesc(self, DamageType.LIGHTNING, self:combatTalentMindDamage(t, 10, 110)),
 			damDesc(self, DamageType.LIGHTNING, self:combatTalentMindDamage(t, 15, 190)),
 			damDesc(self, DamageType.PHYSICAL, self:combatTalentMindDamage(t, 15, 190)),
@@ -180,14 +179,14 @@ newTalent{
 
 newTalent{
 	name = "Lightning Breath",
-	kr_display_name = "전격 브레쓰",
+	kr_display_name = "번개 브레스",
 	type = {"wild-gift/storm-drake", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes lightning!",
+	message = "@Source@ 번개를 뿜어냅니다!",
 	tactical = { ATTACKAREA = {LIGHTNING = 2}, DISABLE = { stun = 1 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,
@@ -217,9 +216,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[You breathe lightning in a frontal cone of radius %d. Any target caught in the area will take %0.2f to %0.2f lightning damage, and can be dazed for 3 turns.
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
-		Each point in storm drake talents also increases your lightning resistance by 1%%.]]):format(
+		return ([[전방 %d 칸 반경에 번개 브레스를 뿜어내, 적들에게 %0.2f - %0.2f 전기 피해를 주고 3 턴 동안 혼절시킵니다.
+		피해량은 힘 능력치의 영향을 받으며, 치명타율은 정신 치명타율을 따릅니다.
+		이 기술의 레벨이 오를 때마다, 전기 저항력이 1%% 상승합니다.]]):format(
 			self:getTalentRadius(t),
 			damDesc(self, DamageType.LIGHTNING, damage / 3),
 			damDesc(self, DamageType.LIGHTNING, damage)

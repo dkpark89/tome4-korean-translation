@@ -18,26 +18,26 @@
 -- darkgod@te4.org
 
 -- Paradox Mage SpellsnewTalentType
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/age-manipulation", name = "Age Manipulation", description = "당신이 만나는 존재들의 시간을 조작한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/chronomancy", name = "chronomancy", generic = true, description = "미래를 엿보거나 현재를 더 잘 살필수있게 된다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/energy", name = "energy", generic = true, description = "순수 에너지를 늘리거나 줄이는 조작을한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/gravity", name = "gravity", description = "적을 누르거나 밀거나 당기도록 중력을 이용한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/matter", name = "matter", description = "물질의 형태 그 자체를 변화시킨다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/paradox", name = "paradox", min_lev = 10, description = "시공간의 규칙에 틈을 만든다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/speed-control", name = "Speed Control", description = "시공간축 상에서 움직이는 물체나 존재의 속도를 조절한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-combat", name = "Temporal Combat", description = "시공술과 물리적 전투기술의 혼합." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timeline-threading", name = "Timeline Threading", min_lev = 10, description = "시공간 연속을 구성하는 흐름(timeline)을 시험하고 변화한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timetravel", name = "Time Travel", description = "스스로 시간 여행을 떠나거나 적을 미래로 보내버린다.." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-folding", name = "Spacetime Folding", description = "공간축을 접어버리는 기술을 숙련한다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-weaving", name = "Spacetime Weaving", generic = true, description = "시공간축을 엮어, 당신이 입는 피해량을 간섭하고 조절한다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/age-manipulation", name = "Age Manipulation", description = "마주치는 자들의 시간을 조작합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/chronomancy", name = "chronomancy", generic = true, description = "미래를 엿보거나, 현재에 대해서 더 잘 알게 됩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/energy", name = "energy", generic = true, description = "순수한 에너지의 양을 자유롭게 조작합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/gravity", name = "gravity", description = "중력의 힘으로 적들을 짓누르고, 밀어내고, 당겨옵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/matter", name = "matter", description = "물질 그 자체를 바꾸고 변화시킵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/paradox", name = "paradox", min_lev = 10, description = "시공간의 규칙에 틈을 만들어냅니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/speed-control", name = "Speed Control", description = "시공간을 통해 움직이는 물체나 생명체의 속도를 조절합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-combat", name = "Temporal Combat", description = "시공 마법과 물리적 전투기술을 섞어서 만든, 새로운 전투기술입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timeline-threading", name = "Timeline Threading", min_lev = 10, description = "시공간 연속체를 구성하는 시간의 흐름을 조사하고 변화시킵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timetravel", name = "Time Travel", description = "스스로 시간 여행을 떠나거나, 적을 미래로 보내버립니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-folding", name = "Spacetime Folding", description = "공간축을 접어 다양한 효과를 일으키는 방법을 수련합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-weaving", name = "Spacetime Weaving", generic = true, description = "시공간의 실을 엮어, 시공간을 간섭하고 조절합니다." }
 
 
-newTalentType{ no_silence=true, is_spell=true, type="chronomancy/temporal-archery", name = "Temporal Archery", description = "시공술과 장거리 전투기술의 혼합." }
-newTalentType{ no_silence=true, is_spell=true, type="chronomancy/other", name = "Other", generic = true, description = "기타 시공술 효과." }
+newTalentType{ no_silence=true, is_spell=true, type="chronomancy/temporal-archery", name = "Temporal Archery", description = "시공 마법과 장거리 전투기술을 섞어서 만든, 새로운 전투기술입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="chronomancy/other", name = "Other", generic = true, description = "기타 시공 마법입니다." }
 
 
 -- Anomalies are not learnable but can occur instead of an intended spell when paradox gets to high.
-newTalentType{ no_silence=true, is_spell=true, type="chronomancy/anomalies", name = "anomalies", description = "괴리가 너무 높을때 랜덤하게 발생할 수 있는 시공간의 이상현상." }
+newTalentType{ no_silence=true, is_spell=true, type="chronomancy/anomalies", name = "anomalies", description = "괴리 수치가 너무 높으면 발생하는, 시공간의 이상 현상입니다." }
 
 -- Generic requires for chronomancy spells based on talent level
 chrono_req1 = {

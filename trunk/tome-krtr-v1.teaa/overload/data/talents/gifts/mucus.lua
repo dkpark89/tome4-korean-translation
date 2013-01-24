@@ -55,12 +55,12 @@ newTalent{
 		local dur = t.getDur(self, t)
 		local dam = t.getDamage(self, t)
 		local equi = t.getEqui(self, t)
-		return ([[You start to create mucus where you walk or stand for %d turns.
-		Mucus will poison all foes crossing it, dealing %0.2f nature damage every turn for 5 turn (stacking).
-		Any friendly creature walking the mucus will restore equilibrium by %d per turn.
-		Mucus will disappear after %d turns.
-		At level 4 the mucus will grow in a radius 1.
-		Damage and equilibrium regen increase with Mindpower.]]):
+		return ([[서있거나 지나간 자리에 %d 턴 동안 점액을 만들어냅니다.
+		점액을 밟은 적은 독에 걸려, 5 턴 동안 매 턴마다 %0.2f 자연 피해를 입게 됩니다. (이 피해는 중첩됩니다)
+		동료가 점액을 밟을 경우 매 턴마다 평정을 %d 회복하게 됩니다.
+		점액은 %d 턴 동안 유지됩니다.
+		기술 레벨이 4 이상이면, 점액이 주변 1 칸 반경까지 퍼지게 됩니다.
+		피해량과 평정 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(dur, damDesc(self, DamageType.NATURE, dam), equi, dur)
 	end,
 }
@@ -122,7 +122,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[You call upon nature to turn the ground into an acidic explosion in a radius %d, dealing %0.2f acid damage to all creatures and creating mucus under it.
+		return ([[자연의 힘을 빌어, 주변 %d 칸 반경의 지면에 산성 폭발을 일으킵니다. 폭발에 휩쓸린 적은 %0.2f 산성 피해를 입으며, 폭발한 곳에 점액이 남게 됩니다.
 		Also if you have any Mucus Oozes active they will, if in line of sight, instantly throw a slime spit (at reduced power) at one of the target hit by the splash.
 		Damage will increase with Mindpower.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, dam))

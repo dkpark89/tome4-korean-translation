@@ -101,14 +101,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local count = t.getRemoveCount(self, t)
-		return ([[Removes up to %d detrimental magical effects and empowers you with arcane energy for ten turns, increasing spellpower and spell save by 5 plus 5 per effect removed.]]):
+		return ([[%d 개의 나쁜 마법적 상태효과를 제거하고, 10 턴 동안 마력을 강화하여 주문력과 주문 내성을 5 올립니다.
+		제거한 상태효과 1 개 마다 주문력과 주문 내성이 5 만큼 추가로 상승합니다.]]):
 		format(count)
 	end,
 }
 
 newTalent{
 	name = "Command Staff",
-	kr_display_name = "지팡이 부리기",
+	kr_display_name = "지팡이 다루기",
 	type = {"spell/objects", 1},
 	cooldown = 5,
 	points = 5,
@@ -117,7 +118,7 @@ newTalent{
 	action = function(self, t)
 		local staff = self:hasStaffWeapon()
 		if not staff or not staff.wielder or not staff.wielder.learn_talent or not staff.wielder.learn_talent[self.T_COMMAND_STAFF] then
-			game.logPlayer(self, "You must be holding a staff.")
+			game.logPlayer(self, "지팡이를 들고 있어야 합니다.")
 			return
 		end
 		local state = {}
@@ -128,13 +129,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Alter the flow of energies through a staff.]])
+		return ([[지팡이에 흐르는 마력을 전환합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Ward",
-	kr_display_name = "배척",
+	kr_display_name = "보호구역",
 	type = {"spell/objects", 1},
 	cooldown = function(self, t)
 		return math.max(10, 28 - 3 * self:getTalentLevel(t))
@@ -155,13 +156,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Bring a damage-type-specific ward into being. The ward will fully negate as many attacks of its element as it has charges.]])
+		return ([[특수한 속성 피해를 막아내는 보호구역을 만듭니다. 보호구역은 충전량만큼 해당 속성 공격을 무효화합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Teleport to the ground", short_name = "YIILKGUR_BEAM_DOWN",
-	kr_display_name = "지표면으로의 공간이동",
+	kr_display_name = "지표면으로 공간이동",
 	type = {"sher'tul/fortress", 1},
 	points = 1,
 	no_npc_use = true,
@@ -169,7 +170,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Use Yiilkgur's teleporter to teleport to the ground.]])
+		return ([[Yiilkgur의 공간이동기를 사용하여 지표면으로 이동합니다.]])
 	end,
 }
 
@@ -184,7 +185,7 @@ newTalent{
 	hard_cap = 5,
 	range = 1,
 	tactical = { ATTACK = 3, DEFEND = 3 },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "방패가 없으면 이 기술을 사용할 수 없습니다.") end return false end return true end,
 	getProperties = function(self, t)
 		local shield = self:hasShield()
 		--if not shield then return nil end
@@ -259,23 +260,25 @@ newTalent{
 		local ref_text = ""
 		local br_text = ""
 		if properties.sp then
-			sp_text = (" Increases your spell save by %d for that turn."):format(t.getBlockValue(self, t))
+			sp_text = ("그리고, 공격을 막아내는 동안 주문 내성이 %d 증가합니다."):format(t.getBlockValue(self, t))
 		end
 		if properties.ref then
-			ref_text = " Reflects all blocked damage back to the source."
+			ref_text = "그리고, 막아낸 모든 피해를 적에게 되돌려줍니다."
 		end
 		if properties.br then
-			br_text = " All blocked damage heals the wielder."
+			br_text = "그리고, 막아낸 피해만큼 생명력이 회복합니다."
 		end
 		local bt, bt_string = t.getBlockedTypes(self, t)
-		return ([[Raise your shield into blocking position for one turn, reducing the damage of all %s attacks by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn.%s%s%s]]):format(bt_string, t.getBlockValue(self, t), sp_text, ref_text, br_text)
+		return ([[방패를 들어, 공격을 1 턴 동안 막아냅니다. 모든 %s 공격을 %d 만큼 막아낼 수 있습니다.
+		공격을 완벽하게 막아냈을 경우, 적이 1 턴 동안 반격에 취약해집니다. (일반 공격의 피해량이 200%% 로 증가)
+		%s%s%s]]):format(bt_string, t.getBlockValue(self, t), sp_text, ref_text, br_text)
 	end,
 }
 
 newTalent{
 	short_name = "BLOOM_HEAL", image = "talents/regeneration.png",
 	name = "Bloom Heal",
-	kr_display_name = "꽃피우는 치료",
+	kr_display_name = "꽃의 치료",
 	type = {"wild-gift/objects", 1},
 	points = 1,
 	no_energy = true,
@@ -287,15 +290,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the power of nature to regenerate your body for %d life every turn for 6 turns.
-		The life healed will increase with the Willpower stat.]]):format(7 + self:getWil() * 0.5)
+		return ([[자연의 힘을 불러내, 6 턴 동안 매 턴마다 %d 생명력을 회복합니다.
+		생명력 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):format(7 + self:getWil() * 0.5)
 	end,
 }
 
 newTalent{
 	image = "talents/mana_clash.png",
 	name = "Destroy Magic",
-	kr_display_name = "마법 부수기",
+	kr_display_name = "마법 파괴",
 	type = {"wild-gift/objects", 1},
 	points = 5,
 	no_energy = true,
@@ -345,14 +348,14 @@ newTalent{
 					if target.undead or target.construct then
 						self:project({type="hit"}, target.x, target.y, engine.DamageType.ARCANE, 40+self:combatMindpower())
 						if target:canBe("stun") then target:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatMindpower()}) end
-						game.logSeen(self, "%s's animating magic is disrupted!", target.name:capitalize())
+						game.logSeen(self, "%s 시전 중이던 마법이 방해받았습니다!", target.name:capitalize())
 					end
 				end
 		end, nil, {type="slime"})
 		return true
 	end,
 	info = function(self, t)
-		return ([[Inflict various status effects on the target, depending on the level.]]):format(7 + self:getWil() * 0.5)
+		return ([[레벨에 따라, 대상에게 다양한 상태효과를 일으킵니다.]]):format(7 + self:getWil() * 0.5)
 	end,
 }
 

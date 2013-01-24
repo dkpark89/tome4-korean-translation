@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
-
 newTalent{
 	name = "Create Alchemist Gems",
 	kr_display_name = "연금술용 보석 생성",
@@ -43,13 +41,13 @@ newTalent{
 		return gem
 	end,
 	action = function(self, t)
-		local d d = self:showEquipInven("어느 보석을 사용합니까?", function(o) return not o.unique and o.type == "gem" end, function(o, inven, item)
+		local d d = self:showEquipInven("어떤 보석을 사용합니까?", function(o) return not o.unique and o.type == "gem" end, function(o, inven, item)
 			if not o then return end
 			local gem = t.make_gem(self, t, o.define_as)
 			if not gem then return end
 			self:addObject(self.INVEN_INVEN, gem)
 			self:removeObject(inven, item)
-			game.logPlayer(self, "%s 만들었습니다.", gem:getName{do_color=true, do_count=true}:addJosa("를"))
+			game.logPlayer(self, "연금술용 보석을 만들었습니다. (%s)", gem:getName{do_color=true, do_count=true})
 			self:sortInven()
 			d.used_talent = true
 			return true
@@ -101,14 +99,14 @@ newTalent{
 		local gem = t.getGem(self, t, o)
 		if gem then
 			self:addObject(self.INVEN_INVEN, gem)
-			game.logPlayer(self, "%s에서 %s 추출했습니다.", o:getName{do_color=true, do_count=true}, gem:getName{do_color=true, do_count=true}:addJosa("를")) --@@
+			game.logPlayer(self, "%s 보석을 추출했습니다. (대상 : %s)", gem:getName{do_color=true, do_count=true}, o:getName{do_color=true, do_count=true})
 			self:sortInven()
 			if d then d.used_talent = true end
 		end
 		return true
 	end,
 	action = function(self, t)
-		local d d = self:showEquipInven("어느 금속제 장비에서 보석을 추출합니까?", function(o) return t.filterGem(self, t, o) end, function(o, inven, item) return t.extractGem(self, t, o, inven, item, d) end)
+		local d d = self:showEquipInven("어떤 금속제 장비에서 보석을 추출합니까?", function(o) return t.filterGem(self, t, o) end, function(o, inven, item) return t.extractGem(self, t, o, inven, item, d) end)
 		local co = coroutine.running()
 		d.unload = function(self) coroutine.resume(co, self.used_talent) end
 		if not coroutine.yield() then return nil end
@@ -116,11 +114,11 @@ newTalent{
 	end,
 	info = function(self, t)
 		local material = ""
-		if self:getTalentLevelRaw(t) >=1 then material=material.."	-무쇠(Iron)\n" end
-		if self:getTalentLevelRaw(t) >=2 then material=material.."	-강철(Steel)\n" end
-		if self:getTalentLevelRaw(t) >=3 then material=material.."	-드워프강철(Dwarven-steel)\n" end
-		if self:getTalentLevelRaw(t) >=4 then material=material.."	-스트라라이트(Stralite)\n" end
-		if self:getTalentLevelRaw(t) >=5 then material=material.."	-보라툰(Voratun)" end
+		if self:getTalentLevelRaw(t) >=1 then material=material.."	-Iron\n" end
+		if self:getTalentLevelRaw(t) >=2 then material=material.."	-Steel\n" end
+		if self:getTalentLevelRaw(t) >=3 then material=material.."	-Dwarven-steel\n" end
+		if self:getTalentLevelRaw(t) >=4 then material=material.."	-Stralite\n" end
+		if self:getTalentLevelRaw(t) >=5 then material=material.."	-Voratun" end
 		return ([[금속제 무기나 갑옷에서 보석을 추출해냅니다. 현재 기술 레벨에서 다룰 수 있는 재질은 다음과 같습니다 :
 		%s]]):format(material)
 	end,
@@ -137,15 +135,14 @@ newTalent{
 	no_npc_use = true,
 	no_unlearn_last = true,
 	action = function(self, t)
-		local d d = self:showInventory("어느 보석을 사용합니까?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.imbue_powers and gem.material_level and gem.material_level <= self:getTalentLevelRaw(t) end, function(gem, gem_item)
-			local nd = self:showInventory("어느 방어구를 강화합니까?", self:getInven("INVEN"), function(o) return o.type == "armor" and (o.slot == "BODY" or (self:knowTalent(self.T_CRAFTY_HANDS) and (o.slot == "HEAD" or o.slot == "BELT"))) and not o.been_imbued end, function(o, item)
+		local d d = self:showInventory("Use which gem?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.imbue_powers and gem.material_level and gem.material_level <= self:getTalentLevelRaw(t) end, function(gem, gem_item)
+			local nd = self:showInventory("Imbue which armour?", self:getInven("INVEN"), function(o) return o.type == "armor" and (o.slot == "BODY" or (self:knowTalent(self.T_CRAFTY_HANDS) and (o.slot == "HEAD" or o.slot == "BELT"))) and not o.been_imbued end, function(o, item)
 				self:removeObject(self:getInven("INVEN"), gem_item)
 				o.wielder = o.wielder or {}
 				table.mergeAdd(o.wielder, gem.imbue_powers, true)
 				o.been_imbued = true
-				game.logPlayer(self, "%s %s 강화하였습니다.", gem:getName{do_colour=true, no_count=true}:addJosa("로"), o:getName{do_colour=true, no_count=true}:addJosa("를")) --@@
+				game.logPlayer(self, "%s 장비를 강화하였습니다. (사용 보석 : %s)", o:getName{do_colour=true, no_count=true}, gem:getName{do_colour=true, no_count=true})
 				o.name = o.name .. " ("..gem.name..")"
-				o.kr_display_name = (o.kr_display_name or o.name) .. " ("..(gem.kr_display_name or gem.name)..")" --@@
 				o.special = true
 				d.used_talent = true
 				game:unregisterDialog(d)
@@ -161,7 +158,7 @@ newTalent{
 	info = function(self, t)
 		return ([[보석의 힘을 주입하여 더 강력한 장비를 만듭니다. 강화는 단 한 번만 가능하며, 영구적으로 지속됩니다.
 		가능 장비 : %s 
-		가능한 보석의 수준 : %d 단계]]):format(self:knowTalent(self.T_CRAFTY_HANDS) and "갑옷, 허리띠, 모자류" or "갑옷", self:getTalentLevelRaw(t))
+		가능한 보석의 수준 : %d 단계]]):format(self:knowTalent(self.T_CRAFTY_HANDS) and "옷 (갑옷 포함), 투구, 허리띠" or "옷 (갑옷 포함)", self:getTalentLevelRaw(t))
 	end,
 }
 newTalent{
@@ -178,7 +175,7 @@ newTalent{
 	action = function(self, t)
 		local ammo = self:hasAlchemistWeapon()
 		if not ammo or ammo:getNumber() < 5 then
-			game.logPlayer(self, "이 기술을 사용하려면 5개의 연금술용 보석을 손에 들고있어야 합니다.")
+			game.logPlayer(self, "이 기술을 사용하려면 5 개의 연금술용 보석을 손에 들고있어야 합니다.")
 			return
 		end
 
@@ -202,7 +199,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = t.getRange(self, t)
-		return ([[5개의 연금술용 보석을 부숴, 그 가루로 통과할 수 없는 벽이나 지형에 특수한 표식을 새깁니다. 
+		return ([[5 개의 연금술용 보석을 부숴, 그 가루로 통과할 수 없는 벽이나 지형에 특수한 표식을 새깁니다. 
 		그 힘을 이용하여, 벽이나 지형을 %d 칸 까지 통과할 수 있습니다.]]):
 		format(range)
 	end,

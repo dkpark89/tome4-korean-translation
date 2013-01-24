@@ -58,7 +58,7 @@ end
 
 newTalent{
 	name = "Kinetic Shield",
-	kr_display_name = "동역학적 방어막",
+	kr_display_name = "동역학적 보호막",
 	type = {"psionic/absorption", 1},
 	require = psi_wil_req1,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -72,7 +72,7 @@ newTalent{
 	tactical = { DEFEND = 2 },
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_THERMAL_SHIELD) and self:isTalentActive(self.T_CHARGED_SHIELD) then
-			if not silent then game.logSeen(self, "You may only sustain two shields at once. Shield activation cancelled.") end
+			if not silent then game.logSeen(self, "보호막은 한번에 2 개 까지만 유지할 수 있습니다. 보호막 생성이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -148,7 +148,7 @@ newTalent{
 			end
 
 			if self.kinspike_shield_absorb <= 0 then
-				game.logPlayer(self, "Your spiked kinetic shield crumbles under the damage!")
+				game.logPlayer(self, "가시돋힌 동역학적 보호막이 깨져 사라졌습니다!")
 				self:removeEffect(self.EFF_KINSPIKE_SHIELD)
 			end
 			return dam + guaranteed_dam
@@ -162,9 +162,10 @@ newTalent{
 		local spike_str = getSpikeStrength(self, t)
 		local mast = 30 - (2*self:getTalentLevel(self.T_SHIELD_DISCIPLINE) or 0) - 0.4*getGemLevel(self)
 		local absorb = 100*getEfficiency(self,t)
-		return ([[Surround yourself with a shield that will absorb %d%% of any physical or acidic attack, up to a maximum of %d damage per attack. Deactivating the shield spikes it up to a temporary (five turns) %d point shield.
-		Every time your shield absorbs damage, you gain two points of Psi, plus an additional point for every %d points of damage absorbed. Spiked shields absorb energy as Psi more efficiently.
-		These values scale with your Mindpower.]]):
+		return ([[시전자 주변을 보호막으로 둘러싸, 물리 공격이나 산성 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
+		보호막을 해제하면 동역학적 보호막의 파편이 생겨나, 5 턴 동안 물리 공격이나 산성 공격을 %d 만큼 완전히 막아냅니다.
+		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편은 피해 흡수에 따른 염력 회복이 더 효율적입니다.
+		피해 흡수량 등은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(absorb, s_str, spike_str, mast)
 	end,
 }
@@ -187,7 +188,7 @@ newTalent{
 	tactical = { DEFEND = 2 },
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_KINETIC_SHIELD) and self:isTalentActive(self.T_CHARGED_SHIELD) then
-			if not silent then game.logSeen(self, "You may only sustain two shields at once. Shield activation cancelled.") end
+			if not silent then game.logSeen(self, "보호막은 한번에 2 개 까지만 유지할 수 있습니다. 보호막 생성이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -261,7 +262,7 @@ newTalent{
 			end
 
 			if self.thermspike_shield_absorb <= 0 then
-				game.logPlayer(self, "Your spiked thermal shield crumbles under the damage!")
+				game.logPlayer(self, "가시돋힌 열역학적 보호막이 깨져 사라졌습니다!")
 				self:removeEffect(self.EFF_THERMSPIKE_SHIELD)
 			end
 			return dam + guaranteed_dam
@@ -275,9 +276,10 @@ newTalent{
 		local spike_str = getSpikeStrength(self, t)
 		local mast = 30 - (2*self:getTalentLevel(self.T_SHIELD_DISCIPLINE) or 0) - 0.4*getGemLevel(self)
 		local absorb = 100*getEfficiency(self,t)
-		return ([[Surround yourself with a shield that will absorb %d%% of any fire or cold attack, up to a maximum of %d damage per attack. Deactivating the shield spikes it up to a temporary (five turns) %d point shield.
-		Every time your shield absorbs damage, you gain two points of Psi, plus an additional point for every %d points of damage absorbed. Spiked shields absorb energy as Psi more efficiently.
-		These values scale with your Mindpower.]]):
+		return ([[시전자 주변을 보호막으로 둘러싸, 화염 공격이나 냉기 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
+		보호막을 해제하면 열역학적 보호막의 파편이 생겨나, 5 턴 동안 화염 공격이나 냉기 공격을 %d 만큼 완전히 막아냅니다.
+		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편은 피해 흡수에 따른 염력 회복이 더 효율적입니다.
+		피해 흡수량 등은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(absorb, s_str, spike_str, mast)
 	end,
 }
@@ -298,7 +300,7 @@ newTalent{
 	tactical = { DEFEND = 2 },
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_KINETIC_SHIELD) and self:isTalentActive(self.T_THERMAL_SHIELD) then
-			if not silent then game.logSeen(self, "You may only sustain two shields at once. Shield activation cancelled.") end
+			if not silent then game.logSeen(self, "보호막은 한번에 2 개 까지만 유지할 수 있습니다. 보호막 생성이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -370,7 +372,7 @@ newTalent{
 			end
 
 			if self.chargespike_shield_absorb <= 0 then
-				game.logPlayer(self, "Your spiked charged shield crumbles under the damage!")
+				game.logPlayer(self, "가시돋힌 전하적 보호막이 깨져 사라졌습니다!")
 				self:removeEffect(self.EFF_CHARGESPIKE_SHIELD)
 			end
 			return dam + guaranteed_dam
@@ -384,16 +386,17 @@ newTalent{
 		local spike_str = getSpikeStrength(self, t)
 		local mast = 30 - (2*self:getTalentLevel(self.T_SHIELD_DISCIPLINE) or 0) - 0.4*getGemLevel(self)
 		local absorb = 100*getEfficiency(self,t)
-		return ([[Surround yourself with a shield that will absorb %d%% of any lightning or blight attack, up to a maximum of %d damage per attack. Deactivating the shield spikes it up to a temporary (five turns) %d point shield.
-		Every time your shield absorbs damage, you gain two points of Psi, plus an additional point for every %d points of damage absorbed. Spiked shields absorb energy as Psi more efficiently.
-		These values scale with your Mindpower.]]):
+		return ([[시전자 주변을 보호막으로 둘러싸, 전기 공격이나 황폐화 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
+		보호막을 해제하면 전하적 보호막의 파편이 생겨나, 5 턴 동안 전기 공격이나 황폐화 공격을 %d 만큼 완전히 막아냅니다.
+		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편은 피해 흡수에 따른 염력 회복이 더 효율적입니다.
+		피해 흡수량 등은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(absorb, s_str, spike_str, mast)
 	end,
 }
 
 newTalent{
 	name = "Absorption Mastery",
-	kr_display_name = "충격 흡수 숙련",
+	kr_display_name = "피해 흡수 수련",
 	type = {"psionic/absorption", 4},
 	require = psi_wil_req4,
 	cooldown = function(self, t)
@@ -415,11 +418,10 @@ newTalent{
 	end,
 
 	info = function(self, t)
-		return ([[When activated, brings all shields off cooldown. Additional talent points spent in Absorption Mastery allow it to be used more frequently.
-		At level 3 and 6, your shields gain new elemental absorption:
-		- Kinetic Shield: Nature at level 3, Temporal at level 6
-		- Thermal Shield: Light at level 3, Arcane at level 6
-		- Charged Shield: Darkness at level 3, Mind at level 6
-		]])
+		return ([[사용하면 모든 보호막의 재사용 대기시간이 초기화됩니다. 기술 레벨이 올라가면 더 자주 기술을 사용할 수 있게 됩니다.
+		기술 레벨이 3 과 6 이상이 되면, 보호막이 다른 속성까지 막을 수 있게 됩니다.
+		- 동역학적 보호막 : 3 레벨에 자연 속성, 6 레벨에 시간 속성
+		- 열역학적 보호막 : 3 레벨에 빛 속성, 6 레벨에 마법 속성
+		- 전하적 보호막 : 3 레벨에 어둠 속성, 6 레벨에 정신 속성]])
 	end,
 }

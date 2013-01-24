@@ -42,7 +42,7 @@ newTalent{
 
 newTalent{
 	name = "Armour Training",
-	kr_display_name = "방어구 숙련",
+	kr_display_name = "방어구 수련",
 	type = {"technique/combat-training", 1},
 	mode = "passive",
 	no_unlearn_last = true,
@@ -71,10 +71,10 @@ newTalent{
 		local criticalreduction = t.getCriticalChanceReduction(self, t)
 		local classrestriction = ""
 		if self.descriptor and self.descriptor.subclass == "Brawler" then
-			classrestriction = "(격투가는 판갑을 입으면 대다수의 기술을 사용할 수 없습니다.)"
+			classrestriction = "(격투가는 판갑을 입으면 대다수의 기술을 사용할 수 없습니다)"
 		end
 		if self:knowTalent(self.T_STEALTH) then
-			classrestriction = "(중갑이나 판갑은 은신할 때 방해가 됩니다.)"
+			classrestriction = "(중갑이나 판갑은 은신할 때 방해가 됩니다)"
 		end
 		return ([[방어구를 더 능숙하게 다룰 수 있게 됩니다. 
 		중갑이나 판갑 착용시 방어도가 %d 상승하고, 방어 효율이 %d%% 증가하며, 적에게 치명타를 맞을 확률이 %d%% 줄어듭니다.
@@ -102,7 +102,7 @@ newTalent{
 
 newTalent{
 	name = "Weapons Mastery",
-	kr_display_name = "무기 숙련",
+	kr_display_name = "무기 수련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { stat = { str=function(level) return 12 + level * 6 end }, },
@@ -120,7 +120,7 @@ newTalent{
 
 newTalent{
 	name = "Dagger Mastery", short_name = "KNIFE_MASTERY",
-	kr_display_name = "단검 숙련",
+	kr_display_name = "단검 수련",
 	type = {"technique/combat-training", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 10 + level * 6 end }, },
@@ -137,7 +137,7 @@ newTalent{
 
 newTalent{
 	name = "Exotic Weapons Mastery",
-	kr_display_name = "이형 무기 숙련",
+	kr_display_name = "이형 무기 수련",
 	type = {"technique/combat-training", 1},
 	hide = true,
 	points = 5,

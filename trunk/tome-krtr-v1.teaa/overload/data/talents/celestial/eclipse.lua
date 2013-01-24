@@ -31,7 +31,7 @@ newTalent{
 		self.combat_spellcrit = self.combat_spellcrit - 3
 	end,
 	info = function(self, t)
-		return ([[주문 치명타율을 %d%% 증가시킵니다.]]):
+		return ([[마법 치명타율을 %d%% 증가시킵니다.]]):
 		format(3 * self:getTalentLevelRaw(t))
 	end,
 }
@@ -63,8 +63,8 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local penetration = t.getResistancePenetration(self, t)
 		local cooldownreduction = t.getCooldownReduction(self, t)
-		return ([[빛과 어둠 저항 관통을 %d 턴 동안 %d%% 증가시키고, 재사용 대기중인 천공 계열 기술의 대기 시간을 %d 턴 감소시킵니다.
-		저항 관통은 교활함 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[빛과 어둠 속성 저항 관통력을 %d 턴 동안 %d%% 증가시키고, 모든 천공 계열 기술의 재사용 대기시간을 %d 턴 감소시킵니다.
+		저항 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(penetration, duration, cooldownreduction)
 	end,
 }
@@ -129,9 +129,9 @@ newTalent{
 		local targetcount = t.getTargetCount(self, t)
 		local lightdamage = t.getLightDamage(self, t)
 		local darknessdamage = t.getDarknessDamage(self, t)
-		return ([[당신의 주문이 치명타로 적중할 때마다, %d칸 반경 내에 있는 %d 명의 대상에게 빛이나 어둠의 볼트를 발사하여 %0.2f 의 빛 피해나 %0.2f 의 어둠 피해를 줍니다.
-		이 효과가 발동될 때마다 2의 양기나 음기가 소모되며, 부족하다면 효과가 발동되지 않습니다.
-		피해량은 마법 능력치의 영향을 받아 증가됩니다.]]):
+		return ([[주문이 치명타로 적중할 때마다, 주변 %d 칸 반경에 있는 적 %d 명에게 빛이나 어둠의 화살을 발사하여 %0.2f 빛 피해나 %0.2f 어둠 피해를 줍니다.
+		이 효과가 발동될 때마다 양기나 음기가 2 소모되며, 양기나 음기가 부족하다면 효과가 발동되지 않습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRange(t), targetcount, damDesc(self, DamageType.LIGHT, lightdamage), damDesc(self, DamageType.DARKNESS, darknessdamage)) --@@
 	end,
 }
@@ -186,10 +186,11 @@ newTalent{
 		local convert = t.getEnergyConvert(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[이 강력한 주문을 유지하는 동안 %d 의 투명화 능력을 얻으며, 매 턴마다 %d 의 음기를 양기로 전환합니다. 양기가 음기를 초과하게 되거나 유지를 해제하면, 효과가 끝나면서 찬란한 빛이 폭발하면서 양기의 총량에 %0.2f 의 피해를 추가하여 %d 칸 반경 내의 모든 대상에게 줍니다.
-		투명화를 유지하는 동안에는 현실에서 유리되기에, 당신이 적에게 주는 피해가 50%% 감소됩니다.
-		이 주문이 유지되는 동안에는 황혼 주문을 사용할 수 없으며, 광원을 장착하면 투명화가 소용없어지기에 착용을 해제해야 합니다.
-		투명화는 교활함 능력치의 영향을 받으며, 폭발 피해량은 마법 능력치의 영향을 받아 증가됩니다.]]):
+		return ([[강력한 기술로, 이 기술이 유지되는 동안 몸이 투명해지며 (투명 수치 +%d), 매 턴마다 %d 만큼의 음기가 양기로 전환됩니다. 
+		양기가 음기를 초과하게 되거나 기술의 유지를 해제하면, 기술의 효과가 끝나면서 찬란한 빛이 폭발하여 주변 %d 칸 반경에 (가지고 있던 양기의 총량 + %0.2f) 피해를 줍니다.
+		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 50%% 밖에 주지 못하게 됩니다.
+		투명화 중에 등불 따위를 들고 있으면, 투명화를 한 의미가 사실상 없어지게 됩니다.
+		투명 능력은 교활함 능력치, 폭발 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(invisibilitypower, convert, damDesc(self, DamageType.LIGHT, damage), radius)
 	end,
 }

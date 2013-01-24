@@ -18,7 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-As you can see, the #GOLD#combat stat#WHITE# scores are displayed in two columns with offensive #GOLD#combat stats#WHITE# to the left and defensive #GOLD#combat stats#WHITE# to the right. 
+방금 전에 확인했듯이, 정보창에서는 #GOLD#전투 능력치#WHITE# 의 수치가 두 줄로 나뉘어서 표시됩니다.
+#GOLD#공격적인 전투 능력치#WHITE# 와 #GOLD#수비적인 전투 능력치#WHITE# 로요.
 
-The displayed numbers are color coded according to their value.
+정보창을 1 초라도 제대로 보셨다면, #GOLD#전투 능력치#WHITE# 의 수치가 다양한 색으로 표시된다는 사실을 눈치채셨을 것입니다. 
+...눈치채지 못하셨다구요?
 ]]

@@ -18,11 +18,12 @@
 -- darkgod@te4.org
 
 -- race & classes
+require "engine.krtrUtils"
 newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "Tutorial-specific talents." }
 
 newTalent{
 	name = "Shove", short_name = "TUTORIAL_PHYS_KB",
-	kr_display_name = "삽질",
+	kr_display_name = "밀치기",
 	type = {"tutorial", 1},
 	points = 5,
 	random_ego = "attack",
@@ -37,18 +38,18 @@ newTalent{
 		if self:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist()) then
 			target:knockback(self.x, self.y, 1)
 		else
-			game.logSeen(target, "%s resists the shove!", target.name:capitalize())
+			game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Give the target a good old-fashioned shove, knocking it back a square.]])
+		return ([[어디서나 볼 수 있는, 케케묵은 밀쳐내기 기술입니다. 적을 한 칸 밀어냅니다.]])
 	end,
 }
 
 newTalent{
 	name = "Mana Gale", short_name = "TUTORIAL_SPELL_KB",
-	kr_display_name = "마나폭발",
+	kr_display_name = "마력 돌풍",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -63,22 +64,22 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatSpellpower(), target:combatPhysicalResist()) then
 			target:knockback(self.x, self.y, self:getTalentLevel(t))
-			game.logSeen(target, "%s is knocked back by the gale!", target.name:capitalize())
+			game.logSeen(target, "%s 돌풍에 밀려났습니다!", target.name:capitalize())
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatSpellpower())
 		else
-			game.logSeen(target, "%s remains firmly planted in the face of the gale!", target.name:capitalize())
+			game.logSeen(target, "%s 돌풍을 정면으로 맞고도, 꿈쩍도 하지 않았습니다!", target.name:capitalize())
 		end
 		return true
 	end,
 	info = function(self, t)
 		local dist = self:getTalentLevel(t)
-		return ([[Conjure up a powerful magical wind, pushing the target back a distance of %d.]]):format(dist)
+		return ([[강력한 마법의 바람을 일으켜, 대상을 %d 칸 밀어냅니다.]]):format(dist)
 	end,
 }
 
 newTalent{
 	name = "Telekinetic Punt", short_name = "TUTORIAL_MIND_KB",
-	kr_display_name = "염동펀치",
+	kr_display_name = "염동력 주먹",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -93,21 +94,21 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatMindpower(), target:combatPhysicalResist()) then
 			target:knockback(self.x, self.y, 1)
-			game.logSeen(target, "%s is knocked back by the telekinetic blow!", target.name:capitalize())
+			game.logSeen(target, "%s 주먹에 얻어맞아 밀려났습니다!", target.name:capitalize())
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatMindpower())
 		else
-			game.logSeen(target, "%s holds its ground!", target.name:capitalize())
+			game.logSeen(target, "%s 주먹의 영향을 받지 않았습니다!", target.name:capitalize())
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Knock the target backwards with a powerful telekinetic blow.]])
+		return ([[대상을 염동력 주먹으로 날려버립니다.]])
 	end,
 }
 
 newTalent{
 	name = "Blink", short_name = "TUTORIAL_SPELL_BLINK",
-	kr_display_name = "단거리 공간이동",
+	kr_display_name = "단거리 순간이동",
 	type = {"tutorial", 1},
 	points = 5,
 	range = 3,
@@ -122,15 +123,15 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatSpellpower(), target:combatSpellResist()) then
 			target:knockback(self.x, self.y, 1)
-			game.logSeen(target, "%s is teleported a short distance!", target.name:capitalize())
+			game.logSeen(target, "%s 대상이 순간이동 되었습니다!", target.name:capitalize())
 			target:crossTierEffect(target.EFF_SPELLSHOCKED, self:combatSpellpower())
 		else
-			game.logSeen(target, "%s resists the teleportation!", target.name:capitalize())
+			game.logSeen(target, "%s 순간이동을 저항했습니다!", target.name:capitalize())
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Attempts to magically teleport a target slightly farther from you.]])
+		return ([[대상을 살짝 멀리 순간이동 시킵니다.]])
 	end,
 }
 
@@ -151,15 +152,15 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatMindpower(), target:combatMentalResist()) then
 			target:knockback(self.x, self.y, 1)
-			game.logSeen(target, "%s retreats in terror!", target.name:capitalize())
+			game.logSeen(target, "%s 공포에 질려 도망갔습니다!", target.name:capitalize())
 			target:crossTierEffect(target.EFF_BRAINLOCKED, self:combatMindpower())
 		else
-			game.logSeen(target, "%s shakes off the fear!", target.name:capitalize())
+			game.logSeen(target, "%s 공포감이 들어 살짝 몸을 떨었습니다!", target.name:capitalize())
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Attempts to briefly terrify a target into retreating.]])
+		return ([[대상을 공포에 질려 도망치게 만듭니다.]])
 	end,
 }
 
@@ -184,7 +185,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Inflicts a 10-turn bleed effect.]])
+		return ([[대상을 10 턴 동안 출혈 상태로 만듭니다.]])
 	end,
 }
 
@@ -209,6 +210,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Use your mental powers to confuse the target for five turns.]])
+		return ([[정신력으로, 대상을 5 턴 동안 혼란 상태로 만듭니다.]])
 	end,
 }

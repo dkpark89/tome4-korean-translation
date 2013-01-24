@@ -111,7 +111,7 @@ newTalent{
 
 newTalent{
 	name = "Wildfire",
-	kr_display_name = "염화",
+	kr_display_name = "열화",
 	type = {"spell/wildfire",4},
 	require = spells_req_high4,
 	points = 5,
@@ -149,7 +149,7 @@ newTalent{
 		local damageinc = t.getFireDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local selfres = t.getResistSelf(self, t)
-		return ([[시전자 주변에 염화를 둘러 모든 화염 피해량이 %d%% 상승하며, 적의 화염 저항력을 %d%% 무시합니다. 그리고 자신의 화염 마법에 자신이 피해를 입었을 때, 피해량이 %d%% 감소됩니다.]])
+		return ([[시전자 주변에 열화를 둘러 모든 화염 피해량이 %d%% 상승하며, 적의 화염 저항력을 %d%% 무시합니다. 그리고 자신의 화염 마법에 자신이 피해를 입었을 때, 피해량이 %d%% 감소됩니다.]])
 		:format(damageinc, ressistpen, selfres)
 	end,
 }

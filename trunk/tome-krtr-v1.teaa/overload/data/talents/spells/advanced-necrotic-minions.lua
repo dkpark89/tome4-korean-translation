@@ -42,7 +42,7 @@ local minions_list = {
 		stun_immune = 1,
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
-		name = "bone giant", color=colors.WHITE, kr_display_name = "뼈거인",
+		name = "bone giant", color=colors.WHITE,
 		desc = [[수십 개의 시체로 만들어진 언데드입니다. 부정한 기운이 흐르고 있습니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_bone_giant.png", display_h=2, display_y=-1}}},
 		max_life = resolvers.rngavg(100,120),
@@ -76,7 +76,7 @@ local minions_list = {
 		stun_immune = 1,
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
-		name = "heavy bone giant", color=colors.RED, kr_display_name = "무거운 뼈거인",
+		name = "heavy bone giant", color=colors.RED,
 		desc = [[수백 개의 시체로 만들어진, 강력한 언데드입니다. 부정한 기운을 뿜어내고 있습니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_heavy_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
@@ -110,7 +110,7 @@ local minions_list = {
 		stun_immune = 1,
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
-		name = "eternal bone giant", color=colors.GREY, kr_display_name = "영겁의 뼈거인",
+		name = "eternal bone giant", color=colors.GREY,
 		desc = [[수백 개의 시체로 만들어진, 강력한 언데드입니다. 극도로 부정한 기운을 뿜어내고 있습니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_eternal_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
@@ -146,7 +146,7 @@ local minions_list = {
 		stun_immune = 1,
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
-		name = "runed bone giant", color=colors.RED, kr_display_name = "룬 뼈거인",
+		name = "runed bone giant", color=colors.RED,
 		desc = [[수백 개의 시체에 룬을 새겨넣고, 증오의 마력을 주입시켜 만든 아주 강력한 언데드입니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_runed_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
@@ -200,9 +200,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[부하는 도구일 뿐입니다. 불필요한 부하는 제거해야죠... 자폭시키는건 어때요?
-		선택된 언데드 추종자를 자폭시켜, 언데드 추종자가 지녔던 최대 생명력의 %d%% 에 해당하는 질병 피해를 주변에 줍니다.
-		설마 부하의 자폭에 휘말리는 멍청한 주인은 아니겠죠...?]]):
+		return ([[부하는 도구일 뿐입니다. 불필요한 부하는 제거해야죠. 자폭시키는건 어때요?
+		선택된 언데드 추종자를 자폭시켜, 언데드 추종자가 지녔던 최대 생명력의 %d%% 에 해당하는 황폐화 피해를 주변에 줍니다.
+		설마 부하의 자폭에 휘말리는 멍청한 주인은 아니겠죠..?]]):
 		format(t.getDamage(self, t))
 	end,
 }
@@ -345,7 +345,7 @@ newTalent{
 
 newTalent{
 	name = "Minion Mastery",
-	kr_display_name = "언데드 추종 숙련",
+	kr_display_name = "언데드 추종 수련",
 	type = {"spell/advanced-necrotic-minions",4},
 	require = spells_req_high4,
 	points = 5,
@@ -353,10 +353,10 @@ newTalent{
 	info = function(self, t)
 		local c = getAdvancedMinionChances(self)
 		return ([[언데드 추종자를 만들 때, 더 강력한 추종자를 만들어낼 확률이 증가합니다.
-		흡혈귀 : %d%%
-		흡혈귀 귀족 : %d%%
-		묘지 와이트 : %d%%
-		무덤 와이트 : %d%%
+		뱀파이어 : %d%%
+		마스터 뱀파이어 : %d%%
+		그레이브 와이트 : %d%%
+		배로우 와이트 : %d%%
 		드레드 : %d%%
 		리치 : %d%%]]):
 		format(c.vampire, c.m_vampire, c.g_wight, c.b_wight, c.dread, c.lich)

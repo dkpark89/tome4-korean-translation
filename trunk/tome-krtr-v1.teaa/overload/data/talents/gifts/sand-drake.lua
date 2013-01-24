@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Swallow",
-	kr_display_name = "삼키기 공격",
+	kr_display_name = "삼키기",
 	type = {"wild-gift/sand-drake", 1},
 	require = gifts_req1,
 	points = 5,
@@ -38,7 +38,7 @@ newTalent{
 		if not x or not y or not target then return nil end
 		if core.fov.distance(self.x, self.y, x, y) > 1 then return nil end
 
-		game.logSeen(self, "%s tries to swallow %s!", self.name:capitalize(), target.name)
+		game.logSeen(self, "%s 적을 삼키려 합니다! (대상 :%s)", self.name:capitalize(), target.name)
 
 		local hit = self:attackTarget(target, DamageType.NATURE, self:combatTalentWeaponDamage(t, 1, 1.5), true)
 		if not hit then return true end
@@ -55,26 +55,26 @@ newTalent{
 			self:heal(target.level * 2 + 5)
 			self:attr("allow_on_heal", -1)
 		else
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Attack the target for %d%% nature weapon damage.
-		If the attack brings your target below %d%% life (or kills it), you can try to swallow it, killing it automatically and regaining life and equilibrium depending on its level.
-		Each point in sand drake talents also increases your physical resistance by 0.5%%.]]):
+		return ([[대상을 공격하여, %d%% 무기 피해를 자연 속성으로 줍니다.
+		공격에 맞은 대상의 생명력이 %d%% 이하로 떨어졌거나 죽었을 경우, 적을 삼켜 즉사시키고 레벨에 따라 생명력과 평정을 회복합니다.
+		이 기술의 레벨이 오를 때마다, 물리 저항력이 0.5%% 상승합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.5), 10 + 3 * self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Quake",
-	kr_display_name = "진각",
+	kr_display_name = "지진",
 	type = {"wild-gift/sand-drake", 2},
 	require = gifts_req2,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ shakes the ground!",
+	message = "@Source@ 지면에 발을 구릅니다!",
 	equilibrium = 4,
 	cooldown = 30,
 	tactical = { ATTACKAREA = { PHYSICAL = 2 }, DISABLE = { knockback = 2 } },
@@ -97,11 +97,11 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local dam = t.getDamage(self, t)
-		return ([[You slam your foot onto the ground, shaking the area around you in a radius of %d.
-		Creatures caught by the quake will be damaged for %d and knocked back up to 4 tiles away.
-		The terrain will also be moved around within the quake's radius.
-		The damage will increase with your Strength.
-		Each point in sand drake talents also increases your physical resistance by 0.5%%.]]):format(radius, dam)
+		return ([[지면에 발을 굴러, 주변 %d 칸 반경에 지진을 일으킵니다.
+		지진의 영향을 받은 적은 %d 피해를 입고, 4 칸 밀려나게 됩니다.
+		지진 반경 내의 지형들도 지진의 영향을 받아 위치가 바뀌게 됩니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.
+		이 기술의 레벨이 오를 때마다, 물리 저항력이 0.5%% 상승합니다.]]):format(radius, dam)
 	end,
 }
 
@@ -122,21 +122,21 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Allows you to burrow into walls for %d turns.
-		Each point in sand drake talents also increases your physical resistance by 0.5%%.]]):format(5 + self:getTalentLevel(t) * 3)
+		return ([[%d 턴 동안 벽 속을 파고들어갈 수 있게 됩니다.
+		이 기술의 레벨이 오를 때마다, 물리 저항력이 0.5%% 상승합니다.]]):format(5 + self:getTalentLevel(t) * 3)
 	end,
 }
 
 newTalent{
 	name = "Sand Breath",
-	kr_display_name = "모래 브레쓰",
+	kr_display_name = "모래 브레스",
 	type = {"wild-gift/sand-drake", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes sand!",
+	message = "@Source@ 모래를 뿜어냅니다!",
 	tactical = { ATTACKAREA = {PHYSICAL = 2}, DISABLE = { blind = 2 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,
@@ -165,9 +165,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You breathe sand in a frontal cone of radius %d. Any target caught in the area will take %0.2f physical damage, and be blinded for %d turns.
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
-		Each point in sand drake talents also increases your physical resistance by 0.5%%.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, damage), duration)
+		return ([[전방 %d 칸 반경에 모래 브레스를 뿜어내, %0.2f 물리 피해를 주고 %d 턴 동안 실명시킵니다.
+		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 따릅니다.
+		이 기술의 레벨이 오를 때마다, 물리 저항력이 0.5%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 

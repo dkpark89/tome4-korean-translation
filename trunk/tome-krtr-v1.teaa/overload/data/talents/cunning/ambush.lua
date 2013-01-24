@@ -21,7 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Shadow Leash",
-	kr_display_name = "그림자 묶기",
+	kr_display_name = "그림자 올가미",
 	type = {"cunning/ambush", 1},
 	require = cuns_req_high1,
 	points = 5,
@@ -41,15 +41,15 @@ newTalent{
 		if target:canBe("disarm") then
 			target:setEffect(target.EFF_DISARMED, t.getDuration(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists the shadow!", target.name:capitalize())
+			game.logSeen(target, "%s 그림자를 저항했습니다!", target.name:capitalize())
 		end
 
 		return true
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[For an instant, your weapons turn into a shadow leash that tries to grab the target's weapon, disarming it for %d turns.
-		The chance to hit improves with your Accuracy.]]):
+		return ([[무기를 그림자 올가미로 즉시 변화시켜, 대상의 무장을 %d 턴 동안 해제시킵니다.
+		명중률은 정확도 능력치의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }
@@ -87,7 +87,7 @@ newTalent{
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, t.getDuration(self, t), {apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s resists the shadow!", target.name:capitalize())
+				game.logSeen(target, "%s 그림자를 저항했습니다!", target.name:capitalize())
 			end
 		end
 
@@ -95,8 +95,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You reach out with shadowy vines toward your target, pulling it to you and silencing it for %d turns and dazing it for 2 turns.
-		The chance to hit improves with your Accuracy.]]):
+		return ([[대상에게 그림자 덩쿨을 뻗어, 시전자가 있는 곳으로 끌어당기고 2 턴 동안 침묵 및 혼절 효과를 줍니다.
+		명중률은 정확도 능력치의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }
@@ -120,7 +120,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 1, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to invoke your shadow!")
+			game.logPlayer(self, "그림자를 일으킬 공간이 없습니다!")
 			return
 		end
 
@@ -133,7 +133,7 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			name = "Shadow of "..self.name,
-			desc = [[A dark shadowy shape whose form resembles you.]],
+			desc = [[자신을 꼭 닮은, 어두운 그림자입니다.]],
 		}
 		m:removeAllMOs()
 		m.make_escort = nil
@@ -194,17 +194,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You take full control of your own shadow for %d turns.
-		Your shadow possesses your talents and stats, has %d%% life and deals %d%% damage, -30%% all resistances, -100%% light resistance and 100%% darkness resistance.
-		Your shadow is permanently stealthed (%d power), and all melee damage it deals is converted to darkness damage.
-		If you release control early, your shadow will dissipate.]]):
+		return ([[%d 턴 동안 자신의 그림자를 조작할 수 있게 됩니다.
+		그림자는 본체와 같은 기술과 능력치를 가지고 있지만, 생명력은 본체의 %d%%, 줄 수 있는 피해량은 본체의 %d%% 수준입니다. 또한 모든 저항력이 본체보다 30%% 낮으며, 빛 저항력은 언제나 -100%%, 어둠 저항력은 언제나 100%% 입니다.
+		그림자는 영구적으로 은신 상태이며 (은신 수치 +%d), 모든 근접 공격은 어둠 속성을 가집니다.
+		그림자의 조작을 종료하면, 그림자는 사라집니다.]]):
 		format(t.getDuration(self, t), t.getHealth(self, t) * 100, t.getDam(self, t) * 100, t.getStealthPower(self, t))
 	end,
 }
 
 newTalent{
 	name = "Shadow Veil",
-	kr_display_name = "그림자 드리우기",
+	kr_display_name = "그림자의 장막",
 	type = {"cunning/ambush", 4},
 	points = 5,
 	cooldown = 18,
@@ -225,9 +225,9 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local res = t.getDamageRes(self, t)
-		return ([[You veil yourself in shadows for %d turns, and let them control you.
-		While in the veil, you become immune to status effects and gain %d%% all damage reduction. Each turn, you blink to a nearby foe, hitting it for %d%% darkness weapon damage.
-		While this goes on, you cannot be stopped unless you are killed, and you cannot control your character.]]):
+		return ([[%d 턴 동안 그림자의 장막 속으로 들어가, 그림자에게 자신의 통제권을 넘겨줍니다.
+		그림자 속에서는 상태효과에 면역이 되며, 적에게 받는 피해량이 %d%% 감소합니다. 그리고 매 턴마다 근처의 적에게로 순간이동해, %d%% 무기 피해를 어둠 속성으로 줍니다.
+		이 효과는 죽지 않는 한 멈추지 않으며, 효과가 지속되는 동안에는 캐릭터를 조작할 수 없습니다.]]):
 		format(duration, res, 100 * damage)
 	end,
 }

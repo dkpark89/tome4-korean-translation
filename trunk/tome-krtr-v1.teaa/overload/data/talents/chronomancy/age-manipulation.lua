@@ -58,9 +58,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local damagestat = t.getDamageStat(self, t)
-		return ([[Projects a bolt of temporal energy that deals %0.2f temporal damage, and reduces all of the target's stats by %d for 3 turns.
-		At talent level 4 you may project a second bolt.
-		The damage dealt will scale with your Paradox and Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage), damagestat)
+		return ([[시간의 힘이 담긴 화살을 발사하여 %0.2f 시간 피해를 주고, 대상의 모든 능력치를 3 턴 동안 %d 낮춥니다.
+		기술 레벨이 4 이상이면, 두 번째 화살을 발사할 수 있습니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), damagestat)
 	end,
 }
 
@@ -100,8 +100,8 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Reverts the minds of all creatures in a radius %d cone to an infantile state, in effect confusing them for %d turns.
-		The duration will scale with your Paradox.]]):
+		return ([[전방 %d 칸 반경에 있는 적들의 정신을 유아 수준으로 퇴행시켜, %d 턴 동안 혼란 상태로 만듭니다.
+		지속시간은 괴리 수치의 영향을 받아 증가합니다.]]):
 		format(radius, duration)
 	end,
 }
@@ -148,8 +148,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[You surround yourself with a radius %d distortion of time, which deals %0.2f stacking temporal damage over 3 turns to all other creatures.  The effect lasts %d turns.
-		The damage dealt will scale with your Paradox and Spellpower.]]):format(radius, damDesc(self, DamageType.TEMPORAL, damage), duration)
+		return ([[주변 %d 칸 반경에 시간의 왜곡장을 형성하여, 왜곡장 안의 적들에게 3 턴 동안 %0.2f 시간 피해를 누적해서 줍니다.
+		왜곡장은 %d 턴 동안 유지되며, 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.TEMPORAL, damage), duration)
 	end,
 }
 
@@ -203,8 +203,8 @@ newTalent{
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
 		local count = t.getRemoveCount(self, t)
-		return ([[You revert your body to a previous state, healing yourself for %0.2f life and removing %d physical status effects (both good and bad).
-		The amount of life healed will scale with your Paradox and Spellpower.]]):
+		return ([[육체의 시간을 역행시켜, %0.2f 생명력을 회복하고 물리적 상태효과를 %d 개 제거합니다.
+		좋은 효과도 같이 제거되며, 생명력 회복량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(heal, count)
 	end,
 }

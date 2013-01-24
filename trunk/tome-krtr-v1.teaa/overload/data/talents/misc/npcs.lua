@@ -20,15 +20,15 @@
 local Object = require "mod.class.Object"
 
 -- race & classes
-newTalentType{ type="technique/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ no_silence=true, is_spell=true, type="chronomancy/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ no_silence=true, is_spell=true, type="spell/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ no_silence=true, is_spell=true, type="corruption/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ is_nature=true, type="wild-gift/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ type="psionic/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ type="other/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ type="undead/other", name = "other", hide = true, description = "Talents of the various entities of the world." }
-newTalentType{ type="undead/keepsake", name = "keepsake shadow", generic = true, description = "Keepsake shadows's innate abilities." }
+newTalentType{ type="technique/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="chronomancy/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="spell/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="corruption/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ is_nature=true, type="wild-gift/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ type="psionic/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ type="other/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ type="undead/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
+newTalentType{ type="undead/keepsake", name = "keepsake shadow", generic = true, description = "Keepsake의 그림자가 사용하는 특별한 기술들입니다." }
 
 local oldTalent = newTalent
 local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end return oldTalent(t) end
@@ -43,11 +43,11 @@ newTalent{
 	requires_target = true,
 	tactical = { ATTACK = 3 },
 	action = function(self, t)
-		if not self.can_multiply or self.can_multiply <= 0 then print("no more multiply") return nil end
+		if not self.can_multiply or self.can_multiply <= 0 then print("더 이상 복제 불가") return nil end
 
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 1, true, {[Map.ACTOR]=true})
-		if not x then print("no free space") return nil end
+		if not x then print("공간 부족") return nil end
 
 		-- Find a place around to clone
 		self.can_multiply = self.can_multiply - 1
@@ -69,7 +69,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Multiply yourself!]])
+		return ([[자기복제입니다!]])
 	end,
 }
 
@@ -79,7 +79,7 @@ newTalent{
 	kr_display_name = "독성 발톱",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ crawls poison onto @target@.",
+	message = "@Source@ 독성 발톱으로 @target@ 햘큅니다!",
 	cooldown = 5,
 	range = 1,
 	requires_target = true,
@@ -95,7 +95,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Crawl onto the target, covering it in poison.]])
+		return ([[독이 묻은 발톱으로 대상을 공격합니다.]])
 	end,
 }
 
@@ -105,7 +105,7 @@ newTalent{
 	kr_display_name = "산성 발톱",
 	points = 5,
 	type = {"technique/other", 1},
-	message = "@Source@ crawls acid onto @target@.",
+	message = "@Source@ 산성 발톱으로 @target@ 햘큅니다!",
 	cooldown = 2,
 	range = 1,
 	tactical = { ATTACK = { ACID = 2 } },
@@ -121,17 +121,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Crawl onto the target, covering it in acid.]])
+		return ([[산이 묻은 발톱으로 대상을 공격합니다.]])
 	end,
 }
 
 newTalent{
 	short_name = "SPORE_BLIND",
 	name = "Blinding Spores",
-	kr_display_name = "실명의 포자",
+	kr_display_name = "실명 포자",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ releases blinding spores at @target@.",
+	message = "@Source@ 실명 포자를 @target@ 뿌립니다!",
 	cooldown = 2,
 	range = 1,
 	tactical = { DISABLE = { blind = 2 } },
@@ -148,14 +148,14 @@ newTalent{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(5 + self:getTalentLevel(t)), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the blindness blow!", target.name:capitalize())
+				game.logSeen(target, "%s 실명되지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Releases blinding spores at the target.]])
+		return ([[대상에게 실명 포자를 뿌립니다.]])
 	end,
 }
 
@@ -165,7 +165,7 @@ newTalent{
 	kr_display_name = "독성 포자",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ releases poisonous spores at @target@.",
+	message = "@Source@ 독성 포자를 @target@ 뿌립니다!",
 	cooldown = 2,
 	range = 1,
 	tactical = { ATTACK = { NATURE = 1, poison = 1} },
@@ -181,7 +181,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Releases poisonous spores at the target.]])
+		return ([[대상에게 독성 포자를 뿌립니다.]])
 	end,
 }
 
@@ -207,20 +207,20 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the stunning blow!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage. If the attack hits, the target is stunned. The chance to stun improves with your Physical Power.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상은 기절합니다. 기절 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
 newTalent{
 	name = "Disarm",
-	kr_display_name = "무장해제",
+	kr_display_name = "무장 해제",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -239,19 +239,19 @@ newTalent{
 			target:setEffect(target.EFF_DISARMED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			target:crossTierEffect(target.EFF_DISARMED, self:combatPhysicalpower())
 		else
-			game.logSeen(target, "%s resists the blow!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage and trying to disarm the target. The chance improves with your Physical Power.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상의 무장이 해제됩니다. 무장 해제 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
 newTalent{
 	name = "Constrict",
-	kr_display_name = "압축",
+	kr_display_name = "조르기",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -271,14 +271,14 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_CONSTRICTED, (2 + self:getTalentLevel(t)) * 10, {src=self, power=1.5 * self:getTalentLevel(t), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the constriction!", target.name:capitalize())
+				game.logSeen(target, "%s 질식되지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage. If the attack hits, the target is constricted. The constriction power improves with your Physical Power.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 질식 상태가 됩니다. 질식 상태의 위력은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
@@ -305,14 +305,14 @@ newTalent{
 				target:knockback(self.x, self.y, 4)
 				target:crossTierEffect(target.EFF_OFFBALANCE, self:combatPhysicalpower())
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your weapon doing %d%% damage. If the attack hits, the target is knocked back. The chance improves with your Physical Power.]]):format(100 * self:combatTalentWeaponDamage(t, 1.5, 2))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 밀려납니다. 밀려날 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.5, 2))
 	end,
 }
 
@@ -322,7 +322,7 @@ newTalent{
 	kr_display_name = "독성 깨물기",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ bites poison into @target@.",
+	message = "@Source@ 깨물어 독을 흘려넣었습니다! (대상 : @target@)",
 	cooldown = 5,
 	range = 1,
 	tactical = { ATTACK = { NATURE = 1, poison = 1} },
@@ -336,7 +336,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Bites the target, infecting it with poison.]])
+		return ([[대상을 깨물어, 독을 주입합니다.]])
 	end,
 }
 
@@ -352,7 +352,7 @@ newTalent{
 	tactical = { ATTACK = 2 },
 	is_summon = true,
 	action = function(self, t)
-		if not self:canBe("summon") then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") then game.logPlayer(self, "제압된 상태에서는 소환할 수 없습니다!") return end
 
 		local filters = self.summon or {{type=self.type, subtype=self.subtype, number=1, hasxp=true, lastfor=20}}
 		if #filters == 0 then return end
@@ -365,7 +365,7 @@ newTalent{
 			-- Find space
 			local x, y = util.findFreeGrid(self.x, self.y, 10, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to summon!")
+				game.logPlayer(self, "소환할 공간이 없습니다!")
 				break
 			end
 
@@ -383,7 +383,7 @@ newTalent{
 
 				game.zone:addEntity(game.level, m, "actor", x, y)
 
-				game.logSeen(self, "%s summons %s!", self.name:capitalize(), m.name)
+				game.logSeen(self, "%s 소환했습니다! : %s", self.name:capitalize(), m.name)
 
 				-- Apply summon destabilization
 				if self:hasEffect(self.EFF_SUMMON_DESTABILIZATION) then
@@ -400,17 +400,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon allies.]])
+		return ([[동료를 소환합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Rotting Disease",
-	kr_display_name = "부패형 질병",
+	kr_display_name = "부패성 질병",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
-	message = "@Source@ diseases @target@.",
+	message = "@Source@ 질병을 옮깁니다. (대상 : @target@)",
 	requires_target = true,
 	tactical = { ATTACK = { BLIGHT = 2 }, DISABLE = { disease = 1 } },
 	action = function(self, t)
@@ -425,24 +425,24 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_ROTTING_DISEASE, 10 + self:getTalentLevel(t) * 3, {src=self, dam=self:getStr() / 3 + self:getTalentLevel(t) * 2, con=math.floor(4 + target:getCon() * 0.1), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 병에 걸리지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage. If the attack hits, the target is diseased.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상은 질병에 걸립니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
 newTalent{
 	name = "Decrepitude Disease",
-	kr_display_name = "노화형 질병",
+	kr_display_name = "노화성 질병",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
-	message = "@Source@ diseases @target@.",
+	message = "@Source@ 질병을 옮깁니다. (대상 : @target@)",
 	tactical = { ATTACK = { BLIGHT = 2 }, DISABLE = { disease = 1 } },
 	requires_target = true,
 	action = function(self, t)
@@ -457,24 +457,24 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_DECREPITUDE_DISEASE, 10 + self:getTalentLevel(t) * 3, {src=self, dam=self:getStr() / 3 + self:getTalentLevel(t) * 2, dex=math.floor(4 + target:getDex() * 0.1), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 병에 걸리지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage. If the attack hits, the target is diseased.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상은 질병에 걸립니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
 newTalent{
 	name = "Weakness Disease",
-	kr_display_name = "약화형 질병",
+	kr_display_name = "약화성 질병",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
-	message = "@Source@ diseases @target@.",
+	message = "@Source@ 질병을 옮깁니다. (대상 : @target@)",
 	requires_target = true,
 	tactical = { ATTACK = { BLIGHT = 2 }, DISABLE = { disease = 1 } },
 	action = function(self, t)
@@ -489,14 +489,14 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_WEAKNESS_DISEASE, 10 + self:getTalentLevel(t) * 3, {src=self, dam=self:getStr() / 3 + self:getTalentLevel(t) * 2, str=math.floor(4 + target:getStr() * 0.1), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 병에 걸리지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage. If the attack hits, the target is diseased.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상은 질병에 걸립니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
@@ -519,13 +519,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Try to confuse the target's mind for a while.]])
+		return ([[대상을 혼란 상태로 만듭니다.]])
 	end,
 }
 
 newTalent{
 	name = "Water Bolt",
-	kr_display_name = "물줄기 덩어리",
+	kr_display_name = "물줄기 화살",
 	type = {"spell/other", },
 	points = 5,
 	mana = 10,
@@ -543,14 +543,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Condenses ambient water on a target, damaging it for %0.2f.
-		The damage will increase with your Spellpower.]]):format(12 + self:combatSpellpower(0.25) * self:getTalentLevel(t))
+		return ([[대상에게 물줄기를 발사하여, %0.2f 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(12 + self:combatSpellpower(0.25) * self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Water Jet",
-	kr_display_name = "물줄기 분출",
+	kr_display_name = "물대포",
 	type = {"spell/other", },
 	points = 5,
 	mana = 10,
@@ -569,8 +569,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Condenses ambient water on a target, damaging it for %0.2f and stunning it for 4 turns.
-		The damage will increase with your Spellpower]]):format(12 + self:combatSpellpower(0.20) * self:getTalentLevel(t))
+		return ([[대상에게 강력한 물줄기를 발사하여, %0.2f 피해를 주고 4 턴 동안 기절시킵니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(12 + self:combatSpellpower(0.20) * self:getTalentLevel(t))
 	end,
 }
 
@@ -596,8 +596,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fires a blast of void energies that slowly travel to their target, dealing %0.2f arcane damage on impact.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.ARCANE, self:combatTalentSpellDamage(t, 15, 240)))
+		return ([[느리게 움직이는 공허의 돌풍을 발사하여, %0.2f 마법 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.ARCANE, self:combatTalentSpellDamage(t, 15, 240)))
 	end,
 }
 
@@ -643,7 +643,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local curecount = t.getCureCount(self, t)
-		return ([[Call upon the forces of nature to cure your body of %d poisons and diseases (at level 3).]]):
+		return ([[자연의 힘을 빌어, 독과 질병을 %d 만큼 회복합니다. (3 등급 기준)]]):
 		format(curecount)
 	end,
 }
@@ -665,8 +665,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local regen = t.getRegeneration(self, t)
-		return ([[Call upon the forces of nature to regenerate your body for %d life every turn for 10 turns.
-		The life healed will increase with the Magic stat]]):
+		return ([[자연의 힘을 빌어, 10 턴 동안 매 턴마다 %d 생명력을 회복합니다.
+		회복량은 마법 능력치의 영향을 받아 증가합니다.]]):
 		format(regen)
 	end,
 }
@@ -693,25 +693,25 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 1 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the grab!", target.name:capitalize())
+				game.logSeen(target, "%s 붙잡히지 않았습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target doing %d%% damage; if the attack hits, the target is pinned to the ground.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.4))
+		return ([[대상에게 %d%% 피해를 주고, 공격이 성공하면 대상을 속박하여 움직이지 못하게 합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.4))
 	end,
 }
 
 newTalent{
 	name = "Blinding Ink",
-	kr_display_name = "먹물로 눈가리기",
+	kr_display_name = "먹물 발사",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ projects ink!",
+	message = "@Source@ 먹물을 발사했습니다!",
 	range = 0,
 	radius = function(self, t)
 		return 4 + self:getTalentLevelRaw(t)
@@ -736,7 +736,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You project thick black ink, blinding your targets for %d turns.]]):format(duration)
+		return ([[먹물을 발사하여, 대상을 %d 턴 동안 실명 상태로 만듭니다.]]):format(duration)
 	end,
 }
 
@@ -761,14 +761,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local s = math.max(self:getDex(), self:getStr())
-		return ([[Spit poison at your target, doing %0.2f poison damage over six turns.
-		The damage will increase with your Strength or Dexterity (whichever is higher).]]):format(20 + (s * self:getTalentLevel(t)) * 0.8)
+		return ([[대상에게 독을 뱉어, 6 턴 동안 총 %0.2f 독 피해를 줍니다.
+		피해량은 힘과 민첩 중 더 높은 능력치의 영향을 받아 증가합니다.]]):format(20 + (s * self:getTalentLevel(t)) * 0.8)
 	end,
 }
 
 newTalent{
 	name = "Spit Blight",
-	kr_display_name = "황폐물질 뱉기",
+	kr_display_name = "병균 뱉기",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 4,
@@ -785,16 +785,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Spit blight at your target doing %0.2f blight damage.
-		The damage will increase with your Magic.]]):format(20 + (self:getMag() * self:getTalentLevel(t)) * 0.8)
+		return ([[병균 덩어리를 뱉어 대상에게 %0.2f 황폐화 피해를 줍니다.
+		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):format(20 + (self:getMag() * self:getTalentLevel(t)) * 0.8)
 	end,
 }
 
 newTalent{
 	name = "Rushing Claws",
-	kr_display_name = "돌진하는 발톱",
+	kr_display_name = "갈고리 돌진",
 	type = {"wild-gift/other", 1},
-	message = "@Source@ rushes out, claws sharp and ready!",
+	message = "@Source@ 돌진하여, 갈고리를 휘두릅니다!",
 	points = 5,
 	equilibrium = 10,
 	cooldown = 15,
@@ -802,7 +802,7 @@ newTalent{
 	requires_target = true,
 	range = function(self, t) return math.floor(5 + self:getTalentLevelRaw(t)) end,
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "You cannot do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "현재 그 행동을 할 수 없습니다.") return end
 
 		local tg = {type="hit", range=self:getTalentRange(t)}
 		local x, y, target = self:getTarget(tg)
@@ -834,14 +834,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Rushes toward your target with incredible speed. If the target is reached, you use your claws to pin it to the ground for 5 turns.
-		You must rush from at least 2 tiles away.]])
+		return ([[엄청난 속도로 대상에게 달려듭니다. 접근이 성공하면, 갈고리로 대상을 5 턴 동안 땅에 고정시킵니다.
+		돌진을 위해서는 적어도 2 칸 이상 떨어져 있어야 합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Throw Bones",
-	kr_display_name = "뼈 던지기",
+	kr_display_name = "해골 던지기",
 	type = {"undead/other", 1},
 	points = 5,
 	cooldown = 6,
@@ -862,19 +862,19 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Throws a pack of bones at your target doing %0.2f physical damage as bleeding.
-		The damage will increase with the Strength stat]]):format(20 + (self:getStr() * self:getTalentLevel(t)) * 0.8)
+		return ([[대상에게 해골을 던져 출혈 상태로 만들고, %0.2f 물리 피해를 줍니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(20 + (self:getStr() * self:getTalentLevel(t)) * 0.8)
 	end,
 }
 
 newTalent{
 	name = "Lay Web",
-	kr_display_name = "거미줄치기",
+	kr_display_name = "거미줄 치기",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equilibrium = 4,
 	cooldown = 6,
-	message = "@Source@ seems to search the ground...",
+	message = "@Source@ 적당한 공간을 찾습니다...",
 	range = 10,
 	requires_target = true,
 	tactical = { DISABLE = { stun = 1, pin = 1 } },
@@ -886,7 +886,7 @@ newTalent{
 			name = "sticky web", auto_id = true,
 			detect_power = 6 * self:getTalentLevel(t), disarm_power = 10 * self:getTalentLevel(t),
 			level_range = {self.level, self.level},
-			message = "@Target@ is caught in a web!",
+			message = "@Target@ 거미줄에 걸렸습니다!",
 			pin_dur = dur,
 			faction = false,
 			canTrigger = function(self, x, y, who)
@@ -897,7 +897,7 @@ newTalent{
 				if who:canBe("stun") and who:canBe("pin") then
 					who:setEffect(who.EFF_PINNED, self.pin_dur, {apply_power=self.disarm_power + 5})
 				else
-					game.logSeen(who, "%s resists!", who.name:capitalize())
+					game.logSeen(who, "%s 저항했습니다!", who.name:capitalize())
 				end
 				return true, true
 			end
@@ -906,7 +906,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay an invisible web under you, trapping all non-spiderkin that pass.]]):format()
+		return ([[투명한 거미줄을 만들어, 거미 이외의 종족을 거미줄에 걸리게 합니다.]]):format()
 	end,
 }
 
@@ -942,14 +942,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Weave darkness, blocking all light but the most powerful and teleporting you a short range.
-		The damage will increase with the Dexterity stat]]):format(20 + (self:getDex() * self:getTalentLevel(t)) * 0.3)
+		return ([[어둠을 만들어 거의 모든 빛을 차단하고, 단거리 순간이동을 합니다.
+		피해량은 민첩 능력치의 영향을 받아 증가합니다.]]):format(20 + (self:getDex() * self:getTalentLevel(t)) * 0.3)
 	end,
 }
 
 newTalent{
 	name = "Throw Boulder",
-	kr_display_name = "돌덩이 던지기",
+	kr_display_name = "바위 던지기",
 	type = {"wild-gift/other", },
 	points = 5,
 	equilibrium = 5,
@@ -971,19 +971,19 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Throws a huge boulder at a target, damaging it for %0.2f and knocking it back.
-		The damage will increase with your Strength.]]):format(12 + self:getStr(50, true) * self:getTalentLevel(t))
+		return ([[대상에게 거대한 바위를 던져, %0.2f 피해를 주고 뒤로 밀어냅니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(12 + self:getStr(50, true) * self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Howl",
-	kr_display_name = "울부짖기",
+	kr_display_name = "울부짖음",
 	type = {"wild-gift/other", },
 	points = 5,
 	equilibrium = 5,
 	cooldown = 10,
-	message = "@Source@ howls",
+	message = "@Source@ 울부짖습니다.",
 	range = 10,
 	tactical = { ATTACK = 3 },
 	direct_hit = true,
@@ -1005,7 +1005,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Howl to call your hunting pack.]])
+		return ([[울부짖어 동료를 부릅니다.]])
 	end,
 }
 
@@ -1038,7 +1038,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Shriek to call your allies.]])
+		return ([[비명을 질러 동료를 부릅니다.]])
 	end,
 }
 
@@ -1055,7 +1055,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Crush without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 분쇄 기술을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -1070,14 +1070,14 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the crushing!", target.name:capitalize())
+				game.logSeen(target, "%s 분쇄를 저항했습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with a mighty blow to the legs doing %d%% weapon damage. If the attack hits, the target is unable to move for %d turns.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.4), 2+self:getTalentLevel(t))
+		return ([[대상의 다리를 공격하여 %d%% 무기 피해를 줍니다. 공격이 성공하면, 대상은 %d 턴 동안 움직일 수 없게 됩니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.4), 2+self:getTalentLevel(t))
 	end,
 }
 
@@ -1101,13 +1101,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Sends a telepathic attack, silencing the target for %d turns.]]):format(math.floor(4 + self:getTalentLevel(t)))
+		return ([[염력을 이용하여, 대상을 %d 턴 동안 침묵시킵니다.]]):format(math.floor(4 + self:getTalentLevel(t)))
 	end,
 }
 
 newTalent{
 	name = "Telekinetic Blast",
-	kr_display_name = "염동탄",
+	kr_display_name = "염동 탄환",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	cooldown = 2,
@@ -1128,14 +1128,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Sends a telekinetic attack, knocking back the target and doing %0.2f physical damage.
-		The damage will increase with Mindpower.]]):format(self:combatTalentMindDamage(t, 10, 170))
+		return ([[염동력으로 탄환을 만들어, %0.2f 물리 피해를 주고 대상을 밀어냅니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentMindDamage(t, 10, 170))
 	end,
 }
 
 newTalent{
 	name = "Blightzone",
-	kr_display_name = "황폐지역",
+	kr_display_name = "황폐화 지역",
 	type = {"corruption/other", 1},
 	points = 5,
 	cooldown = 13,
@@ -1168,14 +1168,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Corrupted vapour rises at the target location doing %0.2f blight damage every turn for %d turns.
-		The damage will increase with Magic stat.]]):format(self:combatTalentSpellDamage(t, 5, 65), self:getTalentLevel(t) + 2)
+		return ([[대상에게 오염된 증기가 뿜어져나와, 주변에 %0.2f 황폐화 피해를 매 턴마다 줍니다. (지속시간 : %d 턴)
+		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 5, 65), self:getTalentLevel(t) + 2)
 	end,
 }
 
 newTalent{
 	name = "Invoke Tentacle",
-	kr_display_name = "촉수 호출",
+	kr_display_name = "촉수 소환",
 	type = {"wild-gift/other", 1},
 	cooldown = 1,
 	range = 10,
@@ -1189,7 +1189,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 3, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to invoke!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -1216,7 +1216,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Invoke your tentacles on your victim.]])
+		return ([[희생자에게 자신의 촉수를 소환합니다.]])
 	end,
 }
 
@@ -1225,7 +1225,7 @@ newTalent{
 	kr_display_name = "폭발",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ explodes! @target@ is enveloped in searing light.",
+	message = "@Source@ 폭발했습니다! @target@ 밝은 빛에 삼켜졌습니다!",
 	cooldown = 1,
 	range = 1,
 	requires_target = true,
@@ -1242,7 +1242,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Explodes in a blinding light.]])
+		return ([[폭발하여, 눈이 멀 정도의 빛을 뿜어냅니다.]])
 	end,
 }
 
@@ -1251,7 +1251,7 @@ newTalent{
 	kr_display_name = "윌 오 위습 폭발",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ explodes! @target@ is enveloped in frost.",
+	message = "@Source@ 폭발했습니다! @target@ 냉기에 휩싸입니다!",
 	cooldown = 1,
 	range = 1,
 	requires_target = true,
@@ -1268,13 +1268,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Explodes.]])
+		return ([[폭발합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Elemental bolt",
-	kr_display_name = "엘리멘탈 탄",
+	kr_display_name = "원소의 탄환",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 10,
@@ -1305,7 +1305,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fire a slow bolt of a random element. Damage raises with magic stat.]])
+		return ([[무작위한 속성을 지녔으며, 느리게 날아가는 마법 탄환을 발사합니다. 피해량은 마법 능력치의 영향을 받아 증가합니다.]])
 	end,
 }
 
@@ -1315,7 +1315,7 @@ newTalent{
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 10,
-	message = "A volcano erupts!",
+	message = "화산이 폭발합니다!",
 	cooldown = 20,
 	range = 10,
 	proj_speed = 2,
@@ -1380,15 +1380,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summons a small raging volcano for %d turns. Every turn, it will fire %d molten boulders toward your foes, dealing %0.2f fire and %0.2f physical damage.
-		The damage will scale with your Spellpower.]]):
+		return ([[%d 턴 동안 작은 화산을 소환합니다. 매 턴마다 적에게 용암 덩어리를 %d 개 분출하여, %0.2f 화염 피해와 %0.2f 물리 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t), math.floor(self:getTalentLevel(self.T_VOLCANO)), damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(self.T_VOLCANO, 15, 80) / 2), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(self.T_VOLCANO, 15, 80) / 2))
 	end,
 }
 
 newTalent{
 	name = "Speed Sap",
-	kr_display_name = "재빨리 움켜쥐기",
+	kr_display_name = "속도 훔치기",
 	type = {"chronomancy/other", 1},
 	points = 5,
 	paradox = 10,
@@ -1419,14 +1419,13 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Saps away 30%% of the targets speed and inflicts %d temporal damage for three turns
-		]]):format(damDesc(self, DamageType.TEMPORAL, damage))
+		return ([[대상의 속도를 3 턴 동안 30%% 훔쳐오며, %d 시간 피해를 줍니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }
 
 newTalent{
 	name = "Dredge Frenzy",
-	kr_display_name = "드렛지 광란",
+	kr_display_name = "드렛지의 광란",
 	type = {"chronomancy/other", 1},
 	points = 5,
 	cooldown = 12,
@@ -1469,8 +1468,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Speeds up nearby Dredges.
-		]]):format()
+		return ([[근처에 있는 드렛지들의 속도가 빨라집니다.]]):format()
 	end,
 }
 
@@ -1502,7 +1500,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Start to sever the lifeline of the target. If after 4 turns the target is still in line of sight, it will die.]])
+		return ([[대상의 생명선을 자르기 시작합니다. 대상이 4 턴 동안 시야에서 벗어나지 못하면, 대상은 죽습니다.]])
 	end,
 }
 
@@ -1530,13 +1528,13 @@ newTalent{
 				tgts[target] = true
 				local ox, oy = target.x, target.y
 				target:pull(self.x, self.y, 1)
-				if target.x ~= ox or target.y ~= oy then game.logSeen(target, "%s is pulled in!", target.name:capitalize()) end
+				if target.x ~= ox or target.y ~= oy then game.logSeen(target, "%s 끌려옵니다!", target.name:capitalize()) end
 			end
 		end)
 		return true
 	end,
 	info = function(self, t)
-		return ([[Pull all foes toward you.]])
+		return ([[모든 적들을 끌어당깁니다.]])
 	end,
 }
 
@@ -1559,7 +1557,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 3, true, {[Map.ACTOR]=true})
 		if not x then	
-			game.logPlayer(self, "Not enough space to invoke!")
+			game.logPlayer(self, "불러낼 공간이 없습니다!")
 			return
 		end
 
@@ -1573,13 +1571,13 @@ newTalent{
 			local target = game.level.map(tx, ty, Map.ACTOR)
 			m:setTarget(target)
 
-			game.logSeen(self, "%s spawns a slimy crawler!", self.name:capitalize())
+			game.logSeen(self, "%s 끈적이며, 기어다니는 존재를 불러냅니다!", self.name:capitalize())
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Invoke a slimy crawler.]])
+		return ([[끈적이며, 기어다니는 존재를 불러냅니다.]])
 	end,
 }
 
@@ -1612,8 +1610,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up a fist of stone, doing %0.2f physical damage and knocking the target back.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.PHYSICAL, damage))
+		return ([[암석의 주먹을 발사하여, %0.2f 물리 피해를 주고 대상을 뒤로 밀어냅니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 
@@ -1656,9 +1654,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Corrosive fumes rise from the ground doing %0.2f acid damage in a radius of 3 each turn for %d turns.
-		The damage will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.ACID, damage), duration)
+		return ([[땅에서 산성 증기가 뿜어져나와, 주변 3 칸 반경에 %d 턴 동안 %0.2f 산성 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(duration, damDesc(self, DamageType.ACID, damage))
 	end,
 }
 
@@ -1679,14 +1677,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local restoration = t.getManaRestoration(self, t)
-		return ([[Engulf yourself in a surge of mana, quickly restoring %d mana every turn for 10 turns.
-		The mana restored will increase with your Spellpower.]]):
+		return ([[마나의 흐름에 몸을 맡겨, 10 턴 동안 매 턴마다 %d 마나를 회복합니다.
+		마나 회복량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(restoration)
 	end,
 }
 newTalent{
 	name = "Infernal Breath", image = "talents/flame_of_urh_rok.png",
-	kr_display_name = "지옥의 브레쓰",
+	kr_display_name = "지옥의 호흡",
 	type = {"spell/other",1},
 	random_ego = "attack",
 	cooldown = 20,
@@ -1719,15 +1717,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Exhale a wave of dark fire with radius %d. Any non demon caught in the area will take %0.2f fire damage, and flames will be left dealing a further %0.2f each turn. Demons will be healed for the same amount.
-		The damage will increase with your Strength Stat.]]):
+		return ([[전방 %d 칸 반경에 암흑의 파동을 뿜어내, 악마가 아닌 적들에게 %0.2f 화염 피해를 주고 매 턴마다 %0.2f 화염 피해를 추가로 줍니다.
+		악마에게 사용할 경우 피해량만큼 생명력을 회복하며, 피해량은 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.FIRE, self:combatTalentStatDamage(t, "str", 30, 350)), damDesc(self, DamageType.FIRE, self:combatTalentStatDamage(t, "str", 30, 70)))
 	end,
 }
 
 newTalent{
 	name = "Frost Hands", image = "talents/shock_hands.png",
-	kr_display_name = "냉기의 손",
+	kr_display_name = "얼어붙은 손",
 	type = {"spell/other", 3},
 	points = 5,
 	mode = "sustained",
@@ -1751,8 +1749,8 @@ newTalent{
 	info = function(self, t)
 		local icedamage = t.getIceDamage(self, t)
 		local icedamageinc = t.getIceDamageIncrease(self, t)
-		return ([[Engulfs your hands (and weapons) in a sheath of frost, dealing %d cold damage per melee attack and increasing all cold damage by %d%%.
-		The effects will increase with your Spellpower.]]):
+		return ([[손과 무기를 냉기로 감싸 매 타격마다 %d 냉기 피해를 주고, 적에게 주는 냉기 피해량을 %d%% 증가시킵니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, icedamage), icedamageinc, self:getTalentLevel(t) / 3)
 	end,
 }
@@ -1831,9 +1829,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Uses arcane forces to summon %d meteors that fall on the ground, smashing all around in a radius 2 for %0.2f fire and %0.2f physical damage.
-		The hit zone will also turn into lava for 8 turns.
-		The effects will increase with your Spellpower.]]):
+		return ([[마법의 힘으로 운석을 %d 개 소환하여 지면과 충돌시킵니다. 주변 2 칸 반경에 %0.2f 화염 피해와 %0.2f 물리 피해를 줍니다.
+		그리고, 운석이 떨어진 곳은 8 턴 동안 용암 지역이 됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getNb(self, t), damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }
@@ -1857,15 +1855,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Imbues your body with natural energies, healing for %d life.
-		The life healed will increase with your Mindpower.]]):
+		return ([[자연의 힘을 이용하여, %d 생명력을 회복합니다.
+		생명력 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,
 }
 
 newTalent{
 	name = "Call Lightning", image = "talents/lightning.png",
-	kr_display_name = "뇌전 소환",
+	kr_display_name = "번개 소환",
 	type = {"wild-gift/other", 1},
 	points = 5,
 	equi = 4,
@@ -1892,8 +1890,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Calls forth a powerful beam of lightning doing %0.2f to %0.2f damage.
-		The damage will increase with your Mindpower.]]):
+		return ([[적들을 관통하는 강력한 번개를 불러내, %0.2f - %0.2f 피해를 줍니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage / 3),
 		damDesc(self, DamageType.LIGHTNING, damage))
 	end,
@@ -1913,7 +1911,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fade from sight, making you invulnerable until the beginning of your next turn.]])
+		return ([[자신의 존재를 지워, 자신의 다음 턴이 올 때까지 무적 상태가 됩니다.]])
 	end,
 }
 
@@ -1933,7 +1931,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Teleports you within a small range.]])
+		return ([[짧은 거리를 순간이동합니다.]])
 	end,
 }
 
@@ -1973,7 +1971,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local multiplier = self:combatTalentWeaponDamage(t, 1.1, 1.9)
-		return ([[With blinding speed you suddenly appear next to a target up to %d spaces away and attack for %d%% damage.]]):format(self:getTalentRange(t), multiplier)
+		return ([[대상에게 보이지 않을 정도의 속도로 최대 %d 칸 돌진하여, %d%% 피해를 줍니다.]]):format(self:getTalentRange(t), multiplier)
 	end,
 }
 
@@ -1992,10 +1990,10 @@ newTalent{
 		return ret
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen("#VIOLET#%s is freed from the suspended state!", self.name:capitalize())
+		game.logSeen("#VIOLET#%s 대기 상태에서 벗어났습니다!", self.name:capitalize())
 		return true
 	end,
 	info = function(self, t)
-		return ([[The target will not react until attacked.]])
+		return ([[공격받기 전까지 어떤 반응도 할 수 없게 됩니다.]])
 	end,
 }

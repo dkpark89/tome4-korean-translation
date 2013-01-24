@@ -28,7 +28,7 @@ end
 
 newTalent{
 	name = "Telekinetic Smash",
-	kr_display_name = "염동적 강타",
+	kr_display_name = "염동력 강타",
 	type = {"psionic/psi-fighting", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -42,7 +42,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "무기를 들지 않으면 이 기술을 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = {type="hit", range=self:getTalentRange(t)}
@@ -55,7 +55,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Gather your will, and brutally smash the target with your mainhand weapon, doing %d%% weapon damage. If Conduit is active, it will extend to include your mainhand weapon for this attack. This attack uses your Willpower and Cunning instead of Strength and Dexterity to determine Accuracy and damage.]]):
+		return ([[염력을 실어담아, 들고 있는 주무기로 강타를 날립니다. %d%% 무기 피해를 주며, 염력의 통로가 활성화 되었을 경우 이번 공격에 한해 오러가 주무기에도 실리게 됩니다.
+		이번 공격에 한해, 정확도와 피해량의 계산에 힘과 민첩 능력치 대신 의지와 교활함 능력치를 사용합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1.8, 3))
 	end,
 }
@@ -89,16 +90,15 @@ newTalent{
 		local inc = 5*self:getTalentLevel(t)
 		local str_power = math.floor(0.05*self:getTalentLevel(t)*self:getWil())
 		local dex_power = math.floor(0.05*self:getTalentLevel(t)*self:getCun())
-		return ([[While active, you give your flesh and blood body a little aid in the form of precisely applied mental forces. Increases Strength and Dexterity by %d%% of your Willpower and Cunning, respectively.
-		Strength increased by %d
-		Dexterity increased by %d]]):
+		return ([[정신을 집중하여, 조금 더 강력하고 민첩해집니다. 의지와 교활함 능력치의 %d%% 만큼 힘과 민첩 능력치가 증가하게 됩니다.
+		그 결과 힘 능력치가 %d, 민첩 능력치가 %d 증가합니다.]]):
 		format(inc, str_power, dex_power)
 	end,
 }
 
 newTalent{
 	name = "Conduit",
-	kr_display_name = "도랑",
+	kr_display_name = "염력의 통로",
 	type = {"psionic/psi-fighting", 3},
 	require = psi_wil_req3, no_sustain_autoreset = true,
 	cooldown = 1,
@@ -156,15 +156,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local mult = 1 + 0.2*(self:getTalentLevel(t))
-		return ([[When activated, turns off any active auras and uses your telekinetically wielded weapon as a conduit for the energies that were being channeled through those auras.
-		Any auras used by Conduit will not start to cool down until Conduit has been deactivated. The damage from each aura applied by Conduit is multiplied by %0.2f, and does not drain energy.]]):
+		return ([[발산 중이던 모든 오러를 해제하고, 염동력으로 들고 있는 무기에 오러를 실어넣습니다.
+		이 기술이 유지되는 동안 오러들의 재사용 대기시간이 흐르지 않게 되며, 대신 오러의 피해량이 %0.2f 배 됩니다. 염력은 소모되지 않습니다.]]):
 		format(mult)
 	end,
 }
 
 newTalent{
 	name = "Frenzied Psifighting",
-	kr_display_name = "광란하는 염동전투",
+	kr_display_name = "광란의 염동력 전투",
 	type = {"psionic/psi-fighting", 4},
 	require = psi_wil_req4,
 	cooldown = 20,
@@ -180,7 +180,7 @@ newTalent{
 	info = function(self, t)
 		local targets = 1 + math.ceil(self:getTalentLevel(t)/5)
 		local dur = 3 * self:getTalentLevelRaw(t)
-		return ([[Your telekinetically wielded weapon enters a frenzy for %d turns, striking up to %d targets every turn.]]):
+		return ([[염동력으로 들고 있는 무기가 %d 턴 동안 광란 상태에 빠져, 매 턴마다 %d 명의 적을 동시에 공격하게 됩니다.]]):
 		format(dur, targets)
 	end,
 }

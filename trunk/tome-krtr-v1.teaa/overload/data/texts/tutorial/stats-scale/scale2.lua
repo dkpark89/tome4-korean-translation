@@ -20,7 +20,7 @@
 return [[
 Some clues:
 
-1) #LIGHT_GREEN#Defense#WHITE# is 20 and #LIGHT_GREEN#Physical Save#WHITE# is 21, yet they have different colors and positions.
+1) #LIGHT_GREEN#회피도#WHITE# is 20 and #LIGHT_GREEN#물리 내성#WHITE# is 21, yet they have different colors and positions.
 
 2) There seems to be no overlap in positions. The 21 is entirely to the right of that 20, for example.
 

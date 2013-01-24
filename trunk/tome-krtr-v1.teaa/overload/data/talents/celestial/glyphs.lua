@@ -45,7 +45,6 @@ newTalent{
 		local dam = self:spellCrit(t.getDazeDuration(self, t))
 		local trap = Trap.new{
 			name = "glyph of paralysis",
-			kr_display_name = "마비의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_paralysis_01_64.png",
 			dam = dam,
@@ -82,7 +81,7 @@ newTalent{
 	info = function(self, t)
 		local dazeduration = t.getDazeDuration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d 턴 동안 혼절하게 됩니다.
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 %d 턴 동안 혼절하게 됩니다.
 		문양은 %d 턴 동안 유지됩니다.]]):format(dazeduration, duration)
 	end,
 }
@@ -114,7 +113,6 @@ newTalent{
 		local sp = self:combatSpellpower()
 		local trap = Trap.new{
 			name = "glyph of repulsion",
-			kr_display_name = "격퇴의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_repulsion_01_64.png",
 			dam = dam,
@@ -156,9 +154,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f 의 피해를 받고 밀려납니다.
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 %0.2f 피해를 받고 밀려납니다.
 		문양은 %d 턴 동안 유지됩니다.
-		피해량은 마법 능력치의 영향을 받아 유지됩니다.]]):
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), duration)
 	end,
 }
@@ -189,7 +187,6 @@ newTalent{
 		local dam = self:spellCrit(t.getDamage(self, t))
 		local trap = Trap.new{
 			name = "glyph of explosion",
-			kr_display_name = "폭발의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_explosion_01_64.png",
 			dam = dam,
@@ -227,8 +224,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 빛의 폭발에 휘말려 %0.2f 의 피해를 받습니다.
-		문양은 %d 턴 동안 유지됩니다.
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 빛의 폭발에 휘말려 %0.2f 피해를 받습니다.
+		빛의 폭발은 주변 1 칸 반경에 영향을 주며, 문양은 %d 턴 동안 유지됩니다.
 		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), duration)
 	end,
@@ -260,7 +257,6 @@ newTalent{
 		local dam = self:spellCrit(t.getSlow(self, t))
 		local trap = Trap.new{
 			name = "glyph of fatigue",
-			kr_display_name = "피로의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_fatigue_01_64.png",
 			dam = dam,
@@ -297,7 +293,7 @@ newTalent{
 	info = function(self, t)
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 그 위를 지나가는 모든 대상은 %d%% 감속됩니다.
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 5 턴 동안 %d%% 감속됩니다.
 		문양은 %d 턴 동안 유지됩니다.]]):format(100 * slow, duration)
 	end,
 }

@@ -24,7 +24,7 @@ newTalent{
 	require = gifts_req1,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ spits acid!",
+	message = "@Source@ 산을 뱉습니다!",
 	equilibrium = 3,
 	cooldown = function(self, t) return math.floor(8 - self:getTalentLevel(t)/3) end,
 	tactical = { ATTACK = { ACID = 2 } },
@@ -55,11 +55,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Spray forth a glob of acidic moisture at your enemy.
-		The target will take %0.2f Mindpower-based acid damage.
-		Enemies struck have a 25%% chance to be Disarmed for three turns, as their weapon is rendered useless by an acid coating.
-		At Talent Level 5, this becomes a piercing line of acid.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(damDesc(self, DamageType.ACID, damage))
+		return ([[전방에 산성 액체를 뿜어내, %0.2f 산성 피해를 줍니다. (정신력에 기반하여 피해량이 증가합니다)
+		피해를 받은 적은 25%% 확률로 무기에 산이 침투하여, 3 턴 동안 무장이 해제됩니다.
+		기술 레벨이 5 이상이면, 산성 액체가 적들을 관통하게 됩니다.
+		이 기술의 레벨이 오를 때마다, 산성 저항력이 1%% 상승합니다.]]):format(damDesc(self, DamageType.ACID, damage))
 	end,
 }
 
@@ -119,10 +118,10 @@ newTalent{
 		local cordur = t.getCorrodeDur(self, t)
 		local atk = t.getAtk(self, t)
 		local radius = 2 + self:getTalentLevel(t)/2
-		return ([[Exhale a mist of lingering acid, dealing %0.2f acid damage that can critical in a radius of %d each turn for %d turns.
-		Enemies in this mist will be corroded for %d turns, lowering their Accuracy, their Armour and their Defense by %d.
-		The damage and duration will increase with your Mindpower, and the radius will increase with talent level.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(damDesc(self, DamageType.ACID, damage), radius, duration, cordur, atk)
+		return ([[부식성 안개를 만들어내, %d 턴 동안 주변 %d 칸 반경에 %0.2f 산성 피해를 줍니다. (치명타가 발생할 수 있습니다)
+		안개의 영향을 받은 적은 %d 턴 동안 부식되어 정확도, 방어도, 회피도가 %d 감소하게 됩니다.
+		피해량과 지속시간은 정신력 능력치, 안개의 범위는 기술 레벨에 따라 증가합니다.
+		이 기술의 레벨이 오를 때마다, 산성 저항력이 1%% 상승합니다.]]):format(duration, radius, damDesc(self, DamageType.ACID, damage), cordur, atk)
 	end,
 }
 
@@ -153,22 +152,22 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You strike the enemy with a rain of fast, acidic blows. You strike four times for pure acid damage. Every blow does %d%% damage.
-		Every two talent levels, one of your strikes becomes blinding acid instead of normal acid, blinding the target 25%% of the time if it hits.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(100 * self:combatTalentWeaponDamage(t, 0.1, 0.6))
+		return ([[적에게 빠른 속도로 산성 공격을 해, 한번에 4 번의 공격을 합니다. 매 타격마다 %d%% 산성 피해를 줍니다.
+		기술 레벨이 2 오를 때마다, 공격 중 하나가 25%% 확률로 적을 실명시키는 특수 산성 공격으로 변화합니다.
+		이 기술의 레벨이 오를 때마다, 산성 저항력이 1%% 상승합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.1, 0.6))
 	end,
 }
 
 newTalent{
 	name = "Corrosive Breath",
-	kr_display_name = "부식성 브레쓰",
+	kr_display_name = "부식성 브레스",
 	type = {"wild-gift/venom-drake", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes acid!",
+	message = "@Source@ 산을 뿜어냅니다!",
 	tactical = { ATTACKAREA = { ACID = 2 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,
@@ -189,9 +188,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You breathe acid in a frontal cone of radius %d. Any target caught in the area will take %0.2f acid damage. 
-		Enemies caught in the acid have a 25%% chance of their weapons becoming useless for three turns.
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "str", 30, 420)))
+		return ([[전방 %d 칸 반경에 산을 뿜어내, %0.2f 산성 피해를 줍니다.
+		피해를 받은 적은 25%% 확률로 무기에 산이 침투하여, 3 턴 동안 무장이 해제됩니다.
+		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 따릅니다.
+		이 기술의 레벨이 오를 때마다, 산성 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "str", 30, 420)))
 	end,
 }

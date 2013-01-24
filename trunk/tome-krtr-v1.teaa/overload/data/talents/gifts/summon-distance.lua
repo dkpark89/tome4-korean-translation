@@ -23,7 +23,7 @@ newTalent{ short_name = "RITCH_FLAMESPITTER_BOLT",
 	type = {"wild-gift/other",1},
 	points = 5,
 	equilibrium = 2,
-	mesage = "@Source@ spits flames!",
+	mesage = "@Source1@ 불꽃을 뱉습니다!",
 	range = 10,
 	reflectable = true,
 	requires_target = true,
@@ -37,14 +37,14 @@ newTalent{ short_name = "RITCH_FLAMESPITTER_BOLT",
 		return true
 	end,
 	info = function(self, t)
-		return ([[Spits a bolt of fire, doing %0.2f fire damage.
-		The damage will increase with your Mindpower.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentMindDamage(t, 8, 120)))
+		return ([[불꽃 화살을 발사해, %0.2f 화염 피해를 줍니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentMindDamage(t, 8, 120)))
 	end,
 }
 
 newTalent{
 	name = "Flame Fury", image = "talents/blastwave.png",
-	kr_display_name = "불꽃의 분노",
+	kr_display_name = "화염의 분노",
 	type = {"wild-gift/other",1},
 	points = 5,
 	eqilibrium = 5,
@@ -68,20 +68,20 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[A wave of fire emanates from you with radius %d, knocking back anything caught inside and setting them ablaze and doing %0.2f fire damage over 3 turns.
-		The damage will increase with your Mindpower.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
+		return ([[주변 %d 칸 반경에 화염의 힘을 분출해, 적들을 밀어내고 불타게 만들어 %0.2f 화염 피해를 3 턴에 걸쳐 줍니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Acid Breath",
-	kr_display_name = "산성 브레쓰",
+	kr_display_name = "산성 브레스",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,
 	equilibrium = 10,
 	cooldown = 8,
-	message = "@Source@ breathes acid!",
+	message = "@Source1@ 산을 뿜어냅니다!",
 	tactical = { ATTACKAREA = { ACID = 2 } },
 	range = 0,
 	radius = 5,
@@ -99,20 +99,20 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Breathe acid on your foes, doing %0.2f damage.
-		The damage will increase with your Willpower.]]):format(damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "wil", 30, 430)))
+		return ([[적들에게 산을 뿜어내, %0.2f 피해를 줍니다.
+		피해량은 의지 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "wil", 30, 430)))
 	end,
 }
 
 newTalent{
 	name = "Lightning Breath", short_name = "LIGHTNING_BREATH_HYDRA", image = "talents/lightning_breath.png",
-	kr_display_name = "전격 브레쓰",
+	kr_display_name = "번개 브레스",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,
 	equilibrium = 10,
 	cooldown = 8,
-	message = "@Source@ breathes lightning!",
+	message = "@Source1@ 번개를 뿜어냅니다!",
 	tactical = { ATTACKAREA = { LIGHTNING = 2 } },
 	range = 0,
 	radius = 5,
@@ -133,8 +133,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Breathe lightning on your foes, doing %d to %d damage.
-		The damage will increase with your Willpower.]]):
+		return ([[적들에게 번개를 뿜어내, %d - %d 피해를 줍니다.
+		피해량은 의지 능력치의 영향을 받아 증가합니다.]]):
 		format(
 			damDesc(self, DamageType.LIGHTNING, (self:combatTalentStatDamage(t, "wil", 30, 500)) / 3),
 			damDesc(self, DamageType.LIGHTNING, self:combatTalentStatDamage(t, "wil", 30, 500))
@@ -144,13 +144,13 @@ newTalent{
 
 newTalent{
 	name = "Poison Breath",
-	kr_display_name = "독성 브레쓰",
+	kr_display_name = "독성 브레스",
 	type = {"wild-gift/other",1},
 	require = gifts_req1,
 	points = 5,
 	equilibrium = 10,
 	cooldown = 8,
-	message = "@Source@ breathes poison!",
+	message = "@Source1@ 독을 뿜어냅니다!",
 	tactical = { ATTACKAREA = { NATURE = 1, poison = 1 } },
 	range = 0,
 	radius = 5,
@@ -168,8 +168,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Breathe poison on your foes, doing %d damage over a few turns.
-		The damage will increase with your Willpower.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentStatDamage(t, "wil", 30, 460)))
+		return ([[적들에게 독을 뿜어내, %d 피해를 몇 턴에 걸쳐 줍니다.
+		피해량은 의지 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentStatDamage(t, "wil", 30, 460)))
 	end,
 }
 
@@ -210,9 +210,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[A furious ice storm rages around the user doing %0.2f cold damage in a radius of 3 each turn for %d turns.
-		It has 25%% chance to freeze damaged targets.
-		The damage and duration will increase with your Willpower.]]):format(damDesc(self, DamageType.COLD, damage), duration)
+		return ([[냉기 폭풍을 발생시켜, 주변 3 칸 반경에 %d 턴 동안 %0.2f 냉기 피해를 줍니다.
+		피해를 받은 적은 25%% 확률로 빙결 상태효과에 걸립니다.
+		피해량과 지속시간은 의지 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.COLD, damage))
 	end,
 }
 
@@ -223,7 +223,7 @@ newTalent{
 	require = gifts_req1,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a Ritch Flamespitter!",
+	message = "@Source1@ 불꽃뿜는 릿치를 소환합니다!",
 	equilibrium = 2,
 	cooldown = 10,
 	range = 5,
@@ -231,7 +231,7 @@ newTalent{
 	is_summon = true,
 	tactical = { ATTACK = { FIRE = 2 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -253,7 +253,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -304,10 +304,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a Ritch Flamespitter for %d turns to burn your foes to death. Flamespitters are really weak in melee and die easily, but they can burn your foes from afar.
-		It will get %d Willpower, %d Cunning and %d Constitution.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower and Cunning will increase with your Mindpower.]])
+		return ([[%d 턴 동안 불꽃뿜는 릿치를 소환하여 적과 싸우게 합니다. 릿치는 근접전에 매우 약하고 빨리 죽지만, 멀리서 적들을 불태울 수 있습니다.
+		소환수의 능력치는 다음과 같습니다 : %d 의지, %d 교활함, %d 체격
+		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
+		소환수의 의지와 교활함 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		15 + (self:combatMindpower(1.7) * self:getTalentLevel(t) / 5),
@@ -322,7 +322,7 @@ newTalent{
 	require = gifts_req2,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a 3-headed hydra!",
+	message = "@Source1@ 머리 셋 달린 히드라를 소환합니다!",
 	equilibrium = 5,
 	cooldown = 18,
 	range = 5,
@@ -330,7 +330,7 @@ newTalent{
 	is_summon = true,
 	tactical = { ATTACK = { ACID = 1, LIGHTING = 1, NATURE = 1 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -359,7 +359,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -368,7 +368,7 @@ newTalent{
 			type = "hydra", subtype = "3head",
 			display = "M", color=colors.GREEN, image = "npc/summoner_hydra.png",
 			name = "3-headed hydra", faction = self.faction,
-			desc = [[A strange reptilian creature with three smouldering heads.]],
+			desc = [[입에서 연기가 피어오르는, 기묘한 파충류 생명체입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
 
@@ -411,10 +411,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras are able to breathe poison, acid and lightning.
-		It will get %d Willpower, %d Constitution and 18 Strength.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower will increase with your Mindpower.]])
+		return ([[%d 턴 동안 머리 셋 달린 히드라를 소환하여 적과 싸우게 합니다. 히드라의 세 머리에서는 각각 독, 산성, 번개가 뿜어져 나옵니다.
+		소환수의 능력치는 다음과 같습니다 : %d 의지, %d 체격, 18 힘
+		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
+		소환수의 의지 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(1.6) * self:getTalentLevel(t) / 5),
 		10 + self:getTalentLevel(t) * 2 + self:getTalentLevelRaw(self.T_RESILIENCE)*2)
@@ -423,12 +423,12 @@ newTalent{
 
 newTalent{
 	name = "Rimebark",
-	kr_display_name = "서리여우 소환",
+	kr_display_name = "서리나무 소환",
 	type = {"wild-gift/summon-distance", 3},
 	require = gifts_req3,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a Rimebark!",
+	message = "@Source1@ 서리나무를 소환합니다!",
 	equilibrium = 8,
 	cooldown = 10,
 	range = 5,
@@ -436,7 +436,7 @@ newTalent{
 	is_summon = true,
 	tactical = { ATTACK =  { COLD = 1 }, DISABLE = { stun = 2 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -459,7 +459,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -469,7 +469,7 @@ newTalent{
 			display = "#", color=colors.WHITE,
 			name = "rimebark", faction = self.faction, image = "npc/immovable_plants_rimebark.png",
 			resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/immovable_plants_rimebark.png", display_h=2, display_y=-1}}},
-			desc = [[This huge treant like being is embedded with the fury of winter itself.]],
+			desc = [[거대한 나무로, 겨울의 분노를 품고 있습니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented_simple", ai_state = { talent_in=1, ally_compassion=10},
 			ai_tactic = resolvers.tactic"ranged",
@@ -511,10 +511,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, but they have a permanent ice storm around them, damaging and freezing anything coming close in a radius of 3.
-		It will get %d Willpower, %d Cunning and %d Constitution.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower and Cunning will increase with your Mindpower.]])
+		return ([[%d 턴 동안 서리나무를 소환하여 적과 싸우게 합니다. 서리나무는 움직이지 못하지만, 주변에 영구적인 냉기 폭풍을 만들어 주변 3 칸 반경의 적들에게 피해를 주고 빙결 상태효과를 일으킵니다.
+		소환수의 능력치는 다음과 같습니다 : %d 의지, %d 교활함, %d 체격
+		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
+		소환수의 의지와 교활함 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		15 + (self:combatMindpower(1.6) * self:getTalentLevel(t) / 5),
@@ -529,7 +529,7 @@ newTalent{
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a Fire Drake!",
+	message = "@Source1@ 화염 드레이크를 소환합니다!",
 	equilibrium = 15,
 	cooldown = 10,
 	range = 5,
@@ -537,7 +537,7 @@ newTalent{
 	is_summon = true,
 	tactical = { ATTACK = { FIRE = 2 }, DISABLE = { knockback = 2 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -561,7 +561,7 @@ newTalent{
 				type = "dragon", subtype = "fire",
 				display = "d", color=colors.RED, image = "npc/dragon_fire_fire_drake_hatchling.png",
 				name = "fire drake hatchling", faction = self.faction,
-				desc = [[A mighty fire drake.]],
+				desc = [[강력한 화염 드레이크입니다.]],
 				autolevel = "none",
 				ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
 				stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
@@ -596,7 +596,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -605,7 +605,7 @@ newTalent{
 			type = "dragon", subtype = "fire",
 			display = "D", color=colors.RED, image = "npc/dragon_fire_fire_drake.png",
 			name = "fire drake", faction = self.faction,
-			desc = [[A mighty fire drake.]],
+			desc = [[강력한 화염 드레이크입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
 			stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
@@ -650,10 +650,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a Fire Drake for %d turns to burn and crush your foes to death. Fire Drakes are behemoths that can burn your foes from afar with their fiery breath.
-		It will get %d Strength, %d Constitution and 38 Willpower.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Strength and Constitution will increase with your Mindpower.]])
+		return ([[%d 턴 동안 화염 드레이크를 소환하여 적과 싸우게 합니다. 화염 드레이크는 자신의 브레스로 적들을 태워버립니다.
+		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 체격, 38 의지
+		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
+		소환수의 힘과 체격 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 2 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		20 + (self:combatMindpower(1.5) * self:getTalentLevel(t) / 5) + self:getTalentLevelRaw(self.T_RESILIENCE) * 2)

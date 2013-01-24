@@ -18,7 +18,8 @@
 -- darkgod@te4.org
 
 return [[
-This gets expensive! It's entirely possible-- even likely-- for a game-winning character to never have any #8d55ff#Tier 5#WHITE# scores.
+결국, 물리력 수치 100 을 보고싶다면 실제로 필요한 물리력 수치는 300 이나 된다는 뜻이죠. 그래서 지금까지 게임을 클리어한 캐릭터 중에는 #8d55ff#5 단계#WHITE# 능력치가 하나도 없는 캐릭터도 꽤 많이 있습니다.
 
-There are stairs ahead. Descend further into the #GOLD#Dungeon of Adventurer Enlightenment#WHITE# to learn how exactly #GOLD#combat stat#WHITE# scores affect gameplay.
+#GOLD#모든 초보 모험가들을 위한 계몽의 지하미궁#WHITE# 의 더 깊은 곳으로 내려가보세요. 
+#GOLD#전투 능력치#WHITE# 수치가 정확히 어떻게 전투에 작용하는지 알려드리겠습니다.
 ]]

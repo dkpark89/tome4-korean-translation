@@ -47,8 +47,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[달의 힘을 끌어내어 적에게 날려서 %0.2f 의 피해를 줍니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[달의 힘을 끌어내어 대상을 공격합니다, 이 공격은 적들을 관통하며, %0.2f 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
@@ -98,8 +98,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[그림자를 퍼뜨려서 %0.2f 의 어둠 피해를 주고, 3칸 반경의 지역에 매 턴마다 %0.2f 의 어둠 피해를 %d 턴 동안 줍니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[그림자를 퍼뜨려서 %0.2f 어둠 피해를 주고, 주변 3칸 반경에 매 턴마다 %0.2f 어둠 피해를 %d 턴 동안 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage),damDesc(self, DamageType.DARKNESS, damageonspot),duration)
 	end,
 }
@@ -136,9 +136,9 @@ newTalent{
 		local lightdam = t.getLightDamage(self, t)
 		local darknessdam = t.getDarknessDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[당신에게서 황혼의 물결이 퍼져나가, %0.2f 의 빛 피해와 %0.2f 의 어둠 피해를 %d 칸 반경 내의 대상에게 줍니다.
-		또한 음기와 양기를 동시에 얻습니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[황혼의 물결이 퍼져나가, %0.2f 빛 피해와 %0.2f 어둠 피해를 주변 %d 칸 반경에 줍니다.
+		이 기술로는 음기와 양기를 동시에 얻을 수 있습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, lightdam),damDesc(self, DamageType.DARKNESS, darknessdam), radius)
 	end,
 }
@@ -177,8 +177,8 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[%d 반경의 지역에 별을 떨어뜨려, 4턴 동안 기절시키고 %0.2f 의 어둠 피해를 줍니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[별똥별을 떨어뜨려, 주변 %d 칸 반경의 적들을 4턴 동안 기절시키고 %0.2f  어둠 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
