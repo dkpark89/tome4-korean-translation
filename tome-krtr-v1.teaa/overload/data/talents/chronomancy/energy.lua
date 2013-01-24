@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Energy Decomposition",
-	kr_display_name = "에너지 해체",
+	kr_display_name = "에너지 분해",
 	type = {"chronomancy/energy",1},
 	mode = "sustained",
 	require = chrono_req1,
@@ -48,8 +48,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local absorption = t.getAbsorption(self, t)
-		return ([[Reduces all incoming energy damage (all except mind and physical damage) by 30%%, up to a maximum of %d.
-		The maximum damage reduction will scale with your Spellpower.]]):format(absorption)
+		return ([[에너지로 이루어진 공격, 즉 마법 공격을 받을 때 피해량을 30%% 감소시킵니다. (최대 피해 감소량 : 7)
+		최대 피해 감소량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(absorption)
 	end,
 }
 
@@ -80,8 +80,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[You encase yourself in a field that slows incoming projectiles by %d%%, and increases your physical resistance by %d%%.
-		The effect will scale with your Spellpower.]]):format(power, power / 2)
+		return ([[엔트로피 역장을 주변에 만들어 투사체의 속도를 %d%% 감소시키고, 물리 저항력을 %d%% 증가시킵니다.
+		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):format(power, power / 2)
 	end,
 }
 
@@ -109,7 +109,7 @@ newTalent{
 		if not target then return end
 
 		if not self:checkHit(self:combatSpellpower(), target:combatSpellResist()) then
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
 			return true
 		end
 
@@ -126,7 +126,7 @@ newTalent{
 			local t = rng.tableRemove(tids)
 			if not t then break end
 			target.talents_cd[t.id] = cdr
-			game.logSeen(target, "%s's %s is disrupted by the Energy Absorption!", target.name:capitalize(), t.name)
+			game.logSeen(target, "%s 의 %s 기술 에너지가 흡수당했습니다!", target.name:capitalize(), t.name)
 			count = count + 1
 		end
 
@@ -153,8 +153,9 @@ newTalent{
 	info = function(self, t)
 		local talentcount = t.getTalentCount(self, t)
 		local cooldown = t.getCooldown(self, t)
-		return ([[You sap the target's energy and add it to your own, placing up to %d random talents on cooldown for %d turns and reducing the cooldown of one of your chronomancy talents currently on cooldown by %d turns per enemy talent effected.
-		The cooldown adjustment scales with your Paradox.]]):
+		return ([[대상의 기술 에너지를 흡수해, 자신의 것으로 만듭니다. 
+		대상의 기술 %d 개가 %d 턴의 재사용 대기시간을 갖게 되며, 대상의 기술이 하나 지연될 때마다 자신의 시공 계열 마법 중 하나의 재사용 대기시간이 %d 턴 줄어듭니다.
+		재사용 대기시간 감소는 괴리 능력치의 영향을 받아 증가합니다.]]):
 		format(talentcount, cooldown, cooldown)
 	end,
 }
@@ -178,9 +179,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local maxlevel = t.getMaxLevel(self, t)
-		return ([[You may recast the next activated chronomancy spell (up to talent level %0.1f) that you cast within the next 5 turns on the turn following its initial casting.
-		The Paradox cost of the initial spell will be paid each time it is cast, and the second casting will still consume a turn.
-		This spell takes no time to cast.]]):
+		return ([[이 마법을 사용하면, 다음 5 턴 이내에 시전한 시공 계열 마법이 두 번 연속으로 시전됩니다. (%0.1f 기술 레벨의 마법까지 가능)
+		마법의 재사용 대기시간을 무시하고 연속으로 사용할 수 있지만, 두 번째 시전된 마법도 괴리 수치 증가나 시전시간 소모는 똑같이 이루어집니다.
+		이 마법은 시전시간 없이 즉시 사용할 수 있습니다.]]):
 		format(maxlevel)
 	end,
 }

@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
-
 newTalent{
 	name = "Channel Staff",
 	kr_display_name = "지팡이 발동술",
@@ -90,7 +88,7 @@ newTalent{
 
 newTalent{
 	name = "Staff Mastery",
-	kr_display_name = "지팡이 숙련",
+	kr_display_name = "지팡이 수련",
 	type = {"spell/staff-combat", 2},
 	mode = "passive",
 	require = spells_req2,
@@ -174,7 +172,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDazeDuration(self, t), {apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
 			end
 		end
 

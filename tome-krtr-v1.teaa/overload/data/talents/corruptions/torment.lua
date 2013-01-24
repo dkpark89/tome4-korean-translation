@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Willful Tormenter",
-	kr_display_name = "의욕넘치는 고문기술자",
+	kr_display_name = "의욕 넘치는 고문 기술자",
 	type = {"corruption/torment", 1},
 	require = corrs_req1,
 	mode = "sustained",
@@ -48,8 +48,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You set your mind toward a single goal: the destruction of all your foes.
-		Increases the maximum amount of vim you can store by %d.]]):
+		return ([['모든 적들의 파괴' 라는, 단 하나의 목표에 모든 정신을 집중합니다.
+		최대 보유 가능한 원기의 양이 %d 상승합니다.]]):
 		format(self:getTalentLevel(t) * 15)
 	end,
 }
@@ -84,14 +84,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Reach out to your foe's blood and health. Any creatures in the radius 2 ball will be unable to heal above their current life value (at the time of the casting) for %d turns.]]):
+		return ([[적들의 피와 생명력에 손을 뻗어, 주변 2 칸 이내의 모든 적들이 %d 턴 동안 생명력 회복을 할 수 없게 됩니다.]]):
 		format(2 + math.ceil(self:getTalentLevel(t) * 2))
 	end,
 }
 
 newTalent{
 	name = "Overkill",
-	kr_display_name = "과잉 살육",
+	kr_display_name = "과잉 피해",
 	type = {"corruption/torment", 3},
 	require = corrs_req3,
 	points = 5,
@@ -110,8 +110,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[When you kill a creature, the remainder of the damage done will not be lost. Instead, %d%% of it will splash in radius 2 as blight damage.
-		The damage will increase with your Spellpower.]]):format(20 + self:combatTalentSpellDamage(t, 10, 70))
+		return ([[무언가를 죽일 때, 쓸데없이 남는 피해량을 더이상 낭비하지 않게 됩니다. 남는 피해량의 %d%% 만큼이 폭발하여, 주변 2 칸 반경에 황폐화 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(20 + self:combatTalentSpellDamage(t, 10, 70))
 	end,
 }
 
@@ -141,8 +141,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local l, c = t.getPower(self, t)
-		return ([[When you are dealt a blow that reduces your life by at least %d%%, you have a %d%% chance to reduce the remaining cooldown of all your spells by 1.
-		The chance will increase with your Spellpower.]]):
+		return ([[최대 생명력의 %d%% 이상을 한번에 잃으면, %d%% 확률로 모든 기술들의 재사용 대기시간이 1 감소합니다.
+		감소 확률은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(l, c)
 	end,
 }

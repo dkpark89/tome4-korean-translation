@@ -17,7 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
 
 newTalent{
 	name = "Juggernaut",
@@ -94,7 +93,7 @@ newTalent{
 			local tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 			if tx and ty and target:canBe("teleport") then
 				target:move(tx, ty, true)
-				game.logSeen(target, "%s 전장의 부름을 받았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 전장의 부름을 받았습니다!", target.name:capitalize())
 			end
 		end)
 		return true

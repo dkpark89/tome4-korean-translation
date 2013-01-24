@@ -47,8 +47,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Fires a beam that turns matter into dust, inflicting %0.2f temporal damage and %0.2f physical damage.
-		The damage will scale with your Paradox and Spellpower.]]):
+		return ([[물질을 먼지로 만들어 없애버리는 힘을 발사하여, 발사 궤도에 있는 모든 적들에게 %0.2f 시간 피해와 %0.2f 물리 피해를 줍니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage / 2), damDesc(self, DamageType.PHYSICAL, damage / 2))
 	end,
 }
@@ -97,9 +97,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local armor = t.getArmor(self, t)
-		return ([[Fragile spikes of carbon protrude from your flesh, clothing, and armor, increasing your armor rating by %d and inflicting %0.2f bleed damage over six turns on attackers.   Each time you're struck, the armor increase will be reduced by 1.  Each turn the spell will regenerate 1 armor up to its starting value.
-		If the armor increase from the spell ever falls below 1, the sustain will deactivate and the effect will end.
-		The armor and bleed damage will increase with your Spellpower.]]):
+		return ([[부서지기 쉬운 탄소 가시를 맨몸, 옷, 갑옷 등에 돌출시켜, 방어도가 %d 상승하고 자신을 공격한 적에게 6 턴 동안 총 %0.2f 출혈 피해를 줍니다.
+		공격을 받을 때마다 방어도 증가량이 1 씩 줄어들며, 매 턴마다 감소된 방어도가 1 씩 복구됩니다.
+		방어도 상승량과 출혈 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(armor, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
@@ -135,9 +135,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local explosion = t.getExplosion(self, t)
-		return ([[Destabilizes the target, inflicting %0.2f temporal damage per turn for 10 turns.  If the target dies while destabilized, it will explode, doing %0.2f temporal damage and %0.2f physical damage in a radius of 4.
-		If the target dies while also under the effects of continuum destabilization, all explosion damage will be done as temporal damage.
-		The damage will scale with your Paradox and Spellpower.]]):
+		return ([[대상을 불안정하게 만들어, 10 턴 동안 매 턴마다 %0.2f 시간 피해를 줍니다. 대상이 불안정한 상태로 죽으면, 폭발하여 주변 4 칸 반경에 %0.2f 시간 피해와 %0.2f 물리 피해를 줍니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage), damDesc(self, DamageType.TEMPORAL, explosion/2), damDesc(self, DamageType.PHYSICAL, explosion/2))
 	end,
 }
@@ -181,10 +180,10 @@ newTalent{
 		if target then
 			if target:checkHit(self:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("instakill") and target.life > 0 and target.life < target.max_life * 0.2 then
 				-- KILL IT !
-				game.logSeen(target, "%s has been pulled apart at a molecular level!", target.name:capitalize())
+				game.logSeen(target, "%s 원자 단위로 분해되었습니다!", target.name:capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s resists the quantum spike!", target.name:capitalize())
+				game.logSeen(target, "%s 양자 가시를 저항했습니다!", target.name:capitalize())
 			end
 		end
 		
@@ -199,9 +198,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Attempts to pull the target apart at a molecular level, inflicing %0.2f temporal damage and %0.2f physical damage.  If the target ends up with low enough life (<20%%), it might be instantly killed.
-		Quantum Spike deals 50%% additional damage to targets affected by temporal destabilization and/or continuum destabilization.
-		The damage will scale with your Paradox and Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2))
+		return ([[대상에게 %0.2f 시간 피해와 %0.2f 물리 피해를 줍니다.
+		대상이 빈사 상태가 되면 (생명력 20%% 이하) 원자 단위로 분해를 시도하며, 성공할 경우 대상은 즉사합니다.
+		양자 가시는 불안정한 대상에게 50%% 추가 피해를 줍니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2))
 	end,
 }
 

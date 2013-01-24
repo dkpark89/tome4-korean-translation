@@ -22,7 +22,7 @@
 
 newTalent{
 	name = "Aura Discipline",
-	kr_display_name = "오러 숙련",
+	kr_display_name = "오러 수련",
 	type = {"psionic/mental-discipline", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -30,14 +30,13 @@ newTalent{
 	info = function(self, t)
 		local cooldown = self:getTalentLevelRaw(t)
 		local mast = (self:getTalentLevel(t) or 0)
-		return ([[Your expertise in the art of energy projection grows.
-		Aura cooldowns are all reduced by %d turns. Aura damage drains energy more slowly (+%0.2f damage required to lose a point of energy).]]):format(cooldown, mast)
+		return ([[염력 발산법을 수련하여 오러의 재사용 대기시간이 %d 턴 줄어들고, 염력 소비량이 줄어듭니다. (염력 1 당 %0.2f 피해를 더 줄 수 있게 됩니다)]]):format(cooldown, mast)
 	end,
 }
 
 newTalent{
 	name = "Shield Discipline",
-	kr_display_name = "방어막 숙련",
+	kr_display_name = "보호막 수련",
 	type = {"psionic/mental-discipline", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -45,7 +44,7 @@ newTalent{
 	info = function(self, t)
 		local cooldown = 2*self:getTalentLevelRaw(t)
 		local mast = 2*self:getTalentLevel(t)
-		return ([[Your expertise in the art of energy absorption grows. Shield cooldowns are all reduced by %d turns, and the amount of damage absorption required to gain a point of energy is reduced by %0.2f.]]):
+		return ([[염력 보호법을 수련하여 보호막의 재사용 대기시간이 %d 턴 줄어들고, 염력 회복량이 증가합니다. (%0.2f 피해를 덜 받아도 염력이 1 회복됩니다)]]):
 		format(cooldown, mast)
 	end,
 
@@ -55,7 +54,7 @@ newTalent{
 
 newTalent{
 	name = "Iron Will",
-	kr_display_name = "곧은 의지",
+	kr_display_name = "굳센 의지",
 	type = {"psionic/mental-discipline", 3},
 	require = psi_wil_req3,
 	points = 5,
@@ -70,7 +69,7 @@ newTalent{
 		self.stun_immune = (self.stun_immune or 0) - .1
 	end,
 	info = function(self, t)
-		return ([[Improves Mental Saves by %d, and stun immunity by %d%%.]]):
+		return ([[정신 내성이 %d, 기절 저항력이 %d%% 증가합니다.]]):
 		format(self:getTalentLevelRaw(t)*6, self:getTalentLevelRaw(t)*10)
 	end,
 }
@@ -95,7 +94,7 @@ newTalent{
 		self:onStatChange(self.STAT_CUN, -2)
 	end,
 	info = function(self, t)
-		return ([[A life of the mind has had predictably good effects on your Willpower and Cunning.
-		Increases Willpower and Cunning by %d.]]):format(2*self:getTalentLevelRaw(t))
+		return ([[고도로 정신을 훈련하여, 의지와 교활함을 증가시킵니다.
+		의지와 교활함 능력치가 %d 증가합니다.]]):format(2*self:getTalentLevelRaw(t))
 	end,
 }

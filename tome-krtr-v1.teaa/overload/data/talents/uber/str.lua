@@ -30,16 +30,16 @@ uberTalent{
 		self:attr("show_gloves_combat", -1)
 	end,
 	info = function(self, t)
-		return ([[Each time you make a melee attack, you have a 60%% chance to do an additional unarmed strike.]])
+		return ([[근접 공격을 할 때마다, 60%% 확률로 추가적인 맨손 공격을 할 수 있게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "You Shall Be My Weapon!", short_name="TITAN_S_SMASH", image = "talents/titan_s_smash.png",
-	kr_display_name = "너는 내 무기다!",
+	kr_display_name = "나의 무기가 되어라!",
 	mode = "activated",
-	require = { special={desc="Be of at least size category 'huge' (also required to use it)", fct=function(self) return self.size_category and self.size_category >= 5 end} },
+	require = { special={desc="신체 크기가 '거대함' 이상일 것", fct=function(self) return self.size_category and self.size_category >= 5 end} },
 	requires_target = true,
 	tactical = { ATTACK = 4 },
 	on_pre_use = function(self, t) return self.size_category and self.size_category >= 5 end,
@@ -68,17 +68,17 @@ uberTalent{
 		if target:canBe("stun") then target:setEffect(target.EFF_STUNNED, 3, {}) end
 	end,
 	info = function(self, t)
-		return ([[You deal a massive blow to your foe, smashing it for 350%% weapon damage and knocking it back 6 tiles away.
-		All foes in its path will be knocked to the side and stunned for 3 turns.]])
+		return ([[적에게 강력한 일격을 날려, 350%% 무기 피해를 주고 6 칸 뒤로 밀어냅니다.
+		밀려나면서 다른 적과 부딪힐 때마다, 부딪힌 적이 3 턴간 기절하게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Massive Blow",
-	kr_display_name = "강력한 일격",
+	kr_display_name = "*강력한* 일격",
 	mode = "activated",
-	require = { special={desc="Have dug at least 30 walls/trees/... and dealt over 50000 damage with a two-handed weapon", fct=function(self) return 
+	require = { special={desc="30 번 이상의 굴착 경험이 있으며, 양손무기로 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return 
 		self.dug_times and self.dug_times >= 30 and 
 		self.damage_log and self.damage_log.weapon.twohanded and self.damage_log.weapon.twohanded >= 50000
 	end} },
@@ -103,32 +103,32 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You deal a massive blow to your foe, smashing it for 150%% weapon damage and knocking it back 4 tiles away.
-		If the knockback makes it hit a wall, it will smash down the wall and deal an additional 350%% weapon damage.]])
+		return ([[적에게 강력한 일격을 날려, 150%% 무기 피해를 주고 4 칸 뒤로 밀어냅니다.
+		밀려난 적이 벽과 부딪힐 경우, 벽이 파괴되고 350%% 무기 피해를 추가로 받습니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Steamroller",
-	kr_display_name = "스팀롤러",
+	kr_display_name = "강압",
 	mode = "passive",
-	require = { special={desc="Know the Rush talent", fct=function(self) return self:knowTalent(self.T_RUSH) end} },
+	require = { special={desc="돌진 기술을 알고 있을 것", fct=function(self) return self:knowTalent(self.T_RUSH) end} },
 	info = function(self, t)
-		return ([[When you rush, the creature you rush to is marked. If you kill it in the next two turns, your rush cooldown is reset.
-		Each time this effect triggers, you gain a stacking +20%% damage buff, up to 100%%.]])
+		return ([[적에게 돌진 기술을 사용하면, 적에게 표식이 생깁니다. 다음 2 턴 이내에 표식이 생긴 적을 죽이면, 돌진 기술의 재사용 대기시간이 사라져 다시 사용할 수 있게 됩니다.
+		이 효과가 발생할 때마다 적에게 주는 피해가 20%% 증가하며. 최대 100%% 까지 증가합니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Irresistible Sun",
-	kr_display_name = "피할수없는 태양",
+	kr_display_name = "저항할 수 없는 태양의 힘",
 	cooldown = 25,
 	requires_target = true,
 	range = 5,
 	tactical = { ATTACK = 4, CLOSEIN = 2 },
-	require = { special={desc="Have dealt over 50000 light or fire damage", fct=function(self) return
+	require = { special={desc="화염이나 빛 속성으로 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return
 		self.damage_log and (
 			(self.damage_log[DamageType.FIRE] and self.damage_log[DamageType.FIRE] >= 50000) or
 			(self.damage_log[DamageType.LIGHT] and self.damage_log[DamageType.LIGHT] >= 50000)
@@ -140,24 +140,23 @@ uberTalent{
 	end,
 	info = function(self, t)
 		local dam = (50 + self:getStr() * 2) / 3
-		return ([[For 6 turns you gain the mass and power of a star, drawing all creatures within radius 5 toward you and dealing %0.2f fire, %0.2f light and %0.2f physical damage to all foes.
-		Foes closer to you take up to 200%% more damage.
-		Damage will increase with your Strength.]])
+		return ([[6 턴 동안 강력한 별의 힘을 빌어, 주변 5 칸 이내의 모든 적들에게 %0.2f 화염 피해, %0.2f 전기 피해, %0.2f 물리 피해를 동시에 줍니다.
+		시전자와 붙어있는 적에게는 피해량이 200%% 증가합니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.LIGHT, dam), damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }
 
 uberTalent{
 	name = "I Can Carry The World!", short_name = "NO_FATIGUE",
-	kr_display_name = "난 세상을 들수있다!",
+	kr_display_name = "세상을 짊어질 자",
 	mode = "passive",
-	require = { special={desc="Be able to use massive armours", fct=function(self) return self:getTalentLevelRaw(self.T_ARMOUR_TRAINING) >= 3 end} },
+	require = { special={desc="판갑을 입을 수 있을 것", fct=function(self) return self:getTalentLevelRaw(self.T_ARMOUR_TRAINING) >= 3 end} },
 	on_learn = function(self, t)
 		self:attr("max_encumber", 500)
 	end,
 	info = function(self, t)
-		return ([[You are strong; fatigue and physical exertion mean nothing to you.
-		Fatigue is permanently set to 0 and carrying capacity increased by 500.]])
+		return ([[몸에 힘이 넘쳐흘러, 피로도가 0 이 되고 무게 제한이 500 늘어납니다.]])
 		:format()
 	end,
 }
@@ -166,7 +165,7 @@ uberTalent{
 	name = "Legacy of the Naloren",
 	kr_display_name = "날로렌의 유산",
 	mode = "passive",
-	require = { special={desc="Have sided wih Slasul and killed Ukllmswwik", fct=function(self)
+	require = { special={desc="Slasul의 편에 서서, Ukllmswwik 을 죽일 것", fct=function(self)
 		if game.state.birth.ignore_prodigies_special_reqs then return true end
 		local q = self:hasQuest("temple-of-creation")
 		return q and not q:isCompleted("kill-slasul") and q:isCompleted("kill-drake")
@@ -182,20 +181,19 @@ uberTalent{
 		require("engine.ui.Dialog"):simplePopup("Legacy of the Naloren", "Slasul will be happy to know your faith in his cause. You should return to speak to him.")
 	end,
 	info = function(self, t)
-		return ([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
-		You have also learnt to use tridents and other exotic weapons easily (gaining 5 levels of Exotic Weapon Mastery), and can Spit Poison as nagas do. In addition, should Slasul still live, he may have a further reward for you as thanks...]])
+		return ([[Slasul을 도와, Ukllmswwik을 격퇴시켰습니다. 물 속에서 숨을 쉴 수 있게 되며, 삼지창을 포함한 각종 이형 무기들을 손쉽게 다룰 수 있게 됩니다. (이형 무기 수련 기술을 배우고, 기술 레벨이 5 가 됩니다)
+		또한 나가처럼 독을 뱉을 수 있게 되며, Slasul이 감사의 표시로 또 다른 보상을 줄지도 모릅니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Superpower",
-	kr_display_name = "초능력",
+	kr_display_name = "의지의 힘, 힘의 의지",
 	mode = "passive",
 	info = function(self, t)
-		return ([[A strong body is key to a strong mind. And a strong mind is powerful enough to make a strong body.
-		Grants a Mindpower bonus equal to 25%% of your Strength.
-		Additionally, you treat all weapons as having an additional 30%% Willpower modifier.]])
+		return ([[강한 정신은 강한 육체에서 오는 법입니다. 그리고 강한 정신은 강한 육체를 만드는 법이죠.
+		힘 능력치의 25%% 만큼 정신력이 올라가며, 무기의 적용 능력치에 의지 능력치의 30%% 만큼이 추가됩니다.]])
 		:format()
 	end,
 }

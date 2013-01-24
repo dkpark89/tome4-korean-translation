@@ -41,7 +41,7 @@ newTalent{
 		local x, y = self:getTarget(tg)
 		if not x or not y then return nil end
 		if not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then
-			game.logSeen(self, "You do not have line of sight.")
+			game.logSeen(self, "시야 확보가 되지 않았습니다.")
 			return nil
 		end
 		x, y = checkBackfire(self, x, y)
@@ -53,7 +53,7 @@ newTalent{
 		local tx, ty = util.findFreeGrid(x, y, 5, true, {[Map.ACTOR]=true})
 		if tx and ty then
 			if not self:teleportRandom(tx, ty, 0) then
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 헛나갔습니다!")
 			end
 		end
 
@@ -64,8 +64,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Teleports you to up to %d tiles away, to a targeted location in line of sight.  Additional talent points increase the range.
-		This spell takes no time to cast.]]):format(range)
+		return ([[시야 내의 최대 %d 칸 까지 자유롭게 순간이동합니다. 기술 레벨을 올리면 최대 거리가 증가합니다.
+		이 마법은 시전시간 없이 즉시 사용할 수 있습니다.]]):format(range)
 	end,
 }
 
@@ -104,7 +104,7 @@ newTalent{
 			if self:checkHit(power, target:combatSpellResist() + (target:attr("continuum_destabilization") or 0)) and target:canBe("teleport") then
 				actors[#actors+1] = target
 			else
-				game.logSeen(target, "%s resists the banishment!", target.name:capitalize())
+				game.logSeen(target, "%s 추방을 저항했습니다!", target.name:capitalize())
 			end
 		end)
 
@@ -119,7 +119,7 @@ newTalent{
 		end
 
 		if do_fizzle == true then
-			game.logSeen(self, "The spell fizzles!")
+			game.logSeen(self, "주문이 헛나갔습니다!")
 		end
 
 		game.level.map:particleEmitter(self.x, self.y, tg.radius, "ball_teleport", {radius=tg.radius})
@@ -130,8 +130,8 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local range = t.getTeleport(self, t)
-		return ([[Randomly teleports all targets within a radius of %d around you.  Targets will be teleported between %d and %d tiles from their current location.
-		The teleport range will scale with your Paradox.]]):format(radius, range / 2, range)
+		return ([[주변 %d 칸 반경의 모든 대상들을 순간이동시킵니다. 순간이동된 대상은 현재 위치에서 %d - %d 칸 떨어진 곳으로 이동합니다.
+		순간이동 거리는 괴리 수치의 영향을 받아 증가합니다.]]):format(radius, range / 2, range)
 	end,
 }
 
@@ -159,7 +159,7 @@ newTalent{
 		if not entrance_x or not entrance_y then return nil end
 		local _ _, entrance_x, entrance_y = self:canProject(tg, entrance_x, entrance_y)
 		local trap = game.level.map(entrance_x, entrance_y, engine.Map.TRAP)
-		if trap or game.level.map:checkEntity(entrance_x, entrance_y, Map.TERRAIN, "block_move") then game.logPlayer(self, "You can't place a wormhole entrance here.") return end
+		if trap or game.level.map:checkEntity(entrance_x, entrance_y, Map.TERRAIN, "block_move") then game.logPlayer(self, "이곳에는 웜홀의 입구를 만들 수 없습니다.") return end
 
 		-- Finding the exit location
 		-- First, find the center possible exit locations
@@ -173,7 +173,7 @@ newTalent{
 			if not x then return nil end
 			-- Make sure the target is within range
 			if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then
-				game.logPlayer(self, "Pick a valid location.")
+				game.logPlayer(self, "가능한 지점을 선택하세요.")
 				return false
 			end
 		else
@@ -193,7 +193,7 @@ newTalent{
 				end
 			end
 		end
-		if #poss == 0 then game.logPlayer(self, "No exit location could be found.")	return false end
+		if #poss == 0 then game.logPlayer(self, "출구의 위치를 찾을 수 없습니다.")	return false end
 		local pos = poss[rng.range(1, #poss)]
 		exit_x, exit_y = pos[1], pos[2]
 		print("[[wormhole]] entrance ", entrance_x, " :: ", entrance_y)
@@ -211,7 +211,7 @@ newTalent{
 			type = "annoy", subtype="teleport", id_by_type=true, unided_name = "trap",
 			image = "terrain/wormhole.png",
 			display = '&', color_r=255, color_g=255, color_b=255, back_color=colors.STEEL_BLUE,
-			message = "@Target@ moves onto the wormhole.",
+			message = "@Target@ 웜홀로 이동했습니다.",
 			temporary = t.getDuration(self, t),
 			x = entrance_x, y = entrance_y,
 			canAct = false,
@@ -232,7 +232,7 @@ newTalent{
 						end
 					end
 				else
-					game.logSeen(who, "%s ignores the wormhole.", who.name:capitalize())
+					game.logSeen(who, "%s 웜홀을 무시했습니다.", who.name:capitalize())
 				end
 				return true
 			end,
@@ -240,7 +240,7 @@ newTalent{
 				self:useEnergy()
 				self.temporary = self.temporary - 1
 				if self.temporary <= 0 then
-					game.logSeen(self, "Reality asserts itself and forces the wormhole shut.")
+					game.logSeen(self, "현실의 힘이 밀려들어와, 웜홀이 강제적으로 닫혔습니다.")
 					if game.level.map(self.x, self.y, engine.Map.TRAP) == self then game.level.map:remove(self.x, self.y, engine.Map.TRAP) end
 					game.level:removeEntity(self)
 				end
@@ -268,21 +268,22 @@ newTalent{
 		entrance.dest = exit
 		exit.dest = entrance
 
-		game.logSeen(self, "%s folds the space between two points.", self.name)
+		game.logSeen(self, "%s 두 지점 사이의 공간을 접습니다.", self.name)
 		return true
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[You fold the space between yourself and a random point within range, creating a pair of wormholes.  Any creature stepping on either wormhole will be teleported to the other.  The wormholes will last %d turns.
-		At level 4, you may choose the exit location target area (radius %d).  The duration will scale with your Paradox.]])
+		return ([[현재 위치와 (범위 내의) 무작위한 곳 사이의 공간을 이어주는, 웜홀 한 쌍을 만들어냅니다. 누구든지 한 쪽 웜홀을 밟으면, 다른 쪽 웜홀로 순간이동됩니다. 웜홀은 %d 턴 동안 지속됩니다.
+		기술 레벨이 4 이상이면, %d 칸 범위 내에서 웜홀이 만들어질 곳을 지정할 수 있습니다.
+		웜홀의 지속시간은 괴리 수치의 영향을 받아 증가합니다.]])
 		:format(duration, radius)
 	end,
 }
 
 newTalent{
 	name = "Spacetime Mastery",
-	kr_display_name = "시공축 숙련",
+	kr_display_name = "시공간 수련",
 	type = {"chronomancy/spacetime-weaving", 4},
 	mode = "passive",
 	require = temporal_req4,
@@ -305,7 +306,8 @@ newTalent{
 		local cooldown = self:getTalentLevelRaw(t)
 		local wormhole = self:getTalentLevelRaw(t) * 2
 		local power = self:getTalentLevel(t) * 10
-		return ([[Your mastery of spacetime reduces the cooldown of Banish, Dimensional Step, Swap, and Temporal Wake by %d, and the cooldown of Wormhole by %d.  Also improves your chances of hitting targets with chronomancy effects that may cause continuum destablization (Banish, Time Skip, etc.), as well as your chance of overcoming continuum destabilization, by %d%%.]]):
+		return ([[시공간에 대한 수련을 통해 차원의 걸음, 추방, 시간의 흔적 마법의 재사용 대기시간을 %d 턴 줄이고, 웜홀의 재사용 대기시간을 %d 턴 줄입니다.
+		그리고 시공 계열 마법으로 적을 공격할 때 추방, 시간 지우기 등 '연속체 불안정화' 효과가 일어날 확률을 높이고, 자신의 연속체 불안정화 저항 확률을 %d%% 증가시킵니다.]]):
 		format(cooldown, wormhole, power)
 	end,
 }

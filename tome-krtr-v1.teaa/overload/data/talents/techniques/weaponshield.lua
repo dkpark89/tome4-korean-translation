@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
-
 ----------------------------------------------------------------------
 -- Offense
 ----------------------------------------------------------------------
@@ -54,7 +52,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t) / 2, {apply_power=self:combatAttackStr()})
 			else
-				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "% 기절하지 않았습니다!", target.name:capitalize())
 			end
 		end
 
@@ -129,7 +127,7 @@ newTalent{
 			if target:checkHit(self:combatAttack(shield.special_combat), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				target:knockback(self.x, self.y, 4)
 			else
-				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
 			end
 		end
 
@@ -203,7 +201,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패 없이는 방패의 벽을 세울수 없습니다!")
+			game.logPlayer(self, "방패 없이는 방패의 벽을 칠 수 없습니다!")
 			return nil
 		end
 
@@ -224,8 +222,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[방어적 전투자세로 들어가서, 회피도 %d 와 방어도 %d 를 올리는 대신 물리 피해량이 -20%% 감소합니다. 회피도와 방어도의 상승 효과는 민첩의 영향을 받습니다.
-		또한 %d%% 의 기절과 밀어내기에 대한 저항력도 올라갑니다.]]):format(
+		return ([[수비적인 전투 자세에 들어가, 물리 공격력이 20%% 떨어지는 대신 회피도가 %d, 방어도가 %d 증가하고, 기절과 밀어내기 저항력이 %d%% 증가합니다.
+		회피도와 방어도 증가량은 민첩 능력치의 영향을 받아 증가합니다.]]):format(
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE)* 2,
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE),
 		10 * self:getTalentLevel(t), 10 * self:getTalentLevel(t)
@@ -252,7 +250,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패 없이는 반발을 사용할 수 없습니다!")
+			game.logPlayer(self, "방패 없이는 반발 기술을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -264,7 +262,7 @@ newTalent{
 					target:knockback(self.x, self.y, 2 + self:getTalentLevel(t))
 					if target:canBe("stun") then target:setEffect(target.EFF_DAZED, 3 + self:getStr(8), {}) end
 				else
-					game.logSeen(target, "%s 밀려나지 않습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
 				end
 			end
 		end)
@@ -272,9 +270,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[모든 적들을 방패 앞에 쌓아놓고, 온힘을 다해 밀쳐 그들을 %d 칸 밀어냅니다.
-		이렇게 밀려나는 모든 존재는 %d 턴 동안 혼절 상태가 됩니다.
-		밀치는 거리는 기술 레벨의 영향을 받고, 혼절 시간은 힘의 영향을 받습니다.]]):format(math.floor(2 + self:getTalentLevel(t)), 3 + self:getStr(8))
+		return ([[적들이 방패를 공격하도록 허용한 뒤, 힘을 끌어모아 후려갈겨 적들을 %d 칸 밀어냅니다.
+		추가적으로, 밀려난 적들은 %d 턴 동안 혼절하게 됩니다.
+		밀어내는 거리는 기술 레벨, 혼절 시간은 힘 능력치의 영향을 받아 증가합니다.]]):format(math.floor(2 + self:getTalentLevel(t)), 3 + self:getStr(8))
 	end,
 }
 
@@ -294,13 +292,13 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 2
 	end,
 	info = function(self, t)
-		return ([[방패를 사용하는 기술의 피해량과 회피도를 향상시킵니다. 또 주문내성( +%d )과 물리내성( +%d )도 올려줍니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
+		return ([[방패 기반 기술을 사용할 때 공격과 방어를 더 능숙하게 할 수 있게 되며, 주문 내성이 %d, 물리 내성이 %d 상승합니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Last Stand",
-	kr_display_name = "끝까지 버티기",
+	kr_display_name = "최후의 저항",
 	type = {"technique/shield-defense", 4},
 	require = techs_req4,
 	mode = "sustained",
@@ -313,7 +311,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패 없이는 끝까지 버틸수 없습니다!")
+			game.logPlayer(self, "방패 없이는 최후의 저항을 할 수 없습니다!")
 			return nil
 		end
 
@@ -330,8 +328,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[당신은 마지막 순간을 대비하여, 회피도를 %d 올리고 최대 생명력을 %d 높이지만, 이동할 수 없게 됩니다.
-		회피도 상승 효과는 민첩의 영향을 받고, 생명력 상승 효과는 체격의 영향을 받습니다.]]):
+		return ([[단단히 버틸 준비를 합니다. 회피도가 %d, 최대 생명력이 %d 증가하는 대신 움직이지 못하게 됩니다.
+		회피도 증가는 민첩 능력치, 생명력 증가는 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(5 + self:getDex(4, true) * self:getTalentLevel(t),
 		(10 + self:getCon() * 0.7) * self:getTalentLevel(t))
 	end,

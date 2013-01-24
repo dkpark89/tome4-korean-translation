@@ -42,9 +42,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You call upon the mighty claw of a cold drake, doing %d%% weapon damage as cold damage.
-		At level 4, the attack becomes pure ice, giving a chance to freeze the target.
-		Each point in cold drake talents also increases your cold resistance by 1%%.]]):format(100 * (1.4 + self:getTalentLevel(t) / 8))
+		return ([[냉기 드레이크의 강력한 얼음 발톱을 불러내, %d%% 무기 피해를 냉기 속성으로 줍니다.
+		기술 레벨이 4 이상이면, 대상을 얼릴 확률이 생기게 됩니다.
+		이 기술의 레벨이 오를 때마다, 냉기 저항력이 1%% 상승합니다.]]):format(100 * (1.4 + self:getTalentLevel(t) / 8))
 	end,
 }
 
@@ -75,9 +75,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your skin forms icy scales, damaging anyone that hits you for %0.2f cold damage and increasing your Armour by %d.
-		Each point in cold drake talents also increases your cold resistance by 1%%.
-		The damage and Armor will scale with your Willpower.]]):format(damDesc(self, DamageType.COLD, t.getDamage(self, t)), t.getArmor(self, t))
+		return ([[피부가 얼음 비늘에 덮여, 공격자에게 %0.2f 냉기 피해를 돌려줄 수 있게 되며 방어도가 %d 상승합니다.
+		이 기술의 레벨이 오를 때마다, 냉기 저항력이 1%% 상승합니다.
+		피해량과 방어도 상승량은 의지 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, t.getDamage(self, t)), t.getArmor(self, t))
 	end,
 }
 
@@ -143,21 +143,21 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summons an icy wall of %d length for %d turns. Ice walls are transparent.
-		Each point in cold drake talents also increases your cold resistance by 1%%.]]):format(3 + math.floor(self:getTalentLevel(t) / 2) * 2, 4 + self:getTalentLevel(t))
+		return ([[%d 칸 길이의 얼음 벽을 %d 턴 동안 소환합니다. 얼음 벽은 투명하여, 벽 너머를 볼 수 있습니다.
+		이 기술의 레벨이 오를 때마다, 냉기 저항력이 1%% 상승합니다.]]):format(3 + math.floor(self:getTalentLevel(t) / 2) * 2, 4 + self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Ice Breath",
-	kr_display_name = "얼음 브레쓰",
+	kr_display_name = "냉기 브레스",
 	type = {"wild-gift/cold-drake", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes ice!",
+	message = "@Source@ 냉기를 뿜어냅니다!",
 	tactical = { ATTACKAREA = { COLD = 2 }, DISABLE = { stun = 1 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,
@@ -178,9 +178,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You breathe ice in a frontal cone of radius %d. Any target caught in the area will take %0.2f cold damage, and has a 25%% to be frozen for a few turns (higher rank enemies will be frozen for a shorter time).
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
-		Each point in cold drake talents also increases your cold resistance by 1%%.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.COLD, self:combatTalentStatDamage(t, "str", 30, 430)))
+		return ([[전방 %d 칸 반경에 냉기 브레스를 뿜어내, %0.2f 냉기 피해를 주고 25%% 확률로 적을 몇 턴 동안 얼립니다. (적의 등급이 높으면 어는 시간이 짧아집니다)
+		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 따릅니다.
+		이 기술의 레벨이 오를 때마다, 냉기 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.COLD, self:combatTalentStatDamage(t, "str", 30, 430)))
 	end,
 }
 

@@ -63,10 +63,10 @@ newTalent{
 	info = function(self, t)
 		local saves = t.getResists(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[태양의 영광을 노래하여, 물리와 주문 내성을 %d 상승시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
-		동시에 하나의 찬가만을 유지할 수 있습니다.
-		내성과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
+		return ([[태양의 영광을 노래하여, 물리 내성과 주문 내성을 %d 상승시킵니다.
+		그리고 주변을 빛으로 감싸, 공격을 받으면 적에게 %0.2f 빛 피해를 되돌려줍니다.
+		한번에 하나의 찬가만을 유지할 수 있습니다.
+		내성 상승량과 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(saves, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -105,10 +105,10 @@ newTalent{
 	info = function(self, t)
 		local physicalresistance = t.getPhysicalResistance(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[태양의 영광을 노래하여, 물리 피해 저항을 %d%% 상승시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
-		동시에 하나의 찬가만을 유지할 수 있습니다.
-		저항과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
+		return ([[태양의 영광을 노래하여, 물리 저항력을 %d%% 상승시킵니다.
+		그리고 주변을 빛으로 감싸, 공격을 받으면 적에게 %0.2f 빛 피해를 되돌려줍니다.
+		한번에 하나의 찬가만을 유지할 수 있습니다.
+		저항력과 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(physicalresistance, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -153,10 +153,10 @@ newTalent{
 	info = function(self, t)
 		local resists = t.getResists(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
-		return ([[태양의 영광을 노래하여, 원소 저항을 %d%% 상승시킵니다.
-		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
-		동시에 하나의 찬가만을 유지할 수 있습니다.
-		내성과 피해량은 마법 능력치에 영향을 받아 증가됩니다]]):
+		return ([[태양의 영광을 노래하여, 화염, 전기, 산성, 냉기 저항력을 %d%% 상승시킵니다.
+		그리고 주변을 빛으로 감싸, 공격을 받으면 적에게 %0.2f 빛 피해를 되돌려줍니다.
+		한번에 하나의 찬가만을 유지할 수 있습니다.
+		저항력과 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(resists, damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
@@ -199,11 +199,11 @@ newTalent{
 		local damageinc = t.getLightDamageIncrease(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local lite = t.getLite(self, t)
-		return ([[태양의 영광을 노래하여, 당신이 가하는 빛 피해량을 %d%% 증가시킵니다.
+		return ([[태양의 영광을 노래하여, 빛 속성으로 적을 공격할 때 %d%% 빛 피해를 추가로 줍니다.
 		그리고 주변을 빛으로 감싸, 당신을 공격하는 적에게 %0.2f 의 빛 피해를 줍니다.
-		또한 광원 반경이 %d 칸 증가됩니다.
-		동시에 하나의 찬가만을 유지할 수 있습니다.
-		이 효과는 마법 능력치에 영향을 받아 증가됩니다]]):
+		또한, 광원 반경이 %d 칸 증가됩니다.
+		한번에 하나의 찬가만을 유지할 수 있습니다.
+		기술의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damageinc, damDesc(self, DamageType.LIGHT, damage), lite)
 	end,
 }

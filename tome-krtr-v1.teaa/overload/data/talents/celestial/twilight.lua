@@ -37,7 +37,7 @@ newTalent{
 	end,
 	action = function(self, t)
 		if self:isTalentActive(self.T_DARKEST_LIGHT) then
-			game.logPlayer(self, "가장 어두운 빛이 활성화된 상태에서는 황혼 주문을 사용할 수 없습니다.")
+			game.logPlayer(self, "'가장 어두운 빛'이 활성화된 상태에서는 황혼 기술을 사용할 수 없습니다.")
 			return
 		end
 		self:incNegative(t.getNegativeGain(self, t))
@@ -45,16 +45,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[어둠과 빛의 가운데에 선 자의 권능으로, 15의 양기를 %d 의 음기로 전환합니다.
-		또, 양기와 음기의 기본값이 최대치의 %d%% 로 변경됩니다. 0대신 이 기본값을 향하여 매 턴마다 에너지가 조금씩 변화됩니다.
-		이 효과는 교활함 능력치의 영향을 받아 증가됩니다.]]):
+		return ([[어둠과 빛의 사이에 선 자의 권능으로, 15 의 양기를 %d 의 음기로 전환합니다.
+		또, 양기와 음기의 기본값이 최대치의 %d%% 에 해당하는 값으로 변경됩니다. 0 대신, 이 기본값을 향하여 매 턴마다 양기와 음기가 조금씩 변화합니다.
+		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getNegativeGain(self, t), t.getRestValue(self, t))
 	end,
 }
 
 newTalent{
 	name = "Jumpgate: Teleport To", short_name = "JUMPGATE_TELEPORT",
-	kr_display_name = "도약문: 이동",
+	kr_display_name = "도약문 : 이동",
 	type = {"celestial/other", 1},
 	points = 1,
 	cooldown = 7,
@@ -72,7 +72,7 @@ newTalent{
 	action = function(self, t)
 		local eff = self.sustain_talents[self.T_JUMPGATE]
 		if not eff then
-			game.logPlayer(self, "순간이동을 하려면 도약문 주문이 유지된 상태여야 합니다.")
+			game.logPlayer(self, "순간이동을 하려면, 도약문 기술이 유지된 상태여야 합니다.")
 			return
 		end
 		game.level.map:particleEmitter(self.x, self.y, 1, "teleport")
@@ -136,9 +136,9 @@ newTalent{
 	info = function(self, t)
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
-		return ([[위치한 장소에 그림자 도약문을 생성합니다. 이 주문이 유지되는 동안에는 '도약문: 이동' 주문을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.
-		도약문이 생성된 위치에 있는 계단은 사용할 수 없으므로, 계단을 이용하려면 도약문 주문의 유지를 해제해야 합니다.
-		기술 레벨이 4 이상이면 두번째 도약문을 생성할 수 있습니다.]]):format(range)
+		return ([[현재 위치에 그림자 도약문을 생성합니다. 이 기술이 유지되는 동안, '도약문 : 이동' 기술을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.
+		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 도약문 기술을 해제해야 합니다.
+		기술 레벨이 4 이상이면, 두번째 도약문을 생성할 수 있습니다.]]):format(range)
  	end,
  }
 
@@ -172,15 +172,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
-		return ([[마음의 절규를 내질러서, 3칸 반경 내 모든 대상의 의지를 꺽어 %d 턴 동안 혼란 상태로 만듭니다.
-		지속 시간은 교활함 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[마음의 절규를 내질러, 주변 3칸 반경에 있는 적들의 의지를 꺾어 %d 턴 동안 혼란 상태로 만듭니다.
+		혼란의 지속시간은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }
 
 newTalent{
 	name = "Shadow Simulacrum",
-	kr_display_name = "그림자 투영",
+	kr_display_name = "그림자 분신",
 	type = {"celestial/twilight", 4},
 	require = divi_req4,
 	random_ego = "attack",
@@ -203,7 +203,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 1, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "소활할 공간이 부족합니다!")
+			game.logPlayer(self, "소환할 공간이 부족합니다!")
 			return
 		end
 
@@ -218,7 +218,7 @@ newTalent{
 			target:reactionToward(self) >= 0 or -- No friends
 			target.size_category > allowed
 			then
-			game.logPlayer(self, "%s 저항합니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+			game.logPlayer(self, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			return true
 		end
 
@@ -233,7 +233,7 @@ newTalent{
 			ai_target = {actor=target},
 			ai = "summoned", ai_real = target.ai,
 			resists = { all = modifier, [DamageType.DARKNESS] = 50, [DamageType.LIGHT] = - 50, },
-			desc = [[어두운 그림자의 형태가 복제할 대상의 모양으로 변합니다.]],
+			desc = [[어두운 그림자의 환영입니다.]],
 		}
 		m:removeAllMOs()
 		m.make_escort = nil
@@ -263,14 +263,14 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local allowed = 2 + math.ceil(self:getTalentLevelRaw(t) / 2 )
 		if allowed < 4 then
-			size = "medium"
+			size = "중간"
 		elseif allowed < 5 then
-			size = "big"
+			size = "큼"
 		else
-			size = "huge"
+			size = "거대함"
 		end
-		return ([[크기 %s 이하의 대상에게서 그림자를 본뜹니다. 복제된 대상은 즉시 자신의 본체를 공격합니다.
-		%d 턴 동안 유지되며, 복제된 대상의 지속시간과 생명력, 저항은 교활함 능력치에 영향을 받습니다.]]):
+		return ([[크기가 '%s' 이하인 대상의 그림자 분신을 만들어냅니다. 그림자 분신은 생성 즉시 자신의 본체를 공격하기 시작합니다.
+		분신은 %d 턴 동안 유지되며, 분신의 지속시간과 생명력, 저항은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(size, duration)
 	end,
 }
@@ -325,13 +325,14 @@ newTalent{
 	info = function(self, t)
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT_TWO)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
-		return ([[위치한 장소에 그림자 도약문을 생성합니다. 이 주문이 유지되는 동안에는 '도약문: 이동' 주문을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.]]):format(range)
+		return ([[현재 위치에 두번째 그림자 도약문을 생성합니다. 이 기술이 유지되는 동안, '두번째 도약문 : 이동' 기술을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다.
+		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 두번째 도약문 기술을 해제해야 합니다.]]):format(range)
 	end,
 }
 
 newTalent{
 	name = "Jumpgate Two: Teleport To", short_name = "JUMPGATE_TELEPORT_TWO",
-	kr_display_name = "두번째 도약문: 이동",
+	kr_display_name = "두번째 도약문 : 이동",
 	type = {"celestial/other", 1},
 	points = 1,
 	cooldown = 7,
@@ -349,7 +350,7 @@ newTalent{
 	action = function(self, t)
 		local eff = self.sustain_talents[self.T_JUMPGATE_TWO]
 		if not eff then
-			game.logPlayer(self, "순간이동을 하려면 두번째 도약문 주문이 유지된 상태여야 합니다.")
+			game.logPlayer(self, "순간이동을 하려면, 두번째 도약문 기술이 유지된 상태여야 합니다.")
 			return
 		end
 		game.level.map:particleEmitter(self.x, self.y, 1, "teleport")

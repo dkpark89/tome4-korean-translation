@@ -70,7 +70,7 @@ end
 
 newTalent{
 	name = "Kinetic Aura",
-	kr_display_name = "동역학적 오러",
+	kr_display_name = "동역학적 오러 발산",
 	type = {"psionic/projection", 1},
 	require = psi_wil_req1, no_sustain_autoreset = true,
 	points = 5,
@@ -83,7 +83,7 @@ newTalent{
 	tactical = { ATTACKAREA = { PHYSICAL = 2 } },
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_THERMAL_AURA) and self:isTalentActive(self.T_CHARGED_AURA) then
-			if not silent then game.logSeen(self, "You may only sustain two auras at once. Aura activation cancelled.") end
+			if not silent then game.logSeen(self, "한 번에 2 개의 오러만을 유지할 수 있습니다. 오러 발산이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -159,7 +159,7 @@ newTalent{
 		local dam = t.getAuraSpikeStrength(self, t)
 		local cost = t.getSpikeCost(self, t)
 		if self:getPsi() <= cost then
-			game.logPlayer(self, "The aura dissipates without producing a spike.")
+			game.logPlayer(self, "아무 반응 없이, 동역학적 오러가 사라졌습니다.")
 			return true
 		end
 
@@ -182,16 +182,18 @@ newTalent{
 		local spikedam = t.getAuraSpikeStrength(self, t)
 		local mast = aura_mastery(self, t)
 		local spikecost = t.getSpikeCost(self, t)
-		return ([[Fills the air around you with reactive currents of force that do %d physical damage to all who approach. All damage done by the aura will drain one point of energy per %0.2f points of damage dealt.
-		When deactivated, if you have at least %d energy, a massive spike of kinetic energy is released as a beam, smashing targets for %d physical damage and sending them flying.  Telekinetically wielding a gem or mindstar will result in improved spike efficiency.
-		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.]]):format(dam, mast, spikecost, spikedam)
+		return ([[주변의 대기에 동역학적 힘을 불어넣어, 근처의 적들에게 %d 물리 피해를 줍니다. 총 %0.2f 피해를 줄 때마다 염력이 1 소모됩니다.
+		동역학적 오러를 해제할 때, %d 염력을 사용하여 강력한 동역학적 반응을 일으킬 수 있습니다. 이 반응은 %d 물리 피해를 주고 적들을 밀어내며, 적을 관통하는 화살 형태로 발사됩니다.
+		염동력으로 보석이나 마석을 들고 있을 경우, 더 강렬한 반응을 이끌어낼 수 있습니다.
+		동역학적 반응을 일으키지 않으려면, 동역학적 오러를 해제하고 자기 자신을 반응의 대상으로 삼으면 됩니다. 
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(dam, mast, spikecost, spikedam)
 	end,
 }
 
 
 newTalent{
 	name = "Thermal Aura",
-	kr_display_name = "열역학적 오러",
+	kr_display_name = "열역학적 오러 발산",
 	type = {"psionic/projection", 2},
 	require = psi_wil_req2, no_sustain_autoreset = true,
 	points = 5,
@@ -204,7 +206,7 @@ newTalent{
 	tactical = { ATTACKAREA = { FIRE = 2 } },
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_KINETIC_AURA) and self:isTalentActive(self.T_CHARGED_AURA) then
-			if not silent then game.logSeen(self, "You may only sustain two auras at once. Aura activation cancelled.") end
+			if not silent then game.logSeen(self, "한 번에 2 개의 오러만을 유지할 수 있습니다. 오러 발산이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -277,7 +279,7 @@ newTalent{
 		local cost = t.getSpikeCost(self, t)
 		--if self:isTalentActive(self.T_CONDUIT) then return true end
 		if self:getPsi() <= cost then
-			game.logPlayer(self, "The aura dissipates without producing a spike.")
+			game.logPlayer(self, "아무 반응 없이, 열역학적 오러가 사라졌습니다.")
 			return true
 		end
 
@@ -300,16 +302,18 @@ newTalent{
 		local spikedam = t.getAuraSpikeStrength(self, t)
 		local mast = aura_mastery(self, t)
 		local spikecost = t.getSpikeCost(self, t)
-		return ([[Fills the air around you with reactive currents of furnace-like heat that do %d fire damage to all who approach. All damage done by the aura will drain one point of energy per %0.2f points of damage dealt.
-		When deactivated, if you have at least %d energy, a massive spike of thermal energy is released as a conical blast (radius %d) of superheated air. Anybody caught in it will suffer %d fire damage over several turns.  Telekinetically wielding a gem or mindstar will result in improved spike efficiency.
-		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.]]):format(dam, mast, spikecost, rad, spikedam)
+		return ([[주변의 대기에 열역학적 힘을 불어넣어, 근처의 적들에게 %d 화염 피해를 줍니다. 총 %0.2f 피해를 줄 때마다 염력이 1 소모됩니다.
+		열역학적 오러를 해제할 때, %d 염력을 사용하여 강력한 열역학적 반응을 일으킬 수 있습니다. 이 반응은 전방 %d 칸 반경에 총 %d 화염 피해를 몇 턴 동안 나눠서 줍니다.
+		염동력으로 보석이나 마석을 들고 있을 경우, 더 강렬한 반응을 이끌어낼 수 있습니다.
+		열역학적 반응을 일으키지 않으려면, 열역학적 오러를 해제하고 자기 자신을 반응의 대상으로 삼으면 됩니다. 
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(dam, mast, spikecost, rad, spikedam)
 	end,
 }
 
 
 newTalent{
 	name = "Charged Aura",
-	kr_display_name = "전하적 오러",
+	kr_display_name = "전하적 오러 발산",
 	type = {"psionic/projection", 3},
 	require = psi_wil_req3, no_sustain_autoreset = true,
 	points = 5,
@@ -322,7 +326,7 @@ newTalent{
 	tactical = { ATTACKAREA = { LIGHTNING = 2 } },
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_KINETIC_AURA) and self:isTalentActive(self.T_THERMAL_AURA) then
-			if not silent then game.logSeen(self, "You may only sustain two auras at once. Aura activation cancelled.") end
+			if not silent then game.logSeen(self, "한 번에 2 개의 오러만을 유지할 수 있습니다. 오러 발산이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -400,7 +404,7 @@ newTalent{
 		local cost = t.getSpikeCost(self, t)
 		--if self:isTalentActive(self.T_CONDUIT) then return true end
 		if self:getPsi() <= cost then
-			game.logPlayer(self, "The aura dissipates without producing a spike.")
+			game.logPlayer(self, "아무 반응 없이, 전하적 오러가 사라졌습니다.")
 			return true
 		end
 
@@ -463,15 +467,17 @@ newTalent{
 		local mast = aura_mastery(self, t)
 		local spikecost = t.getSpikeCost(self, t)
 		local nb = t.getNumSpikeTargets(self, t)
-		return ([[Fills the air around you with crackling energy, doing %d lightning damage to all who stand nearby. All damage done by the aura will drain one point of energy per %0.2f points of damage dealt.
-		When deactivated, if you have at least %d energy, a massive spike of electrical energy jumps between up to %d nearby targets, doing %d lightning damage to each.  Telekinetically wielding a gem or mindstar will result in improved spike efficiency.
-		To turn off an aura without spiking it, deactivate it and target yourself.]]):format(dam, mast, spikecost, nb, spikedam)
+		return ([[주변의 대기에 전하적 힘을 불어넣어, 근처의 적들에게 %d 전기 피해를 줍니다. 총 %0.2f 피해를 줄 때마다 염력이 1 소모됩니다.
+		전하적 오러를 해제할 때, %d 염력을 사용하여 강력한 전하적 반응을 일으킬 수 있습니다. 이 반응은 가장 가까운 적에게서부터 총 %d 번 연계되며, 각각 %d 전기 피해를 줍니다.
+		염동력으로 보석이나 마석을 들고 있을 경우, 더 강렬한 반응을 이끌어낼 수 있습니다.
+		전하적 반응을 일으키지 않으려면, 전하적 오러를 해제하고 자기 자신을 반응의 대상으로 삼으면 됩니다. 
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(dam, mast, spikecost, nb, spikedam)
 	end,
 }
 
 newTalent{
 	name = "Projection Mastery",
-	kr_display_name = "오러 발산 숙련",
+	kr_display_name = "피해 발산 수련",
 	type = {"psionic/projection", 4},
 	require = psi_wil_req4,
 	cooldown = function(self, t)
@@ -506,7 +512,7 @@ newTalent{
 	end,
 
 	info = function(self, t)
-		return ([[When activated, brings all auras off cooldown. Additional talent points spent in Projection Mastery allow it to be used more frequently.]])
+		return ([[사용하면 모든 오러의 재사용 대기시간이 초기화됩니다. 기술 레벨이 올라가면 더 자주 기술을 사용할 수 있게 됩니다.]])
 	end,
 
 }

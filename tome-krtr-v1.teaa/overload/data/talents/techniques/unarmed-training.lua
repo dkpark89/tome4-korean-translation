@@ -40,7 +40,7 @@ newTalent{
 -- generic unarmed training
 newTalent{
 	name = "Unarmed Mastery",
-	kr_display_name = "맨손 격투 숙련",
+	kr_display_name = "맨손 격투 수련",
 	type = {"technique/unarmed-training", 1},
 	points = 5,
 	require = { stat = { cun=function(level) return 12 + level * 6 end }, },

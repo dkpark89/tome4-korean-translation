@@ -19,9 +19,9 @@
 
 uberTalent{
 	name = "Spectral Shield",
-	kr_display_name = "스펙트럼 보호막",
+	kr_display_name = "7색의 방패",
 	mode = "passive",
-	require = { special={desc="Know the Block talent, and have cast 100 spells, and have a block value over 200", fct=function(self)
+	require = { special={desc="방패 막기 기술을 알고 있으며, 방패로 200 회 이상의 공격을 막았으며, 마법을 100 번 이상 사용했을 것", fct=function(self)
 		return self:knowTalent(self.T_BLOCK) and self:getTalentFromId(self.T_BLOCK).getBlockValue(self) >= 200 and self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 100
 	end} },
 	on_learn = function(self, t)
@@ -31,16 +31,16 @@ uberTalent{
 		self:attr("spectral_shield", -1)
 	end,
 	info = function(self, t)
-		return ([[Infusing your shield with raw magic, your Block can now block any damage type.]])
+		return ([[방패에 순수한 마력을 주입하여, 그 어떤 공격 속성도 방패를 뚫지 못하게 만듭니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Aether Permeation",
-	kr_display_name = "에테르 방출",
+	kr_display_name = "에테르 침투",
 	mode = "passive",
-	require = { special={desc="Have at least 25% arcane damage reduction, and have been exposed to the void of space", fct=function(self)
+	require = { special={desc="마법 피해 감소량이 25% 이상이며, 공허의 공간에 노출된 적이 있을 것", fct=function(self)
 		return (game.state.birth.ignore_prodigies_special_reqs or self:attr("planetary_orbit")) and self:combatGetResist(DamageType.ARCANE) >= 25
 	end} },
 	on_learn = function(self, t)
@@ -52,17 +52,17 @@ uberTalent{
 	on_unlearn = function(self, t)
 	end,
 	info = function(self, t)
-		return ([[Create a thin layer of aether all around you. Any attack passing through will check arcane resistance instead of the incoming damage resistance.
-		In effect, all your resistances are equal to 66%% of your arcane resistance.]])
+		return ([[주변에 에테르로 이루어진 얇은 막을 만들어, 이 막을 뚫고 들어오는 모든 공격을 마법 저항력으로 저항할 수 있게 됩니다.
+		이 효과로, 모든 저항력이 마법 저항력의 66%% 에 해당하는 값을 가지게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Mystical Cunning", image = "talents/vulnerability_poison.png",
-	kr_display_name = "신비한 교활함",
+	kr_display_name = "교활한 마법사",
 	mode = "passive",
-	require = { special={desc="Know either traps or poisons", fct=function(self)
+	require = { special={desc="독이나 함정을 다룰 수 있을 것", fct=function(self)
 		return self:knowTalent(self.T_VILE_POISONS) or self:knowTalent(self.T_TRAP_MASTERY)
 	end} },
 	on_learn = function(self, t)
@@ -74,22 +74,20 @@ uberTalent{
 		self:attr("combat_spellresist", -20)
 	end,
 	info = function(self, t)
-		return ([[Your study of arcane forces has let you develop new traps and poisons (depending on which you know when learning this prodigy).
-		You can learn:
-		- Vulnerability Poison: reduces all resistances and deals arcane damage.
-		- Gravitic Trap: each turn, all foes in a radius 5 around it are pulled in and take temporal damage.
-		You also permanently gain 20 Spell Save.]])
+		return ([[마법에 대한 연구를 통해 주문 내성이 20 상승하며, 새로운 함정과 독을 개발할 수 있게 됩니다. (해당 도구에 대한 기본적인 지식이 있어야 사용할 수 있습니다)
+		- 약화의 독 : 모든 저항력을 감소시키고, 마법 피해를 줍니다.
+		- 중력 함정 : 매 턴마다, 주변 5 칸 반경의 적들이 함정 중심으로 당겨지며 시간 피해를 입습니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Arcane Might",
-	kr_display_name = "마법적 완력",
+	kr_display_name = "마법 완력",
 	mode = "passive",
 	info = function(self, t)
-		return ([[You have learnt to harness your latent arcane powers, channeling them through your weapon.
-		Treats all weapons as having an additional 50%% Magic modifier.]])
+		return ([[잠재된 마력을 방출하여, 무기에 실어낼 수 있게 됩니다.
+		무기의 적용 능력치에 마법 능력치의 50%% 만큼이 추가됩니다.]])
 		:format()
 	end,
 }
@@ -98,7 +96,7 @@ uberTalent{
 	name = "Temporal Form",
 	kr_display_name = "시간의 모습",
 	cooldown = 30,
-	require = { special={desc="Have cast over 1000 spells and visited an out-of-time zone", fct=function(self) return
+	require = { special={desc="마법을 1000 번 이상 사용하였으며, 시간 밖의 공간을 방문한 적이 있을 것", fct=function(self) return
 		self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 1000 and (game.state.birth.ignore_prodigies_special_reqs or self:attr("temporal_touched"))
 	end} },
 	no_energy = true,
@@ -111,17 +109,17 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns.
-		While in this form, you gain pinning, bleeding, blindness and stun immunity, 30%% temporal resistance, your temporal damage bonus is set to your current highest damage bonus + 30%%, all damage you deal becomes temporal, and you gain 20%% temporal resistance penetration.
-		You also are able to cast two anomalies: Anomaly Rearrange and Anomaly Temporal Storm.
-		Transforming to this form will increase your paradox by 600, and revert it back at the end of the effect.]])
+		return ([[시간의 실로 몸을 감싸, 10 턴 동안 시간의 정령인 텔루그로스로 변신합니다.
+		속박, 출혈, 실명, 기절 상태효과에 면역이 되며, 시간 저항이 30%% 증가하고, 가장 높은 추가 피해량 수치 + 30%% 만큼 시간 피해가 추가로 들어가며, 모든 공격이 시간 피해를 주게 되고, 적의 시간 저항력을 20%% 무시할 수 있게 됩니다.
+		또한, 두 가지 특수한 현상을 일으킬 수 있습니다 : Anomaly Rearrange, Anomaly Temporal Storm
+		변신 중에는 괴리 수치가 600 증가하며, 변신이 풀리면 괴리 수치도 복구됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Blighted Summoning",
-	kr_display_name = "황폐화된 소환술",
+	kr_display_name = "폐허의 소환술",
 	mode = "passive",
 	on_learn = function(self, t)
 		if self.alchemy_golem then 
@@ -129,11 +127,11 @@ uberTalent{
 			self.alchemy_golem:learnTalentType("corruption/reaving-combat", true)
 		end
 	end,
-	require = { special={desc="Have summoned at least 100 creatures affected by this talent (alchemist golem count as 100)", fct=function(self)
+	require = { special={desc="이 기술의 영향을 받은 소환수를 100 마리 이상 소환할 것 (연금술사의 골렘 포함)", fct=function(self)
 		return self:attr("summoned_times") and self:attr("summoned_times") >= 100
 	end} },
 	info = function(self, t)
-		return ([[You infuse blighted energies into all your summons, giving them all a new talent:
+		return ([[모든 소환수들에게 황폐화의 힘을 주입하여, 새로운 기술을 사용할 수 있게 만듭니다.
 		- War Hound: Curse of Defenselessness
 		- Jelly: Vimsense
 		- Minotaur: Life Tap
@@ -157,19 +155,19 @@ uberTalent{
 		- Ghoul Rot ghoul: Rend
 		- Bloated Oozes: Bone Shield
 		- Mucus Oozes: Virulent Disease
-		- Other race- or object-based summons might be affected, too.
+		- 기타 다른 소환수일 경우에도, 이 기술의 영향을 받습니다.
 		]]):format()
 	end,
 }
 
 uberTalent{
 	name = "Revisionist History",
-	kr_display_name = "수정주의적 역사",
+	kr_display_name = "수정론자의 역사 기록법",
 	cooldown = 30,
 	no_energy = true,
 	is_spell = true,
 	no_npc_use = true,
-	require = { special={desc="Have time-travelled at least once", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("time_travel_times") and self:attr("time_travel_times") >= 1) end} },
+	require = { special={desc="시간 여행을 경험해볼 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("time_travel_times") and self:attr("time_travel_times") >= 1) end} },
 	action = function(self, t)
 		if game._chronoworlds and game._chronoworlds.revisionist_history then
 			self:hasEffect(self.EFF_REVISIONIST_HISTORY).back_in_time = true
@@ -186,19 +184,19 @@ uberTalent{
 		return nil -- We do not start the cooldown!
 	end,
 	info = function(self, t)
-		return ([[You can now control the near-past; upon using this prodigy, you gain a temporal effect for 10 turns.
-		While this effect holds, you can use the prodigy again to rewrite history.
-		This prodigy splits the timeline. Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.]])
+		return ([[얼마 전의 과거를 조작할 수 있게 되어, 10 턴의 시간 조작 효과를 얻게 됩니다.
+		이 효과가 지속되는 동안, 기술을 다시 사용하여 역사를 다시 쓸 수 있게 됩니다.
+		이 기술은 시간의 흐름을 분절시키며, 효과의 지속시간 동안 시간의 흐름을 나누는 다른 마법은 사용할 수 없습니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Cauterize",
-	kr_display_name = "지지기",
+	kr_display_name = "과격한 응급치료",
 	mode = "passive",
 	cooldown = 12,
-	require = { special={desc="Have received at least 50000 fire damage, and have cast at least 1000 spells", fct=function(self) return
+	require = { special={desc="총 50000 이상의 화염 피해를 받았으며, 마법을 1000 번 이상 사용했을 것", fct=function(self) return
 		self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 1000 and self.damage_intake_log and self.damage_intake_log[DamageType.FIRE] and self.damage_intake_log[DamageType.FIRE] >= 50000
 	end} },
 	trigger = function(self, t, value)
@@ -208,9 +206,8 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your inner flame is strong. Each time you receive a blow that would kill you, your body is wreathed in flames.
-		The flames will cauterize the wound, fully absorbing all damage done this turn, but they will continue to burn for 8 turns.
-		Each turn 10% of the damage absorbed will be dealt by the flames (this will bypass resistance and affinity).
-		Warning: this has a cooldown.]])
+		return ([[내면에 불꽃을 키워, 시전자의 목숨을 끊어버릴 일격이 날아오기 직전에 몸을 불태웁니다.
+		불꽃은 상처를 급속도로 지져 해당 턴에 받은 피해를 무효화시키지만, 8 턴 동안 상처가 불타올라 매 턴마다 무효화시킨 피해량의 10% 에 해당하는 피해를 줍니다. (저항력이나 불에 대한 친화력을 무시합니다)
+		유용하지만, 맹신할 수는 없습니다. '과격한' 응급치료일 뿐이고, 재사용 대기시간도 있으니까요.]])
 	end,
 }

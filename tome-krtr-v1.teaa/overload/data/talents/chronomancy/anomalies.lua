@@ -41,7 +41,7 @@ end
 
 newTalent{
 	name = "Anomaly Teleport",
-	kr_display_name = "모순적 장거리 공간이동",
+	kr_display_name = "이상 현상 : 순간이동",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -76,13 +76,13 @@ newTalent{
 	info = function(self, t)
 		local targets = t.getTargetCount(self, t)
 		local range = t.getRange(self, t)
-		return ([[Randomly teleports %d targets within range of the caster %d tiles away.]]):format(targets, range)
+		return ([[시전자 주변의 무작위한 적 %d 명이 순간이동되어, %d 칸 더 떨어진 곳에 나타납니다.]]):format(targets, range)
 	end,
 }
 
 newTalent{
 	name = "Anomaly Rearrange",
-	kr_display_name = "모순적 재배열",
+	kr_display_name = "이상 현상 : 재배열",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -91,7 +91,7 @@ newTalent{
 	cooldown = 1,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/50) end,
 	getRange = function(self, t) return math.ceil(self:getParadox()/100) end,
-	message = "@Source@ has caused a hiccup in the fabric of spacetime.",
+	message = "@Source@ 시공간의 구조에 약간의 문제를 일으켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -118,13 +118,13 @@ newTalent{
 	info = function(self, t)
 		local targets = t.getTargetCount(self, t)
 		local range = t.getRange(self, t)
-		return ([[Randomly teleports %d targets within range of the caster %d tiles away.]]):format(targets, range)
+		return ([[시전자 주변의 무작위한 적 %d 명이 순간이동되어, %d 칸 더 떨어진 곳에 나타납니다.]]):format(targets, range)
 	end,
 }
 
 newTalent{
 	name = "Anomaly Stop",
-	kr_display_name = "모순적 중지",
+	kr_display_name = "이상 현상 : 중지",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -133,7 +133,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
 	getStop = function(self, t) return math.ceil(self:getParadox()/100) end,
-	message = "@Source@ has created a bubble of nul time.",
+	message = "@Source@ 무의 시간으로 이루어진 거품을 만들어냅니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -158,13 +158,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Stuns all targets in a ball.]])
+		return ([[거품에 들어간 모든 대상들을 기절시킵니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Slow",
-	kr_display_name = "모순적 감속",
+	kr_display_name = "이상 현상 : 감속",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -173,7 +173,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
 	getSlow = function(self, t) return 1 - 1 / (1 + (self:getParadox()/15) / 100) end,
-	message = "@Source@ has created a bubble of slow time.",
+	message = "@Source@ 느린 시간으로 이루어진 거품을 만들어냅니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -198,13 +198,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Slows all targets in a ball.]])
+		return ([[거품에 들어간 모든 대상들을 감속시킵니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Haste",
-	kr_display_name = "모순적 가속",
+	kr_display_name = "이상 현상 : 가속",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -212,7 +212,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/300) end,
 	getPower = function(self, t) return ((self:getParadox()/15) / 100) end,
-	message = "@Source@ has sped up several threads of time.",
+	message = "@Source@ 몇몇 시간의 구조를 가속시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -237,13 +237,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Increases global speed in a ball on target.]])
+		return ([[대상과 주변의 전체 속도를 증가시킵니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Temporal Storm",
-	kr_display_name = "모순적 시간의 폭풍",
+	kr_display_name = "이상 현상 : 시간의 폭풍",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -266,14 +266,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Creates a temporal storm for %d turns that deals %d temporal damage each turn.]])
+		return ([[시간의 폭풍을 %d 턴 동안 만들어내, 매 턴마다 %d 시간 피해를 줍니다.]])
 		:format(duration, damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }
 
 newTalent{
 	name = "Anomaly Summon Time Elemental",
-	kr_display_name = "모순적 시간 엘리먼트 소환",
+	kr_display_name = "이상 현상 : 시간의 정령 소환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -281,7 +281,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
 	getSummonTime = function(self, t) return math.ceil(self:getParadox()/50) end,
-	message = "Some Time Elementals have been attracted by @Source@'s meddling.",
+	message = "@Source@ 간섭에 몇몇 시간의 정령들이 관심을 보였습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -301,7 +301,7 @@ newTalent{
 			-- Find space
 			local x, y = util.findFreeGrid(a.x, a.y, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to summon!")
+				game.logPlayer(self, "소환할 공간이 없습니다!")
 				return
 			end
 
@@ -310,7 +310,7 @@ newTalent{
 				type = "elemental", subtype = "temporal",
 				display = "E", color=colors.YELLOW,
 				name = "telugoroth", faction = a.faction,
-				desc = [[A temporal elemental, rarely encountered except by those who travel through time itself.  Its blurred form constantly shifts before your eyes.]],
+				desc = [[시간의 정령으로, 시간을 여행하는 자가 아닌 한 만나기 힘든 정령입니다. 그 형체가 끊임없이 변하고 있어, 눈에 흐릿하게 보입니다.]],
 				combat = { dam=resolvers.mbonus(40, 15), atk=15, apr=15, dammod={mag=0.8}, damtype=DamageType.TEMPORAL },
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 				autolevel = "none",
@@ -356,20 +356,20 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summons a time elemental that may or may not be friendly to the caster.]])
+		return ([[시간의 정령을 소환합니다. 누구의 편을 들어줄지는 알 수 없습니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Temporal Bubble",
-	kr_display_name = "모순적 시간의 거품",
+	kr_display_name = "이상 현상 : 시간의 거품",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
 	getDuration = function(self, t) return math.ceil(self:getParadox()/100) end,
-	message = "@Source@ has paused a temporal thread.",
+	message = "@Source@ 시간의 구조를 정지시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -394,19 +394,19 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local target = t.getTargetCount(self, t)
-		return ([[Places %d random targets in time prisons for %d turns.]])
+		return ([[무작위한 %d 명의 대상들이 %d 턴 동안 시간의 감옥에 갇힙니다.]])
 		:format(target, duration)
 	end,
 }
 
 newTalent{
 	name = "Anomaly Dig",
-	kr_display_name = "모순적 굴착",
+	kr_display_name = "이상 현상 : 굴착",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
-	message = "Matter turns to dust around @Source@.",
+	message = "@Source@ 주변의 물질들이 먼지로 변해 사라졌습니다.",
 	action = function(self, t)
 		local tg = {type="ball", range=0, radius=t.getRadius(self,t), friendlyfire=false, talent=t}
 		self:project(tg, self.x, self.y, DamageType.DIG, 1)
@@ -415,13 +415,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Digs out all terrain in a ball centered on the caster..]])
+		return ([[시전자 주변의 지형들이 사라집니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Swap",
-	kr_display_name = "모순적 교환",
+	kr_display_name = "이상 현상 : 위치 교체",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	direct_hit = true,
@@ -474,13 +474,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Caster swaps places with a random target.]])
+		return ([[시전자와 무작위한 대상의 위치가 서로 바뀝니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Gravity Spike",
-	kr_display_name = "모순적 중력 가시",
+	kr_display_name = "이상 현상 : 중력 가시",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -489,7 +489,7 @@ newTalent{
 	getTargetCount = function(self, t) return 1 end,
 	getRadius = function(self, t) return getAnomalyRadius(self) end,
 	getDamage = function(self, t) return getAnomalyDamage(self) end,
-	message = "@Source@ has caused a Gravity Spike.",
+	message = "@Source@ 중력 가시를 발생시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -513,7 +513,7 @@ newTalent{
 				local tx, ty = util.findFreeGrid(a.x, a.y, 5, true, {[Map.ACTOR]=true})
 				if tx and ty and target:canBe("knockback") then
 					target:move(tx, ty, true)
-					game.logSeen(target, "%s is drawn in by the gravity spike!", target.name:capitalize())
+					game.logSeen(target, "%s 중력 가시에 걸렸습니다!", target.name:capitalize())
 				end
 			end)
 
@@ -525,13 +525,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Creates a Gravity Spike.]])
+		return ([[중력 가시를 만들어냅니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Entropy",
-	kr_display_name = "모순적 엔트로피",
+	kr_display_name = "이상 현상 : 엔트로피",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -540,7 +540,7 @@ newTalent{
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/100) end,
 	getPower = function(self, t) return math.ceil(self:getParadox()/100) end,
 	getTalentCount = function(self, t) return math.ceil(self:getParadox()/200) end,
-	message = "@Source@ has increased local entropy.",
+	message = "@Source@ 주변의 엔트로피가 증가하였습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -572,7 +572,7 @@ newTalent{
 					local t = rng.tableRemove(tids)
 					if not t then break end
 					target.talents_cd[t.id] = rng.range(2, power)
-					game.logSeen(target, "%s's %s is disrupted!", target.name:capitalize(), t.name)
+					game.logSeen(target, "%s 방해되었습니다! (대상 : %s)", target.name:capitalize(), t.name)
 				end
 				target.changed = true
 			end, nil)
@@ -580,13 +580,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Places target's talents on cooldown.]])
+		return ([[대상의 기술들에 재사용 대기시간을 부여합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Summon Townsfolk",
-	kr_display_name = "모순적 시민 소환",
+	kr_display_name = "이상 현상 : 시민 소환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 10,
@@ -594,7 +594,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/200) end,
 	getSummonTime = function(self, t) return math.ceil(self:getParadox()/20) end,
-	message = "Some innocent bystanders have been pulled out of their timeline.",
+	message = "몇몇 선량한 시민들이 자신들의 시공간에서 끌려나왔습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -618,7 +618,7 @@ newTalent{
 			for i = 1, 4 do
 				local x, y = util.findFreeGrid(a.x, a.y, 5, true, {[Map.ACTOR]=true})
 				if not x then
-					game.logPlayer(self, "Not enough space to summon!")
+					game.logPlayer(self, "소환할 공간이 없습니다!")
 					return
 				end
 
@@ -657,27 +657,27 @@ newTalent{
 					m.name = "human farmer"
 					m.subtype = "human"
 					m.image = "npc/humanoid_human_human_farmer.png"
-					m.desc = [[A weather-worn human farmer, looking at a loss as to what's going on.]]
+					m.desc = [[평범한 인간 농부로, 뭐가 어떻게 된 것인지 모르겠다는 표정을 하고 있습니다.]]
 					m.faction = "allied-kingdoms"
 					m.resolvers.inscriptions(1, "infusion")
 				elseif race == 2 then
 					m.name = "halfling gardner"
 					m.subtype = "halfling"
-					m.desc = [[A rugged halfling gardner, looking quite confused as to what he's doing here.]]
+					m.desc = [[무뚝뚝한 하플링 정원사로, 지금 여기서 무슨 일이 일어나는지 혼란스러운 것 같습니다.]]
 					m.faction = "allied-kingdoms"
 					m.image = "npc/humanoid_halfling_halfling_gardener.png"
 					m.resolvers.inscriptions(1, "infusion")
 				elseif race == 3 then
 					m.name = "shalore scribe"
 					m.subtype = "shalore"
-					m.desc = [[A scrawny elven scribe, looking bewildered at his surroundings.]]
+					m.desc = [[비쩍 마른 엘프 필경사로,주변 환경에 당황한 것 같습니다.]]
 					m.faction = "shalore"
 					m.image = "npc/humanoid_shalore_shalore_rune_master.png"
 					m.resolvers.inscriptions(1, "rune")
 				elseif race == 4 then
 					m.name = "dwarven lumberjack"
 					m.subtype = "dwarf"
-					m.desc = [[A brawny dwarven lumberjack, looking a bit upset at his current situation.]]
+					m.desc = [[건장한 드워프 나무꾼으로, 갑작스러운 환경 변화에 살짝 화가 난 것 같습니다.]]
 					m.faction = "iron-throne"
 					m.image = "npc/humanoid_dwarf_lumberjack.png"
 					m.resolvers.inscriptions(1, "rune")
@@ -694,13 +694,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Pulls innocent people into the fight.]])
+		return ([[선량한 시민들을 전장으로 불러냅니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Call",
-	kr_display_name = "모순적 호출",
+	kr_display_name = "이상 현상 : 호출",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	direct_hit = true,
@@ -727,7 +727,7 @@ newTalent{
 
 			local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to summon!")
+				game.logPlayer(self, "소환할 공간이 없습니다!")
 				return
 			end
 
@@ -738,13 +738,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Poofs in some enemies from the level to the caster's location.]])
+		return ([[해당 층계에 있는 몇몇 적들이 시전자가 있는 곳에 나타납니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Flawed Design",
-	kr_display_name = "모순적 잘못된 설계",
+	kr_display_name = "이상 현상 : 잘못된 설계",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -752,7 +752,7 @@ newTalent{
 	type_no_req = true,
 	getTargetCount = function(self, t) return math.ceil(self:getParadox()/150) end,
 	getPower = function(self, t) return (self:getParadox()/30) end,
-	message = "@Source@ has inadvertently weakened several creatures.",
+	message = "@Source@ 몇몇 존재들을 우연히 약화시켰습니다.",
 	action = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
@@ -778,13 +778,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Weakens several creatures.]])
+		return ([[몇몇 존재들을 약화시킵니다.]])
 	end,
 }
 
 newTalent{
 	name = "Anomaly Dues Ex",
-	kr_display_name = "모순적 듀스 엑스",
+	kr_display_name = "이상 현상 : 신의 강림",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	range = 6,
@@ -820,13 +820,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Seriously buffs one target.]])
+		return ([[하나의 대상을 엄청나게 강화시킵니다.]])
 	end,
 }
 
 --[[newTalent{
 	name = "Anomaly Terrain Change",
-	kr_display_name = "모순적 지형 변화",
+	kr_display_name = "이상 현상 : 지형 변화",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -840,7 +840,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Stat Reorder",
-	kr_display_name = "모순적 능력치 재분배",
+	kr_display_name = "이상 현상 : 능력치 재분배",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -854,7 +854,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Heal",
-	kr_display_name = "모순적 치료",
+	kr_display_name = "이상 현상 : 치료",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -868,7 +868,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Double",
-	kr_display_name = "모순적 복제",
+	kr_display_name = "이상 현상 : 복제",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -882,7 +882,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Sex Change",
-	kr_display_name = "모순적 성전환",
+	kr_display_name = "이상 현상 : 성전환",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -897,7 +897,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Money Changer",
-	kr_display_name = "모순적 금액 변화",
+	kr_display_name = "이상 현상 : 금액 변화",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -912,7 +912,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Spacetime Folding",
-	kr_display_name = "모순적 시공간 접기",
+	kr_display_name = "이상 현상 : 시공간 접기",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -926,7 +926,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Charge/Drain",
-	kr_display_name = "모순적 충전/방전",
+	kr_display_name = "이상 현상 : 충전/방전",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -941,7 +941,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Vertigo",
-	kr_display_name = "모순적 어지러움",
+	kr_display_name = "이상 현상 : 어지러움",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,
@@ -956,7 +956,7 @@ newTalent{
 
 newTalent{
 	name = "Anomaly Evil Twin",
-	kr_display_name = "모순적 사악한 쌍둥이",
+	kr_display_name = "이상 현상 : 사악한 쌍둥이",
 	type = {"chronomancy/anomalies", 1},
 	points = 1,
 	type_no_req = true,

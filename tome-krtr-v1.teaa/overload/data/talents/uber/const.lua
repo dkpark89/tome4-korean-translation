@@ -19,29 +19,29 @@
 
 uberTalent{
 	name = "Draconic Body",
-	kr_display_name = "드래곤의 육체",
+	kr_display_name = "용인의 육체",
 	mode = "passive",
 	cooldown = 40,
-	require = { special={desc="Be close to the draconic world", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("drake_touched") and self:attr("drake_touched") >= 2) end} },
+	require = { special={desc="용인들의 세계와 가까워질 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("drake_touched") and self:attr("drake_touched") >= 2) end} },
 	trigger = function(self, t, value)
 		if self.life - value < self.max_life * 0.3 and not self:isTalentCoolingDown(t) then
 			self:heal(self.max_life * 0.4)
 			self:startTalentCooldown(t)
-			game.logSeen(self,"%s's draconic body hardens and heals!",self.name) --I5 
+			game.logSeen(self,"%s 용인의 육체가 활성화되어, 생명력이 회복됩니다!",self.name) --I5 
 		end
 	end,
 	info = function(self, t)
-		return ([[Your body hardens and recovers quickly. When pushed below 30%% life, you are healed for 40%% of your total life.]])
+		return ([[현재 생명력이 최대 생명력의 30%% 까지 떨어지면, 용인의 힘이 발현하여 생명력이 40%% 회복됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Bloodspring",
-	kr_display_name = "피의 반발",
+	kr_display_name = "피분수",
 	mode = "passive",
 	cooldown = 12,
-	require = { special={desc="Have let Melinda be sacrificed", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:hasQuest("kryl-feijan-escape") and self:hasQuest("kryl-feijan-escape"):isStatus(engine.Quest.FAILED)) end} },
+	require = { special={desc="멜린다가 희생되도록 놔둘 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:hasQuest("kryl-feijan-escape") and self:hasQuest("kryl-feijan-escape"):isStatus(engine.Quest.FAILED)) end} },
 	trigger = function(self, t)
 		-- Add a lasting map effect
 		game.level.map:addEffect(self,
@@ -60,19 +60,19 @@ uberTalent{
 		self:startTalentCooldown(t)
 	end,
 	info = function(self, t)
-		return ([[When a single blow deals more than 20%% of your total life, a torrent of blood gushes from your body, creating a bloody tidal wave for 4 turns that deals %0.2f blight damage, heals you for 50%% of the damage done, and knocks foes back.
-		The damage increases with your Constitution.]])
+		return ([[한번에 최대 생명력의 20%% 이상에 해당하는 피해를 받을 경우, 몸에서 피가 끓어오릅니다. 그 결과 선혈의 급류가 몸에서 쏟아져나와 4 턴간 %0.2f 황폐화 피해를 주고 적들을 밀어내며, 피해량의 50%% 만큼 생명력을 회복합니다.
+		피해량은 체격 능력치의 영향을 받아 증가합니다.]])
 		:format(100 + self:getCon() * 3)
 	end,
 }
 
 uberTalent{
 	name = "Eternal Guard",
-	kr_display_name = "영원한 수호",
+	kr_display_name = "영구적 보호",
 	mode = "passive",
-	require = { special={desc="Know the Block talent", fct=function(self) return self:knowTalent(self.T_BLOCK) end} },
+	require = { special={desc="방패 막기 기술을 알고 있을 것", fct=function(self) return self:knowTalent(self.T_BLOCK) end} },
 	info = function(self, t)
-		return ([[Your block now lasts 1 more turn, and does not end when hit.]])
+		return ([[방패 막기의 지속시간이 1 턴 늘어나며, 피해를 입어도 방패 막기를 유지합니다.]])
 		:format()
 	end,
 }
@@ -84,7 +84,7 @@ uberTalent{
 	cooldown = 20,
 	sustain_stamina = 10,
 	tactical = { CLOSEIN = 2, ESCAPE = 2 },
-	require = { special={desc="Know at least 20 levels of stamina-using talents", fct=function(self) return knowRessource(self, "stamina", 20) end} },
+	require = { special={desc="체력을 소모하는 기술 레벨의 총 합이 20 이상일 것", fct=function(self) return knowRessource(self, "stamina", 20) end} },
 	activate = function(self, t)
 		local ret = {}
 		self:talentTemporaryValue(ret, "move_stamina_instead_of_energy", 20)
@@ -94,7 +94,7 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[While this talent is active, you dig deep into your stamina reserves, allowing you to move without taking a turn but costing 20 stamina for each tile you cross.]])
+		return ([[기술이 활성화되면, 턴 소모 없이 이동할 수 있게 됩니다. 하지만 이를 위해서는 엄청난 체력이 소모되며, 1 칸 이동할 때마다 체력을 20 소모하게 됩니다.]])
 		:format()
 	end,
 }
@@ -103,7 +103,7 @@ uberTalent{
 	name = "Armour of Shadows",
 	kr_display_name = "그림자 갑옷",
 	mode = "passive",
-	require = { special={desc="Have dealt over 50000 darkness damage", fct=function(self) return
+	require = { special={desc="적에게 총 50000 이상의 암흑 피해를 가할 것", fct=function(self) return
 		self.damage_log and (
 			(self.damage_log[DamageType.DARKNESS] and self.damage_log[DamageType.DARKNESS] >= 50000)
 		)
@@ -115,30 +115,30 @@ uberTalent{
 		self:attr("darkness_darkens", -1)
 	end,
 	info = function(self, t)
-		return ([[You know how to protect yourself with the deepest shadows. As long as you stand on an unlit tile, you gain 30 Armour and 50%% Armour hardiness.
-		Any time you deal darkness damage, you will unlight both the target terrain and your tile.]])
+		return ([[가장 어두운 그림자로 자신을 보호합니다. 불빛이 없는 곳에 있으면, 방어도가 30 증가하고 방어 효율이 50%% 증가합니다.
+		그리고 적에게 암흑 피해를 줄 때마다, 자신이 있는 곳과 대상 지역의 불빛을 없애버립니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Spine of the World",
-	kr_display_name = "세계의 기둥",
+	kr_display_name = "세계 최강의 척추",
 	mode = "passive",
 	trigger = function(self, t)
 		if self:hasEffect(self.EFF_SPINE_OF_THE_WORLD) then return end
 		self:setEffect(self.EFF_SPINE_OF_THE_WORLD, 4, {})
 	end,
 	info = function(self, t)
-		return ([[Your back is as hard as stone. Each time you are affected by a physical effect, your body hardens, making you immune to all other physical effects for 5 turns.]])
+		return ([[물리적 상태효과의 영향을 받을 때마다 척추신경이 반응하여, 다른 물리적 상태효과에 5 턴 동안 면역됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Fungal Blood",
-	kr_display_name = "혈관속 미생물",
-	require = { special={desc="Be able to use infusions", fct=function(self) return not self.inscription_restrictions or self.inscription_restrictions['inscriptions/infusions'] end} },
+	kr_display_name = "혈관 속 미생물",
+	require = { special={desc="능력 주입을 사용할 수 있을 것", fct=function(self) return not self.inscription_restrictions or self.inscription_restrictions['inscriptions/infusions'] end} },
 	tactical = { HEAL = function(self) return not self:hasEffect(self.EFF_FUNGAL_BLOOD) and 0 or math.ceil(self:hasEffect(self.EFF_FUNGAL_BLOOD).power / 150) end },
 	on_pre_use = function(self, t) return self:hasEffect(self.EFF_FUNGAL_BLOOD) and self:hasEffect(self.EFF_FUNGAL_BLOOD).power > 0 and not self:attr("undead") end,
 	trigger = function(self, t)
@@ -152,19 +152,19 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fungal spores have colonized your blood, so that each time you use an infusion you store %d fungal power.
-		You may use this prodigy to release the power as a heal (never more than than %d life).
-		Fungal power lasts for up to 6 turns, losing 10 potency each turn.
-		The amount of fungal power produced, and the maximum heal possible, increase with your Constitution.]])
+		return ([[미생물 포자들이 혈관 속에 기생하여, 주입된 능력을 사용할 때마다 미생물 수치가 %d 상승합니다.
+		이 미생물 수치를 이용하여 생명력을 회복할 수 있습니다. (%d 이상의 생명력은 회복할 수 없습니다)
+		미생물 수치는 6 턴 동안 유지되며, 매 턴마다 그 효능이 10 씩 떨어집니다.
+		상승되는 미생물 수치와 생명력 회복량은 체격 능력치의 영향을 받아 증가합니다.]])
 		:format(self:getCon() * 1.5, self:getCon() * self.max_life / 100)
 	end,
 }
 
 uberTalent{
 	name = "Corrupted Shell",
-	kr_display_name = "타락한 껍질",
+	kr_display_name = "완전한 타락",
 	mode = "passive",
-	require = { special={desc="Have received at least 50000 blight damage and destroyed Zigur with the Grand Corruptor.", fct=function(self) return
+	require = { special={desc="총 50000 이상의 황폐화 피해를 받았으며, '위대한 타락' 을 이용해 지구르를 파괴할 것", fct=function(self) return
 		(self.damage_intake_log and self.damage_intake_log[DamageType.BLIGHT] and self.damage_intake_log[DamageType.BLIGHT] >= 50000) and
 		(game.state.birth.ignore_prodigies_special_reqs or (
 			self:hasQuest("anti-antimagic") and 
@@ -176,9 +176,9 @@ uberTalent{
 		self.max_life = self.max_life + 150
 	end,
 	info = function(self, t)
-		return ([[Thanks to your newfound knowledge of corruption, you've learned some tricks for toughening your body... but only if you are healthy enough to withstand the strain from the changes.
-		Improves your life by 150, your Defense by %d, and your saves by %d, as your natural toughness and reflexes are pushed beyond their normal limits.
-		Your saves and Defense will improve with your Constitution.]])
+		return ([[타락에 대한 새로운 지식 덕분에, 육신을 조작하여 더 강력해지는 방법을 알게 되었습니다... 변화로 인해 몸에 가해질 부담감을 이겨낼 수 있다면요.
+		최대 생명력이 150 증가하며, 회피도가 %d, 모든 내성이 %d 상승합니다. 또한 맷집과 반응속도가 일반적인 한계를 넘을 수 있게 됩니다.
+		회피도와 내성 상승량은 체격 능력치의 영향을 받아 증가합니다.]])
 		:format(self:getCon() / 3, self:getCon() / 3)
 	end,
 }

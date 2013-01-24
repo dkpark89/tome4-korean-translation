@@ -18,21 +18,21 @@
 -- darkgod@te4.org
 
 return [[
-It looks like there are quite a few ways to match up the offensive #GOLD#combat stats#WHITE#...
-#LIGHT_GREEN#Accuracy#WHITE#
-#LIGHT_GREEN#Physical power#WHITE#
-#LIGHT_GREEN#Spellpower#WHITE#
-#LIGHT_GREEN#Mindpower#WHITE#
+즉, 상태효과와 관련된 능력치는 네 개의 공격적인 #GOLD#전투 능력치#WHITE# 와...
+#LIGHT_GREEN#정확도#WHITE#
+#LIGHT_GREEN#물리력#WHITE#
+#LIGHT_GREEN#주문력#WHITE#
+#LIGHT_GREEN#정신력#WHITE#
 
-...with the defensive #GOLD#combat stats#WHITE#.
-#LIGHT_GREEN#Defense#WHITE#
-#LIGHT_GREEN#Physical save#WHITE#
-#LIGHT_GREEN#Spell save#WHITE#
-#LIGHT_GREEN#Mental save#WHITE#
+...네 개의 방어적인 #GOLD#전투 능력치#WHITE#... 안 쓰는 능력치가 없네요.
+#LIGHT_GREEN#회피도#WHITE#
+#LIGHT_GREEN#물리 내성#WHITE#
+#LIGHT_GREEN#주문 내성#WHITE#
+#LIGHT_GREEN#정신 내성#WHITE#
 
-But don't worry. It's usually easy to know what will get used for two reasons:
+그래도 걱정할 필요는 없습니다. 다음 두 가지 이유 덕분에, 상태효과에 걸릴 확률을 계산할 때 어떤 능력치를 사용할지 금방 알 수 있거든요.
 
-#GOLD#1)#WHITE#  Defensive #GOLD#combat stats#WHITE# are used quite consistently; physical effects use #LIGHT_GREEN#Physical save#WHITE#, no matter their source. Magical effects use #LIGHT_GREEN#Spell save#WHITE#, no matter their source. Mental effects use #LIGHT_GREEN#Mental save#WHITE#, no matter their source.
+#GOLD#1)#WHITE#  상태효과를 저항할 때 쓰이는 #GOLD#전투 능력치#WHITE# 는 언제나 일정합니다. 공격 수단에 상관없이 물리적 상태효과는 언제나 #LIGHT_GREEN#물리 내성#WHITE# 으로, 마법적 상태효과는 언제나 #LIGHT_GREEN#주문 내성#WHITE# 으로, 정신적 상태효과는 언제나 #LIGHT_GREEN#정신 내성#WHITE# 으로 저항한다... 이것만 알면 되니까요.
 
-#GOLD#2)#WHITE#  For the most part, any given class uses a single offensive #GOLD#combat stat#WHITE#, so there's not much potential for confusion. A berserker will only be using #LIGHT_GREEN#Physical power#WHITE# to apply effects. Similarly, an archmage will only use #LIGHT_GREEN#Spellpower#WHITE#. 
+#GOLD#2)#WHITE#  하나의 직업은 대부분 하나의 공격적인 #GOLD#전투 능력치#WHITE# 만을 사용합니다, 광전사는 보통 주문을 외우거나 적의 꿈 속 세계에 들어가거나 하지는 않으니까요. 광전사가 일으키는 상태효과는 #LIGHT_GREEN#물리력#WHITE# 으로! 마법사가 일으키는 상태효과는 #LIGHT_GREEN#주문력#WHITE# 으로! 간단하죠?
 ]]

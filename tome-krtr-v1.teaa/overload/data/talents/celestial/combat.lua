@@ -40,9 +40,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[무기에 태양의 힘을 불어넣어, 매 타격마다 3의 양기를 소모하여 %0.2f 의 빛 피해를 추가로 줍니다.
-		양기가 부족하면 이 효과는 발동되지 않습니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[무기에 태양의 힘을 불어넣어, 매 타격마다 %0.2f 빛 피해를 추가로 줍니다.
+		매 타격마다 양기가 3 씩 소진되며, 양기가 부족하면 이 효과는 발동되지 않습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
@@ -77,7 +77,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local returndamage = t.getReturnDamage(self, t)
-		return ([[대상을 10턴 동안 고난을 받을 자로 지정합니다. 고난을 받을 자는 남에게 피해를 줄 때마다 %d%% 의 피해를 자신도 받게 됩니다.]]):
+		return ([[대상을 10 턴 동안 고난을 받을 자로 지정합니다. 대상이 남에게 피해를 줄 때마다, %d%% 만큼의 피해를 자신도 받게 됩니다.]]):
 		format(returndamage)
 	end,
 }
@@ -110,15 +110,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[순수한 힘을 방출하여, 원거리에 있는 적에게 %d%% 의 무기 피해를 줍니다.
-		사정거리는 힘 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[순수한 힘을 방출하여, 원거리에 있는 적에게 %d%% 무기 피해를 줍니다.
+		사정거리는 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage)
 	end,
 }
 
 newTalent{
 	name = "Crusade",
-	kr_display_name = "박멸",
+	kr_display_name = "성전",
 	type = {"celestial/combat", 4},
 	require = divi_req4,
 	random_ego = "attack",

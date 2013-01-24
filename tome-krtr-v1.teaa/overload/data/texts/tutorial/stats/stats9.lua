@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Now you know the basics: what these eight #GOLD#combat stats#WHITE# mean and when they're used. It's time to look at some numbers.
+이제 전투의 기초는 알게 되었습니다. 여덟 개의 #GOLD#전투 능력치#WHITE# 가 의미하는 것과, 그 능력치들을 언제 사용하는 것인지에 대한 내용 말이죠. 이제 숫자를 조금 가지고 놀아볼까요?
 
-Head north to the stairs, and descend into the #GOLD#Dungeon of Adventurer Enlightenment.#WHITE#
+북쪽의 계단을 통해, #GOLD#모든 초보 모험가들을 위한 계몽의 지하미궁#WHITE# 의 아래층으로 내려가세요.
 ]]

@@ -34,7 +34,7 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Rend your foe with every attack you do. All attacks now have a %d%% chance of inflicting an additional %d%% of your attack's damage in Bleeding damage, divided over ten turns.]]):
+		return ([[적을 공격할 때마다 찢어버려, %d%% 확률로 적에게 가한 피해량의 %d%% 에 해당하는 출혈 피해를 10 턴에 걸쳐 추가로 줍니다.]]):
 		format(10+(self:getTalentLevel(t)*10),100 * self:combatTalentWeaponDamage(t, 0.15, 0.35))
 	end,
 }
@@ -67,11 +67,10 @@ newTalent{
 		local attack = t.getAttackPenalty(self, t)
 		local will = t.getWillPenalty(self, t)
 		local cun = t.getCunPenalty(self, t)
-		return ([[Learn to take advantage of your enemy's pain.
-		If your enemy is bleeding and attempts to attack you, their critical hit rate is reduced by %d%%, as their wounds make them more predictable.
-		If you attack a bleeding enemy, there is a %d%% chance that, for %d turns, they are disabled as you take advantage of openings (reducing their movement speed by %d%% and Accuracy by %d) or anguished as you strike their painful wounds (reducing their Willpower by %d and their Cunning by %d).
-		The statistical reductions will increase with your Cunning.
-		]]):format(5+(self:getTalentLevel(t)*5),5+(self:getTalentLevel(t)*3),duration,move * 100,attack,will,cun)
+		return ([[적의 고통을 이용하는 법을 배웁니다.
+		출혈 상태의 적이 자신을 공격할 때, 상처로 인해 적의 치명타율이 %d%% 감소하게 됩니다.
+		그리고 자신이 출혈 상태의 적을 공격할 때 %d%% 확률로 %d 턴 동안, 몸을 가누지 못하게 되거나 (이동 속도 %d%% 감소, 정확도 %d 감소) 고통의 비명을 지르게 만듭니다. (의지 능력치 %d 감소, 교활함 능력치 %d 감소)
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):format(5+(self:getTalentLevel(t)*5),5+(self:getTalentLevel(t)*3),duration,move * 100,attack,will,cun)
 	end,
 }
 
@@ -79,7 +78,7 @@ newTalent{
 	name = "Nimble Movements",
 	kr_display_name = "재빠른 이동",
 	type = {"cunning/scoundrel",3},
-	message = "@Source@ dashes quickly!",
+	message = "@Source@ 빠르게 이동합니다!",
 	no_break_stealth = true,
 	require = cuns_req3,
 	points = 5,
@@ -89,7 +88,7 @@ newTalent{
 	requires_target = true,
 	range = function(self, t) return math.floor(6 + self:getTalentLevel(t) * 0.6) end,
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "You can not do that currently.") return end
+		if self:attr("never_move") then game.logPlayer(self, "지금은 그 기술을 사용할 수 없습니다.") return end
 
 		local tg = {type="hit", range=self:getTalentRange(t)}
 		local x, y, target = self:getTarget(tg)
@@ -100,7 +99,7 @@ newTalent{
 		local l = self:lineFOV(x, y, block_actor)
 		local lx, ly, is_corner_blocked = l:step()
 		if is_corner_blocked or game.level.map:checkAllEntities(lx, ly, "block_move", self) then
-			game.logPlayer(self, "You cannot dash through that!")
+			game.logPlayer(self, "그것을 통과하여 달릴 수 없습니다!")
 			return
 		end
 		local tx, ty = lx, ly
@@ -121,7 +120,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Quickly and quietly dash your way to the target square, if it is not blocked by enemies or obstacles. This talent will not break Stealth.]])
+		return ([[목표 지점으로 조용하고 빠르게 달려갑니다. 이동 중에 적이나 장애물에 부딪히지 않는 한, 은신 상태는 해제되지 않습니다.]])
 	end,
 }
 
@@ -144,9 +143,9 @@ newTalent{
 	end,
 	-- Talking with SageAcrin, this is definitely an accurate portrayal of the skill's effects. 
 	info = function(self, t)
-		return ([[Your abilities in sowing confusion and chaos have reached their peak. Now, even your most simple moves confuse your enemies, rendering their offense less effective.
-		Your Defense increases by %d%%, and enemies have a %d%% chance of targetting a random square within %d squares of you.
-		The bonus to Defense will increase with Cunning.]]):
+		return ([[아주 단순한 움직임만 가지고도 적들을 당황하게 만들어, 적들이 공격 중에 실수를 더 자주 하게 됩니다.
+		회피도가 %d%% 상승하며, %d%% 확률로 적의 공격이 실패하여 주변 %d 칸 반경의 무작위한 곳에 공격을 하게 됩니다.
+		회피도 상승량은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(self:getTalentLevel(self.T_MISDIRECTION) * (0.02 * (1 + self:getCun() / 85) *100), self:getTalentLevelRaw(t) * 3, self:getTalentLevelRaw(t) * 1)
 	end,
 }

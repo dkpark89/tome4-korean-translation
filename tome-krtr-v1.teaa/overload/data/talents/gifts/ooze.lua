@@ -33,7 +33,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -81,9 +81,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your body is more like that of an ooze. When you get hit you have a %d%% chance to split and create a Bloated Ooze with as much health as you have taken damage (up to %d).
-		All damage you take will be split equaly between you and your Bloated Oozes.
-		You may have up to %d Oozes active at any time (based on your Cunning).]]):
+		return ([[신체가 진흙 덩어리처럼 변화합니다. 공격을 받을 때마다, %d%% 확률로 받은 피해량 만큼의 생명력을 지닌 진흙 덩어리가 만들어집니다. (진흙 덩어리의 최대 생명력 : %d)
+		자신이 받는 모든 피해량은 자신과 진흙 덩어리가 나눠서 받게 됩니다.
+		최대 %d 개의 진흙 덩어리까지 만들어낼 수 있습니다. (교활함 능력치에 기반하여 최대 개수가 증가합니다)]]):
 		format(t.getChance(self, t), t.getMax(self, t))
 	end,
 }
@@ -150,7 +150,7 @@ newTalent{
 
 newTalent{
 	name = "One With The Ooze",
-	kr_display_name = "오즈와의 교감",
+	kr_display_name = "진흙과의 교감",
 	type = {"wild-gift/ooze", 4},
 	require = gifts_req4,
 	points = 5,
@@ -170,7 +170,7 @@ newTalent{
 		self:attr("confusion_immune", -0.2)
 	end,
 	info = function(self, t)
-		return ([[Your body becomes even more ooze-like, granting %d%% disease, poison, cuts, confusion and blindness resistances.]]):
+		return ([[신체가 더욱 진흙처럼 변화하여 질병, 독, 출혈, 혼란, 실명 저항력이 %d%% 상승하게 됩니다.]]):
 		format(self:getTalentLevelRaw(t) * 20)
 	end,
 }

@@ -213,7 +213,7 @@ newTalent{
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#FF8000# %s의 주변에 타오르던 화염이 사그라들다가, 완전히 사라졌습니다.", (self.kr_display_name or self.name))
+		game.logSeen(self, "#FF8000# 주변에 타오르던 화염이 사그라들다가, 완전히 사라졌습니다. (%s)", self.name)
 		self:removeTemporaryValue("on_melee_hit", p.onhit)
 		self:removeTemporaryValue("resists", p.res)
 		self:removeTemporaryValue("mana_regen", p.drain)

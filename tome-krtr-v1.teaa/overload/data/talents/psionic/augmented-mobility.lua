@@ -42,7 +42,7 @@ newTalent{
 		local _ _, x, y = self:canProject(tg, x, y)
 		local target = game.level.map(x, y, engine.Map.ACTOR)
 		if not target then
-			game.logPlayer(self, "The target is out of range")
+			game.logPlayer(self, "대상이 사정거리 밖에 있습니다.")
 			return
 		end
 		target:pull(self.x, self.y, tg.range)
@@ -53,8 +53,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Briefly extend your telekinetic reach to grab an enemy and haul them towards you.
-		Works on enemies up to %d squares away. The cooldown decreases, and the range increases, with additional talent points spent.]]):
+		return ([[염력으로 대상을 붙잡아, 시전자가 있는 곳으로 끌어옵니다.
+		%d 칸 이내에 있는 대상까지 끌어올 수 있으며, 기술 레벨이 증가할수록 재사용 대기시간이 줄어들고 최대 사거리가 늘어납니다.]]):
 		format(range)
 	end,
 }
@@ -63,7 +63,7 @@ newTalent{
 
 newTalent{
 	name = "Quick as Thought",
-	kr_display_name = "생각만큼의 속도",
+	kr_display_name = "생각의 속도",
 	type = {"psionic/augmented-mobility", 2},
 	points = 5,
 	random_ego = "utility",
@@ -82,9 +82,9 @@ newTalent{
 		local inc = self:getTalentLevel(t)*0.2
 		local percentinc = 100 * inc
 		--local percentinc = ((1/(1-inc))-1)*100
-		return ([[You encase your legs in precise sheathes of force, increasing your movement speed by %d%% for %d turns.
-		The duration improves with your Mindpower.]]):
-		format(percentinc, t.getDuration(self, t))
+		return ([[다리에 염동력을 감싸, 이동 속도를 %d 턴 동안 %d%% 올립니다.
+		지속시간은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		format(t.getDuration(self, t), percentinc)
 	end,
 }
 
@@ -92,7 +92,7 @@ newTalent{
 newTalent{
 	--name = "Super"..self.race.." Leap",
 	name = "Telekinetic Leap",
-	kr_display_name = "염동적 도약",
+	kr_display_name = "염동 도약",
 	type = {"psionic/augmented-mobility", 3},
 	require = psi_cun_high3,
 	cooldown = 15,
@@ -123,14 +123,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[You perform a precise, telekinetically-enhanced leap, landing up to %d squares away.]]):
+		return ([[염동력을 이용해, 최대 %d 칸 까지 도약합니다.]]):
 		format(range)
 	end,
 }
 
 newTalent{
 	name = "Shattering Charge",
-	kr_display_name = "파쇄적 돌진",
+	kr_display_name = "동역학적 돌진",
 	type = {"psionic/augmented-mobility", 4},
 	require = psi_cun_high4,
 	points = 5,
@@ -150,7 +150,7 @@ newTalent{
 	requires_target = true,
 	on_pre_use = function(self, t, silent)
 		if not self:hasEffect(self.EFF_KINSPIKE_SHIELD) and not self:isTalentActive(self.T_KINETIC_SHIELD) then
-			if not silent then game.logSeen(self, "You must either have a spiked kinetic shield or be able to spike one. Cancelling charge.") end
+			if not silent then game.logSeen(self, "동역학적 보호막의 파편을 사용할 수 없는 상태입니다. 돌진을 취소합니다.") end
 			return false
 		end
 		return true
@@ -176,7 +176,7 @@ newTalent{
 				end
 				self:move(fx, fy, true)
 			else
-				game.logSeen(self, "You can't move there.")
+				game.logSeen(self, "그곳으로 이동할 수 없습니다.")
 				return nil
 			end
 			return true
@@ -220,8 +220,10 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		local dam = self:combatTalentMindDamage(t, 20, 600)
-		return ([[You expend massive amounts of energy to launch yourself across %d squares at incredible speed. All enemies in your path will be knocked flying and dealt between %d and %d damage. At talent level 5, you can batter through solid walls.
-		You must have a spiked Kinetic Shield erected in order to not get smashed to a pulp when using this ability. Shattering Charge automatically spikes your Kinetic Shield if available and not already spiked. If no such shield is available, you cannot use Shattering Charge.]]):
+		return ([[엄청난 양의 염력을 사용하여, %d 칸 만큼 돌진합니다. 이동 경로에 있는 모든 적들은 밀려나면서 %d - %d 피해를 받습니다.
+		기술 레벨이 5 이상이면, 단단한 벽을 뚫어버릴 수 있습니다.
+		몸의 보호를 위해서, 동역학적 보호막의 파편이 반드시 필요합니다.
+		돌진을 사용하면 자동적으로 동역학적 보호막이 깨져 파편 상태가 되며, 동역학적 보호막이 없다면 동역학적 돌진 역시 사용할 수 없습니다.]]):
 		format(range, 2*dam/3, dam)
 	end,
 }

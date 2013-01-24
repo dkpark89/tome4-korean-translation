@@ -184,6 +184,6 @@ newTalent{
 		return ([[암흑의 구를 만들어내 주변 %d 칸 반경에 %0.2f 암흑 피해를 주고, %d 턴 동안 적들의 죽음을 앞당겨 전체 속도를 %d%% 감소시킵니다. 
 		죽음이 앞당겨진 적들은 언데드 추종자들에게 %d%% 더 많은 피해를 입습니다.
 		피해량과 언데드 추종자들의 피해량 증가는 주문력 능력치의 영향을 받아 증가합니다.]]):
-		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage), dur, speed, minion) --@@
+		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage), dur, speed, minion)
 	end,
 }

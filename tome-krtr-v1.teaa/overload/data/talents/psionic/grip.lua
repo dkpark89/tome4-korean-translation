@@ -42,8 +42,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance, spread = t.getEvasion(self, t)
-		return ([[You learn to devote a portion of your attention to mentally swatting, grabbing, or otherwise deflecting incoming projectiles.
-		All projectiles targetting you have a %d%% chance to instead target a spot %d grids nearby.]]):
+		return ([[염력을 사용하여, 자신을 향해 날아오는 발사체를 튕겨내거나 잡아챕니다.
+		자신을 향해 날아오는 발사체가 %d%% 확률로 %d 칸 근처의 다른 지역에 명중하게 됩니다.]]):
 		format(chance, spread)
 	end,
 
@@ -94,8 +94,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[Bind the target in crushing bands of telekinetic force, immobilizing it for %d turns. The duration will improve with your Mindpower.
-		The use of a telekinetically-wielded gem or mindstar as a focus will improve the effects of this talent considerably.]]):
+		return ([[염력의 끈으로 대상을 묶어, %d 턴 동안 이동하지 못하게 만듭니다. 지속시간은 정신력 능력치의 영향을 받아 증가합니다.
+		염동력으로 보석이나 마석을 들고 있을 경우, 기술이 더 강력해집니다.]]):
 		format(dur)
 	end,
 }
@@ -146,9 +146,9 @@ newTalent{
 	info = function(self, t)
 		local dur = t.getDuration(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Crush the target mercilessly with constant, bone-shattering pressure, slowing it by 50%% for %d turns and dealing %d damage each turn.
-		The duration and damage will improve with your Mindpower.
-		The use of a telekinetically-wielded gem or mindstar as a focus will improve the effects of this talent considerably.]]):
+		return ([[염력으로 대상의 뼈를 으스러뜨릴 정도의 강한 압력을 가해, %d 턴 동안 대상을 50%% 감속시키고 매 턴마다 %d 피해를 줍니다.
+		지속시간과 피해량은 정신력 능력치의 영향을 받아 증가합니다.
+		염동력으로 보석이나 마석을 들고 있을 경우, 기술이 더 강력해집니다.]]):
 		format(dur, dam)
 	end,
 }
@@ -173,11 +173,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local boost = 100 * t.stat_sub(self, t)
-		return ([[Use finely controlled forces to augment both your flesh-and-blood grip, and your telekinetic grip. This does the following:
-		Increases disarm immunity by %d%%.
-		Allows %d%% of Willpower and Cunning (instead of the usual 60%%) to be substituted for Strength and Dexterity for the purposes of determining damage done by telekinetically-wielded weapons.
-		At talent level 5, telekinetically wielded gems and mindstars will be treated as one material level higher than they actually are.
-		]]):
+		return ([[정신을 집중하여, 육체의 악력과 염동적 악력을 동시에 상승시킵니다. 이를 통해 다음과 같은 효과가 발생합니다.
+		- 무장해제 저항력이 %d%% 증가합니다.
+		- 염동력으로 쥐고 있는 무기의 피해량과 정확도를 결정하는, 민첩과 교활함 능력치의 적용 비율이 %d%% 가 됩니다. (원래는 각 능력치의 60%% 만큼 무기에 적용)
+		- 기술 레벨이 5 이상이면, 염동력으로 쥔 보석이나 마석을 한 단계 높은 수준의 보석이나 마석인 것처럼 사용할 수 있게 됩니다.]]):
 		format(self:getTalentLevelRaw(t)*20, boost)
 	end,
 }

@@ -31,16 +31,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Turn into a wraith, allowing you to walk through walls (but not preventing suffocation) for %d turns.
-		Also increases your Defense and Armour by %d and %d, respectively.
-		The bonuses will increase with your Spellpower.]]):
+		return ([[악령으로 변신하여, %d 턴 동안 벽을 통과할 수 있게 됩니다. (단, 벽 안에서는 숨을 쉴 수 없습니다)
+		또한 회피도가 %d, 방어도가 %d 상승합니다.
+		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t), self:combatTalentSpellDamage(t, 5, 19), self:combatTalentSpellDamage(t, 5, 15))
 	end,
 }
 
 newTalent{
 	name = "Darkfire",
-	kr_display_name = "어둠의 열화",
+	kr_display_name = "어둠의 불꽃",
 	type = {"corruption/shadowflame", 2},
 	require = corrs_req2,
 	points = 5,
@@ -70,18 +70,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Conjures up a bolt of shadowflame that moves toward the target and explodes into a flash of darkness and fire, doing %0.2f fire damage and %0.2f darkness damage in a radius of %d.
-		The damage will increase with your Spellpower.]]):format(
-			damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 28, 220) / 2),
-			damDesc(self, DamageType.DARKNESS, self:combatTalentSpellDamage(t, 28, 220) / 2),
-			self:getTalentRadius(t)
-		)
+		return ([[어둠의 불꽃을 화살 형태로 발사하여, 대상과 주변 %d 칸 반경에 %0.2f 화염 피해와 %0.2f 어둠 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), 
+		damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 28, 220) / 2), 
+		damDesc(self, DamageType.DARKNESS, 
+		self:combatTalentSpellDamage(t, 28, 220) / 2))
 	end,
 }
 
 newTalent{
 	name = "Flame of Urh'Rok",
-	kr_display_name = "울흐'록의 불꽃",
+	kr_display_name = "Urh'Rok의 불꽃",
 	type = {"corruption/shadowflame", 3},
 	require = corrs_req3,
 	mode = "sustained",
@@ -111,10 +110,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the essence of the supreme demon overlord Urh'Rok to turn into a demon.
-		While in demon form, you gain %d%% fire resistance, %d%% darkness resistance, and your global speed is increased by %d%%.
-		The flames of the Fearscape will heal you while in demon form.
-		The resistances and heal will increase with your Spellpower.]]):
+		return ([[강력한 악마의 군주 Urh'Rok의 정수를 불러와, 악마로 변신합니다.
+		악마 상태에서는 %d%% 화염 저항력, %d%% 어둠 저항력을 얻으며, 전체 속도가 %d%% 상승합니다.
+		또한, 공포의 영역에서 뿜어져나오는 불길이 오히려 생명력을 회복시켜주게 됩니다.
+		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(
 			self:combatTalentSpellDamage(t, 20, 30), self:combatTalentSpellDamage(t, 20, 35),
 			self:getTalentLevel(t) * 3
@@ -139,11 +138,11 @@ newTalent{
 	on_pre_use = function(self, t) return self:canBe("planechange") and self:getVim() >= 10 end,
 	activate = function(self, t)
 		if game.zone.is_demon_plane then
-			game.logPlayer(self, "This spell can not be used from within the Fearscape.")
+			game.logPlayer(self, "이 마법은 공포의 영역 안에서는 사용할 수 없습니다.")
 			return
 		end
 		if game.zone.no_planechange then
-			game.logPlayer(self, "This spell can not be cast here.")
+			game.logPlayer(self, "이 마법은 여기서 사용할 수 없습니다.")
 			return
 		end
 
@@ -225,7 +224,7 @@ newTalent{
 				end)
 			end
 
-			game.logPlayer(game.player, "#LIGHT_RED#You are taken to the Fearscape!")
+			game.logPlayer(game.player, "#LIGHT_RED#공포의 영역으로 끌려갔습니다!")
 			game.party:learnLore("fearscape-entry")
 			level.allow_demon_plane_damage = true
 		end)
@@ -309,18 +308,16 @@ newTalent{
 			game.level.map:recreate()
 			game.uiset:setupMinimap(game.level)
 
-			game.logPlayer(game.player, "#LIGHT_RED#You are brought back from the Fearscape!")
+			game.logPlayer(game.player, "#LIGHT_RED#공포의 영역을 빠져나왔습니다!")
 		end)
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a part of the Fearscape to intersect with the current level.
-		Your target and yourself are taken to the Fearscape, trapped there until you end the spell or until your target dies.
-		While inside, a constant aura of flames will burn both of you (and heal demons) for %0.2f fire damage.
-		When the spell ends, only you and the target (if still alive) are taken back to your home plane; all summons are left in the Fearscape.
-		Objects will be moved as well.
-		This spell has no effect if cast when already inside the Fearscape.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 140)))
+		return ([[공포의 영역으로 가는 교차점을 소환합니다. 오직 대상과 시전자 둘만이 공포의 영역으로 끌려가며, 둘 중 하나가 죽거나 마법이 끝날 때까지 나갈 수 없게 됩니다.
+		공포의 영역에서는 열기가 끊임없이 올라오기 때문에, 대상과 시전자 모두 매 턴마다 %0.2f 화염 피해를 받습니다. (악마는 생명력을 회복합니다)
+		마법이 끝나면 시전자와 (아직 살아있을 경우) 대상만이 원래 세계로 돌아가게 되며, 모든 소환수들은 공포의 영역에 남겨집니다.
+		도구나 장비 등 물건들은 원래 세계로 돌아가며, 이미 공포의 영역에 들어왔을 경우에는 이 마법을 사용할 수 없습니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 140)))
 	end,
 }

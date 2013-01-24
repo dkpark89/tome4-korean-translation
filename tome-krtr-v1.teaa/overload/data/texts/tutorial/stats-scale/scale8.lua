@@ -18,5 +18,5 @@
 -- darkgod@te4.org
 
 return [[
-Test your hypothesis!
+이 빌어먹을 게임이 최면이라도 거는 걸까요?
 ]]

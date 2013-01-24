@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Bow Mastery",
-	kr_display_name = "활 숙련",
+	kr_display_name = "활 수련",
 	type = {"technique/archery-bow", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 12 + level * 6 end }, },

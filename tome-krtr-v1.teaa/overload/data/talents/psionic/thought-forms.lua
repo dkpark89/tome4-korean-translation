@@ -165,7 +165,7 @@ end
 -- Thought-forms
 newTalent{
 	name = "Thought-Form: Bowman",
-	kr_display_name = "생각의 구현:궁사",
+	kr_display_name = "생각의 구현 : 궁수",
 	short_name = "TF_BOWMAN",
 	type = {"psionic/other", 1},
 	points = 5, 
@@ -185,7 +185,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 		
@@ -197,7 +197,7 @@ newTalent{
 			name = "thought-forged bowman", summoner = self,
 			color=colors.SANDY_BROWN, shader = "shadow_simulacrum",
 			shader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },
-			desc = [[A thought-forged bowman.  It appears ready for battle.]],
+			desc = [[생각의 구현으로 만들어진 궁수입니다. 언제든지 전투에 임할 수 있을 것 같습니다.]],
 			body = { INVEN = 10, MAINHAND = 1, BODY = 1, QUIVER=1, HANDS = 1, FEET = 1},
 
 			ai = "summoned", ai_real = "tactical",
@@ -269,15 +269,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local stat = t.getStatBonus(self, t)
-		return ([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
-		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]]):format(stat/2, stat, stat/2)
+		return ([[가죽 갑옷을 걸친 궁수를 생각해, 그것을 구현해냅니다. 궁수는 활 수련, 정확도 수련, 정밀 사격, 무력화 사격, 속사 기술을 사용할 수 있으며, 시전자의 레벨에 따라 기술 레벨이 달라집니다.
+		추가적으로 궁수는 힘 %d, 민첩 %d, 체격 %d 만큼의 능력치를 얻으며, 궁수를 구현 중일 경우 다른 형태는 구현해낼 수 없습니다.
+		능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(stat/2, stat, stat/2)
 	end,
 }
 
 newTalent{
 	name = "Thought-Form: Warrior",
-	kr_display_name = "생각의 구현: 전사",
+	kr_display_name = "생각의 구현 : 전사",
 	short_name = "TF_WARRIOR",
 	type = {"psionic/other", 1},
 	points = 5, 
@@ -297,7 +297,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 		
@@ -309,7 +309,7 @@ newTalent{
 			name = "thought-forged warrior", summoner = self, 
 			color=colors.ORANGE, shader = "shadow_simulacrum",
 			shader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },
-			desc = [[A thought-forged warrior wielding a massive hammer and clad in heavy armor.  It appears ready for battle.]],
+			desc = [[무거운 갑옷과 망치를 든, 생각의 구현으로 만든 전사입니다. 언제든지 전투에 임할 수 있을 것 같습니다.]],
 			body = { INVEN = 10, MAINHAND = 1, BODY = 1, HANDS = 1, FEET = 1},
 		
 			ai = "summoned", ai_real = "tactical",
@@ -371,15 +371,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local stat = t.getStatBonus(self, t)
-		return ([[Forge a warrior wielding a battle-axe from your thoughts.  The warrior learns Weapon Mastery, Combat Accuracy, Berserker, Death Dance, and Rush as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
-		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]]):format(stat, stat/2, stat/2)
+		return ([[도끼를 든 전사를 생각해, 그것을 구현해냅니다. 전사는 무기 수련, 정확도 수련, 광전사, 죽음의 춤, 돌진 기술을 사용할 수 있으며, 시전자의 레벨에 따라 기술 레벨이 달라집니다.
+		추가적으로 전사는 힘 %d, 민첩 %d, 체격 %d 만큼의 능력치를 얻으며, 전사를 구현 중일 경우 다른 형태는 구현해낼 수 없습니다.
+		능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(stat, stat/2, stat/2)
 	end,
 }
 
 newTalent{
 	name = "Thought-Form: Defender",
-	kr_display_name = "생각의 구현: 수호자",
+	kr_display_name = "생각의 구현 : 수호자",
 	short_name = "TF_DEFENDER",
 	type = {"psionic/other", 1},
 	points = 5, 
@@ -399,7 +399,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 		
@@ -411,7 +411,7 @@ newTalent{
 			name = "thought-forged defender", summoner = self,
 			color=colors.GOLD, shader = "shadow_simulacrum", 
 			shader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },
-			desc = [[A thought-forged defender clad in massive armor.  It wields a sword and shield and appears ready for battle.]],
+			desc = [[무거운 갑옷을 걸친, 생각의 구현으로 만든 수호자입니다. 검과 방패를 들고 있으며, 언제든지 전투에 임할 수 있을 것 같습니다.]],
 			body = { INVEN = 10, MAINHAND = 1, OFFHAND = 1, BODY = 1, HANDS = 1, FEET = 1},
 			
 			ai = "summoned", ai_real = "tactical",
@@ -475,9 +475,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local stat = t.getStatBonus(self, t)
-		return ([[Forge a defender wielding a sword and shield from your thoughts.  The solider learns Armor Rraining, Weapon Mastery, Combat Accuracy, Shield Pummel, and Shield Wall as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
-		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]]):format(stat/2, stat/2, stat)
+		return ([[검과 방패를 든 수호자를 생각해, 그것을 구현해냅니다. 수호자는 방어구 수련, 무기 수련, 정확도 수련, 방패 치기, 방패의 벽 기술을 사용할 수 있으며, 시전자의 레벨에 따라 기술 레벨이 달라집니다.
+		추가적으로 수호자는 힘 %d, 민첩 %d, 체격 %d 만큼의 능력치를 얻으며, 수호자를 구현 중일 경우 다른 형태는 구현해낼 수 없습니다.
+		능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(stat/2, stat/2, stat)
 	end,
 }
 
@@ -516,10 +516,13 @@ newTalent{
 	info = function(self, t)
 		local bonus = t.getStatBonus(self, t)
 		local range = self:getTalentRange(t)
-		return([[Forge a guardian from your thoughts alone.  Your guardian's primary stat will be improved by %d, its two secondary stats by %d, and it will have Magic, Cunning, and Willpower equal to your own.
-		At talent level one, you may forge a mighty bowman clad in leather armor; at level three a powerful warrior wielding a two-handed weapon; and at level five a strong defender using a sword and shield.
-		Thought forms can only be maintained up to a range of %d, and will rematerialize next to you if this range is exceeded.
-		Only one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]]):format(bonus, bonus/2, range)
+		return([[마음 속으로 자신을 보호할 수 있는 분신을 생각해내, 그것을 실제로 구현해냅니다. 
+		분신의 마법, 교활함, 의지 능력치는 자신의 능력치와 같으며, 분신의 가장 중요한 능력치는 자신보다 %d, 두번째로 중요한 능력치들은 자신보다 %d 상승된 능력치가 적용됩니다.
+		기술 레벨이 1 이상이면, 가죽 갑옷을 입은 궁수 형태의 분신을 구현화할 수 있습니다.
+		기술 레벨이 3 이상이면, 대형도끼를 든 전사 형태의 분신을 구현화할 수 있습니다.
+		기술 레벨이 5 이상이면, 검과 방패를 사용하는 수호자 형태의 분신을 구현화할 수 있습니다.
+		구현된 분신은 주변 %d 칸 반경에서만 유지할 수 있으며, 범위를 벗어날 경우 시전자 근처로 순간이동합니다.
+		한번에 하나의 분신만을 구현할 수 있으며, 능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(bonus, bonus/2, range)
 	end,
 }
 
@@ -533,7 +536,7 @@ newTalent{
 	mode = "passive",
 	info = function(self, t)
 		local level = math.floor(self:getTalentLevel(t))
-		return([[Your thought-forms now know Lucid Dreamer, Biofeedback, and Psychometry at talent level %d.]]):format(level)
+		return([[생각의 구현으로 만들어진 분신이 %d 레벨의 자각몽, 생체 반작용, 사이코메트리 기술을 사용할 수 있게 됩니다.]]):format(level)
 	end,
 }
 
@@ -610,10 +613,12 @@ newTalent{
 	info = function(self, t)
 		local bonus = t.getControlBonus(self, t)
 		local range = t.getRangeBonus(self, t)
-		return ([[Take direct control of your active thought-form, improving its damage, attack speed, and maximum life by %d%%, but leaving your body a defenseless shell.
-		At talent level 1, any Feedback your Thought-Forms gain will be given to you as well. At level 3, your Thought-Forms gain a bonus to all saves equal to your Mental Save. At level 5, they gain a bonus to all damage equal to your bonus mind damage.
-		The secondary bonuses apply whether or not this talent is currently active.
-		The life, damage, and speed bonus will improve with your Mindpower.]]):format(bonus, range)
+		return ([[생각의 구현으로 만들어진 분신을 직접 조종할 수 있게 됩니다. 또한 분신의 피해량, 공격 속도, 최대 생명력이 %d%% 늘어나게 됩니다. 하지만 분신을 조종하는 동안 시전자는 무력해집니다.
+		기술 레벨이 1 이상이면, 분신이 얻는 반작용이 시전자에게도 적용됩니다.
+		기술 레벨이 3 이상이면, 시전자의 정신 내성 수치만큼 분신의 모든 내성이 오릅니다.
+		기술 레벨이 5 이상이면, 시전자의 정신 피해 추가량만큼 분신의 모든 피해량이 오릅니다.
+		기술 레벨의 상승에 따라 얻는 효과는 정신 이동 기술의 유지 여부와 상관없이 항상 적용됩니다.
+		분신의 피해량, 공격 속도, 최대 생명력 증가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(bonus, range)
 	end,
 }
 
@@ -632,7 +637,7 @@ newTalent{
 		local offense = t.getOffensePower(self, t)
 		local defense = t.getDefensePower(self, t)
 		local speed = t.getSpeedPower(self, t)
-		return([[You now gain %d%% mind speed while Thought-Form: Bowman is active, %d Mindpower while Thought-Form: Warrior is active, and %d%% resist all while Thought-Form: Defender is active. 
-		These bonuses scale with your Mindpower.]]):format(speed, offense, defense, speed)
+		return([[궁수의 형태를 구현 중일 때 사고 속도가 %d%%, 전사의 형태를 구현 중일 때 정신력이 %d%%, 수호자의 형태를 구현 중일 때 모든 저항력이 %d%% 증가합니다.
+		기술의 효과는 정신력 능력치의 효과를 받아 증가합니다.]]):format(speed, offense, defense, speed)
 	end,
 }

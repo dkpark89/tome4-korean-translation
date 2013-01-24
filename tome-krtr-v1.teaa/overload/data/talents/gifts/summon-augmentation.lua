@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Rage",
-	kr_display_name = "격노",
+	kr_display_name = "분노",
 	type = {"wild-gift/summon-augmentation", 1},
 	require = gifts_req1,
 	points = 5,
@@ -36,7 +36,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Induces a killing rage in one of your summons, increasing all its stats by %d for 10 turns.]]):format(self:combatTalentMindDamage(t, 10, 100)/4)
+		return ([[하나의 소환수에게 살육의 본능을 심어, 10 턴 동안 모든 능력치가 %d 상승하게 됩니다.]]):format(self:combatTalentMindDamage(t, 10, 100)/4)
 	end,
 }
 
@@ -83,7 +83,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Destroys one of your summons, making it detonate in radius of %d.
+		return ([[소환수를 자폭시킵니다. 자폭은 주변 %d 칸 반경에 영향을 줍니다.
 		- Ritch Flamespitter: Explodes into a fireball
 		- Hydra: Explodes into a ball of lightning, acid or poison
 		- Rimebark: Explodes into an iceball
@@ -102,19 +102,19 @@ newTalent{
 
 newTalent{
 	name = "Resilience",
-	kr_display_name = "활력있는 소환수",
+	kr_display_name = "활력",
 	type = {"wild-gift/summon-augmentation", 3},
 	require = gifts_req3,
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[Improves all your summons' lifetime and Constitution.]])
+		return ([[모든 소환수의 지속시간과 체격 능력치를 증가시킵니다.]])
 	end,
 }
 
 newTalent{
 	name = "Phase Summon",
-	kr_display_name = "소환수와 위치바꾸기",
+	kr_display_name = "위치전환",
 	type = {"wild-gift/summon-augmentation", 4},
 	require = gifts_req4,
 	points = 5,
@@ -143,6 +143,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Switches places with one of your summons. This disorients your foes, granting both you and your summon 50%% evasion for %d turns.]]):format(1 + self:getTalentLevel(t))
+		return ([[소환수 하나와 위치를 서로 바꿉니다. 이 기술을 사용하면 적이 당황하여, 시전자와 소환수 모두 %d 턴 동안 모든 공격을 50%% 확률로 회피할 수 있게 됩니다.]]):format(1 + self:getTalentLevel(t))
 	end,
 }

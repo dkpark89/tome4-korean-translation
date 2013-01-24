@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
-
 -- Archmage spells
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/arcane", name = "arcane", description = "가공되지 않은 마력을 다뤄, 적들을 공격하고 자신을 보호하는 마법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/aether", name = "aether", description = "마력의 정수라고 할 수 있는 에테르의 힘을 다뤄, 적들에게 파멸을 불러오는 마법입니다." }
@@ -34,7 +32,7 @@ newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=tru
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/storm", name = "storm", min_lev = 10, description = "폭풍의 힘으로, 적들을 소각해버리는 마법입니다." }
 
 -- Various other magic schools
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/meta", name = "meta", description = "마법의 기초를 수련하여, 모든 마법을 강화한다입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/meta", name = "meta", description = "마법의 기초를 수련하여, 모든 마법을 강화합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/temporal", name = "temporal", description = "시간을 다루는 마법 학파입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/phantasm", name = "phantasm", description = "속임수와 환영을 다루는 마법 학파입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/enhancement", name = "enhancement", description = "마법을 이용한 신체 능력 향상법입니다." }
@@ -192,7 +190,7 @@ function necroSetupSummon(self, m, x, y, level, no_control, no_decay)
 			self.life = self.life - self.max_life * (p and p.necrotic_aura_decay or 10) / 100
 			self.changed = true
 			if self.life <= 0 then
-				game.logSeen(self, "#{bold}#%s 부패하여 잿덩이로 변했습니다!#{normal}#", (self.kr_display_name or self.name):capitalize():addJosa("가"))
+				game.logSeen(self, "#{bold}#%s decays into a pile of ash!#{normal}#", self.name:capitalize())
 				local t = src:getTalentFromId(src.T_NECROTIC_AURA)
 				t.die_speach(self, t)
 				self:die(self)

@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Weapon Folding",
-	kr_display_name = "무기공간 접기",
+	kr_display_name = "무기의 차원 접기",
 	type = {"chronomancy/spacetime-folding", 1},
 	mode = "sustained",
 	require = temporal_req1,
@@ -38,14 +38,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local paradox_reduction = t.getParadoxReduction(self, t)
-		return ([[Folds a single dimension of your weapons (or ammo) upon itself, adding %0.2f temporal damage to your strikes (%0.2f for ammo) and reducing your Paradox by %0.1f every time you land an attack (%0.1f for ammo).
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage), damDesc(self, DamageType.TEMPORAL, damage * 2), paradox_reduction, paradox_reduction * 2)
+		return ([[무기나 발사체의 차원을 한 단계 접어, 공격할 때마다 %0.2f 시간 피해를 추가로 주고 (발사체는 %0.2f 시간 피해) 공격에 성공할 때마다 괴리 수치를 %0.1f 감소시킵니다. (발사체는 괴리 %0.1f 감소)
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), damDesc(self, DamageType.TEMPORAL, damage * 2), paradox_reduction, paradox_reduction * 2)
 	end,
 }
 
 newTalent{
 	name = "Swap",
-	kr_display_name = "교환",
+	kr_display_name = "교대",
 	type = {"chronomancy/spacetime-folding", 2},
 	require = temporal_req2,
 	points = 5,
@@ -96,10 +96,10 @@ newTalent{
 			else
 				-- return the target without effect
 				game.level.map(target.x, target.y, Map.ACTOR, target)
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 헛나갔습니다!")
 			end
 		else
-			game.logSeen(target, "%s resists the swap!", target.name:capitalize())
+			game.logSeen(target, "%s 자리 교체를 저항했습니다!", target.name:capitalize())
 		end
 
 		game:playSoundNear(self, "talents/teleport")
@@ -109,14 +109,14 @@ newTalent{
 		local range = self:getTalentRange(t)
 		local duration = t.getConfuseDuration(self, t)
 		local power = t.getConfuseEfficency(self, t)
-		return ([[You manipulate the spacetime continuum in such a way that you switch places with another creature with in a range of %d.  The targeted creature will be confused (power %d%%) for %d turns.
-		The spell's hit chance will increase with your Spellpower.]]):format (range, power, duration)
+		return ([[시공간 연속체를 다루어, 주변 %d 칸 내의 대상과 서로 자리를 바꿉니다. 대상은 %d 턴 동안 혼란 상태에 빠집니다. (혼란 수치 +%d%%)
+		마법의 성공 확률은 주문력 능력치의 영향을 받아 증가합니다.]]):format (range, duration, power)
 	end,
 }
 
 newTalent{
 	name = "Displace Damage",
-	kr_display_name = "피해 치환",
+	kr_display_name = "피해 대체",
 	type = {"chronomancy/spacetime-folding", 3},
 	mode = "sustained",
 	require = temporal_req3,
@@ -132,14 +132,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Space bends around you, giving you a %d%% chance to displace half of any damage you receive onto a random enemy within radius %d.
-		]]):format(5 + self:getTalentLevel(t) * 5, self:getTalentLevelRaw(t) * 2)
+		return ([[주변의 공간을 구부려, %d%% 확률로 자신이 받은 피해량의 절반을 주변 %d 칸 범위 내의 적이 대신 받게 됩니다.]]):format(5 + self:getTalentLevel(t) * 5, self:getTalentLevelRaw(t) * 2)
 	end,
 }
 
 newTalent{
 	name = "Temporal Wake",
-	kr_display_name = "시간의 각성",
+	kr_display_name = "시간의 흔적",
 	type = {"chronomancy/spacetime-folding", 4},
 	require = temporal_req4,
 	points = 5,
@@ -161,7 +160,7 @@ newTalent{
 		local tg = self:getTalentTarget(t)
 		local x, y = self:getTarget(tg)
 		if not x or not y then return nil end
-		if not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logSeen(self, "You can't move there.") return nil	end
+		if not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logSeen(self, "그곳으로 이동할 수 없습니다.") return nil	end
 		x, y = checkBackfire(self, x, y)
 		local _ _, x, y = self:canProject(tg, x, y)
 		
@@ -182,7 +181,7 @@ newTalent{
 		local tx, ty = util.findFreeGrid(x, y, 5, true, {[Map.ACTOR]=true})
 		if tx and ty then
 			if not self:teleportRandom(tx, ty, 0) then
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 헛나갔습니다!")
 			end
 		end
 		
@@ -190,15 +189,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Violently fold the space between yourself and another point within range.  You move to the target location, and leave a temporal wake behind that stuns for 4 turns and inflicts %0.2f temporal damage to everything in the path.
-		The damage will scale with your Paradox and Spellpower, and the range will increase with the talent level.]]):
+		return ([[범위 내의 한 지점과 자신 사이의 공간을 강제로 접어, 해당 지점으로 이동합니다. 이동하면서 시간의 흔적을 남겨, 이동 경로에 있는 모든 적들에게 %0.2f 시간 피해를 주고 4 턴 동안 기절시킵니다.
+		피해량은 괴리 수치와 주문력 수치, 이동 범위는 기술 레벨의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }
 
 --[=[newTalent{
 	name = "Kinetic Folding",
-	kr_display_name = "동역학적 공간접기",
+	kr_display_name = "동역학적 공간 접기",
 	type = {"chronomancy/spacetime-folding", 4},
 	require = temporal_req4,
 	points = 5,

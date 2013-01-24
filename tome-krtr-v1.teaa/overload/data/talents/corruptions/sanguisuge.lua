@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Drain",
-	kr_display_name = "생명력 빼앗기",
+	kr_display_name = "흡수",
 	type = {"corruption/sanguisuge", 1},
 	require = corrs_req1,
 	points = 5,
@@ -39,9 +39,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fires a bolt of blight, doing %0.2f blight damage and replenishing 20%% of it as vim energy.
-		The amount of vim regained depends on the target's rank (higher ranks give more vim).
-		The effect will increase with your Spellpower.]]):
+		return ([[황폐의 화살을 발사하여 %0.2f 황폐화 피해를 주고, 피해량의 20%% 만큼 원기를 회복합니다.
+		원기 회복량은 대상의 등급과 비례합니다. (더 높은 등급일수록 더 많은 원기를 얻습니다)
+		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 25, 200)))
 	end,
 }
@@ -106,14 +106,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[For %d turns, your corruption spells will consume health instead of vim if their cost is higher than your vim.]]):
+		return ([[%d 턴 동안, 원기가 부족할 때 생명력으로 주문을 사용할 수 있게 됩니다.]]):
 		format(2 + math.floor(self:getTalentLevel(t)))
 	end,
 }
 
 newTalent{
 	name = "Absorb Life",
-	kr_display_name = "생명 흡수",
+	kr_display_name = "원기 강탈",
 	type = {"corruption/sanguisuge", 3},
 	mode = "sustained",
 	require = corrs_req3,
@@ -136,15 +136,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Absorbs the life force of your foes as you kill them.
-		As long as this talent is active, vim will decrease by one per turn and increase by %d for each kill of a non-undead creature (in addition to natural increase based on Willpower).]]):
+		return ([[죽인 상대의 원기를 흡수합니다. 마법이 활성화된 동안 매 턴마다 원기가 1 소진되며, 언데드를 제외한 적을 죽일 때마다 원기가 %d 회복됩니다.
+		원기 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):
 		format(4+math.ceil(self:getTalentLevel(t)*2))
 	end,
 }
 
 newTalent{
 	name = "Life Tap",
-	kr_display_name = "생명 건드리기",
+	kr_display_name = "생명의 힘",
 	type = {"corruption/sanguisuge", 4},
 	require = corrs_req4,
 	points = 5,
@@ -159,7 +159,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Tap your life force to provide a furious boost, increasing all damage you deal by %d%% for 7 turns.]]):
+		return ([[원기를 소모하여, 강력한 힘을 끌어올립니다. 7 턴 동안 적에게 가하는 모든 피해량이 %d%% 증가합니다.]]):
 		format(math.ceil(6 + self:getTalentLevel(t) * 2))
 	end,
 }

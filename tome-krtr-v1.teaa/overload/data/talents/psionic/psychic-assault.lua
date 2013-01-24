@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Mind Sear",
-	kr_display_name = "정신 말리기",
+	kr_display_name = "정신 파괴",
 	type = {"psionic/psychic-assault", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -43,8 +43,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Sends a telepathic attack, trying to destroy the brains of any target in the beam, doing %0.2f mind damage.
-		The damage will increase with your Mindpower.]]):format(damDesc(self, DamageType.MIND, damage))
+		return ([[적들을 관통하는 정신파를 날립니다. 정신파는 대상의 뇌를 약간 파괴하여, %0.2f 정신 피해를 줍니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, damage))
 	end,
 }
 
@@ -78,7 +78,7 @@ newTalent{
 		if target:canBe("confused") then
 			target:setEffect(target.EFF_LOBOTOMIZED, t.getDuration(self, t), {src=self, dam=dam, power=t.getPower(self, t), apply_power=self:combatMindpower()})
 		else
-			game.logSeen(target, "%s resists the lobotomy!", target.name:capitalize())
+			game.logSeen(target, "%s 사고 방해를 저항했습니다!", target.name:capitalize())
 		end
 
 		game:playSoundNear(self, "talents/cloud")
@@ -89,15 +89,15 @@ newTalent{
 		local cunning_damage = t.getPower(self, t)/2
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Inflicts %0.2f mind damage and cripples the target's higher mental functions, reducing cunning by %d and confusing (%d%% power) the target for %d turns.
-		The damage, cunning penalty, and confusion power will scale with your Mindpower.]]):
-		format(damDesc(self, DamageType.MIND, (damage)), cunning_damage, power, duration)
+		return ([[대상의 전두엽을 염력으로 무력화시켜 %0.2f 정신 피해를 주고, 복잡한 사고를 하지 못하게 만듭니다. %d 턴 동안 대상의 교활함 수치가 %d 감소하며, 혼란 상태에 빠집니다. (%d%% 위력)
+		피해량, 교활함 수치 감소량, 혼란의 위력은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		format(damDesc(self, DamageType.MIND, (damage)), duration, cunning_damage, power)
 	end,
 }
 
 newTalent{
 	name = "Synaptic Static",
-	kr_display_name = "시냅스 정전기 발동",
+	kr_display_name = "시냅스 정전기",
 	type = {"psionic/psychic-assault", 3},
 	require = psi_wil_req3,
 	points = 5,
@@ -120,14 +120,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Sends out a blast of telepathic static in a %d radius, inflicting %0.2f mind damage.  This attack can brainlock affected targets.
-		The damage will increase with your Mindpower.]]):format(radius, damDesc(self, DamageType.MIND, damage))
+		return ([[주변 %d 칸 반경에 시냅스를 자극하는 염력 정전파를 발생시킵니다. %0.2f 정신 피해를 주며, 대상에게 정신 잠금 상태를 일으킵니다.
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.MIND, damage))
 	end,
 }
 
 newTalent{
 	name = "Sunder Mind",
-	kr_display_name = "정신 부수기",
+	kr_display_name = "정신 붕괴",
 	type = {"psionic/psychic-assault", 4},
 	require = psi_wil_req4,
 	points = 5,
@@ -159,9 +159,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local power = t.getDamage(self, t) / 10
-		return ([[Cripples the target's mind, inflicting %0.2f mind damage and reducing its Mental Save by %d for 4 turns.  This attack always hits, and the mental save reduction stacks.
-		Against brainlocked targets, the damage and Mental Save reduction will be doubled.
-		The damage and save reduction will scale with your Mindpower.]]):
+		return ([[대상의 정신을 무력화시켜, %0.2f 정신 피해를 주고 4 턴 동안 정신 내성을 %d 감소시킵니다. 이 공격은 피할 수 없으며, 정신 내성 감소는 중첩됩니다.
+		정신 잠금 상태의 대상에게는 피해량과 정신 내성 감소량이 2 배가 됩니다.
+		피해량과 정신 내성 감소량은 정신력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.MIND, (damage)), power)
 	end,
 }

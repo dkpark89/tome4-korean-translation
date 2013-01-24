@@ -18,26 +18,26 @@
 -- darkgod@te4.org
 
 -- Wild Gifts
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/call", name = "call of the wild", generic = true, description = "자연과의 교감." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/harmony", name = "harmony", generic = true, description = "자연은 당신을 치료하고 깨끗하게 만들어 준다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/antimagic", name = "antimagic", generic = true, description = "전투에 사용되는 마법, 그리고 그것의 무효화." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-melee", name = "summoning (melee)", description = "당신을 돕기 위한 생물을 부르는 기술." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-distance", name = "summoning (distance)", description = "당신을 돕기 위한 생물을 부르는 기술." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-utility", name = "summoning (utility)", description = "당신을 돕기 위한 생물을 부르는 기술." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-augmentation", name = "summoning (augmentation)", description = "당신을 돕기 위한 생물을 부르는 기술." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-advanced", name = "summoning (advanced)", min_lev = 10, description = "당신을 돕기 위한 생물을 부르는 기술." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/slime", name = "slime aspect", description = "점균류 즙을 먹음으로써, 점균류와 밀접한 관계가 되기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/fungus", name = "fungus", generic = true, description = "미생물로 온몸을 뒤덮어, 더 쉽게 치료하는 방법." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/sand-drake", name = "sand drake aspect", description = "모래 드레이크의 능력 이용하기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/fire-drake", name = "fire drake aspect", description = "화염 드레이크의 능력 이용하기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/cold-drake", name = "cold drake aspect", description = "냉기 드레이크의 능력 이용하기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/storm-drake", name = "storm drake aspect", description = "폭풍 드레이크의 능력 이용하기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/venom-drake", name = "venom drake aspect", description = "독 드레이크의 능력 이용하기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/higher-draconic", name = "higher draconic abilities", description = "성장한 강력한 드래곤의 능력 이용하기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mindstar-mastery", name = "mindstar mastery", generic = true, description = "마석으로 정신력을 연결하는 법을 배워, 강력한 염동 칼날을 만들어낸다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mucus", name = "mucus", description = "자연적 점액으로 바닥을 뒤덮기." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/ooze", name = "ooze", description = "육체와 장기가 자연의 오즈와 더욱 비슷하게 변하여, 더 많은 자신을 낳을수 있게 된다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/malleable-body", name = "malleable body", description = "신체구조가 알수 없게 된다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/call", name = "call of the wild", generic = true, description = "자연과 하나가 되는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/harmony", name = "harmony", generic = true, description = "자연의 힘으로 자신을 치유하고 정화하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/antimagic", name = "antimagic", generic = true, description = "전투에 사용되는 각종 마법을 무효화시키는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-melee", name = "summoning (melee)", description = "자신을 도와줄 근접형 소환수를 부르는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-distance", name = "summoning (distance)", description = "자신을 도와줄 원거리형 소환수를 부르는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-utility", name = "summoning (utility)", description = "자신을 도와줄 특수한 소환수를 부르는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-augmentation", name = "summoning (augmentation)", description = "소환수의 지속시간과 위치선정 등에 대한 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/summon-advanced", name = "summoning (advanced)", min_lev = 10, description = "더 강력한 소환을 할 수 있게 되는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/slime", name = "slime aspect", description = "슬라임의 다양한 특성을 사용할 수 있게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/fungus", name = "fungus", generic = true, description = "미생물의 도움을 받아, 생명력 재생 효율을 증가시키는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/sand-drake", name = "sand drake aspect", description = "용의 일종인, 모래 드레이크의 능력을 사용합니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/fire-drake", name = "fire drake aspect", description = "용의 일종인, 화염 드레이크의 능력을 사용합니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/cold-drake", name = "cold drake aspect", description = "용의 일종인, 냉기 드레이크의 능력을 사용합니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/storm-drake", name = "storm drake aspect", description = "용의 일종인, 폭풍 드레이크의 능력을 사용합니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/venom-drake", name = "venom drake aspect", description = "용의 일종인, 독 드레이크의 능력을 사용합니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/higher-draconic", name = "higher draconic abilities", description = "성장이 끝난 용의 엄청난 능력을 사용합니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mindstar-mastery", name = "mindstar mastery", generic = true, description = "마석에 정신력을 주입하는 법을 배워, 강력한 염동 칼날을 만들어내는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mucus", name = "mucus", description = "점액으로 바닥을 뒤덮어 다양한 효과를 얻게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/ooze", name = "ooze", description = "몸이 진흙처럼 변해, 몸이 잘려나가도 아무렇지 않게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/malleable-body", name = "malleable body", description = "신체구조가 알 수 없게 됩니다." }
 
 -- Generic requires for gifts based on talent level
 gifts_req1 = {

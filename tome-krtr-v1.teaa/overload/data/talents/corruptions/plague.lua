@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Virulent Disease",
-	kr_display_name = "전염성 질병",
+	kr_display_name = "악성 질병",
 	type = {"corruption/plague", 1},
 	require = corrs_req1,
 	points = 5,
@@ -55,7 +55,7 @@ newTalent{
 
 				target:setEffect(disease[1], 6, {src=self, dam=self:spellCrit(7 + self:combatTalentSpellDamage(t, 6, 65)), [disease[2]]=self:combatTalentSpellDamage(t, 5, 35), apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 질병에 걸리지 않았습니다!", target.name:capitalize())
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)
@@ -64,16 +64,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fires a bolt of pure filth, diseasing your target with a disease doing %0.2f blight damage per turns for 6 turns, and reducing one of its physical stats (strength, constitution, dexterity) by %d. The three diseases can stack.
-		Virulent Disease will always try to apply a disease the target does not currently have, and also one that will have the most debilitating effect for the target.
-		The effect will increase with your Spellpower.]]):
+		return ([[순수한 오염물질의 화살을 발사하여 6 턴 동안 대상에게 매 턴마다 %0.2f 황폐화 피해를 주고, 힘, 체격, 민첩 능력치 중 하나를 %d 감소시키는 질병에 걸리게 만듭니다.
+		질병은 3 번까지 중첩되고, 똑같은 질병이 중첩되서 걸리지는 않습니다. 또한, 대상에게 가장 중요한 능력치를 우선적으로 감소시킵니다.
+		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, 7 + self:combatTalentSpellDamage(t, 6, 65)), self:combatTalentSpellDamage(t, 5, 35))
 	end,
 }
 
 newTalent{
 	name = "Cyst Burst",
-	kr_display_name = "포낭 터뜨리기",
+	kr_display_name = "종양 터뜨리기",
 	type = {"corruption/plague", 2},
 	require = corrs_req2,
 	points = 5,
@@ -145,16 +145,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Make your target's diseases burst, doing %0.2f blight damage for each disease it is infected with.
-		This will also spread any decrepitude, weakness, rotting or epidemic diseases to any nearby foes in a radius of %d.
-		The damage will increase with your Spellpower.]]):
+		return ([[대상의 질병을 더욱 활성화시켜, 대상이 가지고 있는 질병마다 %0.2f 황폐화 피해를 줍니다.
+		또한 주변 %d 칸 반경의 적들에게 노쇠형, 심약형, 부패형, 전염형 질병들을 옮깁니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 85)), self:getTalentRadius(t))
 	end,
 }
 
 newTalent{
 	name = "Catalepsy",
-	kr_display_name = "강경증",
+	kr_display_name = "경직성 질병",
 	type = {"corruption/plague", 3},
 	require = corrs_req3,
 	points = 5,
@@ -205,7 +205,7 @@ newTalent{
 			if #diseases > 0 and target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatSpellpower()})
 			elseif #diseases > 0 then
-				game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)
@@ -217,7 +217,7 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[All your foes within a radius %d ball infected with a disease enter a cataleptic state, stunning them for %d turns and dealing %d%% of all remaining disease damage instantly.]]):
+		return ([[주변 %d 칸 반경의 적들이 근육 경직성 질병에 감염되어 %d 턴 동안 기절하고, 질병에 의해 서서히 받아야 했던 피해량의 %d%% 만큼을 한번에 받습니다.]]):
 		format(radius, duration, damage * 100)
 	end,
 }
@@ -259,7 +259,7 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(disease.id, 6, disease_spread)
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 질병을 저항했습니다!", target.name:capitalize())
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)
@@ -281,11 +281,11 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Infects the target with a very contagious disease, doing %0.2f damage per turn for 6 turns.
-		If any blight damage from non-diseases hits the target, the epidemic may activate and spread a random disease to nearby targets within a radius 2 ball.
-		Creatures suffering from that disease will also suffer healing reduction (%d%%) and diseases immunity reduction (%d%%).
-		Epidemic is an extremely potent disease; as such, it fully ignores the target's diseases immunity.
-		The damage will increase with your Spellpower, and the spread chance increases with the amount of blight damage dealt.]]):
+		return ([[대상에게 전염성이 강한 질병을 감염시켜, 6 턴 동안 매 턴마다 %0.2f 피해를 줍니다.
+		이 질병에 의한 것을 제외한 황폐화 피해를 받을 때마다, 2 칸 반경의 다른 적들에게 질병이 전염됩니다.
+		이 질병에 감염된 적들은 생명력 회복 효율이 %d%% 감소하며, 질병 저항력이 %d%% 감소합니다.
+		이 질병은 엄청나게 강력하기 때문에, 대상의 질병 저항력을 완전히 무시합니다.
+		피해량은 주문력 능력치, 전염될 확률은 대상에게 가한 황폐화 피해량의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 70)), 40 + self:getTalentLevel(t) * 4, 30 + self:getTalentLevel(t) * 6)
 	end,
 }

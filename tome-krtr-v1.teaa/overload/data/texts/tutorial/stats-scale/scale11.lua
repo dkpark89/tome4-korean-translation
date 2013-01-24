@@ -18,13 +18,13 @@
 -- darkgod@te4.org
 
 return [[
-It simply costs more to increase scores that are in higher tiers.
+간단합니다. 단계가 높아질수록, 올라가기 힘들어지는거죠.
 
-For each tier, here's the cost of increasing your score by one:
+능력치의 단계가 높아질수록, 실제 수치를 1 올리기 위해서 필요한 수치가 달라집니다.
 
-#B4B4B4#Tier 1#WHITE#: 1 point
-#FFFFFF#Tier 2#WHITE#: 2 points
-#00FF80#Tier 3#WHITE#: 3 points
-#0080FF#Tier 4#WHITE#: 4 points
-#8d55ff#Tier 5#WHITE#: 5 points
+#B4B4B4#1 단계#WHITE#: 수치 1 필요
+#FFFFFF#2 단계#WHITE#: 수치 2 필요
+#00FF80#3 단계#WHITE#: 수치 3 필요
+#0080FF#4 단계#WHITE#: 수치 4 필요
+#8d55ff#5 단계#WHITE#: 수치 5 필요
 ]]

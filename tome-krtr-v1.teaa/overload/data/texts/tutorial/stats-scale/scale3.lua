@@ -18,7 +18,10 @@
 -- darkgod@te4.org
 
 return [[
-#GOLD#Combat stat#WHITE# scores are between one and one-hundred, with special color coding applied for each interval of twenty. The colors are the same hues as those used in inventory text to indicate gear quality.
+#GOLD#전투 능력치#WHITE# 수치는 1 에서 100 까지 있습니다. 그리고 이 수치가 20 의 배수가 되면 색이 바뀌게 되죠. 이 색은 장비의 등급을 구분할 때에도 쓰입니다.
 
-These subintervals of twenty we'll call #GOLD#tiers#WHITE# from now on.
+이 20 의 배수마다 바뀌는 단위를 보통 #GOLD#티어#WHITE# 라고 부르죠. 1 티어네, 2 티어네 하는 말은 다른 게임에서도 본 적이 있으실겁니다.
+
+하지만 한글화도 한 김에, 그냥 #GOLD#티어#WHITE# 대신 #GOLD#단계#WHITE# 라고 부르기로 했습니다. 
+'1 티어' 보다는 '1 단계' 가 더 이해하기 쉽잖아요?
 ]]

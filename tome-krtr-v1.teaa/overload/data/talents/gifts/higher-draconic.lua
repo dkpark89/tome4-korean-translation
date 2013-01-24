@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Prismatic Slash",
-	kr_display_name = "무지개 난도질",
+	kr_display_name = "무지개 베기",
 	type = {"wild-gift/higher-draconic", 1},
 	require = gifts_req_high1,
 	points = 5,
@@ -89,16 +89,21 @@ newTalent{
 	info = function(self, t)
 		local burstdamage = t.getBurstDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Unleash raw, chaotic elemental damage upon your enemy.
-		You strike your enemy for %d%% weapon damage in one of blinding sand, disarming acid, freezing ice, stunning lightning or burning flames, with equal odds.
-		Additionally, you will cause a burst that deals %0.2f of that damage to enemies in radius %d, regardless of if you hit with the blow.
-		Each point in Prismatic Slash increase your Physical, Spell and Mind Saves by 1.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 2.0), burstdamage, radius)
+		return ([[적에게 순수한 원소의 힘을 발산합니다. 적에게 %d%% 무기 피해와 함께, 다양한 속성 효과를 줍니다.
+		추가적으로 주변 %d 칸 반경에 해당 속성으로 %0.2f 피해를 주며, 이 효과는 공격이 빗나가더라도 발생합니다.
+		기술 레벨을 올릴 때마다, 모든 내성이 1 증가합니다.
+		적에게 줄 수 있는 속성 효과는 다음과 같습니다.
+		- 모래바람 (물리+실명)
+		- 강산 (산성+무장 해제)
+		- 극한의 냉기 (냉기+빙결)
+		- 굉음의 번개 (전기+기절)
+		- 타오르는 화염 (화염+화상)]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 2.0), radius, burstdamage)
 	end,
 }
 
 newTalent{
 	name = "Venomous Breath",
-	kr_display_name = "중독 브레쓰",
+	kr_display_name = "독성 브레스",
 	type = {"wild-gift/higher-draconic", 2},
 	require = gifts_req_high2,
 	points = 5,
@@ -129,16 +134,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local effect = t.getEffect(self, t)
-		return ([[You breathe insidious poison in a frontal cone of radius %d. Any target caught in the area will take %0.2f nature damage each turn for 6 turns.
-		The poison also reduces the healing of enemies poisoned by %d%% while it is in effect.
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
-		Each point in Venomous Breath also increases your nature resistance by 2%%.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.NATURE, t.getDamage(self,t)/6), effect)
+		return ([[전방 %d 칸에 독성 브레스를 뿜어내, 6 턴 동안 매 턴마다 %0.2f 자연 피해를 줍니다.
+		독에 걸린 적들은 생명력 회복 효율이 %d%% 떨어지게 됩니다.
+		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 기반으로 합니다.
+		기술 레벨을 올릴 때마다, 자연 저항력이 2%% 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.NATURE, t.getDamage(self,t)/6), effect)
 	end,
 }
 
 newTalent{
 	name = "Wyrmic Guile",
-	kr_display_name = "용인의 꾀",
+	kr_display_name = "용의 교활함",
 	type = {"wild-gift/higher-draconic", 3},
 	require = gifts_req_high3,
 	points = 5,
@@ -158,15 +163,14 @@ newTalent{
 		self.knockback_immune = (self.knockback_immune or 0) - .1
 	end,
 	info = function(self, t)
-		return ([[You have the mental prowess of a Wyrm.
-		Increases Cunning by %d.
-		Each point in Wyrmic Guile also increases your knockback resistance by 10%%, and your blindness and stun resistances by 5%%.]]):format(2*self:getTalentLevelRaw(t))
+		return ([[용의 교활함을 가져, 교활함 수치가 %d 증가합니다.
+		기술 레벨을 올릴 때마다 밀어내기 저항력이 10%% 증가하며, 실명과 기절 저항력은 5%% 증가합니다.]]):format(2*self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Chromatic Fury",
-	kr_display_name = "다속성 드래곤의 분노",
+	kr_display_name = "모든 용의 분노",
 	type = {"wild-gift/higher-draconic", 4},
 	require = gifts_req_high4,
 	points = 5,
@@ -210,9 +214,9 @@ newTalent{
 		self.inc_damage[DamageType.ACID] = (self.inc_damage[DamageType.ACID] or 0) - 2
 	end,
 	info = function(self, t)
-		return ([[You have gained the full power of the multihued dragon, and your mastery over the elements is complete.
-		Increases physical, fire, cold, lightning and acid damage by %d%%, and your resistance penetration in those elements by %d%%.
-		Each point in Chromatic Fury also increases your resistances to physical, fire, cold, lightning and acid by 0.5%%.]])
+		return ([[모든 용의 힘을 얻었으며, 모든 속성의 수련을 끝마쳤습니다.
+		물리, 화염, 냉기, 전기, 산성 피해량이 %d%% 증가하며, 각 속성의 저항 관통력이 %d%% 증가합니다.
+		기술 레벨이 오를 때마다 물리, 화염, 냉기, 전기, 산성 저항력이 0.5%% 증가합니다.]])
 		:format(2*self:getTalentLevelRaw(t), 4*self:getTalentLevelRaw(t))
 	end,
 }

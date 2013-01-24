@@ -97,7 +97,6 @@ local minions_list = {
 	d_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "degenerated skeleton warrior", color=colors.WHITE, image="npc/degenerated_skeleton_warrior.png",
-		kr_display_name = "부패한 해골 전사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -127,7 +126,6 @@ local minions_list = {
 	skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton warrior", color=colors.SLATE, image="npc/skeleton_warrior.png",
-		kr_display_name = "해골 전사",
 		blood_color = colors.GREY,
 		display = "s", color=colors.SLATE,
 		combat = { dam=1, atk=1, apr=1 },
@@ -159,7 +157,6 @@ local minions_list = {
 	a_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "armoured skeleton warrior", color=colors.STEEL_BLUE, image="npc/armored_skeleton_warrior.png",
-		kr_display_name = "중무장한 해골 전사",
 		blood_color = colors.GREY,
 		display = "s", color=colors.STEEL_BLUE,
 		combat = { dam=1, atk=1, apr=1 },
@@ -198,7 +195,6 @@ local minions_list = {
 	skel_archer = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton archer", color=colors.UMBER, image="npc/skeleton_archer.png",
-		kr_display_name = "해골 궁수",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -231,7 +227,6 @@ local minions_list = {
 	skel_m_archer = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton master archer", color=colors.LIGHT_UMBER, image="npc/master_skeleton_archer.png",
-		kr_display_name = "상급 해골 궁수",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -265,7 +260,6 @@ local minions_list = {
 	skel_mage = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton mage", color=colors.LIGHT_RED, image="npc/skeleton_mage.png",
-		kr_display_name = "해골 마법사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -315,7 +309,6 @@ local minions_list = {
 		see_invisible = 2,
 		undead = 1,
 		name = "ghoul", color=colors.TAN,
-		kr_display_name = "구울",
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 2, combat_def = 7,
 		resolvers.talents{
@@ -344,7 +337,6 @@ local minions_list = {
 		see_invisible = 2,
 		undead = 1,
 		name = "ghast", color=colors.UMBER,
-		kr_display_name = "가스트",
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 2, combat_def = 7,
 		resolvers.talents{
@@ -373,7 +365,6 @@ local minions_list = {
 		see_invisible = 2,
 		undead = 1,
 		name = "ghoulking", color={0,0,0},
-		kr_display_name = "구울 왕",
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 3, combat_def = 10,
 		ai_state = { talent_in=2, ai_pause=20 },
@@ -411,7 +402,6 @@ local minions_list = {
 		see_invisible = 5,
 		undead = 1,
 		name = "vampire", color=colors.SLATE, image = "npc/vampire.png",
-		kr_display_name = "흡혈귀",
 		desc=[[사악한 기운이 감도는 인간형 언데드입니다. 날카로운 송곳니가 보입니다.]],
 		max_life = resolvers.rngavg(70,80),
 		combat_armor = 9, combat_def = 6,
@@ -439,7 +429,6 @@ local minions_list = {
 		see_invisible = 5,
 		undead = 1,
 		name = "master vampire", color=colors.GREEN, image = "npc/master_vampire.png",
-		kr_display_name = "흡혈귀 귀족",
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/master_vampire.png", display_h=2, display_y=-1}}},
 		desc=[[로브를 걸친 인간형 언데드입니다. 몸에서 사악한 기운이 흐르고 있습니다.]],
 		max_life = resolvers.rngavg(80,90),
@@ -467,7 +456,6 @@ local minions_list = {
 		see_invisible = 7,
 		undead = 1,
 		name = "grave wight", color=colors.SLATE, image="npc/grave_wight.png",
-		kr_display_name = "묘지 와이트",
 		desc=[[눈에 증오의 기운을 품은 유령입니다.]],
 		max_life = resolvers.rngavg(70,80),
 		combat_armor = 9, combat_def = 6,
@@ -495,7 +483,6 @@ local minions_list = {
 		see_invisible = 7,
 		undead = 1,
 		name = "barrow wight", color=colors.LIGHT_RED, image="npc/barrow_wight.png",
-		kr_display_name = "무덤 와이트",
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/barrow_wight.png", display_h=2, display_y=-1}}},
 		desc=[[악몽이 실체화되어 나타난, 끔찍한 언데드입니다.]],
 		max_life = resolvers.rngavg(80,90),
@@ -531,7 +518,6 @@ local minions_list = {
 		undead = 1,
 		resolvers.sustains_at_birth(),
 		name = "dread", color=colors.ORANGE, image="npc/dread.png",
-		kr_display_name = "드레드",
 		desc = [[보는 것만으로도 비명이 나올 정도의 끔찍한 존재입니다. 죽음의 화신이자, 그 흉물스러운 검은색 육신은 마치 이 세계의 의지에 반하여 존재하는 것 같습니다.]],
 		level_range = {1, nil}, exp_worth = 0,
 		max_life = resolvers.rngavg(90,100),
@@ -582,7 +568,6 @@ local minions_list = {
 		combat_spellcrit = resolvers.mbonus(5, 5),
 		resolvers.sustains_at_birth(),
 		name = "lich", color=colors.DARK_BLUE,
-		kr_display_name = "리치",
 		desc=[[영원한 삶의 방법을 발견하였지만, 그 대가로 삶의 즐거움을 잃어버린 존재입니다. 이제 이들이 찾아다니는 것은 무한한 파괴 뿐입니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_lich.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
@@ -753,7 +738,7 @@ newTalent{
 		언데드 추종자는 사령술의 기운이 깃든 범위 내에서만 일으킬 수 있습니다.
 		언데드 추종자의 레벨은 시전자의 %+d 입니다.
 		생성될 언데드 추종자의 확률은 다음과 같습니다 :
-		부패한 해골 전사 : %d%%
+		부패된 해골 전사 : %d%%
 		해골 전사 : %d%%
 		중무장한 해골 전사: %d%%
 		해골 궁수 : %d%%
@@ -769,7 +754,7 @@ newTalent{
 
 newTalent{
 	name = "Aura Mastery",
-	kr_display_name = "사령술의 기운 숙련",
+	kr_display_name = "사령술의 기운 수련",
 	type = {"spell/necrotic-minions",2},
 	require = spells_req2,
 	points = 5,

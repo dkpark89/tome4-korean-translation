@@ -18,10 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-The next three important #GOLD#combat stats#WHITE#:
+두 번째로 다룰 중요한 #GOLD#전투 능력치#WHITE# 는...
 
-#LIGHT_GREEN#Physical save: #WHITE#Your ability to shrug off physical effects.
-#LIGHT_GREEN#Spell save: #WHITE#Your ability to shrug off magical effects.
-#LIGHT_GREEN#Mental save: #WHITE#Your ability to shrug off mental effects.
-
+#LIGHT_GREEN#물리 내성#WHITE# : 물리적 상태효과를 저항하는 능력입니다.
+#LIGHT_GREEN#주문 내성#WHITE# : 마법적 상태효과를 저항하는 능력입니다.
+#LIGHT_GREEN#정신 내성#WHITE# : 정신적 상태효과를 저항하는 능력입니다.
 ]]

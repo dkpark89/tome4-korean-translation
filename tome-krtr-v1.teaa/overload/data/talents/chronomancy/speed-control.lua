@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Celerity",
-	kr_display_name = "기민함",
+	kr_display_name = "민첩",
 	type = {"chronomancy/speed-control", 1},
 	require = chrono_req1,
 	points = 5,
@@ -32,14 +32,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = self:getTalentLevelRaw(t) * 10
-		return ([[Increases your movement speed by %d%%, and switching between already equipped weapon sets (default hotkey q) no longer takes a turn.]]):
+		return ([[이동 속도를 %d%% 증가시키고, 보조 장비로 교체할 때 시간 소모가 되지 않게 됩니다. (기본 단축키 : q)]]):
 		format(power)
 	end,
 }
 
 newTalent{
 	name = "Stop",
-	kr_display_name = "멈추기",
+	kr_display_name = "정지",
 	type = {"chronomancy/speed-control",2},
 	require = chrono_req2,
 	points = 5,
@@ -74,8 +74,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[Inflicts %0.2f temporal damage, and attempts to stun all creatures in a radius %d ball for %d turns.
-		The stun duration will scale with your Paradox, and the damage will scale with your Paradox and Spellpower.]]):
+		return ([[주변 %d 칸 반경의 모든 적들에게 %0.2f 시간 피해를 주고, %d 턴 동안 기절시킵니다.
+		기절 지속시간은 괴리 수치, 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damage, radius, duration)
 	end,
 }
@@ -124,8 +124,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[Creates a time distortion in a radius of %d that lasts for %d turns, decreasing global speed by %d%% for 3 turns and inflicting %0.2f temporal damage each turn to all targets within the area.
-		The slow effect and damage dealt will scale with your Paradox and Spellpower.]]):
+		return ([[주변 %d 칸 반경의 시간을 %d 턴 동안 왜곡시켜, 적들의 전체 속도를 3 턴 동안 %d%% 감소시키고 %0.2f 시간 피해를 줍니다.
+		감속 효과와 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, duration, 100 * slow, damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }
@@ -153,7 +153,7 @@ newTalent{
 			type = "figment", subtype = "temporal",
 			display = "@", color=colors.LIGHT_STEEL_BLUE,
 			name = "Afterimage", faction = self.faction, image = "npc/undead_ghost_kor_s_fury.png",
-			desc = [[An afterimage created by someone using the Haste spell.]],
+			desc = [[누군가 사용한 가속 주문에 의해 만들어진 잔상입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented", ai_state = { talent_in=1, },
 			level_range = {1, 1}, exp_worth = 0,
@@ -185,7 +185,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[Increases your global speed by %d%% for the next 4 game turns.  Each time you move with this effect active, you'll leave behind an image of yourself for two turns that may draw enemy attacks.
-		The speed increase will scale with your Paradox and Spellpower.]]):format(100 * power)
+		return ([[게임 상에서의 4 턴 동안, 전체 속도가 %d%% 상승하게 됩니다. 가속 상태에서 이동할 때마다, 지나간 자리에 자신의 잔상이 2 턴 동안 남아 적의 공격을 받아냅니다.
+		속도 증가량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(100 * power)
 	end,
 }

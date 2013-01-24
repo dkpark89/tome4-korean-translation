@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
-
 local Map = require "engine.Map"
 
 newTalent{
@@ -61,7 +59,7 @@ newTalent{
 			if target:canBe("confusion") then
 				target:setEffect(target.EFF_CONFUSED, t.getDuration(self, t), {power=30 + self:getDex(70), apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s 박치기에 맞고도 멀쩡합니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 박치기에 맞고도 멀쩡합니다!", target.name:capitalize())
 			end
 			if target:attr("dead") then
 				world:gainAchievement("HEADBANG", self, target)

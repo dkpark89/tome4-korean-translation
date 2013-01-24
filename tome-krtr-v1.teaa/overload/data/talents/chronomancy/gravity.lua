@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Repulsion Blast",
-	kr_display_name = "반발의 돌풍",
+	kr_display_name = "반발력 돌풍",
 	type = {"chronomancy/gravity",1},
 	require = chrono_req1,
 	points = 5,
@@ -48,9 +48,10 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Sends out a blast wave of gravity in a %d radius cone, dealing %0.2f physical damage and knocking back creatures caught in the area.  This deals 50%% extra damage to pinned targets, in addition to the knockback.
-		The blast wave may hit targets more then once, depending on the radius and the knockback effect.
-		The damage will scale with your Paradox and Spellpower.]]):
+		return ([[전방 %d 칸 반경에 중력 파동을 만들어내 %0.2f 물리 피해를 주고, 적을 밀어냅니다.
+		속박된 적에게는 50%% 추가 피해를 주며, 더 멀리 밀어냅니다.
+		이 돌풍은 돌풍이 일어나는 반경과 밀어내는 효과에 따라, 하나의 적을 여러 번 공격할 수도 있습니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }
@@ -86,7 +87,7 @@ newTalent{
 			local tx, ty = util.findFreeGrid(x, y, 5, true, {[Map.ACTOR]=true})
 			if tx and ty and target:canBe("knockback") then
 				target:move(tx, ty, true)
-				game.logSeen(target, "%s is drawn in by the gravity spike!", target.name:capitalize())
+				game.logSeen(target, "%s 중력 가시에 끌려들어갑니다!", target.name:capitalize())
 			end
 		end)
 		self:project (tg, x, y, DamageType.GRAVITY, self:spellCrit(t.getDamage(self, t)))
@@ -98,8 +99,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Creates a gravity spike in a radius of %d that moves all targets towards the spells center and inflicts %0.2f physical damage.  This deals 50%% extra damage to pinned targets, in addition to the knockback.
-		The damage dealt will scale with your Paradox and Spellpower.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
+		return ([[주변 %d 칸 반경의 모든 적들을 끌어들이며 %0.2f 물리 피해를 주는 중력 가시를 만들어냅니다.
+		속박된 적에게는 50%% 추가 피해를 주며, 밀려나는 효과가 추가됩니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }
 
@@ -145,15 +147,16 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[You surround yourself with a radius %d distortion of gravity, knocking back and dealing %0.2f physical damage to all creatures inside it.  The effect lasts %d turns.  Deals 50%% extra damage to pinned targets, in addition to the knockback.
-		The blast wave may hit targets more then once, depending on the radius and the knockback effect.
-		The damage will scale with your Paradox and Spellpower.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
+		return ([[주변 %d 칸 반경에 중력을 왜곡시키는 역장을 만들어내, 적들을 밀어내고 %0.2f 물리 피해를 줍니다.
+		속박된 적에게는 50%% 추가 피해를 주며, 더 멀리 밀어냅니다.
+		이 역장은 역장 반경과 밀어내는 효과에 따라, 하나의 적을 여러 번 공격할 수도 있습니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 
 newTalent{
 	name = "Gravity Well",
-	kr_display_name = "중력 장벽",
+	kr_display_name = "중력의 근원",
 	type = {"chronomancy/gravity", 4},
 	require = chrono_req4,
 	points = 5,
@@ -196,7 +199,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Increases local gravity of an area, doing %0.2f physical damage with a chance to pin in a radius of %d each turn for %d turns.
-		The damage done will scale with your Paradox and Spellpower.]]):format(damDesc(self, DamageType.PHYSICAL, damage), radius, duration)
+		return ([[주변 %d 칸 반경의 중력을 끌어올려, %0.2f 물리 피해를 줍니다. 피해를 받은 적은 %d 턴 동안 속박될 확률이 있습니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }

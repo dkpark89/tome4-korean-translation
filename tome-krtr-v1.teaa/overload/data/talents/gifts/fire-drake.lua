@@ -19,12 +19,12 @@
 
 newTalent{
 	name = "Bellowing Roar",
-	kr_display_name = "으르렁거리기",
+	kr_display_name = "포효",
 	type = {"wild-gift/fire-drake", 1},
 	require = gifts_req1,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ roars!",
+	message = "@Source@ 포효합니다!",
 	equilibrium = 3,
 	cooldown = 20,
 	range = 0,
@@ -50,16 +50,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[You let out a powerful roar that sends your foes into utter confusion for 3 turns in a radius of %d.
-		The sound wave is so strong, your foes also take %0.2f physical damage.
-		The damage improves with your Strength.
-		Each point in fire drake talents also increases your fire resistance by 1%%.]]):format(radius, self:combatTalentStatDamage(t, "str", 40, 400))
+		return ([[주변 %d 칸 반경의 적들에게 포효를 내질러, 3 턴 동안 혼란 상태로 만듭니다.
+		소리가 엄청나게 크기 때문에, 적들은 %0.2f 물리 피해를 추가로 입게 됩니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.
+		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(radius, self:combatTalentStatDamage(t, "str", 40, 400))
 	end,
 }
 
 newTalent{
 	name = "Wing Buffet",
-	kr_display_name = "날개더미",
+	kr_display_name = "바람의 뷔페",
 	type = {"wild-gift/fire-drake", 2},
 	require = gifts_req2,
 	points = 5,
@@ -87,15 +87,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You summon a powerful gust of wind, knocking back your foes within a radius of %d up to 4 tiles away and damaging them for %d.
-		The damage will increase with your Strength.
-		Each point in fire drake talents also increases your fire resistance by 1%%.]]):format(self:getTalentRadius(t), self:combatTalentStatDamage(t, "str", 15, 90))
+		return ([[강력한 바람을 불러내, 주변 %d 칸 반경의 적들을 4 칸 밀어내고 %d 피해를 줍니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.
+		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), self:combatTalentStatDamage(t, "str", 15, 90))
 	end,
 }
 
 newTalent{
 	name = "Devouring Flame",
-	kr_display_name = "불꽃의 구름",
+	kr_display_name = "집어삼키는 화염",
 	type = {"wild-gift/fire-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -142,22 +142,22 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[Spit a cloud of flames, doing %0.2f fire damage in a radius of %d each turn for %d turns.
-		The damage will increase with your Willpower, and can critical.
-		Each point in fire drake talents also increases your fire resistance by 1%%.]]):format(damDesc(self, DamageType.FIRE, dam), radius, duration)
+		return ([[불의 구름을 뿜어내, 주변 %d 칸 반경의 적들에게 %0.2f 화염 피해를 %d 턴 동안 줍니다.
+		피해량은 의지 능력치의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.
+		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(damDesc(self, DamageType.FIRE, dam), radius, duration)
 	end,
 }
 
 newTalent{
 	name = "Fire Breath",
-	kr_display_name = "화염 브레쓰",
+	kr_display_name = "화염 브레스",
 	type = {"wild-gift/fire-drake", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes fire!",
+	message = "@Source@ 화염을 뿜어냅니다!",
 	tactical = { ATTACKAREA = { FIRE = 2 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,
@@ -178,8 +178,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You breathe fire in a frontal cone of radius %d. Any target caught in the area will take %0.2f fire damage over 3 turns.
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
-		Each point in fire drake talents also increases your fire resistance by 1%%.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, self:combatTalentStatDamage(t, "str", 30, 550)))
+		return ([[전방 %d 칸 반경에 화염 브레스를 뿜어내, 3 턴 동안 %0.2f 화염 피해를 줍니다.
+		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 따릅니다.
+		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, self:combatTalentStatDamage(t, "str", 30, 550)))
 	end,
 }

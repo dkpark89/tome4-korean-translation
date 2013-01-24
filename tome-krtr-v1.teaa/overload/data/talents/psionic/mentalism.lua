@@ -53,8 +53,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local max = t.getPsychometryCap(self, t)
-		return ([[Resonate with psionic, nature, and anti-magic powered objects, increasing your physical and mind power by %0.2f or half the objects' material level (whichever is lower).
-		This effect stacks and applies for each qualifying object worn.]]):format(max)
+		return ([[염력, 자연의 힘, 반마법 속성의 무기와 공명하여, 물리력과 정신력이 %0.2f 혹은 장비 등급의 절반만큼 상승합니다. (둘 중 낮은 쪽이 적용됩니다)
+		이 효과는 모든 종류의 장비에 적용되며, 누적됩니다.]]):format(max)
 	end,
 }
 
@@ -104,14 +104,14 @@ newTalent{
 			self:setEffect(self.EFF_CLEAR_MIND, 6, {power=count})
 		end
 		
-		game.logSeen(self, "%s's mind is clear!", self.name:capitalize())
+		game.logSeen(self, "%s 마음이 정화되었습니다!", self.name:capitalize())
 		game:playSoundNear(self, "talents/heal")
 		return true
 	end,
 	info = function(self, t)
 		local count = t.getRemoveCount(self, t)
-		return ([[Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.
-		This talent takes no time to use.]]):format(count)
+		return ([[마음을 정화하여 최대 %d 개의 정신 상태효과를 제거하고, 6 턴 동안 하나의 정신 상태효과를 추가로 막습니다.
+		이 기술은 턴 소모 없이 사용할 수 있습니다.]]):format(count)
 	end,
 }
 
@@ -130,7 +130,7 @@ newTalent{
 		if self:attr("is_psychic_projection") then return true end
 		local x, y = util.findFreeGrid(self.x, self.y, 1, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to invoke your spirit!")
+			game.logPlayer(self, "마음을 형상화할 공간이 부족합니다!")
 			return
 		end
 		
@@ -143,7 +143,7 @@ newTalent{
 			ai = "summoned", ai_real = "tactical",
 			subtype = "ghost", is_psychic_projection = 1,
 			name = "Projection of "..self.name,
-			desc = [[A ghostly figure.]],
+			desc = [[꼭 유령과 같은 모습입니다.]],
 		}
 		m:removeAllMOs()
 		m.make_escort = nil
@@ -233,9 +233,9 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.
-		All damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)
-		To return to your body, simply release control of the projection.]]):format(duration, power/2, power)
+		return ([[%d 턴 동안 정신을 형상화하여, 일종의 유체이탈을 합니다. 지속시간 동안 투명해지며 (투명 수치 +%d), 은신 감지와 투명체 감지력이 %d 증가합니다. 또한 벽을 넘어다닐 수 있게 되며, 호흡이 불필요해지게 됩니다.
+		형상화된 정신이 받는 모든 피해는 육신과 나눠받게 되며, 오직 '유령' 형태의 적만 공격할 수 있습니다. (단, 정신 연결이 걸린 적에게는 정신 속성 공격을 할 수 있습니다)
+		육신으로 돌아가려면, 통제의 주도권을 육신에게 넘겨주면 됩니다.]]):format(duration, power/2, power)
 	end,
 }
 
@@ -295,8 +295,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getBonusDamage(self, t)
 		local range = self:getTalentRange(t) * 2
-		return ([[Link minds with the target.  While your minds are linked, you'll inflict %d%% more mind damage to the target and gain telepathy for its creature type.
-		Only one mindlink can be maintained at a time, and the effect will break if the target dies or goes beyond range (%d)).
-		The mind damage bonus will scale with your Mindpower.]]):format(damage, range)
+		return ([[대상과 정신을 공유합니다. 정신이 공유된 동안 대상에게 %d%% 정신 피해를 더 줄 수 있게 되며, 대상의 종족에 대한 텔레파시 능력을 얻을 수 있게 됩니다.
+		한번에 하나의 대상만 정신을 공유할 수 있으며, 대상이 사망하거나 %d 칸 이상 멀어지면 공유가 중지됩니다.
+		정신 피해 증가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damage, range)
 	end,
 }

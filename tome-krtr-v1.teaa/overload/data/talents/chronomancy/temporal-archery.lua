@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Phase Shot",
-	kr_display_name = "동조 사격",
+	kr_display_name = "시공의 사격",
 	type = {"chronomancy/temporal-archery", 1},
 	require = temporal_req1,
 	points = 5,
@@ -28,7 +28,7 @@ newTalent{
 	no_energy = "fake",
 	range = 10,
 	tactical = { ATTACK = {TEMPORAL = 2} },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	requires_target = true,
 	action = function(self, t)
 		local tg = {type="bolt"}
@@ -39,8 +39,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local weapon = 100 * (self:combatTalentWeaponDamage(t, 1.1, 1.9) * getParadoxModifier(self, pm))
-		return ([[You fire a shot that phases out of time and space allowing it to virtually ignore armor.  The shot will deal %d%% weapon damage as temporal damage to its target.
-		The damage will scale with your Paradox.]]):
+		return ([[시공간을 관통하는 화살이나 탄환을 발사하여, 대상에게 시간 속성으로 %d%% 무기 피해를 줍니다.
+		피해량은 괴리 수치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, weapon))
 	end
 }
@@ -56,7 +56,7 @@ newTalent{
 	no_energy = "fake",
 	range = 10,
 	tactical = { ATTACK = {PHYSICAL = 2} },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	requires_target = true,
 	action = function(self, t)
 		local tg = {type="bolt"}
@@ -68,15 +68,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local weapon = 100 * (self:combatTalentWeaponDamage(t, 1.1, 1.9) * getParadoxModifier(self, pm))
-		return ([[You focus your aim and fire a shot with great accuracy, inflicting %d%% weapon damage.  Afterwords your attack will remain improved for one turn as the chronomantic effects linger.
-		The damage will scale with your Paradox.]])
+		return ([[사격할 때 조준에 집중하여, 높은 정확도로 %d%% 무기 피해를 줍니다. 사격한 후, 1 턴 동안 시공 계열의 효과를 남깁니다. (Afterwords your attack will remain improved for one turn as the chronomantic effects linger.)
+		피해량은 괴리 수치의 영향을 받아 증가합니다.]])
 		:format(weapon)
 	end,
 }
 
 newTalent{
 	name = "Perfect Aim",
-	kr_display_name = "완벽한 사격",
+	kr_display_name = "완벽한 조준",
 	type = {"chronomancy/temporal-archery", 3},
 	require = temporal_req3,
 	mode = "sustained",
@@ -102,8 +102,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[You focus your aim, increasing your critical damage multiplier by %d%% and your physical and spell critical strike chance by %d%%
-		The effect will scale with your Magic stat.]]):format(power, power / 2)
+		return ([[사격할 때 조준에 집중하여, 치명타 배율을 %d%% 늘리고 물리 치명타율과 마법 치명타율을 %d%% 늘립니다.
+		이 효과는 마법 능력치의 영향을 받아 증가합니다.]]):format(power, power / 2)
 	end,
 }
 
@@ -118,7 +118,7 @@ newTalent{
 	no_energy = true,
 	range = 10,
 	tactical = { ATTACK = {PHYSICAL = 2} },
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	requires_target = true,
 	action = function(self, t)
 		local old = self.energy.value
@@ -130,7 +130,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local weapon = 100 * (self:combatTalentWeaponDamage(t, 1, 1.5) * getParadoxModifier(self, pm))
-		return ([[You pause time around you long enough to fire a single shot, doing %d%% damage.
-		The damage will scale with your Paradox and the cooldown will go down with more talent points invested.]]):format(weapon)
+		return ([[주변의 시간을 멈추고 한 발을 사격하여, %d%% 피해를 줍니다.
+		피해량은 괴리 수치의 영향을 받아 증가하며, 기술 레벨이 올라가면 재사용 대기시간이 줄어듭니다.]]):format(weapon)
 	end,
 }

@@ -24,7 +24,7 @@
 
 newTalent{
 	name = "Mindlash",
-	kr_display_name = "정신 채찍",
+	kr_display_name = "염력 채찍",
 	type = {"psionic/focus", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -100,8 +100,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Focus energies on a distant target to lash it with physical force, doing %d damage in addition to any Conduit damage.
-		Mindslayers do not do this sort of ranged attack naturally. The use of a telekinetically-wielded gem or mindstar as a focus will improve the effects considerably.]]):
+		return ([[근처의 대상에게 염력 채찍을 휘둘러, %d 피해를 줍니다. 염력의 통로가 활성화 되었을 경우 채찍에 오러를 실어 추가 피해를 줍니다.
+		정신 파괴자가 이 기술을 쓰기 위해서는 집중이 필요하며, 염동력으로 보석이나 마석을 들고 있을 경우 특수한 효과들이 추가됩니다.]]):
 		format(dam)
 	end,
 }
@@ -144,8 +144,8 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local dam = t.getDamage(self, t)
-		return ([[Kinetically vibrate the essence of all foes within %d squares, setting them ablaze. Does %d damage over ten turns.
-		Mindslayers do not do this sort of ranged attack naturally. The use of a telekinetically-wielded gem or mindstar as a focus will improve the effects considerably.]]):
+		return ([[염력으로 불을 붙여, 주변 %d 칸 반경의 적들에게 10 턴에 걸쳐 총 %d 화염 피해를 줍니다.
+		정신 파괴자가 이 기술을 쓰기 위해서는 집중이 필요하며, 염동력으로 보석이나 마석을 들고 있을 경우 특수한 효과들이 추가됩니다.]]):
 		format(radius, dam)
 	end,
 }
@@ -159,21 +159,23 @@ newTalent{
 	points = 5,
 	info = function(self, t)
 		local inc = 2*self:getTalentLevel(t)
-		return ([[You can extend your mental reach beyond your natural limits using a telekinetically-wielded gemstone or mindstar as a focus. Increases the range of various abilities by %d%% to %d%%, depending on the quality of the gem used as a focus.]]):
+		return ([[보석이나 마석을 통해, 정신력이 미치는 범위를 넓힙니다. 정신력을 사용하는 기술들의 사정거리가 %d%% - %d%% 증가합니다. 
+		염동력으로 들고 있는 보석이나 마석의 수준에 따라 기술의 효과가 달라집니다.]]):
 		format(inc, 5*inc)
 	end,
 }
 
 newTalent{
 	name = "Focused Channeling",
-	kr_display_name = "집중된 전달",
+	kr_display_name = "염력 집중",
 	type = {"psionic/focus", 4},
 	require = psi_wil_req4,
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
 		local inc = 1 + 0.15*self:getTalentLevel(t)
-		return ([[You can channel more energy with your auras and shields, using a telekinetically-wielded gemstone or mindstar as a focus. Increases the base strength of all auras and shields by %0.2f to %0.2f, depending on the quality of the gem or mindstar used as a focus.]]):
+		return ([[염력으로 들고 있는 보석이나 마석을 통해, 오러나 보호막의 피해량을 %0.2f - %0.2f 만큼 증가시킵니다.
+		염동력으로 들고 있는 보석이나 마석의 수준에 따라 기술의 효과가 달라집니다.]]):
 		format(inc, 5*inc)
 	end,
 }

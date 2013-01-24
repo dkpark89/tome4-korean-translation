@@ -42,8 +42,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Conjures up a spear of bones, doing %0.2f physical damage to all targets in line.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 20, 200)))
+		return ([[뼈로 창을 만들어, 궤도 상의 모든 적들에게 %0.2f 물리 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 20, 200)))
 	end,
 }
 
@@ -75,7 +75,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, math.floor(3 + self:getTalentLevel(t)), {apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s resists the bone!", target.name:capitalize())
+				game.logSeen(target, "%s 뼈의 속박을 저항했습니다!", target.name:capitalize())
 			end
 		end)
 		game:playSoundNear(self, "talents/arcane")
@@ -83,16 +83,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Grab a target and teleport it to your side, pinning it there with a bone rising from the ground for %d turns.
-		The bone will also deal %0.2f physical damage.
-		The damage will increase with your Spellpower.]]):
+		return ([[대상을 붙잡아 시전자의 근처로 순간이동시킨 뒤, 발 밑에 뼈를 솟아나오게 하여 대상을 %d 턴 동안 속박하고 %0.2f 물리 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(math.floor(3 + self:getTalentLevel(t)), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 5, 140)))
 	end,
 }
 
 newTalent{
 	name = "Bone Nova",
-	kr_display_name = "뼈의 산란",
+	kr_display_name = "뼈의 파동",
 	type = {"corruption/bone", 3},
 	require = corrs_req3,
 	points = 5,
@@ -113,8 +112,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fire bone spears in all directions, hitting all foes within radius %d for %0.2f physical damage.
-		The damage will increase with your Spellpower.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 8, 180)))
+		return ([[뼈의 창을 모든 방향에 동시에 발사하여, 주변 %d 칸 반경의 적들에게 %0.2f 물리 피해를 줍니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 8, 180)))
 	end,
 }
 
@@ -130,7 +129,7 @@ newTalent{
 	tactical = { DEFEND = 4 },
 	direct_hit = true,
 	absorb = function(self, t, p)
-		game.logPlayer(self, "Your bone shield absorbs the damage!")
+		game.logPlayer(self, "뼈의 방패가 피해를 흡수했습니다!")
 		game:onTickEnd(function() -- Happens on tick end to avoid problems
 			local pid = table.remove(p.particles)
 			if pid then self:removeParticles(pid) end
@@ -155,8 +154,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Bone shields start circling around you. They will each fully absorb one attack.
-		%d shield(s) will be generated.]]):
+		return ([[뼈의 방패가 시전자 주변을 돌면서, 공격을 완전히 막아냅니다.
+		공격을 막아낼 때마다 뼈의 방패는 사라지며, 한번에 %d 개의 방패가 생겨납니다.]]):
 		format(math.ceil(self:getTalentLevel(t)))
 	end,
 }

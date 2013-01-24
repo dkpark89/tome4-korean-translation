@@ -28,7 +28,7 @@ end
 
 newTalent{
 	name = "Tactical Expert",
-	kr_display_name = "전술적 달인",
+	kr_display_name = "전술의 달인",
 	type = {"cunning/tactical", 1},
 	require = cuns_req1,
 	mode = "passive",
@@ -56,8 +56,8 @@ newTalent{
 	info = function(self, t)
 		local defense = t.getDefense(self, t)
 		local maximum = t.getMaximum(self, t)
-		return ([[Your Defense is increased by %d for every adjacent visible foe, up to a maximum of +%d Defense.
-		The Defense increase per enemy and maximum Defense bonus will scale with your Cunning.]]):format(defense, maximum)
+		return ([[인접한 적의 숫자에 따라 회피도가 상승합니다. 적 1 명 당 회피도가 %d 상승합니다. (최대 회피도 : +%d)
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):format(defense, maximum)
 	end,
 }
 
@@ -71,16 +71,16 @@ newTalent{
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.5, 0.9) + getStrikingStyle(self, dam) end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[When you avoid a melee blow, you have a %d%% chance to get a free, automatic attack against your foe for %d%% damage.
-		Unarmed fighters using it do consider it a strike for the purpose of stance damage bonuses (if they have any), and will have a damage bonus as a result.
-		Armed fighters get a normal physical.
-		The chance of countering increases with your Cunning.]]):format(self:getTalentLevel(t) * (5 + self:getCun(5, true)), damage)
+		return ([[근접 공격을 피할 때마다, %d%% 확률로 자신을 공격한 적에게 %d%% 피해를 줍니다.
+		이 공격은 자동적으로 발생하며, 턴을 소모하지 않습니다.
+		맨손 격투가일 경우, 취하고 있는 자세에 따라 적에게 추가 피해를 줄 수 있습니다.
+		반격 확률은 교활함 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentLevel(t) * (5 + self:getCun(5, true)), damage)
 	end,
 }
 
 newTalent{
 	name = "Set Up",
-	kr_display_name = "몸가짐",
+	kr_display_name = "흐트러진 자세",
 	type = {"cunning/tactical", 3},
 	require = cuns_req3,
 	points = 5,
@@ -99,15 +99,15 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
 		local defense = t.getDefense(self, t)
-		return ([[Increases Defense by %d for %d turns.  When you avoid a melee blow, you set the target up, increasing the chance of you landing a critical strike on them by %d%% and reducing their saving throws by %d.
-		The effects will scale with your Cunning.]])
-		:format(defense, duration, power, power)
+		return ([[%d 턴 동안 회피도를 %d 상승시킵니다. 그리고 근접 공격을 피할 때마다, 자신을 공격한 적에게 치명타를 가할 확률이 %d%% 상승하며 적의 내성을 %d 감소시킵니다.
+		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]])
+		:format(duration, defense, power, power)
 	end,
 }
 
 newTalent{
 	name = "Exploit Weakness",
-	kr_display_name = "약점 이용",
+	kr_display_name = "약점 노출",
 	type = {"cunning/tactical", 4},
 	require = cuns_req4,
 	mode = "sustained",
@@ -130,7 +130,6 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getReductionMax(self, t)
-		return ([[Systematically find the weaknesses in your opponents' physical resists, at the cost of 10%% of your physical damage.  Each time you hit an opponent with a melee attack, you reduce their physical resistance by 5%%, up to a maximum of %d%%.
-		]]):format(reduction)
+		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 감소량 : %d%%)]]):format(reduction)
 	end,
 }

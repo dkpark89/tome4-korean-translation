@@ -46,9 +46,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[방패에 빛의 힘을 불어넣어, 피해를 받을 때마다 양기를 2점 소모하여 생명력을 %0.2f 만큼 회복합니다.
-		양기가 부족하면 이 효과는 발동되지 않습니다.
-		치유량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[방패에 빛의 힘을 불어넣어, 피해를 받을 때마다 양기를 2 소모하여 생명력을 %0.2f 회복합니다.
+		양기가 부족하면, 이 효과는 발동되지 않습니다.
+		치유량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,
 }
@@ -103,15 +103,15 @@ newTalent{
 		local shielddamage = t.getShieldDamage(self, t)
 		local lightdamage = t.getLightDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[대상을 무기로 공격하여 %d%% 의 무기 피해를 준 뒤, 방패로 쳐서 %d%% 의 방패 피해를 줍니다. 방패 공격이 적중됐을 경우에, 찬란한 빛이 분출되어 %0.2f 의 빛 피해를 %d 칸 반경 내의 적들에게 주고 어두운 곳을 밝힙니다.
-		빛 피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[대상을 무기로 공격하여 %d%% 무기 피해를 준 뒤, 방패로 쳐서 %d%% 방패 피해를 줍니다. 방패 공격이 적중하면, 찬란한 빛이 뿜어져나와 %0.2f 빛 피해를 주변 %d 칸 반경에 있는 적들에게 주고, 어두운 곳을 밝힙니다.
+		빛 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * weapondamage, 100 * shielddamage, damDesc(self, DamageType.LIGHT, lightdamage), radius)
 	end,
 }
 
 newTalent{
 	name = "Retribution",
-	kr_display_name = "응보",
+	kr_display_name = "심판",
 	type = {"celestial/guardian", 3},
 	require = divi_req_high3, no_sustain_autoreset = true,
 	points = 5,
@@ -124,7 +124,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 응보를 사용할 수 없습니다!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 심판을 사용할 수 없습니다!")
 			return nil
 		end
 		local power = t.getDamage(self, t)
@@ -143,8 +143,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[당신이 받는 피해량의 절반을 흡수합니다. 응보로 %0.2f 의 피해를 흡수했을 때, 방패에서 찬란한 빛이 분출되어 %d 칸 반경에 흡수했던 피해량과 동일한 피해를 적들에게 준 뒤, 기술이 해제됩니다.
-		흡수량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		return ([[적에게 받는 피해량의 절반을 흡수합니다. %0.2f 피해를 흡수하면, 방패에서 찬란한 빛이 뿜어져나와 주변 %d 칸 반경에 흡수했던 피해량과 동일한 피해를 주고 기술이 해제됩니다.
+		흡수량은 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damage, self:getTalentRange(t))
 	end,
 }
@@ -172,7 +172,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격을 받아 당신의 생명력이 1 밑으로 떨어지게 되면, 두번째 생명이 발동되어 기술 유지가 해제되고 %d 의 생명력을 가지게 됩니다.]]):
+		return ([[공격을 받아 생명력이 1 밑으로 떨어지게 되면, 두번째 생명이 발동되어 기술 유지가 해제되고 생명력이 %d 인 상태가 됩니다.]]):
 		format(t.getLife(self, t))
 	end,
 }

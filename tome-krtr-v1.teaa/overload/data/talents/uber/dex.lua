@@ -27,18 +27,18 @@ uberTalent{
 	on_unlearn = function(self, t)
 		self:attr("bump_swap_speed_divide", -10)
 	end,
-	require = { special={desc="Have had at least 6 party members at the same time", fct=function(self)
+	require = { special={desc="동시에 6 명 이상의 동료와 함께 다녀봤을 것", fct=function(self)
 		return self:attr("huge_party")
 	end} },
 	info = function(self, t)
-		return ([[You are used to a crowded party; you can swap place with friendly creatures in only one tenth of a turn.]])
+		return ([[언제나 무리지어 다녔던 경험을 바탕으로, 동료와 위치를 바꿀 때 0.1 턴 만에 바꿀 수 있습니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Swift Hands",
-	kr_display_name = "재빠른 손",
+	kr_display_name = "빠른 손놀림",
 	mode = "passive",
 	on_learn = function(self, t)
 		self:attr("quick_weapon_swap", 1)
@@ -49,17 +49,17 @@ uberTalent{
 		self:attr("quick_equip_cooldown", -1)
 	end,
 	info = function(self, t)
-		return ([[You have very agile hands; swapping equipment sets (default q key) takes no time.
-		Also the cooldown for equipping activatable equipment is removed.]])
+		return ([[재빠른 손놀림을 익혀, 보조장비로 교체할 때 턴 소모가 되지 않게 됩니다. (기본 단축키 : q)
+		또한, 발동 가능한 장비를 장착했을 때 재사용 대기시간 없이 즉시 장비를 발동시킬 수 있게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Windblade",
-	kr_display_name = "바람의 칼날",
+	kr_display_name = "칼바람",
 	mode = "activated",
-	require = { special={desc="Have dealt over 50000 damage with dual wielded weapons", fct=function(self) return self.damage_log and self.damage_log.weapon.dualwield and self.damage_log.weapon.dualwield >= 50000 end} },
+	require = { special={desc="쌍수 무기로, 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return self.damage_log and self.damage_log.weapon.dualwield and self.damage_log.weapon.dualwield >= 50000 end} },
 	cooldown = 20,
 	radius = 2,
 	range = 1,
@@ -82,16 +82,16 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You spin madly, generating a sharp gust of wind with your weapon, dealing 220%% weapon damage to all foes within radius 2 and disarming them for 4 turns.]])
+		return ([[쌍수 무기를 든 채로 빠르게 회전하여, 주변에 회오리 바람을 만들어냅니다. 주변 2 칸 반경에 220%% 무기 피해를 주고, 적들의 무장을 4 턴 동안 해제시킵니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Windtouched Speed",
-	kr_display_name = "바람을 탄 속도",
+	kr_display_name = "순풍",
 	mode = "passive",
-	require = { special={desc="Know at least 20 talent levels of equilibrium-using talents", fct=function(self) return knowRessource(self, "equilibrium", 20) end} },
+	require = { special={desc="평정을 소모하는 기술 레벨의 총 합이 20 이상일 것", fct=function(self) return knowRessource(self, "equilibrium", 20) end} },
 	on_learn = function(self, t)
 		self:attr("global_speed_add", 0.15)
 		self:attr("avoid_pressure_traps", 1)
@@ -103,17 +103,17 @@ uberTalent{
 		self:recomputeGlobalSpeed()
 	end,
 	info = function(self, t)
-		return ([[You are attuned wih Nature, and she helps you in your fight against the arcane forces.
-		You gain 15%% permanent global speed, and do not trigger pressure traps.]])
+		return ([[자연과 동화되어, 움직일 때 자연의 힘을 이용할 수 있게 됩니다.
+		전체 속도가 15%% 증가하며, 밟으면 작동되는 함정을 무시할 수 있게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Giant Leap",
-	kr_display_name = "거인의 도약",
+	kr_display_name = "대약진",
 	mode = "activated",
-	require = { special={desc="Have dealt over 50000 damage with any weapon or unarmed", fct=function(self) return 
+	require = { special={desc="무기나 맨손으로, 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log.weapon.twohanded and self.damage_log.weapon.twohanded >= 50000) or
 			(self.damage_log.weapon.shield and self.damage_log.weapon.shield >= 50000) or
@@ -161,31 +161,31 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You jump accurately to the target, dealing 200%% weapon damage to all foes within radius 1 on impact and dazing them for 3 turns.]])
+		return ([[대상에게 도약하여, 대상과 주변 1 칸 반경의 적들에게 200%% 무기 피해를 주고 3 턴 동안 혼절시킵니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Crafty Hands",
-	kr_display_name = "전문가의 손",
+	kr_display_name = "장인의 손",
 	mode = "passive",
-	require = { special={desc="Know Imbue Item to level 5", fct=function(self)
+	require = { special={desc="장비 강화 마법을 5 레벨까지 올릴 것", fct=function(self)
 		return self:getTalentLevelRaw(self.T_IMBUE_ITEM) >= 5
 	end} },
 	info = function(self, t)
-		return ([[You are very crafty. You can now also embed gems into your helm and belt.]])
+		return ([[보석의 장인이 되어, 투구와 허리띠에도 보석의 힘을 주입할 수 있게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Roll With It",
-	kr_display_name = "공격 흘리기",
+	kr_display_name = "피할 수 없다면 즐겨라",
 	mode = "sustained",
 	cooldown = 10,
 	tactical = { ESCAPE = 1 },
-	require = { special={desc="Have been knocked around at least 50 times", fct=function(self) return self:attr("knockback_times") and self:attr("knockback_times") >= 50 end} },
+	require = { special={desc="적의 공격을 받아 50 회 이상 밀려나볼 것", fct=function(self) return self:attr("knockback_times") and self:attr("knockback_times") >= 50 end} },
 	activate = function(self, t)
 		local ret = {}
 		self:talentTemporaryValue(ret, "knockback_on_hit", 1)
@@ -197,19 +197,19 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You have learnt to take a few hits when needed and can flow with the tide of battle, reducing all physical damage by 10%%.
-		When you get hit by a melee or archery attack, you go back one tile (this can only happen once per turn) for free and gain 200%% movement speed for a turn.]])
+		return ([[경험을 통해, 적의 공격을 맞아주면서 전투의 흐름을 탈 수 있게 되었습니다. 적의 물리 공격을 받을 때 피해를 10%% 덜 입게 됩니다. 
+		또한 근접 공격이나 원거리 물리 공격을 맞을 때마다 턴 소모 없이 한 칸 뒤로 이동할 수 있게 되며 (한 턴에 한 번만 가능합니다), 이 때 1 턴 동안 이동속도가 200%% 증가합니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Vital Shot",
-	kr_display_name = "생사의 사격",
+	kr_display_name = "숨통을 끊는 한 발",
 	no_energy = "fake",
 	cooldown = 20,
 	range = archery_range,
-	require = { special={desc="Have dealt over 50000 damage with ranged weapons", fct=function(self) return self.damage_log and self.damage_log.weapon.archery and self.damage_log.weapon.archery >= 50000 end} },
+	require = { special={desc="원거리 무기로, 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return self.damage_log and self.damage_log.weapon.archery and self.damage_log.weapon.archery >= 50000 end} },
 	tactical = { ATTACK = { weapon = 3 }, DISABLE = 3 },
 	requires_target = true,
 	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
@@ -226,8 +226,8 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a shot straight at your enemy's vital areas, wounding them terribly.
-		Enemies hit by this shot will take 450%% weapon damage, and will be stunned and crippled (losing 50%% physical, magical and mental attack speeds) for five turns, due to the incredibly disabling impact of the shot.
-		The stun and cripple chances increase with your Accuracy.]]):format()
+		return ([[대상의 치명적 약점을 노려, 엄청난 피해를 줍니다.
+		대상에게 450%% 무기 피해를 주고, 5 턴 동안 기절과 무력화 (물리, 마법, 정신 공격 속도 50%% 감소) 상태효과를 동시에 줍니다.
+		기절과 무력화 확률은 정확도 능력치의 영향을 받아 증가합니다.]]):format()
 	end,
 }

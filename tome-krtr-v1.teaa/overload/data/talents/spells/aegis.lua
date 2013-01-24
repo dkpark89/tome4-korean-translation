@@ -45,7 +45,7 @@ newTalent{
 
 newTalent{
 	name = "Shielding",
-	kr_display_name = "보호막 숙련",
+	kr_display_name = "방어막 수련",
 	type = {"spell/aegis", 2},
 	require = spells_req2,
 	points = 5,

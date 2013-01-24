@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Gather the Threads",
-	kr_display_name = "시간흐름 모으기",
+	kr_display_name = "시간의 흐름 - 수집",
 	type = {"chronomancy/timeline-threading", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -36,16 +36,16 @@ newTalent{
 	info = function(self, t)
 		local primary = t.getThread(self, t)
 		local reduction = t.getReduction(self, t)
-		return ([[You begin to gather energy from other timelines. Your Spellpower will increase by %0.2f on the first turn and %0.2f more each additional turn.
-		The effect ends either when you cast a spell, or after five turns.
-		Eacn turn the effect is active, your Paradox will be reduced by %d.
-		This spell will not break Spacetime Tuning, nor will it be broken by activating Spacetime Tuning.]]):format(primary + (primary/5), primary/5, reduction)
+		return ([[다른 시간축에서 에너지를 모아 주문력이 %0.2f 상승하며, 매 턴마다 주문력이 %0.2f 만큼 추가로 상승합니다.
+		이 효과는 주문을 시전하거나, 5 턴이 지나면 사라집니다.
+		이 효과가 활성화된 동안, 매 턴마다 괴리 수치가 %d 감소합니다.
+		이 마법은 시공간 조율의 효과를 깨뜨리지 않으며, 그 반대도 마찬가지입니다.]]):format(primary + (primary/5), primary/5, reduction)
 	end,
 }
 
 newTalent{
 	name = "Rethread",
-	kr_display_name = "시간흐름 조정",
+	kr_display_name = "시간의 흐름 - 조정",
 	type = {"chronomancy/timeline-threading", 2},
 	require = chrono_req_high2,
 	points = 5,
@@ -72,16 +72,17 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local reduction = t.getReduction(self, t)
-		return ([[Creates a wake of temporal energy that deals %0.2f damage in a beam, as you attempt to rethread the timeline.  Affected targets may be stunned, blinded, pinned, or confused for 3 turns.
-		Each target you hit with Rethread will reduce your Paradox by %d.
-		The damage will increase with your Paradox and Spellpower.]]):
+		return ([[시간 에너지의 파동을 일으켜, 파동의 궤도에 있는 적들에게 %0.2f 피해를 주고 시간축을 조정합니다.
+		공격에 맞은 대상은 3 턴 동안 기절, 실명, 속박, 혼란 중 하나의 상태효과에 걸립니다.
+		공격에 맞은 적 1 명 마다 괴리 수치가 %d 씩 줄어듭니다.
+		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage), reduction)
 	end,
 }
 
 newTalent{
 	name = "Temporal Clone",
-	kr_display_name = "시간의 복제",
+	kr_display_name = "시간의 흐름 - 복제",
 	type = {"chronomancy/timeline-threading", 3},
 	require = chrono_req_high3,
 	points = 5,
@@ -102,7 +103,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 1, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -112,7 +113,7 @@ newTalent{
 			target:reactionToward(self) >= 0 or -- No friends
 			target.size_category > allowed
 			then
-			game.logPlayer(self, "%s resists!", target.name:capitalize())
+			game.logPlayer(self, "%s 저항했습니다!", target.name:capitalize())
 			return true
 		end
 
@@ -156,21 +157,21 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local allowed = t.getSize(self, t)
 		if allowed < 4 then
-			size = "medium"
+			size = "중간"
 		elseif allowed < 5 then
-			size = "big"
+			size = "큼"
 		else
-			size = "huge"
+			size = "거대함"
 		end
-		return ([[Pulls a %s size or smaller copy of the target from another timeline; the copy stays for %d turns. The copy and the target will be compelled to attack each other immediately.
-		The duration will scale with your Paradox.]]):
+		return ([[다른 시간축에서 '%s' 크기 이하인 대상의 '사본'을 끌어옵니다. '사본'은 %d 턴 동안 존재할 수 있으며, '원본'과 '사본'은 서로를 보는 즉시 공격합니다.
+		지속시간은 괴리 수치의 영향을 받아 증가합니다.]]):
 		format(size, duration)
 	end,
 }
 
 newTalent{
 	name = "See the Threads",
-	kr_display_name = "시간흐름 보기",
+	kr_display_name = "시간의 흐름 - 예견",
 	type = {"chronomancy/timeline-threading", 4},
 	require = chrono_req_high4,
 	points = 5,
@@ -188,9 +189,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You peer into three possible futures, allowing you to explore each for %d turns.  When the effect expires, you'll choose which of the three futures becomes your present.  Note that seeing visions of your own death can still be fatal.
-		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
-		This spell takes no time to cast.]])
+		return ([[세 가지 미래를 엿봐, 각각 %d 턴 동안 미래에 일어날 일을 직접 체험할 수 있게 됩니다. 지속시간이 끝나면, 세 가지 미래 중 어떤 미래를 고를지 결정하게 됩니다. 
+		결정된 미래가 자신의 미래가 되며, 이 마법으로 자신의 죽음을 체험해버리면 치명적인 결과가 일어날 수 있습니다.
+		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다
+		이 마법은 시전시간 없이 즉시 사용할 수 있습니다.]])
 		:format(duration)
 	end,
 }

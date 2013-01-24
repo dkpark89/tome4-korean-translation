@@ -38,7 +38,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Forces all hostile foes in radius %d to attack you.]]):format(self:getTalentRadius(t))
+		return ([[주변 %d 칸 반경의 적들이 자신만을 공격하게 만듭니다.]]):format(self:getTalentRadius(t))
 	end,
 }
 
@@ -57,7 +57,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Under the cover of your shell, you take %d%% less damage for %d turns]]):format(34 + (math.min(6.3, self:getTalentLevel(t)) * 7), math.ceil(4 + self:getTalentLevel(t) * 0.7))
+		return ([[등껍질에 숨어, %d 턴 동안 받는 피해량이 %d%% 감소합니다.]]):format(math.ceil(4 + self:getTalentLevel(t) * 0.7), 34 + (math.min(6.3, self:getTalentLevel(t)) * 7))
 	end,
 }
 
@@ -84,7 +84,7 @@ newTalent{ short_name="SPIDER_WEB",
 		return true
 	end,
 	info = function(self, t)
-		return ([[Spread a web and throw it toward your target. If caught, it won't be able to move for %d turns.]]):format(3 + self:getTalentLevel(t))
+		return ([[대상에게 거미줄을 쳐, %d 턴 동안 움직이지 못하게 만듭니다.]]):format(3 + self:getTalentLevel(t))
 	end,
 }
 
@@ -95,7 +95,7 @@ newTalent{
 	require = gifts_req1,
 	random_ego = "attack",
 	points = 5,
-	message = "@Source@ summons a Turtle!",
+	message = "@Source1@ 거북이를 소환합니다!",
 	equilibrium = 2,
 	cooldown = 10,
 	range = 5,
@@ -103,7 +103,7 @@ newTalent{
 	requires_target = true,
 	tactical = { DEFEND = 2, PROTECT = 2 },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -135,7 +135,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -186,10 +186,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, but not very powerful. However, they will periodically force any foes to attack them, and can protect themselves with their shell.
-		It will get %d Constitution, %d Dexterity and 18 willpower.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Constitution will increase with your Mindpower.]])
+		return ([[%d 턴 동안 거북이를 소환하여 적과 싸우게 합니다. 거북이는 적의 공격을 잘 버티지만, 그다지 강력하지는 앟ㄴ슶니다. 하지만 거북이는 적들을 도발하고, 등껍질에 숨어 받는 피해량을 줄일 수 있습니다.
+		소환수의 능력치는 다음과 같습니다 : %d 체력, %d 민첩, 18 의지
+		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
+		소환수의 체격 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2.1) * self:getTalentLevel(t) / 5) + self:getTalentLevelRaw(self.T_RESILIENCE)*2,
 		10 + self:getTalentLevel(t) * 2)
@@ -203,14 +203,14 @@ newTalent{
 	require = gifts_req2,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a Spider!",
+	message = "@Source1@ 거미를 소환합니다!",
 	equilibrium = 5,
 	cooldown = 10,
 	range = 5,
 	is_summon = true,
 	tactical = { ATTACK = 1, DISABLE = { pin = 2 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	requires_target = true,
@@ -239,7 +239,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -291,10 +291,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summon a Spider for %d turns to harass your foes. Spiders can poison your foes and throw webs to pin them to the ground.
-		It will get %d Dexterity, %d Strength, 18 Willpower and %d Constitution.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Dexterity will increase with your Mindpower.]])
+		return ([[%d 턴 동안 거미를 소환하여 적과 싸우게 합니다. 거미는 적들을 중독시키고 거미줄을 던져 적들을 속박할 수 있습니다.
+		소환수의 능력치는 다음과 같습니다 : %d 민첩, 18 의지, %d 체격
+		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
+		소환수의 민첩 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		10 + self:getTalentLevel(t) * 2,
@@ -304,7 +304,7 @@ newTalent{
 
 newTalent{
 	name = "Frantic Summoning",
-	kr_display_name = "굉장한 소환기술",
+	kr_display_name = "광적 소환",
 	type = {"wild-gift/summon-utility", 3},
 	require = gifts_req3,
 	points = 5,
@@ -321,10 +321,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduc = t.getReduc(self, t)
-		return ([[You focus yourself on nature, allowing you to summon creatures much faster (%d%% of a normal summon time) and with no chance to fail from high equilibrium for %d turns.
-		When activating this power, a random summoning talent will come off cooldown.
-		Each time you summon, the duration of the frantic summoning effect will reduce by 1.]]):
-		format(100 - reduc, t.getDuration(self, t))
+		return ([[자연을 통해 더욱 집중하여, %d 턴 동안 %d%% 더 빠른 속도로 소환을 할 수 있게 하며 평정에 따른 실패를 하지 않게 됩니다.
+		이 기술을 사용하면, 무작위한 소환술 하나의 재사용 대기시간이 사라집니다.
+		소환을 할 때마다, 이 기술의 지속시간이 1 줄어들게 됩니다.]]):
+		format(t.getDuration(self, t), 100 - reduc)
 	end,
 }
 
@@ -336,10 +336,9 @@ newTalent{
 	mode = "passive",
 	points = 5,
 	info = function(self, t)
-		return ([[Allows you to take direct control of any of your summons.
-		The summons will appear on the interface; a simple click on them will let you switch control.
-		You can also press control+tab to switch.
-		When taking control, your summon has its lifetime increased by %d turns, and it takes %d%% less damage.
-		The damage reduction is based on your Cunning.]]):format(2 + self:getTalentLevel(t) * 3, self:getCun(7, true) * self:getTalentLevelRaw(t))
+		return ([[소환수를 직접 조종할 수 있게 됩니다.
+		소환수가 동료 형태로 나타나, 손쉽게 조작 권한을 바꿀 수 있습니다. (Ctrl+Tab 으로도 가능합니다)
+		소환수를 직접 조종하면, 해당 소환수의 지속시간이 %d 턴 늘어나며 적에게 받는 피해량이 %d%% 감소하게 됩니다.
+		피해량 감소 수치는 교활함 능력치의 영향을 받아 증가합니다.]]):format(2 + self:getTalentLevel(t) * 3, self:getCun(7, true) * self:getTalentLevelRaw(t))
 	end,
 }

@@ -21,7 +21,6 @@ local basetrap = function(self, t, x, y, dur, add)
 	local Trap = require "mod.class.Trap"
 	local trap = {
 		id_by_type=true, unided_name = "trap",
-		kr_unided_name = "함정",
 		display = '^',
 		faction = self.faction,
 		summoner = self, summoner_gain_exp = true,
@@ -65,7 +64,7 @@ newTalent{
 		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "해당 지역의 에테르 제어를 실패했습니다.") return nil end
 
 		local t = basetrap(self, t, x, y, 44, {
-			type = "aether", name = "aether beam", kr_display_name = "에테르 소용돌이", color=colors.VIOLET, image = "trap/trap_glyph_explosion_01_64.png",
+			type = "aether", name = "aether beam", color=colors.VIOLET, image = "trap/trap_glyph_explosion_01_64.png",
 			dam = self:spellCrit(t.getDamage(self, t)),
 			triggered = function(self, x, y, who) return true, true end,
 			combatSpellpower = function(self) return self.summoner:combatSpellpower() end,

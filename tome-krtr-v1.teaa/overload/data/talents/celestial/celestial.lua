@@ -18,20 +18,20 @@
 -- darkgod@te4.org
 
 -- Corruptions
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/guardian", name = "guardian", min_lev = 10, description = "당신의 헌신으로, 한층 더 강력한 비호를 받게 됩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/guardian", name = "guardian", min_lev = 10, description = "태양의 힘에 대한 헌신을 통해, 한층 더 강력한 보호를 받게 됩니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/chants", name = "chants", generic = true, description = "태양의 영광을 노래합니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/light", name = "light", generic = true, description = "빛의 힘으로 치유와 보호의 힘을 일으킵니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/combat", name = "combat", description = "당신의 헌신으로, 불굴의 마음을 가지고 적에게 맞설 수 있게 됩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/light", name = "light", generic = true, description = "빛의 힘을 일으켜 치유와 보호의 힘을 얻습니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/combat", name = "combat", description = "태양의 힘에 대한 헌신을 통해, 불굴의 의지를 가지고 적과 맞섭니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/sun", name = "sun", description = "태양의 힘으로 적을 불사릅니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/glyphs", name = "glyphs", min_lev = 10, description = "문양에 힘을 불어넣어 함정으로 사용합니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/twilight", name = "twilight", description = "빛과 어둠의 중간에 서서 그 두 힘을 동시에 휘두릅니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/star-fury", name = "star fury", description = "별과 달의 분노로 적을 파괴합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/glyphs", name = "glyphs", min_lev = 10, description = "문양에 힘을 불어넣어, 함정으로 사용합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/twilight", name = "twilight", description = "빛과 어둠의 사이에 서서, 두 힘을 동시에 다룹니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/star-fury", name = "star fury", description = "별과 달의 분노를 통해, 적을 파괴합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/hymns", name = "hymns", generic = true, description = "달의 영광을 노래합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/circles", name = "circles", min_lev = 10, description = "발 아래의 땅에 태양과 달의 힘을 부여합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/eclipse", name = "eclipse", description = "태양과 달이 겹치는 금환식이 일어나면, 세계의 힘은 조화를 이루게 됩니다. 강력한 아노리실은 이 힘으로 압도적인 파괴를 일으킬 수 있습니다." }
 
 
-newTalentType{ no_silence=true, is_spell=true, type="celestial/other", name = "other", description = "다양한 천공 기술." }
+newTalentType{ no_silence=true, is_spell=true, type="celestial/other", name = "other", description = "천공 계열의 다양한 기술들입니다." }
 
 -- Generic requires for corruptions based on talent level
 divi_req1 = {
