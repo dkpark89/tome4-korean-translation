@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Dust to Dust",
 	kr_display_name = "먼지는 먼지로",
@@ -180,10 +182,10 @@ newTalent{
 		if target then
 			if target:checkHit(self:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("instakill") and target.life > 0 and target.life < target.max_life * 0.2 then
 				-- KILL IT !
-				game.logSeen(target, "%s 원자 단위로 분해되었습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 원자 단위로 분해되었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s 양자 가시를 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 양자 가시를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		

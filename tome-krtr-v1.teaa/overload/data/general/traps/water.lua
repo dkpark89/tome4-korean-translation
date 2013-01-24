@@ -28,11 +28,11 @@ newEntity{ define_as = "TRAP_WATER",
 
 newEntity{ base = "TRAP_WATER",
 	name = "water jet", auto_id = true, image = "trap/trap_water_jet_01.png",
-	kr_display_name = "물줄기 분출",
+	kr_display_name = "물대포",
 	detect_power = 6, disarm_power = 16,
 	rarity = 3, level_range = {1, 50},
 	color=colors.LIGHT_BLUE,
-	message = "@Target1@ 물줄기 분출을 일으켰습니다!",
+	message = "@Target1@ 물대포를 일으켰습니다!",
 	dam = resolvers.mbonus_level(150, 15), damtype = DamageType.PHYSICAL,
 	auto_disarm = true,
 }

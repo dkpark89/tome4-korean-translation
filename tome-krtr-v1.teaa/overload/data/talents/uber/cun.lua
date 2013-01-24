@@ -265,20 +265,20 @@ uberTalent{
 		return ([[새로운 기술 계열을 기술 숙련도 0.9 의 배율로 습득합니다. 
 		제한 없이 배울 수 있는 기술 계열 :
 		- 물리 / 신체 조절
-		- Cunning / Survival
+		- 교활 / 생존
 		마법이나 룬을 사용하지 않는 경우에만 배울 수 있는 기술 계열 :
 		- 물리 / 기동성
 		- 물리 / 전장 제어
-		- Wild Gift / Call of the Wild
-		- Wild Gift / Mindstar Mastery
-		- Psionic / Dreaming
+		- 자연의 권능 / 자연의 부름
+		- 자연의 권능 / 마석 수련
+		- 초능력 / 꿈
 		지구르의 추종자가 아닐 경우에만 배울 수 있는 기술 계열 :
 		- 주문 / 예견
 		- 주문 / 지팡이 전투기술
 		- 주문 / 연금술 : 암석
-		- Celestial / Chants
-		- Celestial / Light
-		- Chronomancy / Chronomancy]])
+		- 천공 / 찬가
+		- 천공 / 빛
+		- 시공 / 시공]])
 		:format()
 	end,
 }
@@ -304,7 +304,7 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[지하 세력과 친분을 맺어, 뒷세계의 기술들을 전수받습니다.
-		Cunning/Stealth 기술 계열의 숙련도를 0.2 올리고, 기술이 없다면 습득합니다. 그리고 Cunning/Scondrel 기술 계열의 숙련도를 0.1 올리고, 기술이 없다면 0.9 기술 숙련도로 습득합니다.
+		교활/은신 기술 계열의 숙련도를 0.2 올리고, 기술이 없다면 습득합니다. 그리고 교활/무뢰배 기술 계열의 숙련도를 0.1 올리고, 기술이 없다면 0.9 기술 숙련도로 습득합니다.
 		또한, 투명 상태에서 감소하는 피해량 패널티가 절반으로 줄어듭니다.]]):
 		format()
 	end,

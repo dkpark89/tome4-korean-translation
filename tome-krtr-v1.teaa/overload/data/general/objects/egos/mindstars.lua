@@ -447,7 +447,7 @@ newEntity{
 	on_set_broken = function(self, who)
 		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
 	end,
-	resolvers.charm("엘리멘탈 마석 속의 드레이크 호출 (이것은 다른 조합 보너스를 없앰)", 20,
+	resolvers.charm("정령 마석 속의 드레이크 호출 (이것은 다른 조합 보너스를 없앰)", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
 				--@@

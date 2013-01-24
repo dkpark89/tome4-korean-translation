@@ -146,6 +146,7 @@ newTalent{
 				local e = Object.new{
 					old_feat = oe,
 					name = "summoned wall", image = "terrain/granite_wall1.png",
+					kr_display_name = "소환된 벽",
 					display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 					always_remember = true,
 					can_pass = {pass_wall=1},

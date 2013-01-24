@@ -224,7 +224,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_ANGOLWEN",
 	name = "Teleport: Angolwen",
-	kr_display_name = "공간이동 : 앙골웬",
+	kr_display_name = "순간이동 : 앙골웬",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -243,16 +243,16 @@ newTalent{
 			if actor and actor ~= self then seen = true end
 		end, nil)
 		if seen then
-			game.log("누군가 당신을 보고 있습니다. 섣부른 공간이동으로 앙골웬 마을의 위치를 노출시킬 수는 없습니다.")
+			game.log("누군가 당신을 보고 있습니다. 섣부른 순간이동으로 앙골웬 마을의 위치를 노출시킬 수는 없습니다.")
 			return
 		end
 
 		self:setEffect(self.EFF_TELEPORT_ANGOLWEN, 40, {})
 		return true
 	end,
-	info = [[모든 마법사들의 성지, 앙골웬 마을로 공간이동합니다.
+	info = [[모든 마법사들의 성지, 앙골웬 마을로 순간이동합니다.
 	앙골웬에서 마법을 배운 모든 마법사들은 반드시 이 마법을 배우게 됩니다.
-	누구에게도 이 공간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
+	누구에게도 이 순간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
 	마법 발동을 위해서는 시간이 약간 필요합니다.]]
 }
 
@@ -260,7 +260,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_POINT_ZERO",
 	name = "Timeport: Point Zero",
-	kr_display_name = "공간이동 : 영점",
+	kr_display_name = "순간이동 : 영점",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -279,7 +279,7 @@ newTalent{
 			if actor and actor ~= self then seen = true end
 		end, nil)
 		if seen then
-			game.log("누군가 당신을 보고 있습니다. 섣부른 공간이동으로 영점의 위치를 노출시킬 수는 없습니다.")
+			game.log("누군가 당신을 보고 있습니다. 섣부른 순간이동으로 영점의 위치를 노출시킬 수는 없습니다.")
 			return
 		end
 
@@ -288,9 +288,9 @@ newTalent{
 		self:attr("time_travel_times", 1)
 		return true
 	end,
-	info = [[모든 시공 제어사들의 성지, '영점' 으로 공간이동합니다.
+	info = [[모든 시공 제어사들의 성지, '영점' 으로 순간이동합니다.
 	영점에서 온 모든 시공 제어사들은 언제든지 이곳으로 돌아갈 수 있습니다.
-	단 누구에게도 이 공간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
+	단 누구에게도 이 순간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
 	마법 발동을 위해서는 시간이 약간 필요합니다.]]
 }
 
@@ -323,7 +323,7 @@ newTalent{
 			if e.status == "detrimental" and save_for_effects[e.type] then
 				local save = self[save_for_effects[e.type]](self, true)
 				local decrease = math.floor(save/5)
-				print("선택된 상태효과는... %s 입니다. %s 사용하여, 지속시간이 %d 턴 감소했습니다.", e.desc, save_for_effects[e.type])
+				print("About to reduce duration of... %s. Will use %s. Reducing duration by %d", e.desc, save_for_effects[e.type])
 				p.dur = p.dur - decrease
 				if p.dur <= 0 then todel[#todel+1] = eff_id end
 			end
@@ -349,12 +349,12 @@ newTalent{
 newTalent{
 	short_name = "SHERTUL_FORTRESS_GETOUT",
 	name = "Teleport to the ground",
-	kr_display_name = "지표면으로 공간이동",
+	kr_display_name = "지표면으로 순간이동",
 	type = {"base/race", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,
 	action = function(self, t)
-		if game.level.map:checkAllEntities(self.x, self.y, "block_move") then game.log("여기서는 공간이동할 수 없습니다.") return true end
+		if game.level.map:checkAllEntities(self.x, self.y, "block_move") then game.log("여기서는 순간이동할 수 없습니다.") return true end
 		game:onTickEnd(function()
 			game.party:removeMember(self, true)
 			game.party:findSuitablePlayer()
@@ -363,7 +363,7 @@ newTalent{
 		end)
 		return true
 	end,
-	info = [[특수한 단거리 공간이동 마법으로, 지표면으로 돌아갈 수 있습니다.]]
+	info = [[특수한 단거리 순간이동 마법으로, 지표면으로 돌아갈 수 있습니다.]]
 }
 
 newTalent{

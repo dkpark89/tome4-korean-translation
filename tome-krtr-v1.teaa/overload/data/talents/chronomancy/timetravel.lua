@@ -17,13 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Static History",
 	kr_display_name = "고정된 역사",
 	type = {"chronomancy/timetravel", 1},
 	require = chrono_req1,
 	points = 5,
-	message = "@Source@ 역사를 재배열합니다.",
+	message = "@Source1@ 역사를 재배열합니다.",
 	cooldown = 24,
 	tactical = { PARADOX = 2 },
 	getDuration = function(self, t)
@@ -78,12 +80,12 @@ newTalent{
 		if not target then return end
 
 		if target:attr("timetravel_immune") then
-			game.logSeen(target, "%s 시간을 지울 수 없습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 시간을 지울 수 없습니다!", (target.kr_display_name or target.name):capitalize():addJosa("는"))
 			return
 		end
 
 		local hit = self:checkHit(self:combatSpellpower(), target:combatSpellResist() + (target:attr("continuum_destabilization") or 0))
-		if not hit then game.logSeen(target, "%s resists!", target.name:capitalize()) return true end
+		if not hit then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return true end
 		
 		self:project(tg, x, y, DamageType.TEMPORAL, self:spellCrit(t.getDamage(self, t)))
 		game.level.map:particleEmitter(x, y, 1, "temporal_thrust")
@@ -97,6 +99,7 @@ newTalent{
 		local e = mod.class.Object.new{
 			old_feat = oe, type = oe.type, subtype = oe.subtype,
 			name = "temporal instability", image = oe.image, add_mos = {{image="object/temporal_instability.png"}},
+			kr_display_name = "불안정한 시공간",
 			display = '&', color=colors.LIGHT_BLUE,
 			temporary = t.getDuration(self, t),
 			canAct = false,
@@ -118,7 +121,7 @@ newTalent{
 			summoner_gain_exp = true, summoner = self,
 		}
 		
-		game.logSeen(target, "%s 시간의 흐름에서 벗어났습니다!", target.name:capitalize())
+		game.logSeen(target, "%s 시간의 흐름에서 벗어났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		game.level:removeEntity(target, true)
 		game.level:addEntity(e)
 		game.level.map(x, y, Map.TERRAIN, e)
@@ -181,7 +184,7 @@ newTalent{
 	paradox = 20,
 	cooldown = 50,
 	tactical = { BUFF = 0.5, CURE = 0.5 },
-	message = "@Source@ manipulates the flow of time.",
+	message = "@Source1@ 시간의 흐름을 조종합니다.",
 	getCooldownReduction = function(self, t) return 1 + math.floor(self:getTalentLevel(t) * getParadoxModifier(self, pm)) end,
 	action = function(self, t)
 		-- update cooldowns
@@ -243,7 +246,7 @@ newTalent{
 				for id, t in pairs(self.talents_def) do
 					if t.type[1] == "chronomancy/anomalies" then ts[#ts+1] = id end
 				end
-				if not silent then game.logPlayer(self, "Your Door to the Past has caused an anomaly!") end
+				if not silent then game.logPlayer(self, "과거로의 문이 이상 현상을 발생시켰습니다!") end
 				self:forceUseTalent(rng.table(ts), {ignore_energy=true})
 			end
 			-- reset count
@@ -276,9 +279,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local count = t.getAnomalyCount(self, t)
-		return ([[This powerful spell allows you to mark a point in time that you can later return to by casting Revision (which you'll automatically learn upon learning this spell).  Maintaining such a doorway causes constant strain on the spacetime continuum and can possibly trigger an anomaly (using your current anomaly chance) once every %d turns.
-		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
-		Additional talent points will increase the time between anomaly checks.]]):
+		return ([[이 강력한 주문은 이후 '교정'을 사용하여 되돌아갈 시간에 표시를 해 둘 수 있도록 만듭니다 (이 기술을 배우면 '교정'도 자동적으로 배우게 됩니다). 이 통로를 유지하면 지속적으로 시공간 연속의 긴장을 발생시키고, 매 %d 턴 마다 (현재 이상 현상 확률에 따라) 이상 현상을 일으킬 수도 있습니다.
+		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.
+		기술 레벨이 높아지면 이상 현상 발생 검사 사이의 시간 간격을 늘려줍니다.]]):
 		format(count)
 	end,
 }
@@ -289,25 +292,25 @@ newTalent{
 	type = {"chronomancy/other", 1},
 	type_no_req = true,
 	points = 1,
-	message = "@Source@ revises history.",
+	message = "@Source1@ 역사를 수정합니다.",
 	cooldown = 50,
 	paradox = 25,
 	no_npc_use = true,
-	on_pre_use = function(self, t, silent) if not self:isTalentActive(self.T_DOOR_TO_THE_PAST) then if not silent then game.logPlayer(self, "Door to the Past must be active to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:isTalentActive(self.T_DOOR_TO_THE_PAST) then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 '과거로의 문'이 사용중이어야 합니다.") end return false end return true end,
 	action = function(self, t)
 
 		-- Prevent Revision After Death
 		if game._chronoworlds == nil then
-			game.logPlayer(game.player, "#LIGHT_RED#Your spell fizzles.")
+			game.logPlayer(game.player, "#LIGHT_RED#주문이 피식거리며 사라집니다.")
 			return
 		end
 
 		game:onTickEnd(function()
 			if not game:chronoRestore("revision", true) then
-				game.logSeen(self, "#LIGHT_RED#The spell fizzles.")
+				game.logSeen(self, "#LIGHT_RED#주문이 피식거리며 사라집니다.")
 				return
 			end
-			game.logPlayer(game.player, "#LIGHT_BLUE#You unfold the spacetime continuum to a previous state!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#당신은 시공간 연속을 이전 단계로 펼쳤습니다!")
 
 			-- Manualy start the cooldown of the "old player"
 			game.player:startTalentCooldown(t)
@@ -321,7 +324,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Casting Revision will return you to the point in time you created a temporal marker using Door to the Past.]])
+		return ([[교정을 사용하면 '과거로의 문'을 사용하여 시간의 표시를 한 시점으로 되돌아갑니다.]])
 		:format()
 	end,
 }]=]

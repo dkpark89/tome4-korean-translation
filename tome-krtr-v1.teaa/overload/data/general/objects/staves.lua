@@ -108,7 +108,7 @@ newEntity{ base = "BASE_STAFF",
 
 newEntity{ base = "BASE_STAFF",
 	name = "dragonbone staff", short_name = "dragonbone",
-	kr_display_name = "드래곤뼈지팡이",
+	kr_display_name = "용뼈지팡이",
 	level_range = {40, 50},
 	require = { stat = { mag=48 }, },
 	cost = 35,

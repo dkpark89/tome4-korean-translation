@@ -153,6 +153,7 @@ newTalent{
 			type = "figment", subtype = "temporal",
 			display = "@", color=colors.LIGHT_STEEL_BLUE,
 			name = "Afterimage", faction = self.faction, image = "npc/undead_ghost_kor_s_fury.png",
+			kr_display_name = "잔상",
 			desc = [[누군가 사용한 가속 주문에 의해 만들어진 잔상입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented", ai_state = { talent_in=1, },

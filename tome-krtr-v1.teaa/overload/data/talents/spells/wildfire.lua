@@ -104,7 +104,7 @@ newTalent{
 	points = 5,
 	getChance = function(self, t) return self:getTalentLevelRaw(t) * 10 end,
 	info = function(self, t)
-		return ([['불타오른 흔적' 마법이 활성화 되었을 때, '지옥의 열화' 마법과 '불타오른 흔적' 마법의 피해를 입으면 %d%% 확률로 상태효과가 제거됩니다.
+		return ([['불타오른 흔적' 마법이 활성화 되었을 때, '지옥의 불꽃' 마법과 '불타오른 흔적' 마법의 피해를 입으면 %d%% 확률로 상태효과가 제거됩니다.
 		적이 피해를 입으면 이로운 상태효과가, 아군이 피해를 입으면 해로운 상태효과가 제거됩니다. 단, 화염 피해는 똑같이 입습니다.]]):format(t.getChance(self, t))
 	end,
 }

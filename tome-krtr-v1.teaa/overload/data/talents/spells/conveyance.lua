@@ -99,7 +99,7 @@ newTalent{
 
 newTalent{
 	name = "Teleport",
-	kr_display_name = "장거리 공간이동",
+	kr_display_name = "장거리 순간이동",
 	type = {"spell/conveyance",2},
 	require = spells_req2,
 	points = 5,
@@ -115,7 +115,7 @@ newTalent{
 		local target = self
 
 		if self:getTalentLevel(t) >= 4 then
-			game.logPlayer(self, "공간이동시킬 대상을 선택하세요.")
+			game.logPlayer(self, "순간이동시킬 대상을 선택하세요.")
 			local tg = {default_target=self, type="hit", nowarning=true, range=10, first_target="friend"}
 			local tx, ty = self:getTarget(tg)
 			if tx then
@@ -140,7 +140,7 @@ newTalent{
 		local x, y = self.x, self.y
 		local newpos
 		if self:getTalentLevel(t) >= 5 then
-			game.logPlayer(self, "공간이동할 지역을 선택하세요.")
+			game.logPlayer(self, "순간이동할 지역을 선택하세요.")
 			local tg = {type="ball", nolock=true, pass_terrain=true, nowarning=true, range=t.getRange(self, t), radius=t.getRadius(self, t), requires_knowledge=false}
 			x, y = self:getTarget(tg)
 			if not x then return nil end
@@ -161,7 +161,7 @@ newTalent{
 		end
 
 		if not newpos then
-			game.logSeen(game.player,"공간이동이 실패했습니다. 너무 좁은 지역이거나, 기타 다른 이유로 공간이동을 할 수 없는 지역입니다.")
+			game.logSeen(game.player,"순간이동이 실패했습니다. 너무 좁은 지역이거나, 기타 다른 이유로 순간이동을 할 수 없는 지역입니다.")
 		end
 		game:playSoundNear(self, "talents/teleport")
 		return true
@@ -169,10 +169,10 @@ newTalent{
 	info = function(self, t)
 		local range = t.getRange(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[주변 %d 칸 반경 내 무작위한 곳으로 장거리 공간이동합니다. 15 칸 미만의 거리는 공간이동할 수 없습니다.
-		기술 레벨이 4 이상이면, 대상을 지정하여 공간이동시킬 수 있습니다.
-		기술 레벨이 5 이상이면, 공간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경)
-		공간이동 범위는 주문력 능력치의 영향을 받아 증가합니다.]]):format(range, radius)
+		return ([[주변 %d 칸 반경 내 무작위한 곳으로 장거리 순간이동합니다. 15 칸 미만의 거리는 순간이동할 수 없습니다.
+		기술 레벨이 4 이상이면, 대상을 지정하여 순간이동시킬 수 있습니다.
+		기술 레벨이 5 이상이면, 순간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경)
+		순간이동 범위는 주문력 능력치의 영향을 받아 증가합니다.]]):format(range, radius)
 	end,
 }
 

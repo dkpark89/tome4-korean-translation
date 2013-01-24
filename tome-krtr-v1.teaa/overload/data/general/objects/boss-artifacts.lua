@@ -28,9 +28,9 @@ newEntity{ base = "BASE_LONGSWORD",
 	power_source = {arcane=true}, --How is this nature based?
 	define_as = "LONGSWORD_WINTERTIDE", rarity=false, unided_name = "glittering longsword", image="object/artifact/wintertide.png",
 	name = "Wintertide", unique=true,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[The air seems to freeze around the blade of this sword, draining all heat from the area.
-It is said the Conclave created this weapon for their warmaster during the dark times of the first allure war.]],
+	kr_display_name = "밀려오는 겨울", kr_unided_name = "반짝거리는 장검",
+	desc = [[이 검의 칼날 주변의 공기가 얼어붙으면서, 주변의 모든 열기를 흡수하고 있습니다.
+제 1차 매혹의 전투가 있던 암흑의 시기에 콘클라베에서 그들의 전투지휘자를 위해 만들었다고 알려져 있습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {35, 45},
 	rarity = 280,
@@ -51,12 +51,12 @@ It is said the Conclave created this weapon for their warmaster during the dark 
 		inc_damage = { [DamageType.COLD] = 20 },
 	},
 	max_power = 18, power_regen = 1,
-	use_power = { name = "generate a burst of ice", power = 8,
+	use_power = { name = "얼음 폭발 생성", power = 8,
 		use = function(self, who)
 			local tg = {type="ball", range=0, radius=4, selffire=false}
 			who:project(tg, who.x, who.y, engine.DamageType.ICE, 40 + (who:getMag() + who:getWil()), {type="freeze"})
 			game:playSoundNear(who, "talents/ice")
-			game.logSeen(who, "%s invokes the power of %s!", who.name:capitalize(), self.name)
+			game.logSeen(who, "%s %s의 힘을 불러옵니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 			return {id=true, used=true}
 		end
 	},
@@ -66,8 +66,8 @@ newEntity{ base = "BASE_LITE", define_as = "WINTERTIDE_PHIAL",
 	power_source = {arcane=true},
 	unided_name = "phial filled with darkness", unique = true, image="object/artifact/wintertide_phial.png",
 	name = "Wintertide Phial", color=colors.DARK_GREY,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[This phial seems filled with darkness, yet it cleanses your thoughts.]],
+	kr_display_name = "밀려오는 겨울의 물약", kr_unided_name = "어둠으로 가득찬 약병",
+	desc = [[이 약병은 어둠으로 가득차 있고, 사용자의 생각을 깨끗하게 만듭니다.]],
 	level_range = {1, 10},
 	rarity = 200,
 	encumber = 2,
@@ -80,7 +80,7 @@ newEntity{ base = "BASE_LITE", define_as = "WINTERTIDE_PHIAL",
 	},
 
 	max_power = 60, power_regen = 1,
-	use_power = { name = "cleanse your mind (remove a few detrimental mental effects)", power = 40,
+	use_power = { name = "정신의 정화 (몇가지 나쁜 정신 효과 제거)", power = 40,
 		use = function(self, who)
 			local target = who
 			local effs = {}
@@ -103,7 +103,7 @@ newEntity{ base = "BASE_LITE", define_as = "WINTERTIDE_PHIAL",
 					known = true
 				end
 			end
-			game.logSeen(who, "%s's mind is clear!", who.name:capitalize())
+			game.logSeen(who, "%s의 정신이 깨끗해졌습니다!", (who.kr_display_name or who.name):capitalize())
 			return {id=true, used=true}
 		end
 	},
@@ -114,8 +114,8 @@ newEntity{ base = "BASE_AMULET",
 	define_as = "FIERY_CHOKER", rarity=false,
 	unided_name = "flame-wrought amulet",
 	name = "Fiery Choker", unique=true, image="object/artifact/fiery_choker.png",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[A choker made of pure flame, forever shifting patterns around the neck of its wearer. Its fire seems to not harm the wearer.]],
+	kr_display_name = "불타는 목고리", kr_unided_name = "불꽃으로 장식된 목걸이", --@@ choker의 어감을 위해 일부러 목고리라 번역했습니다.
+	desc = [[순수한 불꽃으로 만들어진 목고리로, 착용자의 목에 둘러진채 계속 무늬가 변합니다. 그 불길이 착용자에게 해를 끼치지는 않는 듯 합니다.]],
 	level_range = {32, 42},
 	rarity = 220,
 	cost = 190,

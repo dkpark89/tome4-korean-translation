@@ -54,7 +54,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true,
-	kr_display_name = "배척 ",
+	kr_display_name = "보호 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,

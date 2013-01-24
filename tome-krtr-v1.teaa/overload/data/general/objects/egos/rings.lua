@@ -583,7 +583,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of warding", suffix=true, instant_resolve=true,
-	kr_display_name = "배척의 ",
+	kr_display_name = "보호의 ",
 	keywords = {warding=true},
 	level_range = {30, 50},
 	greater_ego = 1,

@@ -74,7 +74,7 @@ newEntity{ base = "BASE_STORE", define_as = "MAUL_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 	name="Dala's Far Reaching Implements",
-	kr_display_name = "달라의 장거리 도구",
+	kr_display_name = "달라의 장거리 무구",
 	display='3', color=colors.UMBER,
 	resolvers.store("ARCHER_WEAPON", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_dalas_far_reaching.png"),
 	resolvers.chatfeature("last-hope-weapon-store", "allied-kingdoms"),

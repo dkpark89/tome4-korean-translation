@@ -132,7 +132,7 @@ newTalent{
 
 newTalent{
 	name = "Disruption Shield",
-	kr_display_name = "불안정한 방어막",
+	kr_display_name = "불안정한 보호막",
 	type = {"spell/arcane",4},
 	require = spells_req4, no_sustain_autoreset = true,
 	points = 5,
@@ -145,7 +145,7 @@ newTalent{
 	getArcaneResist = function(self, t) return 50 + self:combatTalentSpellDamage(t, 10, 500) / 10 end,
 	on_pre_use = function(self, t) return (self:getMana() / self:getMaxMana() <= 0.25) or self:hasEffect(self.EFF_AETHER_AVATAR) or self:attr("disruption_shield") end,
 	explode = function(self, t, dam)
-		game.logSeen(self, "#VIOLET#%s 보호막이 폭발하여, 강력한 마력 폭풍이 일어났습니다!", self.name:capitalize())
+		game.logSeen(self, "#VIOLET#%s 보호막이 폭발하여, 강력한 마력 폭풍이 일어났습니다!", (eslf.kr_display_name or self.name):capitalize())
 
 		-- Add a lasting map effect
 		self:setEffect(self.EFF_ARCANE_STORM, 10, {power=t.getArcaneResist(self, t)})
@@ -196,7 +196,7 @@ newTalent{
 		마력 폭풍은 주변 3 칸 반경에 10 턴 동안 유지되며, 매 턴마다 지금까지 보호막이 흡수한 피해량의 10%% 에 해당하는 마법 피해를 줍니다.
 		마력 폭풍은 시전자에게도 피해를 주지만, 대신 시전자의 마법 저항력을 %d%% 올려줍니다.
 		현재 마나량이 최대 마나량의 25%% 이하가 되어야 이 마법을 사용할 수 있습니다.
-		마나 회복량은 주문 / 보호 계열의 '방어막 수련' 기술과 주문력 능력치의 영향을 받아 감소합니다.]]):
+		마나 회복량은 주문 / 보호 계열의 '보호막 수련' 기술과 주문력 능력치의 영향을 받아 감소합니다.]]):
 		format(t.getManaRatio(self, t), t.getArcaneResist(self, t))
 	end,
 }

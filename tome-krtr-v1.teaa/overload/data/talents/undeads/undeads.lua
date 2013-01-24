@@ -20,7 +20,7 @@
 -- Undead talents
 newTalentType{ type="undead/base", name = "base", generic = true, description = "언데드의 선천적 능력." }
 newTalentType{ type="undead/ghoul", name = "ghoul", generic = true, description = "구울의 선천적 능력." }
-newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "스켈레톤의 선천적 능력." }
+newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "해골의 선천적 능력." }
 newTalentType{ type="undead/vampire", name = "vampire", generic = true, description = "흡혈귀의 선천적 능력." }
 newTalentType{ type="undead/lich", name = "lich", generic = true, description = "리치의 선천적 능력." }
 

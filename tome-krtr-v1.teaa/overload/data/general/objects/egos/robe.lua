@@ -277,7 +277,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of retribution", suffix=true, instant_resolve=true,
-	kr_display_name = "응보의 ",
+	kr_display_name = "심판의 ",
 	keywords = {retribution=true},
 	level_range = {20, 50},
 	greater_ego = 1,

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 -- Archmage spells
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/arcane", name = "arcane", description = "가공되지 않은 마력을 다뤄, 적들을 공격하고 자신을 보호하는 마법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/aether", name = "aether", description = "마력의 정수라고 할 수 있는 에테르의 힘을 다뤄, 적들에게 파멸을 불러오는 마법입니다." }
@@ -190,7 +192,7 @@ function necroSetupSummon(self, m, x, y, level, no_control, no_decay)
 			self.life = self.life - self.max_life * (p and p.necrotic_aura_decay or 10) / 100
 			self.changed = true
 			if self.life <= 0 then
-				game.logSeen(self, "#{bold}#%s decays into a pile of ash!#{normal}#", self.name:capitalize())
+				game.logSeen(self, "#{bold}#%s 부패하여 잿덩이로 변했습니다!#{normal}#", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 				local t = src:getTalentFromId(src.T_NECROTIC_AURA)
 				t.die_speach(self, t)
 				self:die(self)

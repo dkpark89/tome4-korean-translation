@@ -100,7 +100,7 @@ newTalent{
 		local daminc = t.getIncrease(self, t)
 		local conv = t.getConvert(self, t)
 		return ([[연금술 폭탄을 던질 때 번개의 힘을 주입하여 연금술 폭탄의 피해량이 %d%% 증가하고, 적들에게 혼절 상태효과를 일으킵니다.
-		그리고 모든 화염 피해의 %d%% 가 전격 피해로 전환됩니다. (이 때, 특수효과는 발생하지 않습니다)]]):
+		그리고 모든 화염 피해의 %d%% 가 전기 피해로 전환됩니다. (이 때, 특수효과는 발생하지 않습니다)]]):
 		format(100 * daminc, conv)
 	end,
 }

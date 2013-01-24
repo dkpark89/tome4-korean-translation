@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Push Kick",
 	kr_display_name = "밀어차기",
@@ -46,7 +48,7 @@ newTalent{
 					return true
 				else
 					self:project(target, target.x, target.y, DamageType.PHYSICAL, t.getDamage(self, t))
-					game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
+					game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 
 			end
@@ -59,7 +61,9 @@ newTalent{
 			self:buildCombo()
 
 		else
-			game.logSeen(target, "%s misses %s.", self.name:capitalize(), target.name:capitalize())
+			--@@
+			local sn = self.kr_display_name or self.name
+			game.logSeen(target, "%s %s 빗맞췄습니다.", sn:capitalize():addJosa("가"), (target.kr_display_name or target.name):capitalize():addJosa("를"))
 		end
 
 		return true
@@ -90,10 +94,10 @@ newTalent{
 			-- if grappled stun
 			if target:isGrappled(self) and target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2, {apply_power=self:combatAttack(), min_dur=1})
-				game.logSeen(target, "%s 바닥에 내려꽂았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 바닥에 내려꽂았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("를"))
 			-- if not grappled daze
 			else
-				game.logSeen(target, "%s 바닥에 넘어뜨렸습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 바닥에 넘어뜨렸습니다!", (target.kr_display_name or target.name):capitalize():addJosa("를"))
 				-- see if the throw dazes the enemy
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_DAZED, 2, {apply_power=self:combatAttack(), min_dur=1})

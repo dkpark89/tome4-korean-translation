@@ -78,7 +78,7 @@ newEntity{ base = "BASE_TOTEM",
 
 newEntity{ base = "BASE_TOTEM",
 	name = "dragonbone totem", short_name = "dragonbone",
-	kr_display_name = "드래곤뼈 토템",
+	kr_display_name = "용뼈 토템",
 	color = colors.UMBER,
 	level_range = {40, 50},
 	cost = 5,

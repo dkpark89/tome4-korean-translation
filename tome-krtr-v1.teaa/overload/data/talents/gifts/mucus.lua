@@ -245,7 +245,7 @@ newTalent{
 
 newTalent{
 	name = "Oozewalk",
-	kr_display_name = "오즈의 길",
+	kr_display_name = "진흙 덩어리의 길",
 	type = {"wild-gift/mucus", 4},
 	require = gifts_req4,
 	points = 5,

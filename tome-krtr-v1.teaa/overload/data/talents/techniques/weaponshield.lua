@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 ----------------------------------------------------------------------
 -- Offense
 ----------------------------------------------------------------------
@@ -52,7 +54,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t) / 2, {apply_power=self:combatAttackStr()})
 			else
-				game.logSeen(target, "% 기절하지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -127,7 +129,7 @@ newTalent{
 			if target:checkHit(self:combatAttack(shield.special_combat), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				target:knockback(self.x, self.y, 4)
 			else
-				game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -201,7 +203,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패 없이는 방패의 벽을 칠 수 없습니다!")
+			game.logPlayer(self, "방패 없이는 방패의 벽을 세울 수 없습니다!")
 			return nil
 		end
 
@@ -250,7 +252,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패 없이는 반발 기술을 사용할 수 없습니다!")
+			game.logPlayer(self, "방패 없이는 반발을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -262,7 +264,7 @@ newTalent{
 					target:knockback(self.x, self.y, 2 + self:getTalentLevel(t))
 					if target:canBe("stun") then target:setEffect(target.EFF_DAZED, 3 + self:getStr(8), {}) end
 				else
-					game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
+					game.logSeen(target, "%s 밀려나지 않습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end)

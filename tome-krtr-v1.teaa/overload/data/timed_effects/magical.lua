@@ -595,7 +595,7 @@ newEffect{
 newEffect{
 	name = "CURSE_DEFENSELESSNESS", image = "talents/curse_of_defenselessness.png",
 	desc = "Curse of Defenselessness",
-	kr_display_name = "비보호의 저주",
+	kr_display_name = "무저항의 저주",
 	long_desc = function(self, eff) return ("The target is cursed, reducing defence and all saves by %d."):format(eff.power) end,
 	type = "magical",
 	subtype = { curse=true },
@@ -668,7 +668,7 @@ newEffect{
 newEffect{
 	name = "BLOODLUST", image = "talents/bloodlust.png",
 	desc = "Bloodlust",
-	kr_display_name = "피에 굶주림",
+	kr_display_name = "피의 굶주림",
 	long_desc = function(self, eff) return ("The target is in a magical bloodlust, improving spellpower by %d."):format(eff.dur) end,
 	type = "magical",
 	subtype = { frenzy=true },
@@ -824,7 +824,7 @@ newEffect{
 newEffect{
 	name = "TELEPORT_ANGOLWEN", image = "talents/teleport_angolwen.png",
 	desc = "Teleport: Angolwen",
-	kr_display_name = "공간이동: 앙골웬",
+	kr_display_name = "순간이동: 앙골웬",
 	long_desc = function(self, eff) return "The target is waiting to be recalled back to Angolwen." end,
 	type = "magical",
 	subtype = { teleport=true },
@@ -862,7 +862,7 @@ newEffect{
 newEffect{
 	name = "TELEPORT_POINT_ZERO", image = "talents/teleport_point_zero.png",
 	desc = "Timeport: Point Zero",
-	kr_display_name = "공간이동: 영점",
+	kr_display_name = "순간이동: 영점",
 	long_desc = function(self, eff) return "The target is waiting to be recalled back to Point Zero." end,
 	type = "magical",
 	subtype = { timeport=true },
@@ -975,7 +975,7 @@ newEffect{
 newEffect{
 	name = "PROVIDENCE", image = "talents/providence.png",
 	desc = "Providence",
-	kr_display_name = "빛의 뜻",
+	kr_display_name = "빛의 섭리",
 	long_desc = function(self, eff) return ("The target is under protection and its life regeneration is boosted by %d."):format(eff.power) end,
 	type = "magical",
 	subtype = { light=true },
@@ -1047,7 +1047,7 @@ newEffect{
 newEffect{
 	name = "SHIFTING_SHADOWS", image = "talents/circle_of_shifting_shadows.png",
 	desc = "Shifting Shadows",
-	kr_display_name = "뒤바뀌는 그림자",
+	kr_display_name = "흐르는 그림자",
 	long_desc = function(self, eff) return ("The target's defense is increased by %d."):format(eff.power) end,
 	type = "magical",
 	subtype = { circle=true, darkness=true },
@@ -1081,7 +1081,7 @@ newEffect{
 newEffect{
 	name = "WARDING", image = "talents/circle_of_warding.png",
 	desc = "Warding",
-	kr_display_name = "배척",
+	kr_display_name = "보호",
 	long_desc = function(self, eff) return ("Projectiles aimed at the target are slowed by %d%%."):format (eff.power) end,
 	type = "magical",
 	subtype = { circle=true, light=true, darkness=true },
@@ -1178,7 +1178,7 @@ newEffect{
 newEffect{
 	name = "INVIGORATE", image = "talents/invigorate.png",
 	desc = "Invigorate",
-	kr_display_name = "기운 돋우기",
+	kr_display_name = "활성화",
 	long_desc = function(self, eff) return ("The target is regaining %d stamina per turn and refreshing talents at twice the normal rate."):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
@@ -1207,7 +1207,7 @@ newEffect{
 newEffect{
 	name = "GATHER_THE_THREADS", image = "talents/gather_the_threads.png",
 	desc = "Gather the Threads",
-	kr_display_name = "시간흐름 모으기",
+	kr_display_name = "시간의 흐름 - 수집",
 	long_desc = function(self, eff) return ("The target's spellpower has been increased by %d and will continue to increase by %d each turn."):
 	format(eff.cur_power or eff.power, eff.power/5) end,
 	type = "magical",
@@ -1409,7 +1409,7 @@ newEffect{
 newEffect{
 	name = "CEASE_TO_EXIST", image = "talents/cease_to_exist.png",
 	desc = "Cease to Exist",
-	kr_display_name = "중지된 실존",
+	kr_display_name = "중단된 실존",
 	long_desc = function(self, eff) return ("The target is being removed from the timeline and is suffering %d temporal damage per turn."):format(eff.dam) end,
 	type = "magical",
 	subtype = { temporal=true },
@@ -1495,7 +1495,7 @@ newEffect{
 newEffect{
 	name = "SPIN_FATE", image = "talents/spin_fate.png",
 	desc = "Spin Fate",
-	kr_display_name = "숙명의 전개",
+	kr_display_name = "운명 왜곡",
 	long_desc = function(self, eff) return ("The target's saves have been increased by %d."):
 	format(eff.cur_save_bonus or eff.save_bonus) end,
 	type = "magical",
@@ -1587,7 +1587,7 @@ newEffect{
 newEffect{
 	name = "DECREPITUDE_DISEASE", image = "talents/decrepitude_disease.png",
 	desc = "Decrepitude Disease",
-	kr_display_name = "노화형 질병",
+	kr_display_name = "노화성 질병",
 	long_desc = function(self, eff) return ("The target is infected by a disease, reducing its dexterity by %d and doing %0.2f blight damage per turn."):format(eff.dex, eff.dam) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
@@ -1613,7 +1613,7 @@ newEffect{
 newEffect{
 	name = "WEAKNESS_DISEASE", image = "talents/weakness_disease.png",
 	desc = "Weakness Disease",
-	kr_display_name = "약화형 질병",
+	kr_display_name = "약화성 질병",
 	long_desc = function(self, eff) return ("The target is infected by a disease, reducing its strength by %d and doing %0.2f blight damage per turn."):format(eff.str, eff.dam) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
@@ -1788,7 +1788,7 @@ newEffect{
 newEffect{
 	name = "WARD", image = "talents/ward.png",
 	desc = "Ward",
-	kr_display_name = "배척",
+	kr_display_name = "보호",
 	long_desc = function(self, eff) return ("Fully absorbs %d %s attack%s."):format(#eff.particles, DamageType.dam_def[eff.d_type].name, #eff.particles > 1 and "s" or "") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2027,7 +2027,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_ARCANE", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Arcane",
-	kr_display_name = "엘리먼트의 쇄도: 마법",
+	kr_display_name = "속성 고조: 마법",
 	long_desc = function(self, eff) return ("Spellcasting speed increased by 20%") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2041,7 +2041,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_COLD", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Cold",
-	kr_display_name = "엘리먼트의 쇄도: 냉기",
+	kr_display_name = "속성 고조: 냉기",
 	long_desc = function(self, eff) return ("Physical damage reduced by 30% and deals 100 ice damage when hit in melee.") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2056,7 +2056,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_LIGHTNING", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Lightning",
-	kr_display_name = "엘리먼트의 쇄도: 전기",
+	kr_display_name = "속성 고조: 전기",
 	long_desc = function(self, eff) return ("When hit you turn into pure lightning and reappear near where you where, ignoring the blow.") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2070,7 +2070,7 @@ newEffect{
 newEffect{
 	name = "VULNERABILITY_POISON", image = "talents/vulnerability_poison.png",
 	desc = "Vulnerability Poison",
-	kr_display_name = "약화형 중독",
+	kr_display_name = "약화형 독",
 	long_desc = function(self, eff) return ("The target is poisoned and sick, doing %0.2f arcane damage per turn. All resistances are reduced by %d%%."):format(eff.power, eff.res) end,
 	type = "magical",
 	subtype = { poison=true, arcane=true },
@@ -2095,7 +2095,7 @@ newEffect{
 newEffect{
 	name = "IRRESISTIBLE_SUN", image = "talents/irresistible_sun.png",
 	desc = "Irresistible Sun",
-	kr_display_name = "피할수없는 태양",
+	kr_display_name = "저장할 수 없는 태양의 힘",
 	long_desc = function(self, eff) return ("The target is attracting all toward it, also dealing fire, light and physical damage each turn.."):format() end,
 	type = "magical",
 	subtype = { sun=true },

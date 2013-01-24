@@ -111,7 +111,7 @@ newTalent{
 
 newTalent{
 	name = "Swap", short_name = "MITOSIS_SWAP",
-	kr_display_name = "교환",
+	kr_display_name = "위치 교체",
 	type = {"wild-gift/ooze", 3},
 	require = gifts_req3,
 	points = 5,

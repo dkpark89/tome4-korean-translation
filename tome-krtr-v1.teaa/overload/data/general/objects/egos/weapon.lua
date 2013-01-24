@@ -360,7 +360,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "elemental ", prefix=true, instant_resolve=true,
-	kr_display_name = "엘리멘탈 ",
+	kr_display_name = "정령 ",
 	keywords = {elemental=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -919,7 +919,7 @@ newEntity{
 	level_range = {1, 50},
 	rarity = 5,
 	cost = 15,
-	resolvers.charm("무기 피해의 100%%만큼 정신적으로 투영시켜 공격", 6,
+	resolvers.charm("무기 피해의 100%%만큼 정신으로 투영 공격", 6,
 		function(self, who)
 			local tg = {type="bolt", range=5}
 			local x, y = who:getTarget(tg)

@@ -310,7 +310,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "elemental ", prefix=true, instant_resolve=true,
-	kr_display_name = "엘리멘탈 ",
+	kr_display_name = "정령 ",
 	keywords = {elemental=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -323,7 +323,7 @@ newEntity{
 			[DamageType.ACID] = resolvers.mbonus_material(15, 10),
 			[DamageType.LIGHTNING] = resolvers.mbonus_material(15, 10),
 		},
-		special_on_hit = {desc="임의의 엘리멘탈 효과", fct=function(combat, who, target)
+		special_on_hit = {desc="임의의 원소 효과", fct=function(combat, who, target)
 			local dam = 20 + (who:combatSpellpower()/5)
 			local tg = {type="hit", range=10}
 			local elem = rng.table{

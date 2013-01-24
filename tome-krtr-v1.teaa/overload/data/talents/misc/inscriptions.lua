@@ -300,7 +300,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Wild Growth",
-	kr_display_name = "주입: 야생",
+	kr_display_name = "주입 : 야생",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACKAREA = { PHYSICAL = 1, NATURE = 1 }, DISABLE = 3 },
@@ -402,7 +402,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Teleportation",
-	kr_display_name = "룬 : 장거리 공간이동",
+	kr_display_name = "룬 : 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -417,11 +417,11 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, 최소 15 칸 이상의 무작위한 곳으로 공간이동합니다.]]):format(data.range + data.inc_stat)
+		return ([[룬을 발동하여, 최소 15 칸 이상의 무작위한 곳으로 순간이동합니다.]]):format(data.range + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d 칸 이상 무작위 공간이동]]):format(data.range + data.inc_stat)
+		return ([[%d 칸 이상 무작위 순간이동]]):format(data.range + data.inc_stat)
 	end,
 }
 
@@ -810,6 +810,7 @@ newInscription{
 		local e = mod.class.Object.new{
 			old_feat = oe, type = oe.type, subtype = oe.subtype,
 			name = "temporal instability", image = oe.image, add_mos = {{image="object/temporal_instability.png"}},
+			kr_display_name = "불안정한 시공간",
 			display = '&', color=colors.LIGHT_BLUE,
 			temporary = t.getDuration(self, t),
 			canAct = false,

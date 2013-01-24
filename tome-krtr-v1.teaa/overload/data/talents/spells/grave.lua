@@ -73,6 +73,7 @@ newTalent{
 		if not killer or not killer.faction or self:reactionToward(killer) >= 0 or self.dead then return end
 		local minion = require("mod.class.NPC").new{
 			name = "will o' the wisp",
+			kr_display_name = "윌 오 위습",
 			type = "undead", subtype = "ghost",
 			blood_color = colors.GREY,
 			display = "G", color=colors.WHITE,
@@ -184,6 +185,7 @@ newTalent{
 	createDark = function(summoner, x, y, damage, duration, creep, creepChance, initialCreep)
 		local e = Object.new{
 			name = "cold flames",
+			kr_display_name = "차가운 불꽃",
 			canAct = false,
 			canCreep = true,
 			x = x, y = y,

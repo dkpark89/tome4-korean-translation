@@ -136,7 +136,7 @@ newEffect{
 newEffect{
 	name = "SPYDRIC_POISON", image = "effects/spydric_poison.png",
 	desc = "Spydric Poison",
-	kr_display_name = "거미독 중독",
+	kr_display_name = "거미독",
 	long_desc = function(self, eff) return ("The target is poisoned, taking %0.2f nature damage per turn and unable to move (but can otherwise act freely)."):format(eff.power) end,
 	type = "physical",
 	subtype = { poison=true, pin=true, nature=true }, no_ct_effect = true,
@@ -160,7 +160,7 @@ newEffect{
 newEffect{
 	name = "INSIDIOUS_POISON", image = "effects/insidious_poison.png",
 	desc = "Insidious Poison",
-	kr_display_name = "반회복형 중독",
+	kr_display_name = "잠식형 독",
 	long_desc = function(self, eff) return ("The target is poisoned, taking %0.2f nature damage per turn and decreasing all heals received by %d%%."):format(eff.power, eff.heal_factor) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
@@ -184,7 +184,7 @@ newEffect{
 newEffect{
 	name = "CRIPPLING_POISON", image = "talents/crippling_poison.png",
 	desc = "Crippling Poison",
-	kr_display_name = "무력화형 중독",
+	kr_display_name = "무력형 독",
 	long_desc = function(self, eff) return ("The target is poisoned and sick, doing %0.2f nature damage per turn. Each time it tries to use a talent there is %d%% chance of failure."):format(eff.power, eff.fail) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
@@ -209,7 +209,7 @@ newEffect{
 newEffect{
 	name = "NUMBING_POISON", image = "effects/numbing_poison.png",
 	desc = "Numbing Poison",
-	kr_display_name = "마비형 중독",
+	kr_display_name = "마비형 독",
 	long_desc = function(self, eff) return ("The target is poisoned and sick, doing %0.2f nature damage per turn. All damage it does is reduced by %d%%."):format(eff.power, eff.reduce) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
@@ -234,7 +234,7 @@ newEffect{
 newEffect{
 	name = "STONE_POISON", image = "talents/stoning_poison.png",
 	desc = "Stoning Poison",
-	kr_display_name = "석화형 중독",
+	kr_display_name = "석화형 독",
 	long_desc = function(self, eff) return ("The target is poisoned and sick, doing %0.2f nature damage per turn. When the effect ends the target will turn to stone for %d turns."):format(eff.power, eff.stone) end,
 	type = "physical",
 	subtype = { poison=true, earth=true }, no_ct_effect = true,
@@ -356,7 +356,7 @@ newEffect{
 newEffect{
 	name = "DISARMED", image = "talents/disarm.png",
 	desc = "Disarmed",
-	kr_display_name = "무장해제",
+	kr_display_name = "무장 해제",
 	long_desc = function(self, eff) return "The target is maimed, unable to correctly wield a weapon." end,
 	type = "physical",
 	subtype = { disarm=true },
@@ -503,7 +503,7 @@ newEffect{
 newEffect{
 	name = "DWARVEN_RESILIENCE", image = "talents/dwarf_resilience.png",
 	desc = "Dwarven Resilience",
-	kr_display_name = "드워프의 활력",
+	kr_display_name = "드워프의 체질",
 	long_desc = function(self, eff) return ("The target's skin turns to stone, granting %d armour, %d physical save and %d spell save."):format(eff.armor, eff.physical, eff.spell) end,
 	type = "physical",
 	subtype = { earth=true },
@@ -662,7 +662,7 @@ newEffect{
 newEffect{
 	name = "SHELL_SHIELD", image = "talents/shell_shield.png",
 	desc = "Shell Shield",
-	kr_display_name = "등껍질 방어막",
+	kr_display_name = "등껍질 보호막",
 	long_desc = function(self, eff) return ("The target takes cover in its shell, reducing all damage taken by %d%%."):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
@@ -995,7 +995,7 @@ newEffect{
 newEffect{
 	name = "DRAGONS_FIRE", image = "talents/fire_breath.png",
 	desc = "Dragon's Fire",
-	kr_display_name = "드래곤의 화염",
+	kr_display_name = "용의 화염",
 	long_desc = function(self, eff) return ("Dragon blood runs through your veins. You can breathe fire (or have it improved if you already could)."):format() end,
 	type = "physical",
 	subtype = { fire=true },
@@ -1225,7 +1225,7 @@ newEffect{
 newEffect{
 	name = "SET_UP", image = "talents/set_up.png",
 	desc = "Set Up",
-	kr_display_name = "몸가짐",
+	kr_display_name = "흐트러진 자세",
 	long_desc = function(self, eff) return ("The target is off balance and is %d%% more likely to be crit by the target that set it up.  In addition all its saves are reduced by %d."):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { tactic=true },
@@ -1335,7 +1335,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_HARMONY", image = "effects/elemental_harmony.png",
 	desc = "Elemental Harmony",
-	kr_display_name = "엘리먼트의 조화",
+	kr_display_name = "정령의 조화",
 	long_desc = function(self, eff)
 		if eff.type == DamageType.FIRE then return ("Increases global speed by %d%%."):format(100 * (0.1 + eff.power / 16))
 		elseif eff.type == DamageType.COLD then return ("Increases armour by %d."):format(3 + eff.power *2)
@@ -1749,7 +1749,7 @@ newEffect{
 newEffect{
 	name = "THORN_GRAB", image = "talents/thorn_grab.png",
 	desc = "Thorn Grab",
-	kr_display_name = "덩쿨 휘감기",
+	kr_display_name = "가시덩쿨 붙잡기",
 	long_desc = function(self, eff) return ("The target is encased in thorny vines, dealing %d nature damage each turn and reducing its speed by %d%%."):format(eff.dam, eff.speed*100) end,
 	type = "physical",
 	subtype = { nature=true },
@@ -1769,7 +1769,7 @@ newEffect{
 newEffect{
 	name = "LEAVES_COVER", image = "talents/leaves_tide.png",
 	desc = "Leaves Cover",
-	kr_display_name = "잎사귀로 덮힘",
+	kr_display_name = "잎사귀 덮개",
 	long_desc = function(self, eff) return ("%d%% chance to fully absorb any damaging actions."):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
@@ -1860,7 +1860,7 @@ newEffect{
 newEffect{
 	name = "RAVAGE", image = "talents/ravage.png",
 	desc = "Ravage",
-	kr_display_name = "손상",
+	kr_display_name = "유린",
 	long_desc = function(self, eff)
 		local ravaged = "each turn."
 		if eff.ravage then ravaged = "and is losing one physical effect turn." end
@@ -1961,7 +1961,7 @@ newEffect{
 newEffect{
 	name = "FAST_AS_LIGHTNING", image = "talents/fast_as_lightning.png",
 	desc = "Fast As Lightning",
-	kr_display_name = "번개같은 빠름",
+	kr_display_name = "번개보다 빠르게",
 	long_desc = function(self, eff) return ("The target is so fast it may blink throught obstacles if moving in the same direction for over two turns."):format() end,
 	type = "physical",
 	subtype = { speed=true },
@@ -1984,7 +1984,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_NATURE", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Nature",
-	kr_display_name = "엘리먼트 쇄도: 자연",
+	kr_display_name = "속성 고조: 자연",
 	long_desc = function(self, eff) return ("Immune to physical effects.") end,
 	type = "physical",
 	subtype = { status=true },
@@ -1998,7 +1998,7 @@ newEffect{
 newEffect{
 	name = "STEAMROLLER", image = "talents/steamroller.png",
 	desc = "Steamroller",
-	kr_display_name = "스팀롤러",
+	kr_display_name = "강압",
 	long_desc = function(self, eff) return ("Resets Rush cooldown if killed.") end,
 	type = "physical",
 	subtype = { status=true },
@@ -2016,7 +2016,7 @@ newEffect{
 newEffect{
 	name = "STEAMROLLER_USER", image = "talents/steamroller.png",
 	desc = "Steamroller",
-	kr_display_name = "스팀롤러",
+	kr_display_name = "강압",
 	long_desc = function(self, eff) return ("Grants a +%d%% damage bonus."):format(eff.buff) end,
 	type = "physical",
 	subtype = { status=true },
@@ -2039,7 +2039,7 @@ newEffect{
 newEffect{
 	name = "SPINE_OF_THE_WORLD", image = "talents/spine_of_the_world.png",
 	desc = "Spine of the World",
-	kr_display_name = "세계의 기둥",
+	kr_display_name = "세계 최강의 척추",
 	long_desc = function(self, eff) return ("Immune to physical effects.") end,
 	type = "physical",
 	subtype = { status=true },
@@ -2106,7 +2106,7 @@ newEffect{
 newEffect{
 	name = "MITOSIS_SWAP", image = "talents/mitosis_swap.png",
 	desc = "Swap",
-	kr_display_name = "교환",
+	kr_display_name = "위치 교체",
 	long_desc = function(self, eff) return ("You recently swaped with your other self, boosting your damage by %d%%."):format(eff.power) end,
 	type = "physical",
 	subtype = { status=true },

@@ -348,7 +348,7 @@ newEntity{ base="TOWN", define_as = "TOWN_ANGOLWEN",
 }
 newEntity{ base="TOWN", define_as = "TOWN_ANGOLWEN_PORTAL",
 	name = "Hidden teleportation portal to Angolwen, the hidden city of magic",
-	kr_display_name = "숨겨진 마법도시 앙골웬으로 통하는 숨겨진 공간이동 포탈",
+	kr_display_name = "숨겨진 마법도시 앙골웬으로 통하는 숨겨진 순간이동 포탈",
 	display='&', color=colors.LIGHT_BLUE, back_color=colors.DARK_GREEN,
 	image="terrain/grass.png", add_displays = {mod.class.Grid.new{image="terrain/maze_teleport.png"}},
 	change_level_check = function() local p = game.party:findMember{main=true} if p:attr("forbid_arcane") then game.log("포탈이 파직거립니다.") return true end return false end,

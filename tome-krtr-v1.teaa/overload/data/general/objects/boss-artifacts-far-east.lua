@@ -65,7 +65,7 @@ newEntity{ base = "BASE_TRIDENT",
 	kr_display_name = "해일의 삼지창", kr_unided_name = "항상 물방울이 흐르는 삼지창",
 	name = "Trident of the Tides", unique=true, image = "object/artifact/trident_of_the_tides.png",
 	desc = [[해일이 밀려오는 힘이 이 삼지창에 들어있습니다.
-삼지창을 제대로 쓰려면 이형 무기 숙련 기술이 필요합니다.]],
+삼지창을 제대로 쓰려면 이형 무기 수련 기술이 필요합니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {30, 40},
 	rarity = 230,

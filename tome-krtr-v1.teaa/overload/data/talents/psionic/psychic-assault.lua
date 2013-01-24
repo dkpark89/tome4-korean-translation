@@ -97,7 +97,7 @@ newTalent{
 
 newTalent{
 	name = "Synaptic Static",
-	kr_display_name = "시냅스 정전기",
+	kr_display_name = "시냅스 정전기 발동",
 	type = {"psionic/psychic-assault", 3},
 	require = psi_wil_req3,
 	points = 5,

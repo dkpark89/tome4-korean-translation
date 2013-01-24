@@ -61,7 +61,7 @@ newEffect{
 newEffect{
 	name = "TAINT_COOLDOWN", image = "effects/tainted_cooldown.png",
 	desc = "Tainted",
-	kr_display_name = "오염됨",
+	kr_display_name = "감염",
 	long_desc = function(self, eff) return ("The more you use taints, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
 	type = "other",
 	subtype = { taint=true },
@@ -159,7 +159,7 @@ newEffect{
 newEffect{
 	name = "TIME_DOT",
 	desc = "Temporal Wake",
-	kr_display_name = "시간의 각성",
+	kr_display_name = "시간의 흔적",
 	long_desc = function(self, eff) return ("The time distortion protecting the target has ended. All damage forwarded in time is now appearing as temporal vortexes each turn. Temporal Vortexes do %0.2f temporal damage per turn for 3 turn."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -274,7 +274,7 @@ newEffect{
 newEffect{
 	name = "DAMAGE_SMEARING", image = "talents/damage_smearing.png",
 	desc = "Damage Smearing",
-	kr_display_name = "피해 문지르기",
+	kr_display_name = "피해 분산",
 	long_desc = function(self, eff) return ("Passes damage received in the present onto the future self."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
@@ -318,7 +318,7 @@ newEffect{
 newEffect{
 	name = "PRECOGNITION", image = "talents/precognition.png",
 	desc = "Precognition",
-	kr_display_name = "사전 인지",
+	kr_display_name = "예지",
 	long_desc = function(self, eff) return "You walk into the future; when the effect ends, if you are not dead, you are brought back to the past." end,
 	type = "other",
 	subtype = { time=true },
@@ -354,7 +354,7 @@ newEffect{
 newEffect{
 	name = "SEE_THREADS", image = "talents/see_the_threads.png",
 	desc = "See the Threads",
-	kr_display_name = "시간흐름 보기",
+	kr_display_name = "시간의 흐름 - 예견",
 	long_desc = function(self, eff) return ("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d)."):format(eff.thread) end,
 	type = "other",
 	subtype = { time=true },
@@ -410,7 +410,7 @@ newEffect{
 newEffect{
 	name = "IMMINENT_PARADOX_CLONE",
 	desc = "Imminent Paradox Clone",
-	kr_display_name = "일촉즉발의 괴리적 복제",
+	kr_display_name = "일촉즉발의 모순된 복제",
 	long_desc = function(self, eff) return "When the effect expires you'll be pulled into the past." end,
 	type = "other",
 	subtype = { time=true },
@@ -463,7 +463,7 @@ newEffect{
 newEffect{
 	name = "PARADOX_CLONE", image = "talents/paradox_clone.png",
 	desc = "Paradox Clone",
-	kr_display_name = "괴리적 복제",
+	kr_display_name = "모순된 복제",
 	long_desc = function(self, eff) return "You've been pulled into the past." end,
 	type = "other",
 	subtype = { time=true },
@@ -489,7 +489,7 @@ newEffect{
 newEffect{
 	name = "MILITANT_MIND", image = "talents/militant_mind.png",
 	desc = "Militant Mind",
-	kr_display_name = "투쟁적 정신",
+	kr_display_name = "투쟁 정신",
 	long_desc = function(self, eff) return ("Increases physical power, physical save, spellpower, spell save, mindpower, and mental save by %d."):format(eff.power) end,
 	type = "other",
 	subtype = { miscellaneous=true },
@@ -551,7 +551,7 @@ newEffect{
 newEffect{
 	name = "FADE_FROM_TIME", image = "talents/fade_from_time.png",
 	desc = "Fade From Time",
-	kr_display_name = "시간에서 벗어나기",
+	kr_display_name = "시간에서 흐려진 자",
 	long_desc = function(self, eff) return ("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%."):
 	format(eff.dur * 2 + 2, eff.cur_power or eff.power, eff.cur_power or eff.power) end,
 	type = "other",
@@ -592,7 +592,7 @@ newEffect{
 newEffect{
 	name = "SHADOW_VEIL", image = "talents/shadow_veil.png",
 	desc = "Shadow Veil",
-	kr_display_name = "그림자 드리우기",
+	kr_display_name = "그림자의 장막",
 	long_desc = function(self, eff) return ("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character."):format(eff.res, eff.dam * 100) end,
 	type = "other",
 	subtype = { darkness=true },
@@ -1560,7 +1560,7 @@ newEffect{
 newEffect{
 	name = "HIGHBORN_S_BLOOM", image = "talents/highborn_s_bloom.png",
 	desc = "Highborn's Bloom",
-	kr_display_name = "꽃피운 고귀함",
+	kr_display_name = "잠재된 마력 발현",
 	long_desc = function(self, eff) return "The target is using talents without consuming resources." end,
 	type = "other",
 	subtype = { arcane=true },
@@ -1632,7 +1632,7 @@ newEffect{
 newEffect{
 	name = "DREAMSCAPE", image = "talents/dreamscape.png",
 	desc = "Dreamscape",
-	kr_display_name = "꿈의 영역",
+	kr_display_name = "꿈 속 여행",
 	long_desc = function(self, eff) return ("This target has invaded %s's dreams and has gained a %d%% bonus to all damage."):format(eff.target.name, eff.power) end,
 	type = "other",
 	subtype = { psionic=true },
@@ -1863,7 +1863,7 @@ newEffect{
 newEffect{
 	name = "REVISIONIST_HISTORY", image = "talents/revisionist_history.png",
 	desc = "Revisionist History",
-	kr_display_name = "수정주의적 역사",
+	kr_display_name = "수정론자의 역사 기록법",
 	long_desc = function(self, eff) return "While this effect holds you can decide recent history did not happen the way it did." end,
 	type = "other",
 	subtype = { time=true },

@@ -83,18 +83,18 @@ newEntity{
 	define_as = "BASE_TAINT",
 	type = "scroll", subtype="taint", add_name = " (#INSCRIPTION#)",
 	unided_name = "taint", id_by_type = true,
-	kr_unided_name = "오염",
+	kr_unided_name = "감염",
 	display = "?", color=colors.LIGHT_BLUE, image="object/rune_yellow.png",
 	encumber = 0.1,
 	use_sound = "actions/read",
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{10,1}, {20,2}, {40,5}, {60,10}, {120,20}},
-	desc = [[타락한 오염을 당신의 육체에 새겨, 필요한 기술을 가질 수 있습니다.]],
+	desc = [[타락한 감염을 당신의 육체에 새겨, 필요한 기술을 가질 수 있습니다.]],
 	egos = "/data/general/objects/egos/infusions.lua", egos_chance = resolvers.mbonus(30, 5),
 
 	power_source = {arcane=true},
-	use_simple = { name="inscribe your skin with the taint.", kr_display_name = "오염을 피부에 새김", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the taint.", kr_display_name = "감염을 피부에 새김", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -249,7 +249,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "insidious poison infusion",
-	kr_display_name = "반회복형 중독 주입물",
+	kr_display_name = "잠식형 독 주입물",
 	level_range = {10, 50},
 	rarity = 16,
 	cost = 20,
@@ -305,7 +305,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "teleportation rune",
-	kr_display_name = "장거리 공간이동 룬",
+	kr_display_name = "순간이동 룬",
 	level_range = {10, 50},
 	rarity = 15,
 	cost = 10,
@@ -431,7 +431,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "lightning rune",
-	kr_display_name = "전격 룬",
+	kr_display_name = "번개 룬",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 20,
@@ -471,7 +471,7 @@ newEntity{ base = "BASE_RUNE",
 --[[
 newEntity{ base = "BASE_TAINT",
 	name = "taint of the devourer",
-	kr_display_name = "먹깨비 오염",
+	kr_display_name = "먹깨비 감염",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 10,

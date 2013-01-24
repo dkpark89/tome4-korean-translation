@@ -147,7 +147,7 @@ newTalent{
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },
 		level = function(level) return 20 + (level-1)  end,
-		special = { desc="'From Death, Life' quest completed", fct=function(self, t) return self:isQuestStatus("lichform", engine.Quest.DONE) end},
+		special = { desc="'From Death, Life' 퀘스트 완료", fct=function(self, t) return self:isQuestStatus("lichform", engine.Quest.DONE) end}, --@@ 해당 퀘스트 번역시 이 부분도 변경 필요
 	},
 	mode = "sustained",
 	points = 5,
@@ -212,10 +212,10 @@ newTalent{
 
 		if self:attr("blood_life") then
 			self.blood_life = nil
-			game.log("#GREY#As you turn into a powerful undead you feel your body violently rejecting the Blood of Life.")
+			game.log("#GREY#강력한 언데드로 변신하자, 당신의 육체가 떨리면서 생명의 피(Blood of Life)를 거부하는 것을 느낍니다.")
 		end
 
-		require("engine.ui.Dialog"):simplePopup("Lichform", "#GREY#You feel your life slip away, only to be replaced by pure arcane forces! Your flesh starts to rot on your bones, and your eyes fall apart as you are reborn into a Lich!")
+		require("engine.ui.Dialog"):simplePopup("리치 변신", "#GREY#당신의 생명력이 빠져나가고, 순수한 마법의 힘이 그 자리를 대신합니다! 당신의 살은 썩어 뼈만 남고, 눈이 떨어져 나가면서 리치로 다시 태어났습니다!")
 
 		game.level.map:particleEmitter(self.x, self.y, 1, "demon_teleport")
 	end,

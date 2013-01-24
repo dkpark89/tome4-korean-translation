@@ -26,7 +26,7 @@ load("/data/general/objects/egos/armor.lua")
 newEntity{
 	power_source = {nature=true},
 	name = " of the dragon", suffix=true, instant_resolve=true,
-	kr_display_name = "드래곤의 ",
+	kr_display_name = "용의 ",
 	keywords = {dragon=true},
 	level_range = {20, 50},
 	greater_ego = 1,

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Paradox Mastery",
 	kr_display_name = "괴리 수련",
@@ -68,7 +70,7 @@ newTalent{
 		if tg then
 			game:onTickEnd(function()
 				tg:removeEffect(tg.EFF_CEASE_TO_EXIST)
-				game.logSeen(tg, "#LIGHT_BLUE#%s 따위는 원래부터 없었던 존재였습니다!", tg.name:capitalize())
+				game.logSeen(tg, "#LIGHT_BLUE#%s 따위는 원래부터 없었던 존재였습니다!", (tg.kr_display_name or tg.name):capitalize())
 				tg:die(self)
 			end)
 		end
@@ -89,7 +91,7 @@ newTalent{
 		if not target then return end
 
 		if target == self then
-			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s 은(는) %s 자기 자신의 존재를 지우려고 합니다!", self.name, string.his_her(self))
+			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s 자기 자신의 존재를 지우려고 합니다!", (self.kr_display_name or self.name):addJosa("는")) --@@
 			self:incParadox(400)
 			game.level.map:particleEmitter(self.x, self.y, 1, "ball_temporal", {radius=1, tx=self.x, ty=self.y})
 			return true
@@ -97,7 +99,7 @@ newTalent{
 		
 		-- does the spell hit?  if not nothing happens
 		if not self:checkHit(self:combatSpellpower(), target:combatSpellResist()) then
-			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			return true
 		end
 	
@@ -179,7 +181,7 @@ newTalent{
 			return
 		end
 
-		local sex = game.player.female and "she" or "he"
+		local sex = game.player.female and "그녀" or "그"
 		local m = require("mod.class.NPC").new(self:clone{
 			no_drops = true,
 			faction = self.faction,
@@ -188,7 +190,7 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			ai_tactic = resolvers.tactic("ranged"), ai_state = { talent_in=1, ally_compassion=10},
-			desc = [[진짜 '자기 자신' 입니다... or so ]]..sex..[[ says.]]
+			desc = [[진짜 '자기 자신' 입니다... 혹은 ]]..sex..[[는 그렇게 말합니다.]]
 		})
 		m:removeAllMOs()
 		m.make_escort = nil

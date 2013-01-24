@@ -107,7 +107,7 @@ temporal_req5 = {
 -- Backfire Function; this does the actual backfire even though the chance is calculated in Actor
 checkBackfire = function(self, x, y)
 	if self:paradoxBackfireChance() and not self:attr("no_paradox_fail") then
-		game.logPlayer(self, "#LIGHT_RED#The fabric of spacetime ripples and your spell backfires!!")
+		game.logPlayer(self, "#LIGHT_RED#시공간 구조가 파문을 일으키고, 당신의 주문이 역발(backfire)합니다!!") --@@
 		game:playSoundNear(self, "talents/echo")
 		return self.x, self.y
 	else
