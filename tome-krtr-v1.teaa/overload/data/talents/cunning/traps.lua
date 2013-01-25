@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Map = require "engine.Map"
 
 local trap_range = function(self, t) return 1 + math.floor(self:getTalentLevel(self.T_TRAP_LAUNCHER) * 1.2) end
@@ -104,6 +106,7 @@ newTalent{
 			type = "construct", subtype = "lure",
 			display = "*", color=colors.UMBER,
 			name = "lure", faction = self.faction, image = "npc/lure.png",
+			kr_display_name = "미끼",
 			desc = [[시끄러운 소리를 내는 미끼입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented", ai_state = { talent_in=1, },
@@ -200,6 +203,7 @@ local basetrap = function(self, t, x, y, dur, add)
 	local Trap = require "mod.class.Trap"
 	local trap = {
 		id_by_type=true, unided_name = "trap",
+		kr_unided_name = "함정",
 		display = '^',
 		faction = self.faction,
 		summoner = self, summoner_gain_exp = true,
@@ -243,6 +247,7 @@ newTalent{
 
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "elemental", name = "explosion trap", color=colors.LIGHT_RED, image = "trap/blast_fire01.png",
+			kr_display_name = "폭발 함정",
 			dam = dam,
 			lure_trigger = true,
 			triggered = function(self, x, y, who)
@@ -290,6 +295,7 @@ newTalent{
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "physical", name = "bear trap", color=colors.UMBER, image = "trap/beartrap01.png",
+			kr_display_name = "올가미 함정",
 			dam = dam,
 			check_hit = self:combatAttack(),
 			triggered = function(self, x, y, who)
@@ -297,7 +303,7 @@ newTalent{
 				if who:canBe("pin") then
 					who:setEffect(who.EFF_PINNED, 5, {apply_power=self.check_hit})
 				else
-					game.logSeen(who, "%s 저항했습니다!", who.name:capitalize())
+					game.logSeen(who, "%s 저항했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 				end
 				return true, true
 			end,
@@ -339,6 +345,7 @@ newTalent{
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "physical", name = "catapult trap", color=colors.LIGHT_UMBER, image = "trap/trap_catapult_01_64.png",
+			kr_display_name = "밀어내기 함정",
 			dist = 2 + math.ceil(self:getTalentLevel(self.T_TRAP_MASTERY)),
 			check_hit = self:combatAttack(),
 			triggered = function(self, x, y, who)
@@ -347,7 +354,7 @@ newTalent{
 					if target:checkHit(self.check_hit, target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 						return true
 					else
-						game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
+						game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 
@@ -394,13 +401,14 @@ newTalent{
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "physical", name = "disarming trap", color=colors.DARK_GREY, image = "trap/trap_magical_disarm_01_64.png",
+			kr_display_name = "무장해제 함정",
 			dur = 2 + math.ceil(self:getTalentLevel(self.T_TRAP_MASTERY) / 2),
 			check_hit = self:combatAttack(),
 			triggered = function(self, x, y, who)
 				if who:canBe("disarm") then
 					who:setEffect(who.EFF_DISARMED, self.dur, {apply_power=self.check_hit})
 				else
-					game.logSeen(who, "%s 저항했습니다!", who.name:capitalize())
+					game.logSeen(who, "%s 저항했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 				end
 				return true, true
 			end,
@@ -443,6 +451,7 @@ newTalent{
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 5 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "nature", name = "nightshade trap", color=colors.LIGHT_BLUE, image = "trap/poison_vines01.png",
+			kr_display_name = "밤그림자 함정",
 			dam = dam,
 			check_hit = self:combatAttack(),
 			triggered = function(self, x, y, who)
@@ -489,6 +498,7 @@ newTalent{
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 5 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "elemental", name = "flash bang trap", color=colors.YELLOW, image = "trap/blast_acid01.png",
+			kr_display_name = "섬광 폭발 함정",
 			dur = math.floor(self:getTalentLevel(self.T_TRAP_MASTERY) + 4),
 			check_hit = self:combatAttack(),
 			lure_trigger = true,
@@ -500,7 +510,7 @@ newTalent{
 					elseif who and who:canBe("stun") then
 						who:setEffect(who.EFF_DAZED, self.dur, {apply_power=self.check_hit})
 					elseif who then
-						game.logSeen(who, "%s resists the flash bang!", who.name:capitalize())
+						game.logSeen(who, "%s 섬광 폭발을 저항했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 					end
 				end)
 				game.level.map:particleEmitter(x, y, 2, "sunburst", {radius=2, tx=x, ty=y})
@@ -547,6 +557,7 @@ newTalent{
 		-- Need to pass the actor in to the triggered function for the apply_power to work correctly
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "nature", name = "poison gas trap", color=colors.LIGHT_RED, image = "trap/blast_acid01.png",
+			kr_display_name = "독구름 함정",
 			dam = dam,
 			check_hit = self:combatAttack(),
 			lure_trigger = true,
@@ -605,6 +616,7 @@ newTalent{
 		-- Need to pass the actor in to the triggered function for the apply_power to work correctly
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "arcane", name = "gravitic trap", color=colors.LIGHT_RED, image = "invis.png",
+			kr_display_name = "중력장 함정",
 			embed_particles = {{name="wormhole", rad=1, args={image="shockbolt/terrain/wormhole", speed=1}}},
 			dam = dam,
 			check_hit = self:combatAttack(),
@@ -621,7 +633,7 @@ newTalent{
 						local ox, oy = target.x, target.y
 						target:pull(self.x, self.y, 1)
 						if target.x ~= ox or target.y ~= oy then
-							game.logSeen(target, "%s 끌려들어갑니다!", target.name:capitalize())
+							game.logSeen(target, "%s 끌려들어갑니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 							DamageType:get(DamageType.TEMPORAL).projector(self.summoner, target.x, target.y, DamageType.TEMPORAL, self.dam)
 						end
 					end

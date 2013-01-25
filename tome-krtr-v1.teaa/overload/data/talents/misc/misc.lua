@@ -393,5 +393,5 @@ newTalent{
 		game:playSoundNear(self, "talents/arcane")
 		return true
 	end,
-	info = [[숲의 기운을 10 사용하여, 지면에 강력한 에너지탄을 발사합니다. 에너지탄에 휩쓸린 모든 적들은 큰 피해를 입습니다.]]
+	info = [[요새 에너지를 10 사용하여, 지면에 강력한 에너지탄을 발사합니다. 에너지탄에 휩쓸린 모든 적들은 큰 피해를 입습니다.]]
 }

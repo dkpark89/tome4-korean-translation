@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Map = require "engine.Map"
 
 newTalent{
@@ -44,7 +46,7 @@ newTalent{
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatAttack()})
 			end
 			if not target:hasEffect(target.EFF_STUNNED) then
-				game.logSeen(target, "%s 기절하지 않았고, %s 재빨리 자세를 잡았습니다!", target.name:capitalize(), self.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았고, %s 재빨리 자세를 잡았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), (self.kr_display_name or self.name):capitalize():addJosa("는"))
 				self.energy.value = self.energy.value + game.energy_to_act * self:combatSpeed()
 			end
 		end

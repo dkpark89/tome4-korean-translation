@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 uberTalent{
 	name = "Draconic Body",
 	kr_display_name = "용인의 육체",
@@ -27,7 +29,7 @@ uberTalent{
 		if self.life - value < self.max_life * 0.3 and not self:isTalentCoolingDown(t) then
 			self:heal(self.max_life * 0.4)
 			self:startTalentCooldown(t)
-			game.logSeen(self,"%s 용인의 육체가 활성화되어, 생명력이 회복됩니다!",self.name) --I5 
+			game.logSeen(self,"%s의 용인의 육체가 활성화되어, 생명력이 회복됩니다!",(self.kr_display_name or self.name) ) --I5 
 		end
 	end,
 	info = function(self, t)
@@ -164,7 +166,7 @@ uberTalent{
 	name = "Corrupted Shell",
 	kr_display_name = "완전한 타락",
 	mode = "passive",
-	require = { special={desc="총 50000 이상의 황폐화 피해를 받았으며, '위대한 타락' 을 이용해 지구르를 파괴할 것", fct=function(self) return
+	require = { special={desc="총 50000 이상의 황폐화 피해를 받았으며, '위대한 타락자'를 죽이고 지구르를 파괴할 것", fct=function(self) return
 		(self.damage_intake_log and self.damage_intake_log[DamageType.BLIGHT] and self.damage_intake_log[DamageType.BLIGHT] >= 50000) and
 		(game.state.birth.ignore_prodigies_special_reqs or (
 			self:hasQuest("anti-antimagic") and 

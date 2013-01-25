@@ -140,6 +140,8 @@ function _M:trigger(x, y, who)
 		str = str:gsub("@Target@", tname:capitalize())
 		str = str:gsub("@target1@", tname:addJosa("가"))
 		str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
+		str = str:gsub("@target2@", tname:addJosa("를"))
+		str = str:gsub("@Target2@", tname:capitalize():addJosa("를"))
 		game.logSeen(who, "%s", str)
 	end
 	local known, del = false, false

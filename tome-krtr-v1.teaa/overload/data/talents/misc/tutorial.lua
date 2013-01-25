@@ -17,9 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 -- race & classes
-require "engine.krtrUtils"
-newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "Tutorial-specific talents." }
+
+newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "튜토리얼 전용 기술." }
 
 newTalent{
 	name = "Shove", short_name = "TUTORIAL_PHYS_KB",
@@ -38,7 +40,7 @@ newTalent{
 		if self:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist()) then
 			target:knockback(self.x, self.y, 1)
 		else
-			game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,
@@ -64,10 +66,10 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatSpellpower(), target:combatPhysicalResist()) then
 			target:knockback(self.x, self.y, self:getTalentLevel(t))
-			game.logSeen(target, "%s 돌풍에 밀려났습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 돌풍에 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatSpellpower())
 		else
-			game.logSeen(target, "%s 돌풍을 정면으로 맞고도, 꿈쩍도 하지 않았습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 돌풍을 정면으로 맞고도, 꿈쩍도 하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,
@@ -94,10 +96,10 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatMindpower(), target:combatPhysicalResist()) then
 			target:knockback(self.x, self.y, 1)
-			game.logSeen(target, "%s 주먹에 얻어맞아 밀려났습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 주먹에 얻어맞아 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatMindpower())
 		else
-			game.logSeen(target, "%s 주먹의 영향을 받지 않았습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 주먹의 영향을 받지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,
@@ -123,10 +125,10 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatSpellpower(), target:combatSpellResist()) then
 			target:knockback(self.x, self.y, 1)
-			game.logSeen(target, "%s 대상이 순간이동 되었습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 순간이동 되었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			target:crossTierEffect(target.EFF_SPELLSHOCKED, self:combatSpellpower())
 		else
-			game.logSeen(target, "%s 순간이동을 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 순간이동을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,
@@ -152,10 +154,10 @@ newTalent{
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end
 		if self:checkHit(self:combatMindpower(), target:combatMentalResist()) then
 			target:knockback(self.x, self.y, 1)
-			game.logSeen(target, "%s 공포에 질려 도망갔습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 공포에 질려 도망갔습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			target:crossTierEffect(target.EFF_BRAINLOCKED, self:combatMindpower())
 		else
-			game.logSeen(target, "%s 공포감이 들어 살짝 몸을 떨었습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 공포감이 들어 살짝 몸을 떨었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,

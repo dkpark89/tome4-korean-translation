@@ -165,7 +165,7 @@ uberTalent{
 	name = "Legacy of the Naloren",
 	kr_display_name = "날로렌의 유산",
 	mode = "passive",
-	require = { special={desc="Slasul의 편에 서서, Ukllmswwik 을 죽일 것", fct=function(self)
+	require = { special={desc="슬라술의 편에 서서, 우클름스윅을 죽일 것", fct=function(self)
 		if game.state.birth.ignore_prodigies_special_reqs then return true end
 		local q = self:hasQuest("temple-of-creation")
 		return q and not q:isCompleted("kill-slasul") and q:isCompleted("kill-drake")
@@ -178,11 +178,11 @@ uberTalent{
 		self.can_breath = self.can_breath or {}
 		self.can_breath.water = (self.can_breath.water or 0) + 1
 
-		require("engine.ui.Dialog"):simplePopup("Legacy of the Naloren", "Slasul will be happy to know your faith in his cause. You should return to speak to him.")
+		require("engine.ui.Dialog"):simplePopup("날로렌의 유산", "당신의 신념이 그의 영향을 받았음을 알게되어 슬라술이 기뻐할 것입니다. 당신은 슬라술에게 돌아가 이 이야기를 해줘야 합니다.")
 	end,
 	info = function(self, t)
-		return ([[Slasul을 도와, Ukllmswwik을 격퇴시켰습니다. 물 속에서 숨을 쉴 수 있게 되며, 삼지창을 포함한 각종 이형 무기들을 손쉽게 다룰 수 있게 됩니다. (이형 무기 수련 기술을 배우고, 기술 레벨이 5 가 됩니다)
-		또한 나가처럼 독을 뱉을 수 있게 되며, Slasul이 감사의 표시로 또 다른 보상을 줄지도 모릅니다.]])
+		return ([[슬라술(Slasul)을 도와, 우클름스윅(Ukllmswwik)을 격퇴시켰습니다. 물 속에서 숨을 쉴 수 있게 되며, 삼지창을 포함한 각종 이형 무기들을 손쉽게 다룰 수 있게 됩니다. (이형 무기 수련 기술을 배우고, 기술 레벨이 5 가 됩니다)
+		또한 나가처럼 독을 뱉을 수 있게 되며, 슬라술이 감사의 표시로 또 다른 보상을 줄지도 모릅니다.]])
 		:format()
 	end,
 }

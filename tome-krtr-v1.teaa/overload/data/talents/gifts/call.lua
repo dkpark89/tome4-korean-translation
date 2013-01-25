@@ -23,7 +23,7 @@ newTalent{
 	type = {"wild-gift/call", 1},
 	require = gifts_req1,
 	points = 5,
-	message = "@Source@ 자연 위에서 명상합니다.",
+	message = "@Source1@ 자연 위에서 명상합니다.",
 	mode = "sustained",
 	cooldown = 20,
 	range = 10,

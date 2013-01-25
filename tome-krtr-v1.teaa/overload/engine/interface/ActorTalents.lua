@@ -205,10 +205,14 @@ function _M:useTalentMessage(ab)
 	str = str:gsub("@source@", sname)
 	str = str:gsub("@Source1@", sname:capitalize():addJosa("가"))
 	str = str:gsub("@source1@", sname:addJosa("가"))
+	str = str:gsub("@Source2@", sname:capitalize():addJosa("를"))
+	str = str:gsub("@source2@", sname:addJosa("를"))
 	str = str:gsub("@target@", tname)
 	str = str:gsub("@Target@", tname:capitalize())
 	str = str:gsub("@target1@", tname:addJosa("가"))
 	str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
+	str = str:gsub("@target2@", tname:addJosa("를"))
+	str = str:gsub("@Target2@", tname:capitalize():addJosa("를"))
 	return str
 end
 

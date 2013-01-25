@@ -62,7 +62,7 @@ newTalent{
 		local dt = self:getTalentFromId(target.wild_gift_detonate)
 
 		if not dt.on_detonate then
-			game.logPlayer("You may not detonate this summon.")
+			game.logPlayer("당신은 이 소환수를 폭발시킬수 없습니다.")
 			return nil
 		end
 

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Object = require "mod.class.Object"
 
 -- race & classes
@@ -28,7 +30,7 @@ newTalentType{ is_nature=true, type="wild-gift/other", name = "other", hide = tr
 newTalentType{ type="psionic/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
 newTalentType{ type="other/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
 newTalentType{ type="undead/other", name = "other", hide = true, description = "세상에 존재하는 다양한 기술들입니다." }
-newTalentType{ type="undead/keepsake", name = "keepsake shadow", generic = true, description = "Keepsake의 그림자가 사용하는 특별한 기술들입니다." }
+newTalentType{ type="undead/keepsake", name = "keepsake shadow", generic = true, description = "'고통의 자취'에서 그림자가 사용하는 특별한 기술들입니다." }
 
 local oldTalent = newTalent
 local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end return oldTalent(t) end
@@ -79,7 +81,7 @@ newTalent{
 	kr_display_name = "독성 발톱",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ 독성 발톱으로 @target@ 햘큅니다!",
+	message = "@Source1@ 독성 발톱으로 @target2@ 할큅니다!",
 	cooldown = 5,
 	range = 1,
 	requires_target = true,
@@ -105,7 +107,7 @@ newTalent{
 	kr_display_name = "산성 발톱",
 	points = 5,
 	type = {"technique/other", 1},
-	message = "@Source@ 산성 발톱으로 @target@ 햘큅니다!",
+	message = "@Source1@ 산성 발톱으로 @target2@ 할큅니다!",
 	cooldown = 2,
 	range = 1,
 	tactical = { ATTACK = { ACID = 2 } },
@@ -131,7 +133,7 @@ newTalent{
 	kr_display_name = "실명 포자",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ 실명 포자를 @target@ 뿌립니다!",
+	message = "@Source1@ 실명 포자를 @target@에게 뿌립니다!",
 	cooldown = 2,
 	range = 1,
 	tactical = { DISABLE = { blind = 2 } },
@@ -148,7 +150,7 @@ newTalent{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(5 + self:getTalentLevel(t)), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 실명되지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 실명되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -165,7 +167,7 @@ newTalent{
 	kr_display_name = "독성 포자",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ 독성 포자를 @target@ 뿌립니다!",
+	message = "@Source1@ 독성 포자를 @target@에게 뿌립니다!",
 	cooldown = 2,
 	range = 1,
 	tactical = { ATTACK = { NATURE = 1, poison = 1} },
@@ -207,7 +209,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -239,7 +241,7 @@ newTalent{
 			target:setEffect(target.EFF_DISARMED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			target:crossTierEffect(target.EFF_DISARMED, self:combatPhysicalpower())
 		else
-			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		return true
@@ -271,7 +273,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_CONSTRICTED, (2 + self:getTalentLevel(t)) * 10, {src=self, power=1.5 * self:getTalentLevel(t), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 질식되지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 질식되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -305,7 +307,7 @@ newTalent{
 				target:knockback(self.x, self.y, 4)
 				target:crossTierEffect(target.EFF_OFFBALANCE, self:combatPhysicalpower())
 			else
-				game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -322,7 +324,7 @@ newTalent{
 	kr_display_name = "독성 깨물기",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ 깨물어 독을 흘려넣었습니다! (대상 : @target@)",
+	message = "@Source1@ @target2@ 깨물어 독을 흘려넣었습니다!",
 	cooldown = 5,
 	range = 1,
 	tactical = { ATTACK = { NATURE = 1, poison = 1} },
@@ -383,7 +385,7 @@ newTalent{
 
 				game.zone:addEntity(game.level, m, "actor", x, y)
 
-				game.logSeen(self, "%s 소환했습니다! : %s", self.name:capitalize(), m.name)
+				game.logSeen(self, "%s %s 소환했습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (m.kr_display_name or m.name):addJosa("를") )
 
 				-- Apply summon destabilization
 				if self:hasEffect(self.EFF_SUMMON_DESTABILIZATION) then
@@ -410,7 +412,7 @@ newTalent{
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
-	message = "@Source@ 질병을 옮깁니다. (대상 : @target@)",
+	message = "@Source1@ @target@에게 질병을 옮깁니다.",
 	requires_target = true,
 	tactical = { ATTACK = { BLIGHT = 2 }, DISABLE = { disease = 1 } },
 	action = function(self, t)
@@ -425,7 +427,7 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_ROTTING_DISEASE, 10 + self:getTalentLevel(t) * 3, {src=self, dam=self:getStr() / 3 + self:getTalentLevel(t) * 2, con=math.floor(4 + target:getCon() * 0.1), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 병에 걸리지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 병에 걸리지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -442,7 +444,7 @@ newTalent{
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
-	message = "@Source@ 질병을 옮깁니다. (대상 : @target@)",
+	message = "@Source1@ @target@에게 질병을 옮깁니다.",
 	tactical = { ATTACK = { BLIGHT = 2 }, DISABLE = { disease = 1 } },
 	requires_target = true,
 	action = function(self, t)
@@ -457,7 +459,7 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_DECREPITUDE_DISEASE, 10 + self:getTalentLevel(t) * 3, {src=self, dam=self:getStr() / 3 + self:getTalentLevel(t) * 2, dex=math.floor(4 + target:getDex() * 0.1), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 병에 걸리지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 병에 걸리지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -474,7 +476,7 @@ newTalent{
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 8,
-	message = "@Source@ 질병을 옮깁니다. (대상 : @target@)",
+	message = "@Source1@ @target@에게 질병을 옮깁니다.",
 	requires_target = true,
 	tactical = { ATTACK = { BLIGHT = 2 }, DISABLE = { disease = 1 } },
 	action = function(self, t)
@@ -489,7 +491,7 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_WEAKNESS_DISEASE, 10 + self:getTalentLevel(t) * 3, {src=self, dam=self:getStr() / 3 + self:getTalentLevel(t) * 2, str=math.floor(4 + target:getStr() * 0.1), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 병에 걸리지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 병에 걸리지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -693,7 +695,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 1 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 붙잡히지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 붙잡히지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -711,7 +713,7 @@ newTalent{
 	points = 5,
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ 먹물을 발사했습니다!",
+	message = "@Source1@ 먹물을 발사했습니다!",
 	range = 0,
 	radius = function(self, t)
 		return 4 + self:getTalentLevelRaw(t)
@@ -794,7 +796,7 @@ newTalent{
 	name = "Rushing Claws",
 	kr_display_name = "갈고리 돌진",
 	type = {"wild-gift/other", 1},
-	message = "@Source@ 돌진하여, 갈고리를 휘두릅니다!",
+	message = "@Source1@ 돌진하여, 갈고리를 휘두릅니다!",
 	points = 5,
 	equilibrium = 10,
 	cooldown = 15,
@@ -874,7 +876,7 @@ newTalent{
 	points = 5,
 	equilibrium = 4,
 	cooldown = 6,
-	message = "@Source@ 적당한 공간을 찾습니다...",
+	message = "@Source1@ 적당한 공간을 찾습니다...",
 	range = 10,
 	requires_target = true,
 	tactical = { DISABLE = { stun = 1, pin = 1 } },
@@ -884,9 +886,10 @@ newTalent{
 			type = "web", subtype="web", id_by_type=true, unided_name = "sticky web",
 			display = '^', color=colors.YELLOW, image = "trap/trap_spiderweb_01_64.png",
 			name = "sticky web", auto_id = true,
+			kr_display_name = "끈적이는 거미줄", kr_unided_name = "끈적이는 거미줄",
 			detect_power = 6 * self:getTalentLevel(t), disarm_power = 10 * self:getTalentLevel(t),
 			level_range = {self.level, self.level},
-			message = "@Target@ 거미줄에 걸렸습니다!",
+			message = "@Target1@ 거미줄에 걸렸습니다!",
 			pin_dur = dur,
 			faction = false,
 			canTrigger = function(self, x, y, who)
@@ -897,7 +900,7 @@ newTalent{
 				if who:canBe("stun") and who:canBe("pin") then
 					who:setEffect(who.EFF_PINNED, self.pin_dur, {apply_power=self.disarm_power + 5})
 				else
-					game.logSeen(who, "%s 저항했습니다!", who.name:capitalize())
+					game.logSeen(who, "%s 저항했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 				end
 				return true, true
 			end
@@ -983,7 +986,7 @@ newTalent{
 	points = 5,
 	equilibrium = 5,
 	cooldown = 10,
-	message = "@Source@ 울부짖습니다.",
+	message = "@Source1@ 울부짖습니다.",
 	range = 10,
 	tactical = { ATTACK = 3 },
 	direct_hit = true,
@@ -1016,7 +1019,7 @@ newTalent{
 	points = 5,
 	equilibrium = 5,
 	cooldown = 10,
-	message = "@Source@ shrieks.",
+	message = "@Source1@ 비명을 지릅니다.",
 	range = 10,
 	direct_hit = true,
 	tactical = { ATTACK = 3 },
@@ -1070,7 +1073,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 2 + self:getTalentLevel(t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 분쇄를 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 분쇄를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -1210,7 +1213,7 @@ newTalent{
 
 			game.zone:addEntity(game.level, m, "actor", x, y)
 
-			game.logSeen(self, "%s spawns one of its tentacle!", self.name:capitalize())
+			game.logSeen(self, "%s 촉수를 뻗습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		end
 
 		return true
@@ -1225,7 +1228,7 @@ newTalent{
 	kr_display_name = "폭발",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ 폭발했습니다! @target@ 밝은 빛에 삼켜졌습니다!",
+	message = "@Source1@ 폭발했습니다! @Target1@ 밝은 빛에 삼켜졌습니다!",
 	cooldown = 1,
 	range = 1,
 	requires_target = true,
@@ -1251,7 +1254,7 @@ newTalent{
 	kr_display_name = "윌 오 위습 폭발",
 	type = {"technique/other", 1},
 	points = 5,
-	message = "@Source@ 폭발했습니다! @target@ 냉기에 휩싸입니다!",
+	message = "@Source1@ 폭발했습니다! @Target1@ 냉기에 휩싸입니다!",
 	cooldown = 1,
 	range = 1,
 	requires_target = true,
@@ -1278,7 +1281,7 @@ newTalent{
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 10,
-	message = "@Source@ casts Elemental Bolt!",
+	message = "@Source1@ 원소의 탄환을 사용합니다!",
 	cooldown = 3,
 	range = 10,
 	proj_speed = 2,
@@ -1335,6 +1338,7 @@ newTalent{
 			old_feat = oe,
 			type = oe.type, subtype = oe.subtype,
 			name = "raging volcano", image = oe.image, add_mos = {{image = "terrain/lava/volcano_01.png"}},
+			kr_display_name = "격렬한 화산",
 			display = '&', color=colors.LIGHT_RED, back_color=colors.RED,
 			always_remember = true,
 			temporary = 4 + self:getTalentLevel(t),
@@ -1528,7 +1532,7 @@ newTalent{
 				tgts[target] = true
 				local ox, oy = target.x, target.y
 				target:pull(self.x, self.y, 1)
-				if target.x ~= ox or target.y ~= oy then game.logSeen(target, "%s 끌려옵니다!", target.name:capitalize()) end
+				if target.x ~= ox or target.y ~= oy then game.logSeen(target, "%s 끌려옵니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) end
 			end
 		end)
 		return true
@@ -1571,7 +1575,7 @@ newTalent{
 			local target = game.level.map(tx, ty, Map.ACTOR)
 			m:setTarget(target)
 
-			game.logSeen(self, "%s 끈적이며, 기어다니는 존재를 불러냅니다!", self.name:capitalize())
+			game.logSeen(self, "%s 끈적이며, 기어다니는 존재를 불러냅니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		end
 
 		return true
@@ -1990,7 +1994,7 @@ newTalent{
 		return ret
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen("#VIOLET#%s 대기 상태에서 벗어났습니다!", self.name:capitalize())
+		game.logSeen("#VIOLET#%s 대기 상태에서 벗어났습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		return true
 	end,
 	info = function(self, t)

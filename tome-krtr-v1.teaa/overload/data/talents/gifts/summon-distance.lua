@@ -262,6 +262,7 @@ newTalent{
 			type = "insect", subtype = "ritch",
 			display = "I", color=colors.LIGHT_RED, image = "npc/summoner_ritch.png",
 			name = "ritch flamespitter", faction = self.faction,
+			kr_display_name = "불꽃뿜는 릿치",
 			desc = [[]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
@@ -293,6 +294,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_FLAME_FURY]=self:getTalentLevelRaw(t) }
 		end
@@ -368,6 +370,7 @@ newTalent{
 			type = "hydra", subtype = "3head",
 			display = "M", color=colors.GREEN, image = "npc/summoner_hydra.png",
 			name = "3-headed hydra", faction = self.faction,
+			kr_display_name = "머리3개 달린 히드라",
 			desc = [[입에서 연기가 피어오르는, 기묘한 파충류 생명체입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
@@ -400,6 +403,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_DISENGAGE]=self:getTalentLevelRaw(t) }
 		end
@@ -468,6 +472,7 @@ newTalent{
 			type = "immovable", subtype = "plants",
 			display = "#", color=colors.WHITE,
 			name = "rimebark", faction = self.faction, image = "npc/immovable_plants_rimebark.png",
+			kr_display_name = "서리나무",
 			resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/immovable_plants_rimebark.png", display_h=2, display_y=-1}}},
 			desc = [[거대한 나무로, 겨울의 분노를 품고 있습니다.]],
 			autolevel = "none",
@@ -500,6 +505,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_RESOLVE]=self:getTalentLevelRaw(t) }
 		end
@@ -561,6 +567,7 @@ newTalent{
 				type = "dragon", subtype = "fire",
 				display = "d", color=colors.RED, image = "npc/dragon_fire_fire_drake_hatchling.png",
 				name = "fire drake hatchling", faction = self.faction,
+				kr_display_name = "화염 드레이크 해츨링",
 				desc = [[강력한 화염 드레이크입니다.]],
 				autolevel = "none",
 				ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
@@ -605,6 +612,7 @@ newTalent{
 			type = "dragon", subtype = "fire",
 			display = "D", color=colors.RED, image = "npc/dragon_fire_fire_drake.png",
 			name = "fire drake", faction = self.faction,
+			kr_display_name = "화염 드레이크",
 			desc = [[강력한 화염 드레이크입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
@@ -639,6 +647,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_AURA_OF_SILENCE]=self:getTalentLevelRaw(t) }
 		end

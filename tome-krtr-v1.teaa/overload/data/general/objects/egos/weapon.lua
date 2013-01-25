@@ -472,7 +472,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "insidious ", prefix=true, instant_resolve=true,
-	kr_display_name = "반회복형 ",
+	kr_display_name = "잠식형 ",
 	keywords = {insid=true},
 	level_range = {10, 50},
 	rarity = 5,

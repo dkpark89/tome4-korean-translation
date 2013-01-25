@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 -- Generic requires for racial based on talent level
 racial_req1 = {
 	level = function(level) return 0 + (level-1)  end,
@@ -359,6 +361,7 @@ newTalent{
 				type = "immovable", subtype = "plants",
 				display = "#",
 				name = "treant", color=colors.GREEN,
+				kr_display_name = "트린트",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/immovable_plants_treant.png", display_h=2, display_y=-1}}},
 				desc = "지각력이 있는, 매우 강력한 나무입니다.",
 
@@ -737,7 +740,7 @@ newTalent{
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target or target.dead then return end
 			if not target:canBe("instakill") or target.rank > 2 or target:attr("undead") or not target:checkHit(self:getWil(20, true) + self.level * 1.5, target.level) then
-				game.logSeen(target, "%s 정신 공격을 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 정신 공격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				return
 			end
 			target:takeHit(1, self)
@@ -829,8 +832,9 @@ newTalent{
 				type = "humanoid", subtype = "yeek",
 				display = "y",
 				name = "yeek mindslayer", color=colors.YELLOW,
+				kr_display_name = "이크 정신파괴자",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_yeek_yeek_mindslayer.png", display_h=2, display_y=-1}}},
-				desc = "A wayist that came to help.",
+				desc = "'한길'의 일원이 돕기 위해 도착했습니다.",
 
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -888,7 +892,7 @@ newTalent{
 	on_learn = function(self, t) self.auto_id = 2 end,
 	action = function(self, t)
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("elisa-orb-scrying", {name="The Way"}, self, {version="yeek"})
+		local chat = Chat.new("elisa-orb-scrying", {name="'한길'"}, self, {version="yeek"})
 		chat:invoke()
 		return true
 	end,

@@ -144,6 +144,7 @@ newTalent{
 			type = "animal", subtype = "turtle",
 			display = "R", color=colors.GREEN, image = "npc/summoner_turtle.png",
 			name = "turtle", faction = self.faction,
+			kr_display_name = "거북이",
 			desc = [[]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
@@ -175,6 +176,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_BATTLE_CALL]=self:getTalentLevelRaw(t) }
 		end
@@ -248,6 +250,7 @@ newTalent{
 			type = "animal", subtype = "spider",
 			display = "S", color=colors.LIGHT_DARK, image = "npc/spiderkin_spider_giant_spider.png",
 			name = "giant spider", faction = self.faction,
+			kr_display_name = "대형 거미",
 			desc = [[]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
@@ -280,6 +283,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.inscription("INFUSION:_INSIDIOUS_POISON", {cooldown=12, range=6, heal_factor=0.6, power=self:getTalentLevel(t) * 60})
 		end

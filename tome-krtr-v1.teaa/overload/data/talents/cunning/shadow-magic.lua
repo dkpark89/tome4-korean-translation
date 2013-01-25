@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Shadow Combat",
 	kr_display_name = "그림자 전투",
@@ -127,7 +129,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {})
 			else
-				game.logSeen(target, "%s 혼절하지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 혼절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return true

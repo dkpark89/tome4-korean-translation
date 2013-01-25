@@ -125,7 +125,7 @@ function _M:setEffect(eff_id, dur, p, silent)
 			if ret then
 				--@@
 				local sn = self.kr_display_name or self.name 
-				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가"))) --@@
+				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")):gsub("#Target2#", sn:capitalize():addJosa("를")):gsub("#target2#", sn:addJosa("를"))) --@@
 			end
 			if fly and game.flyers and self.x and self.y and game.level.map.seens(self.x, self.y) then
 				local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
@@ -157,7 +157,7 @@ function _M:removeEffect(eff, silent, force)
 			if ret then
 				--@@
 				local sn = self.kr_display_name or self.name
-				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가"))) --@@
+				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")):gsub("#Target2#", sn:capitalize():addJosa("를")):gsub("#target2#", sn:addJosa("를"))) --@@
 			end
 			if fly and game.flyers and self.x and self.y then
 				local sx, sy = game.level.map:getTileToScreen(self.x, self.y)

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 uberTalent{
 	name = "Draconic Will",
 	kr_display_name = "용인의 의지",
@@ -92,7 +94,7 @@ uberTalent{
 						if target:canBe("stun") then
 							target:setEffect(target.EFF_STUNNED, 3, {apply_power=src:combatSpellpower()})
 						else
-							game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
+							game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 						end
 					end
 				end)
@@ -187,7 +189,7 @@ uberTalent{
 	cooldown = 7,
 	trigger = function(self, t)
 		self:startTalentCooldown(t)
-		game.logSeen(self, "#LIGHT_BLUE#%s 꺾을 수 없는 의지로 정신 상태효과에 걸리지 않았습니다!", self.name:capitalize())
+		game.logSeen(self, "#LIGHT_BLUE#%s 꺾을 수 없는 의지로 정신 상태효과에 걸리지 않았습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		return true
 	end,
 	info = function(self, t)
@@ -205,7 +207,7 @@ uberTalent{
 	require = { special={desc="마법을 증오할 것", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	trigger = function(self, t, target, source_t)
 		self:startTalentCooldown(t)
-		game.logSeen(self, "#LIGHT_BLUE#주문 시전에 대한 징벌을 내립니다! (%s -> %s)", self.name:capitalize(), target.name)
+		game.logSeen(self, "#LIGHT_BLUE#%s %s에게 주문 시전에 대한 징벌을 내립니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (target.kr_display_name or target.name) )
 		DamageType:get(DamageType.MIND).projector(self, target.x, target.y, DamageType.MIND, 20 + self:getWil() * 2)
 
 		local dur = target:getTalentCooldown(source_t)

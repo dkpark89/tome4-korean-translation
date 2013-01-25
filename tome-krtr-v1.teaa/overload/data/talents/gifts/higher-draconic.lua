@@ -110,7 +110,7 @@ newTalent{
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes venom!",
+	message = "@Source1@ 독성을 뿜어냅니다!",
 	tactical = { ATTACKAREA = { poison = 2 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,

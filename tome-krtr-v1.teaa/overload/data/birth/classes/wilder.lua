@@ -105,11 +105,11 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Wyrmic",
-	kr_display_name = "워믹 (Wyrmic)",
+	kr_display_name = "용인 (Wyrmic)",
 	locked = function() return profile.mod.allow_build.wilder_wyrmic end,
 	locked_desc = " 우리는 용의 길을 걸으며, 그들의 숨결은 우리의 숨결이다. 그들의 맥동하는 심장을 보고, 이빨로 그들의 위엄을 맛봐라.",
 	desc = {
-		"워믹은 용의 능력을 흉내내는 법을 배운 전사입니다.",
+		"용인은 용의 능력을 흉내내는 법을 배운 전사입니다.",
 		"그들은 다양한 종류의 용들이 가진 능력을 사용할 수 있습니다.",
 		"가장 중요한 능력치는 힘과 의지입니다.",
 		"#GOLD#능력치 변경:",
