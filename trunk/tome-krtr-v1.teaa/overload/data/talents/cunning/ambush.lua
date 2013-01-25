@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Map = require "engine.Map"
 
 newTalent{
@@ -41,7 +43,7 @@ newTalent{
 		if target:canBe("disarm") then
 			target:setEffect(target.EFF_DISARMED, t.getDuration(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s 그림자를 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 그림자를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		return true
@@ -87,7 +89,7 @@ newTalent{
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, t.getDuration(self, t), {apply_power=self:combatAttack()})
 			else
-				game.logSeen(target, "%s 그림자를 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 그림자를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -133,6 +135,7 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			name = "Shadow of "..self.name,
+			kr_display_name = (self.kr_display_name or self.name).."의 그림자",
 			desc = [[자신을 꼭 닮은, 어두운 그림자입니다.]],
 		}
 		m:removeAllMOs()

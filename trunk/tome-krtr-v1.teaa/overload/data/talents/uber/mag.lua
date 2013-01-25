@@ -132,29 +132,29 @@ uberTalent{
 	end} },
 	info = function(self, t)
 		return ([[모든 소환수들에게 황폐화의 힘을 주입하여, 새로운 기술을 사용할 수 있게 만듭니다.
-		- War Hound: Curse of Defenselessness
-		- Jelly: Vimsense
-		- Minotaur: Life Tap
-		- Golem: Bone Spear
-		- Ritch: Drain
-		- Hydra: Blood Spray
-		- Rimebark: Poison Storm
-		- Fire Drake: Darkfire
-		- Turtle: Curse of Impotence
-		- Spider: Corrosive Worm
-		- Skeletons: Bone Grab
-		- Bone Giants: Bone Shield
-		- Ghouls: Blood Lock
-		- Vampires / Liches: Darkfire
-		- Ghosts / Wights: Blood Boil
-		- Alchemy Golems: Corrupted Strength and the Reaving Combat tree
-		- Shadows: Empathic Hex
-		- Thought-Forms: Flame of Urh'Rok
-		- Treants: Corrosive Worm
-		- Yeek Wayists: Dark Portal
-		- Ghoul Rot ghoul: Rend
-		- Bloated Oozes: Bone Shield
-		- Mucus Oozes: Virulent Disease
+		- 전투견: 무저항의 저주
+		- 젤리: 원혼의 기운
+		- 미노타우르스: 생명의 힘
+		- 골렘: 뼈의 창
+		- 불꽃뿜는 릿치: 흡수
+		- 히드라: 피 뿌리기
+		- 서리나무: 독성 폭풍
+		- 화염 드레이크: 어둠의 불꽃
+		- 거북이: 무기력의 저주
+		- 거미: 부식성 벌레
+		- 해골: 뼈의 속박
+		- 뼈거인: 뼈의 방패
+		- 구울: 피의 고정
+		- 흡혈귀 / 리치: 어둠의 불꽃
+		- 유령 / 와이트: 끓어오르는 피
+		- 연금술 골렘: 오염된 힘과 오염된 전투 기술 계열
+		- 그림자: 공감의 매혹술
+		- 생각의 구현: 울흐'록의 불꽃
+		- 트린트: 부식성 벌레
+		- 이크 '한길'의 일원: 어둠의 문
+		- 동료 구울: 분쇄
+		- 진흙 덩어리: 뼈의 방패
+		- 진흙 점액: 악성 질병
 		- 기타 다른 소환수일 경우에도, 이 기술의 영향을 받습니다.
 		]]):format()
 	end,

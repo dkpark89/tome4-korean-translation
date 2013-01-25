@@ -52,7 +52,7 @@ newTalent{
 	require = gifts_req2,
 	random_ego = "attack",
 	points = 5,
-	message = "@Source1@ @target@ 에게 중독성 포자를 뿌립니다!",
+	message = "@Source1@ @target@에게 중독성 포자를 뿌립니다!",
 	equilibrium = 2,
 	cooldown = 10,
 	range = 10,

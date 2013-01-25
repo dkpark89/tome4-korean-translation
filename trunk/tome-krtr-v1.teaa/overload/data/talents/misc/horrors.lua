@@ -17,12 +17,14 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-newTalentType{ type="technique/horror", name = "horror techniques", hide = true, description = "Physical talents of the various horrors of the world." }
-newTalentType{ type="psionic/horror", name = "horror techniques", hide = false, description = "Psionic talents of the various horrors of the world." }
-newTalentType{ type="wild-gift/horror", name = "horror techniques", hide = false, description = "Psionic talents of the various horrors of the world." }
-newTalentType{ no_silence=true, is_spell=true, type="spell/horror", name = "horror spells", hide = true, description = "Spell talents of the various horrors of the world." }
-newTalentType{ no_silence=true, is_spell=true, type="corruption/horror", name = "horror spells", hide = true, description = "Spell talents of the various horrors of the world." }
-newTalentType{ type="other/horror", name = "horror powers", hide = true, description = "Unclassified talents of the various horrors of the world." }
+require "engine.krtrUtils" --@@
+
+newTalentType{ type="technique/horror", name = "horror techniques", hide = true, description = "세상의 여러 무서운자들의 물리 기술입니다." }
+newTalentType{ type="psionic/horror", name = "horror techniques", hide = false, description = "세상의 여러 무서운자들의 초능력입니다." }
+newTalentType{ type="wild-gift/horror", name = "horror techniques", hide = false, description = "세상의 여러 무서운자들의 초능력입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="spell/horror", name = "horror spells", hide = true, description = "세상의 여러 무서운자들의 주문입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="corruption/horror", name = "horror spells", hide = true, description = "세상의 여러 무서운자들의 주문입니다." }
+newTalentType{ type="other/horror", name = "horror powers", hide = true, description = "세상의 여러 무서운자들의 기타 기술입니다." }
 
 local oldTalent = newTalent
 local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end return oldTalent(t) end
@@ -38,7 +40,7 @@ newTalent{
 	cooldown = 12,
 	stamina = 24,
 	tactical = { ATTACK = { PHYSICAL = 1 }, DISABLE = { cut = 2 } },
-	message = "@Source@ 광란에 빠져 적을 물어뜯었습니다! (대상 : @Target@)",
+	message = "@Source1@ 광란에 빠져 @target2@ 물어뜯었습니다!",
 	on_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_FRENZY) then return false end return true end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1, 1.7) end,
 	getBleedDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.5, 3) end,
@@ -74,7 +76,7 @@ newTalent{
 	cooldown = 5,
 	tactical = { CLOSEIN = 3 },
 	direct_hit = true,
-	message = "@Source@ leaps forward in a frenzy!",
+	message = "@Source1@ 광란에 빠져 앞쪽으로 도약합니다!",
 	range = function(self, t) return math.floor(2 + self:getTalentLevel(t)) end,
 	requires_target = true,
 	on_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_FRENZY) or self:attr("encased_in_ice") or self:attr("never_move") then return false end return true end,
@@ -117,14 +119,14 @@ newTalent{
 	points = 5,
 	cooldown = 3,
 	stamina = 8,
-	message = "@Source@ 날카로운 이빨로 적을 깨물었습니다! (대상 : @Target@)",
+	message = "@Source1@ 날카로운 이빨로 @target2@ 깨물었습니다!",
 	requires_target = true,
 	tactical = { ATTACK = { PHYSICAL = 2 } },
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.5, 1) end,
 	getBleedDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.8, 1.5) end,
 	getPower = function(self, t) return self:combatTalentStatDamage(t, "con", 10, 50) end,
 	do_devourer_frenzy = function(self, target, t)
-		game.logSeen(self, "피냄새에 빠져, %s 들이 광란 상태가 되었습니다!", self.name:capitalize())
+		game.logSeen(self, "피냄새에 빠져, %s들이 광란 상태가 되었습니다!", (self.kr_display_name or self.name):capitalize())
 		-- frenzy devourerers
 		local tg = {type="ball", range=0, radius=3, selffire=true, talent=t}
 		self:project(tg, target.x, target.y, function(px, py)
@@ -159,7 +161,7 @@ newTalent{
 			target:setEffect(target.EFF_CUT, 5, {power=t.getBleedDamage(self, t), src=self, apply_power=self:combatPhysicalpower()})
 			t.do_devourer_frenzy(self, target, t)
 		else
-			game.logSeen(target, "%s 출혈을 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 출혈을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		return true
@@ -228,7 +230,7 @@ newTalent{
 	kr_display_name = "공허로부터의 메아리",
 	type = {"other/horror", 1},
 	points = 5,
-	message = "@Source@ 공허의 광기를 보여주었습니다! (대상 : @Target@)",
+	message = "@Source1@ @target@에게 공허의 광기를 보여주었습니다!",
 	cooldown = 10,
 	range = 10,
 	requires_target = true,
@@ -249,7 +251,7 @@ newTalent{
 			target:setEffect(target.EFF_VOID_ECHOES, 6, {src=self, power=t.getDamage(self, t), apply_power=self:combatMindpower()})
 			target:crossTierEffect(target.EFF_VOID_ECHOES, self:combatMindpower())
 		else
-			game.logSeen(target, "%s 공허의 광기를 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 공허의 광기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		game:playSoundNear(self, "talents/arcane")
@@ -267,7 +269,7 @@ newTalent{
 	kr_display_name = "공허의 파편",
 	type = {"other/horror", 1},
 	points = 5,
-	message = "@Source@ 공허의 파편을 소환했습니다.",
+	message = "@Source1@ 공허의 파편을 소환했습니다.",
 	cooldown = 20,
 	range = 10,
 	requires_target = true,
@@ -300,6 +302,7 @@ newTalent{
 				type = "horror", subtype = "temporal",
 				display = "h", color=colors.GREY, image = "npc/horror_temporal_void_horror.png",
 				name = "void shard", faction = self.faction,
+				kr_display_name = "공허의 파편",
 				desc = [[시공의 구조에 생긴 작은 구멍과도 같은 존재입니다.]],
 				stats = { str=22, dex=20, wil=15, con=15 },
 
@@ -370,7 +373,7 @@ newTalent{
 		local x, y = util.findFreeGrid(target.x, target.y, 10, true, {[Map.ACTOR]=true})
 		if not x then return nil end
 
-		local worm = {type="vermin", subtype="worms", name="carrion worm mass"}
+		local worm = {type="vermin", subtype="worms", name="carrion worm mass", kr_display_name="썩은 고기를 먹는 벌레 무리"}
 		local list = mod.class.NPC:loadList("/data/general/npcs/vermin.lua")
 		local m = list.CARRION_WORM_MASS:clone()
 		if not m then return nil end
@@ -390,7 +393,7 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(target.EFF_WORM_ROT, t.getDuration(self, t), {src=self, dam=t.getDamage(self, t), burst=t.getBurstDamage(self, t), rot_timer = 5, apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 부패 벌레를 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 부패 벌레를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)
@@ -481,7 +484,7 @@ newTalent{
 				local ox, oy = target.x, target.y
 				target:pull(self.x, self.y, 2)
 				self:project({type="hit", range=10, friendlyfire=false, talent=t}, target.x, target.y, engine.DamageType.PHYSICAL, self:mindCrit(self:combatTalentMindDamage(t, 20, 120)))
-				if target.x ~= ox or target.y ~= oy then game.logSeen(target, "%s 끌려옵니다!", target.name:capitalize()) end
+				if target.x ~= ox or target.y ~= oy then game.logSeen(target, "%s 끌려옵니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) end
 			end
 		end)
 		return true
@@ -601,7 +604,7 @@ newTalent{
 				end
 			end)
 		else
-			game.logSeen(target, "%s 붙잡히지 않았습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 붙잡히지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		game:playSoundNear(self, "talents/slime")
 

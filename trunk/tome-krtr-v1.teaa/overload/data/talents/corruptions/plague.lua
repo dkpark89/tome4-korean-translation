@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Virulent Disease",
 	kr_display_name = "악성 질병",
@@ -55,7 +57,7 @@ newTalent{
 
 				target:setEffect(disease[1], 6, {src=self, dam=self:spellCrit(7 + self:combatTalentSpellDamage(t, 6, 65)), [disease[2]]=self:combatTalentSpellDamage(t, 5, 35), apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 질병에 걸리지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 질병에 걸리지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)
@@ -205,7 +207,7 @@ newTalent{
 			if #diseases > 0 and target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatSpellpower()})
 			elseif #diseases > 0 then
-				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)
@@ -259,7 +261,7 @@ newTalent{
 			if target:canBe("disease") then
 				target:setEffect(disease.id, 6, disease_spread)
 			else
-				game.logSeen(target, "%s 질병을 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 질병을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			game.level.map:particleEmitter(px, py, 1, "slime")
 		end)

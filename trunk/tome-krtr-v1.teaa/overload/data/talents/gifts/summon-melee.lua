@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "War Hound",
 	kr_display_name = "전투견 소환",
@@ -63,6 +65,7 @@ newTalent{
 			type = "animal", subtype = "canine",
 			display = "C", color=colors.LIGHT_DARK, image = "npc/summoner_wardog.png",
 			name = "war hound", faction = self.faction,
+			kr_display_name = "전투견",
 			desc = [[]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented_simple", ai_state = { talent_in=5, },
@@ -89,6 +92,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_TOTAL_THUGGERY]=self:getTalentLevelRaw(t) }
 		end
@@ -158,6 +162,7 @@ newTalent{
 			display = "j", color=colors.BLACK,
 			desc = "던전 바닥에서 주로 볼 수 있는, 점액질 덩어리입니다.",
 			name = "black jelly",
+			kr_display_name = "검은 젤리",
 			autolevel = "none", faction=self.faction,
 			stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
 			inc_stats = {
@@ -187,12 +192,13 @@ newTalent{
 				local p = value * 0.10
 				if self.summoner and not self.summoner.dead then
 					self.summoner:incEquilibrium(-p)
-					game.logSeen(self, "#GREEN#%s absorbs part of the blow. %s is closer to nature.", self.name:capitalize(), self.summoner.name:capitalize())
+					game.logSeen(self, "#GREEN#%s 충격의 일부를 흡수했습니다. %s 자연과 조금더 가까워 졌습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (self.summoner.kr_display_name or self.summoner.name):capitalize():addJosa("는"))
 				end
 				return value - p
 			end,
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_SWALLOW]=self:getTalentLevelRaw(t) }
 		end
@@ -262,6 +268,7 @@ newTalent{
 			type = "giant", subtype = "minotaur",
 			display = "H",
 			name = "minotaur", color=colors.UMBER, resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_minotaur_minotaur.png", display_h=2, display_y=-1}}},
+			kr_display_name = "미노타우르스",
 
 			body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -295,6 +302,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_RUSH]=self:getTalentLevelRaw(t) }
 		end
@@ -363,6 +371,7 @@ newTalent{
 			type = "golem", subtype = "stone",
 			display = "g",
 			name = "stone golem", color=colors.WHITE, image = "npc/summoner_golem.png",
+			kr_display_name = "암석 골렘",
 
 			body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -380,7 +389,7 @@ newTalent{
 				con=10 + self:getTalentLevel(t) * 2 + self:getTalentLevelRaw(self.T_RESILIENCE)*2,
 			},
 
-			desc = [[It is a massive animated statue.]],
+			desc = [[살아 움직이는 거대한 석상입니다.]],
 			level_range = {self.level, self.level}, exp_worth = 0,
 
 			combat_armor = 25, combat_def = -20,
@@ -398,6 +407,7 @@ newTalent{
 			resolvers.sustains_at_birth(),
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_display_name = (m.kr_display_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_SHATTERING_IMPACT]=self:getTalentLevelRaw(t) }
 		end

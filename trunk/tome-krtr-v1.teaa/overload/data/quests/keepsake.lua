@@ -19,6 +19,7 @@
 
 -- Keepsake
 name = "Keepsake"
+kr_display_name = "고통의 자취"
 id = "keepsake"
 
 desc = function(self, who)

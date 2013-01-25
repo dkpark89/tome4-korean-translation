@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Swallow",
 	kr_display_name = "삼키기",
@@ -38,7 +40,7 @@ newTalent{
 		if not x or not y or not target then return nil end
 		if core.fov.distance(self.x, self.y, x, y) > 1 then return nil end
 
-		game.logSeen(self, "%s 적을 삼키려 합니다! (대상 :%s)", self.name:capitalize(), target.name)
+		game.logSeen(self, "%s %s 삼키려 합니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (target.kr_display_name or target.name):addJosa("를"))
 
 		local hit = self:attackTarget(target, DamageType.NATURE, self:combatTalentWeaponDamage(t, 1, 1.5), true)
 		if not hit then return true end
@@ -55,7 +57,7 @@ newTalent{
 			self:heal(target.level * 2 + 5)
 			self:attr("allow_on_heal", -1)
 		else
-			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,
@@ -74,7 +76,7 @@ newTalent{
 	require = gifts_req2,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ 지면에 발을 구릅니다!",
+	message = "@Source1@ 지면에 발을 구릅니다!",
 	equilibrium = 4,
 	cooldown = 30,
 	tactical = { ATTACKAREA = { PHYSICAL = 2 }, DISABLE = { knockback = 2 } },
@@ -136,7 +138,7 @@ newTalent{
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ 모래를 뿜어냅니다!",
+	message = "@Source1@ 모래를 뿜어냅니다!",
 	tactical = { ATTACKAREA = {PHYSICAL = 2}, DISABLE = { blind = 2 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,

@@ -101,7 +101,7 @@ function checkMaxSummon(self, silent)
 	end
 	if nb >= max then
 		if not silent then
-			game.logPlayer(self, "#PINK#You cannot summon any more; you have too many summons already (%d). You can increase the limit with higher Cunning (+1 for every 10).", nb)
+			game.logPlayer(self, "#PINK#당신은 더이상 소환할 수 없습니다; 이미 충분히 많은 소환수를 가지고 있습니다 (%d). 더 높은 교활함 능력치로 소환수 한계치를 증가시킬 수 있습니다 (교활함 10마다 한계치 +1).", nb)
 		end
 		return true
 	else

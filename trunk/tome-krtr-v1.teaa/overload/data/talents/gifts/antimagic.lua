@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 newTalent{
 	name = "Resolve",
 	kr_display_name = "결의",
@@ -34,7 +36,7 @@ newTalent{
 			self:incStamina(t.getRegen(self, t))
 		end
 		self:setEffect(self.EFF_RESOLVE, 7, {damtype=damtype, res=self:mindCrit(t.getResist(self, t))})
-		game.logSeen(self, "%s is invigorated by the attack!", self.name:capitalize())
+		game.logSeen(self, "%s 공격 당함에 고무됩니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 	end,
 	info = function(self, t)
 		local resist = t.getResist(self, t)
@@ -104,7 +106,7 @@ newTalent{
 
 		if not self:equilibriumChance() then
 			self:forceUseTalent(self.T_ANTIMAGIC_SHIELD, {ignore_energy=true})
-			game.logSeen(self, "#GREEN#%s 반마법 보호막이 부서집니다.", self.name)
+			game.logSeen(self, "#GREEN#%s의 반마법 보호막이 부서집니다.", (self.kr_display_name or self.name))
 		end
 		return dam
 	end,

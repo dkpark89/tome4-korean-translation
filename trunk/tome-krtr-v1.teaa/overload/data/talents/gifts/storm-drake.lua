@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local Object = require "engine.Object"
 
 newTalent{
@@ -71,11 +73,11 @@ newTalent{
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target then return end
 			if not target:checkHit(self:combatMindpower(), target:combatPhysicalResist(), 10) then
-				game.logSeen(target, "%s 전기장의 효과를 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 전기장의 효과를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				return
 			end
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatMindpower())
-			game.logSeen(target, "%s 전기장에 걸려들었습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 전기장에 걸려들었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 
 			local perc = t.getPercent(self, t)
 			if target.rank >= 5 then perc = perc / 3
@@ -87,7 +89,7 @@ newTalent{
 			if target.life - dam < 0 then dam = target.life end
 			target:takeHit(dam, self)
 
-			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 피해#LAST#"):format(math.ceil(dam))) --@@
+			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 순수속성 피해#LAST#"):format(math.ceil(dam))) --@@
 		end, nil, {type="lightning_explosion"})
 		game:playSoundNear(self, "talents/lightning")
 		return true
@@ -143,7 +145,7 @@ newTalent{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatMindpower()})
 				else
-					game.logSeen(target, "%s 태풍의 효과를 저항했습니다!", target.name:capitalize())
+					game.logSeen(target, "%s 태풍의 효과를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 
 				-- Lightning ball gets a special treatment to make it look neat
@@ -186,7 +188,7 @@ newTalent{
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ 번개를 뿜어냅니다!",
+	message = "@Source1@ 번개를 뿜어냅니다!",
 	tactical = { ATTACKAREA = {LIGHTNING = 2}, DISABLE = { stun = 1 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,

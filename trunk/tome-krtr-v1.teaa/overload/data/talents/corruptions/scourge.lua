@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local DamageType = require "engine.DamageType"
 
 newTalent{
@@ -52,14 +54,14 @@ newTalent{
 			if target:canBe("cut") then
 				target:setEffect(target.EFF_CUT, 5, {power=self:combatTalentSpellDamage(t, 5, 40), src=self, apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 출혈을 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 출혈을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		if hit2 then
 			if target:canBe("cut") then
 				target:setEffect(target.EFF_CUT, 5, {power=self:combatTalentSpellDamage(t, 5, 40), src=self, apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 출혈을 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 출혈을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -183,7 +185,7 @@ newTalent{
 			if hit2 and target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, 4, {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(self, "%s 어둠을 이겨냈습니다.", target.name:capitalize())
+				game.logSeen(target, "%s 어둠을 이겨냈습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		DamageType:projectingFor(self, nil)

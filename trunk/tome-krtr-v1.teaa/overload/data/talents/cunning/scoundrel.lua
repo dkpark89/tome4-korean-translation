@@ -78,7 +78,7 @@ newTalent{
 	name = "Nimble Movements",
 	kr_display_name = "재빠른 이동",
 	type = {"cunning/scoundrel",3},
-	message = "@Source@ 빠르게 이동합니다!",
+	message = "@Source1@ 빠르게 이동합니다!",
 	no_break_stealth = true,
 	require = cuns_req3,
 	points = 5,

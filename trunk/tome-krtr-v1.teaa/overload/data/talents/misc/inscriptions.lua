@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 local newInscription = function(t)
 	-- Warning, up that if more than 5 inscriptions are ever allowed
 	for i = 1, 6 do
@@ -47,7 +49,7 @@ local newInscription = function(t)
 			local ret = t.old_info(self, t)
 			local data = self:getInscriptionData(t.short_name)
 			if data.use_stat and data.use_stat_mod then
-				ret = ret..("\n 효과는 %s 능력치의 영향을 받아 증가합니다."):format(self.stats_def[data.use_stat].name)
+				ret = ret..("\n 효과는 %s 능력치의 영향을 받아 증가합니다."):format(self.stats_def[data.use_stat].name:krStat())
 			end
 			return ret
 		end
@@ -166,7 +168,7 @@ newInscription{
 			end
 		end
 		if known then
-			game.logSeen(self, "%s 상태효과가 사라졌습니다!", self.name:capitalize())
+			game.logSeen(self, "%s 치료되었습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		end
 		self:setEffect(self.EFF_PAIN_SUPPRESSION, data.dur, {power=data.power + data.inc_stat})
 		return true
@@ -790,12 +792,12 @@ newInscription{
 		if not target then return end
 
 		if target:attr("timetravel_immune") then
-			game.logSeen(target, "%s 적용 대상이 아닙니다!", target.name:capitalize())
+			game.logSeen(target, "%s 적용 대상이 아닙니다!", (target.kr_display_name or target.name):capitalize():addJosa("는"))
 			return
 		end
 
 		local hit = self:checkHit(self:combatSpellpower(), target:combatSpellResist() + (target:attr("continuum_destabilization") or 0))
-		if not hit then game.logSeen(target, "%s 저항했습니다!", target.name:capitalize()) return true end
+		if not hit then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return true end
 
 		self:project(tg, x, y, DamageType.TEMPORAL, self:spellCrit(t.getDamage(self, t)))
 		game.level.map:particleEmitter(x, y, 1, "temporal_thrust")
@@ -832,7 +834,7 @@ newInscription{
 			summoner_gain_exp = true, summoner = self,
 		}
 		
-		game.logSeen(target, "%s 미래로 보내졌습니다!", target.name:capitalize())
+		game.logSeen(target, "%s 미래로 보내졌습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		game.level:removeEntity(target)
 		game.level:addEntity(e)
 		game.level.map(x, y, Map.TERRAIN, e)

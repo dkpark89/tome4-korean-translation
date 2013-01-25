@@ -17,10 +17,12 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-newTalentType{ no_silence=true, is_spell=true, type="sher'tul/fortress", name = "fortress", description = "Yiilkgur abilities." }
-newTalentType{ no_silence=true, is_spell=true, type="spell/objects", name = "object spells", description = "Spell abilities of the various objects of the world." }
-newTalentType{ type="technique/objects", name = "object techniques", description = "Techniques of the various objects of the world." }
-newTalentType{ type="wild-gift/objects", name = "object techniques", description = "Wild gifts of the various objects of the world." }
+require "engine.krtrUtils" --@@
+
+newTalentType{ no_silence=true, is_spell=true, type="sher'tul/fortress", name = "fortress", description = "이일크구르의 능력입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="spell/objects", name = "object spells", description = "세상에 있는 여러가지 물건들에 부여되어 있는 주문입니다." }
+newTalentType{ type="technique/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 물리적 기술입니다." }
+newTalentType{ type="wild-gift/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 자연의 권능입니다." }
 
 --local oldTalent = newTalent
 --local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end return oldTalent(t) end
@@ -123,7 +125,7 @@ newTalent{
 		end
 		local state = {}
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("command-staff", {name="Command Staff"}, self, {version=staff, state=state, co=coroutine.running()})
+		local chat = Chat.new("command-staff", {name="지팡이 다루기"}, self, {version=staff, state=state, co=coroutine.running()})
 		local d = chat:invoke()
 		if not coroutine.yield() then return nil end
 		return true
@@ -146,7 +148,7 @@ newTalent{
 	action = function(self, t)
 		local state = {}
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("ward", {name="Ward"}, self, {version=self, state=state})
+		local chat = Chat.new("ward", {name="보호"}, self, {version=self, state=state})
 		local d = chat:invoke()
 		local co = coroutine.running()
 		--print("before d.unload, state.set_ward is ", state.set_ward)
@@ -348,7 +350,7 @@ newTalent{
 					if target.undead or target.construct then
 						self:project({type="hit"}, target.x, target.y, engine.DamageType.ARCANE, 40+self:combatMindpower())
 						if target:canBe("stun") then target:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatMindpower()}) end
-						game.logSeen(self, "%s 시전 중이던 마법이 방해받았습니다!", target.name:capitalize())
+						game.logSeen(self, "%s 시전 중이던 마법이 방해받았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 		end, nil, {type="slime"})

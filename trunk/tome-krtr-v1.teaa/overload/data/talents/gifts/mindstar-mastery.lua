@@ -80,7 +80,7 @@ newTalent{
 	no_energy = true,
 	range = 1,
 	tactical = { ATTACK = 2, DISABLE = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasPsiblades(true, false) then if not silent then game.logPlayer(self, "You require a psiblade in your mainhand to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasPsiblades(true, false) then if not silent then game.logPlayer(self, "이 기술을 사용하려면 염동 칼날을 주무기로 쓰고 있어야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local tg = {type="hit", range=self:getTalentRange(t)}
 		local x, y, target = self:getTarget(tg)
@@ -109,7 +109,7 @@ newTalent{
 	tactical = { ATTACK = 2, DEFEND=3 },
 	getDamage = function(self, t) return 5 + self:combatTalentMindDamage(t, 5, 35) * get_mindstar_power_mult(self) end,
 	getChance = function(self, t) return util.bound(10 + self:combatTalentMindDamage(t, 5, 35), 10, 40) * get_mindstar_power_mult(self, 90) end,
-	on_pre_use = function(self, t, silent) if not self:hasPsiblades(true, true) then if not silent then game.logPlayer(self, "You require two psiblades in your hands to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasPsiblades(true, true) then if not silent then game.logPlayer(self, "이 기술을 사용하려면 두 손에 각각 염동 칼날을 잡고 있어야 합니다.") end return false end return true end,
 	action = function(self, t)
 		-- Add a lasting map effect
 		game.level.map:addEffect(self,
@@ -151,7 +151,7 @@ newTalent{
 	tactical = { ATTACK = 1, HEAL = 1, EQUILIBRIUM = 1 },
 	direct_hit = true,
 	requires_target = true,
-	on_pre_use = function(self, t, silent) if not self:hasPsiblades(true, true) then if not silent then game.logPlayer(self, "You require two psiblades in your hands to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasPsiblades(true, true) then if not silent then game.logPlayer(self, "이 기술을 사용하려면 두 손에 각각 염동 칼날을 잡고 있어야 합니다.") end return false end return true end,
 	getMaxDamage = function(self, t) return 50 + self:combatTalentMindDamage(t, 5, 250) * get_mindstar_power_mult(self) end,
 	action = function(self, t)
 		local main, off = self:hasPsiblades(true, true)

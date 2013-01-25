@@ -113,6 +113,7 @@ newTalent{
 			local e = Object.new{
 				old_feat = oe,
 				name = "ice wall", image = "npc/iceblock.png",
+				kr_display_name = "얼음 벽",
 				type = "wall", subtype = "ice",
 				display = '#', color=colors.LIGHT_BLUE, back_color=colors.BLUE,
 				always_remember = true,
@@ -157,7 +158,7 @@ newTalent{
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ 냉기를 뿜어냅니다!",
+	message = "@Source1@ 냉기를 뿜어냅니다!",
 	tactical = { ATTACKAREA = { COLD = 2 }, DISABLE = { stun = 1 } },
 	range = 0,
 	radius = function(self, t) return 4 + self:getTalentLevelRaw(t) end,

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" --@@
+
 uberTalent{
 	name = "Fast As Lightning",
 	kr_display_name = "번개보다 빠르게",
@@ -46,14 +48,14 @@ uberTalent{
 			self:setEffect(self.EFF_FAST_AS_LIGHTNING, 1, {})
 			eff = self:hasEffect(self.EFF_FAST_AS_LIGHTNING)
 			eff.dir = dir eff.nb = 0
-			game.logSeen(self, "#LIGHT_BLUE#%s 초신속 상태가 해제됩니다!", self.name:capitalize())
+			game.logSeen(self, "#LIGHT_BLUE#%s의 초신속 상태가 해제됩니다!", (self.kr_display_name or self.name):capitalize())
 		end
 
 		eff.nb = eff.nb + 1
 
 		if eff.nb >= 3 and not eff.blink then
 			self:effectTemporaryValue(eff, "prob_travel", 5)
-			game.logSeen(self, "#LIGHT_BLUE#%s 초신속 상태에 들어갑니다!", self.name:capitalize())
+			game.logSeen(self, "#LIGHT_BLUE#%s 초신속 상태에 들어갑니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
 			game.flyers:add(sx, sy, 30, rng.float(-3, -2), (rng.range(0,2)-1) * 0.5, "CRITICAL VELOCITY!", {0,128,255})
 			eff.particle = self:addParticles(Particles.new("megaspeed", 1, {angle=util.dirToAngle((dir == 4 and 6) or (dir == 6 and 4 or dir))}))
@@ -72,7 +74,7 @@ uberTalent{
 	name = "Tricky Defenses",
 	kr_display_name = "교묘한 방어",
 	mode = "passive",
-	require = { special={desc="Antimagic", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
+	require = { special={desc="반마법", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	info = function(self, t)
 		return ([[속임수와 각종 기술의 달인이 되어, 반 마법 보호막이 %d%% 더 많은 피해량을 흡수하게 됩니다.
 		피해 흡수량은 교활함 능력치의 영향을 받아 증가합니다.]])
@@ -126,7 +128,7 @@ uberTalent{
 	name = "Secrets of Telos",
 	kr_display_name = "텔로스의 비밀",
 	mode = "passive",
-	require = { special={desc="부서진 '텔로스' 상단, 부서진 '텔로스' 하단, 텔로스의 수정을 모두 가지고 있을 것", fct=function(self)
+	require = { special={desc="부서진 텔로스 지팡이 (상단), 텔로스 지팡이 (하단), 텔로스 지팡이의 수정을 모두 가지고 있을 것", fct=function(self)
 		local o1 = self:findInAllInventoriesBy("define_as", "GEM_TELOS")
 		local o2 = self:findInAllInventoriesBy("define_as", "TELOS_TOP_HALF")
 		local o3 = self:findInAllInventoriesBy("define_as", "TELOS_BOTTOM_HALF")
@@ -148,7 +150,7 @@ uberTalent{
 
 			self:sortInven()
 
-			game.logSeen(self, "#VIOLET#%s assembles %s!", self.name:capitalize(), o:getName{do_colour=true, no_count=true})
+			game.logSeen(self, "#VIOLET#%s %s 조립했습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), o:getName{do_colour=true, no_count=true}:addJosa("를"))
 		end
 	end,
 	info = function(self, t)

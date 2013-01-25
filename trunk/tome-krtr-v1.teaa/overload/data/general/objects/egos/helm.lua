@@ -81,7 +81,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "prismatic ", prefix=true, instant_resolve=true,
-	kr_display_name = "프리즘 ",
+	kr_display_name = "무지개 ",
 	keywords = {prismatic=true},
 	level_range = {10, 50},
 	rarity = 10,
