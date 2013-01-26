@@ -37,7 +37,7 @@ function _M:init(actor)
 	if _M.cs_player_dup and _M.cs_player_dup.name ~= actor.name then _M.cs_player_dup = nil end
 
 	self.actor = actor
-	local san = self.actor.kr_display_name and (self.actor.kr_display_name.."["..self.actor.name.."]") or self.actor.name --@@ 41 사용: 이름 '한글이름[원문이름]'으로 저장
+	local san = self.actor.kr_display_name and (self.actor.kr_display_name.." ["..self.actor.name.."]") or self.actor.name --@@ 41 사용: 이름 '한글이름[원문이름]'으로 저장
 	Dialog.init(self, "캐릭터 상태: "..san, math.max(game.w * 0.7, 950), 500)
 
 	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 13) --@@ 한글 글꼴 추가
@@ -516,7 +516,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i = 1, player.max_inscriptions do if player.inscriptions[i] then
 			local t = player:getTalentFromId("T_"..player.inscriptions[i])
 			local desc = player:getTalentFullDescription(t)
-			self:mouseTooltip("#GOLD##{bold}#"..(t.kr_display_name or t.name).."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
+			self:mouseTooltip("#GOLD##{bold}#"..(t.kr_display_name or t.name).."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(t.kr_display_name or t.name), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end end
 
 		if any_esp then
