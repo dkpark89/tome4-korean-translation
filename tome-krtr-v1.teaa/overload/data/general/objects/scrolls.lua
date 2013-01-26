@@ -471,7 +471,7 @@ newEntity{ base = "BASE_RUNE",
 --[[
 newEntity{ base = "BASE_TAINT",
 	name = "taint of the devourer",
-	kr_display_name = "먹깨비 감염",
+	kr_display_name = "포식자의 감염",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 10,

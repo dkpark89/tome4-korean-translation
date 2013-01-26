@@ -181,6 +181,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 -- the brethren of Ungoliant :D  tough and deadly, probably too tough, but meh <evil laughter>
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "ungolmor", color={0,0,0},  -- spider night, don't change the color
+	kr_display_name = "운골모르",
 	desc = [[Largest of all the spiderkin, its folds of skin seem nigh impenetrable.]],
 	level_range = {38, nil}, exp_worth = 1,
 	rarity = 4,

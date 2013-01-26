@@ -33,6 +33,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "TANNEN",
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Tannen",
+	kr_display_name = "탄넨",
 	display = "p", color=colors.VIOLET,
 	desc = [[The traitor has been revealed, and he does not intend to let you escape to tell the tale.]],
 	killer_message = "and was neither found nor heard from again",

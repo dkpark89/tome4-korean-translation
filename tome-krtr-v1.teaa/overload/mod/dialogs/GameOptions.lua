@@ -250,7 +250,7 @@ function _M:generateList()
 	end
 
 	if game.uiset:checkGameOption("hotkeys_rows") then
-		local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"단축 기술창이 보여줄 줄 수를 결정합니다.\n\nNumber of rows to show in the icons hotkeys toolbar.#WHITE#"}
+		local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"단축 기술창이 보여줄 줄 수를 결정합니다.\nHUD가 '깔끔' 방식이라면 이 설정 변경 후 '인터페이스 초기화'를 해야 줄 수가 바뀝니다.\n(단, 이렇게 할 경우 사용자가 설정한 다른 인터페이스의 위치와 크기도 모두 초기화 되어버리니 주의하세요.)\n인터페이스의 잠금을 풀고 기술창 크기를 직접 변경하실 수도 있습니다.\n(원래는 이 방식을 사용하라는 의미로 '깔끔' 방식에서는 이 설정이 보이지 않았습니다)\n\nNumber of rows to show in the icons hotkeys toolbar.#WHITE#"}
 		list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#단축 기술창 줄 수#WHITE##{normal}#", status=function(item)
 			return tostring(config.settings.tome.hotkey_icons_rows)
 		end, fct=function(item)

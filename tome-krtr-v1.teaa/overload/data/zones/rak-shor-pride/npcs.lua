@@ -31,6 +31,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "RAK_SHOR",
 	allow_infinite_dungeon = true,
 	name = "Rak'shor, Grand Necromancer of the Pride", color=colors.VIOLET, unique = true,
+	kr_display_name = "오크 무리의 위대한 사령술사, 락'쇼르",
 	desc = [[An old orc, wearing black robes. He commands his undead armies to destroy you.]],
 	killer_message = "and raised as a malformed servant",
 	level_range = {35, nil}, exp_worth = 1,
