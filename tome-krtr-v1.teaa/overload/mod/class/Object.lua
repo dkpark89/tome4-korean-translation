@@ -1253,9 +1253,9 @@ function _M:getUseDesc()
 		local t = game.player:getTalentFromId(self.use_talent.id)
 		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
 		if self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, "사용시 ", tn," 기술 발동, 다른 모든 부적의 지연시간을 ", tostring(math.floor(usepower(self.use_talent.power))) ,"턴 늘림 :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_display_name or t.name)," 기술 발동, 다른 모든 부적의 지연시간을 ", tostring(math.floor(usepower(self.use_talent.power))) ,"턴 늘림 :", {"color","LAST"}, true}
 		else
-			ret = tstring{{"color","YELLOW"}, "사용시 ", tn," 기술 발동 (소모력 ", tostring(math.floor(usepower(self.use_talent.power))), " power out of ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_display_name or t.name)," 기술 발동 (소모력 ", tostring(math.floor(usepower(self.use_talent.power))), " power out of ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
 		end
 		ret:merge(desc)
 	end

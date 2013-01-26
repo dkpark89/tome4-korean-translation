@@ -1405,7 +1405,7 @@ function _M:tooltip(x, y, seen_by)
 
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.kr_display_name and self.kr_display_name.." ["..self.name.."]" or self.name, {"color", "WHITE"}) --@@ 한글 이름 뒤에 원문이름 삽입
-	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, "(", self.female and "여성" or "남성", ")", {"font","normal"}, true) else ts:add(true) end
+	if self.type == "humanoid" or self.type == "giant" then ts:add({"font","italic"}, " (", self.female and "여성" or "남성", ")", {"font","normal"}, true) else ts:add(true) end
 	ts:add(self.type:capitalize():krActorType(), " / ", self.subtype:capitalize():krActorType(), true) --@@ 종족이름, 직업이름 한글화
 	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krRank(), {"color", "WHITE"}, true) --@@ 등급이름 한글화
 	ts:add({"color", 0, 255, 255}, ("레벨: %d"):format(self.level), {"color", "WHITE"}, true)

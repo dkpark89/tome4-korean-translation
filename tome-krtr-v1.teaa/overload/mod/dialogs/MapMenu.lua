@@ -161,7 +161,7 @@ function _M:generateList()
 				local e = t.display_entity
 				-- Pregenenerate icon with the Tiles instance that allows images
 				if t.display_entity and game.uiset.hotkeys_display_icons then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
-				local tn = t.kr_display_name or t.name --@@ 166, 167 사용 : 기술 한글이름 저장 
+				local tn = t.kr_display_name or t.name --@@ 166, 168 사용 : 기술 한글이름 저장 
 				if self.on_player and not rt then
 					tals[#tals+1] = {name=e:getDisplayString()..tn, dname=t.name, talent=t, action="talent", color=colors.simple(colors.GOLD)}
 				elseif not self.on_player and rt then
