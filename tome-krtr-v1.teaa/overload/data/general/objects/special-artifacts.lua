@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
@@ -70,9 +70,7 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 	max_power = 30, power_regen = 1,
 	use_power = { name = "타락한 로스코로스로 변신 (중독과 질병, 출혈, 혼란에 면역; 피해의 반만큼 생명력 흡수; 숨쉴 필요없음)", power = 30,
 		use = function(self, who)
-			--@@
-			local wn = who.kr_display_name or who.name
-			game.logSeen(who, "%s %s 휘둘러, 타락한 로스고로스로 변신합니다!", wn:capitalize():addJosa("가"), self:getName():addJosa("를"))
+			game.logSeen(who, "%s %s 휘둘러, 타락한 로스고로스로 변신합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 			who:setEffect(who.EFF_CORRUPT_LOSGOROTH_FORM, 8, {})
 			return {id=true, used=true}
 		end

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local ActorAI = require "engine.interface.ActorAI"
 local Faction = require "engine.Faction"
@@ -153,10 +153,7 @@ end
 function _M:takePowerHit(val, src)
 	self.unit_power = (self.unit_power or 0) - val
 	if self.unit_power <= 0 then
-		--@@
-		local srn = src.kr_display_name or src.name
-		local sn = self.kr_display_name or self.name
-		game.logSeen(self, "%s %s 죽였습니다.", srn:capitalize():addJosa("가"), sn:addJosa("를"))
+		game.logSeen(self, "%s %s 죽였습니다.", (src.kr_display_name or src.name):capitalize():addJosa("가"), (self.kr_display_name or self.name):addJosa("를"))
 		self:die(src)
 	end
 end
@@ -177,16 +174,12 @@ function _M:encounterAttack(target, x, y)
 		self.unit_power, target.unit_power = self.unit_power - target.unit_power, target.unit_power - self.unit_power
 	end
 
-	--@@
-	local tn = target.kr_display_name or target.name
-	local sn = self.kr_display_name or self.name
-	
 	if self.unit_power <= 0 then
-		game.logSeen(self, "%s %s 죽였습니다.", tn:capitalize():addJosa("가"), sn:addJosa("를"))
+		game.logSeen(self, "%s %s 죽였습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"), (self.kr_display_name or self.name):addJosa("를"))
 		self:die(target)
 	end
 	if target.unit_power <= 0 then
-		game.logSeen(target, "%s %s 죽였습니다.", sn:capitalize():addJosa("가"), tn:addJosa("를"))
+		game.logSeen(target, "%s %s 죽였습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (target.kr_display_name or target.name):addJosa("를"))
 		target:die(src)
 	end
 end
@@ -222,13 +215,13 @@ function _M:tooltip(x, y, seen_by)
 
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.name, {"color", "WHITE"}, true)
-	ts:add(self.type:capitalize():krActorType(), " / ", self.subtype:capitalize():krActorType(), true) --@@
-	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krActorType(), {"color", "WHITE"}, true) --@@
+	ts:add(self.type:capitalize():krActorType(), " / ", self.subtype:capitalize():krActorType(), true) --@@ 종족/직업 이름 한글화
+	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krActorType(), {"color", "WHITE"}, true) --@@ 등급 이름 한글화
 	ts:add(self.desc, true)
-	ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) --@@
+	ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) --@@ 소속 이름 한글화
 	ts:add(
 		("당신에게 죽은 횟수: "):format(killed), true,
-		"목표: ", self.ai_target.actor and (self.ai_target.actor.kr_display_name or self.ai_target.actor.name) or "없음", true, --@@
+		"목표: ", self.ai_target.actor and (self.ai_target.actor.kr_display_name or self.ai_target.actor.name) or "없음", true, 
 		"UID: "..self.uid
 	)
 

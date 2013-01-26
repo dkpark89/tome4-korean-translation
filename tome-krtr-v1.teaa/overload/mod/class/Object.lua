@@ -19,7 +19,7 @@
 
 -- TODO: Update prices
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Object"
 require "engine.interface.ObjectActivable"
@@ -154,9 +154,7 @@ function _M:descAttribute(attr)
 		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)
 	elseif attr == "COMBAT_DAMTYPE" then
 		local c = self.combat
-		--@@
-		local dtn = DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name
-		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)..", "..dtn.." 속성"
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name).." 속성"
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
@@ -171,9 +169,7 @@ function _M:descAttribute(attr)
 	elseif attr == "MONEY" then
 		return ("금화 %0.2f개 가치"):format(self.money_value / 10)
 	elseif attr == "USE_TALENT" then
-		--@@
-		local tn = self:getTalentFromId(self.use_talent.id).kr_display_name or self:getTalentFromId(self.use_talent.id).name
-		return tn:lower()
+		return (self:getTalentFromId(self.use_talent.id).kr_display_name or self:getTalentFromId(self.use_talent.id).name):lower()
 	elseif attr == "DIGSPEED" then
 		return ("굴착 속도 %d 턴"):format(self.digspeed)
 	elseif attr == "CHARM" then
@@ -243,7 +239,7 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.kr_display_name or self.name --@@
+	local name = self.kr_display_name or self.name --@@ 한글 이름 추가
 	
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
@@ -440,8 +436,7 @@ function _M:getTextualDesc(compare_with)
 		compare_with = compare_with or {}
 		local dm = {}
 		for stat, i in pairs(combat.dammod or {}) do
-			 --@@
-			dm[#dm+1] = ("%s %d%%"):format(Stats.stats_def[stat].short_name:capitalize():krStat(), (i + (add_table.dammod[stat] or 0)) * 100)
+			dm[#dm+1] = ("%s %d%%"):format(Stats.stats_def[stat].short_name:capitalize():krStat(), (i + (add_table.dammod[stat] or 0)) * 100) --@@ 능력치 이름 한글화
 		end
 		if #dm > 0 or combat.dam then
 			local power_diff = ""
@@ -466,11 +461,10 @@ function _M:getTextualDesc(compare_with)
 			desc:add(("기본 공격력: %.1f - %.1f"):format((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))
 			desc:merge(power_diff:toTString())
 			desc:add(true)
-			desc:add(("적용 능력치: %s"):format(table.concat(dm, ', ')), true) --@@
+			desc:add(("적용 능력치: %s"):format(table.concat(dm, ', ')), true)
 			local col = (combat.damtype and DamageType:get(combat.damtype) and DamageType:get(combat.damtype).text_color or "#WHITE#"):toTString()
-			--@@
-			local dtn = ( combat.damtype and (DamageType:get(combat.damtype).kr_display_name or DamageType:get(combat.damtype).name)) or (DamageType:get(DamageType.PHYSICAL).kr_display_name or DamageType:get(DamageType.PHYSICAL).name)
-			desc:add("공격 속성: ", col[2],dtn:capitalize(),{"color","LAST"}, true)
+			local dtn = ( combat.damtype and (DamageType:get(combat.damtype).kr_display_name or DamageType:get(combat.damtype).name)) or (DamageType:get(DamageType.PHYSICAL).kr_display_name or DamageType:get(DamageType.PHYSICAL).name) --@@ 467 사용 : 너무 길어져 변수로 뺌
+			desc:add("공격 속성: ", col[2], dtn:capitalize(),{"color","LAST"}, true)
 		end
 
 		if combat.wil_attack then
@@ -502,8 +496,7 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_hit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					--@@
-					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 500 사용 : 너무 길어져 변수로 뺌
 					desc:add({"color","RED"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
@@ -511,8 +504,7 @@ function _M:getTextualDesc(compare_with)
 			end
 		end
 		for tid, data in pairs(talents) do
-			--@@
-			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 508 사용 : 너무 길어져 변수로 뺌
 			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 		
@@ -525,8 +517,7 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_crit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					--@@
-					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 521 사용 : 너무 길어져 변수로 뺌
 					desc:add({"color","RED"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
@@ -534,8 +525,7 @@ function _M:getTextualDesc(compare_with)
 			end
 		end
 		for tid, data in pairs(talents) do
-			--@@
-			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 529 사용 : 너무 길어져 변수로 뺌
 			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
@@ -616,35 +606,35 @@ function _M:getTextualDesc(compare_with)
 
 		compare_table_fields(combat, compare_with, field, "melee_project", "%+d", "공격 성공시 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(combat, compare_with, field, "ranged_project", "%+d", "장거리 공격 성공시 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(combat, compare_with, field, "burst_on_hit", "%+d", "공격 성공시 폭발(1칸 반경) 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(combat, compare_with, field, "burst_on_crit", "%+d", "치명타 성공시 폭발(2칸 반경) 피해량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(combat, compare_with, field, "convert_damage", "%d%%", "공격 속성 변환: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "다음 상대에게 피해량 증가: ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
-					return st:capitalize():krActorType() --@@
+					return st:capitalize():krActorType() --@@ 종족이름 한글화
 				else
-					return t:capitalize():krActorType() --@@
+					return t:capitalize():krActorType() --@@ 종족이름 한글화
 				end
 			end)
 
@@ -669,52 +659,52 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "ammo_reload_speed", "%+d", "턴당 재장전: ")
 
 		compare_table_fields(w, compare_with, field, "inc_stats", "%+d", "능력치 변화: ", function(item)
-				return (" %s"):format(Stats.stats_def[item].short_name:capitalize():krStat()) --@@
+				return (" %s"):format(Stats.stats_def[item].short_name:capitalize():krStat()) --@@ 능력치이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "melee_project", "%d", "근접 공격 피해 반사: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "ranged_project", "%d", "장거리 공격 피해 반사: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "on_melee_hit", "%d", "피해 반사: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "resists", "%+d%%", "저항력 변화: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "resists_cap", "%+d%%", "저항력 최대치 변화: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호량(wards): ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "resists_pen", "%+d%%", "관통 억제: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "inc_damage", "%+d%%", "공격 피해량 변화: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_table_fields(w, compare_with, field, "damage_affinity", "%+d%%", "생명력 강탈: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@
+				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
 		compare_fields(w, compare_with, field, "esp_range", "%+d", "투시 거리 변화 : ")
@@ -731,9 +721,9 @@ function _M:getTextualDesc(compare_with)
 				local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 				local esp = ""
 				if st and st ~= "" then
-					esp = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@@
+					esp = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@@ 종족이름 한글화
 				else
-					esp = t:capitalize():krActorType() --@@
+					esp = t:capitalize():krActorType() --@@ 종족이름 한글화
 				end
 				esps_compare[esp] = esps_compare[esp] or {}
 				esps_compare[esp][1] = true
@@ -751,9 +741,9 @@ function _M:getTextualDesc(compare_with)
 		for type, i in pairs(w.esp or {}) do
 			local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 			if st and st ~= "" then
-				esps[#esps+1] = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@@
+				esps[#esps+1] = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@@ 종족이름 한글화
 			else
-				esps[#esps+1] = t:capitalize():krActorType() --@@
+				esps[#esps+1] = t:capitalize():krActorType() --@@ 종족이름 한글화
 			end
 			esps_compare[esps[#esps]] = esps_compare[esps[#esps]] or {}
 			esps_compare[esps[#esps]][2] = true
@@ -762,8 +752,7 @@ function _M:getTextualDesc(compare_with)
 		if any_esp then
 			desc:add("투시 부여: ")
 			for esp, isin in pairs(esps_compare) do
-				--@@
-				local temp = ( esp == "All" and "전체" ) or esp
+				local temp = ( esp == "All" and "전체" ) or esp --@@ 757, 759 사용 : 모든 종족시 한글로 변경 
 				if isin[2] then
 					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(temp), {"color","LAST"})
 				else
@@ -790,11 +779,11 @@ function _M:getTextualDesc(compare_with)
 			any_mastery = any_mastery + 1
 		end
 		if any_mastery > 0 then
-			desc:add("기술계열 효율 향상: ") --@@
+			desc:add("기술계열 효율 향상: ")
 			for ttn, ttid in pairs(masteries) do
 				local tt = Talents.talents_types_def[ttn]
 				local cat = tt.type:gsub("/.*", "")
-				local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@@
+				local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@@ 기술계열이름 한글화
 				local diff = (ttid[2] or 0) - (ttid[1] or 0)
 				if diff ~= 0 then
 					if ttid[1] then
@@ -826,19 +815,18 @@ function _M:getTextualDesc(compare_with)
 			any_cd_reduction = any_cd_reduction + 1
 		end
 		if any_cd_reduction > 0 then
-			desc:add("기술 지연대기시간:") --@@
+			desc:add("기술 지연대기시간:")
 			for tid, cds in pairs(cd_reductions) do
 				local diff = (cds[2] or 0) - (cds[1] or 0)
-				--@@
-				local tn = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name
+				local tn = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name --@@ 824, 826, 829 사용 : 길어지고 반복되어 변수로 뺌
 				if diff ~= 0 then
 					if cds[1] then
-						desc:add((" %s ("):format(tn), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "턴)") --@@
+						desc:add((" %s ("):format(tn), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "턴)")
 					else
-						desc:add((" %s ("):format(tn), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " 턴)") --@@
+						desc:add((" %s ("):format(tn), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " 턴)")
 					end
 				else
-					desc:add({"color","WHITE"}, (" %s (%+d(-) 턴)"):format(tn, -(cds[2] or cds[1])), {"color","LAST"}) --@@
+					desc:add({"color","WHITE"}, (" %s (%+d(-) 턴)"):format(tn, -(cds[2] or cds[1])), {"color","LAST"})
 				end
 			end
 			desc:add(true)
@@ -862,11 +850,10 @@ function _M:getTextualDesc(compare_with)
 			any_learn_talent = any_learn_talent + 1
 		end
 		if any_learn_talent > 0 then
-			desc:add("기술 보장: ") --@@
+			desc:add("기술 보장: ")
 			for tid, tl in pairs(learn_talents) do
 				local diff = (tl[2] or 0) - (tl[1] or 0)
-				--@@
-				local name = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name
+				local name = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name --@@ 한글 이름 추가
 				if diff ~= 0 then
 					if tl[1] then
 						desc:add(("+%d"):format(tl[2] or 0), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(+%d) "):format(diff), {"color","LAST"}, ("%s "):format(name))
@@ -1151,9 +1138,9 @@ function _M:getTextualDesc(compare_with)
 			if a.power then desc:add(("폭발 피해량 +%d%%"):format(a.power), true) end
 			if a.range then desc:add(("폭탄 사정거리 +%d"):format(a.range), true) end
 			if a.mana then desc:add(("마나 회복 %d"):format(a.mana), true) end
-			if a.daze then desc:add(("%d턴 동안 %d%% 확률로 혼절"):format(a.daze.dur, a.daze.chance), true) end --@@
-			if a.stun then desc:add(("%d턴 동안 %d%% 확률로 기절"):format(a.stun.dur, a.stun.chance), true) end --@@
-			if a.splash then desc:add(("추가적인 %d %s 피해"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).kr_display_name or DamageType:get(DamageType[a.splash.type]).name), true) end --@@ --@@
+			if a.daze then desc:add(("%d턴 동안 %d%% 확률로 혼절"):format(a.daze.dur, a.daze.chance), true) end --@@ 변수 순서 조정
+			if a.stun then desc:add(("%d턴 동안 %d%% 확률로 기절"):format(a.stun.dur, a.stun.chance), true) end --@@ 변수 순서 조정
+			if a.splash then desc:add(("추가적인 %d %s 피해"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).kr_display_name or DamageType:get(DamageType[a.splash.type]).name), true) end --@@ 속성이름 한글화
 			if a.leech then desc:add(("최대 생명력의 %d%% 생명력 재생"):format(a.leech), true) end
 		end
 	end
@@ -1178,8 +1165,7 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_spell or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				--@@
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1169 사용 : 길어져 변수로 뺌
 				desc:add({"color","RED"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
@@ -1187,8 +1173,7 @@ function _M:getTextualDesc(compare_with)
 		end
 	end
 	for tid, data in pairs(talents) do
-		--@@
-		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1177 사용 : 길어져 변수로 뺌
 		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
@@ -1202,8 +1187,7 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_wild_gift or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				--@@
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1191 사용 : 길어져 변수로 뺌
 				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
@@ -1211,8 +1195,7 @@ function _M:getTextualDesc(compare_with)
 		end
 	end
 	for tid, data in pairs(talents) do
-		--@@
-		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1199 사용 : 길어져 변수로 뺌
 		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
@@ -1226,8 +1209,7 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_mind or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				--@@
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1213 사용 : 길어져 변수로 뺌
 				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
@@ -1235,8 +1217,7 @@ function _M:getTextualDesc(compare_with)
 		end
 	end
 	for tid, data in pairs(talents) do
-		--@@
-		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1221 사용 : 길어져 변수로 뺌
 		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("정신 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
@@ -1267,9 +1248,7 @@ function _M:getUseDesc()
 			ret = tstring{{"color","YELLOW"}, ("사용처: %s (소모력 %d, 현재 보유력 %d/%d)."):format(util.getval(self.use_power.name, self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
-		--@@
-		local susn = self.use_simple.kr_display_name or self.use_simple.name
-		ret = tstring{{"color","YELLOW"}, ("사용처: %s."):format(susn), {"color","LAST"}}
+		ret = tstring{{"color","YELLOW"}, ("사용처: %s."):format(self.use_simple.kr_display_name or self.use_simple.name), {"color","LAST"}}
 	elseif self.use_talent then
 		local t = game.player:getTalentFromId(self.use_talent.id)
 		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
@@ -1527,7 +1506,7 @@ function _M:on_prepickup(who, idx)
 		return true
 	end
 	if who.player and self.force_lore_artifact then
-		game.party:additionalLore(self.unique, self:getName(), "artifacts", self.desc) --@@
+		game.party:additionalLore(self.unique, self:getName(), "artifacts", self.desc)
 		game.party:learnLore(self.unique)
 	end
 end
@@ -1546,7 +1525,7 @@ function _M:on_identify()
 			game.party:learnLore(self.on_id_lore, false, false, true)
 		end
 		if self.unique and self.desc and not self.no_unique_lore then
-			game.party:additionalLore(self.unique, self:getName{no_add_name=true, do_color=false, no_count=true}, "artifacts", self.desc) --@@
+			game.party:additionalLore(self.unique, self:getName{no_add_name=true, do_color=false, no_count=true}, "artifacts", self.desc)
 			game.party:learnLore(self.unique, false, false, true)
 		end
 	end)

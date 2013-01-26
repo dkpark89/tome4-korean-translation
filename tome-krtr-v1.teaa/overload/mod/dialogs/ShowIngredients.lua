@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -62,9 +62,8 @@ function _M:generateList()
 	local i = 0
 	for id, nb in pairs(self.party.ingredients) do
 		local d = self.party:getIngredient(id)
-		--@@
-		local dn = d.kr_display_name or d.name
-		list[#list+1] = { dname=dn, name=d.display_entity:getDisplayString(true):add(dn), ori_name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), cat=d.type:krItemType(), ori_cat=d.type, nb=nb==-1 and "inf" or tostring(nb) }
+		local dn = d.kr_display_name or d.name --@@ 연금술재료 한글이름 저장
+		list[#list+1] = { dname=dn, name=d.display_entity:getDisplayString(true):add(dn), ori_name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), cat=d.type:krItemType(), ori_cat=d.type, nb=nb==-1 and "inf" or tostring(nb) } --@@ 종류이름 한글화
 		i = i + 1
 	end
 	-- Add known artifacts
@@ -74,7 +73,6 @@ end
 
 function _M:select(item)
 	if item then
-		--@@
-		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n        [%s]\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.ori_name:toString(), item.nb, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#재료명:#0080FF# %s\n        [%s]\n#GOLD#수량:#0080FF# %s\n#GOLD#설명:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.ori_name:toString(), item.nb, item.desc)) --@@ 한글이름 뒤에 원문이름 추가
 	end
 end

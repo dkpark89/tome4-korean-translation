@@ -40,7 +40,7 @@ end
 
 --- Gets the full name of the object
 function _M:getName()
-	local name = self.kr_display_name or self.name --@@
+	local name = self.kr_display_name or self.name --@@ 한글 이름 추가
 	if not self:isIdentified() and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 	return name
 end
@@ -48,9 +48,7 @@ end
 --- Returns a tooltip for the trap
 function _M:tooltip()
 	if self:knownBy(game.player) then
-		--@@
-		local sn = self:getName().." ["..self.name.."]"
-		local res = tstring{{"uid", self.uid}, sn}
+		local res = tstring{{"uid", self.uid}, (self:getName().." ["..self.name.."]")} --@@ 상점 이름 '한글이름[원문이름]'으로 수정
 		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		if config.settings.cheat then
 			res:add(true, "UID: "..self.uid, true, "탐지: "..self.detect_power, true, "해체: "..self.disarm_power)

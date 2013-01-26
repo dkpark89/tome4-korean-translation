@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Bloodbath",
@@ -71,7 +71,7 @@ newTalent{
 	info = function(self, t)
 		return ([[강력한 공격으로 적에게 죽음에 대한 공포를 심어줍니다. 
 		한 번의 근접공격으로 대상이 지닌 최대 생명력의 %d%% 가 넘는 피해를 입히면, 대상은 죽음의 공포에 빠져 5턴 동안 혼절합니다.
-		치명타율이 %d%% 증가하는 효과도 있으며, 혼절 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):
+		치명타율이 %d%% 증가하는 효과도 있으며, 혼절 확률은 물리력의 영향을 받아 증가합니다.]]):
 		format(20 + (30 - self:getTalentLevelRaw(t) * 5), self:getTalentLevelRaw(t) * 2.8)
 	end,
 }
@@ -88,7 +88,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[적의 머리통을 박살낼 때마다 힘이 솟구칩니다! 적을 죽일 때마다 힘이 2 씩 증가하며, %d 턴 동안 유지됩니다. 최대로 오르는 힘은 %d 입니다.]]):
-		format(math.floor(5 + self:getTalentLevel(t)), math.floor(self:getTalentLevel(t) * 6)) --@@
+		format(math.floor(5 + self:getTalentLevel(t)), math.floor(self:getTalentLevel(t) * 6)) --@@ 변수 순서 조정
 	end,
 }
 

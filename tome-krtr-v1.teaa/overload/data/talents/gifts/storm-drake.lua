@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Object = require "engine.Object"
 
@@ -89,7 +89,7 @@ newTalent{
 			if target.life - dam < 0 then dam = target.life end
 			target:takeHit(dam, self)
 
-			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 순수속성 피해#LAST#"):format(math.ceil(dam))) --@@
+			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 순수속성 피해#LAST#"):format(math.ceil(dam))) --@@ pure를 순수속성으로(여기만 있는 특수 속성) 번역
 		end, nil, {type="lightning_explosion"})
 		game:playSoundNear(self, "talents/lightning")
 		return true
@@ -98,7 +98,7 @@ newTalent{
 		local percent = t.getPercent(self, t)
 		return ([[주변 1 칸 반경에 전기장을 만들어냅니다. 전기장에 들어온 적은 현재 생명력의 %d%% 를 잃게 됩니다. (높은 등급의 적에게는 효과가 감소됩니다)
 		이 효과로는 무언가를 죽일 수 없습니다.
-		생명력 감소량은 정신력 능력치의 영향을 받아 증가합니다.
+		생명력 감소량은 정신력의 영향을 받아 증가합니다.
 		이 기술의 레벨이 오를 때마다, 전기 저항력이 1%% 상승합니다.]]):format(percent)
 	end,
 }

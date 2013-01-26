@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local KeyBind = require "engine.KeyBind"
 local Mouse = require "engine.Mouse"
@@ -30,15 +30,12 @@ local cache = {}
 local tcache = {}
 
 -- Default font
---@@
-_M.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 12)
+_M.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 12) --@@ 한글 글꼴 추가
 _M.font_h = _M.font:lineSkip()
---@@
-_M.font_mono = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12)
+_M.font_mono = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12) --@@ 한글 글꼴 추가
 _M.font_mono_w = _M.font_mono:size(" ")
 _M.font_mono_h = _M.font_mono:lineSkip()
---@@
-_M.font_bold = core.display.newFont(krFont or "/data/font/DroidSans-Bold.ttf", 12)
+_M.font_bold = core.display.newFont(krFont or "/data/font/DroidSans-Bold.ttf", 12) --@@ 한글 글꼴 추가
 _M.font_bold_h = _M.font_bold:lineSkip()
 
 -- Default UI

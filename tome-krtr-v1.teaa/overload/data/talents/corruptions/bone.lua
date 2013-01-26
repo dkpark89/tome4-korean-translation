@@ -43,7 +43,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[뼈로 창을 만들어, 궤도 상의 모든 적들에게 %0.2f 물리 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 20, 200)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 20, 200)))
 	end,
 }
 
@@ -84,7 +84,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 붙잡아 시전자의 근처로 순간이동시킨 뒤, 발 밑에 뼈를 솟아나오게 하여 대상을 %d 턴 동안 속박하고 %0.2f 물리 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(math.floor(3 + self:getTalentLevel(t)), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 5, 140)))
 	end,
 }
@@ -113,7 +113,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[뼈의 창을 모든 방향에 동시에 발사하여, 주변 %d 칸 반경의 적들에게 %0.2f 물리 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 8, 180)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 8, 180)))
 	end,
 }
 

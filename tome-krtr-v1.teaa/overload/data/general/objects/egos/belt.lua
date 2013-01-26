@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
@@ -435,9 +435,7 @@ newEntity{
 	resolvers.charm("%d 피해를 흡수하는 일시적 방패 생성", 30, function(self, who)
 		local power = self:getCharmPower()
 		who:setEffect(who.EFF_DAMAGE_SHIELD, 10, {power=power})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }

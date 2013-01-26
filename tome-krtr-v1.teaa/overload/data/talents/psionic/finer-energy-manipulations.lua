@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Perfect Control",
 	kr_display_name = "완벽한 제어",
@@ -56,7 +58,7 @@ newTalent{
 		return math.floor(self:combatStatTalentIntervalDamage(t, "combatMindpower", 3, 20))
 	end,
 	action = function(self, t)
-		local d d = self:showInventory("어떤 무기를 재구성합니까?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "weapon" and not o.fully_reshaped end, function(o, item)
+		local d d = self:showInventory("어느 무기를 재구성합니까?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "weapon" and not o.fully_reshaped end, function(o, item)
 			--o.wielder = o.wielder or {}
 			if (o.old_atk or 0) < t.boost(self, t) then
 				o.combat.atk = (o.combat.atk or 0) - (o.old_atk or 0)
@@ -65,15 +67,16 @@ newTalent{
 				o.combat.dam = (o.combat.dam or 0) + t.boost(self, t)
 				o.old_atk = t.boost(self, t)
 				o.old_dam = t.boost(self, t)
-				game.logPlayer(self, "%s 무기의 재구성이 성공하였습니다.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s의 재구성이 성공하였습니다.", o:getName{do_colour=true, no_count=true}:capitalize())
 				o.special = true
 				if not o.been_reshaped then
+					o.kr_display_name = "재구성된 "..(o.kr_display_name or o.name)
 					o.name = "reshaped" .. " "..o.name..""
 					o.been_reshaped = true
 				end
 				d.used_talent = true
 			else
-				game.logPlayer(self, "%s 무기는 더 이상 재구성할 수 없습니다.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s 더 이상 재구성할 수 없습니다.", o:getName{do_colour=true, no_count=true}:capitalize():addJosa("는"))
 			end
 		end)
 		local co = coroutine.running()
@@ -84,7 +87,7 @@ newTalent{
 	info = function(self, t)
 		local weapon_boost = t.boost(self, t)
 		return ([[무기를 원자 레벨에서부터 재구성해, 정확도와 피해량을 증가시킵니다. 무기의 정확도와 피해량이 영구적으로 %d 상승합니다.
-		상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		상승량은 정신력의 영향을 받아 증가합니다.]]):
 		format(weapon_boost)
 	end,
 }
@@ -122,7 +125,7 @@ newTalent{
 		return fat_values[index] * (self:getTalentLevel(t) / self:getTalentLevelRaw(t))
 	end,
 	action = function(self, t)
-		local d d = self:showInventory("어떤 갑옷을 재구성합니까?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "armor" and not o.fully_reshaped end, function(o, item)
+		local d d = self:showInventory("어느 갑옷을 재구성합니까?", self:getInven("INVEN"), function(o) return not o.quest and o.type == "armor" and not o.fully_reshaped end, function(o, item)
 			if (o.old_fat or 0) < t.fat_red(self, t) then
 				o.wielder = o.wielder or {}
 				if not o.been_reshaped then
@@ -140,14 +143,15 @@ newTalent{
 				end
 				o.old_fat = t.fat_red(self, t)
 				o.special = true
-				game.logPlayer(self, "%s 갑옷의 재구성이 성공하였습니다.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s의 재구성이 성공하였습니다.", o:getName{do_colour=true, no_count=true}:capitalize())
 				if not o.been_reshaped then
+					o.kr_display_name = "재구성된 "..(o.kr_display_name or o.name)
 					o.name = "reshaped" .. " "..o.name..""
 					o.been_reshaped = true
 				end
 				d.used_talent = true
 			else
-				game.logPlayer(self, "%s 갑옷은 더 이상 재구성할 수 없습니다.", o:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s 더 이상 재구성할 수 없습니다.", o:getName{do_colour=true, no_count=true}:capitalize():addJosa("는"))
 			end
 		end)
 		local co = coroutine.running()
@@ -159,7 +163,7 @@ newTalent{
 		local arm = t.arm_boost(self, t)
 		local fat = t.fat_red(self, t)
 		return ([[갑옷을 원자 레벨에서부터 재구성해, 방어도는 증가시키고 피로도는 감소시킵니다. 갑옷의 방어도가 영구적으로 %d 상승하고, 피로도가 영구적으로 %d 감소합니다.
-		방어도 상승량과 피로도 감소량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		방어도 상승량과 피로도 감소량은 정신력의 영향을 받아 증가합니다.]]):
 		format(arm, fat)
 	end,
 }
@@ -177,7 +181,7 @@ newTalent{
 		return self:combatStatTalentIntervalDamage(t, "combatMindpower", 10, 40, 0.25)
 	end,
 	action = function(self, t)
-		local d d = self:showInventory("Use which gem?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.material_level and not gem.unique end, function(gem, gem_item)
+		local d d = self:showInventory("어느 보석을 사용합니까?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.material_level and not gem.unique end, function(gem, gem_item)
 			self:removeObject(self:getInven("INVEN"), gem_item)
 			local amt = t.energy_per_turn(self, t)
 			local dur = 3 + 2*(gem.material_level or 0)

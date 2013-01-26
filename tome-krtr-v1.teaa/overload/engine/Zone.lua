@@ -380,9 +380,9 @@ function _M:finishEntity(level, type, e, ego_filter)
 		pick_ego(self, level, e, e.addons, egos_list, type, {}, "addon", nil)
 
 		if #egos_list > 0 then
-			local newKrName, krAdd, krMain --@@
-			krMain = (e.kr_display_name or e.name) --@@
-			krAdd = "" --@@
+			local newKrName, krAdd, krMain --@@ 한글 이름을 위한 변수 추가
+			krMain = (e.kr_display_name or e.name) --@@ 한글 이름 초기 작업
+			krAdd = "" --@@ 한글 이름 초기 작업
 			
 			for ie, ego in ipairs(egos_list) do
 				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
@@ -391,13 +391,13 @@ function _M:finishEntity(level, type, e, ego_filter)
 				local newname
 				if ego.prefix then 
 					newname = ego.name .. e.name
-					krAdd = krAdd..(ego.kr_display_name or ego.name) --@@
+					krAdd = krAdd..(ego.kr_display_name or ego.name) --@@ 주이름 바로 앞에 앞쪽 수식어 삽입
 				else 
 					newname = e.name .. ego.name
-					if ego.kr_display_name then krAdd = ego.kr_display_name..krAdd --@@
-					else krMain = krMain..ego.name end --@@
+					if ego.kr_display_name then krAdd = ego.kr_display_name..krAdd --@@ 한글화 된 뒷쪽 수식어는 가장 앞쪽에 삽입
+					else krMain = krMain..ego.name end --@@ 한글화 되지 않은 뒷쪽 수식어는 가장 뒷쪽에 삽입
 				end
-				newKrName = krAdd .. krMain --@@
+				newKrName = krAdd .. krMain --@@ 한글 이름 조합
 				
 				print("applying addon", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
@@ -410,7 +410,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 				-- Merge additively but with array appending, so that nameless resolvers are not lost
 				table.mergeAddAppendArray(e, ego, true)
 				e.name = newname
-				e.kr_display_name = newKrName --@@
+				e.kr_display_name = newKrName --@@ 한글 이름 삽입
 				e.egoed = true
 			end
 			-- Re-resolve with the (possibly) new resolvers
@@ -482,9 +482,9 @@ function _M:finishEntity(level, type, e, ego_filter)
 		end
 
 		if #egos_list > 0 then
-			local newKrName, krAdd, krMain --@@
-			krMain = (e.kr_display_name or e.name) --@@
-			krAdd = "" --@@
+			local newKrName, krAdd, krMain --@@ 한글 이름을 위한 변수 추가
+			krMain = (e.kr_display_name or e.name) --@@ 한글 이름 초기 작업
+			krAdd = "" --@@ 한글 이름 초기 작업
 			
 			for ie, ego in ipairs(egos_list) do
 				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
@@ -493,13 +493,13 @@ function _M:finishEntity(level, type, e, ego_filter)
 				local newname
 				if ego.prefix then 
 					newname = ego.name .. e.name
-					krAdd = krAdd..(ego.kr_display_name or ego.name) --@@
+					krAdd = krAdd..(ego.kr_display_name or ego.name) --@@ 주이름 바로 앞에 앞쪽 수식어 삽입
 				else 
 					newname = e.name .. ego.name
-					if ego.kr_display_name then krAdd = ego.kr_display_name..krAdd --@@
-					else krMain = krMain..ego.name end --@@
+					if ego.kr_display_name then krAdd = ego.kr_display_name..krAdd --@@ 한글화 된 뒷쪽 수식어는 가장 앞쪽에 삽입
+					else krMain = krMain..ego.name end --@@ 한글화 되지 않은 뒷쪽 수식어는 가장 뒷쪽에 삽입
 				end
-				newKrName = krAdd .. krMain --@@
+				newKrName = krAdd .. krMain --@@ 한글 이름 조합
 				
 				print("applying ego", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
@@ -512,7 +512,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 				-- Merge additively but with array appending, so that nameless resolvers are not lost
 				table.mergeAddAppendArray(e, ego, true)
 				e.name = newname
-				e.kr_display_name = newKrName --@@
+				e.kr_display_name = newKrName --@@ 한글 이름 삽입
 				e.egoed = true
 			end
 			-- Re-resolve with the (possibly) new resolvers

@@ -51,7 +51,7 @@ newTalent{
 		return ([[전방 %d 칸 반경에 중력 파동을 만들어내 %0.2f 물리 피해를 주고, 적을 밀어냅니다.
 		속박된 적에게는 50%% 추가 피해를 주며, 더 멀리 밀어냅니다.
 		이 돌풍은 돌풍이 일어나는 반경과 밀어내는 효과에 따라, 하나의 적을 여러 번 공격할 수도 있습니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }
@@ -101,7 +101,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경의 모든 적들을 끌어들이며 %0.2f 물리 피해를 주는 중력 가시를 만들어냅니다.
 		속박된 적에게는 50%% 추가 피해를 주며, 밀려나는 효과가 추가됩니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }
 
@@ -150,7 +150,7 @@ newTalent{
 		return ([[주변 %d 칸 반경에 중력을 왜곡시키는 역장을 만들어내, 적들을 밀어내고 %0.2f 물리 피해를 줍니다.
 		속박된 적에게는 50%% 추가 피해를 주며, 더 멀리 밀어냅니다.
 		이 역장은 역장 반경과 밀어내는 효과에 따라, 하나의 적을 여러 번 공격할 수도 있습니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 
@@ -200,6 +200,6 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경의 중력을 끌어올려, %0.2f 물리 피해를 줍니다. 피해를 받은 적은 %d 턴 동안 속박될 확률이 있습니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }

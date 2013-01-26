@@ -95,7 +95,7 @@ newTalent{
 	info = function(self, t)
 		local defence = t.getDefense(self, t)
 		return ([[시전자의 형상이 희미해져, 회피도가 %d 상승합니다.
-		회피도 상승량은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		회피도 상승량은 주문력의 영향을 받아 상승합니다.]]):
 		format(defence)
 	end,
 }
@@ -126,7 +126,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[시전자 주변에 환영의 보호막이 만들어집니다. 근접 공격을 받을 때마다, 환영의 보호막은 적에게 %d 빛 피해를 되돌려줍니다.
-		피해량은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		피해량은 주문력의 영향을 받아 상승합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
@@ -164,7 +164,7 @@ newTalent{
 		return ([[시전자가 적들의 시야에서 사라져, 투명 수치가 %d 상승합니다.
 		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 70%% 밖에 주지 못하게 됩니다.
 		투명화 중에는 매 턴마다 마나가 2 씩 소진되며, 투명화 중에 등불 따위를 들고 있으면 투명화를 한 의미가 사실상 없어지게 됩니다.
-		투명 수치는 주문력 능력치의 영향을 받아 상승합니다.]]):
+		투명 수치는 주문력의 영향을 받아 상승합니다.]]):
 		format(invisi)
 	end,
 }

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Tiles"
 require "engine.KeyBind"
@@ -29,8 +29,7 @@ tiles = engine.Tiles.new(16, 16)
 
 --- Requests a simple, press any key, dialog
 function _M:simplePopup(title, text, fct, no_leave)
-	--@@
-	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14)
+	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14) --@@ 한글 글꼴 추가
 	local w, h = font:size(text)
 	local tw, th = font:size(title)
 	local d = new(title, math.max(w, tw) + 8, h + 25, nil, nil, nil, font)
@@ -50,8 +49,7 @@ end
 
 --- Requests a simple, press any key, dialog
 function _M:simpleLongPopup(title, text, w, fct, no_leave)
-	--@@
-	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14)
+	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14) --@@ 한글 글꼴 추가
 	local list = text:splitLines(w - 10, font)
 
 	local fh = font:lineSkip()
@@ -77,8 +75,7 @@ end
 
 --- Requests a simple yes-no dialog
 function _M:yesnoPopup(title, text, fct, yes_text, no_text)
-	--@@
-	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14)
+	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14) --@@ 한글 글꼴 추가
 	local w, h = font:size(text)
 	local tw, th = font:size(title)
 	local d = new(title, math.max(w, tw) + 8, h + 75, nil, nil, nil, font)
@@ -113,8 +110,7 @@ end
 
 --- Requests a long yes-no dialog
 function _M:yesnoLongPopup(title, text, w, fct, yes_text, no_text)
-	--@@
-	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14)
+	local font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14) --@@ 한글 글꼴 추가
 	local list = text:splitLines(w - 10, font)
 
 	local th = font:lineSkip()
@@ -161,8 +157,7 @@ function _M:init(title, w, h, x, y, alpha, font, showup)
 	self.state = ""
 	self.currenttabindex = 0
 	self.font = font
-	--@@
-	if not font then self.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14) end
+	if not font then self.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14) end --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 
 	self:resize(w, h, x, y, alpha)

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.ui.Base"
 local Mouse = require "engine.Mouse"
@@ -35,8 +35,7 @@ function _M:init(x, y, w, h, max, fontname, fontsize, color, bgcolor)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	--@@
-	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 12)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 12) --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 	self.log = {}
 	getmetatable(self).__call = _M.call

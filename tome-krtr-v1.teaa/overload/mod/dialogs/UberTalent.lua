@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 
@@ -35,8 +35,7 @@ function _M:init(actor, levelup_end_prodigies)
 	self.actor = actor
 	self.levelup_end_prodigies = levelup_end_prodigies
 
-	--@@
-	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12) --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 
 	self.actor_dup = actor:clone()
@@ -96,9 +95,8 @@ function _M:generateList()
 				if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 				n[#n+1] = {
-					--@@
-					rawname = t.kr_display_name or t.name,
-					oriname = t.name,
+					rawname = t.kr_display_name or t.name, --@@ 한글이름 저장
+					oriname = t.name, --@@ 변수 추가하여 원문이름 저장
 					talent = t.id,
 					entity=t.display_entity,
 					do_shadow = function(item) if not self.actor:canLearnTalent(t) then return true else return false end end,
@@ -136,8 +134,7 @@ function _M:createDisplay()
 	self.c_desc = TextzoneList.new{ focus_check = true, scrollbar = true, width=self.iw - 380 - 30, height = self.ih - self.c_tut.h, dest_area = { h = self.ih } }
 	
 	self.c_list = TalentGrid.new{
-		--@@
-		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14), --@@ 한글 글꼴 추가
 		tiles=game.uiset.hotkeys_display_icons,
 		grid=self.list,
 		width=370, height=self.ih - self.c_tut.h,
@@ -185,7 +182,7 @@ function _M:getTalentDesc(item)
 	if not item.talent then return end
 	local text = tstring{}
 
- 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), "\n[", util.getval(item.oriname, item), "]", {"color", "LAST"}, {"font", "normal"}) --@@
+ 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), "\n[", util.getval(item.oriname, item), "]", {"color", "LAST"}, {"font", "normal"}) --@@ 기술 설명에 한글이름과 원문이름 나오도록 추가
 	text:add(true, true)
 
 	if item.talent then

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.ui.Dialog"
 local List = require "engine.ui.List"
@@ -58,9 +58,7 @@ function _M:use(item)
 	self.source:sortInven(self.inven)
 	item.actor:addObject(item.actor.INVEN_INVEN, self.o)
 	item.actor:sortInven(item.actor.INVEN_INVEN)
-	--@@
-	local ian = item.actor.kr_display_name or item.actor.name
-	game.log("당신은 %s %s에게 줬습니다.", self.o:getName{do_color=true}:addJosa("를"), ian)
+	game.log("당신은 %s %s에게 줬습니다.", self.o:getName{do_color=true}:addJosa("를"), (item.actor.kr_display_name or item.actor.name))
 	self.on_end()
 end
 

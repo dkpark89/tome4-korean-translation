@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalentType{ no_silence=true, is_spell=true, type="sher'tul/fortress", name = "fortress", description = "이일크구르의 능력입니다." }
 newTalentType{ no_silence=true, is_spell=true, type="spell/objects", name = "object spells", description = "세상에 있는 여러가지 물건들에 부여되어 있는 주문입니다." }

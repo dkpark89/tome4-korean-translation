@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -66,9 +66,8 @@ function _M:generateList()
 	local i = 0
 	for id, _ in pairs(self.actor.lore_known) do
 		local l = self.actor:getLore(id)
-		--@@
-		local ln = l.kr_display_name or l.name
-		list[#list+1] = { name=ln, desc=util.getval(l.lore), cat=l.category:krLoreCategory(), order=l.order, image=l.image }
+		local ln = l.kr_display_name or l.name --@@ 지식 한글이름 저장
+		list[#list+1] = { name=ln, desc=util.getval(l.lore), cat=l.category:krLoreCategory(), order=l.order, image=l.image } --@@ 종류이름 한글화
 		i = i + 1
 	end
 	-- Add known artifacts

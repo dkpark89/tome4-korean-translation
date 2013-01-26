@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 --load("/data/general/objects/egos/charged-attack.lua")
 
@@ -621,9 +621,7 @@ newEntity{
 			elseif target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 3, {src=who, apply_power=who:combatAttack(combat)})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 속박을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 속박을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end},
 	},
@@ -734,9 +732,7 @@ newEntity{
 				else
 					target:forceUseTalent(eff[2], {ignore_energy=true})
 				end
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s의 마법이 #ORCHID#정화#LAST#됩니다!", tn:capitalize())
+				game.logSeen(target, "%s의 마법이 #ORCHID#정화#LAST#됩니다!", (target.kr_display_name or target.name):capitalize())
 			end
 		end},
 	},
@@ -757,9 +753,7 @@ newEntity{
 		},
 		special_on_crit = {desc="잠재적 주문 에너지를 태움", fct=function(combat, who, target)
 			local turns = 1 + math.ceil(who:combatMindpower() / 20)
-			--@@
-			local tn = target.kr_display_name or target.name
-			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가")) return nil end
+			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return nil end
 
 			local tids = {}
 			for tid, lev in pairs(target.talents) do
@@ -777,9 +771,7 @@ newEntity{
 			if type(damage) ~= "number" then damage = 0 end
 			who:project(tg, target.x, target.y, engine.DamageType.ARCANE, damage)
 
-			--@@
-			local tnm = t.kr_display_name or t.name
-			game.logSeen(target, "%s의 %s #ORCHID#불타#LAST#오릅니다!", tn:capitalize(), tnm:addJosa("가"))
+			game.logSeen(target, "%s의 %s #ORCHID#불타#LAST#오릅니다!", (target.kr_display_name or target.name):capitalize(), (t.kr_display_name or t.name):addJosa("가"))
 		end},
 	},
 }
@@ -889,9 +881,7 @@ newEntity{
 			if not rng.percent(25) then return nil end
 			local turns = 1 + math.ceil(who:combatMindpower() / 20)
 			local number = 2 + math.ceil(who:combatMindpower() / 50)
-			--@@
-			local tn = target.kr_display_name or target.name
-			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가")) return nil end
+			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return nil end
 
 			local tids = {}
 			for tid, lev in pairs(target.talents) do
@@ -903,9 +893,7 @@ newEntity{
 				local t = rng.tableRemove(tids)
 				if not t then break end
 				target.talents_cd[t.id] = turns
-				--@@
-				local tnm = t.kr_display_name or t.name
-				game.logSeen(target, "%s 일시적으로 %s 잊습니다!", tn:capitalize():addJosa("가"), tnm:addJosa("를"))
+				game.logSeen(target, "%s 일시적으로 %s 잊습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), (t.kr_display_name or t.name):addJosa("를"))
 			end
 		end},
 	},

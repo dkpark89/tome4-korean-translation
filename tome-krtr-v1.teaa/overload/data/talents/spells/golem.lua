@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 ------------------------------------------------------------------
 -- Melee
@@ -485,7 +485,7 @@ newTalent{
 		화염 피해는 중첩됩니다. 즉, 범위 안에 오랫동안 있을수록 더 많은 화염 피해를 입습니다.
 		추가적으로, 골렘의 화염 저항이 %d%% 상승합니다.
 		골렘의 제작자는 이 기술로 인한 화염 피해를 입지 않습니다.
-		화염 피해량과 저항 상승량은 골렘 제작자의 주문력 능력치의 영향을 받아 상승합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 120)), 5 + self:getTalentLevel(t), 30 + self:combatTalentSpellDamage(t, 12, 60))
+		화염 피해량과 저항 상승량은 골렘 제작자의 주문력의 영향을 받아 상승합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 120)), 5 + self:getTalentLevel(t), 30 + self:combatTalentSpellDamage(t, 12, 60))
 	end,
 }
 
@@ -536,6 +536,6 @@ newTalent{
 		local dir = self:getTalentLevelRaw(t) >= 3 and "상승" or "하락"
 		return ([[골렘이 중갑과 판갑을 자동적으로 변형시켜, 자신이 착용할 수 있게 만듭니다.
 		갑옷의 방어도가 %d, 방어 효율이 %d%% %s하고, 그리고 적에게 치명타를 맞을 확률이 %d%% 만큼 낮아집니다.]]):
-		format(armor, hardiness, dir, critreduce) --@@
+		format(armor, hardiness, dir, critreduce) --@@ 변수 순서 조정
 	end,
 }

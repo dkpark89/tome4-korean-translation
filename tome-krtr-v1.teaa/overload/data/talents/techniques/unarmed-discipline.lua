@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Push Kick",
@@ -61,9 +61,7 @@ newTalent{
 			self:buildCombo()
 
 		else
-			--@@
-			local sn = self.kr_display_name or self.name
-			game.logSeen(target, "%s %s 빗맞췄습니다.", sn:capitalize():addJosa("가"), (target.kr_display_name or target.name):capitalize():addJosa("를"))
+			game.logSeen(target, "%s %s 빗맞췄습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (target.kr_display_name or target.name):capitalize():addJosa("를"))
 		end
 
 		return true
@@ -110,7 +108,7 @@ newTalent{
 		local damagetwo = t.getDamageTwo(self, t)
 		return ([[대상의 근접공격을 회피할 때마다, %d%% 확률로 대상을 넘어뜨립니다. 대상이 넘어지면 %0.2f 피해를 받고, 2 턴 동안 혼절합니다.
 		대상을 붙잡고 있었다면 %0.2f 피해를 주고, 2턴 동안 기절시킵니다.
-		되치기 확률은 정확도 능력치에 따라 증가하며, 피해량은 물리력 능력치에 따라 증가합니다.]]):
+		되치기 확률은 정확도 능력치에 따라 증가하며, 피해량은 물리력에 따라 증가합니다.]]):
 		format(self:getTalentLevel(t) * (5 + self:getCun(5, true)), damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damagetwo)))
 	end,
 }
@@ -178,7 +176,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[돌려차기로 전방의 적들을 공격해, %0.2f 물리 피해를 주고 적들을 뒤로 밀어냅니다.
 		무언가를 붙잡고 있을 때 이 기술을 사용하면, 붙잡기가 풀립니다.
-		물리 피해량은 물리력 능력치의 영향을 받아 증가합니다.]]):
+		물리 피해량은 물리력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, (damage)))
 	end,
 }

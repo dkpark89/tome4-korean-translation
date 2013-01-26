@@ -37,7 +37,7 @@ newTalent{
 		self:onStatChange(self.STAT_DEX, -2)
 	end,
 	info = function(self, t)
-		return ([[Improves your skeletal condition, increasing Strength and Dexterity by %d.]]):format(2 * self:getTalentLevelRaw(t))
+		return ([[당신의 골격 상태를 개선하여, 힘과 민첩 능력치를 각각 %d 만큼 증가시킵니다.]]):format(2 * self:getTalentLevelRaw(t))
 	end,
 }
 
@@ -54,8 +54,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Creates a shield of bones, absorbing %d damage. Lasts for 10 turns.
-		The total damage the shield can absorb increases with your Dexterity.]]):
+		return ([[뼈의 방패를 만들어 피해를 %d 만큼 흡수합니다. 10 턴간 유지됩니다.
+		뼈의 방패가 흡수 할 수 있는 최대 피해량은 민첩 능력치의 영향을 받아 증가합니다.]]):
 		format(50 + 70 * self:getTalentLevel(t) + self:getDex(350, true))
 	end,
 }
@@ -69,7 +69,7 @@ newTalent{
 	mode = "passive",
 	range = 1,
 	info = function(self, t)
-		return ([[Your undead bones are very resilient, reducing the duration of all detrimental effects on you by %d%%.]]):
+		return ([[역생하는 당신의 뼈는 매우 탄력이 있어, 모든 나쁜 상태효과의 지속시간을 %d%% 만큼 줄여줍니다.]]):
 		format(100 * (self:getTalentLevel(self.T_RESILIENT_BONES) / 12))
 	end,
 }
@@ -101,8 +101,8 @@ newTalent{ short_name = "SKELETON_REASSEMBLE",
 		return true
 	end,
 	info = function(self, t)
-		return ([[Re-position some of your bones, healing yourself for %d.
-		At level 5, you will gain the ability to completely re-assemble your body should it be destroyed (can only be used once)]]):
+		return ([[당신의 뼈의 위치를 조금씩 조정하여, 생명력을 %d 만큼 회복합니다.
+		기술 레벨 5가 되면, 파괴된 뼈의 완전한 재조합이 가능해집니다. (한번만 사용할 수 있습니다 - 사망시 부활 능력)]]):
 		format(100 * self:getTalentLevel(t))
 	end,
 }

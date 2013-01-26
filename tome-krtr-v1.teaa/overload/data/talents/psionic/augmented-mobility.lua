@@ -83,7 +83,7 @@ newTalent{
 		local percentinc = 100 * inc
 		--local percentinc = ((1/(1-inc))-1)*100
 		return ([[다리에 염동력을 감싸, 이동 속도를 %d 턴 동안 %d%% 올립니다.
-		지속시간은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		지속시간은 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getDuration(self, t), percentinc)
 	end,
 }

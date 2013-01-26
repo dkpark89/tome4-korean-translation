@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Paradox Mastery",
@@ -91,7 +91,7 @@ newTalent{
 		if not target then return end
 
 		if target == self then
-			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s 자기 자신의 존재를 지우려고 합니다!", (self.kr_display_name or self.name):addJosa("는")) --@@
+			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s 자기 자신의 존재를 지우려고 합니다!", (self.kr_display_name or self.name):addJosa("가"))
 			self:incParadox(400)
 			game.level.map:particleEmitter(self.x, self.y, 1, "ball_temporal", {radius=1, tx=self.x, ty=self.y})
 			return true
@@ -121,7 +121,7 @@ newTalent{
 		return ([[%d 턴 동안, 대상을 시공간에서 없애버리려고 시도합니다. 지속시간 동안 대상의 모든 저항력이 %d%% 감소합니다. 
 		지속시간 내에 대상을 죽이면 처음 마법을 시전했던 순간으로 돌아가며, 이 때 대상은 시공간에서 사라져버립니다.
 		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.
-		지속시간은 괴리 수치, 저항력 감소는 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]])
+		지속시간은 괴리 수치, 저항력 감소는 괴리 수치와 주문력의 영향을 받아 증가합니다.]])
 		:format(duration, power)
 	end,
 }
@@ -145,7 +145,7 @@ newTalent{
 		local resist = t.getResist(self, t)
 		return ([[10 턴 동안 시공간에서 자신의 일부분을 없애 모든 피해 저향력이 %d%% 상승하고, 모든 효과의 지속시간이 %d%%, 적에게 가하는 모든 공격의 피해량이 20%% 감소합니다.
 		마법의 효과는 지속시간이 지나면서 점점 그 힘을 잃게 됩니다.
-		마법의 효과는 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		마법의 효과는 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(resist, resist, resist/10)
 	end,
 }

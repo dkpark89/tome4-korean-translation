@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Map = require "engine.Map"
 local ShowInventory = require_first("mod.dialogs.ShowInventory", "engine.dialogs.ShowInventory")
@@ -139,8 +139,6 @@ function _M:pickupFloor(i, vocal, no_sort)
 	if not self:getInven(self.INVEN_INVEN) then return end
 	local o = game.level.map:getObject(self.x, self.y, i)
 	if o then
-		--@@
-		local sn = self.kr_display_name or self.name
 		local prepickup = o:check("on_prepickup", self, i)
 		if not prepickup and self:addObject(self.INVEN_INVEN, o) then
 			game.level.map:removeObject(self.x, self.y, i)
@@ -150,10 +148,10 @@ function _M:pickupFloor(i, vocal, no_sort)
 			self:check("on_pickup_object", o)
 
 			local letter = ShowPickupFloor:makeKeyChar(self:itemPosition(self.INVEN_INVEN, o) or 1)
-			if vocal then game.logSeen(self, "%s (%s) %s 줍습니다.", sn:capitalize():addJosa("가"), letter, o:getName{do_color=true}:addJosa("를")) end
+			if vocal then game.logSeen(self, "%s (%s) %s 줍습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), letter, o:getName{do_color=true}:addJosa("를")) end
 			return o
 		elseif not prepickup then
-			if vocal then game.logSeen(self, "%s %s 가지기 위한 공간이 부족합니다.", sn:capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
+			if vocal then game.logSeen(self, "%s %s 가지기 위한 공간이 부족합니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 			return
 		elseif prepickup == "skip" then
 			return
@@ -244,9 +242,7 @@ function _M:dropFloor(inven, item, vocal, all)
 
 	local ok, idx = game.level.map:addObject(self.x, self.y, o)
 
-	--@@
-	local sn = self.kr_display_name or self.name
-	if vocal then game.logSeen(self, "%s %s 바닥에 버립니다.", sn:capitalize():addJosa("이"), o:getName{do_color=true}:addJosa("를")) end
+	if vocal then game.logSeen(self, "%s %s 바닥에 버립니다.", (self.kr_display_name or self.name):capitalize():addJosa("이"), o:getName{do_color=true}:addJosa("를")) end
 	if ok and game.level.map.attrs(self.x, self.y, "on_drop") then
 		game.level.map.attrs(self.x, self.y, "on_drop")(self, self.x, self.y, idx, o)
 	end
@@ -350,39 +346,36 @@ end
 
 --- Wear/wield an item
 function _M:wearObject(o, replace, vocal)
-	--@@
-	local sn = self.kr_display_name or self.name
-	
 	local inven = o:wornInven()
 	if not inven then
 		if vocal then game.logSeen(self, "%s 착용할 수 없습니다.", o:getName{do_color=true}:addJosa("는")) end
 		return false
 	end
 	if not self.inven[inven] then
-		if vocal then game.logSeen(self, "%s %s를 착용할 수 없습니다.", sn:addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
+		if vocal then game.logSeen(self, "%s %s를 착용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 		return false
 	end
 
 	local ok, err = self:canWearObject(o)
 	if not ok then
-		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다: (%s).", sn:capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를"), err) end
+		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다: (%s).", (self.kr_display_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를"), err) end
 		return false
 	end
 	if o:check("on_canwear", self, inven) then return false end
 	local offslot = self:getObjectOffslot(o)
 
 	if self:addObject(inven, o) then
-		if vocal then game.logSeen(self, "%s %s 착용합니다.", sn:capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
+		if vocal then game.logSeen(self, "%s %s 착용합니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
 		return true
 	elseif offslot and self:getInven(offslot) and #(self:getInven(offslot)) < self:getInven(offslot).max and self:canWearObject(o, offslot) then
-		if vocal then game.logSeen(self, "%s %s 착용합니다 (offslot).", sn:capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end --@@ offslot 번역 필요
+		if vocal then game.logSeen(self, "%s %s 착용합니다 (offslot).", (self.kr_display_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end --@@ offslot 번역 필요
 		-- Warning: assume there is now space
 		self:addObject(self:getInven(offslot), o)
 		return true
 	elseif replace then
 		local ro = self:removeObject(inven, 1, true)
 
-		if vocal then game.logSeen(self, "%s %s 착용합니다 (교체).", sn:capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
+		if vocal then game.logSeen(self, "%s %s 착용합니다 (교체).", (self.kr_display_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
 
 		-- Can we stack the old and new one ?
 		if o:stack(ro) then ro = true end
@@ -391,7 +384,7 @@ function _M:wearObject(o, replace, vocal)
 		self:addObject(inven, o)
 		return ro
 	else
-		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다.", sn:capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
+		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 		return false
 	end
 end

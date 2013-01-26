@@ -84,19 +84,19 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[소환수를 자폭시킵니다. 자폭은 주변 %d 칸 반경에 영향을 줍니다.
-		- Ritch Flamespitter: Explodes into a fireball
-		- Hydra: Explodes into a ball of lightning, acid or poison
-		- Rimebark: Explodes into an iceball
-		- Fire Drake: Generates a cloud of fire
-		- War Hound: Explodes into a ball of physical damage
-		- Jelly: Explodes into a ball of slowing slime
-		- Minotaur: Explodes into a sharp ball, cutting all creatures
-		- Stone Golem: Knocks back all creatures
-		- Turtle: Grants a small shell shield to all friendly creatures
-		- Spider: Pins all foes around
-		In addition, a random summon will come off cooldown.
-		Hostile effects will not hit you or your other summons.
-		The effects improve with your Willpower.]]):format(radius)
+		- 불꽃뿜는 릿치: 화염구 폭발
+		- 히드라: 번개나 산성 혹은 중독성 폭발
+		- 서리나무: 얼음공 폭발
+		- 화염 드레이크: 화염의 구름 생성
+		- 전투견: 물리 피해를 주는 폭발
+		- 젤리: 대상을 느리게 만드는 슬라임 덩어리 폭발
+		- 미노타우르스: 모든 생명체에게 출혈효과를 주는 날카로운 폭발
+		- 암석 골렘: 모든 생명체에게 밀어내기 효과
+		- 거북이: 우호적인 모든 생명체에게 작은 등껍질 방패 부여
+		- 거미: 주변의 모든 적들을 속박
+		추가적으로, 임의의 소환기술의 재사용 대기시간이 사라집니다.
+		적대적 효과는 당신이나 당신의 다른 소환수에게는 영향을 주지 않습니다.
+		기술의 효과는 의지 능력치의 영향을 받아 증가합니다.]]):format(radius)
 	end,
 }
 

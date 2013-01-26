@@ -38,7 +38,7 @@ newTalent{ short_name = "RITCH_FLAMESPITTER_BOLT",
 	end,
 	info = function(self, t)
 		return ([[불꽃 화살을 발사해, %0.2f 화염 피해를 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentMindDamage(t, 8, 120)))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentMindDamage(t, 8, 120)))
 	end,
 }
 
@@ -69,7 +69,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경에 화염의 힘을 분출해, 적들을 밀어내고 불타게 만들어 %0.2f 화염 피해를 3 턴에 걸쳐 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
@@ -309,7 +309,7 @@ newTalent{
 		return ([[%d 턴 동안 불꽃뿜는 릿치를 소환하여 적과 싸우게 합니다. 릿치는 근접전에 매우 약하고 빨리 죽지만, 멀리서 적들을 불태울 수 있습니다.
 		소환수의 능력치는 다음과 같습니다 : %d 의지, %d 교활함, %d 체격
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 의지와 교활함 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 의지와 교활함 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		15 + (self:combatMindpower(1.7) * self:getTalentLevel(t) / 5),
@@ -418,7 +418,7 @@ newTalent{
 		return ([[%d 턴 동안 머리 셋 달린 히드라를 소환하여 적과 싸우게 합니다. 히드라의 세 머리에서는 각각 독, 산성, 번개가 뿜어져 나옵니다.
 		소환수의 능력치는 다음과 같습니다 : %d 의지, %d 체격, 18 힘
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 의지 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 의지 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(1.6) * self:getTalentLevel(t) / 5),
 		10 + self:getTalentLevel(t) * 2 + self:getTalentLevelRaw(self.T_RESILIENCE)*2)
@@ -520,7 +520,7 @@ newTalent{
 		return ([[%d 턴 동안 서리나무를 소환하여 적과 싸우게 합니다. 서리나무는 움직이지 못하지만, 주변에 영구적인 냉기 폭풍을 만들어 주변 3 칸 반경의 적들에게 피해를 주고 빙결 상태효과를 일으킵니다.
 		소환수의 능력치는 다음과 같습니다 : %d 의지, %d 교활함, %d 체격
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 의지와 교활함 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 의지와 교활함 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		15 + (self:combatMindpower(1.6) * self:getTalentLevel(t) / 5),
@@ -662,7 +662,7 @@ newTalent{
 		return ([[%d 턴 동안 화염 드레이크를 소환하여 적과 싸우게 합니다. 화염 드레이크는 자신의 브레스로 적들을 태워버립니다.
 		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 체격, 38 의지
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 힘과 체격 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 힘과 체격 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 2 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		20 + (self:combatMindpower(1.5) * self:getTalentLevel(t) / 5) + self:getTalentLevelRaw(self.T_RESILIENCE) * 2)

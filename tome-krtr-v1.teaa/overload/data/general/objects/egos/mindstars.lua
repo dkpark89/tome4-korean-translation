@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 -- TODO:  More greater suffix psionic; more lesser suffix and prefix psionic
 
@@ -209,9 +209,7 @@ newEntity{
 					who:incPsi(damage/10)
 					who:incHate(damage/10)
 				else
-					--@@
-					local tn = target.kr_display_name or target.name
-					game.logSeen(target, "%s 정신 공격을 저항했습니다!", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 정신 공격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 			return {id=true, used=true}
@@ -275,9 +273,7 @@ newEntity{
 	resolvers.charm("마석 조합으로 자연력 보강", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				--@@
-				local sn = self.kr_display_name or self.name
-				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", sn:addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
 			who:showEquipment("어느 마석과 조화시키겠습니까?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self  and o.power_source and o.power_source.nature and not o.set_complete end, function(o)
@@ -327,9 +323,7 @@ newEntity{
 	resolvers.charm("마석 조합으로 염력 보강", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				--@@
-				local sn = self.kr_display_name or self.name
-				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", sn:addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
 			who:showEquipment("어느 마석과 공명시키겠습니까?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self and o.power_source and o.power_source.psionic and not o.set_complete end, function(o)
@@ -450,9 +444,7 @@ newEntity{
 	resolvers.charm("정령 마석 속의 드레이크 호출 (이것은 다른 조합 보너스를 없앰)", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				--@@
-				local sn = self.kr_display_name or self.name
-				game.logPlayer(who, "당신이 %s 염동력으로 잡고있는 동안 사용할 수 없습니다.", sn:addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고있는 동안 사용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
 			who:showEquipment("어느 마석의 드레이크를 호출합니까 (이것은 다른 조합 보너스를 파괴함)?", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
@@ -672,15 +664,13 @@ newEntity{
 	resolvers.charm("마석을 둘로 나눔", 1,
 		function(self, who)
 			-- Check for free slot first
-			--@@
-			local sn = self.kr_display_name or self.name
 			if who:getFreeHands() == 0 then
-				game.logPlayer(who, "당신이 %s 나누려면 빈손이 필요합니다", sn:addJosa("를"))
+				game.logPlayer(who, "당신이 %s 나누려면 빈손이 필요합니다", (self.kr_display_name or self.name):addJosa("를"))
 			return
 			end
 
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "당신은 %s 염동력으로 잡고 있는 동안 나눌 수 없습니다.", sn:addJosa("를"))
+				game.logPlayer(who, "당신은 %s 염동력으로 잡고 있는 동안 나눌 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end
 

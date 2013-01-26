@@ -96,7 +96,7 @@ newTalent{
 		return ([[피가 산성 혼합물이 되어, 자신을 공격한 적은 산성 피해를 받게 됩니다.
 		자신을 공격한 적은 5 턴 동안 매 턴마다 %0.2f 산성 피해를 받게 되며, 정확도가 %d 떨어지게 됩니다.
 		기술 레벨이 3 이상이면, 추가적으로 적의 방어도를 5 턴 동안 %d 감소시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 5, 30)), self:combatTalentSpellDamage(t, 15, 35), self:combatTalentSpellDamage(t, 15, 40))
 	end,
 }

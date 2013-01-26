@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
@@ -269,10 +269,7 @@ newEntity{
 
 			who:projectile(tg, x, y, damtype, dam, {type=explosion})
 
-			--@@
-			local wn = who.kr_display_name or who.name
-			local sn = self.kr_display_name or self.name
-			game.logSeen(who, "%s %s의 힘을 발사했습니다!", wn:capitalize():addJosa("가"), sn)
+			game.logSeen(who, "%s %s의 힘을 발사했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end
@@ -359,10 +356,7 @@ newEntity{
 
 			who:project(tg, who.x, who.y, damtype, dam, {type=explosion})
 
-			--@@
-			local wn = who.kr_display_name or who.name
-			local sn = self.kr_display_name or self.name
-			game.logSeen(who, "%s %s에서 원소탄을 발사했습니다!", wn:capitalize():addJosa("가"), sn)
+			game.logSeen(who, "%s %s에서 원소탄을 발사했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end
@@ -395,9 +389,7 @@ newEntity{
 					game.logPlayer(who, "당신은 마나 재생력이 없어 마법지팡이의 영향을 받지 못합니다.")
 				end
 			end
-			--@@
-			local wn = who.kr_display_name or who.name
-			game.logSeen(who, "%s 마나를 공급받습니다!", wn:capitalize():addJosa("가"))
+			game.logSeen(who, "%s 마나를 공급받습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 			return {id=true, used=true}
 		end
 	),
@@ -467,10 +459,7 @@ newEntity{
 
 			who:project(tg, x, y, damtype, dam, {type=explosion})
 
-			--@@
-			local wn = who.kr_display_name or who.name
-			local sn = self.kr_display_name or self.name
-			game.logSeen(who, "%s %s의 원소 에너지를 전방의 원뿔영역으로 불러냈습니다!", wn:capitalize():addJosa("가"), sn)
+			game.logSeen(who, "%s %s의 원소 에너지를 전방의 원뿔영역으로 불러냈습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end

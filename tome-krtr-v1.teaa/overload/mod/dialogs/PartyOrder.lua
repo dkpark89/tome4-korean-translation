@@ -37,9 +37,7 @@ function _M:init(actor, def)
 	self.actor = actor
 	self.def = def
 	self:generateList()
-	--@@
-	local anm = actor.kr_display_name or actor.name
-	engine.ui.Dialog.init(self, "명령: "..anm, 1, 1)
+	engine.ui.Dialog.init(self, "명령: "..(actor.kr_display_name or actor.name), 1, 1)
 
 	local list = List.new{width=400, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 

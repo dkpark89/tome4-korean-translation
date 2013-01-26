@@ -66,7 +66,7 @@ newTalent{
 		return ([[어둠을 화살의 형태로 만들어, 대상에게 %0.2f 암흑 피해를 줍니다.
 		기술 레벨이 3 이상이면, 어둠이 적들을 관통합니다.
 		기술 레벨이 5 이상이면, 모든 주문 / 일몰 계열의 마법들이 언데드 추종자들에게 피해를 주지 않습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
@@ -111,7 +111,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[5 턴 동안 대지에서 어둠의 구름을 불러냅니다. 구름에 들어간 적에게는 혼란의 표식이나 실명의 표식 중 하나가 새겨지며, 해당 상태효과를 일으킵니다.
 		표식은 %d 턴 동안 유지되며, 매 턴마다 %0.2f 암흑 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(4 + math.floor(self:getTalentLevel(t) / 2), damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
@@ -145,7 +145,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[전방 %d 칸 반경에 %0.2f 암흑 피해를 주고, 범위 내의 적들에게 밤의 공포를 심어줍니다. 대상의 정신 내성 능력치에 따라 저항할 확률이 달라지며, 저항에 실패할 경우 대상은 4 칸 뒤로 도망치게 됩니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
@@ -183,7 +183,7 @@ newTalent{
 		local minion = t.getMinion(self, t)
 		return ([[암흑의 구를 만들어내 주변 %d 칸 반경에 %0.2f 암흑 피해를 주고, %d 턴 동안 적들의 죽음을 앞당겨 전체 속도를 %d%% 감소시킵니다. 
 		죽음이 앞당겨진 적들은 언데드 추종자들에게 %d%% 더 많은 피해를 입습니다.
-		피해량과 언데드 추종자들의 피해량 증가는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 언데드 추종자들의 피해량 증가는 주문력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage), dur, speed, minion)
 	end,
 }

@@ -195,6 +195,7 @@ newTalent{
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "thought-forged bowman", summoner = self,
+			kr_display_name = "생각의 구현 궁수",
 			color=colors.SANDY_BROWN, shader = "shadow_simulacrum",
 			shader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },
 			desc = [[생각의 구현으로 만들어진 궁수입니다. 언제든지 전투에 임할 수 있을 것 같습니다.]],
@@ -271,7 +272,7 @@ newTalent{
 		local stat = t.getStatBonus(self, t)
 		return ([[가죽 갑옷을 걸친 궁수를 생각해, 그것을 구현해냅니다. 궁수는 활 수련, 정확도 수련, 정밀 사격, 무력화 사격, 속사 기술을 사용할 수 있으며, 시전자의 레벨에 따라 기술 레벨이 달라집니다.
 		추가적으로 궁수는 힘 %d, 민첩 %d, 체격 %d 만큼의 능력치를 얻으며, 궁수를 구현 중일 경우 다른 형태는 구현해낼 수 없습니다.
-		능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(stat/2, stat, stat/2)
+		능력치 상승량은 정신력의 영향을 받아 증가합니다.]]):format(stat/2, stat, stat/2)
 	end,
 }
 
@@ -307,6 +308,7 @@ newTalent{
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "thought-forged warrior", summoner = self, 
+			kr_display_name = "생각의 구현 전사",
 			color=colors.ORANGE, shader = "shadow_simulacrum",
 			shader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },
 			desc = [[무거운 갑옷과 망치를 든, 생각의 구현으로 만든 전사입니다. 언제든지 전투에 임할 수 있을 것 같습니다.]],
@@ -373,7 +375,7 @@ newTalent{
 		local stat = t.getStatBonus(self, t)
 		return ([[도끼를 든 전사를 생각해, 그것을 구현해냅니다. 전사는 무기 수련, 정확도 수련, 광전사, 죽음의 춤, 돌진 기술을 사용할 수 있으며, 시전자의 레벨에 따라 기술 레벨이 달라집니다.
 		추가적으로 전사는 힘 %d, 민첩 %d, 체격 %d 만큼의 능력치를 얻으며, 전사를 구현 중일 경우 다른 형태는 구현해낼 수 없습니다.
-		능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(stat, stat/2, stat/2)
+		능력치 상승량은 정신력의 영향을 받아 증가합니다.]]):format(stat, stat/2, stat/2)
 	end,
 }
 
@@ -409,6 +411,7 @@ newTalent{
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "thought-forged defender", summoner = self,
+			kr_display_name = "생각의 구현 수호자",
 			color=colors.GOLD, shader = "shadow_simulacrum", 
 			shader_args = { color = {0.8, 0.8, 0.8}, base = 0.8, time_factor = 4000 },
 			desc = [[무거운 갑옷을 걸친, 생각의 구현으로 만든 수호자입니다. 검과 방패를 들고 있으며, 언제든지 전투에 임할 수 있을 것 같습니다.]],
@@ -477,7 +480,7 @@ newTalent{
 		local stat = t.getStatBonus(self, t)
 		return ([[검과 방패를 든 수호자를 생각해, 그것을 구현해냅니다. 수호자는 방어구 수련, 무기 수련, 정확도 수련, 방패 치기, 방패의 벽 기술을 사용할 수 있으며, 시전자의 레벨에 따라 기술 레벨이 달라집니다.
 		추가적으로 수호자는 힘 %d, 민첩 %d, 체격 %d 만큼의 능력치를 얻으며, 수호자를 구현 중일 경우 다른 형태는 구현해낼 수 없습니다.
-		능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(stat/2, stat/2, stat)
+		능력치 상승량은 정신력의 영향을 받아 증가합니다.]]):format(stat/2, stat/2, stat)
 	end,
 }
 
@@ -522,7 +525,7 @@ newTalent{
 		기술 레벨이 3 이상이면, 대형도끼를 든 전사 형태의 분신을 구현화할 수 있습니다.
 		기술 레벨이 5 이상이면, 검과 방패를 사용하는 수호자 형태의 분신을 구현화할 수 있습니다.
 		구현된 분신은 주변 %d 칸 반경에서만 유지할 수 있으며, 범위를 벗어날 경우 시전자 근처로 순간이동합니다.
-		한번에 하나의 분신만을 구현할 수 있으며, 능력치 상승량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(bonus, bonus/2, range)
+		한번에 하나의 분신만을 구현할 수 있으며, 능력치 상승량은 정신력의 영향을 받아 증가합니다.]]):format(bonus, bonus/2, range)
 	end,
 }
 
@@ -553,7 +556,7 @@ newTalent{
 	no_npc_use = true,
 	getControlBonus = function(self, t) return self:combatTalentMindDamage(t, 5, 50) end,
 	getRangeBonus = function(self, t) return self:getTalentLevelRaw(t) end,
-	on_pre_use = function(self, t, silent) if not game.party:findMember{type="thought-form"} then if not silent then game.logPlayer(self, "You must have an active Thought-Form to use this talent!") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not game.party:findMember{type="thought-form"} then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 생각의 구현을 사용하는 중이어야 합니다!") end return false end return true end,
 	activate = function(self, t)
 		-- Find our thought-form
 		local target = game.party:findMember{type="thought-form"}
@@ -618,7 +621,7 @@ newTalent{
 		기술 레벨이 3 이상이면, 시전자의 정신 내성 수치만큼 분신의 모든 내성이 오릅니다.
 		기술 레벨이 5 이상이면, 시전자의 정신 피해 추가량만큼 분신의 모든 피해량이 오릅니다.
 		기술 레벨의 상승에 따라 얻는 효과는 정신 이동 기술의 유지 여부와 상관없이 항상 적용됩니다.
-		분신의 피해량, 공격 속도, 최대 생명력 증가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(bonus, range)
+		분신의 피해량, 공격 속도, 최대 생명력 증가량은 정신력의 영향을 받아 증가합니다.]]):format(bonus, range)
 	end,
 }
 
@@ -638,6 +641,6 @@ newTalent{
 		local defense = t.getDefensePower(self, t)
 		local speed = t.getSpeedPower(self, t)
 		return([[궁수의 형태를 구현 중일 때 사고 속도가 %d%%, 전사의 형태를 구현 중일 때 정신력이 %d%%, 수호자의 형태를 구현 중일 때 모든 저항력이 %d%% 증가합니다.
-		기술의 효과는 정신력 능력치의 효과를 받아 증가합니다.]]):format(speed, offense, defense, speed)
+		기술의 효과는 정신력의 효과를 받아 증가합니다.]]):format(speed, offense, defense, speed)
 	end,
 }

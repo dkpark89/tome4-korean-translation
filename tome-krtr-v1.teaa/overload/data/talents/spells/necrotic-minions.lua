@@ -40,21 +40,21 @@ newTalent{
 			"주인님의 영광을 위하여!",
 			"잘... 가....",
 			"당신을 사랑해요, 주인님!",
-			"EeeeeeeaaaAAAAAUUUUUGGGGGHHHHH!!!!",
+			"으으으으으아아아아하아아아앜크으으으으흐으!!!!",
 			"아파요, 아파요오오오오오!",
 			"제발, 안돼요, 안돼--",
-			"Unlife no more for this dead matter, the time comes for my flesh to splatter.",
-			"You gave back life, you gave back dreams, but now I'm bursting at the seams...",
-			"Remember meeeee!",
-			"My tummy hurts...",
+			"이 죽어있던 물질에게의 역생이 끝나는군, 내 살점이 흩뿌려질 시간이야.",
+			"당신이 내 삶을 다시 줬고, 내 꿈을 다시 줬었죠, 하지만 이젠 꿰멘곳이 터져나가는군요...",
+			"날 기억해줘어어어!",
+			"배가 아프네...",
 			"왜..?",
 			"아하하하하하!",
-			"Me go boom, me go BOOM!",
-			"Grave circumstances, Master....",
-			"I see the light.. I see, oh.. just a wisp....",
-			"Master, wait... I thought I saw a....Master? ..",
-			"I'm not.. so sure my spine is supposed to bend this way....",
-			"I told you I could Dash 100 yards and back in time! You owe me 10 gol....",
+			"난 터질거야, 내가 터진다고!",
+			"무덤행이로군요, 주인님....",
+			"빛이 보여요.. 보여, 아.. 한줄기가....",
+			"주인님, 기다려 주세요... 제가 뭔갈 본거 같....주인님? ..",
+			"난 아냐.. 내 척추가 이렇게 휘어질 것이었다니....",
+			"제가 100 미터를 단숨에 돌진했다가 돌아올 수 있다고 얘기드렸죠! 제게 금화 10개를 빚졌....",
 		}, 40)
 	end,
 	getDecay = function(self, t) return math.max(3, 10 - self:getTalentLevelRaw(self.T_AURA_MASTERY)) end,
@@ -820,7 +820,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[모든 추종자들을 강화시켜 물리력과 주문력, 그리고 정확도를 %d 올립니다. 또한 방어도 관통력이 %d, 치명타율이 %d 상승합니다.
-		이 효과는 6 턴 동안 지속되며, 주문력 능력치의 영향을 받아 증가합니다.]]):
+		이 효과는 6 턴 동안 지속되며, 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getAPR(self, t), t.getCrit(self, t))
 	end,
 }
@@ -836,7 +836,7 @@ newTalent{
 	info = function(self, t)
 		return ([[언데드 추종자에게 힘을 나눠줘서, 추종자들의 모든 내성과 속성 저항력을 %d%% 올립니다.
 		그리고, 시전자의 공격에 의해 언데드 추종자가 피해를 받을 때, 피해량이 %d%% 감소합니다.
-		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPerc(self, t), self:getTalentLevelRaw(t) * 20)
 	end,
 }

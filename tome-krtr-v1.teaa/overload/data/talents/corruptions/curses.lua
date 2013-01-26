@@ -43,7 +43,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 저주하여, 회피도와 모든 내성을 10 턴 동안 %d 감소시킵니다.
-		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 30, 60))
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 30, 60))
 	end,
 }
 
@@ -73,7 +73,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 저주하여, 대상이 주는 모든 피해량을 10 턴 동안 %d%% 감소시킵니다.
-		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 10, 30))
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 10, 30))
 	end,
 }
 
@@ -103,7 +103,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 저주하여, 10 턴 동안 자연적인 생명력 회복을 정지시키고 매 턴마다 %0.2f 어둠 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.DARKNESS, self:combatTalentSpellDamage(t, 10, 70)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.DARKNESS, self:combatTalentSpellDamage(t, 10, 70)))
 	end,
 }
 
@@ -133,6 +133,6 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 저주하여, 대상의 모든 저항력을 7 턴 동안 %d%% 감소시킵니다.
-		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 10, 40))
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 10, 40))
 	end,
 }

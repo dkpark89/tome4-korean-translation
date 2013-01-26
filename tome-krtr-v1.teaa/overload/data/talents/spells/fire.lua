@@ -70,7 +70,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[불꽃 화살을 만들어내, 대상에게 화상을 입히고 3 턴 동안 총 %0.2f 화염 피해를 줍니다.
 		기술 레벨이 5 이상이면, 불꽃이 적들을 관통합니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
@@ -124,7 +124,7 @@ newTalent{
 		local stunduration = t.getStunDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[전방 %d 칸 반경에 불길을 내뿜어 %0.2f 화염 피해를 주고, %d 턴 동안 기절시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.FIRE, damage), stunduration)
 	end,
 }
@@ -174,7 +174,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[화염구를 만들어내 대상에게 날립니다. 화염구는 천천히 날아가며, 주변 %d 칸 반경에 %0.2f 화염 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
@@ -221,7 +221,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[모든 것을 불태우는 불길을 만들어내, 피아를 가리지 않고 %d 턴 동안 주변 %d 칸 반경에 %0.2f 화염 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }

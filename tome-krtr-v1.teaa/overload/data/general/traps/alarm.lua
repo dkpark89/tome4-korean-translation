@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newEntity{ define_as = "TRAP_ALARM",
 	type = "annoy", subtype="alarm", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
@@ -71,9 +71,7 @@ newEntity{ base = "TRAP_ALARM",
 			local m = game.zone:makeEntity(game.level, "actor")
 			if m then
 				game.zone:addEntity(game.level, m, "actor", x, y)
-				--@@
-				local mn = m.kr_display_name or m.name
-				game.logSeen(who, "%s 짙은 대기를 뚫고 나타납니다!", mn:capitalize():addJosa("가"))
+				game.logSeen(who, "%s 짙은 대기를 뚫고 나타납니다!", (m.kr_display_name or m.name):capitalize():addJosa("가"))
 			end
 		end
 		return true, true

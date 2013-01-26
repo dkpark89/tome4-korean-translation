@@ -33,7 +33,7 @@ newTalent{
 	info = function(self, t)
 		return ([[악령으로 변신하여, %d 턴 동안 벽을 통과할 수 있게 됩니다. (단, 벽 안에서는 숨을 쉴 수 없습니다)
 		또한 회피도가 %d, 방어도가 %d 상승합니다.
-		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t), self:combatTalentSpellDamage(t, 5, 19), self:combatTalentSpellDamage(t, 5, 15))
 	end,
 }
@@ -71,7 +71,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[어둠의 불꽃을 화살 형태로 발사하여, 대상과 주변 %d 칸 반경에 %0.2f 화염 피해와 %0.2f 어둠 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), 
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), 
 		damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 28, 220) / 2), 
 		damDesc(self, DamageType.DARKNESS, 
 		self:combatTalentSpellDamage(t, 28, 220) / 2))
@@ -113,7 +113,7 @@ newTalent{
 		return ([[강력한 악마의 군주 울흐'록(Urh'Rok)의 정수를 불러와, 악마로 변신합니다.
 		악마 상태에서는 %d%% 화염 저항력, %d%% 어둠 저항력을 얻으며, 전체 속도가 %d%% 상승합니다.
 		또한, 공포의 영역에서 뿜어져나오는 불길이 오히려 생명력을 회복시켜주게 됩니다.
-		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(
 			self:combatTalentSpellDamage(t, 20, 30), self:combatTalentSpellDamage(t, 20, 35),
 			self:getTalentLevel(t) * 3
@@ -318,6 +318,6 @@ newTalent{
 		공포의 영역에서는 열기가 끊임없이 올라오기 때문에, 대상과 시전자 모두 매 턴마다 %0.2f 화염 피해를 받습니다. (악마는 생명력을 회복합니다)
 		마법이 끝나면 시전자와 (아직 살아있을 경우) 대상만이 원래 세계로 돌아가게 되며, 모든 소환수들은 공포의 영역에 남겨집니다.
 		도구나 장비 등 물건들은 원래 세계로 돌아가며, 이미 공포의 영역에 들어왔을 경우에는 이 마법을 사용할 수 없습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 140)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 12, 140)))
 	end,
 }

@@ -57,7 +57,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[땅에서 차가운 증기가 뿜어져나와, 주변 3 칸 반경에 매 턴마다 %0.2f 냉기 피해를 줍니다. (지속시간 : %d 턴)
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, damage), duration)
 	end,
 }
@@ -90,7 +90,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[대상 주변의 수분을 응결시켜, %d 피해를 주고 %d 턴 동안 얼립니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), 2+math.ceil(self:getTalentLevelRaw(t)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), 2+math.ceil(self:getTalentLevelRaw(t)))
 	end,
 }
 
@@ -137,7 +137,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[시전자로부터 최소 1 칸은 떨어진 곳에 해일이 일어나며, 매 턴마다 1 칸씩 더 해일이 넓어져 최대 %d 칸 범위까지 넓어집니다. 해일에 휩쓸린 적은 매 턴마다 %0.2f 냉기 피해와 %0.2f 물리 피해를 입으며, 뒤로 밀려납니다.
-		해일은 %d 턴 동안 유지되며, 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		해일은 %d 턴 동안 유지되며, 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.COLD, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2), duration)
 	end,
 }
@@ -168,7 +168,7 @@ newTalent{
 		local dur = t.getDuration(self, t)
 		return ([[주변의 잠재된 냉기를 모두 흡수하여, %d 턴 동안 냉기의 정령인 쉬브고로스로 변신합니다.
 		변신 중에는 호흡이 필요없게 되며, %d 레벨의 얼음 폭풍을 사용할 수 있게 됩니다. 또한 출혈과 기절 저항력이 %d%%, 냉기 저항력이 %d%% 증가합니다. 그리고 변신 중에 입는 냉기 피해의 %d%% 만큼 생명력이 회복됩니다.
-		주문의 위력은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		주문의 위력은 주문력의 영향을 받아 상승합니다.]]):
 		format(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100)
 	end,
 }
@@ -212,6 +212,6 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 얼립니다. (지속시간 : %d 턴)
-		피해량과 폭풍의 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration)
+		피해량과 폭풍의 지속시간은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration)
 	end,
 }

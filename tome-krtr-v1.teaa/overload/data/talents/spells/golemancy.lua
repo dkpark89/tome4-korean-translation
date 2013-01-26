@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Chat = require "engine.Chat"
 
@@ -182,7 +182,7 @@ newTalent{
 		if not self.alchemy_golem then return end
 		self.alchemy_golem.faction = self.faction
 		self.alchemy_golem.name = "golem (servant of "..self.name..")"
-		self.alchemy_golem.kr_display_name = "골렘 ("..(self.kr_display_name or self.name).."의 부하)" --@@
+		self.alchemy_golem.kr_display_name = "골렘 ("..(self.kr_display_name or self.name).."의 부하)"
 		self.alchemy_golem.summoner = self
 		self.alchemy_golem.summoner_gain_exp = true
 
@@ -265,7 +265,7 @@ newTalent{
 		return ([[자신만의 골렘, 이제 스스로 조립해보세요!
 		- 골렘이 완전히 파괴되었다면, 시간을 들여 골렘을 다시 만들어냅니다. (연금술용 보석 15 개가 소모됩니다!)
 		- 골렘이 손상되었다면, 골렘을 수리하여 생명력을 %d 회복시킵니다. (연금술용 보석 2 개가 소모됩니다) 
-		생명력 회복량은 주문력 능력치, 사용한 연금술용 보석, '골렘의 힘' 기술 레벨의 영향을 받아 증가합니다.
+		생명력 회복량은 주문력, 사용한 연금술용 보석, '골렘의 힘' 기술 레벨의 영향을 받아 증가합니다.
 		- 골렘이 파괴도 손상도 되지 않았다면, 골렘의 이름을 다시 지어주거나 골렘의 장비, 보석을 바꿔줄 수 있습니다.]]):
 		format(heal)
 	end,

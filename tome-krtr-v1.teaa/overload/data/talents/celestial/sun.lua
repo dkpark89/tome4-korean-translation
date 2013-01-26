@@ -57,7 +57,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
 		return ([[태양의 힘을 불타는 창의 형태로 불러내어, 대상에게 던집니다. %0.2f 의 피해를 주고, 창이 박힌 자리에 4 턴 동안 %0.2f 빛 피해를 추가로 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), damageonspot)
 	end,
 }
@@ -104,7 +104,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[주변 %d 칸 반경에 태양의 섬광을 일으켜 적들을 %d 턴 동안 실명시키고, 주변 %d 칸 반경을 밝힙니다.
 		기술 레벨이 3 이상이면, %0.2f 빛 피해를 추가로 줍니다. (%d 칸 반경)
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, duration, radius * 2, damDesc(self, DamageType.LIGHT, damage), radius)
    end,
 }
@@ -140,7 +140,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[적에게 태양의 불길을 발사해, 궤도 내의 모든 대상을 불태우고 %0.2f 화염 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
@@ -175,6 +175,6 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		return ([[태양광을 격렬하게 폭발시켜, %0.2f 빛 피해를 주변 %d 칸 반경 내에 있는 모든 대상에게 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
 	end,
 }

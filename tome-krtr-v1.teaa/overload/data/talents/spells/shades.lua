@@ -57,7 +57,7 @@ newTalent{
 	info = function(self, t)
 		local chance = t.getChance(self, t)
 		return ([[언데드 추종자들에게 어둠의 장막을 둘러, 시전자 곁으로 추종자들을 불러들입니다. 또한 언데드 추종자들이 5 턴 동안 %d%% 확률로 공격을 회피할 수 있게 됩니다.
-		회피율은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		회피율은 주문력의 영향을 받아 증가합니다.]]):
 		format(chance)
 	end,
 }

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 -- Archmage spells
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/arcane", name = "arcane", description = "가공되지 않은 마력을 다뤄, 적들을 공격하고 자신을 보호하는 마법입니다." }

@@ -364,8 +364,7 @@ function _M:runStop(msg)
 	game:unregisterDialog(self.running.dialog)
 
 	if not msg and self.running.explore and self.running.path and self.running.cnt == #self.running.path + 1 then
-		--@@
-		msg = self.running.explore .. "에 도착"
+		msg = self.running.explore .. "에 도착" --@@
 	end
 	if msg then
 		game.log("%d턴 동안 달렸습니다 (중지 이유: %s).", self.running.cnt, msg)

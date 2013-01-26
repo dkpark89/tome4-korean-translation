@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 
 --- Handles tiles
@@ -44,8 +44,7 @@ function _M:init(w, h, fontname, fontsize, texture, allow_backcolor)
 	self.allow_backcolor = allow_backcolor
 	self.texture = texture
 	self.w, self.h = w, h
-	--@@
-	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 14)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 14) --@@ 한글 글꼴 추가
 	self.repo = {}
 	self.texture_store = {}
 end

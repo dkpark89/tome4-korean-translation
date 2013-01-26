@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local DamageType = require "engine.DamageType"
 
@@ -69,7 +69,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[쌍수 무기로 대상을 공격하여, 각각 %d%% 피해를 줍니다. 매 타격마다 대상을 출혈 상태로 만들어, 5 턴 동안 매 턴마다 %0.2f 피해를 줄 수 있습니다.
-		출혈 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		출혈 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.6), self:combatTalentSpellDamage(t, 5, 40))
 	end,
 }
@@ -96,7 +96,7 @@ newTalent{
 	info = function(self, t)
 		local dam = damDesc(self, DamageType.BLIGHT, t.getDamage(self, t))
 		return ([[오염과 타락의 힘에 집중하여, 근접 공격을 할 때마다 적에게 %0.2f 황폐화 피해를 주고 자신은 %0.2f 생명력을 회복합니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(dam, dam * 0.4)
 	end,
 }
@@ -147,7 +147,7 @@ newTalent{
 	info = function(self, t)
 		return ([[쌍수 무기로 대상을 공격하여, 각각 %d%% 무기 피해를 산성 속성으로 줍니다.
 		공격이 한 번이라도 적중하면, 산이 튀어 대상 주변의 적들에게 %0.2f 산성 피해를 줍니다.
-		산성 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		산성 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.6), damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 10, 130)))
 	end,
 }

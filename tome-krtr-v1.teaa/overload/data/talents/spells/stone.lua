@@ -66,7 +66,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[화살 형태의 암석을 %d 개 만들어, 대상 (혹은 대상들) 에게 날립니다. 각각의 암석은 %0.2f 물리 피해를 주며, 5 턴 동안 매 턴마다 %0.2f 출혈 피해를 줍니다.
 		기술 레벨이 5 이상이면, 암석 화살을 하나 더 만들어낼 수 있습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(count,damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/12))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(count,damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/12))
 	end,
 }
 
@@ -123,7 +123,7 @@ newTalent{
 		석상 상태에서는 다음과 같은 효과가 발생합니다.
 		* 암석 화살, 지진, 산사태 마법의 지연시간이 %d 줄어듭니다.
 		* 화염 저항력이 %d%%, 전기 저항력이 %d%%, 산성 저항력이 %d%%, 기절 저항력이 %d%% 상승합니다.
-		저항력 증가량은 주문력 능력치의 영향을 받아 증가합니다.]])
+		저항력 증가량은 주문력의 영향을 받아 증가합니다.]])
 		:format(cooldownred, fireres, lightningres, acidres, stunres*100)
 	end,
 }
@@ -172,7 +172,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
 		return ([[지진을 일으켜서 매 턴마다 %0.2f 물리 피해를 줍니다. 주변 %d 칸 반경에 피해를 주며, 피해를 받은 적은 기절할 확률이 있습니다. (지속시간 : %d 턴)
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, damage), radius, duration)
 	end,
 }

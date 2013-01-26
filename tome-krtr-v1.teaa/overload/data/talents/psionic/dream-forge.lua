@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Object = require "mod.class.Object"
 
 newTalent{
@@ -48,7 +50,7 @@ newTalent{
 			self:setEffect(self.EFF_FORGE_SHIELD, dur, {power=t.getPower(self, t), number=1, d_types={[type]=true}})
 			amt = util.bound(dam - t.getPower(self, t), 0, dam)
 			blocked = t.getPower(self, t)
-			game.logSeen(self, "#ORANGE#%s 꿈의 방패를 만들어 적의 공격에 대항합니다!", self.name:capitalize())
+			game.logSeen(self, "#ORANGE#%s 꿈의 방패를 만들어 적의 공격에 대항합니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		elseif eff and eff.d_types[type] then
 			amt = util.bound(dam - eff.power, 0, dam)
 			blocked = eff.power
@@ -57,7 +59,7 @@ newTalent{
 			eff.d_types[type] = true
 			amt = util.bound(dam - eff.power, 0, dam)
 			blocked = eff.power
-			game.logSeen(self, "#ORANGE#%s 꿈의 방패가 공격에 의해 강화되었습니다!", self.name:capitalize())
+			game.logSeen(self, "#ORANGE#%s의 꿈의 방패가 공격에 의해 강화되었습니다!", (self.kr_display_name or self.name):capitalize())
 		end
 
 		if blocked then
@@ -92,7 +94,7 @@ newTalent{
 		한번에 여러 공격 속성을 막아낼 수 있지만, 속성이 하나 추가될 때마다 방패를 만들기 위해 받아야 하는 피해량이 15%% 증가하게 됩니다.
 		꿈의 방패로 공격을 완전히 막아내면, 1 턴 동안 공격자가 반격에 취약해지게 됩니다. (근접공격이나 활, 투석구 등을 사용한 원거리 공격 시 피해량 2 배)
 		기술 레벨이 5 이상이면, 방패가 2 턴 동안 지속됩니다.
-		기술의 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(power)
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):format(power)
 	end,
 }
 
@@ -134,6 +136,7 @@ newTalent{
 				old_feat = oe,
 				type = oe.type, subtype = oe.subtype,
 				name = "forge barrier", image = "terrain/lava/lava_mountain5.png",
+				kr_display_name = "연마된 방벽",
 				display = '#', color=colors.RED, back_color=colors.DARK_GREY,
 				shader = "shadow_simulacrum",
 				shader_args = { color = {0.6, 0.0, 0.0}, base = 0.9, time_factor = 1500 },
@@ -177,7 +180,7 @@ newTalent{
 		local forge_damage = t.getForgeDamage(self, t)/2
 		return ([[전방 %d 칸 반경에 연마의 굉음을 뿜어내 %0.2f 정신 피해, %0.2f 화염 피해를 주고 적들을 밀어냅니다.
 		적이 없는 곳에는 50%% 확률로 %d 턴 동안 벽이 생성되어 이동을 막고, 주변의 적들에게 %0.2f 정신 피해, %0.2f 화염 피해를 줍니다.
-		피해량과 밀어내기 확률은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 밀어내기 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.MIND, blast_damage), damDesc(self, DamageType.FIRE, blast_damage), duration, damDesc(self, DamageType.MIND, forge_damage), damDesc(self, DamageType.FIRE, forge_damage))
 	end,
 }
@@ -197,7 +200,7 @@ newTalent{
 		local defense = t.getDefense(self, t)
 		local psi = t.getPsiRegen(self, t)
 		return([[꿈의 갑옷을 연마하여 방어도가 %d, 회피도가 %d 증가하며, 공격을 받을 때마다 %0.2f 염력을 회복하게 됩니다.
-		기술의 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(armor, defense, psi)
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):format(armor, defense, psi)
 	end,
 }
 
@@ -235,10 +238,10 @@ newTalent{
 			if p.damage < max_damage then
 				p.radius = math.min(p.radius + 1, max_radius)
 				p.damage = math.min(max_damage/4 + p.damage, max_damage)
-				game.logSeen(self, "#GOLD#%s 꿈의 연마를 시작합니다!", self.name:capitalize())
+				game.logSeen(self, "#GOLD#%s 꿈의 연마를 시작합니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 			elseif p.power == 0 then
 				p.power = power
-				game.logSeen(self, "#GOLD#%s 꿈을 깨뜨렸습니다!", self.name:capitalize())
+				game.logSeen(self, "#GOLD#%s 꿈을 깨뜨렸습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 				game:playSoundNear(self, "talents/lightning_loud")
 			end
 			local tg = {type="ball", range=self:getTalentRange(t), friendlyfire=false, radius=p.radius, talent=t}
@@ -265,7 +268,7 @@ newTalent{
 		이 효과는 5 턴에 걸쳐 완성되며, 주변 %d 칸 반경에 영향을 줄 때까지 지속되고 최대 %0.2f 정신 피해, %0.2f 화염 피해를 줍니다.
 		효과가 완성되면 스스로 꿈을 깨뜨려, %d 턴 동안 주변에 있는 적들의 정신 내성을 %d 낮추고 %d%% 확률로 주문 시전을 실패하게 만듭니다.
 		꿈을 깨뜨릴 때 %d%% 확률로 적들에게 정신잠금 효과를 줍니다.
-		피해량과 꿈을 깨뜨릴 때의 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 꿈을 깨뜨릴 때의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.MIND, damage), damDesc(self, DamageType.FIRE, damage), duration, power, power, chance)
 	end,
 }

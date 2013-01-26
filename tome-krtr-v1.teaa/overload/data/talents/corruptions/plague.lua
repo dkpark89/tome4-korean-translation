@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Virulent Disease",
@@ -68,7 +68,7 @@ newTalent{
 	info = function(self, t)
 		return ([[순수한 오염물질의 화살을 발사하여 6 턴 동안 대상에게 매 턴마다 %0.2f 황폐화 피해를 주고, 힘, 체격, 민첩 능력치 중 하나를 %d 감소시키는 질병에 걸리게 만듭니다.
 		질병은 3 번까지 중첩되고, 똑같은 질병이 중첩되서 걸리지는 않습니다. 또한, 대상에게 가장 중요한 능력치를 우선적으로 감소시킵니다.
-		이 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, 7 + self:combatTalentSpellDamage(t, 6, 65)), self:combatTalentSpellDamage(t, 5, 35))
 	end,
 }
@@ -149,7 +149,7 @@ newTalent{
 	info = function(self, t)
 		return ([[대상의 질병을 더욱 활성화시켜, 대상이 가지고 있는 질병마다 %0.2f 황폐화 피해를 줍니다.
 		또한 주변 %d 칸 반경의 적들에게 노화성, 심약성, 부패성, 전염성 질병들을 옮깁니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 85)), self:getTalentRadius(t))
 	end,
 }
@@ -287,7 +287,7 @@ newTalent{
 		이 질병에 의한 것을 제외한 황폐화 피해를 받을 때마다, 2 칸 반경의 다른 적들에게 질병이 전염됩니다.
 		이 질병에 감염된 적들은 생명력 회복 효율이 %d%% 감소하며, 질병 저항력이 %d%% 감소합니다.
 		이 질병은 엄청나게 강력하기 때문에, 대상의 질병 저항력을 완전히 무시합니다.
-		피해량은 주문력 능력치, 전염될 확률은 대상에게 가한 황폐화 피해량의 영향을 받아 증가합니다.]]):
+		피해량은 주문력, 전염될 확률은 대상에게 가한 황폐화 피해량의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 70)), 40 + self:getTalentLevel(t) * 4, 30 + self:getTalentLevel(t) * 6)
 	end,
 }

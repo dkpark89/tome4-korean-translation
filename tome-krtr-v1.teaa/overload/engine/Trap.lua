@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Entity = require "engine.Entity"
 local Map = require "engine.Map"
@@ -74,7 +74,7 @@ end
 --- Get trap name
 -- Can be overloaded to do trap identification if needed
 function _M:getName()
-	return self.kr_display_name or self.name
+	return self.kr_display_name or self.name --@@ 한글 이름 사용하도록 수정
 end
 
 --- Setup the trap
@@ -99,18 +99,15 @@ end
 
 --- Try to disarm the trap
 function _M:disarm(x, y, who)
-	--@@
-	local wn = who.kr_display_name or who.name
-		
 	if not self:canDisarm(x, y, who) then
-		game.logSeen(who, "%s 함정(%s)을 해제하는데 실패했습니다.", wn:capitalize():addJosa("가"), self:getName())
+		game.logSeen(who, "%s %s 함정을 해제하는데 실패했습니다.", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
 		return false
 	end
 	game.level.map:remove(x, y, Map.TRAP)
 	if self.removed then
 		self:removed(x, y, who)
 	end
-	game.logSeen(who, "%s 함정(%s)을 해제하였습니다.", wn:capitalize():addJosa("가"), self:getName())
+	game.logSeen(who, "%s %s 함정을 해제하였습니다.", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
 	self:onDisarm(x, y, who)
 	return true
 end
@@ -128,14 +125,13 @@ function _M:trigger(x, y, who)
 	if not self:canTrigger(x, y, who) then return end
 
 	if self.message == nil then
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s 함정(%s)을 발동시켰습니다!", wn:capitalize():addJosa("가"), self:getName())
+		game.logSeen(who, "%s 함정(%s)을 발동시켰습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
 	elseif self.message == false then
 		-- Nothing
 	else
-		local tname = who.kr_display_name or who.name --@@
+		local tname = who.kr_display_name or who.name --@@ 134~139 사용 : 반복사용으로 변수로 뺌
 		local str =self.message
+		--@@ 135~140 : 함정 메세지에 '이/가'와 '을/를' 조사를 추가할 수 있으도록 수정
 		str = str:gsub("@target@", tname)
 		str = str:gsub("@Target@", tname:capitalize())
 		str = str:gsub("@target1@", tname:addJosa("가"))

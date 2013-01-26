@@ -86,7 +86,7 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.kr_display_name or self.name --@@
+	local name = self.kr_display_name or self.name --@@ 한글 이름 사용하도록 수정
 
 	if qty == 1 or t.no_count then return name
 	else return qty.." "..name
@@ -95,7 +95,7 @@ end
 
 --- Gets the full desc of the object
 function _M:getDesc()
-	return self.kr_display_name or self.name --@@
+	return self.kr_display_name or self.name --@@ 한글 이름 반환
 end
 
 --- Returns the inventory type an object is worn on
@@ -193,8 +193,7 @@ function _M:getRequirementDesc(who)
 	if req.stat then
 		for s, v in pairs(req.stat) do
 			local c = (who:getStat(s) >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-			--@@
-			str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name:krStat(), v), {"color", "LAST"}, true)
+			str:add(c, "- ", ("%s %d"):format(who.stats_def[s].name:krStat(), v), {"color", "LAST"}, true) --@@ 능력치 이름 한글화
 		end
 	end
 	if req.level then
@@ -205,15 +204,11 @@ function _M:getRequirementDesc(who)
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
 				local c = (who:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				--@@
-				local tn = who:getTalentFromId(tid[1]).kr_display_name or who:getTalentFromId(tid[1]).name
-				
+				local tn = who:getTalentFromId(tid[1]).kr_display_name or who:getTalentFromId(tid[1]).name --@@ 208 사용 : 너무 길어져 변수로 뺌				
 				str:add(c, "- ", ("%s 기술 (레벨 %d)"):format(tn, tid[2]), {"color", "LAST"}, true)
 			else
 				local c = who:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				--@@
-				local tn = who:getTalentFromId(tid).kr_display_name or who:getTalentFromId(tid).name
-				
+				local tn = who:getTalentFromId(tid).kr_display_name or who:getTalentFromId(tid).name --@@ 212 사용 : 너무 길어져 변수로 뼘				
 				str:add(c, "- ", ("%s 기술"):format(tn), {"color", "LAST"}, true)
 			end
 		end

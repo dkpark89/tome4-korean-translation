@@ -50,9 +50,7 @@ function _M:block_move(x, y, e, act, couldpass)
 	if self.door_opened and e.open_door and act then
 		if self.door_player_check then
 			if e.player then
-				--@@
-				local sn = self.kr_display_name or self.name
-				Dialog:yesnoPopup(sn, self.door_player_check, function(ret)
+				Dialog:yesnoPopup((self.kr_display_name or self.name), self.door_player_check, function(ret)
 					if ret then
 						game.level.map(x, y, engine.Map.TERRAIN, game.zone.grid_list[self.door_opened])
 						game:playSoundNear({x=x,y=y}, {"ambient/door_creaks/creak_%d",1,4})
@@ -127,18 +125,17 @@ end
 
 function _M:tooltip(x, y)
 	local tstr
-	--@@
-	local sn = self.kr_display_name and self.kr_display_name.." ["..self.name.."]" or self.name
+	local sn = self.kr_display_name and self.kr_display_name.." ["..self.name.."]" or self.name --@@ 131, 138 사용 - 지역 이름을 '한글이름[원문이름]'으로 변수에 저장
 	
 	if self.show_tooltip then
-		local name = ((self.show_tooltip == true) and sn or self.show_tooltip) --@@
+		local name = ((self.show_tooltip == true) and sn or self.show_tooltip)
 		if self.desc then
 			tstr = tstring{{"uid", self.uid}, name, true, self.desc, true}
 		else
 			tstr = tstring{{"uid", self.uid}, name, true}
 		end
 	else
-		tstr = tstring{{"uid", self.uid}, sn, true} --@@
+		tstr = tstring{{"uid", self.uid}, sn, true}
 	end
 
 	if game.level.entrance_glow and self.change_zone and not game.visited_zones[self.change_zone] then

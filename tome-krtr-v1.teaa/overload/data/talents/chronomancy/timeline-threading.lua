@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Gather the Threads",
@@ -77,7 +77,7 @@ newTalent{
 		return ([[시간 에너지의 파동을 일으켜, 파동의 궤도에 있는 적들에게 %0.2f 피해를 주고 시간축을 조정합니다.
 		공격에 맞은 대상은 3 턴 동안 기절, 실명, 속박, 혼란 중 하나의 상태효과에 걸립니다.
 		공격에 맞은 적 1 명 마다 괴리 수치가 %d 씩 줄어듭니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage), reduction)
 	end,
 }

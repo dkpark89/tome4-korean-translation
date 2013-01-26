@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Weapon Folding",
@@ -41,7 +41,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local paradox_reduction = t.getParadoxReduction(self, t)
 		return ([[무기나 발사체의 차원을 한 단계 접어, 공격할 때마다 %0.2f 시간 피해를 추가로 주고 (발사체는 %0.2f 시간 피해) 공격에 성공할 때마다 괴리 수치를 %0.1f 감소시킵니다. (발사체는 괴리 %0.1f 감소)
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), damDesc(self, DamageType.TEMPORAL, damage * 2), paradox_reduction, paradox_reduction * 2)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), damDesc(self, DamageType.TEMPORAL, damage * 2), paradox_reduction, paradox_reduction * 2)
 	end,
 }
 
@@ -112,7 +112,7 @@ newTalent{
 		local duration = t.getConfuseDuration(self, t)
 		local power = t.getConfuseEfficency(self, t)
 		return ([[시공간 연속체를 다루어, 주변 %d 칸 내의 대상과 서로 자리를 바꿉니다. 대상은 %d 턴 동안 혼란 상태에 빠집니다. (혼란 수치 +%d%%)
-		마법의 성공 확률은 주문력 능력치의 영향을 받아 증가합니다.]]):format (range, duration, power)
+		마법의 성공 확률은 주문력의 영향을 받아 증가합니다.]]):format (range, duration, power)
 	end,
 }
 

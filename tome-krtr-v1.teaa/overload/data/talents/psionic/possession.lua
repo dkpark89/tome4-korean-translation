@@ -51,10 +51,10 @@ newTalent{
 
 		if not t.allowedTypes(self, t, target.type) then game.logPlayer(self, "이런 종류의 대상은 소유할 수 없습니다.") return nil end
 --		if target.life > target.max_life * 0.25 then game.logPlayer(self, "You may not possess this creature yet its life is too high.") return nil end
-		if target.dead then game.logPlayer(self, "This creature is dead!") return nil end
+		if target.dead then game.logPlayer(self, "이 존재는 이미 죽어있습니다!") return nil end
 
 		if not self:checkHit(self:combatMindpower(), target:combatMentalResist(), 0, 95, 5) then -- or not target:canBe("instakill") then
-			game.logPlayer(self, "정신을 파괴하지 못하여, 소유에 실패했습니다. (대상 : %s)", target.name)
+			game.logPlayer(self, "%s의 정신을 파괴하지 못하여, 소유에 실패했습니다.", (target.kr_display_name or target.name))
 			return true
 		end
 

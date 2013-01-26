@@ -42,7 +42,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[무기에 태양의 힘을 불어넣어, 매 타격마다 %0.2f 빛 피해를 추가로 줍니다.
 		매 타격마다 양기가 3 씩 소진되며, 양기가 부족하면 이 효과는 발동되지 않습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage))
 	end,
 }

@@ -53,7 +53,7 @@ newTalent{
 	info = function(self, t)
 		return ([[전방 %d 칸 범위에 자신의 오염된 피를 뿌려, %0.2f 황폐화 피해를 줍니다.
 		오염된 피에 닿은 적은 %d%% 확률로 질병에 걸려, 6 턴 동안 매 턴마다 %0.2f 황폐화 피해를 받고 힘, 체격, 민첩 능력치 중 하나가 감소됩니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 190)), 20 + self:getTalentLevel(t) * 10, damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 220)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 190)), 20 + self:getTalentLevel(t) * 10, damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 220)))
 	end,
 }
 
@@ -82,7 +82,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[오염된 피의 화살을 발사하여 %0.2f 황폐화 피해를 주고, 피해량의 절반에 해당하는 생명력을 회복합니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 290)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 290)))
 	end,
 }
 
@@ -112,7 +112,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[주변 %d 칸 반경에 있는 적들의 피를 끓어오르게 만들어, %0.2f 황폐화 피해를 주고 전체 속도를 20%% 감속시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 190)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 190)))
 	end,
 }
 
@@ -143,7 +143,7 @@ newTalent{
 	info = function(self, t)
 		return ([[자신의 오염과 타락에 집중하여, 주문 치명타율을 %d%% 올립니다.
 		주문 치명타가 발생할 때마다, 5 턴 동안 피의 분노 상태가 되어 황폐화 피해와 산성 피해량이 %d%% 증가합니다.
-		치명타율 증가와 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		치명타율 증가와 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:combatTalentSpellDamage(t, 10, 14), self:combatTalentSpellDamage(t, 10, 30))
 	end,
 }

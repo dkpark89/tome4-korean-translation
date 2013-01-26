@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Telekinetic Grasp",
 	kr_display_name = "염동적 악력",
@@ -69,7 +71,7 @@ newTalent{
 			o = self:removeObject(inven, item)
 			-- Force "wield"
 			self:addObject(pf, o)
-			game.logSeen(self, "%s 장비했습니다 : %s.", self.name:capitalize(), o:getName{do_color=true})
+			game.logSeen(self, "%s %s 장비했습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를"))
 
 			self:sortInven()
 			d.used_talent = true

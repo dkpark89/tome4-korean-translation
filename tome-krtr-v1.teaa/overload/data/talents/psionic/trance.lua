@@ -85,7 +85,7 @@ newTalent{
 		local saves = t.getSavingThrows(self, t)
 		return ([[사용하면 나쁜 상태효과들이 제거됩니다. (100%% 확률로 첫번째 상태효과가 제거되며, 두번째 상태효과부터는 확률이 %d%% 씩 낮아집니다)
 		최면이 유지되는 동안, 모든 내성이 %d 증가합니다.
-		상태효과 제거 확률과 내성 증가량은 정신력 능력치의 영향을 받아 증가합니다.
+		상태효과 제거 확률과 내성 증가량은 정신력의 영향을 받아 증가합니다.
 		한번에 하나의 최면 효과만을 유지할 수 있습니다.]]):format(purge, saves)
 	end,
 }
@@ -128,7 +128,7 @@ newTalent{
 		local healing_modifier = t.getHealingModifier(self, t)
 		local regen = t.getLifeRegen(self, t)
 		return ([[사용하면 생명력이 %0.2f 회복됩니다. 최면이 유지되는 동안, 치유 증가율이 %d%% 증가하고 생명력 재생이 %0.2f 증가합니다.
-		최면의 효과는 정신력 능력치의 영향을 받아 증가합니다.
+		최면의 효과는 정신력의 영향을 받아 증가합니다.
 		한번에 하나의 최면 효과만을 유지할 수 있습니다.]]):format(heal, healing_modifier, regen)
 	end,
 }
@@ -169,7 +169,7 @@ newTalent{
 		local power = t.getCriticalPower(self, t)
 		local chance = t.getCriticalChance(self, t)
 		return ([[사용하면 치명타 피해량이 10 턴 동안 %d%% 증가합니다. 그리고 최면이 유지되는 동안, 치명타율이 %d%% 증가합니다.
-		최면의 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(power, chance)
+		최면의 효과는 정신력의 영향을 받아 증가합니다.]]):format(power, chance)
 	end,
 }
 

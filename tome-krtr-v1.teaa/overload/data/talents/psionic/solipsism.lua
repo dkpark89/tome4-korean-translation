@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Solipsism",
 	kr_display_name = "유아론",
@@ -175,7 +177,7 @@ newTalent{
 		local saving_throw = self:combatMentalResist() * t.getSavePercentage(self, t)
 		print("[Dismissal] ", self.name:capitalize(), " attempting to ignore ", value, "damage from ", src.name:capitalize(), "using", saving_throw,  "mental save.")
 		if self:checkHit(saving_throw, value) then
-			game.logSeen(self, "%s 피해를 묵살하였습니다! (대상 : %s)", self.name:capitalize(), src.name:capitalize())
+			game.logSeen(self, "%s %s부터의 피해를 묵살하였습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (src.kr_display_name or src.name):capitalize():addJosa("로"))
 			return value * math.max(0, 1 - self:mindCrit(0.5))
 		else
 			return value

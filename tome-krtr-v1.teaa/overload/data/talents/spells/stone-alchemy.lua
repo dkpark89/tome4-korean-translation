@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Create Alchemist Gems",
@@ -101,7 +101,7 @@ newTalent{
 		local gem = t.getGem(self, t, o)
 		if gem then
 			self:addObject(self.INVEN_INVEN, gem)
-			game.logPlayer(self, "%s에서 %s 추출했습니다.", o:getName{do_color=true, do_count=true}, gem:getName{do_color=true, do_count=true}:addJosa("를")) --@@
+			game.logPlayer(self, "%s에서 %s 추출했습니다.", o:getName{do_color=true, do_count=true}, gem:getName{do_color=true, do_count=true}:addJosa("를"))
 			self:sortInven()
 			if d then d.used_talent = true end
 		end
@@ -143,9 +143,9 @@ newTalent{
 				o.wielder = o.wielder or {}
 				table.mergeAdd(o.wielder, gem.imbue_powers, true)
 				o.been_imbued = true
-				game.logPlayer(self, "%s %s 강화하였습니다.", gem:getName{do_colour=true, no_count=true}:addJosa("로"), o:getName{do_colour=true, no_count=true}:addJosa("를")) --@@
+				game.logPlayer(self, "%s %s 강화하였습니다.", gem:getName{do_colour=true, no_count=true}:addJosa("로"), o:getName{do_colour=true, no_count=true}:addJosa("를"))
 				o.name = o.name .. " ("..gem.name..")"
-				o.kr_display_name = (o.kr_display_name or o.name) .. " ("..(gem.kr_display_name or gem.name)..")" --@@
+				o.kr_display_name = (o.kr_display_name or o.name) .. " ("..(gem.kr_display_name or gem.name)..")"
 				o.special = true
 				d.used_talent = true
 				game:unregisterDialog(d)

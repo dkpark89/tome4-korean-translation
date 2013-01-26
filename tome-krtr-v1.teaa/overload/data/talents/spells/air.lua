@@ -51,7 +51,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[마나로 강력한 번개를 발사하여, 적들을 관통합니다. 적들에게 %0.2f - %0.2f 의 전기 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage / 3),
 		damDesc(self, DamageType.LIGHTNING, damage))
 	end,
@@ -135,7 +135,7 @@ newTalent{
 		local targets = t.getTargetCount(self, t)
 		return ([[번개를 발사하여 대상에게 %0.2f - %0.2f 전기 피해를 줍니다. 번개는 자동적으로 10 칸 이내의 다른 적에게 유도되며, 최대 %d 번의 전기 피해를 줍니다. 
 		번개는 같은 대상을 2 번 공격하지 않으며, 시전자도 공격하지 않습니다.
-		피해량은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		피해량은 주문력의 영향을 받아 상승합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage / 3),
 			damDesc(self, DamageType.LIGHTNING, damage),
 			targets)
@@ -252,7 +252,7 @@ newTalent{
 		return ([[주변 6 칸 반경에 맹렬한 뇌우를 불러내, 지속시간 동안 시전자를 따라다니게 만듭니다.
 		매 턴마다 %d 개의 번개가 적들에게 떨어져, 주변 1 칸 반경에 1 - %0.2f 전기 피해를 줍니다.
 		번개가 1 개 떨어질 때마다, 마나가 %0.2f 소진됩니다.
-		피해량은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		피해량은 주문력의 영향을 받아 상승합니다.]]):
 		format(targetcount, damDesc(self, DamageType.LIGHTNING, damage),-manadrain)
 	end,
 }

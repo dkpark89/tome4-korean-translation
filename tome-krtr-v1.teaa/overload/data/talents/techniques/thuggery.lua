@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Map = require "engine.Map"
 
@@ -74,7 +74,7 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[대상의 머리 (혹은 약점으로 보이는 어딘가) 에 박치기를 해서, %0.2f 의 물리 피해를 줍니다. 공격이 명중하면, 대상은 %d 턴 동안 혼란 상태에 빠집니다.
-		물리 피해량은 투구의 품질, 힘, 물리력 능력치의 영향을 받아 증가합니다.
+		물리 피해량은 투구의 품질, 힘, 물리력의 영향을 받아 증가합니다.
 		혼란 효과와 확률은 민첩과 정확도 능력치의 영향을 받아 증가합니다.]]):
 		format(dam, duration)
 	end,

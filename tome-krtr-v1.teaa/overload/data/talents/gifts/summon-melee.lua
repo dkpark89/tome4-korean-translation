@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "War Hound",
@@ -107,7 +107,7 @@ newTalent{
 		return ([[%d 턴 동안 전투견을 소환하여 적과 싸우게 합니다. 전투견은 기초적이지만 강력한 근접 공격수입니다.
 		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 민첩, %d 체격
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 힘과 민첩 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 힘과 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5) + (self:getTalentLevel(t) * 2),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5) + (self:getTalentLevel(t) * 2),
@@ -213,7 +213,7 @@ newTalent{
 		return ([[%d 턴 동안 젤리를 소환하여 적과 싸우게 합니다. 젤리는 움직이지 않지만, 젤리가 받는 피해량의 10%% 만큼 평정을 찾을 수 있게 됩니다.
 		소환수의 능력치는 다음과 같습니다 : %d 체격, %d 힘
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 건강 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 건강 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		10 + (self:combatMindpower(1.8) * self:getTalentLevel(t) / 5) + self:getTalentLevelRaw(self.T_RESILIENCE) * 3,
 		10 + self:getTalentLevel(t) * 2)
@@ -317,7 +317,7 @@ newTalent{
 		return ([[%d 턴 동안 미노타우르스를 소환하여 적과 싸우게 합니다. 미노타우르스는 소환 지속시간이 짧지만, 적에게 큰 피해를 줍니다.
 		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 체격, %d 민첩
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 힘과 민첩 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 힘과 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(self:getTalentLevel(t) + 2 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		25 + (self:combatMindpower(2.1) * self:getTalentLevel(t) / 5) + (self:getTalentLevel(t) * 2),
 		10 + self:getTalentLevel(t) * 2 + self:getTalentLevelRaw(self.T_RESILIENCE)*2,
@@ -422,7 +422,7 @@ newTalent{
 		return ([[%d 턴 동안 암석 골렘을 소환하여 적과 싸우게 합니다. 암석 골렘은 폭주 상태가 될 수 있는 강력한 소환수입니다.
 		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 체격, %d 민첩
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 힘과 민첩 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 힘과 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5) + (self:getTalentLevel(t) * 2),
 		10 + self:getTalentLevel(t) * 2 + self:getTalentLevelRaw(self.T_RESILIENCE)*2,

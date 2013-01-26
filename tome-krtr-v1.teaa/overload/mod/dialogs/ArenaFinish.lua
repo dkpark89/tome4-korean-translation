@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local Textzone = require "engine.ui.Textzone"
@@ -59,7 +59,7 @@ function _M:printRanking()
 		local i = 1
 		while(scores[i] and scores[i].name) do
 			p = scores[i]
-			tmp = stri:format((p.name or "모름"):capitalize(), p.sex:krSex() or "모름", p.race:krRace() or "모름", p.class:krClass() or "모름", p.score or "모름", p.perk or "모름", p.wave or -1) --@@
+			tmp = stri:format((p.name or "모름"):capitalize(), p.sex:krSex() or "모름", p.race:krRace() or "모름", p.class:krClass() or "모름", p.score or "모름", p.perk or "모름", p.wave or -1) --@@ 성별, 종족, 직업 이름 한글화
 			if p.name == world.arena.lastScore.name and p.score == world.arena.lastScore.score and p.wave == world.arena.lastScore.wave and p.perk == world.arena.lastScore.perk then
 				text = text..line(tmp, "#YELLOW#")
 			else

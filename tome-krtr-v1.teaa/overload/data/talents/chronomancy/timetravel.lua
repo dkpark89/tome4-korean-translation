@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Static History",
@@ -48,7 +48,7 @@ newTalent{
 		local reduction = t.getReduction(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[역사를 살짝 바꿔, 괴리 수치를 %d 감소시키고 시공간을 안정화시킵니다. 이를 통해 시공 계열 마법의 실패 확률을 %d 턴 동안 0%% 로 만듭니다. (이상 현상이나 역효과 확률은 바뀌지 않습니다)
-		괴리 수치 감소량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		괴리 수치 감소량은 주문력의 영향을 받아 증가합니다.]]):
 		format(reduction, duration)
 	end,
 }
@@ -133,7 +133,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[대상이 주문 내성으로 저항에 실패했을 경우, %0.2f 시간 피해를 주고 %d 턴 동안 시간의 흐름에서 벗어나게 만듭니다.
-		지속시간은 괴리 수치에 따라, 피해량은 괴리 수치와 주문력 능력치에 따라 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
+		지속시간은 괴리 수치에 따라, 피해량은 괴리 수치와 주문력에 따라 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
 	end,
 }
 
@@ -170,7 +170,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		return ([[%d 칸 반경에 시간의 메아리를 만들어 범위 내의 적들에게 %0.2f 시간 피해를 주고, 최대 생명력에서 현재 생명력을 뺀 값의 %d%% 에 해당하는 시간 피해를 추가로 줍니다.
-		생명력 비율과 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		생명력 비율과 피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damage, percent)
 	end,
 }
