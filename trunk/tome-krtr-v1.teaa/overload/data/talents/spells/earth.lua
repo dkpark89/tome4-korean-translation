@@ -45,7 +45,7 @@ newTalent{
 	info = function(self, t)
 		local armor = t.getArmor(self, t)
 		return ([[시전자의 피부가 돌과 같이 단단해져, 방어도가 %d 상승합니다.
-		방어도 상승량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		방어도 상승량은 주문력의 영향을 받아 증가합니다.]]):
 		format(armor)
 	end,
 }
@@ -80,7 +80,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[소규모 산사태를 만들어내, 주변 %d 칸 반경에 %0.2f 물리 피해를 줍니다. 산사태에 휩쓸린 적들은 밀려납니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
@@ -184,7 +184,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[시전자 주변에 암석 벽을 %d 턴 동안 만들어, 시전자를 보호합니다.
 		기술 레벨이 4 이상이면, 암석 벽을 원하는 곳에 만들어낼 수 있습니다.
-		마법의 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		마법의 지속시간은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }

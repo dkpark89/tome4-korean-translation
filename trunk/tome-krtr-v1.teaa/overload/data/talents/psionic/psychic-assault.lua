@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Mind Sear",
 	kr_display_name = "정신 파괴",
@@ -44,7 +46,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[적들을 관통하는 정신파를 날립니다. 정신파는 대상의 뇌를 약간 파괴하여, %0.2f 정신 피해를 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, damage))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, damage))
 	end,
 }
 
@@ -78,7 +80,7 @@ newTalent{
 		if target:canBe("confused") then
 			target:setEffect(target.EFF_LOBOTOMIZED, t.getDuration(self, t), {src=self, dam=dam, power=t.getPower(self, t), apply_power=self:combatMindpower()})
 		else
-			game.logSeen(target, "%s 사고 방해를 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 사고 방해를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		game:playSoundNear(self, "talents/cloud")
@@ -90,7 +92,7 @@ newTalent{
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[대상의 전두엽을 염력으로 무력화시켜 %0.2f 정신 피해를 주고, 복잡한 사고를 하지 못하게 만듭니다. %d 턴 동안 대상의 교활함 수치가 %d 감소하며, 혼란 상태에 빠집니다. (%d%% 위력)
-		피해량, 교활함 수치 감소량, 혼란의 위력은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량, 교활함 수치 감소량, 혼란의 위력은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.MIND, (damage)), duration, cunning_damage, power)
 	end,
 }
@@ -121,7 +123,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경에 시냅스를 자극하는 염력 정전파를 발생시킵니다. %0.2f 정신 피해를 주며, 대상에게 정신 잠금 상태를 일으킵니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.MIND, damage))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.MIND, damage))
 	end,
 }
 
@@ -161,7 +163,7 @@ newTalent{
 		local power = t.getDamage(self, t) / 10
 		return ([[대상의 정신을 무력화시켜, %0.2f 정신 피해를 주고 4 턴 동안 정신 내성을 %d 감소시킵니다. 이 공격은 피할 수 없으며, 정신 내성 감소는 중첩됩니다.
 		정신 잠금 상태의 대상에게는 피해량과 정신 내성 감소량이 2 배가 됩니다.
-		피해량과 정신 내성 감소량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 정신 내성 감소량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.MIND, (damage)), power)
 	end,
 }

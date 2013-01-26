@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.GameTurnBased"
 require "engine.interface.GameMusic"
@@ -100,13 +100,11 @@ function _M:runReal()
 	local flysize = ({normal=14, small=12, big=16})[config.settings.tome.fonts.size]
 	self.tooltip = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
 	self.tooltip2 = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
-	--@@
-	self.flyers = FlyingText.new(krFont or "/data/font/INSULA__.ttf", flysize, "/data/font/INSULA__.ttf", flysize + 3)
+	self.flyers = FlyingText.new(krFont or "/data/font/INSULA__.ttf", flysize, "/data/font/INSULA__.ttf", flysize + 3) --@@ 한글 글꼴 추가
 	self.flyers:enableShadow(0.6)
 	game:setFlyingText(self.flyers)
 
-	--@@
-	self.bignews = BigNews.new(krFont or "/data/font/DroidSansMono.ttf", 30)
+	self.bignews = BigNews.new(krFont or "/data/font/DroidSansMono.ttf", 30) --@@ 한글 글꼴 추가
 
 	self.nicer_tiles = NicerTiles.new()
 
@@ -146,16 +144,13 @@ function _M:runReal()
 	end)
 
 	-- Create the map scroll text overlay
-	--@@
-	local lfont = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 30)
+	local lfont = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 30) --@@ 한글 글꼴 추가
 	lfont:setStyle("bold")
 	local s = core.display.drawStringBlendedNewSurface(lfont, "<스크롤 모드, 방향키로 화면을 이동시킵니다, caps lock을 누르면 종료합니다>", unpack(colors.simple(colors.GOLD)))
 	lfont:setStyle("normal")
 	self.caps_scroll = {s:glTexture()}
 	self.caps_scroll.w, self.caps_scroll.h = s:getSize()
-
-	--@@
-	self.zone_font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 12)
+	self.zone_font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 12) --@@ 한글 글꼴 추가
 
 	self.inited = true
 end
@@ -404,7 +399,7 @@ function _M:setupDisplayMode(reboot, mode)
 
 		local map_x, map_y, map_w, map_h = self.uiset:getMapSize()
 		if th <= 20 then
-			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, "/data/font/FSEX300.ttf", pot_th, do_bg) --@@ 일단 일부러 수정 안함
+			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, "/data/font/FSEX300.ttf", pot_th, do_bg) --@@ 일단 일부러 글꼴 수정 안함
 		else
 			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, nil, fsize, do_bg)
 		end
@@ -1022,8 +1017,7 @@ function _M:updateZoneName()
 	else
 		local lev = self.level.level
 		if self.level.data.reverse_level_display then lev = 1 + self.level.data.max_level - lev end
-		--@@
-		local szn = (self.zone.kr_display_name and self.zone.kr_display_name.." ["..self.zone.name.."]") or self.zone.name
+		local szn = (self.zone.kr_display_name and self.zone.kr_display_name.." ["..self.zone.name.."]") or self.zone.name --@@ 1022, 1024 사용: 길어서 변수로 뺌 - 지역 이름을 한글이름[원문이름]으로 변경
 		if self.zone.max_level == 1 then
 			name = szn
 		else
@@ -1069,7 +1063,7 @@ end
 function _M:displayDelayedLogDamage()
 	for src, tgts in pairs(self.delayed_log_damage) do
 		for target, dams in pairs(tgts) do
-			--@@
+			--@@ 1067~1068 - 1071, 1073, 1083 사용 : 반복된 사용으로 변수로 뺌
 			local srn = src.kr_display_name or src.name
 			local tn = target.kr_display_name or target.name
 			
@@ -1365,10 +1359,7 @@ do return end
 					self.log("이 곳에서는 자동탐사를 할 수 없습니다.")
 				elseif #seen > 0 then
 					local dir = game.level.map:compassDirection(seen[1].x - self.player.x, seen[1].y - self.player.y)
-					--@@
-					local sn = seen[1].actor.kr_display_name or seen[1].actor.name
-					
-					self.log("적이 시야에 들어온 상태에서는 자동탐사를 할 수 없습니다 (%s : %s%s)!", sn, dir, self.level.map:isOnScreen(seen[1].x, seen[1].y) and "" or " - 화면바깥")
+					self.log("적이 시야에 들어온 상태에서는 자동탐사를 할 수 없습니다 (%s : %s%s)!", (seen[1].actor.kr_display_name or seen[1].actor.name), dir, self.level.map:isOnScreen(seen[1].x, seen[1].y) and "" or " - 화면바깥")
 					for _, node in ipairs(seen) do
 						node.actor:addParticles(engine.Particles.new("notice_enemy", 1))
 					end
@@ -1805,7 +1796,7 @@ function _M:onQuit()
 				util.showMainMenu()
 			end
 			self.quit_dialog = nil
-		end, "예", "아니오") --@@
+		end, "예", "아니오")
 	end
 end
 

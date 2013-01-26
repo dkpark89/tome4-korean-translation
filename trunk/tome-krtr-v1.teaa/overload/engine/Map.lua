@@ -1199,8 +1199,7 @@ function _M:compassDirection(dx, dy)
 		if dxdy < -0.5 then dir = dir.."서" 
 		elseif dxdy > 0.5 then dir = dir.."동" end
 	end
-	--@@
-	return dir.."쪽"
+	return dir.."쪽" --@@ 방향 한글화
 end
 -------------------------------------------------------------
 -------------------------------------------------------------

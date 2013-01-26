@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Mouse = require "engine.Mouse"
 local Button = require "engine.ui.Button"
@@ -119,9 +119,7 @@ function _M:makePortrait(a, current, x, y)
 	local hl = 32 * math.max(0, a.life) / a.max_life
 	s:erase(colors.RED.r * 0.7, colors.RED.g * 0.7, colors.RED.b * 0.7, 255, 6, 32+6-hl, 32, hl)
 
-	--@@
-	local anm = a.r_display_name or a.name
-	self:mouseTooltip("#GOLD##{bold}#"..anm.."\n#WHITE##{normal}#생명력: "..math.floor(100 * a.life / a.max_life).."%\n레벨: "..a.level.."\n"..def.title, 40, 40, x, y, function()
+	self:mouseTooltip("#GOLD##{bold}#"..(a.r_display_name or a.name).."\n#WHITE##{normal}#생명력: "..math.floor(100 * a.life / a.max_life).."%\n레벨: "..a.level.."\n"..def.title, 40, 40, x, y, function()
 		if def.control == "full" then
 			game.party:select(a)
 		end
@@ -166,13 +164,12 @@ end
 function _M:handleEffect(eff_id, e, p, ex, h)
 	local player = game.player
 	local dur = p.dur + 1
-	local name = e.kr_display_name or e.desc --@@
+	local name = e.kr_display_name or e.desc --@@ 한글 이름 추가
 	local desc = nil
 	local eff_subtype = table.concat(table.keys(e.subtype), "/")
 	if e.display_desc then name = e.display_desc(self, p) end
 	if p.save_string and p.amount_decreased and p.maximum and p.total_dur then
-		--@@
-		desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d에서 %d로 %d턴 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased)
+		desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d에서 %d로 %d턴 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정
 	else
 		desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p)
 	end
@@ -409,7 +406,7 @@ function _M:display()
 	for tid, act in pairs(player.sustain_talents) do
 		if act then
 			local t = player:getTalentFromId(tid)
-			local displayName = t.kr_display_name or t.name --@@
+			local displayName = t.kr_display_name or t.name --@@ 한글 이름 추가
 			if t.getDisplayName then displayName = t.getDisplayName(player, t, player:isTalentActive(tid)) end
 			local desc = "#GOLD##{bold}#"..displayName.."#{normal}##WHITE#\n"..tostring(player:getTalentFullDescription(t))
 

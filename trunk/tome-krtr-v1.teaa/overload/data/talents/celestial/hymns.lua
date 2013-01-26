@@ -63,7 +63,7 @@ newTalent{
 		return ([[달의 영광을 노래하여, 적에게 주는 어둠 속성 공격의 피해량을 %d%% 증가시킵니다.
 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
-		피해량과 피해 증가효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 피해 증가효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(darknessinc, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -113,7 +113,7 @@ newTalent{
 		return ([[달의 영광을 노래하여 야간 투시력을 %d, 은신 감지력을 %d, 투명화 감지력를 %d 증가시킵니다.
 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(infra, stealth, invis, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -160,7 +160,7 @@ newTalent{
 		return ([[달의 영광을 노래하여, 기절, 실명, 혼란 저항이 %d%% 증가합니다.
 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(100 * (immunities), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -212,12 +212,12 @@ newTalent{
 	activate = function(self, t)
 		cancelHymns(self)
 		game:playSoundNear(self, "talents/spell_generic")
-		game.logSeen(self, "#DARK_GREY#그림자가 %s의 주변에서 춤을 추기 시작합니다!", (self.kr_display_name or self.name)) --@@
+		game.logSeen(self, "#DARK_GREY#그림자가 %s의 주변에서 춤을 추기 시작합니다!", (self.kr_display_name or self.name))
 		return {
 		}
 	end,
 	deactivate = function(self, t, p)
-		game.logSeen(self, "#DARK_GREY#%s의 주변에서 춤 추던 그림자가 사라집니다.", (self.kr_display_name or self.name)) --@@
+		game.logSeen(self, "#DARK_GREY#%s의 주변에서 춤 추던 그림자가 사라집니다.", (self.kr_display_name or self.name))
 		return true
 	end,
 	info = function(self, t)
@@ -227,7 +227,7 @@ newTalent{
 		return ([[기술이 지속되는 동안 자신을 따라다니는, 춤추는 그림자를 불러들입니다.
 		매 턴마다 주변 5 칸 반경에 있는 적 %d 명에게 그림자 화살이 발사되어, 1 - %0.2f 피해를 줍니다.
 		그림자 화살이 발사될 때마다 음기가 %d 소모되며, 음기가 부족하면 효과가 발동되지 않습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(targetcount, damDesc(self, DamageType.DARKNESS, damage), drain)
 	end,
 }

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local TreeList = require "engine.ui.TreeList"
@@ -98,9 +98,7 @@ function _M:defineHotkey(id)
 	end
 
 	self.actor.hotkey[id] = {"talent", item.talent}
-	--@@
-	local tn = t.kr_display_name or t.name
-	self:simplePopup("단축키 "..id.." 설정", tn:capitalize():addJosa("가").." 단축키 "..("%d"):format(id):addJosa("로").." 설정되었습니다.")
+	self:simplePopup("단축키 "..id.." 설정", (t.kr_display_name or t.name):capitalize():addJosa("가").." 단축키 "..("%d"):format(id):addJosa("로").." 설정되었습니다.")
 	self.c_list:drawTree()
 	self.actor.changed = true
 end
@@ -148,10 +146,8 @@ function _M:use(item, button)
 
 		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
 		
-		--@@
-		local itn = item.kr_display_name or item.name:toString()
-		local tn = (self.actor:getTalentFromId(item.talent).kr_display_name or self.actor:getTalentFromId(item.talent).name):capitalize()
-		Dialog:listPopup("기술 연결: "..itn, "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
+		local tn = (self.actor:getTalentFromId(item.talent).kr_display_name or self.actor:getTalentFromId(item.talent).name):capitalize() --@@ 157, 160, 163 사용 : 길고 반복 사용으로 변수로 뺌
+		Dialog:listPopup("기술 연결: "..(item.kr_display_name or item.name):toString(), "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
 			if not b then return end
 			if type(b.what) == "number" then
 				for i = 1, 12 * self.actor.nb_hotkey_pages do
@@ -281,10 +277,9 @@ function _M:generateList()
 			if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 			nodes[#nodes+1] = {
-				--@@
-				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(t.kr_display_name or t.name)):toTString(),
-				cname = t.kr_display_name or t.name,
-				oriname=t.name,
+				name=((t.display_entity and t.display_entity:getDisplayString() or "")..(t.kr_display_name or t.name)):toTString(), --@@ 기술 한글이름 저장
+				cname = t.kr_display_name or t.name, --@@ 소팅용 이름 한글로 저장
+				oriname=t.name, --@@ 변수 추가하여 원문이름 저장
 				
 				status=status,
 				entity=t.display_entity,

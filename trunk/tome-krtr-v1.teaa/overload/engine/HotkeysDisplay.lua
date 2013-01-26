@@ -30,8 +30,7 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	--@@
-	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 10)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 10) --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 	self.clics = {}
 	self.items = {}
@@ -106,20 +105,17 @@ function _M:display()
 		if ts[3] == "talent" then
 			local tid = ts[1]
 			local t = a:getTalentFromId(tid)
-			--@@
-			local tn = t.kr_display_name or t.name
-			
 			if a:isTalentCoolingDown(t) then
-				txt = ("%s (%d)"):format(tn, a:isTalentCoolingDown(t))
+				txt = ("%s (%d)"):format((t.kr_display_name or t.name), a:isTalentCoolingDown(t))
 				color = {255,0,0}
 			elseif a:isTalentActive(t.id) then
-				txt = tn
+				txt = (t.kr_display_name or t.name)
 				color = {255,255,0}
 			elseif not a:preUseTalent(t, true, true) then
-				txt = tn
+				txt = (t.kr_display_name or t.name)
 				color = {190,190,190}
 			else
-				txt = tn
+				txt = (t.kr_display_name or t.name)
 				color = {0,255,0}
 			end
 		elseif ts[3] == "inventory" then
@@ -199,9 +195,7 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 					local text = ""
 					if a.hotkey[i] and a.hotkey[i][1] == "talent" then
 						local t = self.actor:getTalentFromId(a.hotkey[i][2])
-						--@@
-						local tn = t.kr_display_name or t.name
-						text = tstring{{"color","GOLD"}, {"font", "bold"}, tn, {"font", "normal"}, {"color", "LAST"}, true}
+						text = tstring{{"color","GOLD"}, {"font", "bold"}, (t.kr_display_name or t.name), {"font", "normal"}, {"color", "LAST"}, true}
 						text:merge(self.actor:getTalentFullDescription(t))
 					elseif a.hotkey[i] and a.hotkey[i][1] == "inventory" then
 						local o = a:findInAllInventories(a.hotkey[i][2])

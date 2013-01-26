@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local DamageType = require "engine.DamageType"
 local Map = require "engine.Map"
@@ -180,9 +180,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 		dam = dam * mult
 		print("[ATTACK ARCHERY] after mult", dam)
 
-		--@@
-		local sn = self.kr_display_name or self.name
-		if crit then game.logSeen(self, "#{bold}#%s 치명타를 주는데 성공합니다!#{normal}#", sn:capitalize():addJosa("가")) end
+		if crit then game.logSeen(self, "#{bold}#%s 치명타를 주는데 성공합니다!#{normal}#", (self.kr_display_name or self.name):capitalize():addJosa("가")) end
 
 		-- Damage conversion?
 		-- Reduces base damage but converts it into another damage type
@@ -221,11 +219,8 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 
 		if talent.archery_onhit then talent.archery_onhit(self, talent, target, target.x, target.y) end
 	else
-		--@@
-		local sn = self.kr_display_name or self.name
-		local tn = target.kr_display_name or target.name
-		local srcname = game.level.map.seens(self.x, self.y) and sn:capitalize() or "무엇인가"
-		game.logSeen(target, "%s %s 빗맞췄습니다.", srcname:addJosa("이"), tn:addJosa("을"))
+		local srcname = game.level.map.seens(self.x, self.y) and (self.kr_display_name or self.name):capitalize() or "무엇인가"
+		game.logSeen(target, "%s %s 빗맞췄습니다.", srcname:addJosa("이"), (target.kr_display_name or target.name):addJosa("을"))
 	end
 
 	-- cross-tier effect for accuracy vs. defense

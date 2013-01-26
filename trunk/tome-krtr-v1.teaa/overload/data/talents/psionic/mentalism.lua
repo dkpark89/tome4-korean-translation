@@ -104,7 +104,7 @@ newTalent{
 			self:setEffect(self.EFF_CLEAR_MIND, 6, {power=count})
 		end
 		
-		game.logSeen(self, "%s 마음이 정화되었습니다!", self.name:capitalize())
+		game.logSeen(self, "%s의 마음이 정화되었습니다!", (self.kr_display_name or self.name):capitalize())
 		game:playSoundNear(self, "talents/heal")
 		return true
 	end,
@@ -143,6 +143,7 @@ newTalent{
 			ai = "summoned", ai_real = "tactical",
 			subtype = "ghost", is_psychic_projection = 1,
 			name = "Projection of "..self.name,
+			kr_display_name = (self.kr_display_name or self.name).."의 투영",
 			desc = [[꼭 유령과 같은 모습입니다.]],
 		}
 		m:removeAllMOs()
@@ -297,6 +298,6 @@ newTalent{
 		local range = self:getTalentRange(t) * 2
 		return ([[대상과 정신을 공유합니다. 정신이 공유된 동안 대상에게 %d%% 정신 피해를 더 줄 수 있게 되며, 대상의 종족에 대한 텔레파시 능력을 얻을 수 있게 됩니다.
 		한번에 하나의 대상만 정신을 공유할 수 있으며, 대상이 사망하거나 %d 칸 이상 멀어지면 공유가 중지됩니다.
-		정신 피해 증가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damage, range)
+		정신 피해 증가량은 정신력의 영향을 받아 증가합니다.]]):format(damage, range)
 	end,
 }

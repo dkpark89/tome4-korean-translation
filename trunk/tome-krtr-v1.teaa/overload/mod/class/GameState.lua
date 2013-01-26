@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Entity"
 local Particles = require "engine.Particles"
@@ -315,40 +315,36 @@ function _M:generateRandart(data)
 	-----------------------------------------------------------
 	-- Make up a name
 	-----------------------------------------------------------
-	--@@ 새 아이템 랜덤 이름 결정 부분 - 통채 kr_display_name도 조합하도록 수정 -> 실제 이름 덮어쓰는 부분은 줄493
+	--@@ 새 아이템 랜덤 이름 결정 부분 - 통채 kr_display_name도 조합하도록 수정 -> 실제 이름 덮어쓰는 부분은 줄494
 	--@@ 새로 랜덤하게 덧붙는 이름의 한글화시 이 부분 수정 필요
 	local themename = power_themes[#power_themes]
 	themename = themename and themename[1] or nil
 	local ngd = NameGenerator.new(rng.chance(2) and randart_name_rules.default or randart_name_rules.default2)
 	local ngt = (themename and randart_name_rules[themename] and NameGenerator.new(randart_name_rules[themename])) or ngd
-	local name, krName --@@
+	local name, krName --@@ 한글이름 변수 생성
 	local namescheme = data.namescheme or ((ngt ~= ngd) and rng.range(1, 4) or rng.range(1, 3))
 	if namescheme == 1 then
-		--@@
-		local ngtg = ngt:generate()
+		local ngtg = ngt:generate() --@@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
 		name = o.name.." '"..ngtg.."'"
-		krName = (o.kr_display_name or o.name).." '"..ngtg.."'" --@@
+		krName = (o.kr_display_name or o.name).." '"..ngtg.."'" --@@ 한글 이름 조합
 	elseif namescheme == 2 then
-		--@@
-		local ngtg = ngt:generate()
+		local ngtg = ngt:generate() --@@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
 		name = ngtg.." the "..o.name
-		krName = ngtg.." "..(o.kr_display_name or o.name) --@@
+		krName = ngtg.." "..(o.kr_display_name or o.name) --@@ 한글 이름 조합
 	elseif namescheme == 3 then
 		name = ngt:generate()
-		krName = name --@@
+		krName = name --@@ 한글 이름 조합
 	elseif namescheme == 4 then
-		--@@
-		local ngtg = ngt:generate()
-		local ngdg = ngd:generate()
+		local ngtg = ngt:generate() --@@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
+		local ngdg = ngd:generate() --@@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
 		name = ngdg.." the "..ngtg
-		krName = ngdg.." "..ngtg --@@
+		krName = ngdg.." "..ngtg --@@ 한글 이름 조합
 	end
 	o.define_as = name:upper():gsub("[^A-Z]", "_")
 
-	--@@
-	local rnts = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted"}
+	local rnts = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted"} --@@ 랜덤한 수식어를 변수로 저장 (원문과 한글이 같도록)
 	o.unided_name = rnts.." "..(o.unided_name or o.name)
-	o.kr_unided_name = rnts:krUnIDPreName().." "..(o.kr_unided_name or o.unided_name or o.kr_display_name or o.name) --@@
+	o.kr_unided_name = rnts:krUnIDPreName().." "..(o.kr_unided_name or o.unided_name or o.kr_display_name or o.name) --@@ 미감정시 한글이름 조합
 	o.unique = name --@@ unique는 게임 도중에 사용하는 곳이 있나? 코드 번역 확인 필요
 	o.randart = true
 	o.no_unique_lore = true
@@ -491,7 +487,7 @@ function _M:generateRandart(data)
 
 	-- Setup the name
 	o.name = name
-	o.kr_display_name = krName --@@
+	o.kr_display_name = krName --@@ 만들어진 한글 이름 저장
 
 	if data.post then
 		data.post(o)
@@ -1577,7 +1573,7 @@ function _M:createRandomZone(zbase)
 	------------------------------------------------------------
 	local zone = mod.class.Zone.new(short_name, {
 		name = name,
-		kr_display_name = kr_display_name or name, --@@ 
+		kr_display_name = kr_display_name or name, --@@ 지역의 한글 이름 추가
 		level_range = {data.min_lev, data.max_lev},
 		level_scheme = "player",
 		max_level = data.depth,

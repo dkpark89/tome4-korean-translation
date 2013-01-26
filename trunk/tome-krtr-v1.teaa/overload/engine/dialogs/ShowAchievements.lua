@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Tiles = require "engine.Tiles"
 local Dialog = require "engine.ui.Dialog"
@@ -66,7 +66,6 @@ function _M:init(title, player)
 		return 0, 0, 0, 0, 0, 0
 	end
 
-	--@@
 	self.c_list = ListColumns.new{width=math.floor(self.iw * 0.6 - 10), height=self.ih - 10 - self.c_self.h, floating_headers = true, scrollbar=true, sortable=true, columns={
 		{name="", width={24,"fixed"}, display_prop="--", direct_draw=direct_draw},
 		{name="달성 과제", width=60, display_prop="name", sort="name"},
@@ -112,7 +111,7 @@ function _M:select(item)
 		end
 		self.c_image.item = item.tex
 		local track = self:getTrack(item.a)
-		local desc = ("#GOLD#%s#LAST#\n[%s]\n\n#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@@
+		local desc = ("#GOLD#%s#LAST#\n[%s]\n\n#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@@ 한글이름과 원문이름 표시하도록 수정 
 		if track then
 			desc:add(true, true, {"color","GOLD"}, "진행정도: ", {"color","LAST"})
 			desc:merge(track)
@@ -167,8 +166,7 @@ function _M:generateList(kind)
 			end
 		end
 		if not data.notdone or a.show then
-			--@@
-			local an = a.kr_display_name or a.name
+			local an = a.kr_display_name or a.name --@@ 172, 176, 178 사용 : 한글이름 저장 변수
 			
 			if a.show == "full" or not data.notdone then
 				list[#list+1] = { name=an, ori_name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }

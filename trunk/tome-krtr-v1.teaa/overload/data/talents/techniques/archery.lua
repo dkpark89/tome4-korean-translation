@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 -- Default archery attack
 newTalent{
@@ -88,7 +88,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local spt = t.shots_per_turn(self, t)
-		return ([[화살통이나 탄환 주머니에 매 턴마다 %d 발 씩 발사체를 장전합니다.]]):format(spt) --@@
+		return ([[화살통이나 탄환 주머니에 매 턴마다 %d 발 씩 발사체를 장전합니다.]]):format(spt) --@@ 두번째 변수: 단수/복수 구분을 위한 %s 제거
 	end,
 }
 

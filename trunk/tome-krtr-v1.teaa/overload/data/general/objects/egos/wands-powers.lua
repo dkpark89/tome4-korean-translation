@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 --[[
 Wands
@@ -43,9 +43,7 @@ newEntity{
 			range = rad,
 			actor = 1,
 		})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -60,9 +58,7 @@ newEntity{
 	charm_power_def = {add=4, max=15, floor=true},
 	resolvers.charm("주변을 밝힘 (반경 %d)", 5, function(self, who)
 		who:project({type="ball", range=0, selffire=true, radius=self:getCharmPower()}, who.x, who.y, engine.DamageType.LITE, 1)
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -91,9 +87,7 @@ newEntity{
 			who:attr("disarm_bonus", -inc)
 			who:attr("can_disarm", -1)
 		end)
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -115,9 +109,7 @@ newEntity{
 		local _ _, x, y = who:canProject(tg, x, y)
 		game.level.map:particleEmitter(who.x, who.y, math.max(math.abs(x-who.x), math.abs(y-who.y)), "lightning", {tx=x-who.x, ty=y-who.y})
 		game:playSoundNear(who, "talents/lightning")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -139,9 +131,7 @@ newEntity{
 			game.level.map:addEffect(who, px, py, 4, engine.DamageType.FIRE, dam / 4, 0, 5, nil, {type="inferno"}, nil, true)
 		end)
 		game:playSoundNear(who, "talents/fire")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -169,9 +159,7 @@ newEntity{
 		}
 		who:project(tg, x, y, elem[1], rng.avg(dam / 2, dam, 3), {type=elem[2]})
 		game:playSoundNear(who, "talents/fire")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }

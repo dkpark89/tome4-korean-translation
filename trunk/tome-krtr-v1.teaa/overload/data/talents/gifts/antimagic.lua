@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Resolve",
@@ -44,7 +44,7 @@ newTalent{
 		return ([[마법 피해를 버텨내고, 자신을 더 강하게 만듭니다.
 		마법 피해를 받을 때마다, 해당 속성에 대한 저항력이 7 턴 동안 %d%% 증가하게 됩니다.
 		반마법 보호막이 비활성화 상태라면, 충격의 일부를 흡수하여 %0.2f 만큼 체력을 회복하고 평정을 되찾게 됩니다.
-		기술의 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(	resist, regen )
 	end,
 }
@@ -70,7 +70,7 @@ newTalent{
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
 		return ([[주변의 소리를 없애, %d 턴 동안 주변 %d 칸 반경의 적들을 침묵시킵니다. (시전자 포함)
-		침묵 확률은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		침묵 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(3 + math.floor(self:getTalentLevel(t) / 2), rad)
 	end,
 }
@@ -123,7 +123,7 @@ newTalent{
 	info = function(self, t)
 		return ([[마법 공격을 맞을 때마다 %d 만큼 피해량을 경감시켜주는 반마법 보호막을 만들어냅니다.
 		피해량을 30 흡수할 때마다 평정 수치가 1 올라가며, 평정에 따른 실패율을 계산합니다. 계산 결과 평정이 깨지면, 반마법 보호막도 깨지고 재사용 대기시간이 활성화됩니다.
-		피해 흡수량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해 흡수량은 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getMax(self, t))
 	end,
 }
@@ -166,7 +166,7 @@ newTalent{
 
 		return ([[대상의 마나를 %d, 원기를 %d, 양기와 음기를 %d 만큼 빼앗아 폭발시킵니다.
 		폭발의 피해는 흡수된 마나 수치의 100%%, 흡수된 원기 수치의 200%%, 흡수된 양기나 음기 수치의 400%% 와 같습니다. (세 수치 중 높은 쪽을 따릅니다)
-		기술의 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(mana, vim, positive, negative)
 	end,
 }

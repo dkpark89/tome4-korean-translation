@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local DamageType = require "engine.DamageType"
 local Map = require "engine.Map"
@@ -96,9 +96,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act * speed)
 			self.did_energy = true
 		end
-		--@@
-		local sn = self.kr_display_name or self.name
-		game.logSeen(self, "%s 공격할 수 없을만큼 무섭습니다.", sn:capitalize():addJosa("는"))
+		game.logSeen(self, "%s 공격할 수 없을만큼 무섭습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"))
 		return false
 	end
 
@@ -107,9 +105,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act)
 			self.did_energy = true
 		end
-		--@@
-		local sn = self.kr_display_name or self.name
-		game.logSeen(self, "%s 공격할 수 없을만큼 두렵습니다.", sn:capitalize():addJosa("는"))
+		game.logSeen(self, "%s 공격할 수 없을만큼 두렵습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"))
 		return false
 	end
 
@@ -117,9 +113,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 	if self:isTalentActive(self.T_STEALTH) and target:canSee(self) then
 		self:useTalent(self.T_STEALTH)
 		self.changed = true
-		--@@
-		local tn = target.kr_display_name or target.name
-		game.logPlayer(self, "%s 마지막 순간에 당신을 알아차렸습니다!", tn:capitalize():addJosa("는"))
+		game.logPlayer(self, "%s 마지막 순간에 당신을 알아차렸습니다!", (target.kr_display_name or target.name):capitalize():addJosa("는"))
 	end
 
 	-- Change attack type if using gems
@@ -332,7 +326,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	damtype = damtype or (weapon and weapon.damtype) or DamageType.PHYSICAL
 	mult = mult or 1
 
-	--@@
+	--@@ 330~331 : 330~876 사이 반복적으로 계산 사용되어 변수로 뺌
 	local sn = self.kr_display_name or self.name
 	local tn = target.kr_display_name or target.name
 
@@ -1373,9 +1367,7 @@ function _M:spellCrit(dam, add_chance, crit_power_add)
 		self.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		dam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		crit = true
-		--@@
-		local sn = self.kr_display_name or self.name
-		game.logSeen(self, "#{bold}#%s의 주문이 치명타가 됐습니다!#{normal}#", sn:capitalize())
+		game.logSeen(self, "#{bold}#%s의 주문이 치명타가 됐습니다!#{normal}#", (self.kr_display_name or self.name):capitalize())
 
 		if self:attr("mana_on_crit") then self:incMana(self:attr("mana_on_crit")) end
 		if self:attr("vim_on_crit") then self:incVim(self:attr("vim_on_crit")) end
@@ -1422,9 +1414,7 @@ function _M:mindCrit(dam, add_chance, crit_power_add)
 		self.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		dam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		crit = true
-		--@@
-		local sn = self.kr_display_name or self.name
-		game.logSeen(self, "#{bold}#%s의 정신 공격이 치명타가 됐습니다!#{normal}#", sn:capitalize())
+		game.logSeen(self, "#{bold}#%s의 정신 공격이 치명타가 됐습니다!#{normal}#", (self.kr_display_name or self.name):capitalize())
 
 		if self:attr("hate_on_crit") then self:incHate(self:attr("hate_on_crit")) end
 		if self:attr("psi_on_crit") then self:incPsi(self:attr("psi_on_crit")) end
@@ -1887,10 +1877,7 @@ end
 function _M:grappleSizeCheck(target)
 	size = target.size_category - self.size_category
 	if size > 1 then
-		--@@
-		local sn = self.kr_display_name or self.name
-		local tn = target.kr_display_name or target.name
-		game.logSeen(target, "%s %s 너무 커서 잡는데 실패했습니다!", sn:capitalize():addJosa("는"), tn:capitalize():addJosa("가"))
+		game.logSeen(target, "%s %s 너무 커서 잡는데 실패했습니다!", (self.kr_display_name or self.name):capitalize():addJosa("는"), (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		return true
 	else
 		return false
@@ -1922,9 +1909,7 @@ function _M:startGrapple(target)
 		self:setEffect(self.EFF_GRAPPLING, duration, {trgt=target})
 		return true
 	else
-		--@@
-		local tn = target.kr_display_name or target.name
-		game.logSeen(target, "%s 잡기 공격에 저항했습니다!", tn:capitalize():addJosa("는"))
+		game.logSeen(target, "%s 잡기 공격에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("는"))
 		return false
 	end
 end

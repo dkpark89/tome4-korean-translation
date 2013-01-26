@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Stats = require "engine.interface.ActorStats"
 local DamageType = require "engine.DamageType"
@@ -260,9 +260,7 @@ newEntity{
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, self:getCharmPower())
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }
@@ -311,9 +309,7 @@ newEntity{
 				a:setTarget(who)
 			end
 		end)
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }

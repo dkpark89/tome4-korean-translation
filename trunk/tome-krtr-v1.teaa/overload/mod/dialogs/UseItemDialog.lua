@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.ui.Dialog"
 local List = require "engine.ui.List"
@@ -97,7 +97,7 @@ function _M:use(item)
 			if not ret then return end
 			self.actor:transmoInven(self.inven, self.item, self.object)
 			self.onuse(self.inven, self.item, self.object, false)
-		end, "예", "아니오") --@@
+		end, "예", "아니오")
 	elseif act == "toinven" then
 		self.object.__transmo = false
 		self.onuse(self.inven, self.item, self.object, false)

@@ -60,7 +60,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[화염의 파동을 발하여 %d 칸 반경의 적들에게 3 턴 동안 총 %0.2f 화염 피해를 주고, 뒤로 밀어냅니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
@@ -91,7 +91,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[불꽃, 화염 충격, 화염 폭발, 화염 파동 마법이 휩쓸고 지나간 자리에 불을 붙여, 4 턴 동안 총 %0.2f 화염 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 

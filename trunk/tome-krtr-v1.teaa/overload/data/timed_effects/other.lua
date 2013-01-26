@@ -2209,8 +2209,7 @@ newEffect{
 		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="burnt to death by cauterize"})
 
 		local srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
-		--@@
-		local dtn = DamageType:get(DamageType.FIRE).kr_display_name or DamageType:get(DamageType.FIRE).name
+		local dtn = DamageType:get(DamageType.FIRE).kr_display_name or DamageType:get(DamageType.FIRE).name --@@ 2213줄 사용 - 너무 길어서 변수로 뺌
 		game:delayedLogDamage(self, self, val, ("%s%d %s#LAST#"):format(DamageType:get(DamageType.FIRE).text_color or "#aaaaaa#", math.ceil(val), dtn), false)
 	end,
 }

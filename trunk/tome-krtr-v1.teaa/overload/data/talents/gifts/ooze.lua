@@ -103,9 +103,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local p = t.getPower(self, t)
-		return ([[Improve your fungus to allow it to take a part of any healing you receive and improve it.
-		Each time you are healed you get a regeneration effect for 6 turns that heals you of %d%% of the direct heal you received.
-		The effect will increase with your Mindpower.]]):
+		return ([[당신의 미생물이 치료 효과를 향상시키도록 개선합니다.
+		당신이 치료될 때마다, 치료되는 양의 %d%% 만큼 6턴간 생명력이 재생됩니다.
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(p)
 	end,
 }
@@ -142,9 +142,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Both of you swap place in an instant, creatures attacking one will target the other.
-		While swaping you briefly merge together, boosting all your nature and acid damage by %d%% for 6 turns and healing you for %d.
-		Damage and healing increase with Mindpower.]]):
+		return ([[공격당하면 상대의 공격목표가 바뀌도록, 분열된 당신끼리의 위치를 즉시 바꿉니다.
+		위치를 바꾸는 동안 당신끼리 잠시 결합하여, 모든 당신의 자연 피해량과 산성 피해량이 6턴간 %d%% 증가하고, 생명력이 %d 만큼 치료됩니다.
+		공격력과 치유량은 정신력의 영향을 받아 증가합니다.]]):
 		format(15 + self:combatTalentMindDamage(t, 5, 300) / 10, 40 + self:combatTalentMindDamage(t, 5, 300))
 	end,
 }

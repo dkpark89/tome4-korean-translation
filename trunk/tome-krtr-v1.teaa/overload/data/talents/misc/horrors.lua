@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalentType{ type="technique/horror", name = "horror techniques", hide = true, description = "세상의 여러 무서운자들의 물리 기술입니다." }
 newTalentType{ type="psionic/horror", name = "horror techniques", hide = false, description = "세상의 여러 무서운자들의 초능력입니다." }
@@ -454,7 +454,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[칼날 폭풍을 소환하여 적들을 베어버립니다. 근처의 모든 적들에게 물리 피해를 줍니다.
-		피해량과 폭풍의 지속시간은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration)
+		피해량과 폭풍의 지속시간은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 
@@ -491,7 +491,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[주변 5 칸 반경의 모든 적들을 끌어당기고, %d 물리 피해를 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentMindDamage(t, 20, 120)))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentMindDamage(t, 20, 120)))
 	end,
 }
 
@@ -520,7 +520,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[염동력으로 이루어진 칼날을 발사하여, 발사경로에 있는 모든 적들에게 %0.2f 물리 피해를 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentMindDamage(t, 20, 200)))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentMindDamage(t, 20, 200)))
 	end,
 }
 
@@ -568,7 +568,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[시전자 주변 1 칸 반경에 슬라임의 벽이 솟아오르며, 이 벽은 2 턴 마다 넓어져 최대 %d 칸 반경까지 넓어집니다. 
 		벽에 닿은 적들은%0.2f 슬라임 피해를 입으며, 이 벽은 %d 턴 동안 유지됩니다.
-		피해량과 지속시간은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 지속시간은 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.NATURE, damage), duration)
 	end,
 }
@@ -614,7 +614,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[대상을 붙잡아 끌어옵니다. 대상은 %d 턴 동안 숨을 쉬지 못하며, 매 턴 마다 %0.2f 슬라임 피해를 받습니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(duration, damDesc(self, DamageType.SLIME, damage))
 	end,
 }

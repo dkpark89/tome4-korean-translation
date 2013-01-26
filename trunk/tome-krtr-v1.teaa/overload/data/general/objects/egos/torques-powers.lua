@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 --[[
 Torques
@@ -39,9 +39,7 @@ newEntity{
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, self:getCharmPower())
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }
@@ -56,9 +54,7 @@ newEntity{
 	charm_power_def = {add=3, max=100, floor=true},
 	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 물리나 산성 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="kinetic", power=self:getCharmPower()})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -73,9 +69,7 @@ newEntity{
 	charm_power_def = {add=3, max=100, floor=true},
 	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 화염이나 추위 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="thermal", power=self:getCharmPower()})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -90,9 +84,7 @@ newEntity{
 	charm_power_def = {add=3, max=100, floor=true},
 	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 전기나 황폐 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="charged", power=self:getCharmPower()})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -107,9 +99,7 @@ newEntity{
 	charm_power_def = {add=1, max=5, floor=true},
 	resolvers.charm("다음 6턴간 최대 %d개의 나쁜 정신 효과를 흡수하거나 없앰", 20, function(self, who)
 		who:setEffect(who.EFF_CLEAR_MIND, 6, {power=self:getCharmPower()})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -128,9 +118,7 @@ newEntity{
 		if not x or not y then return nil end
 		local dam = self:getCharmPower()
 		who:project(tg, x, y, engine.DamageType.MIND, rng.avg(dam / 2, dam, 3), {type="mind"})
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }

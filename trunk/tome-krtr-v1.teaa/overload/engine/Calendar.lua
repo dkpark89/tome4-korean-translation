@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 
 --- Defines factions
@@ -54,8 +54,7 @@ end
 function _M:getTimeDate(turn, dstr)
 	local doy, year = self:getDayOfYear(turn)
 	local hour, min = self:getTimeOfDay(turn)
-	--@@
-	return (dstr or self.datestring):format(tostring(year), self:getMonthName(doy):krMonth(), tostring(self:getDayOfMonth(doy)), hour, min)
+	return (dstr or self.datestring):format(tostring(year), self:getMonthName(doy):krMonth(), tostring(self:getDayOfMonth(doy)), hour, min) --@@ 변수 순서 조정, 달이름 한글화
 end
 
 function _M:getDayOfYear(turn)

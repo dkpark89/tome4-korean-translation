@@ -120,7 +120,7 @@ newTalent{
 		local radius = 2 + self:getTalentLevel(t)/2
 		return ([[부식성 안개를 만들어내, %d 턴 동안 주변 %d 칸 반경에 %0.2f 산성 피해를 줍니다. (치명타가 발생할 수 있습니다)
 		안개의 영향을 받은 적은 %d 턴 동안 부식되어 정확도, 방어도, 회피도가 %d 감소하게 됩니다.
-		피해량과 지속시간은 정신력 능력치, 안개의 범위는 기술 레벨에 따라 증가합니다.
+		피해량과 지속시간은 정신력, 안개의 범위는 기술 레벨에 따라 증가합니다.
 		이 기술의 레벨이 오를 때마다, 산성 저항력이 1%% 상승합니다.]]):format(duration, radius, damDesc(self, DamageType.ACID, damage), cordur, atk)
 	end,
 }

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 uberTalent{
 	name = "Draconic Will",
@@ -110,7 +110,7 @@ uberTalent{
 		local dam = t.getDamage(self, t)/2
 		return ([[공격적인 마법이나 정신 공격을 할 때, 의지의 힘으로 운석을 불러낼 수 있게 됩니다.
 		운석이 떨어진 곳은 8 턴 동안 용암 지형이 되며, %0.2f 물리 피해와 %0.2f 화염 피해를 주게 됩니다.
-		운석에 맞은 적은 3 턴 동안 기절하게 되며, 피해량은 주문력이나 정신력 능력치의 영향을 받아 증가합니다.]])
+		운석에 맞은 적은 3 턴 동안 기절하게 되며, 피해량은 주문력이나 정신력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }

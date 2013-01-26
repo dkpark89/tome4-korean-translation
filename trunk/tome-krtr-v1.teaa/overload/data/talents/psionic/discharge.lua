@@ -103,7 +103,7 @@ newTalent{
 		return ([[잠재의식을 불러내, 매 턴마다 최대 %d 개의 정신력으로 이루어진 화살을 발사하여 %0.2f 정신 피해를 줍니다. (적 1 마리 당 화살 1 개) 화살 1 개 당 반발력이 1 소진됩니다.
 		최대 반발력 이상의 반발력을 얻으면, 화살이 추가로 발사됩니다. (%d 반발력 당 화살 1 개, 최대 %d 개 까지)
 		이 기술을 사용하는 동안, 염력 집중이 필요합니다. (이동하거나, 1 턴 이상 걸리는 기술을 사용하거나, 도구를 사용하면 집중이 깨집니다)
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(targets, damDesc(self, DamageType.MIND, damage), charge_ratio, targets)
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(targets, damDesc(self, DamageType.MIND, damage), charge_ratio, targets)
 	end,
 }
 
@@ -128,7 +128,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[매 턴마다 감소하던 반작용이 %d 턴 동안 증가량으로 전환됩니다. 마법이 치명타로 적용되어, 지속시간이 더 길어질 수도 있습니다.
 		이 기술은 염력 집중을 방해하지 않으며, 힘의 순환을 위해서는 반작용 수치를 조금이라도 가지고 있어야 합니다.
-		최대 반작용 획득량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration)
+		최대 반작용 획득량은 정신력의 영향을 받아 증가합니다.]]):format(duration)
 	end,
 }
 
@@ -172,7 +172,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[피해를 받으면, 잠재의식이 발현하여 적에게 복수합니다. 공격자가 주변 %d 칸 반경에 있으면, 자동적으로 반작용 획득량이나 %0.2f 중 낮은 수치의 정신 피해를 줍니다.
 		한 턴에 단 한 번의 복수만 가능합니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(range, damDesc(self, DamageType.MIND, damage))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(range, damDesc(self, DamageType.MIND, damage))
 	end,
 }
 
@@ -213,6 +213,6 @@ newTalent{
 		local crit_bonus = t.getCritBonus(self, t)
 		return ([[하나의 대상에게 정신을 집중하여, 모든 방출 계열 기술이 %d 턴 동안 그 대상만을 공격하게 만듭니다.
 		이 효과가 적용되는 동안, 모든 방출 계열 기술의 치명타 위력이 %d%% 증가합니다.
-		이 기술은 염력 집중을 방해하지 않으며, 피해 증가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.MIND, crit_bonus))
+		이 기술은 염력 집중을 방해하지 않으며, 피해 증가량은 정신력의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.MIND, crit_bonus))
 	end,
 }

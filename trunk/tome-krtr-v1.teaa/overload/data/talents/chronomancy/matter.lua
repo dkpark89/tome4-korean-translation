@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Dust to Dust",
@@ -50,7 +50,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[물질을 먼지로 만들어 없애버리는 힘을 발사하여, 발사 궤도에 있는 모든 적들에게 %0.2f 시간 피해와 %0.2f 물리 피해를 줍니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage / 2), damDesc(self, DamageType.PHYSICAL, damage / 2))
 	end,
 }
@@ -101,7 +101,7 @@ newTalent{
 		local armor = t.getArmor(self, t)
 		return ([[부서지기 쉬운 탄소 가시를 맨몸, 옷, 갑옷 등에 돌출시켜, 방어도가 %d 상승하고 자신을 공격한 적에게 6 턴 동안 총 %0.2f 출혈 피해를 줍니다.
 		공격을 받을 때마다 방어도 증가량이 1 씩 줄어들며, 매 턴마다 감소된 방어도가 1 씩 복구됩니다.
-		방어도 상승량과 출혈 피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		방어도 상승량과 출혈 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(armor, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
@@ -138,7 +138,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local explosion = t.getExplosion(self, t)
 		return ([[대상을 불안정하게 만들어, 10 턴 동안 매 턴마다 %0.2f 시간 피해를 줍니다. 대상이 불안정한 상태로 죽으면, 폭발하여 주변 4 칸 반경에 %0.2f 시간 피해와 %0.2f 물리 피해를 줍니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage), damDesc(self, DamageType.TEMPORAL, explosion/2), damDesc(self, DamageType.PHYSICAL, explosion/2))
 	end,
 }
@@ -203,7 +203,7 @@ newTalent{
 		return ([[대상에게 %0.2f 시간 피해와 %0.2f 물리 피해를 줍니다.
 		대상이 빈사 상태가 되면 (생명력 20%% 이하) 원자 단위로 분해를 시도하며, 성공할 경우 대상은 즉사합니다.
 		양자 가시는 불안정한 대상에게 50%% 추가 피해를 줍니다.
-		피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2))
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2))
 	end,
 }
 

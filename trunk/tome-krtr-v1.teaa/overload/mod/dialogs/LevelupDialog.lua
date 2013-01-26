@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 
@@ -66,8 +66,7 @@ function _M:init(actor, on_finish, on_birth)
 	self.talent_types_learned = {}
 	self.stats_increased = {}
 
-	--@@
-	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12) --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 
 	self.actor.__hidden_talent_types = self.actor.__hidden_talent_types or {}
@@ -120,7 +119,7 @@ function _M:init(actor, on_finish, on_birth)
 					self.actor_dup = {}
 					if self.on_finish then self.on_finish() end
 				end
-				end, "예", "아니오", "취소") --@@
+				end, "예", "아니오", "취소")
 			else
 				game:unregisterDialog(self)
 				self.actor_dup = {}
@@ -164,9 +163,7 @@ function _M:finish()
 		if act then
 			local t = self.actor:getTalentFromId(tid)
 			if t.no_sustain_autoreset and self.actor:knowTalent(tid) then
-				--@@
-				local tn = t.kr_display_name or t.name
-				talents = talents.."#GOLD# - "..tn.."#LAST#\n"
+				talents = talents.."#GOLD# - "..(t.kr_display_name or t.name).."#LAST#\n"
 			else
 				reset[#reset+1] = tid
 			end
@@ -470,10 +467,9 @@ function _M:generateList()
 			local isgeneric = self.actor.talents_types_def[tt.type].generic
 			local tshown = (self.actor.__hidden_talent_types[tt.type] == nil and ttknown) or (self.actor.__hidden_talent_types[tt.type] ~= nil and not self.actor.__hidden_talent_types[tt.type])
 			local node = {
-				--@@
-				name=function(item) return tstring{{"font", "bold"}, cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() ..(" (%s)"):format((isgeneric and "일반" or "직업")), {"font", "normal"}} end,
+				name=function(item) return tstring{{"font", "bold"}, cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() ..(" (%s)"):format((isgeneric and "일반" or "직업")), {"font", "normal"}} end, --@@ 기술계열이름 한글로 변경 
 				rawname=function(item) return cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType()..(" (x%.2f)"):format(self.actor:getTalentTypeMastery(item.type)) end,
-				oriname=function(item) return cat:capitalize().." / "..tt.name:capitalize()..(" (x%.2f)"):format(self.actor:getTalentTypeMastery(item.type)) end,
+				oriname=function(item) return cat:capitalize().." / "..tt.name:capitalize() end, --@@ 변수 추가하여 원문이름 저장
 				
 				type=tt.type,
 				color=function(item) return ((self.actor:knowTalentType(item.type) ~= self.actor_dup:knowTalentType(item.type)) or ((self.actor.__increased_talent_types[item.type] or 0) ~= (self.actor_dup.__increased_talent_types[item.type] or 0))) and {255, 215, 0} or self.actor:knowTalentType(item.type) and {0,200,0} or {175,175,175} end,
@@ -494,18 +490,16 @@ function _M:generateList()
 					self:computeDeps(t)
 					local isgeneric = self.actor.talents_types_def[tt.type].generic
 
-					--@@
-					local tdn = t.kr_display_name or t.name
+					local tdn = t.kr_display_name or t.name --@@ 기술 한글이름 저장
 
 					-- Pregenenerate icon with the Tiles instance that allows images
 					if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 					list[#list+1] = {
 						__id=t.id,
-						--@@
-						name=tdn:toTString(),
-						rawname= tdn,
-						oriname = t.name,
+						name=tdn:toTString(), --@@ 기술이름 한글로 변경
+						rawname= tdn, --@@ 소팅용 이름 한글로 변경
+						oriname = t.name, --@@ 변수 추가하여 원문이름 저장
 						
 						entity=t.display_entity,
 						talent=t.id,
@@ -657,7 +651,7 @@ function _M:createDisplay()
 							self.actor.inscriptions_slots_added = self.actor.inscriptions_slots_added + 1
 						self.b_types.text = "기술계열 점수: "..self.actor.unused_talents_types
 							self.b_types:generate()
-						end end, "예", "아니오") --@@
+						end end, "예", "아니오")
 					else
 						Dialog:simplePopup("각인", ("당신은 아직 %d개의 새 각인 슬롯을 얻을 수 있지만, 기술계열 점수가 필요합니다."):format(2 - self.actor.inscriptions_slots_added))
 					end
@@ -677,8 +671,7 @@ function _M:createDisplay()
 	if self.actor.unused_talents_types > 0 and self.b_inscriptions then self.b_inscriptions.glow = 0.6 end
 
 	self.c_ctree = TalentTrees.new{
-		--@@
-		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14), --@@ 한글 글꼴 추가
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.ctree,
 		width=320, height=self.ih-50,
@@ -698,8 +691,7 @@ function _M:createDisplay()
 	}
 
 	self.c_gtree = TalentTrees.new{
-		--@@
-		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14), --@@ 한글 글꼴 추가
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.gtree,
 		width=320, height=self.ih-50 - math.max((not self.b_prodigies and 0 or self.b_prodigies.h + 5), (not self.b_inscriptions and 0 or self.b_inscriptions.h + 5)),
@@ -719,8 +711,7 @@ function _M:createDisplay()
 	}
 
 	self.c_stat = TalentTrees.new{
-		--@@
-		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14), --@@ 한글 글꼴 추가
 		tiles=game.uiset.hotkeys_display_icons,
 		tree=self.tree_stats, no_cross = true,
 		width=50, height=self.ih,
@@ -879,7 +870,7 @@ end
 function _M:getTalentDesc(item)
 	local text = tstring{}
 
- 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), "\n[", util.getval(item.oriname, item), "]", {"color", "LAST"}, {"font", "normal"}) --@@
+ 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), "\n[", util.getval(item.oriname, item), "]", {"color", "LAST"}, {"font", "normal"}) --@@ 기술 설명에 '한글이름[원문이름]'이 나오도록 추가
 	text:add(true, true)
 
 	if item.type then
@@ -901,7 +892,7 @@ function _M:getTalentDesc(item)
 
 		if self:isUnlearnable(t, true) then
 			local max = tostring(self.actor:lastLearntTalentsMax(t.generic and "generic" or "class"))
-			text:add({"color","LIGHT_BLUE"}, "이 기술은 최근에 습득했으므로, 아직 습득을 취소할 수 있습니다.", true, "최근에 배운 ", t.generic and "일반" or "직업", "기술 ", max, "가지는 습득 취소가 가능합니다.", {"color","LAST"}, true, true) --@@
+			text:add({"color","LIGHT_BLUE"}, "이 기술은 최근에 습득했으므로, 아직 습득을 취소할 수 있습니다.", true, "최근에 배운 ", t.generic and "일반" or "직업", "기술 ", max, "가지는 습득 취소가 가능합니다.", {"color","LAST"}, true, true)
 		elseif t.no_unlearn_last then
 			text:add({"color","YELLOW"}, "이 기술은 영구적으로 세계에 영향을 끼치기에, 한번 배우면 다시는 습득을 취소할 수 없습니다.", {"color","LAST"}, true, true)
 		end

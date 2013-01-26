@@ -93,7 +93,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[염동 칼날을 대상과 접촉시켜, 자연의 힘을 흘려보냅니다. 이를 통해 만들어진 가시덩쿨이 대상을 휘감아, 대상을 10 턴 동안 %d%% 만큼 감속시키고 매 턴마다 %0.2f 자연 피해를 줍니다.
-		피해량은 정신력 능력치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은%2.f 입니다)]]):
+		피해량은 정신력와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은%2.f 입니다)]]):
 		format(20 + self:getTalentLevel(t) * 2, damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 15, 250) / 10 * get_mindstar_power_mult(self)), get_mindstar_power_mult(self))
 	end,
 }

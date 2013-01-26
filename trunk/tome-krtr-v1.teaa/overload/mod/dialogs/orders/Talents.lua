@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -33,18 +33,16 @@ function _M:init(actor, def)
 	self.def = def
 	Dialog.init(self, "전략적 기술 사용 정의", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
 
-	--@@
-	local anm = actor.kr_display_name or actor.name
 	self.c_tut = Textzone.new{width=math.floor(self.iw / 2 - 10), height=1, auto_height=true, no_color_bleed=true, text=([[
 %s 무슨 기술을 사용해도 괜찮은지를 알기위해 주의깊게 경청하고 있습니다.
 당신은 여러가지 기술의 중요도를 조정하여 그것들이 더 자주사용되거나 혹은 덜 사용되도록 만들 수 있습니다. 중요도는 상대적으로 적용됩니다 (0일 경우 해당 기술을 사용하지 않고, 모든 기술의 중요도가 2이면 중요도를 바꾸지 않은것과 똑같습니다).
 마즈'에이알에서는 말이 매우 빨리 전달되어서, %s 소환수라면 앞으로 소환되는 같은 종류의 모든 소환수에게 이 기준이 적용됩니다.
-]]):format(anm:capitalize():addJosa("는"), anm:addJosa("가"))}
+]]):format((actor.kr_display_name or actor.name):capitalize():addJosa("는"), (actor.kr_display_name or actor.name):addJosa("가"))}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), height=self.ih, no_color_bleed=true}
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - 10), height=self.ih - 10, sortable=true, scrollbar=true, columns={
 		{name="", width={20,"fixed"}, display_prop="char", sort="id"},
-		{name="기술 이름", width=72, display_prop="kr_name", sort="kr_name"},
+		{name="기술 이름", width=72, display_prop="kr_name", sort="kr_name"}, --@@ 원문이름 name대신 한글이름 kr_name 사용하도록 수정
 		{name="중요도", width=20, display_prop="multiplier", sort="multiplier"},
 	}, list={}, fct=function(item) self:use(item) end, select=function(item, sel) self:select(item) end}
 
@@ -107,9 +105,8 @@ function _M:generateList()
 		local t = self.actor:getTalentFromId(tid)
 		if t.mode ~= "passive" and t.hide ~= "true" then
 			local multiplier = self.actor.ai_talents and self.actor.ai_talents[tid] or 1
-			--@@
-			local tn = t.kr_display_name or t.name
-			list[#list+1] = {id=#list+1, kr_name=tn:capitalize(), name=t.name:capitalize(), multiplier=multiplier, tid=tid, desc=self.actor:getTalentFullDescription(t)}
+			local tn = t.kr_display_name or t.name --@@ 109 사용 : 한글 이름 저장
+			list[#list+1] = {id=#list+1, kr_name=tn:capitalize(), name=t.name:capitalize(), multiplier=multiplier, tid=tid, desc=self.actor:getTalentFullDescription(t)} --@@ kr_name 추가하고 한글이름 저장
 		end
 	end
 

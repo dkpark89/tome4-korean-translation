@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 -- Dream-Forge Hammer
 function useDreamHammer(self)
 	local combat = {
@@ -108,7 +110,7 @@ newTalent{
 		local weapon_crit = useDreamHammer(self).physcrit
 		return ([[꿈의 대장간에서 망치를 만들어낸 뒤, 근처의 적에게 휘둘러 %d%% 무기 피해를 줍니다. 공격이 명중하면, 꿈의 망치 기술 중 하나의 재사용 대기시간이 초기화됩니다.
 		기술 레벨이 5 이상이면, 기술 두 개의 재사용 대기시간이 동시에 초기화됩니다.
-		꿈의 망치의 성능은 정신력 능력치의 영향을 받아 증가합니다.
+		꿈의 망치의 성능은 정신력의 영향을 받아 증가합니다.
 		
 		* 현재 꿈의 망치의 성능
 		기본 공격력 : %0.2f - %0.2f
@@ -212,7 +214,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getStun(self, t), {apply_power=self:combatMindpower()})
 			else
-				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 			if rng.percent(50) then
 				game.level.map:particleEmitter(target.x, target.y, 1, "generic_discharge", {rm=225, rM=255, gm=0, gM=0, bm=0, bM=0, am=35, aM=90})
@@ -230,7 +232,7 @@ newTalent{
 		local stun = t.getStun(self, t)		
 		return ([[꿈의 망치를 휘둘러, 적을 부숴버립니다. %d%% 무기 피해를 주고, %d 턴 동안 적을 기절시킵니다.
 		그리고, 꿈의 망치의 피해량이 %d, 피해 상승량이 %d%% 증가하게 됩니다.
-		기절 확률은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damage * 100, stun, power, percent * 100)
+		기절 확률은 정신력의 영향을 받아 증가합니다.]]):format(damage * 100, stun, power, percent * 100)
 	end,
 }
 
@@ -282,6 +284,6 @@ newTalent{
 		local project = t.getProject(self, t) /2
 		return ([[꿈의 망치로 대상을 공격하여, %d%% 무기 피해를 줍니다. 공격이 성공할 경우, 공격을 통해 생긴 메아리가 주변 %d 칸 반경의 적들을 휩쓸어 똑같은 피해를 줍니다.
 		그리고, 꿈의 망치에 %0.2f 정신 피해, %0.2f 화염 피해가 추가됩니다.
-		정신 피해와 화염 피해 추가량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damage * 100, radius, damDesc(self, DamageType.MIND, project), damDesc(self, DamageType.FIRE, project))
+		정신 피해와 화염 피해 추가량은 정신력의 영향을 받아 증가합니다.]]):format(damage * 100, radius, damDesc(self, DamageType.MIND, project), damDesc(self, DamageType.FIRE, project))
 	end,
 }

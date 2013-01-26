@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Death Dance",
@@ -196,7 +196,7 @@ newTalent{
 				game.logSeen(target, "%s에게 죽음의 고통을 안겨줬습니다!", (target.kr_display_name or target.name):capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s 죽음의 고통을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) --@@
+				game.logSeen(target, "%s 죽음의 고통을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return true
@@ -205,7 +205,7 @@ newTalent{
 		return ([[적중시 무조건 치명타 효과가 발생하며, %d%% 의 무기 피해를 주는 즉사 공격을 시도합니다. 
 		공격을 받은 대상이 빈사상태 (생명력 20%% 미만) 이며 대상이 저항하지 못했을 경우, 대상은 즉사합니다.
 		기술 레벨이 4 이상이면, 남은 체력의 절반을 쏟아부어 그만큼 더 강력한 공격을 할 수 있습니다.
-		즉사 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
+		즉사 확률은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
 	end,
 }
 
@@ -250,7 +250,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상의 머리를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 기절시킵니다.
-		기절 확률은 물리력 능력치의 영향을 받아 증가합니다.]])
+		기절 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 		2 + math.floor(self:getTalentLevel(t)))
 	end,
@@ -290,7 +290,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 대상의 방어도를 %d 만큼, %d 턴 동안 감소시킵니다.
-		방어도 감소 확률은 물리력 능력치의 영향을 받아 증가합니다.]])
+		방어도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 			5 * self:getTalentLevel(t),
@@ -333,7 +333,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상의 팔을 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 대상의 정확도를 %d 만큼, %d 턴 동안 감소시킵니다.
-		정확도 감소 확률은 물리력 능력치의 영향을 받아 증가합니다.]])
+		정확도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 			3 * self:getTalentLevel(t),

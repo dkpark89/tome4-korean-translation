@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 
 --- Handles actors stats
@@ -118,12 +118,9 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent)
 	local ab = _M.talents_def[id]
 	assert(ab, "trying to cast talent "..tostring(id).." but it is not defined")
 
-	--@@
-	local abn = ab.kr_display_name or ab.name
-	
 	if ab.mode == "activated" and ab.action then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", abn:capitalize():addJosa("는"), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", (ab.kr_display_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		if not self:preUseTalent(ab, silent) then return end
@@ -149,7 +146,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent)
 		if not ok and err then print(debug.traceback(co)) error(err) end
 	elseif ab.mode == "sustained" and ab.activate and ab.deactivate then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", abn:capitalize():addJosa("는"), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", (ab.kr_display_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		if not self:preUseTalent(ab, silent) then return end
@@ -198,9 +195,8 @@ function _M:useTalentMessage(ab)
 	local str = util.getval(ab.message, self, ab)
 	local _, _, target = self:getTarget()
 	local tname = "누군가"
-	--@@
 	if target then tname = target.kr_display_name or target.name end
-	local sname = self.kr_display_name or self.name
+	local sname = self.kr_display_name or self.name --@@ 200~212 사용 : 한글 이름 저장 변수
 	str = str:gsub("@Source@", sname:capitalize())
 	str = str:gsub("@source@", sname)
 	str = str:gsub("@Source1@", sname:capitalize():addJosa("가"))
@@ -479,7 +475,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 		for s, v in pairs(req.stat) do
 			v = util.getval(v, tlev)
 			local c = (self:getStat(s) >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-			str:add(c, ("- %s %d"):format(self.stats_def[s].name:krStat(), v), true) --@@
+			str:add(c, ("- %s %d"):format(self.stats_def[s].name:krStat(), v), true) --@@ 능력치 이름 한글화
 		end
 	end
 	if req.level then
@@ -494,8 +490,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 	if req.talent then
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
-				--@@
-				local tn = self:getTalentFromId(tid[1]).kr_display_name or self:getTalentFromId(tid[1]).name
+				local tn = self:getTalentFromId(tid[1]).kr_display_name or self:getTalentFromId(tid[1]).name --@@ 497, 500 사용 : 너무 길어서 변수로 뺌
 				
 				if type(tid[2]) == "boolean" and tid[2] == false then
 					local c = (not self:knowTalent(tid[1])) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
@@ -506,8 +501,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 				end
 			else
 				local c = self:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				--@@
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 505 사용 : 너무 길어서 변수로 뺌
 				str:add(c, ("- %s 기술\n"):format(tn), true)
 			end
 		end
@@ -688,7 +682,7 @@ end
 
 --- Returns display name
 function _M:getTalentDisplayName(t)
-	if not t.display_name then return (t.kr_display_name or t.name) end --@@
+	if not t.display_name then return (t.kr_display_name or t.name) end --@@ 한글이름 존재시 한글이름 사용
 	if type(t.display_name) == "function" then return t.display_name(self, t) end
 	return t.display_name
 end

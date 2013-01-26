@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newAI("summoned", function(self)
 	-- Run out of time ?
@@ -25,7 +25,6 @@ newAI("summoned", function(self)
 		self.summon_time = self.summon_time - 1
 		if self.summon_time <= 0 then
 			if not self.summon_quiet then
-				--@@
 				game.logPlayer(self.summoner, "#PINK#당신의 소환수 %s 사라집니다.", (self.kr_display_name or self.name):addJosa("가"))
 			end
 			self:die()

@@ -104,9 +104,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 	local t = self:getTalentFromId(self["T_"..name])
 	if cooldown then self:startTalentCooldown(t) end
 	if vocal then
-		--@@
-		local tn = t.kr_display_name or t.name
-		game.logPlayer(self, "당신은 이제 %s 각인을 새겼습니다.", tn)
+		game.logPlayer(self, "당신은 이제 %s 각인을 새겼습니다.", (t.kr_display_name or t.name))
 	end
 
 	-- Hotkey
@@ -146,9 +144,7 @@ function _M:usedInscription(name)
 	d.nb_uses = d.nb_uses - 1
 	if d.nb_uses <= 0 then
 		local t = self:getTalentFromId(self["T_"..name])
-		--@@
-		local tn = t.kr_display_name or t.name
-		game.logPlayer(self, "당신의 %s 각인이 고갈되었습니다!", tn)
+		game.logPlayer(self, "당신의 %s 각인이 고갈되었습니다!", (t.kr_display_name or t.name))
 		game:onTickEnd(function()
 			self:unlearnTalent(self["T_"..name])
 			self.inscriptions[d.__id] = nil

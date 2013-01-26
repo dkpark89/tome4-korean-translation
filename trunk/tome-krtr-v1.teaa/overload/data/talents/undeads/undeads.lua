@@ -56,11 +56,11 @@ newTalent{
 	on_learn = function(self, t) self.auto_id = 2 end,
 	action = function(self, t)
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("elisa-orb-scrying", {name="Past memories"}, self, {version="undead"})
+		local chat = Chat.new("elisa-orb-scrying", {name="과거의 기억"}, self, {version="undead"})
 		chat:invoke()
 		return true
 	end,
 	info = function(self)
-		return ([[You concentrate for a moment to recall some of your memories as a living being and look for knowledge to identify rare objects.]])
+		return ([[당신은 잠시 집중하여 당신이 살아있던 시절의 기억을 되살리고, 진귀한 물건을 감정하기 위한 지식을 찾아봅니다.]])
 	end,
 }

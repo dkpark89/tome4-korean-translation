@@ -48,7 +48,7 @@ newTalent{
 		local firedamageinc = t.getFireDamageIncrease(self, t)
 		return ([[손과 무기가 마법의 불꽃으로 불타올라, 근접 공격에 %0.2f 화염 피해가 추가되고 모든 화염 피해가 %d%% 증가합니다.
 		매 타격마다 %0.2f 체력이 회복되는 효과도 있습니다.
-		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, firedamage), firedamageinc, self:getTalentLevel(t) / 3)
 	end,
 }
@@ -73,7 +73,7 @@ newTalent{
 	info = function(self, t)
 		local reduction = t.getPhysicalReduction(self, t)
 		return ([[대지의 힘으로 피부를 단단하게 만들어, 10 턴 동안 받는 물리 피해를 %d%% 감소시킵니다.
-		피해 감소량은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		피해 감소량은 주문력의 영향을 받아 상승합니다.]]):
 		format(reduction)
 	end,
 }
@@ -109,7 +109,7 @@ newTalent{
 		local icedamageinc = t.getIceDamageIncrease(self, t)
 		return ([[손과 무기가 마법의 전류가 흘러, 근접 공격에 %0.2f 전기 피해가 추가되고 모든 전기 피해가 %d%% 증가합니다.
 		매 타격마다 %0.2f 마나가 회복되며, 25%% 확률로 적이 혼절 상태효과에 걸리는 효과도 있습니다.
-		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, icedamage), icedamageinc, self:getTalentLevel(t) / 3)
 	end,
 }
@@ -146,7 +146,7 @@ newTalent{
 	info = function(self, t)
 		local statinc = t.getStatIncrease(self, t)
 		return ([[잠재된 힘에 집중하여, 각각의 능력치를 %d 에서 11 까지 추가로 끌어올립니다.
-		능력치 상승량은 주문력 능력치의 영향을 받아 상승합니다.]]):
+		능력치 상승량은 주문력의 영향을 받아 상승합니다.]]):
 		format(statinc)
 	end,
 }

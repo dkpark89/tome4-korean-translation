@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newEntity{ define_as = "TRAP_NATURAL_FOREST",
 	type = "natural", subtype="forest", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
@@ -40,9 +40,7 @@ newEntity{ base = "TRAP_NATURAL_FOREST",
 		if who:canBe("stun") then
 			who:setEffect(who.EFF_STUNNED, 4, {apply_power=self.disarm_power + 5})
 		else
-			--@@
-			local wn = who.kr_display_name or who.name
-			game.logSeen(who, "%s 저항했습니다!", wn:capitalize():addJosa("가"))
+			game.logSeen(who, "%s 저항했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 		end
 		return true
 	end

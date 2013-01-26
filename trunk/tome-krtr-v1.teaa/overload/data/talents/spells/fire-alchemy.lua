@@ -45,7 +45,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[대상의 신체 일부를 불태워, 8 턴 동안 총 %0.2f 화염 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
@@ -110,7 +110,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[마법으로 만들어낸 연막탄을 던져, 해당 지역의 시야를 가립니다. 이 기술로 발생한 연막은 %d 턴 후에 사라집니다.
 		연막 내의 적 중 하나에게 화상 상태효과를 가하면, 연막 내의 모든 적이 동시에 화상 상태효과의 영향을 받으며 화상의 지속시간이 %d 턴 증가합니다.
-		연막의 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		연막의 지속시간은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, math.ceil(duration / 3))
 	end,
 }
@@ -155,7 +155,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[불타오르는 화염 폭풍을 주변에 만들어내, 주변 3 칸 반경에 %0.2f 화염 피해를 줍니다. (지속시간 : %d 턴)
 		화염 폭풍 근처에서는 마법을 제어할 수 있어, 동료들이 화염 폭풍에 휘말리지 않게 할 수 있습니다.
-		피해량과 지속시간은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 지속시간은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage), duration)
 	end,
 }
@@ -227,7 +227,7 @@ newTalent{
 		return ([[몸에 순수한 화염이 타올라 화염 저항력이 %d%% 증가하고, 자신을 공격하는 적에게 %0.2f 화염 피해를 줍니다. 
 		또한 느리게 움직이며, 시야 내의 적들을 목표로 하고 %0.2f 화염 피해를 주는 불꽃을 무작위로 만들어냅니다. 이 불꽃은 아군에게 완전히 무해합니다.
 		마법을 유지하는 동안, 매 턴마다 %0.2f 마나가 소진됩니다.
-		피해량과 저항력 상승량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 저항력 상승량은 주문력의 영향을 받아 증가합니다.]]):
 		format(res,onhitdam,insightdam,-manadrain)
 	end,
 }

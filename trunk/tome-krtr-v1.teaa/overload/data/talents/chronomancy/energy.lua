@@ -49,7 +49,7 @@ newTalent{
 	info = function(self, t)
 		local absorption = t.getAbsorption(self, t)
 		return ([[에너지로 이루어진 공격, 즉 마법 공격을 받을 때 피해량을 30%% 감소시킵니다. (최대 피해 감소량 : 7)
-		최대 피해 감소량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(absorption)
+		최대 피해 감소량은 주문력의 영향을 받아 증가합니다.]]):format(absorption)
 	end,
 }
 
@@ -81,7 +81,7 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		return ([[엔트로피 역장을 주변에 만들어 투사체의 속도를 %d%% 감소시키고, 물리 저항력을 %d%% 증가시킵니다.
-		마법의 효과는 주문력 능력치의 영향을 받아 증가합니다.]]):format(power, power / 2)
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):format(power, power / 2)
 	end,
 }
 

@@ -258,9 +258,7 @@ function _M:setPlayer(actor, bypass)
 
 	if not actor.hotkeys_sorted then actor:sortHotkeys() end
 
-	--@@
-	local anm = actor.kr_display_name or actor.name
-	game.logPlayer(actor, "#MOCCASIN#캐릭터 제어를 %s에게로 바꿉니다.", anm)
+	game.logPlayer(actor, "#MOCCASIN#캐릭터 제어를 %s에게로 바꿉니다.", (actor.kr_display_name or actor.name))
 
 	return true
 end
@@ -325,13 +323,10 @@ function _M:giveOrder(actor, order)
 
 	local def = self.members[actor]
 
-	--@@
-	local anm = actor.kr_display_name or actor.name
-
 	if order == "leash" then
-		game:registerDialog(GetQuantity.new("행동 반경 설정: "..anm, "동료의 대표로부터 떨어질수 있는 최대 거리를 설정합니다", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
+		game:registerDialog(GetQuantity.new("행동 반경 설정: "..(actor.kr_display_name or actor.name), "동료의 대표로부터 떨어질수 있는 최대 거리를 설정합니다", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
 			actor.ai_state.tactic_leash = util.bound(qty, 1, actor.ai_state.tactic_leash_max or 100)
-			game.logPlayer(game.player, "%s의 최대 행동 반경이 %d으로 설정되었습니다..", anm:capitalize(), actor.ai_state.tactic_leash)
+			game.logPlayer(game.player, "%s의 최대 행동 반경이 %d으로 설정되었습니다..", (actor.kr_display_name or actor.name):capitalize(), actor.ai_state.tactic_leash)
 		end), 1)
 	elseif order == "anchor" then
 		local co = coroutine.create(function()
@@ -344,9 +339,7 @@ function _M:giveOrder(actor, order)
 					anchor = {x=x, y=y, name="that location"}
 				end
 				actor.ai_state.tactic_leash_anchor = anchor
-				--@@
-				local acn = anchor.kr_display_name or anchor.name
-				game.logPlayer(game.player, "%s %s의 주변에 머뭅니다.", anm:capitalize():addJosa("가"), acn)
+				game.logPlayer(game.player, "%s %s의 주변에 머뭅니다.", (actor.kr_display_name or actor.name):capitalize():addJosa("가"), (anchor.kr_display_name or anchor.name))
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -356,9 +349,7 @@ function _M:giveOrder(actor, order)
 			local x, y, act = game.player:getTarget({type="hit", range=10})
 			if act then
 				actor:setTarget(act)
-				--@@
-				local acn = act.kr_display_name or act.name
-				game.logPlayer(game.player, "%s %s 목표로 합니다.", anm:capitalize():addJosa("가"), acn:addJosa("를"))
+				game.logPlayer(game.player, "%s %s 목표로 합니다.", (actor.kr_display_name or actor.name):capitalize():addJosa("가"), (act.kr_display_name or act.name):addJosa("를"))
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -384,7 +375,7 @@ function _M:giveOrder(actor, order)
 		end
 
 		local dir = game.level.map:compassDirection(actor.escort_target.x - actor.x, actor.escort_target.y - actor.y)
-		actor:doEmote(("포탈은 %s 방향으로 %s 있어요."):format(dir or "???", dist), 45) --@@
+		actor:doEmote(("포탈은 %s 방향으로 %s 있어요."):format(dir or "???", dist), 45) --@@ 변수 순서 조정
 	end
 
 	return true

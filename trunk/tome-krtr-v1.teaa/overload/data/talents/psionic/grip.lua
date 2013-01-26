@@ -94,7 +94,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[염력의 끈으로 대상을 묶어, %d 턴 동안 이동하지 못하게 만듭니다. 지속시간은 정신력 능력치의 영향을 받아 증가합니다.
+		return ([[염력의 끈으로 대상을 묶어, %d 턴 동안 이동하지 못하게 만듭니다. 지속시간은 정신력의 영향을 받아 증가합니다.
 		염동력으로 보석이나 마석을 들고 있을 경우, 기술이 더 강력해집니다.]]):
 		format(dur)
 	end,
@@ -147,7 +147,7 @@ newTalent{
 		local dur = t.getDuration(self, t)
 		local dam = t.getDamage(self, t)
 		return ([[염력으로 대상의 뼈를 으스러뜨릴 정도의 강한 압력을 가해, %d 턴 동안 대상을 50%% 감속시키고 매 턴마다 %d 피해를 줍니다.
-		지속시간과 피해량은 정신력 능력치의 영향을 받아 증가합니다.
+		지속시간과 피해량은 정신력의 영향을 받아 증가합니다.
 		염동력으로 보석이나 마석을 들고 있을 경우, 기술이 더 강력해집니다.]]):
 		format(dur, dam)
 	end,

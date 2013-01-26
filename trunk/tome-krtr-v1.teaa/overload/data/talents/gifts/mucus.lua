@@ -60,7 +60,7 @@ newTalent{
 		동료가 점액을 밟을 경우 매 턴마다 평정을 %d 회복하게 됩니다.
 		점액은 %d 턴 동안 유지됩니다.
 		기술 레벨이 4 이상이면, 점액이 주변 1 칸 반경까지 퍼지게 됩니다.
-		피해량과 평정 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량과 평정 회복량은 정신력의 영향을 받아 증가합니다.]]):
 		format(dur, damDesc(self, DamageType.NATURE, dam), equi, dur)
 	end,
 }
@@ -123,8 +123,8 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		return ([[자연의 힘을 빌어, 주변 %d 칸 반경의 지면에 산성 폭발을 일으킵니다. 폭발에 휩쓸린 적은 %0.2f 산성 피해를 입으며, 폭발한 곳에 점액이 남게 됩니다.
-		Also if you have any Mucus Oozes active they will, if in line of sight, instantly throw a slime spit (at reduced power) at one of the target hit by the splash.
-		Damage will increase with Mindpower.]]):
+		또 당신이 진흙 점액을 데리고 있고 그것이 직선상에 있다면, 산성 폭발에 닿은 대상 중 하나에게 즉시 (감소된 위력으로) 슬라임을 뱉습니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, dam))
 	end,
 }
@@ -149,8 +149,8 @@ newTalent{ short_name = "MUCUS_OOZE_SPIT",
 		return true
 	end,
 	info = function(self, t)
-		return ([[Spits a bolt of slime doing %0.2f slime damage.
-		The damage will increase with mindpower.]]):format(damDesc(self, DamageType.SLIME, self:combatTalentMindDamage(t, 8, 80)))
+		return ([[%0.2f 슬라임 피해를 주는 슬라임 화살을 뱉습니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.SLIME, self:combatTalentMindDamage(t, 8, 80)))
 	end,
 }
 
@@ -235,11 +235,11 @@ newTalent{
 
 	end,
 	info = function(self, t)
-		return ([[Your mucus is brought to near sentience. Each turn there is a %d%% chance that a random spot of your mucus will spawn a Mucus Ooze.
-		Mucus Oozes will attack any of your foes by spitting slime at them.
-		You may have up to %d Oozes active at any time (based on your Cunning).
-		Any time you deal a mental critical, all your Mucus Oozes' remaining time will increase by 2.
-		The effect will increase with your Mindpower.]]):
+		return ([[당신의 점액은 감지력과 비슷한 능력을 가지고 있습니다. 매 턴마다 %d%% 의 확률로 당신의 점액은 임의의 장소에 진흙 점액을 낳습니다.
+		진흙 점액은 당신의 적에게 슬라임을 뱉는 공격을 합니다.
+		(당신의 교활함에 따라) 당신은 최대 %d 마리의 진흙 점액을 가질 수 있습니다.
+		당신이 정신적 치명타 공격을 성공시킬때 마다, 모든 진흙 점액의 유지 시간이 2 턴 증가합니다.
+		이 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t), t.getMax(self, t))
 	end,
 }
@@ -294,10 +294,10 @@ newTalent{
 	info = function(self, t)
 		local nb = t.getNb(self, t)
 		local energy = t.getEnergy(self, t)
-		return ([[You temporarily merge with your mucus, cleasing you from %d physical or magical effects.
-		You can then reappear on any tile in sight that is also covered by mucus.
-		This takes %d%% of a turn to do.
-		Only works when standing over mucus.]]):
+		return ([[당신은 일시적으로 당신의 점액과 결합하여, %d 가지의 물리 효과나 주문 효과를 제거합니다.
+		당신은 시야내의 점액으로 뒤덮힌 장소 중 임의의 위치에 다시 나타날 수 있습니다.
+		이 과정은 한 턴의 %d%% 만큼 시간이 걸립니다.
+		이 기술은 점액 위에 서 있을때에만 사용할 수 있습니다.]]):
 		format(nb, (energy) * 100)
 	end,
 }

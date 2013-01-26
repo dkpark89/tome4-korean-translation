@@ -111,7 +111,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[무언가를 죽일 때, 쓸데없이 남는 피해량을 더이상 낭비하지 않게 됩니다. 남는 피해량의 %d%% 만큼이 폭발하여, 주변 2 칸 반경에 황폐화 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(20 + self:combatTalentSpellDamage(t, 10, 70))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(20 + self:combatTalentSpellDamage(t, 10, 70))
 	end,
 }
 
@@ -142,7 +142,7 @@ newTalent{
 	info = function(self, t)
 		local l, c = t.getPower(self, t)
 		return ([[최대 생명력의 %d%% 이상을 한번에 잃으면, %d%% 확률로 모든 기술들의 재사용 대기시간이 1 감소합니다.
-		감소 확률은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		감소 확률은 주문력의 영향을 받아 증가합니다.]]):
 		format(l, c)
 	end,
 }

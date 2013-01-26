@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Uppercut",
@@ -66,7 +66,7 @@ newTalent{
 		local stun = math.ceil(self:getTalentLevel(t) * 0.25)
 		local stunmax = math.ceil (self:getTalentLevel(t) * 1.25)
 		return ([[적을 올려쳐서 %d%% 의 피해를 주고, 연계 점수에 따라 %d 에서 %d 턴 동안 기절시킵니다.
-		기절 확률은 물리력 능력치의 영향을 받아 증가합니다.
+		기절 확률은 물리력의 영향을 받아 증가합니다.
 		이 기술은 마무리 기술이기 때문에, 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, stun, stunmax)
 	end,
@@ -183,7 +183,7 @@ newTalent{
 		local daze = math.ceil(self:getTalentLevel(t) * 0.25)
 		local dazemax = math.ceil (self:getTalentLevel(t) * 1.25)
 		return ([[대상의 몸통을 가격하여 %d%% 의 피해를 주고, 연계 점수당 대상의 체력을 %d 씩 소진시키며, 연계 점수에 따라 대상을 %d 에서 %d 턴 동안 혼절시킵니다.
-		혼절 확률은 물리력 능력치의 영향을 받아 증가합니다.
+		혼절 확률은 물리력의 영향을 받아 증가합니다.
 		이 기술은 마무리 기술이기 때문에, 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, drain, daze, dazemax)
 	end,

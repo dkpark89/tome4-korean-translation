@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 local Dialog = require "engine.ui.Dialog"
@@ -37,12 +37,10 @@ function _M:init(actor)
 	if _M.cs_player_dup and _M.cs_player_dup.name ~= actor.name then _M.cs_player_dup = nil end
 
 	self.actor = actor
-	--@@
-	local san = self.actor.kr_display_name and (self.actor.kr_display_name.."["..self.actor.name.."]") or self.actor.name
+	local san = self.actor.kr_display_name and (self.actor.kr_display_name.."["..self.actor.name.."]") or self.actor.name --@@ 41 사용: 이름 '한글이름[원문이름]'으로 저장
 	Dialog.init(self, "캐릭터 상태: "..san, math.max(game.w * 0.7, 950), 500)
 
-	--@@
-	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 13)
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 13) --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 
 	self.c_general = Tab.new{title="일반", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("general") end end}
@@ -69,7 +67,7 @@ function _M:init(actor)
 	local minutes = math.floor(game.total_playtime/60) % 60
 	local seconds = game.total_playtime % 60
 
-	--@@
+	--@@ 71~79 : 단수/복수 때문에 생기는 변수들 전부 제거
 	if days > 0 then
 		playtime = ("%i 일 %i 시간 %i 분 %s 초"):format(days, hours, minutes, seconds)
 	elseif hours > 0 then
@@ -80,8 +78,7 @@ function _M:init(actor)
 		playtime = ("%s 초"):format(seconds)
 	end
 
-	--@@
-	self.c_playtime = Textzone.new{width=self.iw * 0.4, auto_height=true, no_color_bleed=true, font = self.font, text=("#GOLD#모험 일수 / 현재 달:#LAST# %d / %s\n#GOLD#플레이 시간:#LAST# %s"):format(game.turn / game.calendar.DAY, game.calendar:getMonthName(game.calendar:getDayOfYear(game.turn)):krMonth(), playtime)}
+	self.c_playtime = Textzone.new{width=self.iw * 0.4, auto_height=true, no_color_bleed=true, font = self.font, text=("#GOLD#모험 일수 / 현재 달:#LAST# %d / %s\n#GOLD#플레이 시간:#LAST# %s"):format(game.turn / game.calendar.DAY, game.calendar:getMonthName(game.calendar:getDayOfYear(game.turn)):krMonth(), playtime)} --@@ 달이름 한글화
 
 	self.c_desc = SurfaceZone.new{width=self.iw, height=self.ih - self.c_general.h - self.vs.h - self.c_tut.h,alpha=0}
 
@@ -319,10 +316,10 @@ function _M:drawDialog(kind, actor_to_compare)
 		local cur_exp, max_exp = player.exp, player:getExpChart(player.level+1)
 		h = 0
 		w = 0
-		s:drawStringBlended(self.font, "성별  : "..((player.descriptor and player.descriptor.sex) or (player.female and "Female" or "Male")):krSex(), w, h, 0, 200, 255, true) h = h + self.font_h --@@
-		s:drawStringBlended(self.font, (player.descriptor and "종족  : " or "종류  : ")..((player.descriptor and player.descriptor.subrace) or player.type:capitalize()):krActorType(), w, h, 0, 200, 255, true) h = h + self.font_h --@@
-		s:drawStringBlended(self.font, (player.descriptor and "직업  : " or "유형  : ")..((player.descriptor and player.descriptor.subclass) or player.subtype:capitalize()):krActorType(), w, h, 0, 200, 255, true) h = h + self.font_h --@@
-		s:drawStringBlended(self.font, "크기  : "..(player:TextSizeCategory():capitalize():krSize()), w, h, 0, 200, 255, true) h = h + self.font_h --@@
+		s:drawStringBlended(self.font, "성별  : "..((player.descriptor and player.descriptor.sex) or (player.female and "Female" or "Male")):krSex(), w, h, 0, 200, 255, true) h = h + self.font_h --@@ 성별 한글화
+		s:drawStringBlended(self.font, (player.descriptor and "종족  : " or "종류  : ")..((player.descriptor and player.descriptor.subrace) or player.type:capitalize()):krActorType(), w, h, 0, 200, 255, true) h = h + self.font_h --@@ 종족 한글화
+		s:drawStringBlended(self.font, (player.descriptor and "직업  : " or "유형  : ")..((player.descriptor and player.descriptor.subclass) or player.subtype:capitalize()):krActorType(), w, h, 0, 200, 255, true) h = h + self.font_h --@@ 직업 한글화
+		s:drawStringBlended(self.font, "크기  : "..(player:TextSizeCategory():capitalize():krSize()), w, h, 0, 200, 255, true) h = h + self.font_h --@@ 크기 한글화
 
 		h = h + self.font_h
 		if player:attr("forbid_arcane") then
@@ -504,7 +501,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			self:mouseTooltip(tooltip, s:drawColorStringBlended(self.font, StatTxt, w, h, 255, 255, 255, true)) h = h + self.font_h
 		end
 
-		--@@
+		--@@ 505~510 : 능력치 이름 한글화
 		print_stat(self.actor.STAT_STR, ("%-12s"):format(Stats.stats_def[self.actor.STAT_STR].name:capitalize():krStat()), self.TOOLTIP_STR)
 		print_stat(self.actor.STAT_DEX, ("%-12s"):format(Stats.stats_def[self.actor.STAT_DEX].name:capitalize():krStat()), self.TOOLTIP_DEX)
 		print_stat(self.actor.STAT_MAG, ("%-12s"):format(Stats.stats_def[self.actor.STAT_MAG].name:capitalize():krStat()), self.TOOLTIP_MAG)
@@ -519,9 +516,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i = 1, player.max_inscriptions do if player.inscriptions[i] then
 			local t = player:getTalentFromId("T_"..player.inscriptions[i])
 			local desc = player:getTalentFullDescription(t)
-			--@@
-			local tn = t.kr_display_name or t.name
-			self:mouseTooltip("#GOLD##{bold}#"..tn.."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
+			self:mouseTooltip("#GOLD##{bold}#"..(t.kr_display_name or t.name).."#{normal}##WHITE#\n"..tostring(desc), s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(tn), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end end
 
 		if any_esp then
@@ -529,7 +524,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			self:mouseTooltip(self.TOOLTIP_ESP,  s:drawColorStringBlended(self.font, ("보유한 투시력: "), w, h, 255, 255, 255, true)) h = h + self.font_h
 			if not esps_compare["All"] then
 				for type, v in pairs(esps_compare) do
-					self:mouseTooltip(self.TOOLTIP_ESP,  s:drawColorStringBlended(self.font, ("%s%s "):format(v[2] and (v[1] and "#GOLD#" or "#00ff00#") or "#ff0000#", type:capitalize():krActorType()), w, h, 255, 255, 255, true)) h = h + self.font_h --@@
+					self:mouseTooltip(self.TOOLTIP_ESP,  s:drawColorStringBlended(self.font, ("%s%s "):format(v[2] and (v[1] and "#GOLD#" or "#00ff00#") or "#ff0000#", type:capitalize():krActorType()), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			else
 				self:mouseTooltip(self.TOOLTIP_ESP_ALL,  s:drawColorStringBlended(self.font, ("%s전체 "):format(esps_compare["All"][1] and "#GOLD#" or "#00ff00#"), w, h, 255, 255, 255, true)) h = h + self.font_h
@@ -542,23 +537,18 @@ function _M:drawDialog(kind, actor_to_compare)
 		for tid, act in pairs(player.sustain_talents) do
 			if act then
 				local t = player:getTalentFromId(tid)
-				--@@
-				local tn = t.kr_display_name or t.name
-				local desc = "#GOLD##{bold}#"..tn.."#{normal}##WHITE#\n"..tostring(player:getTalentFullDescription(t))
-				--@@
-				local ptn = player:getTalentFromId(tid).kr_display_name or player:getTalentFromId(tid).name
+				local desc = "#GOLD##{bold}#"..(t.kr_display_name or t.name).."#{normal}##WHITE#\n"..tostring(player:getTalentFullDescription(t))
+				local ptn = player:getTalentFromId(tid).kr_display_name or player:getTalentFromId(tid).name --@@ 542 사용 : 길어져서 변수로 뺌
 				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(ptn), w, h, 255, 255, 255, true)) h = h + self.font_h
 			end
 		end
 		for eff_id, p in pairs(player.tmp) do
 			local e = player.tempeffect_def[eff_id]
 			local desc = e.long_desc(player, p)
-			--@@
-			local ed = e.kr_display_name or e.desc
 			if e.status == "detrimental" then
-				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_RED#%s"):format(ed), w, h, 255, 255, 255, true)) h = h + self.font_h
+				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_RED#%s"):format(e.kr_display_name or e.desc), w, h, 255, 255, 255, true)) h = h + self.font_h
 			else
-				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(ed), w, h, 255, 255, 255, true)) h = h + self.font_h
+				self:mouseTooltip(desc, s:drawColorStringBlended(self.font, ("#LIGHT_GREEN#%s"):format(e.kr_display_name or e.desc), w, h, 255, 255, 255, true)) h = h + self.font_h
 			end
 		end
 	elseif kind=="attack" then
@@ -697,18 +687,15 @@ function _M:drawDialog(kind, actor_to_compare)
 		end
 
 		for i, ts in pairs(inc_damages) do
-			--@@
-			local inm = i.kr_display_name or i.name
-			
 			if ts[1] then
 				if ts[2] and ts[2] ~= ts[1] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format((i.text_color or "#WHITE#"), inm:capitalize().."#LAST# 피해량", ts[1] + (player.inc_damage.all or 0), ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format((i.text_color or "#WHITE#"), (i.kr_display_name or i.name):capitalize().."#LAST# 피해량", ts[1] + (player.inc_damage.all or 0), ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				else
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%"):format((i.text_color or "#WHITE#"), inm:capitalize().."#LAST# 피해량", ts[1] + (player.inc_damage.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%"):format((i.text_color or "#WHITE#"), (i.kr_display_name or i.name):capitalize().."#LAST# 피해량", ts[1] + (player.inc_damage.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			else
 				if ts[2] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%(%+.0f%%)"):format((i.text_color or "#WHITE#"), inm:capitalize().."#LAST# 피해량", (player.inc_damage.all or 0),-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%(%+.0f%%)"):format((i.text_color or "#WHITE#"), (i.kr_display_name or i.name):capitalize().."#LAST# 피해량", (player.inc_damage.all or 0),-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			end
 		end
@@ -733,16 +720,13 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i, ts in pairs(inc_damage_actor_types) do
 			if ts[1] then
 				if ts[2] and ts[2] ~= ts[1] then
-					--@@
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format(i:capitalize():krActorType().."#LAST# 피해량", ts[1], ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format(i:capitalize():krActorType().."#LAST# 피해량", ts[1], ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				else
-					--@@
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%"):format(i:capitalize():krActorType().."#LAST# 피해량", ts[1]), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%"):format(i:capitalize():krActorType().."#LAST# 피해량", ts[1]), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			else
 				if ts[2] then
-					--@@
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%(%+.0f%%)"):format(i:capitalize():krActorType().."#LAST# 피해량", 0,-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%(%+.0f%%)"):format(i:capitalize():krActorType().."#LAST# 피해량", 0,-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			end
 		end
@@ -770,18 +754,15 @@ function _M:drawDialog(kind, actor_to_compare)
 		end
 
 		for i, ts in pairs(resists_pens) do
-			--@@
-			local inm = i.kr_display_name or i.name
-			
 			if ts[1] then
 				if ts[2] and ts[2] ~= ts[1] then
-					self:mouseTooltip(self.TOOLTIP_RESISTS_PEN, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format((i.text_color or "#WHITE#"), inm:capitalize().."#LAST# 저항 관통", ts[1] + (player.resists_pen.all or 0), ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_RESISTS_PEN, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format((i.text_color or "#WHITE#"), (i.kr_display_name or i.name):capitalize().."#LAST# 저항 관통", ts[1] + (player.resists_pen.all or 0), ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				else
-					self:mouseTooltip(self.TOOLTIP_RESISTS_PEN, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%"):format((i.text_color or "#WHITE#"), inm:capitalize().."#LAST# 저항 관통", ts[1] + (player.resists_pen.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_RESISTS_PEN, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%"):format((i.text_color or "#WHITE#"), (i.kr_display_name or i.name):capitalize().."#LAST# 저항 관통", ts[1] + (player.resists_pen.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			else
 				if ts[2] then
-					self:mouseTooltip(self.TOOLTIP_RESISTS_PEN, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%(%+.0f%%)"):format((i.text_color or "#WHITE#"), inm:capitalize().."#LAST# 저항 관통", (player.resists_pen.all or 0),-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_RESISTS_PEN, s:drawColorStringBlended(self.font, ("%s%-20s: #00ff00#%+d%%(%+.0f%%)"):format((i.text_color or "#WHITE#"), (i.kr_display_name or i.name):capitalize().."#LAST# 저항 관통", (player.resists_pen.all or 0),-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 			end
 		end
@@ -855,16 +836,13 @@ function _M:drawDialog(kind, actor_to_compare)
 		end
 		for i, t in ipairs(DamageType.dam_def) do
 			if player.resists[DamageType[t.type]] and player.resists[DamageType[t.type]] ~= 0 then
-				--@@
-				local tnm = t.kr_display_name or t.name
-				self:mouseTooltip(self.TOOLTIP_RESIST, s:drawColorStringBlended(self.font, ("%s%-10s#LAST#: #00ff00#%3d%% / %d%%"):format((t.text_color or "#WHITE#"), tnm:capitalize(), player:combatGetResist(DamageType[t.type]), (player.resists_cap[DamageType[t.type]] or 0) + (player.resists_cap.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
+				self:mouseTooltip(self.TOOLTIP_RESIST, s:drawColorStringBlended(self.font, ("%s%-10s#LAST#: #00ff00#%3d%% / %d%%"):format((t.text_color or "#WHITE#"), (t.kr_display_name or t.name):capitalize(), player:combatGetResist(DamageType[t.type]), (player.resists_cap[DamageType[t.type]] or 0) + (player.resists_cap.all or 0)), w, h, 255, 255, 255, true)) h = h + self.font_h
 			end
 		end
 		if player.resists_actor_type then
 			for i, t in pairs(player.resists_actor_type) do
 				if t and t ~= 0 then
-					--@@
-					self:mouseTooltip(self.TOOLTIP_RESIST, s:drawColorStringBlended(self.font, ("#ORANGE#%-10s#LAST#: #00ff00#%3d%% / %d%%"):format(i:capitalize():krActorType(), t, player.resists_cap_actor_type or 100), w, h, 255, 255, 255, true)) h = h + self.font_h
+					self:mouseTooltip(self.TOOLTIP_RESIST, s:drawColorStringBlended(self.font, ("#ORANGE#%-10s#LAST#: #00ff00#%3d%% / %d%%"):format(i:capitalize():krActorType(), t, player.resists_cap_actor_type or 100), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			end
 		end
@@ -901,9 +879,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		for i, t in ipairs(DamageType.dam_def) do
 			if player.on_melee_hit[DamageType[t.type]] and player.on_melee_hit[DamageType[t.type]] ~= 0 then
 				local dval = player.on_melee_hit[DamageType[t.type]]
-				--@@
-				local tnm = t.kr_display_name or t.name
-				self:mouseTooltip(self.TOOLTIP_ON_HIT_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-10s#LAST#: #00ff00#%.2f"):format((t.text_color or "#WHITE#"), tnm:capitalize(), (type(dval)=="number") and dval or dval.dam), w, h, 255, 255, 255, true)) h = h + self.font_h
+				self:mouseTooltip(self.TOOLTIP_ON_HIT_DAMAGE, s:drawColorStringBlended(self.font, ("%s%-10s#LAST#: #00ff00#%.2f"):format((t.text_color or "#WHITE#"), (t.kr_display_name or t.name):capitalize(), (type(dval)=="number") and dval or dval.dam), w, h, 255, 255, 255, true)) h = h + self.font_h
 			end
 		end
 
@@ -918,7 +894,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			if player:knowTalent(t.id) and (not t.hide or t.hide ~= "always") then
 				local lvl = player:getTalentLevelRaw(t)
 				list[#list+1] = {
-					name = ("%s (%d)"):format(t.kr_display_name or t.name, lvl), --@@
+					name = ("%s (%d)"):format(t.kr_display_name or t.name, lvl), --@@ 한글이름 추가
 					desc = player:getTalentFullDescription(t):toString(),
 				}
 			end

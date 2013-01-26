@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local Object = require "mod.class.Object"
 
@@ -216,7 +216,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상은 기절합니다. 기절 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상은 기절합니다. 기절 확률은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
@@ -247,7 +247,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상의 무장이 해제됩니다. 무장 해제 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상의 무장이 해제됩니다. 무장 해제 확률은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
@@ -280,7 +280,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 질식 상태가 됩니다. 질식 상태의 위력은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 질식 상태가 됩니다. 질식 상태의 위력은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
@@ -314,7 +314,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 밀려납니다. 밀려날 확률은 물리력 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.5, 2))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 밀려납니다. 밀려날 확률은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.5, 2))
 	end,
 }
 
@@ -546,7 +546,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상에게 물줄기를 발사하여, %0.2f 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(12 + self:combatSpellpower(0.25) * self:getTalentLevel(t))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(12 + self:combatSpellpower(0.25) * self:getTalentLevel(t))
 	end,
 }
 
@@ -572,7 +572,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상에게 강력한 물줄기를 발사하여, %0.2f 피해를 주고 4 턴 동안 기절시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(12 + self:combatSpellpower(0.20) * self:getTalentLevel(t))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(12 + self:combatSpellpower(0.20) * self:getTalentLevel(t))
 	end,
 }
 
@@ -599,7 +599,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[느리게 움직이는 공허의 돌풍을 발사하여, %0.2f 마법 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.ARCANE, self:combatTalentSpellDamage(t, 15, 240)))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.ARCANE, self:combatTalentSpellDamage(t, 15, 240)))
 	end,
 }
 
@@ -1132,7 +1132,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[염동력으로 탄환을 만들어, %0.2f 물리 피해를 주고 대상을 밀어냅니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentMindDamage(t, 10, 170))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(self:combatTalentMindDamage(t, 10, 170))
 	end,
 }
 
@@ -1385,7 +1385,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[%d 턴 동안 작은 화산을 소환합니다. 매 턴마다 적에게 용암 덩어리를 %d 개 분출하여, %0.2f 화염 피해와 %0.2f 물리 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t), math.floor(self:getTalentLevel(self.T_VOLCANO)), damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(self.T_VOLCANO, 15, 80) / 2), damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(self.T_VOLCANO, 15, 80) / 2))
 	end,
 }
@@ -1615,7 +1615,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[암석의 주먹을 발사하여, %0.2f 물리 피해를 주고 대상을 뒤로 밀어냅니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 
@@ -1659,7 +1659,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[땅에서 산성 증기가 뿜어져나와, 주변 3 칸 반경에 %d 턴 동안 %0.2f 산성 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, damDesc(self, DamageType.ACID, damage))
 	end,
 }
@@ -1682,7 +1682,7 @@ newTalent{
 	info = function(self, t)
 		local restoration = t.getManaRestoration(self, t)
 		return ([[마나의 흐름에 몸을 맡겨, 10 턴 동안 매 턴마다 %d 마나를 회복합니다.
-		마나 회복량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		마나 회복량은 주문력의 영향을 받아 증가합니다.]]):
 		format(restoration)
 	end,
 }
@@ -1754,7 +1754,7 @@ newTalent{
 		local icedamage = t.getIceDamage(self, t)
 		local icedamageinc = t.getIceDamageIncrease(self, t)
 		return ([[손과 무기를 냉기로 감싸 매 타격마다 %d 냉기 피해를 주고, 적에게 주는 냉기 피해량을 %d%% 증가시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, icedamage), icedamageinc, self:getTalentLevel(t) / 3)
 	end,
 }
@@ -1835,7 +1835,7 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		return ([[마법의 힘으로 운석을 %d 개 소환하여 지면과 충돌시킵니다. 주변 2 칸 반경에 %0.2f 화염 피해와 %0.2f 물리 피해를 줍니다.
 		그리고, 운석이 떨어진 곳은 8 턴 동안 용암 지역이 됩니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getNb(self, t), damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }
@@ -1860,7 +1860,7 @@ newTalent{
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
 		return ([[자연의 힘을 이용하여, %d 생명력을 회복합니다.
-		생명력 회복량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		생명력 회복량은 정신력의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,
 }
@@ -1895,7 +1895,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[적들을 관통하는 강력한 번개를 불러내, %0.2f - %0.2f 피해를 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage / 3),
 		damDesc(self, DamageType.LIGHTNING, damage))
 	end,

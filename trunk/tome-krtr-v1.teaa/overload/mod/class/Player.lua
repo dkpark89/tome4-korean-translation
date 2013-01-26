@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.Actor"
 require "engine.interface.PlayerRest"
@@ -215,11 +215,9 @@ function _M:describeFloor(x, y, force)
 
 	local g = game.level.map(x, y, game.level.map.TERRAIN)
 	if g and g.change_level then
-		--@@
-		local gn = g.kr_display_name or g.name
-		game.logPlayer(self, "#YELLOW_GREEN#여기에 "..gn:addJosa("이").." 있습니다. ( '<'나 '>' 키를 누르거나 마우스 우클릭을 하세요).")
+		game.logPlayer(self, "#YELLOW_GREEN#여기에 "..(g.kr_display_name or g.name):addJosa("이").." 있습니다. ( '<'나 '>' 키를 누르거나 마우스 우클릭을 하세요).")
 		local sx, sy = game.level.map:getTileToScreen(x, y)
-		game.flyers:add(sx, sy, 60, 0, -1.5, ("층 변경 (%s)!"):format(gn), colors.simple(colors.YELLOW_GREEN), true)
+		game.flyers:add(sx, sy, 60, 0, -1.5, ("층 변경 (%s)!"):format(g.kr_display_name or g.name), colors.simple(colors.YELLOW_GREEN), true)
 	end
 end
 
@@ -291,9 +289,7 @@ function _M:act()
 	if self.summon_time then
 		self.summon_time = self.summon_time - 1
 		if self.summon_time <= 0 then
-			--@@
-			local sn = self.kr_display_name or self.name
-			game.logPlayer(self, "#PINK#당신의 소환물 %s 사라졌다.", sn:addJosa("가"))
+			game.logPlayer(self, "#PINK#당신의 소환물 %s 사라졌다.", (self.kr_display_name or self.name):addJosa("가"))
 			self:die()
 			return true
 		end
@@ -635,10 +631,8 @@ function _M:onTalentCooledDown(tid)
 	local t = self:getTalentFromId(tid)
 
 	local x, y = game.level.map:getTileToScreen(self.x, self.y)
-	--@@
-	local tn = t.kr_display_name or t.name
-	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format(tn:capitalize()), {0,255,00})
-	game.log("#00ff00#%s %s 기술을 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), tn)
+	game.flyers:add(x, y, 30, -0.3, -3.5, ("%s 사용가능"):format((t.kr_display_name or t.name):capitalize()), {0,255,00})
+	game.log("#00ff00#%s %s 기술을 사용할 준비가 되었습니다.", (t.display_entity and t.display_entity:getDisplayString() or ""), (t.kr_display_name or t.name))
 end
 
 --- Tries to get a target from the user
@@ -742,9 +736,7 @@ function _M:restCheck()
 			node.actor:addParticles(engine.Particles.new("notice_enemy", 1))
 		end
 		local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
-		--@@
-		local san = spotted[1].actor.kr_display_name or spotted[1].actor.name
-		return false, ("%s의 적대적 존재 발견 (%s%s)"):format(dir or "???", san, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
+		return false, ("%s의 적대적 존재 발견 (%s%s)"):format(dir or "???", (spotted[1].actor.kr_display_name or spotted[1].actor.name), game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 	end
 
 	-- Resting improves regen
@@ -828,9 +820,7 @@ function _M:runCheck(ignore_memory)
 	local spotted = spotHostiles(self)
 	if #spotted > 0 then
 		local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
-		--@@
-		local san = spotted[1].actor.kr_display_name or spotted[1].actor.name
-		return false, ("%s의 적대적 존재 발견 (%s%s)"):format(dir or "???", san, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
+		return false, ("%s의 적대적 존재 발견 (%s%s)"):format(dir or "???", (spotted[1].actor.kr_display_name or spotted[1].actor.name), game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 	end
 
 	if self.air_regen < 0 and self.air < 0.75 * self.max_air then return false, "숨쉬기 불가능!" end
@@ -1366,9 +1356,7 @@ function _M:useOrbPortal(portal)
 	local spotted = spotHostiles(self)
 	if #spotted > 0 then
 		local dir = game.level.map:compassDirection(spotted[1].x - self.x, spotted[1].y - self.y)
-		--@@
-		local san = spotted[1].actor.kr_display_name or spotted[1].actor.name
-		game.logPlayer(self, "시야내에 적이 있을때에는 오브를 사용할 수 없습니다 (%s : %s%s)", san, dir, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
+		game.logPlayer(self, "시야내에 적이 있을때에는 오브를 사용할 수 없습니다 (%s : %s%s)", (spotted[1].actor.kr_display_name or spotted[1].actor.name), dir, game.level.map:isOnScreen(spotted[1].x, spotted[1].y) and "" or " - 화면바깥")
 		return
 	end
 	if portal.on_preuse then portal:on_preuse(self) end
@@ -1437,9 +1425,7 @@ end
 function _M:on_targeted(act)
 	if self:attr("invisible") or self:attr("stealth") then
 		if self:canSee(act) and game.level.map.seens(act.x, act.y) then
-			--@@
-			local acn = act.kr_display_name or act.name
-			game.logPlayer(self, "#LIGHT_RED#%s 보입니다!", acn:capitalize():addJosa("가"))
+			game.logPlayer(self, "#LIGHT_RED#%s 보입니다!", (act.kr_display_name or act.name):capitalize():addJosa("가"))
 		else
 			game.logPlayer(self, "#LIGHT_RED#무언가가 보입니다!")
 		end
@@ -1448,15 +1434,12 @@ end
 
 ------ Quest Events
 function _M:on_quest_grant(quest)
-	--@@
-	local qn = quest.kr_display_name or quest.name
-	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
-	game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", qn)
+	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", (quest.kr_display_name or quest.name))
+	game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", (quest.kr_display_name or quest.name))
 end
 
 function _M:on_quest_status(quest, status, sub)
-	--@@
-	local qn = quest.kr_display_name or quest.name
+	local qn = (quest.kr_display_name or quest.name) --@@ 1444~1454 사용 : 반복 사용으로 변수로 뺌
 	if sub then
 		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
 		game.bignews:say(60, "#LIGHT_GREEN#'%s' 퀘스트 갱신!", qn)

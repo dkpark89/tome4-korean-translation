@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Slumber",
 	kr_display_name = "숙면",
@@ -64,7 +66,7 @@ newTalent{
 			target:setEffect(target.EFF_SLUMBER, t.getDuration(self, t), {src=self, power=power, waking=is_waking, insomnia=t.getInsomniaPower(self, t), no_ct_effect=true, apply_power=self:combatMindpower()})
 			game.level.map:particleEmitter(target.x, target.y, 1, "generic_charge", {rm=180, rM=200, gm=100, gM=120, bm=30, bM=50, am=70, aM=180})
 		else
-			game.logSeen(self, "%s 잠들지 않았습니다!", target.name:capitalize())
+			game.logSeen(self, "%s 잠들지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		game:playSoundNear(self, "talents/dispel")
 		return true
@@ -75,7 +77,7 @@ newTalent{
 		local insomnia = t.getInsomniaPower(self, t)
 		return([[대상을 %d 턴 동안 재웁니다. 수면 중에는 행동할 수 없게 되며, %d 피해를 받을 때마다 수면의 지속시간이 1 턴씩 줄어들게 됩니다.
 		수면이 끝나면, 대상은 불면증 상태가 되어 잠든 시간 동안 %d%% 수면 저항력을 얻게 됩니다. (최대 10 턴)
-		피해 한계량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, power, insomnia)
+		피해 한계량은 정신력의 영향을 받아 증가합니다.]]):format(duration, power, insomnia)
 	end,
 }
 
@@ -95,7 +97,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return([[잠에서 깨어난 대상이 5 턴 동안 매 턴마다 %0.2f 정신 피해를 받게 됩니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, (damage)))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, (damage)))
 	end,
 }
 
@@ -114,7 +116,7 @@ newTalent{
 		return([[수면의 지속시간이 줄어드는 피해 한계량이 %d%% 증가하여, 더 많은 피해를 줘도 적의 수면 상태가 풀리지 않게 됩니다.
 		그리고, 적이 불면증 상태가 되었을 때 얻는 수면 저항력이 %d%% 감소합니다.
 		따로 계산할 필요 없이, 이 효과들이 모두 적용된 수치가 다른 기술들의 설명에 표시됩니다.
-		피해 한계량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(power_bonus * 100, insomnia)
+		피해 한계량은 정신력의 영향을 받아 증가합니다.]]):format(power_bonus * 100, insomnia)
 	end,
 }
 
@@ -245,6 +247,6 @@ newTalent{
 		return([[%d 턴 동안 수면 중인 대상의 꿈 속으로 들어갑니다. 꿈 속에서는 무적 상태의 잠든 대상을 만날 수 있으며, 대상이 자신의 정신을 보호하기 위해 만든 투영체가 계속 생성됩니다.
 		대상이 자각몽 상태가 아닌 한, 투영체는 기본적으로 본체보다 50%% 더 적은 피해만을 입힐 수 있으며, 반대로 자신은 투영체에게 %d%% 더 강력한 공격을 할 수 있습니다.
 		꿈 속 여행이 끝나면 파괴된 투영체 1 개마다 대상의 생명력이 최대 생명력의 10%% 만틈 감소하며, 1 턴 동안 정신 잠금에 걸립니다.
-		피해량 증가는 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, power)
+		피해량 증가는 정신력의 영향을 받아 증가합니다.]]):format(duration, power)
 	end,
 }

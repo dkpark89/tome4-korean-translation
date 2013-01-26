@@ -75,7 +75,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
 		return ([[주변 %d 칸 반경의 모든 적들에게 %0.2f 시간 피해를 주고, %d 턴 동안 기절시킵니다.
-		기절 지속시간은 괴리 수치, 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		기절 지속시간은 괴리 수치, 피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(damage, radius, duration)
 	end,
 }
@@ -125,7 +125,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
 		return ([[주변 %d 칸 반경의 시간을 %d 턴 동안 왜곡시켜, 적들의 전체 속도를 3 턴 동안 %d%% 감소시키고 %0.2f 시간 피해를 줍니다.
-		감속 효과와 피해량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):
+		감속 효과와 피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, duration, 100 * slow, damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }
@@ -187,6 +187,6 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		return ([[게임 상에서의 4 턴 동안, 전체 속도가 %d%% 상승하게 됩니다. 가속 상태에서 이동할 때마다, 지나간 자리에 자신의 잔상이 2 턴 동안 남아 적의 공격을 받아냅니다.
-		속도 증가량은 괴리 수치와 주문력 능력치의 영향을 받아 증가합니다.]]):format(100 * power)
+		속도 증가량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(100 * power)
 	end,
 }

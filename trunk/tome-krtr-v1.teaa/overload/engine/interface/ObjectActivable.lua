@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 
 --- Handles activable objects, much more simple than actor's resource
@@ -46,20 +46,15 @@ end
 
 function _M:getUseDesc()
 	if self.use_power then
-		--@@
-		local spn = self.use_power.kr_display_name or self.use_power.name
 		if self.show_charges then
-			return ("%s에 사용 가능: 사용가능 횟수 %d/%d."):format(spn:capitalize(), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power))
+			return ("%s에 사용 가능: 사용가능 횟수 %d/%d."):format((self.use_power.kr_display_name or self.use_power.name):capitalize(), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power))
 		else
-			return ("%s에 사용 가능: 소모력 %d, 현재 보유력 %d/%d."):format(spn:capitalize(), self.use_power.power, self.power, self.max_power)
+			return ("%s에 사용 가능: 소모력 %d, 현재 보유력 %d/%d."):format((self.use_power.kr_display_name or self.use_power.name):capitalize(), self.use_power.power, self.power, self.max_power)
 		end
 	elseif self.use_simple then
-		--@@
-		local ssn = self.use_simple.kr_display_name or self.use_simple.name
-		return ("%s 사용 가능."):format(ssn:capitalize():addJosa("로"))
+		return ("%s 사용 가능."):format((self.use_simple.kr_display_name or self.use_simple.name):capitalize():addJosa("로"))
 	elseif self.use_talent then
-		--@@
-		local stn = self:getTalentFromId(self.use_talent.id).kr_display_name or self:getTalentFromId(self.use_talent.id).name
+		local stn = self:getTalentFromId(self.use_talent.id).kr_display_name or self:getTalentFromId(self.use_talent.id).name --@@ 59, 61 사용 : 너무 길어져서 변수로 뺌 
 		if not self.use_talent.power then
 			return ("사용시 기술 발동: %s (레벨 %d)."):format(stn, self.use_talent.level)
 		else

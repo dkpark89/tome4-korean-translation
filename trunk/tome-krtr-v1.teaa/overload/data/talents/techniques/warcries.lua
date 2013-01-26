@@ -118,7 +118,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[전장의 포효를 들은 적들은 두려움에 사로잡혀 몸이 굳어버립니다. 전방 %d 칸 범위에 있는 적의 회피도를 7턴 동안 %d 감소시킵니다.
-		회피도 감소 효과는 물리력 능력치의 영향을 받아 증가합니다.]]):
+		회피도 감소 효과는 물리력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), 7 * self:getTalentLevel(t))
 	end,
 }

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Ghoul",
 	kr_display_name = "구울",
@@ -37,7 +39,7 @@ newTalent{
 		self:onStatChange(self.STAT_CON, -2)
 	end,
 	info = function(self, t)
-		return ([[Improves your ghoulish body, increasing Strength and Constitution by %d.]]):format(2 * self:getTalentLevelRaw(t))
+		return ([[구울의 신체를 개선하여, 힘과 체격 능력치를 %d 만큼 증가시킵니다.]]):format(2 * self:getTalentLevelRaw(t))
 	end,
 }
 
@@ -79,7 +81,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Leap toward your target.]])
+		return ([[목표 지점으로 도약합니다.]])
 	end,
 }
 
@@ -112,8 +114,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = 10 + self:combatTalentStatDamage(t, "con", 10, 60)
-		return ([[Vomit on the ground around you, healing any undead in the area and damaging anyone else.
-		Lasts %d turns, and deals %d blight damage or heals %d life.]]):format(self:getTalentLevelRaw(t) * 2 + 5, damDesc(self, DamageType.BLIGHT, dam), dam * 1.5)
+		return ([[주변의 땅에 토하여, 해당 지역의 언데드에게는 치료 효과를 주고 생명체에게는 피해를 줍니다.
+		%d 턴간 지속되며, 황폐속성의 %d 피해를 주거나 생명력을 %d 만큼 치료합니다.]]):format(self:getTalentLevelRaw(t) * 2 + 5, damDesc(self, DamageType.BLIGHT, dam), dam * 1.5)
 	end,
 }
 
@@ -157,7 +159,7 @@ newTalent{
 		game.zone:addEntity(game.level, m, "actor", target.x, target.y)
 		game.level.map:particleEmitter(target.x, target.y, 1, "slime")
 		game:playSoundNear(target, "talents/slime")
-		game.logPlayer(game.player, "A #DARK_GREEN#ghoul#LAST# rises from the corpse of %s.", target.name)
+		game.logPlayer(game.player, "%s의 시체가 #DARK_GREEN#구울#LAST#이 되어 일어납니다.", (target.kr_display_name or target.name):capitalize())
 	end,
 	action = function(self, t)
 		local tg = {type="hit", range=self:getTalentRange(t)}
@@ -183,7 +185,7 @@ newTalent{
 				end
 				target:setEffect(target.EFF_GHOUL_ROT, 3 + math.ceil(self:getTalentLevel(t)), {src=self, apply_power=self:combatPhysicalpower(), dam=t.getDiseaseDamage(self, t), str=str_damage, con=con_damage, dex=dex_damage, make_ghoul=ghoulify})
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 질병을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -194,10 +196,10 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local disease_damage = t.getDiseaseDamage(self, t)
 		local stat_damage = t.getStatDamage(self, t)
-		return ([[Gnaw your target for %d%% damage.  If your attack hits, the target may be infected with Ghoul Rot for %d turns.
-		Each turn, Ghoul Rot inflicts %0.2f blight damage.  At talent level 2, Ghoul Rot also reduces Strength by %d; at level 3 it reduces Dexterity by %d, and at level 4 it reduces Constitution by %d.
-		At talent level 5 targets suffering from Ghoul Rot rise as friendly ghouls when slain.
-		The blight damage and stat damage scales with your Constitution.]]):
+		return ([[목표를 물어뜯어 공격력의 %d%% 만큼 피해를 줍니다. 공격이 성공하면, 목표는 %d 턴간 '구울의 부패'에 감염됩니다.
+		'구울의 부패'에 감염되면 매턴마다 %0.2f 만큼의 황폐속성 피해릅 입습니다. 기술 레벨이 2가 되면 '구울의 부패'는 힘을 %d 만큼 감소시키고, 기술 레벨 3부터는 민첩도 %d 만큼 감소시키며, 기술 레벨 4부터는 체격도 %d 만큼 감소시킵니다.
+		기술 레벨이 5가 되면, '구울의 부패'에 감염된 채로 죽은 대상은 동료 구울로 되살아나게 됩니다.
+		황폐속성 피해량과 능력치 감소량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage, duration, damDesc(self, DamageType.BLIGHT, disease_damage), stat_damage, stat_damage, stat_damage)
 	end,
 }

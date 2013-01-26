@@ -191,7 +191,7 @@ newTalent{
 		return ([[%d 턴 동안 거북이를 소환하여 적과 싸우게 합니다. 거북이는 적의 공격을 잘 버티지만, 그다지 강력하지는 앟ㄴ슶니다. 하지만 거북이는 적들을 도발하고, 등껍질에 숨어 받는 피해량을 줄일 수 있습니다.
 		소환수의 능력치는 다음과 같습니다 : %d 체력, %d 민첩, 18 의지
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 체격 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 체격 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2.1) * self:getTalentLevel(t) / 5) + self:getTalentLevelRaw(self.T_RESILIENCE)*2,
 		10 + self:getTalentLevel(t) * 2)
@@ -298,7 +298,7 @@ newTalent{
 		return ([[%d 턴 동안 거미를 소환하여 적과 싸우게 합니다. 거미는 적들을 중독시키고 거미줄을 던져 적들을 속박할 수 있습니다.
 		소환수의 능력치는 다음과 같습니다 : %d 민첩, 18 의지, %d 체격
 		소환수의 피해 상승량, 기절/속박/혼란/실명 저항력, 방어구 관통력은 시전자와 동일합니다.
-		소환수의 민첩 능력치는 정신력 능력치의 영향을 받아 증가합니다.]])
+		소환수의 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(math.ceil(self:getTalentLevel(t)) + 5 + self:getTalentLevelRaw(self.T_RESILIENCE),
 		15 + (self:combatMindpower(2) * self:getTalentLevel(t) / 5),
 		10 + self:getTalentLevel(t) * 2,

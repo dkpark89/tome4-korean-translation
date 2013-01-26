@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 -- The basic stuff used to damage a grid
 setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
@@ -60,9 +60,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		if src.turn_procs and src.turn_procs.is_crit and target:attr("ignore_direct_crits") and rng.percent(target:attr("ignore_direct_crits")) then
 			dam = dam / src.turn_procs.crit_power
 			print("[PROJECTOR] crit power reduce dam", dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			game.logSeen(target, "%s 치명타 피해를 뿌리쳤습니다!", tn:capitalize():addJosa("가"))
+			game.logSeen(target, "%s 치명타 피해를 뿌리쳤습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		local hd = {"DamageProjector:base", src=src, x=x, y=y, type=type, dam=dam}
@@ -149,19 +147,16 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		if src.attr and src:attr("encased_in_ice") then
 			local eff = src:hasEffect(src.EFF_FROZEN)
 			eff.hp = eff.hp - dam
-			--@@
-			local srn = src.kr_display_name or src.name
-			local srcname = src.x and src.y and game.level.map.seens(src.x, src.y) and srn:capitalize() or "무엇인가"
+			local srcname = src.x and src.y and game.level.map.seens(src.x, src.y) and (src.kr_display_name or src.name):capitalize() or "무엇인가"
 			if eff.hp < 0 and not eff.begone then
-				game.logSeen(src, "%s 얼음덩이를 박살냈습니다.", srcname:capitalize():addJosa("가")) --@@
+				game.logSeen(src, "%s 얼음덩이를 박살냈습니다.", srcname:capitalize():addJosa("가"))
 				game:onTickEnd(function() src:removeEffect(src.EFF_FROZEN) end)
 				eff.begone = game.turn
 			else
-				--@@
-				local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name
+				local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name --@@ 157줄 사용 - 너무 길어져서 변수로 뺌 
 				game:delayedLogDamage(src, {name="Iceblock", x=src.x, y=src.y}, dam, ("%s%d %s#LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), dtn))
 				if eff.begone and eff.begone < game.turn and eff.hp < 0 then
-					game.logSeen(src, "%s 얼음덩이를 박살냈습니다.", srcname:capitalize():addJosa("가")) --@@
+					game.logSeen(src, "%s 얼음덩이를 박살냈습니다.", srcname:capitalize():addJosa("가"))
 					src:removeEffect(src.EFF_FROZEN)
 				end
 			end
@@ -357,8 +352,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		-- Log damage for later
 		if not DamageType:get(type).hideMessage then
 			local srcname = src.x and src.y and game.level.map.seens(src.x, src.y) and src.name:capitalize() or "Something"
-			--@@
-			local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name
+			local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name --@@ 357, 359 사용 : 너무 길어져서 변수로 뺌
 			if src.turn_procs and src.turn_procs.is_crit then
 				game:delayedLogDamage(src, target, dam, ("#{bold}#%s%d %s#{normal}##LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), dtn), true)
 			else
@@ -403,10 +397,8 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		-- damage affinity healing
 		if not target.dead and affinity_heal > 0 then
 			target:heal(affinity_heal)
-			--@@
-			local tn = target.kr_display_name or target.name
-			local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name
-			game.logSeen(target, "%s %s%s#LAST# 피해를 이용하여 치료되었습니다!", tn:capitalize():addJosa("가"), DamageType:get(type).text_color or "#aaaaaa#", dtn)
+			local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name --@@ 401 사용 : 너무 길어져서 변수로 뺌
+			game.logSeen(target, "%s %s%s#LAST# 피해를 이용하여 치료되었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), DamageType:get(type).text_color or "#aaaaaa#", dtn)
 		end
 
 		if dam > 0 and src.damage_log and src.damage_log.weapon then
@@ -620,9 +612,7 @@ newDamageType{
 		local target = game.level.map(x, y, Map.ACTOR)
 		-- Spread diseases if possible
 		if realdam > 0 and target and target:attr("diseases_spread_on_blight") and (not extra or not extra.from_disease) then
-			--@@
-			local srn = src.kr_display_name or src.name
-			game.logSeen(src, "%s의 질병이 주위로 퍼졌습니다!", srn:capitalize())
+			game.logSeen(src, "%s의 질병이 주위로 퍼졌습니다!", (src.kr_display_name or src.name):capitalize())
 			if rng.percent(20 + math.sqrt(realdam) * 5) then
 				local t = src:getTalentFromId(src.T_EPIDEMIC)
 				t.do_spread(src, t, target)
@@ -677,9 +667,7 @@ newDamageType{
 				end
 				return DamageType.defaultProjector(src, x, y, type, dam)
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 정신 공격을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 정신 공격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				return DamageType.defaultProjector(src, x, y, type, dam / 2)
 			end
 		end
@@ -707,9 +695,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 기절 효과를 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절 효과를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -754,9 +740,7 @@ newDamageType{
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, math.ceil(dam.dur), {apply_power=dam.power_check or src:combatMindpower() * 0.7})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -776,9 +760,7 @@ newDamageType{
 			if rng.percent(chance) and target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, 3, {apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -795,9 +777,7 @@ newDamageType{
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, 4, {apply_power=src:combatAttack()*0.7, no_ct_effect=true})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -813,9 +793,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -829,9 +807,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatAttack()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -845,9 +821,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatPhysicalpower(), apply_save="combatPhysicalResist"})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 실명의 먹물을 피했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명의 먹물을 피했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -861,9 +835,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam.turns), {apply_power=dam.power, apply_save="combatMentalResist", no_ct_effect=true})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -933,9 +905,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 어둠을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 어둠을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -976,9 +946,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 기절 효과를 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절 효과를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -995,9 +963,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_BURNING_SHOCK, dam.dur, {src=src, power=dam.dam / dam.dur, apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 타오르는 화염을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 타오르는 화염을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1046,9 +1012,7 @@ newDamageType{
 				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "Frozen!", {0,255,155})
 			else
 				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "Resist!", {0,255,155})
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1064,9 +1028,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_DIM_VISION, 7, {sight=dam, apply_power=src:combatAttack()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1083,9 +1045,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, 3, {src=src, apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -1103,9 +1063,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, 3, {src=src, apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -1128,9 +1086,7 @@ newDamageType{
 					t.do_hurricane(src, t, target)
 				end
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -1153,15 +1109,12 @@ newDamageType{
 		end
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(base.power or src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(srcx, srcy, 1)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 파동을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 파동을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1178,15 +1131,12 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam.dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 충격을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 충격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1203,15 +1153,12 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam.dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatMindpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatMindpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 충격을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 충격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1228,15 +1175,12 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam.dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatSpellpower(), target:combatMentalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
 				target:crossTierEffect(target.EFF_BRAINLOCKED, src:combatSpellpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 어둠을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 어둠을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1254,15 +1198,12 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			realdam = DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, dam.dist)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 충격을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 충격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -1279,15 +1220,12 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatMindpower() * 0.8, target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, 3)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatMindpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 충격을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 충격을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1304,15 +1242,12 @@ newDamageType{
 		if target and not tmp[target] then
 			tmp[target] = true
 			DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(dam.x or src.x, dam.y or src.y, dam.dist)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatPhysicalpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 밀어내기를 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀어내기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1327,15 +1262,12 @@ newDamageType{
 		tmp = tmp or {}
 		if target and not tmp[target] then
 			tmp[target] = true
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit(src:combatMindpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("fear") then
 				target:knockback(dam.x, dam.y, dam.dist)
 				target:crossTierEffect(target.EFF_BRAINLOCKED, src:combatMindpower())
-				game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 위협적인 광경을 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 위협적인 광경을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1483,10 +1415,8 @@ newDamageType{
 				src.dug_times = (src.dug_times or 0) + 1
 				game.nicer_tiles:updateAround(game.level, x, y)
 				if not silence then
-					--@@
-					local fn = feat.kr_display_name or feat.name
-					local nfn = (newfeat and (newfeat.kr_display_name or newfeat.name)) or (game.zone.grid_list[newfeat_name].kr_display_name or game.zone.grid_list[newfeat_name].name)
-					game.logSeen({x=x,y=y}, "%s %s 변했습니다.", fn:capitalize():addJosa("가"), nfn:addJosa("로"))
+					local nfn = (newfeat and (newfeat.kr_display_name or newfeat.name)) or (game.zone.grid_list[newfeat_name].kr_display_name or game.zone.grid_list[newfeat_name].name) --@@ 1419 사용 : 너무 길어져서 변수로 뺌 
+					game.logSeen({x=x,y=y}, "%s %s 변했습니다.", (feat.kr_display_name or feat.name):capitalize():addJosa("가"), nfn:addJosa("로"))
 				end
 			end
 		end
@@ -1536,9 +1466,7 @@ newDamageType{
 				target:setEffect(target.EFF_TIME_PRISON, dam, {apply_power=src:combatSpellpower() - (target:attr("continuum_destabilization") or 0), apply_save="combatSpellResist", no_ct_effect=true})
 				target:setEffect(target.EFF_CONTINUUM_DESTABILIZATION, 100, {power=src:combatSpellpower(0.3), no_ct_effect=true})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 시간의 감옥을 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 시간의 감옥을 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1554,9 +1482,7 @@ newDamageType{
 			if target:canBe("confusion") then
 				target:setEffect(target.EFF_CONFUSED, dam.dur, {power=dam.dam, apply_power=(dam.power_check or src.combatSpellpower)(src)})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1573,9 +1499,7 @@ newDamageType{
 			if target:canBe("confusion") then
 				target:setEffect(target.EFF_CONFUSED, 4, {power=75, apply_power=(dam.power_check or src.combatSpellpower)(src), no_ct_effect=true})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1620,9 +1544,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, 4, {apply_power=(dam.power_check or src.combatSpellpower)(src), no_ct_effect=true})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1639,9 +1561,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, dam.dur, {apply_power=src:combatPhysicalpower(), apply_save="combatPhysicalResist"})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 수면의 폭풍을 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 수면의 폭풍을 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1658,9 +1578,7 @@ newDamageType{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, dam.dur, {apply_power=src:combatPhysicalpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1675,16 +1593,11 @@ newDamageType{
 		local realdam = DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if target:checkHit((dam.power_check or src.combatSpellpower)(src), (dam.resist_check or target.combatMentalResist)(target), 0, 95, 15) then
 				target:gainExp(-dam.dam*2)
-				--@@
-				local srn = src.kr_display_name or src.name
-				game.logSeen(target, "%s %s의 경험치를 떨어뜨립니다!", srn:capitalize():addJosa("가"), tn)
+				game.logSeen(target, "%s %s의 경험치를 떨어뜨립니다!", (src.kr_display_name or src.name):capitalize():addJosa("가"), (target.kr_display_name or target.name))
 			else
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -1701,10 +1614,7 @@ newDamageType{
 		local realdam = DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
 		if target and realdam > 0 then
 			src:heal(realdam * dam.healfactor)
-			--@@
-			local srn = src.kr_display_name or src.name
-			local tn = target.kr_display_name or target.name
-			game.logSeen(target, "%s %s의 생명력을 빼앗아갑니다!", srn:capitalize():addJosa("가"), tn)
+			game.logSeen(target, "%s %s의 생명력을 빼앗아갑니다!", (src.kr_display_name or src.name):capitalize():addJosa("가"), (target.kr_display_name or target.name))
 		end
 		return realdam
 	end,
@@ -1863,9 +1773,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 2, {src=src, apply_power=src:combatSpellpower(), min_dur=1})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1939,9 +1847,7 @@ newDamageType{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 2, {apply_power=src:combatSpellpower(), min_dur=1}, reapplied)
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1961,15 +1867,12 @@ newDamageType{
 		-- check knockback
 		if target and not target:attr("never_move") and not tmp[target] then
 			tmp[target] = true
-			--@@
-			local tn = target.kr_display_name or target.name
-				
 			if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 				target:knockback(src.x, src.y, 2)
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
-				game.logSeen(target, "%s 밀려났습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려났습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 밀어내기를 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀어내기를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1986,10 +1889,8 @@ newDamageType{
 				if type(feat.dig) == "function" then newfeat_name, newfeat, silence = feat.grow(src, x, y, feat) end
 				game.level.map(x, y, Map.TERRAIN, newfeat or game.zone.grid_list[newfeat_name])
 				if not silence then
-					--@@
-					local fn = feat.kr_display_name or feat.name
-					local nfn = (newfeat and (newfeat.kr_display_name or newfeat.name)) or (game.zone.grid_list[newfeat_name].kr_display_name or game.zone.grid_list[newfeat_name].name)
-					game.logSeen({x=x,y=y}, "%s %s 변했습니다.", fn:capitalize():addJosa("가"), nfn:addJosa("로"))
+					local nfn = (newfeat and (newfeat.kr_display_name or newfeat.name)) or (game.zone.grid_list[newfeat_name].kr_display_name or game.zone.grid_list[newfeat_name].name) --@@ 1893 사용 : 너무 길어져서 변수로 뺌
+					game.logSeen({x=x,y=y}, "%s %s 변했습니다.", (feat.kr_display_name or feat.name):capitalize():addJosa("가"), nfn:addJosa("로"))
 				end
 			end
 		end
@@ -2008,9 +1909,7 @@ newDamageType{
 			elseif target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, 2, {apply_power=src:combatSpellpower(), min_dur=1}, true)
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -2058,15 +1957,12 @@ newDamageType{
 			elseif target ~= src then
 				DamageType:get(DamageType.LIGHT).projector(src, x, y, DamageType.LIGHT, dam )
 				DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam)
-				--@@
-				local tn = target.kr_display_name or target.name
-				
 				if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 					target:knockback(src.x, src.y, 1)
 					target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
-					game.logSeen(target, "%s 밀려났습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀려났습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				else
-					game.logSeen(target, "%s 밀어내기를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀어내기를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end
@@ -2097,9 +1993,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_FROZEN, dam, {hp=70 + src:combatMindpower() * 10, apply_power=src:combatMindpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -2165,9 +2059,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, dam, {apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 멈추지 않습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 멈추지 않습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -2182,32 +2074,30 @@ newDamageType{
 		-- Pull random effect
 		if target then
 			if src then src:incParadox(-dam.reduction) end
-			--@@
-			local tn = target.kr_display_name or target.name
 			
 			if chance == 1 then
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 3, {apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 기절 효과를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 기절 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			elseif chance == 2 then
 				if target:canBe("blind") then
 					target:setEffect(target.EFF_BLINDED, 3, {apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 실명 효과를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 실명 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			elseif chance == 3 then
 				if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("pin") then
 					target:setEffect(target.EFF_PINNED, 3, {apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 속박 효과를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 속박 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			elseif chance == 4 then
 				if target:canBe("confusion") then
 					target:setEffect(target.EFF_CONFUSED, 3, {power=50, apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 혼란 효과를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 혼란 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end
@@ -2243,10 +2133,7 @@ newDamageType{
 			src.healing_factor = 1
 			src:heal(heal)
 			src.healing_factor = temp
-			--@@
-			local tn = target.kr_display_name or target.name
-			local srn = src.kr_display_name or src.name
-			game.logSeen(target, "%s %s의 생명력 %d을 먹어치웠습니다!", srn:capitalize():addJosa("가"), tn, heal) --@@
+			game.logSeen(target, "%s %s의 생명력 %d을 먹어치웠습니다!", (src.kr_display_name or src.name):capitalize():addJosa("가"), (target.kr_display_name or target.name), heal) --@@ 변수 순서 조정
 		end
 	end,
 	hideMessage=true,
@@ -2292,9 +2179,7 @@ newDamageType{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 5, {no_ct_effect=true})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -2313,9 +2198,7 @@ newDamageType{
 				target:setEffect(target.EFF_MANAWORM, 5, {power=dam * 5, src=src, no_ct_effect=true})
 				src:disappear(src)
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 아무런 영향을 받지 않습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 아무런 영향을 받지 않습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -2350,9 +2233,7 @@ newDamageType{
 			if target:canBe(what) then
 				target:setEffect(what == "blind" and target.EFF_BANE_BLINDED or target.EFF_BANE_CONFUSED, math.ceil(dam.dur), {src=src, power=50, dam=dam.dam, apply_power=src:combatSpellpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 파멸을 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 파멸을 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -2588,16 +2469,13 @@ newDamageType{
 				DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 			end
 			-- Do knockback
-			--@@
-			local tn = target.kr_display_name or target.name
-			
 			if dam.knockback then
 				if target:checkHit(src:combatMindpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 					target:knockback(src.x, src.y, dam.knockback)
 					target:crossTierEffect(target.EFF_OFFBALANCE, src:combatMindpower())
-					game.logSeen(target, "%s 밀려났습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀려났습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				else
-					game.logSeen(target, "%s 밀어내기를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀어내기를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 			-- Do stun
@@ -2605,7 +2483,7 @@ newDamageType{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, dam.stun, {apply_power=src:combatMindpower()})
 				else
-					game.logSeen(target, "%s 기절 효과를 저항했습니다.", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 기절 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 			-- Reset resists pen
@@ -2627,8 +2505,6 @@ newDamageType{
 		tmp = tmp or {}
 		if _G.type(dam) == "table" then dam, power, dur, chance, dist, do_particles = dam.dam, dam.power, dam.dur, dam.chance, dam.dist, dam.do_particles end
 		if target and not tmp[target] then
-			--@@
-			local tn = target.kr_display_name or target.name
 			if src:checkHit(src:combatMindpower(), target:combatMentalResist(), 0, 95) then
 				DamageType:get(DamageType.MIND).projector(src, x, y, DamageType.MIND, {dam=dam/2, alwaysHit=true})
 				DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam/2)
@@ -2644,9 +2520,9 @@ newDamageType{
 					if target:canBe("knockback") then
 						target:knockback(src.x, src.y, dist)
 						target:crossTierEffect(target.EFF_OFFBALANCE, src:combatMindpower())
-						game.logSeen(target, "%s 밀려났습니다!", tn:capitalize():addJosa("가"))
+						game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					else
-						game.logSeen(target, "%s 연마의 굉음을 저항했습니다!", tn:capitalize():addJosa("가"))
+						game.logSeen(target, "%s 연마의 굉음을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 				if do_particles then
@@ -2659,7 +2535,7 @@ newDamageType{
 			else -- Save for half damage
 				DamageType:get(DamageType.MIND).projector(src, x, y, DamageType.MIND, {dam=dam/4, alwaysHit=true})
 				DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam/4)
-				game.logSeen(target, "%s 꿈의 연마를 저항했습니다!", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 꿈의 연마를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -2699,9 +2575,7 @@ newDamageType{
 			if target:canBe("disarm") then
 				target:setEffect(target.EFF_DISARMED, dam.dur or 3, {src=src, apply_power=src:combatMindpower()})
 			else
-				--@@
-				local tn = target.kr_display_name or target.name
-				game.logSeen(target, "%s 저항했습니다.", tn:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam

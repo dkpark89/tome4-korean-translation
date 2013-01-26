@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Nightmare",
 	kr_display_name = "악몽",
@@ -65,7 +67,7 @@ newTalent{
 				if target:canBe("sleep") then
 					target:setEffect(target.EFF_NIGHTMARE, t.getDuration(self, t), {src=self, power=power, waking=is_waking, dam=damage, insomnia=t.getInsomniaPower(self, t), no_ct_effect=true, apply_power=self:combatMindpower()})
 				else
-					game.logSeen(self, "%s 잠들지 않았습니다!", target.name:capitalize())
+					game.logSeen(self, "%s 잠들지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end)
@@ -83,7 +85,7 @@ newTalent{
 		return([[전방 %d 칸 반경의 적들을 %d 턴 동안 수면 상태, 그 중에서도 악몽 상태에 빠뜨립니다. 악몽을 꾸는 동안에는 행동할 수 없게 되며, %d 피해를 받을 때마다 악몽의 지속시간이 1 턴씩 줄어들게 됩니다.
 		매 턴마다 %0.2f 암흑 피해를 입게 되며, 이 피해는 악몽의 지속시간 감소에 영향을 주지 않습니다.
 		악몽이 끝나면, 대상은 불면증 상태가 되어 악몽을 꿨던 시간 동안 %d%% 수면 저항력을 얻게 됩니다. (최대 10 턴)
-		피해 한계량과 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, duration, power, damDesc(self, DamageType.DARKNESS, (damage)), insomnia)
+		피해 한계량과 피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, duration, power, damDesc(self, DamageType.DARKNESS, (damage)), insomnia)
 	end,
 }
 
@@ -119,6 +121,7 @@ newTalent{
 			ai_target = {actor=target},
 			ai = "summoned", ai_real = "tactical",
 			name = ""..target.name.."'s Inner Demon",
+			kr_display_name = (target.kr_display_name or target.name).."의 내면의 악마",
 			desc = [[내면에 잠들어 있던 또 다른 존재이자, 끔찍한 악마입니다.]],
 		}
 		m:removeAllMOs()
@@ -183,7 +186,7 @@ newTalent{
 		game.zone:addEntity(game.level, m, "actor", x, y)
 		game.level.map:particleEmitter(x, y, 1, "generic_teleport", {rm=60, rM=130, gm=20, gM=110, bm=90, bM=130, am=70, aM=180})
 
-		game.logSeen(target, "#F53CBE#%s 내면의 악마가 나왔습니다!", target.name:capitalize())
+		game.logSeen(target, "#F53CBE#%s의 내면의 악마가 나왔습니다!", (target.kr_display_name or target.name):capitalize())
 
 	end,
 	action = function(self, t)
@@ -203,7 +206,7 @@ newTalent{
 		if target:canBe("fear") or target:attr("sleep") then
 			target:setEffect(target.EFF_INNER_DEMONS, t.getDuration(self, t), {src = self, chance=chance, apply_power=self:combatMindpower()})
 		else
-			game.logSeen(target, "%s 내면의 악마를 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 내면의 악마를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		
 		game:playSoundNear(self, "talents/arcane")
@@ -214,7 +217,7 @@ newTalent{
 		local chance = t.getChance(self, t)
 		return ([[대상에게서 내면의 악마를 끄집어냅니다. %d 턴 동안, 매 턴마다 %d%% 확률로 내면의 악마가 만들어집니다. 대상의 정신 내성이 높아 내면의 악마를 끄집어낼 수 없는 상태일 경우, 마법이 일찍 끝나버립니다.
 		대상이 수면 상태라면 내면의 악마가 나올 확률이 2 배가 되며, 대상의 공포 저항력을 무시할 수 있게 됩니다.
-		소환 확률은 정신력 능력치, 악마의 생명력은 대상의 등급에 따라 증가합니다.]]):format(duration, chance)
+		소환 확률은 정신력, 악마의 생명력은 대상의 등급에 따라 증가합니다.]]):format(duration, chance)
 	end,
 }
 
@@ -247,7 +250,7 @@ newTalent{
 			target:setEffect(target.EFF_WAKING_NIGHTMARE, t.getDuration(self, t), {src = self, chance=t.getChance(self, t), dam=self:mindCrit(t.getDamage(self, t)), apply_power=self:combatMindpower()})
 			game.level.map:particleEmitter(target.x, target.y, 1, "generic_charge", {rm=60, rM=130, gm=20, gM=110, bm=90, bM=130, am=70, aM=180})
 		else
-			game.logSeen(target, "%s 악몽을 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 악몽을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		game:playSoundNear(self, "talents/arcane")
@@ -259,7 +262,7 @@ newTalent{
 		local chance = t.getChance(self, t)
 		return ([[%d 턴 동안, 매 턴마다 %0.2f 암흑 피해를 주고 %d%% 확률로 3 턴 동안 유지되는 실명, 기절, 혼란 상태효과 중 하나를 일으킵니다.
 		대상이 수면 상태라면 상태효과를 일으킬 확률이 2 배가 되며, 대상의 공포 저항력을 무시할 수 있게 됩니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, (damage)), duration, chance)
 	end,
 }
@@ -293,6 +296,7 @@ newTalent{
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "terror",
+			kr_display_name = "공포",
 			display = "h", color=colors.DARK_GREY, image="npc/horror_eldritch_nightmare_horror.png",
 			blood_color = colors.BLUE,
 			desc = "형체가 없는 공포로, 희생자를 포함한 모든 것을 베어버립니다.",
@@ -361,6 +365,6 @@ newTalent{
 		local damage = t.getDamageBonus(self, t)
 		local summon = t.getSummonTime(self, t)
 		return ([[수면 상태의 적을 공격할 때, 피해량과 저항 관통력이 %d%% 증가합니다. 그리고 수면 상태의 적을 공격할 때마다, 밤의 공포가 %d 턴 동안 소환됩니다.
-		밤의 공포의 위력, 피해량, 저항 관통력은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damage, summon)
+		밤의 공포의 위력, 피해량, 저항 관통력은 정신력의 영향을 받아 증가합니다.]]):format(damage, summon)
 	end,
 }

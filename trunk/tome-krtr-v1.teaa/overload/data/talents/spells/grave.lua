@@ -53,7 +53,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[대상에게 죽음의 기운이 실린 냉기 덩어리를 발사합니다. 냉기 덩어리는 천천히 이동하며, 폭발하여 주변 %d 칸 반경에 %0.2f 냉기 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.COLD, damage))
 	end,
 }
@@ -322,7 +322,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local darkCount = t.getDarkCount(self, t)
 		return ([[차가운 불꽃이 대상의 %d 칸 반경에 턴 당 %d 개 생겨납니다. 불꽃은 %0.2f 냉기 피해를 주며, 적에게 빙결 상태효과를 가할 확률이 있습니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, darkCount, damDesc(self, DamageType.COLD, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, darkCount, damDesc(self, DamageType.COLD, damage))
 	end,
 }
 
@@ -354,7 +354,7 @@ newTalent{
 	info = function(self, t)
 		local chance, val = t.getParams(self, t)
 		return ([[흡혈귀의 기운이 흘러, 적에게 피해를 줄 때마다 %d%% 확률로 피해량의 %d%% 만큼 생명력을 회복합니다.
-		회복 확률은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		회복 확률은 주문력의 영향을 받아 증가합니다.]]):
 		format(chance, val)
 	end,
 }

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -124,7 +124,7 @@ function _M:generateList()
 			local enc = 0
 			o:forAllStack(function(o) enc=enc+o.encumber end)
 
-			--@@
+			--@@ 128 : 이름(getName함수 통해서)과 종류 한글화
 			list[#list+1] = { char=char, name=o:getName(), sortname=o:getName():toString():removeColorCodes(), color=o:getDisplayColor(), object=o, item=idx, cat=o.subtype:krItemType(), encumberance=enc, desc=o:getDesc() }
 			i = i + 1
 		end

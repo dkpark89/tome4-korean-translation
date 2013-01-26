@@ -41,7 +41,7 @@ newTalent{
 	info = function(self, t)
 		return ([[슬라임 덩어리를 대상에게 뱉어, %0.2f 자연 피해를 주고 3 턴 동안 대상을 30%% 감속시킵니다.
 		슬라임 덩어리는 주변의 적에게 최대 %d 번 까지 튀어다니면서 피해를 줍니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 30, 290)), math.ceil(self:getTalentLevel(t)))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 30, 290)), math.ceil(self:getTalentLevel(t)))
 	end,
 }
 

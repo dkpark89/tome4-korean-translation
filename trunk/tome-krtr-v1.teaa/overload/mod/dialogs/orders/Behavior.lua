@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.ui.Dialog"
 local List = require "engine.ui.List"
@@ -28,9 +28,7 @@ function _M:init(actor, def)
 	self.actor = actor
 	self.def = def
 	self:generateList()
-	--@@
-	local anm = actor.kr_display_name or actor.name
-	engine.ui.Dialog.init(self, "행동 설정: "..anm, 1, 1)
+	engine.ui.Dialog.init(self, "행동 설정: "..(actor.kr_display_name or actor.name), 1, 1)
 
 	local list = List.new{width=400, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 
@@ -52,9 +50,7 @@ function _M:use(item)
 	game:unregisterDialog(self)
 
 	self.actor.ai_tactic = resolvers.calc.tactic({item.set}, self.actor)
-	--@@
-	local san = self.actor.kr_display_name or self.actor.name
-	game.logPlayer(game.player, "%s의 행동을 %s 설정했습니다.", san:capitalize(), item.set:addJosa("로"))
+	game.logPlayer(game.player, "%s의 행동을 %s 설정했습니다.", (self.actor.kr_display_name or self.actor.name):capitalize(), item.set:addJosa("로"))
 end
 
 function _M:generateList()

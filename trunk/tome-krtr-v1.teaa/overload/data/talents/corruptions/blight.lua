@@ -40,7 +40,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[주문 치명타가 발생했을 때, 치명타의 효과가 %d%% 상승합니다.
-		상승량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		상승량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:combatTalentSpellDamage(t, 20, 60))
 	end,
 }
@@ -108,7 +108,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[타락한 힘의 돌풍을 만들어내 전방 3 칸 반경에 %0.2f 질병 피해를 주고, 물리적 효과나 마법적 효과를 %d 개 없애버립니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 120)), self:getTalentLevelRaw(t))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 120)), self:getTalentLevelRaw(t))
 	end,
 }
 
@@ -138,7 +138,7 @@ newTalent{
 	info = function(self, t)
 		return ([[대상에게 부식성 벌레를 감염시켜, 10 턴 동안 매 턴마다 %0.2f 산성 피해를 줍니다.
 		감염된 도중에 대상이 죽을 경우, 폭발하여 주변 4 칸 반경에 %0.2f 산성 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]):
+		피해량은 주문력의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]):
 		format(damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 10, 60)), damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 10, 230)))
 	end,
 }
@@ -182,6 +182,6 @@ newTalent{
 	info = function(self, t)
 		return ([[독성 폭풍이 휘몰아쳐, %d 턴 동안 주변 %d 칸 반경의 적들을 중독시키고 6 턴 동안 %0.2f 자연 피해를 줍니다.
 		독은 중첩되며, 중첩될수록 독성이 더 강해지고 더 오랫동안 지속됩니다.
-		피해량은 주문력 능력치의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]):format(5 + self:getTalentLevel(t), self:getTalentRadius(t), damDesc(self, DamageType.NATURE, self:combatTalentSpellDamage(t, 12, 130)))
+		피해량은 주문력의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]):format(5 + self:getTalentLevel(t), self:getTalentRadius(t), damDesc(self, DamageType.NATURE, self:combatTalentSpellDamage(t, 12, 130)))
 	end,
 }

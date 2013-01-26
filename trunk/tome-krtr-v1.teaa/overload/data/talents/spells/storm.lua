@@ -64,7 +64,7 @@ newTalent{
 		local dam = damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t))
 		local radius = self:getTalentRadius(t)
 		return ([[시전자를 중심으로 번개가 뿜어져나와, 주변 %d 칸 반경에 %0.2f - %0.2f 전기 피해를 주고 75%% 확률로 적들을 혼절시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, dam / 3, dam)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, dam / 3, dam)
 	end,
 }
 
@@ -93,7 +93,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[전격의 기운이 실린 화살을 발사하여, %0.2f - %0.2f 전기 피해를 주고 대상을 3 턴 동안 혼절시킵니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage/3), damDesc(self, DamageType.LIGHTNING, damage))
 	end,
 }
@@ -135,7 +135,7 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		return ([[전기 속성 마법을 사용하여 적을 혼절시킬 때마다, %d%% 확률로 강력한 허리케인을 만들어냅니다. 
 		허리케인은 대상 주변 %d 칸 반경에 10 턴 동안 일어나며, 매 턴마다 %0.2f - %0.2f 전기 피해를 줍니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(chance, radius, damage / 3, damage)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(chance, radius, damage / 3, damage)
 	end,
 }
 

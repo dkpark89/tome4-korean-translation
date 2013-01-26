@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 require "engine.class"
 local ActorAI = require "engine.interface.ActorAI"
 local Faction = require "engine.Faction"
@@ -225,7 +225,7 @@ function _M:checkAngered(src, set, value)
 
 	if not was_hostile and self:reactionToward(src) < 0 then
 		if self.anger_emote then
-			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "그녀를" or "그를"), 30) --@@
+			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "그녀를" or "그를"), 30) --@@ '스스로를'이라 번역하려다 일단 성별로 구분해 놓음
 		end
 	end
 end
@@ -291,9 +291,7 @@ function _M:die(src, death_note)
 	-- Self resurrect, mouhaha!
 	if self:attr("self_resurrect") then
 		self:attr("self_resurrect", -1)
-		--@@
-		local sn = self.kr_display_name or self.name
-		game.logSeen(self, "#LIGHT_RED#%s 죽음으로부터 부활했다!", sn:capitalize():addJosa("가")) -- src, not self as the source, to make sure the player knows his doom ;>
+		game.logSeen(self, "#LIGHT_RED#%s 죽음으로부터 부활했다!", (self.kr_display_name or self.name):capitalize():addJosa("가")) -- src, not self as the source, to make sure the player knows his doom ;>
 		local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
 		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "부활!", {255,120,0})
 
@@ -362,7 +360,7 @@ function _M:tooltip(x, y, seen_by)
 	str:add(
 		true,
 		("당신에게 죽은 횟수: %s"):format(killed), true,
-		"목표: ", self.ai_target.actor and (self.ai_target.actor.kr_display_name or self.ai_target.actor.name) or "없음" --@@
+		"목표: ", self.ai_target.actor and (self.ai_target.actor.kr_display_name or self.ai_target.actor.name) or "없음"
 	)
 	if config.settings.cheat then str:add(true, "UID: "..self.uid, true, self.image) end
 
@@ -384,9 +382,7 @@ end
 
 --- Make emotes appear in the log too
 function _M:setEmote(e)
-	--@@
-	local sn = self.kr_display_name or self.name
-	game.logSeen(self, "%s 말했다: '%s'", sn:capitalize():addJosa("가"), e.text)
+	game.logSeen(self, "%s 말했다: '%s'", (self.kr_display_name or self.name):capitalize():addJosa("가"), e.text)
 	mod.class.Actor.setEmote(self, e)
 end
 
@@ -449,10 +445,7 @@ function _M:aiCanPass(x, y)
 				local check_dir = sides[side]
 				local sx, sy = util.coordAddDir(target.x, target.y, check_dir)
 				if target:canMove(sx, sy) and target:move(sx, sy) then
-					--@@
-					local sn = self.kr_display_name or self.name
-					local tn = target.kr_display_name or target.name
-					game.logSeen(target, "%s %s 앞쪽으로 밀어버립니다.", sn:capitalize():addJosa("가"), tn:addJosa("를"))
+					game.logSeen(target, "%s %s 앞쪽으로 밀어버립니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (target.kr_display_name or target.name):addJosa("를"))
 					target.shove_pressure = nil
 					target._last_shove_pressure = nil
 					break

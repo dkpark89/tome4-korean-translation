@@ -146,7 +146,7 @@ newTalent{
 		dam = damDesc(self, damtype, dam)
 		return ([[연금술용 보석에 폭발력을 불어넣어 던집니다. 던져진 보석은 폭발하여 %0.2f 피해를 줍니다. (속성 : %s)
 		보석의 종류마다 폭발할 때 발생하는 효과가 달라집니다.
-		연금술 폭탄의 피해량은 보석의 등급과 주문력 능력치의 영향을 받아 증가합니다.]]):format(dam, DamageType:get(damtype).name)
+		연금술 폭탄의 피해량은 보석의 등급과 주문력의 영향을 받아 증가합니다.]]):format(dam, DamageType:get(damtype).name)
 	end,
 }
 
@@ -294,6 +294,6 @@ newTalent{
 		dam = damDesc(self, DamageType.PHYSICAL, dam)
 		return ([[두 개의 연금술용 보석을 강제로 섞어, 극도로 불안정한 상태로 만듭니다. 이렇게 만들어진 연금술 폭탄으로 강렬한 폭발을 만들어내 %0.2f 물리 피해를 주고, 폭발에 휩쓸린 모든 적들을 밀어냅니다.
 		폭발할 때,두 개의 보석이 원래 가지고 있던 특수효과가 각각 발생합니다.
-		폭발의 피해량은 보석의 등급과 주문력 능력치의 영향을 받아 증가합니다.]]):format(dam)
+		폭발의 피해량은 보석의 등급과 주문력의 영향을 받아 증가합니다.]]):format(dam)
 	end,
 }

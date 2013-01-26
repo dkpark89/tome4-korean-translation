@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Object = require "mod.class.Object"
 
 newTalent{
@@ -55,7 +57,7 @@ newTalent{
 		return ([[왜곡의 화살을 발사하여, 저항을 무시하고 %0.2f 물리 피해를 줍니다. 화살에 맞은 적은 왜곡되며, 2 턴 동안 유지됩니다.
 		이미 왜곡된 적에게 왜곡의 화살을 맞출 경우, 왜곡 폭발이 일어나 주변 %d 칸 반경에 원래 피해량의 150%% 에 해당하는 피해를 줍니다.
 		기술 레벨이 5 이상이면, 왜곡의 형태를 조절하여 자신과 아군은 폭발에 휘말리지 않게 만들 수 있게 됩니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), radius)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), radius)
 	end,
 }
 
@@ -99,7 +101,7 @@ newTalent{
 		return ([[전방 %d 칸 반경에 왜곡의 파동을 만들어내, %0.2f 물리 피해를 주고 적들을 뒤로 밀어냅니다.
 		파동의 영향을 받은 적은 왜곡되며, 2 턴 동안 유지됩니다.
 		이미 왜곡된 적에게 왜곡 파동을 맞출 경우, 대상은 %d 턴 동안 기절하게 됩니다.
-		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), power)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), power)
 	end,
 }
 
@@ -144,7 +146,7 @@ newTalent{
 		return ([[왜곡의 힘으로 대상을 유린하여, 매 턴마다 %0.2f 물리 피해를 줍니다. (지속시간 : %d 턴)
 		유린당한 대상은 왜곡되며, 2 턴 동안 유지됩니다.
 		이미 왜곡된 대상을 유린할 경우 피해량이 50%% 증가하며, 매 턴마다 대상의 이로운 물리적 상태효과나 유지형 기술이 해제됩니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration)
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 
@@ -177,6 +179,7 @@ newTalent{
 			old_feat = oe,
 			type = oe.type, subtype = oe.subtype,
 			name = "maelstrom", image = oe.image,
+			kr_display_name = "염력의 소용돌이",
 			display = oe.display, color=oe.color, back_color=oe.back_color,
 			always_remember = true,
 			temporary = t.getDuration(self, t),
@@ -205,7 +208,7 @@ newTalent{
 				for i, target in ipairs(tgts) do
 					if target.actor:canBe("knockback") then
 						target.actor:pull(self.x, self.y, 1)
-						game.logSeen(target.actor, "%s 끌어당겨집니다! (원인 : %s)", target.actor.name:capitalize(), self.name)
+						game.logSeen(target.actor, "%s %s에 의해 끌어당겨집니다!", (target.kr_display_name or target.actor.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 					end
 					DamageType:get(DamageType.PHYSICAL).projector(self.summoner, target.actor.x, target.actor.y, DamageType.PHYSICAL, self.dam)
 					target.actor:setEffect(target.actor.EFF_DISTORTION, 2, {})
@@ -238,6 +241,6 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[%d 턴 동안 강력한 소용돌이를 만들어냅니다. 매 턴마다 소용돌이는 주변 %d 칸 반경의 적들을 끌어당기며, %0.2f 물리 피해를 줍니다.
 		소용돌이의 영향을 받은 적은 왜곡되며, 2 턴 동안 유지됩니다.
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }

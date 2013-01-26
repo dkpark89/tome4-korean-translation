@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 local newInscription = function(t)
 	-- Warning, up that if more than 5 inscriptions are ever allowed

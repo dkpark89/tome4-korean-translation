@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils" --@@
+require "engine.krtrUtils"
 
 --[[
 Totems
@@ -63,9 +63,7 @@ newEntity{
 			end
 		end)
 		game:playSoundNear(who, "talents/heal")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -106,9 +104,7 @@ newEntity{
 			end
 		end)
 		game:playSoundNear(who, "talents/heal")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -124,9 +120,7 @@ newEntity{
 	resolvers.charm(function(self) return ("6턴간 피부를 단단하게 만들어, 방어도 %d 방어효율 %d%%%% 증가"):format(self:getCharmPower(), 20 + self.material_level * 10) end, 20, function(self, who)
 		who:setEffect(who.EFF_THORNY_SKIN, 6, {ac=self:getCharmPower(), hard=20 + self.material_level * 10})
 		game:playSoundNear(who, "talents/heal")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
@@ -146,9 +140,7 @@ newEntity{
 		local dam = self:getCharmPower()
 		who:project(tg, x, y, engine.DamageType.HEAL, dam)
 		game:playSoundNear(who, "talents/heal")
-		--@@
-		local wn = who.kr_display_name or who.name
-		game.logSeen(who, "%s %s 사용합니다!", wn:capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 	end),
 }
