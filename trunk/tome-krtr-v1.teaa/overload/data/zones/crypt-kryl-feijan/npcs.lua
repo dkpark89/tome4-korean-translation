@@ -79,6 +79,7 @@ newEntity{ base="BASE_NPC_MAJOR_DEMON", define_as = "KRYL_FEIJAN",
 
 newEntity{ define_as = "MELINDA",
 	name = "Melinda",
+	kr_display_name = "멜린다",
 	type = "humanoid", subtype = "human", female=true,
 	display = "@", color=colors.LIGHT_BLUE,
 	image = "terrain/woman_naked_altar.png",

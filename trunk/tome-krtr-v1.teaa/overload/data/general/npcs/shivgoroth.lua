@@ -55,6 +55,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SHIVGOROTH",
 	name = "shivgoroth", color=colors.BLUE,
+	kr_display_name = "쉬브고로스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_ice_shivgoroth.png", display_h=2, display_y=-1}}},
 	desc = [[Shivgoroth are mighty ice elementals, torn away from their home world by a powerful magic.]],
 	level_range = {10, nil}, exp_worth = 1,

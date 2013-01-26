@@ -19,6 +19,7 @@
 
 return {
 	name = "Yiilkgur, the Sher'Tul Fortress",
+	kr_display_name = "쉐르'툴 요새, 이일크구르",
 	display_name = function(x, y)
 		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
 		if zn then return zn.." (Yiilkgur, the Sher'Tul Fortress)"

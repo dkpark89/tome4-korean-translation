@@ -210,7 +210,7 @@ newTalent{
 		-- Adding the entrance wormhole
 		local entrance = mod.class.Trap.new{
 			name = "wormhole",
-			kr_display_name = "웜홀",
+			kr_display_name = "웜홀", kr_unided_name = "함정",
 			type = "annoy", subtype="teleport", id_by_type=true, unided_name = "trap",
 			image = "terrain/wormhole.png",
 			display = '&', color_r=255, color_g=255, color_b=255, back_color=colors.STEEL_BLUE,

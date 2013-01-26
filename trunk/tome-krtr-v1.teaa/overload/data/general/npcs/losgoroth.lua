@@ -57,6 +57,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_LOSGOROTH",
 	name = "losgoroth", color=colors.GREY,
+	kr_display_name = "로스고로스",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(40,60),

@@ -107,6 +107,7 @@ ritual_end = function(self)
 		if not e.unique and e.type == "demon" then e:die() end
 	end
 	limmir.name = "Limmir the Master Jeweler"
+	limmir.kr_display_name = "보석세공의 명인 리미르"
 	limmir.can_talk = "jewelry-store"
 
 	-- Update water

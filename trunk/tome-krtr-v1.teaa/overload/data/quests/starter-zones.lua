@@ -28,7 +28,7 @@ desc = function(self, who)
 	desc[#desc+1] = "지렁이 굴(The Sandworm Lair)은 데르쓰(Derth) 마을에서 서쪽으로 멀리떨어진 바다 근처에 있습니다."
 	desc[#desc+1] = "다이카라(The Daikara)는 탈로레의 숲(the Thaloren forest)의 동쪽 경계선에 있습니다."
 	if self:isCompleted("old-forest") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲(the Old Forest)을 탐험해 왈쓰룻(Warthroot)을 물리쳤습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲(the Old Forest)을 탐험해 분노의 뿌리(Wrathroot)를 물리쳤습니다.#WHITE#"
 	else
 		desc[#desc+1] = "#SLATE#* 당신은 오래된 숲(the Old Forest)을 탐험해 그곳에 무슨 위험이 도사리고 있는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
 	end

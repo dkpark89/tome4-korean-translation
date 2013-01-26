@@ -343,8 +343,8 @@ function _M:generateRandart(data)
 	o.define_as = name:upper():gsub("[^A-Z]", "_")
 
 	local rnts = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted"} --@@ 랜덤한 수식어를 변수로 저장 (원문과 한글이 같도록)
-	o.unided_name = rnts.." "..(o.unided_name or o.name)
 	o.kr_unided_name = rnts:krUnIDPreName().." "..(o.kr_unided_name or o.unided_name or o.kr_display_name or o.name) --@@ 미감정시 한글이름 조합
+	o.unided_name = rnts.." "..(o.unided_name or o.name)	
 	o.unique = name --@@ unique는 게임 도중에 사용하는 곳이 있나? 코드 번역 확인 필요
 	o.randart = true
 	o.no_unique_lore = true
@@ -383,6 +383,8 @@ function _M:generateRandart(data)
 				ego.uid = nil
 				ego.name = nil
 				ego.unided_name = nil
+				ego.kr_display_name = nil --@@ 혹시 몰라 추가
+				ego.kr_unided_name = nil --@@ 혹시 몰라 추가
 
 				-- OMFG this is ugly, there is a very rare combinaison that can result in a crash there, so we .. well, ignore it :/
 				-- Sorry.

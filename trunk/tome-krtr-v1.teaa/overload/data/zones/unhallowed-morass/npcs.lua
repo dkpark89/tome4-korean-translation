@@ -101,6 +101,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 	name = "Weaver Queen", color=colors.WHITE,
+	kr_display_name = "무당거미 여왕",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_weaver_queen.png", display_h=2, display_y=-1}}},
 	desc = [[A large white spider.]],
 	level_range = {7, nil}, exp_worth = 1,

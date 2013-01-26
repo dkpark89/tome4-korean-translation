@@ -232,7 +232,7 @@ end
 
 --- Forbid some options from showing up, they are useless for this ui
 function _M:checkGameOption(name)
-	local list = table.reverse{"icons_temp_effects", "icons_hotkeys", "hotkeys_rows", "log_lines"}
+	local list = table.reverse{"icons_temp_effects", "icons_hotkeys", "log_lines"} --@@ "hotkeys_rows"는 있으면 편해서 나오도록 수정
 	return not list[name]
 end
 

@@ -25,6 +25,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base = "BASE_NPC_YAECH", define_as = "MURGOL",
 	unique = true,
 	name = "Murgol, the Yaech Lord",
+	kr_display_name = "야크 군주, 무르골",
 	color=colors.VIOLET,
 	desc = [[You can feel the psionic waves of power come from this yaech.]],
 	killer_message = "and flushed out to sea",

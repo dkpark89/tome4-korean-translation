@@ -50,7 +50,7 @@ defineTile('j', "GRASS", nil, mod.class.NPC.new{
 	type = "humanoid", subtype = "elf",
 	display = "p", color=colors.RED,
 	name = "Limmir the Jeweler",
-	kr_display_name = "귀금속상인 리미르",
+	kr_display_name = "보석 세공사 리미르",
 	size_category = 3, rank = 3,
 	ai = "simple",
 	faction = "sunwall",

@@ -23,7 +23,7 @@ newEntity{ define_as = "BEN_CRUTHDAR",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Ben Cruthdar, the Cursed",
-	kr_display_name = "저주받은 렌 크루쓰달",
+	kr_display_name = "저주받은 벤 크루쓰달",
 	display = "p", color=colors.VIOLET,
 	desc = [[이 미친사람은 매우 위험해 보입니다. 그는 큰 도끼를 들고 있고, 그걸 사용하려합니다.
 우울한 오러가 그로부터 뿜어져 나옵니다.]],

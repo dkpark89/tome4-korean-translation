@@ -859,7 +859,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Taint: Devourer",
-	kr_display_name = "감염 : 포식",
+	kr_display_name = "감염 : 포식자",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,

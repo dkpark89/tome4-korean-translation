@@ -42,6 +42,7 @@ load("/data/general/npcs/plant.lua", gloomify(0))
 newEntity{ base="BASE_NPC_CANINE", define_as = "WITHERING_THING",
 	unique = true,
 	name = "The Withering Thing", tint=colors.PURPLE,
+	kr_display_name = "시듦의 원천",
 	color=colors.VIOLET,
 	desc = [[This deformed beast might have been a wolf before, but now it is just.. terrible.]],
 	killer_message = "and corrupted into a pile of writhing worms",
