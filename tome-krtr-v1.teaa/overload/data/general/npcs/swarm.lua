@@ -79,6 +79,7 @@ newEntity{ base = "BASE_NPC_INSECT",
 
 newEntity{ base = "BASE_NPC_INSECT",
 	name = "hummerhorn", color=colors.YELLOW, image="npc/hummerhorn.png",
+	kr_display_name = "허밍뿔",
 	desc = "A giant buzzing wasp, its stinger dripping venom.",
 	sound_moam = {"creatures/bee/bee_%d", 1, 4},
 	sound_die = "creatures/bee/bee_die",

@@ -48,6 +48,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_GHOUL",
 	name = "ghoul", color=colors.TAN, define_as = "GHOUL",
+	kr_display_name = "구울",
 	desc = [[Flesh is falling off in chunks from this decaying abomination.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 1,
@@ -65,6 +66,7 @@ newEntity{ base = "BASE_NPC_GHOUL",
 
 newEntity{ base = "BASE_NPC_GHOUL",
 	name = "ghast", color=colors.UMBER,
+	kr_display_name = "가스트",
 	desc = [[This vile abomination is a relative of ghouls, and often leads packs of them. It smells foul, and its bite carries a rotting disease.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 3,
@@ -86,6 +88,7 @@ newEntity{ base = "BASE_NPC_GHOUL",
 
 newEntity{ base = "BASE_NPC_GHOUL",
 	name = "ghoulking", color={0,0,0},
+	kr_display_name = "구울 왕",
 	desc = [[Stench rises from this rotting abomination. Its brow is adorned with gold, and it moves at you with hatred gleaming from its eyes.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 6,

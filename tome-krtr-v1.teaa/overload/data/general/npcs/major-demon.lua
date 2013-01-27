@@ -199,6 +199,7 @@ It moves swiftly toward you, casting terrible spells and swinging its weapons at
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "champion of Urh'Rok", color=colors.GREY,
+	kr_display_name = "울흐'록의 우승자",
 	desc = [[One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel towering before you in the form of a massive, armored humanoid.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_champion_of_urh_rok.png", display_h=2, display_y=-1}}},
 	level_range = {43, nil}, exp_worth = 1,
@@ -288,6 +289,7 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "Khulmanar, General of Urh'Rok",
+	kr_display_name = "울흐'록의 장군, 크훌마나르",
 	color=colors.DARK_RED, unique=true,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_general_of_urh_rok.png", display_h=2, display_y=-1}}},
 	desc = [[This massive form, sheathed in dark flames, stands tall above a legion of lesser demons. In his hands he holds a massive blackened battleaxe, flames dancing around the blades.]],

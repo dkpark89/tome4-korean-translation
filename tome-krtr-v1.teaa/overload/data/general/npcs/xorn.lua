@@ -69,6 +69,7 @@ newEntity{ base = "BASE_NPC_XORN",
 
 newEntity{ base = "BASE_NPC_XORN",
 	name = "xorn", color=colors.UMBER,
+	kr_display_name = "쏜",
 	desc = [[A huge creature of the element Earth. Able to merge with its element, it has four huge arms protruding from its enormous torso.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 1,

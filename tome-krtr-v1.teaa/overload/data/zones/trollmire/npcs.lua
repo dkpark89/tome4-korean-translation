@@ -97,6 +97,7 @@ newEntity{ define_as = "TROLL_BILL",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Bill the Stone Troll",
+	kr_display_name = "암석 트롤 빌",
 	display = "T", color=colors.VIOLET, image="npc/troll_bill.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/troll_bill.png", display_h=2, display_y=-1}}},
 	desc = [[Big, brawny, powerful and with a taste for Halfling.

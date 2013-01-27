@@ -71,6 +71,7 @@ newEntity{
 newEntity{ base = "BASE_NPC_BONE_GIANT", define_as = "HALF_BONE_GIANT",
 	allow_infinite_dungeon = true,
 	name = "Half-Finished Bone Giant", color=colors.VIOLET, unique=true,
+	kr_display_name = "반은 죽은 뼈거인",
 	desc = [[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.
 This specimen looks like it was hastily assembled and is not really complete yet.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_half_finished_bone_giant.png", display_h=2, display_y=-1}}},

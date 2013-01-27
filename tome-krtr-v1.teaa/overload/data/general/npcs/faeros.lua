@@ -55,6 +55,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_FAEROS",
 	name = "faeros", color=colors.ORANGE,
+	kr_display_name = "파에로스",
 	desc = [[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 1,
