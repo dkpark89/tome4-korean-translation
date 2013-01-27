@@ -91,6 +91,7 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "warg", color=colors.BLACK, image="npc/canine_warg.png",
+	kr_display_name = "와르그",
 	desc = [[It is a large wolf with eyes full of cunning.]],
 	level_range = {6, nil}, exp_worth = 1,
 	rarity = 4,

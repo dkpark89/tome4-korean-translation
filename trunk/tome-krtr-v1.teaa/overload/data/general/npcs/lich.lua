@@ -71,8 +71,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_LICH",
 	name = "lich", color=colors.DARK_BLUE,
+	kr_display_name = "리치",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_lich.png", display_h=2, display_y=-1}}},
-	desc=[[Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.]],
+	desc=[[영원한 삶의 방법을 발견하였지만, 그 대가로 삶의 즐거움을 잃어버린 존재입니다. 이제 이들이 찾아다니는 것은 무한한 파괴 뿐입니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 20,
 	max_life = resolvers.rngavg(70,80),

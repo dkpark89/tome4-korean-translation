@@ -61,7 +61,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_GHOST",
 	name = "dread", color=colors.ORANGE, image="npc/dread.png",
-	desc = [[It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.]],
+	kr_display_name = "드레드",
+	desc = [[보는 것만으로도 비명이 나올 정도의 끔찍한 존재입니다. 죽음의 화신이자, 그 흉물스러운 검은색 육신은 마치 이 세계의 의지에 반하여 존재하는 것 같습니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 10,
 	max_life = resolvers.rngavg(90,100),

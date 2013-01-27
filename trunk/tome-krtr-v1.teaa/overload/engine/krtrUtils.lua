@@ -504,7 +504,7 @@ function string.krRace(str)
 	elseif ori == "stone" then return "돌"
 	elseif ori == "storm" then return "폭풍"
 	elseif ori == "sunwall" then return "태양의 장벽"
-	elseif ori == "swarms" then return "벌떼"
+	elseif ori == "swarms" then return "날벌레"
 	elseif ori == "temporal" then return "시간"
 	elseif ori == "thalore" then return "탈로레"
 	elseif ori == "thought-form" then return "생각의 구현"

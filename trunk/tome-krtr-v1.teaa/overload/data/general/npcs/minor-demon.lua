@@ -65,6 +65,7 @@ newEntity{ base = "BASE_NPC_DEMON",
 
 newEntity{ base = "BASE_NPC_DEMON",
 	name = "wretchling", color=colors.GREEN,
+	kr_display_name = "렛츨링",
 	desc = "Acid oozes all over this small demon's skin.  Beware, they tend to hunt in packs.",
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 1,

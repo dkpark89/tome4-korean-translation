@@ -29,6 +29,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_GRUSHNAK", define_as = "GNARG",
 	allow_infinite_dungeon = true,
 	name = "Warmaster Gnarg", color=colors.VIOLET, unique = true,
+	kr_display_name = "전투의 대가 그날그",
 	desc = [[This ugly orc looks really nasty and vicious. He wields a huge two-handed sword and means to use it.]],
 	level_range = {35, nil}, exp_worth = 2,
 	rank = 4,

@@ -4656,6 +4656,7 @@ newEntity{ base = "BASE_LITE", --Thanks Grayswandir!
 			local Talents = require "engine.interface.ActorTalents"
 			local m = NPC.new{
 				name = "will o' the wisp",
+				kr_display_name = "윌 오 위습",
 				type = "undead", subtype = "ghost",
 				blood_color = colors.GREY,
 				display = "G", color=colors.WHITE,

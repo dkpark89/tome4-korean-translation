@@ -439,7 +439,7 @@ local minions_list = {
 		see_invisible = 5,
 		undead = 1,
 		name = "master vampire", color=colors.GREEN, image = "npc/master_vampire.png",
-		kr_display_name = "흡혈귀 귀족",
+		kr_display_name = "상급 흡혈귀",
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/master_vampire.png", display_h=2, display_y=-1}}},
 		desc=[[로브를 걸친 인간형 언데드입니다. 몸에서 사악한 기운이 흐르고 있습니다.]],
 		max_life = resolvers.rngavg(80,90),

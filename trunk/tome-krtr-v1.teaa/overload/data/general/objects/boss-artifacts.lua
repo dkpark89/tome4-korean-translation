@@ -439,8 +439,8 @@ newEntity{ base = "BASE_CLOTH_ARMOR",
 	define_as = "BLACK_ROBE", rarity=false,
 	name = "Black Robe", unique=true,
 	unided_name = "black robe", color=colors.DARK_GREY, image = "object/artifact/robe_black_robe.png",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[A silk robe, darker than the darkest night sky, it radiates power.]],
+	kr_display_name = "검은 로브", kr_unided_name = "검은 로브",
+	desc = [[어두운 밤 하늘보다 더 어두운 비단 로브로, 힘을 발산하고 있습니다.]],
 	level_range = {40, 50},
 	rarity = 280,
 	cost = 500,
@@ -466,8 +466,8 @@ newEntity{ base = "BASE_WARAXE",
 	define_as = "MALEDICTION", rarity=false,
 	unided_name = "pestilent waraxe",
 	name = "Malediction", unique=true, image = "object/artifact/axe_malediction.png",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[The land withers and crumbles wherever this cursed axe rests.]],
+	kr_display_name = "저주", kr_unided_name = "치명적 전투도끼",
+	desc = [[이 저주받은 도끼가 가는 곳마다 시들고 허물어집니다.]],
 	require = { stat = { str=55 }, },
 	level_range = {35, 45},
 	rarity = 290,
@@ -493,8 +493,8 @@ newEntity{ base = "BASE_STAFF",
 	unided_name = "dark staff",
 	flavor_name = "vilestaff",
 	name = "Kor's Fall", unique=true,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[Made from the bones of many creatures, this staff glows with power. You can feel its evilness even from a distance.]],
+	kr_display_name = "코르의 추락", kr_unided_name = "비열한 지팡이",
+	desc = [[많은 생물의 뼈로 만들어진 이 지팡이는 힘이 넘쳐나고 있습니다. 거리를 두어도 그 사악함이 느껴집니다.]],
 	require = { stat = { mag=25 }, },
 	level_range = {1, 10},
 	rarity = 200,
@@ -528,8 +528,8 @@ newEntity{ base = "BASE_AMULET",
 	define_as = "VOX", rarity=false,
 	name = "Vox", unique=true,
 	unided_name = "ringing amulet", color=colors.BLUE, image="object/artifact/jewelry_amulet_vox.png",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[No force can hope to silence the wearer of this amulet.]],
+	kr_display_name = "소리", kr_unided_name = "고리 목걸이",
+	desc = [[이 목걸이의 착용자를 침묵시킬 힘은 찾기 힘듭니다.]],
 	level_range = {40, 50},
 	rarity = 220,
 	cost = 3000,
@@ -582,8 +582,8 @@ newEntity{ base = "BASE_AMULET",
 	define_as = "AMULET_DREAD", rarity=false,
 	name = "Choker of Dread", unique=true, image = "object/artifact/amulet_choker_of_dread.png",
 	unided_name = "dark amulet", color=colors.LIGHT_DARK,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[The evilness of undeath radiates from this amulet.]],
+	kr_display_name = "드레드의 목고리", kr_unided_name = "어두운 목걸이", --@@ choker 어감을 위해 목고리로 번역
+	desc = [[역생의 사악함이 이 목걸이로부터 뿜어져 나옵니다.]],
 	level_range = {20, 28},
 	rarity = 220,
 	cost = 5000,
@@ -595,13 +595,13 @@ newEntity{ base = "BASE_AMULET",
 		combat_dam = 5,
 	},
 	max_power = 60, power_regen = 1,
-	use_power = { name = "summon an elder vampire to your side", power = 60, use = function(self, who)
-		if not who:canBe("summon") then game.logPlayer(who, "You cannot summon; you are suppressed!") return end
+	use_power = { name = "동료 흡혈귀 장로 소환", power = 60, use = function(self, who)
+		if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 당신은 억제되었습니다!") return end
 
 		-- Find space
 		local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(who, "Not enough space to invoke the vampire!")
+			game.logPlayer(who, "흡혈귀를 소환할 공간이 부족합니다!")
 			return
 		end
 		print("Invoking guardian on", x, y)
@@ -611,7 +611,8 @@ newEntity{ base = "BASE_AMULET",
 			type = "undead", subtype = "vampire",
 			display = "V", image = "npc/elder_vampire.png",
 			name = "elder vampire", color=colors.RED,
-			desc=[[A terrible robed undead figure, this creature has existed in its unlife for many centuries by stealing the life of others. It can summon the very shades of its victims from beyond the grave to come enslaved to its aid.]],
+			kr_display_name = "흡혈귀 장로",
+			desc=[[로브를 입은 끔찍한 언데드로, 다른 생명체의 생명력을 빼앗음으로써 수세기를 역생하여 존재하고 있습니다. 이것은 희생자들의 다양한 그림자를 묘지에서 불러 노예로 부릴수 있습니다.]],
 
 			combat = { dam=resolvers.rngavg(9,13), atk=10, apr=9, damtype=engine.DamageType.DRAINLIFE, dammod={str=1.9} },
 
@@ -659,14 +660,14 @@ newEntity{ define_as = "RUNED_SKULL",
 	type = "gem", subtype="red", image = "object/artifact/bone_runed_skull.png",
 	unided_name = "human skull",
 	name = "Runed Skull",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "룬 두개골", kr_unided_name = "사람 두개골",
 	display = "*", color=colors.RED,
 	level_range = {40, 50},
 	rarity = 390,
 	cost = 150,
 	encumber = 3,
 	material_level = 5,
-	desc = [[Dull red runes are etched all over this blackened skull.]],
+	desc = [[이 더럽혀진 두개골에는 둔탁하고 붉은 룬이 온통 뒤덮혀 새겨져 있습니다.]],
 
 	carrier = {
 		combat_spellpower = 7,
@@ -679,8 +680,8 @@ newEntity{ base = "BASE_GREATMAUL",
 	define_as = "GREATMAUL_BILL_TRUNK",
 	unided_name = "tree trunk", image = "object/artifact/bill_treestump.png",
 	name = "Bill's Tree Trunk", unique=true,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[This is a big, nasty-looking tree trunk that Bill the Troll used as a weapon. It could still serve this purpose, should you be strong enough to wield it!]],
+	kr_display_name = "빌의 나무 줄기", kr_unided_name = "나무 줄기",
+	desc = [[이것은 트롤 빌이 무기로 사용하던 크고 더러워 보이는 나무 줄기입니다. 당신이 이것을 쥘수 있을만큼 힘이 세다면, 이것은 아직 그 목적을 위해 사용할 수 있습니다!]],
 	require = { stat = { str=25 }, },
 	level_range = {1, 10},
 	material_level = 1,
@@ -705,8 +706,8 @@ newEntity{ base = "BASE_SHIELD",
 	define_as = "SANGUINE_SHIELD",
 	unided_name = "bloody shield",
 	name = "Sanguine Shield", unique=true, image = "object/artifact/sanguine_shield.png",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[Though tarnished and spattered with blood, the emblem of the Sun still manages to shine through on this shield.]],
+	kr_display_name = "피비린내 나는 방패", kr_unided_name = "피로 물든 방패",
+	desc = [[피가 튀어있고 변색되었지만, 이 방패는 아직 태양의 문장을 통해 빛을 뿜고 있습니다.]],
 	require = { stat = { str=39 }, },
 	level_range = {35, 45},
 	material_level = 4,
@@ -736,8 +737,8 @@ newEntity{ base = "BASE_WHIP",
 	define_as = "WHIP_URH_ROK",
 	unided_name = "fiery whip",
 	name = "Whip of Urh'Rok", color=colors.PURPLE, unique = true, image = "object/artifact/whip_of_urh_rok.png",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[With this unbearably bright whip of flame, the demon master Urh'Rok has become known for never having lost in combat.]],
+	kr_display_name = "울흐'록의 채찍", kr_unided_name = "불타는 채찍",
+	desc = [[이 극도로 밝은 불꽃의 채찍과 함께, 상위 악마 울흐'록은 전투에서 절대 패하지 않는 것으로 유명합니다.]], --@@ ' 코드 컬러링 : 이 파일 전체 작업 후 삭제 필요
 	require = { stat = { dex=48 }, },
 	level_range = {40, 50},
 	rarity = 390,
@@ -766,8 +767,8 @@ newEntity{ base = "BASE_GREATSWORD",
 	define_as = "MURDERBLADE", rarity=false,
 	name = "Warmaster Gnarg's Murderblade", unique=true, image="object/artifact/warmaster_gnargs_murderblade.png",
 	unided_name = "blood-etched greatsword", color=colors.CRIMSON,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[A blood-etched greatsword, it has seen many foes. From the inside.]],
+	kr_display_name = "전투의 대가 그날그의 살해검", kr_unided_name = "비로 새겨진 대검",
+	desc = [[피로 새겨진 대검입니다. 이것은 많은 적들에게 꽂혀진 모습으로 잘 알려져 있습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {35, 45},
 	rarity = 230,
@@ -778,7 +779,7 @@ newEntity{ base = "BASE_GREATSWORD",
 		apr = 19,
 		physcrit = 4.5,
 		dammod = {str=1.2},
-		special_on_hit = {desc="10% chance to send the wielder into a killing frenzy", fct=function(combat, who)
+		special_on_hit = {desc="10% 확률로 사용자에게 살해의 광란 상태 부여", fct=function(combat, who)
 			if not rng.percent(10) then return end
 			who:setEffect(who.EFF_FRENZY, 3, {crit=10, power=0.3, dieat=0.2})
 		end},
@@ -798,8 +799,8 @@ newEntity{ base = "BASE_LEATHER_CAP",
 	define_as = "CROWN_ELEMENTS", rarity=false,
 	name = "Crown of the Elements", unique=true, image = "object/artifact/crown_of_the_elements.png",
 	unided_name = "jeweled crown", color=colors.DARK_GREY,
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[This jeweled crown shimmers with colors.]],
+	kr_display_name = "원소의 왕관", kr_unided_name = "보석박힌 왕관",
+	desc = [[이 보석박힌 왕관은 다양한 색으로 빛납니다.]],
 	level_range = {40, 50},
 	rarity = 280,
 	cost = 500,
@@ -829,8 +830,8 @@ newEntity{ base = "BASE_GLOVES", define_as = "FLAMEWROUGHT",
 	unique = true,
 	name = "Flamewrought", color = colors.RED, image = "object/artifact/gloves_flamewrought.png",
 	unided_name = "chitinous gloves",
-	--kr_display_name = "", kr_unided_name = "",
-	desc = [[These gloves seems to be made out of the exoskeletons of ritches. They are hot to the touch.]],
+	kr_display_name = "불꽃장갑", kr_unided_name = "키틴질 장갑",
+	desc = [[이 장갑은 릿치의 외골격으로 만들어진 것으로 보입니다. 건드리면 뜨겁습니다.]],
 	level_range = {5, 12},
 	rarity = 180,
 	cost = 50,
@@ -859,18 +860,18 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 	unique = true,
 	unided_name = "scintillating crystal",
 	name = "Crystal Focus", subtype = "multi-hued",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "수정의 핵", kr_unided_name = "번득이는 수정",
 	color = colors.WHITE, image = "object/artifact/crystal_focus.png",
 	level_range = {5, 12},
-	desc = [[This crystal radiates the power of the Spellblaze itself.]],
+	desc = [[스펠블레이즈 그 자체의 힘을 내뿜는 수정입니다.]],
 	rarity = 200,
 	identified = false,
 	cost = 50,
 	material_level = 2,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "combine with a weapon", power = 1, use = function(self, who, gem_inven, gem_item)
-		who:showInventory("Fuse with which weapon?", who:getInven("INVEN"), function(o) return (o.type == "weapon" or o.subtype == "hands") and o.subtype ~= "mindstar" and not o.egoed and not o.unique and not o.rare and not o.archery end, function(o, item)
+	use_power = { name = "무기와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
+		who:showInventory("어느 무기에 붙입니까?", who:getInven("INVEN"), function(o) return (o.type == "weapon" or o.subtype == "hands") and o.subtype ~= "mindstar" and not o.egoed and not o.unique and not o.rare and not o.archery end, function(o, item)
 			local oldname = o:getName{do_color=true}
 
 			-- Remove the gem
@@ -878,6 +879,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 			who:sortInven(gem_inven)
 
 			-- Change the weapon
+			o.kr_display_name = "수정으로된 "..(o.kr_display_name or o.name):capitalize()
 			o.name = "Crystalline "..o.name:capitalize()
 			o.unique = o.name
 			o.no_unique_lore = true
@@ -911,20 +913,20 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 				self:specialSetAdd({"wielder","combat_spellcrit"}, 10)
 				self:specialSetAdd({"wielder","combat_physcrit"}, 10)
 				self:specialSetAdd({"wielder","resists_pen"}, {[engine.DamageType.ARCANE]=20, [engine.DamageType.PHYSICAL]=15})
-				game.logPlayer(who, "#GOLD#As the crystalline weapon and armour are brought together, they begin to emit a constant humming.")
+				game.logPlayer(who, "#GOLD#수정으로된 무기와 갑옷을 같이 착용하면, 그것들이 지속적인 공명음을 내기 시작합니다.")
 			end
 			o.on_set_broken = function(self, who)
 				self.talent_on_spell = nil
 				if (self.combat) then self.combat.talent_on_hit = nil
 				else self.wielder.combat.talent_on_hit = nil
 				end
-				game.logPlayer(who, "#GOLD#The humming from the crystalline artifacts fades as they are separated.")
+				game.logPlayer(who, "#GOLD#수정으로된 아티팩트에서 나온 공명음이 흩어지면서 사라집니다.")
 			end
 
 			who:sortInven()
 			who.changed = true
 
-			game.logPlayer(who, "You fix the crystal on the %s and create the %s.", oldname, o:getName{do_color=true})
+			game.logPlayer(who, "당신은 수정을 %s에 사용하여, %s 만들었습니다.", oldname, o:getName{do_color=true}:addJosa("를"))
 		end)
 	end },
 }
@@ -934,19 +936,19 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_HEART",
 	unique = true,
 	unided_name = "coruscating crystal",
 	name = "Crystal Heart", subtype = "multi-hued",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "수정의 심장", kr_unided_name = "반짝이는 수정",
 	color = colors.RED, image = "object/artifact/crystal_heart.png",
 	level_range = {35, 42},
-	desc = [[This crystal is huge, easily the size of your head. It sparkles brilliantly almost of its own accord.]],
+	desc = [[이 수정은 머리크기 정도로 커다랗습니다. 이것은 자연적으로 밝게 번쩍입니다.]],
 	rarity = 250,
 	identified = false,
 	cost = 200,
 	material_level = 5,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "combine with a suit of body armor", power = 1, use = function(self, who, gem_inven, gem_item)
+	use_power = { name = "갑옷과 결합", power = 1, use = function(self, who, gem_inven, gem_item)
 		-- Body armour only, can be cloth, light, heavy, or massive though. No clue if o.slot works for this.
-		who:showInventory("Fuse with which armor?", who:getInven("INVEN"), function(o) return o.type == "armor" and o.slot == "BODY" and not o.egoed and not o.unique and not o.rare end, function(o, item)
+		who:showInventory("어느 갑옷에 붙입니까?", who:getInven("INVEN"), function(o) return o.type == "armor" and o.slot == "BODY" and not o.egoed and not o.unique and not o.rare end, function(o, item)
 			local oldname = o:getName{do_color=true}
 
 			-- Remove the gem
@@ -954,6 +956,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_HEART",
 			who:sortInven(gem_inven)
 
 			-- Change the weapon... err, armour. No, I'm not copy/pasting here, honest!
+			o.kr_display_name = "수정으로된 "..(o.kr_display_name or o.name):capitalize()
 			o.name = "Crystalline "..o.name:capitalize()
 			o.unique = o.name
 			o.no_unique_lore = true
@@ -985,7 +988,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_HEART",
 			who:sortInven()
 			who.changed = true
 
-			game.logPlayer(who, "You fix the crystal on the %s and create the %s.", oldname, o:getName{do_color=true})
+			game.logPlayer(who, "당신은 수정을 %s에 사용하여, %s 만들었습니다.", oldname, o:getName{do_color=true}:addJosa("를"))
 		end)
 	end },
 }

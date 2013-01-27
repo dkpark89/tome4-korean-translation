@@ -48,6 +48,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "giant spider", color=colors.LIGHT_DARK,
+	kr_display_name = "대형 거미",
 	desc = [[A huge arachnid, it produces even bigger webs.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
@@ -150,6 +151,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "faerlhing", color=colors.PURPLE,  -- spirit spider (arcane)
+	kr_display_name = "파에를힝",
 	desc = [[This spider seems to command the flow of mana, which pulses freely through its body.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 4,

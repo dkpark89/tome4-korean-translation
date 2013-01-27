@@ -50,6 +50,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "sandworm",
+	kr_display_name = "지렁이",
 	desc = [[A huge worm coloured as the sand it inhabits. It seems quite unhappy about you being in its lair.]],
 	rarity = 1,
 }

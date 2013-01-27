@@ -51,6 +51,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SNOW_GIANT",
 	name = "snow giant", color=colors.WHITE,
+	kr_display_name = "설원 거인",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_ice_snow_giant.png", display_h=2, display_y=-1}}},
 	desc = [[A towering creature, humanoid but huge. It wields a giant maul and does not look friendly.]],
 	level_range = {10, nil}, exp_worth = 1,
