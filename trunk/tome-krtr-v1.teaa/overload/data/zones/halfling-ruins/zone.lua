@@ -19,6 +19,7 @@
 
 return {
 	name = "Ruined halfling complex",
+	kr_display_name = "파괴된 하플링의 건물",
 	level_range = {10, 25},
 	level_scheme = "player",
 	max_level = 4,

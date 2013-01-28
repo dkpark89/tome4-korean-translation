@@ -19,6 +19,7 @@
 
 return {
 	name = "Slazish Fens",
+	kr_display_name = "슬라지쉬 늪지",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

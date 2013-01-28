@@ -19,6 +19,7 @@
 
 return {
 	name = "Illusory Castle",
+	kr_display_name = "환상의 성",
 	level_range = {25, 30},
 	level_scheme = "player",
 	max_level = 5,

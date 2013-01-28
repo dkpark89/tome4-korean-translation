@@ -19,6 +19,7 @@
 
 return {
 	name = "Sandworm lair",
+	kr_display_name = "지렁이 굴",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 4,

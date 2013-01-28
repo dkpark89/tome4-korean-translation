@@ -19,6 +19,7 @@
 
 return {
 	name = "Old Forest",
+	kr_display_name = "오래된 숲",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 4,

@@ -19,6 +19,7 @@
 
 return {
 	name = "Dark crypt",
+	kr_display_name = "암흑의 지하실",
 	level_range = {25,35},
 	level_scheme = "player",
 	max_level = 5,

@@ -19,6 +19,7 @@
 
 return {
 	name = "Ritches Tunnels",
+	kr_display_name = "릿치 터널",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

@@ -19,6 +19,7 @@
 
 return {
 	name = "Trollmire",
+	kr_display_name = "트롤늪",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

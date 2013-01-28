@@ -25,6 +25,11 @@ return {
 		if zn then return zn.." (Yiilkgur, the Sher'Tul Fortress)"
 		else return "Yiilkgur, the Sher'Tul Fortress" end
 	end,
+	kr_display_name_f = function(x, y)
+		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
+		if zn then return zn.." (쉐르'툴 요새, 이일크구르)"
+		else return "쉐르'툴 요새, 이일크구르" end
+	end,
 	variable_zone_name = true,
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,
 	level_range = {18, 25},

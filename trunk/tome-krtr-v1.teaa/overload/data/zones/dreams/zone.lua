@@ -19,11 +19,17 @@
 
 return {
 	name = "Dreams",
+	kr_display_name = "꿈",
 	display_name = function(x, y)
 		if game.level.level == 1 then return "Dream of vulnerability" end
 		if game.level.level == 2 then return "Dream of loss" end
 		return "Dream ???"
 	end,
+	kr_display_name_f = function(x, y)
+		if game.level.level == 1 then return "약점의 꿈" end
+		if game.level.level == 2 then return "상실의 꿈" end
+		return "꿈 ???"
+	end, 
 	variable_zone_name = true,
 	level_range = {1, 1},
 	level_scheme = "player",

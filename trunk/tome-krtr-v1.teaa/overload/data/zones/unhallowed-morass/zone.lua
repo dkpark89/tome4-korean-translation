@@ -19,6 +19,7 @@
 
 return {
 	name = "Unhallowed Morass",
+	kr_display_name = "부정한 저습지",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

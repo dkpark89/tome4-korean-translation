@@ -19,6 +19,7 @@
 
 return {
 	name = "Elven Ruins",
+	kr_display_name = "엘프의 폐허",
 	level_range = {33,42},
 	level_scheme = "player",
 	max_level = 3,

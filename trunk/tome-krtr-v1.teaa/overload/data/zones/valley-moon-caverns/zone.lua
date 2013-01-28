@@ -19,6 +19,7 @@
 
 return {
 	name = "Caverns to the hidden valley",
+	kr_display_name = "숨겨진 골짜기로의 동굴",
 	level_range = {30, 40},
 	level_scheme = "player",
 	max_level = 2,

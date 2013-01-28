@@ -19,6 +19,7 @@
 
 return {
 	name = "Flooded Cave",
+	kr_display_name = "침수된 동굴",
 	level_range = {30, 40},
 	level_scheme = "player",
 	max_level = 2,

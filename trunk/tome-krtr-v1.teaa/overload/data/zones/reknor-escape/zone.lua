@@ -19,6 +19,7 @@
 
 return {
 	name = "Escape from Reknor",
+	kr_display_name = "레크놀로부터의 탈출",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

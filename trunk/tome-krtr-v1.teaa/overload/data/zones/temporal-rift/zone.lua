@@ -19,12 +19,20 @@
 
 return {
 	name = "Temporal Rift",
+	kr_display_name = "시간의 틈",
 	display_name = function(x, y)
 		if game.level.level == 2 then return "Temporal Rift: Lumberjack village"
 		elseif game.level.level == 3 then return "Temporal Rift: Daikara"
 		elseif game.level.level == 4 then return "Temporal Rift: Lake of Nur"
 		end
 		return "Temporal Rift"
+	end,
+	kr_display_name_f = function(x, y)
+		if game.level.level == 2 then return "시간의 틈: 나무꾼 마을"
+		elseif game.level.level == 3 then return "시간의 틈: 다이카라"
+		elseif game.level.level == 4 then return "시간의 틈: 누르의 호수"
+		end
+		return "시간의 틈"
 	end,
 	variable_zone_name = true,
 	level_range = {16, 30},

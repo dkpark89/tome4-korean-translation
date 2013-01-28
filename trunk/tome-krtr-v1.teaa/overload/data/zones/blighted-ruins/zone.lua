@@ -19,6 +19,7 @@
 
 return {
 	name = "Blighted Ruins",
+	kr_display_name = "황폐화된 폐허",
 	level_range = {1, 8},
 	level_scheme = "player",
 	max_level = 3,

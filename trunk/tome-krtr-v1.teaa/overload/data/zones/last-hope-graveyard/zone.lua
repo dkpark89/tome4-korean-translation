@@ -19,11 +19,18 @@
 
 return {
 	name = "Last Hope Graveyard",
+	kr_display_name = "마지막 희망 공동묘지",
 	display_name = function(x, y)
 		if game.level.level == 1 then return "Last Hope Graveyard"
 		elseif game.level.level == 2 then return "Mausoleum"
 		end
 		return "Last Hope Graveyard"
+	end,
+	kr_display_name_f = function(x, y)
+		if game.level.level == 1 then return "마지막 희망 공동묘지"
+		elseif game.level.level == 2 then return "능묘"
+		end
+		return "마지막 희망 공동묘지"
 	end,
 	level_range = {15, 35},
 	level_scheme = "player",

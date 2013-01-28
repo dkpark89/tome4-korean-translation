@@ -743,7 +743,7 @@ function _M:useBuildOrder()
 
 					if self.unused_talents > 0 and self:canLearnTalent(t) and self:getTalentLevelRaw(t.id) < t.points then
 						self:learnTalent(t.id, true)
-						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.kr_display_name or b.name):addJosa("를"), (t.display_name or t.name))
+						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.kr_display_name or b.name):addJosa("를"), (t.kr_display_name or t.name))
 						self.unused_talents = self.unused_talents - 1
 						table.remove(b.talents, i)
 						learn = true
@@ -764,7 +764,7 @@ function _M:useBuildOrder()
 
 					if self.unused_generics > 0 and self:canLearnTalent(t) and self:getTalentLevelRaw(t.id) < t.points then
 						self:learnTalent(t.id, true)
-						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.kr_display_name or b.name):addJosa("를"), (t.display_name or t.name))
+						game.log("#VIOLET#성장 순서 %s 따라서, %s 기술을 배웁니다.", (b.kr_display_name or b.name):addJosa("를"), (t.kr_display_name or t.name))
 						self.unused_generics = self.unused_generics - 1
 						table.remove(b.talents, i)
 						learn = true

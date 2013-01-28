@@ -1013,7 +1013,7 @@ end
 function _M:updateZoneName()
 	local name
 	if self.zone.display_name then
-		name = self.zone.display_name()
+		name = (self.zone.kr_display_name_f and self.zone.kr_display_name_f().." ["..self.zone.display_name().."]") or self.zone.display_name() --@@ 지역의 특수 이름 존재시 특수 이름 사용 
 	else
 		local lev = self.level.level
 		if self.level.data.reverse_level_display then lev = 1 + self.level.data.max_level - lev end

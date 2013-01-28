@@ -19,6 +19,7 @@
 
 return {
 	name = "TestZone!",
+	kr_display_name = "실험지역!",
 	level_range = {1, 50},
 	level_scheme = "player",
 	max_level = 4,

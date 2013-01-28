@@ -19,6 +19,7 @@
 
 return {
 	name = "Ruined Dungeon",
+	kr_display_name = "파괴된 던전",
 	level_range = {10, 30},
 	level_scheme = "player",
 	max_level = 1,

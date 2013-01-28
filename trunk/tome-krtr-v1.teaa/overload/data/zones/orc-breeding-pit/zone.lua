@@ -19,6 +19,7 @@
 
 return {
 	name = "Orc breeding pits",
+	kr_display_name = "오크 사육 구덩이",
 	level_range = {30, 60},
 	level_scheme = "player",
 	max_level = 5,

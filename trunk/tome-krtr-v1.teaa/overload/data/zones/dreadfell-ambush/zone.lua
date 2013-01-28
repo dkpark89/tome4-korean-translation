@@ -19,6 +19,7 @@
 
 return {
 	name = "Ambush!",
+	kr_display_name = "습격!",
 	level_range = {20, 50},
 	level_scheme = "player",
 	max_level = 1,

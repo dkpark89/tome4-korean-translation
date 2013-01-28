@@ -19,6 +19,7 @@
 
 return {
 	name = "The Maze",
+	kr_display_name = "미궁",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 2,

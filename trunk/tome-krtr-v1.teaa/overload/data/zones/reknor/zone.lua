@@ -19,6 +19,7 @@
 
 return {
 	name = "Lost Dwarven Kingdom of Reknor",
+	kr_display_name = "잊혀진 드워프 왕국 레크놀",
 	level_range = {18, 35},
 	level_scheme = "player",
 	max_level = 4,
