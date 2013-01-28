@@ -19,6 +19,7 @@
 
 return {
 	name = "Abashed Expanse",
+	kr_display_name = "수줍은 광활",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

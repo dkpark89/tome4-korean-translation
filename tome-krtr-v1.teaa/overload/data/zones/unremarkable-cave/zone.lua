@@ -19,6 +19,7 @@
 
 return {
 	name = "Unremarkable Cave",
+	kr_display_name = "평범한 동굴",
 	level_range = {25, 35},
 	level_scheme = "player",
 	max_level = 1,

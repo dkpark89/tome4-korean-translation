@@ -19,6 +19,7 @@
 
 return {
 	name = "Ruins of Telmur",
+	kr_display_name = "텔무르의 폐허",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 5,

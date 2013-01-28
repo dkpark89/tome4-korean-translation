@@ -19,6 +19,7 @@
 
 return {
 	name = "Fearscape",
+	kr_display_name = "공포의 영역",
 	level_range = {1, 100},
 	level_scheme = "player",
 	max_level = 1,

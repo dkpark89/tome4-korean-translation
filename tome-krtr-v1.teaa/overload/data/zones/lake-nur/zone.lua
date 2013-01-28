@@ -19,6 +19,7 @@
 
 return {
 	name = "Lake of Nur",
+	kr_display_name = "누르 호수",
 	level_range = {15, 25},
 	level_scheme = "player",
 	max_level = 3,

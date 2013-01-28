@@ -19,8 +19,12 @@
 
 return {
 	name = "Void between worlds",
+	kr_display_name = "세상 사이의 공허",
 	display_name = function(x, y)
 		return "Void between worlds"
+	end,
+	kr_display_name_f = function(x, y)
+		return "세상 사이의 공허"
 	end,
 	variable_zone_name = true,
 	level_range = {100, 100},

@@ -19,6 +19,7 @@
 
 return {
 	name = "Eidolon Plane",
+	kr_display_name = "에이돌론 차원",
 	level_range = {1, 1},
 	level_scheme = "player",
 	max_level = 1,

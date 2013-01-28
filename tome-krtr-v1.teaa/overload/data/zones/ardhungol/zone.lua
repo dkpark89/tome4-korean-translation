@@ -19,6 +19,7 @@
 
 return {
 	name = "Ardhungol",
+	kr_display_name = "알드훈골",
 	level_range = {25, 32},
 	level_scheme = "player",
 	max_level = 3,

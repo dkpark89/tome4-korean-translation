@@ -19,7 +19,9 @@
 
 return {
 	name = "Noxious Caldera",
+	kr_display_name = "유독성 화산분지",
 	display_name = function(x, y) return "Dogroth Caldera" end,
+	kr_display_name_f = function(x, y) return "도그로스 화산분지" end,
 	variable_zone_name = true,
 	level_range = {25, 35},
 	level_scheme = "player",

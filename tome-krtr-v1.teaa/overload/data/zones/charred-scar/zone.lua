@@ -19,6 +19,7 @@
 
 return {
 	name = "Charred Scar",
+	kr_display_name = "검게탄 상처",
 	level_range = {30, 50},
 	level_scheme = "player",
 	max_level = 1,

@@ -19,6 +19,7 @@
 
 return {
 	name = "Ruins of Kor'Pul",
+	kr_display_name = "코르'풀의 폐허",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

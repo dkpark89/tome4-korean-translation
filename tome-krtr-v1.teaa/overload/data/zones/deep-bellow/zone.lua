@@ -19,6 +19,7 @@
 
 return {
 	name = "The Deep Bellow",
+	kr_display_name = "깊은 울림",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

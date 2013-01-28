@@ -19,6 +19,7 @@
 
 return {
 	name = "Murgol Lair",
+	kr_display_name = "무르골 동굴",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

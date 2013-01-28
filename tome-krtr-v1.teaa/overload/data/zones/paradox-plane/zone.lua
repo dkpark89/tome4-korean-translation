@@ -19,7 +19,9 @@
 
 return {
 	name = "Paradox Plane",
+	kr_display_name = "괴리의 차원",
 	display_name = function(x, y) return "Paradox Plane" end,
+	kr_display_name_f = function(x, y) return "괴리의 차원" end,
 	variable_zone_name = true,
 	level_range = {7, 16},
 	level_scheme = "player",

@@ -19,6 +19,7 @@
 
 return {
 	name = "Tannen's Tower",
+	kr_display_name = "탄넨의 탑",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 4, reverse_level_display=true,

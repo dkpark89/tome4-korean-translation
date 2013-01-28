@@ -19,6 +19,7 @@
 
 return {
 	name = "Temple of Creation",
+	kr_display_name = "창조의 사원",
 	level_range = {30, 40},
 	level_scheme = "player",
 	max_level = 3,

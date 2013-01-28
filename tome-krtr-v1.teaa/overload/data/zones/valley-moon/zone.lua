@@ -19,6 +19,7 @@
 
 return {
 	name = "Ithilthum, Valley of the Moon",
+	kr_display_name = "달의 골짜기, 이실둠",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 1,

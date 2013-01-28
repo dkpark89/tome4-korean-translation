@@ -19,6 +19,7 @@
 
 return {
 	name = "Tempest Peak",
+	kr_display_name = "폭풍우 봉우리",
 	level_range = {15, 22},
 	level_scheme = "player",
 	max_level = 2,

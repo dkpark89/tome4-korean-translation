@@ -19,6 +19,7 @@
 
 return {
 	name = "Unknown tunnels",
+	kr_display_name = "미지의 터널",
 	level_range = {8, 18},
 	level_scheme = "player",
 	max_level = 2,

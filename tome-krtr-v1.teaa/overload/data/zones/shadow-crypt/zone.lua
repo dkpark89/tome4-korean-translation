@@ -19,6 +19,7 @@
 
 return {
 	name = "Shadow Crypt",
+	kr_display_name = "그림자 지하실",
 	level_range = {34,45},
 	level_scheme = "player",
 	max_level = 3,

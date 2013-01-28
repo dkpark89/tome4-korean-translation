@@ -688,7 +688,7 @@ function string.krLoreCategory(str)
 	elseif ori == "blighted ruins" then return "황폐화된 폐허"
 	elseif ori == "boss" then return "보스"
 	elseif ori == "daikara" then return "다이카라"
-	elseif ori == "dogroth caldera" then return "도그로쓰 화산분지"
+	elseif ori == "dogroth caldera" then return "도그로스 화산분지"
 	elseif ori == "dreadfell" then return "불안의 영역"
 	elseif ori == "dreamscape" then return "꿈의 영역"
 	elseif ori == "eyal" then return "에이알"

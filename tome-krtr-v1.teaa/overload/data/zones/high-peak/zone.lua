@@ -19,9 +19,14 @@
 
 return {
 	name = "High Peak",
+	kr_display_name = "최고봉",
 	display_name = function(x, y)
 		if game.level.level == 11 then return "High Peak: The Sanctum" end
 		return "High Peak ("..game.level.level..")"
+	end,
+	kr_display_name_f = function(x, y)
+		if game.level.level == 11 then return "최고봉: 성소" end
+		return "최고봉 ("..game.level.level..")"
 	end,
 	level_range = {55, 80},
 	level_scheme = "player",

@@ -19,6 +19,7 @@
 
 return {
 	name = "Vor Armoury",
+	kr_display_name = "보르 무기고",
 	level_range = {35, 50},
 	level_scheme = "player",
 	max_level = 2,

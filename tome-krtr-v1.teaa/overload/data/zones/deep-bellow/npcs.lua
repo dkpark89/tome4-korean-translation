@@ -27,6 +27,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 	unique = true,
 	name = "The Mouth", tint=colors.PURPLE,
+	kr_display_name = "그 입",
 	color=colors.VIOLET,
 	desc = [["From bellow, it devours."]],
 	killer_message = "and revived as a screeching drem bat",

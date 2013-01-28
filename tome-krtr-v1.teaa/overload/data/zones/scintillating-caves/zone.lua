@@ -19,6 +19,7 @@
 
 return {
 	name = "Scintillating Caves",
+	kr_display_name = "번득이는 동굴",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

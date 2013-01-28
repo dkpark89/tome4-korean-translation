@@ -247,7 +247,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Hidden compound"
-		g.kr_display_name = "숨겨진 타협"
+		g.kr_display_name = "숨겨진 수용소"
 		g.display='>' g.color_r=200 g.color_g=0 g.color_b=0 g.notice = true
 		g.change_level=1 g.change_zone="ring-of-blood" g.glow=true
 		g.add_displays = g.add_displays or {}
