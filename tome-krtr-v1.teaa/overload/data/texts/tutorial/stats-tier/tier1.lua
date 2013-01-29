@@ -18,5 +18,5 @@
 -- darkgod@te4.org
 
 return [[
-If you don't notice anything, try examining each monster's tooltip immediately after using Mana Gale on it.
+힌트 : 마력 돌풍을 쓴 뒤, 적의 상태창을 유심히 살펴보세요.
 ]]

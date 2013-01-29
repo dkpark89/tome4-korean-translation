@@ -18,6 +18,8 @@
 -- darkgod@te4.org
 
 return [[
-Onward! The #GOLD#Dungeon of Adventurer Enlightenment#WHITE# awaits you!
+#LIGHT_GREEN#ToME 4 의 세계에 오신 것을 환영합니다.#LAST#
+
+#GOLD#모든 초보 모험가들을 위한 계몽의 지하미궁#WHITE# 이 당신을 기다리고 있습니다!
 ]]
 

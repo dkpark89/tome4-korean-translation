@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-What about #LIGHT_GREEN#Defense?#WHITE# Is it safe to neglect that?
+그렇다면 #LIGHT_GREEN#회피도#WHITE# 는 #GOLD#단계 차이 효과#WHITE# 와 상관이 없을까요?
 
-Go see how your #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Defense#WHITE# holds up against the orcs in the next room.
+자신의 #B4B4B4#1 단계#WHITE# #LIGHT_GREEN#회피도#WHITE# 가 #8d55ff#높은#WHITE# #LIGHT_GREEN#정확도#WHITE# 를 가진 오크 상대로 어떤 효과를 일으키는지 관찰해보세요.
 ]]

@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-They were more successful at hitting you, though their damage wasn't enough to be threatening. 
+오크가 하는 공격은 절반쯤 빗나가고 절반쯤 명중했었죠. 뭐 비록 피해량은 미미했지만요.
 
-Compare their #LIGHT_GREEN#Accuracy#WHITE#, 14, to your #LIGHT_GREEN#Defense#WHITE#.
+오크의 #LIGHT_GREEN#정확도#WHITE# 는 19, 자신의 #LIGHT_GREEN#회피도#WHITE# 는 20 이였습니다.
 
-Does it seem reasonable that they were hitting you (or missing you) as much as they did?
+수치 차이가 1 만큼 나네요. 1 이나 4 나 5 나.. 너무 낮은 숫자라서 체감이 잘 안되시나요?
 ]]

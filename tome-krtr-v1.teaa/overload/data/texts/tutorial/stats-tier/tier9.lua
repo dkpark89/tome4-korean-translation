@@ -18,7 +18,5 @@
 -- darkgod@te4.org
 
 return [[
-Their melee attacks seem to sometimes apply the "Off-balance" effect, but not always.
-
-Can you figure out when it gets applied and when it doesn't?
+왼쪽 오크의 #LIGHT_GREEN#정확도#WHITE# 수치는 #8d55ff#**#WHITE# 인데요. 이것은 '100' 을 의미합니다. 
 ]]

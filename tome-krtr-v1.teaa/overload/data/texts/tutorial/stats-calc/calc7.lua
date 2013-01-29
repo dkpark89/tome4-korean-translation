@@ -18,9 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Did you try shoving both the enemies blocking passage into this room? 
+양쪽에 있는 적들을 모두 밀쳐보셨나요?
 
-Can you say now which #GOLD#combat stats#WHITE# get compared when you Shove somebody?
-
-
+어떤 #GOLD#전투 능력치#WHITE# 를 이용해서 적을 밀쳐내고, 또 저항했을까요?
 ]]

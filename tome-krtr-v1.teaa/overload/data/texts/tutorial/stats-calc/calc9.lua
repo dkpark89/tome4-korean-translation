@@ -18,6 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Once again, the route ahead is blocked. Find a way through!
+자, 심화 과정 시간입니다! 서쪽의 오크들을 뚫고 길을 찾아보세요!
 
+이번 시험을 통과하면, 각 #GOLD#전투 능력치#WHITE# 의 정확한 계산법을 알려드리겠습니다!
 ]]

@@ -18,14 +18,18 @@
 -- darkgod@te4.org
 
 return [[
-These new effects are #GOLD#cross-tier effects#WHITE#. They occur when a talent calls for comparing #GOLD#combat stats#WHITE# that aren't in the same tier. 
+이 새로운 지속 효과들은 #GOLD#단계 차이 효과#WHITE# 입니다. 이 효과는 공격자와 방어자의 #GOLD#전투 능력치#WHITE# 단계가 서로 다를 경우 발생합니다.
 
-Physical effects cause the "Off-balance" effect.
+물리적 효과는 "불균형" 상태를 추가로 일으킵니다.
 
-Magic effects cause the "Spellshocked" effect.
+마법적 효과는 "주문 충격" 상태를 추가로 일으킵니다.
 
-Mental effects cause the "Brainlocked" effect.
+정신적 효과는 "정신 잠금" 상태를 추가로 일으킵니다.
 
-The effects last one turn per tier difference in the attacker's and defender's #GOLD#combat stats#WHITE#. For example, casting Mana Gale with a #8d55ff#Tier 5#WHITE# #LIGHT_GREEN#Spellpower#WHITE# on a target with a #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Physical save#WHITE# would result in applying a four-turn "Off-balance" effect.
+이 효과의 지속시간은 공격자의 #GOLD#전투 능력치#WHITE# 가 방어자보다 한 단계 높을 때마다 1 턴씩 증가합니다. 예를 들어볼까요?
 
+공격자 : #8d55ff#5 단계#WHITE# #LIGHT_GREEN#주문력#WHITE#, 마력 폭풍 (밀어내기) 사용
+방어자 : #B4B4B4#1 단계#WHITE# #LIGHT_GREEN#물리 내성#WHITE# 으로 방어
+
+= 방어자는 밀려나며, 추가로 4 턴 동안 "불균형" 상태가 됩니다.
 ]]
