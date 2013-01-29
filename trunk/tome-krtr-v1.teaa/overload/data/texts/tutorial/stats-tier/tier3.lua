@@ -18,13 +18,13 @@
 -- darkgod@te4.org
 
 return [[
-Have you determined what's causing those new timed effects?
+새로운 지속 효과가 왜 생기는지 아시겠나요?
 
-If not, then consider the following questions:
+아직 잘 모르겠다면, 다음 질문에 대해 잘 생각해보세요.
 
-1) What #GOLD#combat stat#WHITE# are you using as the attacker, and what #GOLD#combat stat#WHITE# are the spiders using as the defenders?
+1) 자신이 공격에 사용한 #GOLD#전투 능력치#WHITE# 는 무엇이고, 적이 방어에 사용한 #GOLD#전투 능력치#WHITE# 는 무엇인가?
 
-2) What tiers are these #GOLD#combat stats#WHITE#?
+2) 그 #GOLD#전투 능력치#WHITE# 의 단계는 어떻게 되는가?
 
-Feel free to go batter those spiders some more if you need further experimentation!
+거미들을 마구 날려버리면서 답을 찾아보세요.
 ]]

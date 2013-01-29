@@ -18,7 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-Detrimental #GOLD#timed effects#WHITE# are conditions which cause various short-term problems, such as blindness, confusion, stunning, poisoning, slowing, and much more. Much of what we've seen so far applies to them; the type of effect determines what defensive #GOLD#combat stat#WHITE# the defender uses, and the source of the effect determines what offensive #GOLD#combat stat#WHITE# the attacker uses.
+#GOLD#지속 효과#WHITE# 는 짧은 시간 동안 각종 문제를 발생시키는 상태효과를 말합니다. 위층에서 지겹도록 사용한 '밀어내기' 같은 것도 상태효과지만, 한번 밀려나고 끝이니까 #GOLD#지속 효과#WHITE# 는 아니지요.
 
-Let's experiment to find out more. Move on to learn a new talent. Be sure to read its description!
+상태효과 중에서도 #GOLD#지속 효과#WHITE# 인 것에는 실명, 혼란, 기절, 중독, 감속 등등... 그 종류가 굉장히 많습니다. 물론 이런 상태효과는 공격자의 #GOLD#전투 능력치#WHITE# 와 방어자의 #GOLD#전투 능력치#WHITE# 를 비교해서 성공 확률을 결정하게 되죠.
+
+이제 실습을 해봅시다. 앞의 문양을 밟고 새로운 기술을 익혀보세요. 꼭 기술의 설명을 읽어보시구요!
 ]]

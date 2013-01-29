@@ -18,9 +18,15 @@
 -- darkgod@te4.org
 
 return [[
-This is fairly close to saying that you knock a turn off the duration of timed effects for every five points that your defensive #GOLD#combat stat#WHITE# score beats the attacker's offensive #GOLD#combat stat#WHITE#.
+이제 앞의 예에서 출혈 상태효과의 지속시간이 얼마나 감소하는지 알아봅시다.
 
-There are some subtle differences, however.
+1) 공격자와 방어자의 #GOLD#전투 능력치#WHITE# 차이는 71-56=15 만큼 납니다.
 
-As you may have noticed earlier, your #LIGHT_GREEN#Spellpower#WHITE# of 56 against an orc's #LIGHT_GREEN#Physical save#WHITE# of 70, despite having a difference of only 14, resulted in a three-turn duration decrease. This is because the orc's score of 70 gives it 14 turns of duration reduction, but your score of 56 only undoes 11 of those turns, resulting in a reduction of 3 turns.
+2) 방어자의 #GOLD#전투 능력치#WHITE# 가 공격자보다 1 높을 때마다 상태효과의 지속시간이 5% 씩 감소한다고 했으니, 15*5%=75%
+
+3) 원래 출혈 기술은 적에게 10 턴 동안 상태효과를 주는 기술입니다. 하지만 그 지속시간이 75% 감소되는거죠. 즉 10 의 75%, 7.5 턴이 감소됩니다.
+
+4) 그런데 소수점은 버린다고 했죠? 결국 7.5 에서 소수점 수치는 버려, 출혈의 지속시간은 7 턴 감소됩니다. 그래서 이 트롤은 출혈 상태에 딱 3 턴 동안 걸리게 되는 것입니다.
+
+12.5% 의 확률을 뚫고 출혈 상태효과를 트롤에게 걸었지만, 이제 출혈의 지속시간이 줄어들어서 제 효과를 발휘하지 못하게 되는거죠. 결국 이 지속시간 감소 계산은 #LIGHT_GREEN#'훨씬 약한 적을 상대하던 도중에, 어쩌다 한번 상태효과 제대로 걸려서 역습을 허용하는' 상황을 막기 위해서#WHITE# 나온겁니다.
 ]]

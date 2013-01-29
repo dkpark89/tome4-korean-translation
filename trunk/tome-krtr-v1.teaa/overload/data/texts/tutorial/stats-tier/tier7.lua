@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Be very careful about neglecting your defensive #GOLD#combat stats#WHITE#. A long-lasting #GOLD#cross-tier effect#WHITE# is dangerous!
+자신의 방어적인 #GOLD#전투 능력치#WHITE# 가 너무 낮으면, 바로 이 #GOLD#단계 차이 효과#WHITE# 때문에 위험해질 수 있습니다!
 
-At the same time, be on the lookout for enemies a very low defensive #GOLD#combat stat#WHITE#, and consider hitting them with something appropriate to inflict a #GOLD#cross-tier effect#WHITE#!
+물론 동시에, 내성의 단계가 낮은 적을 노려서 이 #GOLD#단계 차이 효과#WHITE# 를 일으킬 수도 있지요.
 ]]

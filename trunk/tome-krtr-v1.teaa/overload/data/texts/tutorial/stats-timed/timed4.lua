@@ -18,5 +18,5 @@
 -- darkgod@te4.org
 
 return [[
-See what the rune in the next room has to teach you! Hopefully you can use it to get past the troublesome elves ahead.
+아직 감이 안오시죠? 앞에 있는 문양을 밟아서 새로운 기술을 배워보세요. 그리고 길을 막는 엘프들을 이 기술로 혼란시킨 다음 지나가보세요.
 ]]

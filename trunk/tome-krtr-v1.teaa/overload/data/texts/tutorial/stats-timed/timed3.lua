@@ -18,8 +18,6 @@
 -- darkgod@te4.org
 
 return [[
-If you think you can predict how #GOLD#combat stats#WHITE# affect timed effect durations, test your hypothesis on the enemies in the next room.
-
-If you don't know yet, see if this sequence of enemies gets you any closer.
-
+다음 방에 있는 트롤들은 #GOLD#전투 능력치#WHITE# 순서대로 보기 좋게 배치되어 있습니다. 
+#GOLD#전투 능력치#WHITE# 에 따라 출혈의 지속시간이 얼마나 줄어드는지 직접 확인해보세요.
 ]]

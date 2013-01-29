@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-It's finally time to stab something.
+드디어 무언가를 찢어죽일 수 있는 시간입니다.
 
-There's an orc up ahead; make sure you're wearing your #GOLD#Helmet of Accuracy (+6)#WHITE# from earlier, and go attack him!
+저기 오크 한 마리가 보이네요. 오크를 공격해보세요. 음... 아마 저라면 조금 전에 얻은 #GOLD#정확도의 투구 (+6)#WHITE# 를 꺼낼 기회가 왔다고 생각할 것 같네요.
 ]]

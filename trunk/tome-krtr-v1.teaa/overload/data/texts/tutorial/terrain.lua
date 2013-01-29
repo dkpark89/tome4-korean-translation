@@ -17,11 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[During your adventures you will encounter a variety of terrains you can pass on: grass, sand, water, lava, ...
+return [[모험을 하다보면, 다양한 지형을 만나게 됩니다. 풀밭, 사막, 물가, 용암, ...
 
-Some of those terrains have innate penalties or tricks. You will have to learn them and how to deal with them.
+몇몇 지형들은 캐릭터에게 특수한 효과를 줍니다. 이러한 효과는 치명적일 수 있기 때문에, 지형에 대처하는 방법을 알 필요가 있습니다.
 
-You are about to enter a pond of water; you will not be able to breath inside. When you are in an area where you cannot breathe, an "Air" counter will appear on the left side of the screen. Do not let it reach zero or you will die.
+현재 캐릭터는 연못에 들어간 상태이며, 일반적으로 물 속에서는 숨을 쉴 수 없습니다. 숨을 쉴 수 없는 경우, "호흡" 수치가 화면에 표시됩니다. 이 수치가 0 이 되면, 숨이 막혀 죽게 됩니다.
 
-Now go to the other side of the pond.
+이제 연못의 반대 쪽으로 이동하세요.
 ]]

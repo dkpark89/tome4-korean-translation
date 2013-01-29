@@ -17,22 +17,22 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Movement is simple. You can use the keyboard, the mouse, or both.
+return [[이동 방법은 간단합니다. 키보드를 사용해도 되고, 마우스를 사용해도 됩니다.
 
-#GOLD#Keyboard:#WHITE#
-- Press the arrow keys or keypad to move in the given direction.
-- Press shift + the arrow keys or keypad to run in the given direction.
-- Press 5 on the keypad to stay put for a turn (doing nothing).
-- Press z to "auto explore" until you find something dangerous or interesting.
+#GOLD#키보드 :#WHITE#
+- 화살표 버튼이나 키패드를 사용해서, 원하는 방향으로 이동할 수 있습니다.
+- Shift + 화살표 키를 이용해서, 원하는 방향으로 계속 이동할 수 있습니다. (길이 막혔거나 흥미로운 것을 발견할 때까지 자동으로)
+- 키패드의 5 키를 누르면, 1 턴 동안 아무 것도 하지 않고 휴식을 취합니다.
+- z 키를 누르면, 흥미로운 것을 발견할 때까지 자동으로 해당 지형을 탐험하게 됩니다.
 
-#GOLD#Mouse:#WHITE#
-- Click on a spot on the map to move there.
-- If there are no monsters and the way is known you will run there.
-- If there are unknown or interesting grids along the way you may stop.
-- If there is a hostile creature in sight you will only move one grid per click, to prevent stupid deaths.
-- Clicking on yourself will make you stay put for a turn (doing nothing).
+#GOLD#마우스 :#WHITE#
+- 이동할 곳을 클릭하면 이동할 수 있습니다.
+- 주변에 적이 없으며 가는 길도 알고 있을 경우, 자동으로 클릭한 곳까지 이동합니다.
+- 흥미로운 것을 발견하면, 이동 중에 멈춥니다.
+- 주변에 적이 있을 경우, 어디를 클릭해도 한 칸 씩만 이동합니다. 억울한 죽음을 방지하기 위해서죠.
+- 자신이 있는 곳을 클릭하면 1 턴 동안 휴식을 취합니다.
 
-You can scroll the map by pressing shift and click+dragging with your mouse, or pressing "L" and using shift+the movement keys.
+Shift + 마우스 클릭한 상태로 마우스를 움직이거나, L 키를 누른 뒤 Shift + 화살표 키를 통해 주변의 지형을 살펴볼 수 있습니다.
 
-Now close this dialog and go west (left) until you arrive in a bigger area.
+이제 이 대화창을 닫고, 서쪽 (왼쪽) 으로 이동해보세요.
 ]]
