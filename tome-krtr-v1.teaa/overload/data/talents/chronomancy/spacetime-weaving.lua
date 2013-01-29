@@ -229,7 +229,7 @@ newTalent{
 					local tx, ty = util.findFreeGrid(self.dest.x, self.dest.y, 5, true, {[engine.Map.ACTOR]=true})
 					if tx and ty then
 						if not who:teleportRandom(tx, ty, 0) then
-							game.logSeen(who, "%s 웜홀로 들어가려 했으나, 난폭한 힘이 밖으로 밀어냈습니다.", (who.kr_dislpay_name or who.name):capitalize():addJosa("가"))
+							game.logSeen(who, "%s 웜홀로 들어가려 했으나, 난폭한 힘이 밖으로 밀어냈습니다.", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 						elseif who ~= self.summoned_by then
 							who:setEffect(who.EFF_CONTINUUM_DESTABILIZATION, 100, {power=self.destabilization_power})
 						end

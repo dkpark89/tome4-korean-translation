@@ -18,22 +18,23 @@
 -- darkgod@te4.org
 
 name = "Tutorial: combat stats"
+kr_display_name = "연습 게임: 전투 능력치"
 desc = function(self, who)
 
 	local desc = {}
 --[=[
 	if self:isCompleted("started-basic-gameplay") and not self:isCompleted("finished-basic-gameplay") then
-		desc[#desc+1] = "You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers."
+		desc[#desc+1] = "당신은 숲은 가운데까지 탐험을 하여, 임의로 주민을 공격하는 '외로운 한 마리 늑대'를 죽여야 합니다."
 	end
 	if self:isCompleted("finished-basic-gameplay") then
-		desc[#desc+1] = "#LIGHT_GREEN#You have defeated the Lone Wolf!#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#당신은 '외로운 한 마리 늑대'를 물리쳤습니다!#WHITE#"
 	end
 ]=]
 	if not self:isCompleted("finished-combat-stats") then
-		desc[#desc+1] = "Explore the Dungeon of Adventurer Enlightenment to learn about ToME's combat mechanics."
+		desc[#desc+1] = "ToME의 전투 규칙을 배우기 위해 모험가용 계몽의 지하미궁을 탐험하시오."
 	end
 	if self:isCompleted("finished-combat-stats") then
-		desc[#desc+1] = "#LIGHT_GREEN#You have navigated the Dungeon of Adventurer Enlightenment!#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#당신은 계몽의 지하미궁을 통과했습니다!#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end
@@ -48,7 +49,7 @@ end
 final_message = function(self)
 	if self:isCompleted("finished-basic-gameplay") and self:isCompleted("finished-combat-stats") then
 		game.player:resolveSource():setQuestStatus("tutorial", engine.Quest.COMPLETED)
-		local d = require("engine.dialogs.ShowText").new("Tutorial Finished", "tutorial/done")
+		local d = require("engine.dialogs.ShowText").new("연습게임 완료", "tutorial/done")
 		game:registerDialog(d)
 	end
 end
@@ -61,7 +62,7 @@ choose_basic_gameplay = function()
 	game.player.combat_physresist = 0
 	game.player.combat_spellresist = 0
 	game.player.combat_mentalresist = 0
-	local d = require("engine.dialogs.ShowText").new("Basic gameplay", "tutorial/basic-intro")
+	local d = require("engine.dialogs.ShowText").new("기본적인 게임진행", "tutorial/basic-intro")
 	game:registerDialog(d)
 end
 
@@ -73,7 +74,7 @@ choose_combat_stats = function(self, who, status, sub)
 	game.player.combat_physresist = 10
 	game.player.combat_spellresist = 116
 	game.player.combat_mentalresist = 62
-	local d = require("engine.dialogs.ShowText").new("Combat stat mechanics", "tutorial/combat-stats-intro")
+	local d = require("engine.dialogs.ShowText").new("전투 능력치 규칙", "tutorial/combat-stats-intro")
 	game:registerDialog(d)
 end
 ]=]

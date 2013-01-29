@@ -144,7 +144,7 @@ newTalent{
 	info = function(self, t)
 		return ([[공격당하면 상대의 공격목표가 바뀌도록, 분열된 당신끼리의 위치를 즉시 바꿉니다.
 		위치를 바꾸는 동안 당신끼리 잠시 결합하여, 모든 당신의 자연 피해량과 산성 피해량이 6턴간 %d%% 증가하고, 생명력이 %d 만큼 치료됩니다.
-		공격력과 치유량은 정신력의 영향을 받아 증가합니다.]]):
+		피해량과 치유량은 정신력의 영향을 받아 증가합니다.]]):
 		format(15 + self:combatTalentMindDamage(t, 5, 300) / 10, 40 + self:combatTalentMindDamage(t, 5, 300))
 	end,
 }

@@ -401,6 +401,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 				
 				print("applying addon", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
+				ego.kr_unided_name = nil --@@ 혹시 몰라 삽입
 				ego.__CLASSNAME = nil
 				-- The ego requested instant resolving before merge ?
 				if ego.instant_resolve then ego:resolve(nil, nil, e) end
@@ -503,6 +504,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 				
 				print("applying ego", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
 				ego.unided_name = nil
+				ego.kr_unided_name = nil --@@ 혹시 몰라 삽입
 				ego.__CLASSNAME = nil
 				-- The ego requested instant resolving before merge ?
 				if ego.instant_resolve then ego:resolve(nil, nil, e) end

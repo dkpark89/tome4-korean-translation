@@ -35,11 +35,11 @@ newEntity{ base = "BASE_STAFF",
 	name = "Staff of Destruction",
 	flavor_name = "magestaff",
 	unided_name = "darkness infused staff", image = "object/artifact/staff_of_destruction.png",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "파괴의 지팡이", kr_unided_name = "어둠이 주입된 지팡이",
 	level_range = {20, 25},
 	color=colors.VIOLET,
 	rarity = 170,
-	desc = [[This unique-looking staff is carved with runes of destruction.]],
+	desc = [[이 독특해 보이는 지팡이에는 파괴의 룬이 새겨져 있습니다.]],
 	cost = 200,
 	material_level = 3,
 
@@ -71,11 +71,11 @@ newEntity{ base = "BASE_STAFF",
 	name = "Penitence",
 	flavor_name = "starstaff",
 	unided_name = "glowing staff", image = "object/artifact/staff_penitence.png",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "참회", kr_unided_name = "빛나는 지팡이",
 	level_range = {10, 18},
 	color=colors.VIOLET,
 	rarity = 200,
-	desc = [[A powerful staff sent in secret to Angolwen by the Shaloren, to aid their fighting of the plagues following the Spellblaze.]],
+	desc = [[스펠블레이즈가 퍼뜨린 전염병에 맞서 싸우는 앙골웬을 돕기 위해 샬로레가 비밀리 보낸 강력한 지팡이입니다.]],
 	cost = 200,
 	material_level = 2,
 
@@ -95,7 +95,7 @@ newEntity{ base = "BASE_STAFF",
 		},
 	},
 	max_power = 60, power_regen = 1,
-	use_power = { name = "cure diseases", power = 10,
+	use_power = { name = "질병 치료", power = 10,
 		use = function(self, who)
 			local target = who
 			local effs = {}
@@ -118,7 +118,7 @@ newEntity{ base = "BASE_STAFF",
 					known = true
 				end
 			end
-			game.logSeen(who, "%s is cured of diseases!", who.name:capitalize())
+			game.logSeen(who, "%s의 질병이 치료되었습니다!", (who.kr_display_name or who.name):capitalize())
 			return {id=true, used=true}
 		end
 	},
@@ -129,12 +129,12 @@ newEntity{ base = "BASE_STAFF",
 	unique = true,
 	name = "Lost Staff of Archmage Tarelion", image = "object/artifact/staff_lost_staff_archmage_tarelion.png",
 	unided_name = "shining staff",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "마도사 타렐리온의 잃어버린 지팡이", kr_unided_name = "빛나는 지팡이",
 	flavor_name = "magestaff",
 	level_range = {37, 50},
 	color=colors.VIOLET,
 	rarity = 250,
-	desc = [[Archmage Tarelion traveled the world in his youth. But the world is not a nice place and it seems he had to run fast.]],
+	desc = [[마도사 타렐리온은 어릴적에 세계를 여행했습니다. 하지만 세상은 좋은 곳이 아니었고, 그는 빨리 도망쳐야만 했습니다.]],
 	cost = 400,
 	material_level = 5,
 

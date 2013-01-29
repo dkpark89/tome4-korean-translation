@@ -19,7 +19,7 @@
 
 return {
 	name = "Tutorial",
-	kr_display_name = "연습게임",
+	kr_display_name = "계몽의 지하미궁",
 	level_range = {1, 1},
 	level_scheme = "player",
 	max_level = 5,

@@ -35,6 +35,17 @@ local newInscription = function(t)
 				return t.name
 			end
 		end
+		tt.kr_display_name_f = function(self, t)
+			local data = self:getInscriptionData(t.short_name)
+			if data.item_name then
+				local n = tstring{(t.kr_display_name or t.name), " ["}
+				n:merge(data.item_name)
+				n:add("]")
+				return n
+			else
+				return (t.kr_display_name or t.name)
+			end
+		end
 		if tt.type[1] == "inscriptions/infusions" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_INFUSION_COOLDOWN) end
 		elseif tt.type[1] == "inscriptions/runes" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_RUNE_COOLDOWN) end
 		elseif tt.type[1] == "inscriptions/taints" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_TAINT_COOLDOWN) end
