@@ -635,6 +635,35 @@ function _M:drawDialog(kind, actor_to_compare)
 				if mean and mean.range then self:mouseTooltip(self.TOOLTIP_COMBAT_RANGE, s:drawColorStringBlended(self.font, ("사정거리 (보조 무기): #00ff00#%3d"):format(mean.range), w, h, 255, 255, 255, true)) h = h + self.font_h end
 			end
 		end
+		
+		--@@ 640~666 : 염동력 무기 정보 추가 코드 추가
+		--[[h = h + self.font_h
+		-- All weapons in off hands
+		if player:getInven(player.INVEN_PSIONIC_FOCUS) then
+			for i, o in ipairs(player:getInven(player.INVEN_PSIONIC_FOCUS)) do
+				local mean, dam = player:getObjectCombat(o, "mainhand"), player:getObjectCombat(o, "mainhand")
+				if o.archery and mean then
+					dam = (player:getInven("QUIVER") and player:getInven("QUIVER")[1] and player:getInven("QUIVER")[1].combat)
+				end
+				if mean and dam then
+					s:drawColorStringBlended(self.font, "#LIGHT_BLUE#염동 무기:", w, h, 255, 255, 255, true) h = h + self.font_h
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return math.floor(actor:combatAttack(...)) end, "%3d", "%+.0f", 1, false, false, mean)
+					dur_text = ("%d"):format(math.floor(player:combatAttack(o.combat)/5))
+					self:mouseTooltip(self.TOOLTIP_COMBAT_ATTACK, s:drawColorStringBlended(self.font, ("정확도  : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatDamage(...) end, "%3d", "%+.0f", 1, false, false, dam)
+					self:mouseTooltip(self.TOOLTIP_COMBAT_DAMAGE, s:drawColorStringBlended(self.font, ("피해량  : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatAPR(...) end, "%3d", "%+.0f", 1, false, false, dam)
+					self:mouseTooltip(self.TOOLTIP_COMBAT_APR,    s:drawColorStringBlended(self.font, ("관통력  : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatCrit(...) end, "%3d%%", "%+.0f%%", 1, false, false, dam)
+					self:mouseTooltip(self.TOOLTIP_COMBAT_CRIT,   s:drawColorStringBlended(self.font, ("치명타율: #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatSpeed(...) end, "%.2f%%", "%+.2f%%", 100, true, false, mean)
+					self:mouseTooltip(self.TOOLTIP_COMBAT_SPEED,  s:drawColorStringBlended(self.font, ("공격속도: #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
+				end
+				if mean and mean.range then
+					self:mouseTooltip(self.TOOLTIP_COMBAT_RANGE, s:drawColorStringBlended(self.font, ("사정거리 (염동 무기): #00ff00#%3d"):format(mean.range), w, h, 255, 255, 255, true)) h = h + self.font_h
+				end
+			end
+		end --]] --@@ 여기까지 추기된 염동 무기 정보
 
 		-- player.combat_physcrit
 		-- player.combat_mindcrit

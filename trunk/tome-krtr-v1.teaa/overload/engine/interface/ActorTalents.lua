@@ -683,8 +683,8 @@ end
 --- Returns display name
 function _M:getTalentDisplayName(t)
 	if not t.display_name then return (t.kr_display_name or t.name) end --@@ 한글이름 존재시 한글이름 사용
-	if type(t.display_name) == "function" then return t.display_name(self, t) end
-	return t.display_name
+	if type(t.display_name) == "function" then return (t.kr_display_name_f and t.kr_display_name_f(self, t)) or t.display_name(self, t) end
+	return t.display_name --@@ 수정 필요한지 검사 필요
 end
 
 --- Cooldown all talents by one

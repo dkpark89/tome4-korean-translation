@@ -140,7 +140,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[태양의 힘을 모아 두 번 공격하여, 각각 무기 공격력의 %d%% 에 해당하는 빛 피해를 줍니다.]]):
+		return ([[태양의 힘을 모아 두 번 공격하여, 각각 무기 피해량의 %d%% 에 해당하는 빛 피해를 줍니다.]]):
 		format(100 * damage)
 	end,
 }

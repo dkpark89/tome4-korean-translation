@@ -18,9 +18,10 @@
 -- darkgod@te4.org
 
 name = "Tutorial"
+kr_display_name = "연습 게임"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers."
+	desc[#desc+1] = "당신은 숲은 가운데까지 탐험을 하여, 임의로 주민을 공격하는 '외로운 한 마리 늑대'를 죽여야 합니다."
 	return table.concat(desc, "\n")
 end
 
@@ -32,6 +33,6 @@ on_status_change = function(self, who, status, sub)
 end
 
 on_grant = function(self)
-	local d = require("engine.dialogs.ShowText").new("Tutorial: Movement", "tutorial/move")
+	local d = require("engine.dialogs.ShowText").new("게임 배우기: 이동", "tutorial/move")
 	game:registerDialog(d)
 end
