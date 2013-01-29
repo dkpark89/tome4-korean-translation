@@ -645,7 +645,7 @@ function string.krMonth(str)
 	elseif ori == "flare" then return "타오름의 달"
 	elseif ori == "dusk" then return "황혼의 달"
 	elseif ori == "time of equilibrium" then return "평정의 달"
-	elseif ori == "haze" then return "몽롱한 달"
+	elseif ori == "haze" then return "아지랑이의 달"
 	elseif ori == "decay" then return "부패의 달"
 	-- 위는 동맹 연합 달력, 아래는 드워프 달력
 	elseif ori == "iron" then return "철의 달"

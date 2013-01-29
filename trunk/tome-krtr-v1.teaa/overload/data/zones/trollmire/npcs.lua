@@ -37,7 +37,7 @@ newEntity{ define_as = "TROLL_PROX",
 	kr_display_name = "강력한 프록스",
 	display = "T", color=colors.VIOLET, image="npc/giant_troll_prox_the_mighty.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_troll_prox_the_mighty.png", display_h=2, display_y=-1}}},
-	desc = [[A huge troll, he might move slowly but he does look dangerous nonetheless.]],
+	desc = [[거대한 트롤로, 천천히 움직임에도 불구하고 매우 위험하게 보입니다.]],
 	killer_message = "and eaten raw",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
@@ -73,7 +73,7 @@ newEntity{ define_as = "TROLL_PROX",
 			if n then
 				self.on_takehit = nil
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "Prox staggers for a moment. A note seems to drop at his feet.")
+				game.logSeen(self, "프록스가 잠시 비틀거립니다. 그의 발밑으로 작은 쪽지가 떨어집니다.")
 			end
 		end
 		return val
@@ -100,9 +100,9 @@ newEntity{ define_as = "TROLL_BILL",
 	kr_display_name = "암석 트롤 빌",
 	display = "T", color=colors.VIOLET, image="npc/troll_bill.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/troll_bill.png", display_h=2, display_y=-1}}},
-	desc = [[Big, brawny, powerful and with a taste for Halfling.
-He is wielding a small tree trunk and lumbering toward you.
-This is the troll the notes spoke about, no doubt.]],
+	desc = [[갈색의 크고 강하며 하플링을 먹기를 좋아합니다.
+작은 나무 줄기를 꺽어 쥔채로 당신을 겨누고 있습니다.
+이 트롤이 쪽지가 말하던 놈인게 확실합니다.]],
 	killer_message = "and clobbered into soup",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 18, fixed_rating = true,
@@ -140,8 +140,9 @@ newEntity{ define_as = "ALUIN",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Aluin the Fallen",
+	kr_display_name = "타락한 알루인",
 	display = "p", color=colors.VIOLET,
-	desc = [[His once shining armour now dull and bloodstained, this Sun Paladin has given in to despair.]],
+	desc = [[한때 빛나던 그의 갑옷은 무뎌졌고, 피에 절었습니다. 이 태양의 기사는 절망에 빠져 있습니다.]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 350, life_rating = 23, fixed_rating = true,
 	hate_regen = 100,

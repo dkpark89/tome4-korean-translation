@@ -159,6 +159,7 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "daelach", color=colors.PURPLE, -- Shadow flame
+	kr_display_name = "대라치",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_daelach.png", display_h=2, display_y=-1}}},
 	desc = [[You can only guess at the real shape of this demon. Its body is surrounded by a cloud of fiery darkness.
 It moves swiftly toward you, casting terrible spells and swinging its weapons at you.]],

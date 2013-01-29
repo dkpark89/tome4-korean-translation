@@ -32,6 +32,7 @@ newEntity { base = "GRASS", define_as = "OLD_FOREST" }
 newEntity{
 	define_as = "RIFT",
 	name = "Temporal Rift", image="terrain/demon_portal2.png",
+	kr_display_name = "시간의 틈",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,

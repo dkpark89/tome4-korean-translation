@@ -25,6 +25,7 @@ newEntity{ define_as = "ASSASSIN_LORD",
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.VIOLET,
 	name = "Assassin Lord",
+	kr_display_name = "암살단 군주",
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 	cant_be_moved = true,
 
@@ -70,7 +71,7 @@ newEntity{ define_as = "ASSASSIN_LORD",
 
 	on_die = function(self, who)
 		game.level.map(self.x, self.y, game.level.map.TERRAIN, game.zone.grid_list.UP_WILDERNESS)
-		game.logSeen(who, "As the assassin dies the magical veil protecting the stairs out vanishes.")
+		game.logSeen(who, "암살자가 죽자 마법의 장막이 사라지고 계단이 나타납니다.")
 		for uid, e in pairs(game.level.entities) do
 			if e.is_merchant and not e.dead then
 				e.can_talk = "lost-merchant"
@@ -86,6 +87,7 @@ newEntity{ define_as = "MERCHANT",
 	type = "humanoid", subtype = "human",
 	display = "@", color=colors.UMBER,
 	name = "Lost Merchant",
+	kr_display_name = "행방불명의 상인",
 	size_category = 3,
 	ai = "simple",
 	faction = "victim",

@@ -190,6 +190,7 @@ newAchievement{
 }
 newAchievement{
 	name = "Back and there again", id = "EAST_PORTAL",
+	kr_display_name = "다시 또 그 자리에",
 	show = "name",
 	desc = [[Opened a portal to the Far East from Maj'Eyal.]],
 }

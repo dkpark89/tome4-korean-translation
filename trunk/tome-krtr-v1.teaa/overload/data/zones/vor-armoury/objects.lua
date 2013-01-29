@@ -23,11 +23,12 @@ newEntity{ define_as = "ATHAME",
 	quest=true, unique=true, identified=true, no_unique_lore=true,
 	type = "misc", subtype="misc",
 	unided_name = "athame",
+	kr_display_name = "비의 룬 제례단검", kr_unided_name = "제례단검",
 	name = "Blood-Runed Athame", image = "object/artifact/blood_runed_athame.png",
 	level_range = {50, 50},
 	display = "|", color=colors.VIOLET,
 	encumber = 1,
-	desc = [[An athame, covered in blood runes. It radiates power.]],
+	desc = [[피로 룬이 적힌 제례용 단검입니다. 힘을 내뿜고 있습니다.]],
 
 	on_pickup = function(self, who)
 		if who == game.player then

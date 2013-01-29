@@ -26,19 +26,20 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "PORTAL_BACK",
 	name = "Portal to Last Hope",
+	kr_display_name = "마지막 희망으로의 포탈",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png", add_mos = {{image="terrain/demon_portal.png"}},
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[This portal seems to be connected with Last Hope, you could probably use it to go back.]],
+	desc = [[이 포탈은 마지막 희망으로 연결되어 있는 것처럼 보입니다. 이 것을 사용하면 돌아갈 수 있을것 같습니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("Back and there again", "Enter the portal back to Last Hope?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("다시 또 그 자리에", "포탈로 들어가 마지막 희망으로 되돌아 갑니까?", function(ret)
 				if not ret then
 					game.player:hasQuest("east-portal"):back_to_last_hope()
 				end
-			end, "Stay", "Enter")
+			end, "머무르기", "들어가기")
 		end
 	end,
 }

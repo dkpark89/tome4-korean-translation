@@ -29,8 +29,9 @@ newEntity{ base = "BASE_LITE",
 	define_as = "ELDRITCH_PEARL",
 	unided_name = "bright pearl",
 	name = "Eldritch Pearl", unique=true, image = "object/artifact/eldritch_pearl.png",
+	kr_display_name = "섬뜩한 진주", kr_unided_name = "밝은 진주",
 	display ='*', color = colors.AQUAMARINE,
-	desc = [[Thousands of years spent inside the temple of creation have infused this pearl with the fury of rushing water. It pulses light.]],
+	desc = [[창조의 사원에서 수천년을 보냄으로써, 이 진주에는 돌진하는 물줄기의 격정이 주입되었습니다. 빛이 굽이치며 발산됩니다.]],
 
 	-- No cost, it's invaluable
 	wielder = {
@@ -57,7 +58,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tract", lore="temple-creation-note-"..i,
-	desc = [[Tract, revealing the history of the Nagas.]],
+	kr_display_name = "논문",
+	desc = [[나가의 역사를 밝히는 논문입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -66,7 +68,8 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "SLASUL_NOTE",
 	name = "note", lore="temple-creation-note-4",
-	desc = [[A note.]],
+	kr_display_name = "쪽지",
+	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -76,9 +79,10 @@ newEntity{ base = "BASE_TRIDENT",
 	define_as = "LEGACY_NALOREN",
 	unided_name = "ornate orichalcum trident",
 	name = "Legacy of the Naloren", unique=true, image = "object/artifact/trident_of_the_tides.png",
-	desc = [[This incredibly beautiful-and powerful-trident is made of the rare metal orichalcum. An amazing pearl is seated in head of the trident, as it spreads into three razor sharp prongs.
-It is imbued with the greatest strengths of all of the most powerful Naga warriors.
-Slasul gave it to you as a sign of his faith in you. It is a sign of hope for all of the Naloren race, that one outside of their tribe could be so trusted.]],
+	kr_display_name = "날로레의 유산", kr_unided_name = "화려하게 장식된 오리하르콘 삼지창",
+	desc = [[이 놀랍도록 아름답고 강력한 삼지창은 희귀한 금속인 오리하르콘으로 만들어졌습니다. 굉장한 진주가 이 삼지창의 끝에 박혀 있고, 세줄기의 뾰족한 날이 뻗어나와 있습니다.
+여기에는 대부분의 가장 강력한 나가 전사들의 위대한 힘이 주입되어 있습니다.
+슬라술은 이것을 믿음의 증표로 당신에게 주었습니다. 이것은 모든 날로레 종족의 희망의 상징으로, 그들의 부족이 아닌이게게 이것을 주는 것은 매우 큰 신뢰를 나타냅니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {40, 50},
 	rarity = false,

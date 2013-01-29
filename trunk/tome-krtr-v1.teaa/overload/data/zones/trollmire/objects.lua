@@ -23,7 +23,8 @@ for i = 1, 2 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tattered paper scrap", lore="trollmire-note-"..i,
-	desc = [[A paper scrap, left by an adventurer.]],
+	kr_display_name = "찢겨진 종이 조각",
+	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -32,7 +33,8 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "PROX_NOTE",
 	name = "tattered paper scrap", lore="trollmire-note-3",
-	desc = [[A paper scrap, left by an adventurer.]],
+	kr_display_name = "찢겨진 종이 조각",
+	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
