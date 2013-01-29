@@ -136,18 +136,18 @@ return {
 
 		local Dialog = require("engine.ui.Dialog")
 		if lev == 1 and not game.level.shown_warning then
-			Dialog:simplePopup("Temporal Rift", "Space and time distort and lose meaning as you pass through the rift. This place is alien.")
+			Dialog:simplePopup("시간의 틈", "틈으로 들어서자, 시공간이 왜곡되면서 당신은 길을 잃습니다. 이 공간은 이질적입니다.")
 			game.level.shown_warning = true
 		elseif lev == 2 and not game.level.shown_warning then
-			Dialog:simplePopup("Temporal Rift", "This looks like Maj'Eyal's forest but it looks strangely distorted, beware...")
+			Dialog:simplePopup("시간의 틈", "여기는 마즈'에이알의 숲으로 보이지만, 뭔가 이상하게 왜곡된 것 같습니다. 조심하세요...")
 			game.level.shown_warning = true
 			require("mod.class.generator.actor.Random").new(game.zone, game.level.map, game.level, {}):generateGuardian("BEN_CRUTHDAR_ABOMINATION")
 		elseif lev == 3 and not game.level.shown_warning then
-			Dialog:simplePopup("Temporal Rift", "As you pass the rift you see what seems to be the Daikara mountains, yet they are not.")
+			Dialog:simplePopup("시간의 틈", "틈으로 들어서자, 다이카라 산맥처럼 보이는 곳이 나옵니다. 하지만 그 곳은 아니것 같습니다.")
 			game.level.shown_warning = true
 			require("mod.class.generator.actor.Random").new(game.zone, game.level.map, game.level, {}):generateGuardian("ABOMINATION_RANTHA")
 		elseif lev == 4 and not game.level.shown_warning then
-			Dialog:simplePopup("Temporal Rift", "The peace of this place has been disturbed.")
+			Dialog:simplePopup("시간의 틈", "이 공간의 평화가 어지럽혀집니다.")
 			game.level.shown_warning = true
 
 			local m1 = game.zone:makeEntityByName(game.level, "actor", "CHRONOLITH_TWIN")

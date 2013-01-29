@@ -96,9 +96,9 @@ return {
 
 	on_enter = function(lev, old_lev, newzone)
 		if newzone then
-			game.logPlayer(game.player, "#AQUAMARINE#You arrive deep under water, at the sea floor, as you look upwards you only see a glimpse of light coming through.")
-			game.logPlayer(game.player, "#AQUAMARINE#You should be crushed by the pressure, but strangely you feel no discomfort.")
-			game.logPlayer(game.player, "#AQUAMARINE#All around you there is only water as far as you can see, except to your left, a giant coral structure. This is probably the temple of Creation.")
+			game.logPlayer(game.player, "#AQUAMARINE#당신은 깊은 수중에 있는 바다의 바닥까지 도착했습니다. 위쪽을 쳐다보자 희미하게 반짝이는 빛만 보입니다..")
+			game.logPlayer(game.player, "#AQUAMARINE#당신은 압력에 의해 찌그러질것 같지만, 이상하게도 불편함은 느껴지지 않습니다.")
+			game.logPlayer(game.player, "#AQUAMARINE#왼쪽에 보이는 대형 산호 건축물을 제외하면, 주변의 보이는 곳에는 온통 바닷물 뿐입니다. 여기가 창조의 사원인 것 같습니다.")
 		end
 	end,
 }

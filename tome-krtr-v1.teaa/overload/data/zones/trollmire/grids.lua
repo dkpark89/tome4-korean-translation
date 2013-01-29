@@ -25,6 +25,7 @@ local grass_editer = { method="borders_def", def="grass"}
 
 newEntity{ base = "FLOOR", define_as = "DIRT",
 	name="dirt road",
+	kr_display_name = "더러운 도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }
@@ -33,6 +34,7 @@ newEntity{
 	define_as = "STEW",
 	type = "wall", subtype = "grass",
 	name = "troll stew", image = "terrain/grass.png", add_mos={{image="terrain/troll_stew.png"}},
+	kr_display_name = "트롤 찌개",
 	display = '~', color=colors.LIGHT_RED, back_color=colors.RED,
 	does_block_move = true,
 	pass_projectile = true,

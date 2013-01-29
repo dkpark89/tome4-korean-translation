@@ -32,7 +32,7 @@ newEntity{ define_as = "SHADE_OF_TELOS",
 	name = "The Shade of Telos",
 	kr_display_name = "텔로스의 그림자",
 	display = "G", color=colors.VIOLET,
-	desc = [[Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.]],
+	desc = [[모두 텔로스가 죽은거라 생각하고 있습니다. 사실 그의 정신은 파괴되었지만, 이것은 오래된 그의 힘의 장소에 아직도 머무르고 있습니다.]],
 	killer_message = "and was savagely mutilated, a show of his rage towards all living things",
 	level_range = {38, nil}, exp_worth = 3,
 	max_life = 250, life_rating = 22, fixed_rating = true,
@@ -85,6 +85,6 @@ newEntity{ define_as = "SHADE_OF_TELOS",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 
 	on_die = function(self, who)
-		require("engine.ui.Dialog"):simpleLongPopup("Back and there again", 'As the shade dissipates, you see no sign of the text entitled "Inverted and Reverted Probabilistic Fields". You should go back to Tannen.', 400)
+		require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 자리에", '그림자가 흩어지자, 다음 문장이 보입니다. "확률적 역장이 뒤집혔고 복귀했다(Inverted and Reverted Probabilistic Fields)." 당신은 탄넨으로 돌아가야 합니다.', 400) --@@ 해당 대화문(chats) 번역시 수정 필요 : /data/chats/tannen.lua:116, 152
 	end,
 }

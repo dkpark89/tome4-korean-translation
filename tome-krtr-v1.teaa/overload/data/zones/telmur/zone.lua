@@ -60,7 +60,7 @@ return {
 	},
 	on_enter = function(lev, old_lev, newzone)
 		if newzone and not game.level.shown_warning then
-			require("engine.ui.Dialog"):simplePopup("Telmur", "As you approach the tower you notice it is utterly destroyed, only the basement remaining.")
+			require("engine.ui.Dialog"):simplePopup("텔무르", "탑에 도달하자, 이 탑이 완전히 있는 것이 보입니다. 지하실만이 남아있습니다.")
 			game.level.shown_warning = true
 		end
 	end,

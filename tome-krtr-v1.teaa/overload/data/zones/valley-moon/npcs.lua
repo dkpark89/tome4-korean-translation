@@ -25,9 +25,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "CORRUPTED_DAELACH",
 	type = "demon", subtype = "major", unique = true,
 	name = "Corrupted Daelach",
+	kr_display_name = "타락한 대라치",
 	display = "U", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_corrupted_daelach.png", display_h=2, display_y=-1}}},
-	desc = [[Shadow and flames. The huge beast of fire moves speedily toward you, its huge shadowy wings deployed.]],
+	desc = [[그림자와 불꽃. 커다란 화염의 짐승이 그 큰 그림자의 날개를 사용하여 당신쪽으로 빠르게 다가오고 있습니다.]],
 	level_range = {40, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 25, fixed_rating = true,
 	rank = 4,
@@ -78,7 +79,7 @@ newEntity{ define_as = "LIMMIR",
 	faction = "sunwall",
 	name = "Limmir the Jeweler", color=colors.RED, unique = true,
 	kr_display_name = "보석 세공사 리미르",
-	desc = [[An Elven Anorithil, specializing in the art of jewelry.]],
+	desc = [[엘프 아노리실로, 보석 세공 기술의 명인입니다.]],
 	level_range = {50, 50}, exp_worth = 2,
 	rank = 3,
 	size_category = 3,
@@ -116,7 +117,7 @@ newEntity{ define_as = "LIMMIR",
 		if self.last_took_hit_cry and game.turn < self.last_took_hit_cry + 100 and (not who or who.type ~= "demon") then return value end
 		self.last_took_hit_cry = game.turn
 
-		game.bignews:say(90, "#VIOLET#Limmir is attacked! Defend him!")
+		game.bignews:say(90, "#VIOLET#리미르가 공격당했어! 그를 보호해!")
 
 		return value
 	end,

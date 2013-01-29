@@ -25,6 +25,7 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "MOONSTONE",
 	name = "moonstone",
+	kr_display_name = "월장석",
 	image = "terrain/grass.png",
 	display = '&', color=colors.GREY, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -38,9 +39,10 @@ newEntity{
 	type = "floor", subtype = "grass",
 	define_as = "PORTAL_DEMON",
 	name = "Fearscape Portal", image = "terrain/grass.png", add_displays={class.new{z=5, image = "terrain/demon_portal3.png"}},
+	kr_display_name = "공포의 영역으로의 포탈",
 	display = '&', color=colors.RED, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[An invocation portal, perpetually summoning beings through it.]],
+	desc = [[소환된 포탈로, 이 것을 통해 끈임없이 소환수가 나옵니다.]],
 }

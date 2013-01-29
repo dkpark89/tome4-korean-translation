@@ -23,7 +23,7 @@ newEntity{
 	define_as = "BASE_NPC_SPIDER",
 	type = "spiderkin", subtype = "spider",
 	display = "S", color=colors.WHITE,
-	desc = [[Arachnophobia...]],
+	desc = [[거미 공포증...]],
 	body = { INVEN = 10 },
 
 	max_stamina = 150,
@@ -41,7 +41,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "orb spinner", color=colors.UMBER,
-	desc = [[A large brownish arachnid, its fangs drip with a strange fluid.]],
+	kr_display_name = "오브 방적거미",
+	desc = [[커다란 갈색 거미류입니다. 그 이빨에서는 이상한 액체가 흐르고 있습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(20,40),
@@ -51,7 +52,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "orb weaver", color=colors.DARK_UMBER,
-	desc = [[A large brownish arachnid spinning its web.  It doesn't look pleased that you've disturbed its work.]],
+	kr_display_name = "오브 무당거미",
+	desc = [[거미줄을 짜고있는 커다란 갈색 거미류입니다. 당신이 그의 일을 방해해서 기분이 나빠 보입니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(40,60),
@@ -65,7 +67,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate spinner", color=colors.SLATE,
-	desc = [[Easily as big as a horse, this giant spider menaces at you with claws and fangs.]],
+	kr_display_name = "파멸의 방적거미",
+	desc = [[말만큼 커다란 이 대형 거미는 그 이빨과 발톱으로 당신을 위협하고 있습니다.]],
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 3,
 	size_category = 4,
@@ -82,7 +85,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate weaver", color=colors.WHITE,
-	desc = [[A large white spider.]],
+	kr_display_name = "파멸의 무당거미",
+	desc = [[커다란 흰색 거미입니다.]],
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,100),
@@ -103,7 +107,7 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 	name = "Weaver Queen", color=colors.WHITE,
 	kr_display_name = "무당거미 여왕",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_weaver_queen.png", display_h=2, display_y=-1}}},
-	desc = [[A large white spider.]],
+	desc = [[커다란 흰색 거미입니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	unique = true,
 	rarity = false,
@@ -138,7 +142,7 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("start-point-zero", engine.Quest.COMPLETED, "morass")
-		require("engine.ui.Dialog"):simplePopup("Weaver Queen", "As you vanquish the queen you notice a temporal thread that seems to have been controlling her. It seems to go through a rift.")
+		require("engine.ui.Dialog"):simplePopup("무당거미 여왕", "여왕거미를 무찌르자, 그녀가 지배하던 것 같은 시간의 흐름을 발견했습니다. 그것이 틈 사이로 지나갑니다.")
 		local rift = game.zone:makeEntityByName(game.level, "terrain", "RIFT_HOME")
 		game.zone:addEntity(game.level, rift, "terrain", self.x, self.y)
 	end,
