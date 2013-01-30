@@ -35,7 +35,7 @@ function _M:init(title, player)
 	local nb = 0
 	for id, data in pairs(world.achieved) do nb = nb + 1 end
 
-	Dialog.init(self, (title or "달성 과제").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, (title or "업적").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
 
 	self.c_self = Checkbox.new{title="현재 캐릭터 달성", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
 	self.c_main = Checkbox.new{title="모든 캐릭터 달성", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
@@ -68,7 +68,7 @@ function _M:init(title, player)
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw * 0.6 - 10), height=self.ih - 10 - self.c_self.h, floating_headers = true, scrollbar=true, sortable=true, columns={
 		{name="", width={24,"fixed"}, display_prop="--", direct_draw=direct_draw},
-		{name="달성 과제", width=60, display_prop="name", sort="name"},
+		{name="업적", width=60, display_prop="name", sort="name"},
 		{name="달성시기", width=20, display_prop="when", sort="when"},
 		{name="달성자", width=20, display_prop="who", sort="who"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}

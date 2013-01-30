@@ -17,14 +17,17 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/objects/objects-maj-eyal.lua")
 
 newEntity{ base = "BASE_SCROLL", define_as = "NOTE_FROM_LAST_HOPE",
 	name = "Sealed Scroll of Last Hope", identified=true, unique=true, no_unique_lore=true,
+	kr_display_name = "마지막 희망의 봉인된 두루마리",
 	image = "object/letter1.png",
 	fire_proof = true,
 
-	use_simple = { name="open the seal and read the message", use = function(self, who)
+	use_simple = { name="봉인을 풀고 전언 읽기", use = function(self, who)
 		game:registerDialog(require("engine.dialogs.ShowText").new(self:getName{do_color=true}, "message-last-hope", {playername=who.name}, game.w * 0.6))
 		return {used=true, id=true}
 	end}
@@ -33,12 +36,13 @@ newEntity{ base = "BASE_SCROLL", define_as = "NOTE_FROM_LAST_HOPE",
 newEntity{ base = "BASE_GEM",
 	define_as = "RESONATING_DIAMOND_WEST",
 	name = "Resonating Diamond", color=colors.VIOLET, quest=true, unique="Resonating Diamond West", identified=true, no_unique_lore=true,
+	kr_display_name = "공명하는 다이아몬드",
 	image = "object/artifact/resonating_diamond.png",
 	material_level = 5,
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -49,6 +53,7 @@ newEntity{ define_as = "ATHAME_WEST",
 	type = "misc", subtype="misc",
 	unided_name = "athame",
 	name = "Blood-Runed Athame", image = "object/artifact/blood_runed_athame.png",
+	kr_display_name = "피의 룬 제례단검", kr_unided_name = "제례단검",
 	level_range = {50, 50},
 	display = "|", color=colors.VIOLET,
 	encumber = 1,
@@ -56,7 +61,7 @@ newEntity{ define_as = "ATHAME_WEST",
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -66,7 +71,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "IRON_THRONE_PROFIT"..i,
 	name = "Iron Throne Profits History", lore="iron-throne-profits-"..i,
-	desc = [[A journal of the profits history of the Iron Throne dwarves.]],
+	kr_display_name = "철의 왕좌 수익의 역사", --@@ lore 번역시 수정 필요
+	desc = [[철의 왕좌 드워프들의 수익에 관한 역사가 적힌 잡지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -75,7 +81,8 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "IRON_THRONE_LEDGER",
 	name = "Iron Throne trade ledger", lore="iron-throne-trade-ledger",
-	desc = [[A trade ledger of the Iron Throne dwarves.]],
+	kr_display_name = "철의 왕좌 교역 원장", --@@ lore 번역시 수정 필요
+	desc = [[철의 왕좌 드워프들의 교역 원장입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -83,7 +90,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "IRON_THRONE_LAST_WORDS",
 	name = "Iron Throne Reknor expedition, last words", lore="iron-throne-last-words",
-	desc = [[Last words of a dwarven expedition to secure Reknor.]],
+	kr_display_name = "철의 왕좌 레크놀 원정기, 유언", --@@ lore 번역시 수정 필요
+	desc = [[레크놀의 안전을 위한 드워프 원정대의 유언입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

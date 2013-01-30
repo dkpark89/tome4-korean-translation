@@ -30,7 +30,7 @@ newEntity{ define_as = "STAFF_ABSORPTION",
 	type = "weapon", subtype="staff",
 	unided_name = "dark runed staff",
 	name = "Staff of Absorption",
-	kr_display_name = "흡수의 마법지팡이", kr_unided_name = "어두룬 룬 마법지팡이",
+	kr_display_name = "흡수의 지팡이", kr_unided_name = "어두룬 룬 지팡이",
 	flavor_name = "magestaff",
 	level_range = {30, 30},
 	display = "\\", color=colors.VIOLET, image = "object/artifact/staff_absorption.png",
@@ -349,7 +349,7 @@ newEntity{ base = "BASE_ROD",
 					game.logPlayer(who, "주변의 공간이 사라지기 시작합니다...")
 					return {id=true, used=true}
 				elseif game.zone.force_farportal_recall then
-					require("engine.ui.Dialog"):yesnoLongPopup("소환의 힘", "돌아오는 포탈을 찾지 않고 되돌림의 힘을 사용하면 장거리 포탈 탐험실이 영원히 부서질 수도 있다고 요새의 그림자가 경고합니다.", 500, function(ret)
+					require("engine.ui.Dialog"):yesnoLongPopup("소환의 힘", "돌아오는 포탈을 찾지 않고 되돌림의 힘을 사용하면 탐험용 장거리포탈이 영원히 부서질 수도 있다고 요새의 그림자가 경고합니다.", 500, function(ret)
 						if not ret then
 							who:setEffect(who.EFF_RECALL, 40, { where = self.shertul_fortress and "shertul-fortress" or nil, allow_override=true })
 							game.logPlayer(who, "주변의 공간이 사라지기 시작합니다...")

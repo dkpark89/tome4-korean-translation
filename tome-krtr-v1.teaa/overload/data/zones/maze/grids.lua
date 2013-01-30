@@ -22,6 +22,7 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "QUICK_EXIT",
 	name = "teleporting circle to the surface", image = "terrain/maze_floor.png", add_displays = {class.new{image="terrain/maze_teleport.png"}},
+	kr_display_name = "지표면으로의 순간이동 고리",
 	display = '>', color_r=255, color_g=0, color_b=255,
 	notice = true, show_tooltip = true,
 	change_level = 1, change_zone = "wilderness",

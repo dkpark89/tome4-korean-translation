@@ -23,7 +23,8 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "orc baby", color=colors.GREEN,
-	desc = [[Crawling on all fours, this green-skinned creature is far from cute, with vicious little sharp teeth and nails, and mucusy slime still sticking to its skin.]],
+	kr_display_name = "아기 오크",
+	desc = [[손발을 써서 기어다니는 이 녹색 피부의 생명체는 광포한 작은 이빨과 손톱을 가지고 있어 귀여움과는 거리가 멀고, 그 피부에는 아직도 점액이 진득거리고 있습니다.]],
 	level_range = {25, nil}, exp_worth = 0,
 	resolvers.generic(function(e) if rng.percent(50) then e.female = true end end),
 	rarity = 3,
@@ -37,7 +38,8 @@ newEntity{ base = "BASE_NPC_ORC",
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "orc child", color=colors.LIGHT_GREEN,
-	desc = [[This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.]],
+	kr_display_name = "어린이 오크",
+	desc = [[이 작은 오크는 심술궂고 탐욕스런 눈빛을 가지고 있습니다. 새로운 생명으로 혈관이 꿈틀거리고, 놀라운 속도로 움직이고 있습니다. 완전히 자라지는 않았지만 길고 근육질인 사지가 달렸고, 손가락과 발가락에는 날카로운 손톱과 발톱이 달려있습니다.]],
 	resolvers.generic(function(e) if rng.percent(50) then e.female = true end end),
 	level_range = {25, nil}, exp_worth = 0,
 	rarity = 3,
@@ -54,7 +56,8 @@ newEntity{ base = "BASE_NPC_ORC",
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "young orc", color=colors.TEAL,
-	desc = [[This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.]],
+	kr_display_name = "젊은 오크",
+	desc = [[이 젊은 오크는 두꺼운 피부와 그 아래로 보이는 단단한 근육으로 볼 때, 거의 성장한 것 같습니다. 더 어린 동족과 지내느라 야생의 기운을 잃고있지만, 그 어두운 눈 속에서는 지혜롭고 차가운 계산이 번뜩이는 것을 알 수 있습니다.]],
 	resolvers.generic(function(e) if rng.percent(50) then e.female = true end end),
 	level_range = {25, nil}, exp_worth = 0,
 	rarity = 3,
@@ -72,8 +75,9 @@ newEntity{ base = "BASE_NPC_ORC",
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "orc mother", color=colors.YELLOW,
+	kr_display_name = "어미 오크",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_mother.png", display_h=2, display_y=-1}}},
-	desc = [[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly pushed out from her many pulsating vulvas. The sight and the smell make you retch.]],
+	desc = [[당신의 위쪽으로 솟아오른 이 거대하고 부풀어 오른 형상의 존재입니다. 구멍마다 들어있는 점액과 슬라임 덩어리가 동굴 바닥으로 흘러내리고 있습니다. 어린이 오크들이 부푼 젖꼭지를 차지하려고 싸우고 있고, 많은 맥동하는 외음부에서는 작은 아기들이 밀려나오고 있습니다. 이 광경과 냄새는 구역질이 나게 만듭니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	female = true,
 	rarity = 8,
@@ -104,8 +108,9 @@ newEntity{ base = "BASE_NPC_ORC",
 
 newEntity{ base="BASE_NPC_ORC", define_as = "GREATMOTHER",
 	name = "Orc Greatmother", color=colors.VIOLET, unique = true,
+	kr_display_name = "최고 어미 오크",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_greatmother.png", display_h=2, display_y=-1}}},
-	desc = [[Here stands a tremendous form almost the size of a dragon.  Bloated skin rises in thick folds, seeping viscous slime from its wide pores.  Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor.  Dozens of gaping vulvae squelch and pulsate, pushing out new young with alarming rapidity.  At the top of this towering hulk is a shrivelled head coated in long tangled hair.  Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]],
+	desc = [[여기 용과 같이 어마어마한 크기의 존재가 있습니다. 두꺼운 주름으로 피부는 부풀어 올랐고, 넓은 모공에서는 끈적한 점액이 스며나오고 있습니다. 수백개의 젖꼭지에서는 젊은 오크들이 다투고 있습니다. 그 중 가장 억센 놈들만이 귀중한 영양분을 획득하며 더 강하게 자라고 있으며, 약한 놈들은 곰팡내나는 바닥에 쳐박혀 있습니다. 수십개의 벌어진 외음부는 짜부라들었다 맥동하면서 놀라운 속도로 새로운 새끼를 밀어냅니다. 이 거대한 몸집의 최상부에서는 기다랗게 엉킨 머리카락으로 덮힌 무력한 머리가 달려있습니다. 응시하는 멍한 눈빛은 슬픔과 고통이 섞여 있었지만, 당신을 보자 분노로 가득찹니다. 이 생물체의 얼굴은 자신의 자식들을 지키려는 거센 욕망으로 일그러집니다.]],
 	killer_message = "and given to the children as a plaything",
 	level_range = {40, nil}, exp_worth = 1,
 	female = true,
@@ -147,7 +152,7 @@ newEntity{ base="BASE_NPC_ORC", define_as = "GREATMOTHER",
 	resolvers.sustains_at_birth(),
 
 	on_die = function(self, who)
-		game.log("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.")
+		game.log("#PURPLE#최고 어미 오크가 무너지자, 당신이 오크들에게 극심한 피해를 끼쳤음을 깨닫습니다.")
 		game.state:eastPatrolsReduce()
 		world:gainAchievement("GREATMOTHER_DEAD", who)
 	end,

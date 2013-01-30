@@ -22,8 +22,9 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base = "BASE_NPC_SHERTUL", define_as = "CALDIZAR",
 	name = "Caldizar", color=colors.LIGHT_RED, unique="Caldizar Unknown Fortress",
+	kr_display_name = "칼디자르",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_sher_tul_caldizar.png", display_h=2, display_y=-1}}},
-	desc ="A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!",
+	desc ="당신 앞에 서 있는 생명체로, 긴 촉수같은 부속물과 머리에 땅딸막한 혹이 달려 있습니다. 당신이 지금껏 느껴본것과는 다른 강렬한 힘의 오러가 이 존재에게서 내뿜어지고 있습니다. 이것은 쉐르'툴임이 분명합니다. 살아있는 쉐르'툴입니다!",
 	level_range = {100, nil}, exp_worth = 5,
 	life_rating = 40,
 	rank = 5,

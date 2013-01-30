@@ -40,7 +40,7 @@ defineTile("*", "COMMAND_ORB")
 
 -- addZone section
 addZone({2, 2, 14, 14}, "zonename", "제어실")
-addZone({19, 5, 26, 11}, "zonename", "장거리포탈 탐험실")
+addZone({19, 5, 26, 11}, "zonename", "탐험용 장거리포탈")
 addZone({8, 8, 9, 9}, "particle", "house_orbcontrol")
 
 -- ASCII map section

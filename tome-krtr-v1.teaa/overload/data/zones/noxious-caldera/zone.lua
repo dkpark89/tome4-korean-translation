@@ -136,7 +136,7 @@ return {
 
 		game.level.turn_counter = 60 * 10 * (game.level.level == 1 and 10 or 1)
 		game.level.max_turn_counter = 60 * 10 * (game.level.level == 1 and 10 or 1)
-		game.level.turn_counter_desc = "The noxious fumes of the caldera are slowly affecting you..."
+		game.level.turn_counter_desc = "화산분지의 유독성 가스가 당신에게 천천히 영향을 주기 시작합니다..."
 	end,
 
 	on_turn = function(self)

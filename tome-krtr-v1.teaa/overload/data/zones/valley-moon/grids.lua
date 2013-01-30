@@ -44,5 +44,5 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[소환된 포탈로, 이 것을 통해 끈임없이 소환수가 나옵니다.]],
+	desc = [[소환된 포탈로, 이 것을 통해 끊임없이 소환수가 나옵니다.]],
 }

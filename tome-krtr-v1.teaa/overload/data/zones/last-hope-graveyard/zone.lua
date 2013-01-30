@@ -110,14 +110,14 @@ return {
 				if self.sumomn_npc and x and y then
 					game.zone:addEntity(game.level, self.sumomn_npc, "actor", x, y)
 					self.sumomn_npc = nil
-					game.log("You were not the first here: the corpse was turned into an undead.")
+					game.log("당신보다 먼저 여기 온 존재가 있습니다. 시체가 언데드로 변해 있습니다.")
 				else
-					game.log("There is nothing there.")
+					game.log("거기에는 아무것도 없습니다.")
 				end
 			end
 		elseif r <= 95 then
 			fct = function(self, x, y, who)
-				game.log("There is nothing there.")
+				game.log("거기에는 아무것도 없습니다.")
 			end
 		else
 			g.coffin_obj = game.zone:makeEntity(game.level, "object", {unique=true, not_properties={"lore"}}, nil, true)
@@ -126,9 +126,9 @@ return {
 				if self.coffin_obj and x and y then
 					game.zone:addEntity(game.level, self.coffin_obj, "object", x, y)
 					self.coffin_obj = nil
-					game.log("The corpse had a treasure!")
+					game.log("시체가 가지고 있던 보물을 찾았습니다!")
 				else
-					game.log("There is nothing there.")
+					game.log("거기에는 아무것도 없습니다.")
 				end
 			end
 		end
@@ -137,7 +137,7 @@ return {
 	
 	open_coffin = function(self, x, y, who)
 		local Dialog = require("engine.ui.Dialog")
-		Dialog:yesnoLongPopup("Open the coffin", "In rich families the dead are sometimes put to rest with some treasures. However they also sometime protect the coffins with powerful curses. Open?", 500, function(ret)
+		Dialog:yesnoLongPopup("관을 열기", "죽은자의 부자 가족은 가끔씩 관 속에 보물을 같이 넣어두기도 합니다. 그러나 그것들 중에는 강력한 저주로 관을 보호하고 있는 것도 있습니다. 엽니까?", 500, function(ret)
 			if not ret then return end
 
 			if self.coffin_open then
@@ -146,7 +146,7 @@ return {
 
 			local g = game.zone:makeEntityByName(game.level, "terrain", "COFFIN_OPEN")
 			game.zone:addEntity(game.level, g, "terrain", x, y)
-		end)
+		end, "예", "아니오")
 	end,
 
 	open_all_coffins = function(who, celia)
@@ -187,17 +187,17 @@ return {
 			game.zone:addEntity(game.level, floor, "terrain", spot.x, spot.y)
 		end
 
-		game.log("#YELLOW#You hear all the doors being shattered into pieces.")
+		game.log("#YELLOW#모든 문이 박살나는 소리가 들려옵니다.")
 	end,
 
 	on_enter = function(lev, old_lev, newzone)
 		local Dialog = require("engine.ui.Dialog")
 		if lev == 2 and not game.level.shown_warning then
-			Dialog:simpleLongPopup("Mausoleum", [[As you tread softly down the stairs a large stone slab slides into place behind you, blocking all retreat. The air is still and stuffy, and in this tight space you feel as if in a coffin, buried alive.
+			Dialog:simpleLongPopup("능묘", [[계단을 조심스레 밟으며 내려가자, 뒤쪽으로 큰 암석판이 미끄러져 돌아갈 모든 길을 막아 버립니다. 공기는 차분하고 답답하며, 이 좁은 공간에 있는 것은 관에 갖혀 생매장 당한것 같은 기분이 들게 만듭니다.
 
-Adding to your unease is a rising feeling of dread, overwhelming fear in fact. A hall of doors lies ahead, and behind each you sense a power of great malevolence and unholy horror. At the end of the corridor you see a faint light beneath a large black door, and you have a vague sense that the other doors are enslaved to this one - obedient, subservient, and waiting...
+곧 불편한 불안한 느낌과 압도하는 공포가 사실로 드러납니다. 전당의 문은 눕혀져 있고, 그 뒤로 거대한 악의와 부정한 무서운자의 힘이 느껴집니다. 복도의 끝에서는 큰 검정문 아래로 희미한 빛이 보이고, 다른 모든 문은 여기에 순종하며 굴종하고 기다림으로 예속되어 있음이 막연히 느껴집니다...
 
-You hear the sound of a woman sobbing, and every now and then it turns into a fit of pained moans and screams. They echo round the dark chamber and through the darkest parts of your mind, reminding you of every black deed and vile sin you have ever committed. Guilt, horror and terror flood through your thoughts, each competing for stronger control of your psyche. Your only clear thought is of escape, by whatever means you can find.]], 600)
+여인이 흐느끼는 소리가 들리고, 이따금씩 고통의 신음과 비명으로 변하기도 합니다. 이 소리가 어둠의 회랑에서 메아리치고, 당신의 정신 속 가장 어두운 부분을 뚫고 들어와 당신이 저지른 모든 나쁜 행위와 비열한 죄를 상기시킵니다. 유죄라는, 공포과 전율이 머리속을 가득 채우고, 당신의 정신을 강하게 제어하기 위해 경쟁하기 시작합니다. 무엇이 나타나더라도 떠오르는 유일한 생각은 탈출하는 것 뿐입니다.]], 600)
 			game.level.shown_warning = true
 		end
 	end,

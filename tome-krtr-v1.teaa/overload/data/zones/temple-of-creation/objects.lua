@@ -58,7 +58,7 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tract", lore="temple-creation-note-"..i,
-	kr_display_name = "논문",
+	kr_display_name = "논문", --@@ lore 번역시 수정 필요
 	desc = [[나가의 역사를 밝히는 논문입니다.]],
 	rarity = false,
 	encumberance = 0,
@@ -68,7 +68,7 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "SLASUL_NOTE",
 	name = "note", lore="temple-creation-note-4",
-	kr_display_name = "쪽지",
+	kr_display_name = "쪽지", --@@ lore 번역시 수정 필요
 	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,

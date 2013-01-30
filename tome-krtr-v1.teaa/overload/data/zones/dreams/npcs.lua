@@ -41,6 +41,7 @@ newEntity{
 	define_as = "ILLUSION_YEEK",
 	type = "humanoid", subtype = "yeek",
 	name = "yeek illusion",
+	kr_display_name = "이크 환영",
 	image = resolvers.rngtable{
 		"npc/humanoid_yeek_yeek_commoner_01.png",
 		"npc/humanoid_yeek_yeek_commoner_02.png",
@@ -52,7 +53,7 @@ newEntity{
 		"npc/humanoid_yeek_yeek_commoner_08.png",
 	},
 	display = "p", color=colors.WHITE,
-	desc = [[What?!]],
+	desc = [[뭐라구?!]],
 	faction = "neutral",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
@@ -61,7 +62,7 @@ newEntity{
 	lite = 3,
 
 	life_rating = 10, max_life = 15,
-	emote_random = {chance=10, "Who are you?", "What do you want?", "Why are you here?", "Where are you going?", "Do you have anything worth living for?"},
+	emote_random = {chance=10, "넌 누구지?", "뭘 원해?", "여기 왜 있어?", "어디가?", "살아있을 가치가 있을거 같아?"},
 	level_range = {1, 1}, exp_worth = 1,
 	rarity = 1,
 
@@ -85,15 +86,16 @@ newEntity{
 			m.inc_damage.all = -50
 			m.life = 30
 			game.zone:addEntity(game.level, m, "actor", self.x, self.y)
-			m:doEmote("GRrrrrrllllll!", 60)
+			m:doEmote("그르르르르르을!", 60)
 		end
 	end,
 }
 
 newEntity{ base = "BASE_NPC_ORC", define_as = "WIFE",
 	name = "lost wife", color=colors.YELLOW,
+	kr_display_name = "잃어버린 아내",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_mother.png", display_h=2, display_y=-1}}},
-	desc = [[Your wife has been turned into a giant, bloated form that towers above you. Mucus and slime ooze from every orifice, dripping onto the floor. The sight and the smell make you retch.]],
+	desc = [[당신의 아내는 거대하게 부풀어올라 솟아오른 모습으로 변했습니다. 점액과 찐득한 분비물이 모든 구멍에서 바닥으로 흘러내립니다. 이 광경과 냄새는 구역질이 나게 만듭니다.]],
 	level_range = {10, 10}, exp_worth = 0,
 	female = true,
 	never_move = 1,

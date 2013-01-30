@@ -28,17 +28,18 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "CHARRED_SCAR_PORTAL",
 	name = "Farportal: Charred Scar",
+	kr_display_name = "장거리포탈: 검게탄 상처",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/ocean_water_grass_5_1.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]],
+	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
+이것은 서쪽의 검게탄 상처로 가는 것으로 보입니다. 불붙은 화산에서는 죽음의 주문만이 가능합니다...]],
 
 	orb_portal = {
 		change_level = 1,
 		change_zone = "charred-scar",
-		message = "#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...",
+		message = "#VIOLET#당신은 소용돌이 치는 포탈로 들어섰습니다. 눈을 깜박이자 포탈의 흔적은 없고, 화산의 중심인 지옥같은 땅에 서 있는 것을 알아차립니다...",
 		on_preuse = function(self, who)
 			-- Find all portals and deactivate them
 			for i = -4, 4 do for j = -4, 4 do if game.level.map:isBound(who.x + i, who.y + j) then

@@ -21,14 +21,16 @@ newEntity{
 	type = "event",	subtype = "event", id_by_type=false, unided_name = "trap",
 	display = ' ', color=colors.WHITE,
 	name = "creeping darkness",
+	kr_display_name = "섬뜩한 어두움", kr_unided_name = "함정",
 	detect_power = 99999, disarm_power = 99999,
 	rarity = 3, level_range = {1, nil},
 	pressure_trap = false,
-	message = "A creeping darkness spreads through the air!",
+	message = "섬뜩한 어두움이 대기를 통해 퍼져 나갑니다!",
 	triggered = function(self, x, y, who)
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "creeping darkness trap",
+			kr_display_name = "섬뜩한 어두움 함정",
 			type = "trap", subtype = "psionic",
 			combatMindpower = function(self) return self.level end,
 			getTarget = function(self) return self.x, self.y end,
@@ -44,10 +46,11 @@ newEntity{
 	type = "event",	subtype = "event", id_by_type=false, unided_name = "trap",
 	display = ' ', color=colors.WHITE,
 	name = "summon shadow",
+	kr_display_name = "그림자 소환", kr_unided_name = "함정",
 	detect_power = 99999, disarm_power = 99999,
 	rarity = 3, level_range = {1, nil},
 	pressure_trap = false,
-	message = "A shadow traces across the floor.",
+	message = "그림자가 바닥의 자취를 쫒습니다.",
 	triggered = function(self, x, y, who)
 		if (game.level.remaining_summons or 5) <= 0 then return false end
 	

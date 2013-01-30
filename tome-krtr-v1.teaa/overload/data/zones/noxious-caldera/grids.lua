@@ -26,6 +26,7 @@ newEntity{
 	define_as = "ALTAR",
 	type = "wall", subtype = "grass",
 	name = "altar of dreams", image = "terrain/jungle/jungle_grass_floor_01.png", add_displays = {class.new{z=18, image="terrain/pedestal_orb_04.png", display_h=2, display_y=-1}},
+	kr_display_name = "꿈의 제단",
 	display = '&', color_r=0, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -34,13 +35,13 @@ newEntity{
 	next_dream = 1,
 	block_move = function(self, x, y, who, act)
 		if who == game.player and act then
-			require("engine.ui.Dialog"):yesnoLongPopup("Altar of Dreams", "Looking into the altar will let you experience a dream. But should you die in it your real body might die too. Do you wish to look?", 400, function(ret)
+			require("engine.ui.Dialog"):yesnoLongPopup("꿈의 제단", "제단의 안쪽을 살펴보면, 당신은 꿈의 경험을 하게 됩니다. 하지만 그 속에서의 죽음은 실제 현실의 육체도 죽게 만들수도 있습니다. 살펴 봅니까?", 400, function(ret)
 				if ret then
 					local dream = self.next_dream
 					self.next_dream = util.boundWrap(self.next_dream+1, 1, game.zone.max_dreams)
 					game.level.data.run_dream(true, dream)
 				end
-			end)
+			end, "예", "아니오")
 		end
 		return true
 	end,

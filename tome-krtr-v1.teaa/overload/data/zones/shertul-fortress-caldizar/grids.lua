@@ -24,6 +24,7 @@ load("/data/general/grids/void.lua")
 newEntity{
 	define_as = "COMMAND_ORB",
 	name = "Sher'Tul Control Orb", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image="terrain/shertul_control_orb_blue.png"}},
+	kr_display_name = "쉐르'툴 제어 오브",
 	display = '*', color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
@@ -35,18 +36,19 @@ newEntity{
 newEntity{
 	define_as = "FARPORTAL",
 	name = "Exploratory Farportal",
+	kr_display_name = "탐험용 장거리포탈",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/solidwall/solid_floor1.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
-This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
-It should automatically create a portal back, but it might not be near your arrival zone.]],
+	desc = [[놀라운 거리를 눈 깜박할 새에 갈 수 있는 장거리포탈입니다. 강력한 쉐르'툴 종족이 남긴 것입니다.
+이 장거리포탈은 다른 포탈과 연결되어 있지 않습니다. 탐험을 위해 만들어졌고, 어디로 보낼지 알 수가 없습니다.
+자동적으로 돌아오는 포탈이 만들어지지만, 도착지점에서 가까운 곳이 아닐 수도 있습니다.]],
 
 	block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return true end
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simplePopup("Farportal", "The farportal seems to be inactive")
+		Dialog:simplePopup("장거리포탈", "장거리포탈은 비활성화 상태인 것 같습니다.")
 		return true
 	end,
 }

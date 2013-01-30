@@ -1561,7 +1561,7 @@ newEffect{
 newEffect{
 	name = "ROTTING_DISEASE", image = "talents/rotting_disease.png",
 	desc = "Rotting Disease",
-	kr_display_name = "부패형 질병",
+	kr_display_name = "부패성 질병",
 	long_desc = function(self, eff) return ("The target is infected by a disease, reducing its constitution by %d and doing %0.2f blight damage per turn."):format(eff.con, eff.dam) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},

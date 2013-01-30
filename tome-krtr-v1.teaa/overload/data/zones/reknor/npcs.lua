@@ -30,9 +30,10 @@ newEntity{ define_as = "GOLBUG",
 	type = "humanoid", subtype = "orc", unique = true,
 	faction = "orc-pride",
 	name = "Golbug the Destroyer",
+	kr_display_name = "파괴자 골부그",
 	display = "o", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_golbug_the_destroyer.png", display_h=2, display_y=-1}}},
-	desc = [[A huge and muscular orc of unknown breed. He looks both menacing and cunning...]],
+	desc = [[혈통을 알 수 없는 커다랗고 근육질인 오크입니다. 그는 위협적이면서 교활해 보입니다...]],
 	level_range = {28, nil}, exp_worth = 2,
 	max_life = 350, life_rating = 16, fixed_rating = true,
 	max_stamina = 245,
@@ -96,7 +97,7 @@ newEntity{ define_as = "GOLBUG",
 
 	on_die = function(self, who)
 		game.state:activateBackupGuardian("LITHFENGEL", 4, 35, "They say that after it has been confirmed orcs still inhabited Reknor, they found a mighty demon there.", function(gen)
-			if gen then require("engine.ui.Dialog"):simpleLongPopup("Danger...", "When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", 400) end
+			if gen then require("engine.ui.Dialog"):simpleLongPopup("위험...", "마지막으로 그걸 봤을때, 이 동굴은 당신이 죽인 오크의 시체로 어지럽혀져 있었습니다. 지금은 까맣게 타고 유황의 냄새가 나는 훨씬 더 많은 시체가 바닥을 모조리 덮고 있습니다. 동쪽으로 연결된 동굴의 저쪽 끝에서 뭔가가 희미하게 주황색 빛을 내고 있습니다.", 400) end
 		end)
 
 		world:gainAchievement("DESTROYER_BANE", game.player:resolveSource())
@@ -116,8 +117,9 @@ newEntity{ define_as = "HARNO",
 	type = "humanoid", subtype = "human", unique = true,
 	faction = "allied-kingdoms",
 	name = "Harno, Herald of Last Hope",
+	kr_display_name = "마지막 희망의 전령, 하르노",
 	display = "@", color=colors.LIGHT_BLUE,
-	desc = [[This is one of the heralds of Last Hope. He seems to be looking for you.]],
+	desc = [[마지막 희망의 전령입니다. 당신을 찾아 온 것 같아 보입니다.]],
 	global_speed_base = 2,
 	level_range = {40, 40}, exp_worth = 0,
 	max_life = 150, life_rating = 12,
@@ -144,7 +146,7 @@ newEntity{ define_as = "HARNO",
 	can_talk_only_once = true,
 
 	on_die = function(self, who)
-		game.logPlayer(game.player, "#LIGHT_RED#You hear a death cry. '%s I have a messag... ARG!'", game.player.name:capitalize())
+		game.logPlayer(game.player, "#LIGHT_RED#죽어가는 비명 소리가 들려옵니다. '%s, 건네줄 전언이 있소... 악!'", (game.player.kr_display_name or game.player.name):capitalize())
 		game.player:setQuestStatus("orc-hunt", engine.Quest.DONE, "herald-died")
 	end,
 }
@@ -153,8 +155,9 @@ newEntity{ define_as = "LITHFENGEL", -- Lord of Ash; backup guardian
 	allow_infinite_dungeon = true,
 	type = "demon", subtype = "major", unique = true,
 	name = "Lithfengel",
+	kr_display_name = "리스펜겔",
 	display = "U", color=colors.VIOLET,
-	desc = [[A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!]],
+	desc = [[부패와 쇠퇴의 끔찍한 악마로, 장거리포탈의 에너지를 흡수하고 있습니다. 황폐의 짐승입니다!]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 400, life_rating = 25, fixed_rating = true,
 	rank = 4,
@@ -199,7 +202,7 @@ newEntity{ define_as = "LITHFENGEL", -- Lord of Ash; backup guardian
 
 	on_die = function(self, who)
 		if who.resolveSource and who:resolveSource().player and who:resolveSource():hasQuest("east-portal") then
-			require("engine.ui.Dialog"):simpleLongPopup("Back and there again", "A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", 400)
+			require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 자리에", "악마의 몸에서 변한 피의 룬 제례단검과 공명하는 다이아몬드를 조심스레 조사하자, 둘다 그을음과 피가 묻었지만 다른 이상한 점은 없는 것 같습니다.", 400)
 		end
 	end,
 }

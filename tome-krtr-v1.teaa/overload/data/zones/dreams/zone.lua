@@ -203,6 +203,7 @@ return {
 		if lev == 1 then
 			local f = require("mod.class.Player").new{
 				name = "frail mouse", image = "npc/vermin_rodent_giant_white_mouse.png",
+				kr_display_name = "허약한 생쥐",
 				type = "vermin", subtype = "rodent",
 				display = "r", color=colors.WHITE,
 				body = { INVEN = 10 },
@@ -236,8 +237,8 @@ return {
 						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
 						game.player:move(x, y, true)
 						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", [[As your mind-mouse enters the dream portal you suddenly wake up.
-You feel good!]], 600)
+							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[당신의 정신인 생쥐가 꿈의 포탈로 들어서자, 당신은 갑작스레 깨어났습니다.
+기분이 좋습니다!]], 600)
 							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 							world:gainAchievement("ALL_DREAMS", self.summoner, "mice")
 						else
@@ -267,11 +268,11 @@ You feel good!]], 600)
 			game.paused = true
 			game.player:updateMainShader()
 
-			require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", [[The noxious fumes have invaded all your body, you suddenty fall into a deep slumber...
-... you feel weak ...
-... you feel unimportant ...
-... you feel like ... food ...
-You feel like running away!]], 600)
+			require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[유독성 향기가 당신의 신체에 침범하고, 당신은 갑자기 깊은 졸음에 빠집니다...
+... 당신은 약해지고 ...
+... 당신은 하찮으며 ...
+... 당신은 음식 ... 인 것 같습니다 ...
+당신은 빨리 도망가야 합니다!]], 600)
 		end
 
 		-- Dream of loss
@@ -298,8 +299,8 @@ You feel like running away!]], 600)
 						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
 						game.player:move(x, y, true)
 						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", [[As you enter the dream portal you suddenly wake up.
-You feel good!]], 600)
+							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[꿈의 포탈로 들어서자, 당신은 갑자기 깨어납니다.
+기분이 좋습니다]], 600)
 							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 							world:gainAchievement("ALL_DREAMS", self.summoner, "lost")
 						else
@@ -329,11 +330,11 @@ You feel good!]], 600)
 			game.paused = true
 			game.player:updateMainShader()
 
-			require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", [[The noxious fumes have invaded all your body, you suddenty fall into a deep slumber...
-... you feel you forgot something ...
-... you feel lost ...
-... you feel sad ...
-You forgot your wife! Find her!]], 600)
+			require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[유독성 향기가 당신의 신체에 침범하고, 당신은 갑자기 깊은 졸음에 빠집니다...
+... 당신은 뭔가를 잊은것 같습니다 ...
+... 당신은 상실감을 느끼고 ...
+... 당신은 슬픕니다 ...
+당신은 아내를 잊었습니다! 그녀를 찾아야 해요!]], 600)
 		end
 	end,
 }

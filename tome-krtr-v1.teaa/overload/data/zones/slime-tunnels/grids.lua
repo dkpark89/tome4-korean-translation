@@ -24,27 +24,32 @@ load("/data/general/grids/slime.lua")
 newEntity{
 	define_as = "ORB_DRAGON",
 	name = "orb pedestal (dragon)", special = true, image = "terrain/slime/slime_floor_01.png", add_displays={class.new{image = "terrain/pedestal_01.png", display_h=2, display_y=-1}},
+	kr_display_name = "오브의 토대 (용)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 }
 newEntity{
 	define_as = "ORB_UNDEATH",
 	name = "orb pedestal (undeath)", special = true, image = "terrain/slime/slime_floor_01.png", add_displays={class.new{image = "terrain/pedestal_01.png", display_h=2, display_y=-1}},
+	kr_display_name = "오브의 토대 (역생)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 }
 newEntity{
 	define_as = "ORB_ELEMENTS",
 	name = "orb pedestal (elements)", special = true, image = "terrain/slime/slime_floor_01.png", add_displays={class.new{image = "terrain/pedestal_01.png", display_h=2, display_y=-1}},
+	kr_display_name = "오브의 토대 (정령)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 }
 newEntity{
 	define_as = "ORB_DESTRUCTION",
 	name = "orb pedestal (destruction)", special = true, image = "terrain/slime/slime_floor_01.png", add_displays={class.new{image = "terrain/pedestal_01.png", display_h=2, display_y=-1}},
+	kr_display_name = "오브의 토대 (파괴)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 }
 
 newEntity{ base = "SLIME_DOOR_VERT",
 	define_as = "PEAK_DOOR",
 	name = "sealed door",
+	kr_display_name = "봉인된 문",
 	is_door = true,
 	door_opened = false,
 	nice_tiler = false,
@@ -56,6 +61,7 @@ newEntity{
 	always_remember = true,
 	show_tooltip=true,
 	name="Entrance to the High Peak",
+	kr_display_name = "최고봉으로의 입구",
 	display='>', color=colors.VIOLET, image = "terrain/stair_up_wild.png",
 	notice = true,
 	change_level=1, change_zone="high-peak",
@@ -64,6 +70,7 @@ newEntity{
 newEntity{ base = "SLIME_UP",
 	define_as = "UP_GRUSHNAK",
 	name = "exit to Grushnak Pride",
+	kr_display_name = "그루쉬낙 무리로의 출구",
 	change_level = 6,
 	change_zone = "grushnak-pride",
 	force_down = true,

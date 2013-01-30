@@ -27,7 +27,8 @@ for id, i in ipairs{1, 10, 20, 30, 40} do
 newEntity{
 	define_as = "ID_HISTORY"..i,
 	name = "The Hunter and the Hunted", lore="infinite-dungeon-history-"..id,
-	desc = [[The infinite hunt.]],
+	kr_display_name = "사냥꾼과 사냥감",
+	desc = [[무한한 추적.]],
 	image = "terrain/marble_floor.png",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},

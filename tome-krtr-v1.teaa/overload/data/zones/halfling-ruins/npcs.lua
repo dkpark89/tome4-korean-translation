@@ -25,7 +25,8 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ define_as="SUBJECT_Z",
 	name = "Subject Z", color=colors.VIOLET, display = "p",
-	desc = "This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousands years old!",
+	kr_display_name = "실험체 Z",
+	desc = "종이가 말하던 '실험체 Z'임이 분명합니다. 인간으로 보이지만, 불가사의하게도 오천년도 넘게 살고 있는 존재입니다!",
 	type = "humanoid", subtype = "human",
 	killer_message = "and bloodily smeared across the granite walls",
 	level_range = {10, nil}, exp_worth = 2,
@@ -80,7 +81,7 @@ newEntity{ define_as="SUBJECT_Z",
 
 		wayist:setTarget(self)
 		self:setTarget(wayist)
-		wayist:doEmote("Sacrifice for the Way!", 60)
+		wayist:doEmote("한길을 위해 제물이다!", 60)
 	end,
 
 	on_die = function(self, who)
@@ -91,13 +92,13 @@ newEntity{ define_as="SUBJECT_Z",
 		local p = game.party:findMember{main=true}
 		-- Yeeks really, really, really, hate halflings
 		if p.descriptor.race == "Halfling" then
-			wayist:doEmote("Halfling?! DIE!!!!!", 70)
+			wayist:doEmote("하플링?! 죽어!!!!!", 70)
 			wayist:checkAngered(p, false, -200)
 		elseif p.descriptor.race == "Yeek" then
-			wayist:doEmote("The Way sent you?", 70)
+			wayist:doEmote("한길에서 오셨나요?", 70)
 			wayist.can_talk = "yeek-wayist"
 		else
-			wayist:doEmote("You.. saved me?", 70)
+			wayist:doEmote("당신은.. 저를 구해주는 건가요?", 70)
 			wayist.can_talk = "yeek-wayist"
 		end
 	end,
@@ -105,7 +106,8 @@ newEntity{ define_as="SUBJECT_Z",
 
 newEntity{ define_as="YEEK_WAYIST",
 	name = "Yeek Wayist", color=colors.VIOLET, display = "y",
-	desc = "This creature is about as tall as a halfling. It is covered in white silky fur and has a disproportionate head. The weirdest thing about it though, its weapon simply float in front of it.",
+	kr_display_name = "이크 '한길'의 일원",
+	desc = "이 생명체는 하플링 정도의 키를 가지고 있습니다. 희고 부드러운 털로 뒤덮혀 있고, 불균형적으로 큰 머리를 가졌습니다. 이 것의 가장 신기한 점은, 무기가 그 앞에 둥둥떠있다는 것입니다.",
 	type = "humanoid", subtype = "yeek",
 	level_range = {10, nil},
 	rank = 3,

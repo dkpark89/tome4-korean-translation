@@ -76,7 +76,7 @@ newEntity{ base = "BASE_SCROLL", subtype="tome",
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE_LORE",
 	name = "draft note", lore="vor-pride-note",
-	kr_display_name = "설계도 쪽지",
+	kr_display_name = "설계도면", --@@ lore 번역시 수정 필요
 	desc = [[쪽지입니다.]],
 	rarity = false,
 }
@@ -85,7 +85,7 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "ORC_HISTORY"..i,
 	name = "Records of Lorekeeper Hadak", lore="orc-history-"..i, unique="Records of Lorekeeper Hadak "..i,
-	kr_display_name = "지식괸리인 하닥의 기록",
+	kr_display_name = "지식관리인 하닥의 기록", --@@ lore 번역시 수정 필요
 	desc = [[오크류의 오랜 역사의 일부분입니다.]],
 	rarity = false,
 }

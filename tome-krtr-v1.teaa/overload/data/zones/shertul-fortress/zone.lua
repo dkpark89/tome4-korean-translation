@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Yiilkgur, the Sher'Tul Fortress",
 	kr_display_name = "쉐르'툴 요새, 이일크구르",
@@ -89,7 +91,7 @@ return {
 
 		local Dialog = require("engine.ui.Dialog")
 		if not game.level.shown_warning then
-			Dialog:simpleLongPopup("Yiilkgur", "This level seems to be removed from the rest of the ruins. The air is fresh and the level is lighted. You hear the distant crackling of magical energies.", 400)
+			Dialog:simpleLongPopup("이일크구르", "이 지역은 나머지 잔해와는 동떨어져 보입니다. 공기는 신선하고 조명은 밝습니다. 조금 떨어진 곳에서 마법의 에너지가 파직거리는 소리가 들립니다.", 400)
 			game.level.shown_warning = true
 		end
 	end,
@@ -112,15 +114,15 @@ return {
 				map:particleEmitter(x, y, 1, "demon_teleport")
 
 				if  map:getObjectTotal(x, y) == 1 then
-					game.logPlayer(who, "Your %s is magically sorted by the storage room.", o:getName{do_color=true})
+					game.logPlayer(who, "당신의 %s 창고에 마법같이 정리됩니다.", o:getName{do_color=true}:addJosa("가"))
 				else
-					game.logPlayer(who, "Your %s is magically sorted by the storage room and put in a pile with the others items of the same type.", o:getName{do_color=true})
+					game.logPlayer(who, "당신의 %s 창고에 마법같이 정리되어, 같은 종류의 다른 물건들과 같이 쌓여 있습니다.", o:getName{do_color=true}:addJosa("가"))
 				end
 				return
 			end
 		end end
 
-		game.logPlayer(who, "It seems the room has no more space to sort your %s.", o:getName{do_color=true})
+		game.logPlayer(who, "당신의 %s 정리하기위한 공간이 부족합니다.", o:getName{do_color=true}:addJosa("를"))
 		map:addObject(dx, dy, o) -- Add the object back, no room, so dont loose it
 	end,
 }

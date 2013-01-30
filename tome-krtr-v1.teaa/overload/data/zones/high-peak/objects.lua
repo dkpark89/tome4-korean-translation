@@ -28,13 +28,14 @@ newEntity{ define_as = "STAFF_ABSORPTION_AWAKENED", base="BASE_STAFF",
 	power_source = {unknown=true},
 	unique = true, godslayer=true, flavor_name = "magestaff",
 	name = "Awakened Staff of Absorption", identified=true, force_lore_artifact=true,
+	kr_display_name = "각성한 흡수의 지팡이",
 	display = "\\", color=colors.VIOLET, image = "object/artifact/staff_absorption.png",
 	encumber = 7,
 	plot=true,
-	desc = [[Carved with runes of power, this staff seems to have been made long ago. Yet it bears no signs of tarnishment.
-Light around it seems to dim and you can feel its tremendous power simply by touching it.
-The Sorcerers seem to have awakened its power.
-#{italic}#"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust."#{normal}#]],
+	desc = [[힘을 내장한 룬이 새겨진 이 지팡이는 아주 오래전에 만들어진 것으로 보입니다. 하지만 아직도 변색된 흔적이 보이지 않습니다.
+주변에 희미하게 빛이 나고, 살짝만 건드려도 그 안에 엄청난 힘이 들어있음을 느낄 수 있습니다.
+주술사들이 그 힘을 각성시킨 것으로 보입니다.
+#{italic}#"보라 그들이 아마크텔을 불러오자, 그의 왕좌에서 수천의 생명이 죽어갔으며, 신의 살해자 셋이 그의 발밑에서 부서졌다. 하지만 팔리온은 죽어가면서 차가운 검 아르킬로 고위신의 무릎을 꿰뚫었고, 신의 살해자의 지도자 칼디자르는 그 기회를 잡아 흡수의 지팡이를 내밀어 아마크텔에게 무서운 일격을 가했다. 그렇게 가장 위대한 신이 그 자식들에 의해 쓰러지고, 그 얼굴은 먼지로 사라졌다."#{normal}#]],
 
 	modes = {"fire", "cold", "lightning", "arcane"},
 	require = { stat = { mag=60 }, },
@@ -82,7 +83,7 @@ The Sorcerers seem to have awakened its power.
 	moddable_tile_particle = {"godslayer_swirl", {size=64, x=-16}},
 
 	max_power = 200, power_regen = 1,
-	use_power = { name = "absorb energies", power = 200,
+	use_power = { name = "에너지 흡수", power = 200,
 		use = function(self, who)
 			local tg = {type="hit", range=8}
 			local x, y = who:getTarget(tg)
@@ -91,10 +92,10 @@ The Sorcerers seem to have awakened its power.
 			local target = game.level.map(x, y, engine.Map.ACTOR)
 			if not target then return nil end
 			if target.staff_drained then
-				game.logPlayer(who, "This foe has already been drained.")
+				game.logPlayer(who, "이 상대는 벌써 흡수 당했습니다.")
 			end
 
-			game.logPlayer(who, "You brandish the staff, draining your foe.")
+			game.logPlayer(who, "당신은 지팡이를 휘둘러, 상대의 에너지를 흡수합니다.")
 			who:setEffect(who.EFF_POWER_OVERLOAD, 7, {power=30})
 			target:takeHit(target.life * 0.3, who)
 			return {id=true, used=true}
@@ -108,10 +109,11 @@ newEntity{ define_as = "PEARL_LIFE_DEATH",
 	type = "gem", subtype="white",
 	unided_name = "shining pearl",
 	name = "Pearl of Life and Death",
+	kr_display_name = "삶과 죽음의 진주", kr_unided_name = "빛나는 진주",
 	display = "*", color=colors.WHITE, image = "object/artifact/pearl_of_life.png",
 	encumber = 2,
 	plot=true,
-	desc = [[A pearl, three times a normal sized one, that glitters in infinite colours, with slight patterns ever shifting away.]],
+	desc = [[보통의 것보다 세배는 큰 진주입니다. 무한한 색깔로 반짝이고, 절대 변하지 않는 약간의 무늬가 있습니다.]],
 
 	carrier = {
 		lite = 1,

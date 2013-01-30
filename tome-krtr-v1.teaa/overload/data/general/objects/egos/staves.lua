@@ -233,7 +233,7 @@ newEntity{
 	level_range = {1, 50},
 	rarity = 10,
 	cost = 15,
-	resolvers.charm("마법지팡이의 힘을 발사", 5,
+	resolvers.charm("지팡이의 힘을 발사", 5,
 		function(self, who)
 			local tg = {type="bolt", range= 5 + self.material_level, speed=20, display = {particle=particle, trail=trail},}
 			local weapon = who:hasStaffWeapon()
@@ -327,7 +327,7 @@ newEntity{
 	greater_ego = 1,
 	rarity = 30,
 	cost = 40,
-	resolvers.charm("마법지팡이에서 탄을 발사", 10,
+	resolvers.charm("지팡이에서 탄을 발사", 10,
 		function(self, who)
 			local tg = {type="ball", range=0, radius=self.material_level + 1, selffire=false}
 			local weapon = who:hasStaffWeapon()
@@ -427,7 +427,7 @@ newEntity{
 	greater_ego = 1,
 	rarity = 30,
 	cost = 40,
-	resolvers.charm("마법지팡이의 힘을 원뿔영역으로 발사", 8,
+	resolvers.charm("지팡이의 힘을 원뿔영역으로 발사", 8,
 		function(self, who)
 			local tg = {type="cone", range=0, radius=self.material_level * 2, selffire=false}
 			local weapon = who:hasStaffWeapon()

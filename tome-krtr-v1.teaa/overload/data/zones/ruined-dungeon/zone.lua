@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" 
+
 return {
 	name = "Ruined Dungeon",
 	kr_display_name = "파괴된 던전",
@@ -83,7 +85,7 @@ return {
 			-- Failed!
 			if o[i] ~= order[i] then
 				game.level.orbs_touched = {}
-				Dialog:simplePopup("Strange Orb", "The orb seems to react badly to your touch, there is a high shriek!")
+				Dialog:simplePopup("기묘한 오브", "오브를 건드리자 불쾌한 반응이 나타나고, 시끄러운 비명이 들립니다!")
 				for i = 1, 4 do
 					-- Find space
 					local x, y = util.findFreeGrid(sx, sy, 10, true, {[game.level.map.ACTOR]=true})
@@ -96,7 +98,7 @@ return {
 					if m then
 						m.exp_worth = 0
 						game.zone:addEntity(game.level, m, "actor", x, y)
-						game.logSeen(who, "%s appears out of the thin air!", m.name:capitalize())
+						game.logSeen(who, "%s 짙은 대기를 뚫고 나타났습니다!", (m.kr_display_name or m.name):capitalize():addJosa("가"))
 					end
 				end
 				return
@@ -104,13 +106,13 @@ return {
 		end
 		-- Success
 		if #o == #order then
-			Dialog:simplePopup("Strange Orb", "The orb glows brightly. There is a loud crack coming from the northern central chamber.")
+			Dialog:simplePopup("기묘한 오브", "오브가 환하게 빛납니다. 북쪽 중앙의 방에서 뭔가가 갈라지는 커다란 소리가 납니다.")
 			local spot = game.level:pickSpot{type="door", subtype="sealed"}
 			local g = game.zone:makeEntityByName(game.level, "terrain", "OLD_FLOOR")
 			game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
 			game.level.orbs_used = true
 		else
-			Dialog:simplePopup("Strange Orb", "The orb glows brightly.")
+			Dialog:simplePopup("기묘한 오브", "오브가 환하게 빛납니다.")
 		end
 	end,
 }

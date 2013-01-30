@@ -23,6 +23,7 @@ for i = 1, 4 do
 newEntity{
 	define_as = "LORE"..i,
 	name = "inscription", image = "terrain/maze_floor.png",
+	kr_display_name = "비문", --@@ lore 번역후 수정 필요
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},
 	always_remember = true,
@@ -41,19 +42,20 @@ end
 newEntity{
 	define_as = "INFINITE",
 	name = "way into the infinite dungeon", image = "terrain/maze_floor.png", add_mos={{image = "terrain/stair_down.png"}},
+	kr_display_name = "무한 던전으로의 길",
 	display = '>', color=colors.VIOLET, back_color=colors.DARK_GREY,
 	always_remember = true,
 	on_move = function(self, x, y, who)
 		if not who.player then return end
 		local p = game:getPlayer(true)
 		if p.winner then
-			require("engine.ui.Dialog"):yesnoLongPopup("Infinite Dungeon", "You have accomplished great deads, but if you enter the infinite dungeon there will be no way back you will go on and on until you meet your glorious death.", 400, function(ret)
+			require("engine.ui.Dialog"):yesnoLongPopup("Infinite Dungeon", "일을 아주 잘 처리했습니다. 하지만 만약 당신이 무한 던전으로 들어가면, 돌아올 수 있는 길도 없이 영광스러운 죽음을 맞이할 때까지 계속 앞으로 나아가야 합니다.", 400, function(ret)
 				if ret then
 					game:changeLevel(math.ceil(game.player.level * 1.5), "infinite-dungeon")
 				end
 			end)
 		else
-			require("engine.ui.Dialog"):simplePopup("Infinite Dungeon", "You should not go there, there is no way back. Ever. Maybe later when you did all you must do.")
+			require("engine.ui.Dialog"):simplePopup("Infinite Dungeon", "그 곳에서는 영원히 돌아올 길이 없으므로, 거기로 들어가면 안 됩니다. 다른 모든 것을 다 마친 뒤에 시도해 보는 것이 좋을 것 같습니다..")
 		end
 	end,
 }
@@ -61,6 +63,7 @@ newEntity{
 newEntity{
 	define_as = "LOCK",
 	name = "sealed door", image = "terrain/sealed_door.png",
+	kr_display_name = "봉인된 문",
 	display = '+', color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -71,6 +74,7 @@ newEntity{
 newEntity{
 	define_as = "PORTAL",
 	name = "orb", image = "terrain/maze_floor.png", add_displays={class.new{z=18, image = "terrain/pedestal_orb_04.png", display_h=2, display_y=-1}},
+	kr_display_name = "오브",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREY,
 	force_clone=true,
 	always_remember = true,
@@ -80,23 +84,23 @@ newEntity{
 		if not game.level.data.touch_orb then return true end
 
 		if not self.orb_allowed then
-			require("engine.ui.Dialog"):simplePopup("Strange Orb", "The orb looks inactive.")
+			require("engine.ui.Dialog"):simplePopup("신비한 오브", "이 오브는 비활성화 상태인 것 같습니다.")
 			return true
 		end
 
 		local text = "???"
-		if self.portal_type == "water" then text = "The orb seems to drip water."
-		elseif self.portal_type == "earth" then text = "The orb is covered in dust."
-		elseif self.portal_type == "wind" then text = "The orb is floating in the air."
-		elseif self.portal_type == "nature" then text = "Small seeds seem to be growing inside the orb."
-		elseif self.portal_type == "arcane" then text = "The orb swirls with magical energies."
-		elseif self.portal_type == "fire" then text = "Flames burst out of the orb."
+		if self.portal_type == "water" then text = "오브에서 물방울이 떨어지는 것 같습니다."
+		elseif self.portal_type == "earth" then text = "오브에 먼지가 쌓여 있습니다."
+		elseif self.portal_type == "wind" then text = "오브가 허공에 떠 있습니다."
+		elseif self.portal_type == "nature" then text = "오브 안쪽에 작은 씨앗이 자라고 있는 것 같습니다."
+		elseif self.portal_type == "arcane" then text = "오브에서 마법의 에너지가 소용돌이칩니다."
+		elseif self.portal_type == "fire" then text = "오브에서 불꽃이 튀고 있습니다."
 		end
-		require("engine.ui.Dialog"):yesnoLongPopup("Strange Orb", text.."\nDo you touch it?", 400, function(ret)
+		require("engine.ui.Dialog"):yesnoLongPopup("신비한 오브", text.."\n건드려 봅니까?", 400, function(ret)
 			if ret then
 				game.level.data.touch_orb(self.portal_type, x, y)
 			end
-		end)
+		end, "예", "아니오")
 		return true
 	end,
 }

@@ -26,6 +26,7 @@ load("/data/general/grids/forest.lua")
 newEntity{
 	define_as = "SLIME_TUNNELS",
 	name = "entrance to a slimy pit",
+	kr_display_name = "슬라임 구덩이로의 입구",
 	display = '>', color=colors.LIGHT_GREEN, image = "terrain/underground_floor.png", add_displays = {class.new{image="terrain/slime/slime_stair_down_01.png"}},
 	always_remember = true,
 	notice = true,

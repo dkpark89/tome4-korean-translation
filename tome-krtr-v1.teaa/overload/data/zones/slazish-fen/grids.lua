@@ -27,6 +27,7 @@ newEntity{
 	define_as = "BOGTREE",
 	type = "wall", subtype = "water",
 	name = "tree",
+	kr_display_name = "나무",
 	image = "terrain/swamptree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color=colors.DARK_BLUE,
 	always_remember = true,
@@ -41,6 +42,7 @@ for i = 1, 20 do newEntity{ base="BOGTREE", define_as = "BOGTREE"..i, image = "t
 newEntity{ base="WATER_BASE",
 	define_as = "BOGWATER",
 	name = "bog water",
+	kr_display_name = "습지",
 	image="terrain/poisoned_water_01.png",
 }
 
@@ -54,6 +56,7 @@ newEntity{ base="BOGWATER",
 	define_as = "PORTAL",
 	display = "&", color = colors.BLUE,
 	name = "coral portal",
+	kr_display_name = "산호 포탈",
 	add_displays = {class.new{z=18, image="terrain/naga_portal.png", display_h=2, display_y=-1, embed_particles = {
 		{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_whispery_bright"}},
 		{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_heavy_bright"}},
@@ -64,13 +67,13 @@ newEntity{ base="BOGWATER",
 	block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return true end
 		if self.broken then
-			game.log("#VIOLET#The portal is already broken!")
+			game.log("#VIOLET#이 포탈은 이미 부서져 있습니다!")
 			return true
 		end
 
-		who:restInit(20, "destroying the portal", "destroyed the portal", function(cnt, max)
+		who:restInit(20, "포탈 파괴", "포탈 파괴", function(cnt, max)
 			if cnt > max then
-				game.log("#VIOLET#The portal starts to break down, run!")
+				game.log("#VIOLET#이 포탈이 무너지기 시작했습니다, 물러서세요!")
 				self.broken = true
 				who:setQuestStatus("start-sunwall", engine.Quest.COMPLETED, "slazish")
 				game:onTickEnd(function()
