@@ -24,6 +24,7 @@ load("/data/general/grids/water.lua")
 newEntity{
 	define_as = "LAKE_NUR",
 	name = "way to the lake of Nur",
+	kr_display_name = "누르 호수로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0, image = "terrain/grass.png", add_displays = {class.new{image = "terrain/way_next_2.png"}},
 	notice = true,
 	always_remember = true,

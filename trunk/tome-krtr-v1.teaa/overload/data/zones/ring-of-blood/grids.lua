@@ -22,6 +22,7 @@ load("/data/general/grids/sand.lua")
 
 newEntity{ define_as = "LAVA_WALL",
 	name='lava pit',
+	kr_display_name = "용암 구덩이",
 	display='~', color=colors.LIGHT_RED, back_color=colors.RED,
 	always_remember = true, does_block_move = true,
 	image="terrain/lava_floor.png",
@@ -29,6 +30,7 @@ newEntity{ define_as = "LAVA_WALL",
 
 newEntity{ define_as = "LAVA_WALL_OPAQUE",
 	name='lava pit',
+	kr_display_name = "용암 구덩이",
 	display='~', color=colors.LIGHT_RED, back_color=colors.RED,
 	always_remember = true, does_block_move = true,
 	block_sight = true,
@@ -40,6 +42,7 @@ newEntity{ define_as = "LAVA_WALL_OPAQUE",
 newEntity{
 	define_as = "CONTROL_ORB",
 	name = "Slave Control Orb", image = "terrain/marble_floor.png", add_displays = {class.new{image="terrain/control_orb_red.png"}},
+	kr_display_name = "노예 제어 오브",
 	display = '*', color=colors.PURPLE,
 	notice = true,
 	always_remember = true,

@@ -25,6 +25,7 @@ load("/data/general/grids/sand.lua")
 newEntity{
 	define_as = "OLD_FOREST",
 	name = "way to the old forest", image = "terrain/grass.png", add_displays = {class.new{image = "terrain/way_next_8.png"}},
+	kr_display_name = "오래된 숲으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -34,16 +35,17 @@ newEntity{
 newEntity{
 	define_as = "SHERTUL_FORTRESS",
 	name = "entrance to the Sher'Tul ruins",
+	kr_display_name = "쉐르'툴 폐허로의 입구",
 	display = '>', color=colors.PURPLE, image = "terrain/stair_down.png",
 	notice = true,
 	always_remember = true,
 	change_level = 1, change_zone = "shertul-fortress",
 	change_level_check = function(self, who)
 		if who.player and game.party:knownLore("old-forest-note-5") then
-			game.logPlayer(who, "#ANTIQUE_WHITE#You notice a hole that could fit the gem key you found earlier, inserting it reveals the passage to the next level.")
+			game.logPlayer(who, "#ANTIQUE_WHITE#당신은 이전에 발견한 보석 열쇠가 맞을 것 같은 구멍을 발견했습니다. 그것을 집어넣자 다음 층으로의 길이 나타납니다.")
 			who:setQuestStatus("shertul-fortress", engine.Quest.COMPLETED, "entered")
 		else
-			game.logPlayer(who, "#ANTIQUE_WHITE#The way seems closed, maybe you need a key.")
+			game.logPlayer(who, "#ANTIQUE_WHITE#이 길은 막혀있는 것으로 보입니다. 아마 열쇠가 필요할 것 같습니다.")
 			return true
 		end
 	end,

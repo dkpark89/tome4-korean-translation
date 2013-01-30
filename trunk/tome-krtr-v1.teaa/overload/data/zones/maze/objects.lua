@@ -23,13 +23,15 @@ for i = 1, 2 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "torn diary page", lore="maze-note-"..i,
-	desc = [[A diary, left by an adventurer.]],
+	kr_display_name = "찢겨진 일기장", --@@ lore 번역시 수정 필요
+	desc = [[어떤 모험가가 남긴 일기장입니다.]],
 	rarity = false,
 }
 end
 
 newEntity{ base = "BASE_LORE", define_as = "NOTE_LEARN_TRAP",
 	name = "the perfect killing device", lore="maze-note-trap", unique=true, no_unique_lore=true,
-	desc = [[Some notes describing how to create poison gas traps, left by an unfortunate rogue.]],
+	kr_display_name = "완벽한 살해 도구", --@@ lore 번역시 수정 필요
+	desc = [[불행한 도적이 남긴, 독구름 함정을 만드는 방법이 적힌 쪽지입니다.]],
 	rarity = false,
 }

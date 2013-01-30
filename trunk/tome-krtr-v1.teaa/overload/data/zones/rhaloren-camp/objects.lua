@@ -23,7 +23,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "letter", lore="rhaloren-note-"..i,
-	desc = [[A letter.]],
+	kr_display_name = "편지", --@@ lore 번역시 수정 필요
+	desc = [[편지입니다.]],
 	rarity = false,
 }
 end
@@ -31,6 +32,7 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE5",
 	name = "a carefully preserved letter", lore="rhaloren-note-5",
-	desc = [[A letter.]],
+	kr_display_name = "조심스레 보관된 편지", --@@ lore 번역시 수정 필요
+	desc = [[편지입니다.]],
 	rarity = false,
 }

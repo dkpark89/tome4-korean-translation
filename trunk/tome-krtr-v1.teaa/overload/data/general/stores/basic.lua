@@ -189,7 +189,7 @@ newEntity{
 newEntity{
 	define_as = "STAFF_WEAPON",
 	name = "staff carver",
-	kr_display_name = "마법지팡이 조각가",
+	kr_display_name = "지팡이 조각가",
 	display = '3', color=colors.RED,
 	store = {
 		purse = 25,
@@ -249,7 +249,7 @@ newEntity{
 newEntity{
 	define_as = "ANGOLWEN_STAFF_WAND",
 	name = "staves and wands store",
-	kr_display_name = "마법지팡이와 마법봉 상점",
+	kr_display_name = "지팡이와 마법봉 상점",
 	display = '6', color=colors.RED,
 	store = {
 		purse = 25,

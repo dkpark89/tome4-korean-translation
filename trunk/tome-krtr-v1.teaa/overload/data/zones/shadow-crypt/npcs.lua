@@ -26,7 +26,8 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "CULTIST_RAK_SHOR",
 	name = "Rak'Shor Cultist", color=colors.VIOLET, unique = true,
-	desc = [[An old orc, wearing black robes. He seems to be responsible for the creation of the shades.]],
+	kr_display_name = "락'쇼르 광신도",
+	desc = [[검은 로브를 입은 늙은 오크입니다. 그림자가 만들어진 것에 책임을 느끼는 것 같습니다.]],
 	killer_message = "but nobody knew why #sex# suddenly became evil",
 	level_range = {35, nil}, exp_worth = 2,
 	rank = 4,
@@ -81,6 +82,7 @@ newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "CULTIST_RAK_SHOR",
 			a.energy.value = 0
 			a.player = nil
 			a.rank = 4
+			a.kr_display_name = (a.kr_display_name or a.name).."의 파멸한 그림자"
 			a.name = "Doomed Shade of "..a.name
 			a.killer_message = "but nobody knew why #sex# suddenly became evil"
 			a.color_r = 150 a.color_g = 150 a.color_b = 150
@@ -97,7 +99,7 @@ newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "CULTIST_RAK_SHOR",
 				game:setAllowedBuild("afflicted")
 				game:setAllowedBuild("afflicted_doomed", true)
 				game.level.map(self.x, self.y, game.level.map.TERRAIN, game.zone.grid_list.UP_WILDERNESS)
-				game.logSeen(self, "As your shade dies, the magical veil protecting the stairs out vanishes.")
+				game.logSeen(self, "당신의 그림자가 죽자, 마법의 장막이 사라지고 계단이 나타납니다.")
 			end
 
 			-- Remove some talents
@@ -126,8 +128,8 @@ newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "CULTIST_RAK_SHOR",
 			if x and y then
 				game.zone:addEntity(game.level, a, "actor", x, y)
 
-				game.logPlayer(game.player, "#GREY#The cultist looks deep in your eyes. You feel torn apart!")
-				self:doEmote("Ra'kk kor merk ZUR!!!", 120)
+				game.logPlayer(game.player, "#GREY#광신도는 당신의 눈을 깊이 쳐다봅니다. 당시은 찢겨지는 것 같은 느낌을 받습니다!")
+				self:doEmote("라'큭 코르 메르크 주르!!!", 120)
 				self.copied_player = true
 			end
 

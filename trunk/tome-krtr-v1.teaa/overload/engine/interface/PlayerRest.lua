@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 
@@ -98,9 +100,9 @@ function _M:restStop(msg)
 	game:unregisterDialog(self.resting.dialog)
 
 	if msg then
-		game.log("%d턴 동안 "..self.resting.past:capitalize().."을 했습니다 (중지 이유: %s).", self.resting.cnt, msg)
+		game.log("%d턴 동안 "..self.resting.past:capitalize():addJosa("를").." 했습니다 (중지 이유: %s).", self.resting.cnt, msg)
 	else
-		game.log("%d턴 동안 "..self.resting.past:capitalize().."을 했습니다.", self.resting.cnt)
+		game.log("%d턴 동안 "..self.resting.past:capitalize():addJosa("를").." 했습니다.", self.resting.cnt)
 	end
 
 	local finish = self.resting.cnt and self.resting.rest_turns and self.resting.cnt > self.resting.rest_turns

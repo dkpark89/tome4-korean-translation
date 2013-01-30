@@ -102,7 +102,7 @@ newEntity{ define_as = "TROLL_BILL",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/troll_bill.png", display_h=2, display_y=-1}}},
 	desc = [[갈색의 크고 강하며 하플링을 먹기를 좋아합니다.
 작은 나무 줄기를 꺽어 쥔채로 당신을 겨누고 있습니다.
-이 트롤이 쪽지가 말하던 놈인게 확실합니다.]],
+이 트롤이 종이에 적혀있던 놈인게 확실합니다.]],
 	killer_message = "and clobbered into soup",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 18, fixed_rating = true,

@@ -26,7 +26,8 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "CELIA_NOTE",
 	name = "creased letter", lore="celia-letter",
-	desc = [[A letter.]],
+	kr_display_name = "접혀진 편지", --@@ lore 번역시 수정 필요
+	desc = [[편지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -37,21 +38,22 @@ newEntity{ define_as = "CELIA_HEART",
 	type = "misc", subtype="heart",
 	unided_name = "bloody heart",
 	name = "Celia's Still Beating Heart",
+	kr_display_name = "셀리아의 아직 뛰는 심장", kr_unided_name = "핏빛 심장",
 	level_range = {20, 35},
 	rarity = false,
 	display = "*", color=colors.RED,  image = "object/artifact/celias_heart.png",
 	encumber = 2,
 	not_in_stores = true,
-	desc = [[The living heart of the necromancer Celia, carved out of her chest and preserved with magic.]],
+	desc = [[사령술사 셀리아의 살아있는 심장입니다. 그녀의 가슴에서 떼어냈지만, 마법으로 보존되고 있습니다.]],
 
 	max_power = 75, power_regen = 1,
 	use_sound = "talents/slime",
-	use_power = { name = "extract a tiny part of Celia's soul", power = 75, use = function(self, who)
+	use_power = { name = "셀리아 영혼의 일부분을 추출", power = 75, use = function(self, who)
 		local p = who:isTalentActive(who.T_NECROTIC_AURA)
 		if not p then return end
 		p.souls = util.bound(p.souls + 1, 0, p.souls_max)
 		who.changed = true
-		game.logPlayer(who, "You squeeze Celia's heart in your hand, absorbing part of her soul into your necrotic aura.")
+		game.logPlayer(who, "당신은 손으로 셀리아의 심장을 짜내어, 그녀의 영혼의 일부분을 당신의 사령술의 기운으로 흡수했습니다.")
 		self.max_power = self.max_power + 5
 		self.use_power.power = self.use_power.power + 5
 		return {id=true, used=true}

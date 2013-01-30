@@ -23,7 +23,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "Song of the Sands", lore="sandworm-note-"..i,
-	desc = [[Some people get the weirdest ideas!]],
+	kr_display_name = "모래의 노래", --@@ lore 번역시 수정 필요
+	desc = [[어떤 사람이 떠올린 가장 이상한 생각!]],
 	rarity = false,
 }
 end
@@ -34,19 +35,20 @@ newEntity{
 	define_as = "SANDQUEEN_HEART",
 	type = "corpse", subtype = "heart", image = "object/artifact/queen_heart.png",
 	name = "Heart of the Sandworm Queen", unique=true, unided_name="pulsing organ",
+	kr_display_name = "지렁이 여왕의 심장", kr_unided_name = "맥동하는 장기",
 	display = "*", color=colors.VIOLET,
-	desc = [[The heart of the Sandworm Queen, ripped from her dead body. You could ... consume it, should you feel mad enough.]],
+	desc = [[지렁이 여왕의 죽은 몸에서 떼어낸 심장입니다. 충분히 미쳤다고 생각이 들면, 먹을 수도 있습니다...]],
 	cost = 3000,
 	quest = 1,
 
-	use_simple = { name="consume the heart", use = function(self, who)
-		game.logPlayer(who, "#00FFFF#You consume the heart and feel the knowledge of this very old creature fill you!")
+	use_simple = { name="심장 먹기", use = function(self, who)
+		game.logPlayer(who, "#00FFFF#당신이 심장을 먹자, 이 아주 오래된 생명체의 지식이 당신을 채우는 것이 느껴집니다!")
 		who.unused_stats = who.unused_stats + 3
 		who.unused_talents = who.unused_talents + 1
 		who.unused_generics = who.unused_generics + 1
-		game.logPlayer(who, "You have %d stat point(s) to spend. Press G to use them.", who.unused_stats)
-		game.logPlayer(who, "You have %d class talent point(s) to spend. Press G to use them.", who.unused_talents)
-		game.logPlayer(who, "You have %d generic talent point(s) to spend. Press G to use them.", who.unused_generics)
+		game.logPlayer(who, "사용할 수 있는 능력치 점수 %d점이 있습니다. 'G'를 눌러 사용할 수 있습니다.", who.unused_stats)
+		game.logPlayer(who, "사용할 수 있는 직업기술 점수 %d점이 있습니다. 'G'를 눌러 사용할 수 있습니다.", who.unused_talents)
+		game.logPlayer(who, "사용할 수 있는 일반기술 점수 %d점이 있습니다. 'G'를 눌러 사용할 수 있습니다.", who.unused_generics)
 
 		if not who:attr("forbid_nature") then
 			if who:knowTalentType("wild-gift/harmony") then
@@ -58,8 +60,8 @@ newEntity{
 			end
 			-- Make sure a previous amulet didnt bug it out
 			if who:getTalentTypeMastery("wild-gift/harmony") == 0 then who:setTalentTypeMastery("wild-gift/harmony", 1) end
-			game.logPlayer(who, "You are transformed by the heart of the Queen!.")
-			game.logPlayer(who, "#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press G).")
+			game.logPlayer(who, "여왕의 심장으로 당신은 변화했습니다!")
+			game.logPlayer(who, "#00FF00#당시은 자연과의 친화력을 얻었습니다. 당신은 이제 새로운 기술계열 '조화'를 배울 수 있습니다 ('G'를 누르세요).")
 
 			who:attr("drake_touched", 1)
 		end
@@ -75,15 +77,16 @@ newEntity{
 	define_as = "PUTRESCENT_POTION",
 	type = "corpse", subtype = "blood",
 	name = "Wyrm Bile", unique=true, unided_name="putrescent potion", image="object/artifact/vial_wyrm_bile.png",
+	kr_display_name = "이무기 담즙", kr_unided_name = "부패한 물약",
 	display = "*", color=colors.VIOLET,
-	desc = [[A vial of thick, lumpy fluid. Who knows what this will do to you if you drink it?]],
+	desc = [[걸죽하고 덩어리가 섞여있는 액체가 든 약병입니다. 이걸 마신다면 무슨 일이 생길지 누가 알겠습니까?]],
 	cost = 3000,
 	quest = 1,
 
-	use_simple = { name="drink the vile blood", use = function(self, who)
-		game.logPlayer(who, "#00FFFF#You drink the wyrm bile and feel forever transformed!")
+	use_simple = { name="불결한 피를 마시기", use = function(self, who)
+		game.logPlayer(who, "#00FFFF#당신은 이무기의 담즙을 마셨고, 영원히 변화했음을 느낍니다!")
 		who.unused_talents_types = who.unused_talents_types + 1
-		game.log("You have %d category point(s) to spend. Press G to use them.", who.unused_talents_types)
+		game.log("사용할 수 있는 기술계열 점수 %d점이 있습니다. 'G'를 눌러 사용할 수 있습니다.", who.unused_talents_types)
 
 		local str, dex, con, mag, wil, cun = rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6)
 		who:incStat("str", str) if str >= 0 then str="+"..str end
@@ -92,7 +95,7 @@ newEntity{
 		who:incStat("wil", wil) if wil >= 0 then wil="+"..wil end
 		who:incStat("cun", cun) if cun >= 0 then cun="+"..cun end
 		who:incStat("con", con) if con >= 0 then con="+"..con end
-		game.logPlayer(who, "#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con %s)", str, dex, mag, wil, cun, con)
+		game.logPlayer(who, "#00FF00#당신의 능력치가 변했습니다! (힘 %s, 민첩 %s, 마법 %s, 의지 %s, 교활함 %s, 체격 %s)", str, dex, mag, wil, cun, con)
 
 		who:attr("drake_touched", 1)
 
@@ -104,8 +107,9 @@ newEntity{ base = "BASE_GEM",
 	define_as = "ATAMATHON_ACTIVATE",
 	subtype = "red",
 	name = "Atamathon's Lost Ruby Eye", color=colors.VIOLET, quest=true, unique=true, identified=true, image="object/artifact/atamathons_lost_ruby_eye.png",
-	desc = [[One of the ruby eyes of the legendary giant golem: Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]],
+	kr_display_name = "아타마쏜의 잃어버린 루비 눈",
+	desc = [[전설적 거인 골렘 아타마쏜의 한쪽 눈입니다.
+장작더미의 시대에 하플링이 오크에 대항하기 위한 무기로 이것을 만들었다고 알려져 있습니다. 하지만 오크들의 지도자 포식자 가르쿨의 극심한 공격을 받고 파괴되었습니다.]],
 	material_level = 5,
 	cost = 100,
 	wielder = { inc_damage = {[DamageType.FIRE]=12} },

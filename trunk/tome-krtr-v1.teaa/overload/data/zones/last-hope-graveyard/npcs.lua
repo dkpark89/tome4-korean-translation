@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/npcs/skeleton.lua")
 load("/data/general/npcs/ghoul.lua")
 load("/data/general/npcs/vampire.lua")
@@ -27,11 +29,12 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ define_as = "CELIA",
 	name = "Celia",
+	kr_display_name = "셀리아",
 	type = "humanoid", subtype = "human", image = "npc/humanoid_human_celia.png",
 	female = true,
 	display = "p", color=colors.GREY,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_celia.png", display_h=2, display_y=-1}}},
-	desc = [[A tall woman stands before you in a stained robe. Her sallow skin is marked by pox and open sores, but her eyes are bright and keen. The bulge around her abdomen would indicate that she is several months pregnant.]],
+	desc = [[당신 앞에 서 있는 꽉끼는 로브를 입은 키 큰 여자입니다. 그녀의 창백한 피부에는 천연두와 벌어진 상처의 자국이 남아있지만, 그녀의 눈빛은 밝고 날카롭습니다. 그녀의 부풀어 오른 복부는 그녀가 임신한 지 꽤 지났음을 알려줍니다.]],
 	autolevel = "caster",
 	stats = { str=12, dex=17, mag=22, wil=22, con=12 },
 
@@ -95,11 +98,11 @@ newEntity{ define_as = "CELIA",
 			local o = game.zone:makeEntityByName(game.level, "object", "CELIA_HEART")
 			o:identify(true)
 			if p:addObject(p.INVEN_INVEN, o) then
-				game.logPlayer(p, "You receive: %s.", o:getName{do_color=true})
+				game.logPlayer(p, "당신은 %s 얻었습니다.", o:getName{do_color=true}:addJosa("를"))
 			end
 
 			local Dialog = require("engine.ui.Dialog")
-			Dialog:simpleLongPopup("Celia", "As you deal the last blow you quickly carve out Celia's heart for your Lichform ritual.\nCarefully weaving magic around it to keep it beating.", 400)
+			Dialog:simpleLongPopup("셀리아", "셀리아에게 마지막 일격을 가하자마자, 당신의 리치 변신을 위한 의식으로 빨리 그녀의 심장을 떼어냈습니다.\n조심스레 마법을 엮어, 심장이 계속 뛰도록 만들었습니다.", 400)
 			p:setQuestStatus("grave-necromancer", engine.Quest.COMPLETED, "kill-necromancer")
 		else
 			if game.party:knownLore("necromancer-primer-1") and

@@ -23,7 +23,8 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tattered paper scrap", lore="noxious-caldera-note-"..i,
-	desc = [[A paper scrap, left by an adventurer.]],
+	kr_display_name = "찢겨진 종이 조각", --@@ lore 번역시 수정 필요
+	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 }
 end

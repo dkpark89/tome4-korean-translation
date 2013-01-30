@@ -22,7 +22,8 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "UNDEAD_POEM_LEVEL_2",
 	name = "paper scrap", lore="dreadfell-poem-level-2",
-	desc = [[A smudged poem chalked on a dark piece of slate]],
+	kr_display_name = "종이 조각", --@@ lore 번역후 수정 필요
+	desc = [[검은 석판 조각에 쓰인 얼룩진 시]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -30,7 +31,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "UNDEAD_POEM_LEVEL_5",
 	name = "paper scrap", lore="dreadfell-poem-level-5",
-	desc = [[A poem written in scribbled, child-like writing]],
+	kr_display_name = "종이 조각", --@@ lore 번역후 수정 필요
+	desc = [[아이가 지은듯한 휘갈겨 쓴 시]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -38,7 +40,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "UNDEAD_POEM_LEVEL_7",
 	name = "paper scrap", lore="dreadfell-poem-level-7",
-	desc = [[A poem written in an elegant Gothic script]],
+	kr_display_name = "종이 조각", --@@ lore 번역후 수정 필요
+	desc = [[우아한 고딕체로 적힌 시]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -46,7 +49,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "BORFAST_LETTER",
 	name = "a letter from the Master", lore="dreadfell-borfast-letter",
-	desc = [[A letter written in a bold, commanding script]],
+	kr_display_name = "지배자로부터의 편지", --@@ lore 번역후 수정 필요
+	desc = [[명령문이 뚜렷하게 적힌 편지]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -54,7 +58,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "ALETTA_LETTER",
 	name = "a letter from the Master", lore="dreadfell-aletta-letter",
-	desc = [[A letter written in a bold, commanding script]],
+	kr_display_name = "지배자로부터의 편지", --@@ lore 번역후 수정 필요
+	desc = [[명령문이 뚜렷하게 적힌 편지]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -62,7 +67,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "FILIO_LETTER",
 	name = "a letter from the Master", lore="dreadfell-filio-letter",
-	desc = [[A letter written in a bold, commanding script]],
+	kr_display_name = "지배자로부터의 편지", --@@ lore 번역후 수정 필요
+	desc = [[명령문이 뚜렷하게 적힌 편지]],
 	rarity = false,
 	encumberance = 0,
 }

@@ -37,8 +37,9 @@ newEntity{ define_as = "MINDWORM",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "thalore", unique = true,
 	name = "Mindworm",
+	kr_display_name = "정신 벌레",
 	display = "p", color=colors.VIOLET,
-	desc = [[This tall thalore eyes are lost in the distance, you can feel that he barely sees you.]],
+	desc = [[이 키 큰 탈로레의 눈빛은 어딘가에서 헤메고 있는 것 같습니다. 그가 간신히 당신을 쳐다보는 것이 느껴집니다.]],
 	killer_message = "and mind-probed",
 	level_range = {25, nil}, exp_worth = 2,
 	max_life = 100, life_rating = 10, fixed_rating = true,
@@ -84,6 +85,6 @@ newEntity{ define_as = "MINDWORM",
 
 	on_die = function(self)
 		game.level.data.fumes_active = false
-		require("engine.ui.Dialog"):simplePopup("Fumes", "As Mindworm dies you can feel the fumes getting less poisonous for your mind.")
+		require("engine.ui.Dialog"):simplePopup("향기", "정신 벌레가 죽자, 정신에 대한 향기의 유해성이 줄고 있는 것이 느껴집니다.")
 	end,
 }

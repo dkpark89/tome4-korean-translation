@@ -26,6 +26,7 @@ newEntity{
 	define_as = "DREAM_END",
 	type = "floor", subtype = "grass",
 	name = "Dream Portal", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/demon_portal.png"}},
+	kr_display_name = "꿈의 포탈",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -41,6 +42,7 @@ newEntity{
 	define_as = "DREAM2_END",
 	type = "floor", subtype = "grass",
 	name = "Dream Portal", image = "invis.png", add_mos = {{image="terrain/demon_portal.png"}},
+	kr_display_name = "꿈의 포탈",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -56,7 +58,8 @@ newEntity{
 	define_as = "DREAM_MOUSE_HOLE",
 	type = "wall", subtype = "grass",
 	name = "mouse hole",
-	desc = "A hole small enough that only you can go through.",
+	kr_display_name = "쥐구멍",
+	desc = "당신만이 겨우 지나갈 수 있을만한 작은 구멍입니다.",
 	color_r=0, color_g=0, color_b=0, notice = true,
 	image = "terrain/jungle/jungle_grass_floor_01.png",
 	add_displays = class:makeTrees("terrain/jungle/jungle_tree_", 17, 7),
@@ -77,6 +80,7 @@ newEntity{
 	define_as = "DREAM_STONE",
 	type = "floor", subtype = "grass",
 	name = "Dreamstone", image = "invis.png", add_displays = {class.new{z=15, display_h=2, display_y=-1, image="terrain/darkgreen_moonstone_06.png"}},
+	kr_display_name = "꿈의 돌",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -86,7 +90,7 @@ newEntity{
 			game.zone:addEntity(game.level, g, "terrain", x, y)
 			who:heal(100)
 			who:removeEffectsFilter{status="detrimental"}
-			game.logPlayer(who, "You touch the dreamstone and it disappears. You feel better.")
+			game.logPlayer(who, "당신이 꿈의 돌을 건드리자, 이것이 사라졌습니다. 당신의 상태가 좋아졌습니다.")
 		end
 		return true
 	end,
@@ -100,6 +104,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_FLOOR",
 	type = "floor", subtype = "bamboo hut",
 	name = "weird floor", image = "invis.png",
+	kr_display_name = "이상한 바닥",
 	display = ' ', color=colors.UMBER, back_color=colors.DARK_UMBER,
 	grow = "BAMBOO_HUT_WALL",
 }
@@ -111,6 +116,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_WALL",
 	type = "wall", subtype = "bamboo hut",
 	name = "bamboo wall", image = "invis.png",
+	kr_display_name = "대나무 벽",
 	display = '#', color=colors.LIGHT_UMBER, back_color=colors.DARK_UMBER,
 	always_remember = true,
 	does_block_move = true,
@@ -160,6 +166,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_DOOR",
 	type = "wall", subtype = "floor",
 	name = "door", image = "invis.png",
+	kr_display_name = "문",
 	display = '+', color=colors.LIGHT_UMBER, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="BAMBOO_HUT_DOOR_VERT", west_east="BAMBOO_HUT_DOOR_HORIZ" },
 	notice = true,
@@ -173,6 +180,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_DOOR_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open door", image = "invis.png",
+	kr_display_name = "열린 문",
 	display = "'", color=colors.LIGHT_UMBER, back_color=colors.DARK_UMBER,
 	always_remember = true,
 	is_door = true,

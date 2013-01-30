@@ -55,7 +55,7 @@ newEntity{ base = "BASE_STORE", define_as = "SWORD_WEAPON_STORE",
 }
 newEntity{ base = "BASE_STORE", define_as = "STAFF_WEAPON_STORE",
 	name="Staff carver",
-	kr_display_name = "마법지팡이 조각가",
+	kr_display_name = "지팡이 조각가",
 	display='3', color=colors.RED,
 	resolvers.store("STAFF_WEAPON", "keepers-of-reality", "store/shop_door.png", "store/shop_sign_staves.png"),
 }

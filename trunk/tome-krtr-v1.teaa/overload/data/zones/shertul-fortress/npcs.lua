@@ -22,7 +22,8 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 	name = "Weirdling Beast", color=colors.VIOLET,
-	desc = "A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.",
+	kr_display_name = "불가사의한 짐승",
+	desc = "대략 인류같은 생물체이지만, 촉수같은 부속품이 팔과 다리가 있어야 할 자리에 달려 있습니다. 당신은 그것의 머리가 없음을 알아차리고 두려움에 숨이 막합니다. 부패한 사마귀의 모습이 빠르게 그 피부에 생겼다가 빠르게 터집니다.",
 	killer_message = "and slowly consumed",
 	level_range = {19, nil}, exp_worth = 3,
 	rank = 3.5,
@@ -79,7 +80,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 		local spot = game.level:pickSpot{type="door", subtype="weirdling"}
 		if spot then
 			game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
-			game.log("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!")
+			game.log("#LIGHT_RED#불가사의한 짐승이 마지막 비명과 함께 무너지자, 그 뒤에 있던 문이 부서지면서 폭발했고, 뒷쪽의 방이 나타납니다. 올라가는 계단이 무너졌습니다!")
 		end
 		local spot = game.level:pickSpot{type="stair", subtype="up"}
 		if spot then
@@ -97,6 +98,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 			local g = mod.class.Grid.new{
 				show_tooltip=true, always_remember = true,
 				name="Teleportation portal to the Sher'Tul Fortress",
+				kr_display_name = "쉐르'툴 요새의 순간이동 포탈",
 				display='>', color=colors.ANTIQUE_WHITE, image = "terrain/grass.png", add_mos = {{image = "terrain/maze_teleport.png"}},
 				notice = true,
 				change_level=1, change_zone="shertul-fortress",
@@ -118,7 +120,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="BUTLER",
 	subtype = "Sher'Tul",
 	name = "Fortress Shadow", color=colors.GREY,
 	kr_display_name = "요새의 그림자",
-	desc = "The shadow created by the fortress, it resembles somewhat the horrors you saw previously, but it is not the same.",
+	desc = "요새가 만든 그림자로, 이전에 봤던 무서운자를 좀 닮게 생겼지만 같은 존재는 아닙니다.",
 	level_range = {19, nil}, exp_worth = 3,
 	rank = 3,
 	max_life = 300, life_rating = 16,
