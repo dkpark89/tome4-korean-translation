@@ -46,7 +46,7 @@ newEntity{
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("정력 %d 재생"):format(self:getCharmPower(true) / 6) end, function(self, who)
+		{100, function(self, who) return ("원기 %d 재생"):format(self:getCharmPower(true) / 6) end, function(self, who)
 			who:incVim(self:getCharmPower(true) / 6)
 		end},
 	}

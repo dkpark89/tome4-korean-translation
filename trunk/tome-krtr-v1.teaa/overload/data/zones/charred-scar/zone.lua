@@ -61,7 +61,7 @@ return {
 	post_process = function(level)
 		level.turn_counter = 550 * 10
 		level.max_turn_counter = 550 * 10
-		level.turn_counter_desc = "Hurry down south while the sun-paladins are holding off the orcs. Make their sacrifice worth it!"
+		level.turn_counter_desc = "태양의 기사들이 오크들을 막고 있는 동안 빨리 남쪽으로 내려가. 그들의 희생을 가치있게 만들어 줘!"
 	end,
 
 	on_enter = function(lev, old_lev, newzone)

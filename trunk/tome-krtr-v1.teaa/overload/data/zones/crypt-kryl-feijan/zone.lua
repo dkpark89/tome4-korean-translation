@@ -64,13 +64,13 @@ return {
 	end,
 	on_enter = function(lev)
 		if lev < 4 then
-			require("engine.ui.Dialog"):simplePopup("Crypt", "You hear an eerie chanting echoing from a distance.")
+			require("engine.ui.Dialog"):simplePopup("지하실", "멀리서 으스스한 찬송의 메아리가 들려옵니다.")
 		elseif lev == 4 then
-			require("engine.ui.Dialog"):simplePopup("Crypt", "The chanting grows louder. You hear a sudden high-pitched scream.")
+			require("engine.ui.Dialog"):simplePopup("지하실", "찬송이 점점 커집니다. 갑자기 높은 비명소리가 들립니다.")
 		elseif lev == 5 then
 			game.level.turn_counter = 20 * 10
 			game.level.max_turn_counter = 20 * 10
-			game.level.turn_counter_desc = "The cultists are about to sacrifice the woman. Stop them!"
+			game.level.turn_counter_desc = "광신도들이 여자를 제물로 바치고 있습니다. 그들을 막으세요!"
 			game.player:grantQuest("kryl-feijan-escape")
 			game.party:learnLore("kryl-feijan-altar")
 		end
@@ -81,7 +81,7 @@ return {
 			game.player.changed = true
 			if game.level.turn_counter < 0 then
 				game.level.turn_counter = nil
-				require("engine.ui.Dialog"):simpleLongPopup("Crypt", "The woman lets out a sudden ear-splitting scream that turns from pain to horror as her stomach is ripped open from within by long dark claws. A towering black demon arises, rending her flesh to shreds, and replacing her dying scream with a terrifying roar.", 400)
+				require("engine.ui.Dialog"):simpleLongPopup("지하실", "기다란 검은 갈고리로 배를 가르려하자, 그 공포로 여자가 갑자기 귀가 찢어질듯한 비명을 질렀습니다. 기다란 검은 악마가 일어나고, 그녀의 살점은 찢어집니다. 그녀의 죽어가는 비명소리는 곧 무서운 울부짖음으로 바뀝니다.", 400)
 				for uid, e in pairs(game.level.entities) do
 					if e.define_as and e.define_as == "MELINDA" then
 						local x, y = e.x, e.y
@@ -106,7 +106,7 @@ return {
 		local melinda
 		for uid, e in pairs(game.level.entities) do if e.define_as and e.define_as == "MELINDA" then melinda = e end end
 		if melinda and not melinda.dead and core.fov.distance(game.player.x, game.player.y, melinda.x, melinda.y) > 1 then
-			require("engine.ui.Dialog"):simplePopup("Crypt", "You cannot abandon Melinda here!")
+			require("engine.ui.Dialog"):simplePopup("지하실", "당신은 멜린다를 여기에 남겨둘 수 없습니다!")
 			return nil, nil, true
 		end
 

@@ -1623,7 +1623,7 @@ newDamageType{
 -- Drain Vim
 newDamageType{
 	name = "drain vim", type = "DRAIN_VIM",
-	kr_display_name = "정력 감소",
+	kr_display_name = "원기 감소",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, vim=0.2} end
 		local target = game.level.map(x, y, Map.ACTOR)

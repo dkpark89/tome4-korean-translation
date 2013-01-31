@@ -23,24 +23,24 @@ load("/data/general/grids/void.lua")
 newEntity{
 	define_as = "RIFT",
 	name = "Temporal Rift", add_mos={{image="terrain/demon_portal2.png"}},
-	kr_display_name = "시간의 틈",
+	kr_display_name = "시간의 균열",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 틈은 저습지의 다른 장소로 연결되어 있습니다.]],
+	desc = [[이 균열은 저습지의 다른 장소로 연결되어 있습니다.]],
 	change_level = 1,
 }
 
 newEntity{
 	define_as = "RIFT_HOME",
 	name = "Temporal Rift", add_mos={{image="terrain/demon_portal2.png"}},
-	kr_display_name = "시간의 틈",
+	kr_display_name = "시간의 균열",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 틈은 저습지의 다른 장소로 연결되어 있습니다.]],
+	desc = [[이 균열은 저습지의 다른 장소로 연결되어 있습니다.]],
 	change_level = 1,
 	change_zone = "town-point-zero",
 	change_level_check = function()
@@ -53,7 +53,7 @@ newEntity{
 
 				local spot = level:pickSpot{type="pop", subtype="player-attack"}
 				game.player:move(spot.x, spot.y, true)
-				require("engine.ui.Dialog"):simpleLongPopup("영점", "영점으로 돌아가는 틈이 부서져 있고, 이것이 소동의 원인이 되고 있습니다.\n시간의 모독자가 마을을 공격했고, 주변의 모든 감시자는 그를 공격 중입니다!", 400)
+				require("engine.ui.Dialog"):simpleLongPopup("영점", "영점으로 돌아가는 균열이 부서져 있고, 이것이 소동의 원인이 되고 있습니다.\n시간의 모독자가 마을을 공격했고, 주변의 모든 감시자는 그를 공격 중입니다!", 400)
 
 				for uid, e in pairs(game.level.entities) do
 					if e.faction == "keepers-of-reality" or e.faction == "point-zero-guardians" then

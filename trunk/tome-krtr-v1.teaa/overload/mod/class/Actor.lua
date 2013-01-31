@@ -2037,7 +2037,7 @@ function _M:onTakeHit(value, src)
 	if self:knowTalent(self.T_LEECH) and src.hasEffect and src:hasEffect(src.EFF_VIMSENSE) then
 		self:incVim(3 + self:getTalentLevel(self.T_LEECH) * 0.7)
 		self:heal(5 + self:getTalentLevel(self.T_LEECH) * 3)
-		game.logPlayer(self, "#AQUAMARINE#당신은 %s의 정력을 갈취했다.", (src.kr_display_name or src.name):capitalize())
+		game.logPlayer(self, "#AQUAMARINE#당신은 %s의 원기를 갈취했다.", (src.kr_display_name or src.name):capitalize())
 	end
 
 	-- Invisible on hit
@@ -3463,7 +3463,7 @@ function _M:preUseTalent(ab, silent, fake)
 			return false
 		end
 		if ab.sustain_vim and self.max_vim < ab.sustain_vim and not self:isTalentActive(ab.id) then
-			if not silent then game.logPlayer(self, "%s 활성화하기에는 정력이 부족합니다.", abn:addJosa("를")) end
+			if not silent then game.logPlayer(self, "%s 활성화하기에는 원기가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.sustain_positive and self.max_positive < ab.sustain_positive and not self:isTalentActive(ab.id) then
@@ -3492,7 +3492,7 @@ function _M:preUseTalent(ab, silent, fake)
 			return false
 		end
 		if ab.vim and self:getVim() < ab.vim and (not self:attr("bloodcasting") or self.life < ab.vim) then
-			if not silent then game.logPlayer(self, "%s 사용하기에는 정력이 부족합니다.", abn:addJosa("를")) end
+			if not silent then game.logPlayer(self, "%s 사용하기에는 원기가 부족합니다.", abn:addJosa("를")) end
 			return false
 		end
 		if ab.positive and self:getPositive() < ab.positive * (100 + self:combatFatigue()) / 100 then
@@ -3944,7 +3944,7 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 		if t.mana then d:add({"color",0x6f,0xff,0x83}, "마나 소모량: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.mana, self, t) * (100 + 2 * self:combatFatigue()) / 100), true) end
 		if t.stamina then d:add({"color",0x6f,0xff,0x83}, "체력 소모량: ", {"color",0xff,0xcc,0x80}, ""..(t.stamina * (100 + self:combatFatigue()) / 100), true) end
 		if t.equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 증가량: ", {"color",0x00,0xff,0x74}, ""..(t.equilibrium), true) end
-		if t.vim then d:add({"color",0x6f,0xff,0x83}, "정력 소모량: ", {"color",0x88,0x88,0x88}, ""..(t.vim), true) end
+		if t.vim then d:add({"color",0x6f,0xff,0x83}, "원기 소모량: ", {"color",0x88,0x88,0x88}, ""..(t.vim), true) end
 		if t.positive then d:add({"color",0x6f,0xff,0x83}, "양기 소모량: ", {"color",255, 215, 0}, ""..(t.positive * (100 + self:combatFatigue()) / 100), true) end
 		if t.negative then d:add({"color",0x6f,0xff,0x83}, "음기 소모량: ", {"color", 127, 127, 127}, ""..(t.negative * (100 + self:combatFatigue()) / 100), true) end
 		if t.hate then d:add({"color",0x6f,0xff,0x83}, "증오심 소모량:  ", {"color", 127, 127, 127}, ""..(t.hate * (100 + 2 * self:combatFatigue()) / 100), true) end
@@ -3956,7 +3956,7 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 		if t.sustain_mana then d:add({"color",0x6f,0xff,0x83}, "마나 유지량: ", {"color",0x7f,0xff,0xd4}, ""..(util.getval(t.sustain_mana, self, t)), true) end
 		if t.sustain_stamina then d:add({"color",0x6f,0xff,0x83}, "체력 유지량: ", {"color",0xff,0xcc,0x80}, ""..(t.sustain_stamina), true) end
 		if t.sustain_equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 유지량: ", {"color",0x00,0xff,0x74}, ""..(t.sustain_equilibrium), true) end
-		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "정력 유지량: ", {"color",0x88,0x88,0x88}, ""..(t.sustain_vim), true) end
+		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "원기 유지량: ", {"color",0x88,0x88,0x88}, ""..(t.sustain_vim), true) end
 		if t.sustain_positive then d:add({"color",0x6f,0xff,0x83}, "양기 유지량: ", {"color",255, 215, 0}, ""..(t.sustain_positive), true) end
 		if t.sustain_negative then d:add({"color",0x6f,0xff,0x83}, "음기 유지량: ", {"color", 127, 127, 127}, ""..(t.sustain_negative), true) end
 		if t.sustain_hate then d:add({"color",0x6f,0xff,0x83}, "증오심 유지량:  ", {"color", 127, 127, 127}, ""..(t.sustain_hate), true) end

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/npcs/rodent.lua", rarity(5))
 load("/data/general/npcs/horror-corrupted.lua", rarity(0))
 
@@ -29,7 +31,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 	name = "The Mouth", tint=colors.PURPLE,
 	kr_display_name = "그 입",
 	color=colors.VIOLET,
-	desc = [["From bellow, it devours."]],
+	desc = [["울림에서, 그걸 삼켜버린다."]],
 	killer_message = "and revived as a screeching drem bat",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_the_mouth.png", display_h=2, display_y=-1}}},
 	level_range = {7, nil}, exp_worth = 2,
@@ -60,7 +62,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 
 	on_takehit = function(self, value)
 		if value <= 500 then
-			game.logSeen(self, "#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", self.name:capitalize())
+			game.logSeen(self, "#CRIMSON#%s 무적으로 보이지만, 그걸 죽일 다른 방법이 있을겁니다!", (self.kr_display_name or self.name):capitalize():addJosa("는"))
 			return 0
 		end
 		return value
@@ -86,9 +88,10 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 
 newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "SLIMY_CRAWLER",
 	name = "slimy crawler",
+	kr_display_name = "끈적이며 기어다니는자",
 	color = colors.GREEN,
-	desc = [[This disgusting... thing crawls on the floor toward you with great speed.
-It seems to come from the digestive system of the mouth.]],
+	desc = [[이 구역질나는... 존재는 엄청난 속도로 바닥을 기어 당신에게 접근하고 있습니다.
+'그 입'의 소화 기관에서 나온 것으로 보입니다.]],
 	level_range = {4, nil}, exp_worth = 0,
 	max_life = 80, life_rating = 10, fixed_rating = true,
 	movement_speed = 3,
@@ -112,13 +115,13 @@ It seems to come from the digestive system of the mouth.]],
 
 		if self.summoner.dead then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#With the Mouth death its crawler also falls lifeless on the ground!")
+			game.logSeen(self, "#AQUAMARINE#'그 입'의 죽음으로 기어다니는자도 역시 생명이 다해 땅에 쓰러집니다!")
 		end
 	end,
 
 	on_die = function(self, who)
 		if self.summoner and not self.summoner.dead then
-			game.logSeen(self, "#AQUAMARINE#As %s falls you notice that %s seems to shudder in pain!", self.name, self.summoner.name)
+			game.logSeen(self, "#AQUAMARINE#%s 쓰러지자, %s도 고통에 몸부림치는 것을 발견합니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (self.summoner.kr_display_name or self.summoner.name))
 			self.summoner.no_take_hit_achievements = true
 			self.summoner:takeHit(1000, who)
 			self.summoner.no_take_hit_achievements = nil
@@ -133,7 +136,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "ABOMINATION",
 	kr_display_name = "혐오생물",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_the_abomination.png", display_h=2, display_y=-1}}},
-	desc = [[A horrid mass of pustulent flesh, sinew, and bone; this creature seems to constantly be in pain. Two heads glare malevolently at you, an intruder in its domain.]],
+	desc = [[무시무시한 화농이 생긴 살점과 힘줄 그리고 뼈의 덩어리인 이 존재는 끊임없이 고통스러워하는 것 처럼 보입니다. 그의 영역에 대한 침입자인 당신을 두개의 머리가 증오섞인 눈빛으로 쏘아보고 있습니다.]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 350, life_rating = 23, fixed_rating = true,
 	life_regen = 30,
@@ -179,7 +182,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "ABOMINATION",
 			if n then
 				self.dropped_note6 = true
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "A parchment falls to the floor near The Abomination.")
+				game.logSeen(self, "혐오생물 근처의 바닥으로 양피지가 떨어졌습니다.")
 			end
 		end
 		if self.life - val < self.max_life * 0.25 and not self.dropped_note7 then
@@ -187,7 +190,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "ABOMINATION",
 			if n then
 				self.dropped_note7 = true
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "A parchment falls to the floor near The Abomination.")
+				game.logSeen(self, "혐오생물 근처의 바닥으로 양피지가 떨어졌습니다.")
 			end
 		end
 		return val

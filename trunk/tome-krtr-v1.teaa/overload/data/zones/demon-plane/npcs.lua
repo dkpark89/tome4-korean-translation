@@ -27,8 +27,9 @@ newEntity{ define_as = "DRAEBOR",
 	allow_infinite_dungeon = true,
 	type = "demon", subtype = "minor", unique = true,
 	name = "Draebor, the Imp",
+	kr_display_name = "꼬마도깨비, 드래보르",
 	display = "u", color=colors.VIOLET,
-	desc = [[An intensely irritating git of a monster.]],
+	desc = [[격렬하게 귀찮게 만드는 괴물같은 놈입니다.]],
 	faction = "fearscape",
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 300, life_rating = 22, fixed_rating = true,
@@ -77,7 +78,7 @@ newEntity{ define_as = "DRAEBOR",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 
 	on_die = function(self, who)
-		require("engine.ui.Dialog"):simplePopup("Back and there again", "As the annoying imp falls a portal appears under its corpse.")
+		require("engine.ui.Dialog"):simplePopup("다시 또 그 자리에", "짜증나는 꼬마도깨비가 쓰러지자, 그 시체 아래에 포탈이 나타납니다.")
 		local g = game.zone:makeEntityByName(game.level, "terrain", "PORTAL_BACK")
 		game.zone:addEntity(game.level, g, "terrain", self.x, self.y)
 	end,

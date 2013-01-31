@@ -21,6 +21,7 @@
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ name = "gladiator",
+	kr_display_name = "검투사",
 	define_as = "GLADIATOR",
 	type = "humanoid", subtype = "human",
 	color=colors.GOLD, display = "p",
@@ -68,6 +69,7 @@ newEntity{ name = "gladiator",
 }
 
 newEntity{ name = "halfling slinger",
+	kr_display_name = "하플링 투석전사",
 	define_as = "SLINGER",
 	type = "humanoid", subtype = "halfling",
 	color=colors.GOLD, display = "p",
@@ -120,6 +122,7 @@ newEntity{ name = "halfling slinger",
 }
 
 newEntity{ name = "arcane blade",
+	kr_display_name = "마법 전사",
 	define_as = "ARCANEBLADE",
 	type = "humanoid", subtype = "human",
 	color=colors.GOLD, display = "p",

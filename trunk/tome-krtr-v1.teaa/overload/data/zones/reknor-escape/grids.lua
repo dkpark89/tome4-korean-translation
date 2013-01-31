@@ -19,4 +19,4 @@
 
 load("/data/general/grids/basic.lua")
 
-newEntity{ base = "DOWN", define_as = "IRON_COUNCIL", name="The Iron Council (Dwarven empire main city)", kr_display_name="철의 평의회 (드워프 황국 수도)", change_zone="town-iron-council", change_zone_auto_stairs = true }
+newEntity{ base = "DOWN", define_as = "IRON_COUNCIL", name="The Iron Council (Dwarven empire main city)", kr_display_name="철의 평의회 (드워프 제국 수도)", change_zone="town-iron-council", change_zone_auto_stairs = true }

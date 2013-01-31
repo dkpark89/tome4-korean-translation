@@ -1,6 +1,6 @@
 ﻿-- ToME4 korean Translation addon
 -- utility functions for korean Translation 
--- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils" 
+-- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils"
 
 -- 한글 글꼴 설정
 krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 빠름, 글자 가독성이 좀 떨어짐
@@ -587,13 +587,34 @@ end
 function string.krRank(str)
 	-- 관련내용 /mod/class/Actor.lua:1334~1345
 	local ori = str:lower()
-	if ori == "normal" then return "평범"
-	elseif ori == "critter" then return "떨어짐"
+	if ori == "normal" then return "평범함"
+	elseif ori == "critter" then return "모자람"
 	elseif ori == "elite" then return "정예"
-	elseif ori == "rare" then return "진귀함"
+	elseif ori == "rare" then return "희귀함"
 	elseif ori == "unique" then return "유일함"
 	elseif ori == "boss" then return "보스"
 	elseif ori == "elite boss" then return "정예 보스"
+	-- 아래는 투기장 등급 - 관련내용 /data/zones/arena/zone.lua:131
+	elseif ori == "nobody" then return "하찮은 이"
+	elseif ori == "rat stomper" then return "생쥐 밟는자"
+	elseif ori == "bear beater" then return "곰을 이긴자"
+	elseif ori == "aspirant" then return "갈망하는자"
+	elseif ori == "fighter" then return "투사"
+	elseif ori == "bold" then return "대담한 자"
+	elseif ori == "gladiator" then return "검투사"
+	elseif ori == "brave" then return "용감한자"
+	elseif ori == "dangerous" then return "위험한자"
+	elseif ori == "promise" then return "유망주"
+	elseif ori == "powerful" then return "강력한자"
+	elseif ori == "rising star" then return "떠오르는 별"
+	elseif ori == "destroyer" then return "파괴자"
+	elseif ori == "obliterator" then return "지워없애는자"
+	elseif ori == "annihilator" then return "절멸자"
+	elseif ori == "grandious" then return "웅장한자"
+	elseif ori == "glorious" then return "영광스러운자"
+	elseif ori == "victorious" then return "우승자"
+	elseif ori == "ultimate" then return "궁극"
+	elseif ori == "grand master" then return "웅대한 명인"
 	else return str end
 end
 
@@ -728,9 +749,9 @@ function string.krUnIDPreName(str)
 	-- 관련내용 /mod/class/GameState.lua:348
 	local ori = str:lower()
 	if ori == "glowing" then return "빛나는"
-	elseif ori == "scintillating" then return "남성"
-	elseif ori == "rune-covered" then return "남성"
-	elseif ori == "unblemished" then return "남성"
-	elseif ori == "jewel-encrusted" then return "남성"
+	elseif ori == "scintillating" then return "번득이는"
+	elseif ori == "rune-covered" then return "룬으로 덮힌"
+	elseif ori == "unblemished" then return "흠없는"
+	elseif ori == "jewel-encrusted" then return "보석박힌"
 	else return str end
 end

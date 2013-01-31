@@ -173,7 +173,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "soldier's ", prefix=true, instant_resolve=true,
-	kr_display_name = "군인 ",
+	kr_display_name = "병사 ",
 	keywords = {soldier=true},
 	level_range = {30, 50},
 	greater_ego = 1,

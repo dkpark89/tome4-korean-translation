@@ -22,6 +22,7 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "SUMMON_CIRCLE",
 	name = "unholy circle", image = "terrain/marble_floor.png", add_mos = {{image=resolvers.generic(function() return "object/candle_dark"..rng.range(1,3)..".png" end)}},
+	kr_display_name = "부정한 고리",
 	force_clone = true,
 	display = ';', color=colors.GOLD, back_color=colors.GREY,
 	always_remember = true,
@@ -31,6 +32,7 @@ newEntity{
 newEntity{
 	define_as = "SUMMON_CIRCLE_BROKEN",
 	name = "broken unholy circle", image = "terrain/marble_floor.png", add_mos = {{image="object/candle_dark4.png"}},
+	kr_display_name = "부서진 부정한 고리",
 	display = '.', color=colors.GOLD, back_color=colors.GREY,
 	always_remember = true,
 }

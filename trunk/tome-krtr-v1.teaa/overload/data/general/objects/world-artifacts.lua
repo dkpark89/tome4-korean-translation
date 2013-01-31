@@ -880,13 +880,13 @@ newEntity{
 	type = "misc", subtype="egg",
 	unided_name = "dark egg",
 	name = "Mummified Egg-sac of Ungolë", image = "object/artifact/mummified_eggsack.png",
-	--kr_display_name = "", kr_unided_name = "",
+	kr_display_name = "바싹 마른 운골뢰의 알주머니", kr_unided_name = "어두운 알",
 	level_range = {20, 35},
 	rarity = 190,
 	display = "*", color=colors.DARK_GREY,
 	encumber = 2,
 	not_in_stores = true,
-	desc = [[Dry and dusty to the touch, it still seems to retain some of shadow of life.]],
+	desc = [[건드려보면 푸석푸석하게 말라있습니다. 아직도 생명의 그림자가 들어있는 것 같습니다.]],
 
 	carrier = {
 		lite = -2,

@@ -526,7 +526,7 @@ function _M:showResourceTooltip(x, y, w, h, id, desc, is_first)
 						if player:knowTalent(player.T_POSITIVE_POOL) then list[#list+1] = {name="양기", id="positive"} end
 						if player:knowTalent(player.T_NEGATIVE_POOL) then list[#list+1] = {name="음기", id="negative"} end
 						if player:knowTalent(player.T_PARADOX_POOL) then list[#list+1] = {name="괴리", id="paradox"} end
-						if player:knowTalent(player.T_VIM_POOL) then list[#list+1] = {name="정력", id="vim"} end
+						if player:knowTalent(player.T_VIM_POOL) then list[#list+1] = {name="원기", id="vim"} end
 						if player:knowTalent(player.T_HATE_POOL) then list[#list+1] = {name="증오심", id="hate"} end
 						if player:knowTalent(player.T_PSI_POOL) then list[#list+1] = {name="염력", id="psi"} end
 						if player:knowTalent(player.T_FEEDBACK_POOL) then list[#list+1] = {name="반작용", id="feedback"} end

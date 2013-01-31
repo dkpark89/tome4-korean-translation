@@ -23,7 +23,8 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "daikara expedition note", lore="daikara-note-"..i,
-	desc = [[A paper scrap, left by an adventurer.]],
+	kr_display_name = "다이카라 원정대 기록", --@@ lore 변역후 수정 필요
+	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -32,6 +33,7 @@ end
 newEntity{ base = "BASE_RUNE", define_as = "RUNE_RIFT",
 	power_source = {arcane=true},
 	name = "Rune of the Rift", unique = true, identified = true, image = "object/artifact/rune_of_the_rift.png",
+	kr_display_name = "균열의 룬",
 	rarity = false,
 	cost = 100,
 	material_level = 3,
