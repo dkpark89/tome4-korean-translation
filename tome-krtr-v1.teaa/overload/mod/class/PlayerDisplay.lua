@@ -344,7 +344,7 @@ function _M:display()
 		)) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_VIM_POOL) then
-		self:mouseTooltip(self.TOOLTIP_VIM, self:makeTextureBar("#904010#정력:", nil, player:getVim(), player.max_vim, player.vim_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_VIM, self:makeTextureBar("#904010#원기:", nil, player:getVim(), player.max_vim, player.vim_regen, x, h, 255, 255, 255,
 			{r=0x90 / 3, g=0x40 / 3, b=0x10 / 3},
 			{r=0x90 / 6, g=0x40 / 6, b=0x10 / 6}
 		)) h = h + self.font_h

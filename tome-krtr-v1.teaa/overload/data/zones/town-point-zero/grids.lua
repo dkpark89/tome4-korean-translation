@@ -26,12 +26,12 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "RIFT",
 	name = "Temporal Rift to Maj'Eyal", image="terrain/floating_rocks05_01.png", add_mos={{image="terrain/demon_portal2.png"}},
-	kr_display_name = "마즈'에이알로의 시간의 틈",
+	kr_display_name = "마즈'에이알로의 시간의 균열",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 틈은 마즈'에이알로 이끕니다.]],
+	desc = [[이 균열은 마즈'에이알로 이끕니다.]],
 	change_level = 1,
 	change_zone = "wilderness",
 }

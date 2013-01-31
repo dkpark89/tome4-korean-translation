@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/objects/objects-maj-eyal.lua")
 
 -- Allows undeads to pass as normal humans
@@ -28,9 +30,10 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 	unided_name = "black cloak", image = "object/artifact/black_cloak.png",
 	moddable_tile = "cloak_%s_05", moddable_tile_hood = true,
 	name = "Cloak of Deception",
+	kr_display_name = "기만의 망토", kr_unided_name = "검은 망토",
 	display = ")", color=colors.DARK_GREY,
 	encumber = 1,
-	desc = [[A black cloak, with subtle illusion enchantments woven in its very fabric.]],
+	desc = [[교묘한 환영이 부여된 잘 짜여진 검은 망토입니다.]],
 
 	wielder = {
 		combat_spellpower = 5,
@@ -43,7 +46,7 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 			for m, _ in pairs(game.party.members) do
 				m:setEffect(m.EFF_CLOAK_OF_DECEPTION, 1, {})
 			end
-			game.logPlayer(who, "#LIGHT_BLUE#An illusion appears around %s, making it appear human.", who.name:capitalize())
+			game.logPlayer(who, "#LIGHT_BLUE#%s의 주변에 사람으로 보이는 환영이 나타납니다.", (who.kr_display_name or who.name):capitalize())
 		end
 	end,
 	on_takeoff = function(self, who)
@@ -52,7 +55,7 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 			for m, _ in pairs(game.party.members) do
 				m:removeEffect(m.EFF_CLOAK_OF_DECEPTION, true, true)
 			end
-			game.logPlayer(who, "#LIGHT_BLUE#The illusion covering %s disappears", who.name:capitalize())
+			game.logPlayer(who, "#LIGHT_BLUE#%s 감싸던 환영이 사라집니다.", (who.kr_display_name or who.name):capitalize():addJosa("를"))
 		end
 	end,
 	on_pickup = function(self, who)
@@ -64,7 +67,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "journal page", lore="blighted-ruins-note-"..i,
-	desc = [[A paper scrap, left by the Necromancer.]],
+	kr_display_name = "여행 기록", --@@ lore 번역후 수정 필요
+	desc = [[사령술사가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

@@ -120,7 +120,7 @@ newTalent{
 		if self:getTalentLevelRaw(t) >=2 then material=material.."	-강철(Steel)\n" end
 		if self:getTalentLevelRaw(t) >=3 then material=material.."	-드워프강철(Dwarven-steel)\n" end
 		if self:getTalentLevelRaw(t) >=4 then material=material.."	-스트라라이트(Stralite)\n" end
-		if self:getTalentLevelRaw(t) >=5 then material=material.."	-보라툰(Voratun)" end
+		if self:getTalentLevelRaw(t) >=5 then material=material.."	-보라툰(Voratun)\n" end
 		return ([[금속제 무기나 갑옷에서 보석을 추출해냅니다. 현재 기술 레벨에서 다룰 수 있는 재질은 다음과 같습니다 :
 		%s]]):format(material)
 	end,
@@ -144,8 +144,8 @@ newTalent{
 				table.mergeAdd(o.wielder, gem.imbue_powers, true)
 				o.been_imbued = true
 				game.logPlayer(self, "%s %s 강화하였습니다.", gem:getName{do_colour=true, no_count=true}:addJosa("로"), o:getName{do_colour=true, no_count=true}:addJosa("를"))
-				o.name = o.name .. " ("..gem.name..")"
 				o.kr_display_name = (o.kr_display_name or o.name) .. " ("..(gem.kr_display_name or gem.name)..")"
+				o.name = o.name .. " ("..gem.name..")"
 				o.special = true
 				d.used_talent = true
 				game:unregisterDialog(d)

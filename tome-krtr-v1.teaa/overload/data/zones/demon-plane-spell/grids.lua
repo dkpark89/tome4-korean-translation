@@ -24,8 +24,8 @@ load("/data/general/grids/lava.lua", function(e) if e.define_as == "LAVA_FLOOR" 
 		local DT = engine.DamageType
 		local dam = DT:get(DT.DEMONFIRE).projector(game.level.plane_owner, x, y, DT.DEMONFIRE, game.level.demonfire_dam or 1)
 		if dam then
-			if dam > 0 then game.logPlayer(who, "The lava burns you!")
-			elseif dam < 0 then game.logPlayer(who, "The lava heals you!") end
+			if dam > 0 then game.logPlayer(who, "용암이 당신을 태웁니다!")
+			elseif dam < 0 then game.logPlayer(who, "용암이 당신을 치료합니다!") end
 		end
 	end
 end end)

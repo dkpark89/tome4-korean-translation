@@ -25,12 +25,13 @@ newEntity{ base = "BASE_ROD",
 	define_as = "ROD_SPYDRIC_POISON",
 	unided_name = "poison dripping wand", image = "object/artifact/rod_of_spydric_poison.png",
 	name = "Rod of Spydric Poison", color=colors.LIGHT_GREEN, unique=true,
-	desc = [[This rod carved out of a giant spider fang continuously drips venom.]],
+	kr_display_name = "거미독의 장대", kr_unided_name = "독액이 흐르는 마법봉",
+	desc = [[이 장대는 끊임없이 독액이 흐르는 대형 거미의 이빨을 조각하여 만든 것입니다.]],
 	cost = 50,
 	elec_proof = true,
 
 	max_power = 75, power_regen = 1,
-	use_power = { name = "shoot a bolt of spydric poison", power = 25,
+	use_power = { name = "거미독 화살 발사", power = 25,
 		use = function(self, who)
 			local tg = {type="bolt", range=12, talent=t}
 			local x, y = who:getTarget(tg)

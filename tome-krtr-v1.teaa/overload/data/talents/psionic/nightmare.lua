@@ -120,8 +120,8 @@ newTalent{
 			summon_time = 10,
 			ai_target = {actor=target},
 			ai = "summoned", ai_real = "tactical",
-			name = ""..target.name.."'s Inner Demon",
 			kr_display_name = (target.kr_display_name or target.name).."의 내면의 악마",
+			name = ""..target.name.."'s Inner Demon",
 			desc = [[내면에 잠들어 있던 또 다른 존재이자, 끔찍한 악마입니다.]],
 		}
 		m:removeAllMOs()

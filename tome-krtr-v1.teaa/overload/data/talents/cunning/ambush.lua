@@ -134,8 +134,8 @@ newTalent{
 			summon_time = t.getDuration(self, t),
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
-			name = "Shadow of "..self.name,
 			kr_display_name = (self.kr_display_name or self.name).."의 그림자",
+			name = "Shadow of "..self.name,
 			desc = [[자신을 꼭 닮은, 어두운 그림자입니다.]],
 		}
 		m:removeAllMOs()

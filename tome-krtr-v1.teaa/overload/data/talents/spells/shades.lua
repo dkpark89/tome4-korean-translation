@@ -195,8 +195,8 @@ newTalent{
 			summon_time = t.getDuration(self, t),
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
-			name = "Forgery of Haze ("..self.name..")",
 			kr_display_name = "아지랑이 환영 ("..(self.kr_display_name or self.name)..")",
+			name = "Forgery of Haze ("..self.name..")",
 			desc = [[당신을 닮은, 아지랑이 환영입니다.]],
 		})
 		m:removeAllMOs()

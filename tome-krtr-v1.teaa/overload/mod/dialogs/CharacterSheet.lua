@@ -356,7 +356,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		end
 		if player:knowTalent(player.T_VIM_POOL) then
 			text = compare_fields(player, actor_to_compare, "max_vim", "%d", "%+.0f")
-			self:mouseTooltip(self.TOOLTIP_VIM, s:drawColorStringBlended(self.font, ("#904010#정력  : #00ff00#%d/%s"):format(player:getVim(), text), w, h, 255, 255, 255, true)) h = h + self.font_h
+			self:mouseTooltip(self.TOOLTIP_VIM, s:drawColorStringBlended(self.font, ("#904010#원기  : #00ff00#%d/%s"):format(player:getVim(), text), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end
 		if player:knowTalent(player.T_HATE_POOL) then
 			self:mouseTooltip(self.TOOLTIP_HATE, s:drawColorStringBlended(self.font, ("#F53CBE#증오심: #00ff00#%d/%d"):format(player:getHate(), player.max_hate), w, h, 255, 255, 255, true)) h = h + self.font_h

@@ -32,12 +32,12 @@ newEntity { base = "GRASS", define_as = "OLD_FOREST" }
 newEntity{
 	define_as = "RIFT",
 	name = "Temporal Rift", image="terrain/demon_portal2.png",
-	kr_display_name = "시간의 틈",
+	kr_display_name = "시간의 균열",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 틈은 어딘가로 연결되어 있습니다..]],
+	desc = [[이 균열은 어딘가로 연결되어 있습니다..]],
 	change_level = 1,
 	change_level_check = function()
 		if game.level.level > 1 then return end

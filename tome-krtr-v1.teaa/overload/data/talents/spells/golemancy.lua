@@ -181,8 +181,8 @@ newTalent{
 		end
 		if not self.alchemy_golem then return end
 		self.alchemy_golem.faction = self.faction
-		self.alchemy_golem.name = "golem (servant of "..self.name..")"
 		self.alchemy_golem.kr_display_name = "골렘 ("..(self.kr_display_name or self.name).."의 부하)"
+		self.alchemy_golem.name = "golem (servant of "..self.name..")"
 		self.alchemy_golem.summoner = self
 		self.alchemy_golem.summoner_gain_exp = true
 

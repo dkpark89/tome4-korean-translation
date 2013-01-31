@@ -123,7 +123,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local data = t.getData(self, t)
-		return ([[반작용을 사용하여 다른 원천력을 회복합니다. 생명력이 %d, 체력이 %d, 마나가 %d, 평정이 %d, 정력이 %d, 양기와 음기가 %d, 염력이 %d, 증오가 %d 회복됩니다.
+		return ([[반작용을 사용하여 다른 원천력을 회복합니다. 생명력이 %d, 체력이 %d, 마나가 %d, 평정이 %d, 원기가 %d, 양기와 음기가 %d, 염력이 %d, 증오가 %d 회복됩니다.
 		이 기술은 염력 집중을 방해하지 않습니다.
 		회복량은 정신력의 영향을 받아 증가합니다.]]):format(data.heal, data.stamina, data.mana, -data.equilibrium, data.vim, data.positive, data.psi, data.hate)
 	end,

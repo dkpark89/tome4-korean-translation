@@ -23,7 +23,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "Deep Bellow excavation report "..i, lore="deep-bellow-"..i,
-	desc = [[A paper scrap.]],
+	kr_display_name = "깊은 울림 발굴 보고서", --@@ lore 번역후 수정 필요
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -32,18 +33,21 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "ADV_LTR_6",
 	name = "letter to Rolf (3)", lore="adventurer-letter-6",
-	desc = [[A paper scrap.]],
+	kr_display_name = "롤프에게로의 편지", --@@ lore 번역후 수정 필요
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 }
 newEntity{ base = "BASE_LORE",
 	define_as = "ADV_LTR_7",
 	name = "letter to Weisman (4)", lore="adventurer-letter-7",
-	desc = [[A paper scrap.]],
+	kr_display_name = "웨이스만에게로의 편지", --@@ lore 번역후 수정 필요
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 }
 newEntity{ base = "BASE_LORE",
 	define_as = "ADV_LTR_8",
 	name = "Last Will of Rolf", lore="adventurer-letter-8",
-	desc = [[A paper scrap.]],
+	kr_display_name = "롤프의 마지막 의지", --@@ lore 번역후 수정 필요
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 }

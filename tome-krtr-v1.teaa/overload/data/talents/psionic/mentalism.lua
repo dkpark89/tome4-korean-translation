@@ -142,8 +142,8 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			subtype = "ghost", is_psychic_projection = 1,
-			name = "Projection of "..self.name,
 			kr_display_name = (self.kr_display_name or self.name).."의 투영",
+			name = "Projection of "..self.name,
 			desc = [[꼭 유령과 같은 모습입니다.]],
 		}
 		m:removeAllMOs()

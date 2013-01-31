@@ -22,6 +22,7 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "LOCK",
 	name = "sealed door", image = "terrain/sealed_door.png",
+	kr_display_name = "봉인된 문",
 	display = '+', color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -32,6 +33,7 @@ newEntity{
 newEntity{
 	define_as = "PENTAGRAM",
 	name = "demonic symbol",
+	kr_display_name = "악마의 상징",
 	image = "terrain/marble_floor.png", add_mos = {{image="terrain/floor_pentagram.png"}},
 	display = ';', color=colors.RED, back_color=colors.DARK_UMBER,
 	notice = true,

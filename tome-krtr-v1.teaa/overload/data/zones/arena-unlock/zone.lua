@@ -19,6 +19,7 @@
 
 return {
 	name = "Derth (Southeast)",
+	kr_display_name = "데르쓰 (남동쪽)",
 	level_range = {5, 12},
 	level_scheme = "player",
 	max_level = 1,

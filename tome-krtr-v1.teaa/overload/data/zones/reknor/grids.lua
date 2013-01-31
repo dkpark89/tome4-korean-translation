@@ -68,7 +68,7 @@ newEntity{
 	define_as = "IRON_THRONE_EDICT",
 	name = "Iron Throne Edict", lore="iron-throne-reknor-edict",
 	kr_display_name = "철의 왕좌 칙령", --@@ lore 번역시 수정 필요
-	desc = [["철의 왕좌에 사는 모든 시민에 대한 칙령. 우리 황국은 오랫동안 지속될 것이다."]],
+	desc = [["철의 왕좌에 사는 모든 시민에 대한 칙령. 우리 제국은 오랫동안 지속될 것이다."]],
 	image = "terrain/marble_floor.png",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},

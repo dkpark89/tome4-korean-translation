@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/objects/objects.lua")
 
 local Stats = require "engine.interface.ActorStats"
@@ -27,7 +29,8 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	unique = true,
 	name = "Shifting Boots", image = "object/artifact/shifting_boots.png",
 	unided_name = "pair of shifting boots",
-	desc = [[Those leather boots can make anybody as annoying as their former possessor, Draebor.]],
+	kr_display_name = "이동의 신발", kr_unided_name = "이동의 신발",
+	desc = [[이 가죽 신발은 누구라도 그 옛의 소유자인 드래보르만큼 성가시게 만들어 줍니다.]],
 	color = colors.BLUE,
 	rarity = false,
 	cost = 200,
@@ -41,11 +44,11 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	},
 
 	max_power = 40, power_regen = 1,
-	use_power = { name = "blink to a nearby random location", power = 22, use = function(self, who)
+	use_power = { name = "임의의 장소로 단거리 순간이동", power = 22, use = function(self, who)
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, 10 + who:getMag(5))
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		game.logSeen(who, "%s %s 사용했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end}
 }

@@ -26,11 +26,12 @@ newEntity{
 	define_as = "FAR_EAST_PORTAL",
 	type = "floor", subtype = "lava",
 	name = "Farportal: the Far East",
+	kr_display_name = "장거리포탈: 동대륙",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/lava_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.]],
+	desc = [[눈 깜작할 새에 놀랄만큼 먼거리를 이동할 수 있는 장거리포탈입니다. 사용하기 위해서는 보통 외부의 물건이 필요합니다.]],
 	nice_editer = lava_editer,
 
 	orb_portal = {
@@ -39,7 +40,7 @@ newEntity{
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="fareast"},
 		},
-		message = "#VIOLET#You enter the swirling portal and in the blink of an eye you are back to the far east.",
+		message = "#VIOLET#당신이 소용돌이치는 포탈로 들어서 눈을 깜박이자, 동대륙에 도착해 있습니다.",
 	},
 }
 

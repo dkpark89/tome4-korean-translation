@@ -937,7 +937,7 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "hate_regen_when_hit", "%+.2f", "공격 성공시 증오심 회복: ")
 
 		compare_fields(w, compare_with, field, "mana_on_crit", "%+.2f", "주문 치명타 발동시 마나 회복: ")
-		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "주문 치명타 발동시 정력 회복: ")
+		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "주문 치명타 발동시 원기 회복: ")
 		compare_fields(w, compare_with, field, "spellsurge_on_crit", "%+d", "주문 치명타 발동시 주문력 상승 (3번 누적 가능): ")
 
 		compare_fields(w, compare_with, field, "hate_on_crit", "%+.2f", "정신 공격 치명타 발동시 증오심 회복: ")
@@ -953,7 +953,7 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "max_stamina", "%+.2f", "최대 체력: ")
 		compare_fields(w, compare_with, field, "max_hate", "%+.2f", "최대 증오심: ")
 		compare_fields(w, compare_with, field, "max_psi", "%+.2f", "최대 염력: ")
-		compare_fields(w, compare_with, field, "max_vim", "%+.2f", "최대 정력: ")
+		compare_fields(w, compare_with, field, "max_vim", "%+.2f", "최대 원기: ")
 		compare_fields(w, compare_with, field, "max_air", "%+.2f", "최대 폐활량: ")
 
 		compare_fields(w, compare_with, field, "combat_spellpower", "%+d", "주문력: ")
