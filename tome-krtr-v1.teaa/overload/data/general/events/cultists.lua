@@ -62,7 +62,7 @@ for i, p in ipairs(list) do
 	local m = mod.class.NPC.new{
 		type = "humanoid", subtype = "shalore", image = "npc/humanoid_shalore_elven_corruptor.png",
 		name = "Cultist",
-		kr_display_name = "광신도"
+		kr_display_name = "광신도",
 		desc = [[엘프 광신도입니다. 당신을 신경쓰지 않고 있습니다.]],
 		display = "p", color=colors.ORCHID,
 		faction = "unaligned",
@@ -151,7 +151,7 @@ game.zone.on_turn = function()
 				type = "demon", subtype = "major",
 				display = 'U',
 				name = "Shasshhiy'Kaish", color=colors.VIOLET, unique = true,
-				kr_display_name = "샤쉬히'카이쉬"
+				kr_display_name = "샤쉬히'카이쉬",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_shasshhiy_kaish.png", display_h=2, display_y=-1}}},
 				desc = [[떠다니는 불꽃의 관과 세가닥의 꼬리와 날카로운 손톱만 아니라면, 이 악마는 매우 매혹적입니다. 그녀를 보는 순간 살을 파버리고 싶은 고통을 느낍니다. 그녀는 당신이 고통받기를 원합니다.]],
 				killer_message = "and used for her perverted desires",

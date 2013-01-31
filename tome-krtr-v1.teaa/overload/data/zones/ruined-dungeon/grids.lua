@@ -53,7 +53,7 @@ newEntity{
 				if ret then
 					game:changeLevel(math.ceil(game.player.level * 1.5), "infinite-dungeon")
 				end
-			end)
+			end, "예", "아니오")
 		else
 			require("engine.ui.Dialog"):simplePopup("Infinite Dungeon", "그 곳에서는 영원히 돌아올 길이 없으므로, 거기로 들어가면 안 됩니다. 다른 모든 것을 다 마친 뒤에 시도해 보는 것이 좋을 것 같습니다..")
 		end

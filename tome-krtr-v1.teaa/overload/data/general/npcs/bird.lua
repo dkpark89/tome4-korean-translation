@@ -19,6 +19,8 @@
 
 -- last updated:  10:46 AM 2/3/2010
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
@@ -45,9 +47,10 @@ newEntity{
 
 newEntity{ base="BASE_NPC_BIRD", define_as = "NPC_PHOENIX",
 	name = "Phoenix", unique = true,
+	kr_display_name = "피닉스",
 	display = "B", color=colors.VIOLET,
 	rarity = 50,
-	desc = [[Ever burning, ever dying, ever reviving, the Phoenix swoops down upon you, seeking to share its fiery fate with you.]],
+	desc = [[언제나 타오르고, 언제나 죽고, 언제나 부활하는 피닉스가 그 불같은 운명을 나눠주기 위해 당신을 급습하고 있습니다.]],
 	level_range = {40, 75}, exp_worth = 10,
 	max_life = 1000, life_rating = 23, fixed_rating = true,
 	max_mana = 1000,
@@ -99,7 +102,7 @@ newEntity{ base="BASE_NPC_BIRD", define_as = "NPC_PHOENIX",
 			self:resetToFull()
 			self.life = math.min(1500, self.max_life)
 			self:setEffect(self.EFF_PHOENIX_EGG, dur, {life_regen = 25, mana_regen = -9.75, never_move = 1, never_blow = 1, silence = 1})
-			game.logSeen(src, "#LIGHT_RED#%s raises from the dead!", self.name:capitalize())
+			game.logSeen(src, "#LIGHT_RED#%s 부활합니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
 			game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "RESURRECT!", {255,120,0})
 			self.died = (self.died or 0) + 1
