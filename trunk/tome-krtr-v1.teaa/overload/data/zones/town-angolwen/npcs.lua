@@ -219,7 +219,7 @@ newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 }
 
 newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
-	name = "cryomancer", color=colors.LIGHT_BLUE,
+	name = "cyromancer", color=colors.LIGHT_BLUE,
 	kr_display_name = "냉기술사",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_cryomancer.png", display_h=2, display_y=-1}}},
 	desc = [[얼음 마법에 특화된 마도사입니다.]],

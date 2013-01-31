@@ -48,7 +48,7 @@ enter_level3 = function(self)
 	g.change_level_check = function()
 		require("engine.ui.Dialog"):yesnoPopup("Danger...", "This way leads to the lair of a mighty troll. Traces of blood are everywhere. Are you sure?", function(ret)
 			if ret then game:changeLevel(4) end
-		end)
+		end, "예", "아니오")
 		return true
 	end
 	local level = game.level

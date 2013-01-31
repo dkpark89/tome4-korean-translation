@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 --TODO: Ritch blade champion (!) Miniboss?
 --TODO: Blood tree, uses flying skulls. TODO: Flying skulls.
 --TODO: Golden ooze(item), mana ooze (inscriptions)
