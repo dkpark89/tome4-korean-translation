@@ -649,7 +649,7 @@ newEntity{ base="ZONE_PLAINS", define_as = "ARDHUNGOL",
 
 newEntity{ base="ZONE_DESERT", define_as = "ERUAN",
 	name="The arid wastes of Erúan",
-	kr_display_name = "에뤼안의 불모지",
+	kr_display_name = "에류안의 불모지",
 	color=colors.UMBER,
 	add_displays={mod.class.Grid.new{image="terrain/road_upwards_01.png", display_h=2, display_y=-1}},
 	change_zone="eruan",

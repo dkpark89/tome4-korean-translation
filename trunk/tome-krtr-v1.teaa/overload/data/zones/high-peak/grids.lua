@@ -32,7 +32,7 @@ newEntity{
 	always_remember = true,
 	show_tooltip = true,
 	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
-이 것은 동대륙으로 가는 것으로 보입니다...]],
+이 것은 동대륙에 연결된 것으로 보입니다...]],
 
 	orb_portal = {
 		change_level = 1,
@@ -65,7 +65,7 @@ newEntity{
 	always_remember = true,
 	show_tooltip = true,
 	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
-이 것은 서쪽의 철의 왕좌로 가는 것으로 보입니다...]],
+이 것은 서쪽의 철의 왕좌에 연결된 것으로 보입니다...]],
 
 	orb_portal = {
 		change_level = 1,
@@ -98,7 +98,7 @@ newEntity{
 	always_remember = true,
 	show_tooltip = true,
 	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
-이것은 이 세계의 것이 아닌 것 같은 알수 없는 장소로 가는 것으로 보입니다. 감히 사용할 엄두가 나지 않습니다.]],
+이것은 이 세계의 것이 아닌 것 같은 알수 없는 장소에 연결된 것으로 보입니다. 감히 사용할 엄두가 나지 않습니다.]],
 }
 newEntity{ base = "VOID_PORTAL", define_as = "CVOID_PORTAL",
 	image = "terrain/marble_floor.png",

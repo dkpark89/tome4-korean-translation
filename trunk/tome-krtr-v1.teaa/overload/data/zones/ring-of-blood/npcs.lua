@@ -191,7 +191,7 @@ newEntity{ base = "BASE_NPC_SLAVER",
 	},
 
 	make_escort = {
-		{type="humanoid", subtype="human", name="enthralled slave", kr_display_name="매혹된 노예", number=2, post=function(self, m)
+		{type="humanoid", subtype="human", name="enthralled slave", number=2, post=function(self, m)
 			m.master = self
 			m.on_act = function(self)
 				if self.master and self.master:attr("dead") then

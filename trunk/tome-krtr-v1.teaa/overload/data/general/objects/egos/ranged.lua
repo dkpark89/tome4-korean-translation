@@ -433,7 +433,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "mage-hunter's ", prefix=true, instant_resolve=true,
-	kr_display_name = "반마법 ",
+	kr_display_name = "마법사-사냥꾼 ",
 	keywords = {magehunters=true},
 	level_range = {30, 50},
 	rarity = 18,

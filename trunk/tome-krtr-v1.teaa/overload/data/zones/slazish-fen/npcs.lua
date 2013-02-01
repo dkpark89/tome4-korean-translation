@@ -61,7 +61,7 @@ newEntity{
 newEntity{ base = "BASE_NPC_NAGA", define_as = "NAGA_TIDEWARDEN",
 	name = "naga tidewarden", color=colors.DARK_UMBER,
 	kr_display_name = "나가 조수감시원",
-	desc = [[당신이 기다란 상의 앞에 서자, 그의 다리가 있어야 할 자리에 뱀의 꼬리가 붙어 지탱하고 있음이 보입니다. 그의 상체는 날씬하고 근육질이며, 얼굴은 엘프와 같이 아름답고, 금발의 늘어진 머리를 가졌습니다. 하지만 이 생명체도 사나움을 가지고 있고, 그 밝은 눈동자는 화가 끓어오르고 있습니다.]],
+	desc = [[당신이 기다란 존재의 앞에 서자, 그의 다리가 있어야 할 자리에 뱀의 꼬리가 붙어 지탱하고 있음이 보입니다. 그의 상체는 날씬하고 근육질이며, 얼굴은 엘프와 같이 아름답고, 금발의 늘어진 머리를 가졌습니다. 하지만 이 생명체도 사나움을 가지고 있고, 그 밝은 눈동자는 화가 끓어오르고 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_naga_naga_tidewarden.png", display_h=2, display_y=-1}}},
 	level_range = {1, nil}, exp_worth = 3,
 	rarity = 1,

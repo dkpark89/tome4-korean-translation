@@ -19,6 +19,8 @@
 
 -- last updated:  10:46 AM 2/3/2010
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
@@ -48,7 +50,8 @@ newEntity{
 newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 	dredge = 1,
 	name = "dredgling", color=colors.TAN,
-	desc = "A small pink-skinned humanoid with large bulbous eyes.",
+	kr_display_name = "어린 드렛지",
+	desc = "커다란 툭 튀어나온 둥근 눈을 가진 분홍색 피부의 작은 영장류입니다.",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,
@@ -72,7 +75,7 @@ newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 	dredge = 1,
 	name = "dredge", color=colors.PINK,
 	kr_display_name = "드렛지",
-	desc = "A hulking pink-skinned creature with long arms as thick as tree trunks.  It drags its knuckles on the ground as it lumbers toward you.",
+	desc = "나무줄기 만큼 두껍고 긴 팔을 가진 어슬렁 거리는 분홍색 피부의 존재입니다. 손가락을 땅에 질질 끌고 다니고 있습니다.",
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 2,
 	rank = 2,
@@ -100,7 +103,8 @@ newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 	subtype = "temporal",
 	dredge = 1,
 	name = "dredge captain", color=colors.SALMON,
-	desc = "A thin pink-skinned creature with long spindly arms.  Half its body is old and wrinkly, and the other half appears quite young.",
+	kr_display_name = "대장 드렛지",
+	desc = "호리호리하고 긴 팔을 가진 마른 분홍색 피부의 존재입니다. 몸의 반은 늙고 주름졌으나, 나머지 반은 꽤 젋어 보입니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,
@@ -131,7 +135,8 @@ newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 	subtype = "temporal",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_temporal_temporal_stalker.png", display_h=2, display_y=-1}}},
 	name = "temporal stalker", color=colors.STEEL_BLUE,
-	desc = "A slender metallic monstrosity with long claws in place of fingers, and razor-sharp teeth.",
+	kr_display_name = "시간의 추격자",
+	desc = "긴 날카로운 손톱과 칼날같은 이빨을 가진 날씬한 금속질의 기괴한 존재입니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 3,
 	size_category = 3,
@@ -162,7 +167,8 @@ newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 	subtype = "temporal",
 	name = "void horror", color=colors.GREY,
-	desc = "It looks like a hole in spacetime, but you get the impression it's somehow more than that.",
+	kr_display_name = "공허의 무서운자",
+	desc = "시공간의 구명 같아 보이는 존재이지만, 그 이상으로 인상적입니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 2,
@@ -195,7 +201,7 @@ newEntity{ base = "BASE_NPC_HORROR_TEMPORAL",
 			if t.type[1] == "chronomancy/anomalies" then ts[#ts+1] = id end
 		end
 		self:forceUseTalent(rng.table(ts), {ignore_energy=true})
-		game.logSeen(self, "%s has collapsed in upon itself.", self.name:capitalize())
+		game.logSeen(self, "%s 그 속으로 붕괴합니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 	end,
 
 	resolvers.sustains_at_birth(),
