@@ -24,7 +24,7 @@ newEntity{
 	type = "elemental", subtype = "void",
 	blood_color = colors.DARK_GREY,
 	display = "E", color=colors.DARK_GREY,
-	desc = [[Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.]],
+	desc = [[로스고로스는 별 사이의 공허에서 생겨난 강력한 공허의 정령입니다. 행성의 표면에서 이것을 보는 것은 정말 희귀한 일입니다.]],
 
 	combat = { dam=resolvers.levelup(resolvers.mbonus(40, 15), 1, 1.2), atk=15, apr=15, dammod={mag=0.8}, damtype=DamageType.ARCANE },
 
@@ -71,8 +71,9 @@ newEntity{ base = "BASE_NPC_LOSGOROTH",
 
 newEntity{ base = "BASE_NPC_LOSGOROTH",
 	name = "manaworm", color=colors.BLUE,
+	kr_display_name = "마나벌레",
 	level_range = {2, nil}, exp_worth = 1,
-	desc = [[Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.]],
+	desc = [[마나벌레는 마법 사용자의 마나를 먹고사는 로스고로스입니다. 항상 주문을 사용하는 이에게 접근하고, 딱 달라붙어 마나를 빼앗아 먹기 시작합니다.]],
 	rarity = 3,
 	max_life = resolvers.rngavg(40,60),
 	movement_speed = 0.7,

@@ -43,7 +43,8 @@ newEntity{
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "dremling", color=colors.SLATE,
-	desc = "A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.",
+	kr_display_name = "어린 드렘",
+	desc = "막연하게 드워프를 닮은 얼굴없는 작은 영장류입니다. 낡고 녹슨 관리가 엉망인 전투도끼와 방패를 쥐고 있습니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=6, dammod={str=0.6} },
@@ -77,8 +78,9 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "drem", color=colors.DARK_SLATE_GRAY,
+	kr_display_name = "드렘",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_drem.png", display_h=2, display_y=-1}}},
-	desc = "A giant black-skinned humanoid covered in spikey scabrous deposits.  Its face is featureless; its eyesockets, empty and hollow.",
+	desc = "가시돋고 거친 검은 피부의 대형 영장류입니다. 눈이 있을 자리가 텅 비어있는 것을 제외하면, 얼굴에는 아무런 특징이 없습니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat_armor = 4, combat_def = 0,
@@ -114,7 +116,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "drem master", color=colors.LIGHT_GREY,
-	desc = "A disfigured humanoid with vaguely Dwarven features dressed in patched-together and rusted mail armor.  It seems to be in command of others, though its mouth is sewn shut.",
+	kr_display_name = "상급 드렘",
+	desc = "끼워맞춘 녹슨 중갑을 입고 있는 막연하게 드워프를 닮은 훼손된 영장류입니다. 그 입은 꿰매어져 서로 붙어있지만, 다른 자들을 지휘하고 있는 것으로 보입니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={str=0.6} },
@@ -157,7 +160,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "brecklorn", color=colors.PINK,  -- gloom bat
-	desc = "A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.",
+	kr_display_name = "브렉클론",
+	desc = "비틀려진 드워프의 얼굴을 가지고 끊임없이 비명을 지르는 털없는 대형 박쥐입니다. 농포가 생긴 상처로 기형의 몸이 뒤덮혀 있습니다. 그 근처로 가면 심장이 약해짐을 느낍니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={dex=0.6} },
@@ -185,7 +189,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "grannor'vor", color=colors.GREEN,  -- acid slug
-	desc = "A large sluglike creature that moves slowly, leaving a trail of acid in its wake.  Its head has strangely humanoid features.",
+	kr_display_name = "그란노르'보르",
+	desc = "천천히 움직이는 커다란 달팽이과 생물입니다. 이것이 지나간 길을 따라 산성 자국이 남습니다. 머리는 이상하게 영장류의 특징을 가지고 있습니다.",
 	level_range = {2, nil}, exp_worth = 1,
 
 	combat = { dam=resolvers.levelup(5, 1, 0.6), atk=15, apr=5, damtype=DamageType.ACID },
@@ -213,7 +218,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "grannor'vin", color=colors.BLACK,  -- shadow slug
-	desc = "A large sluglike creature with the face of a man.  Shadows seem to be drawn to its massive form, and your light dims as it approaches.",
+	kr_display_name = "그란노르'빈",
+	desc = "사람의 머리를 가진 커다란 달팽이과 생물입니다. 그 거대한 형상의 그림자가 드리워지고, 거기 닿은 빛은 희미해집니다.",
 	level_range = {2, nil}, exp_worth = 1,
 
 	combat = { dam=5, atk=15, apr=5, damtype=DamageType.DARKNESS },

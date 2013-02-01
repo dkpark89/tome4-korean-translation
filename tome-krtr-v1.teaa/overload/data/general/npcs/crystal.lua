@@ -39,7 +39,7 @@ newEntity{
 }
 
 newEntity{ name = "wisp",
-	kr_display_name = "",
+	kr_display_name = "위습",
 	type = "elemental", subtype = "light",
 	display = "*", color=colors.YELLOW, tint=colors.YELLOW,
 	desc = [[마법의 힘을 지닌 떠다니는 오브입니다. 밝은 빛을 내뿜고 있습니다. 닿으면 폭발합니다.]],

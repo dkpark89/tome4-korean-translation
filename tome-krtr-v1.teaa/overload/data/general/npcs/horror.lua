@@ -19,6 +19,8 @@
 
 -- last updated:  10:46 AM 2/3/2010
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
@@ -44,8 +46,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "worm that walks", color=colors.SANDY_BROWN,
-	desc = [[A bulging rotten robe seems to tear at the seams, with masses of bloated worms spilling out all around the moving form.  Two arm-like appendages, each made up of overlapping mucous-drenched maggots, grasp tightly around the handles of bile-coated waraxes.
-Each swing drips pustulant fluid before it, and each droplet writhes and wriggles in the air before splashing against the ground.]],
+	kr_display_name = "걷는 벌레",
+	desc = [[불룩한 썩은 로브가 심부터 찢어지고, 부푼 벌레 덩어리가 주변으로 쏟아져 나옵니다. 점액범벅의 지렁이 모양의 팔같은 부속이 두개 붙어 있고, 담즙이 발린 전투도끼의 손잡이를 꽉 쥐고 있습니다.
+그것을 휘두르면 화농성 액체가 먼저 튀고, 그 물방울은 땅으로 튀기 전까지 허공에서 꿈틀거리며 뒤틀립니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 5,
 	max_life = resolvers.rngavg(150,170),
@@ -105,7 +108,7 @@ Each swing drips pustulant fluid before it, and each droplet writhes and wriggle
 		if value >= (self.max_life * 0.1) then
 			local t = self:getTalentFromId(self.T_WORM_ROT)
 			t.spawn_carrion_worm(self, self, t)
-			game.logSeen(self, "#LIGHT_RED#A carrion worm mass has spawned from %s' wounds!", self.name)
+			game.logSeen(self, "#LIGHT_RED#썩은 고기를 먹는 벌레 덩어리가 %s의 상처에다 알을 놓았습니다!", (self.kr_display_name or self.name))
 		end
 		return value
 	end,
@@ -114,7 +117,7 @@ Each swing drips pustulant fluid before it, and each droplet writhes and wriggle
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "bloated horror", color=colors.WHITE,
 	kr_display_name = "부풀어오른 무서운자",
-	desc ="A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.",
+	desc ="여기 떠올라있는 볼록한 영장류입니다. 아이같지만 머리카락이 없는 머리는 그 몸에 비해 불균형하도록 커다랗습니다. 그 피부는 불결하고 붉게 헌 마맛자국이 있습니다.",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,
@@ -143,7 +146,8 @@ newEntity{ base = "BASE_NPC_HORROR",
 
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "nightmare horror", color=colors.DARK_GREY,
-	desc ="A shifting form of darkest night that seems to reflect your deepest fears.",
+	kr_display_name = "악몽의 무서운자",
+	desc ="당신의 가장 깊은 공포를 반영하여 가장 어두운 밤의 변화하는 형상을 가진 존재입니다.",
 	level_range = {35, nil}, exp_worth = 1,
 	mana_regen = 10,
 	negative_regen = 10,
@@ -193,7 +197,8 @@ newEntity{ base = "BASE_NPC_HORROR",
 ------------------------------------------------------------------------
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "headless horror", color=colors.TAN,
-	desc ="A headless, gangly humanoid with a large distended stomach.",
+	kr_display_name = "머리없는 무서운자",
+	desc ="큰 복부를 가진 머리가 없고 호리호리한 영장류입니다.",
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,
@@ -250,7 +255,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 			if not eye.dead then eye:die(src) nb = nb + 1 end
 		end
 		if nb > 0 then
-			game.logSeen(self, "#AQUAMARINE#As %s falls all its eyes fall to the ground!", self.name)
+			game.logSeen(self, "#AQUAMARINE#%s 쓰러지자, 그 모든 눈이 땅으로 떨어집니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		end
 	end,
 }
@@ -258,7 +263,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 newEntity{ base = "BASE_NPC_HORROR", define_as = "BASE_NPC_ELDRICTH_EYE",
 	name = "eldritch eye", color=colors.SLATE, is_eldritch_eye=true,
 	kr_display_name = "섬뜩한자의 눈",
-	desc ="A small bloodshot eye floats here.",
+	desc ="여기 떠있는 작은 충혈된 눈입니다.",
 	level_range = {30, nil}, exp_worth = 1,
 	life_rating = 7,
 	rank = 2,
@@ -272,7 +277,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as = "BASE_NPC_ELDRICTH_EYE",
 
 	on_die = function(self, src)
 		if not self.summoner then return end
-		game.logSeen(self, "#AQUAMARINE#As %s falls %s seems to weaken!", self.name, self.summoner.name)
+		game.logSeen(self, "#AQUAMARINE#%s 쓰러지자, %s도 약해진 것 같습니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (self.summoner.kr_display_name or self.summoner.name))
 		local damtype = next(self.resists)
 		self.summoner.resists.all = (self.summoner.resists.all or 0) - 30
 		self.summoner.resists[damtype] = nil
@@ -286,7 +291,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as = "BASE_NPC_ELDRICTH_EYE",
 			local sx, sy = game.level.map:getTileToScreen(self.summoner.x, self.summoner.y)
 			game.flyers:add(sx, sy, 20, (rng.range(0,2)-1) * 0.5, -3, "+Blind", {255,100,80})
 			self.summoner.blind = 1
-			game.logSeen(self.summoner, "%s is blinded by the loss of all its eyes.", self.summoner.name:capitalize())
+			game.logSeen(self.summoner, "%s 모든 눈을 잃어 실명상태가 되었습니다.", (self.summoner.kr_display_name or self.summoner.name):capitalize():addJosa("가"))
 		end
 	end,
 }
@@ -404,8 +409,8 @@ newEntity{ base = "BASE_NPC_ELDRICTH_EYE",
 -- TODO: Make Luminous and Radiant Horrors cooler
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "luminous horror", color=colors.YELLOW,
-	kr_display_name = "야광 무서운자",
-	desc ="A lanky humanoid shape composed of yellow light.",
+	kr_display_name = "야광의 무서운자",
+	desc ="노란 빛을 내는 비쩍마른 영장류같은 모습입니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 2,
 	autolevel = "caster",
@@ -439,8 +444,8 @@ newEntity{ base = "BASE_NPC_HORROR",
 
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "radiant horror", color=colors.GOLD,
-	kr_display_name = "발광 무서운자",
-	desc ="A lanky four-armed humanoid shape composed of bright golden light.  It's so bright it's hard to look at, and you can feel heat radiating outward from it.",
+	kr_display_name = "발광의 무서운자",
+	desc ="밝은 금빛을 내고 팔이 네개달린 비쩍마른 영장류같은 모습입니다. 너무 밝아 똑바로 쳐다보기가 힘들고, 빛과 함께 열기까지 내뿜고 있습니다.",
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 8,
 	rank = 3,
@@ -481,7 +486,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 	subtype = "eldritch",
 	name = "devourer", color=colors.CRIMSON,
 	kr_display_name = "포식자",
-	desc = "A headless, round creature with stubby legs and arms.  Its body seems to be all teeth.",
+	desc = "뭉퉁한 팔다리를 가진 머리없는 둥근 존재입니다. 온몸에 이빨이 달려 있는 것 같습니다.",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 2,
 	rank = 2,
@@ -511,7 +516,8 @@ newEntity{ base = "BASE_NPC_HORROR",
 --Blade horror, psionic horror surrounded by countless telekinetic blades.
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "blade horror", color=colors.GREY, define_as="BLADEHORROR",
-	desc = "Blades whirl in the air around this thin, floating figure. The air around it swirls with force, threatening to tear apart anything that approches, if the blades don't do it first.",
+	kr_display_name = "칼날의 무서운자",
+	desc = "이 허공에 떠 있는 날씬한 존재 주변으로 칼날 빙빙 돌고 있습니다. 그 주변의 공기는 힘에 의해 소용돌이 치면서 접근하는 모든것을 찢어 놓을듯이 위협적입니다. 물론 실제로는 그 전에 칼날이 찢어 놓을 겁니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_eldritch_blade_horror.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 2,
@@ -549,7 +555,8 @@ newEntity{ base = "BASE_NPC_HORROR",
 newEntity{ base = "BASE_NPC_HORROR",
 	subtype = "eldritch",
 	name = "oozing horror", color=colors.GREEN,
-	desc = "A massive, amorphous blob of green slime crawls on the ground towards you. Eyes drift through the viscous mass, scanning for potential prey.",
+	kr_display_name = "점액의 무서운자",
+	desc = "커다랗고 무정형의 녹색 슬라임 방울이 기어서 당신쪽으로 향합니다. 그 점액질 안에서 눈이 떠다니면서 그 먹잇감을 찾고 있습니다.",
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 7,
 	rank = 3,
@@ -606,7 +613,8 @@ newEntity{ base = "BASE_NPC_HORROR",
 newEntity{ base = "BASE_NPC_HORROR",
 	subtype = "eldritch",
 	name = "umbral horror", color=colors.BLACK,
-	desc = "A dark shifting shape stalks through the shadows, blending in seemlessly.",
+	kr_display_name = "음영의 무서운자",
+	desc = "어둠의 가변형 존재가 그림자와 융합되어가며 추척해 옵니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_eldritch_umbral_horror.png", display_h=2, display_y=-1}}},
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 8,
@@ -649,8 +657,9 @@ newEntity{ base = "BASE_NPC_HORROR",
 -- Dream Horror
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "dreaming horror", color=colors.ORCHID,
-	desc =[[A vaguely tentacled yet constantly changing form rests here apparently oblivious to your existence.
-With each slow breath it takes reality distorts around it.  Blue twirls into red, green twists into yellow, and the air sings softly before bursting into a myriad of pastel shapes and colors.]],
+	kr_display_name = "꿈의 무서운자",
+	desc =[[촉수가 달린것 같은 끊임없이 모양이 변하는 존재가 당신의 존재를 염두에 두지 않는 것 처럼 여기서 쉬고 있습니다.
+그 천천히 내뱉는 숨은 주변의 현실을 왜곡합니다. 푸른색은 붉게, 녹색은 노랗게 바뀌고, 잔잔하던 대기는 수많은 옅은 형상과 색깔로 몰아칩니다.]],
 	resolvers.nice_tile{tall=1},
 	shader = "shadow_simulacrum",
 	shader_args = { color = {0.5, 0.5, 1.0}, base = 0.8, time_factor= 2000 },
@@ -746,7 +755,7 @@ With each slow breath it takes reality distorts around it.  Blue twirls into red
 				game.zone:addEntity(game.level, m, "actor", x, y)
 				
 				game.level.map:particleEmitter(x, y, 1, "generic_teleport", {rm=225, rM=255, gm=225, gM=255, bm=225, bM=255, am=35, aM=90})
-				game.logSeen(self, "#LIGHT_BLUE#A dream seed escapes %s's sleeping mind.", self.name:capitalize())
+				game.logSeen(self, "#LIGHT_BLUE#%s의 잠자는 정신에서 꿈의 씨앗이 탈출했습니다.", (self.kr_display_name or self.name):capitalize())
 			end
 		-- Script the AI to encourage opening with dream scape
 		elseif self.ai_target.actor and self.ai_target.actor.game_ender and not game.zone.is_dream_scape then
@@ -763,10 +772,10 @@ With each slow breath it takes reality distorts around it.  Blue twirls into red
 	on_takehit = function(self, value, src)
 		if value > 0 and self.dreamer_sleep_state then
 			self.dreamer_sleep_state = nil
-			self.desc = [[A vaguely tentacled yet rapidly changing shape floats here.  With each breath you can feel reality twist, shatter, and break. 
-Blue burns into red, green bursts into yellow, and the air crackles and hisses before exploding into a thousand fragments of sharp shapes and colors.]]
+			self.desc = [[여기 떠있는 촉수가 달린것 같은 빠르게 모양이 변하는 존재입니다. 이것이 숨을 쉴때마다 현실이 꼬이고 부서져 흩어지는 것이 느껴집니다. 
+푸른색은 붉게 녹색은 노랗게 불타오르고, 대기는 파직거리면서 쉬익대다가 수천개의 날카롭고 다양한 색깔의 파편으로 폭발합니다.]]
 			self:removeParticles(self.sleep_particle)
-			game.logSeen(self, "#LIGHT_BLUE#The sleeper stirs...")
+			game.logSeen(self, "#LIGHT_BLUE#꿈꾸는 이가 움찔거립니다...")
 		end
 		return value
 	end,
@@ -774,7 +783,8 @@ Blue burns into red, green bursts into yellow, and the air crackles and hisses b
 
 newEntity{ base = "BASE_NPC_HORROR", define_as = "DREAM_SEED",
 	name = "dream seed", color=colors.PINK, image = "npc/dream_seed.png",
-	desc ="A pinkish bubble floats here, reflecting the world not as it is, but as it would be in that surreal place that exists only in our dreams.",
+	kr_display_name = "꿈의 씨앗",
+	desc ="떠있는 분홍색 방울입니다. 세상을 원래와는 다르게, 꿈에서나 볼 수 있는 초현실적인 공간으로 반사시킵니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 30,  -- Very rare; but they do spawn on their own to keep the players on thier toes
 	rank = 2,
@@ -816,11 +826,12 @@ newEntity{ base = "BASE_NPC_HORROR", define_as = "DREAM_SEED",
 
 newEntity{ base="BASE_NPC_HORROR",
 	name = "Grgglck the Devouring Darkness", unique = true,
+	kr_display_name = "어둠을 삼키는 글그글큭",
 	color = colors.DARK_GREY, image = "npc/horror_eldritch_grgglck.png",
 	resolvers.nice_tile{tall=1},
 	rarity = 50,
-	desc = [[A horror from the deepest pits of the earth. It looks like a huge pile of tentacles all trying to reach for you.
-You can discern a huge round mouth covered in razor-sharp teeth.]],
+	desc = [[대지의 가장 깊은 구덩이에서 나온 무서운자입니다. 이것은 거대한 촉수 더미처럼 생겼고, 그 모두는 당신에게 닿으려 노력하고 있습니다.
+그 속에서 칼날같이 날카로운 이빨로 둘러싸인 커다란 둥근 입을 발견할 수 있습니다.]],
 	level_range = {20, nil}, exp_worth = 2,
 	max_life = 300, life_rating = 25, fixed_rating = true,
 	equilibrium_regen = -20,
@@ -868,8 +879,9 @@ You can discern a huge round mouth covered in razor-sharp teeth.]],
 
 newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 	name = "Grgglck's Tentacle",
+	kr_display_name = "글그글큭의 촉수",
 	color = colors.GREY,
-	desc = [[This is one of Grgglck's tentacles. It looks more vulnerable than the main body.]],
+	desc = [[이것은 글그글큭의 촉수입니다. 그래도 이것은 몸통보다는 약해 보입니다.]],
 	level_range = {20, nil}, exp_worth = 0,
 	max_life = 100, life_rating = 3, fixed_rating = true,
 	equilibrium_regen = -20,
@@ -891,13 +903,13 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 	on_act = function(self)
 		if self.summoner.dead then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#With Grgglck's death its tentacle also falls lifeless on the ground!")
+			game.logSeen(self, "#AQUAMARINE#글그글큭이 죽자 그 촉수가 생명을 잃고 땅으로 쓰러집니다!")
 		end
 	end,
 
 	on_die = function(self, who)
 		if self.summoner and not self.summoner.dead and who then
-			game.logSeen(self, "#AQUAMARINE#As %s falls you notice that %s seems to shudder in pain!", self.name, self.summoner.name)
+			game.logSeen(self, "#AQUAMARINE#%s 쓰러지자, %s 고통에 몸부림치는 것이 보입니다!", (self.kr_display_name or self.name):addJosa("가"), (self.summoner.kr_display_name or self.summoner.name):addJosa("가"))
 			if self.summoner.is_grgglck then
 				self.summoner:takeHit(self.max_life, who)
 			else
@@ -912,7 +924,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "Ak'Gishil", color=colors.GREY, unique = true,
 	kr_display_name = "악'기실",
-	desc = "This blade horror has grown in power dramatically, and become a nexus of temporal energy. Rifts in space open around it constantly, summoning and banishing blades before vanishing as quickly as they appear.",
+	desc = "이 칼날의 무서운자는 극적으로 힘이 강해졌고, 시간의 에너지의 집합체가 되었습니다. 그 주변으로 공간의 균열이 끊임없이 열리고, 나타나자마자 재빨리 사라졌던 추방된 칼날이 소환됩니다.",
 	resolvers.nice_tile{tall=1},
 	level_range = {30, nil}, exp_worth = 2,
 	rarity = 50,
@@ -970,8 +982,9 @@ newEntity{ base = "BASE_NPC_HORROR",
 newEntity{ base="BASE_NPC_HORROR", define_as = "ANIMATED_BLADE",
 	type = "construct", subtype = "weapon", image="object/magical_animated_sword.png",
 	name = "Animated Sword",
+	kr_display_name = "살아 움직이는 칼날",
 	color = colors.GREY,
-	desc = [[Time seems to warp and bend around this floating weapon.]],
+	desc = [[이 떠다니는 무기 주변의 시간은 구부러지고 왜곡됩니다.]],
 	level_range = {30, nil}, exp_worth = 0,
 	max_life = 75, life_rating = 3,
 	rank = 2,
@@ -997,7 +1010,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "ANIMATED_BLADE",
 	
 	on_added_to_level = function(self)
 		self:teleportRandom(self.x, self.y, 3)
-		game.logSeen(self, "A rift opens, spawning a free floating blade!")
+		game.logSeen(self, "균열이 열리고, 자유롭게 떠다니는 칼날이 튀어나옵니다!")
 		game.level.map:addEffect(self,
 			self.x, self.y, 3,
 			engine.DamageType.TEMPORAL, 25,
@@ -1019,7 +1032,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "ANIMATED_BLADE",
 	on_act = function(self)
 		if self.summoner:attr("dead") then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#With the horror's death the blade clatters to the ground!")
+			game.logSeen(self, "#AQUAMARINE#무서운자의 죽음으로, 칼날이 땅으로 덜컥거리며 떨어집니다!")
 		end
 	end,
 }
@@ -1027,8 +1040,9 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "ANIMATED_BLADE",
 newEntity{ base="BASE_NPC_HORROR", define_as = "DISTORTED_BLADE",
 	type = "construct", subtype = "weapon", image="object/artifact/distorted_animated_sword.png",
 	name = "Distorted Animated Sword", unique=true,
+	kr_display_name = "왜곡된 살아 움직이는 칼날",
 	color = colors.GREY,
-	desc = [[This floating weapon shifts and shimmers, time and space warping and bending as it moves. It appears to vibrate, as if it may explode at any moment.]],
+	desc = [[이 떠다니는 무기는 변형되었고 어른거립니다. 이것이 움직이는 시공간은 구부러지고 왜곡됩니다. 언제라도 폭발할듯이 진동하고 있습니다.]],
 	level_range = {30, nil}, exp_worth = 0,
 	max_life = 100, life_rating = 6,
 	rank = 3.5,
@@ -1056,7 +1070,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "DISTORTED_BLADE",
 	
 	on_added_to_level = function(self)
 		self:teleportRandom(self.x, self.y, 3)
-		game.logSeen(self, "A rift opens, a blade emerging. It does not look like the others.")
+		game.logSeen(self, "균열이 열리고, 칼날이 나타납니다. 다른것들과는 조금 달라 보입니다.")
 		game.level.map:addEffect(self,
 			self.x, self.y, 5,
 			DamageType.TEMPORAL, 50,
@@ -1078,7 +1092,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "DISTORTED_BLADE",
 	on_act = function(self)
 		if self.summoner:attr("dead") then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#With the horror's death the chaotic blade clatters to the ground!")
+			game.logSeen(self, "#AQUAMARINE#무서운자의 죽음으로, 혼돈의 칼날이 땅으로 덜컥거리며 떨어집니다!")
 		end
 	end,
 }
