@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "skeletal rat", color=colors.WHITE,
-	desc = [[A skeletal rat, teeth and claws ground to a sharp point. It glares at you menacingly.]],
+	kr_display_name = "해골 쥐",
+	desc = [[날카롭게 갈린 이빨과 발톱을 가진 해골 쥐입니다. 위협적으로 노려보고 있습니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(25,45),
@@ -63,12 +64,13 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 		[Talents.T_SKELETON_REASSEMBLE]={base=1, every=5, max=4},
 	},
 
-	emote_random = {chance=1, "*squeak*", "Squeak!", "Squeak??", "SQUEAK!!!!!"},
+	emote_random = {chance=1, "*찍*", "찍!", "찍??", "찍!!!!!"},
 }
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "ghoulish rat", color=colors.TAN,
-	desc = [[Layers of rotting skin are peeling off of this rat. One of the eye sockets appears empty.]],
+	kr_display_name = "구울 쥐",
+	desc = [[이 쥐의 썩어가는 피부 껍질이 벗겨지고 있습니다. 한쪽눈은 휑하니 텅비어 있습니다.]],
 	level_range = {6, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(34,56),
@@ -88,12 +90,13 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 		[Talents.T_ROTTING_DISEASE]={base=1, every=7, max=4},
 		[Talents.T_GHOULISH_LEAP]={base=2, every=8, max=4},
 	},
-	emote_random = {chance=1, "*s.q.u.e.a.k*", "Squeeeeeeak!", "Squeakkkkkkk??"},
+	emote_random = {chance=1, "*찌.이.익*", "찌이이이익!", "찌이이이익??"},
 }
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "spectral rat", color=colors.GREY,
-	desc = [[An eerie haze surrounds this translucent rat.]],
+	kr_display_name = "허깨비 쥐",
+	desc = [[으스스한 아지랑이가 이 투명한 쥐의 주변을 감싸고 있습니다.]],
 	level_range = {9, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 2,
@@ -124,12 +127,13 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 
 	resolvers.sustains_at_birth(),
 
-	emote_random = {chance=1, "Eerie Squeak!", "Frightening Squeak??", "SQUEAK!!!!!"},
+	emote_random = {chance=1, "무섭찍!", "놀랐찍??", "찍!!!!!"},
 }
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "vampire rat", color=colors.WHITE,
-	desc = [[Looks much like a normal rat. That is, other than the very large fangs.]],
+	kr_display_name = "흡혈귀 쥐",
+	desc = [[보통의 쥐같아 보입니다. 하지만 송곳니가 아주 큽니다.]],
 	level_range = {8, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(45,60),
@@ -146,12 +150,13 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 		[Talents.T_COLD_FLAMES]={base=1, every=9, max=5},
 	},
 
-	emote_random = {chance=1, "Squeak! Blood!", "Squeak??", "SQUEAK!!!!!"},
+	emote_random = {chance=1, "찍! 피!", "찍??", "찍!!!!!"},
 }
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "gigantic bone rat", color=colors.LIGHTGREY,
-	desc = [[This massive beast appears to be a rat composed of countless bones fused together.]],
+	kr_display_name = "거대 뼈 쥐",
+	desc = [[이 거대한 짐승은 수많은 쥐의 뼈들을 융합하여 만든 것으로 보입니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_rodent_gigantic_bone_rat.png", display_h=2, display_y=-1}}},
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 6,
@@ -179,12 +184,13 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 		[Talents.T_KNOCKBACK]={base=1, every=7, max=4},
 	},
 
-	emote_random = {chance=1, "*SQUEAK*", "SQUEAK!!!!!"},
+	emote_random = {chance=1, "*찍*", "찍!!!!!"},
 }
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 	name = "Rat Lich", color=colors.BLACK,
-	desc = [[The master of the pit is before you. It squeaks with menace as it and a horde of minions approach you.]],
+	kr_display_name = "리치쥐",
+	desc = [[당신이 오기 전까지 구덩이의 지배자였습니다. 위협적으로 찍찍거리면, 부하들이 떼거지로 당신에게 달려듭니다.]],
 	level_range = {16, nil}, exp_worth = 2,
 	rarity = false,
 	rank=3.5,
@@ -239,9 +245,9 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 				{type="undead", subtype="rodent", number=3, hasxp=false},
 			}
 
-			game.logSeen(self, "#RED#Rising again, the Rat Lich's eyes glow with renewed energy!")
+			game.logSeen(self, "#RED#다시 되살아난 리치쥐의 눈은 새로운 에너지로 불타오릅니다!")
 
-			self.desc = self.desc.."\nThe Rat Lich's true power has been unveiled! Swirling with arcane energy, it stalks towards you uttering warsqueaks at its minions!"
+			self.desc = self.desc.."\n리치쥐의 진정한 힘이 드러났습니다! 마법의 에너지가 소용돌이치고, 전투의 찍찍거림을 내뱉으며 부하들과 함께 당신을 추격합니다!"
 
 			self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 			self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
@@ -268,7 +274,7 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 	resolvers.drops{chance=100, nb=3, {tome_drops="boss"} },
 	resolvers.drops{chance=100, nb=1, {defined="RATLICH_SKULL"} },
 
-	emote_random = {chance=1, "*squeak*", "Squeak!", "Squeak??", "SQUEAK!!!!!", '"Squeak" I say, yes .. "Squeak!"'},
+	emote_random = {chance=1, "*찍*", "찍!", "찍??", "찍!!!!!", '"찍"이라 했어, .. "찍!"'},
 
 	on_die = function(self) world:gainAchievement("EVENT_RATLICH", game:getPlayer(true)) end,
 }

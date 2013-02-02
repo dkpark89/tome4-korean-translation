@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
@@ -45,6 +47,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_WORM",
 	name = "white worm mass", color=colors.WHITE,
+	kr_display_name = "흰 벌레 덩어리",
 	level_range = {1, 15}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(5,9),
@@ -55,6 +58,7 @@ newEntity{ base = "BASE_NPC_WORM",
 
 newEntity{ base = "BASE_NPC_WORM",
 	name = "green worm mass", color=colors.GREEN,
+	kr_display_name = "녹색 벌레 덩어리",
 	level_range = {2, 15}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(5,9),
@@ -66,6 +70,7 @@ newEntity{ base = "BASE_NPC_WORM",
 
 newEntity{ base = "BASE_NPC_WORM", define_as = "CARRION_WORM_MASS",
 	name = "carrion worm mass", color=colors.SANDY_BROWN,
+	kr_display_name = "썩은 고기를 먹는 벌레 덩어리",
 	can_multiply = 2,
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 4,
@@ -87,6 +92,6 @@ newEntity{ base = "BASE_NPC_WORM", define_as = "CARRION_WORM_MASS",
 			5, nil,
 			engine.Entity.new{alpha=50, display='', color_br=30, color_bg=180, color_bb=60}
 		)
-		game.logSeen(self, "%s exudes a corrupted gas as it dies.", self.name:capitalize())
+		game.logSeen(self, "%s 죽자, 타락한 기체가 스며나옵니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 	end,
 }

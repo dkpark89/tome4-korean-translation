@@ -50,7 +50,7 @@ newEntity{
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "thalore hunter", color=colors.LIGHT_UMBER,
 	kr_display_name = "탈로레 사냥꾼",
-	desc = [[엄격해 보이는 경비입니다. 그는 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
+	desc = [[엄격해 보이는 경비입니다. 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
