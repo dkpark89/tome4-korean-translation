@@ -24,17 +24,17 @@
 newLore{
 	id = "zigur-post",
 	category = "zigur",
-	name = "Rules of the Ziguranth",
-	lore = [[1. You will not talk about Zigur to the wider world, lest evil ears be listening.
-2. You will shun the use of all spells and witchcraft.
-3. You will shun the use of magic-cursed items.
-4. You will shun the baneful influence of arcane runes and burn any skin that comes in contact with them.
-5. You will not aid or abet any you suspect of wizardry or conjuration.
-6. You will take note of any you suspect of spellweaving and report their name and address to the elders.
-7. You will actively hunt down and bring suffering upon any you suspect of using magic, communing with spirits, demon worship, or any you suspect of aiding others in these acts.
-8. You will report to the elders all activity you deem suspicious, especially evidence of cults or secret societies.
+	name = "지구르 (Zigur) 추종자들의 규칙",
+	lore = [[1. 지구르의 위치에 대해 떠들고 다니지 말라. 저 사악한 자들의 귀에 이곳의 위치가 드러나게 하지 말라.
+2. 모든 주문과 마법적 도구를 멀리하라.
+3. 마법의 힘이 깃든 모든 것들을 경멸하라.
+4. 기생충과도 같은 마법적 룬을 피부에 새기지 말라.
+5. 마법과 관련있어 보이는 자들을 돕거나 방조하지 말라.
+6. 마법 사용자라고 의심되는 자들이 있다면, 그들의 이름과 주소를 장로들에게 알려라.
+7. 마법 사용, 정령과의 대화, 악마 숭배를 하거나 이들을 도와준다고 의심되는 자가 있다면 그들에게 무자비한 고통을 선사하라.
+8. 특히, 사악한 종교 집단이나 마법사들의 비밀 공동체를 발견했을 경우 반드시 장로들에게 보고하라.
 
-These are the rules we live by, these are the rules by which we will save our world. All who fail in these rules will be purged with flame.]],
+이것들은 우리가 살아가는 방식이며, 우리의 세상을 지키기 위해 반드시 필요한 규칙들이다. 이 규칙들을 어기는 자에게는 타오르는 화염의 징벌이 있으리라.]],
 	on_learn = function(who)
 		game:setAllowedBuild("birth_zigur_sacrifice", true)
 	end,
@@ -43,46 +43,48 @@ These are the rules we live by, these are the rules by which we will save our wo
 newLore{
 	id = "zigur-history",
 	category = "zigur",
-	name = "The Great Evil",
-	lore = [[We live in a world of wonders. All around us are natural energies and wild powers that are a marvel to see and experience. Soaring birds, mighty bears and ice-breathing dragons all abound in towering mountains, deep oceans and luscious forests. And we are part of this glorious environment, with our thoughts and strengths and all our wondrous capabilities. Truly we live in a fantastic world, and we should be glad to have a place amongst the wonders of Maj'Eyal.
+	name = "진정한 악",
+	lore = [[우리는 경이로운 세계에 살고 있다. 우리의 주변에는 자연적인 힘과 야생의 원천력이 가득하며, 우리에게 끝없는 시야와 경험을 안겨준다. 지저귀는 새, 강력한 곰과 냉기를 뿜어내는 용들이 우뚝 솟은 산, 깊은 심해와 아름다운 숲 속에 가득하다. 그리고 우리는 이 위대한 자연의 일부이며, 우리의 생각과 힘 그리고 경이로운 능력들 역시 자연에서 나온다. 우리는 실로 환상적인 세계에 살고 있으며, 우리는 이 마즈'에이알 (Maj'Eyal) 의 세계에 사는 것을 축복으로 여겨야 한다.
 
-But some are not content. Some seek to pervert the wonders of the world with unnatural powers. With arcane forces they rip the threads of nature apart and sew it back however they see fit, uncaring of the damage they cause. Sometimes it is out of curiosity or a misplaced desire to do good, but normally it is out of greed and malice and a perverse obsession with power. Even those who enter into the banes of magic with good intentions inevitably end up doing harm and becoming themselves corrupted by the gross forces they tamper in.
+하지만 이렇게 생각하지 않는 사람들이 있다. 그들은 부자연스러운 힘으로 이 세계의 경이로움을 발가벗긴다. 그들의 입에서 흘러나오는 마법의 주문들은 자연을 공포에 떨게 만들고, 모든 것을 파괴하며, 심지어 그들은 이 파괴에 대해 신경조차 쓰지 않는다. 가끔 그들은 호기심이나 한 순간의 관심으로 좋은 일을 하기도 하지만, 보통 그들은 탐욕적이고 사악하며 힘에 대한 갈망에 미쳐있다. 처음에는 좋은 의도로 마법의 길을 걷기 시작한 사람도, 결국에는 저 탐욕스러운 힘에 빠져들어 스스로를 타락시키고 자연을 파괴하게 된다.
 
-History teaches us well the dangers of these forces. First were the Sher'Tul, of which we know little, but we do know that they manipulated magic to strengths beyond the dreams of current mages. And they led themselves to their own utter destruction. Alas that the lesson was not learnt by the younger races. The first recorded war in our history is between the humans and halflings for control of Sher'Tul ruins. Magic was used in those wars and the battles only stopped after two thousand years of slaughter left both sides too crippled to carry on fighting. It was in this time that our order was formed, and we tried to stop the insanity and the bloodshed. Alas that we failed.
+역사는 우리에게 저 사악한 힘의 위험성에 대해 알려준다. 비록 몸은 작지만 경이로운 수준의 마법적 능력을 가졌다고 전해지는 쉐르'툴 (Sher'Tul) 종족이 바로 사악한 힘의 첫 번째 희생양이었다. 그들의 힘은 결국 그들 자신을 완전한 파멸의 길로 인도하였지만, 그들의 교훈을 후대의 종족들은 배우지 못하였다. 역사에 기록된 첫 번째 전쟁은 다름아닌 쉐르'툴 종족이 남긴 유적을 가지기 위해 인간과 하플링이 벌인 전쟁이었다. 이 전쟁에서도 마법이 사용되었으며, 결국 이 전쟁은 2,000 년 동안 수많은 인간과 하플링 희생자를 낸 뒤에야 끝이 났다. 이 때부터 우리들은 마법이 가져오는 광기와 학살을 멈추기 위해 노력하였지만, 결국 이 때의 우리는 실패하였다.
 
-The weakening of our peoples by the magic-fuelled fighting left us then open to attacks by the orcs, whose surging numbers nearly overwhelmed us. But instead of relying on our own strengths and our natural defences, the foolish elves decided that only the arcane forces could save us. How very wrong they were... Their insidious mages tapped the vile powers of the Sher'Tul ruins and unleashed catastrophic waves of energy that burned half the world to a cinder. Mountains crumbled, lakes were boiled, and raging fires stripped the land of all life. The devastation can truly never be fully stated. But it is unforgettable and utterly unforgiveable. The Shaloren try to deny responsibility, but the blood of millions is on their hands.
+마법에 의해 부채질된 전쟁으로 약해진 우리들은, 압도적인 병력을 지닌 오크의 공격에 일방적으로 당할 수 밖에 없었다. 하지만 이런 상황 속에서 우리의 힘과 자연의 능력을 무기 삼아 저항하는 대신, 저 멍청한 엘프들은 오직 마법의 힘만이 오크를 물리칠 수 있는 힘이라고 결정하였다. 이 얼마나 잘못된 생각인가... 그 늙다리 마법사들은 쉐르'툴의 유적이 품고 있던 사악한 힘에 손을 댔고, 세상의 절반을 불태운 재앙의 힘을 불러내었다. 산은 무너지고, 강은 끓어올랐으며, 대지의 모든 생명이 업화의 불꽃에 한 줌 재가 되었다. 이 재앙을 완벽히 규정하고 설명할 수는 없지만, 적어도 잊지 못할 일이며 용서하지도 못할 일이라는 것은 확실하다. 샬로레 (Shalore) 들은 자신들의 책임이 아니라고 주장하지만, 이미 그들의 손에는 수백만 명의 피가 묻어있다.
 
-The suffering that followed the unfortunate survivors lasted centuries, as the unnatural forces created black plagues that wiped out kingdoms and made huge swathes of land uninhabitable. Dread warlocks and necromancers took advantage of the chaos to raise armies and gain power. Kor'Pul was the deadliest of these, and our order fought long and hard to kill him time and time again. We fought viciously to protect the people of Maj'Eyal from all the terrible pains of this time.
+재앙에서 살아남은 자들 역시 수 세기 동안 고통 받았으며, 부자연스러운 힘이 만들어낸 흑사병은 왕국을 멸망시키고 드넓은 대지를 사람이 살 수 없는 땅으로 만들었다. 또한, 사악한 강령술사들은 이 혼돈을 통해 자신들의 언데드 군대를 키우고 힘을 얻었다. 코르' 풀 (Kor' Pul) 은 그 중에서도 가장 치명적인 존재였으며, 우리는 엄청난 희생을 감수해가며 오랜 시간 동안 그를 죽이고 또 죽여왔다. 우리는 이 모든 끔찍한 고통으로부터 마즈'에이알의 사람들을 보호하기 위해 미친 듯이 싸워왔다.
 
-But our efforts could not prevent the ultimate tragedy that followed. The plagues were mere echoes of the Spellblaze as its horrible effects rebounded across the land. One dark and terrible day those echoes rose in resonance, and a cataclysmic force tore through the heart of our world. The land was rent in two, earthquakes spouted forth magma from the ground, and the eastern edge of our land was torn away and sunk into the deepest oceans. It was a tragedy beyond comparison.
+하지만 우리의 노력만으로는 재앙이 불러온 끝없는 비극들을 모두 막아낼 수가 없었다. 스펠블레이즈의 메아리는 대지를 오고 다니며 끔찍한 효과를 일으켰다. 기억하고 싶지도 않은 어느 어두운 날, 이 메아리들은 대지에 공명을 일으켜 세계의 중심에 돌이킬 수 없는 상처를 냈다. 세계는 절반으로 갈라졌고, 지진으로 인해 마그마가 대지를 뒤덮었으며, 세계의 동쪽 절반은 찢겨져 가장 깊은 대양에 가라앉았다. 그 어떤 것과도 비교할 수 없는, 참혹한 비극이었다.
 
-As our civilisations slowly recovered the orcs began to increase in numbers, and it became clear then that they too had learned the dark arts. For centuries we suffered their attacks, and only by a unification of the races did we manage to finally contain them and wipe them out. Our order was vital in suppressing their pyromancers and blood mages, and many of our people bravely gave up their lives to protect the western armies and towns from destruction.
+우리의 파괴된 문명을 제대로 복구시키기도 전에, 오크 중에 어둠의 마법을 익힌 자들이 나타나기 시작했다. 수 세기 동안 우리는 그들의 공격에 고통 받아야만 했으며, 오크를 제외한 다른 모든 종족들이 연합한 끝에서야 간신히 오크를 멸종시킬 수 있었다. 우리는 불을 뿜고 피를 다루는 오크 마법사들을 제압하는 데에 사력을 다했으며, 많은 동료들이 기꺼이 자신의 목숨을 바쳐가며 우리의 서쪽 군대와 도시를 파괴로부터 보호하였다.
 
-But we are not clear of danger yet. Magic still exists, though oft it lies secret and hidden. Memories of the dark days have waned, and one can even see alchemists and enchanters walking openly in the streets, unheeding of the pain their ilk have brought to our world. But worse exists... Secret societies hide themselves in unknown places, plotting and scheming to bring further destruction on Maj'Eyal. Dark cults exist in quiet isolation, kidnapping innocents and performing vile ceremonies. We try our best to hunt these monsters down, to root them out from their fell dens and bring an end to their depraved plans. Yet we must try harder, for our world is in mortal peril if these fiends are allowed to act unhindered.
+하지만 위협은 아직 끝나지 않았다. 비록 숨겨진 곳에서 비밀리에 전해지고 있다고는 해도, 마법은 여전히 존재한다. 어두운 날들의 기억은 점차 잊혀지고, 심지어 연금술사나 룬을 다루는 자들은 그들의 동류가 이 세계에 가져온 재앙을 망각한 채 길가를 대놓고 돌아다닌다. 하지만 더욱 심각한 것은, 어딘가에 그들만의 비밀 공동체가 있으며 그곳에서 마즈'에이알을 파멸시키기 위한 계획을 모의하고 있다는 것이다. 사악한 주술 집단들은 순수한 시민들을 납치하여 어디선가 사악한 의식을 치른다. 우리는 이 괴물들을 사냥하기 위해 최선을 다하고 있으며, 그들의 타락한 서식지를 공격하여 사악한 계획을 분쇄시킨다. 이 악마들이 아무 방해도 받지 않고 행동하는 것은 우리 세계에 치명적인 위험을 불러올 것이기 때문에, 우리는 더욱 더 노력해야만 한다.
 
-We must never forget the terrors of the Great Evil, and the suffering brought upon us by those who choose to corrupt nature with arcane powers. Be wary in your travels, and be thorough in your duties. Our fight is difficult, but it is just and true, and not until all Maj'Eyal is cleansed of the impurities of magic can we ever know peace. We are the protectors of the world, and by our strength and our union with nature we shall be its saviours.
+우리는 '진정한 악' 이 가져온 공포, 그리고 마법의 힘으로 자연을 타락시킨 자들에 의해 우리들이 받은 고통을 절대 망각해서는 안된다. 여행 중에는 언제나 조심스러워야 하며, 자신의 의무를 기억해야 한다. 우리의 싸움은 힘들고 고통스럽지만, 정의롭고 진실된 싸움이며, 마즈'에이알이 마법의 불결함에서 완전히 벗어나기 전까지 계속되어야 한다. 우리는 세계의 수호자이며, 또한 자연의 수호자다.
 
--- Protector Myssil]],
+-- 수호자 '미씰 (Myssil)']],
 }
 
 newLore{
 	id = "zigur-potion",
 	category = "zigur",
-	name = "The story of my salvation",
-	lore = [[I used to be a potion merchant in Derth. I brewed alchemical tonics and elixirs for locals and travellers. My trade was good, and I lived very happily from the gold I earned. For a young woman to have such a business I was very proud.
+	name = "나의 구원받은 이야기",
+	lore = [[나는 데르쓰 (Derth) 마을에서 물약을 만들어 파는 일을 했었다. 연금술로 거주민들과 모험가들을 위한 물약과 엘릭서를 만드는 것이 내 일이었다. 장사는 잘 되었고, 그 덕분에 번 금화들로 나는 아주 행복하게 살 수 있었다. 젊은 여자로서 이런 좋은 직업을 가지고 있다는 것이 자랑스러웠다.
 
-One day however several people in the town fell ill from a mystery disease. Rumours spread that my potions were to blame, and people stopped coming to my shop. My business was in ruins, and I soon ran the risk of becoming destitute. Then one of the elders died, and though he had been ill for some time, I was blamed for his death. People said I had laid a hex on him, and murmurs arose of witchcraft.
+그러던 어느 날, 마을의 몇몇 사람들이 알 수 없는 병에 걸려 앓기 시작했다. 그리고 병의 이유가 내 물약 때문이라는 소문이 퍼져나갔다. 그러자 사람들은 내 가게에 오지 않기 시작했다. 내 가게는 망한 것이나 다름없는 상태가 되었고, 나는 직업을 잃을 위기에 처했다.
 
-I still remember how peaceful the evening had seemed when the townsfolk came for me. I was looking up at the brightness of the stars and the clear crescent summerglow moon, thinking of how I should restart my business, when I heard shouts from the distance. I saw the crowd appear from round the corner, advancing with their torches. I screamed for help, but they broke through my door, smashed through my windows and grabbed me. They dragged me outside and set their torches to my house. I was stripped to my skin and beaten heavily whilst they cursed and jeered, and even the man who had been my fiancé spat on my face and cursed me.
+결국 장로들 중 한 명이 죽고 말았다. 그는 그저 가끔 몸이 아픈 정도에 불과했지만, 나는 그의 죽음에 대한 누명을 써야만 했다. 사람들은 내가 그에게 사악한 저주를 속삭여 주술을 걸었다고 했다.
 
-They pulled me over grass and stone to the town square, and though half-blinded by the tears and my swollen flesh I could still make out the wooden stake they were erecting. I tried to cry out, I tried to beg for mercy, but their response was to hold me down by my throat and pull out my tongue with the blacksmith's tongs. As I coughed up blood they put me against the wooden pole and used barbed chords to tie my wrists to it above my head. The pain was unbearable and I passed out, and did not wake until I could feel the burning at my feet. The crowd were cheering as the smoke began to wrap around me, and they cheered louder with every pained scream I released from my lungs.
+나는 아직도 마을 사람들이 내게 찾아왔던 그 날 저녁의 *평화로움* 을 기억한다. 나는 내 가게를 어떻게 하면 다시 살려낼 수 있을지 고민하며, 하늘에 빛나는 별과 선명한 여름빛의 초승달을 올려다보고 있었다. 그 때, 먼 곳으로부터 함성 소리가 들려왔고, 나는 골목에서 횃불을 든 군중들이 몰려오는 것을 보았다. 나는 도움을 청했지만, 그들은 내 집의 문과 창문을 부수고 들어와 나를 붙잡았다. 그들은 나를 집 밖으로 끌어낸 뒤, 횃불로 내 집에 불을 질렀다. 나는 알몸이 된 채로 그들의 저주와 야유를 들으며 심하게 얻어맞았다. 그 군중들 속에는 한때 내 약혼자였던 이도 있었다.
 
-I was choking from the smoke, barely able to breathe, and I could no longer feel my legs. Just when I felt my consciousness slipping away again I heard a commotion and a woman's voice shouted out, "She is no witch!" Then I saw some people coming towards me, and at the front was a halfling woman in dark armour. She rushed towards me, unheeding of the flames, and with a swift flick from her long sword she cut my bounds. She caught me as I fell and pulled me away from the fire, laying me down on the ground. I saw her soft face above mine as she whispered to me, "Tell me child, do you reject magic in all its forms?" I nodded my head - I could not say no to those bright eyes. She wiped the tears streaming down my face and kissed my forehead. "Then you will be safe - rest now." At once I passed out.
+그들은 나를 마을 광장까지 질질 끌고 갔다. 흘러 넘치는 눈물과 부어 오른 살 때문에 반쯤은 장님이나 다름없었지만, 그들이 커다란 나무 말뚝을 세우고 있는 것은 볼 수 있었다. 나는 필사적으로 외쳤다. 자비를 구걸해 보았다. 그러나 그들이 보인 자비는 내 목을 움켜쥐고 대장장이의 집게로 내 혀를 뽑아버리는 것이었다. 나는 피를 토했고, 그들은 가시 돋친 끈으로 내 손목을 나무 기둥에 머리 위로 향하도록 묶었다. 나는 고통이 너무 심해 정신을 잃었다. 내가 정신을 차렸을 때는 이미 내 발 밑에서 나무가 타오르고 있었다. 연기가 내 주위를 둘러싸자 군중들이 환호했다. 그리고 그들은 내가 고통에 겨워 비명을 지를 때마다 더욱 열렬하게 환호하였다.
 
-When I awoke I was in another village in a soft bed. There were wrappings round my legs and bandages covering the cuts and bruises over the rest of my body. Healers tended to me, using natural remedies and herbal balms. The halfling woman would come and see me every day to check up on me. I longed for her every visit. She would speak to me sometimes. She explained how the townsfolk weren't to blame for their actions. It was all the mages' fault. They were corrupting the world, spreading chaos, and turning people against each other. I realised I was wrong for ever brewing potions - they were infested with arcane energies and could only bring harm to the world.
+연기 때문에 숨이 막혔다. 간신히 숨을 쉴 수 있을 정도였다. 다리에는 아무 감각도 느껴지지 않았다. 내가 다시 정신을 잃으려 할 때, 나는 소란스러운 소리와 어떤 여성의 목소리를 들었다. "그녀는 마녀가 아니다!" 그리고 나는 어떤 사람들이 내게 다가오는 것을 보았다, 선두에는 검은 갑옷을 입은 하플링 여성이 있었다. 그녀는 불길에도 아랑곳하지 않고 곧장 내게 달려와 검으로 나를 묶고 있던 끈을 잘라냈다. 그리고 불길 속으로 고꾸라지려는 나를 잡아 바닥에 내려놓았다. 나는 내게 속삭이는 그녀의 부드러운 얼굴을 보았다. "말해보거라 아이야. 너는 그 어떤 형태의 마법이라도 거부할 수 있니? " 나는 고개를 끄덕였다 - 그 반짝이는 두 눈에 대고 그렇지 않다고 말할 수는 없었다. 그녀는 흐르는 눈물을 닦아주며 내 이마에 입을 맞췄다. "그렇다면 너는 이제 안전하단다 – 이제 쉬거라." 말이 끝남과 동시에, 나는 정신을 잃었다.
 
-She explained how she and her friends were helping to save the world, to rid our lands of all magic. And she has saved me. Not just from a terrible death, but also from the evil influences of the arcane. Even if I still had a tongue I could not find words to express my thanks to her, and my joy at the new life I lead, free from the abominations of magic. Thanks to her help I can now walk again with the aid of a crutch, and I can find true happiness in my rightful place in nature.
+내가 깨어난 곳은 다른 마을의 부드러운 침대였다. 다리에는 붕대가 감겨져 있었고, 온몸에 난 멍 자국과 상처에는 반창고가 붙혀져 있었다. 치유사들은 자연적인 치료제와 약초를 사용해 나를 치료했다. 그 하플링 여성은 매일같이 나를 찾아와 상태를 확인했다. 나는 매번 그녀의 방문을 기다렸다. 그녀는 가끔 내게 말을 걸어주기도 했다. 그녀는 이 모든 일이 마을 사람들의 잘못은 아니라고 했다. 그것은 마법사들의 잘못이라고 했다. 그들은 세상을 타락시키며, 혼돈을 불러오고, 사람들을 서로 의심하고 싸우게 만든다고 했다. 나는 물약 같은 것을 만들지 말았어야 했다고 생각했다 - 그것들은 마법의 힘에 의해 오염되어있었고, 세상에 오직 상처만을 줄 뿐이었다. 
 
-I have no voice now to tell my story to others, and so I write it down instead, and I spread it to the winds. I have suffered from my contact with magic, and others will suffer too. Do not trust in the terrible powers of these devious arts. They will only betray you and bring you to harm. Turn your back on magic, and make others repent too. Find your own salvation in nature's joys before it is too late.
+그녀는 그녀와 자신의 친구들이 이 땅에서 마법을 완전히 몰아내고 세계를 구원하기 위해 어떤 일을 하는지 말해주었다. 그리고 그녀는 나를 그저 끔찍한 죽음만이 아닌, 마법의 사악한 손아귀에서도 구해주었다. 만약 내가 아직 혀를 가지고 있어 그녀에게 감사의 말을 전할 수만 있었다면, 그리고 혐오스러운 마법에서 해방되어 새로운 삶을 얻게 된 내 행복에 대해 말해줄 수 있었다면... 그녀의 도움 덕분에 나는 목발을 짚고 걸어 다닐 수 있게 되었고, 자연에서 내가 있을 자리를 찾아 진정한 행복을 누릴 수 있게 되었다.
+
+나는 내 이야기를 다른 이에게 말해줄 수 없기 때문에, 글로써 이야기를 남긴다. 그리고 그것을 바람에 실어 보낸다. 나는 마법과의 접촉으로 인해 고통 받았고, 다른 이들도 마찬가지였다. 그 기만적인 마법의 끔찍한 힘을 신용하지 말라. 그것은 당신을 배신하고 당신을 다치게 할 뿐이다. 마법을 버리고, 다른 이들도 회개하도록 만들라. 너무 늦기 전에, 자연의 행복이 당신에게 가져다 줄 구원을 찾으라.
 ]],
 }

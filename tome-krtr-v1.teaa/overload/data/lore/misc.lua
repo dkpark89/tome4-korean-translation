@@ -490,21 +490,21 @@ Gone is trust, wrath is red.#{normal}#
 newLore{
 	id = "eden-guile",
 	category = "artifacts",
-	name = "Running man",
-	lore = [[Running man, running man
-Your time is ending soon
-Running man, running man
-Will not save sun nor moons
+	name = "달리는 자",
+	lore = [[달리는 자여, 달리는 자여
+너에게 주어진 시간이 끝나가는구나
+달리는 자여, 달리는 자여
+태양도 달도 구하지 못하겠구나
 
-Running man, running man
-Survival growing slim
-Running man, running man
-You know your fate is grim
+달리는 자여, 달리는 자여
+생존은 갈수록 힘들어지는구나
+달리는 자여, 달리는 자여
+사신이 네 운명을 가져가는구나
 
-Running man, running man
-Now's the time to choose
-Running man, running man
-Your honour or your shoes!]] }
+달리는 자여, 달리는 자여
+이제는 선택의 시간이로구나
+달리는 자여, 달리는 자여
+명예를 지킬까, 신발을 고쳐신을까!]] }
 
 newLore{
 	id = "channelers-set",

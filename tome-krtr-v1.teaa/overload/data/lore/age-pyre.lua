@@ -24,8 +24,8 @@
 newLore{
 	id = "broken-atamathon",
 	category = "age of pyre",
-	name = "Atamathon, the giant golem",
-	lore = [[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
-Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
-Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]]
+	name = "거대 골렘, 아타마톤 (Atamathon)",
+	lore = [[이 거대 골렘은 장작더미의 시대 때 오크들과 전쟁을 하던 하플링들이 만들었지만, 파괴자 가르쿨 (Garkul) 에 의해 파괴되었다.
+몸은 대리석으로 만들었으며, 관절 부분은 보라툰을, 그 눈에는 가장 순수한 루비를 박아넣었지만 눈 하나는 사라지고 없는 것 같다. 골렘의 키는 12 미터에 육박한다.
+몇몇 어리석은 자들이 골렘의 재구축을 시도하였지만, 잃어버린 눈 없이는 진정으로 완성된 골렘은 만들어낼 수 없었다.]]
 }
