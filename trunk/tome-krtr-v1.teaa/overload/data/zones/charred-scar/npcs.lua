@@ -275,9 +275,9 @@ newEntity{
 newEntity{ base = "BASE_NPC_FAEROS", define_as = "FYRK",
 	allow_infinite_dungeon = true,
 	name = "Fyrk, Faeros High Guard", color=colors.VIOLET,
-	kr_display_name = "파에로스 고위 수비대, 퓔크",
+	kr_display_name = "패로스 고위 수비대, 퓔크",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_fire_fyrk__faeros_high_guard.png", display_h=2, display_y=-1}}},
-	desc = [[파에로스는 높은 지능을 가진 불의 정령으로, 화산 밖에서는 거의 볼 수 없습니다. 이 세상의 자연적인 존재는 아닌 것 같습니다.
+	desc = [[패로스는 높은 지능을 가진 불의 정령으로, 화산 밖에서는 거의 볼 수 없습니다. 이 세상의 자연적인 존재는 아닌 것 같습니다.
 이것은 심술궂지만 경멸하는 눈빛으로 당신을 쳐다보고 있습니다. 그 주변에서는 불꽃이 소용돌이 칩니다.]],
 	killer_message = "and a sole piece of char was sent to his masters as a totem",
 	level_range = {35, nil}, exp_worth = 2,

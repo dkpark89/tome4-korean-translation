@@ -46,13 +46,13 @@ local changer = function(id)
 		type = "tool", subtype="skull", image = "object/artifact/skull_of_the_rat_lich.png",
 		unided_name = "dusty rat skull",
 		name = "Skull of the Rat Lich",
-		kr_display_name = "리치 생쥐의 해골", kr_unided_name = "먼지낀 생쥐의 해골",
+		kr_display_name = "리치쥐의 두개골", kr_unided_name = "먼지낀 쥐의 두개골",
 		display = "*", color=colors.BLACK,
 		level_range = {10, 25},
 		cost = 150,
 		encumber = 1,
 		material_level = 3,
-		desc = [[이 고대의 해골은 리치 생쥐가 남긴 모든것입니다. 일부 조각에는 그 힘이 남아있고, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
+		desc = [[이 고대의 해골은 리치쥐가 남긴 모든것입니다. 일부 조각에는 그 힘이 남아있고, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
 
 		wielder = {
 			combat_spellpower = 10,

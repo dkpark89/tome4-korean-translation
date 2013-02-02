@@ -52,7 +52,7 @@ newEntity{
 newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 	name = "last hope guard", color=colors.LIGHT_UMBER,
 	kr_display_name = "마지막 희망 경비",
-	desc = [[엄격해 보이는 경비입니다. 그는 당신이 마을을 어지럽히는걸 용납하지 않을것입니다.]],
+	desc = [[엄격해 보이는 경비입니다. 마을을 어지럽히는걸 용납하지 않을것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
