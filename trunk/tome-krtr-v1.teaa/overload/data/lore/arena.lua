@@ -1,22 +1,21 @@
 ﻿newLore{
 	id = "arena-scoring",
 	category = "arena",
-	name = "Arena for dummies",
-	lore = [[#{italic}#You find a note with some highlighted words...
-#{bold}#SCORING IN THE ARENA
+	name = "멍청이들을 위한 투기장 설명서",
+	lore = [[#{italic}#몇몇 단어가 특별히 강조된 쪽지를 발견하였다...
+#{bold}#투기장에서 점수를 얻는 법
 
-#{normal}#The rules of the arena are simple.
-Every wave, the gates will open, releasing enemies. When the gates close, you will be given a bonus score.
-The bonus will #YELLOW#decrease every turn #WHITE#, but #YELLOW#enemies you kill at this point#WHITE#, will
-raise your bonus. When you defeat all enemies, you will be granted your bonus score, multiplied by
-your bonus multiplier.
+#{normal}#투기장의 룰은 간단하다.
+매 단계마다, 문이 열리고, 적이 쏟아져 나오고, 문이 닫히면, 추가 점수가 표시된다.
+추가 점수는 #YELLOW#매 턴마다 감소#WHITE#하지만, #YELLOW#이 때 적을 죽이면, 추가 점수#WHITE#를 얻는다.
+적을 모두 죽이면, 추가 배율에 따라 곱해진 만큼, 추가 점수를 얻는다.
 
-Every few rounds, a miniboss round will come. After two miniboss rounds, one out of four bosses will appear.
-#YELLOW#Kill enemies before the gates close #WHITE#to raise your score multiplier!.
-#YELLOW#Kill several enemies at once or very strong enemies #WHITE#to please the audience and increase your rank!.
-#YELLOW#Collect gold #WHITE#to increase your score and resources at the end of each round.
-#YELLOW#Kill enemies fast to get better scores!
-#YELLOW#Take advantage of the trap at the center of the arena!
-Good luck!
+특정 단계마다, 중간보스가 나온다. 중간보스가 두 번 나온 뒤에는, 보스가 나온다.
+#YELLOW#문이 닫히기 전에#WHITE# 적을 죽이면 추가 배율이 올라간다!
+#YELLOW#여러 마리의 적들을 동시에 죽이거나 굉장히 강력한 적을 죽여#WHITE# 관객을 즐겁게 만들고, 자신의 등급을 올릴 수 있다!
+#YELLOW#돈을 모아#WHITE#, 점수를 올리고 보스를 이기면 열리는 상점을 이용하라!
+#YELLOW#적을 빨리 죽이면 더 많은 점수를 얻는다!
+#YELLOW#투기장 한가운데를 잘 활용하라!
+행운을 빈다!
 ]],
 }

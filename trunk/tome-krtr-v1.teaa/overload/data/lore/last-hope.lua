@@ -130,74 +130,80 @@ Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last H
 newLore{
 	id = "southspar-note-1",
 	category = "southspar",
-	name = "The Pale King, part one",
-	lore = [[#{italic}#A study into Southspar's most unusual ruler.#{normal}#
+	name = "창백한 왕, 그 첫 번째 이야기",
+	lore = [[#{italic}#사우스스파 (Southspar) 의 가장 위대했던 지배자에 대한 연구#{normal}#
 
-Chances are you haven't heard of Southspar.
+장담하는데, 당신은 사우스스파에 대해 들어본 적이 없을 것이다.
 
-And why would you have? It was naught but a tiny, provincial island kingdom off the coast of Tar'Eyal that existed within the Ages of Allure and Dusk. By all accounts, Southspar was a pleasant place to live; temperate climate, healthy trade relations with mainland human kingdoms, and by great luck, the island upon which the kingdom sat held great deposits of the much-valued metal stralite.
+...모르는 것이 당연하다. 사우스스파는 매혹의 시대에서 황혼의 시대까지만 존재했으며, 타르’ 에이알 (Tar’Eyal) 해안가의 고립된 섬에 있던 아주 작은 왕국이었기 때문이다.
 
-Despite this good fortune though, Southspar was doomed to mediocrity. Why? The actions of its ruler. By all accounts a bumbling, octogenarian dotard, his name lost to the mists of time, this mouldy monarch mismanaged Southspar almost to its demise. The Dwarves of the Iron Throne, having heard of the stralite beneath the island, manipulated the king into mining it and selling it to them for a fraction of its true worth. Also, despite Southspar's decidedly puny military power, the king saw fit to send whatever troops he could muster to aid mainland human kingdoms in their great and many wars against the halflings, who up to this point had barely registered Southspar's existence. Not only were the undertrained, ill-equipped troops crushed like vermin before the superior halfling forces, but also these foolhardy attacks succeeded in attracting the halflings' attention to their secluded island. Almost immediately, the raids began.
+소문에 의하면, 사우스스파는 살기 좋은 곳이었다고 한다. 기후 조건은 적절했고, 육지에 있던 인간들의 왕국과는 좋은 관계 속에서 교역이 이루어졌으며, 운 좋게도 이 왕국의 지하에는 엄청난 가치를 지닌 금속인 스트라라이트가 대량으로 존재하기까지 하였다.
 
-From what records remain, the king was mystified by the decline of his nation, believing to the end that every action he took had been the right one. He passed away soon after the halfling raids began. Whether it was suicide, assassination, or simple old age is unknown. The king never married and had no children, the only remaining member of his family being a distant cousin, a young man named Drake.
+그러나 이런 좋은 환경 속에서도 불구하고, 사우스스파는 평범한 왕국의 위치를 벗어나지 못하였다. 왜냐고? 이 나라의 왕 덕분이었다. 시간의 안개 속에 잊혀져 관직에 있는 사람이나 노인들조차도 이름을 알지 못하는 그 왕은, 사우스스파를 잘못 통치해 나라를 거의 멸망 직전까지 끌고 갔다. 철의 왕좌의 드워프들은 그 섬에 스트라라이트가 있다는 것을 듣고, 왕을 설득하여 그것을 헐값에 팔도록 유도하였다. 또한 사우스스파의 군사력은 아주 미약한 수준이었음에도 불구하고, 왕은 하플링과 수많은 대규모 전투를 벌이고 있는 인간 왕국에 원군을 아낌없이 지원해주었다. 부실한 장비와 훈련되지 않은 원군은 강력한 하플링 부대의 힘 앞에서는 벌레만도 못한 존재였을 뿐만 아니라, 그 무모한 공격은 하플링들이 사우스스파에 관심을 가지게 만들었다. 과도한 원군 지원으로 인해 나라에 병력이 거의 없어졌을 때, 하플링들의 침략은 시작되었다.
 
-And so it was that Drake ascended to the throne, and Southspar entered a golden age.
+남은 기록에 의하면, 왕은 자신의 왕국이 몰락해가는 것을 혼란스러워했다고 한다. 마지막까지 자신이 행했던 모든 행동들이 옳았던 것이라고 믿으면서, 그는 하플링들의 침략이 시작된 지 얼마 되지 않아 사망하였다. 사인이 자살이었는지, 암살이었는지, 그저 노환이었는지는 아무도 모른다. 왕은 결혼하지 않았고 아이도 없었으며, 그의 왕위를 물려받을 혈육이라고는 그의 먼 사촌이며 드레이크 (Drake) 라는 이름을 가진, 젊은이 하나 뿐이었다.
 
-#{bold}#1. Drake and the Halfling Horde.#{normal}#
+그리하여 드레이크는 왕위에 오르게 되었고, 곧 사우스스파의 황금기가 시작되었다.
 
-To the newly crowned Drake, the most obvious and immediate threat to Southspar was the growing raids and sorties being held by the halflings. To this end, he ordered a complete and total reconstruction of Southspar's military, turning them from a ragtag bunch of militia into a small yet devastatingly efficient engine of war. Drake knew that the only advantage his forces held over the halflings was their knowledge of the island, and so bade them to travel stealthily, carry small, armour-defeating stralite knives rather than spears and swords, and only engage with the halflings strictly on their own terms. Southspar's newly assembled "Army of Rogues" was a success. Although the halflings were great in number, strike after surgical strike from Drake's army weighed heavily on their morale, and finally, grumpily declaring Southspar "not worth the bother", the halfling forces withdrew.
+#{bold}#1. 드레이크와 하플링 무리.#{normal}#
 
-Southspar celebrated its peace and its newly found military might, but for Drake, the celebration was short-lived. The stralite he had used to craft his Army of Rogues' knives and armour was stralite that wasn't going into the Dwarves' pockets, and they were far from happy. Drake formulated a plan - by the time he was through, the Dwarves would be even further from happy.
+새롭게 왕위에 오른 드레이크는, 현 시점에서 가장 명확하고 즉각적인 위협은 하플링의 늘어만 가는 침략이라고 보았다. 이것을 해결하기 위해, 그는 사우스스파의 군대를 전면적으로 재조직하기로 하였다. 그가 볼 때, 오합지졸 무리인 사우스스파의 군인들이 저 하플링들보다 유리한 점은 단 하나였다. 바로 이 섬의 지리에 대해 통달해있다는 것이었다. 그는 군대 조직을 작지만 파괴적인 살인병기와도 같은 부대로 만들었으며, 지리에 대한 이점을 살려 언제나 은밀하게 다니고, 최소한의 무장만 하며, 창과 검보다는 갑옷을 종잇장처럼 뚫어버릴 수 있는 스트라라이트제 단검을 들고 다니게 하였으며, 하플링 부대가 방심하고 있을 때 기습 위주의 공격만을 하라고 하였다. 이렇게 만들어진 사우스스파의 “도적 부대” 는 성공적이었다. 하플링 부대의 숫자는 어마어마했지만, 드레이크 군의 지속적인 기습공격에 하플링 군대의 사기는 급속히 떨어졌다. 마침내, 하플링 군대는 사우스스파에 “상종할 가치도 없다” 는 말을 남기고 철수하였다.
 
-#{bold}#2. Drake and the Stralite Stratagem.#{normal}#
+사우스스파는 이 평화와 새롭게 만들어진 군대의 힘을 기리는 축제를 열었다. 그러나 드레이크에게 있어, 이 즐거움은 오래가지 않았다. 도적 부대의 단검과 갑옷을 만드는 스트라라이트는 여전히 드워프들의 주머니 속에 있었기 때문에, 아직 행복을 느끼기에는 멀었다고 생각한 것이다. 드레이크는 한가지 계획을 세웠다. 이 계획이 실행되기 전까지는, 드워프들이 우리보다 더 행복해하고 있을 것이다.
 
-The Dwarves have always been a secretive race. Even now only a select few know the location of their "Iron Council", and in the days of Southspar there were still those who considered Dwarves nothing but myth. Being a monarch in possession of large amounts of stralite can open even the most concealed of doors, however... Drake had requested an audience with the Iron Council, and the Dwarves, expecting said audience to be a humble apology and promises of further stralite for the gold they were paying, readily accepted.
+#{bold}#2. 드레이크와 스트라라이트 탈환계획 #{normal}#
 
-What they got, in reality, was quite different. Gone was the ineffectual king of Southspar's past, and now the Dwarves found themselves facing a young, hard-eyed human who was demanding that the amount of gold that the Dwarves were paying for Southspar's stralite be increased twenty-fold.
+드워프들은 언제나 비밀스러운 종족이었다. 지금도 그들이 사는 곳인 “철의 왕좌” 의 위치를 아는 사람의 숫자는 그리 많지 않으며, 더욱이 사우스스파가 있던 시대의 사람들은 드워프를 그저 신화 속의 존재일 뿐이라고까지 생각하였다. 엄청난 양의 스트라라이트는 그들의 비밀스러운 문을 열기에 충분했지만...
 
-To say the Dwarves scoffed at this would be an understatement; open, derisive laughter hits nearer the mark. Despite Southspar's recent repulsion of the halflings, the Dwarves of the Iron Throne saw no problem in taking Southspar's stralite by force. In his heart, Drake knew they could accomplish this, and it was to this end that he had brought the small pouch around his neck to the Council.
+드레이크는 철의 왕좌에 직접 발을 옮겼다. 이 소식을 들은 그곳의 드워프들은 아마 새로운 왕이 지금까지 스트라라이트를 지나치게 싼 값에 구매해왔던 것에 대한 가벼운 사과와 앞으로 스트라라이트를 정상적인 가격에 구매해줄 것을 요청하리라고 예상하였으며, 그것을 수용할 준비를 하고 있었다.
 
-Drake held the small, drakeskin pouch high, opened it and emptied its contents onto the floor: Stralite, ground to dust, muddied with dirt and base metals, made unusable and worthless. The Dwarves of the Council gasped in horror at this waste, one (if rumours are to be believed) even fainting on the spot. Drake went on to say that, if his demands were not met, the entirety of the stralite beneath his island would meet the same fate as the stralite cast upon the chamber's floor.
+하지만 현실은 그렇지 않았다. 과거의 무능력했던 사우스스파의 왕은 사라졌으며, 드워프들이 마주한 것은 앞으로 스트라라이트의 가격을 20 배로 올릴 것을 선언한 젊고 냉엄한 왕이었다.
 
-By the time Drake left the Iron Council, the Dwarves had agreed to pay thirty times the previous amount.
+드워프들은 최대한 절제하며 이 당돌한 왕의 요구를 비웃었다. 최근 사우스스파가 하플링 군대를 격퇴했다는 소식을 듣기는 했지만, 드워프들은 여전히 사우스스파의 스트라라이트는 언제든지 무력으로 빼앗아올 수 있다고 생각하고 있었기 때문이다. 하지만 드레이크는 그들이 이 요구를 받아들일 수밖에 없는 방법을 이미 생각해왔으며, 이를 실행하기 위해 작은 주머니를 꺼내 들었다.
+
+드레이크는 용가죽으로 만든 작은 주머니를 높게 들어올리더니, 안에 들어있던 내용물을 모조리 바닥에 쏟아내었다. 주머니 안에 있던 많은 양의 스트라라이트가 바닥의 먼지와 진흙과 잡석과 섞여, 쓸모 없고 가치 없는 쇳덩어리가 되고 말았다. 드워프들은 이 지독한 낭비에 기겁하였으며, 소문이 사실이라면 이 자리에서 졸도한 드워프마저 있었다. 드레이크는 그들에게, 만약 자신의 요구가 받아들여지지 않는다면 그의 왕국에 묻혀 있는 모든 스트라라이트도 지금과 같은 운명을 맞이하게 될 것이라고 소리 높여 외쳤다.
+
+드레이크가 철의 왕좌를 떠나고 난 뒤, 드워프들은 이전보다 스트라라이트의 가격을 30 배 더 올리는 것에 동의하였다.
 ]]
 }
 
 newLore{
 	id = "southspar-note-2",
 	category = "southspar",
-	name = "The Pale King, part two",
-	lore = [[#{bold}#3. Drake and the Conclave Mages.#{normal}#
+	name = "창백한 왕, 그 두 번째 이야기",
+	lore = [[#{bold}#3. 드레이크 (Drake) 와 은둔한 마법사들#{normal}#
 
-With its borders unassailed, ands its coffers rapidly filling with Dwarven gold, many believed that the fortune of Southspar could not increase any further. Drake, however, had one last task to accomplish, and it regarded the Conclave.
+더 이상 외세의 침략은 없었으며, 금고는 드워프들이 지불한 금으로 빠르게 차오르기 시작하였다. 많은 사람들이 사우스스파 (Southspar) 의 행운은 이 이상 커질 수 없을 것이라고 생각하였다. 하지만 드레이크에게는 하나의 과제가 더 남아있었다. 바로 ‘은둔자’ 들에 대한 문제였다.
 
-For a long time, a small number of Conclave mages had made their home in Southspar. The remote location and the doddering nature of its old king meant that they could perform experiments and practice magic that would have been disallowed on the mainland. Being reclusive by nature, only a few of their group had heard of the rise of the new king, and none of them had cared much. Drake's royal guards breaking down the door of their study, followed by the king himself, gave them cause to care. Drake had for them an ultimatum:
+오랜 세월 동안, 사우스스파에는 소수의 은둔한 마법사들이 살아오고 있었다. 이전 왕의 무능함과 이들이 외딴 지역에 산다는 것은, 이들이 대륙에서는 금지된 마법의 연습과 실험을 할 수 있게 된다는 것을 의미하였다. 자연 속에서 은둔하고 있는 그들 중에, 새로운 왕에 대한 소식을 들은 사람은 몇 명 되지 않았다. 대부분은 이 소식에 신경조차 쓰지 않았다. 드레이크의 친위대는 이 마법사들이 살고 있던 집의 문을 박차고 들어가, 새로운 왕에 충성을 맹세하고 왕을 도울 것을 요구하였다. 드레이크는 그들에게 최초이자 최후통첩을 내렸다.
 
-"This is the kingdom of Southspar, my kingdom, and so everything within her borders must be within my control. This applies to her people, her land, her resources, and now her magic. I shall allow you to remain here in Southspar on one condition: You become members of my royal court, obey my commands, and use your magic for the betterment of the kingdom. When un-needed you may tend to your Conclave matters as you will, but your greatest loyalty will be to me. Do you accept?"
+“이곳은 사우스스파 왕국이다. 바로 나의 왕국이다. 내 왕국에 있는 모든 것들은 나의 통제권 아래에 있다. 나의 국민, 나의 대지, 나의 자원, 그리고 나의 마법 역시 마찬가지이다. 사우스스파에 계속 살고 싶다면, 한 가지 조건이 있다. 내 왕국의 일원이 되어, 나의 명령에 복종하며, 왕국의 발전을 위해 마법을 사용할 것이 바로 그 조건이다. 필요할 때를 제외하면, 계속 은둔을 하건 말건 그것은 너희들의 자유이다. 하지만 너희들의 충성심은 나의 것이여야만 한다. 나를 따르겠는가?”
 
-The Conclave mages' response? Laughter. But this laughter was not the mocking laughter of the Dwarves, but laughter of disbelief. As recorded, the mages' response went as:
+은둔한 마법사들의 반응? 그들은 웃었다. 하지만 이 웃음은 드워프들이 지었던 비웃음이 아닌, 믿을 수 없다는 웃음이었다. 기록에 의하면, 마법사들은 이렇게 대답하였다.
 
-"King Drake! You needn't have bothered us with such a stern ultimatum! A simple request would have sufficed. True, in the past we may have chosen to reside here for simple seclusion, but it is hard to ignore Southspar's rising star. This kingdom's glory shall continue to grow, and we want to be a part of it. We accept."
+“드레이크 왕이시여! 당신은 이런 딱딱한 최후통첩 따위로 우리를 겁먹게 할 필요가 없습니다! 그저 간단한 요청 하나면 충분했을 것입니다. 사실, 지금까지 우리들은 단순히 사람들의 눈에 띄지 않는다는 이유 하나만으로 이곳에서 살고 있었습니다. 하지만 이제는 사우스스파의 떠오르는 별을 무시할 수가 없군요. 왕국의 영광은 계속될 것이며, 우리는 그 영광의 일부가 될 것입니다. 당신을 따르겠습니다.”
 
-Freedom from halfling attacks, Dwarven fortunes, and now the magic of the Conclave blessed Southspar. What, the common people thought, could possibly happen next?
+하플링의 침략에서 자유로워졌으며, 드워프들의 금, 이제는 은둔자들의 마법까지도 사우스스파의 미래를 축복하고 있다. 사람들은 과연 다음에는 무슨 일이 일어날지 예상할 수조차 없었다.
 
-Mere weeks after the Conclave joined the royal court, Drake fell ill and died.
+그리고 이 사건이 일어난 몇 주 뒤, 드레이크 왕은 병에 걸려 사망하였다.
 
-#{bold}#4. Drake and the Empty Throne.#{normal}#
+#{bold}#4. 드레이크와 텅 빈 왕좌#{normal}#
 
-Drake was dead, and Southspar's people were struck with depression and outright horror. Their king, who was fast on his way to making their kingdom one of the greatest in Maj'Eyal, was no more. The throne lay empty; not a single soul vied for the now vacant position of king. As far as Southspar's citizens were concerned, it was Drake's throne, nobody else's.
+드레이크는 죽었고, 사우스스파의 사람들은 충격과 공포에 빠졌다. 마즈’ 에이알 (Maj’Eyal) 에서 가장 위대한 왕국을 만들기 위해 그의 길을 걸었던, 그들의 왕은 더 이상 없었다. 왕좌는 텅 빈 채로 방치되었다. 감히 그 어느 누구도 왕의 자리를 노리지 않았다. 사우스스파의 모든 시민들은, 그 왕좌는 오직 드레이크만의 자리였으며 다른 누구도 왕의 자리에 앉을 수는 없다고 생각하였다.
 
-The norm in tales like this would be that the kingdom slowly managed to get back on its feet, recover from the loss of their king, and finally return to a state resembling normalcy. Not so for Southspar. Drake's demise had left a wound that was not healing, and it was clear that something had to be done. One of the men closest to Drake in his life, his chancellor, left abruptly on a mysterious "errand", hoping that the kingdom would not crumble before his return. After a period of some months he did return, and his first port of call? The study of the Conclave mages. He held in his hand a tome, bound in skin and marked with blood-red runes. Its subject matter was obvious: Necromancy. The chancellor had but one command for the mages:
+보통 이런 이야기의 일반적인 결말은 천천히 왕국이 정상화되고, 사람들은 왕을 잃은 슬픔을 이겨내며, 마침내 정상적인 상태로 돌아가는 흐름일 것이다. 그러나 사우스스파는 그렇지 않았다. 드레이크의 죽음은 결코 회복되지 않는 상처를 남겼다. 누군가는 이런 상황을 끝내야만 했다. 그리고 드레이크의 일생에서 가장 가까운 사이였던 남자, 왕국의 재상은 갑자기 어떤 “일” 을 해야 한다며 사라졌다. 그가 돌아오기 전까지 왕국이 멸망하지 않기를 바라면서...
 
-"Bring him back."
+몇 달 뒤, 그는 돌아왔다. 그가 돌아와서 첫 번째로 간 곳? 은둔한 마법사들이 있는 곳이었다. 그의 손에는 두꺼운 마법서 한 권이 들려있었으며, 그의 피부에는 핏빛 룬이 그려져 있었다. 그의 목적은 분명했다. 강령술... 재상은 마법사들에게 짧은 명령을 내렸다.
 
-#{bold}#5. Drake and the Pale Kingdom.#{normal}#
+“그를 부활시켜라.”
 
-Here, sadly, definitive facts on Southspar and Drake's fate vanish. Some say that Drake's rebirth was a resounding success, and Southspar's star continued to rise as the now skeletal Drake retook the throne, the gaze from his exposed skull unchanged from his mortal visage. Others believe that the madness that grasps those returned from the grave took him, and with the new powers that the Conclave had blessed him with began a reign of terror that drowned Southspar in blood. The only fact that can be known for certain was the new name his subjects gave to him in his death: Pale King Drake, the Pale King, or simply Pale Drake.
+#{bold}#5. 드레이크와 창백한 왕국 #{normal}#
 
-I leave you with a copy of one of the last pieces of Southspar's history, a partially destroyed scrap of parchment, supposedly written moments before the Cataclysm and Southspar's destruction, falling beneath the waves along with the rest of Tar'Eyal.
+슬프게도, 이후에 사우스스파와 드레이크가 어떻게 되었는지에 대해서는 그 어떤 증거도 찾을 수 없다. 누군가는 드레이크의 부활이 완전히 성공하여, 뼈만 남은 드레이크가 다시 왕좌에 앉고 사우스스파의 번영은 계속되었으며, 뼈밖에 남지 않은 그의 시선은 생전의 그것과 달라지지 않았다고 말한다. 다른 자들은 무덤에서 다시 일어난 그는 광기에 빠져, 은둔한 마법사들이 그에게 내린 힘으로 사우스스파를 피바다로 만든 공포의 군주가 되었다고도 말한다. 한 가지 확실한 것은, 왕국의 신하들이 그의 부활한 후에 붙여준 새로운 이름에 대한 것이다. 신하들은 부활한 그를 “창백한 왕 드레이크”, “창백한 왕”, 아니면 간단하게 “창백한 드레이크” 라고 불렀다.
 
-"Time grows pressi... ... ome in the boat... ... found. The binding w... a success. Now, to the sea, to l... ... ew, and Dreadfe... ... oble king. Rot in my new du... as you will!"]]
+여기 사우스스파의 역사가 담긴, 대재앙과 사우스스파의 멸망 전에 남겨진, 타르’에이알 (Tar’Eyal) 의 유산과도 같은, 손상된 마지막 양피지 조각의 사본을 남긴다. 
+
+"시간은 흘러... ...보트 안의... ...찾아라. 묶여 있던... 성공이었다. 이제, 바다로 가서, ... ..., 그리고 드레드펠 (Dreadfell)... ...인 왕. 나의 새로운... 썩어... 너의 의지에 따르라!"]]
 }
 
 newLore{
