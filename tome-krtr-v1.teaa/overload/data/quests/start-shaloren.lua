@@ -17,13 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 name = "Echoes of the Spellblaze"
-kr_display_name = "스펠블레이즈의 울림"
+kr_display_name = "마법폭발의 울림"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "당신은 번득이는 동굴(the scintillating caves) 안에 스펠블레이즈 기운이 서려있는 수상한 수정이 있다는 얘기를 들었습니다.\n"
+	desc[#desc+1] = "당신은 번득이는 동굴(the scintillating caves) 안에 마법폭발 기운이 서려있는 수상한 수정이 있다는 얘기를 들었습니다.\n"
 	desc[#desc+1] = "서쪽의 샬로레 반역자 수용소(a renegade Shaloren camp)에도 많은 소문이 있습니다.\n"
 	if self:isCompleted("spellblaze") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 번득이는 동굴(the scintillating caves)을 탐험해 스펠블레이즈의 수정(the Spellblaze Crystal)을 파괴했습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 번득이는 동굴(the scintillating caves)을 탐험해 마법폭발의 수정(the Spellblaze Crystal)을 파괴했습니다.#WHITE#"
 	else
 		desc[#desc+1] = "#SLATE#* 당신은 번득이는 동굴(the scintillating caves)을 탐험해야 합니다.#WHITE#"
 	end

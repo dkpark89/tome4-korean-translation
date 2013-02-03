@@ -736,7 +736,7 @@ function string.krLoreCategory(str)
 	elseif ori == "sher'tul" then return "쉐르'툴"
 	elseif ori == "slazish fens" then return "슬라지쉬 늪지"
 	elseif ori == "southspar" then return "남쪽스파" --@@?? spar의 뜻
-	elseif ori == "spellblaze" then return "스펠블레이즈"
+	elseif ori == "spellblaze" then return "마법폭발"
 	elseif ori == "temple of creation" then return "창조의 사원"
 	elseif ori == "trollmire" then return "트롤늪"
 	elseif ori == "vault" then return "금고"

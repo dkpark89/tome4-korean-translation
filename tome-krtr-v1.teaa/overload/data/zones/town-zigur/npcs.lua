@@ -73,7 +73,7 @@ newEntity{ base = "BASE_NPC_ELVEN_CASTER", define_as = "GRAND_CORRUPTOR",
 load("/data/general/npcs/ziguranth.lua", function(e) if e.rarity then e.rarity, e.ziguranth_rarity = nil, e.rarity end end)
 newEntity{ base = "BASE_NPC_ZIGURANTH", define_as = "PROTECTOR_MYSSIL",
 	name = "Protector Myssil", color=colors.VIOLET, unique = true,
-	kr_display_name = "보호자 미씰",
+	kr_display_name = "수호자 미씰",
 	desc = [[어두운 강철 판갑을 입은 하플링 지구르 추종자입니다. 그녀가 현재 지구르의 지도자입니다.]],
 	female = true, subtype = "halfling",
 	level_range = {30, nil}, exp_worth = 1,

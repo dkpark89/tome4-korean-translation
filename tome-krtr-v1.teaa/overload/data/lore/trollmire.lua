@@ -24,7 +24,8 @@
 newLore{
 	id = "trollmire-note-1",
 	category = "trollmire",
-	name = "트롤 늪 (Trollmire) 에서 발견한 낡은 종이 조각",
+	name = "tattered paper scrap (trollmire)",
+	kr_display_name = "트롤 늪에서 발견한 낡은 종이 조각",
 	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
 "...굉장히 멋진 숲 속의 공터다. 하지만 맹세컨데, 방금 전에 본 그건 분명 사람의 뼛조각이 분명하다.
 
@@ -36,7 +37,8 @@ newLore{
 newLore{
 	id = "trollmire-note-2",
 	category = "trollmire",
-	name = "트롤 늪 (Trollmire) 에서 발견한 낡은 종이 조각",
+	name = "tattered paper scrap (trollmire)",
+	kr_display_name = "트롤 늪에서 발견한 낡은 종이 조각",
 	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
 "...아왔다. 아무리 그래도 트롤은 트롤일 뿐이다. 내 발자취를 숨기는 것은 그리 어렵지 않을 것이다.
 
@@ -48,7 +50,8 @@ newLore{
 newLore{
 	id = "trollmire-note-3",
 	category = "trollmire",
-	name = "트롤 늪 (Trollmire) 에서 발견한 낡은 종이 조각",
+	name = "tattered paper scrap (trollmire)",
+	kr_display_name = "트롤 늪에서 발견한 낡은 종이 조각",
 	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
 	
 "...나무 위에서 이것을 쓴다. 그는 나무 아래에서 나를 기다리고 있다. 그의 몽둥이는 큰 드워프 만큼이나 크다. 여기서 빠져나갈 방법이 생각나지 않는다..."

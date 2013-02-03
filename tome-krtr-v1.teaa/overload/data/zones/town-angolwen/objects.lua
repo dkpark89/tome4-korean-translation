@@ -23,8 +23,8 @@ newEntity{ base = "BASE_LORE",
 	define_as = "LINANIIL_LECTURE",
 	subtype = "lecture on humility", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "Lecture on Humility by Archmage Linaniil", lore="angolwen-linaniil-lecture",
-	kr_display_name = "겸손함에 대한 강연 - 마도사 리나니일", --@@ lore 번역시 수정 필요
-	desc = [[Lecture on Humility by Archmage Linaniil. A tale of the first ages and the Spellblaze.]],
+	kr_display_name = "마도사 리나니일의 겸손에 대한 강의",
+	desc = [[마도사 리나니일의 겸손에 대한 강의입니다. 첫번째 시대와 마법폭발에 관한 이야기입니다.]],
 	rarity = false,
 	cost = 2,
 }
@@ -33,8 +33,8 @@ newEntity{ base = "BASE_LORE",
 	define_as = "TARELION_LECTURE_MAGIC",
 	subtype = "magic teaching", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "'What is Magic' by Archmage Tarelion", lore="angolwen-tarelion-magic",
-	kr_display_name = "'마법이란 무엇인가' - 마도사 타렐리온", --@@ lore 번역시 수정 필요
-	desc = [[Lecture on the nature of magic by Archmage Tarelion.]],
+	kr_display_name = "마도사 타렐리온의 강의 '마법이란 무엇인가'",
+	desc = [[마도사 타렐리온의 자연에 대한 강의입니다.]],
 	rarity = false,
 	cost = 2,
 }

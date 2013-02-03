@@ -49,7 +49,7 @@ newEntity{ base = "BASE_LORE",
 	define_as = "SOUTHSPAR_NOTE"..i,
 	subtype = "southspar", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "the Pale King part "..(i==1 and "one" or "two"), lore="southspar-note-"..i,
-	kr_display_name = "창백한 왕 "..(i==1 and "상" or "하"), --@@ lore 번역시 수정 필요
+	kr_display_name = "창백한 왕 "..(i==1 and "상" or "하"),
 	desc = [[A study into Southspar's most unusual ruler.]],
 	rarity = false,
 	encumberance = 0,

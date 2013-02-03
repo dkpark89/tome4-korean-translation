@@ -490,7 +490,8 @@ Gone is trust, wrath is red.#{normal}#
 newLore{
 	id = "eden-guile",
 	category = "artifacts",
-	name = "달리는 자",
+	name = "Running man",
+	kr_display_name = "달리는 자",
 	lore = [[달리는 자여, 달리는 자여
 너에게 주어진 시간이 끝나가는구나
 달리는 자여, 달리는 자여

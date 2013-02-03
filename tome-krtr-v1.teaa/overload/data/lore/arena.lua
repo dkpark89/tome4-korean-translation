@@ -1,7 +1,8 @@
 ﻿newLore{
 	id = "arena-scoring",
 	category = "arena",
-	name = "멍청이들을 위한 투기장 설명서",
+	name = "Arena for dummies",
+	kr_display_name = "멍청이들을 위한 투기장 설명서",
 	lore = [[#{italic}#몇몇 단어가 특별히 강조된 쪽지를 발견하였다...
 #{bold}#투기장에서 점수를 얻는 법
 
