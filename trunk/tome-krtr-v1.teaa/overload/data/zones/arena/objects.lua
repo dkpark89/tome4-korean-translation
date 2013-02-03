@@ -25,7 +25,7 @@ local Talents = require "engine.interface.ActorTalents"
 newEntity{ base = "BASE_LORE",
 	define_as = "ARENA_SCORING",
 	name = "Arena for dummies", lore="arena-scoring",
-	kr_display_name = "허수아비를 위한 투기장", --@@ lore 번역후 수정 필요
+	kr_display_name = "멍청이들을 위한 투기장 설명서",
 	desc = [[투기장의 점수 규칙을 설명하는 종이입니다. 어떤 사람이 떨어뜨린 것이 분명합니다.]],
 	rarity = false,
 	encumberance = 0,

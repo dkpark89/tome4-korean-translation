@@ -23,8 +23,8 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "journal page", lore="kor-pul-note-"..i,
-	kr_display_name = "여행 기록", --@@ lore 번역시 수정 필요
-	desc = [[어떤 모험가가 남긴 여행 기록입니다.]],
+	kr_display_name = "여행 일지",
+	desc = [[어떤 모험가가 남긴 여행 일지의 일부입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

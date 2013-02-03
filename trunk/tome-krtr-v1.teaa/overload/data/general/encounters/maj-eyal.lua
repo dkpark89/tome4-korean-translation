@@ -68,8 +68,8 @@ newEntity{
 }
 
 newEntity{
-	name = "Sect of Kryl-Faijan",
-	kr_display_name = "크릴-파이얀의 이교도",
+	name = "Sect of Kryl-Feijan",
+	kr_display_name = "크릴-페이얀의 이교도",
 	type = "hostile", subtype = "special", unique = true,
 	level_range = {24, 35},
 	rarity = 7,
@@ -162,7 +162,7 @@ newEntity{
 
 newEntity{
 	name = "Mark of the Spellblaze",
-	kr_display_name = "스펠블레이즈의 표시",
+	kr_display_name = "마법폭발의 흔적",
 	type = "harmless", subtype = "special", unique = true,
 	immediate = {"world-encounter", "mark-spellblaze"},
 	on_encounter = function(self, who)
@@ -172,7 +172,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Mark of the Spellblaze"
-		g.kr_display_name = "스펠블레이즈의 표시"
+		g.kr_display_name = "마법폭발의 흔적"
 		g.display='>' g.color_r=0 g.color_g=200 g.color_b=0 g.notice = true
 		g.change_level=1 g.change_zone="mark-spellblaze" g.glow=true
 		g.add_displays = g.add_displays or {}

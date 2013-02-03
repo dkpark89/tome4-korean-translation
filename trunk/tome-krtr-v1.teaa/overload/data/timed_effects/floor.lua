@@ -66,7 +66,7 @@ floorEffect{
 
 floorEffect{
 	desc = "Spellblaze Scar", image = "talents/blood_boil.png",
-	kr_display_name = "스펠블레이즈의 상처",
+	kr_display_name = "마법폭발의 상처",
 	long_desc = "The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_spellcrit", 25)

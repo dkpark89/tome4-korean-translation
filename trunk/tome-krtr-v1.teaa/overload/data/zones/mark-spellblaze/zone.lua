@@ -19,7 +19,7 @@
 
 return {
 	name = "Mark of the Spellblaze",
-	kr_display_name = "스펠블레이즈의 표시",
+	kr_display_name = "마법폭발의 흔적",
 	level_range = {25, 35},
 	level_scheme = "player",
 	max_level = 2,

@@ -23,7 +23,7 @@ newEntity{ base = "BASE_LORE",
 	define_as = "ZIGUR_HISTORY",
 	subtype = "the great evil", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "The Great Evil", lore="zigur-history",
-	kr_display_name = "거대한 사악함", --@@ lore 번역시 수정 필요
+	kr_display_name = "진정한 악",
 	desc = [[마법의 공포에 대한 역사.]],
 	rarity = false,
 	encumberance = 0,

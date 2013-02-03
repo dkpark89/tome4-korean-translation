@@ -147,7 +147,7 @@ newEntity{ base = "BASE_NPC_ORC_GORBAT",
 
 newEntity{ base = "BASE_NPC_ORC_GORBAT",
 	name = "orc mage-hunter", color=colors.HONEYDEW,
-	kr_display_name = "오크 마법사-사냥꾼",
+	kr_display_name = "오크 마법사냥꾼",
 	desc = [[판갑을 입은 오크입니다. 그 주변의 마법은 모두 사라져 버립니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 4,

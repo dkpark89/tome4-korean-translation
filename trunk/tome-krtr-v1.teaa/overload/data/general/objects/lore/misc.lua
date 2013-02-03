@@ -19,7 +19,8 @@
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "The story of my salvation", lore="zigur-potion", unique=true,
-	desc = [[An old tale about the fear of magic]],
+	kr_display_name = "나의 구원받은 이야기",
+	desc = [[마법의 공포에 대한 오래된 이야기]],
 	level_range = {1, 20},
 	rarity = 40,
 }
