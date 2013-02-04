@@ -222,7 +222,7 @@ function _M:use(item)
 		self.actor:check("on_resurrect", "cheat")
 	elseif act == "blood_life" then
 		self.actor.blood_life = false
-		game.logPlayer(self.actor, "#LIGHT_RED#생명의 피(the Blood of Life)가 죽은 육체에 흐르기 시작합니다. 다시 살아났습니다!")
+		game.logPlayer(self.actor, "#LIGHT_RED#생명의 피(Blood of Life)가 죽은 육체에 흐르기 시작합니다. 다시 살아났습니다!")
 
 		self:cleanActor(self.actor)
 		self:resurrectBasic(self.actor)
@@ -291,8 +291,8 @@ function _M:generateList()
 			self.dont_show = true
 			return
 		end
-		if self.actor:attr("blood_life") and not self.actor:attr("undead") then list[#list+1] = {name="생명의 피(the Blood of Life)로 부활하기", action="blood_life"} end
-		if self.actor:getTalentLevelRaw(self.actor.T_SKELETON_REASSEMBLE) >= 5 and not self.actor:attr("re-assembled") then list[#list+1] = {name="뼈의 재조합으로 부활하기 (해골 능력)", action="skeleton"} end
+		if self.actor:attr("blood_life") and not self.actor:attr("undead") then list[#list+1] = {name="생명의 피(Blood of Life)로 부활하기", action="blood_life"} end
+		if self.actor:getTalentLevelRaw(self.actor.T_SKELETON_REASSEMBLE) >= 5 and not self.actor:attr("re-assembled") then list[#list+1] = {name="(해골 능력) 뼈의 재조합으로 부활하기", action="skeleton"} end
 
 		local consumenb = 1
 		self.actor:inventoryApplyAll(function(inven, item, o)
