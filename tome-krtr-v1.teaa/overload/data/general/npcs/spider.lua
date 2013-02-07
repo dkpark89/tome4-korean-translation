@@ -155,7 +155,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "faerlhing", color=colors.PURPLE,  -- spirit spider (arcane)
-	kr_display_name = "패를힝",
+	kr_display_name = "파에를힝",
 	desc = [[마나의 흐름을 지배하는 것처럼 보이는 거미입니다. 마나가 그 몸속으로 자유롭게 들락거립니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 4,
