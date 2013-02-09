@@ -87,7 +87,7 @@ newEntity{ define_as = "ORB_MANY_WAYS",
 	encumber = 1,
 	plot = true, quest = true,
 	desc = [[이 오브는 계속 바뀌면서 먼 곳을 보여줍니다. 어떤 장소는 이 세상이 아닌듯 보이기도 합니다.
-포탈 근처에서 사용하면, 활성화할 수 있을것 같습니다.]],
+관문 근처에서 사용하면, 활성화할 수 있을것 같습니다.]],
 
 	auto_hotkey = 1,
 
@@ -100,7 +100,7 @@ newEntity{ define_as = "ORB_MANY_WAYS",
 				world:gainAchievement("SLIDERS", who:resolveSource())
 				who:useOrbPortal(g.orb_portal)
 			else
-				game.logPlayer(who, "여기는 활성화하기 위한 포탈이 없습니다.")
+				game.logPlayer(who, "여기는 활성화하기 위한 관문이 없습니다.")
 			end
 			return {id=true, used=true}
 		end
@@ -127,10 +127,10 @@ newEntity{ define_as = "ORB_MANY_WAYS_DEMON",
 	encumber = 1,
 	plot = true, quest = true,
 	desc = [[이 오브는 계속 바뀌면서 먼 곳을 보여줍니다. 어떤 장소는 이 세상이 아닌듯 보이기도 합니다.
-포탈 근처에서 사용하면, 활성화할 수 있을것 같습니다.]],
+관문 근처에서 사용하면, 활성화할 수 있을것 같습니다.]],
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "포탈 활성화", power = 10,
+	use_power = { name = "관문 활성화", power = 10,
 		use = function(self, who)
 			local g = game.level.map(who.x, who.y, game.level.map.TERRAIN)
 			if g and g.orb_portal then
@@ -147,7 +147,7 @@ newEntity{ define_as = "ORB_MANY_WAYS_DEMON",
 					end,
 				}
 			else
-				game.logPlayer(who, "여기는 활성화하기 위한 포탈이 없습니다.")
+				game.logPlayer(who, "여기는 활성화하기 위한 관문이 없습니다.")
 			end
 			return {id=true, used=true}
 		end
@@ -349,7 +349,7 @@ newEntity{ base = "BASE_ROD",
 					game.logPlayer(who, "주변의 공간이 사라지기 시작합니다...")
 					return {id=true, used=true}
 				elseif game.zone.force_farportal_recall then
-					require("engine.ui.Dialog"):yesnoLongPopup("소환의 힘", "돌아오는 포탈을 찾지 않고 되돌림의 힘을 사용하면 탐험용 장거리포탈이 영원히 부서질 수도 있다고 요새의 그림자가 경고합니다.", 500, function(ret)
+					require("engine.ui.Dialog"):yesnoLongPopup("소환의 힘", "돌아오는 관문을 찾지 않고 되돌림의 힘을 사용하면 탐험용 장거리 관문이 영원히 부서질 수도 있다고 요새의 그림자가 경고합니다.", 500, function(ret)
 						if not ret then
 							who:setEffect(who.EFF_RECALL, 40, { where = self.shertul_fortress and "shertul-fortress" or nil, allow_override=true })
 							game.logPlayer(who, "주변의 공간이 사라지기 시작합니다...")

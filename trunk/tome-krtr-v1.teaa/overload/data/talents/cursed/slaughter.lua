@@ -17,8 +17,9 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-local Stats = require "engine.interface.ActorStats"
 require "engine.krtrUtils"
+
+local Stats = require "engine.interface.ActorStats"
 
 newTalent{
 	name = "Slash",

@@ -315,7 +315,7 @@ return {
 					elseif newRank == 24 then world:gainAchievement("GRAND_MASTER", game.player)
 					end
 					game.flyers:add(x, y, 90, 0, -0.5, "등급 상승!!", { 2, 57, 185 }, true)
-					game.log("#LIGHT_GREEN#관객들이 당신의 성과에 기뻐합니다! 당신의 등급은 이제 #WHITE#"..game.level.arena.ranks[newRank]:krRank().."#LIGHT_GREEN# 입니다!")
+					game.log("#LIGHT_GREEN#관객들이 당신의 성과에 기뻐합니다! 당신의 등급은 이제 #WHITE#"..game.level.arena.ranks[newRank].."#LIGHT_GREEN# 입니다!")
 				end
 			end,
 

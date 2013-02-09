@@ -150,7 +150,7 @@ local minions_list = {
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
 		name = "runed bone giant", color=colors.RED, 
-		kr_display_name = "룬을 새긴 해골 거인",
+		kr_display_name = "룬 해골 거인",
 		desc = [[수백 개의 시체에 룬을 새겨넣고, 증오의 마력을 주입시켜 만든 아주 강력한 언데드입니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_runed_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
@@ -285,7 +285,7 @@ newTalent{
 		기술 레벨이 1 이상이면, 일반적인 해골 거인을 만들어냅니다.
 		기술 레벨이 3 이상이면, 육중한 해골 거인을 만들어냅니다.
 		기술 레벨이 5 이상이면, 영겁의 해골 거인을 만들어냅니다.
-		기술 레벨이 6 이상이면, 20%% 확률로 룬을 새긴 해골 거인을 만들어냅니다.
+		기술 레벨이 6 이상이면, 20%% 확률로 룬 해골 거인을 만들어냅니다.
 		한번에 하나의 해골 거인만을 부릴 수 있습니다.]]):
 		format()
 	end,

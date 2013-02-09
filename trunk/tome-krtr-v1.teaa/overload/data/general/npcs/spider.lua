@@ -48,7 +48,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "giant spider", color=colors.LIGHT_DARK,
-	kr_display_name = "대형 거미",
+	kr_display_name = "거대 거미",
 	desc = [[거대한 거미로, 거미줄마저 커다랗습니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
@@ -155,7 +155,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "faerlhing", color=colors.PURPLE,  -- spirit spider (arcane)
-	kr_display_name = "파에를힝",
+	kr_display_name = "패를링",
 	desc = [[마나의 흐름을 지배하는 것처럼 보이는 거미입니다. 마나가 그 몸속으로 자유롭게 들락거립니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 4,

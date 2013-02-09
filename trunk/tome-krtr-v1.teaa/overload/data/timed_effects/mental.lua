@@ -293,7 +293,7 @@ newEffect{
 newEffect{
 	name = "DISMAYED", image = "talents/dismay.png",
 	desc = "Dismayed",
-	kr_display_name = "경악",
+	kr_display_name = "당황",
 	long_desc = function(self, eff) return ("The target is dismayed. The next melee attack against the target will be a guaranteed critical hit.") end,
 	type = "mental",
 	subtype = { gloom=true, confusion=true },
@@ -312,7 +312,7 @@ newEffect{
 newEffect{
 	name = "STALKER", image = "talents/stalk.png",
 	desc = "Stalking",
-	kr_display_name = "추적",
+	kr_display_name = "추적중",
 	display_desc = function(self, eff)
 		return ([[Stalking %d/%d +%d ]]):format(eff.target.life, eff.target.max_life, eff.bonus)
 	end,
@@ -346,7 +346,7 @@ newEffect{
 newEffect{
 	name = "STALKED", image = "effects/stalked.png",
 	desc = "Stalked",
-	kr_display_name = "추적됨",
+	kr_display_name = "추적당함",
 	long_desc = function(self, eff)
 		local effStalker = eff.source:hasEffect(eff.source.EFF_STALKER)
 		if not effStalker then return "Being stalked." end
@@ -397,7 +397,7 @@ newEffect{
 newEffect{
 	name = "BECKONED", image = "talents/beckon.png",
 	desc = "Beckoned",
-	kr_display_name = "목표지정",
+	kr_display_name = "목표 지정",
 	long_desc = function(self, eff)
 		local message = ("The target has been beckoned by %s and is heeding the call. There is a %d%% chance of moving towards the beckoner each turn."):format(eff.source.name, eff.chance)
 		if eff.spellpowerChangeId and eff.mindpowerChangeId then
@@ -1345,7 +1345,7 @@ newEffect{
 newEffect{
 	name = "KINSPIKE_SHIELD", image = "talents/kinetic_shield.png",
 	desc = "Spiked Kinetic Shield",
-	kr_display_name = "가시돋힌 동역학적 보호막",
+	kr_display_name = "동역학적 보호막의 파편",
 	long_desc = function(self, eff) return ("The target erects a powerful kinetic shield capable of absorbing %d/%d physical or acid damage before it crumbles."):format(self.kinspike_shield_absorb, eff.power) end,
 	type = "mental",
 	subtype = { telekinesis=true, shield=true },
@@ -1372,7 +1372,7 @@ newEffect{
 newEffect{
 	name = "THERMSPIKE_SHIELD", image = "talents/thermal_shield.png",
 	desc = "Spiked Thermal Shield",
-	kr_display_name = "가시돋힌 열역학적 보호막",
+	kr_display_name = "열역학적 보호막의 파편",
 	long_desc = function(self, eff) return ("The target erects a powerful thermal shield capable of absorbing %d/%d thermal damage before it crumbles."):format(self.thermspike_shield_absorb, eff.power) end,
 	type = "mental",
 	subtype = { telekinesis=true, shield=true },
@@ -1399,7 +1399,7 @@ newEffect{
 newEffect{
 	name = "CHARGESPIKE_SHIELD", image = "talents/charged_shield.png",
 	desc = "Spiked Charged Shield",
-	kr_display_name = "가시돋힌 전하적 보호막",
+	kr_display_name = "전하적 보호막의 파편",
 	long_desc = function(self, eff) return ("The target erects a powerful charged shield capable of absorbing %d/%d lightning or blight damage before it crumbles."):format(self.chargespike_shield_absorb, eff.power) end,
 	type = "mental",
 	subtype = { telekinesis=true, shield=true },
@@ -1889,7 +1889,7 @@ newEffect{
 newEffect{
 	name = "RAMPAGE", image = "talents/rampage.png",
 	desc = "Rampaging",
-	kr_display_name = "돌진",
+	kr_display_name = "광란",
 	long_desc = function(self, eff)
 		local desc = ("The target is rampaging! (+%d%% movement speed, +%d%% attack speed"):format(eff.movementSpeedChange * 100, eff.combatPhysSpeedChange * 100)
 		if eff.physicalDamageChange > 0 then
@@ -2110,7 +2110,7 @@ newEffect{
 newEffect{
 	name = "MIMIC", image = "talents/mimic.png",
 	desc = "Mimic",
-	kr_display_name = "흉내내기",
+	kr_display_name = "흉내 내기",
 	long_desc = function(self, eff)
 		if not eff.incStatsId then return "The target is mimicking a previous victim. (no gains)." end
 

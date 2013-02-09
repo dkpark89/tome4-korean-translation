@@ -2363,7 +2363,7 @@ function _M:die(src, death_note)
 		local kill = true
 		game:onTickEnd(function()
 			if game._chronoworlds == nil then
-				game.logPlayer(game.player, "#LIGHT_RED#중단된 실존 주문이 피식거리며 취소되고, 원래의 시공간으로 돌아갑니다.")
+				game.logPlayer(game.player, "#LIGHT_RED#중단된 실존 주문이 헛나가 취소되고, 원래의 시공간으로 돌아갑니다.")
 				kill = false
 				return
 			end

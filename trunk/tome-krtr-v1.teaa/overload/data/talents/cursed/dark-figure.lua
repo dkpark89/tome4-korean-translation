@@ -68,7 +68,7 @@ newTalent{
 	getPercent = function(self, t) return 15 + math.floor(self:getTalentLevel(t) * 10) end,
 	info = function(self, t)
 		local percent = t.getPercent(self, t)
-		return ([[자신의 저주를 끊임없이 억압해온 세월을 통해, 자신을 통제할 수 있는 능력을 얻었습니다. 부정적인 육체적, 정신적 상태효과의 지속시간이 %d%% 줄어듭니다.]]):format(percent)
+		return ([[자신의 저주를 끊임없이 억제해온 세월을 통해, 자신을 통제할 수 있는 능력을 얻었습니다. 부정적인 육체적, 정신적 상태효과의 지속시간이 %d%% 줄어듭니다.]]):format(percent)
 	end,
 }
 

@@ -26,12 +26,12 @@ load("/data/general/grids/cave.lua")
 newEntity{
 	define_as = "FAR_EAST_PORTAL",
 	name = "Farportal: the Far East",
-	kr_display_name = "장거리포탈: 동대륙",
+	kr_display_name = "장거리 관문: 동대륙",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
+	desc = [[장거리 관문은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
 이 것은 동대륙에 연결된 것으로 보입니다...]],
 
 	orb_portal = {
@@ -40,7 +40,7 @@ newEntity{
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="fareast"},
 		},
-		message = "#VIOLET#당신은 소용돌이 치는 포탈로 들어섰습니다. 눈을 깜박이자 포탈의 흔적은 없고, 동대륙에 서 있는 것을 알아차립니다...",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈을 깜박이자 관문의 흔적은 없고, 동대륙에 서 있는 것을 알아차립니다...",
 		on_use = function(self, who)
 		end,
 	},
@@ -59,12 +59,12 @@ newEntity{ base = "FAR_EAST_PORTAL", define_as = "CFAR_EAST_PORTAL",
 newEntity{
 	define_as = "WEST_PORTAL",
 	name = "Farportal: Iron Throne",
-	kr_display_name = "장거리포탈: 철의 왕좌",
+	kr_display_name = "장거리 관문: 철의 왕좌",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
+	desc = [[장거리 관문은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
 이 것은 서쪽의 철의 왕좌에 연결된 것으로 보입니다...]],
 
 	orb_portal = {
@@ -73,7 +73,7 @@ newEntity{
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="iron-throne"},
 		},
-		message = "#VIOLET#당신은 소용돌이 치는 포탈로 들어섰습니다. 눈을 깜박이자 포탈의 흔적은 없고, 철의 왕좌의 언덕에 서 있는 것을 알아차립니다...",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈을 깜박이자 관문의 흔적은 없고, 철의 왕좌의 언덕에 서 있는 것을 알아차립니다...",
 		on_use = function(self, who)
 		end,
 	},
@@ -92,12 +92,12 @@ newEntity{ base = "WEST_PORTAL", define_as = "CWEST_PORTAL",
 newEntity{
 	define_as = "VOID_PORTAL",
 	name = "Farportal: the Void",
-	kr_display_name = "장거리포탈: 공허",
+	kr_display_name = "장거리 관문: 공허",
 	display = '&', color=colors.DARK_GREY, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[장거리포탈은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
+	desc = [[장거리 관문은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
 이것은 이 세계의 것이 아닌 것 같은 알수 없는 장소에 연결된 것으로 보입니다. 감히 사용할 엄두가 나지 않습니다.]],
 }
 newEntity{ base = "VOID_PORTAL", define_as = "CVOID_PORTAL",
@@ -116,7 +116,7 @@ local invocation_close = function(self, who)
 	-- Remove the level spot
 	local spot = game.level:pickSpot{type="portal", subtype=self.summon}
 	if not spot then return end
-	game.logPlayer(who, "#LIGHT_BLUE#당시은 오브를 사용하여 쉽게 포탈을 닫았습니다.")
+	game.logPlayer(who, "#LIGHT_BLUE#당시은 오브를 사용하여 쉽게 관문을 닫았습니다.")
 	for i = 1, #game.level.spots do if game.level.spots[i] == spot then table.remove(game.level.spots, i) break end end
 	local g = game.level.map(spot.x, spot.y, engine.Map.TERRAIN)
 	g.name = g.name .. " (disabled)"
@@ -131,12 +131,12 @@ end
 newEntity{
 	define_as = "ORB_UNDEATH",
 	name = "Invocation Portal: Undeath", image = "terrain/marble_floor.png", add_mos = {{image="terrain/demon_portal4.png"}},
-	kr_display_name = "소환용 포탈: 역생",
+	kr_display_name = "소환용 관문: 역생",
 	display = '&', color=colors.GREY, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 포탈입니다.]],
+	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 관문입니다.]],
 	orb_command = {
 		summon = "undead",
 		special = invocation_close,
@@ -146,12 +146,12 @@ newEntity{
 newEntity{
 	define_as = "ORB_ELEMENTS",
 	name = "Invocation Portal: Elements", image = "terrain/marble_floor.png", add_mos = {{image="terrain/demon_portal4.png"}},
-	kr_display_name = "소환용 포탈: 정령",
+	kr_display_name = "소환용 관문: 정령",
 	display = '&', color=colors.LIGHT_RED, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 포탈입니다.]],
+	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 관문입니다.]],
 	orb_command = {
 		summon = "elemental",
 		special = invocation_close,
@@ -161,12 +161,12 @@ newEntity{
 newEntity{
 	define_as = "ORB_DRAGON",
 	name = "Invocation Portal: Dragons", image = "terrain/marble_floor.png", add_mos = {{image="terrain/demon_portal4.png"}},
-	kr_display_name = "소환용 포탈: 용",
+	kr_display_name = "소환용 관문: 용",
 	display = '&', color=colors.LIGHT_BLUE, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 포탈입니다.]],
+	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 관문입니다.]],
 	orb_command = {
 		summon = "dragon",
 		special = invocation_close,
@@ -176,12 +176,12 @@ newEntity{
 newEntity{
 	define_as = "ORB_DESTRUCTION",
 	name = "Invocation Portal: Destruction",  image = "terrain/marble_floor.png", add_mos = {{image="terrain/demon_portal4.png"}},
-	kr_display_name = "소환용 포탈: 파괴",
+	kr_display_name = "소환용 관문: 파괴",
 	display = '&', color=colors.WHITE, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 포탈입니다.]],
+	desc = [[이 곳을 통해 끊임없이 소환수가 나오는, 소환용 관문입니다.]],
 	orb_command = {
 		summon = "demon",
 		special = invocation_close,
@@ -191,15 +191,15 @@ newEntity{
 newEntity{
 	define_as = "PORTAL_BOSS",
 	name = "Portal: The Sanctum", image = "terrain/marble_floor.png", add_mos = {{image="terrain/demon_portal4.png"}},
-	kr_display_name = "포탈: 성소",
+	kr_display_name = "관문: 성소",
 	display = '&', color=colors.LIGHT_BLUE, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 포탈은 이 지역의 다른 장소로 연결되어 있는 것으로 보입니다.]],
+	desc = [[이 관문은 이 지역의 다른 장소로 연결되어 있는 것으로 보입니다.]],
 	orb_portal = {
 		nothing = true,
-		message = "#VIOLET#당신이 소용돌이치는 포탈로 들어서자, 다른 포탈들과 두명의 마법사가 있는 커다란 방이 나타납니다.",
+		message = "#VIOLET#당신이 소용돌이치는 관문으로 들어서자, 다른 관문들과 두명의 마법사가 있는 커다란 방이 나타납니다.",
 		on_use = function()
 			game:changeLevel(11, nil, {direct_switch=true}) -- Special level, can not get to it any other way
 			if game.player:hasQuest("high-peak"):isCompleted("sanctum-chat") then return end

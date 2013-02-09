@@ -255,7 +255,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "wyrmwaxed ", prefix=true, instant_resolve=true,
-	kr_display_name = "이무기밀랍을 입힌 ",
+	kr_display_name = "용밀랍을 입힌 ",
 	keywords = {wyrmwaxed=true},
 	level_range = {35, 50},
 	greater_ego = 1,

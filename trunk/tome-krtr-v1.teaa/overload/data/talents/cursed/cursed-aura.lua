@@ -383,8 +383,8 @@ newTalent{
 		local sentry = NPC.new {
 			type = "construct", subtype = "weapon",
 			display = o.display, color=o.color, image = o.image, blood_color = colors.GREY,
-			name = "animated "..o.name, faction = self.faction,
 			kr_display_name = "살아 움직이는 "..(o.kr_display_name or o.name),
+			name = "animated "..o.name, faction = self.faction,			
 			desc = "살아 움직이는 저주에 걸린 무기입니다. 다음 희생자를 찾고 있는 것 같습니다.",
 			faction = self.faction,
 			body = { INVEN = 10, MAINHAND=1, QUIVER=1 },

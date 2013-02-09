@@ -376,7 +376,7 @@ function _M:giveOrder(actor, order)
 		end
 
 		local dir = game.level.map:compassDirection(actor.escort_target.x - actor.x, actor.escort_target.y - actor.y)
-		actor:doEmote(("포탈은 %s 방향으로 %s 있어요."):format(dir or "???", dist), 45) --@@ 변수 순서 조정
+		actor:doEmote(("관문은 %s 방향으로 %s 있어요."):format(dir or "???", dist), 45) --@@ 변수 순서 조정
 	end
 
 	return true

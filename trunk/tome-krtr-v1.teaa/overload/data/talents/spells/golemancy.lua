@@ -385,7 +385,7 @@ newTalent{
 
 newTalent{
 	name = "Golem Portal",
-	kr_display_name = "골렘 포탈",
+	kr_display_name = "골렘 관문",
 	type = {"spell/golemancy",4},
 	require = spells_req4,
 	points = 5,

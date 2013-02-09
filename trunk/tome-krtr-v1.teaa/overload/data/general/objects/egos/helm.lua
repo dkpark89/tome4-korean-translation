@@ -303,7 +303,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "dragonslayer's ", prefix=true, instant_resolve=true,
-	kr_display_name = "용살해자 ",
+	kr_display_name = "용 사냥꾼 ",
 	keywords = {dragonslayer=true},
 	level_range = {40, 50},
 	greater_ego = 1,

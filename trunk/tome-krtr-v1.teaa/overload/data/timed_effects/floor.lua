@@ -42,7 +42,7 @@ end
 floorEffect{
 	desc = "Icy Floor", image = "talents/ice_storm.png",
 	kr_display_name = "얼어붙은 바닥",
-	long_desc = "The target is walking on an icy floor. Increasing movement speed by 20%, providing +20% cold damage piercing and -30% stun immunity.",
+	long_desc = "얼어붙은 바닥 영향: 이동 속도 20% 증가 / 20% 냉기 피해 관통 / -30% 기절 저항",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists_pen", {[DamageType.COLD] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", 0.2)
@@ -53,7 +53,7 @@ floorEffect{
 floorEffect{
 	desc = "Font of Life", image = "talents/grand_arrival.png",
 	kr_display_name = "생명의 샘",
-	long_desc = function(self, eff) return ("The target is near a font of life, granting +%0.2f life regeneration, -%0.2f equilibrium regeneration, +%0.2f stamina regeneration and +%0.2f psi regeneration. Undeads are not affected."):format(eff.power, eff.power, eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("생명의 샘 영향: 생명력 재생 +%0.2f / 평정 재생 -%0.2f / 체력 재생 +%0.2f / 염력 재생 +%0.2f 효과 (단, 언데드는 아무런 영향도 받지 않음)"):format(eff.power, eff.power, eff.power, eff.power) end,
 	activate = function(self, eff)
 		if self:attr("undead") then eff.power = 0 return end
 		eff.power = 3 + game.zone:level_adjust_level(game.level, game.zone, "object") / 2
@@ -67,7 +67,7 @@ floorEffect{
 floorEffect{
 	desc = "Spellblaze Scar", image = "talents/blood_boil.png",
 	kr_display_name = "마법폭발의 상처",
-	long_desc = "The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.",
+	long_desc = "마법폭발의 상처 영향: 주문 치명타율 +25% / 화염 피해 +10% / 황폐 피해 +10% 효과 / 주문 치명타시 해당 원천력이 샘",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_spellcrit", 25)
 		self:effectTemporaryValue(eff, "inc_damage", {[DamageType.FIRE]=10,[DamageType.BLIGHT]=10})
@@ -82,7 +82,7 @@ floorEffect{
 floorEffect{
 	desc = "Blighted Soil", image = "talents/blightzone.png",
 	kr_display_name = "황폐한 토양",
-	long_desc = "The target is walking on blighted soil, reducing diseases resistance by 60% and giving all attacks a 40% chance to infect the target with a random disease (can only happen once per turn).",
+	long_desc = "황폐한 토양 영향: 질병 저항력이 60% 감소 / 공격 성공시 40%의 확률로 (턴당 한번씩) 목표가 임의의 질병에 걸림",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "disease_immune", -0.6)
 		self:effectTemporaryValue(eff, "blighted_soil", 40)
@@ -91,7 +91,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Glimmerstone", image = "effects/dazed.png", name = "DAZING_DAMAGE",
-	long_desc = "The target is affected by a glimmerstone, its next attack will try to daze.",
+	kr_display_name = "깜박이는 암석",
+	long_desc = "깜박이는 암석 영향: 다음 공격시 상대를 혼절 시도",
 	activate = function(self, eff)
 	end,
 }
@@ -99,7 +100,7 @@ floorEffect{
 floorEffect{
 	desc = "Protective Aura", image = "talents/barrier.png",
 	kr_display_name = "보호의 오러",
-	long_desc = function(self, eff) return ("The target is near a protective aura, granting +%d armour and +%d physical save."):format(eff.power, eff.power * 3) end,
+	long_desc = function(self, eff) return ("보호의 오러 영향: 방어도 +%d / 물리내성 +%d"):format(eff.power, eff.power * 3) end,
 	activate = function(self, eff)
 		eff.power = 3 + game.zone:level_adjust_level(game.level, game.zone, "object") / 5
 		self:effectTemporaryValue(eff, "combat_armor", eff.power)
@@ -110,7 +111,7 @@ floorEffect{
 floorEffect{
 	desc = "Antimagic Bush", image = "talents/fungal_growth.png",
 	kr_display_name = "반마법 덤불",
-	long_desc = function(self, eff) return ("The target is near an antimagic bush, granting +20%% nature damage, +20%% nature resistance penetration and -%d spellpower."):format(eff.power) end,
+	long_desc = function(self, eff) return ("반마법 덤불 영향: 자연 피해 +20%% / 자연 저항 관통 +20%% / 주문력 -%d"):format(eff.power) end,
 	activate = function(self, eff)
 		eff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, "object") / 1.5
 		self:effectTemporaryValue(eff, "combat_spellpower", -eff.power)
@@ -122,7 +123,7 @@ floorEffect{
 floorEffect{
 	desc = "Necrotic Air", image = "talents/repression.png",
 	kr_display_name = "원혼의 대기",
-	long_desc = "The target is in a zone of necrotic air, granting -40% healing mod. Undead creatures also get +15% to all resistances.",
+	long_desc = "원혼의 대기 영향: 치유 증가율 -40% / 언데드인 경우 전체 저항 +15%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "healing_factor", -0.4)
 		if self:attr("undead") then self:effectTemporaryValue(eff, "resists", {all=15}) end
@@ -132,7 +133,7 @@ floorEffect{
 floorEffect{
 	desc = "Whistling Vortex", image = "talents/shadow_blast.png",
 	kr_display_name = "경적의 소용돌이",
-	long_desc = function(self, eff) return ("The target is in a whistling vortex, granting +%d ranged defense, -%d ranged accuracy and incoming projectiles are 30%% slower."):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("경적의 소용돌 영향: 장거리 회피 +%d / 장거리 정확도 -%d / 날아오는 발사체 속도 30%% 감소"):format(eff.power, eff.power) end,
 	activate = function(self, eff)
 		eff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, "object") / 2
 		self:effectTemporaryValue(eff, "combat_def_ranged", eff.power)
@@ -144,7 +145,7 @@ floorEffect{
 floorEffect{
 	desc = "Fell Aura", image = "talents/shadow_mages.png",
 	kr_display_name = "격렬의 오러",
-	long_desc = "The target is surrounded by a fell aura, granting 40% critical damage bonus but -20% to all resistances.",
+	long_desc = "격렬의 오러 영향: 치명타 피해 보너스 40% / 전체 저항 -20%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_critical_power", 40)
 		self:effectTemporaryValue(eff, "resists", {all=-20})
@@ -153,8 +154,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Slimey Pool", image = "talents/acidic_skin.png",
-	kr_display_name = "진흙 웅덩이",
-	long_desc = "The target is walking on slime. Decreasing movement speed by 20% and dealing 20 slime damage to any creatures attacking it.",
+	kr_display_name = "슬라임 웅덩이",
+	long_desc = "슬라임 웅덩이 영향: 이동 속도 20% 감소 / 공격시 추가 슬라임 피해 20",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "on_melee_hit", {[DamageType.SLIME] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", -0.2)

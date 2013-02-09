@@ -43,7 +43,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_PLANT",
 	name = "giant venus flytrap", color=colors.GREEN,
-	kr_display_name = "대형 끈끈이 주걱",
+	kr_display_name = "거대 끈끈이 주걱",
 	desc = "이 육식식물은 거대한 비율로 자라났고, 그 배고픔을 가라앉힐 존재를 찾습니다.",
 	level_range = {7, 17}, exp_worth = 1,
 	rarity = 1,

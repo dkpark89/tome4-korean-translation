@@ -19,7 +19,7 @@
 
 defineTile('^', "HARDMOUNTAIN_WALL")
 defineTile('#', "HARDWALL")
-quickEntity('<', {show_tooltip=true, name='portal back', kr_display_name='외부로의 포탈', display='<', color=colors.WHITE, change_level=1, change_zone=game.player.last_wilderness, image="terrain/stone_road1.png", add_displays = {mod.class.Grid.new{image="terrain/worldmap.png"}},}, nil, {type="portal", subtype="back"})
+quickEntity('<', {show_tooltip=true, name='portal back', kr_display_name='외부로의 관문', display='<', color=colors.WHITE, change_level=1, change_zone=game.player.last_wilderness, image="terrain/stone_road1.png", add_displays = {mod.class.Grid.new{image="terrain/worldmap.png"}},}, nil, {type="portal", subtype="back"})
 defineTile(".", "GRASS")
 defineTile("t", "TREE")
 defineTile('*', "ROCK")

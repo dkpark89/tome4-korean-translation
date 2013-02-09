@@ -236,7 +236,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of gloom", suffix=true, instant_resolve=true,
-	kr_display_name = "우울함의 ",
+	kr_display_name = "침울한 기운의 ",
 	keywords = {gloom=true},
 	level_range = {10, 50},
 	rarity = 14,

@@ -237,7 +237,7 @@ return {
 						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
 						game.player:move(x, y, true)
 						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[당신의 정신인 생쥐가 꿈의 포탈로 들어서자, 당신은 갑작스레 깨어났습니다.
+							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[당신의 정신인 생쥐가 꿈의 관문으로 들어서자, 당신은 갑작스레 깨어났습니다.
 기분이 좋습니다!]], 600)
 							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 							world:gainAchievement("ALL_DREAMS", self.summoner, "mice")
@@ -299,7 +299,7 @@ return {
 						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
 						game.player:move(x, y, true)
 						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[꿈의 포탈로 들어서자, 당신은 갑자기 깨어납니다.
+							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[꿈의 관문으로 들어서자, 당신은 갑자기 깨어납니다.
 기분이 좋습니다]], 600)
 							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 							world:gainAchievement("ALL_DREAMS", self.summoner, "lost")

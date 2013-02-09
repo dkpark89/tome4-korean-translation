@@ -77,14 +77,14 @@ newEntity{
 	define_as = "PUTRESCENT_POTION",
 	type = "corpse", subtype = "blood",
 	name = "Wyrm Bile", unique=true, unided_name="putrescent potion", image="object/artifact/vial_wyrm_bile.png",
-	kr_display_name = "이무기 담즙", kr_unided_name = "부패한 물약",
+	kr_display_name = "용의 담즙", kr_unided_name = "부패한 물약",
 	display = "*", color=colors.VIOLET,
 	desc = [[걸죽하고 덩어리가 섞여있는 액체가 든 약병입니다. 이걸 마신다면 무슨 일이 생길지 누가 알겠습니까?]],
 	cost = 3000,
 	quest = 1,
 
 	use_simple = { name="불결한 피를 마시기", use = function(self, who)
-		game.logPlayer(who, "#00FFFF#당신은 이무기의 담즙을 마셨고, 영원히 변화했음을 느낍니다!")
+		game.logPlayer(who, "#00FFFF#당신은 용의 담즙을 마셨고, 영원히 변화했음을 느낍니다!")
 		who.unused_talents_types = who.unused_talents_types + 1
 		game.log("사용할 수 있는 기술계열 점수 %d점이 있습니다. 'G'를 눌러 사용할 수 있습니다.", who.unused_talents_types)
 

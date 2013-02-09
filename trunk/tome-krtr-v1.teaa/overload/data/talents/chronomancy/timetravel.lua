@@ -301,13 +301,13 @@ newTalent{
 
 		-- Prevent Revision After Death
 		if game._chronoworlds == nil then
-			game.logPlayer(game.player, "#LIGHT_RED#주문이 피식거리며 사라집니다.")
+			game.logPlayer(game.player, "#LIGHT_RED#주문이 헛나갔습니다.")
 			return
 		end
 
 		game:onTickEnd(function()
 			if not game:chronoRestore("revision", true) then
-				game.logSeen(self, "#LIGHT_RED#주문이 피식거리며 사라집니다.")
+				game.logSeen(self, "#LIGHT_RED#주문이 헛나갔습니다.")
 				return
 			end
 			game.logPlayer(game.player, "#LIGHT_BLUE#당신은 시공간 연속을 이전 단계로 펼쳤습니다!")

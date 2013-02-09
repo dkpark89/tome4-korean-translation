@@ -65,11 +65,11 @@ newEntity{ define_as = "BASE_NPC_ARENA1",
 
 --Minibosses
 newEntity{ name = "skeletal rat",
-	kr_display_name = "해골 생쥐",
+	kr_display_name = "스켈레톤 생쥐",
 	base = "BASE_NPC_RODENT",
 	define_as = "SKELERAT",
 	type = "undead",
-	desc = [[사악한 에너지로 가득 찬, 뼈만 남은 대형 생쥐입니다. 투기장에 풀어놓는다는 용도가 발견되기 전까지는, 이 언데드 설치류의 필요성을 아무도 몰랐습니다.]],
+	desc = [[사악한 에너지로 가득 찬, 뼈만 남은 거대 생쥐입니다. 투기장에 풀어놓는다는 용도가 발견되기 전까지는, 이 언데드 설치류의 필요성을 아무도 몰랐습니다.]],
 	color = colors.GOLD,
 	level_range = {3, 4},
 	exp_worth = 2,

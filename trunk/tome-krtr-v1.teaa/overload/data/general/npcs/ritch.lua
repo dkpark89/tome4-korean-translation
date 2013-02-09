@@ -24,7 +24,7 @@ newEntity{
 	type = "insect", subtype = "ritch",
 	display = "I", color=colors.RED,
 	blood_color = colors.GREEN,
-	desc = [[릿치는 동대륙의 남부에 있는 불모지에서 태어난 대형 곤충입니다.
+	desc = [[릿치는 동대륙의 남부에 있는 불모지에서 태어난 거대 곤충입니다.
 잔인한 포식자이며, 적들에게 타락성 질병을 주입하고, 날카로운 발톱은 대부분의 갑옷을 갈라놓을 수 있습니다.]],
 
 	combat = { dam=resolvers.levelup(resolvers.rngavg(30,35), 1, 1), atk=16, apr=70, damtype=DamageType.BLIGHT, dammod={dex=1.2} },

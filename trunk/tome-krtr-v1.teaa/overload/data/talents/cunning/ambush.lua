@@ -97,7 +97,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[대상에게 그림자 덩쿨을 뻗어, 시전자가 있는 곳으로 끌어당기고 2 턴 동안 침묵 및 혼절 효과를 줍니다.
+		return ([[대상에게 그림자 덩굴을 뻗어, 시전자가 있는 곳으로 끌어당기고 2 턴 동안 침묵 및 혼절 효과를 줍니다.
 		명중률은 정확도 능력치의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,

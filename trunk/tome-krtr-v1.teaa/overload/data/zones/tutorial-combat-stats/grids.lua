@@ -28,7 +28,7 @@ load("/data/general/grids/fortress.lua")
 newEntity{
 	define_as = "PORTAL_BACK",
 	name = "Lobby Portal", image = "terrain/grass.png", add_displays = {class.new{image = "trap/trap_teleport_01.png"}},
-	kr_display_name = "로비로의 포탈",
+	kr_display_name = "로비로의 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
@@ -37,14 +37,14 @@ newEntity{
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("연습게임 로비로의 포탈", "포탈로 들어가 로비로 돌아갑니까?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("연습게임 로비로의 관문", "관문으로 들어가 로비로 돌아갑니까?", function(ret)
 				if not ret then
 					--game:onLevelLoad("wilderness-1", function(zone, level)
 					--	local spot = level:pickSpot{type="farportal-end", subtype="demon-plane-arrival"}
 					--	who.wild_x, who.wild_y = spot.x, spot.y
 					--end)
 					game:changeLevel(1, "tutorial")
-					game.logPlayer(who, "#VIOLET#당신은 소용돌이치는 포탈로 들어갔고, 눈을 깜박이자 로비로 돌아온 것을 알아차립니다.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이치는 관문으로 들어갔고, 눈을 깜박이자 로비로 돌아온 것을 알아차립니다.")
 				end
 			end, "머물기", "들어가기")
 		end
@@ -54,7 +54,7 @@ newEntity{
 newEntity{
 	define_as = "PORTAL_BACK_2",
 	name = "Lobby Portal", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image = "trap/trap_teleport_01.png"}},
-	kr_display_name = "로비로의 포탈",
+	kr_display_name = "로비로의 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
@@ -63,14 +63,14 @@ newEntity{
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("연습게임 로비로의 포탈", "포탈로 들어가 로비로 돌아갑니까?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("연습게임 로비로의 관문", "관문으로 들어가 로비로 돌아갑니까?", function(ret)
 				if not ret then
 					--game:onLevelLoad("wilderness-1", function(zone, level)
 					--	local spot = level:pickSpot{type="farportal-end", subtype="demon-plane-arrival"}
 					--	who.wild_x, who.wild_y = spot.x, spot.y
 					--end)
 					game:changeLevel(1, "tutorial")
-					game.logPlayer(who, "#VIOLET#당신은 소용돌이치는 포탈로 들어갔고, 눈을 깜박이자 로비로 돌아온 것을 알아차립니다.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이치는 관문으로 들어갔고, 눈을 깜박이자 로비로 돌아온 것을 알아차립니다.")
 				end
 			end, "머물기", "들어가기")
 		end

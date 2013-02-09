@@ -26,7 +26,7 @@ if not x then return false end
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g = require("engine.Object").new(g)
 g.name = "glimmerstone"
-g.kr_display_name = "깜박이는돌"
+g.kr_display_name = "깜박이는 암석"
 g.display='&' g.color_r=255 g.color_g=255 g.color_b=255 g.notice = true
 g:removeAllMOs()
 if engine.Map.tiles.nicer_tiles then
@@ -47,7 +47,7 @@ g.act = function(self)
 			local target = game.level.map(x, y, engine.Map.ACTOR)
 			if target then
 				target:setEffect(target.EFF_DAZING_DAMAGE, 1, {})
-				game.logSeen(target, "%s 깜박이는돌의 영향을 받았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 깜박이는 암석의 영향을 받았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end end

@@ -48,11 +48,11 @@ newEntity{ base = "TRAP_NATURAL_FOREST",
 
 newEntity{ base = "TRAP_NATURAL_FOREST",
 	name = "poison vine", auto_id = true, image = "trap/poison_vines01.png",
-	kr_display_name = "독성 덩쿨",
+	kr_display_name = "독성 덩굴",
 	detect_power = 8, disarm_power = 2,
 	rarity = 3, level_range = {1, 50},
 	color=colors.GREEN,
-	message = "@Target1@ 독성 덩쿨에 공격당했습니다!",
+	message = "@Target1@ 독성 덩굴에 공격당했습니다!",
 	dam = resolvers.mbonus(150, 15), damtype = DamageType.POISON,
 	combatAttack = function(self) return self.dam end
 }

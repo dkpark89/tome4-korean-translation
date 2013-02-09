@@ -162,7 +162,7 @@ newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_ASSASSIN",
 
 newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_ASSASSIN",
 	name = "shadowblade", color_r=resolvers.rngrange(0, 10), color_g=resolvers.rngrange(0, 10), color_b=resolvers.rngrange(100, 120),
-	kr_display_name = "쉐도우블레이드",
+	kr_display_name = "쉐도우 블레이드",
 	desc = [[속임수로 승리를 획득하려하는 은밀한 투사입니다. 조심하지 않으면 생명까지 가져가 버립니다!]],
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 4,

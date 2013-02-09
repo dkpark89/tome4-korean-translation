@@ -45,8 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "skeletal rat", color=colors.WHITE,
-	kr_display_name = "해골 쥐",
-	desc = [[날카롭게 갈린 이빨과 발톱을 가진 해골 쥐입니다. 위협적으로 노려보고 있습니다.]],
+	kr_display_name = "스켈레톤 쥐",
+	desc = [[날카롭게 갈린 이빨과 발톱을 가진 스켈레톤 쥐입니다. 위협적으로 노려보고 있습니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(25,45),

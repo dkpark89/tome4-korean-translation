@@ -157,7 +157,7 @@ newEntity{ define_as = "LITHFENGEL", -- Lord of Ash; backup guardian
 	name = "Lithfengel",
 	kr_display_name = "리스펜겔",
 	display = "U", color=colors.VIOLET,
-	desc = [[부패와 쇠퇴의 끔찍한 악마로, 장거리포탈의 에너지를 흡수하고 있습니다. 황폐의 짐승입니다!]],
+	desc = [[부패와 쇠퇴의 끔찍한 악마로, 장거리 관문의 에너지를 흡수하고 있습니다. 황폐의 짐승입니다!]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 400, life_rating = 25, fixed_rating = true,
 	rank = 4,

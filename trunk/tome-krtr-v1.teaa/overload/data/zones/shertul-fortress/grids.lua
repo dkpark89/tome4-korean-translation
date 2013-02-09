@@ -33,7 +33,7 @@ newEntity{ base = "UP",
 newEntity{
 	define_as = "TELEPORT_OUT",
 	name = "teleportation circle to the surface", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image="terrain/maze_teleport.png"}},
-	kr_display_name = "지표면으로의 순간이동 고리",
+	kr_display_name = "지표면으로의 순간이동 장치",
 	display = '>', color_r=255, color_g=0, color_b=255,
 	notice = true, show_tooltip = true,
 	change_level = 1, change_zone = "wilderness",
@@ -58,14 +58,14 @@ newEntity{
 newEntity{
 	define_as = "FARPORTAL",
 	name = "Exploratory Farportal",
-	kr_display_name = "탐험용 장거리포탈",
+	kr_display_name = "탐험용 장거리 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/solidwall/solid_floor1.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[놀라운 거리를 눈 깜박할 새에 갈 수 있는 장거리포탈입니다. 강력한 쉐르'툴 종족이 남긴 것입니다.
-이 장거리포탈은 다른 포탈과 연결되어 있지 않습니다. 탐험을 위해 만들어졌고, 어디로 보낼지 알 수가 없습니다.
-자동적으로 돌아오는 포탈이 만들어지지만, 도착지점에서 가까운 곳이 아닐 수도 있습니다.]],
+	desc = [[놀라운 거리를 눈 깜박할 새에 갈 수 있는 장거리 관문입니다. 강력한 쉐르'툴 종족이 남긴 것입니다.
+이 장거리 관문은 다른 관문과 연결되어 있지 않습니다. 탐험을 위해 만들어졌고, 어디로 보낼지 알 수가 없습니다.
+자동적으로 돌아오는 관문이 만들어지지만, 도착지점에서 가까운 곳이 아닐 수도 있습니다.]],
 	
 
 	checkSpecialLocation = function(self, who, q)
@@ -73,7 +73,7 @@ newEntity{
 		if rng.percent(5) and not game.state:hasSeenSpecialFarportal("caldizar-space-fortress") then
 			game:changeLevel(1, "shertul-fortress-caldizar", {direct_switch=true})
 			q:exploratory_energy()
-			game.log("#VIOLET#당신은 소용돌이 치는 포탈로 들어섰고, 눈을 깜박이자 이상하게 익숙한 장소의 장거리포탈 옆에 서 있음을 느낍니다...")
+			game.log("#VIOLET#당신은 소용돌이 치는 관문으로 들어섰고, 눈을 깜박이자 이상하게 익숙한 장소의 장거리 관문 옆에 서 있음을 느낍니다...")
 			game.state:seenSpecialFarportal("caldizar-space-fortress")
 			return true
 		end
@@ -83,11 +83,11 @@ newEntity{
 		if not who.player then return end
 		local Dialog = require "engine.ui.Dialog"
 		local q = who:hasQuest("shertul-fortress")
-		if not q then Dialog:simplePopup("탐험용 장거리포탈", "장거리포탈은 비활성화 상태인 것 같습니다") return end
-		if not q:exploratory_energy(true) then Dialog:simplePopup("탐험용 장거리포탈", "요새의 에너지가 포탈을 통해 여행할만큼 충분하지 않습니다.") return end
-		if q:isCompleted("farportal-broken") then Dialog:simplePopup("탐험용 장거리포탈", "장거리포탈이 부서져 있어, 더이상 사용할 수 없습니다.") return end
+		if not q then Dialog:simplePopup("탐험용 장거리 관문", "장거리 관문은 비활성화 상태인 것 같습니다") return end
+		if not q:exploratory_energy(true) then Dialog:simplePopup("탐험용 장거리 관문", "요새의 에너지가 관문을 통해 여행할만큼 충분하지 않습니다.") return end
+		if q:isCompleted("farportal-broken") then Dialog:simplePopup("탐험용 장거리 관문", "장거리 관문이 부서져 있어, 더이상 사용할 수 없습니다.") return end
 
-		Dialog:yesnoPopup("탐험용 장거리포탈", "장거리포탈을 통해 여행하기를 원합니까? 어디에 도착할지 알 수 없습니다.", function(ret) if ret then
+		Dialog:yesnoPopup("탐험용 장거리 관문", "장거리 관문을 통해 여행하기를 원합니까? 어디에 도착할지 알 수 없습니다.", function(ret) if ret then
 			if self:checkSpecialLocation(who, q) then return end
 
 			local zone, boss = game.state:createRandomZone()
@@ -104,15 +104,15 @@ newEntity{
 				g.nice_tiler = nil
 				g.show_tooltip = true
 				g.name = "Exploratory Farportal exit"
-				g.kr_display_name = "탐험용 장거리포탈 출구"
+				g.kr_display_name = "탐험용 장거리 관문 출구"
 				g.display = '&' g.color_r = colors.VIOLET.r g.color_g = colors.VIOLET.g g.color_b = colors.VIOLET.b
 				g.add_displays = g.add_displays or {}
 				g.add_displays[#g.add_displays+1] = mod.class.Grid.new{image="terrain/maze_teleport.png"}
 				g.notice = true
 				g.change_level = 1 g.change_zone = "shertul-fortress"
 				game.zone:addEntity(game.level, g, "terrain", x, y)
-				if self then game.logSeen(self, "#VIOLET#%s 떨어지자, 포탈이 나타났음을 발견합니다.", (self.kr_display_name or self.name):addJosa("가"))
-				else game.logSeen(p, "#VIOLET#되돌림의 장대가 진동하자, 포탈이 당신 밑에 나타났습니다.") end
+				if self then game.logSeen(self, "#VIOLET#%s 떨어지자, 관문이 나타났음을 발견합니다.", (self.kr_display_name or self.name):addJosa("가"))
+				else game.logSeen(p, "#VIOLET#되돌림의 장대가 진동하자, 관문이 당신 밑에 나타났습니다.") end
 			end
 			zone.on_turn = function(zone)
 				if game.turn % 1000 == 0 and game.level.level == zone.max_level then
@@ -134,7 +134,7 @@ newEntity{
 			end
 			game:changeLevel(1, zone, {direct_switch=true})
 			q:exploratory_energy()
-			game.log("#VIOLET#당신은 소용돌이치는 포탈로 들어섰고, 눈을 깜박이자 포탈의 흔적이 없는 익숙하지 않은 장소에 서 있음을 느낍니다...")
+			game.log("#VIOLET#당신은 소용돌이치는 관문으로 들어섰고, 눈을 깜박이자 관문의 흔적이 없는 익숙하지 않은 장소에 서 있음을 느낍니다...")
 		end end, "예", "아니오")
 	end,
 }

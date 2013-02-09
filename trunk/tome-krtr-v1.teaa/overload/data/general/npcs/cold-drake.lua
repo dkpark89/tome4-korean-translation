@@ -90,7 +90,7 @@ newEntity{ base = "BASE_NPC_COLD_DRAKE", define_as = "NPC_COLD_DRAKE",
 
 newEntity{ base = "BASE_NPC_COLD_DRAKE",
 	name = "ice wyrm", color=colors.AQUAMARINE, display="D",
-	kr_display_name = "얼음 이무기",
+	kr_display_name = "얼음 용",
 	desc = [[늙고 강력한 냉기 드레이크입니다. 치명적인 브레스를 사용할 수 있고 험악한 발톱을 가졌습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_cold_ice_wyrm.png", display_h=2, display_y=-1}}},
 	level_range = {25, nil}, exp_worth = 1,

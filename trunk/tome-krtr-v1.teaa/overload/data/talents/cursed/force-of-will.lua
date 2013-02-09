@@ -17,13 +17,12 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 
 -- damage: initial physical damage and used for fractional knockback damage
 -- knockback: distance to knockback
 -- knockbackDamage: when knockback strikes something, both parties take damage - percent of damage * remaining knockback
 -- power: used to determine the initial radius of particles
-
-require "engine.krtrUtils"
 
 local function forceHit(self, target, sourceX, sourceY, damage, knockback, knockbackDamage, power, max)
 	-- apply initial damage

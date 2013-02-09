@@ -52,7 +52,7 @@ return {
 	},
 	on_enter = function(lev, old_lev, newzone)
 		if newzone and not game.level.shown_warning then
-			require("engine.ui.Dialog"):simplePopup("탄넨의 탑", "포탈은 당신을 탑의 지하실에 있는 방같이 보이는 곳으로 데리고 왔습니다. 탈출해야 합니다!")
+			require("engine.ui.Dialog"):simplePopup("탄넨의 탑", "관문은 당신을 탑의 지하실에 있는 방같이 보이는 곳으로 데리고 왔습니다. 탈출해야 합니다!")
 			game.level.shown_warning = true
 		end
 	end,

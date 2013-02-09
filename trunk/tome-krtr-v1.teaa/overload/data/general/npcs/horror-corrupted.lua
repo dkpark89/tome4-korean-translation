@@ -80,7 +80,7 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "drem", color=colors.DARK_SLATE_GRAY,
 	kr_display_name = "드렘",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_drem.png", display_h=2, display_y=-1}}},
-	desc = "가시돋고 거친 검은 피부의 대형 영장류입니다. 눈이 있을 자리가 텅 비어있는 것을 제외하면, 얼굴에는 아무런 특징이 없습니다.",
+	desc = "가시돋고 거친 검은 피부의 거대 영장류입니다. 눈이 있을 자리가 텅 비어있는 것을 제외하면, 얼굴에는 아무런 특징이 없습니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat_armor = 4, combat_def = 0,
@@ -161,7 +161,7 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "brecklorn", color=colors.PINK,  -- gloom bat
 	kr_display_name = "브렉클론",
-	desc = "비틀려진 드워프의 얼굴을 가지고 끊임없이 비명을 지르는 털없는 대형 박쥐입니다. 농포가 생긴 상처로 기형의 몸이 뒤덮혀 있습니다. 그 근처로 가면 심장이 약해짐을 느낍니다.",
+	desc = "비틀려진 드워프의 얼굴을 가지고 끊임없이 비명을 지르는 털없는 거대 박쥐입니다. 농포가 생긴 상처로 기형의 몸이 뒤덮혀 있습니다. 그 근처로 가면 심장이 약해짐을 느낍니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={dex=0.6} },
