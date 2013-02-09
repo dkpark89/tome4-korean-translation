@@ -552,7 +552,7 @@ newEntity{
 	cost = 1000,
 	special = true,
 
-	use_simple = { name = "생명의 피를 마셔 여분의 생명 획득", use = function(self, who)
+	use_simple = { name = "quaff the Blood of Life to grant an extra life", kr_display_name = "생명의 피를 마셔 여분의 생명 획득", use = function(self, who)
 		game.logSeen(who, "%s %s 마셨습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 		if not who:attr("undead") then
 			who.blood_life = true

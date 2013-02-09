@@ -35,7 +35,7 @@ newEntity{
 	desc = [[이 효험있는 엘릭서는 불행히도 기본기가 부족한이에게 호전적 전투의 식견을 줄 수 있습니다.]],
 	cost = 500,
 
-	use_simple = { name = "엘릭서 마시기", use = function(self, who)
+	use_simple = { name = "quaff the elixir", kr_display_name = "엘릭서 마시기", use = function(self, who)
 		game.logSeen(who, "%s %s 마셨습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 
 		local done = 0
@@ -73,7 +73,7 @@ newEntity{
 	desc = [[This potent elixir extracted from a powerful wyrm can grant the power to repel arcane forces.]],
 	cost = 500,
 
-	use_simple = { name = "엘릭서 마시기", use = function(self, who, inven, item)
+	use_simple = { name = "quaff the elixir", kr_display_name = "엘릭서 마시기", use = function(self, who, inven, item)
 		local d = require("engine.ui.Dialog"):yesnoLongPopup("반마법", [[이 물약을 마시면 당신은 반마법 기술을 사용할 수 있게 됩니다. 하지만 그 댓가로 룬과 마법의 힘이 담긴 물건, 그리고 주문을 모두 사용할 수 없게 됩니다.]], 500, function(ret)
 			if ret then
 				game.logSeen(who, "%s %s 마셨습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
