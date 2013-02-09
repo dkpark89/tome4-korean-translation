@@ -39,10 +39,10 @@ newEntity{
 	type = "floor", subtype = "grass",
 	define_as = "PORTAL_DEMON",
 	name = "Fearscape Portal", image = "terrain/grass.png", add_displays={class.new{z=5, image = "terrain/demon_portal3.png"}},
-	kr_display_name = "공포의 영역으로의 포탈",
+	kr_display_name = "공포의 영역으로의 관문",
 	display = '&', color=colors.RED, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[소환된 포탈로, 이 것을 통해 끊임없이 소환수가 나옵니다.]],
+	desc = [[소환된 관문으로, 이 것을 통해 끊임없이 소환수가 나옵니다.]],
 }

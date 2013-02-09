@@ -295,8 +295,7 @@ newTalent{
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 			4 + self:getTalentLevel(t),
 			5 * self:getTalentLevel(t)
-			
-		)
+		) --@@ 파라매터 순서 조정
 	end,
 }
 
@@ -339,8 +338,7 @@ newTalent{
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
 			4 + self:getTalentLevel(t), 
 			3 * self:getTalentLevel(t)
-			
-		)
+		) --@@ 파라매터 순서 조정
 	end,
 }
 

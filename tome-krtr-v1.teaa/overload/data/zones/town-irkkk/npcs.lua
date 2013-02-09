@@ -51,9 +51,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN",
 	name = "yeek mindslayer", color=colors.LIGHT_UMBER,
-	kr_display_name = "이크 정신파괴자",
+	kr_display_name = "이크 정신 파괴자",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_yeek_yeek_mindslayer.png", display_h=2, display_y=-1}}},
-	desc = [[훈련중인 정신파괴자입니다.]],
+	desc = [[훈련중인 정신 파괴자입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),

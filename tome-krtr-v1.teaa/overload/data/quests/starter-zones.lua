@@ -23,9 +23,9 @@ kr_display_name = "어둠속으로"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "이제 새로운 지역들을 탐험할 시간입니다. 어둡고 잊혀진 위험한 곳들입니다."
-	desc[#desc+1] = "오래된 숲(The Old Forest)은 데르쓰(Derth) 마을의 바로 남동쪽에 있습니다."
-	desc[#desc+1] = "미궁(The Maze)은 데르쓰(Derth) 마을의 서쪽에 있습니다."
-	desc[#desc+1] = "지렁이 굴(The Sandworm Lair)은 데르쓰(Derth) 마을에서 서쪽으로 멀리떨어진 바다 근처에 있습니다."
+	desc[#desc+1] = "오래된 숲(The Old Forest)은 데르스(Derth) 마을의 바로 남동쪽에 있습니다."
+	desc[#desc+1] = "미궁(The Maze)은 데르스(Derth) 마을의 서쪽에 있습니다."
+	desc[#desc+1] = "지렁이 굴(The Sandworm Lair)은 데르스(Derth) 마을에서 서쪽으로 멀리떨어진 바다 근처에 있습니다."
 	desc[#desc+1] = "다이카라(The Daikara)는 탈로레의 숲(the Thaloren forest)의 동쪽 경계선에 있습니다."
 	if self:isCompleted("old-forest") then
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲(the Old Forest)을 탐험해 분노의 뿌리(Wrathroot)를 물리쳤습니다.#WHITE#"

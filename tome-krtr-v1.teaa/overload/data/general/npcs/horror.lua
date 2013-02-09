@@ -116,7 +116,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "bloated horror", color=colors.WHITE,
-	kr_display_name = "부풀어오른 무서운자",
+	kr_display_name = "부풀어오른 공포",
 	desc ="여기 떠올라있는 볼록한 영장류입니다. 아이같지만 머리카락이 없는 머리는 그 몸에 비해 불균형하도록 커다랗습니다. 그 피부는 불결하고 붉게 헌 마맛자국이 있습니다.",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
@@ -146,7 +146,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "nightmare horror", color=colors.DARK_GREY,
-	kr_display_name = "악몽의 무서운자",
+	kr_display_name = "악몽의 공포",
 	desc ="당신의 가장 깊은 공포를 반영하여 가장 어두운 밤의 변화하는 형상을 가진 존재입니다.",
 	level_range = {35, nil}, exp_worth = 1,
 	mana_regen = 10,
@@ -197,7 +197,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 ------------------------------------------------------------------------
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "headless horror", color=colors.TAN,
-	kr_display_name = "머리없는 무서운자",
+	kr_display_name = "머리없는 공포",
 	desc ="큰 복부를 가진 머리가 없고 호리호리한 영장류입니다.",
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 5,
@@ -409,7 +409,7 @@ newEntity{ base = "BASE_NPC_ELDRICTH_EYE",
 -- TODO: Make Luminous and Radiant Horrors cooler
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "luminous horror", color=colors.YELLOW,
-	kr_display_name = "야광의 무서운자",
+	kr_display_name = "밤에 빛나는 공포",
 	desc ="노란 빛을 내는 비쩍마른 영장류같은 모습입니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 2,
@@ -444,7 +444,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "radiant horror", color=colors.GOLD,
-	kr_display_name = "발광의 무서운자",
+	kr_display_name = "발광하는 공포",
 	desc ="밝은 금빛을 내고 팔이 네개달린 비쩍마른 영장류같은 모습입니다. 너무 밝아 똑바로 쳐다보기가 힘들고, 빛과 함께 열기까지 내뿜고 있습니다.",
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 8,
@@ -516,7 +516,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 --Blade horror, psionic horror surrounded by countless telekinetic blades.
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "blade horror", color=colors.GREY, define_as="BLADEHORROR",
-	kr_display_name = "칼날의 무서운자",
+	kr_display_name = "칼날의 공포",
 	desc = "이 허공에 떠 있는 날씬한 존재 주변으로 칼날 빙빙 돌고 있습니다. 그 주변의 공기는 힘에 의해 소용돌이 치면서 접근하는 모든것을 찢어 놓을듯이 위협적입니다. 물론 실제로는 그 전에 칼날이 찢어 놓을 겁니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_eldritch_blade_horror.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
@@ -555,7 +555,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 newEntity{ base = "BASE_NPC_HORROR",
 	subtype = "eldritch",
 	name = "oozing horror", color=colors.GREEN,
-	kr_display_name = "점액의 무서운자",
+	kr_display_name = "점액의 공포",
 	desc = "커다랗고 무정형의 녹색 슬라임 방울이 기어서 당신쪽으로 향합니다. 그 점액질 안에서 눈이 떠다니면서 그 먹잇감을 찾고 있습니다.",
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 7,
@@ -613,7 +613,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 newEntity{ base = "BASE_NPC_HORROR",
 	subtype = "eldritch",
 	name = "umbral horror", color=colors.BLACK,
-	kr_display_name = "음영의 무서운자",
+	kr_display_name = "음영의 공포",
 	desc = "어둠의 가변형 존재가 그림자와 융합되어가며 추척해 옵니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_eldritch_umbral_horror.png", display_h=2, display_y=-1}}},
 	level_range = {16, nil}, exp_worth = 1,
@@ -657,7 +657,7 @@ newEntity{ base = "BASE_NPC_HORROR",
 -- Dream Horror
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "dreaming horror", color=colors.ORCHID,
-	kr_display_name = "꿈의 무서운자",
+	kr_display_name = "꿈의 공포",
 	desc =[[촉수가 달린것 같은 끊임없이 모양이 변하는 존재가 당신의 존재를 염두에 두지 않는 것 처럼 여기서 쉬고 있습니다.
 그 천천히 내뱉는 숨은 주변의 현실을 왜곡합니다. 푸른색은 붉게, 녹색은 노랗게 바뀌고, 잔잔하던 대기는 수많은 옅은 형상과 색깔로 몰아칩니다.]],
 	resolvers.nice_tile{tall=1},
@@ -830,7 +830,7 @@ newEntity{ base="BASE_NPC_HORROR",
 	color = colors.DARK_GREY, image = "npc/horror_eldritch_grgglck.png",
 	resolvers.nice_tile{tall=1},
 	rarity = 50,
-	desc = [[대지의 가장 깊은 구덩이에서 나온 무서운자입니다. 이것은 거대한 촉수 더미처럼 생겼고, 그 모두는 당신에게 닿으려 노력하고 있습니다.
+	desc = [[대지의 가장 깊은 구덩이에서 나온 공포입니다. 이것은 거대한 촉수 더미처럼 생겼고, 그 모두는 당신에게 닿으려 노력하고 있습니다.
 그 속에서 칼날같이 날카로운 이빨로 둘러싸인 커다란 둥근 입을 발견할 수 있습니다.]],
 	level_range = {20, nil}, exp_worth = 2,
 	max_life = 300, life_rating = 25, fixed_rating = true,
@@ -924,7 +924,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "Ak'Gishil", color=colors.GREY, unique = true,
 	kr_display_name = "악'기실",
-	desc = "이 칼날의 무서운자는 극적으로 힘이 강해졌고, 시간의 에너지의 집합체가 되었습니다. 그 주변으로 공간의 균열이 끊임없이 열리고, 나타나자마자 재빨리 사라졌던 추방된 칼날이 소환됩니다.",
+	desc = "이 칼날의 공포는 극적으로 힘이 강해졌고, 시간의 에너지의 집합체가 되었습니다. 그 주변으로 공간의 균열이 끊임없이 열리고, 나타나자마자 재빨리 사라졌던 추방된 칼날이 소환됩니다.",
 	resolvers.nice_tile{tall=1},
 	level_range = {30, nil}, exp_worth = 2,
 	rarity = 50,
@@ -1032,7 +1032,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "ANIMATED_BLADE",
 	on_act = function(self)
 		if self.summoner:attr("dead") then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#무서운자의 죽음으로, 칼날이 땅으로 덜컥거리며 떨어집니다!")
+			game.logSeen(self, "#AQUAMARINE#공포의 죽음으로, 칼날이 땅으로 덜컥거리며 떨어집니다!")
 		end
 	end,
 }
@@ -1092,7 +1092,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "DISTORTED_BLADE",
 	on_act = function(self)
 		if self.summoner:attr("dead") then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#무서운자의 죽음으로, 혼돈의 칼날이 땅으로 덜컥거리며 떨어집니다!")
+			game.logSeen(self, "#AQUAMARINE#공포의 죽음으로, 혼돈의 칼날이 땅으로 덜컥거리며 떨어집니다!")
 		end
 	end,
 }

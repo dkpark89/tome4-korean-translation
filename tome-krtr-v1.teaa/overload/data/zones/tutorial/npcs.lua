@@ -23,7 +23,7 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base = "BASE_NPC_SKELETON", define_as = "TUTORIAL_NPC_MAGE", image="npc/skeleton_mage.png",
 	name = "skeleton mage", color=colors.LIGHT_RED,
-	kr_display_name = "해골 마법사",
+	kr_display_name = "스켈레톤 마법사",
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	max_mana = resolvers.rngavg(70,80),

@@ -108,7 +108,7 @@ newTalent{
 		self:project(tg, x, y, function(px, py)
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target or target == self then return end
-			if not target:canBe("teleport") then game.logSeen("어둠의 문에 끌려가지 않고 저항한 개체가 있습니다! (%s)") return end --@@ %s 뒤에 '이/가' 조사를 붙여야 함
+			if not target:canBe("teleport") then game.logSeen("어둠의 문에 끌려가지 않고 저항한 개체(%s)가 있습니다!") return end
 			actors[#actors+1] = target
 		end)
 		local _ _, x, y = self:canProject(tg, x, y)

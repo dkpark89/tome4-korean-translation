@@ -410,7 +410,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true}, define_as = "MS_EGO_SET_WYRM",
 	name = "wyrm's ", prefix=true, instant_resolve=true,
-	kr_display_name = "이무기 ",
+	kr_display_name = "용 ",
 	keywords = {wyrms=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -434,7 +434,7 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_DRAKE_STAR"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#PURPLE#당신의 내부에서 활발한 이무기의 영혼이 느껴집니다!")
+		game.logPlayer(who, "#PURPLE#당신의 내부에서 활발한 용의 영혼이 느껴집니다!")
 		self:specialSetAdd({"wielder","blind_immune"}, self.material_level / 10)
 		self:specialSetAdd({"wielder","stun_immune"}, self.material_level / 10)
 	end,

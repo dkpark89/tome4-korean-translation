@@ -85,7 +85,7 @@ newEntity{ base = "BASE_NPC_STORM_DRAKE",
 
 newEntity{ base = "BASE_NPC_STORM_DRAKE",
 	name = "storm wyrm", color=colors.LIGHT_BLUE, display="D",
-	kr_display_name = "폭풍 이무기",
+	kr_display_name = "폭풍 용",
 	desc = [[늙고 강력한 폭풍 드레이크입니다. 치명적인 브레스를 사용할 수 있고 험악한 발톱을 가졌습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_storm_storm_wyrm.png", display_h=2, display_y=-1}}},
 	level_range = {25, nil}, exp_worth = 1,

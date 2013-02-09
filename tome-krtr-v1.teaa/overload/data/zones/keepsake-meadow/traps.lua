@@ -21,16 +21,16 @@ newEntity{
 	type = "event",	subtype = "event", id_by_type=false, unided_name = "trap",
 	display = ' ', color=colors.WHITE,
 	name = "creeping darkness",
-	kr_display_name = "섬뜩한 어두움", kr_unided_name = "함정",
+	kr_display_name = "기어오는 어둠", kr_unided_name = "함정",
 	detect_power = 99999, disarm_power = 99999,
 	rarity = 3, level_range = {1, nil},
 	pressure_trap = false,
-	message = "섬뜩한 어두움이 대기를 통해 퍼져 나갑니다!",
+	message = "기어오는 어둠이 대기를 통해 퍼져 나갑니다!",
 	triggered = function(self, x, y, who)
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "creeping darkness trap",
-			kr_display_name = "섬뜩한 어두움 함정",
+			kr_display_name = "기어오는 어둠 함정",
 			type = "trap", subtype = "psionic",
 			combatMindpower = function(self) return self.level end,
 			getTarget = function(self) return self.x, self.y end,

@@ -18,6 +18,7 @@
 -- darkgod@te4.org
 
 name = "From Death, Life"
+kr_display_name = "죽음에서, 삶으로",
 stables = 0
 desc = function(self, who)
 	local desc = {}

@@ -21,9 +21,9 @@ name = "Serpentine Invaders"
 kr_display_name = "음흉한 침략자"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "나가들이 슬라지쉬 늪지(the slazish fens)를 침략합니다. 태양의 장벽(The Sunwall)은 두 전선에서 동시에 싸울 수 없습니다. 너무 늦기전에 당신이 침략자들을 막아야 합니다.\n 침략자들의 포탈을 찾아 파괴하십시오."
+	desc[#desc+1] = "나가들이 슬라지쉬 늪지(the slazish fens)를 침략합니다. 태양의 장벽(The Sunwall)은 두 전선에서 동시에 싸울 수 없습니다. 너무 늦기전에 당신이 침략자들을 막아야 합니다.\n 침략자들의 관문을 찾아 파괴하십시오."
 	if self:isCompleted("slazish") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 나가 포탈을 파괴했습니다. 침략이 멈췄습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 나가 관문을 파괴했습니다. 침략이 멈췄습니다.#WHITE#"
 
 		if self:isCompleted("return") then
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 서역 사람들이 동대륙이라 부르던 바르'에이알(Var'Eyal)로 돌아왔습니다.#WHITE#"

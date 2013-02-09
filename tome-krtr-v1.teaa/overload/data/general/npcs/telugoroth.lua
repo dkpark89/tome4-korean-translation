@@ -54,7 +54,7 @@ local function doTeluvortaSwap(self)
 			else
 				-- return the target without effect
 				game.level.map(target.x, target.y, Map.ACTOR, target)
-				game.logSeen(self, "주문이 파직거리며 실패했습니다!")
+				game.logSeen(self, "주문이 헛나갔습니다!")
 			end
 		else
 			game.logSeen(target, "%s 자리 교체를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))

@@ -78,7 +78,7 @@ newEntity{ define_as = "DRAEBOR",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 
 	on_die = function(self, who)
-		require("engine.ui.Dialog"):simplePopup("다시 또 그 자리에", "짜증나는 꼬마도깨비가 쓰러지자, 그 시체 아래에 포탈이 나타납니다.")
+		require("engine.ui.Dialog"):simplePopup("다시 또 그 자리에", "짜증나는 꼬마도깨비가 쓰러지자, 그 시체 아래에 관문이 나타납니다.")
 		local g = game.zone:makeEntityByName(game.level, "terrain", "PORTAL_BACK")
 		game.zone:addEntity(game.level, g, "terrain", self.x, self.y)
 	end,

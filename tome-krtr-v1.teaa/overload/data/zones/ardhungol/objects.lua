@@ -26,7 +26,7 @@ newEntity{ base = "BASE_ROD",
 	unided_name = "poison dripping wand", image = "object/artifact/rod_of_spydric_poison.png",
 	name = "Rod of Spydric Poison", color=colors.LIGHT_GREEN, unique=true,
 	kr_display_name = "거미독의 마법봉", kr_unided_name = "독액이 흐르는 장대",
-	desc = [[이 마법봉은, 끊임없이 독액이 흐르는 대형 거미의 이빨을 조각하여 만든 것입니다.]],
+	desc = [[이 마법봉은, 끊임없이 독액이 흐르는 거대 거미의 이빨을 조각하여 만든 것입니다.]],
 	cost = 50,
 	elec_proof = true,
 

@@ -23,7 +23,7 @@ if not x then return false end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "font of life"
-g.kr_display_name = "생명의 원천"
+g.kr_display_name = "생명의 샘"
 g.display='&' g.color_r=0 g.color_g=255 g.color_b=0 g.notice = true
 g:removeAllMOs()
 if engine.Map.tiles.nicer_tiles then

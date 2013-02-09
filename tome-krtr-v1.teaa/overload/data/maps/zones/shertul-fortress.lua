@@ -60,9 +60,9 @@ addSpot({23, 32}, "spawn", "melinda")
 
 -- addZone section
 addZone({21, 23, 33, 35}, "zonename", "제어실")
-addZone({16, 26, 18, 32}, "zonename", "포탈의 방")
+addZone({16, 26, 18, 32}, "zonename", "관문의 방")
 addZone({13, 37, 23, 41}, "zonename", "창고", {sort_drops=true,})
-addZone({38, 26, 45, 32}, "zonename", "탐험용 장거리포탈")
+addZone({38, 26, 45, 32}, "zonename", "탐험용 장거리 관문")
 addZone({20, 16, 23, 20}, "zonename", "잊혀진 신비의 도서관")
 addZone({15, 28, 19, 28}, "particle", "house_flamebeam")
 addZone({15, 30, 19, 30}, "particle", "house_flamebeam", {reverse=true,})

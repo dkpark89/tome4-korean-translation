@@ -81,7 +81,7 @@ newEntity{ base="BASE_NPC_ORC_GRUSHNAK", define_as = "GNARG",
 
 newEntity{ base="GREATER_MULTI_HUED_WYRM", define_as="OVERPOWERED_WYRM",
 	name = "overpowered greater multi-hued wyrm",
-	kr_display_name = "압도하는 무지개빛 고위 이무기",
+	kr_display_name = "압도하는 무지개빛 고위 용",
 	image = "npc/dragon_multihued_greater_multi_hued_wyrm.png",
 	level_range = {100, nil}, exp_worth = 3,
 	wyrm_rarity = 1, rarity = false,

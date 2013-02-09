@@ -118,7 +118,7 @@ newTalent{
 		공격 속성 : 물리
 		이 무기의 정확도는 의지 능력치를 기반으로 하여 계산됩니다.
 		정확도 추가 : +%d
-		관통력 : +%d
+		방어도 관통 : +%d
 		물리공격 치명타율 : +%d]]):format(damage * 100, weapon_damage, weapon_range, weapon_atk, weapon_apr, weapon_crit)
 	end,
 }

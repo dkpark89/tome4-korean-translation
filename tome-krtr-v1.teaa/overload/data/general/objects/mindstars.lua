@@ -64,7 +64,7 @@ newEntity{ base = "BASE_MINDSTAR",
 
 newEntity{ base = "BASE_MINDSTAR",
 	name = "vined mindstar", short_name = "vined",
-	kr_display_name = "덩쿨 마석",
+	kr_display_name = "덩굴 마석",
 	level_range = {10, 20},
 	require = { stat = { wil=16 }, },
 	cost = 10,

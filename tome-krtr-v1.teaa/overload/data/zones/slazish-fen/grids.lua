@@ -56,7 +56,7 @@ newEntity{ base="BOGWATER",
 	define_as = "PORTAL",
 	display = "&", color = colors.BLUE,
 	name = "coral portal",
-	kr_display_name = "산호 포탈",
+	kr_display_name = "산호 관문",
 	add_displays = {class.new{z=18, image="terrain/naga_portal.png", display_h=2, display_y=-1, embed_particles = {
 		{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_whispery_bright"}},
 		{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_heavy_bright"}},
@@ -67,13 +67,13 @@ newEntity{ base="BOGWATER",
 	block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return true end
 		if self.broken then
-			game.log("#VIOLET#이 포탈은 이미 부서져 있습니다!")
+			game.log("#VIOLET#이 관문은 이미 부서져 있습니다!")
 			return true
 		end
 
-		who:restInit(20, "포탈 파괴", "포탈 파괴", function(cnt, max)
+		who:restInit(20, "관문 파괴", "관문 파괴", function(cnt, max)
 			if cnt > max then
-				game.log("#VIOLET#이 포탈이 무너지기 시작했습니다, 물러서세요!")
+				game.log("#VIOLET#이 관문이 무너지기 시작했습니다, 물러서세요!")
 				self.broken = true
 				who:setQuestStatus("start-sunwall", engine.Quest.COMPLETED, "slazish")
 				game:onTickEnd(function()

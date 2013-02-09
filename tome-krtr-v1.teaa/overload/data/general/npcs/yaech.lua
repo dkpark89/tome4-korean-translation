@@ -78,7 +78,7 @@ newEntity{ base = "BASE_NPC_YAECH",
 
 newEntity{ base = "BASE_NPC_YAECH",
 	name = "yaech mindslayer", color=colors.YELLOW,
-	kr_display_name = "야크 정신파괴자",
+	kr_display_name = "야크 정신 파괴자",
 	desc = [[야크는 이크의 수생 아종입니다. 그들끼리는 같은 초능력을 공유하지만, '한길'에 소속되는 것은 거부했습니다.]],
 	level_range = {2, nil}, exp_worth = 1,
 	rarity = 2,

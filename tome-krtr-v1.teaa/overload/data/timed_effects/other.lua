@@ -1380,7 +1380,7 @@ newEffect{
 newEffect{
 	name = "HEIGHTEN_FEAR", image = "talents/heighten_fear.png",
 	desc = "Heighten Fear",
-	kr_display_name = "향상된 공포",
+	kr_display_name = "고조된 공포",
 	long_desc = function(self, eff) return ("The target is in a state of growing fear. If they spend %d more turns in a range or %d and in sight of the source of this fear (%s), they will be subjected to a new fear."):
 	format(eff.turns_left, eff.range, eff.source.name) end,
 	type = "other",

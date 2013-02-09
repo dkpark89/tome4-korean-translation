@@ -65,7 +65,7 @@ newEntity{
 	type = "potion", subtype="potion",
 	name = "Antimagic Wyrm Bile Extract",
 	unided_name = "phial filled with slimy liquid",
-	kr_display_name = "반마법의 이무기 담즙 추출물", kr_unided_name = "끈적이는 액체로 가득찬 약병",
+	kr_display_name = "반마법의 용 담즙 추출물", kr_unided_name = "끈적이는 액체로 가득찬 약병",
 	level_range = {10, 50},
 	display = '!', color=colors.VIOLET, image="object/elixir_of_avoidance.png",
 	encumber = 0.4,

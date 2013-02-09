@@ -99,7 +99,7 @@ newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 
 newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE", define_as = "GREATER_MULTI_HUED_WYRM",
 	name = "greater multi-hued wyrm", color=colors.PURPLE, display="D",
-	kr_display_name = "무지개빛 고위 이무기",
+	kr_display_name = "무지개빛 고위 용",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_multihued_greater_multi_hued_wyrm.png", display_h=2, display_y=-1}}},
 	desc = [[늙고 강력한 무지개빛 드레이크입니다. 치명적인 브레스를 사용할 수 있고 험악한 발톱을 가졌습니다.]],
 	level_range = {35, nil}, exp_worth = 1,

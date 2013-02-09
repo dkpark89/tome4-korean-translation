@@ -252,7 +252,7 @@ newTalent{
 			활의 성능은 다음과 같습니다.
 			- 정확도 : %d
 			- 피해량 : %d
-			- 관통력 : %d
+			- 방어도 관통 : %d
 			- 치명타율 : %0.2f
 			- 공격 속도 : %0.2f]]):
 		format(duration, atk, dam, apr, crit, speed)

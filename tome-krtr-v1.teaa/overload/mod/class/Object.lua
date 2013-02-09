@@ -148,13 +148,13 @@ function _M:descAttribute(attr)
 		return ("%s%0.2f/turn"):format(i > 0 and "+" or "-", math.abs(i))
 	elseif attr == "COMBAT" then
 		local c = self.combat
-		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도관통 "..(c.apr or 0)
 	elseif attr == "COMBAT_AMMO" then
 		local c = self.combat
-		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)
+		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도관통 "..(c.apr or 0)
 	elseif attr == "COMBAT_DAMTYPE" then
 		local c = self.combat
-		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 관통력 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name).." 속성"
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도관통 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name).." 속성"
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
@@ -165,7 +165,7 @@ function _M:descAttribute(attr)
 	elseif attr == "ARMOR" then
 		return "회피도 "..(self.wielder and self.wielder.combat_def or 0)..", 방어도 "..(self.wielder and self.wielder.combat_armor or 0)
 	elseif attr == "ATTACK" then
-		return "정확도 "..(self.wielder and self.wielder.combat_atk or 0)..", 관통력 "..(self.wielder and self.wielder.combat_apr or 0)..", 공격력 "..(self.wielder and self.wielder.combat_dam or 0)
+		return "정확도 "..(self.wielder and self.wielder.combat_atk or 0)..", 방어도관통 "..(self.wielder and self.wielder.combat_apr or 0)..", 공격력 "..(self.wielder and self.wielder.combat_dam or 0)
 	elseif attr == "MONEY" then
 		return ("금화 %0.2f개 가치"):format(self.money_value / 10)
 	elseif attr == "USE_TALENT" then
@@ -475,15 +475,15 @@ function _M:getTextualDesc(compare_with)
 			desc:add("이 무기는 염동력을 강하게 해 줍니다.", true)
 		end
 
-		compare_fields(combat, compare_with, field, "atk", "%+d", "정확도   : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "apr", "%+d", "관통력   : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "physcrit", "%+.1f%%", "치명타율 : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "physspeed", "%.0f%%", "공격속도 : ", 100, false, true, add_table)
+		compare_fields(combat, compare_with, field, "atk", "%+d", "정확도    : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "apr", "%+d", "방어도관통: ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "physcrit", "%+.1f%%", "치명타율  : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "physspeed", "%.0f%%", "공격속도  : ", 100, false, true, add_table)
 
-		compare_fields(combat, compare_with, field, "block", "%+d", "막기 단계: ", 1, false, true, add_table)
+		compare_fields(combat, compare_with, field, "block", "%+d", "막기 단계 : ", 1, false, true, add_table)
 
-		compare_fields(combat, compare_with, field, "range", "%+d", "사정거리 : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "capacity", "%d", "용량     : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "range", "%+d", "사정거리  : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "capacity", "%d", "용량      : ", 1, false, false, add_table)
 		compare_fields(combat, compare_with, field, "shots_reloaded_per_turn", "%+d", "재장전속도: ", 1, false, false, add_table)
 		compare_fields(combat, compare_with, field, "ammo_every", "%d", "자동장전까지의 지연시간: ", 1, false, false, add_table)
 
@@ -644,21 +644,21 @@ function _M:getTextualDesc(compare_with)
 	local desc_wielder = function(w, compare_with, field)
 		w = w or {}
 		w = w[field] or {}
-		compare_fields(w, compare_with, field, "combat_atk", "%+d", "정확도    : ")
-		compare_fields(w, compare_with, field, "combat_apr", "%+d", "관통력    : ")
-		compare_fields(w, compare_with, field, "combat_physcrit", "%+.1f%%", "치명타율  : ")
-		compare_fields(w, compare_with, field, "combat_dam", "%+d", "물리력    : ")
+		compare_fields(w, compare_with, field, "combat_atk", "%+d", "정확도      : ")
+		compare_fields(w, compare_with, field, "combat_apr", "%+d", "방어도관통력: ")
+		compare_fields(w, compare_with, field, "combat_physcrit", "%+.1f%%", "치명타율    : ")
+		compare_fields(w, compare_with, field, "combat_dam", "%+d", "물리력      : ")
 
-		compare_fields(w, compare_with, field, "combat_armor", "%+d", "방어도    : ")
-		compare_fields(w, compare_with, field, "combat_armor_hardiness", "%+d%%", "방어 효율 : ")
-		compare_fields(w, compare_with, field, "combat_def", "%+d", "회피도    : ")
-		compare_fields(w, compare_with, field, "combat_def_ranged", "%+d", "장거리회피: ")
+		compare_fields(w, compare_with, field, "combat_armor", "%+d", "방어도      : ")
+		compare_fields(w, compare_with, field, "combat_armor_hardiness", "%+d%%", "방어 효율   : ")
+		compare_fields(w, compare_with, field, "combat_def", "%+d", "회피도      : ")
+		compare_fields(w, compare_with, field, "combat_def_ranged", "%+d", "장거리회피  : ")
 
-		compare_fields(w, compare_with, field, "fatigue", "%+d%%", "피로도    : ", 1, true, true)
+		compare_fields(w, compare_with, field, "fatigue", "%+d%%", "피로도      : ", 1, true, true)
 
-		compare_fields(w, compare_with, field, "ammo_reload_speed", "%+d", "턴당 재장전: ")
+		compare_fields(w, compare_with, field, "ammo_reload_speed", "%+d", "턴당 재장전 : ")
 
-		compare_table_fields(w, compare_with, field, "inc_stats", "%+d", "능력치 변화: ", function(item)
+		compare_table_fields(w, compare_with, field, "inc_stats", "%+d", "능력치 변화 : ", function(item)
 				return (" %s"):format(Stats.stats_def[item].short_name:capitalize():krStat()) --@@ 능력치이름 한글화
 			end)
 
@@ -987,7 +987,7 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "resource_leech_chance", "%+d%%", "원천력 강탈 확률: ")
 		compare_fields(w, compare_with, field, "resource_leech_value", "%+d", "원천력 강탈: ")
 
-		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "보호막 관통력: ")
+		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "보호막관통력: ")
 
 		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "발사체 굴절: ")
 

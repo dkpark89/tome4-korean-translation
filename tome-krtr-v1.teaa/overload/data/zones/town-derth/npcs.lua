@@ -55,7 +55,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	name = "derth guard", color=colors.LIGHT_UMBER,
-	kr_display_name = "데르쓰 경비",
+	kr_display_name = "데르스 경비",
 	desc = [[엄격해 보이는 경비입니다. 마을을 어지럽히는걸 용납하지 않을것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
@@ -70,7 +70,7 @@ newEntity{ base = "BASE_NPC_DERTH_TOWN",
 
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	name = "halfling slinger", color=colors.UMBER,
-	kr_display_name = "하플링 투석전사",
+	kr_display_name = "하플링 투석 전사",
 	subtype = "halfling",
 	desc = [[이 하플링은 투석구를 가지고 있습니다. 조심하세요.]],
 	level_range = {1, nil}, exp_worth = 1,

@@ -71,8 +71,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local apr = t.getArmorPierce(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, %d 턴 동안 방어 관통력이 %d 상승하게 됩니다.
-		방어 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]):
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, %d 턴 동안 방어도 관통력이 %d 상승하게 됩니다.
+		방어도 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage, duration, apr)
 	end,
 }

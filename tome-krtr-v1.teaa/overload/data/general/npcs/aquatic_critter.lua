@@ -43,7 +43,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "giant eel", color=colors.CADET_BLUE,
-	kr_display_name = "대형 뱀장어",
+	kr_display_name = "거대 뱀장어",
 	desc = "뱀같이 생긴 존재로, 당신쪽으로 다가옵니다.",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,

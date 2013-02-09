@@ -645,7 +645,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local curecount = t.getCureCount(self, t)
-		return ([[자연의 힘을 빌어, 독과 질병을 %d 만큼 회복합니다. (3 레벨 기준)]]):
+		return ([[자연의 힘을 빌어, 독과 질병을 %d 가지 회복합니다. (3 레벨 기준)]]):
 		format(curecount)
 	end,
 }
