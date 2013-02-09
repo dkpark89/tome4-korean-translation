@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 local function remove_materials(npc, player)
-	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("공명하는 다이아몬드")
+	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("Resonating Diamond")
 	player:removeObject(gem_inven_id, gem_item, false)
 	gem_o:removed()
 
-	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("비의 룬 제례단검")
+	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("Blood-Runed Athame")
 	player:removeObject(athame_inven_id, athame_item, false)
 	athame_o:removed()
 
@@ -30,8 +30,8 @@ local function remove_materials(npc, player)
 end
 
 local function check_materials(npc, player)
-	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("공명하는 다이아몬드")
-	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("비의 룬 제례단검")
+	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("Resonating Diamond")
+	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("Blood-Runed Athame")
 	return gem_o and athame_o and player.money >= 100
 end
 

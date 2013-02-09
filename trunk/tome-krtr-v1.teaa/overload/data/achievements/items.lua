@@ -22,8 +22,8 @@ newAchievement{
 	desc = [[Found the ever-refilling potion and the blood of life.]],
 	mode = "player",
 	can_gain = function(self, who, obj)
-		if obj:getName{force_id=true} == "Blood of Life" then self.blood = true end
-		if obj:getName{force_id=true} == "Ever-Refilling Potion of Healing" then self.life = true end
+		if (obj:getName{force_id=true} == "Blood of Life" or obj.name == "Blood of Life") then self.blood = true end --@@ 원래이름도 비교되도록 코드 수정
+		if (obj:getName{force_id=true} == "Ever-Refilling Potion of Healing" or obj.name == "Ever-Refilling Potion of Healing") then self.life = true end --@@ 원래이름도 비교되도록 코드 수정
 		return self.blood and self.life
 	end
 }

@@ -34,7 +34,7 @@ newEntity{ base = "BASE_SCROLL", subtype="tome",
 	rarity = 200,
 	cost = 100,
 
-	use_simple = { name="고대의 비밀 학습", use = function(self, who)
+	use_simple = { name="learn the ancient secrets", kr_display_name="고대의 비밀 학습", use = function(self, who)
 		if not who:knowTalent(who.T_FLAME) then
 			who:learnTalent(who.T_FLAME, true, 3, {no_unlearn=true})
 			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 잊혀진 고대의 화염 마법을 배웠습니다!")
@@ -59,7 +59,7 @@ newEntity{ base = "BASE_SCROLL", subtype="tome",
 	rarity = 200,
 	cost = 100,
 
-	use_simple = { name="고대의 비밀 학습", use = function(self, who)
+	use_simple = { name="learn the ancient secrets", kr_display_name="고대의 비밀 학습", use = function(self, who)
 		if not who:knowTalent(who.T_ICE_STORM) then
 			who:learnTalent(who.T_ICE_STORM, true, 3, {no_unlearn=true})
 			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 잊혀진 고대의 얼음 마법을 배웠습니다!")

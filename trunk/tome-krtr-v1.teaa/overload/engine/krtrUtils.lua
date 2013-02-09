@@ -421,7 +421,9 @@ end
 
 function string.krActorType(str)
 	local temp = str:krRace()
-	if temp == str then return str:krClass() else return temp end
+	if temp ~= str then return temp end 
+	temp = str:krClass() 
+	if temp ~= str then return temp else return str:krFaction() end
 end
 
 function string.krRace(str)
@@ -732,5 +734,14 @@ function string.krUnIDPreName(str)
 	elseif ori == "rune-covered" then return "룬으로 덮힌"
 	elseif ori == "unblemished" then return "흠없는"
 	elseif ori == "jewel-encrusted" then return "보석박힌"
+	else return str end
+end
+
+function string.krWildType(str)
+	-- 관련내용 /mod/class/GameState.lua:348
+	local ori = str:lower()
+	if ori == "physical" then return "물리적"
+	elseif ori == "magical" then return "마법적"
+	elseif ori == "mental" then return "정신적"
 	else return str end
 end

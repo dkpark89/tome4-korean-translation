@@ -166,7 +166,7 @@ uberTalent{
 	name = "Corrupted Shell",
 	kr_display_name = "완전한 타락",
 	mode = "passive",
-	require = { special={desc="총 50,000 이상의 황폐화 피해를 받았으며, '위대한 타락자' 와 지구르를 파괴할 것", fct=function(self) return --@@ 위대한 타락자는 지구르 수장입니다
+	require = { special={desc="총 50,000 이상의 황폐화 피해를 받았으며, '위대한 타락자' 와 함께 지구르를 파괴할 것", fct=function(self) return
 		(self.damage_intake_log and self.damage_intake_log[DamageType.BLIGHT] and self.damage_intake_log[DamageType.BLIGHT] >= 50000) and
 		(game.state.birth.ignore_prodigies_special_reqs or (
 			self:hasQuest("anti-antimagic") and 

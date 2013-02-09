@@ -36,7 +36,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="민첩과 교활함이 각각 3씩 영구 증가", use = function(self, who)
+	use_simple = { name="permanently increase your dexterity and cunning by three", kr_display_name="민첩과 교활함이 각각 3씩 영구 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.inc_stats[who.STAT_DEX] = who.inc_stats[who.STAT_DEX] + 3
 		who:onStatChange(who.STAT_DEX, 3)
@@ -59,7 +59,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="회피도와 장거리 회피를 각각 6씩 영구 증가", use = function(self, who)
+	use_simple = { name="permanently increase your defense and ranged defense by six", kr_display_name="회피도와 장거리 회피를 각각 6씩 영구 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.combat_def = who.combat_def + 6
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 회피 본능을 향상시킵니다!")
@@ -79,7 +79,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="물리적 치명타율을 4% 영구 증가", use = function(self, who)
+	use_simple = { name="permanently increase your physical critical strike chance by 4%", kr_displa_name="물리적 치명타율을 4% 영구 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.combat_physcrit = who.combat_physcrit + 4
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 눈이 적의 약점을 더 잘 볼수 있도록 만듭니다!")
@@ -99,7 +99,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="마법과 의지를 각각 3씩 영구 증가", use = function(self, who)
+	use_simple = { name="permanently increase your magic and willpower by three",, kr_display_name="마법과 의지를 각각 3씩 영구 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.inc_stats[who.STAT_MAG] = who.inc_stats[who.STAT_MAG] + 3
 		who:onStatChange(who.STAT_MAG, 3)
@@ -122,7 +122,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="모든 내성을 각각 4씩 영구 증가", use = function(self, who)
+	use_simple = { name="permanently increase all your saving throws by 4", kr_display_name="모든 내성을 각각 4씩 영구 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.combat_physresist = who.combat_physresist + 4
 		who.combat_spellresist = who.combat_spellresist + 4
@@ -144,7 +144,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="능력치 점수 4점 부여", use = function(self, who)
+	use_simple = { name="grant you four additional stat points", kr_display_name="능력치 점수 4점 부여", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.unused_stats = who.unused_stats + 4
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 육체나 정신을 향상시킬 수용력을 많이 넓혀줍니다.")
@@ -165,7 +165,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="주문 치명타율 4% 영구 상승", use = function(self, who)
+	use_simple = { name="permanently increase your chance to critically strike with spells by 4%", kr_display_name="주문 치명타율 4% 영구 상승", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.combat_spellcrit = who.combat_spellcrit + 4
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 눈이 적의 마법적 약점을 더 잘 볼수 있도록 만듭니다!")
@@ -185,7 +185,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="행운 5점 영구 상승", use = function(self, who)
+	use_simple = { name="permanently increase your luck by 5", kr_display_name="행운 5점 영구 상승", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.inc_stats[who.STAT_LCK] = who.inc_stats[who.STAT_LCK] + 5
 		who:onStatChange(who.STAT_LCK, 5)
@@ -206,7 +206,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="직업 기술점수 2점 부여", use = function(self, who)
+	use_simple = { name="grant you two additional class talent points", kr_display_name="직업 기술점수 2점 부여", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.unused_talents = who.unused_talents + 2
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 주요 기술의 훈련도를 향상시킵니다.")
@@ -226,7 +226,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="힘과 체격을 각각 3점씩 영구 상승", use = function(self, who)
+	use_simple = { name="permanently increase your strength and constitution by three", kr_display_name="힘과 체격을 각각 3점씩 영구 상승", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.inc_stats[who.STAT_STR] = who.inc_stats[who.STAT_STR] + 3
 		who:onStatChange(who.STAT_STR, 3)
@@ -249,7 +249,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="방어도 4점 영구 상승", use = function(self, who)
+	use_simple = { name="permanently increase your armor by four", kr_display_name="방어도 4점 영구 상승", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.combat_armor = who.combat_armor + 4
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 육체를 강화합니다!")
@@ -269,7 +269,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="일반 기술점수 2점 부여", use = function(self, who)
+	use_simple = { name="grant you two additional generic talent points", kr_display_name="일반 기술점수 2점 부여", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨고, 영구적으로 변함을 느꼈습니다!")
 		who.unused_generics = who.unused_generics + 2
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 주요 기술의 훈련도를 향상시킵니다.")
@@ -358,7 +358,7 @@ newEntity{
 	cost = 200,
 	quest = 1,
 
-	use_simple = { name="5턴간 절대적인 불사상태 부여", use = function(self, who)
+	use_simple = { name="grant you complete invulnerability for five turns", kr_display_name="5턴간 절대적인 불사상태 부여", use = function(self, who)
 		who:setEffect(who.EFF_DAMAGE_SHIELD, 5, {power=1000000})
 		game.logPlayer(who, "#00FF00#당신이 불멸의 상태임을 느낍니다!")
 		return {used=true, id=true, destroy=true}

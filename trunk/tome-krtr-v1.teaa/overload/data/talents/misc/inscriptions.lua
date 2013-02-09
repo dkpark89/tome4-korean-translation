@@ -187,7 +187,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local what = table.concat(table.keys(data.what), ", ")
-		return ([[주입된 힘을 사용하여 나쁜 %s 상태효과를 제거하고, %d 턴 동안 시전자가 받는 피해량이 %d%% 감소합니다.]]):format(what, data.dur, data.power+data.inc_stat) --@@ 파라매터 순서 조정
+		return ([[주입된 힘을 사용하여 나쁜 %s 상태효과를 제거하고, %d 턴 동안 시전자가 받는 피해량이 %d%% 감소합니다.]]):format(what:krWildType(), data.dur, data.power+data.inc_stat) --@@ 파라매터 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)

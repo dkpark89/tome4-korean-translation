@@ -41,7 +41,7 @@ newEntity{
 	cost = 3000,
 	quest = 1,
 
-	use_simple = { name="심장 먹기", use = function(self, who)
+	use_simple = { name="consume the heart", kr_display_name="심장 먹기", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신이 심장을 먹자, 이 아주 오래된 생명체의 지식이 당신을 채우는 것이 느껴집니다!")
 		who.unused_stats = who.unused_stats + 3
 		who.unused_talents = who.unused_talents + 1
@@ -83,7 +83,7 @@ newEntity{
 	cost = 3000,
 	quest = 1,
 
-	use_simple = { name="불결한 피를 마시기", use = function(self, who)
+	use_simple = { name="drink the vile blood", kr_display_name="불결한 피를 마시기", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 용의 담즙을 마셨고, 영원히 변화했음을 느낍니다!")
 		who.unused_talents_types = who.unused_talents_types + 1
 		game.log("사용할 수 있는 기술계열 점수 %d점이 있습니다. 'G'를 눌러 사용할 수 있습니다.", who.unused_talents_types)
