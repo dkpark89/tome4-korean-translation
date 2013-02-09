@@ -94,7 +94,7 @@ return {
 			local drank
 			if rank < 0 then drank = "Master of Arena" else drank = game.level.arena.ranks[rank] or "nobody" end
 			local lastScore = {
-				name = game.player.name.." the "..drank, --@@ 점수 기록이라 일단 그냥 둠
+				name = game.player.name.." - "..drank, --@@ 점수 기록이라 일단 그냥 둠
 				score = game.level.arena.score,
 				wave = game.level.arena.currentWave,
 				sex = game.player.descriptor.sex,
@@ -130,7 +130,7 @@ return {
 			if o then game.zone:addEntity(game.level, o, "object", 7, 3) end
 		end
 		level.arena = {
-			ranks = { "nobody", "rat stomper", "bear beater", "aspirant", "fighter", "bold", "gladiator", "brave", "dangerous", "promise", "powerful", "rising star", "destroyer", "obliterator", "annihilator", "grandious", "glorious", "victorious", "ultimate", "ultimate", "ultimate", "ultimate", "ultimate", "grand master" },
+			ranks = { "무명", "생쥐 학살자", "곰 몰이꾼", "전사 지망생", "전사", "용감한 전사", "검투사", "용맹한 검투사", "위험한 자", "장래가 촉망되는 자", "강력한 자", "떠오르는 별", "파괴자", "말살자", "재앙을 불러오는 자", "위대한 자", "영예로운 자", "승리자", "궁극에 달한 자", "궁극에 달한 자", "궁극에 달한 자", "궁극에 달한 자", "궁극에 달한 자", "궁극의 끝에 다다른 자" },
 			rank = 1,
 			event = 0,
 			initEvent = false,
@@ -241,12 +241,12 @@ return {
 
 			printRankings = function (val)
 				local scores = world.arena.scores
-				if not scores or not scores[1] or not scores[1].name then return "#LIGHT_GREEN#...but it's been wiped out recently." --@@ 번역 필요
+				if not scores or not scores[1] or not scores[1].name then return "#LIGHT_GREEN#...하지만 최근 누군가에 의해 지워진 것 같습니다." --@@ 번역 필요
 				else
 					local text = ""
 					local tmp = ""
 					local line = function (txt, col) return " "..col..txt.."\n" end
-					local stri = "%s (%s %s %s)\n Score %d) - 쇄도: %d"
+					local stri = "%s (%s %s %s)\n Score %d) - 쇄도 : %d"
 					local i = 1
 					while(scores[i] and scores[i].name) do
 						p = scores[i]
@@ -255,7 +255,7 @@ return {
 						i = i + 1
 					end
 					p = world.arena.lastScore
-					tmp = "\n#YELLOW#최종 점수:"..stri:format((p.kr_display_name or p.name):capitalize(), p.sex and p.sex:krSex() or "알수없음", p.race and p.race:krActorType() or "알수없음", p.class and p.class:krActorType() or "알수없음", p.score or 0, p.wave or 0)
+					tmp = "\n#YELLOW#최종 점수:"..stri:format((p.kr_display_name or p.name):capitalize(), p.sex and p.sex:krSex() or "알 수 없음", p.race and p.race:krActorType() or "알 수 없음", p.class and p.class:krActorType() or "알 수 없음", p.score or 0, p.wave or 0)
 					return text..line(tmp, "#YELLOW#")
 				end
 			end,
@@ -315,7 +315,7 @@ return {
 					elseif newRank == 24 then world:gainAchievement("GRAND_MASTER", game.player)
 					end
 					game.flyers:add(x, y, 90, 0, -0.5, "등급 상승!!", { 2, 57, 185 }, true)
-					game.log("#LIGHT_GREEN#대중이 당신의 성과에 기뻐합니다! 당신의 등급은 이제 #WHITE#"..game.level.arena.ranks[newRank]:krRank().."#LIGHT_GREEN#이 되었습니다!")
+					game.log("#LIGHT_GREEN#관객들이 당신의 성과에 기뻐합니다! 당신의 등급은 이제 #WHITE#"..game.level.arena.ranks[newRank]:krRank().."#LIGHT_GREEN# 입니다!")
 				end
 			end,
 
@@ -326,7 +326,7 @@ return {
 					local b = (k * 0.035) + 0.04
 					game.level.arena.raiseRank(b)
 					game.flyers:add(x, y, 90, 0.5, 0, k.."명 살해!", { 2, 57, 185 }, false)
-					game.log("#YELLOW#당신은 한 턴에 "..k.." 명의 적을 죽였습니다! 대중이 흥분합니다!")
+					game.log("#YELLOW#당신은 한 턴에 "..k.." 명의 적을 죽였습니다! 관객들이 흥분합니다!")
 					if k >= 4 and k < 6 then
 						local drop = game.zone:makeEntity(game.level, "object", {tome = { ego=30, double_ego=15, greater=7, greater_normal=1 }}, nil, true)
 						game.zone:addEntity(game.level, drop, "object", game.player.x, game.player.y)
@@ -348,7 +348,7 @@ return {
 			initWave = function (val) --Clean up and start a new wave.
 				if val > 20 then --If the player has more than 20 turns of rest, clean up all items lying around.
 					game.level.arena.clearItems = true
-					game.log("#YELLOW##WHITE#"..val.."#YELLOW#턴 뒤에는 주변에 놓여있는 물건들이 사라집니다!#LAST#")
+					game.log("#YELLOW##WHITE#"..val.."#YELLOW#턴 뒤에는 투기장에 있는 물건들이 사라집니다!#LAST#")
 				end
 				game.level.arena.dangerTop = game.level.arena.dangerTop + (2 + math.floor(game.level.arena.currentWave * 0.05))
 				game.level.arena.currentWave = game.level.arena.currentWave + 1
@@ -404,9 +404,9 @@ return {
 				game.level.arena.score = game.level.arena.score + game.level.arena.bonus
 				game.flyers:add(x, y, 90, 0, -1, "시합 완료! 경험치 +"..expAward.."!", { 2, 57, 185 }, true)
 				game.log(col.."쇄도 완료!")
-				game.log(col.."완료 보너스: "..hgh..clearBonus..col.."! 점수 보너스: "..hgh..scoreBonus..col.."! 위험 보너스: "..hgh..dangerBonus..col.."! 등급 보느서: "..hgh..rankBonus..col.."!")
-				game.log(col.."당신의 경험치가 "..hgh..expAward..col.."만큼 올라갔습니다!")
-				game.log(col.."당신의 승리로 금화 "..game.level.arena.bonusMultiplier.."개를 얻었습니다!")
+				game.log(col.."완료 보너스: "..hgh..clearBonus..col.."! 점수 보너스: "..hgh..scoreBonus..col.."! 위험 보너스: "..hgh..dangerBonus..col.."! 등급 보너스: "..hgh..rankBonus..col.."!")
+				game.log(col.."경험치가 "..hgh..expAward..col.." 상승하였습니다!")
+				game.log(col.."승리의 결과, 금화 "..game.level.arena.bonusMultiplier.." 개를 얻었습니다!")
 				game.player.changed = true
 			end,
 

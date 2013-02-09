@@ -19,12 +19,12 @@
 
 require "engine.krtrUtils"
 
-newTalentType{ type="technique/horror", name = "horror techniques", hide = true, description = "세상의 여러 무서운자들의 물리 기술입니다." }
-newTalentType{ type="psionic/horror", name = "horror techniques", hide = false, description = "세상의 여러 무서운자들의 초능력입니다." }
-newTalentType{ type="wild-gift/horror", name = "horror techniques", hide = false, description = "세상의 여러 무서운자들의 초능력입니다." }
-newTalentType{ no_silence=true, is_spell=true, type="spell/horror", name = "horror spells", hide = true, description = "세상의 여러 무서운자들의 주문입니다." }
-newTalentType{ no_silence=true, is_spell=true, type="corruption/horror", name = "horror spells", hide = true, description = "세상의 여러 무서운자들의 주문입니다." }
-newTalentType{ type="other/horror", name = "horror powers", hide = true, description = "세상의 여러 무서운자들의 기타 기술입니다." }
+newTalentType{ type="technique/horror", name = "horror techniques", hide = true, description = "세상의 여러 공포들의 물리 기술입니다." }
+newTalentType{ type="psionic/horror", name = "horror techniques", hide = false, description = "세상의 여러 공포들의 초능력입니다." }
+newTalentType{ type="wild-gift/horror", name = "horror techniques", hide = false, description = "세상의 여러 공포들의 초능력입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="spell/horror", name = "horror spells", hide = true, description = "세상의 여러 공포들의 주문입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="corruption/horror", name = "horror spells", hide = true, description = "세상의 여러 공포들의 주문입니다." }
+newTalentType{ type="other/horror", name = "horror powers", hide = true, description = "세상의 여러 공포들의 기타 기술입니다." }
 
 local oldTalent = newTalent
 local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end return oldTalent(t) end
@@ -303,7 +303,7 @@ newTalent{
 				display = "h", color=colors.GREY, image = "npc/horror_temporal_void_horror.png",
 				name = "void shard", faction = self.faction,
 				kr_display_name = "공허의 파편",
-				desc = [[시공의 구조에 생긴 작은 구멍과도 같은 존재입니다.]],
+				desc = [[시공의 구조에 생긴, 작은 구멍과 같은 존재입니다.]],
 				stats = { str=22, dex=20, wil=15, con=15 },
 
 				--level_range = {self.level, self.level},
@@ -405,7 +405,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local burst = t.getBurstDamage(self, t)
-		return ([[%d 턴 동안 대상에게 전염성 벌레 무리를 옮깁니다. 매 턴마다 대상의 이로운 물리적 상태효과가 사라지며, %0.2f 산성 피해와 %0.2f 황폐화 피해를 줍니다.
+		return ([[%d 턴 동안 대상에게 전염성 벌레 무리를 옮깁니다. 매 턴마다 대상의 이로운 물리적 상태효과가 사라지며, %0.2f 산성 피해와 %0.2f 황폐 속성 피해를 줍니다.
 		5 턴 동안 벌레 무리가 유지될 시 %0.2f 산성 피해와 함께 벌레가 성장하여, 기존의 효과는 사라지지만  대상 주변에 벌레 무리가 나타나게 됩니다.]]):
 		format(duration, damDesc(self, DamageType.ACID, (damage/2)), damDesc(self, DamageType.BLIGHT, (damage/2)), damDesc(self, DamageType.ACID, (burst)))
 	end,
@@ -497,7 +497,7 @@ newTalent{
 
 newTalent{
 	name = "Razor Knife",
-	kr_display_name = "염동 면도날",
+	kr_display_name = "날카로운 염동의 칼날",
 	type = {"psionic/horror", 1},
 	points = 5,
 	psi = 18,
@@ -684,7 +684,7 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		local radius = self:getTalentRadius(t)
-		return ([[슬라임의 뿌리가 지면을 파고들어, 적들을 추적합니다. 주변 %d 칸 반경 내에서 다시 나타납니다. (오차 : %d 칸)]]):format(range, radius)
+		return ([[슬라임의 뿌리가 지면을 파고들어, 적을 추적합니다. 적의 주변 %d 칸 반경 내에서 다시 나타납니다. (오차 : %d 칸)]]):format(range, radius)
 	end,
 }
 

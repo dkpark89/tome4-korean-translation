@@ -85,7 +85,7 @@ newTalent{
 
 newTalent{
 	name = "Undeath Link",
-	kr_display_name = "마법 흩뜨리기",
+	kr_display_name = "불사의 연결고리",
 	type = {"spell/necrosis",3},
 	require = spells_req3,
 	points = 5,
@@ -147,7 +147,7 @@ newTalent{
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },
 		level = function(level) return 20 + (level-1)  end,
-		special = { desc="'From Death, Life' 퀘스트 완료", fct=function(self, t) return self:isQuestStatus("lichform", engine.Quest.DONE) end}, --@@ 해당 퀘스트 번역시 이 부분도 변경 필요
+		special = { desc="'죽음에서, 삶으로' 퀘스트 완료", fct=function(self, t) return self:isQuestStatus("lichform", engine.Quest.DONE) end}, --@@ 해당 퀘스트 번역시 이 부분도 변경 필요
 	},
 	mode = "sustained",
 	points = 5,
@@ -212,7 +212,7 @@ newTalent{
 
 		if self:attr("blood_life") then
 			self.blood_life = nil
-			game.log("#GREY#강력한 언데드로 변신하자, 당신의 육체가 떨리면서 생명의 피(Blood of Life)를 거부하는 것을 느낍니다.")
+			game.log("#GREY#강력한 언데드로 변신하자, 당신의 육체가 떨리면서 생명의 피를 거부하는 것을 느낍니다.")
 		end
 
 		require("engine.ui.Dialog"):simplePopup("리치 변신", "#GREY#당신의 생명력이 빠져나가고, 순수한 마법의 힘이 그 자리를 대신합니다! 당신의 살은 썩어 뼈만 남고, 눈이 떨어져 나가면서 리치로 다시 태어났습니다!")

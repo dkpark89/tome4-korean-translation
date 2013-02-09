@@ -148,7 +148,7 @@ newTalent{
 			end
 
 			if self.kinspike_shield_absorb <= 0 then
-				game.logPlayer(self, "가시돋힌 동역학적 보호막이 깨져 사라졌습니다!")
+				game.logPlayer(self, "동역학적 보호막의 파편들이 깨져 사라졌습니다!")
 				self:removeEffect(self.EFF_KINSPIKE_SHIELD)
 			end
 			return dam + guaranteed_dam
@@ -163,8 +163,8 @@ newTalent{
 		local mast = 30 - (2*self:getTalentLevel(self.T_SHIELD_DISCIPLINE) or 0) - 0.4*getGemLevel(self)
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 물리 공격이나 산성 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
-		보호막을 해제하면 동역학적 보호막의 파편이 생겨나, 5 턴 동안 물리 공격이나 산성 공격을 %d 만큼 완전히 막아냅니다.
-		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편은 피해 흡수에 따른 염력 회복이 더 효율적입니다.
+		보호막을 해제하면 동역학적 보호막의 파편들이 생겨나, 5 턴 동안 물리 공격이나 산성 공격을 %d 만큼 완전히 막아냅니다.
+		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편들은 피해 흡수에 따른 염력 회복을 더 효율적으로 합니다.
 		피해 흡수량 등은 정신력의 영향을 받아 증가합니다.]]):
 		format(absorb, s_str, spike_str, mast)
 	end,
@@ -262,7 +262,7 @@ newTalent{
 			end
 
 			if self.thermspike_shield_absorb <= 0 then
-				game.logPlayer(self, "가시돋힌 열역학적 보호막이 깨져 사라졌습니다!")
+				game.logPlayer(self, "열역학적 보호막의 파편들이 깨져 사라졌습니다!")
 				self:removeEffect(self.EFF_THERMSPIKE_SHIELD)
 			end
 			return dam + guaranteed_dam
@@ -278,7 +278,7 @@ newTalent{
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 화염 공격이나 냉기 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
 		보호막을 해제하면 열역학적 보호막의 파편이 생겨나, 5 턴 동안 화염 공격이나 냉기 공격을 %d 만큼 완전히 막아냅니다.
-		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편은 피해 흡수에 따른 염력 회복이 더 효율적입니다.
+		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편들은 피해 흡수에 따른 염력 회복을 더 효율적으로 합니다.
 		피해 흡수량 등은 정신력의 영향을 받아 증가합니다.]]):
 		format(absorb, s_str, spike_str, mast)
 	end,
@@ -372,7 +372,7 @@ newTalent{
 			end
 
 			if self.chargespike_shield_absorb <= 0 then
-				game.logPlayer(self, "가시돋힌 전하적 보호막이 깨져 사라졌습니다!")
+				game.logPlayer(self, "전하적 보호막의 파편들이 깨져 사라졌습니다!")
 				self:removeEffect(self.EFF_CHARGESPIKE_SHIELD)
 			end
 			return dam + guaranteed_dam
@@ -388,7 +388,7 @@ newTalent{
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 전기 공격이나 황폐화 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
 		보호막을 해제하면 전하적 보호막의 파편이 생겨나, 5 턴 동안 전기 공격이나 황폐화 공격을 %d 만큼 완전히 막아냅니다.
-		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편은 피해 흡수에 따른 염력 회복이 더 효율적입니다.
+		보호막이 피해를 흡수할 때마다 염력을 2 회복하며, %d 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다. 보호막의 파편들은 피해 흡수에 따른 염력 회복을 더 효율적으로 합니다.
 		피해 흡수량 등은 정신력의 영향을 받아 증가합니다.]]):
 		format(absorb, s_str, spike_str, mast)
 	end,

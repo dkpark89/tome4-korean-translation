@@ -78,7 +78,7 @@ uberTalent{
 	name = "Massive Blow",
 	kr_display_name = "*강력한* 일격",
 	mode = "activated",
-	require = { special={desc="30 번 이상의 굴착 경험이 있으며, 양손무기로 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return 
+	require = { special={desc="30 번 이상의 굴착 경험이 있으며, 양손무기로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return 
 		self.dug_times and self.dug_times >= 30 and 
 		self.damage_log and self.damage_log.weapon.twohanded and self.damage_log.weapon.twohanded >= 50000
 	end} },
@@ -128,7 +128,7 @@ uberTalent{
 	requires_target = true,
 	range = 5,
 	tactical = { ATTACK = 4, CLOSEIN = 2 },
-	require = { special={desc="화염이나 빛 속성으로 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return
+	require = { special={desc="화염이나 빛 속성으로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return
 		self.damage_log and (
 			(self.damage_log[DamageType.FIRE] and self.damage_log[DamageType.FIRE] >= 50000) or
 			(self.damage_log[DamageType.LIGHT] and self.damage_log[DamageType.LIGHT] >= 50000)
@@ -140,7 +140,7 @@ uberTalent{
 	end,
 	info = function(self, t)
 		local dam = (50 + self:getStr() * 2) / 3
-		return ([[6 턴 동안 강력한 별의 힘을 빌어, 주변 5 칸 이내의 모든 적들에게 %0.2f 화염 피해, %0.2f 전기 피해, %0.2f 물리 피해를 동시에 줍니다.
+		return ([[6 턴 동안 강력한 별의 힘을 빌어, 주변 5 칸 이내의 모든 적들을 끌어와 %0.2f 화염 피해, %0.2f 전기 피해, %0.2f 물리 피해를 동시에 줍니다.
 		시전자와 붙어있는 적에게는 피해량이 200%% 증가합니다.
 		피해량은 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.LIGHT, dam), damDesc(self, DamageType.PHYSICAL, dam))
@@ -165,7 +165,7 @@ uberTalent{
 	name = "Legacy of the Naloren",
 	kr_display_name = "날로렌의 유산",
 	mode = "passive",
-	require = { special={desc="슬라술의 편에 서서, 우클름스윅을 죽일 것", fct=function(self)
+	require = { special={desc="슬라슐의 편에 서서, 우클름스윅을 죽일 것", fct=function(self)
 		if game.state.birth.ignore_prodigies_special_reqs then return true end
 		local q = self:hasQuest("temple-of-creation")
 		return q and not q:isCompleted("kill-slasul") and q:isCompleted("kill-drake")
@@ -178,11 +178,11 @@ uberTalent{
 		self.can_breath = self.can_breath or {}
 		self.can_breath.water = (self.can_breath.water or 0) + 1
 
-		require("engine.ui.Dialog"):simplePopup("날로렌의 유산", "당신의 신념이 그의 영향을 받았음을 알게되어 슬라술이 기뻐할 것입니다. 당신은 슬라술에게 돌아가 이 이야기를 해줘야 합니다.")
+		require("engine.ui.Dialog"):simplePopup("날로렌의 유산", "당신의 신념이 그의 영향을 받았음을 알게되면, 슬라슐이 기뻐할 것입니다. 당신은 슬라슐에게 돌아가 이 이야기를 해줘야 합니다.")
 	end,
 	info = function(self, t)
-		return ([[슬라술(Slasul)을 도와, 우클름스윅(Ukllmswwik)을 격퇴시켰습니다. 물 속에서 숨을 쉴 수 있게 되며, 삼지창을 포함한 각종 이형 무기들을 손쉽게 다룰 수 있게 됩니다. (이형 무기 수련 기술을 배우고, 기술 레벨이 5 가 됩니다)
-		또한 나가처럼 독을 뱉을 수 있게 되며, 슬라술이 감사의 표시로 또 다른 보상을 줄지도 모릅니다.]])
+		return ([[슬라슐을 도와, 우클름스윅을 격퇴시켰습니다. 물 속에서 숨을 쉴 수 있게 되며, 삼지창을 포함한 각종 이형 무기들을 손쉽게 다룰 수 있게 됩니다. (이형 무기 수련 기술을 배우고, 기술 레벨이 5 가 됩니다)
+		또한 나가처럼 독을 뱉을 수 있게 되며, 슬라슐이 감사의 표시로 또 다른 보상을 줄지도 모릅니다.]])
 		:format()
 	end,
 }

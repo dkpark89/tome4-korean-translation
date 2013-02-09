@@ -20,7 +20,7 @@
 -- Undead talents
 newTalentType{ type="undead/base", name = "base", generic = true, description = "언데드의 선천적 능력." }
 newTalentType{ type="undead/ghoul", name = "ghoul", generic = true, description = "구울의 선천적 능력." }
-newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "해골의 선천적 능력." }
+newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "스켈레톤의 선천적 능력." }
 newTalentType{ type="undead/vampire", name = "vampire", generic = true, description = "흡혈귀의 선천적 능력." }
 newTalentType{ type="undead/lich", name = "lich", generic = true, description = "리치의 선천적 능력." }
 
@@ -61,6 +61,6 @@ newTalent{
 		return true
 	end,
 	info = function(self)
-		return ([[당신은 잠시 집중하여 당신이 살아있던 시절의 기억을 되살리고, 진귀한 물건을 감정하기 위한 지식을 찾아봅니다.]])
+		return ([[집중하여 자신이 살아있던 시절의 기억을 되살립니다. 이 생전의 기억에서, 진귀한 물건을 감정하기 위한 지식을 찾아봅니다.]])
 	end,
 }

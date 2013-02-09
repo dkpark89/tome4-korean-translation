@@ -84,7 +84,7 @@ newTalent{
 		return ([[대상을 매혹시켜, 원천력 (체력, 마나, 원기 등) 을 사용할 때마다 %0.2f 화염 피해를 입히고 기술의 재사용 대기시간을 %d%% 턴 증가시킵니다.
 		이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]])
-		:format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 4, 90)), ((self:getTalentLevel(t) / 10))*100 +1 ) --@@ 마지막 변수에서 글로 +1이 적힌 것을 변수 값으로 집어넣음
+		:format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 4, 90)), ((self:getTalentLevel(t) / 10))*100 +1) --@@ 마지막 변수에서 글로 +1이 적힌 것을 변수 값으로 집어넣음
 	end,
 }
 
@@ -117,8 +117,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 매혹시켜, 20 턴 동안 대상이 누군가를 공격할 때마다 자신도 피해를 입게 만듭니다.
-		피해량의 %d%% 만큼 자신도 피해를 입게 되며, 이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
+		return ([[대상을 매혹시켜, 20 턴 동안 대상이 누군가를 공격할 때마다 대상도 피해를 입게 만듭니다.
+		피해량의 %d%% 만큼 대상도 피해를 입게 되며, 이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 4, 20))
 	end,
 }

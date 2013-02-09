@@ -74,7 +74,7 @@ newTalent{
 	getStunChance = function(self, t) return self:getTalentLevel(t) * 3 end,
 	info = function(self, t)
 		return ([[빠른 손재간을 이용하여, 기절한 대상에게 큰 피해를 줍니다. 기절한 대상에게 치명타를 발생시킬 확률이 %d%% 증가합니다.
-		또한, 근접 치명타 공격이 %d%% 확률로 대상을 3 턴 동안 기절시키게 됩니다.]]):
+		또한, 일반적인 근접 치명타 공격이 %d%% 확률로 대상을 3 턴 동안 기절시키게 됩니다.]]):
 		format(t.getCriticalChance(self, t), t.getStunChance(self, t))
 	end,
 }

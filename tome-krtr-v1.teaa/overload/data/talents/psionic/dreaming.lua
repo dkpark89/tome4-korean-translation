@@ -94,7 +94,7 @@ newTalent{
 		local power = t.getSleepPower(self, t)
 		local insomnia = t.getInsomniaPower(self, t)
 		return([[주변 %d 칸 반경의 적들을 %d 턴 동안 재웁니다. 수면 중에는 행동할 수 없게 되며, %d 피해를 받을 때마다 수면의 지속시간이 1 턴씩 줄어들게 됩니다.
-		수면이 끝나면, 대상은 불면증 상태가 되어 잠든 시간 동안 %d%% 수면 저항력을 얻게 됩니다. (최대 10 턴)
+		수면이 끝나면, 대상은 불면증 상태가 되어 잠들었던 시간만큼 %d%% 수면 저항력을 얻게 됩니다. (최대 10 턴)
 		기술 레벨이 5 이상이면 수면이 전염성을 띄게 되어, 매 턴마다 25%% 확률로 잠든 대상 근처의 잠들지 않은 적이 잠들게 됩니다.
 		피해 한계량은 정신력의 영향을 받아 증가합니다.]]):format(radius, duration, power, insomnia)
 	end,

@@ -107,7 +107,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[타락한 힘의 돌풍을 만들어내 전방 3 칸 반경에 %0.2f 질병 피해를 주고, 물리적 효과나 마법적 효과를 %d 개 없애버립니다.
+		return ([[타락한 힘의 돌풍을 만들어내 전방 3 칸 반경에 %0.2f 황폐 속성 피해를 주고, 물리적 효과나 마법적 효과를 %d 개 없애버립니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 120)), self:getTalentLevelRaw(t))
 	end,
 }

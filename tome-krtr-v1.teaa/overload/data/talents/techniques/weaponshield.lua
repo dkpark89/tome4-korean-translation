@@ -61,7 +61,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 방패로 두 번 내리쳐, 각각 %d%%, %d%% 의 방패 피해를 줍니다. 두 번째 타격이 명중하면, 대상은 %d 턴 동안 기절합니다.
+		return ([[대상을 방패로 두 번 내리쳐, 각각 %d%% / %d%% 의 방패 피해를 줍니다. 두 번째 타격이 명중하면, 대상은 %d 턴 동안 기절합니다.
 		기절 확률은 정확도와 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.7, self:getTalentLevel(self.T_SHIELD_EXPERTISE)),
 		100 * self:combatTalentWeaponDamage(t, 1.2, 2.1, self:getTalentLevel(self.T_SHIELD_EXPERTISE)),
@@ -224,7 +224,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[수비적인 전투 자세에 들어가, 물리 공격력이 20%% 떨어지는 대신 회피도가 %d, 방어도가 %d 증가하고, 기절과 밀어내기 저항력이 %d%% 증가합니다.
+		return ([[수비적인 전투 자세에 들어가 물리 공격력이 20%% 떨어지는 대신, 회피도가 %d / 방어도가 %d / 기절과 밀어내기 저항력이 %d%% 증가합니다.
 		회피도와 방어도 증가량은 민첩 능력치의 영향을 받아 증가합니다.]]):format(
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE)* 2,
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE),
@@ -272,7 +272,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[적들이 방패를 공격하도록 허용한 뒤, 힘을 끌어모아 후려갈겨 적들을 %d 칸 밀어냅니다.
+		return ([[적들이 방패를 공격하도록 허용한 뒤, 힘을 모아 후려갈겨 적들을 %d 칸 밀어냅니다.
 		추가적으로, 밀려난 적들은 %d 턴 동안 혼절하게 됩니다.
 		밀어내는 거리는 기술 레벨, 혼절 시간은 힘 능력치의 영향을 받아 증가합니다.]]):format(math.floor(2 + self:getTalentLevel(t)), 3 + self:getStr(8))
 	end,
@@ -294,7 +294,7 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 2
 	end,
 	info = function(self, t)
-		return ([[방패 기반 기술을 사용할 때 공격과 방어를 더 능숙하게 할 수 있게 되며, 주문 내성이 %d, 물리 내성이 %d 상승합니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
+		return ([[방패 기반 기술을 사용할 때 공격과 방어를 더 능숙하게 할 수 있게 되며, 주문 내성이 %d / 물리 내성이 %d 상승합니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
 	end,
 }
 
@@ -330,7 +330,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[단단히 버틸 준비를 합니다. 회피도가 %d, 최대 생명력이 %d 증가하는 대신 움직이지 못하게 됩니다.
+		return ([[단단히 버틸 준비를 합니다. 회피도가 %d / 최대 생명력이 %d 증가하는 대신, 움직이지 못하게 됩니다.
 		회피도 증가는 민첩 능력치, 생명력 증가는 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(5 + self:getDex(4, true) * self:getTalentLevel(t),
 		(10 + self:getCon() * 0.7) * self:getTalentLevel(t))

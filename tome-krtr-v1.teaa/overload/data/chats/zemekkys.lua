@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 local function remove_materials(npc, player)
-	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("Resonating Diamond")
+	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("공명하는 다이아몬드")
 	player:removeObject(gem_inven_id, gem_item, false)
 	gem_o:removed()
 
-	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("Blood-Runed Athame")
+	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("비의 룬 제례단검")
 	player:removeObject(athame_inven_id, athame_item, false)
 	athame_o:removed()
 
@@ -30,8 +30,8 @@ local function remove_materials(npc, player)
 end
 
 local function check_materials(npc, player)
-	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("Resonating Diamond")
-	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("Blood-Runed Athame")
+	local gem_o, gem_item, gem_inven_id = player:findInAllInventories("공명하는 다이아몬드")
+	local athame_o, athame_item, athame_inven_id = player:findInAllInventories("비의 룬 제례단검")
 	return gem_o and athame_o and player.money >= 100
 end
 
@@ -126,8 +126,8 @@ newChat{ id="athame3",
 newChat{ id="complete",
 	text = [[Yes? You got the Athame, the gem and 100 gold?]],
 	answers = {
-		{"[Give him the gem, the athame and 100 gold]", jump="complete2", cond=check_materials, action=remove_materials},
-		{"Sorry, it seems I lack some stuff. I will be back."},
+		{"[그에게 보석과 단검, 100 골드를 준다.]", jump="complete2", cond=check_materials, action=remove_materials},
+		{"아뇨, 부족한 물건이 있는 것 같습니다. 잠시 후에 다시 오겠습니다."},
 	}
 }
 newChat{ id="complete2",

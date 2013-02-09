@@ -38,7 +38,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[순수한 황폐의 기운을 발사하여, %0.2f 황폐화 피해를 줍니다.
+		return ([[순수한 황폐의 기운을 발사하여, %0.2f 황폐 속성 피해를 줍니다.
 		이 마법은 치명타 확률이 다른 마법보다 %0.2f%% 더 높습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 20, 250)), self:getTalentLevel(t) * 5)
 	end,
@@ -71,7 +71,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[주변 10 칸 반경의 적들을 %d 턴 동안 감지합니다.
-		사악한 기운이 적들을 둘러싸 황폐화 저항력을 %d%% 낮추지만, 그 대신 적들도 시전자의 존재를 느끼게 됩니다.
+		사악한 기운이 적들을 둘러싸 황폐 속성 저항력을 %d%% 낮추지만, 그 대신 적들도 시전자의 존재를 느끼게 됩니다.
 		저항 감소량은 주문력의 영향을 받아 증가합니다.]]):format(3 + self:getTalentLevel(t), self:combatTalentSpellDamage(t, 10, 45))
 	end,
 }
@@ -108,7 +108,7 @@ newTalent{
 		self:project(tg, x, y, function(px, py)
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target or target == self then return end
-			if not target:canBe("teleport") then game.logSeen("%s 어둠의 문에 끌려가지 않았습니다!") return end --@@ %s 뒤에 '이/가' 조사를 붙여야 함
+			if not target:canBe("teleport") then game.logSeen("어둠의 문에 끌려가지 않고 저항한 개체가 있습니다! (%s)") return end --@@ %s 뒤에 '이/가' 조사를 붙여야 함
 			actors[#actors+1] = target
 		end)
 		local _ _, x, y = self:canProject(tg, x, y)
@@ -133,7 +133,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[선택한 지점의 주변 3 칸 반경에 어둠의 문이 열립니다. 해당 영역의 모든 적들은 시전자가 있던 곳으로 이동되며, 시전자는 선택 지점으로 이동합니다.
-		어둠의 문을 통과한 모든 적들은 질병에 걸려, 6 턴 동안 매 턴마다 %0.2f 황폐화 피해를 받으며 힘, 체격, 민첩 능력치 중 하나가 %d 감소합니다.
+		어둠의 문을 통과한 모든 적들은 질병에 걸려, 6 턴 동안 매 턴마다 %0.2f 황폐 속성 피해를 받으며 힘, 체격, 민첩 능력치 중 하나가 %d 감소합니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 12, 80)), self:combatTalentSpellDamage(t, 5, 25))
 	end,
 }

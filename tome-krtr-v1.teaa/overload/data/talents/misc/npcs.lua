@@ -273,14 +273,14 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_CONSTRICTED, (2 + self:getTalentLevel(t)) * 10, {src=self, power=1.5 * self:getTalentLevel(t), apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 질식되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 질식 상태가 되지  않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("는"))
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상이 질식 상태가 됩니다. 질식 상태의 위력은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, 대상을 질식시키기 시작합니다. 질식 상태의 위력은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.5, 1))
 	end,
 }
 
@@ -645,7 +645,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local curecount = t.getCureCount(self, t)
-		return ([[자연의 힘을 빌어, 독과 질병을 %d 만큼 회복합니다. (3 등급 기준)]]):
+		return ([[자연의 힘을 빌어, 독과 질병을 %d 만큼 회복합니다. (3 레벨 기준)]]):
 		format(curecount)
 	end,
 }
@@ -876,7 +876,7 @@ newTalent{
 	points = 5,
 	equilibrium = 4,
 	cooldown = 6,
-	message = "@Source1@ 적당한 공간을 찾습니다...",
+	message = "@Source1@ 거미줄을 칠 적당한 공간을 찾습니다...",
 	range = 10,
 	requires_target = true,
 	tactical = { DISABLE = { stun = 1, pin = 1 } },
@@ -1171,7 +1171,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상에게 오염된 증기가 뿜어져나와, 주변에 %0.2f 황폐화 피해를 매 턴마다 줍니다. (지속시간 : %d 턴)
+		return ([[대상에게 오염된 증기가 뿜어져나와, 주변에 %0.2f 황폐 속성 피해를 매 턴마다 줍니다. (지속시간 : %d 턴)
 		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 5, 65), self:getTalentLevel(t) + 2)
 	end,
 }
@@ -1588,7 +1588,7 @@ newTalent{
 newTalent{
 	short_name = "STRIKE",
 	name = "Strike",
-	kr_display_name = "타격",
+	kr_display_name = "암석 타격",
 	type = {"spell/other", 1},
 	points = 5,
 	random_ego = "attack",

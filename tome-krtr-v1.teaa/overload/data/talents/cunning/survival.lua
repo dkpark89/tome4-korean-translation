@@ -68,7 +68,7 @@ newTalent{
 	points = 5,
 	info = function(self, t)
 		return ([[주변을 더 뚜렷하게 볼 수 있게 되어, 은신이나 투명한 적을 더 잘 발견할 수 있게 됩니다.
-		은신 감지력이 %d, 투명 감지력이 %d 증가합니다.
+		은신 감지력이 %d / 투명 감지력이 %d 증가합니다.
 		감지력은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(5 + self:getTalentLevel(t) * self:getCun(15, true), 5 + self:getTalentLevel(t) * self:getCun(15, true))
 	end,

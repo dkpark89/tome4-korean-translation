@@ -21,7 +21,7 @@ load("/data/general/traps/store.lua")
 
 newEntity{ base = "BASE_STORE", define_as = "HEAVY_ARMOR_STORE",
 	name="Horman's Plates",
-	kr_display_name = "호르만의 철갑",
+	kr_display_name = "홀만의 철갑",
 	display='2', color=colors.UMBER,
 	resolvers.store("ZIGUR_HARMOR", "zigur", "store/shop_door.png", "store/shop_sign_hormans_plates.png"),
 }

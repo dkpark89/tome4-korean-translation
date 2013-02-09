@@ -69,7 +69,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local push = t.getPush(self, t)
-		return ([[밀어차기를 날려 대상을 %d 칸 밀어내고 %0.2f 물리 피해를 줍니다. 반동으로 인해 자신도 1 칸 밀려나며, 대상이 밀려날 때 다른 대상과 부딪히면 추가 피해를 주고 다른 대상도 같이 밀려납니다.
+		return ([[밀어차기를 날려 대상을 %d 칸 밀어내고, %0.2f 물리 피해를 줍니다. 반동으로 인해 자신도 1 칸 밀려나며, 대상이 밀려날 때 다른 대상과 부딪히면 추가 피해를 주고 다른 대상도 같이 밀려납니다.
 		이 기술을 통해 1 의 연계 점수를 획득할 수 있습니다. 무언가를 붙잡고 있을 때 이 기술을 사용하면, 붙잡기가 풀립니다.
 		피해량은 물리력의 영향을 받아 증가합니다.]]):
 		format(push, damDesc(self, DamageType.PHYSICAL, (damage)))
@@ -107,7 +107,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local damagetwo = t.getDamageTwo(self, t)
 		return ([[대상의 근접공격을 회피할 때마다, %d%% 확률로 대상을 넘어뜨립니다. 대상이 넘어지면 %0.2f 피해를 받고, 2 턴 동안 혼절합니다.
-		대상을 붙잡고 있었다면 %0.2f 피해를 주고, 2턴 동안 기절시킵니다.
+		대상을 붙잡고 있었다면 %0.2f 피해를 주고, 2 턴 동안 기절시킵니다.
 		되치기 확률은 정확도 능력치에 따라 증가하며, 피해량은 물리력에 따라 증가합니다.]]):
 		format(self:getTalentLevel(t) * (5 + self:getCun(5, true)), damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damagetwo)))
 	end,

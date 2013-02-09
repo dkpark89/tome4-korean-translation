@@ -76,7 +76,7 @@ uberTalent{
 	mode = "passive",
 	require = { special={desc="반마법", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	info = function(self, t)
-		return ([[속임수와 각종 기술의 달인이 되어, 반 마법 보호막이 %d%% 더 많은 피해량을 흡수하게 됩니다.
+		return ([[속임수와 각종 기술의 달인이 되어, 반마법 보호막이 %d%% 더 많은 피해량을 흡수하게 됩니다.
 		피해 흡수량은 교활함 능력치의 영향을 받아 증가합니다.]])
 		:format(self:getCun() / 2)
 	end,
@@ -86,7 +86,7 @@ uberTalent{
 	name = "Endless Woes",
 	kr_display_name = "끝없는 고통",
 	mode = "passive",
-	require = { special={desc="산성, 황폐, 암흑, 시간, 정신 속성 중 하나로, 적에게 총 50000 이상의 피해를 줄 것", fct=function(self) return 
+	require = { special={desc="산성, 황폐, 암흑, 시간, 정신 속성 중 하나로 적에게 총 50,000 이상의 피해를 줄 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.ACID] and self.damage_log[DamageType.ACID] >= 50000) or
 			(self.damage_log[DamageType.BLIGHT] and self.damage_log[DamageType.BLIGHT] >= 50000) or
@@ -114,7 +114,7 @@ uberTalent{
 	info = function(self, t)
 		return ([[사악한 기운이 온몸을 흐르기 시작합니다.
 		모든 산성 피해가 20%% 확률로 지속성 산성을 묻혀, 원래 피해량의 %d%% 만큼 추가 피해를 주고 5 턴 동안 정확도를 %d 감소시킵니다.
-		모든 황폐화 피해가 20%% 확률로 추가적인 황폐화를 일으켜, 원래 피해량의 %d%% 만큼 추가 피해를 주고 5 턴 동안 능력치 하나를 %d 감소시킵니다.
+		모든 황폐 피해가 20%% 확률로 추가적인 황폐화를 일으켜, 원래 피해량의 %d%% 만큼 추가 피해를 주고 5 턴 동안 능력치 하나를 %d 감소시킵니다.
 		모든 암흑 피해가 20%% 확률로 5 턴 동안 적을 실명시킵니다.
 		모든 시간 피해가 20%% 확률로 5 턴 동안 적을 30%% 감속시킵니다.
 		모든 정신 피해가 20%% 확률로 5 턴 동안 적을 20%% 혼란시킵니다.
@@ -128,7 +128,7 @@ uberTalent{
 	name = "Secrets of Telos",
 	kr_display_name = "텔로스의 비밀",
 	mode = "passive",
-	require = { special={desc="부서진 텔로스 지팡이 (상단), 텔로스 지팡이 (하단), 텔로스 지팡이의 수정을 모두 가지고 있을 것", fct=function(self)
+	require = { special={desc="부서진 텔로스 지팡이 (상단), 부서진 텔로스 지팡이 (하단), 텔로스 지팡이의 수정을 모두 가지고 있을 것", fct=function(self)
 		local o1 = self:findInAllInventoriesBy("define_as", "GEM_TELOS")
 		local o2 = self:findInAllInventoriesBy("define_as", "TELOS_TOP_HALF")
 		local o3 = self:findInAllInventoriesBy("define_as", "TELOS_BOTTOM_HALF")
@@ -164,7 +164,7 @@ uberTalent{
 	kr_display_name = "속성 고조",
 	mode = "passive",
 	cooldown = 12,
-	require = { special={desc="마법, 화염, 냉기, 전기, 자연 속성 중 하나로, 적에게 총 50000 이상의 피해를 줄 것", fct=function(self) return 
+	require = { special={desc="마법, 화염, 냉기, 전기, 자연 속성 중 하나로 적에게 총 50,000 이상의 피해를 줄 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.ARCANE] and self.damage_log[DamageType.ARCANE] >= 50000) or
 			(self.damage_log[DamageType.FIRE] and self.damage_log[DamageType.FIRE] >= 50000) or
@@ -306,8 +306,8 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[지하 세력과 친분을 맺어, 뒷세계의 기술들을 전수받습니다.
-		교활/은신 기술 계열의 숙련도를 0.2 올리고, 기술이 없다면 습득합니다. 그리고 교활/무뢰배 기술 계열의 숙련도를 0.1 올리고, 기술이 없다면 0.9 기술 숙련도로 습득합니다.
-		또한, 투명 상태에서 감소하는 피해량 패널티가 절반으로 줄어듭니다.]]):
+		교활/은신 기술 계열의 숙련도를 0.2 올리고, 기술이 없다면 기술을 배울 수 있는 상태가 됩니다. 그리고 교활/무뢰배 기술 계열의 숙련도를 0.1 올리고, 기술이 없다면 0.9 기술 숙련도로 습득합니다.
+		또한, 투명 상태일 때 받는 피해량 감소 효과가 절반으로 줄어듭니다.]]):
 		format()
 	end,
 }

@@ -136,7 +136,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[시전자로부터 최소 1 칸은 떨어진 곳에 해일이 일어나며, 매 턴마다 1 칸씩 더 해일이 넓어져 최대 %d 칸 범위까지 넓어집니다. 해일에 휩쓸린 적은 매 턴마다 %0.2f 냉기 피해와 %0.2f 물리 피해를 입으며, 뒤로 밀려납니다.
+		return ([[시전자로부터 1 칸 떨어진 곳부터 해일이 일어나기 시작하며, 매 턴마다 1 칸씩 더 해일이 넓어져 최대 %d 칸 범위까지 넓어집니다. 해일에 휩쓸린 적은 매 턴마다 %0.2f 냉기 피해와 %0.2f 물리 피해를 입으며, 뒤로 밀려납니다.
 		해일은 %d 턴 동안 유지되며, 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.COLD, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2), duration)
 	end,
@@ -167,7 +167,7 @@ newTalent{
 		local power = t.getPower(self, t)
 		local dur = t.getDuration(self, t)
 		return ([[주변의 잠재된 냉기를 모두 흡수하여, %d 턴 동안 냉기의 정령인 쉬브고로스로 변신합니다.
-		변신 중에는 호흡이 필요없게 되며, %d 레벨의 얼음 폭풍을 사용할 수 있게 됩니다. 또한 출혈과 기절 저항력이 %d%%, 냉기 저항력이 %d%% 증가합니다. 그리고 변신 중에 입는 냉기 피해의 %d%% 만큼 생명력이 회복됩니다.
+		변신 중에는 호흡이 필요없게 되며, %d 레벨의 얼음 폭풍 마법을 사용할 수 있게 됩니다. 또한 출혈과 기절 저항력이 %d%% / 냉기 저항력이 %d%% 증가합니다. 그리고 변신 중에 입는 냉기 피해의 %d%% 만큼 생명력이 회복됩니다.
 		주문의 위력은 주문력의 영향을 받아 상승합니다.]]):
 		format(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100)
 	end,

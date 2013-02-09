@@ -100,7 +100,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[지팡이를 사용할 때 물리력을 %d, 무기 피해량을 %d%% 올려줍니다.]]):
+		return ([[지팡이를 사용할 때 물리력을 %d / 무기 피해량을 %d%% 올려줍니다.]]):
 		format(damage, 100 * inc)
 	end,
 }
@@ -140,7 +140,7 @@ newTalent{
 
 newTalent{
 	name = "Blunt Thrust",
-	kr_display_name = "둔탁한 찌르기",
+	kr_display_name = "둔중한 찌르기",
 	type = {"spell/staff-combat",4},
 	require = spells_req4,
 	points = 5,
@@ -157,7 +157,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasStaffWeapon()
 		if not weapon then
-			game.logPlayer(self, "양손무기를 들지 않으면 둔탁한 찌르기를 사용할 수 없습니다!")
+			game.logPlayer(self, "양손무기를 들지 않으면 둔중한 찌르기를 사용할 수 없습니다!")
 			return nil
 		end
 

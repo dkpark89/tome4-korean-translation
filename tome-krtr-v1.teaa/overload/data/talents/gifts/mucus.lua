@@ -123,7 +123,7 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		return ([[자연의 힘을 빌어, 주변 %d 칸 반경의 지면에 산성 폭발을 일으킵니다. 폭발에 휩쓸린 적은 %0.2f 산성 피해를 입으며, 폭발한 곳에 점액이 남게 됩니다.
-		또 당신이 진흙 점액을 데리고 있고 그것이 직선상에 있다면, 산성 폭발에 닿은 대상 중 하나에게 즉시 (감소된 위력으로) 슬라임을 뱉습니다.
+		진흙 점액이 존재하며 대상과 직선상에 있다면, 진흙 점액은 산성 폭발에 닿은 대상 중 하나에게 즉시 (감소된 위력으로) 슬라임을 뱉습니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, dam))
 	end,
@@ -182,7 +182,7 @@ newTalent{
 			display = "j", color=colors.GREEN, image = "npc/vermin_oozes_green_ooze.png",
 			name = "mucus ooze",
 			kr_display_name = "진흙 점액",
-			desc = "It's made from mucus and it's oozing.",
+			desc = "점액에서 만들어진 존재입니다. 물컹거립니다.",
 			sound_moam = {"creatures/jelly/jelly_%d", 1, 3},
 			sound_die = {"creatures/jelly/jelly_die_%d", 1, 2},
 			sound_random = {"creatures/jelly/jelly_%d", 1, 3},
@@ -235,10 +235,10 @@ newTalent{
 
 	end,
 	info = function(self, t)
-		return ([[당신의 점액은 감지력과 비슷한 능력을 가지고 있습니다. 매 턴마다 %d%% 의 확률로 당신의 점액은 임의의 장소에 진흙 점액을 낳습니다.
-		진흙 점액은 당신의 적에게 슬라임을 뱉는 공격을 합니다.
-		(당신의 교활함에 따라) 당신은 최대 %d 마리의 진흙 점액을 가질 수 있습니다.
-		당신이 정신적 치명타 공격을 성공시킬때 마다, 모든 진흙 점액의 유지 시간이 2 턴 증가합니다.
+		return ([[점액에 특수한 능력이 생겨, 매 턴마다 %d%% 확률로 점액이 있는 곳에 특수한 진흙 점액이 생겨납니다.
+		진흙 점액은 적에게 슬라임을 뱉는 공격을 합니다.
+		최대 %d 마리의 진흙 점액을 동시에 유지할 수 있습니다. (교활함 능력치에 따라 최대 유지량이 증가합니다)
+		정신적 공격으로 치명타가 발생할 때마다, 모든 진흙 점액들의 유지 시간이 2 턴 증가하게 됩니다.
 		이 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t), t.getMax(self, t))
 	end,
@@ -246,7 +246,7 @@ newTalent{
 
 newTalent{
 	name = "Oozewalk",
-	kr_display_name = "진흙 덩어리의 길",
+	kr_display_name = "진흙의 길",
 	type = {"wild-gift/mucus", 4},
 	require = gifts_req4,
 	points = 5,
@@ -294,10 +294,10 @@ newTalent{
 	info = function(self, t)
 		local nb = t.getNb(self, t)
 		local energy = t.getEnergy(self, t)
-		return ([[당신은 일시적으로 당신의 점액과 결합하여, %d 가지의 물리 효과나 주문 효과를 제거합니다.
-		당신은 시야내의 점액으로 뒤덮힌 장소 중 임의의 위치에 다시 나타날 수 있습니다.
-		이 과정은 한 턴의 %d%% 만큼 시간이 걸립니다.
-		이 기술은 점액 위에 서 있을때에만 사용할 수 있습니다.]]):
+		return ([[일시적으로 자신의 점액과 결합하여, %d 가지의 물리적 상태효과나 마법적 상태효과를 제거합니다.
+		또한, 시야 내의 점액으로 뒤덮힌 장소 중 임의의 위치로 즉시 이동할 수 있습니다.
+		이 과정은 1 턴의 %d%% 만큼 시간이 걸립니다.
+		이 기술은 점액 위에 서 있을 때에만 사용할 수 있습니다.]]):
 		format(nb, (energy) * 100)
 	end,
 }

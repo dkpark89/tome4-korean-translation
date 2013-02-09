@@ -48,7 +48,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SUNWALL_DEFENDER", define_as = "SUN_PALADIN_DEFENDER",
 	name = "human sun-paladin", color=colors.GOLD,
-	kr_display_name = "인간 태양의 기사",
+	kr_display_name = "태양의 기사",
 	desc = [[빛나는 판갑을 입은 인간입니다.]],
 	level_range = {70, nil}, exp_worth = 1,
 	rank = 3,
@@ -79,7 +79,7 @@ newEntity{ base = "BASE_NPC_SUNWALL_DEFENDER", define_as = "SUN_PALADIN_DEFENDER
 
 newEntity{ base = "BASE_NPC_SUNWALL_DEFENDER", define_as = "SUN_PALADIN_DEFENDER_RODMOUR",
 	name = "High Sun-Paladin Rodmour", color=colors.VIOLET,
-	kr_display_name = "고위 태양의 기사 로드모어",
+	kr_display_name = "고위 태양의 기사, 로드모어",
 	desc = [[빛나는 판갑을 입은 인간입니다.]],
 	level_range = {70, nil}, exp_worth = 1,
 	rank = 3,
@@ -105,7 +105,7 @@ newEntity{ base = "BASE_NPC_SUNWALL_DEFENDER", define_as = "SUN_PALADIN_DEFENDER
 	on_added = function(self)
 		self.energy.value = game.energy_to_act self:useTalent(self.T_WEAPON_OF_LIGHT)
 		self.energy.value = game.energy_to_act self:useTalent(self.T_CHANT_OF_FORTRESS)
-		self:doEmote("Go "..game.player.name.."! We will hold the line!", 150)
+		self:doEmote("가라, "..game.player.name.."이 방어선은 내가 지킨다!", 150)
 	end,
 }
 
@@ -168,7 +168,7 @@ newEntity{
 	faction = "sorcerers",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_shalore_elandar.png", display_h=2, display_y=-1}}},
 
-	desc = [[앙골웬에서 변절한 마법사 단체, 주술사들이 동대륙에 설립된후 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
+	desc = [[앙골웬을 떠난 마법사 중 한 명으로, 이들은 '주술사' 라는 이름을 가진 단체를 동대륙에 세워 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
 	level_range = {70, nil}, exp_worth = 15,
 	max_life = 1000, life_rating = 36, fixed_rating = true,
 	max_mana = 10000,
@@ -212,7 +212,7 @@ newEntity{
 	ai = "dumb_talented_simple", ai_state = { talent_in=1, ai_move="move_astar" },
 
 	on_acquire_target = function(self, who)
-		self:doEmote("저주나 받아, 넌 죽을날이 미뤄졌을 뿐이야! 퓔크!", 60)
+		self:doEmote("제길, 네놈의 죽음이 잠시 미뤄졌을 뿐이다! 퓔크!", 60)
 		game.player:hasQuest("charred-scar"):setStatus(engine.Quest.COMPLETED, "stopped")
 		game.player:hasQuest("charred-scar"):start_fyrk()
 	end,
@@ -228,7 +228,7 @@ newEntity{
 	female = true,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_argoniel.png", display_h=2, display_y=-1}}},
 
-	desc = [[앙골웬에서 변절한 마법사 단체, 주술사들이 동대륙에 설립된후 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
+	desc = [[앙골웬을 떠난 마법사 중 한 명으로, 이들은 '주술사' 라는 이름을 가진 단체를 동대륙에 세워 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
 	level_range = {70, nil}, exp_worth = 15,
 	max_life = 1000, life_rating = 36, fixed_rating = true,
 	max_mana = 10000,
@@ -275,11 +275,11 @@ newEntity{
 newEntity{ base = "BASE_NPC_FAEROS", define_as = "FYRK",
 	allow_infinite_dungeon = true,
 	name = "Fyrk, Faeros High Guard", color=colors.VIOLET,
-	kr_display_name = "파에로스 고위 수비대, 퓔크",
+	kr_display_name = "고위 페로스 수호자, 퓔크",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_fire_fyrk__faeros_high_guard.png", display_h=2, display_y=-1}}},
-	desc = [[파에로스는 높은 지능을 가진 불의 정령으로, 화산 밖에서는 거의 볼 수 없습니다. 이 세상의 자연적인 존재는 아닌 것 같습니다.
-이것은 심술궂지만 경멸하는 눈빛으로 당신을 쳐다보고 있습니다. 그 주변에서는 불꽃이 소용돌이 칩니다.]],
-	killer_message = "and a sole piece of char was sent to his masters as a totem",
+	desc = [[페로스는 높은 지능을 가진 불의 정령으로, 화산 밖에서는 거의 볼 수 없는 정령이기도 합니다. 이 세상의 자연적인 존재는 아닌 것 같습니다.
+이 개체는 더 위험해 보이며, 당신을 경멸하는 눈빛으로 쳐다보고 있습니다. 그의 주변에는 불꽃이 소용돌이치고 있습니다.]],
+	killer_message = "그리고 숯덩이 조각이 되어, 그의 주인에게 토템의 용도로 쓰이게 되었습니다.",
 	level_range = {35, nil}, exp_worth = 2,
 	rank = 5,
 	max_life = resolvers.rngavg(800,900), life_rating = 20, fixed_rating = true,

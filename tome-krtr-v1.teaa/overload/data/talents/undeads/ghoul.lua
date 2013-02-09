@@ -114,8 +114,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = 10 + self:combatTalentStatDamage(t, "con", 10, 60)
-		return ([[주변의 땅에 토하여, 해당 지역의 언데드에게는 치료 효과를 주고 생명체에게는 피해를 줍니다.
-		%d 턴간 지속되며, 황폐속성의 %d 피해를 주거나 생명력을 %d 만큼 치료합니다.]]):format(self:getTalentLevelRaw(t) * 2 + 5, damDesc(self, DamageType.BLIGHT, dam), dam * 1.5)
+		return ([[주변의 땅에 구토를 해, 해당 지역의 언데드에게는 치료 효과를 주고 생명체에게는 피해를 줍니다.
+		%d 턴간 지속되며, 황폐 속성의 피해를 %d 만큼 주거나 생명력을 %d 만큼 치료합니다.]]):format(self:getTalentLevelRaw(t) * 2 + 5, damDesc(self, DamageType.BLIGHT, dam), dam * 1.5)
 	end,
 }
 
@@ -185,7 +185,7 @@ newTalent{
 				end
 				target:setEffect(target.EFF_GHOUL_ROT, 3 + math.ceil(self:getTalentLevel(t)), {src=self, apply_power=self:combatPhysicalpower(), dam=t.getDiseaseDamage(self, t), str=str_damage, con=con_damage, dex=dex_damage, make_ghoul=ghoulify})
 			else
-				game.logSeen(target, "%s 질병을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 질병에 걸리지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -196,10 +196,10 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local disease_damage = t.getDiseaseDamage(self, t)
 		local stat_damage = t.getStatDamage(self, t)
-		return ([[목표를 물어뜯어 피해량의 %d%% 만큼 피해를 줍니다. 공격이 성공하면, 목표는 %d 턴간 '구울의 부패'에 감염됩니다.
-		'구울의 부패'에 감염되면 매턴마다 %0.2f 만큼의 황폐속성 피해릅 입습니다. 기술 레벨이 2가 되면 '구울의 부패'는 힘을 %d 만큼 감소시키고, 기술 레벨 3부터는 민첩도 %d 만큼 감소시키며, 기술 레벨 4부터는 체격도 %d 만큼 감소시킵니다.
-		기술 레벨이 5가 되면, '구울의 부패'에 감염된 채로 죽은 대상은 동료 구울로 되살아나게 됩니다.
-		황폐속성 피해량과 능력치 감소량은 체격 능력치의 영향을 받아 증가합니다.]]):
+		return ([[목표를 물어뜯어 %d%% 피해를 줍니다. 공격이 성공하면, 목표는 %d 턴간 '구울의 부패' 에 감염됩니다.
+		'구울의 부패' 에 감염되면 매 턴마다 %0.2f 만큼의 황폐 속성 피해릅 입게 됩니다. 기술 레벨이 2 가 되면 '구울의 부패' 는 힘을 %d 만큼 감소시키고, 기술 레벨 3 부터는 민첩도 %d 만큼 감소시키며, 기술 레벨 4 부터는 체격도 %d 만큼 감소시킵니다.
+		기술 레벨이 5 가 되면, '구울의 부패' 에 감염된 채로 죽은 대상은 동료 구울로 되살아나게 됩니다.
+		황폐 속성 피해량과 능력치 감소량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage, duration, damDesc(self, DamageType.BLIGHT, disease_damage), stat_damage, stat_damage, stat_damage)
 	end,
 }

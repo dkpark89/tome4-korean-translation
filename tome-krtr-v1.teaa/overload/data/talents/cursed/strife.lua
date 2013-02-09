@@ -18,6 +18,7 @@
 -- darkgod@te4.org
 
 local Stats = require "engine.interface.ActorStats"
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Dominate",
@@ -71,8 +72,8 @@ newTalent{
 		local armorChange = t.getArmorChange(self, t)
 		local defenseChange = t.getDefenseChange(self, t)
 		local resistPenetration = t.getResistPenetration(self, t)
-		return ([[Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.
-		Effects will improve with your Willpower.]]):format(duration, -armorChange, -defenseChange, resistPenetration)
+		return ([[근처의 적에게 자신의 존재감을 드러내, 적을 지배하려고 시도합니다. 적이 정신 내성을 통한 저항에 실패할 경우, %d 턴 동안 이동하지 못하게 되며 방어도가 %d / 회피도가 %d 감소하게 됩니다. 또한 지배된 적을 공격할 때, 적의 저항력을 %d%% 관통할 수 있게 됩니다. 대상이 근접한 상태일 경우, 지배를 시도하면서 동시에 근접 공격을 합니다.
+		지배의 효과는 의지 능력치의 영향을 받아 증가합니다.]]):format(duration, -armorChange, -defenseChange, resistPenetration)
 	end,
 }
 
@@ -88,7 +89,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Your preternatural senses aid you in your hunt for the next victim. You sense foes in a radius of %0.1f. You will always sense a stalked victim in a radius of 10.]]):format(range)
+		return ([[초자연적인 감각을 통해, 다음 희생양을 사냥하기 위한 도움을 받습니다. 주변 %0.1f 칸 반경의 적들을 탐지할 수 있게 되며, 사냥감으로 지정된 적은 주변 10 칸 반경에 있는 한 무조건 감지할 수 있게 됩니다.]]):format(range)
 	end,
 }
 
@@ -264,8 +265,8 @@ newTalent{
 	info = function(self, t)
 		local multiplier = self:combatTalentWeaponDamage(t, 0.7, 1.9)
 		local defenseChange = t.getDefenseChange(self, t)
-		return ([[With blinding speed, you suddenly appear next to a target up to %d spaces away and attack for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. Your sudden appearance catches everyone off-guard, giving you %d extra Defense for 1 turn.
-		The Defense boost improves with your Strength.]]):format(self:getTalentRange(t), multiplier * 30, multiplier * 100, defenseChange)
+		return ([[엄청난 속도로 대상에게 접근하여, 최대 %d 칸 떨어진 적에게 %d%% 에서 %d%% 피해를 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해) 자신의 갑작스러운 출현에 적들이 당황하여, 1 턴 동안 자신의 회피도가 %d 만큼 추가로 상승합니다.
+		회피도 증가량은 힘 능력치의 영향을 받아 증가합니다.]]):format(self:getTalentRange(t), multiplier * 30, multiplier * 100, defenseChange)
 	end,
 }
 
@@ -411,8 +412,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[Rather than hide from the onslaught, you face down every threat. While active you have a %d%% chance of repelling a melee attack. The recklessness of your defense brings you bad luck (Luck -3). 
-		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.
-		Repel chance increases with your Strength, and when equipped with a shield.]]):format(chance)
+		return ([[적들의 공격에 숨지 않고, 위협에 당당히 맞섭니다. 이를 통해, %d%% 확률로 근접 공격을 튕겨낼 수 있게 됩니다. 이 무자비한 방어 방식은 불행을 불러옵니다. (행운 -3)
+		두개골 쪼개기, 쇄도 기술과는 함께 사용할 수 없으며, 셋 중 하나를 사용하면 다른 두 기술들은 재사용 대기시간을 가지게 됩니다.
+		공격을 튕겨낼 확률은 힘 능력치의 영향을 받아 증가하며, 방패를 들어도 확률이 증가합니다.]]):format(chance)
 	end,
 }

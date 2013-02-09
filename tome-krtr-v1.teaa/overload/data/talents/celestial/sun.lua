@@ -139,7 +139,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[적에게 태양의 불길을 발사해, 궤도 내의 모든 대상을 불태우고 %0.2f 화염 피해를 줍니다.
+		return ([[적에게 태양의 불길을 발사해, 발사 궤도에 있는 모든 대상을 불태우고 %0.2f 화염 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,

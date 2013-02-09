@@ -28,16 +28,16 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[The rift leads somewhere ..]],
+	desc = [[어디론가 알지 못할 곳으로 갈 수 있는 균열입니다...]],
 	change_level = 1, change_zone = "temporal-rift",
 	change_level_check = function() -- Forbid going back
 		if not game.player:hasQuest("temporal-rift") then
-			require("engine.ui.Dialog"):yesnoPopup("시간의 균열", "정말 들어가기를 원합니까? 도착하는 곳이 어디인지, 또 돌아오는 것이 가능한지 아무도 모릅니다.", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("시간의 균열", "정말 들어가기를 원합니까? 도착하는 곳이 어디인지, 또 돌아오는 것이 가능할지 아무도 모릅니다.", function(ret)
 				if ret then game:changeLevel(1, "temporal-rift") end
 			end, "예", "아니오")
 			return true
 		end
-		game.log("이 균열은 너무 불안정해서 지나갈 수 없습니다.")
+		game.log("이 균열은 너무나 불안정하여 들어갈 수 없습니다.")
 		return true
 	end
 }

@@ -34,8 +34,8 @@ newTalent{
 	info = function(self, t)
 		local regen = t.getRegen(self, t)
 		local max_regen = t.getMax(self, t)
-		return ([[적들이 흘리는 피를 보고 희열을 느낍니다. 적에게 치명타를 가하면 최대 생명력이 %d%%, 턴 당 생명력 재생이 %0.2f, 턴 당 체력 재생이 %0.2f 증가합니다.
-		생명력과 체력 재생 증가 효과는 5회까지 중첩 가능합니다. 즉, 생명력과 체력 재생 증가의 최대치는 각각 %0.2f (생명력), %0.2f (체력)입니다.]]):
+		return ([[적들이 흘리는 피를 보고 희열을 느낍니다. 적에게 치명타를 가하면 최대 생명력이 %d%% 상승하며, 턴 당 생명력 재생이 %0.2f / 턴 당 체력 재생이 %0.2f 증가합니다.
+		생명력과 체력 재생 증가 효과는 5회까지 중첩 가능합니다. 즉, 턴 당 생명력 재생은 최대 %0.2f / 턴 당 체력 재생은 최대 %0.2f 까지 가능합니다.]]):
 		format(math.floor(self:getTalentLevel(t) * 2), regen, regen/5, max_regen, max_regen/5)
 	end,
 }
@@ -107,7 +107,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[%d 턴 동안 전투 광란 상태가 됩니다. 효과가 지속되는 동안에는 물품을 사용할 수 없고 치유 효과도 적용되지 않지만, 생명력이 1 밑으로 떨어지지 않습니다.
-		광란 상태가 끝나면, 광란 상태에서 살해한 적 하나당 전체 생명력의 %d%% 에 해당하는 생명력을 회복합니다.]]):
+		전투 광란 상태가 끝나면, 전투 광란 상태에서 살해한 적 하나당 전체 생명력의 %d%% 에 해당하는 생명력을 회복합니다.]]):
 		format(2 + self:getTalentLevelRaw(t), math.floor(self:getTalentLevel(t) * 3.5))
 	end,
 }

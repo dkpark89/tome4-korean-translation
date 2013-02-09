@@ -89,7 +89,7 @@ newTalent{
 			if target.life - dam < 0 then dam = target.life end
 			target:takeHit(dam, self)
 
-			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 순수속성 피해#LAST#"):format(math.ceil(dam))) --@@ pure를 순수속성으로(여기만 있는 특수 속성) 번역
+			game:delayedLogDamage(self, target, dam, ("#PURPLE#%d 순수 속성 피해#LAST#"):format(math.ceil(dam))) --@@ pure를 순수속성으로(여기만 있는 특수 속성) 번역
 		end, nil, {type="lightning_explosion"})
 		game:playSoundNear(self, "talents/lightning")
 		return true

@@ -110,7 +110,7 @@ newTalent{
 		local invis = t.getSeeInvisible(self, t)
 		local stealth = t.getSeeStealth(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[달의 영광을 노래하여 야간 투시력을 %d, 은신 감지력을 %d, 투명화 감지력를 %d 증가시킵니다.
+		return ([[달의 영광을 노래하여 야간 투시력을 %d / 은신 감지력을 %d / 투명화 감지력을 %d 증가시킵니다.
 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):

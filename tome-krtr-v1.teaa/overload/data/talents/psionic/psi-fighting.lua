@@ -91,7 +91,7 @@ newTalent{
 		local str_power = math.floor(0.05*self:getTalentLevel(t)*self:getWil())
 		local dex_power = math.floor(0.05*self:getTalentLevel(t)*self:getCun())
 		return ([[정신을 집중하여, 조금 더 강력하고 민첩해집니다. 의지와 교활함 능력치의 %d%% 만큼 힘과 민첩 능력치가 증가하게 됩니다.
-		그 결과 힘 능력치가 %d, 민첩 능력치가 %d 증가합니다.]]):
+		그 결과, 힘 능력치가 %d / 민첩 능력치가 %d 증가합니다.]]):
 		format(inc, str_power, dex_power)
 	end,
 }
@@ -157,7 +157,7 @@ newTalent{
 	info = function(self, t)
 		local mult = 1 + 0.2*(self:getTalentLevel(t))
 		return ([[발산 중이던 모든 오러를 해제하고, 염동력으로 들고 있는 무기에 오러를 실어넣습니다.
-		이 기술이 유지되는 동안 오러들의 재사용 대기시간이 흐르지 않게 되며, 대신 오러의 피해량이 %0.2f 배 됩니다. 염력은 소모되지 않습니다.]]):
+		이 기술이 유지되는 동안 오러들의 재사용 대기시간이 흐르지 않게 되며, 대신 오러의 피해량이 %0.2f 배가 됩니다. 염력은 소모되지 않습니다.]]):
 		format(mult)
 	end,
 }

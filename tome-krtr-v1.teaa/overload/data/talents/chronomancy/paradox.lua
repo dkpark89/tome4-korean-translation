@@ -143,7 +143,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local resist = t.getResist(self, t)
-		return ([[10 턴 동안 시공간에서 자신의 일부분을 없애 모든 피해 저향력이 %d%% 상승하고, 모든 효과의 지속시간이 %d%%, 적에게 가하는 모든 공격의 피해량이 20%% 감소합니다.
+		return ([[10 턴 동안 시공간에서 자신의 일부분을 없애 모든 피해 저향력이 %d%% 상승하지만, 그 대신 모든 효과의 지속시간이 %d%% / 적에게 가하는 모든 공격의 피해량이 %d%% 감소합니다.
 		마법의 효과는 지속시간이 지나면서 점점 그 힘을 잃게 됩니다.
 		마법의 효과는 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
 		format(resist, resist, resist/10)
@@ -190,7 +190,7 @@ newTalent{
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
 			ai_tactic = resolvers.tactic("ranged"), ai_state = { talent_in=1, ally_compassion=10},
-			desc = [[진짜 '자기 자신' 입니다... 혹은 ]]..sex..[[는 그렇게 말합니다.]]
+			desc = [[진짜 '자기 자신' 입니다... 아마 ]]..sex..[[도 자신과 같은 생각을 하고있는 것 같습니다.]]
 		})
 		m:removeAllMOs()
 		m.make_escort = nil

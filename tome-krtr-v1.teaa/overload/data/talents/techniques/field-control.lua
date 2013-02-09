@@ -50,7 +50,7 @@ newTalent{
 
 newTalent{
 	name = "Track",
-	kr_display_name = "추적",
+	kr_display_name = "발자국 조사",
 	type = {"technique/field-control", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -69,8 +69,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[%d 칸 반경 안에 있는 적들을 %d 턴 동안 감지합니다.
-		감지 반경은 교활함 능력치의 영향을 받아 증가합니다.]]):format(rad, 3 + self:getTalentLevel(t))
+		return ([[%d 칸 반경 안에 있는 적들을, %d 턴 동안 탐지합니다.
+		탐지 반경은 교활함 능력치의 영향을 받아 증가합니다.]]):format(rad, 3 + self:getTalentLevel(t))
 	end,
 }
 

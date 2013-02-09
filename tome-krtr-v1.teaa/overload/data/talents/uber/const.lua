@@ -62,7 +62,7 @@ uberTalent{
 		self:startTalentCooldown(t)
 	end,
 	info = function(self, t)
-		return ([[한번에 최대 생명력의 20%% 이상에 해당하는 피해를 받을 경우, 몸에서 피가 끓어오릅니다. 그 결과 선혈의 급류가 몸에서 쏟아져나와 4 턴간 %0.2f 황폐화 피해를 주고 적들을 밀어내며, 피해량의 50%% 만큼 생명력을 회복합니다.
+		return ([[한번에 최대 생명력의 20%% 이상에 해당하는 피해를 받을 경우, 몸에서 피가 끓어오릅니다. 그 결과 선혈의 급류가 몸에서 쏟아져나와 4 턴간 %0.2f 황폐 속성 피해를 주고 적들을 밀어내며, 피해량의 50%% 만큼 생명력을 회복합니다.
 		피해량은 체격 능력치의 영향을 받아 증가합니다.]])
 		:format(100 + self:getCon() * 3)
 	end,
@@ -105,7 +105,7 @@ uberTalent{
 	name = "Armour of Shadows",
 	kr_display_name = "그림자 갑옷",
 	mode = "passive",
-	require = { special={desc="적에게 총 50000 이상의 암흑 피해를 가할 것", fct=function(self) return
+	require = { special={desc="적에게 총 50,000 이상의 암흑 피해를 가할 것", fct=function(self) return
 		self.damage_log and (
 			(self.damage_log[DamageType.DARKNESS] and self.damage_log[DamageType.DARKNESS] >= 50000)
 		)
@@ -166,7 +166,7 @@ uberTalent{
 	name = "Corrupted Shell",
 	kr_display_name = "완전한 타락",
 	mode = "passive",
-	require = { special={desc="총 50000 이상의 황폐화 피해를 받았으며, '위대한 타락자'를 죽이고 지구르를 파괴할 것", fct=function(self) return
+	require = { special={desc="총 50,000 이상의 황폐화 피해를 받았으며, '위대한 타락자' 와 함께 지구르를 파괴할 것", fct=function(self) return
 		(self.damage_intake_log and self.damage_intake_log[DamageType.BLIGHT] and self.damage_intake_log[DamageType.BLIGHT] >= 50000) and
 		(game.state.birth.ignore_prodigies_special_reqs or (
 			self:hasQuest("anti-antimagic") and 
@@ -179,7 +179,7 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[타락에 대한 새로운 지식 덕분에, 육신을 조작하여 더 강력해지는 방법을 알게 되었습니다... 변화로 인해 몸에 가해질 부담감을 이겨낼 수 있다면요.
-		최대 생명력이 150 증가하며, 회피도가 %d, 모든 내성이 %d 상승합니다. 또한 맷집과 반응속도가 일반적인 한계를 넘을 수 있게 됩니다.
+		맷집과 반응속도가 크게 증가하여, 최대 생명력이 150 증가하고 회피도가 %d, 모든 내성이 %d 상승합니다.
 		회피도와 내성 상승량은 체격 능력치의 영향을 받아 증가합니다.]])
 		:format(self:getCon() / 3, self:getCon() / 3)
 	end,

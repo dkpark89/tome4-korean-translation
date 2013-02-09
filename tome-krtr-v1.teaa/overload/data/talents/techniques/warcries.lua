@@ -63,7 +63,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[심호흡을 통해 체력을 %d%% 회복합니다.]]):
+		return ([[심호흡을 통해, 체력을 %d%% 회복합니다.]]):
 		format(20 + self:getTalentLevel(t) * 7)
 	end,
 }

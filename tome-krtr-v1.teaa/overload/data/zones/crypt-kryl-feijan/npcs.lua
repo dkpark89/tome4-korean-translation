@@ -28,8 +28,8 @@ newEntity{ base="BASE_NPC_MAJOR_DEMON", define_as = "KRYL_FEIJAN",
 	name = "Kryl-Feijan", color=colors.VIOLET, unique = true,
 	kr_display_name = "크릴-페이얀",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_kryl_feijan.png", display_h=2, display_y=-1}}},
-	desc = [[이 거대한 악마는 어둠으로 덮혀 있습니다. 그 "어미"의 찢어진 살점은 아직도 그의 날카로운 손톱에 걸려있습니다.]],
-	killer_message = "and devoured as a demonic breakfast",
+	desc = [[어둠에 덮힌 거대한 악마로. 그 "어미" 의 찢어진 살점이 아직도 그 날카로운 손톱에 걸려있습니다.]],
+	killer_message = "그리고 악마의 한 끼 식사가 되어 잡아먹혔습니다.",
 	level_range = {29, nil}, exp_worth = 2,
 	faction = "fearscape",
 	rank = 4,
@@ -85,7 +85,7 @@ newEntity{ define_as = "MELINDA",
 	display = "@", color=colors.LIGHT_BLUE,
 	image = "terrain/woman_naked_altar.png",
 	resolvers.generic(function(e) if engine.Map.tiles.nicer_tiles then e.display_w = 2 end end),
-	desc = [[벌거벗은 신체에 뒤틀린 인장의 모양으로 베인 상처가 난 인간 여성입니다. 손목과 발목은 밧줄과 쇠사슬에 묶인 상처로 헐어있습니다. 당신은 피부에 덮힌 핏자국 뒤에는 대단한 아름다움이 숨겨져 있음을 알아차립니다.]],
+	desc = [[뒤틀린 문양이 나체의 몸 위에 새겨진, 인간 여성입니다. 손목과 발목은 밧줄과 쇠사슬에 묶인 상처로 가득하지만, 그녀의 몸에 가득한 핏자국 뒤에는 대단한 아름다움이 숨겨져 있다는 것을 알아차렸습니다.]],
 	autolevel = "tank",
 	ai = "summoned", ai_real = "move_complex", ai_state = { ai_target="target_player", talent_in=4, },
 	stats = { str=8, dex=7, mag=8, con=12 },
@@ -114,10 +114,10 @@ newEntity{ define_as = "MELINDA",
 
 newEntity{ define_as = "ACOLYTE",
 	name = "Acolyte of the Sect of Kryl-Feijan",
-	kr_display_name = "크릴-페이얀 종파의 복사",
+	kr_display_name = "크릴-페이얀 종파의 사제",
 	type = "humanoid", subtype = "elf", image = "npc/humanoid_shalore_elven_corruptor.png",
 	display = "p", color=colors.LIGHT_RED,
-	desc = [[미친듯한 눈빛을 가진 검은 로브를 입은 엘프입니다.]],
+	desc = [[검은 로브를 입은 엘프입니다. 눈에서 광기가 흐릅니다.]],
 	autolevel = "caster",
 	stats = { str=12, dex=17, mag=18, wil=22, con=12 },
 
@@ -166,7 +166,7 @@ newEntity{ define_as = "ACOLYTE",
 				melinda.image = "npc/woman_redhair_naked.png"
 				melinda:removeAllMOs()
 				game.level.map:updateMap(melinda.x, melinda.y)
-				require("engine.ui.Dialog"):simpleLongPopup("멜린다", "그 여인이 속박으로부터 풀려났습니다.\n그녀는 비틀거리며 일어났고, 벗거벗은 몸에서는 아직도 피가 흐르고 있습니다. '절 여기서 꺼내주세요!'", 400)
+				require("engine.ui.Dialog"):simpleLongPopup("멜린다", "제단에 묶여있던 여자가 속박에서 풀려났습니다.\n그녀는 비틀거리며 일어났으며, 벌거벗은 몸에서는 아직도 피가 흐르고 있습니다. '절 여기서 꺼내주세요!'", 400)
 			end
 		end
 	end,

@@ -66,7 +66,7 @@ newEntity{ base = "BASE_STORE", define_as = "AXE_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "MAUL_WEAPON_STORE",
 	name="Raber's Blunt Paradise",
-	kr_display_name = "라베르의 둔기의 낙원",
+	kr_display_name = "라버의 둔기의 낙원",
 	display='3', color=colors.UMBER,
 	resolvers.store("MAUL_WEAPON", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_rabers_blunt_paradise.png"),
 	resolvers.chatfeature("last-hope-weapon-store", "allied-kingdoms"),

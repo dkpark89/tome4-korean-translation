@@ -18,10 +18,11 @@
 -- darkgod@te4.org
 
 local Stats = require "engine.interface.ActorStats"
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Slash",
-	kr_display_name = "난도질",
+	kr_display_name = "베기",
 	type = {"cursed/slaughter", 1},
 	require = cursed_str_req1,
 	points = 5,
@@ -63,15 +64,15 @@ newTalent{
 	info = function(self, t)
 		local healFactorChange = t.getHealFactorChange(self, t)
 		local woundDuration = t.getWoundDuration(self, t)
-		return ([[You slash wildly at your target for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage.
-		At level 3, any wound you inflict with this carries a part of your curse, reducing the effectiveness of healing by %d%% for %d turns. The effect will stack.
-		The damage multiplier increases with your Strength.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, -healFactorChange * 100, woundDuration)
+		return ([[대상을 공격하여, %d%% 에서 %d%% 피해를 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해)
+		기술 레벨이 3 이상이면, 적을 공격하면서 자신의 저주를 적에게 옮깁니다. 이를 통해 대상의 생명력 회복 효율을 %d 턴 동안 %d%% 낮출 수 있게 되며, 이 효과는 중첩됩니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, woundDuration, -healFactorChange * 100)
 	end,
 }
 
 newTalent{
 	name = "Frenzy",
-	kr_display_name = "광분",
+	kr_display_name = "난도질",
 	type = {"cursed/slaughter", 2},
 	require = cursed_str_req2,
 	points = 5,
@@ -126,9 +127,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local attackChange = t.getAttackChange(self, t)
-		return ([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Stalked prey are always targeted if nearby.
-		At level 3 the intensity of your assault overwhelms anyone who is struck, reducing their Accuracy by %d for 3 turns.
-		The damage multiplier and Accuracy reduction increase with your Strength.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, -attackChange)
+		return ([[근접한 적들에게, 각각 %d%% 에서 %d%% 피해를 주는 공격을 4 번 연속으로 합니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해)
+		사냥감으로 지정된 대상이 근처에 있다면, 그 대상을 우선적으로 공격합니다.
+		기술 레벨이 3 이상이면, 더욱 더 격렬하게 공격하여 대상의 정확도를 3 턴 동안 %d 감소시킵니다.
+		정확도 감소량과 피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, -attackChange)
 	end,
 }
 
@@ -190,7 +192,7 @@ newTalent{
 									and game.level.map:isBound(x, y)
 									and not game.level.map:checkAllEntities(x, y, "block_move", self) then
 								blockingTarget:move(x, y, true)
-								game.logSeen(self, "%s knocks back %s!", self.name:capitalize(), blockingTarget.name)
+								game.logSeen(self, "%s %s 밀어냅니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (blockingTarget.kr_display_name or blockingTarget.name):addJosa("를"))
 								blocked = false
 								break
 							end
@@ -199,7 +201,7 @@ newTalent{
 				end
 
 				if blocked then
-					game.logSeen(self, "%s blocks %s!", blockingTarget.name:capitalize(), self.name)
+					game.logSeen(self, "%s %s의 공격에 밀려나지 않았습니다!", (blockingTarget.kr_display_name or blockingTarget.name):capitalize():addJosa("가"), (self.kr_display_name or self.name))
 				end
 			end
 
@@ -235,13 +237,14 @@ newTalent{
 		local maxAttackCount = t.getMaxAttackCount(self, t)
 		local size
 		if level >= 5 then
-			size = "Big"
+			size = "큼"
 		elseif level >= 3 then
-			size = "Medium-sized"
+			size = "중간"
 		else
-			size = "Small"
+			size = "작음"
 		end
-		return ([[Charge through your opponents, attacking anyone near your path for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. %s opponents may be knocked away from your path. You can attack a maximum of %d times, and can hit targets along your path more than once.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, size, maxAttackCount)
+		return ([[대상에게 돌진하면서, 대상은 물론 돌진하는 길의 근처에 있는 적들에게까지 %d%% 에서 %d%% 피해를 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해) 
+		최대 '%s' 크기인 적까지 밀어낼 수 있으며, 최대 %d 번 까지 공격할 수 있습니다. 한 대상을 여러 번 공격할 수도 있습니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, size, maxAttackCount)
 	end,
 }
 
@@ -283,7 +286,7 @@ newTalent{
 
 newTalent{
 	name = "Cleave",
-	kr_display_name = "쪼개기",
+	kr_display_name = "두개골 쪼개기",
 	type = {"cursed/slaughter", 4},
 	mode = "sustained",
 	require = cursed_str_req4,
@@ -347,7 +350,7 @@ newTalent{
 				local secondTarget = game.level.map(x, y, Map.ACTOR)
 				if secondTarget and secondTarget ~= target and self:reactionToward(secondTarget) < 0 then
 					local damageMultiplier = t.getDamageMultiplier(self, t)
-					game.logSeen(self, "%s cleaves through %s!", self.name:capitalize(), secondTarget.name)
+					game.logSeen(self, "%s %s 내려칩니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"), (secondTarget.kr_display_name or secondTarget.name):addJosa("를"))
 					self:attackTarget(secondTarget, nil, damageMultiplier, true)
 					inCleave = false
 					return
@@ -358,9 +361,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[While active, every swing of your weapon has a %d%% chance of striking a second nearby target for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. The recklessness of your attacks brings you bad luck (luck -3). 
-		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.
-		The Cleave chance and damage increase with your Strength, and when wielding a two-handed weapon (+15%% chance, +25%% damage).]]):format(chance, t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100)
+		return ([[무기로 적을 공격할 때마다, %d%% 확률로 근접한 적에게 %d%% 에서 %d%% 피해를 추가로 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해) 이 무자비한 공격 방식은 불행을 불러옵니다. (행운 -3)
+		쇄도, 격퇴 기술과는 함께 사용할 수 없으며, 셋 중 하나를 사용하면 다른 두 기술들은 재사용 대기시간을 가지게 됩니다.
+		추가 공격 확률과 피해량은 힘 능력치의 영향을 받아 증가하며, 양손 무기를 사용할 경우에도 증가합니다. (양손 무기 사용시 추가 공격 확률 +15%%, 피해량 +25%%)]]):format(chance, t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100)
 	end,
 }
 

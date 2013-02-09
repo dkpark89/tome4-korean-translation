@@ -60,7 +60,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		if src.turn_procs and src.turn_procs.is_crit and target:attr("ignore_direct_crits") and rng.percent(target:attr("ignore_direct_crits")) then
 			dam = dam / src.turn_procs.crit_power
 			print("[PROJECTOR] crit power reduce dam", dam)
-			game.logSeen(target, "%s 치명타 피해를 뿌리쳤습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 치명타 피해를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 
 		local hd = {"DamageProjector:base", src=src, x=x, y=y, type=type, dam=dam}
