@@ -80,7 +80,7 @@ newTalent{
 		if not target then return end
 
 		if target:attr("timetravel_immune") then
-			game.logSeen(target, "%s 시간을 지울 수 없습니다!", (target.kr_display_name or target.name):capitalize():addJosa("는"))
+			game.logSeen(target, "%s의 시간은 지울 수 없습니다!", (target.kr_display_name or target.name):capitalize())
 			return
 		end
 

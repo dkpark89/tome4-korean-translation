@@ -64,7 +64,7 @@ newTalent{
 		local inc = t.getPercentInc(self, t)
 		return ([[마석에 정신력을 집중해, 염동 칼날을 만들어냅니다.
 		생성된 염동 칼날은 일반적으로 마석을 들었을 때보다 적용 능력치가 %0.2f, 관통력이 %0.2f 만큼 더 곱해집니다.
-		또한 물리력이 %d, 무기 피해량이 %d%% 상승합니다.]]):
+		또한 물리력이 %d 만큼, 무기 피해량이 %d%% 만큼 상승합니다.]]):
 		format(t.getStatmult(self, t), t.getAPRmult(self, t), damage, 100 * inc) --I5
 	end,
 }
@@ -93,7 +93,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[염동 칼날을 대상과 접촉시켜, 자연의 힘을 흘려보냅니다. 이를 통해 만들어진 가시덩쿨이 대상을 휘감아, 대상을 10 턴 동안 %d%% 만큼 감속시키고 매 턴마다 %0.2f 자연 피해를 줍니다.
-		피해량은 정신력와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은%2.f 입니다)]]):
+		피해량은 정신력와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은 %2.f 입니다)]]):
 		format(20 + self:getTalentLevel(t) * 2, damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 15, 250) / 10 * get_mindstar_power_mult(self)), get_mindstar_power_mult(self))
 	end,
 }
@@ -134,7 +134,7 @@ newTalent{
 		return ([[염동 칼날로 지면을 후려쳐, 결정화된 잎사귀들을 만들어냅니다. 이 잎사귀들은 7 턴 동안 주변 3 칸 반경에서 회전합니다.
 		잎사귀에 스친 적들은 매 턴마다 %0.2f 출혈 피해를 입으며, 이 피해는 중첩됩니다.
 		동료들에게는 잎사귀가 보호막 역할을 해, %d%% 확률로 피해를 무시할 수 있게 됩니다.
-		피해량과 회피율은 정신력 수치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은%2.f 입니다)]]):
+		피해량과 회피율은 정신력 수치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은 %2.f 입니다)]]):
 		format(dam, c, get_mindstar_power_mult(self))
 	end,
 }
@@ -184,7 +184,7 @@ newTalent{
 	info = function(self, t)
 		return ([[주무기인 염동 칼날로 적을 공격해 %d%% 무기 피해를 주고, 그 피해를 보조무기를 통해 동료에게 전달하여 생명력을 회복합니다.
 		최대 생명력 회복량은 %d 이며, 생명력이 회복된 대상은 그만큼 평정을 찾게 됩니다.
-		최대 생명력 회복량은 정신력 수치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은%2.f 입니다)]]):
+		최대 생명력 회복량은 정신력 수치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은 %2.f 입니다)]]):
 		format(self:combatTalentWeaponDamage(t, 2.5, 4) * 100, t.getMaxDamage(self, t), get_mindstar_power_mult(self))
 	end,
 }

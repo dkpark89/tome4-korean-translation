@@ -132,7 +132,7 @@ newTalent{
 			if self:reactionToward(target) < 0 then
 				if self.ai_target then self.ai_target.target = target end
 				target:setTarget(self)
-				game.logSeen(self, "%s 도발하여 %s 공격하도록 만들었습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), (target.kr_display_name or target.name):addJosa("가"))
+				game.logSeen(self, "%s %s 도발하여, 자신만을 공격하도록 만들었습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), (target.kr_display_name or target.name):addJosa("를"))
 			end
 		end)
 		return true
@@ -535,7 +535,7 @@ newTalent{
 		local critreduce = t.getCriticalChanceReduction(self, t)
 		local dir = self:getTalentLevelRaw(t) >= 3 and "상승" or "하락"
 		return ([[골렘이 중갑과 판갑을 자동적으로 변형시켜, 자신이 착용할 수 있게 만듭니다.
-		갑옷의 방어도가 %d, 방어 효율이 %d%% %s하고, 그리고 적에게 치명타를 맞을 확률이 %d%% 만큼 낮아집니다.]]):
+		갑옷의 방어도가 %d / 방어 효율이 %d%% 만큼 %s하며, 적에게 치명타를 맞을 확률이 %d%% 만큼 낮아집니다.]]):
 		format(armor, hardiness, dir, critreduce) --@@ 변수 순서 조정
 	end,
 }

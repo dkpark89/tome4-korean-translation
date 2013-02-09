@@ -56,7 +56,7 @@ newEntity{ define_as = "ARENA_BOOTS_DISE", name = "a pair of leather boots of di
 }
 
 newEntity{ define_as = "ARENA_BOOTS_PHAS", name = "a pair of leather boots of phasing",
-	kr_display_name = "위상의 가죽 신발",
+	kr_display_name = "단거리 순간이동의 가죽 신발",
 	slot = "FEET",
 	type = "armor", subtype="feet",
 	power_source = {arcane=true},

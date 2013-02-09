@@ -466,7 +466,7 @@ newTalent{
 				else
 					-- return the target without effect
 					game.level.map(target.x, target.y, Map.ACTOR, target)
-					game.logSeen(self, "주문이 피식거리며 사라졌습니다!")
+					game.logSeen(self, "주문이 헛나갔습니다!")
 				end
 			else
 				game.logSeen(target, "%s 위치 교체를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))

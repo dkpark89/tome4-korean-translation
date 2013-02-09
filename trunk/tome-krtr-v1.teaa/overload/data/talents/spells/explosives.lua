@@ -198,7 +198,7 @@ newTalent{
 
 newTalent{
 	name = "Shockwave Bomb",
-	kr_display_name = "충격적 폭탄",
+	kr_display_name = "충격파 폭탄",
 	type = {"spell/explosives",4},
 	require = spells_req4,
 	points = 5,

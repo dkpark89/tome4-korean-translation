@@ -45,7 +45,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[어디서나 볼 수 있는, 케케묵은 밀쳐내기 기술입니다. 적을 한 칸 밀어냅니다.]])
+		return ([[어느 게임에서나 볼 수 있는, 케케묵은 밀쳐내기 기술입니다. 적을 한 칸 밀어냅니다.]])
 	end,
 }
 
@@ -104,7 +104,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 염동력 주먹으로 날려버립니다.]])
+		return ([[대상을 염동력 주먹으로 날려버립니다. 대상이 밀려납니다.]])
 	end,
 }
 
@@ -133,7 +133,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 살짝 멀리 순간이동 시킵니다.]])
+		return ([[대상을 순간이동시켜, 살짝 밀어냅니다.]])
 	end,
 }
 
@@ -157,7 +157,7 @@ newTalent{
 			game.logSeen(target, "%s 공포에 질려 도망갔습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			target:crossTierEffect(target.EFF_BRAINLOCKED, self:combatMindpower())
 		else
-			game.logSeen(target, "%s 공포감이 들어 살짝 몸을 떨었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+			game.logSeen(target, "%s 공포감이 들어 살짝 몸을 떨었습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 		end
 		return true
 	end,

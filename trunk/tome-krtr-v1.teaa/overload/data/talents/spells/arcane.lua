@@ -145,7 +145,7 @@ newTalent{
 	getArcaneResist = function(self, t) return 50 + self:combatTalentSpellDamage(t, 10, 500) / 10 end,
 	on_pre_use = function(self, t) return (self:getMana() / self:getMaxMana() <= 0.25) or self:hasEffect(self.EFF_AETHER_AVATAR) or self:attr("disruption_shield") end,
 	explode = function(self, t, dam)
-		game.logSeen(self, "#VIOLET#%s 보호막이 폭발하여, 강력한 마력 폭풍이 일어났습니다!", (eslf.kr_display_name or self.name):capitalize())
+		game.logSeen(self, "#VIOLET#%s의 보호막이 폭발하여, 강력한 마력 폭풍이 일어났습니다!", (eslf.kr_display_name or self.name):capitalize())
 
 		-- Add a lasting map effect
 		self:setEffect(self.EFF_ARCANE_STORM, 10, {power=t.getArcaneResist(self, t)})

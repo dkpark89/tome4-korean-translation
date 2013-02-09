@@ -38,8 +38,8 @@ newEntity{ base = "BASE_MUMMY_WRAPPING", define_as = "BINDINGS_ETERNAL_NIGHT",
 	unique = true,
 	name = "Bindings of Eternal Night", image = "object/artifact/bindings_of_eternal_night.png",
 	unided_name = "blackened, slithering mummy wrappings",
-	kr_display_name = "영원한 밤의 붕대", kr_unided_name = "검고 미끄러운 미이라 붕대",
-	desc = [[역생의 마법으로 짜여진 이 붕대는 거기에 닿는 모든 빛과 생명력을 흡수합니다. 이것을 사용하면, 삶과 죽음 사이의 악몽같은 연옥에 매달린 스스로를 발견할 수 있습니다.]],
+	kr_display_name = "영원한 밤의 붕대", kr_unided_name = "검고 미끌미끌한 미이라 붕대",
+	desc = [[역생의 마법으로 짜여진 이 붕대는, 붕대에 닿는 모든 빛과 생명력을 흡수합니다. 붕대를 걸친 사람은, 곧 삶과 죽음 사이에 존재하는 악몽과도 같은 연옥에 매달린 자신을 발견할 수 있게 됩니다.]],
 	color = colors.DARK_GREY,
 	level_range = {1, 50},
 	rarity = 20,
@@ -79,7 +79,7 @@ newEntity{ base = "BASE_LEATHER_CAP", define_as = "CROWN_ETERNAL_NIGHT",
 	name = "Crown of Eternal Night", image = "object/artifact/crown_of_eternal_night.png",
 	unided_name = "blackened crown",
 	kr_display_name = "영원한 밤의 왕관", kr_unided_name = "검은 왕관",
-	desc = [[이 왕관은 겉보기엔 쓸모없어 보이지만, 그 속에 엮여 있는 역생의 마법을 아직 느낄 수 있습니다. 어쩌면 사용할 수도 있을것 같습니다.]],
+	desc = [[겉보기에는 쓸모 없는 왕관이지만, 아직 그 안에 엮여 있는 역생의 마법을 느낄 수 있습니다. 사용할 수는 있을 것 같습니다.]],
 	color = colors.DARK_GREY,
 	level_range = {1, 50},
 	cost = 100,
@@ -104,10 +104,10 @@ newEntity{ base = "BASE_LEATHER_CAP", define_as = "CROWN_ETERNAL_NIGHT",
 		self:specialSetAdd({"wielder","melee_project"}, {[engine.DamageType.DARKNESS]=40})
 		self:specialSetAdd({"wielder","inc_damage"}, {[engine.DamageType.DARKNESS]=20})
 		self.use_talent = { id = "T_RETCH", level = 2, power = 47 }
-		game.logSeen(who, "#ANTIQUE_WHITE#영원한 밤의 왕관이 붕대와 서로 반응을 합니다. 어마어마한 어둠의 힘이 느껴집니다.")
+		game.logSeen(who, "#ANTIQUE_WHITE#영원한 밤의 왕관이 붕대와 서로 반응하기 시작합니다. 어마어마한 어둠의 힘이 느껴집니다.")
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#ANTIQUE_WHITE#강력한 어둠의 오러가 사라졌습니다.")
+		game.logPlayer(who, "#ANTIQUE_WHITE#강력한 어둠의 힘이 사라졌습니다.")
 		self.use_talent = nil
 	end,
 }

@@ -116,11 +116,11 @@ newTalent{
 	end,
 	info = function(self, t)
 		local material = ""
-		if self:getTalentLevelRaw(t) >=1 then material=material.."	-무쇠(Iron)\n" end
-		if self:getTalentLevelRaw(t) >=2 then material=material.."	-강철(Steel)\n" end
-		if self:getTalentLevelRaw(t) >=3 then material=material.."	-드워프강철(Dwarven-steel)\n" end
-		if self:getTalentLevelRaw(t) >=4 then material=material.."	-스트라라이트(Stralite)\n" end
-		if self:getTalentLevelRaw(t) >=5 then material=material.."	-보라툰(Voratun)\n" end
+		if self:getTalentLevelRaw(t) >=1 then material=material.."	-무쇠\n" end
+		if self:getTalentLevelRaw(t) >=2 then material=material.."	-강철\n" end
+		if self:getTalentLevelRaw(t) >=3 then material=material.."	-드워프강철\n" end
+		if self:getTalentLevelRaw(t) >=4 then material=material.."	-스트라라이트\n" end
+		if self:getTalentLevelRaw(t) >=5 then material=material.."	-보라툰\n" end
 		return ([[금속제 무기나 갑옷에서 보석을 추출해냅니다. 현재 기술 레벨에서 다룰 수 있는 재질은 다음과 같습니다 :
 		%s]]):format(material)
 	end,
@@ -161,7 +161,7 @@ newTalent{
 	info = function(self, t)
 		return ([[보석의 힘을 주입하여 더 강력한 장비를 만듭니다. 강화는 단 한 번만 가능하며, 영구적으로 지속됩니다.
 		가능 장비 : %s 
-		가능한 보석의 수준 : %d 단계]]):format(self:knowTalent(self.T_CRAFTY_HANDS) and "옷 (갑옷 포함), 모자, 투구, 허리띠" or "옷 (갑옷 포함)", self:getTalentLevelRaw(t))
+		가능한 보석의 수준 : %d 단계]]):format(self:knowTalent(self.T_CRAFTY_HANDS) and "옷 (갑옷 포함), 모자 (투구 포함), 허리띠" or "옷 (갑옷 포함)", self:getTalentLevelRaw(t))
 	end,
 }
 newTalent{

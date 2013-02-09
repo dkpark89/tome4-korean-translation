@@ -33,7 +33,7 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 	kr_display_name = "기만의 망토", kr_unided_name = "검은 망토",
 	display = ")", color=colors.DARK_GREY,
 	encumber = 1,
-	desc = [[교묘한 환영이 부여된 잘 짜여진 검은 망토입니다.]],
+	desc = [[착용자를 인간처럼 보이게 만드는 환영이 부여된, 잘 짜여진 검은 망토입니다.]],
 
 	wielder = {
 		combat_spellpower = 5,
@@ -46,7 +46,7 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 			for m, _ in pairs(game.party.members) do
 				m:setEffect(m.EFF_CLOAK_OF_DECEPTION, 1, {})
 			end
-			game.logPlayer(who, "#LIGHT_BLUE#%s의 주변에 사람으로 보이는 환영이 나타납니다.", (who.kr_display_name or who.name):capitalize())
+			game.logPlayer(who, "#LIGHT_BLUE#%s의 환영이 나타나, 인간의 모습처럼 보이게 되었습니다.", (who.kr_display_name or who.name):capitalize())
 		end
 	end,
 	on_takeoff = function(self, who)
@@ -67,7 +67,7 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "journal page", lore="blighted-ruins-note-"..i,
-	kr_display_name = "여행 기록", --@@ lore 번역후 수정 필요
+	kr_display_name = "일지의 한 페이지", --@@ lore 번역후 수정 필요
 	desc = [[사령술사가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,

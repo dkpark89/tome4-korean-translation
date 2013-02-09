@@ -194,7 +194,7 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[극한의 의지로, 정신 상태효과를 무시할 수 있게 됩니다.
-		주의 : 한가지 정신 상태효과를 무시하고나면, 7 턴 동안은 정신 상태효과를 무시할 수 없게 됩니다.]])
+		주의 : 한 가지 정신 상태효과를 무시한 뒤에는, 7 턴 동안 정신 상태효과를 무시할 수 없게 됩니다.]])
 		:format()
 	end,
 }
@@ -219,7 +219,7 @@ uberTalent{
 	info = function(self, t)
 		return ([[저 정신나간 마법사들의 공격 하에서, 꺾이지 않는 의지를 보여줍니다.
 		마법 피해를 입을 때마다, %0.2f 정신 피해를 되돌려줄 수 있게 됩니다.
-		또한, 적이 시전한 마법의 재사용 대기시간 동안 35%% 확률로 주문 시전에 실패하게 됩니다.]])
+		또한 자신을 공격한 마법사는, 방금 전에 시전한 마법의 재사용 대기시간 동안 35%% 확률로 주문 시전에 실패하게 됩니다.]])
 		:format(damDesc(self, DamageType.MIND, 20 + self:getWil() * 2))
 	end,
 }
@@ -231,7 +231,7 @@ uberTalent{
 	require = { },
 	cooldown = 20,
 	tactical = { BUFF = 2 },
-	require = { special={desc="정신 속성으로 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return 
+	require = { special={desc="정신 속성으로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.MIND] and self.damage_log[DamageType.MIND] >= 50000)
 		)
@@ -254,8 +254,8 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[강철의 의지를 통해, 물리적 법칙을 초월합니다.
-		기술이 유지되는 동안, 모든 피해가 정신 피해로 전환됩니다.
-		또한 적의 정신 저항을 30%% 무시할 수 있게 되며, 정신 피해가 10%% 증가하게 됩니다.]]):
+		기술이 유지되는 동안, 자신이 가하는 모든 피해가 정신 피해로 전환됩니다.
+		또한 적의 정신 저항을 30%% 무시할 수 있게 되며, 자신이 가하는 정신 피해량이 10%% 증가하게 됩니다.]]):
 		format()
 	end,
 }

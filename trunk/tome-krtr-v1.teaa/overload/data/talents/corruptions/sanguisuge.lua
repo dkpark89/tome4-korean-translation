@@ -39,7 +39,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[황폐의 화살을 발사하여 %0.2f 황폐화 피해를 주고, 피해량의 20%% 만큼 원기를 회복합니다.
+		return ([[황폐의 화살을 발사하여 %0.2f 황폐 속성 피해를 주고, 피해량의 20%% 만큼 원기를 회복합니다.
 		원기 회복량은 대상의 등급과 비례합니다. (더 높은 등급일수록 더 많은 원기를 얻습니다)
 		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 25, 200)))

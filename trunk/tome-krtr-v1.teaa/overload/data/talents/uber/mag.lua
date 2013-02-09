@@ -96,7 +96,7 @@ uberTalent{
 	name = "Temporal Form",
 	kr_display_name = "시간의 모습",
 	cooldown = 30,
-	require = { special={desc="마법을 1000 번 이상 사용하였으며, 시간 밖의 공간을 방문한 적이 있을 것", fct=function(self) return
+	require = { special={desc="마법을 1,000 번 이상 사용하였으며, 시간 밖의 공간을 방문한 적이 있을 것", fct=function(self) return
 		self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 1000 and (game.state.birth.ignore_prodigies_special_reqs or self:attr("temporal_touched"))
 	end} },
 	no_energy = true,
@@ -110,8 +110,8 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[시간의 실로 몸을 감싸, 10 턴 동안 시간의 정령인 텔루그로스로 변신합니다.
-		속박, 출혈, 실명, 기절 상태효과에 면역이 되며, 시간 저항이 30%% 증가하고, 가장 높은 추가 피해량 수치 + 30%% 만큼 시간 피해가 추가로 들어가며, 모든 공격이 시간 피해를 주게 되고, 적의 시간 저항력을 20%% 무시할 수 있게 됩니다.
-		또한, 두 가지 특수한 현상을 일으킬 수 있습니다 : Anomaly Rearrange, Anomaly Temporal Storm
+		속박, 출혈, 실명, 기절 상태효과에 면역이 되며, 시간 저항력이 30%% 증가하고, 가장 높은 추가 피해량 수치 + 30%% 만큼 시간 피해를 추가로 줄 수 있게 되며, 모든 공격이 시간 피해를 주게 되고, 적의 시간 저항력을 20%% 무시할 수 있게 됩니다.
+		또한, 두 가지 특수한 현상을 일으킬 수 있습니다 - 이상 현상 : 재배열, 이상 현상 : 시간의 폭풍
 		변신 중에는 괴리 수치가 600 증가하며, 변신이 풀리면 괴리 수치도 복구됩니다.]])
 		:format()
 	end,
@@ -127,34 +127,34 @@ uberTalent{
 			self.alchemy_golem:learnTalentType("corruption/reaving-combat", true)
 		end
 	end,
-	require = { special={desc="이 기술의 영향을 받은 소환수를 100 마리 이상 소환할 것 (연금술사의 골렘 포함)", fct=function(self)
+	require = { special={desc="연금술사의 골렘을 다룰 수 있거나, 소환을 100 번 이상 해봤을 것", fct=function(self)
 		return self:attr("summoned_times") and self:attr("summoned_times") >= 100
 	end} },
 	info = function(self, t)
-		return ([[모든 소환수들에게 황폐화의 힘을 주입하여, 새로운 기술을 사용할 수 있게 만듭니다.
-		- 전투견: 무저항의 저주
-		- 젤리: 원혼의 기운
-		- 미노타우르스: 생명의 힘
-		- 골렘: 뼈의 창
-		- 불꽃뿜는 릿치: 흡수
-		- 히드라: 피 뿌리기
-		- 서리나무: 독성 폭풍
-		- 화염 드레이크: 어둠의 불꽃
-		- 거북이: 무기력의 저주
-		- 거미: 부식성 벌레
-		- 해골: 뼈의 속박
-		- 뼈거인: 뼈의 방패
-		- 구울: 피의 고정
-		- 흡혈귀 / 리치: 어둠의 불꽃
-		- 유령 / 와이트: 끓어오르는 피
-		- 연금술 골렘: 오염된 힘과 오염된 전투 기술 계열
-		- 그림자: 공감의 매혹술
-		- 생각의 구현: 울흐'록의 불꽃
-		- 트린트: 부식성 벌레
-		- 이크 '한길'의 일원: 어둠의 문
-		- 동료 구울: 분쇄
-		- 진흙 덩어리: 뼈의 방패
-		- 진흙 점액: 악성 질병
+		return ([[모든 소환수들에게 황폐의 힘을 주입하여, 새로운 기술을 사용할 수 있게 만듭니다.
+		- 전투견 : 무저항의 저주
+		- 젤리 : 원혼의 기운
+		- 미노타우르스 : 생명의 힘
+		- 골렘 : 뼈의 창
+		- 불꽃뿜는 릿치 : 흡수
+		- 히드라 : 피 뿌리기
+		- 서리나무 : 독성 폭풍
+		- 화염 드레이크 : 어둠의 불꽃
+		- 거북이 : 무기력의 저주
+		- 거미 : 부식성 벌레
+		- 해골 : 뼈의 속박
+		- 해골 거인 : 뼈의 방패
+		- 구울 : 피의 고정
+		- 흡혈귀 / 리치 : 어둠의 불꽃
+		- 유령 / 와이트 : 끓어오르는 피
+		- 연금술 골렘 : 오염된 힘과 오염된 전투 기술 계열
+		- 그림자 : 공감의 매혹술
+		- 생각의 구현 : 울흐'록의 불꽃
+		- 트린트 : 부식성 벌레
+		- 이크 '한길'의 일원 : 어둠의 문
+		- 동료 구울 : 분쇄
+		- 진흙 덩어리 : 뼈의 방패
+		- 진흙 점액 : 악성 질병
 		- 기타 다른 소환수일 경우에도, 이 기술의 영향을 받습니다.
 		]]):format()
 	end,
@@ -196,7 +196,7 @@ uberTalent{
 	kr_display_name = "과격한 응급치료",
 	mode = "passive",
 	cooldown = 12,
-	require = { special={desc="총 50000 이상의 화염 피해를 받았으며, 마법을 1000 번 이상 사용했을 것", fct=function(self) return
+	require = { special={desc="총 50,000 이상의 화염 피해를 받았으며, 마법을 1,000 번 이상 사용했을 것", fct=function(self) return
 		self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 1000 and self.damage_intake_log and self.damage_intake_log[DamageType.FIRE] and self.damage_intake_log[DamageType.FIRE] >= 50000
 	end} },
 	trigger = function(self, t, value)

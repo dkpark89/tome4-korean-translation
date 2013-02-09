@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Repulsion Blast",
 	kr_display_name = "반발력 돌풍",
@@ -87,7 +89,7 @@ newTalent{
 			local tx, ty = util.findFreeGrid(x, y, 5, true, {[Map.ACTOR]=true})
 			if tx and ty and target:canBe("knockback") then
 				target:move(tx, ty, true)
-				game.logSeen(target, "%s 중력 가시에 끌려들어갑니다!", target.name:capitalize())
+				game.logSeen(target, "%s 중력 가시에 끌려들어갑니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end)
 		self:project (tg, x, y, DamageType.GRAVITY, self:spellCrit(t.getDamage(self, t)))

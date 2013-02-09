@@ -42,7 +42,7 @@ newTalent{
 			display = "j", color=colors.GREEN, image = "npc/vermin_oozes_green_ooze.png",
 			name = "bloated ooze",
 			kr_display_name = "진흙 덩어리",
-			desc = "당신의 살점으로 만들어진 진흙 뭉치입니다.",
+			desc = "당신의 살점으로 만들어진 진흙 덩어리입니다.",
 			sound_moam = {"creatures/jelly/jelly_%d", 1, 3},
 			sound_die = {"creatures/jelly/jelly_die_%d", 1, 2},
 			sound_random = {"creatures/jelly/jelly_%d", 1, 3},
@@ -103,8 +103,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local p = t.getPower(self, t)
-		return ([[당신의 미생물이 치료 효과를 향상시키도록 개선합니다.
-		당신이 치료될 때마다, 치료되는 양의 %d%% 만큼 6턴간 생명력이 재생됩니다.
+		return ([[자기 주변의 미생물들이 치료 효과를 향상시키도록 만듭니다.
+		자신이 치료될 때마다, 치료되는 양의 %d%% 만큼 6 턴간 생명력이 재생됩니다.
 		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(p)
 	end,
@@ -142,8 +142,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격당하면 상대의 공격목표가 바뀌도록, 분열된 당신끼리의 위치를 즉시 바꿉니다.
-		위치를 바꾸는 동안 당신끼리 잠시 결합하여, 모든 당신의 자연 피해량과 산성 피해량이 6턴간 %d%% 증가하고, 생명력이 %d 만큼 치료됩니다.
+		return ([[공격당하면 상대의 공격목표가 바뀌도록, 분열된 자신과 위치를 즉시 바꿉니다.
+		위치를 바꾸는 동안 자신끼리 잠시 결합하여, 자연 피해량과 산성 피해량을 6 턴간 %d%% 증가시키고 생명력을 %d 만큼 치료합니다.
 		피해량과 치유량은 정신력의 영향을 받아 증가합니다.]]):
 		format(15 + self:combatTalentMindDamage(t, 5, 300) / 10, 40 + self:combatTalentMindDamage(t, 5, 300))
 	end,

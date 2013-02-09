@@ -150,7 +150,7 @@ newTalent{
 	requires_target = true,
 	on_pre_use = function(self, t, silent)
 		if not self:hasEffect(self.EFF_KINSPIKE_SHIELD) and not self:isTalentActive(self.T_KINETIC_SHIELD) then
-			if not silent then game.logSeen(self, "동역학적 보호막의 파편을 사용할 수 없는 상태입니다. 돌진을 취소합니다.") end
+			if not silent then game.logSeen(self, "동역학적 보호막의 파편들을 사용할 수 없는 상태입니다. 돌진을 취소합니다.") end
 			return false
 		end
 		return true

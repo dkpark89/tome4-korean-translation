@@ -63,8 +63,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격적인 자세를 취하여, 앞으로 나아갈 때 전방 %d 칸 반경에 있는 적들을 밀어낼 수 있습니다.
-		이 기술은 체력을 급속도로 소모합니다. (1 턴 당 4 체력 소모 )]]):
+		return ([[공격적인 자세를 취하여, 앞으로 전진할 때 전방 %d 칸 반경에 있는 적들을 밀어낼 수 있습니다.
+		이 기술은 체력을 급속도로 소모합니다. (1 턴 당 4 체력 소모)]]):
 		format(math.floor(self:getTalentLevel(t)))
 	end,
 }

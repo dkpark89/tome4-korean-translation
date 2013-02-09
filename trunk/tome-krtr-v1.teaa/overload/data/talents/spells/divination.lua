@@ -46,8 +46,8 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[지정한 곳에 %d 턴 동안 마법의 눈을 소환합니다.
-		마법의 눈은 발각되거나 공격받지 않으며, 주변 %d 칸 반경의 시야를 제공합니다.
-		빛이 없어도 시야 제공이 되지만, 벽에 가려진 부분은 볼 수 없습니다.
+		마법의 눈은 발각되거나 공격받지 않으며, 주변 %d 칸 반경에 있는 적들을 탐지합니다.
+		빛이 없어도 볼 수 있지만 지형지물은 볼 수 없으며, 벽에 가려진 부분도 볼 수 없습니다.
 		마법의 눈은 시전시간 없이 즉시 소환할 수 있습니다.
 		한번에 여러 개의 눈은 소환할 수 없습니다.
 		기술 레벨이 4 이상이면, 시전자를 포함한 특정 대상에 마법의 눈을 소환하여 따라다니게 할 수 있습니다.
@@ -88,8 +88,8 @@ newTalent{
 		local seestealth = t.getSeeStealth(self, t)
 		local criticalchance = t.getCriticalChance(self, t)
 		return ([[마력으로 감각을 곤두세워, 주변의 적에 대한 정보를 파악합니다.
-		투명체 감지력이 %d, 은신 감지력이 %d 상승하며, 주문 치명타율이 %d%% 상승합니다.
-		상승 효과들은 주문력의 영향을 받아 증가합니다.]]):
+		투명체 감지력이 %d / 은신 감지력이 %d 상승하며, 주문 치명타율이 %d%% 상승합니다.
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(seeinvisible, seestealth, criticalchance)
 	end,
 }
@@ -112,7 +112,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[주변 %d 칸 반경의 지형을 탐지합니다.]]):
+		return ([[주변 %d 칸 반경의 지형을 탐지합니다. 적들의 위치는 탐지할 수 없습니다.]]):
 		format(radius)
 	end,
 }

@@ -177,7 +177,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[끈적이는 연기가 든 유리병을 던져, 주변 %d 칸 반경에 연막을 만들어냅니다. 
-		범위 내의 적들은 5 턴 동안 시야 거리가 %d 감소하게 되며, 시전자가 은신 상태에 들어가는 것을 방해햐지 못하게 됩니다.
+		범위 내의 적들은 5 턴 동안 시야 거리가 %d 감소하게 되며, 시전자가 은신 상태에 들어가는 것을 방해하지 못하게 됩니다.
 		이 기술은 사용해도 은신 상태가 풀리지 않습니다.]]):
 		format(self:getTalentRadius(t), math.ceil(self:getTalentLevel(t) * 1.2))
 	end,

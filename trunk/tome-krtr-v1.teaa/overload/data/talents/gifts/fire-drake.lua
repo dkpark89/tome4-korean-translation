@@ -51,7 +51,7 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경의 적들에게 포효를 내질러, 3 턴 동안 혼란 상태로 만듭니다.
-		소리가 엄청나게 크기 때문에, 적들은 %0.2f 물리 피해를 추가로 입게 됩니다.
+		포효하는 소리는 엄청나게 크기 때문에, 적들은 %0.2f 물리 피해를 추가로 입게 됩니다.
 		피해량은 힘 능력치의 영향을 받아 증가합니다.
 		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(radius, self:combatTalentStatDamage(t, "str", 40, 400))
 	end,

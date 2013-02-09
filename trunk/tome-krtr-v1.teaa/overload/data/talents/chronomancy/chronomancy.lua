@@ -39,7 +39,7 @@ newTalent{
 		local _, failure = self:paradoxFailChance()
 		local _, backfire = self:paradoxBackfireChance()
 		local _, anomaly = self:paradoxAnomalyChance()
-		game.logPlayer(self, "현재 실패 확률은 %d%%, 현재 이상 현상 발생 확률은 %d%%, 현재 역효과 확률은 %d%% 입니다.", failure, anomaly, backfire)
+		game.logPlayer(self, "현재 실패 확률은 %d%% / 현재 이상 현상 발생 확률은 %d%% / 현재 역효과 확률은 %d%% 입니다.", failure, anomaly, backfire)
 		return true
 	end,
 	info = function(self, t)

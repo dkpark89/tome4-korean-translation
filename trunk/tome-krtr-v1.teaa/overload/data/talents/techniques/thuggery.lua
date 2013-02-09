@@ -116,7 +116,7 @@ newTalent{
 		self.combat_apr = self.combat_apr - 4
 	end,
 	info = function(self, t)
-		return ([[대상의 급소를 정확히 공격할 수 있게 됩니다. 치명타율이 +%d%% 증가하며, 방어도 관통력이 %d 증가합니다.]]):
+		return ([[대상의 급소를 정확히 공격할 수 있게 됩니다. 치명타율이 %d%% 증가하며, 관통력이 %d 증가합니다.]]):
 		format(self:getTalentLevelRaw(t) * 5, self:getTalentLevelRaw(t) * 4)
 	end,
 }

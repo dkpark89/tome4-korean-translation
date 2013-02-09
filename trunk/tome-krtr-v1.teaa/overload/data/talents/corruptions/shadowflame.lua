@@ -32,7 +32,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[악령으로 변신하여, %d 턴 동안 벽을 통과할 수 있게 됩니다. (단, 벽 안에서는 숨을 쉴 수 없습니다)
-		또한 회피도가 %d, 방어도가 %d 상승합니다.
+		또한 회피도가 %d / 방어도가 %d 상승합니다.
 		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t), self:combatTalentSpellDamage(t, 5, 19), self:combatTalentSpellDamage(t, 5, 15))
 	end,
@@ -110,7 +110,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[강력한 악마의 군주 울흐'록(Urh'Rok)의 정수를 불러와, 악마로 변신합니다.
+		return ([[강력한 악마의 군주 울흐'록의 정수를 불러와, 악마로 변신합니다.
 		악마 상태에서는 %d%% 화염 저항력, %d%% 어둠 저항력을 얻으며, 전체 속도가 %d%% 상승합니다.
 		또한, 공포의 영역에서 뿜어져나오는 불길이 오히려 생명력을 회복시켜주게 됩니다.
 		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
@@ -158,7 +158,7 @@ newTalent{
 		if target:attr("negative_status_effect_immune") or target:attr("status_effect_immune") then return nil end
 
 		if not self:canBe("planechange") or target.summon_time or target.summon then
-			game.logPlayer(self, "The spell fizzles...")
+			game.logPlayer(self, "주문이 헛나갔습니다...")
 			return
 		end
 

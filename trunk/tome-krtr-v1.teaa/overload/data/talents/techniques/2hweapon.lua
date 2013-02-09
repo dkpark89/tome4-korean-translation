@@ -96,8 +96,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격적인 전투 자세를 취합니다. 회피도와 방어력이 10 씩 감소하는 대신, 정확도가 %d, 물리력이 %d 증가합니다.
-		광전사 상태인 사람을 멈춰세우기란 거의 불가능하기 때문에, %d%% 의 기절과 속박 저항을 얻습니다.
+		return ([[공격적인 전투 자세를 취합니다. 회피도와 방어력이 10 씩 감소하는 대신, 정확도가 %d / 물리력이 %d 증가합니다.
+		광전사 상태인 사람을 멈춰세우기란 거의 불가능하기 때문에, %d%% 만큼의 기절과 속박 저항을 얻게 됩니다.
 		정확도는 민첩, 물리력은 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(
 			5 + self:getDex(7, true) * self:getTalentLevel(t),
@@ -289,12 +289,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 대상의 방어도를 %d 만큼, %d 턴 동안 감소시킵니다.
+		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 방어도를 %d 감소시킵니다.
 		방어도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
-			5 * self:getTalentLevel(t),
-			4 + self:getTalentLevel(t)
+			4 + self:getTalentLevel(t),
+			5 * self:getTalentLevel(t)
+			
 		)
 	end,
 }
@@ -332,12 +333,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 팔을 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 대상의 정확도를 %d 만큼, %d 턴 동안 감소시킵니다.
+		return ([[대상의 팔을 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 정확도를 %d 감소시킵니다.
 		정확도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5),
-			3 * self:getTalentLevel(t),
-			4 + self:getTalentLevel(t)
+			4 + self:getTalentLevel(t), 
+			3 * self:getTalentLevel(t)
+			
 		)
 	end,
 }
@@ -376,8 +378,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[매 턴마다 체력이 2씩 감소하는 피의 광란 상태에 빠지며, 이 상태에서 적을 죽일 때마다 물리력이 %d 씩 상승합니다.
-		물리력 상승 효과는 중첩되며 한계도 없지만, 추가로 얻은 물리력은 턴이 지날 때마다 2씩 감소합니다.]]):format(2 * self:getTalentLevel(t))
+		return ([[매 턴마다 체력이 2 씩 감소하는 피의 광란 상태에 빠지며, 이 상태에서는 적을 죽일 때마다 물리력이 %d 씩 상승하게 됩니다.
+		물리력 상승 효과는 중첩되며 한계도 없지만, 추가로 얻은 물리력은 턴이 지날 때마다 2 씩 감소합니다.]]):format(2 * self:getTalentLevel(t))
 	end,
 }
 

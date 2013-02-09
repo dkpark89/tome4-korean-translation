@@ -27,7 +27,7 @@ end
 
 newTalent{
 	name = "Gloom",
-	kr_display_name = "우울함",
+	kr_display_name = "침울한 기운",
 	type = {"cursed/gloom", 1},
 	mode = "sustained",
 	require = cursed_wil_req1,
@@ -75,7 +75,7 @@ newTalent{
 					if target.rank >= 3.5 and not target.gloom_hate_bonus then
 						local hateGain = target.rank >= 4 and 20 or 10
 						self:incHate(hateGain)
-						game.logPlayer(self, "#F53CBE#Your heart hardens as a powerful foe enters your gloom! (+%d hate)", hateGain)
+						game.logPlayer(self, "#F53CBE#강력한 적이 침울한 기운 속으로 들어왔습니다! 심장이 요동치기 시작합니다! (+%d 증오)", hateGain)
 						target.gloom_hate_bonus = true
 					end
 				
@@ -143,8 +143,9 @@ newTalent{
 		local chance = t.getChance(self, t)
 		local duration = t.getDuration(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
-		return ([[A terrible gloom surrounds you, affecting all those who approach to within radius 3. Each turn, those caught in your gloom must save against your Mindpower, or have an %d%% chance to suffer from slowness, stun or confusion for %d turns.
-		This ability is innate, and carries no cost to activate or deactivate. Each point in Gloom increases the mindpower of all gloom effects (current: %+d).]]):format(chance, duration, mindpowerChange)
+		return ([[끔찍할 정도로 침울한 기운이 주변을 감싸, 주변 3 칸 반경의 적들에게 영향을 줍니다. 매 턴마다, 정신 내성에 따른 저항에 실패한 적은 %d%% 확률로 %d 턴 동안 감속, 기절, 혼란 중 하나의 상태효과에 걸리게 됩니다.
+		이 능력은 자연적인 것이며, 발동이나 취소에 어떤 원천력도 사용하지 않습니다. 
+		침울한 기운의 기술 레벨이 오를 때마다, 세 가지 상태효과를 걸기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, mindpowerChange)
 	end,
 }
 
@@ -173,14 +174,14 @@ newTalent{
 		local incDamageChange = t.getIncDamageChange(self, t)
 		local hateBonus = t.getHateBonus(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
-		return ([[Each turn, those caught in your gloom must save against your Mindpower, or have an %d%% chance to be crippled by fear for %d turns, reducing damage they inflict by %d%%. The first time you melee strike a foe after they have been weakened will give you %d hate.
-		Each point in Weakness increases the Mindpower of all gloom effects (current: %+d).]]):format(chance, duration, -incDamageChange, hateBonus, mindpowerChange)
+		return ([[매 턴마다, 침울한 기운 속에 들어온 적들이 정신 내성에 따른 저항에 실패할 경우 %d%% 확률로 %d 턴 동안 약화 상태가 됩니다. 약화 상태에서는 대상의 피해량이 %d%% 감소하게 되며, 약화된 적을 처음 공격했을 경우 시전자의 증오심이 %d 회복됩니다.
+		약화 기술 레벨이 오를 때마다, 적을 약화시키기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, -incDamageChange, hateBonus, mindpowerChange)
 	end,
 }
 
 newTalent{
 	name = "Dismay",
-	kr_display_name = "경악",
+	kr_display_name = "당황",
 	type = {"cursed/gloom", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -195,8 +196,8 @@ newTalent{
 		local chance = t.getChance(self, t)
 		local duration = t.getDuration(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
-		return ([[Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.
-		Each point in Dismay increases the Mindpower of all gloom effects (current: %+d).]]):format(chance, duration, mindpowerChange)
+		return ([[매 턴마다, 침울한 기운 속에 들어온 적들이 정신 내성에 따른 저항에 실패할 경우 %0.1f%% 확률로 %d 턴 동안 정신적 충격을 받아 당황하게 됩니다. 당황한 적을 처음 공격했을 경우 반드시 치명타 효과가 발생합니다.
+		당황 기술 레벨이 오를 때마다, 적을 당황시키기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, mindpowerChange)
 	end,
 }
 
@@ -223,7 +224,7 @@ newTalent{
 
 newTalent{
 	name = "Sanctuary",
-	kr_display_name = "피난처",
+	kr_display_name = "도피처",
 	type = {"cursed/gloom", 4},
 	mode = "passive",
 	require = cursed_wil_req4,
@@ -234,7 +235,7 @@ newTalent{
 	info = function(self, t)
 		local damageChange = t.getDamageChange(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
-		return ([[Your gloom has become a sanctuary from the outside world. Damage from any attack that originates beyond the boundary of your gloom is reduced by %d%%.
-		Each point in Sanctuary increases the Mindpower of all gloom effects (current: %+d).]]):format(-damageChange, mindpowerChange)
+		return ([[자신을 감싸고 있는 침울한 기운이 바깥 세상으로부터의 도피처가 됩니다. 침울한 기운 밖에서 날아온 공격을 받을 때, 피해량이 %d%% 감소됩니다.
+		도피처 기술 레벨이 오를 때마다, 앞의 세 기술들에 모두 사용되는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(-damageChange, mindpowerChange)
 	end,
 }

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Object = require "engine.Object"
 local Map = require "engine.Map"
 
@@ -25,6 +27,7 @@ local function createDarkTendrils(summoner, x, y, target, damage, duration, pinD
 
 	local e = Object.new{
 		name = "dark tendril",
+		kr_display_name = "어둠의 덩굴",
 		block_sight=false,
 		canAct = false,
 		x = x, y = y,
@@ -46,11 +49,11 @@ local function createDarkTendrils(summoner, x, y, target, damage, duration, pinD
 
 			if self.finalizing then
 				if self.duration <= 0 or self.target.dead or self.x ~= self.target.x or self.y ~= self.target.y then
-					game.logSeen(self, "The dark tendrils dissipate.")
+					game.logSeen(self, "어둠의 덩굴이 사라집니다.")
 					done = true
 				end
 			elseif self.duration <= 0 or self.target.dead or core.fov.distance(self.x, self.y, self.target.x, self.target.y) > self.duration * 2 then
-				game.logSeen(self, "The dark tendrils dissipate.")
+				game.logSeen(self, "어둠의 덩굴이 사라집니다.")
 				done = true
 			elseif self.x == self.target.x and self.y == self.target.y then
 				hitTarget = true
@@ -82,14 +85,14 @@ local function createDarkTendrils(summoner, x, y, target, damage, duration, pinD
 					end
 				else
 					-- no where to go
-					game.logSeen(self, "The dark tendrils dissipate.")
+					game.logSeen(self, "어둠의 덩굴이 사라집니다.")
 					done = true
 				end
 			end
 
 			if hitTarget and self.target:canBe("pin") then
 				-- attack the target
-				game.logSeen(self, "The dark tendrils lash at %s.", self.target.name)
+				game.logSeen(self, "어둠의 덩굴이 %s에게 쇄도합니다.", (self.target.kr_display_name or self.target.name))
 
 				-- pin target
 				self.target:setEffect(self.target.EFF_PINNED, self.pinDuration, {})
@@ -151,7 +154,7 @@ end
 
 newTalent{
 	name = "Creeping Darkness",
-	kr_display_name = "섬뜩한 어두움",
+	kr_display_name = "기어오는 어둠",
 	type = {"cursed/darkness", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -203,6 +206,7 @@ newTalent{
 	createDark = function(summoner, x, y, damage, duration, creep, creepChance, initialCreep)
 		local e = Object.new{
 			name = "creeping dark",
+			kr_display_name = "기어오는 어둠",
 			block_sight=true,
 			canAct = false,
 			canCreep = true,
@@ -339,8 +343,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local darkCount = t.getDarkCount(self, t)
 		local damageIncrease = getDamageIncrease(self)
-		return ([[Creeping dark slowly spreads from %d spots in a radius of %d around the targeted location. The dark deals %d damage, and blocks the sight of any who do not possess Dark Vision or some other magical means of seeing.
-		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]]):format(darkCount, radius, damage, damageIncrease)
+		return ([[대상 주변의 %d 칸 반경에, 매 턴마다 기어오는 어둠이 %d 칸 씩 퍼져나갑니다. 이 어둠은 적에게 %d 피해를 주며, 어둠의 시야 혹은 마법적 시야를 가지지 않은 적의 시야를 가립니다.
+		피해량은 정신력 능력치의 영향을 받아 증가하며, 기어오는 어둠 안에 있는 적에게는 %d%% 더 강력한 공격을 할 수 있게 됩니다.]]):format(radius, darkCount, damage, damageIncrease)
 	end,
 }
 
@@ -362,8 +366,8 @@ newTalent{
 		local range = self:getTalentRange(t)
 		local movementSpeedChange = t.getMovementSpeedChange(self, t)
 		local damageIncrease = getDamageIncrease(self)
-		return ([[Your eyes penetrate the darkness to find anyone that may be hiding there. This allows you to see through creeping darkness out to a radius of %d. You can also find your way through the darkness with greater speed (+%d%% movement into creeping darkness).
-		You do +%d%% damage to anything that has entered your creeping dark.]]):format(range, movementSpeedChange * 100, damageIncrease)
+		return ([[어둠을 꿰뚫고 숨어있는 적을 찾아낼 수 있게 됩니다. 주변 %d 칸 범위에 있는 기어오는 어둠을 뚫고 적을 볼 수 있게 되며, 어둠 속에서 보다 빠르게 길을 찾아 달릴 수 있게 됩니다. (기어오는 어둠 속에서 이동속도 %d%% 증가)
+		그리고, 기어오는 어둠 안에 있는 적에게 %d%% 더 강력한 공격을 할 수 있게 됩니다.]]):format(range, movementSpeedChange * 100, damageIncrease)
 	end,
 }
 
@@ -421,14 +425,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local damageIncrease = getDamageIncrease(self)
-		return ([[Sends a torrent of searing darkness through your foes, doing %d damage. There is a 25%% chance the rushing darkness will blind them for 3 turns, and cause them to forget their target.
-		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]]):format(damDesc(self, DamageType.DARKNESS, damage), damageIncrease)
+		return ([[적들에게 타오르는 어둠의 급류를 방출해, %d 피해를 줍니다. 그리고 25%% 확률로 적에게 어둠이 쇄도하여, 적을 3 턴 동안 실명시키고 자신이 노리던 대상이 누구였는지 기억하지 못하게 만듭니다.
+		피해량은 정신력 능력치의 영향을 받아 증가하며, 기어오는 어둠 안에 있는 적에게 %d%% 더 강력한 공격을 할 수 있게 됩니다.]]):format(damDesc(self, DamageType.DARKNESS, damage), damageIncrease)
 	end,
 }
 
 newTalent{
 	name = "Dark Tendrils",
-	kr_display_name = "어둠의 덩쿨",
+	kr_display_name = "어둠의 덩굴",
 	type = {"cursed/darkness", 4},
 	require = cursed_wil_req4,
 	points = 5,
@@ -464,8 +468,8 @@ newTalent{
 		local pinDuration = t.getPinDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local damageIncrease = getDamageIncrease(self)
-		return ([[Send tendrils of creeping dark out to attack your target, and pin them in the darkness for %d turns. Creeping dark will trail behind the tendrils as they move. The darkness does %d damage per turn.
-		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]]):format(pinDuration, damage, damageIncrease)
+		return ([[기어오는 어둠의 덩굴로 대상을 공격하여, 대상을 %d 턴 동안 어둠 속에 속박시키고 매 턴마다 %d 피해를 줍니다. 기어오는 어둠은 이 덩굴을 우선적으로 따라다닙니다.
+		피해량은 정신력 능력치의 영향을 받아 증가하며, 기어오는 어둠 안에 있는 적에게는 %d%% 더 강력한 공격을 할 수 있게 됩니다.]]):format(pinDuration, damage, damageIncrease)
 	end,
 }
 

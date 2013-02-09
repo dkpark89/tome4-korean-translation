@@ -88,7 +88,7 @@ newTalent{
 			-- Find space
 			local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "골렘을 과충전시킬 자리가 없습니다!")
+				game.logPlayer(self, "골렘을 재기동시킬 자리가 없습니다!")
 				return
 			end
 			game.zone:addEntity(game.level, self.alchemy_golem, "actor", x, y)

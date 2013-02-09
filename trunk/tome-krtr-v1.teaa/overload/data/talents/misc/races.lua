@@ -103,7 +103,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[하이어 종족은 미혹의 시대 때 생겨난 인종이기 때문에, 그 근본부터 마력의 영향을 받은 종족입니다.
-		그 영향으로 주문 내성이 %d, 마법 속성 피해량이 %d%%, 마법 속성 저항력이 %d%% 상승합니다.]]):
+		그 영향으로 주문 내성이 %d / 마법 속성 피해량이 %d%% / 마법 속성 저항력이 %d%% 상승합니다.]]):
 		format(self:getTalentLevelRaw(t) * 5, self:getTalentLevelRaw(t) * 5, self:getTalentLevelRaw(t) * 5)
 	end,
 }
@@ -172,7 +172,7 @@ newTalent{
 		self.combat_mindcrit = self.combat_mindcrit - 2
 	end,
 	info = function(self, t)
-		return ([[샬로레 종족의 마법적 본성으로 인해, 현실이 약간 왜곡되어 모든 치명타율이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 2)
+		return ([[샬로레 종족의 마법적 특성으로 인해, 현실이 약간 왜곡되어 모든 치명타율이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 2)
 	end,
 }
 
@@ -281,7 +281,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[자연의 분노를 불러내, 5 턴 동안 적에게 주는 피해량은 %d%% 증가하고 적에게 받는 피해량은 %d%% 감소합니다.
+		return ([[자연의 분노를 불러내, 5 턴 동안 적에게 주는 피해량은 %d%% 증가시키고 적에게 받는 피해량은 %d%% 감소시킵니다.
 		증가량 및 감소량은 의지 능력치의 영향을 받아 증가합니다.]]):format(10 + self:getWil(10, true), 10 + self:getWil(10, true))
 	end,
 }
@@ -326,7 +326,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[이제는 나무의 일부나 마찬가지인 탈로레 족은, 각종 오염에 대한 저항력을 가지고 있습니다.
-		질병 저항력이 %d%%, 황폐화 저항력이 %d%%, 모든 저항력이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 4, self:getTalentLevelRaw(t) * 2)
+		질병 저항력이 %d%% / 황폐화 저항력이 %d%% / 모든 저항력이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 4, self:getTalentLevelRaw(t) * 2)
 	end,
 }
 
@@ -429,7 +429,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[드워프 특유의 체질적 특성을 끌어올려, 8 턴 동안 방어도가 %d, 주문 내성이 %d, 정신 내성이 %d 증가합니다.
+		return ([[드워프 특유의 체질적 특성을 끌어올려, 8 턴 동안 방어도가 %d / 주문 내성이 %d / 정신 내성이 %d 증가합니다.
 		증가량은 체격 능력치의 영향을 받아 증가합니다.]]):format(5 + self:getCon() / 5, 10 + self:getCon() / 5, 10 + self:getCon() / 5)
 	end,
 }
@@ -639,7 +639,7 @@ newTalent{
 		self.combat_mentalresist = self.combat_mentalresist - 5
 	end,
 	info = function(self, t)
-		return ([[오크 종족에게는 지난 수천 년 동안 다른 종족들에게 이유없이 사냥당해온 과거가 있습니다. 이 과거를 통해, 오크들은 '약한 종족'의 생존법을 익혔습니다.
+		return ([[오크 종족에게는 지난 수천 년 동안 다른 종족들에게 이유없이 사냥당해온 과거가 있습니다. 이 과거를 통해, 오크들은 '약한 종족'으로서의 생존법을 익혔습니다.
 		물리 내성과 정신 내성이 %d 증가합니다.]]):format(self:getTalentLevelRaw(t) * 5)
 	end,
 }
@@ -832,9 +832,9 @@ newTalent{
 				type = "humanoid", subtype = "yeek",
 				display = "y",
 				name = "yeek mindslayer", color=colors.YELLOW,
-				kr_display_name = "이크 정신파괴자",
+				kr_display_name = "이크 정신 파괴자",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_yeek_yeek_mindslayer.png", display_h=2, display_y=-1}}},
-				desc = "'한길'의 일원이 돕기 위해 도착했습니다.",
+				desc = "'한길'의 일원을 돕기 위해 도착한 정신 파괴자입니다.",
 
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 

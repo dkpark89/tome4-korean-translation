@@ -68,8 +68,8 @@ newTalent{
 	info = function(self, t)
 		local defense = t.getDefense(self, t)
 		local saves = t.getMental(self, t)
-		return ([[정신적 수양을 통해 평정심을 갖게 되었습니다. 적들의 공격에 차분하게 대응하여 회피도가 %d, 정신 내성이 %d 상승합니다.
-		회피도는 민첩성 능력치의 영향을 받아, 정신 내성은 교활함 능력치의 영향을 받아 상승합니다.]]):
+		return ([[정신적 수양을 통해 평정심을 갖게 되었습니다. 적들의 공격에 차분하게 대응하여 회피도가 %d / 정신 내성이 %d 상승합니다.
+		회피도는 민첩 능력치, 정신 내성은 교활함 능력치의 영향을 받아 상승합니다.]]):
 		format(defense, saves)
 	end,
 }

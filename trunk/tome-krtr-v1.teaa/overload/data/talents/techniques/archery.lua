@@ -158,7 +158,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[사격할 때, 보다 차분하게 집중하여 적을 조준합니다. 물리력이 %d, 정확도가 %d, 방어도 관통이 %d, 치명타율이 %d%% 증가하는 대신 사격 속도가 %d%% 만큼 감소되고, 그 자리에서 움직일 수 없게 됩니다.
+		return ([[사격할 때, 보다 차분하게 집중하여 적을 조준합니다. 물리력이 %d / 정확도가 %d / 방어도 관통이 %d / 치명타율이 %d%% 증가하는 대신, 사격 속도가 %d%% 만큼 감소되고 그 자리에서 움직일 수 없게 됩니다.
 		조준으로 인해 얻는 긍정적 효과들은 민첩 능력치의 영향을 받아 증가합니다.]]):
 		format(4 + self:getTalentLevel(t) * self:getDex(10, true), 4 + self:getTalentLevel(t) * self:getDex(10, true),
 		3 + self:getTalentLevel(t) * self:getDex(10, true), 7 + self:getTalentLevel(t) * self:getDex(10, true),
@@ -202,7 +202,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[사격할 때, 낼 수 있는 최대한의 속도를 냅니다. 발사 속도가 %d%% 증가하는 대신 정확도가 %d, 물리력이 %d, 치명타율이 %d 감소합니다.]]):
+		return ([[사격할 때, 낼 수 있는 최대한의 속도를 냅니다. 발사 속도가 %d%% 증가하는 대신 정확도가 %d / 물리력이 %d / 치명타율이 %d 감소합니다.]]):
 		format(self:getTalentLevel(t) * 10, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4)
 	end,
 }
@@ -276,7 +276,7 @@ newTalent{
 		if self:getTalentLevel(t) >= 3 then rad = rad + 1 end
 		if self:getTalentLevel(t) >= 5 then rad = rad + 1 end
 		return ([[화살이나 탄환을 발사할 때 불을 붙여, 대상에게 %d%% 의 화염 피해를 주고 주변 %d 칸 반경에 빛을 비춥니다.
-		기술 레벨이 3 이상이면, 3턴 동안 대상을 실명 상태로 만들 가능성도 있습니다.]]):
+		기술 레벨이 3 이상이면, 3턴 동안 대상을 실명 상태로 만들 수 있습니다.]]):
 		format(self:combatTalentWeaponDamage(t, 0.5, 1.2) * 100, rad)
 	end,
 }

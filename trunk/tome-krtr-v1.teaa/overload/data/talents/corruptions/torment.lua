@@ -110,7 +110,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[무언가를 죽일 때, 쓸데없이 남는 피해량을 더이상 낭비하지 않게 됩니다. 남는 피해량의 %d%% 만큼이 폭발하여, 주변 2 칸 반경에 황폐화 피해를 줍니다.
+		return ([[무언가를 죽일 때, 쓸데없이 남는 피해량을 더이상 낭비하지 않게 됩니다. 적을 죽이고 남는 피해량의 %d%% 만큼이 폭발하여, 주변 2 칸 반경에 황폐 속성 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(20 + self:combatTalentSpellDamage(t, 10, 70))
 	end,
 }

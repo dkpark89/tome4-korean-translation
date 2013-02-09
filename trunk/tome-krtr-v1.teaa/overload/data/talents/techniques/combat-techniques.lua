@@ -81,8 +81,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[엄청한 속도로 대상에게 돌진합니다. 대상에게 성공적으로 도달했을 경우 120%의 무기 피해를 주며, 대상을 3턴 동안 혼절시킵니다.
-		돌진하려면 대상과 적어도 2칸은 떨어져 있어야 합니다.]])
+		return ([[엄청한 속도로 대상에게 돌진합니다. 대상에게 성공적으로 도달했을 경우 120% 의 무기 피해를 주며, 대상을 3턴 동안 혼절시킵니다.
+		대상과 딱 붙어있을 경우, 돌진할 수 없습니다.]])
 	end,
 }
 
@@ -110,7 +110,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[적을 공격할 때 더 집중하여, 공격 속도를 %d%% 감소시키는 대신 정확도를 %d, 치명타율을 %d%% 증가시킵니다.
+		return ([[적을 공격할 때 더 집중합니다. 공격 속도가 %d%% 감소하는 대신, 정확도가 %d / 치명타율이 %d%% 상승합니다.
 		정밀 타격으로 인해 얻는 긍정적 효과들은 민첩 능력치의 영향을 받아 증가합니다.]]):
 		format(10, 4 + (self:getTalentLevel(t) * self:getDex()) / 15, 4 + (self:getTalentLevel(t) * self:getDex()) / 25)
 	end,
@@ -133,7 +133,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[고도의 집중력을 발휘하여, %d 턴 동안 근접공격의 정확도를 100 증가시킵니다. 
-		지속시간 동안에는 보이지 않는 적을 공격할 때 생기는 불리함을 무시할 수 있습니다.]]):format(1 + self:getTalentLevel(t))
+		지속시간 동안에는, 보이지 않는 적을 공격할 때 생기는 불리함을 무시할 수 있습니다.]]):format(1 + self:getTalentLevel(t))
 	end,
 }
 
@@ -211,7 +211,7 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 8
 	end,
 	info = function(self, t)
-		return ([[혹독한 훈련을 통해, 적의 주문에 대한 내성을 올립니다. (주문 내성 +%d )]]):format(self:getTalentLevelRaw(t) * 8)
+		return ([[혹독한 훈련을 통해, 적의 주문에 대한 내성을 올립니다. (주문 내성 %d 상승)]]):format(self:getTalentLevelRaw(t) * 8)
 	end,
 }
 

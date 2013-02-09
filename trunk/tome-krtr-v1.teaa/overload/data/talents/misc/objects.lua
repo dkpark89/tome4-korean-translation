@@ -158,7 +158,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[특수한 속성 피해를 막아내는 보호구역을 만듭니다. 보호구역은 충전량만큼 해당 속성 공격을 무효화합니다.]])
+		return ([[시전자 주변에 특수한 속성 피해를 막아내는 보호구역을 만들어냅니다. 보호구역은 도구의 충전량만큼 해당 속성 공격을 무효화시킵니다.]])
 	end,
 }
 
@@ -172,7 +172,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[이일크구르의 순간이동기를 사용하여 지표면으로 이동합니다.]])
+		return ([[이일크구르의 순간이동기를 사용하여, 지표면으로 이동합니다.]])
 	end,
 }
 
@@ -273,7 +273,9 @@ newTalent{
 		local bt, bt_string = t.getBlockedTypes(self, t)
 		return ([[방패를 들어, 공격을 1 턴 동안 막아냅니다. 모든 %s 공격을 %d 만큼 막아낼 수 있습니다.
 		공격을 완벽하게 막아냈을 경우, 적이 1 턴 동안 반격에 취약해집니다. (일반 공격의 피해량이 200%% 로 증가)
-		%s%s%s]]):format(bt_string, t.getBlockValue(self, t), sp_text, ref_text, br_text)
+		%s
+		%s
+		%s]]):format(bt_string, t.getBlockValue(self, t), sp_text, ref_text, br_text)
 	end,
 }
 

@@ -36,7 +36,7 @@ newTalent{
 			self:incStamina(t.getRegen(self, t))
 		end
 		self:setEffect(self.EFF_RESOLVE, 7, {damtype=damtype, res=self:mindCrit(t.getResist(self, t))})
-		game.logSeen(self, "%s 공격 당함에 고무됩니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
+		game.logSeen(self, "%s 마법 공격을 받고 고무됩니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 	end,
 	info = function(self, t)
 		local resist = t.getResist(self, t)
@@ -164,8 +164,8 @@ newTalent{
 		local positive = base / 4
 		local negative = base / 4
 
-		return ([[대상의 마나를 %d, 원기를 %d, 양기와 음기를 %d 만큼 빼앗아 폭발시킵니다.
-		폭발의 피해는 흡수된 마나 수치의 100%%, 흡수된 원기 수치의 200%%, 흡수된 양기나 음기 수치의 400%% 와 같습니다. (세 수치 중 높은 쪽을 따릅니다)
+		return ([[대상의 마나를 %d / 원기를 %d / 양기와 음기를 %d 만큼 빼앗아 폭발시킵니다.
+		폭발의 피해는 흡수된 마나 수치의 100%% / 흡수된 원기 수치의 200%% / 흡수된 양기나 음기 수치의 400%% 와 같습니다. (세 수치 중 높은 쪽을 따릅니다)
 		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(mana, vim, positive, negative)
 	end,

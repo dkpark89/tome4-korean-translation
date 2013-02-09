@@ -66,7 +66,7 @@ newTalent{
 	getDef = function(self, t) return self:getTalentLevel(t) * 0.08 end,
 	getHardiness = function(self, t) return self:getTalentLevel(t) * 0.06 end,
 	info = function(self, t)
-		return ([[경갑이나 가죽 갑옷을 입으면 회피도가 %d%%, 방어 효율이 %d%% 증가합니다.]]):
+		return ([[경갑이나 가죽 갑옷을 입으면 회피도가 %d%% / 방어 효율이 %d%% 증가합니다.]]):
 		format(t.getDef(self, t) * 100, t.getHardiness(self, t) * 100)
 	end,
 }

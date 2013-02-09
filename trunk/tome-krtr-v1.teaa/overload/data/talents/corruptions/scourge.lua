@@ -95,7 +95,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = damDesc(self, DamageType.BLIGHT, t.getDamage(self, t))
-		return ([[오염과 타락의 힘에 집중하여, 근접 공격을 할 때마다 적에게 %0.2f 황폐화 피해를 주고 자신은 %0.2f 생명력을 회복합니다.
+		return ([[오염과 타락의 힘에 집중하여, 근접 공격을 할 때마다 적에게 %0.2f 황폐 속성 피해를 주고 자신은 %0.2f 생명력을 회복합니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(dam, dam * 0.4)
 	end,
@@ -193,7 +193,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 주무기로 공격하여 %d%% 무기 피해를 어둠 속성으로 줍니다. 첫 번째 공격이 성공하면, 대상을 보조무기로 공격하여 %d%% 황폐화 피해를 주며 이 공격은 언제나 치명타 효과가 발생합니다.
+		return ([[대상을 주 무기로 공격하여 %d%% 무기 피해를 어둠 속성으로 줍니다. 첫 번째 공격이 성공하면, 대상을 보조 무기로 공격하여 %d%% 황폐 속성 피해를 주며 이 공격은 언제나 치명타 효과가 발생합니다.
 		두 번째 공격까지 성공하면, 대상은 4 턴 동안 실명 상태가 됩니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.6, 1.4), 100 * self:combatTalentWeaponDamage(t, 0.6, 1.4))
 	end,

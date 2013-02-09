@@ -39,7 +39,7 @@ newTalent{
 	end,
 	action = function(self, t)
 		if self:isTalentActive(self.T_DARKEST_LIGHT) then
-			game.logPlayer(self, "'가장 어두운 빛'이 활성화된 상태에서는 황혼 기술을 사용할 수 없습니다.")
+			game.logPlayer(self, "'가장 어두운 빛' 이 활성화된 상태에서는 황혼 기술을 사용할 수 없습니다.")
 			return
 		end
 		self:incNegative(t.getNegativeGain(self, t))

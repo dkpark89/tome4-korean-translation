@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Master Summoner",
-	kr_display_name = "최강의 소환술사",
+	kr_display_name = "최고의 소환술사",
 	type = {"wild-gift/summon-advanced", 1},
 	require = gifts_req_high1,
 	mode = "sustained",
@@ -66,7 +66,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([['최강의 소환술사' 기술이 유지되는 동안, 소환수 주변에 특수한 효과가 나타나게 됩니다.
+		return ([['최고의 소환술사' 기술이 유지되는 동안, 소환수 주변에 특수한 효과가 나타나게 됩니다.
 		- 불꽃뿜는 리치 : 적들의 화염 저항력을 감소시킵니다.
 		- 히드라 : 독구름을 만들어냅니다.
 		- 서리나무 : 적들의 냉기 저항력을 감소시킵니다.
@@ -76,7 +76,7 @@ newTalent{
 		- 미노타우르스 : 적들의 이동속도를 감소시킵니다.
 		- 암석 골렘 : 적들을 혼절시킵니다.
 		- 거북이 : 아군을 회복시켜줍니다.
-		- 거미 : 적들이 근처에 오지 않으려 합니다.
+		- 거미 : 적들이 근처에 오지 않으려 하게 됩니다.
 		기술의 효과는 의지 능력치의 영향을 받아 증가합니다.
 		이 효과들은 각 소환수 주변 %d 칸 반경에 영향을 줍니다.]]):format(radius)
 	end,
@@ -92,7 +92,7 @@ newTalent{
 	getChance = function(self, t) return math.min(100, 30 + self:getTalentLevel(t) * 15) end,
 	getReduction = function(self, t) return math.ceil(self:getTalentLevel(t) / 2) end,
 	info = function(self, t)
-		return ([['최강의 소환술사' 기술이 유지되는 동안, 소환을 할 때마다 %d%% 확률로 분노, 소환수 폭발, 야생의 소환수 기술의 재사용 대기시간이 %d 턴 줄어들게 됩니다.]]):format(t.getChance(self, t), t.getReduction(self, t))
+		return ([['최고의 소환술사' 기술이 유지되는 동안, 소환을 할 때마다 %d%% 확률로 분노, 소환수 폭발, 야생의 소환수 기술의 재사용 대기시간이 %d 턴 줄어들게 됩니다.]]):format(t.getChance(self, t), t.getReduction(self, t))
 	end,
 }
 
@@ -129,6 +129,6 @@ newTalent{
 		- 암석 골렘 : 근접공격이 주변에까지 피해를 줍니다.
 		- 거북이 : 적들을 자기 옆으로 불러들입니다.
 		- 거미 : 적에게 독을 뱉어 생명력 회복 효율을 감소시킵니다.
-		이 기술은 '최강의 소환술사' 기술이 유지되는 동안에만 사용할 수 있습니다.]]):format(math.floor(self:getTalentLevel(t)))
+		이 기술은 '최고의 소환술사' 기술이 유지되는 동안에만 사용할 수 있습니다.]]):format(math.floor(self:getTalentLevel(t)))
 	end,
 }

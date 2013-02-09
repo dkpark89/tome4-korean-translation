@@ -50,7 +50,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local absorption = t.getAbsorption(self, t)
-		return ([[에너지로 이루어진 공격, 즉 마법 공격을 받을 때 피해량을 30%% 감소시킵니다. (최대 피해 감소량 : 7)
+		return ([[에너지로 이루어진 공격, 즉 마법 공격을 받을 때 피해량을 30%% 감소시킵니다. (최대 피해 감소량 : %d)
 		최대 피해 감소량은 주문력의 영향을 받아 증가합니다.]]):format(absorption)
 	end,
 }

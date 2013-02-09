@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Bone Spear",
 	kr_display_name = "뼈의 창",
@@ -42,7 +44,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[뼈로 창을 만들어, 궤도 상의 모든 적들에게 %0.2f 물리 피해를 줍니다.
+		return ([[뼈로 창을 만들어, 발사 궤도 상의 모든 적들에게 %0.2f 물리 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, self:combatTalentSpellDamage(t, 20, 200)))
 	end,
 }
@@ -75,7 +77,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, math.floor(3 + self:getTalentLevel(t)), {apply_power=self:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 뼈의 속박을 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 뼈의 속박을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end)
 		game:playSoundNear(self, "talents/arcane")

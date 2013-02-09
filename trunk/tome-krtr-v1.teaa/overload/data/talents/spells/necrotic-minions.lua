@@ -43,18 +43,18 @@ newTalent{
 			"으으으으으아아아아하아아아앜크으으으으흐으!!!!",
 			"아파요, 아파요오오오오오!",
 			"제발, 안돼요, 안돼--",
-			"이 죽어있던 물질에게의 역생이 끝나는군, 내 살점이 흩뿌려질 시간이야.",
-			"당신이 내 삶을 다시 줬고, 내 꿈을 다시 줬었죠, 하지만 이젠 꿰멘곳이 터져나가는군요...",
+			"이 몸뚱아리도 더이상 죽음을 거스르지는 못하는 모양이로군, 내 살점이 흩뿌려질 시간이야.",
+			"당신이 내 삶을 다시 줬고, 내 꿈을 다시 줬었죠, 하지만 이젠 꿰멘 곳이 터져나가는군요...",
 			"날 기억해줘어어어!",
 			"배가 아프네...",
 			"왜..?",
 			"아하하하하하!",
-			"난 터질거야, 내가 터진다고!",
+			"난 터질거야, 빵! 하고 터져버린다고!",
 			"무덤행이로군요, 주인님....",
-			"빛이 보여요.. 보여, 아.. 한줄기가....",
-			"주인님, 기다려 주세요... 제가 뭔갈 본거 같....주인님? ..",
-			"난 아냐.. 내 척추가 이렇게 휘어질 것이었다니....",
-			"제가 100 미터를 단숨에 돌진했다가 돌아올 수 있다고 얘기드렸죠! 제게 금화 10개를 빚졌....",
+			"빛이 보여요.. 보여, 아.. 한 줄기 빛이....",
+			"주인님, 기다려 주세요... 제가 뭔가를 본거 같....주인님? ..",
+			"아니야.. 내가 이렇게 사라져버린다니....",
+			"제가 100 미터를 단숨에 돌진했다가 돌아올 수 있다고 얘기드렸죠! 제게 금화 10 개를 빚졌....",
 		}, 40)
 	end,
 	getDecay = function(self, t) return math.max(3, 10 - self:getTalentLevelRaw(self.T_AURA_MASTERY)) end,
@@ -87,7 +87,7 @@ newTalent{
 		local decay = t.getDecay(self, t)
 		return ([[사령술의 기운을 뿜어내, 주변 %d 칸 범위 내의 언데드 추종자들을 보호합니다. 범위 밖의 추종자들은 턴 당 %d%% 생명력 피해를 입습니다.
 		자신이나 추종자가 이 범위 안에서 적을 죽일 경우, 그 영혼이 속박되어 언데드 추종자로 만들어낼 수 있습니다.
-		구울이 뿜어내는 기운을 통해서는 생명력을 회복할 수 있으며, 이는 자신의 종족이 언데드가 아니더라도 적용됩니다.]]):
+		구울이 뿜어내는 토사물을 통해서 생명력을 회복할 수 있게 되며, 이는 자신의 종족이 언데드가 아니더라도 적용됩니다.]]):
 		format(radius, decay)
 	end,
 }
@@ -97,7 +97,7 @@ local minions_list = {
 	d_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "degenerated skeleton warrior", color=colors.WHITE, image="npc/degenerated_skeleton_warrior.png",
-		kr_display_name = "부패된 해골 전사",
+		kr_display_name = "부패된 스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -127,7 +127,7 @@ local minions_list = {
 	skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton warrior", color=colors.SLATE, image="npc/skeleton_warrior.png",
-		kr_display_name = "해골 전사",
+		kr_display_name = "스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s", color=colors.SLATE,
 		combat = { dam=1, atk=1, apr=1 },
@@ -159,7 +159,7 @@ local minions_list = {
 	a_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "armoured skeleton warrior", color=colors.STEEL_BLUE, image="npc/armored_skeleton_warrior.png",
-		kr_display_name = "중무장한 해골 전사",
+		kr_display_name = "중무장한 스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s", color=colors.STEEL_BLUE,
 		combat = { dam=1, atk=1, apr=1 },
@@ -198,7 +198,7 @@ local minions_list = {
 	skel_archer = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton archer", color=colors.UMBER, image="npc/skeleton_archer.png",
-		kr_display_name = "해골 궁수",
+		kr_display_name = "스켈레톤 궁수",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -231,7 +231,7 @@ local minions_list = {
 	skel_m_archer = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton master archer", color=colors.LIGHT_UMBER, image="npc/master_skeleton_archer.png",
-		kr_display_name = "해골 명궁수",
+		kr_display_name = "스켈레톤 명궁수",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -265,7 +265,7 @@ local minions_list = {
 	skel_mage = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton mage", color=colors.LIGHT_RED, image="npc/skeleton_mage.png",
-		kr_display_name = "해골 마법사",
+		kr_display_name = "스켈레톤 마법사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -753,12 +753,12 @@ newTalent{
 		언데드 추종자는 사령술의 기운이 깃든 범위 내에서만 일으킬 수 있습니다.
 		언데드 추종자의 레벨은 시전자의 %+d 입니다.
 		생성될 언데드 추종자의 확률은 다음과 같습니다 :
-		부패된 해골 전사 : %d%%
-		해골 전사 : %d%%
-		중무장한 해골 전사: %d%%
-		해골 궁수 : %d%%
-		상급 해골 궁수 : %d%%
-		해골 마법사 : %d%%
+		부패된 스켈레톤 전사 : %d%%
+		스켈레톤 전사 : %d%%
+		중무장한 스켈레톤 전사: %d%%
+		스켈레톤 궁수 : %d%%
+		상급 스켈레톤 궁수 : %d%%
+		스켈레톤 마법사 : %d%%
 		구울 : %d%%
 		가스트 : %d%%
 		구울 왕 : %d%%
@@ -819,7 +819,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[모든 추종자들을 강화시켜 물리력과 주문력, 그리고 정확도를 %d 올립니다. 또한 방어도 관통력이 %d, 치명타율이 %d 상승합니다.
+		return ([[모든 추종자들을 강화시켜 물리력과 주문력, 그리고 정확도를 %d 올립니다. 또한 방어도 관통력이 %d / 치명타율이 %d 상승합니다.
 		이 효과는 6 턴 동안 지속되며, 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getAPR(self, t), t.getCrit(self, t))
 	end,
@@ -835,7 +835,7 @@ newTalent{
 	getPerc = function(self, t) return self:combatTalentSpellDamage(t, 15, 80) end,
 	info = function(self, t)
 		return ([[언데드 추종자에게 힘을 나눠줘서, 추종자들의 모든 내성과 속성 저항력을 %d%% 올립니다.
-		그리고, 시전자의 공격에 의해 언데드 추종자가 피해를 받을 때, 피해량이 %d%% 감소합니다.
+		그리고 시전자의 공격에 의해 언데드 추종자가 피해를 받을 때, 피해량이 %d%% 감소합니다.
 		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPerc(self, t), self:getTalentLevelRaw(t) * 20)
 	end,

@@ -70,7 +70,7 @@ newTalent{
 
 			-- Check LOS
 			if not self:hasLOS(x, y) and rng.percent(35 + (game.level.map.attrs(self.x, self.y, "control_teleport_fizzle") or 0)) then
-				game.logPlayer(self, "순간이동 제어가 실패했습니다! 무작위한 곳에 순간이동됩니다!")
+				game.logPlayer(self, "순간이동 제어에 실패했습니다! 무작위한 곳에 순간이동됩니다!")
 				x, y = self.x, self.y
 				rad = t.getRange(self, t)
 			end

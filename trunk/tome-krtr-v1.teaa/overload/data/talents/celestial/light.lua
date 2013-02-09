@@ -80,7 +80,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local heal = t.getHeal(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[햇빛이 내리비치는 마력 지대를 만들어 주변 %d 칸 반경에 있는 모든 대상의 생명력을 매 턴마다 %0.2f 회복시키고, 치유 효과를 %d%% 증가시킵니다. 
+		return ([[햇빛이 내리비치는 마력 지대를 만들어 주변 %d 칸 반경에 있는 모든 아군의 생명력을 매 턴마다 %0.2f 회복시키고, 치유 효과를 %d%% 증가시킵니다. 
 		효과는 %d 턴 동안 지속되며, 해당 지역에 빛이 밝혀집니다.
 		치유량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, heal, heal, duration)
@@ -105,7 +105,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local absorb = t.getAbsorb(self, t)
-		return ([[10턴 동안 방벽을 생성하여 %d 피해를 흡수합니다.
+		return ([[10턴 동안 방벽을 생성하여, %d 피해를 흡수합니다.
 		피해 흡수량은 주문력의 영향을 받아 증가합니다.]]):
 		format(absorb)
 	end,

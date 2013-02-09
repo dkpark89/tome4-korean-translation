@@ -231,7 +231,7 @@ newTalent{
 		local percent = t.getPercentInc(self, t)
 		local stun = t.getStun(self, t)		
 		return ([[꿈의 망치를 휘둘러, 적을 부숴버립니다. %d%% 무기 피해를 주고, %d 턴 동안 적을 기절시킵니다.
-		그리고, 꿈의 망치의 피해량이 %d, 피해 상승량이 %d%% 증가하게 됩니다.
+		그리고, 꿈의 망치의 공격력이 %d / 피해 상승량이 %d%% 증가하게 됩니다.
 		기절 확률은 정신력의 영향을 받아 증가합니다.]]):format(damage * 100, stun, power, percent * 100)
 	end,
 }

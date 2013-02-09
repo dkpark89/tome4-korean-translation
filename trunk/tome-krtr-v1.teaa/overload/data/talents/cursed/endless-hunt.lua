@@ -18,10 +18,11 @@
 -- darkgod@te4.org
 
 local Stats = require "engine.interface.ActorStats"
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Stalk",
-	kr_display_name = "추적",
+	kr_display_name = "추적 개시",
 	type = {"cursed/endless-hunt", 1},
 	mode = "sustained",
 	require = cursed_wil_req1,
@@ -54,7 +55,7 @@ newTalent{
 	doStalk = function(self, t, target)
 		if self:hasEffect(self.EFF_STALKER) or target:hasEffect(self.EFF_STALKED) then
 			-- doesn't support multiple stalkers, stalkees
-			game.logPlayer(self, "#F53CBE#You are having trouble focusing on your prey!")
+			game.logPlayer(self, "#F53CBE#추적 대상에게 집중할 수가 없습니다!")
 			return false
 		end
 
@@ -80,11 +81,11 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[When you focus your attacks on a single foe and strike them in melee for two consecutive turns, your hatred of them overcomes you and you begin to stalk them with single-minded purpose. The effect will last for %d turns, or until your prey is dead. Stalking gives you bonuses against your foe that grow each turn you hit them, and diminish each turn you don't.
-		Bonus level 1: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
-		Bonus level 2: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
-		Bonus level 3: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
-		The accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.]]):format(duration,
+		return ([[하나의 적을 근접 공격으로 두 번 연이어 공격하면, 적에 대한 증오심이 불타올라 오직 그 적만을 추적하기 시작합니다. 이 효과는 추적 대상이 죽지 않는 한, %d 턴 동안 지속됩니다. 추적이 시작되면 적을 공격할 때마다 추가 능력의 레벨이 올라가고, 공격하지 않을 때마다 추가 능력의 레벨을 잃게 됩니다.
+		1 단계 추가 능력 : 정확도 +%d / 근접 피해량 +%d%% / 사냥감을 공격할 때마다 증오심 회복 +%0.2f
+		2 단계 추가 능력 : 정확도 +%d / 근접 피해량 +%d%% / 사냥감을 공격할 때마다 증오심 회복 +%0.2f
+		3 단계 추가 능력 : 정확도 +%d / 근접 피해량 +%d%% / 사냥감을 공격할 때마다 증오심 회복 +%0.2f
+		정확도 추가량은 의지 능력치, 근접 피해 증가량은 힘 능력치의 영향을 받아 증가합니다.]]):format(duration,
 		t.getAttackChange(self, t, 1), t.getStalkedDamageMultiplier(self, t, 1) * 100 - 100, t.getHitHateChange(self, t, 1),
 		t.getAttackChange(self, t, 2), t.getStalkedDamageMultiplier(self, t, 2) * 100 - 100, t.getHitHateChange(self, t, 2),
 		t.getAttackChange(self, t, 3), t.getStalkedDamageMultiplier(self, t, 3) * 100 - 100, t.getHitHateChange(self, t, 3))
@@ -93,7 +94,7 @@ newTalent{
 
 newTalent{
 	name = "Beckon",
-	kr_display_name = "목표지정",
+	kr_display_name = "목표 지정",
 	type = {"cursed/endless-hunt", 2},
 	require = cursed_wil_req2,
 	points = 5,
@@ -134,14 +135,14 @@ newTalent{
 		local chance = t.getChance(self, t)
 		local spellpowerChange = t.getSpellpowerChange(self, t)
 		local mindpowerChange = t.getMindpowerChange(self, t)
-		return ([[The connection between predator and prey allows you to speak to the mind of your target and beckon them closer. For %d turns, they will try to come to you, even pushing others aside to do so. They will move towards you instead of acting %d%% of the time, but can save verses Mindpower to slow the effect. If they take significant damage, the beckoning may be overcome altogether. The effect makes concentration difficult for your target, reducing Spellpower and Mindpower by %d until they reach you.
-		The Spellpower and Mindpower reduction increases with your Willpower.]]):format(duration, chance, -spellpowerChange)
+		return ([[사냥꾼은 사냥감이 자신에게 다가오도록 유도할 수 있습니다. %d 턴 동안, 적이 %d%% 확률로 다른 행동을 하지 않고 시전자에게 다가오려고 하게 됩니다. 적의 정신 내성에 따라 이 확률은 다르게 적용되며, 일정 수준 이상의 피해를 받은 적은 이 효과에서 벗어나게 됩니다. 또한 이 효과는 적이 시전자에게 제대로 집중하지 못하게 해, 시전자와 충분히 가까워지기 전까지 적의 주문력과 정신력을 %d 감소시킵니다. 
+		주문력과 정신력 감소량은 의지 능력치의 영향을 받아 증가합니다.]]):format(duration, chance, -spellpowerChange)
 	end,
 }
 
 newTalent{
 	name = "Harass Prey",
-	kr_display_name = "사냥감 괴롭히기",
+	kr_display_name = "사냥감 유린",
 	type = {"cursed/endless-hunt", 3},
 	require = cursed_wil_req3,
 	points = 5,
@@ -188,7 +189,7 @@ newTalent{
 				local t = rng.tableRemove(tids)
 				if t then
 					target.talents_cd[t.id] = rng.range(3, 5)
-					game.logSeen(target, "#F53CBE#%s's %s is disrupted!", target.name:capitalize(), t.name)
+					game.logSeen(target, "#F53CBE#%s의 %s 기술이 방해받았습니다!", (target.kr_display_name or target.name):capitalize(), (t.kr_display_name or t.name))
 				end
 			end
 		end
@@ -200,8 +201,9 @@ newTalent{
 		local cooldownDuration = t.getCooldownDuration(self, t)
 		local targetDamageChange = t.getTargetDamageChange(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Harass your stalked victim with two quick attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Each attack that scores a hit disrupts one talent, rune or infusion for %d turns. Your opponent will be unnerved by the attacks, reducing the damage they deal by %d%% for %d turns.
-		Damage reduction increases with the Willpower stat.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, cooldownDuration, -targetDamageChange * 100, duration)
+		return ([[사냥감을 빠르게 두 번 공격하여, 각각 %d%% 에서 %d%% 피해를 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해) 
+		각각의 공격은 사냥감의 기술이나 룬, 주입 능력 중 하나를 방해하여, 재사용 대기시간을 %d 턴 증가시킵니다. 사냥감은 공격을 받으면 불안감에 빠져, %d 턴 동안 피해량이 %d%% 만큼 감소하게 됩니다.
+		피해 감소량은 의지 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, cooldownDuration, duration, -targetDamageChange * 100)
 	end,
 }
 
@@ -257,9 +259,9 @@ newTalent{
 	info = function(self, t)
 		local movementSpeedChange = t.getMovementSpeedChange(self, t)
 		local defenseChange = t.getDefenseChange(self, t, true)
-		return ([[Let hate fuel your movements. While active, you gain %d%% movement speed. The recklessness of your movement brings you bad luck (Luck -3). 
-		Cleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown. 
-		The speed of your movements, combined with the balance and utility of two weapons, gives you %d extra Defense while dual-wielding.
-		Movement speed and dual-wielding Defense both increase with with the Willpower stat.]]):format(movementSpeedChange * 100, defenseChange)
+		return ([[끓어오르는 증오심을 이용하여, 이동 속도를 %d%% 증가시킵니다. 이 무모한 이동 방식은 불행을 불러옵니다. (행운 -3)
+		두개골 쪼개기, 격퇴 기술과는 함께 사용할 수 없으며, 셋 중 하나를 사용하면 다른 두 기술들은 재사용 대기시간을 가지게 됩니다.
+		이동 속도 증가와 더불어, 쌍수 무기를 사용할 경우 그 절묘한 균형이 맞아떨어져 회피도가 추가적으로 %d 상승하게 됩니다.
+		이동 속도 증가량과 쌍수 무기 사용시 회피도 증가량은 의지 능력치의 영향을 받아 증가합니다.]]):format(movementSpeedChange * 100, defenseChange)
 	end,
 }

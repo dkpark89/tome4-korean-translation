@@ -49,7 +49,7 @@ uberTalent{
 		self:attr("quick_equip_cooldown", -1)
 	end,
 	info = function(self, t)
-		return ([[재빠른 손놀림을 익혀, 보조장비로 교체할 때 턴 소모가 되지 않게 됩니다. (기본 단축키 : q)
+		return ([[재빠른 손놀림을 익혀, 보조장비로 교체할 때 턴 소모가 되지 않습니다. (기본 단축키 : q)
 		또한, 발동 가능한 장비를 장착했을 때 재사용 대기시간 없이 즉시 장비를 발동시킬 수 있게 됩니다.]])
 		:format()
 	end,
@@ -59,7 +59,7 @@ uberTalent{
 	name = "Windblade",
 	kr_display_name = "칼바람",
 	mode = "activated",
-	require = { special={desc="쌍수 무기로, 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return self.damage_log and self.damage_log.weapon.dualwield and self.damage_log.weapon.dualwield >= 50000 end} },
+	require = { special={desc="쌍수 무기로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return self.damage_log and self.damage_log.weapon.dualwield and self.damage_log.weapon.dualwield >= 50000 end} },
 	cooldown = 20,
 	radius = 2,
 	range = 1,
@@ -113,7 +113,7 @@ uberTalent{
 	name = "Giant Leap",
 	kr_display_name = "대약진",
 	mode = "activated",
-	require = { special={desc="무기나 맨손으로, 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return 
+	require = { special={desc="무기나 맨손으로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log.weapon.twohanded and self.damage_log.weapon.twohanded >= 50000) or
 			(self.damage_log.weapon.shield and self.damage_log.weapon.shield >= 50000) or
@@ -198,7 +198,7 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[경험을 통해, 적의 공격을 맞아주면서 전투의 흐름을 탈 수 있게 되었습니다. 적의 물리 공격을 받을 때 피해를 10%% 덜 입게 됩니다. 
-		또한 근접 공격이나 원거리 물리 공격을 맞을 때마다 턴 소모 없이 한 칸 뒤로 이동할 수 있게 되며 (한 턴에 한 번만 가능합니다), 이 때 1 턴 동안 이동속도가 200%% 증가합니다.]])
+		또한 근접 공격이나 원거리 물리 공격을 맞을 때마다 턴 소모 없이 한 칸 뒤로 이동할 수 있게 되며 (한 턴에 한 번만 가능합니다), 1 턴 동안 이동속도가 200%% 증가합니다.]])
 		:format()
 	end,
 }
@@ -209,10 +209,10 @@ uberTalent{
 	no_energy = "fake",
 	cooldown = 20,
 	range = archery_range,
-	require = { special={desc="원거리 무기로, 적에게 총 50000 이상의 피해를 가할 것", fct=function(self) return self.damage_log and self.damage_log.weapon.archery and self.damage_log.weapon.archery >= 50000 end} },
+	require = { special={desc="원거리 무기로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return self.damage_log and self.damage_log.weapon.archery and self.damage_log.weapon.archery >= 50000 end} },
 	tactical = { ATTACK = { weapon = 3 }, DISABLE = 3 },
 	requires_target = true,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 활이나 투석구가 필요합니다.") end return false end return true end,
 	archery_onhit = function(self, t, target, x, y)
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatAttack()})

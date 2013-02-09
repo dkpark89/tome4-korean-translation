@@ -246,7 +246,7 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local stamina = math.ceil((self:getTalentLevel(t) + 1)) * 2
 		local staminamax = math.ceil((self:getTalentLevel(t) + 5)) * 2
-		return ([[%d%% 의 피해에 추가로 연계 점수당 10%%의 피해를 주는 치명적인 타격을 가합니다.
+		return ([[%d%% 의 피해에 연계 점수당 10%% 의 추가 피해를 주는, 치명적인 타격을 가합니다.
 		공격을 받은 대상이 빈사상태 (생명력 20%% 미만) 이며 대상이 저항하지 못했을 경우, 대상은 즉사합니다.
 		죽음의 강타로 적을 쓰러뜨리면, 연계 점수에 따라 최대 체력의 %d%% 에서 %d%% 에 해당하는 체력이 회복됩니다.
 		이 기술은 마무리 기술이기 때문에, 사용하면 연계 점수가 초기화됩니다.]])

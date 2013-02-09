@@ -50,7 +50,7 @@ local newInscription = function(t)
 		elseif tt.type[1] == "inscriptions/runes" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_RUNE_COOLDOWN) end
 		elseif tt.type[1] == "inscriptions/taints" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_TAINT_COOLDOWN) end
 		end
-		tt.auto_use_warning = "- 포화 상태가 아닐 경우에만 자동으로 사용합니다"
+		tt.auto_use_warning = "- 포화 상태가 아닐 경우에만, 자동으로 사용합니다"
 		tt.cooldown = function(self, t)
 			local data = self:getInscriptionData(t.short_name)
 			return data.cooldown
@@ -187,7 +187,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local what = table.concat(table.keys(data.what), ", ")
-		return ([[주입된 힘을 사용하여 나쁜 %s 상태효과를 제거하고, %d 턴 동안 시전자가 받는 피해량이 %d%% 감소합니다.]]):format(what, data.power+data.inc_stat, data.dur)
+		return ([[주입된 힘을 사용하여 나쁜 %s 상태효과를 제거하고, %d 턴 동안 시전자가 받는 피해량이 %d%% 감소합니다.]]):format(what, data.dur, data.power+data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -218,7 +218,7 @@ newInscription{
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d%% 이동 속도, 면역 %d 턴]]):format(data.speed + data.inc_stat, data.dur)
+		return ([[%d%% 이동 속도, 상태효과 면역 %d 턴]]):format(data.speed + data.inc_stat, data.dur)
 	end,
 }
 
@@ -253,7 +253,7 @@ newInscription{
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[범위 %d, 위력 %d, %d 턴 유지%s]]):format(data.range, data.power + data.inc_stat, data.turns, data.power >= 19 and ", 어둠 제거" or "")
+		return ([[범위 %d, 위력 %d, %d 턴 유지%s]]):format(data.range, data.power + data.inc_stat, data.turns, data.power >= 19 and ",마법적 어둠 제거" or "")
 	end,
 }
 
@@ -303,7 +303,7 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[주입된 힘을 사용하여, 독을 뱉습니다. 독에 맞은 대상은 7 턴 동안 %0.2f 자연 피해를 입으며, 회복 효율이 %d%% 감소합니다.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat) / 7, data.heal_factor)
+		return ([[주입된 힘을 사용하여, 독을 뱉습니다. 독에 맞은 대상은 7 턴 동안 총 %0.2f 자연 피해를 입으며, 회복 효율이 %d%% 감소합니다.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat) / 7, data.heal_factor)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -336,7 +336,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local damage = t.getDamage(self, t)
-		return ([[땅에서 덩쿨이 솟아나 %d 턴 동안 주변 %d 칸 반경에 있는 적들의 발을 묶고, 매 턴마다 %0.2f 물리 피해, %0.2f 자연 피해를 줍니다.]]):
+		return ([[땅에서 덩굴이 솟아나 %d 턴 동안 주변 %d 칸 반경에 있는 적들의 발을 묶고, 매 턴마다 %0.2f 물리 피해, %0.2f 자연 피해를 줍니다.]]):
 		format(self:getTalentRadius(t), data.dur, damDesc(self, DamageType.PHYSICAL, damage)/3, damDesc(self, DamageType.NATURE, 2*damage)/3)
 	end,
 	short_info = function(self, t)
@@ -430,11 +430,11 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, 최소 15 칸 이상의 무작위한 곳으로 순간이동합니다.]]):format(data.range + data.inc_stat)
+		return ([[룬을 발동하여, 최소 %d 칸 이상의 무작위한 곳으로 순간이동합니다.]]):format(data.range + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d 칸 이상 무작위 순간이동]]):format(data.range + data.inc_stat)
+		return ([[최소 %d 칸 이상 무작위 순간이동]]):format(data.range + data.inc_stat)
 	end,
 }
 
@@ -562,8 +562,8 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, 주변의 시야를 밝힙니다. (%d 칸 반경) %d 턴 동안 투명한 적과 은신한 적도 발견할 수 있게 됩니다. (투명, 은신 감지력 +%d)]]):
-		format(data.dur, data.range, data.power + data.inc_stat)
+		return ([[룬을 발동하여, 주변 %d 칸 반경의 시야를 %d 턴 동안 밝힙니다. 투명한 적과 은신한 적도 발견할 수 있게 됩니다. (투명, 은신 감지력 +%d)]]):
+		format(data.range, data.dur, data.power + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -759,7 +759,7 @@ newInscription{
 			self:setEffect(self.EFF_MANASURGE, data.dur, {power=self.mana_regen * (data.mana + data.inc_stat) / 100})
 		else
 			if self.mana_regen < 0 then
-				game.logPlayer(self, "시간이 지날수록 마나가 떨어지고 있기 때문에, 룬의 효과가 없습니다.")
+				game.logPlayer(self, "시간이 지날수록 마나가 감소하고 있기 때문에, 룬의 효과가 없습니다.")
 			else
 				game.logPlayer(self, "마나가 존재하지 않기 때문에, 룬의 효과가 없습니다.")
 			end
@@ -773,7 +773,7 @@ newInscription{
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d%% 마나 회복, %d 턴 동안, 사용 즉시 %d 마나 회복]]):format(data.mana + data.inc_stat, data.dur, (data.mana + data.inc_stat) / 20)
+		return ([[%d 턴 동안 %d%% 마나 회복, 사용 즉시 %d 마나 회복]]):format(data.dur, data.mana + data.inc_stat, (data.mana + data.inc_stat) / 20)
 	end,
 }
 

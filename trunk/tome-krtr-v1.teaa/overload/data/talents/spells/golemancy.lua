@@ -304,7 +304,7 @@ newTalent{
 		local power = td.getDamage(self.alchemy_golem, td)
 		local damage = td.getPercentInc(self.alchemy_golem, td)
 		self.alchemy_golem.talents[Talents.T_WEAPON_COMBAT], self.alchemy_golem.talents[Talents.T_WEAPONS_MASTERY] = olda, oldd
-		return ([[골렘의 무기 수련도가 올라 무기의 정확도가 %d, 물리력이 %d, 피해량이 %d%% 상승합니다.]]):
+		return ([[골렘의 무기 수련도가 올라, 무기의 정확도가 %d / 물리력이 %d / 피해량이 %d%% 상승합니다.]]):
 		format(attack, power, 100 * damage)
 	end,
 }
@@ -338,8 +338,8 @@ newTalent{
 		local crit = ta.getCriticalChanceReduction(self.alchemy_golem, ta) + ga.getCriticalChanceReduction(self.alchemy_golem, ga)
 		self.alchemy_golem.talents[Talents.T_THICK_SKIN], self.alchemy_golem.talents[Talents.T_GOLEM_ARMOUR] = oldh, olda
 
-		return ([[골렘의 갑옷 수련도와 저항력을 올려, 모든 피해 저항력이 %d%% 상승합니다.
-		중갑이나 판갑을 입으면 추가적으로 방어도가 %d, 방어 효율이 %d%% 오르며, 적에게 치명타를 맞을 확률이 %d%% 감소합니다.
+		return ([[골렘의 갑옷 수련도와 저항력을 올려, 모든 속성 저항력이 %d%% 상승합니다.
+		중갑이나 판갑을 입으면 추가적으로 방어도가 %d / 방어 효율이 %d%% 상승하며, 적에게 치명타를 맞을 확률이 %d%% 감소합니다.
 		골렘의 치유 증가율이 %d%% 상승하는 효과도 있으며, 골렘은 아무 제한 없이 판갑까지 착용할 수 있습니다.]]):
 		format(res, heavyarmor, hardiness, crit, rawlev * 10)
 	end,

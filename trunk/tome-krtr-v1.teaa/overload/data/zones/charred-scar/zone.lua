@@ -19,7 +19,7 @@
 
 return {
 	name = "Charred Scar",
-	kr_display_name = "검게탄 상처",
+	kr_display_name = "검게 탄 상처",
 	level_range = {30, 50},
 	level_scheme = "player",
 	max_level = 1,
@@ -61,7 +61,7 @@ return {
 	post_process = function(level)
 		level.turn_counter = 550 * 10
 		level.max_turn_counter = 550 * 10
-		level.turn_counter_desc = "태양의 기사들이 오크들을 막고 있는 동안 빨리 남쪽으로 내려가. 그들의 희생을 가치있게 만들어 줘!"
+		level.turn_counter_desc = "태양의 기사들이 오크들을 막고 있는 동안, 빨리 남쪽으로 내려가서 그들의 희생을 헛되게 하지 말라!"
 	end,
 
 	on_enter = function(lev, old_lev, newzone)
