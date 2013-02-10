@@ -2219,7 +2219,7 @@ newEntity{ base = "BASE_GREATSWORD",
 		apr = 1,
 		physcrit = 7,
 		dammod = {str=1.2},
-		special_on_hit = {desc="9% 확률로 목표에게 기절이나 혼돈 효과 부여", fct=function(combat, who, target)
+		special_on_hit = {desc="9% 확률로 목표에게 기절이나 혼란 효과 부여", fct=function(combat, who, target)
 			if not rng.percent(9) then return end
 			local eff = rng.table{"stun", "confusion"}
 			if not target:canBe(eff) then return end

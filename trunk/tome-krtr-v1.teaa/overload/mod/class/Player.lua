@@ -849,9 +849,9 @@ function _M:runCheck(ignore_memory)
 		if grid and grid.notice and not (grid.special and self.running and self.running.explore and not grid.block_move and (grid.autoexplore_ignore or game.level.map.attrs(x, y, "autoexplore_ignore")))
 			and not (self.running and self.running.path and (game.level.map.attrs(x, y, "noticed")
 				or (what ~= self and (self.running.explore and grid.door_opened                     -- safe door
-				or #self.running.path == self.running.cnt and (self.running.explore == "exit"       -- auto-explore onto exit
+				or #self.running.path == self.running.cnt and (self.running.explore == "출구"       -- auto-explore onto exit
 				or not self.running.explore and grid.change_level))                                 -- A* onto exit
-				or #self.running.path - self.running.cnt < 2 and (self.running.explore == "portal"  -- auto-explore onto portal
+				or #self.running.path - self.running.cnt < 2 and (self.running.explore == "관문"  -- auto-explore onto portal
 				or not self.running.explore and grid.orb_portal)                                    -- A* onto portal
 				or self.running.cnt < 3 and grid.orb_portal and                                     -- path from portal
 				game.level.map:checkEntity(self.running.path[1].x, self.running.path[1].y, Map.TERRAIN, "orb_portal"))))

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Stats = require "engine.interface.ActorStats"
 local Particles = require "engine.Particles"
 local Entity = require "engine.Entity"
@@ -28,7 +30,7 @@ newEffect{
 	name = "CUT", image = "effects/cut.png",
 	desc = "Bleeding",
 	kr_display_name = "출혈",
-	long_desc = function(self, eff) return ("피 흘리는 큰 상처로 턴당 물리 피해 %0.2f 발생."):format(eff.power) end,
+	long_desc = function(self, eff) return ("피 흘리는 큰 상처: 매턴 물리 피해 %0.2f"):format(eff.power) end,
 	type = "physical",
 	subtype = { wound=true, cut=true },
 	status = "detrimental",
@@ -53,12 +55,12 @@ newEffect{
 	name = "DEEP_WOUND", image = "talents/bleeding_edge.png",
 	desc = "Deep Wound",
 	kr_display_name = "깊은 상처",
-	long_desc = function(self, eff) return ("피 흘리는 큰 상처로 턴당 물리 피해 %0.2f 발생, 치유 증가율 %d%% 감소."):format(eff.power, eff.heal_factor) end,
+	long_desc = function(self, eff) return ("피 흘리는 큰 상처: 매턴 물리 피해 %0.2f / 치유 증가율 -%d%%"):format(eff.power, eff.heal_factor) end,
 	type = "physical",
 	subtype = { wound=true, cut=true },
 	status = "detrimental",
 	parameters = {power=10, heal_factor=30},
-	on_gain = function(self, err) return "#Target1# 피를 할리기 시작합니다.", "+깊은 상처" end,
+	on_gain = function(self, err) return "#Target1# 피를 흘리기 시작합니다.", "+깊은 상처" end,
 	on_lose = function(self, err) return "#Target#의 출혈이 멈췄습니다.", "-깊은 상처" end,
 	activate = function(self, eff)
 		eff.healid = self:addTemporaryValue("healing_factor", -eff.heal_factor / 100)
@@ -75,13 +77,13 @@ newEffect{
 	name = "REGENERATION", image = "talents/infusion__regeneration.png",
 	desc = "Regeneration",
 	kr_display_name = "재생",
-	long_desc = function(self, eff) return ("주변으로 생명력이 흘러 턴당 생명력 재생 %0.2f 상승."):format(eff.power) end,
+	long_desc = function(self, eff) return ("주변으로 생명력이 흐름: 매턴 생명력 재생 %0.2f"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true, healing=true },
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, err) return "#Target#의 생명력이 빠르게 재생됩니다.", "+재생" end,
-	on_lose = function(self, err) return "#Target#의 빠른 생명력 재생이 사라집니다.", "-재생" end,
+	on_lose = function(self, err) return "#Target#의 빠른 생명력 재생이 사라졌습니다.", "-재생" end,
 	activate = function(self, eff)
 		if not eff.no_wild_growth then
 			if self:attr("liferegen_factor") then eff.power = eff.power * (100 + self:attr("liferegen_factor")) / 100 end
@@ -109,7 +111,7 @@ newEffect{
 	name = "POISONED", image = "effects/poisoned.png",
 	desc = "Poisoned",
 	kr_display_name = "중독",
-	long_desc = function(self, eff) return ("중독으로 턴당 자연 피해 %0.2f 발생."):format(eff.power) end,
+	long_desc = function(self, eff) return ("중독: 매턴 자연 피해 %0.2f"):format(eff.power) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
 	status = "detrimental",
@@ -137,13 +139,13 @@ newEffect{
 	name = "SPYDRIC_POISON", image = "effects/spydric_poison.png",
 	desc = "Spydric Poison",
 	kr_display_name = "거미독",
-	long_desc = function(self, eff) return ("중독으로 턴당 자연 피해 %0.2f 발생, 이동 불가능 (다른 행동은 가능)."):format(eff.power) end,
+	long_desc = function(self, eff) return ("중독: 매턴 자연 피해 %0.2f / 이동 불가능 (다른 행동은 가능)"):format(eff.power) end,
 	type = "physical",
 	subtype = { poison=true, pin=true, nature=true }, no_ct_effect = true,
 	status = "detrimental",
 	parameters = {power=10},
 	on_gain = function(self, err) return "#Target1# 중독되어 이동할 수 없습니다!", "+거미독" end,
-	on_lose = function(self, err) return "#Target#의 중독이 나았습니다.", "-거미독" end,
+	on_lose = function(self, err) return "#Target#의 중독이 회복되었습니다.", "-거미독" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("never_move", 1)
 	end,
@@ -161,13 +163,13 @@ newEffect{
 	name = "INSIDIOUS_POISON", image = "effects/insidious_poison.png",
 	desc = "Insidious Poison",
 	kr_display_name = "잠식형 독",
-	long_desc = function(self, eff) return ("중독으로 턴당 자연 피해 %0.2f 발생, 치유 증가율 %d%% 감소."):format(eff.power, eff.heal_factor) end,
+	long_desc = function(self, eff) return ("중독: 매턴 자연 피해 %0.2f / 치유 증가율 -%d%%"):format(eff.power, eff.heal_factor) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
 	status = "detrimental",
 	parameters = {power=10, heal_factor=30},
 	on_gain = function(self, err) return "#Target1# 중독되었습니다!", "+잠식형 독" end,
-	on_lose = function(self, err) return "#Target#의 중독이 나았습니다.", "-잠식형 독" end,
+	on_lose = function(self, err) return "#Target#의 중독이 회복되었습니다.", "-잠식형 독" end,
 	activate = function(self, eff)
 		eff.healid = self:addTemporaryValue("healing_factor", -eff.heal_factor / 100)
 	end,
@@ -185,13 +187,13 @@ newEffect{
 	name = "CRIPPLING_POISON", image = "talents/crippling_poison.png",
 	desc = "Crippling Poison",
 	kr_display_name = "무력형 독",
-	long_desc = function(self, eff) return ("중독으로 턴당 자연 피해 %0.2f 발생, 기술 사용시 %d%% 확률로 사용 실패."):format(eff.power, eff.fail) end,
+	long_desc = function(self, eff) return ("중독: 매턴 자연 피해 %0.2f / 기술 사용시 %d%% 확률로 사용 실패"):format(eff.power, eff.fail) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
 	status = "detrimental",
 	parameters = {power=10, fail=5},
 	on_gain = function(self, err) return "#Target1# 중독되었습니다!", "+무력형 독" end,
-	on_lose = function(self, err) return "#Target#의 중독이 나았습니다.", "-무력형 독" end,
+	on_lose = function(self, err) return "#Target#의 중독이 회복되었습니다.", "-무력형 독" end,
 	-- Damage each turn
 	on_timeout = function(self, eff)
 		if self:attr("purify_poison") then self:heal(eff.power)
@@ -210,13 +212,13 @@ newEffect{
 	name = "NUMBING_POISON", image = "effects/numbing_poison.png",
 	desc = "Numbing Poison",
 	kr_display_name = "마비형 독",
-	long_desc = function(self, eff) return ("중독으로 턴당 자연 피해 %0.2f 발생, 공격시 모든 피해 %d%% 감소."):format(eff.power, eff.reduce) end,
+	long_desc = function(self, eff) return ("중독: 매턴 자연 피해 %0.2f / 공격시 피해량 -%d%%"):format(eff.power, eff.reduce) end,
 	type = "physical",
 	subtype = { poison=true, nature=true }, no_ct_effect = true,
 	status = "detrimental",
 	parameters = {power=10, reduce=5},
 	on_gain = function(self, err) return "#Target1# 중독되었습니다!", "+마비형 독" end,
-	on_lose = function(self, err) return "#Target#의 중독이 나았습니다.", "-마비형 독" end,
+	on_lose = function(self, err) return "#Target#의 중독이 회복되었습니다.", "-마비형 독" end,
 	-- Damage each turn
 	on_timeout = function(self, eff)
 		if self:attr("purify_poison") then self:heal(eff.power)
@@ -235,13 +237,13 @@ newEffect{
 	name = "STONE_POISON", image = "talents/stoning_poison.png",
 	desc = "Stoning Poison",
 	kr_display_name = "석화형 독",
-	long_desc = function(self, eff) return ("중독으로 턴당 자연 피해 %0.2f 발생. 해독시 %d 턴 동안 석화 효과 발생."):format(eff.power, eff.stone) end,
+	long_desc = function(self, eff) return ("중독: 매턴 자연 피해 %0.2f / 해독시 %d턴 동안 석화"):format(eff.power, eff.stone) end,
 	type = "physical",
 	subtype = { poison=true, earth=true }, no_ct_effect = true,
 	status = "detrimental",
 	parameters = {power=10, reduce=5},
 	on_gain = function(self, err) return "#Target1# 중독되었습니다!", "+석화형 독" end,
-	on_lose = function(self, err) return "#Target#의 중독이 나았습니다.", "-석화형 독" end,
+	on_lose = function(self, err) return "#Target#의 중독이 회복되었습니다.", "-석화형 독" end,
 	-- Damage each turn
 	on_timeout = function(self, eff)
 		if self:attr("purify_poison") then self:heal(eff.power)
@@ -261,7 +263,7 @@ newEffect{
 	name = "BURNING", image = "talents/flame.png",
 	desc = "Burning",
 	kr_display_name = "불 붙음",
-	long_desc = function(self, eff) return ("불 붙은 동안 턴당 화염 피해 %0.2f 발생."):format(eff.power) end,
+	long_desc = function(self, eff) return ("불 붙음: 매턴 화염 피해 %0.2f"):format(eff.power) end,
 	type = "physical",
 	subtype = { fire=true },
 	status = "detrimental",
@@ -286,13 +288,13 @@ newEffect{
 	name = "BURNING_SHOCK", image = "talents/flameshock.png",
 	desc = "Burning Shock",
 	kr_display_name = "화염 충격",
-	long_desc = function(self, eff) return ("불 붙은 동안 턴당 화염 피해 %0.2f 발생, 공격시 피해 70%% 감소, 50%% 확률로 임의의 기술이 대기상태로 변경, 이동 속도 50%% 감소, 대기지연시간이 줄어들지 않음."):format(eff.power) end,
+	long_desc = function(self, eff) return ("불 붙음: 매턴 화염 피해 %0.2f / 공격시 피해량 -70%% / 50%% 확률로 임의의 기술이 대기상태로 변경 / 이동 속도 -50%% / 대기지연시간이 줄어들지 않음"):format(eff.power) end,
 	type = "physical",
 	subtype = { fire=true, stun=true },
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 화염 충격으로 기절했습니다!", "+화염 충격" end,
-	on_lose = function(self, err) return "#Target1# 기절에서 깼습니다.", "-화염 충격" end,
+	on_lose = function(self, err) return "#Target1# 기절에서 깨어났습니다.", "-화염 충격" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("stunned", 1)
 		eff.tcdid = self:addTemporaryValue("no_talents_cooldown", 1)
@@ -323,13 +325,13 @@ newEffect{
 	name = "STUNNED", image = "effects/stunned.png",
 	desc = "Stunned",
 	kr_display_name = "기절",
-	long_desc = function(self, eff) return ("기절한 동안 공격시 피해 70%% 감소, 50%% 확률로 임의의 기술이 대기상태로 변경, 이동 속도 50%% 감소, 대기지연시간이 줄어들지 않음."):format() end,
+	long_desc = function(self, eff) return ("기절: 공격시 피해량 -70%% / 이동 속도 -50%% / 50%% 확률로 임의의 기술이 대기상태로 변경 / 대기지연시간이 줄어들지 않음"):format() end,
 	type = "physical",
 	subtype = { stun=true },
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 기절했습니다!", "+기절" end,
-	on_lose = function(self, err) return "#Target1# 기절에서 깼습니다.", "-기절" end,
+	on_lose = function(self, err) return "#Target1# 기절에서 깨어났습니다.", "-기절" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("stunned", 1)
 		eff.tcdid = self:addTemporaryValue("no_talents_cooldown", 1)
@@ -357,7 +359,7 @@ newEffect{
 	name = "DISARMED", image = "talents/disarm.png",
 	desc = "Disarmed",
 	kr_display_name = "무장 해제",
-	long_desc = function(self, eff) return "무장 해제된 동안 무기를 쥘 수 없음." end,
+	long_desc = function(self, eff) return "무장 해제: 무기 사용 불가능" end,
 	type = "physical",
 	subtype = { disarm=true },
 	status = "detrimental",
@@ -376,13 +378,13 @@ newEffect{
 	name = "CONSTRICTED", image = "talents/constrict.png",
 	desc = "Constricted",
 	kr_display_name = "목막힘",
-	long_desc = function(self, eff) return ("목이 막혀 있는 동안 이동 불가능, 질식 (턴당 호흡 %0.2f 감소)."):format(eff.power) end,
+	long_desc = function(self, eff) return ("목막힘: 이동 불가능 / 질식 (매턴 호흡 -%0.2f)"):format(eff.power) end,
 	type = "physical",
 	subtype = { grapple=true, pin=true },
 	status = "detrimental",
 	parameters = {power=10},
 	on_gain = function(self, err) return "#Target#의 목이 막혔습니다!", "+목막힘" end,
-	on_lose = function(self, err) return "#Target1# 자유롭게 숨쉴수 있습니다.", "-목막힘" end,
+	on_lose = function(self, err) return "#Target1# 자유롭게 숨쉴 수 있습니다.", "-목막힘" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("never_move", 1)
 	end,
@@ -401,13 +403,13 @@ newEffect{
 	name = "DAZED", image = "effects/dazed.png",
 	desc = "Dazed",
 	kr_display_name = "혼절",
-	long_desc = function(self, eff) return "혼절한 동안 이동 불가능. 공격시 피해, 회피도, 모든 내성, 정확도, 주문력, 정신력, 물리력 절반으로 감소. 피해를 받으면 혼절 제거." end,
+	long_desc = function(self, eff) return "혼절: 이동 불가능 / 공격시 피해량 -50% / 회피도 -50% / 모든 내성 -50% / 정확도 -50% / 주문력 -50% / 정신력 -50% / 물리력 -50% \n피해를 받으면 즉시 혼절 제거" end,
 	type = "physical",
 	subtype = { stun=true },
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 혼절했습니다!", "+혼절" end,
-	on_lose = function(self, err) return "#Target1# 혼절에서 깼습니다.", "-혼절" end,
+	on_lose = function(self, err) return "#Target1# 혼절에서 깨어났습니다.", "-혼절" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "dazed", 1)
 		self:effectTemporaryValue(eff, "never_move", 1)
@@ -420,7 +422,7 @@ newEffect{
 	name = "EVASION", image = "talents/evasion.png",
 	desc = "Evasion",
 	kr_display_name = "회피",
-	long_desc = function(self, eff) return ("%d%% 확률로 근접 공격 회피."):format(eff.chance) end,
+	long_desc = function(self, eff) return ("%d%% 확률로 근접 공격 회피"):format(eff.chance) end,
 	type = "physical",
 	subtype = { evade=true },
 	status = "beneficial",
@@ -438,14 +440,14 @@ newEffect{
 newEffect{
 	name = "SPEED", image = "talents/shaloren_speed.png",
 	desc = "Speed",
-	kr_display_name = "가속",
-	long_desc = function(self, eff) return ("전체 행동 속도 %d%% 증가."):format(eff.power * 100) end,
+	kr_display_name = "빠름",
+	long_desc = function(self, eff) return ("모든 행동 속도 +%d%%"):format(eff.power * 100) end,
 	type = "physical",
 	subtype = { speed=true },
 	status = "beneficial",
 	parameters = { power=0.1 },
-	on_gain = function(self, err) return "#Target#의 속도가 빨라집니다.", "+가속" end,
-	on_lose = function(self, err) return "#Target#의 속도가 느려집니다.", "-가속" end,
+	on_gain = function(self, err) return "#Target1# 빨라졌습니다.", "+빠름" end,
+	on_lose = function(self, err) return "#Target1# 느려졌습니다.", "-빠름" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("global_speed_add", eff.power)
 	end,
@@ -457,14 +459,14 @@ newEffect{
 newEffect{
 	name = "SLOW", image = "talents/slow.png",
 	desc = "Slow",
-	kr_display_name = "감속",
-	long_desc = function(self, eff) return ("전체 행동 속도 %d%% 감속."):format( eff.power * 100) end,
+	kr_display_name = "느려짐",
+	long_desc = function(self, eff) return ("모든 행동 속도 -%d%%"):format( eff.power * 100) end,
 	type = "physical",
 	subtype = { slow=true },
 	status = "detrimental",
 	parameters = { power=0.1 },
-	on_gain = function(self, err) return "#Target#의 속도가 느려집니다.", "+감속" end,
-	on_lose = function(self, err) return "#Target#의 속도가 빨라집니다.", "-감속" end,
+	on_gain = function(self, err) return "#Target1# 느려졌습니다.", "+느려짐" end,
+	on_lose = function(self, err) return "#Target1# 빨라졌습니다.", "-느려짐" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("global_speed_add", -eff.power)
 	end,
@@ -477,7 +479,7 @@ newEffect{
 	name = "BLINDED", image = "effects/blinded.png",
 	desc = "Blinded",
 	kr_display_name = "실명",
-	long_desc = function(self, eff) return "아무것도 보지못함." end,
+	long_desc = function(self, eff) return "아무것도 보지못함" end,
 	type = "physical",
 	subtype = { blind=true },
 	status = "detrimental",
@@ -504,13 +506,13 @@ newEffect{
 	name = "DWARVEN_RESILIENCE", image = "talents/dwarf_resilience.png",
 	desc = "Dwarven Resilience",
 	kr_display_name = "드워프의 체질",
-	long_desc = function(self, eff) return ("피부가 암석화 되어있는 동안 방어도 %d, 물리내성 %d, 주문내성 %d 상승."):format(eff.armor, eff.physical, eff.spell) end,
+	long_desc = function(self, eff) return ("피부 암석화: 방어도 +%d / 물리내성 +%d / 주문내성 +%d"):format(eff.armor, eff.physical, eff.spell) end,
 	type = "physical",
 	subtype = { earth=true },
 	status = "beneficial",
 	parameters = { armor=10, spell=10, physical=10 },
 	on_gain = function(self, err) return "#Target#의 피부가 암석화됩니다." end,
-	on_lose = function(self, err) return "#Target#의 피부가 정상적으로 돌아옵니다." end,
+	on_lose = function(self, err) return "#Target#의 피부가 정상적으로 돌아왔습니다." end,
 	activate = function(self, eff)
 		eff.aid = self:addTemporaryValue("combat_armor", eff.armor)
 		eff.pid = self:addTemporaryValue("combat_physresist", eff.physical)
@@ -527,7 +529,7 @@ newEffect{
 	name = "STONE_SKIN", image = "talents/stoneskin.png",
 	desc = "Stoneskin",
 	kr_display_name = "단단한 피부",
-	long_desc = function(self, eff) return ("피부가 피해에 반응하여 방어도 %s 상승."):format(eff.power) end,
+	long_desc = function(self, eff) return ("피부가 피해에 반응: 방어도 +%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { earth=true },
 	status = "beneficial",
@@ -544,7 +546,7 @@ newEffect{
 	name = "THORNY_SKIN", image = "talents/stoneskin.png",
 	desc = "Thorny Skin",
 	kr_display_name = "가시돋힌 피부",
-	long_desc = function(self, eff) return ("피부가 피해에 반응하여 방어도 %d, 방어효율 %d%% 상승."):format(eff.ac, eff.hard) end,
+	long_desc = function(self, eff) return ("피부가 피해에 반응: 방어도 +%d / 방어효율 +%d%%"):format(eff.ac, eff.hard) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -563,7 +565,7 @@ newEffect{
 	name = "FROZEN_FEET", image = "talents/frozen_ground.png",
 	desc = "Frozen Feet",
 	kr_display_name = "얼어붙은 발",
-	long_desc = function(self, eff) return "발이 땅에 얼어붙어 이동 불가능 (다른 행동은 가능)." end,
+	long_desc = function(self, eff) return "땅에 얼어붙은 발: 이동 불가능 (다른 행동은 가능)." end,
 	type = "physical",
 	subtype = { cold=true, pin=true },
 	status = "detrimental",
@@ -584,7 +586,7 @@ newEffect{
 	name = "FROZEN", image = "talents/freeze.png",
 	desc = "Frozen",
 	kr_display_name = "동결",
-	long_desc = function(self, eff) return ("얼음에 갇힌 동안 방어시 모든 피해의 40%%는 얼음이 흡수하고 60%%의 피해를 입음, 회피도 무시, 공격은 얼음에게로만 가능, 새로운 나쁜 상태 효과에 면역, 공간이동 불가능, 치료 불가능. 남아있는 얼음의 지속력(HP) %d."):format(eff.hp) end,
+	long_desc = function(self, eff) return ("얼음에 갇힘: 모든 피해의 40%%는 얼음이 흡수하고 60%%의 피해를 입음 / 회피 불가능 / 공격은 얼음에게로만 가능 / 새로운 나쁜 상태이상 효과에 면역 / 공간이동 불가능 / 치료 불가능\n얼음의 지속력(HP) %d"):format(eff.hp) end,
 	type = "physical", -- Frozen has some serious effects beyond just being frozen, no healing, no teleport, etc.  But it can be applied by clearly non-magical sources i.e. Ice Breath
 	subtype = { cold=true, stun=true },
 	status = "detrimental",
@@ -641,14 +643,14 @@ newEffect{
 newEffect{
 	name = "ETERNAL_WRATH", image = "talents/thaloren_wrath.png",
 	desc = "Wrath of the Eternals",
-	kr_display_name = "불멸의 분노",
-	long_desc = function(self, eff) return ("내면의 힘을 사용하는 동안 공격시 모든 피해 %d%% 상승, 방어시 모든 피해 %d%% 감소."):format(eff.power, eff.power) end,
+	kr_display_name = "영원의 분노",
+	long_desc = function(self, eff) return ("내면의 힘: 공격시 피해량 +%d%% / 모든 피해 -%d%%"):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, err) return "#Target1# 힘을 내뿜습니다." end,
-	on_lose = function(self, err) return "#Target#의 힘의 오러가 사라집니다." end,
+	on_lose = function(self, err) return "#Target#의 힘의 오러가 사라졌습니다." end,
 	activate = function(self, eff)
 		eff.pid1 = self:addTemporaryValue("inc_damage", {all=eff.power})
 		eff.pid2 = self:addTemporaryValue("resists", {all=eff.power})
@@ -663,13 +665,13 @@ newEffect{
 	name = "SHELL_SHIELD", image = "talents/shell_shield.png",
 	desc = "Shell Shield",
 	kr_display_name = "등껍질 보호막",
-	long_desc = function(self, eff) return ("등껍질로 뒤덮어 방어시 모든 피해 %d%% 감소."):format(eff.power) end,
+	long_desc = function(self, eff) return ("등껍질: 모든 피해 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = { power=50 },
 	on_gain = function(self, err) return "#Target1# 등껍질 아래로 몸을 감쌉니다.", "+등껍질 보호막" end,
-	on_lose = function(self, err) return "#Target1# 등껍질 바깥으로 벗어납니다.", "-등껍질 보호막" end,
+	on_lose = function(self, err) return "#Target1# 등껍질 바깥으로 벗어났습니다.", "-등껍질 보호막" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("resists", {all=eff.power})
 	end,
@@ -682,7 +684,7 @@ newEffect{
 	name = "PAIN_SUPPRESSION", image = "talents/infusion__wild.png",
 	desc = "Pain Suppression",
 	kr_display_name = "고통 억제",
-	long_desc = function(self, eff) return ("고통을 무시하여 방어시 모든 피해 %d%% 감소."):format(eff.power) end,
+	long_desc = function(self, eff) return ("고통 무시: 모든 피해 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -701,7 +703,7 @@ newEffect{
 	name = "PURGE_BLIGHT", image = "talents/infusion__wild.png",
 	desc = "Purge Blight",
 	kr_display_name = "황폐의 정화",
-	long_desc = function(self, eff) return ("자연의 힘이 주입된 동안 방어시 모든 황폐 피해 %d%% 감소, 주문내성 %d 상승, 질병에 면역."):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("자연의 힘 주입: 황폐 피해 -%d%% / 주문내성 +%d / 질병에 면역"):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -724,7 +726,7 @@ newEffect{
 	name = "SENSE", image = "talents/track.png",
 	desc = "Sensing",
 	kr_display_name = "감지",
-	long_desc = function(self, eff) return "인지 능력 향상으로 보이지 않는 것들을 탐지." end,
+	long_desc = function(self, eff) return "인지 능력 향상: 보이지 않는 것들을 탐지" end,
 	type = "physical",
 	subtype = { sense=true },
 	status = "beneficial",
@@ -750,7 +752,7 @@ newEffect{
 	name = "HEROISM", image = "talents/infusion__heroism.png",
 	desc = "Heroism",
 	kr_display_name = "영웅주의",
-	long_desc = function(self, eff) return ("가장 높은 능력치 세가지를 %d 상승."):format(eff.power) end,
+	long_desc = function(self, eff) return ("가장 높은 능력치 세가지 +%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -769,7 +771,7 @@ newEffect{
 	name = "SUNDER_ARMOUR", image = "talents/sunder_armour.png",
 	desc = "Sunder Armour",
 	kr_display_name = "방어구 손상",
-	long_desc = function(self, eff) return ("방어구가 손상된 동안 방어도 %d 감소."):format(eff.power) end,
+	long_desc = function(self, eff) return ("방어구 손상: 방어도 -%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { sunder=true },
 	status = "detrimental",
@@ -786,7 +788,7 @@ newEffect{
 	name = "SUNDER_ARMS", image = "talents/sunder_arms.png",
 	desc = "Sunder Arms",
 	kr_display_name = "팔 부상",
-	long_desc = function(self, eff) return ("팔이 부상당한 동안 정확도 %d 감소."):format(eff.power) end,
+	long_desc = function(self, eff) return ("팔 부상: 정확도 -%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { sunder=true },
 	status = "detrimental",
@@ -803,13 +805,13 @@ newEffect{
 	name = "PINNED", image = "effects/pinned.png",
 	desc = "Pinned to the ground",
 	kr_display_name = "대지에 속박",
-	long_desc = function(self, eff) return "대지에 속박된 동안 이동 불가능." end,
+	long_desc = function(self, eff) return "대지에 속박: 이동 불가능" end,
 	type = "physical",
 	subtype = { pin=true },
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 대지에 고정되었습니다.", "+속박" end,
-	on_lose = function(self, err) return "#Target1# 속박에서 벗어납니다.", "-속박" end,
+	on_lose = function(self, err) return "#Target1# 속박에서 벗어났습니다.", "-속박" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("never_move", 1)
 	end,
@@ -822,7 +824,7 @@ newEffect{
 	name = "MIGHTY_BLOWS", image = "effects/mighty_blows.png",
 	desc = "Mighty Blows",
 	kr_display_name = "강력한 일격",
-	long_desc = function(self, eff) return ("공격시 피해 %d 상승."):format(eff.power) end,
+	long_desc = function(self, eff) return ("공격시 피해량 +%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { golem=true },
 	status = "beneficial",
@@ -841,7 +843,7 @@ newEffect{
 	name = "CRIPPLE", image = "talents/cripple.png",
 	desc = "Cripple",
 	kr_display_name = "장애",
-	long_desc = function(self, eff) return ("장애가 발생한 동안 근접공격, 주문시전, 사고속도 %d%% 감소."):format(eff.speed*100) end,
+	long_desc = function(self, eff) return ("장애: 근접공격 속도 -%d%% / 주문시전 속도 -%d%% / 사고속도 -%d%%"):format(eff.speed*100, eff.speed*100, eff.speed*100) end, --@@ 파라매터 조정
 	type = "physical",
 	subtype = { wound=true },
 	status = "detrimental",
@@ -859,7 +861,7 @@ newEffect{
 	name = "BURROW", image = "talents/burrow.png",
 	desc = "Burrow",
 	kr_display_name = "파고들기",
-	long_desc = function(self, eff) return "벽 속으로 파고들기 가능." end,
+	long_desc = function(self, eff) return "벽 속으로 파고들기 가능" end,
 	type = "physical",
 	subtype = { earth=true },
 	status = "beneficial",
@@ -878,13 +880,13 @@ newEffect{
 	name = "DIM_VISION", image = "talents/sticky_smoke.png",
 	desc = "Reduced Vision",
 	kr_display_name = "시야 감소",
-	long_desc = function(self, eff) return ("The target's vision range is decreased by %d."):format(eff.sight) end,
+	long_desc = function(self, eff) return ("시야 -%d"):format(eff.sight) end,
 	type = "physical",
 	subtype = { sense=true },
 	status = "detrimental",
 	parameters = { sight=5 },
-	on_gain = function(self, err) return "#Target# is surrounded by a thick smoke.", "+Dim Vision" end,
-	on_lose = function(self, err) return "The smoke around #target# dissipate.", "-Dim Vision" end,
+	on_gain = function(self, err) return "#Target1# 짙은 연기로 둘러싸였습니다.", "+침침한 시야" end,
+	on_lose = function(self, err) return "#Target# 주변의 연기가 사라졌습니다.", "-침침한 시야" end,
 	activate = function(self, eff)
 		if self.sight - eff.sight < 1 then eff.sight = self.sight - 1 end
 		eff.tmpid = self:addTemporaryValue("sight", -eff.sight)
@@ -901,13 +903,13 @@ newEffect{
 	name = "RESOLVE", image = "talents/resolve.png",
 	desc = "Resolve",
 	kr_display_name = "결의",
-	long_desc = function(self, eff) return ("You gain %d%% resistance against %s."):format(eff.res, DamageType:get(eff.damtype).name) end,
+	long_desc = function(self, eff) return ("%s 저항 +%d%%"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.res) end, --@@ 파라매터 순서 조정
 	type = "physical",
 	subtype = { antimagic=true, nature=true },
 	status = "beneficial",
 	parameters = { res=10, damtype=DamageType.ARCANE },
-	on_gain = function(self, err) return "#Target# attunes to the damage.", "+Resolve" end,
-	on_lose = function(self, err) return "#Target# is no longer attuned.", "-Resolve" end,
+	on_gain = function(self, err) return "#Target1# 피해에 적응합니다.", "+결의" end,
+	on_lose = function(self, err) return "#Target#의 적응이 무뎌졌습니다.", "-결의" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("resists", {[eff.damtype]=eff.res})
 	end,
@@ -920,13 +922,13 @@ newEffect{
 	name = "WILD_SPEED", image = "talents/infusion__movement.png",
 	desc = "Wild Speed",
 	kr_display_name = "야생의 속도",
-	long_desc = function(self, eff) return ("The movement infusion allows you to run at extreme fast pace. Any other action other than movement will cancel it. Movement is %d%% faster."):format(eff.power) end,
+	long_desc = function(self, eff) return ("이동 속도 +%d%% / 이동 외의 행동시 즉시 야생의 속도 제거"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true, speed=true },
 	status = "beneficial",
 	parameters = {power=1000},
-	on_gain = function(self, err) return "#Target# prepares for the next kill!.", "+Wild Speed" end,
-	on_lose = function(self, err) return "#Target# slows down.", "-Wild Speed" end,
+	on_gain = function(self, err) return "#Target1# 다음번 살해 목표를 위해 준비합니다!.", "+야생의 속도" end,
+	on_lose = function(self, err) return "#Target1# 느려졌습니다.", "-야생의 속도" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("wild_speed", 1)
 		eff.moveid = self:addTemporaryValue("movement_speed", eff.power/100)
@@ -943,13 +945,13 @@ newEffect{
 	name = "STEP_UP", image = "talents/step_up.png",
 	desc = "Step Up",
 	kr_display_name = "진격",
-	long_desc = function(self, eff) return ("Movement is %d%% faster."):format(eff.power) end,
+	long_desc = function(self, eff) return ("이동 속도 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { speed=true, tactic=true },
 	status = "beneficial",
 	parameters = {power=1000},
-	on_gain = function(self, err) return "#Target# prepares for the next kill!.", "+Step Up" end,
-	on_lose = function(self, err) return "#Target# slows down.", "-Step Up" end,
+	on_gain = function(self, err) return "#Target1# 다음번 살해 목표를 위해 준비합니다!.", "+진격" end,
+	on_lose = function(self, err) return "#Target1# 느려졌습니다.", "-진격" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("step_up", 1)
 		eff.moveid = self:addTemporaryValue("movement_speed", eff.power/100)
@@ -966,13 +968,13 @@ newEffect{
 	name = "LIGHTNING_SPEED", image = "talents/lightning_speed.png",
 	desc = "Lightning Speed",
 	kr_display_name = "번개의 속도",
-	long_desc = function(self, eff) return ("Turn into pure lightning, moving %d%% faster. It also increases your lightning resistance by 100%% and your physical resistance by 30%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("순수한 번개로 변신: 이동 속도 +%d%% / 전기 저항 +100%% / 물리 저항 +30%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { lightning=true, speed=true },
 	status = "beneficial",
 	parameters = {},
-	on_gain = function(self, err) return "#Target# turns into pure lightning!.", "+Lightning Speed" end,
-	on_lose = function(self, err) return "#Target# is back to normal.", "-Lightning Speed" end,
+	on_gain = function(self, err) return "#Target1# 순수한 번개로 변했습니다!.", "+번개의 속도" end,
+	on_lose = function(self, err) return "#Target1# 보통의 상태로 돌아왔습니다.", "-번개의 속도" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("lightning_speed", 1)
 		eff.moveid = self:addTemporaryValue("movement_speed", eff.power/100)
@@ -996,13 +998,13 @@ newEffect{
 	name = "DRAGONS_FIRE", image = "talents/fire_breath.png",
 	desc = "Dragon's Fire",
 	kr_display_name = "용의 화염",
-	long_desc = function(self, eff) return ("Dragon blood runs through your veins. You can breathe fire (or have it improved if you already could)."):format() end,
+	long_desc = function(self, eff) return ("용의 피 활성화: 화염 브레스 사용 가능 (기존 보유시 효과 증대)"):format() end,
 	type = "physical",
 	subtype = { fire=true },
 	status = "beneficial",
 	parameters = {power=1},
-	on_gain = function(self, err) return "#Target#'s throat seems to be burning.", "+Dragon's fire" end,
-	on_lose = function(self, err) return "#Target#'s throat seems to cool down.", "-Dragon's fire" end,
+	on_gain = function(self, err) return "#Target#의 목구멍에서 불길이 피어오릅니다.", "+용의 화염" end,
+	on_lose = function(self, err) return "#Target#의 목구멍이 잔잔히 가라앉았습니다.", "-용의 화염" end,
 	activate = function(self, eff)
 		local t_id = self.T_FIRE_BREATH
 		if not self.talents[t_id] then
@@ -1037,7 +1039,7 @@ newEffect{
 	name = "GREATER_WEAPON_FOCUS", image = "talents/greater_weapon_focus.png",
 	desc = "Greater Weapon Focus",
 	kr_display_name = "향상된 염동적 악력",
-	long_desc = function(self, eff) return ("%d%% chance to score a secondary blow."):format(eff.chance) end,
+	long_desc = function(self, eff) return ("%d%% 확률로 두번 공격"):format(eff.chance) end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "beneficial",
@@ -1053,13 +1055,13 @@ newEffect{
 	name = "GRAPPLING", image = "talents/clinch.png",
 	desc = "Grappling",
 	kr_display_name = "붙잡기",
-	long_desc = function(self, eff) return ("The target is engaged in a grapple.  Any movement will break the effect as will some unarmed talents."):format() end,
+	long_desc = function(self, eff) return ("붙잡기: 이동이나 특수 맨손기술 사용시 붙잡기 해제"):format() end,
 	type = "physical",
 	subtype = { grapple=true, },
 	status = "beneficial",
 	parameters = {},
-	on_gain = function(self, err) return "#Target# is engaged in a grapple!", "+Grappling" end,
-	on_lose = function(self, err) return "#Target# has released the hold.", "-Grappling" end,
+	on_gain = function(self, err) return "#Target1# 붙잡기 상태로 들어갑니다!", "+붙잡기" end,
+	on_lose = function(self, err) return "#Target1# 붙잡고 있던 것이 풀렸습니다.", "-붙잡기" end,
 	on_timeout = function(self, eff)
 		local p = eff.trgt:hasEffect(eff.trgt.EFF_GRAPPLED)
 		local drain = 6 - (self:getTalentLevelRaw(self.T_CLINCH) or 0)
@@ -1079,14 +1081,14 @@ newEffect{
 	name = "GRAPPLED", image = "talents/grab.png",
 	desc = "Grappled",
 	kr_display_name = "붙잡힘",
-	long_desc = function(self, eff) return ("The target is grappled, unable to move, and has its defense and attack reduced by %d."):format(eff.power) end,
+	long_desc = function(self, eff) return ("붙잡힘: 이동 불가능 / 회피도 -%d / 정확도 -%d"):format(eff.power, eff.power) end, --@@ 파라매터 조정
 	type = "physical",
 	subtype = { grapple=true, pin=true },
 	status = "detrimental",
 	parameters = {},
 	remove_on_clone = true,
-	on_gain = function(self, err) return "#Target# is grappled!", "+Grappled" end,
-	on_lose = function(self, err) return "#Target# is free from the grapple.", "-Grappled" end,
+	on_gain = function(self, err) return "#Target1# 붙잡혔습니다!", "+붙잡힘" end,
+	on_lose = function(self, err) return "붙잡혀 있던 #Target1# 풀려나왔습니다.", "-붙잡힘" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("never_move", 1)
 		eff.def = self:addTemporaryValue("combat_def", -eff.power)
@@ -1107,14 +1109,14 @@ newEffect{
 newEffect{
 	name = "CRUSHING_HOLD", image = "talents/crushing_hold.png",
 	desc = "Crushing Hold",
-	kr_display_name = "눌러 조르기",
-	long_desc = function(self, eff) return ("The target is being crushed and suffers %d damage each turn"):format(eff.power) end,
+	kr_display_name = "눌려 졸림",
+	long_desc = function(self, eff) return ("눌려 졸림: 매턴 피해 %d"):format(eff.power) end,
 	type = "physical",
 	subtype = { grapple=true },
 	status = "detrimental",
 	parameters = { power=1 },
-	on_gain = function(self, err) return "#Target# is being crushed.", "+Crushing Hold" end,
-	on_lose = function(self, err) return "#Target# has escaped the crushing hold.", "-Crushing Hold" end,
+	on_gain = function(self, err) return "#Target1# 눌렸습니다.", "+눌려 졸림" end,
+	on_lose = function(self, err) return "눌려있던 #Target1# 풀려나왔습니다.", "-눌려 졸림" end,
 	on_timeout = function(self, eff)
 		local p = self:hasEffect(self.EFF_GRAPPLED)
 		if core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) > 1 or eff.src.dead or not game.level:hasEntity(eff.src) or not (p and p.src == eff.src) then
@@ -1128,14 +1130,14 @@ newEffect{
 newEffect{
 	name = "STRANGLE_HOLD", image = "talents/clinch.png",
 	desc = "Strangle Hold",
-	kr_display_name = "숨통 조르기",
-	long_desc = function(self, eff) return ("The target is being strangled and may not cast spells and suffers %d damage each turn."):format(eff.power) end,
+	kr_display_name = "숨통 졸림",
+	long_desc = function(self, eff) return ("숨통 졸림: 주문시전 불가능 / 매턴 피해 %d"):format(eff.power) end,
 	type = "physical",
 	subtype = { grapple=true, silence=true },
 	status = "detrimental",
 	parameters = { power=1 },
-	on_gain = function(self, err) return "#Target# is being strangled.", "+Strangle Hold" end,
-	on_lose = function(self, err) return "#Target# has escaped the strangle hold.", "-Strangle Hold" end,
+	on_gain = function(self, err) return "#Target#의 숨통이 졸립니다.", "+숨통 졸림" end,
+	on_lose = function(self, err) return "#Target#의 숨통이 풀렸습니다.", "-숨통 졸림" end,
 	on_timeout = function(self, eff)
 		local p = self:hasEffect(self.EFF_GRAPPLED)
 		if core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) > 1 or eff.src.dead or not game.level:hasEntity(eff.src) or not (p and p.src == eff.src) then
@@ -1158,14 +1160,14 @@ newEffect{
 newEffect{
 	name = "MAIMED", image = "talents/maim.png",
 	desc = "Maimed",
-	kr_display_name = "꺽기",
-	long_desc = function(self, eff) return ("The target is maimed, reducing damage by %d and global speed by 30%%."):format(eff.power) end,
+	kr_display_name = "꺽임",
+	long_desc = function(self, eff) return ("꺽임: 공격시 피해량 -%d / 모든 행동 속도 -30%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { wound=true, slow=true },
 	status = "detrimental",
 	parameters = { atk=10, dam=10 },
-	on_gain = function(self, err) return "#Target# is maimed.", "+Maimed" end,
-	on_lose = function(self, err) return "#Target# has recovered from the maiming.", "-Maimed" end,
+	on_gain = function(self, err) return "#Target1# 꺽였습니다.", "+꺽임" end,
+	on_lose = function(self, err) return "꺽여있던 #Target1# 풀려나왔습니다.", "-꺽임" end,
 	activate = function(self, eff)
 		eff.damid = self:addTemporaryValue("combat_dam", -eff.dam)
 		eff.tmpid = self:addTemporaryValue("global_speed_add", -0.3)
@@ -1180,8 +1182,8 @@ newEffect{
 	name = "COMBO", image = "talents/combo_string.png",
 	desc = "Combo",
 	kr_display_name = "연계",
-	display_desc = function(self, eff) return eff.cur_power.." Combo" end,
-	long_desc = function(self, eff) return ("The target is in the middle of a combo chain and has earned %d combo points."):format(eff.cur_power) end,
+	display_desc = function(self, eff) return "연계 "..eff.cur_power end,
+	long_desc = function(self, eff) return ("연계기 사용중: 현재 연계 점수 %d"):format(eff.cur_power) end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "beneficial",
@@ -1207,13 +1209,13 @@ newEffect{
 	name = "DEFENSIVE_MANEUVER", image = "talents/set_up.png",
 	desc = "Defensive Maneuver",
 	kr_display_name = "방어적 전술",
-	long_desc = function(self, eff) return ("The target's defense is increased by %d."):format(eff.power) end,
+	long_desc = function(self, eff) return ("회피도 +%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { evade=true },
 	status = "beneficial",
 	parameters = {power = 1},
-	on_gain = function(self, err) return "#Target# is moving defensively!", "+Defensive Maneuver" end,
-	on_lose = function(self, err) return "#Target# isn't moving as defensively anymore.", "-Defensive Maneuver" end,
+	on_gain = function(self, err) return "#Target1# 방어적으로 움직입니다!", "+방어적 전술" end,
+	on_lose = function(self, err) return "#Target1# 더이상 방어적으로 움직이지 않습니다.", "-방어적 전술" end,
 	activate = function(self, eff)
 		eff.defense = self:addTemporaryValue("combat_def", eff.power)
 	end,
@@ -1226,13 +1228,13 @@ newEffect{
 	name = "SET_UP", image = "talents/set_up.png",
 	desc = "Set Up",
 	kr_display_name = "흐트러진 자세",
-	long_desc = function(self, eff) return ("The target is off balance and is %d%% more likely to be crit by the target that set it up.  In addition all its saves are reduced by %d."):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("불균형: 치명타 맞을 확률 +%d%% / 모든 내성 -%d"):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "detrimental",
 	parameters = {power = 1},
-	on_gain = function(self, err) return "#Target# has been set up!", "+Set Up" end,
-	on_lose = function(self, err) return "#Target# has survived the set up.", "-Set Up" end,
+	on_gain = function(self, err) return "#Target#의 자세가 흐트러졌습니다!", "+흐트러진 자세" end,
+	on_lose = function(self, err) return "#Target1# 자세를 바로잡았습니다.", "-흐트러진 자세" end,
 	activate = function(self, eff)
 		eff.mental = self:addTemporaryValue("combat_mentalresist", -eff.power)
 		eff.spell = self:addTemporaryValue("combat_spellresist", -eff.power)
@@ -1249,13 +1251,13 @@ newEffect{
 	name = "Recovery",
 	desc = "Recovery",
 	kr_display_name = "회복",
-	long_desc = function(self, eff) return ("The target is recovering %d life each turn and its healing modifier has been increased by %d%%."):format(eff.regen, eff.heal_mod) end,
+	long_desc = function(self, eff) return ("회복: 매턴 생명력 +%d / 치유 증가율 +%d%%"):format(eff.regen, eff.heal_mod) end,
 	type = "physical",
 	subtype = { heal=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# is recovering from the damage!", "+Recovery" end,
-	on_lose = function(self, err) return "#Target# has finished recovering.", "-Recovery" end,
+	on_gain = function(self, err) return "#Target1# 피해로부터 회복하기 시작합니다!", "+회복" end,
+	on_lose = function(self, err) return "#Target#의 회복이 끝났습니다.", "-회복" end,
 	activate = function(self, eff)
 		eff.regenid = self:addTemporaryValue("life_regen", eff.regen)
 		eff.healid = self:addTemporaryValue("healing_factor", eff.heal_mod / 100)
@@ -1270,13 +1272,13 @@ newEffect{
 	name = "REFLEXIVE_DODGING", image = "talents/heightened_reflexes.png",
 	desc = "Reflexive Dodging",
 	kr_display_name = "반사적 회피",
-	long_desc = function(self, eff) return ("Increases global action speed by %d%%."):format(eff.power * 100) end,
+	long_desc = function(self, eff) return ("모든 행동 속도 +%d%%"):format(eff.power * 100) end,
 	type = "physical",
 	subtype = { evade=true, speed=true },
 	status = "beneficial",
 	parameters = { power=0.1 },
-	on_gain = function(self, err) return "#Target# speeds up.", "+Reflexive Dodging" end,
-	on_lose = function(self, err) return "#Target# slows down.", "-Reflexive Dodging" end,
+	on_gain = function(self, err) return "#Target1# 빨라졌습니다.", "+반사적 회피" end,
+	on_lose = function(self, err) return "#Target1# 느려졌습니다.", "-반사적 회피" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("global_speed_add", eff.power)
 	end,
@@ -1289,7 +1291,7 @@ newEffect{
 	name = "WEAKENED_DEFENSES", image = "talents/exploit_weakness.png",
 	desc = "Weakened Defenses",
 	kr_display_name = "약해진 방어",
-	long_desc = function(self, eff) return ("The target's physical resistance has been reduced by %d%%."):format(eff.cur_inc) end,
+	long_desc = function(self, eff) return ("물리 저항 -%d%%"):format(eff.cur_inc) end,
 	type = "physical",
 	subtype = { sunder=true },
 	status = "detrimental",
@@ -1317,7 +1319,7 @@ newEffect{
 	name = "WATERS_OF_LIFE", image = "talents/waters_of_life.png",
 	desc = "Waters of Life",
 	kr_display_name = "생명의 물",
-	long_desc = function(self, eff) return ("The target purifies all diseases and poisons, turning them into healing effects.") end,
+	long_desc = function(self, eff) return ("모든 질병과 중독 정화 / 정화된 양만큼 치유 증가율 상승") end,
 	type = "physical",
 	subtype = { nature=true, heal=true },
 	status = "beneficial",
@@ -1337,11 +1339,11 @@ newEffect{
 	desc = "Elemental Harmony",
 	kr_display_name = "정령의 조화",
 	long_desc = function(self, eff)
-		if eff.type == DamageType.FIRE then return ("Increases global speed by %d%%."):format(100 * (0.1 + eff.power / 16))
-		elseif eff.type == DamageType.COLD then return ("Increases armour by %d."):format(3 + eff.power *2)
-		elseif eff.type == DamageType.LIGHTNING then return ("Increases all stats by %d."):format(math.floor(eff.power))
-		elseif eff.type == DamageType.ACID then return ("Increases life regen by %0.2f%%."):format(5 + eff.power * 2)
-		elseif eff.type == DamageType.NATURE then return ("Increases all resists by %d%%."):format(5 + eff.power * 1.4)
+		if eff.type == DamageType.FIRE then return ("모든 행동 속도 +%d%%"):format(100 * (0.1 + eff.power / 16))
+		elseif eff.type == DamageType.COLD then return ("방어도 +%d"):format(3 + eff.power *2)
+		elseif eff.type == DamageType.LIGHTNING then return ("모든 능력치 +%d"):format(math.floor(eff.power))
+		elseif eff.type == DamageType.ACID then return ("생명력 재생 +%0.2f%%"):format(5 + eff.power * 2)
+		elseif eff.type == DamageType.NATURE then return ("모든 저항 +%d%%"):format(5 + eff.power * 1.4)
 		end
 	end,
 	type = "physical",
@@ -1387,8 +1389,8 @@ newEffect{
 newEffect{
 	name = "HEALING_NEXUS", image = "talents/healing_nexus.png",
 	desc = "Healing Nexus",
-	kr_display_name = "회복력 집중",
-	long_desc = function(self, eff) return ("All healing done to the target is instead redirected to %s by %d%%."):format(eff.src.name, eff.pct * 100, eff.src.name) end,
+	kr_display_name = "회복력 강탈",
+	long_desc = function(self, eff) return ("모든 생명력 회복의 %d%%가 %s에게로 전환"):format(eff.pct * 100, (eff.src.kr_display_name or eff.src.name), eff.src.name) end, --@@ 파라매터 순서 조정
 	type = "physical",
 	subtype = { nature=true, heal=true },
 	status = "detrimental",
@@ -1403,13 +1405,13 @@ newEffect{
 	name = "PSIONIC_BIND", image = "effects/psionic_bind.png",
 	desc = "Immobilized",
 	kr_display_name = "이동불능",
-	long_desc = function(self, eff) return "Immobilized by telekinetic forces." end,
+	long_desc = function(self, eff) return "염동력에 의한 이동 불가능." end,
 	type = "physical",
 	subtype = { telekinesis=true, pin=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#F53CBE##Target# is bound by telekinetic forces!", "+Paralyzed" end,
-	on_lose = function(self, err) return "#Target# shakes free of the telekinetic binding", "-Paralyzed" end,
+	on_gain = function(self, err) return "#F53CBE##Target1# 염동력으로 붙잡혔습니다!", "+마비" end,
+	on_lose = function(self, err) return "#Target1# 염동력에서 풀려나왔습니다.", "-마비" end,
 	activate = function(self, eff)
 		--eff.particle = self:addParticles(Particles.new("gloom_stunned", 1))
 		eff.tmpid = self:addTemporaryValue("never_move", 1)
@@ -1424,13 +1426,13 @@ newEffect{
 	name = "IMPLODING", image = "talents/implode.png",
 	desc = "Slow",
 	kr_display_name = "감속",
-	long_desc = function(self, eff) return ("Slowed by 50%% and taking %d crushing damage per turn."):format( eff.power) end,
+	long_desc = function(self, eff) return ("모든 행동 속도 -50%% / 매턴 물리 피해 %d"):format( eff.power) end,
 	type = "physical",
 	subtype = { telekinesis=true, slow=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#Target# is being crushed.", "+Imploding" end,
-	on_lose = function(self, err) return "#Target# shakes off the crushing forces.", "-Imploding" end,
+	on_gain = function(self, err) return "#Target1# 눌렸습니다.", "+내파" end,
+	on_lose = function(self, err) return "눌려있던 #Target1# 풀려나왔습니다.", "-내파" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("global_speed_add", -0.5)
 	end,
@@ -1446,13 +1448,13 @@ newEffect{
 	name = "FREE_ACTION", image = "effects/free_action.png",
 	desc = "Free Action",
 	kr_display_name = "자유로운 행동",
-	long_desc = function(self, eff) return ("The target gains %d%% stun, daze and pinning immunity."):format(eff.power * 100) end,
+	long_desc = function(self, eff) return ("기절 저항 +%d%% / 혼절 면역 / 속박 면역"):format(eff.power * 100) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = { power=1 },
-	on_gain = function(self, err) return "#Target# is moving freely.", "+Free Action" end,
-	on_lose = function(self, err) return "#Target# is moving less freely.", "-Free Action" end,
+	on_gain = function(self, err) return "#Target#의 움직임이 완전히 자유롭습니다.", "+자유로운 행동" end,
+	on_lose = function(self, err) return "#Target#의 움직임이 조금 덜 자유롭습니다.", "-자유로운 행동" end,
 	activate = function(self, eff)
 		eff.stun = self:addTemporaryValue("stun_immune", eff.power)
 		eff.daze = self:addTemporaryValue("daze_immune", eff.power)
@@ -1469,13 +1471,13 @@ newEffect{
 	name = "ADRENALINE_SURGE", image = "talents/adrenaline_surge.png",
 	desc = "Adrenaline Surge",
 	kr_display_name = "아드레날린 쇄도",
-	long_desc = function(self, eff) return ("The target's combat damage is improved by %d and it an continue to fight past the point of exhaustion, supplementing life for stamina."):format(eff.power) end,
+	long_desc = function(self, eff) return ("공격시 피해량 +%d / 체력 완전 소모시 체력 대신 생명력으로 사용 가능"):format(eff.power) end,
 	type = "physical",
 	subtype = { frenzy=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# feels a surge of adrenaline." end,
-	on_lose = function(self, err) return "#Target#'s adrenaline surge has come to an end." end,
+	on_gain = function(self, err) return "#Target#의 아드레날린이 쇄도합니다." end,
+	on_lose = function(self, err) return "#Target#의 아드레날린이 정상적으로 돌아왔습니다." end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("combat_dam", eff.power)
 	end,
@@ -1488,7 +1490,7 @@ newEffect{
 	name = "BLINDSIDE_BONUS", image = "talents/blindside.png",
 	desc = "Blindside Bonus",
 	kr_display_name = "습격 보너스",
-	long_desc = function(self, eff) return ("The target has appeared out of nowhere! It's defense is boosted by %d."):format(eff.defenseChange) end,
+	long_desc = function(self, eff) return ("사라짐: 회피도 +%d"):format(eff.defenseChange) end,
 	type = "physical",
 	subtype = { evade=true },
 	status = "beneficial",
@@ -1505,13 +1507,13 @@ newEffect{
 	name = "OFFBALANCE",
 	desc = "Off-balance",
 	kr_display_name = "불균형",
-	long_desc = function(self, eff) return ("Badly off balance. Global speed is reduced by 15%.") end,
+	long_desc = function(self, eff) return ("불균형: 모든 행동 속도 -15%") end,
 	type = "physical",
 	subtype = { ["cross tier"]=true },
 	status = "detrimental",
 	parameters = {power = 1},
-	on_gain = function(self, err) return nil, "+Off-balance" end,
-	on_lose = function(self, err) return nil, "-Off-balance" end,
+	on_gain = function(self, err) return nil, "+불균형" end,
+	on_lose = function(self, err) return nil, "-불균형" end,
 	activate = function(self, eff)
 		eff.speedid = self:addTemporaryValue("global_speed_add", -0.15)
 	end,
@@ -1524,13 +1526,13 @@ newEffect{
 	name = "OFFGUARD",
 	desc = "Off-guard", image = "talents/precise_strikes.png",
 	kr_display_name = "방어 해제",
-	long_desc = function(self, eff) return ("Badly off guard. Attackers gain a 10% bonus to physical critical strike chance and physical critcal strike power.") end,
+	long_desc = function(self, eff) return ("방어 해제: 물리 치명타 맞을 확률 +10% / 물리 치명타 피해 +10%") end,
 	type = "physical",
 	subtype = { ["cross tier"]=true },
 	status = "detrimental",
 	parameters = {power = 1},
-	on_gain = function(self, err) return nil, "+Off-guard" end,
-	on_lose = function(self, err) return nil, "-Off-guard" end,
+	on_gain = function(self, err) return nil, "+방어 해제" end,
+	on_lose = function(self, err) return nil, "-방어 해제" end,
 	activate = function(self, eff)
 		eff.crit_vuln = self:addTemporaryValue("combat_crit_vulnerable", 10) -- increases chance to be crit
 	end,
@@ -1543,13 +1545,13 @@ newEffect{
 	name = "SLOW_MOVE",
 	desc = "Slow movement", image = "talents/slow.png",
 	kr_display_name = "느린 이동",
-	long_desc = function(self, eff) return ("Movement speed is reduced by %d%%."):format(eff.power*100) end,
+	long_desc = function(self, eff) return ("이동 속도 -%d%%"):format(eff.power*100) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
 	parameters = {power = 1},
-	on_gain = function(self, err) return nil, "+Slow movement" end,
-	on_lose = function(self, err) return nil, "-Slow movement" end,
+	on_gain = function(self, err) return nil, "+느린 이동" end,
+	on_lose = function(self, err) return nil, "-느린 이동" end,
 	activate = function(self, eff)
 		eff.speedid = self:addTemporaryValue("movement_speed", -eff.power)
 	end,
@@ -1562,13 +1564,13 @@ newEffect{
 	name = "WEAKENED",
 	desc = "Weakened", image = "talents/ruined_earth.png",
 	kr_display_name = "약화",
-	long_desc = function(self, eff) return ("The target has been weakened, reducing all damage inclicted by %d%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("약화: 모든 피해 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { curse=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# has been weakened." end,
-	on_lose = function(self, err) return "#Target#'s is no longer weakened." end,
+	on_gain = function(self, err) return "#Target1# 약해졌습니다." end,
+	on_lose = function(self, err) return "#Target1# 더이상 약하지 않습니다." end,
 	activate = function(self, eff)
 		eff.incDamageId = self:addTemporaryValue("inc_damage", {all=-eff.power})
 	end,
@@ -1581,13 +1583,13 @@ newEffect{
 	name = "LOWER_FIRE_RESIST",
 	desc = "Lowered fire resistance",
 	kr_display_name = "화염 저항 저하",
-	long_desc = function(self, eff) return ("The target fire resistance is reduced by %d%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("화염 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
 	parameters = { power=20 },
-	on_gain = function(self, err) return "#Target# becomes more vulnerable to fire.", "+Low. fire resist" end,
-	on_lose = function(self, err) return "#Target# is less vulnerable to fire.", "-Low. fire resist" end,
+	on_gain = function(self, err) return "#Target1# 불에 약해졌습니다.", "+화염 저항 저하" end,
+	on_lose = function(self, err) return "#Target1# 불에 강해졌습니다.", "-화염 저항 저하" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("resists", {[DamageType.FIRE]=-eff.power})
 	end,
@@ -1599,13 +1601,13 @@ newEffect{
 	name = "LOWER_COLD_RESIST",
 	desc = "Lowered cold resistance",
 	kr_display_name = "추위 저항 저하",
-	long_desc = function(self, eff) return ("The target cold resistance is reduced by %d%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("추위 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
 	parameters = { power=20 },
-	on_gain = function(self, err) return "#Target# becomes more vulnerable to cold.", "+Low. cold resist" end,
-	on_lose = function(self, err) return "#Target# is less vulnerable to cold.", "-Low. cold resist" end,
+	on_gain = function(self, err) return "#Target1# 추위에 약해졌습니다.", "+추위 저항 저하" end,
+	on_lose = function(self, err) return "#Target1# 추위에 강해졌습니다.", "-추위 저항 저하" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("resists", {[DamageType.COLD]=-eff.power})
 	end,
@@ -1617,13 +1619,13 @@ newEffect{
 	name = "LOWER_NATURE_RESIST",
 	desc = "Lowered nature resistance",
 	kr_display_name = "자연 저항 저하",
-	long_desc = function(self, eff) return ("The target nature resistance is reduced by %d%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("자연 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
 	parameters = { power=20 },
-	on_gain = function(self, err) return "#Target# becomes more vulnerable to nature.", "+Low. nature resist" end,
-	on_lose = function(self, err) return "#Target# is less vulnerable to nature.", "-Low. nature resist" end,
+	on_gain = function(self, err) return "#Target1# 자연의 힘에 약해졌습니다.", "+자연 저항 저하" end,
+	on_lose = function(self, err) return "#Target1# 자연의 힘에 강해졌습니다.", "-자연 저항 저하" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("resists", {[DamageType.NATURE]=-eff.power})
 	end,
@@ -1635,13 +1637,13 @@ newEffect{
 	name = "LOWER_PHYSICAL_RESIST",
 	desc = "Lowered physical resistance",
 	kr_display_name = "물리 저항 저하",
-	long_desc = function(self, eff) return ("The target physical resistance is reduced by %d%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("물리 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
 	parameters = { power=20 },
-	on_gain = function(self, err) return "#Target# becomes more vulnerable to physical.", "+Low. physical resist" end,
-	on_lose = function(self, err) return "#Target# is less vulnerable to physical.", "-Low. physical resist" end,
+	on_gain = function(self, err) return "#Target1# 물리력에 약해졌습니다.", "+물리 저항 저하" end,
+	on_lose = function(self, err) return "#Target1# 물리력에 강해졌습니다.", "-물리 저항 저하" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("resists", {[DamageType.PHYSICAL]=-eff.power})
 	end,
@@ -1654,13 +1656,13 @@ newEffect{
 	name = "CURSED_WOUND", image = "talents/slash.png",
 	desc = "Cursed Wound",
 	kr_display_name = "저주받은 상처",
-	long_desc = function(self, eff) return ("The target's has a cursed wound, reducing healing by %d%%."):format(-eff.healFactorChange * 100) end,
+	long_desc = function(self, eff) return ("저주받은 상처: 치유 증가율 -%d%%"):format(-eff.healFactorChange * 100) end,
 	type = "physical",
 	subtype = { wound=true }, no_ct_effect = true,
 	status = "detrimental",
 	parameters = { healFactorChange=-0.1 },
-	on_gain = function(self, err) return "#Target# has a cursed wound!", "+Cursed Wound" end,
-	on_lose = function(self, err) return "#Target# no longer has a cursed wound.", "-Cursed Wound" end,
+	on_gain = function(self, err) return "#Target#에게 저주받은 상처가 생겼습니다!", "+저주받은 상처" end,
+	on_lose = function(self, err) return "#Target#의 저주받은 상처가 사라졌습니다.", "-저주받은 상처" end,
 	activate = function(self, eff)
 		eff.healFactorId = self:addTemporaryValue("healing_factor", eff.healFactorChange)
 	end,
@@ -1674,7 +1676,7 @@ newEffect{
 
 		self:removeTemporaryValue("healing_factor", old_eff.healFactorId)
 		old_eff.healFactorId = self:addTemporaryValue("healing_factor", old_eff.healFactorChange)
-		game.logSeen(self, "%s has re-opened a cursed wound!", self.name:capitalize())
+		game.logSeen(self, "%s의 저주받은 상처가 벌어졌습니다!", (self.kr_display_name or self.name):capitalize())
 
 		return old_eff
 	end,
@@ -1684,13 +1686,13 @@ newEffect{
 	name = "LUMINESCENCE",
 	desc = "Luminescence ", image = "talents/infusion__sun.png",
 	kr_display_name = "발광",
-	long_desc = function(self, eff) return ("The target has been revealed, reducing its stealth power by %d."):format(eff.power) end,
+	long_desc = function(self, eff) return ("발광: 은신력 -%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true, light=true },
 	status = "detrimental",
 	parameters = { power=20 },
-	on_gain = function(self, err) return "#Target# has been illuminated.", "+Luminescence" end,
-	on_lose = function(self, err) return "#Target# is no longer illuminated.", "-Luminescence" end,
+	on_gain = function(self, err) return "#Target#의 몸이 발광하기 시작합니다.", "+발광" end,
+	on_lose = function(self, err) return "#Target#의 몸이 더이상 발광하지 않습니다.", "-발광" end,
 	activate = function(self, eff)
 		eff.stealthid = self:addTemporaryValue("inc_stealth", -eff.power)
 	end,
@@ -1703,13 +1705,13 @@ newEffect{
 	name = "SPELL_DISRUPTION", image = "talents/mana_clash.png",
 	desc = "Spell Disruption",
 	kr_display_name = "주문 방해",
-	long_desc = function(self, eff) return ("The target has a %d%% chance to fail any spell it casts and a chance each turn to lose spell sustains."):format(eff.cur_power) end,
+	long_desc = function(self, eff) return ("주문 방해: 주문 시전시 %d%% 확률로 실패 / 매턴마다 %d%% 확률로 유지중인 주문 종료"):format(eff.cur_power, eff.cur_power) end, --@@ 파라매터 조정
 	type = "physical",
 	subtype = { antimagic=true },
 	status = "detrimental",
 	parameters = { power=10, max=50 },
-	on_gain = function(self, err) return "#Target#'s magic has been disrupted." end,
-	on_lose = function(self, err) return "#Target#'s is no longer disrupted." end,
+	on_gain = function(self, err) return "#Target#의 마법이 방해받기 시작합니다." end,
+	on_lose = function(self, err) return "#Target#의 마법이 더이상 방해받지 않습니다." end,
 	on_merge = function(self, old_eff, new_eff)
 		self:removeTemporaryValue("spell_failure", old_eff.tmpid)
 		old_eff.cur_power = math.min(old_eff.cur_power + new_eff.power, new_eff.max)
@@ -1731,13 +1733,13 @@ newEffect{
 	name = "RESONANCE", image = "talents/alchemist_protection.png",
 	desc = "Resonance",
 	kr_display_name = "공진",
-	long_desc = function(self, eff) return ("+%d%% %s damage."):format(eff.dam, DamageType:get(eff.damtype).name) end,
+	long_desc = function(self, eff) return ("%s 공격시 피해량 +%d%%"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.dam) end, --@@ 파라매터 순서 조정
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = { dam=10, damtype=DamageType.ARCANE },
-	on_gain = function(self, err) return "#Target# resonates with the damage.", "+Resonance" end,
-	on_lose = function(self, err) return "#Target# is no longer resonating.", "-Resonance" end,
+	on_gain = function(self, err) return "#Target1# 피해와 공진하기 시작합니다.", "+공진" end,
+	on_lose = function(self, err) return "#Target#의 공진이 멈췄습니다.", "-공진" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("inc_damage", {[eff.damtype]=eff.dam})
 	end,
@@ -1749,8 +1751,8 @@ newEffect{
 newEffect{
 	name = "THORN_GRAB", image = "talents/thorn_grab.png",
 	desc = "Thorn Grab",
-	kr_display_name = "가시덩굴 붙잡기",
-	long_desc = function(self, eff) return ("The target is encased in thorny vines, dealing %d nature damage each turn and reducing its speed by %d%%."):format(eff.dam, eff.speed*100) end,
+	kr_display_name = "가시덩굴에 휘감김",
+	long_desc = function(self, eff) return ("가시덩굴에 휘감김: 매턴 자연 피해 %d / 모든 행동 속도 -%d%%"):format(eff.dam, eff.speed*100) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
@@ -1770,13 +1772,13 @@ newEffect{
 	name = "LEAVES_COVER", image = "talents/leaves_tide.png",
 	desc = "Leaves Cover",
 	kr_display_name = "잎사귀 덮개",
-	long_desc = function(self, eff) return ("%d%% chance to fully absorb any damaging actions."):format(eff.power) end,
+	long_desc = function(self, eff) return ("잎사귀 덮개: %d%% 확률로 피해 무효화"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# is protected by a layer of thick leaves.", "+Leaves Cover" end,
-	on_lose = function(self, err) return "#Target# cover of leaves falls apart.", "-Leaves Cover" end,
+	on_gain = function(self, err) return "#Target1# 두꺼운 잎사귀들로 보호받습니다.", "+잎사귀 덮개" end,
+	on_lose = function(self, err) return "#Target2# 뒤덮던 잎사귀가 흩어졌습니다.", "-잎사귀 덮개" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("cancel_damage_chance", eff.power)
 	end,
@@ -1789,7 +1791,7 @@ newEffect{
 	name = "BLOCKING", image = "talents/block.png",
 	desc = "Blocking",
 	kr_display_name = "막기",
-	long_desc = function(self, eff) return ("Absorbs %d damage from the next blockable attack."):format(eff.power) end,
+	long_desc = function(self, eff) return ("다음번 막을 수 있는 공격의 피해 -%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "beneficial",
@@ -1837,13 +1839,13 @@ newEffect{
 	name = "COUNTERSTRIKE", image = "effects/counterstrike.png",
 	desc = "Counterstrike",
 	kr_display_name = "반격",
-	long_desc = function(self, eff) return "Vulnerable to deadly counterstrikes. Next melee attack will inflict double damage." end,
+	long_desc = function(self, eff) return "반격: 다음번 근접 공격시 피해량 +100%" end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "detrimental",
 	parameters = { nb=1 },
-	on_gain = function(self, eff) return nil, "+Counter" end,
-	on_lose = function(self, eff) return nil, "-Counter" end,
+	on_gain = function(self, eff) return nil, "+반격" end,
+	on_lose = function(self, eff) return nil, "-반격" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("counterstrike", 1)
 		eff.def = self:addTemporaryValue("combat_def", -eff.power)
@@ -1863,15 +1865,15 @@ newEffect{
 	kr_display_name = "유린",
 	long_desc = function(self, eff)
 		local ravaged = "each turn."
-		if eff.ravage then ravaged = "and is losing one physical effect turn." end
-		return ("The target is being ravaged by distortion, taking %0.2f physical damage %s"):format(eff.dam, ravaged)
+		if eff.ravage then ravaged = " / 매턴 좋은 물리적 상태 효과 한가지 제거" end
+		return ("왜곡으로 유린당함: 물리 피해 %0.2f%s"):format(eff.dam, ravaged)
 	end,
 	type = "physical",
 	subtype = { distortion=true },
 	status = "detrimental",
 	parameters = {dam=1},
-	on_gain = function(self, err) return  nil, "+Ravage" end,
-	on_lose = function(self, err) return "#Target# is no longer being ravaged." or nil, "-Ravage" end,
+	on_gain = function(self, err) return  nil, "+유린" end,
+	on_lose = function(self, err) return "#Target1# 더이상 유린당하지 않습니다." or nil, "-유린" end,
 	on_timeout = function(self, eff)
 		if eff.ravage then
 			-- Go through all physical effects
@@ -1906,7 +1908,7 @@ newEffect{
 	activate = function(self, eff)
 		self:setEffect(self.EFF_DISTORTION, 2, {})
 		if eff.ravage then
-			game.logSeen(self, "#LIGHT_RED#%s is being ravaged by distortion!", self.name:capitalize())
+			game.logSeen(self, "#LIGHT_RED#%s 왜곡에 의해 유린당합니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 			eff.dam = eff.dam * 1.5
 		end
 		eff.particle = self:addParticles(Particles.new("ultrashield", 1, {rm=255, rM=255, gm=180, gM=255, bm=220, bM=255, am=35, aM=90, radius=0.2, density=15, life=28, instop=40}))
@@ -1920,13 +1922,13 @@ newEffect{
 	name = "DISABLE", image = "talents/cripple.png",
 	desc = "Disable",
 	kr_display_name = "부자유",
-	long_desc = function(self, eff) return ("The target is disabled, reducing movement speed by %d%% and physical power by %d."):format(eff.speed * 100, eff.atk) end,
+	long_desc = function(self, eff) return ("부자유: 이동 속도 -%d%% / 물리력 -%d"):format(eff.speed * 100, eff.atk) end,
 	type = "physical",
 	subtype = { wound=true },
 	status = "detrimental",
 	parameters = { speed=0.15, atk=10 },
-	on_gain = function(self, err) return "#Target# is disabled.", "+Disabled" end,
-	on_lose = function(self, err) return "#Target# is not disabled anymore.", "-Disabled" end,
+	on_gain = function(self, err) return "#Target1# 부자유스러워집니다.", "+부자유" end,
+	on_lose = function(self, err) return "#Target#의 부자유가 사라졌습니다.", "-부자유" end,
 	activate = function(self, eff)
 		eff.speedid = self:addTemporaryValue("movement_speed", -eff.speed)
 		eff.atkid = self:addTemporaryValue("combat_atk", -eff.atk)
@@ -1941,13 +1943,13 @@ newEffect{
 	name = "ANGUISH", image = "talents/agony.png",
 	desc = "Anguish",
 	kr_display_name = "고뇌",
-	long_desc = function(self, eff) return ("The target is in extreme anguish, preventing them from making tactical decisions, and reducing Willpower by %d and Cunning by %d."):format(eff.will, eff.cun) end,
+	long_desc = function(self, eff) return ("고뇌: 전술적 행동(tactical decisions) 불가능 / 의지 -%d / 교활함 -%d"):format(eff.will, eff.cun) end,
 	type = "physical",
 	subtype = { wound=true },
 	status = "detrimental",
 	parameters = { will=5, cun=5 },
-	on_gain = function(self, err) return "#Target# is in anguish.", "+Anguish" end,
-	on_lose = function(self, err) return "#Target# is no longer in anguish.", "-Anguish" end,
+	on_gain = function(self, err) return "#Target1# 고뇌에 빠집니다.", "+고뇌" end,
+	on_lose = function(self, err) return "#Target#의 고뇌가 사라졌습니다.", "-고뇌" end,
 	activate = function(self, eff)
 		eff.sid = self:addTemporaryValue("inc_stats", {[Stats.STAT_WIL]=-eff.will, [Stats.STAT_CUN]=-eff.cun})
 --		if self.ai_state then eff.ai = self:addTemporaryValue("ai_state", {forbid_tactical=1}) end
@@ -1962,7 +1964,7 @@ newEffect{
 	name = "FAST_AS_LIGHTNING", image = "talents/fast_as_lightning.png",
 	desc = "Fast As Lightning",
 	kr_display_name = "번개보다 빠르게",
-	long_desc = function(self, eff) return ("The target is so fast it may blink throught obstacles if moving in the same direction for over two turns."):format() end,
+	long_desc = function(self, eff) return ("두턴 이상 같은 방향으로 움직이면 장애물 통과 가능"):format() end,
 	type = "physical",
 	subtype = { speed=true },
 	status = "beneficial",
@@ -1970,8 +1972,8 @@ newEffect{
 	on_merge = function(self, old_eff, new_eff)
 		return old_eff
 	end,
-	on_gain = function(self, err) return "#Target# is speeding up.", "+Fast As Lightning" end,
-	on_lose = function(self, err) return "#Target# is slowing down.", "-Fast As Lightning" end,
+	on_gain = function(self, err) return "#Target1# 빨라졌습니다.", "+번개보다 빠르게" end,
+	on_lose = function(self, err) return "#Target1# 느려졌습니다.", "-번개보다 빠르게" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -1985,7 +1987,7 @@ newEffect{
 	name = "ELEMENTAL_SURGE_NATURE", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Nature",
 	kr_display_name = "속성 고조: 자연",
-	long_desc = function(self, eff) return ("Immune to physical effects.") end,
+	long_desc = function(self, eff) return ("나쁜 물리적 상태이상 효과에 면역") end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",
@@ -1998,8 +2000,8 @@ newEffect{
 newEffect{
 	name = "STEAMROLLER", image = "talents/steamroller.png",
 	desc = "Steamroller",
-	kr_display_name = "강압",
-	long_desc = function(self, eff) return ("Resets Rush cooldown if killed.") end,
+	kr_display_name = "강압됨",
+	long_desc = function(self, eff) return ("사망시 강압대상의 '돌진' 기술 대기지연시간 제거") end,
 	type = "physical",
 	subtype = { status=true },
 	status = "detrimental",
@@ -2016,8 +2018,8 @@ newEffect{
 newEffect{
 	name = "STEAMROLLER_USER", image = "talents/steamroller.png",
 	desc = "Steamroller",
-	kr_display_name = "강압",
-	long_desc = function(self, eff) return ("Grants a +%d%% damage bonus."):format(eff.buff) end,
+	kr_display_name = "강압함",
+	long_desc = function(self, eff) return ("공격시 피해량 +%d%%"):format(eff.buff) end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",
@@ -2040,13 +2042,13 @@ newEffect{
 	name = "SPINE_OF_THE_WORLD", image = "talents/spine_of_the_world.png",
 	desc = "Spine of the World",
 	kr_display_name = "세계 최강의 척추",
-	long_desc = function(self, eff) return ("Immune to physical effects.") end,
+	long_desc = function(self, eff) return ("나쁜 물리적 생태이상 효과에 면역") end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",
 	parameters = { },
-	on_gain = function(self, err) return "#Target# become imprevious to physical effects.", "+Spine of the World" end,
-	on_lose = function(self, err) return "#Target# is less imprevious to physical effects.", "-Spine of the World" end,
+	on_gain = function(self, err) return "#Target1# 물리 효과에 강해졌습니다.", "+세계 최강의 척추" end,
+	on_lose = function(self, err) return "#Target1# 물리 효과에 약해졌습니다.", "-세계 최강의 척추" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "physical_negative_status_effect_immune", 1)
 	end,
@@ -2056,13 +2058,13 @@ newEffect{
 	name = "FUNGAL_BLOOD", image = "talents/fungal_blood.png",
 	desc = "Fungal Blood",
 	kr_display_name = "균성 혈액",
-	long_desc = function(self, eff) return ("You have %d fungal energies stored. Release them to heal by using the Fungal Blood prodigy."):format(eff.power) end,
+	long_desc = function(self, eff) return ("저장된 균성 에너지(%d)를 치료에 사용"):format(eff.power) end,
 	type = "physical",
 	subtype = { heal=true },
 	status = "beneficial",
 	parameters = { power = 10 },
-	on_gain = function(self, err) return nil, "+Fungal Blood" end,
-	on_lose = function(self, err) return nil, "-Fungal Blood" end,
+	on_gain = function(self, err) return nil, "+균성 혈액" end,
+	on_lose = function(self, err) return nil, "-균성 혈액" end,
 	on_merge = function(self, old_eff, new_eff)
 		new_eff.power = new_eff.power + old_eff.power
 		return new_eff
@@ -2076,7 +2078,7 @@ newEffect{
 	name = "MUCUS", image = "talents/mucus.png",
 	desc = "Mucus",
 	kr_display_name = "점액",
-	long_desc = function(self, eff) return ("You lay mucus where you walk."):format() end,
+	long_desc = function(self, eff) return ("지나간 장소에 점액 방출"):format() end,
 	type = "physical",
 	subtype = { mucus=true },
 	status = "beneficial",
@@ -2092,12 +2094,12 @@ newEffect{
 	name = "MITOSIS", image = "talents/mitosis.png",
 	desc = "Mitosis",
 	kr_display_name = "유사분열",
-	long_desc = function(self, eff) return ("You are split, both of you share the same healthpool but you gain %d%% damage reduction."):format(eff.power) end,
+	long_desc = function(self, eff) return ("유사분열: 모든 자신은 같은 생명력 공유 / 공격시 피해량 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# splits.", "+Mitosis" end,
+	on_gain = function(self, err) return "#Target1# 쪼개졌습니다.", "+유사분열" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {all=eff.power})
 	end,
@@ -2107,12 +2109,12 @@ newEffect{
 	name = "MITOSIS_SWAP", image = "talents/mitosis_swap.png",
 	desc = "Swap",
 	kr_display_name = "위치 교체",
-	long_desc = function(self, eff) return ("You recently swaped with your other self, boosting your damage by %d%%."):format(eff.power) end,
+	long_desc = function(self, eff) return ("다른 자신과 위치 교제: 공격시 피해량 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# swaps places.", "+Swap" end,
+	on_gain = function(self, err) return "#Target#끼리의 위치를 바꿨습니다", "+위치 교체" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "inc_damage", {all=eff.power})
 	end,
@@ -2122,13 +2124,13 @@ newEffect{
 	name = "CORRODE", image = "talents/blightzone.png",
 	desc = "Corrode",
 	kr_display_name = "부식",
-	long_desc = function(self, eff) return ("The target is corroded, reducing their accuracy by %d, their armor by %d, and their defense by %d."):format(eff.atk, eff.armor, eff.defense) end,
+	long_desc = function(self, eff) return ("부식:정확도 -%d / 방어도 -%d / 회피도 -%d"):format(eff.atk, eff.armor, eff.defense) end,
 	type = "physical",
 	subtype = { acid=true },
 	status = "detrimental",
 	parameters = { atk=5, armor=5, defense=10 }, no_ct_effect = true,
-	on_gain = function(self, err) return "#Target# is corroded." end,
-	on_lose = function(self, err) return "#Target# has shook off the effects of their corrosion." end,
+	on_gain = function(self, err) return "#Target1# 부식되었습니다." end,
+	on_lose = function(self, err) return "#Target#의 부식이 사라졌습니다." end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_atk", -eff.atk)
 		self:effectTemporaryValue(eff, "combat_armor", -eff.armor)

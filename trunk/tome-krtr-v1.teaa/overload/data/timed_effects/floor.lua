@@ -42,7 +42,7 @@ end
 floorEffect{
 	desc = "Icy Floor", image = "talents/ice_storm.png",
 	kr_display_name = "얼어붙은 바닥",
-	long_desc = "얼어붙은 바닥 영향: 이동 속도 20% 증가 / 20% 냉기 피해 관통 / -30% 기절 저항",
+	long_desc = "얼어붙은 바닥 영향: 이동 속도 +20% / 냉기 저항 관통 +20% / 기절 저항 -30%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists_pen", {[DamageType.COLD] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", 0.2)
@@ -53,7 +53,7 @@ floorEffect{
 floorEffect{
 	desc = "Font of Life", image = "talents/grand_arrival.png",
 	kr_display_name = "생명의 샘",
-	long_desc = function(self, eff) return ("생명의 샘 영향: 생명력 재생 +%0.2f / 평정 재생 -%0.2f / 체력 재생 +%0.2f / 염력 재생 +%0.2f 효과 (단, 언데드는 아무런 영향도 받지 않음)"):format(eff.power, eff.power, eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("생명의 샘 영향: 생명력 재생 +%0.2f / 평정 재생 -%0.2f / 체력 재생 +%0.2f / 염력 재생 +%0.2f \n(단, 언데드는 아무런 영향도 받지 않음)"):format(eff.power, eff.power, eff.power, eff.power) end,
 	activate = function(self, eff)
 		if self:attr("undead") then eff.power = 0 return end
 		eff.power = 3 + game.zone:level_adjust_level(game.level, game.zone, "object") / 2
@@ -67,7 +67,7 @@ floorEffect{
 floorEffect{
 	desc = "Spellblaze Scar", image = "talents/blood_boil.png",
 	kr_display_name = "마법폭발의 상처",
-	long_desc = "마법폭발의 상처 영향: 주문 치명타율 +25% / 화염 피해 +10% / 황폐 피해 +10% 효과 / 주문 치명타시 해당 원천력이 샘",
+	long_desc = "마법폭발의 상처 영향: 주문 치명타율 +25% / 화염 공격시 피해량 +10% / 황폐 공격시 피해량 +10% / 주문 치명타시 해당 원천력이 새어나감",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_spellcrit", 25)
 		self:effectTemporaryValue(eff, "inc_damage", {[DamageType.FIRE]=10,[DamageType.BLIGHT]=10})
@@ -82,7 +82,7 @@ floorEffect{
 floorEffect{
 	desc = "Blighted Soil", image = "talents/blightzone.png",
 	kr_display_name = "황폐한 토양",
-	long_desc = "황폐한 토양 영향: 질병 저항력이 60% 감소 / 공격 성공시 40%의 확률로 (턴당 한번씩) 목표가 임의의 질병에 걸림",
+	long_desc = "황폐한 토양 영향: 질병 저항력 -60% / 공격 성공시 40%의 확률로 (턴당 한번씩) 목표가 임의의 질병에 걸림",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "disease_immune", -0.6)
 		self:effectTemporaryValue(eff, "blighted_soil", 40)
@@ -111,7 +111,7 @@ floorEffect{
 floorEffect{
 	desc = "Antimagic Bush", image = "talents/fungal_growth.png",
 	kr_display_name = "반마법 덤불",
-	long_desc = function(self, eff) return ("반마법 덤불 영향: 자연 피해 +20%% / 자연 저항 관통 +20%% / 주문력 -%d"):format(eff.power) end,
+	long_desc = function(self, eff) return ("반마법 덤불 영향: 자연 공격시 피해량 +20%% / 자연 저항 관통 +20%% / 주문력 -%d"):format(eff.power) end,
 	activate = function(self, eff)
 		eff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, "object") / 1.5
 		self:effectTemporaryValue(eff, "combat_spellpower", -eff.power)
@@ -133,7 +133,7 @@ floorEffect{
 floorEffect{
 	desc = "Whistling Vortex", image = "talents/shadow_blast.png",
 	kr_display_name = "경적의 소용돌이",
-	long_desc = function(self, eff) return ("경적의 소용돌 영향: 장거리 회피 +%d / 장거리 정확도 -%d / 날아오는 발사체 속도 30%% 감소"):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("경적의 소용돌 영향: 장거리 회피 +%d / 장거리 정확도 -%d / 날아오는 발사체 속도 -30%%"):format(eff.power, eff.power) end,
 	activate = function(self, eff)
 		eff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, "object") / 2
 		self:effectTemporaryValue(eff, "combat_def_ranged", eff.power)
@@ -145,7 +145,7 @@ floorEffect{
 floorEffect{
 	desc = "Fell Aura", image = "talents/shadow_mages.png",
 	kr_display_name = "격렬의 오러",
-	long_desc = "격렬의 오러 영향: 치명타 피해 보너스 40% / 전체 저항 -20%",
+	long_desc = "격렬의 오러 영향: 치명타 피해 보너스 +40% / 전체 저항 -20%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_critical_power", 40)
 		self:effectTemporaryValue(eff, "resists", {all=-20})
@@ -155,7 +155,7 @@ floorEffect{
 floorEffect{
 	desc = "Slimey Pool", image = "talents/acidic_skin.png",
 	kr_display_name = "슬라임 웅덩이",
-	long_desc = "슬라임 웅덩이 영향: 이동 속도 20% 감소 / 공격시 추가 슬라임 피해 20",
+	long_desc = "슬라임 웅덩이 영향: 이동 속도 -20% / 공격시 슬라임 피해량 +20",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "on_melee_hit", {[DamageType.SLIME] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", -0.2)

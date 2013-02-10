@@ -471,7 +471,7 @@ end
 function _M:findInInventory(inven, name, getname)
 	getname = getname or {no_count=true, force_id=true}
 	for item, o in ipairs(inven) do
-		if (o:getName(getname) == name or o.name == name) then return o, item end --@@ 원래이름도 비교되도록 코드 수정
+		if (o:getOriName(getname) == name or o:getName(getname) == name or o.name == name) then return o, item end --@@ 원래이름도 비교되도록 코드 수정, 마지막은 예비용
 	end
 end
 

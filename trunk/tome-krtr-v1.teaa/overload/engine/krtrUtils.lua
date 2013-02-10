@@ -367,7 +367,7 @@ function string.krTalentType(str)
 	elseif ori == "staff combat" then return "지팡이 전투기술"
 	elseif ori == "golem" then return "골렘"
 	elseif ori == "fighting" then return "전투기술"
-	elseif ori == "necrotic minions" then return "사령 추종자"
+	elseif ori == "necrotic minions" then return "사령의 추종자"
 	elseif ori == "advanced necrotic minions" then return "고급 사령의 추종자"
 	elseif ori == "nightfall" then return "일몰"
 	elseif ori == "shades" then return "그림자"
@@ -743,5 +743,16 @@ function string.krWildType(str)
 	if ori == "physical" then return "물리적"
 	elseif ori == "magical" then return "마법적"
 	elseif ori == "mental" then return "정신적"
+	else return str end
+end
+
+function string.krBossName(str)
+	-- 관련내용 /mod/class/GameState.lua:348
+	local ori = str:lower()
+	if ori == "the guardian" then return "수호자"
+	elseif ori == "the invader" then return "침략자"
+	elseif ori == "the tidebender" then return "조수 왜곡자"
+	elseif ori == "the invoker" then return "호출자"
+	elseif ori == "the bringer of doom" then return "파멸 생성자"
 	else return str end
 end

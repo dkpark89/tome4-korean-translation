@@ -260,7 +260,7 @@ newTalent{
 newTalent{
 	short_name = "TELEPORT_POINT_ZERO",
 	name = "Timeport: Point Zero",
-	kr_display_name = "순간이동 : 영점",
+	kr_display_name = "시공간이동 : 영점",
 	type = {"base/class", 1},
 	cooldown = 400,
 	no_npc_use = true,
@@ -279,7 +279,7 @@ newTalent{
 			if actor and actor ~= self then seen = true end
 		end, nil)
 		if seen then
-			game.log("누군가 당신을 보고 있습니다. 섣부른 순간이동으로 영점의 위치를 노출시킬 수는 없습니다.")
+			game.log("누군가 당신을 보고 있습니다. 섣부른 시공간이동으로 영점의 위치를 노출시킬 수는 없습니다.")
 			return
 		end
 
@@ -288,7 +288,7 @@ newTalent{
 		self:attr("time_travel_times", 1)
 		return true
 	end,
-	info = [[모든 시공 제어사들의 성지, '영점' 으로 순간이동합니다.
+	info = [[모든 시공 제어사들의 성지, '영점' 으로 시공간이동합니다.
 	영점에서 온 모든 시공 제어사들은 언제든지 이곳으로 돌아갈 수 있습니다.
 	단 누구에게도 이 순간이동 마법을 알려주어서는 안되며, 아무도 없는 곳에서만 사용해야 합니다.
 	마법 발동을 위해서는 시간이 약간 필요합니다.]]
