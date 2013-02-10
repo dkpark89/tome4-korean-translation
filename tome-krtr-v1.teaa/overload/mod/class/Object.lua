@@ -267,6 +267,37 @@ function _M:getName(t)
 	end
 end
 
+function _M:getOriName(t) --@@ 원래 이름 반환하는 함수 추가
+	t = t or {}
+	local qty = self:getNumber()
+	local name = self.name
+	
+	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
+
+	-- To extend later
+	name = name:gsub("~", ""):gsub("&", "a"):gsub("#([^#]+)#", function(attr)
+		return self:descAttribute(attr)
+	end)
+
+	if not t.no_add_name and self.add_name and self:isIdentified() then
+		name = name .. self.add_name:gsub("#([^#]+)#", function(attr)
+			return self:descAttribute(attr)
+		end)
+	end
+
+	if not t.do_color then
+		if qty == 1 or t.no_count then return name
+		else return qty.." "..name
+		end
+	else
+		local _, c = self:getDisplayColor()
+		local ds = t.no_image and "" or self:getDisplayString()
+		if qty == 1 or t.no_count then return c..ds..name.."#LAST#"
+		else return c..qty.." "..ds..name.."#LAST#"
+		end
+	end
+end
+
 --- Gets the short name of the object
 function _M:getShortName(t)
 	if not self.short_name then return self:getName(t) end
@@ -913,7 +944,7 @@ function _M:getTextualDesc(compare_with)
 
 		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "침묵 저항: ", 100)
 		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "무장해제 저항: ", 100)
-		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "혼돈 저항: ", 100)
+		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "혼란 저항: ", 100)
 		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "속박 저항: ", 100)
 
 		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "기절/동결 저항: ", 100)

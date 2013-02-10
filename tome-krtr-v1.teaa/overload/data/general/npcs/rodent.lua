@@ -79,7 +79,7 @@ newEntity{ base = "BASE_NPC_RODENT",
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant rabbit", color=colors.UMBER,
 	kr_display_name = "거대 토끼",
-	desc = [[와빗을 죽여, 와빗을 죽여, 와빗을 죽여어어어어어어어.]], --@@ 이스터애그인 듯 - 만화의 그 토끼가 와빗 (Kill the wabbit, kill the wabbit, kill the wabbbbbiiiiiit.)
+	desc = [[왜빗을 죽여, 왜빗을 죽여, 왜빗을 죽여어어어어어어어 (Kill the wabbit, kill the wabbit, kill the wabbbbbiiiiiit).]], --@@ 이스터애그인 듯 - 만화의 그 토끼가 왜빗 
 	level_range = {1, 4}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(20,30),

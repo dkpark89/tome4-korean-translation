@@ -294,7 +294,7 @@ newEntity{ define_as = "ORB_SCRYING",
 	type = "orb", subtype="orb",
 	unided_name = "orb of scrying",
 	name = "Orb of Scrying",
-	kr_display_name = "점술사의 오브", kr_unided_name = "점술사의 오브", --@@ 여기의 kr_display_name으로 종족 시작 아이템 단축키 이름 변경 필요(/data/birth/races/하위 모든 파일) :기존은 완료, 새 종족 추가시 작업필요 
+	kr_display_name = "점술사의 오브", kr_unided_name = "점술사의 오브", 
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_scrying.png",
 	encumber = 1,
 	plot = true, quest = true,

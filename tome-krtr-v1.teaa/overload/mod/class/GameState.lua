@@ -1621,8 +1621,15 @@ function _M:createRandomBoss(base, data)
 		name = ngd:generate()
 	end
 	if data.name_scheme then
-		b.name = data.name_scheme:gsub("#rng#", name):gsub("#base#", b.name)
+		local krTemp = data.name_scheme:gsub("#rng#", ""):gsub("#base#", ""):match("^%s*(.-)%s*$"):krBossName() --@@ 직업부분 추출해서 한글로 변환
+		local ri, bi
+		ri = data.name_scheme:find("#rng#") --@@ 랜덤이름 들어가는지 검사
+		bi = data.name_scheme:find("#base#") --@@ 종족명 들어가는지 검사
+		b.kr_display_name = (bi and (b.kr_display_name or b.name).." " or "") .. krTemp .. (ri and " "..name or "") --@@ 한글 이름 삽입: "<종족> <직업> <이름>"순
+		
+		b.name = data.name_scheme:gsub("#rng#", name):gsub("#base#", b.name)  
 	else
+		b.kr_display_name = (b.kr_display_name and b.kr_display_name.." "..name) or (name.." the "..b.name) --@@ 한글 종족이름이 존재할 경우 조합 순서 바꿈
 		b.name = name.." the "..b.name
 	end
 	b.unique = b.name

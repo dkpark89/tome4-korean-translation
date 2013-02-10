@@ -432,7 +432,7 @@ newEntity{
 	
 	charm_power = resolvers.mbonus_material(80, 30),
 	charm_power_def = {add=80, max=300, floor=true},
-	resolvers.charm("%d 피해를 흡수하는 일시적 방패 생성", 30, function(self, who)
+	resolvers.charm("피해를 %d만큼 흡수하는 일시적 방패 생성", 30, function(self, who)
 		local power = self:getCharmPower()
 		who:setEffect(who.EFF_DAMAGE_SHIELD, 10, {power=power})
 		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))

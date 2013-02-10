@@ -77,7 +77,7 @@ for i = 1, 3 do
 							loot_quality = "store",
 							loot_quantity = 1,
 							no_loot_randart = true,
-							name_scheme = "#rng# the Invoker", --@@ 번역할지?
+							name_scheme = "#rng# the Invoker",
 					}}, nil, true)
 					local i, j = util.findFreeGrid(x, y, 5, true, {[engine.Map.ACTOR]=true})
 					if i then
@@ -108,7 +108,7 @@ for i = 1, 3 do
 										life_rating=function(v) return v * 2 + 5 end,
 										loot_quantity = 0,
 										no_loot_randart = true,
-										name_scheme = "#rng# the Bringer of Doom", --@@ 번역할지?
+										name_scheme = "#rng# the Bringer of Doom",
 										on_die = function(self) world:gainAchievement("EVENT_PEDESTALS", game:getPlayer(true)) end,
 								}}, nil, true)
 								local i, j = util.findFreeGrid(x, y, 5, true, {[engine.Map.ACTOR]=true})
