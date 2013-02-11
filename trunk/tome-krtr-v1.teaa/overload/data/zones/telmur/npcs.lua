@@ -85,6 +85,6 @@ newEntity{ define_as = "SHADE_OF_TELOS",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 
 	on_die = function(self, who)
-		require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 자리에", '그림자가 흩어지자, 다음 문장이 보입니다. "확률적 역장이 뒤집혔고 복귀했다(Inverted and Reverted Probabilistic Fields)." 당신은 탄넨으로 돌아가야 합니다.', 400) --@@ 해당 대화문(chats) 번역시 수정 필요 : /data/chats/tannen.lua:116, 152
+		require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 곳에", '그림자가 흩어지자, 다음 문장이 보입니다. "확률적 역장이 뒤집혔고 복귀했다(Inverted and Reverted Probabilistic Fields)." 당신은 탄넨으로 돌아가야 합니다.', 400) --@@ 해당 대화문(chats) 번역시 수정 필요 : /data/chats/tannen.lua:116, 152
 	end,
 }

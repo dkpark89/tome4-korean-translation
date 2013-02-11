@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 name = "Back and there again"
-kr_display_name = "다시 또 그 자리에"
+kr_display_name = "다시 또 그 곳에"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back."

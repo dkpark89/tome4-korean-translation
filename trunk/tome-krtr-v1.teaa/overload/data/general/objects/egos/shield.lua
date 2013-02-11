@@ -41,7 +41,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of cold resistance (#RESIST#)", suffix=true, instant_resolve=true,
-	kr_display_name = "추위저항(#RESIST#)의 ",
+	kr_display_name = "냉기저항(#RESIST#)의 ",
 	keywords = {cold=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -175,7 +175,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "flaming ", prefix=true, instant_resolve=true,
-	kr_display_name = "회염 ",
+	kr_display_name = "불꽃 ",
 	keywords = {flaming=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -190,7 +190,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "icy ", prefix=true, instant_resolve=true,
-	kr_display_name = "얼음 ",
+	kr_display_name = "얼어붙은 ",
 	keywords = {icy=true},
 	level_range = {10, 50},
 	rarity = 8,

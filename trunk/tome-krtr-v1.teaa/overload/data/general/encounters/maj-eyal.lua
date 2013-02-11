@@ -187,7 +187,7 @@ newEntity{
 
 newEntity{
 	name = "Golem Graveyard",
-	kr_display_name = "골렘 공동묘지",
+	kr_display_name = "골렘의 묘지",
 	type = "harmless", subtype = "special", unique = true,
 	immediate = {"world-encounter", "maj-eyal"},
 	on_encounter = function(self, who)
@@ -197,7 +197,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Golem Graveyard"
-		g.kr_display_name = "골렘 공동묘지"
+		g.kr_display_name = "골렘의 묘지"
 		g.display='>' g.color_r=0 g.color_g=200 g.color_b=0 g.notice = true
 		g.change_level=1 g.change_zone="golem-graveyard" g.glow=true
 		g.add_displays = g.add_displays or {}

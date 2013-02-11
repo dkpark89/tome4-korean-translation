@@ -22,11 +22,11 @@ name = "Of trolls and damp caves"
 kr_display_name = "트롤과 축축한 동굴"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "보물과 영예를 찾아 코르'풀(Kor'Pul) 유적 아래에 있는 동굴과 트롤늪(Trollmire)을 탐험하라!\n"
+	desc[#desc+1] = "보물과 영예를 찾아 코르'풀(Kor'Pul) 유적 아래에 있는 동굴과 트롤 늪(Trollmire)을 탐험하라!\n"
 	if self:isCompleted("trollmire") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 트롤늪(Trollmire)을 탐험해 트롤 프록스(the Prox the Troll)를 물리쳤습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 트롤 늪(Trollmire)을 탐험해 트롤 프록스(the Prox the Troll)를 물리쳤습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* 당신은 트롤늪(Trollmire)을 탐험해 그곳에 무슨 위험이 도사리는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 트롤 늪(Trollmire)을 탐험해 그곳에 무슨 위험이 도사리는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
 	end
 	if self:isCompleted("kor-pul") then
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 코르'풀(Kor'Pul) 유적을 탐험해 음영(the Shade)을 물리쳤습니다.#WHITE#"

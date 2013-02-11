@@ -34,7 +34,7 @@ newEntity{ base = "BASE_LORE",
 	subtype = "magic teaching", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "'What is Magic' by Archmage Tarelion", lore="angolwen-tarelion-magic",
 	kr_display_name = "마도사 타렐리온의 강의 '마법이란 무엇인가'",
-	desc = [[마도사 타렐리온의 마법에 대한 강의입니다.]],
+	desc = [[마도사 타렐리온의 자연에 대한 강의입니다.]],
 	rarity = false,
 	cost = 2,
 }

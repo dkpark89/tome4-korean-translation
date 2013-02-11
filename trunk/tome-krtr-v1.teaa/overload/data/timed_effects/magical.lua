@@ -1266,14 +1266,14 @@ newEffect{
 newEffect{
 	name = "MANAWORM", image = "effects/manaworm.png",
 	desc = "Manaworm",
-	kr_display_name = "마나벌레",
-	long_desc = function(self, eff) return ("마나벌레 오염: 매턴 마나 -%0.2f / 매턴 마법 피해 %0.2f"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	kr_display_name = "마나 벌레",
+	long_desc = function(self, eff) return ("마나 벌레 오염: 매턴 마나 -%0.2f / 매턴 마법 피해 %0.2f"):format(eff.power, eff.power) end, --@@ 파라매터 조정
 	type = "magical",
 	subtype = { arcane=true },
 	status = "detrimental",
 	parameters = {power=10},
-	on_gain = function(self, err) return "#Target1# 마나벌레에게 오염되었습니다!", "+마나벌레" end,
-	on_lose = function(self, err) return "#Target1# 오염에서 회복되었습니다.", "-마나벌레" end,
+	on_gain = function(self, err) return "#Target1# 마나 벌레에게 오염되었습니다!", "+마나 벌레" end,
+	on_lose = function(self, err) return "#Target1# 오염에서 회복되었습니다.", "-마나 벌레" end,
 	on_timeout = function(self, eff)
 		local dam = eff.power
 		if dam > self:getMana() then dam = self:getMana() end
@@ -2045,7 +2045,7 @@ newEffect{
 	name = "ELEMENTAL_SURGE_COLD", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Cold",
 	kr_display_name = "속성 고조: 냉기",
-	long_desc = function(self, eff) return ("근접 공격을 당할 경우: 물리 피해 -30% / 공격자에게 얼음 피해 100") end,
+	long_desc = function(self, eff) return ("근접 공격을 당할 경우: 물리 피해 -30% / 공격자에게 얼어붙은 냉기 피해 100") end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -2272,8 +2272,8 @@ newEffect{
 newEffect{
 	name = "KEEPER_OF_REALITY", image = "effects/continuum_destabilization.png",
 	desc = "Keepers of Reality Rally Call",
-	kr_display_name = "진실 감시원의 집회",
-	long_desc = function(self, eff) return "영점 수호를 위한 진실 감시원 집회: 최대 생명력 +5000 / 공격시 피해량 +300%." end,
+	kr_display_name = "현실 감시원의 집회",
+	long_desc = function(self, eff) return "영점 수호를 위한 현실 감시원 집회: 최대 생명력 +5000 / 공격시 피해량 +300%." end,
 	type = "magical",
 	decrease = 0,
 	subtype = { temporal=true },

@@ -37,7 +37,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of cold resistance", suffix=true, instant_resolve=true,
-	kr_display_name = "추위저항의 ",
+	kr_display_name = "냉기저항의 ",
 	keywords = {['cold res']=true},
 	level_range = {1, 50},
 	rarity = 5,

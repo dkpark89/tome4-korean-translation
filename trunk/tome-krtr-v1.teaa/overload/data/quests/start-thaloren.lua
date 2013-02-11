@@ -29,9 +29,9 @@ desc = function(self, who)
 		desc[#desc+1] = "#SLATE#* 당신은 노르고스 동굴(Norgos' Lair)을 탐험해야 합니다.#WHITE#"
 	end
 	if self:isCompleted("heart-gloom") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우울함의 심장(the Heart of the Gloom)을 탐험해 시듦의 원천(the Withering Thing)을 죽였습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장(the Heart of the Gloom)을 탐험해 시듦의 원천(the Withering Thing)을 죽였습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* 당신은 우울함의 심장(the Heart of the Gloom)을 탐험해야 합니다.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 어둠의 심장(the Heart of the Gloom)을 탐험해야 합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

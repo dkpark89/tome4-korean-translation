@@ -39,7 +39,7 @@ newEntity{
 		damtype = resolvers.rngtable{DamageType.NATURE, DamageType.MIND},
 	},
 	desc = [[마석은 자연적 산물입니다. 자연의 보석이 살아있는 물질로 덮힌 것으로, 모든 자연의 보호자와 초능력자들이 정신력에 집중하기 위해 사용합니다.
-다른 무기들과는 달리 쌍수무장을 위해 마석을 보조무기로 잡아도 공격력의 불이익을 받지 않습니다.]],
+다른 무기들과는 달리 쌍수무장을 위해 마석을 보조무기로 잡아도 공격시 피해량의 불이익을 받지 않습니다.]],
 	egos = "/data/general/objects/egos/mindstars.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 

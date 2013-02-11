@@ -175,7 +175,7 @@ newEntity{
 
 newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_CLAW",
 	name = "shadow claw", image="npc/shadow-claw.png",
-	kr_display_name = "햘퀴는 그림자",
+	kr_display_name = "할퀴는 그림자",
 	desc = [[거의 사람과 비슷한 모습의 그림자입니다. 허공을 헤엄치듯 다가오고 있으며, 길고 날카로운 손톱이 뻗어나와 있습니다.]],
 	rarity = 5, cave_rarity = 5, vault_rarity = 5,
 	
@@ -232,7 +232,7 @@ newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_STALKER",
 
 newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_CASTER",
 	name = "shadow claw", image="npc/shadow-caster.png",
-	kr_display_name = "햘퀴는 그림자",
+	kr_display_name = "할퀴는 그림자",
 	desc = [[거의 사람과 비슷한 모습의 그림자입니다. 의지의 힘에 의해, 시간이 흘러 실존하지 않는 형상이 되었습니다.]],
 	rarity = 5, cave_rarity = 5, vault_rarity = 5,
 	

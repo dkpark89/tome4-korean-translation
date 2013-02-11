@@ -66,7 +66,7 @@ newEntity{ base = "BASE_SCROLL", subtype="tome",
 		else
 			who.talents_types_mastery["spell/water"] = (who.talents_types_mastery["spell/water"] or 1) + 0.1
 			who.talents_types_mastery["spell/ice"] = (who.talents_types_mastery["spell/ice"] or 1) + 0.1
-			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 얼음 마법들의 기술 숙련도를 올렸습니다!")
+			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 냉기 마법들의 기술 숙련도를 올렸습니다!")
 		end
 
 		return {used=true, id=true, destroy=true}

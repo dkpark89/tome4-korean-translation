@@ -440,7 +440,7 @@ newEffect{
 newEffect{
 	name = "SPEED", image = "talents/shaloren_speed.png",
 	desc = "Speed",
-	kr_display_name = "빠름",
+	kr_display_name = "빠름", --@@ '가속'은 magical.lua의 Haste에 사용해서, 여기는 '빠름'으로 사용함
 	long_desc = function(self, eff) return ("모든 행동 속도 +%d%%"):format(eff.power * 100) end,
 	type = "physical",
 	subtype = { speed=true },
@@ -586,13 +586,13 @@ newEffect{
 	name = "FROZEN", image = "talents/freeze.png",
 	desc = "Frozen",
 	kr_display_name = "동결",
-	long_desc = function(self, eff) return ("얼음에 갇힘: 모든 피해의 40%%는 얼음이 흡수하고 60%%의 피해를 입음 / 회피 불가능 / 공격은 얼음에게로만 가능 / 새로운 나쁜 상태이상 효과에 면역 / 공간이동 불가능 / 치료 불가능\n얼음의 지속력(HP) %d"):format(eff.hp) end,
+	long_desc = function(self, eff) return ("얼음덩어리에 갇힘: 모든 피해의 40%%는 얼음덩어리가 흡수하고 60%%의 피해를 입음 / 회피 불가능 / 공격은 얼음덩어리에게로만 가능 / 새로운 나쁜 상태이상 효과에 면역 / 공간이동 불가능 / 치료 불가능\n얼음덩어리의 지속력(HP) %d"):format(eff.hp) end,
 	type = "physical", -- Frozen has some serious effects beyond just being frozen, no healing, no teleport, etc.  But it can be applied by clearly non-magical sources i.e. Ice Breath
 	subtype = { cold=true, stun=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#Target1# 얼음에 갇혔습니다!", "+동결" end,
-	on_lose = function(self, err) return "#Target1# 얼음으로부터 빠져나왔습니다.", "-동결" end,
+	on_gain = function(self, err) return "#Target1# 얼음덩어리에 갇혔습니다!", "+동결" end,
+	on_lose = function(self, err) return "#Target1# 얼음덩어리로부터 빠져나왔습니다.", "-동결" end,
 	activate = function(self, eff)
 		-- Change color
 		eff.old_r = self.color_r
@@ -1600,14 +1600,14 @@ newEffect{
 newEffect{
 	name = "LOWER_COLD_RESIST",
 	desc = "Lowered cold resistance",
-	kr_display_name = "추위 저항 저하",
-	long_desc = function(self, eff) return ("추위 저항 -%d%%"):format(eff.power) end,
+	kr_display_name = "냉기 저항 저하",
+	long_desc = function(self, eff) return ("냉기 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "detrimental",
 	parameters = { power=20 },
-	on_gain = function(self, err) return "#Target1# 추위에 약해졌습니다.", "+추위 저항 저하" end,
-	on_lose = function(self, err) return "#Target1# 추위에 강해졌습니다.", "-추위 저항 저하" end,
+	on_gain = function(self, err) return "#Target1# 냉기에 약해졌습니다.", "+냉기 저항 저하" end,
+	on_lose = function(self, err) return "#Target1# 냉기에 강해졌습니다.", "-냉기 저항 저하" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("resists", {[DamageType.COLD]=-eff.power})
 	end,

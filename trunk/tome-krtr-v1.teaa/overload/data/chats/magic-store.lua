@@ -25,7 +25,7 @@ local function recharge(npc, player)
 			o.power = o.max_power
 			player:incMoney(-cost)
 			player.changed = true
-		end end)
+		end end, "예", "아니오")
 		return true
 	end)
 

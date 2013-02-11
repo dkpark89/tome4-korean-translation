@@ -43,7 +43,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_AQUATIC_DEMON",
 	name = "water imp", color=colors.YELLOW_GREEN,
-	kr_display_name = "물의 꼬마도깨비",
+	kr_display_name = "물의 작은 악마",
 	display = "u",
 	desc = "작은 물의 악마로, 당신을 향해 주문을 발사하고 있습니다.",
 	level_range = {10, nil}, exp_worth = 1,
