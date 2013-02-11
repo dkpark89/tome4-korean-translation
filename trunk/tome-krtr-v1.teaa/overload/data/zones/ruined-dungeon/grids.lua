@@ -49,13 +49,13 @@ newEntity{
 		if not who.player then return end
 		local p = game:getPlayer(true)
 		if p.winner then
-			require("engine.ui.Dialog"):yesnoLongPopup("Infinite Dungeon", "일을 아주 잘 처리했습니다. 하지만 만약 당신이 무한 던전으로 들어가면, 돌아올 수 있는 길도 없이 영광스러운 죽음을 맞이할 때까지 계속 앞으로 나아가야 합니다.", 400, function(ret)
+			require("engine.ui.Dialog"):yesnoLongPopup("Infinite Dungeon", "당신은 굉장한 일을 해냈습니다. 하지만 한번 무한 던전으로 들어가면, 다시는 이곳으로 돌아올 수 없으며 영광스러운 죽음을 맞이할 때까지 계속 앞으로 나아가야 합니다.", 400, function(ret)
 				if ret then
 					game:changeLevel(math.ceil(game.player.level * 1.5), "infinite-dungeon")
 				end
-			end, "예", "아니오")
+			end, "입장", "취소")
 		else
-			require("engine.ui.Dialog"):simplePopup("Infinite Dungeon", "그 곳에서는 영원히 돌아올 길이 없으므로, 거기로 들어가면 안 됩니다. 다른 모든 것을 다 마친 뒤에 시도해 보는 것이 좋을 것 같습니다..")
+			require("engine.ui.Dialog"):simplePopup("Infinite Dungeon", "한번 무한 던전으로 들어가면, 다시는 이곳으로 돌아올 수 없습니다. 이곳에 오기 전에, 해야만 하는 일들을 모두 끝내는 것이 좋을 것 같습니다.")
 		end
 	end,
 }
@@ -91,7 +91,7 @@ newEntity{
 		local text = "???"
 		if self.portal_type == "water" then text = "오브에서 물방울이 떨어지는 것 같습니다."
 		elseif self.portal_type == "earth" then text = "오브에 먼지가 쌓여 있습니다."
-		elseif self.portal_type == "wind" then text = "오브가 허공에 떠 있습니다."
+		elseif self.portal_type == "wind" then text = "오브가 허공에 떠있습니다."
 		elseif self.portal_type == "nature" then text = "오브 안쪽에 작은 씨앗이 자라고 있는 것 같습니다."
 		elseif self.portal_type == "arcane" then text = "오브에서 마법의 에너지가 소용돌이칩니다."
 		elseif self.portal_type == "fire" then text = "오브에서 불꽃이 튀고 있습니다."

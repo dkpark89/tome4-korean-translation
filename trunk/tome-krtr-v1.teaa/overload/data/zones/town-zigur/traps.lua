@@ -34,19 +34,19 @@ newEntity{ base = "BASE_STORE", define_as = "LIGHT_ARMOR_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "SWORD_WEAPON_STORE",
 	name="Slash & Dash",
-	kr_display_name = "절단 & 돌격",
+	kr_display_name = "내려베고 돌격하기",
 	display='3', color=colors.UMBER,
 	resolvers.store("ZIGUR_SWORD_WEAPON", "zigur", "store/shop_door.png", "store/shop_sign_slash_dash.png"),
 }
 newEntity{ base = "BASE_STORE", define_as = "MACE_WEAPON_STORE",
 	name="Nature's Punch",
-	kr_display_name = "자연의 충격",
+	kr_display_name = "자연의 힘",
 	display='3', color=colors.UMBER,
 	resolvers.store("ZIGUR_MACE_WEAPON", "zigur", "store/shop_door.png", "store/shop_sign_natures_punch.png"),
 }
 newEntity{ base = "BASE_STORE", define_as = "AXE_WEAPON_STORE",
 	name="Slice & Dice",
-	kr_display_name = "반듯하게 쪼개기",
+	kr_display_name = "자르고 토막내기",
 	display='3', color=colors.UMBER,
 	resolvers.store("ZIGUR_AXE_WEAPON", "zigur", "store/shop_door.png", "store/shop_sign_slice_dice.png"),
 }
@@ -58,7 +58,7 @@ newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 }
 newEntity{ base = "BASE_STORE", define_as = "KNIFE_WEAPON_STORE",
 	name="A Million Cuts",
-	kr_display_name = "백만번 자르기",
+	kr_display_name = "백만 번 자르기",
 	display='3', color=colors.UMBER,
 	resolvers.store("ZIGUR_KNIFE_WEAPON", "zigur", "store/shop_door.png", "store/shop_sign_million_cuts.png"),
 }

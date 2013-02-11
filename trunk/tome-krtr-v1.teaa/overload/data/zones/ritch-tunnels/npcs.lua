@@ -28,9 +28,9 @@ newEntity{
 	define_as = "BASE_NPC_RITCH_REL",
 	type = "insect", subtype = "ritch",
 	display = "I", color=colors.RED,
-	desc = [[릿치는 동대륙의 남부에 있는 불모지에서 태어난 거대 곤충입니다.
-잔인한 포식자이며, 적들에게 타락성 질병을 주입하고, 날카로운 발톱은 대부분의 갑옷을 갈라놓을 수 있습니다.]],
-	killer_message = ", who incubated her eggs in the corpse,",
+	desc = [[릿치는 동대륙의 남부에 있는 불모지 태생인 거대 곤충입니다.
+잔인한 포식자이고, 적들에게 타락성 질병을 주입하며, 날카로운 발톱은 대부분의 갑옷을 찢어버릴 수 있습니다.]],
+	killer_message = "그리고 시체 속에 알을 산란당했습니다,",
 
 	combat = { dam=resolvers.rngavg(10,32), atk=0, apr=4, damtype=DamageType.BLIGHT, dammod={dex=1.2} },
 
@@ -102,7 +102,7 @@ newEntity{ base = "BASE_NPC_RITCH_REL", define_as = "HIVE_MOTHER",
 	name = "Ritch Great Hive Mother", image = "npc/insect_ritch_ritch_hive_mother.png",
 	kr_display_name = "거대 군집의 어미 릿치",
 	display = "I", color=colors.VIOLET,
-	desc = [[이 커다란 릿치는 여기 있는 다른 모든 녀석들의 어미로 보입니다. 그녀의 날카롭고 이글거리는 발톱이 당신에게로 돌진합니다!]],
+	desc = [[이 커다란 릿치는 여기 있는 다른 모든 릿치들의 어미로 보입니다. 그녀의 날카롭고 이글거리는 발톱이 당신에게로 돌진합니다!]],
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 120, life_rating = 14, fixed_rating = true,
 	equilibrium_regen = -50,

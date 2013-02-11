@@ -19,7 +19,7 @@
 
 return {
 	name = "Dreadfell",
-	kr_display_name = "불안의 영역",
+	kr_display_name = "두려움의 영역",
 	level_range = {15, 26},
 	level_scheme = "player",
 	max_level = 9,

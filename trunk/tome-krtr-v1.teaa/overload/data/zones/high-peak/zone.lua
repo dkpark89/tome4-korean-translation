@@ -25,7 +25,7 @@ return {
 		return "High Peak ("..game.level.level..")"
 	end,
 	kr_display_name_f = function(x, y)
-		if game.level.level == 11 then return "최고봉: 성소" end
+		if game.level.level == 11 then return "최고봉 : 성소" end
 		return "최고봉 ("..game.level.level..")"
 	end,
 	level_range = {55, 80},

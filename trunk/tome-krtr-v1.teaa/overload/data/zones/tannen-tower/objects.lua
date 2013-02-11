@@ -78,8 +78,8 @@ newEntity{ define_as = "ORB_MANY_WAYS2",
 	level_range = {30, 30},
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_many_ways.png",
 	encumber = 1,
-	desc = [[이 오브는 계속 바뀌면서 먼 곳을 보여줍니다. 어떤 장소는 이 세상이 아닌듯 보이기도 합니다.
-관문 근처에서 사용하면, 활성화할 수 있을것 같습니다.]],
+	desc = [[이 오브는 멀리 떨어진 곳의 형상들을 보여주는 물건입니다. 어떤 장소는 이 세상과는 동떨어진 장소처럼 보이기도 하며, 빠르게 형상들이 바뀌고 있습니다.
+관문 근처에서 사용하면, 관문을 활성화시킬 수 있을 것 같습니다.]],
 
 	max_power = 30, power_regen = 1,
 	use_power = { name = "관문 활성화", power = 10,
@@ -90,7 +90,7 @@ newEntity{ define_as = "ORB_MANY_WAYS2",
 				world:gainAchievement("SLIDERS", who:resolveSource())
 				who:useOrbPortal(g.orb_portal)
 			else
-				game.logPlayer(who, "여기는 활성화하기 위한 관문이 없습니다.")
+				game.logPlayer(who, "여기에는 활성화시킬 관문이 없습니다.")
 			end
 			return {id=true, used=true}
 		end

@@ -73,7 +73,7 @@ newEntity{ base="BOGWATER",
 
 		who:restInit(20, "관문 파괴", "관문 파괴", function(cnt, max)
 			if cnt > max then
-				game.log("#VIOLET#이 관문이 무너지기 시작했습니다, 물러서세요!")
+				game.log("#VIOLET#이 관문이 무너지기 시작했습니다, 물러나십시오!")
 				self.broken = true
 				who:setQuestStatus("start-sunwall", engine.Quest.COMPLETED, "slazish")
 				game:onTickEnd(function()

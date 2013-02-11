@@ -34,11 +34,11 @@ newEntity{ define_as = "TROLL_PROX",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Prox the Mighty",
-	kr_display_name = "강력한 프록스",
+	kr_display_name = "강력한 자, 프록스",
 	display = "T", color=colors.VIOLET, image="npc/giant_troll_prox_the_mighty.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_troll_prox_the_mighty.png", display_h=2, display_y=-1}}},
-	desc = [[거대한 트롤로, 천천히 움직임에도 불구하고 매우 위험하게 보입니다.]],
-	killer_message = "and eaten raw",
+	desc = [[거대한 트롤로, 천천히 움직임에도 불구하고 굉장히 위협적입니다.]],
+	killer_message = "그리고 산 채로 먹혔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,
@@ -88,7 +88,7 @@ newEntity{ define_as = "TROLL_PROX",
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
 			end
 		end
-		game.state:activateBackupGuardian("ALUIN", 2, 35, "... and we thought the trollmire was safer now!")
+		game.state:activateBackupGuardian("ALUIN", 2, 35, "...트롤 늪이 더 안전해진 것 같습니다!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "trollmire")
 	end,
 }
@@ -97,13 +97,13 @@ newEntity{ define_as = "TROLL_BILL",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Bill the Stone Troll",
-	kr_display_name = "암석 트롤 빌",
+	kr_display_name = "암석 트롤, 빌",
 	display = "T", color=colors.VIOLET, image="npc/troll_bill.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/troll_bill.png", display_h=2, display_y=-1}}},
-	desc = [[갈색의 크고 강하며 하플링을 먹기를 좋아합니다.
-작은 나무 줄기를 꺽어 쥔채로 당신을 겨누고 있습니다.
-이 트롤이 종이에 적혀있던 놈인게 확실합니다.]],
-	killer_message = "and clobbered into soup",
+	desc = [[갈색의 크고 강하며 하플링 먹는 것을 좋아하는 트롤입니다.
+작은 나무를 통째로 꺾어 든 채, 당신을 겨누고 있습니다.
+확실히, 이 트롤이 종이에 적혀있던 바로 그 트롤인 것 같습니다.]],
+	killer_message = "그리고 음식 재료로 사용되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 18, fixed_rating = true,
 	max_stamina = 85,
@@ -142,7 +142,7 @@ newEntity{ define_as = "ALUIN",
 	name = "Aluin the Fallen",
 	kr_display_name = "타락한 알루인",
 	display = "p", color=colors.VIOLET,
-	desc = [[한때 빛나던 그의 갑옷은 무뎌졌고, 피에 절었습니다. 이 태양의 기사는 절망에 빠져 있습니다.]],
+	desc = [[한때 빛나던 그의 갑옷은 무뎌졌으며, 피에 절었습니다. 이 태양의 기사는 절망에 빠져 있습니다.]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 350, life_rating = 23, fixed_rating = true,
 	hate_regen = 100,

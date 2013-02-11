@@ -31,7 +31,7 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 균열은 마즈'에이알로 이끕니다.]],
+	desc = [[이 균열은 마즈'에이알과 연결되어 있습니다.]],
 	change_level = 1,
 	change_zone = "wilderness",
 }
@@ -64,7 +64,7 @@ newEntity{
 	define_as = "POLAR_CAP",
 	type = "floor", subtype = "ice",
 	name = "polar cap", image = "terrain/frozen_ground.png",
-	kr_display_name = "극관",
+	kr_display_name = "극지의 빙관",
 	display = '.', color=colors.LIGHT_BLUE, back_color=colors.WHITE,
 	can_encounter=true, equilibrium_level=-10,
 	nice_editer = ice_editer,

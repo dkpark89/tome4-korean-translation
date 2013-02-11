@@ -73,7 +73,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 		if not game.player:hasQuest("orc-pride") then
 			game.player:setQuestStatus("orc-hunt", engine.Quest.DONE)
 			game.player:grantQuest("orc-pride")
-			game.logPlayer(game.player, "아에린의 육체에서 오크 무리의 위치가 적현 종이를 발견했습니다.")
+			game.logPlayer(game.player, "아에린의 몸에서, 오크 무리의 위치가 적현 종이를 발견했습니다.")
 		end
 	end,
 

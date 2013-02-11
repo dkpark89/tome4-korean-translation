@@ -42,7 +42,7 @@ newEntity{ define_as = "LAVA_WALL_OPAQUE",
 newEntity{
 	define_as = "CONTROL_ORB",
 	name = "Slave Control Orb", image = "terrain/marble_floor.png", add_displays = {class.new{image="terrain/control_orb_red.png"}},
-	kr_display_name = "노예 제어 오브",
+	kr_display_name = "노예 제어용 오브",
 	display = '*', color=colors.PURPLE,
 	notice = true,
 	always_remember = true,

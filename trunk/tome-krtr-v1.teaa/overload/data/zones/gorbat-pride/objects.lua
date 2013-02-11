@@ -24,7 +24,7 @@ load("/data/general/objects/lore/orc-prides.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE_LORE",
 	name = "draft note", lore="gorbat-pride-note",
-	kr_display_name = "설계도면", --@@ lore 번역후 수정 필요
+	kr_display_name = "휘갈겨 쓴 쪽지", --@@ lore 번역후 수정 필요
 	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,

@@ -33,7 +33,7 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[This portal will bring you back to the Tutorial Lobby.]],
+	desc = [[이 관문은 당신을 연습게임 로비로 보내줍니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
@@ -44,7 +44,7 @@ newEntity{
 					--	who.wild_x, who.wild_y = spot.x, spot.y
 					--end)
 					game:changeLevel(1, "tutorial")
-					game.logPlayer(who, "#VIOLET#당신은 소용돌이치는 관문으로 들어갔고, 눈을 깜박이자 로비로 돌아온 것을 알아차립니다.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이 치는 관문으로 들어갔고, 눈 깜짝할 사이에 로비로 돌아온 것을 알아차렸습니다.")
 				end
 			end, "머물기", "들어가기")
 		end
@@ -59,7 +59,7 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[This portal will bring you back to the Tutorial Lobby.]],
+	desc = [[이 관문은 당신을 연습게임 로비로 보내줍니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
@@ -70,7 +70,7 @@ newEntity{
 					--	who.wild_x, who.wild_y = spot.x, spot.y
 					--end)
 					game:changeLevel(1, "tutorial")
-					game.logPlayer(who, "#VIOLET#당신은 소용돌이치는 관문으로 들어갔고, 눈을 깜박이자 로비로 돌아온 것을 알아차립니다.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이 치는 관문으로 들어갔고, 눈 깜짝할 사이에 로비로 돌아온 것을 알아차렸습니다.")
 				end
 			end, "머물기", "들어가기")
 		end
@@ -144,7 +144,7 @@ newEntity{
 newEntity{
 	define_as = "UNLEARN_ALL",
 	name = "Rune of Enlightenment: Summer Vacation",
-	kr_display_name = "깨달음의 룬: 여름 휴가",
+	kr_display_name = "깨달음의 룬 : 여름 휴가",
 	desc = [[캐릭터의 두뇌에서 최근에 획득한 지식을 모두 없애 버립니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
@@ -154,7 +154,7 @@ newEntity{
 		if not actor.player then return end
 		if forced then return end
 		game.level.map:particleEmitter(x, y, 1, "teleport")
-		game.logPlayer(actor, "#VIOLET#당신의 머리가 비는것을 느낍니다.")
+		game.logPlayer(actor, "#VIOLET#당신의 머리가 텅 비는 것을 느낍니다.")
 		if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 			actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 		end
@@ -180,8 +180,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_PHYS_KB",
 	name = "Rune of Enlightenment: Shove",
-	kr_display_name = "깨달음의 룬: 밀치기",
-	desc = [[캐릭터에게 '밀치기'를 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 밀치기",
+	desc = [[캐릭터에게 '밀치기' 를 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_acid01.png"}},
@@ -207,7 +207,7 @@ newEntity{
 				actor:unlearnTalent(actor.T_TUTORIAL_MIND_FEAR)
 			end
 			if q and not q:isCompleted("learn_phys_kb") then
-				game.logPlayer(actor, "#VIOLET#고대의 문이 갈리면서 열리는 메아리 소리가 아래쪽 터널로 울립니다!")
+				game.logPlayer(actor, "#VIOLET#고대의 문이 열리는 메아리 소리가 아래쪽 터널에서 울립니다!")
 				local spot = game.level:pickSpot{type="door", subtype="sealed"}
 				local g = game.zone:makeEntityByName(game.level, "terrain", "DOOR_OPEN")
 				game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
@@ -220,8 +220,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_KB",
 	name = "Rune of Enlightenment: Mana Gale",
-	kr_display_name = "깨달음의 룬: 마력 돌풍",
-	desc = [[캐릭터에게 '마력 돌풍'을 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 마력 돌풍",
+	desc = [[캐릭터에게 '마력 돌풍' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_fire01.png"}},
@@ -253,8 +253,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_KB3",
 	name = "Rune of Enlightenment: Mana Gale",
-	kr_display_name = "깨달음의 룬: 마력 돌풍",
-	desc = [[캐릭터에게 '마력 돌풍'을 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 마력 돌풍",
+	desc = [[캐릭터에게 '마력 돌풍' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_fire01.png"}},
@@ -286,8 +286,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_MIND_KB",
 	name = "Rune of Enlightenment: Telekinetic Punt",
-	kr_display_name = "깨달음의 룬: 염동력 주먹",
-	desc = [[캐릭터에게 '염동력 주먹'을 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 염동력 주먹",
+	desc = [[캐릭터에게 '염동력 주먹' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_ice01.png"}},
@@ -320,8 +320,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_BLINK",
 	name = "Rune of Enlightenment: Blink",
-	kr_display_name = "깨달음의 룬: 단거리 순간이동",
-	desc = [[캐릭터에게 '단거리 순간이동'을 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 단거리 순간이동",
+	desc = [[캐릭터에게 '단거리 순간이동' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_lightning01.png"}},
@@ -353,8 +353,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_MIND_FEAR",
 	name = "Rune of Enlightenment: Fear",
-	kr_display_name = "깨달음의 룬: 공포",
-	desc = [[캐릭터에게 '공포'를 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 공포",
+	desc = [[캐릭터에게 '공포' 를 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_poison_burst_01.png"}},
@@ -386,8 +386,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_BLEED",
 	name = "Rune of Enlightenment: Bleed",
-	kr_display_name = "깨달음의 룬: 출혈",
-	desc = [[캐릭터에게 '출혈'을 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 출혈",
+	desc = [[캐릭터에게 '출혈' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_magical_disarm_01_64.png"}},
@@ -409,8 +409,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_MIND_CONFUSION",
 	name = "Rune of Enlightenment: Confusion",
-	kr_display_name = "깨달음의 룬: 혼란",
-	desc = [[캐릭터에게 '혼란'을 가르쳐 줍니다.]],
+	kr_display_name = "깨달음의 룬 : 혼란",
+	desc = [[캐릭터에게 '혼란' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_teleport_01.png"}},
@@ -461,7 +461,7 @@ newEntity{
 		if q and q:isCompleted("learn_phys_kb") then
 			return "DOOR_OPEN"
 		else
-			game.logPlayer(game.player, "#VIOLET#여기를 지나가기 전에, 필요한 깨달음을 얻어야 합니다. 서쪽으로 가서 밀치기 기술을 찾아 보세요.")
+			game.logPlayer(game.player, "#VIOLET#여기를 지나가기 전에, 필요한 깨달음을 얻어야 합니다. 서쪽으로 가서 밀치기 기술을 배우세요.")
 		end
 	end,
 }

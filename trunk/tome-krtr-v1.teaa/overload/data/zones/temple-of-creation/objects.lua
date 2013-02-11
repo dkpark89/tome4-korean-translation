@@ -29,9 +29,9 @@ newEntity{ base = "BASE_LITE",
 	define_as = "ELDRITCH_PEARL",
 	unided_name = "bright pearl",
 	name = "Eldritch Pearl", unique=true, image = "object/artifact/eldritch_pearl.png",
-	kr_display_name = "섬뜩한 진주", kr_unided_name = "밝은 진주",
+	kr_display_name = "고대의 진주", kr_unided_name = "밝은 진주",
 	display ='*', color = colors.AQUAMARINE,
-	desc = [[창조의 사원에서 수천년을 보냄으로써, 이 진주에는 돌진하는 물줄기의 격정이 주입되었습니다. 빛이 굽이치며 발산됩니다.]],
+	desc = [[창조의 사원에서 수천 년을 보내는 동안, 이 진주에는 격렬하게 몰아치는 파도의 힘이 주입되었습니다. 빛이 맥동하듯 뿜어져 나옵니다.]],
 
 	-- No cost, it's invaluable
 	wielder = {
@@ -80,9 +80,9 @@ newEntity{ base = "BASE_TRIDENT",
 	unided_name = "ornate orichalcum trident",
 	name = "Legacy of the Naloren", unique=true, image = "object/artifact/trident_of_the_tides.png",
 	kr_display_name = "날로레의 유산", kr_unided_name = "화려하게 장식된 오리하르콘 삼지창",
-	desc = [[이 놀랍도록 아름답고 강력한 삼지창은 희귀한 금속인 오리하르콘으로 만들어졌습니다. 굉장한 진주가 이 삼지창의 끝에 박혀 있고, 세줄기의 뾰족한 날이 뻗어나와 있습니다.
-여기에는 대부분의 가장 강력한 나가 전사들의 위대한 힘이 주입되어 있습니다.
-슬라슐은 이것을 믿음의 증표로 당신에게 주었습니다. 이것은 모든 날로레 종족의 희망의 상징으로, 그들의 부족이 아닌이게게 이것을 주는 것은 매우 큰 신뢰를 나타냅니다.]],
+	desc = [[이 놀랍도록 아름답고 강력한 삼지창은, 희귀한 금속인 오리하르콘으로 만들어졌습니다. 굉장히 아름다운 진주가 이 삼지창의 끝에 박혀있으며, 세 줄기의 뾰족한 날이 뻗어나와 있습니다.
+이 삼지창에는 가장 강력한 나가 전사들의 위대한 힘이 주입되어 있습니다.
+슬라슐은 이것을 믿음의 증표로 당신에게 주었습니다. 이것은 모든 날로레 종족의 희망의 상징으로, 그들의 부족이 아닌 자에게 이것을 주는 것은 매우 큰 신뢰를 나타냅니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {40, 50},
 	rarity = false,

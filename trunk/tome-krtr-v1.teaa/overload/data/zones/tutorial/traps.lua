@@ -23,7 +23,7 @@ newEntity{ define_as = "TRAP_TUTORIAL",
 	type = "tutorial", subtype="tutorial", id_by_type=true, unided_name = "tutorial",
 	kr_unided_name = "게임 배우기",
 	detect_power = 999999, disarm_power = 999999,
-	desc = [[연습 게임으로 게임을 배웁니다.]],
+	desc = [[연습 게임을 통해, 게임을 배웁니다.]],
 	display = ' ', color=colors.WHITE,
 	message = false,
 	triggered = function(self, x, y, who)

@@ -63,7 +63,7 @@ newEntity{ base = "BASE_STORE", define_as = "HERBALIST",
 
 newEntity{ base = "BASE_STORE", define_as = "JEWELRY",
 	name="Jewelry",
-	kr_display_name = "장신구",
+	kr_display_name = "장신구점",
 	display='9', color=colors.LIGHT_RED,
 	resolvers.store("GEMSTORE", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_jewelry.png"),
 }

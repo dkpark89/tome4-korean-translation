@@ -61,7 +61,7 @@ newEntity{ base = "BASE_STORE", define_as = "ALCHEMIST",
 
 newEntity{ base = "BASE_STORE", define_as = "LIBRARY",
 	name="Shady Library",
-	kr_display_name = "은밀한 도서관",
+	kr_display_name = "수상한 도서관",
 	display='5', color=colors.LIGHT_RED,
 	resolvers.store("ELVALA_LIBRARY", "shalore", "store/shop_door.png", "store/shop_sign_library.png"),
 }

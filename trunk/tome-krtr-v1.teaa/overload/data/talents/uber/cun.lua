@@ -289,7 +289,7 @@ uberTalent{
 	name = "Tricks of the Trade",
 	kr_display_name = "뒷세계의 거래",
 	mode = "passive",
-	require = { special={desc="암살의 제왕 편에 설 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:isQuestStatus("lost-merchant", engine.Quest.COMPLETED, "evil")) end} },
+	require = { special={desc="암살단의 제왕 편에 설 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:isQuestStatus("lost-merchant", engine.Quest.COMPLETED, "evil")) end} },
 	on_learn = function(self, t) 
 		if self:knowTalentType("cunning/stealth") then
 			self:setTalentTypeMastery("cunning/stealth", self:getTalentTypeMastery("cunning/stealth") + 0.2)

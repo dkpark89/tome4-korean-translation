@@ -93,7 +93,7 @@ return {
 
 				local g = game.level.map(z.x1, z.y1, engine.Map.TERRAIN):cloneFull()
 				g.name = "temporal beam endpoint"
-				g.kr_display_name = "시간의 빔의 끝"
+				g.kr_display_name = "시간의 빛줄기 끝 지점"
 				g:removeAllMOs()
 				g.nice_tiler = nil
 				g.exit = {x=z.x2, y=z.y2}
@@ -113,7 +113,7 @@ return {
 
 				local g = game.level.map(z.x2, z.y2, engine.Map.TERRAIN):cloneFull()
 				g.name = "temporal beam endpoint"
-				g.kr_display_name = "시간의 빔의 끝"
+				g.kr_display_name = "시간의 빛줄기 끝 지점"
 				g:removeAllMOs()
 				g.nice_tiler = nil
 				g.exit = {x=z.x1, y=z.y1}

@@ -31,7 +31,7 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[눈 깜빡할 사이에 엄청나게 먼 거리를 이동할 수 있는, 장거리 관문입니다. 사용하기 위해서는 보통 외부의 특수한 물건이 필요합니다.]],
+	desc = [[장거리 관문은 눈 깜짝할 사이에 놀랄만큼 먼 거리를 이동하는 수단입니다. 이 관문을 사용하기 위해서는 보통 어떤 물건이 필요합니다.]],
 	nice_editer = lava_editer,
 
 	orb_portal = {
@@ -40,7 +40,7 @@ newEntity{
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="fareast"},
 		},
-		message = "#VIOLET#소용돌이치는 관문에 들어서자, 눈 깜빡할 사이에 동대륙에 도착한 자신을 발견하였습니다.",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈 깜짝할 사이에 관문의 흔적은 없어지고, 동대륙에 도착한 자신을 발견하였습니다.",
 	},
 }
 

@@ -57,7 +57,7 @@ newEntity{ define_as = "ATHAME_WEST",
 	level_range = {50, 50},
 	display = "|", color=colors.VIOLET,
 	encumber = 1,
-	desc = [[An athame, covered in blood runes. It radiates power.]],
+	desc = [[피의 룬이 새겨진 제례단검입니다. 힘을 내뿜고 있습니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then

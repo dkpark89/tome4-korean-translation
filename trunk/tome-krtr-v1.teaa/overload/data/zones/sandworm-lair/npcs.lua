@@ -32,11 +32,11 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "SANDWORM_TUNNELER",
 	type = "vermin", subtype = "sandworm",
 	name = "sandworm burrower",
-	kr_display_name = "굴파는 지렁이",
+	kr_display_name = "굴 파는 지렁이",
 	display = "w", color=colors.GREEN,
 	desc = [[이 지렁이는 당신을 전혀 신경쓰지 않고, 단순히 그 앞쪽으로 모래를 파서 굴을 만드는 일만 계속하고 있습니다.
 	
-아마 이놈을 따라가는 것이 이 지역을 돌아다니는 유일한 방법인 것 같습니다...]],
+아마 이 지렁이를 따라다니는 것만이 이 지역을 돌아다니는 유일한 방법인 것 같습니다...]],
 	level_range = {12, 50}, exp_worth = 0,
 	max_life = 10000,
 	faction = "sandworm-burrowers",
@@ -61,8 +61,8 @@ newEntity{ define_as = "SANDWORM_QUEEN",
 	kr_display_name = "지렁이 여왕",
 	display = "w", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/vermin_sandworm_sandworm_queen.png", display_h=2, display_y=-1}}},
-	desc = [[당신이 지렁이의 여왕 앞에 서기 전에, 크고 부풀어 오른 그녀가 지식들을 불러 모으면서 당신쪽으로 미끄러져 오고 있습니다!]],
-	killer_message = "and swallowed whole",
+	desc = [[당신이 지렁이의 여왕 앞에 서기도 전에, 크고 부풀어 오른 덩치를 가진 그녀가 자식들을 불러모으면서 당신 쪽으로 미끄러져 오고 있습니다!]],
+	killer_message = "그리고 통째로 삼켜졌습니다.",
 	level_range = {15, nil}, exp_worth = 2,
 	female = 1,
 	max_life = 150, life_rating = 17, fixed_rating = true,
@@ -103,7 +103,7 @@ newEntity{ define_as = "SANDWORM_QUEEN",
 	resolvers.inscriptions(2, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("CORRUPTED_SAND_WYRM", 1, 45, "Did you hear? Something seems to have devoured all the last sandworms!", function(gen)
+		game.state:activateBackupGuardian("CORRUPTED_SAND_WYRM", 1, 45, "들립니까? 무언가가 이곳에 있던 지렁이들을 모두 먹어버린 것 같습니다!", function(gen)
 			if gen then return end
 			for i = #game.level.e_array, 1, -1 do
 				local e = game.level.e_array[i]
@@ -123,7 +123,7 @@ newEntity{ define_as = "CORRUPTED_SAND_WYRM",
 	kr_display_name = "타락한 모래 용",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_sand_corrupted_sand_wyrm.png", display_h=2, display_y=-1}}},
-	desc = [[이 시끄럽고 왜곡된 무서운 포식자에 의해 지렁이들이 모두 사라졌습니다.]],
+	desc = [[이 시끄러운 소리를 내는, 왜곡된 포식자에 의해 지렁이들이 모두 사라졌습니다.]],
 	level_range = {47, nil}, exp_worth = 3,
 	max_life = 850, life_rating = 24, fixed_rating = true,
 	infravision = 10,

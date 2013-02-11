@@ -23,8 +23,8 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 	name = "Weirdling Beast", color=colors.VIOLET,
 	kr_display_name = "불가사의한 짐승",
-	desc = "대략 인류같은 생물체이지만, 촉수같은 부속품이 팔과 다리가 있어야 할 자리에 달려 있습니다. 당신은 그것의 머리가 없음을 알아차리고 두려움에 숨이 막합니다. 부패한 사마귀의 모습이 빠르게 그 피부에 생겼다가 빠르게 터집니다.",
-	killer_message = "and slowly consumed",
+	desc = "인간을 아주 약간 닮았지만, 팔과 다리가 있어야 할 곳에 촉수가 달려있습니다. 당신은 이 생명체가 머리가 없다는 것을 알아차리고, 공포에 질립니다. 썩은 종기가 빠르게 피부에 생겼다가, 빠르게 터지면서 진액이 흘러나옵니다.",
+	killer_message = "그리고 천천히 소화되었습니다.",
 	level_range = {19, nil}, exp_worth = 3,
 	rank = 3.5,
 	autolevel = "warriormage",
@@ -80,7 +80,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 		local spot = game.level:pickSpot{type="door", subtype="weirdling"}
 		if spot then
 			game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
-			game.log("#LIGHT_RED#불가사의한 짐승이 마지막 비명과 함께 무너지자, 그 뒤에 있던 문이 부서지면서 폭발했고, 뒷쪽의 방이 나타납니다. 올라가는 계단이 무너졌습니다!")
+			game.log("#LIGHT_RED#불가사의한 짐승이 마지막 비명과 함께 쓰러지자, 그 뒤에 있던 문이 폭발하면서 부서졌고 뒤쪽의 방이 나타났습니다. 그리고, 올라가는 계단이 무너졌습니다!")
 		end
 		local spot = game.level:pickSpot{type="stair", subtype="up"}
 		if spot then
@@ -120,7 +120,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="BUTLER",
 	subtype = "Sher'Tul",
 	name = "Fortress Shadow", color=colors.GREY,
 	kr_display_name = "요새의 그림자",
-	desc = "요새가 만든 그림자로, 이전에 봤던 공포를 좀 닮게 생겼지만 같은 존재는 아닙니다.",
+	desc = "요새가 만든 그림자로, 이전까지 봤던 '공포' 들을 약간 닮았지만 같은 존재는 아닙니다.",
 	level_range = {19, nil}, exp_worth = 3,
 	rank = 3,
 	max_life = 300, life_rating = 16,

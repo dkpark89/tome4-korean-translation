@@ -59,7 +59,7 @@ newEntity{
 	type = "wall", subtype = "grass",
 	name = "mouse hole",
 	kr_display_name = "쥐구멍",
-	desc = "당신만이 겨우 지나갈 수 있을만한 작은 구멍입니다.",
+	desc = "당신만이 겨우 지나갈 수 있을만한, 작은 구멍입니다.",
 	color_r=0, color_g=0, color_b=0, notice = true,
 	image = "terrain/jungle/jungle_grass_floor_01.png",
 	add_displays = class:makeTrees("terrain/jungle/jungle_tree_", 17, 7),
@@ -90,7 +90,7 @@ newEntity{
 			game.zone:addEntity(game.level, g, "terrain", x, y)
 			who:heal(100)
 			who:removeEffectsFilter{status="detrimental"}
-			game.logPlayer(who, "당신이 꿈의 돌을 건드리자, 이것이 사라졌습니다. 당신의 상태가 좋아졌습니다.")
+			game.logPlayer(who, "당신이 꿈의 돌을 건드리자, 꿈의 돌이 사라졌습니다. 당신의 상태가 좋아졌습니다.")
 		end
 		return true
 	end,

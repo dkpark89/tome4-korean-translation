@@ -59,7 +59,7 @@ newEntity{
 	faction = "sorcerers",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_shalore_elandar.png", display_h=2, display_y=-1}}},
 
-	desc = [[앙골웬에서 변절한 마법사 단체, 주술사들이 동대륙에 설립된후 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
+	desc = [[앙골웬을 떠난 마법사 중 한 명으로, 이들은 '주술사' 라는 이름을 가진 단체를 동대륙에 세워 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
 	level_range = {75, nil}, exp_worth = 15,
 	max_life = 1000, life_rating = 36, fixed_rating = true,
 	max_mana = 10000,
@@ -136,7 +136,7 @@ newEntity{
 	female = true,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_argoniel.png", display_h=2, display_y=-1}}},
 
-	desc = [[앙골웬에서 변절한 마법사 단체, 주술사들이 동대륙에 설립된후 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
+	desc = [[앙골웬을 떠난 마법사 중 한 명으로, 이들은 '주술사' 라는 이름을 가진 단체를 동대륙에 세워 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
 	level_range = {75, nil}, exp_worth = 15,
 	max_life = 1000, life_rating = 42, fixed_rating = true,
 	max_mana = 10000,

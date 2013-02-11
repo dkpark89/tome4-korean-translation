@@ -26,9 +26,9 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as="SUBJECT_Z",
 	name = "Subject Z", color=colors.VIOLET, display = "p",
 	kr_display_name = "실험체 Z",
-	desc = "종이가 말하던 '실험체 Z'임이 분명합니다. 인간으로 보이지만, 불가사의하게도 오천년도 넘게 살고 있는 존재입니다!",
+	desc = "종이에 써졌던 '실험체 Z'임이 분명합니다. 인간으로 보이지만, 벌써 5,000 년이 넘게 살아있는 불가사의한 존재입니다!",
 	type = "humanoid", subtype = "human",
-	killer_message = "and bloodily smeared across the granite walls",
+	killer_message = "그리고 화강암 벽에 마구 문대지고 으스러졌습니다.",
 	level_range = {10, nil}, exp_worth = 2,
 	rank = 4,
 	autolevel = "roguemage",
@@ -81,7 +81,7 @@ newEntity{ define_as="SUBJECT_Z",
 
 		wayist:setTarget(self)
 		self:setTarget(wayist)
-		wayist:doEmote("한길을 위해 제물이다!", 60)
+		wayist:doEmote("한길을 위한 제물이다!", 60)
 	end,
 
 	on_die = function(self, who)
@@ -98,7 +98,7 @@ newEntity{ define_as="SUBJECT_Z",
 			wayist:doEmote("한길에서 오셨나요?", 70)
 			wayist.can_talk = "yeek-wayist"
 		else
-			wayist:doEmote("당신은.. 저를 구해주는 건가요?", 70)
+			wayist:doEmote("당신은.. 저를 구해주시는 건가요?", 70)
 			wayist.can_talk = "yeek-wayist"
 		end
 	end,
@@ -106,8 +106,8 @@ newEntity{ define_as="SUBJECT_Z",
 
 newEntity{ define_as="YEEK_WAYIST",
 	name = "Yeek Wayist", color=colors.VIOLET, display = "y",
-	kr_display_name = "이크 '한길'의 일원",
-	desc = "이 생명체는 하플링 정도의 키를 가지고 있습니다. 희고 부드러운 털로 뒤덮혀 있고, 불균형적으로 큰 머리를 가졌습니다. 이 것의 가장 신기한 점은, 무기가 그 앞에 둥둥떠있다는 것입니다.",
+	kr_display_name = "이크 '한길' 의 일원",
+	desc = "이 생명체는 하플링 정도의 키를 가지고 있습니다. 희고 부드러운 털이 온 몸을 감싸고 있으며, 불균형적으로 큰 머리를 가졌습니다. 가장 신기한 것은, 무기가 그의 앞에 둥둥 떠있다는 것입니다.",
 	type = "humanoid", subtype = "yeek",
 	level_range = {10, nil},
 	rank = 3,

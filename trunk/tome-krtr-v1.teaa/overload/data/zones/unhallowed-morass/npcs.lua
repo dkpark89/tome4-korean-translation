@@ -53,7 +53,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "orb weaver", color=colors.DARK_UMBER,
 	kr_display_name = "오브 무당거미",
-	desc = [[거미줄을 짜고있는 커다란 갈색 거미류입니다. 당신이 그의 일을 방해해서 기분이 나빠 보입니다.]],
+	desc = [[거미줄을 짜고 있는 커다란 갈색 거미류입니다. 당신이 그 일을 방해해서 기분이 나쁜 것 같습니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(40,60),
@@ -68,7 +68,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate spinner", color=colors.SLATE,
 	kr_display_name = "파멸의 방적거미",
-	desc = [[말만큼 커다란 이 거대 거미는 그 이빨과 발톱으로 당신을 위협하고 있습니다.]],
+	desc = [[한 마리 말 만큼이나 커다란 이 거대 거미는, 그 이빨과 발톱으로 당신을 위협하고 있습니다.]],
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 3,
 	size_category = 4,
@@ -142,7 +142,7 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("start-point-zero", engine.Quest.COMPLETED, "morass")
-		require("engine.ui.Dialog"):simplePopup("무당거미 여왕", "여왕거미를 무찌르자, 그녀가 지배하던 것 같은 시간의 흐름을 발견했습니다. 그것이 균열 사이로 지나갑니다.")
+		require("engine.ui.Dialog"):simplePopup("무당거미 여왕", "여왕거미를 무찌르자, 그녀가 지배하던 것 같은 시간의 흐름을 발견했습니다. 이 흐름이 균열 사이로 지나가고 있습니다.")
 		local rift = game.zone:makeEntityByName(game.level, "terrain", "RIFT_HOME")
 		game.zone:addEntity(game.level, rift, "terrain", self.x, self.y)
 	end,

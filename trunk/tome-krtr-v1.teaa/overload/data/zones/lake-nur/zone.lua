@@ -115,7 +115,7 @@ return {
 	on_enter = function(lev, old_lev, newzone)
 		local Dialog = require("engine.ui.Dialog")
 		if lev == 2 and not game.level.shown_warning then
-			Dialog:simplePopup("누르 호수", "당신은 물속에 잠긴 폐허로 내려갔습니다. 벽은 매우 오래된 고대의 것으로 보이고, 아직도 이 장소에서 힘이 남아 있는 것이 느껴집니다.")
+			Dialog:simplePopup("누르 호수", "당신은 물 속에 잠긴 폐허로 내려갔습니다. 벽은 매우 오래된 고대의 것으로 보이고, 이 장소에는 아직도 어떤 힘이 남아 있는 것 같습니다.")
 			game.level.shown_warning = true
 		elseif lev == 3 and not game.level.shown_warning then
 			Dialog:simplePopup("누르 호수", "다음 층으로 내려가면서, 물이 침범하지 못하는 어떤 종류의 마법 장벽을 지나쳤습니다. 끔찍한 비명소리가 들립니다.")

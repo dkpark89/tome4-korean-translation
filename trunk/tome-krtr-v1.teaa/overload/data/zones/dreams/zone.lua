@@ -26,7 +26,7 @@ return {
 		return "Dream ???"
 	end,
 	kr_display_name_f = function(x, y)
-		if game.level.level == 1 then return "약점의 꿈" end
+		if game.level.level == 1 then return "약화의 꿈" end
 		if game.level.level == 2 then return "상실의 꿈" end
 		return "꿈 ???"
 	end, 
@@ -203,7 +203,7 @@ return {
 		if lev == 1 then
 			local f = require("mod.class.Player").new{
 				name = "frail mouse", image = "npc/vermin_rodent_giant_white_mouse.png",
-				kr_display_name = "허약한 생쥐",
+				kr_display_name = "연약한 생쥐",
 				type = "vermin", subtype = "rodent",
 				display = "r", color=colors.WHITE,
 				body = { INVEN = 10 },
@@ -237,8 +237,8 @@ return {
 						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
 						game.player:move(x, y, true)
 						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[당신의 정신인 생쥐가 꿈의 관문으로 들어서자, 당신은 갑작스레 깨어났습니다.
-기분이 좋습니다!]], 600)
+							require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[정신으로 이루어진 생쥐가 꿈의 관문으로 들어서자, 당신은 갑작스레 잠에서 깨어났습니다.
+상쾌한 기분이 듭니다!]], 600)
 							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 							world:gainAchievement("ALL_DREAMS", self.summoner, "mice")
 						else
@@ -268,11 +268,11 @@ return {
 			game.paused = true
 			game.player:updateMainShader()
 
-			require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[유독성 향기가 당신의 신체에 침범하고, 당신은 갑자기 깊은 졸음에 빠집니다...
+			require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
 ... 당신은 약해지고 ...
-... 당신은 하찮으며 ...
-... 당신은 음식 ... 인 것 같습니다 ...
-당신은 빨리 도망가야 합니다!]], 600)
+... 하찮은 존재이며 ...
+... 먹잇감 ... 인 것 같습니다 ...
+여기서 빨리 도망가야 합니다!]], 600)
 		end
 
 		-- Dream of loss
@@ -299,8 +299,8 @@ return {
 						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
 						game.player:move(x, y, true)
 						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[꿈의 관문으로 들어서자, 당신은 갑자기 깨어납니다.
-기분이 좋습니다]], 600)
+							require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[꿈의 관문으로 들어서자, 당신은 갑자기 깨어났습니다.
+상쾌한 기분이 듭니다.]], 600)
 							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 							world:gainAchievement("ALL_DREAMS", self.summoner, "lost")
 						else
@@ -330,11 +330,11 @@ return {
 			game.paused = true
 			game.player:updateMainShader()
 
-			require("engine.ui.Dialog"):simpleLongPopup("깊은 졸음...", [[유독성 향기가 당신의 신체에 침범하고, 당신은 갑자기 깊은 졸음에 빠집니다...
-... 당신은 뭔가를 잊은것 같습니다 ...
-... 당신은 상실감을 느끼고 ...
-... 당신은 슬픕니다 ...
-당신은 아내를 잊었습니다! 그녀를 찾아야 해요!]], 600)
+			require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
+... 뭔가를 잊어버린 것 같습니다 ...
+... 상실감이 느껴집니다  ...
+... 슬픔이 느껴집니다 ...
+당신은 아내를 잊어버렸습니다! 그녀를 찾아야 합니다!]], 600)
 		end
 	end,
 }

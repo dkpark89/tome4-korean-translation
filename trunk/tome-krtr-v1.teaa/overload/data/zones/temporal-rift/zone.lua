@@ -28,9 +28,9 @@ return {
 		return "Temporal Rift"
 	end,
 	kr_display_name_f = function(x, y)
-		if game.level.level == 2 then return "시간의 균열: 나무꾼 마을"
-		elseif game.level.level == 3 then return "시간의 균열: 다이카라"
-		elseif game.level.level == 4 then return "시간의 균열: 누르의 호수"
+		if game.level.level == 2 then return "시간의 균열 : 나무꾼 마을"
+		elseif game.level.level == 3 then return "시간의 균열 : 다이카라"
+		elseif game.level.level == 4 then return "시간의 균열 : 누르의 호수"
 		end
 		return "시간의 균열"
 	end,
@@ -136,18 +136,18 @@ return {
 
 		local Dialog = require("engine.ui.Dialog")
 		if lev == 1 and not game.level.shown_warning then
-			Dialog:simplePopup("시간의 균열", "균열로 들어서자, 시공간이 왜곡되면서 당신은 길을 잃습니다. 이 공간은 이질적입니다.")
+			Dialog:simplePopup("시간의 균열", "균열로 들어서자, 시공간이 왜곡되면서 당신은 길을 잃었습니다. 이 공간은... 이질적입니다.")
 			game.level.shown_warning = true
 		elseif lev == 2 and not game.level.shown_warning then
-			Dialog:simplePopup("시간의 균열", "여기는 마즈'에이알의 숲으로 보이지만, 뭔가 이상하게 왜곡된 것 같습니다. 조심하세요...")
+			Dialog:simplePopup("시간의 균열", "이곳은 마즈'에이알의 숲으로 보이지만, 뭔가 이상하게 왜곡된 느낌이 듭니다. 조심하는 편이 좋을 것 같습니다...")
 			game.level.shown_warning = true
 			require("mod.class.generator.actor.Random").new(game.zone, game.level.map, game.level, {}):generateGuardian("BEN_CRUTHDAR_ABOMINATION")
 		elseif lev == 3 and not game.level.shown_warning then
-			Dialog:simplePopup("시간의 균열", "균열로 들어서자, 다이카라 산맥처럼 보이는 곳이 나옵니다. 하지만 그 곳은 아니것 같습니다.")
+			Dialog:simplePopup("시간의 균열", "균열로 들어서자, 다이카라 산맥처럼 보이는 곳이 나옵니다. 하지만 뭔지 모르게... 다른 곳 같습니다.")
 			game.level.shown_warning = true
 			require("mod.class.generator.actor.Random").new(game.zone, game.level.map, game.level, {}):generateGuardian("ABOMINATION_RANTHA")
 		elseif lev == 4 and not game.level.shown_warning then
-			Dialog:simplePopup("시간의 균열", "이 공간의 평화가 어지럽혀집니다.")
+			Dialog:simplePopup("시간의 균열", "이곳의 평화는 무언가에 의해 깨졌습니다.")
 			game.level.shown_warning = true
 
 			local m1 = game.zone:makeEntityByName(game.level, "actor", "CHRONOLITH_TWIN")

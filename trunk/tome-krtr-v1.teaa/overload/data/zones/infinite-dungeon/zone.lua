@@ -19,7 +19,7 @@
 
 return {
 	name = "Infinite Dungeon",
-	kr_display_name = "무한 던전",
+	kr_display_name = "무한의 던전",
 	level_range = {1, 1},
 	level_scheme = "player",
 	max_level = 1000000000,

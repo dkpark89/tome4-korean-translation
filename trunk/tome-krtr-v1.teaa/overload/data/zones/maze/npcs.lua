@@ -39,8 +39,8 @@ newEntity{ define_as = "MINOTAUR_MAZE",
 	kr_display_name = "미궁의 미노타우르스",
 	display = "H", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_minotaur_minotaur_of_the_labyrinth.png", display_h=2, display_y=-1}}},
-	desc = [[무시무시한 소머리의 괴물입니다. 강력한 도끼를 휘두르며, 그를 무시하는 모두에게 저주를 퍼붓습니다.]],
-	killer_message = "and hung on a wall-spike",
+	desc = [[소의 머리를 가진, 무시무시한 괴물입니다. 강력한 도끼를 휘두르며, 그와 마주치는 모두에게 저주를 퍼붓습니다.]],
+	killer_message = "그리고 벽에 달린 가시에 장식용으로 매달렸습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,
 	max_stamina = 200,
@@ -74,7 +74,7 @@ newEntity{ define_as = "MINOTAUR_MAZE",
 	resolvers.inscriptions(2, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("NIMISIL", 2, 40, "Have you hard about the patrol that disappeared in the maze in the west?")
+		game.state:activateBackupGuardian("NIMISIL", 2, 40, "서쪽의 미궁에서, 정찰대들이 자꾸 사라진다는 소식이 들려옵니다.")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze")
 	end,
@@ -84,7 +84,7 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "NIMISIL",
 	allow_infinite_dungeon = true,
 	name = "Nimisil", color=colors.VIOLET,
 	kr_display_name = "니미실",
-	desc = [[으스스한 발광형 털과 돌기로 덮힌 이 거미는, 미궁의 조용한 통로에서 자주 출몰합니다.]],
+	desc = [[스스로 빛을 내는 털과 돌기로 덮힌 이 으스스한 거미는, 미궁의 조용한 통로에서 주로 출몰합니다.]],
 	level_range = {43, nil}, exp_worth = 3,
 	max_life = 520, life_rating = 21, fixed_rating = true,
 	rank = 4,
