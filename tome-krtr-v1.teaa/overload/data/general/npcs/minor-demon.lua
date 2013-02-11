@@ -46,7 +46,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_DEMON",
 	name = "fire imp", color=colors.CRIMSON,
-	kr_display_name = "화염 꼬마도깨비",
+	kr_display_name = "화염의 작은 악마",
 	desc = "당신에게 주문을 퍼붓는 작은 악마입니다.",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 3,

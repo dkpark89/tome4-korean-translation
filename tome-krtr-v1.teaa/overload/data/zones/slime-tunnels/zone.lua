@@ -19,7 +19,7 @@
 
 return {
 	name = "Slime Tunnels",
-	kr_display_name = "슬라임 터널",
+	kr_display_name = "슬라임 굴",
 	level_range = {45, 55},
 	level_scheme = "player",
 	max_level = 1,

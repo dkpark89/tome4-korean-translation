@@ -718,7 +718,7 @@ function _M:getTextualDesc(compare_with)
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호량(wards): ", function(item)
+		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호량: ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)

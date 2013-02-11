@@ -130,7 +130,7 @@ newEntity{ base = "BASE_NPC_LOSGOROTH", define_as = "MONSTROUS_LOSGOROTH",
 
 newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "ZEMEKKYS",
 	name = "Zemekkys, Grand Keeper of Reality", color=colors.VIOLET,
-	kr_display_name = "현실을 수호하는 위대한 자, 제메키스",
+	kr_display_name = "위대한 현실 감시원, 제메키스",
 	image = "npc/humanoid_elf_high_chronomancer_zemekkys.png",
 	subtype = "shalore",
 	desc = [[시간에서 벗어난 엘프가 당신의 앞에 서 있습니다. 그의 나이는 짐작조차 가지않으며, 그가 엄청나게 많은 일을 겪었다는 것이 느껴집니다.]],

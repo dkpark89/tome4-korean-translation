@@ -1415,7 +1415,7 @@ function _M:tooltip(x, y, seen_by)
 
 	if self:attr("encased_in_ice") then
 		local eff = self:hasEffect(self.EFF_FROZEN)
-		ts:add({"color", 0, 255, 128}, ("얼음덩이: %d"):format(eff.hp), {"color", "WHITE"}, true)
+		ts:add({"color", 0, 255, 128}, ("얼음덩어리: %d"):format(eff.hp), {"color", "WHITE"}, true)
 	end
 	--ts:add(("Stats: %d / %d / %d / %d / %d / %d"):format(self:getStr(), self:getDex(), self:getCon(), self:getMag(), self:getWil(), self:getCun()), true)
 	if #resists > 0 then ts:add("저항: ", table.concat(resists, ','), true) end

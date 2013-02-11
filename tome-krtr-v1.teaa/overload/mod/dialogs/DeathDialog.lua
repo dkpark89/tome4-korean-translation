@@ -274,7 +274,7 @@ function _M:generateList()
 	end)
 
 	if game.zone.is_eidolon_plane then
-		game.logPlayer(self, "에이돌론 차원(eidolon plane)에서 당신의 죽음을 다룹니다! 죽었습니다!")
+		game.logPlayer(self, "에이돌론의 차원(eidolon plane)에서 당신의 죽음을 다룹니다! 죽었습니다!")
 		game:onTickEnd(function() world:gainAchievement("EIDOLON_DEATH", self.actor) end)
 		allow_res = false
 	end

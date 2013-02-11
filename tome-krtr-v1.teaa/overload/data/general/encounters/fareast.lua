@@ -74,7 +74,7 @@ newEntity{
 
 newEntity{
 	name = "Orc Breeding Pit",
-	kr_display_name = "오크 사육 구덩이",
+	kr_display_name = "오크 번식용 동굴",
 	type = "hostile", subtype = "special", unique = true,
 	immediate = {"world-encounter", "fareast"},
 	on_encounter = function(self, who)
@@ -84,7 +84,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Entrance to the orc breeding pit"
-		g.kr_display_name = "오크 사육 구덩이로의 입구"
+		g.kr_display_name = "오크 번식용 동굴 입구"
 		g.display='>' g.color_r=colors.GREEN.r g.color_g=colors.GREEN.g g.color_b=colors.GREEN.b g.notice = true
 		g.change_level=1 g.change_zone="orc-breeding-pit" g.glow=true
 		g.add_displays = g.add_displays or {}

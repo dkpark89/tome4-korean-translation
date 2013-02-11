@@ -32,7 +32,7 @@ local imbue_ring = function(npc, player)
 				ring.been_imbued = true
 				ring.egoed = true
 				game.logPlayer(player, "%s creates: %s", npc.name:capitalize(), ring:getName{do_colour=true, no_count=true})
-			end end)
+			end end, "예", "아니오")
 		end)
 	end)
 end
@@ -66,7 +66,7 @@ local artifact_imbue_amulet = function(npc, player)
 					amulet.been_imbued = true
 					amulet.unique = util.uuid()
 					game.logPlayer(player, "%s creates: %s", npc.name:capitalize(), amulet:getName{do_colour=true, no_count=true})
-				end end)
+				end end, "예", "아니오")
 			end)
 		end)
 	end)

@@ -566,7 +566,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "manaburning ", prefix=true, instant_resolve=true,
-	kr_display_name = "마나태우기 ",
+	kr_display_name = "마나 태우기 ",
 	keywords = {manaburning=true},
 	level_range = {1, 50},
 	rarity = 20,

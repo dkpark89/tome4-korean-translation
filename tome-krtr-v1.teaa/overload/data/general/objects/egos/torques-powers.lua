@@ -67,7 +67,7 @@ newEntity{
 	rarity = 7,
 
 	charm_power_def = {add=3, max=100, floor=true},
-	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 화염이나 추위 피해를 %d 감소", 20, function(self, who)
+	resolvers.charm("염동보호막을 배치하여, 6턴간 모든 화염이나 냉기 피해를 %d 감소", 20, function(self, who)
 		who:setEffect(who.EFF_PSIONIC_SHIELD, 6, {kind="thermal", power=self:getCharmPower()})
 		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}

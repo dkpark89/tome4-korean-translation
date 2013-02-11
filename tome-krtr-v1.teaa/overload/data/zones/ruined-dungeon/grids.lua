@@ -42,20 +42,20 @@ end
 newEntity{
 	define_as = "INFINITE",
 	name = "way into the infinite dungeon", image = "terrain/maze_floor.png", add_mos={{image = "terrain/stair_down.png"}},
-	kr_display_name = "무한 던전으로의 길",
+	kr_display_name = "무한의 던전으로의 길",
 	display = '>', color=colors.VIOLET, back_color=colors.DARK_GREY,
 	always_remember = true,
 	on_move = function(self, x, y, who)
 		if not who.player then return end
 		local p = game:getPlayer(true)
 		if p.winner then
-			require("engine.ui.Dialog"):yesnoLongPopup("Infinite Dungeon", "당신은 굉장한 일을 해냈습니다. 하지만 한번 무한 던전으로 들어가면, 다시는 이곳으로 돌아올 수 없으며 영광스러운 죽음을 맞이할 때까지 계속 앞으로 나아가야 합니다.", 400, function(ret)
+			require("engine.ui.Dialog"):yesnoLongPopup("무한의 던전", "당신은 굉장한 일을 해냈습니다. 하지만 한번 무한의 던전으로 들어가면, 다시는 이곳으로 돌아올 수 없으며 영광스러운 죽음을 맞이할 때까지 계속 앞으로 나아가야 합니다.", 400, function(ret)
 				if ret then
 					game:changeLevel(math.ceil(game.player.level * 1.5), "infinite-dungeon")
 				end
 			end, "입장", "취소")
 		else
-			require("engine.ui.Dialog"):simplePopup("Infinite Dungeon", "한번 무한 던전으로 들어가면, 다시는 이곳으로 돌아올 수 없습니다. 이곳에 오기 전에, 해야만 하는 일들을 모두 끝내는 것이 좋을 것 같습니다.")
+			require("engine.ui.Dialog"):simplePopup("무한의 던전", "한번 무한의 던전으로 들어가면, 다시는 이곳으로 돌아올 수 없습니다. 이곳에 오기 전에, 해야만 하는 일들을 모두 끝내는 것이 좋을 것 같습니다.")
 		end
 	end,
 }

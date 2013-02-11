@@ -71,7 +71,7 @@ newEntity{ base = "BASE_NPC_SKELETON", define_as = "TUTORIAL_NPC_MAGE", image="n
 
 newEntity{ base = "BASE_NPC_TROLL", define_as = "TUTORIAL_NPC_TROLL",
 	name = "half-dead forest troll", color=colors.YELLOW_GREEN,
-	kr_display_name = "반죽어있는 숲 트롤",
+	kr_display_name = "반죽음 상태인 숲 트롤",
 	desc = [[못생겼으며 녹색 피부를 가진 이 거대한 영장류는, 사마귀로 가득한 녹색 주먹을 꽉 쥔 채 당신을 쳐다보고 있습니다.
 굉장히 많이 다친 상태로 보입니다.]],
 	level_range = {1, nil}, exp_worth = 1,

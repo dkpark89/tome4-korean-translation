@@ -142,7 +142,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of cold", suffix=true, instant_resolve=true,
-	kr_display_name = "추위의 ",
+	kr_display_name = "냉기의 ",
 	keywords = {cold=true},
 	level_range = {15, 50},
 	rarity = 5,

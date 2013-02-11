@@ -149,14 +149,14 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 			eff.hp = eff.hp - dam
 			local srcname = src.x and src.y and game.level.map.seens(src.x, src.y) and (src.kr_display_name or src.name):capitalize() or "무엇인가"
 			if eff.hp < 0 and not eff.begone then
-				game.logSeen(src, "%s 얼음덩이를 박살냈습니다.", srcname:capitalize():addJosa("가"))
+				game.logSeen(src, "%s 얼음덩어리를 박살냈습니다.", srcname:capitalize():addJosa("가"))
 				game:onTickEnd(function() src:removeEffect(src.EFF_FROZEN) end)
 				eff.begone = game.turn
 			else
 				local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name --@@ 157줄 사용 - 너무 길어져서 변수로 뺌 
 				game:delayedLogDamage(src, {name="Iceblock", x=src.x, y=src.y}, dam, ("%s%d %s#LAST#"):format(DamageType:get(type).text_color or "#aaaaaa#", math.ceil(dam), dtn))
 				if eff.begone and eff.begone < game.turn and eff.hp < 0 then
-					game.logSeen(src, "%s 얼음덩이를 박살냈습니다.", srcname:capitalize():addJosa("가"))
+					game.logSeen(src, "%s 얼음덩어리를 박살냈습니다.", srcname:capitalize():addJosa("가"))
 					src:removeEffect(src.EFF_FROZEN)
 				end
 			end
@@ -1553,7 +1553,7 @@ newDamageType{
 -- Physical + Blind
 newDamageType{
 	name = "sand", type = "SAND",
-	kr_display_name = "모래의 잠",
+	kr_display_name = "수면",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2267,7 +2267,7 @@ newDamageType{
 			-- silence the apply message it if the target already has the effect
 			for eff_id, p in pairs(target.tmp) do
 				local e = target.tempeffect_def[eff_id]
-				if e.desc == "심연의 장막" then
+				if e.desc == "Abyssal Shroud" then --@@ 이건 번역하는 부분 아닙니다
 					reapplied = true
 				end
 			end

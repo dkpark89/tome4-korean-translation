@@ -72,7 +72,7 @@ newEntity{ base = "BASE_NPC_NAGA",
 
 newEntity{ base = "BASE_NPC_NAGA",
 	name = "naga tide huntress", color=colors.RED, image="npc/naga_tide_huntress.png",
-	kr_display_name = "나가 조수사냥꾼",
+	kr_display_name = "나가 조류 사냥꾼",
 	desc = [[계속 당신의 머리를 겨누고 있는 날카로운 화살이 걱정되지만, 더욱 무기력하게 만드는 것을 그걸 들고 있는 존재입니다. 허리위로는 날씬하고 유연한 여성이지만, 끔찍한 대형 뱀의 몸이 그 아래 달려있습니다. 그 꼬리는 뒤쪽으로 수미터나 뻗어있습니다. 냉정하고 차가워 보이는 눈을하고, 날카로운 화살촉에는 마법이 응집되어 있습니다. 갑자기 다시 걱정이 밀려옵니다.]],
 	level_range = {34, nil}, exp_worth = 1,
 	rarity = 4,
