@@ -22,7 +22,7 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_CLOTH_ARMOR",
 	define_as = "SIMPLE_GOWN",
 	name = "simple gown",
-	kr_display_name = "단순한 가운",
+	kr_display_name = "특징 없는 가운",
 	cost = 0.5,
 	material_level = 1,
 	moddable_tile = "upper_body_12",

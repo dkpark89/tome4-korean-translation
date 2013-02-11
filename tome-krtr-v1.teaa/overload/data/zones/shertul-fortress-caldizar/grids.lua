@@ -41,14 +41,14 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[놀라운 거리를 눈 깜박할 새에 갈 수 있는 장거리 관문입니다. 강력한 쉐르'툴 종족이 남긴 것입니다.
-이 장거리 관문은 다른 관문과 연결되어 있지 않습니다. 탐험을 위해 만들어졌고, 어디로 보낼지 알 수가 없습니다.
-자동적으로 돌아오는 관문이 만들어지지만, 도착지점에서 가까운 곳이 아닐 수도 있습니다.]],
+	desc = [[놀라운 거리를 눈 깜짝할 사이에 이동할 수 있는 장거리 관문으로, 강력한 쉐르'툴 종족이 남긴 것입니다.
+이 장거리 관문은 다른 관문과 연결되어 있지 않습니다. 이 관문은 탐험을 위해 만들어진 것이며, 어디로 보내질 것인지 알 수 없습니다.
+자동적으로 돌아오는 관문이 만들어지지만, 그 위치는 도착 지점에서 가까운 곳이 아닐 수도 있습니다.]],
 
 	block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return true end
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simplePopup("장거리 관문", "장거리 관문은 비활성화 상태인 것 같습니다.")
+		Dialog:simplePopup("장거리 관문", "이 장거리 관문은 비활성화 상태인 것 같습니다.")
 		return true
 	end,
 }

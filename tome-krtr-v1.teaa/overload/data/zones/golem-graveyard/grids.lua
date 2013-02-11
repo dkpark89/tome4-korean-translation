@@ -32,15 +32,15 @@ newEntity{base="HARDWALL", define_as = "ATAMATHON_BROKEN",
 	kr_display_name = "아타마쏜의 잔해",
 	show_tooltip = true,
 	desc = [[이 거대 골렘은 장작더미의 시대 때 오크들과 전쟁을 하던 하플링들이 만들었지만, 파괴자 가르쿨에 의해 파괴되었습니다.
-몸은 대리석으로 만들었으며, 관절 부분은 보라툰을, 그 눈에는 가장 순수한 루비를 박아넣었지만 눈 하나는 사라지고 없는 것 같습니다. 골렘의 키는 12 미터에 육박합니다.
-몇몇 어리석은 자들이 골렘의 재구축을 시도하였지만, 잃어버린 눈 없이는 진정으로 완성된 골렘은 만들어낼 수 없었습니다.]],
+몸은 대리석으로 만들었으며, 관절 부분은 보라툰을, 그 눈에는 가장 순수한 루비를 박아넣었지만, 눈 하나는 이미 사라지고 없는 것 같습니다. 골렘의 키는 12 미터에 육박합니다.
+몇몇 어리석은 자들이 골렘의 재구축을 시도하였지만, 잃어버린 눈 없이는 진정으로 완성된 골렘을 만들어낼 수 없었습니다.]],
 	dig = false,
 	block_move = function(self, x, y, e, act, couldpass)
 		if e and e.player and act then
 			game.party:learnLore("broken-atamathon")
 			local eye, eye_item = e:findInInventoryBy(e:getInven("INVEN"), "define_as", "ATAMATHON_ACTIVATE")
 			if eye then
-				require("engine.ui.Dialog"):yesnoPopup("아타마쏜", "당신이 가진 "..eye:getName{do_color=true}:addJosa("가").." 아타마쏜의 빈 눈에 딱 맞을 것 같아 보입니다. 이것은 아마 매우 어리석은 행동입니다.", function(ret)
+				require("engine.ui.Dialog"):yesnoPopup("아타마쏜", "당신이 가진 "..eye:getName{do_color=true}:addJosa("가").." 아타마쏜의 빈 눈에 딱 맞을 것 같아 보입니다. 아마 굉장히 어리석은 행동이겠지만...", function(ret)
 					if not ret then return end
 					if game.difficulty == game.DIFFICULTY_NIGHTMARE then
 						game.zone.base_level = 50 * 1.5 + 3
@@ -58,13 +58,13 @@ newEntity{base="HARDWALL", define_as = "ATAMATHON_BROKEN",
 
 					e:removeObject(e:getInven("INVEN"), eye_item)
 
-					game.log("#LIGHT_RED#보석을 집어넣자 골렘이 흔들리기 시작합니다. 그 모든 시스템과 마법이 다시 활성화됩니다.")
-					game.log("#LIGHT_RED#아타마쏜이 다시 걷기 시작하지만, 제어는 되지 않습니다.")
+					game.log("#LIGHT_RED#보석을 집어넣자, 골렘이 흔들리기 시작합니다. 골렘의 모든 시스템과 마법이 다시 활성화됩니다.")
+					game.log("#LIGHT_RED#아타마쏜이 다시 움직이기 시작하였지만, 통제가 되지 않습니다!")
 					game.zone:addEntity(game.level, grass, "terrain", x, y)
 					game.zone:addEntity(game.level, atamathon, "actor", x, y)
 					atamathon:doEmote("방어 활성화. 공격 목표 설정. **파괴**!", 60)
 					atamathon:setTarget(e)
-				end, "삽입", "취소")
+				end, "보석을 넣어본다", "취소")
 			end
 		end
 		return true

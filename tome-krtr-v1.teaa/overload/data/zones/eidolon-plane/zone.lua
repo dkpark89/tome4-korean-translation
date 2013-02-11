@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 return {
 	name = "Eidolon Plane",
-	kr_display_name = "에이돌론 차원",
+	kr_display_name = "에이돌론의 차원",
 	level_range = {1, 1},
 	level_scheme = "player",
 	max_level = 1,
@@ -78,7 +78,7 @@ return {
 		local map = game.level.map
 		map:removeObject(dx, dy, idx)
 
-		game.logPlayer(who, "에이돌론 차원은 보통의 세상처럼 물리적으로 존재하지는 않는 것으로 보입니다. 여기서는 아무것도 버릴수 없는 것 같습니다. %s 소지품으로 되돌아옵니다.", o:getName{do_color=true}:capitalize():addJosa("가"))
+		game.logPlayer(who, "에이돌론의 차원은 일반적인 세상처럼 물리적으로 존재하는 곳이 아닌 것 같습니다. 여기서는 아무것도 버릴 수가 없습니다. %s 소지품으로 되돌아옵니다.", o:getName{do_color=true}:capitalize():addJosa("가"))
 		who:addObject(who.INVEN_INVEN, o)
 	end,
 
@@ -157,7 +157,7 @@ return {
 				game:changeLevel(1, game.player.last_wilderness or "wilderness", {temporary_zone_shift_back=game.level.temp_shift_zone and true or false, direct_switch=true})
 			end
 
-			game.logPlayer(game.player, "#LIGHT_RED#당신은 물질계로 되돌아 왔습니다!")
+			game.logPlayer(game.player, "#LIGHT_RED#당신은 에이돌론의 차원을 벗어나, 물질계로 되돌아왔습니다!")
 			game.player:updateMainShader()
 		end)
 	end,

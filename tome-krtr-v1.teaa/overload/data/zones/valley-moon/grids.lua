@@ -44,5 +44,5 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[소환된 관문으로, 이 것을 통해 끊임없이 소환수가 나옵니다.]],
+	desc = [[끊임없이 소환수가 나오는 관문입니다.]],
 }

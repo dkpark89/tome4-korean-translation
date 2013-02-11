@@ -27,12 +27,12 @@ newEntity{
 	type = "potion", subtype="potion",
 	name = "Potion of Martial Prowess",
 	unided_name = "phial filled with metallic liquid",
-	kr_display_name = "호전적 역량의 물약", kr_unided_name = "금속빛 액체로 가득찬 약병",
+	kr_display_name = "호전적 역량의 물약", kr_unided_name = "금속빛 액체로 가득 찬 약병",
 	level_range = {1, 50},
 	display = '!', color=colors.VIOLET, image="object/elixir_of_stoneskin.png",
 	encumber = 0.4,
 	rarity = 150,
-	desc = [[이 효험있는 엘릭서는 불행히도 기본기가 부족한이에게 호전적 전투의 식견을 줄 수 있습니다.]],
+	desc = [[이 엘릭서는, 전투의 기본기를 무시한 불행한 이에게 호전적 전투에 대한 기본적인 식견을 제공합니다.]],
 	cost = 500,
 
 	use_simple = { name = "quaff the elixir", kr_display_name = "엘릭서 마시기", use = function(self, who)
@@ -42,7 +42,7 @@ newEntity{
 
 		if not who:knowTalentType("technique/combat-training") then
 			who:learnTalentType("technique/combat-training", true)
-			game.logPlayer(who, "#VIOLET#당신은 기본적인 전투 습관을 알게 되었습니다 (전투장비 수련 기술계열 습득).")
+			game.logPlayer(who, "#VIOLET#당신은 기본적인 전투 수련법을 알게 되었습니다 (전투장비 수련 기술계열 습득).")
 			done = done + 1
 		end
 		if not who:knowTalent(who.T_SHOOT) then
@@ -65,12 +65,12 @@ newEntity{
 	type = "potion", subtype="potion",
 	name = "Antimagic Wyrm Bile Extract",
 	unided_name = "phial filled with slimy liquid",
-	kr_display_name = "반마법의 용 담즙 추출물", kr_unided_name = "끈적이는 액체로 가득찬 약병",
+	kr_display_name = "반마법의 용 담즙 추출물", kr_unided_name = "끈적이는 액체로 가득 찬 약병",
 	level_range = {10, 50},
 	display = '!', color=colors.VIOLET, image="object/elixir_of_avoidance.png",
 	encumber = 0.4,
 	rarity = 150,
-	desc = [[This potent elixir extracted from a powerful wyrm can grant the power to repel arcane forces.]],
+	desc = [[강력한 용에게서 추출해낸 이 엘릭서는, 모든 마법적인 힘을 제압하는 능력을 제공합니다.]],
 	cost = 500,
 
 	use_simple = { name = "quaff the elixir", kr_display_name = "엘릭서 마시기", use = function(self, who, inven, item)
@@ -90,7 +90,7 @@ newEntity{
 					for i = #inven, 1, -1 do
 						local o = inven[i]
 						if o.power_source and o.power_source.arcane then
-							game.logPlayer(who, "당신은 더이상 %s 사용할 수 없습니다. 그것은 마법으로 오염되어 있습니다.", o:getName{do_color=true}:addJosa("를"))
+							game.logPlayer(who, "당신은 더 이상 %s 사용할 수 없습니다. 그것은 마법으로 오염된 물건입니다.", o:getName{do_color=true}:addJosa("를"))
 							local o = who:removeObject(inven, i, true)
 							who:addObject(who.INVEN_INVEN, o)
 							who:sortInven()
@@ -102,7 +102,7 @@ newEntity{
 				who:learnTalentType("wild-gift/antimagic", true)
 				who:learnTalent(who.T_RESOLVE, true, nil, {no_unlearn=true})
 			end
-		end, "예", "아니오")
+		end, "마신다", "취소")
 
 		return {used=true, id=true}
 	end},

@@ -17,15 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You are of the Thaloren, the Elven race closest to nature. Your people have lived for thousands of years in their forest, rarely taking part in the events of the outside world.
-Yet when their home is threatened, the Thaloren Elves can prove to be fearsome combatants.
-You lived a peaceful life deep in the forest for many years, but lately you have grown restless and have decided to step into the world.
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 자연과 가장 가까이에 있는 엘프 종족, 탈로레의 일원입니다. 이곳의 사람들은 수천 년 동안 바깥 세상의 일에 거의 관여하지 않으면서, 이 숲 속에서만 살아왔습니다.
+하지만 만약 그들의 터전이 위협받는다면, 탈로레 엘프들은 그들의 무시무시한 전투력을 보여줄 것입니다.
+당신은 오랜 세월을 깊은 숲 속에서 평화롭게 보내왔습니다. 하지만 최근 당신은 이러한 삶에 권태를 느꼈고, 바깥 세상으로의 발걸음을 내딛기로 결심하였습니다.
 
-You have decided to venture into the old and wild places looking for ancient treasures and glory.
+당신은 고대의 보물과 영광을 기대하며, 오래되고 험준한 곳을 탐험하기로 결심하였습니다.
 
-You have come to the western side of the Thaloren forest, to the lair of Norgos. Norgos was a steadfast ally of the Thaloren, protecting the western border. But lately he has grown corrupt, even attacking the Thaloren.
-To the east of Shatur, the Thaloren Capital, lies a dark part of the woods. Ever since the Spellblaze this area has been corrupted. The wildlife there has been transformed.
+당신은 탈로레 숲의 서쪽 지역에 있는, 노르고스 동굴을 탐험하기로 결심했습니다. 노르고스는 탈로레의 변함 없는 협력자였지만, 최근 그는 타락하고 오염되어 탈로레들을 공격하기 시작했습니다.
+또한, 샤툴 동쪽에 있는 탈로레 수도에는 숲의 어두운 일면이 있습니다. 마법폭발 이후 이 지역은 오염되었으며, 야생동물들은 변형되었습니다.
 
-After days of travel, you have found Norgos' Lair and entered it. What will you find there...?
+며칠에 걸친 여행 끝에, 당신은 노르고스 동굴을 발견하였습니다. 이곳에서 당신이 찾게 될 것은 과연...?
 ]]

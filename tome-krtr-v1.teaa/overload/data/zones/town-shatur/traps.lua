@@ -54,7 +54,7 @@ newEntity{ base = "BASE_STORE", define_as = "SWORD_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "MAUL_WEAPON_STORE",
 	name="Nature's Punch",
-	kr_display_name = "자연의 충격",
+	kr_display_name = "자연의 힘",
 	display='3', color=colors.UMBER, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_snow_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,
@@ -87,7 +87,7 @@ newEntity{ base = "BASE_STORE", define_as = "HERBALIST",
 
 newEntity{ base = "BASE_STORE", define_as = "MINDSTAR",
 	name="Night's Star",
-	kr_display_name = "밤의 별",
+	kr_display_name = "한밤의 별",
 	display='3', color=colors.LIGHT_GREEN, image = "invis.png",
 	add_displays={engine.Entity.new{
 		z=18, image="terrain/large_tree_house.png", display_on_seen=true, display_on_remember=true, display_h=3.5, display_y=-2, display_w=2, display_x=-0.5,

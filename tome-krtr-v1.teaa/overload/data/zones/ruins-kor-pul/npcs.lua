@@ -32,11 +32,11 @@ newEntity{ define_as = "SHADE",
 	allow_infinite_dungeon = true,
 	type = "undead", subtype = "skeleton", unique = true,
 	name = "The Shade",
-	kr_display_name = "음영",
+	kr_display_name = "'음영'",
 	display = "s", color=colors.VIOLET,
 	shader = "unique_glow",
-	desc = [[이 스켈레톤은 매우 비열해 보입니다. 구멍뚫린 눈 속에는 붉은 불꽃이 타오르고 있습니다. 적의의 장검을 쥐고 주문을 발사하면서, 당신 쪽으로 성큼성큼 다가오고 있습니다.]],
-	killer_message = "and left to rot",
+	desc = [[위험해 보이는 스켈레톤입니다. 구멍 뚫린 눈 속에서는 붉은 불꽃이 타오르고 있으며, 역시나 위험해 보이는 장검을 들고 있습니다. 이 스켈레톤은 마법 공격을 난사하면서, 당신에게로 쇄도하고 있습니다.]],
+	killer_message = "그리고 완전히 부패할 때까지 방치되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_mana = 85,
@@ -68,7 +68,7 @@ newEntity{ define_as = "SHADE",
 	ai = "tactical", ai_state = { talent_in=3, ai_move="move_astar", },
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("KOR_FURY", 3, 35, ".. yes I tell you! The old ruins of Kor'Pul are still haunted!")
+		game.state:activateBackupGuardian("KOR_FURY", 3, 35, "... 내가 말하건데! 이 코르'풀 폐허는 아직도 저주받았노라!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul")
 	end,
 }
@@ -80,7 +80,7 @@ newEntity{ define_as = "KOR_FURY",
 	name = "Kor's Fury",
 	kr_display_name = "코르의 분노",
 	display = "G", color=colors.VIOLET,
-	desc = [[음영의 어마어마한 의지가 이 세계에 뿌리내려 유지되었고, 이제는 그 미친 정신이 복수심에 불타고 있습니다.]],
+	desc = [[음영의 어마어마한 의지는 이 세계에 뿌리내려 유지되었으며, 복수심에 불타오르는 정신 나간 영혼이 되어 이곳에 다시 나타났습니다.]],
 	level_range = {38, nil}, exp_worth = 3,
 	max_life = 250, life_rating = 20, fixed_rating = true,
 	rank = 4,

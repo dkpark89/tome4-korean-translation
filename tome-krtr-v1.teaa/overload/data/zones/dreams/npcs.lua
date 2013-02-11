@@ -53,7 +53,7 @@ newEntity{
 		"npc/humanoid_yeek_yeek_commoner_08.png",
 	},
 	display = "p", color=colors.WHITE,
-	desc = [[뭐라구?!]],
+	desc = [[뭐?!]],
 	faction = "neutral",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
@@ -62,7 +62,7 @@ newEntity{
 	lite = 3,
 
 	life_rating = 10, max_life = 15,
-	emote_random = {chance=10, "넌 누구지?", "뭘 원해?", "여기 왜 있어?", "어디가?", "살아있을 가치가 있을거 같아?"},
+	emote_random = {chance=10, "너는 누구지?", "무엇을 원하지?", "여기에 있는 이유는?", "어디에 가는가?", "네가 살아가는 이유는 무엇인가?"},
 	level_range = {1, 1}, exp_worth = 1,
 	rarity = 1,
 
@@ -86,7 +86,7 @@ newEntity{
 			m.inc_damage.all = -50
 			m.life = 30
 			game.zone:addEntity(game.level, m, "actor", self.x, self.y)
-			m:doEmote("그르르르르르을!", 60)
+			m:doEmote("그르르르르르!", 60)
 		end
 	end,
 }
@@ -95,7 +95,7 @@ newEntity{ base = "BASE_NPC_ORC", define_as = "WIFE",
 	name = "lost wife", color=colors.YELLOW,
 	kr_display_name = "잃어버린 아내",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_mother.png", display_h=2, display_y=-1}}},
-	desc = [[당신의 아내는 거대하게 부풀어올라 솟아오른 모습으로 변했습니다. 점액과 찐득한 분비물이 모든 구멍에서 바닥으로 흘러내립니다. 이 광경과 냄새는 구역질이 나게 만듭니다.]],
+	desc = [[당신의 아내는 거대하게 부풀어오른, 괴상한 모습으로 변했습니다. 온 몸에 뚫린 구멍에서는 점액과 분비물이 흘러내리고 있으며, 이 광경과 냄새는 구역질이 날 정도입니다.]],
 	level_range = {10, 10}, exp_worth = 0,
 	female = true,
 	never_move = 1,

@@ -167,7 +167,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		if src and game.level.map:checkAllEntities(x, y, "creepingDark") then
 			local dark = game.level.map:checkAllEntities(x, y, "creepingDark")
 			if dark.summoner == src and dark.damageIncrease > 0 and not dark.projecting then
-				game.logPlayer(src, "당신은 어둠속에서 공격했습니다. (피해 +%d)", (dam * dark.damageIncrease / 100))
+				game.logPlayer(src, "당신은 어둠 속에서 적을 공격했습니다. (피해 +%d)", (dam * dark.damageIncrease / 100))
 				dam = dam + (dam * dark.damageIncrease / 100)
 			end
 		end
@@ -398,7 +398,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		if not target.dead and affinity_heal > 0 then
 			target:heal(affinity_heal)
 			local dtn = DamageType:get(type).kr_display_name or DamageType:get(type).name --@@ 401 사용 : 너무 길어져서 변수로 뺌
-			game.logSeen(target, "%s %s%s#LAST# 피해를 이용하여 치료되었습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), DamageType:get(type).text_color or "#aaaaaa#", dtn)
+			game.logSeen(target, "%s %s%s#LAST# 피해를 이용하여 생명력을 회복하였습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), DamageType:get(type).text_color or "#aaaaaa#", dtn)
 		end
 
 		if dam > 0 and src.damage_log and src.damage_log.weapon then
@@ -563,7 +563,7 @@ newDamageType{
 }
 newDamageType{
 	name = "cold", type = "COLD", text_color = "#1133F3#",
-	kr_display_name = "추위",
+	kr_display_name = "냉기",
 	antimagic_resolve = true,
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
@@ -687,7 +687,7 @@ newDamageType{
 -- Temporal + Stun
 newDamageType{
 	name = "temporalstun", type = "TEMPORALSTUN",
-	kr_display_name = "시간적 기절",
+	kr_display_name = "시간의 기절",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -695,7 +695,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 기절 효과를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -704,7 +704,7 @@ newDamageType{
 -- Lite up the room
 newDamageType{
 	name = "lite", type = "LITE", text_color = "#YELLOW#",
-	kr_display_name = "조명",
+	kr_display_name = "조명 반경",
 	projector = function(src, x, y, type, dam)
 		-- Dont lit magically unlit grids
 		local g = game.level.map(x, y, Map.TERRAIN+1)
@@ -720,7 +720,7 @@ newDamageType{
 -- Break stealth
 newDamageType{
 	name = "break stealth", type = "BREAK_STEALTH",
-	kr_display_name = "은신해제",
+	kr_display_name = "은신 해제",
 	projector = function(src, x, y, type, dam)
 		-- Dont lit magically unlit grids
 		local a = game.level.map(x, y, Map.ACTOR)
@@ -740,7 +740,7 @@ newDamageType{
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, math.ceil(dam.dur), {apply_power=dam.power_check or src:combatMindpower() * 0.7})
 			else
-				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 침묵되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -760,7 +760,7 @@ newDamageType{
 			if rng.percent(chance) and target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, 3, {apply_power=src:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 침묵되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		return realdam
@@ -770,14 +770,14 @@ newDamageType{
 -- Silence
 newDamageType{
 	name = "% chance to silence target", type = "RANDOM_SILENCE",
-	kr_display_name = "% 확률적 침묵",
+	kr_display_name = "% 확률로 침묵",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and rng.percent(dam) then
 			if target:canBe("silence") then
 				target:setEffect(target.EFF_SILENCED, 4, {apply_power=src:combatAttack()*0.7, no_ct_effect=true})
 			else
-				game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 침묵되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -793,7 +793,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명되지 않았습니다", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -807,21 +807,21 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatAttack()})
 			else
-				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
 }
 newDamageType{
 	name = "blinding ink", type = "BLINDING_INK",
-	kr_display_name = "눈 가리기",
+	kr_display_name = "먹물 발사",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam), {apply_power=src:combatPhysicalpower(), apply_save="combatPhysicalResist"})
 			else
-				game.logSeen(target, "%s 실명의 먹물을 피했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -835,7 +835,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, math.ceil(dam.turns), {apply_power=dam.power, apply_save="combatMentalResist", no_ct_effect=true})
 			else
-				game.logSeen(target, "%s 실명의 빛을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 실명되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -844,7 +844,7 @@ newDamageType{
 -- Lite + Light damage
 newDamageType{
 	name = "bright light", type = "LITE_LIGHT",
-	kr_display_name = "빛의 조명",
+	kr_display_name = "강렬한 빛",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.LITE).projector(src, x, y, DamageType.LITE, 1)
 		return DamageType:get(DamageType.LIGHT).projector(src, x, y, DamageType.LIGHT, dam)
@@ -854,7 +854,7 @@ newDamageType{
 -- Fire damage + DOT
 newDamageType{
 	name = "fire burn", type = "FIREBURN", text_color = "#LIGHT_RED#",
-	kr_display_name = "지속형 화염",
+	kr_display_name = "지속성 화염",
 	projector = function(src, x, y, type, dam)
 		local dur = 3
 		local perc = 50
@@ -872,7 +872,7 @@ newDamageType{
 }
 newDamageType{
 	name = "fireburn", type = "GOLEM_FIREBURN",
-	kr_display_name = "지속형 화염",
+	kr_display_name = "지속성 화염",
 	projector = function(src, x, y, type, dam)
 		local realdam = 0
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -896,7 +896,7 @@ newDamageType{
 -- Darkness + Stun
 newDamageType{
 	name = "darkstun", type = "DARKSTUN",
-	kr_display_name = "암흑의 기절",
+	kr_display_name = "어둠의 기절",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -914,7 +914,7 @@ newDamageType{
 -- Darkness but not over minions
 newDamageType{
 	name = "minions darkness", type = "MINION_DARKNESS",
-	kr_display_name = "어둠의 소환수",
+	kr_display_name = "소환수의 어둠",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and (not target.necrotic_minion or target.summoner ~= src) then
@@ -938,7 +938,7 @@ newDamageType{
 -- Cold + Stun
 newDamageType{
 	name = "coldstun", type = "COLDSTUN",
-	kr_display_name = "기절할 추위",
+	kr_display_name = "냉기의 기절",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -946,7 +946,7 @@ newDamageType{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, 4, {apply_power=src:combatSpellpower()})
 			else
-				game.logSeen(target, "%s 기절 효과를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -955,7 +955,7 @@ newDamageType{
 -- Fire DOT + Stun
 newDamageType{
 	name = "flameshock", type = "FLAMESHOCK",
-	kr_display_name = "기절할 열기",
+	kr_display_name = "화염의 기절",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -972,7 +972,7 @@ newDamageType{
 -- Cold damage + freeze chance
 newDamageType{
 	name = "ice", type = "ICE", text_color = "#1133F3#",
-	kr_display_name = "냉동",
+	kr_display_name = "얼어붙은 냉기",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam)
 		if rng.percent(25) then
@@ -985,7 +985,7 @@ newDamageType{
 -- Cold damage + freeze ground
 newDamageType{
 	name = "coldnevermove", type = "COLDNEVERMOVE",
-	kr_display_name = "얼림",
+	kr_display_name = "움직이지 못할 냉기",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=4} end
 		DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam.dam)
@@ -1247,7 +1247,7 @@ newDamageType{
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatPhysicalpower())
 				game.logSeen(target, "%s 밀려났습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 밀어내기를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1334,7 +1334,7 @@ newDamageType{
 -- Crippling poison: failure to act
 newDamageType{
 	name = "crippling poison", type = "CRIPPLING_POISON", text_color = "#LIGHT_GREEN#",
-	kr_display_name = "장애형 독",
+	kr_display_name = "무력화 독",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=3} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam / dam.dur)
@@ -1491,7 +1491,7 @@ newDamageType{
 -- Confusion
 newDamageType{
 	name = "% chance to confuse", type = "RANDOM_CONFUSION",
-	kr_display_name = "% 확률적 혼란",
+	kr_display_name = "% 확률로 혼란",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1507,7 +1507,7 @@ newDamageType{
 
 newDamageType{
 	name = "% chance to cause a gloom effect", type = "RANDOM_GLOOM",
-	kr_display_name = "% 확률적 침울",
+	kr_display_name = "% 확률로 침울한 기운",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and rng.percent(dam) then
@@ -1536,7 +1536,7 @@ newDamageType{
 -- gBlind
 newDamageType{
 	name = "% chance to blind", type = "RANDOM_BLIND",
-	kr_display_name = "% 확률적 실명",
+	kr_display_name = "% 확률로 실명",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1553,7 +1553,7 @@ newDamageType{
 -- Physical + Blind
 newDamageType{
 	name = "sand", type = "SAND",
-	kr_display_name = "수면",
+	kr_display_name = "모래의 잠",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1587,7 +1587,7 @@ newDamageType{
 -- Drain Exp
 newDamageType{
 	name = "drain experience", type = "DRAINEXP",
-	kr_display_name = "경험치 감소",
+	kr_display_name = "경험치 흡수",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local realdam = DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
@@ -1607,7 +1607,7 @@ newDamageType{
 -- Drain Life
 newDamageType{
 	name = "drain life", type = "DRAINLIFE", text_color = "#DARK_GREEN#",
-	kr_display_name = "생명력 감소",
+	kr_display_name = "생명력 흡수",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, healfactor=0.4} end
 		local target = game.level.map(x, y, Map.ACTOR) -- Get the target first to make sure we heal even on kill
@@ -1623,7 +1623,7 @@ newDamageType{
 -- Drain Vim
 newDamageType{
 	name = "drain vim", type = "DRAIN_VIM",
-	kr_display_name = "원기 감소",
+	kr_display_name = "원기 흡수",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, vim=0.2} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1668,7 +1668,7 @@ newDamageType{
 -- Holy light, damage demon/undead; heal others
 newDamageType{
 	name = "holy light", type = "HOLY_LIGHT",
-	kr_display_name = "성스런 빛",
+	kr_display_name = "성스러운 빛",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") and not target:attr("demon") then
@@ -1695,7 +1695,7 @@ newDamageType{
 
 newDamageType{
 	name = "healing power", type = "HEALING_POWER",
-	kr_display_name = "회복력",
+	kr_display_name = "회복의 힘",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") then
@@ -1742,7 +1742,7 @@ newDamageType{
 -- blood boiled, blight damage + slow
 newDamageType{
 	name = "blood boil", type = "BLOOD_BOIL",
-	kr_display_name = "끓는 피",
+	kr_display_name = "끓어오르는 피",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1840,7 +1840,7 @@ newDamageType{
 			-- silence the apply message if the target already has the effect
 			for eff_id, p in pairs(target.tmp) do
 				local e = target.tempeffect_def[eff_id]
-				if e.desc == "Pinned to the ground" then
+				if e.desc == "땅에 속박되었습니다." then
 					reapplied = true
 				end
 			end
@@ -1855,7 +1855,7 @@ newDamageType{
 
 newDamageType{
 	name = "repulsion", type = "REPULSION",
-	kr_display_name = "혐오",
+	kr_display_name = "반발력",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1872,7 +1872,7 @@ newDamageType{
 				target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
 				game.logSeen(target, "%s 밀려났습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s 밀어내기를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려나지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1932,7 +1932,7 @@ newDamageType{
 
 newDamageType{
 	name = "blazinglight", type = "BLAZINGLIGHT",
-	kr_display_name = "타오르는빛",
+	kr_display_name = "타오르는 빛",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -1962,7 +1962,7 @@ newDamageType{
 					target:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())
 					game.logSeen(target, "%s 밀려났습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				else
-					game.logSeen(target, "%s 밀어내기를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀려나지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end
@@ -2018,7 +2018,7 @@ newDamageType{
 -- Temporal + Stat damage
 newDamageType{
 	name = "reverse aging", type = "CLOCK",
-	kr_display_name = "젊어지기",
+	kr_display_name = "어리게 만들기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2033,7 +2033,7 @@ newDamageType{
 -- Temporal Over Time
 newDamageType{
 	name = "wasting", type = "WASTING", text_color = "#LIGHT_STEEL_BLUE#",
-	kr_display_name = "낭비",
+	kr_display_name = "시간 낭비",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local dur = 3
@@ -2052,7 +2052,7 @@ newDamageType{
 
 newDamageType{
 	name = "stop", type = "STOP",
-	kr_display_name = "멈춤",
+	kr_display_name = "정지",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2079,19 +2079,19 @@ newDamageType{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 3, {apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 기절 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 기절하지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			elseif chance == 2 then
 				if target:canBe("blind") then
 					target:setEffect(target.EFF_BLINDED, 3, {apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 실명 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 실명되지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			elseif chance == 3 then
 				if target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("pin") then
 					target:setEffect(target.EFF_PINNED, 3, {apply_power=src:combatSpellpower()})
 				else
-					game.logSeen(target, "%s 속박 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 속박되지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			elseif chance == 4 then
 				if target:canBe("confusion") then
@@ -2133,7 +2133,7 @@ newDamageType{
 			src.healing_factor = 1
 			src:heal(heal)
 			src.healing_factor = temp
-			game.logSeen(target, "%s %s의 생명력 %d을 먹어치웠습니다!", (src.kr_display_name or src.name):capitalize():addJosa("가"), (target.kr_display_name or target.name), heal) --@@ 변수 순서 조정
+			game.logSeen(target, "%s %s의 생명력 %d 만큼을 먹어치웠습니다!", (src.kr_display_name or src.name):capitalize():addJosa("가"), (target.kr_display_name or target.name), heal) --@@ 변수 순서 조정
 		end
 	end,
 	hideMessage=true,
@@ -2141,7 +2141,7 @@ newDamageType{
 
 newDamageType{
 	name = "chronoslow", type = "CHRONOSLOW",
-	kr_display_name = "시간의 느려짐",
+	kr_display_name = "시간의 감속",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2170,7 +2170,7 @@ newDamageType{
 
 newDamageType{
 	name = "entangle", type = "ENTANGLE",
-	kr_display_name = "얽힘",
+	kr_display_name = "얽어매기",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam/3)
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, 2*dam/3)
@@ -2187,7 +2187,7 @@ newDamageType{
 
 newDamageType{
 	name = "manaworm", type = "MANAWORM",
-	kr_display_name = "마나벌레",
+	kr_display_name = "마나 벌레",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.ARCANE).projector(src, x, y, DamageType.ARCANE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2255,7 +2255,7 @@ newDamageType{
 
 newDamageType{
 	name = "abyssal shroud", type = "ABYSSAL_SHROUD",
-	kr_display_name = "심연의 수의",
+	kr_display_name = "심연의 장막",
 	projector = function(src, x, y, type, dam)
 		--make it dark
 		game.level.map.remembers(x, y, false)
@@ -2267,7 +2267,7 @@ newDamageType{
 			-- silence the apply message it if the target already has the effect
 			for eff_id, p in pairs(target.tmp) do
 				local e = target.tempeffect_def[eff_id]
-				if e.desc == "Abyssal Shroud" then
+				if e.desc == "심연의 장막" then
 					reapplied = true
 				end
 			end
@@ -2279,7 +2279,7 @@ newDamageType{
 
 newDamageType{
 	name = "% chance to summon an orc spirit", type = "GARKUL_INVOKE",
-	kr_display_name = "% 확률적 오크 정신체 소환",
+	kr_display_name = "% 확률로 오크 정신체 소환",
 	projector = function(src, x, y, type, dam)
 		if not rng.percent(dam) then return end
 		local target = game.level.map(x, y, engine.Map.ACTOR)
@@ -2309,7 +2309,8 @@ newDamageType{
 			ai = "summoned", ai_real = "dumb_talented_simple", ai_state = { ai_move="move_complex", talent_in=2, },
 			stats = { str=20, dex=8, mag=6, con=16 },
 			name = "orc spirit", color=colors.SALMON, image = "npc/humanoid_orc_orc_berserker.png",
-			desc = [[An orc clad in a massive armour, wielding a huge axe.]],
+			kr_display_name = "오크 영혼",
+			desc = [[무거운 갑옷과 거대한 도끼를 든 오크입니다.]],
 			level_range = {35, nil}, exp_worth = 0,
 			max_life = resolvers.rngavg(110,120), life_rating = 12,
 			resolvers.equip{
@@ -2375,7 +2376,7 @@ newDamageType{
 -- Generic apply temporary effect
 newDamageType{
 	name = "temp effect", type = "TEMP_EFFECT",
-	kr_display_name = "일시 효과",
+	kr_display_name = "일시적 효과",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2391,7 +2392,7 @@ newDamageType{
 
 newDamageType{
 	name = "manaburn", type = "MANABURN", text_color = "#PURPLE#",
-	kr_display_name = "마나태우기",
+	kr_display_name = "마나 태우기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2475,7 +2476,7 @@ newDamageType{
 					target:crossTierEffect(target.EFF_OFFBALANCE, src:combatMindpower())
 					game.logSeen(target, "%s 밀려났습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				else
-					game.logSeen(target, "%s 밀어내기를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 밀려나지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 			-- Do stun
@@ -2483,7 +2484,7 @@ newDamageType{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, dam.stun, {apply_power=src:combatMindpower()})
 				else
-					game.logSeen(target, "%s 기절 효과를 저항했습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+					game.logSeen(target, "%s 기절하지 않았습니다.", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 			-- Reset resists pen

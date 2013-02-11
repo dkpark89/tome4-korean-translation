@@ -37,6 +37,6 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 균열은 어딘가로 연결되어 있습니다..]],
+	desc = [[이 균열은 어딘가로 연결되어 있는 것 같습니다.]],
 	change_level = 3, change_zone = "daikara",
 }

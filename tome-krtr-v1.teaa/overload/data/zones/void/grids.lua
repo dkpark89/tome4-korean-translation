@@ -37,7 +37,7 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[The rift leads somewhere ..]],
+	desc = [[이 균열은 어딘가와 연결되어 있습니다...]],
 	change_level = 1,
 	change_level_check = function()
 		if game.level.level > 1 then return end

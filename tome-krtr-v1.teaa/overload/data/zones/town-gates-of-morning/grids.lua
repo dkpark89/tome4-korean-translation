@@ -33,13 +33,13 @@ newEntity{ base = "FLOOR", define_as = "ROAD",
 newEntity{
 	define_as = "WEST_PORTAL",
 	name = "Farportal: Last Hope",
-	kr_display_name = "장거리 관문: 마지막 희망",
+	kr_display_name = "장거리 관문 : 마지막 희망",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[장거리 관문은 눈깜박할 새에 놀랄만큼 먼거리를 이동하는 수단입니다. 이것을 이용하기 위해서는 보통 어떤 물건이 필요합니다. 이 것이 썅방향으로의 사용이 가능한 것인지도 짐작이 가지 않습니다.
-이 것의 목표지점은 마즈'에이알의 도시 마지막 희망의 근방인 것 같습니다.]],
+	desc = [[장거리 관문은 눈 깜짝할 사이에 놀랄만큼 먼 거리를 이동하는 수단입니다. 이것을 사용하기 위해서는 보통 어떤 물건이 필요하며, 이 관문이 썅방향으로 사용이 가능한 것인지조차도 알 수 없습니다.
+이 관문의 목표지점은 마즈'에이알의 도시, 마지막 희망의 근방인 것 같습니다.]],
 
 	orb_portal = {
 		change_level = 1,
@@ -47,7 +47,7 @@ newEntity{
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="last-hope"},
 		},
-		message = "#VIOLET#당신이 소용돌이치는 관문으로 들어서 눈을 깜박이자, 관문의 흔적은 없고 마지막 희망의 변두리에 서 있었다...",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈 깜짝할 사이에 관문의 흔적은 없어지고, 자신이 마지막 희망의 변두리에 있다는 것을 알아차립니다...",
 		on_use = function(self, who)
 		end,
 	},

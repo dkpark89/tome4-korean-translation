@@ -19,7 +19,7 @@
 
 return {
 	name = "Rhaloren Camp",
-	kr_display_name = "랄로레 수용소",
+	kr_display_name = "랄로레 야영지",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

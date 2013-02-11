@@ -19,7 +19,7 @@
 
 return {
 	name = "Golem Graveyard",
-	kr_display_name = "골렘 공동묘지",
+	kr_display_name = "골렘의 묘지",
 	level_range = {14, 20},
 	level_scheme = "player",
 	max_level = 1,

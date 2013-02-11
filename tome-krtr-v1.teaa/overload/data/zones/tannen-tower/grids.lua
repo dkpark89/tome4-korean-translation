@@ -31,11 +31,11 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[이 관문은 마지막 희망으로 연결되어 있는 것처럼 보입니다. 이 것을 사용하면 돌아갈 수 있을것 같습니다.]],
+	desc = [[이 관문은 마지막 희망으로 연결되어 있는 것처럼 보입니다. 이 관문을 사용하면 마지막 희망으로 돌아갈 수 있을것 같습니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("다시 또 그 자리에", "관문으로 들어가 마지막 희망으로 되돌아 갑니까?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("다시 또 그곳에", "관문으로 들어가 마지막 희망으로 되돌아갑니까?", function(ret)
 				if not ret then
 					game.player:hasQuest("east-portal"):back_to_last_hope()
 				end

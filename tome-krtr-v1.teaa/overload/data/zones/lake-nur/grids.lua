@@ -42,7 +42,7 @@ newEntity{
 	change_level = 1, change_zone = "shertul-fortress",
 	change_level_check = function(self, who)
 		if who.player and game.party:knownLore("old-forest-note-5") then
-			game.logPlayer(who, "#ANTIQUE_WHITE#당신은 이전에 발견한 보석 열쇠가 맞을 것 같은 구멍을 발견했습니다. 그것을 집어넣자 다음 층으로의 길이 나타납니다.")
+			game.logPlayer(who, "#ANTIQUE_WHITE#당신은 이전에 발견한 보석이 열쇠가 되어 딱 맞을 것 같은 구멍을 발견했습니다. 보석을 집어넣자, 다음 층으로의 길이 나타납니다.")
 			who:setQuestStatus("shertul-fortress", engine.Quest.COMPLETED, "entered")
 		else
 			game.logPlayer(who, "#ANTIQUE_WHITE#이 길은 막혀있는 것으로 보입니다. 아마 열쇠가 필요할 것 같습니다.")

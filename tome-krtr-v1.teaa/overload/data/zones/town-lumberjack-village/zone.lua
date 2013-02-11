@@ -49,7 +49,7 @@ return {
 	},
 	on_enter = function(lev, old_lev, zone)
 		if not game.level.heard_screams then
-			require("engine.ui.Dialog"):simplePopup("Screams", "You hear screaming not too far from you.")
+			require("engine.ui.Dialog"):simplePopup("비명", "가까운 곳에서, 비명 소리를 들었습니다.")
 			game.level.heard_screams = true
 		end
 	end,

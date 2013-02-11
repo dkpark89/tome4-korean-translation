@@ -43,7 +43,7 @@ newEntity{ base = "BASE_STORE", define_as = "LIBRARY",
 
 newEntity{ base = "BASE_STORE", define_as = "STAVES",
 	name="Tools of the Art",
-	kr_display_name = "작품을 위한 도구점",
+	kr_display_name = "예술을 위한 도구점",
 	display='6', color=colors.UMBER,
 	resolvers.store("ANGOLWEN_STAFF_WAND", "angolwen", "store/shop_door.png", "store/shop_sign_staves_wands.png"),
 }

@@ -19,7 +19,7 @@
 
 return {
 	name = "Heart of the Gloom",
-	kr_display_name = "우울함의 심장",
+	kr_display_name = "어둠의 심장",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

@@ -34,7 +34,7 @@ newEntity{ define_as = "CELIA",
 	female = true,
 	display = "p", color=colors.GREY,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_celia.png", display_h=2, display_y=-1}}},
-	desc = [[당신 앞에 서 있는 꽉끼는 로브를 입은 키 큰 여자입니다. 그녀의 창백한 피부에는 천연두와 벌어진 상처의 자국이 남아있지만, 그녀의 눈빛은 밝고 날카롭습니다. 그녀의 부풀어 오른 복부는 그녀가 임신한 지 꽤 지났음을 알려줍니다.]],
+	desc = [[꽉 끼는 로브를 입고 당신 앞에 서 있는, 키 큰 여자입니다. 그녀의 창백한 피부에는 천연두와 벌어진 상처의 자국이 남아있지만, 그녀의 눈빛은 밝고 날카롭습니다. 그녀의 부풀어 오른 복부는 그녀가 임신한 지 꽤 지났음을 알려줍니다.]],
 	autolevel = "caster",
 	stats = { str=12, dex=17, mag=22, wil=22, con=12 },
 
@@ -102,7 +102,7 @@ newEntity{ define_as = "CELIA",
 			end
 
 			local Dialog = require("engine.ui.Dialog")
-			Dialog:simpleLongPopup("셀리아", "셀리아에게 마지막 일격을 가하자마자, 당신의 리치 변신을 위한 의식으로 빨리 그녀의 심장을 떼어냈습니다.\n조심스레 마법을 엮어, 심장이 계속 뛰도록 만들었습니다.", 400)
+			Dialog:simpleLongPopup("셀리아", "셀리아에게 마지막 일격을 가하자마자, 당신의 리치 변신을 위한 의식을 위해 재빨리 그녀의 심장을 떼어냈습니다.\n조심스레 마법을 엮어, 심장이 계속 뛰도록 만들었습니다.", 400)
 			p:setQuestStatus("grave-necromancer", engine.Quest.COMPLETED, "kill-necromancer")
 		else
 			if game.party:knownLore("necromancer-primer-1") and

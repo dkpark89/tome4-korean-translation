@@ -91,7 +91,7 @@ return {
 
 		local Dialog = require("engine.ui.Dialog")
 		if not game.level.shown_warning then
-			Dialog:simpleLongPopup("이일크구르", "이 지역은 나머지 잔해와는 동떨어져 보입니다. 공기는 신선하고 조명은 밝습니다. 조금 떨어진 곳에서 마법의 에너지가 파직거리는 소리가 들립니다.", 400)
+			Dialog:simpleLongPopup("이일크구르", "이 지역은 다른 곳과는 전혀 달라보입니다. 공기는 신선하고 조명은 밝으며, 조금 떨어진 곳에서는 마법 에너지가 파직거리는 소리가 들립니다.", 400)
 			game.level.shown_warning = true
 		end
 	end,
@@ -114,15 +114,15 @@ return {
 				map:particleEmitter(x, y, 1, "demon_teleport")
 
 				if  map:getObjectTotal(x, y) == 1 then
-					game.logPlayer(who, "당신의 %s 창고에 마법같이 정리됩니다.", o:getName{do_color=true}:addJosa("가"))
+					game.logPlayer(who, "당신의 %s 창고에 마법같이 깔끔하게 정리됩니다.", o:getName{do_color=true}:addJosa("가"))
 				else
-					game.logPlayer(who, "당신의 %s 창고에 마법같이 정리되어, 같은 종류의 다른 물건들과 같이 쌓여 있습니다.", o:getName{do_color=true}:addJosa("가"))
+					game.logPlayer(who, "당신의 %s 창고에 마법같이 깔끔하게 정리되어, 같은 종류의 다른 물건들과 같이 쌓입니다.", o:getName{do_color=true}:addJosa("가"))
 				end
 				return
 			end
 		end end
 
-		game.logPlayer(who, "당신의 %s 정리하기위한 공간이 부족합니다.", o:getName{do_color=true}:addJosa("를"))
+		game.logPlayer(who, "당신의 %s 정리하기 위한 공간이 부족합니다.", o:getName{do_color=true}:addJosa("를"))
 		map:addObject(dx, dy, o) -- Add the object back, no room, so dont loose it
 	end,
 }

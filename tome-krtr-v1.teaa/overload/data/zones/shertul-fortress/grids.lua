@@ -63,9 +63,9 @@ newEntity{
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[놀라운 거리를 눈 깜박할 새에 갈 수 있는 장거리 관문입니다. 강력한 쉐르'툴 종족이 남긴 것입니다.
-이 장거리 관문은 다른 관문과 연결되어 있지 않습니다. 탐험을 위해 만들어졌고, 어디로 보낼지 알 수가 없습니다.
-자동적으로 돌아오는 관문이 만들어지지만, 도착지점에서 가까운 곳이 아닐 수도 있습니다.]],
+	desc = [[놀라운 거리를 눈 깜짝할 사이에 이동할 수 있는 장거리 관문으로, 강력한 쉐르'툴 종족이 남긴 것입니다.
+이 장거리 관문은 다른 관문과 연결되어 있지 않습니다. 이 관문은 탐험을 위해 만들어진 것이며, 어디로 보내질 것인지 알 수 없습니다.
+자동적으로 돌아오는 관문이 만들어지지만, 그 위치는 도착 지점에서 가까운 곳이 아닐 수도 있습니다.]],
 	
 
 	checkSpecialLocation = function(self, who, q)
@@ -73,7 +73,7 @@ newEntity{
 		if rng.percent(5) and not game.state:hasSeenSpecialFarportal("caldizar-space-fortress") then
 			game:changeLevel(1, "shertul-fortress-caldizar", {direct_switch=true})
 			q:exploratory_energy()
-			game.log("#VIOLET#당신은 소용돌이 치는 관문으로 들어섰고, 눈을 깜박이자 이상하게 익숙한 장소의 장거리 관문 옆에 서 있음을 느낍니다...")
+			game.log("#VIOLET#당신은 소용돌이 치는 관문으로 들어섰고, 눈 깜짝할 사이에 자신이 익숙한 장소의 장거리 관문 옆으로 이동했다는 것을 깨달았습니다. 분명 처음 보는 곳인데...")
 			game.state:seenSpecialFarportal("caldizar-space-fortress")
 			return true
 		end
@@ -83,11 +83,11 @@ newEntity{
 		if not who.player then return end
 		local Dialog = require "engine.ui.Dialog"
 		local q = who:hasQuest("shertul-fortress")
-		if not q then Dialog:simplePopup("탐험용 장거리 관문", "장거리 관문은 비활성화 상태인 것 같습니다") return end
-		if not q:exploratory_energy(true) then Dialog:simplePopup("탐험용 장거리 관문", "요새의 에너지가 관문을 통해 여행할만큼 충분하지 않습니다.") return end
+		if not q then Dialog:simplePopup("탐험용 장거리 관문", "이 장거리 관문은 비활성화 상태인 것 같습니다.") return end
+		if not q:exploratory_energy(true) then Dialog:simplePopup("탐험용 장거리 관문", "요새의 에너지가 관문을 통해 여행할 수 있을만큼 충분하지 않습니다.") return end
 		if q:isCompleted("farportal-broken") then Dialog:simplePopup("탐험용 장거리 관문", "장거리 관문이 부서져 있어, 더이상 사용할 수 없습니다.") return end
 
-		Dialog:yesnoPopup("탐험용 장거리 관문", "장거리 관문을 통해 여행하기를 원합니까? 어디에 도착할지 알 수 없습니다.", function(ret) if ret then
+		Dialog:yesnoPopup("탐험용 장거리 관문", "장거리 관문을 통해 탐험하기를 원합니까? 어디에 도착할지 알 수 없습니다.", function(ret) if ret then
 			if self:checkSpecialLocation(who, q) then return end
 
 			local zone, boss = game.state:createRandomZone()
@@ -111,7 +111,7 @@ newEntity{
 				g.notice = true
 				g.change_level = 1 g.change_zone = "shertul-fortress"
 				game.zone:addEntity(game.level, g, "terrain", x, y)
-				if self then game.logSeen(self, "#VIOLET#%s 떨어지자, 관문이 나타났음을 발견합니다.", (self.kr_display_name or self.name):addJosa("가"))
+				if self then game.logSeen(self, "#VIOLET#%s 떨어지면서, 근처에 관문이 나타나는 것을 발견했습니다.", (self.kr_display_name or self.name):addJosa("가"))
 				else game.logSeen(p, "#VIOLET#되돌림의 장대가 진동하자, 관문이 당신 밑에 나타났습니다.") end
 			end
 			zone.on_turn = function(zone)
@@ -134,7 +134,7 @@ newEntity{
 			end
 			game:changeLevel(1, zone, {direct_switch=true})
 			q:exploratory_energy()
-			game.log("#VIOLET#당신은 소용돌이치는 관문으로 들어섰고, 눈을 깜박이자 관문의 흔적이 없는 익숙하지 않은 장소에 서 있음을 느낍니다...")
+			game.log("#VIOLET#당신은 소용돌이 치는 관문으로 들어섰고, 눈 깜짝할 사이에 자신이 관문의 흔적이 없는, 익숙하지 않은 장소로 이동했다는 것을 깨달았습니다...")
 		end end, "예", "아니오")
 	end,
 }
@@ -167,7 +167,7 @@ newEntity{
 			local nb = 0
 			if profile.mod.lore then for lore, _ in pairs(profile.mod.lore.lore) do nb = nb + 1 end end
 
-			local popup = require("engine.ui.Dialog"):simpleWaiter("이일크구르의 잊혀진 신비의 도서관", "우주의 잊혀진 지식을 받습니다...", nil, nil, nb)
+			local popup = require("engine.ui.Dialog"):simpleWaiter("이일크구르의 잊혀진 신비의 도서관", "우주의 잊혀진 지식들을 받습니다...", nil, nil, nb)
 			core.wait.enableManualTick(true)
 			core.display.forceRedraw()
 

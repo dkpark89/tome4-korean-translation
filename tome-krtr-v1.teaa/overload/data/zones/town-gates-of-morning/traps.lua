@@ -21,14 +21,14 @@ load("/data/general/traps/store.lua")
 
 newEntity{ base = "BASE_STORE", define_as = "HEAVY_ARMOR_STORE",
 	name="Impenetrable Plates",
-	kr_display_name="뚫리지않는 금속",
+	kr_display_name="뚫리지 않는 갑옷",
 	display='2', color=colors.UMBER,
 	resolvers.store("HEAVY_ARMOR", "sunwall", "store/shop_door.png", "store/shop_sign_impenetrable_plates.png"),
 }
 
 newEntity{ base = "BASE_STORE", define_as = "LIGHT_ARMOR_STORE",
 	name="Quality Leather",
-	kr_display_name="질좋은 가죽",
+	kr_display_name="질 좋은 가죽",
 	display='2', color=colors.UMBER,
 	resolvers.store("LIGHT_ARMOR", "sunwall", "store/shop_door.png", "store/shop_sign_quality_leather.png"),
 }
@@ -63,7 +63,7 @@ newEntity{ base = "BASE_STORE", define_as = "AXE_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "MAUL_WEAPON_STORE",
 	name="Mauling for Brutes",
-	kr_display_name="야수를위한 망치",
+	kr_display_name="야수를 위한 망치",
 	display='3', color=colors.UMBER,
 	resolvers.store("MAUL_WEAPON", "sunwall", "store/shop_door.png", "store/shop_sign_mauling_brutes.png"),
 }
@@ -77,7 +77,7 @@ newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "STAFF_WEAPON_STORE",
 	name="Sook's Arcane Goodness",
-	kr_display_name="숙의 마법용품점",
+	kr_display_name="숙의 마법 용품점",
 	display='3', color=colors.UMBER,
 	resolvers.store("STAFF_WEAPON", "sunwall", "store/shop_door.png", "store/shop_sign_sooks_goodness.png"),
 }

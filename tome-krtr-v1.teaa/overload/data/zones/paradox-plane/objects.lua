@@ -29,8 +29,8 @@ newEntity{ base = "BASE_LONGBOW",
 	rarity=false,
 	name = "Epoch's Curve", unided_name = "white ash longbow", unique=true, image="object/artifact/bow_epochs_curve.png",
 	kr_display_name = "에포크의 곡선", kr_unided_name = "흰 물푸레나무 활",
-	desc = [[에포크의 곡선은 시대의 감시자(Warden for generations)에게 주어졌었고, 엃어버리기 전까지 여러 시대가 지나는 동안 감시자에게서 다음 감시자에게 건네지던 것입니다.
-전설에 따르면 마법폭발이 생긴 후 싹튼 첫번째 물푸레나무의 묘목으로 만든 것이고, 시간과 재생의 힘을 동시에 가지고 있다고 합니다.]],
+	desc = [[에포크의 곡선은 시대의 감시자에게 주어졌었고, 잃어버리기 전까지 여러 시대가 지나는 동안 한 감시자에게서 다음 감시자에게 전해지던 물건입니다.
+전설에 따르면 이 물건은 마법폭발이 일어난 뒤에 싹튼 첫 번째 물푸레나무의 묘목으로 만든 것이며, 시간과 재생의 힘을 동시에 가지고 있다고 합니다.]],
 	level_range = {20, 40},
 	rarity = 200,
 	require = { stat = { dex=24 }, },

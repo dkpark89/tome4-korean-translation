@@ -28,7 +28,7 @@ newEntity{ define_as = "ATHAME",
 	level_range = {50, 50},
 	display = "|", color=colors.VIOLET,
 	encumber = 1,
-	desc = [[피로 룬이 적힌 제례용 단검입니다. 힘을 내뿜고 있습니다.]],
+	desc = [[피의 룬이 새겨진 제례단검입니다. 힘을 내뿜고 있습니다.]],
 
 	on_pickup = function(self, who)
 		if who == game.player then

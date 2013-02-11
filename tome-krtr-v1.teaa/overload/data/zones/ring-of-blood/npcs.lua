@@ -27,7 +27,7 @@ newEntity{ define_as = "RING_MASTER",
 	kr_display_name = "피의 경기장 운영자",
 	display = "@", color=colors.VIOLET,
 	blood_color = colors.BLUE,
-	desc = [[이 작은 영장류는 비단같은 흰 털로 덮혀 있습니다. 툭 튀어나온 눈은 당신의 정신 속까지 깊이 응시하고 있습니다.]],
+	desc = [[이 작은 영장류는 비단같은 흰 털로 온 몸이 덮혀있으며, 툭 튀어나온 눈은 당신의 정신 속까지 깊이 응시하고 있습니다.]],
 	level_range = {14, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 12, fixed_rating = true,
 	rank = 3.5,
@@ -84,14 +84,14 @@ newEntity{ define_as = "SPECTATOR",
 	female = resolvers.rngtable{false, true},
 	image = resolvers.rngtable{"npc/humanoid_human_spectator.png","npc/humanoid_human_spectator02.png","npc/humanoid_human_spectator03.png",},
 	display = "p", resolvers.rngcolor{colors.BLUE, colors.LIGHT_BLUE, colors.RED, colors.LIGHT_RED, colors.ORANGE, colors.YELLOW, colors.GREEN, colors.LIGHT_GREEN, colors.PINK, },
-	desc = [[이 피비린내나는 "경기"를 보기 위해 돈을 내고 입장한 관중입니다.]],
+	desc = [[이 피비린내나는 "경기" 를 보기 위해, 돈을 내고 입장한 관중입니다.]],
 	level_range = {1, nil}, exp_worth = 0,
 	max_life = 100, life_rating = 12,
 	faction = "neutral",
 	emote_random = resolvers.emote_random{
 		"피를 뿌려라!", "싸워!", "죽여라!",
-		"와 이건 대단해", "죽음의 냄새가 사랑스러워...",
-		"넌 계속 노예밖에 못하겠네!",
+		"와, 이건 대단해!", "죽음의 냄새가 사랑스러워...",
+		"너는 영원히 노예일 뿐이다!",
 	},
 }
 
@@ -102,7 +102,7 @@ newEntity{ define_as = "PLAYER_SLAVE",
 	name = "slave combatant",
 	kr_display_name = "노예 전투원",
 	display = "@", color=colors.UMBER,
-	desc = [[야크의 정신력에 의해 노예가 된 사람입니다.]],
+	desc = [[야크의 정신력에 의해, 노예가 된 사람입니다.]],
 	level_range = {9, 9}, exp_worth = 0,
 	max_life = 120, life_rating = 12, fixed_rating = true,
 	rank = 3,
@@ -173,9 +173,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SLAVER",
 	name = "slaver", color=colors.TEAL,
-	kr_display_name = "노예",
+	kr_display_name = "노예 주인",
 	subtype = "yaech",
-	desc = [[노예입니다.]],
+	desc = [[노예들의 주인입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(80,90), life_rating = 11,
@@ -196,7 +196,7 @@ newEntity{ base = "BASE_NPC_SLAVER",
 			m.on_act = function(self)
 				if self.master and self.master:attr("dead") then
 					self.faction = "neutral"
-					self:doEmote(rng.table{"난 자유인이다!", "마침내, 자유를!", "이렇게 해 줘 고맙군!", "정신 제압이 사라졌군!"}, 60)
+					self:doEmote(rng.table{"난 자유인이다!", "마침내, 자유를!", "이렇게 해줘서 고맙네!", "정신 제압이 사라졌군!"}, 60)
 					self.on_act = nil
 					self.master = nil
 					world:gainAchievement("RING_BLOOD_FREED", game:getPlayer(true))
