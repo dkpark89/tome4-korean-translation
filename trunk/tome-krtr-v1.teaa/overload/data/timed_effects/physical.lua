@@ -1343,7 +1343,7 @@ newEffect{
 		elseif eff.type == DamageType.COLD then return ("방어도 +%d"):format(3 + eff.power *2)
 		elseif eff.type == DamageType.LIGHTNING then return ("모든 능력치 +%d"):format(math.floor(eff.power))
 		elseif eff.type == DamageType.ACID then return ("생명력 재생 +%0.2f%%"):format(5 + eff.power * 2)
-		elseif eff.type == DamageType.NATURE then return ("모든 저항 +%d%%"):format(5 + eff.power * 1.4)
+		elseif eff.type == DamageType.NATURE then return ("모든 피해 저항 +%d%%"):format(5 + eff.power * 1.4)
 		end
 	end,
 	type = "physical",

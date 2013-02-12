@@ -53,7 +53,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 			src.iname = name
 			src.idata = data
 			src.replace_same = name
-			local chat = Chat.new("player-inscription", {name=t.name}, self, src)
+			local chat = Chat.new("player-inscription", {name=t.name, kr_display_name=(t.kr_display_name or t.name)}, self, src)
 			chat:invoke()
 		end
 		return
@@ -75,7 +75,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 			src.player = self
 			src.iname = name
 			src.idata = data
-			local chat = Chat.new("player-inscription", {name=t.name}, self, src)
+			local chat = Chat.new("player-inscription", {name=t.name, kr_display_name=(t.kr_display_name or t.name)}, self, src)
 			chat:invoke()
 		end
 		return

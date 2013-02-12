@@ -24,7 +24,7 @@ newEntity{ base = "BASE_LORE",
 	define_as = "FOUNDATION_NOTE"..i,
 	subtype = "last hope foundation", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "The Diaries of King Toknor the Brave ("..i..")", lore="last-hope-foundation-note-"..i,
-	kr_display_name = "용기의 왕 토크놀의 일기 ("..i..")", --@@ lore 번역시 수정 필요
+	kr_display_name = "용감한 왕 토크놀의 일기 ("..i..")", --@@ lore 번역시 수정 필요
 	desc = [[마지막 희망의 역사와, 용감한 왕 토크놀에 대한 기록입니다.]],
 	rarity = false,
 	encumberance = 0,

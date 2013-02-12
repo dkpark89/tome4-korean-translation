@@ -125,7 +125,7 @@ newTalent{
 		end
 		local state = {}
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("command-staff", {name="지팡이 다루기"}, self, {version=staff, state=state, co=coroutine.running()})
+		local chat = Chat.new("command-staff", {name="Command Staff", kr_display_name="지팡이 다루기"}, self, {version=staff, state=state, co=coroutine.running()})
 		local d = chat:invoke()
 		if not coroutine.yield() then return nil end
 		return true
@@ -148,7 +148,7 @@ newTalent{
 	action = function(self, t)
 		local state = {}
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("ward", {name="보호"}, self, {version=self, state=state})
+		local chat = Chat.new("ward", {name="Ward", kr_display_name="보호"}, self, {version=self, state=state})
 		local d = chat:invoke()
 		local co = coroutine.running()
 		--print("before d.unload, state.set_ward is ", state.set_ward)

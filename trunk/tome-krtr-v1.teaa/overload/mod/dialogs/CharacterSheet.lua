@@ -636,9 +636,9 @@ function _M:drawDialog(kind, actor_to_compare)
 			end
 		end
 		
-		--@@ 640~666 : 염동력 무기 정보 추가 코드 추가
-		--[[h = h + self.font_h
-		-- All weapons in off hands
+		--@@ 640~680 : 염동력 무기 정보 추가 코드 추가
+		h = h + self.font_h
+		-- All weapons in psionic focus
 		if player:getInven(player.INVEN_PSIONIC_FOCUS) then
 			for i, o in ipairs(player:getInven(player.INVEN_PSIONIC_FOCUS)) do
 				local mean, dam = player:getObjectCombat(o, "mainhand"), player:getObjectCombat(o, "mainhand")
@@ -646,17 +646,31 @@ function _M:drawDialog(kind, actor_to_compare)
 					dam = (player:getInven("QUIVER") and player:getInven("QUIVER")[1] and player:getInven("QUIVER")[1].combat)
 				end
 				if mean and dam then
+					
+					local psi_atk = 0
+					local psi_dam = 0
+					local psi_apr = 0
+					local psi_crit = 0
+					local psi_speed = 1
+					player.use_psi_combat = true
+					psi_atk = player:combatAttack(o.combat)
+					psi_dam = player:combatDamage(o.combat)
+					psi_apr = player:combatAPR(o.combat)
+					psi_crit = player:combatCrit(o.combat)
+					psi_speed = player:combatSpeed(o.combat)
+					player.use_psi_combat = false
+					
 					s:drawColorStringBlended(self.font, "#LIGHT_BLUE#염동 무기:", w, h, 255, 255, 255, true) h = h + self.font_h
-					text = compare_fields(player, actor_to_compare, function(actor, ...) return math.floor(actor:combatAttack(...)) end, "%3d", "%+.0f", 1, false, false, mean)
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return math.floor(psi_atk) end, "%3d", "%+.0f", 1, false, false, mean)
 					dur_text = ("%d"):format(math.floor(player:combatAttack(o.combat)/5))
 					self:mouseTooltip(self.TOOLTIP_COMBAT_ATTACK, s:drawColorStringBlended(self.font, ("정확도    : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
-					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatDamage(...) end, "%3d", "%+.0f", 1, false, false, dam)
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return psi_dam end, "%3d", "%+.0f", 1, false, false, dam)
 					self:mouseTooltip(self.TOOLTIP_COMBAT_DAMAGE, s:drawColorStringBlended(self.font, ("피해량    : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
-					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatAPR(...) end, "%3d", "%+.0f", 1, false, false, dam)
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return psi_apr end, "%3d", "%+.0f", 1, false, false, dam)
 					self:mouseTooltip(self.TOOLTIP_COMBAT_APR,    s:drawColorStringBlended(self.font, ("방어관통력: #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
-					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatCrit(...) end, "%3d%%", "%+.0f%%", 1, false, false, dam)
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return psi_crit end, "%3d%%", "%+.0f%%", 1, false, false, dam)
 					self:mouseTooltip(self.TOOLTIP_COMBAT_CRIT,   s:drawColorStringBlended(self.font, ("치명타율  : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
-					text = compare_fields(player, actor_to_compare, function(actor, ...) return actor:combatSpeed(...) end, "%.2f%%", "%+.2f%%", 100, true, false, mean)
+					text = compare_fields(player, actor_to_compare, function(actor, ...) return psi_speed end, "%.2f%%", "%+.2f%%", 100, true, false, mean)
 					self:mouseTooltip(self.TOOLTIP_COMBAT_SPEED,  s:drawColorStringBlended(self.font, ("공격속도  : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
 				end
 				if mean and mean.range then

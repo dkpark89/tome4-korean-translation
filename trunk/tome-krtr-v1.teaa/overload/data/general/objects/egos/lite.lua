@@ -261,7 +261,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "nightwalker's ", prefix=true, instant_resolve=true,
-	kr_display_name = "밤을 걷는 ",
+	kr_display_name = "밤에 걷는자 ",
 	keywords = {nightwalker=true},
 	level_range = {30, 50},
 	greater_ego = 1,

@@ -70,7 +70,7 @@ next_combat = function(self)
 
 		if not self:isEnded() then
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("antimagic-end", {name="Grim-looking fighter"}, game.player)
+			local chat = Chat.new("antimagic-end", {name="Grim-looking fighter", kr_display_name="험상궂은 투사"}, game.player)
 			chat:invoke()
 		end
 	end

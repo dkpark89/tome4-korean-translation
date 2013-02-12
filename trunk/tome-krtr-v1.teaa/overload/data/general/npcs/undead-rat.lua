@@ -189,7 +189,7 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 	name = "Rat Lich", color=colors.BLACK,
-	kr_display_name = "리치쥐",
+	kr_display_name = "리치 쥐",
 	desc = [[당신이 오기 전까지 구덩이의 지배자였습니다. 위협적으로 찍찍거리면, 부하들이 떼거지로 당신에게 달려듭니다.]],
 	level_range = {16, nil}, exp_worth = 2,
 	rarity = false,
@@ -245,9 +245,9 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 				{type="undead", subtype="rodent", number=3, hasxp=false},
 			}
 
-			game.logSeen(self, "#RED#다시 되살아난 리치쥐의 눈은 새로운 에너지로 불타오릅니다!")
+			game.logSeen(self, "#RED#다시 되살아난 리치 쥐의 눈은 새로운 에너지로 불타오릅니다!")
 
-			self.desc = self.desc.."\n리치쥐의 진정한 힘이 드러났습니다! 마법의 에너지가 소용돌이치고, 전투의 찍찍거림을 내뱉으며 부하들과 함께 당신을 추격합니다!"
+			self.desc = self.desc.."\n리치 쥐의 진정한 힘이 드러났습니다! 마법의 에너지가 소용돌이치고, 전투의 찍찍거림을 내뱉으며 부하들과 함께 당신을 추격합니다!"
 
 			self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 			self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})

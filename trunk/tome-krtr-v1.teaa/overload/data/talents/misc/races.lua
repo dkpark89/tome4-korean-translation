@@ -892,7 +892,7 @@ newTalent{
 	on_learn = function(self, t) self.auto_id = 2 end,
 	action = function(self, t)
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("elisa-orb-scrying", {name="'한길'"}, self, {version="yeek"})
+		local chat = Chat.new("elisa-orb-scrying", {name="The Way", kr_display_name="'한길'"}, self, {version="yeek"})
 		chat:invoke()
 		return true
 	end,
