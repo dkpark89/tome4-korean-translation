@@ -29,7 +29,7 @@ on_status_change = function(self, who, status, sub)
 		if self:isCompleted("twin") and self:isCompleted("clone") then
 			who:setQuestStatus(self.id, engine.Quest.DONE)
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("temporal-rift-end", {name="Temporal Warden"}, who)
+			local chat = Chat.new("temporal-rift-end", {name="Temporal Warden", kr_display_name="시간의 감시자"}, who)
 			chat:invoke()
 		end
 	end

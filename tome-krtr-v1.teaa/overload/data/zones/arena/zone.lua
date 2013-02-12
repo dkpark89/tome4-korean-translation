@@ -448,7 +448,7 @@ return {
 			end,
 		}
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena-start", {name="Arena mode"}, game.player, {text = level.arena.printRankings()})
+		local chat = Chat.new("arena-start", {name="Arena mode", kr_display_name="투기장 모드"}, game.player, {text = level.arena.printRankings()})
 		chat:invoke()
 	end
 }

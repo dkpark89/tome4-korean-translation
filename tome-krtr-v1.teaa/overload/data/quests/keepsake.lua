@@ -124,7 +124,7 @@ end
 
 on_caravan_destroyed = function(self, who)
 	local Chat = require "engine.Chat"
-	local chat = Chat.new("keepsake-caravan-destroyed", {name="Last of the Caravan"}, game.player)
+	local chat = Chat.new("keepsake-caravan-destroyed", {name="Last of the Caravan", kr_display_name="대상 행렬의 끝"}, game.player)
 	chat:invoke()
 end
 
@@ -212,7 +212,7 @@ end
 
 on_kyless_death = function(self, who, kyless)
 	local Chat = require "engine.Chat"
-	local chat = Chat.new("keepsake-kyless-death", {name="Death of Kyless"}, game.player)
+	local chat = Chat.new("keepsake-kyless-death", {name="Death of Kyless", kr_display_name="킬레스의 죽음"}, game.player)
 	chat:invoke()
 
 	who:setQuestStatus("keepsake", engine.Quest.COMPLETED, "kyless-killed")
@@ -242,7 +242,7 @@ end
 
 on_berethh_encounter = function(self, who, berethh)
 	local Chat = require "engine.Chat"
-	local chat = Chat.new("keepsake-berethh-encounter", {name="Berethh"}, game.player)
+	local chat = Chat.new("keepsake-berethh-encounter", {name="Berethh", kr_display_name="베레쓰"}, game.player)
 	chat:invoke()
 end
 

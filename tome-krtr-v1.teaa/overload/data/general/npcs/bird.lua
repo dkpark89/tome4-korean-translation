@@ -47,10 +47,10 @@ newEntity{
 
 newEntity{ base="BASE_NPC_BIRD", define_as = "NPC_PHOENIX",
 	name = "Phoenix", unique = true,
-	kr_display_name = "피닉스",
+	kr_display_name = "불사조",
 	display = "B", color=colors.VIOLET,
 	rarity = 50,
-	desc = [[언제나 타오르고, 언제나 죽고, 언제나 부활하는 피닉스가 그 불같은 운명을 나눠주기 위해 당신을 급습하고 있습니다.]],
+	desc = [[언제나 타오르고, 언제나 죽고, 언제나 부활하는 불사조가 그 불같은 운명을 나눠주기 위해 당신을 급습하고 있습니다.]],
 	level_range = {40, 75}, exp_worth = 10,
 	max_life = 1000, life_rating = 23, fixed_rating = true,
 	max_mana = 1000,

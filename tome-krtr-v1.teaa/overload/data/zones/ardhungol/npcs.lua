@@ -67,7 +67,7 @@ newEntity{ define_as = "UNGOLE", base = "BASE_NPC_SPIDER",
 
 	on_die = function(self, who)
 		local Chat = require"engine.Chat"
-		local chat = Chat.new("ardhungol-end", {name="Sun Paladin Rashim"}, game.player:resolveSource())
+		local chat = Chat.new("ardhungol-end", {name="Sun Paladin Rashim", kr_display_name="태양의 기사 라심"}, game.player:resolveSource())
 		chat:invoke()
 	end,
 }

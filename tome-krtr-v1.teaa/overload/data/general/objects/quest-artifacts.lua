@@ -312,7 +312,7 @@ newEntity{ define_as = "ORB_SCRYING",
 	use_power = { name = "오브 사용", power = 1,
 		use = function(self, who)
 			local Chat = require("engine.Chat")
-			local chat = Chat.new("elisa-orb-scrying", {name="점술사 엘리사"}, who, {version="elisa"})
+			local chat = Chat.new("elisa-orb-scrying", {name="Elisa the Scryer", kr_display_name="점술사 엘리사"}, who, {version="elisa"})
 			chat:invoke()
 			return {id=true, used=true}
 		end

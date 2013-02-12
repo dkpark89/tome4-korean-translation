@@ -204,7 +204,7 @@ newEntity{
 			game:changeLevel(11, nil, {direct_switch=true}) -- Special level, can not get to it any other way
 			if game.player:hasQuest("high-peak"):isCompleted("sanctum-chat") then return end
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("sorcerer-fight", {name="Elandar"}, game.player)
+			local chat = Chat.new("sorcerer-fight", {name="Elandar", kr_display_name="엘란다르"}, game.player)
 			chat:invoke()
 			game.player:hasQuest("high-peak"):setStatus(engine.Quest.COMPLETED, "sanctum-chat")
 			game.player:hasQuest("high-peak"):start_end_combat()

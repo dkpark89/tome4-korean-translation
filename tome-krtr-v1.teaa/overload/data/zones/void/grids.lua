@@ -43,7 +43,7 @@ newEntity{
 		if game.level.level > 1 then return end
 		local p = game.party:findMember{main=true}
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("temporal-rift-start", {name="Temporal Warden"}, p)
+		local chat = Chat.new("temporal-rift-start", {name="Temporal Warden", kr_display_name="시간의 감시자"}, p)
 		chat:invoke()
 		return true
 	end,

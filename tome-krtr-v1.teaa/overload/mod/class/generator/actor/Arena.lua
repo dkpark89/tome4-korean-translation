@@ -201,12 +201,12 @@ _M.bosses = {
 	score = 1500, power = 35,
 	start = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_display_name="보스 전투!"}, game.player)
 		chat:invoke("ryal-entry")
 	end,
 	finish = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_display_name="승리!!"}, game.player)
 		game.player:incMoney(35)
 		chat:invoke("ryal-defeat")
 	end
@@ -215,12 +215,12 @@ _M.bosses = {
 	score = 2500, power = 55,
 	start = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_display_name="보스 전투!"}, game.player)
 		chat:invoke("fryjia-entry")
 	end,
 	finish = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_display_name="승리!!"}, game.player)
 		game.player:incMoney(50)
 		chat:invoke("fryjia-defeat")
 	end
@@ -229,12 +229,12 @@ _M.bosses = {
 	score = 3500, power = 85,
 	start = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_display_name="보스 전투!"}, game.player)
 		chat:invoke("riala-entry")
 	end,
 	finish = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_display_name="승리!!"}, game.player)
 		game.player:incMoney(70)
 		chat:invoke("riala-defeat")
 
@@ -246,14 +246,14 @@ _M.bosses = {
 		game.level.map:setShown(0.3, 0.3, 0.3, 1)
 		game.level.map:setObscure(0.3*0.6, 0.3*0.6, 0.3*0.6, 1)
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_display_name="보스 전투!"}, game.player)
 		chat:invoke("valfren-entry")
 	end,
 	finish = function ()
 		game.level.map:setShown(1, 1, 1, 1)
 		game.level.map:setObscure(1*0.6, 1*0.6, 1*0.6, 1)
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_display_name="승리!!"}, game.player)
 		game.player:incMoney(90)
 		chat:invoke("valfren-defeat")
 	end
@@ -422,7 +422,7 @@ function _M:generateMaster()
 			m:setTarget(game.player)
 			m.on_added = function (self)
 				local Chat = require "engine.Chat"
-				local chat = Chat.new("arena", {name="The final fight!"}, game.player)
+				local chat = Chat.new("arena", {name="The final fight!", kr_display_name="최종 전투!"}, game.player)
 				chat:invoke("master-entry")
 				game.level.arena.danger = game.level.arena.danger + 1000
 				game.level.map:particleEmitter(self.x, self.y, 3, "teleport")
@@ -437,7 +437,7 @@ function _M:generateMaster()
 				game.level.arena.clear()
 				self.on_die = nil
 				local Chat = require "engine.Chat"
-				local chat = Chat.new("arena", {name="Congratulations!"}, game.player)
+				local chat = Chat.new("arena", {name="Congratulations!", kr_display_name="축하합니다!"}, game.player)
 				chat:invoke("master-defeat")
 
 			end
@@ -454,7 +454,7 @@ function _M:generateMaster()
 		m:setTarget(game.player)
 		m.on_added = function (self)
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("arena", {name="The final fight!"}, game.player)
+			local chat = Chat.new("arena", {name="The final fight!", kr_display_name="최종 전투!"}, game.player)
 			chat:invoke("master-entry")
 			if self.alchemy_golem then
 				self.alchemy_golem.dead = nil
@@ -474,7 +474,7 @@ function _M:generateMaster()
 			game.level.map:particleEmitter(self.x, self.y, 1, "ball_fire", {radius = 3})
 			game.level.arena.clear()
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("arena", {name="Congratulations!"}, game.player)
+			local chat = Chat.new("arena", {name="Congratulations!", kr_display_name="축하합니다!"}, game.player)
 			self.on_die = nil
 			chat:invoke("master-defeat")
 

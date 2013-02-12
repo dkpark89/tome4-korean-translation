@@ -69,7 +69,7 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 	self.c_options = Button.new{text="맞춤 설정", fct=function() self:customizeOptions() end}
 	self.c_options.hide = true
 
-	self.c_name = Textbox.new{title="이름: ", text=(not config.settings.cheat and game.player_name == "player") and "플레이어" or game.player_name, chars=30, max_len=50, fct=function()
+	self.c_name = Textbox.new{title="이름: ", text=(not config.settings.cheat and game.player_name == "player") and "player" or game.player_name, chars=30, max_len=50, fct=function()
 		if config.settings.cheat then self:makeDefault() end
 	end, on_change=function() self:setDescriptor() end, on_mouse = function(button) if button == "right" then self:randomName() end end}
 

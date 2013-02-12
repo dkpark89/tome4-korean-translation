@@ -123,7 +123,7 @@ floorEffect{
 floorEffect{
 	desc = "Necrotic Air", image = "talents/repression.png",
 	kr_display_name = "원혼의 대기",
-	long_desc = "원혼의 대기 효과 : 치유 증가율 -40% / 언데드인 경우 전체 저항 +15%",
+	long_desc = "원혼의 대기 효과 : 치유 증가율 -40% / 언데드인 경우 모든 피해 저항 +15%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "healing_factor", -0.4)
 		if self:attr("undead") then self:effectTemporaryValue(eff, "resists", {all=15}) end
@@ -145,7 +145,7 @@ floorEffect{
 floorEffect{
 	desc = "Fell Aura", image = "talents/shadow_mages.png",
 	kr_display_name = "격렬한 기운",
-	long_desc = "격렬한 기운 효과 : 치명타 피해량 +40% 추가 / 전체 저항 -20%",
+	long_desc = "격렬한 기운 효과 : 치명타 피해량 +40% 추가 / 모든 피해 저항 -20%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_critical_power", 40)
 		self:effectTemporaryValue(eff, "resists", {all=-20})
