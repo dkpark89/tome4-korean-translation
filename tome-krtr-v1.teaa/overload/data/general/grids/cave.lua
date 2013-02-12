@@ -80,7 +80,7 @@ newEntity{
 	define_as = "CAVE_LADDER_UP_WILDERNESS",
 	type = "floor", subtype = "cave",
 	name = "ladder to worldmap", image = "terrain/cave/cave_floor_1_01.png", add_displays = {class.new{image="terrain/cave/cave_stairs_up_2_01.png"}},
-	kr_display_name = "세상으로의 사다리",
+	kr_display_name = "지역 밖으로 나가는 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	change_level = 1,

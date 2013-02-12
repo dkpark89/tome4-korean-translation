@@ -43,7 +43,7 @@ if tries < 100 then
 	g.block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return false end
 		who:runStop("grave")
-		require("engine.ui.Dialog"):yesnoPopup("무덤", "무덤을 파헤치길 원합니까?", function(ret) if ret then
+		require("engine.ui.Dialog"):yesnoPopup("무덤", "무덤을 파헤칩니까?", function(ret) if ret then
 			local g = game.level.map(x, y, engine.Map.TERRAIN)
 			g:removeAllMOs()
 			if g.add_displays then
@@ -54,7 +54,7 @@ if tries < 100 then
 
 			self.block_move = nil
 			self.autoexplore_ignore = true
-			if rng.percent(20) then game.log("거기에는 아무것도 없습니다..") return end
+			if rng.percent(20) then game.log("여기에는 아무 것도 없습니다..") return end
 
 			local m = game.zone:makeEntity(game.level, "actor", {properties={"undead"}, add_levels=10, random_boss={nb_classes=1, rank=3, ai = "tactical", loot_quantity = 0, no_loot_randart = true}}, nil, true)
 			local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
@@ -62,7 +62,7 @@ if tries < 100 then
 				game.zone:addEntity(game.level, m, "actor", x, y)
 				game.log("당신이 여기 처음 온 것이 아닙니다. 시체는 언데드로 변해 있습니다.")
 			else
-				game.log("거기에는 아무것도 없습니다.")
+				game.log("여기에는 아무 것도 없습니다.")
 			end
 		end end, "예", "아니오")
 		return false

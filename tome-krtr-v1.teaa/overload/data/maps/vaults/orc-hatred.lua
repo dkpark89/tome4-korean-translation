@@ -44,7 +44,7 @@ defineTile('u', mod.class.Grid.new{
 		game.nicer_tiles:updateAround(game.level, x + 4, y - 4)
 		game.nicer_tiles:updateAround(game.level, x + 4, y + 4)
 		game.nicer_tiles:updateAround(game.level, x - 4, y + 4)
-		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들립니다.")
+		game.logPlayer(actor, "바닥의 뭔가가 동작하는, 불길한 소리가 들립니다.")
 		local g = game.zone:makeEntityByName(game.level, "terrain", "FLOOR")
 		game.zone:addEntity(game.level, g, "terrain", x, y)
 	end,

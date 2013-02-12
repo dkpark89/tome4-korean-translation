@@ -77,12 +77,12 @@ defineTile('t', mod.class.Grid.new{
 		game.level.map:particleEmitter(x, y, 1, "teleport")
 		game.level.map:particleEmitter(fx, fy, 1, "teleport")
 
-		game.logPlayer(actor, "#YELLOW#주변의 세상이 회전합니다!")
+		game.logPlayer(actor, "#YELLOW#주변 환경이 급격하게 변화합니다!")
 	end,
 },
 nil, nil, nil, {lever_action_value=0, lever_action_only_once=true, lever_action_kind="teleporter", lever_action_custom=function(i, j, who, val, old)
 	if val == 2 then
-		game.logPlayer(who, "#YELLOW#끔찍한 마법으로 공기가 생명을 가집니다!")
+		game.logPlayer(who, "#YELLOW#끔찍한 마법이 발동하여, 악마가 소환되었습니다!")
 		local g = game.level.map(i, j, game.level.map.TERRAIN)
 		g.activated = true
 		local m = game.zone:makeEntity(game.level, "actor", {type = "demon", subtype = "major", random_boss={nb_classes=2, rank=3.5, loot_quantity = 3}})
@@ -112,7 +112,7 @@ defineTile('u', mod.class.Grid.new{
 		game.level.map:particleEmitter(x, y, 1, "teleport")
 		game.level.map:particleEmitter(fx, fy, 1, "teleport")
 
-		game.logPlayer(actor, "#YELLOW#주변의 세상이 회전합니다!")
+		game.logPlayer(actor, "#YELLOW#주변 환경이 급격하게 변화합니다!")
 	end,
 },
 nil, nil, nil, {lever_action_value=0, lever_action_only_once=true, lever_action_kind="teleporter", lever_action_custom=function(i, j, who, val, old)

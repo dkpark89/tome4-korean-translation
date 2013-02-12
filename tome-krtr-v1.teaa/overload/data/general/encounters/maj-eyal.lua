@@ -43,7 +43,7 @@ newEntity{
 
 newEntity{
 	name = "Lost merchant",
-	kr_display_name = "길잃은 상인",
+	kr_display_name = "길 잃은 상인",
 	type = "hostile", subtype = "special", unique = true,
 	level_range = {10, 20},
 	rarity = 7,
@@ -53,13 +53,13 @@ newEntity{
 		who.energy.value = game.energy_to_act
 		game.paused = true
 		who:runStop()
-		engine.ui.Dialog:yesnoPopup("마주침", "당신은 숨겨진 문을 발견했고, 그 안에서 도움을 바라는 울음소리가 들립니다...", function(ok)
+		engine.ui.Dialog:yesnoPopup("마주침", "당신은 숨겨진 문을 발견했습니다. 안에서 도움을 바라는 울음소리가 들립니다...", function(ok)
 			if not ok then
 				game.logPlayer(who, "#LIGHT_BLUE#당신은 소리나지 않게 조심히 물러났습니다.")
 			else
 				game:changeLevel(1, "thieves-tunnels")
 				game.logPlayer(who, "#LIGHT_RED#당신은 조심스레 문을 열고 지하 터널의 입구로 들어섭니다...")
-				game.logPlayer(who, "#LIGHT_RED#입구로 들어선후, 문의 안쪽에는 문을 다룰 손잡이 없는것을 발견했습니다. 당신은 여기 갖혔습니다!")
+				game.logPlayer(who, "#LIGHT_RED#입구로 들어선 뒤 문을 안쪽을 보자, 문을 다룰 손잡이가 없는 것을 발견했습니다. 당신은 이곳에 갇혔습니다!")
 				who:grantQuest("lost-merchant")
 			end
 		end, "터널로 들어감", "조용히 떠남", true)
@@ -79,13 +79,13 @@ newEntity{
 		who.energy.value = game.energy_to_act
 		game.paused = true
 		who:runStop()
-		engine.ui.Dialog:yesnoLongPopup("마주침", "당신은 오래된 지하실의 입구를 발견했습니다. 이 장소에서 무서운 사악한 오러가 뿜어져 나오고 있습니다. 당신은 거기 서있는것만으로도 위협을 당하는 느낌이 듭니다.\n그 안에서 알아듣기 힘든 여성의 울음소리가 들립니다.", 400, function(ok)
+		engine.ui.Dialog:yesnoLongPopup("마주침", "당신은 오래된 지하실의 입구를 발견했습니다. 무서울 정도로 사악한 기운이 뿜어져 나오고 있어, 당신은 문 앞에 서 있는 것만으로도 위협 당하는 듯한 느낌이 듭니다.\n알아듣기는 힘들지만, 안에서 여성의 울음소리가 들리는 것 같습니다.", 400, function(ok)
 			if not ok then
 				game.logPlayer(who, "#LIGHT_BLUE#당신은 소리나지 않게 조심히 물러났습니다.")
 			else
 				game:changeLevel(1, "crypt-kryl-feijan")
 				game.logPlayer(who, "#LIGHT_RED#당신은 조심스레 문을 열고 지하실로 들어섭니다...")
-				game.logPlayer(who, "#LIGHT_RED#입구로 들어선후, 문의 안쪽에는 문을 다룰 손잡이 없는것을 발견했습니다. 당신은 여기 갖혔습니다!")
+				game.logPlayer(who, "#LIGHT_RED#입구로 들어선 뒤 문을 안쪽을 보자, 문을 다룰 손잡이가 없는 것을 발견했습니다. 당신은 이곳에 갇혔습니다!")
 			end
 		end, "지하실로 들어감", "조용히 떠남", true)
 		return true
@@ -147,7 +147,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Entrance to a ruined dungeon"
-		g.kr_display_name = "파괴된 던전으로의 입구"
+		g.kr_display_name = "파괴된 던전으로 가는 입구"
 		g.display='>' g.color_r=255 g.color_g=0 g.color_b=0 g.notice = true
 		g.change_level=1 g.change_zone="ruined-dungeon" g.glow=true
 		g.add_displays = g.add_displays or {}
@@ -247,7 +247,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.__nice_tile_base = nil
 		g.name = "Hidden compound"
-		g.kr_display_name = "숨겨진 수용소"
+		g.kr_display_name = "숨겨진 노예 수용소"
 		g.display='>' g.color_r=200 g.color_g=0 g.color_b=0 g.notice = true
 		g.change_level=1 g.change_zone="ring-of-blood" g.glow=true
 		g.add_displays = g.add_displays or {}

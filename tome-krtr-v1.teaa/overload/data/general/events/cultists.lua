@@ -103,7 +103,7 @@ for i, p in ipairs(list) do
 			local g = game.level.map(self.monolith_x, self.monolith_y, engine.Map.TERRAIN)
 			if not g or not g.is_monolith then return end
 			if self.self_sacrifice then
-				self:doEmote(rng.table{"제 영혼을 바칩니다!", "암흑의 여왕이 지배할 것입니다!", "저를 받칩니다! 절 데려가세요!", "죽음에서 삶이 오는 것이니!"}, 60)
+				self:doEmote(rng.table{"제 영혼을 바칩니다!", "암흑의 여왕이 지배할 것입니다!", "저를 바치겠습니다! 저를 데려가십시오!", "죽음에서 삶이 오는 것이니!"}, 60)
 				g.add_displays[#g.add_displays].image = g.add_displays[#g.add_displays].image:gsub("/moonstone_0", "/darkgreen_moonstone_0")
 				g.name = "corrupted monolith"
 				game.level.event_cultists.sacrifice = game.level.event_cultists.sacrifice + 1
@@ -122,7 +122,7 @@ for i, p in ipairs(list) do
 				game.level.turn_counter = 10 * 210
 				game.level.max_turn_counter = 10 * 210
 				game.level.turn_counter_desc = "광신도들이 무엇인가를 소환하고 있습니다. 주의하십시오."
-				require("engine.ui.Dialog"):simplePopup("광신도", "광신도의 영혼이 그가 보호하던 이상한 돌에게 흡수되는 것으로 보입니다. 무슨 일이 생길것 같은 느낌이 듭니다...")
+				require("engine.ui.Dialog"):simplePopup("광신도", "광신도의 영혼이 그가 보호하던 이상한 돌에게 흡수되는 것으로 보입니다. 무슨 일이 생길 것 같은 느낌이 듭니다...")
 			end
 		end,
 	}
@@ -153,8 +153,8 @@ game.zone.on_turn = function()
 				name = "Shasshhiy'Kaish", color=colors.VIOLET, unique = true,
 				kr_display_name = "샤쉬히'카이쉬",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_shasshhiy_kaish.png", display_h=2, display_y=-1}}},
-				desc = [[떠다니는 불꽃의 관과 세가닥의 꼬리와 날카로운 손톱만 아니라면, 이 악마는 매우 매혹적입니다. 그녀를 보는 순간 살을 파버리고 싶은 고통을 느낍니다. 그녀는 당신이 고통받기를 원합니다.]],
-				killer_message = "and used for her perverted desires",
+				desc = [[그녀의 머리 위를 떠다니는 화염의 왕관과 세 가닥의 꼬리, 그리고 날카로운 손톱만 뺀다면 이 악마는 아주 매혹적으로 생겼습니다. 그녀를 보는 순간 살을 파버리고 싶은 고통이 느껴지며, 또한 그녀는 당신이 고통받기를 원합니다.]],
+				killer_message = "그리고 그녀의 도착적인 욕구를 만족시키기 위해 사용되었습니다.",
 				level_range = {25, nil}, exp_worth = 2,
 				female = 1,
 				faction = "fearscape",
@@ -207,8 +207,8 @@ game.zone.on_turn = function()
 				type = "armor", subtype="head",
 				name = "Crown of Burning Pain", image = "object/artifact/crown_of_burning_pain.png",
 				unided_name = "burning crown",
-				kr_display_name = "타오르는 고통의 관", kr_unided_name = "불타는 관",
-				desc = [[이 순수한 불꽃의 관은 주변으로 떠다니는 용해된 수많은 작은 돌멩이들을 가지고 있습니다. 그 각각은 빼내어 유성같이 던질수 있습니다.]],
+				kr_display_name = "타오르는 고통의 왕관", kr_unided_name = "타오르는 왕관",
+				desc = [[이 순수한 불꽃으로 이루어진 왕관의 주변에는, 열에 의해 반쯤 녹은 수많은 암석들이 떠다니고 있습니다. 이 암석들 하나하나를 마치 유성처럼 떨어뜨릴 수 있습니다.]],
 				add_name = " (#ARMOR#)",
 				power_source = {arcane=true},
 				display = "]", color=colors.SLATE,
@@ -242,7 +242,7 @@ game.zone.on_turn = function()
 				m:addObject(m:getInven("INVEN"), o)
 
 				game.zone:addEntity(game.level, m, "actor", x, y)
-				require("engine.ui.Dialog"):simpleLongPopup("광신도", "이 지역에 천둥같은 끔찍한 외침이 들립니다: '여기로 와요, 여기, 내가 정말로 *잘* 해줄께요!'\n이 지역에서 도망쳐야 합니다!", 400)
+				require("engine.ui.Dialog"):simpleLongPopup("광신도", "이 지역에 천둥과도 같은 끔찍한 외침이 들립니다 : '여기로 와요, 여기, 내가 저어어엉말로 *잘* 해줄께요!'\n이 지역에서 도망쳐야 합니다!", 400)
 			end
 		elseif  game.level.turn_counter == 10 * 180 or
 			game.level.turn_counter == 10 * 150 or
@@ -254,7 +254,7 @@ game.zone.on_turn = function()
 			for uid, e in pairs(game.level.entities) do if e.is_cultist_event then cultists[#cultists+1] = e end end
 			if #cultists > 0 then
 				local c = rng.table(cultists)
-				game.logSeen(c, "%s 단검을 뽑자 그의 가슴이 벌어지고, 거기에는 박동하는 심장이 꽂혀있습니다. 바위는 증오의 색깔로 물듭니다.", (c.kr_display_name or c.name):capitalize():addJosa("가"))
+				game.logSeen(c, "%s 단검을 뽑아 그의 가슴을 드러내고, 단검으로 심장을 꿰뚫었습니다. 바위가 증오의 색깔로 물듭니다.", (c.kr_display_name or c.name):capitalize():addJosa("가"))
 				c.self_sacrifice = true
 				c:die()
 			end

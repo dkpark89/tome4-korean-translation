@@ -46,13 +46,13 @@ local changer = function(id)
 		type = "tool", subtype="skull", image = "object/artifact/skull_of_the_rat_lich.png",
 		unided_name = "dusty rat skull",
 		name = "Skull of the Rat Lich",
-		kr_display_name = "리치쥐의 두개골", kr_unided_name = "먼지낀 쥐의 두개골",
+		kr_display_name = "리치 쥐의 두개골", kr_unided_name = "먼지 낀 쥐의 두개골",
 		display = "*", color=colors.BLACK,
 		level_range = {10, 25},
 		cost = 150,
 		encumber = 1,
 		material_level = 3,
-		desc = [[이 고대의 스켈레톤은 리치쥐가 남긴 모든것입니다. 일부 조각에는 그 힘이 남아있고, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
+		desc = [[이 고대의 스켈레톤은 리치 쥐가 남긴 전부입니다. 두개골의 일부에 아직 그 힘이 남아있고, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
 
 		wielder = {
 			combat_spellpower = 10,
@@ -155,7 +155,7 @@ g:initGlow()
 g.real_change = changer
 g.change_level_check = function(self)
 	game:changeLevel(1, self.real_change(self.change_zone), {temporary_zone_shift=true, direct_switch=true})
-	require("engine.ui.Dialog"):simplePopup("버려진 지하실", "삐걱거리는 소리와 함께 뼈가 부딪히는 소리가 주변에 메아리쳐 들립니다... 순수한 죽음이 기다립니다. 도망치세요!")
+	require("engine.ui.Dialog"):simplePopup("버려진 지하실", "삐걱거리는 소리와 함께 뼈가 부딪히는 소리가 주변에 메아리쳐 들립니다... 순수한 죽음이 기다립니다. 도망치십시오!")
 	self.change_level_check = nil
 	self.real_change = nil
 	return true

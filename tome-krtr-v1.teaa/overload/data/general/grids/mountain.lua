@@ -90,7 +90,7 @@ for i = 1, 6 do newEntity{ base="HARDMOUNTAIN_WALL", define_as = "HARDMOUNTAIN_W
 newEntity{
 	define_as = "ROCKY_UP_WILDERNESS",
 	name = "exit to the worldmap", image = "terrain/rocky_ground.png", add_displays = {class.new{image="terrain/worldmap.png"}},
-	kr_display_name = "세상으로의 출구",
+	kr_display_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,

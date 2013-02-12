@@ -31,7 +31,7 @@ newEffect{
 	name = "MANASURGE", image = "talents/rune__manasurge.png",
 	desc = "Surging mana",
 	kr_display_name = "마나 쇄도",
-	long_desc = function(self, eff) return ("마나 쇄도: 마나 재생 +%0.2f"):format(eff.power) end,
+	long_desc = function(self, eff) return ("마나 쇄도 : 마나 재생 +%0.2f"):format(eff.power) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -62,7 +62,7 @@ newEffect{
 	name = "MANA_OVERFLOW", image = "talents/aegis.png",
 	desc = "Mana Overflow",
 	kr_display_name = "마나 범람",
-	long_desc = function(self, eff) return ("마나 범람: 최대 마나 +%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("마나 범람 : 최대 마나 +%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -81,7 +81,7 @@ newEffect{
 	name = "STONED", image = "talents/stone_touch.png",
 	desc = "Stoned",
 	kr_display_name = "석화",
-	long_desc = function(self, eff) return "석화: 피해를 입으면 확률적으로 부서짐 (즉사) / 물리 저항 +20% / 화염 저항 +80% / 전기 저항 +50%" end,
+	long_desc = function(self, eff) return "석화 : 큰 피해를 받으면 확률적으로 부서져 즉사 / 물리 저항 +20% / 화염 저항 +80% / 전기 저항 +50%" end,
 	type = "magical",
 	subtype = { earth=true, stone=true},
 	status = "detrimental",
@@ -105,8 +105,8 @@ newEffect{
 newEffect{
 	name = "ARCANE_STORM", image = "talents/disruption_shield.png",
 	desc = "Arcane Storm",
-	kr_display_name = "마법의 폭풍",
-	long_desc = function(self, eff) return ("마법 폭풍: 마법 저항 +%d%%"):format(eff.power) end,
+	kr_display_name = "마법 폭풍",
+	long_desc = function(self, eff) return ("마법 폭풍 : 마법 저항 +%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { arcane=true},
 	status = "beneficial",
@@ -125,7 +125,7 @@ newEffect{
 	name = "EARTHEN_BARRIER", image = "talents/earthen_barrier.png",
 	desc = "Earthen Barrier",
 	kr_display_name = "대지의 보호",
-	long_desc = function(self, eff) return ("물리 피해 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("물리 피해 %d%% 감소"):format(eff.power) end,
 	type = "magical",
 	subtype = { earth=true },
 	status = "beneficial",
@@ -146,7 +146,7 @@ newEffect{
 	name = "MOLTEN_SKIN", image = "talents/golem_molten_skin.png",
 	desc = "Molten Skin",
 	kr_display_name = "용해된 피부",
-	long_desc = function(self, eff) return ("화염 피해 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("화염 피해 %d%% 감소"):format(eff.power) end,
 	type = "magical",
 	subtype = { fire=true, earth=true },
 	status = "beneficial",
@@ -203,7 +203,7 @@ newEffect{
 	name = "INVISIBILITY", image = "effects/invisibility.png",
 	desc = "Invisibility",
 	kr_display_name = "투명화",
-	long_desc = function(self, eff) return ("투명화 부여(기존 보유시 향상) (투명강도 %d)."):format(eff.power) end,
+	long_desc = function(self, eff) return ("투명화 부여 (이미 투명화 중일 경우 투명 강도 향상) (투명 강도 : %d)."):format(eff.power) end,
 	type = "magical",
 	subtype = { phantasm=true },
 	status = "beneficial",
@@ -233,13 +233,13 @@ newEffect{
 	name = "SENSE_HIDDEN", image = "talents/keen_senses.png",
 	desc = "Sense Hidden",
 	kr_display_name = "예리한 감각",
-	long_desc = function(self, eff) return ("투명체 및 은신체 감지력 부여(기존 보유시 향상) (감지력 %d)."):format(eff.power) end,
+	long_desc = function(self, eff) return ("투명체 및 은신체 감지력 부여 (이미 감지 중일 경우 감지력 향상) (감지력 : %d)."):format(eff.power) end,
 	type = "magical",
 	subtype = { sense=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target#의 눈이 따끔거립니다." end,
-	on_lose = function(self, err) return "#Target#의 눈이 따끔거리지 않습니다." end,
+	on_gain = function(self, err) return "#Target#의 눈에서 빛이 납니다." end,
+	on_lose = function(self, err) return "#Target#의 눈이 보통으로 돌아옵니다." end,
 	activate = function(self, eff)
 		eff.invisid = self:addTemporaryValue("see_invisible", eff.power)
 		eff.stealthid = self:addTemporaryValue("see_stealth", eff.power)
@@ -254,7 +254,7 @@ newEffect{
 	name = "BANE_BLINDED", image = "effects/bane_blinded.png",
 	desc = "Bane of Blindness",
 	kr_display_name = "실명의 맹독",
-	long_desc = function(self, eff) return ("실명: 아무것도 볼 수 없음 / 매턴 어둠 피해 %0.2f"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("실명 : 아무것도 볼 수 없음 / 매 턴마다 어둠 피해 %0.2f"):format(eff.dam) end,
 	type = "magical",
 	subtype = { bane=true, blind=true },
 	status = "detrimental",
@@ -284,13 +284,13 @@ newEffect{
 	name = "BANE_CONFUSED", image = "effects/bane_confused.png",
 	desc = "Bane of Confusion",
 	kr_display_name = "혼란의 맹독",
-	long_desc = function(self, eff) return ("혼란: %d%%로 임의의 행동 수행 / 복잡한 행동 불가능 / 매턴 어둠 피해 %0.2f"):format(eff.power, eff.dam) end,
+	long_desc = function(self, eff) return ("혼란 : %d%% 확률로 행동 실패 / 복잡한 행동 불가능 / 매 턴마다 어둠 피해 %0.2f"):format(eff.power, eff.dam) end,
 	type = "magical",
 	subtype = { bane=true, confusion=true },
 	status = "detrimental",
 	parameters = { power=50, dam=10 },
-	on_gain = function(self, err) return "#Target1# 두리번 거립니다!.", "+혼란" end,
-	on_lose = function(self, err) return "#Target1# 집중하기 시작합니다.", "-혼란" end,
+	on_gain = function(self, err) return "#Target1# 마구 두리번거립니다!.", "+혼란" end,
+	on_lose = function(self, err) return "#Target1# 다시 집중하기 시작합니다.", "-혼란" end,
 	on_timeout = function(self, eff)
 		DamageType:get(DamageType.DARKNESS).projector(eff.src, self.x, self.y, DamageType.DARKNESS, eff.dam)
 	end,
@@ -309,13 +309,13 @@ newEffect{
 	name = "SUPERCHARGE_GOLEM", image = "talents/supercharge_golem.png",
 	desc = "Supercharge Golem",
 	kr_display_name = "과충전된 골렘",
-	long_desc = function(self, eff) return ("과충전: 생명력 재생 +%0.2f / 공격시 피해량 +20%%"):format(eff.regen) end,
+	long_desc = function(self, eff) return ("과충전 : 생명력 재생 +%0.2f / 공격시 피해량 +20%%"):format(eff.regen) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
 	parameters = { regen=10 },
 	on_gain = function(self, err) return "#Target1# 과충전되었습니다.", "+과충전" end,
-	on_lose = function(self, err) return "#Target1# 조금 덜 위험해졌습니다.", "-과충전" end,
+	on_lose = function(self, err) return "#Target1# 조금 덜 위험한 존재가 되었습니다.", "-과충전" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("inc_damage", {all=25})
 		eff.lid = self:addTemporaryValue("life_regen", eff.regen)
@@ -330,13 +330,13 @@ newEffect{
 	name = "POWER_OVERLOAD",
 	desc = "Power Overload",
 	kr_display_name = "넘치는 힘",
-	long_desc = function(self, eff) return ("넘치는 힘: 공격시 피해량 +%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("넘치는 힘 : 공격시 피해량 +%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, err) return "#Target#의 힘이 넘치기 시작합니다.", "+넘치는 힘" end,
-	on_lose = function(self, err) return "#Target1# 조금 덜 위험해졌습니다.", "-넘치는 힘" end,
+	on_lose = function(self, err) return "#Target1# 조금 덜 위험한 존재가 되었습니다.", "-넘치는 힘" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("inc_damage", {all=eff.power})
 	end,
@@ -349,13 +349,13 @@ newEffect{
 	name = "LIFE_TAP", image = "talents/life_tap.png",
 	desc = "Life Tap",
 	kr_display_name = "생명의 힘",
-	long_desc = function(self, eff) return ("생명의 힘: 공격시 피해량 +%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("생명의 힘 : 공격시 피해량 +%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { blight=true },
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, err) return "#Target#의 힘이 넘치기 시작합니다.", "+생명력 전이" end,
-	on_lose = function(self, err) return "#Target1# 조금 덜 위험해졌습니다.", "-생명력 전이" end,
+	on_lose = function(self, err) return "#Target1# 조금 덜 위험한 존재가 되었습니다.", "-생명력 전이" end,
 	activate = function(self, eff)
 		eff.pid = self:addTemporaryValue("inc_damage", {all=eff.power})
 	end,
@@ -368,7 +368,7 @@ newEffect{
 	name = "ARCANE_EYE", image = "talents/arcane_eye.png",
 	desc = "Arcane Eye",
 	kr_display_name = "마법의 눈 사용",
-	long_desc = function(self, eff) return ("마법의 눈 사용: 반경 %d"):format(eff.radius) end,
+	long_desc = function(self, eff) return ("마법의 눈 사용 : 주변 %d 칸 범위"):format(eff.radius) end,
 	type = "magical",
 	subtype = { sense=true },
 	status = "beneficial",
@@ -449,7 +449,7 @@ newEffect{
 	name = "DISPLACEMENT_SHIELD", image = "talents/displacement_shield.png",
 	desc = "Displacement Shield",
 	kr_display_name = "왜곡의 보호막",
-	long_desc = function(self, eff) return ("공간 왜곡으로 둘러쌈: %d%% 확률로 피해를 %s에게 전가 / 유지되는 동안 피해 %d (최대 %d) 흡수"):format(eff.chance, eff.target and (eff.target.kr_display_name or eff.target.name) or "누군가", self.displacement_shield, eff.power) end,
+	long_desc = function(self, eff) return ("주변 공간 왜곡 : %d%% 확률로, 받은 피해를 %s에게 전가 / 유지되는 동안 피해 %d 흡수 (흡수 한계량 : %d)"):format(eff.chance, eff.target and (eff.target.kr_display_name or eff.target.name) or "누군가", self.displacement_shield, eff.power) end,
 	type = "magical",
 	subtype = { teleport=true, shield=true },
 	status = "beneficial",
@@ -492,7 +492,7 @@ newEffect{
 	name = "DAMAGE_SHIELD", image = "talents/barrier.png",
 	desc = "Damage Shield",
 	kr_display_name = "피해 보호막",
-	long_desc = function(self, eff) return ("마법 보호막: 유지되는 동안 피해 %d (최대 %d) 흡수"):format(self.damage_shield_absorb, eff.power) end,
+	long_desc = function(self, eff) return ("마법 보호막 : 유지되는 동안 피해 %d 흡수 (흡수 한계량 : %d)"):format(self.damage_shield_absorb, eff.power) end,
 	type = "magical",
 	subtype = { arcane=true, shield=true },
 	status = "beneficial",
@@ -537,7 +537,7 @@ newEffect{
 	name = "MARTYRDOM", image = "talents/martyrdom.png",
 	desc = "Martyrdom",
 	kr_display_name = "고난",
-	long_desc = function(self, eff) return ("대상이 피해를 받으면 공격자에게도 %d%%의 피해"):format(eff.power) end,
+	long_desc = function(self, eff) return ("대상이 피해를 받으면, 공격자에게도 %d%%만큼 피해"):format(eff.power) end,
 	type = "magical",
 	subtype = { light=true },
 	status = "detrimental",
@@ -556,7 +556,7 @@ newEffect{
 	name = "CURSE_VULNERABILITY", image = "talents/curse_of_vulnerability.png",
 	desc = "Curse of Vulnerability",
 	kr_display_name = "약화의 저주",
-	long_desc = function(self, eff) return ("저주: 모든 저항 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("저주 : 모든 저항 -%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { curse=true },
 	status = "detrimental",
@@ -577,7 +577,7 @@ newEffect{
 	name = "CURSE_IMPOTENCE", image = "talents/curse_of_impotence.png",
 	desc = "Curse of Impotence",
 	kr_display_name = "무기력의 저주",
-	long_desc = function(self, eff) return ("저주: 공격시 피해량 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("저주 : 공격시 피해량 -%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { curse=true },
 	status = "detrimental",
@@ -598,7 +598,7 @@ newEffect{
 	name = "CURSE_DEFENSELESSNESS", image = "talents/curse_of_defenselessness.png",
 	desc = "Curse of Defenselessness",
 	kr_display_name = "무저항의 저주",
-	long_desc = function(self, eff) return ("저주: 회피도 -%d / 모든 내성 -%d"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("저주 : 회피도 -%d / 모든 내성 -%d"):format(eff.power, eff.power) end, --@@ 파라매터 조정
 	type = "magical",
 	subtype = { curse=true },
 	status = "detrimental",
@@ -623,7 +623,7 @@ newEffect{
 	name = "CURSE_DEATH", image = "talents/curse_of_death.png",
 	desc = "Curse of Death",
 	kr_display_name = "죽음의 저주",
-	long_desc = function(self, eff) return ("저주: 매턴 어둠 피해 %0.2f / 자연적 생명력 재생 중지"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("저주 : 매 턴마다 %0.2f 어둠 피해 / 자연적인 생명력 재생 중지"):format(eff.dam) end,
 	type = "magical",
 	subtype = { curse=true, darkness=true },
 	status = "detrimental",
@@ -646,7 +646,7 @@ newEffect{
 	name = "CURSE_HATE", image = "talents/curse_of_the_meek.png",
 	desc = "Curse of Hate",
 	kr_display_name = "증오의 저주",
-	long_desc = function(self, eff) return ("저주: 5칸 반경의 모든 적의 공격 목표로 지정") end,
+	long_desc = function(self, eff) return ("저주 : 5 칸 반경에 있는 모든 적 도발") end,
 	type = "magical",
 	subtype = { curse=true },
 	status = "detrimental",
@@ -700,13 +700,13 @@ newEffect{
 	name = "ACID_SPLASH", image = "talents/acidic_skin.png",
 	desc = "Acid Splash",
 	kr_display_name = "산성 뒤덮힘",
-	long_desc = function(self, eff) return ("산성 뒤덮힘: 매턴 산성 피해 %0.2f / 방어도 -%d / 정확도 -%d"):format(eff.dam, eff.armor or 0, eff.atk) end,
+	long_desc = function(self, eff) return ("산성 뒤덮힘 : 매 턴마다 산성 피해 %0.2f / 방어도 -%d / 정확도 -%d"):format(eff.dam, eff.armor or 0, eff.atk) end,
 	type = "magical",
 	subtype = { acid=true, sunder=true },
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 산으로 뒤덮혔습니다!" end,
-	on_lose = function(self, err) return "#Target2# 뒤엎은 산이 사라졌습니다." end,
+	on_lose = function(self, err) return "#Target2# 뒤덮은 산이 사라졌습니다." end,
 	-- Damage each turn
 	on_timeout = function(self, eff)
 		DamageType:get(DamageType.ACID).projector(eff.src, self.x, self.y, DamageType.ACID, eff.dam)
@@ -725,7 +725,7 @@ newEffect{
 	name = "BLOOD_FURY", image = "talents/blood_fury.png",
 	desc = "Bloodfury",
 	kr_display_name = "피의 분노",
-	long_desc = function(self, eff) return ("피의 분노: 황폐 공격시 피해량 +%d%% / 산성 공격시 피해량 +%d%%"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("피의 분노 : 황폐 공격시 피해량 +%d%% / 산성 공격시 피해량 +%d%%"):format(eff.power, eff.power) end, --@@ 파라매터 조정
 	type = "magical",
 	subtype = { frenzy=true },
 	status = "beneficial",
@@ -741,14 +741,14 @@ newEffect{
 newEffect{
 	name = "PHOENIX_EGG", image = "effects/phoenix_egg.png",
 	desc = "Reviving Phoenix",
-	kr_display_name = "피닉스의 부활",
+	kr_display_name = "불사조의 부활",
 	long_desc = function(self, eff) return "죽으면 부활" end,
 	type = "magical",
 	subtype = { fire=true },
 	status = "beneficial",
 	parameters = { life_regen = 25, mana_regen = -9.75, never_move = 1, silence = 1 },
-	on_gain = function(self, err) return "불꽃들이 #Target# 속으로 사라지고, 불꽃의 알이 생겼습니다.", "+피닉스" end,
-	on_lose = function(self, err) return "알에서 #Target1# 튀어 나왔습니다.", "-피닉스" end,
+	on_gain = function(self, err) return "#Target#의 몸이 불타올라 사라지고, 그 자리에 불꽃의 알이 생겼습니다.", "+불사조" end,
+	on_lose = function(self, err) return "알에서 #Target1# 튀어 나왔습니다.", "-불사조" end,
 	activate = function(self, eff)
 		self.display = "O"						             -- change the display of the phoenix to an egg, maybe later make it a fiery orb image
 		eff.old_image = self.image
@@ -777,12 +777,12 @@ newEffect{
 	name = "HURRICANE", image = "effects/hurricane.png",
 	desc = "Hurricane",
 	kr_display_name = "허리케인",
-	long_desc = function(self, eff) return ("허리케인: 자신을 포함한 주변의 모두에게 매턴 전기 피해 %0.2f ~ %0.2f"):format(eff.dam / 3, eff.dam) end,
+	long_desc = function(self, eff) return ("허리케인 : 자신을 포함한 주변의 모두에게 매 턴마다 전기 피해 %0.2f - %0.2f"):format(eff.dam / 3, eff.dam) end,
 	type = "magical",
 	subtype = { lightning=true },
 	status = "detrimental",
 	parameters = { dam=10, radius=2 },
-	on_gain = function(self, err) return "#Target1# 허리케인에 갖혔습니다.", "+허리케인" end,
+	on_gain = function(self, err) return "#Target1# 허리케인에 갇혔습니다.", "+허리케인" end,
 	on_lose = function(self, err) return "#Target2# 감싸던 허리케인이 사라졌습니다.", "-허리케인" end,
 	on_timeout = function(self, eff)
 		local tg = {type="ball", x=self.x, y=self.y, radius=eff.radius, selffire=false}
@@ -799,7 +799,7 @@ newEffect{
 newEffect{
 	name = "RECALL", image = "effects/recall.png",
 	desc = "Recalling",
-	kr_display_name = "되돌아감",
+	kr_display_name = "복귀",
 	long_desc = function(self, eff) return "세계지도 상으로 순간이동 대기중" end,
 	type = "magical",
 	subtype = { unknown=true },
@@ -813,7 +813,7 @@ newEffect{
 		if (eff.allow_override or (self:canBe("worldport") and not self:attr("never_move"))) and eff.dur <= 0 then
 			game:onTickEnd(function()
 				if eff.leveid == game.zone.short_name.."-"..game.level.level and game.player.can_change_zone then
-					game.logPlayer(self, "바깥으로 끌려나갑니다!")
+					game.logPlayer(self, "밖으로 튕겨져 나갑니다!")
 					game:changeLevel(1, eff.where or game.player.last_wilderness)
 				end
 			end)
@@ -826,7 +826,7 @@ newEffect{
 newEffect{
 	name = "TELEPORT_ANGOLWEN", image = "talents/teleport_angolwen.png",
 	desc = "Teleport: Angolwen",
-	kr_display_name = "순간이동: 앙골웬",
+	kr_display_name = "순간이동 : 앙골웬",
 	long_desc = function(self, eff) return "앙골웬으로 순간이동 대기중" end,
 	type = "magical",
 	subtype = { teleport=true },
@@ -851,7 +851,7 @@ newEffect{
 		if self:canBe("worldport") and not self:attr("never_move") and eff.dur <= 0 then
 			game:onTickEnd(function()
 				if eff.leveid == game.zone.short_name.."-"..game.level.level and game.player.can_change_zone then
-					game.logPlayer(self, "앙골웬으로 끌려나갑니다!")
+					game.logPlayer(self, "앙골웬으로 이동합니다!")
 					game:changeLevel(1, "town-angolwen")
 				end
 			end)
@@ -864,7 +864,7 @@ newEffect{
 newEffect{
 	name = "TELEPORT_POINT_ZERO", image = "talents/teleport_point_zero.png",
 	desc = "Timeport: Point Zero",
-	kr_display_name = "시공간이동: 영점",
+	kr_display_name = "시공간이동 : 영점",
 	long_desc = function(self, eff) return "영점으로 시공간이동 대기중" end,
 	type = "magical",
 	subtype = { timeport=true },
@@ -889,7 +889,7 @@ newEffect{
 		if self:canBe("worldport") and not self:attr("never_move") and eff.dur <= 0 then
 			game:onTickEnd(function()
 				if eff.leveid == game.zone.short_name.."-"..game.level.level and game.player.can_change_zone then
-					game.logPlayer(self, "영점으로 끌려나갑니다!")
+					game.logPlayer(self, "영점으로 이동합니다!")
 					game:changeLevel(1, "town-point-zero")
 				end
 			end)
@@ -903,12 +903,12 @@ newEffect{
 	name = "PREMONITION_SHIELD", image = "talents/premonition.png",
 	desc = "Premonition Shield",
 	kr_display_name = "예감의 보호막",
-	long_desc = function(self, eff) return ("%s 피해 -%d%%."):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.resist) end,
+	long_desc = function(self, eff) return ("%s 피해 %d%% 감소"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.resist) end,
 	type = "magical",
 	subtype = { sense=true },
 	status = "beneficial",
 	parameters = { },
-	on_gain = function(self, err) return "#Target1# 보호막을 즉시 시전했습니다!", "+예감의 보호막" end,
+	on_gain = function(self, err) return "#Target1# 순간적으로 보호막을 시전했습니다!", "+예감의 보호막" end,
 	on_lose = function(self, err) return "#Target#의 보호막이 사라졌습니다.", "-예감의 보호막" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("resists", {[eff.damtype]=eff.resist})
@@ -922,7 +922,7 @@ newEffect{
 	name = "CORROSIVE_WORM", image = "talents/corrosive_worm.png",
 	desc = "Corrosive Worm",
 	kr_display_name = "부식성 벌레",
-	long_desc = function(self, eff) return ("부식성 벌레: 매턴 산성 피해 %0.2f"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("부식성 벌레 : 매 턴마다 산성 피해 %0.2f"):format(eff.dam) end,
 	type = "magical",
 	subtype = { acid=true },
 	status = "detrimental",
@@ -938,7 +938,7 @@ newEffect{
 	name = "WRAITHFORM", image = "talents/wraithform.png",
 	desc = "Wraithform",
 	kr_display_name = "악령 변신",
-	long_desc = function(self, eff) return ("악령으로 변신: 벽 통과 가능 (다른 자연적 장애물에는 불가능) / 회피도 +%d / 방어도 +%d"):format(eff.def, eff.armor) end,
+	long_desc = function(self, eff) return ("악령으로 변신 : 벽 통과 가능 (다른 자연적 장애물에는 불가능) / 회피도 +%d / 방어도 +%d"):format(eff.def, eff.armor) end,
 	type = "magical",
 	subtype = { darkness=true },
 	status = "beneficial",
@@ -978,7 +978,7 @@ newEffect{
 	name = "PROVIDENCE", image = "talents/providence.png",
 	desc = "Providence",
 	kr_display_name = "빛의 섭리",
-	long_desc = function(self, eff) return ("매턴 나쁜 상태이상 효과 한가지 제거 / 생명력 재생 +%d"):format(eff.power) end,
+	long_desc = function(self, eff) return ("매 턴마다 나쁜 상태이상 효과 한 가지 제거 / 생명력 재생 +%d"):format(eff.power) end,
 	type = "magical",
 	subtype = { light=true },
 	status = "beneficial",
@@ -1033,7 +1033,7 @@ newEffect{
 	name = "SANCTITY", image = "talents/circle_of_sanctity.png",
 	desc = "Sanctity",
 	kr_display_name = "고결함",
-	long_desc = function(self, eff) return ("침묵에 면역") end,
+	long_desc = function(self, eff) return ("침묵 면역") end,
 	type = "magical",
 	subtype = { circle=true },
 	status = "beneficial",
@@ -1084,7 +1084,7 @@ newEffect{
 	name = "WARDING", image = "talents/circle_of_warding.png",
 	desc = "Warding",
 	kr_display_name = "보호",
-	long_desc = function(self, eff) return ("대상을 목표로한 발사체 속도 -%d%%"):format (eff.power) end,
+	long_desc = function(self, eff) return ("대상을 목표로 한 발사체 속도 -%d%%"):format (eff.power) end,
 	type = "magical",
 	subtype = { circle=true, light=true, darkness=true },
 	status = "beneficial",
@@ -1101,7 +1101,7 @@ newEffect{
 	name = "TURN_BACK_THE_CLOCK", image = "talents/turn_back_the_clock.png",
 	desc = "Turn Back the Clock",
 	kr_display_name = "시간 되돌리기",
-	long_desc = function(self, eff) return ("어린 상태로 시간 되돌리기: 모든 능력치 -%d"):format(eff.power) end,
+	long_desc = function(self, eff) return ("어린 상태로 시간 되돌리기 : 모든 능력치 -%d"):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -1130,14 +1130,14 @@ newEffect{
 newEffect{
 	name = "WASTING", image = "talents/ashes_to_ashes.png",
 	desc = "Wasting",
-	kr_display_name = "수척",
-	long_desc = function(self, eff) return ("수척: 매턴 시간 피해 %0.2f"):format(eff.power) end,
+	kr_display_name = "낭비",
+	long_desc = function(self, eff) return ("낭비 : 매 턴마다 시간 피해 %0.2f"):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target1# 수척해집니다!", "+수척" end,
-	on_lose = function(self, err) return "#Target1# 더이상 수척하지 않습니다.", "-수척" end,
+	on_gain = function(self, err) return "#Target1# 시간을 낭비합니다!", "+낭비" end,
+	on_lose = function(self, err) return "#Target1# 더이상 시간을 낭비하지 않습니다.", "-낭비" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- Merge the flames!
 		local olddam = old_eff.power * old_eff.dur
@@ -1156,7 +1156,7 @@ newEffect{
 	name = "PRESCIENCE", image = "talents/moment_of_prescience.png",
 	desc = "Prescience",
 	kr_display_name = "통찰",
-	long_desc = function(self, eff) return ("인식력 최고조: 은신감지 +%d / 투명감지 +%d / 회피도 +%d / 정확도 +%d"):format(eff.power, eff.power, eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("인식력 최고조 : 은신감지 +%d / 투명감지 +%d / 회피도 +%d / 정확도 +%d"):format(eff.power, eff.power, eff.power, eff.power) end, --@@ 파라매터 조정
 	type = "magical",
 	subtype = { sense=true, temporal=true },
 	status = "beneficial",
@@ -1181,7 +1181,7 @@ newEffect{
 	name = "INVIGORATE", image = "talents/invigorate.png",
 	desc = "Invigorate",
 	kr_display_name = "활성화",
-	long_desc = function(self, eff) return ("체력 재생 +%d / 대기 지연시간이 두배로 빨리 줄어듦"):format(eff.power) end,
+	long_desc = function(self, eff) return ("체력 재생 +%d / 모든 기술의 재사용 대기시간이 두 배 빨리 감소"):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "beneficial",
@@ -1210,7 +1210,7 @@ newEffect{
 	name = "GATHER_THE_THREADS", image = "talents/gather_the_threads.png",
 	desc = "Gather the Threads",
 	kr_display_name = "시간의 흐름 - 수집",
-	long_desc = function(self, eff) return ("주문력 +%d / 매턴마다 추가적인 주문력 +%d"):
+	long_desc = function(self, eff) return ("주문력 +%d / 매 턴마다 추가적인 주문력 +%d"):
 	format(eff.cur_power or eff.power, eff.power/5) end,
 	type = "magical",
 	subtype = { temporal=true },
@@ -1246,7 +1246,7 @@ newEffect{
 	name = "FLAWED_DESIGN", image = "talents/flawed_design.png",
 	desc = "Flawed Design",
 	kr_display_name = "잘못된 설계",
-	long_desc = function(self, eff) return ("과거의 변경: 모든 저항 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("과거의 변경 : 모든 저항 -%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -1267,7 +1267,7 @@ newEffect{
 	name = "MANAWORM", image = "effects/manaworm.png",
 	desc = "Manaworm",
 	kr_display_name = "마나 벌레",
-	long_desc = function(self, eff) return ("마나 벌레 오염: 매턴 마나 -%0.2f / 매턴 마법 피해 %0.2f"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("마나 벌레 오염 : 매 턴마다 마나 -%0.2f / 매 턴마다 마법 피해 %0.2f"):format(eff.power, eff.power) end, --@@ 파라매터 조정
 	type = "magical",
 	subtype = { arcane=true },
 	status = "detrimental",
@@ -1291,7 +1291,7 @@ newEffect{
 	subtype = { frenzy=true },
 	status = "beneficial",
 	parameters = { power=10, crit=10, apr=10 },
-	on_gain = function(self, err) return "#Target1# 어둠의 에너지에 삼켜졌습니다.", "+죽지 못하는 자들의 분노" end,
+	on_gain = function(self, err) return "#Target1# 어둠의 힘에 삼켜졌습니다.", "+죽지 못하는 자들의 분노" end,
 	on_lose = function(self, err) return "#Target1# 조금 약해진 것 같습니다.", "-죽지 못하는 자들의 분노" end,
 	activate = function(self, eff)
 		eff.damid = self:addTemporaryValue("combat_dam", eff.power)
@@ -1315,12 +1315,12 @@ newEffect{
 	name = "BONE_SHIELD", image = "talents/bone_shield.png",
 	desc = "Bone Shield",
 	kr_display_name = "뼈의 방패",
-	long_desc = function(self, eff) return ("현재 생명력의 %d%% 이상의 피해 발생시, 피해 -%d%%"):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("현재 생명력의 %d%% 이상 피해 발생시, 피해 -%d%%"):format(eff.power, eff.power) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
 	parameters = { power=30 },
-	on_gain = function(self, err) return "#Target1# 부유하는 뼈로 보호됩니다.", "+뼈의 방패" end,
+	on_gain = function(self, err) return "#Target1# 부유하는 뼈로 보호되었습니다.", "+뼈의 방패" end,
 	on_lose = function(self, err) return "#Target#의 부유하는 뼈가 부서졌습니다.", "-뼈의 방패" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("flat_damage_cap", {all=eff.power})
@@ -1336,7 +1336,7 @@ newEffect{
 	name = "REDUX", image = "talents/redux.png",
 	desc = "Redux",
 	kr_display_name = "재현",
-	long_desc = function(self, eff) return "다음번 시공 기술 사용시, 자동으로 두번 연속 사용" end,
+	long_desc = function(self, eff) return "다음에 사용하는 시공 기술을 두 번 연속 사용" end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "beneficial",
@@ -1351,7 +1351,7 @@ newEffect{
 	name = "TEMPORAL_DESTABILIZATION_START", image = "talents/destabilize.png",
 	desc = "Temporal Destabilization",
 	kr_display_name = "시간적 불안정",
-	long_desc = function(self, eff) return ("불안정: %d턴간 매턴마다 시간 피해 %0.2f / 효과 지속 중 대상이 죽으면 폭발"):format(eff.dur, eff.dam) end,
+	long_desc = function(self, eff) return ("불안정 : %d 턴간 매 턴마다 시간 피해 %0.2f / 효과 지속 중 대상이 죽으면 폭발"):format(eff.dur, eff.dam) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -1371,7 +1371,7 @@ newEffect{
 	name = "TEMPORAL_DESTABILIZATION", image = "talents/destabilize.png",
 	desc = "Temporal Destabilization",
 	kr_display_name = "시간적 불안정",
-	long_desc = function(self, eff) return ("불안정: 매턴 시간 피해 %0.2f / 효과 지속 중 대상이 죽으면 폭발"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("불안정 : 매 턴마다 시간 피해 %0.2f / 효과 지속 중 대상이 죽으면 폭발"):format(eff.dam) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -1412,7 +1412,7 @@ newEffect{
 	name = "CEASE_TO_EXIST", image = "talents/cease_to_exist.png",
 	desc = "Cease to Exist",
 	kr_display_name = "중단된 실존",
-	long_desc = function(self, eff) return ("시간의 흐름에서 사라짐: 매턴 시간 피해 %d"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("시간의 흐름에서 사라짐 : 매 턴마다 시간 피해 %d"):format(eff.dam) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -1433,7 +1433,7 @@ newEffect{
 	name = "IMPENDING_DOOM", image = "talents/impending_doom.png",
 	desc = "Impending Doom",
 	kr_display_name = "임박한 운명",
-	long_desc = function(self, eff) return ("임박한 마지막 운명: 치료 불가능 / 생명력 재생 불가능 / 매턴 마법 피해 %0.2f\n대상이 죽으면 효과 중단"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("임박한 마지막 운명 : 치료 불가능 / 생명력 재생 불가능 / 매 턴마다 마법 피해 %0.2f\n대상이 죽으면 효과 중단"):format(eff.dam) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "detrimental",
@@ -1483,7 +1483,7 @@ newEffect{
 	status = "detrimental",
 	parameters = {power=20},
 	on_gain = function(self, err) return "#Target1# 심연에 더욱 가까워졌습니다!", "+심연의 장막" end,
-	on_lose = function(self, err) return "#Target1# 심연으로부터 자유로와 졌습니다.", "-심연의 장막" end,
+	on_lose = function(self, err) return "#Target1# 심연으로부터 자유를 되찾았습니다.", "-심연의 장막" end,
 	activate = function(self, eff)
 		eff.liteid = self:addTemporaryValue("lite", -eff.lite)
 		eff.darkid = self:addTemporaryValue("resists", { [DamageType.DARKNESS] = -eff.power })
@@ -1543,7 +1543,7 @@ newEffect{
 	name = "SPELLSHOCKED",
 	desc = "Spellshocked",
 	kr_display_name = "주문 충격",
-	long_desc = function(self, eff) return string.format("주문에 압도됨: 모든 저항 -%d%%", eff.power) end,
+	long_desc = function(self, eff) return string.format("주문에 압도됨 : 모든 저항 -%d%%", eff.power) end,
 	type = "magical",
 	subtype = { ["cross tier"]=true },
 	status = "detrimental",
@@ -1564,7 +1564,7 @@ newEffect{
 	name = "ROTTING_DISEASE", image = "talents/rotting_disease.png",
 	desc = "Rotting Disease",
 	kr_display_name = "부패성 질병",
-	long_desc = function(self, eff) return ("질병 감염: 체격 -%d / 매턴 황폐 피해 %0.2f"):format(eff.con, eff.dam) end,
+	long_desc = function(self, eff) return ("질병 감염 : 체격 -%d / 매 턴마다 황폐 피해 %0.2f"):format(eff.con, eff.dam) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
 	status = "detrimental",
@@ -1590,7 +1590,7 @@ newEffect{
 	name = "DECREPITUDE_DISEASE", image = "talents/decrepitude_disease.png",
 	desc = "Decrepitude Disease",
 	kr_display_name = "노화성 질병",
-	long_desc = function(self, eff) return ("질병 감염: 민첩 -%d / 매턴 황폐 피해 %0.2f"):format(eff.dex, eff.dam) end,
+	long_desc = function(self, eff) return ("질병 감염 : 민첩 -%d / 매 턴마다 황폐 피해 %0.2f"):format(eff.dex, eff.dam) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
 	status = "detrimental",
@@ -1616,7 +1616,7 @@ newEffect{
 	name = "WEAKNESS_DISEASE", image = "talents/weakness_disease.png",
 	desc = "Weakness Disease",
 	kr_display_name = "약화성 질병",
-	long_desc = function(self, eff) return ("질병 감염: 힘 -%d / 매턴 황폐 피해 %0.2f"):format(eff.str, eff.dam) end,
+	long_desc = function(self, eff) return ("질병 감염 : 힘 -%d / 매 턴마다 황폐 피해 %0.2f"):format(eff.str, eff.dam) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
 	status = "detrimental",
@@ -1642,7 +1642,7 @@ newEffect{
 	name = "EPIDEMIC", image = "talents/epidemic.png",
 	desc = "Epidemic",
 	kr_display_name = "유행성 질병",
-	long_desc = function(self, eff) return ("질병 감염: 매턴 황폐 피해 %0.2f / 치유 증가율 -%d%%\n질병 이외의 황폐 피해시 질병 확산"):format(eff.dam, eff.heal_factor) end,
+	long_desc = function(self, eff) return ("질병 감염 : 매 턴마다 황폐 피해 %0.2f / 치유 증가율 -%d%%\n질병 이외의 황폐 피해시 질병 확산"):format(eff.dam, eff.heal_factor) end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
 	status = "detrimental",
@@ -1671,7 +1671,7 @@ newEffect{
 	name = "WORM_ROT", image = "talents/worm_rot.png",
 	desc = "Worm Rot",
 	kr_display_name = "부패 벌레",
-	long_desc = function(self, eff) return ("부패 벌레에게 감염: 매턴 좋은 물리적 상태 효과 한가지 제거 / 매턴 황폐 피해 %0.2f / 매턴 산성 피해 %0.2f\n5턴 이후: 황폐 피해 %0.2f / 부패 벌레가 변태하여 '썩은 고기를 먹는 벌레 덩어리' 생성"):format(eff.dam, eff.dam, eff.burst) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("부패 벌레에게 감염 : 매 턴마다 좋은 물리적 상태 효과 한가지 제거 / 매 턴마다 황폐 피해 %0.2f / 매 턴마다 산성 피해 %0.2f\n5턴 이후: 황폐 피해 %0.2f / 부패 벌레가 변태하여 '썩은 고기를 먹는 벌레 덩어리' 생성"):format(eff.dam, eff.dam, eff.burst) end, --@@ 파라매터 조정
 	type = "magical",
 	subtype = {disease=true, blight=true, acid=true},
 	status = "detrimental",
@@ -1724,8 +1724,8 @@ newEffect{
 	kr_display_name = "구울의 부패",
 	long_desc = function(self, eff)
 		local ghoulify = ""
-		if eff.make_ghoul > 0 then ghoulify = "\n구울의 부패에 감염된 존재 사망시 구울이 됨" end
-		return ("질병 감염: 힘 -%d / 민첩 -%d / 체격 -%d / 매턴 황폐 피해 %0.2f%s"):format(eff.str, eff.dex, eff.con, eff.dam, ghoulify)
+		if eff.make_ghoul > 0 then ghoulify = "\n구울의 부패에 감염된 존재 사망시, 구울이 됨" end
+		return ("질병 감염 : 힘 -%d / 민첩 -%d / 체격 -%d / 매 턴마다 황폐 피해 %0.2f%s"):format(eff.str, eff.dex, eff.con, eff.dam, ghoulify)
 	end,
 	type = "magical",
 	subtype = {disease=true, blight=true},
@@ -1752,7 +1752,7 @@ newEffect{
 	name = "BLOODCASTING", image = "talents/bloodcasting.png",
 	desc = "Bloodcasting",
 	kr_display_name = "피의 주문",
-	long_desc = function(self, eff) return ("타락기술의 원기 부족시 생명력으로 대체") end,
+	long_desc = function(self, eff) return ("타락 기술 사용할 때 원기 부족시, 생명력으로 대체") end,
 	type = "magical",
 	subtype = {corruption=true},
 	status = "beneficial",
@@ -1856,7 +1856,7 @@ newEffect{
 	name = "OUT_OF_PHASE", image = "talents/phase_door.png",
 	desc = "Out of Phase",
 	kr_display_name = "탈상",
-	long_desc = function(self, eff) return ("현실 밖으로 위상변화: 회피도 +%d / 모든 저항 +%d%% / 모든 상태효과 지속시간 +%d%%"):
+	long_desc = function(self, eff) return ("현실 밖으로 위상변화 : 회피도 +%d / 모든 저항 +%d%% / 모든 상태효과 지속시간 +%d%%"):
 	format(eff.defense or 0, eff.resists or 0, eff.effect_reduction or 0) end,
 	type = "magical",
 	subtype = { teleport=true },
@@ -1923,7 +1923,7 @@ newEffect{
 	name = "ARCANE_VORTEX", image = "talents/arcane_vortex.png",
 	desc = "Arcane Vortex",
 	kr_display_name = "마법의 소용돌이",
-	long_desc = function(self, eff) return ("마법의 소용돌이: 매턴 임의의 적에게 마나를 분출하여 마법 피해 %0.2f (주변에 적이 없다면 대상에게 마법 피해 150%%) / 대상이 죽으면 잔여 피해량이 2칸 반경으로 마법 폭발"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("마법의 소용돌이 : 매 턴마다 임의의 적에게 마나를 분출하여 마법 피해 %0.2f (주변에 적이 없다면 대상에게 마법 피해 150%%) / 대상이 죽으면 잔여 피해량이 2칸 반경으로 마법 폭발"):format(eff.dam) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "detrimental",
@@ -1969,7 +1969,7 @@ newEffect{
 	name = "AETHER_BREACH", image = "talents/aether_breach.png",
 	desc = "Aether Breach",
 	kr_display_name = "에테르 파괴",
-	long_desc = function(self, eff) return ("매턴마다 마법 피해 %0.2f를 주는 1칸 반경의 폭발 발생"):format(eff.dam) end,
+	long_desc = function(self, eff) return ("매 턴마다 마법 피해를 %0.2f 만큼 주는 1칸 반경의 폭발 발생"):format(eff.dam) end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -1999,7 +1999,7 @@ newEffect{
 	name = "AETHER_AVATAR", image = "talents/aether_avatar.png",
 	desc = "Aether Avatar",
 	kr_display_name = "에테르의 화신",
-	long_desc = function(self, eff) return ("순수한 에테르의 힘으로 가득찹니다!") end,
+	long_desc = function(self, eff) return ("순수한 에테르의 힘이 가득 차오릅니다!") end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -2030,7 +2030,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_ARCANE", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Arcane",
-	kr_display_name = "속성 고조: 마법",
+	kr_display_name = "속성 고조 : 마법",
 	long_desc = function(self, eff) return ("주문 시전속도 +20%") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2044,8 +2044,8 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_COLD", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Cold",
-	kr_display_name = "속성 고조: 냉기",
-	long_desc = function(self, eff) return ("근접 공격을 당할 경우: 물리 피해 -30% / 공격자에게 얼어붙은 냉기 피해 100") end,
+	kr_display_name = "속성 고조 : 냉기",
+	long_desc = function(self, eff) return ("근접 공격을 당할 경우 : 물리 피해 -30% / 공격자에게 얼어붙은 냉기 피해 100") end,
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -2059,7 +2059,7 @@ newEffect{
 newEffect{
 	name = "ELEMENTAL_SURGE_LIGHTNING", image = "talents/elemental_surge.png",
 	desc = "Elemental Surge: Lightning",
-	kr_display_name = "속성 고조: 전기",
+	kr_display_name = "속성 고조 : 전기",
 	long_desc = function(self, eff) return ("공격을 당하면 순수한 번개로 변신하여 다른 장소로 순간이동 (피해 무시)") end,
 	type = "magical",
 	subtype = { arcane=true },
@@ -2074,7 +2074,7 @@ newEffect{
 	name = "VULNERABILITY_POISON", image = "talents/vulnerability_poison.png",
 	desc = "Vulnerability Poison",
 	kr_display_name = "약화형 독",
-	long_desc = function(self, eff) return ("중독: 매턴 마법 피해 %0.2f / 모든 저항 -%d%%"):format(eff.power, eff.res) end,
+	long_desc = function(self, eff) return ("중독 : 매 턴마다 마법 피해 %0.2f / 모든 저항 -%d%%"):format(eff.power, eff.res) end,
 	type = "magical",
 	subtype = { poison=true, arcane=true },
 	status = "detrimental",
@@ -2099,7 +2099,7 @@ newEffect{
 	name = "IRRESISTIBLE_SUN", image = "talents/irresistible_sun.png",
 	desc = "Irresistible Sun",
 	kr_display_name = "저항할 수 없는 태양의 힘",
-	long_desc = function(self, eff) return ("주변의 모두에게: 끌어당김 / 매턴 화염 피해 / 매턴 빛 피해 / 매턴 물리 피해"):format() end,
+	long_desc = function(self, eff) return ("주변의 모두에게 : 끌어당김 / 매 턴마다 화염 피해 / 매 턴마다 빛 피해 / 매 턴마다 물리 피해"):format() end,
 	type = "magical",
 	subtype = { sun=true },
 	status = "beneficial",
@@ -2273,7 +2273,7 @@ newEffect{
 	name = "KEEPER_OF_REALITY", image = "effects/continuum_destabilization.png",
 	desc = "Keepers of Reality Rally Call",
 	kr_display_name = "현실 감시원의 집회",
-	long_desc = function(self, eff) return "영점 수호를 위한 현실 감시원 집회: 최대 생명력 +5000 / 공격시 피해량 +300%." end,
+	long_desc = function(self, eff) return "영점 수호를 위한 현실 감시원 집회 : 최대 생명력 +5000 / 공격시 피해량 +300%." end,
 	type = "magical",
 	decrease = 0,
 	subtype = { temporal=true },

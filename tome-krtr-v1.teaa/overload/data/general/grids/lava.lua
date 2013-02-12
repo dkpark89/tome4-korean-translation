@@ -33,7 +33,7 @@ newEntity{
 	on_stand = function(self, x, y, who)
 		local DT = engine.DamageType
 		local dam = DT:get(DT.FIRE).projector(self, x, y, DT.FIRE, rng.range(self.mindam, self.maxdam))
-		if dam > 0 then game.logPlayer(who, "용암이 당신을 태운다!") end
+		if dam > 0 then game.logPlayer(who, "용암에 닿아, 몸이 불타오릅니다!") end
 	end,
 	nice_tiler = { method="replace", base={"LAVA_FLOOR", 100, 1, 16}},
 	nice_editer = lava_editer,

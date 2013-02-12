@@ -45,6 +45,6 @@ game.zone.on_turn = function()
 
 end
 
-require("engine.ui.Dialog"):simplePopup("눈보라", "이 지역으로 들어서자, 거대한 눈보라가 머리위로 보입니다. 조심하세요!")
+require("engine.ui.Dialog"):simplePopup("눈보라", "발걸음을 옮기자, 머리 위에 거대한 눈보라가 있는 것을 발견하였습니다. 조심하십시오!")
 
 return true

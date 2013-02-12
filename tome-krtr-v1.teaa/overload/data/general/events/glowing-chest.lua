@@ -71,7 +71,7 @@ g.block_move = function(self, x, y, who, act, couldpass)
 		self.chest_opened = true
 		if self.chest_item then
 			game.zone:addEntity(game.level, self.chest_item, "object", x, y)
-			game.logSeen(who, "#GOLD#상자 속에서 물건이 굴러 나왔습니다!")
+			game.logSeen(who, "#GOLD#상자 속에서 물건이 나왔습니다!")
 			if self.chest_guards then
 				for _, m in ipairs(self.chest_guards) do
 					local mx, my = util.findFreeGrid(x, y, 5, true, {[engine.Map.ACTOR]=true})

@@ -162,7 +162,7 @@ g.block_move = function(self, x, y, who, act, couldpass)
 		return false
 	end
 
-	require("engine.ui.Dialog"):yesnoPopup("공포의영역 관문", "관문으로 들어가기를 원합니까, 아니면 그냥 부수기를 원합니까?", function(ret)
+	require("engine.ui.Dialog"):yesnoPopup("공포의 영역 관문", "관문으로 들어가기를 원합니까, 아니면 그냥 부수기를 원합니까?", function(ret)
 		game.log("#VIOLET#관문은 부서져 있습니다!")
 		if not ret then
 			self:change_level_check()

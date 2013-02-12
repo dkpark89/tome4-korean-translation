@@ -95,7 +95,7 @@ newEntity{
 	block_sight = true,
 	block_sense = true,
 	block_esp = true,
-	door_player_stop = "이 문은 봉인되어 있는것으로 보인다.",
+	door_player_stop = "이 문은 봉인되어 있는 것 같습니다.",
 	is_door = true,
 	door_opened = "SOLID_DOOR_OPEN",
 }

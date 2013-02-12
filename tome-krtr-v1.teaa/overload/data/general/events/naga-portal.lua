@@ -36,7 +36,7 @@ local changer = function(id)
 		type = "floor", subtype = "underwater",
 		display = "&", color = colors.BLUE,
 		name = "coral invasion portal",
-		kr_display_name = "침입의 산호 관문",
+		kr_display_name = "침입용 산호 관문",
 		image = "terrain/underwater/subsea_floor_02.png",
 		add_displays = {mod.class.Grid.new{z=18, image="terrain/naga_portal.png", display_h=2, display_y=-1, embed_particles = {
 			{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_whispery_bright"}},
@@ -101,7 +101,7 @@ end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "naga invasion coral portal"
-g.kr_display_name = "나가 침입의 산호 관문"
+g.kr_display_name = "나가 침입용 산호 관문"
 g.display='&' g.color_r=0 g.color_g=0 g.color_b=255 g.notice = true
 g.change_level=1 g.change_zone=id g.glow=true
 g:removeAllMOs()
@@ -131,7 +131,7 @@ g.block_move = function(self, x, y, who, act, couldpass)
 		return false
 	end
 
-	require("engine.ui.Dialog"):yesnoPopup("산호 관문", "관문으로 들어가시겠습니까 아니면 부수겠습니까?", function(ret)
+	require("engine.ui.Dialog"):yesnoPopup("산호 관문", "관문을 부수겠습니까, 아니면 관문으로 들어가시겠습니까?", function(ret)
 		game.log("#VIOLET#The portal is broken!")
 		if not ret then
 			self:change_level_check()

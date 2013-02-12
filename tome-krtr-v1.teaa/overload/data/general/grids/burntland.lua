@@ -57,7 +57,7 @@ newEntity{
 	define_as = "BURNT_UP_WILDERNESS",
 	type = "floor", subtype = "burnt",
 	name = "exit to the worldmap", image = "terrain/grass_burnt1.png", add_displays = {class.new{image="terrain/worldmap.png"}},
-	kr_display_name = "세상으로의 출구",
+	kr_display_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,

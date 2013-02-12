@@ -81,7 +81,7 @@ defineTile('1', mod.class.Grid.new{
 		end
 		actor:move(fx, fy, true)
 
-		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들리고, 갑자기 주변의 세상이 뒤집혔습니다!")
+		game.logPlayer(actor, "바닥의 뭔가가 동작하는 불길한 소리가 들리더니, 갑자기 주변의 세상이 뒤집혔습니다!")
 		local g = game.zone:makeEntityByName(game.level, "terrain", "FLOOR")
 		if not g then return end
 		game.zone:addEntity(game.level, g, "terrain", x, y)
@@ -114,7 +114,7 @@ defineTile('2', mod.class.Grid.new{
 		game.nicer_tiles:updateAround(game.level, x, y)
 
 
-		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들리고, 주변의 토굴이 재배열 되었습니다!")
+		game.logPlayer(actor, "바닥의 뭔가가 동작하는 불길한 소리가 들리더니, 주변의 토굴이 재배열 되었습니다!")
 
 	end,
 }
@@ -135,7 +135,7 @@ defineTile('3', mod.class.Grid.new{
 		game.zone:addEntity(game.level, g, "terrain", x + 1, y)
 		game.nicer_tiles:updateAround(game.level, x + 1, y)
 
-		game.logPlayer(actor, "바닥의 뭔가가 불길하게 동작하는 소리가 들립니다.")
+		game.logPlayer(actor, "바닥의 뭔가가 동작하는 불길한 소리가 들립니다.")
 	end,
 }
 )
@@ -168,7 +168,7 @@ defineTile('4', mod.class.Grid.new{
 		game.zone:addEntity(game.level, f, "terrain", x, y)
 		game.nicer_tiles:updateAround(game.level, x, y)
 
-		game.logPlayer(actor, "발밑의 뭔가가 불길하게 동작하는 소리가 들리고, 주변의 토굴이 재배열 되었습니다!")
+		game.logPlayer(actor, "발밑의 뭔가가 동작하는 불길한 소리가 들리더니, 주변의 토굴이 재배열 되었습니다!")
 
 	end,
 }
@@ -191,7 +191,7 @@ defineTile('5', mod.class.Grid.new{
 		game.zone:addEntity(game.level, g, "terrain", x, y)
 		game.nicer_tiles:updateAround(game.level, x, y)
 
-		game.logPlayer(actor, "바로 밑의 뭔가가 불길하게 동작하는 소리가 들립니다.")
+		game.logPlayer(actor, "바로 밑의 뭔가가 동작하는 불길한 소리가 들립니다.")
 	end,
 }
 )
