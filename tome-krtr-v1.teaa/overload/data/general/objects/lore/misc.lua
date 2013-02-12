@@ -27,7 +27,8 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "memories of Artelia Firstborn", lore="creation-elf", unique=true,
-	desc = [[The memories of the first elf to have awaken]],
+	kr_display_name = "아르텔리아 퍼스트본의 기억", --@@ lore 번역시 수정 필요
+	desc = [[처음 깨달음을 얻은 엘프의 기억]],
 	level_range = {1, 25},
 	rarity = 40,
 	-- Only elves can find it
@@ -36,7 +37,8 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "human myth of creation", lore="creation-human", unique=true,
-	desc = [[Myth of creation of the humans]],
+	kr_display_name = "인간의 창조 신화", --@@ lore 번역시 수정 필요
+	desc = [[인간의 창조 신화]],
 	level_range = {1, 25},
 	rarity = 40,
 	-- Only humans can find it
@@ -45,7 +47,8 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "a logical analysis of creation, by philosopher Smythen", lore="creation-halfling", unique=true,
-	desc = [[Myth of creation of the halflings]],
+	kr_display_name = "철학자 스미든의 창조에 대한 논리적 분석", --@@ lore 번역시 수정 필요
+	desc = [[하플링의 창조 신화]],
 	level_range = {1, 25},
 	rarity = 40,
 	-- Only hhalflings can find it
@@ -54,7 +57,8 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "Tale of the Moonsisters", lore="moons-human", unique=true,
-	desc = [[The creation of Eyal's moons.]],
+	kr_display_name = "달의 자매 설화", --@@ lore 번역시 수정 필요
+	desc = [[에이알의 달의 발생]],
 	level_range = {1, 35},
 	rarity = 40,
 	-- Only humans can find it

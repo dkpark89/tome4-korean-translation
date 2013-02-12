@@ -843,7 +843,7 @@ newEffect{
 	name = "CRIPPLE", image = "talents/cripple.png",
 	desc = "Cripple",
 	kr_display_name = "장애",
-	long_desc = function(self, eff) return ("장애: 근접공격 속도 -%d%% / 주문시전 속도 -%d%% / 사고속도 -%d%%"):format(eff.speed*100, eff.speed*100, eff.speed*100) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("장애: 근접공격 속도 -%d%% / 주문시전 속도 -%d%% / 사고속도 -%d%%"):format(eff.speed*100, eff.speed*100, eff.speed*100) end, --@@ 변수 조정
 	type = "physical",
 	subtype = { wound=true },
 	status = "detrimental",
@@ -903,7 +903,7 @@ newEffect{
 	name = "RESOLVE", image = "talents/resolve.png",
 	desc = "Resolve",
 	kr_display_name = "결의",
-	long_desc = function(self, eff) return ("%s 저항 +%d%%"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.res) end, --@@ 파라매터 순서 조정
+	long_desc = function(self, eff) return ("%s 저항 +%d%%"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.res) end, --@@ 변수 순서 조정
 	type = "physical",
 	subtype = { antimagic=true, nature=true },
 	status = "beneficial",
@@ -1081,7 +1081,7 @@ newEffect{
 	name = "GRAPPLED", image = "talents/grab.png",
 	desc = "Grappled",
 	kr_display_name = "붙잡힘",
-	long_desc = function(self, eff) return ("붙잡힘: 이동 불가능 / 회피도 -%d / 정확도 -%d"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("붙잡힘: 이동 불가능 / 회피도 -%d / 정확도 -%d"):format(eff.power, eff.power) end, --@@ 변수 조정
 	type = "physical",
 	subtype = { grapple=true, pin=true },
 	status = "detrimental",
@@ -1390,7 +1390,7 @@ newEffect{
 	name = "HEALING_NEXUS", image = "talents/healing_nexus.png",
 	desc = "Healing Nexus",
 	kr_display_name = "회복력 강탈",
-	long_desc = function(self, eff) return ("모든 생명력 회복의 %d%%가 %s에게로 전환"):format(eff.pct * 100, (eff.src.kr_display_name or eff.src.name), eff.src.name) end, --@@ 파라매터 순서 조정
+	long_desc = function(self, eff) return ("모든 생명력 회복의 %d%%가 %s에게로 전환"):format(eff.pct * 100, (eff.src.kr_display_name or eff.src.name), eff.src.name) end, --@@ 변수 순서 조정
 	type = "physical",
 	subtype = { nature=true, heal=true },
 	status = "detrimental",
@@ -1705,7 +1705,7 @@ newEffect{
 	name = "SPELL_DISRUPTION", image = "talents/mana_clash.png",
 	desc = "Spell Disruption",
 	kr_display_name = "주문 방해",
-	long_desc = function(self, eff) return ("주문 방해: 주문 시전시 %d%% 확률로 실패 / 매턴마다 %d%% 확률로 유지중인 주문 종료"):format(eff.cur_power, eff.cur_power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("주문 방해: 주문 시전시 %d%% 확률로 실패 / 매턴마다 %d%% 확률로 유지중인 주문 종료"):format(eff.cur_power, eff.cur_power) end, --@@ 변수 조정
 	type = "physical",
 	subtype = { antimagic=true },
 	status = "detrimental",
@@ -1733,7 +1733,7 @@ newEffect{
 	name = "RESONANCE", image = "talents/alchemist_protection.png",
 	desc = "Resonance",
 	kr_display_name = "공진",
-	long_desc = function(self, eff) return ("%s 공격시 피해량 +%d%%"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.dam) end, --@@ 파라매터 순서 조정
+	long_desc = function(self, eff) return ("%s 공격시 피해량 +%d%%"):format((DamageType:get(eff.damtype).kr_display_name or DamageType:get(eff.damtype).name), eff.dam) end, --@@ 변수 순서 조정
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",

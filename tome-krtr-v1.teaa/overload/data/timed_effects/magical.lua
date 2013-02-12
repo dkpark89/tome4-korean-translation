@@ -598,7 +598,7 @@ newEffect{
 	name = "CURSE_DEFENSELESSNESS", image = "talents/curse_of_defenselessness.png",
 	desc = "Curse of Defenselessness",
 	kr_display_name = "무저항의 저주",
-	long_desc = function(self, eff) return ("저주 : 회피도 -%d / 모든 내성 -%d"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("저주 : 회피도 -%d / 모든 내성 -%d"):format(eff.power, eff.power) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { curse=true },
 	status = "detrimental",
@@ -725,7 +725,7 @@ newEffect{
 	name = "BLOOD_FURY", image = "talents/blood_fury.png",
 	desc = "Bloodfury",
 	kr_display_name = "피의 분노",
-	long_desc = function(self, eff) return ("피의 분노: 황폐 공격시 피해량 +%d%% / 산성 공격시 피해량 +%d%%"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("피의 분노: 황폐 공격시 피해량 +%d%% / 산성 공격시 피해량 +%d%%"):format(eff.power, eff.power) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { frenzy=true },
 	status = "beneficial",
@@ -1012,7 +1012,7 @@ newEffect{
 	name = "TOTALITY", image = "talents/totality.png",
 	desc = "Totality",
 	kr_display_name = "개기 일월식",
-	long_desc = function(self, eff) return ("빛 저항 관통 +%d%% / 어둠 저항 관통 +%d%%"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("빛 저항 관통 +%d%% / 어둠 저항 관통 +%d%%"):format(eff.power, eff.power) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { darkness=true, light=true },
 	status = "beneficial",
@@ -1156,7 +1156,7 @@ newEffect{
 	name = "PRESCIENCE", image = "talents/moment_of_prescience.png",
 	desc = "Prescience",
 	kr_display_name = "통찰",
-	long_desc = function(self, eff) return ("인식력 최고조 : 은신감지 +%d / 투명감지 +%d / 회피도 +%d / 정확도 +%d"):format(eff.power, eff.power, eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("인식력 최고조 : 은신감지 +%d / 투명감지 +%d / 회피도 +%d / 정확도 +%d"):format(eff.power, eff.power, eff.power, eff.power) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { sense=true, temporal=true },
 	status = "beneficial",
@@ -1267,7 +1267,7 @@ newEffect{
 	name = "MANAWORM", image = "effects/manaworm.png",
 	desc = "Manaworm",
 	kr_display_name = "마나 벌레",
-	long_desc = function(self, eff) return ("마나 벌레 오염 : 매 턴마다 마나 -%0.2f / 매 턴마다 마법 피해 %0.2f"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("마나 벌레 오염 : 매 턴마다 마나 -%0.2f / 매 턴마다 마법 피해 %0.2f"):format(eff.power, eff.power) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { arcane=true },
 	status = "detrimental",
@@ -1286,7 +1286,7 @@ newEffect{
 	name = "SURGE_OF_UNDEATH", image = "talents/surge_of_undeath.png",
 	desc = "Surge of Undeath",
 	kr_display_name = "죽지 못하는 자들의 분노",
-	long_desc = function(self, eff) return ("공격시 피해량 +%d / 주문력 +%d / 정확도 +%d / 방어도 관통력 +%d / 물리 치명타율 +%d%% / 주문 치명타율 +%d%%"):format(eff.power, eff.power, eff.power, eff.apr, eff.crit, eff.crit) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("공격시 피해량 +%d / 주문력 +%d / 정확도 +%d / 방어도 관통력 +%d / 물리 치명타율 +%d%% / 주문 치명타율 +%d%%"):format(eff.power, eff.power, eff.power, eff.apr, eff.crit, eff.crit) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { frenzy=true },
 	status = "beneficial",
@@ -1671,7 +1671,7 @@ newEffect{
 	name = "WORM_ROT", image = "talents/worm_rot.png",
 	desc = "Worm Rot",
 	kr_display_name = "부패 벌레",
-	long_desc = function(self, eff) return ("부패 벌레에게 감염 : 매 턴마다 좋은 물리적 상태 효과 한가지 제거 / 매 턴마다 황폐 피해 %0.2f / 매 턴마다 산성 피해 %0.2f\n5턴 이후: 황폐 피해 %0.2f / 부패 벌레가 변태하여 '썩은 고기를 먹는 벌레 덩어리' 생성"):format(eff.dam, eff.dam, eff.burst) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("부패 벌레에게 감염 : 매 턴마다 좋은 물리적 상태 효과 한가지 제거 / 매 턴마다 황폐 피해 %0.2f / 매 턴마다 산성 피해 %0.2f\n5턴 이후: 황폐 피해 %0.2f / 부패 벌레가 변태하여 '썩은 고기를 먹는 벌레 덩어리' 생성"):format(eff.dam, eff.dam, eff.burst) end, --@@ 변수 조정
 	type = "magical",
 	subtype = {disease=true, blight=true, acid=true},
 	status = "detrimental",
@@ -1769,7 +1769,7 @@ newEffect{
 	name = "ARCANE_SUPREMACY", image = "talents/arcane_supremacy.png",
 	desc = "Arcane Supremacy",
 	kr_display_name = "지고의 마법",
-	long_desc = function(self, eff) return ("주문력 +%d / 주문내성 +%d"):format(eff.power, eff.power) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("주문력 +%d / 주문내성 +%d"):format(eff.power, eff.power) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -1792,7 +1792,7 @@ newEffect{
 	name = "WARD", image = "talents/ward.png",
 	desc = "Ward",
 	kr_display_name = "보호",
-	long_desc = function(self, eff) return ("%s 피해 %d 흡수"):format(DamageType.dam_def[eff.d_type].name, #eff.particles) end, --@@ 파라매터 조정
+	long_desc = function(self, eff) return ("%s 피해 %d 흡수"):format(DamageType.dam_def[eff.d_type].name, #eff.particles) end, --@@ 변수 조정
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",
