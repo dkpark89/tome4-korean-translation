@@ -102,7 +102,7 @@ newEntity{ base = "WATER_DOOR_OPEN", define_as = "WATER_DOOR_OPEN_VERT", image =
 newEntity{
 	define_as = "WATER_FLOOR_BUBBLE",
 	name = "underwater air bubble", image = "terrain/underwater/subsea_floor_bubbles.png",
-	kr_display_name = "물속 공기방울",
+	kr_display_name = "물 속 공기방울",
 	display = ':', color=colors.LIGHT_BLUE, back_color=colors.DARK_BLUE,
 	air_level = 15, nb_charges = resolvers.rngrange(4, 7),
 	force_clone = true,
@@ -160,7 +160,7 @@ newEntity{
 	define_as = "POISON_DEEP_WATER",
 	type = "floor", subtype = "water",
 	name = "poisoned deep water", image = "terrain/poisoned_water_01.png",
-	kr_display_name = "독성 깊은 물",
+	kr_display_name = "유독한 깊은 물",
 	display = '~', color=colors.YELLOW_GREEN, back_color=colors.DARK_GREEN,
 --	add_displays = class:makeWater(true, "poison_"),
 	always_remember = true,
@@ -171,7 +171,7 @@ newEntity{
 	on_stand = function(self, x, y, who)
 		local DT = engine.DamageType
 		local dam = DT:get(DT.POISON).projector(self, x, y, DT.POISON, rng.range(self.mindam, self.maxdam))
-		if dam > 0 then game.logPlayer(who, "여기의 물이 당신을 중독시켰습니다!") end
+		if dam > 0 then game.logPlayer(who, "유독성 물이 당신을 중독시켰습니다!") end
 	end,
 	combatAttack = function(self) return rng.range(self.mindam, self.maxdam) end,
 	nice_tiler = { method="replace", base={"POISON_DEEP_WATER", 100, 1, 6}},
@@ -185,7 +185,7 @@ for i = 1, 6 do newEntity{ base="POISON_DEEP_WATER", define_as = "POISON_DEEP_WA
 newEntity{
 	define_as = "WATER_UP_WILDERNESS",
 	name = "exit to the worldmap",
-	kr_display_name = "세상으로의 출구",
+	kr_display_name = "지역 밖으로 나가는 출구",
 	image = "terrain/underwater/subsea_floor_02.png", add_mos = {{image="terrain/underwater/subsea_stair_up_wild.png"}},
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,

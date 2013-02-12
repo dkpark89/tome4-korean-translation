@@ -50,8 +50,8 @@ else
 		display = "?", color=colors.ANTIQUE_WHITE, image="object/scroll.png",
 		encumber = 0,
 		name = "Mocking Note", lore="loot-vault-empty",
-		kr_display_name = "약올리는 기록", kr_unided_name = "두루마리",
-		desc = [[비웃은 어조로 적힌 작은 종이 조가리.]],
+		kr_display_name = "약올리는 쪽지", kr_unided_name = "두루마리",
+		desc = [[비웃는 어조로 적힌, 작은 종이 조각.]],
 		level_range = {1, 20},
 		rarity = false,
 	}

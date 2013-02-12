@@ -79,7 +79,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_UP_WILDERNESS",
 	type = "floor", subtype = "grass",
 	name = "exit to the worldmap", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/worldmap.png"}},
-	kr_display_name = "세상으로의 추구",
+	kr_display_name = "지역 밖으로 나가는 추구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,

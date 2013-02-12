@@ -43,7 +43,7 @@ newEntity{
 		g.does_block_move = nil
 		g:initGlow()
 		game.zone:addEntity(game.level, g, "terrain", x, y)
-		game.logPlayer(who, "#LIGHT_BLUE#당신은 수중동굴로의 입구를 발견했습니다.")
+		game.logPlayer(who, "#LIGHT_BLUE#당신은 수중동굴로 통하는 입구를 발견했습니다.")
 		return true
 	end,
 }

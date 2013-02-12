@@ -62,6 +62,6 @@ game.zone.on_turn = function()
 
 end
 
-require("engine.ui.Dialog"):simplePopup("폭풍우", "이 지역으로 들어서자, 머리위로 거대한 폭풍우가 보입니다. 조심하세요!")
+require("engine.ui.Dialog"):simplePopup("폭풍우", "발걸음을 옮기자, 머리 위에 거대한 폭풍우가 있는 것을 발견하였습니다. 조심하십시오!")
 
 return true

@@ -34,7 +34,7 @@ defineTile('~', mod.class.Grid.new{
 	on_stand = function(self, x, y, who)
 		local DT = engine.DamageType
 		local dam = DT:get(DT.RETCH).projector(self, x, y, DT.RETCH, rng.range(self.mindam, self.maxdam))
-		if not who:attr("undead") then game.logPlayer(who, "용암을 뚫고 어두운 에너지가 올라옵니다.") end
+		if not who:attr("undead") then game.logPlayer(who, "용암을 뚫고, 어두운 힘이 올라옵니다.") end
 		if who.dead and not who:attr("undead") then
 			--add undead
 			local m = game.zone:makeEntityByName(game.level, "actor", "RISEN_CORPSE")
@@ -50,7 +50,7 @@ defineTile('S', "FLOOR", nil, mod.class.NPC.new{
 	kr_display_name = "인간 태양의 기사",
 	faction = "sunwall", hard_faction = "sunwall",
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
-	desc = [[A Human in shining plate armour.]],
+	desc = [[빛나는 판갑을 입은 인간입니다.]],
 	level_range = {10, 50}, exp_worth = 1,
 	rank = 2,
 	size_category = 3,

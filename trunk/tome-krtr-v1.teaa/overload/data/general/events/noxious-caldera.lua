@@ -37,7 +37,7 @@ level.data.on_enter_list.noxious_caldera = function()
 	g:initGlow()
 	game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
 	print("[WORLDMAP] noxious caldera at", spot.x, spot.y)
-	require("engine.ui.Dialog"):simplePopup("흔들리는 땅", "몇초동안 땅이 흔들거린후 멈춤을 느꼈습니다...")
+	require("engine.ui.Dialog"):simplePopup("흔들리는 땅", "몇 초동안 땅이 흔들거리다가 멈추는 것을 느꼈습니다...")
 end
 
 return true

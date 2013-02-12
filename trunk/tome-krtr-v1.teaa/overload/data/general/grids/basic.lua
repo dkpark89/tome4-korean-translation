@@ -24,7 +24,7 @@ newEntity{
 	define_as = "UP_WILDERNESS",
 	type = "floor", subtype = "floor",
 	name = "exit to the worldmap", image = "terrain/marble_floor.png", add_mos = {{image="terrain/stair_up_wild.png"}},
-	kr_display_name = "세상으로의 출구",
+	kr_display_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -61,7 +61,7 @@ newEntity{
 	define_as = "FLAT_UP_WILDERNESS",
 	type = "floor", subtype = "floor",
 	name = "exit to the worldmap", image = "terrain/marble_floor.png", add_mos = {{image="terrain/worldmap.png"}},
-	kr_display_name = "세상으로의 출구",
+	kr_display_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -271,7 +271,7 @@ newEntity{
 	block_sense = true,
 	block_esp = true,
 	is_door = true,
-	door_player_check = "이 봉인은 뜯긴것 처럼 보여, 문을 열수있을 것 같습니다.",
+	door_player_check = "봉인이 해제되어, 문을 열 수 있을 것 같습니다.",
 	door_opened = "DOOR_OPEN",
 }
 newEntity{ base = "DOOR_VAULT", define_as = "DOOR_VAULT_HORIZ", image = "terrain/granite_door1.png", add_displays = {class.new{image="terrain/granite_wall3.png", z=18, display_y=-1}}, door_opened = "DOOR_HORIZ_OPEN"}
@@ -391,7 +391,7 @@ newEntity{
 	block_sense = true,
 	block_esp = true,
 	force_clone = true,
-	door_player_stop = "이 봉인은 뜯긴것 처럼 보이지만, 문을 열수있는 방법은 찾아봐야 합니다.",
+	door_player_stop = "완전히 봉인된 문은 아니지만, 문이 열리지 않습니다. 문을 열 수 있는 다른 방법을 찾아봐야 할 것 같습니다.",
 	is_door = true,
 	door_opened = "GENERIC_LEVER_DOOR_OPEN",
 	on_lever_change = function(self, x, y, who, val, oldval)
@@ -417,7 +417,7 @@ newEntity{
 	always_remember = true,
 	is_door = true,
 	door_closed = "GENERIC_LEVER_DOOR",
-	door_player_stop = "이 봉인은 뜯겨있는 것으로 보이며, 문을 닫는 방법은 찾아봐야 합니다.",
+	door_player_stop = "완전히 봉인된 문은 아니지만, 문이 닫히지 않습니다. 문을 닫을 수 있는 다른 방법을 찾아봐야 할 것 같습니다.",
 	on_lever_change = function(self, x, y, who, val, oldval)
 		local toggle = game.level.map.attrs(x, y, "lever_toggle")
 		local trigger = game.level.map.attrs(x, y, "lever_action")
@@ -435,7 +435,7 @@ newEntity{
 	define_as = "GENERIC_LEVER",
 	type = "lever", subtype = "floor",
 	name = "huge lever", image = "terrain/marble_floor.png", add_mos = {{image="terrain/lever1_state1.png"}},
-	kr_display_name = "커다란 지렛대",
+	kr_display_name = "커다란 레버",
 	display = '&', color=colors.UMBER, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
