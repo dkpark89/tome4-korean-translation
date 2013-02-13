@@ -21,7 +21,7 @@
 newAchievement{
 	name = "Baby steps", id = "TUTORIAL_DONE",
 	kr_display_name = "첫 걸음마",
-	desc = [[ToME4 연습게임를 완료.]],
+	desc = [[ToME4 연습게임을 완료함.]],
 	tutorial = true,
 	no_difficulty_duplicate = true,
 	on_gain = function(_, src, personal)
@@ -100,7 +100,7 @@ newAchievement{
 newAchievement{
 	name = "Evil denied", id = "WIN_FULL",
 	show = "name",
-	kr_display_name = "악마는 사절입니다",
+	kr_display_name = "악한 자는 사절입니다",
 	desc = [[Won ToME by preventing the Void portal from opening.]],
 }
 newAchievement{

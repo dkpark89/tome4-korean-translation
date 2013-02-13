@@ -41,7 +41,7 @@ newAchievement{
 newAchievement{
 	name = "The Restless Dead", id = "EVENT_OLDBATTLEFIELD",
 	show = "name",
-	kr_display_name = "쉬지 않는 죽은자",
+	kr_display_name = "쉬지 않는 죽은 자",
 	desc = [[오래된 전장을 동요시키고, 살아남음.]],
 }
 
@@ -62,7 +62,7 @@ newAchievement{
 newAchievement{
 	name = "Bringer of Doom", id = "EVENT_PEDESTALS",
 	show = "name",
-	kr_display_name = "파멸을 부르는자",
+	kr_display_name = "파멸을 부르는 자",
 	desc = [['파멸을 부르는자' 살해.]],
 }
 

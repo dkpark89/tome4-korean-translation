@@ -56,7 +56,7 @@ newAchievement{
 	name = "Exterminator",
 	kr_display_name = "절멸자",
 	show = "full",
-	desc = [[1000명의 생명체 살해.]],
+	desc = [[1000 명의 생명체를 살해.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -103,7 +103,7 @@ newAchievement{
 	kr_display_name = "중상모략적인 배반자",
 	image = "object/knife_stralite.png",
 	show = "full",
-	desc = [[Killed 6 escorted adventurers while you were supposed to save them.]],
+	desc = [[당신이 살리기로 되어 있었던 안내된 모험가 6명들을 살해함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -116,7 +116,7 @@ newAchievement{
 	name = "Bad Driver", id = "ESCORT_LOST",
 	kr_display_name = "나쁜 길잡이",
 	show = "full",
-	desc = [[Failed to save any escorted adventurers.]],
+	desc = [[안내된 모험가들을 구하는 데 모두 실패함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -129,7 +129,7 @@ newAchievement{
 	name = "Guiding Hand", id = "ESCORT_SAVED",
 	kr_display_name = "인도의 손길",
 	show = "full",
-	desc = [[Saved all escorted adventurers.]],
+	desc = [[모든 안내된 모험가들을 구함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -151,13 +151,13 @@ newAchievement{
 	kr_display_name = "킬 빌!",
 	image = "object/artifact/bill_treestump.png",
 	show = "full",
-	desc = [[Killed Bill in the Trollmire with a level one character.]],
+	desc = [[레벨 1 캐릭터로 트롤마이어의 빌을 죽임.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Atamathoned!", id = "ATAMATHON",
-	kr_display_name = "아타마쏜!",
+	kr_display_name = "아타마쏜!", --아마타쓰에게 죽었다는 뜻, Amatathon'd!라고 보시면 됨. Owned와 비슷한 방식.
 	image = "npc/atamathon.png",
 	show = "name",
 	desc = [[Killed the giant golem Atamathon after foolishly reactivating it.]],
@@ -168,7 +168,7 @@ newAchievement{
 	name = "Huge Appetite", id = "EAT_BOSSES",
 	kr_display_name = "거대한 식욕",
 	show = "full",
-	desc = [[Ate 20 bosses.]],
+	desc = [[20 명의 보스들을 먹음.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target.rank < 3.5 then return false end
