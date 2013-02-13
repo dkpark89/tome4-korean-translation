@@ -751,9 +751,9 @@ function string.krBossName(str)
 	local ori = str:lower()
 	if ori == "the guardian" then return "수호자"
 	elseif ori == "the invader" then return "침략자"
-	elseif ori == "the tidebender" then return "조수 왜곡자"
+	elseif ori == "the tidebender" then return "조류 왜곡자"
 	elseif ori == "the invoker" then return "호출자"
-	elseif ori == "the bringer of doom" then return "파멸을 부르는자"
+	elseif ori == "the bringer of doom" then return "파멸을 부르는 자"
 	else return str end
 end
 

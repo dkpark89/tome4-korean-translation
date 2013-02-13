@@ -163,7 +163,7 @@ uberTalent{
 
 uberTalent{
 	name = "Legacy of the Naloren",
-	kr_display_name = "날로렌의 유산",
+	kr_display_name = "날로레의 유산",
 	mode = "passive",
 	require = { special={desc="슬라슐의 편에 서서, 우클름스윅을 죽일 것", fct=function(self)
 		if game.state.birth.ignore_prodigies_special_reqs then return true end
