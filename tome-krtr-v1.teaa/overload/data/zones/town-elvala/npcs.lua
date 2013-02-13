@@ -52,7 +52,7 @@ newEntity{
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "elvala guard", color=colors.LIGHT_UMBER,
 	kr_display_name = "엘발라 경비",
-	desc = [[엄격해 보이는 경비입니다. 그는 당신이 마을을 어지럽히는 것을 용납하지 않습니다.]],
+	desc = [[엄격해 보이는 경비입니다. 이 경비는 당신이 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),

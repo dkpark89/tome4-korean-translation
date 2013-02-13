@@ -44,7 +44,7 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "dremling", color=colors.SLATE,
 	kr_display_name = "어린 드렘",
-	desc = "막연하게 드워프를 닮은 얼굴없는 작은 영장류입니다. 낡고 녹슨 관리가 엉망인 전투도끼와 방패를 쥐고 있습니다.",
+	desc = "얼굴 없는 작은 존재로, 왠지 모르게 드워프를 닮은 것 같습니다. 낡고 녹슨 관리가 엉망인 전투도끼와 방패를 쥐고 있습니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=6, dammod={str=0.6} },
@@ -80,7 +80,7 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "drem", color=colors.DARK_SLATE_GRAY,
 	kr_display_name = "드렘",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_drem.png", display_h=2, display_y=-1}}},
-	desc = "가시돋고 거친 검은 피부의 거대 영장류입니다. 눈이 있을 자리가 텅 비어있는 것을 제외하면, 얼굴에는 아무런 특징이 없습니다.",
+	desc = "가시돋고 거친 검은 피부를 가진, 거대한 존재입니다. 눈이 있을 자리가 텅 비어있는 것을 제외하면, 얼굴에는 아무런 특징이 없습니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat_armor = 4, combat_def = 0,
@@ -117,7 +117,7 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "drem master", color=colors.LIGHT_GREY,
 	kr_display_name = "상급 드렘",
-	desc = "끼워맞춘 녹슨 중갑을 입고 있는 막연하게 드워프를 닮은 훼손된 영장류입니다. 그 입은 꿰매어져 서로 붙어있지만, 다른 자들을 지휘하고 있는 것으로 보입니다.",
+	desc = "끼워맞춘 녹슨 중갑을 입고 있으며, 드워프를 닮은 것 같지만 상당히 훼손 상태가 심한 존재입니다. 그 입은 꿰매어져 서로 붙어있지만, 다른 드렘들을 지휘하고 있는 것으로 보입니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={str=0.6} },
@@ -161,7 +161,7 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "brecklorn", color=colors.PINK,  -- gloom bat
 	kr_display_name = "브렉클론",
-	desc = "비틀려진 드워프의 얼굴을 가지고 끊임없이 비명을 지르는 털없는 거대 박쥐입니다. 농포가 생긴 상처로 기형의 몸이 뒤덮혀 있습니다. 그 근처로 가면 심장이 약해짐을 느낍니다.",
+	desc = "비틀려진 드워프의 얼굴로 끊임없이 비명을 지르는, 털 없는 거대 박쥐입니다. 그 기형의 몸에는 질병의 흔적이 가득하며, 근처에 있는 것만으로도 공포심이 느껴집니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={dex=0.6} },
@@ -189,8 +189,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "grannor'vor", color=colors.GREEN,  -- acid slug
-	kr_display_name = "그란노르'보르",
-	desc = "천천히 움직이는 커다란 달팽이과 생물입니다. 이것이 지나간 길을 따라 산성 자국이 남습니다. 머리는 이상하게 영장류의 특징을 가지고 있습니다.",
+	kr_display_name = "그란놀'보르",
+	desc = "천천히 움직이는 커다란 달팽이과 생물입니다. 이 존재가 지나간 길에는 산성 액체가 남으며, 머리 부분은 이상하게 사람의 특징을 가지고 있습니다.",
 	level_range = {2, nil}, exp_worth = 1,
 
 	combat = { dam=resolvers.levelup(5, 1, 0.6), atk=15, apr=5, damtype=DamageType.ACID },
@@ -218,8 +218,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "grannor'vin", color=colors.BLACK,  -- shadow slug
-	kr_display_name = "그란노르'빈",
-	desc = "사람의 머리를 가진 커다란 달팽이과 생물입니다. 그 거대한 형상의 그림자가 드리워지고, 거기 닿은 빛은 희미해집니다.",
+	kr_display_name = "그란놀'빈",
+	desc = "사람의 머리를 가진, 커다란 달팽이과 생물입니다. 그림자가 그 거대한 형상에 드리워져 있어, 근처의 모든 빛을 희미하게 만듭니다.",
 	level_range = {2, nil}, exp_worth = 1,
 
 	combat = { dam=5, atk=15, apr=5, damtype=DamageType.DARKNESS },

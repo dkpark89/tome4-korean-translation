@@ -30,11 +30,11 @@ newEntity{ define_as = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "boulder",
 	name = "giant boulder trap", image = "trap/trap_pressure_plate_01.png",
-	kr_display_name = "거대한 둥근바위 함정",
+	kr_display_name = "거대한 바위 함정",
 	detect_power = resolvers.mbonus(40, 5), disarm_power = resolvers.mbonus(50, 10),
 	rarity = 3, level_range = {1, nil},
 	color = colors.UMBER,
-	message = "@Target1@ 함정 위로 걸어가자, 커다란 소리가 들려옵니다.",
+	message = "@Target1@ 함정을 밟자, 커다란 소리가 들려옵니다.",
 	pressure_trap = true,
 	on_added = function(self, level, x, y)
 		local walls = {}
@@ -64,7 +64,7 @@ newEntity{ base = "TRAP_COMPLEX",
 	combatPhysicalpower = function(self) return mod.class.interface.Combat:rescaleCombatStats(self.str) end,
 	triggered = function(self, x, y, who)
 		if not self.spawn_x then return end
-		local tg = {name="huge boulder", kr_display_name = "거대한 둥근바위", type="bolt", range=core.fov.distance(x, y, self.spawn_x, self.spawn_y), x=self.spawn_x, y=self.spawn_y, speed=2, display={image="trap/trap_big_boulder_01.png"}, blur_move=4}
+		local tg = {name="huge boulder", kr_display_name = "거대한 바위", type="bolt", range=core.fov.distance(x, y, self.spawn_x, self.spawn_y), x=self.spawn_x, y=self.spawn_y, speed=2, display={image="trap/trap_big_boulder_01.png"}, blur_move=4}
 		self:projectile(tg, x, y, engine.DamageType.PHYSKNOCKBACK, {dam=self.dam, dist=3, x=self.spawn_x, y=self.spawn_y})
 		return true
 	end,
@@ -73,11 +73,11 @@ newEntity{ base = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "arcane",
 	name = "spinning beam", image = "trap/trap_glyph_explosion_01_64.png",
-	kr_display_name = "회전 빔",
+	kr_display_name = "회전하는 빔 발사장치",
 	detect_power = resolvers.mbonus(40, 5), disarm_power = resolvers.mbonus(50, 10),
 	rarity = 3, level_range = {1, nil},
 	color=colors.PURPLE,
-	message = "@Target1@ 함정 위로 걸어가자, 빔이 동작합니다.",
+	message = "@Target1@ 함정을 밟자, 발사장치가 동작하기 시작합니다.",
 	on_added = function(self, level, x, y)
 		self.x, self.y = x, y
 		self.rad = rng.range(2, 8)
@@ -139,11 +139,11 @@ newEntity{ base = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "nature",
 	name = "poison cloud", image = "trap/trap_acid_blast_01.png",
-	kr_display_name = "독성 연기",
+	kr_display_name = "독성 구름",
 	detect_power = resolvers.mbonus(40, 5), disarm_power = resolvers.mbonus(50, 10),
 	rarity = 3, level_range = {1, nil},
 	color=colors.GREEN,
-	message = "@Target1@ 독성 포자 속으로 걸어갑니다.",
+	message = "@Target1@ 독성 구름 속으로 걸어갑니다.",
 	on_added = function(self, level, x, y)
 		self.x, self.y = x, y
 		self.rad = rng.range(2, 8)

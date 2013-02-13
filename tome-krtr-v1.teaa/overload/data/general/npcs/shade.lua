@@ -96,18 +96,18 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SHADE",
 	rarity = 1, level_range = {30, nil},
-	desc = [[알려지지 않은 미지의 끔찍한 작업을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 역생을 부여받았습니다.]],
+	desc = [[알려지지 않은 미지의 끔찍한 방법을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 언데드가 되었습니다.]],
 	shade_filter = {type="animal", special_rarity="shade_rarity"},
 }
 
 newEntity{ base = "BASE_NPC_SHADE",
 	rarity = 1, level_range = {30, nil},
-	desc = [[알려지지 않은 미지의 끔찍한 작업을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 역생을 부여받았습니다.]],
+	desc = [[알려지지 않은 미지의 끔찍한 방법을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 언데드가 되었습니다.]],
 	shade_filter = {type="humanoid", special_rarity="shade_rarity"},
 }
 
 newEntity{ base = "BASE_NPC_SHADE",
 	rarity = 1, level_range = {30, nil},
-	desc = [[알려지지 않은 미지의 끔찍한 작업을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 역생을 부여받았습니다.]],
+	desc = [[알려지지 않은 미지의 끔찍한 방법을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 언데드가 되었습니다.]],
 	shade_filter = {type="giant", special_rarity="shade_rarity"},
 }

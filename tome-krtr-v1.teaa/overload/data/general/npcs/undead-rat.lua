@@ -46,7 +46,7 @@ newEntity{
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "skeletal rat", color=colors.WHITE,
 	kr_display_name = "스켈레톤 쥐",
-	desc = [[날카롭게 갈린 이빨과 발톱을 가진 스켈레톤 쥐입니다. 위협적으로 노려보고 있습니다.]],
+	desc = [[날카롭게 갈린 이빨과 발톱을 가진 스켈레톤 쥐입니다. 당신을 위협적으로 노려보고 있습니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(25,45),
@@ -70,7 +70,7 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "ghoulish rat", color=colors.TAN,
 	kr_display_name = "구울 쥐",
-	desc = [[이 쥐의 썩어가는 피부 껍질이 벗겨지고 있습니다. 한쪽눈은 휑하니 텅비어 있습니다.]],
+	desc = [[피부 껍질이 반쯤 벗겨진, 썩어가는 쥐입니다. 한 쪽 눈은 휑하니 텅 비어있습니다.]],
 	level_range = {6, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(34,56),
@@ -133,7 +133,7 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "vampire rat", color=colors.WHITE,
 	kr_display_name = "흡혈귀 쥐",
-	desc = [[보통의 쥐같아 보입니다. 하지만 송곳니가 아주 큽니다.]],
+	desc = [[보통의 쥐와 비슷하게 생겼지만, 송곳니가 아주 큽니다.]],
 	level_range = {8, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(45,60),
@@ -155,7 +155,7 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 
 newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 	name = "gigantic bone rat", color=colors.LIGHTGREY,
-	kr_display_name = "거대 뼈 쥐",
+	kr_display_name = "거대 해골 쥐",
 	desc = [[이 거대한 짐승은 수많은 쥐의 뼈들을 융합하여 만든 것으로 보입니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_rodent_gigantic_bone_rat.png", display_h=2, display_y=-1}}},
 	level_range = {14, nil}, exp_worth = 1,
@@ -190,7 +190,7 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT",
 newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 	name = "Rat Lich", color=colors.BLACK,
 	kr_display_name = "리치 쥐",
-	desc = [[당신이 오기 전까지 구덩이의 지배자였습니다. 위협적으로 찍찍거리면, 부하들이 떼거지로 당신에게 달려듭니다.]],
+	desc = [[당신이 오기 전까지 이곳의 지배자 행세를 했던 쥐입니다. 이 쥐가 위협적으로 찍찍거리자, 부하들이 떼거지로 당신에게 달려듭니다.]],
 	level_range = {16, nil}, exp_worth = 2,
 	rarity = false,
 	rank=3.5,
@@ -245,9 +245,9 @@ newEntity{ base = "BASE_NPC_UNDEAD_RAT", define_as="RATLICH",
 				{type="undead", subtype="rodent", number=3, hasxp=false},
 			}
 
-			game.logSeen(self, "#RED#다시 되살아난 리치 쥐의 눈은 새로운 에너지로 불타오릅니다!")
+			game.logSeen(self, "#RED#되살아난 리치 쥐의 눈이 새로운 힘으로 불타오릅니다!")
 
-			self.desc = self.desc.."\n리치 쥐의 진정한 힘이 드러났습니다! 마법의 에너지가 소용돌이치고, 전투의 찍찍거림을 내뱉으며 부하들과 함께 당신을 추격합니다!"
+			self.desc = self.desc.."\n리치 쥐의 진정한 힘이 드러났습니다! 마법의 힘이 소용돌이치고, 전투의 찍찍거림을 내뱉으며, 부하들과 함께 당신을 추격합니다!"
 
 			self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 			self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})

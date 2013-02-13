@@ -340,7 +340,7 @@ newEntity{ name = "headless horror",
 			if not eye.dead then eye:die(src) nb = nb + 1 end
 		end
 		if nb > 0 then
-			game.logSeen(self, "#AQUAMARINE#%s 쓰러지자, 그의 모든 눈이 땅 위에 떨어집니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
+			game.logSeen(self, "#AQUAMARINE#%s 쓰러지자, 주위에 있던 모든 눈들이 땅에 떨어집니다!", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		end
 	end,
 }

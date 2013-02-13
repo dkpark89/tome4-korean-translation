@@ -29,7 +29,7 @@ newEntity{ base = "TRAP_ANNOY",
 	detect_power = 20, disarm_power = 36,
 	rarity = 3, level_range = {1, 50},
 	color=colors.BLUE,
-	message = "@Target@의 활발함이 떨어진 것 같습니다.",
+	message = "@Target1@ 무기력함을 느꼈습니다.",
 	triggered = function(self, x, y, who)
 		local tids = {}
 		for tid, lev in pairs(who.talents) do
@@ -48,11 +48,11 @@ newEntity{ base = "TRAP_ANNOY",
 
 newEntity{ base = "TRAP_ANNOY",
 	name = "burning curse trap", auto_id = true, image = "trap/trap_burning_curse_01.png",
-	kr_display_name = "불타는 저주의 함정",
+	kr_display_name = "화염의 저주 함정",
 	detect_power = 50, disarm_power = 58,
 	rarity = 3, level_range = {30, 50},
 	color=colors.ORCHID,
-	message = "@Target1@ 타오르는 저주를 일으킵니다!",
+	message = "@Target1@ 화염의 매혹술에 걸렸습니다!",
 	dam = resolvers.mbonus(80, 5),
 	pressure_trap = true,
 	triggered = function(self, x, y, who)
