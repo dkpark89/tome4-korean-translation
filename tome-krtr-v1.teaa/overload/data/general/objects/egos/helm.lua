@@ -362,7 +362,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "champion's ", prefix=true, instant_resolve=true,
-	kr_display_name = "우승자 ",
+	kr_display_name = "투사 ",
 	keywords = {champion=true},
 	level_range = {30, 50},
 	greater_ego = 1,

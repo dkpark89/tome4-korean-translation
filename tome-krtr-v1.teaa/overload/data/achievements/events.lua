@@ -21,54 +21,54 @@ newAchievement{
 	name = "The sky is falling!", id = "EVENT_METEOR",
 	show = "name",
 	kr_display_name = "하늘이 무너져내린다!",
-	desc = [[하늘에서 거대한 메테오가 떨어지는 것을 봤다.]],
+	desc = [[하늘에서 거대한 유성이 떨어지는 것을 봄.]],
 }
 
 newAchievement{
 	name = "Demonic Invasion", id = "EVENT_FEARSCAPE",
 	show = "name",
 	kr_display_name = "악마의 침공",
-	desc = [[포탈을 닫아 악마의 침공을 막음.]],
+	desc = [[관문을 닫아 악마의 침공을 막음.]],
 }
 
 newAchievement{
 	name = "Invasion from the Depths", id = "EVENT_NAGA",
 	show = "name",
 	kr_display_name = "심해에서의 침공",
-	desc = [[포탈을 닫아 나가들의 침공을 막음.]],
+	desc = [[관문을 닫아 나가들의 침공을 막음.]],
 }
 
 newAchievement{
 	name = "The Restless Dead", id = "EVENT_OLDBATTLEFIELD",
 	show = "name",
-	kr_display_name = "쉬지 않는 죽음",
-	desc = [[오래된 전장을 동요시키고 그 결과에서 살아남았다.]],
+	kr_display_name = "쉬지 않는 죽은자",
+	desc = [[오래된 전장을 동요시키고, 살아남음.]],
 }
 
 newAchievement{
 	name = "The Rat Lich", id = "EVENT_RATLICH",
 	show = "name",
-	kr_display_name = "랫 리치",
-	desc = [[무시무시한 랫 리치를 죽였다.]],
+	kr_display_name = "리치 쥐",
+	desc = [[무시무시한 리치 쥐를 죽임.]],
 }
 
 newAchievement{
 	name = "Shasshhiy'Kaish", id = "EVENT_CULTISTS",
 	show = "name",
-	kr_display_name = "샤스시이'카이시",
-	desc = [[샤스시이'카이시 (Shasshhiy'Kaish)가 최대한 강해질 수 있을대로 강해질 때까지 기다려준 후에 죽임.]],
+	kr_display_name = "샤쉬히'카이쉬",
+	desc = [[샤쉬히'카이쉬가 최대한 강해진 다음 살해.]],
 }
 
 newAchievement{
 	name = "Bringer of Doom", id = "EVENT_PEDESTALS",
 	show = "name",
-	kr_display_name = "파멸의 신",
-	desc = [[Bringer of Doom을 죽였다.]],
+	kr_display_name = "파멸을 부르는자",
+	desc = [['파멸을 부르는자' 살해.]],
 }
 
 newAchievement{
 	name = "A living one!", id = "CALDIZAR",
 	show = "name",
 	kr_display_name = "살아있는 자!",
-	desc = [[칼지다르의 요새로 텔레포트 됨, 별들 사이의 저 먼 보이드 속으로...]],
+	desc = [[멀리 별 사이의 공허에 있는 칼디자르의 요새로 순간이동.]],
 }

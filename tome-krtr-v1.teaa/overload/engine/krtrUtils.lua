@@ -753,7 +753,7 @@ function string.krBossName(str)
 	elseif ori == "the invader" then return "침략자"
 	elseif ori == "the tidebender" then return "조수 왜곡자"
 	elseif ori == "the invoker" then return "호출자"
-	elseif ori == "the bringer of doom" then return "파멸 생성자"
+	elseif ori == "the bringer of doom" then return "파멸을 부르는자"
 	else return str end
 end
 

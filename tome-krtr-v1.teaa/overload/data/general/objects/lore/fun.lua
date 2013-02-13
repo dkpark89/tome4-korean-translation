@@ -37,8 +37,8 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "rogues do it from behind", lore="rogue-poem", unique=true,
-	kr_display_name = "뒤쪽에서 일을 벌리는 도적", --@@ lore 번역시 수정 필요
-	desc = [[이 시는 도적을 위해 쓴 것인지?]],
+	kr_display_name = "뒤쪽에서 일을 벌리는 도둑", --@@ lore 번역시 수정 필요
+	desc = [[이 시는 도둑을 위해 쓴 것인지?]],
 	level_range = {15, 50},
 	rarity = 40,
 	encumber = 0,
