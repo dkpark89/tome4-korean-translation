@@ -77,7 +77,7 @@ newAchievement{
 	image = "npc/alchemist_golem.png",
 	show = "name",
 	kr_display_name = "해방",
-	desc = [[주인이 죽은 상태의 골렘이 보스를 죽임.]],
+	desc = [[주인이 죽은 상태인 골렘이 보스를 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		local p = game.party:findMember{main=true}

@@ -55,7 +55,7 @@ newAchievement{
 newAchievement{
 	name = "A different point of view", id = "ORC_LORE",
 	kr_display_name = "다른 시점",
-	desc = [[지식의 대가 하닥의 이야기들 중 다섯장의 오크 역사를 배움.]],
+	desc = [[지식의 대가 하닥의 이야기들 중 다섯장의 오크 역사를 모음.]],
 	show = "full",
 	mode = "player",
 	can_gain = function(self, who, obj)
