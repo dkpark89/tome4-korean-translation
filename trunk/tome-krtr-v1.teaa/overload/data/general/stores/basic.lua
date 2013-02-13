@@ -160,7 +160,7 @@ newEntity{
 newEntity{
 	define_as = "ARCHER_WEAPON",
 	name = "archery",
-	kr_display_name = "궁술 용구점",
+	kr_display_name = "궁술 용품점",
 	display = '3', color=colors.UMBER,
 	store = {
 		purse = 25,
@@ -509,7 +509,7 @@ newEntity{
 newEntity{
 	define_as = "ELVALA_LIBRARY",
 	name = "shady library",
-	kr_display_name = "불법 도서 개래소",
+	kr_display_name = "불법 도서 거래소",
 	display = '*', color=colors.LIGHT_RED,
 	store = {
 		purse = 10,

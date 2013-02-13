@@ -57,7 +57,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "degenerated skeleton warrior", color=colors.WHITE, image="npc/degenerated_skeleton_warrior.png",
-	kr_display_name = "부패된 스켈레톤 전사",
+	kr_display_name = "부패한 스켈레톤 전사",
 	level_range = {1, 18}, exp_worth = 1,
 	rarity = 1,
 	resolvers.equip{ {type="weapon", subtype="greatsword", forbid_power_source={antimagic=true}, autoreq=true} },

@@ -52,7 +52,7 @@ newEntity{ base = "TRAP_NATURAL_FOREST",
 	detect_power = 8, disarm_power = 2,
 	rarity = 3, level_range = {1, 50},
 	color=colors.GREEN,
-	message = "@Target1@ 독성 덩굴에 공격당했습니다!",
+	message = "@Target1@ 독성 덩굴에 찔렸습니다!",
 	dam = resolvers.mbonus(150, 15), damtype = DamageType.POISON,
 	combatAttack = function(self) return self.dam end
 }

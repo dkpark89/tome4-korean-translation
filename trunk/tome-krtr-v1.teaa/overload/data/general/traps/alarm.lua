@@ -27,11 +27,11 @@ newEntity{ define_as = "TRAP_ALARM",
 
 newEntity{ base = "TRAP_ALARM",
 	name = "intruder alarm", auto_id = true, image = "trap/trap_intruder_alarm_01.png",
-	kr_display_name = "침입감지 경보",
+	kr_display_name = "침입 감지 경보",
 	detect_power = 20, disarm_power = 36,
 	rarity = 3, level_range = {1, 50},
 	color=colors.UMBER,
-	message = "@Target1@ 경보가 울게 만들었습니다!",
+	message = "@Target1@ 경보 장치를 밟았습니다!",
 	pressure_trap = true,
 	triggered = function(self, x, y, who)
 		for i = x - 20, x + 20 do for j = y - 20, y + 20 do if game.level.map:isBound(i, j) then
@@ -71,7 +71,7 @@ newEntity{ base = "TRAP_ALARM",
 			local m = game.zone:makeEntity(game.level, "actor")
 			if m then
 				game.zone:addEntity(game.level, m, "actor", x, y)
-				game.logSeen(who, "%s 짙은 대기를 뚫고 나타납니다!", (m.kr_display_name or m.name):capitalize():addJosa("가"))
+				game.logSeen(who, "%s 어디선가 갑자기 나타납니다!", (m.kr_display_name or m.name):capitalize():addJosa("가"))
 			end
 		end
 		return true, true

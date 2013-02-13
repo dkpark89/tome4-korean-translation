@@ -92,6 +92,6 @@ newEntity{ base = "BASE_NPC_WORM", define_as = "CARRION_WORM_MASS",
 			5, nil,
 			engine.Entity.new{alpha=50, display='', color_br=30, color_bg=180, color_bb=60}
 		)
-		game.logSeen(self, "%s 죽자, 타락한 기체가 스며나옵니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
+		game.logSeen(self, "%s 죽자, 오염된 기체가 흘러나옵니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 	end,
 }
