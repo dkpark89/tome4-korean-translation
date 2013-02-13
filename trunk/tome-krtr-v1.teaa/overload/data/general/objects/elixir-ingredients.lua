@@ -246,10 +246,10 @@ newEntity{ define_as = "ICE_WYRM_TOOTH",
 	encumber = 0,
 	unided_name = "tooth",
 	name = "ice wyrm tooth",
-	kr_display_name = "얼음 용 이빨", kr_unided_name = "이빨",
+	kr_display_name = "냉기 용 이빨", kr_unided_name = "이빨",
 	display = "/", color=colors.WHITE,
 	desc = [[세월에 의해 조금 닳았지만, 아직 그 역할을 충분히 할 수 있을 것 같은 이빨입니다.]],
-	alch = "얼음 용는 이빨이 자주 빠지니까, 운이 좋으면 싸우지 않고도 구할 수 있을게야. 하지만 옷은 따뜻하게 입고 가야하네.",
+	alch = "냉기 용은 이빨이 자주 빠지니까, 운이 좋으면 싸우지 않고도 구할 수 있을게야. 하지만 옷은 따뜻하게 입고 가야하네.",
 }
 
 newEntity{ define_as = "RED_CRYSTAL_SHARD",

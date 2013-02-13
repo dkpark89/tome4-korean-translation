@@ -19,91 +19,91 @@
 
 newAchievement{
 	name = "Infinite x10",
-	kr_display_name = "무한대 x10",
+	kr_display_name = "무한의 던전 10층",
 	show = "full",
-	desc = [[무한 던전의 레벨 10에 다다랐다.]],
+	desc = [[무한의 던전 10층 도달.]],
 }
 newAchievement{
 	name = "Infinite x20",
-	kr_display_name = "무한대 x20",
+	kr_display_name = "무한의 던전 20층",
 	show = "full",
-	desc = [[무한 던전의 레벨 20에 다다랐다.]],
+	desc = [[무한의 던전 20층 도달.]],
 }
 newAchievement{
 	name = "Infinite x30",
-	kr_display_name = "무한대 x30",
+	kr_display_name = "무한의 던전 30층",
 	show = "full",
-	desc = [[무한 던전의 레벨 30에 다다랐다.]],
+	desc = [[무한의 던전 30층 도달.]],
 }
 newAchievement{
 	name = "Infinite x40",
-	kr_display_name = "무한대 x40",
+	kr_display_name = "무한의 던전 40층",
 	show = "full",
-	desc = [[무한 던전의 레벨 40에 다다랐다.]],
+	desc = [[무한의 던전 40층 도달.]],
 }
 newAchievement{
 	name = "Infinite x50",
-	kr_display_name = "무한대 x50",
+	kr_display_name = "무한의 던전 50층",
 	show = "full",
-	desc = [[무한 던전의 레벨 50에 다다랐다.]],
+	desc = [[무한의 던전 50층 도달.]],
 }
 newAchievement{
 	name = "Infinite x60",
-	kr_display_name = "무한대 x60",
+	kr_display_name = "무한의 던전 60층",
 	show = "full",
-	desc = [[무한 던전의 레벨 60에 다다랐다.]],
+	desc = [[무한의 던전 60층 도달.]],
 }
 newAchievement{
 	name = "Infinite x70",
-	kr_display_name = "무한대 x70",
+	kr_display_name = "무한의 던전 70층",
 	show = "full",
-	desc = [[무한 던전의 레벨 70에 다다랐다.]],
+	desc = [[무한의 던전 70층 도달.]],
 }
 newAchievement{
 	name = "Infinite x80",
-	kr_display_name = "무한대 x80",
+	kr_display_name = "무한의 던전 80층",
 	show = "full",
-	desc = [[무한 던전의 레벨 80에 다다랐다.]],
+	desc = [[무한의 던전 80층 도달.]],
 }
 newAchievement{
 	name = "Infinite x90",
-	kr_display_name = "무한대 x90",
+	kr_display_name = "무한의 던전 90층",
 	show = "full",
-	desc = [[무한 던전의 레벨 90에 다다랐다.]],
+	desc = [[무한의 던전 90층 도달.]],
 }
 newAchievement{
 	name = "Infinite x100",
-	kr_display_name = "무한대 x100",
+	kr_display_name = "무한의 던전 100층",
 	show = "full",
-	desc = [[무한 던전의 레벨 100에 다다랐다.]],
+	desc = [[무한의 던전 100층 도달.]],
 }
 newAchievement{
 	name = "Infinite x150",
-	kr_display_name = "무한대 x150",
+	kr_display_name = "무한의 던전 150층",
 	show = "full",
-	desc = [[무한 던전의 레벨 150에 다다랐다.]],
+	desc = [[무한의 던전 150층 도달.]],
 }
 newAchievement{
 	name = "Infinite x200",
-	kr_display_name = "무한대 x200",
+	kr_display_name = "무한의 던전 200층",
 	show = "full",
-	desc = [[무한 던전의 레벨 200에 다다랐다.]],
+	desc = [[무한의 던전 200층 도달.]],
 }
 newAchievement{
 	name = "Infinite x300",
-	kr_display_name = "무한대 x300",
+	kr_display_name = "무한의 던전 300층",
 	show = "full",
-	desc = [[무한 던전의 레벨 300에 다다랐다.]],
+	desc = [[무한의 던전 300층 도달.]],
 }
 newAchievement{
 	name = "Infinite x400",
-	kr_display_name = "무한대 x400",
+	kr_display_name = "무한의 던전 400층",
 	show = "full",
-	desc = [[무한 던전의 레벨 400에 다다랐다.]],
+	desc = [[무한의 던전 400층 도달.]],
 }
 newAchievement{
 	name = "Infinite x500",
-	kr_display_name = "무한대 x500",
+	kr_display_name = "무한의 던전 500층",
 	show = "full",
-	desc = [[무한 던전의 레벨 500에 다다랐다.]],
+	desc = [[무한의 던전 500층 도달.]],
 }

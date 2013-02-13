@@ -195,10 +195,10 @@ newIngredient{ id = "ICE_WYRM_TOOTH",
 	type = "organic",
 	icon = "object/frost_wyrm_tooth.png",
 	name = "ice wyrm tooth",
-	kr_display_name = "얼음 용 이빨",
+	kr_display_name = "냉기 용 이빨",
 	desc = [[세월에 의해 조금 닳았지만, 아직 그 역할을 충분히 할 수 있을 것 같은 이빨입니다.]],
 	min = 0, max = INFINITY,
-	alchemy_text = "얼음 용는 이빨이 자주 빠지니까, 운이 좋으면 싸우지 않고도 구할 수 있을게야. 하지만 옷은 따뜻하게 입고 가야하네.",
+	alchemy_text = "냉기 용은 이빨이 자주 빠지니까, 운이 좋으면 싸우지 않고도 구할 수 있을게야. 하지만 옷은 따뜻하게 입고 가야하네.",
 }
 
 newIngredient{ id = "RED_CRYSTAL_SHARD",

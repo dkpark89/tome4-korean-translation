@@ -20,55 +20,55 @@
 newAchievement{
 	name = "The Arena",
 	show = "full",
-	kr_display_name = "아레나",
-	desc = [[아레나 모드를 해금.]],
+	kr_display_name = "투기장",
+	desc = [[투기장 게임 방식 봉인 해제.]],
 }
 
 newAchievement{
 	name = "Arena Battler 20",
 	show = "full",
-	kr_display_name = "아레나의 검투사 - 20",
-	desc = [[아레나에서 웨이브 20대에 진입.]],
+	kr_display_name = "투기장의 20회 선전분투",
+	desc = [[투기장에서 20번의 쇄도를 극복.]],
 }
 
 newAchievement{
 	name = "Arena Battler 50",
 	show = "full",
-	kr_display_name = "아레나의 검투사 - 50",
-	desc = [[아레나에서 웨이브 50대에 진입.]],
+	kr_display_name = "투기장의 50회 선전분투",
+	desc = [[투기장에서 50번의 쇄도를 극복.]],
 }
 
 newAchievement{
 	name = "Almost Master of Arena",
 	show = "full",
-	kr_display_name = "예비 아레나의 마스터",
-	desc = [[30-웨이브 모드에서 아레나의 새로운 마스터가 된다.]],
+	kr_display_name = "투기장의 예비 승리자",
+	desc = [[30회 쇄도 방식의 투기장에서 승리자가 됨.]],
 }
 
 newAchievement{
 	name = "Master of Arena",
 	show = "full",
-	kr_display_name = "아레나의 마스터",
-	desc = [[60-웨이브 모드에서 아레나의 새로운 마스터가 된다.]],
+	kr_display_name = "투기장의 승리자",
+	desc = [[60회 쇄도 방식의 투기장에서 승리자가 됨.]],
 }
 
 newAchievement{
 	name = "XXX the Destroyer",
 	show = "full",
 	kr_display_name = "파괴자 XXX",
-	desc = [[아레나에서 파괴자의 등급에 등극한다.]],
+	desc = [[투기장에서 파괴자의 등급에 등극.]],
 }
 
 newAchievement{
 	name = "Grand Master",
 	show = "full",
-	kr_display_name = "그랜드 마스터",
-	desc = [[아레나에서 그랜드 마스터의 등급에 등극한다.]],
+	kr_display_name = "궁극의 끝에 다다른 자",
+	desc = [[투기장에서 '궁극의 끝에 다다른 자' 등급에 등극.]],
 }
 
 newAchievement{
 	name = "Ten at one blow",
 	show = "full",
 	kr_display_name = "일석십조",
-	desc = [[아레나에서 10마리나 그 이상의 적을 한번의 공격으로 처리한다.]],
+	desc = [[투기장에서 10명 이상의 적을 한번의 공격으로 살해.]],
 }

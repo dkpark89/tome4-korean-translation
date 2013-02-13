@@ -348,7 +348,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "rogue's ", prefix=true, instant_resolve=true,
-	kr_display_name = "도적 ",
+	kr_display_name = "도둑 ",
 	keywords = {rogue=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -415,7 +415,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "sneakthief's ", prefix=true, instant_resolve=true,
-	kr_display_name = "은밀한 도둑 ",
+	kr_display_name = "은밀한 날도둑 ",
 	keywords = {sneakthief=true},
 	level_range = {15, 50},
 	greater_ego = 1,

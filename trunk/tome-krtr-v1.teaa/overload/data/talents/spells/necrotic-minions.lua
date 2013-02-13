@@ -97,7 +97,7 @@ local minions_list = {
 	d_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "degenerated skeleton warrior", color=colors.WHITE, image="npc/degenerated_skeleton_warrior.png",
-		kr_display_name = "부패된 스켈레톤 전사",
+		kr_display_name = "부패한 스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -753,7 +753,7 @@ newTalent{
 		언데드 추종자는 사령술의 기운이 깃든 범위 내에서만 일으킬 수 있습니다.
 		언데드 추종자의 레벨은 시전자의 %+d 입니다.
 		생성될 언데드 추종자의 확률은 다음과 같습니다 :
-		부패된 스켈레톤 전사 : %d%%
+		부패한 스켈레톤 전사 : %d%%
 		스켈레톤 전사 : %d%%
 		중무장한 스켈레톤 전사: %d%%
 		스켈레톤 궁수 : %d%%

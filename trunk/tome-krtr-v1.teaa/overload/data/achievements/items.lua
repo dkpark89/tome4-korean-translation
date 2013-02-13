@@ -19,12 +19,12 @@
 
 newAchievement{
 	name = "Deus Ex Machina",
-	kr_display_name = "데우스 Ex 마키나",
-	desc = [[끊임없이 다시 차오르는 포션(ever-refilling potion)과 블러드 오브 라이프(blood of life)를 찾았다.]],
+	kr_display_name = "데우스 엑스 마키나",
+	desc = [[끊없는 생명력의 물약(ever-refilling potion)과 생명의 피(blood of life) 발견.]],
 	mode = "player",
 	can_gain = function(self, who, obj)
-		if (obj:getName{force_id=true} == "Blood of Life" or obj.name == "Blood of Life") then self.blood = true end --@@ 원래이름도 비교되도록 코드 수정
-		if (obj:getName{force_id=true} == "Ever-Refilling Potion of Healing" or obj.name == "Ever-Refilling Potion of Healing") then self.life = true end --@@ 원래이름도 비교되도록 코드 수정
+		if (obj:getName{force_id=true} == "Blood of Life" or obj:getOriName{force_id=true} == "Blood of Life") then self.blood = true end --@@ 원래이름도 비교되도록 코드 수정
+		if (obj:getName{force_id=true} == "Ever-Refilling Potion of Healing" or obj:getOriName{force_id=true} == "Ever-Refilling Potion of Healing") then self.life = true end --@@ 원래이름도 비교되도록 코드 수정
 		return self.blood and self.life
 	end
 }
@@ -34,7 +34,7 @@ newAchievement{
 	kr_display_name = "보물 사냥꾼",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[1000개의 골드 조각을 모음.]],
+	desc = [[금화 1000개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 1000
 	end,
@@ -45,7 +45,7 @@ newAchievement{
 	kr_display_name = "보물 비축자",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[3000개의 골드 조각을 모음.]],
+	desc = [[금화 3000개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 3000
 	end,
@@ -56,7 +56,7 @@ newAchievement{ id = "DRAGON_GREED",
 	kr_display_name = "드래곤의 탐욕",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[8000개의 골드 조각을 모음.]],
+	desc = [[금화 8000개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 8000
 	end,
