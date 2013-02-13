@@ -83,7 +83,7 @@ newAchievement{
 	name = "Reaver",
 	kr_display_name = "파괴자",
 	show = "full",
-	desc = [[1000명의 영장류 살해.]],
+	desc = [[1000 명의 영장류 살해.]],
 	mode = "world",
 	can_gain = function(self, who, target)
 		if target.type == "humanoid" then
@@ -129,7 +129,7 @@ newAchievement{
 	name = "Guiding Hand", id = "ESCORT_SAVED",
 	kr_display_name = "인도의 손길",
 	show = "full",
-	desc = [[모든 안내하던 모험가들을 구함.]],
+	desc = [[안내하던 모험가들을 모두 구함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -142,7 +142,7 @@ newAchievement{
 	name = "Earth Master", id = "GEOMANCER",
 	kr_display_name = "대지의 명인",
 	show = "name",
-	desc = [[하코르'준을 죽이고, 암석 마법 계열 봉인 해제.]],
+	desc = [[하코르'준을 죽이고, 암석 마법 계열의 봉인을 해제.]],
 	mode = "player",
 }
 
@@ -160,7 +160,7 @@ newAchievement{
 	kr_display_name = "아타마쏜!",
 	image = "npc/atamathon.png",
 	show = "name",
-	desc = [[거대 골렘 아타마쏜을 바보같이 재작동시킨 후, 죽임.]],
+	desc = [[거대 골렘 아타마쏜을 바보같이 재작동시킨 후 죽임.]],
 	mode = "player",
 }
 
@@ -225,7 +225,7 @@ newAchievement{
 
 newAchievement{
 	name = "Kickin' it old-school", id = "FIRST_BOSS_URKIS",
-	kr_display_name = "옛날 학교로 차버려", --@@ 이스터애그. 영화 제목인 듯
+	kr_display_name = "옛 방식으로 작살내기", --@@ 이스터애그. 영화 제목인 듯 -추가 ㄴㄴ, 클래식과 비슷한 뜻임. http://www.urbandictionary.com/define.php?term=old-school 참조바람.
 	image = "npc/humanoid_human_urkis__the_high_tempest.png",
 	show = "full",
 	desc = [[대기술사 우르키스를 죽이고, 그에게서 되돌림의 장대(Rod of Recall)를 획득.]],
