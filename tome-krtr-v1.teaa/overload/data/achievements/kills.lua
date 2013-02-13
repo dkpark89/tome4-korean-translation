@@ -19,9 +19,9 @@
 
 newAchievement{
 	name = "That was close",
-	kr_display_name = "십년감수했네",
+	kr_display_name = "십년 감수했네",
 	show = "full",
-	desc = [[Killed your target while having only 1 life left.]],
+	desc = [[체력이 1만 남은채로 상대방을 죽였다.]],
 }
 newAchievement{
 	name = "Size matters",
@@ -56,7 +56,7 @@ newAchievement{
 	name = "Exterminator",
 	kr_display_name = "절멸자",
 	show = "full",
-	desc = [[Killed 1000 creatures.]],
+	desc = [[1000마리의 괴물들을 처리했다.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -65,8 +65,8 @@ newAchievement{
 	track = function(self) return tstring{tostring(self.nb or 0)," / 1000"} end,
 }
 newAchievement{
-	name = "해충 구제",
-	kr_display_name = "",
+	name = "Pest Control",
+	kr_display_name = "해충 구제",
 	image = "npc/vermin_worms_green_worm_mass.png",
 	show = "full",
 	desc = [[Killed 1000 reproducing vermin.]],
@@ -80,8 +80,8 @@ newAchievement{
 	track = function(self) return tstring{tostring(self.nb or 0)," / 1000"} end,
 }
 newAchievement{
-	name = "약탈자",
-	kr_display_name = "",
+	name = "Reaver",
+	kr_display_name = "약탈자",
 	show = "full",
 	desc = [[Killed 1000 humanoids.]],
 	mode = "world",
@@ -148,7 +148,7 @@ newAchievement{
 
 newAchievement{
 	name = "Kill Bill!", id = "KILL_BILL",
-	kr_display_name = "킬 빌! (Kill Bill!)",
+	kr_display_name = "킬 빌!",
 	image = "object/artifact/bill_treestump.png",
 	show = "full",
 	desc = [[Killed Bill in the Trollmire with a level one character.]],
