@@ -47,13 +47,13 @@ newAchievement{
 	name = "The secret city",
 	show = "none",
 	kr_display_name = "숨겨진 도시",
-	desc = [[마법사들의 진실 발견.]],
+	desc = [[마법사들에 대한 진실을 밝혀냄.]],
 }
 newAchievement{
 	name = "Burnt to the ground", id="APPRENTICE_STAFF",
 	show = "none",
 	kr_display_name = "불타올라 대지로",
-	desc = [[견습 마법사에게 '흡수의 지팡이'를 줘, 불꽃놀이 감상.]],
+	desc = [[견습 마법사에게 '흡수의 지팡이'를 주고, 이후의 불꽃놀이를 감상.]],
 }
 newAchievement{
 	name = "Against all odds", id = "KILL_UKRUK",
@@ -75,13 +75,13 @@ newAchievement{
 	name = "Destroyer's bane", id = "DESTROYER_BANE",
 	show = "name",
 	kr_display_name = "파괴자의 죽음",
-	desc = [[파괴자 골부그 살해.]],
+	desc = [[파괴자 골부그를 살해.]],
 }
 newAchievement{
 	name = "Brave new world", id = "STRANGE_NEW_WORLD",
 	show = "name",
 	kr_display_name = "용감하게 신세계로",
-	desc = [[동대륙으로 가, 전투에 참여.]],
+	desc = [[동대륙으로 가서 전투에 참여함.]],
 }
 newAchievement{
 	name = "Race through fire", id = "CHARRED_SCAR_SUCCESS",
@@ -157,19 +157,19 @@ newAchievement{
 	name = "Rescuer of the lost", id = "LOST_MERCHANT_RESCUE",
 	show = "name",
 	kr_display_name = "실종자 구출",
-	desc = [['암살단의 제왕'으로부터 상인 구출.]],
+	desc = [['암살단의 제왕'으로부터 상인을 구출함.]],
 }
 newAchievement{
 	name = "Poisonous", id = "LOST_MERCHANT_EVIL",
 	show = "name",
 	kr_display_name = "맹독성",
-	desc = [['암살단의 제왕' 편에 가담.]],
+	desc = [['암살단의 제왕' 편에 가담함.]],
 }
 newAchievement{
 	name = "Destroyer of the creation", id = "SLASUL_DEAD",
 	show = "name",
 	kr_display_name = "창조의 파괴자",
-	desc = [[슬라슐 살해.]],
+	desc = [[슬라슐을 살해.]],
 }
 newAchievement{
 	name = "Treacherous Bastard", id = "SLASUL_DEAD_PRODIGY_LEARNT",
@@ -229,13 +229,13 @@ newAchievement{
 	name = "Arachnophobia", id = "SPYDRIC_INFESTATION",
 	show = "name",
 	kr_display_name = "거미 공포증",
-	desc = [[거미로부터의 위협 제거.]],
+	desc = [[거미로부터의 위협을 제거.]],
 }
 newAchievement{
 	name = "Clone War", id = "SHADOW_CLONE",
 	show = "name",
 	kr_display_name = "클론 전쟁",
-	desc = [[자신의 그림자 파괴.]],
+	desc = [[자신의 그림자를 파괴.]],
 }
 newAchievement{
 	name = "Home sweet home", id = "SHERTUL_FORTRESS",
@@ -259,7 +259,7 @@ newAchievement{
 	name = "Savior of the damsels in distress", id = "MELINDA_SAVED",
 	show = "name",
 	kr_display_name = "절망에 빠진 소녀의 구원자",
-	desc = [[Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.]],
+	desc = [[Kryl-Feijan의 지하실에서 멜린다를 그녀의 끔찍한 운명에서 구함.]],
 }
 newAchievement{
 	name = "Impossible Death", id = "PARADOX_NOW",

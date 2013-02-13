@@ -20,7 +20,7 @@
 newAchievement{
 	name = "Deus Ex Machina",
 	kr_display_name = "데우스 엑스 마키나",
-	desc = [[끊없는 생명력의 물약(ever-refilling potion)과 생명의 피(blood of life) 발견.]],
+	desc = [[끊임없는 생명력의 물약(ever-refilling potion)과 생명의 피(blood of life) 발견.]],
 	mode = "player",
 	can_gain = function(self, who, obj)
 		if (obj:getName{force_id=true} == "Blood of Life" or obj:getOriName{force_id=true} == "Blood of Life") then self.blood = true end --@@ 원래이름도 비교되도록 코드 수정
