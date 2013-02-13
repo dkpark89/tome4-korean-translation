@@ -20,45 +20,54 @@
 newAchievement{
 	name = "Level 10",
 	show = "full",
-	desc = [[Got a character to level 10.]],
+	kr_display_name = "레벨 10",
+	desc = [[캐릭터가 레벨 10이 됨.]],
 }
 newAchievement{
 	name = "Level 20",
 	show = "full",
-	desc = [[Got a character to level 20.]],
+	kr_display_name = "레벨 20",
+	desc = [[캐릭터가 레벨 20이 됨.]],
 }
 newAchievement{
 	name = "Level 30",
 	show = "full",
-	desc = [[Got a character to level 30.]],
+	kr_display_name = "레벨 30",
+	desc = [[캐릭터가 레벨 30이 됨.]],
 }
 newAchievement{
 	name = "Level 40",
 	show = "full",
-	desc = [[Got a character to level 40.]],
+	kr_display_name = "레벨 40",
+	desc = [[캐릭터가 레벨 40이 됨.]],
 }
 newAchievement{
 	name = "Level 50",
 	show = "full",
-	desc = [[Got a character to level 50.]],
+	kr_display_name = "레벨 50",
+	desc = [[캐릭터가 레벨 50이 됨.]],
 }
 
 newAchievement{
 	name = "Unstoppable",
 	show = "full",
-	desc = [[Returned from the dead.]],
+	kr_display_name = "멈출 수 없다",
+	desc = [[저승에서 다시 돌아온다.]], -- 기억상으로는 아이템으로 부활하는 것일텐데...
 }
 
 newAchievement{
 	name = "Utterly Destroyed", id = "EIDOLON_DEATH",
 	show = "name",
-	desc = [[Died on the Eidolon Plane.]],
+	kr_display_name = "완전히 작살남",
+	desc = [[에이돌론 평원(Eidolon Plane)에서 사망함.]],
 }
 
 newAchievement{
 	name = "Fool of a Took!", id = "HALFLING_SUICIDE",
 	show = "name",
-	desc = [[Killed oneself as a halfling.]],
+	kr_display_name = "야 이 멍청아!",
+	-- 사실 어떻게 번역해야 할지 답이 안나옴. 확실한 건 이거 반지의 제왕에서 간달프가 한 대사 인용임. 자세한 건 http://bit.ly/12eaaQo 로.
+	desc = [[하프링으로 자신을 죽임.]], -- 말 그대로 자살...
 	can_gain = function(self, who)
 		if who.descriptor and who.descriptor.race == "Halfling" then return true end
 	end
@@ -68,7 +77,8 @@ newAchievement{
 	name = "Emancipation", id = "EMANCIPATION",
 	image = "npc/alchemist_golem.png",
 	show = "name",
-	desc = [[Had the golem kill a boss while its master was already dead.]],
+	kr_display_name = "해방됨",
+	desc = [[마스터가 이미 죽은 상태에서 골램이 보스를 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		local p = game.party:findMember{main=true}
@@ -85,7 +95,8 @@ newAchievement{
 newAchievement{
 	name = "Take you with me", id = "BOSS_REVENGE",
 	show = "full",
-	desc = [[Killed a boss while already dead.]],
+	kr_display_name = "넌 나랑 같이 간다",
+	desc = [[이미 죽은 상태에서 보스를 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		local p = game.party:findMember{main=true}
@@ -98,11 +109,13 @@ newAchievement{
 newAchievement{
 	name = "Look at me, I'm playing a roguelike!", id = "SELF_CENTERED",
 	show = "name",
-	desc = [[Linked yourself in the ingame chat.]],
+	kr_display_name = "날 좀 봐, 난 로그라이크 게임을 플레이 한다고!",
+	desc = [[인게임 챗에서 자신의 캐릭터를 링크시킴.]],
 }
 
 newAchievement{
 	name = "Fear me not!", id = "FEARSCAPE",
 	show = "full",
-	desc = [[Survived the Fearscape!]],
+	kr_display_name = "겁내지 마!",
+	desc = [[피어스케이프(Fearscape)에서 살아남았음!]],
 }

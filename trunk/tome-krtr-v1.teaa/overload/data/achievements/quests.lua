@@ -20,7 +20,8 @@
 --------------- Tutorial objectives
 newAchievement{
 	name = "Baby steps", id = "TUTORIAL_DONE",
-	desc = [[Completed ToME4 tutorial mode.]],
+	kr_display_name = "첫 걸음마",
+	desc = [[ToME4 튜토리얼 모드를 완수함.]],
 	tutorial = true,
 	no_difficulty_duplicate = true,
 	on_gain = function(_, src, personal)
@@ -33,32 +34,38 @@ newAchievement{
 	name = "Vampire crusher",
 	image = "npc/the_master.png",
 	show = "name",
+	kr_display_name = "뱀파이어 분쇄기",
 	desc = [[Destroyed the Master in its lair of the Dreadfell.]],
 }
 newAchievement{
 	name = "A dangerous secret",
 	show = "name",
+	kr_display_name = "위험한 비밀",
 	desc = [[Found the mysterious staff and told Last Hope about it.]],
 }
 newAchievement{
 	name = "The secret city",
 	show = "none",
+	kr_display_name = "숨겨진 도시",
 	desc = [[Discovered the truth about mages.]],
 }
 newAchievement{
 	name = "Burnt to the ground", id="APPRENTICE_STAFF",
 	show = "none",
+	kr_display_name = "",
 	desc = [[Gave the staff of absorption to the apprentice mage and watched the fireworks.]],
 }
 newAchievement{
 	name = "Against all odds", id = "KILL_UKRUK",
 	show = "name",
+	kr_display_name = "모든 가능성에 맞서서",
 	desc = [[Killed Ukruk in the ambush.]],
 }
 newAchievement{
 	name = "Sliders",
 	image = "object/artifact/orb_many_ways.png",
 	show = "name",
+	kr_display_name = "슬라이더",
 	desc = [[Activated a portal using the Orb of Many Ways.]],
 	on_gain = function()
 		game:onTickEnd(function() game.party:learnLore("first-farportal") end)
@@ -67,21 +74,25 @@ newAchievement{
 newAchievement{
 	name = "Destroyer's bane", id = "DESTROYER_BANE",
 	show = "name",
+	kr_display_name = "파괴자의 죽음",
 	desc = [[Killed Golbug the Destroyer.]],
 }
 newAchievement{
 	name = "Brave new world", id = "STRANGE_NEW_WORLD",
 	show = "name",
+	kr_display_name = "용감한 신세계",
 	desc = [[Went to the Far East and took part in the war.]],
 }
 newAchievement{
 	name = "Race through fire", id = "CHARRED_SCAR_SUCCESS",
 	show = "name",
+	kr_display_name = "불 사이로의 경주",
 	desc = [[Raced through the fires of the Charred Scar to stop the Sorcerers.]],
 }
 newAchievement{
 	name = "Orcrist", id = "ORC_PRIDE",
 	show = "name",
+	kr_display_name = "오크리스트",
 	desc = [[Killed the leaders of the Orc Pride.]],
 }
 
@@ -89,46 +100,55 @@ newAchievement{
 newAchievement{
 	name = "Evil denied", id = "WIN_FULL",
 	show = "name",
+	kr_display_name = "악마는 사절입니다",
 	desc = [[Won ToME by preventing the Void portal from opening.]],
 }
 newAchievement{
 	name = "The High Lady's destiny", id = "WIN_AERYN",
 	show = "name",
+	kr_display_name = "고귀한 여인의 운명",
 	desc = [[Won ToME by closing the Void portal using Aeryn as a sacrifice.]],
 }
 newAchievement{
 	name = "Selfless", id = "WIN_SACRIFICE",
 	show = "name",
+	kr_display_name = "사심 없는 결단",
 	desc = [[Won ToME by closing the Void portal using yourself as a sacrifice.]],
 }
 newAchievement{
 	name = "Triumph of the Way", id = "YEEK_SACRIFICE",
 	show = "name",
+	kr_display_name = "방법의 승리 (Triumph of the Way)",
 	desc = [[Won ToME by sacrificing yourself to forcefully spread the Way to every other sentient being on Eyal.]],
 }
 newAchievement{
 	name = "Tactical master", id = "SORCERER_NO_PORTAL",
 	show = "name",
+	kr_display_name = "전략적 마스터",
 	desc = [[Fought the two Sorcerers without closing any invocation portals.]],
 }
 newAchievement{
 	name = "Portal destroyer", id = "SORCERER_ONE_PORTAL",
 	show = "name",
+	kr_display_name = "포탈 파괴자",
 	desc = [[Fought the two Sorcerers and closed one invocation portal.]],
 }
 newAchievement{
 	name = "Portal reaver", id = "SORCERER_TWO_PORTAL",
 	show = "name",
+	kr_display_name = "포탈 약탈자",
 	desc = [[Fought the two Sorcerers and closed two invocation portals.]],
 }
 newAchievement{
 	name = "Portal ender", id = "SORCERER_THREE_PORTAL",
 	show = "name",
+	kr_display_name = "포탈 종결자",
 	desc = [[Fought the two Sorcerers and closed three invocation portals.]],
 }
 newAchievement{
 	name = "Portal master", id = "SORCERER_FOUR_PORTAL",
 	show = "name",
+	kr_display_name = "포탈 마스터",
 	desc = [[Fought the two Sorcerers and closed four invocation portals.]],
 }
 
@@ -136,56 +156,67 @@ newAchievement{
 newAchievement{
 	name = "Rescuer of the lost", id = "LOST_MERCHANT_RESCUE",
 	show = "name",
+	kr_display_name = "길 잃은 자의 구조자",
 	desc = [[Rescued the merchant from the assassin lord.]],
 }
 newAchievement{
 	name = "Poisonous", id = "LOST_MERCHANT_EVIL",
 	show = "name",
+	kr_display_name = "맹독성",
 	desc = [[Sided with the assassin lord.]],
 }
 newAchievement{
 	name = "Destroyer of the creation", id = "SLASUL_DEAD",
 	show = "name",
+	kr_display_name = "창조의 파괴자",
 	desc = [[Killed Slasul.]],
 }
 newAchievement{
 	name = "Treacherous Bastard", id = "SLASUL_DEAD_PRODIGY_LEARNT",
 	show = "name",
+	kr_display_name = "이런 배반자 자식",
 	desc = [[Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.]],
 }
 newAchievement{
 	name = "Flooder", id = "UKLLMSWWIK_DEAD",
 	show = "name",
+	kr_display_name = "훼방자", -- ???? 이거 도대체 무슨 뜻이죠;
 	desc = [[Defeated Ukllmswwik while doing his own quest.]],
 }
 newAchievement{
 	name = "Gem of the Moon", id = "MASTER_JEWELER",
 	show = "name",
+	kr_display_name = "달의 젬 (Gem of the Moon)",
 	desc = [[Completed the Master Jeweler quest with Limmir.]],
 }
 newAchievement{
 	name = "Curse Lifter", id = "CURSE_ERASER",
 	show = "name",
+	kr_display_name = "저주를 걷어내는 자",
 	desc = [[Killed Ben Cruthdar the Cursed.]],
 }
 newAchievement{
 	name = "Eye of the storm", id = "EYE_OF_THE_STORM",
 	show = "name",
+	kr_display_name = "폭풍의 눈",
 	desc = [[Freed Derth from the onslaught of the mad Tempest, Urkis.]],
 }
 newAchievement{
 	name = "Antimagic!", id = "ANTIMAGIC",
 	show = "name",
+	kr_display_name = "안티매직! (Antimagic!)",
 	desc = [[Completed antimagic training in the Ziguranth camp.]],
 }
 newAchievement{
 	name = "Anti-Antimagic!", id = "ANTI_ANTIMAGIC",
 	show = "name",
+	kr_display_name = "반-안티매직! (Anti-Antimagic!)",
 	desc = [[Destroyed the Ziguranth camp with your Rhaloren allies.]],
 }
 newAchievement{
 	name = "There and back again", id = "WEST_PORTAL",
 	show = "name",
+	kr_display_name = "내가 그곳에서 다시 돌아왔다",
 	desc = [[Opened a portal to Maj'Eyal from the Far East.]],
 }
 newAchievement{
@@ -197,36 +228,43 @@ newAchievement{
 newAchievement{
 	name = "Arachnophobia", id = "SPYDRIC_INFESTATION",
 	show = "name",
+	kr_display_name = "거미 공포증",
 	desc = [[Destroyed the spydric menace.]],
 }
 newAchievement{
 	name = "Clone War", id = "SHADOW_CLONE",
 	show = "name",
+	kr_display_name = "클론 전쟁",
 	desc = [[Destroyed your own Shade.]],
 }
 newAchievement{
 	name = "Home sweet home", id = "SHERTUL_FORTRESS",
 	show = "name",
+	kr_display_name = "아, 즐거운 나의 집",
 	desc = [[Dispatched the Weirdling Beast and took possession of Yiilkgur, the Sher'Tul Fortress for your own usage.]],
 }
 newAchievement{
 	name = "Squadmate", id = "NORGAN_SAVED",
 	show = "name",
+	kr_display_name = "팀원",
 	desc = [[Escaped from Reknor alive with your squadmate Norgan.]],
 }
 newAchievement{
 	name = "Genocide", id = "GREATMOTHER_DEAD",
 	show = "name",
+	kr_display_name = "대학살",
 	desc = [[Killed the Orc Greatmother in the breeding pits, thus dealing a terrible blow to the orc race.]],
 }
 newAchievement{
 	name = "Savior of the damsels in distress", id = "MELINDA_SAVED",
 	show = "name",
+	kr_display_name = "절망에 빠져있는 소녀의 구원자",
 	desc = [[Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.]],
 }
 newAchievement{
 	name = "Impossible Death", id = "PARADOX_NOW",
 	show = "name",
+	kr_display_name = "불가능한 죽음",
 	desc = [[Got killed by your future self.]],
 	on_gain = function(_, src, personal)
 		if world:hasAchievement("PARADOX_FUTURE") then world:gainAchievement("PARADOX_FULL", src) end
@@ -235,6 +273,7 @@ newAchievement{
 newAchievement{
 	name = "Self-killer", id = "PARADOX_FUTURE",
 	show = "name",
+	kr_display_name = "자신-살인자",
 	desc = [[Killed your future self.]],
 	on_gain = function(_, src, personal)
 		if world:hasAchievement("PARADOX_NOW") then world:gainAchievement("PARADOX_FULL", src) end
@@ -243,26 +282,31 @@ newAchievement{
 newAchievement{
 	name = "Paradoxology", id = "PARADOX_FULL",
 	show = "name",
+	kr_display_name = "파라독솔로지(Paradoxology)",
 	desc = [[Both killed your future self and got killed by your future self.]],
 }
 newAchievement{
 	name = "Explorer", id = "EXPLORER",
 	show = "name",
+	kr_display_name = "탐험가",
 	desc = [[Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.]],
 }
 newAchievement{
 	name = "Orbituary", id = "ABASHED_EXPANSE",
 	show = "name",
+	kr_display_name = "Orbituary", -- 궤도 뭐시기라 번역하긴 해야 할 거 같은데...
 	desc = [[Stabilized the Abashed Expanse to maintain it in orbit.]],
 }
 newAchievement{
 	name = "Wibbly Wobbly Timey Wimey Stuff", id = "UNHALLOWED_MORASS",
 	show = "name",
+	kr_display_name = "Wibbly Wobbly Timey Wimey Stuff", -- 답이 안 나옴.
 	desc = [[Killed the weaver queen and the temporal defiler.]],
 }
 newAchievement{
 	name = "Matrix style!", id = "ABASHED_EXPANSE_NO_BLAST",
 	show = "full",
+	kr_display_name = "매트릭스 스타일!",
 	desc = [[Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!]],
 	can_gain = function(self, who, zone)
 		if not who:isQuestStatus("start-archmage", engine.Quest.DONE) then return false end
@@ -272,11 +316,13 @@ newAchievement{
 newAchievement{
 	name = "The Right thing to do", id = "RING_BLOOD_KILL",
 	show = "name",
+	kr_display_name = "The Right thing to do", -- TRTD, 할만한 올바른 것?
 	desc = [[Did the righteous thing in the ring of blood and disposed of the Blood Master.]],
 }
 newAchievement{
 	name = "Thralless", id = "RING_BLOOD_FREED",
 	show = "full",
+	kr_display_name = "Thralless", -- I have no idea how to translate this into korea language.
 	mode = "player",
 	desc = [[Freed at least 30 enthralled slaves in the slavers compound.]],
 	can_gain = function(self)
@@ -288,11 +334,13 @@ newAchievement{
 newAchievement{
 	name = "Lost in translation", id = "SUNWALL_LOST",
 	show = "name",
+	kr_display_name = "평행 이동 중 실종됨",
 	desc = [[Destroyed the naga portal in the slazish fens and got caught in the after-effect.]],
 }
 newAchievement{
 	name = "Dreaming my dreams", id = "ALL_DREAMS",
 	show = "full",
+	kr_display_name = "내 꿈을 꾸는 중",
 	desc = [[Experienced and completed all the dreams in the Dogroth Caldera.]],
 	mode = "world",
 	can_gain = function(self, who, kind)

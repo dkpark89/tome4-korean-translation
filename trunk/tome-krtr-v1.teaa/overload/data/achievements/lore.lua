@@ -19,6 +19,7 @@
 
 newAchievement{
 	name = "Tales of the Spellblaze", id = "SPELLBLAZE_LORE",
+	kr_display_name = "스펠블레이즈의 이야기",
 	desc = [[Learned the eight chapters of the Spellblaze Chronicles.]],
 	show = "full",
 	mode = "player",
@@ -37,6 +38,7 @@ newAchievement{
 
 newAchievement{
 	name = "The Legend of Garkul", id = "GARKUL_LORE",
+	kr_display_name = "가쿨의 전설",
 	desc = [[Learned the five chapters of the Legend of Garkul.]],
 	show = "full",
 	mode = "player",
@@ -52,6 +54,7 @@ newAchievement{
 
 newAchievement{
 	name = "A different point of view", id = "ORC_LORE",
+	kr_display_name = "다른 시점에서의 이야기",
 	desc = [[Learned the five chapters of Orc history through loremaster Hadak's tales.]],
 	show = "full",
 	mode = "player",

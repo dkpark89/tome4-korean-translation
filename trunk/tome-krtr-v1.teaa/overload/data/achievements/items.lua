@@ -19,6 +19,7 @@
 
 newAchievement{
 	name = "Deus Ex Machina",
+	kr_display_name = "데우스 Ex 마키나 (Deus Ex Machina)",
 	desc = [[Found the ever-refilling potion and the blood of life.]],
 	mode = "player",
 	can_gain = function(self, who, obj)
@@ -30,6 +31,7 @@ newAchievement{
 
 newAchievement{
 	name = "Treasure Hunter",
+	kr_display_name = "보물 사냥꾼",
 	image = "object/money_large.png",
 	show = "name",
 	desc = [[Amassed 1000 gold pieces.]],
@@ -40,6 +42,7 @@ newAchievement{
 
 newAchievement{
 	name = "Treasure Hoarder",
+	kr_display_name = "보물 비축자",
 	image = "object/money_large.png",
 	show = "name",
 	desc = [[Amassed 3000 gold pieces.]],
@@ -50,6 +53,7 @@ newAchievement{
 
 newAchievement{ id = "DRAGON_GREED",
 	name = "Dragon's Greed",
+	kr_display_name = "드래곤의 탐욕",
 	image = "object/money_large.png",
 	show = "name",
 	desc = [[Amassed 8000 gold pieces.]],

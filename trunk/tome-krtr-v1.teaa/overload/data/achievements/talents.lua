@@ -19,6 +19,7 @@
 
 newAchievement{
 	name = "Pyromancer",
+	kr_display_name = "화염술사",
 	desc = [[Unlocked Archmage class and did over one million fire damage (with any item/talent/class).]],
 	show = "full",
 	mode = "world",
@@ -40,6 +41,7 @@ newAchievement{
 }
 newAchievement{
 	name = "Cryomancer",
+	kr_display_name = "냉기술사",
 	desc = [[Unlocked Archmage class and did over one million cold damage (with any item/talent/class).]],
 	show = "full",
 	mode = "world",
@@ -61,6 +63,7 @@ newAchievement{
 }
 newAchievement{
 	name = "Lichform",
+	kr_display_name = "리치폼 (Lichform)",
 	desc = [[Achieved your wild dreams of power and eternal life: you turned into a Lich!]],
 	show = "name",
 }
