@@ -756,3 +756,20 @@ function string.krBossName(str)
 	elseif ori == "the bringer of doom" then return "파멸 생성자"
 	else return str end
 end
+
+function string.krZonename(str)
+	-- 관련내용 /data/maps/wilderness/eyal.lua:454~463, /data/maps/zones/shertul-fortress.lua:62~66, /data/maps/zones/shertul-fortress-caldizar.lua:42~43 (모두 한글화에는 제외되는 파일) 
+	local ori = str:lower()
+	if ori == "charred scar" then return "검게 탄 상처"
+	elseif ori == "far east" then return "동대륙"
+	elseif ori == "island of rel" then return "렐 섬"
+	elseif ori == "maj'eyal" then return "마즈'에이알"
+	elseif ori == "tar'eyal" then return "타르'에이알"
+	-- 위는 세계지도, 아래는 쉐르'툴 요새
+	elseif ori == "control room" then return "제어실"
+	elseif ori == "portal room" then return "관문의 방"
+	elseif ori == "storage room" then return "창고"
+	elseif ori == "exploratory farportal" then return "탐험용 장거리 관문"
+	elseif ori == "library of lost mysteries" then return "잊혀진 신비의 도서관"
+	else return str end
+end

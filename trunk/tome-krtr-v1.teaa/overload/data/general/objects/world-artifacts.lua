@@ -4874,7 +4874,7 @@ newEntity{ base = "BASE_MASSIVE_ARMOR", -- Thanks SageAcrin!
 	name = "Thalore-Wood Cuirass", image = "object/artifact/thalore_wood_cuirass.png",
 	unided_name = "thick wooden plate armour",
 	kr_display_name = "탈로레 나무 흉갑", kr_unided_name = "두꺼운 나무 판갑",
-	desc = [[능숙하게 잘라낸 나무 껍질입니다. 이 나무 갑은은 가볍지만 아주 훌륭한 방어력을 가지고 있습니다.]],
+	desc = [[능숙하게 잘라낸 나무 껍질입니다. 이 나무 갑옷은 가볍지만 아주 훌륭한 방어력을 가지고 있습니다.]],
 	color = colors.WHITE,
 	level_range = {8, 22},
 	rarity = 220,

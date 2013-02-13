@@ -29,7 +29,7 @@ return {
 	end,
 	kr_display_name_f = function(x, y)
 		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
-		if zn then return zn.." (쉐르'툴 요새, 이일크구르)"
+		if zn then return zn:krZonename().." (쉐르'툴 요새, 이일크구르)"
 		else return "쉐르'툴 요새, 이일크구르" end
 	end,
 	variable_zone_name = true,
