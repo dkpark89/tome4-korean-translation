@@ -35,38 +35,38 @@ newAchievement{
 	image = "npc/the_master.png",
 	show = "name",
 	kr_display_name = "흡혈귀 분쇄",
-	desc = [[Destroyed the Master in its lair of the Dreadfell.]],
+	desc = [[두려움의 영역에서 '주인'을 파괴.]],
 }
 newAchievement{
 	name = "A dangerous secret",
 	show = "name",
 	kr_display_name = "위험한 비밀",
-	desc = [[Found the mysterious staff and told Last Hope about it.]],
+	desc = [[신비한 지팡이를 찾아, '마지막 희망'에 보고.]],
 }
 newAchievement{
 	name = "The secret city",
 	show = "none",
 	kr_display_name = "숨겨진 도시",
-	desc = [[Discovered the truth about mages.]],
+	desc = [[마법사들의 진실 발견.]],
 }
 newAchievement{
 	name = "Burnt to the ground", id="APPRENTICE_STAFF",
 	show = "none",
 	kr_display_name = "불타올라 대지로",
-	desc = [[Gave the staff of absorption to the apprentice mage and watched the fireworks.]],
+	desc = [[견습 마법사에게 '흡수의 지팡이'를 줘, 불꽃놀이 감상.]],
 }
 newAchievement{
 	name = "Against all odds", id = "KILL_UKRUK",
 	show = "name",
 	kr_display_name = "기괴한 놈들과 맞섬",
-	desc = [[Killed Ukruk in the ambush.]],
+	desc = [[습격하는 우크룩 살해.]],
 }
 newAchievement{
 	name = "Sliders",
 	image = "object/artifact/orb_many_ways.png",
 	show = "name",
 	kr_display_name = "활주",
-	desc = [[Activated a portal using the Orb of Many Ways.]],
+	desc = [['여러 장소로의 오브'를 사용하여 관문 활성화.]],
 	on_gain = function()
 		game:onTickEnd(function() game.party:learnLore("first-farportal") end)
 	end
@@ -75,25 +75,25 @@ newAchievement{
 	name = "Destroyer's bane", id = "DESTROYER_BANE",
 	show = "name",
 	kr_display_name = "파괴자의 죽음",
-	desc = [[Killed Golbug the Destroyer.]],
+	desc = [[파괴자 골부그 살해.]],
 }
 newAchievement{
 	name = "Brave new world", id = "STRANGE_NEW_WORLD",
 	show = "name",
 	kr_display_name = "용감하게 신세계로",
-	desc = [[Went to the Far East and took part in the war.]],
+	desc = [[동대륙으로 가, 전투에 참여.]],
 }
 newAchievement{
 	name = "Race through fire", id = "CHARRED_SCAR_SUCCESS",
 	show = "name",
 	kr_display_name = "화염을 뚫고 질주",
-	desc = [[Raced through the fires of the Charred Scar to stop the Sorcerers.]],
+	desc = [['검게 탄 상처'의 화염을 뚫고 주술사들을 막기위해 질주.]],
 }
 newAchievement{
 	name = "Orcrist", id = "ORC_PRIDE",
 	show = "name",
 	kr_display_name = "오크 살해자",
-	desc = [[Killed the leaders of the Orc Pride.]],
+	desc = [[오크 무리의 지도자들을 살해.]],
 }
 
 --------------- Wins
@@ -101,55 +101,55 @@ newAchievement{
 	name = "Evil denied", id = "WIN_FULL",
 	show = "name",
 	kr_display_name = "악한 자는 사절입니다",
-	desc = [[Won ToME by preventing the Void portal from opening.]],
+	desc = [[공허의 관문이 열리는 것을 방지하여 ToME 승리.]],
 }
 newAchievement{
 	name = "The High Lady's destiny", id = "WIN_AERYN",
 	show = "name",
 	kr_display_name = "고귀한 여인의 운명",
-	desc = [[Won ToME by closing the Void portal using Aeryn as a sacrifice.]],
+	desc = [[아에린을 희생하여 공허의 관문을 닫아 ToME 승리.]],
 }
 newAchievement{
 	name = "Selfless", id = "WIN_SACRIFICE",
 	show = "name",
-	kr_display_name = "희생",
-	desc = [[Won ToME by closing the Void portal using yourself as a sacrifice.]],
+	kr_display_name = "이타심",
+	desc = [[스스로를 희생하여 공허의 관문을 닫아 ToME 승리.]],
 }
 newAchievement{
 	name = "Triumph of the Way", id = "YEEK_SACRIFICE",
 	show = "name",
 	kr_display_name = "'한길'의 승리",
-	desc = [[Won ToME by sacrificing yourself to forcefully spread the Way to every other sentient being on Eyal.]],
+	desc = [[스스로를 희생하여 ToME에서 승리함으로써, 에이알의 모든 지적존재에게 '한길'의 영향력 확대.]],
 }
 newAchievement{
 	name = "Tactical master", id = "SORCERER_NO_PORTAL",
 	show = "name",
 	kr_display_name = "전략의 대가",
-	desc = [[Fought the two Sorcerers without closing any invocation portals.]],
+	desc = [[소환용 관문을 닫지 않고 두 주술사와 싸움.]],
 }
 newAchievement{
 	name = "Portal destroyer", id = "SORCERER_ONE_PORTAL",
 	show = "name",
 	kr_display_name = "관문 파괴자",
-	desc = [[Fought the two Sorcerers and closed one invocation portal.]],
+	desc = [[하나의 소환용 관문만 닫고 두 주술사와 싸움.]],
 }
 newAchievement{
 	name = "Portal reaver", id = "SORCERER_TWO_PORTAL",
 	show = "name",
 	kr_display_name = "관문 약탈자", --@@ 일단, 여기만 그냥 둠. reaver를 약탈자로 변경시 marauder를 대체할 단어 필요 (둘다 캐릭터 직업, 현재 reaver:파괴자, marauder:약탈자)
-	desc = [[Fought the two Sorcerers and closed two invocation portals.]],
+	desc = [[두개의 소환용 관문을 닫고 두 주술사와 싸움.]],
 }
 newAchievement{
 	name = "Portal ender", id = "SORCERER_THREE_PORTAL",
 	show = "name",
 	kr_display_name = "관문 폐지자",
-	desc = [[Fought the two Sorcerers and closed three invocation portals.]],
+	desc = [[세개의 소환용 관문을 닫고 두 주술사와 싸움.]],
 }
 newAchievement{
 	name = "Portal master", id = "SORCERER_FOUR_PORTAL",
 	show = "name",
 	kr_display_name = "관문의 주인",
-	desc = [[Fought the two Sorcerers and closed four invocation portals.]],
+	desc = [[네개의 소환용 관문을 닫고 두 주술사와 싸움.]],
 }
 
 -------------- Other quests
@@ -157,103 +157,103 @@ newAchievement{
 	name = "Rescuer of the lost", id = "LOST_MERCHANT_RESCUE",
 	show = "name",
 	kr_display_name = "실종자 구출",
-	desc = [[Rescued the merchant from the assassin lord.]],
+	desc = [['암살단의 제왕'으로부터 상인 구출.]],
 }
 newAchievement{
 	name = "Poisonous", id = "LOST_MERCHANT_EVIL",
 	show = "name",
 	kr_display_name = "맹독성",
-	desc = [[Sided with the assassin lord.]],
+	desc = [['암살단의 제왕' 편에 가담.]],
 }
 newAchievement{
 	name = "Destroyer of the creation", id = "SLASUL_DEAD",
 	show = "name",
 	kr_display_name = "창조의 파괴자",
-	desc = [[Killed Slasul.]],
+	desc = [[슬라슐 살해.]],
 }
 newAchievement{
 	name = "Treacherous Bastard", id = "SLASUL_DEAD_PRODIGY_LEARNT",
 	show = "name",
 	kr_display_name = "이런 배반자 자식",
-	desc = [[Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.]],
+	desc = [[특수기술 '날로레의 유산'을 배우기 위해 슬라슐의 편에 선 다음, 슬라슐을 죽임.]],
 }
 newAchievement{
 	name = "Flooder", id = "UKLLMSWWIK_DEAD",
 	show = "name",
 	kr_display_name = "홍수를 부르는자",
-	desc = [[Defeated Ukllmswwik while doing his own quest.]],
+	desc = [[우클름스윅의 퀘스트를 진행하다, 우클름스윅을 물리침.]],
 }
 newAchievement{
 	name = "Gem of the Moon", id = "MASTER_JEWELER",
 	show = "name",
 	kr_display_name = "달의 보석",
-	desc = [[Completed the Master Jeweler quest with Limmir.]],
+	desc = [[보석 세공의 명인 리미르의 퀘스트 완료.]],
 }
 newAchievement{
 	name = "Curse Lifter", id = "CURSE_ERASER",
 	show = "name",
 	kr_display_name = "저주를 걷어낸 자",
-	desc = [[Killed Ben Cruthdar the Cursed.]],
+	desc = [[저주받은 자 벤 크루스달을 죽임.]],
 }
 newAchievement{
 	name = "Eye of the storm", id = "EYE_OF_THE_STORM",
 	show = "name",
 	kr_display_name = "폭풍의 눈",
-	desc = [[Freed Derth from the onslaught of the mad Tempest, Urkis.]],
+	desc = [[미친 대기술사 우르키스를 죽이고 데르스를 복구.]],
 }
 newAchievement{
 	name = "Antimagic!", id = "ANTIMAGIC",
 	show = "name",
 	kr_display_name = "반마법!",
-	desc = [[Completed antimagic training in the Ziguranth camp.]],
+	desc = [[지구르 추종자 부대에서 반마법 훈련 수료.]],
 }
 newAchievement{
 	name = "Anti-Antimagic!", id = "ANTI_ANTIMAGIC",
 	show = "name",
 	kr_display_name = "반-반마법!",
-	desc = [[Destroyed the Ziguranth camp with your Rhaloren allies.]],
+	desc = [[랄로레 동료와 함께 지구르 추종자 부대를 파괴.]],
 }
 newAchievement{
 	name = "There and back again", id = "WEST_PORTAL",
 	show = "name",
 	kr_display_name = "그 곳에서 돌아옴",
-	desc = [[Opened a portal to Maj'Eyal from the Far East.]],
+	desc = [[동대륙에서 마즈'에이알로 가는 관문 열기.]],
 }
 newAchievement{
 	name = "Back and there again", id = "EAST_PORTAL",
 	kr_display_name = "다시 또 그 곳에",
 	show = "name",
-	desc = [[Opened a portal to the Far East from Maj'Eyal.]],
+	desc = [[마즈'에이알에서 동대륙으로 가는 관문 열기.]],
 }
 newAchievement{
 	name = "Arachnophobia", id = "SPYDRIC_INFESTATION",
 	show = "name",
 	kr_display_name = "거미 공포증",
-	desc = [[Destroyed the spydric menace.]],
+	desc = [[거미로부터의 위협 제거.]],
 }
 newAchievement{
 	name = "Clone War", id = "SHADOW_CLONE",
 	show = "name",
 	kr_display_name = "클론 전쟁",
-	desc = [[Destroyed your own Shade.]],
+	desc = [[자신의 그림자 파괴.]],
 }
 newAchievement{
 	name = "Home sweet home", id = "SHERTUL_FORTRESS",
 	show = "name",
 	kr_display_name = "아, 즐거운 나의 집",
-	desc = [[Dispatched the Weirdling Beast and took possession of Yiilkgur, the Sher'Tul Fortress for your own usage.]],
+	desc = [[불가사의한 짐승을 해치우고, 쉐르'툴 요새 이일크구르의 소유권 획득]],
 }
 newAchievement{
 	name = "Squadmate", id = "NORGAN_SAVED",
 	show = "name",
 	kr_display_name = "팀원",
-	desc = [[Escaped from Reknor alive with your squadmate Norgan.]],
+	desc = [[팀원 노르간과 함께 레크놀에서 탈출.]],
 }
 newAchievement{
 	name = "Genocide", id = "GREATMOTHER_DEAD",
 	show = "name",
 	kr_display_name = "대학살",
-	desc = [[Killed the Orc Greatmother in the breeding pits, thus dealing a terrible blow to the orc race.]],
+	desc = [[번식용 동굴의 오크 대모를 죽여, 오크들에게 엄청난 피해를 줌.]],
 }
 newAchievement{
 	name = "Savior of the damsels in distress", id = "MELINDA_SAVED",
@@ -265,7 +265,7 @@ newAchievement{
 	name = "Impossible Death", id = "PARADOX_NOW",
 	show = "name",
 	kr_display_name = "불가능한 죽음",
-	desc = [[Got killed by your future self.]],
+	desc = [[미래의 자신에게 죽음.]],
 	on_gain = function(_, src, personal)
 		if world:hasAchievement("PARADOX_FUTURE") then world:gainAchievement("PARADOX_FULL", src) end
 	end,
@@ -274,7 +274,7 @@ newAchievement{
 	name = "Self-killer", id = "PARADOX_FUTURE",
 	show = "name",
 	kr_display_name = "자신-살인자",
-	desc = [[Killed your future self.]],
+	desc = [[미래의 자신을 죽임.]],
 	on_gain = function(_, src, personal)
 		if world:hasAchievement("PARADOX_NOW") then world:gainAchievement("PARADOX_FULL", src) end
 	end,
@@ -283,31 +283,31 @@ newAchievement{
 	name = "Paradoxology", id = "PARADOX_FULL",
 	show = "name",
 	kr_display_name = "괴리학",
-	desc = [[Both killed your future self and got killed by your future self.]],
+	desc = [[미래의 자신과 현재의 자신이 동시에 죽음.]],
 }
 newAchievement{
 	name = "Explorer", id = "EXPLORER",
 	show = "name",
 	kr_display_name = "탐험가",
-	desc = [[Used the Sher'Tul fortress exploratory farportal at least 7 times with the same character.]],
+	desc = [[같은 캐릭터로 쉐르'툴 요새의 탐험용 장거리 관문을 7번 이상 이용.]],
 }
 newAchievement{
 	name = "Orbituary", id = "ABASHED_EXPANSE",
 	show = "name",
 	kr_display_name = "궤도 안정자",
-	desc = [[Stabilized the Abashed Expanse to maintain it in orbit.]],
+	desc = [[궤도 유지를 위한 '너무나 광활한 공간' 안정화.]],
 }
 newAchievement{
 	name = "Wibbly Wobbly Timey Wimey Stuff", id = "UNHALLOWED_MORASS",
 	show = "name",
 	kr_display_name = "제멋대로 엉망진창인 물건", --@@ 이스터애그 "Wibbly Wobbly Timey Wimey"는 드라마 doctor who에 나온 대사임 
-	desc = [[Killed the weaver queen and the temporal defiler.]],
+	desc = [[무당거미 여왕과 시간의 모독자를 죽임.]],
 }
 newAchievement{
 	name = "Matrix style!", id = "ABASHED_EXPANSE_NO_BLAST",
 	show = "full",
 	kr_display_name = "매트릭스 따라하기!",
-	desc = [[Finished the whole Abashed Expanse zone without being hit by a single void blast or manaworm. Dodging's fun!]],
+	desc = [['너무나 광활한 공간'에서 공허의 돌풍이나 마나 벌레에게 한대도 맞지 않고 마무리함. 피하는 것도 재미있지요!]],
 	can_gain = function(self, who, zone)
 		if not who:isQuestStatus("start-archmage", engine.Quest.DONE) then return false end
 		if zone.void_blast_hits and zone.void_blast_hits == 0 then return true end
@@ -317,14 +317,14 @@ newAchievement{
 	name = "The Right thing to do", id = "RING_BLOOD_KILL",
 	show = "name",
 	kr_display_name = "올바른 일",
-	desc = [[Did the righteous thing in the ring of blood and disposed of the Blood Master.]],
+	desc = [[피의 경기장에서 올바를 일을 수행하고, 피의 경기장 운영자를 처리함.]],
 }
 newAchievement{
 	name = "Thralless", id = "RING_BLOOD_FREED",
 	show = "full",
 	kr_display_name = "노예 해방",
 	mode = "player",
-	desc = [[Freed at least 30 enthralled slaves in the slavers compound.]],
+	desc = [[노예 수용소에서 30명 이상의 매혹된 노예를 해방시킴.]],
 	can_gain = function(self)
 		self.nb = (self.nb or 0) + 1
 		if self.nb >= 30 then return true end
@@ -335,13 +335,13 @@ newAchievement{
 	name = "Lost in translation", id = "SUNWALL_LOST",
 	show = "name",
 	kr_display_name = "평행 이동 중의 실종",
-	desc = [[Destroyed the naga portal in the slazish fens and got caught in the after-effect.]],
+	desc = [[슬라지쉬 늪지의 나가 관문을 파괴하고, 그 여파에 휩쓸림.]],
 }
 newAchievement{
 	name = "Dreaming my dreams", id = "ALL_DREAMS",
 	show = "full",
 	kr_display_name = "꿈 꾸기",
-	desc = [[Experienced and completed all the dreams in the Dogroth Caldera.]],
+	desc = [[도그로스 화산분지에서 모든 꿈을 경험하고 끝냄.]],
 	mode = "world",
 	can_gain = function(self, who, kind)
 		self[kind] = true

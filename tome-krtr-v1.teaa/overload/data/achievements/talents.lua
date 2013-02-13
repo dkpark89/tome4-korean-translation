@@ -20,7 +20,7 @@
 newAchievement{
 	name = "Pyromancer",
 	kr_display_name = "화염술사",
-	desc = [[Unlocked Archmage class and did over one million fire damage (with any item/talent/class).]],
+	desc = [[마도사 직업 봉인 해제 후, 누적 화염 피해 백만점 이상 공격 (아이템/기술/직업 모두 사용 가능).]],
 	show = "full",
 	mode = "world",
 	can_gain = function(self, who, dam)
@@ -42,7 +42,7 @@ newAchievement{
 newAchievement{
 	name = "Cryomancer",
 	kr_display_name = "냉기술사",
-	desc = [[Unlocked Archmage class and did over one million cold damage (with any item/talent/class).]],
+	desc = [[마도사 직업 봉인 해제 후, 누적 냉기 피해 백만점 이상 공격 (아이템/기술/직업 모두 사용 가능).]],
 	show = "full",
 	mode = "world",
 	can_gain = function(self, who, dam)
@@ -64,6 +64,6 @@ newAchievement{
 newAchievement{
 	name = "Lichform",
 	kr_display_name = "리치 변신",
-	desc = [[Achieved your wild dreams of power and eternal life: you turned into a Lich!]],
+	desc = [[꿈이자 진정한 목표를 달성하여, 영원히 죽지 않는 리치가 됩니다!]],
 	show = "name",
 }
