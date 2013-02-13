@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Unknown Sher'Tul Fortress",
 	kr_display_name = "미지의 쉐르'툴 요새",
@@ -27,7 +29,7 @@ return {
 	end,
 	kr_display_name_f = function(x, y)
 		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
-		if zn then return "미지의 쉐르'툴 요새 ("..zn..")"
+		if zn then return "미지의 쉐르'툴 요새 ("..zn:krZonename()..")"
 		else return "미지의 쉐르'툴 요새" end
 	end,
 	variable_zone_name = true,
