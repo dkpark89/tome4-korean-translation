@@ -20,7 +20,7 @@
 newAchievement{
 	name = "Tales of the Spellblaze", id = "SPELLBLAZE_LORE",
 	kr_display_name = "스펠블레이즈의 이야기",
-	desc = [[Learned the eight chapters of the Spellblaze Chronicles.]],
+	desc = [[스펠블레이즈 연대기의 여덟 챕터를 모았다.]],
 	show = "full",
 	mode = "player",
 	can_gain = function(self, who, obj)
@@ -38,8 +38,8 @@ newAchievement{
 
 newAchievement{
 	name = "The Legend of Garkul", id = "GARKUL_LORE",
-	kr_display_name = "가쿨의 전설",
-	desc = [[Learned the five chapters of the Legend of Garkul.]],
+	kr_display_name = "가르쿨의 전설",
+	desc = [[가르쿨의 전설의 다섯 페이지를 모았다.]],
 	show = "full",
 	mode = "player",
 	can_gain = function(self, who, obj)
@@ -55,7 +55,7 @@ newAchievement{
 newAchievement{
 	name = "A different point of view", id = "ORC_LORE",
 	kr_display_name = "다른 시점에서의 이야기",
-	desc = [[Learned the five chapters of Orc history through loremaster Hadak's tales.]],
+	desc = [[로어마스터 하덱의 이야기들 속에서 다섯 챕터의 오크 역사를 배웠다.]],
 	show = "full",
 	mode = "player",
 	can_gain = function(self, who, obj)

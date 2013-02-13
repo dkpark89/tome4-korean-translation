@@ -48,14 +48,14 @@ newAchievement{
 newAchievement{
 	name = "The Rat Lich", id = "EVENT_RATLICH",
 	show = "name",
-	kr_display_name = "랫 리치 (The Rat Lich)",
+	kr_display_name = "랫 리치",
 	desc = [[무시무시한 랫 리치를 죽였다.]],
 }
 
 newAchievement{
 	name = "Shasshhiy'Kaish", id = "EVENT_CULTISTS",
 	show = "name",
-	kr_display_name = "샤스시이'카이시 (Shasshhiy'Kaish)",
+	kr_display_name = "샤스시이'카이시",
 	desc = [[샤스시이'카이시 (Shasshhiy'Kaish)가 최대한 강해질 수 있을대로 강해질 때까지 기다려준 후에 죽임.]],
 }
 
@@ -63,12 +63,12 @@ newAchievement{
 	name = "Bringer of Doom", id = "EVENT_PEDESTALS",
 	show = "name",
 	kr_display_name = "파멸의 신",
-	desc = [[Killed a Bringer of Doom.]],
+	desc = [[Bringer of Doom을 죽였다.]],
 }
 
 newAchievement{
 	name = "A living one!", id = "CALDIZAR",
 	show = "name",
-	kr_display_name = "살아있는 자!(?)",
-	desc = [[Was teleported into Caldizar's Fortress, far into the void between the stars.]],
+	kr_display_name = "살아있는 자!",
+	desc = [[칼지다르의 요새로 텔레포트 됨, 별들 사이의 저 먼 보이드 속으로...]],
 }

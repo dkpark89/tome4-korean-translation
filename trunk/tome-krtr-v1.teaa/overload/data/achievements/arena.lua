@@ -20,49 +20,49 @@
 newAchievement{
 	name = "The Arena",
 	show = "full",
-	kr_display_name = "아레나 (The Arena)",
+	kr_display_name = "아레나",
 	desc = [[아레나 모드를 해금.]],
 }
 
 newAchievement{
 	name = "Arena Battler 20",
 	show = "full",
-	kr_display_name = "아레나의 검투사 - 20 (Arena Battler 20)",
+	kr_display_name = "아레나의 검투사 - 20",
 	desc = [[아레나에서 웨이브 20대에 진입.]],
 }
 
 newAchievement{
 	name = "Arena Battler 50",
 	show = "full",
-	kr_display_name = "아레나의 검투사 - 50 (Arena Battler 50)",
+	kr_display_name = "아레나의 검투사 - 50",
 	desc = [[아레나에서 웨이브 50대에 진입.]],
 }
 
 newAchievement{
 	name = "Almost Master of Arena",
 	show = "full",
-	kr_display_name = "예비 아레나의 마스터 (Almost Master of Arena)",
+	kr_display_name = "예비 아레나의 마스터",
 	desc = [[30-웨이브 모드에서 아레나의 새로운 마스터가 된다.]],
 }
 
 newAchievement{
 	name = "Master of Arena",
 	show = "full",
-	kr_display_name = "아레나의 마스터 (Master of Arena)",
+	kr_display_name = "아레나의 마스터",
 	desc = [[60-웨이브 모드에서 아레나의 새로운 마스터가 된다.]],
 }
 
 newAchievement{
 	name = "XXX the Destroyer",
 	show = "full",
-	kr_display_name = "파괴자 XXX (XXX the Destroyer)",
+	kr_display_name = "파괴자 XXX",
 	desc = [[아레나에서 파괴자의 등급에 등극한다.]],
 }
 
 newAchievement{
 	name = "Grand Master",
 	show = "full",
-	kr_display_name = "그랜드 마스터 (Grand Master)",
+	kr_display_name = "그랜드 마스터",
 	desc = [[아레나에서 그랜드 마스터의 등급에 등극한다.]],
 }
 

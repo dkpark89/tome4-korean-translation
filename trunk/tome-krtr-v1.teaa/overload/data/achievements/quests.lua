@@ -52,7 +52,7 @@ newAchievement{
 newAchievement{
 	name = "Burnt to the ground", id="APPRENTICE_STAFF",
 	show = "none",
-	kr_display_name = "",
+	kr_display_name = "Burnt to the ground",
 	desc = [[Gave the staff of absorption to the apprentice mage and watched the fireworks.]],
 }
 newAchievement{
@@ -118,7 +118,7 @@ newAchievement{
 newAchievement{
 	name = "Triumph of the Way", id = "YEEK_SACRIFICE",
 	show = "name",
-	kr_display_name = "방법의 승리 (Triumph of the Way)",
+	kr_display_name = "방법의 승리",
 	desc = [[Won ToME by sacrificing yourself to forcefully spread the Way to every other sentient being on Eyal.]],
 }
 newAchievement{
@@ -186,7 +186,7 @@ newAchievement{
 newAchievement{
 	name = "Gem of the Moon", id = "MASTER_JEWELER",
 	show = "name",
-	kr_display_name = "달의 젬 (Gem of the Moon)",
+	kr_display_name = "달의 젬",
 	desc = [[Completed the Master Jeweler quest with Limmir.]],
 }
 newAchievement{
@@ -204,13 +204,13 @@ newAchievement{
 newAchievement{
 	name = "Antimagic!", id = "ANTIMAGIC",
 	show = "name",
-	kr_display_name = "안티매직! (Antimagic!)",
+	kr_display_name = "안티매직!",
 	desc = [[Completed antimagic training in the Ziguranth camp.]],
 }
 newAchievement{
 	name = "Anti-Antimagic!", id = "ANTI_ANTIMAGIC",
 	show = "name",
-	kr_display_name = "반-안티매직! (Anti-Antimagic!)",
+	kr_display_name = "반-안티매직!",
 	desc = [[Destroyed the Ziguranth camp with your Rhaloren allies.]],
 }
 newAchievement{
@@ -282,7 +282,7 @@ newAchievement{
 newAchievement{
 	name = "Paradoxology", id = "PARADOX_FULL",
 	show = "name",
-	kr_display_name = "파라독솔로지(Paradoxology)",
+	kr_display_name = "파라독솔로지",
 	desc = [[Both killed your future self and got killed by your future self.]],
 }
 newAchievement{
@@ -334,7 +334,7 @@ newAchievement{
 newAchievement{
 	name = "Lost in translation", id = "SUNWALL_LOST",
 	show = "name",
-	kr_display_name = "평행 이동 중 실종됨",
+	kr_display_name = "평행 이동 중 실종",
 	desc = [[Destroyed the naga portal in the slazish fens and got caught in the after-effect.]],
 }
 newAchievement{

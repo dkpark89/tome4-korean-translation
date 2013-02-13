@@ -63,7 +63,7 @@ newAchievement{
 }
 newAchievement{
 	name = "Lichform",
-	kr_display_name = "리치폼 (Lichform)",
+	kr_display_name = "리치폼",
 	desc = [[Achieved your wild dreams of power and eternal life: you turned into a Lich!]],
 	show = "name",
 }
