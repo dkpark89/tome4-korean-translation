@@ -47,7 +47,7 @@ newEntity{ base = "BASE_LEATHER_BELT",
 
 newEntity{ base = "BASE_LEATHER_BELT",
 	name = "drakeskin leather belt", short_name = "drakeskin",
-	kr_display_name = "드레이크가죽 허리띠",
+	kr_display_name = "용가죽 허리띠",
 	level_range = {40, 50},
 	cost = 4,
 	material_level = 5,

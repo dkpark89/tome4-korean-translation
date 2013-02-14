@@ -90,7 +90,7 @@ newEntity{ base = "BASE_SLING",
 
 newEntity{ base = "BASE_SLING",
 	name = "drakeskin leather sling", short_name = "drakeskin",
-	kr_display_name = "드레이크가죽 투석구",
+	kr_display_name = "용가죽 투석구",
 	level_range = {40, 50},
 	require = { stat = { dex=48 }, },
 	cost = 35,

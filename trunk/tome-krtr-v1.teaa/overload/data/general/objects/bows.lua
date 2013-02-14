@@ -32,7 +32,7 @@ newEntity{
 	require = { talent = { Talents.T_SHOOT }, },
 	archery = "bow",
 	proj_image = resolvers.image_material("arrow", "wood"),
-	desc = [[활은 적에게 화살을 쏘는데 사용합니다.]],
+	desc = [[적에게 화살을 발사하기 위해 사용하는 활입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/ranged.lua",
 	egos = "/data/general/objects/egos/bow.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

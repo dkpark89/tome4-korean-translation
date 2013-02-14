@@ -24,7 +24,7 @@ newEntity{
 	display = "=",
 	encumber = 0.1,
 	rarity = 6,
-	desc = [[반지는 마법적 특성을 가질수 있습니다.]],
+	desc = [[반지는 다양한 마법적 특성을 가질 수 있습니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	-- Most rings are ego items
 	egos = "/data/general/objects/egos/rings.lua", egos_chance = { prefix=resolvers.mbonus(50, 40), suffix=resolvers.mbonus(50, 40) }, egos_chance_decay = 0.5,
@@ -36,7 +36,7 @@ newEntity{
 	display = '"',
 	encumber = 0.1,
 	rarity = 8,
-	desc = [[목걸이는 마법적 특성을 가질수 있습니다.]],
+	desc = [[목걸이는 다양한 마법적 특성을 가질 수 있습니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/amulets.lua", egos_chance = { prefix=resolvers.mbonus(50, 40), suffix=resolvers.mbonus(50, 40) }, egos_chance_decay = 0.5,
 }

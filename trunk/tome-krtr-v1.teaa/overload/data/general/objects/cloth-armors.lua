@@ -26,7 +26,7 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("robe"),
 	encumber = 2,
 	rarity = 5,
-	desc = [[천으로 만든 의복입니다. 기본적인 방어력은 없지만 다른 힘이 부여될 수 있습니다.]],
+	desc = [[천으로 만든 의복입니다. 기본적인 방어력은 없지만, 다른 힘이 부여될 수 있습니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/robe.lua", egos_chance = { prefix=resolvers.mbonus(30, 15), suffix=resolvers.mbonus(30, 15) },
 }

@@ -29,7 +29,7 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("gloves"),
 	encumber = 1,
 	rarity = 9,
-	desc = [[손가락의 움직임을 방해하지않지만 손을 어느정도 보호하는 가벼운 장갑입니다.]],
+	desc = [[손가락의 움직임을 방해하지 않으면서도 손을 어느정도 보호할 수 있는, 가벼운 장갑입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/gloves.lua",
 	egos = "/data/general/objects/egos/gloves.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
@@ -72,7 +72,7 @@ newEntity{ base = "BASE_GLOVES",
 
 newEntity{ base = "BASE_GLOVES",
 	name = "drakeskin leather gloves", short_name = "drakeskin",
-	kr_display_name = "드레이크가죽 장갑",
+	kr_display_name = "용가죽 장갑",
 	level_range = {40, 50},
 	cost = 10,
 	material_level = 5,

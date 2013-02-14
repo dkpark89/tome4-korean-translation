@@ -28,7 +28,7 @@ newEntity{
 	rarity = 12,
 	add_name = "#CHARM# #CHARGES#",
 	use_sound = "talents/spell_generic",
-	desc = [[마법의 봉은 강력한 연금술사나 마도사가 주문을 집어넣기 위해 만듭니다. 들어있는 주문은 아무나 사용할 수 있습니다.]],
+	desc = [[마법봉은 강력한 연금술사나 마도사가 주문을 집어넣어 만드는 물건입니다. 들어있는 주문은 마법을 몰라도 사용할 수 있습니다.]],
 	egos = "/data/general/objects/egos/wands.lua", egos_chance = { prefix=resolvers.mbonus(20, 5), },
 	addons = "/data/general/objects/egos/wands-powers.lua",
 	power_source = {arcane=true},

@@ -30,7 +30,7 @@ newEntity{
 	encumber = 3,
 	rarity = 7,
 	metallic = true,
-	desc = [[머리 전체를 보호할 수 있는 큰 투구입니다. 뭐, 환기와 시야방해는 문제가 될수도 있습니다.]],
+	desc = [[머리 전체를 보호할 수 있는 큰 투구입니다. 뭐, 환기와 시야 방해는 문제가 될 수도 있습니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/helm.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

@@ -44,12 +44,12 @@ newEntity{
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{100,1}, {200,2}, {400,5}, {600,10}, {1200,20}},
-	desc = [[자연적 주입물을 당신의 육체로 이식하여, 필요한 기술을 가질 수 있습니다.]],
+	desc = [[자연적 주입물을 육체에 그려, 필요한 기술을 가질 수 있습니다.]],
 	egos = "/data/general/objects/egos/infusions.lua", egos_chance = resolvers.mbonus(30, 5),
 	material_level_min_only = true,
 
 	power_source = {nature=true},
-	use_simple = { name="inscribe your skin with the infusion.", kr_display_name = "주입물을 피부에 새김", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the infusion.", kr_display_name = "주입물을 피부에 그려 능력을 얻는다", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -72,7 +72,7 @@ newEntity{
 	material_level_min_only = true,
 
 	power_source = {arcane=true},
-	use_simple = { name="inscribe your skin with the rune.", kr_display_name = "룬을 피부에 새김", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the rune.", kr_display_name = "룬을 피부에 새겨 능력을 얻는다", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -90,11 +90,11 @@ newEntity{
 	use_no_blind = true,
 	use_no_silence = true,
 	fire_destroy = {{10,1}, {20,2}, {40,5}, {60,10}, {120,20}},
-	desc = [[타락한 감염을 당신의 육체에 새겨, 필요한 기술을 가질 수 있습니다.]],
+	desc = [[타락한 감염물을 당신의 육체에 새겨, 필요한 기술을 가질 수 있습니다.]],
 	egos = "/data/general/objects/egos/infusions.lua", egos_chance = resolvers.mbonus(30, 5),
 
 	power_source = {arcane=true},
-	use_simple = { name="inscribe your skin with the taint.", kr_display_name = "감염을 피부에 새김", use = function(self, who, inven, item)
+	use_simple = { name="inscribe your skin with the taint.", kr_display_name = "감염물을 피부에 새겨 능력을 얻는다", use = function(self, who, inven, item)
 		if who:setInscription(nil, self.inscription_talent, self.inscription_data, true, true, {obj=self, inven=inven, item=item}) then
 			return {used=true, id=true, destroy=true}
 		end
@@ -163,7 +163,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "wild infusion",
-	kr_display_name = "야생성 주입물",
+	kr_display_name = "자연 주입물",
 	level_range = {1, 50},
 	rarity = 13,
 	cost = 20,
@@ -230,7 +230,7 @@ newEntity{ base = "BASE_INFUSION",
 
 newEntity{ base = "BASE_INFUSION",
 	name = "heroism infusion",
-	kr_display_name = "영웅주의 주입물",
+	kr_display_name = "영웅 주입물",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 40,
@@ -305,7 +305,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "teleportation rune",
-	kr_display_name = "순간이동 룬",
+	kr_display_name = "원거리 순간이동 룬",
 	level_range = {10, 50},
 	rarity = 15,
 	cost = 10,
@@ -377,7 +377,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "heat beam rune",
-	kr_display_name = "열기의 빔 룬",
+	kr_display_name = "열기 발산 룬",
 	level_range = {25, 50},
 	rarity = 16,
 	cost = 20,
@@ -449,7 +449,7 @@ newEntity{ base = "BASE_RUNE",
 
 newEntity{ base = "BASE_RUNE",
 	name = "manasurge rune",
-	kr_display_name = "마나집중 룬",
+	kr_display_name = "마나의 급류 룬",
 	level_range = {1, 50},
 	rarity = 22,
 	cost = 10,

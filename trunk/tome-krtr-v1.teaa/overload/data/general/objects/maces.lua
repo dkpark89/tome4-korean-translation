@@ -28,7 +28,7 @@ newEntity{
 	rarity = 5,
 	metallic = true,
 	combat = { talented = "mace", damrange = 1.4, physspeed = 1, sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2}},
-	desc = [[뭉퉁하고 치명적입니다.]],
+	desc = [[뭉툭하고, 치명적입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/weapon.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

@@ -30,7 +30,7 @@ newEntity{
 	encumber = 3,
 	rarity = 7,
 	metallic = true,
-	desc = [[철족은 발가락과 발뒤축 그리고 다른 노출된 부위가 금속으로 덮혀, 사용자의 발을 위험으로부터 더욱 보호해줍니다.]],
+	desc = [[발가락과 뒤꿈치, 그리고 다른 보호가 필요한 부분에 금속을 덧대어 착용자의 발을 위험으로부터 보호해주는 철제 신발입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/boots.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

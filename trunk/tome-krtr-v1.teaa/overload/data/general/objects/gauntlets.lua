@@ -31,7 +31,7 @@ newEntity{
 	encumber = 1.5,
 	rarity = 9,
 	metallic = true,
-	desc = [[손끝에서 팔뚝의 중간까지 보호하는 금속 장갑입니다.]],
+	desc = [[손끝에서 팔뚝의 중간 부분까지를 보호하는 금속 장갑입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/gloves.lua",
 	egos = "/data/general/objects/egos/gloves.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

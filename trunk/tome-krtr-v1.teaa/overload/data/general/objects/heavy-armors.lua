@@ -30,7 +30,7 @@ newEntity{
 	encumber = 14,
 	rarity = 5,
 	metallic = true,
-	desc = [[쇠사슬로 만든 한벌의 갑옷입니다.]],
+	desc = [[쇠사슬로 만든, 한 벌의 무거운 갑옷입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/heavy-armor.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

@@ -29,7 +29,7 @@ newEntity{
 	rarity = 5,
 	encumber = 7,
 	metallic = true,
-	desc = [[손에 들고 공격을 막는 장비입니다.]],
+	desc = [[손에 들어 공격을 막을 수 있는 장비입니다.]],
 	require = { talent = { {Talents.T_ARMOUR_TRAINING,2} }, },
 	randart_able = "/data/general/objects/random-artifacts/shields.lua",
 	special_combat = { talented="shield", damrange = 1.2 },

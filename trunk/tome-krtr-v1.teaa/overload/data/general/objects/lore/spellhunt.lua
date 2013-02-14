@@ -20,7 +20,7 @@
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "memories of archmage Varil", lore="spellhunt-note-1", unique=true,
 	kr_display_name = "마도사 바릴의 기억",
-	desc = [[황혼의 시대를 겪은 마도사 바릴의 기억과 생각을 모아놓은 것 입니다.]],
+	desc = [[황혼의 시대를 겪은 마도사 바릴의 기억과 생각을 모아놓은 것입니다.]],
 	level_range = {1, 25},
 	rarity = 40,
 	encumber = 0,

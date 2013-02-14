@@ -29,8 +29,8 @@ newEntity{ base = "BASE_LONGSWORD",
 	define_as = "LONGSWORD_WINTERTIDE", rarity=false, unided_name = "glittering longsword", image="object/artifact/wintertide.png",
 	name = "Wintertide", unique=true,
 	kr_display_name = "밀려오는 겨울", kr_unided_name = "반짝거리는 장검",
-	desc = [[이 검의 칼날 주변의 공기가 얼어붙으면서, 주변의 모든 열기를 흡수하고 있습니다.
-제 1차 매혹의 전투가 있던 암흑의 시기에 은둔자들이 그들의 전투지휘자를 위해 만들었다고 알려져 있습니다.]],
+	desc = [[검 주변의 공기가 얼어붙으면서, 주변의 모든 열기를 흡수하고 있습니다.
+제 1차 매혹의 전투가 있던 암흑의 시기에, 은둔자들이 그들의 전투 지휘자를 위해 이 검을 만들었다고 알려져 있습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {35, 45},
 	rarity = 280,
@@ -66,8 +66,8 @@ newEntity{ base = "BASE_LITE", define_as = "WINTERTIDE_PHIAL",
 	power_source = {arcane=true},
 	unided_name = "phial filled with darkness", unique = true, image="object/artifact/wintertide_phial.png",
 	name = "Wintertide Phial", color=colors.DARK_GREY,
-	kr_display_name = "밀려오는 겨울의 물약", kr_unided_name = "어둠으로 가득찬 약병",
-	desc = [[이 약병은 어둠으로 가득차 있고, 사용자의 생각을 깨끗하게 만듭니다.]],
+	kr_display_name = "밀려오는 겨울의 유리병", kr_unided_name = "어둠이 가득 찬 유리병",
+	desc = [[어둠으로 가득 찬 유리병입니다. 사용자의 정신을 깨끗하게 만들어주는 효과가 있습니다.]],
 	level_range = {1, 10},
 	rarity = 200,
 	encumber = 2,
@@ -80,7 +80,7 @@ newEntity{ base = "BASE_LITE", define_as = "WINTERTIDE_PHIAL",
 	},
 
 	max_power = 60, power_regen = 1,
-	use_power = { name = "정신의 정화 (몇가지 나쁜 정신 효과 제거)", power = 40,
+	use_power = { name = "정신적 정화 (몇 가지 나쁜 정신적 상태효과 제거)", power = 40,
 		use = function(self, who)
 			local target = who
 			local effs = {}
@@ -115,7 +115,7 @@ newEntity{ base = "BASE_AMULET",
 	unided_name = "flame-wrought amulet",
 	name = "Fiery Choker", unique=true, image="object/artifact/fiery_choker.png",
 	kr_display_name = "불타는 목고리", kr_unided_name = "불꽃으로 장식된 목걸이", --@@ choker의 어감을 위해 일부러 목고리라 번역했습니다.
-	desc = [[순수한 불꽃으로 만들어진 목고리로, 착용자의 목에 둘러진채 계속 무늬가 변합니다. 그 불길이 착용자에게 해를 끼치지는 않는 듯 합니다.]],
+	desc = [[순수한 불꽃으로 만들어진, 목에 꽉 끼는 고리입니다. 착용자의 목에 둘러진 채 끊임없이 그 무늬가 변하고 있지만, 그 불길이 착용자에게 해를 끼치지는 않는 것 같습니다.]],
 	level_range = {32, 42},
 	rarity = 220,
 	cost = 190,
@@ -146,8 +146,8 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	define_as = "FROST_TREADS",
 	unided_name = "ice-covered boots",
 	name = "Frost Treads", unique=true, image="object/artifact/frost_treads.png",
-	kr_display_name = "서리 발자국", kr_unided_name = "얼음덮힌 신발",
-	desc = [[가죽 신발입니다. 건드리면 차갑고, 차가운 푸른 빛이 납니다.]],
+	kr_display_name = "서리 발자국", kr_unided_name = "얼음 덮힌 신발",
+	desc = [[가죽 신발입니다. 만져보면 차가운 느낌이 나며, 한기가 느껴지는 푸른 빛이 신발에서 나오고 있습니다.]],
 	require = { stat = { dex=16 }, },
 	level_range = {10, 18},
 	material_level = 2,
@@ -175,7 +175,7 @@ newEntity{ base = "BASE_HELM",
 	define_as = "DRAGON_SKULL",
 	name = "Dragonskull Helm", unique=true, unided_name="skull helm", image = "object/artifact/dragonskull_helmet.png",
 	kr_display_name = "용뼈 투구", kr_unided_name = "두개골 투구",
-	desc = [[이 금이 가있고 표백된 두개골에는 용의 능력이 아직 어느 정도 남아있습니다.]],
+	desc = [[여기저기 금이 가있으며 하얗게 표백된 두개골입니다. 아직도 용의 능력이 조금 남아있습니다.]],
 	require = { stat = { wil=24 }, },
 	level_range = {45, 50},
 	material_level = 5,
@@ -203,7 +203,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "Eel-skin armour", unique=true,
 	unided_name = "slippery armour", color=colors.VIOLET,
 	kr_display_name = "뱀장어 가죽 갑옷", kr_unided_name = "미끈거리는 갑옷",
-	desc = [[이 갑옷은 많은 뱀장어의 가죽 조각을 이어 붙여 만든 것입니다. 우엑.]],
+	desc = [[이 갑옷은 많은 뱀장어들의 가죽 조각을 기워서 만든 것입니다. 우웩.]],
 	level_range = {5, 12},
 	rarity = 200,
 	cost = 500,
@@ -227,7 +227,7 @@ newEntity{ base = "BASE_HEAVY_ARMOR",
 	name = "Chromatic Harness", unique=true,
 	unided_name = "multi-hued scale-mail armour", color=colors.VIOLET,
 	kr_display_name = "무지개빛 작업복", kr_unided_name = "여러색의 비늘 갑옷",
-	desc = [[이 용 비늘 작업복은 여러가지 색깔로 반짝이고, 겉보기에는 무질서해보이는 방식으로 빠르게 색이 변합니다.]],
+	desc = [[여러가지 색깔로 반짝이고 있는 작업복입니다, 빠르게 색깔들이 변화하고 있어, 원래 색이 무엇이었는지 분간이 되지 않습니다.]],
 	level_range = {40, 50},
 	rarity = 280,
 	cost = 500,
@@ -256,8 +256,8 @@ newEntity{ base = "BASE_RING",
 	power_source = {technique=true},
 	define_as = "PRIDE_GLORY", rarity=false,
 	name = "Glory of the Pride", unique=true, image="object/artifact/glory_of_the_pride.png",
-	kr_display_name = "부족의 영광", kr_unided_name = "짙은 검정 반지",
-	desc = [[오크 무리의 전장의 지배자 '그루쉬낙'이 가장 귀중하게 여기는 보물입니다. 이 황금 반지는 이제는 잊혀진 오크 말이 새겨져 있습니다.]],
+	kr_display_name = "부족의 영광", kr_unided_name = "짙은 검은색 반지",
+	desc = [[오크 무리의 전장을 지배한 자, 그루쉬낙이 가장 귀중하게 여기는 보물입니다. 이 금빛 반지에는 이제는 잊혀진 오크의 언어가 새겨져 있습니다.]],
 	unided_name = "deep black ring",
 	level_range = {40, 50},
 	rarity = 280,
@@ -285,7 +285,7 @@ newEntity{ base = "BASE_RING",
 	define_as = "NIGHT_SONG", rarity=false,
 	name = "Nightsong", unique=true, image = "object/artifact/ring_nightsong.png",
 	kr_display_name = "밤의 노래", kr_unided_name = "흑요석 반지",
-	desc = [[장식이 없는 경사진 검은 반지입니다. 그 위로 어둠의 덩굴손이 기어나옷 것 같이 느껴집니다.]],
+	desc = [[역청색을 띄고 있으며, 장식이 없는 검은 반지입니다. 반지 위로 어둠의 덩굴이 기어다니는 듯한 느낌이 듭니다.]],
 	unided_name = "obsidian ring",
 	level_range = {15, 23},
 	rarity = 250,
@@ -312,8 +312,8 @@ newEntity{ base = "BASE_HELM",
 	define_as = "HELM_OF_GARKUL",
 	unided_name = "tribal helm",
 	name = "Steel Helm of Garkul", unique=true, image="object/artifact/helm_of_garkul.png",
-	kr_display_name = "가르쿨의 강철 투구", kr_unided_name = "인디언 투구",
-	desc = [[가장 훌륭한 삶을 보낸 오크 중 하나인 포식자 가르쿨이 사용하던 거대한 투구입니다.]],
+	kr_display_name = "가르쿨의 강철 투구", kr_unided_name = "오크 종족의 투구",
+	desc = [[가장 위대한 오크 중 하나였던 '포식자 가르쿨' 이 사용했다는 거대한 투구입니다.]],
 	require = { stat = { str=16 }, },
 	level_range = {12, 22},
 	rarity = 200,
@@ -346,7 +346,7 @@ newEntity{ base = "BASE_SHIELD",
 	name = "Lunar Shield", image = "object/artifact/shield_lunar_shield.png",
 	unided_name = "chitinous shield",
 	kr_display_name = "달의 방패", kr_unided_name = "키틴질 방패",
-	desc = [[니미실에게서 떼어낸 큰 조각입니다. 지속적으로 이상한 흰 빛을 뿜어내고 있습니다.]],
+	desc = [[니미실의 몸에서 떼어낸 큰 조각입니다. 기이한 흰색 빛으로 빛나고 있습니다.]],
 	color = colors.YELLOW,
 	metallic = false,
 	require = { stat = { str=35 }, },
@@ -384,8 +384,8 @@ newEntity{ base = "BASE_SHIELD",
 	define_as = "WRATHROOT_SHIELD",
 	unided_name = "large chunk of wood",
 	name = "Wrathroot's Barkwood", unique=true, image="object/artifact/shield_wrathroots_barkwood.png",
-	kr_display_name = "왈쓰룻의 나무껍질", kr_unided_name = "커다란 나무 덩어리",
-	desc = [[왈쓰룻의 나무껍질로 둥글게 만든 방패입니다.]],
+	kr_display_name = "분노의 뿌리의 나무껍질", kr_unided_name = "커다란 나무 조각",
+	desc = [['분노의 뿌리' 의 나무껍질을 둥글게 깎아 만든 방패입니다.]],
 	require = { stat = { str=25 }, },
 	level_range = {12, 22},
 	rarity = 200,
@@ -419,12 +419,12 @@ newEntity{ base = "BASE_GEM",
 	unique = true, define_as = "PETRIFIED_WOOD",
 	unided_name = "burned piece of wood",
 	name = "Petrified Wood", subtype = "black",
-	kr_display_name = "화석 나무", kr_unided_name = "탄 나무 조각",
+	kr_display_name = "나무 화석", kr_unided_name = "타고 남은 나무 조각",
 	color = colors.WHITE, image = "object/artifact/petrified_wood.png",
 	level_range = {35, 45},
 	rarity = 280,
 	identified = false,
-	desc = [[부러진 뿌리의 잔존물로 그을린 나무 조각입니다.]],
+	desc = [['부러진 뿌리' 에서 나온, 그을린 나무 조각입니다.]],
 	rarity = false,
 	cost = 100,
 	material_level = 4,
@@ -440,7 +440,7 @@ newEntity{ base = "BASE_CLOTH_ARMOR",
 	name = "Black Robe", unique=true,
 	unided_name = "black robe", color=colors.DARK_GREY, image = "object/artifact/robe_black_robe.png",
 	kr_display_name = "검은 로브", kr_unided_name = "검은 로브",
-	desc = [[어두운 밤 하늘보다 더 어두운 비단 로브로, 힘을 발산하고 있습니다.]],
+	desc = [[어두운 밤하늘보다 더 어두운 비단 로브로, 알 수 없는 힘을 발산하고 있습니다.]],
 	level_range = {40, 50},
 	rarity = 280,
 	cost = 500,
@@ -466,8 +466,8 @@ newEntity{ base = "BASE_WARAXE",
 	define_as = "MALEDICTION", rarity=false,
 	unided_name = "pestilent waraxe",
 	name = "Malediction", unique=true, image = "object/artifact/axe_malediction.png",
-	kr_display_name = "저주", kr_unided_name = "치명적 전투도끼",
-	desc = [[이 저주받은 도끼가 가는 곳마다 시들고 허물어집니다.]],
+	kr_display_name = "저주", kr_unided_name = "치명적인 전투도끼",
+	desc = [[이 저주받은 도끼가 있는 곳은, 이내 시들고 허물어집니다.]],
 	require = { stat = { str=55 }, },
 	level_range = {35, 45},
 	rarity = 290,
@@ -493,8 +493,8 @@ newEntity{ base = "BASE_STAFF",
 	unided_name = "dark staff",
 	flavor_name = "vilestaff",
 	name = "Kor's Fall", unique=true,
-	kr_display_name = "코르의 추락", kr_unided_name = "비열한 지팡이",
-	desc = [[많은 생물의 뼈로 만들어진 이 지팡이는 힘이 넘쳐나고 있습니다. 거리를 두어도 그 사악함이 느껴집니다.]],
+	kr_display_name = "코르의 타락", kr_unided_name = "사악한 지팡이",
+	desc = [[많은 생물의 뼈로 만들어진 지팡이로, 힘이 넘쳐나고 있습니다. 거리를 두어도 그 사악함이 느껴질 정도입니다.]],
 	require = { stat = { mag=25 }, },
 	level_range = {1, 10},
 	rarity = 200,
@@ -528,8 +528,8 @@ newEntity{ base = "BASE_AMULET",
 	define_as = "VOX", rarity=false,
 	name = "Vox", unique=true,
 	unided_name = "ringing amulet", color=colors.BLUE, image="object/artifact/jewelry_amulet_vox.png",
-	kr_display_name = "소리", kr_unided_name = "고리 목걸이",
-	desc = [[이 목걸이의 착용자를 침묵시킬 힘은 찾기 힘듭니다.]],
+	kr_display_name = "소리", kr_unided_name = "진동하는 목걸이",
+	desc = [[이 목걸이의 착용자를 침묵시킬 수 있는 힘은 거의 존재하지 않습니다.]],
 	level_range = {40, 50},
 	rarity = 220,
 	cost = 3000,
@@ -583,7 +583,7 @@ newEntity{ base = "BASE_AMULET",
 	name = "Choker of Dread", unique=true, image = "object/artifact/amulet_choker_of_dread.png",
 	unided_name = "dark amulet", color=colors.LIGHT_DARK,
 	kr_display_name = "드레드의 목고리", kr_unided_name = "어두운 목걸이", --@@ choker 어감을 위해 목고리로 번역
-	desc = [[역생의 사악함이 이 목걸이로부터 뿜어져 나옵니다.]],
+	desc = [[언데드의 사악함이 이 목에 거는 고리로부터 뿜어져 나옵니다.]],
 	level_range = {20, 28},
 	rarity = 220,
 	cost = 5000,
@@ -596,7 +596,7 @@ newEntity{ base = "BASE_AMULET",
 	},
 	max_power = 60, power_regen = 1,
 	use_power = { name = "동료 흡혈귀 장로 소환", power = 60, use = function(self, who)
-		if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 당신은 억제되었습니다!") return end
+		if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 당신은 제압된 상태입니다!") return end
 
 		-- Find space
 		local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
@@ -612,7 +612,8 @@ newEntity{ base = "BASE_AMULET",
 			display = "V", image = "npc/elder_vampire.png",
 			name = "elder vampire", color=colors.RED,
 			kr_display_name = "흡혈귀 장로",
-			desc=[[로브를 입은 끔찍한 언데드로, 다른 생명체의 생명력을 빼앗음으로써 수세기를 역생하여 존재하고 있습니다. 이것은 희생자들의 다양한 그림자를 묘지에서 불러 노예로 부릴수 있습니다.]],
+			desc=[[로브를 입은 끔찍한 언데드로, 다른 생명체의 생명력을 빼앗아오며 수 세기를 살아온 언데드입니다.
+흡혈귀 장로는 희생자들의 다양한 그림자를 묘지에서 불러, 노예로 부릴 수 있습니다.]],
 
 			combat = { dam=resolvers.rngavg(9,13), atk=10, apr=9, damtype=engine.DamageType.DRAINLIFE, dammod={str=1.9} },
 
@@ -660,14 +661,14 @@ newEntity{ define_as = "RUNED_SKULL",
 	type = "gem", subtype="red", image = "object/artifact/bone_runed_skull.png",
 	unided_name = "human skull",
 	name = "Runed Skull",
-	kr_display_name = "룬 두개골", kr_unided_name = "사람 두개골",
+	kr_display_name = "룬이 새겨진 두개골", kr_unided_name = "사람의 두개골",
 	display = "*", color=colors.RED,
 	level_range = {40, 50},
 	rarity = 390,
 	cost = 150,
 	encumber = 3,
 	material_level = 5,
-	desc = [[이 더럽혀진 두개골에는 둔탁하고 붉은 룬이 온통 뒤덮혀 새겨져 있습니다.]],
+	desc = [[뭉툭하게 새겨진 붉은 룬이 빼곡하게 새겨진 두개골입니다.]],
 
 	carrier = {
 		combat_spellpower = 7,
@@ -681,7 +682,7 @@ newEntity{ base = "BASE_GREATMAUL",
 	unided_name = "tree trunk", image = "object/artifact/bill_treestump.png",
 	name = "Bill's Tree Trunk", unique=true,
 	kr_display_name = "빌의 나무 줄기", kr_unided_name = "나무 줄기",
-	desc = [[이것은 트롤 빌이 무기로 사용하던 크고 더러워 보이는 나무 줄기입니다. 당신이 이것을 쥘수 있을만큼 힘이 세다면, 이것은 아직 그 목적을 위해 사용할 수 있습니다!]],
+	desc = [[거대한 트롤인 빌이 무기로 사용하던 크고, 더럽고, 두꺼운 나무 줄기입니다. 당신이 이것을 들고 휘두를 수 있을만큼 힘이 세다면, 이 나무 줄기의 원래 목적으로 사용할 수도 있습니다!]],
 	require = { stat = { str=25 }, },
 	level_range = {1, 10},
 	material_level = 1,
@@ -707,7 +708,7 @@ newEntity{ base = "BASE_SHIELD",
 	unided_name = "bloody shield",
 	name = "Sanguine Shield", unique=true, image = "object/artifact/sanguine_shield.png",
 	kr_display_name = "핏빛의 방패", kr_unided_name = "피로 물든 방패",
-	desc = [[피가 튀어있고 변색되었지만, 이 방패는 아직 태양의 문장을 통해 빛을 뿜고 있습니다.]],
+	desc = [[피가 튀고 변색되었지만, 이 방패는 아직 태양의 문장을 통해 빛을 내뿜고 있습니다.]],
 	require = { stat = { str=39 }, },
 	level_range = {35, 45},
 	material_level = 4,
@@ -738,7 +739,7 @@ newEntity{ base = "BASE_WHIP",
 	unided_name = "fiery whip",
 	name = "Whip of Urh'Rok", color=colors.PURPLE, unique = true, image = "object/artifact/whip_of_urh_rok.png",
 	kr_display_name = "울흐'록의 채찍", kr_unided_name = "불타는 채찍",
-	desc = [[이 극도로 밝은 불꽃의 채찍과 함께, 상위 악마 울흐'록은 전투에서 절대 패하지 않는 것으로 유명합니다.]],
+	desc = [[전투에서 절대 패하지 않는다는 강력한 악마 울흐'록의 채찍으로, 극도로 밝은 불꽃이 타오르고 있습니다.]],
 	require = { stat = { dex=48 }, },
 	level_range = {40, 50},
 	rarity = 390,
@@ -767,8 +768,8 @@ newEntity{ base = "BASE_GREATSWORD",
 	define_as = "MURDERBLADE", rarity=false,
 	name = "Warmaster Gnarg's Murderblade", unique=true, image="object/artifact/warmaster_gnargs_murderblade.png",
 	unided_name = "blood-etched greatsword", color=colors.CRIMSON,
-	kr_display_name = "전투의 대가 나르그의 살해검", kr_unided_name = "비로 새겨진 대검",
-	desc = [[피로 새겨진 대검입니다. 이것은 많은 적들에게 꽂혀진 모습으로 잘 알려져 있습니다.]],
+	kr_display_name = "전투의 대가 나르그의 살해검", kr_unided_name = "피로 물든 대검",
+	desc = [[피로 물든 대검입니다. 이 검은 지금까지 많은 적을 보아왔습니다. 아니, 많은 적의 장기와 살점을 보아왔습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {35, 45},
 	rarity = 230,
@@ -799,8 +800,8 @@ newEntity{ base = "BASE_LEATHER_CAP",
 	define_as = "CROWN_ELEMENTS", rarity=false,
 	name = "Crown of the Elements", unique=true, image = "object/artifact/crown_of_the_elements.png",
 	unided_name = "jeweled crown", color=colors.DARK_GREY,
-	kr_display_name = "원소의 왕관", kr_unided_name = "보석박힌 왕관",
-	desc = [[이 보석박힌 왕관은 다양한 색으로 빛납니다.]],
+	kr_display_name = "원소의 왕관", kr_unided_name = "보석으로 장식된 왕관",
+	desc = [[보석으로 장식된 왕관으로, 다양한 색으로 빛나고 있습니다.]],
 	level_range = {40, 50},
 	rarity = 280,
 	cost = 500,
@@ -831,7 +832,7 @@ newEntity{ base = "BASE_GLOVES", define_as = "FLAMEWROUGHT",
 	name = "Flamewrought", color = colors.RED, image = "object/artifact/gloves_flamewrought.png",
 	unided_name = "chitinous gloves",
 	kr_display_name = "불꽃장갑", kr_unided_name = "키틴질 장갑",
-	desc = [[이 장갑은 릿치의 외골격으로 만들어진 것으로 보입니다. 건드리면 뜨겁습니다.]],
+	desc = [[릿치의 외골격으로 만든 장갑입니다. 만져보면 열기가 느껴집니다.]],
 	level_range = {5, 12},
 	rarity = 180,
 	cost = 50,
@@ -863,7 +864,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 	kr_display_name = "수정의 핵", kr_unided_name = "번뜩이는 수정",
 	color = colors.WHITE, image = "object/artifact/crystal_focus.png",
 	level_range = {5, 12},
-	desc = [[마법폭발의 힘을 내뿜는 수정입니다.]],
+	desc = [[마법폭발을 발생시킨 힘, 바로 그 힘을 내뿜고 있는 수정입니다.]],
 	rarity = 200,
 	identified = false,
 	cost = 50,
@@ -871,7 +872,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 
 	max_power = 1, power_regen = 1,
 	use_power = { name = "무기와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
-		who:showInventory("어느 무기에 붙입니까?", who:getInven("INVEN"), function(o) return (o.type == "weapon" or o.subtype == "hands") and o.subtype ~= "mindstar" and not o.egoed and not o.unique and not o.rare and not o.archery end, function(o, item)
+		who:showInventory("어느 무기와 결합시킵니까?", who:getInven("INVEN"), function(o) return (o.type == "weapon" or o.subtype == "hands") and o.subtype ~= "mindstar" and not o.egoed and not o.unique and not o.rare and not o.archery end, function(o, item)
 			local oldname = o:getName{do_color=true}
 
 			-- Remove the gem
@@ -879,7 +880,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 			who:sortInven(gem_inven)
 
 			-- Change the weapon
-			o.kr_display_name = "수정으로된 "..(o.kr_display_name or o.name):capitalize()
+			o.kr_display_name = "수정으로 만들어진 "..(o.kr_display_name or o.name):capitalize()
 			o.name = "Crystalline "..o.name:capitalize()
 			o.unique = o.name
 			o.no_unique_lore = true
@@ -913,14 +914,14 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 				self:specialSetAdd({"wielder","combat_spellcrit"}, 10)
 				self:specialSetAdd({"wielder","combat_physcrit"}, 10)
 				self:specialSetAdd({"wielder","resists_pen"}, {[engine.DamageType.ARCANE]=20, [engine.DamageType.PHYSICAL]=15})
-				game.logPlayer(who, "#GOLD#수정으로된 무기와 갑옷을 같이 착용하면, 그것들이 지속적인 공명음을 내기 시작합니다.")
+				game.logPlayer(who, "#GOLD#수정으로 된 무기와 갑옷을 같이 착용하자, 장비에서 지속적인 공명음이 나기 시작합니다.")
 			end
 			o.on_set_broken = function(self, who)
 				self.talent_on_spell = nil
 				if (self.combat) then self.combat.talent_on_hit = nil
 				else self.wielder.combat.talent_on_hit = nil
 				end
-				game.logPlayer(who, "#GOLD#수정으로된 아티팩트에서 나온 공명음이 흩어지면서 사라집니다.")
+				game.logPlayer(who, "#GOLD#수정으로 된 장비에서 나오던 공명음이, 흩어지면서 사라집니다.")
 			end
 
 			who:sortInven()
@@ -939,16 +940,16 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_HEART",
 	kr_display_name = "수정의 심장", kr_unided_name = "반짝이는 수정",
 	color = colors.RED, image = "object/artifact/crystal_heart.png",
 	level_range = {35, 42},
-	desc = [[이 수정은 머리크기 정도로 커다랗습니다. 이것은 자연적으로 밝게 번쩍입니다.]],
+	desc = [[사람의 머리와 비슷한 크기를 가진, 커다란 수정입니다. 자연적으로 밝게 반짝이고 있습니다.]],
 	rarity = 250,
 	identified = false,
 	cost = 200,
 	material_level = 5,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "갑옷과 결합", power = 1, use = function(self, who, gem_inven, gem_item)
+	use_power = { name = "몸통 방어구와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
 		-- Body armour only, can be cloth, light, heavy, or massive though. No clue if o.slot works for this.
-		who:showInventory("어느 갑옷에 붙입니까?", who:getInven("INVEN"), function(o) return o.type == "armor" and o.slot == "BODY" and not o.egoed and not o.unique and not o.rare end, function(o, item)
+		who:showInventory("어느 방어구와 결합시킵니까?", who:getInven("INVEN"), function(o) return o.type == "armor" and o.slot == "BODY" and not o.egoed and not o.unique and not o.rare end, function(o, item)
 			local oldname = o:getName{do_color=true}
 
 			-- Remove the gem
@@ -956,7 +957,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_HEART",
 			who:sortInven(gem_inven)
 
 			-- Change the weapon... err, armour. No, I'm not copy/pasting here, honest!
-			o.kr_display_name = "수정으로된 "..(o.kr_display_name or o.name):capitalize()
+			o.kr_display_name = "수정으로 만들어진 "..(o.kr_display_name or o.name):capitalize()
 			o.name = "Crystalline "..o.name:capitalize()
 			o.unique = o.name
 			o.no_unique_lore = true
@@ -997,8 +998,8 @@ newEntity{ base = "BASE_ROD", define_as = "ROD_OF_ANNULMENT",
 	power_source = {arcane=true},
 	unided_name = "dark rod",
 	name = "Rod of Annulment", color=colors.LIGHT_BLUE, unique=true, image = "object/artifact/rod_of_annulment.png",
-	kr_display_name = "폐기의 장대", kr_unided_name = "암흑 장대",
-	desc = [[이 장대 주변의 마법이 사라지는 것이 느껴집니다. 자연적인 권능도 영향을 받는 것 같습니다.]],
+	kr_display_name = "소멸의 장대", kr_unided_name = "암흑의 장대",
+	desc = [[장대 주변에 있는 마법적인 힘이 사라지는 것을 느꼈습니다. 자연적인 힘 역시 영향을 받는 것 같습니다.]],
 	cost = 50,
 	rarity = 380,
 	level_range = {5, 12},
@@ -1008,7 +1009,7 @@ newEntity{ base = "BASE_ROD", define_as = "ROD_OF_ANNULMENT",
 	material_level = 2,
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "적의 주입이나 룬 또는 기술 몇가지를 재사용 대기상태로 만듦", power = 30,
+	use_power = { name = "적의 주입물이나 룬, 또는 기술 몇 가지를 재사용 대기상태로 만듦", power = 30,
 		use = function(self, who)
 			local tg = {type="bolt", range=5}
 			local x, y = who:getTarget(tg)
@@ -1026,7 +1027,7 @@ newEntity{ base = "BASE_ROD", define_as = "ROD_OF_ANNULMENT",
 					local t = rng.tableRemove(tids)
 					if not t then break end
 					target.talents_cd[t.id] = rng.range(3, 5)
-					game.logSeen(target, "%s의 %s 중단되었습니다!", (target.kr_display_name or target.name):capitalize(), (t.kr_display_name or t.name):addJosa("가"))
+					game.logSeen(target, "%s의 %s 방해되었습니다!", (target.kr_display_name or target.name):capitalize(), (t.kr_display_name or t.name):addJosa("가"))
 				end
 				target.changed = true
 			end, nil, {type="flame"})
@@ -1041,7 +1042,7 @@ newEntity{ base = "BASE_WARAXE",
 	unided_name = "crimson waraxe",
 	name = "Skullcleaver", unique=true, image = "object/artifact/axe_skullcleaver.png",
 	kr_display_name = "두개골 절단기", kr_unided_name = "피비린내 나는 전투도끼",
-	desc = [[다듬어진 뼈 손잡이가 달린 작지만 날카로운 도끼입니다. 그 날은 많은 두개골을 갈라놓았고, 짙은 피비린내로 얼룩져 있습니다.]],
+	desc = [[다듬어진 뼈 손잡이가 달린, 작지만 날카로운 도끼입니다. 도끼의 날은 지금까지 수많은 두개골을 갈라놓았으며, 짙은 피비린내로 얼룩져 있습니다.]],
 	require = { stat = { str=18 }, },
 	level_range = {5, 12},
 	material_level = 1,
@@ -1066,7 +1067,7 @@ newEntity{ base = "BASE_DIGGER",
 	unided_name = "a tooth", unique = true,
 	name = "Tooth of the Mouth", image = "object/artifact/tooth_of_the_mouth.png",
 	kr_display_name = "'그 입'의 이빨", kr_unided_name = "이빨",
-	desc = [[깊은 울림의 '그 입'에게서 뽑아낸 커다란 이빨입니다.]],
+	desc = [[깊은 울림 안에 있던 '그 입' 에게서 뽑아낸, 커다란 이빨입니다.]],
 	level_range = {5, 12},
 	cost = 50,
 	material_level = 1,
@@ -1084,8 +1085,8 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 	unique = true,
 	name = "The Warped Boots", image = "object/artifact/the_warped_boots.png",
 	unided_name = "pair of painful-looking boots",
-	kr_display_name = "구부러진 신발", kr_unided_name = "불쾌해 보이는 신발",
-	desc = [[이 더러운 신발은 옛날의 영광스러웠던 모든 흔적이 지워져 있습니다. 지금은, 그 힘으로 인해 깊은 어둠이 타락한 증거가 되었습니다.]],
+	kr_display_name = "뒤틀린 신발", kr_unided_name = "불쾌해 보이는 신발",
+	desc = [[한때는 영광의 상징이었지만, 이 더러운 신발에서 더 이상 영광의 흔적은 찾아볼 수 없습니다. 그리고 이제는 깊은 울림과 그 힘에 의해, 타락과 오염의 증거가 되고 말았습니다.]],
 	color = colors.DARK_GREEN,
 	level_range = {35, 45},
 	rarity = 250,
@@ -1111,7 +1112,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 	name = "The Gaping Maw", color = colors.SLATE, image = "object/artifact/battleaxe_the_gaping_maw.png",
 	unided_name = "huge granite battleaxe", unique = true,
 	kr_display_name = "벌어진 입", kr_unided_name = "커다란 화강암 대형도끼",
-	desc = [[이 커다란 화강암 대형도끼는 도끼이지만 거의 둔기 같습니다. 검게된 나무의 둘레에 드레이크 가죽을 꽁꽁 동여맨 자루에, 찐득한 녹색 액체가 발린 날카로운 화강암 머리가 번쩍입니다.]],
+	desc = [[이 커다란 화강암 대형도끼는 도끼의 생김새를 하고 있지만, 그냥 둔기라고 보는게 더 좋을 것 같습니다. 검게 변색된 나무 손잡이에 용가죽을 꽁꽁 동여매 만든 자루, 그리고 찐득한 녹색 액체가 발린 날카로운 화강암 도끼날이 번쩍입니다.]],
 	level_range = {38, 50},
 	rarity = 300,
 	require = { stat = { str=60 }, },
@@ -1149,9 +1150,8 @@ newEntity{ base = "BASE_AMULET",
 	unique = true,
 	name = "Withering Orbs", color = colors.WHITE, image = "object/artifact/artifact_jewelry_withering_orbs.png",
 	unided_name = "shadow-strung orbs",
-	kr_display_name = "시듦의 오브", kr_unided_name = "그림자 줄무늬 오브",
-	desc = [[이 유백광의 오브들은 치명적인 지식으로 당신의 혀영심과 자만을 깨우쳐주며 당신을 응시하고 있습니다. 그것들은 당신이 상상할 수도 없는 공포에 의해 생명을 얻고 또한 죽었으며, 이제는 검은 현의 무늬에 누워 보이는 모든 그림자를 낚아채고 있습니다.
-잠시 눈을 감으면, 그들이 보는 공포를 대부분 상상할 수 있을 것입니다...]],
+	kr_display_name = "시듦의 구슬 목걸이", kr_unided_name = "그림자에 묶인 구슬 목걸이",
+	desc = [[당신의 허영심과 자만을 꿰뚫어보며, 이 유백색의 구슬들은 죽음에 익숙한 듯한 눈으로 당신을 응시하고 있습니다. 이것들은 당신이 상상조차 할 수 없는 공포에 의해 살아왔고 죽어갔으며, 이제는 검은 줄에 묶인 채 모든 그림자들의 움직임을 지켜보고 있습니다. 잠시 눈을 감아보면, 그들이 보았던 수많은 공포의 형상이 머리 속에 떠오를 것만 같습니다.]],
 	level_range = {5, 12},
 	rarity = 200,
 	cost = 100,
@@ -1177,9 +1177,9 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 	unique = true,
 	name = "Borfast's Cage",
 	unided_name = "a suit of pitted and pocked plate-mail",
-	kr_display_name = "보르파스트의 우리", kr_unided_name = "곰보자국 판갑",
-	desc = [[일 인치 두께의 스트라라이트 판으로 엮여있고, 관절은 보라툰으로 만들어졌습니다. 겉보기엔 절대 뚫리지 않을것처럼 보이지만, 관리를 엉망으로 하여 커다랗게 움푹패인 자국과 보기 흉한 뒤틀림 그리고 부식한 틈으로 뚫린 구멍 등을 드러내고 있습니다.
-확실히 강력한 작품이지만, 과거에는 더욱 어마어마했음이 분명합니다.]],
+	kr_display_name = "보르파스트의 철제 우리", kr_unided_name = "구멍 뚫린 판갑",
+	desc = [[2.5 cm 두께의 스트라라이트 철판으로 만들어졌으며, 연결부에는 보라툰을 사용한 판갑입니다. 겉보기에는 절대 뚫리지 않을 것처럼 보이지만, 커다랗게 패인 자국과 뒤틀림 그리고 부식되어 뚫린 구멍 등을 보아 굉장히 엉망으로 관리한 것이 분명합니다.
+지금도 굉장한 갑옷이지만, 과거에는 더욱 굉장했던 갑옷임이 분명합니다.]],
 	color = colors.WHITE, image = "object/artifact/armor_plate_borfasts_cage.png",
 	level_range = {20, 28},
 	rarity = 200,
@@ -1211,9 +1211,9 @@ newEntity{ base = "BASE_LEATHER_CAP", -- No armor training requirement
 	power_source = {psionic=true},
 	define_as = "ALETTA_DIADEM",
 	name = "Aletta's Diadem", unique=true, unided_name="jeweled diadem", image = "object/artifact/diadem_alettas_diadem.png",
-	kr_display_name = "알렛타의 왕관", kr_unided_name = "보석박힌 왕관",
-	desc = [[많은 작은 보석이 박힌 은선 세공이 된 이 왕관은 천상의 물건같이 빛나고 있습니다. 하지만 건드리면 피부가 얼고, 정신이 난폭해 집니다. 버리거나 던지려하면, 당신의 마음 속에서 이것을 가지고자 하는 마음이 저항할 수 없도록 다가옵니다.
-이 약한 유혹은 당신의 일부분일까요 아니면 이 물건에서 뻗어나온 세뇌일까요...?]],
+	kr_display_name = "알렛타의 조그마한 왕관", kr_unided_name = "보석으로 장식된 조그마한 왕관",
+	desc = [[많은 양의 작은 보석과, 은으로 만들어진 줄로 세공된 작은 왕관입니다. 마치 천상의 물건인 것처럼 빛나고 있지만, 왕관을 만지면 피부는 얼어붙고 정신은 난폭해집니다. 게다가 왕관을 버리거나 던져버리려고 하면, 이것을 갖고자 하는 마음이 저항할 수 없을 정도로 강렬하게 일어납니다.
+이 유혹은 당신의 약한 의지 때문일지, 아니면 이 왕관에 깃든 세뇌의 힘인지 당신은 짐작할 수가 없습니다... ]],
 	require = { stat = { wil=24 }, },
 	level_range = {20, 28},
 	rarity = 200,
@@ -1236,8 +1236,8 @@ newEntity{ base = "BASE_SLING",
 	define_as = "HARESKIN_SLING",
 	name = "Hare-Skin Sling", unique=true, unided_name = "hare-skin sling", image = "object/artifact/sling_hareskin_sling.png",
 	kr_display_name = "산토끼 가죽 투석구", kr_unided_name = "산토끼 가죽 투석구",
-	desc = [[길이 잘 들여진 이 투석구는 커다란 산토끼의 가죽과 힘줄로 만들어진 것입니다. 부드럽고, 아직 매우 튼튼합니다. 산토끼 가죽이 행운을 가져온다고 믿는 사람도 있습니다.
-이 물건의 전주인들이 그랬는지는 알기 힘들지만, 이 가죽이 매우 강하고 믿을만 한 것은 확실합니다..]],
+	desc = [[길이 잘 들여진 이 투석구는, 커다란 산토끼의 가죽과 힘줄로 만들어진 것입니다. 부드럽고, 아직도 굉장히 튼튼합니다. 산토끼 가죽이 행운을 가져온다고 믿는 사람도 있습니다.
+그 소문이 이 물건의 전 주인에게도 적용됐었는지는 알 수 없지만, 최소한 이 가죽 투석구가 매우 강하고 믿을 수 있는 무기라는 것은 확실합니다.]],
 	level_range = {20, 28},
 	rarity = 200,
 	require = { stat = { dex=35 }, },
@@ -1265,9 +1265,9 @@ newEntity{ base = "BASE_TOOL_MISC",
 	unique = true,
 	name = "Prox's Lucky Halfling Foot", color = colors.WHITE,
 	unided_name = "a mummified halfling foot", image = "object/artifact/proxs_lucky_halfling_foot.png",
-	kr_display_name = "프록스의 행운을 주는 하플링 발", kr_unided_name = "미이라 하플링의 발",
-	desc = [[하플링의 것임이 확실한 털이 난 커다란 발로, 두꺼운 꼬인 끈에 매달려 있습니다. 그 부패 상태로 봐서 만들어진지 얼마나 오래된 것인지 말하기 힘들고, 발목 근처의 이빨 자국으로 볼때 그 주인이 자진해서 준것은 아니라는 인상을 받습니다.
-그 원한에도 불구하고 소금과 진흙에 닿은 채로 오랜 시간을 지내와서, 자연은 이것을 죽은 시체가 겪는 일들을 시작하도록 만들었습니다. 어떤 이는 하플링의 발을 가진 사람은 행운을 얻는다고 말하지만, 지금 당신이 알 수 있는 것은 여기서 악취가 난다는 것 뿐입니다.]],
+	kr_display_name = "프록스의 행운을 주는 하플링 발", kr_unided_name = "미이라화된 하플링의 발",
+	desc = [[하플링의 것임이 확실한, 털이 난 커다란 발입니다. 이 발은 두껍게 꼬인 끈에 매달려 있습니다. 그 부패 상태로 봐서는 얼마나 오래 전에 만들어진 것인지 알기 힘들지만, 발목 근처의 이빨 자국으로 볼 때 발의 주인이 자진해서 이 발을 준 것은 아닐 것 같습니다.
+진흙과 소금에 의해 그 형체는 온전하게 보전되어 있지만, 죽은 시체가 자연에 의해 겪는 일을 막아주지는 못했습니다. 어떤 이들은 '하플링의 발을 가진 사람은 행운을 얻는다' 고 말하지만, 지금 당신이 알 수 있는 것은 여기서 악취가 난다는 것 뿐입니다.]],
 	level_range = {5, 12},
 	rarity = 200,
 	cost = 10,
@@ -1297,7 +1297,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 			end end
 			-- only one twitch per action
 			if is_trap then
-				game.logSeen(actor, "#CRIMSON#%s 낚아채며 %s의 주변에 함정이 있다고 경고합니다.", self:getName():addJosa("가"), (actor.kr_display_name or actor.name):capitalize())
+				game.logSeen(actor, "#CRIMSON#%s 진동하면서 %s의 주변에 함정이 있다고 경고합니다.", self:getName():addJosa("가"), (actor.kr_display_name or actor.name):capitalize())
 				if actor == game.player then
 					game.player:runStop()
 				end
@@ -1312,7 +1312,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 			self:specialWearAdd({"wielder","combat_physicalsave"}, -5)
 			self:specialWearAdd({"wielder","combat_mentalsave"}, -5)
 			self:specialWearAdd({"wielder","combat_spellsave"}, -5)
-			game.logPlayer(who, "#LIGHT_RED#당신은 %s 착용하고 다니는 것에 불안함을 느낍니다.", self:getName():addJosa("를"))
+			game.logPlayer(who, "#LIGHT_RED#당신은 %s 착용하고 다니는 것에 대해 불편한 심정을 느낍니다.", self:getName():addJosa("를"))
 		end
 	end,
 	on_takeoff = function(self)
@@ -1327,7 +1327,7 @@ newEntity{ base = "BASE_LONGBOW",
 	name = "Storm Fury", unique=true, --THESE
 	unided_name = "crackling longbow", color=colors.BLUE,
 	kr_display_name = "폭풍의 분노", kr_unided_name = "파직거리는 활",
-	desc = [[이 용뼈 활은 강철 띠로 강화되었고, 강렬한 뇌전을 띄고 있습니다. 당신도 모르게 뇌전의 화살이 시위를 따라 위 아래로 움직이고 있습니다.]],
+	desc = [[이 용뼈 활은 강렬한 뇌전을 띄고 있는 강철 끈으로 강화되었습니다. 당신의 의지와는 무관하게, 전기가 시위를 따라 위아래로 흐르고 있습니다.]],
 	require = { stat = { dex=60 }, },
 	level_range = {40, 50},
 	rarity = 250,
@@ -1398,7 +1398,7 @@ newEntity{ base = "BASE_CLOAK", define_as="GLACIAL_CLOAK",
 	name = "Frozen Shroud", 
 	unided_name = "chilling cloak", image = "object/artifact/frozen_shroud.png",
 	kr_display_name = "얼어붙은 장막", kr_unided_name = "차가운 망토",
-	desc = [[빙하의 부대가 남긴 것은 이게 전부입니다. 이 망토에서는 건드리는 모든 것을 얼리는 얼음같이 차가운 증기가 스며나옵니다.]],
+	desc = [[이 망토 하나가, 빙하의 부대가 남긴 전부입니다. 망토를 건드리는 것들을 모두 얼려버리는, 얼음같이 차가운 증기가 망토에서 흘러나오고 있습니다.]],
 	level_range = {40, 50},
 	rarity = 250,
 	cost = 300,
@@ -1432,7 +1432,7 @@ newEntity{ base = "BASE_CLOAK", define_as="GLACIAL_CLOAK",
 				end,
 				false
 			)
-			game.logSeen(who, "%s 그 망토에서 얼어붙은 차가운 덩어리를 발사합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
+			game.logSeen(who, "%s 망토 안에서 차가운 얼음 덩어리를 발사합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
 			return {id=true, used=true}
 		end
 	},
@@ -1443,8 +1443,8 @@ newEntity{ base = "BASE_GREATMAUL", define_as="ROTTING_MAUL",
 	unique = true,
 	name = "Blighted Maul", color = colors.LIGHT_RED,  image = "object/artifact/blighted_maul.png",
 	unided_name = "rotten stone limb",
-	kr_display_name = "황폐화된 망치", kr_unided_name = "썩은 암석 다리",
-	desc = [[이 썩안 타이탄의 커다란 암석 다리는, 암석과 썩은 살점으로 이루어져 있습니다. 들 수 있을 거라 생각하겠지만, 사실 이건 매우 무겁습니다]],
+	kr_display_name = "황폐한 망치", kr_unided_name = "썩은 암석 다리",
+	desc = [[썩은 타이탄의 거대한 암석 다리로, 암석과 썩은 살점이 섞여있습니다. 들 수는 있지만, 엄청나게 무겁습니다.]],
 	level_range = {40, 50},
 	rarity = 250,
 	require = { stat = { str=60 }, },
@@ -1459,11 +1459,11 @@ newEntity{ base = "BASE_GREATMAUL", define_as="ROTTING_MAUL",
 		dammod = {str=1.4},
 		convert_damage = {[DamageType.BLIGHT] = 20},
 		melee_project={[DamageType.CORRUPTED_BLOOD] = 30},
-		special_on_hit = {desc="25% 확률로 주변 생물체에게 피해 전달", on_kill=true, fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 주변에 있는 적에게도 피해를 줌", on_kill=true, fct=function(combat, who, target)
 			if rng.percent(25) then
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "ROTTING_MAUL")
 				local dam = rng.avg(1,2) * (70+ who:getStr() * 1.8)
-				game.logSeen(who, "%s의 충돌로 대지가 흔들립니다!", o:getName():capitalize())
+				game.logSeen(who, "%s의 충돌로 인해, 대지가 흔들립니다!", o:getName():capitalize())
 				local tg = {type="ball", range=0, selffire=false, radius=2, no_restrict=true}
 				who:project(tg, target.x, target.y, engine.DamageType.PHYSICAL, dam)
 			end
@@ -1491,8 +1491,8 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 	define_as = "ARMOR_MOLTEN",
 	unided_name = "melting bony armour",
 	name = "Molten Skin", unique=true, image = "object/artifact/molten_skin.png",
-	kr_display_name = "용해된 외판", kr_unided_name = "용해된 갑옷",
-	desc = [[이 무거운 파수꾼의 뼈를 녹여 만든 덩어리는 강렬한 힘을 뿜고 있습니다. 파수꾼의 중심에서 나온 열기에 의해 이것은 아직도 붉게 빛나고 있지만, 당신에게는 아무런 해도 끼치지 않는것 같습니다.]],
+	kr_display_name = "용해된 뼈갑옷", kr_unided_name = "용해된 갑옷",
+	desc = [[육중한 파수꾼의 뼈를 녹여 만든 덩어리러. 강렬한 힘을 뿜어내고 있습니다. 파수꾼의 중심부에서 나오는 열기에 의해 아직도 붉게 빛나고 있지만, 당신에게는 아무런 해도 끼치지 않는 것 같습니다.]],
 --	require = { stat = { mag=60 }, },
 	level_range = {40, 50},
 	rarity = 250,
@@ -1538,8 +1538,8 @@ newEntity{ base = "BASE_RING",
 	power_source = {arcane=true},
 	define_as = "AETHER_RING",
 	name = "Void Orb", unique=true, image = "object/artifact/void_orbs.png",
-	kr_display_name = "공허의 오브", kr_unided_name = "천상의 반지",
-	desc = [[이 가는 회색 반지는 짙은 검은 오브로 장식되어 있습니다. 작은 흰 점이 그 속에서 천천히 소용돌이치고 있고, 그 중심에서 희미한 보라색 빛이나고 있습니다.]],
+	kr_display_name = "공허의 오브", kr_unided_name = "에테르 반지",
+	desc = [[검은 오브로 장식된, 가늘고 얇은 회색 반지입니다. 작은 흰색 점이 오브 속에서 천천히 소용돌이치고 있으며, 그 중심에서는 희미한 보라색 빛이 나고 있습니다.]],
 	unided_name = "ethereal ring",
 	level_range = {40, 50},
 	rarity = 250,
@@ -1572,7 +1572,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 	name = "Khulmanar's Wrath", color = colors.DARK_RED, image = "object/artifact/hellfire.png",
 	unided_name = "firey blackened battleaxe", unique = true,
 	kr_display_name = "크훌마나르의 분노", kr_unided_name = "불타는 검은 대형도끼",
-	desc = [[그을음으로 검은 빛을 띄고 가시로 덮힌, 이 대형도끼는 공포의 영역의 불꽃으로 울부짖고 있습니다. 울흐'록이 그의 장군에게 수여한 이 강력한 무기는 가장 활기한 적이라 할지라도 태워버릴 수 있습니다.]],
+	desc = [[그을음으로 검은 빛을 띄고 있는 가시 덮힌 대형도끼로, 공포의 영역에서 타오르는 불꽃이 맹렬하게 타오르고 있습니다. 울흐'록이 그의 장군에게 수여한 이 강력한 무기는, 가장 끈질긴 적이라 할지라도 불태워버릴 수 있습니다.]],
 	level_range = {37, 50},
 	rarity = 300,
 	require = { stat = { str=52 }, },
@@ -1608,8 +1608,8 @@ newEntity{ base = "BASE_TOOL_MISC", image="object/temporal_instability.png",
 	unique = true,
 	name = "The Bladed Rift", color = colors.BLUE, image = "object/artifact/bladed_rift.png",
 	unided_name = "hole in space",
-	kr_display_name = "균열의 칼날", kr_unided_name = "공간의 구멍",
-	desc = [[패해한 악'기실은 작은 균열로 붕괴하였습니다. 어떻게 그것이 안정화 되었는지는 알 수 없습니다. 이것에 집중하면, 그 안에서 칼날을 밖으로 불러낼 수 있을 것 같습니다.]],
+	kr_display_name = "칼날 균열", kr_unided_name = "공간에 뚫린 구멍",
+	desc = [[패해한 악'기실은 작은 균열이 되어 붕괴하였습니다. 어떻게 이것이 안정화되었는지는 모르겠지만, 이 균열에 정신을 집중하면 그 안에 있는 칼날들을 밖으로 불러낼 수 있을 것 같습니다.]],
 	level_range = {30, 50},
 	rarity = 500,
 	cost = 500,
@@ -1637,7 +1637,7 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "RIFT_SWORD",
 	name = "Blade of Distorted Time", image = "object/artifact/blade_of_distorted_time.png",
 	unided_name = "time-warped sword",
 	kr_display_name = "왜곡된 시간의 칼날", kr_unided_name = "시간 왜곡의 장검",
-	desc = [[상처입은 시간의 흐름의 유품으로, 이 칼날은 임의로 모양이 변하고 사라지기도 합니다.]],
+	desc = [[상처입은 시간 흐름의 남은 부분입니다. 가끔 모양이 변하거나, 그 형태가 옅어지기도 합니다.]],
 	level_range = {30, 50},
 	rarity = nil, --Not random!
 	require = { stat = { str=44 }, },
@@ -1668,7 +1668,7 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "RIFT_SWORD",
 
 newEntity{ base = "BASE_RUNE", define_as = "RUNE_REFLECT",
 	name = "Rune of Reflection", unique=true, image = "object/artifact/rune_of_reflection.png",
-	desc = [[이 은빛 룬의 표면으로 복제된 당신의 허상을 볼 수 있습니다.]],
+	desc = [[은빛 룬의 표면으로, 자신의 반사된 모습이 비쳐보입니다.]],
 	unided_name = "shiny rune",
 	kr_display_name = "반사의 룬", kr_unided_name = "빛나는 룬",
 	level_range = {5, 15},
@@ -1688,11 +1688,11 @@ newEntity{ base = "BASE_MINDSTAR", define_as = "PSIONIC_FURY",
 	unique = true,
 	name = "Psionic Fury",
 	unided_name = "vibrating mindstar",
-	kr_display_name = "염동적 분노", kr_unided_name = "진동하는 마석",
+	kr_display_name = "염동력의 분노", kr_unided_name = "진동하는 마석",
 	level_range = {24, 32},
 	color=colors.AQUAMARINE, image = "object/artifact/psionic_fury.png",
 	rarity = 250,
-	desc = [[이 마석은 그 속에서 강력한 힘이 필사적으로 탈출하려는 듯 끝없이 흔들리고 떨립니다.]],
+	desc = [[그 속에서 강력한 힘이 탈출하려는 듯, 끊임없이 흔들리고 떨리는 마석입니다.]],
 	cost = 85,
 	require = { stat = { wil=24 }, },
 	material_level = 3,
@@ -1723,7 +1723,7 @@ newEntity{ base = "BASE_MINDSTAR", define_as = "PSIONIC_FURY",
 		local blast = {type="ball", range=0, radius=5, selffire=false}
 		who:project(blast, who.x, who.y, engine.DamageType.MIND, dam)
 		game.level.map:particleEmitter(who.x, who.y, blast.radius, "force_blast", {radius=blast.radius})
-		game.logSeen(who, "%s 염동적 에너지탄을 발사했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
+		game.logSeen(who, "%s 염동력 파동을 분출했습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName())
 		return {id=true, used=true}
 		end
 	},

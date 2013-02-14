@@ -24,7 +24,7 @@ newEntity{
 	display = "\\", color=colors.LIGHT_BLUE, image = resolvers.image_material("pickaxe", "metal"),
 	encumber = 3,
 	rarity = 14,
-	desc = [[벽을 파고, 나무를 없애고, 길을 만들수 있도록 해 줍니다.]],
+	desc = [[벽을 파고, 나무를 없애고, 길을 만들 수 있도록 해 줍니다.]],
 	add_name = " (#DIGSPEED#)",
 
 	max_power = 1, power_regen = 1,

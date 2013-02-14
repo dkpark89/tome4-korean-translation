@@ -26,7 +26,7 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("wizard_hat"),
 	encumber = 2,
 	rarity = 6,
-	desc = [[천으로 만든 뾰족한 모자입니다. 참 마법사 같죠...]],
+	desc = [[천으로 만든 뾰족한 모자입니다. 이걸 쓰면 마법사 기분을 낼 수 있을 것 같습니다...]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/wizard-hat.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
