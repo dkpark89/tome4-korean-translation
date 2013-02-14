@@ -19,7 +19,7 @@
 local q = game.player:hasQuest("tutorial")
 
 newChat{ id="welcome",
-	text = [[Hello there. What subject interests you?]],
+	text = [[안녕하십니까. 어떤 주제에 대해 알고 싶으신지?]],
 	answers = {
 		{"기본적인 게임진행", 
 			action = function(npc, player) 

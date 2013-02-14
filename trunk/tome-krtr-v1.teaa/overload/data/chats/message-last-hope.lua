@@ -23,7 +23,7 @@ I followed the trail of bodies that you left - very impressive! We are lucky to 
 But enough talk; take this message.  I must go now.
 #LIGHT_GREEN#He gives you a sealed scroll and vanishes into the shadows.#LAST#]],
 	answers = {
-		{"Thank you for your courage.", action=function(npc, player)
+		{"자네의 용기에 감사하지.", action=function(npc, player)
 			local o, item, inven_id = npc:findInAllInventories("Sealed Scroll of Last Hope")
 			if o then
 				npc:removeObject(inven_id, item, true)

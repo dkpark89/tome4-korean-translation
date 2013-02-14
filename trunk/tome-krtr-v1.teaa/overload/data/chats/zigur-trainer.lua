@@ -19,15 +19,15 @@
 
 if game.player:isQuestStatus("antimagic", engine.Quest.DONE) then
 newChat{ id="welcome",
-	text = [[Well met, friend.]],
+	text = [[잘 왔네, 친구여.]],
 	answers = {
-		{"Farewell."},
+		{"안녕."},
 	}
 }
 return "welcome"
 end
 
-local sex = game.player.female and "Sister" or "Brother"
+local sex = game.player.female and "자매여" or "형제여"
 
 local remove_magic = function(npc, player)
 	for tid, _ in pairs(player.sustain_talents) do
@@ -40,7 +40,7 @@ local remove_magic = function(npc, player)
 		for i = #inven, 1, -1 do
 			local o = inven[i]
 			if o.power_source and o.power_source.arcane then
-				game.logPlayer(player, "You cannot use your %s anymore; it is tainted by magic.", o:getName{do_color=true})
+				game.logPlayer(player, "당신은 이제 %s 를 더이상 사용할 수 없습니다.; 이건 마법으로 더럽혀져 있습니다.", o:getName{do_color=true})
 				local o = player:removeObject(inven, i, true)
 				player:addObject(player.INVEN_INVEN, o)
 				player:sortInven()
@@ -60,42 +60,42 @@ You will be challenged against magical foes. Should you defeat them, we will tea
 
 #LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]],
 	answers = {
-		{"I will face your challenge!", cond=function(npc, player) return player.level >= 10 end, jump="testok"},
-		{"I will face your challenge!", cond=function(npc, player) return player.level < 10 end, jump="testko"},
-		{"I'm not interested.", jump="ko"},
+		{"자네의 도전을 받아들이지!", cond=function(npc, player) return player.level >= 10 end, jump="testok"},
+		{"자네의 도전을 받아들이지!", cond=function(npc, player) return player.level < 10 end, jump="testko"},
+		{"미안하지만 흥미는 없군.", jump="ko"},
 	}
 }
 
 newChat{ id="ko",
-	text = [[Very well. I will say that this is disappointing, but it is your choice. Farewell.]],
+	text = [[잘 알겠네. 좀 실망스럽기는 하지만, 그건 자네의 선택이니. 잘있게나.]],
 	answers = {
-		{"Farewell."},
+		{"잘 있게."},
 	}
 }
 
 newChat{ id="testko",
-	text = [[Ah, you seem eager, but maybe still too young. Come back when you have grown a bit.]],
+	text = [[아, 자네의 열망은 잘 알겠지만, 자네에게는 아직 조금 이른 듯 하군. 조금 더 성장한 이후에 돌아오도록 하게.]],
 	answers = {
-		{"I shall."},
+		{"알겠네."},
 	}
 }
 
 newChat{ id="testok",
-	text = [[Very well. Before you start, we will make sure no magic can help you:
-- You will not be able to use any spells or magical devices
-- Any worn objects that are powered by the arcane will be unequipped
+	text = [[잘 알겠네. 시작하기 전에, 아무런 마법도 자네를 도울 수 없도록 처리를 좀 해둬야겠네.:
+- 당신은 이제부터 마법 또는 마법으로 작동하는 장치를 사용할 수 없습니다.
+- 아케인으로 동작하는 장비들은 모두 장비해제가 됩니다.
 
-Are you ready, or do you wish to prepare first?]],
+준비가 되셨습니까, 아니면 시작하기 전에 준비할 시간이 더 필요하십니까?]],
 	answers = {
-		{"I am ready", jump="test", action=remove_magic},
-		{"I need to prepare."},
+		{"전 이제 준비가 다 되었습니다.", jump="test", action=remove_magic},
+		{"준비할 시간이 좀 더 필요합니다."},
 	}
 }
 
 newChat{ id="test",
 	text = [[#VIOLET#*You are grabbed by two olive-clad warriors and thrown into a crude arena!*
 #LIGHT_GREEN#*You hear the voice of the Fighter ring above you.*#WHITE#
-]]..sex..[[! Your training begins! I want to see you prove your superiority over the works of magic! Fight!]],
+]]..sex..[[! 자네의 수행이 시작되었네! I want to see you prove your superiority over the works of magic! 어서 싸우게!]],
 	answers = {
 		{"But wha.. [you notice your first opponent is already there]", action=function(npc, player)
 			player:grantQuest("antimagic")
