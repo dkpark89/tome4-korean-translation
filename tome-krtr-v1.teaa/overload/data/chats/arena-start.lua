@@ -128,7 +128,7 @@ local arena_3 = function(self, player)
 	game.level.arena.modeString = "3"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "검투사의 물품들")
+	arenashop:interact(game.player, "Gladiator's wares")
 	arenashop = nil
 end
 
@@ -138,7 +138,7 @@ local arena_30 = function(self, player)
 	game.level.arena.modeString = "30"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "검투사의 물품들")
+	arenashop:interact(game.player, "Gladiator's wares")
 	arenashop = nil
 end
 
@@ -148,7 +148,7 @@ local arena_60 = function(self, player)
 	game.level.arena.modeString = "60"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "검투사의 물품들")
+	arenashop:interact(game.player, "Gladiator's wares")
 	arenashop = nil
 end
 
@@ -176,7 +176,7 @@ local save_clear = function(self, player)
 
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "검투사의 물품들")
+	arenashop:interact(game.player, "Gladiator's wares")
 	arenashop = nil
 end
 
