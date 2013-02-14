@@ -34,7 +34,7 @@ text = [[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 #LIGHT_GREEN#roars and multiple bones fly in your general direction!*
 ]],
 	answers = {
-		{"Have at you!!"},
+		{"전방 경계!!"},
 	}
 }
 
@@ -48,8 +48,8 @@ text = [[#LIGHT_GREEN#*After taking several hits, the undead giant finally succu
 #LIGHT_GREEN#*Ryal quietly turns towards the gate and leaves, seemingly unharmed*
 ]],
 	answers = {
-		{"It was fun, bone giant!", action=entershop},
-		{"...what? unharmed?", action=entershop}
+		{"재미있었어, 해골 거인!", action=entershop},
+		{"...뭐야? 무사하다고?", action=entershop}
 	}
 }
 
@@ -61,7 +61,7 @@ I am known as Fryjia the Hailstorm. That's all you need to know, @playerdescript
 #LIGHT_GREEN#*The whole arena starts to get colder as she speaks, and the audience
 #LIGHT_GREEN#starts wearing their finest winter cloaks*]],
 	answers = {
-		{"Bring it!"},
+		{"자 와라!"},
 	}
 }
 
@@ -76,7 +76,7 @@ text = [[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
 ]],
 	answers = {
 		{"...", action=entershop},
-		{"w...what was that about?", action=entershop}
+		{"므... 뭐야 지금의 그건?", action=entershop}
 	}
 }
 
@@ -90,7 +90,7 @@ So! I am Reala, the Crimson. I came directly from Angolwen. Despite, you know, t
 Fryjia told me about you, the poor thing, so I will not underestimate such a promising aspirant #LIGHT_GREEN#*She smiles warmly* #WHITE#So, let's make haste my dear!
 There is a battle to fight here!]],
 	answers = {
-		{"Let's go!"},
+		{"자, 간다!"},
 	}
 }
 
@@ -105,7 +105,7 @@ Oh, and please forgive her behavior. You will understand when you meet her fathe
 And, if you keep fighting like this, it will be really soon.
 So, it's been my pleasure, @playername@. #LIGHT_GREEN#*She vanishes in a spiral of flame*]],
 	answers = {
-		{"I am pumped up! What's next?", action=entershop},
+		{"I am pumped up! 다음은 뭐냐?", action=entershop},
 		{"Am I the only person with a name that can die here?", action=entershop}
 	}
 }
@@ -125,7 +125,7 @@ f...t...ma....ll...
 #LIGHT_GREEN#emotions invading your very soul!!*
 ]],
 	answers = {
-		{"#LIGHT_GREEN#*You valiantly stand against the darkness*"},
+		{"#LIGHT_GREEN#*어둠에 맞서 당당히 일어난다.*"},
 	}
 }
 
@@ -146,9 +146,9 @@ Good luck...
 #RED#The final battle begins when the gate closes, just this final time!!
 ]],
 	answers = {
-		{"I will defeat you, Master of the Arena!!!", action=entershop},
+		{"내가 널 쓰러뜨리겠다, Master of the Arena!!!", action=entershop},
 		{"I will become Master of the Arena instead of the Master of the Arena!!", action=entershop},
-		{"Wealth and glory! Wealth and glory!", action=entershop},
+		{"부와 영광을! 부와 영광을!", action=entershop},
 	}
 }
 
@@ -166,7 +166,7 @@ Pursue glory with all your might, @playerdescriptor.race@!!
 #LIGHT_GREEN#*The master steps forward into the sand*
 ]],
 	answers = {
-		{"Wealth and glory!!!"},
+		{"부와 영광을!!!"},
 	}
 }
 
@@ -188,15 +188,15 @@ But meanwhile, this is your place! Welcome to paradise, @playerdescriptor.race@!
 #LIGHT_GREEN#Because even if you are defeated in the future...
 #LIGHT_GREEN#You can always sell your image and live large.
 
-#YELLOW#CONGRATULATIONS!
+#YELLOW#축하합니다!
 #YELLOW#You are the new master of the arena! You are great and epic!
 #YELLOW#You shall remain as the new master until someone challenges you!
 #YELLOW#Next time you play, you shall battle this new champion instead!
 ]],
 	answers = {
-		{"WEALTH!! AND!! GLORYYYYY!!", action=function(npc, player) player:hasQuest("arena"):win() end},
-		{"I won't need to save chicks from cults anymore!", cond=function(npc, player) if player.female == true then return false else return true end end, action=function(npc, player) player:hasQuest("arena"):win() end},
-		{"I hereby stand victorious, awaiting future challenges!", action=function(npc, player) player:hasQuest("arena"):win() end},
-		{"#LIGHT_GREEN#*dance*", action=function(npc, player) player:hasQuest("arena"):win() end},
+		{"돈과!! 그리고!! 영광을!!", action=function(npc, player) player:hasQuest("arena"):win() end},
+		{"이제부턴 광신도들에게서 여자들을 구하지 않아도 돼!", cond=function(npc, player) if player.female == true then return false else return true end end, action=function(npc, player) player:hasQuest("arena"):win() end},
+		{"나는 이 승리에 의해, 아레나의 승리자로써 미래의 도전자들을 기다릴 것이다!", action=function(npc, player) player:hasQuest("arena"):win() end},
+		{"#LIGHT_GREEN#*춤을 춘다*", action=function(npc, player) player:hasQuest("arena"):win() end},
 	}
 }

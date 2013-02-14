@@ -24,7 +24,7 @@ THIS CANNOT BE AVOIDED! I MUST STOP IT! PLEASE DON'T!
 I MUST KILL MYSELF TO PROTECT MYSELF!
 ]],
 	answers = {
-		{"What the..."},
+		{"뭐냐 지금의 그건..."},
 	}
 }
 

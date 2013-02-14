@@ -18,17 +18,17 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Please save me! I will make it worth your whi..
-*#LIGHT_GREEN#The assassin lord hits him in the face.#WHITE#*Shut up!]],
+	text = [[살려주세요! I will make it worth your whi..
+*#LIGHT_GREEN#The assassin lord hits him in the face.#WHITE#*닥쳐!]],
 	answers = {
-		{"Sorry, I have to go!", action = function(npc, player) npc.can_talk = nil end},
+		{"미안, 난 가봐야 할 것 같아!", action = function(npc, player) npc.can_talk = nil end},
 	}
 }
 
 newChat{ id="welcome2",
-	text = [[Please get me out of here!]],
+	text = [[저좀 여기서 내보내주세요!]],
 	answers = {
-		{"Come, there is a way out!", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},
+		{"이리와, 여기에 나가는 길이 있어!", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},
 	}
 }
 

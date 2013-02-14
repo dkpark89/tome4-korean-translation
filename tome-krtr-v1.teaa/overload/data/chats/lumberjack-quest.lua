@@ -19,11 +19,11 @@
 
 newChat{ id="welcome",
 	text = [[#LIGHT_GREEN#*Before you stands a man covered in dirt and blood. He is out of breath and half mad.*#WHITE#
-PLEASE! You must help! #{bold}#IT#{normal}# is slaughtering everybody in my village! Please!
+제발! 당신이 꼭 도와주셔야 합니다! #{bold}#IT#{normal}# is slaughtering everybody in my village! 제발요!
 #LIGHT_GREEN#*He points his finger at the nearby forest.*#WHITE#]],
 	answers = {
-		{"I will go there and see what I can do.", action=function(npc, player) player:grantQuest("lumberjack-cursed") end},
-		{"This is not my problem. Go away!"},
+		{"제가 가서 뭔가 할 수 있는지 한번 알아보죠.", action=function(npc, player) player:grantQuest("lumberjack-cursed") end},
+		{"This is not my problem. 저리 가버려!"},
 	}
 }
 
