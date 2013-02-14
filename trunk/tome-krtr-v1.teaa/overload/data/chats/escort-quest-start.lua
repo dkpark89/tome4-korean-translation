@@ -24,7 +24,7 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"#LIGHT_GREEN#[Pretend to help but when it is time you will use a Ziguranth technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\nLead on; I will protect you.", action=function(npc, player)
+		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만 때가 되면 당신은 지구란스의 기술을 써서 포탈이 실패하도록 할 것입니다.. @npcname@ 는 지구르로 보내져서 제대로 '처리'될 것입니다.]#WHITE#\n안내하게; 어느정도 지켜는 주겠어.", action=function(npc, player)
 			player:hasQuest(npc.quest_id).to_zigur = true
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
@@ -34,7 +34,7 @@ newChat{ id="welcome",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"Go away; I do not help filthy arcane users!", action=function(npc, player)
+		{"저리 꺼져; 난 더러운 마법 사용자들 따위는 돕지 않아!", action=function(npc, player)
 			game.player:registerEscorts("lost")
 			npc:disappear()
 			npc:removed()
@@ -52,7 +52,7 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"Lead on; I will protect you.", action=function(npc, player)
+		{"안내하게; 내가 보호해주지.", action=function(npc, player)
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
 				control="order",
@@ -61,7 +61,7 @@ newChat{ id="welcome",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\nLead on; I will protect you.", action=function(npc, player)
+		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만 때가 되면 당신은 지구란스의 기술을 써서 포탈이 실패하도록 할 것입니다.. @npcname@ 는 지구르로 보내져서 제대로 '처리'될 것입니다.]#WHITE#\n안내하게; 어느정도 지켜는 주겠어.", action=function(npc, player)
 			player:hasQuest(npc.quest_id).to_zigur = true
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
@@ -71,7 +71,7 @@ newChat{ id="welcome",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"Go away; I do not care for the weak.", action=function(npc, player)
+		{"가버려; 난 약한 자들은 신경 안써.", action=function(npc, player)
 			game.player:registerEscorts("lost")
 			npc:disappear()
 			npc:removed()
@@ -87,7 +87,7 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"Lead on; I will protect you.", action=function(npc, player)
+		{"안내하게; 내가 보호해주지.", action=function(npc, player)
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
 				control="order",
@@ -96,7 +96,7 @@ newChat{ id="welcome",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"Go away; I do not care for the weak.", action=function(npc, player)
+		{"가버려; 난 약한 자들은 신경 안써.", action=function(npc, player)
 			game.player:registerEscorts("lost")
 			npc:disappear()
 			npc:removed()

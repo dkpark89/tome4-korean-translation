@@ -128,7 +128,7 @@ local arena_3 = function(self, player)
 	game.level.arena.modeString = "3"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사의 물품들")
 	arenashop = nil
 end
 
@@ -138,7 +138,7 @@ local arena_30 = function(self, player)
 	game.level.arena.modeString = "30"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사의 물품들")
 	arenashop = nil
 end
 
@@ -148,7 +148,7 @@ local arena_60 = function(self, player)
 	game.level.arena.modeString = "60"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사의 물품들")
 	arenashop = nil
 end
 
@@ -176,26 +176,26 @@ local save_clear = function(self, player)
 
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사의 물품들")
 	arenashop = nil
 end
 
 newChat{ id="welcome",
-	text = "#LIGHT_GREEN#You take a look at the ranking boards before entering.\n"..text,
+	text = "#LIGHT_GREEN#당신은 들어오기 전에 랭킹 보드를 봅니다.\n"..text,
 	answers = {
 		--{"Enter the arena for 3 rounds[DEBUG]", action=arena_3, jump="perks"},
-		{"Enter the arena (60 waves)", action=arena_60},
-		{"Enter the arena (shorter mode, 30 rounds)", action=arena_30},
+		{"아레나에 입장한다 (60 웨이브)", action=arena_60},
+		{"아레나에 입장한다 (짧은 모드, 30 라운드)", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
 		{"#LIGHT_RED#[Reset all arena save data]", action=save_clear},
 	}
 }
 
 newChat{ id="welcome2",
-	text = "What will you do now?",
+	text = "이제 무엇을 하실거죠?",
 	answers = {
-		{"Enter the arena for 60 rounds", action=arena_60},
-		{"Enter the arena for 30 rounds", action=arena_30},
+		{"60 라운드 동안 아레나에 입장", action=arena_60},
+		{"30 라운드 동안 아레나에 입장", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
 	}
 }
