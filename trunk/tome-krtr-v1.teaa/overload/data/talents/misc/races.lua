@@ -326,7 +326,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[이제는 나무의 일부나 마찬가지인 탈로레 족은, 각종 오염에 대한 저항력을 가지고 있습니다.
-		질병 저항력이 %d%% / 황폐화 저항력이 %d%% / 모든 저항력이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 4, self:getTalentLevelRaw(t) * 2)
+		질병 면역력이 %d%% / 황폐화 저항력이 %d%% / 모든 저항력이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 4, self:getTalentLevelRaw(t) * 2)
 	end,
 }
 
@@ -594,7 +594,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local count = t.getRemoveCount(self, t)
 		return ([[하플링의 군대는 세계에서 가장 강력한 집단 중 하나입니다. 지난 수천 년 동안, 가장 많은 전쟁을 치뤄온 종족이기도 합니다.
-		그 영향을 받아 자신에게 걸린 기절, 혼절, 속박 효과를 %d 개 없애고, 해당 효과에 %d 턴 동안 면역 상태가 됩니다.
+		그 영향을 받아 자신에게 걸린 기절, 혼절, 속박 효과를 %d 개 없애고, 해당 효과에 %d 턴 동안 완전 면역 상태가 됩니다.
 		이 기술은 사용할 때 시간이 걸리지 않습니다.]]):format(duration, count)
 	end,
 }
@@ -776,7 +776,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([['한길'과 동화되어, 외부의 효과로부터 정신을 보호합니다.
-		혼란과 침묵 저항력이 %d%% 증가하고, 정신 내성이 %d 증가합니다.]]):format(self:getTalentLevelRaw(t) * 12, self:getTalentLevelRaw(t) * 4)
+		혼란과 침묵 면역력이 %d%% 증가하고, 정신 내성이 %d 증가합니다.]]):format(self:getTalentLevelRaw(t) * 12, self:getTalentLevelRaw(t) * 4)
 	end,
 }
 

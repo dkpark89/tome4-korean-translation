@@ -338,7 +338,7 @@ TOOLTIP_RESIST_ALL = [[#GOLD#피해 저항: 모든 속성#LAST#
 TOOLTIP_RESIST = [[#GOLD#피해 저항: 특정 속성#LAST#
 당신이 받는 피해가 이 속성에 해당된다면 감소됩니다.
 ]]
-TOOLTIP_SPECIFIC_IMMUNE = [[#GOLD#상태이상 저항#LAST#
+TOOLTIP_SPECIFIC_IMMUNE = [[#GOLD#상태이상 면역력#LAST#
 이 효과에 걸리지 않을 확률을 나타냅니다.
 ]]
 TOOLTIP_ON_HIT_DAMAGE = [[#GOLD#피해 반사#LAST#

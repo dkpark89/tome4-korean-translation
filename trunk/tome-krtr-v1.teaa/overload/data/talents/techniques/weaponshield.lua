@@ -224,7 +224,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[수비적인 전투 자세에 들어가 물리 공격력이 20%% 떨어지는 대신, 회피도가 %d / 방어도가 %d / 기절과 밀어내기 저항력이 %d%% 증가합니다.
+		return ([[수비적인 전투 자세에 들어가 물리 공격력이 20%% 떨어지는 대신, 회피도가 %d / 방어도가 %d / 기절과 밀어내기 면역력이 %d%% 증가합니다.
 		회피도와 방어도 증가량은 민첩 능력치의 영향을 받아 증가합니다.]]):format(
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE)* 2,
 		5 + (1 + self:getDex(4, true)) * self:getTalentLevel(t) + self:getTalentLevel(self.T_SHIELD_EXPERTISE),

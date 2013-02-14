@@ -79,7 +79,7 @@ newBirthDescriptor
 		"#LIGHT_BLUE# * 마법+0, 의지+6, 교활함+4",
 		"#GOLD#L레벨 당 생명력:#LIGHT_BLUE# 7",
 		"#GOLD#경험치 불이익:#LIGHT_BLUE# -15%",
-		"#GOLD#혼란 저항:#LIGHT_BLUE# 35%",
+		"#GOLD#혼란 면역력:#LIGHT_BLUE# 35%",
 	},
 	inc_stats = { str=-3, con=-5, cun=4, wil=6, mag=0, dex=-2 },
 	talents_types = { ["race/yeek"]={true, 0} },

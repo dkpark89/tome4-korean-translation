@@ -84,7 +84,7 @@ newTalent{
 		local insomnia = t.getInsomniaPower(self, t)
 		return([[전방 %d 칸 반경의 적들을 %d 턴 동안 수면 상태, 그 중에서도 악몽 상태에 빠뜨립니다. 악몽을 꾸는 동안에는 행동할 수 없게 되며, %d 피해를 받을 때마다 악몽의 지속시간이 1 턴씩 줄어들게 됩니다.
 		매 턴마다 %0.2f 암흑 피해를 입게 되며, 이 피해는 악몽의 지속시간 감소에 영향을 주지 않습니다.
-		악몽이 끝나면, 대상은 불면증 상태가 되어 악몽을 꿨던 시간 동안 %d%% 수면 저항력을 얻게 됩니다. (최대 10 턴)
+		악몽이 끝나면, 대상은 불면증 상태가 되어 악몽을 꿨던 시간 동안 %d%% 수면 면역력을 얻게 됩니다. (최대 10 턴)
 		피해 한계량과 피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, duration, power, damDesc(self, DamageType.DARKNESS, (damage)), insomnia)
 	end,
 }
@@ -216,7 +216,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
 		return ([[대상에게서 내면의 악마를 끄집어냅니다. %d 턴 동안, 매 턴마다 %d%% 확률로 내면의 악마가 만들어집니다. 대상의 정신 내성이 높아 내면의 악마를 끄집어낼 수 없는 상태일 경우, 마법이 일찍 끝나버립니다.
-		대상이 수면 상태라면 내면의 악마가 나올 확률이 2 배가 되며, 대상의 공포 저항력을 무시할 수 있게 됩니다.
+		대상이 수면 상태라면 내면의 악마가 나올 확률이 2 배가 되며, 대상의 공포 면역력을 무시할 수 있게 됩니다.
 		소환 확률은 정신력, 악마의 생명력은 대상의 등급에 따라 증가합니다.]]):format(duration, chance)
 	end,
 }
@@ -261,7 +261,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
 		return ([[%d 턴 동안, 매 턴마다 %0.2f 암흑 피해를 주고 %d%% 확률로 3 턴 동안 유지되는 실명, 기절, 혼란 상태효과 중 하나를 일으킵니다.
-		대상이 수면 상태라면 상태효과를 일으킬 확률이 2 배가 되며, 대상의 공포 저항력을 무시할 수 있게 됩니다.
+		대상이 수면 상태라면 상태효과를 일으킬 확률이 2 배가 되며, 대상의 공포 면역력을 무시할 수 있게 됩니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, (damage)), duration, chance)
 	end,

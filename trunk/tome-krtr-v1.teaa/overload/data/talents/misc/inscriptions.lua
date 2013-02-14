@@ -218,7 +218,7 @@ newInscription{
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d%% 이동 속도, 상태효과 면역 %d 턴]]):format(data.speed + data.inc_stat, data.dur)
+		return ([[%d%% 이동 속도, 상태효과 완전 면역 %d 턴]]):format(data.speed + data.inc_stat, data.dur)
 	end,
 }
 

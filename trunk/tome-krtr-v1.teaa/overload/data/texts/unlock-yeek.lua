@@ -28,7 +28,7 @@ return "New Race: #LIGHT_GREEN#Yeek",
 
 종족 특성:#YELLOW#
 - 종족의 힘을 이용한 정신 지배
-- 혼란 저항력
+- 혼란 면역력
 - 빠른 성장
 - 허약한 몸#WHITE#
 ]]

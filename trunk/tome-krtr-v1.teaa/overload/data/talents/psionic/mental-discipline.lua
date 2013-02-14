@@ -69,7 +69,7 @@ newTalent{
 		self.stun_immune = (self.stun_immune or 0) - .1
 	end,
 	info = function(self, t)
-		return ([[정신 내성이 %d / 기절 저항력이 %d%% 증가합니다.]]):
+		return ([[정신 내성이 %d / 기절 면역력이 %d%% 증가합니다.]]):
 		format(self:getTalentLevelRaw(t)*6, self:getTalentLevelRaw(t)*10)
 	end,
 }

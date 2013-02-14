@@ -96,7 +96,7 @@ newTalent{
 		self.confusion_immune = (self.confusion_immune or 0) - 0.1
 	end,
 	info = function(self, t)
-		return ([[폭력에 익숙해져, 기절과 혼란 상태에 대한 저항력이 %d%% 올라갑니다.]]):
+		return ([[폭력에 익숙해져, 기절과 혼란 상태에 대한 면역력이 %d%% 올라갑니다.]]):
 		format(self:getTalentLevelRaw(t) * 10)
 	end,
 }

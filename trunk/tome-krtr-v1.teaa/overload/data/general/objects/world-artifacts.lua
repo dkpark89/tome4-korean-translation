@@ -2754,7 +2754,7 @@ newEntity{ base = "BASE_SHIELD",
 		disease_immune = 0.6,
 	},
 	max_power = 40, power_regen = 1,
-	use_power = { name = "질병 정화 및 저항 상승", power = 24,
+	use_power = { name = "질병 정화 및 면역력 상승", power = 24,
 	use = function(self, who)
 		local target = who
 		local effs = {}
