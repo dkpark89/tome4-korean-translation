@@ -132,7 +132,7 @@ uberTalent{
 		self:setEffect(self.EFF_SPINE_OF_THE_WORLD, 4, {})
 	end,
 	info = function(self, t)
-		return ([[물리적 상태효과의 영향을 받을 때마다 척추신경이 반응하여, 다른 물리적 상태효과에 5 턴 동안 완전한 면역됩니다.]])
+		return ([[물리적 상태효과의 영향을 받을 때마다 척추신경이 반응하여, 다른 물리적 상태효과에 5 턴 동안 완전 면역됩니다.]])
 		:format()
 	end,
 }

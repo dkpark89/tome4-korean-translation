@@ -914,14 +914,14 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 				self:specialSetAdd({"wielder","combat_spellcrit"}, 10)
 				self:specialSetAdd({"wielder","combat_physcrit"}, 10)
 				self:specialSetAdd({"wielder","resists_pen"}, {[engine.DamageType.ARCANE]=20, [engine.DamageType.PHYSICAL]=15})
-				game.logPlayer(who, "#GOLD#수정으로 된 무기와 갑옷을 같이 착용하자, 장비에서 지속적인 공명음이 나기 시작합니다.")
+				game.logPlayer(who, "#GOLD#수정으로 만들어진 무기와 갑옷을 같이 착용하자, 장비에서 지속적인 공명음이 나기 시작합니다.")
 			end
 			o.on_set_broken = function(self, who)
 				self.talent_on_spell = nil
 				if (self.combat) then self.combat.talent_on_hit = nil
 				else self.wielder.combat.talent_on_hit = nil
 				end
-				game.logPlayer(who, "#GOLD#수정으로 된 장비에서 나오던 공명음이, 흩어지면서 사라집니다.")
+				game.logPlayer(who, "#GOLD#수정으로 만들어진 장비에서 나오던 공명음이, 흩어지면서 사라집니다.")
 			end
 
 			who:sortInven()

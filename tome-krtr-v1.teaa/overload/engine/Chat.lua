@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.dialogs.Chat"
 
@@ -82,7 +83,15 @@ end
 
 --- Replace some keywords in the given text
 function _M:replace(text)
-	text = text:gsub("@playername@", (self.player.kr_display_name or self.player.name)):gsub("@npcname@", (self.npc.kr_display_name or self.npc.name)) --@@ 한글이름 삽입
-	text = text:gsub("@playerdescriptor.(.-)@", function(what) return self.player.descriptor[what] end)
+	local pn = (self.player.kr_display_name or self.player.name) --@@ 88 반복 사용, 플레이어 이름
+	local nn = (self.npc.kr_display_name or self.npc.name) --@@ 88 반복 사용, npc이름
+	text = text:gsub("@playername@", pn):gsub("@playername1@", pn:addJosa("가")):gsub("@playername2@", pn:addJosa("는")):gsub("@playername3@", pn:addJosa("를")):gsub("@playername4@", pn:addJosa("로")):gsub("@playername5@", pn:addJosa("다")):gsub("@playername6@", pn:addJosa("과")):gsub("@npcname@", nn):gsub("@npcname1@", nn:addJosa("가")):gsub("@npcname2@", nn:addJosa("는")):gsub("@npcname3@", nn:addJosa("를")):gsub("@npcname4@", nn:addJosa("로")):gsub("@npcname5@", nn:addJosa("다")):gsub("@npcname6@", nn:addJosa("과")) --@@ 한글이름, 조사 삽입
+	text = text:gsub("@playerdescriptor.(.-)@", function(what) return self.player.descriptor[what]:krActorType() end) --@@ 한글이름으로 변환
+	text = text:gsub("@playerdescriptor1.(.-)@", function(what) return self.player.descriptor[what]:krActorType():addJosa("가") end) --@@ 한글이름으로 변환, 조사 추가
+	text = text:gsub("@playerdescriptor2.(.-)@", function(what) return self.player.descriptor[what]:krActorType():addJosa("는") end) --@@ 한글이름으로 변환, 조사 추가
+	text = text:gsub("@playerdescriptor3.(.-)@", function(what) return self.player.descriptor[what]:krActorType():addJosa("를") end) --@@ 한글이름으로 변환, 조사 추가
+	text = text:gsub("@playerdescriptor4.(.-)@", function(what) return self.player.descriptor[what]:krActorType():addJosa("로") end) --@@ 한글이름으로 변환, 조사 추가
+	text = text:gsub("@playerdescriptor5.(.-)@", function(what) return self.player.descriptor[what]:krActorType():addJosa("다") end) --@@ 한글이름으로 변환, 조사 추가
+	text = text:gsub("@playerdescriptor6.(.-)@", function(what) return self.player.descriptor[what]:krActorType():addJosa("과") end) --@@ 한글이름으로 변환, 조사 추가
 	return text
 end

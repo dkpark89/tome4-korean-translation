@@ -109,7 +109,7 @@ newEntity{ base = "BASE_NPC_CANINE",
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "fox", color=colors.RED, image="npc/canine_fox.png",
 	kr_display_name = "여우",
-	desc = [[여우와 다람쥐 헌 쳇바퀴에 타고파]], --@@ 이스터애그 같은데, 모든 알파벳 글자가 다 들어가는 문장으로, 글꼴 모양을 볼때 사용하는 문장입니다.
+	desc = [[여우와 다람쥐 헌 쳇바퀴에 타고파]],
 	sound_moam = {"creatures/foxes/bark_hurt_%d", 1, 1},
 	sound_die = {"creatures/wolves/death_%d", 1, 1},
 	sound_random = {"creatures/wolves/bark_%d", 1, 2},

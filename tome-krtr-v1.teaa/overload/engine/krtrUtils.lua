@@ -637,13 +637,13 @@ end
 function string.krMonth(str)
 	-- 관련내용 /data/calendar_allied.lua, /data/calendar_dwarf.lua (둘다 한글화에는 제외되는 파일)
 	local ori = str:lower()
-	if ori == "wintertide" then return "밀려오는 추위의 달"
+	if ori == "wintertide" then return "밀려오는 겨울의 달"
 	elseif ori == "allure" then return "매혹의 달"
 	elseif ori == "regworth" then return "재성장의 달"
 	elseif ori == "time of balance" then return "균형의 달"
 	elseif ori == "pyre" then return "장작더미의 달"
 	elseif ori == "mirth" then return "환희의 달"
-	elseif ori == "summertide" then return "밀려오는 더위의 달"
+	elseif ori == "summertide" then return "밀려오는 여름의 달"
 	elseif ori == "flare" then return "타오름의 달"
 	elseif ori == "dusk" then return "황혼의 달"
 	elseif ori == "time of equilibrium" then return "평정의 달"

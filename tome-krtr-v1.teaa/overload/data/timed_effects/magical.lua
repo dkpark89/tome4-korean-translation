@@ -497,8 +497,8 @@ newEffect{
 	subtype = { arcane=true, shield=true },
 	status = "beneficial",
 	parameters = { power=100 },
-	on_gain = function(self, err) return "보호막이 #target2# 감쌌습니다.", "+보호막" end,
-	on_lose = function(self, err) return "#Target2# 둘러싼 보호막이 사라졌습니다.", "-보호막" end,
+	on_gain = function(self, err) return "보호막이 #Target3# 감쌌습니다.", "+보호막" end,
+	on_lose = function(self, err) return "#Target3# 둘러싼 보호막이 사라졌습니다.", "-보호막" end,
 	on_aegis = function(self, eff, aegis)
 		self.damage_shield_absorb = self.damage_shield_absorb + eff.power * aegis / 100
 	end,
@@ -556,7 +556,7 @@ newEffect{
 	name = "CURSE_VULNERABILITY", image = "talents/curse_of_vulnerability.png",
 	desc = "Curse of Vulnerability",
 	kr_display_name = "약화의 저주",
-	long_desc = function(self, eff) return ("저주 : 모든 피해 저항 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("저주 : 모든 저항 -%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { curse=true },
 	status = "detrimental",
@@ -706,7 +706,7 @@ newEffect{
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 산으로 뒤덮혔습니다!" end,
-	on_lose = function(self, err) return "#Target2# 뒤덮은 산이 사라졌습니다." end,
+	on_lose = function(self, err) return "#Target3# 뒤덮은 산이 사라졌습니다." end,
 	-- Damage each turn
 	on_timeout = function(self, eff)
 		DamageType:get(DamageType.ACID).projector(eff.src, self.x, self.y, DamageType.ACID, eff.dam)
@@ -783,7 +783,7 @@ newEffect{
 	status = "detrimental",
 	parameters = { dam=10, radius=2 },
 	on_gain = function(self, err) return "#Target1# 허리케인에 갇혔습니다.", "+허리케인" end,
-	on_lose = function(self, err) return "#Target2# 감싸던 허리케인이 사라졌습니다.", "-허리케인" end,
+	on_lose = function(self, err) return "#Target3# 감싸던 허리케인이 사라졌습니다.", "-허리케인" end,
 	on_timeout = function(self, eff)
 		local tg = {type="ball", x=self.x, y=self.y, radius=eff.radius, selffire=false}
 		local dam = eff.dam
@@ -928,7 +928,7 @@ newEffect{
 	status = "detrimental",
 	parameters = { dam=1, explosion=10 },
 	on_gain = function(self, err) return "#Target1# 부식성 벌레에 오염되었습니다.", "+부식성 벌레" end,
-	on_lose = function(self, err) return "#Target2# 오염시키던 부식성 벌레가 사라졌습니다.", "-부식성 벌레" end,
+	on_lose = function(self, err) return "#Target3# 오염시키던 부식성 벌레가 사라졌습니다.", "-부식성 벌레" end,
 	on_timeout = function(self, eff)
 		DamageType:get(DamageType.ACID).projector(eff.src or self, self.x, self.y, DamageType.ACID, eff.dam)
 	end,
@@ -1246,7 +1246,7 @@ newEffect{
 	name = "FLAWED_DESIGN", image = "talents/flawed_design.png",
 	desc = "Flawed Design",
 	kr_display_name = "잘못된 설계",
-	long_desc = function(self, eff) return ("과거의 변경 : 모든 피해 저항 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("과거의 변경 : 모든 저항 -%d%%"):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -1543,7 +1543,7 @@ newEffect{
 	name = "SPELLSHOCKED",
 	desc = "Spellshocked",
 	kr_display_name = "주문 충격",
-	long_desc = function(self, eff) return string.format("주문에 압도됨 : 모든 피해 저항 -%d%%", eff.power) end,
+	long_desc = function(self, eff) return string.format("주문에 압도됨 : 모든 저항 -%d%%", eff.power) end,
 	type = "magical",
 	subtype = { ["cross tier"]=true },
 	status = "detrimental",
@@ -1856,7 +1856,7 @@ newEffect{
 	name = "OUT_OF_PHASE", image = "talents/phase_door.png",
 	desc = "Out of Phase",
 	kr_display_name = "탈상",
-	long_desc = function(self, eff) return ("현실 밖으로 위상변화 : 회피도 +%d / 모든 피해 저항 +%d%% / 모든 상태효과 지속시간 +%d%%"):
+	long_desc = function(self, eff) return ("현실 밖으로 위상변화 : 회피도 +%d / 모든 저항 +%d%% / 모든 상태효과 지속시간 +%d%%"):
 	format(eff.defense or 0, eff.resists or 0, eff.effect_reduction or 0) end,
 	type = "magical",
 	subtype = { teleport=true },
@@ -2074,7 +2074,7 @@ newEffect{
 	name = "VULNERABILITY_POISON", image = "talents/vulnerability_poison.png",
 	desc = "Vulnerability Poison",
 	kr_display_name = "약화형 독",
-	long_desc = function(self, eff) return ("중독 : 매 턴마다 마법 피해 %0.2f / 모든 피해 저항 -%d%%"):format(eff.power, eff.res) end,
+	long_desc = function(self, eff) return ("중독 : 매 턴마다 마법 피해 %0.2f / 모든 저항 -%d%%"):format(eff.power, eff.res) end,
 	type = "magical",
 	subtype = { poison=true, arcane=true },
 	status = "detrimental",
@@ -2140,7 +2140,7 @@ newEffect{
 	status = "beneficial",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 시간의 흐름을 모아 껍질을 만듭니다!", "+시간의 모습" end,
-	on_lose = function(self, err) return "더이상 시간이 #Target2# 감싸주지 않습니다.", "-시간의 모습" end,
+	on_lose = function(self, err) return "더이상 시간이 #Target3# 감싸주지 않습니다.", "-시간의 모습" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "all_damage_convert", DamageType.TEMPORAL)
 		self:effectTemporaryValue(eff, "all_damage_convert_percent", 100)

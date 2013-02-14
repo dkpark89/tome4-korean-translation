@@ -196,19 +196,35 @@ function _M:useTalentMessage(ab)
 	local _, _, target = self:getTarget()
 	local tname = "누군가"
 	if target then tname = target.kr_display_name or target.name end
-	local sname = self.kr_display_name or self.name --@@ 200~212 사용 : 한글 이름 저장 변수
+	local sname = self.kr_display_name or self.name --@@ 200~227 사용 : 한글 이름 저장 변수
 	str = str:gsub("@Source@", sname:capitalize())
 	str = str:gsub("@source@", sname)
 	str = str:gsub("@Source1@", sname:capitalize():addJosa("가"))
 	str = str:gsub("@source1@", sname:addJosa("가"))
-	str = str:gsub("@Source2@", sname:capitalize():addJosa("를"))
-	str = str:gsub("@source2@", sname:addJosa("를"))
+	str = str:gsub("@Source2@", sname:capitalize():addJosa("는"))
+	str = str:gsub("@source2@", sname:addJosa("는"))
+	str = str:gsub("@Source3@", sname:capitalize():addJosa("를"))
+	str = str:gsub("@source3@", sname:addJosa("를"))
+	str = str:gsub("@source4@", tname:addJosa("로"))
+	str = str:gsub("@Source4@", tname:capitalize():addJosa("로"))
+	str = str:gsub("@source5@", tname:addJosa("다"))
+	str = str:gsub("@Source5@", tname:capitalize():addJosa("다"))
+	str = str:gsub("@source6@", tname:addJosa("과"))
+	str = str:gsub("@Source6@", tname:capitalize():addJosa("과"))
 	str = str:gsub("@target@", tname)
 	str = str:gsub("@Target@", tname:capitalize())
 	str = str:gsub("@target1@", tname:addJosa("가"))
 	str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
-	str = str:gsub("@target2@", tname:addJosa("를"))
-	str = str:gsub("@Target2@", tname:capitalize():addJosa("를"))
+	str = str:gsub("@target2@", tname:addJosa("는"))
+	str = str:gsub("@Target2@", tname:capitalize():addJosa("는"))
+	str = str:gsub("@target3@", tname:addJosa("를"))
+	str = str:gsub("@Target3@", tname:capitalize():addJosa("를"))
+	str = str:gsub("@target4@", tname:addJosa("로"))
+	str = str:gsub("@Target4@", tname:capitalize():addJosa("로"))
+	str = str:gsub("@target5@", tname:addJosa("다"))
+	str = str:gsub("@Target5@", tname:capitalize():addJosa("다"))
+	str = str:gsub("@target6@", tname:addJosa("과"))
+	str = str:gsub("@Target6@", tname:capitalize():addJosa("과"))
 	return str
 end
 
@@ -490,7 +506,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 	if req.talent then
 		for _, tid in ipairs(req.talent) do
 			if type(tid) == "table" then
-				local tn = self:getTalentFromId(tid[1]).kr_display_name or self:getTalentFromId(tid[1]).name --@@ 497, 500 사용 : 너무 길어서 변수로 뺌
+				local tn = self:getTalentFromId(tid[1]).kr_display_name or self:getTalentFromId(tid[1]).name --@@ 513, 516 사용 : 너무 길어서 변수로 뺌
 				
 				if type(tid[2]) == "boolean" and tid[2] == false then
 					local c = (not self:knowTalent(tid[1])) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
@@ -501,7 +517,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 				end
 			else
 				local c = self:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 505 사용 : 너무 길어서 변수로 뺌
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 521 사용 : 너무 길어서 변수로 뺌
 				str:add(c, ("- %s 기술\n"):format(tn), true)
 			end
 		end
