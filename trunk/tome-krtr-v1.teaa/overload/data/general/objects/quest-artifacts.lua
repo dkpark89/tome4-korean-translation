@@ -411,9 +411,9 @@ newEntity{ base = "BASE_ROD",
 			if nb <= 0 then
 				local floor = game.level.map:getObjectTotal(who.x, who.y)
 				if floor == 0 then
-					require("engine.ui.Dialog"):simplePopup("변형상자", "상자 안이나 바닥에 변화시킬 물건이 없습니다.")
+					require("engine.ui.Dialog"):simplePopup("변형 상자", "상자 안이나 바닥에 변화시킬 물건이 없습니다.")
 				else
-					require("engine.ui.Dialog"):yesnoPopup("변형상자", "바닥에 있는 "..floor.."개의 물건을 모두 변형시킵니까?", function(ret)
+					require("engine.ui.Dialog"):yesnoPopup("변형 상자", "바닥에 있는 "..floor.."개의 물건을 모두 변형시킵니까?", function(ret)
 						if not ret then return end
 						for i = floor, 1, -1 do
 							local o = game.level.map:getObject(who.x, who.y, i)
@@ -427,7 +427,7 @@ newEntity{ base = "BASE_ROD",
 				return {id=true, used=true}
 			end
 
-			require("engine.ui.Dialog"):yesnoPopup("변형상자", "상자 속에 있는 "..nb.."개의 물건을 모두 변형시킵니까?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("변형 상자", "상자 속에 있는 "..nb.."개의 물건을 모두 변형시킵니까?", function(ret)
 				if not ret then return end
 				for i = #inven, 1, -1 do
 					local o = inven[i]

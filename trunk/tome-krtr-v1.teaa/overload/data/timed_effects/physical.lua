@@ -459,14 +459,14 @@ newEffect{
 newEffect{
 	name = "SLOW", image = "talents/slow.png",
 	desc = "Slow",
-	kr_display_name = "느려짐",
+	kr_display_name = "감속",
 	long_desc = function(self, eff) return ("모든 행동 속도 -%d%%"):format( eff.power * 100) end,
 	type = "physical",
 	subtype = { slow=true },
 	status = "detrimental",
 	parameters = { power=0.1 },
-	on_gain = function(self, err) return "#Target1# 느려졌습니다.", "+느려짐" end,
-	on_lose = function(self, err) return "#Target1# 빨라졌습니다.", "-느려짐" end,
+	on_gain = function(self, err) return "#Target1# 느려졌습니다.", "+감속" end,
+	on_lose = function(self, err) return "#Target1# 빨라졌습니다.", "-감속" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("global_speed_add", -eff.power)
 	end,
@@ -644,7 +644,7 @@ newEffect{
 	name = "ETERNAL_WRATH", image = "talents/thaloren_wrath.png",
 	desc = "Wrath of the Eternals",
 	kr_display_name = "영원의 분노",
-	long_desc = function(self, eff) return ("내면의 힘: 공격시 피해량 +%d%% / 모든 피해 -%d%%"):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("내면의 힘: 공격시 피해량 +%d%% / 모든 저항 +%d%%"):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -665,7 +665,7 @@ newEffect{
 	name = "SHELL_SHIELD", image = "talents/shell_shield.png",
 	desc = "Shell Shield",
 	kr_display_name = "등껍질 보호막",
-	long_desc = function(self, eff) return ("등껍질: 모든 피해 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("등껍질: 모든 저항 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -684,7 +684,7 @@ newEffect{
 	name = "PAIN_SUPPRESSION", image = "talents/infusion__wild.png",
 	desc = "Pain Suppression",
 	kr_display_name = "고통 억제",
-	long_desc = function(self, eff) return ("고통 무시: 모든 피해 -%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("고통 무시: 모든 저항 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -703,7 +703,7 @@ newEffect{
 	name = "PURGE_BLIGHT", image = "talents/infusion__wild.png",
 	desc = "Purge Blight",
 	kr_display_name = "황폐의 정화",
-	long_desc = function(self, eff) return ("자연의 힘 주입: 황폐 피해 -%d%% / 주문내성 +%d / 질병에 완전 면역"):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("자연의 힘 주입: 황폐 저항 +%d%% / 주문내성 +%d / 질병에 완전 면역"):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -751,7 +751,7 @@ newEffect{
 newEffect{
 	name = "HEROISM", image = "talents/infusion__heroism.png",
 	desc = "Heroism",
-	kr_display_name = "영웅주의",
+	kr_display_name = "영웅",
 	long_desc = function(self, eff) return ("가장 높은 능력치 세가지 +%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
@@ -1161,7 +1161,7 @@ newEffect{
 	name = "MAIMED", image = "talents/maim.png",
 	desc = "Maimed",
 	kr_display_name = "꺽임",
-	long_desc = function(self, eff) return ("꺽임: 공격시 피해량 -%d / 모든 행동 속도 -30%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("꺽임: 공격 피해량 -%d / 모든 행동 속도 -30%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { wound=true, slow=true },
 	status = "detrimental",
@@ -1343,7 +1343,7 @@ newEffect{
 		elseif eff.type == DamageType.COLD then return ("방어도 +%d"):format(3 + eff.power *2)
 		elseif eff.type == DamageType.LIGHTNING then return ("모든 능력치 +%d"):format(math.floor(eff.power))
 		elseif eff.type == DamageType.ACID then return ("생명력 재생 +%0.2f%%"):format(5 + eff.power * 2)
-		elseif eff.type == DamageType.NATURE then return ("모든 피해 저항 +%d%%"):format(5 + eff.power * 1.4)
+		elseif eff.type == DamageType.NATURE then return ("모든 저항 +%d%%"):format(5 + eff.power * 1.4)
 		end
 	end,
 	type = "physical",
@@ -1778,7 +1778,7 @@ newEffect{
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, err) return "#Target1# 두꺼운 잎사귀들로 보호받습니다.", "+잎사귀 덮개" end,
-	on_lose = function(self, err) return "#Target2# 뒤덮던 잎사귀가 흩어졌습니다.", "-잎사귀 덮개" end,
+	on_lose = function(self, err) return "#Target3# 뒤덮던 잎사귀가 흩어졌습니다.", "-잎사귀 덮개" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("cancel_damage_chance", eff.power)
 	end,

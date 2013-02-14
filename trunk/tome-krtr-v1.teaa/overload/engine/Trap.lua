@@ -129,15 +129,23 @@ function _M:trigger(x, y, who)
 	elseif self.message == false then
 		-- Nothing
 	else
-		local tname = who.kr_display_name or who.name --@@ 134~139 사용 : 반복사용으로 변수로 뺌
+		local tname = who.kr_display_name or who.name --@@ 134~148 사용 : 반복사용으로 변수로 뺌
 		local str =self.message
-		--@@ 135~140 : 함정 메세지에 '이/가'와 '을/를' 조사를 추가할 수 있으도록 수정
+		--@@ 135~148 : 함정 메세지에 조사를 추가할 수 있으도록 수정
 		str = str:gsub("@target@", tname)
 		str = str:gsub("@Target@", tname:capitalize())
 		str = str:gsub("@target1@", tname:addJosa("가"))
 		str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
-		str = str:gsub("@target2@", tname:addJosa("를"))
-		str = str:gsub("@Target2@", tname:capitalize():addJosa("를"))
+		str = str:gsub("@target2@", tname:addJosa("는"))
+		str = str:gsub("@Target2@", tname:capitalize():addJosa("는"))
+		str = str:gsub("@target3@", tname:addJosa("를"))
+		str = str:gsub("@Target3@", tname:capitalize():addJosa("를"))
+		str = str:gsub("@target4@", tname:addJosa("로"))
+		str = str:gsub("@Target4@", tname:capitalize():addJosa("로"))
+		str = str:gsub("@target5@", tname:addJosa("다"))
+		str = str:gsub("@Target5@", tname:capitalize():addJosa("다"))
+		str = str:gsub("@target6@", tname:addJosa("과"))
+		str = str:gsub("@Target6@", tname:capitalize():addJosa("과"))
 		game.logSeen(who, "%s", str)
 	end
 	local known, del = false, false

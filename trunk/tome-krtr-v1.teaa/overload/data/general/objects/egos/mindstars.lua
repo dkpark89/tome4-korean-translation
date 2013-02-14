@@ -58,7 +58,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "nature's ", prefix=true, instant_resolve=true,
-	kr_display_name = "자연의 ",
+	kr_display_name = "자연적인 ",
 	keywords = {nature=true},
 	level_range = {1, 50},
 	rarity = 4,
