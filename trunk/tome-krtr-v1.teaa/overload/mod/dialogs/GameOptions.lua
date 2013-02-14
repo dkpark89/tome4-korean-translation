@@ -304,8 +304,8 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지 않으면, 아이템에 붙은 기술이 자동으로 단축키에 연결되지 않습니다. 아이템의 기술은 소지품목록 창에서 마우스 드래그나 단축키를 눌러 연결시킬수 있습니다.\n\nIf disabled items with activations will not be auto-added to your hotkeys, you will need to manualty drag them from the inventory screen.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#항상 아이템을 단축키로 연결#WHITE##{normal}#", status=function(item)
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지 않으면, 물건에 붙은 기술이 자동으로 단축키에 연결되지 않습니다. 물건의 기술은 소지품목록 창에서 마우스 드래그나 단축키를 눌러 연결시킬수 있습니다.\n\nIf disabled items with activations will not be auto-added to your hotkeys, you will need to manualty drag them from the inventory screen.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#항상 물건을 단축키로 연결#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.auto_hotkey_object and "사용" or "사용안함")
 	end, fct=function(item)
 		config.settings.tome.auto_hotkey_object = not config.settings.tome.auto_hotkey_object

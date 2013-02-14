@@ -115,7 +115,7 @@ function _M:generateList()
 
 	-- Generic actions
 	if g and g.change_level and self.on_player then list[#list+1] = {name="층 변경", action="change_level", color=colors.simple(colors.VIOLET)} end
-	if o and self.on_player then list[#list+1] = {name="아이템 줍기", action="pickup", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if o and self.on_player then list[#list+1] = {name="물건 줍기", action="pickup", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if g and not self.on_player then list[#list+1] = {name="이동", action="move_to", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if a and not self.on_player and game.party:canControl(a, false) then list[#list+1] = {name="조종", action="control", color=colors.simple(colors.TEAL), actor=a} end
 	if a and not self.on_player and game.party:canOrder(a, false) then list[#list+1] = {name="명령 주문", action="order", color=colors.simple(colors.TEAL), actor=a} end

@@ -725,7 +725,7 @@ function string.krLoreCategory(str)
 	else return str end
 end
 
--- 새로운 아이템의 랜덤 이름 생성시 확인되지 않은 이름의 접두사
+-- 새로운 물건의 랜덤 이름 생성시 확인되지 않은 이름의 접두사
 function string.krUnIDPreName(str)
 	-- 관련내용 /mod/class/GameState.lua:348
 	local ori = str:lower()

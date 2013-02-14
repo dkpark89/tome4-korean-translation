@@ -34,7 +34,7 @@ end
 function _M:resolveIdentify()
 	if not self.unided_name then
 		self.unided_name = self.name
-		self.kr_unided_name = self.kr_display_name or self.name --@@ 감정안된 아이템의 한글이름 삽입
+		self.kr_unided_name = self.kr_display_name or self.name --@@ 감정안된 물건의 한글이름 삽입
 	end
 end
 
@@ -75,5 +75,5 @@ end
 
 --- Get the unided name
 function _M:getUnidentifiedName()
-	return self.kr_unided_name or self.unided_name --@@ 감정안된 아이템의 한글 이름 반환
+	return self.kr_unided_name or self.unided_name --@@ 감정안된 물건의 한글 이름 반환
 end

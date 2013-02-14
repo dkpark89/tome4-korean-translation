@@ -51,7 +51,7 @@ newEntity{ base = "BASE_LONGSWORD",
 		inc_damage = { [DamageType.COLD] = 20 },
 	},
 	max_power = 18, power_regen = 1,
-	use_power = { name = "얼음 폭발 생성", power = 8,
+	use_power = { name = "generate a burst of ice", kr_display_name = "얼음 폭발 생성", power = 8,
 		use = function(self, who)
 			local tg = {type="ball", range=0, radius=4, selffire=false}
 			who:project(tg, who.x, who.y, engine.DamageType.ICE, 40 + (who:getMag() + who:getWil()), {type="freeze"})
@@ -80,7 +80,7 @@ newEntity{ base = "BASE_LITE", define_as = "WINTERTIDE_PHIAL",
 	},
 
 	max_power = 60, power_regen = 1,
-	use_power = { name = "정신적 정화 (몇 가지 나쁜 정신적 상태효과 제거)", power = 40,
+	use_power = { name = "cleanse your mind (remove a few detrimental mental effects)", kr_display_name = "정신적 정화 (몇 가지 나쁜 정신적 상태효과 제거)", power = 40,
 		use = function(self, who)
 			local target = who
 			local effs = {}
@@ -595,7 +595,7 @@ newEntity{ base = "BASE_AMULET",
 		combat_dam = 5,
 	},
 	max_power = 60, power_regen = 1,
-	use_power = { name = "동료 흡혈귀 장로 소환", power = 60, use = function(self, who)
+	use_power = { name = "summon an elder vampire to your side", kr_display_name = "동료 흡혈귀 장로 소환", power = 60, use = function(self, who)
 		if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 당신은 제압된 상태입니다!") return end
 
 		-- Find space
@@ -871,7 +871,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_FOCUS",
 	material_level = 2,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "무기와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
+	use_power = { name = "combine with a weapon", kr_display_name = "무기와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
 		who:showInventory("어느 무기와 결합시킵니까?", who:getInven("INVEN"), function(o) return (o.type == "weapon" or o.subtype == "hands") and o.subtype ~= "mindstar" and not o.egoed and not o.unique and not o.rare and not o.archery end, function(o, item)
 			local oldname = o:getName{do_color=true}
 
@@ -947,7 +947,7 @@ newEntity{ base = "BASE_GEM", define_as = "CRYSTAL_HEART",
 	material_level = 5,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "몸통 방어구와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
+	use_power = { name = "combine with a suit of body armor", kr_display_name = "몸통 방어구와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
 		-- Body armour only, can be cloth, light, heavy, or massive though. No clue if o.slot works for this.
 		who:showInventory("어느 방어구와 결합시킵니까?", who:getInven("INVEN"), function(o) return o.type == "armor" and o.slot == "BODY" and not o.egoed and not o.unique and not o.rare end, function(o, item)
 			local oldname = o:getName{do_color=true}
@@ -1009,7 +1009,7 @@ newEntity{ base = "BASE_ROD", define_as = "ROD_OF_ANNULMENT",
 	material_level = 2,
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "적의 주입물이나 룬, 또는 기술 몇 가지를 재사용 대기상태로 만듦", power = 30,
+	use_power = { name = "force some of your foe's infusions, runes or talents on cooldown", kr_display_name = "적의 주입물이나 룬, 또는 기술 몇 가지를 재사용 대기상태로 만듦", power = 30,
 		use = function(self, who)
 			local tg = {type="bolt", range=5}
 			local x, y = who:getTarget(tg)
@@ -1410,7 +1410,7 @@ newEntity{ base = "BASE_CLOAK", define_as="GLACIAL_CLOAK",
 		on_melee_hit = {[DamageType.ICE]=60},
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "얼음구 발사", power = 30,
+	use_power = { name = "release a blast of ice", kr_display_name = "얼음구 발사", power = 30,
 		use = function(self, who)
 			local duration = 10
 			local radius = 4
@@ -1475,7 +1475,7 @@ newEntity{ base = "BASE_GREATMAUL", define_as="ROTTING_MAUL",
 		combat_critical_power = 40,
 	},
 	max_power = 50, power_regen = 1,
-	use_power = { name = "주변의 적 밀어내기", power = 50,
+	use_power = { name = "knock away nearby foes", kr_display_name = "주변의 적 밀어내기", power = 50,
 		use = function(self, who)
 			local dam = rng.avg(1,2) * (125+ who:getStr() * 3)
 			local tg = {type="ball", range=0, selffire=false, radius=4, no_restrict=true}
@@ -1716,7 +1716,7 @@ newEntity{ base = "BASE_MINDSTAR", define_as = "PSIONIC_FURY",
 		inc_stats = { [Stats.STAT_WIL] = 5, [Stats.STAT_CUN] = 4, },
 	},
 	max_power = 40, power_regen = 1,
-	use_power = { name = "염동력 파동 분출", power = 40,
+	use_power = { name = "release a wave of psionic power", kr_display_name = "염동력 파동 분출", power = 40,
 	use = function(self, who)
 		local radius = 4
 		local dam = (50 + who:getWil()*1.8)

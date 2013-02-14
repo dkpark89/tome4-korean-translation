@@ -76,7 +76,7 @@ function _M:use(item)
 		self.actor:doTakeoff(self.inven, self.item, self.object)
 		self.onuse(self.inven, self.item, self.object, false)
 	elseif act == "transmo" then
-		self:yesnoPopup("아이템 변환", "정말 "..(self.object:getName{}):addJosa("을").." 돈으로 바꾸시겠습니까?", function(ret)
+		self:yesnoPopup("물건 변환", "정말 "..(self.object:getName{}):addJosa("을").." 돈으로 바꾸시겠습니까?", function(ret)
 			if not ret then return end
 			self.actor:transmoInven(self.inven, self.item, self.object)
 			self.onuse(self.inven, self.item, self.object, false)
@@ -103,7 +103,7 @@ function _M:generateList()
 	end
 	if self.inven == self.actor.INVEN_INVEN then list[#list+1] = {name="버리기", action="drop"} end
 	if self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="돈으로 바꾸기", action="transmo"} end
-	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 아이템 연결", action="chat-link"} end
+	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 물건 연결", action="chat-link"} end
 
 	self.max = 0
 	self.maxh = 0

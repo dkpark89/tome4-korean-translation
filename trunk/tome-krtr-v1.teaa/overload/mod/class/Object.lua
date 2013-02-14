@@ -81,11 +81,11 @@ function _M:use(who, typ, inven, item)
 		return
 	end
 	if self:wornInven() and not self.wielded and not self.use_no_wear then
-		game.logPlayer(who, "이 아이템은 착용해야 사용할 수 있습니다!")
+		game.logPlayer(who, "이 물건은 착용해야 사용할 수 있습니다!")
 		return
 	end
 	if who:hasEffect(self.EFF_UNSTOPPABLE) then
-		game.logPlayer(who, "전투의 광란에 빠져있을 때에는 아이템을 사용할 수 없습니다!")
+		game.logPlayer(who, "전투의 광란에 빠져있을 때에는 물건을 사용할 수 없습니다!")
 		return
 	end
 
@@ -117,8 +117,8 @@ function _M:tooltip(x, y)
 	local str = self:getDesc({do_color=true}, game.player:getInven(self:wornInven()))
 	if config.settings.cheat then str:add(true, "UID: "..self.uid, true, self.image) end
 	local nb = game.level.map:getObjectTotal(x, y)
-	if nb == 2 then str:add(true, "---", true, "아이템이 하나 더 있습니다.")
-	elseif nb > 2 then str:add(true, "---", true, "아이템이 "..(nb-1).."개 더 있습니다.")
+	if nb == 2 then str:add(true, "---", true, "물건이 하나 더 있습니다.")
+	elseif nb > 2 then str:add(true, "---", true, "물건이 "..(nb-1).."개 더 있습니다.")
 	end
 	return str
 end
@@ -332,7 +332,7 @@ function _M:getTextualDesc(compare_with)
 	compare_with = compare_with or {}
 	local desc = tstring{}
 
-	if self.quest then desc:add({"color", "VIOLET"},"[플롯 아이템]", {"color", "LAST"}, true) end
+	if self.quest then desc:add({"color", "VIOLET"},"[줄거리 연결 물건]", {"color", "LAST"}, true) end
 
 	desc:add(("종류: %s / %s"):format(tostring(rawget(self, 'type'):krItemType() or "알수없음"), tostring(rawget(self, 'subtype'):krItemType() or "알수없음")))
 	if self.material_level then desc:add(" ; ", tostring(self.material_level), "단계") end
@@ -341,7 +341,7 @@ function _M:getTextualDesc(compare_with)
 	desc:add(true)
 
 	if self.set_list then
-		desc:add({"color","GREEN"}, "세트 아이템 중 하나입니다.", {"color","LAST"}, true)
+		desc:add({"color","GREEN"}, "'일련의 물건' 중 하나입니다.", {"color","LAST"}, true)
 		if self.set_complete then desc:add({"color","LIGHT_GREEN"}, "세트가 완성되었습니다.", {"color","LAST"}, true) end
 	end
 
@@ -1054,11 +1054,11 @@ function _M:getTextualDesc(compare_with)
 		end
 
 		if w.blind_fight then
-			desc:add({"color", "YELLOW"}, "눈먼 전투의 달인:", {"color", "LAST"}, "이 아이템은 착용자가 불이익없이 보이지 않는 상대와 싸울 수 있게 해줍니다.", true)
+			desc:add({"color", "YELLOW"}, "눈먼 전투의 달인:", {"color", "LAST"}, "이 물건은 착용자가 불이익없이 보이지 않는 상대와 싸울 수 있게 해줍니다.", true)
 		end
 		
 		if w.lucid_dreamer then
-			desc:add({"color", "YELLOW"}, "자각몽:", {"color", "LAST"}, "이 아이템은 착용자가 잠에 빠졌을 때에만 활성화 됩니다.", true)
+			desc:add({"color", "YELLOW"}, "자각몽:", {"color", "LAST"}, "이 물건은 착용자가 잠에 빠졌을 때에만 활성화 됩니다.", true)
 		end
 
 		if w.no_breath then
@@ -1066,7 +1066,7 @@ function _M:getTextualDesc(compare_with)
 		end
 		
 		if w.quick_weapon_swap then
-			desc:add({"color", "YELLOW"}, "빠른 무장 변경:", {"color", "LAST"}, "이 아이템은 착용자가 턴을 사용하지 않고 즉각적으로 보조 무장으로 변경할 수 있게 해줍니다.", true)
+			desc:add({"color", "YELLOW"}, "빠른 무장 변경:", {"color", "LAST"}, "이 물건은 착용자가 턴을 사용하지 않고 즉각적으로 보조 무장으로 변경할 수 있게 해줍니다.", true)
 		end
 
 		if w.avoid_pressure_traps then
@@ -1154,7 +1154,7 @@ function _M:getTextualDesc(compare_with)
 	end
 
 	if self.imbue_powers or can_imbue_powers then
-		desc:add({"color","YELLOW"}, "아이템에 합성시 적용:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "물건에 합성시 적용:", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "imbue_powers")
 	end
 
@@ -1272,11 +1272,11 @@ function _M:getUseDesc()
 	local usepower = function(power) return math.ceil(power * reduce / 100) end
 	if self.use_power then
 		if self.show_charges then
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s (현재 사용가능 횟수 %d/%d)."):format(util.getval(self.use_power.name, self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s (현재 사용가능 횟수 %d/%d)."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
 		elseif self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s, 사용시 다른 모든 부적의 지연시간을 %d턴 늘립니다."):format(util.getval(self.use_power.name, self):format(self:getCharmPower()), usepower(self.use_power.power)), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s, 사용시 다른 모든 부적의 지연시간을 %d턴 늘립니다."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self):format(self:getCharmPower()), usepower(self.use_power.power)), {"color","LAST"}}
 		else
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s (소모력 %d, 현재 보유력 %d/%d)."):format(util.getval(self.use_power.name, self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처: %s (소모력 %d, 현재 보유력 %d/%d)."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
 		ret = tstring{{"color","YELLOW"}, ("사용처: %s."):format(self.use_simple.kr_display_name or self.use_simple.name), {"color","LAST"}}
@@ -1309,7 +1309,7 @@ function _M:getDesc(name_param, compare_with, never_compare)
 		desc:add({"font","bold"},{"color","LIGHT_BLUE"},"새로 획득했음",{"font","normal"},{"color","LAST"},true)
 	end
 	if self.__transmo then
-		desc:add({"font","bold"},{"color","YELLOW"},"이 아이템은 현재 층을 벗어날 때 자동으로 변형됩니다.",{"font","normal"},{"color","LAST"},true)
+		desc:add({"font","bold"},{"color","YELLOW"},"이 물건은 현재 층을 벗어날 때 자동으로 변형됩니다.",{"font","normal"},{"color","LAST"},true)
 	end
 
 	name_param = name_param or {}

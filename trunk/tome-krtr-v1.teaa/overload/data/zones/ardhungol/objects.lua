@@ -31,7 +31,7 @@ newEntity{ base = "BASE_ROD",
 	elec_proof = true,
 
 	max_power = 75, power_regen = 1,
-	use_power = { name = "거미독 화살 발사", power = 25,
+	use_power = { name = "shoot a bolt of spydric poison", kr_display_name = "거미독 화살 발사", power = 25,
 		use = function(self, who)
 			local tg = {type="bolt", range=12, talent=t}
 			local x, y = who:getTarget(tg)

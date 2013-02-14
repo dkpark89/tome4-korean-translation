@@ -185,7 +185,7 @@ function _M:describeFloor(x, y)
 				if self:attr("auto_id") and obj:getPowerRank() <= self.auto_id then obj:identify(true) end
 				nb = nb + 1
 				i = i + 1
-				game.logSeen(self, "놓여진 아이템: %s", obj:getName{do_color=true})
+				game.logSeen(self, "놓여진 물건: %s", obj:getName{do_color=true})
 			end
 			obj = game.level.map:getObject(x, y, i)
 		end
@@ -745,7 +745,7 @@ function _M:runCheck(ignore_memory)
 		if what == "self" and not game.level.map.attrs(x, y, "obj_seen") then
 			local obj = game.level.map:getObject(x, y, 1)
 			if obj then
-				noticed = "아이템 발견"
+				noticed = "물건 발견"
 				if not ignore_memory then game.level.map.attrs(x, y, "obj_seen", true) end
 				return
 			end
@@ -858,7 +858,7 @@ function _M:hotkeyInventory(name)
 
 	local o, item, inven = find(name)
 	if not o then
-		Dialog:simplePopup("아이템 없음", "당신은 "..name:addJosa("를").." 찾지 못했습니다.")
+		Dialog:simplePopup("물건 없음", "당신은 "..name:addJosa("를").." 찾지 못했습니다.")
 	else
 		-- Wear it ??
 		if o:wornInven() and not o.wielded and inven == self.INVEN_INVEN then
@@ -873,7 +873,7 @@ end
 
 function _M:doDrop(inven, item, on_done)
 	if game.zone.wilderness then
-		Dialog:yesnoLongPopup("경고", "월드맵에서는 아이템을 내려놓을 수 없습니다.\n만약 그런다면 그 아이템은 영원히 사라질 것입니다.", 300, function(ret)
+		Dialog:yesnoLongPopup("경고", "월드맵에서는 물건을 내려놓을 수 없습니다.\n만약 그런다면 그 물건은 영원히 사라질 것입니다.", 300, function(ret)
 			-- The test is reversed because the buttons are reversed, to prevent mistakes
 			if not ret then
 				local o = self:removeObject(inven, item, true)
@@ -965,7 +965,7 @@ end
 
 function _M:playerWear()
 	local inven = self:getInven(self.INVEN_INVEN)
-	local titleupdator = self:getEncumberTitleUpdator("아이템 착용")
+	local titleupdator = self:getEncumberTitleUpdator("물건 착용")
 	local d d = self:showInventory(titleupdator(), inven, function(o)
 		return o:wornInven() and self:getInven(o:wornInven()) and true or false
 	end, function(o, item)
@@ -976,7 +976,7 @@ function _M:playerWear()
 end
 
 function _M:playerTakeoff()
-	local titleupdator = self:getEncumberTitleUpdator("아이템 착용 해제")
+	local titleupdator = self:getEncumberTitleUpdator("착용 물건 해제")
 	local d d = self:showEquipment(titleupdator(), nil, function(o, inven, item)
 		self:doTakeoff(inven, item, o)
 		d:updateTitle(titleupdator())
@@ -985,7 +985,7 @@ function _M:playerTakeoff()
 end
 
 function _M:playerUseItem(object, item, inven)
-	if game.zone.wilderness then game.logPlayer(self, "월드맵에서는 아이템을 사용할 수 없습니다.") return end
+	if game.zone.wilderness then game.logPlayer(self, "월드맵에서는 물건을 사용할 수 없습니다.") return end
 
 	local use_fct = function(o, inven, item)
 		if not o then return end
@@ -1036,7 +1036,7 @@ function _M:playerUseItem(object, item, inven)
 
 	if object and item then return use_fct(object, inven, item) end
 
-	local titleupdator = self:getEncumberTitleUpdator("아이템 사용")
+	local titleupdator = self:getEncumberTitleUpdator("물건 사용")
 	self:showEquipInven(titleupdator(),
 		function(o)
 			return o:canUseObject()

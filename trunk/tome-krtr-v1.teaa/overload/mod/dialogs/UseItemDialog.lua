@@ -93,7 +93,7 @@ function _M:use(item)
 			self.onuse(self.inven, self.item, self.object, false)
 		end))		
 	elseif act == "transmo" then
-		self:yesnoPopup("아이템 변환", "정말 "..(self.object:getName{}):addJosa("을").." 변형하겠습니까?", function(ret)
+		self:yesnoPopup("물건 변환", "정말 "..(self.object:getName{}):addJosa("을").." 변형하겠습니까?", function(ret)
 			if not ret then return end
 			self.actor:transmoInven(self.inven, self.item, self.object)
 			self.onuse(self.inven, self.item, self.object, false)
@@ -121,7 +121,7 @@ function _M:generateList()
 	if self.inven == self.actor.INVEN_INVEN then list[#list+1] = {name="버리기", action="drop"} end
 	if self.inven == self.actor.INVEN_INVEN and game.party:countInventoryAble() >= 2 then list[#list+1] = {name="동료에게 건네주기", action="transfer"} end
 	if self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="변화(변형 상자)", action="transmo"} end
-	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 아이템 연결", action="chat-link"} end
+	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 물건 연결", action="chat-link"} end
 
 	self:triggerHook{"UseItemMenu:generate", actor=self.actor, object=self.object, inven=self.inven, item=self.item, menu=list}
 

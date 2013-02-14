@@ -249,7 +249,7 @@ function _M:generateList(no_update)
 			local enc = 0
 			o:forAllStack(function(o) enc=enc+o.encumber end)
 
-			--@@ 252 : 아이템 이름(getName함수 통해서) 한글화, 원문이름은 oriname을 추가하여 저장, 종류이름 한글화 
+			--@@ 252 : 물건 이름(getName함수 통해서) 한글화, 원문이름은 oriname을 추가하여 저장, 종류이름 한글화 
 			list[#list+1] = { id=#list+1, char=char, name=o:getName(), oriname=o:getOriName(), sortname=o:getName():toString():removeColorCodes(), color=o:getDisplayColor(), object=o, inven=self.actor.INVEN_INVEN, item=item, cat=o.subtype:krItemType(), encumberance=enc, special_bg=self.special_bg }
 			chars[char] = #list
 			i = i + 1

@@ -20,7 +20,7 @@
 newAchievement{
 	name = "Pyromancer",
 	kr_display_name = "화염술사",
-	desc = [[마도사 직업 봉인 해제 후, 누적 화염 피해 백만점 이상 공격 (아이템/기술/직업 모두 사용 가능).]],
+	desc = [[마도사 직업 봉인 해제 후, 누적 화염 피해 백만점 이상 공격 (물체 속성/기술/직업 모두 사용 가능).]],
 	show = "full",
 	mode = "world",
 	can_gain = function(self, who, dam)
@@ -42,7 +42,7 @@ newAchievement{
 newAchievement{
 	name = "Cryomancer",
 	kr_display_name = "냉기술사",
-	desc = [[마도사 직업 봉인 해제 후, 누적 냉기 피해 백만점 이상 공격 (아이템/기술/직업 모두 사용 가능).]],
+	desc = [[마도사 직업 봉인 해제 후, 누적 냉기 피해 백만점 이상 공격 (물체 속성/기술/직업 모두 사용 가능).]],
 	show = "full",
 	mode = "world",
 	can_gain = function(self, who, dam)

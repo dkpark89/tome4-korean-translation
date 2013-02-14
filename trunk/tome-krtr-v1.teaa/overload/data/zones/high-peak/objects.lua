@@ -83,7 +83,7 @@ newEntity{ define_as = "STAFF_ABSORPTION_AWAKENED", base="BASE_STAFF",
 	moddable_tile_particle = {"godslayer_swirl", {size=64, x=-16}},
 
 	max_power = 200, power_regen = 1,
-	use_power = { name = "에너지 흡수", power = 200,
+	use_power = { name = "absorb energies", kr_display_name = "에너지 흡수", power = 200,
 		use = function(self, who)
 			local tg = {type="hit", range=8}
 			local x, y = who:getTarget(tg)
