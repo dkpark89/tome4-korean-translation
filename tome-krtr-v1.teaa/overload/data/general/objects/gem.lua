@@ -27,7 +27,7 @@ newEntity{
 	identified = true,
 	stacking = true,
 	auto_pickup = true, pickup_sound = "actions/gem",
-	desc = [[보석은 돈을 마련하기 위해 팔수도 있고, 마법 의식에 사용할수도 있습니다.]],
+	desc = [[보석은 돈을 마련하기 위해 팔 수도 있고, 다양한 마법에 사용할 수도 있습니다.]],
 }
 
 local colors_attacks = {

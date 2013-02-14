@@ -82,7 +82,7 @@ newEntity{ define_as = "ORB_MANY_WAYS2",
 관문 근처에서 사용하면, 관문을 활성화시킬 수 있을 것 같습니다.]],
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "관문 활성화", power = 10,
+	use_power = { name = "activate a portal", kr_display_name = "관문 활성화", power = 10,
 		use = function(self, who)
 			self:identify(true)
 			local g = game.level.map(who.x, who.y, game.level.map.TERRAIN)

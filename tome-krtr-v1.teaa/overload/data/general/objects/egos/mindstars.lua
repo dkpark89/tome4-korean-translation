@@ -31,7 +31,7 @@ local DamageType = require "engine.DamageType"
  newEntity{
 	power_source = {nature=true},
 	name = "blooming ", prefix=true, instant_resolve=true,
-	kr_display_name = "번영 ",
+	kr_display_name = "꽃피우는 ",
 	keywords = {blooming=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -45,7 +45,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {nature=true},
 	name = "gifted ", prefix=true, instant_resolve=true,
-	kr_display_name = "천부적 ",
+	kr_display_name = "천부적인 ",
 	keywords = {gifted=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -58,7 +58,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "nature's ", prefix=true, instant_resolve=true,
-	kr_display_name = "자연 ",
+	kr_display_name = "자연의 ",
 	keywords = {nature=true},
 	level_range = {1, 50},
 	rarity = 4,

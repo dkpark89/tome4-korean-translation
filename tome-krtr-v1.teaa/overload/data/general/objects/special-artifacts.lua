@@ -36,7 +36,7 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 	level_range = {37, 50},
 	color=colors.VIOLET,
 	rarity = false,
-	desc = [[텔로스는 황혼의 시대에 살던 아주 강력한 마법사였습니다. 그를 동료들은 미워했고, 일반 사람들은 무서워하여, 그는 아주 긴시간 동안 쫒겨다녔습니다. 마침내 그의 힘이 모인 장소 텔무르에서 그가 추락했지만, 그의 영혼은 아직 그 장소에 머무르고 있습니다.]],
+	desc = [[텔로스는 황혼의 시대에 살았던, 아주 강력한 마법사였습니다. 그를 동료들은 미워했고, 일반 사람들은 무서워하여, 그는 아주 긴 시간 동안 은둔 생활을 할 수 밖에 없었습니다. 결국 자신의 힘이 모인 장소였던 텔무르에서 그는 사망하였지만, 그의 영혼만은 아직 그 장소에 머무르고 있습니다.]],
 	cost = 400,
 	material_level = 5,
 	plot = true,
@@ -68,7 +68,7 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 		vim_on_crit = 6,
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "타락한 로스코로스로 변신 (중독과 질병, 출혈, 혼란에 완전 면역; 공격시 피해의 반만큼 생명력 흡수; 숨쉴 필요없음)", power = 30,
+	use_power = { name = "타락한 로스고로스로 변신 (중독과 질병, 출혈, 혼란에 완전 면역 & 공격시 피해량의 절반만큼 생명력 흡수 & 숨 쉴 필요 없어짐)", power = 30,
 		use = function(self, who)
 			game.logSeen(who, "%s %s 휘둘러, 타락한 로스고로스로 변신합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 			who:setEffect(who.EFF_CORRUPT_LOSGOROTH_FORM, 8, {})

@@ -99,7 +99,7 @@ newTalent{
 
 newTalent{
 	name = "Teleport",
-	kr_display_name = "장거리 순간이동",
+	kr_display_name = "원거리 순간이동",
 	type = {"spell/conveyance",2},
 	require = spells_req2,
 	points = 5,
@@ -169,7 +169,7 @@ newTalent{
 	info = function(self, t)
 		local range = t.getRange(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[주변 %d 칸 반경 내 무작위한 곳으로 장거리 순간이동합니다. 15 칸 미만의 거리는 순간이동할 수 없습니다.
+		return ([[주변 %d 칸 반경 내 무작위한 곳으로 원거리 순간이동합니다. 15 칸 미만의 거리는 순간이동할 수 없습니다.
 		기술 레벨이 4 이상이면, 대상을 지정하여 순간이동시킬 수 있습니다.
 		기술 레벨이 5 이상이면, 순간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경)
 		순간이동 범위는 주문력의 영향을 받아 증가합니다.]]):format(range, radius)

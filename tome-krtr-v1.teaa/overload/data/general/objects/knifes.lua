@@ -28,7 +28,7 @@ newEntity{
 	rarity = 5,
 	metallic = true,
 	combat = { talented = "knife", damrange = 1.3, physspeed = 1, sound = {"actions/melee", pitch=1.2, vol=1.2}, sound_miss = {"actions/melee", pitch=1.2, vol=1.2} },
-	desc = [[날카롭고 짧지만 치명적입니다.]],
+	desc = [[날카롭고, 짧지만, 치명적입니다.]],
 	ego_bonus_mult = -0.2,
 	randart_able = "/data/general/objects/random-artifacts/melee.lua",
 	egos = "/data/general/objects/egos/weapon.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },

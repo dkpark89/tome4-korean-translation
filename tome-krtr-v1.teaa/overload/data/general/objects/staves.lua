@@ -38,7 +38,7 @@ newEntity{
 		damrange = 1.2,
 		sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2},
 	},
-	desc = [[마법지팡이는 마법사가 쥐기위해 뛰어난 기술을 사용하여 만들었습니다.]],
+	desc = [[마법지팡이는 마법사를 위해 만들어진 것으로, 특수한 기술을 사용하여 만들어냅니다.]],
 	egos = "/data/general/objects/egos/staves.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 

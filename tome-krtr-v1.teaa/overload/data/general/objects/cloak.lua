@@ -26,7 +26,7 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("cloak"),
 	encumber = 2,
 	rarity = 6,
-	desc = [[보통 바깥으로 느슨하게 걸쳐입는 천으로 만든 외투입니다. 큰 금속제 갑옷 위라해도 충분히 입을수 있도록 널찍합니다.]],
+	desc = [[보통 바깥으로 느슨하게 걸쳐입는, 천으로 만든 외투입니다. 큰 금속제 갑옷 위에도 충분히 입을 수 있을 정도로 널찍합니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/cloak.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }

@@ -28,7 +28,7 @@ newEntity{
 	rarity = 12,
 	add_name = "#CHARM# #CHARGES#",
 	use_sound = "talents/spell_generic",
-	desc = [[자연의 토템은 강력한 자연의 추종자가 자연의 힘을 불어넣기 위해 만듭니다.]],
+	desc = [[토템은 강력한 자연의 추종자가 자연의 힘을 불어넣어 만드는 물건입니다.]],
 	egos = "/data/general/objects/egos/totems.lua", egos_chance = { prefix=resolvers.mbonus(20, 5), suffix=resolvers.mbonus(20, 5) },
 	addons = "/data/general/objects/egos/totems-powers.lua",
 	power_source = {nature=true},

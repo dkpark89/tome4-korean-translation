@@ -57,7 +57,7 @@ newEntity{ base = "BASE_LEATHER_CAP",
 
 newEntity{ base = "BASE_LEATHER_CAP",
 	name = "drakeskin leather cap", short_name = "drakeskin",
-	kr_display_name = "드레이크가죽 모자",
+	kr_display_name = "용가죽 모자",
 	level_range = {40, 50},
 	cost = 7,
 	material_level = 5,

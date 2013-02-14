@@ -24,10 +24,10 @@ newEntity{
 	encumber = 0,
 	rarity = 5,
 	identified = true,
-	desc = [[All that glitters is not gold; all that is gold does not glitter.]],
+	desc = [[번쩍인다고 해서 반드시 다 금은 아니며, 금이라고 해서 반드시 번쩍이는 것도 아니다.]],
 	on_prepickup = function(self, who, id)
 		who:incMoney(self.money_value / 10)
-		game.logPlayer(who, "당신은 금화 %0.2f개를 주웠습니다.", self.money_value / 10)
+		game.logPlayer(who, "당신은 금화 %0.2f 개를 주웠습니다.", self.money_value / 10)
 		-- Remove from the map
 		game.level.map:removeObject(who.x, who.y, id)
 		return true

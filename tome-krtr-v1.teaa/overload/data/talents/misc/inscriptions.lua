@@ -415,7 +415,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Teleportation",
-	kr_display_name = "룬 : 순간이동",
+	kr_display_name = "룬 : 원거리 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -541,7 +541,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Vision",
-	kr_display_name = "룬 : 시야",
+	kr_display_name = "룬 : 심안",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,

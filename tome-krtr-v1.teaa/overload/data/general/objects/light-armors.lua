@@ -89,7 +89,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 
 newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "drakeskin leather armour", short_name = "drakeskin",
-	kr_display_name = "드레이크가죽 갑옷",
+	kr_display_name = "용가죽 갑옷",
 	level_range = {40, 50},
 	require = { stat = { str=20 }, },
 	cost = 25,

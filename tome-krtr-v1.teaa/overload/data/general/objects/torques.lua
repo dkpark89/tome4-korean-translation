@@ -28,7 +28,7 @@ newEntity{
 	rarity = 12,
 	add_name = "#CHARM# #CHARGES#",
 	use_sound = "talents/spell_generic",
-	desc = [[주술고리는 강력한 초능력자가 염동력을 불어넣기 위해 만듭니다.]],
+	desc = [[주술고리는 강력한 초능력자가 염동력을 불어넣어 만드는 물건입니다.]],
 	egos = "/data/general/objects/egos/torques.lua", egos_chance = { prefix=resolvers.mbonus(20, 5), suffix=resolvers.mbonus(20, 5) },
 	addons = "/data/general/objects/egos/torques-powers.lua",
 	power_source = {psionic=true},

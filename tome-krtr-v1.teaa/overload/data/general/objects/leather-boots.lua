@@ -57,7 +57,7 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 
 newEntity{ base = "BASE_LEATHER_BOOT",
 	name = "pair of drakeskin leather boots", short_name = "drakeskin",
-	kr_display_name = "드레이크가죽 신발",
+	kr_display_name = "용가죽 신발",
 	level_range = {40, 50},
 	cost = 7,
 	material_level = 5,
