@@ -99,7 +99,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="permanently increase your magic and willpower by three",, kr_display_name="마법과 의지 능력치가 각각 3 씩 영구적으로 증가", use = function(self, who)
+	use_simple = { name="permanently increase your magic and willpower by three", kr_display_name="마법과 의지 능력치가 각각 3 씩 영구적으로 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨습니다. 신체가 영구적으로 변화되었습니다!")
 		who.inc_stats[who.STAT_MAG] = who.inc_stats[who.STAT_MAG] + 3
 		who:onStatChange(who.STAT_MAG, 3)
