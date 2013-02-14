@@ -157,7 +157,7 @@ newTalent{
 	info = function(self, t)
 		local immunities = t.getImmunities(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[달의 영광을 노래하여, 기절, 실명, 혼란 저항이 %d%% 증가합니다.
+		return ([[달의 영광을 노래하여, 기절, 실명, 혼란 면역력이 %d%% 증가합니다.
 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다.
 		동시에 하나의 송가만을 유지할 수 있습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):

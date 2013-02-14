@@ -101,7 +101,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[피에 대한 갈망이 몸의 움직임을 지배합니다. 기절 상태효과에 걸리지 않게 되며, 혼란, 공포, 밀어내기 저항력은 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 15)
+		return ([[피에 대한 갈망이 몸의 움직임을 지배합니다. 기절 상태효과에 완전한 면역을 가지게 되며, 혼란, 공포, 밀어내기 면역력은 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 15)
 	end,
 }
 

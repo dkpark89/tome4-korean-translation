@@ -893,7 +893,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		h = 0
 		w = self.w * 0.52
 
-		s:drawColorStringBlended(self.font, "#LIGHT_BLUE#상태이상 저항:", w, h, 255, 255, 255, true) h = h + self.font_h
+		s:drawColorStringBlended(self.font, "#LIGHT_BLUE#상태이상 면역력:", w, h, 255, 255, 255, true) h = h + self.font_h
 
 
 		immune_type = "poison_immune" immune_name =    "중독     " if player:attr(immune_type) then text = compare_fields(player, actor_to_compare, function(actor, ...) return util.bound((actor:attr(...) or 0) * 100, 0, 100) end, "%3d%%", "%+.0f%%", 1, false, false, immune_type) self:mouseTooltip(self.TOOLTIP_SPECIFIC_IMMUNE, s:drawColorStringBlended(self.font, ("%s: #00ff00#%s"):format(immune_name, text), w, h, 255, 255, 255, true)) h = h + self.font_h end

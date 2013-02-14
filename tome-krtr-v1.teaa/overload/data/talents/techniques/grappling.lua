@@ -211,7 +211,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[붙잡기 기술에 매 턴마다 %0.2f 의 물리 피해를 입히는, 눌러 조르기 효과가 추가됩니다. 
 		대상이 이미 붙잡힌 상태라면, 대상의 숨통을 졸라서 침묵시키고 매 턴마다 %0.2f 의 물리 피해를 줍니다.
-		대상이 침묵 효과에 면역이거나, 숨을 쉬지 않거나, 언데드라면 숨통 조르기 대신 눌러 조르기 효과만 받게 됩니다.
+		대상이 침묵 효과에 완전 면역이거나, 숨을 쉬지 않거나, 언데드라면 숨통 조르기 대신 눌러 조르기 효과만 받게 됩니다.
 		물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damage * 1.5)))
 	end,

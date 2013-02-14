@@ -19,7 +19,7 @@
 
 return {
 	name = "Dreamscape",
-	kr_display_name = "꿈의 영역",
+	kr_display_name = "꿈 속 여행",
 	level_range = {1, 100},
 	level_scheme = "player",
 	max_level = 1,

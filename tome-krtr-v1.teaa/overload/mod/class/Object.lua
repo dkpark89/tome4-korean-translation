@@ -937,21 +937,21 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "combat_spellresist", "%+d", "주문 내성: ")
 		compare_fields(w, compare_with, field, "combat_mentalresist", "%+d", "정신 내성: ")
 
-		compare_fields(w, compare_with, field, "blind_immune", "%+d%%", "실명 저항: ", 100)
-		compare_fields(w, compare_with, field, "poison_immune", "%+d%%", "중독 저항: ", 100)
-		compare_fields(w, compare_with, field, "disease_immune", "%+d%%", "질병 저항: ", 100)
-		compare_fields(w, compare_with, field, "cut_immune", "%+d%%", "출혈 저항: ", 100)
+		compare_fields(w, compare_with, field, "blind_immune", "%+d%%", "실명 면역력: ", 100)
+		compare_fields(w, compare_with, field, "poison_immune", "%+d%%", "중독 면역력: ", 100)
+		compare_fields(w, compare_with, field, "disease_immune", "%+d%%", "질병 면역력: ", 100)
+		compare_fields(w, compare_with, field, "cut_immune", "%+d%%", "출혈 면역력: ", 100)
 
-		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "침묵 저항: ", 100)
-		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "무장해제 저항: ", 100)
-		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "혼란 저항: ", 100)
-		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "속박 저항: ", 100)
+		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "침묵 면역력: ", 100)
+		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "무장해제 면역력: ", 100)
+		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "혼란 면역력: ", 100)
+		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "속박 면역력: ", 100)
 
-		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "기절/동결 저항: ", 100)
-		compare_fields(w, compare_with, field, "fear_immune", "%+d%%", "공포 저항: ", 100)
-		compare_fields(w, compare_with, field, "knockback_immune", "%+d%%", "밀어내기 저항: ", 100)
-		compare_fields(w, compare_with, field, "instakill_immune", "%+d%%", "즉사 저항: ", 100)
-		compare_fields(w, compare_with, field, "teleport_immune", "%+d%%", "전이 저항: ", 100)
+		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "기절/동결 면역력: ", 100)
+		compare_fields(w, compare_with, field, "fear_immune", "%+d%%", "공포 면역력: ", 100)
+		compare_fields(w, compare_with, field, "knockback_immune", "%+d%%", "밀어내기 면역력: ", 100)
+		compare_fields(w, compare_with, field, "instakill_immune", "%+d%%", "즉사 면역력: ", 100)
+		compare_fields(w, compare_with, field, "teleport_immune", "%+d%%", "전이 면역력: ", 100)
 
 		compare_fields(w, compare_with, field, "life_regen", "%+.2f", "생명력 재생: ")
 		compare_fields(w, compare_with, field, "stamina_regen", "%+.2f", "체력 재생: ")
@@ -1135,9 +1135,9 @@ function _M:getTextualDesc(compare_with)
 	end
 
 	if self.no_teleport then
-		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "전이효과에 대해 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
+		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "전이효과에 대해 완전 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
 	elseif found then
-		desc:add({"color","RED"}, "전이효과에 대해 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
+		desc:add({"color","RED"}, "전이효과에 대해 완전 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
 	end
 
 	if self.wielder or can_wielder then

@@ -29,7 +29,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = " of fire resistance (#RESIST#)", suffix=true, instant_resolve=true,
-	kr_display_name = "화염저항의 ",
+	kr_display_name = "화염저항(#RESIST#)의 ",
 	keywords = {fire=true},
 	level_range = {1, 50},
 	rarity = 5,

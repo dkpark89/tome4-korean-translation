@@ -171,7 +171,7 @@ newTalent{
 		self:attr("confusion_immune", -0.2)
 	end,
 	info = function(self, t)
-		return ([[신체가 더욱 진흙처럼 변화하여 질병, 독, 출혈, 혼란, 실명 저항력이 %d%% 상승하게 됩니다.]]):
+		return ([[신체가 더욱 진흙처럼 변화하여 질병, 독, 출혈, 혼란, 실명 면역력이 %d%% 상승하게 됩니다.]]):
 		format(self:getTalentLevelRaw(t) * 20)
 	end,
 }

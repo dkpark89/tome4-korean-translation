@@ -692,7 +692,7 @@ function string.krLoreCategory(str)
 	elseif ori == "daikara" then return "다이카라"
 	elseif ori == "dogroth caldera" then return "도그로스 화산분지"
 	elseif ori == "dreadfell" then return "두려움의 영역"
-	elseif ori == "dreamscape" then return "꿈의 영역"
+	elseif ori == "dreamscape" then return "꿈 속 여행"
 	elseif ori == "eyal" then return "에이알"
 	elseif ori == "fearscape" then return "공포의 영역"
 	elseif ori == "high peak" then return "최고봉"

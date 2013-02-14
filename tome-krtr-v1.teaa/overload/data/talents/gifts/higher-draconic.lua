@@ -164,7 +164,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[용의 교활함을 가져, 교활함 수치가 %d 증가합니다.
-		기술 레벨을 올릴 때마다 밀어내기 저항력이 10%% 증가하며, 실명과 기절 저항력은 5%% 증가합니다.]]):format(2*self:getTalentLevelRaw(t))
+		기술 레벨을 올릴 때마다 밀어내기 면역력이 10%% 증가하며, 실명과 기절 면역력은 5%% 증가합니다.]]):format(2*self:getTalentLevelRaw(t))
 	end,
 }
 

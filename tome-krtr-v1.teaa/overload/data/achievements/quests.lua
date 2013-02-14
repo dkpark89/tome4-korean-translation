@@ -259,7 +259,7 @@ newAchievement{
 	name = "Savior of the damsels in distress", id = "MELINDA_SAVED",
 	show = "name",
 	kr_display_name = "절망에 빠진 소녀의 구원자",
-	desc = [[Kryl-Feijan의 지하실에서 멜린다를 그녀의 끔찍한 운명에서 구함.]],
+	desc = [[크릴-페이얀의 지하실에서 멜린다를 그녀의 끔찍한 운명에서 구함.]],
 }
 newAchievement{
 	name = "Impossible Death", id = "PARADOX_NOW",

@@ -42,7 +42,7 @@ end
 floorEffect{
 	desc = "Icy Floor", image = "talents/ice_storm.png",
 	kr_display_name = "얼어붙은 바닥",
-	long_desc = "얼어붙은 바닥 효과 : 이동 속도 +20% / 냉기 저항 관통 +20% / 기절 저항 -30%",
+	long_desc = "얼어붙은 바닥 효과 : 이동 속도 +20% / 냉기 저항 관통 +20% / 기절 면역력 -30%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists_pen", {[DamageType.COLD] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", 0.2)
@@ -82,7 +82,7 @@ floorEffect{
 floorEffect{
 	desc = "Blighted Soil", image = "talents/blightzone.png",
 	kr_display_name = "황폐한 토양",
-	long_desc = "황폐한 토양 효과 : 질병 저항력 -60% / 공격 성공시 40%의 확률로 (턴당 한번씩) 목표가 임의의 질병에 걸림",
+	long_desc = "황폐한 토양 효과 : 질병 면역력 -60% / 공격 성공시 40%의 확률로 (턴당 한번씩) 목표가 임의의 질병에 걸림",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "disease_immune", -0.6)
 		self:effectTemporaryValue(eff, "blighted_soil", 40)

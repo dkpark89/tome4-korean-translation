@@ -127,7 +127,7 @@ newEntity{
 		who.combat_physresist = who.combat_physresist + 4
 		who.combat_spellresist = who.combat_spellresist + 4
 		who.combat_mentalresist = who.combat_mentalresist + 4
-		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 못마땅한 효과에대한 저항력을 높여줍니다!")
+		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 못마땅한 효과에대한 면역력을 높여줍니다!")
 		return {used=true, id=true, destroy=true}
 	end}
 }

@@ -1033,7 +1033,7 @@ newEffect{
 	name = "SANCTITY", image = "talents/circle_of_sanctity.png",
 	desc = "Sanctity",
 	kr_display_name = "고결함",
-	long_desc = function(self, eff) return ("침묵 면역") end,
+	long_desc = function(self, eff) return ("침묵 완전 면역") end,
 	type = "magical",
 	subtype = { circle=true },
 	status = "beneficial",

@@ -70,7 +70,7 @@ newTalent{
 		self:attr("disease_immune", -0.2)
 	end,
 	info = function(self, t)
-		return ([[질병 저항력이 %d%% 상승하며, 근접 공격을 할 때마다 %d%% 확률로 대상에게 무작위한 질병을 감염시킵니다.]]):
+		return ([[질병 면역력이 %d%% 상승하며, 근접 공격을 할 때마다 %d%% 확률로 대상에게 무작위한 질병을 감염시킵니다.]]):
 		format(20 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
 	end,
 }
