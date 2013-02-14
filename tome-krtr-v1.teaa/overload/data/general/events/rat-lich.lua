@@ -60,7 +60,7 @@ local changer = function(id)
 			on_melee_hit = {[engine.DamageType.DARKNESS]=12},
 		},
 		max_power = 70, power_regen = 1,
-		use_power = { name = "언데드 생쥐 일으키기", power = 70, use = function(self, who)
+		use_power = { name = "raise undead rats", kr_display_name = "언데드 생쥐 일으키기", power = 70, use = function(self, who)
 			if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 억제되었습니다!") return end
 
 			local NPC = require "mod.class.NPC"

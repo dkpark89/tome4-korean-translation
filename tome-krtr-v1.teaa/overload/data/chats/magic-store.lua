@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 local function recharge(npc, player)
-	player:showEquipInven("재충전할 아이템을 고르시오", function(o) return o.recharge_cost and o.power and o.max_power and o.power < o.max_power end, function(o, inven, item)
+	player:showEquipInven("재충전할 물건을 고르시오", function(o) return o.recharge_cost and o.power and o.max_power and o.power < o.max_power end, function(o, inven, item)
 		local cost = math.ceil(o.recharge_cost * (o.max_power / (o.use_talent and o.use_talent.power or o.use_power.power)))
 		if cost > player.money then require("engine.ui.Dialog"):simplePopup("돈이 부족합니다", "This costs "..cost.." gold.") return true end
 		require("engine.ui.Dialog"):yesnoPopup("재충전합니까?", "This will cost you "..cost.." gold.", function(ok) if ok then

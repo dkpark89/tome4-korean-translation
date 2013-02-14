@@ -48,7 +48,7 @@ newEntity{ define_as = "CELIA_HEART",
 
 	max_power = 75, power_regen = 1,
 	use_sound = "talents/slime",
-	use_power = { name = "셀리아의 영혼 일부를 추출", power = 75, use = function(self, who)
+	use_power = { name = "extract a tiny part of Celia's soul", kr_display_name = "셀리아의 영혼 일부를 추출", power = 75, use = function(self, who)
 		local p = who:isTalentActive(who.T_NECROTIC_AURA)
 		if not p then return end
 		p.souls = util.bound(p.souls + 1, 0, p.souls_max)

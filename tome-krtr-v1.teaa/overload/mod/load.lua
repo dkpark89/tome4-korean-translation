@@ -159,7 +159,7 @@ dofile("/mod/resolvers.lua")
 -- Body parts
 ActorInventory:defineInventory("MAINHAND", "In main hand", true, "대부분의 무기는 편한쪽 손으로 쥡니다.", nil, {equipdoll_back="ui/equipdoll/mainhand_inv.png"})
 ActorInventory:defineInventory("OFFHAND", "In off hand", true, "해당하는 기술이 있는 경우, 반대쪽 손으로는 방패를 잡거나 보조 무기를 듭니다.", nil, {equipdoll_back="ui/equipdoll/offhand_inv.png"})
-ActorInventory:defineInventory("PSIONIC_FOCUS", "Psionic focus", true, "염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 아이템이 주는 혜택을 받기 위해 다른 아이템을 잡을 수도 있습니다.", nil, {equipdoll_back="ui/equipdoll/psionic_inv.png"})
+ActorInventory:defineInventory("PSIONIC_FOCUS", "Psionic focus", true, "염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 물건이 주는 혜택을 받기 위해 다른 물건을 잡을 수도 있습니다.", nil, {equipdoll_back="ui/equipdoll/psionic_inv.png"})
 ActorInventory:defineInventory("FINGER", "On fingers", true, "손가락에는 반지를 끼울 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/ring_inv.png"})
 ActorInventory:defineInventory("NECK", "Around neck", true, "목 주변에 장신구를 걸칠 수 있습니다.", nil, {equipdoll_back="ui/equipdoll/amulet_inv.png"})
 ActorInventory:defineInventory("LITE", "Light source", true, "광원은 세상의 어두운 장소를 볼 수 있도록 도와줍니다.", nil, {equipdoll_back="ui/equipdoll/light_inv.png"})
@@ -174,7 +174,7 @@ ActorInventory:defineInventory("QUIVER", "Quiver", true, "준비된 탄환입니
 ActorInventory:defineInventory("GEM", "Socketed Gems", true, "보석이 들어갈 구멍입니다.", nil, {equipdoll_back="ui/equipdoll/gem_inv.png"})
 ActorInventory:defineInventory("QS_MAINHAND", "Second weapon set: In main hand", false, "두번째 무장: 대부분의 무기는 편한쪽 손으로 쥡니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
 ActorInventory:defineInventory("QS_OFFHAND", "Second weapon set: In off hand", false, "두번째 무장: 반대쪽 손으로는 방패를 잡거나 보조 무기를 듭니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
-ActorInventory:defineInventory("QS_PSIONIC_FOCUS", "Second weapon set: psionic focus", false, "두번째 무장: 염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 아이템이 주는 혜택을 받기 위해 다른 아이템을 잡을 수도 있습니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_PSIONIC_FOCUS", "Second weapon set: psionic focus", false, "두번째 무장: 염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 물건이 주는 혜택을 받기 위해 다른 물건을 잡을 수도 있습니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
 ActorInventory:defineInventory("QS_QUIVER", "Second weapon set: Quiver", false, "두번째 무장: 준비된 탄환입니다.", true)
 ActorInventory.equipdolls = {
 	default = { w=48, h=48, itemframe="ui/equipdoll/itemframe48.png", itemframe_sel="ui/equipdoll/itemframe-sel48.png", ix=3, iy=3, iw=42, ih=42, doll_x=116, doll_y=168+64, list={
@@ -229,7 +229,7 @@ ActorResource:defineResource("Psi", "psi", ActorTalents.T_PSI_POOL, "psi_regen",
 
 ActorStats:defineStat("Strength",	"str", 10, 1, 100, "힘은 케릭터의 물리력을 의미합니다. 운반 가능한 무게와, 근력을 사용하는 무기(장검, 철퇴, 도끼 등)의 피해량, 그리고 물리 내성을 상승시킵니다.")
 ActorStats:defineStat("Dexterity",	"dex", 10, 1, 100, "민첩은 케릭터가 얼마나 재빠르고 반사신경이 좋은지를 나타냅니다. 공격이 성공할 확률과, 적의 공격을 회피할 확률, 그리고 단검이나 채찍같은 가벼운 무기의 피해량을 상승시킵니다.")
-ActorStats:defineStat("Magic",		"mag", 10, 1, 100, "마법은 케릭터가 마력을 얼마나 잘 제어하는지를 나타냅니다. 주문력과 주문 내성, 그리고 다른 마법 아이템의 효과를 상승시킵니다.")
+ActorStats:defineStat("Magic",		"mag", 10, 1, 100, "마법은 케릭터가 마력을 얼마나 잘 제어하는지를 나타냅니다. 주문력과 주문 내성, 그리고 다른 마법 물건의 효과를 상승시킵니다.")
 ActorStats:defineStat("Willpower",	"wil", 10, 1, 100, "의지는 케릭터의 집중력을 나타냅니다. 마나와 체력, 그리고 염력 수치를 늘려주며, 정신력과 주문, 정신 내성을 상승시킵니다.")
 ActorStats:defineStat("Cunning",	"cun", 10, 1, 100, "교활함은 치명적인 공격을 가할 기회와, 정신력, 그리고 정신 내성을 상승시킵니다.")
 ActorStats:defineStat("Constitution",	"con", 10, 1, 100, "체격은 케릭터가 얼마나 적의 공격에 잘 버티는지를 나타냅니다. 최대 생명력과 물리 내성을 상승시킵니다.")

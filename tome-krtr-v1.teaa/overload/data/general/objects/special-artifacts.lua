@@ -68,7 +68,7 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 		vim_on_crit = 6,
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "타락한 로스고로스로 변신 (중독과 질병, 출혈, 혼란에 완전 면역 & 공격시 피해량의 절반만큼 생명력 흡수 & 숨 쉴 필요 없어짐)", power = 30,
+	use_power = { name = "turn into a corrupted losgoroth (poison, disease, cut and confusion immune; converts half damage into life drain; does not requrie breath", kr_display_name = "타락한 로스고로스로 변신 (중독과 질병, 출혈, 혼란에 완전 면역 & 공격시 피해량의 절반만큼 생명력 흡수 & 숨 쉴 필요 없어짐)", power = 30,
 		use = function(self, who)
 			game.logSeen(who, "%s %s 휘둘러, 타락한 로스고로스로 변신합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 			who:setEffect(who.EFF_CORRUPT_LOSGOROTH_FORM, 8, {})

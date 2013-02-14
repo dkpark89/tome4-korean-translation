@@ -31,7 +31,7 @@ function _M:init(source, o, inven, item, on_end)
 	self.inven = inven
 	self.item = item
 	self.o = o
-	engine.ui.Dialog.init(self, "동료에게 아이템 주기", 1, 1)
+	engine.ui.Dialog.init(self, "동료에게 물건 주기", 1, 1)
 
 	local list = List.new{width=400, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 

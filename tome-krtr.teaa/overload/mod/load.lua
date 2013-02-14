@@ -223,7 +223,7 @@ ActorResource:defineResource("Psi", "psi", ActorTalents.T_PSI_POOL, "psi_regen",
 
 ActorStats:defineStat("Strength",	"str", 10, 1, 100, "힘은 케릭터의 물리력을 의미합니다. 운반 가능한 무게와, 근력을 사용하는 무기(장검, 철퇴, 도끼 등)의 피해량, 그리고 물리 내성을 상승시킵니다.")
 ActorStats:defineStat("Dexterity",	"dex", 10, 1, 100, "민첩은 케릭터가 얼마나 재빠르고 반사신경이 좋은지를 나타냅니다. 공격이 성공할 확률과, 적의 공격을 회피할 확률, 그리고 단검이나 채찍같은 가벼운 무기의 피해량을 상승시킵니다.")
-ActorStats:defineStat("Magic",		"mag", 10, 1, 100, "마법은 케릭터가 마력을 얼마나 잘 제어하는지를 나타냅니다. 주문력과 주문 내성, 그리고 다른 마법 아이템의 효과를 상승시킵니다.")
+ActorStats:defineStat("Magic",		"mag", 10, 1, 100, "마법은 케릭터가 마력을 얼마나 잘 제어하는지를 나타냅니다. 주문력과 주문 내성, 그리고 다른 마법 물건의 효과를 상승시킵니다.")
 ActorStats:defineStat("Willpower",	"wil", 10, 1, 100, "의지는 케릭터의 집중력을 나타냅니다. 마나와 체력, 그리고 염력 수치를 늘려주며, 정신력과 주문, 정신 내성을 상승시킵니다.")
 ActorStats:defineStat("Cunning",	"cun", 10, 1, 100, "교활함은 치명적인 공격을 가할 기회와, 정신력, 그리고 정신 내성을 상승시킵니다.")
 ActorStats:defineStat("Constitution",	"con", 10, 1, 100, "체격은 케릭터가 얼마나 적의 공격에 잘 버티는지를 나타냅니다. 최대 생명력과 물리 내성을 상승시킵니다.")

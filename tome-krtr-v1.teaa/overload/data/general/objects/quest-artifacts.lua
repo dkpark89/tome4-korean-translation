@@ -185,7 +185,7 @@ newEntity{ define_as = "ORB_UNDEATH",
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "오브 사용", power = 1,
+	use_power = { name = "use the orb", kr_display_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -216,7 +216,7 @@ newEntity{ define_as = "ORB_DRAGON",
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "오브 사용", power = 1,
+	use_power = { name = "use the orb", kr_display_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -247,7 +247,7 @@ newEntity{ define_as = "ORB_ELEMENTS",
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "오브 사용", power = 1,
+	use_power = { name = "use the orb", kr_display_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -278,7 +278,7 @@ newEntity{ define_as = "ORB_DESTRUCTION",
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "오브 사용", power = 1,
+	use_power = { name = "use the orb", kr_display_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -309,7 +309,7 @@ newEntity{ define_as = "ORB_SCRYING",
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "오브 사용", power = 1,
+	use_power = { name = "use the orb", kr_display_name = "오브 사용", power = 1,
 		use = function(self, who)
 			local Chat = require("engine.Chat")
 			local chat = Chat.new("elisa-orb-scrying", {name="Elisa the Scryer", kr_display_name="점술사 엘리사"}, who, {version="elisa"})
@@ -336,7 +336,7 @@ newEntity{ base = "BASE_ROD",
 	auto_hotkey = 1,
 
 	max_power = 400, power_regen = 1,
-	use_power = { name = "사용자를 세계지도 상으로 되돌림", power = 202,
+	use_power = { name = "recall the user to the worldmap", kr_display_name = "사용자를 세계지도 상으로 되돌림", power = 202,
 		use = function(self, who)
 			if who:hasEffect(who.EFF_RECALL) then
 				who:removeEffect(who.EFF_RECALL)
@@ -400,7 +400,7 @@ newEntity{ base = "BASE_ROD",
 	},
 
 	max_power = 1000, power_regen = 1,
-	use_power = { name = "상자 속에 있는 모든 물건들을 변화 (층이 바뀔 때 자동으로 수행됨)", power = 0,
+	use_power = { name = "transmogrify all the items in your chest at once(also done automatically when you change level)", kr_display_name = "상자 속에 있는 모든 물건들을 변화 (층이 바뀔 때 자동으로 수행됨)", power = 0,
 		use = function(self, who)
 			local inven = who:getInven("INVEN")
 			local nb = 0

@@ -2686,7 +2686,7 @@ function _M:checkEncumbrance()
 	-- We are pinned to the ground if we carry too much
 	if not self.encumbered and enc > max then
 		game.logPlayer(self, "#FF0000#가진 것이 너무 많아, 무겁습니다!")
-		game.logPlayer(self, "#FF0000#아이템을 좀 버리세요.")
+		game.logPlayer(self, "#FF0000#물건을 좀 버리세요.")
 		self.encumbered = self:addTemporaryValue("never_move", 1)
 
 		if self.x and self.y then

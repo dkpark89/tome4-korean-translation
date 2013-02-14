@@ -385,7 +385,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 			krAdd = "" --@@ 한글 이름 초기 작업
 			
 			for ie, ego in ipairs(egos_list) do
-				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
+				--@@ 아래부분에서 물건 이름 조합 - 통채 kr_display_name도 조합하도록 변경
 				print("addon", ego.__CLASSNAME, ego.name, getmetatable(ego))
 				ego = ego:clone()
 				local newname
@@ -488,7 +488,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 			krAdd = "" --@@ 한글 이름 초기 작업
 			
 			for ie, ego in ipairs(egos_list) do
-				--@@ 아래부분에서 아이템 이름 조합 - 통채 kr_display_name도 조합하도록 변경
+				--@@ 아래부분에서 물건 이름 조합 - 통채 kr_display_name도 조합하도록 변경
 				print("ego", ego.__CLASSNAME, ego.name, getmetatable(ego))
 				ego = ego:clone()
 				local newname

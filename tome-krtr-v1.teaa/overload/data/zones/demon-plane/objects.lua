@@ -44,7 +44,7 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	},
 
 	max_power = 40, power_regen = 1,
-	use_power = { name = "임의의 장소로 단거리 순간이동", power = 22, use = function(self, who)
+	use_power = { name = "blink to a nearby random location", kr_display_name = "임의의 장소로 단거리 순간이동", power = 22, use = function(self, who)
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, 10 + who:getMag(5))
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
