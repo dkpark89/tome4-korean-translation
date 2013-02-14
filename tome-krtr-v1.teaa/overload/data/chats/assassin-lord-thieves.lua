@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[I ain't no chatting! Speak to the boss!]],
+	text = [[나에게 말 걸지 말고, 가서 보스랑 말해!]],
 	answers = {
-		{"[leave]"},
+		{"[간다]"},
 	}
 }
 

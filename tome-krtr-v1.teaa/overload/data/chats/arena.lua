@@ -171,27 +171,27 @@ Pursue glory with all your might, @playerdescriptor.race@!!
 }
 
 newChat{ id="master-defeat",
-text = [[#LIGHT_GREEN#*After a glorious battle, the Master falls!*
-Hah...haha. You did it, @playerdescriptor.race@...
-#LIGHT_GREEN#*The master of the arena, defeated, stands up with a wide smile.
-#LIGHT_GREEN#Feeling the master's approval, you pick up its weapon, now lying
-#LIGHT_GREEN#in the blood-stained sand.*
-Everyone! We got a champion today!!
-#LIGHT_GREEN#*The audience rages and shouts your name repeatedly*
-Congratulations, @playerdescriptor.race@. You are the Master now.
-Now you shall take your rightful place as the champion.
-Just remember...like me, you shall fall one day...
-But meanwhile, this is your place! Welcome to paradise, @playerdescriptor.race@!
-#LIGHT_GREEN#*You see several sponsors and military recruiters approach the
-#LIGHT_GREEN#now defeated master, offering deals and good positions in the army.
-#LIGHT_GREEN#You smile, victorious, knowing your life will be glorious from now on.
-#LIGHT_GREEN#Because even if you are defeated in the future...
-#LIGHT_GREEN#You can always sell your image and live large.
+text = [[#LIGHT_GREEN#*영광스러운 전투의 이후, 승리자가 쓰러졌습니다!*
+아...하하. 네가 해냈구나, @playerdescriptor.race@...
+#LIGHT_GREEN#*아레나의 승리자가, 비록 패배했지만, 밝은 미소를 지으며 일어납니다.
+#LIGHT_GREEN#승리자의 허락이 떨어짐을 느끼며, 당신은 무기를 집어들고, 이젠 피로 물든
+#LIGHT_GREEN#모래 위에 쓰러집니다.*
+모두들! 오늘 우승자가 나왔습니다!!
+#LIGHT_GREEN#*관중들은 환호하며 당신의 이름을 계속해서 외칩니다*
+축하한다, @playerdescriptor.race@. 너는 이제 승리자가 됐다..
+이제부터 너는 우승자로써 너만의 공정한 자리를 차지하게 되겠지..
+이것만 기억해...나처럼, 너도 언젠가는 쓰러지게 된다...
+하지만 그때까진, 여긴 네 꺼야! 파라다이스에 온 걸 환영한다, @playerdescriptor.race@!
+#LIGHT_GREEN#*당신은 여러 스폰서와 그리고 군의 스카우터들이 당신이 쓰러뜨린
+#LIGHT_GREEN#마스터에게 다가와서, 여러가지 거래와 그리고 군에서의 좋은 자리를 제안하는 걸 봅니다.
+#LIGHT_GREEN#당신은 미소짓습니다, 인생의 승리자로써, 이제부턴 당신 자신의 인생도 영광스럽다는 걸 알고 있으니까요.
+#LIGHT_GREEN#왜냐하면 만약 당신이 미래에 패배하게 된다고 해도...
+#LIGHT_GREEN#당신은 언제나 당신의 이미지를 팔며 융성하게 지낼 수 있기 떄문입니다.
 
 #YELLOW#축하합니다!
-#YELLOW#You are the new master of the arena! You are great and epic!
-#YELLOW#You shall remain as the new master until someone challenges you!
-#YELLOW#Next time you play, you shall battle this new champion instead!
+#YELLOW#당신은 이제 아레나의 승리자가 되었습니다! 당신은 위대하고 매우 멋집니다!
+#YELLOW#당신은 다른 자가 당신에게 도전하기 전까지는 계속 승리자로 남을 것입니다!
+#YELLOW#다음에 플레이 하실 땐, 당신은 이 새로운 승리자와 싸우게 될 것입니다!
 ]],
 	answers = {
 		{"돈과!! 그리고!! 영광을!!", action=function(npc, player) player:hasQuest("arena"):win() end},
