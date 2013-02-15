@@ -644,7 +644,7 @@ newEffect{
 	name = "ETERNAL_WRATH", image = "talents/thaloren_wrath.png",
 	desc = "Wrath of the Eternals",
 	kr_display_name = "영원의 분노",
-	long_desc = function(self, eff) return ("내면의 힘: 공격시 피해량 +%d%% / 모든 저항 +%d%%"):format(eff.power, eff.power) end,
+	long_desc = function(self, eff) return ("내면의 힘: 공격시 피해량 +%d%% / 전체 저항 +%d%%"):format(eff.power, eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -665,7 +665,7 @@ newEffect{
 	name = "SHELL_SHIELD", image = "talents/shell_shield.png",
 	desc = "Shell Shield",
 	kr_display_name = "등껍질 보호막",
-	long_desc = function(self, eff) return ("등껍질: 모든 저항 +%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("등껍질: 전체 저항 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -684,7 +684,7 @@ newEffect{
 	name = "PAIN_SUPPRESSION", image = "talents/infusion__wild.png",
 	desc = "Pain Suppression",
 	kr_display_name = "고통 억제",
-	long_desc = function(self, eff) return ("고통 무시: 모든 저항 +%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("고통 무시: 전체 저항 +%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
@@ -1343,7 +1343,7 @@ newEffect{
 		elseif eff.type == DamageType.COLD then return ("방어도 +%d"):format(3 + eff.power *2)
 		elseif eff.type == DamageType.LIGHTNING then return ("모든 능력치 +%d"):format(math.floor(eff.power))
 		elseif eff.type == DamageType.ACID then return ("생명력 재생 +%0.2f%%"):format(5 + eff.power * 2)
-		elseif eff.type == DamageType.NATURE then return ("모든 저항 +%d%%"):format(5 + eff.power * 1.4)
+		elseif eff.type == DamageType.NATURE then return ("전체 저항 +%d%%"):format(5 + eff.power * 1.4)
 		end
 	end,
 	type = "physical",

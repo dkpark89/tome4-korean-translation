@@ -131,7 +131,7 @@ function _M:trigger(x, y, who)
 	else
 		local tname = who.kr_display_name or who.name --@@ 134~148 사용 : 반복사용으로 변수로 뺌
 		local str =self.message
-		--@@ 135~148 : 함정 메세지에 조사를 추가할 수 있으도록 수정
+		--@@ 135~150 : 함정 메세지에 조사를 추가할 수 있으도록 수정
 		str = str:gsub("@target@", tname)
 		str = str:gsub("@Target@", tname:capitalize())
 		str = str:gsub("@target1@", tname:addJosa("가"))
@@ -146,6 +146,8 @@ function _M:trigger(x, y, who)
 		str = str:gsub("@Target5@", tname:capitalize():addJosa("다"))
 		str = str:gsub("@target6@", tname:addJosa("과"))
 		str = str:gsub("@Target6@", tname:capitalize():addJosa("과"))
+		str = str:gsub("@target7@", tname:addJosa("나"))
+		str = str:gsub("@Target7@", tname:capitalize():addJosa("나"))
 		game.logSeen(who, "%s", str)
 	end
 	local known, del = false, false

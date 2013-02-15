@@ -5144,7 +5144,7 @@ newEntity{ base = "BASE_GLOVES", --Thanks SageAcrin /AND/ Edge2054!
 	unique = true,
 	name = "Crystle's Astral Bindings", --Yes, CRYSTLE. It's a name.
 	unided_name = "crystalline gloves", image = "object/artifact/crystles_astral_bindings.png",
-	kr_display_name = "크리스탈의 별빛 붕대", kr_unided_name = "수정같이 맑은 장갑",
+	kr_display_name = "크리스틸의 별빛 붕대", kr_unided_name = "수정같이 맑은 장갑",
 	desc = [[잊혀진 아노리실이 가지고 있던 것으로, 이 다른 세계에서 온 것 같은 붕대 표면에는 수많은 별이 반사되어 보입니다.]],
 	level_range = {8, 20},
 	rarity = 225,

@@ -326,7 +326,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[이제는 나무의 일부나 마찬가지인 탈로레 족은, 각종 오염에 대한 저항력을 가지고 있습니다.
-		질병 면역력이 %d%% / 황폐화 저항력이 %d%% / 모든 저항력이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 4, self:getTalentLevelRaw(t) * 2)
+		질병 면역력이 %d%% / 황폐화 저항력이 %d%% / 전체 저항력이 %d%% 상승합니다.]]):format(self:getTalentLevelRaw(t) * 20, self:getTalentLevelRaw(t) * 4, self:getTalentLevelRaw(t) * 2)
 	end,
 }
 
@@ -401,7 +401,7 @@ newTalent{
 	info = function(self, t)
 		return ([[언제나 자연과 함께 하여, 어느 곳에서라도 나무들을 불러낼 수 있게 됩니다.
 		정예 등급의 아군 나무 정령 2 마리를 8 턴 동안 소환합니다.
-		나무 정령의 모든 저항력은 시전자의 황폐화 저항력과 같으며, 적들을 기절시키고 뒤로 밀어내며 도발합니다.
+		나무 정령의 전체 저항력은 시전자의 황폐화 저항력과 같으며, 적들을 기절시키고 뒤로 밀어내며 도발합니다.
 		나무 정령의 위력은 의지 능력치의 영향을 받아 증가합니다.]]):format()
 	end,
 }

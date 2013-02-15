@@ -132,7 +132,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 저주하여, 대상의 모든 저항력을 7 턴 동안 %d%% 감소시킵니다.
+		return ([[대상을 저주하여, 대상의 전체 저항력을 7 턴 동안 %d%% 감소시킵니다.
 		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 10, 40))
 	end,
 }
