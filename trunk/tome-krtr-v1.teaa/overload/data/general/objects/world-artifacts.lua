@@ -95,7 +95,7 @@ newEntity{ base = "BASE_STAFF",
 		},
 	},
 	max_power = 60, power_regen = 1,
-	use_power = { name = "질병 치료", power = 10,
+	use_power = { name = "cure diseases", kr_display_name = "질병 치료", power = 10,
 		use = function(self, who)
 			local target = who
 			local effs = {}
@@ -211,7 +211,7 @@ newEntity{ base = "BASE_RING",
 	material_level = 2,
 
 	max_power = 60, power_regen = 1,
-	use_power = { name = "해일 소환", power = 60,
+	use_power = { name = "summon a tidal wave", kr_display_name = "해일 소환", power = 60,
 		use = function(self, who)
 			local duration = 7
 			local radius = 1
@@ -293,7 +293,7 @@ newEntity{ base = "BASE_AMULET",
 	unique = true,
 	name = "Spellblaze Echos", color = colors.DARK_GREY, image = "object/artifact/amulet_spellblaze_echoes.png",
 	unided_name = "deep black amulet",
-	kr_display_name = "마법폭풍의 메아리", kr_unided_name = "칠흑같이 새까만 목걸이",
+	kr_display_name = "마법폭발의 메아리", kr_unided_name = "칠흑같이 새까만 목걸이",
 	desc = [[이 고대의 부적은 아직도 마법폭발이 일으킨 파괴의 메아리를 담고 있습니다.]],
 	level_range = {30, 39},
 	rarity = 290,
@@ -308,7 +308,7 @@ newEntity{ base = "BASE_AMULET",
 		spellsurge_on_crit = 15,
 	},
 	max_power = 60, power_regen = 1,
-	use_power = { name = "파괴의 통곡 방출", power = 60,
+	use_power = { name = "unleash a destructive wail", kr_display_name = "파괴의 통곡 방출", power = 60,
 		use = function(self, who)
 			who:project({type="ball", range=0, selffire=false, radius=3}, who.x, who.y, engine.DamageType.DIG, 1)
 			who:project({type="ball", range=0, selffire=false, radius=3}, who.x, who.y, engine.DamageType.DIG, 1)
@@ -427,7 +427,7 @@ newEntity{ base = "BASE_LITE",
 	cost = 200,
 
 	max_power = 15, power_regen = 1,
-	use_power = { name = "주변 밝히기", power = 10,
+	use_power = { name = "call light", kr_display_name = "주변 밝히기", power = 10,
 		use = function(self, who)
 			who:project({type="ball", range=0, radius=20}, who.x, who.y, engine.DamageType.LITE, 100)
 			game.logSeen(who, "%s %s 휘두르자, 주변이 밝게 빛납니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
@@ -459,7 +459,7 @@ newEntity{ base = "BASE_GEM",
 	cost = 400,
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "주변 지형 감지", power = 30,
+	use_power = { name = "map surroundings", kr_display_name = "주변 지형 감지", power = 30,
 		use = function(self, who)
 			who:magicMap(20)
 			game.logSeen(who, "%s %s 휘두르자, 모든 방향으로 빛이 뿜어져 나갑니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
@@ -568,7 +568,7 @@ newEntity{ base = "BASE_LONGBOW",
 	power_source = {nature=true},
 	name = "Thaloren-Tree Longbow", unided_name = "glowing elven-wood longbow", unique=true, image = "object/artifact/thaloren_tree_longbow.png",
 	kr_display_name = "탈로레 나무 활", kr_unided_name = "빛나는 엘프나무 활",
-	desc = [[마법폭풍의 여파로 인해, 탈로레는 그들의 숲을 적과 불로부터 보호해야 했습니다. 엘프들은 노력했지만, 많은 나무가 죽었습니다. 이제 그들의 나무는 활로 가공되어, 어둠에 맞서기 위한 무기가 되었습니다.]],
+	desc = [[마법폭발의 여파로 인해, 탈로레는 그들의 숲을 적과 불로부터 보호해야 했습니다. 엘프들은 노력했지만, 많은 나무가 죽었습니다. 이제 그들의 나무는 활로 가공되어, 어둠에 맞서기 위한 무기가 되었습니다.]],
 	level_range = {40, 50},
 	rarity = 200,
 	require = { stat = { dex=36 }, },
@@ -739,7 +739,7 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	},
 
 	max_power = 50, power_regen = 1,
-	use_power = { name = "속도 증가", power = 50,
+	use_power = { name = "boost speed", kr_display_name = "속도 증가", power = 50,
 		use = function(self, who)
 			who:setEffect(who.EFF_SPEED, 8, {power=0.20 + who:getCun() / 200})
 			return {id=true, used=true}
@@ -892,7 +892,7 @@ newEntity{
 		lite = -2,
 	},
 	max_power = 100, power_regen = 1,
-	use_power = { name = "거미 소환", power = 80, use = function(self, who)
+	use_power = { name = "summon spiders", kr_display_name = "거미 소환", power = 80, use = function(self, who)
 		if not who:canBe("summon") then game.logPlayer(who, "소환 할 수 없습니다. 억압된 상태입니다!") return end
 
 		local NPC = require "mod.class.NPC"
@@ -1192,7 +1192,7 @@ newEntity{ base = "BASE_MACE",
 	name = "Nature's Vengeance", color = colors.BROWN, image = "object/artifact/mace_natures_vengeance.png",
 	unided_name = "thick wooden mace",
 	kr_display_name = "자연의 복수", kr_unided_name = "두꺼운 나무 철퇴",
-	desc = [[이 두꺼운 철퇴는, 마법사냥꾼 보를란이 마법폭풍으로 인해 뽑혀진 고대의 너도밤나무로 만들어 사용하던 것입니다. 많은 마법사와 마녀가 이 무기에 의해 쓰러졌으며, 이 무기는 자연에 범한 범죄를 처단하고 정의를 가져오기 위한 도구로 사용되었습니다.]],
+	desc = [[이 두꺼운 철퇴는, 마법사냥꾼 보를란이 마법폭발로 인해 뽑혀진 고대의 너도밤나무로 만들어 사용하던 것입니다. 많은 마법사와 마녀가 이 무기에 의해 쓰러졌으며, 이 무기는 자연에 범한 범죄를 처단하고 정의를 가져오기 위한 도구로 사용되었습니다.]],
 	level_range = {20, 34},
 	rarity = 340,
 	require = { stat = { str=42 } },
@@ -1263,7 +1263,7 @@ newEntity{ base = "BASE_HELM", define_as = "HELM_KROLTAR",
 		self:specialSetAdd({"wielder","combat_spellresist"}, 15)
 		self:specialSetAdd({"wielder","combat_mentalresist"}, 15)
 		self:specialSetAdd({"wielder","combat_physresist"}, 15)
-		game.logPlayer(who, "#GOLD#크롤타르의 투구외 비늘 갑옷을 착용하자,그것들이 연기와 함께 불꽃을 내뿜기 시작합니다.")
+		game.logPlayer(who, "#GOLD#크롤타르의 투구와 비늘 갑옷을 착용하자, 그것들이 연기와 함께 불꽃을 내뿜기 시작합니다.")
 	end,
 	on_set_broken = function(self, who)
 		game.logPlayer(who, "#GOLD#연기와 불꽃이 사라집니다.")
@@ -1562,7 +1562,7 @@ newEntity{ base = "BASE_CLOTH_ARMOR",
 	name = "Firewalker", color = colors.RED, image = "object/artifact/robe_firewalker.png",
 	unided_name = "blazing robe",
 	kr_display_name = "불 속을 걷는 자", kr_unided_name = "불타는 로브",
-	desc = [[이 불붙은 로브는 정신 나간 화염술사, 할콧이 입던 것입니다. 황혼의 시대 말기에 그는 많은 도시를 위협했으며, 마법폭풍의 피해로부터 회복하려 노력하는 마을 사람들을 불태우고 약탈했습니다. 결국 그는 지구르 추종자들에게 잡혀, 먼저 혀를 잘리고, 머리도 잘린 다음, 온 몸이 갈기갈기 찢겨졌습니다. 그 머리는 얼음덩이 속에 넣은 채로 주변 마을들을 순회하여, 지역 주민들의 환호 속에서 행진을 벌였습니다. 단지 그 로브만이, 할콧의 불꽃을 간직한 채로 남아있습니다.]],
+	desc = [[이 불붙은 로브는 정신 나간 화염술사, 할콧이 입던 것입니다. 황혼의 시대 말기에 그는 많은 도시를 위협했으며, 마법폭발의 피해로부터 회복하려 노력하는 마을 사람들을 불태우고 약탈했습니다. 결국 그는 지구르 추종자들에게 잡혀, 먼저 혀를 잘리고, 머리도 잘린 다음, 온 몸이 갈기갈기 찢겨졌습니다. 그 머리는 얼음덩이 속에 넣은 채로 주변 마을들을 순회하여, 지역 주민들의 환호 속에서 행진을 벌였습니다. 단지 그 로브만이, 할콧의 불꽃을 간직한 채로 남아있습니다.]],
 	level_range = {20, 30},
 	rarity = 300,
 	cost = 280,
@@ -1664,7 +1664,7 @@ newEntity{ base = "BASE_GEM", define_as = "GEM_TELOS",
 	},
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "지팡이와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
+	use_power = { name = "combine with a staff", kr_display_name = "지팡이와 결합", power = 1, use = function(self, who, gem_inven, gem_item)
 		who:showInventory("어느 지팡이와 결합시킵니까?", who:getInven("INVEN"), function(o) return o.type == "weapon" and o.subtype == "staff" and not o.egoed and not o.unique end, function(o, item)
 			local voice = game.zone:makeEntityByName(game.level, "object", "VOICE_TELOS")
 			if voice then
@@ -1737,7 +1737,7 @@ newEntity{ base = "BASE_ROD",
 	material_level = 3,
 
 	max_power = 75, power_regen = 1,
-	use_power = { name = "화염을 원뿔 영역으로 발사", power = 50,
+	use_power = { name = "shoot a cone of fire", kr_display_name = "화염을 원뿔 영역으로 발사", power = 50,
 		use = function(self, who)
 			local tg = {type="cone", range=0, radius=5}
 			local x, y = who:getTarget(tg)
@@ -1894,7 +1894,7 @@ newEntity{ base = "BASE_LEATHER_BELT",
 	name = "Neira's Memory", image = "object/artifact/neira_memory.png",
 	unided_name = "crackling belt",
 	kr_display_name = "네이라의 기억", kr_unided_name = "파직거리는 허리띠",
-	desc = [[오래 전에 리나니일이 어렸던 시절에 착용하던 허리띠로, 마법폭풍으로 인해 화염의 비가 내릴때 그녀를 보호한 힘이 들어있습니다. 하지만 그녀에게는 자매 네이라까지 보호해줄 능력이 없었습니다...]],
+	desc = [[오래 전에 리나니일이 어렸던 시절에 착용하던 허리띠로, 마법폭발로 인해 화염의 비가 내릴때 그녀를 보호한 힘이 들어있습니다. 하지만 그녀에게는 자매 네이라까지 보호해줄 능력이 없었습니다...]],
 	color = colors.GOLD,
 	level_range = {20, 30},
 	rarity = 200,
@@ -1907,7 +1907,7 @@ newEntity{ base = "BASE_LEATHER_BELT",
 		mana_on_crit = 3,
 	},
 	max_power = 20, power_regen = 1,
-	use_power = { name = "개인 보호막 발동", power = 20,
+	use_power = { name = "generate a personnal shield", kr_display_name = "개인 보호막 발동", power = 20,
 		use = function(self, who)
 			who:setEffect(who.EFF_DAMAGE_SHIELD, 10, {power=100 + who:getMag(250)})
 			game:playSoundNear(who, "talents/arcane")
@@ -2754,7 +2754,7 @@ newEntity{ base = "BASE_SHIELD",
 		disease_immune = 0.6,
 	},
 	max_power = 40, power_regen = 1,
-	use_power = { name = "질병 정화 및 면역력 상승", power = 24,
+	use_power = { name = "purge diseases and increase your resistances", kr_display_name = "질병 정화 및 면역력 상승", power = 24,
 	use = function(self, who)
 		local target = who
 		local effs = {}
@@ -3444,7 +3444,7 @@ newEntity{ base = "BASE_WHIP",
 		combat_atk = 7,
 	},
 	max_power = 10, power_regen = 1,
-	use_power = { name = "주변 3 칸 반경의 적 하나를 공격하여, 전기 폭발 발생", power = 10,
+	use_power = { name = "strike an enemy in range 3, releasing a burst of lightning", kr_display_name = "주변 3 칸 반경의 적 하나를 공격하여, 전기 폭발 발생", power = 10,
 		use = function(self, who)
 			local dam = 20 + who:getMag()/2 + who:getDex()/3
 			local tg = {type="bolt", range=3}
@@ -3491,7 +3491,7 @@ newEntity{ base = "BASE_WHIP",
 		combat_mindcrit = 3,
 	},
 	max_power = 10, power_regen = 1,
-	use_power = { name = "직선 상의 모든 적을 공격", power = 10,
+	use_power = { name = "strike all targets in a line", kr_display_name = "직선 상의 모든 적을 공격", power = 10,
 		use = function(self, who)
 			local tg = {type="beam", range=4}
 			local x, y = who:getTarget(tg)
@@ -3541,7 +3541,7 @@ newEntity{ base = "BASE_GREATSWORD",
 		inc_stats = { [Stats.STAT_STR] = 5, [Stats.STAT_CUN] = 3 },
 	},
 	max_power = 25, power_regen = 1,
-	use_power = {name="몸에 붙은 불을 촉진시켜, 총 화상 피해의 125% 만큼 즉시 피해 유발", power = 25, --wherein Pure copies Catalepsy
+	use_power = { name="accelerate burns, instantly inflicting 125% of all burn damage", kr_display_name="몸에 붙은 불을 촉진시켜, 총 화상 피해의 125% 만큼 즉시 피해 유발", power = 25, --wherein Pure copies Catalepsy
 	use=function(combat, who, target)
 		local tg = {type="ball", range=5, radius=1, selffire=false}
 		local x, y = who:getTarget(tg)
@@ -3595,7 +3595,7 @@ newEntity{ base = "BASE_CLOTH_ARMOR",
 		resists={[DamageType.PHYSICAL] = 12, [DamageType.ACID] = 15,},
 	},
 	max_power = 10, power_regen = 1,
-	use_power = { name = "동역학적 에너지 발사", power = 10,
+	use_power = { name = "send out a beam of kinetic energy", kr_display_name = "동역학적 에너지 발사", power = 10,
 		use = function(self, who)
 			local dam = 15 + who:getWil()/3 + who:getCun()/3
 			local tg = {type="beam", range=5}
@@ -4031,7 +4031,8 @@ newEntity{ base = "BASE_GAUNTLETS",
 				talent_on_hit = { [Talents.T_DESTROY_MAGIC] = {level=5, chance=100} },
 			},
 		}
-		self.use_power.name = "전방 5 칸 이내 원뿔 영역의 마법 파괴"
+		self.use_power.name = "destroy magic in a radius 5 cone"
+		self.use_power.kr_display_name = "5칸 이내 원뿔영역의 마법 파괴"
 		self.use_power.power = 100
 		self.use_power.use= function(self,who)
 			local tg = {type="cone", range=0, radius=5}
@@ -4080,7 +4081,7 @@ newEntity{ base = "BASE_GAUNTLETS",
 		who:onWear(self, true)
 	end,
 	max_power = 150, power_regen = 1,
-	use_power = { name = "(전투장갑보다 높은 단계의) 마법적 아티팩트 파괴", power = 1, use = function(self, who, obj_inven, obj_item)
+	use_power = { name = "destroy an arcane item (of a higher tier than the gauntlets)", kr_display_name = "(전투장갑보다 높은 단계의) 마법적 아티팩트 파괴", power = 1, use = function(self, who, obj_inven, obj_item)
 		local d = who:showInventory("어느 물건을 부숩니까?", who:getInven("INVEN"), function(o) return o.unique and o.power_source and o.power_source.arcane and o.power_source.arcane and o.power_source.arcane == true and o.material_level and o.material_level > self.material_level end, function(o, item, inven)
 			if o.material_level <= self.material_level then return end
 			self.material_level=o.material_level
@@ -4142,7 +4143,7 @@ newEntity{ base = "BASE_AMULET", --Thanks Grayswandir!
 		on_melee_hit = {[DamageType.RANDOM_BLIND]=10},
 	},
 	max_power = 24, power_regen = 1,
-	use_power = { name = "반사 보호막 생성 (반사율 50%)", power = 24,
+	use_power = { name = "create a reflective shield (50% reflection rate)", kr_display_name = "반사 보호막 생성 (반사율 50%)", power = 24,
 		use = function(self, who)
 			who:setEffect(who.EFF_DAMAGE_SHIELD, 5, {power=50 + who:getMag(100), reflect=50})
 			game:playSoundNear(who, "talents/arcane")
@@ -4209,7 +4210,7 @@ newEntity{ base = "BASE_SHIELD",
 		inc_stats = { [Stats.STAT_WIL] = 5, [Stats.STAT_CUN] = 3, },
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "빛줄기 발사", power = 12,
+	use_power = { name = "send out a beam of light", kr_display_name = "빛줄기 발사", power = 12,
 		use = function(self, who)
 			local dam = 20 + who:getWil()/3 + who:getCun()/3
 			local tg = {type="beam", range=7}
@@ -4379,7 +4380,7 @@ newEntity{ base = "BASE_LEATHER_BOOT", --Thanks Grayswandir!
 		},
 	},
 	max_power = 24, power_regen = 1,
-	use_power = { name = "근거리 순간이동 (최대 6 칸, 오차 반경 2 칸)", power = 24,
+	use_power = { name = "phase door in range 6, radius 2", kr_display_name = "근거리 순간이동 (최대 6 칸, 오차 반경 2 칸)", power = 24,
 		use = function(self, who)
 			local tg = {type="ball", nolock=true, pass_terrain=true, nowarning=true, range=6, radius=2, requires_knowledge=false}
 			x, y = who:getTarget(tg)
@@ -4577,7 +4578,7 @@ newEntity{ base = "BASE_LITE", --Thanks Frumple!
 		}
 	},
 	max_power = 10, power_regen = 1,
-	use_power = { name = "흡수된 어둠 방출", power = 10,
+	use_power = { name = "release the absorbed darkness", kr_display_name = "흡수된 어둠 방출", power = 10,
 		use = function(self, who)
 			if self.max_charge then self.charge=300 end -- Power boost if you fully charged :)
 			local dam = (15 + who:combatMindpower()*0.8) * 0.5+math.floor(self.charge/50) -- Damage is based on charge
@@ -4652,7 +4653,7 @@ newEntity{ base = "BASE_LITE", --Thanks Grayswandir!
 		},
 	},
 	max_power = 20, power_regen = 1,
-	use_power = { name = "윌 오 위습 생성", power = 20,
+	use_power = { name = "release a will o' the wisp", kr_display_name = "윌 오 위습 생성", power = 20,
 		use = function(self, who)
 			local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
 			local NPC = require "mod.class.NPC"
@@ -4729,7 +4730,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 		combat_mindpower=8,
 	},
 		max_power = 35, power_regen = 1,
-	use_power = { name = "반마법의 기둥 소환", power = 35,
+	use_power = { name = "call an antimagic pillar", kr_display_name = "반마법의 기둥 소환", power = 35,
 		use = function(self, who)
 			local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
 			if not x then
@@ -4856,7 +4857,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 		combat_spellpower=3,
 	},
 	max_power = 40, power_regen = 1,
-	use_power = { name = "공허의 힘을 모아 발사", power = 20,
+	use_power = { name = "release a burst of void energy", kr_display_name = "공허의 힘을 모아 발사", power = 20,
 		use = function(self, who)
 			local tg = {type="ball", range=5, radius=2}
 			local x, y = who:getTarget(tg)
@@ -5143,7 +5144,7 @@ newEntity{ base = "BASE_GLOVES", --Thanks SageAcrin /AND/ Edge2054!
 	unique = true,
 	name = "Crystle's Astral Bindings", --Yes, CRYSTLE. It's a name.
 	unided_name = "crystalline gloves", image = "object/artifact/crystles_astral_bindings.png",
-	kr_display_name = "크리스틸의 별빛 붕대", kr_unided_name = "수정같이 맑은 장갑",
+	kr_display_name = "크리스탈의 별빛 붕대", kr_unided_name = "수정같이 맑은 장갑",
 	desc = [[잊혀진 아노리실이 가지고 있던 것으로, 이 다른 세계에서 온 것 같은 붕대 표면에는 수많은 별이 반사되어 보입니다.]],
 	level_range = {8, 20},
 	rarity = 225,
@@ -5367,7 +5368,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR", --Thanks SageAcrin!
  		},
 	},
 	max_power = 50, power_regen = 1,
-	use_power = { name = "10 턴 동안 투명화", power = 50,
+	use_power = { name = "turn yourself invisible for 10 turns", kr_display_name = "10 턴 동안 투명화", power = 50,
 		use = function(self, who)
 			who:setEffect(who.EFF_INVISIBILITY, 10, {power=10+who:getCun()/6, penalty=0.5, regen=true})
 			return {id=true, used=true}
@@ -5439,7 +5440,7 @@ newEntity{ base = "BASE_TOOL_MISC", --Thanks Alex!
 		combat_mindspeed=0,
 	},
 	max_power = 20, power_regen = 1,
-	use_power = { name = "모래시계 뒤집기", power = 20,
+	use_power = { name = "flip the hourglass", kr_display_name = "모래시계 뒤집기", power = 20,
 		use = function(self, who)
 			self.direction = self.direction * -1
 			self.finished = false

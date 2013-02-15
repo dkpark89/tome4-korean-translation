@@ -51,7 +51,7 @@ newEntity{ base = "BASE_SCROLL", define_as = "JEWELER_SUMMON", subtype="tome", n
 	fire_proof = true,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "달의 호수 중심으로 귀금속 상인 리미르를 소환", power = 1,
+	use_power = { name = "summon Limmir the jeweler at the center of the lake of the moon", kr_display_name = "달의 호수 중심으로 귀금속 상인 리미르를 소환", power = 1,
 		use = function(self, who) who:hasQuest("master-jeweler"):summon_limmir(who) return {id=true, used=true} end
 	},
 }
@@ -352,7 +352,7 @@ newEntity{ base = "BASE_LONGSWORD",
 		lite=2,
 	},
 	max_power = 35, power_regen = 1,
-	use_power = { name = "여명을 기원", power = 35,
+	use_power = { name = "invoke dawn", kr_display_name = "여명을 기원", power = 35,
 		use = function(self, who)
 			local radius = 4
 			local dam = (75 + who:getMag()*2)
@@ -468,7 +468,7 @@ newEntity{ base = "BASE_KNIFE", define_as = "KINETIC_SPIKE",
 		resists_pen = {[DamageType.PHYSICAL] = 30},
 	},
 	max_power = 10, power_regen = 1,
-	use_power = { name = "무기의 150% 피해를 주는 동역학적 힘의 화살 발사", power = 10,
+	use_power = { name = "fires a bolt of kinetic force, doing 150% weapon damage", kr_display_name = "무기의 150% 피해를 주는 동역학적 힘의 화살 발사", power = 10,
 		use = function(self, who)
 			local tg = {type="bolt", range=8}
 			local x, y = who:getTarget(tg)
