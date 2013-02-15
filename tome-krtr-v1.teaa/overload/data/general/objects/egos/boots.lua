@@ -178,7 +178,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of void walking", suffix=true, instant_resolve=true,
-	kr_display_name = "공허를 걷는자의 ",
+	kr_display_name = "공허를 걷는 자의 ",
 	keywords = {void=true},
 	level_range = {40, 50},
 	greater_ego = 1,

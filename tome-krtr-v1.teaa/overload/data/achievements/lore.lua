@@ -19,8 +19,8 @@
 
 newAchievement{
 	name = "Tales of the Spellblaze", id = "SPELLBLAZE_LORE",
-	kr_display_name = "마법폭풍의 이야기",
-	desc = [[여덟장의 마법폭풍 연대기의 모음.]],
+	kr_display_name = "마법폭발의 이야기",
+	desc = [[여덟장의 마법폭발 연대기의 모음.]],
 	show = "full",
 	mode = "player",
 	can_gain = function(self, who, obj)

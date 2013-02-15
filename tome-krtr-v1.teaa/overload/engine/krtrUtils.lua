@@ -771,5 +771,6 @@ function string.krZonename(str)
 	elseif ori == "storage room" then return "창고"
 	elseif ori == "exploratory farportal" then return "탐험용 장거리 관문"
 	elseif ori == "library of lost mysteries" then return "잊혀진 신비의 도서관"
+	elseif ori == "temporal locked vault" then return "잠겨있는 시간의 금고"
 	else return str end
 end
