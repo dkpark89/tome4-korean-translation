@@ -35,7 +35,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local res = t.getRes(self, t)
-		return ([[피부가 튼튼해져 피해를 약간 덜 입게 됩니다. 모든 저항력이 %d%% 증가합니다.]]):
+		return ([[피부가 튼튼해져 피해를 약간 덜 입게 됩니다. 전체 저항력이 %d%% 증가합니다.]]):
 		format(res)
 	end,
 }

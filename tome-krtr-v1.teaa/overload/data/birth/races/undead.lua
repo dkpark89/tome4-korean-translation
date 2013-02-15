@@ -90,7 +90,7 @@ newBirthDescriptor
 		"#LIGHT_BLUE# * 마법+0, 의지-2, 교활함-2",
 		"#GOLD#레벨 당 생명력:#LIGHT_BLUE# 14",
 		"#GOLD#경험치 불이익:#LIGHT_BLUE# 25%",
-		"#GOLD#전체속도 불이익:#LIGHT_BLUE# -20%",
+		"#GOLD#전체 속도 불이익:#LIGHT_BLUE# -20%",
 	},
 	descriptor_choices =
 	{

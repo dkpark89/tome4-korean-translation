@@ -640,7 +640,7 @@ newTalent{
 		local offense = t.getOffensePower(self, t)
 		local defense = t.getDefensePower(self, t)
 		local speed = t.getSpeedPower(self, t)
-		return([[궁수의 형태를 구현 중일 때 사고 속도가 %d%% / 전사의 형태를 구현 중일 때 정신력이 %d%% / 수호자의 형태를 구현 중일 때 모든 저항력이 %d%% 증가합니다.
+		return([[궁수의 형태를 구현 중일 때 사고 속도가 %d%% / 전사의 형태를 구현 중일 때 정신력이 %d%% / 수호자의 형태를 구현 중일 때 전체 저항력이 %d%% 증가합니다.
 		기술의 효과는 정신력의 효과를 받아 증가합니다.]]):format(speed, offense, defense, speed)
 	end,
 }

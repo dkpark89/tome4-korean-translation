@@ -50,7 +50,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local shield_power = t.getShieldPower(self, t)
-		return ([[공진 장막을 만들어, 받는 피해량의 50%% 를 흡수합니다. (최대 %d 피해량까지 흡수 가능)
+		return ([[공진 장막을 만들어, 받는 피해의 50%% 를 흡수합니다. (최대 %d 피해까지 흡수 가능)
 		공진 장막은 반작용 획득을 감소시키지 않으며, 염력 집중 또한 방해하지 않습니다.
 		최대 피해 흡수량은 정신력의 영향을 받아 증가하며, 공진 장막은 최대 10 턴 동안 유지할 수 있습니다.]]):format(shield_power)
 	end,

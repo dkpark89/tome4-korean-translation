@@ -93,7 +93,7 @@ newTalent{
 		- 냉기 : 방어도 +%d
 		- 전기 : 모든 능력치 +%d
 		- 산성 : 생명력 재생 +%0.2f
-		- 자연 : 모든 저항력 +%d%%]]):
+		- 자연 : 전체 저항력 +%d%%]]):
 		format(turns, turns, fire, cold, lightning, acid, nature)
 	end,
 }
