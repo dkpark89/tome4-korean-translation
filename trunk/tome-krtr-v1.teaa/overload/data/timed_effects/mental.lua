@@ -2181,7 +2181,7 @@ newEffect{
 		if not eff.incStatsId then
 			game.logSeen(self, ("%s %s의 흉내를 내기 시작합니다. (효과 없음)"):format((self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.target.kr_display_name or eff.target.name)))
 		else
-			local desc = ("%s %s의 흉내를 내기 시작합니다. ("):format((self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.target.kr_display_name or eff.target.name)))
+			local desc = ("%s %s의 흉내를 내기 시작합니다. ("):format( (self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.target.kr_display_name or eff.target.name) )
 			local first = true
 			for id, value in pairs(eff.incStats) do
 				if not first then desc = desc..", " end
