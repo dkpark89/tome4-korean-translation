@@ -46,12 +46,12 @@ newEntity{ base = "BASE_SCROLL", define_as = "JEWELER_SUMMON", subtype="tome", n
 	power_source = {unknown=true},
 	unique = true, quest=true, identified=true,
 	name = "Scroll of Summoning (Limmir the Jeweler)",
-	kr_display_name = "소환의 두루마리 (귀금속상인 리미르)",
+	kr_display_name = "소환의 두루마리 (귀금속 상인 리미르)",
 	color = colors.VIOLET,
 	fire_proof = true,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "summon Limmir the jeweler at the center of the lake of the moon", kr_display_name = "달의 호수 중심으로 귀금속상인 리미르를 소환", power = 1,
+	use_power = { name = "달의 호수 중심으로 귀금속 상인 리미르를 소환", power = 1,
 		use = function(self, who) who:hasQuest("master-jeweler"):summon_limmir(who) return {id=true, used=true} end
 	},
 }
@@ -61,8 +61,8 @@ newEntity{ base = "BASE_AMULET",
 	unique = true,
 	name = "Pendent of the Sun and Moons", color = colors.LIGHT_SLATE, image = "object/artifact/amulet_pendant_of_sun_and_the_moon.png",
 	unided_name = "a gray and gold pendent",
-	kr_display_name = "태양과 달의 펜던트", kr_unided_name = "회색 황금 펜던트",
-	desc = [[이 조그만 펜던트는 적철의 달이 황금 태양을 가리는 식을 묘사하고 있습니다. 전설에 따르면 이 것은 태양의 장벽의 발견자 중 한명이 사용하던 것이라 합니다.]],
+	kr_display_name = "태양과 달의 팬던트", kr_unided_name = "회색과 금색이 섞인 팬던트",
+	desc = [[적철석으로 만들어진 달이 황금 태양을 가리는 모습을 표현한, 조그마한 팬턴트입니다. 전설에 따르면, 이 팬던트는 태양의 장벽을 발견한 사람들 중 한 명이 사용하던 것이라 합니다.]],
 	level_range = {35, 45},
 	rarity = 300,
 	cost = 200,
@@ -84,8 +84,8 @@ newEntity{ base = "BASE_SHIELD",
 	unique = true,
 	unided_name = "shimmering gold shield",
 	name = "Unsetting Sun", image = "object/artifact/shield_unsetting_sun.png",
-	kr_display_name = "지지않는 태양", kr_unided_name = "어른거리는 황금 방패",
-	desc = [[전초부대 대장 엘미오 파나손이 난파한 선원들을 위한 피난처를 처음 찾고 있을때, 그의 방패가 지고있는 태양의 마지막 빛을 반사시켰습니다. 그 빛이 닿는 곳에서 그들은 휴식을 취했고, 그 곳을 개척하여 만든 것이 태양의 장벽입니다. 그리하여, 어둠 날들에 이 방패를 앞세우는 것은 더 좋은 미래를 향한 희망의 상징이 되었습니다.]],
+	kr_display_name = "지지 않는 태양", kr_unided_name = "은은하게 빛나는 황금 방패",
+	desc = [[전초부대 대장 엘미오 파나손이 난파한 선원들을 위해 피난처를 찾을 때, 그는 자신의 방패로 지고 있는 태양의 마지막 빛을 반사시켰습니다. 그 빛이 닿는 곳에서 그들은 휴식을 취했고, 그곳을 개척하여 만든 것이 태양의 장벽입니다. 그리하여, 암흑의 시기에 이 방패는 더 좋은 미래를 위한 희망의 상징이 되었습니다.]],
 	color = colors.YELLOW,
 	rarity = 300,
 	level_range = {35, 45},
@@ -116,8 +116,8 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 	unique = true,
 	name = "Scorched Boots", image = "object/artifact/scorched_boots.png",
 	unided_name = "pair of blackened boots",
-	kr_display_name = "불탄 신발", kr_unided_name = "시커먼 신발",
-	desc = [[상위 피의 마법사 루'칸은 장작더미의 시대에 쉐르'툴 장거리 관문의 힘을 실험한 첫번째 오크였습니다. 그러나 첫번째 실험은 부분적으로 성공하지 못했고, 그 힘이 폭발한 다음 루'칸은 불탄 신발을 발견했습니다.]],
+	kr_display_name = "불타오른 신발", kr_unided_name = "검게 탄 신발",
+	desc = [[고위 피의 마법사 루'칸은, 장작더미의 시대에 쉐르'툴 장거리 관문의 힘을 실험한 첫 번째 오크였습니다. 그러나 첫 번째 실험은 제대로 성공하지 못했고, 그 힘이 폭발한 다음 루'칸이 있던 곳에 남아있던 것은 이 불타오른 신발 뿐이었습니다.]],
 	color = colors.DARK_GRAY,
 	level_range = {30, 40},
 	rarity = 250,
@@ -140,7 +140,7 @@ newEntity{ base = "BASE_GEM",
 	kr_display_name = "괴달라스의 돌", kr_unided_name = "초자연적인 검은 돌",
 	color = colors.PURPLE,
 	level_range = {42, 50},
-	desc = [[이 세상의 것이 아닌 것 같아 보이는, 난폭한 에너지를 내며 진동하는 작은 돌멩이입니다. 이것은 정상이 아니고 끔찍하며 사악하게 느껴지지만... 정말 강력하네요.]],
+	desc = [[이 세상의 물건이 아닌 것 같아 보이며, 난폭한 힘을 내뿜으며 진동하는 작은 돌멩이입니다. 이것은 비정상적이고 끔찍하며 사악한 느낌이 전해지지만... 정말 강력합니다.]],
 	rarity = 300,
 	cost = 300,
 	material_level = 5,
@@ -170,8 +170,8 @@ newEntity{ base = "BASE_CLOAK",
 	unique = true,
 	name = "Threads of Fate", image = "object/artifact/cloak_threads_of_fate.png",
 	unided_name = "a shimmering white cloak",
-	kr_display_name = "숙명의 누빔", kr_unided_name = "어른거리는 흰 망토",
-	desc = [[시간의 침식의 영향을 받지않는 이 훌륭한 흰 망토는 빛을 바꾸고 어른거리게 만드는 초자연적인 물질로 만들어진 것입니다.]],
+	kr_display_name = "운명의 천조각", kr_unided_name = "어른거리는 흰 망토",
+	desc = [[세월의 영향을 받지 않는 이 훌륭한 흰 망토는, 빛을 바꾸고 어른거리게 만드는 초자연적인 물질로 만들어진 것 같습니다.]],
 	level_range = {45, 50},
 	color = colors.WHITE,
 	rarity = 500,
@@ -207,12 +207,12 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "BLOODEDGE",
 	unique = true,
 	name = "Blood-Edge", image = "object/artifact/sword_blood_edge.png",
 	unided_name = "red crystalline sword",
-	kr_display_name = "피의 칼날", kr_unided_name = "붉은 수정 장검",
+	kr_display_name = "피 흘리는 칼날", kr_unided_name = "붉은 수정 장검",
 	level_range = {35, 42},
 	color=colors.RED,
 	rarity = 270,
-	desc = [[이 짙은 붉은 장검은 계속 피를 흘립니다. 이 것은 오크 타락자 후릭의 연구실에서 태어났습니다. 후릭은 그가 죽은 후 그의 영혼의 안식처로 사용하기 위한 수정을 만드려 했으나, 그 계획은 태양의 기사들이 처들어옴으로써 엉망이 되었습니다. 후릭을 보호하던 드레드 추종자들이 대부분 죽거나 정화되었지만, 기사 대장인 라술은 칼을 들고 계속 싸우기로 결정합니다. 양측은 칼날과 피의 마법으로 전투를 벌였고, 결국 양쪽 모두 깊은 상처를 받고 땅에 쓰러졌습니다. 후릭은 구원을 바라며 그의 마지막 힘을 짜내 그가 만든 유품쪽으로 기어갔지만, 라술이 그것을 보고 빛에 쌓인 칼로 수정을 내리쳤습니다. 그러자 충격을 받은 에너지로 인해 강철과 수정 그리고 핏물이 하나로 합쳐졌습니다.
-그리고 라술의 부서진 영혼의 조각이 이 끔찍한 아티팩트에 잡혀버렸고, 그의 정신은 수십년간의 감금으로 온전하지 못하게 왜곡되어 버렸습니다. 그의 힘은 피를 맛보기 위해서만 나타나고, 그의 영혼은 다시 물리적 육체를 가지기 위해 다른 이들의 생명력을 훔치며, 생명체를 보면 공격하고 울부짖습니다.]],
+	desc = [[끊임없이 피를 흘리는, 짙은 붉은색 장검입니다. 이 검은 오크 타락자였던 후릭의 연구실에서 태어났습니다. 후릭은 그가 죽은 뒤 그의 영혼을 담을 수정을 만드려 했으나, 그 계획은 태양의 기사들이 쳐들어오는 바람에 엉망이 되었습니다. 후릭을 보호하던 드레드 무리들이 대부분의 기사들을 처리하는데 성공했지만, 기사단장이었던 라술은 칼을 들고 계속 싸우기로 결심했습니다. 이 둘은 칼날과 피의 마법으로 전투를 벌였고, 결국 양쪽 모두 깊은 상처를 입고 땅에 쓰러졌습니다. 후릭은 마지막 힘을 짜내어 그가 만든 수정 쪽으로 기어갔지만, 그것을 본 라술은 검에 빛을 실어 수정을 내리쳤습니다. 그 충격으로 인해 강철과 수정, 그리고 핏물이 합쳐져 하나가 되었습니다.
+이제 라술의 부서진 영혼 조각이 끔찍한 수정에 갇힌지 수십 년이 지났고, 그로 인해 그의 정신은 왜곡되고 미쳐갔습니다. 그의 힘은 오직 피를 맛보기 위해서만 나타나고, 그의 영혼은 다시 육체를 가지기 위해 다른 이들의 생명력을 훔치며, 생명체를 보면 공격하고 울부짖습니다.]],
 	cost = 1000,
 	require = { stat = { mag=20, str=32,}, },
 	material_level = 5,
@@ -236,7 +236,7 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "BLOODEDGE",
 		dammod = {str=0.5, mag=0.5},
 		convert_damage = {[DamageType.BLIGHT] = 50},
 
-		special_on_hit = {desc="15% 확률로 적에게 출혈효과", fct=function(combat, who, target)
+		special_on_hit = {desc="15% 확률로 적에게 출혈 효과", fct=function(combat, who, target)
 			if not rng.percent(15) then return end
 			local cut = false
 
@@ -261,7 +261,7 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "BLOODEDGE",
 				name = "animated blood", color=colors.RED,
 				kr_display_name = "살아 움직이는 핏물",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_blood_lich.png", display_h=1, display_y=0}}},
-				desc = "대기중에 흔들리고 맥동하는 핏물의 안개로, 왜곡되고 상처입은 영혼이 들어있습니다. 때때로 지나칠때마다 비명을 지르거나 고통에 울부짖고, 무심한 괴로운 경험을 얘기합니다.",
+				desc = "대기 중에서 흔들리고 맥동하는 피의 안개로, 왜곡되고 상처입은 영혼이 들어있습니다. 끊임없이 비명과 고통의 울부짖음을 내지르고 있으며, 그 소유자에게 자신이 받는 고통을 토로합니다.",
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, },
 				rank = 3,
 				life_rating = 10, exp_worth = 0,
@@ -308,9 +308,9 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "BLOODEDGE",
 				orders = {target=true, leash=true, anchor=true, talents=true},
 			})
 
-			game.logSeen(who, "#GOLD#칼날이 닿자 %s의 피가 분출하고, 일어서서, 살아 움직입니다!", (target.kr_display_name or target.name):capitalize())
+			game.logSeen(who, "#GOLD#칼날이 닿자 %s의 피가 일어나더니, 살아 움직이기 시작합니다!", (target.kr_display_name or target.name):capitalize())
 			if who:knowTalent(who.T_VIM_POOL) then
-				game.logSeen(who, "#GOLD#%s 분출된 피로부터 힘을 뽑아갑니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
+				game.logSeen(who, "#GOLD#%s 분출된 피를 통해 힘을 얻습니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"))
 			end
 
 		end},
@@ -326,7 +326,7 @@ newEntity{ base = "BASE_LONGSWORD",
 	level_range = {35, 42},
 	color=colors.YELLOW, image = "object/artifact/dawn_blade.png",
 	rarity = 260,
-	desc = [[태양의 장벽이 생긴 초기시절에 만들어졌다고 알려졌습니다. 이 장검은 동틀 녘의 빛을 발하고, 모든 그림자를 쫒아 버릴수 있습니다]],
+	desc = [[태양의 장벽을 일으킨 초기에 만들어졌다고 알려진 검입니다. 이 장검은 동틀녘의 빛을 발하여, 모든 그림자를 쫒아버릴 수 있습니다]],
 	cost = 1000,
 	require = { stat = { mag=18, str=35,}, },
 	material_level = 5,
@@ -352,7 +352,7 @@ newEntity{ base = "BASE_LONGSWORD",
 		lite=2,
 	},
 	max_power = 35, power_regen = 1,
-	use_power = { name = "invoke dawn", kr_display_name = "여명을 기원", power = 35,
+	use_power = { name = "여명을 기원", power = 35,
 		use = function(self, who)
 			local radius = 4
 			local dam = (75 + who:getMag()*2)
@@ -361,7 +361,7 @@ newEntity{ base = "BASE_LONGSWORD",
 			game.level.map:particleEmitter(who.x, who.y, blast.radius, "sunburst", {radius=blast.radius})
 			who:project({type="ball", range=0, radius=10}, who.x, who.y, engine.DamageType.LITE, 100)
 			game:playSoundNear(self, "talents/fireflash")
-			game.logSeen(who, "%s %s 들어올리자 사방으로 빛줄기가 퍼져나갑니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
+			game.logSeen(who, "%s %s 들어올리자, 사방으로 빛줄기가 퍼져나갑니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 			return {id=true, used=true}
 		end
 	},
@@ -380,7 +380,7 @@ newEntity{ base = "BASE_LONGSWORD",
 		if who.descriptor and who.descriptor.subclass == "Sun Paladin" then
 			self:specialWearAdd({"wielder", "positive_regen"}, 0.2)
 			self:specialWearAdd({"wielder", "positive_regen_ref"}, 0.2)
-			game.logPlayer(who, "#GOLD#당신은 양기가 늘어남을 느낍니다!")
+			game.logPlayer(who, "#GOLD#당신의 양기가 빠르게 차오름을 느낍니다!")
 		end
 	end,
 }
@@ -391,7 +391,7 @@ newEntity{ base = "BASE_AMULET",
 	name = "Zemekkys' Broken Hourglass", color = colors.WHITE,
 	unided_name = "a broken hourglass", image="object/artifact/amulet_zemekkys_broken_hourglass.png",
 	kr_display_name = "제메키스의 부서진 모래시계", kr_unided_name = "부서진 모래시계",
-	desc = [[이 작은 부서진 모래시계는 황금 사슬에 걸려있었습니다. 유리에는 금이가 있고, 모래는 모두 흘러나간지 오래되었습니다.]],
+	desc = [[얇은 황금 사슬이 걸려있는, 부서진 작은 모래시계입니다. 유리에는 금이 가있고, 모래는 모두 흘러나간지 오래되었습니다.]],
 	level_range = {30, 40},
 	rarity = 300,
 	cost = 200,
@@ -413,8 +413,8 @@ newEntity{ base = "BASE_KNIFE", define_as = "MANDIBLE_UNGOLMOR",
 	unique = true,
 	name = "Mandible of Ungolmor", image = "object/artifact/mandible_of_ungolmor.png",
 	unided_name = "curved, serrated black dagger",
-	kr_display_name = "운골모르의 아랫턱뼈", kr_unided_name = "굽어있는 검은 톱니 단검",
-	desc = [[운골모르의 치명적인 송곳니가 박혀있는 굽은 모양의 흑요석 검입니다. 이것은 주변 세상의 빛을 흡수하는것 같습니다.]],
+	kr_display_name = "운골모르의 아래턱뼈", kr_unided_name = "굽어있는 검은 톱니 단검",
+	desc = [[운골모르의 치명적인 송곳니를 박아 넣은, 굽은 모양의 흑요석 단검입니다. 이 단검은 주변에 있는 빛을 흡수하고 있습니다.]],
 	level_range = {40, 50},
 	rarity = 270,
 	require = { stat = { cun=38 }, },
@@ -449,8 +449,8 @@ newEntity{ base = "BASE_KNIFE", define_as = "KINETIC_SPIKE",
 	unique = true,
 	name = "Kinetic Spike", image = "object/artifact/kinetic_spike.png",
 	unided_name = "bladeless hilt",
-	kr_display_name = "동역학 가시", kr_unided_name = "칼날없는 칼자루",
-	desc = [[단순하고 조잡하게 만들어진 석제 칼자루로, 이 물체를 잡으면 열기의 아지랑이 같이 거의 보이지 않는 흔들거리는 칼날이 나타납니다. 단순해 보이는 생김새에도 불구하고, 이것을 제대로 사용할 줄 아는 꿋꿋한 정신을 가진 이의 손에 들어간다면 단단한 화강암도 자를수 있습니다.]],
+	kr_display_name = "동역학 가시", kr_unided_name = "칼날 없는 칼자루",
+	desc = [[단순하고 조잡하게 만들어진 석제 칼자루지만, 이 칼자루를 잡으면 아지랑이처럼 잘 보이지 않으며 흔들거리는 칼날이 나타납니다. 단순해 보이는 생김새에도 불구하고, 이것을 제대로 사용할 수 있는 강인한 정신력을 가진 이의 손에 들어간다면 단단한 화강암도 잘라낼 수 있을 것 같습니다.]],
 	level_range = {42, 50},
 	rarity = 310,
 	require = { stat = { wil=42 }, },
@@ -468,7 +468,7 @@ newEntity{ base = "BASE_KNIFE", define_as = "KINETIC_SPIKE",
 		resists_pen = {[DamageType.PHYSICAL] = 30},
 	},
 	max_power = 10, power_regen = 1,
-	use_power = { name = "fires a bolt of kinetic force, doing 150% weapon damage", kr_display_name = "무기의 150% 피해를 주는 동역학 기운 줄기 발사", power = 10,
+	use_power = { name = "무기의 150% 피해를 주는 동역학적 힘의 화살 발사", power = 10,
 		use = function(self, who)
 			local tg = {type="bolt", range=8}
 			local x, y = who:getTarget(tg)
@@ -477,7 +477,7 @@ newEntity{ base = "BASE_KNIFE", define_as = "KINETIC_SPIKE",
 			local target = game.level.map(x, y, engine.Map.ACTOR)
 			if target then
 				who:attackTarget(target, engine.DamageType.PHYSICAL, 1.5, true)
-			game.logSeen(who, "%s 동역학 기운의 줄기를 발사했습니다!", self:getName():capitalize():addJosa("가"))
+			game.logSeen(who, "%s 동역학적 힘의 화살을 발사했습니다!", self:getName():capitalize():addJosa("가"))
 			else
 				return
 			end
