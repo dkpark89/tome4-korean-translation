@@ -38,25 +38,25 @@ newAchievement{
 	name = "Size is everything", id = "DAMAGE_1500",
 	kr_display_name = "크기가 전부야",
 	show = "full",
-	desc = [[한 번의 공격으로 1500 이상의 피해를 줌.]],
+	desc = [[한 번의 공격으로 1,500 이상의 피해를 줌.]],
 }
 newAchievement{
 	name = "The bigger the better!", id = "DAMAGE_3000",
 	kr_display_name = "크면 클수록 더 좋지!",
 	show = "full",
-	desc = [[한 번의 공격으로 3000 이상의 피해를 줌.]],
+	desc = [[한 번의 공격으로 3,000 이상의 피해를 줌.]],
 }
 newAchievement{
 	name = "Overpowered!", id = "DAMAGE_6000",
 	kr_display_name = "압도!",
 	show = "full",
-	desc = [[한 번의 공격으로 6000 이상의 피해를 줌.]],
+	desc = [[한 번의 공격으로 6,000 이상의 피해를 줌.]],
 }
 newAchievement{
 	name = "Exterminator",
 	kr_display_name = "절멸자",
 	show = "full",
-	desc = [[1000 명의 생명체를 살해.]],
+	desc = [[1,000 명의 생명체를 살해.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -69,7 +69,7 @@ newAchievement{
 	kr_display_name = "해충 구제",
 	image = "npc/vermin_worms_green_worm_mass.png",
 	show = "full",
-	desc = [[1000 마리의 번식형 해충 살해.]],
+	desc = [[1,000 마리의 번식형 해충 살해.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target:knowTalent(target.T_MULTIPLY) or target.clone_on_hit then
@@ -83,7 +83,7 @@ newAchievement{
 	name = "Reaver",
 	kr_display_name = "파괴자",
 	show = "full",
-	desc = [[1000 명의 영장류 살해.]],
+	desc = [[1,000 명의 영장류 살해.]],
 	mode = "world",
 	can_gain = function(self, who, target)
 		if target.type == "humanoid" then
@@ -103,7 +103,7 @@ newAchievement{
 	kr_display_name = "중상모략적인 배반자",
 	image = "object/knife_stralite.png",
 	show = "full",
-	desc = [[당신이 안내하던 모험가 6명이 죽음.]],
+	desc = [[모험가 호위를 6번 실패함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -116,7 +116,7 @@ newAchievement{
 	name = "Bad Driver", id = "ESCORT_LOST",
 	kr_display_name = "나쁜 길잡이",
 	show = "full",
-	desc = [[안내하던 모험가들을 구하는 데 모두 실패함.]],
+	desc = [[모험가 호위를 모두 실패함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -129,7 +129,7 @@ newAchievement{
 	name = "Guiding Hand", id = "ESCORT_SAVED",
 	kr_display_name = "인도의 손길",
 	show = "full",
-	desc = [[안내하던 모험가들을 모두 구함.]],
+	desc = [[모험가 호위를 모두 성공함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -160,7 +160,7 @@ newAchievement{
 	kr_display_name = "아타마쏜!",
 	image = "npc/atamathon.png",
 	show = "name",
-	desc = [[거대 골렘 아타마쏜을 바보같이 재작동시킨 후 죽임.]],
+	desc = [[거대 골렘 아타마쏜을 어리석게도 재작동시킨 후, 다시 파괴함.]],
 	mode = "player",
 }
 
@@ -180,7 +180,7 @@ newAchievement{
 
 newAchievement{
 	name = "Headbanger", id = "HEADBANG",
-	kr_display_name = "헤드뱅어",
+	kr_display_name = "박치기왕",
 	show = "full",
 	desc = [[20명의 보스를 '박치기'로 죽임.]], --@@ 박치기는 해당 기술 이름
 	mode = "player",
@@ -197,16 +197,16 @@ newAchievement{
 	kr_display_name = "너 지금 정신 나갔냐?!",
 	image = "npc/dragon_multihued_multi_hued_drake.png",
 	show = "name",
-	desc = [[보르 무기고에서 '너무나 엄청나게 강력한 무지개빛 고위 용'의 관심을 받음. 아마 도망치는게 순리일 듯.]],
+	desc = [[보르 무기고에서 '너무나 엄청나게 강력한 무지개빛 고위 용'의 관심을 받음. 목숨이 아깝다면 도망치는 것이 순리.]],
 	mode = "player",
 }
 
 newAchievement{
-	name = "I cleared the room of death and all I got was this lousy achievement!", id = "UBER_WYRMS",
-	kr_display_name = "죽음의 방을 싹쓸어도, 얻은 건 이 시끄러운 업적 뿐이야!",
+	name = "I cleared the room of death and all I got was this lousy achievement!", id = "UBER_WYRMS", --주로 티셔츠에 ~~~~ and all I got was this lousy T-shirt! 드립으로 자주 나오는 말이죠.
+	kr_display_name = "죽음의 방을 싹쓸이했지만, 내가 얻은 것이라고는 이 바보같은 도전과제 뿐이야!",
 	image = "npc/dragon_multihued_multi_hued_drake.png",
 	show = "name",
-	desc = [[보르 무기고의 "죽음의 방"에 있는 일곱마리의 압도적인 용을 죽임.]],
+	desc = [[보르 무기고의 "죽음의 방"에 있는 일곱 마리의 압도적인 용을 죽임.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -219,7 +219,7 @@ newAchievement{
 	kr_display_name = "나는 멋진 영웅이지",
 	image = "npc/humanoid_human_human_farmer.png",
 	show = "name",
-	desc = [[주민이 한 명도 죽지 않고 데르스 마을 구출.]],
+	desc = [[마을 주민을 한 명도 죽게 놔두지 않고 데르스 마을 구출.]],
 	mode = "player",
 }
 
@@ -228,7 +228,7 @@ newAchievement{
 	kr_display_name = "옛 방식으로 작살내기", --@@ 이스터애그. 영화 제목인 듯 -추가 ㄴㄴ, 클래식과 비슷한 뜻임. http://www.urbandictionary.com/define.php?term=old-school 참조바람.
 	image = "npc/humanoid_human_urkis__the_high_tempest.png",
 	show = "full",
-	desc = [[대기술사 우르키스를 죽이고, 그에게서 되돌림의 장대(Rod of Recall)를 획득.]],
+	desc = [[대기술사 우르키스를 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
@@ -237,7 +237,7 @@ newAchievement{
 	kr_display_name = "다 큰 놈은 내버려 둬", --@@ 이스터애그. 관용어구인 것 같음
 	image = "npc/the_master.png",
 	show = "full",
-	desc = [['주인'을 죽이고, 그에게서 되돌림의 장대(Rod of Recall)를 획득.]],
+	desc = [['주인'을 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
@@ -246,7 +246,7 @@ newAchievement{
 	kr_display_name = "누가 비난받을지 알지", --@@ 이스터애그. 사실 노래 제목
 	image = "npc/humanoid_shalore_grand_corruptor.png",
 	show = "full",
-	desc = [[위대한 타락자를 죽이고, 그에게서 되돌림의 장대(Rod of Recall)를 획득.]],
+	desc = [[위대한 타락자를 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
@@ -255,6 +255,6 @@ newAchievement{
 	kr_display_name = "누가 비난받을지 알지 (반복)", --@@ 이스터애그. 사실 노래 제목
 	image = "npc/humanoid_halfling_protector_myssil.png",
 	show = "full",
-	desc = [[미씰을 죽이고, 그에게서 되돌림의 장대(Rod of Recall)를 획득.]],
+	desc = [[미씰을 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }

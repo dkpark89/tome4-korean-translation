@@ -267,7 +267,7 @@ function string.krTalentType(str)
 	elseif ori == "strife" then return "투쟁"
 	elseif ori == "gloom" then return "침울한 기운"
 	elseif ori == "rampage" then return "난폭"
-	elseif ori == "predator" then return "약탈자"
+	elseif ori == "predator" then return "포식자"
 	elseif ori == "dark sustenance" then return "어둠의 생명유지"
 	elseif ori == "force of will" then return "의지의 힘"
 	elseif ori == "darkness" then return "어둠"

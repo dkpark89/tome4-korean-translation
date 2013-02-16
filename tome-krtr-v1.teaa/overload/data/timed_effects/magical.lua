@@ -284,7 +284,7 @@ newEffect{
 	name = "BANE_CONFUSED", image = "effects/bane_confused.png",
 	desc = "Bane of Confusion",
 	kr_display_name = "혼란의 맹독",
-	long_desc = function(self, eff) return ("혼란 : %d%%로 임의의 행동 수행 / 복잡한 행동 불가능 / 매 턴마다 어둠 피해 %0.2f"):format(eff.power, eff.dam) end,
+	long_desc = function(self, eff) return ("혼란 : %d%% 확률로 멋대로 행동 / 복잡한 행동 불가능 / 매 턴마다 어둠 피해 %0.2f"):format(eff.power, eff.dam) end,
 	type = "magical",
 	subtype = { bane=true, confusion=true },
 	status = "detrimental",

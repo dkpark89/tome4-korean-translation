@@ -66,7 +66,7 @@ newAchievement{
 	name = "Fool of a Took!", id = "HALFLING_SUICIDE",
 	show = "name",
 	kr_display_name = "야 이 멍청아!", --@@ 반지의 제왕에서 간달프가 한 대사 인용. 자세한 건 http://bit.ly/12eaaQo 로.
-	desc = [[하프링으로 자살.]],
+	desc = [[하플링으로 자살.]],
 	can_gain = function(self, who)
 		if who.descriptor and who.descriptor.race == "Halfling" then return true end
 	end
