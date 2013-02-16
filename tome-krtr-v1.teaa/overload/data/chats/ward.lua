@@ -32,7 +32,7 @@ local function set_ward(which, charges)
 end
 
 newChat{ id="welcome",
-	text = [[Call forth which ward?]],
+	text = [[이후로는 무슨 워드를 부를까요??]],
 	answers = {
 		{"Fire ["..(src.wards[DamageType.FIRE] or 0).."]", 
 			cond = function() return has_ward(DamageType.FIRE) end,

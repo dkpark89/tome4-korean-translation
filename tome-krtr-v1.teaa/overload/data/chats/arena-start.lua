@@ -187,7 +187,7 @@ newChat{ id="welcome",
 		{"아레나에 입장한다 (60 웨이브)", action=arena_60},
 		{"아레나에 입장한다 (짧은 모드, 30 라운드)", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
-		{"#LIGHT_RED#[Reset all arena save data]", action=save_clear},
+		{"#LIGHT_RED#[아레나 세이브 데이터를 삭제한다]", action=save_clear},
 	}
 }
 

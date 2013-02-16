@@ -21,7 +21,7 @@ if game.player:isQuestStatus("antimagic", engine.Quest.DONE) then
 newChat{ id="welcome",
 	text = [[잘 왔네, 친구여.]],
 	answers = {
-		{"안녕."},
+		{"안녕하신가."},
 	}
 }
 return "welcome"
@@ -40,7 +40,7 @@ local remove_magic = function(npc, player)
 		for i = #inven, 1, -1 do
 			local o = inven[i]
 			if o.power_source and o.power_source.arcane then
-				game.logPlayer(player, "당신은 이제 %s 를 더이상 사용할 수 없습니다.; 이건 마법으로 더럽혀져 있습니다.", o:getName{do_color=true})
+				game.logPlayer(player, "당신은 이제 %s 를 더 이상 사용할 수 없습니다.; 이건 마법으로 더럽혀져 있습니다.", o:getName{do_color=true})
 				local o = player:removeObject(inven, i, true)
 				player:addObject(player.INVEN_INVEN, o)
 				player:sortInven()
@@ -58,7 +58,7 @@ We see that the hermetic arts have always been at the root of each and every tri
 We can train you, but you need to prove you are pure, untouched by the eldritch forces, and ready to fight them to the end.
 You will be challenged against magical foes. Should you defeat them, we will teach you our ways, and never again will you be able to be tainted by magic, or use it.
 
-#LIGHT_RED#Note:  Completing this quest will forever prevent this character from using spells or items powered by arcane forces.  In exchange you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]],
+#LIGHT_RED#노트:  이 퀘스트를 클리어 하면 캐릭터는 영구적으로 마법이나 마법에 관련된 물품들을 사용할 수 없게 됩니다.  대신 당신은 you'll be given access to a mindpower based generic talent tree, Anti-magic, and be able to unlock hidden properties in many arcane-disrupting items.]],
 	answers = {
 		{"자네의 도전을 받아들이지!", cond=function(npc, player) return player.level >= 10 end, jump="testok"},
 		{"자네의 도전을 받아들이지!", cond=function(npc, player) return player.level < 10 end, jump="testko"},
@@ -95,7 +95,7 @@ newChat{ id="testok",
 newChat{ id="test",
 	text = [[#VIOLET#*You are grabbed by two olive-clad warriors and thrown into a crude arena!*
 #LIGHT_GREEN#*You hear the voice of the Fighter ring above you.*#WHITE#
-]]..sex..[[! 자네의 수행이 시작되었네! I want to see you prove your superiority over the works of magic! 어서 싸우게!]],
+]]..sex..[[! 자네의 수행이 시작되었네! 난 자네가 마법의 작품들보다 우월함을 증명하기를 기대하고 있네! 어서 싸우게!]],
 	answers = {
 		{"But wha.. [you notice your first opponent is already there]", action=function(npc, player)
 			player:grantQuest("antimagic")
