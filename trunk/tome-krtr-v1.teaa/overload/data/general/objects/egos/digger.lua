@@ -66,6 +66,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of endurance", suffix=true, instant_resolve=true,
+	kr_display_name = "인내의 ",
 	keywords = {endurance=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -138,7 +139,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "brutal ", prefix=true, instant_resolve=true,
-	kr_display_name = "잔인한 ",
+	kr_display_name = "잔혹한 ",
 	keywords = {brutal=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -155,7 +156,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "dream-smith's ", prefix=true, instant_resolve=true,
-	kr_display_name = "꿈의연마 ",
+	kr_display_name = "꿈을 만드는 ",
 	keywords = {smiths=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -189,7 +190,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "bloodhexed ", prefix=true, instant_resolve=true,
-	kr_display_name = "피의매혹 ",
+	kr_display_name = "핏빛 매혹 ",
 	keywords = {bloodhexed=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -207,7 +208,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "crystalomancer's ", prefix=true, instant_resolve=true,
-	kr_display_name = "수정술사 ",
+	kr_display_name = "수정 마법사 ",
 	keywords = {crystal=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -225,7 +226,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "shattering ", prefix=true, instant_resolve=true,
-	kr_display_name = "분쇄 ",
+	kr_display_name = "분쇄하는 ",
 	keywords = {shattering=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -279,7 +280,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of quickening", suffix=true, instant_resolve=true,
-	kr_display_name = "활발함의 ",
+	kr_display_name = "빠른 속도의 ",
 	keywords = {quickening=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -312,7 +313,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of deeplife", suffix=true, instant_resolve=true,
-	kr_display_name = "심연생활의 ",
+	kr_display_name = "어두운 삶의 ",
 	keywords = {deeplife=true},
 	level_range = {30, 50},
 	greater_ego = 1,

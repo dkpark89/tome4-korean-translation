@@ -44,7 +44,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
-	kr_display_name = "명석의 ",
+	kr_display_name = "명석함의 ",
 	keywords = {clarity=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -87,7 +87,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of arcana(#REGEN#)", suffix=true, instant_resolve=true,
-	kr_display_name = "마법(#REGEN#)의 ",
+	kr_display_name = "마력(#REGEN#)의 ",
 	keywords = {arcana=true},
 	level_range = {1, 20},
 	rarity = 6,
@@ -415,7 +415,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "sneakthief's ", prefix=true, instant_resolve=true,
-	kr_display_name = "은밀한 날도둑 ",
+	kr_display_name = "은밀한 도둑 ",
 	keywords = {sneakthief=true},
 	level_range = {15, 50},
 	greater_ego = 1,
@@ -513,7 +513,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "painweaver's ", prefix=true, instant_resolve=true,
-	kr_display_name = "고통이엮인 ",
+	kr_display_name = "고통을 엮는 ",
 	keywords = {painweaver=true},
 	level_range = {30, 50},
 	rarity = 20,
@@ -546,7 +546,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "treant's ", prefix=true, instant_resolve=true,
-	kr_display_name = "트린트 ",
+	kr_display_name = "나무 정령 ",
 	keywords = {treant=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -602,7 +602,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of focus", suffix=true, instant_resolve=true,
-	kr_display_name = "집중의 ",
+	kr_display_name = "집중력의 ",
 	keywords = {focus=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -619,7 +619,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of pilfering", suffix=true, instant_resolve=true,
-	kr_display_name = "좀도둑질의 ",
+	kr_display_name = "좀도둑의 ",
 	keywords = {pilfering=true},
 	level_range = {10, 50},
 	greater_ego = 1,

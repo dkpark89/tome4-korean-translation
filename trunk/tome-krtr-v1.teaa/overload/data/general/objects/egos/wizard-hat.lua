@@ -149,7 +149,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
-	kr_display_name = "단열 ",
+	kr_display_name = "단열 처리된 ",
 	keywords = {insulating=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -165,7 +165,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
-	kr_display_name = "접지 ",
+	kr_display_name = "접지된 ",
 	keywords = {grounding=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -217,7 +217,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "aegis ", prefix=true, instant_resolve=true,
-	kr_display_name = "보호 ",
+	kr_display_name = "수호 ",
 	keywords = {aegis=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -235,7 +235,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of madness", suffix=true, instant_resolve=true,
-	kr_display_name = "미치광이의 ",
+	kr_display_name = "광기의 ",
 	keywords = {madness=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -252,7 +252,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the Brotherhood", suffix=true, instant_resolve=true,
-	kr_display_name = "조합원의 ",
+	kr_display_name = "조직원의 ",
 	keywords = {Brotherhood=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -269,7 +269,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of earthrunes", suffix=true, instant_resolve=true,
-	kr_display_name = "대지의 룬의 ",
+	kr_display_name = "대지 룬의 ",
 	keywords = {earthrunes=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -300,7 +300,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "clarifying ", prefix=true, instant_resolve=true,
-	kr_display_name = "명백한 ",
+	kr_display_name = "명석한 ",
 	keywords = {clarifying=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -313,7 +313,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "shielding ", prefix=true, instant_resolve=true,
-	kr_display_name = "보호하는 ",
+	kr_display_name = "방어하는 ",
 	keywords = {shield=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -513,7 +513,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "shimmering ", prefix=true, instant_resolve=true,
-	kr_display_name = "어른거리는 ",
+	kr_display_name = "희미하게 빛나는 ",
 	keywords = {shimmering=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -537,7 +537,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "focusing ", prefix=true, instant_resolve=true,
-	kr_display_name = "집중시키는 ",
+	kr_display_name = "집중되는 ",
 	keywords = {focus=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -550,7 +550,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "fearwoven ", prefix=true, instant_resolve=true,
-	kr_display_name = "공포가 엮인 ",
+	kr_display_name = "공포를 엮는 ",
 	keywords = {fearwoven=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -599,7 +599,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spellwoven ", prefix=true, instant_resolve=true,
-	kr_display_name = "주문엮인 ",
+	kr_display_name = "주문 엮인 ",
 	keywords = {spellwoven=true},
 	level_range = {1, 50},
 	rarity = 7,

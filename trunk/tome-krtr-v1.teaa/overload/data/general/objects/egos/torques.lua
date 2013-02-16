@@ -39,14 +39,14 @@ newEntity{
 
 newEntity{
 	name = "hateful ", prefix=true,
-	kr_display_name = "불쾌한 ",
+	kr_display_name = "증오에 찬 ",
 	keywords = {hate=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("증오심 %d 재생"):format(self:getCharmPower(true) / 7) end, function(self, who)
+		{100, function(self, who) return ("증오 %d 재생"):format(self:getCharmPower(true) / 7) end, function(self, who)
 			who:incHate(self:getCharmPower(true) / 7)
 		end},
 	}
@@ -54,7 +54,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true,
-	kr_display_name = "보호 ",
+	kr_display_name = "보호받는 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -88,7 +88,7 @@ newEntity{
 
 newEntity{
 	name = "telekinetic ", prefix=true,
-	kr_display_name = "염동 ",
+	kr_display_name = "염력이 깃든 ",
 	keywords = {telekinetic=true},
 	level_range = {30, 50},
 	rarity = 12,

@@ -194,7 +194,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "shimmering ", prefix=true, instant_resolve=true,
-	kr_display_name = "어른거리는 ",
+	kr_display_name = "희미하게 빛나는 ",
 	keywords = {shimmering=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -209,7 +209,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of stability", suffix=true, instant_resolve=true,
-	kr_display_name = "안정의 ",
+	kr_display_name = "안정성의 ",
 	keywords = {stable=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -221,7 +221,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of spell shielding", suffix=true, instant_resolve=true,
-	kr_display_name = "마법저항의 ",
+	kr_display_name = "마법 저항의 ",
 	keywords = {shielding=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -233,7 +233,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
-	kr_display_name = "명석의 ",
+	kr_display_name = "명석함의 ",
 	keywords = {clarity=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -260,7 +260,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "dispeller's ", prefix=true, instant_resolve=true,
-	kr_display_name = "떨치기 ",
+	kr_display_name = "떨쳐내는 ",
 	keywords = {dispeller=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -295,7 +295,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spellwoven ", prefix=true, instant_resolve=true,
-	kr_display_name = "주문엮인 ",
+	kr_display_name = "주문 엮인 ",
 	keywords = {spellwoven=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -383,7 +383,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of power", suffix=true, instant_resolve=true,
-	kr_display_name = "세력의 ",
+	kr_display_name = "강력함의 ",
 	keywords = {power=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -473,7 +473,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "slimy ", prefix=true, instant_resolve=true,
-	kr_display_name = "슬라임 ",
+	kr_display_name = "끈적이는 ",
 	keywords = {slimy=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -485,7 +485,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "stormlord's ", prefix=true, instant_resolve=true,
-	kr_display_name = "폭풍군주 ",
+	kr_display_name = "폭풍 군주 ",
 	keywords = {stormlord=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -508,7 +508,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "verdant ", prefix=true, instant_resolve=true,
-	kr_display_name = "신록 ",
+	kr_display_name = "파릇파릇한 ",
 	keywords = {verdant=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -540,7 +540,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "tormentor's ", prefix=true, instant_resolve=true,
-	kr_display_name = "괴롭히는 ",
+	kr_display_name = "고문하는 ",
 	keywords = {tormentor=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -557,7 +557,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "focusing ", prefix=true, instant_resolve=true,
-	kr_display_name = "집중시키는 ",
+	kr_display_name = "집중되는 ",
 	keywords = {focus=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -570,7 +570,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "fearwoven ", prefix=true, instant_resolve=true,
-	kr_display_name = "공포가 엮인 ",
+	kr_display_name = "공포를 엮는 ",
 	keywords = {fearwoven=true},
 	level_range = {40, 50},
 	greater_ego = 1,

@@ -26,7 +26,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = " of stability", suffix=true, instant_resolve=true,
-	kr_display_name = "안정의 ",
+	kr_display_name = "안정성의 ",
 	keywords = {stability=true},
 	level_range = {20, 50},
 	rarity = 12,
@@ -194,7 +194,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of disengagement", suffix=true, instant_resolve=true,
-	kr_display_name = "해방의 ",
+	kr_display_name = "철수의 ",
 	keywords = {disengage=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -228,7 +228,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "restorative ", prefix=true, instant_resolve=true,
-	kr_display_name = "회복 ",
+	kr_display_name = "회복하는 ",
 	keywords = {restorative=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -243,7 +243,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "invigorating ", prefix=true, instant_resolve=true,
-	kr_display_name = "기운나는 ",
+	kr_display_name = "기운 나는 ",
 	keywords = {['invigor.']=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -330,7 +330,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of heaving", suffix=true, instant_resolve=true,
-	kr_display_name = "융기의 ",
+	kr_display_name = "괴력의 ",
 	keywords = {heaving=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -347,7 +347,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of invasion", suffix=true, instant_resolve=true,
-	kr_display_name = "칩임의 ",
+	kr_display_name = "침략의 ",
 	keywords = {invasion=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -365,7 +365,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of spellbinding", suffix=true, instant_resolve=true,
-	kr_display_name = "주문동결의 ",
+	kr_display_name = "마법 집중의 ",
 	keywords = {spellbinding=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -383,7 +383,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of evasion", suffix=true, instant_resolve=true,
-	kr_display_name = "도피의 ",
+	kr_display_name = "회피의 ",
 	keywords = {evasion=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -398,7 +398,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
-	kr_display_name = "단열 ",
+	kr_display_name = "단열 처리된 ",
 	keywords = {insulate=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -414,7 +414,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
-	kr_display_name = "접지 ",
+	kr_display_name = "접지된 ",
 	keywords = {grounding=true},
 	level_range = {1, 50},
 	rarity = 6,

@@ -54,7 +54,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "impenetrable ", prefix=true, instant_resolve=true,
-	kr_display_name = "뚫리지않는 ",
+	kr_display_name = "뚫리지 않는 ",
 	keywords = {impenetrable=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -113,7 +113,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of implacability", suffix=true, instant_resolve=true,
-	kr_display_name = "무자비함의 ",
+	kr_display_name = "확고함의 ",
 	keywords = {['implac.']=true},
 	level_range = {20, 50},
 	greater_ego = 1,

@@ -47,7 +47,7 @@ newEntity{
 
 newEntity{
 	name = "overpowered ", prefix=true,
-	kr_display_name = "압도하는 ",
+	kr_display_name = "압도적인 ",
 	keywords = {['overpower']=true},
 	level_range = {30, 50},
 	greater_ego = 1,

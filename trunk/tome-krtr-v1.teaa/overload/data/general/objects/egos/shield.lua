@@ -156,7 +156,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resistance", suffix=true, instant_resolve=true,
-	kr_display_name = "저항의 ",
+	kr_display_name = "저항력의 ",
 	keywords = {resistance=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -190,7 +190,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "icy ", prefix=true, instant_resolve=true,
-	kr_display_name = "얼어붙은 ",
+	kr_display_name = "냉기 ",
 	keywords = {icy=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -236,7 +236,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of gloom", suffix=true, instant_resolve=true,
-	kr_display_name = "침울한 기운의 ",
+	kr_display_name = "침울함의 ",
 	keywords = {gloom=true},
 	level_range = {10, 50},
 	rarity = 14,
@@ -279,7 +279,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "crackling ", prefix=true, instant_resolve=true,
-	kr_display_name = "탁탁거리는 ",
+	kr_display_name = "파직거리는 ",
 	keywords = {crackling=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -333,7 +333,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "wintry ", prefix=true, instant_resolve=true,
-	kr_display_name = "쌀쌀한 ",
+	kr_display_name = "차가운 ",
 	keywords = {wintry=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -512,7 +512,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "blood-etched ", prefix=true, instant_resolve=true,
-	kr_display_name = "피로새긴 ",
+	kr_display_name = "피를 새긴 ",
 	keywords = {etched=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -530,7 +530,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of crushing", suffix=true, instant_resolve=true,
-	kr_display_name = "짓밟기의 ",
+	kr_display_name = "파쇄의 ",
 	keywords = {crushing=true},
 	level_range = {30, 50},
 	greater_ego = 1,

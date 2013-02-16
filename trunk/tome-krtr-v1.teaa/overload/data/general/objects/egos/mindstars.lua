@@ -107,7 +107,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of slime", suffix=true, instant_resolve=true,
-	kr_display_name = "슬라임의 ",
+	kr_display_name = "끈적임의 ",
 	keywords = {slime=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -148,7 +148,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "radiant ", prefix=true, instant_resolve=true,
-	kr_display_name = "발광하는 ",
+	kr_display_name = "빛나는 ",
 	keywords = {radiant=true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -166,7 +166,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
-	kr_display_name = "명석의 ",
+	kr_display_name = "명석함의 ",
 	keywords = {clarity=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -197,7 +197,7 @@ newEntity{
 
 	charm_power = resolvers.mbonus_material(80, 20),
 	charm_power_def = {add=5, max=10, floor=true},
-	resolvers.charm("정신 피해를 주고 염력과 증오심을 얻음", 20,
+	resolvers.charm("정신 피해를 입히고, 염력과 증오를 얻음", 20,
 		function(self, who)
 			local tg = {type="hit", range=10,}
 			local x, y, target = who:getTarget(tg)
@@ -270,10 +270,10 @@ newEntity{
 			[DamageType.NATURE] = resolvers.mbonus_material(8, 2),
 		},
 	},
-	resolvers.charm("마석 조합으로 자연력 보강", 20,
+	resolvers.charm("마석을 조합하여 자연의 힘 보강", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
 			who:showEquipment("어느 마석과 조화시키겠습니까?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self  and o.power_source and o.power_source.nature and not o.set_complete end, function(o)
@@ -320,10 +320,10 @@ newEntity{
 			[DamageType.MIND] = resolvers.mbonus_material(8, 2),
 		},
 	},
-	resolvers.charm("마석 조합으로 염력 보강", 20,
+	resolvers.charm("마석을 조합하여 염력 보강", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안 사용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
 			who:showEquipment("어느 마석과 공명시키겠습니까?", function(o) return o.subtype == "mindstar" and o.set_list and o ~= self and o.power_source and o.power_source.psionic and not o.set_complete end, function(o)
@@ -374,18 +374,18 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_SUMMONERS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#GREEN#당신의 마석이 자연의 순수함과 공명합니다.")
+		game.logPlayer(who, "#GREEN#마석이 자연의 순수함과 공명하기 시작합니다.")
 		self:specialSetAdd({"wielder","nature_summon_regen"}, self.material_level)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
+		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end
 }
 
  newEntity{
 	power_source = {nature=true}, define_as = "MS_EGO_SET_SUMMONERS",
 	name = "summoner's ", prefix=true, instant_resolve=true,
-	kr_display_name = "소환수 ",
+	kr_display_name = "소환사 ",
 	keywords = {summoners=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -397,11 +397,11 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_CALLERS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#GREEN#당신의 마석이 자연의 순수함과 공명합니다.")
+		game.logPlayer(who, "#GREEN#마석이 자연의 순수함과 공명하기 시작합니다.")
 		self:specialSetAdd({"wielder","nature_summon_max"}, 1)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
+		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end
 }
 
@@ -434,20 +434,20 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_DRAKE_STAR"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#PURPLE#당신의 내부에서 활발한 용의 영혼이 느껴집니다!")
+		game.logPlayer(who, "#PURPLE#몸 안에서 활발한 용의 영혼이 느껴집니다!")
 		self:specialSetAdd({"wielder","blind_immune"}, self.material_level / 10)
 		self:specialSetAdd({"wielder","stun_immune"}, self.material_level / 10)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
+		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end,
-	resolvers.charm("정령 마석 속의 드레이크 호출 (이것은 다른 조합 보너스를 없앰)", 20,
+	resolvers.charm("마석 안에 깃든 용 소환 (다른 보강 효과는 사라짐)", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "당신이 %s 염동력으로 잡고있는 동안 사용할 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
-			who:showEquipment("어느 마석의 드레이크를 호출합니까 (이것은 다른 조합 보너스를 파괴함)?", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
+			who:showEquipment("어느 마석에 깃든 용을 소환합니까? (다른 보강 효과는 사라짐)", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
 				-- remove any existing sets from the mindstar
 				o.set_list = nil
 				o.on_set_complete = nil
@@ -615,18 +615,18 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_EPIPHANOUS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#YELLOW#당신의 마석이 염력과 공명합니다.")
+		game.logPlayer(who, "#YELLOW#마석이 염력과 공명하기 시작합니다.")
 		self:specialSetAdd({"wielder","psi_regen"}, self.material_level / 10)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
+		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end
 }
 
  newEntity{
 	power_source = {psionic=true}, define_as = "MS_EGO_SET_EPIPHANOUS",
 	name = "epiphanous ", prefix=true, instant_resolve=true,
-	kr_display_name = "계시 ",
+	kr_display_name = "계시받은 ",
 	keywords = {epiphanous=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -639,11 +639,11 @@ newEntity{
 	},
 	set_list = { {"define_as", "MS_EGO_SET_DREAMERS"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#YELLOW#당신의 마석이 염력과 공명합니다.")
+		game.logPlayer(who, "#YELLOW#마석이 염력과 공명하기 시작합니다.")
 		self:specialSetAdd({"wielder","psi_on_crit"}, self.material_level)
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
+		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end
 }
 
@@ -651,7 +651,7 @@ newEntity{
  newEntity{
 	power_source = {nature=true},
 	name = "mitotic ", prefix=true, instant_resolve=true,
-	kr_display_name = "유사분열 ",
+	kr_display_name = "분열하는 ",
 	keywords = {mitotic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -665,12 +665,12 @@ newEntity{
 		function(self, who)
 			-- Check for free slot first
 			if who:getFreeHands() == 0 then
-				game.logPlayer(who, "당신이 %s 나누려면 빈손이 필요합니다", (self.kr_display_name or self.name):addJosa("를"))
+				game.logPlayer(who, "%s 나누려면, 한쪽 손은 아무 것도 들고 있으면 안됩니다.", (self.kr_display_name or self.name):addJosa("를"))
 			return
 			end
 
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "당신은 %s 염동력으로 잡고 있는 동안 나눌 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
+				game.logPlayer(who, "%s 염동력으로 잡고 있는 동안에는, 둘로 나눌 수 없습니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end
 
@@ -691,10 +691,10 @@ newEntity{
 
 			o.on_set_complete = function(self, who)
 				self:specialWearAdd({"combat","burst_on_crit"}, { [engine.DamageType.ACID_BLIND] = 10 * self.material_level } )
-				game.logPlayer(who, "#GREEN#마석의 맥동이 생명력과 동화됩니다.")
+				game.logPlayer(who, "#GREEN#마석이 생명력으로 맥동하기 시작합니다.")
 			end
 			o.on_set_broken = function(self, who)
-				game.logPlayer(who, "#SLATE#마석의 연결이 끊어졌습니다.")
+				game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 			end
 
 			o2.on_set_complete = function(self, who)
@@ -714,7 +714,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true}, define_as = "MS_EGO_SET_HATEFUL",
 	name = "hateful ", prefix=true, instant_resolve=true,
-	kr_display_name = "불쾌한 ",
+	kr_display_name = "증오에 찬 ",
 	keywords = {hateful=true},
 	level_range = {30, 50},
 	greater_ego =1,
@@ -734,7 +734,7 @@ newEntity{
 	set_list = { {"define_as", "MS_EGO_SET_WRATHFUL"} },
 	on_set_complete = function(self, who)
 		self:specialSetAdd({"wielder","combat_mindpower"}, 2 * self.material_level)
-		game.logPlayer(who, "#GREY#당신은 마석으로인해 불쾌함이 커짐을 느낍니다.")
+		game.logPlayer(who, "#GREY#마석을 쥐자, 마음 속의 증오심이 불타오릅니다.")
 	end,
 	on_set_broken = function(self, who)
 		game.logPlayer(who, "#SLATE#마석의 공명이 희미해집니다.")
@@ -758,7 +758,7 @@ newEntity{
 	set_list = { {"define_as", "MS_EGO_SET_HATEFUL"} },
 	on_set_complete = function(self, who)
 		self:specialSetAdd({"wielder","max_hate"}, 2 * self.material_level)
-		game.logPlayer(who, "#GREY#당신은 마석으로인해 불쾌함이 커짐을 느낍니다.")
+		game.logPlayer(who, "#GREY#마석을 쥐자, 마음 속의 분노가 불타오릅니다.")
 	end,
 	on_set_broken = function(self, who)
 		game.logPlayer(who, "#SLATE#마석의 공명이 희미해집니다.")

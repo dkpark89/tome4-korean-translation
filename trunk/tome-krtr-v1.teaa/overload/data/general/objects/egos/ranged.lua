@@ -75,7 +75,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of power", suffix=true, instant_resolve=true,
-	kr_display_name = "세력의 ",
+	kr_display_name = "강력함의 ",
 	keywords = {power=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -90,7 +90,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "swiftstrike ", prefix=true, instant_resolve=true,
-	kr_display_name = "빠른공격 ",
+	kr_display_name = "빠른 공격 ",
 	keywords = {swiftstrike=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -105,7 +105,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of true flight", suffix=true, instant_resolve=true,
-	kr_display_name = "참비행의 ",
+	kr_display_name = "진정한 비행의 ",
 	keywords = {flight=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -191,7 +191,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "penetrating ", prefix=true, instant_resolve=true,
-	kr_display_name = "관통 ",
+	kr_display_name = "관통하는 ",
 	keywords = {penetrating=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -209,7 +209,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "runic ", prefix=true, instant_resolve=true,
-	kr_display_name = "룬 ",
+	kr_display_name = "룬이 새겨진 ",
 	keywords = {runic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -229,7 +229,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "warden's ", prefix=true, instant_resolve=true,
-	kr_display_name = "감시원 ",
+	kr_display_name = "감시자 ",
 	keywords = {wardens=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -284,7 +284,7 @@ newEntity{
 	},
 	charm_power = resolvers.mbonus_material(100, 5),
 	charm_power_def = {add=50, max=200, floor=true},
-	resolvers.charm("5턴간 생명력 %d 재생", 20,
+	resolvers.charm("5 턴간 생명력 %d 재생", 20,
 		function(self, who)
 			who:setEffect(who.EFF_REGENERATION, 5, {power=self:getCharmPower()/5})
 			return {id=true, used=true}
@@ -296,7 +296,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "blazebringer's ", prefix=true, instant_resolve=true,
-	kr_display_name = "화염유발자 ",
+	kr_display_name = "방화범 ",
 	keywords = {blaze=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -340,7 +340,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "glacial ", prefix=true, instant_resolve=true,
-	kr_display_name = "차가운 ",
+	kr_display_name = "얼어붙은 ",
 	keywords = {glacial=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -414,7 +414,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of dampening", suffix=true, instant_resolve=true,
-	kr_display_name = "축축함의 ",
+	kr_display_name = "마력 약화의 ",
 	keywords = {dampening=true},
 	level_range = {1, 50},
 	rarity = 18,
@@ -433,7 +433,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "mage-hunter's ", prefix=true, instant_resolve=true,
-	kr_display_name = "마법사-사냥꾼 ",
+	kr_display_name = "마법 사냥꾼 ",
 	keywords = {magehunters=true},
 	level_range = {30, 50},
 	rarity = 18,

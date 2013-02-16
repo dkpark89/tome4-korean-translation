@@ -28,7 +28,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {arcane=true},
 	name = " of carrying", suffix=true, instant_resolve=true,
-	kr_display_name = "수용의 ",
+	kr_display_name = "짐꾼의 ",
 	keywords = {carrying=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -58,7 +58,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
-	kr_display_name = "단열 ",
+	kr_display_name = "단열 처리된 ",
 	keywords = {insulate=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -74,7 +74,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
-	kr_display_name = "접지 ",
+	kr_display_name = "접지된 ",
 	keywords = {grounding=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -90,7 +90,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "nightruned ", prefix=true, instant_resolve=true,
-	kr_display_name = "야간보행 ",
+	kr_display_name = "밤의 룬을 새긴 ",
 	keywords = {nightruned=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -106,7 +106,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of dampening", suffix=true, instant_resolve=true,
-	kr_display_name = "축축함의 ",
+	kr_display_name = "마력 약화의 ",
 	keywords = {dampening=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -139,7 +139,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "clarifying ", prefix=true, instant_resolve=true,
-	kr_display_name = "명백한 ",
+	kr_display_name = "명석한 ",
 	keywords = {clarifying=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -152,7 +152,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "protective ", prefix=true, instant_resolve=true,
-	kr_display_name = "보호 ",
+	kr_display_name = "보호하는 ",
 	keywords = {protective=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -253,7 +253,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "balancing ", prefix=true, instant_resolve=true,
-	kr_display_name = "균형잡힌 ",
+	kr_display_name = "균형적인 ",
 	keywords = {balancing=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -327,7 +327,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "skylord's ", prefix=true, instant_resolve=true,
-	kr_display_name = "창공군주 ",
+	kr_display_name = "천공 군주 ",
 	keywords = {skylord=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -349,7 +349,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spiritwalker's ", prefix=true, instant_resolve=true,
-	kr_display_name = "걷는 영혼 ",
+	kr_display_name = "영혼 인도자 ",
 	keywords = {spiritwalk=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -367,7 +367,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of magery", suffix=true, instant_resolve=true,
-	kr_display_name = "마법사용자의 ",
+	kr_display_name = "마법 사용자의 ",
 	keywords = {magery=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -385,7 +385,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of unlife", suffix=true, instant_resolve=true,
-	kr_display_name = "역생의 ",
+	kr_display_name = "언데드의 ",
 	keywords = {unlife=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -421,7 +421,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of shielding", suffix=true, instant_resolve=true,
-	kr_display_name = "방패의 ",
+	kr_display_name = "방어의 ",
 	keywords = {shielding=true},
 	level_range = {20, 50},
 	rarity = 10,
@@ -432,7 +432,7 @@ newEntity{
 	
 	charm_power = resolvers.mbonus_material(80, 30),
 	charm_power_def = {add=80, max=300, floor=true},
-	resolvers.charm("피해를 %d만큼 흡수하는 일시적 방패 생성", 30, function(self, who)
+	resolvers.charm("피해를 %d 만큼 흡수하는 일시적인 보호막 생성", 30, function(self, who)
 		local power = self:getCharmPower()
 		who:setEffect(who.EFF_DAMAGE_SHIELD, 10, {power=power})
 		game.logSeen(who, "%s %s 사용합니다!", (who.kr_display_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
