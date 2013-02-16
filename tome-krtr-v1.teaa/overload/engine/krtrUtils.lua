@@ -515,7 +515,7 @@ function string.krRace(str)
 	elseif ori == "thalore" then return "탈로레"
 	elseif ori == "thought-form" then return "생각의 구현"
 	elseif ori == "totem" then return "토템"
-	elseif ori == "treant" then return "트린트"
+	elseif ori == "treant" then return "나무 정령"
 	elseif ori == "troll" then return "트롤"
 	elseif ori == "turtle" then return "거북이"
 	elseif ori == "tutorial base" then return "연습게임용 종족"

@@ -25,11 +25,11 @@ local entershop = function (self, player)
 end
 
 newChat{ id="ryal-entry",
-text = [[#LIGHT_GREEN#*거대한 해골 거인이 메인 게이트를 통해 걸어들어 옵니다.
+text = [[#LIGHT_GREEN#*거대한 해골 거인이 정문을 통해 걸어들어 옵니다.
 #LIGHT_GREEN#해골 거인의 모양은 복잡하고 날카롭습니다, 드레이크와 매우 유사하지만, 날개대신에 샐 수 없는
 #LIGHT_GREEN#수의 가시가 몸에 나 있습니다.
 #LIGHT_GREEN#이 큰 언데드는 당신을...유별나게도 지성적으로 당신을 주시합니다.
-#LIGHT_GREEN#당신은 이전에 그를 들어본 적이 있습니다. 비범한 르얄, 당신의 첫번째 장애물이 될 자!
+#LIGHT_GREEN#당신은 이전에 그를 들어본 적이 있습니다. 비범한 리얄, 당신의 첫번째 장애물이 될 자!
 #LIGHT_GREEN#두 개의 기분 나쁜 파란 빛이 눈이 있어야 할 자리를 채우고 있습니다, 해골 거인이
 #LIGHT_GREEN#울부짖자 다수의 뼈들이 당신이 있는 방향으로 날아오기 시작합니다!*
 ]],
@@ -39,13 +39,13 @@ text = [[#LIGHT_GREEN#*거대한 해골 거인이 메인 게이트를 통해 걸
 }
 
 newChat{ id="ryal-defeat",
-text = [[#LIGHT_GREEN#*몇 번의 공격을 받은 이후, 거인 언데드는 드디어
+text = [[#LIGHT_GREEN#*몇 번의 공격을 받은 이후, 언데드 거인은 드디어
 #LIGHT_GREEN#당신의 공격에 굴복합니다*
-#LIGHT_GREEN#갑자기, 르얄의 몸이 재생되기 시작합니다!
+#LIGHT_GREEN#갑자기, 리얄의 몸이 재생되기 시작합니다!
 #LIGHT_GREEN#다시 자신감을 가지고 일어난, 당신은 그의 감정없는 해골이 당신을
 #LIGHT_GREEN#노려보고 있는 걸 느낄 수 있습니다...충족함으로 가득 찬 눈빛으로 말이죠.
 #WHITE#하하하...잘 했어, @playerdescriptor.race@.
-#LIGHT_GREEN#*르얄은 빠르게 게이트 쪽으로 몸을 돌린 후 경기장을 떠났습니다, 겉보기론 멀쩡한 것 같습니다*
+#LIGHT_GREEN#*리얄은 빠르게 게이트 쪽으로 몸을 돌린 후 경기장을 떠났습니다, 겉보기론 멀쩡한 것 같습니다*
 ]],
 	answers = {
 		{"재미있었어, 해골 거인!", action=entershop},
@@ -57,7 +57,7 @@ newChat{ id="fryjia-entry",
 text = [[#LIGHT_GREEN#*어린 소녀가 조용히 걸어서 게이트를 통과하여 들어오자 바람이 차갑게 바뀌기 시작했습니다..
 #LIGHT_GREEN#그녀는 겉으로는 놀랍게도 젊게 보입니다, 엄청나게 창백한 피부와 그리고 그에 대비되는
 #LIGHT_GREEN#긴 검은 머리카락을 가지고 있습니다. 그녀는 으스스한 침착함으로 당신을 훝어봅니다.*#WHITE#
-나는 우박 폭풍을 부르는 프라이지아로 알려져 있습니다. 그것만 알면 충분할 거라 생각합니다, @playerdescriptor.race@. 싸움을 시작하죠..
+나는 우박 폭풍을 부르는 프리지아로 알려져 있습니다. 그것만 알면 충분할 거라 생각합니다, @playerdescriptor.race@. 싸움을 시작하죠..
 #LIGHT_GREEN#*경기장 전체가 그녀가 말을 끝내자마자 추워지기 시작합니다, 그리고 관중들은
 #LIGHT_GREEN#그들의 제일 좋은 겨울용 방한 망토를 입기 시작합니다*]],
 	answers = {
@@ -66,7 +66,7 @@ text = [[#LIGHT_GREEN#*어린 소녀가 조용히 걸어서 게이트를 통과�
 }
 
 newChat{ id="fryjia-defeat",
-text = [[#LIGHT_GREEN#*당신의 마지막 한방으로, 프라이지아가 쓰러졌습니다, 더 이상 싸울 수 없는 상태인 것 같습니다*
+text = [[#LIGHT_GREEN#*당신의 마지막 한방으로, 프리지아가 쓰러졌습니다, 더 이상 싸울 수 없는 상태인 것 같습니다*
 #LIGHT_GREEN#*She awkwardly stands up, but doesn't seem critically injured*
 #WHITE# 나...난 패배를 인정한다.
 #LIGHT_GREEN#*The audience "oooohs" in awe. Fryjia has turned her back to you*
@@ -146,8 +146,8 @@ Good luck...
 #RED#The final battle begins when the gate closes, just this final time!!
 ]],
 	answers = {
-		{"내가 널 쓰러뜨리겠다, 아레나의 승리자!!!", action=entershop},
-		{"나는 지금의 아레나의 승리자를 대신하여 아레나의 승리자가 되겠다!!", action=entershop},
+		{"내가 널 쓰러뜨리겠다, 투기장의 승리자!!!", action=entershop},
+		{"나는 지금의 투기장의 승리자를 대신하여 투기장의 승리자가 되겠다!!", action=entershop},
 		{"부와 영광을! 부와 영광을!", action=entershop},
 	}
 }
@@ -173,7 +173,7 @@ Pursue glory with all your might, @playerdescriptor.race@!!
 newChat{ id="master-defeat",
 text = [[#LIGHT_GREEN#*영광스러운 전투의 이후, 승리자가 쓰러졌습니다!*
 아...하하. 네가 해냈구나, @playerdescriptor.race@...
-#LIGHT_GREEN#*아레나의 승리자가, 비록 패배했지만, 밝은 미소를 지으며 일어납니다.
+#LIGHT_GREEN#*투기장의 승리자가, 비록 패배했지만, 밝은 미소를 지으며 일어납니다.
 #LIGHT_GREEN#승리자의 허락이 떨어짐을 느끼며, 당신은 무기를 집어들고, 이젠 피로 물든
 #LIGHT_GREEN#모래 위에 쓰러집니다.*
 모두들! 오늘 우승자가 나왔습니다!!
@@ -181,22 +181,22 @@ text = [[#LIGHT_GREEN#*영광스러운 전투의 이후, 승리자가 쓰러졌�
 축하한다, @playerdescriptor.race@. 너는 이제 승리자가 됐다..
 이제부터 너는 우승자로써 너만의 공정한 자리를 차지하게 되겠지..
 이것만 기억해...나처럼, 너도 언젠가는 쓰러지게 된다...
-하지만 그때까진, 여긴 네 꺼야! 파라다이스에 온 걸 환영한다, @playerdescriptor.race@!
-#LIGHT_GREEN#*당신은 여러 스폰서와 그리고 군의 스카우터들이 당신이 쓰러뜨린
-#LIGHT_GREEN#마스터에게 다가와서, 여러가지 거래와 그리고 군에서의 좋은 자리를 제안하는 걸 봅니다.
+하지만 그때까진, 여긴 네 꺼야! 천국에 온 걸 환영한다, @playerdescriptor.race@!
+#LIGHT_GREEN#*당신은 여러 후원자와 그리고 군대의 징집원들이 당신이 쓰러뜨린
+#LIGHT_GREEN#승리자에게 다가와서, 여러가지 거래와 그리고 군에서의 좋은 자리를 제안하는 걸 봅니다.
 #LIGHT_GREEN#당신은 미소짓습니다, 인생의 승리자로써, 이제부턴 당신 자신의 인생도 영광스럽다는 걸 알고 있으니까요.
 #LIGHT_GREEN#왜냐하면 만약 당신이 미래에 패배하게 된다고 해도...
 #LIGHT_GREEN#당신은 언제나 당신의 이미지를 팔며 융성하게 지낼 수 있기 떄문입니다.
 
 #YELLOW#축하합니다!
-#YELLOW#당신은 이제 아레나의 승리자가 되었습니다! 당신은 위대하고 매우 멋집니다!
+#YELLOW#당신은 이제 투기장의 승리자가 되었습니다! 당신은 위대하고 매우 멋집니다!
 #YELLOW#당신은 다른 자가 당신에게 도전하기 전까지는 계속 승리자로 남을 것입니다!
 #YELLOW#다음에 플레이 하실 땐, 당신은 이 새로운 승리자와 싸우게 될 것입니다!
 ]],
 	answers = {
 		{"돈과!! 그리고!! 영광을!!", action=function(npc, player) player:hasQuest("arena"):win() end},
 		{"이제부턴 광신도들에게서 여자들을 구하지 않아도 돼!", cond=function(npc, player) if player.female == true then return false else return true end end, action=function(npc, player) player:hasQuest("arena"):win() end},
-		{"나는 이 승리에 의해, 아레나의 승리자로써 미래의 도전자들을 기다릴 것이다!", action=function(npc, player) player:hasQuest("arena"):win() end},
+		{"나는 이 승리에 의해, 투기장의 승리자로써 미래의 도전자들을 기다릴 것이다!", action=function(npc, player) player:hasQuest("arena"):win() end},
 		{"#LIGHT_GREEN#*춤을 춘다*", action=function(npc, player) player:hasQuest("arena"):win() end},
 	}
 }

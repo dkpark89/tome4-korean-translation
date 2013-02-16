@@ -41,7 +41,7 @@ newAchievement{
 newAchievement{
 	name = "Almost Master of Arena",
 	show = "full",
-	kr_display_name = "투기장의 예비 승리자",
+	kr_display_name = "예비된 투기장의 승리자",
 	desc = [[30회 쇄도 방식의 투기장에서 승리자가 됨.]],
 }
 

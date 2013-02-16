@@ -441,13 +441,13 @@ newEntity{
 	on_set_broken = function(self, who)
 		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end,
-	resolvers.charm("마석 안에 깃든 용 소환 (다른 보강 효과는 사라짐)", 20,
+	resolvers.charm("마석 안에 깃든 드레이크 소환 (다른 보강 효과는 사라짐)", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
 				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_display_name or self.name):addJosa("를"))
 				return
 			end		
-			who:showEquipment("어느 마석에 깃든 용을 소환합니까? (다른 보강 효과는 사라짐)", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
+			who:showEquipment("어느 마석에 깃든 드레이크를 소환합니까? (다른 보강 효과는 사라짐)", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
 				-- remove any existing sets from the mindstar
 				o.set_list = nil
 				o.on_set_complete = nil

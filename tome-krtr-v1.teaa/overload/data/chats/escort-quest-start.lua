@@ -24,7 +24,7 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만 때가 되면 당신은 지구란스의 기술을 써서 포탈이 실패하도록 할 것입니다.. @npcname@ 는 지구르로 보내져서 제대로 '처리'될 것입니다.]#WHITE#\n안내하게; 어느정도 지켜는 주겠어.", action=function(npc, player)
+		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만 때가 되면 당신은 지구르의 기술을 써서 포탈이 실패하도록 할 것입니다.. @npcname2@ 지구르로 보내져서 제대로 '처리'될 것입니다.]#WHITE#\n안내하게; 어느정도 지켜는 주겠어.", action=function(npc, player)
 			player:hasQuest(npc.quest_id).to_zigur = true
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
@@ -61,7 +61,7 @@ newChat{ id="welcome",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만 때가 되면 당신은 지구란스의 기술을 써서 포탈이 실패하도록 할 것입니다.. @npcname@ 는 지구르로 보내져서 제대로 '처리'될 것입니다.]#WHITE#\n안내하게; 어느정도 지켜는 주겠어.", action=function(npc, player)
+		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만 때가 되면 당신은 지구르의 기술을 써서 포탈이 실패하도록 할 것입니다.. @npcname2@ 지구르로 보내져서 제대로 '처리'될 것입니다.]#WHITE#\n안내하게; 어느정도 지켜는 주겠어.", action=function(npc, player)
 			player:hasQuest(npc.quest_id).to_zigur = true
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {

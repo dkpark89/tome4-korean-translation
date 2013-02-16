@@ -25,7 +25,7 @@ newEntity{ define_as = "ASSASSIN_LORD",
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.VIOLET,
 	name = "Assassin Lord",
-	kr_display_name = "암살단의 제왕",
+	kr_display_name = "암살단 단장",
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 	cant_be_moved = true,
 

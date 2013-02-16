@@ -157,13 +157,13 @@ newAchievement{
 	name = "Rescuer of the lost", id = "LOST_MERCHANT_RESCUE",
 	show = "name",
 	kr_display_name = "실종자 구출",
-	desc = [['암살단의 제왕'으로부터 상인을 구출함.]],
+	desc = [['암살단 단장'으로부터 상인을 구출함.]],
 }
 newAchievement{
 	name = "Poisonous", id = "LOST_MERCHANT_EVIL",
 	show = "name",
 	kr_display_name = "맹독성",
-	desc = [['암살단의 제왕' 편에 가담함.]],
+	desc = [['암살단 단장' 편에 가담함.]],
 }
 newAchievement{
 	name = "Destroyer of the creation", id = "SLASUL_DEAD",

@@ -361,7 +361,7 @@ newTalent{
 				type = "immovable", subtype = "plants",
 				display = "#",
 				name = "treant", color=colors.GREEN,
-				kr_display_name = "트린트",
+				kr_display_name = "나무 정령",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/immovable_plants_treant.png", display_h=2, display_y=-1}}},
 				desc = "지각력이 있는, 매우 강력한 나무입니다.",
 
