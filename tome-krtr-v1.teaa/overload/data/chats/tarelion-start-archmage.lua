@@ -18,18 +18,18 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Wait a minute!]],
+	text = [[잠시 기다리게!]],
 	answers = {
-		{"Archmage Tarelion?", jump="next1"},
+		{"이거 마도사 타레리온이 아니십니까?", jump="next1"},
 	}
 }
 
 newChat{ id="next1",
-	text = [[Yes @playername@, I have heard you plan on going into the wild world, looking for some adventures of your own.
+	text = [[그렇네 @playername@, I have heard you plan on going into the wild world, looking for some adventures of your own.
 This is good, more of us should get out of here once in a while and actually help people out there.
 Say, maybe you might want to get an adventure and help Angolwen?]],
 	answers = {
-		{"Perhaps, what do you need?", jump="next2"},
+		{"아마도요, 무엇이 필요하십니까??", jump="next2"},
 	}
 }
 
@@ -47,16 +47,16 @@ So, you think you can help us ?]],
 }
 
 newChat{ id="teleport",
-	text = [[Good luck!]],
+	text = [[행운이 있기를!]],
 	answers = {
-		{"[teleport]", action=function(npc, player) game:changeLevel(1, "abashed-expanse", {direct_switch=true}) end},
+		{"[순간이동]", action=function(npc, player) game:changeLevel(1, "abashed-expanse", {direct_switch=true}) end},
 	}
 }
 
 newChat{ id="refuse",
 	text = [[Oh well, farewell on your trips. Now I need to find somebody else to go up there.]],
 	answers = {
-		{"Bye.", action=function(npc, player) player:setQuestStatus("start-archmage", engine.Quest.FAILED) end},
+		{"그럼 안녕히.", action=function(npc, player) player:setQuestStatus("start-archmage", engine.Quest.FAILED) end},
 	}
 }
 

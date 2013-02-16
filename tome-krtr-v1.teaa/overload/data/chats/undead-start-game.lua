@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*Before you stands a Human clothed in black robes. He seems to be ignoring you.*#WHITE#
-#LIGHT_GREEN#*You stand inside some kind of summoning circle, which prevents you from moving.*#WHITE#
+	text = [[#LIGHT_GREEN#*당신이 정신을 차리자 검은 로브를 입은 사람이 보입니다. 보아하니 그는 당신을 무시하고 있는 듯 합니다.*#WHITE#
+#LIGHT_GREEN#*당신은 어떤 종류의 소환 마법진 위에 서있습니다, 이 마법진이 당신의 움직임을 방해하는 듯 싶습니다.*#WHITE#
 Oh yes! YES, one more for my collection. My collection, yes. A powerful one indeed!]],
 	answers = {
-		{"[listen]", jump="welcome2"},
+		{"[듣는다]", jump="welcome2"},
 	}
 }
 
@@ -30,17 +30,17 @@ newChat{ id="welcome2",
 	text = [[A powerful tool against my enemies. Yes, yes. They all hate me, but I will show them my power!
 I will show them! SHOW THEM!]],
 	answers = {
-		{"I am not a tool! RELEASE ME!", jump="welcome3"},
+		{"나는 도구가 아냐! 날 보내줘!", jump="welcome3"},
 	}
 }
 
 newChat{ id="welcome3",
-	text = [[You cannot talk. You cannot talk! You are a slave, a tool!
-You are mine! Be quiet!
+	text = [[넌 말할 수 없어. 넌 말해선 안됀다고! 넌 노예야, 도구라고!
+넌 내꺼야! 조용히 해!
 #LIGHT_GREEN#*As his mind drifts off you notice part of the summoning circle is fading. You can probably escape!*#WHITE#
 ]],
 	answers = {
-		{"[attack]", action=function(npc, player)
+		{"[공격한다]", action=function(npc, player)
 			local floor = game.zone:makeEntityByName(game.level, "terrain", "SUMMON_CIRCLE_BROKEN")
 			game.zone:addEntity(game.level, floor, "terrain", 22, 3)
 		end},

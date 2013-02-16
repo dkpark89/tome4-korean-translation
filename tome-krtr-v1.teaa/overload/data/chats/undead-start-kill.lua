@@ -18,35 +18,35 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*He falls to his knees.*#WHITE#
-Please spare me! I am pitiful. I will not stop you. Let me leave!]],
+	text = [[#LIGHT_GREEN#*그는 그의 무릎을 바닥에 떨어뜨립니다.*#WHITE#
+제발 살려줘! 나도 불쌍한 사람이라고. 이제 널 멈추지 않을테니. 날 떠나게 해줘!]],
 	answers = {
-		{"No!", jump="welcome2"},
+		{"허나 거절한다!", jump="welcome2"},
 	}
 }
 
 newChat{ id="welcome2",
-	text = [[But, but, you were my... you...
-You need me! What do you think you will do on the surface? Everything you will meet will try to destroy you.
-You are strong but you cannot resist them all!]],
+	text = [[그러나, 그러나, 너는 내... 너...
+넌 내가 필요해! 네 녀석이 지상에서 무슨 일을 할 수 있을거라 생각해? 네 녀석을 보는 것들은 모두 네 녀석을 죽이려고 들 걸.
+넌 강하지만 너 혼자서 그들을 다 쓰러뜨릴 순 없을걸!]],
 	answers = {
-		{"So what do you propose?", jump="what"},
-		{"[kill him]", action=function(npc, player)
+		{"그래서, 네 녀석의 목적이 뭐냐?", jump="what"},
+		{"[그를 죽인다]", action=function(npc, player)
 			npc.die = nil
-			npc:doEmote("ARRGGggg... You are alone! You will be destroyed!", 60)
+			npc:doEmote("아아아악... 넌 혼자야! 넌 파괴 될 거야!", 60)
 			npc:die(player)
 		end},
 	}
 }
 
 newChat{ id="what",
-	text = [[I can give you a cloak that will conceal your true nature!
-With it all people will see when they look at you is a normal average Human. You can go about your business.
+	text = [[난 너에게 네 정체를 숨길 수 있는 망토를 줄 수 있어!
+이것만 있으면 네 주위의 사람들은 너를 평범한 사람으로 볼 거야. 이것만 있으면 넌 네 볼일을 볼 수 있을걸.
 Please!]],
 	answers = {
-		{"Thanks for the information. Now you may die. [kill him]", action=function(npc, player)
+		{"정보에 대해선 감사하지. 이제 죽어줘야 겠다. [그를 죽인다]", action=function(npc, player)
 			npc.die = nil
-			npc:doEmote("ARRGGggg... You are alone! You will be destroyed!", 60)
+			npc:doEmote("아아아악... 넌 혼자야! 넌 파괴 될 거야!", 60)
 			npc:die(player)
 		end},
 	}
