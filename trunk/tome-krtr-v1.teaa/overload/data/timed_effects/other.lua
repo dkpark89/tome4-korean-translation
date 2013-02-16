@@ -30,7 +30,7 @@ newEffect{
 	name = "INFUSION_COOLDOWN", image = "effects/infusion_cooldown.png",
 	desc = "Infusion Saturation",
 	kr_display_name = "주입 포화",
-	long_desc = function(self, eff) return ("주입 능력을 많이 사용할수록, 사용한 능력의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
+	long_desc = function(self, eff) return ("주입 능력을 많이 사용할수록, 사용한 주입의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
 	type = "other",
 	subtype = { infusion=true },
 	status = "detrimental",
@@ -1386,7 +1386,7 @@ newEffect{
 	desc = "Heighten Fear",
 	kr_display_name = "고조된 공포",
 	long_desc = function(self, eff) return ("공포 고조 : 공포의 시전자인 %s 의 시야 범위, 혹은 %d 칸 이내에 %d 턴 동안 더 있을 경우, 또 다른 공포에 걸림"): 
-	format((eff.source.kr_display_name or eff.source.name), eff.turns_left, eff.range) end,
+	format((eff.source.kr_display_name or eff.source.name), eff.turns_left, eff.range) end, --@@ 변수 순서 조정
 	type = "other",
 	subtype = { fear=true },
 	status = "detrimental",

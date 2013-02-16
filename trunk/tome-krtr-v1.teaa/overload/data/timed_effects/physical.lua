@@ -1866,7 +1866,7 @@ newEffect{
 	long_desc = function(self, eff)
 		local ravaged = "(매 턴마다)"
 		if eff.ravage then ravaged = "/ 매 턴마다 좋은 물리적 상태효과 하나 제거" end
-		return ("왜곡에 의해 유린당함 : 물리 피해 %0.2f %s"):format(eff.dam, ravaged)
+		return ("왜곡에 의해 유린당함 : 매 턴마다 물리 피해 %0.2f %s"):format(eff.dam, ravaged)
 	end,
 	type = "physical",
 	subtype = { distortion=true },
@@ -2099,7 +2099,7 @@ newEffect{
 	subtype = { status=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target1# 쪼개졌습니다.", "+유사분열" end,
+	on_gain = function(self, err) return "#Target1# 쪼개졌습니다.", "+유사 분열" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {all=eff.power})
 	end,

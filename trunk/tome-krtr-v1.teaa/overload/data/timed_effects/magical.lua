@@ -1210,7 +1210,7 @@ newEffect{
 	name = "GATHER_THE_THREADS", image = "talents/gather_the_threads.png",
 	desc = "Gather the Threads",
 	kr_display_name = "시간의 흐름 - 수집",
-	long_desc = function(self, eff) return ("주문력 +%d / 매턴마다 추가적인 주문력 +%d"):
+	long_desc = function(self, eff) return ("주문력 +%d / 매 턴마다 추가적인 주문력 +%d"):
 	format(eff.cur_power or eff.power, eff.power/5) end,
 	type = "magical",
 	subtype = { temporal=true },
@@ -1351,7 +1351,7 @@ newEffect{
 	name = "TEMPORAL_DESTABILIZATION_START", image = "talents/destabilize.png",
 	desc = "Temporal Destabilization",
 	kr_display_name = "시간적 불안정",
-	long_desc = function(self, eff) return ("불안정 : %d턴간 매턴마다 시간 피해 %0.2f / 효과 지속 중 대상이 죽으면 폭발"):format(eff.dur, eff.dam) end,
+	long_desc = function(self, eff) return ("불안정 : %d턴간 매 턴마다 시간 피해 %0.2f / 효과 지속 중 대상이 죽으면 폭발"):format(eff.dur, eff.dam) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
