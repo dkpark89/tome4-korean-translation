@@ -63,7 +63,7 @@ newAchievement{
 	name = "Bringer of Doom", id = "EVENT_PEDESTALS",
 	show = "name",
 	kr_display_name = "파멸을 부르는 자",
-	desc = [['파멸을 부르는자' 살해.]],
+	desc = [['파멸을 부르는 자' 살해.]],
 }
 
 newAchievement{

@@ -37,7 +37,7 @@ newEffect{
 	status = "detrimental",
 	parameters = {},
 	on_gain = function(self, err) return "#Target1# 침묵 상태가 됩니다!", "+침묵" end,
-	on_lose = function(self, err) return "#Target1# 더이상 침묵하지 않아도 됩니다.", "-침묵" end,
+	on_lose = function(self, err) return "#Target1# 다시 말할 수 있게 되었습니다.", "-침묵" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("silence", 1)
 	end,
@@ -50,7 +50,7 @@ newEffect{
 	name = "SUMMON_CONTROL", image = "talents/summon_control.png",
 	desc = "Summon Control",
 	kr_display_name = "제어되는 소환수", --@@ 사용자가 직접 제어하는 소환수에만 붙는 효과
-	long_desc = function(self, eff) return ("전체 저항 +%d%% / 소환 지속시간 +%d"):format(eff.res, eff.incdur) end,
+	long_desc = function(self, eff) return ("전체 저항 +%d%% / 소환 지속시간 +%d 턴"):format(eff.res, eff.incdur) end,
 	type = "mental",
 	subtype = { focus=true },
 	status = "beneficial",
@@ -72,12 +72,12 @@ newEffect{
 	name = "CONFUSED", image = "effects/confused.png",
 	desc = "Confused",
 	kr_display_name = "혼란",
-	long_desc = function(self, eff) return ("혼란 : %d%% 확률로 임의의 행동 수행 / 복합한 행동 수행 불가능"):format(eff.power) end,
+	long_desc = function(self, eff) return ("혼란 : %d%% 의 확률로 멋대로 행동 / 복잡한 행동 불가능"):format(eff.power) end,
 	type = "mental",
 	subtype = { confusion=true },
 	status = "detrimental",
 	parameters = { power=50 },
-	on_gain = function(self, err) return "#Target1# 주변을 두리번 거립니다!.", "+혼란" end,
+	on_gain = function(self, err) return "#Target1# 마구 두리번거립니다!", "+혼란" end,
 	on_lose = function(self, err) return "#Target1# 다시 집중하기 시작했습니다.", "-혼란" end,
 	activate = function(self, eff)
 		eff.power = math.floor(math.max(eff.power - (self:attr("confusion_immune") or 0) * 100, 10))
@@ -95,7 +95,7 @@ newEffect{
 	name = "DOMINANT_WILL", image = "talents/yeek_will.png",
 	desc = "Dominated",
 	kr_display_name = "지배됨",
-	long_desc = function(self, eff) return ("정신이 부서지고, 육체는 당신의 정신력으로 노예가 됨.") end,
+	long_desc = function(self, eff) return ("원래 정신은 부서지고, 육체는 지배되어 노예가 됨") end,
 	type = "mental",
 	subtype = { dominate=true },
 	status = "detrimental",
@@ -153,12 +153,12 @@ newEffect{
 	name = "BATTLE_CRY", image = "talents/battle_cry.png",
 	desc = "Battle Cry",
 	kr_display_name = "전장의 포효",
-	long_desc = function(self, eff) return ("전장의 포효로 방어 의지 붕괴 : 회피도 -%d"):format(eff.power) end,
+	long_desc = function(self, eff) return ("전장의 포효로 인해 전투의지 상실 : 회피도 -%d"):format(eff.power) end,
 	type = "mental",
 	subtype = { morale=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target#의 방어 의지가 무너졌습니다.", "+전장의 포효" end,
+	on_gain = function(self, err) return "#Target#의 전투의지가 무너졌습니다.", "+전장의 포효" end,
 	on_lose = function(self, err) return "#Target1# 다시 정신을 다잡습니다.", "-전장의 포효" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("combat_def", -eff.power)
@@ -177,7 +177,7 @@ newEffect{
 	subtype = { focus=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target1# 순수한 의지력을 담아 후려치기 시작합니다." end,
+	on_gain = function(self, err) return "#Target1# 순수한 의지력을 담아 공격하기 시작합니다." end,
 	on_lose = function(self, err) return "#Target#의 의지력 쇄도가 끝났습니다." end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("combat_dam", eff.power)
@@ -233,7 +233,7 @@ newEffect{
 	name = "GLOOM_STUNNED", image = "effects/gloom_stunned.png",
 	desc = "Stunned by the gloom",
 	kr_display_name = "침울함의 기절",
-	long_desc = function(self, eff) return ("침울함으로 기절 : 공격시 피해량 -70%% / 이동 속도 -50%% / 50%% 확률로 임의의 기술이 대기상태로 변경 / 대기지연시간이 줄어들지 않음"):format() end,
+	long_desc = function(self, eff) return ("침울함으로 기절 : 공격시 피해량 -70%% / 이동 속도 -50%% / 50%% 확률로 임의의 기술이 대기상태로 변경 / 재사용 대기시간이 줄어들지 않음"):format() end,
 	type = "mental",
 	subtype = { gloom=true, stun=true },
 	status = "detrimental",
@@ -271,7 +271,7 @@ newEffect{
 	name = "GLOOM_CONFUSED", image = "effects/gloom_confused.png",
 	desc = "Confused by the gloom",
 	kr_display_name = "침울함의 혼란",
-	long_desc = function(self, eff) return ("침울함으로 혼란 : %d%% 확률로 임의의 행동 수행 / 복잡한 행동 수행 불가능"):format(eff.power) end,
+	long_desc = function(self, eff) return ("침울함으로 혼란 : %d%% 의 확률로 멋대로 행동 / 복잡한 행동 불가능"):format(eff.power) end,
 	type = "mental",
 	subtype = { gloom=true, confusion=true },
 	status = "detrimental",
@@ -296,12 +296,12 @@ newEffect{
 	name = "DISMAYED", image = "talents/dismay.png",
 	desc = "Dismayed",
 	kr_display_name = "당황",
-	long_desc = function(self, eff) return ("당황 : 대상이 받는 다음 근접 공격은 치명타가 보장됨") end,
+	long_desc = function(self, eff) return ("당황 : 대상이 받는 다음 근접 공격은 무조건 치명타 발생") end,
 	type = "mental",
 	subtype = { gloom=true, confusion=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#F53CBE##Target1# 당황했습니다!", "+당황" end,
+	on_gain = function(self, err) return "#F53CBE##Target1# 당황에 빠졌습니다!", "+당황" end,
 	on_lose = function(self, err) return "#Target1# 당황스러움을 극복했습니다.", "-당황" end,
 	activate = function(self, eff)
 		eff.particle = self:addParticles(Particles.new("dismayed", 1))
@@ -316,15 +316,15 @@ newEffect{
 	desc = "Stalking",
 	kr_display_name = "추적자",
 	display_desc = function(self, eff)
-		return ([[Stalking %d/%d +%d ]]):format(eff.target.life, eff.target.max_life, eff.bonus)
+		return ([[%d 단계 추적중 (대상의 생명력 : %d / %d)]]):format(eff.bonus, eff.target.life, eff.target.max_life) --변수 순서 조정. 대상의 생명력이 맞는지 테스트 필요.
 	end,
 	long_desc = function(self, eff)
 		local t = self:getTalentFromId(self.T_STALK)
 		local effStalked = eff.target:hasEffect(eff.target.EFF_STALKED)
-		local desc = ([[Stalking %s. Bonus level %d: +%d attack, +%d%% melee damage, +%0.2f hate/turn prey was hit.]]):format(
-			eff.target.name, eff.bonus, t.getAttackChange(self, t, eff.bonus), t.getStalkedDamageMultiplier(self, t, eff.bonus) * 100 - 100, t.getHitHateChange(self, t, eff.bonus))
+		local desc = ([[%s 추적중, %d 단계 추적 : 공격력 +%d / 물리 피해량 +%d%% / 추적 대상을 공격할 때마다 증오 회복 (+%0.2f / 턴)]]):format(
+			(eff.target.kr_display_name or eff.target.name), eff.bonus, t.getAttackChange(self, t, eff.bonus), t.getStalkedDamageMultiplier(self, t, eff.bonus) * 100 - 100, t.getHitHateChange(self, t, eff.bonus))
 		if effStalked and effStalked.damageChange and effStalked.damageChange > 0 then
-			desc = desc..("추척 대상에게 공격시 피해량 보정: %d%%."):format(effStalked.damageChange)
+			desc = desc..("추척 대상을 공격시 피해량 보정 : %d%%."):format(effStalked.damageChange)
 		end
 		return desc
 	end,
@@ -353,10 +353,10 @@ newEffect{
 		local effStalker = eff.source:hasEffect(eff.source.EFF_STALKER)
 		if not effStalker then return "추적당함." end
 		local t = self:getTalentFromId(eff.source.T_STALK)
-		local desc = ([[Being stalked by %s. Stalker bonus level %d: +%d attack, +%d%% melee damage, +%0.2f hate/turn prey was hit.]]):format(
-			eff.source.name, effStalker.bonus, t.getAttackChange(eff.source, t, effStalker.bonus), t.getStalkedDamageMultiplier(eff.source, t, effStalker.bonus) * 100 - 100, t.getHitHateChange(eff.source, t, effStalker.bonus))
+		local desc = ([[%s에게 추적당하는 중, %d 단계 추적 : 추적자의 공격력 +%d / 추적자의 물리 피해량 +%d%% / 공격받을 때마다 추적자의 증오 회복 (+%0.2f / 턴)]]):format(
+			(eff.target.kr_display_name or eff.source.name), effStalker.bonus, t.getAttackChange(eff.source, t, effStalker.bonus), t.getStalkedDamageMultiplier(eff.source, t, effStalker.bonus) * 100 - 100, t.getHitHateChange(eff.source, t, effStalker.bonus))
 		if eff.damageChange and eff.damageChange > 0 then
-			desc = desc..(" 추적자에게 받는 피해 보정: %d%%."):format(eff.damageChange)
+			desc = desc..(" 추적자에게 받는 피해량 보정 : %d%%."):format(eff.damageChange)
 		end
 		return desc
 	end,
@@ -399,11 +399,11 @@ newEffect{
 newEffect{
 	name = "BECKONED", image = "talents/beckon.png",
 	desc = "Beckoned",
-	kr_display_name = "목표로 지정",
+	kr_display_name = "목표 지정",
 	long_desc = function(self, eff)
-		local message = ("%s의 목표로 지정됨 : 매 턴마다 %d%%의 확률로 사냥꾼이 목표에게 다가감"):format(eff.source.name, eff.chance)
+		local message = ("%s의 목표로 지정됨 : 매 턴마다 %d%% 확률로 사냥꾼 방향으로 끌려감"):format(eff.source.name, eff.chance)
 		if eff.spellpowerChangeId and eff.mindpowerChangeId then
-			message = message..(" (주문력: %d, 정신력: %d"):format(eff.spellpowerChange, eff.mindpowerChange)
+			message = message..("(주문력 : %d / 정신력 : %d"):format(eff.spellpowerChange, eff.mindpowerChange)
 		end
 		return message
 	end,
@@ -446,7 +446,7 @@ newEffect{
 		end
 		if not self:checkHit(eff.source:combatMindpower(), self:combatMentalResist(), 0, 95, 5) then
 			eff.timer = eff.timer + eff.chance * 0.5
-			game.logSeen(self, "#F53CBE#%s 목표 지정에 대응하여 버텨냅니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
+			game.logSeen(self, "#F53CBE#%s 목표 지정을 저항해냅니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 		else
 			eff.timer = eff.timer + eff.chance
 		end
@@ -504,7 +504,7 @@ newEffect{
 	do_onTakeHit = function(self, eff, dam)
 		eff.resistChance = (eff.resistChance or 0) + math.min(100, math.max(0, dam / self.max_life * 100))
 		if rng.percent(eff.resistChance) then
-			game.logSeen(self, "#F53CBE#%s 피해에 의한 충격으로 정신을 차렸고, 더이상 목표가 아니게 됩니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"))
+			game.logSeen(self, "#F53CBE#%s 피해에 의한 충격으로 정신을 차렸습니다. 목표 지정이 해제됩니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"))
 			self:removeEffect(self.EFF_BECKONED)
 		end
 
@@ -515,14 +515,14 @@ newEffect{
 newEffect{
 	name = "OVERWHELMED", image = "talents/frenzy.png",
 	desc = "Overwhelmed",
-	kr_display_name = "사로잡힘",
-	long_desc = function(self, eff) return ("사로잡힘 : 정확도 -%d"):format( -eff.attackChange) end,
+	kr_display_name = "암도됨",
+	long_desc = function(self, eff) return ("압도됨 : 정확도 -%d"):format( -eff.attackChange) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
 	parameters = { damageChange=0.1 },
-	on_gain = function(self, err) return "#Target1# 사로잡혔습니다.", "+사로잡힘" end,
-	on_lose = function(self, err) return "#Target2# 더이상 사로잡혀있지 않습니다.", "-사로잡힘" end,
+	on_gain = function(self, err) return "#Target1# 압도되었습니다.", "+압도됨" end,
+	on_lose = function(self, err) return "#Target1# 압도된 상태에서 벗어났습니다.", "-압도됨" end,
 	activate = function(self, eff)
 		eff.attackChangeId = self:addTemporaryValue("combat_atk", eff.attackChange)
 		eff.particle = self:addParticles(Particles.new("overwhelmed", 1))
@@ -536,14 +536,14 @@ newEffect{
 newEffect{
 	name = "HARASSED", image = "talents/harass_prey.png",
 	desc = "Harassed",
-	kr_display_name = "시달림",
-	long_desc = function(self, eff) return ("추적자에게 시달림 : 공격시 피해량 -%d%%"):format( -eff.damageChange * 100) end,
+	kr_display_name = "유린",
+	long_desc = function(self, eff) return ("추적자에게 유린당함 : 공격시 피해량 -%d%%"):format( -eff.damageChange * 100) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
 	parameters = { damageChange=0.1 },
-	on_gain = function(self, err) return "#Target1# 시달리기 시작합니다.", "+시달림" end,
-	on_lose = function(self, err) return "#Target2# 더이상 시달리지 않습니다.", "-시달림" end,
+	on_gain = function(self, err) return "#Target1# 추적자에게 유린당합니다.", "+유린" end,
+	on_lose = function(self, err) return "#Target1# 유린으로 인해 생겼던 불안감을 떨쳐냅니다.", "-유린" end,
 	activate = function(self, eff)
 		eff.damageChangeId = self:addTemporaryValue("inc_damage", {all=eff.damageChange})
 		eff.particle = self:addParticles(Particles.new("harassed", 1))
@@ -558,12 +558,12 @@ newEffect{
 	name = "DOMINATED", image = "talents/dominate.png",
 	desc = "Dominated",
 	kr_display_name = "지배됨",
-	long_desc = function(self, eff) return ("지배됨 : 이동 불가능 / 방어도 -%d / 회피도 -%d / 지배대상에게 받는 피해의 %d%%는 관통함"):format(-eff.armorChange, -eff.defenseChange, eff.resistPenetration) end,
+	long_desc = function(self, eff) return ("지배됨 : 이동 불가능 / 방어도 -%d / 회피도 -%d / 지배자가 하는 공격은 저항을 %d%% 만큼 관통함"):format(-eff.armorChange, -eff.defenseChange, eff.resistPenetration) end,
 	type = "mental",
 	subtype = { dominate=true },
 	status = "detrimental",
 	on_gain = function(self, err) return "#F53CBE##Target1# 지배되었습니다!", "+지배됨" end,
-	on_lose = function(self, err) return "#F53CBE##Target2# 더이상 지배되지 않습니다.", "-지배됨" end,
+	on_lose = function(self, err) return "#F53CBE##Target2# 지배에서 풀려났습니다.", "-지배됨" end,
 	parameters = { armorChange = -3, defenseChange = -3, physicalResistChange = -0.1 },
 	activate = function(self, eff)
 		eff.neverMoveId = self:addTemporaryValue("never_move", 1)
@@ -584,7 +584,7 @@ newEffect{
 newEffect{
 	name = "FEED", image = "talents/feed.png",
 	desc = "Feeding",
-	kr_display_name = "먹이 보유",
+	kr_display_name = "먹잇감 확보",
 	long_desc = function(self, eff) return ("%s %s 먹이로 삼습니다."):format((self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.target.kr_display_name or eff.target.name):addJosa("를")) end,
 	type = "mental",
 	subtype = { psychic_drain=true },
@@ -724,13 +724,13 @@ newEffect{
 	name = "AGONY", image = "talents/agony.png",
 	desc = "Agony",
 	kr_display_name = "고통",
-	long_desc = function(self, eff) return ("%s 고통으로 몸부림 : 매 턴마다 %d에서 %d 사이의 피해"):format((self.kr_display_name or self.name):capitalize():addJosa("는"), eff.damage / eff.duration, eff.damage, eff.duration) end,
+	long_desc = function(self, eff) return ("%s 고통받음 : 매 턴마다 %d 에서 %d 사이의 피해"):format((self.kr_display_name or self.name):capitalize():addJosa("가"), eff.damage / eff.duration, eff.damage, eff.duration) end,
 	type = "mental",
 	subtype = { pain=true, psionic=true },
 	status = "detrimental",
 	parameters = { damage=10, mindpower=10, range=10, minPercent=10 },
 	on_gain = function(self, err) return "#Target1# 고통으로 몸부림칩니다!", "+고통" end,
-	on_lose = function(self, err) return "#Target1# 고통의 몸부림에서 벗어났습니다.", "-고통" end,
+	on_lose = function(self, err) return "#Target1# 고통에서 벗어났습니다.", "-고통" end,
 	activate = function(self, eff)
 		eff.power = 0
 	end,
@@ -847,7 +847,7 @@ newEffect{
 newEffect{
 	name = "MADNESS_SLOW", image = "effects/madness_slowed.png",
 	desc = "Slowed by madness",
-	kr_display_name = "광기의 감속",
+	kr_display_name = "감속의 광기",
 	long_desc = function(self, eff) return ("광기로 인한 감속 : 모든 행동 속도 -%d%% / 정신 저항 -%d%%"):format(eff.power * 100, -eff.mindResistChange) end,
 	type = "mental",
 	subtype = { madness=true, slow=true },
@@ -870,8 +870,8 @@ newEffect{
 newEffect{
 	name = "MADNESS_STUNNED", image = "effects/madness_stunned.png",
 	desc = "Stunned by madness",
-	kr_display_name = "광기의 기절",
-	long_desc = function(self, eff) return ("광기로 인한 기절 : 공격시 피해량 -70%% / 정신 저항 -%d%% / 이동 속도 -50%% / 50%% 확률로 임의의 기술이 대기상태로 변경 / 대기지연시간이 줄어들지 않음"):format(eff.mindResistChange) end,
+	kr_display_name = "기절의 광기",
+	long_desc = function(self, eff) return ("광기로 인한 기절 : 공격시 피해량 -70%% / 정신 저항 -%d%% / 이동 속도 -50%% / 50%% 확률로 임의의 기술이 대기상태로 변경 / 재사용 대기시간이 줄어들지 않음"):format(eff.mindResistChange) end,
 	type = "mental",
 	subtype = { madness=true, stun=true },
 	status = "detrimental",
@@ -910,8 +910,8 @@ newEffect{
 newEffect{
 	name = "MADNESS_CONFUSED", image = "effects/madness_confused.png",
 	desc = "Confused by madness",
-	kr_display_name = "광기의 혼란",
-	long_desc = function(self, eff) return ("광기로 인한 혼란 : 정신 저항 -%d%% / %d%% 확률로 임의의 행동 수행 / 복잡한 행동 수행 불가능"):format(eff.mindResistChange, eff.power) end,
+	kr_display_name = "혼란의 광기",
+	long_desc = function(self, eff) return ("광기로 인한 혼란 : 정신 저항 -%d%% / %d%% 의 확률로 멋대로 행동 / 복잡한 행동 불가능"):format(eff.mindResistChange, eff.power) end,
 	type = "mental",
 	subtype = { madness=true, confusion=true },
 	status = "detrimental",
@@ -942,7 +942,7 @@ newEffect{
 	subtype = { curse=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#F53CBE##Target1# 악성 작용의 영향을 받습니다!", "+악성 작용" end,
+	on_gain = function(self, err) return "#F53CBE##Target1# 악의의 손짓에 의해, 악성 작용의 영향을 받습니다!", "+악성 작용" end,
 	on_lose = function(self, err) return "#Target2# 더이상 악성 작용의 영향을 받지 않습니다", "-악성 작용" end,
 	activate = function(self, eff)
 		eff.particle = self:addParticles(Particles.new("maligned", 1))
@@ -979,7 +979,7 @@ newEffect{
 	name = "PARANOID", image = "effects/paranoid.png",
 	desc = "Paranoid",
 	kr_display_name = "피해망상",
-	long_desc = function(self, eff) return ("피해망상 : %d%% 확률로 인접한 아무나 공격 (적아 무시) - 이 공격을 받는 이도 피해망에 걸릴수 있음"):format(eff.attackChance) end,
+	long_desc = function(self, eff) return ("피해망상 : %d%% 확률로 피아를 무시하고 인접한 아무나 공격 - 이 공격에 맞을 경우, 맞은 대상도 피해망상에 걸릴 수 있음"):format(eff.attackChance) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1023,7 +1023,7 @@ newEffect{
 							if not target:canBe("fear") then
 								game.logSeen(target, "#F53CBE#%s 공포를 무시했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 							elseif not target:checkHit(eff.mindpower, target:combatMentalResist()) then
-								game:logSeen(target, "%s 공포에 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+								game:logSeen(target, "%s 공포를 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 							else
 								target:setEffect(target.EFF_PARANOID, eff.duration, { source=eff.source, attackChance=eff.attackChance, mindpower=eff.mindpower, duration=eff.duration })
 							end
@@ -1040,7 +1040,7 @@ newEffect{
 	name = "DISPAIR", image = "effects/despair.png",
 	desc = "Despair",
 	kr_display_name = "절망",
-	long_desc = function(self, eff) return ("절망 : 전체 저항 %+d%%"):format(-eff.resistAllChange) end,
+	long_desc = function(self, eff) return ("절망 : 전체 저항 %+d%% 감소"):format(-eff.resistAllChange) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1064,7 +1064,7 @@ newEffect{
 	name = "TERRIFIED", image = "effects/terrified.png",
 	desc = "Terrified",
 	kr_display_name = "두려움",
-	long_desc = function(self, eff) return ("두려움 : 공격과 기술 사용시 %d%% 확률로 실패"):format(eff.actionFailureChance) end,
+	long_desc = function(self, eff) return ("두려움 : 공격이나 기술 사용시 %d%% 확률로 실패"):format(eff.actionFailureChance) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1116,7 +1116,7 @@ newEffect{
 	name = "HAUNTED", image = "effects/haunted.png",
 	desc = "Haunted",
 	kr_display_name = "불안",
-	long_desc = function(self, eff) return ("불안 : 공포 효과마다 정신 피해 %d 발생"):format(eff.damage) end,
+	long_desc = function(self, eff) return ("불안 : 다른 공포 효과에 추가적인 정신 피해 %d 발생"):format(eff.damage) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1128,7 +1128,7 @@ newEffect{
 			def = self.tempeffect_def[e]
 			if def.subtype and def.subtype.fear then
 				if not self.dead then
-					game.logSeen(self, "#F53CBE#%s 공포 효과 '%s'에 의해 피해를 받습니다.", (self.kr_display_name or self.name):capitalize():addJosa("는"), (def.kr_display_name or def.desc))
+					game.logSeen(self, "#F53CBE#%s 공포 효과 '%s'에 의해 피해를 받습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (def.kr_display_name or def.desc))
 					eff.source:project({type="hit", x=self.x,y=self.y}, self.x, self.y, DamageType.MIND, { dam=eff.damage,alwaysHit=true,criticals=false,crossTierChance=0 })
 				end
 			end
@@ -1152,7 +1152,7 @@ newEffect{
 	name = "TORMENTED", image = "effects/tormented.png",
 	desc = "Tormented",
 	kr_display_name = "격통",
-	long_desc = function(self, eff) return ("격통 : %d 마리 환영이 나타남\n환영 : 사라지기 전까지 대상에게 정신 속성 공격 (피해 %d)"):format(eff.count, eff.damage) end,
+	long_desc = function(self, eff) return ("격통 : %d 마리 환영이 나타남\n환영 : 사라지기 전까지 대상에게 정신 속성 공격 (%d 피해)"):format(eff.count, eff.damage) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1242,7 +1242,7 @@ newEffect{
 	name = "PANICKED", image = "talents/panic.png",
 	desc = "Panicked",
 	kr_display_name = "공황",
-	long_desc = function(self, eff) return ("%s 인한 공황 : %d%% 확률로 행동 제어가 박탈되고 무조건 도망침"):format((eff.source.kr_display_name or eff.source.name):addJosa("로"), eff.chance) end,
+	long_desc = function(self, eff) return ("%s 인한 공황 : %d%% 확률로 다른 행동을 하지 못하고 무조건 도망침"):format((eff.source.kr_display_name or eff.source.name):addJosa("로"), eff.chance) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1303,9 +1303,9 @@ newEffect{
 
 					if bestX then
 						self:move(bestX, bestY, false)
-						game.logPlayer(self, "#F53CBE#Y공황에 빠져 %s에게서 도망칩니다.", (eff.source.kr_display_name or eff.source.name))
+						game.logPlayer(self, "#F53CBE#공황에 빠져, %s에게서 도망칩니다.", (eff.source.kr_display_name or eff.source.name))--'공황에 빠져' 앞에 Y가 있던데, 원래 있던 것인지 확인 필요
 					else
-						game.logSeen(self, "#F53CBE#%s 공황에 빠져 %s에게서 도망치려 노력합니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.source.kr_display_name or eff.source.name))
+						game.logSeen(self, "#F53CBE#%s 공황에 빠져, %s에게서 도망치려 노력합니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.source.kr_display_name or eff.source.name))
 						self:useEnergy(game.energy_to_act * self:combatMovementSpeed(bestX, bestY))
 					end
 				end
@@ -1450,12 +1450,12 @@ newEffect{
 	name = "PSI_REGEN", image = "talents/matter_is_energy.png",
 	desc = "Matter is energy",
 	kr_display_name = "에너지 추출",
-	long_desc = function(self, eff) return ("보석을 이루는 물질이 서서히 변화 : 염력 재생 +%0.2f"):format(eff.power) end,
+	long_desc = function(self, eff) return ("보석을 이루는 물질이 서서히 에너지로 변화 : 염력 재생 +%0.2f"):format(eff.power) end,
 	type = "mental",
 	subtype = { psychic_drain=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "보석에서 에너지가 빠져나와 #Target#에게로 쇄도합니다.", "+에너지" end,
+	on_gain = function(self, err) return "보석에서 에너지가 빠져나와, #Target#에게로 쇄도합니다.", "+에너지" end,
 	on_lose = function(self, err) return "#Target#의 보석에서 나오던 에너지의 흐름이 사라졌습니다.", "-에너지" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("psi_regen", eff.power)
@@ -1499,7 +1499,7 @@ newEffect{
 	name = "VOID_ECHOES", image = "talents/echoes_from_the_void.png",
 	desc = "Void Echoes",
 	kr_display_name = "공허의 메아리",
-	long_desc = function(self, eff) return ("공허의 메아리 : 일정 시간마다 정신 피해 %0.2f / 일정 시간마다 정신 내성 검사 실패시 원천력 감소"):format(eff.power) end,
+	long_desc = function(self, eff) return ("공허의 메아리 : 일정 시간마다 정신 피해 %0.2f / 일정 시간마다 정신 내성으로 저항 검사, 실패시 원천력 감소"):format(eff.power) end,
 	type = "mental",
 	subtype = { madness=true, psionic=true },
 	status = "detrimental",
@@ -1522,7 +1522,7 @@ newEffect{
 	name = "WAKING_NIGHTMARE", image = "talents/waking_nightmare.png",
 	desc = "Waking Nightmare",
 	kr_display_name = "잠들지 못하는 악몽",
-	long_desc = function(self, eff) return ("악몽 : 매 턴마다 정신 피해 %0.2f / %d%% 확률로 임의의 나쁜 상태이상 효과 발생"):format(eff.dam, eff.chance) end,
+	long_desc = function(self, eff) return ("악몽 : 매 턴마다 정신 피해 %0.2f / %d%% 확률로 무작위하게 나쁜 상태이상 효과 발생"):format(eff.dam, eff.chance) end,
 	type = "mental",
 	subtype = { nightmare=true, darkness=true },
 	status = "detrimental",
@@ -1621,7 +1621,7 @@ newEffect{
 	name = "EMPATHIC_HEX", image = "talents/empathic_hex.png",
 	desc = "Empathic Hex",
 	kr_display_name = "공감의 매혹",
-	long_desc = function(self, eff) return ("매혹됨 : 공격시 끼치는 피해량의 반작용 피해 %d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("매혹됨 : 누군가를 공격시 자신도 피해량의 %d%% 만큼 피해"):format(eff.power) end,
 	type = "mental",
 	subtype = { hex=true, dominate=true },
 	status = "detrimental",
@@ -1640,7 +1640,7 @@ newEffect{
 	name = "DOMINATION_HEX", image = "talents/domination_hex.png",
 	desc = "Domination Hex",
 	kr_display_name = "지배의 매혹",
-	long_desc = function(self, eff) return ("매혹됨 : %s 일시적인 소속 변경."):format((engine.Faction.factions[eff.faction].name):krFaction():addJosa("로")) end,
+	long_desc = function(self, eff) return ("매혹됨 : 잠시동안 소속 집단이 %s 변경"):format((engine.Faction.factions[eff.faction].name):krFaction():addJosa("로")) end,
 	type = "mental",
 	subtype = { hex=true, dominate=true },
 	status = "detrimental",
@@ -1661,7 +1661,7 @@ newEffect{
 	name = "DOMINATE_ENTHRALL", image = "talents/yeek_will.png",
 	desc = "Enthralled",
 	kr_display_name = "노예 상태",
-	long_desc = function(self, eff) return ("노예가 됨 : 일시적인 소속 변경") end,-- to %s.")--:format(engine.Faction.factions[eff.faction].name) end,
+	long_desc = function(self, eff) return ("노예가 됨 : 잠시동안 소속 집단이 변경") end,-- to %s.")--:format(engine.Faction.factions[eff.faction].name) end,
 	type = "mental",
 	subtype = { dominate=true },
 	status = "detrimental",
@@ -1686,8 +1686,8 @@ newEffect{
 	subtype = { focus=true },
 	status = "beneficial",
 	parameters = { spell=10, physical=10 },
-	on_gain = function(self, err) return "#Target#의 인식력이 높아진 것 같습니다." end,
-	on_lose = function(self, err) return "#Target#의 인식력이 평범하게 되돌아 왔습니다." end,
+	on_gain = function(self, err) return "#Target#의 치명타율이 높아진 것 같습니다." end,
+	on_lose = function(self, err) return "#Target#의 치명타율이 평범하게 되돌아 왔습니다." end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_physcrit", eff.physical)
 		self:effectTemporaryValue(eff, "combat_spellcrit", eff.spell)
@@ -1707,8 +1707,8 @@ newEffect{
 	subtype = { focus=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target1# 신중하게 노리기 시작합니다." end,
-	on_lose = function(self, err) return "#Target#의 노림수가 조금 덜 신중해졌습니다." end,
+	on_gain = function(self, err) return "#Target1# 신중하게 적을 노리기 시작합니다." end,
+	on_lose = function(self, err) return "#Target#의 공격이 조금 덜 신중해졌습니다." end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("combat_atk", eff.power)
 		eff.bid = self:addTemporaryValue("blind_fight", 1)
@@ -1728,8 +1728,8 @@ newEffect{
 	subtype = { focus=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target1# 신중하게 노리기 시작합니다." end,
-	on_lose = function(self, err) return "#Target#의 노림수가 조금 덜 신중해졌습니다." end,
+	on_gain = function(self, err) return "#Target1# 신중하게 적을 노리기 시작합니다." end,
+	on_lose = function(self, err) return "#Target#의 공격이 조금 덜 신중해졌습니다.." end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("combat_apr", eff.power)
 	end,
@@ -1742,12 +1742,12 @@ newEffect{
 	name = "FRENZY", image = "effects/frenzy.png",
 	desc = "Frenzy",
 	kr_display_name = "난도질",
-	long_desc = function(self, eff) return ("전체 행동 속도 +%d%% / 물리 치명타율 +%d%% / 생명력이 -%d%% 이하가 될때까지 전투 지속"):format(eff.power * 100, eff.crit, eff.dieat * 100) end,
+	long_desc = function(self, eff) return ("전체 행동 속도 +%d%% / 물리 치명타율 +%d%% / 생명력이 -%d%% 이하가 될 때까지 전투 지속"):format(eff.power * 100, eff.crit, eff.dieat * 100) end,
 	type = "mental",
 	subtype = { frenzy=true, speed=true },
 	status = "beneficial",
 	parameters = { power=0.1 },
-	on_gain = function(self, err) return "#Target1# 살의에 빠져 난도질하기 시작합니다.", "+난도질" end,
+	on_gain = function(self, err) return "#Target1# 살의에 빠져, 난도질을 시작합니다.", "+난도질" end,
 	on_lose = function(self, err) return "#Target1# 차분해졌습니다.", "-난도질" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- use on merge so reapplied frenzy doesn't kill off creatures with negative life
@@ -1766,7 +1766,7 @@ newEffect{
 		if self.life <= 0 then
 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
 			game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, rng.float(-2.5, -1.5), "사망 상태!", {255,0,255})
-			game.logSeen(self, "%s 난도질이 끝나면 죽습니다!", (self.kr_display_name or self.name):capitalize():addJosa("는"))
+			game.logSeen(self, "%s 난도질 상태가 끝나면 사망합니다!", (self.kr_display_name or self.name):capitalize():addJosa("는"))
 			self:die(self)
 		end
 		self:removeTemporaryValue("global_speed_add", eff.tmpid)
@@ -1884,7 +1884,7 @@ newEffect{
 		if self.life <= 0 then
 			self.life = 1
 			self:setEffect(self.EFF_STUNNED, 3, {})
-			game.logSeen(self, "%s의 향상된 생명력이 사라지고, 그 충격으로 %s 기절했습니다.", (self.kr_display_name or self.name):capitalize(), (self.kr_display_name or self.name):addJosa("가")) --@@ 변수 조정
+			game.logSeen(self, "%s의 향상된 생명력이 사라지면서, 그 충격으로 %s 기절했습니다.", (self.kr_display_name or self.name):capitalize(), (self.kr_display_name or self.name):addJosa("가")) --@@ 변수 조정
 		end
 	end,
 }
@@ -1899,7 +1899,7 @@ newEffect{
 			desc = desc..(" / 공격시 물리 피해량 +%d%% / 물리 내성 +%d / 정신 내성 +%d"):format(eff.physicalDamageChange, eff.combatPhysResistChange, eff.combatMentalResistChange)
 		end
 		if eff.damageShieldMax > 0 then
-			desc = desc..(" / 현재 턴의 가능한 피해 흡수 %d (최대 흡수량 : %d)"):format(math.max(0, eff.damageShieldMax - eff.damageShield), eff.damageShieldMax)
+			desc = desc..(" / 현재 턴에 %d 만큼 피해 흡수 가능 (최대 흡수량 : %d)"):format(math.max(0, eff.damageShieldMax - eff.damageShield), eff.damageShieldMax)
 		end
 		--desc = desc..")" --@@ 필요없어져 주석 처리
 		return desc
@@ -1932,7 +1932,7 @@ newEffect{
 		-- restore damage shield
 		if eff.damageShieldMax and eff.damageShield ~= eff.damageShieldMax and not self.dead then
 			eff.damageShieldUsed = (eff.damageShieldUsed or 0) + eff.damageShieldMax - eff.damageShield
-			game.logSeen(self, "%s 피해를 %d 흡수했고, 더 흡수할 준비가 되었습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), eff.damageShieldMax - eff.damageShield)
+			game.logSeen(self, "%s 피해를 %d 흡수했으며, 더 흡수할 준비가 되었습니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), eff.damageShieldMax - eff.damageShield)
 			eff.damageShield = eff.damageShieldMax
 
 			if eff.damageShieldBonus and eff.damageShieldUsed >= eff.damageShieldBonus and eff.actualDuration < eff.maxDuration then
@@ -1966,15 +1966,15 @@ newEffect{
 newEffect{
 	name = "PREDATOR", image = "effects/predator.png",
 	desc = "Predator",
-	kr_display_name = "약탈자",
+	kr_display_name = "포식자",
 	no_stop_enter_worlmap = true,
 	decrease = 0,
 	no_remove = true,
 	cancel_on_level_change = true,
 	long_desc = function(self, eff)
-		local desc = ([[The target is hunting creatures of type / sub-type: %s / %s with %d%% effectiveness. Kills: %d / %d kills, Damage: %+d%% / %+d%%]]):format(eff.type, eff.subtype, (eff.effectiveness * 100) or 0, eff.typeKills, eff.subtypeKills, (eff.typeDamageChange * 100) or 0, (eff.subtypeDamageChange * 100) or 0)
+		local desc = ([[현재 사냥감 : %s / %s, 사냥 효율 : %d%% 사냥한 횟수 : %d / %d, 추가 피해량 %+d%% / %+d%%]]):format(eff.type, eff.subtype, (eff.effectiveness * 100) or 0, eff.typeKills, eff.subtypeKills, (eff.typeDamageChange * 100) or 0, (eff.subtypeDamageChange * 100) or 0)
 		if eff.subtypeAttackChange or 0 > 0 then
-			desc = desc..([[, Attack: %+d / %+d, Stun: -- / %0.1f%%, Outmaneuver: %0.1f%% / %0.1f%%]]):format(eff.typeAttackChange or 0, eff.subtypeAttackChange or 0, eff.subtypeStunChance or 0, eff.typeOutmaneuverChance or 0, eff.subtypeOutmaneuverChance or 0)
+			desc = desc..([[, 공격력 추가 : %+d / %+d, 기절 확률 : -- / %0.1f%%, 의표 찌르기 확률 : %0.1f%% / %0.1f%%]]):format(eff.typeAttackChange or 0, eff.subtypeAttackChange or 0, eff.subtypeStunChance or 0, eff.typeOutmaneuverChance or 0, eff.subtypeOutmaneuverChance or 0)
 		end
 		return desc
 	end,
@@ -2006,7 +2006,7 @@ newEffect{
 			-- apply hate bonus
 			if isSubtype and self:knowTalent(self.T_HATE_POOL) then
 				self:incHate(eff.hateBonus)
-				game.logPlayer(self, "#F53CBE#사냥감의 죽음으로 증오심을 키웠습니다. (증오심 +%d)", eff.hateBonus)
+				game.logPlayer(self, "#F53CBE#사냥감을 죽여, 증오심을 키웠습니다. (증오 +%d)", eff.hateBonus)
 			end
 
 			-- apply mimic effect
@@ -2052,7 +2052,7 @@ newEffect{
 	desc = "Outmaneuvered",
 	kr_display_name = "허를 찔림",
 	long_desc = function(self, eff)
-		local desc = ("허를 찔림 : 물리 저항 %d%%"):format(eff.physicalResistChange)
+		local desc = ("허를 찔림 : 물리 저항 %d%% 감소"):format(eff.physicalResistChange)
 		--local first = true --@@ 필요없어져 주석 처리
 		for id, value in pairs(eff.incStats) do
 			--if not first then desc = desc.." / " end --@@ 필요없어져 주석 처리
@@ -2253,7 +2253,7 @@ newEffect{
 	name = "BRAINLOCKED",
 	desc = "Brainlocked",
 	kr_display_name = "정신 잠금",
-	long_desc = function(self, eff) return ("임의의 기술을 사용 불가능 상태로 변경 / 모든 기술의 대기 지연시간이 감소하지 않음"):format() end,
+	long_desc = function(self, eff) return ("임의의 기술을 사용 불가능 상태로 변경 / 모든 기술의 재사용 대기시간이 감소하지 않음"):format() end,
 	type = "mental",
 	subtype = { ["cross tier"]=true },
 	status = "detrimental",
@@ -2340,7 +2340,7 @@ newEffect{
 	name = "LOBOTOMIZED", image = "talents/psychic_lobotomy.png",
 	desc = "Lobotomized",
 	kr_display_name = "사고 방해",
-	long_desc = function(self, eff) return ("정신 능력 손상 : 혼란 발생 / %d%% 확률로 임의의 행동 수행 / 교활함 -%d"):format(eff.power, eff.power/2) end,
+	long_desc = function(self, eff) return ("정신 능력 손상 : 혼란 발생 / %d%% 의 확률로 멋대로 행동 / 교활함 -%d"):format(eff.power, eff.power/2) end,
 	type = "mental",
 	subtype = { confusion=true },
 	status = "detrimental",
@@ -2368,8 +2368,8 @@ newEffect{
 newEffect{
 	name = "PSIONIC_SHIELD", image = "talents/kinetic_shield.png",
 	desc = "Psionic Shield",
-	kr_display_name = "염동보호막",
-	display_desc = function(self, eff) return eff.kr_kind:capitalize().." 염동보호막" end, --@@ kind를 kr_kind로 바꿈
+	kr_display_name = "염동 보호막",
+	display_desc = function(self, eff) return eff.kr_kind:capitalize().." 염동 보호막" end, --@@ kind를 kr_kind로 바꿈
 	long_desc = function(self, eff) return ("%s 피해 -%d"):format(eff.kr_what, eff.power) end, --@@ what을 kr_what으로 바꿈
 	type = "mental",
 	subtype = { psionic=true, shield=true },
@@ -2404,7 +2404,7 @@ newEffect{
 	name = "CLEAR_MIND", image = "talents/mental_shielding.png",
 	desc = "Clear Mind",
 	kr_display_name = "맑은 정신",
-	long_desc = function(self, eff) return ("다음 %d 개의 나쁜 상태이상 효과 무효화"):format(self.mental_negative_status_effect_immune) end,
+	long_desc = function(self, eff) return ("지속시간 동안, 최대 %d 개의 나쁜 정신적 상태효과를 방어"):format(self.mental_negative_status_effect_immune) end,
 	type = "mental",
 	subtype = { psionic=true, },
 	status = "beneficial",
@@ -2423,7 +2423,7 @@ newEffect{
 	name = "RESONANCE_FIELD", image = "talents/resonance_field.png",
 	desc = "Resonance Field",
 	kr_display_name = "공진 장막",
-	long_desc = function(self, eff) return ("염동막으로 둘러싸임 : 모든 피해의 50%% 흡수 (남은 흡수량 : %d / 최대 흡수량 : %d)"):format(self.resonance_field_absorb, eff.power) end,
+	long_desc = function(self, eff) return ("염동막 보호 : 모든 피해의 50%% 흡수 (남은 흡수량 : %d / 최대 흡수량 : %d)"):format(self.resonance_field_absorb, eff.power) end,
 	type = "mental",
 	subtype = { psionic=true, shield=true },
 	status = "beneficial",
@@ -2683,7 +2683,7 @@ newEffect{
 	name = "RESTLESS_NIGHT", image = "talents/restless_night.png",
 	desc = "Restless Night",
 	kr_display_name = "쉴 수 없는 밤",
-	long_desc = function(self, eff) return ("부족한 잠으로 피로 : 매 턴마다 정신 피해 %0.2f"):format(eff.power) end,
+	long_desc = function(self, eff) return ("부족한 잠으로 인한 피로 : 매 턴마다 정신 피해 %0.2f"):format(eff.power) end,
 	type = "mental",
 	subtype = { psionic=true},
 	status = "detrimental",
@@ -2812,7 +2812,7 @@ newEffect{
 		local function tchelper(first, rest)
 		  return first:upper()..rest:lower()
 		end
-		return ("다음번 막을 수 있는 공격의 피해 %d 흡수 / 현재 막기 속성 : %s"):format(eff.power, e_string:gsub("(%a)([%w_']*)", tchelper))
+		return ("다음 번에 막을 수 있는 속성의 공격을 받으면, 피해 %d 흡수 / 현재 막기 속성 : %s"):format(eff.power, e_string:gsub("(%a)([%w_']*)", tchelper))
 	end,
 	type = "mental",
 	subtype = { psionic=true },
@@ -2876,7 +2876,7 @@ newEffect{
 	name = "SPELL_FEEDBACK", image = "talents/spell_feedback.png",
 	desc = "Spell Feedback",
 	kr_display_name = "주문 반작용",
-	long_desc = function(self, eff) return ("%d%% 주문 시전 실패"):format(eff.power) end,
+	long_desc = function(self, eff) return ("%d%% 확률로 주문 시전 실패"):format(eff.power) end,
 	type = "mental",
 	subtype = { nature=true },
 	status = "detrimental",

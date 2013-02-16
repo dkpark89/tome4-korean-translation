@@ -87,7 +87,7 @@ newAchievement{
 	name = "Race through fire", id = "CHARRED_SCAR_SUCCESS",
 	show = "name",
 	kr_display_name = "화염을 뚫고 질주",
-	desc = [['검게 탄 상처'의 화염을 뚫고 주술사들을 막기위해 질주.]],
+	desc = [['검게 탄 상처'의 화염을 뚫고 주술사들을 막기 위해 질주.]],
 }
 newAchievement{
 	name = "Orcrist", id = "ORC_PRIDE",
@@ -119,7 +119,7 @@ newAchievement{
 	name = "Triumph of the Way", id = "YEEK_SACRIFICE",
 	show = "name",
 	kr_display_name = "'한길'의 승리",
-	desc = [[스스로를 희생하여 ToME에서 승리함으로써, 에이알의 모든 지적존재에게 '한길'의 영향력 확대.]],
+	desc = [[스스로를 희생하여 ToME에서 승리함으로써, 에이알의 모든 지적 존재들에게 '한길'의 영향력 확대.]],
 }
 newAchievement{
 	name = "Tactical master", id = "SORCERER_NO_PORTAL",
@@ -180,8 +180,8 @@ newAchievement{
 newAchievement{
 	name = "Flooder", id = "UKLLMSWWIK_DEAD",
 	show = "name",
-	kr_display_name = "홍수를 부르는자",
-	desc = [[우클름스윅의 퀘스트를 진행하다, 우클름스윅을 물리침.]],
+	kr_display_name = "홍수를 부르는 자",
+	desc = [[우클름스윅의 퀘스트를 진행하다가, 우클름스윅을 물리침.]],
 }
 newAchievement{
 	name = "Gem of the Moon", id = "MASTER_JEWELER",
@@ -307,7 +307,7 @@ newAchievement{
 	name = "Matrix style!", id = "ABASHED_EXPANSE_NO_BLAST",
 	show = "full",
 	kr_display_name = "매트릭스 따라하기!",
-	desc = [['너무나 광활한 공간'에서 공허의 돌풍이나 마나 벌레에게 한대도 맞지 않고 마무리함. 피하는 것도 재미있지요!]],
+	desc = [['너무나 광활한 공간'에서 공허의 돌풍이나 마나 벌레에게 한 대도 맞지 않고 마무리함. 피하는 것도 재미있지요!]],
 	can_gain = function(self, who, zone)
 		if not who:isQuestStatus("start-archmage", engine.Quest.DONE) then return false end
 		if zone.void_blast_hits and zone.void_blast_hits == 0 then return true end
@@ -317,7 +317,7 @@ newAchievement{
 	name = "The Right thing to do", id = "RING_BLOOD_KILL",
 	show = "name",
 	kr_display_name = "올바른 일",
-	desc = [[피의 경기장에서 올바를 일을 수행하고, 피의 경기장 운영자를 처리함.]],
+	desc = [[피의 경기장에서 올바른 일을 수행하고, 피의 경기장 운영자를 처리함.]],
 }
 newAchievement{
 	name = "Thralless", id = "RING_BLOOD_FREED",
