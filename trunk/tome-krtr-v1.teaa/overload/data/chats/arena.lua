@@ -25,13 +25,13 @@ local entershop = function (self, player)
 end
 
 newChat{ id="ryal-entry",
-text = [[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
-#LIGHT_GREEN#Its shape is intricate and sharp, resembling a drake, but with countless
-#LIGHT_GREEN#spikes instead of wings.
-#LIGHT_GREEN#The massive undead stares at you with unusual...intellect.
-#LIGHT_GREEN#You have heard of him. Ryal the Towering, your first obstacle!
-#LIGHT_GREEN#As an eerie blue glow fills where its eyes should be, the undead giant
-#LIGHT_GREEN#roars and multiple bones fly in your general direction!*
+text = [[#LIGHT_GREEN#*거대한 해골 거인이 메인 게이트를 통해 걸어들어 옵니다.
+#LIGHT_GREEN#해골 거인의 모양은 복잡하고 날카롭습니다, 드레이크와 매우 유사하지만, 날개대신에 샐 수 없는
+#LIGHT_GREEN#수의 가시가 몸에 나 있습니다.
+#LIGHT_GREEN#이 큰 언데드는 당신을...유별나게도 지성적으로 당신을 주시합니다.
+#LIGHT_GREEN#당신은 이전에 그를 들어본 적이 있습니다. 비범한 르얄, 당신의 첫번째 장애물이 될 자!
+#LIGHT_GREEN#두 개의 기분 나쁜 파란 빛이 눈이 있어야 할 자리를 채우고 있습니다, 해골 거인이
+#LIGHT_GREEN#울부짖자 다수의 뼈들이 당신이 있는 방향으로 날아오기 시작합니다!*
 ]],
 	answers = {
 		{"전방 경계!!"},
@@ -39,13 +39,13 @@ text = [[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 }
 
 newChat{ id="ryal-defeat",
-text = [[#LIGHT_GREEN#*After taking several hits, the undead giant finally succumbs
-#LIGHT_GREEN#to your attacks*
-#LIGHT_GREEN#Suddenly, Ryal's body starts to regenerate!
-#LIGHT_GREEN#Standing tall again, you can almost feel its emotionless skull staring
-#LIGHT_GREEN#at you with...satisfaction.
-#WHITE#Hehehe...well done, @playerdescriptor.race@.
-#LIGHT_GREEN#*Ryal quietly turns towards the gate and leaves, seemingly unharmed*
+text = [[#LIGHT_GREEN#*몇 번의 공격을 받은 이후, 거인 언데드는 드디어
+#LIGHT_GREEN#당신의 공격에 굴복합니다*
+#LIGHT_GREEN#갑자기, 르얄의 몸이 재생되기 시작합니다!
+#LIGHT_GREEN#다시 자신감을 가지고 일어난, 당신은 그의 감정없는 해골이 당신을
+#LIGHT_GREEN#노려보고 있는 걸 느낄 수 있습니다...충족함으로 가득 찬 눈빛으로 말이죠.
+#WHITE#하하하...잘 했어, @playerdescriptor.race@.
+#LIGHT_GREEN#*르얄은 빠르게 게이트 쪽으로 몸을 돌린 후 경기장을 떠났습니다, 겉보기론 멀쩡한 것 같습니다*
 ]],
 	answers = {
 		{"재미있었어, 해골 거인!", action=entershop},
@@ -54,21 +54,21 @@ text = [[#LIGHT_GREEN#*After taking several hits, the undead giant finally succu
 }
 
 newChat{ id="fryjia-entry",
-text = [[#LIGHT_GREEN#*The wind chills as a young girl walks calmly through the gate.
-#LIGHT_GREEN#She looks surprisingly young, with extremely pale skin and contrasting
-#LIGHT_GREEN#long black hair. She examines you with eerie calmness*#WHITE#
-I am known as Fryjia the Hailstorm. That's all you need to know, @playerdescriptor.race@. Let us begin.
-#LIGHT_GREEN#*The whole arena starts to get colder as she speaks, and the audience
-#LIGHT_GREEN#starts wearing their finest winter cloaks*]],
+text = [[#LIGHT_GREEN#*어린 소녀가 조용히 걸어서 게이트를 통과하여 들어오자 바람이 차갑게 바뀌기 시작했습니다..
+#LIGHT_GREEN#그녀는 겉으로는 놀랍게도 젊게 보입니다, 엄청나게 창백한 피부와 그리고 그에 대비되는
+#LIGHT_GREEN#긴 검은 머리카락을 가지고 있습니다. 그녀는 으스스한 침착함으로 당신을 훝어봅니다.*#WHITE#
+나는 우박 폭풍을 부르는 프라이지아로 알려져 있습니다. 그것만 알면 충분할 거라 생각합니다, @playerdescriptor.race@. 싸움을 시작하죠..
+#LIGHT_GREEN#*경기장 전체가 그녀가 말을 끝내자마자 추워지기 시작합니다, 그리고 관중들은
+#LIGHT_GREEN#그들의 제일 좋은 겨울용 방한 망토를 입기 시작합니다*]],
 	answers = {
 		{"자 와라!"},
 	}
 }
 
 newChat{ id="fryjia-defeat",
-text = [[#LIGHT_GREEN#*With your final blow, Fryjia falls, unable to continue*
+text = [[#LIGHT_GREEN#*당신의 마지막 한방으로, 프라이지아가 쓰러졌습니다, 더 이상 싸울 수 없는 상태인 것 같습니다*
 #LIGHT_GREEN#*She awkwardly stands up, but doesn't seem critically injured*
-#WHITE# I...I admit defeat.
+#WHITE# 나...난 패배를 인정한다.
 #LIGHT_GREEN#*The audience "oooohs" in awe. Fryjia has turned her back to you*
 #WHITE# @playerdescriptor.race@. You are not the person I am looking for...
 #LIGHT_GREEN#*Leaving you wondering what she was talking about, the young girl walks
@@ -146,8 +146,8 @@ Good luck...
 #RED#The final battle begins when the gate closes, just this final time!!
 ]],
 	answers = {
-		{"내가 널 쓰러뜨리겠다, Master of the Arena!!!", action=entershop},
-		{"I will become Master of the Arena instead of the Master of the Arena!!", action=entershop},
+		{"내가 널 쓰러뜨리겠다, 아레나의 승리자!!!", action=entershop},
+		{"나는 지금의 아레나의 승리자를 대신하여 아레나의 승리자가 되겠다!!", action=entershop},
 		{"부와 영광을! 부와 영광을!", action=entershop},
 	}
 }
