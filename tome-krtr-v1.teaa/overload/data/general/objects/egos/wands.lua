@@ -24,7 +24,7 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "arcane ", prefix=true, second=true,
-	kr_display_name = "마법 ",
+	kr_display_name = "마법적인 ",
 	keywords = {arcane=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -39,7 +39,7 @@ newEntity{
 
 newEntity{
 	name = "defiled ", prefix=true, second=true,
-	kr_display_name = "모독 ",
+	kr_display_name = "모독하는 ",
 	keywords = {defiled=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -84,7 +84,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true, second=true,
-	kr_display_name = "보호 ",
+	kr_display_name = "보호받는 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -105,7 +105,7 @@ newEntity{
 
 newEntity{
 	name = "void ", prefix=true, second=true,
-	kr_display_name = "공허 ",
+	kr_display_name = "공허한 ",
 	keywords = {void=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -134,7 +134,7 @@ newEntity{
 
 newEntity{
 	name = "striking ", prefix=true, second=true,
-	kr_display_name = "타격 ",
+	kr_display_name = "타격하는 ",
 	keywords = {striking=true},
 	level_range = {30, 50},
 	rarity = 12,

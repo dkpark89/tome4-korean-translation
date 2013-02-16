@@ -19,7 +19,7 @@
 
 newEntity{
 	name = "charged(#USE_TALENT#) ", prefix=true,
-	kr_display_name = "돌격(#USE_TALENT#) ",
+	kr_display_name = "충전된(#USE_TALENT#) ",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 1,

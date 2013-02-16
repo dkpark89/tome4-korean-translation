@@ -22,7 +22,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{
 	power_source = {nature=true},
 	name = "cinder ", prefix=true, instant_resolve=true,
-	kr_display_name = "숯 ",
+	kr_display_name = "타고 남은 ",
 	keywords = {cinder=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -79,7 +79,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "polar ", prefix=true, instant_resolve=true,
-	kr_display_name = "극지 ",
+	kr_display_name = "극지방 ",
 	keywords = {polar=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -156,7 +156,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "blighted ", prefix=true, instant_resolve=true,
-	kr_display_name = "황폐 ",
+	kr_display_name = "황폐한 ",
 	keywords = {blighed=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -175,7 +175,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "dark ", prefix=true, instant_resolve=true,
-	kr_display_name = "어둠 ",
+	kr_display_name = "어두운 ",
 	keywords = {dark=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -194,7 +194,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "light ", prefix=true, instant_resolve=true,
-	kr_display_name = "빛 ",
+	kr_display_name = "빛나는 ",
 	keywords = {light=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -213,7 +213,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "temporal ", prefix=true, instant_resolve=true,
-	kr_display_name = "시간적 ",
+	kr_display_name = "시간적인 ",
 	keywords = {temporal=true},
 	level_range = {1, 50},
 	rarity = 18, -- much rarer, that proc is very high damage so lets not kill the player with it to much
@@ -285,7 +285,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "restful ", prefix=true, instant_resolve=true,
-	kr_display_name = "휴식 ",
+	kr_display_name = "편안한 ",
 	keywords = {restful=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -322,7 +322,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of war-making", suffix=true, instant_resolve=true,
-	kr_display_name = "전투생성자의 ",
+	kr_display_name = "전투를 만드는 자의 ",
 	keywords = {war=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -344,7 +344,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the iron hand", suffix=true, instant_resolve=true,
-	kr_display_name = "강철손의 ",
+	kr_display_name = "강철 손의 ",
 	keywords = {iron=true},
 	level_range = {30, 50},
 	rarity = 30,
@@ -424,7 +424,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of butchering", suffix=true, instant_resolve=true,
-	kr_display_name = "도살의 ",
+	kr_display_name = "도살자의 ",
 	keywords = {butchering=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -450,7 +450,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of the nighthunter", suffix=true, instant_resolve=true,
-	kr_display_name = "야간사냥꾼의 ",
+	kr_display_name = "밤사냥꾼의 ",
 	keywords = {nighthunter=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -480,7 +480,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "stone warden's ", prefix=true, instant_resolve=true,
-	kr_display_name = "돌의감시자 ",
+	kr_display_name = "돌의 감시자 ",
 	keywords = {stone=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -577,7 +577,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of sorrow", suffix=true, instant_resolve=true,
-	kr_display_name = "비통의 ",
+	kr_display_name = "슬픔의 ",
 	keywords = {sorrow=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -601,7 +601,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the juggernaut", suffix=true, instant_resolve=true,
-	kr_display_name = "저돌적전투의 ",
+	kr_display_name = "저돌적 전투의 ",
 	keywords = {juggernaut=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -625,7 +625,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spellstreaming ", prefix=true, instant_resolve=true,
-	kr_display_name = "주문의흐름 ",
+	kr_display_name = "주문 흐름 ",
 	keywords = {spellstream=true},
 	level_range = {	30, 50},
 	greater_ego = 1,
@@ -645,7 +645,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "heroic ", prefix=true, instant_resolve=true,
-	kr_display_name = "용사 ",
+	kr_display_name = "용맹한 ",
 	keywords = {heroic=true},
 	level_range = {30, 50},
 	greater_ego = 1,

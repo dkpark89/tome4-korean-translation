@@ -26,7 +26,7 @@ load("/data/general/objects/egos/armor.lua")
 newEntity{
 	power_source = {nature=true},
 	name = "troll-hide ", prefix=true, instant_resolve=true,
-	kr_display_name = "트롤가죽 ",
+	kr_display_name = "트롤 가죽 ",
 	keywords = {troll=true},
 	level_range = {20, 50},
 	greater_ego = 1,

@@ -128,7 +128,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
-	kr_display_name = "단열 ",
+	kr_display_name = "단열 처리된 ",
 	keywords = {insulating=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -143,7 +143,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
-	kr_display_name = "접지 ",
+	kr_display_name = "접지된 ",
 	keywords = {grounding=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -158,7 +158,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "anchoring ", prefix=true, instant_resolve=true,
-	kr_display_name = "고정 ",
+	kr_display_name = "고정된 ",
 	keywords = {anchoring=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -186,7 +186,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "clarifying ", prefix=true, instant_resolve=true,
-	kr_display_name = "명석 ",
+	kr_display_name = "명석한 ",
 	keywords = {clarifying=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -201,7 +201,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "shielding ", prefix=true, instant_resolve=true,
-	kr_display_name = "가리개 ",
+	kr_display_name = "눈 가리는 ",
 	keywords = {shielding=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -231,7 +231,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "purifying ", prefix=true, instant_resolve=true,
-	kr_display_name = "정화 ",
+	kr_display_name = "정화되는 ",
 	keywords = {purifying=true},
 	level_range = {1, 50},
 	rarity = 20,
@@ -256,7 +256,7 @@ newEntity{
 	},
 	charm_power = resolvers.mbonus_material(70, 30),
 	charm_power_def = {add=15, max=50, floor=true},
-	resolvers.charm("임의의 위치로 순간이동 (반경 %d)", 15, function(self, who)
+	resolvers.charm("임의의 위치로 순간이동 (주변 %d 칸 반경)", 15, function(self, who)
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, self:getCharmPower())
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
@@ -300,7 +300,7 @@ newEntity{
 	},
 	charm_power = resolvers.mbonus_material(80, 20),
 	charm_power_def = {add=5, max=10, floor=true},
-	resolvers.charm("주변의 적들이 당신을 공격하게 만듦 (반경 %d)", 15, function(self, who)
+	resolvers.charm("주변의 적들을 도발 (주변 %d 칸 반경)", 15, function(self, who)
 		local rad = self:getCharmPower()
 		local tg = {type="ball", range=0, radius=rad, friendlyfire=false}
 		who:project(tg, who.x, who.y, function(tx, ty)
@@ -317,7 +317,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "restful ", prefix=true, instant_resolve=true,
-	kr_display_name = "휴식 ",
+	kr_display_name = "편안한 ",
 	keywords = {restful=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -331,7 +331,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "vitalizing ", prefix=true, instant_resolve=true,
-	kr_display_name = "활력 ",
+	kr_display_name = "활기찬 ",
 	keywords = {vitalizing=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -400,7 +400,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "protective ", prefix=true, instant_resolve=true,
-	kr_display_name = "보호 ",
+	kr_display_name = "보호하는 ",
 	keywords = {protect=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -416,7 +416,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "enraging ", prefix=true, instant_resolve=true,
-	kr_display_name = "성나는 ",
+	kr_display_name = "격분하는 ",
 	keywords = {enraging=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -472,7 +472,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "mindweaver's ", prefix=true, instant_resolve=true,
-	kr_display_name = "정신이 엵인 ",
+	kr_display_name = "마음이 엮인 ",
 	keywords = {mindweaver=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -525,7 +525,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "serendipitous ", prefix=true, instant_resolve=true,
-	kr_display_name = "우연한 ",
+	kr_display_name = "운 좋은 ",
 	keywords = {['serend.']=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -542,7 +542,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of soulsearing", suffix=true, instant_resolve=true,
-	kr_display_name = "시든영혼의 ",
+	kr_display_name = "시든 영혼의 ",
 	keywords = {soulsear=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -561,7 +561,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of manastreaming", suffix=true, instant_resolve=true,
-	kr_display_name = "마나흐름의 ",
+	kr_display_name = "마나 흐름의 ",
 	keywords = {manastream=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -579,7 +579,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the chosen", suffix=true, instant_resolve=true,
-	kr_display_name = "선택받은자의 ",
+	kr_display_name = "선택받은 자의 ",
 	keywords = {chosen=true},
 	level_range = {25, 50},
 	greater_ego = 1,

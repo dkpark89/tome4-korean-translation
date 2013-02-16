@@ -81,7 +81,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "prismatic ", prefix=true, instant_resolve=true,
-	kr_display_name = "무지개 ",
+	kr_display_name = "프리즘 ",
 	keywords = {prismatic=true},
 	level_range = {10, 50},
 	rarity = 10,
@@ -113,7 +113,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the depths", suffix=true,
-	kr_display_name = "심원의 ",
+	kr_display_name = "지하의 ",
 	keywords = {depths=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -154,7 +154,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
-	kr_display_name = "단열 ",
+	kr_display_name = "단열 처리된",
 	keywords = {insulate=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -170,7 +170,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
-	kr_display_name = "접지 ",
+	kr_display_name = "접지된 ",
 	keywords = {ground=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -269,7 +269,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "warlord's ", prefix=true, instant_resolve=true,
-	kr_display_name = "장군 ",
+	kr_display_name = "전투 지휘자 ",
 	keywords = {warlord=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -345,7 +345,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "mindcaging ", prefix=true, instant_resolve=true,
-	kr_display_name = "정신적 우리 ",
+	kr_display_name = "정신 보호 ",
 	keywords = {mindcage=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -381,7 +381,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "leafwalker's ", prefix=true, instant_resolve=true,
-	kr_display_name = "걷는 잎사귀 ",
+	kr_display_name = "잎사귀와 걷는 ",
 	keywords = {learwalker=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -420,7 +420,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of blood magic", suffix=true, instant_resolve=true,
-	kr_display_name = "피의마법의 ",
+	kr_display_name = "핏빛 마법의 ",
 	keywords = {blood=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -461,7 +461,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of sanctity", suffix=true, instant_resolve=true,
-	kr_display_name = "신성의 ",
+	kr_display_name = "신성함의 ",
 	keywords = {sanctity=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -480,7 +480,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of ire", suffix=true, instant_resolve=true,
-	kr_display_name = "노여움의 ",
+	kr_display_name = "분노의 ",
 	keywords = {ire=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -518,7 +518,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the bounder", suffix=true, instant_resolve=true,
-	kr_display_name = "벼락부자의 ",
+	kr_display_name = "망나니의 ",
 	keywords = {bounder=true},
 	level_range = {30, 50},
 	greater_ego = 1,

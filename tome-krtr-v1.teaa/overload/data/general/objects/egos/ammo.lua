@@ -29,7 +29,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = "barbed ", prefix=true, instant_resolve=true,
-	kr_display_name = "가시 ",
+	kr_display_name = "가시박힌 ",
 	keywords = {barbed=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -50,7 +50,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "deadly ", prefix=true, instant_resolve=true,
-	kr_display_name = "치명적 ",
+	kr_display_name = "치명적인 ",
 	keywords = {deadly=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -89,7 +89,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of accuracy", suffix=true, instant_resolve=true,
-	kr_display_name = "정밀의 ",
+	kr_display_name = "정밀공격의 ",
 	keywords = {accuracy=true},
 	level_range = {1, 50},
 	rarity = 3,
@@ -177,7 +177,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "arcing ", prefix=true, instant_resolve=true,
-	kr_display_name = "감전 ",
+	kr_display_name = "전격 ",
 	keywords = {arcing=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -186,7 +186,7 @@ newEntity{
 		ranged_project={
 			[DamageType.LIGHTNING] = resolvers.mbonus_material(15, 5),
 		},
-		special_on_hit = {desc="25% 확률로 뇌전이 두번째 목표를 감전", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 전기가 두 번째 목표를 감전시킴", fct=function(combat, who, target)
 			if not rng.percent(25) then return end
 			local tgts = {}
 			local x, y = target.x, target.y
@@ -261,7 +261,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of daylight", suffix=true, instant_resolve=true,
-	kr_display_name = "주광의 ",
+	kr_display_name = "태양빛의 ",
 	keywords = {daylight=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -310,7 +310,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "elemental ", prefix=true, instant_resolve=true,
-	kr_display_name = "정령 ",
+	kr_display_name = "다속성 ",
 	keywords = {elemental=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -323,7 +323,7 @@ newEntity{
 			[DamageType.ACID] = resolvers.mbonus_material(15, 10),
 			[DamageType.LIGHTNING] = resolvers.mbonus_material(15, 10),
 		},
-		special_on_hit = {desc="임의의 원소 효과", fct=function(combat, who, target)
+		special_on_hit = {desc="임의의 원소 속성 효과", fct=function(combat, who, target)
 			local dam = 20 + (who:combatSpellpower()/5)
 			local tg = {type="hit", range=10}
 			local elem = rng.table{
@@ -425,7 +425,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "blazing ", prefix=true, instant_resolve=true,
-	kr_display_name = "불타는 ",
+	kr_display_name = "타오르는 ",
 	keywords = {fiery=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -525,7 +525,7 @@ newEntity{
 	cost = 6,
 	combat = {
 		travel_speed = 2,
-		special_on_hit = {desc="10% 확률로 대기 폭발 발생", fct=function(combat, who, target)
+		special_on_hit = {desc="10% 확률로 몰아치는 바람 발생", fct=function(combat, who, target)
 			if not rng.percent(10) then return end
 			local dam = 20 + who:combatPhysicalpower()/2
 			local distance = 2 + math.floor(who:combatPhysicalpower()/40)
@@ -548,7 +548,7 @@ newEntity{
 		ranged_project={
 			[DamageType.GRAVITY] = resolvers.mbonus_material(15, 5),
 		},
-		special_on_hit = {desc="10% 확률로 대상을 짓누름", fct=function(combat, who, target)
+		special_on_hit = {desc="10% 확률로 대상을 짓눌러 속박", fct=function(combat, who, target)
 			if not rng.percent(10) then return end
 			if target:attr("never_move") then
 				local tg = {type="hit", range=1}
@@ -556,7 +556,7 @@ newEntity{
 			elseif target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, 3, {src=who, apply_power=who:combatAttack(combat)})
 			else
-				game.logSeen(target, "%s 속박을 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 속박되지 않았습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"))
 			end
 		end},
 	},
@@ -566,7 +566,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "manaburning ", prefix=true, instant_resolve=true,
-	kr_display_name = "마나 태우기 ",
+	kr_display_name = "마나를 태우는 ",
 	keywords = {manaburning=true},
 	level_range = {1, 50},
 	rarity = 20,
@@ -581,7 +581,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "slimey ", prefix=true, instant_resolve=true,
-	kr_display_name = "슬라임 ",
+	kr_display_name = "끈적이는 ",
 	keywords = {slime=true},
 	level_range = {1, 50},
 	rarity = 20,
@@ -601,7 +601,7 @@ newEntity{
 	cost = 20,
 	combat = {
 		ranged_project={[DamageType.NATURE] = resolvers.mbonus_material(15, 5)},
-		special_on_hit = {desc="25% 확률로 마법효과를 하나 없앰", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 마법적 효과를 하나 제거", fct=function(combat, who, target)
 			if not rng.percent(25) then return end
 			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return nil end
 			
@@ -650,7 +650,7 @@ newEntity{
 		ranged_project = {
 			[DamageType.MANABURN] = resolvers.mbonus_material(25, 10),
 		},
-		special_on_crit = {desc="잠재적 주문 에너지를 태움", fct=function(combat, who, target)
+		special_on_crit = {desc="주문 에너지를 태워, 재사용 대기시간을 발생시킴", fct=function(combat, who, target)
 			local turns = 1 + math.ceil(who:combatMindpower() / 20)
 			if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return nil end
 			
@@ -676,7 +676,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "slimey-burst ", prefix=true, instant_resolve=true,
-	kr_display_name = "슬라임폭발 ",
+	kr_display_name = "폭발형 슬라임 ",
 	keywords = {slimeburst=true},
 	level_range = {30, 50},
 	rarity = 40,
@@ -735,7 +735,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "hateful ", prefix=true, instant_resolve=true,
-	kr_display_name = "불쾌한 ",
+	kr_display_name = "증오에 찬 ",
 	keywords = {hateful=true},
 	level_range = {1, 50},
 	rarity = 10,
@@ -749,7 +749,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "thought-forged ", prefix=true, instant_resolve=true,
-	kr_display_name = "사고연마 ",
+	kr_display_name = "사색하는 ",
 	keywords = {thought=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -776,7 +776,7 @@ newEntity{
 		ranged_project={
 			[DamageType.PHYSICAL] = resolvers.mbonus_material(15, 5),
 		},
-		special_on_hit = {desc="10% 확률로 대상을 밀어내기", fct=function(combat, who, target)
+		special_on_hit = {desc="10% 확률로 대상을 밀어냄", fct=function(combat, who, target)
 			if not rng.percent(10) then return nil end
 			if not who:checkHit(who:combatMindpower(), target:combatPhysicalResist()) then game.logSeen(target, "%s 저항했습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가")) return nil end
 			if target:canBe("knockback") then
@@ -796,7 +796,7 @@ newEntity{
 	rarity = 25, -- very rare because no one can remember how to make them...  haha
 	cost = 15,
 	combat = {
-		special_on_hit = {desc="25% 확률로 하나의 기술 사용 지연chance to put talents on cooldown", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 기술 하나의 사용을 지연시킴", fct=function(combat, who, target)
 			if not rng.percent(25) then return nil end
 			local turns = 1 + math.ceil(who:combatMindpower() / 20)
 			local number = 2 + math.ceil(who:combatMindpower() / 50)
@@ -812,7 +812,7 @@ newEntity{
 				local t = rng.tableRemove(tids)
 				if not t then break end
 				target.talents_cd[t.id] = turns
-				game.logSeen(target, "%s 일시적으로 %s 잊습니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), (t.kr_display_name or t.name):addJosa("를"))
+				game.logSeen(target, "%s 일시적으로 %s 잊어버립니다!", (target.kr_display_name or target.name):capitalize():addJosa("가"), (t.kr_display_name or t.name):addJosa("를"))
 			end
 		end},
 	},
@@ -822,7 +822,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of torment", suffix=true, instant_resolve=true,
-	kr_display_name = "괴롭힘의 ",
+	kr_display_name = "고문의 ",
 	keywords = {torment=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -835,7 +835,7 @@ newEntity{
 		},
 	},
 	combat = {
-		special_on_hit = {desc="20% 확률로 대상을 괴롭힘", fct=function(combat, who, target)
+		special_on_hit = {desc="20% 확률로 대상에게 부정적인 상태효과 부여", fct=function(combat, who, target)
 			if not rng.percent(20) then return end
 			local eff = rng.table{"stun", "blind", "pin", "confusion", "silence",}
 			if not target:canBe(eff) then return end

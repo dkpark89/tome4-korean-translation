@@ -28,7 +28,7 @@ newEntity{
 
 newEntity{
 	name = "giant ", prefix=true,
-	kr_display_name = "거인 ",
+	kr_display_name = "거대한 ",
 	level_range = {1, 50},
 	rarity = 5,
 	cost = 0.5,

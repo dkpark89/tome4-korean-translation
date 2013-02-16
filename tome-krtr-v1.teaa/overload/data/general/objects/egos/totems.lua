@@ -24,7 +24,7 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "natural ", prefix=true,
-	kr_display_name = "자연 ",
+	kr_display_name = "자연적인 ",
 	keywords = {natural=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -54,7 +54,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true,
-	kr_display_name = "보호 ",
+	kr_display_name = "보호받는 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -73,7 +73,7 @@ newEntity{
 
 newEntity{
 	name = "rushing ", prefix=true,
-	kr_display_name = "돌진 ",
+	kr_display_name = "돌진하는 ",
 	keywords = {rushing=true},
 	level_range = {30, 50},
 	rarity = 12,

@@ -142,7 +142,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of clarity", suffix=true, instant_resolve=true,
-	kr_display_name = "명석의 ",
+	kr_display_name = "명석함의 ",
 	keywords = {clarity=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -194,7 +194,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "preserving ", prefix=true, instant_resolve=true,
-	kr_display_name = "보존 ",
+	kr_display_name = "지키는 ",
 	keywords = {preserve=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -261,7 +261,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "nightwalker's ", prefix=true, instant_resolve=true,
-	kr_display_name = "밤에 걷는 자 ",
+	kr_display_name = "밤에 걷는 ",
 	keywords = {nightwalker=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -312,7 +312,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of the zealot", suffix=true, instant_resolve=true,
-	kr_display_name = "광신의 ",
+	kr_display_name = "광신도의 ",
 	keywords = {zealot=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -325,7 +325,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of focus", suffix=true, instant_resolve=true,
-	kr_display_name = "집중의 ",
+	kr_display_name = "집중력의 ",
 	keywords = {focus=true},
 	level_range = {1, 50},
 	rarity = 15,
