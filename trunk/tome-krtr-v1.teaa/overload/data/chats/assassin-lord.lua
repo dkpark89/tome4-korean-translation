@@ -31,7 +31,7 @@ local function evil(npc, player)
 		end
 	end
 	game:changeLevel(1, "wilderness")
-	game.log("당신이 떠날 때 the assassin lord가 말하길: '그리고 잊지마라, 넌 이제 내 꺼다.'")
+	game.log([[당신이 떠날 때 '암살단 단장'이 말하길: "그리고 잊지마라, 넌 이제 내 꺼다."]]) --@@ ''와 ""를 모두 사용하기 위해, [[]]로 바꿈
 end
 
 newChat{ id="welcome",

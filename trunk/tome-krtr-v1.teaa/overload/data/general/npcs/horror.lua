@@ -826,7 +826,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as = "DREAM_SEED",
 
 newEntity{ base="BASE_NPC_HORROR",
 	name = "Grgglck the Devouring Darkness", unique = true,
-	kr_display_name = "어둠을 삼키는 글그륵크",
+	kr_display_name = "어둠을 삼키는 글그글륵",
 	color = colors.DARK_GREY, image = "npc/horror_eldritch_grgglck.png",
 	resolvers.nice_tile{tall=1},
 	rarity = 50,
@@ -879,9 +879,9 @@ newEntity{ base="BASE_NPC_HORROR",
 
 newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 	name = "Grgglck's Tentacle",
-	kr_display_name = "글그륵크의 촉수",
+	kr_display_name = "글그글륵의 촉수",
 	color = colors.GREY,
-	desc = [[글그륵크의 촉수입니다. 적어도 본체보다는 약해보입니다.]],
+	desc = [[글그글륵의 촉수입니다. 적어도 본체보다는 약해보입니다.]],
 	level_range = {20, nil}, exp_worth = 0,
 	max_life = 100, life_rating = 3, fixed_rating = true,
 	equilibrium_regen = -20,
@@ -903,7 +903,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 	on_act = function(self)
 		if self.summoner.dead then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#글그륵크가 죽자, 그 촉수가 생명을 잃고 땅으로 쓰러집니다!")
+			game.logSeen(self, "#AQUAMARINE#글그글륵이 죽자, 그 촉수가 생명을 잃고 땅으로 쓰러집니다!")
 		end
 	end,
 

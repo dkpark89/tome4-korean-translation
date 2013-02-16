@@ -53,7 +53,7 @@ newEntity{ base = "BASE_NPC_PLANT",
 
 newEntity{ base = "BASE_NPC_PLANT",
 	name = "treant", color=colors.GREEN,
-	kr_display_name = "트린트",
+	kr_display_name = "나무 정령",
 	desc = "다른 살아있는 모든 존재에 대해 적대심을 불태우는, 매우 강력하며 이성이 있는 나무입니다.",
 	sound_moam = "creatures/treants/treeant_2",
 	sound_die = {"creatures/treants/treeant_death_%d", 1, 2},

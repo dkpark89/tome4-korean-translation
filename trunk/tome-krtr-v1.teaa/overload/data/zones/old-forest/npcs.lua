@@ -103,7 +103,7 @@ newEntity{ define_as = "SNAPROOT", -- backup guardian
 	sound_die = {"creatures/treants/treeant_death_%d", 1, 2},
 	sound_random = {"creatures/treants/treeant_%d", 1, 3},
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_treant_snaproot.png", display_h=2, display_y=-1}}},
-	desc = [[이 고대 트린트의 나무껍질은 거의 시커멓게 시들어 있습니다. 이것은 인간과 같이 이족보행하는 존재들을, 정화되어야 할 재앙으로 보고 있습니다.]],
+	desc = [[이 고대 나무 정령의 나무껍질은 거의 시커멓게 시들어 있습니다. 이것은 인간과 같이 이족보행하는 존재들을, 정화되어야 할 재앙으로 보고 있습니다.]],
 	level_range = {50, nil}, exp_worth = 3,
 
 	max_life = 1000, life_rating = 40, fixed_rating = true,

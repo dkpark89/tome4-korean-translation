@@ -181,21 +181,21 @@ local save_clear = function(self, player)
 end
 
 newChat{ id="welcome",
-	text = "#LIGHT_GREEN#당신은 들어오기 전에 랭킹 보드를 봅니다.\n"..text,
+	text = "#LIGHT_GREEN#당신은 들어오기 전에 등급 게시판을 봅니다.\n"..text,
 	answers = {
 		--{"Enter the arena for 3 rounds[DEBUG]", action=arena_3, jump="perks"},
-		{"아레나에 입장한다 (60 웨이브)", action=arena_60},
-		{"아레나에 입장한다 (짧은 모드, 30 라운드)", action=arena_30},
+		{"투기장에 입장한다 (60회 쇄도)", action=arena_60},
+		{"투기장에 입장한다 (간략 방식, 30회 쇄도)", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
-		{"#LIGHT_RED#[아레나 세이브 데이터를 삭제한다]", action=save_clear},
+		{"#LIGHT_RED#[저장된 투기장 자료를 삭제한다]", action=save_clear},
 	}
 }
 
 newChat{ id="welcome2",
 	text = "이제 무엇을 하실거죠?",
 	answers = {
-		{"60 라운드 동안 아레나에 입장", action=arena_60},
-		{"30 라운드 동안 아레나에 입장", action=arena_30},
+		{"60회 쇄도 방식의 투기장에 입장", action=arena_60},
+		{"30회 쇄도 방식의 투기장에 입장", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
 	}
 }

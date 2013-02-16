@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 if game.player:isQuestStatus("antimagic", engine.Quest.DONE) then
 newChat{ id="welcome",
 	text = [[잘 왔네, 친구여.]],
@@ -40,7 +42,7 @@ local remove_magic = function(npc, player)
 		for i = #inven, 1, -1 do
 			local o = inven[i]
 			if o.power_source and o.power_source.arcane then
-				game.logPlayer(player, "당신은 이제 %s 를 더 이상 사용할 수 없습니다.; 이건 마법으로 더럽혀져 있습니다.", o:getName{do_color=true})
+				game.logPlayer(player, "당신은 이제 %s 더 이상 사용할 수 없습니다.; 이건 마법으로 더럽혀져 있습니다.", o:getName{do_color=true}:addJosa("를"))
 				local o = player:removeObject(inven, i, true)
 				player:addObject(player.INVEN_INVEN, o)
 				player:sortInven()

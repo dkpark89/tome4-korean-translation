@@ -20,7 +20,7 @@
 newChat{ id="welcome",
 	text = [[잠시 기다리게!]],
 	answers = {
-		{"이거 마도사 타레리온이 아니십니까?", jump="next1"},
+		{"이거 마도사 타렐리온이 아니십니까?", jump="next1"},
 	}
 }
 
