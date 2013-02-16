@@ -105,7 +105,7 @@ newTalent{
 
 newTalent{
 	name = "Clarity",
-	kr_display_name = "명석",
+	kr_display_name = "깨달음",
 	type = {"psionic/solipsism", 3},
 	points = 5, 
 	require = psi_wil_req3,

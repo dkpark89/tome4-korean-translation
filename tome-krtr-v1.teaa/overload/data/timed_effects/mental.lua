@@ -321,7 +321,7 @@ newEffect{
 	long_desc = function(self, eff)
 		local t = self:getTalentFromId(self.T_STALK)
 		local effStalked = eff.target:hasEffect(eff.target.EFF_STALKED)
-		local desc = ([[%s 추적중, %d 단계 추적 : 공격력 +%d / 물리 피해량 +%d%% / 추적 대상을 공격할 때마다 증오 회복 (+%0.2f / 턴)]]):format(
+		local desc = ([[%s 추적중, %d 단계 추적 : 정확도 +%d / 물리 피해량 +%d%% / 추적 대상을 공격할 때마다 증오 회복 (+%0.2f / 턴)]]):format(
 			(eff.target.kr_display_name or eff.target.name), eff.bonus, t.getAttackChange(self, t, eff.bonus), t.getStalkedDamageMultiplier(self, t, eff.bonus) * 100 - 100, t.getHitHateChange(self, t, eff.bonus))
 		if effStalked and effStalked.damageChange and effStalked.damageChange > 0 then
 			desc = desc..("추척 대상을 공격시 피해량 보정 : %d%%."):format(effStalked.damageChange)
@@ -353,7 +353,7 @@ newEffect{
 		local effStalker = eff.source:hasEffect(eff.source.EFF_STALKER)
 		if not effStalker then return "추적당함." end
 		local t = self:getTalentFromId(eff.source.T_STALK)
-		local desc = ([[%s에게 추적당하는 중, %d 단계 추적 : 추적자의 공격력 +%d / 추적자의 물리 피해량 +%d%% / 공격받을 때마다 추적자의 증오 회복 (+%0.2f / 턴)]]):format(
+		local desc = ([[%s에게 추적당하는 중, %d 단계 추적 : 추적자의 정확도 +%d / 추적자의 물리 피해량 +%d%% / 공격받을 때마다 추적자의 증오 회복 (+%0.2f / 턴)]]):format(
 			(eff.target.kr_display_name or eff.source.name), effStalker.bonus, t.getAttackChange(eff.source, t, effStalker.bonus), t.getStalkedDamageMultiplier(eff.source, t, effStalker.bonus) * 100 - 100, t.getHitHateChange(eff.source, t, effStalker.bonus))
 		if eff.damageChange and eff.damageChange > 0 then
 			desc = desc..(" 추적자에게 받는 피해량 보정 : %d%%."):format(eff.damageChange)
@@ -403,7 +403,7 @@ newEffect{
 	long_desc = function(self, eff)
 		local message = ("%s의 목표로 지정됨 : 매 턴마다 %d%% 확률로 사냥꾼 방향으로 끌려감"):format(eff.source.name, eff.chance)
 		if eff.spellpowerChangeId and eff.mindpowerChangeId then
-			message = message..("(주문력 : %d / 정신력 : %d"):format(eff.spellpowerChange, eff.mindpowerChange)
+			message = message..(" / 주문력 : %d / 정신력 : %d"):format(eff.spellpowerChange, eff.mindpowerChange)
 		end
 		return message
 	end,
@@ -515,7 +515,7 @@ newEffect{
 newEffect{
 	name = "OVERWHELMED", image = "talents/frenzy.png",
 	desc = "Overwhelmed",
-	kr_display_name = "암도됨",
+	kr_display_name = "압도됨",
 	long_desc = function(self, eff) return ("압도됨 : 정확도 -%d"):format( -eff.attackChange) end,
 	type = "mental",
 	subtype = { fear=true },
@@ -1303,7 +1303,7 @@ newEffect{
 
 					if bestX then
 						self:move(bestX, bestY, false)
-						game.logPlayer(self, "#F53CBE#공황에 빠져, %s에게서 도망칩니다.", (eff.source.kr_display_name or eff.source.name))--'공황에 빠져' 앞에 Y가 있던데, 원래 있던 것인지 확인 필요
+						game.logPlayer(self, "#F53CBE#공황에 빠져, %s에게서 도망칩니다.", (eff.source.kr_display_name or eff.source.name))
 					else
 						game.logSeen(self, "#F53CBE#%s 공황에 빠져, %s에게서 도망치려 노력합니다.", (self.kr_display_name or self.name):capitalize():addJosa("가"), (eff.source.kr_display_name or eff.source.name))
 						self:useEnergy(game.energy_to_act * self:combatMovementSpeed(bestX, bestY))
@@ -1974,7 +1974,7 @@ newEffect{
 	long_desc = function(self, eff)
 		local desc = ([[현재 사냥감 : %s / %s, 사냥 효율 : %d%% 사냥한 횟수 : %d / %d, 추가 피해량 %+d%% / %+d%%]]):format(eff.type, eff.subtype, (eff.effectiveness * 100) or 0, eff.typeKills, eff.subtypeKills, (eff.typeDamageChange * 100) or 0, (eff.subtypeDamageChange * 100) or 0)
 		if eff.subtypeAttackChange or 0 > 0 then
-			desc = desc..([[, 공격력 추가 : %+d / %+d, 기절 확률 : -- / %0.1f%%, 의표 찌르기 확률 : %0.1f%% / %0.1f%%]]):format(eff.typeAttackChange or 0, eff.subtypeAttackChange or 0, eff.subtypeStunChance or 0, eff.typeOutmaneuverChance or 0, eff.subtypeOutmaneuverChance or 0)
+			desc = desc..([[, 정확도 추가 : %+d / %+d, 기절 확률 : -- / %0.1f%%, 의표 찌르기 확률 : %0.1f%% / %0.1f%%]]):format(eff.typeAttackChange or 0, eff.subtypeAttackChange or 0, eff.subtypeStunChance or 0, eff.typeOutmaneuverChance or 0, eff.subtypeOutmaneuverChance or 0)
 		end
 		return desc
 	end,
@@ -2052,7 +2052,7 @@ newEffect{
 	desc = "Outmaneuvered",
 	kr_display_name = "허를 찔림",
 	long_desc = function(self, eff)
-		local desc = ("허를 찔림 : 물리 저항 %d%% 감소"):format(eff.physicalResistChange)
+		local desc = ("허를 찔림 : 물리 저항 %d%% 감소"):format(eff.physicalResistChange) --@@ 변수가 음수인 경우 '감소' 삭제 필요
 		--local first = true --@@ 필요없어져 주석 처리
 		for id, value in pairs(eff.incStats) do
 			--if not first then desc = desc.." / " end --@@ 필요없어져 주석 처리

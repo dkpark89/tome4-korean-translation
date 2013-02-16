@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Mitosis",
-	kr_display_name = "유사분열",
+	kr_display_name = "유사 분열",
 	type = {"wild-gift/ooze", 1},
 	require = gifts_req1,
 	mode = "sustained",
