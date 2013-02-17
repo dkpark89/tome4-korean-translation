@@ -24,7 +24,7 @@ newBirthDescriptor{
 	locked = function() return profile.mod.allow_build.adventurer and true or "hide"  end,
 	desc = {
 		"모험가는 모든 기술을 배워서 쓸 수 있습니다.",
-		"#{bold}#모험가는 게임을 이긴 사람을 위해 보너스로 추가된 특별 직업이며, 다른 직업과는 균형이 맞지 않습니다.#{normal}#",
+		"#{bold}#모험가는 게임을 승리한 사람을 위해 보너스로 추가된 특별 직업이며, 다른 직업과는 균형이 맞지 않습니다.#{normal}#",
 	},
 	descriptor_choices =
 	{
@@ -46,12 +46,12 @@ newBirthDescriptor{
 	locked = function() return profile.mod.allow_build.adventurer and true or "hide"  end,
 	desc = {
 		"모험가는 모든 기술을 배워서 쓸 수 있습니다.",
-		"#{bold}#모험가는 게임을 이긴 사람을 위해 보너스로 추가된 특별 직업이며, 다른 직업과는 균형이 맞지 않습니다.#{normal}#",
-		"가장 중요한 능력치는 어떤 진로로 갈지에 따라 다릅니다.",
-		"#GOLD#능력치 변경:",
+		"#{bold}#모험가는 게임을 승리한 사람을 위해 보너스로 추가된 특별 직업이며, 다른 직업과는 균형이 맞지 않습니다.#{normal}#",
+		"가장 중요한 능력치는 자신이 가고자 하는 길에 따라 다릅니다.",
+		"#GOLD#능력치 변화 :",
 		"#LIGHT_BLUE# * 힘+2, 민첩+2, 체격+2",
 		"#LIGHT_BLUE# * 마법+2, 의지+2, 교활함+2",
-		"#GOLD#레벨 당 생명력:#LIGHT_BLUE# +0",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# +0",
 	},
 	not_on_random_boss = true,
 	stats = { str=2, con=2, dex=2, mag=2, wil=2, cun=2 },

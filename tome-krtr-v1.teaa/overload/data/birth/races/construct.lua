@@ -50,12 +50,12 @@ newBirthDescriptor
 	locked_desc = "",
 	desc = {
 		"룬 골렘은 마법의 힘으로 움직이는 단단한 바위 피조물입니다.",
-		"특정한 직업의 능력을 가질수는 없지만, 다양한 고유 능력을 지니고 있습니다.",
-		"#GOLD#능력치 변경:",
+		"특정한 직업의 능력을 가질 수는 없지만, 다양한 고유 능력을 지니고 있습니다.",
+		"#GOLD#능력치 변화 :",
 		"#LIGHT_BLUE# * 힘+3, 민첩-2, 체격+3",
 		"#LIGHT_BLUE# * 마법+2, 의지+2, 교활함-5",
-		"#GOLD#레벨 당 생명력:#LIGHT_BLUE# 13",
-		"#GOLD#경험치 불이익:#LIGHT_BLUE# 50%",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 13",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 50%",
 	},
 	descriptor_choices =
 	{
