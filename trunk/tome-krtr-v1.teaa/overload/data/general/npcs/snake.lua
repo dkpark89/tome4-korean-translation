@@ -56,7 +56,7 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "large white snake", color=colors.WHITE, image="npc/white-snake.png",
-	kr_display_name = "큰 흰 뱀",
+	kr_display_name = "큰 흰색 뱀",
 	desc = [[당신을 향해 쉬익거리는 큰 뱀입니다. 방해를 받아 화가 난 듯 합니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,

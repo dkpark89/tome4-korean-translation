@@ -49,7 +49,7 @@ newBirthDescriptor
 	name = "Tutorial Basic",
 	kr_display_name = "연습게임용 기본 종족",
 	desc = {
-		"데르스 북쪽 출신의 인간. 어디로보나 평범하기 그지없는 사람.",
+		"데르스 북쪽 출신의 인간. 어디로 보나 평범하기 그지없는 사람.",
 	},
 	copy = {
 		default_wilderness = {1, 1, "wilderness"},
@@ -67,7 +67,7 @@ newBirthDescriptor
 	name = "Tutorial Stats",
 	kr_display_name = "연습게임용 능력치",
 	desc = {
-		"데르스 북쪽 출신의 인간. 어디로보나 평범하기 그지없는 사람.",
+		"데르스 북쪽 출신의 인간. 어디로 보나 평범하기 그지없는 사람.",
 	},
 	copy = {
 		default_wilderness = {1, 1, "wilderness"},
