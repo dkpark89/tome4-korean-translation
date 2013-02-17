@@ -79,7 +79,7 @@ newEntity{
 	cost = 1000,
 	quest = 1,
 
-	use_simple = { name="permanently increase your physical critical strike chance by 4%", kr_displa_name="물리적 치명타율이 영구적으로 4% 증가", use = function(self, who)
+	use_simple = { name="permanently increase your physical critical strike chance by 4%", kr_display_name="물리적 치명타율이 영구적으로 4% 증가", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨습니다. 신체가 영구적으로 변화되었습니다!")
 		who.combat_physcrit = who.combat_physcrit + 4
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 눈이 적의 약점을 더 잘 찾아낼 수 있도록 만듭니다!")

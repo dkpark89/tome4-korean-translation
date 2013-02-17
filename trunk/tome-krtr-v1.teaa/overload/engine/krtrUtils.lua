@@ -741,15 +741,6 @@ function string.krUnIDPreName(str)
 	else return str end
 end
 
-function string.krWildType(str)
-	-- 관련내용 /mod/class/GameState.lua:348
-	local ori = str:lower()
-	if ori == "physical" then return "물리적"
-	elseif ori == "magical" then return "마법적"
-	elseif ori == "mental" then return "정신적"
-	else return str end
-end
-
 function string.krBossName(str)
 	-- 관련내용 /mod/class/GameState.lua:348
 	local ori = str:lower()
