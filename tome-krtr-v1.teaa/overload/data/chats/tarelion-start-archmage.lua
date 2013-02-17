@@ -25,36 +25,36 @@ newChat{ id="welcome",
 }
 
 newChat{ id="next1",
-	text = [[그렇네 @playername@, I have heard you plan on going into the wild world, looking for some adventures of your own.
-This is good, more of us should get out of here once in a while and actually help people out there.
-Say, maybe you might want to get an adventure and help Angolwen?]],
+	text = [[그렇네 @playername@, 자네가 야생의 세계에 나가려고 하고 있다는 걸 들었네, 자네만의 모험을 찾아서 말이야.
+그건 좋은 일일세, 나는 우리들 중 더 많은 사람들이 마을의 밖에 나가 바깥의 사람들을 도와야 한다고 생각하네.
+말해보게, 아마도 자네는 약간의 모험을 함과 동시에 앙골웬을 도우는 방법을 알고 싶나?]],
 	answers = {
 		{"아마도요, 무엇이 필요하십니까??", jump="next2"},
 	}
 }
 
 newChat{ id="next2",
-	text = [[During the Spellblaze the world was torn apart - literally. A part of it, that we now call the Abashed Expanse, was ripped from the world and thrown into the void between the stars.
-We managed to stabilize it and it is now orbiting Eyal. Recently we have noticed a disturbance there; if we do nothing it will crash onto Eyal, bringing much destruction in its wake.
-Because it was once part of a land we know well we can teleport you there. You will need to stabilize three wormholes by firing any attack spells at them.
-The instability is also to your advantage there, your simple phase door spell will be fully controllable.
+	text = [[마력폭주의 기간동안 세계는 산산조각이 났었네 - 말 그대로 말야. 그 중 일부가, 현재 우리가 당혹스럽도록 광활한 곳이라 부르는 곳이, 세계에서 떨어져 나가 별들 사이의 공허한 곳으로 날려가버렸다네.
+우리는 그 곳을 안정하게 만들고 지금은 에얄이 있는 궤도를 선회하게 만들었지만, 최근 우리는 거기서 장애가 일어나는 것을 눈치챘다네.; 우리가 아무 짓도 하지 않는다면, 그 곳은 곧 에얄에 떨어지게 되고 그 이후로 각성까지 일어난다면 그야말로 최악의 사태가 초래될 것이네.
+왜냐하면 그것은 땅의 일부분이었고 우리는 자네를 그곳으로 순간이동 시킬 수 있으리라 생각하네. 자네는 그 곳에서 세 개의 웜홀을 어떤 공격 마법이라도 사용하여 안정화시켜야만 하네
+그리고 그 곳의 불안정한 상태가 자네에게는 이점이 되기도 할 걸세, 자네는 그 곳에서 간단한 근거리 순간이동을 자유롭게 조종이 가능할 걸세.
 
-So, you think you can help us ?]],
+그래서, 자네가 우리를 도울 수 있다고 생각되나?]],
 	answers = {
-		{"Yes Archmage, send me there!", jump="teleport"},
-		{"No sorry, I need to go.", jump="refuse"},
+		{"물론입니다 마도사 타렐리온, 저를 그 곳으로 보내주십시오!", jump="teleport"},
+		{"아뇨, 죄송하지만 전 이만 가봐야 겠습니다.", jump="refuse"},
 	}
 }
 
 newChat{ id="teleport",
-	text = [[행운이 있기를!]],
+	text = [[자네에게 행운이 있기를!]],
 	answers = {
 		{"[순간이동]", action=function(npc, player) game:changeLevel(1, "abashed-expanse", {direct_switch=true}) end},
 	}
 }
 
 newChat{ id="refuse",
-	text = [[Oh well, farewell on your trips. Now I need to find somebody else to go up there.]],
+	text = [[알겠네, 즐거운 모험이 되기를 바라네. 이제 난 그 곳에 가서 일을 처리할 다른 사람을 찾아봐야 겠군.]],
 	answers = {
 		{"그럼 안녕히.", action=function(npc, player) player:setQuestStatus("start-archmage", engine.Quest.FAILED) end},
 	}
