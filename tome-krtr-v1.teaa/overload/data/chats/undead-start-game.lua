@@ -35,7 +35,7 @@ I will show them! SHOW THEM!]],
 }
 
 newChat{ id="welcome3",
-	text = [[넌 말할 수 없어. 넌 말해선 안됀다고! 넌 노예야, 도구라고!
+	text = [[넌 말할 수 없어. 넌 말해선 안된다고! 넌 노예야, 도구라고!
 넌 내꺼야! 조용히 해!
 #LIGHT_GREEN#*As his mind drifts off you notice part of the summoning circle is fading. You can probably escape!*#WHITE#
 ]],

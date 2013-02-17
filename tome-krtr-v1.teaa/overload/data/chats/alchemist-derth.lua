@@ -26,6 +26,7 @@ local e = {
 	{
 	short_name = "fox",
 	name = "elixir of the fox",
+	kr_display_name = "여우의 엘릭서",
 	id = "ELIXIR_FOX",
 	start = "fox_start",
 	almost = "fox_almost_done",
@@ -37,6 +38,7 @@ local e = {
 	{
 	short_name = "avoidance",
 	name = "elixir of avoidance",
+	kr_display_name = "회피의 엘릭서",
 	id = "ELIXIR_AVOIDANCE",
 	start = "avoidance_start",
 	almost = "avoidance_almost_done",
@@ -48,6 +50,7 @@ local e = {
 	{
 	short_name = "precision",
 	name = "elixir of precision",
+	kr_display_name = "정밀함의 엘릭서",
 	id = "ELIXIR_PRECISION",
 	start = "precision_start",
 	almost = "precision_almost_done",
@@ -160,7 +163,7 @@ newChat{ id="competition",
 newChat{ id="choice",
 	text = [[Excellent. Now then, I've three elixirs I'm working on. I'll burden you with only one at a time, since I've learned the hard way about the hazards of overloading an adventurer's brain. Here are your options: the elixir of the fox, which makes you as nimble and cunning as a fox; the elixir of avoidance, which sharpens your natural inclinations to get out of the way of incoming harm; or the elixir of precision, which grants intuitive understanding of an enemy's most sensitive spots. Which would you like to aid me with?]],
 	answers = {
-		{"The "..e[1].name..".", jump="list",
+		{"The "..e[1].kr_display_name..".", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -173,7 +176,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"The "..e[2].name..".", jump="list",
+		{"The "..e[2].kr_display_name..".", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -186,7 +189,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"The "..e[3].name..".", jump="list",
+		{"The "..e[3].kr_display_name..".", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)
@@ -229,19 +232,19 @@ newChat{ id="welcome",
 Ah, you again.]],
 	answers = {
 		-- If not the final elixir:
-		{"I've returned with the ingredients for the "..e[1].name..".", jump="complete",
+		{"I've returned with the ingredients for the "..e[1].kr_display_name..".", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 1) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
 			end,
 		},
-		{"I've returned with the ingredients for the "..e[2].name..".", jump="complete",
+		{"I've returned with the ingredients for the "..e[2].kr_display_name..".", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 2) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
 			end,
 		},
-		{"I've returned with the ingredients for the "..e[3].name..".", jump="complete",
+		{"I've returned with the ingredients for the "..e[3].kr_display_name..".", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 3) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
@@ -249,24 +252,24 @@ Ah, you again.]],
 		},
 
 		-- If the final elixir:
-		{"I've returned with the ingredients for the "..e[1].name..".", jump="totally-complete",
+		{"I've returned with the ingredients for the "..e[1].kr_display_name..".", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 1) end,
 		},
-		{"I've returned with the ingredients for the "..e[2].name..".", jump="totally-complete",
+		{"I've returned with the ingredients for the "..e[2].kr_display_name..".", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 2) end,
 		},
-		{"I've returned with the ingredients for the "..e[3].name..".", jump="totally-complete",
+		{"I've returned with the ingredients for the "..e[3].kr_display_name..".", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 3) end,
 		},
 
 		-- If the elixir got made while you were out:
-		{"I've returned with the ingredients for the "..e[1].name..".", jump="poached",
+		{"I've returned with the ingredients for the "..e[1].kr_display_name..".", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 1) end,
 		},
-		{"I've returned with the ingredients for the "..e[2].name..".", jump="poached",
+		{"I've returned with the ingredients for the "..e[2].kr_display_name..".", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 2) end,
 		},
-		{"I've returned with the ingredients for the "..e[3].name..".", jump="poached",
+		{"I've returned with the ingredients for the "..e[3].kr_display_name..".", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 3) end,
 		},
 
@@ -433,7 +436,7 @@ Enjoy the fruits of your labors, adventurer. I know I will. To show my appreciat
 newChat{ id="choice",
 	text = [[Excellent. With which would you like to aid me?]],
 	answers = {
-		{"The "..e[1].name..".", jump="list",
+		{"The "..e[1].kr_display_name..".", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -446,7 +449,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"The "..e[2].name..".", jump="list",
+		{"The "..e[2].kr_display_name..".", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -459,7 +462,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"The "..e[3].name..".", jump="list",
+		{"The "..e[3].kr_display_name..".", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)

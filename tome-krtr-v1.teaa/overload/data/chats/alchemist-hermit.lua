@@ -26,6 +26,7 @@ local e = {
 	{
 	short_name = "force",
 	name = "elixir of explosive force",
+	kr_display_name = "폭발력의 엘릭서",
 	cap_name = "ELIXIR OF EXPLOSIVE FORCE",
 	id = "ELIXIR_FORCE",
 	start = "force_start",
@@ -38,6 +39,7 @@ local e = {
 	{
 	short_name = "serendipity",
 	name = "elixir of serendipity",
+	kr_display_name = "행운의 엘릭서",
 	cap_name = "ELIXIR OF SERENDIPITY",
 	id = "ELIXIR_SERENDIPITY",
 	start = "serendipity_start",
@@ -50,6 +52,7 @@ local e = {
 	{
 	short_name = "focus",
 	name = "elixir of focus",
+	kr_display_name = "집중의 엘릭서",
 	cap_name = "ELIXIR OF FOCUS",
 	id = "ELIXIR_FOCUS",
 	start = "focus_start",
@@ -165,7 +168,7 @@ newChat{ id="choice",
 	text = [[#LIGHT_GREEN#*He hands you a slip of paper with the names and properties of some elixirs on it.*#WHITE#
 THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU ABOUT ONE AND WE'LL SEE HOW THAT GOES. OH, AND I'LL MAKE ENOUGH FOR YOU TO HAVE A SWIG WHEN I'M DONE, SO GOOD FOR YOU. WHICH ONE WILL IT BE? JUST POINT AT THE DAMNED LIST. I HAVEN'T HEARD A THING YOU'VE SAID YET. I HOPE TO HELL YOU'RE NOT STANDING THERE TRYING TO SELL ME SOMETHING.]],
 	answers = {
-		{"[Indicate the "..e[1].name..".]", jump="list",
+		{"[Indicate the "..e[1].kr_display_name..".]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -178,7 +181,7 @@ THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU AB
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[2].name..".]", jump="list",
+		{"[Indicate the "..e[2].kr_display_name..".]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -191,7 +194,7 @@ THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU AB
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[3].name..".]", jump="list",
+		{"[Indicate the "..e[3].kr_display_name..".]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)
@@ -438,7 +441,7 @@ YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HEL
 newChat{ id="choice",
 	text = [[WHICH ELIXIR DO YOU WANT TO HELP ME WITH? YOU ARE HERE TO DO JUST THAT, RIGHT? YOU'RE NOT SOME IMBECILE HERE LOOKING FOR A LOVE POTION?]],
 	answers = {
-		{"[Indicate the "..e[1].name..".]", jump="list",
+		{"[Indicate the "..e[1].kr_display_name..".]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -451,7 +454,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[2].name..".]", jump="list",
+		{"[Indicate the "..e[2].kr_display_name..".]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -464,7 +467,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[3].name..".]", jump="list",
+		{"[Indicate the "..e[3].kr_display_name..".]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)
