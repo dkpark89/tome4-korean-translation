@@ -54,7 +54,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[고귀한 피의 재능을 사용하여,10 턴 동안  매 턴마다 %d 생명력을 회복합니다.
+		return ([[고귀한 피의 재능을 사용하여, 10 턴 동안 매 턴마다 %d 생명력을 회복합니다.
 		생명력 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):format(5 + self:getWil() * 0.5)
 	end,
 }
