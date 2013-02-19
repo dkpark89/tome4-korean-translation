@@ -116,10 +116,10 @@ end
 --Make the alchemist's reaction to your turn-in vary depending on whether he lost.
 local function alchemist_reaction_complete(npc, player, lose, other_alch, other_elixir)
 	if lose == true then
-		return ([[SON OF A RITCH! YOU SHOW UP TEN MINUTES AFTER I GET THE NEWS THAT SOME JACKASS ALREADY FINISHED THE ELIXIRS AND IS GETTING ACCEPTED BY THE BROTHERHOOD. WHAT THE HELL TOOK YOU SO LONG? MIRVENIA'S MAMMARIES, I'LL TAKE THESE AND MAKE YOU YOUR REWARD, BUT ONLY BECAUSE A CURSE WILL KILL ME IF I DON'T. AND IF IT TASTES LIKE PISS, THAT'S YOUR IMAGINATION, I'M SURE.]])
+		return ([[#{bold}#이 릿치 자식! 어떤 머저리가 엘릭서를 완성해서 형제단에 들어갔다는 소식을 들은지 정확히 10 분 후에 모습을 드러내다니! 대체 이렇게 젠장맞게 늦게 온 이유가 뭐야? 미르베니아 여왕의 젖통같으니... 일단 재료를 가져왔으니 엘릭서는 만들어주겠어. 다만 이건 내가 약속을 어기면 죽는 저주에 걸렸기 때문이라는걸 알아둬. 그리고 혹시 엘릭서에서 오줌 맛이 나더라도, 네 상상일 뿐일테니 그리 아라고.#{normal}#]])
 	else
-		return ([[#LIGHT_GREEN#*The halfling hands you a note that says, 'Heard %s managed to make a %s while you've been loafing. Hurry the hell up next time.*#WHITE#
-		I STILL CAN'T HEAR A DAMNED THING. FORTUNATELY, YOU DON'T LOOK LIKE THE SORT THAT MAKES INTERESTING CONVERSATION.]]):format(other_alch, other_elixir)
+		return ([[#LIGHT_GREEN#*하플링이 당신에게 쪽지를 건내줬습니다. 쪽지에는 '네가 빈둥거리는 동안, %s 녀석이 %s를 만들었다는군. 다음 번에는 더 서두르라고, 젠장.' 이라고 적혀있습니다.*#WHITE#
+#{bold}#이 빌어먹을 귀는 아직도 들리지 않는군. 그나마 다행인건, 내가 볼때 너는 그다지 흥미로운 대화 상대가 아닐 것 같다는 거야.#{normal}#]]):format(other_alch, other_elixir)
 	end
 end
 
@@ -127,48 +127,48 @@ if not q or (q and not q:isCompleted(e[1].start) and not q:isCompleted(e[2].star
 
 -- Here's the dialog that pops up if the player has never worked for this alchemist before:
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*After a great deal of pounding, a halfling wrapped in charred, smoking robes opens the door. He looks irritated.*#WHITE#
-IT'S NOT ENOUGH THAT I WORK ALL MORNING TO MAKE A POTION THAT ENDS UP NEARLY BLOWING MY ASS OFF, BUT NOW I'VE GOT IDIOTS BEATING DOWN MY DAMNED FRONT DOOR WITH WHAT SOUNDS LIKE A BATTERING RAM, AND YES, I HEARD IT, THOUGH I CAN HARDLY MAKE OUT A BLEEDING THING WITH THESE BLEEDING, CONCUSSED EARS. WHAT DO YOU WANT?]],
+	text = [[#LIGHT_GREEN#*수없이 많은 노크 끝에, 검게 타서 연기가 나는 로브를 걸친 하플링이 문을 열었습니다. 그는 짜증이 난 상태인 것 같습니다.*#WHITE#
+#{bold}#아침 내내 만든 물약이 폭발해서 나를 날려버렸으면 됐지, 이제는 왠 멍청이가 내 빌어먹을 앞문을 공성 망치로 두들기는 것 마냥 두들겨? 그래, 네가 두들기는 소리 다 들었다. 이 피흘리고 뇌진탕까지 일어나서 거의 아무 것도 들리지 않는 귀로도 들릴 만큼 말이지. 대체 뭘 원하는데?#{normal}#]],
 	answers = {
-		{"Perhaps there's something that I can help you with.", jump="ominous"},
-		{"[leave]"},
+		{"어... 제가 도와드릴 일이 있나요?", jump="ominous"},
+		{"[떠난다]"},
 	}
 }
 
 newChat{ id="ominous",
-	text = [[SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-THE-PYRE POTION GONE SOUTH, REMEMBER? THRICE-DAMNED THING WAS GOING PERFECTLY, TOO. TOKNOR'S TACKLE!]],
+	text = [[#{bold}#이봐, 더 크게 말할 수는 없나? 방금 전 그 빌어먹을 '불-이-야' 물약 때문에 고막이 터져버린 것 같다고. 벌써 까먹었나? 그 3 번 연속으로 저주받을 물약은 아주 그냥 완벽했지. 이런 토크놀 왕의 거시기같으니!#{normal}#]],
 	answers = {
-		{"I SAID, MAYBE THERE'S SOMETHING THAT I CAN HELP YOU WITH!", jump="proposal"},
+		{"#{bold}#말했지만, 제가 도와드릴 일이 있냐구요!#{normal}#", jump="proposal"},
 	}
 }
 
 newChat{ id="proposal",
-	text = [[STILL CAN'T HEAR YOU, BUT LISTEN UP. THE BROTHERHOOD OF ALCHEMISTS IS ACCEPTING THE FIRST NEW APPLICANT TO DEMONSTRATE, AMONG OTHER THINGS, THREE VERY COMPLICATED ELIXIRS. I WOULDN'T BOTHER TRYING TO JOIN SUCH A BUNCH OF ADDLE-BRAINED DEGENERATES, BUT IT SO HAPPENS THAT THE BROTHERHOOD OF ALCHEMISTS HOLDS THE SECRET CURE FOR THE COMMON BLOWN-OFF ASS, WHICH IT SO HAPPENS IS OF SOME INTEREST TO ME.]],
+	text = [[#{bold}#아직도 안들리는군. 내 얘기나 좀 들어봐. 연금술사 형제단이 설립된 이래 처음으로 신규 단원을 받고 있어. 이를 위해서는 다른 것보다도, 세 가지 아주 특별하고 복잡한 엘릭서가 필요하지. 물론 나는 그런 썩은 대가리들이 모인 집단에는 들어가고 싶지 않아. 하지만 참으로 우연스럽게도, 연금술사 형제단 놈들은 원래대로라면 젠장맞을 불치병인 것들도 치료할 수 있는 비밀의 연금술을 알고 있다고 하더군. 이건 그래도 제법 관심이 가는 이야기였지.#{normal}#]],
 	answers = {
-		{"HOW CAN I HELP?", jump="help"},
+		{"#{bold}#그래서, 제가 도울 일이라도...#{normal}#", jump="help"},
 	}
 }
 
 newChat{ id="help",
-	text = [[THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.]],
+	text = [[#{bold}#형제단 역시 연금술의 발전이 현존하는 문명사회에서 갖는 의미를 젠장맞게도 잘 알고 있고는 있겠지. 하지만 그놈들은 몇몇 가치 있는 비밀들을 마치 지렁이마냥 자기들끼리만 파먹고 있어. 제길, 사실 나도 그 엿같은 치료법은 필요 없다고. 나는 형제단에서 그들이 숨기고 있는 비밀들을 모조리 훔쳐서, 베껴서, 수백 개의 사본을 만들어서, 마즈'에이알에 있는 모든 도시의 나무에다가 하나씩 걸어둘거야.#{normal}#]],
 	answers = {
-		{"THAT'S NOT A VERY HERMIT-LIKE ATTITUDE.", jump="competition"},
+		{"#{bold}#'은둔자' 가 주로 취하는 태도는 아니군요.#{normal}#", jump="competition"},
 	}
 }
 
 newChat{ id="competition",
-	text = [[AND THEN WHAT WILL THEY DO? ONCE THEIR PRECIOUS SECRETS-- WHICH, IN ALL PROBABILITY, EITHER DON'T EXIST OR ARE THINGS LIKE RECIPES FOR ELIXIRS OF WHO-GIVES-A-FLYING-DUCK-- ARE OUT IN THE OPEN, THE BROTHERHOOD OF ASSWIPES WILL HAVE NOTHING TO HOLD IT TOGETHER BUT ELIXIRS OF THEIR TEARS AND WIDESPREAD DISDAIN FROM THE REST OF THE WORLD. SPEAK UP, THEN. ARE YOU IN OR OUT?]],
+	text = [[#{bold}#그렇게 되면 그들은 어떤 행동을 취할까? 그들의 귀중한 비밀들이 공공의 것으로 변한다면 말이야. 그런 치료법은 사실 존재하지 않는다는 비밀이건, 아니면 저 날아다니는 오리 엘릭서의 제조법 같은 비밀이건 말이야.  저 똥싸개들의 형제단은 세상의 멸시와 자기들의 눈물로 만든 엘릭서밖에 만들지 못하게 되겠지. 이제 좀 더 크게 말해보라고. 할거야, 안할거야?#{normal}#]],
 	answers = {
-		{"I'M IN.", jump="choice", action = function(npc, player) player:grantQuest("brotherhood-of-alchemists") end,},
-		{"I CANNOT AID YOU AT THIS TIME."},
+		{"#{bold}#물론, 합니다.#{normal}#", jump="choice", action = function(npc, player) player:grantQuest("brotherhood-of-alchemists") end,},
+		{"#{bold}#지금은 도와줄 수 없을 것 같군요.#{normal}#"},
 	}
 }
 
 newChat{ id="choice",
-	text = [[#LIGHT_GREEN#*He hands you a slip of paper with the names and properties of some elixirs on it.*#WHITE#
-THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU ABOUT ONE AND WE'LL SEE HOW THAT GOES. OH, AND I'LL MAKE ENOUGH FOR YOU TO HAVE A SWIG WHEN I'M DONE, SO GOOD FOR YOU. WHICH ONE WILL IT BE? JUST POINT AT THE DAMNED LIST. I HAVEN'T HEARD A THING YOU'VE SAID YET. I HOPE TO HELL YOU'RE NOT STANDING THERE TRYING TO SELL ME SOMETHING.]],
+	text = [[#LIGHT_GREEN#*그는 당신에게 엘릭서의 이름과 효능이 적힌 작은 종이를 건네주었습니다.*#WHITE#
+#{bold}#이 엿같은 것들을 만들기 위한 재료 목록은 일종의 거래 비밀이야. 그래서 한번에 하나씩만 말해줄거고, 네가 일을 잘 해내는지 보겠어. 오, 물론 엘릭서를 만들 때 네것도 하나 만들어줄 수 있으니 걱정은 말고. 무슨 엘릭서를 원해? 이 빌어먹을 목록에 손가락으로 표시만 해. 아직 네가 말한 것들을 하나도 듣지 못했으니 말이야. 네놈이 내게 뭔가를 팔러 온 잡상인이 아니기만을 빌지.#{normal}#]],
 	answers = {
-		{"[Indicate the "..e[1].kr_display_name..".]", jump="list",
+		{"["..e[1].kr_display_name.."를 가리킨다]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -181,7 +181,7 @@ THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU AB
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[2].kr_display_name..".]", jump="list",
+		{"["..e[2].kr_display_name.."를 가리킨다]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -194,7 +194,7 @@ THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU AB
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[3].kr_display_name..".]", jump="list",
+		{"["..e[3].kr_display_name.."를 가리킨다]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)
@@ -207,23 +207,23 @@ THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU AB
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[leave]"},
+		{"[떠난다]"},
 	}
 }
 
 newChat{ id="list",
-	text = [[HERE'S A LIST OF THE STUFF I NEED. MOST OF IT WILL TRY TO KILL YOU, SO I HOPE YOU'RE NOT INCOMPETENT. I'VE GOT PLENTY OF INCOMPETENT HELP ALREADY. I HOPE FOR YOUR SAKE THAT YOU'RE SMARTER AND FASTER THAN THEM.]],
+	text = [[#{bold}#내가 필요한 재료들의 목록이다. 분명 재료들의 주인은 너를 죽이려 들테니, 네가 무능력하게 당하지 않았으면 좋겠군. 무능력자는 충분히 겪어봤으니 더 이상은 필요 없어. 부디 네가 그것들보다 빠르고 똑똑하길 빈다.#{normal}#]],
 	answers = {
-		{"I'LL BE OFF."},
+		{"#{bold}#그럼 이만.#{normal}#"},
 	}
 }
 
 -- Quest is complete; nobody answers the door
 elseif q and q:isStatus(q.DONE) then
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#]],
+	text = [[#LIGHT_GREEN#*문은 잠겨 있고, 아무도 당신의 노크에 응답하지 않습니다.*#WHITE#]],
 	answers = {
-		{"[Leave]"},
+		{"[떠난다]"},
 	}
 }
 
@@ -233,23 +233,23 @@ else -- Here's the dialog that pops up if the player *has* worked with this alch
 local other_alch, other_elixir, player_loses, alch_picked, e_picked = q:competition(player, other_alchemist_nums)
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*The halfling, still smoking, opens his door.*#WHITE#
-I LIVE WAY THE HELL OUT HERE FOR A REASON, YOU PIECE OF... OH. IT'S YOU.]],
+	text = [[#LIGHT_GREEN#*아직도 몸에서 연기가 나는 하플링이 문을 엽니다.*#WHITE#
+#{bold}#여기 틀어박혀 사는 것도 다 이유가 있어서 그렇다고, 이 개... 오, 자네였군.#{normal}#]],
 	answers = {
 		-- If not the final elixir:
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[1].cap_name..".", jump="complete",
+		{"#{bold}#"..e[1].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 1) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
 			end,
 		},
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[2].cap_name..".", jump="complete",
+		{"#{bold}#"..e[2].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 2) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
 			end,
 		},
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[3].cap_name..".", jump="complete",
+		{"#{bold}#"..e[3].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 3) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
@@ -257,33 +257,33 @@ I LIVE WAY THE HELL OUT HERE FOR A REASON, YOU PIECE OF... OH. IT'S YOU.]],
 		},
 
 		-- If the final elixir:
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[1].cap_name..".", jump="totally-complete",
+		{"#{bold}#"..e[1].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 1) end,
 		},
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[2].cap_name..".", jump="totally-complete",
+		{"#{bold}#"..e[2].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 2) end,
 		},
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[3].cap_name..".", jump="totally-complete",
+		{"#{bold}#"..e[3].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 3) end,
 		},
 
 		-- If the elixir got made while you were out:
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[1].cap_name..".", jump="poached",
+		{"#{bold}#"..e[1].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 1) end,
 		},
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[2].cap_name..".", jump="poached",
+		{"#{bold}#"..e[2].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 2) end,
 		},
-		{"I'VE RETURNED WITH THE INGREDIENTS FOR THE "..e[3].cap_name..".", jump="poached",
+		{"#{bold}#"..e[3].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 3) end,
 		},
 
 		--Don't let player work on multiple elixirs for the same alchemist.
 		--See comments in more_aid function above for all the gory detail
-		{"I'VE COME TO OFFER MORE AID.", jump="choice",
+		{"#{bold}#당신을 조금 더 도와드리기 위해 왔습니다.#{normal}#", jump="choice",
 			cond = function(npc, player) return more_aid(npc, player) end,
 		},
-		{"[leave]"},
+		{"[떠난다]"},
 	}
 }
 
@@ -291,21 +291,21 @@ I LIVE WAY THE HELL OUT HERE FOR A REASON, YOU PIECE OF... OH. IT'S YOU.]],
 newChat{ id="complete",
 	text = alchemist_reaction_complete(npc, player, player_loses, other_alch, other_elixir),
 	answers = {
-		{"[Give him the monster bits.]", jump="complete2",
+		{"[그에게 모아온 재료들을 준다]", jump="complete2",
 			cond = function(npc, player) return give_bits(npc, player, 1) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].almost)
 				q:remove_ingredients(player, e[1].short_name, 1)
 			end
 		},
-		{"[Give him the monster bits.]", jump="complete2",
+		{"[그에게 모아온 재료들을 준다]", jump="complete2",
 			cond = function(npc, player) return give_bits(npc, player, 2) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].almost)
 				q:remove_ingredients(player, e[2].short_name, 2)
 			end
 		},
-		{"[Give him the monster bits.]", jump="complete2",
+		{"[그에게 모아온 재료들을 준다]", jump="complete2",
 			cond = function(npc, player) return give_bits(npc, player, 3) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].almost)
@@ -318,24 +318,24 @@ newChat{ id="complete",
 
 --Final elixir:
 newChat{ id="totally-complete",
-	text = [[#LIGHT_GREEN#*For the first time you've seen, genuine pleasure lights up the halfling's soot-smeared face.*#WHITE#
-GOOD WORK, WHOEVER YOU ARE. ALL OF MAJ'EYAL OWES YOU THEIR THANKS, EXCEPT FOR MEMBERS OF THE BROTHERHOOD OF ALCHEMISTS, WHO MIGHT TRY TO DO YOU BODILY HARM. FORTUNATELY FOR YOU, THEY'RE MOSTLY HARMLESS.]],
+	text = [[#LIGHT_GREEN#*처음으로, 진정한 기쁨이 그의 검댕 묻은 얼굴에서 드러났습니다.*#WHITE#
+#{bold}#잘 해냈다, 누군지는 모르겠지만 말야. 마즈'에이알의 모두가 너에게 빚을 지게 되었군. 네 몸을 갈기갈기 찢어버리고 싶을 연금술사 형제단의 인원들을 빼고 말이지. 자네에게는 다행스럽게도, 그들은 대부분 무해한 놈들이라네.#{normal}#]],
 	answers = {
-		{"[Give him the monster bits]", jump="totally-complete2",
+		{"[그에게 모아온 재료들을 준다]", jump="totally-complete2",
 			cond = function(npc, player) return give_bits(npc, player, 1) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].almost)
 				q:remove_ingredients(player, e[1].short_name, 1)
 			end
 		},
-		{"[Give him the monster bits]", jump="totally-complete2",
+		{"[그에게 모아온 재료들을 준다]", jump="totally-complete2",
 			cond = function(npc, player) return give_bits(npc, player, 2) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].almost)
 				q:remove_ingredients(player, e[2].short_name, 2)
 			end
 		},
-		{"[Give him the monster bits]", jump="totally-complete2",
+		{"[그에게 모아온 재료들을 준다]", jump="totally-complete2",
 			cond = function(npc, player) return give_bits(npc, player, 3) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].almost)
@@ -348,28 +348,28 @@ GOOD WORK, WHOEVER YOU ARE. ALL OF MAJ'EYAL OWES YOU THEIR THANKS, EXCEPT FOR ME
 
 --Not final elixir:
 newChat{ id="complete2",
-	text = [[WAIT HERE. THERE'S A GOOD CHANCE YOU'LL GET BLOWN INTO ADVENTURER KIBBLE IF YOU STEP INSIDE THIS BUILDING. MY ROBE OF MAD ALCHEMIST PROTECTION IS THE ONLY REASON I'M NOT VAPOUR.]],
+	text = [[#{bold}#잠깐, 여기서 기다리게. 이 건물 안으로 들어왔다가는 잘 갈린 모험가 개밥이 될 수도 있을테니까. 내 로브와 정신나간 연금술적 보호대책이 없었다면, 나도 한순간에 증발해버렸을 거라고.#{normal}#]],
 	answers = {
-		{"[Wait]", jump="complete3"},
+		{"[기다린다]", jump="complete3"},
 
 	}
 }
 
 --Final Elixir:
 newChat{ id="totally-complete2",
-	text = [[GIVE ME AN HOUR, AND THINK UNPLEASANT THOUGHTS ABOUT THE BROTHERHOOD. IF ANYTHING EXPLODES, COME RESCUE ME, EVEN IF IT LOOKS LIKE THE BUILDING IS AN INFERNO OF POISONOUS SMOKE AND POLKA-DOT FLAMES.]],
+	text = [[#{bold}#잠깐 시간을 주게. 기다리는 동안 저 형제단에 관련된 불쾌한 생각들이나 떠올리고 있으라고. 그리고 혹시 폭발음이라도 들리면, 와서 나를 구해주고. 이 건물이 독성 구름과 불덩어리로 지옥이 됐다고 해도 말이야.#{normal}#]],
 	answers = {
-		{"[Wait]", jump="totally-complete3"},
+		{"[기다린다]", jump="totally-complete3"},
 
 	}
 }
 
 --Not final elixir:
 newChat{ id="complete3",
-	text = [[#LIGHT_GREEN#*Disaster fails to occur. The halfling finally returns and hands you a small vial of sooty glass.*#WHITE#
-ENJOY, AND COME BACK ANY TIME IF YOU'RE INTERESTED IN SIMILAR WORK. I HAVEN'T WON YET. THE LONGER YOU WAIT, THE MORE LIKELY IT IS THAT YOU'LL RETURN TO A SMOKING CRATER AND ONE TRULY IRATE HALFLING.]],
+	text = [[#LIGHT_GREEN#*다행히도, 재앙은 일어나지 않았습니다. 잠시 기다리자, 하플링이 그을음이 묻은 유리 약병을 들고 와 건네줍니다.*#WHITE#
+#{bold}#한 잔 들게. 비슷한 일에 관심이 있으면 언제든 다시 오고. 다만 나는 아직 원하는 것을 얻지 못했고, 네가 오래 기다릴수록 연기나는 구멍과 한 명의 격분한 하플링을 볼 수 있을거라는 것만 알아두게나.#{normal}#]],
 	answers = {
-		{"THANK YOU. I'LL BE OFF.",
+		{"#{bold}#감사합니다. 그럼 이만.#{normal}#",
 			cond = function(npc, player) return q and q:isCompleted(e[1].almost) and not q:isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].full)
@@ -377,7 +377,7 @@ ENJOY, AND COME BACK ANY TIME IF YOU'RE INTERESTED IN SIMILAR WORK. I HAVEN'T WO
 				q:update_needed_ingredients(player)
 			end
 		},
-		{"THANK YOU. I'LL BE OFF.",
+		{"#{bold}#감사합니다. 그럼 이만.#{normal}#",
 			cond = function(npc, player) return q and q:isCompleted(e[2].almost) and not q:isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].full)
@@ -385,7 +385,7 @@ ENJOY, AND COME BACK ANY TIME IF YOU'RE INTERESTED IN SIMILAR WORK. I HAVEN'T WO
 				q:update_needed_ingredients(player)
 			end
 		},
-		{"THANK YOU. I'LL BE OFF.",
+		{"#{bold}#감사합니다. 그럼 이만.#{normal}#",
 			cond = function(npc, player) return q and q:isCompleted(e[3].almost) and not q:isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].full)
@@ -398,10 +398,10 @@ ENJOY, AND COME BACK ANY TIME IF YOU'RE INTERESTED IN SIMILAR WORK. I HAVEN'T WO
 
 --Final elixir:
 newChat{ id="totally-complete3",
-	text = [[#LIGHT_GREEN#*The halfling finally returns with a vial and a small pouch.*#WHITE#
-YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HELL, SO DON'T GO WASTING IT.]],
+	text = [[#LIGHT_GREEN#*잠시 기다리자, 하플링이 유리 약병과 작은 주머니를 들고 돌아왔습니다.*#WHITE#
+#{bold}#네가 고른 엘릭서에, 덤으로 하나 더 붙여주지. 이 주입물은 뭣같이 구하기 힘든 거니까, 낭비하지 말라고.#{normal}#]],
 	answers = {
-		{"THANK YOU. I'LL BE OFF.",
+		{"#{bold}#감사합니다. 그럼 이만.#{normal}#",
 			cond = function(npc, player) return q and q:isCompleted(e[1].almost) and not q:isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].full)
@@ -413,7 +413,7 @@ YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HEL
 
 			end
 		},
-		{"THANK YOU. I'LL BE OFF.",
+		{"#{bold}#감사합니다. 그럼 이만.#{normal}#",
 			cond = function(npc, player) return q and q:isCompleted(e[2].almost) and not q:isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].full)
@@ -424,7 +424,7 @@ YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HEL
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.DONE)
 			end
 		},
-		{"THANK YOU. I'LL BE OFF.",
+		{"#{bold}#감사합니다. 그럼 이만.#{normal}#",
 			cond = function(npc, player) return q and q:isCompleted(e[3].almost) and not q:isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].full)
@@ -439,9 +439,9 @@ YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HEL
 }
 
 newChat{ id="choice",
-	text = [[WHICH ELIXIR DO YOU WANT TO HELP ME WITH? YOU ARE HERE TO DO JUST THAT, RIGHT? YOU'RE NOT SOME IMBECILE HERE LOOKING FOR A LOVE POTION?]],
+	text = [[#{bold}#무슨 엘릭서를 도와줄건지 골라보게. 엘릭서 때문에 온거 맞지? 설마 최음제 따위를 구하려고 온 바보 천치는 아닐거라고 믿네.#{normal}#]],
 	answers = {
-		{"[Indicate the "..e[1].kr_display_name..".]", jump="list",
+		{"["..e[1].kr_display_name.."를 가리킨다]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -454,7 +454,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[2].kr_display_name..".]", jump="list",
+		{"["..e[2].kr_display_name.."를 가리킨다]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -467,7 +467,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[Indicate the "..e[3].kr_display_name..".]", jump="list",
+		{"["..e[3].kr_display_name.."를 가리킨다]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)
@@ -480,22 +480,22 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"[leave]"},
+		{"[떠난다]"},
 	}
 }
 
 newChat{ id="list",
-	text = [[TAKE THIS LIST OF INGREDIENTS, AND HURRY THE HELL UP.]],
+	text = [[#{bold}#여기 필요한 재료 목록이네. 알았으면 빨리 가서 구해오라고.#{normal}#]],
 	answers = {
-		{"I'LL BE OFF."},
+		{"#{bold}#그럼 이만.#{normal}#"},
 	}
 }
 
 -- If the elixir got made while you were out:
 newChat{ id="poached",
-	text = [[TOO SLOW, HAMBRAIN. ELIXIR'S MADE ALREADY, AND SOMEBODY ELSE WALKED OFF WITH THE REWARD. IF YOU'RE FEELING SORRY FOR YOURSELF, ASK WHETHER THIS IS MORE OR LESS PLEASANT THAN GETTING APPRECIABLE CHUNKS OF YOUR ANATOMY BLASTED CLEAN OFF YOUR BODY THIS MORNING. THAT'S RIGHT. BYE.]],
+	text = [[#{bold}#너무 늦어, 멍청아. 엘릭서는 이미 만들었어. 그리고 누군가가 와서 보상을 챙겨갔지. 너 자신이 부끄럽다면, 오늘 아침에 네 몸이 폭발해서 해부학 재료로 쓰일 적당한 시체가 되는 것이 더 좋을지 안좋을지 생각해보게. 알았지? 잘가게나.#{normal}#]],
 	answers = {
-		{"Hrmph.",
+		{"흐으음...",
 			cond = function(npc, player) return empty_handed(npc, player, 1) end,
 			action = function(npc, player)
 				q:remove_ingredients(player, e[1].short_name, 1)
@@ -503,7 +503,7 @@ newChat{ id="poached",
 				q:update_needed_ingredients(player)
 			end,
 		},
-		{"Hrmph.",
+		{"흐으음...",
 			cond = function(npc, player) return empty_handed(npc, player, 2) end,
 			action = function(npc, player)
 				q:remove_ingredients(player, e[2].short_name, 2)
@@ -511,7 +511,7 @@ newChat{ id="poached",
 				q:update_needed_ingredients(player)
 			end,
 		},
-		{"Hrmph.",
+		{"흐으음...",
 			cond = function(npc, player) return empty_handed(npc, player, 3) end,
 			action = function(npc, player)
 				q:remove_ingredients(player, e[3].short_name, 3)
