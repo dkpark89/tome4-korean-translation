@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[나에게 말 걸지 말고, 가서 보스랑 말해!]],
+	text = [[나에게 말 걸지 말고, 가서 단장님이랑 말해!]],
 	answers = {
-		{"[간다]"},
+		{"[떠난다]"},
 	}
 }
 
