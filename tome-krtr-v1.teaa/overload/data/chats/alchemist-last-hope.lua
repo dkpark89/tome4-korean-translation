@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local art_list = mod.class.Object:loadList("/data/general/objects/brotherhood-artifacts.lua")
 local alchemist_num = 4
 local other_alchemist_nums = {1, 2, 3}
@@ -115,7 +117,7 @@ local function alchemist_reaction_complete(npc, player, lose, other_alch, other_
 	if lose == true then
 		return ([[이런 제길. 너무 늦었다네. %s 놈이 벌써 끝을 냈다는군. 그래도 자네가 최선을 다해줬으니, 내 마지막 작품도 만들어주도록 하지.]]):format(other_alch)
 	else
-		return ([[수고했다네! 그리고 아직도 멀쩡해보이는군 그래. 아주 좋아보여. 특별히 까다로운 혼합물을 안전하게 만들고나면 나도 그런 기분을 느낀다네. 오, 그리고 자네가 잠깐 나가있는 동안, 작은 새가 와서 말해주길 %s 녀석이 %s를 만들었다고 하더군. 그가 나보다 먼저 일을 끝내지 않게 해주게나!]]):format(other_alch, other_elixir)
+		return ([[수고했다네! 그리고 아직도 멀쩡해보이는군 그래. 아주 좋아보여. 특별히 까다로운 혼합물을 안전하게 만들고나면 나도 그런 기분을 느낀다네. 오, 그리고 자네가 잠깐 나가있는 동안, 작은 새가 와서 말해주길 %s 녀석이 %s 만들었다고 하더군. 그가 나보다 먼저 일을 끝내지 않게 해주게나!]]):format(other_alch, other_elixir:addJosa("를"))
 	end
 end
 
@@ -132,7 +134,7 @@ newChat{ id="welcome",
 }
 
 newChat{ id="ominous",
-	text = [[시체의 신이시여, 내가 이래서 모험가를 좋아한다니깐.]], --Was about to become one myself when it suddenly hit me. And by "it" I mean "my wife." Har! 라는 문장이 뒤에 있는데.. 농담은 농담같은데 정확히 무슨 말인지 모르겠습니다 ㅠㅠ 연금술사놈들 왜이렇게 하는 말들이 다 어려운가요 ㅠㅠ 특히 아그림레이는 진짜..
+	text = [[시체의 신이시여, 내가 이래서 모험가를 좋아한다니깐. Was about to become one myself when it suddenly hit me. And by "it" I mean "my wife." 하핫!]], --@@ Was about to become one myself when it suddenly hit me. And by "it" I mean "my wife." Har! 라는 문장이 뒤에 있는데.. 농담은 농담같은데 정확히 무슨 말인지 모르겠습니다 ㅠㅠ 연금술사놈들 왜이렇게 하는 말들이 다 어려운가요 ㅠㅠ 특히 아그림레이는 진짜.. -- 저도 뭔소린지 모르겠네요... 일단 번역 안 된 문장을 다시 넣어 놓았습니다.
 	answers = {
 		{"무슨 일을 시킬건가요?", jump="proposal"},
 	}
@@ -153,7 +155,7 @@ newChat{ id="help",
 }
 
 newChat{ id="competition",
-	text = [[아, 간단하네. 자네에게도 술 한 병씩을 주겠네. 한 병만 마셔도 자네의 머리카락이 가슴팍까지 자라고, 아마 눈꺼풀과 손톱도 그만큼 자라게 될걸세. 그리고 내가 형제단에 들어가는 데 결정적인 도움을 준다면, 특별한 보상을 주도록 하지. 아마 이 마즈'에이알 대륙에서 마지막으로 남았을, 감지의 감염물을 말일세.]],
+	text = [[아, 간단하네. 자네에게도 술 한 병씩을 주겠네. 한 병만 마셔도 자네의 머리카락이 가슴팍까지 자라고, 아마 눈꺼풀과 손톱도 그만큼 자라게 될걸세. 그리고 내가 형제단에 들어가는 데 결정적인 도움을 준다면, 특별한 보상을 주도록 하지. 아마 이 마즈'에이알 대륙에서 마지막으로 남았을, 투시의 감염체를 말일세.]],
 	answers = {
 		{"좋아요.", jump="choice", action = function(npc, player) player:grantQuest("brotherhood-of-alchemists") end,},
 		{"지금은 도와드릴 수 없을 것 같군요."},
@@ -374,7 +376,7 @@ newChat{ id="totally-complete2",
 --Not final elixir:
 newChat{ id="complete3",
 	text = [[#LIGHT_GREEN#*잠시 기다리자, 드워프가 약병을 들고 돌아왔습니다.*#WHITE#
-악마 우르'록의 오줌 맛이 나지만, 어쨌든 일은 끝났다네. 여기 받게나.]],
+악마 울흐'록의 오줌 맛이 나지만, 어쨌든 일은 끝났다네. 여기 받게나.]],
 	answers = {
 		{"감사합니다. 그럼 이만.",
 			cond = function(npc, player) return q and q:isCompleted(e[1].almost) and not q:isCompleted(e[1].full) end,
@@ -406,7 +408,7 @@ newChat{ id="complete3",
 --Final elixir:
 newChat{ id="totally-complete3",
 	text = [[#LIGHT_GREEN#*잠시 기다리자, 드워프가 약병과 작은 주머니를 들고 돌아왔습니다.*#WHITE#
-안에 좋은 것을 넣어뒀다네. 내일 아침에 소원을 들어주는 그런건 아니지만 말일세. 특히 그 감지의 감염물을 다룰 때는 조심하게나.]],--especially if the wife answers the door the next time you knock. Har! 가 뒤에 나옵니다.. 마누라 드립좀 그만 쳐라 흑흑 이해가 안되잖아..
+안에 좋은 것을 넣어뒀다네. 내일 아침에 소원을 들어주는 그런건 아니지만 말일세. '투시의 감염체'를 다룰 때는 조심하게나. 특히 문을 두드리고, 마누라가 대답할 때는 말이지. 하핫!]],
 	answers = {
 		{"감사합니다. 그럼 이만.",
 			cond = function(npc, player) return q and q:isCompleted(e[1].almost) and not q:isCompleted(e[1].full) end,

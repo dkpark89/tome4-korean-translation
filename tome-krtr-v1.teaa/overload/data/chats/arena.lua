@@ -77,7 +77,7 @@ text = [[#LIGHT_GREEN#*당신이 마지막 일격을 날리자, 프리지아가 
 
 newChat{ id="riala-entry",
 text = [[#LIGHT_GREEN#*관문이 열리고, 핏빛 로브를 입은 성숙한 인간 여성이 모습을 드러냈습니다. 그녀는 당신을 보자 함박웃음을 지었습니다.*
-#WHITE#이런, 이런, 정말 멋진 @playerdescriptor.race@네요. 이름이 뭐였죠, 아, @playername@? 오늘 당신의 상대를 하게 되어 저어엉말 기쁘네요.
+#WHITE#이런, 이런, 정말 멋진 @playerdescriptor7.race@네요. 이름이 뭐였죠, 아, @playername@? 오늘 당신의 상대를 하게 되어 저어엉말 기쁘네요.
 #LIGHT_GREEN#*그녀는 비밀 이야기를 하는 것처럼, 조용하게 말하기 시작합니다.* #WHITE#당신도 알겠지만, 여기까지 오는 사람은 정말 별로 없거든요. 지루해 죽을 뻔 했다니까요. #LIGHT_GREEN#*그녀가 피식 웃습니다.*
 #WHITE#여하튼! 제 이름은 '핏빛' 리알라에요. 앙골웬에서 곧장 이곳으로 왔죠. 당신도 알겠지만, 마법폭발이 불러온 참극에도 불구하고 사람들은 마법 놀이를 여전히 좋아하죠!
 #LIGHT_GREEN#*그녀가 손가락으로 딱 소리를 내자, 불꽃이 그녀의 주변에서 춤을 추기 시작합니다!*#WHITE#
@@ -182,7 +182,7 @@ text = [[#LIGHT_GREEN#*영광스러운 전투가 끝나고, 지배자가 쓰러�
 	answers = {
 		{"돈과!! 그리고!! 영광을!!", action=function(npc, player) player:hasQuest("arena"):win() end},
 		{"이제부턴 광신도들에게서 여자들을 구하지 않아도 된다!", cond=function(npc, player) if player.female == true then return false else return true end end, action=function(npc, player) player:hasQuest("arena"):win() end},
-		{"나는 이 투기장의 승리자로 남아, 미래의 도전자들을 기다릴 것이다!", action=function(npc, player) player:hasQuest("arena"):win() end},
+		{"나는 이 투기장의 지배자로 남아, 미래의 도전자들을 기다릴 것이다!", action=function(npc, player) player:hasQuest("arena"):win() end},
 		{"#LIGHT_GREEN#*춤을 춘다*", action=function(npc, player) player:hasQuest("arena"):win() end},
 	}
 }

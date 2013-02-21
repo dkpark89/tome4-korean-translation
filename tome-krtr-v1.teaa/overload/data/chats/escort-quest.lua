@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 local Stats = require("engine.interface.ActorStats")
 
@@ -215,19 +217,20 @@ if quest.to_zigur and reward.antimagic then reward = reward.antimagic reward.is_
 game.player:registerEscorts(quest.to_zigur and "zigur" or "saved")
 
 local saves_name = { mind="mental", spell="spell", phys="physical"}
+local kr_saves_name = { mind="정신", spell="주문", phys="물리"} --@@ 한글이름 추가
 local saves_tooltips = { mind="MENTAL", spell="SPELL", phys="PHYS"}
 
 local function generate_rewards()
 	local answers = {}
 	if reward.stats then
 		for i = 1, #npc.stats_def do if reward.stats[i] then
-			local doit = function(npc, player) game.party:reward("보상을 받을 동료 맴버를 고르시오:", function(player)
+			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
 				player.inc_stats[i] = (player.inc_stats[i] or 0) + reward.stats[i]
 				player:onStatChange(i, reward.stats[i])
 				player.changed = true
-				player:hasQuest(npc.quest_id).reward_message = (" %s 이/가 +%d 만큼 향상되었습니다."):format(npc.stats_def[i].name, reward.stats[i])
+				player:hasQuest(npc.quest_id).reward_message = (" %s %d 만큼 향상되었습니다."):format(npc.stats_def[i].name:krStat():addJosa("가"), reward.stats[i])
 			end) end
-			answers[#answers+1] = {("[ %s 을/를 +%d 만큼 향상시킨다]"):format(npc.stats_def[i].name, reward.stats[i]),
+			answers[#answers+1] = {("[ %s %d 만큼 향상시킨다]"):format(npc.stats_def[i].name:krStat():addJosa("를"), reward.stats[i]),
 				jump="done",
 				action=doit,
 				on_select=function(npc, player)
@@ -240,12 +243,12 @@ local function generate_rewards()
 	end
 	if reward.saves then
 		for save, v in pairs(reward.saves) do
-			local doit = function(npc, player) game.party:reward("보상을 받을 동료 맴버를 고르시오:", function(player)
+			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
 				player:attr("combat_"..save.."resist", v)
 				player.changed = true
-				player:hasQuest(npc.quest_id).reward_message = (" %s 내성이 +%d 만큼 향상되었습니다"):format(saves_name[save], v)
+				player:hasQuest(npc.quest_id).reward_message = (" %s 내성이 %d 만큼 향상되었습니다"):format(kr_saves_name[save], v)
 			end) end
-			answers[#answers+1] = {("[ %s 내성을 +%d 만큼 향상시킨다]"):format(saves_name[save], v),
+			answers[#answers+1] = {("[ %s 내성을 %d 만큼 향상시킨다]"):format(kr_saves_name[save], v),
 				jump="done",
 				action=doit,
 				on_select=function(npc, player)
@@ -261,21 +264,21 @@ local function generate_rewards()
 			local t = npc:getTalentFromId(tid)
 			level = math.min(t.points - game.player:getTalentLevelRaw(tid), level)
 			if level > 0 then
-				local doit = function(npc, player) game.party:reward("보상을 받을 동료 맴버를 고르시오:", function(player)
+				local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
 					if game.player:knowTalentType(t.type[1]) == nil then player:setTalentTypeMastery(t.type[1], 0.8) end
 					player:learnTalent(tid, true, level, {no_unlearn=true})
 					if t.hide then player.__show_special_talents = player.__show_special_talents or {} player.__show_special_talents[tid] = true end
-					player:hasQuest(npc.quest_id).reward_message = ("%s 기술이 %s (+%d level(s)) 만큼 향상되었습니다."):format(game.player:knowTalent(tid) and "improved" or "learnt", t.name, level)
+					player:hasQuest(npc.quest_id).reward_message = ("%s 기술을 %d 단계 %s습니다."):format((t.kr_display_name or t.name), level, game.player:knowTalent(tid) and "올렸" or "배웠") --@@ 변수 순서 조정
 				end) end
 				answers[#answers+1] = {
-					("[%s 기술을 %s (+%d level(s))만큼 향상]"):format(game.player:knowTalent(tid) and "Improve" or "Learn", t.name, level),
+					("[%s 기술 %d 단계 %s]"):format((t.kr_display_name or t.name), level, game.player:knowTalent(tid) and "향상" or "배움"), --@@ 변수 순서 조정
 						jump="done",
 						action=doit,
 						on_select=function(npc, player)
 							game.tooltip_x, game.tooltip_y = 1, 1
 							local mastery = nil
 							if not player:knowTalentType(t.type[1]) then mastery = 0.8 end
-							game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..t.name.."#LAST#\n"..tostring(player:getTalentFullDescription(t, 1, nil, mastery)))
+							game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..(t.kr_display_name or t.name).."#LAST#\n"..tostring(player:getTalentFullDescription(t, 1, nil, mastery)))
 						end,
 					}
 			end
@@ -285,17 +288,17 @@ local function generate_rewards()
 		for tt, mastery in pairs(reward.types) do if game.player:knowTalentType(tt) == nil then
 			local tt_def = npc:getTalentTypeFrom(tt)
 			local cat = tt_def.type:gsub("/.*", "")
-			local doit = function(npc, player) game.party:reward("보상을 받을 동료 맴버를 고르시오:", function(player)
+			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
 				if player:knowTalentType(tt) == nil then player:setTalentTypeMastery(tt, mastery) end
 				player:learnTalentType(tt, false)
-				player:hasQuest(npc.quest_id).reward_message = ("기술 계열 %s (숙련도 %0.2f)을 획득하였습니다."):format(cat:capitalize().." / "..tt_def.name:capitalize(), mastery)
+				player:hasQuest(npc.quest_id).reward_message = ("기술 계열 %s의 숙련도를 %0.2f 만큼 향상시켰습니다."):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), mastery)
 			end) end
-			answers[#answers+1] = {("[기술 계열을 훈련으로 %s (숙련도 %0.2f) 만큼 향상시킨다]"):format(cat:capitalize().." / "..tt_def.name:capitalize(), mastery),
+			answers[#answers+1] = {("[기술 계열을 훈련으로 %s의 숙련도를 %0.2f 만큼 향상시킨다]"):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), mastery),
 				jump="done",
 				action=doit,
 				on_select=function(npc, player)
 					game.tooltip_x, game.tooltip_y = 1, 1
-					game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..(cat:capitalize().." / "..tt_def.name:capitalize()).."#LAST#\n"..tt_def.description)
+					game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType()).."#LAST#\n"..tt_def.description)
 				end,
 			}
 		end end
@@ -304,7 +307,7 @@ local function generate_rewards()
 end
 
 newChat{ id="welcome",
-	text = reward.is_antimagic and [[마지막 순간에 당신은 자연의 힘을 사용합니다. 포탈은 오작동하여 @npcname@ 를 지구르로 순간이동 시켜 버렸습니다.
+	text = reward.is_antimagic and [[마지막 순간에 당신은 자연의 힘을 사용합니다. 포탈은 오작동하여 @npcname3@ 지구르로 순간이동 시켜 버렸습니다.
 당신은 자연이 당신에게 고마워 하는 것을 느낄 수 있습니다.]] or
 	[[고맙네, 나의 친구여. 자네가 없었다면 내가 어떻게 살아남았을지 생각도 되질 않는군.
 내게 고마움을 표시할 기회를 주게:]],

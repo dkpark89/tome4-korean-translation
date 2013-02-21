@@ -124,7 +124,7 @@ function _M:setEffect(eff_id, dur, p, silent)
 		if not silent and not had then
 			if ret then
 				local sn = (self.kr_display_name or self.name)  --@@ 127 사용 : 반복된 사용으로 변수로 뺌
-				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")):gsub("#Target2#", sn:capitalize():addJosa("는")):gsub("#target2#", sn:addJosa("는")):gsub("#Target3#", sn:capitalize():addJosa("를")):gsub("#target3#", sn:addJosa("를")):gsub("#Target4#", sn:capitalize():addJosa("로")):gsub("#target4#", sn:addJosa("로")):gsub("#Target5#", sn:capitalize():addJosa("다")):gsub("#target5#", sn:addJosa("다")):gsub("#Target6#", sn:capitalize():addJosa("과")):gsub("#target6#", sn:addJosa("과")):gsub("#Target7#", sn:capitalize():addJosa("나")):gsub("#target7#", sn:addJosa("나"))) --@@ 조사 추가 코드 삽입 
+				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")):gsub("#Target2#", sn:capitalize():addJosa("는")):gsub("#target2#", sn:addJosa("는")):gsub("#Target3#", sn:capitalize():addJosa("를")):gsub("#target3#", sn:addJosa("를")):gsub("#Target4#", sn:capitalize():addJosa("로")):gsub("#target4#", sn:addJosa("로")):gsub("#Target5#", sn:capitalize():addJosa("다")):gsub("#target5#", sn:addJosa("다")):gsub("#Target6#", sn:capitalize():addJosa("과")):gsub("#target6#", sn:addJosa("과")):gsub("#Target7#", sn:capitalize():addJosa(7)):gsub("#target7#", sn:addJosa(7))) --@@ 조사 추가 코드 삽입 
 			end
 			if fly and game.flyers and self.x and self.y and game.level.map.seens(self.x, self.y) then
 				local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
@@ -155,7 +155,7 @@ function _M:removeEffect(eff, silent, force)
 		if not silent then
 			if ret then
 				local sn = self.kr_display_name or self.name --@@ 158 사용 : 반복된 사용으로 변수로 뺌
-				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")):gsub("#Target2#", sn:capitalize():addJosa("는")):gsub("#target2#", sn:addJosa("는")):gsub("#Target3#", sn:capitalize():addJosa("를")):gsub("#target3#", sn:addJosa("를")):gsub("#Target4#", sn:capitalize():addJosa("로")):gsub("#target4#", sn:addJosa("로")):gsub("#Target5#", sn:capitalize():addJosa("다")):gsub("#target5#", sn:addJosa("다")):gsub("#Target6#", sn:capitalize():addJosa("과")):gsub("#target6#", sn:addJosa("과")):gsub("#Target7#", sn:capitalize():addJosa("나")):gsub("#target7#", sn:addJosa("나"))) --@@ 조사 추가 코드 삽입
+				game.logSeen(self, ret:gsub("#Target#", sn:capitalize()):gsub("#target#", sn):gsub("#Target1#", sn:capitalize():addJosa("가")):gsub("#target1#", sn:addJosa("가")):gsub("#Target2#", sn:capitalize():addJosa("는")):gsub("#target2#", sn:addJosa("는")):gsub("#Target3#", sn:capitalize():addJosa("를")):gsub("#target3#", sn:addJosa("를")):gsub("#Target4#", sn:capitalize():addJosa("로")):gsub("#target4#", sn:addJosa("로")):gsub("#Target5#", sn:capitalize():addJosa("다")):gsub("#target5#", sn:addJosa("다")):gsub("#Target6#", sn:capitalize():addJosa("과")):gsub("#target6#", sn:addJosa("과")):gsub("#Target7#", sn:capitalize():addJosa(7)):gsub("#target7#", sn:addJosa(7))) --@@ 조사 추가 코드 삽입
 			end
 			if fly and game.flyers and self.x and self.y then
 				local sx, sy = game.level.map:getTileToScreen(self.x, self.y)

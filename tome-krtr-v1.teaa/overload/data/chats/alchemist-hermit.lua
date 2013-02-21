@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local art_list = mod.class.Object:loadList("/data/general/objects/brotherhood-artifacts.lua")
 local alchemist_num = 3
 local other_alchemist_nums = {1, 2, 4}
@@ -116,10 +118,10 @@ end
 --Make the alchemist's reaction to your turn-in vary depending on whether he lost.
 local function alchemist_reaction_complete(npc, player, lose, other_alch, other_elixir)
 	if lose == true then
-		return ([[#{bold}#이 릿치 자식! 어떤 머저리가 엘릭서를 완성해서 형제단에 들어갔다는 소식을 들은지 정확히 10 분 후에 모습을 드러내다니! 대체 이렇게 젠장맞게 늦게 온 이유가 뭐야? 미르베니아 여왕의 젖통같으니... 일단 재료를 가져왔으니 엘릭서는 만들어주겠어. 다만 이건 내가 약속을 어기면 죽는 저주에 걸렸기 때문이라는걸 알아둬. 그리고 혹시 엘릭서에서 오줌 맛이 나더라도, 네 상상일 뿐일테니 그리 아라고.#{normal}#]])
+		return ([[#{bold}#이 릿치 자식! 어떤 머저리가 엘릭서를 완성해서 형제단에 들어갔다는 소식을 들은지 정확히 10 분 후에 모습을 드러내다니! 대체 이렇게 젠장맞게 늦게 온 이유가 뭐야? 미르베니아 여왕의 젖통같으니... 일단 재료를 가져왔으니 엘릭서는 만들어주겠어. 다만 이건 내가 약속을 어기면 죽는 저주에 걸렸기 때문이라는걸 알아둬. 그리고 혹시 엘릭서에서 오줌 맛이 나더라도, 네 상상일 뿐일테니 그리 알라고.#{normal}#]])
 	else
-		return ([[#LIGHT_GREEN#*하플링이 당신에게 쪽지를 건내줬습니다. 쪽지에는 '네가 빈둥거리는 동안, %s 녀석이 %s를 만들었다는군. 다음 번에는 더 서두르라고, 젠장.' 이라고 적혀있습니다.*#WHITE#
-#{bold}#이 빌어먹을 귀는 아직도 들리지 않는군. 그나마 다행인건, 내가 볼때 너는 그다지 흥미로운 대화 상대가 아닐 것 같다는 거야.#{normal}#]]):format(other_alch, other_elixir)
+		return ([[#LIGHT_GREEN#*하플링이 당신에게 쪽지를 건내줬습니다. 쪽지에는 '네가 빈둥거리는 동안, %s 녀석이 %s 만들었다는군. 다음 번에는 더 서두르라고, 젠장.' 이라고 적혀있습니다.*#WHITE#
+#{bold}#이 빌어먹을 귀는 아직도 들리지 않는군. 그나마 다행인건, 내가 볼때 너는 그다지 흥미로운 대화 상대가 아닐 것 같다는 거야.#{normal}#]]):format(other_alch, other_elixir:addJosa("를"))
 	end
 end
 
@@ -168,7 +170,7 @@ newChat{ id="choice",
 	text = [[#LIGHT_GREEN#*그는 당신에게 엘릭서의 이름과 효능이 적힌 작은 종이를 건네주었습니다.*#WHITE#
 #{bold}#이 엿같은 것들을 만들기 위한 재료 목록은 일종의 거래 비밀이야. 그래서 한번에 하나씩만 말해줄거고, 네가 일을 잘 해내는지 보겠어. 오, 물론 엘릭서를 만들 때 네것도 하나 만들어줄 수 있으니 걱정은 말고. 무슨 엘릭서를 원해? 이 빌어먹을 목록에 손가락으로 표시만 해. 아직 네가 말한 것들을 하나도 듣지 못했으니 말이야. 네놈이 내게 뭔가를 팔러 온 잡상인이 아니기만을 빌지.#{normal}#]],
 	answers = {
-		{"["..e[1].kr_display_name.."를 가리킨다]", jump="list",
+		{"["..e[1].kr_display_name:addJosa("를").." 가리킨다]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -181,7 +183,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"["..e[2].kr_display_name.."를 가리킨다]", jump="list",
+		{"["..e[2].kr_display_name:addJosa("를").." 가리킨다]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -194,7 +196,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"["..e[3].kr_display_name.."를 가리킨다]", jump="list",
+		{"["..e[3].kr_display_name:addJosa("를").." 가리킨다]", jump="list",
 			cond = function(npc, player) return not game.player:hasQuest("brotherhood-of-alchemists"):isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)
@@ -441,7 +443,7 @@ newChat{ id="totally-complete3",
 newChat{ id="choice",
 	text = [[#{bold}#무슨 엘릭서를 도와줄건지 골라보게. 엘릭서 때문에 온거 맞지? 설마 최음제 따위를 구하려고 온 바보 천치는 아닐거라고 믿네.#{normal}#]],
 	answers = {
-		{"["..e[1].kr_display_name.."를 가리킨다]", jump="list",
+		{"["..e[1].kr_display_name:addJosa("를").." 가리킨다]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[1].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[1].start)
@@ -454,7 +456,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"["..e[2].kr_display_name.."를 가리킨다]", jump="list",
+		{"["..e[2].kr_display_name:addJosa("를").." 가리킨다]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[2].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[2].start)
@@ -467,7 +469,7 @@ newChat{ id="choice",
 				game:tooltipDisplayAtMap(game.w, game.h, tostring(o:getDesc()))
 			end,
 		},
-		{"["..e[3].kr_display_name.."를 가리킨다]", jump="list",
+		{"["..e[3].kr_display_name:addJosa("를").." 가리킨다]", jump="list",
 			cond = function(npc, player) return not q:isCompleted(e[3].full) end,
 			action = function(npc, player)
 				player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, e[3].start)

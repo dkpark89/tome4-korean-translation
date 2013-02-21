@@ -37,7 +37,7 @@ newChat{ id="welcome",
 }
 else
 newChat{ id="welcome",
-	text = [[돌아오신 것을 환영합니다, @playername@.]],
+	text = [[@playername@씨, 돌아오셔서 반갑습니다.]],
 	answers = {
 		{"당신의 남편을 찾았습니다. 그가 무사히 집에 돌아갔는지요?", jump="done", cond=function(npc, player) return player:isQuestStatus("spydric-infestation", engine.Quest.COMPLETED) end},
 		{"저는 이제 가봐야 합니다. 안녕히."},

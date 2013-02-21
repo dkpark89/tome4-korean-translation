@@ -1983,7 +1983,7 @@ newEffect{
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, eff) return ("#Target1# %s, 그 중에서도 %s 사냥감으로 지정합니다."):format(eff.type:krActorType():addJosa("를"), eff.subtype:krActorType():addJosa("를")) end,
-	on_lose = function(self, eff) return ("#Target1# 더이상 %s %s 쫒지 않습니다."):format(eff.type:krActorType():addJosa("나"), eff.subtype:krActorType():addJosa("를")) end,
+	on_lose = function(self, eff) return ("#Target1# 더이상 %s나 %s 쫒지 않습니다."):format(eff.type:krActorType():addJosa(7), eff.subtype:krActorType():addJosa("를")) end,
 	activate = function(self, eff)
 		local e = self.tempeffect_def[self.EFF_PREDATOR]
 		e.updateEffect(self, eff)
