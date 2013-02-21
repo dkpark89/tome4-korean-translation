@@ -166,9 +166,9 @@ competition = function(self, player, other_alchemist_nums)
 		player_loses = false
 	end
 
-	self.other_alch = self.e[alch_picked][e_picked].alchemist
+	self.other_alch = self.e[alch_picked][e_picked].kr_alchemist or self.e[alch_picked][e_picked].alchemist --@@ 한글이름 사용
 	self.alch_picked = alch_picked
-	self.other_elixir = self.e[alch_picked][e_picked].name
+	self.other_elixir = self.e[alch_picked][e_picked].kr_display_name or self.e[alch_picked][e_picked].name --@@ 한글이름 사용
 	self.e_picked = e_picked
 	self.player_loses = player_loses
 	return self.other_alch, self.other_elixir, self.player_loses, self.alch_picked, self.e_picked
@@ -215,6 +215,8 @@ recipes = function(self)
 			full_3 = "elixir_of_precision",
 			poached = "fox_poached",
 			alchemist = "Stire of Derth",
+			kr_display_name = "여우의 엘릭서",
+			kr_alchemist = "데르스의 스티르",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -232,6 +234,8 @@ recipes = function(self)
 			full_3 = "elixir_of_precision",
 			poached = "avoidance_poached",
 			alchemist = "Stire of Derth",
+			kr_display_name = "회피의 엘릭서",
+			kr_alchemist = "데르스의 스티르",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -249,6 +253,8 @@ recipes = function(self)
 			full_3 = "elixir_of_avoidance",
 			poached = "precision_poached",
 			alchemist = "Stire of Derth",
+			kr_display_name = "정밀함의 엘릭서",
+			kr_alchemist = "데르스의 스티르",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -268,6 +274,8 @@ recipes = function(self)
 			full_3 = "elixir_of_mastery",
 			poached = "mysticism_poached",
 			alchemist = "Marus of Elvala",
+			kr_display_name = "신비주의의 엘릭서",
+			kr_alchemist = "엘발라의 마루스",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -285,6 +293,8 @@ recipes = function(self)
 			full_3 = "elixir_of_mastery",
 			poached = "savior_poached",
 			alchemist = "Marus of Elvala",
+			kr_display_name = "구원자의 엘릭서",
+			kr_alchemist = "엘발라의 마루스",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -302,6 +312,8 @@ recipes = function(self)
 			full_3 = "elixir_of_the_savior",
 			poached = "mastery_poached",
 			alchemist = "Marus of Elvala",
+			kr_display_name = "숙련의 엘릭서",
+			kr_alchemist = "엘발라의 마루스",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -321,6 +333,8 @@ recipes = function(self)
 			full_3 = "elixir_of_focus",
 			poached = "force_poached",
 			alchemist = "Agrimley the hermit",
+			kr_display_name = "폭발력의 엘릭서",
+			kr_alchemist = "은둔자 아그림레이",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -338,6 +352,8 @@ recipes = function(self)
 			full_3 = "elixir_of_focus",
 			poached = "serendipity_poached",
 			alchemist = "Agrimley the hermit",
+			kr_display_name = "행운의 엘릭서",
+			kr_alchemist = "은둔자 아그림레이",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -355,6 +371,8 @@ recipes = function(self)
 			full_3 = "elixir_of_serendipity",
 			poached = "focus_poached",
 			alchemist = "Agrimley the hermit",
+			kr_display_name = "집중의 엘릭서",
+			kr_alchemist = "은둔자 아그림레이",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -374,6 +392,8 @@ recipes = function(self)
 			full_3 = "elixir_of_foundations",
 			poached = "brawn_poached",
 			alchemist = "Ungrol of Last Hope",
+			kr_display_name = "완력의 엘릭서",
+			kr_alchemist = "마지막 희망의 운그롤",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -391,6 +411,8 @@ recipes = function(self)
 			full_3 = "elixir_of_foundations",
 			poached = "stoneskin_poached",
 			alchemist = "Ungrol of Last Hope",
+			kr_display_name = "단단한 피부의 엘릭서",
+			kr_alchemist = "마지막 희망의 운그롤",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),
@@ -408,6 +430,8 @@ recipes = function(self)
 			full_3 = "elixir_of_stoneskin",
 			poached = "foundations_poached",
 			alchemist = "Ungrol of Last Hope",
+			kr_display_name = "기반의 엘릭서",
+			kr_alchemist = "마지막 희망의 운그롤",
 			ingredients = {
 				rng.tableRemove(ing_list),
 				rng.tableRemove(ing_list),

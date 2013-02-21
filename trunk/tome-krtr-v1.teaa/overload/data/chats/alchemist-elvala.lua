@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local art_list = mod.class.Object:loadList("/data/general/objects/brotherhood-artifacts.lua")
 local alchemist_num = 2
 local other_alchemist_nums = {1, 3, 4}
@@ -115,7 +117,7 @@ local function alchemist_reaction_complete(npc, player, lose, other_alch, other_
 	if lose == true then
 		return ([[너무 늦었어! 아아, 너무 늦었어. %s 놈이 벌써 입단 심사를 끝냈다. 그래도 약속했던 엘릭서는 만들어주도록 하지. 형제단 놈들은 단원이 아닌 연금술사가 사람을 속이면, 그 연금술사의 손가락을 부러뜨리거든. 반면에 단원끼리는...]]):format(other_alch)
 	else
-		return ([[그거나 빨리 내놔. 네가 충분히 시간을 끌어준 덕분에, %s 놈이 %s를 벌써 만들었다고 한다. 다음에는 조금 더 서두르는 편이 좋을거야. 아니면 네게 줄 엘릭서를 만들다가 '실수' 를 할지도 모르니까 말야.]]):format(other_alch, other_elixir)
+		return ([[그거나 빨리 내놔. 네가 충분히 시간을 끌어준 덕분에, %s 놈이 %s 벌써 만들었다고 한다. 다음에는 조금 더 서두르는 편이 좋을거야. 아니면 네게 줄 엘릭서를 만들다가 '실수' 를 할지도 모르니까 말야.]]):format(other_alch, other_elixir:addJosa("를"))
 	end
 end
 
@@ -154,7 +156,7 @@ newChat{ id="help",
 }
 
 newChat{ id="competition",
-	text = [[드디어 이해했군! 나를 도와주면 내가 만든 엘릭서를 너에게도 하나 주도록 하지. 그리고 내가 연금술사 형제단에 최종적으로 들어가게 되면, 잠시 동안 무적이 되는 불사신의 엘릭서도 절반 주도록 하지. 다만 이 엘릭서를 먹고 허튼 짓 할 생각은 하지 말고. 나머지 절반은 나에게 있으니까.]],
+	text = [[드디어 이해했군! 나를 도와주면 내가 만든 엘릭서를 너에게도 하나 주도록 하지. 그리고 내가 연금술사 형제단에 최종적으로 들어가게 되면, 잠시 동안 무적이 되는 '불사신의 엘릭서'도 절반 주도록 하지. 다만 이 엘릭서를 먹고 허튼 짓 할 생각은 하지 말고. 나머지 절반은 나에게 있으니까.]],
 	answers = {
 		{"좋아요.", jump="choice", action = function(npc, player) player:grantQuest("brotherhood-of-alchemists") end,},
 		{"지금은 도와줄 수 없을 것 같군요."},

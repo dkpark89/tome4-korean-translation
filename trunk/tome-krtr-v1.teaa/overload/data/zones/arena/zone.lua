@@ -92,7 +92,7 @@ return {
 		game.player.on_die = function (self, src)
 			local rank = math.floor(game.level.arena.rank)
 			local drank
-			if rank < 0 then drank = "투기장의 승리자" else drank = game.level.arena.ranks[rank] or "아무 것도 아님" end
+			if rank < 0 then drank = "투기장의 지배자" else drank = game.level.arena.ranks[rank] or "아무 것도 아님" end
 			local lastScore = {
 				name = game.player.name.." - "..drank, --@@ 점수 기록이라 일단 그냥 둠
 				score = game.level.arena.score,

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local change_weapon = function(npc, player)
 	local inven = player:getInven("INVEN")
 	player:showInventory("골렘이 착용할 양손무기를 선택하세요.", inven, function(o) return o.type == "weapon" and o.twohanded end, function(o, item)
@@ -27,7 +29,7 @@ local change_weapon = function(npc, player)
 		elseif not ro then
 			player:addObject(inven, o)
 		else
-			game.logPlayer(player, "골렘이 착용 중인 장비 : %s", o:getName{do_color=true, no_count=true}) --확실해보이는 것만 kr_display_name 이나 조사함수 넣습니다 @_@ 필요한 부분 수정해주세요.
+			game.logPlayer(player, "골렘이 착용 중인 장비 : %s", o:getName{do_color=true, no_count=true})
 		end
 		player:sortInven()
 		player:useEnergy()
@@ -63,7 +65,7 @@ local change_gem = function(npc, player, gemid)
 
 		-- Force "wield"
 		golem:addObject(gems, o)
-		game.logSeen(player, "%s %s의 몸에 %s 보석을 박아넣습니다.", (player.kr_display_name or player.name):capitalize():addJosa("이"), (golem.kr_display_name or golem.name), o:getName{do_color=true}:a_an())
+		game.logSeen(player, "%s %s의 몸에 %s 박아넣습니다.", (player.kr_display_name or player.name):capitalize():addJosa("이"), (golem.kr_display_name or golem.name), o:getName{do_color=true}:addJosa("를"))
 
 		player:sortInven()
 		player:useEnergy()
@@ -76,7 +78,8 @@ local change_gem2 = function(npc, player) return change_gem(npc, player, 2) end
 local change_name = function(npc, player)
 	local d = require("engine.dialogs.GetText").new("골렘의 이름을 바꿉니다.", "이름", 2, 25, function(name)
 		if name then
-			npc.name = name.." ("..player.name.."의 부하)"
+			npc.name = name.." (servant of "..player.name..")"
+			npc.kr_display_name = name.." ("..(player.kr_display_name or player.name).."의 부하)" --@@ 한글이름 추가
 			npc.changed = true
 		end
 	end)
@@ -93,8 +96,8 @@ local ans = {
 if player:knowTalent(player.T_GEM_GOLEM) then
 	local gem1 = golem:getInven("GEM")[1]
 	local gem2 = golem:getInven("GEM")[2]
-	table.insert(ans, 3, {("첫 번째 보석을 바꿔주고 싶은데%s."):format(gem1 and "(currently: "..gem1:getName{}..")" or ""), action=change_gem1})
-	table.insert(ans, 4, {("두 번째 보석을 바꿔주고 싶은데%s."):format(gem2 and "(currently: "..gem2:getName{}..")" or ""), action=change_gem2})
+	table.insert(ans, 3, {("첫 번째 보석을 바꿔주고 싶은데 %s."):format(gem1 and "(현재: "..gem1:getName{}..")" or ""), action=change_gem1})
+	table.insert(ans, 4, {("두 번째 보석을 바꿔주고 싶은데 %s."):format(gem2 and "(현재: "..gem2:getName{}..")" or ""), action=change_gem2})
 end
 
 newChat{ id="welcome",
