@@ -18,35 +18,35 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*A Halfling comes forth from his hiding place.*#WHITE#
-You killed them all? Are we safe now? Oh, please tell me this was a bad dream!]],
+	text = [[#LIGHT_GREEN#*하플링이 그가 만든 은신처에서 기어나옵니다.*#WHITE#
+당신이 그것들을 모두 죽였나요? 이제 우리는 안전한가요? 오, 제발 방금 전 일이 나쁜 꿈이었다고 말해주세요!]],
 	answers = {
-		{"Be at ease. I have dispatched those monstrosities. Do you know where they came from or what they wanted?", jump="quest"},
+		{"진정하세요. 그 괴물같은 놈들은 모두 제거했습니다. 이것들이 어디서 왔는지, 아니면 그것들이 원하는 것은 무엇이였는지 아시나요?", jump="quest"},
 	}
 }
 
 newChat{ id="quest",
-	text = [[From nowhere! From the sky!
-I do not know. I was tending my crop just outside the town when I heard screaming. As I entered the town, I saw the dark cloud over here. Those... those... things were coming from it in blasts of lightning!]],
+	text = [[이곳저곳에서 다요! 하늘에서요!
+사실 저도 잘 모르겠어요. 마을에서 비명이 들릴 때까지, 저는 마을 밖에서 작물을 관리하고 있었어요. 제가 비명소리를 듣고 마을에 들어갔을 때는, 검은 구름이 마을을 덮고 있었죠. 그리고 그... 그것들은 번개가 떨어지면서 나타났어요! ]],
 	answers = {
-		{"It seems they have stopped coming for now. I will look for somebody who could help dispose of this nefarious cloud.", jump="quest2"},
+		{"일단 지금은 번개가 그친 것 같군요. 이 먹구름들을 없앨 방법을 알만한 사람을 찾아보죠.", jump="quest2"},
 	}
 }
 
 newChat{ id="quest2",
-	text = [[Thank you! You have saved many people today!
-I have heard of rumours of a reclusive town of wise and powerful men somewhere in the mountains. Maybe they could help? If they even exist...
-There are also those Zigur-something people that claim to fight magic. Why are they not here?!]],
+	text = [[감사합니다! 오늘 당신은 많은 사람을 구한겁니다!
+그러고보니, 현명하고 강력한 자가 산 속의 비밀스러운 마을에 산다는 소문을 들었습니다. 그들이 도움을 줄 수 있을까요? 아니, 그들이 존재하기는 할까요...
+그리고 지구르인가 뭔가 하는 사람들은 마법과 싸우고 있다고 합니다. 왜 그들은 여기에 오지 않는걸까요?]],
 	answers = {
-		{"You mean the Ziguranth. That would be me.", cond=function(npc, player) return player:isQuestStatus("antimagic", engine.Quest.DONE) end, jump="zigur"},
-		{"I will not let you down.", action=function(npc, player) player:hasQuest("lightning-overload"):done_derth() end},
+		{"정확히는 지구르 추종자라고 합니다. 제가 지구르 추종자이기도 하고요.", cond=function(npc, player) return player:isQuestStatus("antimagic", engine.Quest.DONE) end, jump="zigur"},
+		{"여러분을 이대로 놔두지는 않겠습니다.", action=function(npc, player) player:hasQuest("lightning-overload"):done_derth() end},
 	}
 }
 
 newChat{ id="zigur",
-	text = [[Well then please do something about this evil magic!]],
+	text = [[그럼 이 악마 같은 마법을 어떻게 좀 해주세요!]],
 	answers = {
-		{"I will!", action=function(npc, player) player:hasQuest("lightning-overload"):done_derth() end},
+		{"그러죠!", action=function(npc, player) player:hasQuest("lightning-overload"):done_derth() end},
 	}
 }
 

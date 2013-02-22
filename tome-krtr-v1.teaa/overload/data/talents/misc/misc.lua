@@ -338,9 +338,9 @@ newTalent{
 		local physical_reduction = math.floor(self:combatPhysicalResist(true)/5)
 		local spell_reduction = math.floor(self:combatSpellResist(true)/5)
 		local mental_reduction = math.floor(self:combatMentalResist(true)/5)
-		return ([['주인' 그 자신만이 아닌, 타락한 레크놀의 오크들만이 아닌, 레크놀의 차원 관문 저 너머의 알 수 없는 존재들만이 아닌...
+		return ([['지배자' 그 자신만이 아닌, 타락한 레크놀의 오크들만이 아닌, 레크놀의 차원 관문 저 너머의 알 수 없는 존재들만이 아닌...
 		바로 이 세계의 아이들이, 대를 이어 전해지는 노래를 통해 당신이 끈질기게 추구했던 것들을 듣고 기억할 것입니다.
-		발동하면, 모든 나쁜 상태효과의 지속시간이 해당 상태효과를 방어하는 내성 수치에 따라 줄어듭니다.
+		기술을 발동하면, 모든 나쁜 상태효과의 지속시간이 해당 상태효과를 방어하는 내성 수치에 따라 줄어듭니다.
 		물리적 상태효과의 지속시간은 %d 턴, 마법적 상태효과의 지속시간은 %d 턴, 정신적 상태효과의 지속시간은 %d 턴 줄어듭니다.]]):
 		format(physical_reduction, spell_reduction, mental_reduction)
 	end,

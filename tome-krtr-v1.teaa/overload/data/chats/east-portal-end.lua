@@ -18,13 +18,13 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*A robed Human is waiting for you when you step out of the portal.*#WHITE#
-Well met, @playername@!
-I am Meranas, Herald of Angolwen. I have come here at the request of King Tolak, who worried when you didn't return.
-We have been watching Tannen for some time, and were pleased to see you reveal his true nature-- and stop him. For this we are grateful, and I think we can pay you back.
-We have studied his portal research, and if you give me the components I will create the portal for you, here and now!]],
+	text = [[#LIGHT_GREEN#*관문에서 나오자, 로브를 걸친 인간이 당신을 맞았습니다.*#WHITE#
+반갑네, @playername@!
+나는 메라나스라고 하네. 앙골웬의 전령이기도 하지. 나는 자네가 돌아오지 않는 것을 염려한 톨락 왕의 명령을 받아, 이곳에 왔다네.
+우리는 탄넨을 주시해오고 있었다네. 자네가 그의 본색을 드러내줘서 기쁘군. 그리고 그를 막아준 것도 말이야. 우리는 자네가 한 일에 감사를 느끼고, 아마 그에 대한 보답도 해줄 수 있을 것 같다네.
+우리는 그가 조사한 관문에 대한 정보를 연구했네. 나에게 필요한 재료들을 주면, 자네를 위해 장거리 관문을 만들어주겠네. 바로 여기서, 지금 즉시 말일세!]],
 	answers = {
-		{"Yes, Tannen was not exactly friendly. I thank you for your help. Here are the components. [hand him the diamond and the athame]", action=function(npc, player) player:hasQuest("east-portal"):create_portal(npc, player) end},
+		{"아, 탄넨하고는 그다지 친한 사이도 아니였으니까요. 도와주셔서 감사합니다. 여기 재료들이 있습니다. [그에게 단검과 다이아몬드를 준다]", action=function(npc, player) player:hasQuest("east-portal"):create_portal(npc, player) end},
 	}
 }
 

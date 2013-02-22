@@ -18,45 +18,45 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Wait, @playerdescriptor.subclass@!
-I see you are a worthy opponent, powerful indeed. I can see, and feel, your mastery of the eldritch crafts.
-We are the same.]],
+	text = [[잠깐, @playerdescriptor.subclass@!
+그대가 상당히 가치 있는 상대이며, 강력하다는 것은 잘 알았네. 나는 네 몸에서 나오는 신비한 힘을 보고, 느낄 수 있다네.
+우리는 결국 같은 자들이야.]],
 	answers = {
-		{"What do you mean 'the same'?", jump="quest"},
-		{"I am nothing like you. Die!", quick_reply="So be it. Die, and give me your power!"},
+		{"'같다' 니, 무슨 뜻이지?", jump="quest"},
+		{"나는 너와는 다르다. 죽어라!", quick_reply="그렇다면, 죽어라! 그리고 네 힘을 나에게 바쳐라!"},
 	}
 }
 
 newChat{ id="quest",
-	text = [[We both know the strength of the arcane; we both hunger for power. There is so much I have discovered, so much I could teach you.
-This place is special. The veil of reality is thin here, forever shattered by the Spellblaze. We are taking advantage of this; we can draw on the power,
-leeching from this place, to better ourselves, to bring forth the dominion of magic!]],
+	text = [[우리는 모두 마법의 힘을 알고 있다네. 우리는 모두 힘에 목말라 있지. 나는 수많은 것들을 발견했다네. 네게 가르쳐줄 것 또한 너무나 많지.
+이곳은 특별한 곳일세. 마법폭발에 의해 영원히 폐허로 남게 될 이곳에서는, 현실의 장막이 엷어지지. 우리는 이곳에서 이득을 보고 있다네. 우리는 이곳의 힘을 끌어내고, 이곳의 힘을 우리 것으로 만들지, 
+이를 통해 우리 자신을 더 강하게 만들고, 모든 것들을 우리의 발 아래에 꿇릴 수 있게 될거라네!]],
 	answers = {
-		{"The world suffered from the Spellblaze enough. Magic must serve people, not enslave them. I will not listen to you!", quick_reply="So be it. Die, and give me your power!"},
-		{"What do you propose, then?", jump="quest2"},
+		{"이 세계는 이미 마법폭발로 인해 충분한 고통을 받았다. 마법은 사람을 위한 용도로 써야지, 그들을 복종시키는 용도로 쓰면 안 된다. 네 말은 더 이상 듣지 않겠다!", quick_reply="그렇다면, 죽어라! 그리고 네 힘을 나에게 바쳐라!"},
+		{"그렇다면, 네 목적은 뭐지?", jump="quest2"},
 	}
 }
 
 newChat{ id="quest2",
-	text = [[Let us end this meaningless fight. Have you ever heard of a group of people called the Ziguranth?
-These rambling madmen think magic should not be permitted to exist! They fear us; they fear our powers.
-Let us join forces and crush the fools!]],
+	text = [[이 싸움을 그만두고, 나를 풀어주게. 혹시 '지구르 추종자' 라는 사람들을 들어본 적이 있나?
+이 정신 나간 놈들은 마법이 존재해서는 안된다고 생각하네! 그들은 우리를 두려워하네. 그들은 우리의 힘을 두려워하네.
+힘을 합쳐 그 멍청한 놈들을 박살내세!]],
 	answers = {
-		{"Magic shall triumph!", jump="quest3", action=function(npc, player)
+		{"마법은 승리할 것이다!", jump="quest3", action=function(npc, player)
 			if npc:isTalentActive(npc.T_DEMON_PLANE) then npc:forceUseTalent(npc.T_DEMON_PLANE, {ignore_energy=true}) end
 			if player:isTalentActive(player.T_DEMON_PLANE) then player:forceUseTalent(player.T_DEMON_PLANE, {ignore_energy=true}) end
 			if player:hasEffect(player.EFF_DREAMSCAPE) then player:removeEffect(player.EFF_DREAMSCAPE, true) end
 		end},
-		{"Magic has a purpose. Those men are wrong, but you seem much worse.", quick_reply="Then you must leave... THIS WORLD! DIE!"},
+		{"마법 역시 존재하는 이유가 있을 것이다. 분명 그들은 틀렸지만, 너는 훨씬 더 악질이로군.", quick_reply="그렇다면... 이 세계에서 사라져라! 죽어라!"},
 	}
 }
 
 newChat{ id="quest3",
-	text = [[Good. Before your... untimely arrival we were preparing an attack on the Ziguranth main training camp, on the southern beach of the sea of Sash.
-Come with us; let's destroy them!
-I will open a portal to Zigur and the massacre shall begin!]],
+	text = [[좋아. 준비가 되지 않았을지도 모르지만, 우리는 이미 지구르 추종자들이 모인 곳의 공격 준비를 마쳤네. 새쉬 해 남쪽 해안가에 있는 곳이지.
+우리와 함께 그들을 파괴하세!
+지구르로 관문을 열겠네. 학살을 시작하지!]],
 	answers = {
-		{"I am ready!", action=function(npc, player)
+		{"좋아, 준비 됐어!", action=function(npc, player)
 			if game.zone.short_name ~= "mark-spellblaze" then return "quest3" end
 			npc.invulnerable = 1
 			player:grantQuest("anti-antimagic")

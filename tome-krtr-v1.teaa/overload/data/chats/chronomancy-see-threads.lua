@@ -28,17 +28,17 @@ local function select(id)
 		game._chronoworlds.see_threads_base = nil
 	end
 
-	game.logPlayer(game.player, "#LIGHT_BLUE#You select the timeline and re-arrange the universe to your liking!")
+	game.logPlayer(game.player, "#LIGHT_BLUE#당신이 고른 시간의 흐름으로, 세계의 시간축이 재배열됩니다!")
 	game.level.map:particleEmitter(game.player.x, game.player.y, 1, "rewrite_universe")
 	game._chronoworlds = nil
 end
 
 newChat{ id="welcome",
-	text = [[You have lived ]]..turns..[[ turns in three different timelines. Which do you choose to be the real timeline?]],
+	text = [[당신은 ]]..turns..[[ 턴 동안 다른 시간의 흐름에서 시간을 보냈습니다. 어느 시간의 흐름을 '진짜' 시간으로 선택하시겠습니까?]],
 	answers = {
-		{"The first.", action=function(npc, player) select(1) end},
-		{"The second.", action=function(npc, player) select(2) end},
-		{"The third.", action=function(npc, player) select(3) end},
+		{"첫 번째 시간.", action=function(npc, player) select(1) end},
+		{"두 번째 시간.", action=function(npc, player) select(2) end},
+		{"세 번째 시간.", action=function(npc, player) select(3) end},
 	}
 }
 

@@ -18,26 +18,26 @@
 -- darkgod@te4.org
 
 newChat{ id="ambush",
-	text = [[#VIOLET#*As you come out of the Dreadfell, you encounter a band of orcs*#LAST#
-You! Give us the staff NOW and we might offer you a quick death!]],
+	text = [[#VIOLET#*두려움의 영역을 나오자, 당신은 한 무리의 오크들을 만났습니다.*#LAST#
+너! 그 지팡이 당장 내놔! 그러면 고통 없이 죽여주지!]],
 	answers = {
-		{"What are you talking about?", jump="what"},
-		{"Why would you want it?", jump="why"},
-		{"#LIGHT_GREEN#[Attack]"},
+		{"무슨 얘기를 하는거지?", jump="what"},
+		{"지팡이를 원하는 이유는?", jump="why"},
+		{"#LIGHT_GREEN#[공격한다]"},
 	}
 }
 
 newChat{ id="what",
-	text = [[Do not play dumb with Ukruk! ATTACK!]],
+	text = [[우크룩을 바보로 보는건가! 공격하라!]],
 	answers = {
-		{"#LIGHT_GREEN#[Attack]"},
+		{"#LIGHT_GREEN#[공격한다]"},
 	}
 }
 
 newChat{ id="why",
-	text = [[That is not your concern! ATTACK!]],
+	text = [[네가 상관할 일은 아니다! 공격하라!]],
 	answers = {
-		{"#LIGHT_GREEN#[Attack]"},
+		{"#LIGHT_GREEN#[공격한다]"},
 	}
 }
 
