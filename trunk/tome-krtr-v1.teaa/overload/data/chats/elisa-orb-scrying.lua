@@ -93,7 +93,7 @@ newChat{ id="welcome",
 	text = [[오, 안녕, @playername@, 새로 보여줄 거라도 있어?]],
 	answers = {
 		{"그래, 엘리사. 이 물건을 감정해줄 수 있겠어? [그녀에게 오브가 감정해내지 못한 물건을 보여준다]", cond=can_auto_id,
-			action=auto_id("어디 보자... \n", "\n\n이네. 아주 멋진 물건을 얻었는걸, @playername@!", "고마워, 엘리사!")
+			action=auto_id("어디 보자... \n", "\n\n이네. @playername2@ 아주 멋진 물건을 얻었는걸!", "고마워, 엘리사!")
 		},
 		{"어어, 아니... 미안. 그냥 친구 목소리를 조금 듣고 싶었어.", jump="friend"},
 		{"Not yet sorry!"},

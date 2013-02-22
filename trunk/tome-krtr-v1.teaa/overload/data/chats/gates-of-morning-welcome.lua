@@ -47,7 +47,7 @@ newChat{ id="sun-paladins",
 newChat{ id="orcs",
 	text = [[오크! 아! 그렇다면 너에게 있어 오늘은 운이 좋은 날이겠군. 이 대륙은 오크들이 모조리 점령한 상태다. 그들은 무리를 형성해서 돌아다니고 있고, 소문에 의하면 그들의 지배자는 강력하다는 말이 있다.
 그들은 이 땅을 자유롭게 돌아다니며, 심지어는 우리를 공격하기도 하지.
-@playername@, 자네는 우리 일원 중 하나를 도와주었다. 태양의 장벽의 이름으로, 자네를 동료로 받아들이고 아침의 문에 출입할 권한을 주도록 하지.]],
+@playername7@여, 자네는 우리 일원 중 하나를 도와주었다. 태양의 장벽의 이름으로, 자네를 동료로 받아들이고 아침의 문에 출입할 권한을 주도록 하지.]],
 	answers = {
 		{"감사합니다, 숙녀분이시여.", action=function(npc, player)
 			world:gainAchievement("STRANGE_NEW_WORLD", game.player)

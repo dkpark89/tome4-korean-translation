@@ -59,7 +59,7 @@ function _M:addChat(c)
 	for i, a in ipairs(c.answers) do
 		if a.quick_reply then
 			a.jump = "quick_reply"..self.quick_replies
-			self:addChat{id="quick_reply"..self.quick_replies, text=a.quick_reply, answers={{"[leave]"}}}
+			self:addChat{id="quick_reply"..self.quick_replies, text=a.quick_reply, answers={{"[떠난다]"}}}
 			self.quick_replies = self.quick_replies + 1
 		end
 	end

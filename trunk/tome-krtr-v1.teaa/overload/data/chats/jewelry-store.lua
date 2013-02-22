@@ -23,9 +23,9 @@ local imbue_ring = function(npc, player)
 	player:showInventory("어떤 반지에 보석을 주입시킵니까?", player:getInven("INVEN"), function(o) return o.type == "jewelry" and o.subtype == "ring" and not o.egoed and not o.unique and not o.rare end, function(ring, ring_item)
 		player:showInventory("어떤 보석을 사용합니까?", player:getInven("INVEN"), function(gem) return gem.type == "gem" and (gem.material_level or 99) <= ring.material_level and gem.imbue_powers end, function(gem, gem_item)
 			local price = 10 + gem.material_level * 5 + ring.material_level * 7
-			if price > player.money then require("engine.ui.Dialog"):simplePopup("부족한 금화", "돈이 부족하시군요. 소지금이 금화 "..price.." 개 정도가 되면 그 때 오시지요.") return end
+			if price > player.money then require("engine.ui.Dialog"):simplePopup("돈이 부족합니다", "돈이 부족하시군요. 소지금이 금화 "..price.." 개 정도가 되면 그 때 오시지요.") return end
 
-			require("engine.ui.Dialog"):yesnoPopup("보석 주입 가격", "비용으로 금화 "..price.."개가 필요합니다. 보석을 주입하실겁니까?", function(ret) if ret then
+			require("engine.ui.Dialog"):yesnoPopup("보석 주입 가격", "비용으로 금화 "..price.."개가 필요합니다. 보석 주입을 하시겠습니까?", function(ret) if ret then
 				player:incMoney(-price)
 				player:removeObject(player:getInven("INVEN"), gem_item)
 				ring.wielder = ring.wielder or {}
@@ -45,7 +45,7 @@ local artifact_imbue_amulet = function(npc, player)
 		player:showInventory("어떤 보석을 첫 번째로 사용합니까?", player:getInven("INVEN"), function(gem1) return gem1.type == "gem" and (gem1.material_level or 99) <= amulet.material_level and gem1.imbue_powers end, function(gem1, gem1_item)
 			player:showInventory("두 번째 보석은 무엇을 사용합니까?", player:getInven("INVEN"), function(gem2) return gem2.type == "gem" and (gem2.material_level or 99) <= amulet.material_level and gem1.name ~= gem2.name and gem2.imbue_powers end, function(gem2, gem2_item)
 				local price = 390
-				if price > player.money then require("engine.ui.Dialog"):simplePopup("부족한 금화", "리미르가 목걸이를 도금하기 위해서는 더 많은 금화가 필요합니다.") return end
+				if price > player.money then require("engine.ui.Dialog"):simplePopup("돈이 부족합니다", "리미르가 목걸이를 도금하기 위해서는 더 많은 금화가 필요합니다.") return end
 
 				require("engine.ui.Dialog"):yesnoPopup("목걸이 도금 가격", "도금을 하려면 금화 "..price.." 개가 필요합니다, 목걸이를 만드시겠습니까?", function(ret) if ret then
 					player:incMoney(-price)
