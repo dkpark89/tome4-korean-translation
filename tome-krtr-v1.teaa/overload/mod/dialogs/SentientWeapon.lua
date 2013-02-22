@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 
 local Dialog = require "engine.ui.Dialog"
@@ -29,7 +30,7 @@ local Separator = require "engine.ui.Separator"
 
 module(..., package.seeall, class.inherit(Dialog))
 
-local _points_text = "Points left: #00FF00#%d#WHITE#"
+local _points_text = "남아있는 점수: #00FF00#%d#WHITE#"
 
 
 -- This stuff is quite the mess.  I preserved Sus' Voice of Telos dialogues as much as possible but some of his stats we're simply not using
@@ -46,23 +47,23 @@ function _M:init(actor, on_finish)
 	self.actor_dup = actor.actor:clone()
 	self.unused_stats = self.o.unused_stats
 	--Dialog.init(self, self.o.name, 500, 300)
-	Dialog.init(self, self.o.name, 300, 200)
+	Dialog.init(self, (self.o.kr_display_name or self.o.name), 300, 200)
 
 	self.sel = 1
 
 	self.c_tut = Textzone.new{width=math.floor(self.iw / 2 - 10), auto_height=true, no_color_bleed=true, text=[[
-Keyboard: #00FF00#up key/down key#FFFFFF# to select a stat; #00FF00#right key#FFFFFF# to increase stat; #00FF00#left key#FFFFFF# to decrease a stat.
-Mouse: #00FF00#Left click#FFFFFF# to increase a stat; #00FF00#right click#FFFFFF# to decrease a stat.
+키보드: #00FF00#'↑'/'↓'#FFFFFF# 능력치 선택 / #00FF00#'→'#FFFFFF# 능력치 상승 / #00FF00#'←'#FFFFFF# 능력치 감소
+마우스: #00FF00#클릭#FFFFFF# 능력치 상승 / #00FF00#우클릭#FFFFFF# 능력치 감소
 ]]}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw - 10), height=self.ih - self.c_tut.h - 20, no_color_bleed=true}
 	self.c_points = Textzone.new{width=math.floor(self.iw - 10), auto_height=true, no_color_bleed=true, text=_points_text:format(self.unused_stats)}
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw - 10), height=self.ih - 10, all_clicks=true, columns={
-		{name="Stat", width=70, display_prop="name"},
-		{name="Value", width=30, display_prop="val"},
+		{name="능력치", width=70, display_prop="name"},
+		{name="값", width=30, display_prop="val"},
 	}, list={
-		{name="Spellpower", val=self.o.wielder.combat_spellpower, stat_id = "combat_spellpower", delta = 3},
-		{name="Spellcrit", val=self.o.wielder.combat_spellcrit, stat_id = "combat_spellcrit", delta = 1},
+		{name="주문력", val=self.o.wielder.combat_spellpower, stat_id = "combat_spellpower", delta = 3},
+		{name="주문 치명타율", val=self.o.wielder.combat_spellcrit, stat_id = "combat_spellcrit", delta = 1},
 		--{name="Critical power", val=self.o.combat.critical_power, stat_id = "critical_power", delta = 0.1},
 		--{name="Maximum hit chance", val=self.o.combat.max_acc, stat_id = "max_acc", delta = 5},
 		--{name="Strength", val=self.actor:getStr(), stat_id=self.actor.STAT_STR},
@@ -111,7 +112,7 @@ function _M:finish()
 		if act then
 			local t = self.actor:getTalentFromId(tid)
 			if t.no_sustain_autoreset then
-				game.logPlayer(self.actor, "#LIGHT_BLUE#Warning: You have increased some of your statistics. Talent %s is actually sustained; if it is dependent on one of the stats you changed, you need to re-use it for the changes to take effect.", t.name)
+				game.logPlayer(self.actor, "#LIGHT_BLUE#주의: 당신의 능력치가 향상되었습니다. 바뀐 능력치의 영향을 받는 기술 %s 현재 유지중입니다. 변경된 효과를 적용하기 위해서는 기술을 다시 사용할 필요가 있습니다.", (t.kr_display_name or t.name):addJosa("는"))
 			else
 				reset[#reset+1] = tid
 			end
@@ -131,22 +132,22 @@ function _M:incStat(v, id)
 	local delta = self.delta * v
 	if v == 1 then
 		if self.o.unused_stats <= 0 then
-			self:simplePopup("Not enough stat points", "You have no stat points left!")
+			self:simpleLongPopup("능력치 점수 부족", "남아있는 능력치 점수가 없습니다!", 300) --@@ 메세지 창크기 확인 필요  
 			return
 		end
 		print(self.o.wielder[id] or "false", self.o.factory_settings.maxes[id] or "false")
 		if self.o.wielder[id] >= self.o.factory_settings.maxes[id] then
-			self:simplePopup("Stat is at the maximum", "You can not increase this stat further!")
+			self:simpleLongPopup("레벨 한계치", "레벨이 더 올라야 이 능력치를 올릴수 있습니다!", 300) --@@ 메세지 창크기 확인 필요
 			return
 		end
 	else
 		print(self.o.wielder[id] or "false", self.o.factory_settings.mins[id] or "false")
 		if self.o.wielder[id] <= self.o.factory_settings.mins[id] then
-			self:simplePopup("Impossible", "You cannot take out more points!")
+			self:simpleLongPopup("불가능", "점수를 더 반환할 수 없습니다!", 300) --@@ 메세지 창크기 확인 필요
 			return
 		end
 		if self.o.wielder[id] + delta <= 0 then
-			self:simplePopup("Impossible", "You cannot take out more points!")
+			self:simpleLongPopup("불가능", "점수를 더 반환할 수 없습니다!", 300) --@@ 메세지 창크기 확인 필요
 			return
 		end
 	end
@@ -192,8 +193,8 @@ end
 function _M:drawDialog(s)
 	-- Description part
 	self:drawHBorder(s, self.iw / 2, 2, self.ih - 4)
-	local statshelp = ([[Keyboard: #00FF00#up key/down key#FFFFFF# to select a stat; #00FF00#right key#FFFFFF# to increase stat; #00FF00#left key#FFFFFF# to decrease a stat.
-Mouse: #00FF00#Left click#FFFFFF# to increase a stat; #00FF00#right click#FFFFFF# to decrease a stat.
+	local statshelp = ([[키보드: 키보드: #00FF00#'↑'/'↓'#FFFFFF# 능력치 선택 / #00FF00#'→'#FFFFFF# 능력치 상승 / #00FF00#'←'#FFFFFF# 능력치 감소
+마우스: #00FF00#클릭#FFFFFF# 능력치 상승 / #00FF00#우클릭#FFFFFF# 능력치 감소
 ]]):splitLines(self.iw / 2 - 10, self.font)
 	local lines = self.actor.stats_def[self.sel].description:splitLines(self.iw / 2 - 10, self.font)
 	for i = 1, #statshelp do
@@ -204,11 +205,11 @@ Mouse: #00FF00#Left click#FFFFFF# to increase a stat; #00FF00#right click#FFFFFF
 	end
 
 	-- Stats
-	s:drawColorStringBlended(self.font, "Stats points left: #00FF00#"..self.actor.unused_stats, 2, 2)
+	s:drawColorStringBlended(self.font, "남아있는 능력치 점수: #00FF00#"..self.actor.unused_stats, 2, 2)
 	self:drawWBorder(s, 2, 20, 200)
 
 	self:drawSelectionList(s, 2, 25, self.font_h, {
-		"Strength", "Dexterity", "Magic", "Willpower", "Cunning", "Constitution"
+		"힘", "민첩", "마법", "의지", "교활함", "체격" --@@ 동작 확인 필요. 원문 :"Strength", "Dexterity", "Magic", "Willpower", "Cunning", "Constitution"
 	}, self.sel)
 	self:drawSelectionList(s, 100, 25, self.font_h, {
 		self.actor:getStr(), self.actor:getDex(), self.actor:getMag(), self.actor:getWil(), self.actor:getCun(), self.actor:getCon(),
