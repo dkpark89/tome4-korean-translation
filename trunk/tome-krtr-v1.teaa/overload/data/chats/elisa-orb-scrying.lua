@@ -58,12 +58,12 @@ end
 if version == "yeek" then
 
 newChat{ id="welcome",
-	text = [[You immerse your mind in the Way and let knowledge flow in.]],
+	text = [['한길' 에 정신을 집중하여, 그 지식의 흐름에 몸을 맡겼습니다.]],
 	answers = {
-		{"[Images and knowledge flow in.]", cond=can_auto_id,
-			action=auto_id("", "", "[You mentally thank the Way.]")
+		{"[형상과 지식들을 흐름 속에서 찾아봅니다]", cond=can_auto_id,
+			action=auto_id("", "", "[당신은 마음으로 '한길' 에 감사를 표시했습니다]")
 		},
-		{"[You do not gain any knowledge.]", cond=can_not_auto_id},
+		{"[아무 지식도 얻지 못했습니다]", cond=can_not_auto_id},
 	}
 }
 return "welcome"
@@ -74,12 +74,12 @@ return "welcome"
 elseif version == "undead" then
 
 newChat{ id="welcome",
-	text = [[You pause and recall past memories.]],
+	text = [[당신은 가던 길을 멈추고, 과거의 기억을 떠올리기 시작합니다.]],
 	answers = {
-		{"[Images and knowledge flow in.]", cond=can_auto_id,
-			action=auto_id("", "", "[done]")
+		{"[형상과 지식들을 머리 속으로 떠올립니다]", cond=can_auto_id,
+			action=auto_id("", "", "[생각을 끝낸다]")
 		},
-		{"[You do not recognize anything new.]", cond=can_not_auto_id},
+		{"[딱히 새로운 기억을 떠올리지 못했습니다]", cond=can_not_auto_id},
 	}
 }
 return "welcome"
@@ -90,21 +90,21 @@ return "welcome"
 else
 
 newChat{ id="welcome",
-	text = [[Oh, hi @playername@, have you got something new to show me?]],
+	text = [[오, 안녕, @playername@, 새로 보여줄 거라도 있어?]],
 	answers = {
-		{"Yes, Elisa, could you have a look at these objects please? [show her the items the orb could not identify]", cond=can_auto_id,
-			action=auto_id("Let's see what have you got here...\n", "\n\nThat is very nice, @playername@!", "Thank you, Elisa!")
+		{"그래, 엘리사. 이 물건을 감정해줄 수 있겠어? [그녀에게 오브가 감정해내지 못한 물건을 보여준다]", cond=can_auto_id,
+			action=auto_id("어디 보자... \n", "\n\n이네. 아주 멋진 물건을 얻었는걸, @playername@!", "고마워, 엘리사!")
 		},
-		{"Err, no... sorry, I just wanted to hear a friendly voice.", jump="friend"},
+		{"어어, 아니... 미안. 그냥 친구 목소리를 조금 듣고 싶었어.", jump="friend"},
 		{"Not yet sorry!"},
 	}
 }
 
 newChat{ id="friend",
-	text = [[#LIGHT_GREEN#*You hear something akin to a muffled giggle*#WHITE#
-Oh, you are #{bold}#SOOOO#{normal}# cute!]],
+	text = [[#LIGHT_GREEN#*당신은 소리를 죽인 채로 킥킥거리는 웃음소리를 들었습니다.*#WHITE#
+오, 너는 정말 #{bold}#너무너무너무너무#{normal}# 귀여워!]],
 	answers = {
-		{"Goodbye, Elisa!"},
+		{"잘 있어, 엘리사!"},
 	}
 }
 return "welcome"

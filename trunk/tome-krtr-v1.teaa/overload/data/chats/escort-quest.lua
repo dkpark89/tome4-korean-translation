@@ -307,8 +307,8 @@ local function generate_rewards()
 end
 
 newChat{ id="welcome",
-	text = reward.is_antimagic and [[마지막 순간에 당신은 자연의 힘을 사용합니다. 포탈은 오작동하여 @npcname3@ 지구르로 순간이동 시켜 버렸습니다.
-당신은 자연이 당신에게 고마워 하는 것을 느낄 수 있습니다.]] or
+	text = reward.is_antimagic and [[마지막 순간에 당신은 자연의 힘을 사용합니다. 관문은 오작동하여 @npcname3@ 지구르로 순간이동시켜 버렸습니다.
+당신은 자연이 당신에게 고마워하는 것을 느꼈습니다.]] or
 	[[고맙네, 나의 친구여. 자네가 없었다면 내가 어떻게 살아남았을지 생각도 되질 않는군.
 내게 고마움을 표시할 기회를 주게:]],
 	answers = generate_rewards(),

@@ -43,12 +43,12 @@ end
 -- Alot of this code is unused, telos is the only sentient staff in the game right now
 local function intro(o)
 	local sentient_responses = {
-		default = [[Greetings. How can I help you?]],
-		aggressive = [[Hurry up and make with the foe-blasting.]],
-		fawning = [[O wise wielder, instruct me that I may better serve you.]],
-		penitent = [[Make amends, magic-user, for the harm ye have wrought is beyond compare.]],
-		telos = [[You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.]],
-		telos_full = [[Tremble before the might of Telos!]],
+		default = [[어서오게. 도와줄 것이라도 있는가?]],
+		aggressive = [[빨리 적들을 박살내자고.]],
+		fawning = [[오 현명한 착용자시여, 제게 지식을 알려주시면 더욱 더 당신을 잘 모실 수 있을 것입니다.]],
+		penitent = [[배상을 하십시오, 마법 사용자여. 그대가 끼친 손해는 비교할 수 없는 것이니.]],
+		telos = [[나를 위해 정말 좋은 곳을 골랐군 그래. 이 수정 안에 있으니 정말 행복해. 지팡이에서는 내 겨드랑이 냄새가 나는 것 같군.]],
+		telos_full = [[텔로스의 힘 앞에 무릎 꿇으라!]],
 	}
 	if o.no_command then
 		return [[It is not yet your place to command such a staff as this. To do so invites obliteration.]]
@@ -164,9 +164,9 @@ end
 newChat{ id="welcome",
 	text = intro(o),
 	answers = {
-		{"How is it that you speak?", cond = function() return is_sentient() and not o.no_command end, jump="how_speak"},
-		{"I'd like you to bring forth a different aspect.", cond = function() return is_sentient() and not o.no_command end, jump="which_aspect"},
-		{"I'd like to alter your basic properties.", cond = function() return is_sentient() and not o.no_command end, 
+		{"대체 어떻게 말을 할 수 있는거지?", cond = function() return is_sentient() and not o.no_command end, jump="how_speak"},
+		{"다른 속성을 불러내고 싶은데.", cond = function() return is_sentient() and not o.no_command end, jump="which_aspect"},
+		{"기본 특성을 바꾸고 싶어.", cond = function() return is_sentient() and not o.no_command end, 
 			action = function()
 				coroutine.resume(co, true)
 				local SentientWeapon = require "mod.dialogs.SentientWeapon"
@@ -174,125 +174,125 @@ newChat{ id="welcome",
 				game:registerDialog(ds)
 			end,
 		},
-		{"[Mage]", cond = function() return not is_sentient() and not o.no_command end, jump="element_mage"},
-		{"[Star]", cond = function() return not is_sentient() and not o.no_command end, jump="element_star"},
-		{"[Vile]", cond = function() return not is_sentient() and not o.no_command end, jump="element_vile"},
-		{"Never mind"},
+		{"[마법사]", cond = function() return not is_sentient() and not o.no_command end, jump="element_mage"},
+		{"[별]", cond = function() return not is_sentient() and not o.no_command end, jump="element_star"},
+		{"[독성]", cond = function() return not is_sentient() and not o.no_command end, jump="element_vile"},
+		{"아무 것도 아냐."},
 	}
 }
 
 newChat{ id="element_mage",
-	text = [[Call forth which element?]],
+	text = [[어떤 속성을 불러냅니까?]],
 	answers = {
-		{"[Fire]", 
+		{"[화염]", 
 			action = function()
 				set_element(DamageType.FIRE, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Lightning]", 
+		{"[전격]", 
 			action = function() 
 				set_element(DamageType.LIGHTNING, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Cold]", 
+		{"[냉기]", 
 			action = function() 
 				set_element(DamageType.COLD, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Arcane]", 
+		{"[마법]", 
 			action = function() 
 				set_element(DamageType.ARCANE, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Choose different aspect]", jump="welcome"},
-		{"Never mind"},
+		{"[다른 속성을 고른다]", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
 newChat{ id="element_star",
-	text = [[Call forth which element?]],
+	text = [[어떤 속성을 불러냅니까?]],
 	answers = {
-		{"[Light]", 
+		{"[빛]", 
 			action = function() 
 				set_element(DamageType.LIGHT, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Darkness]", 
+		{"[어둠]", 
 			action = function() 
 				set_element(DamageType.DARKNESS, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Temporal]", 
+		{"[시간]", 
 			action = function() 
 				set_element(DamageType.TEMPORAL, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Physical]", 
+		{"[물리]", 
 			action = function() 
 				set_element(DamageType.PHYSICAL, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Choose different aspect]", jump="welcome"},
-		{"Never mind"},
+		{"[다른 속성을 고른다]", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
 
 newChat{ id="element_vile",
-	text = [[Call forth which element?]],
+	text = [[어떤 속성을 불러냅니까?]],
 	answers = {
-		{"[Darkness]", 
+		{"[어둠]", 
 			action = function() 
 				set_element(DamageType.DARKNESS, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Blight]", 
+		{"[황폐]", 
 			action = function() 
 				set_element(DamageType.BLIGHT, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Acid]", 
+		{"[산성]", 
 			action = function() 
 				set_element(DamageType.ACID, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Fire]", 
+		{"[화염]", 
 			action = function() 
 				set_element(DamageType.FIRE, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Choose different aspect]", jump="welcome"},
-		{"Never mind"},
+		{"[다른 속성을 고른다]", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
 newChat{ id="how_speak",
 	text = how_speak(o),
 	answers = {
-		{"I see.", jump="welcome"},
+		{"그러죠.", jump="welcome"},
 	}
 }
 
 newChat{ id="which_aspect",
 	text = which_aspect(o),
 	answers = {
-		{"[Mage]", jump="element_mage"},
-		{"[Star]", jump="element_star"},
-		{"[Vile]", jump="element_vile"},
-		{"Back up a second.", jump="welcome"},
-		{"Never mind"},
+		{"[마법사]", jump="element_mage"},
+		{"[별]", jump="element_star"},
+		{"[독성]", jump="element_vile"},
+		{"조금 전으로 돌아가지.", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
