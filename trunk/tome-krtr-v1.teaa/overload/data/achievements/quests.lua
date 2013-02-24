@@ -317,7 +317,7 @@ newAchievement{
 	name = "The Right thing to do", id = "RING_BLOOD_KILL",
 	show = "name",
 	kr_display_name = "올바른 일",
-	desc = [[피의 경기장에서 올바른 일을 수행하고, 피의 경기장 운영자를 처리함.]],
+	desc = [[피의 투기장에서 올바른 일을 수행하고, 피의 투기장 운영자를 처리함.]],
 }
 newAchievement{
 	name = "Thralless", id = "RING_BLOOD_FREED",

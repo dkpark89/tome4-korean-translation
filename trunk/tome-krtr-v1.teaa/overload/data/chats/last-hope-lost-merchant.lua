@@ -102,7 +102,7 @@ local maker_list = function()
 					player:incMoney(-4000)
 					-- clear chrono worlds and their various effects
 					if game._chronoworlds then
-						game.log("#CRIMSON#이미 준비된 상품이기 때문에, 시간여행을 해도 효과는 없습니다.")
+						game.log("#CRIMSON#이미 결정된 미래에 대해서, 시간여행은 아무런 영향도 주지 않습니다.")
 						game._chronoworlds = nil
 					end
 					game:saveGame()
@@ -113,6 +113,7 @@ local maker_list = function()
 							{"네, 부탁드립니다.", action=function(npc, player)
 								local d = require("engine.dialogs.GetText").new("이름을 정하세요", "이름", 2, 40, function(txt)
 									art.name = txt:removeColorCodes():gsub("#", " ")
+									art.kr_display_name = art.name --@@ 사용자가 결정한 이름은 한글 이름도 같도록
 									game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다. : %s", art:getName{do_color=true})
 								end, function() game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다, : %s", art:getName{do_color=true}) end)
 								game:registerDialog(d)

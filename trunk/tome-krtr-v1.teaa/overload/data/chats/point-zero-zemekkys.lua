@@ -21,7 +21,7 @@ newChat{ id="welcome",
 	action = function(npc, player) npc.talked_times = (npc.talked_times or 0) + 1 end,
 	text = [[@playername@, 다시 봐서 반갑군 그래! 아니, 우리 처음 만나는 건가?]],
 	answers = {
-		{"그럼 이만, 위대한 감시자여."},
+		{"그럼 이만, 위대한 감시원이여."},
 		{"그렇습니다. 우리는 서로 처음 보는 사이입니다.", jump="first", cond=function(npc, player) return not npc.talked_times end},
 	}
 }
@@ -32,7 +32,7 @@ newChat{ id="first",
 이건 굉장히 중요한 일이라네. 그때의 '나' 에게 지금의 나에 대한 얘기를 하면 절대 안되네. 알겠는가?]],
 	answers = {
 		{"네, 뭐..."},
-		{"알겠습니다, 위대한 감시자여."},
+		{"알겠습니다, 위대한 감시원이여."},
 	}
 }
 

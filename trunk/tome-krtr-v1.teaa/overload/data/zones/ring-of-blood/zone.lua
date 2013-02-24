@@ -19,14 +19,14 @@
 
 return {
 	name = "Ring of Blood",
-	kr_display_name = "피의 경기장",
+	kr_display_name = "피의 투기장",
 	display_name = function(x, y)
 		if game.level.level < 3 then return "Slavers Compound ("..game.level.level..")" end
 		return "Ring of Blood"
 	end,
 	kr_display_name_f = function(x, y)
 		if game.level.level < 3 then return "노예 수용소 ("..game.level.level..")" end
-		return "피의 경기장"
+		return "피의 투기장"
 	end,
 	variable_zone_name = true,
 	level_range = {10, 25},

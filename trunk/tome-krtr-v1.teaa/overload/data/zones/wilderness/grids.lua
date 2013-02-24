@@ -625,7 +625,7 @@ newEntity{ base="ZONE_PLAINS", define_as = "VOR_ARMOURY",
 
 newEntity{ base="ZONE_DESERT", define_as = "BRIAGH_LAIR",
 	name="Entrance into the sandpit of Briagh",
-	kr_display_name = "브리아그의 모래굴로 가는 입구",
+	kr_display_name = "브리아그흐의 모래굴로 가는 입구",
 	color=colors.YELLOW,
 	add_displays = {mod.class.Grid.new{image="terrain/ladder_down.png", z=5}},
 	change_zone="briagh-lair",

@@ -24,7 +24,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "RING_MASTER",
 	type = "humanoid", subtype = "yaech", unique = true,
 	name = "Blood Master",
-	kr_display_name = "피의 경기장 운영자",
+	kr_display_name = "피의 투기장 운영자",
 	display = "@", color=colors.VIOLET,
 	blood_color = colors.BLUE,
 	desc = [[이 작은 영장류는 비단같은 흰 털로 온 몸이 덮혀있으며, 툭 튀어나온 눈은 당신의 정신 속까지 깊이 응시하고 있습니다.]],
