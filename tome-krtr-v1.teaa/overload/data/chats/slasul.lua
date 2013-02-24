@@ -31,7 +31,7 @@ newChat{ id="welcome",
 말하라, 그렇지 않으면 죽을 것이다. 나 슬라슐의 이름으로, 너는 내 계획을 방해하지 못할 것이다.]],
 	answers = {
 		{"[공격한다]", action=attack("그게 네 대답인가... 그렇다면 죽어라!")},
-		{"나는 우클림스윅이 보내, 너의 모든 수중 생물들을 지배하려는 정신나간 계획을 멈추러 왔다!", jump="quest"},
+		{"나는 우를름스윅이 보내, 너의 모든 수중 생물들을 지배하려는 정신나간 계획을 멈추러 왔다!", jump="quest"},
 	}
 }
 
@@ -53,7 +53,7 @@ newChat{ id="givequest",
 내가 한 말을 믿지 못해도 좋다. 하지만 이것만은 믿어주었으면 한다. 쉐르'툴 종족은 사라지지 않았다. 단지 숨어있을 뿐이지. 또한 그 실체 역시 자비와는 거리가 먼 종족들이다.
 최근, 자네를 여기로 보낸 물의 용이 "요원" 들을 보내 이 신전을 확보하려 하고 있다. 그의 목표는 확신할 수 없지만, 최소한 평화적인 목적이 아니라는 것만은 확실하지.]],
 	answers = {
-		{"정신 나간 사람이 할 말은 아닌 것 같군요... 우클림스윅이 거짓말을 했을까요?", jump="portal_back", action=function(npc, player) player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "slasul-story") end},
+		{"정신 나간 사람이 할 말은 아닌 것 같군요... 우를름스윅이 거짓말을 했을까요?", jump="portal_back", action=function(npc, player) player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "slasul-story") end},
 		{"네 거짓말에 속지 않으리라! 너에게 희생된 것들에 대한 대가를 치뤄라!", action=attack("이런 상황을 원한 것은 아니다만... 자네가 원한다면.")},
 	}
 }

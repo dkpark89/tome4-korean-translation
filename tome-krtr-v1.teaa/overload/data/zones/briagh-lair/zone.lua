@@ -19,7 +19,7 @@
 
 return {
 	name = "Briagh's Lair",
-	kr_display_name = "브리아그의 동굴",
+	kr_display_name = "브리아그흐의 동굴",
 	level_range = {35, 50},
 	level_scheme = "player",
 	max_level = 1,

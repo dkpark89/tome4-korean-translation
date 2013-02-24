@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newChat{ id="welcome",
 	action = function(npc, player) player:attr("invulnerable", 1) end,
 	text = [[#LIGHT_GREEN#*키 크고, 마치 별과 같이 빛나는 남자가 갑자기 나타났습니다.*#WHITE#
@@ -31,7 +33,7 @@ newChat{ id="welcome",
 				o:identify(true)
 				game.zone:addEntity(game.level, o, "object")
 				player:addObject(player.INVEN_INVEN, o)
-				game.log("시간의 감시자가 당신에게 선물을 주었습니다. : %s", o:getName{do_color=true})
+				game.log("시간의 감시자가 당신에게 %s 주었습니다.", o:getName{do_color=true}:addJosa("를"))
 			end
 
 			game:setAllowedBuild("chronomancer")

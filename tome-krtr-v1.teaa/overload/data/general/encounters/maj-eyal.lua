@@ -237,7 +237,7 @@ newEntity{
 
 newEntity{
 	name = "Ring of Blood",
-	kr_display_name = "피의 경기장",
+	kr_display_name = "피의 투기장",
 	type = "harmless", subtype = "special", unique = true,
 	immediate = {"world-encounter", "maj-eyal"},
 	on_encounter = function(self, who)

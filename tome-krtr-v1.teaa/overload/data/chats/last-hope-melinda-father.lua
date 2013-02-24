@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
+
 local q = game.player:hasQuest("kryl-feijan-escape")
 local qs = game.player:hasQuest("shertul-fortress")
 local ql = game.player:hasQuest("love-melinda")
@@ -52,7 +55,7 @@ newChat{ id="reward",
 			local ro = game.zone:makeEntity(game.level, "object", {unique=true, not_properties={"lore"}}, nil, true)
 			if ro then
 				ro:identify(true)
-				game.logPlayer(player, "멜린다의 아버지가 당신에게 준 물건은 %s입니다.", ro:getName{do_color=true})
+				game.logPlayer(player, "멜린다의 아버지가 당신에게 %s 건네 줬습니다.", ro:getName{do_color=true}:addJosa("를"))
 				game.zone:addEntity(game.level, ro, "object")
 				player:addObject(player:getInven("INVEN"), ro)
 			end

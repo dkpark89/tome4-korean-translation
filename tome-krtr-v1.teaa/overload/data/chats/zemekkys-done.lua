@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[흠? 아, 그대로군, @playername@.
+	text = [[흠? 아, @playername@, 그대로군.
 관문은 어떤가? 만족스러운가?]],
 	answers = {
 		{"네, 감사합니다."},
