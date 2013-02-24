@@ -18,35 +18,35 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Thank you, @playername@. I hate to admit it, but you saved my life.]],
+	text = [[감사합니다, @playername@. 인정하기는 싫지만, 당신이 제 목숨을 구했습니다.]],
 	answers = {
-		{"At your service. But may I ask what you were doing in this dark place?", jump="what", cond=function(npc, player) return not player:hasQuest("start-sunwall") end},
-		{"At your service. I have been gone for months, but I can feel it, at last this is my homeland!", jump="back", cond=function(npc, player) return player:hasQuest("start-sunwall") end},
+		{"당신을 위해서라면. 하지만 이 어두운 곳에서 무엇을 하고 있었는지 물어봐도 될까요?", jump="what", cond=function(npc, player) return not player:hasQuest("start-sunwall") end},
+		{"당신을 위해서라면. 비록 저는 몇 달 동안 이곳을 떠나 있었지만, 저는 느낄 수 있습니다. 이곳은 제 고향 땅입니다!", jump="back", cond=function(npc, player) return player:hasQuest("start-sunwall") end},
 	}
 }
 
 newChat{ id="what",
-	text = [[I am an Anorithil, a mage of the Sun and Moons; we fight all that is evil. I was with a group of Sun Paladins; we came from the Gates of Morning to the east.
-My companions were... were slaughtered by orcs, and I nearly died as well. Thank you again for your help.]],
+	text = [[저는 아노리실입니다. 태양과 달의 힘을 다루는 마법사로, 모든 사악한 것들과 맞서 싸우는 자들입니다. 그리고 저는 태양의 기사단에 소속된 사람으로, 우리는 동쪽에 있는 아침의 문에서 왔습니다.
+제 동료들은... 오크들에게 학살당했습니다. 그리고 저 역시 죽을 뻔 했지요. 도와주셔서 다시 한번 감사드립니다.]],
 	answers = {
-		{"It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", action=function(npc, player) game:setAllowedBuild("divine") game:setAllowedBuild("divine_anorithil", true) end, jump="sunwall"},
+		{"오히려 제가 더 기쁜 일입니다. 하지만 제 부탁을 하나 들어주시겠습니까? 저는 이 땅의 사람이 아닙니다. 저는 철의 왕좌 깊숙한 곳에서 오크들이 지키는 장거리 관문을 사용해서 이곳에 왔습니다.", action=function(npc, player) game:setAllowedBuild("divine") game:setAllowedBuild("divine_anorithil", true) end, jump="sunwall"},
 	}
 }
 
 newChat{ id="sunwall",
-	text = [[Yes, I noticed you were not from here. Your only hope is the Gates of Morning, the last bastion of freedom in this orc territory. When you leave the caves, head southeast; you cannot miss it.
-Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]],
+	text = [[네. 저 역시 당신이 이곳 사람이 아니라는 것을 느꼈습니다. 당신의 유일한 희망은 오크들의 공습으로부터의 마지막 피난처인 자유민들의 도시, '아침의 문' 이 되겠군요. 이 동굴을 빠져나와서, 남동쪽으로 가시면 됩니다. 아마 마을을 지나칠 일은 없을겁니다.
+고위 태양의 기사 아에린에게 저를 만났다는 말을 하십시오. 당신을 통과시키라는 말을 해두겠습니다.]],
 	answers = {
-		{"Thank you, I will talk with Aeryn.", action=function(npc, player) game.player:setQuestStatus("strange-new-world", engine.Quest.COMPLETED, "helped-fillarel") end},
+		{"감사합니다. 아에린과 대화를 해보겠습니다.", action=function(npc, player) game.player:setQuestStatus("strange-new-world", engine.Quest.COMPLETED, "helped-fillarel") end},
 	}
 }
 
 newChat{ id="back",
-	text = [[Gone? Wait, this face.. you are @playername@! We thought you died in the naga portal explosion!
-Thanks to your courrage the Gates of Morning still stand.
-You should go there at once.]],
+	text = [[흠? 잠깐, 이 얼굴... @playername@ 아닙니까! 우리는 당신이 나가들의 관문이 폭발하면서 죽은 줄 알았습니다!
+당신의 용기 덕분에, 아침의 문은 아직 굳건히 이 땅에 서있습니다.
+지금 즉시 그곳으로 가보십시오.]],
 	answers = {
-		{"Sadly I am the bringer of bad news, the orcs are planning something. Good luck, my lady."},
+		{"슬프게도, 저는 나쁜 소식을 전해주는 전령이 되겠군요. 오크들이 어떤 계획을 꾸미고 있습니다. 그럼 행운이 있으시길."},
 	}
 }
 

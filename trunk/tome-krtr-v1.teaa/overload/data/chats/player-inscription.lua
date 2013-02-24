@@ -40,7 +40,7 @@ for i = 1, player.max_inscriptions do
 end
 
 if not replace_same and player.inscriptions_slots_added < 2 and player.unused_talents_types > 0 then
-	answers[#answers+1] = {"#{bold}#기술 계열 점수#{normal}#로 새 각인 슬롯을 사세요.", action=function(npc, player)
+	answers[#answers+1] = {"#{bold}#기술 계열 점수#{normal}#로 각인의 제한을 늘릴 수 있습니다.", action=function(npc, player)
 		player.unused_talents_types = player.unused_talents_types - 1
 		player.max_inscriptions = player.max_inscriptions + 1
 		player.inscriptions_slots_added = player.inscriptions_slots_added + 1
@@ -52,11 +52,11 @@ end
 answers[#answers+1] = {"취소"}
 
 newChat{ id="welcome",
-	text = replace_same and [[당신은 이런 종류의 각인을 너무 많이 가지고 있습니다. 당신은 이미 가지고 있는 것 중 한가지를 바꿀 수 있습니다. 바꾸기로 선택한 각인은 사라지게 될 것입니다..]]
-	or [[당신은 최대의 각인 제한에 다다랐습니다. (인퓨젼/룬).
-만약 아직 사용하지 않은 #{bold}#기술 계열 점수#{normal}#가 있다면 그걸 써서 새 각인 슬롯을 만들 수 있습니다. (5개까지 가능).
-이미 있는 것들 중 하나를 없애거나 혹은 취소하고 나중에 다시 선택할 수 있습니다..
-바꾸기로 선택한 각인은 사라질 것입니다..]],
+	text = replace_same and [[당신은 같은 종류의 각인을 너무 많이 새기려고 했습니다. 더 이상 같은 각인을 추가로 새길 수는 없으며, 이미 새겼던 각인과 바꿀 수만 있습니다. 각인을 바꿀 경우, 이전에 새겼던 각인은 사라지게 됩니다.]]
+	or [[당신은 최대 각인 제한에 다다랐습니다. (주입물 / 룬 포함)
+만약 아직 사용하지 않은 #{bold}#기술 계열 점수#{normal}#가 있다면, 이것을 사용해서 추가로 각인을 새길 수 있습니다. (최대 각인 제한은 5 개)
+이미 새겼던 각인들 중 하나를 없애고, 새로운 각인을 새길 수도 있습니다.
+단, 이 경우 이전에 새겼던 각인은 사라지게 됩니다.]],
 	answers = answers,
 }
 

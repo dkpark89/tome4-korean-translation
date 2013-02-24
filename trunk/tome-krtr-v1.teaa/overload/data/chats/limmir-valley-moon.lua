@@ -18,10 +18,10 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[I do not have time to talk. This ritual is intense, and we are not alone here. Stop them!]],
+	text = [[이야기할 시간이 없습니다. 이 의식은 진지하게 치뤄져야 하고, 우리는 안타깝게도 혼자가 아니니까요. 저들을 막아주십시오!]],
 	answers = {
-		{"I will not let you down!"},
-		{"[leave]"},
+		{"당신을 그냥 놔두지는 않겠습니다!"},
+		{"[떠난다]"},
 	}
 }
 

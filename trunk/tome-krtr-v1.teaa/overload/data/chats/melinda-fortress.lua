@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Hi, sweety!]],
+	text = [[안녕, 내 사랑!]],
 	answers = {
-		{"#LIGHT_GREEN#[kiss her]#WHITE#"},
+		{"#LIGHT_GREEN#[그녀에게 키스합니다]#WHITE#"},
 	}
 }
 

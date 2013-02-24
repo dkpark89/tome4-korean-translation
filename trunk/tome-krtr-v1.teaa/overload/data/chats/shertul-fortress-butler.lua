@@ -23,134 +23,134 @@ local set = function(what) return function(npc, player) q:setStatus(q.COMPLETED,
 local isNotSet = function(what) return function(npc, player) return not q:isCompleted("chat-"..what) end end
 
 newChat{ id="welcome",
-	text = [[*#LIGHT_GREEN#The creature slowly turns to you. You hear its terrible voice directly in your head.#WHITE#*
-Welcome, master.]],
+	text = [[*#LIGHT_GREEN#그 생명체가 천천히 당신에게 다가옵니다. 당신의 머리에 끔찍한 음성이 직접적으로 들려옵니다.#WHITE#*
+어서오십시오, 주인님.]],
 	answers = {
-		{"You asked me to come, about a farportal?", jump="farportal", cond=function() return q:isCompleted("farportal") and not q:isCompleted("farportal-spawn") end},
-		{"You asked me to come, about the rod of recall?", jump="recall", cond=function() return q:isCompleted("recall") and not q:isCompleted("recall-done") end},
-		{"Would it be possible for my Transmogrification Chest to automatically extract gems?", jump="transmo-gems", cond=function(npc, player) return not q:isCompleted("transmo-chest-extract-gems") and q:isCompleted("transmo-chest") and player:knowTalent(player.T_EXTRACT_GEMS) end},
-		{"I find your appearance unsettling. Any way you can change it?", jump="changetile", cond=function() return q:isCompleted("recall-done") end},
-		{"What are you, and what is this place?", jump="what", cond=isNotSet"what", action=set"what"},
-		{"Master? I am not your mas...", jump="master", cond=isNotSet"master", action=set"master"},
-		{"Why do I understand you? The texts are unreadable to me.", jump="understand", cond=isNotSet"understand", action=set"understand"},
-		{"What can I do here?", jump="storage", cond=isNotSet"storage", action=set"storage"},
-		{"What else can this place do?", jump="energy", cond=isNotSet"energy", action=set"energy"},
-		{"Would it be possible to improve my Cloak of Deception so I do not need to wear it to pass as a living being?", jump="permanent-cloak", 
+		{"네가 나를 불러서 왔다. 장거리 관문 때문이라고 했나?", jump="farportal", cond=function() return q:isCompleted("farportal") and not q:isCompleted("farportal-spawn") end},
+		{"네가 나를 불러서 왔다. 되돌림의 장대 때문이라고 했나?", jump="recall", cond=function() return q:isCompleted("recall") and not q:isCompleted("recall-done") end},
+		{"내 변환 상자가 자동적으로 보석을 추출해낼 수 있게 해줄 수 있나?", jump="transmo-gems", cond=function(npc, player) return not q:isCompleted("transmo-chest-extract-gems") and q:isCompleted("transmo-chest") and player:knowTalent(player.T_EXTRACT_GEMS) end},
+		{"네 생김새를 보고 있자니 심기가 불편하군 그래. 외모를 바꿀 수 있겠나?", jump="changetile", cond=function() return q:isCompleted("recall-done") end},
+		{"너는 무엇이고, 이곳은 어디인가?", jump="what", cond=isNotSet"what", action=set"what"},
+		{"주인님? 나는 네 주인님이 아니...", jump="master", cond=isNotSet"master", action=set"master"},
+		{"어떻게 내가 네 말을 이해할 수 있는거지? 여기 있는 글씨들은 읽을 수 없는데 말이야.", jump="understand", cond=isNotSet"understand", action=set"understand"},
+		{"나는 이곳에서 무엇을 할 수 있지?", jump="storage", cond=isNotSet"storage", action=set"storage"},
+		{"이곳에는 또 어떤 기능이 있지?", jump="energy", cond=isNotSet"energy", action=set"energy"},
+		{"내 기만의 망토를 강화해줄 수 있겠나? 망토를 걸치지 않아도 살아있는 존재로 보일 수 있게 말이야.", jump="permanent-cloak", 
 			cond=function(npc, player)
 				local cloak = player:findInAllInventoriesBy("define_as", "CLOAK_DECEPTION")
 				return not q:isCompleted("permanent-cloak") and q:isCompleted("transmo-chest") and cloak
 		end},
-		{"[leave]"},
+		{"[떠난다]"},
 	}
 }
 
 newChat{ id="master",
-	text = [[*#LIGHT_GREEN#The creature glares at you.#WHITE#*
-You possess a control rod. You are the master.]],
+	text = [[*#LIGHT_GREEN#그 생명체가 당신을 흘끗 봅니다.#WHITE#*
+당신은 제어의 장대를 가지고 있습니다. 당신은 제 주인님입니다.]],
 	answers = {
-		{"Err... ok.", jump="welcome"},
+		{"으음... 알았어.", jump="welcome"},
 	}
 }
 newChat{ id="understand",
-	text = [[*#LIGHT_GREEN#The creature glares at you.#WHITE#*
-You are the master; you have the rod. I am created to speak to the master.]],
+	text = [[*#LIGHT_GREEN#그 생명체가 당신을 흘끗 봅니다.#WHITE#*
+당신은 주인님입니다. 당신은 제어의 장대를 가지고 있습니다. 저는 주인님에게 말을 하기 위해 만들어졌습니다.]],
 	answers = {
-		{"Err... ok.", jump="welcome"},
+		{"으음... 알았어.", jump="welcome"},
 	}
 }
 
 newChat{ id="what",
-	text = [[*#LIGHT_GREEN#The creature glares at you with intensity. You 'see' images in your head.
-You see titanic wars in an age now forgotten. You see armies of what you suppose are Sher'Tuls since they look like the shadow.
-They fight with weapons, magic and other things. They fight gods. They hunt them down, killing or banishing them.
-You see great fortresses like this one, flying all over the skies of Eyal - shining bastions of power glittering in the young sun.
-You see the gods beaten, defeated and dead. All but one.
-Then you see darkness; it seems like the shadow does not know what followed those events.
+	text = [[*#LIGHT_GREEN#그 생명체가 당신을 진지하게 노려봅니다. 당신의 머리 속에서 갑자기 다양한 장면들이 '보이기' 시작합니다.
+당신은 이제는 잊혀진 시대에 일어났던 대규모의 전쟁을 보고 있습니다. 당신은 마치 그림자와도 같은, 아마 쉐르'툴 종족으로 이루어졌다고 생각되는 군대를 보고 있습니다.
+그들은 무기, 마법, 기타 다양한 것들을 사용하여 전투를 하였습니다. 그들은 신과 싸웠습니다. 그들은 신들을 사냥했습니다. 신들을 죽이거나 추방시켰습니다.
+당신은 지금 당신이 있는 곳과도 같은 거대한 요새들을 보았습니다. 에이알 세계의 하늘을 떠다니는... 그것들은 마치 어린 태양처럼, 강렬한 힘으로 빛나고 있습니다.
+당신은 신들이 패배하는 것을 보았습니다. 패배하고 죽는 것을 보았습니다. 단 하나를 제외하고...
+그리고 당신은 어둠을 보았습니다. 아마 이 그림자도 이후에 어떤 일이 벌어졌는지는 모르는 것 같습니다.
 
-You shake your head as the vision dissipates, and your normal sight comes back slowly.
+당신은 머리를 흔들었고, 그러자 머리 속에 떠오르던 장면들도 흩어졌습니다. 천천히 당신의 원래 시야가 돌아왔습니다.
 #WHITE#*
 ]],
 	answers = {
-		{"Those are Sher'Tuls? They fought the gods?!", jump="godslayers"},
+		{"그들이 쉐르'툴 종족이였나? 그들은 신들과 싸웠다는건가?!", jump="godslayers"},
 	}
 }
 
 newChat{ id="godslayers",
-	text = [[They had to. They forged terrible weapons of war. They won.]],
+	text = [[그랬습니다. 그들은 전쟁을 위해 끔찍한 무기들을 만들었습니다. 그들은 이겼습니다.]],
 	answers = {
-		{"But then where are they now if they won?", jump="where"},
+		{"그 전쟁에서 이겼다면, 이제 그들은 어디에 있는거지?", jump="where"},
 	}
 }
 
 newChat{ id="where",
-	text = [[They are gone now. I cannot tell you more.]],
+	text = [[그들은 사라졌습니다. 그 이상은 말할 수 없습니다.]],
 	answers = {
-		{"But I am the master!", jump="where"},
-		{"Fine.", jump="welcome"},
+		{"하지만 나는 네 주인이라고!", jump="where"},
+		{"알았어.", jump="welcome"},
 	}
 }
 
 newChat{ id="storage",
-	text = [[*#LIGHT_GREEN#The creature glares at you.#WHITE#*
-You are the master. You can use this place as you desire. However, most of the energies are depleted and only some rooms are usable.
-To the south you will find the storage room.]],
+	text = [[*#LIGHT_GREEN#그 생명체가 당신을 흘끗 봅니다.#WHITE#*
+당신은 주인님입니다. 당신은 이 공간을 자유롭게 사용할 수 있습니다. 하지만, 대부분의 동력이 끊겨 몇 개의 방만 사용할 수 있는 상태입니다.
+남쪽에 가면 원거리 저장소를 발견할 수 있을 것입니다.]],
 	answers = {
-		{"Thanks.", jump="welcome"},
+		{"그래, 고마워.", jump="welcome"},
 	}
 }
 
 newChat{ id="energy",
-	text = [[This Fortress is designed as a mobile base for the Godslayers - it can fly.
-It is also equiped with various facilities: exploratory farportal, emergency containment field, remote storage, ...
-However, the Fortess is badly damaged and has lain dormant for too long. Its energies are nearly depleted.
-Take this Transmogrification Chest. It is linked by a permanent farportal to the Fortress. Any item you put inside will be sent to the power core and dismantled for energy.
-There are, however, unwanted byproducts to this operation: the generation of a metal known as gold. It is of no use to the Fortress and thus will be sent back to you.]],
+	text = [[이 요새는 신을 사냥하기 위한 이동요새입니다. 물론 날아다닐 수도 있습니다.
+또한 다양한 기능들이 탑재되어 있습니다. 탐험용 장거리 관문, 긴급 봉쇄 공간, 원거리 저장소, ...
+하지만, 이 요새는 심각한 피해를 입었고 작동을 멈춘지 너무 오래 되었습니다. 요새의 동력은 거의 사라진 상태입니다.
+이 변환 상자를 받으십시오. 이 상자는 요새와 연결된 장거리 관문이 영구적으로 작동합니다. 이 안에 들어간 물건들은 자연적으로 동력 중심부로 이동되며, 물건을 분해하여 동력으로 만들어냅니다.
+이 과정에서 불필요한 부산물로 금속이 만들어집니다. 금으로 불리는 금속으로, 요새에는 필요 없는 물질이기 때문에 당신에게 되돌아가게 됩니다.]],
 	answers = {
-		{"I will, thanks.", jump="welcome", action=function() q:spawn_transmo_chest() end, cond=function(npc, player) return not player:attr("has_transmo") end},
-		{"I have already found such a chest in my travel. Will it work?", jump="alreadychest", action=function() q:setStatus(q.COMPLETED, "transmo-chest") end, cond=function(npc, player) return player:attr("has_transmo") end},
+		{"그러지, 고마워.", jump="welcome", action=function() q:spawn_transmo_chest() end, cond=function(npc, player) return not player:attr("has_transmo") end},
+		{"여행중에 그런 상자를 발견했는데. 이걸 사용해도 되나?", jump="alreadychest", action=function() q:setStatus(q.COMPLETED, "transmo-chest") end, cond=function(npc, player) return player:attr("has_transmo") end},
 	}
 }
 
 newChat{ id="alreadychest",
-	text = [[Yes, it will. I will attune it to this fortress.
-Done.]],
+	text = [[물론, 가능합니다. 상자와 이 요새를 연결시켜 두겠습니다.
+완료되었습니다.]],
 	answers = {
-		{"Thanks.", jump="welcome"},
+		{"고마워.", jump="welcome"},
 	}
 }
 
 newChat{ id="farportal",
-	text = [[Long ago the Sher'tuls used farportals not only for transportation to known locations, but also to explore new parts of the world, or even other worlds.
-This Fortress is equipped with an exploratory farportal, and now has enough energy to allow one teleportation. Each teleportation will take you to a random part of the universe and use 30 energy.
-Beware that the return portal may not be nearby your arrival point; you will need to find it. You can use the rod of recall to try to force an emergency recall, but it has high chances of breaking the exploratory farportal forever.
-You may use the farportal; however, beware - I sense a strange presence in the farportal room.]],
+	text = [[오래 전, 쉐르'툴 종족은 장거리 관문을 이미 알고 있는 곳으로 이동할 때 사용하는 것은 물론, 세계의 새로운 곳을 탐험하기 위해 쓰기도 하였습니다. 관문을 통해 나온 장소는 다른 세계일 때도 있었지요.
+이 요새는 하나의 장거리 관문이 설치되어 있습니다. 그리고 이제 한 번의 사용이 가능할 만큼 동력이 마련됐습니다. 장거리 관문은 사용할 때마다 동력을 30 소모해서 우주의 무작위한 곳으로 당신을 이동시킵니다.
+귀환용 관문이 상당히 멀리 떨어진 곳에 생길 수도 있으니, 조심해야 합니다. 이 경우 귀환용 관문은 직접 찾아야 합니다. 되돌림의 장대를 사용해서 긴급 귀환을 할 수도 있지만, 이 경우 높은 확률로 장거리 관문이 파괴되어 다시는 사용할 수 없게 됩니다.
+이제 장거리 관문을 사용할 수 있지만, 조심하십시오. 장거리 관문이 설치된 곳에서 수상한 존재가 감지되었습니다.]],
 	answers = {
-		{"I will check it out, thanks.", action=function() q:spawn_farportal_guardian() end},
+		{"한번 확인해보는게 좋을 것 같군. 고마워.", action=function() q:spawn_farportal_guardian() end},
 	}
 }
 
 newChat{ id="recall",
-	text = [[The rod of recall you possess is not a Sher'tul artifact, but it is based on Sher'tul design.
-The Fortress now has enough energy to upgrade it. It can be changed to recall you to the Fortess.]],
+	text = [[이 되돌림의 장대는 쉐르'툴 시대의 물건은 아니지만, 기본적으로 쉐르'툴 종족들이 사용하던 구조를 따르고 있습니다.
+이제 요새에 충분한 동력이 모여, 되돌림의 장대를 사용하면 요새로 귀환할 수 있게 만들 수 있습니다.]],
 	answers = {
-		{"I like it the way it is now. Thanks anyway."},
-		{"That could be quite useful. Yes, please do it.", action=function() q:upgrade_rod() end},
+		{"지금 방식이 더 마음에 드는군. 어쨌든 고마워."},
+		{"꽤 유용하겠는걸. 그렇게 해줘.", action=function() q:upgrade_rod() end},
 	}
 }
 
 newChat{ id="transmo-gems",
-	text = [[Ah yes, you seem to master the simple art of alchemy. I can change the chest to automatically use your power to extract a gem if the transmogrification of the gem would reward more energy.
-However, I will need to use 25 energy to do this.]],
+	text = [[아, 물론입니다. 연금술의 기초를 완전히 숙달하신 것 같군요. 상자가 자동적으로 당신의 힘을 사용하여, 자동적으로 보석으로 변환시키도록 하겠습니다. 보석으로 변환시키는 것이 더 많은 동력을 만들어낼 수 있을 경우에만요.
+하지만, 이를 위해서는 동력이 25 만큼 필요합니다.]],
 	answers = {
-		{"Maybe sometime later."},
-		{"That could be quite useful. Yes, please do it.", cond=function() return q.shertul_energy >= 25 end, action=function() q:upgrade_transmo_gems() end},
+		{"다음에 하도록 하지."},
+		{"꽤 유용하겠는걸. 그렇게 해줘.", cond=function() return q.shertul_energy >= 25 end, action=function() q:upgrade_transmo_gems() end},
 	}
 }
 
 newChat{ id="changetile",
-	text = [[I can alter the Fortress holographic projection matrix to accomodate your racial tastes. This will require 60 energy, however.]],
+	text = [[요새의 홀로그램 발생기를 통해, 취향에 맞는 형상으로 외모를 변경할 수 있습니다. 하지만 이를 위해서는 동력 60 이 필요합니다.]],
 	answers = {
-		{"Can you try for a human female appearance please?", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
+		{"인간 여성의 외모로 부탁할게.", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
 			q.shertul_energy = q.shertul_energy - 60
 			npc.replace_display = mod.class.Actor.new{
 				add_mos={{image = "npc/humanoid_female_sluttymaid.png", display_y=-1, display_h=2}},
@@ -161,7 +161,7 @@ newChat{ id="changetile",
 			game.level.map:updateMap(npc.x, npc.y)
 			game.level.map:particleEmitter(npc.x, npc.y, 1, "demon_teleport")
 		end},
-		{"Can you try for a human male appearance please?", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
+		{"인간 남성의 외모로 부탁할게.", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
 			q.shertul_energy = q.shertul_energy - 60
 			npc.replace_display = mod.class.Actor.new{
 				image = "invis.png",
@@ -173,23 +173,23 @@ newChat{ id="changetile",
 			game.level.map:updateMap(npc.x, npc.y)
 			game.level.map:particleEmitter(npc.x, npc.y, 1, "demon_teleport")
 		end},
-		{"Please revert to your default appearance.", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
+		{"원래 모습으로 돌아와줘.", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
 			q.shertul_energy = q.shertul_energy - 60
 			npc.replace_display = nil
 			npc:removeAllMOs()
 			game.level.map:updateMap(npc.x, npc.y)
 			game.level.map:particleEmitter(npc.x, npc.y, 1, "demon_teleport")
 		end},
-		{"Well, you do not look so bad actually. Let it be for now."},
+		{"음, 지금 모습도 나쁘지 않은걸. 그냥 그대로 있어도 될 것 같아."},
 	}
 }
 
 newChat{ id="permanent-cloak",
-	text = [[Yes Master. I can use 10 energy to infuse your cloak. When you take it off the effect should still persist.
-However, I suggest you still carry it with you in case something manages to remove it from you.]],
+	text = [[알겠습니다, 주인님. 동력 10 을 사용해서 망토에 힘을 주입시킬 수 있습니다. 이를 통해, 망토를 벗어도 그 효과가 유지되게 할 수 있습니다.
+하지만, 그래도 망토는 가지고 다니는 것이 좋습니다. 이 세계에는 혹시라도 망토의 효과를 없애는 무언가가 있을지도 모릅니다.]],
 	answers = {
-		{"Not now."},
-		{"That could be quite useful. Yes, please do it.", action=function(npc, player)
+		{"나중에 하지."},
+		{"꽤 유용하겠는걸. 그렇게 해줘.", action=function(npc, player)
 			local cloak = player:findInAllInventoriesBy("define_as", "CLOAK_DECEPTION")
 			cloak.upgraded_cloak = true
 			q.shertul_energy = q.shertul_energy - 10

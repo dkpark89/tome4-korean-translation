@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[So, you tasted blood? Liked it? I am sure you did; you are just that kind of people.
-Anyway, I suppose you deserve your reward.
-You can always participate again for fun, if you've got the gold to spare.]],
+	text = [[그래서, 피의 맛은 충분히 보셨습니까? 만족하셨습니까? 그랬으리라고 확신하지요. 당신은 그런 부류의 사람이니까요.
+어찌 됐건, 당신에게 말했던 상품을 드려야겠군요.
+원하신다면, 언제든지 다시 오셔도 좋습니다. 금화가 충분하시다면요.]],
 	answers = {
-		{"Thanks, it was fun!", action=function(npc, player) player:hasQuest("ring-of-blood"):reward(player) end},
+		{"고맙네, 재미있었어!", action=function(npc, player) player:hasQuest("ring-of-blood"):reward(player) end},
 	}
 }
 

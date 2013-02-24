@@ -18,40 +18,40 @@
 -- darkgod@te4.org
 
 newChat{ id="berethh",
-	text = [[#VIOLET#*Before you stands Berethh. His face shows no emotion, but his posture is threatening.#LAST#
+	text = [[#VIOLET#*당신 앞에 베레쓰가 서있습니다. 그의 얼굴에는 감정이 드러나있지 않지만, 그의 자세는 공포에 질린 것 같습니다.#LAST#
 ]],
 	answers = {
-		{"Kyless is dead.", jump="response"}
+		{"킬레스는 죽었습니다.", jump="response"}
 	}
 }
 
 newChat{ id="response",
-	text = [[I'm not sure if you deserved your fate. Still I cannot let you live.]],
+	text = [[네 운명을 받아들였는지 모르겠군. 하지만 나는 도저히 너를 살려둘 수 없다.]],
 	answers = {
 		{
-			"Then you will die like Kyless. #LIGHT_GREEN#[Attack]#LAST#",
+			"그렇다면 당신도 킬레스처럼 죽게 되겠죠. #LIGHT_GREEN#[공격한다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_evil_choice(player)
 			end
 		},
 		{
-			"I need your help. I want to overcome my curse.",
+			"당신의 도움이 필요합니다. 제 저주를 이겨내고 싶습니다.",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_good_choice(player)
 			end,
 			jump="attack"
 		},
 		{
-			"I do not want to kill you.",
+			"저는 당신을 죽이고 싶지 않습니다.",
 			jump="attack"
 		}
 	}
 }
 
 newChat{ id="attack",
-	text = [[#VIOLET#*Berethh ignores your comment, unslings his bow and prepares his attack.*#LAST#]],
+	text = [[#VIOLET#*베레쓰는 당신의 말을 무시한 채, 그의 활을 들어 공격할 준비를 합니다.*#LAST#]],
 	answers = {
-		{"#LIGHT_GREEN#[Attack]"},
+		{"#LIGHT_GREEN#[공격한다]"},
 	}
 }
 

@@ -18,17 +18,17 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[살려주세요! 저를 살려주시면 전 무엇이든지..
-*#LIGHT_GREEN#'암살단 단장'이 상인의 얼굴을 쳤습니다.#WHITE#*닥쳐!]],
+	text = [[살려주십시오! 저를 살려주시면 무엇이든지...
+*#LIGHT_GREEN#'암살단 단장' 이 상인의 얼굴을 쳤습니다.#WHITE#* 닥쳐!]],
 	answers = {
-		{"미안, 난 가봐야 할 것 같아!", action = function(npc, player) npc.can_talk = nil end},
+		{"미안합니다, 이만 가보겠습니다!", action = function(npc, player) npc.can_talk = nil end},
 	}
 }
 
 newChat{ id="welcome2",
-	text = [[저좀 여기서 내보내주세요!]],
+	text = [[저를 여기서 내보내주십시오!]],
 	answers = {
-		{"이리와, 여기에 나가는 길이 있어!", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},
+		{"여기로 오십시오, 나가는 길이 있습니다!", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},
 	}
 }
 

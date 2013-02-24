@@ -20,26 +20,26 @@ local q = game.player:hasQuest("lost-merchant")
 if q and q:isStatus(q.COMPLETED, "saved") then
 
 newChat{ id="welcome",
-	text = [[Ah, my #{italic}#good#{normal}# friend @playername@!
-Thanks to you I made it safely to this great city! I am planning to open my most excellent boutique soon, but since I am in your debt, perhaps I could open early for you if you are in need of rare goods.]]
-..(game.state:isAdvanced() and "\nOh my friend, good news! As I told you I can now request a truly #{italic}#unique#{normal}# object to be crafted just for you. For a truly unique price..." or "\nI eventually plan to arrange a truly unique service for the most discerning of customers. If you come back later when I'm fully set up I shall be able to order for you something quite marvellous. For a perfectly #{italic}#suitable#{normal}# price, of course."),
+	text = [[아니, 제 #{italic}#친절한#{normal}# 친구, @playername@ 아니십니까!
+당신 덕분에, 이 위대한 도시에 무사히 도착할 수 있었습니다! 이제 저는 이곳에서 가장 뛰어난 제품만을 취급하는 가게를 열 준비를 한창 하고 있습니다만, 당신에게 빚진 것도 있고 하니 당신만을 위해 가게를 미리 열도록 하지요. 희귀한 물건이 필요하시면 언제든지 오십시오.]]
+..(game.state:isAdvanced() and "\n오, 친구여. 좋은 소식이 있습니다! 제가 저번에 말했듯이, 이제 당신만을 위해 만들어지는 정말로 #{italic}#특별한#{normal}# 장비들을 주문할 수 있게 되었습니다. 물론 정말 특별한 가격표가 붙습니다만..." or "\n저는 정말 뛰어난 안목을 지닌 고객만을 위한 아주 특별한 서비스를 계획하고 있습니다. 그 준비가 다 끝날 때 쯤에, 다시 한번 이곳을 들러주십시오! 당신만을 위한, 정말로 굉장한 장비들을 구할 수 있을겁니다. 물론 정말로 #{italic}#그에 걸맞는#{normal}# 가격표가 붙겠지만요."),
 	answers = {
-		{"Yes please, let me see your wares.", action=function(npc, player)
+		{"아, 그럼 물건들을 좀 봐볼까요.", action=function(npc, player)
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"What about the unique object?", cond=function(npc, player) return game.state:isAdvanced() end, jump="unique1"},
-		{"Sorry, I have to go!"},
+		{"특별한 장비?", cond=function(npc, player) return game.state:isAdvanced() end, jump="unique1"},
+		{"아니, 이만 가보겠습니다!"},
 	}
 }
 
 newChat{ id="unique1",
-	text = [[I normally offer this service only for a truly deserved price, but for you my friend I am willing to offer a 20% discount - #{italic}#only#{normal}# 4000 gold to make an utterly unique item of your choice.  What do you say?]],
+	text = [[일반적으로는 그에 맞는 응당한 가격을 청구하지만, 당신은 제 친구니 20% 할인을 해드리지요. - #{italic}#딱#{normal}# 금화 4,000 개만 주시면 원하시는 종류의 엄청나게 희귀한 장비를 만들어 드리겠습니다. 어떠신가요?]],
 	answers = {
-		{"Why, 'tis a paltry sum - take my order, man, and be quick about it!", cond=function(npc, player) return player.money >= 10000 end, jump="make"},
-		{"Yes, please!", cond=function(npc, player) return player.money >= 4000 end, jump="make"},
-		{"HOW MUCH?! Please, excuse me, I- I need some fresh air...", cond=function(npc, player) return player.money < 500 end},
-		{"Not now, thank you."},
+		{"오, 그거 너무 싼거 아냐? 이봐, 주문을 받게. 상품 준비를 빨리 하는게 좋을걸!", cond=function(npc, player) return player.money >= 10000 end, jump="make"},
+		{"좋죠. 부탁할게요!", cond=function(npc, player) return player.money >= 4000 end, jump="make"},
+		{"얼마라고?! 어, 잠깐 좀 도와줘요. 시... 신선한 공기가 필요해...", cond=function(npc, player) return player.money < 500 end},
+		{"감사합니다만, 지금은 됐습니다."},
 	}
 }
 
@@ -102,31 +102,31 @@ local maker_list = function()
 					player:incMoney(-4000)
 					-- clear chrono worlds and their various effects
 					if game._chronoworlds then
-						game.log("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.")
+						game.log("#CRIMSON#이미 준비된 상품이기 때문에, 시간여행을 해도 효과는 없습니다.")
 						game._chronoworlds = nil
 					end
 					game:saveGame()
 
 					newChat{ id="naming",
-						text = "Do you want to name your item?\n"..tostring(art:getTextualDesc()),
+						text = "물건에 이름을 붙이시겠습니까?\n"..tostring(art:getTextualDesc()),
 						answers = {
-							{"Yes, please.", action=function(npc, player)
-								local d = require("engine.dialogs.GetText").new("Name your item", "Name", 2, 40, function(txt)
+							{"네, 부탁드립니다.", action=function(npc, player)
+								local d = require("engine.dialogs.GetText").new("이름을 정하세요", "이름", 2, 40, function(txt)
 									art.name = txt:removeColorCodes():gsub("#", " ")
-									game.log("#LIGHT_BLUE#The merchant carefully hands you: %s", art:getName{do_color=true})
-								end, function() game.log("#LIGHT_BLUE#The merchant carefully hands you: %s", art:getName{do_color=true}) end)
+									game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다. : %s", art:getName{do_color=true})
+								end, function() game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다, : %s", art:getName{do_color=true}) end)
 								game:registerDialog(d)
 							end},
-							{"No thanks.", action=function() game.log("#LIGHT_BLUE#The merchant carefully hands you: %s", art:getName{do_color=true}) end},
+							{"아뇨, 됐습니다.", action=function() game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다. : %s", art:getName{do_color=true}) end},
 						},
 					}
 					return "naming"
 				else
 					newChat{ id="oups",
-						text = "Oh I am sorry, it seems we could not make the item your require.",
+						text = "오, 미안한 일이지만 당신의 요구에 맞는 물건은 만들 수 없을 것 같네요.",
 						answers = {
-							{"Oh, let's try something else then.", jump="make"},
-							{"Oh well, maybe later then."},
+							{"오, 그러면 다른 장비를 선택하도록 하죠.", jump="make"},
+							{"오, 그러면 다음에 만들도록 하죠."},
 						},
 					}
 					return "oups"
@@ -139,16 +139,16 @@ local maker_list = function()
 end
 
 newChat{ id="make",
-	text = [[Which kind of item would you like ?]],
+	text = [[어떤 종류의 장비를 원하시는지요?]],
 	answers = maker_list(),
 }
 
 else
 
 newChat{ id="welcome",
-	text = [[*This store does not appear to be open yet*]],
+	text = [[*상점의 문은 아직 굳게 닫힌 상태입니다.*]],
 	answers = {
-		{"[leave]"},
+		{"[떠난다]"},
 	}
 }
 

@@ -22,44 +22,44 @@ local function attack(str)
 end
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*Before you stands a small humanoid creature with a disproportionate head.*#WHITE#
-Ah, what have we here? @playerdescriptor.race@, I believe you have turned at the wrong corner.]],
+	text = [[#LIGHT_GREEN#*당신 앞에 엄청나게 큰 머리를 가진, 작은 인간형 생물이 서있습니다.*#WHITE#
+아, @playerdescriptor.race@분께서 여긴 왠일이시죠? 길을 잘못 들어 여기로 온 것이라고 믿겠습니다.]],
 	answers = {
-		{"So it would seem. What is going on here?", jump="what"},
+		{"뭐 그렇다고 해두지. 여기는 무엇을 하는 곳인가?", jump="what"},
 	}
 }
 
 newChat{ id="what",
-	text = [[This is my Ring of Blood! Listen, you have now two choices.
-Since you do not look like slave fodder to me I will offer to let you pay to play the game.
-If you feel you cannot take part in a slaver's game, I am afraid you will need to... disappear.]],
+	text = [[이곳은 피의 투기장입니다! 들어보십시오, 당신에게는 두 가지 선택지가 있습니다.
+당신이 노예처럼 보이지는 않으니, 당신이 '게임' 을 즐길 수 있게 해드리지요.
+만약 당신이 노예 게임같은 것을 해서는 안된다고 생각한다면, 당신은... 여기서 사라지실 필요가 있습니다.]],
 	answers = {
-		{"Slavers? This is so wrong! [attack]", action=attack("You think so? Die.")},
-		{"Game? I like playing, what's this about?", jump="game"},
+		{"노예? 노예 제도 같은 것은 있어서는 안돼! [공격한다]", action=attack("그렇게 생각합니까? 죽으십시오.")},
+		{"게임? 그거 좋지. 정확히 무슨 게임이지?", jump="game"},
 	}
 }
 
 newChat{ id="game",
-	text = [[Well, you see, it's quite simple. I will mentally take control of various wild creatures or slaves while you use the orb of command on the other side of this room to take control of a slave.
-Then we fight using our pawns for 10 rounds. If your slave survives you will win the Bloodcaller.]],
+	text = [[뭐, 아주 간단합니다. 저는 정신적으로 다양한 야생동물과 노예들을 조종하게 됩니다. 그리고 당신은 반대편에 있는 명령의 오브를 사용해서 노예 하나를 조종하게 됩니다.
+우리 둘이 서로의 장기말을 사용해서 10 번의 쇄도를 펼칩니다. 만약 당신의 노예가 이긴다면, 특별한 반지인 '피를 부르는 자' 를 얻을 수 있습니다.]],
 	answers = {
-		{"What if I lose?", jump="lose"},
-		{"Blood, death without self-harm risks? Great fun!", jump="price"},
+		{"만약 내가 패배한다면?", jump="lose"},
+		{"나 자신은 멀쩡한 상태로 피와 죽음을 즐길 수 있다? 정말 재미있겠군!", jump="price"},
 	}
 }
 
 newChat{ id="lose",
-	text = [[Normally you would be taken as a slave, but you look like you would be more useful as a fulltime player, so you can just try again.]],
+	text = [[원래대로라면 당신은 노예가 됩니다만, 당신은 노예가 되는 것 보다는 계속 게임을 즐길 수 있게 해주는 편이 더 이득일 것 같군요. 그냥 다시 게임을 하시면 됩니다.]],
 	answers = {
-		{"Blood, death without self-harm risks? Great fun!", jump="price"},
+		{"나 자신은 멀쩡한 상태로 피와 죽음을 즐길 수 있다? 정말 재미있겠군!", jump="price"},
 	}
 }
 
 newChat{ id="price",
-	text = [[Superb. Oh yes, before I forget, to use the orb you will need to pay the standard fee of 150 gold pieces.
-I'm sure this is small money to an adventurer of your class.]],
+	text = [[좋습니다. 오, 하나 깜빡한 것이 있군요. 게임을 하시려면 표준 요금인 금화 150 개를 지불하셔야 합니다.
+당신 같은 모험가들에게는 얼마 안되는 금액이라 생각합니다만.]],
 	answers = {
-		{"150 gold? Err... yes, sure.", action=function(npc) npc.can_talk = nil end},
+		{"금화 150 개? 어... 그럼, 물론이지.", action=function(npc) npc.can_talk = nil end},
 	}
 }
 
