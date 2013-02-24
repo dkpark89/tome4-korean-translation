@@ -19,19 +19,19 @@
 
 newChat{ id="welcome",
 	action = function(npc, player) player:attr("invulnerable", 1) end,
-	text = [[#LIGHT_GREEN#*A tall man, glowing like a star, appears out of nowhere.*#WHITE#
-You destroyed *it* both? I am sorry for my harsh tone when we first met, but repairing time threads is stressful.
-I cannot stay. I still have much to do. But take this-- it should help you.
-#LIGHT_GREEN#*He disappears again before you can even reply. A rift opens, to Maj'Eyal... you hope.*#WHITE#]],
+	text = [[#LIGHT_GREEN#*키 크고, 마치 별과 같이 빛나는 남자가 갑자기 나타났습니다.*#WHITE#
+*그것* 둘을 모두 파괴했나? 이거, 처음 만났을 때 내가 너무 서두른 것 같아 미안하군 그래. 하지만 시간의 흐름을 바로잡는 것은 굉장히 머리 아픈 일이거든.
+이제 가봐야겠네. 아직도 할 일이 너무나 많거든. 대신 이걸 받게. 자네에게 도움이 될걸세.
+#LIGHT_GREEN#*당신이 답을 하기도 전에 그는 다시 사라졌으며, 관문이 하나 열렸습니다. 마즈'에이알로 통하...는 통로였으면 좋겠다는 생각이 듭니다.*#WHITE#]],
 	answers = {
-		{"Ok...", action = function(npc, player)
+		{"네...", action = function(npc, player)
 			player:attr("invulnerable", -1)
 			local o = game.zone:makeEntityByName(game.level, "object", "RUNE_RIFT")
 			if o then
 				o:identify(true)
 				game.zone:addEntity(game.level, o, "object")
 				player:addObject(player.INVEN_INVEN, o)
-				game.log("The temporal warden gives you: %s.", o:getName{do_color=true})
+				game.log("시간의 감시자가 당신에게 선물을 주었습니다. : %s", o:getName{do_color=true})
 			end
 
 			game:setAllowedBuild("chronomancer")

@@ -18,18 +18,18 @@
 -- darkgod@te4.org
 
 newChat{ id="kyless",
-	text = [[#VIOLET#*Kyless lies dying on the floor. In his hand he holds a book.*#LAST#
-Please! Before I die I have one request. Destroy the book. It wasn't me. The book brought this on us. It must be destoyed!]],
+	text = [[#VIOLET#*킬레스는 죽기 직전인 상태로 땅에 쓰러져 있습니다. 그의 손에는 책 한 권이 들려있습니다.*#LAST#
+부탁이네! 내가 죽기 전에, 마지막 한 가지 부탁만 들어주게. 이 책을 파괴해주게. 그것은 내가 아니였네. 이 책이 우리를 이렇게 만들었네. 이 책은 파괴되어야 하네!]],
 	answers = {
 		{
-			"I will. #LIGHT_GREEN#[destroy the book]#LAST#",
+			"그러죠. #LIGHT_GREEN#[책을 파괴한다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_good_choice(player)
 			end,
 			jump="destroy_book"
 		},
 		{
-			"I'm sorry but I need it. #LIGHT_GREEN#[keep the book]#LAST#",
+			"미안하게 됐지만, 저도 이 책이 필요합니다. #LIGHT_GREEN#[책을 파괴하지 않는다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_evil_choice(player)
 				player:hasQuest("keepsake"):on_keep_book(player)
@@ -40,16 +40,16 @@ Please! Before I die I have one request. Destroy the book. It wasn't me. The boo
 }
 
 newChat{ id="destroy_book",
-	text = [[#VIOLET#*You destroy the book. When you finish you look up and see that Kyless is already dead.*#LAST#]],
+	text = [[#VIOLET#*당신은 책을 파괴했습니다. 그 일을 끝낸 당신은, 킬레스가 이미 죽어있는 것을 발견했습니다.*#LAST#]],
 	answers = {
-		{"Goodbye, Kyless."},
+		{"잘 있게, 킬레스."},
 	}
 }
 
 newChat{ id="keep_book",
-	text = [[#VIOLET#*You place the book in your pack. When you finish you look up and see that Kyless is already dead.*#LAST#]],
+	text = [[#VIOLET#*당신은 책을 챙겼습니다. 그 일을 끝낸 당신은, 킬레스가 이미 죽어있는 것을 발견했습니다.*#LAST#]],
 	answers = {
-		{"Goodbye, Kyless."},
+		{"잘 있게, 킬레스."},
 	}
 }
 

@@ -18,13 +18,13 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*Before you stands... you. You seem to be slightly older, and by the look of it you have been through hell.*#WHITE#
-NO! YOU CAN'T! NO GOING THERE! YOU... I... YOU MUST NOT GO THERE!
-THIS CANNOT BE AVOIDED! I MUST STOP IT! PLEASE DON'T!
-I MUST KILL MYSELF TO PROTECT MYSELF!
+	text = [[#LIGHT_GREEN#*당신 앞에는... 당신이 서있습니다. 살짝 더 나이들어 보이고, 마치 지옥에서 온 듯 합니다l.*#WHITE#
+안돼! 그럴순 없어! 거기 가지 마! 너... 나... 너는 절대 거기에 가서는 안돼!
+이건 피할 수 없어! 나는 그것을 멈춰야해! 제발 하지 마!
+나는 나 자신을 지키기 위해 나를 죽여야 해!
 ]],
 	answers = {
-		{"뭐냐 지금의 그건..."},
+		{"뭐... 뭐지..."},
 	}
 }
 

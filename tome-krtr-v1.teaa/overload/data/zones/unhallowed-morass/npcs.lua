@@ -142,7 +142,7 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("start-point-zero", engine.Quest.COMPLETED, "morass")
-		require("engine.ui.Dialog"):simplePopup("무당거미 여왕", "여왕거미를 무찌르자, 그녀가 지배하던 것 같은 시간의 흐름을 발견했습니다. 이 흐름이 균열 사이로 지나가고 있습니다.")
+		require("engine.ui.Dialog"):simplePopup("무당거미 여왕", "여왕거미를 무찌르자, 그녀가 지배하던 것으로 보이는 시간의 흐름을 발견하였습니다. 이 흐름이 균열 사이로 지나가고 있습니다.")
 		local rift = game.zone:makeEntityByName(game.level, "terrain", "RIFT_HOME")
 		game.zone:addEntity(game.level, rift, "terrain", self.x, self.y)
 	end,

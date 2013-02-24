@@ -18,10 +18,10 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*벤이 패배한 채로 당신의 발치에 쓰러집니다*#WHITE#
-느...나를 저주에서 구해줘서... *콕록*... 저주에서 구해준 걸 감사하지.
-나는 이럴... 이런 걸 바라지 않았어...
-#LIGHT_GREEN#*그는 마지막으로 피를 토하고 죽었습니다, 그의 저주가 사라짐과 동시에 그의 얼굴에 웃음이 떠오릅니다.*#WHITE#]],
+	text = [[#LIGHT_GREEN#*벤이 패배한 채로 당신의 발치에 쓰러졌습니다.*#WHITE#
+나...나를 저주에서 구해줘서... *콜록*... 저주에서 구해줘서 고맙네.
+나는 이럴... 이런 것을 바란 것이 아니네...
+#LIGHT_GREEN#*그는 마지막으로 피를 토하고 죽었습니다, 그의 저주가 사라짐과 동시에, 그의 얼굴에 웃음이 떠오릅니다.*#WHITE#]],
 	answers = {
 		{"편히 잠들게.", action=function(npc, player) player:setQuestStatus("lumberjack-cursed", engine.Quest.COMPLETED) end},
 	}

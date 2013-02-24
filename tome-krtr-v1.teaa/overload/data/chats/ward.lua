@@ -32,7 +32,7 @@ local function set_ward(which, charges)
 end
 
 newChat{ id="welcome",
-	text = [[이후로는 무슨 보호를 사용할까요??]],
+	text = [[어떤 속성의 보호력을 불러옵니까?]],
 	answers = {
 		{"화염 ["..(src.wards[DamageType.FIRE] or 0).."]", 
 			cond = function() return has_ward(DamageType.FIRE) end,
@@ -83,7 +83,7 @@ newChat{ id="welcome",
 			action = function() return set_ward(DamageType.MIND, (src.wards[DamageType.MIND] or 0)) end,
 		},
 
-		{"신경 쓰지마"},
+		{"아무 것도 아니네."},
 	}
 }
 

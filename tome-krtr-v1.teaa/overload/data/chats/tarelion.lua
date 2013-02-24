@@ -18,18 +18,18 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[I say, you there. Yes, you, young one!
-You seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]],
+	text = [[거기 자네 말일세. 그래, 자네, 젊은이!
+보아하니 여행길을 준비하고 있는 모양인데. 바깥 세상의 온갖 것들을 보는 여행 말이야, 내 생각에는 말이지. 여하튼, 이곳에서 배운 우리의 지식과 지원에 대해 잊지 말게나. 세상의 부자들은 모두 잘 살고 있지만, 지식의 선물이 없다면 그들이 존재하는 의미는 어디에 있겠는가? 그리고 모든 자금은 미래의 연구를 위해 사용되어야 한다네. 그 이상의 이유는 없지. 알겠는가?]], 
 	answers = {
-		{"Uh, yes, of course... I'll be moving on now."},
-		{"Hold on! You... You're that apprentice mage I met in the wilds!", cond=function(npc, player) return player:isQuestStatus("mage-apprentice", engine.Quest.DONE) and player:getCun() >= 35 end, jump="apprentice"},
+		{"어, 물론이죠... 이제 가보겠습니다."},
+		{"잠깐! 당신은... 당신은 밖에서 만났던 그 견습 마법사 아닙니까?", cond=function(npc, player) return player:isQuestStatus("mage-apprentice", engine.Quest.DONE) and player:getCun() >= 35 end, jump="apprentice"},
 	}
 }
 
 newChat{ id="apprentice",
-	text = [[Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!]],
+	text = [[오, 눈치가 빠르군 그래, 애송이! 그렇다네, 그럴 기분이 들면 나는 가끔 견습 마법사 행세를 하며 여행을 다니지. 이를 통해 나는 다른 사람들의 눈에 띄지 않은 채 내 연구를 진행할 수 있지. 그러다가 앙골웬에 어울리며 가치가 있다고 생각되는 사람을 만나면 자네처럼 되는 것이고. 자네같은 사람은 많으면 많을수록 좋은거니까 말일세. 게다가 꽤 재미있는 일 아니겠는가!]], --이 파일은 정확히 타렐리온이 무슨 말을 하는지 감을 못잡겠어서 일단 이렇게만 번역해두겠습니다. 검수 좀 해주세요..
 	answers = {
-		{"Uh, yes, of course... I'll be moving on now."},
+		{"어, 물론이죠... 이제 가보겠습니다."},
 	}
 }
 

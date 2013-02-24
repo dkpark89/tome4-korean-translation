@@ -18,13 +18,13 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*A tall man, glowing like a star, appears out of nowhere.*#WHITE#
-Oh no, another *adventurer*! You should not mess with things beyond your comprehension!
-Do not meddle in the affairs of Time, for it passes swiftly and is easily disrupted!
-#LIGHT_GREEN#*He looks at you more closely.*#WHITE#
-You seem capable. Help me, fight the abominations while I repair the timeline. It is your only way out!]],
+	text = [[#LIGHT_GREEN#*키 크고, 마치 별과 같이 빛나는 남자가 갑자기 나타났습니다.*#WHITE#
+오 이런, 또 다른 *모험가* 로군! 자신의 이해력을 뛰어넘는 것들을 마구 어지럽히면 안된다네!
+특히 시간과 관련된 일에는 간섭하면 안된다네. 시간은 아주 빠르게 지나가고 약간의 충격에도 쉽게 방해받거든!
+#LIGHT_GREEN#*그는 당신을 보다 가까이서 살펴봅니다.*#WHITE#
+자네라면 가능할 것 같군. 나를 도와주게. 내가 시간의 흐름을 바로잡는 동안, 저 괴물들과 싸워주게. 자네가 이곳에서 나가는 길은 그것 뿐이라네!]],
 	answers = {
-		{"But what is all th...", action = function(npc, player) game:changeLevel(2) game.player:grantQuest("temporal-rift") end},
+		{"하지만 이것들은 대체 뭐...", action = function(npc, player) game:changeLevel(2) game.player:grantQuest("temporal-rift") end},
 	}
 }
 

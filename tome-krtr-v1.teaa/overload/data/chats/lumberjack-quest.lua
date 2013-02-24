@@ -18,12 +18,12 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*당신이 멈추기 전 흙과 피로 칠갑이 된 사람이 나타납니다. 그는 반쯤 탈진해있고 넋도 나가있는 듯 합니다.*#WHITE#
-제발! 당신이 꼭 도와주셔야 합니다! #{bold}#그 녀석#{normal}# 이 마을에 살고있는 사람들을 모두 죽이고 있습니다! 제발 도와주십시오!
-#LIGHT_GREEN#*그는 손가락으로 근방의 숲쪽을 가리킨다.*#WHITE#]],
+	text = [[#LIGHT_GREEN#*당신 앞에 흙과 피로 칠갑이 된 사람이 나타났습니다. 그는 지금 당장이라도 숨이 넘어갈 듯이 보이며, 반쯤 미쳐있습니다.*#WHITE#
+부탁드립니다! 제발 도와주십시오! #{bold}#그놈#{normal}#이 제 마을에 있는 사람들을 마구잡이로 학살하고 있습니다! 제발!
+#LIGHT_GREEN#*그는 손가락으로 근처에 있는 숲을 가리킵니다.*#WHITE#]],
 	answers = {
-		{"제가 가서 뭔가 할 수 있는지 한번 알아보죠.", action=function(npc, player) player:grantQuest("lumberjack-cursed") end},
-		{"그건 내가 상관할바가 아니니. 저리 가버려!"},
+		{"제가 가서 뭐라도 해보겠습니다.", action=function(npc, player) player:grantQuest("lumberjack-cursed") end},
+		{"그건 내가 상관할 일이 아니다. 썩 꺼져!"},
 	}
 }
 
