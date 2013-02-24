@@ -18,8 +18,8 @@
 -- darkgod@te4.org
 
 return "New birth equipment: #LIGHT_GREEN#Transmogrification Chest",
-[[You have discovered an old Fortress belonging to the mysterious Sher'tul race.
-The Fortress shadow gave you a transmogrification chest which shall make your dealing with storage and gold much easier.
+[[당신은 신비한 쉐르'툴 종족의 오래된 요새를 발견하였습니다.
+요새의 어둠이 당신에게 가방과 골드를 관리하는데 도움이 될 변형 상자를 선물하였습니다.
 
-All your new characters will now start with a transmogrification chest at birth. All items transmogrified before you find the Fortress with them will only yield gold.
+당신의 새로운 캐릭터들은 이제부터 변형 상자를 가진 채로 시작하게 될 것입니다. 모든 아이템들은 당신이 요새를 발견하기 전까지는 물건들을 변형시킬 때 오직 골드만을 생산할 것입니다.
 ]]
