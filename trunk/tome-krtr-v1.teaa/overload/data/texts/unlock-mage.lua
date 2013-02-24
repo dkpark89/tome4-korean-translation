@@ -26,7 +26,7 @@ This place is Angolwen, the City of Magic, and for over two thousands years has 
 
 You have been told this story and can now create new characters with the #LIGHT_GREEN#Archmage class#WHITE#.
 
-Archmagi are the pinnacle of spellcasters, attuned to the magical properties of the world.
+Archmagies are the pinnacle of spellcasters, attuned to the magical properties of the world.
 Class features:#YELLOW#
 - Cast elemental spells to burn your foes to death or freeze them
 - Summon the powers of Space and Time to protect and cripple
