@@ -224,7 +224,7 @@ local function generate_rewards()
 	local answers = {}
 	if reward.stats then
 		for i = 1, #npc.stats_def do if reward.stats[i] then
-			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
+			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오 :", function(player)
 				player.inc_stats[i] = (player.inc_stats[i] or 0) + reward.stats[i]
 				player:onStatChange(i, reward.stats[i])
 				player.changed = true
@@ -243,7 +243,7 @@ local function generate_rewards()
 	end
 	if reward.saves then
 		for save, v in pairs(reward.saves) do
-			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
+			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오 :", function(player)
 				player:attr("combat_"..save.."resist", v)
 				player.changed = true
 				player:hasQuest(npc.quest_id).reward_message = (" %s 내성이 %d 만큼 향상되었습니다"):format(kr_saves_name[save], v)
@@ -264,7 +264,7 @@ local function generate_rewards()
 			local t = npc:getTalentFromId(tid)
 			level = math.min(t.points - game.player:getTalentLevelRaw(tid), level)
 			if level > 0 then
-				local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
+				local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오 :", function(player)
 					if game.player:knowTalentType(t.type[1]) == nil then player:setTalentTypeMastery(t.type[1], 0.8) end
 					player:learnTalent(tid, true, level, {no_unlearn=true})
 					if t.hide then player.__show_special_talents = player.__show_special_talents or {} player.__show_special_talents[tid] = true end
@@ -288,7 +288,7 @@ local function generate_rewards()
 		for tt, mastery in pairs(reward.types) do if game.player:knowTalentType(tt) == nil then
 			local tt_def = npc:getTalentTypeFrom(tt)
 			local cat = tt_def.type:gsub("/.*", "")
-			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오:", function(player)
+			local doit = function(npc, player) game.party:reward("보상을 받을 동료를 고르시오 :", function(player)
 				if player:knowTalentType(tt) == nil then player:setTalentTypeMastery(tt, mastery) end
 				player:learnTalentType(tt, false)
 				player:hasQuest(npc.quest_id).reward_message = ("기술 계열 %s의 숙련도를 %0.2f 만큼 향상시켰습니다."):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), mastery)

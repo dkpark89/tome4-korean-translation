@@ -17,42 +17,43 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 name = "The Brotherhood of Alchemists"
+kr_display_name = "연금술사 형제단"
 
 desc = function(self, player, who)
 	local desc = {}
 
 	if self:isStatus(self.DONE) and self.player_won == true then
-		desc[#desc+1] = "#LIGHT_GREEN#Thanks to your timely aid, "..self.winner.." is the newest member of the Brotherhood of Alchemists.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#당신의 도움 덕분에, 연금술사 형제단의 새로운 단원은 "..self.winner.."로 결정되었습니다.#WHITE#"
 	elseif self:isStatus(self.DONE) and self.player_won == false then
-		desc[#desc+1] = "#RED#You aided various denizens of Maj'Eyal in their attempts to join the Brotherhood of Alchemists, though you did not prove the deciding factor for any. This year's new member is "..self.winner..".#WHITE#"
+		desc[#desc+1] = "#RED#당신은 마즈'에이알에 있는 여러 연금술사들을 도와주었지만, 연금술사 형제단에 입단시킬 결정적인 도움은 주지 못했습니다. 올해의 새로운 단원은 "..self.winner.."로 결정되었습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#LIGHT_BLUE#Various alchemists around Maj'Eyal are competing to gain entry into the great Brotherhood of Alchemists, and one or more have enlisted your aid.#WHITE#"
+		desc[#desc+1] = "#LIGHT_BLUE#마즈'에이알에 있는 여러 연금술사들은 연금술사 형제단에 들어가기 위해 서로 경쟁하고 있습니다. 그리고 한 명 이상의 연금술사가 당신의 도움을 받았습니다.#WHITE#"
 	end
 	--e (for elixir) is the name of the table listing all the elixirs and their various strings and ingredients and such. self.e[2][3], for example, refers to the table containing all the information for the second alchemist's third elixir. self.e[2][3].ingredients[1] refers to the first ingredient of the third elixir of the second alchemist. This saves a ton of work in making the desc function, since it's messy and it would suck to copy/paste twelve of them (one for each elixir).
 	for i = 1, 4 do --run through list of four alchemists
 		for j = 1, 3 do --run through each alchemist's list of three elixirs
 			if self:isCompleted(self.e[i][j].full) and not self:isCompleted(self.e[i][j].poached) then
-				desc[#desc+1] = "#GREEN#You have aided "..self.e[i][j].alchemist.." in creating an "..self.e[i][j].name..".#WHITE#"
+				desc[#desc+1] = "#GREEN#당신은 "..self.e[i][j].alchemist.."의 작업을 도와, "..self.e[i][j].name.."를 만들었습니다.#WHITE#"
 			elseif self:isCompleted(self.e[i][j].full) and self:isCompleted(self.e[i][j].poached) then
-				desc[#desc+1] = "#RED#"..self.e[i][j].alchemist.." has completed an "..self.e[i][j].name.." without your aid.#WHITE#"
+				desc[#desc+1] = "#RED#당신의 도움을 받지 않고, "..self.e[i][j].alchemist.." 은/는 "..self.e[i][j].name.."를 만들었습니다.#WHITE#"
 			elseif self:isCompleted(self.e[i][j].start) and not self:isCompleted(self.e[i][j].full) and self:isStatus(self.DONE) then
-				desc[#desc+1] = "#SLATE#Having failed to gain admittance to the Brotherhood of the Alchemists, "..self.e[i][j].alchemist.." no longer needs your help making the "..self.e[i][j].name.."."
+				desc[#desc+1] = "#SLATE#연금술사 형제단에 입단할 수 없게 됐기 때문에, "..self.e[i][j].alchemist.." 은/는 더 이상 당신에게 "..self.e[i][j].name.."를 만들어줄 이유가 없어졌습니다."
 			elseif self:isCompleted(self.e[i][j].start) and not self:isCompleted(self.e[i][j].full) then
-				desc[#desc+1] = ""..self.e[i][j].alchemist.." needs your help making an "..self.e[i][j].name..". He has given you some notes on the ingredients:"
+				desc[#desc+1] = ""..self.e[i][j].alchemist.." 은/는 "..self.e[i][j].name.."를 만들기 위해 당신의 도움을 필요로 합니다. 그는 당신에게 필요한 재료들에 대한 정보를 주었습니다."
 				if not self:check_i(player, self.e[i][j].ingredients[1]) then
-					desc[#desc+1] = "#SLATE#  * 'Needed: one "..self.e[i][j].ingredients[1].name..". "..game.party:getIngredient(self.e[i][j].ingredients[1].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..self.e[i][j].ingredients[1].name.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[1].id).alchemy_text.."'#WHITE#"
 				else
-					desc[#desc+1] = "#LIGHT_GREEN#  * You've found the needed "..self.e[i][j].ingredients[1].name..".#WHITE#"
+					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..self.e[i][j].ingredients[1].name.." 하나를 찾았습니다.#WHITE#"
 				end
 				if not self:check_i(player, self.e[i][j].ingredients[2]) then
-					desc[#desc+1] = "#SLATE#  * 'Needed: one "..self.e[i][j].ingredients[2].name..". "..game.party:getIngredient(self.e[i][j].ingredients[2].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..self.e[i][j].ingredients[2].name.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[2].id).alchemy_text.."'#WHITE#"
 				else
-					desc[#desc+1] = "#LIGHT_GREEN#  * You've found the needed "..self.e[i][j].ingredients[2].name..".#WHITE#"
+					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..self.e[i][j].ingredients[2].name.." 하나를 찾았습니다.#WHITE#"
 				end
 				if not self:check_i(player, self.e[i][j].ingredients[3]) then
-					desc[#desc+1] = "#SLATE#  * 'Needed: one "..self.e[i][j].ingredients[3].name..". "..game.party:getIngredient(self.e[i][j].ingredients[3].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * 필요한 재료 : "..self.e[i][j].ingredients[3].name.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[3].id).alchemy_text.."'#WHITE#"
 				else
-					desc[#desc+1] = "#LIGHT_GREEN#  * You've found the needed "..self.e[i][j].ingredients[3].name..".#WHITE#"
+					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..self.e[i][j].ingredients[3].name.." 하나를 찾았습니다.#WHITE#"
 				end
 			end
 		end
@@ -65,7 +66,7 @@ on_grant = function(self, who)
 	self.recipes = nil
 	self.needed_ingredients = {}
 	self.player_loses = false
-	game.log("#VIOLET#You can check the ingredients you possess by pressing Escape and selecting 'Show ingredients'.")
+	game.log("#VIOLET#Esc 키를 누른 뒤, '연금술 재료 보기' 를 선택하면 현재 가지고 있는 연금술 재료를 확인할 수 있습니다.")
 end
 
 -- called whenever getting the task for or turning in an elixir. Wipes the shopping list and rewrites it.
@@ -120,7 +121,7 @@ reward = function(self, player, reward)
 	o:resolve(nil, true)
 	if o then
 		player:addObject(player.INVEN_INVEN, o)
-		game.logPlayer(player, "You receive: %s", o:getName{do_color=true})
+		game.logPlayer(player, "보상을 받았습니다 : %s", o:getName{do_color=true})
 	end
 	game:onTickEnd(function() game:saveGame() end)
 end
@@ -180,7 +181,7 @@ on_turnin = function(self, player, alch_picked, e_picked, player_last_elixir)
 	player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.COMPLETED, self.e[alch_picked][e_picked].poached)
 	-- clear chrono worlds and their various effects
 	if game._chronoworlds then
-		game.log("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.")
+		game.log("#CRIMSON#이미 결정된 일이기 때문에, 시간여행을 해도 의미가 없습니다.")
 		game._chronoworlds = nil
 		if player:isTalentActive(player.T_DOOR_TO_THE_PAST) then
 			player:forceUseTalent(player.T_DOOR_TO_THE_PAST, {ignore_energy=true})

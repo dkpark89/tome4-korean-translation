@@ -18,10 +18,11 @@
 -- darkgod@te4.org
 
 name = "The Arena"
+kr_display_name = "투기장"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Seeking wealth, glory, and a great fight, you challenge the Arena!"
-	desc[#desc+1] = "Can you defeat your foes and become Master of Arena?"
+	desc[#desc+1] = "부와 명예, 그리고 위대한 전투를 위해 당신은 투기장에 도전장을 내밀었습니다!"
+	desc[#desc+1] = "과연 당신은 모든 적들을 물리치고 투기장의 지배자가 될 수 있을까요?"
 	return table.concat(desc, "\n")
 end
 
@@ -35,9 +36,9 @@ end
 function onWin(self, who)
 	local desc = {}
 
-	desc[#desc+1] = "#GOLD#Well done! You have won the Arena: Challenge of the Master#WHITE#"
+	desc[#desc+1] = "#GOLD#잘하셨습니다! 당신은 투기장 : 최강자가 되기 위한 도전을 승리하셨습니다!#WHITE#"
 	desc[#desc+1] = ""
-	desc[#desc+1] = "You valiantly fought every creature the arena could throw at you and you emerged victorious!"
-	desc[#desc+1] = "Glory to you, you are now the new master and your future characters will challenge you."
+	desc[#desc+1] = "당신은 투기장에서 마주친 모든 적과 용맹하게 싸워, 승리를 쟁취했습니다!"
+	desc[#desc+1] = "당신은 이제 영광스러운 투기장의 새로운 지배자이며, 다음 캐릭터는 당신을 꺾기 위해 투기장에 들어오게 될 것입니다."
 	return 0, desc
 end

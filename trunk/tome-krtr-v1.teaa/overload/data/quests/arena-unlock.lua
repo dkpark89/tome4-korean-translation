@@ -18,11 +18,12 @@
 -- darkgod@te4.org
 
 name = "The agent of the arena"
+kr_display_name = "투기장의 중개인"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You were asked to prove your worth as a fighter by a rogue, in order to participate in the arena"
+	desc[#desc+1] = "당신은 한 도적으로부터, 투기장의 참가자격을 위해 전사로서의 가치를 증명해 보이라는 요구를 받았습니다."
 	if self:isCompleted() then
-		desc[#desc+1] = "You succesfully defeated your adversaries and gained access to the arena!"
+		desc[#desc+1] = "당신은 성공적으로 적들을 물리쳤고, 투기장에 참가할 자격을 얻었습니다!"
 	end
 	return table.concat(desc, "\n")
 end

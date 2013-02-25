@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 name = "Tutorial: combat stats"
-kr_display_name = "연습 게임: 전투 능력치"
+kr_display_name = "연습 게임 : 전투 능력치"
 desc = function(self, who)
 
 	local desc = {}
@@ -31,10 +31,10 @@ desc = function(self, who)
 	end
 ]=]
 	if not self:isCompleted("finished-combat-stats") then
-		desc[#desc+1] = "ToME의 전투 규칙을 배우기 위해 모험가용 계몽의 지하미궁을 탐험하시오."
+		desc[#desc+1] = "ToME4 의 전투 규칙을 배우기 위해, 초보 모험가를 위한 계몽의 지하미궁을 탐험하십시오."
 	end
 	if self:isCompleted("finished-combat-stats") then
-		desc[#desc+1] = "#LIGHT_GREEN#당신은 계몽의 지하미궁을 통과했습니다!#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#당신은 초보 모험가를 위한 계몽의 지하미궁을 통과했습니다!#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end
