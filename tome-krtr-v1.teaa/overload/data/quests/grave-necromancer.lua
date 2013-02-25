@@ -18,19 +18,20 @@
 -- darkgod@te4.org
 
 name = "And now for a grave"
+kr_display_name = "그리고 죽은 자를 위해"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Ungrol of Last Hope asked you to look for his wife's friend Celia, who has been reported missing. She frequently visits her late husband's mausoleum, in the graveyard near Last Hope."
+	desc[#desc+1] = "마지막 희망의 운그롤은, 당신에게 아내의 친구였으며 최근 실종된 셀리아의 행방을 찾아줄 것을 부탁했습니다. 그녀는 남편이 죽은 뒤로, 그가 묻힌 마지막 희망 공동묘지를 자주 들렀다고 합니다."
 	if self:isCompleted("note") then
-		desc[#desc+1] = "You searched for Celia in the graveyard near Last Hope, and found a note. In it, Celia reveals that she has been conducting experiments in the dark arts, in an attempt to extend her life... also, she is pregnant."
+		desc[#desc+1] = "당신은 마지막 희망 공동묘지에서 셀리아를 찾던 도중, 쪽지를 하나 발견했습니다. 그 안에는 셀리아가 그녀의 생명을 연장시키기 위해, 어둠의 마법과 관련된 실험들을 하고 있다는 내용이 적혀있었습니다... 그리고 그녀가 임신했다는 사실도 말이죠."
 	end
 	if self:isCompleted("coffins") then
-		desc[#desc+1] = "You have tracked Celia to her husband's mausoleum in the graveyard near Last Hope. It seems she has taken some liberties with the corpses there."
+		desc[#desc+1] = "당신은 셀리아를 추적하여, 그녀의 남편이 묻힌 마지막 희망 공동묘지에 왔습니다. 그녀는 이곳에 있는 시체 몇 구에게 자유를 선사한 것 같습니다."
 	end
 	if self:isCompleted("kill") then
-		desc[#desc+1] = "You have laid Celia to rest, putting an end to her gruesome experiments."
+		desc[#desc+1] = "당신은 셀리아가 그녀의 섬뜩한 실험들을 멈추고, 영원한 휴식을 취할 수 있게 만들어줬습니다."
 	elseif self:isCompleted("kill-necromancer") then
-		desc[#desc+1] = "You have laid Celia to rest, putting an end to her failed experiments. You have taken her heart, for your own experiments. You do not plan to fail as she did."
+		desc[#desc+1] = "당신은 그녀의 실패한 실험들을 멈추고, 영원한 휴식을 취할 수 있게 만들어줬습니다. 그리고 자신의 실험을 위해, 그녀의 심장을 챙겼습니다. 그녀처럼 실험을 실패로 만들지는 않을 것입니다."
 	end
 	return table.concat(desc, "\n")
 end
