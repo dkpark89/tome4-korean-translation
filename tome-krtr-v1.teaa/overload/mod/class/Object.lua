@@ -148,13 +148,13 @@ function _M:descAttribute(attr)
 		return ("%s%0.2f/turn"):format(i > 0 and "+" or "-", math.abs(i))
 	elseif attr == "COMBAT" then
 		local c = self.combat
-		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도관통 "..(c.apr or 0)
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도 관통 "..(c.apr or 0)
 	elseif attr == "COMBAT_AMMO" then
 		local c = self.combat
-		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도관통 "..(c.apr or 0)
+		return c.shots_left.."/"..math.floor(c.capacity)..", 공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도 관통 "..(c.apr or 0)
 	elseif attr == "COMBAT_DAMTYPE" then
 		local c = self.combat
-		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도관통 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name).." 속성"
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도 관통 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_display_name or DamageType:get(c.damtype).name).." 속성"
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
@@ -165,7 +165,7 @@ function _M:descAttribute(attr)
 	elseif attr == "ARMOR" then
 		return "회피도 "..(self.wielder and self.wielder.combat_def or 0)..", 방어도 "..(self.wielder and self.wielder.combat_armor or 0)
 	elseif attr == "ATTACK" then
-		return "정확도 "..(self.wielder and self.wielder.combat_atk or 0)..", 방어도관통 "..(self.wielder and self.wielder.combat_apr or 0)..", 공격력 "..(self.wielder and self.wielder.combat_dam or 0)
+		return "정확도 "..(self.wielder and self.wielder.combat_atk or 0)..", 방어도 관통 "..(self.wielder and self.wielder.combat_apr or 0)..", 공격력 "..(self.wielder and self.wielder.combat_dam or 0)
 	elseif attr == "MONEY" then
 		return ("금화 %0.2f개 가치"):format(self.money_value / 10)
 	elseif attr == "USE_TALENT" then
@@ -332,17 +332,17 @@ function _M:getTextualDesc(compare_with)
 	compare_with = compare_with or {}
 	local desc = tstring{}
 
-	if self.quest then desc:add({"color", "VIOLET"},"[줄거리 연결 물건]", {"color", "LAST"}, true) end
+	if self.quest then desc:add({"color", "VIOLET"},"[중요한 물건]", {"color", "LAST"}, true) end
 
-	desc:add(("종류: %s / %s"):format(tostring(rawget(self, 'type'):krItemType() or "알수없음"), tostring(rawget(self, 'subtype'):krItemType() or "알수없음")))
+	desc:add(("종류: %s / %s"):format(tostring(rawget(self, 'type'):krItemType() or "알 수 없음"), tostring(rawget(self, 'subtype'):krItemType() or "알 수 없음")))
 	if self.material_level then desc:add(" ; ", tostring(self.material_level), "단계") end
 	desc:add(true)
 	if self.slot_forbid == "OFFHAND" then desc:add("양손으로 쥐는 무기입니다.", true) end
 	desc:add(true)
 
 	if self.set_list then
-		desc:add({"color","GREEN"}, "'일련의 물건' 중 하나입니다.", {"color","LAST"}, true)
-		if self.set_complete then desc:add({"color","LIGHT_GREEN"}, "세트가 완성되었습니다.", {"color","LAST"}, true) end
+		desc:add({"color","GREEN"}, "짝이 있는 장비입니다.", {"color","LAST"}, true)
+		if self.set_complete then desc:add({"color","LIGHT_GREEN"}, "짝이 완성되었습니다.", {"color","LAST"}, true) end
 	end
 
 	-- Stop here if unided
@@ -489,13 +489,13 @@ function _M:getTextualDesc(compare_with)
 			else
 				power_diff = ("(%s)"):format(power_diff)
 			end
-			desc:add(("기본 공격력: %.1f - %.1f"):format((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))
+			desc:add(("기본 공격력 : %.1f - %.1f"):format((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))
 			desc:merge(power_diff:toTString())
 			desc:add(true)
-			desc:add(("적용 능력치: %s"):format(table.concat(dm, ', ')), true)
+			desc:add(("적용 능력치 : %s"):format(table.concat(dm, ', ')), true)
 			local col = (combat.damtype and DamageType:get(combat.damtype) and DamageType:get(combat.damtype).text_color or "#WHITE#"):toTString()
 			local dtn = ( combat.damtype and (DamageType:get(combat.damtype).kr_display_name or DamageType:get(combat.damtype).name)) or (DamageType:get(DamageType.PHYSICAL).kr_display_name or DamageType:get(DamageType.PHYSICAL).name) --@@ 467 사용 : 너무 길어져 변수로 뺌
-			desc:add("공격 속성: ", col[2], dtn:capitalize(),{"color","LAST"}, true)
+			desc:add("공격 속성   : ", col[2], dtn:capitalize(),{"color","LAST"}, true)
 		end
 
 		if combat.wil_attack then
@@ -503,20 +503,20 @@ function _M:getTextualDesc(compare_with)
 		end
 		
 		if combat.is_psionic_focus then
-			desc:add("이 무기는 염동력을 강하게 해 줍니다.", true)
+			desc:add("이 무기는 염동력을 강하게 만들어줍니다.", true)
 		end
 
 		compare_fields(combat, compare_with, field, "atk", "%+d", "정확도    : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "apr", "%+d", "방어도관통: ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "physcrit", "%+.1f%%", "치명타율  : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "physspeed", "%.0f%%", "공격속도  : ", 100, false, true, add_table)
+		compare_fields(combat, compare_with, field, "apr", "%+d", "방어도 관통 : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "physcrit", "%+.1f%%", "치명타율    : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "physspeed", "%.0f%%", "공격 속도   : ", 100, false, true, add_table)
 
-		compare_fields(combat, compare_with, field, "block", "%+d", "막기 단계 : ", 1, false, true, add_table)
+		compare_fields(combat, compare_with, field, "block", "%+d", "막을 수 있는 피해량 : ", 1, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "range", "%+d", "사정거리  : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "capacity", "%d", "용량      : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "shots_reloaded_per_turn", "%+d", "재장전속도: ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "ammo_every", "%d", "자동장전까지의 지연시간: ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "range", "%+d", "최대 사거리 : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "capacity", "%d", "탄창/화살통 용량 : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "shots_reloaded_per_turn", "%+d", "재장전 속도 : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "ammo_every", "%d", "자동장전 대기시간 : ", 1, false, false, add_table)
 
 		local talents = {}
 		if combat.talent_on_hit then
@@ -528,7 +528,7 @@ function _M:getTextualDesc(compare_with)
 			for tid, data in pairs(v[field] and (v[field].talent_on_hit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
 					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 500 사용 : 너무 길어져 변수로 뺌
-					desc:add({"color","RED"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+					desc:add({"color","RED"}, ("공격 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
@@ -536,7 +536,7 @@ function _M:getTextualDesc(compare_with)
 		end
 		for tid, data in pairs(talents) do
 			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 508 사용 : 너무 길어져 변수로 뺌
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 		
 		local talents = {}
@@ -549,7 +549,7 @@ function _M:getTextualDesc(compare_with)
 			for tid, data in pairs(v[field] and (v[field].talent_on_crit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
 					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 521 사용 : 너무 길어져 변수로 뺌
-					desc:add({"color","RED"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+					desc:add({"color","RED"}, ("치명타 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
@@ -557,7 +557,7 @@ function _M:getTextualDesc(compare_with)
 		end
 		for tid, data in pairs(talents) do
 			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 529 사용 : 너무 길어져 변수로 뺌
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
 		local special = ""
@@ -568,14 +568,14 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			if v[field] and v[field].special_on_hit then
 				if special ~= v[field].special_on_hit.desc then
-					desc:add({"color","RED"}, "공격 성공시 특수 효과: "..v[field].special_on_hit.desc, {"color","LAST"}, true)
+					desc:add({"color","RED"}, "공격 성공시 특수 효과 : "..v[field].special_on_hit.desc, {"color","LAST"}, true)
 				else
 					found = true
 				end
 			end
 		end
 		if special ~= "" then
-			desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "공격 성공시 특수 효과: "..special, {"color","LAST"}, true)
+			desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "공격 성공시 특수 효과 : "..special, {"color","LAST"}, true)
 		end
 
 		special = ""
@@ -586,14 +586,14 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			if v[field] and v[field].special_on_crit then
 				if special ~= v[field].special_on_crit.desc then
-					desc:add({"color","RED"}, "치명타 성공시 특수 효과: "..v[field].special_on_crit.desc, {"color","LAST"}, true)
+					desc:add({"color","RED"}, "치명타 성공시 특수 효과 : "..v[field].special_on_crit.desc, {"color","LAST"}, true)
 				else
 					found = true
 				end
 			end
 		end
 		if special ~= "" then
-			desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "치명타 성공시 특수 효과: "..special, {"color","LAST"}, true)
+			desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "치명타 성공시 특수 효과 : "..special, {"color","LAST"}, true)
 		end
 
 		local special = ""
@@ -604,14 +604,14 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			if v[field] and v[field].special_on_kill then
 				if special ~= v[field].special_on_kill.desc then
-					desc:add({"color","RED"}, "살해시 특수 효과: "..v[field].special_on_kill.desc, {"color","LAST"}, true)
+					desc:add({"color","RED"}, "적 살해시 특수 효과 : "..v[field].special_on_kill.desc, {"color","LAST"}, true)
 				else
 					found = true
 				end
 			end
 		end
 		if special ~= "" then
-			desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "살해시 특수 효과: "..special, {"color","LAST"}, true)
+			desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "적 살해시 특수 효과 : "..special, {"color","LAST"}, true)
 		end
 
 		found = false
@@ -627,40 +627,40 @@ function _M:getTextualDesc(compare_with)
 			desc:add({"color","RED"}, "기본 공격을 해도 은신이 풀리지 않습니다.", {"color","LAST"}, true)
 		end
 
-		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "이동 속도: ", 100, false, false, add_table)
+		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "이동 속도 : ", 100, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "보호막 관통 (이 무기에만 적용): ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "보호막 관통 (이 무기에만 적용) : ", 1, false, false, add_table)
 
 		if combat.tg_type and combat.tg_type == "beam" then
-			desc:add({"color","YELLOW"}, ("빔 공격은 모든 상대를 꿰뚦고 지나갑니다."), {"color","LAST"}, true)
+			desc:add({"color","YELLOW"}, ("공격이 모든 상대를 꿰뚦고 지나갑니다."), {"color","LAST"}, true)
 		end
 
-		compare_table_fields(combat, compare_with, field, "melee_project", "%+d", "공격 성공시 피해량: ", function(item)
+		compare_table_fields(combat, compare_with, field, "melee_project", "%+d", "이 무기로 공격 성공시 피해량 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(combat, compare_with, field, "ranged_project", "%+d", "장거리 공격 성공시 피해량: ", function(item)
+		compare_table_fields(combat, compare_with, field, "ranged_project", "%+d", "이 무기로 장거리 공격 성공시 피해량 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(combat, compare_with, field, "burst_on_hit", "%+d", "공격 성공시 폭발(1칸 반경) 피해량: ", function(item)
+		compare_table_fields(combat, compare_with, field, "burst_on_hit", "%+d", "공격 성공시 폭발(1칸 반경) 피해량 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(combat, compare_with, field, "burst_on_crit", "%+d", "치명타 성공시 폭발(2칸 반경) 피해량: ", function(item)
+		compare_table_fields(combat, compare_with, field, "burst_on_crit", "%+d", "치명타 성공시 폭발(2칸 반경) 피해량 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(combat, compare_with, field, "convert_damage", "%d%%", "공격 속성 변환: ", function(item)
+		compare_table_fields(combat, compare_with, field, "convert_damage", "%d%%", "공격 속성 변환 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "다음 상대에게 피해량 증가: ", function(item)
+		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "다음 상대에게 피해량 증가 : ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
 					return st:capitalize():krActorType() --@@ 종족이름 한글화
@@ -676,14 +676,14 @@ function _M:getTextualDesc(compare_with)
 		w = w or {}
 		w = w[field] or {}
 		compare_fields(w, compare_with, field, "combat_atk", "%+d", "정확도      : ")
-		compare_fields(w, compare_with, field, "combat_apr", "%+d", "방어도관통력: ")
-		compare_fields(w, compare_with, field, "combat_physcrit", "%+.1f%%", "치명타율    : ")
+		compare_fields(w, compare_with, field, "combat_apr", "%+d", "방어도 관통 : ")
+		compare_fields(w, compare_with, field, "combat_physcrit", "%+.1f%%", "치명타율   : ")
 		compare_fields(w, compare_with, field, "combat_dam", "%+d", "물리력      : ")
 
 		compare_fields(w, compare_with, field, "combat_armor", "%+d", "방어도      : ")
 		compare_fields(w, compare_with, field, "combat_armor_hardiness", "%+d%%", "방어 효율   : ")
 		compare_fields(w, compare_with, field, "combat_def", "%+d", "회피도      : ")
-		compare_fields(w, compare_with, field, "combat_def_ranged", "%+d", "장거리회피  : ")
+		compare_fields(w, compare_with, field, "combat_def_ranged", "%+d", "원거리 공격 회피 : ")
 
 		compare_fields(w, compare_with, field, "fatigue", "%+d%%", "피로도      : ", 1, true, true)
 
@@ -693,47 +693,47 @@ function _M:getTextualDesc(compare_with)
 				return (" %s"):format(Stats.stats_def[item].short_name:capitalize():krStat()) --@@ 능력치이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "melee_project", "%d", "근접 공격 피해 반사: ", function(item)
+		compare_table_fields(w, compare_with, field, "melee_project", "%d", "착용자가 근접 공격시 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "ranged_project", "%d", "장거리 공격 피해 반사: ", function(item)
+		compare_table_fields(w, compare_with, field, "ranged_project", "%d", "착용자가 원거리 공격시 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "on_melee_hit", "%d", "피해 반사: ", function(item)
+		compare_table_fields(w, compare_with, field, "on_melee_hit", "%d", "피해 반사 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2],(" %s"):format(DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name),{"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists", "%+d%%", "저항력 변화: ", function(item)
+		compare_table_fields(w, compare_with, field, "resists", "%+d%%", "저항력 변화 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists_cap", "%+d%%", "저항력 최대치 변화: ", function(item)
+		compare_table_fields(w, compare_with, field, "resists_cap", "%+d%%", "저항력 최대치 변화 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호량: ", function(item)
+		compare_table_fields(w, compare_with, field, "wards", "%+d", "최대 보호 횟수 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists_pen", "%+d%%", "관통 억제: ", function(item)
+		compare_table_fields(w, compare_with, field, "resists_pen", "%+d%%", "저항력 관통 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "inc_damage", "%+d%%", "공격 피해량 변화: ", function(item)
+		compare_table_fields(w, compare_with, field, "inc_damage", "%+d%%", "해당 속성의 피해량 변화 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "damage_affinity", "%+d%%", "생명력 강탈: ", function(item)
+		compare_table_fields(w, compare_with, field, "damage_affinity", "%+d%%", "생명력 강탈 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_display_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
@@ -781,7 +781,7 @@ function _M:getTextualDesc(compare_with)
 			any_esp = true
 		end
 		if any_esp then
-			desc:add("투시 부여: ")
+			desc:add("투시 부여 : ")
 			for esp, isin in pairs(esps_compare) do
 				local temp = ( esp == "All" and "전체" ) or esp --@@ 757, 759 사용 : 모든 종족시 한글로 변경 
 				if isin[2] then
@@ -810,7 +810,7 @@ function _M:getTextualDesc(compare_with)
 			any_mastery = any_mastery + 1
 		end
 		if any_mastery > 0 then
-			desc:add("기술계열 효율 향상: ")
+			desc:add("기술계열 효율 향상 : ")
 			for ttn, ttid in pairs(masteries) do
 				local tt = Talents.talents_types_def[ttn]
 				local cat = tt.type:gsub("/.*", "")
@@ -846,7 +846,7 @@ function _M:getTextualDesc(compare_with)
 			any_cd_reduction = any_cd_reduction + 1
 		end
 		if any_cd_reduction > 0 then
-			desc:add("기술 지연대기시간:")
+			desc:add("기술의 재사용 대기시간 :")
 			for tid, cds in pairs(cd_reductions) do
 				local diff = (cds[2] or 0) - (cds[1] or 0)
 				local tn = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name --@@ 824, 826, 829 사용 : 길어지고 반복되어 변수로 뺌
@@ -915,7 +915,7 @@ function _M:getTextualDesc(compare_with)
 			any_breath = any_breath + 1
 		end
 		if any_breath > 0 then
-			desc:add("다음 장소에서 숨쉬기 가능: ")
+			desc:add("다음 장소에서 숨쉬기 가능 : ")
 			for what, isin in pairs(breaths) do
 				if isin[2] then
 					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(what), {"color","LAST"})
@@ -926,116 +926,116 @@ function _M:getTextualDesc(compare_with)
 			desc:add(true)
 		end
 
-		compare_fields(w, compare_with, field, "combat_critical_power", "%+.2f%%", "치명타 배수: ")
-		compare_fields(w, compare_with, field, "combat_crit_reduction", "%-d%%", "치명타 억제: ")
+		compare_fields(w, compare_with, field, "combat_critical_power", "%+.2f%%", "치명타 피해량 배수 : ")
+		compare_fields(w, compare_with, field, "combat_crit_reduction", "%-d%%", "적의 치명타 억제 : ")
 
-		compare_fields(w, compare_with, field, "disarm_bonus", "%+d", "추가 함정 탐지력: ")
-		compare_fields(w, compare_with, field, "inc_stealth", "%+d", "추가 은신력: ")
-		compare_fields(w, compare_with, field, "max_encumber", "%+d", "최대 소지 무게 상승: ")
+		compare_fields(w, compare_with, field, "disarm_bonus", "%+d", "추가 함정 탐지력 : ")
+		compare_fields(w, compare_with, field, "inc_stealth", "%+d", "추가 은신력 : ")
+		compare_fields(w, compare_with, field, "max_encumber", "%+d", "최대 소지 무게 상승 : ")
 
-		compare_fields(w, compare_with, field, "combat_physresist", "%+d", "물리 내성: ")
-		compare_fields(w, compare_with, field, "combat_spellresist", "%+d", "주문 내성: ")
-		compare_fields(w, compare_with, field, "combat_mentalresist", "%+d", "정신 내성: ")
+		compare_fields(w, compare_with, field, "combat_physresist", "%+d", "물리 내성 : ")
+		compare_fields(w, compare_with, field, "combat_spellresist", "%+d", "주문 내성 : ")
+		compare_fields(w, compare_with, field, "combat_mentalresist", "%+d", "정신 내성 : ")
 
-		compare_fields(w, compare_with, field, "blind_immune", "%+d%%", "실명 면역력: ", 100)
-		compare_fields(w, compare_with, field, "poison_immune", "%+d%%", "중독 면역력: ", 100)
-		compare_fields(w, compare_with, field, "disease_immune", "%+d%%", "질병 면역력: ", 100)
-		compare_fields(w, compare_with, field, "cut_immune", "%+d%%", "출혈 면역력: ", 100)
+		compare_fields(w, compare_with, field, "blind_immune", "%+d%%", "실명 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "poison_immune", "%+d%%", "중독 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "disease_immune", "%+d%%", "질병 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "cut_immune", "%+d%%", "출혈 면역력 : ", 100)
 
-		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "침묵 면역력: ", 100)
-		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "무장해제 면역력: ", 100)
-		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "혼란 면역력: ", 100)
-		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "속박 면역력: ", 100)
+		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "침묵 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "무장해제 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "혼란 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "속박 면역력 : ", 100)
 
-		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "기절/동결 면역력: ", 100)
-		compare_fields(w, compare_with, field, "fear_immune", "%+d%%", "공포 면역력: ", 100)
-		compare_fields(w, compare_with, field, "knockback_immune", "%+d%%", "밀어내기 면역력: ", 100)
-		compare_fields(w, compare_with, field, "instakill_immune", "%+d%%", "즉사 면역력: ", 100)
-		compare_fields(w, compare_with, field, "teleport_immune", "%+d%%", "전이 면역력: ", 100)
+		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "기절/동결 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "fear_immune", "%+d%%", "공포 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "knockback_immune", "%+d%%", "밀어내기 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "instakill_immune", "%+d%%", "즉사 면역력 : ", 100)
+		compare_fields(w, compare_with, field, "teleport_immune", "%+d%%", "순간이동 면역력 : ", 100)
 
-		compare_fields(w, compare_with, field, "life_regen", "%+.2f", "생명력 재생: ")
-		compare_fields(w, compare_with, field, "stamina_regen", "%+.2f", "체력 재생: ")
-		compare_fields(w, compare_with, field, "mana_regen", "%+.2f", "마나 재생: ")
-		compare_fields(w, compare_with, field, "hate_regen", "%+.2f", "증오심 재생: ")
-		compare_fields(w, compare_with, field, "psi_regen", "%+.2f", "염력 재생: ")
-		compare_fields(w, compare_with, field, "positive_regen", "%+.2f", "양기 재생: ")
-		compare_fields(w, compare_with, field, "negative_regen", "%+.2f", "음기 재생: ")
+		compare_fields(w, compare_with, field, "life_regen", "%+.2f", "생명력 재생 : ")
+		compare_fields(w, compare_with, field, "stamina_regen", "%+.2f", "체력 재생 : ")
+		compare_fields(w, compare_with, field, "mana_regen", "%+.2f", "마나 재생 : ")
+		compare_fields(w, compare_with, field, "hate_regen", "%+.2f", "증오심 재생 : ")
+		compare_fields(w, compare_with, field, "psi_regen", "%+.2f", "염력 재생 : ")
+		compare_fields(w, compare_with, field, "positive_regen", "%+.2f", "양기 재생 : ")
+		compare_fields(w, compare_with, field, "negative_regen", "%+.2f", "음기 재생 : ")
 
-		compare_fields(w, compare_with, field, "stamina_regen_when_hit", "%+.2f", "공격 성공시 체력 회복: ")
-		compare_fields(w, compare_with, field, "mana_regen_when_hit", "%+.2f", "공격 성공시 마나 회복: ")
-		compare_fields(w, compare_with, field, "equilibrium_regen_when_hit", "%+.2f", "공격 성공시 평정 회복: ")
-		compare_fields(w, compare_with, field, "psi_regen_when_hit", "%+.2f", "공격 성공시 염력 회복: ")
-		compare_fields(w, compare_with, field, "hate_regen_when_hit", "%+.2f", "공격 성공시 증오심 회복: ")
+		compare_fields(w, compare_with, field, "stamina_regen_when_hit", "%+.2f", "공격 성공시 체력 회복 : ")
+		compare_fields(w, compare_with, field, "mana_regen_when_hit", "%+.2f", "공격 성공시 마나 회복 : ")
+		compare_fields(w, compare_with, field, "equilibrium_regen_when_hit", "%+.2f", "공격 성공시 평정 회복 : ")
+		compare_fields(w, compare_with, field, "psi_regen_when_hit", "%+.2f", "공격 성공시 염력 회복 : ")
+		compare_fields(w, compare_with, field, "hate_regen_when_hit", "%+.2f", "공격 성공시 증오심 회복 : ")
 
-		compare_fields(w, compare_with, field, "mana_on_crit", "%+.2f", "주문 치명타 발동시 마나 회복: ")
-		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "주문 치명타 발동시 원기 회복: ")
-		compare_fields(w, compare_with, field, "spellsurge_on_crit", "%+d", "주문 치명타 발동시 주문력 상승 (3번 누적 가능): ")
+		compare_fields(w, compare_with, field, "mana_on_crit", "%+.2f", "주문 치명타 발생시 마나 회복 : ")
+		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "주문 치명타 발생시 원기 회복 : ")
+		compare_fields(w, compare_with, field, "spellsurge_on_crit", "%+d", "주문 치명타 발생시 주문력 상승 (최대 3번 누적 가능) : ")
 
-		compare_fields(w, compare_with, field, "hate_on_crit", "%+.2f", "정신 공격 치명타 발동시 증오심 회복: ")
-		compare_fields(w, compare_with, field, "psi_on_crit", "%+.2f", "정신 공격 치명타 발동시 염력 회복: ")
-		compare_fields(w, compare_with, field, "equilibrium_on_crit", "%+.2f", "정신 공격 치명타 발동시 평정 회복: ")
+		compare_fields(w, compare_with, field, "hate_on_crit", "%+.2f", "정신 공격 치명타 발생시 증오심 회복 : ")
+		compare_fields(w, compare_with, field, "psi_on_crit", "%+.2f", "정신 공격 치명타 발생시 염력 회복 : ")
+		compare_fields(w, compare_with, field, "equilibrium_on_crit", "%+.2f", "정신 공격 치명타 발생시 평정 회복 : ")
 
-		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "살해시 증오심 회복: ")
-		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "살해시 염력 회복: ")
+		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "적살해시 증오심 회복 : ")
+		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "적 살해시 염력 회복 : ")
 
-		compare_fields(w, compare_with, field, "die_at", "%+.2f life", "죽음을 결정하는 생명력 수치: ", 1, true, true)
-		compare_fields(w, compare_with, field, "max_life", "%+.2f", "최대 생명력: ")
-		compare_fields(w, compare_with, field, "max_mana", "%+.2f", "최대 마나: ")
-		compare_fields(w, compare_with, field, "max_stamina", "%+.2f", "최대 체력: ")
-		compare_fields(w, compare_with, field, "max_hate", "%+.2f", "최대 증오심: ")
-		compare_fields(w, compare_with, field, "max_psi", "%+.2f", "최대 염력: ")
-		compare_fields(w, compare_with, field, "max_vim", "%+.2f", "최대 원기: ")
-		compare_fields(w, compare_with, field, "max_air", "%+.2f", "최대 폐활량: ")
+		compare_fields(w, compare_with, field, "die_at", "%+.2f life", "죽지 않고 견딜 수 있는 생명력 수치 : ", 1, true, true)
+		compare_fields(w, compare_with, field, "max_life", "%+.2f", "최대 생명력 : ")
+		compare_fields(w, compare_with, field, "max_mana", "%+.2f", "최대 마나 : ")
+		compare_fields(w, compare_with, field, "max_stamina", "%+.2f", "최대 체력 : ")
+		compare_fields(w, compare_with, field, "max_hate", "%+.2f", "최대 증오심 : ")
+		compare_fields(w, compare_with, field, "max_psi", "%+.2f", "최대 염력 : ")
+		compare_fields(w, compare_with, field, "max_vim", "%+.2f", "최대 원기 : ")
+		compare_fields(w, compare_with, field, "max_air", "%+.2f", "최대 폐활량 : ")
 
-		compare_fields(w, compare_with, field, "combat_spellpower", "%+d", "주문력: ")
-		compare_fields(w, compare_with, field, "combat_spellcrit", "%+d%%", "주문 치명타율: ")
-		compare_fields(w, compare_with, field, "spell_cooldown_reduction", "%d%%", "주문 대기시간 감소: ", 100)
+		compare_fields(w, compare_with, field, "combat_spellpower", "%+d", "주문력 : ")
+		compare_fields(w, compare_with, field, "combat_spellcrit", "%+d%%", "주문 치명타율 : ")
+		compare_fields(w, compare_with, field, "spell_cooldown_reduction", "%d%%", "주문 대기시간 감소 : ", 100)
 
-		compare_fields(w, compare_with, field, "combat_mindpower", "%+d", "정신력: ")
-		compare_fields(w, compare_with, field, "combat_mindcrit", "%+d%%", "정신공격 치명타율: ")
+		compare_fields(w, compare_with, field, "combat_mindpower", "%+d", "정신력 : ")
+		compare_fields(w, compare_with, field, "combat_mindcrit", "%+d%%", "정신공격 치명타율 : ")
 
-		compare_fields(w, compare_with, field, "lite", "%+d", "광원 반경: ")
-		compare_fields(w, compare_with, field, "infravision", "%+d", "야간 투시 반경: ")
-		compare_fields(w, compare_with, field, "heightened_senses", "%+d", "야간 투시 반경: ")
+		compare_fields(w, compare_with, field, "lite", "%+d", "광원 반경 : ")
+		compare_fields(w, compare_with, field, "infravision", "%+d", "야간 투시 반경 : ")
+		compare_fields(w, compare_with, field, "heightened_senses", "%+d", "야간 투시 반경 : ")
 		
-		compare_fields(w, compare_with, field, "see_stealth", "%+d", "은신 감지: ")
+		compare_fields(w, compare_with, field, "see_stealth", "%+d", "은신 감지 : ")
 
-		compare_fields(w, compare_with, field, "see_invisible", "%+d", "투명체 감지: ")
-		compare_fields(w, compare_with, field, "invisible", "%+d", "투명화: ")
+		compare_fields(w, compare_with, field, "see_invisible", "%+d", "투명체 감지 : ")
+		compare_fields(w, compare_with, field, "invisible", "%+d", "투명화 : ")
 
-		compare_fields(w, compare_with, field, "global_speed_add", "%+d%%", "전체 속도: ", 100)
-		compare_fields(w, compare_with, field, "movement_speed", "%+d%%", "이동 속도: ", 100)
-		compare_fields(w, compare_with, field, "combat_physspeed", "%+d%%", "공격 속도: ", 100)
-		compare_fields(w, compare_with, field, "combat_spellspeed", "%+d%%", "주문 속도: ", 100)
-		compare_fields(w, compare_with, field, "combat_mindspeed", "%+d%%", "사고 속도: ", 100)
+		compare_fields(w, compare_with, field, "global_speed_add", "%+d%%", "전체 속도 : ", 100)
+		compare_fields(w, compare_with, field, "movement_speed", "%+d%%", "이동 속도 : ", 100)
+		compare_fields(w, compare_with, field, "combat_physspeed", "%+d%%", "공격 속도 : ", 100)
+		compare_fields(w, compare_with, field, "combat_spellspeed", "%+d%%", "주문 속도 : ", 100)
+		compare_fields(w, compare_with, field, "combat_mindspeed", "%+d%%", "사고 속도 : ", 100)
 
-		compare_fields(w, compare_with, field, "healing_factor", "%+d%%", "치유 증가율: ", 100)
-		compare_fields(w, compare_with, field, "heal_on_nature_summon", "%+d", "자연 속성 소환시 주변 동료 생명력 회복: ")
+		compare_fields(w, compare_with, field, "healing_factor", "%+d%%", "치유 효율 : ", 100)
+		compare_fields(w, compare_with, field, "heal_on_nature_summon", "%+d", "자연의 힘을 사용한 소환시 주변 동료 생명력 회복 : ")
 
-		compare_fields(w, compare_with, field, "life_leech_chance", "%+d%%", "생명력 강탈 확률: ")
-		compare_fields(w, compare_with, field, "life_leech_value", "%+d%%", "생명력 강탈: ")
+		compare_fields(w, compare_with, field, "life_leech_chance", "%+d%%", "생명력 강탈 확률 : ")
+		compare_fields(w, compare_with, field, "life_leech_value", "%+d%%", "생명력 강탈 : 입힌 피해량의 ")
 
-		compare_fields(w, compare_with, field, "resource_leech_chance", "%+d%%", "원천력 강탈 확률: ")
-		compare_fields(w, compare_with, field, "resource_leech_value", "%+d", "원천력 강탈: ")
+		compare_fields(w, compare_with, field, "resource_leech_chance", "%+d%%", "원천력 강탈 확률 : ")
+		compare_fields(w, compare_with, field, "resource_leech_value", "%+d", "원천력 강탈 : 입힌 피해량의 ")
 
-		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "보호막관통력: ")
+		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "보호막 관통력 : ")
 
-		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "발사체 굴절: ")
+		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "발사체 회피 : ")
 
-		compare_fields(w, compare_with, field, "defense_on_teleport", "%+d", "전이후 회피도: ")
-		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "전이후 전체 저항: ")
-		compare_fields(w, compare_with, field, "effect_reduction_on_teleport", "%+d%%", "전이후 상태효과 시간 감소: ")
+		compare_fields(w, compare_with, field, "defense_on_teleport", "%+d", "순간이동 후 회피도 : ")
+		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "순간이동 후 전체 저항력 : ")
+		compare_fields(w, compare_with, field, "effect_reduction_on_teleport", "%+d%%", "순간이동후 상태효과 시간 감소 : ")
 
-		compare_fields(w, compare_with, field, "damage_resonance", "%+d%%", "공격 성공시 피해 공진: ")
+		compare_fields(w, compare_with, field, "damage_resonance", "%+d%%", "공격 성공시 피해 공진 : ")
 
-		compare_fields(w, compare_with, field, "size_category", "%+d", "크기 변화: ")
+		compare_fields(w, compare_with, field, "size_category", "%+d", "크기 변화 : ")
 
-		compare_fields(w, compare_with, field, "nature_summon_max", "%+d", "최대 야생 소환수: ")
-		compare_fields(w, compare_with, field, "nature_summon_regen", "%+.2f", "추가 생명력 재생 (야생 소환수): ")
+		compare_fields(w, compare_with, field, "nature_summon_max", "%+d", "최대 야생의 소환수 : ")
+		compare_fields(w, compare_with, field, "nature_summon_regen", "%+.2f", "추가 생명력 재생 (야생의 소환수) : ")
 
-		compare_fields(w, compare_with, field, "slow_projectiles", "%+d%%", "발사체 속도 감소: ")
+		compare_fields(w, compare_with, field, "slow_projectiles", "%+d%%", "발사체 속도 감소 : ")
 
-		compare_fields(w, compare_with, field, "paradox_reduce_fails", "%+d", "괴리 실패율 감소 (의지력만큼): ")
+		compare_fields(w, compare_with, field, "paradox_reduce_fails", "%+d", "괴리 실패율 감소 (의지력만큼) : ")
 
 		if w.undead then
 			desc:add("착용자는 언데드로 취급됩니다.", true)
@@ -1054,11 +1054,11 @@ function _M:getTextualDesc(compare_with)
 		end
 
 		if w.blind_fight then
-			desc:add({"color", "YELLOW"}, "눈먼 전투의 달인:", {"color", "LAST"}, "이 물건은 착용자가 불이익없이 보이지 않는 상대와 싸울 수 있게 해줍니다.", true)
+			desc:add({"color", "YELLOW"}, "눈 먼 전투의 달인 : ", {"color", "LAST"}, "이 물건은 착용자가 불이익 없이 보이지 않는 상대와 싸울 수 있게 해줍니다.", true)
 		end
 		
 		if w.lucid_dreamer then
-			desc:add({"color", "YELLOW"}, "자각몽:", {"color", "LAST"}, "이 물건은 착용자가 잠에 빠졌을 때에만 활성화 됩니다.", true)
+			desc:add({"color", "YELLOW"}, "자각몽 : ", {"color", "LAST"}, "이 물건은 착용자가 잠에 빠졌을 때에만 활성화 됩니다.", true)
 		end
 
 		if w.no_breath then
@@ -1066,15 +1066,15 @@ function _M:getTextualDesc(compare_with)
 		end
 		
 		if w.quick_weapon_swap then
-			desc:add({"color", "YELLOW"}, "빠른 무장 변경:", {"color", "LAST"}, "이 물건은 착용자가 턴을 사용하지 않고 즉각적으로 보조 무장으로 변경할 수 있게 해줍니다.", true)
+			desc:add({"color", "YELLOW"}, "빠른 무장 변경 : ", {"color", "LAST"}, "이 물건은 착용자가 턴을 사용하지 않고 즉각적으로 보조 무장으로 변경할 수 있게 해줍니다.", true)
 		end
 
 		if w.avoid_pressure_traps then
-			desc:add({"color", "YELLOW"}, "압력식 함정 회피: ", {"color", "LAST"}, "착용자는 압력에의해 작동하는 함정을 절대 발동하지 않게됩니다.", true)
+			desc:add({"color", "YELLOW"}, "압력식 함정 회피 : ", {"color", "LAST"}, "착용자는 압력에 의해 작동하는 함정을 절대 발동하지 않게 됩니다.", true)
 		end
 
 		if w.speaks_shertul then
-			desc:add("쉐르'툴 언어를 읽고 말할수 있게 됩니다.", true)
+			desc:add("쉐르'툴 언어를 읽고 말할 수 있게 됩니다.", true)
 		end
 
 		self:triggerHook{"Object:descWielder", compare_with=compare_with, compare_fields=compare_fields, compare_table_fields=compare_table_fields, desc=desc, w=w}
@@ -1089,7 +1089,7 @@ function _M:getTextualDesc(compare_with)
 		end
 
 		if (w and w.combat or can_combat_unarmed) and (game.player:knowTalent(game.player.T_EMPTY_HAND) or game.player:attr("show_gloves_combat")) then
-			desc:add({"color","YELLOW"}, "맨손 격투시 적용:", {"color", "LAST"}, true)
+			desc:add({"color","YELLOW"}, "맨손 격투시 적용 :", {"color", "LAST"}, true)
 			compare_tab = { dam=1, atk=1, apr=0, physcrit=0, physspeed =0.6, dammod={str=1}, damrange=1.1 }
 			desc_combat(w, compare_unarmed, "combat", compare_tab)
 		end
@@ -1123,7 +1123,7 @@ function _M:getTextualDesc(compare_with)
 	end
 
 	if (self.special_combat or can_special_combat) and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
-		desc:add({"color","YELLOW"}, "방패 공격시 적용:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "방패 공격시 적용 :", {"color", "LAST"}, true)
 		desc_combat(self, compare_with, "special_combat")
 	end
 
@@ -1135,26 +1135,26 @@ function _M:getTextualDesc(compare_with)
 	end
 
 	if self.no_teleport then
-		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "전이효과에 대해 완전 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
+		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "순간이동 효과에 대해 완전 면역이 됩니다. 순간이동 기술 사용시 땅에 쓰러지게 됩니다.", {"color", "LAST"}, true)
 	elseif found then
-		desc:add({"color","RED"}, "전이효과에 대해 완전 면역이 됩니다. 전이기술 사용시 땅으로 떨어집니다.", {"color", "LAST"}, true)
+		desc:add({"color","RED"}, "순간이동 효과에 대해 완전 면역이 됩니다. 순간이동 기술 사용시 땅에 쓰러지게 됩니다.", {"color", "LAST"}, true)
 	end
 
 	if self.wielder or can_wielder then
-		desc:add({"color","YELLOW"}, "착용시 적용:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "착용시 적용 :", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "wielder")
 		if self:attr("skullcracker_mult") and game.player:knowTalent(game.player.T_SKULLCRACKER) then
-			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "박치기 배수: ")
+			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "박치기 배수 : ")
 		end
 	end
 
 	if self.carrier or can_carrier then
-		desc:add({"color","YELLOW"}, "보유시 적용:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "보유시 적용 :", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "carrier")
 	end
 
 	if self.imbue_powers or can_imbue_powers then
-		desc:add({"color","YELLOW"}, "물건에 합성시 적용:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "물건에 합성시 적용 :", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "imbue_powers")
 	end
 
@@ -1165,14 +1165,14 @@ function _M:getTextualDesc(compare_with)
 			if a then a = a.alchemist_bomb end
 		end
 		if a then
-			desc:add({"color","YELLOW"}, "연금술 폭탄 사용시:", {"color", "LAST"}, true)
+			desc:add({"color","YELLOW"}, "연금술 폭탄 사용시 :", {"color", "LAST"}, true)
 			if a.power then desc:add(("폭발 피해량 +%d%%"):format(a.power), true) end
-			if a.range then desc:add(("폭탄 사정거리 +%d"):format(a.range), true) end
+			if a.range then desc:add(("폭탄 사거리 +%d"):format(a.range), true) end
 			if a.mana then desc:add(("마나 회복 %d"):format(a.mana), true) end
 			if a.daze then desc:add(("%d턴 동안 %d%% 확률로 혼절"):format(a.daze.dur, a.daze.chance), true) end --@@ 변수 순서 조정
 			if a.stun then desc:add(("%d턴 동안 %d%% 확률로 기절"):format(a.stun.dur, a.stun.chance), true) end --@@ 변수 순서 조정
 			if a.splash then desc:add(("추가적인 %d %s 피해"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).kr_display_name or DamageType:get(DamageType[a.splash.type]).name), true) end --@@ 속성이름 한글화
-			if a.leech then desc:add(("최대 생명력의 %d%% 생명력 재생"):format(a.leech), true) end
+			if a.leech then desc:add(("최대 생명력의 %d%% 에 해당하는 생명력 재생"):format(a.leech), true) end
 		end
 	end
 
@@ -1181,7 +1181,7 @@ function _M:getTextualDesc(compare_with)
 		local t = self:getTalentFromId("T_"..self.inscription_talent.."_1")
 		local tdesc = game.player:getTalentFullDescription(t)
 		game.player.__inscription_data_fake = nil
-		desc:add({"color","YELLOW"}, "각인시 적용:", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "각인시 적용 :", {"color", "LAST"}, true)
 		desc:merge(tdesc)
 		desc:add(true)
 	end
@@ -1197,7 +1197,7 @@ function _M:getTextualDesc(compare_with)
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
 				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1169 사용 : 길어져 변수로 뺌
-				desc:add({"color","RED"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("주문 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
@@ -1205,7 +1205,7 @@ function _M:getTextualDesc(compare_with)
 	end
 	for tid, data in pairs(talents) do
 		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1177 사용 : 길어져 변수로 뺌
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	local talents = {}
@@ -1219,7 +1219,7 @@ function _M:getTextualDesc(compare_with)
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
 				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1191 사용 : 길어져 변수로 뺌
-				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("자연 속성 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
@@ -1227,7 +1227,7 @@ function _M:getTextualDesc(compare_with)
 	end
 	for tid, data in pairs(talents) do
 		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1199 사용 : 길어져 변수로 뺌
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	local talents = {}
@@ -1241,7 +1241,7 @@ function _M:getTextualDesc(compare_with)
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
 				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1213 사용 : 길어져 변수로 뺌
-				desc:add({"color","RED"}, ("자연 속성 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+				desc:add({"color","RED"}, ("자연 속성 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
@@ -1249,7 +1249,7 @@ function _M:getTextualDesc(compare_with)
 	end
 	for tid, data in pairs(talents) do
 		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1221 사용 : 길어져 변수로 뺌
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("정신 기술 명중시: %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("정신 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	if self.curse then
@@ -1272,21 +1272,21 @@ function _M:getUseDesc()
 	local usepower = function(power) return math.ceil(power * reduce / 100) end
 	if self.use_power then
 		if self.show_charges then
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s (현재 사용가능 횟수 %d/%d)."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (현재 충전량/최대 충전량 : %d/%d)."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
 		elseif self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s, 사용시 다른 모든 부적의 지연시간을 %d턴 늘립니다."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self):format(self:getCharmPower()), usepower(self.use_power.power)), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s, 사용시 다른 발동형 기술들의 지연시간이 %d턴 늘어납니다."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self):format(self:getCharmPower()), usepower(self.use_power.power)), {"color","LAST"}}
 		else
-			ret = tstring{{"color","YELLOW"}, ("사용처: %s (소모력 %d, 현재 보유력 %d/%d)."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (소모량 %d, 현재 충전량/최대 충전량 : %d/%d)."):format(util.getval((self.use_power.kr_display_name or self.use_power.name), self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
-		ret = tstring{{"color","YELLOW"}, ("사용처: %s."):format(self.use_simple.kr_display_name or self.use_simple.name), {"color","LAST"}}
+		ret = tstring{{"color","YELLOW"}, ("사용처 : %s."):format(self.use_simple.kr_display_name or self.use_simple.name), {"color","LAST"}}
 	elseif self.use_talent then
 		local t = game.player:getTalentFromId(self.use_talent.id)
-		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "소모력: ", {"color",0x7f,0xff,0xd4},("%d 보유력: %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
+		local desc = game.player:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "소모력: ", {"color",0x7f,0xff,0xd4},("%d 보유량 : %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
 		if self.talent_cooldown then
-			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_display_name or t.name)," 기술 발동, 다른 모든 부적의 지연시간을 ", tostring(math.floor(usepower(self.use_talent.power))) ,"턴 늘림 :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_display_name or t.name)," 기술 발동, 다른 발동형 기술들의 지연시간을 ", tostring(math.floor(usepower(self.use_talent.power))) ,"턴 늘림 : ", {"color","LAST"}, true}
 		else
-			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_display_name or t.name)," 기술 발동 (소모력 ", tostring(math.floor(usepower(self.use_talent.power))), " 보유력 ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
+			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_display_name or t.name)," 기술 발동 (소모량 ", tostring(math.floor(usepower(self.use_talent.power))), " 보유량 ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
 		end
 		ret:merge(desc)
 	end
@@ -1330,14 +1330,14 @@ function _M:getDesc(name_param, compare_with, never_compare)
 		if self.power_source.antimagic then desc:add({"color", "ORCHID"}, "반마법의 힘", {"color", "LAST"}, " 주입", true) end
 		if self.power_source.technique then desc:add({"color", "LIGHT_UMBER"}, "장인", {"color", "LAST"}, "이 만듦", true) end
 		if self.power_source.psionic then desc:add({"color", "YELLOW"}, "염동력", {"color", "LAST"}, " 주입", true) end
-		if self.power_source.unknown then desc:add({"color", "CRIMSON"}, "알수없는 힘", {"color", "LAST"}, " 부여", true) end
+		if self.power_source.unknown then desc:add({"color", "CRIMSON"}, "알 수 없는 힘", {"color", "LAST"}, " 부여", true) end
 	end
 
 	if self.encumber then
 		desc:add({"color",0x67,0xAD,0x00}, ("무게 %0.2f."):format(self.encumber), {"color", "LAST"})
 	end
 	if self.ego_bonus_mult then
-		desc:add(true, {"color",0x67,0xAD,0x00}, ("에고 지수 %0.2f."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
+		desc:add(true, {"color",0x67,0xAD,0x00}, ("부가 능력치 배율 %0.2f."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
 	end
 
 	local could_compare = false
