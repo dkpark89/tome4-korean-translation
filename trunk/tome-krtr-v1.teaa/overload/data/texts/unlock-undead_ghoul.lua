@@ -22,10 +22,10 @@ return "New Race: #LIGHT_GREEN#Ghoul (Undead)",
 Ghouls are evil undead creatures. Usually raised by Necromancers to serve as mindless servants, some manage to keep their sentience and roam the world in a blazing path of destruction.
 You have killed the Master, a malevolent undead creature. You can now create a new character with the #LIGHT_GREEN#Ghoul race#WHITE#.
 
-Race features:#YELLOW#
-- Great poison resistance
-- Bleeding immunity
-- Stun resistance
-- Fear immunity
-- Special ghoul talents: ghoulish leap, gnaw and retch#WHITE#
+종족 특성:#YELLOW#
+- 최고의 독성 저항
+- 출혈 면역
+- 스턴 저항
+- 공포 면역
+- 특별한 구울 기술: 구울의 도약, 물어뜯기 그리고 구역질#WHITE#
 ]]

@@ -18,10 +18,10 @@
 -- darkgod@te4.org
 
 return "New Cosmetic Race Option: #LIGHT_GREEN#Redhead Characters",
-[[You have saved Melinda from untold horrors and torments.
+[[당신은 멜린다를 밝혀지지 않은 공포와 고문에서 구축하였습니다.
 
-You may now create human, elf, halfling and dwarf characters with red hair.
-This has no effect on gameplay at all but it is fun!
+당신은 이제부터 빨간 머리를 가진 인간, 엘프, 하플링과 드워프 캐릭터들을 만들 수 있습니다.
+게임 플레이에는 별 영향을 끼치지 않지만 재미는 있을 겁니다!
 
-#LIGHT_GREEN#This is only available to donators. Thanks for your support!
+#LIGHT_GREEN#이 것은 오직 기부자에게만 허락되는 기능입니다. 우리의 게임을 지원해 주신 것에 대해 감사합니다!
 ]]

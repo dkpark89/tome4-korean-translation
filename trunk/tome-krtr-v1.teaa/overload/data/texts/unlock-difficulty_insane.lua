@@ -18,16 +18,16 @@
 -- darkgod@te4.org
 
 return "New game difficulty mode: #LIGHT_GREEN#Insane",
-[[You won the game on Nightmare mode.  You are a big tough player!
-You thought you had seen it all, done it all...
+[[당신은 악몽 난이도를 완료하셨습니다. 당신은 진정으로 이 게임의 제왕으로 불릴 수 있을 만한 사람입니다!
+당신은 아마 볼 만큼은 봤다고 생각하실겁니다, 이젠 끝이라고 생각할 지도 모르죠...
 
-But no! If nightmare mode couldn't bring you down, Insane mode will!
+하지만 절대로 아니죠! 만약 악몽 난이도가 당신을 쓰러뜨리지 못했다면, 광기 난이도가 할 겁니다!
 
-Insane features:#YELLOW#
-- All zone levels increased by 100% + 10
-- All creature talent levels increased by 100%
-- Player rank is normal instead of elite
-- Player can earn Insane version of achievements if also playing in Roguelike permadeath mode.
+광기 난이도의 요소들:#YELLOW#
+- 모든 지역의 레벨이 100% + 10 만큼 상승합니다.
+- 모든 괴물들의 기술 레벨이 100% 만큼 상승됩니다.
+- 플레이어의 등급은 전문가 대신 일반인 등급으로 시작합니다.
+- 플레이어는 로그라이크 영구 죽음모드를 사용하는 경우에만 광기 난이도의 개인 기록을 얻을 수 있습니다.
 
-#WHITE#May you suffer many fun and unfair deaths!
+#WHITE#당신에게 엄청난 양의 재미와 공정치 못한 죽음이 있기를!
 ]]
