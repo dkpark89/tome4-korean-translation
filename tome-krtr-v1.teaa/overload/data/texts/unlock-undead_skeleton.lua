@@ -22,10 +22,10 @@ return "New Race: #LIGHT_GREEN#Skeleton (Undead)",
 Skeletons are evil undead creatures. Usually raised by Necromancers to serve as mindless servants, some manage to keep their sentience and roam the world in a blazing path of destruction.
 You have killed the Master, a malevolent undead creature. You can now create a new character with the #LIGHT_GREEN#Skeleton race#WHITE#.
 
-Race features:#YELLOW#
-- Poison immunity
-- Bleeding immunity
-- Fear immunity
-- No need to breathe
-- Special skeleton talents: bone armour, resilient bones, re-assemble#WHITE#
+종족 특성:#YELLOW#
+- 독성 면역
+- 출혈 면역
+- 공포 면역
+- 숨을 쉴 필요가 없음
+- 특별한 스켈레톤 기술: 해골 갑옷, 재생하는 뼈, 재조립#WHITE#
 ]]
