@@ -538,7 +538,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[뛰어난 운 덕분에, 위험한 상황이 닥쳐오면 공격을 덜 맞게 됩니다.
 		최대 생명력의 %d%% 이상이 한번에 감소될 경우, %d 턴 동안 행운 수치만큼 (현재 %d%%) 공격이 맞지 않게 됩니다.]]):
-		format(duration, threshold * 100, evasion)
+		format(threshold * 100, duration, evasion)
 	end,
 }
 
