@@ -75,10 +75,11 @@ newLore{
 	id = "spellblade",
 	category = "angolwen",
 	name = "The spellblade",
-	lore = [[From the desk of Archmage Varil,
-Another day dawns on Angolwen. I hesitate to write this, but it almost feels as if peace is once again returning to Eyal. Saying this, I almost expect war and destruction to erupt immediately - fate is anything if not spiteful. Regardless, my sleep grows less disturbed by my memories of the Spellhunt day by day, and I can now devote myself wholly to the betterment of our cloistered community here in the mountains.
+	kr_display_name = "주문의 칼날'",
+	lore = [[마도사 바릴의 사무실에서,
+앙골웬에서의 또다른 새벽이 찾아왔습니다. 쓰기가 주저되는 내용이지만 에이알에 또 다시 평화가 찾아오는게 아닌가 그런 느낌이 드는군요. 이 말로 인해서 전쟁과 파괴행위들이 즉시 터져나오는것은 아닐지 하는 생각도 듭니다. 악의가 없는 운명이란 운명이 아니니까요. 그렇지만서도 마법사냥에 대한 기억으로 방해받았던 잠자리가 하루하루 편해지고 있는건 사실입니다. 그리고 이제는 산속에 격리된 우리의 공동체를 위해서 제 스스로를 전부 헌신하는수 밖에요.
 
-This is not to say that life has been without conflict at all. An agent of the Ziguranth infiltrated Angolwen under the guise of a travelling alchemist a few days ago; an unhappy first, I'm afraid. Having used choking powder to incapacitate the guards and rob the surrounding mages of their voices, things may have turned ugly if Linaniil hadn't been passing by on one of her walks. Little was left of that man... or the tree he hid behind... or many of the surrounding buildings, to be honest.
+인생에서 갈등이 전혀 없었다는 것은 아닙니다. 몇일 전 지구르 추종자들이 여행하는 연금술사로 변장하여 앙골웬에 침입했었습니다. 처음에는 불쾌했지만 곧 두려웠습니다. 질식가루를 사용해서 경비병들을 무력화시키고 주변 마법사들의 목소리를 뺏어갔습니다. 만약 리나니일이 지나가지 않았더라면 상황은 끔찍했을겁니다. 많이 남아있지는 않았지만요... 아니면 나무뒤에 숨어있었을지도요... 솔직하게 얘기하자면 온 건물을 포위할정도로 많았습니다.
 
-In a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me "augment" my old sword. After all, what is a blade but a sharpened metal staff?]],
+그 사건으로 이내 어느정도는 마음속 연구와 힘을 키우는 길을 향하고자 하는 의지가 불타올랐습니다. 그러나 마법지팡이 수련에 대한 관심이 시간이 지남에 따라 희미해졌음을 인정해야겠군요. 반면에 저의 검술은 나날이 발전했습니다. 저의 오래된 검을 "향상"시켜줄 주술을 찾을수 있을까 고심했습니다. 마침내, 날카로운 철제지팡이가 아닌 하나의 칼날을 뭐라고 해야 할까요?]],
 }
