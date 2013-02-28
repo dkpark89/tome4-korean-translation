@@ -19,36 +19,37 @@
 
 -- Main quest: the Staff of Absorption
 name = "A mysterious staff"
+kr_display_name = "신비한 지팡이"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Deep in the Dreadfell you fought and destroyed the Master, a powerful vampire."
+	desc[#desc+1] = "두려움의 영역 깊은 곳에서, 당신은 강력한 흡혈귀인 '주인' 과 싸워 이겼습니다."
 	if self:isCompleted("ambush") then
-		desc[#desc+1] = "On your way out of the Dreadfell you were ambushed by a band of orcs."
-		desc[#desc+1] = "They asked about the staff."
+		desc[#desc+1] = "두려움의 영역을 나오던 도중에, 당신은 오크 부대의 습격을 받았습니다."
+		desc[#desc+1] = "그들은 지팡이의 행방에 대해 물어봤습니다."
 	elseif self:isCompleted("ambush-finished") and not self:isCompleted("survived-ukruk") then
-		desc[#desc+1] = "On your way out of the Dreadfell you were ambushed by a band of orcs and left for dead."
-		desc[#desc+1] = "They asked about the staff and stole it from you."
-		desc[#desc+1] = "#LIGHT_GREEN#Go at once to Last Hope to report those events!"
+		desc[#desc+1] = "두려움의 영역을 나오던 도중에, 당신은 오크 부대의 습격을 받아 죽음의 위기를 간신히 넘겼습니다."
+		desc[#desc+1] = "그들은 지팡이의 행방에 대해 물어봤으며, 당신에게서 지팡이를 훔쳐갔습니다."
+		desc[#desc+1] = "#LIGHT_GREEN#마지막 희망에 가서, 이 사실을 빨리 알려야 합니다!"
 	elseif self:isCompleted("ambush-finished") and self:isCompleted("survived-ukruk") then
-		desc[#desc+1] = "On your way out of Last Hope you were ambushed by a band of orcs."
-		desc[#desc+1] = "They asked about the staff and stole it from you."
-		desc[#desc+1] = "You told them nothing and vanquished them."
-		desc[#desc+1] = "#LIGHT_GREEN#Go at once to Last Hope to report those events!"
+		desc[#desc+1] = "마지막 희망으로 가던 도중에, 당신은 오크 부대의 습격을 받았습니다."
+		desc[#desc+1] = "그들은 지팡이의 행방에 대해 물어봤으며, 당신에게서 지팡이를 훔쳐가려고 했습니다."
+		desc[#desc+1] = "하지만 당신은 그들에게 아무 말도 해주지 않았으며, 그들을 물리쳤습니다."
+		desc[#desc+1] = "#LIGHT_GREEN#마지막 희망에 가서, 이 사실을 빨리 알려야 합니다!"
 	else
-		desc[#desc+1] = "In its remains, you found a strange staff. It radiates power and danger and you dare not use it yourself."
-		desc[#desc+1] = "You should bring it to the elders of Last Hope in the southeast."
+		desc[#desc+1] = "그의 시체에서, 당신은 이상한 지팡이를 발견했습니다. 지팡이에서 엄청난 힘이 뿜어져 나와, 당신은 이것을 사용해서는 안되겠다는 생각이 들었습니다."
+		desc[#desc+1] = "이 지팡이를 남동쪽에 있는 마지막 희망의 장로에게 보여줘야 할 것 같습니다."
 	end
 	return table.concat(desc, "\n")
 end
 
 on_grant = function(self, who)
 	game.party:learnLore("master-slain")
-	game.logPlayer(who, "#00FFFF#You can feel the power of this staff just by carrying it. This is both ancient and dangerous.")
-	game.logPlayer(who, "#00FFFF#It should be shown to the wise elders in Last Hope!")
+	game.logPlayer(who, "#00FFFF#가지고 있는 것만으로도 지팡이에서 힘이 흘러나오는 것을 느낄 수 있습니다. 이 지팡이는 고대의, 위험한 물건이 분명합니다.")
+	game.logPlayer(who, "#00FFFF#마지막 희망의 현명한 장로에게 보여줘야 할 것 같습니다!")
 end
 
 start_ambush = function(self, who)
-	game.logPlayer(who, "#VIOLET#As you come out of the Dreadfell, you encounter a band of orcs!")
+	game.logPlayer(who, "#VIOLET#당신이 두려움의 영역을 빠져나옴과 동시에, 오크 부대가 당신을 덮쳤습니다!")
 	who:setQuestStatus("staff-absorption", engine.Quest.COMPLETED, "ambush")
 
 	-- Next time the player dies (and he WILL die) he wont really die
@@ -83,8 +84,8 @@ start_ambush = function(self, who)
 			o:removed()
 		end
 
-		game.logPlayer(self, "#VIOLET#You wake up after a few hours, surprised to be alive, but the staff is gone!")
-		game.logPlayer(self, "#VIOLET#Go at once to Last Hope to report those events!")
+		game.logPlayer(self, "#VIOLET#몇 시간 뒤, 당신은 깨어났습니다. 자신이 살아있다는 사실에 놀라움을 느꼈지만, 지팡이가 사라졌다는 것을 깨달았습니다!")
+		game.logPlayer(self, "#VIOLET#마지막 희망에 가서, 이 사실을 빨리 알려야 합니다!")
 		
 		local oe = game.level.map(self.x, self.y, engine.Map.TERRAIN)
 		if oe:attr("temporary") and oe.old_feat then 
@@ -104,8 +105,8 @@ end
 killed_ukruk = function(self, who)
 	game.player.die = nil
 
-	game.logPlayer(self, "#VIOLET#You are surprised to still be alive.")
-	game.logPlayer(self, "#VIOLET#Go at once to Last Hope to report those events!")
+	game.logPlayer(self, "#VIOLET#자신이 아직도 살아있다는 사실에, 놀라움을 느꼈습니다.")
+	game.logPlayer(self, "#VIOLET#마지막 희망에 가서, 이 사실을 빨리 알려야 합니다!")
 
 	local oe = game.level.map(who.x, who.y, engine.Map.TERRAIN)
 	if oe:attr("temporary") and oe.old_feat then 

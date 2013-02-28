@@ -18,13 +18,14 @@
 -- darkgod@te4.org
 
 name = "An apprentice task"
+kr_display_name = "견습 마법사의 임무"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You met a novice mage who was tasked to collect an arcane powered artifact."
-	desc[#desc+1] = "He asked for your help, should you collect some that you do not need."
+	desc[#desc+1] = "당신은 마법의 힘이 깃든 고대 유물을 찾으라는 임무를 받은, 초보 마법사를 만났습니다."
+	desc[#desc+1] = "그는 당신에게 도움을 요청했습니다. 여행 중에 조건을 만족하면서 필요는 없는 물건을 구하게 되면, 그에게 가져다주기로 했습니다."
 	if self:isCompleted() then
 	else
-		desc[#desc+1] = "#SLATE#* Collect an artifact arcane powered item.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 마법의 힘이 깃든 고대 유물 하나 모으기#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end
@@ -42,13 +43,13 @@ on_status_change = function(self, who, status, sub)
 end
 
 collect_staff_unique = function(self, npc, who, dialog)
-	who:showInventory("Offer which item?", who:getInven("INVEN"),
+	who:showInventory("무슨 물건을 줍니까?", who:getInven("INVEN"),
 		function(o) return o.power_source and o.power_source.arcane and o.unique
 		end,
 		function(o, item)
 			-- Special handling for the staff of absorption
 			if o.define_as and o.define_as == "STAFF_ABSORPTION" then
-				game.logPlayer(who, "#LIGHT_RED#As the apprentice touches the staff he begins to scream, flames bursting out of his mouth. Life seems to be drained away from him, and in an instant he collapses in a lifeless husk.")
+				game.logPlayer(who, "#LIGHT_RED#견습 마법사가 지팡이를 만지자, 그가 비명을 지르기 시작했습니다. 그의 입에서 불꽃이 마구 뿜어져 나오며, 그의 생명력이 지팡이에 흡수되는 것이 느껴졌습니다. 그리고 순식간에, 그는 생명이 없는 빈 껍데기가 되어 쓰러졌습니다.")
 				who:setQuestStatus(self, self.FAILED)
 				game:unregisterDialog(dialog.next_dialog)
 				game.level.map:particleEmitter(npc.x, npc.y, 3, "fireflash", {radius=3, tx=npc.x, ty=npc.y})
@@ -60,7 +61,7 @@ collect_staff_unique = function(self, npc, who, dialog)
 			self.nb_collect = self.nb_collect + 1
 			if self.nb_collect >= 1 then who:setQuestStatus(self, self.COMPLETED) end
 			who:removeObject(who:getInven("INVEN"), item)
-			game.log("You have no more %s", o:getName{no_count=true, do_color=true})
+			game.log("당신은 견습 마법사에게 물건을 주었습니다 : %s", o:getName{no_count=true, do_color=true})
 			who:sortInven(who:getInven(inven))
 			dialog:regen()
 			return true
@@ -106,7 +107,7 @@ ring_gift = function(self, player)
 		o:identify(true)
 		player:addObject(player.INVEN_INVEN, o)
 		game.zone:addEntity(game.level, o, "object")
-		game.logPlayer(player, "You receive: %s", o:getName{do_color=true})
+		game.logPlayer(player, "당신은 선물을 받았습니다 : %s", o:getName{do_color=true})
 	end
 	player:setQuestStatus(self, self.DONE)
 end

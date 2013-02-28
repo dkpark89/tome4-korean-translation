@@ -21,17 +21,17 @@ name = "Madness of the Ages"
 kr_display_name = "시대의 광기"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "탈로레의 숲(The Thaloren Forest)는 망했습니다. 오염이 번지고 있습니다. 수호곰 노르고스(Norgos the guardian bear)는 미쳐버렸다고 합니다.\n"
-	desc[#desc+1] = "숲의 서쪽 경계에 음울한 기운이 생겨났습니다. 그 안에 들어있는 것들은... 뒤틀렸습니다.\n"
+	desc[#desc+1] = "탈로레의 숲은 타락했습니다. 오염이 번지고 있습니다. 수호자였던 곰 노르고스는 미쳐버렸다고 합니다.\n"
+	desc[#desc+1] = "숲의 서쪽 경계에는 음울한 기운이 생겨나고 있습니다. 그곳에 있는 것들은... 뒤틀렸습니다.\n"
 	if self:isCompleted("norgos") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 노르고스 동굴(Norgos' Lair)을 탐험하고 그것을 묻었습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 노르고스 동굴을 탐험하여, 그에게 안식을 안겨줬습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* 당신은 노르고스 동굴(Norgos' Lair)을 탐험해야 합니다.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '노르고스 동굴' 을 탐험해야 합니다.#WHITE#"
 	end
 	if self:isCompleted("heart-gloom") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장(the Heart of the Gloom)을 탐험해 시듦의 원천(the Withering Thing)을 죽였습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장을 탐험하여, 시듦의 원천을 죽였습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* 당신은 어둠의 심장(the Heart of the Gloom)을 탐험해야 합니다.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '어둠의 심장' 을 탐험해야 합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

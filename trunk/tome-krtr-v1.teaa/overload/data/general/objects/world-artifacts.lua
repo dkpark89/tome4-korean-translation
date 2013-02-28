@@ -879,7 +879,7 @@ newEntity{
 	unique = true,
 	type = "misc", subtype="egg",
 	unided_name = "dark egg",
-	name = "Mummified Egg-sac of Ungolë", image = "object/artifact/mummified_eggsack.png",
+	name = "Mummified Egg-sac of Ungole", image = "object/artifact/mummified_eggsack.png",
 	kr_display_name = "운골뢰의 미이라화된 알주머니", kr_unided_name = "어두운 알",
 	level_range = {20, 35},
 	rarity = 190,

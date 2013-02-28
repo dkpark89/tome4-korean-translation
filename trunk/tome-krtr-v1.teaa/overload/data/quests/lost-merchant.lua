@@ -18,17 +18,18 @@
 -- darkgod@te4.org
 
 name = "Trapped!"
+kr_display_name = "함정이다!"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You heard a plea for help and decided to investigate..."
-	desc[#desc+1] = "Only to find yourself trapped inside an unknown tunnel complex."
+	desc[#desc+1] = "당신은 도움을 원하는 간청을 듣고, 조사를 해보기로 결심했습니다..."
+	desc[#desc+1] = "함정에 갇힌 이상, 이 알지 못할 곳을 헤쳐나가는 것만이 유일한 길이 될 것 같습니다."
 	return table.concat(desc, "\n")
 end
 
 on_status_change = function(self, who, status, sub)
 	if sub and sub == "evil" then
 		game.level.map(who.x, who.y, game.level.map.TERRAIN, game.zone.grid_list.UP_WILDERNESS)
-		game.logPlayer(who, "A stairway out appears at your feet. The Lord says: 'And remember, you are MINE. I will call you.'")
+		game.logPlayer(who, "발 밑에 위로 올라가는 계단이 솟아났습니다. 암살단 단장이 말했습니다. '기억해라, 너는 네 것이라는 사실을. 나중에 부르도록 하지.'")
 	end
 
 	if self:isCompleted() then
@@ -46,7 +47,7 @@ leave_zone = function(self, who)
 		end
 	end
 	if merchant_alive then
-		game.logPlayer(who, "#LIGHT_BLUE#The merchant thanks you for saving his life. He gives you 8 gold and asks you to meet him again in Last Hope.")
+		game.logPlayer(who, "#LIGHT_BLUE#상인이 자신의 목숨을 구해준 것에 대해 감사를 표했습니다. 그는 당신에게 금화 8 개를 주었으며, 마지막 희망에서 다시 볼 것을 청했습니다.")
 		who:incMoney(8)
 		who.changed = true
 		who:setQuestStatus(self.id, engine.Quest.COMPLETED, "saved")

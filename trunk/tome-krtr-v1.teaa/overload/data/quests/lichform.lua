@@ -22,27 +22,27 @@ kr_display_name = "죽음에서, 삶으로"
 stables = 0
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "The affairs of this mortal world are trifling compared to your true goal: To conquer death."
-	desc[#desc+1] = "Your studies have uncovered much surrounding this subject, but now you must prepare for your glorious rebirth."
-	desc[#desc+1] = "You will need:"
+	desc[#desc+1] = "이 필멸자들의 세상에서 벌어지는 일들은 당신의 진정한 목적 -죽음을 정복하는 것- 에 비하면 사소한 것일 뿐입니다."
+	desc[#desc+1] = "당신은 연구를 통해 이 주제에 대한 것을 대부분 밝혀냈지만, 이 영광스러운 재탄생을 위해서는 준비해야 할 것이 있습니다."
+	desc[#desc+1] = "필요한 것은 다음과 같습니다 :"
 
-	if who.level >= 20 then desc[#desc+1] = "#LIGHT_GREEN#* You are experienced enough.#WHITE#"
-	else desc[#desc+1] = "#SLATE#* The ceremony will require that you are worthy, experienced, and possessed of a certain amount of power#WHITE#" end
+	if who.level >= 20 then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 충분한 경험을 쌓았습니다.#WHITE#"
+	else desc[#desc+1] = "#SLATE#* 이 의식을 위해서는 자신이 가치 있고, 경험이 충만하며, 어느 정도의 힘을 가지고 있다는 것을 보일 필요가 있습니다.#WHITE#" end
 
-	if self:isCompleted("heart") then desc[#desc+1] = "#LIGHT_GREEN#* You have 'extracted' the heart of one of your fellow necromancers.#WHITE#"
-	else desc[#desc+1] = "#SLATE#* The beating heart of a powerful necromancer.#WHITE#" end
+	if self:isCompleted("heart") then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다른 사령술사로부터 심장을 '추출' 해냈습니다.#WHITE#"
+	else desc[#desc+1] = "#SLATE#* 강력한 사령술사의 맥동하는 심장이 필요합니다.#WHITE#" end
 
 	if who:isQuestStatus("shertul-fortress", self.COMPLETED, "butler") then
-		desc[#desc+1] = "#LIGHT_GREEN#* Yiilkgur the Sher'tul Fortress is a suitable location.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 쉐르'툴 요새 이일크구르가 적당한 장소일 것 같습니다.#WHITE#"
 
 		if who:hasQuest("shertul-fortress").shertul_energy >= 40 then
-			desc[#desc+1] = "#LIGHT_GREEN#* Yiilkgur has enough energy.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 이일크구르에 충분한 에너지가 있습니다.#WHITE#"
 
-			if who:knowTalent(who.T_LICHFORM) then desc[#desc+1] = "#LIGHT_GREEN#* You are now on the path of lichdom.#WHITE#"
-			else desc[#desc+1] = "#SLATE#* Use the control orb of Yiilkgur to begin the ceremony.#WHITE#" end
-		else desc[#desc+1] = "#SLATE#* Your lair must amass enough energy to use in your rebirth (40 energy).#WHITE#" end
+			if who:knowTalent(who.T_LICHFORM) then desc[#desc+1] = "#LIGHT_GREEN#* 이제 당신은 리치의 길을 걷게 되었습니다.#WHITE#"
+			else desc[#desc+1] = "#SLATE#* 이일크구르의 제어 오브를 사용해서 의식을 시작할 수 있습니다.#WHITE#" end
+		else desc[#desc+1] = "#SLATE#* 당신의 재탄생을 위해서는 충분한 양의 에너지가 필요합니다. (40 에너지)#WHITE#" end
 	else
-		desc[#desc+1] = "#SLATE#* The ceremony will require a suitable location, secluded and given to the channelling of energy#WHITE#"
+		desc[#desc+1] = "#SLATE#* 외딴 곳이며 에너지를 끌어모을 수 있는, 적합한 장소가 의식에 필요합니다.#WHITE#"
 	end
 
 	return table.concat(desc, "\n")
@@ -52,7 +52,7 @@ on_status_change = function(self, who, status, sub)
 	if self:isCompleted() then
 		who:setQuestStatus(self.id, engine.Quest.DONE)
 		who:learnTalent(who.T_LICHFORM, true, 1, {no_unlearn=true})
-		require("engine.ui.Dialog"):simplePopup("Lichform", "The secrets of death lay open to you! The skill 'Lichform' has been unlocked!")
+		require("engine.ui.Dialog"):simplePopup("리치 변신", "죽음의 비밀이 당신 앞에 모습을 드러냈습니다! '리치 변신' 기술을 사용할 수 있게 되었습니다!")
 	end
 end
 

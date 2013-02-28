@@ -18,16 +18,17 @@
 -- darkgod@te4.org
 
 name = "Melinda, lucky girl"
+kr_display_name = "운 좋은 소녀, 멜린다"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope."
+	desc[#desc+1] = "크릴-페이얀의 광신도로부터 멜린다를 구해준 뒤, 당신은 그녀를 마지막 희망에서 다시 만났습니다."
 	if who.female then
-		desc[#desc+1] = "You talked for a while and it seems she has a crush on you, even though you are yourself a woman."
+		desc[#desc+1] = "당신은 그녀와 대화하면서, 그녀가 당신을 사랑하게 됐다는 것을 알았습니다. 당신이 여성인데도 말이지요."
 	else
-		desc[#desc+1] = "You talked for a while and it seems she has a crush on you."
+		desc[#desc+1] = "당신은 그녀와 대화하면서, 그녀가 당신을 사랑하게 됐다는 것을 알았습니다."
 	end
 	if self:isCompleted("moved-in") then
-		desc[#desc+1] = "Melinda decided to come live with you in your Fortress."
+		desc[#desc+1] = "멜린다는 당신의 요새에서 당신과 함께 살기로 결심하였습니다."
 	end
 	return table.concat(desc, "\n")
 end
@@ -35,20 +36,21 @@ end
 function onWin(self, who)
 	if who.dead then return end
 	return 10, {
-		"After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.",
-		"You lived together and led a happy life. Melinda even learned a few adventurer's tricks and you both traveled Eyal, making new legends.",
+		"승리한 뒤, 당신은 마지막 희망으로 가서 멜린다와 다시 만났습니다. 그녀는 더 이상 악마 숭배로 인한 후유증을 겪지 않았습니다.",
+		"당신은 그녀와 함께 살면서 행복한 삶을 살았습니다. 멜린다는 모험가의 기술들을 몇 개 배워 당신과 함께 여행을 다니기도 하였으며, 그녀는 당신과 함께 새로운 전설을 만들었습니다.",
 	}
 end
 
 function spawnFortress(self, who) game:onTickEnd(function()
 	local melinda = require("mod.class.NPC").new{
 		name = "Melinda", define_as = "MELINDA_NPC",
+		kr_display_name = "멜린다",
 		type = "humanoid", subtype = "human", female=true,
 		display = "@", color=colors.LIGHT_BLUE,
 		image = "player/cornac_female_redhair.png",
 		moddable_tile = "human_female",
 		moddable_tile_base = "base_redhead_01.png",
-		desc = [[You saved her from the depth of a cultists lair and fell in love with her. She has moved in the Fortress to see you more often.]],
+		desc = [[당신은 그녀를 광신도들로부터 구해냈으며, 그녀와 사랑에 빠졌습니다. 그녀는 당신을 더 자주 보기 위해 요새에서 살기로 하였습니다.]],
 		autolevel = "tank",
 		ai = "none",
 		stats = { str=8, dex=7, mag=8, con=12 },

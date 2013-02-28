@@ -18,7 +18,8 @@
 -- darkgod@te4.org
 
 -- Ruysh Charred scar
-name = "세계의 종말!"
+name = "The Doom of the World!"
+kr_display_name = "세계의 종말!"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "당신은 거대한 화산 중심에 있는 '검게 탄 상처' 에 보내졌습니다. 장작더미의 시대에, 화산에 의해 이곳에 있던 고대의 쉐르'툴 유적이 파괴되었다고 합니다."

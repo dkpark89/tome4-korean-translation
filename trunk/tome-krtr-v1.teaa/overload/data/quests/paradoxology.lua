@@ -18,12 +18,13 @@
 -- darkgod@te4.org
 
 name = "The Way We Weren't"
+kr_display_name = "우리가 원치 않았던 길"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have met what seems to be a future version of yourself.\n"
-	if self:isCompleted("combat") then desc[#desc+1] = "You tried to kill yourself to prevent you from doing something, or going somewhere... you were not very clear.\n" end
-	if self:isCompleted("now-died") then desc[#desc+1] = "You were killed by your future self, and thus this event never occured.\n" end
-	if self:isCompleted("future-died") then desc[#desc+1] = "You killed your future self. In the future, you might wish to avoid time-traveling back to this moment...\n" end
+	desc[#desc+1] = "당신은 미래의 자신처럼 보이는 사람을 만났습니다.\n"
+	if self:isCompleted("combat") then desc[#desc+1] = "당신은 또 다른 자신이 무언가를 하거나 어디론가 가기 전에 죽이기로 했습니다... 그에 대한 확신은 없지만요.\n" end
+	if self:isCompleted("now-died") then desc[#desc+1] = "당신은 미래의 자신에게 죽임을 당했습니다. 그리고 이 일은 완전히 일어나지 않은 일이 되었습니다.\n" end
+	if self:isCompleted("future-died") then desc[#desc+1] = "당신은 미래의 자신을 죽였습니다. 미래에, 당신은 이 순간으로 시간 여행을 하는 것만은 피하고 싶어질 것 같습니다...\n" end
 	return table.concat(desc, "\n")
 end
 
@@ -92,11 +93,11 @@ generate = function(self, player, x, y)
 
 		game.player:setQuestStatus("paradoxology", engine.Quest.COMPLETED, "future-died")
 		world:gainAchievement("PARADOX_FUTURE", p)
-		game.logSeen(self, "#LIGHT_BLUE#Killing your own future self does feel weird, but you know that you can avoid this future. Just do not time travel.")
+		game.logSeen(self, "#LIGHT_BLUE#미래의 자신을 죽이는 것은 기묘한 느낌이지만, 당신은 이 미래를 피할 수 있다는 것을 알고 있습니다. 시간 여행을 하지 않는다는 방법이 있으니까요.")
 	end
 	a.on_takehit = function(self, val)
 		if not self.half_life_check and (self.life - val < self.max_life / 2) then
-			self:doEmote("Meet the guardian!")
+			self:doEmote("수호자를 만나라!")
 			game:onTickEnd(function()
 				game:changeLevel(1, "paradox-plane")
 			end)
@@ -110,13 +111,13 @@ generate = function(self, player, x, y)
 		local p = game.party:findMember{main=true}
 		if who == p then
 			p:setQuestStatus("paradoxology", engine.Quest.COMPLETED, "now-died")
-			game.logSeen(self, "#LIGHT_BLUE#Your future self kills you! The timestreams are broken by the paradox!")
-			game.logSeen(self, "#LIGHT_BLUE#All those events never happened. Except they did, somewhen.")
+			game.logSeen(self, "#LIGHT_BLUE#미래의 당신이 당신을 죽였습니다! 시간의 흐름이 왜곡에 의해 깨졌습니다!")
+			game.logSeen(self, "#LIGHT_BLUE#모든 일이 일어나지 않은 일로 되었습니다. 그들이 언젠가 할 일을 빼면 말이죠.")
 			game:setAllowedBuild("chronomancer_paradox_mage", true)
 			world:gainAchievement("PARADOX_NOW", p)
 
 			local rift = game.zone:makeEntityByName(game.level, "terrain", "RIFT")
-			rift.change_level_check = function() game.log("This rift in time has been created by the paradox. You dare not enter it; it could make things worse. Another Warden will have to fix your mess.") return true end
+			rift.change_level_check = function() game.log("이 시간의 균열은 왜곡에 의해 만들어진 것입니다. 이곳에는 들어가지 않는 것이 좋을 것 같습니다. 아마 모든 일이 꼬여버릴 것 같으니까요. 다른 감시자가 이 균열을 고쳐줄 수 있을 것입니다.") return true end
 			game.zone:addEntity(game.level, rift, "terrain", self.x, self.y)
 
 			self.on_die = nil

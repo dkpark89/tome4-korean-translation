@@ -18,8 +18,9 @@
 -- darkgod@te4.org
 
 name = "Light at the end of the tunnel"
+kr_display_name = "터널의 끝에는 빛이 있으라"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You must find a way to Maj'Eyal through the tunnel to the north of the island.\n"
+	desc[#desc+1] = "당신은 섬 북쪽에 있는 터널을 통해, 마즈'에이알로 통하는 길을 찾아야 합니다.\n"
 	return table.concat(desc, "\n")
 end

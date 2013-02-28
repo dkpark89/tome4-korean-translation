@@ -18,16 +18,17 @@
 -- darkgod@te4.org
 
 name = "Till the Blood Runs Clear"
+kr_display_name = "다시 피가 흐를 때까지"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have found a slavers' compound and entered it."
+	desc[#desc+1] = "당신은 노예 수용소를 찾아, 그곳에 들어갔습니다."
 	if self:isCompleted("won-fight") then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "You decided to join the slavers and take part in their game. You won the ring of blood!"
+		desc[#desc+1] = "당신은 노예들을 가지고 벌이는 그들의 게임에 참가하기로 했습니다. 당신은 피의 투기장에서 승리를 거머쥐었습니다!"
 	end
 	if self:isCompleted("killall") then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "You decided you cannot let slavers continue their dirty work and destroyed them!"
+		desc[#desc+1] = "당신은 노예들을 가지고 벌이는 그들의 더러운 일을 용납하지 않았고, 그들을 처치했습니다!"
 	end
 	return table.concat(desc, "\n")
 end
@@ -52,7 +53,7 @@ end
 
 start_game = function(self)
 	if not self:find_master() then
-		game.log("The orb seems to fizzle without the Blood Master.")
+		game.log("피의 투기장 운영자가 없어서, 오브가 작동하지 않습니다.")
 		return
 	end
 
@@ -74,10 +75,10 @@ start_game = function(self)
 
 	slave.on_die = function(self)
 		game.player:hasQuest("ring-of-blood"):stop_game(false)
-		game.log("#CRIMSON#The crowd yells: 'LOSER!'")
+		game.log("#CRIMSON#관중들이 소리칩니다 : '이 패배자!'")
 	end
 
-	game.log("#LIGHT_GREEN#As you touch the orb your will fills the slave's body. You take full control of his actions!")
+	game.log("#LIGHT_GREEN#당신이 오브에 손을 대자, 당신의 의지가 노예의 몸에 차오릅니다. 당신은 그의 행동을 마음대로 조종할 수 있게 되었습니다!")
 	self.inside_ring = 0
 	self.inside_kills = 0
 end
@@ -102,7 +103,7 @@ on_turn = function(self)
 	local x, y = util.findFreeGrid(spot.x, spot.y, 20, true, {[engine.Map.ACTOR]=true})
 	if not x or not foe then return end
 	game.zone:addEntity(game.level, foe, "actor", x, y)
-	game.log("#CRIMSON#A new foe appears in the ring of blood!")
+	game.log("#CRIMSON#새로운 적이 피의 투기장에 나타났습니다!")
 	game.zone.base_level = oldlev
 
 	foe.is_ring_foe = true
@@ -136,7 +137,7 @@ stop_game = function(self, win)
 
 	if win then
 		p:setQuestStatus(self.id, engine.Quest.COMPLETED, "won-fight")
-		game.log("#CRIMSON#The crowd yells: 'BLOOOODDD!'")
+		game.log("#CRIMSON#관중들이 소리칩니다 : '피! 피! 피! 피!'")
 		local chat = require("engine.Chat").new("ring-of-blood-win", self:find_master(), p)
 		chat:invoke()
 	end
@@ -149,5 +150,5 @@ reward = function(self, who)
 	game.zone:addEntity(game.level, o, "object")
 	who:addObject(who:getInven("INVEN"), o)
 	who:setQuestStatus(self.id, engine.Quest.COMPLETED)
-	game.logPlayer(who, "#LIGHT_BLUE#The Blood Master hands you the %s.", o:getName{do_color=true})
+	game.logPlayer(who, "#LIGHT_BLUE#피의 투기장 운영자가 당신에게 상품을 주었습니다 : %s", o:getName{do_color=true})
 end

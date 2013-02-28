@@ -18,50 +18,51 @@
 -- darkgod@te4.org
 
 name = "Sher'Tul Fortress"
+kr_display_name = "쉐르'툴 요새"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You found notes from an explorer inside the Old Forest. He spoke about Sher'Tul ruins sunken below the surface of the lake of Nur, at the forest's center."
-	desc[#desc+1] = "With one of the notes there was a small gem that looks like a key."
+	desc[#desc+1] = "당신은 오래된 숲에서 한 모험가가 남긴 쪽지들을 찾았습니다. 그는 쪽지를 통해, 쉐르'툴 종족의 유적이 숲 중심부에 있는 누르 호수 밑에 가라앉아 있다고 했습니다."
+	desc[#desc+1] = "그가 작성한 쪽지들 중 하나에서, 마치 열쇠처럼 보이는 작은 보석을 발견했습니다."
 	if self:isCompleted("entered") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You used the key inside the ruins of Nur and found a way into the fortress of old.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 열쇠를 사용해서 누르 호수 안에 있는 유적의 문을 열었고, 오래된 요새로 가는 길을 발견했습니다.#WHITE#"
 	end
 	if self:isCompleted("weirdling") then
-		desc[#desc+1] = "#LIGHT_GREEN#* The Weirdling Beast is dead, freeing the way into the fortress itself.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 기이한 짐승을 죽이자, 요새 안으로 들어갈 수 있게 되었습니다.#WHITE#"
 	end
 	if self:isCompleted("butler") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have activated what seems to be a ... butler? with your rod of recall.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 되돌림의 장대를 통해, 마치 집사와 비슷한 행동을 하는 무언가...를 불러냈습니다.#WHITE#"
 	end
 	if self:isCompleted("transmo-chest") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have bound the transmogrification chest to the Fortress power system.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 요새의 동력 장치와 연결된, 변환 상자를 받았습니다.#WHITE#"
 	end
 	if self:isCompleted("transmo-chest-extract-gems") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have upgraded the transmogrification chest to automatically transmute metallic items into gems before transmogrifying them.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 변환 상자를 강화시켜, 변환 상자가 금속 장비들을 보석으로 자동 변환시킬 수 있게 만들었습니다.#WHITE#"
 	end
 	if self:isCompleted("recall") then
 		if self:isCompleted("recall-done") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have upgraded your rod of recall to transport you to the fortress.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 되돌림의 장대를 강화시켜, 되돌림의 장대를 사용하면 바로 요새로 이동할 수 있게 만들었습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#SLATE#* The fortress shadow has asked that you come back as soon as possible.#WHITE#"
+			desc[#desc+1] = "#SLATE#* 요새의 그림자가, 가능한 빨리 요새에 와달라는 요청을 했습니다.#WHITE#"
 		end
 	end
 	if self:isCompleted("farportal") then
 		if self:isCompleted("farportal-broken") then
-			desc[#desc+1] = "#RED#* You have forced a recall while in an exploratory farportal zone. The farportal was rendered unusable in the process.#WHITE#"
+			desc[#desc+1] = "#RED#* 당신은 탐험용 장거리 관문을 사용하던 중에 강제적으로 귀환을 했습니다. 이 과정에서 장거리 관문이 고장나 사용하지 못하게 되었습니다.#WHITE#"
 		elseif self:isCompleted("farportal-done") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have entered the exploratory farportal room and defeated the horror lurking there. You can now use the farportal.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 탐험용 장거리 관문이 있는 방에 들어가 그곳에 있는 공포를 해치웠습니다. 이제 장거리 관문을 사용할 수 있게 되었습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#SLATE#* The fortress shadow has asked that you come back as soon as possible.#WHITE#"
+			desc[#desc+1] = "#SLATE#* 요새의 그림자가, 가능한 빨리 요새에 와달라는 요청을 했습니다.#WHITE#"
 		end
 	end
 	if self:isCompleted("flight") then
 		if self:isCompleted("flight-done") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have re-enabled the fortress flight systems. You can now fly around in your fortress!#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 요새의 비행 체계를 재가동 시켰습니다. 이제 요새를 사용해서 날아다닐 수 있습니다!#WHITE#"
 		else
-			desc[#desc+1] = "#SLATE#* The fortress shadow has asked that you find an Ancient Storm Saphir, along with at least 250 energy, to re-enable the fortress flight systems.#WHITE#"
+			desc[#desc+1] = "#SLATE#* 요새의 그림자가 당신에게 고대의 폭풍 사파이어를 찾아줄 것을 요청했습니다. 이것과 250 에너지가 있으면, 요새의 비행 체계를 재가동 시킬 수 있다고 합니다.#WHITE#"
 		end
 	end
 	if self.shertul_energy > 0 then
-		desc[#desc+1] = ("\nThe fortress's current energy level is: #LIGHT_GREEN#%d#WHITE#."):format(self.shertul_energy)
+		desc[#desc+1] = ("\n요새가 지금까지 모은 에너지의 총량 : #LIGHT_GREEN#%d#WHITE#."):format(self.shertul_energy)
 	end
 	return table.concat(desc, "\n")
 end
@@ -102,13 +103,13 @@ gain_energy = function(self, energy)
 	if self.shertul_energy >= 15 and not self:isCompleted("recall") then
 		game.player:setQuestStatus(self.id, self.COMPLETED, "recall")
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simpleLongPopup("Fortress Shadow", "Master, you have sent enough energy to improve your rod of recall. Please return to the fortress.", 400)
+		Dialog:simpleLongPopup("요새의 그림자", "주인님, 요새에 충분한 에너지가 모여 되돌림의 장대를 강화시킬 수 있게 되었습니다. 요새로 돌아와주십시오.", 400)
 	end
 
 	if self.shertul_energy >= 45 and not self:isCompleted("farportal") then
 		game.player:setQuestStatus(self.id, self.COMPLETED, "farportal")
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simpleLongPopup("Fortress Shadow", "Master, you have sent enough energy to activate the exploratory farportal.\nHowever, there seems to be a disturbance in that room. Please return as soon as possible.", 400)
+		Dialog:simpleLongPopup("요새의 그림자", "주인님, 요새에 충분한 에너지가 모여 탐험용 장거리 관문을 활성화시킬 수 있게 되었습니다.\n하지만, 관문이 있는 방에 뭔가 알 수 없는 존재가 있습니다. 가능한 빨리 요새로 돌아와주십시오.", 400)
 	end
 
 	if self.shertul_energy >= 250 and not self:isCompleted("flight") then
@@ -151,7 +152,7 @@ end
 upgrade_rod = function(self)
 	if self.shertul_energy < 15 then
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simplePopup("Fortress Shadow", "The energy is too low. It needs to be at least 15.")
+		Dialog:simplePopup("요새의 그림자", "에너지가 부족합니다. 최소 15 에너지가 필요합니다.")
 		return
 	end
 	self.shertul_energy = self.shertul_energy - 15
@@ -161,19 +162,19 @@ upgrade_rod = function(self)
 
 	game.player:setQuestStatus("shertul-fortress", self.COMPLETED, "recall-done")
 	rod.shertul_fortress = true
-	game.log("#VIOLET#Your rod of recall glows brightly for a moment.")
+	game.log("#VIOLET#되돌림의 장대가 잠시 밝게 빛났습니다.")
 end
 
 upgrade_transmo_gems = function(self)
 	if self.shertul_energy < 25 then
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simplePopup("Fortress Shadow", "The energy is too low. It needs to be at least 25.")
+		Dialog:simplePopup("요새의 그림자", "에너지가 부족합니다. 최소 25 에너지가 필요합니다.")
 		return
 	end
 	self.shertul_energy = self.shertul_energy - 25
 
 	game.player:setQuestStatus("shertul-fortress", self.COMPLETED, "transmo-chest-extract-gems")
-	game.log("#VIOLET#Your transmogrification chest glows brightly for a moment.")
+	game.log("#VIOLET#변환 상자가 잠시 밝게 빛났습니다.")
 end
 
 fly = function(self)
@@ -186,7 +187,7 @@ fly = function(self)
 		end
 
 		if not f then
-			game.log("The fortress is not found!")
+			game.log("요새를 찾을 수 없습니다!")
 			return
 		end
 
