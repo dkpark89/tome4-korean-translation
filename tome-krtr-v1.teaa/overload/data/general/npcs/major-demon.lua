@@ -72,7 +72,7 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
-	name = "dúathedlen", color=colors.GREY, -- Darkness exiled
+	name = "duathedlen", color=colors.GREY, -- Darkness exiled --@@ 원래 dúathedlen 이지만, 한글글꼴 문제로 일단 변경
 	kr_display_name = "듀아세들렌",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_duathedlen.png", display_h=2, display_y=-1}}},
 	desc = "어둠의 장막 아래에서, 그 사악한 모습을 발견할 수 있습니다.",

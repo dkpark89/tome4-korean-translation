@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Mindslayer (Psionic)",
+return "새로운 직업 : #LIGHT_GREEN#정신 파괴자 (초능력자)",
 [[정신 파괴자들은 이크들의 정신 통합체 '한길' 에서 최전선에 서는 전사들입니다. 그들은 '한길' 과 모든 이크들을 위해 언제나 헌신하며, 오로지 그들의 정신만을 가지고 전투에 임합니다.
 이크는 태생적으로 뛰어난 정신력을 가지고 있고 대부분의 정신 파괴자들 역시 이크 종족이지만, 이 힘은 아주 가끔 다른 종족들에게서도 나타납니다.
 

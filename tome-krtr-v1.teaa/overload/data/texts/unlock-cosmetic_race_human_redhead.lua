@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Cosmetic Race Option: #LIGHT_GREEN#Redhead Characters",
+return "새로운 종족 모습 설정 : #LIGHT_GREEN# 빨간 머리 캐릭터",
 [[당신은 멜린다를 말할 수 없는 공포와 고문에서 구해냈습니다.
 
 이제 당신은 인간, 엘프, 하플링, 드워프 캐릭터를 만들 때 빨간 머리를 선택할 수 있게 됩니다.

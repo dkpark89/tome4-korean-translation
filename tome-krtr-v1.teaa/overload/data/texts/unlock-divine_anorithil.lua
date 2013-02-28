@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Anorithil (Celestial)",
+return "새로운 직업: #LIGHT_GREEN#아노리실 (천공의 사도)",
 [[
 극동 지역에 존재하며 '동대륙' 이라는 이름으로만 알려진 이곳은, 엘프와 인간으로 이루어진 마지막 자유민들이 오크 무리를 비롯한 다양한 위험들과 맞서 싸워온 곳입니다.
 

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Solipsist (Psionic)",
+return "새로운 직업 : #LIGHT_GREEN#유아론자 (초능력자)",
 [[유아론자들은 강력한 염동술사로, 이 세계는 모두 자신들의 생각과 꿈에 불과한 것이라고 믿는 자들입니다.
 이 힘은 강력하지만 그에 따른 대가가 따릅니다. 유아론자들은 현실을 똑바로 인지하기 위해 스스로의 자아와 꾸준히 싸워야 하며, 그렇지 않으면 모든 것이 허상이며 자신의 마음만이 진실이라는 과도한 몰입 상태에 빠져 제대로 행동할 수 없게 됩니다.
 

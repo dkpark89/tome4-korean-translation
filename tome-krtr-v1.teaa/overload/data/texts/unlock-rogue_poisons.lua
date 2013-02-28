@@ -17,11 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Talent Category: #LIGHT_GREEN#Poisons",
+return "새로운 기술 계열 : #LIGHT_GREEN#독",
 [[식물과 야생의 생명체, 혹은 독특한 지역에서 추출하는 등, 독은 언제나 이 세상에 존재해왔습니다.
 많은 생명체들은 독을 사용하여 자신을 보호합니다. 그늘 속에서 살아가는 사람들에게도 필수품이지요.
 
-당신은 그런 사람과 거래를 하였으며, 이제 도적 캐릭터를 생성할 때 #LIGHT_GREEN#독 기술계열#WHITE#을 배울 수 있게 되었습니다.
+당신은 그런 사람과 거래를 하였으며, 이제 도적 캐릭터를 생성할 때 #LIGHT_GREEN#독 기술 계열#WHITE#을 배울 수 있게 되었습니다.
 
 기술 목록 :
 - #YELLOW#독 바르기 : #WHITE#위험하고 끔찍한, 다양한 독을 무기에 발라 적을 공격합니다.

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master",
+return "새로운 게임 캠페인 : #LIGHT_GREEN#"투기장 : 최강자가 되기 위한 도전",
 [[
 투기장, 난폭한 볼거리 중의 하나입니다.
 관중들에게는 즐거움을, 최강자에게는 부와 명예가 약속된 곳이기도 합니다. 이를 노리는 야망 넘치는 투사들이 있는 곳이며, 여행가들과 영원히 싸워야만 하는 저주를 받은 자들이 서로에게 칼날을 내미는 곳이기도 하지요.

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Talent Category: #LIGHT_GREEN#Ice",
+return "새로운 기술 계열 : #LIGHT_GREEN#얼음",
 [[이 세계에 첫 동이 튼 이래로, 마법사들은 원소를 이용해 다양한 실험을 하였습니다.
 대부분의 마법사들은 물을 이용한 연구에 머물렀지만, 몇몇 마법사들은 그들의 연구를 더욱 심화시켜 얼음 마법을 만들었습니다.
 그 중심에는 '절대영도' 마법이 있으며, 이는 너무나 차갑기에 냉기 속성에 피해를 입지 않는 적에게까지 피해를 줄 수 있는 마법입니다.

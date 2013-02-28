@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game difficulty mode: #LIGHT_GREEN#Insane",
+return "새로운 게임 난이도 : #LIGHT_GREEN#미치광이 난이도",
 [[당신은 악몽 난이도에서 게임을 승리하셨습니다. 정말로 고난을 즐길 줄 아는 플레이어시군요!
 아마 당신은 이 게임의 모든 것을 다 보고, 즐겼다고 생각하실 겁니다...
 

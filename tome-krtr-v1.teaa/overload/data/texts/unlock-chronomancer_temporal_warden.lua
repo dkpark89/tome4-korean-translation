@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Temporal Warden (Chronomancer)",
+return "새로운 직업 : #LIGHT_GREEN#시간의 감시자 (시공 제어사)",
 [[시간은 선형적인 구조가 아닙니다. 그저 그렇게 보일 뿐입니다. 사실 시간의 구조는 섬유 구조와도 같습니다. 시간은 이 우주를 아우를 수 있을 정도로 복잡하고 거대한 직물같은 존재입니다.
 
 모든 위대한 힘들처럼, 시간의 힘 역시 그것을 밝혀내고 다루려는 자들이 존재합니다. 하지만 그들은 파괴보다는 유지에 더 관심이 많은 사람들이기도 합니다.

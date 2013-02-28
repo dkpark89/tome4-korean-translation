@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Race: #LIGHT_GREEN#Yeek",
+return "새로운 종족 : #LIGHT_GREEN#이크",
 [[
 이크는 열대지역인 렐 출신의, 작고 신비한 소인 종족입니다.
 그들의 몸은 하얀 털로 덮혀있으며, 그들의 거대한 머리는 우스꽝스럽게 달려 있습니다. 그러나 그런 모습과는 달리, 그들은 교활하며 의지력이 있는 종족입니다.

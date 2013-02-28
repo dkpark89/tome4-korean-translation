@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Archmage",
+return "새로운 직업 : #LIGHT_GREEN#마도사",
 [[
 마법사냥이 끝난 뒤에도, 마즈'에이알 세계에서 마법은 사라지지 않았습니다.
 

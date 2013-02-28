@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Summoner (Wilder)",
+return "새로운 직업 : #LIGHT_GREEN#소환술사 (자연의 추종자)",
 [[
 야생에서의 몇몇 사람들과 생명체들은, 스스로의 의지력으로 동료들을 불러 전투를 하는 능력을 가지고 있습니다.
 당신은 이렇게 동료를 부르는 행동을 목격하였고, 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#소환술사 직업#WHITE#을 선택할 수 있게 되었습니다.

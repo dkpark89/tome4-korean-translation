@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Adventurer",
+return "새로운 직업 : #LIGHT_GREEN#모험가",
 [[축하합니다, 당신은 이 게임에서 승리하셨습니다!
 이제부터 당신은 #LIGHT_GREEN#모험가 직업#WHITE#인 캐릭터를 새로 만드실 수 있습니다.
 
