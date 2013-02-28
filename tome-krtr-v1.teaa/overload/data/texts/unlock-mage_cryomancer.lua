@@ -18,15 +18,15 @@
 -- darkgod@te4.org
 
 return "New Talent Category: #LIGHT_GREEN#Ice",
-[[Since the dawn of time mages have experimented with the elements.
-While most mages are content using the Water school, a few of them took their research deeper and created Ice magic.
-At its core lies the Uttercold, a cold so cold it can even damage creatures normally immune.
+[[마법사들이 시간의 여명때부터 요소들에 대한 실험을 계속해온 이래.
+대부분의 마법사들이 물 마법을 사용해 왔지만, 몇몇 마법사는 더 깊이 연구하여 얼음 마법을 창조해냈습니다.
+이것의 근원은 Uttercold 속에 잠들어 있습니다, 얼음이 너무 차가운 나머지 냉기에 면역인 괴물들에게도 피해를 가할 수 있습니다.
 
-You have mastered ice magic and can now create new Archmage and Necromancer characters that can learn the #LIGHT_GREEN#Ice talents#WHITE#.
+당신은 얼음 마법을 터득하여 이제부턴 #LIGHT_GREEN#얼음 기술들#WHITE#을 배울 수 있는 마도사와 사령술사를 만드실 수 있습니다.
 
-Talents:
-- #YELLOW#Ice Shards: #WHITE#Fires slow-moving ice crystals at a target area; each hit has a chance to freeze
-- #YELLOW#Frozen Ground: #WHITE#Unleash a nova of ice on the ground, stopping the movements of anything caught inside
-- #YELLOW#Shatter: #WHITE#Shatters all frozen creatures in your sight, dealing increased damage or even killing them
+기술들:
+- #YELLOW#얼음 조각들: #WHITE#Fires slow-moving ice crystals at a target area; each hit has a chance to freeze
+- #YELLOW#얼어붙은 땅: #WHITE#Unleash a nova of ice on the ground, stopping the movements of anything caught inside
+- #YELLOW#분쇄: #WHITE#Shatters all frozen creatures in your sight, dealing increased damage or even killing them
 - #YELLOW#Uttercold: #WHITE#Master the Uttercold and pierce even through cold immunities
 ]]
