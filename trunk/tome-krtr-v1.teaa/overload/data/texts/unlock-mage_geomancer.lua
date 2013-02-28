@@ -18,15 +18,15 @@
 -- darkgod@te4.org
 
 return "New Talent Category: #LIGHT_GREEN#Stone",
-[[Since the dawn of time mages have experimented with the elements.
-While most mages are content using the Earth school, a few of them took their research deeper and created Stone magic.
-At its core lies the Crystalline Focus, which can create attacks so sharp they can cut through physical immunity.
+[[마법사들이 시간의 여명때부터 요소들에 대한 실험을 계속해온 이래.
+대부분의 마법사들이 땅 마법을 사용해 왔지만, 몇몇 마법사는 더 깊이 연구하여 보석 마법을 창조해냈습니다.
+이것의 근원은 수정의 중심 속에 잠들어 있습니다, 수정이 너무 날카로운 나머지 물리적인 피해에 면역인 괴물들에게도 피해를 가할 수 있습니다.
 
-You have mastered stone magic and can now create new Archmage and Arcane Blade characters that can learn the #LIGHT_GREEN#Stone talents#WHITE#.
+당신은 보석 마법을 터득하여 이제부턴 #LIGHT_GREEN#보석 기술들#WHITE#을 배울 수 있는 마도사와 마법 전사를 만드실 수 있습니다.
 
-Talents:
-- #YELLOW#Earthen Missiles: #WHITE#Fire multiple missiles of stone independently at targets
-- #YELLOW#Body of Stone: #WHITE#Turn into stone, reducing the cooldown of many stone/earth talents
-- #YELLOW#Earthquake: #WHITE#Create a localized earthquake, stunning all in the area
-- #YELLOW#Crystalline Focus: #WHITE#Master the Stone and pierce even through physical immunities
+기술들:
+- #YELLOW#흙으로 된 미사일: #WHITE#Fire multiple missiles of stone independently at targets
+- #YELLOW#보석의 몸: #WHITE#Turn into stone, reducing the cooldown of many stone/earth talents
+- #YELLOW#지진: #WHITE#Create a localized earthquake, stunning all in the area
+- #YELLOW#수정의 중심: #WHITE#보석 마법을 완벽히 터득하여 물리적인 피해에 면역이라도 간단히 뚫을 수 있습니다.
 ]]
