@@ -18,20 +18,20 @@
 -- darkgod@te4.org
 
 name = "Serpentine Invaders"
-kr_display_name = "음흉한 침략자"
+kr_display_name = "뱀 형상의 침략자"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "나가들이 슬라지쉬 늪지(the slazish fens)를 침략합니다. 태양의 장벽(The Sunwall)은 두 전선에서 동시에 싸울 수 없습니다. 너무 늦기전에 당신이 침략자들을 막아야 합니다.\n 침략자들의 관문을 찾아 파괴하십시오."
+	desc[#desc+1] = "나가들이 슬라지쉬 늪지를 침략하고 있습니다. 태양의 장벽은 두 전선에서 동시에 싸울 수 없습니다. 너무 늦기 전에, 당신이 침략자들을 막아야 합니다.\n 침략자들의 관문을 찾아 파괴하십시오."
 	if self:isCompleted("slazish") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 나가 관문을 파괴했습니다. 침략이 멈췄습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 나가 관문을 파괴했습니다. 나가들의 침략이 멈췄습니다.#WHITE#"
 
 		if self:isCompleted("return") then
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 서역 사람들이 동대륙이라 부르던 바르'에이알(Var'Eyal)로 돌아왔습니다.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 서역 사람들이 동대륙이라 부르는 곳인, 바르'에이알에 돌아왔습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#SLATE#* 하지만 당신은 머나먼 땅에 떨어졌습니다. 아침의 문(the Gates of Morning)으로 돌아갈 방법을 찾아야 합니다.#WHITE#"
+			desc[#desc+1] = "#SLATE#* 하지만 당신은 머나먼 땅에 떨어졌습니다. 아침의 문으로 돌아갈 수 있는 방법을 찾아야 합니다.#WHITE#"
 		end
 	else
-		desc[#desc+1] = "#SLATE#* 당신은 나가를 막아야합니다.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 나가들을 막아야 합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

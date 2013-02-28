@@ -18,10 +18,11 @@
 -- darkgod@te4.org
 
 name = "Important news"
+kr_display_name = "중요한 소식"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Orcs were spotted with the staff you seek in an arid waste in the southern desert."
-	desc[#desc+1] = "You should go investigate what is happening there."
+	desc[#desc+1] = "오크들이 지팡이를 가지고 남쪽 사막의 불모지로 가는 것이 포착되었습니다."
+	desc[#desc+1] = "당신은 그곳을 조사해서 무슨 일이 일어나고 있는지 알아내야 합니다."
 	return table.concat(desc, "\n")
 end
 
@@ -36,5 +37,5 @@ on_grant = function(self, who)
 		local spot = level:pickSpot{type="zone-pop", subtype="eruan"}
 		game.zone:addEntity(level, g, "terrain", spot.x, spot.y)
 	end)
-	game.logPlayer(game.player, "Aeryn explained where the orcs were spotted.")
+	game.logPlayer(game.player, "아에린이 오크 무리가 포착된 장소를 알려줬습니다.")
 end

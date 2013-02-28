@@ -18,9 +18,10 @@
 -- darkgod@te4.org
 
 name = "Back and Back and Back to the Future"
+kr_display_name = "다시 또 그리고 한번 더 미래로"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "After passing through some kind of time anomaly you met a temporal warden who told you to destroy the abominations of this alternate timeline.\n"
+	desc[#desc+1] = "어떤 알지 못할 종류의 시간적 이상 상황을 통과하자, 당신은 이 또 다른 시간축에 있는 괴물들을 처치해달라는 시간의 감시자를 만났습니다.\n"
 	return table.concat(desc, "\n")
 end
 

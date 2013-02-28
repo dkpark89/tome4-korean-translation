@@ -18,18 +18,19 @@
 -- darkgod@te4.org
 
 name = "Lost Knowledge"
+kr_display_name = "잊혀진 지식"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You found an ancient tome about gems."
-	desc[#desc+1] = "You should bring it to the jeweler in the Gates of Morning."
+	desc[#desc+1] = "당신은 보석에 대해 적힌 고대의 서적을 발견하였습니다."
+	desc[#desc+1] = "아침의 문에 있는 보석상에게 가져다주어야 할 것 같습니다."
 	if self:isCompleted("search-valley") then
-		desc[#desc+1] = "Limmir told you to look for the Valley of the Moon in the southern mountains."
+		desc[#desc+1] = "리미르는 남쪽 산맥에 있는 달의 골짜기를 조사해보라고 했습니다."
 	end
 	return table.concat(desc, "\n")
 end
 
 on_grant = function(self, who)
-	game.logPlayer(who, "#VIOLET#This tome seems to be about the power of gems. Maybe you should bring it to the jeweler in the Gates of Morning.")
+	game.logPlayer(who, "#VIOLET#이 책은 보석의 힘에 대해 적혀있는 것 같습니다. 아침의 문에 있는 보석상에게 가져다주어야 할 것 같습니다.")
 end
 
 has_tome = function(self, who)
@@ -64,7 +65,7 @@ start_search = function(self, who)
 	end)
 
 	who:setQuestStatus(self.id, engine.Quest.COMPLETED, "search-valley")
-	game.logPlayer(game.player, "Limmir points to the entrance to a cave on your map. This is supposed to be the way to the valley.")
+	game.logPlayer(game.player, "리미르가 당신의 지도에 동굴의 입구를 표시해줬습니다. 아마 이곳을 통해 달의 골짜기로 들어갈 수 있는 것 같습니다.")
 
 	local o = game.zone:makeEntityByName(game.level, "object", "JEWELER_SUMMON")
 	if o then who:addObject(who:getInven("INVEN"), o) end
@@ -72,12 +73,12 @@ end
 
 summon_limmir = function(self, who)
 	if not game.level.map.attrs(who.x, who.y, "summon_limmir") then
-		game.logPlayer(who, "You must be near the moonstone to summon Limmir.")
+		game.logPlayer(who, "리미르를 부르기 위해서는 먼저 월장석 근처에 가야합니다.")
 		return
 	end
 
 	local o, inven, item = self:has_scroll(who)
-	if not o then game.logPlayer(who, "You do not have the summoning scroll!") return end
+	if not o then game.logPlayer(who, "소환의 두루마리가 없습니다!") return end
 	who:removeObject(inven, item)
 
 	local limmir = game.zone:makeEntityByName(game.level, "actor", "LIMMIR")

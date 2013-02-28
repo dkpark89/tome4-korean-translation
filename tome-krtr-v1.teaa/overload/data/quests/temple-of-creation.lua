@@ -18,22 +18,23 @@
 -- darkgod@te4.org
 
 name = "The Temple of Creation"
+kr_display_name = "창조의 사원"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Ukllmswwik asked you to take his portal to the Temple of Creation and kill Slasul who has turned mad."
+	desc[#desc+1] = "우클림스윅이 그가 만든 관문을 통해, 창조의 사원으로 가서 미쳐버린 슬라슐을 죽여줄 것을 요구했습니다."
 	if self:isCompleted("slasul-story") then
-		desc[#desc+1] = "Slasul told you his side of the story. Now you must decide: which of them is corrupt?"
+		desc[#desc+1] = "슬라슐은 그의 이야기를 당신에게 들려주었습니다. 이제 당신이 선택해야 할 차례입니다. 둘 중 타락한 쪽은 누구?"
 	end
 	if self:isCompleted("legacy-naloren") then
-		desc[#desc+1] = "Slasul bound his lifeforce to yours and gave your a powerful trident in return."
+		desc[#desc+1] = "슬라슐이 자신의 생명력을 당신과 연결시켰습니다. 그리고 보답으로 당신에게 강력한 삼지창을 선물하였습니다."
 	end
 
 	if self:isCompleted("kill-slasul") and self:isCompleted("kill-drake") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have killed both Ukllmswwik and Slasul, betraying them both.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클림스윅과 슬라슐을 모두 배신하여, 둘 다 죽였습니다.#WHITE#"
 	elseif self:isCompleted("kill-slasul") and not self:isCompleted("kill-drake") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have sided with Ukllmswwik and killed Slasul.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클림스윅의 편에 서서, 슬라슐을 죽였습니다.#WHITE#"
 	elseif not self:isCompleted("kill-slasul") and self:isCompleted("kill-drake") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have sided with Slasul and killed Ukllmswwik.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 슬라슐의 편에 서서, 우크림스윅을 죽였습니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end
@@ -52,6 +53,7 @@ on_grant = function(self, who)
 	local g = mod.class.Grid.new{
 		show_tooltip=true,
 		name="Portal to the Temple of Creation",
+		kr_display_name="창조의 사원으로 가는 관문",
 		display='>', color=colors.VIOLET,
 		notice = true,
 		change_level=1, change_zone="temple-of-creation",
@@ -65,7 +67,7 @@ on_grant = function(self, who)
 	g:resolve() g:resolve(nil, true)
 	game.zone:addEntity(game.level, g, "terrain", 34, 6)
 
-	game.logPlayer(game.player, "A portal opens behind Ukllmswwik.")
+	game.logPlayer(game.player, "우클림스윅의 근처에 관문이 열렸습니다.")
 end
 
 portal_back = function(self, who)
@@ -76,6 +78,7 @@ portal_back = function(self, who)
 	local g = mod.class.Grid.new{
 		show_tooltip=true,
 		name="Portal to the Flooded Cave",
+		kr_display_name="수중 동굴로 가는 관문",
 		display='>', color=colors.VIOLET,
 		notice = true,
 		change_level=2, change_zone="flooded-cave",
@@ -89,5 +92,5 @@ portal_back = function(self, who)
 	g:resolve() g:resolve(nil, true)
 	game.zone:addEntity(game.level, g, "terrain", 15, 13)
 
-	game.logPlayer(game.player, "A portal opens to the flooded cave.")
+	game.logPlayer(game.player, "수중 동굴로 가는 관문이 열렸습니다.")
 end

@@ -18,13 +18,14 @@
 -- darkgod@te4.org
 
 name = "Eight legs of wonder"
+name = "여덟 다리의 불가사의한 존재"
 desc = function(self, who)
 	local desc = {}
 	if not self:isCompleted() and not self:isEnded() then
-		desc[#desc+1] = "Enter the caverns of Ardhungol and look for Sun Paladin Rashim."
-		desc[#desc+1] = "But be careful; those are not small spiders..."
+		desc[#desc+1] = "당신은 알드훈골에 들어가서, 태양의 기사 라심을 찾아보기로 했습니다."
+		desc[#desc+1] = "하지만 이곳의 거미들은 결코 작지 않습니다. 조심할 필요가 있습니다..."
 	else
-		desc[#desc+1] = "#LIGHT_GREEN#You have killed Ungolë in Ardhungol and saved the Sun Paladin."
+		desc[#desc+1] = "#LIGHT_GREEN#당신은 알드훈골에서 운골뢰를 죽이고, 태양의 기사를 구했습니다."
 	end
 	return table.concat(desc, "\n")
 end
@@ -39,7 +40,7 @@ on_grant = function(self, who)
 		game.nicer_tiles:updateAround(game.level, spot.x, spot.y)
 		game.state:locationRevealAround(spot.x, spot.y)
 	end)
-	game.logPlayer(game.player, "She marks the location of Ardhungol on your map.")
+	game.logPlayer(game.player, "그녀가 당신의 지도에 알드훈골의 위치를 표시해줬습니다.")
 end
 
 portal_back = function(self, who)
@@ -49,6 +50,7 @@ portal_back = function(self, who)
 	local g = mod.class.Grid.new{
 		show_tooltip=true, always_remember = true,
 		name="Portal back to the Gates of Morning",
+		kr_display_name = "아침의 문으로 돌아가는 관문",
 		display='>', color=colors.GOLD,
 		notice = true,
 		change_level=1, change_zone="town-gates-of-morning",
@@ -56,5 +58,5 @@ portal_back = function(self, who)
 	}
 	g:resolve() g:resolve(nil, true)
 	game.zone:addEntity(game.level, g, "terrain", who.x, who.y)
-	game.logPlayer(who, "A portal appears right under you, and Rashim rushes through.")
+	game.logPlayer(who, "당신의 바로 밑에 관문이 나타났습니다. 관문이 생김과 동시에, 라심이 관문으로 달려갔습니다.")
 end

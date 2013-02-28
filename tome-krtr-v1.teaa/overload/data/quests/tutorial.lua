@@ -21,7 +21,7 @@ name = "Tutorial"
 kr_display_name = "연습 게임"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "당신은 숲은 가운데까지 탐험을 하여, 임의로 주민을 공격하는 '외로운 한 마리 늑대'를 죽여야 합니다."
+	desc[#desc+1] = "당신은 숲의 중심부까지 탐험을 하여, 마구잡이로 주민들을 공격하는 '외로운 한 마리 늑대' 를 처치해야 합니다."
 	return table.concat(desc, "\n")
 end
 
@@ -33,6 +33,6 @@ on_status_change = function(self, who, status, sub)
 end
 
 on_grant = function(self)
-	local d = require("engine.dialogs.ShowText").new("게임 배우기: 이동", "tutorial/move")
+	local d = require("engine.dialogs.ShowText").new("게임 배우기 : 이동", "tutorial/move")
 	game:registerDialog(d)
 end

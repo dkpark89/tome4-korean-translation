@@ -102,7 +102,7 @@ on_status_change = function(self, who, status, sub)
 			end
 		end)
 
-		require("engine.ui.Dialog"):simplePopup("Grand Corruptor", "#LIGHT_GREEN#위대한 타락자가 당신에게 시선을 집중했습니다. 당신의 마음 속에 지식이 흘러들어오는 것이 느껴졌습니다. 이제 당신은 타락한 힘을 수련할 수 있게 되었습니다.")
+		require("engine.ui.Dialog"):simplePopup("위대한 타락자", "#LIGHT_GREEN#위대한 타락자가 당신에게 시선을 집중했습니다. 당신의 마음 속에 지식이 흘러들어오는 것이 느껴졌습니다. 이제 당신은 타락한 힘을 수련할 수 있게 되었습니다.")
 		game:setAllowedBuild("corrupter")
 		game:setAllowedBuild("corrupter_corruptor", true)
 	end
@@ -126,7 +126,7 @@ myssil_dies = function(self)
 	end
 	if not corr then return end
 
-	corr:doEmote("Victory is mine!", 60)
+	corr:doEmote("승리는 나의 것이다!", 60)
 	corr.never_angry = nil
 	game.player:setQuestStatus(self.id, self.COMPLETED)
 end
