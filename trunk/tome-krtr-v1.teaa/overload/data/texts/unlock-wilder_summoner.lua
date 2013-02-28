@@ -17,17 +17,17 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "새로운 직업 : #LIGHT_GREEN#소환술사 (자연의 추종자)",
+return "New Class: #LIGHT_GREEN#Summoner (Wilder)",
 [[
-In the wilds, some people and creatures are able, by the sole force of their will, to call upon allies to help them in combat.
-You have witnessed such an act and can now create new characters with the #LIGHT_GREEN#Summoner class#WHITE#.
+야생에서의 몇몇 사람들과 생명체들은, 스스로의 의지력으로 동료들을 불러 전투를 하는 능력을 가지고 있습니다.
+당신은 이렇게 동료를 부르는 행동을 목격하였고, 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#소환술사 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Summoners are Wilders, who are at home in the wilds and draw their power from their connection with nature.
-Class features:#YELLOW#
-- Summon allies, ranging from a war hound to the mighty fire drake
-- Take direct control of your summons
-- Augment your summons with various powers#WHITE#
+소환술사들은 자연의 추종자이며, 야생을 집으로 삼아 살아가는 자들입니다. 소환술사들은 그들과 연결된 자연의 힘을 끌어낼 수 있습니다.
+직업 특성 :#YELLOW#
+- 전투견에서 화염 드레이크까지, 다양한 동료 소환
+- 소환수들의 직접적인 제어 가능
+- 다양한 능력을 통해 소환수 강화#WHITE#
 
-All Wilder classes use Equilibrium for their powers. It represents their connection to nature. 
-The higher it gets the more off-balance they are with it. A high Equilibrium makes for a chance to fail to use a power and lose a turn.
+모든 자연의 추종자들은 원천력으로 평정을 사용합니다. 이것은 그들이 자연과 연결된 정도를 나타냅니다.
+평정 수치가 높아질수록 평정 상태가 깨지는 것을 나타냅니다. 평정 수치가 높으면 기술 사용이 실패하고 턴을 낭비할 확률이 높아지게 됩니다.
 ]]

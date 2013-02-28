@@ -17,23 +17,23 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "새로운 직업 : #LIGHT_GREEN#태양의 기사 (천공의 사도)",
+return "New Class: #LIGHT_GREEN#Sun Paladin (Celestial)",
 [[
-In the uttermost east, on the continent known only as the Far East, dwell the last remnants of Elves and Humans, fighting the Orc Pride and the many perils of the Far East.
+극동 지역에 존재하며 '동대륙' 이라는 이름으로만 알려진 이곳은, 엘프와 인간으로 이루어진 마지막 자유민들이 오크 무리를 비롯한 다양한 위험들과 맞서 싸워온 곳입니다.
 
-Sun Paladins are warriors who are trained in special magic to focus the powers of the Sun.
-Paragons of all that is good, they are nonetheless terrible in their battle against the Pride.
-Their motto is: "The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass."
+태양의 기사들은 태양의 힘을 사용하는 방법을 중점적으로 수련받은 전사입니다.
+모든 선량한 자들의 귀감이며, 그들은 오크 무리와의 전투에서 대적할 자 없는 전투력을 뽐냅니다.
+그들의 행동양식은 다음과 같습니다. '태양은 우리의 힘이요, 순수이자, 정수니, 우리는 어두운 곳에 빛을 가져오며 누구도 우리를 쓰러뜨리지 못하리라.'
 
-You have discovered the Gates of Morning and can now create new characters with the #LIGHT_GREEN#Sun Paladin class#WHITE#.
+당신은 아침의 문을 발견하였으며, 이제 새로운 캐릭터를 만들 때 #LIGHT_GREEN#태양의 기사 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Sun Paladins are heavy melee with spellcasting support.
-Class features:#YELLOW#
-- Burn your foes from afar with the light and fire of the Sun
-- Head into battle enhanced by your powerful Chants
-- Channel the power of the Sun through your weapon
-- Become a walking fortress, protected by your shield#WHITE#
+태양의 기사는 강력한 전사로, 주문을 사용해 근접전 능력을 보조합니다.
+직업 특성 :#YELLOW#
+- 멀리 떨어진 적들을 태양의 불꽃과 빛으로 불태움
+- 태양의 찬가를 불러 전투 능력 향상
+- 태양의 힘을 무기에 주입시켜 더 강력한 공격
+- 방패의 보호를 받아, 걸어다니는 요새화#WHITE#
 
-Sun Paladins use "positive energy" to power their special abilities.
-It is filled by some of their spells and depleted by others, making them alternate their talents.
+태양의 기사는 원천력으로 '양기' 를 사용합니다.
+이 원천력은 그들의 마법이나 다른 수단들을 사용하여 회복할 수 있으며, 그들의 기술을 대체할 수 있게 만들어줍니다.
 ]]
