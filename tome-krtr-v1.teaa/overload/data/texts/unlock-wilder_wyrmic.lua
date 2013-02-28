@@ -17,18 +17,16 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "새로운 직업 : #LIGHT_GREEN#용인 (자연의 추종자)",
-[[
-Some people, either through training or magic, can take on the defining aspects of the dragon-kin themselves.
-You have consumed a magic that allows you to gain such a power. You can now also create new characters with the #LIGHT_GREEN#Wyrmic class#WHITE#.
+return "New Class: #LIGHT_GREEN#Wyrmic (Wilder)",
+[[어떤 사람들은 육체적 수련이나 마법적 수련을 할 때, 용의 특성을 따르는 수련법을 선택하기도 합니다.
+당신은 이러한 능력을 얻을 수 있는 마법을 '섭취' 했습니다. 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#용인 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Wyrmics are Wilders, who are at home in the wilds and draw their power from their connection with the dragons.
-Class features:#YELLOW#
-- Take on the aspects of drakes: fire, cold, sand, and more
-- Breath weapons: fire, ice, sand, and more
-- Powerful melee combatant#WHITE#
+용인들은 자연의 추종자이며, 야생을 집으로 삼아 살아가는 자들입니다. 용인들은 그들과 연결된 용의 힘을 끌어낼 수 있습니다.
+직업 특성 :#YELLOW#
+- 다양한 용의 특성들을 전투에 사용 : 화염, 얼음, 모래, 기타 등등
+- 브레스 무기 : 화염, 얼음, 모래, 기타 등등
+- 강력한 근접 전투 가능#WHITE#
 
-All Wilder classes use Equilibrium for their powers. It represents their connection to nature. 
-The higher it gets the more off-balance they are with it. A high equilibrium makes for a chance to fail to use a power and lose a turn.
-Wyrmics are also trained in the martial arts and use stamina for some techniques.
+모든 자연의 추종자들은 원천력으로 평정을 사용합니다. 이것은 그들이 자연과 연결된 정도를 나타냅니다.
+평정 수치가 높아질수록 평정 상태가 깨지는 것을 나타냅니다. 평정 수치가 높으면 기술 사용이 실패하고 턴을 낭비할 확률이 높아지게 되며, 용인들은 육체적 수련도 병행하기에 몇몇 기술에는 체력을 사용하기도 합니다.
 ]]

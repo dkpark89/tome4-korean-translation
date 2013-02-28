@@ -17,19 +17,20 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "새로운 직업 : #LIGHT_GREEN#시간의 감시자 (시공제어사)",
-[[Time isn't a linear thing; it only appears to be.  In truth it's a fabric, the very fabric that holds the universe together.
-As with all great powers, there are those who seek to manipulate it and pervert it, but there are also those who seek to uphold rather than destroy.
-Those who have learned to bend, rather than break, the fabric can keep the balance against dark or power-hungry forces.
+return "New Class: #LIGHT_GREEN#Temporal Warden (Chronomancer)",
+[[시간은 선형적인 구조가 아닙니다. 그저 그렇게 보일 뿐입니다. 사실 시간의 구조는 섬유 구조와도 같습니다. 시간은 이 우주를 아우를 수 있을 정도로 복잡하고 거대한 직물같은 존재입니다.
 
-You have been taught the ways of chronomancy by a Temporal Warden and can now create new characters with the #LIGHT_GREEN#Temporal Warden class#WHITE#.
+모든 위대한 힘들처럼, 시간의 힘 역시 그것을 밝혀내고 다루려는 자들이 존재합니다. 하지만 그들은 파괴보다는 유지에 더 관심이 많은 사람들이기도 합니다.
+이들은 부러뜨리는 것보다 구부리는 것을 배우고, 시간의 구조가 어둠의 세력이나 힘에 굶주린 세력들을 상대로 균형을 유지할 수 있게 만듭니다.
 
-Temporal Wardens are warriors proficient in both ranged and hand-to-hand combat.
-Class features:#YELLOW#
-- Duel-wield a medium sized and a small weapon or attack from afar with your ranged weapon skills
-- Manipulate space and time to speed yourself up, create wormholes, or even throw an opponent into the future
-- See into the future or even travel into the past#WHITE#
+당신은 시간의 감시자를 만나 시간에 대한 새로운 생각을 가지게 되었습니다. 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#시간의 감시자 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Temporal Wardens use Paradox for their powers.  It represents how much damage they've done to the spacetime continuum.
-The higher their paradox the greater the effect of their powers but the harder they'll be to control.
+시간의 감시자는 원거리 전투와 근접전 모두를 수행할 수 있는 전사입니다.
+직업 특성 :#YELLOW#
+- 중간 크기의 무기와 작은 무기를 쌍수로 들거나, 원거리 무기를 사용할 수 있음
+- 시공간을 조작하여 속도를 증가시키고, 웜홀을 만들며, 적을 미래의 공간으로 보내버릴 수도 있음
+- 미래를 예지하며, 과거를 여행할 수도 있음#WHITE#
+
+시간의 감시자들은 원천력으로 괴리를 사용합니다. 괴리 수치는 그들이 시공간 연속체에 얼마나 피해를 입혔는지를 나타냅니다.
+괴리 수치가 높아질수록 기술의 효과가 강력해지지만, 기술을 제어하기도 어려워집니다.
 ]]
