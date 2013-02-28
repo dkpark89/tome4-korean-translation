@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 local Stats = require("engine.interface.ActorStats")
 local NameGenerator = require("engine.NameGenerator")
@@ -354,7 +356,7 @@ on_grant = function(self, who)
 
 	if self.kind.random == "player" then
 		self.kind.actor.name = self.kind.actor.name:format(game.player.name)
-		self.kind.actor.kr_display_name = self.kind.actor.kr_display_name:format(game.player.kr_display_name or game.player.name) --@@ 한글 이름 수정
+		self.kind.actor.kr_display_name = (self.kind.actor.kr_display_name or self.kind.actor.name):format(game.player.kr_display_name or game.player.name) --@@ 한글 이름 수정
 	else
 		local ng = NameGenerator.new(name_rules[self.kind.random])
 		local rndName = ng:generate() --@@ 영어 이름과 한글 이름에 같은 이름이 들어가도록 일단 저장, 랜덤한 이름은 아직(?) 한글화하지 않음 
