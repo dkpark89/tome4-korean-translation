@@ -18,15 +18,15 @@
 -- darkgod@te4.org
 
 return "New Talent Category: #LIGHT_GREEN#Storm",
-[[Since the dawn of time mages have experimented with the elements.
-While most mages are content using the Air school, a few of them took their research deeper and created Storm magic.
-At its core lies the Tempest, a storm so powerful it can even damage creatures normally immune.
+[[마법사들이 시간의 여명때부터 요소들에 대한 실험을 계속해온 이래.
+대부분의 마법사들이 호흡 마법을 사용해 왔지만, 몇몇 마법사는 더 깊이 연구하여 폭풍 마법을 창조해냈습니다.
+이것의 근원은 폭풍속에 잠들어 있습니다, 폭풍이 너무 강한 나머지 전기에 면역인 괴물들에게도 피해를 가할 수 있습니다.
 
-You have mastered storm magic and can now create new Archmage characters that can learn the #LIGHT_GREEN#Storm talents#WHITE#.
+당신은 폭풍 마법을 터득하여 이제부턴 #LIGHT_GREEN#폭풍 기술들#WHITE#을 배울 수 있는 마도사를 만드실 수 있습니다.
 
-Talents:
-- #YELLOW#Nova: #WHITE#Unleash a lightning nova around you, dazing and damaging creatures caught inside
-- #YELLOW#Shock: #WHITE#Fire a fast bolt of lightning, dazing the target
-- #YELLOW#Hurricane: #WHITE#Call down a Hurricane on any creatures you daze, creating a lightning storm around each of them
-- #YELLOW#Tempest: #WHITE#Master the Tempest and pierce even through lightning immunities
+기술들:
+- #YELLOW#신성: #WHITE#신성 전기를 당신의 주위로 방출합니다, 신성 전기 속에 갇힌 괴물을 어지럽게 하고 동시에 피해를 줍니다.
+- #YELLOW#충격: #WHITE#빠른 전기의 볼트를 발사합니다, 목표를 어지럽게 만들 수 있습니다.
+- #YELLOW#허리케인: #WHITE#당신이 어지럽게 만든 괴물에게 허리케인을 보냅니다, 괴물과 그 주위에 있는 적들에게 전기 폭풍을 선사해 줍니다.
+- #YELLOW#폭풍우: #WHITE#폭풍우를 완벽히 터득하면 전기 면역이라도 간단히 뚫을 수 있습니다.
 ]]
