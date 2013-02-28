@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Cursed (Afflicted)",
+return "새로운 직업 : #LIGHT_GREEN#저주받은자 (고통받는자)",
 [[Through ignorance, greed or folly, the Cursed served some dark design and are now doomed to pay for their sins.
 Their only master now is the hatred they carry for every living thing.
 Drawing strength from the death of all they encounter, the Cursed become terrifying combatants.

@@ -25,6 +25,7 @@ newLore{
 	id = "halfling-research-note-1",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_display_name = "하플링 마법사 홈팔란의 연구 기록",
 	lore = [[
 #{bold}#홈팔란의 기록 1#{normal}#
 #{italic}#매혹의 시대 4537년#{normal}#
@@ -51,6 +52,7 @@ newLore{
 	id = "halfling-research-note-2",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_display_name = "하플링 마법사 홈팔란의 연구 기록",
 	lore = [[
 #{bold}#홈팔란의 기록 4#{normal}#
 #{italic}#매혹의 시대 4544년#{normal}#
@@ -86,6 +88,7 @@ newLore{
 	id = "halfling-research-note-3",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_display_name = "하플링 마법사 홈팔란의 연구 기록",
 	lore = [[
 #{bold}#홈팔란의 기록 7#{normal}#
 #{italic}#매혹의 시대 4547년#{normal}#
@@ -117,6 +120,7 @@ newLore{
 	id = "halfling-research-note-4",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_display_name = "하플링 마법사 홈팔란의 연구 기록",
 	bloodstains = 7,
 	lore = [[
 #{bold}#홈팔란의 기록 9#{normal}#
@@ -128,7 +132,7 @@ newLore{
 #{bold}#홈팔란의 기록 10#{normal}#
 #{italic}#매혹의 시대 4550년#{normal}#
 
-실험체 Z에게 잠재된 마법의 힘이 있지 않나 의심이 된다. 내가 생각하는 그 종족이 가능한 속도보다도 빠르게 움직이는걸 본적이 있고 아무런 수단도 없이 고장만 물건을 고치기도 한다. 이런 것들은 사소하지만 나는 관문이 근본적인 능력을 향상시킬수 있다고 믿는다. 더 많은 실험이 필요하다. 실험체 Z는 여전히 멍청해 보인다. 분명하게 몇초밖에 걸리지 않았음에도 그의 마지막 여행이 삼일이나 걸렸다 말하니 말이다. 그리고는 실험체는 그 직후 게걸스럽게 먹기시작했다. 탐욕스러워진건 아닌가 의심스럽다. 일전에 시험체가 멀리 떨어진 관문을 오랫동안 응시하는걸 목격했지만, 실험체가 다치기 전에 조수를 시켜 멀리 떼어놓았다.
+실험체 Z에게 잠재된 마법의 힘이 있지 않나 의심이 된다. 내가 생각하는 그 종족이 가능한 속도보다도 빠르게 움직이는걸 본적이 있고 아무런 수단도 없이 고장만 물건을 고치기도 한다. 이런 것들은 사소하지만 나는 관문이 근본적인 능력을 향상시킬수 있다고 믿는다. 더 많은 실험이 필요하다. 실험체 Z는 여전히 멍청해 보인다. 분명하게 몇초밖에 걸리지 않았음에도 그의 마지막 여행이 삼일이나 걸렸다 말하니 말이다. 그리고는 실험체는 그 직후 게걸스럽게 먹기시작했다. 탐욕스러워진건 아닌가 의심스럽다. 일전에 실험체가 멀리 떨어진 관문을 오랫동안 응시하는걸 목격했지만, 실험체가 다치기 전에 조수를 시켜 멀리 떼어놓았다.
 
 
 #{bold}#홈팔란의 기록 11#{normal}#

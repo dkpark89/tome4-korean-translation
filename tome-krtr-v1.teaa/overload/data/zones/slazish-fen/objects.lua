@@ -26,7 +26,7 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "SLAZISH_NOTE"..i,
 	name = "weird conch", lore="slazish-note-"..i, image = "terrain/shell1.png",
-	kr_display_name = "이상한 고둥", --@@ lore 번역시 수정 필요
+	kr_display_name = "소라고둥",
 	desc = [[나가가 통신 도구로 사용하던 것으로 보이는 고둥입니다.]],
 	rarity = false,
 	encumberance = 0,

@@ -42,7 +42,7 @@ newTalent{
 		local _ _, x, y = self:canProject(tg, x, y)
 		local target = game.level.map(x, y, engine.Map.ACTOR)
 		if not target then
-			game.logPlayer(self, "대상이 사정거리 밖에 있습니다.")
+			game.logPlayer(self, "대상이 최대 사거리 밖에 있습니다.")
 			return
 		end
 		target:pull(self.x, self.y, tg.range)

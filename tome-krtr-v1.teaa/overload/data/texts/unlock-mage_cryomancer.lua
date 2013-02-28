@@ -17,16 +17,16 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Talent Category: #LIGHT_GREEN#Ice",
-[[마법사들이 시간의 여명때부터 요소들에 대한 실험을 계속해온 이래.
-대부분의 마법사들이 물 마법을 사용해 왔지만, 몇몇 마법사는 더 깊이 연구하여 얼음 마법을 창조해냈습니다.
-이것의 근원은 Uttercold 속에 잠들어 있습니다, 얼음이 너무 차가운 나머지 냉기에 면역인 괴물들에게도 피해를 가할 수 있습니다.
+return "새로운 기술 계열 : #LIGHT_GREEN#얼음",
+[[마법사들은 시간의 여명때부터 원소들에 대한 실험을 계속해왔습니다.
+대부분의 마법사들이 물 계열의 마법을 사용해 왔지만, 몇몇 마법사는 더 깊이 연구하여 얼음 계열의 마법을 창조해냈습니다.
+이 것은 근본적으로 극한의 얼음에 닿아있어, 너무나도 차가운 나머지 냉기에 면역인 괴물들에게조차 피해를 가할 수 있습니다.
 
-당신은 얼음 마법을 터득하여 이제부턴 #LIGHT_GREEN#얼음 기술들#WHITE#을 배울 수 있는 마도사와 사령술사를 만드실 수 있습니다.
+당신이 얼음 계열 마법을 터득함으로써, 이제부터는 #LIGHT_GREEN#얼음 계열 기술#WHITE#을 배울 수 있는 마도사와 사령술사를 새로이 만드실 수 있습니다.
 
-기술들:
-- #YELLOW#얼음 조각들: #WHITE#Fires slow-moving ice crystals at a target area; each hit has a chance to freeze
-- #YELLOW#얼어붙은 땅: #WHITE#Unleash a nova of ice on the ground, stopping the movements of anything caught inside
-- #YELLOW#분쇄: #WHITE#Shatters all frozen creatures in your sight, dealing increased damage or even killing them
-- #YELLOW#Uttercold: #WHITE#Master the Uttercold and pierce even through cold immunities
+기술:
+- #YELLOW#얼음 파편     : #WHITE#Fires slow-moving ice crystals at a target area; each hit has a chance to freeze
+- #YELLOW#얼어붙은 대지 : #WHITE#Unleash a nova of ice on the ground, stopping the movements of anything caught inside
+- #YELLOW#파쇄          : #WHITE#Shatters all frozen creatures in your sight, dealing increased damage or even killing them
+- #YELLOW#절대영도      : #WHITE#Master the Uttercold and pierce even through cold immunities
 ]]

@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 name = "From bellow, it devours"
-kr_display_name = "울림 속에서, '그것' 은 삼킨다"
+kr_display_name = "울림 속의 포식자"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "당신은 간신히 레크놀을 탈출하였으며, 이제 당신의 막대한 부와 힘을 원하는 마음은 10 배로 증폭되었습니다."

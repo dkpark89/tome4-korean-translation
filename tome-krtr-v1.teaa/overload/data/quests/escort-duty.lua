@@ -50,7 +50,7 @@ local possible_types = {
 			type = "humanoid", subtype = "human", image = "player/higher_male.png",
 			display = "@", color=colors.UMBER,
 			name = "%s, the lost warrior",
-			kr_display_name = "%s, 길 잃은 전사",
+			kr_display_name = "길 잃은 전사 %s",
 			desc = [[그는 지쳤으며, 부상 당한 상태입니다.]],
 			autolevel = "warrior",
 			ai = "escort_quest", ai_state = { talent_in=4, },
@@ -76,7 +76,7 @@ local possible_types = {
 		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 도저히 혼자서 이 길을 헤쳐나가지는 못할 것 같습니다. 저를 도와주실 수 있으십니까?]],
 		actor = {
 			name = "%s, the injured seer",
-			kr_display_name = "%s, 부상당한 탐시자",
+			kr_display_name = "부상당한 탐시자 %s",
 			type = "humanoid", subtype = "elf", female=true, image = "player/halfling_female.png",
 			display = "@", color=colors.LIGHT_BLUE,
 			desc = [[그녀는 지쳤으며, 부상 당한 상태입니다.]],
@@ -103,7 +103,7 @@ local possible_types = {
 		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
 		actor = {
 			name = "%s, the repented thief",
-			kr_display_name = "%s, 회개한 도적",
+			kr_display_name = "회개한 도적 %s",
 			type = "humanoid", subtype = "halfling", image = "player/cornac_male.png",
 			display = "@", color=colors.BLUE,
 			desc = [[그는 지쳤으며, 부상 당한 상태입니다.]],
@@ -131,7 +131,7 @@ local possible_types = {
 		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
 		actor = {
 			name = "%s, the lone alchemist",
-			kr_display_name = "%s, 외로운 연금술사",
+			kr_display_name = "외로운 연금술사 %s",
 			type = "humanoid", subtype = "human", image = "player/shalore_male.png",
 			display = "@", color=colors.AQUAMARINE,
 			desc = [[그는 지쳤으며, 부상 당한 상태입니다.]],
@@ -158,7 +158,7 @@ local possible_types = {
 		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
 		actor = {
 			name = "%s, the lost sun paladin",
-			kr_display_name = "%s, 길 잃은 태양의 기사",
+			kr_display_name = "길 잃은 태양의 기사 %s",
 			type = "humanoid", subtype = "human", female=true, image = "player/higher_female.png",
 			display = "@", color=colors.GOLD,
 			desc = [[그녀는 지쳤으며, 부상 당한 상태입니다.]],
@@ -186,7 +186,7 @@ local possible_types = {
 		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
 		actor = {
 			name = "%s, the lost anorithil",
-			kr_display_name = "%s, 길 잃은 아노리실",
+			kr_display_name = "길 잃은 아노리실 %s",
 			type = "humanoid", subtype = "human", female=true, image = "player/higher_female.png",
 			display = "@", color=colors.YELLOW,
 			desc = [[그녀는 지쳤으며, 부상 당한 상태입니다.]],
@@ -216,7 +216,7 @@ local possible_types = {
 나를 좀 도와줘! 아무래도 이곳에서 길을 잃어버린 것 같아. 이 근처에 친구가 만든 시간의 관문이 있다는 것은 알고 있지만, 나는 이미 너무나 많은 전투를 치른 상태거든. 더 이상은 무리라고. 나를 도와줄 수 있겠어? 아니... 너 자신을... 돕는 거라고 이건.]],
 		actor = {
 			name = "%s, temporal explorer",
-			kr_display_name = "%s, 시간의 여행자",
+			kr_display_name = "시간의 여행자 %s",
 			type = "humanoid", subtype = "human", female=true, image = "player/higher_female.png",
 			display = "@", color=colors.YELLOW,
 			desc = [[이 자는 지쳤으며, 부상 당한 상태입니다. 이 자는 당신과 상당히 닮았지만, 완전히 다르기도 합니다. 기묘한 일이군요.]],
@@ -243,7 +243,7 @@ local possible_types = {
 		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
 		actor = {
 			name = "%s, the worried loremaster",
-			kr_display_name = "%s, 근심하는 지식 전달자",
+			kr_display_name = "근심하는 지식 전달자 %s",
 			type = "humanoid", subtype = "human", female=true, image = "player/thalore_female.png",
 			display = "@", color=colors.LIGHT_GREEN,
 			desc = [[그녀는 지쳤으며, 부상 당한 상태입니다.]],
@@ -282,18 +282,18 @@ name = ""
 desc = function(self, who)
 	local desc = {}
 	if self:isStatus(engine.Quest.DONE) then
-		desc[#desc+1] = "당신은 성공적으로 "..self.kind.name.."의 호위를 해냈습니다. ("..self.level_name..")"
+		desc[#desc+1] = "당신은 성공적으로 "..(self.kind.kr_display_name or self.kind.name).."의 호위를 해냈습니다. ("..self.level_name..")"
 		if self.reward_message then
 			desc[#desc+1] = ("보상을 얻었습니다 : %s"):format(self.reward_message)
 		end
 	elseif self:isStatus(engine.Quest.FAILED) then
 		if self.abandoned then
-			desc[#desc+1] = "당신은 "..self.kind.name.."의 호위를 하지 않고, 죽게 내버려뒀습니다."
+			desc[#desc+1] = "당신은 "..(self.kind.kr_display_name or self.kind.name).."의 호위를 하지 않고, 죽게 내버려뒀습니다."
 		else
-			desc[#desc+1] = "당신은 "..self.kind.name.."의 호위에 실패했습니다. ("..(self.killing_npc or "???")..")"
+			desc[#desc+1] = "당신은 "..(self.kind.kr_display_name or self.kind.name).."의 호위에 실패했습니다. ("..(self.killing_npc or "???")..")"
 		end
 	else
-		desc[#desc+1] = ""..self.kind.name.."의 호위를 하고 있습니다. ("..self.level_name..")"
+		desc[#desc+1] = ""..(self.kind.kr_display_name or self.kind.name).."의 호위를 하고 있습니다. ("..self.level_name..")"
 	end
 	return table.concat(desc, "\n")
 end
@@ -354,9 +354,12 @@ on_grant = function(self, who)
 
 	if self.kind.random == "player" then
 		self.kind.actor.name = self.kind.actor.name:format(game.player.name)
+		self.kind.actor.kr_display_name = self.kind.actor.kr_display_name:format(game.player.kr_display_name or game.player.name) --@@ 한글 이름 수정
 	else
 		local ng = NameGenerator.new(name_rules[self.kind.random])
-		self.kind.actor.name = self.kind.actor.name:format(ng:generate())
+		local rndName = ng:generate() --@@ 영어 이름과 한글 이름에 같은 이름이 들어가도록 일단 저장, 랜덤한 이름은 아직(?) 한글화하지 않음 
+		self.kind.actor.name = self.kind.actor.name:format(rndName)
+		self.kind.actor.kr_display_name = self.kind.actor.kr_display_name:format(rndName) --@@ 한글 이름 수정 
 	end
 
 	self.kind.actor.level_range = {game.player.level, game.player.level}
@@ -369,7 +372,7 @@ on_grant = function(self, who)
 		if self.sunwall_query then game.state.found_sunwall_west_died = true end
 		game.logPlayer(game.player, "#LIGHT_RED#%s 죽었습니다. 호위에 실패했습니다!", (self.kr_display_name or self.name):capitalize():addJosa("이"))
 		game.player:setQuestStatus(self.quest_id, engine.Quest.FAILED)
-		game.player:hasQuest(self.quest_id).killing_npc = who and who.name or "무언가"
+		game.player:hasQuest(self.quest_id).killing_npc = (who and (who.kr_display_name or who.name)) or "무언가"
 		if who.resolveSource and who:resolveSource().player then
 			world:gainAchievement("ESCORT_KILL", game.player)
 			game.player:registerEscorts("betrayed")
@@ -392,7 +395,8 @@ on_grant = function(self, who)
 	g = g:cloneFull()
 	g.__nice_tile_base = nil
 	g.show_tooltip = true
-	g.name = (self.kind.portal or "귀환용 관문").." : "..npc.name
+	g.name = (self.kind.portal or "Recall Portal").." : "..npc.name
+	g.kr_display_name = (self.kind.portal or "귀환용 관문").." : "..(npc.kr_display_name or npc.name)
 	g.display = '&'
 	g.color_r = colors.VIOLET.r
 	g.color_g = colors.VIOLET.g
@@ -421,8 +425,9 @@ on_grant = function(self, who)
 	game.zone:addEntity(game.level, npc, "actor", x, y)
 
 	-- Setup quest
-	self.level_name = game.level.level.." of "..game.zone.name
-	self.name = "호위 : "..self.kind.name.." (level "..self.level_name..")"
+	self.level_name = (game.zone.kr_display_name or game.zone.name).." "..game.level.level.."층"
+	self.name = "Escort: "..self.kind.name.." (level "..self.level_name..")"
+	self.kr_display_name = "호위 : "..(self.kind.kr_display_name or self.kind.name).." (장소 : "..self.level_name..")"
 
 	local Chat = require "engine.Chat"
 	Chat.new("escort-quest-start", npc, game.player, {text=self.kind.text, npc=npc}):invoke()

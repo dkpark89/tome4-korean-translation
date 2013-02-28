@@ -123,7 +123,7 @@ floorEffect{
 floorEffect{
 	desc = "Necrotic Air", image = "talents/repression.png",
 	kr_display_name = "원혼의 대기",
-	long_desc = "원혼의 대기 효과 : 치유 증가율 -40% / 언데드인 경우 전체 저항 +15%",
+	long_desc = "원혼의 대기 효과 : 치유 효율 -40% / 언데드인 경우 전체 저항 +15%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "healing_factor", -0.4)
 		if self:attr("undead") then self:effectTemporaryValue(eff, "resists", {all=15}) end

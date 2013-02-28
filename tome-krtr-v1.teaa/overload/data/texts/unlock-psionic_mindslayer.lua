@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Mindslayer (Psionic)",
+return "새로운 직업 : #LIGHT_GREEN#정신 파괴자 (초능력자)",
 [[Mindslayers are the frontline fighters of the Yeeks' Way. Absolutly devoted to serving the Way, and thus all Yeeks, they dive into battle with nothing but their own mind.
 Yeeks are natively psionic and thus most Mindslayers are Yeeks, but psionic powers do happen - rarely - in other races too.
 

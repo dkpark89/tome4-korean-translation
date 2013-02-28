@@ -73,7 +73,7 @@ newTalent{
 		local maxUnnaturalBodyHeal = t.getMaxUnnaturalBodyHeal(self, t)
 		local regenRate = t.getRegenRate(self, t)
 
-		return ([[증오의 힘이 육체의 힘을 잠식합니다. 이로 인해, 치유 증가율이 증오심에 따라 50%% 에서 100%% 까지 증감합니다. (증오 0 일 때 50%%, 증오 100 이상일 때 100%%) 
+		return ([[증오의 힘이 육체의 힘을 잠식합니다. 이로 인해, 치유 효율이 증오심에 따라 50%% 에서 100%% 까지 증감합니다. (증오 0 일 때 50%%, 증오 100 이상일 때 100%%) 
 		그리고 적을 죽일 때마다, %d 생명력을 회복할 수 있게 됩니다. 한번에 최대 %d 생명력까지 회복할 수 있으며, 매 턴마다 %0.1f 씩 회복할 수 있습니다. 살육을 통한 회복은 증오가 낮아도 그 효율이 감소되지 않습니다.
 		살육을 통한 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):format(healPerKill, maxUnnaturalBodyHeal, regenRate)
 	end,

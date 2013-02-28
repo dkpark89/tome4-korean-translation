@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New birth power: #LIGHT_GREEN#Ziguranth Sacrifice",
+return "새로운 초기 능력 : #LIGHT_GREEN#지구르 추종자의 희생",
 [[당신은 온갖 마법에 맞서 싸우는 자연의 성체인 지구르를 발견하셨습니다.
 마법은 이 세계에 엄청난 고통과 파괴를 가져왔습니다, 이제는 그것을 멈출 때 입니다.
 

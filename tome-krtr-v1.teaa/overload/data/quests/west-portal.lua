@@ -64,7 +64,7 @@ wyrm_lair = function(self, who)
 		game.nicer_tiles:updateAround(game.level, spot.x, spot.y)
 	end)
 
-	game.logPlayer(game.player, "제메키스가 당신의 지도에 브리아가흐의 동굴이 있는 곳을 표시해줬습니다.")
+	game.logPlayer(game.player, "제메키스가 당신의 지도에 브리아그흐의 동굴이 있는 곳을 표시해줬습니다.")
 end
 
 create_portal = function(self, npc, player)

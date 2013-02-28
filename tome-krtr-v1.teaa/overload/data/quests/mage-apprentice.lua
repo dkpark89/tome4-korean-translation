@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "An apprentice task"
 kr_display_name = "견습 마법사의 임무"
 desc = function(self, who)
@@ -61,7 +63,7 @@ collect_staff_unique = function(self, npc, who, dialog)
 			self.nb_collect = self.nb_collect + 1
 			if self.nb_collect >= 1 then who:setQuestStatus(self, self.COMPLETED) end
 			who:removeObject(who:getInven("INVEN"), item)
-			game.log("당신은 견습 마법사에게 물건을 주었습니다 : %s", o:getName{no_count=true, do_color=true})
+			game.log("당신은 견습 마법사에게 %s 주었습니다.", o:getName{no_count=true, do_color=true}:addJosa("를"))
 			who:sortInven(who:getInven(inven))
 			dialog:regen()
 			return true
@@ -107,7 +109,7 @@ ring_gift = function(self, player)
 		o:identify(true)
 		player:addObject(player.INVEN_INVEN, o)
 		game.zone:addEntity(game.level, o, "object")
-		game.logPlayer(player, "당신은 선물을 받았습니다 : %s", o:getName{do_color=true})
+		game.logPlayer(player, "당신은 %s 받았습니다.", o:getName{do_color=true}:addJosa("를"))
 	end
 	player:setQuestStatus(self, self.DONE)
 end

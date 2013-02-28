@@ -17,10 +17,10 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Necromancer",
+return "새로운 직업: #LIGHT_GREEN#사령술사",
 [[
 사령술, 금지된 기술.
-사령술, 흑의 기술.
+사령술, 암흑의 기술.
 
 During the Age of Dusk and the Age of Pyre the world went through a tortured era. Kingdoms were shattered, whole races suppressed, and diseases ran wild, killing millions.
 It was a dark time and amidst the chaos came the bringers of terror: the necromancers.

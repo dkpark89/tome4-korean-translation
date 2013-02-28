@@ -386,7 +386,7 @@ newEntity{ base = "BASE_ROD",
 	add_name = false,
 	identified=true, force_lore_artifact=true,
 	name = "Transmogrification Chest", display = '~', color=colors.GOLD, unique=true, image = "object/chest4.png",
-	kr_display_name = "변형 상자",
+	kr_display_name = "변환 상자",
 	desc = [[이 상자는 이일크구르와 연결되어, 상자 안에 있는 물건들을 요새로 운반하여 파괴한 뒤, 에너지를 추출합니다.
 이 작업의 부산물로 금화가 만들어지는데, 이것은 요새에서는 쓸모 없는 것이므로 금화는 당신에게 돌아옵니다.
 
@@ -411,9 +411,9 @@ newEntity{ base = "BASE_ROD",
 			if nb <= 0 then
 				local floor = game.level.map:getObjectTotal(who.x, who.y)
 				if floor == 0 then
-					require("engine.ui.Dialog"):simplePopup("변형 상자", "상자 안이나 바닥에 변화시킬 물건이 없습니다.")
+					require("engine.ui.Dialog"):simplePopup("변환 상자", "상자 안이나 바닥에 변화시킬 물건이 없습니다.")
 				else
-					require("engine.ui.Dialog"):yesnoPopup("변형 상자", "바닥에 있는 "..floor.."개의 물건을 모두 변형시킵니까?", function(ret)
+					require("engine.ui.Dialog"):yesnoPopup("변환 상자", "바닥에 있는 "..floor.."개의 물건을 모두 변형시킵니까?", function(ret)
 						if not ret then return end
 						for i = floor, 1, -1 do
 							local o = game.level.map:getObject(who.x, who.y, i)
@@ -427,7 +427,7 @@ newEntity{ base = "BASE_ROD",
 				return {id=true, used=true}
 			end
 
-			require("engine.ui.Dialog"):yesnoPopup("변형 상자", "상자 속에 있는 "..nb.."개의 물건을 모두 변형시킵니까?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("변환 상자", "상자 속에 있는 "..nb.."개의 물건을 모두 변형시킵니까?", function(ret)
 				if not ret then return end
 				for i = #inven, 1, -1 do
 					local o = inven[i]
@@ -441,7 +441,7 @@ newEntity{ base = "BASE_ROD",
 	},
 
 	on_pickup = function(self, who)
-		require("engine.ui.Dialog"):simpleLongPopup("변형 상자", [[이 상자는 이일크구르와 연결되어, 상자 안에 있는 물건들을 요새로 운반하여 파괴한 뒤, 에너지를 추출합니다.
+		require("engine.ui.Dialog"):simpleLongPopup("변환 상자", [[이 상자는 이일크구르와 연결되어, 상자 안에 있는 물건들을 요새로 운반하여 파괴한 뒤, 에너지를 추출합니다.
 이 작업의 부산물로 금화가 만들어지는데, 이것은 요새에서는 쓸모 없는 것이므로 금화는 당신에게 돌아옵니다.
 
 이 상자를 가지고 있다면 바닥에서 자동으로 줍는 모든 물건들이 일단 상자 속으로 들어가며, 해당 층을 벗어날 때 변형 작업을 시작합니다.

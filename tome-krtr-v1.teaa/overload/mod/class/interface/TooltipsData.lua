@@ -59,7 +59,7 @@ TOOLTIP_LIFE_REGEN = [[#GOLD#생명력 재생#LAST#
 이 수치는 주문이나 기술, 각인, 장비를 통해서 향상시킬 수 있습니다.
 ]]
 
-TOOLTIP_HEALING_MOD = [[#GOLD#치유 증가율#LAST#
+TOOLTIP_HEALING_MOD = [[#GOLD#치유 효율#LAST#
 당신이 받는 치유 효과의 효율을 나타냅니다.
 모든 치유량은 이 수치에 따라 증폭됩니다(재생 효과도 포함).
 ]]
@@ -235,8 +235,8 @@ TOOLTIP_COMBAT_SPEED = [[#GOLD#공격 속도#LAST#
 낮을 수록 더 공격을 빠르게, 자주 할 수 있습니다.
 예) 공격 속도가 50% 라면, 100% 인 적이 한 번 공격할 때 두 번 공격할 수 있습니다.
 ]]
-TOOLTIP_COMBAT_RANGE = [[#GOLD#사정 거리#LAST#
-무기의 최대 사정거리입니다.
+TOOLTIP_COMBAT_RANGE = [[#GOLD#최대 사거리#LAST#
+무기의 최대 사거리입니다.
 ]]
 TOOLTIP_COMBAT_AMMO = [[#GOLD#탄환#LAST#
 화살이나 투석구용 탄환의 잔여량입니다.

@@ -2121,7 +2121,7 @@ newEffect{
 	desc = "Miasma",
 	kr_display_name = "독기",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("해당 지역 효과 : 황폐 공격 피해량 +10% / 황폐 저항 -10% / 치유 증가율 -20% / 질병 면역력 -20%") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 황폐 공격 피해량 +10% / 황폐 저항 -10% / 치유 효율 -20% / 질병 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },

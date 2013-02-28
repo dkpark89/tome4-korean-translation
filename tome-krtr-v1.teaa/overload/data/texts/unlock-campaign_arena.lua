@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master",
+return "새로운 게임 캠페인 : #LIGHT_GREEN#"투기장 : 최강자가 되기 위한 도전",
 [[
 The arena, a way of violent entertainment. 
 A delight for the audience, a source of wealth and glory. A place where aspiring fighters, former adventurers and those cursed to fight
@@ -26,7 +26,7 @@ eternally gather to hack away at each other.
 You have unlocked the Arena and can now create new characters in a new campaign: #LIGHT_GREEN#The Arena#WHITE#.
 
 The arena pits you against multiple enemies in an open field, making your battle tactics important for survival.
-캠페인의 요소들:#YELLOW#
+캠페인의 특징:#YELLOW#
 - No quests, plots, friendly creatures or ways out: only you against all odds.
 - Exclusive scoring system where the faster you kill, the more you earn. Scores are kept for bragging rights!
 - Pure hack and slash MAYHEM!

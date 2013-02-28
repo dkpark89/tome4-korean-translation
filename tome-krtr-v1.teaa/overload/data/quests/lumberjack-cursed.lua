@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "The beast within"
 kr_display_name = "공포의 기억"
 desc = function(self, who)
@@ -54,7 +56,7 @@ on_status_change = function(self, who, status, sub)
 		local money = math.max(0, (20 - self.lumberjacks_died) * 1.2)
 		if money > 0 then
 			who:incMoney(money)
-			require("engine.ui.Dialog"):simplePopup("감사의 선물", ("생존한 나무꾼들이 금화를 모아 당신에게 주었습니다. (금화 %0.2f 개)"):format(money))
+			require("engine.ui.Dialog"):simplePopup("감사의 선물", ("생존한 나무꾼들이 금화 %0.2f 개를 모아 당신에게 주었습니다."):format(money))
 		end
 		if self.lumberjacks_died < 7 then
 			local o = game.zone:makeEntity(game.level, "object", {type="tool", subtype="digger", tome_drops="boss"}, nil, true)
@@ -62,7 +64,7 @@ on_status_change = function(self, who, status, sub)
 				game:addEntity(game.level, o, "object")
 				o:identify(true)
 				who:addObject(who.INVEN_INVEN, o)
-				require("engine.ui.Dialog"):simplePopup("감사의 선물", ("당신은 저희 대부분을 살려주셨습니다. 부디 저희의 선물을 받아주십시오. (그들이 당신에게 선물을 주었습니다 : %s)"):format(o:getName{do_color=true}))
+				require("engine.ui.Dialog"):simplePopup("감사의 선물", ("당신은 저희 대부분을 살려주셨습니다. 부디 저희의 보답을 받아주십시오. (그들이 당신에게 %s 주었습니다)"):format(o:getName{do_color=true}:addJosa("를")))
 			end
 		end
 		who:setQuestStatus(self.id, engine.Quest.DONE)

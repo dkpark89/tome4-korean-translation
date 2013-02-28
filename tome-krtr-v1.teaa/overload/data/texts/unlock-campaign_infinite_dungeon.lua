@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game campaign: #LIGHT_GREEN#Infinite Dungeon: The Neverending Descent",
+return "새로운 게임 캠페인 : #LIGHT_GREEN#"무한의 던전 : 끝없는 내리막",
 [[
 During the Age of Haze, the nine Godslayers set out to destroy the gods.
 The god Ralkur, while trying to escape one of the Godslayers, created the Infinite Dungeon.
@@ -27,7 +27,7 @@ It is said the hunt continues even now, deep, very deep within the dungeon.
 You have unlocked the secret of the Infinite Dungeon and can now create new characters in a new campaign: #LIGHT_GREEN#Infinite Dungeon#WHITE#.
 
 The Infinite Dungeon is a set of ever-increasing levels filled with terrible foes.
-Campaign features:#YELLOW#
+캠페인 특징:#YELLOW#
 - No quests, plots, friendly creatures or ways out: only you against all odds.
 - No win condition: you WILL die in the dungeon, but you can prove your worth by going as deep as possible.
 - Pure hack and slash MAYHEM!#WHITE#

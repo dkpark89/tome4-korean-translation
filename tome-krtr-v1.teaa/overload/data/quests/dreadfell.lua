@@ -19,7 +19,7 @@
 
 -- Quest for the Dreadfell
 name = "The Island of Dread"
-kr_display_name = "두려움의 영억"
+kr_display_name = "두려움의 섬"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "당신은 검게 탄 상처 북쪽에 '두려움의 영역' 이라고 불리는, 폐허가 된 탑이 하나 있다는 말을 들었습니다."

@@ -23,7 +23,7 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "research log of halfling mage Hompalan", lore="halfling-research-note-"..i,
-	kr_display_name = "하플링 마법사 홈팔란의 연구 기록", --@@ lore 번역후 수정 필요
+	kr_display_name = "하플링 마법사 홈팔란의 연구 기록",
 	desc = [[거의 읽는 것이 불가능한 연구 기록입니다.]],
 	rarity = false,
 	encumberance = 0,

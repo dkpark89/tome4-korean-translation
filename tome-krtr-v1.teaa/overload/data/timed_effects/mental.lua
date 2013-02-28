@@ -354,7 +354,7 @@ newEffect{
 		if not effStalker then return "추적당함." end
 		local t = self:getTalentFromId(eff.source.T_STALK)
 		local desc = ([[%s에게 추적당하는 중, %d 단계 추적 : 추적자의 정확도 +%d / 추적자의 물리 피해량 +%d%% / 공격받을 때마다 추적자의 증오 회복 (+%0.2f / 턴)]]):format(
-			(eff.target.kr_display_name or eff.source.name), effStalker.bonus, t.getAttackChange(eff.source, t, effStalker.bonus), t.getStalkedDamageMultiplier(eff.source, t, effStalker.bonus) * 100 - 100, t.getHitHateChange(eff.source, t, effStalker.bonus))
+			(eff.source.kr_display_name or eff.source.name), effStalker.bonus, t.getAttackChange(eff.source, t, effStalker.bonus), t.getStalkedDamageMultiplier(eff.source, t, effStalker.bonus) * 100 - 100, t.getHitHateChange(eff.source, t, effStalker.bonus))
 		if eff.damageChange and eff.damageChange > 0 then
 			desc = desc..(" 추적자에게 받는 피해량 보정 : %d%%."):format(eff.damageChange)
 		end

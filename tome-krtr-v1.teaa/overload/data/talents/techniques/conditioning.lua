@@ -39,8 +39,8 @@ newTalent{
 		local healmod = t.getHealMod(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[중독, 질병, 출혈 상태의 지속 시간이 %d%% 감소합니다.
-		추가적으로, 현재 생명력이 최대 생명력의 50%% 밑으로 떨어지면 생명력 재생이 %0.2f, 치유 증가율이 %d%% 올라가며, %d 턴 동안 유지됩니다.
-		생명력 재생과 치유 증가율 상승량은 체격 능력치의 영향을 받아 증가합니다.]]):
+		추가적으로, 현재 생명력이 최대 생명력의 50%% 밑으로 떨어지면 생명력 재생이 %0.2f, 치유 효율이 %d%% 올라가며, %d 턴 동안 유지됩니다.
+		생명력 재생과 치유 효율 상승량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(wounds, regen, healmod, duration)
 	end,
 }
