@@ -19,8 +19,8 @@
 
 return "New Race: #LIGHT_GREEN#Ghoul (Undead)",
 [[
-Ghouls are evil undead creatures. Usually raised by Necromancers to serve as mindless servants, some manage to keep their sentience and roam the world in a blazing path of destruction.
-You have killed the Master, a malevolent undead creature. You can now create a new character with the #LIGHT_GREEN#Ghoul race#WHITE#.
+구울들은 악한 언데드 괴물들입니다. 보통은 사령술사들이 지성이 없는 하인으로 사용하기 위해 창조하는 존재들입니다만, 몇몇 구울들은 그들의 지성을 유지하는데 성공하여 속박을 풀고 세계를 돌아다니며 불타는 파괴의 길을 걷습니다.
+당신은 사악한 언데드 괴물인, 주인을 죽이셨습니다. 이제부터 당신은 #LIGHT_GREEN#구울 종족#WHITE#인 캐릭터를 만드실 수 있습니다.
 
 종족 특성:#YELLOW#
 - 최고의 독성 저항
