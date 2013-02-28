@@ -40,10 +40,10 @@ local function auto_id(npc, player)
 
 	-- Create the chat
 	newChat{ id="id_list",
-		text = [[Let's see what have you got here...
+		text = [[뭘 가져왔나 한 번 살펴 볼까...
 ]]..table.concat(list, "\n")..[[
 
-That is very nice, @playername@!]],
+@playername@씨, 이건 정말 멋진데!]],
 		answers = {
 			{"고마워, 엘리사!", jump=do_quest and "quest" or nil},
 		}

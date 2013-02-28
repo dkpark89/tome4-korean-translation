@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 --------------------------------------------------------------------------
 -- Blighted Ruins
 --------------------------------------------------------------------------
@@ -41,7 +43,7 @@ newLore{
 	category = "blighted ruins",
 	name = "note from the Necromancer",
 	kr_display_name = "사령술사의 쪽지",
-	lore = function() return [[운명이 나에게 미소짓는군. 오늘은 불행한 시체만을 찾아냈군]]..game:getPlayer(true).descriptor.subclass..[[? 실로 불행해. 하지만 내게는 더 없는 행운이야. 시체에 부패의 흔적이 전혀 보이지 않아...이 시체라면 완벽할야! 이 부하와 기만의 망토라면 내 계획의 복잡함은 모두 해소될거야. 의식을 준비해야겠어...  나의 어둠의 자식들에게 새로운 친구가 곧 생길거야.]] end,
+	lore = function() return [[운명이 나에게 미소짓는군. 오늘은 불행한 시체만을 찾아냈군]]..(game:getPlayer(true).descriptor.subclass):krClass()..[[? 실로 불행해. 하지만 내게는 더 없는 행운이야. 시체에 부패의 흔적이 전혀 보이지 않아...이 시체라면 완벽할야! 이 부하와 기만의 망토라면 내 계획의 복잡함은 모두 해소될거야. 의식을 준비해야겠어...  나의 어둠의 자식들에게 새로운 친구가 곧 생길거야.]] end,
 }
 
 newLore{
