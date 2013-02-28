@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Necromancer",
+return "새로운 직업: #LIGHT_GREEN#사령술사",
 [[
 사령술, 금지된 기술.
 사령술, 사악한 기술.

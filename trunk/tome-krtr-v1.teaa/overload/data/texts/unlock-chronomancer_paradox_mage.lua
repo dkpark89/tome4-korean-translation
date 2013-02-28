@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Paradox Mage (Chronomancer)",
+return "새로운 직업 : #LIGHT_GREEN#괴리 마법사 (시공 제어사)",
 [[시간은 선형적인 구조가 아닙니다. 그저 그렇게 보일 뿐입니다. 사실 시간의 구조는 섬유 구조와도 같습니다. 시간은 이 우주를 아우를 수 있을 정도로 복잡하고 거대한 직물같은 존재입니다.
 어떤 자들은 이 시간의 구조를 스스로 엮어, 그들의 의지에 따라 구부리고 바꾸려고 합니다. 정말로 이 일에 헌신하는 사람이거나 정말로 정신 나간 사람만이 시간과 공간에 숨겨진 비밀을 파헤치려 할 것입니다.
 

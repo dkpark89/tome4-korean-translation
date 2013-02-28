@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Cursed (Afflicted)",
+return "새로운 직업 : #LIGHT_GREEN#저주받은 자 (고통받는 자)",
 [[무지와 탐욕 혹은 어리석음 때문에, 저주받은 자들은 사악한 행동을 하다가 그 죄악의 대가를 받게 된 사람들입니다.
 이제 그들의 유일한 주인은, 모든 살아있는 존재들에 대해 그들이 가지고 있는 증오심입니다.
 그들은 마주친 모든 것들을 죽이고 힘을 흡수하기 때문에, 저주받은 자들은 끔찍하게 강력한 전투원이 되었습니다.

@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return {
-	name = "Erúan",
+	name = "Eruan", --@@ 원래 Erúan 이지만, 한글글꼴 문제로 일단 변경
 	kr_display_name = "에류안",
 	level_range = {30, 45},
 	level_scheme = "player",

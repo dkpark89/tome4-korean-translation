@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Corruptor (Defiler)",
+return "새로운 직업 : #LIGHT_GREEN#타락자 (모독자)",
 [[모든 힘에는 어두운 측면이 있기 마련입니다. 마법적인 힘에도 예외는 없는 법이지요.
 타락자들은 자신의 목표를 위해 어둡고, 타락한, 악마의 마법에 손을 댄 마법사들입니다.
 하지만, 이런 힘에 손을 댔다고 그들이 모두 악한 것은 아닙니다. 그들 중 몇몇은 그저 이기적이고 그들의 힘에 눈이 멀었을 뿐입니다.

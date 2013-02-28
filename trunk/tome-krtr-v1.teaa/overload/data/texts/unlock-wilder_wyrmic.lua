@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Wyrmic (Wilder)",
+return "새로운 직업 : #LIGHT_GREEN#용인 (자연의 추종자)",
 [[어떤 사람들은 육체적 수련이나 마법적 수련을 할 때, 용의 특성을 따르는 수련법을 선택하기도 합니다.
 당신은 이러한 능력을 얻을 수 있는 마법을 '섭취' 했습니다. 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#용인 직업#WHITE#을 선택할 수 있게 되었습니다.
 

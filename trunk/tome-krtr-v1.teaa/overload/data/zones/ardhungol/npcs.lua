@@ -25,7 +25,7 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ define_as = "UNGOLE", base = "BASE_NPC_SPIDER",
 	allow_infinite_dungeon = true,
-	name = "Ungolë", color=colors.VIOLET, unique = true,
+	name = "Ungole", color=colors.VIOLET, unique = true,--@@ 원래 Ungolë 이지만, 한글글꼴 지원문제로 일단 변경
 	kr_display_name = "운골뢰",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_ungole.png", display_h=2, display_y=-1}}},
 	desc = [[어둠의 장막을 두른 거대한 거미로, 붉게 빛나는 눈은 당신을 뚫어져라 쳐다보고 있습니다. 매우 배고파 보입니다.]],

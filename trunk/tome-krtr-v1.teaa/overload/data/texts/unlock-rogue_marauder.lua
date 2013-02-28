@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Marauder (Rogue)",
+return "새로운 직업 : #LIGHT_GREEN#약탈자 (도적)",
 [[몇몇 도적들은 교활함보다 힘에 의지하여, 은신과 속임수 대신 강력하고 치명적인 공격을 사용해 왔습니다. 이들은 대지를 약탈하며, 가벼운 갑옷과 쌍수 무기를 들고 모든 것을 강제로 빼앗습니다.
 
 당신은 상대에게 강력한 피해를 주는 방법을 알게 되었고, 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#약탈자 직업#WHITE#을 선택할 수 있게 되었습니다.
