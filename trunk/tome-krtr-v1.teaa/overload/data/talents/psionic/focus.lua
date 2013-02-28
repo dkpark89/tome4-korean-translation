@@ -159,7 +159,7 @@ newTalent{
 	points = 5,
 	info = function(self, t)
 		local inc = 2*self:getTalentLevel(t)
-		return ([[보석이나 마석을 통해, 정신력이 미치는 범위를 넓힙니다. 정신력을 사용하는 기술들의 사정거리가 %d%% - %d%% 증가합니다. 
+		return ([[보석이나 마석을 통해, 정신력이 미치는 범위를 넓힙니다. 정신력을 사용하는 기술들의 최대 사거리가 %d%% - %d%% 증가합니다. 
 		염동력으로 들고 있는 보석이나 마석의 수준에 따라 기술의 효과가 달라집니다.]]):
 		format(inc, 5*inc)
 	end,

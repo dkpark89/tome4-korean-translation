@@ -63,7 +63,7 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local bleed = t.getBleedDamage(self, t) * 100
 		local heal_penalty = t.getHealingPenalty(self, t)
-		return ([[대상을 물어뜯어 %d%% 무기 피해를 주고, 대상의 치유 증가율을 %d%% 낮춥니다. 대상은 출혈 상태에 빠져 5 턴 동안 %d%% 무기 피해를 입습니다.
+		return ([[대상을 물어뜯어 %d%% 무기 피해를 주고, 대상의 치유 효율을 %d%% 낮춥니다. 대상은 출혈 상태에 빠져 5 턴 동안 %d%% 무기 피해를 입습니다.
 		광란 상태에서만 사용할 수 있습니다.]]):format(damage, heal_penalty, bleed)
 	end,
 }

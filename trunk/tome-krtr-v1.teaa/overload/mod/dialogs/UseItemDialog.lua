@@ -120,7 +120,7 @@ function _M:generateList()
 	if not self.object.__transmo then if self.inven ~= self.actor.INVEN_INVEN and self.object:wornInven() then list[#list+1] = {name="착용 해제", action="takeoff"} end end
 	if self.inven == self.actor.INVEN_INVEN then list[#list+1] = {name="버리기", action="drop"} end
 	if self.inven == self.actor.INVEN_INVEN and game.party:countInventoryAble() >= 2 then list[#list+1] = {name="동료에게 건네주기", action="transfer"} end
-	if self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="변화(변형 상자)", action="transmo"} end
+	if self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="변화(변환 상자)", action="transmo"} end
 	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 물건 연결", action="chat-link"} end
 
 	self:triggerHook{"UseItemMenu:generate", actor=self.actor, object=self.object, inven=self.inven, item=self.item, menu=list}

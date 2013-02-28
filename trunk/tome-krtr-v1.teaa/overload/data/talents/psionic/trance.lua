@@ -127,7 +127,7 @@ newTalent{
 		local heal = t.getHeal(self, t)
 		local healing_modifier = t.getHealingModifier(self, t)
 		local regen = t.getLifeRegen(self, t)
-		return ([[사용하면 생명력이 %0.2f 회복됩니다. 최면이 유지되는 동안, 치유 증가율이 %d%% 증가하고 생명력 재생이 %0.2f 증가합니다.
+		return ([[사용하면 생명력이 %0.2f 회복됩니다. 최면이 유지되는 동안, 치유 효율이 %d%% 증가하고 생명력 재생이 %0.2f 증가합니다.
 		최면의 효과는 정신력의 영향을 받아 증가합니다.
 		한번에 하나의 최면 효과만을 유지할 수 있습니다.]]):format(heal, healing_modifier, regen)
 	end,

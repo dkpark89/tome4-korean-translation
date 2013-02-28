@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
+
 name = "The Brotherhood of Alchemists"
 kr_display_name = "연금술사 형제단"
 
@@ -23,9 +26,9 @@ desc = function(self, player, who)
 	local desc = {}
 
 	if self:isStatus(self.DONE) and self.player_won == true then
-		desc[#desc+1] = "#LIGHT_GREEN#당신의 도움 덕분에, 연금술사 형제단의 새로운 단원은 "..self.winner.."로 결정되었습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#당신의 도움 덕분에, 연금술사 형제단의 새로운 단원은 "..self.winner:addJosa("로").." 결정되었습니다.#WHITE#"
 	elseif self:isStatus(self.DONE) and self.player_won == false then
-		desc[#desc+1] = "#RED#당신은 마즈'에이알에 있는 여러 연금술사들을 도와주었지만, 연금술사 형제단에 입단시킬 결정적인 도움은 주지 못했습니다. 올해의 새로운 단원은 "..self.winner.."로 결정되었습니다.#WHITE#"
+		desc[#desc+1] = "#RED#당신은 마즈'에이알에 있는 여러 연금술사들을 도와주었지만, 연금술사 형제단에 입단시킬 결정적인 도움은 주지 못했습니다. 올해의 새로운 단원은 "..self.winner:addJosa("로").." 결정되었습니다.#WHITE#"
 	else
 		desc[#desc+1] = "#LIGHT_BLUE#마즈'에이알에 있는 여러 연금술사들은 연금술사 형제단에 들어가기 위해 서로 경쟁하고 있습니다. 그리고 한 명 이상의 연금술사가 당신의 도움을 받았습니다.#WHITE#"
 	end
@@ -33,27 +36,27 @@ desc = function(self, player, who)
 	for i = 1, 4 do --run through list of four alchemists
 		for j = 1, 3 do --run through each alchemist's list of three elixirs
 			if self:isCompleted(self.e[i][j].full) and not self:isCompleted(self.e[i][j].poached) then
-				desc[#desc+1] = "#GREEN#당신은 "..self.e[i][j].alchemist.."의 작업을 도와, "..self.e[i][j].name.."를 만들었습니다.#WHITE#"
+				desc[#desc+1] = "#GREEN#당신은 "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist).."의 작업을 도와, "..(self.e[i][j].kr_display_name or self.e[i][j].name):addJosa("를").." 만들었습니다.#WHITE#"
 			elseif self:isCompleted(self.e[i][j].full) and self:isCompleted(self.e[i][j].poached) then
-				desc[#desc+1] = "#RED#당신의 도움을 받지 않고, "..self.e[i][j].alchemist.." 은/는 "..self.e[i][j].name.."를 만들었습니다.#WHITE#"
+				desc[#desc+1] = "#RED#당신의 도움을 받지 않고, "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist):addJosa("는").." "..(self.e[i][j].kr_display_name or self.e[i][j].name):addJosa("를").." 만들었습니다.#WHITE#"
 			elseif self:isCompleted(self.e[i][j].start) and not self:isCompleted(self.e[i][j].full) and self:isStatus(self.DONE) then
-				desc[#desc+1] = "#SLATE#연금술사 형제단에 입단할 수 없게 됐기 때문에, "..self.e[i][j].alchemist.." 은/는 더 이상 당신에게 "..self.e[i][j].name.."를 만들어줄 이유가 없어졌습니다."
+				desc[#desc+1] = "#SLATE#연금술사 형제단에 입단할 수 없게 됐기 때문에, "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist):addJosa("는").." 더 이상 당신에게 "..(self.e[i][j].kr_display_name or self.e[i][j].name):addJosa("를").." 만들어줄 이유가 없어졌습니다."
 			elseif self:isCompleted(self.e[i][j].start) and not self:isCompleted(self.e[i][j].full) then
-				desc[#desc+1] = ""..self.e[i][j].alchemist.." 은/는 "..self.e[i][j].name.."를 만들기 위해 당신의 도움을 필요로 합니다. 그는 당신에게 필요한 재료들에 대한 정보를 주었습니다."
+				desc[#desc+1] = ""..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist):addJosa("는").." "..(self.e[i][j].kr_display_name or self.e[i][j].name):addJosa("를").." 만들기 위해 당신의 도움을 필요로 합니다. 그는 당신에게 필요한 재료들에 대한 정보를 주었습니다."
 				if not self:check_i(player, self.e[i][j].ingredients[1]) then
-					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..self.e[i][j].ingredients[1].name.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[1].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..(self.e[i][j].ingredients[1].kr_display_name or self.e[i][j].ingredients[1].name).." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[1].id).alchemy_text.."'#WHITE#"
 				else
-					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..self.e[i][j].ingredients[1].name.." 하나를 찾았습니다.#WHITE#"
+					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..(self.e[i][j].ingredients[1].kr_display_name or self.e[i][j].ingredients[1].name).." 하나를 찾았습니다.#WHITE#"
 				end
 				if not self:check_i(player, self.e[i][j].ingredients[2]) then
-					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..self.e[i][j].ingredients[2].name.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[2].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..(self.e[i][j].ingredients[2].kr_display_name or self.e[i][j].ingredients[2].name)e.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[2].id).alchemy_text.."'#WHITE#"
 				else
-					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..self.e[i][j].ingredients[2].name.." 하나를 찾았습니다.#WHITE#"
+					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..(self.e[i][j].ingredients[2].kr_display_name or self.e[i][j].ingredients[2].name).." 하나를 찾았습니다.#WHITE#"
 				end
 				if not self:check_i(player, self.e[i][j].ingredients[3]) then
-					desc[#desc+1] = "#SLATE#  * 필요한 재료 : "..self.e[i][j].ingredients[3].name.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[3].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * 필요한 재료 : "..(self.e[i][j].ingredients[3].kr_display_name or self.e[i][j].ingredients[3].name).." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[3].id).alchemy_text.."'#WHITE#"
 				else
-					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..self.e[i][j].ingredients[3].name.." 하나를 찾았습니다.#WHITE#"
+					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..(self.e[i][j].ingredients[3].kr_display_name or self.e[i][j].ingredients[3].name).." 하나를 찾았습니다.#WHITE#"
 				end
 			end
 		end
@@ -121,7 +124,7 @@ reward = function(self, player, reward)
 	o:resolve(nil, true)
 	if o then
 		player:addObject(player.INVEN_INVEN, o)
-		game.logPlayer(player, "보상을 받았습니다 : %s", o:getName{do_color=true})
+		game.logPlayer(player, "%s 받았습니다.", o:getName{do_color=true}:addJosa("를"))
 	end
 	game:onTickEnd(function() game:saveGame() end)
 end
@@ -189,14 +192,14 @@ on_turnin = function(self, player, alch_picked, e_picked, player_last_elixir)
 	end
 	if player_last_elixir == false and self:isCompleted(self.e[alch_picked][1].full) and self:isCompleted(self.e[alch_picked][2].full) and self:isCompleted(self.e[alch_picked][3].full) then
 		player:setQuestStatus("brotherhood-of-alchemists", engine.Quest.DONE)
-		self.winner = self.e[alch_picked][1].alchemist
+		self.winner = self.e[alch_picked][1].kr_alchemist --@@ 한글 이름으로 수정
 		self.player_won = false
 	end
 end
 
 --sets the name of the winner. Only called in the case of the player turning in an alchemist's final potion. An alchemist that completes his third potion without the player's aid gets named the winner in the on_turning function above.
 winner_is = function(self, player, alchemist_num)
-	self.winner = self.e[alchemist_num][1].alchemist
+	self.winner = self.e[alchemist_num][1].kr_alchemist --@@ 한글 이름으로 수정
 	self.player_won = true
 end
 

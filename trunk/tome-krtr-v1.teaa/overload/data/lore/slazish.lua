@@ -29,7 +29,6 @@ newLore{
 	lore = [[#{italic}#소라고둥을 만지면 고둥에서는 소리를 뿜어낸다. 고둥을 귀에다 갖다 댄다면 안에서 울려퍼지는 아름다운 목소리를 들을수 있다.#{normal}#
 
 "파도를 지켜보는자 이시몬이 파도를 불러오는자 조이슬라에게 보고합니다. 알루시아랑 저는, 음, 외각 지역을 순찰하기 시작했습니다. 길을 찾기가 힘든 지형이지만, 저희는, 음, 빠른 진척을 보일수 있다고 확신합니다. 저희는, 저희는 구원자의 이름 아래... 계속하도록 하겠습니다!
-"Report from Tidewarden Isimon to Tidebringer Zoisla. Alucia and I have, um, begun scouting the outer perimeter. The, uh, the terrain is proving difficult to navigate, but I'm sure we'll make, uh, quick progress. We shall, uh, we'll continue now... in the name of the Saviour!
 
 "...음, 방금 그거 괜찮았나요??"
 

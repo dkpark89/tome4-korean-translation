@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Summoner (Wilder)",
+return "새로운 직업 : #LIGHT_GREEN#소환술사 (자연의 추종자)",
 [[
 In the wilds, some people and creatures are able, by the sole force of their will, to call upon allies to help them in combat.
 You have witnessed such an act and can now create new characters with the #LIGHT_GREEN#Summoner class#WHITE#.

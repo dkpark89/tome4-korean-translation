@@ -3965,8 +3965,8 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 		if t.sustain_feedback then d:add({"color",0x6f,0xff,0x83}, "반작용 유지량: ", {"color",0xFF, 0xFF, 0x00}, ""..(t.sustain_feedback), true) end
 	end
 	if t.mode ~= "passive" then
-		if self:getTalentRange(t) > 1 then d:add({"color",0x6f,0xff,0x83}, "사정거리: ", {"color",0xFF,0xFF,0xFF}, ("%0.2f"):format(self:getTalentRange(t)), true)
-		else d:add({"color",0x6f,0xff,0x83}, "사정거리: ", {"color",0xFF,0xFF,0xFF}, "근접", true)
+		if self:getTalentRange(t) > 1 then d:add({"color",0x6f,0xff,0x83}, "최대 사거리: ", {"color",0xFF,0xFF,0xFF}, ("%0.2f"):format(self:getTalentRange(t)), true)
+		else d:add({"color",0x6f,0xff,0x83}, "최대 사거리: ", {"color",0xFF,0xFF,0xFF}, "근접", true)
 		end
 		if not config.ignore_ressources then
 			if self:getTalentCooldown(t) then d:add({"color",0x6f,0xff,0x83}, "재사용 대기시간: ", {"color",0xFF,0xFF,0xFF}, ""..self:getTalentCooldown(t), true) end

@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Archmage",
+return "새로운 직업 : #LIGHT_GREEN#마도사",
 [[
 Magic has not disappeared from Maj'Eyal with the end of the Spellhunt.
 

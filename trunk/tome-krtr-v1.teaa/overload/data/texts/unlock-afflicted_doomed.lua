@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Doomed (Afflicted)",
+return "새로운 직업 : #LIGHT_GREEN#파멸당한자 (고통받는자)",
 [[Through ignorance, greed or folly, the Doomed served some dark design and must now pay for their sins.
 Their only master now is the hatred they carry for every living thing.
 Drawing strength from the death of all they encounter, the Doomed become terrifying foes.

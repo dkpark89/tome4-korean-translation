@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Brawler (Warrior)",
+return "새로운 직업 : #LIGHT_GREEN#격투가 (전사)",
 [[The ravages of the Spellblaze stretched armies thin and left many unprotected. Not everyone could afford the luxury of a weapon.
 Without steel or iron, poor communities of all races turned to the strength of their own bodies for defense against the darkness.
 These unarmed techniques still exist today.

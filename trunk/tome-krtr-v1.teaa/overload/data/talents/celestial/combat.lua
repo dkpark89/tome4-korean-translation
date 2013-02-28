@@ -111,7 +111,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[순수한 힘을 방출하여, 원거리에 있는 적에게 %d%% 무기 피해를 줍니다.
-		사정거리는 힘 능력치의 영향을 받아 증가합니다.]]):
+		최대 사거리는 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage)
 	end,
 }

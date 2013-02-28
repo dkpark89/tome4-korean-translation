@@ -22,7 +22,7 @@ kr_display_name = "잊혀진 지식"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "당신은 보석에 대해 적힌 고대의 서적을 발견하였습니다."
-	desc[#desc+1] = "아침의 문에 있는 보석상에게 가져다주어야 할 것 같습니다."
+	desc[#desc+1] = "아침의 문에 있는 보석 세공사에게 가져다주어야 할 것 같습니다."
 	if self:isCompleted("search-valley") then
 		desc[#desc+1] = "리미르는 남쪽 산맥에 있는 달의 골짜기를 조사해보라고 했습니다."
 	end
@@ -30,7 +30,7 @@ desc = function(self, who)
 end
 
 on_grant = function(self, who)
-	game.logPlayer(who, "#VIOLET#이 책은 보석의 힘에 대해 적혀있는 것 같습니다. 아침의 문에 있는 보석상에게 가져다주어야 할 것 같습니다.")
+	game.logPlayer(who, "#VIOLET#이 책은 보석의 힘에 대해 적혀있는 것 같습니다. 아침의 문에 있는 보석 세공사에게 가져다주어야 할 것 같습니다.")
 end
 
 has_tome = function(self, who)
@@ -108,7 +108,7 @@ ritual_end = function(self)
 		if not e.unique and e.type == "demon" then e:die() end
 	end
 	limmir.name = "Limmir the Master Jeweler"
-	limmir.kr_display_name = "보석세공의 명인 리미르"
+	limmir.kr_display_name = "보석 세공의 명인 리미르"
 	limmir.can_talk = "jewelry-store"
 
 	-- Update water

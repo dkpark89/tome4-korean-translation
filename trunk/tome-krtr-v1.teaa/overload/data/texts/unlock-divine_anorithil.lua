@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Anorithil (Celestial)",
+return "새로운 직업: #LIGHT_GREEN#아노리실 (천공의 사도)",
 [[
 In the uttermost east, on the continent known only as the Far East, dwell the last remnants of Elves and Humans, fighting the Orc Pride and the many perils of the Far East.
 

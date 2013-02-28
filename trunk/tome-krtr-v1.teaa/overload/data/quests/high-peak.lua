@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "Falling Toward Apotheosis"
 kr_display_name = "신에 이르는 길"
 desc = function(self, who)
@@ -36,8 +38,8 @@ desc = function(self, who)
 	if self:isCompleted("spared-aeryn") then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 태양의 장벽의 패배가 당신 때문에 일어났다고 비난하는 태양의 기사 아에린과 마주치게 되었습니다. 하지만 당신은 그녀의 목숨을 앗아가지 않았습니다.#LAST#" end
 
 	if game.winner and game.winner == "full" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠으며, 공허의 관문이 열리는 것도 막아냈습니다.#LAST#" end
-	if game.winner and game.winner == "aeryn-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 공허의 관문을 닫기 위해 아에린 스스로가 희생했습니다.#LAST#" end
-	if game.winner and game.winner == "self-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 공허의 관문을 닫기 위해 자신을 희생했습니다.#LAST#" end
+	if game.winner and game.winner == "aeryn-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려 버린 공허의 관문을 닫기 위해 아에린 스스로가 희생했습니다.#LAST#" end
+	if game.winner and game.winner == "self-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려 버린 공허의 관문을 닫기 위해 자신을 희생했습니다.#LAST#" end
 
 	return table.concat(desc, "\n")
 end
@@ -98,7 +100,7 @@ function failed_charred_scar(self, level)
 		local aeryn = game.zone:makeEntityByName(level, "actor", "FALLEN_SUN_PALADIN_AERYN")
 		game.zone:addEntity(level, aeryn, "actor", level.default_down.x, level.default_down.y)
 		game.logPlayer(game.player, "#LIGHT_RED#당신이 이곳에 도착하자, 친숙한 목소리가 들렸습니다.")
-		game.logPlayer(game.player, "#LIGHT_RED#패배한 태양의 기사 아에린이 외칩니다. '%s, 네가 태양의 장벽에 가져다준 것은 파괴 뿐이다! 너는 그 대가를 치르게 될 것이다!'", game.player.name:upper())
+		game.logPlayer(game.player, "#LIGHT_RED#패배한 태양의 기사 아에린이 외칩니다. '%s여, 네가 태양의 장벽에 가져다준 것은 파괴 뿐이다! 너는 그 대가를 치르게 될 것이다!'", (game.player.kr_display_name or game.player.name):upper():addJosa(7))
 	end
 
 	game:onLevelLoad("wilderness-1", function(zone, level)

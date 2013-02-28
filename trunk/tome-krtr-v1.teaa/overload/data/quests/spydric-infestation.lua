@@ -22,7 +22,7 @@ name = "여덟 다리의 불가사의한 존재"
 desc = function(self, who)
 	local desc = {}
 	if not self:isCompleted() and not self:isEnded() then
-		desc[#desc+1] = "당신은 알드훈골에 들어가서, 태양의 기사 라심을 찾아보기로 했습니다."
+		desc[#desc+1] = "당신은 알드훈골의 공동에 들어가서, 태양의 기사 라심을 찾아보기로 했습니다."
 		desc[#desc+1] = "하지만 이곳의 거미들은 결코 작지 않습니다. 조심할 필요가 있습니다..."
 	else
 		desc[#desc+1] = "#LIGHT_GREEN#당신은 알드훈골에서 운골뢰를 죽이고, 태양의 기사를 구했습니다."

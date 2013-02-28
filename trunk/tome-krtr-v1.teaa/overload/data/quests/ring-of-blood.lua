@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "Till the Blood Runs Clear"
 kr_display_name = "다시 피가 흐를 때까지"
 desc = function(self, who)
@@ -150,5 +152,5 @@ reward = function(self, who)
 	game.zone:addEntity(game.level, o, "object")
 	who:addObject(who:getInven("INVEN"), o)
 	who:setQuestStatus(self.id, engine.Quest.COMPLETED)
-	game.logPlayer(who, "#LIGHT_BLUE#피의 투기장 운영자가 당신에게 상품을 주었습니다 : %s", o:getName{do_color=true})
+	game.logPlayer(who, "#LIGHT_BLUE#피의 투기장 운영자가 당신에게 %s 주었습니다.", o:getName{do_color=true}:addJosa("를"))
 end

@@ -21,7 +21,7 @@ name = "The Temple of Creation"
 kr_display_name = "창조의 사원"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "우클림스윅이 그가 만든 관문을 통해, 창조의 사원으로 가서 미쳐버린 슬라슐을 죽여줄 것을 요구했습니다."
+	desc[#desc+1] = "우클름스윅이 그가 만든 관문을 통해, 창조의 사원으로 가서 미쳐버린 슬라슐을 죽여줄 것을 요구했습니다."
 	if self:isCompleted("slasul-story") then
 		desc[#desc+1] = "슬라슐은 그의 이야기를 당신에게 들려주었습니다. 이제 당신이 선택해야 할 차례입니다. 둘 중 타락한 쪽은 누구?"
 	end
@@ -30,9 +30,9 @@ desc = function(self, who)
 	end
 
 	if self:isCompleted("kill-slasul") and self:isCompleted("kill-drake") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클림스윅과 슬라슐을 모두 배신하여, 둘 다 죽였습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클름스윅과 슬라슐을 모두 배신하여, 둘 다 죽였습니다.#WHITE#"
 	elseif self:isCompleted("kill-slasul") and not self:isCompleted("kill-drake") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클림스윅의 편에 서서, 슬라슐을 죽였습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클름스윅의 편에 서서, 슬라슐을 죽였습니다.#WHITE#"
 	elseif not self:isCompleted("kill-slasul") and self:isCompleted("kill-drake") then
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 슬라슐의 편에 서서, 우크림스윅을 죽였습니다.#WHITE#"
 	end
@@ -67,7 +67,7 @@ on_grant = function(self, who)
 	g:resolve() g:resolve(nil, true)
 	game.zone:addEntity(game.level, g, "terrain", 34, 6)
 
-	game.logPlayer(game.player, "우클림스윅의 근처에 관문이 열렸습니다.")
+	game.logPlayer(game.player, "우클름스윅의 근처에 관문이 열렸습니다.")
 end
 
 portal_back = function(self, who)

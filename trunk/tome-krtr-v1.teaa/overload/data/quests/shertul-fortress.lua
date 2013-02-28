@@ -27,7 +27,7 @@ desc = function(self, who)
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 열쇠를 사용해서 누르 호수 안에 있는 유적의 문을 열었고, 오래된 요새로 가는 길을 발견했습니다.#WHITE#"
 	end
 	if self:isCompleted("weirdling") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 기이한 짐승을 죽이자, 요새 안으로 들어갈 수 있게 되었습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 불가사의한 짐승을 죽이자, 요새 안으로 들어갈 수 있게 되었습니다.#WHITE#"
 	end
 	if self:isCompleted("butler") then
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 되돌림의 장대를 통해, 마치 집사와 비슷한 행동을 하는 무언가...를 불러냈습니다.#WHITE#"

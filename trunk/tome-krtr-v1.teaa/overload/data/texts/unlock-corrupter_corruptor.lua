@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Corruptor (Defiler)",
+return "새로운 직업 : #LIGHT_GREEN#타락자 (모독자)",
 [[Every power has a dark side, including the arcane forces.
 Corruptors are mages that deal in dark, blighted, demonic magic to attain their goals.
 Not all of them are evil, though; some are simply selfish and concerned only with their own power.

@@ -46,9 +46,9 @@ desc = function(self, who)
 		desc[#desc+1] = "#SLATE#* 그루쉬낙 무리, 북서쪽에 있는 작은 산 너머#WHITE#"
 	end
 	if self:isCompleted("gorbat") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 고르벳을 처치했습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 고르뱃을 처치했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* 고르벳 무리, 남쪽에 있는 사막의 산 너머#WHITE#"
+		desc[#desc+1] = "#SLATE#* 고르뱃 무리, 남쪽에 있는 사막의 산 너머#WHITE#"
 	end
 
 	if self:isCompleted() then
