@@ -67,7 +67,7 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "journal page", lore="blighted-ruins-note-"..i,
-	kr_display_name = "일지의 한 페이지", --@@ lore 번역후 수정 필요
+	kr_display_name = "일지의 한 페이지",
 	desc = [[사령술사가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
