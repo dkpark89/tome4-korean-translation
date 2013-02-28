@@ -45,7 +45,7 @@ local function auto_id(npc, player)
 
 That is very nice, @playername@!]],
 		answers = {
-			{"Thank you, Elisa!", jump=do_quest and "quest" or nil},
+			{"고마워, 엘리사!", jump=do_quest and "quest" or nil},
 		}
 	}
 
@@ -54,21 +54,21 @@ That is very nice, @playername@!]],
 end
 
 newChat{ id="welcome",
-	text = [[Hello friend, what can I do for you?]],
+	text = [[안녕 친구, 내가 도와줄 일이 있어?]],
 	answers = {
-		{"Could you have a look at these objects, please? [show her your unidentified items]", cond=can_auto_id, action=auto_id},
-		{"Nothing, goodbye."},
+		{"이 물건들 좀 살펴봐주지 않을래? [감정되지 않은 아이템을 그녀에게 보여준다]", cond=can_auto_id, action=auto_id},
+		{"아무것도 아냐, 안녕."},
 	}
 }
 
 newChat{ id="quest",
-	text = [[Wait, @playername@, you seem to be quite the adventurer. Maybe we can help one another.
-You see, I #{bold}#LOOOVVVEEEE#{normal}# learning new lore and finding old artifacts of power, but I am not exactly an adventurer and I would surely get killed out there.
-So take this orb (#LIGHT_GREEN#*she gives you an orb of scrying*#WHITE#). You can use it to talk to me from anywhere in the world! This way you can show me your new shiny findings!
-I get to see many interesting things, and you get to know what your items do. We both win! Isn't it sweet?
-Oh yes, the orb will also identify mundane items for you, as long as you carry it.]],
+	text = [[잠깐만, @playername@, 너 보아하니 모험가 같은데, 아마도 우리가 서로 도울 수 있을거야.
+너도 봐서 알겠지만, 나는 새로운 지식들이랑 고대의 위력적인 아티팩트들에 대해서 배우는걸 #{bold}#너어어어무 좋아하거든.#{normal}# 그렇지만 내가 모험가가 아닌 이상 밖에 나가면 확실하게 죽을거란 말야.
+그러니까 이 오브를 받아 (#LIGHT_GREEN#*그녀가 점술사의 오브를 건네줍니다*#WHITE#) 이제 너는 세계 어디에서라도 나랑 얘기할 수 있어! 이렇게하면 새롭게 발견한 물건들을 나한테 보여줄 수 있을거야!
+나는 흥미로운 물건들을 많이 보고 싶고 너는 가지고 있는 물건이 어떤 물건인지 알아야하잖아? 상부상조지! 안그래 자기?
+아 맞다, 오브를 가지고 다니기만 하면 일반적인 물건들은 그냥 감정할 수 있어.]],
 	answers = {
-		{"Woah, thanks, Elisa. This is really nice!", action=function(npc, player)
+		{"우와, 고마워 엘리사. 진짜 끝내주는걸!", action=function(npc, player)
 			player:setQuestStatus("first-artifact", engine.Quest.COMPLETED)
 
 			local orb = game.zone:makeEntityByName(game.level, "object", "ORB_SCRYING")

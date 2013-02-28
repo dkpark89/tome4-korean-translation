@@ -96,7 +96,7 @@ newChat{ id="welcome",
 			action=auto_id("어디 보자... \n", "\n\n이네. @playername2@ 아주 멋진 물건을 얻었는걸!", "고마워, 엘리사!")
 		},
 		{"어어, 아니... 미안. 그냥 친구 목소리를 조금 듣고 싶었어.", jump="friend"},
-		{"Not yet sorry!"},
+		{"아직이야, 미안!"},
 	}
 }
 
