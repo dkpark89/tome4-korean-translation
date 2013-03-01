@@ -49,7 +49,7 @@ desc = function(self, player, who)
 					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..(self.e[i][j].ingredients[1].kr_display_name or self.e[i][j].ingredients[1].name).." 하나를 찾았습니다.#WHITE#"
 				end
 				if not self:check_i(player, self.e[i][j].ingredients[2]) then
-					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..(self.e[i][j].ingredients[2].kr_display_name or self.e[i][j].ingredients[2].name)e.." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[2].id).alchemy_text.."'#WHITE#"
+					desc[#desc+1] = "#SLATE#  * '필요한 재료 : "..(self.e[i][j].ingredients[2].kr_display_name or self.e[i][j].ingredients[2].name).." 하나. "..game.party:getIngredient(self.e[i][j].ingredients[2].id).alchemy_text.."'#WHITE#"
 				else
 					desc[#desc+1] = "#LIGHT_GREEN#  * 당신은 "..(self.e[i][j].ingredients[2].kr_display_name or self.e[i][j].ingredients[2].name).." 하나를 찾았습니다.#WHITE#"
 				end
