@@ -1425,9 +1425,9 @@ end
 function _M:on_targeted(act)
 	if self:attr("invisible") or self:attr("stealth") then
 		if self:canSee(act) and game.level.map.seens(act.x, act.y) then
-			game.logPlayer(self, "#LIGHT_RED#%s 보입니다!", (act.kr_display_name or act.name):capitalize():addJosa("가"))
+			game.logPlayer(self, "#LIGHT_RED#%s 당신을 봤습니다!", (act.kr_display_name or act.name):capitalize():addJosa("가"))
 		else
-			game.logPlayer(self, "#LIGHT_RED#무언가가 보입니다!")
+			game.logPlayer(self, "#LIGHT_RED#무언가가 당신을 봤습니다!")
 		end
 	end
 end
