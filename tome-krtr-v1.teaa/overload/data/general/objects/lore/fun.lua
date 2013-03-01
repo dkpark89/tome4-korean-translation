@@ -19,7 +19,7 @@
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "trollish poem", lore="troll-poem", unique=true,
-	kr_display_name = "트롤같은 시", --@@ lore 번역시 수정 필요
+	kr_display_name = "트롤의 시",
 	desc = [[이 시를 쓴 건... 트롤인가?]],
 	level_range = {1, 50},
 	rarity = 40,
@@ -28,7 +28,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "necromancer poem", lore="necromancer-poem", unique=true,
-	kr_display_name = "사령술사의 시", --@@ lore 번역시 수정 필요
+	kr_display_name = "사령술사의 시",
 	desc = [[이 시를 쓴 건... 사령술사인가?]],
 	level_range = {15, 50},
 	rarity = 40,
@@ -37,7 +37,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "rogues do it from behind", lore="rogue-poem", unique=true,
-	kr_display_name = "뒤쪽에서 일을 벌리는 도둑", --@@ lore 번역시 수정 필요
+	kr_display_name = "도적은 뒤에 있습니다",
 	desc = [[이 시는 도둑을 위해 쓴 것인지?]],
 	level_range = {15, 50},
 	rarity = 40,
@@ -47,7 +47,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 for i = 1, 4 do
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "how to become a necromancer, part "..i, lore="necromancer-primer-"..i, unique=true,
-	kr_display_name = "사령술사 되는 법, 제 "..i.."권", --@@ lore 번역시 수정 필요
+	kr_display_name = "사령술사가 되는 방법, "..i.."부",
 	desc = [[강력한 사령술가가 되는 방법!]],
 	level_range = {15, 50},
 	rarity = 40,
@@ -56,7 +56,7 @@ end
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = [["Dust to Dust", an undead hunter's guide, by Aslabor Borys]], lore="dust-to-dust", unique=true,
-	kr_display_name = [[언데드 사냥꾼 안내서 "먼지는 먼지로" - 아슬라보르 보리스]], --@@ lore 번역시 수정 필요
+	kr_display_name = [[언데드 사냥꾼 안내서 "먼지에서 먼지로" - 아슬라보르 보리스]], --@@ lore 번역시 수정 필요
 	desc = [[아슬라보르 보리스의 언데드 사냥꾼을 위한 안내서]],
 	level_range = {15, 50},
 	rarity = 60,
@@ -82,8 +82,8 @@ end
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "of halfling feet", lore="halfling-feet", unique=true,
-	kr_display_name = "하플링 발", --@@ lore 번역시 수정 필요
-	desc = [[적혀 있는 내용은 .. 하플링 발 ??]],
+	kr_display_name = "하플링의 발",
+	desc = [[적혀 있는 내용은 .. 하플링의 발 ??]],
 	level_range = {10, 30},
 	rarity = 40,
 	encumber = 0,

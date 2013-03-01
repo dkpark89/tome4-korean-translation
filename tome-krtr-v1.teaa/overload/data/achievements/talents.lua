@@ -64,6 +64,6 @@ newAchievement{
 newAchievement{
 	name = "Lichform",
 	kr_display_name = "리치의 몸",
-	desc = [[모든 강령술사들의 꿈이자 진정한 목표를 달성하여, 영원히 죽지 않는 리치가 됩니다!]],
+	desc = [[모든 사령술사들의 꿈이자 진정한 목표를 달성하여, 영원히 죽지 않는 리치가 됩니다!]],
 	show = "name",
 }
