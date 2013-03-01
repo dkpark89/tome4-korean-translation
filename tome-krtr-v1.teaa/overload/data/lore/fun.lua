@@ -21,69 +21,71 @@ newLore{
 	id = "troll-poem",
 	category = "misc",
 	name = "trollish poem",
-	lore = [[#{bold}#"Me Likes to Club"
+	kr_display_name = "트롤의 시",
+	lore = [[#{bold}#"나는 좋다 몽둥이"
 
-#{italic}#Club club club,
-Grab some grub!
-When hunger hits,
-Me likes to club!
+#{italic}#몽둥이 몽둥이 몽둥이,
+음식을 때려잡아라!
+배가 출출해져오면,
+나는 좋다 몽둥이질!
 
-Little halfling,
-Furry feet,
-Smash his brains,
-Tasty meat!
+쪼그만 하플링.
+북실한 발바닥,
+머리를 쪼개고,
+맛있는 고기다!
 
-Skinny elf,
-Eyes so blue,
-Crush his bones,
-Make elf stew!
+홀쭉한 엘프,
+파란색 눈깔,
+뼈를 부수고,
+엘프 스튜다!
 
-Hairy dwarf,
-Smells like dirt,
-Cook him long,
-Or stomach hurt!
+털많은 드워프,
+흙냄새 진동해,
+오랫동안 삶어,
+아니면 배아퍼!
 
-Stupid human,
-Has no fear,
-Looks surprised,
-When me eats his ear!
+멍청한 인간,
+쫄지도 않아,
+귀를 먹으니,
+놀란것 같군!
 
-Club club club,
-Grab some grub!
-When hunger hits,
-Me likes to club!#{normal}#]],
+몽둥이 몽둥이 몽둥이,
+음식을 때려잡아라!
+배가 출출해져오면,
+나는 좋다 몽둥이질!#{normal}#]],
 }
 
 newLore{
 	id = "necromancer-poem",
 	category = "misc",
 	name = "necromancer poem",
-	lore = [[#{bold}#"The Necromancer's Canticle"
+	kr_display_name = "강령술사의 시",
+	lore = [[#{bold}#"강령술사 찬가"
 
-#{italic}#Saved from coffin, casket, urn
-Darkness falls, but life returns!
-Flesh may fall and bone may burn
-But soul remains, for which we yearn
+#{italic}#관에서, 함속에서, 항아리속에서 남아
+어둠은 내려앉았으나, 생명은 돌아왔다네!
+살덩어리는 떨어지고 뼈는 불에 탈지언정
+우리가 그리 갈망하는 영혼은 남아있다네
 
-Those we return to life's esteem
-We see their hearts, their eyes do gleam
-They rave! They kill! They gnash! They scream!
-So full of joy! Their greatest dream!
+우리가 되돌려둔 그대들이 가진 생명의 존엄성에서
+우리는 그들의 심장을 보고, 그들의 눈은 밝게 빛나네
+그들은 발악하고! 죽이고! 이를 갈고! 비명을 지르네!
+즐거움으로 가득 찼다네! 그들의 가장 위대한 꿈으로!
 
-Returning those that we amend
-They hurry home, a distant friend
-But do they cheer? Do they commend?
-They yell! Does rotting flesh offend?
+우리의 중재로 되살아난 자들이여
+먼 친구를 향해, 고향집을 향해 달려가는가
+그러나 그들이 환호하는가? 인정해주는가?
+그들은 비명을 지르지! 썩은 살이 불쾌한가?
 
-We bring life to lifeless bone
-But do they smile? Do they condone?
-They sit upon their golden thrones
-They shun us, spurn us, make unknown
+우리는 죽은 뼈에 생명을 불어넣는다
+그러나 그들이 웃어주었나? 용납하였나?
+그들은 자기네들의 황금 왕좌에 앉아서
+우리를 피하고, 내쫓고, 이름을 지웠는가
 
-Fools! Sit high in golden tower
-From your lofty perch you glower
-Time will come when you will cower
-We rule death, we wield the power
+어리석은 자들! 높은 황금탑 위에 앉아
+거만의 끝자락에서 우릴 노려보았지
+그대들이 머리를 조아릴 시간이 다가온다
+우리는 죽음을 관장하고, 힘을 얻었다.
 #{normal}#]],
 }
 
@@ -91,130 +93,138 @@ newLore{
 	id = "necromancer-primer-1",
 	category = "misc",
 	name = "how to be a necromancer, part 1",
-	lore = [[#{bold}#THE GLORIOUS ART#{normal}#
+	kr_display_name = "강령술사가 되는 방법, 1부",
+	lore = [[#{bold}#1. 영광된 기술#{normal}#
 
-Have you cast away the feeble pretensions of your society? Does your soul thirst for the taste of real power? Do you wish to have the strength to deny that most prevalent force, death itself? The glorious art of necromancy shall fulfil your wishes in ways you couldn't possibly imagine.
+당신이 속한곳에서의 같잖은 허세는 다 쫓아내셨나요? 당신의 영혼이 진정한 힘을 갈구하고 있나요? 가장 위력적인 죽음을 스스로 거스를 수 있는 힘을 갖기를 원하신가요? 강령술의 영광된 기술이 당신이 상상도 못할 방법으로 소원을 이루어 드립니다.
 
-#{italic}#1. Your First Steps#{normal}#
+#{italic}#1.첫번째 순서#{normal}#
 
-Be aware, necromancy isn't all weaving mighty spells of undeath, wearing flowing black robes and crushing entire nations beneath the feet of your mighty undead horde; you'll have to put in some elbow grease as well. Your first few bodies will have to be stolen away personally as few people will aid a necromancer willingly, and those that do are rarely competent. The cemeteries of small towns and villages are good sites for your first acquisitions, but if time demands it don't be afraid to "make" some specimens of your own with the aid of a sharp knife or heavy bludgeon. Once you have your first minions out performing your bidding you needn't worry about resources any longer; opportunities to practice your art will, quite literally, pile up.
+알아두세요. 강령술은 단지 흘러내리는 로브를 입고서, 자기만의 강력한 언데드 군단으로 온 나라를 발 밑에 두기도 하며, 죽음을 거스르기도 하는 위력적인 주문이 다가 아닙니다. 먼저 힘든 노동이 필요합니다. 자진해서 시체를 제공하고자 하는 사람들은 극히 소수이고, 그 소수도 결코 만족스럽지 않기 때문에 자신의 첫 시체들은 스스로 훔쳐내야만 합니다. 작은 도시나 마을의 공동묘지는 첫번째 획득을 위한 좋은 장소입니다만,  속성으로 하고 싶다면 날카로운 칼이나 둔기를 사용한 나만의 표본 "만들기"를 두려워 하지 마세요. 일단 당신의 요구를 수행하는 첫번째 하인을 만들면 더 이상 재료는 걱정하지 않아도 됩니다. 당신의 기술을 향상시킬 기회는, 말 그대로, 쌓이게 될테니까요.
 
-Also important is the upkeep of the bodies themselves. True, this is not strictly necessary as sufficient enchantment can bestow mobility upon even the most ruined and incomplete remains, but making sure that the joints and cruses of your prospective minions move freely and with ease much reduces the will required to grant them reanimation. It also makes for a sturdy and reliable base in case you desire to undertake larger, more audacious projects (see 46. Bone Giants & You).
+또한 시체들이 스스로 유지되게 하는 것도 중요합니다. 사실, 가장 훼손되고 불완전한 시체라 할지라도 유동적인 주술만 충분히 부여된다면 보존이 절대적으로 필요한건 아닙니다. 하지만 당신의 훌륭한 부하의 관절과 하체가 자유롭고 쉽게 움직이는지 확인하여 되살아났을때의 움직임을 보장해야 합니다. 또한 당신이 더욱 대담하고 거대한 계획(46페이지. 뼈거인 그리고 당신을 참고하세요)을 세울 생각이라면 견고하고 안정적인 토대를 다져야합니다..
 
-Still not sure what to do? Then suffer and perish. Necromancy does not abide the inept.]]
+아직도 뭘 해야 할지 확신을 못하시겠나요? 그러면 나가 죽으세요. 강령술은 너 같은 놈은 필요 없으니까.]]
 }
 
 newLore{
 	id = "necromancer-primer-2",
 	category = "misc",
 	name = "how to be a necromancer, part 2",
-	lore = [[#{italic}#2. Domination Of The Deceased#{normal}#
+	kr_display_name = "강령술사가 되는 방법, 2부",
+	lore = [[#{italic}#2. 죽음을 지배하라#{normal}#
 
-A contentious issue arises when it comes time to breathe life into your gathered specimens - do you raise them as lifeless drones, or do you bind the souls of the deceased within their vessels once more? There is much disagreement on this between the various movements of necromancers. The Beinagrind method of necromancy extols the torturous imprisonment of the soul as fundamental; the anguish generated by the captive spirit makes for a much more effective undead thrall, they claim. The recently founded Tren챘 method however disagrees, claiming that allowing souls freedom not only results in more obedient slaves less prone to rising up and slaughtering their masters, but also causes your work to become marginally more acceptable to the unwashed masses. Sure, they'll still thrash you, drag you through town and burn you at the stake if they get the chance, but they'll feel ambivalent about it, by thunder!
+수집한 표본들에다가 생명을 불어넣을때 많은 논란거리가 생기곤 합니다. 표본들을 생명이 없는 꼭두각시로 만들것인가요 아니면 사망한 자의 영혼을 다시 한번 그릇에 묶어둘 생각인가요? 강령술사들의 다양한 활동만큼이나 의견 충돌이 많습니다. 강령술의 해부학파는 감금된 영혼을 고문하는 것을 본바탕에 깔고 그것을 최고로 여깁니다. 붙잡힌 영혼이 만들어내는 분노가 언데드 노예를 더욱 더 효과적으로 만든다고 주장합니다. 그렇지만 최근에 성립된 정신학파는 이 같은 주장에 반대합니다. 붙잡힌 영혼을 자유롭게 해주는 것은 자신들의 주인을 죽이고자 하는 의지가 덜한 잘 복종하는 노예를 만드는 호과를 가져다 준다고 주장합니다. 그뿐만 아니라 작업 방식이 조금 더러워지더라도 용납할 수 있게 됩니다. 물론 기회만 된다면 하인들은 주인을 공격하고 마을로 질질 끌고가 불태워버릴테지만, 그 때가 되면 주인에 대한 애증을 느낄 겁니다. 제기랄!
 
-Remember, when utilising a runic circle to bend your new minions to your will, make sure beforehand that every rune in the circle is enchanted properly and in no danger of fizzling out. If the unthinkable happens and one of your thralls is freed from your control, offer them goods or equipment in exchange for your life. Few undead will kill their creators after receiving such an act of generosity.]]
+기억하세요. 부하의 의지를 조종하기 위해 원형 룬을 활용할때, 사전에 모든 원형 룬이 제대로 부여되었는지, 흐지부지 될 위험이 있지는 않은지 확인해야 합니다. 만약에 예상치 못한 일이 생겨 군단 속에 자유를 되찾은 자가 생겨나면, 당신 목숨 값으로 물건들이나 장비를 제공하는게 좋습니다. 그런 자비로운 행동 후에도 주인을 죽이는 언데드는 소수입니다.]]
 }
 
 newLore{
 	id = "necromancer-primer-3",
 	category = "misc",
 	name = "how to be a necromancer, part 3",
+	kr_display_name = "강령술사가 되는 방법, 3부",
 	lore = [[#{italic}#3. Unwanted Attention#{normal}#
 
-Sadly, it is not only the peasantry and our "virtuous" archmage cousins that disapprove of our work. Though not entirely understood, necromancy is known to create "ripples" of a sort across the many dimensions, ripples that attract extra-planar attention. As a necromancer's power grows, so do said ripples, until eventually said necromancer finds all manner of demonic force and entity beating down their door, both mentally and physically.
 
-Once again, opinions differ on this demonic interference. Necromancy is such a beautiful, divergent art, is it not? The Tren?method sees the necromancer's corruption by outside forces as a negative thing, and practitioners of said method often take measures to divert supernatural attention from themselves, creating talismans to act as spiritual "conductors" or living close to the communities that despise them, the life essences of the masses masking the necromancer's dark emanations. On the other hand, the Beinagrind method welcomes the cursed whisperings that come from the demonic realms, believing it to be the completion of their psyches. Only once their spirits have been "corrupted" (a term Beinagrind practitioners scoff at) do people realize their true ambitions, they claim. Why these "true ambitions" always seem to be the utter and complete destruction of all life in this world and the summoning of unthinkable atrocities from the outer dimensions is unexplored.
+슬프게도 우리의 작업을 탐탁찮아 하는 이들은 소작농이랑 우리의 "고결하신" 사촌 마도사들 뿐만이 아닙니다. 강령술에 대한 무지로, 강령술은 많은 차원을 뛰어넘는 종류의 "파문"을 만든다 알려져 있습니다. 다른 차원의 관심을 끄는 종류의 파문을 말입니다. 강령술사의 힘이 강해짐에 따라 마침내 강령술사가 악마적인 힘을 사용하는 모든 방법을 깨달아 육체적, 정신적 한계를 뛰어넘게 된다면 진정한 파문이 뭔지 알게 될것입니다.
 
-You may have noticed that no instruction has been given on how to deal with the attention of common folk. That is because a true necromancer requires none. They are vermin, fit only to be crushed.]]
+다시 한번 말하지만, 악마의 간섭에 대한 의견은 갈립니다. 강령술은 아름답고 우아한 예술입니다 그렇지 않습니까? 정신학파는 외부 영향에 의한 강령술사의 타락을 부정적으로 지켜봅니다. 그리고 그런 학파 전문가들은 초자연적인 관심을 피하기 위한 수단으로 영적인 "안내자" 역할을 하는 부적을 만들거나 강령술사가 내뿜는 어두운 기운을 숨기기 위한 목적으로 많은 생명력이 살아숨쉬는 공동체 근처에서 생활합니다. 반면에 해부학파들은 악마의 영역에서 속삭여오는 저주의 목소리를 기꺼이 받아들이고 그 속삭임을 정신의 완성이라고 믿습니다. 일단 영혼이 한번 "오염"(해부학파 전문가들이 비웃는 용어입니다)되었다면 사람들은 자신의 진정한 야망을 깨달을 수 있다고 주장합니다. 왜 "진정한 야망"이 항상 세상에 모든 살아숨쉬는 생명체들의 완전한 파괴와 생각할 수 없이 잔혹한 것들을 외부 차원에서 소환하는 것인지에 대한 설명은 되어 있지 않습니다.
+
+일반인들의 관심을 처리하는 방법이 없다는 것을 이쯤에서 눈치채셨겠지요. 왜냐하면 강령술사는 그런 게 필요 없으니까요. 그들은 파괴될 일만 남은 가축들입니다.]]
 }
 
 newLore{
 	id = "necromancer-primer-4",
 	category = "misc",
 	name = "how to be a necromancer, part 4",
-	lore = [[#{italic}#4. Necromancers Of Maj'Eyal#{normal}#
+	kr_display_name = "강령술사가 되는 방법, 4부",
+	lore = [[#{italic}#4. 마즈'에이알의 강령술사들#{normal}#
 
-The greatest enemy of the necromancer is other necromancers. Well, apart from the Ziguranth, the Allied Kingdoms, the Shaloren, the Thaloren, the Iron Throne, common townsfolk, undead hunters, adventurers, rogue undead and Linaniil. But apart from them, the greatest enemy of the necromancer is other necromancers. Below is listed the location of many notable necromancers, areas possessing above-average undead activity, and other regions considered unfitting for our designs. Budding practitioners of our art are encouraged to perform their work away from these areas, lest they be recognized as threats or nuisances and are subsequently eradicated.
+강령술사의 가장 위험한 적은 바로 다른 다른 강령술사입니다. 물론, 지구르 추종자들, 연합한 왕국, 샬로레, 탈로레, 철의 왕좌, 마을의 민간인들, 언데드 사냥꾼들, 모험가, 언데드 강도, 리나니일을 제외하면 말이죠. 그들을 다 제외하면 가장 큰 적은 바로 다른 강령술사들 입니다. 아래 적혀있는 것들이 바로 평균 이상의 언데드 활동지역을 점령중인 주의할만한 강령술사들의 위치와 우리에게 부적합한 위치입니다. 우리 분야의 신예들은 이 지역에서 멀리 떨어진 곳에서 작업하길 강하게 권장합니다. 그래야만 그 사람들이 덜 위협적으로 인지하고, 나중에 크게 될수 있으니까요.
 
-#{italic}#The Ruins Of Kor'Pul#{normal}#: While this necromancer of old may have perished, and his shade has long since lost any trace of sanity, his lair remains a nexus of dark energies, and his minions remain legion.
+#{italic}#코르'풀의 폐허#{normal}#: 오래된 강령술사 코르풀이 사라졌지만, 그의 그림자가 남긴 흔적은 오래도록 남아 정상적인 부분은 흔적조차 찾을 수 없습니다. 그의 보금자리는 어두운 에너지의 원천이 되었고 그의 부하들은 군단으로 남아있습니다.
 
-#{italic}#Blighted Ruins#{normal}#: An ambitious amateur has made his lair within these ruins, thought to be chasing dreams of raising an unstoppable army of the dead. His methods are known to be crude and prone to failure, and I fully expect to hear of him perishing at the hands of his own works within the year.
+#{italic}#황폐화된 폐허#{normal}#: 야망에 가득찬 초보 강령술사가 막을 수 없는 죽음의 군대를 만들기 위해 꿈을 쫓아 이 폐허에 자리 잡았습니다. 그의 방식은 거칠고 실패에 가까워서,저는 몇년 안에 자신이 만든 작업물의 손에 사라지는 소리를 듣길 기대하고 있습니다.
 
-#{italic}#Dreadfell#{normal}#: Undead have been massing at this abandoned tower in unprecedented numbers. Obviously, a powerful figure has recently made it his home. Regardless, no clue has been given to the identity of this tower's supposed master.
+#{italic}#두려움의 영역#{normal}#: 언데드들이 버려진 탑에 셀 수 없이 많이 모여있습니다. 명백하게, 강력한 존재가 집으로 삼은게 분명합니다. 그렇지만 이 탑의 주인이 누구인지는 전혀 알 길이 없습니다.
 
-#{italic}#Derth#{normal}#: While there is no formal necromancer presence in this sleepy countryside village, no practitioner of our art has been able to work within its vicinity. Rumours on why this is so are wild and varied, ranging from stories of almost all of its inhabitants being undead minions wearing cloaks of deception, to it being the secret base of the founder of the Tren?method of necromancy. Whatever reason there is, beware.
+#{italic}#데르스#{normal}#: 여기 지루한 시골 마을에 제대로 된 강령술사의 존재가 없음에도 불구하고 그 지역에 우리 분야의 전분가들이 일을 하기가 불가능했습니다. 왜 그런지에 대한 소문에 의하면 모든 주민들이 이미 언데드이고 기만의 망토를 두르고 있다는 이야기까지 나오고, 정신학파의 숨은 본거지라는 말도 있습니다. 이유야 어쨌든간에 조심하세요.
 
-#{italic}#Zigur#{normal}#: The enemy of our enemy is not our friend in this case. What passes for "normal" magic is enough to send the cult residing here into a frothing, psychotic frenzy - the presence of a necromancer would be enough to instigate a second Age of Pyre!
+#{italic}#지구르#{normal}#: 적의 적은 아군이라는 말은 이 상황에서는 통하지 않습니다. "평범한" 마법의 존재가 지구르에 살고 있는 정신 나간 광신도를 보낼 이유가 된다면 - 강령술사의 존재는 제 2의 장작더미의 시대를 불러일으키기에 충분하니까요!
 
-No further aid awaits you, for we do not tolerate the dependent. All that remains is for you to prove yourself worthy of practising this glorious art...]]
+이제 더 이상의 강의는 없습니다. 우리는 독립성을 침해하지 않습니다. 이제 남은 것들은 영광스러운 기술을 사용해서 스스로가 가치있음을 증명하는 것 밖에 없습니다....]]
 }
 
 newLore{
 	id = "halfling-feet",
 	category = "misc",
 	name = "of halfling feet",
-	lore = [[Some men have said that the feet of halflings can nay be harmed, not by fire, blade nor magic. And they do say that this is a truly astounding thing. And some men consider the foot of a halfling to be an item of great luck and protection, and many have one hung above their door or mantle. Though these days 'tis frowned upon to go hunt for one, so 'tis considered a prized heirloom to be passed from father to son.
+	kr_display_name = ""
+	lore = [[몇몇 남자들은 하플링의 발이 불이나 칼날이나 마법으로도 손상될 수 없다고 말합니다. 그리곤 그게 정말 믿기 힘든 일이라고 말합니다. 그리고 몇몇 남자들은 엄청난 행운과 보호의 아이템으로 생각하고 있고 많은 사람들이 문 위나 망토에 매달고 다닙니다. 그럼에도 오늘날에는 하플링 사냥을 간다는 것은 눈쌀 찌뿌려지는 일입니다. 그렇기에 하플링 발은 가보로 여겨져 아버지로부터 아들에게 물려집니다.
 
-But women do look upon men and declare them fools. "For how," say they, "Can the foot of a halfling be a lucky thing, when with their large uncomely feet they are not able to wear shoes and footwear of elegant crafts and beauteous materials? And especially 'tis a great misfortune unto them, as with their short stature they could really do with a decent pair of heels..."
+그러나 여자들은 남자들을 보며 망청이라고 합니다 "어떻게," 그녀들이 말합니다, "하플링의 발이 신발이나 멋진 공예품을 신을 수도 없는데 어째서 행운의 상징이 된다는 거죠? 그리고 특히 하플링들에게는 큰 불행이잖아요. 하플링들 키가 그렇게 작아서 굽있는 것들을 신어야 하니 말이에요..."
 
-And lo, 'tis little mystery why halflings do look upon humans and say "The Big Folk really are very dumb."]]
+그리고, 하하, 하플링들이 사람들을 보면서 "큰 놈들은 죄다 멍청이야" 라고 말하는지는 작은 미스테리입니다."]]
 }
 
 newLore{
 	id = "rogue-poem",
 	category = "misc",
 	name = "Rogues do it from behind",
-	lore = [[An archer from the northern lands
-Claimed of his great renown
-With peerless skill and countless trials
-His name known town to town
+	kr_display_name = "도적은 뒤에 있습니다",
+	lore = [[북쪽 땅에서 온 한 궁수가
+자신의 위대한 명성을 뽐내는구나
+비할데 없는 기술과 수많은 도전
+그의 이름은 마을마을 퍼지고
 
-He spoke of facing vampire lords
-Who promised years of pain
-The archer gave a stern retort
-An arrow through the brain
+수년동안 고통을 내리겠노라
+선언한 흡혈귀 군주에 맞서
+궁수는 정중하게 응대했다네
+군주 머리에 박힌 화살로 말이야
 
-A fighter from the southern lands
-Claimed armies fled his might
-With dragons slain 'most every day
-And demons crushed by night
+남쪽 땅에서 온 한 전사가
+군대도 자기 앞에선 도망치고
+낮에는 하루종일 용을 학살하고
+밤에는 악마를 깨부순다하네
 
-He spoke of ancient sprawling ruins
-Home to a ghastly shade
-Its years of madness, hate and rage
-Were ended on his blade
+무시무시한 그림자들의 고향인
+고대 폐허에 대한 이야기를 하네
+광기와, 증오, 분노로 가득한 수년의
+세월이 그의 칼 앞에 끝났구나
 
-An archmage from the western lands
-Claimed kingdoms feared his name
-With countless legends, songs and myths
-Attesting to his fame
+서쪽에서 온 한 마도사가
+왕국도 자기 이름아래 벌벌 떤다 하네
+셀 수도 없는 전설과 노래, 신화가
+그의 명성을 증명하는구나
 
-He spoke of fire, storm and hail
-To match the fiercest wyrm
-To see one man hold so much power
-Can make an empire squirm
+그는 불과 폭풍과 해일로 말하고
+험악한 용과 맞서 싸운다네
+단 한 명이 가진 위대한 힘은
+왕국을 초조하게 만든다네
 
-A rogue who came from unknown lands
-Not known for anything
-A leap, a flash, a concealed blade
-Three heroes felt its sting
+어디서 왔는지 알 수 없는 도적은
+아무것도 알려지지 않았지만
+도약, 섬광, 숨겨진 칼날로
+세 명의 영웅은 위기를 느꼈지
 
-The archer dropped, his bow unplucked
-The fighter died as well
-The archmage found its poison
-Far too potent to dispel
+활을 뽑지도 못한채 쓰러진 궁수
+언제 죽었는지도 모르는 전사
+해독하기엔 너무 멀리 와버린
+자신을 발견한 마도사
 
-The rogue is unknown to this day
-Though rumours persist still
-Rogues aren't known by name or deed
-But by the names they kill]]
+오늘날까지 소문만 무성하고
+도적에 대해선 알려지지 않았다
+도적은 이름이나 행동로 알려지지 않는다
+다만 죽인 자들의 이름으로 알려질뿐]]
 }
 
 newLore{
 	id = "dust-to-dust",
 	category = "misc",
 	name = "Dust to Dust",
-	lore = [[#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}#
+	kr_display_name = "먼지에서 먼지로",
+	lore = [[#{italic}#언데드 사냥꾼의 안내서, 저자 아슬라보르 보리스#{normal}#
 
 So, apparently I'm a legend now. Hah, knock a vampire's head off with a greatmaul and suddenly you're up there with Toknor and Mirvenia apparently. More and more often these days I get novice adventurers coming up to me, asking me for advice when it comes to battling the undead. My first instinct was to tell them to get back home and become bakers or gardeners or something. If they need crib notes for combat they obviously aren't cut out for it.
 
