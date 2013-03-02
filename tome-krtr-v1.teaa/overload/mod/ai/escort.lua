@@ -44,7 +44,7 @@ newAI("escort_quest", function(self)
 				if not self.ai_state.fleeing_msg then
 					self.ai_state.fleeing_msg = true
 					local enemy = self.ai_target.actor
-					self:doEmote(("도와주세요! %s %s 방향으로 데라겨 주세요!"):format((enemy.kr_display_name or enemy.name):capitalize():addJosa("를"), game.level.map:compassDirection(enemy.x-self.x, enemy.y-self.y) or "???"))
+					self:doEmote(("도와주세요! %s %s 방향에 나타났어요!"):format((enemy.kr_display_name or enemy.name):capitalize():addJosa("가"), game.level.map:compassDirection(enemy.x-self.x, enemy.y-self.y) or "???"))
 				end
 			else
 				self:runAI("move_escort")
