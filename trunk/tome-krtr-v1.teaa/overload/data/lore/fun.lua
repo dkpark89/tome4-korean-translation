@@ -226,75 +226,76 @@ newLore{
 	kr_display_name = "먼지에서 먼지로",
 	lore = [[#{italic}#언데드 사냥꾼의 안내서, 저자 아슬라보르 보리스#{normal}#
 
-So, apparently I'm a legend now. Hah, knock a vampire's head off with a greatmaul and suddenly you're up there with Toknor and Mirvenia apparently. More and more often these days I get novice adventurers coming up to me, asking me for advice when it comes to battling the undead. My first instinct was to tell them to get back home and become bakers or gardeners or something. If they need crib notes for combat they obviously aren't cut out for it.
+자, 듣자하니 내가 전설이라는구만. 하! 대형망치로 흡혈귀의 머리를 날려버리고 있을 때 네 녀석이 토크놀과 미르베니아라는 녀석들과 함께 갑자기 나타났어. 요즘들어 나한테 언데드랑 싸우는 법을 물어보려고 찾아오는 초보 모험가들이 점점 많아진단 말이지. 내 첫번째 반응은 그들에게 집으로 돌아가서 빵이나 굽거나 정원사가 되던가 하라는 그런 거였다. 만약에 싸울 때 교과서가 필요한 놈이라면 분명히 살아남지 못할거라 생각했거든.
 
-But then I was thinking, these are good kids. Heck, I'd buy every man and woman in the world who's bumped off a ghoul a free drink if I could. If they want help when it comes to putting down necromancer slime and their chilling creations, I would be more than happy to oblige. Not much of a writer, but let's see. First...
+그렇지만 내가 곰곰히 생각해보니 이놈들은 착한 놈들이란 말이지. 제기랄, 한번이라도 구울 엉덩짝을 걷어차본 사람이라면 술을 한잔 사고 싶구만. 사람들이 사령술사의 슬라임이나 오싹한 괴물들을 처리해야 할 때가 오면 기꺼이 내 도움을 주겠어. 내가 글을 잘 쓰는 사람은 아니지만, 시작해볼께. 일단 처음은...
 
-#{bold}#1. Ghouls#{normal}#
+#{bold}#1. 구울#{normal}#
 
-Every once in a while, people come to me and say "Are all necromancers truly evil?" "Surely necromancy could be used for good!" "Isn't it wrong to discriminate against others simply because of the magicks they practice?" To these people, the first thing I usually say - shortly after giving them a black eye - is to take a look at a ghoul. Take a good, long look. Take in the diseased, putrescent flesh. Take in the oozing, exposed organs. Take in its features, slowly rotting to mulch. It used to be a person. It used to have a family, people who loved it. Now it's a walking corpse, its only desire being death and the mad, all-encompassing consumption of living flesh. Are all necromancers truly evil? A thousand times, yes.
+꼭 이런 사람이 있는데, 나한테 와서 "정말 사령술사가 나쁜가요?" "사령술사라도 도움이 될 수 있죠!" "그 사람들이 배우는 마법을 가지고 다른 사람들과 차별하는 것은 잘못된거 아닌가요?"이렇게 말한다 말이지. 이런 사람들한테는 내가 보통 -눈가에 멍자국을 하나 찐하게 남겨주고나서- 가장 먼저 하는 얘기가 구울을 보라는 거야. 주의깊게 자세하게 봐봐. 병에 걸려서 살은 썩어들어가지, 노출된 장기는 흘러내리지. 천천히, 결국엔 썩어들어가면서 비료가 될 뿐이야. 사람이였다고. 사랑해주는 가족이 있던 사람이란 말이다. 그런데 지금은 오로지 죽음만을 갈망하고 살아있는 고기를 먹고자하는 광기로 가득찬 걸어다니는 시체가 되었다고. 정말 모든 사령술사가 나쁘냐고? 백이면 백 나빠. 그래.
 
-Even this most basic of undead minions can strike terror into the unprepared. The multitude of diseases that a normal ghoul carries are contagious in a manner many adventurers do not truly appreciate until they see the sores and necrosis visibly spreading up their arm from where a ghoul bit them. Such maladies must be dealt with promptly: if bitten by a ghoul, immediately plunge the afflicted area in scalding hot water, then wrap it quickly in clean cloth lined with mugwort and quartz powder. The wound must remain dressed for three weeks, with new dressings applied every four days, and make sure to burn the old ones! Failing the above, a wild infusion also works splendidly.
-
-    * * *
-
-
-#{bold}#2. Skeletons#{normal}#
-
-What guide to the undead would be complete without mentioning the humble skeleton? Despite these clattering and chittering bones of the deceased often looking so fragile that a stiff breeze could break them apart, in many ways they are more dangerous than their ghoul cousins.
-
-With no masses of rotted and ruined flesh to reanimate, necromancers can commit themselves fully to bestowing some level of fighting skill on a reanimated skeleton, and since a fighter's weapons will often last as long as his bones will, skeletons are usually armed and sometimes even armoured. The potential skill of a skeleton doesn't stop at melee weapons either - fallen archers take up their bows once again, and although difficult by comparison, some necromancers can even grant dead mages their magic powers once again.
-
-Some adventurers find themselves baffled when it comes to fighting skeletons. How do you destroy a foe who, by all rights, should be destroyed already? To these adventurers, I say take heart. The more broken and incomplete a body is, the more effort it takes to keep it reanimated. As most necromancers see skeletons as the lowest of low peons, you can expect a few good blows to easily dissipate the minimal effort their masters put into creating them.
+구울같은 가장 기초적인 언데드라도 준비가 안 된 사람들에게는 충격적일 수 있어. 평범한 구울이 옮기는 수많은 질병은 전염성이라 수 많은 모험가들이 구울에게 물린 팔에서 고통을 느끼거나 괴사가 퍼져가는걸 보기 전까지는 제대로 인식하지 못하지. 그런 질병은 지체 없이 처리해야 한다: 만약에 구울에게 물렸다면 즉시 감염 부위를 델 정도로 뜨거운 물에 담궈. 그리고 쑥과 석영가루로 덧댄 깨끗한 옷가지로 상처 부위를 감싸야 해. 상처부위는 네시간 마다 새롭게 갈아줘야하고 그걸 삼주 동안 해야해. 그리고 사용한 것들은 불태우는걸 잊지 말라고! 앞에 쓴 방법이 실패한다면 자연 주입물도 끝내준다고.
 
     * * *
 
 
-#{bold}#3. Wights#{normal}#
+#{bold}#2. 스켈레톤#{normal}#
 
-Wights are an odd duck amongst the undead, often not created by necromancers specifically, but instead rising of their own volition when the conditions are right. Wights are by no means individual souls, but often part of a gestalt; when a particular land has seen enough bloodshed - battlefields, forest, crypts and graveyards - wights can be seen to rise en masse, a near-physical representation of the battles and turmoil the land has faced. Sadly, it is for this reason that necromancers often facilitate the creation of wights regardless, for no other study or profession causes so much blood or death.
+변변찮은 스켈레톤을 언급 안하고 어떻게 안내서를 완성할 수 있겠어? 덜그럭 덜그럭 거리는 죽은 자의 뼈가 보기에는 스치는 바람에도 부서질 것처럼 약해보이지만 스켈레톤은 많은 이유에서 구울보다 훨씬 더 위험하다구.
 
-Those who have had encounters with wights often describe them as indistinct skeletal figures, wrapped in flowing cloaks that become faded and incorporeal at their edges, while strange lights dance where their eyes should remain. Survivors tell of a peculiar sense of exhaustion when in close proximity to them, as though merely being close to these figments of death causes one's life force to sputter and fade. Regardless of this and their ghostly appearance however, it has been recorded that steel and strength of arms is yet enough to destroy them, or at least to erase them for the time being. It's just a shame that such battles are likely to simply create more of them in the long run...
+썩고 부패한 살덩어리가 없기에, 사령술사들은 되살아난 스켈레톤의 전투기술을 유지하는데 몰두할 수 있어. 그리고 전사의 뼈가 남아있다면 그때까지 무기도 남아있다는 거거든.  스켈레톤은 보통 무장하고 있고 심지어는 갑옷을 입고 있는 녀석들도 있지. 스켈레톤의 잠재된 기술은 근접전에 머물지 않아 - 타락한 궁수가 다시 한번 자기 활을 들기도 하지. 비교하기는 어렵지만 몇몇 사령술사들은 죽은 마법사의 힘을 다시 돌려 놓을 수 있다고도 해.
 
-    * * *
-
-
-#{bold}#4. Vampires#{normal}#
-
-Vampires are so far removed from other varieties of undead it seems almost unreal. What grants them their longevity? How do they retain such great intelligence? Beyond their sallow complexion and drawn features, why do they not decay and decompose as their ghoulish siblings do? The study of vampiric nature is one long list of unanswered questions, each new study adding yet more to the ever-growing pile.
-
-As said before, a vampire's greatest strength is its resemblance to a living man, both in mind and body. Thanks to this, vampires are known for residing comparatively close to normal towns and villages far more than other undead. Some have even been known to keep their lairs within these communities themselves! Despite their resemblance however, there are many telltale signs of vampirism: Unnaturally pale skin, long and distinctive fangs, an aversion to sunlight, and much more besides. In an effort to avoid close inspection, some vampires are known to masquerade as men of wealth, often cloistering themselves in remote locations to discourage prying eyes.
-
-But perhaps the most astonishing thing regarding vampires is their propensity for alliance and familial relationships. No other undead being even approaches matching the incomprehensible tangle of clans, broods, families and bloodkin that vampires create for themselves. It is for this reason that vampires often end up becoming rulers of lesser undead themselves, commanding them as a normal necromancer would. So, in turn, treat them as you would a necromancer - with cold steel.
+몇몇 모험가들은 스켈레톤이랑 싸울때 당황하고 있는 스스로를 발견할 수 있겠지. 어떻게 해야 이미 파괴된 적을 처리할 수 있을까? 그런 모험가들에게 심장을 취하라고 말하겠다. 더 많이 파괴되고 불안정한 시체일수록 살아 움직이는데 더 많은 노력이 필요해. 대부분의 사령술사가 스켈레톤을 최하급의 일꾼정도로 생각하고 있기 때문에, 효과적인 공격 몇번으로 주인이 스켈레톤을 만드는데 사용한 노력을 헛짓거리로 만들수 있을거야.
 
     * * *
 
 
-#{bold}#5. Spirits#{normal}#
+#{bold}#3. 와이트#{normal}#
 
-During my travels, I have noticed that some communities in the wild no longer bury their deceased as is the norm in larger settlements. Some folk burn the corpses of their fallen, committing their ashes to the earth instead. When asked why they perform this peculiar practice, I always receive the same answer: Necromancers. Fearful of their dead rising up to slay them at the whims of delusional, murderous filth, they believe that with the burning of the dead, their spirits are forever beyond the reach of a necromancer's bony fingers.
+와이트는 언데드들 중에서도 독특한 놈이지. 종종 사령술사가 의도해서 만든것도 아니지만, 상황만 맞아떨어진다면 스스로의 의지로 일어나거든. 와이트는 결코 독립적인 영혼이 아닌 게슈탈트 - 즉, 형태의 일부이기도 하지; 전장이나, 숲속, 공동묘지같은 피에 충분히 적셔진 땅에서 거의 물리적인 형태로 전쟁을 묘사하거나 이 땅에 있던 슬픔을 표현하며 집단으로 생겨나지. 슬프게도 이런 이유로 사령술사들이 특별한 연구나 피 보는 일 없이도 개의치 않고 와이트를 만들어낼수 있게 하는거야.
 
-Alas, this is not true. While fire may burn away a man's physical being, no flame can touch his spirit. Unfortunately, necromancers can. Bereft of both body and freedom, many souls are driven mad in the employ of necromancers, ceaselessly drifting through windswept crypts, harrying any unfortunate wanderers they encounter with a multitude of curses and hexes. Worst of all are those spirits who embrace their newfound purpose, causing them to grow in power at a frightening rate. No other being in Maj'Eyal is so obviously abhorrent to existence itself as these "dreads"; it is almost as though creation itself wants these beings gone from her world. It is my hope that you, and many others, oblige her wish.
-
-    * * *
-
-
-#{bold}#6. Bone Giants#{normal}#
-
-One of the most horrific, vomit-inducing expressions of the necromancer's so-called "art" is the bone giant. Not content with merely profaning the bodies of singular souls, some ambitious necromancers work to bind the bodies of countless skeletons together, creating hideous engines of destruction that can stand many times higher than the height of a normal man.
-
-It is a deadly mistake to liken these abominations to the golems alchemists and archmages employ. Wilful and fey as they are, normal mages often only craft golems for utility and their own protection, while necromancers create bone giants for the sole purpose of dealing death, and the only limit to their destructive capability is the necromancer's twisted imagination. Ever fought a snow giant? Imagine one with six arms and fingers like blades, wrought of sharpened ribs. Imagine one with countless skulls lining every inch of its wretched body, all screaming for your blood to be spilt as it thrashes spinal columns like whips from its disfigured hands! After facing one of these grotesque amalgamations, you'll be begging to go back to the Daikara to pick on simple, frost-rimed sub-men.
+와이트와 마주친 사람들은 흐릿한 망토를 두른 형체가 흐려지면서 모퉁이에서 사라진다고 하며 눈이 있어야 할 자리에는 이상한 불빛이 흔들린다고 묘사하곤 해. 생존자들은 와이트들과 가까이 있을때 와이트로부터 생명력이 빨려나가는 것만 같은 이상한 느낌을 받았다고도 했고. 와이트들의 생김새가 어떻든간에 쇠붙이와 힘으로는 그들을 파괴하거나 시간에서 지울 수 없다고 되어있어. 장기적으로 봤을때 전쟁에서 이런한존재들이 많이 생겨난다는 사실이 참으로 부끄러울 뿐이야...
 
     * * *
 
 
-#{bold}#7. Liches#{normal}#
+#{bold}#4. 흡혈귀#{normal}#
 
-Hate made flesh. Evil made pure. Death incarnate. The culmination of a necromancer's work. Whatever you know liches as, I can tell you that they do not match the countless myths and legends that surround their terrible figures. They surpass them.
+흡혈귀들은 언데드들과는 많이 동떨어진 존재들이지, 거의 허상에 가까워. 어떻게 그렇게 오래 사는걸까? 어떻게 그렇게 많은 지식을 쌓은걸까? 흡혈귀들의 복잡함이나 특징은 제쳐두고서라도 왜 그놈들은 사촌뻘인 구울처럼 썩지 않는걸까? 흡혈귀 생태에 대한 연구는 마치 대답할 수 없는 질문들의 목록과 같아. 추가적인 연구는 이미 쌓여있는 목록에 질문을 더 쌓아올리는 꼴이라니깐.
 
-Once a powerful necromancer finally crosses the border between life and death, the abyssal power that they could only initially grasp in dribs and drabs becomes theirs to control totally. It is often said that unexpected quakes, crops failing, and the leaves simultaneously falling from the trees heralds the birth of a lich. Lords of the undead, liches can annihilate ghouls and skeletons, banish dreads with a glance, and reduce bone giants to powder within moments.
+전에도 말했다시피 흡혈귀의 가장 큰 힘은 바로 내적으로나 외적으로나 사람과 닮았다는거야. 이런 특징덕에 다른 언데드들과 비교해서 평범한 마을이나 도시에 더 가깝게 살아간다고 알려져있지. 몇몇 놈들은 공동체 속에 자기들만의 보금자리를 만든다고도 하니깐! 닮은건 그렇다치고, 흡혈귀에 대한 많은 이야기 속 징후가 있어: 비정상적으로 창백한 피부, 길고 독특한 송곳니, 햇볕을 싫어하고, 그 외에도 참 많아. 사람들이 근접하는걸 피하길 위해, 몇몇 흡혈귀들은 가장무도회를 좋아하는 부유한 남자로 위장하기도 하고 혹은 뒤를 캐는 사람들을 피하기 위해 멀리 떨어진 곳에서 수도원생활을 하기도 하지.
 
-As to how to actually destroy one? Well, tell you what. If you manage to defeat one of these abominations, be a dear and write a guide for me, for I have absolutely, positively, no idea.
+그렇지만 흡혈귀에 대해 가장 놀라운 점은 바로 동족에 대한 성향과 가족관계야. 어떤 언데드라도 흡혈귀들이 이룬 것처럼 씨족을 맺거나, 생산활동을 하거나, 혈연관계로 맺어져 있지 않아. 그게 바로 흡혈귀가 결국에는 사령술사처럼 다른 언데드들의 지배자가 되는 이유이기도 하고 말이야. 자 그러니깐 흡혈귀를 대할때는 사령술사에게 해주는 것처럼 똑같이 하라구 - 차가운 쇠붙이 말이야.
+
+    * * *
+
+
+#{bold}#5. 영혼#{normal}#
+
+내가 여행을 하던 도중에 일반적인 대도시처럼 더 이상 매장을 하지 않는 야생의 공동체들을 만난 적이 있어. 사람들은 시체를 불태우고 대신 그 재를 대지에 뿌리지. 왜 그런 특별한 의식을 하느냐고 물었을 때, 항상 같은 대답을 들었어: 사령술사 때문이라는거지. 자기네들의 죽은 사람이 다시 일어나 자기들을 변덕적인 마음으로, 살인자의 더러움으로 죽이지는 않을까 두려운거야. 그래서 시체를 불태워 그들의 영혼이 영원히 사령술사의 손아귀에 들어가지 않도록 하는거지.
+
+아아! 그렇지 않아. 화염이 육체적인 것을 불태울 수 있겠지만, 영혼까지 불태울수 있는 화염은 없거든. 불행하게도 사령술사들은 영혼마저 유린할 수 있어. 몸도 자유도 상실한 많은 영혼들이 사령술사에 의해 사용되어 미쳐가고 있어. 묘지를 떠돌아 다니면서 다양한 저주와 주술로 그들과 마주친 불행한 방랑자들을 괴롭히지. 그중에서도 최악은 바로 새로운 목표를 찾은 영혼들이야. 그렇게 되면 겁주는 단계에서 힘을 키우는 단계로 넘어가는 거거든. 마즈'에이알에서 "드레드"로 존재한다는 것은 너무나도 혐오스러운 일이기 때문에; 영혼의 세계에서 사라지고자 하는 욕망을 스스로 만들어내게 되는거지. 이건 당신과 많은 다른 사람들이 영혼의 소망을 이뤄주도록 돕길 바라는 나의 희망이야.
+
+    * * *
+
+
+#{bold}#6. 뼈의 거인#{normal}#
+
+
+소위 말하는 사령술사의 "예술"이라고 하는 표현중에서도 가장 끔찍하고, 토나오는게 바로 뼈의 거인이야. 내용물도 없이 하나의 영혼으로 신성모독에 가깝게 시체들을 써먹으려는 몇몇 야망에 찬 사령술사들이 셀 수도 없이 많은 스켈레톤들을 한데 묶고, 보통 사람키의 몇배는 더 큰 덩치를 유지할수 있는 끔찍한 파괴의 동력을 만들었지.
+
+이 합성괴물을 연금술사나 마도사가 써먹는 골렘이랑 비교하는건 치명적인 실수야. 지멋대로고 독특한 보통 마법사들이 골렘을 도구 용도나 자기보호를 위해 연성하지만, 반면에 사령술사들은 죽이는 목적 단 하나만을 위해 뼈의 거인을 만들지.  그리고 뼈의 거인이 가진 파괴력을 제어하는건 오직 사령술사의 삐뚤어진 상상이야. 설원 거인이랑 싸워본 적 있나? 설원 거인이 팔이 여섯개고 손가락이 칼날과 같고 갈비뼈가 날카롭게 성형되었다고 상상해봐. 그 불쌍한 몸에 셀 수 없는 두개골이 촘촘히 박혀있고, 손에 들린 척추를 무기처럼 휘두르면서 두개골 하나하나가 너의 피를 원하며 비명을 지르는걸 상상해봐! 일단 한번 그 그로테스크한 융합체를 마주친다면, 다이카라로 돌아가서 서리맞은 거인이랑 싸우게 해달라고 빌게 될걸?
+
+    * * *
+
+
+#{bold}#7. 리치#{normal}#
+
+증오로 만들어진 육체. 순수한 악. 죽음을 만드는 자. 사령술의 정점. 니가 리치에 대해서 아는게 뭐던간에 리치를 둘러싼 셀 수 없이 많은 신화와 전설과는 하나도 맞지 않다고 장담할 수 있어. 리치는 더한 놈들이거든.
+
+강력한 사령술사가 마침내 생과 사의 기로를 넘어선다면, 전에는 한 방울 겨우 쥐어짜 사용했던 심연의 힘을 완전히 제어해서 사용하게 돼. 얘기치 않은 지진, 농작물의 죽음, 나무에서 한번에 떨어지는 낙엽들이 리치의 탄생을 예언한다고 종종 말하기도 하지. 언데드 군주인 리치는 구울과 스켈레톤을 전멸시킬 수 있고, 처다보는것 만으로도 드레드를 추방할 수 있으며, 뼈의 거인을 한순간에 뼛가루로 만들어 버릴 수 있어.
+
+어떻게 하면 리치를 실제로 파괴할 수 있을까? 음, 이거 하나는 말해줄께. 만약에 리치랑 맞짱뜰 상황이 생긴다면 날 위한 안내서를 써주겠어? 진짜로, 정말로, 어떻게 할지 모르겠어.
 
     * * *]]
 }
