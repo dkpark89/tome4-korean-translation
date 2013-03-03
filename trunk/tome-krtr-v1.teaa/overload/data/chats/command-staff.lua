@@ -51,21 +51,21 @@ local function intro(o)
 		telos_full = [[텔로스의 힘 앞에 무릎 꿇으라!]],
 	}
 	if o.no_command then
-		return [[이 곳은 아직 당신이 이 강력한 지팡이에게 명령할 만한 곳이 아닙니다. 만일 그렇게 한 다면 소멸되어 버리는 결과가 초래될 것입니다.]]
+		return [[이 곳은 아직 당신이 이 강력한 지팡이에게 명령할 만한 곳이 아닙니다. 만일 그렇게 한다면 소멸되어 버리는 결과가 초래될 것입니다.]]
 	end
 	if o.combat.sentient then
 		return sentient_responses[o.combat.sentient] or sentient_responses["default"]
 	else
-		return [[어떤 성향의 스태프를 불러오시겠습니까??]]
+		return [[지팡이의 어느 속성을 불러오시겠습니까??]]
 	end
 end
 
 local function how_speak(o)
 	if not o.combat.sentient then return [[error!]] end
 	local sentient_responses = {
-		default = [[아, 나는 이전에 전지전능한 엘드리치 영매였지. 전지전능했었지만 얼이 빠졌지, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... 뭐, 그가 어디로 가버렸는지는 자세히는 모릅니다. 그러나 난 우리가 그를 만나는 일은 없었으면 하고 바라고 있습니다.]],
+		default = [[아, 나는 이전에 전지전능한 섬뜩한자의 영매였지. 전지전능했었지만 얼이 빠졌지, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... 뭐, 그가 어디로 가버렸는지는 자세히는 모릅니다. 그러나 난 우리가 그를 만나는 일은 없었으면 하고 바라고 있습니다.]],
 		aggressive = [[으윽! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. 다행히도 말이지, 내가 이 영혼의 보관이 가능한 지팡이를 가지고 있었고 또 언제든지 영혼을 가둘 수 있도록 준비시켜 놓았었지, 그래서 난 완전히 죽어버리진 않았지. 대화는 이 정도로 충분하겠지. 뭣 좀 작살내러 가자고.]],
-		fawning = [[내 이전 지배자-- 강력한 부여술사였지만, 당신과 당신의 영광에 비교가 되지 않는 사람-- 가 이 지팡이를 발견한 이후 그는 그의 일에 도움이 되도록 저를 이 좋은 지팡이 속에 감금하였습니다. 알라스, 그는 이미 먼 옛날에 가버렸지만, 그래도 전 절망하지 않습니다, 지금 저는 당신같은 전지전능한 새 주인을 찾았으니까요.]],
+		fawning = [[내 이전 지배자-- 강력한 부여술사였지만, 당신과 당신의 영광에 비교가 되지 않는 사람-- 가 이 지팡이를 발견한 이후 그는 그의 일에 도움이 되도록 저를 이 좋은 지팡이 속에 감금하였습니다. 유감스럽게도 그는 이미 먼 옛날에 가버렸지만, 그래도 전 절망하지 않습니다, 지금 저는 당신같은 전지전능한 새 주인을 찾았으니까요.]],
 		penitent = [[I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.]],
 		telos = [[말조차 할 수가 없다면 영생이 뭐가 좋겠나? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. 아, 그리고 말이지, 자네의 에너지 생산 기술은 내 신발 한 짝과 동등한 수준에 머물러 있군. 만약 무능력해지고 잊혀진 채로 죽기를 원하지 않는다면 공부를 더 하는 게 좋을걸세.]],
 		telos_full = [[말조차 할 수가 없다면 영생이 뭐가 좋겠나? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. 아, 그리고 말이지, 자네의 에너지 생산 기술은 내 신발 한 짝과 동등한 수준에 머물러 있군 만약 무능력해지고 잊혀진 채로 죽기를 원하지 않는다면 공부를 더 하는 게 좋을걸세.]],
@@ -76,8 +76,8 @@ end
 local function which_aspect(o)
 	if not o.combat.sentient then return [[error!]] end
 	local sentient_responses = {
-		default = [[물론이지. 어떤 성향을 원하나?]],
-		aggressive = [[나는 마법사 성향과 화염 속성을 강력히 추천하겠어. 고깃 덩어리들을 증발 전부 증발시켜 버리면 좋은 걸 찾을 수는 없을걸.]],
+		default = [[물론이지. 어떤 속성을 원하나?]],
+		aggressive = [[나는 마법사 속성과 화염 속성을 강력히 추천하겠어. 고깃 덩어리들을 증발 전부 증발시켜 버리면 좋은 걸 찾을 수는 없을걸.]],
 		fawning = [[저는 섬기기 위해 살아갑니다-- 제가 '살다'라는 단어를 사용하는 건 아마 조금 엉성한 측면이 있을거라 생각하긴 하지만 말입니다.]],
 		penitent = [[현명하게 고르게. 자네의 지식을 너머선 힘은 조심히 놓여진 자연적인 질서를 더욱 혼란스럽게 만드는 결과를 초래할걸세.]],
 		telos = [[내가 살던 시대에는, 지팡이를 이리 저리 바꿀 필요가 없었네. 우린 그저 원소를 골라서 그걸 지팡이에 붙여서 가지고 다녔지, 마치 신처럼 말이지.]],
