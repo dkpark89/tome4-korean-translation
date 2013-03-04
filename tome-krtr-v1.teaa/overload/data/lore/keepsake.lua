@@ -36,7 +36,7 @@ newLore{
 	id = "keepsake-dream",
 	category = "keepsake",
 	name = "A Haunting Dream",
-	kr_display_name = "사냥하는 꿈"
+	kr_display_name = "사냥하는 꿈",
 	lore = [[목초지를 여행하면 할 수록 더욱 긴장이 풀립니다. 잠깐 누워 눈을 감습니다...
 
 당신은 생기넘치는 꿈 속에서 깨어났습니다. 울창한 숲 사이로 작은 바람이 길을 내고 있습니다.
@@ -70,7 +70,7 @@ newLore{
 	id = "keepsake-acorn",
 	category = "keepsake",
 	name = "The Acorn",
-	kr_display_name = "도토리"
+	kr_display_name = "도토리",
 	lore = [[길을 따라 걸어갈때 발치에 무언가를 발견했습니다. 철로 만들어진 작은 도토리입니다. 잠시 도토리를 보다가 집어들었습니다.
 도토리는 밴더의 어머니의 물건입니다. 그 이전에는 그녀 아버지의 소유였습니다. 밴더의 어머니가 도토리를 한시도 떼어놓지 않았음을 기억했습니다.
 그때 밴더는 어린아이였습니다. 밴더가 어떻게 되었나 궁금하지만 상상이 잘 가지 않습니다. 
