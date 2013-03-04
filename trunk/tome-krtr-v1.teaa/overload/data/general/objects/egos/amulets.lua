@@ -104,7 +104,6 @@ newEntity{
 	power_source = {technique=true},
 	name = " of mastery (#MASTERY#)", suffix=true,
 	kr_display_name = "숙련(#MASTERY#)의 ",
-	kr_display_name = " ",
 	keywords = {mastery=true},
 	level_range = {1, 50},
 	rarity = 6,
