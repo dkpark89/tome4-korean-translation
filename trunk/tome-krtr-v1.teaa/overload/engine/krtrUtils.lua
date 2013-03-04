@@ -3,7 +3,11 @@
 -- 사용하려는 파일마다 상단부에 명령 추가 필요 : require "engine.krtrUtils"
 
 -- 한글 글꼴 설정
-krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 빠름, 글자 가독성이 좀 떨어짐
+krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 글자 가독성이 좀 떨어짐
+--krFont = "/data/font/AuctionGothic_Medium.ttf" -- 옥션고딕M 글꼴(672kB)
+--krFont = "/data/font/Daum_Regular.ttf" -- 다음R 글꼴(1218kB)
+--krFont = "/data/font/LexiSaebomR.ttf" -- 렉시새봄R 글꼴(1491kB)
+--krFont = "/data/font/NanumGothicBold.ttf" -- 나눔고딕B 글꼴(4188kB)
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index

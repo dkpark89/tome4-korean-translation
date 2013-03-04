@@ -113,9 +113,10 @@ newChat{ id="win",
 			g.change_level = 1
 			g.change_zone = "town-derth"
 			g.name = "exit to Derth"
+			g.kr_display_name = "데르스로의 출구"
 			game.zone:addEntity(game.level, g, "terrain", player.x, player.y)
 
-			game.party:reward("Select the party member to receive the +2 generic talent points:", function(player)
+			game.party:reward("일반 기술 점수 2점을 받을 동료를 고르세요:", function(player)
 				player.unused_generics = player.unused_generics + 2
 			end)
 			game:setAllowedBuild("campaign_arena", true)
