@@ -134,6 +134,15 @@ function _M:descAttribute(attr)
 			tms[#tms+1] = ("%0.2f %s"):format(i, name)
 		end
 		return table.concat(tms, ",")
+	elseif attr == "KR_MASTERY" then --@@ MASTERY에 해당하는 한글이름 반환 코드 137~145 추가
+		local tms = {}
+		for ttn, i in pairs(self.wielder.talents_types_mastery) do
+			local tt = Talents.talents_types_def[ttn]
+			local cat = tt.type:gsub("/.*", "")
+			local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@@ 한글이름으로 변환
+			tms[#tms+1] = ("%0.2f %s"):format(i, name)
+		end
+		return table.concat(tms, ",")
 	elseif attr == "STATBONUS" then
 		local stat, i = next(self.wielder.inc_stats)
 		return i > 0 and "+"..i or tostring(i)
@@ -494,7 +503,7 @@ function _M:getTextualDesc(compare_with)
 			desc:add(true)
 			desc:add(("적용 능력치 : %s"):format(table.concat(dm, ', ')), true)
 			local col = (combat.damtype and DamageType:get(combat.damtype) and DamageType:get(combat.damtype).text_color or "#WHITE#"):toTString()
-			local dtn = ( combat.damtype and (DamageType:get(combat.damtype).kr_display_name or DamageType:get(combat.damtype).name)) or (DamageType:get(DamageType.PHYSICAL).kr_display_name or DamageType:get(DamageType.PHYSICAL).name) --@@ 467 사용 : 너무 길어져 변수로 뺌
+			local dtn = ( combat.damtype and (DamageType:get(combat.damtype).kr_display_name or DamageType:get(combat.damtype).name)) or (DamageType:get(DamageType.PHYSICAL).kr_display_name or DamageType:get(DamageType.PHYSICAL).name) --@@ 507 사용 : 너무 길어져 변수로 뺌
 			desc:add("공격 속성   : ", col[2], dtn:capitalize(),{"color","LAST"}, true)
 		end
 
@@ -527,7 +536,7 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_hit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 500 사용 : 너무 길어져 변수로 뺌
+					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 540 사용 : 너무 길어져 변수로 뺌
 					desc:add({"color","RED"}, ("공격 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
@@ -535,7 +544,7 @@ function _M:getTextualDesc(compare_with)
 			end
 		end
 		for tid, data in pairs(talents) do
-			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 508 사용 : 너무 길어져 변수로 뺌
+			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 548 사용 : 너무 길어져 변수로 뺌
 			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("공격 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 		
@@ -548,7 +557,7 @@ function _M:getTextualDesc(compare_with)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_crit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 521 사용 : 너무 길어져 변수로 뺌
+					local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 561 사용 : 너무 길어져 변수로 뺌
 					desc:add({"color","RED"}, ("치명타 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
@@ -556,7 +565,7 @@ function _M:getTextualDesc(compare_with)
 			end
 		end
 		for tid, data in pairs(talents) do
-			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 529 사용 : 너무 길어져 변수로 뺌
+			local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 569 사용 : 너무 길어져 변수로 뺌
 			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("치명타 성공시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
@@ -783,7 +792,7 @@ function _M:getTextualDesc(compare_with)
 		if any_esp then
 			desc:add("투시 부여 : ")
 			for esp, isin in pairs(esps_compare) do
-				local temp = ( esp == "All" and "전체" ) or esp --@@ 757, 759 사용 : 모든 종족시 한글로 변경 
+				local temp = ( esp == "All" and "전체" ) or esp --@@ 797, 799 사용 : 모든 종족시 한글로 변경 
 				if isin[2] then
 					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(temp), {"color","LAST"})
 				else
@@ -849,7 +858,7 @@ function _M:getTextualDesc(compare_with)
 			desc:add("기술의 재사용 대기시간 :")
 			for tid, cds in pairs(cd_reductions) do
 				local diff = (cds[2] or 0) - (cds[1] or 0)
-				local tn = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name --@@ 824, 826, 829 사용 : 길어지고 반복되어 변수로 뺌
+				local tn = Talents.talents_def[tid].kr_display_name or Talents.talents_def[tid].name --@@ 864, 866, 869 사용 : 길어지고 반복되어 변수로 뺌
 				if diff ~= 0 then
 					if cds[1] then
 						desc:add((" %s ("):format(tn), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "턴)")
@@ -1196,7 +1205,7 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_spell or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1169 사용 : 길어져 변수로 뺌
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1209 사용 : 길어져 변수로 뺌
 				desc:add({"color","RED"}, ("주문 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
@@ -1204,7 +1213,7 @@ function _M:getTextualDesc(compare_with)
 		end
 	end
 	for tid, data in pairs(talents) do
-		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1177 사용 : 길어져 변수로 뺌
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1217 사용 : 길어져 변수로 뺌
 		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("주문 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
@@ -1218,7 +1227,7 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_wild_gift or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1191 사용 : 길어져 변수로 뺌
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1231 사용 : 길어져 변수로 뺌
 				desc:add({"color","RED"}, ("자연 속성 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
@@ -1226,7 +1235,7 @@ function _M:getTextualDesc(compare_with)
 		end
 	end
 	for tid, data in pairs(talents) do
-		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1199 사용 : 길어져 변수로 뺌
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1239 사용 : 길어져 변수로 뺌
 		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("자연 속성 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
@@ -1240,7 +1249,7 @@ function _M:getTextualDesc(compare_with)
 		for _, data in ipairs(v[field] and (v[field].talent_on_mind or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1213 사용 : 길어져 변수로 뺌
+				local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1253 사용 : 길어져 변수로 뺌
 				desc:add({"color","RED"}, ("자연 속성 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
@@ -1248,7 +1257,7 @@ function _M:getTextualDesc(compare_with)
 		end
 	end
 	for tid, data in pairs(talents) do
-		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1221 사용 : 길어져 변수로 뺌
+		local tn = self:getTalentFromId(tid).kr_display_name or self:getTalentFromId(tid).name --@@ 1261 사용 : 길어져 변수로 뺌
 		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("정신 기술 명중시 : %s (%d%% 확률 레벨 %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 

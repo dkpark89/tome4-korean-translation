@@ -511,7 +511,7 @@ function _M:raceUse(item, sel, v)
 		self:setDescriptor("race", item.pid)
 		self:setDescriptor("subrace", item.id)
 		self.sel_race = item
-		self.sel_race.name = tstring{{"font","bold"}, {"color","LIGHT_GREEN"}, self.sel_race.basename:toString(), {"font","normal"}}
+		self.sel_race.name = tstring{{"font","bold"}, {"color","LIGHT_GREEN"}, (self.sel_race.kr_basename or self.sel_race.basename):toString(), {"font","normal"}}
 		self.c_race:drawItem(item)
 
 		self:generateClasses()
@@ -531,7 +531,7 @@ function _M:classUse(item, sel, v)
 		self:setDescriptor("class", item.pid)
 		self:setDescriptor("subclass", item.id)
 		self.sel_class = item
-		self.sel_class.name = tstring{{"font","bold"}, {"color","LIGHT_GREEN"}, self.sel_class.basename:toString(), {"font","normal"}}
+		self.sel_class.name = tstring{{"font","bold"}, {"color","LIGHT_GREEN"}, (self.sel_class.kr_basename or self.sel_class.basename):toString(), {"font","normal"}}
 		self.c_class:drawItem(item)
 	end
 end
@@ -733,7 +733,7 @@ function _M:generateRaces()
 					elseif locked == false then
 						local desc = sd.desc
 						if type(desc) == "table" then desc = table.concat(sd.desc, "\n") end
-						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, basename = sd.kr_display_name or sd.display_name, id=sd.name, pid=d.name, desc=desc } --@@ 한글 이름 저장
+						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, kr_basename = sd.kr_display_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc } --@@ 한글 이름 저장
 						if self.sel_race and self.sel_race.id == sd.name then newsel = nodes[#nodes] end
 					end
 				end
@@ -793,7 +793,7 @@ function _M:generateClasses()
 						if how == "nolore" and self.descriptors_by_type.subrace then
 							desc = "#CRIMSON#이 직업은 선택한 종족과 썩 어울려 보이지 않습니다. 게임이 불가능한 것은 아니지만, 특정 퀘스트는 불가능할 수도 있습니다/...#WHITE#\n" .. desc
 						end
-						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, basename=sd.kr_display_name or sd.display_name, id=sd.name, pid=d.name, desc=desc } --@@ 한글 이름 저장
+						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, kr_basename= sd.kr_display_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc, def=sd }
 						if self.sel_class and self.sel_class.id == sd.name then newsel = nodes[#nodes] end
 					end
 				end

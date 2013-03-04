@@ -189,7 +189,7 @@ end
 
 on_vault_entrance = function(self, who)
 	game.party:learnLore("keepsake-vault-entrance")
-	game.logPlayer(who, "#VIOLET#당신은 보물창고 입구를 발견하였습니다!")
+	game.logPlayer(who, "#VIOLET#당신은 금고 입구를 발견하였습니다!")
 end
 
 on_vault_trigger = function(self, who)
