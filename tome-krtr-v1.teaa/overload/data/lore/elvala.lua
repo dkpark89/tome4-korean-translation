@@ -25,51 +25,52 @@ newLore{
 	id = "spellblaze-chronicles-1",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(1): A Fateful Meeting",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(1): 운명적인 만남",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
-#{bold}#Chapter One: A Fateful Meeting#{normal}#
+#{bold}#제 1장: 운명적인 만남#{normal}#
 
-This tale begins in the Age of Allure, when I was yet young, and the idea of youth and age was still a pressure on our people.  It is one tale amongst a host of tales, for many are the stories of tragedy and heroism that befell all the races in this era.  I can only give my story, my tragedies, and my follies dressed as heroism, woven around the great force that shook our world and changed our histories: The Spellblaze.
+내가 아직 어린 시절이였고, 젊은 생각과 젊은 나이가 사람들에게는 아직 부담스러웠던, 매혹의 시대에 이 이야기는 시작되었다. 이 이야기는 당시 많은 종족들에게 닥쳐온 비극들과 영웅적인 이야기들의 주인공들이 한데 얽혀있는 연대기이다. 비극적인 사실은 영웅이란 이름으로 포장된 나의 어리석은 행동에 대한 이야기만을 들려줄 수 있다는 것이다. 세상을 놀라게 했고 우리의 역사를 송두리째 바꿔버린 위력적인 힘: 마력폭발 말이다.
 
-I first met Linaniil at a council summit, when our leader Ephinias was meeting with the head of the Kar’Krul.  I remember the huge man walking through the gates of our city, our people staring at his wide girth and bristling hair, his fur clothes and his proud stride.  How out of place he looked amongst us slender elves...  Some thought him a barbarian, but I could see behind his frosty eyes there was great power.  He was from a hardy race of men that once dwelt in the north of Eyal, who it was said drew power from the green fires that danced in their everwinter skies.  Turthel was his name, and the like of him has not trod through earth or snow in many centuries.  Upon his right hand he wore the Ring of Kar’Krul, a lustrous gold band adorned by a blazing ruby, token to his position as the leader of the greatest union of human mages in Maj’Eyal.
+우리의 젊은 지도자 에피니아스가 칼'크룰의 지도자를 만나던 날, 나는 리나니일을 회담에서 처음으로 만났다. 우리 도시의 문으로 거대한 남자가 들어오던 순간을 기억한다. 우리쪽 사람들은 그 남자의 허리 둘레, 뻣뻣한 수염, 가죽옷과 위풍당당한 걸음걸이를 지켜보았다. 우리같이 호리호리한 엘프들 사이에서 그가 얼마나 어색해보였는지... 몇명은 그를 야만인이라 생각했지만 나는 그의 얼어버릴듯한 눈동자 뒤로 엄청난 힘을 느낄수 있었다. 그는 강인한 종족의 남자였다. 그 종족은 한때 에이알의 북쪽에서 살았으며, 겨울만이 계속되는 하늘 속 일렁이는 초록색 불에서 힘을 빌려온다는 종족이였다. 그의 이름은 투르셀이였고 수세기동안 대지나 눈을 밟아본적이 없는 자였다. 그의 오른손에는 빛나는 황금의 고리가 불타는듯한 루비를 장식하고 있는 마즈'에이알의 위대한 인간 마법사 연합의 대표를 상징하는 칼'쿠를의 반지를 끼고 있었다.
 
-With him were his twin daughters, Linaniil and Neira, who walked before him.  Identical they were in looks, yet I saw straight away that they were opposites in personality.  They were each of crimson hair, worn long in spilling tresses, with pale skin that shone in the sunlight.  They were dressed in silken robes, but whilst Neira was adorned in yellow and orange, Linaniil wore blue and silver.  Neira was bright of glance and cheery of voice, remarking on every item of beauty she passed as they strolled through the courtyards of Elvala.  Linaniil was quiet though, and stern of face, coldly analysing and calculating all she saw.  But beneath that icy exterior I could see a fire – nay, a blaze, a bright burning passion yearning to break out, yet kept restrained.  For a moment we made eye contact as the party approached the citadel, and I could see laid bare her wild spirit and untempered thoughts, a will and strength of mind that was utterly unconquerable.  It took my breath from me.
+그에게는 그를 따라걸어오던 두명의 딸, 리나니일과 네이라가 있었다. 두명은 보기에는 닮은듯 했지만 나는 둘의 성격이 정반대임을 깨달았다. 둘은 모두 선홍빛 머리카락을 길게 땋고 태양에 비치는 파리한 피부를 가지고 있었다. 모두 실크 로브를 입고있었지만, 네이라는 노란색과 오렌지색을 입은 반면에 리나니일은 파란색과 은색의 로브를 입었었다. 네이라는 스쳐만봐도 밝은 인상에 활기찬 목소리를 가지고 엘발라의 안뜰로 들어가기 전까지 지나쳤던 모든 장신구들에 대해서 조잘거리고 있었다. 반면에 리나니일은 매우 조용했다. 굳은 얼굴로 자신이 바라본 모든 것들에 대해서 냉정한 평가를 내리고 계산적이였다. 하지만 나는 차가운 외모속에 불을 볼 수 있었다. 아니, 그건 폭발과 같았다. 분출되길 갈망하지만 자제하고 있는 불타는 열정말이다. 그들이 성체로 다가오는 짧은 순간에 우리는 눈을 마주쳤다. 나는 그녀가 가진 절대 정복할 수 없는 힘과 의지를 가진 거친 영혼과 누그러뜨릴수 없는 생각을 지켜볼 수 있었다. 숨이 멎을것만 같았다.
 
-Few of my people have ever understood how one of our race could be infatuated with a human.  But they have not known Linaniil.  Not as I have known her.  Like raw fire given flesh is she, a burning ball of emotions and desires.  Her fervent mind brooks no opposition, and her wit and words charm or coerce all around her.  Beautiful and radiant is her form, as bright as the summer sun, yet also cold and remote, unreachable unless she wants to be reached.  In all the ages this has never changed about her.
+우리들중 극히 소수만이 어떻게 우리 종족이 사람에게 푹 빠질수 있는지 이해하고 있었다. 그러나 그들은 리나니일을 알지 못했다. 내가 그녀에 대해 아는것만큼 아는 사람은 없었다. 마치 기름을 만난 불처럼 그녀는 감정과 욕망이 불타올랐다. 그녀의 열정은 반대를 용납하지 않았고 그녀의 지혜와 언어로 주변의 사람들을 매혹하거나 복종시켰다. 여름날의 태양처럼 밝게 빛나지만 여전히 차갑고 그녀 본인이 닿길 원하지 않는한 닿을 수 없이 멀게 느껴지는, 그녀는 아름답고 밝게 빛나는 존재였다. 이 모든 시간이 흘러도 그녀는 결코 변하지 않았다.
 
-I barely noticed Neira greeting me warmly as she passed through the gate.  Linaniil gave me but a curt nod.  I followed after, as our leader and his guests entered the grand chamber and took their seats.  The summit was to begin on the planning of a new endeavour, a great work by our highest mages to tap into the power of the Sher’Tul farportals.  Long had the relics of that ancient race lain dormant beneath the soil, their powers untouched.  With that mighty strength brought forth we could end the war with the orcs quickly and decisively.  The Spellblaze they called it, and it was a name we spoke in awe and reverence.
+성문을 지나면서 네이라가 나에게 따뜻한 인사를 건냈음을 겨우 눈치챌수 있었다. 리나니일은 단지 퉁명스럽게 고개를 까닥일뿐이였다. 우리의 지도자와 그의 손님들이 대회랑에 들어와 자리를 잡자 나도 따라들어갔다. 회담은 쉐르'툴의 원거리 관문의 힘을 이용하고자 우리 대마법사의 작업을 돕기 위해서 새로운 계획을 시작하기위한 것이였다. 고대 종족의 유물들이 손대지 않은채 대지 밑에 오랫동안 잠들어있었다. 그 유물로 얻을 막강한 힘으로 오크와의 전쟁을 빠르게, 결정적으로 끝낼 수 있을터였다. 그들은 마력폭발이라 불렀다. 우리가 경외와 숭배로 부르는 이름말이다.
 
-King Ephinias began the meeting, introducing our guests and then those around him.  “This is my general,” he said gesturing to me, “Commander Gawaeil of the Shaloren Armies.”  Immediately Linaniil looked at me and gawked.
+에피니아스 왕은 손님들을 소개하고 주변 사람들을 소개하면서 회담을 시작했다. "이 사람의 짐의 장군이라네" 나를 가르키며 말했다, "샬로레 군대의 사령관 가야에일이지." 그 즉시 리나니일이 나를 바라보고 얼이 빠진 표정을 지었다.
 
-“What?” she cried, staring at my armour and baldric.  She turned away from us, seeming not to heed her distinguished hosts.  “Father, what be the meaning of this?” she said to the burly man.  “Ye gave tell that the Shaloren had the mightiest battlemages, yet their general be cased in steel and girt with sword.  Does a mere fighter command experts in the Art?”
+"뭐라구요?" 리나니일이 나의 갑옷과 칼집을 보며 외쳤다. 리나니일은 주인은 신경도 쓰지 않는듯 우리에게서 등을 돌렸다. "아버지, 이게 무슨 뜻이죠?" 리나니일이 건장한 남자에게 물었다. "아버지께서는 샬로레에 가장 강력한 전투마법사가 있다고 하셨잖아요, 하지만 저 장군이라는 자는 철갑으로 무장하고 검을 차고 있지 않나요. 한낱 싸움꾼이 어떻게 마법에 능통하다는 거죠?"
 
-Ephinias looked outraged, but I laughed suddenly, both at her extreme rudeness and her wild presumptions.  “A mere fighter?” I said between incredulous gasps.  “Lady, you would do well not to judge so on appearances.  For if I judge right I see no mere impudent lass before me, but a great master of flames and inflagrations, and a weaver of threads more stern-willed even than her chill-blooded father.  But do not presume yourself a greater worker of the Art than I!  For I am Aranion Gawaeil, master of the Arcane Blade, a channeller of mighty elemental forces.  The spells willed through my steel have slain more orcs than you have seen in your short life, or like will ever see.”
+에피니아스는 진정으로 분노한듯했지만, 나는 그녀의 심한 무례함과 제멋대로인 추측때문에 웃음이 터졌다. "한낱 싸움꾼이라고 하셨소?" 엄청난 탄식이 들려오는 가운데 내가 말했다. "아가씨, 외면만 보고서 성급하게 판단해서는 안되는것입니다. 만약 내가 외면만 보고 판단한다면 내 앞에 서있는 불과 업화의 주인이자, 그녀의 냉혈한 아버지보다도 더욱 강인한 의지를 가진, 세상의 실을 짜는 사람을 그저 무례한 처녀라고 여겼겠지요. 그렇지만 스스로를 나보다 더 위대한 마법사라고 단정짓진 마시오! 나 아라니온 가야에일은 아케인 블레이드의 통달한 자이며, 강대한 원소의 힘을 불러오는 자입니다. 나의 검을 타고 흐르는 주문은 아가씨의 짧은 인생에서 봤던 모든 오크들보다도 많은 수를 죽였습니다. 아가씨가 평생 볼 오크보다도 많을지도 모르지요."
 
-She looked at me then with sudden interest.  “A strange technique it sounds.  Ludicrous it seems when one can simply burn foes from afar.  Though perhaps if we hunt orc together some time I shall see for mine self.  But ye would be hard pressed indeed to better me on the battlefield.”
+그녀는 나를 보더니 관심을 보이는듯 했다. "이상한 기술같군요. 누군가가 아득히 멀리 떨어진 적을 간단히 불태울수 있다면 우습게 들릴지도 모르지만, 언젠가 우리가 함께 오크사냥을 한다면 내 기술을 스스로 증명해보겠어요. 그렇지만 당신도 전장에서 날 이기려면 진심으로 임해야할거에요."
 
-“I shall endeavour to impress, my lady,” I said, with a mock bow of my head.  A thin smile played across her lips.
+"물론 최선을 다하지요, 아가씨"라고 말하며 우스꽝스럽게 머리를 숙이자 리나니일의 입술에 얇은 미소가 스쳐갔다.
 
-Turthel grunted and turned his shaggy head to the king.  “Business,” he said, in the blunt and brief manner I had heard reported of him.
+투르셀은 앓는 소리를 내며 덥수룩한 머리를 왕에게 돌렸다. "일 얘기로 넘어갑시다" 전해들은것처럼 거칠고 간결한 방식대로 그가 말했다.
 
-Ephinias cleared his throat and sat back in his chair.  “We have a grand plan before us,” he began. “For many years we have been plagued by orc attacks.  Initially we were weakened from the Allure Wars, but now that we are beginning to recover our strength it is time to put our joint enemy to rest.  Too often they have threatened to overrun us all, to destroy civilisation forever.  We have all lost much.  Turthel, I can deeply sympathise with your personal loss.”  The fur-clothed man did not change his expression, but I could see his daughters dip their heads in solemn thought.
+에피아네스는 목을 가다듬고 의자에 편안히 앉았다. "우리를 위한 위대한 계획이 있소" 그가 운을 뗐다. "오랜 세월동안 우리는 오크의 습격으로 인해 괴로워했소. 초기에 우리는 매혹의 전투에서 쇠약해졌지만 현재 우리는 다시 힘을 회복하였고 힘을 모아 적을 영원히 잠재울 시간이 왔소. 우리를 모두 지워버리겠다, 문명을 영원히 파괴하겠다는 위협은 너무나도 자주 있었소. 우리 모두 많은 것들을 잃었소. 투르셀이여, 당신의 사람들을 잃은것에 대해서는 깊이 애도를 표하오" 털옷을 입은 사내에게 감정의 변화는 보이지 않았지만 나는 그의 딸들이 침울한 생각에 고개를 떨구는걸 볼수 있었다.
 
-“I have been leading our archmages in an experiment on the Sher’Tul farportal to the east of here.  We believe we can evoke the great powers sealed within to create a wave of destructive energy that we could direct against the orcish armies.  If all the races cooperate in drawing the orcish forces out then we can end this war in one swift strike.  The orcs would be decimated beyond recovery, and Eyal would be cleansed of their presence.
+ "이곳에서 동쪽으로 떨어진 쉐르'툴의 원거리 관문에 실험을 위해 우리의 마도사들을 보냈소. 우리는 그곳에서 봉인된 힘을 발동하여 오크 군대에 직접 맞설 수 있는 파괴적인 에너지의 흐름을 만들수 있다고 믿소. 만약 모든 종족들이 오크의 세력을 몰아내는데 협력한다면 이 전쟁을 한번에 끝낼수 있소. 오크들이 회복하는 것보다도 빠르게 학살할수 있소. 그렇게 된다면 에이알에는 오크란 존재가 없는 청정한 지역이 되겠지.
 
-“I have approached the leaders of the other races.  The halflings are fully supportive.  The Nargol regents have even provided us with some of their historical research on Sher’Tul ruins.”
+ "다른 종족들의 우두머리와 접선하고있소. 하플링들은 완전히 협조적이고 나르골의 섭정은 쉐르'툴 폐허에 대한 역사적인 연구자료들을 우리에게 제공하기도 하였소"
 
-Turthel cursed then suddenly.  “Research done on human slaves!” he barked.  He turned quiet then, letting his temper settle.  “What of your sea and forest cousins?”
+투르셀이 갑자기 욕설을 퍼부었다. "인간을 노예로 한 실험말인가!" 그가 소리질렀다. 그리고는 흥분이 빠져나가길 기다리는것마냥 조용해졌다. "바다와 숲속의 형제들은 어떤가?"
 
-Ephinias looked him coolly in the eye.  “The Naloren are prideful and do not wish to cooperate.  They think they can protect their lands on their own.  Yet I believe they will thank us in the end...  The Thaloren are not entirely keen either.  But we have discussed with their king and queen, and given great assurances as to the safety of our operations.  They do not wholly trust us or our command of the arcane, but in this they will not oppose us.  Shatur is as weary of the orc attacks on its borders as any of us.  They will give aid where it is convenient, as long as they ride under their own banners.  We do not particularly need them, of course, but we thought it prudent to involve all we could.
+에피아네스는 냉정하게 그를 바라보았다. "날로레는 자만이 넘쳐 협력하길 꺼렸소. 스스로 자기네땅을 보호할수 있다고 믿는 모양이오. 하지만 종국에는 우리에게 고마워하리라 믿소... 탈로레 역시 원하는 눈치는 아니오. 하지만 그들의 왕과 여왕과 상의한 결과 우리의 작전을 보호하겠다는 확언을 받았소. 그들은 우리나 우리의 장군을 완전히 믿지는 못하지만 우리의 반대입장에 서지는 않을것이오. 샤툴은 우리들중 누구보다도 국경에서 오크와 싸우느라 지친 상태요. 그들이 자신들의 깃발 아래에 모여있는한 우리에게 간편한 원조를 해줄것이오. 물론 그들이 특별히 필요하다고 판단하지는 않지만, 신중을 기하기 위해 가능한 모든 이들을 포함해야한다 생각했소.
 
-“The other human leaders have mostly assented.  Some have expressed wholly irrational fears of our activities.  Alas, legends and myths still abound to scare people away from anything to do with the Sher’Tul.  But we are confident that we know what we are doing here.  The Kar’Krul elite I’m sure will understand.  And your alliance is worth a dozen lesser kings.”
+ "다른 인간의 지도자들은 대부분 동의했소. 몇몇은 우리의 행동에 완전히 비이성적인 공포를 보이더군. 세상에, 아직도 전설과 신화들이 쉐르'툴에 관한 것이라면 겁부터 집어먹게 만들고 있다니. 하지만 우리가 무얼 하고 있는지 잘 알기에 우리는 자신있소. 분명히 칼'쿠를 정예들은 이해할거요. 그리고 그대와의 동맹은 다른 수십개의 동맹보다도 더 가치있소."
 
-The burly man stared hard and long into Ephinias’ eyes, before turning to his daughters.  “What do ye think, girls?”
+투르셀은 에피아네스의 눈을 뚫어지게 오래 바라보다 딸들에게로 몸을 돌렸다. "어떻게 생각하느냐 딸들아?"
 
-Neira was the first to respond, and there was colour in her cheeks and emotion in her voice.  “I deem this Shaloren king remote and proud.  Sympathy he talks of whilst using our mother’s memory as a tool.  Understanding he proclaims, yet how can any truly know the subtlety behind these Sher’Tul relics?  Untouched they be for millennia, and their original power is still unknown.  What pride lets ye think ye can toy with them now?  It be folly to use a weapon that ye know not how to wield.”
+네이라가 목소리에 감정을 담아 먼저 대답하였다. "저는 샬로레 왕이 냉정하며 자부심이 지나치다고 여깁니다. 그가 우리네 어머니의 기억을 도구로 사용하면서 말하는 것이 안쓰럽기까지 합니다. 선언하고자 하는 바는 알겠으나 우리들 중 그 누가 쉐르'툴의 유물에 무엇이 교묘하게 숨겨있을지 안단 말입니까? 천년이 넘는 세월동안 누구도 손 대지 않았고 진정한 힘은 아직도 밝혀지지 않았습니다. 얼마나 오만해야 그 힘을 마음대로 다룰 수 있다고 믿는겁니까? 어떻게 사용할지도 모르는 힘을 무기로 사용하고자 함은 멍청한짓입니다."
 
-The room went quiet, and I could see Ephinias was silently fuming.  He was not accustomed to such open criticism.  Then Linaniil began to speak, and her voice was low and cool, yet all ears hung on her words.  “Many have been the works of pride over the years that have arisen in splendour.  Wherefore have come our great artworks, our grand cities, or the arcane weavings that shape our societies?  No meekness be found in their crafting.  There be no shame in acting out of pride, and we gain nothing from misplaced humility.  Too long have the powers of the Sher’Tul been left untapped by fearful and timid hearts.”  I could see then her eyes light up with excitement.  “Think of the glories we could unlock!  This war with the orcs would be but the beginning.  Great benefit could be brought to us all.  To leave these powers buried would be a crime, I say.”
+방안은 적막으로 가득찼고 나는 에피아네스의 고요한 분노를 보았다. 에피아네스는 이런 공개적인 비난에 익숙하지 않았다. 그때 리나니일이 입을 열었다. 그녀의 목소리는 낮고 차가웠지만 모든 귀는 그녀의 말에 집중하고 있었다. "많은 것들이 거만을 등에 얹고 수년간 매진하여 웅장함을 뽐내지요. 우리의 위대한 마법, 위대한 도시, 우리의 사회를 한데 묶어주는 마법의 실을 짜는 일들이 모두 어디에서 왔습니까? 그것들을 만들때 겸손함은 없었습니다. 자부심을 가지고 실행에 옮기는 일은 부끄러운 일이 아닙니다. 부적절한 겸손에서 얻을 것이란 아무것도 없습니다. 공포와 용기가 없는 베짱때문에 쉐르'툴의 힘은 너무나 오랫동안 방치되어왔습니다" 이때 나는 그녀의 눈빛에서 흥분의 빛을 엿보았다. "우리가 봉인을 해제하여 얻을 영광을 생각해보세요! 오크와의 전쟁은 단지 시작일 뿐입니다. 우리 모두에게 엄청난 이득이 생길것입니다. 그런 힘을 묻힌 채로 내버려 둔다는 것은 죄악이라 말하겠습니다."
 
-Turthel paused reflectively before nodding his head slowly, and it was clear that Linaniil’s words aligned better with his own thoughts.  “Very well,” he slowly announced, looking directly at Ephinias.  “We are with you.”  Neira stayed silent with brooding concern, but a flash of satisfaction crossed her sister’s eyes.]],
+투르셀이 고개를 천천히 끄덕이기전에 반사적으로 잠시 멈췄고 리나니일의 생각이 투르셀 자신의 생각보다 더 논리적임이 명백했다. "아주 좋소" 그가 에피아네스를 똑바로 쳐다보며 천천히 대답했다. "함께 하겠소" 네이라는 생각을 곱씹으며 조용하게 있었지만 자매 리나니일의 눈에는 만족의 빛이 스쳐지나갔다.]],
 	on_learn = function(who) world:gainAchievement("SPELLBLAZE_LORE") end,
 }
 
@@ -77,51 +78,52 @@ newLore{
 	id = "spellblaze-chronicles-2",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(2): A Night to Remember",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(2): ",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌"#{normal}#
 
-#{bold}#Chapter Two: A Night to Remember#{normal}#
+#{bold}#제 2장: 잊을 수 없는 밤#{normal}#
 
-It was three nights later I awoke in darkness from a troubled dream to find my window open, the silk drapes billowing in the breeze.  As my eyes adjusted to the light I saw Linaniil stood at the foot of my bed, a thin azure dress clinging to her skin in the chill night air.  Around her was a cashmere belt inset with opals and woven with pale runes, and gold jewellery adorned her neck and wrists.  A long staff rested lightly in her hands, rubies glistening in its decorated top.  Her red hair stirred in the wind as she gazed at me.
+그 날 이후로 삼일 뒤, 어둠속에서 창문이 열린 채 실크 드레스가 바람에 휘날리고 있었고 그로 인해 나는 잠에서 깨고 말았다. 눈이 어둠에 적응이 되었을때 리나니일이 찬 밤공기 속에서 얇은 하늘색의 드레스만을 입은 채 내 침대 발치에 서있는걸 볼 수 있었다. 리나니일을 감싸고 있는 옅은 룬으로 장식된 오팔이 박힌 캐시미어 벨트, 목과 손목을 감싸고 있는 귀금속들이 보였다. 리나니일의 손에는 긴 마법지팡이가 가볍게 들려있었고 지팡이의 윗부분에는 루비가 반짝이고 있었다. 리나니일이 나를 빤히 바라보는 동안 붉은 머리가 바람에 휘날렸다.
  
-“What are you doing here?” I enquired.  I did not bother asking how she managed to sneak into my bedchamber, past many guards.  I knew that no less than a council member would be able to divine her presence when she put her mind to illusion.
+ "여기서 뭐하시는 겁니까? 내가 물었다. 어떻게 많은 경비병들을 피해서 나의 침실까지 숨어들었는지 묻는 어리석음은 범하지 않았다. 리나니일이 환영마법에 집중한다면 의회에 그 누구라도 그녀의 존재를 눈치채지 못한다는 사실을 알고있었기 때문이다.
  
-She looked at me slowly for a moment, before turning her eyes to the rest of the room, analysing my personal space in detail.  “There be a band of orcs marauding in the north,” she said in a distracted tone.  She picked an ornamental dagger from a shelf and looked it over as she spoke.  “They look like to cause trouble for some outlying elven settlements.”
+그녀는 나를 천천히 바라보고는 고개를 돌려 나의 개인적인 공간으로 눈을 돌려 하나하나 분석하는 중이였다. "북쪽에 오크무리가 들끓고 있어요" 산만한 목소리로 리나니일이 말했다. 그녀는 선반에서 장식용 단검을 집어들고 자세히 살펴보면서 말을 이어갔다. "외곽에 살고 있는 엘프들에게 오크가 문젯거리가 되는 모양이에요."
  
-“I will summon a raiding party at once,” I said, rising quickly from my bed, unheeding of modesty.
+ "지금 당장 토벌대를 보내겠소" 예의는 잊은채 침대에서 몸을 재빠르게 일으키며 말했다.
  
-“Oh, how boring!” she complained, putting the dagger down and spinning to face me.  “What of the promise ye made to hunt orc together?”
+ "아, 지루해요!" 리나니일이 단검을 내려놓고 나를 바라보며 불평했다. "같이 오크사냥을 가자는 약속을 잊은건 아니겠죠?"
  
-“What, just the two of us?”
+ "뭐라구요? 우리 단 둘이서 말입니까?"
  
-“Aye,” she said, looking my unclad form up and down with a slow gaze, seeming to take delight in the sight.  “Or are ye not man enough?”
+ "그럼요" 그녀가 즐거워하는듯한 시선으로 나의 알몸을 위 아래로 천천히 훑어보며 말했다. "사나이도 아니라는 말인가요?"
  
-“A strange question to ask of an elf, my lady.  But I can take this band of orcs myself, I am sure.  If you wish to tag along then I cannot promise to keep you safe.”
+ "엘프에게 그런 질문은 꽤나 이상하군요 아가씨. 하지만 오크무리들은 혼자서도 처리할수 있소, 이건 확실하오. 만약에 나와 같이 가고 싶다면 아가씨의 안전을 보장할수는 없다오."
  
-She laughed then, and the sound was like ringing crystal.  “Very well then!  Get ye your steel stick and we shall see who holds their own best.”  I agreed with a smile, and went to my armoury and shoved on metal greaves and a chain hauberk, my breastplate and steel gauntlets.  Linaniil tutted in surly impatience.  “Must ye wear that tin suit?”
+리나니일은 청량하게 울리는 크리스탈처럼 웃었다. "아주 좋아요! 어서 쇠막대기를 챙겨요 누가 최고인지 두고보죠." 나는 웃음으로 대답한후 병기고로 가서 철제정강이받이와 쇠사슬갑옷을 입고 흉갑과 철제 장갑으로 무장했다. 리나니일은 인내심이 바닥나자 퉁명스럽게 혀를 찼다. "꼭 그 깡통옷을 입어야해요?"
  
-“It is my battle gear,” said I, pulling on my visored helm and wrapping a thick cloak round my shoulders.
+ "나의 무구라오" 투구를 쓰고 두꺼운 망토를 어깨에 두르면 대답했다.
  
-“Ye look like a golem,” she muttered, visibly annoyed.  “Come then, I grow bored.”  She leapt out the window, taking to the air with grace, flying away into the night.
+ "골렘같아 보여요" 리나니일은 짜증난 표정으로 투덜거렸다. "다했으면 가요, 지겨워지려고 해요" 리나니일은 창 밖으로 뛰어 우아하게 공기를 가르며 밤하늘로 날아갔다.
  
-I took then my greatsword from its hanging.  It was a simple looking blade, adorned only with a heavy moonstone on its pommel.  But its looks belied its power, for it was forged by the dwarves in their early years, before vanity overcame their works and their weapons became more for show than for battle.  It had an edge that clove through steel and bone with ease, without ever dulling the blade.  Mooncutter it is called, though it is lost to me now.  I gave it a swing through the air before leaping out the window myself, conjuring a cushion of air beneath me and following swiftly after Linaniil.
+나는 그때 벽에 걸려있던 나의 대검을 집었다. 칼자루에 커다란 월석이 장식되어있는 단순한 검처럼 생겼지만 그 생김새는 검의 진정한 힘을 표현하지 못한다. 드워프들의 자만심으로 인해 그들의 무기는 전투용이 아닌 장식용에 가깝게 변해갔다. 그러나 이 대검은 드워프 역사 초기에 자만심에 물들지 않은 드워프들이 제련한 검이다. 결코 무뎌지는 법 없이 칼날은 쉽게 갑옷과 뼈를 갈라버린다. 나는 신경 쓰지 않지만 월단검이라고 불리는듯하다. 창문밖으로 뛰어내리기 전 검으로 공기를 가르며 아래에 공기의 층을 만들었다. 그리고는 리나니일을 뒤좇기 시작했다.
  
-With rapid pace we flew through the scattered clouds in silence for twenty minutes before Linaniil began to descend.  I could see nestled between some low hills were the flames of campfires, and as we came closer the sound of orcish chanting became clear.  “How shall we approach them?” I called out, wondering what tactics the sorceress would want to employ.
- 
-“Directly,” she said, and with that she made a sudden burst of speed, coming right above the orcish camp and descending in their midst.  With a curse I sped after her, landing by her side and drawing Mooncutter as the orcs rose in fury and alarm, grabbing up their weapons.  As a ring of dark swords and spears and halberds gathered round us Linaniil turned to me with a wild smile.  “Time to dance.”
- 
-She shot forth a ray of purple arcane energy from her right hand, whilst her left held up her staff, its tip blazing like a torch.  Flames leapt up in tandem from my own blade as I rose it high, and swept it before me in a wide arc, cutting down the nearest brute and sending a shocking wave of fire into the troops behind it.  I pressed forward, forcing back the orcs before me with a roaring hot wind.  Their weapons dropped from their hands as they reached up to cover their faces, and with a grin of satisfaction I rushed to hew their heads off.  But as I swung my blade I was knocked to the ground from behind by a blast of fire, and turning about I saw Linaniil standing in a pillar of flame, her arms outstretched as it expanded around her.  “Too hot for ye, Aranion?” she called out as the orcs nearby were fried to a crisp, their flesh withering into black dust.
- 
-I grunted, and turned my blade into ice, and with deft sword strokes sent streams of freezing cold into the orcs around her, so that they shattered like glass before the fire ever hit them.  Linaniil cursed my name as she dropped the flames from about her.  “Don’t ruin my fun!” she exclaimed, before teleporting to the other side of the camp and beginning to blast the orcs there.
+흩뿌려진 구름사이로 벌어진 조용하지만 긴박한 경주는 리나니일이 내려가기 전까지 20여분이나 게속되었다.  나는 산등성이 사이에 자리 잡은 마을의 불길을 볼 수 있었고 우리가 가까이에 접근하자 오크의 전장 구호가 선명하게 들려왔다. "어떻게 접근해야하지?" 마법사라면 어떤 전략을 선보일지 궁금한 마음으로 물었다.
 
-I laughed and turned on the beasts nearest me, and brought tumults to the earth with each swing, so that they lost their footing and fell to the ground before my sword found their throats.  Then I conjured a mighty spark of lightning, spearing it through their densest ranks, and I rushed along its glowing length hewing down the monsters before they could react.  I laughed again with the fey heat of battle, and I discarded my helm and tore off my platemail, taking joy from moving about the field with ease and slaughtering my inferior foes.  Mooncutter danced through their flesh, and their dark blood gushed and fountained with joyful rhythm.
-
-On the far side of the camp explosions and screams marked Linaniil’s passage, and I saw burning limbs flying into the air and streaks of fire tearing through the night.  The sorceress was wreathed in flames, her eyes shining, and the dancing blaze about her made her look like a nymph of fire incarnate.  No more beautiful and awe-inspiring a sight had I ever beheld.
-
-Seeing their numbers quickly dwindling the orcs began to flee, but I phased to block their retreat and called forth a wave of water, forcing them back against Linaniil’s flames.  There against the wall of fire I dashed them, and great numbers of them fell like leaves scattered in the wind.  Blood spilled thick and plentiful, and with but a few more thrusts of Mooncutter and blasts from Linaniil’s hands the battle was over.  Not a single orc still moved, and well over four hundred lay dead on the ground.
+ "직접적으로요" 그렇게 말함과 동시에 리나니일은 폭발적인 속도로 오크 야영지 위로 나타나 한가운데에 내려앉았다. 오크들이 분노로 소리를 지르며 경보를 울리고 무기를 쥐어들자 나는 망할 속도로 쫓아가 그녀의 옆에 내려앉고는 월단검을 꺼내들었다. 어두운 검, 창, 도끼창이 우리를 둘러쌓기 시작하자 리나니일은 나를 바라보고 말했다. "춤 출 시간이에요."
  
-Linaniil and I stood facing each other, panting with sudden exhaustion as the adrenaline of the fight left us.  “I lost count,” I said between breaths, “of who slew more…”  She grinned coyly at me, sweat trickling down her face.  Minor cuts and burns left her robe in tatters, with one shoulder strap hanging loose.  Her glistening chest heaved up and down with each breath, and her deep eyes looked at me with naked intensity.
+리나니일의 왼손에 들려있는 마법지팡이가 횃불처럼 불타오름과 동시에 그녀의 오른손에서는 보라색의 마법에너지의 광선이 뿜어져나갔다. 내가 검을 높게 치켜듦과 동시에 나의 검에서는 불길이 치솟았고 내 앞으로 커다란 호를 그리며 휘둘렀다. 가장 선두에 있던 오크는 잘려나가고 화염의 충격파가 뒤에 따라오던 부대를 강타했다. 뜨거운 바람을 불러일으키면서 나는 앞으로 나아갔고 내 앞에 서있던 오크들은 물러날 수 밖에 없었다. 오크들은 얼굴을 가리기 위해 무기를 떨어뜨렸고 나는 만족스러운 웃음을 띄면서 머리를 자르기 위해 달려나갔다. 그러나 내가 검을 휘두르는 순간 내 뒤에서부터 화염폭발이 일어나 나는 땅에 처박혔다. 뒤를 돌아보자 리나니일이 불의 기둥속에 서있었고 그녀의 손은 공간을 확장하는듯 뻗어있었다. "너무 뜨거운가요, 아라니온?" 주위의 오크들이 바삭하게 구워지고 검은 먼지로 변하자 리나니일이 소리쳤다.
  
-She strode forward then, and grabbing me roughly by my hauberk she pulled my lips to hers.  The kiss was hot and fierce, and as she bit my lower lip the course of blood in battle came back to me afresh.  I kissed her again and grabbed her body, pulling her tight to me, our lips locked.  She tore lustfully at my remaining armour, flinging it to the ground, and I slid off her silken clothes, till we were left bare beneath the stars.  Then against a rocky outcrop we pressed against each other, still gasping and sweating from the fight.  There with blazing passion flesh met flesh and our hot moans rose into the cold night sky.]],
+나는 투덜대며 나의 검에 얼음의 힘을 불러왔다. 그리고는 재빠르게 리나니일 주변의 오크들에게 얼어붙을만큼 차가운 급류를 쏟아내자 오크들에게 불이 채 닿기도 전에 유리조각처럼 산산이 부숴져버렸다. 리나니일은 그녀를 둘러싼 화염을 잠재우며 내 이름에 대고 욕을 했다. "내 즐거움을 망치지 말아요!" 그녀는 소리를 지르고 야영지의 반대편으로 순간이동해서는 그곳의 오크들을 터트리기 시작했다.
+
+나는 껄껄 웃으며 가장 가까이에 있는 놈을 바라보았다. 한 번 휘두를 때마다 대지가 격동하여 오크들은 서있기 힘들었고 나의 검은 목을 정확히 찾아냈다. 그리곤 강력한 전격주문을 외워 가장 촘촘히 모여있는 곳을 노려 꿰뚫었고, 오크들은 미처 반응하기도 전에 잘려나갔다. 나는 그 빛줄기를 따라서 돌진했다. 전장의 열기로 나는 다시 한번 웃었고 열등한 적들을 학살하며 전장을 돌아다니는 즐거움을 얻기 위해 투구를 버리고 판갑을 몸에서 잡아 찢어버렸다. 월단검은 오크의 살덩어리속에서 춤을 추었고 오크들의 검은 피는 솟구쳐올라 흥겨운 리듬의 분수가 되었다.
+
+야영지의 반대쪽 방향에서는 폭발과 비명이 리나니일의 행보를 보여주고 있었고 하늘을 날아다니는 불타는 사지들과 밤조차 찢어버리는 불길을 보았다. 리나니일은 불 속에서 반짝이는 눈으로 환하게 미소짓고 있었다.  그녀 주위에 타오르는 불길은 마치 그녀가 인간의 모습을 한 불의 요정같이 보이게 만들었다. 여태까지 봤던 생애 가장 아름다우며 경외심을 갖게하는 장면이였다.
+
+수가 급격하게 감소하자 오크들은 도망치기 시작했다. 하지만 나는 도주로로 근거리 순간이동을 하여 파도를 불러일으켜 오크들을 리나니일의 화염으로 밀어넣었다. 내가 밀어넣은 방향으로 불의 장벽이 솟구쳤고 셀수 없이 많은 오크들이 바람에 흩날리는 낙엽처럼 떨어졌다. 피가 사방으로 튀었다. 오직 몇번의 칼질과 리나니일의 손에서 만들어진 폭발로 전투는 끝이 났다. 단 한마리의 오크도 움직이지 않았고 사백이 넘는 오크 시체만이 바닥에 널부러져있었다.
+ 
+전투가 끝남으로 인해 아드레날린이 빠져나가자 리나니일과 나는 마주보고 급격한 피로를 느끼며 헐떡였다. "세는 걸 까먹었군" 숨을 크게 들이쉬고 이어서 말했다, "누가 더많이 죽였는지…' 리나니일은 얼굴에 땀을 흘리며 부끄러운듯 나를 보며 웃었다. 그녀의 로브는 한쪽 어깨끈이 느슨해진채 자잘한 상처와 불에 탄 흔적으로 걸레가 되어버렸다. 숨을 쉴 때마다 그녀의 아름다운 가슴은 위아래로 들썩였고 그녀의 깊은 눈동자는 나를 강렬하게 바라보았다.
+ 
+그녀가 앞으로 다가와 나의 사슬갑옷을 거칠게 잡고는 나의 입술의 그녀의 입술로 끌어당겼다. 키스는 뜨겁고 강렬했다. 리나니일의 나의 아랫입술을 깨물자 전장에서의 혈기가 다시 살아났다. 나는 한번 더 키스하면서 리나니일의 몸을 가깝게 끌어당겼고 입술은 떨어질줄 몰랐다. 리나니일은 음탕하게 나머지 갑옷마저 벗겨서 바닥에 내던졌고 나는 그녀의 옷을 벗겼다. 별들 아래 우리는 알몸으로 서있었다. 그리고는 여전히 전투의 헐떡임과 땀이 남아있는채로 서로를 밀어붙였다. 불타는 열정으로 살과 살이 만나 차가운 밤하늘에 뜨거운 신음소리가 울려퍼졌다.]],
 	on_learn = function(who)
 		world:gainAchievement("SPELLBLAZE_LORE")
 	end,
@@ -131,7 +133,8 @@ newLore{
 	id = "spellblaze-chronicles-3",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(3): The Farportal",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(3): 장거리 관문",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
 #{bold}#Chapter Three: The Farportal#{normal}#
 
@@ -227,7 +230,8 @@ newLore{
 	id = "spellblaze-chronicles-4",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(4): Before the Dawn",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(4): 동이 트기 전에",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
 #{bold}#Chapter Four: Before the Dawn#{normal}#
 
@@ -289,7 +293,8 @@ newLore{
 	id = "spellblaze-chronicles-5",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(5): The Day of the Spellblaze",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(5): 마력폭발의 날",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
 #{bold}#Chapter Five: The Day of the Spellblaze#{normal}#
 
@@ -335,7 +340,8 @@ newLore{
 	id = "spellblaze-chronicles-6",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(6): A Changed Eyal",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(6): 바뀐 에이알",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
 #{bold}#Chapter Six: A Changed Eyal#{normal}#
 
@@ -410,7 +416,8 @@ newLore{
 	id = "spellblaze-chronicles-7",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(7): Into Darkness",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(7): 어둠속으로",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
 #{bold}#Chapter Seven: Into Darkness#{normal}#
 
@@ -452,7 +459,8 @@ newLore{
 	id = "spellblaze-chronicles-8",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(8): Forbidden",
-	lore = [[#{italic}#From the memoirs of Aranion Gawaeil, leader of the Grand Council of Elvala#{normal}#
+	kr_display_name = "마력폭발 연대기(8): 금단",
+	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
 #{bold}#Chapter Eight: Forbidden#{normal}#
 
