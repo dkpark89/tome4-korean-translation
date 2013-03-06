@@ -24,7 +24,8 @@ newLore{
 	id = "last-hope-foundation-note-1",
 	category = "last hope",
 	name = "The Diaries of King Toknor the Brave",
-	lore = [[#{italic}#68th of Dusk, Year of Pyre 710#{normal}#
+	kr_display_name = "용감한 왕, 토크놀의 일기",
+	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 황혼의 달 68 일#{normal}#
 The orcish tribe have routed us. We have retreated to some Mardrop ruins and secured ourselves amongst the fortifications. I have just shy of 2,000 men under my banner, some of the best warriors I have ever served with, but we are simply no match for the numbers we face. Counting them is difficult, but I would put a minimum estimate at 10,000. The tribe has camped a league away - they seem to be waiting for reinforcements. This does not bode well...
 
 I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]],
@@ -34,7 +35,8 @@ newLore{
 	id = "last-hope-foundation-note-2",
 	category = "last hope",
 	name = "The Diaries of King Toknor the Brave",
-	lore = [[#{italic}#25th of Haze, Year of Pyre 710#{normal}#
+	kr_display_name = "용감한 왕, 토크놀의 일기",
+	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 아지랑이의 달 25 일#{normal}#
 Five men tried deserting last night. Today I had them flogged in front of all the others. I have given warning that any future deserters shall be hanged. These are measures I do not like to take, but harsh times call for harsher discipline.
 
 Our supplies are holding steady for now, but I fear they may not last. I've received word that it will take at least fifty days to muster a force that can save us. Alas, food may well be the least of our worries, for the orcs have begun to attack our strongholds. Thankfully we have had time to reinforce the existing structures. Indeed, little work was needed, for the foundations of this place are strong. My loremaster tells me it was abandoned following the Crimson Pox, but was once the capital of Mardrop. The men have taken a fondness to the place, and have named it "Last Hope". Though I normally discourage such romantic notions I cannot help but feel the same. These stone walls give strength to my heart - I feel we can fight through this.
@@ -46,7 +48,8 @@ newLore{
 	id = "last-hope-foundation-note-3",
 	category = "last hope",
 	name = "The Diaries of King Toknor the Brave",
-	lore = [[#{italic}#47th of Haze, Year of Pyre 710#{normal}#
+	kr_display_name = "용감한 왕, 토크놀의 일기",
+	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 아지랑이의 달 47 일#{normal}#
 Rations low. Men demoralised. Winterhaze wind is making conditions unbearable. The fortress is holding, but each night they pick off some of our troops. It is but a matter of time before we no longer have the strength to resist.
 
 I can hear their blasted trumpets again. Accursed swine! We have no rest or sleep, not the slightest sojourn without their braying, howling, jeering, taunting, insufferable cantations! It is driving me from my wits! But I must remain strong... I must put on a brave face for the men. They are relying on me, and though the burden feels close to crushing me I must bear it with the dignity of a king.
@@ -58,7 +61,8 @@ newLore{
 	id = "last-hope-foundation-note-4",
 	category = "last hope",
 	name = "The Diaries of King Toknor the Brave",
-	lore = [[#{italic}#51st of Haze, Year of Pyre 710#{normal}#
+	kr_display_name = "용감한 왕, 토크놀의 일기",
+	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 아지랑이의 달 51 일#{normal}#
 Oh, happy days! Joyous retribution! From the jaws of defeat we have been saved, and never before have I felt such elation!
 
 Last night as dusk approached, the orcish armies began to prepare a major attack. My men were ready, for I was determined that if they were to have our lives they would pay for them thrice over. But as the sun waned in the western sky I saw what looked like a rain of gold falling amongst the orcish troops and suddenly they were in disarray. Another flurry came and I saw that it were not gold, but bolts of steel reflected in the setting sun. "The halflings!" my scout shouted, and lo I saw then it was indeed a large army of halflings come upon the orcs' flank.
@@ -72,7 +76,8 @@ newLore{
 	id = "last-hope-foundation-note-5",
 	category = "last hope",
 	name = "The Diaries of King Toknor the Brave",
-	lore = [[#{italic}#2nd of Allure, Year of Pyre 711#{normal}#
+	kr_display_name = "용감한 왕, 토크놀의 일기",
+	lore = [[#{italic}#장작더미의 시대를 맞은 711 년, 매혹의 달 2 일#{normal}#
 We have solidified the defences at Last Hope and received more troops from all of the kingdoms. Our tactical position near the sea is proving an excellent base for further attacks on the orcs. I hope to expand our facilities here much further. I am drawing up an alliance now with the other leaders, for only together can we hope to beat this terrible threat to all our kingdoms.
 
 Mirvenia has been key to the discussions and the plans. She is a tactical genius, and I am constantly amazed by her wealth of knowledge and skills. There is an odd woman that accompanies her though, with long fiery hair and a silken robe - Linaniil is her name. One of my men swears he saw her riding into battle in a blaze of flames, burning all the orcs before her. The idea of a spellweaver in our midst is unsettling, but Mirvenia says I should trust her. And if Mirvenia says so then I must believe her.
@@ -86,7 +91,8 @@ newLore{
 	id = "last-hope-foundation-note-6",
 	category = "last hope",
 	name = "The Diaries of King Toknor the Brave",
-	lore = [[#{italic}#6th of Flare, Year of Pyre 713#{normal}#
+	kr_display_name = "용감한 왕, 토크놀의 일기",
+	lore = [[#{italic}#장작더미의 시대를 맞은 713 년, 타오름의 달 6 일#{normal}#
 Why is it only in times of darkness I turn to my journal? Today has been the darkest day in over two years, but it could have been darker still.
 
 Mirvenia's convoy was attacked by a rogue band of orcs. Though the brutes were repelled she was hurt in the conflict, and her labour brought on early. She lay before the halls of death for many hours. It is only thanks to the skill of her people's healers that she and the baby survived.
@@ -100,6 +106,7 @@ newLore{
 	id = "last-hope-tolak-statue",
 	category = "last hope",
 	name = "All Hail King Tolak the Fair!",
+	kr_display_name = "평등한 왕 톨락 만세!",
 	lore = [[Twice blessed is he of the union of King Toknor of the humans and Queen Mirvenia of the halflings! Praise his glory!
 By royal decree it is under absolute conditions forbidden to show racial prejudice against humans or halflings. There shall be no preference of price or service, and no discrimination of trade or business or employment. No halfling shall be named fur-toes, midget or shortbum, and no human shall be named lanklegs, cloudhead or stumpfoot.
 The penalty for disobedience shall be flogging. Intolerance will not be tolerated!]],
@@ -109,8 +116,9 @@ newLore{
 	id = "last-hope-toknor-statue",
 	category = "last hope",
 	name = "All Hail King Toknor the Brave!",
-	lore = [[Born the 23th Allure, Year of Pyre 682
-Died the 2th Summertide, Year of Ascendancy 108
+	kr_display_name = "용감한 왕 토크놀 만세!",
+	lore = [[출생 : 장작더미의 시대를 맞은 682 년, 매혹의 달 23일
+사망 : 주도의 시대를 맞은 108 년, 밀려오는 여름의 달 2 일
 
 King of Kings, Founder of Last Hope, Purger of Orcs, Father of the Age of Ascendancy. Great is the memory of the warrior who fought for peace, and won.
 Quoth King Toknor: "I have lived for the future, a future of peace and prosperity, a future free for all. How happy I am to see that future now... Aye, and it is brighter than any sword, and stronger than any armour, and more enduring than any war. Though warrior I am in flesh and mind, my heart belongs to peace."]],
@@ -120,8 +128,9 @@ newLore{
 	id = "last-hope-mirvenia-statue",
 	category = "last hope",
 	name = "All Hail Queen Mirvenia the Inspirer!",
-	lore = [[Born the 5th Flare, Year of Pyre 688
-Died the 2th Summertide, Year of Ascendancy 113
+	kr_display_name = "자애로운 여왕 미르베니아 만세!",
+	lore = [[출생 : 장작더미의 시대를 맞은 688 년, 타오름의 달 5 일
+사망 : 주도의 시대를 맞은 113 년, 밀려오는 여름의 달 2 일
 
 Saviour of the Battle of Last Hope, Bringer of Unity, Soother of Hearts and Minds. Greatly is missed the alchemist that could change sorrow to joy, despair to hope, defeat to victory.
 Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last Hope, seeing all the joy and beauty we have brought here bathed in glorious light. At moments like this I still feel him next to me, and I know I have lived a good life. Today has been a good day... Today I think I shall die."]],
@@ -132,7 +141,7 @@ newLore{
 	category = "southspar",
 	name = "The Pale King, part one",
 	kr_display_name = "창백한 왕, 그 첫 번째 이야기",
-	lore = [[#{italic}#남쪽스파의 가장 위대했던 지배자에 대한 연구#{normal}#
+	lore = [[#{italic}#남쪽스파 (Southspar) 의 가장 위대했던 지배자에 대한 연구#{normal}#
 
 장담하는데, 당신은 남쪽스파에 대해 들어본 적이 없을 것이다.
 
@@ -146,7 +155,7 @@ newLore{
 
 그리하여 드레이케는 왕위에 오르게 되었고, 곧 남쪽스파의 황금기가 시작되었다.
 
-#{bold}#1. 드레이케와 하플링 무리.#{normal}#
+#{bold}#1. 드레이케와 하플링 무리#{normal}#
 
 새롭게 왕위에 오른 드레이케는, 현 시점에서 가장 명확하고 즉각적인 위협은 하플링의 늘어만 가는 침략이라고 보았다. 이것을 해결하기 위해, 그는 남쪽스파의 군대를 전면적으로 재조직하기로 하였다. 그가 볼 때, 오합지졸 무리인 남쪽스파의 군인들이 저 하플링들보다 유리한 점은 단 하나였다. 바로 이 섬의 지리에 대해 통달해있다는 것이었다. 그는 군대 조직을 작지만 파괴적인 살인병기와도 같은 부대로 만들었으며, 지리에 대한 이점을 살려 언제나 은밀하게 다니고, 최소한의 무장만 하며, 창과 검보다는 갑옷을 종잇장처럼 뚫어버릴 수 있는 스트라라이트제 단검을 들고 다니게 하였으며, 하플링 부대가 방심하고 있을 때 기습 위주의 공격만을 하라고 하였다. 이렇게 만들어진 남쪽스파의 “도둑 부대” 는 성공적이었다. 하플링 부대의 숫자는 어마어마했지만, 드레이케 군의 지속적인 기습공격에 하플링 군대의 사기는 급속히 떨어졌다. 마침내, 하플링 군대는 남쪽스파에 “상종할 가치도 없다” 는 말을 남기고 철수하였다.
 
@@ -160,7 +169,7 @@ newLore{
 
 하지만 현실은 그렇지 않았다. 과거의 무능력했던 남쪽스파의 왕은 사라졌으며, 드워프들이 마주한 것은 앞으로 스트라라이트의 가격을 20 배로 올릴 것을 선언한 젊고 냉엄한 왕이었다.
 
-드워프들은 최대한 절제하며 이 당돌한 왕의 요구를 비웃었다. 최근 남쪽스파가 하플링 군대를 격퇴했다는 소식을 듣기는 했지만, 드워프들은 여전히 남쪽스파의 스트라라이트는 언제든지 무력으로 빼앗아올 수 있다고 생각하고 있었기 때문이다. 하지만 드레이케는 그들이 이 요구를 받아들일 수밖에 없는 방법을 이미 생각해왔으며, 이를 실행하기 위해 작은 주머니를 꺼내 들었다.
+드워프들은 최대한 절제하며 이 당돌한 왕의 요구를 비웃었다. 최근 남쪽스파가 하플링 군대를 격퇴했다는 소식을 듣기는 했지만, 드워프들은 여전히 남쪽스파의 스트라라이트는 언제든지 무력으로 빼앗아올 수 있다고 생각하고 있었기 때문이다. 하지만 드레이케는 그들이 이 요구를 받아들일 수밖에 없는 방법을 이미 생각해왔으며, 이를 실행하기 위해 작은 주머니를 꺼내들었다.
 
 드레이케는 용가죽으로 만든 작은 주머니를 높게 들어올리더니, 안에 들어있던 내용물을 모조리 바닥에 쏟아내었다. 주머니 안에 있던 많은 양의 스트라라이트가 바닥의 먼지와 진흙과 잡석과 섞여, 쓸모 없고 가치 없는 쇳덩어리가 되고 말았다. 드워프들은 이 지독한 낭비에 기겁하였으며, 소문이 사실이라면 이 자리에서 졸도한 드워프마저 있었다. 드레이케는 그들에게, 만약 자신의 요구가 받아들여지지 않는다면 그의 왕국에 묻혀 있는 모든 스트라라이트도 지금과 같은 운명을 맞이하게 될 것이라고 소리 높여 외쳤다.
 
@@ -212,6 +221,7 @@ newLore{
 	id = "last-hope-allied-kingdoms-foundation",
 	category = "last hope",
 	name = "Declaration of the Unification of the Allied Kingdoms",
+	kr_display_name = "왕국연합의 통합 포고문",
 	lore = [[Herewith is set the constitutional declaration of the Allied Kingdoms under the rule of King Toknor and Queen Mirvenia. Any who defy or seek to undermine the laws here set shall suffer torment and death.
 
 As of the 1st of Allure, Age of Pyre year 714, henceforth to be known as the Age of Ascendancy year 1, all human and halfling kingdoms shall be united under the banner of the Allied Kingdoms. This shall include all towns, villages, serfdoms and farmsteads with over 50% human or halfling populace in the whole expanse of Maj'Eyal.
@@ -232,6 +242,7 @@ newLore{
 	id = "celia-letter",
 	category = "last hope",
 	name = "A creased letter",
+	kr_display_name = "구겨진 편지",
 	always_pop = true,
 	lore = [[Oh Cecil, what must you think of me? But I remember your words to me, before the fever took you - you told me to live. And live I must... And yet that fever has now spread to me and I feel my days are numbered.
 
@@ -252,14 +263,14 @@ I must live. For you, my love, I will live.]],
 }
 
 local i = 0
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Jake, son of Borlin and Clarise
 #{normal}#112 - 118#{italic}#
 Rest well, our child
 This world was too dark for thee
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Alenda and Pariel
 #{normal}#92 - 115, 94 - 115#{italic}#
 In sin you lived
@@ -267,28 +278,28 @@ In sin you died
 Rot here together
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Marcus the Immortal
 #{normal}#23 - 107#{italic}#
 Ambitious in life
 Humbled in death
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Lord Gracion Bestelle
 #{normal}#41 - 112#{italic}#
 The memory of the greatest
 Shall never dim
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Inilasac Salocin
 #{normal}#32 - 120#{italic}#
 All tomes shall remember thee
 And thine dark blessings
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, red_rose=true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, red_rose=true, lore = [[#{bold}#
 RIP Cecil Farion
 #{normal}#98 - 122#{italic}#
 Noble in mind
@@ -297,14 +308,14 @@ Rest now from the burdens of the flesh
 
 #{normal}#A fresh rose lies here]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Golan of Derth
 #{normal}#65 - 113#{italic}#
 May your memories
 Always bring joy and love
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Mara
 #{normal}#70 - 109#{italic}#
 You knew your doom
@@ -312,32 +323,32 @@ And faced it
 Rest in peace
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Bodun the Follower
 #{normal}#86 - 117#{italic}#
 Killed by a friend's untimely death dance
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Tania Pure-Hearted
 #{normal}#78 - 115#{italic}#
 Our tears are for ourselves
 To have lost one so bright as you
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Unknown
 #{normal}#?? - 107#{italic}#
 Your bravery will not be forgotten
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Captain Lepant
 #{normal}#56 - 102#{italic}#
 A hero to all elements of society
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Ghormot the Black
 #{normal}#0 - 97#{italic}#
 In this bright age
@@ -345,35 +356,35 @@ Of new adventures
 You are not forgotten
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Gygax the Great
 #{normal}#38 - 108#{italic}#
 Most blessed are we
 To have shared this world with thee
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Opius the Wastrel
 #{normal}#89 - 117#{italic}#
 Death was too good for you
 May you quickly be forgotten
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Wichman Toy
 #{normal}#80 - 121#{italic}#
 Your rogueish charms
 Inspire us forever
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Annei Caffrey
 #{normal}#26 - 102#{italic}#
 On the wings of dragons
 You forever soar
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Eden of Derth
 #{normal}#97 - 121#{italic}#
 Untamed in spirit
@@ -381,19 +392,19 @@ Unhesitant in flight
 Unlifed in grimmest darkness
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Calici the Brave
 #{normal}#86 - 113#{italic}#
 Alas that bravery was not enough
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Barbrim the Cursed
 #{normal}#92 - 119#{italic}#
 Betrayed by those he trusted
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Falsira Mageslayer
 #{normal}#78 - 104#{italic}#
 Slain by the dark magics she fought
@@ -401,50 +412,50 @@ We shall never forget
 Death to the spellweavers!
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Amalla
 #{normal}#86 - 105#{italic}#
 Burned for witchcraft
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Gamrik Dellhorn
 #{normal}#47 - 93#{italic}#
 Fell to the Wintertide blizzard
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Peterin
 #{normal}#32 - 89#{italic}#
 Died alone
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Ben Harrison
 #{normal}#68 - 104#{italic}#
 Praise the name
 Of he who helped us band together
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here rests Raymond Gaustadnes
 #{normal}#84 - 120#{italic}#
 The Pixels finally got him...
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Crokar
 #{normal}#86 - 113#{italic}#
 His love of trolls proved too dangerous a hobby
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Lyrissa the Wyrmfriend
 #{normal}#93 - 116#{italic}#
 Eaten by dragons
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here rests Weldeth the Deserter
 #{normal}#86 - 103#{italic}#
 Fled from battle
@@ -453,94 +464,94 @@ On a comrade's sword
 He quickly died
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{italic}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{italic}#
 This gravestone has been desecrated
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Seria Swanfoot
 #{normal}#56 - 109#{italic}#
 May your feet now walk amongst the stars
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Eric and Erik
 #{normal}#66 - 114#{italic}#
 Met their death investigating dark light
 Alas, the pit was darker still
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Hoblo Sureshot
 #{normal}#94 - 120#{italic}#
 Death by ricochet
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Grave of the Unknown Mason
 #{normal}#??? - ???#{italic}#
 In dedication to all those lost building the dungeons of Maj'Eyal
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Albert Deathproof
 #{normal}#75 - ???#{italic}#
 Buried alive
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 RIP Legless Jack
 #{normal}#26 - 98#{italic}#
 His life's dream was to dance
 But even dreams must die
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 The Blightbringer
 #{normal}#14 - 46#{italic}#
 Do not disturb
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Matthew the Brawler
 #{normal}#101 - 122#{italic}#
 Killed in a ring of blood
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Sarusan the Timeraper
 #{normal}#102 - 87#{italic}#
 He who wields Time
 Dies by Time
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Palia the Poacher
 #{normal}#94 - 118#{italic}#
 Shown no mercy in the cursed woods
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies the merchant Dalio
 #{normal}#83 - 121#{italic}#
 Slain by an assassin's deadly poison
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Here lies Jazak
 #{normal}#92 - 113#{italic}#
 He played with the wildest fires
 And got burnt
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 RIP Gedis the Paladin
 #{normal}#?? - 118#{italic}#
 Bright star from foreign lands
 We weep your fallen light
 #{normal}#]]}
 
-i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
+i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
 Foursaw the Clown
 #{normal}#82 - 114#{italic}#
 We laughed

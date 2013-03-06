@@ -25,45 +25,48 @@ newLore{
 	id = "temple-creation-note-1",
 	category = "temple of creation",
 	name = "tract of destruction",
-	lore = [[#{bold}#Tract of Destruction#{normal}#
+	kr_display_name = "파괴의 글",
+	lore = [[#{bold}#파괴의 글#{normal}#
 
-Though armies would fall before the Spellblaze's might, though forests were razed and the skies bled red with fire, they always felt that the earth would endure. It seemed eternal, unmoving. Not even the fury of the Spellblaze could hope to destroy it.
+비록 마법폭발의 힘 앞에 군대가 쓰러지더라도, 비록 숲이 파괴되고 하늘은 불길에 핏빛 빨강으로 불타오를지라도, 대지는 견뎌낼 것이라고, 그들은 느꼈다. 대지는 마치 영원하며, 절대 변하지 않을 것처럼 보였다. 마법폭발의 분노조차 대지를 파괴할 엄두조차 내지 못할 것이라고 생각하였다.
 
-How wrong they were. The Naloren people, long secluded, were prepared to fend off any attacks on their land, but how could they hope to stop the land itself crumbling? Seeing their home literally tearing itself apart, plains and forests tumbling into the seas... For one brief, terrible moment, they beheld the true extent of the Spellblaze's power. Not only was it destroying the people of the world, but the world itself.
+이 얼마나 잘못된 생각이였는가. 날로레 엘프들, 오랫동안 은둔했던 그들은 그들의 땅을 침범하는 어떤 공격에도 맞서 싸울 준비가 되었건만, 대지 자체가 무너지는 것을 그들이 어떻게 막아낼 수 있었겠는가? 그들의 집이 문자 그대로 찢겨지고, 들판과 숲에 금이 가는 것을 보며... 아주 잠시, 끔찍한 순간 동안, 그들은 마법폭발이 지닌 힘의 위력을 보았다. 그 힘은 이 세계의 사람들을 파괴하는 것 뿐만이 아닌, 이 세계 자체를 파괴하는 힘이었다.
 
-The lands of the Narloren had sunk beneath the waves.]],
+날로레들이 살던 대지는 파도 속으로 가라앉았다.]],
 }
 
 newLore{
 	id = "temple-creation-note-2",
 	category = "temple of creation",
 	name = "tract of anarchy",
-	lore = [[#{bold}#Tract of Anarchy#{normal}#
+	kr_display_name = "혼돈의 글",
+	lore = [[#{bold}#혼돈의 글#{normal}#
 
-For the years following the cataclysm, chaos reigned. Their culture, their way of life, it was as broken and fractured as the land itself. Nalore civilisation was reduced to a few isolated and feeble settlements, scratching out meagre existences as land, mind and body was warped in both shape and spirit.
+그 대재앙이 일어나고 수 년 동안, 혼돈이 그들을 지배하였다. 그들의 문화, 삶의 방식... 그러한 것들은 그들의 대지처럼 부서지고 금이 갔다. 날로레 문명은 소수의 고립되고 연약한 공동체 수준으로 줄어들었다. 이 땅에서 마치 그 존재가 지워진 듯 하였다. 그들의 정신과 신체는 비틀리기 시작하였다.
 
-Faced with the idea of their great race failing – another victim of the Spellblaze, a footnote in the annals of history – impassioned pleas were sent to their elven brothers: The Shaloren, the Thaloren. Aid was even requested from human and halfling, embroiled in their own petty squabbles as they were.
+그들과 같이 위대한 종족에게 결점이 생겼다는 사실과 맞닥뜨리자, 그들은 - 그들의 역사책에서 각주에나 간신히 실릴 정도였던, 마법폭발의 또 다른 피해자인 - 같은 엘프 동족, 샬로레와 탈로레들에게 간절한 지원 요청을 보냈다. 지원 요청은 그들이 하찮고도 연약한 종족으로 여겼던 인간과 하플링에게까지 전해졌다.
 
-The Naloren received no answer.]],
+날로레는 누구의 응답도 받지 못하였다.]],
 }
 
 newLore{
 	id = "temple-creation-note-3",
 	category = "temple of creation",
 	name = "tract of acceptance",
-	lore = [[#{bold}#Tract of Acceptance#{normal}#
+	kr_display_name = "적응의 글",
+	lore = [[#{bold}#적응의 글#{normal}#
 
-Betrayed by the Shaloren, wilful and destructive, and the Thaloren, aloof and suspicious, a long, seething silence fell over the remaining Naloren people. It was during this period of grim introspection that salvation was suddenly and unexpectedly granted. The ancient Sher'Tul magicks, long pondered over by the land's mystics, would bear fruit at last.
+저 고집 세고 파괴적인 샬로레들에게 배신을 당하고, 저 냉담하고 의심스러운 탈로레들에게 배신을 당하자, 길고 혹독한 침묵이 남은 날로레 엘프들에게 내려졌다. 이 엄숙한 자아 성찰의 시간 동안, 구원은 갑작스럽고 예상치 못하게 내려졌다. 이 땅의 신비이자 오랜 시간 동안 침묵을 지키던 고대의 쉐르'툴 마법이 드디어 결실을 맺게 된 것이다.
 
-The same force that destroyed the Naloren would save them. Through the Sher'Tul's magic, the Naloren became able to breathe water as if it was air. Their bodies became adapted for existence under the waves, their legs becoming long, snake-like tails. Such drastic metamorphosis would naturally cause horror, you may expect. However, the Naloren saw the possibilities their new forms provided: Their sunken lands were their own once again. Their homes would be rebuilt, their civilisation reborn. Naloren no more, the denizens of the sunken kingdom would come to be known as 'nagas'...]],
+날로레를 파괴했던 것과 같은 힘이 그들을 구원하였다. 쉐르'툴의 마법을 통해, 날로레들은 물 속에서 편하게 숨을 쉴 수 있게 되었다. 그들의 몸은 물 속에서 살아가기 위해 적응되었으며, 그들의 다리는 길고 뱀과 같은 모양의 꼬리가 되었다. 이러한 급격한 신체 변화는 보통 공포를 불러오지만, 예상할 수 있듯이 날로레들은 그들의 새로운 몸에서 가능성을 보았다. 그들의 가라앉은 대지가 다시 그들의 것이 된 것이다. 그들의 집은 다시 지어졌으며, 그들의 문명은 다시 태어났다. 날로레는 더 이상 없다. 이 바다 속 왕국의 사람들은, 이제 다른 자들에게 '나가' 라고 알려지게 될 것이다...]],
 }
 
 newLore{
 	id = "temple-creation-note-4",
 	category = "temple of creation",
 	name = "personal note (Slasul)",
-	lore = [[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.
-]],
+	kr_display_name = "슬라슐의 개인적인 쪽지",
+	lore = [[오랜 세월 끝에, 이 신전은 드디어 그 비밀을 나에게 드러내었다. 그리고 나의 계획 또한 실현할 수 있게 되었다. 유연한 몸과 완전무결한 전투 능력, 그 누구도 따라잡을 수 없는 바다에서의 속도... 자연은 이런 종족을 그저 '단순한 나가' 로 만들었을 리가 없다. 이 창조의 사원이 나에게 보여준 것을 통해, 우리는 나가 이상의 존재가 될 수 있을 것이다. 나의 지도를 통해, 섬세하게 다듬어진 쉐르'툴 마법과 함께, 나의 숙련된 손길 아래 우리 위대한 종족은 그 정점에 다다르게 될 것이다. 이제 새로운 글, 바로 '포식자의 글' 이 쓰여지게 될 것이다.]],
 }
 
 --------------------------------------------------------------
@@ -73,6 +76,7 @@ newLore{
 	id = "adventurer-letter-1",
 	category = "adventures",
 	name = "letter to Rolf (1)",
+	kr_display_name = "롤프에게 보내는 편지 (1)",
 	lore = [[Dear Rolf,
 
 I hope this letter finds you well. I must apologise for this recent dry spell in our communication; my adventures across Maj'Eyal have taken many exciting and perilous turns as of late. What turns do I speak of, you ask? I know how you delight in reading the accounts of my exploits, so I shall waste no further time on this pre-amble.
@@ -87,6 +91,7 @@ newLore{
 	id = "adventurer-letter-2",
 	category = "adventures",
 	name = "letter to Weisman (1)",
+	kr_display_name = "웨이스만에게 보내는 편지 (1)",
 	lore = [[Dear Weisman,
 
 Ah! What feelings your last letters inspired within me... primarily mirth, with a good amount of scorn! Must you continuously assail me with tale after tale of your waving of wooden swords and pestering of toothless mongrels? Allow me to recount your "legends" in a much more succinct manner: One day, I failed to kill a dog. Such bravery! Such pluck and derring-do!
@@ -100,6 +105,7 @@ newLore{
 	id = "adventurer-letter-3",
 	category = "adventures",
 	name = "letter to Rolf (2)",
+	kr_display_name = "롤프에게 보내는 편지 (2)",
 	lore = [[Dear Rolf the Antslayer,
 
 Ha! Such trials you have overcome! Forget dragons and demons, here we have a hero who has survived against ants! I shall deliver this joyous news to Last Hope with all haste - perhaps there shall be a parade in your honour!
@@ -114,6 +120,7 @@ newLore{
 	id = "adventurer-letter-4",
 	category = "adventures",
 	name = "letter to Weisman (2)",
+	kr_display_name = "웨이스만에게 보내는 편지 (2)",
 	lore = [[Dearest Weisman,
 
 Sorry to cut your birdwatching session short, but I must bring this badinage to an end. I have tolerated your ridiculous pomposity and false heroics long enough. At first, I took your over-inflated tales of bothering local wildlife with good humour but now I realise, with dread, that you are sincere; you believe your pathetic wanderings to be the stuff of legend.
@@ -126,6 +133,7 @@ newLore{
 	id = "adventurer-letter-5",
 	category = "adventures",
 	name = "letter to Weisman (3)",
+	kr_display_name = "웨이스만에게 보내는 편지 (3)",
 	lore = [[Weisman,
 
 The tentacles. I still remember them. They have lashed into my mind as they lashed into my flesh. How can nature abide such a... a... being in her realm? What dark plane of existence could it have been born from? How can creation itself tolerate such an aberration?!
@@ -140,6 +148,7 @@ newLore{
 	id = "adventurer-letter-6",
 	category = "adventures",
 	name = "letter to Rolf (3)",
+	kr_display_name = "롤프에게 보내는 편지 (3)",
 	lore = [[Rolf,
 
 I can't remember anything from the fight save the sheer terror at being near something so horrid and powerful. There is no shame in running from a foe you cannot possibly hope to defeat, is there? Maybe ale from the tavern is a good idea, but maybe it is better to conquer your fear once and for all... I hope you can forgive me, but I must defeat this monster, if it takes me the rest of my life.
@@ -151,6 +160,7 @@ newLore{
 	id = "adventurer-letter-7",
 	category = "adventures",
 	name = "letter to Weisman (4)",
+	kr_display_name = "웨이스만에게 보내는 편지 (4)",
 	lore = [[Weisman,
 
 By my ancestors' profits I hope you receive this message in good health and spirits. Please, old friend - there is no need to impress upon me your valour, I know full well how courageous you are. Please, do not go after that... that thing! If I must drag you away physically, that is what I shall do, but I beg of you, please, consider another foe to fight!
@@ -162,6 +172,7 @@ newLore{
 	id = "adventurer-letter-8",
 	category = "adventures",
 	name = "Last Will of Rolf",
+	kr_display_name = "롤프의 마지막 의지",
 	bloodstains = 6,
 	lore = [[Last Will and Testament of Rolf Two-Axes
 
@@ -176,6 +187,7 @@ newLore{
 	id = "creation-elf",
 	category = "myths of creation",
 	name = "memories of Artelia Firstborn",
+	kr_display_name = "아르텔리아 퍼스트본의 기억",
 	lore = [[#{italic}#This scroll looks ancient, possibly going back millennia, but has been incredibly well-preserved.#{normal}#
 
 I remember when I first woke, and I drew my first breath, and the fresh young air of the world filled me with vitality. I opened my eyes, and above me stood a figure of outstanding radiance. She was tall and slim, crowned in silver hair that fell to the ground in silken tresses. Her skin was pale to the point of luminance, and her eyes were brighter than the stars.
@@ -195,6 +207,7 @@ newLore{
 	id = "creation-human",
 	category = "myths of creation",
 	name = "human myth of creation",
+	kr_display_name = "인간의 창조 신화",
 	lore = [[At the start of time Sun was born, and Moons, and Eyal raised from the Darkness.
 And Gerlyk walked Eyal with his three brothers.
 But one day Gerlyk walked alone and realised he was alone, and he desired company.
@@ -215,6 +228,7 @@ newLore{
 	id = "creation-halfling",
 	category = "myths of creation",
 	name = "a logical analysis of creation, by philosopher Smythen",
+	kr_display_name = "철학자 스미든의, 창조에 대한 논리적 분석",
 	lore = [[Many are the tales of how our world was made, from the absurd to the romantic to the horrific. But they are all mere myths, with no more than seeds of truth to even the most reliable. The history of our race goes back far, but it is tantalisingly scant in details from before we met the other races. Indeed, it is only through our battles with the others that we halflings have any ancient records at all.
 
 The elves one would suspect of having the greatest knowledge of elder times, but they are aloof and silent. One must judge from this that either they do not know, or that the truth ashames them. The latter would certainly not surprise me.
@@ -238,6 +252,7 @@ newLore{
 	id = "moons-human",
 	category = "eyal",
 	name = "Tale of the Moonsisters",
+	kr_display_name = "달의 자매 이야기",
 	lore = [[Eyal was raised from Darkness,
 And One came who made a blinding light called Sun,
 But Eyal flinched and said, "It is too bright!"
@@ -276,6 +291,7 @@ newLore{
 	id = "ancient-elven-ruins-note-1",
 	category = "ancient elven ruins",
 	name = "ancient papyrus scroll",
+	kr_display_name = "고대의 파피루스 두루마리",
 	lore = [[Death is nearing. I can feel her chilling breath down the back of my neck. So many of us firstborn have passed on already. I cannot allow it... I will not let myself rot into dirt like the others. I am the mightiest of the Shaloren - I have a right to life!
 ]],
 }
@@ -283,6 +299,7 @@ newLore{
 	id = "ancient-elven-ruins-note-2",
 	category = "ancient elven ruins",
 	name = "ancient papyrus scroll",
+	kr_display_name = "고대의 파피루스 두루마리",
 	lore = [[Death mocks my experiments. I can preserve the flesh of my servants, tightly wrapped and salted, treated with the correct chemicals. I can animate them, make them shuffle about the empty halls of my mausoleum. But they are but empty shells, devoid of any soul. Is this how my majesty is to end? I demand a greater fate...
 
 My days are numbered. Each night that passes saps strength from me. I must find the way to preserve my soul within my flesh. My greatness cannot be allowed to fade.]],
@@ -291,6 +308,7 @@ newLore{
 	id = "ancient-elven-ruins-note-3",
 	category = "ancient elven ruins",
 	name = "ancient papyrus scroll",
+	kr_display_name = "고대의 파피루스 두루마리",
 	lore = [[Death has met her match. My results are complete, and I am ready to step to the Beyond. I have my sword by my side, and its icy edge will freeze even the dark one in her tracks. My powers cannot be denied...
 
 Come, Death, try to lay your bony fingers on me! I will vanish before your very eyes and slice you apart! You and your agents are no threat to me. I am immortal!]],
@@ -305,6 +323,7 @@ newLore{
 	id = "races-0",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Introduction",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 서론",
 	lore = [[I set out here to give a full and complete analysis of all the intelligent races in Maj'Eyal. This is an ambitious project to say the least, but it is put together from a great many years labour, including travels across all the kingdoms and direct meetings with many of the highest rulers and most learned sages. I have drawn my findings from common knowledge, exclusive interviews, and studies of many thousands of pages of texts and histories, some going back dozens of centuries.
 
 I myself am a Higher human, in the employ of the court of King Tolak the Fair, but I have done my best to write all accounts from a purely neutral standpoint. I leave it to my peers to judge my success.
@@ -326,6 +345,7 @@ newLore{
 	id = "races-1",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 1 - Humans",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 첫 번째 장 - 인간",
 	lore = [[I begin my writings with a study of the humans, currently the most populous of the races in Maj'Eyal. The greatest kingdom in number are by far the Cornacs, but mention should also be made of the Sholtar and Mardrop kingdoms, and the Higher bloodline. The biggest human population centre is around the citadel of Last Hope, though many other settlements exist across all corners of Maj'Eyal.
 
 Cornacs are normally around 5'9", with generally dark hair, brown eyes and ruddy features. Most Cornacs take up roles as tradesmen, farmers, or other manual labour jobs. It is a sad fact that the majority of bandit groups tend to be dominated by Cornacs. Cornac families tend to be large, and since the Age of Dusk their population has expanded rapidly, especially in the farming lands in the west and around Last Hope in the south.
@@ -342,6 +362,7 @@ newLore{
 	id = "races-2",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 2 - Halflings",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 두 번째 장 - 하플링",
 	lore = [[There are two main kingdoms of halflings, the Eldoral and the Nargol, though both mix often. All halflings are just under 4' tall, and are generally noted for their large feet and curly hair. Eldoral are usually fair-haired and blue-eyed. Nargol tend to be darker in hair and complexion, with hazel eyes, and oft slightly shorter than their cousins. Halflings are known for their intelligence and quick wit, but also their arrogance in dealing with other races - something they do not deny, for they say it is well-deserved.
 
 Halflings used to be the most dominant race in Maj'Eyal, with control of many strategic Sher'Tul ruins and rule over great swathes of land. The recorded wars between humans and halflings are numerous, and the halflings were the most often victors. However the Age of Pyre brought them great ruin, for the orcs seemed to target them more fiercely than any other race, and many of their communities were wiped out. This has forced them to rely more on trade with other races in modern times, especially with the humans.
@@ -357,6 +378,7 @@ newLore{
 	id = "races-3",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 세 번째 장 - 드워프",
 	lore = [[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
 Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.
@@ -371,6 +393,7 @@ newLore{
 	id = "races-4",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 네 번째 장 - 샬로레",
 	lore = [[Though the elven races look very similar in appearance, they are extremely distinct in history, culture, mindset and many subtle physical traits, so I shall write of each of them separately. All elves are marked by their long, pointed ears and high cheek-bones, but other features can vary greatly. It should be noted that they call themselves as a whole "Elore", which means "siblings", yet the interactions between these brothers and sisters are oft strained.
 
 Shaloren (or Shalore - lit "siblings of grace") are on average 6'2", with bright hair and blue or purple eyes. They are usually slim and lightly built, more marked for their mental prowess than their physical strengths. They are however known to be extremely swift of movement and light of foot. But of particular note is their magical affinity, which is far stronger than any other race, and their intense powers of will.
@@ -385,6 +408,7 @@ newLore{
 	id = "races-5",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 5 - Thaloren",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 다섯 번째 장 - 탈로레",
 	lore = [[The Thaloren (or Thalore - lit "siblings of wrath") are on average 6'4", with dark brown hair and hazel or green eyes. They are generally of muscular build, and known for their physical prowess. They are renowned to be of a fey mindset - as quick to furious violence as they are to joyous song. Their relations with the Shaloren are particularly strained, as they strongly oppose their brethren's use of magic.
 
 Their capital city is Shatur, hidden deep within the northern woods, and they are loathe to let any outsiders even approach the surrounding forest. Archers and fighters carefully patrol their borders, ready to rain down death from the trees on any who encroach. Their leader is Queen Nessilla Tantaelen, and they are said to live in extensive dwellings carved into giant trees, but little else is known about their society.
@@ -397,6 +421,7 @@ newLore{
 	id = "races-6",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 6 - Naloren (extinct)",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 여섯 번째 장 - 날로레 (멸종)",
 	lore = [[The Naloren (or Nalore - lit "siblings of spirit") are now an extinct race, as their homeland was swept into the sea by the Cataclysm. However as a separate elf race they are worth studying, scant though the records be. Much of what is now said about the Naloren is traced with myth, but one can deduce certain facts.
 
 Naloren elves were around 5'10", with blonde hair and green eyes. They were incredibly thin, but known for their swift and dextrous capabilities. Their kingdom was located on the eastern side of Maj'Eyal, and all of their towns were on the sea or straddling major rivers. They employed themselves as fishermen, sponge-divers, sailors and musicians. They were renowned for being able to stay underwater for hours at a time, and those with arcane abilities were said to be able to stay submerged indefinitely.
@@ -409,6 +434,7 @@ newLore{
 	id = "races-7",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 7 - Orcs (extinct)",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 일곱 번째 장 - 오크 (멸종)",
 	lore = [[The orcs are, joyfully, extinct from Maj'Eyal, following the purge instigated by King Toknor the Brave at the start of the Age of Ascendancy. But an academic study of their previous culture and civilisation is still of interest, primitive though it may have been.
 
 Orcs were generally around 6'1", with green or black skin. They varied greatly in physical appearance and build, most likely due to their exceptionally fast breeding rates. The majority of orcs were thick-built and heavily muscled, well remembered as the stock grunts of their terrible armies. However in the Age of Pyre a greater number of thinner, stringier orcs appeared, oft versed in destructive magics.
@@ -423,6 +449,7 @@ newLore{
 	id = "races-8",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 8 - Sher'Tul (extinct)",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 여덟 번째 장 - 쉐르'툴 (멸종)",
 	lore = [[Ah, the legendary Sher'Tul! How any scholar does love to write about them. Indeed, the texts are many, but the facts are few, as so little is known about this crucible race. The most learned and factual academic on the subject is the renowned explorer and archaeologist Darwood Oakton, but he has alas been missing for several months at the time of writing. I will attempt to summarise here some of his key discoveries.
 
 The Sher'Tul lived over ten thousand years ago, during what is referred to as the Age of Haze. The name of the race we know from the elves, who speak of the ancient beings with awe and reverence, yet know little else about them. Ruins of fantastical Sher'Tul structures have been found all across Maj'Eyal, and some have been observed in sunken lands off the coasts, implying that in their time the Sher'Tul must have ruled unopposed all across the world.
@@ -437,6 +464,7 @@ newLore{
 	id = "races-9",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 9 - Monstrous Races",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 아홉 번째 장 - 괴물 종족들",
 	lore = [[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
 
 Trolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely.
@@ -451,6 +479,7 @@ newLore{
 	id = "races-10",
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Chapter 10 - Dragons",
+	kr_display_name = "지식의 대가 그레이낫의 종족 분석 연구 - 열 번째 장 - 용",
 	lore = [[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.
 
 Dragons come in many shapes and sizes, normally growing from 5' long hatchlings to 20' long mature drakes, with some of the greatest wyrms growing to over 40' in length. They are generally winged, with large lizard-like maws and sharp talons on both their fore and hind legs. They are often noted for the lustrous colour of their scales, normally representing an attunement to one of the key Elements of Eyal. This attunement is unseen in any other race, and some philosophers believe that dragons predate all other races, being formed as raw representations of the elements of nature at the beginning of the world. However this theory may be borne purely from the fanatical delusions of certain wyrmics who have studied the creatures for too long.
@@ -470,6 +499,7 @@ newLore{
 	id = "thaloren-lament",
 	category = "shatur",
 	name = "Lament for Lands now Lost", always_pop = true,
+	kr_display_name = "이제는 잃어버린 땅에 대한 애도의 노래",
 	lore = [[You see a moss covered statue of a Thalore reciting a poem, over and over.
 #{italic}#"Where bright and berried yews did stand,
 Where the eldest oaks grew so grand,
@@ -511,6 +541,7 @@ newLore{
 	id = "channelers-set",
 	category = "artifacts",
 	name = "Gifts of Nature",
+	kr_display_name = "자연의 선물",
 	lore = [[In Age of Allure rose an archmage high
 With power beyond compare
 And the people poor would not come nigh
@@ -565,6 +596,7 @@ newLore{
 	id = "dreamscape-entry",
 	category = "dreamscape",
 	name = "If I Should Die Before I Wake",
+	kr_display_name = "만약 잠에서 깨기 전에 내가 죽는다면",
 	lore = [[You wake suddenly from your unexpected slumber and attempt to quickly regain your bearings. However, you are not prepared for the bizarre vision that greets you: instead of land and sky you see only amorphous shapes and varying degrees of light. A strange psychedelic haze permeates the air and otherworldly colors and shadows flicker in and out of your peripheral vision. 
 As you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition.
 They all seem to be focused on something in particular, but what? Just as soon as you set your mind to discerning what your dreamselves are focusing on, you feel it. With horror, you realize that you are not alone here. 
@@ -577,11 +609,12 @@ newLore{
 	id = "loot-vault-empty", always_pop = true,
 	category = "vault",
 	name = "Mocking Note",
-	lore = [[Dear graverobber,
+	kr_display_name = "조롱하는 쪽지",
+	lore = [[친애하는 도굴꾼 님에게,
 
-Try to be a little faster next time.
+다음 번에는 조금 더 서두르시길.
 
-Love, #{italic}#Eden#{normal}#]]
+사랑을 담아, #{italic}#에덴#{normal}#]]
 }
 
 --------------------------------------------------------------
@@ -592,6 +625,7 @@ newLore{
 	id = "zquikzshl",
 	category = "boss",
 	name = "Z'quikzshl",
+	kr_display_name = "즈'퀵즈쉴",
 	lore = [[#{italic}#(The handwriting of this diary entry is poor at best. Whoever wrote this was in poor health.)
 
 #{bold}#53rd Allure, Year 603 of the Age of Pyre#{normal}#
@@ -608,6 +642,7 @@ newLore{
 	id = "walrog",
 	category = "boss",
 	name = "Walrog",
+	kr_display_name = "왈록",
 	lore = [[Dirge of the Naloren
 
 There once was a village

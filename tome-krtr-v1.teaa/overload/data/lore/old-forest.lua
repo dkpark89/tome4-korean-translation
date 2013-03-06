@@ -25,6 +25,7 @@ newLore{
 	id = "old-forest-note-1",
 	category = "old forest",
 	name = "journal entry (old forest)",
+	kr_display_name = "오래된 숲에서 발견한 일지",
 	lore = [[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER ONE: THE SHER'TUL
 
@@ -39,6 +40,7 @@ newLore{
 	id = "old-forest-note-2",
 	category = "old forest",
 	name = "journal entry (old forest)",
+	kr_display_name = "오래된 숲에서 발견한 일지",
 	lore = [[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER TWO: ANCIENT RUINS
 
@@ -49,6 +51,7 @@ newLore{
 	id = "old-forest-note-3",
 	category = "old forest",
 	name = "journal entry (old forest)",
+	kr_display_name = "오래된 숲에서 발견한 일지",
 	lore = [[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER THREE: DISASTER!
 
@@ -59,6 +62,7 @@ newLore{
 	id = "old-forest-note-4",
 	category = "old forest",
 	name = "journal entry (old forest)",
+	kr_display_name = "오래된 숲에서 발견한 일지",
 	lore = [[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER FOUR: NEEDS MUST...
 
@@ -69,6 +73,7 @@ newLore{
 	id = "old-forest-note-5",
 	category = "old forest",
 	name = "journal entry (old forest)",
+	kr_display_name = "오래된 숲에서 발견한 일지",
 	bloodstains = 12,
 	lore = [[#{italic}#From the notes of Darwood Oakton, explorer:
 #{bold}#CHAPTER FIVE: HORR...

@@ -25,6 +25,7 @@ newLore{
 	id = "rhaloren-note-1",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
+	kr_display_name = "랄로레 야영지에서 발견한 편지",
 	lore = [[We must be on guard. The Council of Elders is desperate to find us, to hunt us down and suppress us. But we will not be suppressed. We have our rights! Their scouts try to track us down, and their spies try to infiltrate our numbers. They cannot accept any others having power, or any voice but their own being heard.
 
 We have split away from our people, and we follow our own path now. We are outcasts. They call us renegades, anarchists; they think of us as nothing but vermin to be crushed underfoot. But we will not endure their cruel suppression. Our voice will be heard across the world and they shall recognise a new race of power - the mighty Rhaloren!
@@ -37,6 +38,7 @@ newLore{
 	id = "rhaloren-note-2",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
+	kr_display_name = "랄로레 야영지에서 발견한 편지",
 	lore = [[The Scintillating Caverns must be protected. Our great leader has ordered it so, and his word is more binding than any law. Our numbers are few, and we must move in secrecy, but a quiet watch will be made on the caverns. Any who are seen to interfere in them must be lured here to our place of strength, and brought before me for inquisition.
 
 More have joined our cause. Their eyes have been opened to the injustice our people have suffered, blamed by the other races for the Spellblaze and its effects. They are sick of the cowardice of the Council, who sit in silence as we are scorned and hated across the world. But most of all they are inspired by our great leader, and the powers he has gained from studying the Spellblaze. He alone realizes our full potential, he alone can see in our hearts what we are truly capable of. He has blessed me, rescued me from a tortured life and touched me with his power. Only he can lead our people! With his mastery the world will see our strength and recognise us as a true force to be reckoned with.
@@ -50,6 +52,7 @@ newLore{
 	id = "rhaloren-note-3",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
+	kr_display_name = "랄로레 야영지에서 발견한 편지",
 	lore = [[For too long we have been taught that the Spellblaze was a tragedy, that we are responsible for the deaths of millions and for suffering across the world. These are lies! Lies spread to defame us, to prevent our people from using magic to its rightful degree. The lesser races are jealous of our powers, of our amazing potential, and so they think to keep us underfoot, to stop us from ascending to our rightful place in the world. They fear us.
 
 The truth is that the Spellblaze was an experiment that went wrong. Many of our greatest mages died from the resulting energies, and some lands nearby were set ablaze. But there was no loss of life amongst the other races - it is their own wars that caused that, and their own squalid societies that brought about the plagues that followed. Many centuries later a great natural earthquake occurred that tore the lands apart, and the other races had the audacity to blame that on us.
@@ -66,6 +69,7 @@ newLore{
 	id = "rhaloren-note-4",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
+	kr_display_name = "랄로레 야영지에서 발견한 편지",
 	lore = [[I have great news! Our glorious leader has written to me, telling me of his travels. He is on a great pilgrimage, a holy quest to discover more about the Spellblaze and its powers, so that we may show the truth about it to the world. It is a quest fraught with peril, for we have many enemies in the world. But by his powers he cannot fail. He cannot! He cannot...
 
 One day soon he will return to us, and bring us to our proper glory. Look forward to that great time, when he is amongst us once more. Be ready for that moment when he stands tall before us and looks at us with his deep eyes... Work hard now and be attentive in your duties, so that we may make him proud. We fight for him, we struggle for him, and if needs be we will die for him. He is our hope and our glory, and the only joy we have in this dispassionate world.
@@ -78,6 +82,7 @@ newLore{
 	id = "rhaloren-note-5",
 	category = "rhaloren",
 	name = "carefully preserved letter (rhaloren camp)",
+	kr_display_name = "랄로레 야영지에서 발견한, 소중하게 보관된 편지",
 	lore = [[My dearest,
 
 I hope this letter finds you well. I worry for you, so close to the city, so vulnerable should they find our base... But I trust in your strength, and I know you will be safe. Yet should anything happen...

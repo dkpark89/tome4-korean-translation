@@ -25,6 +25,7 @@ newLore{
 	id = "iron-throne-profits-1",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Allure",
+	kr_display_name = "철의 왕좌의 손익 역사 : 매혹의 시대",
 	lore = [[#{bold}#3800: #{normal}#Gold accepted as standard unit of currency amongst all races after heavy lobbying. This is greatly to our favour, as our vein resources are high and the material otherwise has no practical usage. Must continue to stockpile more.
 #{bold}#4200: #{normal}#New smelting techniques developed allow more stralite to be recovered from existing veins. Techniques must be kept hidden from other races.
 #{bold}#4362: #{normal}#Grand Smith Dakhtun has discovered new methods of infusing magical effects in weapons and armour. Potential for profit growth in this area very high.
@@ -41,6 +42,7 @@ newLore{
 	id = "iron-throne-profits-2",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Dusk",
+	kr_display_name = "철의 왕좌의 손익 역사 : 황혼의 시대",
 	lore = [[#{bold}#412: #{normal}#Diseases and food shortages force increased trade with other races. For the first time in our great history we are in the red. Morale amongst the people is at an all-time low, and is badly affecting productivity.
 #{bold}#1430: #{normal}#Several mages visited and used their arts to cure many of the plagues we have suffered for centuries. When offered payment they refused. How very odd...
 #{bold}#1490: #{normal}#Production now nearing pre-Spellblaze levels. Profits high, and commerce with other races increasing.
@@ -51,6 +53,7 @@ newLore{
 	id = "iron-throne-profits-3",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Pyre",
+	kr_display_name = "철의 왕좌의 손익 역사 : 장작더미의 시대",
 	lore = [[#{bold}#240: #{normal}#Market forecasts recovering better than expected. Increasing expansion in external trade areas.
 #{bold}#490: #{normal}#Orcish attacks have become much worse - seem to be using higher magic and some demonic forces. Potential threat to resources.
 #{bold}#581: #{normal}#Several key cities overwhelmed from underground by attacks from orcs and strange horrors. Have collapsed lower caverns to prevent further penetration. Working on continued resource protection measures.
@@ -63,6 +66,7 @@ newLore{
 	id = "iron-throne-profits-4",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Ascendancy",
+	kr_display_name = "철의 왕좌의 손익 역사 : 주도의 시대",
 	lore = [[#{bold}#28: #{normal}#Mutual defence treaty signed with newly formed Allied Kingdom, and further trade routes opened. Highest ever recorded profit in final quarter of this year.
 #{bold}#115: #{normal}#Noted a return of an orcish presence in the collapsed caverns beneath the Iron Throne. Also increased reports of horrors and demons affecting mining operations. Key strategic decision taken: these must be kept hidden from the other races. Uncertainty will only destabilise the markets. Increase stockpiles of weapons and armour, especially voratun and stralite materials, in case of new war trade.
 #{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]],
@@ -72,6 +76,7 @@ newLore{
 	id = "iron-throne-reknor-edict",
 	category = "iron throne",
 	name = "Iron Throne Edict",
+	kr_display_name = "철의 왕좌 칙령",
 	lore = [[#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#
 
 The rumours you have heard are true. It is with a heavy heart that I confirm one of our mines, Reknor, has been overtaken and inhabited by a large and organised orcish force. How there could be such a decisive and total failure on our part to stop this threat remains a mystery - the source of the orcish invasion remains unknown. A battalion of soldiers will form a defensive perimeter around Reknor until a force to retake the mine and exterminate the orcs can be mustered. All civilians residing within the surrounding halls are to be evacuated.
@@ -83,6 +88,7 @@ newLore{
 	id = "iron-throne-trade-ledger",
 	category = "iron throne",
 	name = "Iron Throne trade ledger",
+	kr_display_name = "철의 왕좌 거래 대장",
 	lore = [[#{bold}#IRON THRONE TRADE LEDGER - Allied Kingdom#{normal}#
 #{italic}#Age of Ascendancy, 121#{normal}#
 
@@ -116,7 +122,7 @@ yes to diamonds. arm our merchants in the caravan, no extra guards. profits are 
 newLore{
 	id = "iron-throne-last-words",
 	category = "iron throne",
-	name = "Iron Throne Reknor expedition, last words",
+	name = "철의 왕좌의 레크놀 탐험대가 남긴 유언",
 	lore = [[...We are lost. The orcish forces are too great. No matter how many our squad slays, yet more surge from the depths. Where are the cursed creatures coming from?! We have spied their leader, but have had no hope in killing him; he is a beast, a destroyer, burning with fire infernal and ice cruel and chilling. The power these orcs wield now fills me with dread... perhaps they have found new, mighty allies? This news must reach our ruler. My comrades... I am sorry. I will flee once the opportunity arises, but know that your sacrifices will not be in vain. Long may our empire endure.]]
 }
 
@@ -128,6 +134,7 @@ newLore{
 	id = "deep-bellow-1",
 	category = "iron throne",
 	name = "Deep Bellow excavation report 1",
+	kr_display_name = "깊은 울림 발굴 보고서 1",
 	lore = [[10 days into initial site survey, hmm! Recent tremors have opened deep new chasms, but we must work cautiously to ensure they're stable before conducting major operations, oh yes! Proceeding well at start, with supports being put in place and no flammable gases detected, hmm hmm.
 
 Some Sher'Tul relics have been found. Perhaps great profit to be had here! High margins on Shaloren market, yes yes.
@@ -141,6 +148,7 @@ newLore{
 	id = "deep-bellow-2",
 	category = "iron throne",
 	name = "Deep Bellow excavation report 2",
+	kr_display_name = "깊은 울림 발굴 보고서 2",
 	bloodstains = 3,
 	lore = [[Chasms go deep, yes yes. More relics found, oh yes. Will be mighty profitable! But ah, my secret treasure is even better, indeed! Gold! Beautiful lovely gold, buried deep, so deep... Have kept it hidden, sealed, yes. Looks like the remains of a giant throne. I touched it, yes, I even put my lips to it - ahhh, the taste!
 
@@ -155,6 +163,7 @@ newLore{
 	id = "deep-bellow-3",
 	category = "iron throne",
 	name = "Deep Bellow excavation report 3",
+	kr_display_name = "깊은 울림 발굴 보고서 3",
 	bloodstains = 12,
 	lore = [[Hah, my mouth, it tastes, it feels, hmm hmm. It grows, yes yes! The others are changing, flying, screaming, squelching, warping. Bad for profit, hmm hmm. My teeth, they grow, they hunger, yes. They want to escape!
 

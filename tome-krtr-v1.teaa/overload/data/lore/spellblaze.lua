@@ -24,19 +24,18 @@
 newLore{
 	id = "grand-corruptor-draft",
 	category = "spellblaze",
-	name = "draft letter (mark of the spellblaze)",
-	lore = [[Dear Father,
+	name = "휘갈겨쓴 편지 (마법폭발의 흔적)",
+	lore = [[친애하는 아버지에게,
 
-How glad you must be to hear from your "renegade" son. Do not worry overmuch; I keep myself and my group well hidden from your petty Council. I know how you fret about your status amongst those fools.
+당신의 *변절한* 아들의 소식을 들으니 기분이 어떠신지요. 저에 대해 그리 걱정하지는 마시지요. 저는 저 자신과 제 무리를 당신의 하찮은 평의회로부터 지키고 있으니까요. 전 당신이 그 멍청이들 가운데서 얼마나 당신 자리를 걱정하고 있을지 잘 압니다.
 
-I write to you to tell you that I have discovered something wonderful. In all my travels I could not have imagined a place so perfect as this. It is a remnant of the Great Spellblaze, a scar in the very fabric of Eyal. How beautiful it is! Ah, and what strength lies here too! You cannot possibly imagine, sitting idly in your little hall of stone.
+저는 제가 발견한 무언가 놀라운 것을 말씀드리기 위해 이 편지를 쓰고 있습니다. 제 모든 여행을 통틀어, 저는 이처럼 완벽한 장소를 본 적이 없어요. 바로 거대한 마법폭발의 잔해, 에이알의 근간 속에 남겨진 상처 말이죠. 이 얼마나 아름다운지! 아, 그리고 어떤 종류의 힘 또한 이곳에 잠들어 있습니다! 당신의 그 작은 석재 회당에 멍청하게 앉아서는 상상조차 할 수 없을 힘 말이죠.
 
-You are wrong about the Spellblaze, of this I am certain. Seeing this has opened my eyes fully. The success of our ancestors cannot be denied! The power unleashed was tremendous, and still it lasts, 2646 years later. So much power still remains, untapped! You ramble on about the destruction it caused, but I cannot help but think you are exaggerating about the deaths. And were not the orcs also defeated? The grand purpose was achieved. Oh, you prattle about the plagues and blights, but I have seen how those dirty humans live, and those halflings in their grimy holes. Pestilence is rife amongst them. Besides, it seems clear to me that a little help from natural selection can only serve to improve the lesser races. Indeed, I have done some experiments which show just that. But alas, I think with your short vision you would only be disgusted by my advances.
+마법폭발에 대한 당신의 생각은 틀렸어요. 그리고 저는 확실하죠. 이것을 보니 제 눈이 완전히 뜨이는군요. 우리 조상님네들의 성공은 더 이상 부정될 수 없을겁니다! 벌써 2,646 년이 흘렀음에도, 해방된 이 엄청난 힘은 여전히 이곳에 남아있습니다. 그 많은 힘이 여전히 많이 남아있습니다. 그 때의 힘 그대로! 당신은 마법폭발이 초래한 파괴에 대해 지루하게 늘어놓았지만, 저는 당신이 죽음에 대해 지나치게 과장하고 있다고 밖에는 생각되지 않는군요. 게다가 오크들 또한 패배하지 않았다고요? 위대한 목적이 성취되었군요. 오, 당신은 역병과 황폐화에 대해 떠들어댔지만 전 더러운 인간들이 어떻게 사는지, 하플링들의 은신처가 얼마나 더럽혀졌는지 보았습니다. 전염병은 그들 가운데서 퍼지고 있습니다. 자연적인 선택과 도태만이 이 덜떨어진 종족들을 발전시킬 수 있다는 것이 저에겐 명백해 보이는군요. 게다가, 저는 그것을 보여줄 수 있는 몇몇의 실험을 막 끝냈습니다. 그러나 슬프게도 당신의 짧은 시야로는 제 충고를 역겹게 받아들일 뿐이라는 생각이 드는군요.
 
-My Rhaloren have come far in the world, and we have learned many things. Oft we have had to flee the terrible Ziguranth and their Death Wilders, but we have pulled through by force of will and grown stronger every day. Here our pilgrimage ends, for here is where we shall truly come into being. You should hear the voices here, screaming from the other side. You should hear their glorious cacophony! The Spellblaze is almost complete; it only needs our gentle push to bring everything to full fruition. The walls between worlds have been worn thin here, and with my strength we can break through to realms of power beyond belief. Such power I shall have! And with it I shall rend forces through this broken world that shall make the Spellblaze seem a happy memory. Eyal will be put to right, and our mighty place restored at the head of all other races! For the Rhaloren this shall truly be the Age of Ascendancy. For the lesser races, herewith comes their Age of Torment.
+제 랄로레 동료들은 저 멀리에 있는 세계에서 왔습니다. 그리고 우리는 많은 것들을 배웠습니다. 우리는 종종 끔찍한 지구르 추종자들과 빌어먹을 자연의 추종자들로부터 도망쳐야만 했습니다. 그러나 우리는 의지의 힘으로 나아갔으며, 메일 강하게 성장해왔습니다. 그리고 마침내 이곳에서 우리의 순례는 끝나고, 이곳은 우리가 진실로 다시 태어날 장소가 될 것입니다. 당신은 이곳에서 시작되어, 저편으로 퍼져가는 목소리와 비명을 듣게 될 겁니다. 당신은 그들의 영광스러운 불협화음을 들어야만 합니다! 마법폭발은 거의 완성되었습니다. 이제 완전한 성과를 위해서 우리가 할 일은 그저 가볍게 밀어주는 것 뿐입니다. 세계 사이의 벽은 이곳에서 얇아지고 없어집니다. 그리고 제 힘으로 우리는 믿음을 초월하여 힘의 왕국에 들어갈 수 있게 될 것입니다. 그런 힘을 제가 가질 거라고요! 그리고 이 힘으로 저는 마법폭발의 시기를 행복한 추억으로 보이게 할 정도로, 이 부서진 세계에 힘을 행사할 것입니다. 우리는 모든 다른 종족들의 위라는 자리를 복구하게 될 것이고, 이로써 에이알 세계도 제자리를 찾게 될 것입니다. 우리 랄로레들에게 있어 진정한 '주도의 시대' 가 열리게 될 것입니다. 다른 하등한 종족들에게는, 고통의 시대가 되겠지만요.
 
-As I write to you our final plans are in motion. Sleep well when you read this, for it may well be your last night before the Great Torment begins.
+제가 당신에게 이 편지를 쓰는 동안, 우리는 마지막 계획에 들어갔습니다. 이걸 읽은 뒤에는, 잘 자두는게 좋을 겁니다. 어쩌면 오늘 밤이 거대한 고통이 시작되기 전의 마지막 밤이 될지도 모르니까요.
 
-With passionate detest,
-Your disobedient son]],
+열정적인 증오를 담아, 당신의 반항적인 아들이.]],
 }
