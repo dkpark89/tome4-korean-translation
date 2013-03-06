@@ -53,10 +53,10 @@ newLore{
 	name = "tattered paper scrap (trollmire)",
 	kr_display_name = "트롤 늪에서 발견한 낡은 종이 조각",
 	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
-	
+
 "...나무 위에서 이것을 쓴다. 그는 나무 아래에서 나를 기다리고 있다. 그의 몽둥이는 큰 드워프 만큼이나 크다. 여기서 빠져나갈 방법이 생각나지 않는다..."
 
-주변에 마구 흩어진 피뭍은 종이 조각들이, 마치 이 늪의 일부인 것만 같다...]],
+주변에 마구 흩어진 피묻은 종이 조각들이, 마치 이 늪의 일부인 것만 같다...]],
 	bloodstains = 3,
 	on_learn = function(who)
 		local p = game:getPlayer(true)
