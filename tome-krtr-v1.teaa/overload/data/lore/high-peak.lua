@@ -21,6 +21,7 @@ newLore{
 	id = "closing-farportal",
 	category = "high peak",
 	name = "closing the void farportal", always_pop = true,
+	kr_display_name = "공허의 관문 닫기",
 	image = "closing_farportal.png",
-	lore = [[The void farportal is closed, preventing untold horrors from assaulting Eyal.]],
+	lore = [[공허의 관문을 닫아, 말할 수 없는 공포가 에이알 세계를 침략하지 못하게 막았습니다.]],
 }
