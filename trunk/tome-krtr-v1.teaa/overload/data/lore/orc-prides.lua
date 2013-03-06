@@ -24,6 +24,7 @@ newLore{
 	id = "grushnak-pride-note",
 	category = "orc prides",
 	name = "Grushnak's Note",
+	kr_display_name = "그루쉬낙의 쪽지",
 	lore = [[Treachery! During a patrol around the outskirts of the High Peak I witnessed two orcs - the envoys from our supposed "master" - talking in secret. Remaining to watch them, I beheld as their orcish features sloughed from their bodies, revealing a pair of human wizards! Humans! To think that our great pride has been deceived in such a manner! I should have crushed their skulls there and then. However, mages can be crafty, so I left them to their scheming.
 
 Even now the blood runs hot! What would Garkul, our mighty berserker king, think if he saw our great race bending before humans?! Many times I have entertained the idea of taking a group of my finest warriors and ending this folly, but... loathsome as it is, I must use tact. A rebellion would leave my pride weakened, easy prey. That bone-picker Rak'Shor and his unnatural creations have dreamed of my death (and subsequent dominion) for years, I know this to be true. This conundrum frustrates and confuses! ... At least we are agreed on one matter - the total destruction of those sun-worshipping dogs of the Gates of Morning...]],
@@ -33,6 +34,7 @@ newLore{
 	id = "rak-shor-pride-note",
 	category = "orc prides",
 	name = "Rak'Shor's Note",
+	kr_display_name = "락'쇼르의 쪽지",
 	lore = [[The eyes of the dead bring interesting news to me. Our masters are not what they appear; they are human, simply masquerading as orcs in our presence. I might have suspected this... it is difficult to disguise the basic weakness and frailty of a human soul, even with complex spells. Their goals elude me, yet I sense strange energies in the vicinity of the High Peak - the voices of spirits long departed from this world... some not from this world at all.
 
 But this is foolishness compared to my current trials. Gorbat remains as obstinate as ever, the dragon-loving, scale-shining buffoon. He thinks that dragons are special, different, not suitable for my craft. I care not for his prattling, I desire the corpses of dragons! Mountains of them! How can his heart not beat a little faster at the prospect of a dracozombie?! The mere thought of it is enough to send delightful shivers down my spine...]],
@@ -42,6 +44,7 @@ newLore{
 	id = "gorbat-pride-note",
 	category = "orc prides",
 	name = "Gorbat's Note",
+	kr_display_name = "고르벳의 쪽지",
 	lore = [[My dragons bring news. They witnessed humans upon the High Peak, speaking of their mastery over our prides. They did not heed my dragons, unwitting of their ability to communicate with me. Now I possess this information, I must think deeply on how to proceed regarding our "masters". Many of my finest wyrmics wish to rise up against our deceivers, see them consumed in wyrmfire. Even some of my dragons have divulged this wish to me. Sadly, this must wait.
 
 Vor's insolence will be tolerated no longer! His claims that his pride's mastery over the elements surpasses that of the dragons is insult enough, but this...! Some of my finest dragons, my glorious multi-hued wyrms, have been captured and held within their armouries in the hopes that they can further their twisted mockeries of fire and ice! This will not stand! I must ignore the plots of our human deceivers for the moment, for Vor requires my full attention.]],
@@ -51,6 +54,7 @@ newLore{
 	id = "vor-pride-note",
 	category = "orc prides",
 	name = "Vor's Note",
+	kr_display_name = "보르의 쪽지",
 	lore = [[Strange lights play atop the High Peak. Torches? Nay. The fire of dragons? Not so. A volcanic eruption, perchance? Alas, no. It is unmistakably the fire of the arcane, the fire of mages, and seeing as every pyromancer within our pride is under my dominion, I can only assume that these lights come from one not affiliated with us. The lights are fascinating, I wish to study them; they put me in mind of the fires of the Spellblaze, burning so very long ago...
 
 Sadly, such desires are denied to me at this moment. Plans are in motion, and we are scant weeks away from finally crushing the accursed sun paladins and their tin-plated harlot ruler. Even once the Sunwall lies in ruins I must be careful - the horde of sub-orc savages Grushnak calls a pride are ever at my door, claiming we do not follow Garkul's "true path". He is a fool, but dangerous, and I must be vigilant.]],
@@ -64,6 +68,7 @@ newLore{
 	id = "orc-history-1",
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part one",
+	kr_display_name = "지식 관리인 하닥의 첫 번째 기록",
 	lore = [[Our history is a history of battles, a history of wars. We orcs have always been under attack from the other races, always having to defend ourselves against their ruthless advances. The other races paint us as evil, they think of us as purely beasts. Not so! If we are cruel, it is because they made us cruel. If we are heartless, it is because they ripped our beating hearts from our chests and stamped them beneath their feet!
 
 It was the halflings we first did war with, in the Age of Allure. We were weak then, and disorganised, and in their arrogance they sought to enslave us. But we fought back! And we have been fighting back ever since. They used magic on us, though we had never come in touch with the arts before. They used whips and chains and tried to beat us down. They used us for labour, butchering any young that were not strong enough for them, burning any constructions we tried to make for ourselves.
@@ -76,6 +81,7 @@ newLore{
 	id = "orc-history-2",
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part two",
+	kr_display_name = "지식 관리인 하닥의 두 번째 기록",
 	lore = [[After fighting back the other races we began to build and prosper. Finally we had our own towns and cities, and we began to advance our own abilities. Though battles were still ongoing at our borders we were free to thrive and prosper.
 
 But then the accursed Shaloren mages began experimenting with Sher'Tul ruins. Oh what a dark and terrible a day it was for our race! The Spellblaze massacred our people. Earthquakes tore up our new-built towns, fires raged over old and young alike, and the whole world was turned to turmoil. Afterwards disease and blight ravaged our people, utterly ruining all the progress we had made.
@@ -88,6 +94,7 @@ newLore{
 	id = "orc-history-3",
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part three",
+	kr_display_name = "지식 관리인 하닥의 세 번째 기록",
 	lore = [[During the Age of Dusk we lay hidden, nursing our wounds and plotting our revenge. But this turned against us, as centuries after the Spellblaze had torn our race apart, the Cataclysm would bring ruin upon us again. We were finally recovering our numbers when earthquakes tore through all of our settlements. Falling rocks crushed and smothered us, thousands of us were left trapped to die beneath the ground. What few of us were left came out to a changed world.
 
 The effects of magic left a grave impression on us then, and we knew we must learn its secrets in order to compete. For centuries we studied the effects of the Spellblaze, and captured enemy mages to experiment on them. Finally we were able to master the arts of magic and use them for ourselves. We built up our capabilities in secret, waiting for the right moment to strike a decisive vengeance. Garkul the Devourer, the greatest of our race, brought the plans to fruition. Under his awe-inspiring leadership we marched out upon the halfling kingdoms and burnt all before us. What glorious retribution we had! Whole cities were felled beneath our wrath. Everywhere we went we piled the bodies of our victims high and lit them in blazing pyres, as a symbol of our indomitable strength.
@@ -100,6 +107,7 @@ newLore{
 	id = "orc-history-4",
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part four",
+	kr_display_name = "지식 관리인 하닥의 네 번째 기록",
 	lore = [[How greatly our race advanced during the Age of Pyre! Truly none of the weaker races can compare. For it was vengeance that drove us, and so fervently we pursued our goals at the thought of our just retribution on the races that had punished us and beaten us for so long before.
 
 During the Age of Pyre we discovered the farportal, deep beneath the dwarven cities. We were more cautious than the foolish elves before us, and managed to harness the portal's power to open a gateway to the lost east. We sent military forces over, and easily beat back the puny elves and humans that were hoveling there already. We established the Prides there - training camps for our soldiers where they could hone their battle skills before returning to fight the wars in the west.
@@ -112,6 +120,7 @@ newLore{
 	id = "orc-history-5",
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part five",
+	kr_display_name = "지식 관리인 하닥의 다섯 번째 기록",
 	lore = [[The humans and the halflings made an alliance to defend their kingdoms, and soon the elves and the dwarves joined too, and we were pushed back. Our tactics became increasingly defensive as they made greater advances into our territory.
 
 We fought well and hard, but we were not prepared for the terrible tactics they would use. Instead of attacking our military bases they went for our towns and cities, killing all of our civilians. Babes were slaughtered in their mother's arms, and every last woman and child was hunted down and murdered. It was genocide of the highest order.
@@ -132,6 +141,7 @@ newLore{
 	id = "garkul-history-1",
 	category = "orc prides",
 	name = "The Legend of Garkul",
+	kr_display_name = "가르쿨의 전설",
 	lore = [[#{bold}#Chapter One: A Young Warrior#{normal}#
 
 #{italic}#"Without hardship you cannot have strength. Only through pain do we truly learn. Our race has lived through war and fire and pestilence, and each one has made us stronger. Each trial we overcome brings us to greater strength."
@@ -159,6 +169,7 @@ newLore{
 	id = "garkul-history-2",
 	category = "orc prides",
 	name = "The Legend of Garkul",
+	kr_display_name = "가르쿨의 전설",
 	lore = [[#{bold}#Chapter Two: Rise of the Devourer#{normal}#
 
 #{italic}#"There are no such things as obstacles, no such things as impossibilities. When a problem presents itself you use your head and your fists, and you remove the problem. If you cannot punch you kick, and if you cannot kick you bite, and you do not unclench your jaws until the thing that was a problem is a problem no more."
@@ -194,6 +205,7 @@ newLore{
 	id = "garkul-history-3",
 	category = "orc prides",
 	name = "The Legend of Garkul",
+	kr_display_name = "가르쿨의 전설",
 	lore = [[#{bold}#Chapter Three: Bringer of Pyre#{normal}#
 
 #{italic}#"Fire is a symbol all races understand. To burn is to destroy utterly. When I conquer I leave behind fire - every house, every field, every corpse, burnt to a cinder. This is a sign of our dominance, and the word of it spreads amongst our enemies. To them I become a living, unquenchable flame, and the sight of my army fills them with the dread of incineration."
@@ -219,6 +231,7 @@ newLore{
 	id = "garkul-history-4",
 	category = "orc prides",
 	name = "The Legend of Garkul",
+	kr_display_name = "가르쿨의 전설",
 	lore = [[#{bold}#Chapter Four: Conqueror of West and East#{normal}#
 
 #{italic}#"Our strength must come through our pride, and our pride must rise from our strength. Many are our powers and abilities, and we are unified in our pride of them. Be proud in our great race and revel in the glories we can achieve together."
@@ -242,6 +255,7 @@ newLore{
 	id = "garkul-history-5",
 	category = "orc prides",
 	name = "The Legend of Garkul",
+	kr_display_name = "가르쿨의 전설",
 	lore = [[#{bold}#Chapter Five: Fall of the Mighty#{normal}#
 
 #{italic}#"A true warrior never dies. His fall may come on the battlefield, but it is a fall to inspire all others who follow him. He lives on in their every thrust, every parry, every swipe. Whilst blood still spills in his name a warrior is immortal."
@@ -281,6 +295,7 @@ newLore{
 	id = "orc-breeding-1",
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part one",
+	kr_display_name = "임상의 코르벡의 첫 번째 실험 기록",
 	lore = [[#{bold}#Clinician Korbek's experimental notes part one#{normal}#
 
 What a dread and woeful task I have been given - the revival of our race. The swine humans and halflings have destroyed our whole society, and only the brutes of the military remain to rule our people. We are left with just a handful of women left, and without drastic measures we shall soon be extinct.
@@ -294,6 +309,7 @@ newLore{
 	id = "orc-breeding-2",
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part two",
+	kr_display_name = "임상의 코르벡의 두 번째 실험 기록",
 	lore = [[#{bold}#Clinician Korbek's experimental notes part two#{normal}#
 
 I have begun work on several of the females. They are being kept in a coma for the duration of the experiments - it's far better that way. Initially I have subjected them to very high levels of wild infusion and arcane regeneration fields, whilst also keeping a direct feed into their stomachs high in protein. Corrupted blood is being pumped into their ovaries with a temporal acceleration field surrounding them. The leaders of each Pride have donated their seed for use in the experiments.
@@ -307,6 +323,7 @@ newLore{
 	id = "orc-breeding-3",
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part three",
+	kr_display_name = "임상의 코르벡의 세 번째 실험 기록",
 	lore = [[#{bold}#Clinician Korbek's experimental notes part three#{normal}#
 
 My work is continuing with tremendous success. All subjects now have multiple operational wombs, thanks to the corrupted blood infusions coupled with arcane regeneration fields to quickly repair the corrupted tissues. With greater advances in accelerating the foetal growth stage we are now seeing new orcs every few days! I believe this can be pushed even further.
@@ -320,6 +337,7 @@ newLore{
 	id = "orc-breeding-4",
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part four",
+	kr_display_name = "임상의 코르벡의 네 번째 실험 기록",
 	lore = [[#{bold}#Clinician Korbek's experimental notes part four#{normal}#
 
 Oh horrors... Oh black bilious terrors! What have I done? What vile and black sin have I done?!
@@ -335,6 +353,7 @@ newLore{
 	id = "orc-breeding-5",
 	category = "orc prides",
 	name = "Captain Gumlarat's report",
+	kr_display_name = "대장 굼라랏의 보고",
 	lore = [[#{bold}#Captain Gumlarat's report#{normal}#
 
 I have found clinician Korbek's body in his study. It seems he slit his own throat. This would explain the lack of reports in the last few days.

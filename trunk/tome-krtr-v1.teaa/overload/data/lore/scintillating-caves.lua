@@ -25,6 +25,7 @@ newLore{
 	id = "scintillating-caves-note-1",
 	category = "scintillating caves",
 	name = "research journal part 1",
+	kr_display_name = "첫 번째 연구 기록",
 	lore = [[I have been given permission to explore the scintillating caves to the east. Normally they are sealed off, but having a father on the council has its uses, even if he is normally a dumb buffoon...
 
 These caves are the site of where the Spellblaze began. An ancient Sher'Tul farportal lay buried here, and our ancestors tapped into that power to their destruction. Many of the greatest Shaloren mages stood here, and when the energies beyond comprehension erupted they were all annihilated instantly. It was a terrible loss to our people - such knowledge and power lost forever!
@@ -39,6 +40,7 @@ newLore{
 	id = "scintillating-caves-note-2",
 	category = "scintillating caves",
 	name = "research journal part 2",
+	kr_display_name = "두 번째 연구 기록",
 	lore = [[I have definitely seen crystals move of their own volition here, and some even seem capable of producing magical effects in self-defence. They are no threat to me whatsoever - my arcane powers are far beyond whatever latent magic seems to possess these things.
 
 Possession... is what it almost seems like. These crystals are not natural. I have broken some down and studied them, and the very structure of the material seems vastly distinct from any other I have seen. I have even studied Sher'Tul relics in the Academy and this is most certainly something different. Truly fascinating!
@@ -49,6 +51,7 @@ newLore{
 	id = "scintillating-caves-note-3",
 	category = "scintillating caves",
 	name = "research journal part 3",
+	kr_display_name = "세 번째 연구 기록",
 	lore = [[Earth, water, fire, air - these are the elements we forge our magic with, and all of these I have seen manifested in the crystals here. But there is something else, something different... There are dark crystals here which seem to posses some new, destructive element - a very twisting of the nature of the other elements, warping them into malign designs.
 
 Why have I never seen this before?! I must study it, I must understand it - I must comprehend its very nature and hold its power in my own hands... The thirst for knowledge is all-consuming!
@@ -60,6 +63,7 @@ newLore{
 	id = "scintillating-caves-note-4",
 	category = "scintillating caves",
 	name = "research journal part 4",
+	kr_display_name = "네 번째 연구 기록",
 	lore = [[I can see it now, I can see so clearly... The forces at work here are not of this world. They are a result of the Spellblaze, from the tearing of the fabric of our world. And from outside that fabric... something else, something truly powerful, trying to force its way in. I feel I can almost reach out and touch it! Such awesome power it is... could this even rival the renowned powers of the Sher'Tul?
 
 The crystals are a corruption of the elements of Maj'Eyal. These outside forces are changing the very make-up of the matter of our world. This cavern is truly a garden of delights, a font of growth and energy. Who knows how far this garden of wonders could spread if we encourage it more? Perhaps the whole of our world could be enveloped in this scintillating glory, a grand corruption for all Eyal!
@@ -71,6 +75,7 @@ newLore{
 	id = "scintillating-caves-note-5",
 	category = "scintillating caves",
 	name = "research journal part 5",
+	kr_display_name = "다섯 번째 연구 기록",
 	lore = [[I sought to reach out and touch the abyss, but I found it touched me first... I have been blessed, I have been fully awoken!
 
 There is a wonder here, a wonder beyond all else I have ever seen. A crystal of amazing intricacy and beauty, with a halo of power that echoes of the original energies of the Spellblaze. All the power that our ancestors unlocked, mixed with the glorious corruption that it triggered. What beauty - what tremendous beauty!
@@ -84,6 +89,7 @@ newLore{
 	id = "scintillating-caves-note-6",
 	category = "scintillating caves",
 	name = "exploration journal",
+	kr_display_name = "탐험 기록",
 	lore = [[#{italic}#10th Mirth, Year 122 of the Age of Ascendancy#{normal}#
 The council has seen fit to allow me to investigate the scintillating caverns after that Rhaloren madman started raving on the streets about how someone had "befouled" them... I do not see any such befoulment, but neither do I see the moving crystals this place was rumoured to have. There are oddly misplaced crystal shards, which seem to have sheared off of something larger, but hardly anything spectacular.
 
