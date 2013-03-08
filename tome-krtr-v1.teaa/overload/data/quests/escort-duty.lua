@@ -47,7 +47,7 @@ local name_rules = {
 
 local possible_types = {
 	{ name="lost warrior", random="male", chance=70, kr_display_name="길 잃은 전사",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 도저히 혼자서 이 길을 헤쳐나가지는 못할 것 같습니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 도저히 혼자서 이 길을 헤쳐나가지는 못할 것 같습니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			type = "humanoid", subtype = "human", image = "player/higher_male.png",
 			display = "@", color=colors.UMBER,
@@ -75,7 +75,7 @@ local possible_types = {
 		},
 	},
 	{ name="injured seer", random="female", chance=70, kr_display_name="부상당한 탐시자",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 도저히 혼자서 이 길을 헤쳐나가지는 못할 것 같습니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 도저히 혼자서 이 길을 헤쳐나가지는 못할 것 같습니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			name = "%s, the injured seer",
 			kr_display_name = "부상당한 탐시자 %s",
@@ -102,7 +102,7 @@ local possible_types = {
 		},
 	},
 	{ name="repented thief", random="male", chance=70, kr_display_name="회개한 도적",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			name = "%s, the repented thief",
 			kr_display_name = "회개한 도적 %s",
@@ -130,7 +130,7 @@ local possible_types = {
 		},
 	},
 	{ name="lone alchemist", random="male", chance=70, kr_display_name="외로운 연금술사",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			name = "%s, the lone alchemist",
 			kr_display_name = "외로운 연금술사 %s",
@@ -157,7 +157,7 @@ local possible_types = {
 		},
 	},
 	{ name="lost sun paladin", random="female", chance=70, kr_display_name="길 잃은 태양의 기사",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			name = "%s, the lost sun paladin",
 			kr_display_name = "길 잃은 태양의 기사 %s",
@@ -185,7 +185,7 @@ local possible_types = {
 		},
 	},
 	{ name="lost anorithil", random="female", chance=70, kr_display_name="길 잃은 아노리실",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			name = "%s, the lost anorithil",
 			kr_display_name = "길 잃은 아노리실 %s",
@@ -215,7 +215,8 @@ local possible_types = {
 	{ name="temporal explorer", random="player", portal="temporal portal", chance=30, kr_display_name="시간의 여행자",
 		text = [[오, 하지만 너는... 정말 너야?! 나?!
 내가 맞았군. 이곳은 내가 있어야 할 시간의 흐름이 아냐!
-나를 좀 도와줘! 아무래도 이곳에서 길을 잃어버린 것 같아. 이 근처에 친구가 만든 시간의 관문이 있다는 것은 알고 있지만, 나는 이미 너무나 많은 전투를 치른 상태거든. 더 이상은 무리라고. 나를 도와줄 수 있겠어? 아니... 너 자신을... 돕는 거라고 이건.]],
+나를 좀 도와줘! 나는 아무래도 이곳에서 길을 잃어버린 것 같아. 이 근처에 친구가 만든 시간의 관문이 있다는 것은 알고 있지만, 나는 이미 너무나 많은 전투를 치른 상태거든. 더 이상은 무리라고. 
+나를 도와줄 수 있겠어? 아니... 너 자신을... 돕는 거라고 이건.]],
 		actor = {
 			name = "%s, temporal explorer",
 			kr_display_name = "시간의 여행자 %s",
@@ -242,7 +243,7 @@ local possible_types = {
 		},
 	},
 	{ name="worried loremaster", random="female", chance=30, kr_display_name="근심하는 지식 전달자",
-		text = [[저를 도와주십시오! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으십니까?]],
+		text = [[저를 도와주세요! 저는 아무래도 이곳에서 길을 잃어버린 것 같습니다. 이 근처에 제 친구가 만든 귀환용 관문이 있다는 것은 알고 있지만, 저는 이미 너무나 많은 전투를 치른 상태입니다. 저를 도와주실 수 있으시나요?]],
 		actor = {
 			name = "%s, the worried loremaster",
 			kr_display_name = "근심하는 지식 전달자 %s",

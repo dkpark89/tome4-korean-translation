@@ -126,7 +126,7 @@ if not q or (q and not q:isCompleted(e[1].start) and not q:isCompleted(e[2].star
 -- Here's the dialog that pops up if the player has never worked for this alchemist before:
 newChat{ id="welcome",
 	text = [[#LIGHT_GREEN#*얼룩 투성이의 낡은 갑옷을 입은 드워프가 문을 열었습니다.*#WHITE#
-이봐 자네, 혹시 물건을 해체하고 보수를 받는 일에 관심 있는가?]],
+이봐 자네, 혹시 뭔가를 해체하고 보수를 받는 일에 관심 있는가?]],
 	answers = {
 		{"물론이죠.", jump="ominous"},
 		{"[떠난다]"},
@@ -134,7 +134,7 @@ newChat{ id="welcome",
 }
 
 newChat{ id="ominous",
-	text = [[시체의 신이시여, 내가 이래서 모험가를 좋아한다니깐. Was about to become one myself when it suddenly hit me. And by "it" I mean "my wife." 하핫!]], --@@ Was about to become one myself when it suddenly hit me. And by "it" I mean "my wife." Har! 라는 문장이 뒤에 있는데.. 농담은 농담같은데 정확히 무슨 말인지 모르겠습니다 ㅠㅠ 연금술사놈들 왜이렇게 하는 말들이 다 어려운가요 ㅠㅠ 특히 아그림레이는 진짜.. -- 저도 뭔소린지 모르겠네요... 일단 번역 안 된 문장을 다시 넣어 놓았습니다.
+	text = [[시체의 신이시여, 내가 이래서 모험가를 좋아한다니깐. 그게 날 치는 순간, 이대로 죽는건 아닌가 싶었다고. 아, "그거" 는 "우리 마누라" 를 뜻하는 말이라네. 하핫!]], --@@ Was about to become one myself when it suddenly hit me. And by "it" I mean "my wife." Har! 라는 문장이 뒤에 있는데.. 농담은 농담같은데 정확히 무슨 말인지 모르겠습니다 ㅠㅠ 연금술사놈들 왜이렇게 하는 말들이 다 어려운가요 ㅠㅠ 특히 아그림레이는 진짜.. -- 저도 뭔소린지 모르겠네요... 일단 번역 안 된 문장을 다시 넣어 놓았습니다. --되도 않는 드립으로 일단 번역했습니다 ㅡㅡ;
 	answers = {
 		{"무슨 일을 시킬건가요?", jump="proposal"},
 	}
@@ -408,7 +408,7 @@ newChat{ id="complete3",
 --Final elixir:
 newChat{ id="totally-complete3",
 	text = [[#LIGHT_GREEN#*잠시 기다리자, 드워프가 약병과 작은 주머니를 들고 돌아왔습니다.*#WHITE#
-안에 좋은 것을 넣어뒀다네. 내일 아침에 소원을 들어주는 그런건 아니지만 말일세. '투시의 감염체'를 다룰 때는 조심하게나. 특히 문을 두드리고, 마누라가 대답할 때는 말이지. 하핫!]],
+안에 좋은 것을 넣어뒀다네. 내일 아침에 소원을 들어주는 그런건 아니지만 말일세. '투시의 감염체'를 다룰 때는 조심하게나. 특히 문을 두드렸는데 마누라가 대답할 때는 말이지. 하핫!]],
 	answers = {
 		{"감사합니다. 그럼 이만.",
 			cond = function(npc, player) return q and q:isCompleted(e[1].almost) and not q:isCompleted(e[1].full) end,
