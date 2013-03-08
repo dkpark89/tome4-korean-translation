@@ -26,9 +26,9 @@ newLore{
 	name = "The Diaries of King Toknor the Brave",
 	kr_display_name = "용감한 왕, 토크놀의 일기",
 	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 황혼의 달 68 일#{normal}#
-The orcish tribe have routed us. We have retreated to some Mardrop ruins and secured ourselves amongst the fortifications. I have just shy of 2,000 men under my banner, some of the best warriors I have ever served with, but we are simply no match for the numbers we face. Counting them is difficult, but I would put a minimum estimate at 10,000. The tribe has camped a league away - they seem to be waiting for reinforcements. This does not bode well...
+오크 무리가 우리를 공격하였다. 우리는 마드로프 폐허로 후퇴하였으며, 그곳을 요새화 하기로 결정하였다. 나의 밑에 있는 병사는 고작 2,000 명 뿐이다. 몇몇 병사들은 내가 지금까지 본 어떤 전사보다도 강력하지만, 우리가 마주하고 있는 저 숫자에 비하면 그마저도 빛이 바랜다. 저들의 수를 세는 것은 쉽지 않지만, 최소한 10,000 마리는 되는 것 같다. 오크 무리들은 우리와 5 km 정도 떨어진, 상당히 먼 곳에 진지를 만들었다. 그들은 지원군을 기다리고 있는 것 같다. 좋지 않은 징조로 보인다...
 
-I have sent messenger crows to all the kingdoms. I can but hope they send aid in time.]],
+다른 모든 왕국들에게 까마귀 전령을 날려보냈다. 그들이 제 시간에 지원군을 보내주었으면 하는 바람이다.]],
 }
 
 newLore{
@@ -37,11 +37,11 @@ newLore{
 	name = "The Diaries of King Toknor the Brave",
 	kr_display_name = "용감한 왕, 토크놀의 일기",
 	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 아지랑이의 달 25 일#{normal}#
-Five men tried deserting last night. Today I had them flogged in front of all the others. I have given warning that any future deserters shall be hanged. These are measures I do not like to take, but harsh times call for harsher discipline.
+병사 다섯 명이 지난 밤에 탈영을 시도하였다. 오늘 나는 다른 모든 이들 앞에서 그들에게 태형을 내렸다. 또한, 이후의 탈영병들은 모두 교수형에 처하겠다고 경고하였다. 이러한 방법은 내 취향과는 맞지 않지만, 가혹한 시기는 가혹한 규율을 불러오는 법이다.
 
-Our supplies are holding steady for now, but I fear they may not last. I've received word that it will take at least fifty days to muster a force that can save us. Alas, food may well be the least of our worries, for the orcs have begun to attack our strongholds. Thankfully we have had time to reinforce the existing structures. Indeed, little work was needed, for the foundations of this place are strong. My loremaster tells me it was abandoned following the Crimson Pox, but was once the capital of Mardrop. The men have taken a fondness to the place, and have named it "Last Hope". Though I normally discourage such romantic notions I cannot help but feel the same. These stone walls give strength to my heart - I feel we can fight through this.
+아직 우리의 보급품 상황은 여유로운 편이지만, 이 상황이 언제까지 갈지 걱정이 된다. 우리를 구할 지원군을 모으기 위해서는 적어도 50 일은 필요할 것이라는 소식을 들었다. 그나마 식량 문제는 우리의 걱정 중에 가장 사소한 것이다. 오크들이 우리의 요새를 공격하기 시작하였다. 하지만 감사하게도, 우리는 여기에 있는 구조물을 보강할 시간이 있었다. 사실, 별로 보강을 할 필요도 없었다. 이 성벽의 기초 구조가 튼튼했기 때문이다. 내 밑에 있는 지식의 대가의 말에 의하면, 이곳은 '핏빛 여우' 에 의해서 폐허가 되었지만 한때는 마드로프의 수도였다고 한다. 병사들은 이곳에 "마지막 희망" 이라는 이름을 붙이는 등, 이곳을 상당히 마음에 들어하는 것 같다. 나는 보통 이런 낭만적인 생각을 별로 좋아하지 않지만, 지금은 나 역시 그들과 같은 느낌을 받고 있다는 것을 숨길 수가 없다. 이 석벽은 내 마음에 힘을 불어넣는다. 이곳에서라면, 우리는 아직 더 싸울 수 있을 것만 같다.
 
-Their attack has begun again. They seem to have mages now. Ah, it will be a long night...]],
+그들의 공격이 다시 시작되었다. 이제 그들은 마법사까지 병력으로 갖춘 것 같다. 아, 오늘 밤은 길고도 길겠구나...]],
 }
 
 newLore{
@@ -50,11 +50,11 @@ newLore{
 	name = "The Diaries of King Toknor the Brave",
 	kr_display_name = "용감한 왕, 토크놀의 일기",
 	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 아지랑이의 달 47 일#{normal}#
-Rations low. Men demoralised. Winterhaze wind is making conditions unbearable. The fortress is holding, but each night they pick off some of our troops. It is but a matter of time before we no longer have the strength to resist.
+식량이 떨어져간다. 사기는 바닥을 기고 있다. 겨울의 안개바람이 병사들의 살을 에고 지나간다. 아직 요새는 굳건하지만, 매일 밤 우리의 경계병들이 몇 명씩 죽음을 맞이한다. 저항할 힘이 없어지는 것도 이제 시간문제이다.
 
-I can hear their blasted trumpets again. Accursed swine! We have no rest or sleep, not the slightest sojourn without their braying, howling, jeering, taunting, insufferable cantations! It is driving me from my wits! But I must remain strong... I must put on a brave face for the men. They are relying on me, and though the burden feels close to crushing me I must bear it with the dignity of a king.
+그들의 빌어먹을 울부짖음이 또 다시 들려온다. 저 저주받을 돼지놈들! 우리는 휴식도, 수면도 할 수 없었다. 저들의 울음, 울부짖음, 조롱, 도발, 견딜 수 없는 노랫소리는 잠시도 쉬지 않고 들려온다! 정말로 미쳐버릴 것만 같다! 하지만 나는 강한 모습을 유지해야 한다... 나는 사람들 앞에서 언제나 용감한 모습을 보여야만 한다. 그들은 나를 의지하고 있기 때문에, 피로와 중압감에 짓눌릴 것 같더라도 왕의 위엄을 가지고 견뎌내야만 한다.
 
-It is getting dark again. Who will die this night? I am so very afraid... but I cannot show it...]],
+다시 날이 어두워지고 있다. 오늘 밤에는 누가 죽을 것인가? 너무나 걱정이 된다... 하지만 그 모습을 다른 사람들에게 보일 수는 없다...]],
 }
 
 newLore{
@@ -63,13 +63,13 @@ newLore{
 	name = "The Diaries of King Toknor the Brave",
 	kr_display_name = "용감한 왕, 토크놀의 일기",
 	lore = [[#{italic}#장작더미의 시대를 맞은 710 년, 아지랑이의 달 51 일#{normal}#
-Oh, happy days! Joyous retribution! From the jaws of defeat we have been saved, and never before have I felt such elation!
+오, 행복한 날이여! 기쁨의 징벌이여! 우리는 패배의 아가리로부터 구원받았으며, 이러한 기쁨은 태어나서 처음이다!
 
-Last night as dusk approached, the orcish armies began to prepare a major attack. My men were ready, for I was determined that if they were to have our lives they would pay for them thrice over. But as the sun waned in the western sky I saw what looked like a rain of gold falling amongst the orcish troops and suddenly they were in disarray. Another flurry came and I saw that it were not gold, but bolts of steel reflected in the setting sun. "The halflings!" my scout shouted, and lo I saw then it was indeed a large army of halflings come upon the orcs' flank.
+지난 밤 황혼이 찾아올 무렵, 오크 군대가 대규모 공격을 준비하기 시작하였다. 나의 병사들은 준비를 하였고, 나는 우리의 목숨을 가져가기 전에 적들에게 3 배의 희생을 주리라고 다짐하였다. 하지만 서쪽 하늘로 해가 지면서 내가 본 것은, 황금의 비가 오크 부대에게 떨어지는 것과 그들이 혼란에 빠지는 광경이었다. 또 한번 같은 소동이 일어났고, 나는 그것이 황금의 비가 아닌, 지는 태양빛에 반사된 강철 쇠뇌 화살들이 비처럼 쏟아지고 있다는 것을 알았다. "하플링입니다!" 정찰병이 소리쳤다. 그리고 나는 하플링 대군이 오크들의 측면으로 돌격하는 것을 보았다.
 
-The orcish army suddenly forgot about us, turning upon their new enemy. But foolish is any who ignores the wrath of a caged lion which sees its chance for vengeance! I led my men immediately into battle, taking the enemy swiftly from the rear, and throwing their organisation into madness. When the halfling army came upon their flank it was a massacre, and we drove them mercilessly towards the southern lake. There upon the shores we beat them to the last number, and their blood stained the water a horrific black.
+오크 부대는 그들의 새로운 적에 집중하느라, 우리를 까맣게 잊어버렸다. 하지만 우리 안에 갇힌 사자의 분노를 무시하는 어리석은 자는 응당한 대가를 치를지어니! 나는 병사들을 이끌고 즉시 전장에 뛰쳐나가, 적들의 후방을 기습하였다. 그리고 그들의 진형을 완전히 혼돈 속으로 몰아넣었다. 하플링 군대가 측면에서 적들을 도륙하는 동안, 우리는 그들을 무자비하게 남쪽 강 앞으로 몰아넣었다. 우리는 해안가에서 마지막 하나의 오크까지 죽였으며, 그들의 피는 강물을 끔찍한 검은 색으로 물들였다.
 
-Our victory sealed, I immediately met with the halfling leader, and found it to be no less than the princess Mirvenia! Truly words cannot express my joy when I saw her face flushed red in the last embers of the setting sun. I almost felt... no, I should not think such things.]],
+우리의 승리를 잠시 접어둔 채, 나는 즉시 하플링들의 지도자를 만나러 갔다. 그리고 그곳에서 내가 발견한 것은, 다름아닌 미르베니아 공주였다! 황혼에 물든 그녀의 붉은 얼굴을 본 순간, 나의 기쁨은 말로 표현할 수 없었다. 나는 거의... 아니, 이런 생각을 해서는 안된다.]],
 }
 
 newLore{
@@ -78,13 +78,13 @@ newLore{
 	name = "The Diaries of King Toknor the Brave",
 	kr_display_name = "용감한 왕, 토크놀의 일기",
 	lore = [[#{italic}#장작더미의 시대를 맞은 711 년, 매혹의 달 2 일#{normal}#
-We have solidified the defences at Last Hope and received more troops from all of the kingdoms. Our tactical position near the sea is proving an excellent base for further attacks on the orcs. I hope to expand our facilities here much further. I am drawing up an alliance now with the other leaders, for only together can we hope to beat this terrible threat to all our kingdoms.
+우리는 마지막 희망의 수비를 굳건히 할 수 있었으며, 다른 왕국들로부터도 추가적인 지원군을 받았다. 우리의 전략적 위치, 즉 바다를 끼고 있는 지형은 오크들의 다음 공격을 대비하기 위한 훌륭한 기지가 되었다. 하지만 나는 저 끔찍한 위협으로부터 우리의 왕국들을 함께 지켜내기 위해. 우리의 방어 체계가 더욱 확장되면 좋겠다고 생각하였다. 그래서 나는 다른 지도자들을 모아, 동맹을 창설하였다. 
 
-Mirvenia has been key to the discussions and the plans. She is a tactical genius, and I am constantly amazed by her wealth of knowledge and skills. There is an odd woman that accompanies her though, with long fiery hair and a silken robe - Linaniil is her name. One of my men swears he saw her riding into battle in a blaze of flames, burning all the orcs before her. The idea of a spellweaver in our midst is unsettling, but Mirvenia says I should trust her. And if Mirvenia says so then I must believe her.
+미르베니아는 회의와 계획의 중심 인물이었다. 그녀는 전략에 있어 천재적이었으며, 나는 그녀의 방대한 지식과 기술에 놀라움을 감출 수 없었다. 또한 미르베니아 곁에는 기이한 여성이 언제나 함께 있었는데, 그녀는 타오르는 불꽃을 연상시키는 길고 붉은 머리카락을 가지고 있었으며 비단 로브를 입고 있었다. 그녀의 이름은 리나니일이라고 했다. 내 병사들 중 한 명은 그녀가 타오르는 화염 위에 올라탄 상태로, 그녀의 앞에 있는 모든 오크들을 불태웠다고 하였다. 우리의 중심에 마법 사용자가 있다는 것은 약간 불안했지만, 그녀를 믿어달라고 미르베니아가 나에게 말했다. 만약 미르베니아가 그렇게 말한다면, 나 역시 그녀를 믿어야 할 것이다.
 
-She is a remarkable force for good, Mirvenia, popular with all the troops. I feel my normal iron rule smoothed by her presence. Too long have I led the cold life of a soldier... alone...
+미르베니아, 그녀는 모든 병사들에게 인기 있을 정도로 사람들에게 자비로움을 보여주었다. 내가 평소에 지켜오던 강철과 같은 규칙들도, 그녀의 존재 앞에서는 부드러워지는 것이 느껴졌다. 나는 너무나 오랫동안 군인의 냉혹한 삶을 살아왔던 것 같다... 그것도 홀로...
 
-Ah, the beating of my heart cannot be silenced. I must speak to Mirvenia, and tell her how I feel... I only hope she shares some inkling of my emotion.]],
+아, 나의 심장이 너무나 격렬하게 뛰어 진정되지 않는다. 미르베니아에게 지금 나의 심정을 말해야만 할 것 같다... 그녀가 내 감정을 눈치 채고 있다면 더 바랄 것이 없으련만.]],
 }
 
 newLore{
@@ -93,13 +93,13 @@ newLore{
 	name = "The Diaries of King Toknor the Brave",
 	kr_display_name = "용감한 왕, 토크놀의 일기",
 	lore = [[#{italic}#장작더미의 시대를 맞은 713 년, 타오름의 달 6 일#{normal}#
-Why is it only in times of darkness I turn to my journal? Today has been the darkest day in over two years, but it could have been darker still.
+어째서 나의 일기에는 이리도 빨리 어둠이 찾아오는가? 오늘은 지난 2 년 동안 가장 어두운 날이었다. 하지만 아직도 더 어두워질 여지가 남아있는 것 같다.
 
-Mirvenia's convoy was attacked by a rogue band of orcs. Though the brutes were repelled she was hurt in the conflict, and her labour brought on early. She lay before the halls of death for many hours. It is only thanks to the skill of her people's healers that she and the baby survived.
+미르베니아의 호위대가 오크 도적떼의 습격을 받았다. 비록 그놈들은 격퇴되었지만, 그녀가 전투 중에 부상을 입었다. 그녀는 오랜 시간 동안 생사의 기로 앞에 놓여있었다. 그녀의 치료사들 덕분에, 그녀와 아기가 무사한 것에 감사할 뿐이다.
 
-The baby... our baby. My son! Mirvenia is still recovering, but the boy seems hale as any freshly-born child. But still I worry... How I wish that he were born into a more perfect world. How I worry for my wife and child in this age of suffering. I want to make a new age for them, free from such threats as almost took away the woman I love. I want to give my son the chance to reign in an era of peace.
+아기... 우리의 아이, 나의 아들! 미르베니아는 아직 회복되는 중이지만, 그 아이는 갓 태어난 아이처럼 건강해 보인다. 하지만 나는 여전히 걱정이 된다... 이 아이가 조금 더 완벽한 세상에 태어났다면 얼마나 좋았을까. 나의 아내와 나의 아이가 이러한 고통의 시대를 살아가는 것이 걱정된다. 나는 그들을 위해 새로운 시대를 열고 싶다. 내가 사랑하는 여인을 빼앗길 뻔 했던, 이러한 위협으로부터 자유로운 시대를... 나의 아들에게 평화로운 땅을 물려줄 수 있는 시대를...
 
-Too long have we been content with repelling orcish raids and pushing back small tribes. Last Hope is now a gleaming city, and a focal point for all the armies of the west. Now is the time for us to drive forward and root out every orcish colony on the continent. I will not rest until Maj'Eyal is free from their vile influence, till every accursed brood is burned to ashes and every pig-spawn orc is cast from existence. I shall end this terrible Age of Pyre and usher in a new Age of Ascendancy! This I do solemnly swear.]],
+우리가 오크 무리들을 격퇴하고 그들을 작은 부족 수준으로 몰아붙인지도 많은 시간이 흘렀다. 마지막 희망은 이제 번창하는 도시이자, 이곳 서쪽 대륙의 군인들이 모이는 집결지가 되었다. 이제 우리가 진격하여, 이 대륙 곳곳에 남아있는 오크 무리들을 뿌리뽑을 시간이다. 이곳 마즈'에이알이 그들의 끔찍한 오염으로부터 자유로워지는 날까지, 나는 쉬지 않을 것이다. 저 모든 돼지들이 불타올라 재가 되고 멸종하는 그 순간까지, 나는 쉬지 않을 것이다. 이 자리에서 엄숙하게 선언하오니, 나는 이 끔찍한 장작더미의 시대를 끝내고, 새로운 시대, "주도의 시대" 를 열어갈 것이다!]],
 }
 
 newLore{
@@ -107,9 +107,9 @@ newLore{
 	category = "last hope",
 	name = "All Hail King Tolak the Fair!",
 	kr_display_name = "평등한 왕 톨락 만세!",
-	lore = [[Twice blessed is he of the union of King Toknor of the humans and Queen Mirvenia of the halflings! Praise his glory!
-By royal decree it is under absolute conditions forbidden to show racial prejudice against humans or halflings. There shall be no preference of price or service, and no discrimination of trade or business or employment. No halfling shall be named fur-toes, midget or shortbum, and no human shall be named lanklegs, cloudhead or stumpfoot.
-The penalty for disobedience shall be flogging. Intolerance will not be tolerated!]],
+	lore = [[인간인 토크놀 왕과 하플링인 미르베니아 여왕의 결합이자, 두 배로 축복 받은 그에게 영광 있으라!
+또한 왕의 칙령에 의하여, 인간과 하플링 간의 모든 종족 차별적 행동을 엄중히 금한다. 가격과 대우 등에 종족간 차이가 있어서는 안되며, 거래와 사업과 고용에 있어서의 차별 역시 용납되지 않는다. 그 어떤 하플링들도 발가락에 털난 놈, 난쟁이, 땅딸막한 거지 등으로 불리지 않을 권리가 있으며, 그 어떤 인간들도 꺽다리, 멀대같은 놈, 민다리 등으로 불리지 않을 권리가 있다.
+칙령을 어긴 자는 태형으로 타스릴 것이다. 참을 수 없는 행위는 참지 않고 벌하리라!]],
 }
 
 newLore{
@@ -120,8 +120,9 @@ newLore{
 	lore = [[출생 : 장작더미의 시대를 맞은 682 년, 매혹의 달 23일
 사망 : 주도의 시대를 맞은 108 년, 밀려오는 여름의 달 2 일
 
-King of Kings, Founder of Last Hope, Purger of Orcs, Father of the Age of Ascendancy. Great is the memory of the warrior who fought for peace, and won.
-Quoth King Toknor: "I have lived for the future, a future of peace and prosperity, a future free for all. How happy I am to see that future now... Aye, and it is brighter than any sword, and stronger than any armour, and more enduring than any war. Though warrior I am in flesh and mind, my heart belongs to peace."]],
+왕 중의 왕, 마지막 희망의 설립자, 오크들의 원수, 주도의 시대를 열어간 자. 평화를 위해 싸우고 승리를 거머쥔 위대한 전사는 영원히 사람들의 마음 속에 기억되리라.
+톨락 왕이 말하였다. "나는 미래를 위해, 평화와 번영이 가득한 미래를 위해 살아왔다. 미래는 모두에게 공평하게 돌아갈 것이다. 이러한 미래를 보게 되어 얼마나 기쁜지 모른다... 아아, 이 평화는 그 어떤 검보다 밝게 빛나고, 그 어떤 갑옷보다 튼튼하며, 그 어떤 전쟁보다도 오래 갈지어니.
+비록 나의 육체와 정신은 전사이지만, 나의 마음은 언제나 평화에 속해있노라."]],
 }
 
 newLore{
@@ -132,8 +133,9 @@ newLore{
 	lore = [[출생 : 장작더미의 시대를 맞은 688 년, 타오름의 달 5 일
 사망 : 주도의 시대를 맞은 113 년, 밀려오는 여름의 달 2 일
 
-Saviour of the Battle of Last Hope, Bringer of Unity, Soother of Hearts and Minds. Greatly is missed the alchemist that could change sorrow to joy, despair to hope, defeat to victory.
-Quoth Queen Mirvenia: "Nothing moves me more than seeing the sun set over Last Hope, seeing all the joy and beauty we have brought here bathed in glorious light. At moments like this I still feel him next to me, and I know I have lived a good life. Today has been a good day... Today I think I shall die."]],
+마지막 희망에서 벌어진 전투의 구원자, 왕국연합을 만들어낸 자, 정신과 마음을 부드럽게 하는 자. 슬픔을 기쁨으로, 절망을 희망으로, 패배를 승리로 만드는 위대한 연금술사는 영원히 사람들의 마음 속에 그리움으로 남으리라.
+미르베니아 여왕이 말하였다. "마지막 희망에서 본 황혼보다 저를 감동시켰던 것은 없습니다. 이곳에서 그 영광스러운 빛을 보며, 우리는 즐거움과 아름다움을 한껏 느꼈습니다. 지금 이 순간에도 언제나 제 옆에는 그가 있는 것만 같고, 제가 행복한 삶을 살았다는 것을 저 역시 알고 있습니다.
+참으로 좋은 시대입니다... 이제 죽어도 여한이 없는 시대입니다."]],
 }
 
 newLore{
@@ -222,17 +224,17 @@ newLore{
 	category = "last hope",
 	name = "Declaration of the Unification of the Allied Kingdoms",
 	kr_display_name = "왕국연합의 통합 포고문",
-	lore = [[Herewith is set the constitutional declaration of the Allied Kingdoms under the rule of King Toknor and Queen Mirvenia. Any who defy or seek to undermine the laws here set shall suffer torment and death.
+	lore = [[여기에 토크놀 왕과 미르베니아 여왕에 의해 만들어진 왕국연합의 통합 포고문을 세운다. 여기에 써진 법을 무시하는 자는 고통받고 죽음을 맞이하게 되리라.
+	
+장작더미의 시대를 맞은 714 년, 매혹의 달 1 일 부로 주도의 시대 원년이 시작되었음을 선언한다. 모든 인간과 하플링 왕국들은 왕국연합의 이름 아래 하나로 연결될 것이다. 이는 이곳 마즈'에이알에 존재하며 인간과 하플링의 비중이 50 % 를 넘는 모든 도시, 마을, 농노와 농장을 포함하노라.
 
-As of the 1st of Allure, Age of Pyre year 714, henceforth to be known as the Age of Ascendancy year 1, all human and halfling kingdoms shall be united under the banner of the Allied Kingdoms. This shall include all towns, villages, serfdoms and farmsteads with over 50% human or halfling populace in the whole expanse of Maj'Eyal.
+왕국연합은 토크놀 왕과 미르베니아 여왕이 살아있는 한, 그들의 지휘 아래 움직이게 될 것이다. 그들의 왕좌와 거주지는 마지막 희망이라는 요새 안에 있을 것이며, 모든 관리 기관들과 군사 기관들 역시 이곳에 위치하게 될 것이다. 왕국연합에 소속된 모든 자들은 서로 자유롭게 거래할 수 있으며, 조세는 왕국 재무부의 결정에 따라 정해질 것이다. 왕국연합에 속한 모든 지역은 정규 수비대에 의해 주기적으로 순찰되며, 이를 통해 평화를 더욱 굳건히 할 것이다. 이 규칙과 법률은 모두에게 똑같이 적용될 것이다.
 
-The Allied Kingdoms shall be presided over by the rule of King Toknor and Queen Mirvenia, long may their line endure. Their throne and residency shall be held in the citadel of Last Hope, and here also shall be seated all administrative and military offices. Free trade shall be established between all elements of the Allied Kingdoms, and central taxation shall be administered by the Royal Treasury. All lands within the Allied Kingdoms shall be regularly patrolled by official guards to enforce the peace. One rule and one law shall be applied to all.
+이 연합은 우리의 대지를 보다 강하게, 보다 굳건하게 만들 것이다. 우리는 너무나 오랫동안 침략과 공포의 그림자 속에서 고통받았다. 우리는 너무나 오랫동안 서로 갈라져서, 사소한 내전을 벌이며 분열되었다. 하지만 이제 우리는 과거의 실패에서 벗어나, 하나의 강력한 규칙, 하나의 결코 깨지지 않는 동맹으로 번영하고 평화를 찾을 것이다. 우리는 함께 저 어둠과 맞서 싸울 것이며, 빛의 시대를 만들어 갈 것이다. 우리는 더 이상 밤을 두려워하지 않을 것이다.
 
-This unification shall make our lands stronger, more whole. Too long have we suffered under the shadows of invasion and terror. Too long have we been splintered, broken by petty infighting. But now we shirk off the failures of the past, and with one strong rule, one unbreakable alliance, we shall all prosper and find peace. Together we shall fight back against the darkness, and an age of light shall be born. We will fear the night no more.
+이에 반하는 자는 고통받게 될 것이다. 새로운 해가 떠오르고 있으며 이는 그 무엇도 방해할 수 없을 것이다. 이 동맹과 이 땅은 그 어떤 대가를 치뤄서라도 보호되어야만 한다. 반역은 용서받지 못할 것이며, 분열을 조장하는 자들은 추방될 것이다. 왕국연합에 속한 모든 자들은 토크놀과 미르베니아의 규칙을 따라야 할 것이며, 그렇지 않은 자는 새로운 시대의 정당한 분노를 마주하게 될 것이다.
 
-To those who oppose this, let thee be afeared, for a new dawn is rising and it shall suffer no obstruction. This Alliance and the era it brings shall be protected at all costs. Treason will not be tolerated, and divisors will be damned. All shall follow the rule of Toknor and Mirvenia, or face the righteous wrath of a new age.
-
-All hail the reign of King Toknor and Queen Mirvenia! All hail the Allied Kingdoms! All hail the Age of Ascendancy!]],
+토크놀 왕과 미르베니아 만세! 왕국연합 만세! 주도의 시대 만세!]],
 }
 
 --------------------------------------------------------------------------
@@ -244,19 +246,19 @@ newLore{
 	name = "A creased letter",
 	kr_display_name = "구겨진 편지",
 	always_pop = true,
-	lore = [[Oh Cecil, what must you think of me? But I remember your words to me, before the fever took you - you told me to live. And live I must... And yet that fever has now spread to me and I feel my days are numbered.
+	lore = [[오 세실, 당신은 저에 대해 무엇을 기억하고 있나요? 저는 당신이 제게 한 말을 기억하고 있어요, 열병이 당신을 앗아가기 전에 한 말을요 - 당신은 저에게 살아남으라는 말을 했었죠. 저는 반드시 살아남을거에요... 비록 열병이 제게 퍼져 살 날이 얼마 남지 않았지만요.
 
-I have a confession to make, my love. Those tinctures I brewed for you towards the end of your disease, those that helped you stay in my arms a few weeks longer, they were not my regular alchemy. In desperation I turned to darker arts in my obsession to save you. But though they kept your eyes open for a little longer, they could not keep you here with me.
+내 사랑, 당신에게 고백할 것이 있답니다. 당신의 질병을 낫게 해준다면서 제가 주었던 물약, 몇 주 동안 당신의 생명을 유지시켜줬던 그 물약은 사실 제 일반적인 연금술로 만든 물약이 아니였어요. 저는 당신을 구하고자 하는 열망으로, 어둠의 기술에 손을 댔답니다. 하지만 그 물약마저 당신의 눈을 조금 더 오래 뜨게 해주었을 뿐, 당신을 저와 함께 있게 해주지는 못했었지요.
 
-How desperately I yearn for you... At nights the pain of my disease tears me apart, yet I could bear it all if only you were by my side. But alone I have not the strength, and the dark thoughts return. My obsession remains.
+제가 얼마나 당신을 갈망하는지 아시나요... 밤마다 질병과 고통이 저를 찢어발기지만, 당신이 제 곁에 있었다면 이 모든 것을 이겨낼 수 있었을거에요. 하지만 저 혼자서는 그만한 힘이 없었고, 어둠이 제게 다시 되돌아왔지요. 제 갈망은 사라지지 않았으니까요.
 
-You would frown were you to see the things I have done. You would be sickened! I cringe each time I think of what your reaction would be to see me now. But please understand, my dear, please forgive me. For I must live! Though each morning I grow weaker, my determination to survive hardens. And it is not just for me...
+제가 한 일들을 보면 아마 당신은 눈살을 찌푸리겠죠. 저를 역겨운 눈으로 쳐다보겠죠! 당신이 지금의 저를 본다면 취할 반응을 생각할 때마다 저는 겁이 납니다. 하지만 이해해주세요, 내 사랑. 나를 용서해주세요. 하지만 저는 반드시 살아야해요! 매일 아침 저는 약해져만 가지만, 살아남기 위한 제 투쟁심은 더욱 단단해져요. 그리고 그 대상은 저 뿐만이 아니죠...
 
-Amidst this darkness I have good news for you, my darling. I am with child. Though you have died your blood still lives in me, and even as my own flesh withers I can feel our baby blossoming within my womb. It is for this I carry on my experiments, gruesome as they be. It is for our child I struggle with hardened heart to extend my life ever further.
+이 어둠의 한가운데에서, 당신에게 전해줄 좋은 소식이 하나 있답니다, 내 사랑. 저 아이를 가졌어요. 비록 당신은 죽었지만, 당신의 피는 여전히 제 안에 남아있어요. 그리고 제 육체가 쇠약해지는 동안에도, 우리의 아이가 자궁 안에서 꽃을 피우는 것이 느껴져요. 제가 이런 섬뜩한 실험을 계속 하는 이유이지요. 우리의 아이를 위해, 저는 더욱 굳센 의지를 가지고 제 생명을 보다 더 연장시키는 중이에요.
 
-I am cold and alone in this chilly crypt, thinking back on my times of warmth with you. Abominations lie beyond the walls, their haunting cries torturing my ears, reminding me of the black deeds I have performed. But every now and then I feel a gentle kick, and my resolve is stiffened, and to my experiments I return.
+이 소름끼치는 공동묘지에서 저는 당신과 함께 있었을 때의 온기를 생각해내며 추위와 외로움과 싸우고 있어요. 끔찍한 것들이 저 벽 뒤에 누워있고, 그들의 잊혀지지 않는 울음소리가 제 귀를 고문해요. 제가 지금까지 한 검고 사악한 실험들을 상기시켜요. 하지만 매 순간 뱃속에서 느껴지는 가벼운 발차기를 느낄 때마다, 제 결심은 더욱 굳건해지고 제 실험을 계속하게 되지요.
 
-I must live. For you, my love, I will live.]],
+저는 반드시 살아남을거에요. 당신을 위해, 저는 살아갈거에요, 내 사랑.]],
 	on_learn = function(who)
 		who:setQuestStatus("grave-necromancer", engine.Quest.COMPLETED, "note")
 	end,
