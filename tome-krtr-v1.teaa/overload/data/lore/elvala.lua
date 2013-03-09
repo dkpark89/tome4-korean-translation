@@ -78,7 +78,7 @@ newLore{
 	id = "spellblaze-chronicles-2",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(2): A Night to Remember",
-	kr_display_name = "마력폭발 연대기(2): ",
+	kr_display_name = "마력폭발 연대기(2): 잊을 수 없는 밤",
 	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌"#{normal}#
 
 #{bold}#제 2장: 잊을 수 없는 밤#{normal}#
@@ -133,94 +133,94 @@ newLore{
 	id = "spellblaze-chronicles-3",
 	category = "spellblaze",
 	name = "The Spellblaze Chronicles(3): The Farportal",
-	kr_display_name = "마력폭발 연대기(3): 장거리 관문",
+	kr_display_name = "마력폭발 연대기(3): 원거리 관문",
 	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
-#{bold}#Chapter Three: The Farportal#{normal}#
+#{bold}#제 3장: 원거리 관문#{normal}#
 
-“Why are ye not leader?” asked Linaniil, resting her head in her hand with her naked form strewn across my bed.
+ "왜 당신이 지도자가 아닌가요?" 리나니일이 머리를 손에 얹고 알몸으로 침대에 널부러진채 나에게 물었다.
  
-I looked at her, surprised by the sudden question.  My mind struggled briefly with the strange query, still recovering from the heat of sex but a minute before.  “Why should I be leader?” I asked back.
+나는 갑작스런 물음에 놀라 그녀를 바라보았다. 불과 몇 분전에 있던 섹스 이후로 흥분이 가시지 않았기에 나의 마음은 이상한 질문에 잠시 흔들렸다. "왜 내가 리더가 되야겠어?" 다시 되물었다.
  
-“Because ye are strong, of course,” she responded.  “I deem ye stronger in battle than any of your kin.  Ye should rule with such strength.”
+ "왜냐하면 당신은 강하니깐 물론" 그녀가 대답했다. "당신 종족 중에서 당신이 전투에서 가장 강하잖아. 그 강력함으로 통치를 해야지." 
  
-I chuckled softly.  “Mere strength is not enough to rule a people.  It requires responsibilities, careful decision making, and above all – politics.  I have no interest in such matters.  Ephinias is far better suited to those sorts of things.  Give me a sword and soldiers to lead into battle and I am content.  Let the leaders worry about where I should point my blade.”
+나는 부드럽게 웃었다. "한낱 힘은 사람을 다스리기엔 부족해. 거기엔 책임이 따르고 조심스럽게 선택을 내려야하지 그리고 무엇보다도 정치라는거지. 난 그런것들은 관심 없어. 그런것들은 에피아네스가 훨씬 잘 어울리거든. 나에게 검과 전투를 이끌 병사들을 준다면 나는 만족해. 내 검을 어디로 향해야할지는 지도자가 걱정하게 내버려두자고."
 
-She was quiet a moment, seemingly dissatisfied with that response.  “Ye are not happy with the current plans though.”
+그녀는 잠시 그 대답에 만족스럽지 못한듯 보였다. "당신은 지금 계획에 만족하지 못하고 있잖아."
 
-For a moment I was struck with shock.  It surprised me how clearly she divined my inner thoughts.  I had not expressed my concerns to anyone, yet she could so easily read me.  Five weeks it had been since we first met, and it seemed like there was nothing I could hide from her keen sight.
+일순간 나는 충격을 받았다. 어떻게 그녀가 나의 속마음을 읽었는지 놀라웠다. 누구에게도 나의 의중을 표현한적이 없었는데 그녀는 너무도 쉽게 내 마음을 읽을수 있던것이다. 우리가 처음 만난지 5주가 흘렀고 리나니일의 날카로운 눈을 피해 감출수 있는건 아무것도 없는듯했다.
  
-The preparations for the Spellblaze were well underway.  Turthel of the Kar’Krul had returned to his northern citadel, but he left his daughters as ambassadors to aid in our designs.  It meant Linaniil and I had many an opportunity to meet, though we kept it secret.  Few of my race would understand or approve of such a liaison, and none of us could afford a scandal. Yet I could not resist this human mage’s advancements, nor she mine.
+마력폭발에 대한 준비는 잘 진행되고 있었다. 칼'크룰의 투르셀은 자신의 북쪽 성채로 돌아갔지만 우리의 계획을 돕기위한 대사의 역할로 남겨두었다. 그말은 우리가 비밀로 유지하고도 만날 기회가 많다는 뜻이였다. 우리 종족중 몇명만이 그런 정사를 이해할 수 있었고 우리들 중 누구도 추문을 일으킬 여건이 되지 않았다. 그때까지 나는 이 인간마법사의 유혹을 거부할수 없었다. 그녀도 날 거부하지 못했듯 말이다.
  
-“I am a warrior,” I said to her finally, getting brusquely from my bed and recovering my robes.  “I settle my battles facing my foe, not by toying with relics from afar.  It irks me that we must deal with our enemies in such a craven way.”
+ "나는 전사야" 마침내 침대에서 옷을 추스려입으며 그녀에게 무뚝뚝하게 말했다. "저 멀리 있는 유물을 가지고 장난치는 대신 직접 적을 마주하는게 나의 전투야. 그런 용기 없는 방법으로 오크들을 처리한다는것이 나를 짜증나게해."
 
-“But does it not excite ye, using these Sher’Tul ruins?” she said, putting a finger to her lower lip as she still languished in my bed, the sheets sticking tightly to her bare skin.  She seemed visibly aroused by her thoughts.  “Such powers lain dormant for so long, ready to be summoned to our control...  How it were I to command so great a venture!”
+ "그렇지만 쉐르'툴 폐허를 써먹는게 흥분되지 않나요?" 여전히 침대에서 시트로 알몸을 감싸고 있던 리나니일이 손가락을 아랫입술에 대며 말했다. 리나니일은 자신의 생각에 흥분한듯 보였다. "그 힘은 사용되기 위해 너무도 오랫동안 묻혀있었죠... 힘을 다루는건 엄청난 모험이될거에요!"
 
-I shook my head sadly as I finished buttoning up my doublet.  “I do not trust those ruins.  We Shaloren are mighty, but we have yet to reach the heights of the Sher’Tul, nor do we truly understand the devices they have left behind.  My thoughts are more with your sister Neira on this.  We should stick to what abilities we have mastered, without stretching ourselves to such grand experimentation.”
+나는 상의 단추를 마저 끼우며 슬프게 고개를 저었다. "난 그 폐허를 믿지 않아. 우리 샬로레는 강하지만 아직 쉐르'툴의 단계까지 도달하진 못했어. 그럼에도 우리가 그들이 남긴 유물을 진정으로 이해한다고 믿는다니. 유물에 대한 나의 생각은 당신 동생 네이라의 생각과 더 가까워. 그런 엄청난 실험에 손을 뻗는 대신에, 우리는 우리가 다룰 수 있는 숙달한 능력을 사용해야해."
  
-Linaniil looked at me intently, a touch of humour in her dark eyes.  “If ye were leader then ye could stop this.  But then I would have to hate ye.”
+눈에 웃음기를 띄운 채 리나니일은 나를 골똘하게 바라보았다. "만약에 당신이 지도자라면 이걸 멈출수 있겠지만 그때까지는 난 당신을 미워해야해."
  
-I allowed myself a thin smile.  “Well, that would indeed be a terrible and dangerous thing.”  I finished dressing whilst Linaniil still lay in my bed, her face reflective.  “I must go now to check on the latest operations at the farportal.  You are welcome to join me.”
+나는 얇은 미소를 띄웠다. "음, 그건 정말 끔찍하고 위험한 일일거야." 리나니일이 아직까지도 내 침대에서 담담한 얼굴로 누워있을때 나는 옷을 다 입었다. "원거리 관문에 대한 실험을 확인해보러 가야만해. 원한다면 당신도 같이 가지."
  
-She shook her head languidly.  “Nay, I wish to rest more.  And besides, hearing their reports would but make me jealous.  Leave me here awhile – I wilst depart in secret later.”
+그녀는 힘없이 고개를 저었다. "아냐, 조금 더 쉴래. 그리고 보고를 들으면 질투가 날거야. 나중에 몰래 나가기 전까지는 여기에 조금 더 있을께."
  
-I left my chamber then, dark thoughts now brooding at the back of my mind.  The date was coming closer when our plans would come to fruition and the Great Spellblaze would be unleashed.  A heavy foreboding lay over my heart.  Yet the alternatives seemed grim.  The war with the orcs was going badly, with few races able to secure their borders well and attacks from the brutes ever increasing.  Their numbers seemed inexhaustible.  Though they had little skill in warfare they could bring great harm to unprotected townsteads, and in enough force could bring down cities.  One human kingdom had collapsed under their attacks but a week before.  After that many who had initially rejected our plans came begging for our protection.  The Spellblaze seemed our only hope against imminent disaster.
+그리고 나는 방을 떠났다. 어두운 생각이 나의 마음 이면에 자리잡기 시작했다. 우리의 계획이 성과를 이루고 엄청난 마력폭발을 방출할 날이 다가오고 있었다. 불길한 예감이 나의 가슴을 답답하게 하였다. 그렇지만 차선책은 여전히 암울해보였다. 오크와의 전쟁은 점점 악화되어 소수의 종족만이 자기의 국경을 지킬수 있었지만 오크들의 공격은 점점 더 거세지고 있었다. 오크의 수는 고갈되지 않는것만 같았다. 오크들의 전투 기술은 미미했지만 힘없는 마을에는 큰 위협이 됬고 충분한 숫자만 있다면 도시를 함락할 수 있었다. 불과 일주일 전에 오크의 공격에 의해 한 인간왕국이 몰락했다. 우리의 계획을 단칼에 거절했던 수많은 이들이 우리의 보호를 구걸하기 위해 몰려들었다. 마력폭발만이 코앞에 닥친 재앙에 맞설 유일한 방법인듯했다.
  
-Such thoughts were weighing on my mind as I passed from my chambers in the palace, down to the courtyard by the main gate.  Then from the corner of my eye I saw a swish of long red hair, and spun round thinking Linaniil had followed me.  But the golden robes and bright eyes of Neira revealed otherwise.
+내 방을 떠나 성 밖의 문을 통하는 동안 이런 생각들은 나의 마음을 무겁게 하였다. 그때 한쪽에서 흩날리는 붉은 머리카락을 보고 리나니일이 나를 따라온것은 아닌지 순간 생각했다. 그러나 생각과는 달리 황금빛 로브와 빛나는 눈이 네이라의 것임을 알아챘다. 
  
-“Expecting someone else?” she asked with a wide smile, seeing the surprised look on my face.
+ "다른 누굴 기대하셨나봐요?" 함박웃음을 머금고 나의 놀란 얼굴을 바라보며 네이라가 물어보았다.
  
-“I was deep in thought,” I explained, bowing slightly to greet her.  “I am just on my way to inspect the farportal operations.  Perhaps you-“
- 
-“I shall join ye,” she said quickly, not waiting for my invitation.  I nodded my assent and guided her to my carriage.
- 
-As soon as we took off east the mood changed.  “She wilst only hurt ye,” said Neira suddenly.
- 
-I cursed quietly, understanding her meaning.  “Are there no secrets to be had in all Eyal?” I muttered.
- 
-“Not between sisters, and especially not between twins.”  She smiled warmly at me, yet there was no humour in her eyes.  “I mean it though.  I love mine sister, but I know her ways.  She be fickle, and willed to do her own thing when she likes.  Do not be surprised when she bores of ye.  Nor hurt.”
- 
-“I am quite capable of taking care of myself,” I said in clipped tone.
- 
-She gazed into my eyes a moment and then turned away to stare out the window.  “Well, I have warned ye...” she replied softly, a touch of sadness in her voice.
- 
-Was it jealousy perhaps that stirred such an outburst?  And for her sister’s attention or for mine?  I never did discover.  The rest of the trip was spent in sullen silence.  The sun was setting behind our carriage, casting a long shadow on the path ahead, and bathing the land about in crimson light.  It seemed for a moment like we rode into some demon’s plane, pitch black shadows melting into blood-red soil, whilst cold white stars began to spear through the sky above.  I shivered suddenly as the ruins came into view.
- 
-Few Sher’Tul ruins have been discovered which even come close to matching the grandeur of those which were near Elvala.  Many centuries our people spent excavating them, digging deep into the ground, ever careful not to damage or upset the relics.  The centrepiece was the Crystal Tower.  From the surface all that could be seen of it was a wide, even-sided square, which when cleaned of soil revealed a white stone smoother than marble.  But delving down our archaeologists found it plummeted deep, deep below the ground.  Half a mile it went down, the featureless white stone not bearing a single mark or engraving anywhere on its surface, until it ended suddenly and without foundation.  It was like the whole tower was separate from the earth, some strange thing of the stars that had dropped from the skies and lay sleeping beneath the soil.
- 
-Some years earlier our people had solved the invisible runes that allowed it to be opened, revealing vast crystal-lined halls and chambers arrayed in geometric patterns of sublime beauty.  Light sparked and shone from every surface, and the walls seemed to hum with energy.  Many shafts and passageways could only be navigated by flight, and at the top was found a grand room large enough to encompass the whole palace of Elvala.  At its centre was the farportal, a raised dais forty feet in diameter and crackling with energy upon which slowly spun a cloud of stars.  It was beautiful and frightening, enchanting and terrifying.  No power of the Shaloren could discern its operation, and though through careful experimentation we were able to manipulate its energies, never could we get a true grasp of the forces that lay beneath.
+ "생각에 빠져있었다오" 가볍게 인사하며 설명했다. "원거리 관문에 대한 실험을 점검하기 위해서 가는 길이라오. 아마도 숙녀분께서도- "
 
-Neira and I descended to the base of the tower, smothered in the cold shadows of the excavated ruins.  I nodded to the guards as we passed through the square white entrance, and Neira’s eyes instantly enlarged in wonder.  The scintillating rooms were eye-catching to be sure, but they were also desolate and empty.  I tried to imagine what it must have looked like when filled with Sher’Tul.  “How did they all die?” I asked under my breath as we traversed the crystal halls, a question many had asked before.
+ "물론 같이 갈께요" 나의 초대를 기다리지도 않고 재빨리 네이라가 대답했다. 나는 고개를 끄덕이고 그녀를 마차로 안내했다.
+
+우리가 동쪽으로 출발하자마자 분위기는 바뀌었다. "리나니일은 당신에게 상처만 줄뿐이에요" 가바기 네이라가 말했다.
  
-The sorceress picked up on my words and laughed softly.  “It be a mystery, of course!  Mine mother once taught me that they killed themselves in a great civil war, using magics far beyond our imaginings.”
+네이라의 말을 이해한 나는 조용히 욕설을 내뱉었다. "에이알에 진정 비밀이란 없는가보군요?" 내가 중얼댔다.
+
+ "자매 사이엔 비밀이란 없죠, 특히 쌍둥이라면 말할것도 없고요" 네이라는 따뜻하게 웃었지만, 그 눈에는 웃음기라곤 없었다. "진지하게 말씀드리는거에요. 저는 리나니일을 사랑하지만 그만큼 잘 알고 있기도 해요. 리나니일은 변덕이 심하고 자기 원할때만 하고픈 일을 하죠. 리나니일이 당신을 지루하게 생각할때가 오더라도 놀라지마세요. 상처받지도 마시구요."
  
-“I wonder,” said I.  We had our own records, of course, which we didn’t share with the younger races, but they were not so clear-cut as the many myths that had spread over the ages.
+ "제 처신은 알아서 잘 하는 편입니다" 단호하게 말했다.
  
-We reached the central shaft, and from there levitated up past floors and floors of abandoned chambers, living spaces, workshops, storerooms, and many other areas of purpose undivined by our loremasters.  Finally, after ascending for several minutes, we rose into the grand chamber of the farportal, and Neira gasped to see its size.  Her eyes soon settled on the great Sher’Tul farportal, sparks from it reflecting off the roof hundreds of feet above.  About it were bustling many of our Shaloren mages in silken robes, and Ephinias himself was leading the operations.
+네이라는 내 눈을 뚫어지게 바라보다가 창 밖을 바라보았다. "음, 전 경고했어요..." 네이라는 슬픈 목소리로 부드럽게 대답했다.
+
+그것은 아마 질투심이 폭발한것이였을까? 리나니일이나 나의 관심을 받기 위한 행동이였을까? 결국 알아내지 못했다. 여행의 나머지 시간들은 음울한 침묵 속에 계속되었다. 태양은 마차 뒤로 지며 앞으로 나아갈 길에 긴 그림자를 남기고 땅을 선홍빛으로 물들였다. 한순간 우리가 마치 악마의 땅으로 들어가고 있다는 생각조차 들었다. 검은 그림자의 끝부분을 피처럼 붉은 땅에 스며들고 시리도록 하얀 별들이 하늘을 꿰뚫고 있었다. 폐허가 시야에 들어오자 갑자기 몸이 떨려왔다.
  
-He broke from his advisers as he saw us arrive, and strode towards us with a confident smile on his face.  Though he wore the grey robes of a research mage he still bore his great golden staff, Luminis, token of his position as king.
+발견된 쉐르'툴의 폐허들중 일부는 심지어 엘발라 근처에 있는 유적들의 장대함에 비견될정도였다. 많은 세월동안 엘발라의 엘프들은 유적들을 발굴하고 파내는데 몰두했고 유물들을 손상하거나 폭주하지 않게 노력해왔다. 중심부는 수정탑이었다. 겉으로 보기에는 아주 넓고 네모 반듯한 표면이였지만, 덮고 있는 흙들을 치워내자 대리석보다 더 매끈한 하얀 돌들이 드러났다. 하지만 돌들을 파내려간 고고학자는 땅 밑으로 아주 깊고 가파르게 곤두박질친다는 것을 발견했다. 800미터를 넘게 내려갔지만 특징없는 하얀 돌들에는 어떤 표식이나 새김의 흔적도 발견할 수 없었다. 그러다 탐사는 토대를 발견하지 못한채 끝이났다. 마치 탑 전체가 대지와 분리되어 있는것 같았다. 마치 별이 하늘에서 떨어져 대지 위에 누워 잠자는듯한 모습처럼.
  
-“Ah, General Aranion!” he said, “You have come at last.  And brought the Kar’Krul girl with you; how splendid.”
+몇년 전 우리 쪽 사람들이 탑을 열리게하는 보이지 않는 룬에 대한 문제를 해결했고 그 안에는 기품있고 아름다운 지직학적 형태로 배열된 수정 형태의 복도와 방들이 있었다. 표면에는 불빛이 뒤었고 벽은 에너지로 웅웅거렸다. 많은 복도와 수직통로는 날아서만 갈수 있었고, 꼭대기에는 엘발라 궁전을 담을만큼 커다란 방이 있었다. 그리고 그 중심에는 직경 12미터의 연단의 위에 원거리 관문이 있었고 천천히 회전하는 은하수위로 에너지가 넘쳐흘렀다. 그 모습은 아름답고 두려웠으며 황홀하고 공포스러웠다. 샬로레의 어떤 힘도 작동방식을 알아낼수 없었지만 조심스러운 실험을 통해서 그 힘을 조종할수 있었지만 그 밑에 숨겨있는 진정한 힘은 이해할 수 없었다.
+
+네이라와 나는 탑의 밑바닥으로 내려갔고 발굴된 폐허의 차가운 그림자에 숨이 막혔다. 하얀 사각형 입구를 지나가며 경비에게 가볍게 고개를 숙였고 네이라의 눈은 의문으로 커졌다. 불꽃이 이는 방은 확실히 눈을 사로잡았지만 그것들은 적막하고 비어있었다. 쉐르'툴의 사람들로 가득찼다면 어떨지 상상해보려 시도했다. "그 사람들이 어떻게 다 죽은거지?" 수정 복도를 지나면서 이미 많은 의문이 된 그 질문을 스스로에게 했다.
  
-I gave a small bow.  “Your majesty.  I am here for the update on our operations.”
+네이라는 나의 말을 듣고는 부드럽게 웃었다. "물론 그러니까 미스테리죠! 저의 어머니께선 그들이 우리들의 상상을 뛰어넘는 엄청난 마법을 사용해서 전쟁을 벌였고 자기네들을 스스로 죽였다고 가르쳐주셨어요."
  
-“Yes, yes, of course,” he said with a dismissive hand gesture.  “And doubtless the girl is here to make sure we know what we’re doing?”
+ "의문입니다." 내가 말했다. 물론 우리도 젊은 종족과는 공유하지 않는 우리만의 기록을 가지고 있다. 하지만 그 기록들은 오랫동안 펴진 수많은 신화처럼 명백하지가 않다.
  
-If Neira was offended she covered it up well.  “It would be mine delight to see evidence of ye skill and power over the ruins, lord Ephinias.”
+우리는 중앙 수직 통로에 도달했고 수많은 버려진 방과 거주지역, 작업실, 저장고 그리고 아직 그 역할이 밝혀지지 않은 수 많은 방들을 지나 위로 올라갔다. 몇분 동안 올라간 끝에 마침내 원거리 관문이 있는 거대한 방으로 도달했고 네이라는 그 크기를 보고 숨이 턱 막히는듯 했다. 금새 네이라의 눈은 수백 미터 위로 에너지가 타오르는 쉐르'툴의 원거리 관문에 고정됐다. 에피아네스와 실크 로브를 입은 수많은 샬로레 마법사들이 북적거렸고 에피아네스는 실험을 주도하고 있었다.
  
-The king smiled and nodded then, and called to some of his aides.  “Prepare the topography demonstration, using the acute fire strand.”  He turned back to us then.  “It is not mere skill and power of course that we can show you, but subtlety and scale too.  Now excuse me a moment whilst I join the others.”
+에피아네스는 우리를 보자 무리들을 뿌리치고 웃음 지으며 성큼성큼 다가왔다. 연구 마법사의 회색 로브를 입고 있었지만 여전히 왕의 상징인 위대한 황금 지팡이 루미니스를 지니고 있었다.
  
-He went with two of the senior research mages then to the front of the farportal.  They faced each other and began a low humming in unison, and slowly it seemed that the sparks from the farportal began to flicker redly.  Over the course of a few minutes their hum became a higher pitched chant, but softly sung and still in perfect unison.  As they raised their staffs there appeared above the farportal an image in flames, and looking at it both Neira and I marvelled, for we could see clearly that it was an image of ourselves, looking upwards, as if looking we were staring into a mirror.  Our features and movements were all clearly discernible, down the smallest detail, all carved out of flickering orange fire.
+ "아, 아라니온 장군!" 에피아네스가 말했다 "마침내 왔구려. 그리고 칼'쿠를의 딸도 데려왔다니 훌륭하오."
  
-Then the chanting rose higher and it seemed the image zoomed out, so that we saw the farportal nearby us and the mages gathered about.  And still the focus soared upwards till we were but specks in a wide hall, until the image was displaced by a white square with carven edges dug into the earth about it, and I knew we were looking at the top of the Crystal Tower from above.  The view widened, and I could see the land rushing away, and the city of Elvala to the west.  The chanting rose higher and now the sea could be seen, and the mountains to the north-west, and all the land about.  And soon the continent was visible, right to the frozen north, and the ocean wrapped all about, and it seemed small white stars were dotted about the landscape.  The singing reached a crescendo and before us hung an image of the whole of Eyal, a globe of fire suspended in mid-air, slowly turning.
+나는 작은 인사를 하고 "폐하. 계획에 대한 진행상황을 갱신하기 위해 왔습니다."
+
+ "그럼, 그럼, 물론이오" 성의 없는 손짓을 하며 에피아네스가 말했다. "그리고 여기 아가씨께서는 우리가 뭘 하고 있는지 잘 알고 있나 확인하기 위해 오셨겠군?"
  
-Then the chanting stopped and the image disappeared, and I could hear beside me Neira suddenly gasp for air, as if she had not dared draw breath through the last few minutes.
+만약 네이라가 화가 났더라도 잘 감췄을것이다. "폐허에 대한 그쪽의 기술과 힘을 증명할만한 것들을 볼수 있다면 기쁘겠습니다. 에피아네스님."
  
-“You see now?” said Ephinias, grinning with pleasure.  “From the smallest detail to the grandest scale we can manipulate the farportal’s energy.  And did you see those white points marked across the image?  They are the other farportals spread across the world, and this one can connect to them all.  With careful, delicate control we can harmonise the energy of them all and use it to our will.  I’m afraid your sword can be no match to this, Aranion.”
+왕은 미소지으며 고개를 끄덕였다. 그리곤 그의 사람들을 불러냈다. "지질학 시험을 준비하거라." 그리곤 우리를 바라보았다. "이것들이 우리가 보여줄수 있는 한낱 기술과 힘은 아니지만 중요한 세부요소라오. 다른 사람들과 합류해야 하니 내 잠시 실례하리라."
  
-I had no words to respond, and only nodded softly, still in awe of what I had seen.  Neira seemed the same, and I could see her now staring at the farportal with the same eager eyes as her sister.  She was converted.
+에피아네스는 두명의 연구 마법사들과 함께 원거리 관문 앞에 섰다. 그들은 서로를 마주보고 조용하게 웅얼거리는 목소리를 맞추어갔다. 그러자 원거리 관문의 불똥이 붉게 튀어오르기 시작했다. 몇분이 더 흐르자 그들의 목소리는 점점 고조되었지만 부드러운 노래로 바뀌어 조화를 이루었다. 그들이 지팡이를 들어올리자 원거리 관문위로 불이 타올랐고 경이로운 표정으로 바라보는 나와 네이라의 모습이 나타났다. 그 모습이 너무나 선명하여 마치 거울을 보는것만 같았다. 우리의 모습과 움직임이 타오르는 오렌지색 화염속에 자세하게 새겨져있었다.
  
-Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured with unease.]],
+그러다 합창은 점점 고조되었고 영상은 멀어지는듯했다. 그러자 원거리 관문 주위에 모여있는 마법사들도 볼 수 있었다. 그리고도 그 시점은 점점 높아져 우리가 점으로 보일때까지 계속 올라가 하얀 사각형의 조각된 모양이 보였다. 그리고 우리는 그것이 원거리 관문에 꼭대기임을 알아챘다. 시야는 점점 넓어졌고 맹렬하게 달리는 대지를 지나 서쪽의 도시 엘발라가 보였다. 합창이 다시 높아지고 바다가 보였다. 그리곤 북서쪽의 산이 보이고 모든 대지가 한 눈에 들어왔다. 금새 전 대륙을 살펴볼수 있었고 북쪽의 얼어붙은 땅과 둘러쌓고 있는 바다가 보였다. 하얀 별들이 대지에 점으로 박혀있는듯했다. 노래는 최고조에 도달하여 에이알 전체의 모습을 보여주었다. 불에 휩싸인 구는 공중으로 떠올라 천천히 돌기 시작했다.
+ 
+갑자기 합창이 멈추고 이미지가 사라졌고 옆에 있던 네이라가 갑자기 숨을 들이쉬는 소리를 들을 수 있었다. 마치 네이라가 몇 분동안 숨을 쉬는 것을 잊은것마냥 말이다.
+ 
+ "이제 알겠소?" 활짝 웃으며 에피아네스가 말했다. "가장 섬세하고 작은것부터 위대한 범위까지 우리는 원거리 관문의 힘을 조종할수 있소. 그리고 떠오른 영상에 표시된 하얀 점들 보셨소? 그것들은 세계에 퍼져있는 다른 원거리 관문들이오. 그리고 이곳의 원거리 관문은 다른 것들과 연결이 가능하지. 조심스럽고 섬세하게 조절한다면 우리는 다른 모든 원거리 관문들과 조화를 이루고 그것들을 사용할수 있을것이오. 자네의 검이 이것만 못할까 두렵군, 아라니온."
+
+내가 본 놀라운 광경에 뭐라고 대답할지 몰랐고 그저 고개를 끄덕일 뿐이였다. 네이라도 나와 마찬가지인듯 했지만 원거리 관문을 바라보는 열망은 리나니일의것과 같았다. 네이라는 변했다.
+ 
+나의 손은 검자루를 벗어났지만 나의 심장은 불안감으로 두근거렸다.]],
 	on_learn = function(who)
 		world:gainAchievement("SPELLBLAZE_LORE")
 	end,
@@ -233,7 +233,7 @@ newLore{
 	kr_display_name = "마력폭발 연대기(4): 동이 트기 전에",
 	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
-#{bold}#Chapter Four: Before the Dawn#{normal}#
+#{bold}#제 4장: 동이 트기 전에#{normal}#
 
 I rode my great grey horse at a low trot, surrounded by my lieutenants and their elite cavalry and spellrangers.  Beside me on a brown mare my squire held high a banner emblazoned with a flame-wreathed sword, symbol of my personal entourage.  The pole seemed to shiver slightly in the young elf’s hands, a sign of nervousness.
  
