@@ -474,7 +474,7 @@ newEntity{ base = "BASE_GEM",
 newEntity{ base = "BASE_LITE",
 	power_source = {arcane=true},
 	unique = true,
-	name = "Duathedlen Heart", --@@ 원래 Dúathedlen 이지만, 한글글꼴 문제로 일단 변경
+	name = "Dúathedlen Heart",
 	unided_name = "a dark, fleshy mass", image = "object/artifact/dark_red_heart.png",
 	kr_display_name = "듀아세들렌의 심장", kr_unided_name = "어두운 살점 덩어리",
 	level_range = {30, 40},
@@ -879,7 +879,7 @@ newEntity{
 	unique = true,
 	type = "misc", subtype="egg",
 	unided_name = "dark egg",
-	name = "Mummified Egg-sac of Ungole", image = "object/artifact/mummified_eggsack.png", --@@ 원래 Ungolë 이지만, 한글글꼴 지원문제로 일단 변경
+	name = "Mummified Egg-sac of Ungolë", image = "object/artifact/mummified_eggsack.png",
 	kr_display_name = "운골뢰의 미이라화된 알주머니", kr_unided_name = "어두운 알",
 	level_range = {20, 35},
 	rarity = 190,

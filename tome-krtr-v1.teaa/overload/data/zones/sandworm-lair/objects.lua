@@ -23,7 +23,7 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "Song of the Sands", lore="sandworm-note-"..i,
-	kr_display_name = "모래의 노래", --@@ lore 번역시 수정 필요
+	kr_display_name = "모래의 노래",
 	desc = [[어떤 사람이 떠올린 가장 이상한 생각!]],
 	rarity = false,
 }

@@ -24,7 +24,7 @@ load("/data/general/objects/lore/orc-prides.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE_LORE",
 	name = "draft note", lore="grushnak-pride-note",
-	kr_display_name = "휘갈겨 쓴 쪽지", --@@ lore 번역후 수정 필요
+	kr_display_name = "휘갈겨 쓴 쪽지",
 	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,
@@ -34,7 +34,7 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "GARKUL_HISTORY"..i,
 	name = "The Legend of Garkul", lore="garkul-history-"..i,
-	kr_display_name = "가르쿨의 전설", --@@ lore 번역후 수정 필요
+	kr_display_name = "가르쿨의 전설",
 	desc = [[모든 오크 중 가장 강한, 포식자 가르쿨의 전설입니다.]],
 	rarity = false,
 }

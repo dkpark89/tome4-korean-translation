@@ -105,7 +105,7 @@ newEntity{
 	define_as = "BASE_LORE",
 	type = "lore", subtype="lore", not_in_stores=true, no_unique_lore=true,
 	unided_name = "scroll", identified=true,
-	kr_unided_name = "두루마리", --@@ lore 번역시 수정 필요
+	kr_unided_name = "두루마리",
 	display = "?", color=colors.ANTIQUE_WHITE, image="object/scroll-lore.png",
 	encumber = 0,
 	checkFilter = function(self) if self.lore and game.party.lore_known and game.party.lore_known[self.lore] then print('[LORE] refusing', self.lore) return false else return true end end,
@@ -116,7 +116,7 @@ newEntity{
 	define_as = "BASE_LORE_RANDOM",
 	type = "lore", subtype="lore", not_in_stores=true, no_unique_lore=true,
 	unided_name = "scroll", identified=true,
-	kr_unided_name = "두루마리", --@@ lore 번역시 수정 필요
+	kr_unided_name = "두루마리",
 	display = "?", color=colors.ANTIQUE_WHITE, image="object/scroll.png",
 	encumber = 0,
 	checkFilter = function(self) if self.lore and game.party.lore_known and game.party.lore_known[self.lore] then print('[LORE] refusing', self.lore) return false else return true end end,

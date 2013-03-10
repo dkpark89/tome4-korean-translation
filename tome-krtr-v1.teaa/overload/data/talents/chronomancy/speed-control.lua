@@ -76,7 +76,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[주변 %d 칸 반경의 모든 적들에게 %0.2f 시간 피해를 주고, %d 턴 동안 기절시킵니다.
 		기절 지속시간은 괴리 수치, 피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):
-		format(damage, radius, duration)
+		format(radius, damage, duration) --@@ 변수 순서 조정
 	end,
 }
 

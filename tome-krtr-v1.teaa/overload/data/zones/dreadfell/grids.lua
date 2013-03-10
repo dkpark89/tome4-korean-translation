@@ -26,7 +26,7 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "LORE_NOTE",
 	name = "sign post with a note", image = "terrain/marble_floor.png",
-	kr_display_name = "쪽지가 붙어있는 이정표", --@@ lore 번역후 수정 필요
+	kr_display_name = "종이가 붙어있는 이정표",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},
 	always_remember = true,

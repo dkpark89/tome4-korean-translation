@@ -23,7 +23,7 @@ load("/data/general/objects/lore/orc-prides.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE_LORE",
 	name = "draft note", lore="grushnak-pride-note",
-	kr_display_name = "휘갈겨 쓴 쪽지", --@@ lore 번역시 수정 필요
+	kr_display_name = "휘갈겨 쓴 쪽지",
 	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,
@@ -33,7 +33,7 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "BREEDING_HISTORY"..i,
 	name = "Clinician Korbek's experimental notes", lore="orc-breeding-"..i,
-	kr_display_name = "임상 의학자 코르벡의 실험 기록", --@@ lore 번역시 수정 필요
+	kr_display_name = "임상의 코르벡의 실험 기록",
 	desc = [[새로운 오크가 태어났다...]],
 	rarity = false,
 }
@@ -41,7 +41,7 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "BREEDING_HISTORY5",
 	name = "Captain Gumlarat's report", lore="orc-breeding-5",
-	kr_display_name = "굼라랏 장군의 보고서", --@@ lore 번역시 수정 필요
+	kr_display_name = "굼라랏 장군의 보고서",
 	desc = [[새로운 오크가 태어났다...]],
 	rarity = false,
 }

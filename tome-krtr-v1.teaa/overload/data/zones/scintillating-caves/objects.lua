@@ -23,7 +23,7 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "research log", lore="scintillating-caves-note-"..i,
-	kr_display_name = "연구 기록", --@@ lore 번역시 수정 필요
+	kr_display_name = "연구 기록",
 	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
@@ -33,7 +33,7 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE6",
 	name = "exploration log", lore="scintillating-caves-note-6",
-	kr_display_name = "탐험 기록", --@@ lore 번역시 수정 필요
+	kr_display_name = "탐험 기록",
 	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,

@@ -23,7 +23,7 @@ for i = 1, 4 do
 newEntity{
 	define_as = "LORE"..i,
 	name = "inscription", image = "terrain/maze_floor.png",
-	kr_display_name = "비문", --@@ lore 번역후 수정 필요
+	kr_display_name = "비문",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},
 	always_remember = true,

@@ -26,7 +26,7 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "CELIA_NOTE",
 	name = "creased letter", lore="celia-letter",
-	kr_display_name = "접혀진 편지", --@@ lore 번역시 수정 필요
+	kr_display_name = "구겨진 편지",
 	desc = [[편지입니다.]],
 	rarity = false,
 	encumberance = 0,

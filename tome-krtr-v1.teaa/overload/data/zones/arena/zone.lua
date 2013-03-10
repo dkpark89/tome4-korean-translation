@@ -241,7 +241,7 @@ return {
 
 			printRankings = function (val)
 				local scores = world.arena.scores
-				if not scores or not scores[1] or not scores[1].name then return "#LIGHT_GREEN#...하지만 최근 누군가에 의해 지워진 것 같습니다." --@@ 번역 필요
+				if not scores or not scores[1] or not scores[1].name then return "#LIGHT_GREEN#...하지만 최근 누군가에 의해 지워진 것 같습니다."
 				else
 					local text = ""
 					local tmp = ""

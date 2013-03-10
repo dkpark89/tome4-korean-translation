@@ -71,8 +71,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "IRON_THRONE_PROFIT"..i,
 	name = "Iron Throne Profits History", lore="iron-throne-profits-"..i,
-	kr_display_name = "철의 왕좌 수익의 역사", --@@ lore 번역시 수정 필요
-	desc = [[철의 왕좌 드워프들의 수익에 관한 역사가 적힌 잡지입니다.]],
+	kr_display_name = "철의 왕좌의 손익 역사",
+	desc = [[철의 왕좌 드워프들의 손익에 관한 역사가 적힌 잡지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -81,8 +81,8 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "IRON_THRONE_LEDGER",
 	name = "Iron Throne trade ledger", lore="iron-throne-trade-ledger",
-	kr_display_name = "철의 왕좌 교역 원장", --@@ lore 번역시 수정 필요
-	desc = [[철의 왕좌 드워프들의 교역 원장입니다.]],
+	kr_display_name = "철의 왕좌 거래 대장",
+	desc = [[철의 왕좌 드워프들의 거래 대장입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -90,8 +90,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "IRON_THRONE_LAST_WORDS",
 	name = "Iron Throne Reknor expedition, last words", lore="iron-throne-last-words",
-	kr_display_name = "철의 왕좌 레크놀 원정기, 유언", --@@ lore 번역시 수정 필요
-	desc = [[레크놀의 안전을 위한 드워프 원정대의 유언입니다.]],
+	kr_display_name = "철의 왕좌의 레크놀 탐험대가 남긴 유언",
+	desc = [[레크놀의 안전을 위한 드워프 탐험대의 유언입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
