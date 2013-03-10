@@ -82,7 +82,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("deep-bellow", engine.Quest.COMPLETED)
-		game.state:activateBackupGuardian("ABOMINATION", 3, 35, "드워프들 사이에서, '깊은 울림' 속에는 혐오생물이 있다는 속삭임을 들은 적이 있습니다.")
+		game.state:activateBackupGuardian("ABOMINATION", 3, 35, "드워프들 사이에서, '깊은 울림' 속에 혐오생물이 있다는 속삭임을 들은 적이 있어.")
 	end,
 }
 

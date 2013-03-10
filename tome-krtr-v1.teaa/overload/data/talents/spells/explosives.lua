@@ -192,7 +192,7 @@ newTalent{
 		local max = (math.log10(max) / (6 - self:getTalentLevelRaw(self.T_EXPLOSION_EXPERT)))
 
 		return ([[연금술 폭탄의 폭발 범위가 %d 칸 넓어집니다.
-		또한 최대 폭발 범위에서 1 칸 부족한 범위까지는 폭발 피해량이 %d%% 증가하며, 폭발의 중심부는 피해량이 %d%% 증가합니다.]]):format(self:getTalentLevelRaw(t), min*100, max*100)
+		또한, 연금술 폭탄의 피해량이 %d%% (폭발의 가장자리) - %d%% (폭발의 중심부) 만큼 증가합니다.]]):format(self:getTalentLevelRaw(t), min*100, max*100)
 	end,
 }
 

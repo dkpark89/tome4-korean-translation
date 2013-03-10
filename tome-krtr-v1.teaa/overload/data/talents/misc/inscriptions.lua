@@ -275,7 +275,7 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		return ([[주입된 힘을 사용하여, 시전자의 세 가지 주요 능력치 (가장 높은 능력치) 를 %d 턴 동안 %d 만큼 올립니다.
 		영웅 효과가 지속되는 동안에는 생명력이 0 이 되도 죽지 않으며, -%d 생명력이 되어야 사망합니다. 
-		하지만 생명력이 0 이하로 떨어지면 남은 생명력을 알 수 없게 되며, 영웅 효과가 끝나기 전에 반드시 회복을 해야 합니다.]]):format(data.power + data.inc_stat, data.dur, data.die_at + data.inc_stat * 30)
+		하지만 생명력이 0 이하로 떨어지면 남은 생명력을 알 수 없게 되며, 영웅 효과가 끝나기 전에 반드시 회복을 해야 합니다.]]):format(data.dur, data.power + data.inc_stat, data.die_at + data.inc_stat * 30)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)

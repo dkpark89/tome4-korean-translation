@@ -64,7 +64,7 @@ newEntity{ base="BASE_NPC_CRYSTAL", define_as = "SPELLBLAZE_CRYSTAL",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("start-shaloren", engine.Quest.COMPLETED, "spellblaze")
-		game.state:activateBackupGuardian("SPELLBLAZE_SIMULACRUM", 3, 35, "오래된 수정 중 몇몇은, 이제 거의 생명체에 가까운 존재가 되어 번뜩이는 동굴에 머물고 있다고 한다.")
+		game.state:activateBackupGuardian("SPELLBLAZE_SIMULACRUM", 3, 35, "오래된 수정 중 몇몇은, 이제 거의 생명체에 가까운 존재가 되어 번뜩이는 동굴에 머물고 있다고 하더군.")
 	end,
 }
 

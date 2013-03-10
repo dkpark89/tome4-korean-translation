@@ -112,7 +112,7 @@ newEntity{ define_as = "THE_MASTER",
 	end,
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("PALE_DRAKE", 1, 40, "우리의 영웅이 두려움의 영역을 정화한지 몇 달 후, 사람들 사이에서 또 다른 소문이 돌기 시작했습니다. '악이 다시 돌아왔다!'")
+		game.state:activateBackupGuardian("PALE_DRAKE", 1, 40, "우리의 영웅이 두려움의 영역을 정화한지 몇 달이나 됐다고, 이런 소문이 돌더군. '악이 다시 돌아왔다!' 는 소문 말이야.")
 
 		world:gainAchievement("VAMPIRE_CRUSHER", game.player:resolveSource())
 		game.player:resolveSource():grantQuest("dreadfell")
