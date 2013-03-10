@@ -96,7 +96,7 @@ newEntity{ define_as = "GOLBUG",
 	end,
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("LITHFENGEL", 4, 35, "사람들이 말하기를 레크놀의 오크들은 아직도 살아있으며, 그들은 레크놀에서 강력한 악마를 찾아냈다고 합니다.", function(gen)
+		game.state:activateBackupGuardian("LITHFENGEL", 4, 35, "레크놀의 오크들이 아직도 살아있다는 말 들었어? 그들이 레크놀에서 강력한 악마를 찾아냈다고 하던데...", function(gen)
 			if gen then require("engine.ui.Dialog"):simpleLongPopup("위험...", "마지막으로 이곳을 봤을 때, 이 동굴은 당신이 죽인 오크의 시체로 어지럽혀져 있었습니다. 하지만 지금은, 훨씬 더 많은 시체가 바닥을 완전히 덮고 있으며 이 까맣게 탄 시체에서는 유황 냄새가 납니다. 동쪽으로 연결된 동굴의 저쪽 끝에서, 뭔가가 희미하게 주황색 빛을 내고 있습니다.", 400) end
 		end)
 
@@ -202,7 +202,7 @@ newEntity{ define_as = "LITHFENGEL", -- Lord of Ash; backup guardian
 
 	on_die = function(self, who)
 		if who.resolveSource and who:resolveSource().player and who:resolveSource():hasQuest("east-portal") then
-			require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 곳에", "악마의 몸을 조심스럽게 살펴보자, 악마의 몸이 피의 룬 제례단검과 공명하는 다이아몬드로 변했습니다. 둘 다 그을음과 피가 묻어있지만, 다른 이상한 점은 없는 것 같습니다.", 400)
+			require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 곳에", "악마의 몸을 조심스럽게 살펴본 결과, 피의 룬 제례단검과 공명하는 다이아몬드를 발견했습니다. 둘 다 그을음과 피가 묻어있지만, 다른 이상한 점은 없는 것 같습니다.", 400)
 		end
 	end,
 }

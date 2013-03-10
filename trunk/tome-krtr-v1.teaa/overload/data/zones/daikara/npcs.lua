@@ -74,7 +74,7 @@ newEntity{ define_as = "RANTHA_THE_WORM",
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("MASSOK", 4, 43, "다이카라에는 용 사냥꾼이 있다고 들었습니다. 그리고 그 용 사냥꾼은 자신의 사냥감을 뺏긴 것에 대해 상당히 안 좋은 감정을 가지고 있는 것 같습니다.")
+		game.state:activateBackupGuardian("MASSOK", 4, 43, "다이카라에는 용 사냥꾼이 있다고 들었어. 그 용 사냥꾼은 자신의 사냥감을 뺏긴 것에 대해 상당히 안 좋은 감정을 가지고 있는 것 같다는군.")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "daikara")
 	end,

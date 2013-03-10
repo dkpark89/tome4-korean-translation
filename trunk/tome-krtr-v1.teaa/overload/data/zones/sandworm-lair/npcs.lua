@@ -103,7 +103,7 @@ newEntity{ define_as = "SANDWORM_QUEEN",
 	resolvers.inscriptions(2, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("CORRUPTED_SAND_WYRM", 1, 45, "들립니까? 무언가가 이곳에 있던 지렁이들을 모두 먹어버린 것 같습니다!", function(gen)
+		game.state:activateBackupGuardian("CORRUPTED_SAND_WYRM", 1, 45, "그 말 들었어? 무언가가 지렁이 굴에 있던 지렁이들을 모두 먹어버렸다는데!", function(gen)
 			if gen then return end
 			for i = #game.level.e_array, 1, -1 do
 				local e = game.level.e_array[i]

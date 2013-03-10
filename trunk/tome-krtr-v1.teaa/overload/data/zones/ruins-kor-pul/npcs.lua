@@ -68,7 +68,7 @@ newEntity{ define_as = "SHADE",
 	ai = "tactical", ai_state = { talent_in=3, ai_move="move_astar", },
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("KOR_FURY", 3, 35, "... 내가 말하건데! 이 코르'풀 폐허는 아직도 저주받았노라!")
+		game.state:activateBackupGuardian("KOR_FURY", 3, 35, "... 내가 말하는데! 저 코르'풀 폐허는 아직도 저주받았다고!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul")
 	end,
 }

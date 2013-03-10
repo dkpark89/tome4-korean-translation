@@ -74,7 +74,7 @@ newEntity{ define_as = "WRATHROOT",
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 합니다.")
+		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 하는군.")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest")
 	end,
