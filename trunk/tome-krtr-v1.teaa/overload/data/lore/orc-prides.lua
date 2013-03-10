@@ -353,7 +353,7 @@ newLore{
 	id = "orc-breeding-5",
 	category = "orc prides",
 	name = "Captain Gumlarat's report",
-	kr_display_name = "대장 굼라랏의 보고",
+	kr_display_name = "굼라랏 장군의 보고서",
 	lore = [[#{bold}#Captain Gumlarat's report#{normal}#
 
 I have found clinician Korbek's body in his study. It seems he slit his own throat. This would explain the lack of reports in the last few days.

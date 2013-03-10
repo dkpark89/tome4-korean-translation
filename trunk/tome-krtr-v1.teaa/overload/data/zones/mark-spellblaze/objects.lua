@@ -22,7 +22,7 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "DRAFT_LETTER",
 	name = "draft letter", lore="grand-corruptor-draft",
-	kr_display_name = "설계도 편지", --@@ lore 번역시 수정 필요
+	kr_display_name = "휘갈겨 쓴 편지",
 	desc = [[편지입니다.]],
 	rarity = false,
 	encumberance = 0,

@@ -24,7 +24,7 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "ancient papyrus scroll", lore="ancient-elven-ruins-note-"..i,
-	kr_display_name = "고대 파피루스 두루마리", --@@ lore 번역후 수정 필요
+	kr_display_name = "고대의 파피루스 두루마리",
 	desc = [[위대한 샬로레 마법사의 마지막 나날들을 회상할 수 있는 내용입니다.]],
 	rarity = false,
 }

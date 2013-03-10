@@ -26,8 +26,8 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE",
 	name = "journal page", lore="old-forest-note-5",
-	kr_display_name = "여행 일지", --@@ lore 번역시 수정 필요
-	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
+	kr_display_name = "여행 일지",
+	desc = [[어떤 모험가가 남긴 일지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

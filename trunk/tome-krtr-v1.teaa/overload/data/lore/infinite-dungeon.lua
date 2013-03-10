@@ -46,7 +46,7 @@ newLore{
 	name = "clue (ruined dungeon)", always_pop = true,
 	kr_display_name = "파괴된 던전에서 찾은 단서",
 	lore = [[글귀가 새겨져 있다 :
-#{italic}#...마법의 힘이 모든 것을 불태울 것이리라.#{normal}#]],
+#{italic}#...마법의 힘이 모든 생명을 불태울 것이리라.#{normal}#]],
 }
 
 newLore{

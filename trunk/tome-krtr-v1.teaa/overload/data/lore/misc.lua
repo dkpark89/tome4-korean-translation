@@ -25,8 +25,8 @@ newLore{
 	id = "temple-creation-note-1",
 	category = "temple of creation",
 	name = "tract of destruction",
-	kr_display_name = "파괴의 글",
-	lore = [[#{bold}#파괴의 글#{normal}#
+	kr_display_name = "파괴의 기록",
+	lore = [[#{bold}#파괴의 기록#{normal}#
 
 비록 마법폭발의 힘 앞에 군대가 쓰러지더라도, 비록 숲이 파괴되고 하늘은 불길에 핏빛 빨강으로 불타오를지라도, 대지는 견뎌낼 것이라고, 그들은 느꼈다. 대지는 마치 영원하며, 절대 변하지 않을 것처럼 보였다. 마법폭발의 분노조차 대지를 파괴할 엄두조차 내지 못할 것이라고 생각하였다.
 
@@ -39,8 +39,8 @@ newLore{
 	id = "temple-creation-note-2",
 	category = "temple of creation",
 	name = "tract of anarchy",
-	kr_display_name = "혼돈의 글",
-	lore = [[#{bold}#혼돈의 글#{normal}#
+	kr_display_name = "혼돈의 기록",
+	lore = [[#{bold}#혼돈의 기록#{normal}#
 
 그 대재앙이 일어나고 수 년 동안, 혼돈이 그들을 지배하였다. 그들의 문화, 삶의 방식... 그러한 것들은 그들의 대지처럼 부서지고 금이 갔다. 날로레 문명은 소수의 고립되고 연약한 공동체 수준으로 줄어들었다. 이 땅에서 마치 그 존재가 지워진 듯 하였다. 그들의 정신과 신체는 비틀리기 시작하였다.
 
@@ -53,8 +53,8 @@ newLore{
 	id = "temple-creation-note-3",
 	category = "temple of creation",
 	name = "tract of acceptance",
-	kr_display_name = "적응의 글",
-	lore = [[#{bold}#적응의 글#{normal}#
+	kr_display_name = "적응의 기록",
+	lore = [[#{bold}#적응의 기록#{normal}#
 
 저 고집 세고 파괴적인 샬로레들에게 배신을 당하고, 저 냉담하고 의심스러운 탈로레들에게 배신을 당하자, 길고 혹독한 침묵이 남은 날로레 엘프들에게 내려졌다. 이 엄숙한 자아 성찰의 시간 동안, 구원은 갑작스럽고 예상치 못하게 내려졌다. 이 땅의 신비이자 오랜 시간 동안 침묵을 지키던 고대의 쉐르'툴 마법이 드디어 결실을 맺게 된 것이다.
 

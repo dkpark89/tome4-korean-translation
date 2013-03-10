@@ -106,7 +106,7 @@ newLore{
 	id = "last-hope-tolak-statue",
 	category = "last hope",
 	name = "All Hail King Tolak the Fair!",
-	kr_display_name = "평등한 왕 톨락 만세!",
+	kr_display_name = "공평한 왕 톨락 만세!",
 	lore = [[인간인 토크놀 왕과 하플링인 미르베니아 여왕의 결합이자, 두 배로 축복 받은 그에게 영광 있으라!
 또한 왕의 칙령에 의하여, 인간과 하플링 간의 모든 종족 차별적 행동을 엄중히 금한다. 가격과 대우 등에 종족간 차이가 있어서는 안되며, 거래와 사업과 고용에 있어서의 차별 역시 용납되지 않는다. 그 어떤 하플링들도 발가락에 털난 놈, 난쟁이, 땅딸막한 거지 등으로 불리지 않을 권리가 있으며, 그 어떤 인간들도 꺽다리, 멀대같은 놈, 민다리 등으로 불리지 않을 권리가 있다.
 칙령을 어긴 자는 태형으로 타스릴 것이다. 참을 수 없는 행위는 참지 않고 벌하리라!]],
@@ -143,7 +143,7 @@ newLore{
 	category = "southspar",
 	name = "The Pale King, part one",
 	kr_display_name = "창백한 왕, 그 첫 번째 이야기",
-	lore = [[#{italic}#남쪽스파 (Southspar) 의 가장 위대했던 지배자에 대한 연구#{normal}#
+	lore = [[#{italic}#남쪽스파의 가장 위대했던 지배자에 대한 연구#{normal}#
 
 장담하는데, 당신은 남쪽스파에 대해 들어본 적이 없을 것이다.
 

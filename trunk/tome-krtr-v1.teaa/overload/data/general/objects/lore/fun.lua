@@ -56,7 +56,7 @@ end
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = [["Dust to Dust", an undead hunter's guide, by Aslabor Borys]], lore="dust-to-dust", unique=true,
-	kr_display_name = [[언데드 사냥꾼 안내서 "먼지에서 먼지로" - 아슬라보르 보리스]], --@@ lore 번역시 수정 필요
+	kr_display_name = [[언데드 사냥꾼 안내서 "먼지에서 먼지로" - 아슬라보르 보리스]],
 	desc = [[아슬라보르 보리스의 언데드 사냥꾼을 위한 안내서]],
 	level_range = {15, 50},
 	rarity = 60,
@@ -72,7 +72,7 @@ elseif i == 5 then who = "Weisman" nb = 3 krWho = "웨이스만"
 end
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "letter to "..who.."("..nb..")", lore="adventurer-letter-"..i, unique=true,
-	kr_display_name = krWho.."에게 쓰는 편지 ("..nb..")", --@@ lore 번역시 수정 필요
+	kr_display_name = krWho.."에게 보내는 편지 ("..nb..")",
 	desc = [[두 모험사 사이의 일부 편지 왕래]],
 	level_range = {1, 20},
 	rarity = 20,

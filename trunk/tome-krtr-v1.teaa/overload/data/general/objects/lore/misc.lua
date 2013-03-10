@@ -27,7 +27,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "memories of Artelia Firstborn", lore="creation-elf", unique=true,
-	kr_display_name = "아르텔리아 퍼스트본의 기억", --@@ lore 번역시 수정 필요
+	kr_display_name = "아르텔리아 퍼스트본의 기억",
 	desc = [[처음 깨달음을 얻은 엘프의 기억]],
 	level_range = {1, 25},
 	rarity = 40,
@@ -37,7 +37,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "human myth of creation", lore="creation-human", unique=true,
-	kr_display_name = "인간의 창조 신화", --@@ lore 번역시 수정 필요
+	kr_display_name = "인간의 창조 신화",
 	desc = [[인간의 창조 신화]],
 	level_range = {1, 25},
 	rarity = 40,
@@ -47,7 +47,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "a logical analysis of creation, by philosopher Smythen", lore="creation-halfling", unique=true,
-	kr_display_name = "철학자 스미든의 창조에 대한 논리적 분석", --@@ lore 번역시 수정 필요
+	kr_display_name = "철학자 스미든의 창조에 대한 논리적 분석",
 	desc = [[하플링의 창조 신화]],
 	level_range = {1, 25},
 	rarity = 40,
@@ -57,7 +57,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "Tale of the Moonsisters", lore="moons-human", unique=true,
-	kr_display_name = "달의 자매 설화", --@@ lore 번역시 수정 필요
+	kr_display_name = "달의 자매 이야기",
 	desc = [[에이알의 달의 발생]],
 	level_range = {1, 35},
 	rarity = 40,
