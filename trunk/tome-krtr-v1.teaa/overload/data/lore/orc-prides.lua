@@ -25,9 +25,9 @@ newLore{
 	category = "orc prides",
 	name = "Grushnak's Note",
 	kr_display_name = "그루쉬낙의 쪽지",
-	lore = [[Treachery! During a patrol around the outskirts of the High Peak I witnessed two orcs - the envoys from our supposed "master" - talking in secret. Remaining to watch them, I beheld as their orcish features sloughed from their bodies, revealing a pair of human wizards! Humans! To think that our great pride has been deceived in such a manner! I should have crushed their skulls there and then. However, mages can be crafty, so I left them to their scheming.
+	lore = [[속았다! 최고봉의 변두리 지역을 정찰하던 도중, 나는 두 명의 오크를 발견했다. 우리의 "주인" 이라고 생각되는 그들은, 비밀리에 어떤 이야기를 하고 있었다. 그들을 계속 지켜본 결과, 나는 그들의 몸에서 오크의 피부가 떨어져 나가는 것을 보았다. 그들은 인간 마법사들이었다! 인간이라니! 우리의 위대한 무리가 이렇게 쉽게 놀아나다니! 나는 즉시 그들의 대갈통을 깨버려야 했겠지만, 마법사들은 어떤 술수를 부릴지 모른다. 그래서 나는 그들의 음모를 막지 못한 채, 그 자리를 떠났다.
 
-Even now the blood runs hot! What would Garkul, our mighty berserker king, think if he saw our great race bending before humans?! Many times I have entertained the idea of taking a group of my finest warriors and ending this folly, but... loathsome as it is, I must use tact. A rebellion would leave my pride weakened, easy prey. That bone-picker Rak'Shor and his unnatural creations have dreamed of my death (and subsequent dominion) for years, I know this to be true. This conundrum frustrates and confuses! ... At least we are agreed on one matter - the total destruction of those sun-worshipping dogs of the Gates of Morning...]],
+지금도 피가 뜨겁게 달아오른다! 위대한 우리 종족이 인간에게 굴복당하게 생겼다면, 우리의 위대한 왕 가르쿨은 무엇을 했을까?! 나는 내 최정예 전사들을 모아 이 멍청한 짓을 끝내고 싶다는 생각이 자주 든다. 하지만... 왠지 꺼려지는 일이다. 내 재치를 발휘해야만 한다. 이 반란을 일으키고 나면, 나의 무리가 약해지는 결과를 낳게 되어, 손쉬운 사냥감이 되고 말 것이다. 벌써 몇 년째 꿈에 등장하는, 그 뼈에 환장한 락'쇼르와 그의 부자연스러운 창조물들이 나를 죽이고 지배하는, 바로 그 꿈이 현실로 이루어지게 되고 말 것이다. 이 수수께끼를 생각할수록, 좌절감과 혼란만 가중된다! ... 그래도, 최소한 이 하나의 사실에는 우리 모두가 동의한다. 저 아침의 문에 있는, 태양을 숭배하는 개놈들을 완전히 파괴하는 것 말이다...]],
 }
 
 newLore{
@@ -35,9 +35,8 @@ newLore{
 	category = "orc prides",
 	name = "Rak'Shor's Note",
 	kr_display_name = "락'쇼르의 쪽지",
-	lore = [[The eyes of the dead bring interesting news to me. Our masters are not what they appear; they are human, simply masquerading as orcs in our presence. I might have suspected this... it is difficult to disguise the basic weakness and frailty of a human soul, even with complex spells. Their goals elude me, yet I sense strange energies in the vicinity of the High Peak - the voices of spirits long departed from this world... some not from this world at all.
-
-But this is foolishness compared to my current trials. Gorbat remains as obstinate as ever, the dragon-loving, scale-shining buffoon. He thinks that dragons are special, different, not suitable for my craft. I care not for his prattling, I desire the corpses of dragons! Mountains of them! How can his heart not beat a little faster at the prospect of a dracozombie?! The mere thought of it is enough to send delightful shivers down my spine...]],
+	lore = [[죽은 자의 눈이 나에게 흥미로운 소식을 가져왔다. 우리의 주인들이, 그 생김새와는 다른 종족을 가지고 있다는 소식이다. 그들은 인간이었으며, 그저 우리와 같은 오크 모습으로 분장했을 뿐이라는 것이다. 물론 나 역시 이것을 의심하였다... 인간의 영혼이 기본적으로 지닌 연약함과 나약함은, 아무리 복잡한 마법으로 숨기려고 해도 숨길 수 없기 때문이다. 그들의 목표는 아직 알 수 없지만, 최고봉의 꼭대기에서 기이한 힘이 느껴진다. 마치 이 세계와는 멀리 떨어진 곳에서 영혼의 목소리가 들려오는 것 같다... 몇몇 목소리는 아예 이 세상의 목소리조차 아닌 것 같다.
+하지만 내가 현재 받고 있는 시련에 비하면, 이런 일은 비교하는 것 자체가 어리석은 일이다. 고르벳은 여태까지와 같이 고집을 부리고 있다. 저 용 성애자에 비늘 달린 어릿광대 같으니라고. 그는 용이야말로 특별하고 다른 존재이며, 나의 작품들과 비교할 바가 안된다고 한다. 하지만 나는 그의 지껄임 따위는 신경쓰지 않는다. 내가 원하는 것은 용의 시체 뿐이니까! 그것도 산만큼 쌓인 시체! 어떻게 용의 시체를 일으켜 세우는 것을 말해줘도, 조금도 그의 심장박동이 빨라지지 않는거지? 나는 그 생각을 하는 것 만으로도, 척추를 통해 기쁨이 내달리는 것을 느낄 수 있는데 말이야...]],
 }
 
 newLore{
@@ -45,9 +44,9 @@ newLore{
 	category = "orc prides",
 	name = "Gorbat's Note",
 	kr_display_name = "고르벳의 쪽지",
-	lore = [[My dragons bring news. They witnessed humans upon the High Peak, speaking of their mastery over our prides. They did not heed my dragons, unwitting of their ability to communicate with me. Now I possess this information, I must think deeply on how to proceed regarding our "masters". Many of my finest wyrmics wish to rise up against our deceivers, see them consumed in wyrmfire. Even some of my dragons have divulged this wish to me. Sadly, this must wait.
+	lore = [[나의 용들이 소식을 가져왔다. 그들은 최고봉 위에 인간들이 있는 것 같으며, 그들이 우리의 무리에 대한 이야기를 하는 것 같다고 했다. 그들은 나의 용들에게 주의를 기울이지 않았다. 용들이 나와 대화할 수 있는 능력이 있다는 사실을 짐작조차 하지 못한 것 같다. 이제 나는 정보를 가지고 있다. 이제 나는 우리의 "주인님들" 을 어떻게 대해야 할지 깊게 생각해야만 한다. 내 최정예 용인들은 우리를 속인 자들과 맞서 싸우고 싶어한다. 그들이 용의 불꽃에 타오르는 것을 보고 싶어한다. 심지어 나의 용들조차 이러한 소망을 나에게 털어놓는다. 하지만 슬프게도, 지금은 그럴 수 없다. 우리는 기다려야만 한다.
 
-Vor's insolence will be tolerated no longer! His claims that his pride's mastery over the elements surpasses that of the dragons is insult enough, but this...! Some of my finest dragons, my glorious multi-hued wyrms, have been captured and held within their armouries in the hopes that they can further their twisted mockeries of fire and ice! This will not stand! I must ignore the plots of our human deceivers for the moment, for Vor requires my full attention.]],
+보르의 오만은 더 이상 인내할 수 없다! 그의 무리들이 용들보다 더 원소를 잘 다룬다는 그의 주장만으로도 충분히 모욕적이지만, 이건 정말...! 내 가장 강력한 용들, 나의 영광된 무지개빛 용들이 그들에게 붙잡혀, 그들의 무기고로 끌려가게 된 것이다! 우리의 용들이, 보르 무리가 불과 얼음으로 장난치는 것을 보고만 있어야 한다는 것이다! 더 이상 참지 않으리라! 잠시 저 인간 사기꾼들에 대해서는 잊어버리고, 보르 놈에게 내 모든 정신을 집중하리라.]],
 }
 
 newLore{
@@ -55,9 +54,9 @@ newLore{
 	category = "orc prides",
 	name = "Vor's Note",
 	kr_display_name = "보르의 쪽지",
-	lore = [[Strange lights play atop the High Peak. Torches? Nay. The fire of dragons? Not so. A volcanic eruption, perchance? Alas, no. It is unmistakably the fire of the arcane, the fire of mages, and seeing as every pyromancer within our pride is under my dominion, I can only assume that these lights come from one not affiliated with us. The lights are fascinating, I wish to study them; they put me in mind of the fires of the Spellblaze, burning so very long ago...
+	lore = [[기이한 빛이 최고봉 정상에서 뿜어져 나왔다. 횃불? 아냐. 용의 불길? 아닌 것 같군. 화산 폭발인가? 아니, 아니야. 의심의 여지가 없는 마법의 불꽃이자, 마법사의 불꽃이다. 하지만 내 무리에 속해있는 모든 화염술사들은 내 지역에 있는데... 그 불길이 우리들 중 하나가 만들어낸 것이 아니라는 것만을 짐작할 수 있을 뿐이다. 아주 환상적인 빛이었다. 그에 대해 연구를 하고 싶을 정도였다. 그 빛은 마치 마법폭발, 오래 전에 모든 것을 불태웠던 그 불길을 보는 듯 했다.
 
-Sadly, such desires are denied to me at this moment. Plans are in motion, and we are scant weeks away from finally crushing the accursed sun paladins and their tin-plated harlot ruler. Even once the Sunwall lies in ruins I must be careful - the horde of sub-orc savages Grushnak calls a pride are ever at my door, claiming we do not follow Garkul's "true path". He is a fool, but dangerous, and I must be vigilant.]],
+슬프게도, 이 욕망은 잠시 접어둘 필요가 있다. 계획은 이미 시작되었고, 저 저주받을 태양의 기사들과 통조림처럼 생긴 갑옷을 입은 매춘부 지도자를 박살내기까지 이제 몇 주 남지 않았기 때문이다. 그리고 태양의 장벽을 폐허로 만든 뒤에도, 조심할 필요가 있다. 저 오크 같지도 않은 야만스러운 놈들, 그루쉬낙이 무리라고 부리는 놈들이 문 앞까지 와서는, 우리가 가르쿨의 "진정한 길" 을 따르지 않으면 후회하게 될 것이라고 했다. 그는 멍청이지만, 위험하기도 하다. 조금의 방심도 해서는 안된다.]],
 }
 
 --------------------------------------------------------------------------
