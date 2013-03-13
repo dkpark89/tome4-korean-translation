@@ -835,7 +835,7 @@ newTalent{
 	getPerc = function(self, t) return self:combatTalentSpellDamage(t, 15, 80) end,
 	info = function(self, t)
 		return ([[언데드 추종자에게 힘을 나눠줘서, 추종자들의 모든 내성과 속성 저항력을 %d%% 올립니다.
-		그리고 시전자의 공격에 의해 언데드 추종자가 피해를 받을 때, 피해량이 %d%% 감소합니다.
+		그리고 언데드 추종자의 공격에 의해 시전자가 피해를 받을 때, 그 피해량이 %d%% 감소합니다.
 		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPerc(self, t), self:getTalentLevelRaw(t) * 20)
 	end,

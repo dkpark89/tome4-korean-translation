@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 name = "Eight legs of wonder"
-name = "여덟 다리의 불가사의한 존재"
+kr_display_name = "여덟 다리의 불가사의한 존재"
 desc = function(self, who)
 	local desc = {}
 	if not self:isCompleted() and not self:isEnded() then

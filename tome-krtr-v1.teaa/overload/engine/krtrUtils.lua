@@ -645,7 +645,7 @@ function string.krMonth(str)
 	local ori = str:lower()
 	if ori == "wintertide" then return "밀려오는 겨울의 달"
 	elseif ori == "allure" then return "매혹의 달"
-	elseif ori == "regworth" then return "재성장의 달"
+	elseif ori == "regrowth" then return "재성장의 달"
 	elseif ori == "time of balance" then return "균형의 달"
 	elseif ori == "pyre" then return "장작더미의 달"
 	elseif ori == "mirth" then return "환희의 달"
