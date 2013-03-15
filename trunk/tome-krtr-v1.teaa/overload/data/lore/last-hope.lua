@@ -266,299 +266,303 @@ newLore{
 
 local i = 0
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Jake, son of Borlin and Clarise
+여기 보를린과 클라리스의 자식, 제이크가 잠들다
 #{normal}#112 - 118#{italic}#
-Rest well, our child
-This world was too dark for thee
+편히 쉬거라, 우리 아가여
+이 세계는 네가 살기에
+너무나 어두운 곳이로구나
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Alenda and Pariel
+알렌다와 파리엘, 여기 잠들다
 #{normal}#92 - 115, 94 - 115#{italic}#
-In sin you lived
-In sin you died
-Rot here together
+그들은 같이 살았고
+그들은 같이 죽었고
+그들은 같이 썩으리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Marcus the Immortal
+'불멸의' 마르쿠스
 #{normal}#23 - 107#{italic}#
-Ambitious in life
-Humbled in death
+야심적인 삶
+소박한 죽음
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Lord Gracion Bestelle
+그라시온 베스테르 경
 #{normal}#41 - 112#{italic}#
-The memory of the greatest
-Shall never dim
+가장 위대한 자의 기억은
+결코 흐려지지 않으리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Inilasac Salocin
+이닐라삭 사로킨
 #{normal}#32 - 120#{italic}#
-All tomes shall remember thee
-And thine dark blessings
+모든 책이 그대를 기억하리라
+그대가 내린 검은 축복을 기억하리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, red_rose=true, lore = [[#{bold}#
-RIP Cecil Farion
+세실 페리온, 여기 잠들다
 #{normal}#98 - 122#{italic}#
-Noble in mind
-Pure in spirit
-Rest now from the burdens of the flesh
+고귀했던 정신
+순수했던 영혼
+육체의 짐을 내려놓고
+이제 편히 쉬시길
 
-#{normal}#A fresh rose lies here]]}
+#{normal}#싱싱한 장미 한 송이가 놓여져 있다.]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Golan of Derth
+데르스의 골란, 여기 잠들다
 #{normal}#65 - 113#{italic}#
-May your memories
-Always bring joy and love
+그대의 기억은 언제나
+즐거움과 사랑을 가져다주리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Mara
+마라, 여기 잠들다
 #{normal}#70 - 109#{italic}#
-You knew your doom
-And faced it
-Rest in peace
+그대는 그대의 파멸을 알고 있었네
+그대는 그대의 운명과 마주하였네
+그대여 이제 부디 편히 쉬시길
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Bodun the Follower
+따라다니는 자, 보던
 #{normal}#86 - 117#{italic}#
-Killed by a friend's untimely death dance
+친구가 실수로 사용한 죽음의 춤 기술에 의해 사망
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Tania Pure-Hearted
+순수한 영혼을 가진 자, 타니아
 #{normal}#78 - 115#{italic}#
-Our tears are for ourselves
-To have lost one so bright as you
+우리의 눈물은 우리 자신을 위한 것이니
+그대와 같이 해맑은 자를 잃었기 때문이리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Unknown
+이름 불명
 #{normal}#?? - 107#{italic}#
-Your bravery will not be forgotten
+그대의 용기는 결코 잊혀지지 않으리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Captain Lepant
+레판트 선장
 #{normal}#56 - 102#{italic}#
-A hero to all elements of society
+모든 사회 구성원들의 영웅
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Ghormot the Black
+검은 자, 고르모트
 #{normal}#0 - 97#{italic}#
-In this bright age
-Of new adventures
-You are not forgotten
+새로운 모험의
+찬란한 시대
+우리는 잊지 않으리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Gygax the Great
+위대한 자, 가이객스
 #{normal}#38 - 108#{italic}#
-Most blessed are we
-To have shared this world with thee
+이 세계를 그대와 함께 살았다는 것이
+우리에게는 가장 큰 축복일지어니
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Opius the Wastrel
+게으른 자, 오피우스 여기 잠들다
 #{normal}#89 - 117#{italic}#
-Death was too good for you
-May you quickly be forgotten
+죽음은 그대에게 너무나 과분하나니
+그대는 빠르게 잊혀질 것이리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Wichman Toy
+위치먼 토이
 #{normal}#80 - 121#{italic}#
-Your rogueish charms
-Inspire us forever
+그대의 악동과 같은 매력은
+영원히 우리에게 영감을 주리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Annei Caffrey
+안네이 카프레이
 #{normal}#26 - 102#{italic}#
-On the wings of dragons
-You forever soar
+용들의 날개 위에서
+그대는 영원히 날아오르리라
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Eden of Derth
+데르스의 에덴, 여기 잠들다
 #{normal}#97 - 121#{italic}#
-Untamed in spirit
-Unhesitant in flight
-Unlifed in grimmest darkness
+길들여지지 않은 영혼
+망설이지 않는 도주
+가장 음침한 어둠 속에서 
+그 생명을 도둑맞았네
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Calici the Brave
+용감한 자, 칼리시
 #{normal}#86 - 113#{italic}#
-Alas that bravery was not enough
+아아, 그 용기마저도 충분하지 않았나니
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Barbrim the Cursed
+저주받은 자, 바브림
 #{normal}#92 - 119#{italic}#
-Betrayed by those he trusted
+그가 믿었던 자들에게 배신을 당하다
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Falsira Mageslayer
+마법사냥꾼, 팔시라
 #{normal}#78 - 104#{italic}#
-Slain by the dark magics she fought
-We shall never forget
-Death to the spellweavers!
+어둠의 마법과 싸우다가 죽음을 맞이하다
+우리는 그녀를 결코 잊지 않으리라
+저 마법 사용자들에게 죽음이 있으라!
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Amalla
+아말라, 여기 잠들다
 #{normal}#86 - 105#{italic}#
-Burned for witchcraft
+마법 사용으로 인해 화형당함
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Gamrik Dellhorn
+감릭 델혼
 #{normal}#47 - 93#{italic}#
-Fell to the Wintertide blizzard
+몰려오는 겨울의 눈보라에 파묻힘
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Peterin
+페트린, 여기 잠들다
 #{normal}#32 - 89#{italic}#
-Died alone
+홀로 죽음을 맞이함
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Ben Harrison
+벤 헤리슨
 #{normal}#68 - 104#{italic}#
-Praise the name
-Of he who helped us band together
+그의 이름을 찬양하라
+우리를 결속시켜준 그의 이름을
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here rests Raymond Gaustadnes
+레이몬드 거스타드네스, 여기 잠들다
 #{normal}#84 - 120#{italic}#
-The Pixels finally got him...
+픽셀들이 마침내 그를 잡았다...
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Crokar
+크로카르, 여기 잠들다
 #{normal}#86 - 113#{italic}#
-His love of trolls proved too dangerous a hobby
+트롤을 사랑하는 그의 취미는, 너무나 위험한 취미라는 것을 증명함
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Lyrissa the Wyrmfriend
+용의 친구, 릴리사
 #{normal}#93 - 116#{italic}#
-Eaten by dragons
+용에게 잡아먹힘
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here rests Weldeth the Deserter
+탈영병 웰데스, 여기 잠들다
 #{normal}#86 - 103#{italic}#
-Fled from battle
-Bereft of pride
-On a comrade's sword
-He quickly died
+전투에서 도망쳐
+명예를 상실하고
+전우의 검 앞에
+그는 빠르게 죽었다
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{italic}#
-This gravestone has been desecrated
+이 묘비는 훼손되어, 글을 읽을 수 없다
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Seria Swanfoot
+백조의 발, 세리아
 #{normal}#56 - 109#{italic}#
-May your feet now walk amongst the stars
+이제 그대의 발은 별과 별 사이를 걸을지어니
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Eric and Erik
+에릭 (Eric) 과 에릭 (Erik)
 #{normal}#66 - 114#{italic}#
-Met their death investigating dark light
-Alas, the pit was darker still
+어두운 빛을 조사하다가 죽음을 만났다네
+아아, 그 구덩이는 생각보다 더 깊었다네
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Hoblo Sureshot
+확실한 사수, 호블로
 #{normal}#94 - 120#{italic}#
-Death by ricochet
+튕겨진 탄환에 맞고 사망
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Grave of the Unknown Mason
+알 수 없는 석공의 묘지
 #{normal}#??? - ???#{italic}#
-In dedication to all those lost building the dungeons of Maj'Eyal
+마즈'에이알에 있는, 모든 잊혀진 던전들을 찾고자 헌신한 자
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Albert Deathproof
+죽음을 막는 자, 앨버트
 #{normal}#75 - ???#{italic}#
-Buried alive
+산 채로 묻힘
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-RIP Legless Jack
+다리 없는 잭, 여기 잠들다
 #{normal}#26 - 98#{italic}#
-His life's dream was to dance
-But even dreams must die
+그가 살아있는 동안, 춤을 춰보는 것이 그의 꿈이었네
+하지만 이제, 그 꿈마저 죽음을 맞이하였네
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-The Blightbringer
+황폐를 가져오는 자
 #{normal}#14 - 46#{italic}#
-Do not disturb
+건드리지 말 것
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Matthew the Brawler
+격투가 매튜
 #{normal}#101 - 122#{italic}#
-Killed in a ring of blood
+피의 투기장에서 사망
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Sarusan the Timeraper
+시간 약탈자, 사루산
 #{normal}#102 - 87#{italic}#
-He who wields Time
-Dies by Time
+시간을 쥐고 흔들던 자
+시간에 의해 목숨을 잃었네
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Palia the Poacher
+밀렵꾼, 팔리아
 #{normal}#94 - 118#{italic}#
-Shown no mercy in the cursed woods
+저주 받은 나무는 자비를 보이지 않았음
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies the merchant Dalio
+상인 달리오, 여기 잠들다
 #{normal}#83 - 121#{italic}#
-Slain by an assassin's deadly poison
+암살자의 치명적인 독에 중독되어 사망
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Here lies Jazak
+자작, 여기 잠들다
 #{normal}#92 - 113#{italic}#
-He played with the wildest fires
-And got burnt
+타오르는 불을 가지고 놀다가
+자신이 타오름
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-RIP Gedis the Paladin
+태양의 기사 게디스, 여기 잠들다
 #{normal}#?? - 118#{italic}#
-Bright star from foreign lands
-We weep your fallen light
+이국에서 온 빛나는 별이여
+우리는 떨어지는 그대의 별을 보고
+눈물을 흘리네
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_display_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-Foursaw the Clown
+광대 포소우
 #{normal}#82 - 114#{italic}#
-We laughed
-Until we saw
-The joke was over
+우리는 웃었다
+우리는 보았다
+농담은 끝났다
 #{normal}#]]}
 
 print("Made "..i.." last hope graveyard stones")

@@ -68,11 +68,11 @@ newLore{
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part one",
 	kr_display_name = "지식 관리인 하닥의 첫 번째 기록",
-	lore = [[Our history is a history of battles, a history of wars. We orcs have always been under attack from the other races, always having to defend ourselves against their ruthless advances. The other races paint us as evil, they think of us as purely beasts. Not so! If we are cruel, it is because they made us cruel. If we are heartless, it is because they ripped our beating hearts from our chests and stamped them beneath their feet!
+	lore = [[우리의 역사는 전투의 역사요, 전쟁의 역사이다. 우리 오크들은 언제나 다른 종족들의 공격을 받아왔으며, 언제나 그들의 무자비한 진격으로부터 우리들 자신을 보호해야만 했다. 다른 종족들은 우리에게 '악' 이라는 이름의 물감을 덮어씌웠으며, 우리를 그저 짐승으로 생각하였다. 하지만 그렇지 않다! 만약 우리가 잔인하다면, 그것은 그들이 우리를 잔인하게 만들었기 때문이다. 만약 우리가 무자비하다면, 그것은 그들이 우리의 몸 속에서 자비를 뽑아내고 발로 밟아 으깨버렸기 때문이다!
 
-It was the halflings we first did war with, in the Age of Allure. We were weak then, and disorganised, and in their arrogance they sought to enslave us. But we fought back! And we have been fighting back ever since. They used magic on us, though we had never come in touch with the arts before. They used whips and chains and tried to beat us down. They used us for labour, butchering any young that were not strong enough for them, burning any constructions we tried to make for ourselves.
+우리가 처음으로 치른 전쟁은 매혹의 시대 때, 하플링들과의 전쟁이었다. 그 때의 우리는 연약했고, 체계적이지도 않았다. 그 오만한 자들은, 우리를 노예로 부리려고 했다. 하지만 우리는 맞서 싸웠다! 그리고 그 이래로, 우리는 계속 맞서 싸우고 있다. 그들은 우리에게 마법을 사용하였다. 우리는 그러한 기술을 본 적조차 없었다. 그들은 채찍과 사슬을 이용하여 우리를 무릎꿇렸다. 그들은 우리의 노동력을 착취하고, 그들이 보기에 강하지 않은 어린 오크들은 도살당하고, 우리 자신들을 위해 만든 건축물들은 모두 불타올랐다.
 
-At first we escaped and fled, and hid in dark caves. Our numbers grew, though we had to endure squalor and hardship. After many years we could hide no longer, as starvation and disease threatened to kill us all. And so seeing our enemy weak we rose upon them in wrath. We were not organised, but we were determined. The elves and the humans and the dwarves tried to oppose us too, but we would not allow ourselves to be beaten! They tried to use their magics against us, but we overcame them with numbers, five of us dying for every mage we managed to kill. With blood we paid and finally we had lands for our own!]],
+우리는 도망쳤으며, 어두운 동굴에 몸을 숨겼다. 우리의 수는 조금씩 불어났으며, 우리는 그동안 불결하고 어려운 생활을 해야만 했다. 많은 세월이 흐르자, 우리는 더 이상 숨을 수가 없어졌다. 굶주림과 질병이 우리를 모조리 죽여버리지 않을까 싶을 정도가 되었기 때문이다. 또한 우리의 적이 약해진 것을 보고, 우리는 그들에게 우리의 분노를 쏟아내었다. 우리는 체계적이지 않았지만, 우리의 의지는 단호했다. 엘프와 인간과 드워프들은 우리를 상대하려고 했지만, 우리는 두 번 다시 무릎을 바닥에 닿지 않게 하리라고 다짐하였다! 그들은 우리들에게 마법을 사용하였지만, 우리는 숫자로 그것을 극복하였다. 마법사가 우리를 죽이려고 할 때마다, 우리의 동료 다섯이 죽어나갔다. 그리고 우리가 흘린 피를 통해, 드디어 우리는 우리의 땅을 가지게 되었다!]],
 	on_learn = function(who) world:gainAchievement("ORC_LORE") end,
 }
 
@@ -81,11 +81,11 @@ newLore{
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part two",
 	kr_display_name = "지식 관리인 하닥의 두 번째 기록",
-	lore = [[After fighting back the other races we began to build and prosper. Finally we had our own towns and cities, and we began to advance our own abilities. Though battles were still ongoing at our borders we were free to thrive and prosper.
+	lore = [[다른 종족들과 전투를 벌인 뒤, 우리는 건물을 짓고 번창하기 시작하였다. 마침내 우리는 우리의 마을과 도시를 가지게 되었으며, 우리의 능력을 발전시킬 수 있게 되었다. 비록 마을의 경계 지역에서는 여전히 전투가 벌어지고 있었지만, 그래도 우리는 번영하고 번창할 수 있었다.
 
-But then the accursed Shaloren mages began experimenting with Sher'Tul ruins. Oh what a dark and terrible a day it was for our race! The Spellblaze massacred our people. Earthquakes tore up our new-built towns, fires raged over old and young alike, and the whole world was turned to turmoil. Afterwards disease and blight ravaged our people, utterly ruining all the progress we had made.
+하지만 저 저주받을 샬로레 마법사들이 쉐르'툴 유적에 가서 실험을 시작하였다. 오, 우리의 종족에게 있어 그 얼마나 어둡고 끔찍한 날인가! 마법폭발은 우리 동포들을 학살하였다. 지진이 우리의 새로 만들어진 마을들을 집어삼켰으며, 불길이 어리거나 늙은 동포들의 몸에서 불타올랐다. 세계 전체가 아수라장이 되었다. 그리고, 질병과 황폐가 우리의 동포들을 덮쳤다. 우리가 이루어낸 모든 것들을 완전히, 완전히 파괴하였다.
 
-Only the strongest of us lived through the dark times that followed. We fled east, back to our dark and hidden places, but our people swore terrible oaths of vengeance on the races that had brought such bloody ruin upon us.]],
+이 어두운 기간 동안, 우리들 중 가장 강력한 자들만이 살아남았다. 우리는 동쪽으로 도망쳤다. 우리의 어두운 비밀 장소로 돌아갔다. 하지만 우리에게 피비린내와 폐허를 안겨준 다른 종족들은, 우리의 동포들에게 복수하겠다며 끔찍한 욕설과 비난을 퍼부었다.]],
 	on_learn = function(who) world:gainAchievement("ORC_LORE") end,
 }
 
@@ -94,11 +94,11 @@ newLore{
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part three",
 	kr_display_name = "지식 관리인 하닥의 세 번째 기록",
-	lore = [[During the Age of Dusk we lay hidden, nursing our wounds and plotting our revenge. But this turned against us, as centuries after the Spellblaze had torn our race apart, the Cataclysm would bring ruin upon us again. We were finally recovering our numbers when earthquakes tore through all of our settlements. Falling rocks crushed and smothered us, thousands of us were left trapped to die beneath the ground. What few of us were left came out to a changed world.
+	lore = [[황혼의 시대 동안, 우리는 조용히 숨은 채로 우리의 상처를 돌보며, 복수의 계획을 짰다. 하지만 이것은 우리에게 되돌아왔나니. 마법폭발이 일어난지 한 세기가 지난 후, 대재앙이 일어나 우리들을 다시 갈라내고 파괴하고 만 것이다. 그 지진이 일어나 우리의 거주지를 덮쳤을 바로 그 때, 우리는 비로소 원래 우리 종족의 숫자를 회복한 상태였다. 하지만 바위가 떨어져 우리를 짓뭉갰고, 수천에 이르는 우리의 동포들이 땅에 파묻혀 죽음을 맞이했다. 소수만이 살아남아 그곳을 빠져나왔을 때, 세계는 달라져있었다.
 
-The effects of magic left a grave impression on us then, and we knew we must learn its secrets in order to compete. For centuries we studied the effects of the Spellblaze, and captured enemy mages to experiment on them. Finally we were able to master the arts of magic and use them for ourselves. We built up our capabilities in secret, waiting for the right moment to strike a decisive vengeance. Garkul the Devourer, the greatest of our race, brought the plans to fruition. Under his awe-inspiring leadership we marched out upon the halfling kingdoms and burnt all before us. What glorious retribution we had! Whole cities were felled beneath our wrath. Everywhere we went we piled the bodies of our victims high and lit them in blazing pyres, as a symbol of our indomitable strength.
+그 순간 우리는 마법의 힘에 대해 엄청난 느낌을 받았다. 그리고 이 힘에 대항하기보다는, 이 힘의 비밀에 대해 연구해야만 한다는 것을 깨달았다. 수 세기 동안 우리는 마법폭발이 가져온 영향들에 대해서 연구를 하였으며, 적 마법사들을 붙잡아 실험을 하였다. 그리고 마침내, 우리는 마법을 완전히 이해할 수 있었으며 우리 스스로 마법을 사용할 수 있게 되었다. 우리는 우리의 이 능력을 비밀에 부쳐놓은 채, 결정적인 복수의 순간을 기다리고 있었다. 포식자 가르쿨, 우리 종족의 가장 위대한 자가 이 계획의 결실을 가져다주었다. 그의 경외스러운 지도력 하에, 우리는 하플링 왕국으로 진격하였으며 우리 앞에 있는 모든 것을 불태웠다. 이 얼마나 영광스러운 징벌인가! 모든 도시들이 우리의 분노에 무릎을 꿇었다. 우리는 가는 곳마다 희생자들의 시체로 산을 쌓았으며, 그것들을 불태워 우리가 지닌 불굴의 힘을 보여주었다.
 
-The Age of Pyre was our age, the time when we showed ourselves the strongest of the races, standing alone and unbeatable.]],
+장작더미의 시대는 우리의 시대였다. 그 시기 동안 우리들이야말로 최강의 종족이라는 것을 다른 것들에게 보여주었으며, 모든 것들의 정점에 서서 절대로 패배하지 않았다.]],
 	on_learn = function(who) world:gainAchievement("ORC_LORE") end,
 }
 
@@ -107,11 +107,11 @@ newLore{
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part four",
 	kr_display_name = "지식 관리인 하닥의 네 번째 기록",
-	lore = [[How greatly our race advanced during the Age of Pyre! Truly none of the weaker races can compare. For it was vengeance that drove us, and so fervently we pursued our goals at the thought of our just retribution on the races that had punished us and beaten us for so long before.
+	lore = [[장작더미의 시대 동안, 얼마나 우리의 종족이 많은 발전을 이루어냈는가! 그 어떤 다른 종족들과도 비교할 수 없었다. 그들이 우리에게 한 짓에 대한 복수를 하였으며, 오래 전에 우리의 무릎을 꿇린 것에 대한 징벌을 내렸으며, 다른 종족들을 벌한다는 우리의 오랜 염원을 이루어냈다.
 
-During the Age of Pyre we discovered the farportal, deep beneath the dwarven cities. We were more cautious than the foolish elves before us, and managed to harness the portal's power to open a gateway to the lost east. We sent military forces over, and easily beat back the puny elves and humans that were hoveling there already. We established the Prides there - training camps for our soldiers where they could hone their battle skills before returning to fight the wars in the west.
+장작더미의 시대 동안, 우리는 드워프 도시의 깊은 곳에서 장거리 관문을 발견하였다. 우리는 저 멍청한 엘프들과는 달리 신중을 기했다. 그리고 관문의 힘을 이용하여, 저 잃어버린 동대륙으로 가는 통로를 열었다. 우리는 그곳으로 병력을 보냈으며, 저 연약한 엘프와 인간 원주민들을 손쉽게 굴복시키고 몰아내었다. 우리는 그곳에 '무리' 를 만들었다. 그곳은 우리의 병사들이 전투 기술들을 갈고 닦아, 서대륙에서 벌어지는 전쟁터로 돌아가기 위한 기지로 쓰였다.
 
-But all in the west did not go well. We conquered many lands, and came close to wiping out many races, but we became spread thin. As the other races began to fight back our Age of Pyre was to dwindle.]],
+하지만 서대륙에서의 일이 꼬이기 시작했다. 우리는 많은 지역을 정복하였으며, 많은 종족들을 제거하였다. 하지만 우리는 너무나 넓게 퍼져 있었다. 다른 종족들은 서로 뭉쳐, 우리의 시대인 장작더미의 시대와 맞서 싸우기 시작하였다.]],
 	on_learn = function(who) world:gainAchievement("ORC_LORE") end,
 }
 
@@ -120,15 +120,15 @@ newLore{
 	category = "orc prides",
 	name = "Records of Lorekeeper Hadak part five",
 	kr_display_name = "지식 관리인 하닥의 다섯 번째 기록",
-	lore = [[The humans and the halflings made an alliance to defend their kingdoms, and soon the elves and the dwarves joined too, and we were pushed back. Our tactics became increasingly defensive as they made greater advances into our territory.
+	lore = [[인간과 하플링들이 그들의 왕국을 지키기 위해, 동맹을 맺었다. 엘프와 드워프도 곧 그 동맹에 참여한 것으로 보이며, 우리는 계속 밀려나게 되었다. 우리의 전략은 갈수록 수비적이 되어가고 있으며, 그들은 점차 우리의 영토에 발을 내딛고 있다.
 
-We fought well and hard, but we were not prepared for the terrible tactics they would use. Instead of attacking our military bases they went for our towns and cities, killing all of our civilians. Babes were slaughtered in their mother's arms, and every last woman and child was hunted down and murdered. It was genocide of the highest order.
+우리는 열심히 그리고 잘 싸웠지만, 우리는 그들이 사용하는 끔찍한 전략에 대한 대비를 하지 못했다. 우리의 군대를 공격하는 대신, 그들은 우리의 마을과 도시를 공격하여 우리의 시민들을 모조리 죽이고 다녔다. 아기는 어머니의 손에서 살해당했으며, 마지막 하나의 여성과 아이마저 사냥당하고 살해당했다. 최고위층의 명령에 의해 실행된, 오크 멸종 계획이었다.
 
-What forces we could muster we sent east, leaving behind token troops who bravely sacrificed themselves against the enemy attacks, convincing them that their genocide had been complete.
+우리는 가능한 많은 동포들을 모아, 동대륙으로 건너갔다. 병사들은 용감하게 남아 적들과 맞서 싸우며, 스스로를 희생하였다. 그들에게 오크 종족이 멸종했다는 사실을 믿게 만들었다.
 
-But what was left of our people in the east was a broken picture. Gone were the majority of our women and children, gone were our centres of culture, gone was all softness that ever lived in us. Our military forces were all that were left, consolidated in the Prides. By arcane experimentation we found ways to breed again, but we are left a hollow people. Until we are free from the threats of the other races we can focus on only one thing - revenge.
+하지만 우리가 동대륙에서 본 것은 희망 없는 미래 뿐이었다. 여성과 아이들 대부분이 사라졌으며, 문화의 중심 역시 사라졌다. 우리는 살아남았지만 너무나 연약했다. 우리에게 남은 것이라고는 군인들 뿐이었으며, 이들은 무리에 남아있던 병사들과 통합되었다. 마법적인 실험 끝에 우리는 출산률을 급격하게 끌어올릴 수 있었지만, 우리에게 남은 것은 절망에 빠진 사람들 뿐이었다. 다른 종족들의 위협에서 자유로워지는 그날까지, 우리는 단 하나의 목표 - 복수라는 목표에 집중했다.
 
-We still have a secret presence in the west, in our rightful lands across which we have spilled rivers of our own blood. We are building up our military force at an accelerating rate, and when the time comes we shall sweep across Maj'Eyal with a vengeance that cannot be held back. The other races will suffer as they have made us suffer, and all that they have built will be brought to ruin.]],
+서대륙에서는 아직도 우리의 존재를 알지 못한다. 우리의 땅을 가로질러 흐르는 강물에는 아직도 우리의 피가 흐르고 있다. 우리는 빠른 속도로 병력을 충원하고 있으며, 때가 오면 우리는 마즈'에이알에 결코 멈출 수 없는 복수를 시작하리라. 다른 종족들은 우리가 고통받았듯이 고통받게 되리라. 그들이 만든 모든 것들은 잿더미가 되리라.]],
 	on_learn = function(who) world:gainAchievement("ORC_LORE") end,
 }
 
@@ -295,13 +295,13 @@ newLore{
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part one",
 	kr_display_name = "임상의 코르벡의 첫 번째 실험 기록",
-	lore = [[#{bold}#Clinician Korbek's experimental notes part one#{normal}#
+	lore = [[#{bold}#임상의 코르벡의 첫 번째 실험 기록#{normal}#
 
-What a dread and woeful task I have been given - the revival of our race. The swine humans and halflings have destroyed our whole society, and only the brutes of the military remain to rule our people. We are left with just a handful of women left, and without drastic measures we shall soon be extinct.
+이 얼마나 두렵고 비참한 일을 떠맡게 되었는가 - 우리의 종족을 부활시키는 일이라니. 저 돼지 같은 인간들과 하플링들은 우리의 사회를 남김없이 파괴하였으며, 우리 동포들을 다스리는 것은 저 난폭한 병사들 뿐이다. 우리에게 남은 여성은 손으로 셀 수 있을 정도밖에 되지 않으며, 극단적인 방법을 쓰지 않는 한 우리는 곧 멸종하게 될 것이다.
 
-And those drastic measures come down to me. I am the sole orc left with any advanced medical knowledge, as I evacuated to the East before our settlement was wiped out. I must find a way to prolong the lives of our remaining females and have them breed at far faster rates. I will use all natural and magical means at my disposal.
+그리고, 그 극단적인 방법을 만들어내는 일은 오직 나에게 달렸다. 고급 의학 지식을 가지고 있는 오크는 이곳에서 나밖에 없기 때문이다. 우리가 살던 곳이 완전히 지워지기 전에, 동대륙으로 미리 피신한 덕분이다. 나는 이제 남은 여성들의 생명을 연장시키고 더 빠른 속도로 출산을 가능하게 만들어야 한다. 나는 내가 사용할 수 있는 모든 자연적, 마법적 방법들을 총동원할 것이다.
 
-I have taken this cavern up as a secret base, far away from the main encampment. I must do dark deeds here, and I wish them to remain hidden...]]
+나는 우리들의 주요 야영지와 멀리 떨어진, 이 동굴을 비밀 기지로 삼았다. 이곳에서 내가 할 일은 사악한 일이기 때문에, 가급적 영원히 비밀에 부쳐졌으면 하는 바람이다...]]
 }
 
 newLore{
@@ -309,13 +309,13 @@ newLore{
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part two",
 	kr_display_name = "임상의 코르벡의 두 번째 실험 기록",
-	lore = [[#{bold}#Clinician Korbek's experimental notes part two#{normal}#
+	lore = [[#{bold}#임상의 코르벡의 두 번째 실험 기록#{normal}#
 
-I have begun work on several of the females. They are being kept in a coma for the duration of the experiments - it's far better that way. Initially I have subjected them to very high levels of wild infusion and arcane regeneration fields, whilst also keeping a direct feed into their stomachs high in protein. Corrupted blood is being pumped into their ovaries with a temporal acceleration field surrounding them. The leaders of each Pride have donated their seed for use in the experiments.
+몇 명의 여성들을 가지고 실험에 돌입했다. 실험에 들어가기 앞서, 우선 여성들을 혼수상태에 빠지게 만들었다. 이것이 그들에게는 훨씬 더 좋을 것이다. 우선 나는 그들에게 아주 높은 수준의 야생 주입물을 부여하고, 그들의 주변에 마법적 재생 역장을 만들었다. 또한 그들의 위장에 직접적으로 다량의 단백질을 지속적으로 투여되게 만들었다. 타락한 피가 그들의 난소로 흘러들었으며, 시간 가속 역장을 난소 주변에 만들었다. 각 무리의 수장들이 실험에 쓰일 그들의 '씨앗' 을 기부해주었다.
 
-Initial results have mostly been immensely successful. Body mass has grown significantly, especially in the abdominal region. One has even begun developing extra ovaries and sexual organs. I have managed to increase their fertility immensely, and the stimulated foetal growth rate means that new orcs take only eight weeks from conception to birth. The young also seem to be progressing in their development at a very advanced pace, with particularly accelerated muscle development.
+최초의 결과는 굉장히 성공적인 것처럼 보였다. 그들의 몸집이 눈에 띄게 커졌으며, 특히 복부 부분이 부풀어올랐다. 또 다른 난소와 성기가 몸에 만들어지기 시작한 여성도 있었다. 나는 그들의 생식력을 극도로 끌어올렸으며, 그 결과 태아의 성장 속도가 빨라져 최초의 착상에서 출산까지 8 주밖에 걸리지 않게 되었다. 태어난 아기 역시 아주 빠른 속도로 성장하는 것으로 보였으며, 특히 근육의 발달이 도드라지게 나타났다.
 
-Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]]
+몇몇 여성들이 실험 중에 죽음을 맞이하였다. 내가 추측할 수 있는 것이라고는 아마 그들이 약한 실험체였을 것이라는 사실 하나 뿐이지만, 이것이 큰 손실이자 슬픔이라는 점은 변하지 않는다.]]
 }
 
 newLore{
@@ -323,13 +323,13 @@ newLore{
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part three",
 	kr_display_name = "임상의 코르벡의 세 번째 실험 기록",
-	lore = [[#{bold}#Clinician Korbek's experimental notes part three#{normal}#
+	lore = [[#{bold}#임상의 코르벡의 세 번째 실험 기록#{normal}#
 
-My work is continuing with tremendous success. All subjects now have multiple operational wombs, thanks to the corrupted blood infusions coupled with arcane regeneration fields to quickly repair the corrupted tissues. With greater advances in accelerating the foetal growth stage we are now seeing new orcs every few days! I believe this can be pushed even further.
+나의 실험은 계속해서 엄청난 성공을 보이고 있다. 모든 실험체들은 이제 여러 개의 자궁을 가지게 되었으며, 타락한 피와 마법적 재생 역장의 힘으로 인해 그들의 신체 조직이 타락하는 것도 빠르게 회복되었다. 이 엄청난 태아의 출산과 성장 속도 덕분에, 우리는 이제 새로운 오크 동포를 며칠마다 볼 수 있게 되었다! 아마 나중에는 이 속도가 더욱 빨라질 것이라고 믿는다.
 
-Though the wombs operate at an advanced rate, we are keeping their vital organs suppressed to extend their lifespans. Perhaps they can live for hundreds, if not thousands of years.
+비록 자궁들의 활동 속도가 크게 올랐지만, 우리는 계속해서 그들의 생체 기관이 더 오래 활동할 수 있게 만들고 있다. 아마 그들은 수백 년 정도는 살 수 있을 것이다.
 
-Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]]
+그들의 위장에 직접적으로 영양분을 넣어주는 일이 갈수록 힘들어지고 있다. 자궁이 많아지고 신체 활동이 활발해지면서, 더 많은 영양분이 필요하게 된 것이다. 나는 영양분을 압축한 뒤 대기 중에 넣어, 그들이 숨쉬는 것만으로도 영양분을 얻을 수 있는 방법을 개발하고 있다. 최초의 실험에서 그들의 피부에 끈적한 점액질 비슷한 것이 만들어지는 것을 확인했지만, 다른 부작용은 없는 것 같다.]]
 }
 
 newLore{
@@ -337,15 +337,15 @@ newLore{
 	category = "orc prides",
 	name = "Clinician Korbek's experimental notes part four",
 	kr_display_name = "임상의 코르벡의 네 번째 실험 기록",
-	lore = [[#{bold}#Clinician Korbek's experimental notes part four#{normal}#
+	lore = [[#{bold}#임상의 코르벡의 네 번째 실험 기록#{normal}#
 
-Oh horrors... Oh black bilious terrors! What have I done? What vile and black sin have I done?!
+공포스럽다... 토할 것 같이 두렵다! 나는 대체 무엇을 한 것인가? 나는 대체 얼마나 끔찍하고 사악한 죄를 저지른 것인가?!
 
-I have so long been concentrating on my objectives that I never stopped to think of the monstrous acts I was performing on these women. But last night I decided to take one out of her coma to see what reactions there might be. What reaction indeed! Her first action was to moan in pain - her swollen lungs have deprived her of any other form of communication. But then she opened her eyes and saw herself, and saw the others around her, and the panic and disgust that filled those eyes reached into my very soul.
+나는 나의 목표에 너무나 집중한 나머지, 그 여성들에게 끔찍한 실험을 하는 것을 멈출 생각조차 하지 않았다. 하지만 지난 밤, 나는 그녀들 중 하나의 혼수상태를 풀어준 뒤 그들의 반응을 보기로 결심했다. 그녀가 무슨 반응을 보였을지 상상이 되는가! 그녀가 처음 취한 행동은, 고통의 비명을 내지르는 것이었다 - 그녀의 부풀어오른 폐는 그녀가 어떤 대화도 하지 못하게 만들었다. 하지만 그녀가 눈을 뜨고 그녀 자신과 주변 여성들을 보자, 그녀의 눈에 공포와 역겨움이 차오르는 것을 볼 수 있었다. 그것은 나의 영혼에까지 그대로 전해져왔다.
 
-She wanted to die. I know she wanted to die, I could see her accusing eyes on me begging to let her die. But I cannot, I cannot... This is too terrible. I should burn this cave to the ground, and erase my horrible actions from existence! But where would that leave our people...
+그녀는 죽기를 원했다. 나 역시 그것을 알았다. 나는 그녀의 저주하는 눈과 자신을 죽여달라는 애원을 느낄 수 있었다. 하지만 나는 그럴 수 없었다. 그럴 수 없었다... 이것은 너무나 끔찍한 일이다. 나는 이 동굴을 불태워야 한다. 나의 끔찍한 행위들을 전부 지워야만 한다! 하지만 그러면 남은 우리 동포들은 어떻게 될 것인가...
 
-My mind is in torment. I cannot live like this any longer... I cannot live...]]
+나의 정신이 고문받고 있다. 더 이상 이렇게는 살아갈 수 없다... 도저히 살아갈 수 없다...]]
 }
 
 newLore{
@@ -353,13 +353,12 @@ newLore{
 	category = "orc prides",
 	name = "Captain Gumlarat's report",
 	kr_display_name = "굼라랏 장군의 보고서",
-	lore = [[#{bold}#Captain Gumlarat's report#{normal}#
+	lore = [[#{bold}#굼라랏 장군의 보고서#{normal}#
 
-I have found clinician Korbek's body in his study. It seems he slit his own throat. This would explain the lack of reports in the last few days.
+임상의 코르벡의 몸에서 그의 연구자료를 찾았다. 그는 스스로의 목을 자른 것 같다. 아마 이것이 최근 며칠 동안 그의 보고가 들어오지 않은 이유인 것 같다.
 
-The reason for suicide is beyond understanding. His research has been immensely successful. Our race can now return to strength! I have read through his notes and based on his findings I will increase the procedures being used to allow for even faster birth rates. The Pride leaders will be pleased.
+자살의 이유는 알 수 없다. 그의 연구는 성공만을 거듭했었다. 우리 종족은 이제 힘을 되찾았다! 그가 남긴 쪽지들과 그의 연구 자료를 기초로 하면, 출산 속도를 더욱 빠르게 만들 수 있을 것 같다. 무리의 지도자들 또한 기뻐할 것이다.
 
-I see his notes also suggest the mothers may be in pain. I will allow a doping infusion to be administered to alleviate this. We would not wish our women to suffer...
-
+그의 쪽지를 보니, 이 여성들이 고통받고 있다는 것 같다. 나는 마약 주입물을 허용하여, 이들의 고통을 완화시키기로 하였다. 우리는 우리 여성들이 고통받는 것을 원하지 않는다...
 ]]
 }
