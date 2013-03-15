@@ -25,13 +25,13 @@ local Textzone = require "engine.ui.Textzone"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(chat)
-	Dialog.init(self, "Chat channels", 500, 400)
+	Dialog.init(self, "대화창 채널", 500, 400)
 	local mod = game.__mod_info.short_name
 
 	local list = {
-		{name = "Global", kind = "global"},
+		{name = "전세계", kind = "global"},
 		{name = game.__mod_info.long_name, kind = mod},
-		{name = game.__mod_info.long_name.." [spoilers]", kind = mod.."-spoiler"},
+		{name = game.__mod_info.long_name.." [스포일러]", kind = mod.."-spoiler"},
 	}
 	for i, l in pairs(profile.chat.channels) do
 		if i ~= "global" and i ~= mod and i ~= mod.."-spoiler" then
@@ -39,7 +39,7 @@ function _M:init(chat)
 		end
 	end
 
-	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="Select which channels to listen to. You can join new channels by typing '/join <channelname>' in the talkbox and leave channels by typing '/part <channelname>'"}
+	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="이야기를 들을 채널을 선택합니다. 새로운 채널에 참가하려면 '/join <채널이름>'를 대화창에 입력하시고, 채널에서 나가려면 '/part <channelname>'를 입력하세요."}
 	local uis = { {left=0, top=0, ui=c_desc} }
 	for i, l in ipairs(list) do
 		local l = l

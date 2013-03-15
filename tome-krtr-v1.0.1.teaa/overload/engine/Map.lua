@@ -248,7 +248,7 @@ function _M:loaded()
 	for i, ps in ipairs(self.path_strings) do
 		self.path_strings_computed[ps] = loadstring(ps)()
 	end
-	
+
 	local mapseen = function(t, x, y, v)
 		if not x or not y or x < 0 or y < 0 or x >= self.w or y >= self.h then return end
 		if v ~= nil then

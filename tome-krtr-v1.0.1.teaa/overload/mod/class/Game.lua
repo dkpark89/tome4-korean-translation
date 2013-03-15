@@ -1797,8 +1797,8 @@ end
 
 --- Ask if we really want to close, if so, save the game first
 function _M:onQuit()
-	self.player:runStop("quitting") --@@ 한글화 필요
-	self.player:restStop("quitting") --@@ 한글화 필요
+	self.player:runStop("종료")
+	self.player:restStop("종료")
 
 	if not self.quit_dialog and not self.player.dead and not self:hasDialogUp() then
 		self.quit_dialog = Dialog:yesnoPopup("저장하고 나가기", "저장하고 메인 메뉴로 나가시겠습니까?", function(ok)
@@ -1813,8 +1813,8 @@ function _M:onQuit()
 end
 
 function _M:onExit()
-	self.player:runStop("quitting") --@@ 한글화 필요
-	self.player:restStop("quitting") --@@ 한글화 필요
+	self.player:runStop("종료")
+	self.player:restStop("종료")
 
 	if not self.quit_dialog and not self.player.dead and not self:hasDialogUp() then
 		self.quit_dialog = Dialog:yesnoPopup("저장 및 종료?", "저장하고 게임을 끝내시겠습니까?", function(ok)
@@ -1837,8 +1837,8 @@ end
 
 --- When a save is being made, stop running/resting
 function _M:onSavefilePush()
-	self.player:runStop("saving") --@@ 한글화 필요
-	self.player:restStop("saving") --@@ 한글화 필요
+	self.player:runStop("저장")
+	self.player:restStop("저장")
 end
 
 --- When a save has been done, if it's a zone or level, also save the main game

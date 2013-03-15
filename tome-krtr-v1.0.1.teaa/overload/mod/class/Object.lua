@@ -280,7 +280,7 @@ function _M:getOriName(t) --@@ 원래 이름 반환하는 함수 추가 : 내부
 	t = t or {}
 	local qty = self:getNumber()
 	local name = self.name
-	
+
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
 	-- To extend later

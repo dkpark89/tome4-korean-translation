@@ -548,7 +548,7 @@ newEntity{
 	display = '!', color=colors.VIOLET, image="object/artifact/potion_blood_of_life.png",
 	encumber = 0.4,
 	rarity = 350,
-	desc = [[This vial of blood was drawn from an ancient race in the Age of Haze. Some of the power and vitality of those early days of the world still flows through it. "Drink me, mortal," the red liquid seems to whisper in your thoughts. "I will bring you light beyond darkness. Those who taste my essence fear not the death of flesh. Drink me, mortal, if you value your life..."]], --@@ 한글화 필요 (설명 내용 전체가 바뀜)
+	desc = [[이 약병에 들어있는 피는 아지랑이의 시대에 살던 고대 종족으로부터 추출한 것입니다. 초기 세상의 힘과 생명력의 일부가 그 속에서 흐르고 있습니다. "마시거라, 필멸자여," 붉은 액체가 당신의 정신 속으로 속삭이는 것 같습니다. "어둠을 넘어서까지 나는 너에게 빛을 가져다 주리니. 내 정수를 맛본 이는 육체의 죽음조차 두려워 않도다. 마시거라, 필멸자여, 너의 생명이 소중하다면..."]],
 	cost = 1000,
 	special = true,
 
@@ -2792,7 +2792,7 @@ newEntity{ base = "BASE_SHIELD",
 			self:specialWearAdd({"wielder","resists"}, {[DamageType.ARCANE] = 15, [DamageType.BLIGHT] = 5})
 			self:specialWearAdd({"wielder","disease_immune"}, 0.15)
 			self:specialWearAdd({"wielder","poison_immune"}, 0.5)
-			game.logPlayer(who, "#DARK_GREEN#You feel nature's power protecting you!") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#자연의 힘이 당신을 보호하는 것이 느껴집니다!")
 		end
 	end,
 }
@@ -5579,17 +5579,17 @@ newEntity{ base = "BASE_TOOL_MISC", --And finally, Thank you, Darkgod, for makin
 	use_talent = { id = Talents.T_TRACK, level = 2, power = 18 },
 }
 
---@@ 한글화 필요 : 아랫부분 전체
 newEntity{ base = "BASE_LEATHER_CAP",
 	power_source = {nature=true},
 	unique = true,
 	name = "Eye of the Forest",
+	kr_name = "숲의 눈", kr_unided_name = "우거진 가죽 모자",
 	unided_name = "overgrown leather cap", image = "object/artifact/eye_of_the_forest.png",
 	level_range = {24, 32},
 	color=colors.GREEN,
 	encumber = 2,
 	rarity = 200,
-	desc = [[This leather cap is overgrown with a thick moss, except for around the very front, where an eye, carved of wood, rests. A thick green slime slowly pours from the corners of the eye, like tears.]],
+	desc = [[이 가죽 모자는 앞쪽의 눈 구멍 부위만 제외하고는 두꺼운 이끼로 우거져 있습니다. 눈 주변에는 짙은 녹색 슬라임이 눈동자처럼 천천히 움직이고 있습니다.]],
 	cost = 200,
 	material_level=3,
 	wielder = {
@@ -5616,11 +5616,12 @@ newEntity{ base = "BASE_MINDSTAR",
 	power_source = {antimagic=true},
 	unique = true,
 	name = "Eyal's Will",
+	kr_name = "에이알의 의지", kr_unided_name = "창백한 녹색 마석",
 	unided_name = "pale green mindstar",
 	level_range = {38, 50},
 	color=colors.AQUAMARINE, image = "object/artifact/eyal_will.png",
 	rarity = 380,
-	desc = [[This smooth green crystal flows with a light green slime in its core. Droplets occasionally form on its surface, tufts of grass growing quickly on the ground where they fall.]],
+	desc = [[이 부드러운 녹색 수정의 중심부에는 밝은 녹색 슬라임이 흘러다니고 있습니다. 작은 물방울이 가끔씩 그 표면에 맺히고, 그 것이 떨어진 대지에서는 풀잎 다발이 빠르게 자라나기 시작합니다.]],
 	cost = 280,
 	require = { stat = { wil=48 }, },
 	material_level = 5,
@@ -5658,7 +5659,7 @@ newEntity{
 	unided_name = "glowing ankh",
 	name = "Anchoring Ankh",
 	kr_name = "고정된 성물", kr_unided_name = "빛나는 성물",
-	desc = [[성물을 집어들자, 안정가이 느껴집니다. 주변의 세상이 안정되게 느껴집니다.]],
+	desc = [[성물을 집어들자, 안정감이 느껴집니다. 주변의 세상이 안정되게 느껴집니다.]],
 	level_range = {15, 50},
 	rarity = 400,
 	display = "*", color=colors.YELLOW, image = "object/fireopal.png",

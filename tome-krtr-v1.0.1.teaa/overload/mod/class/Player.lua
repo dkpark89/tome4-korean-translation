@@ -978,13 +978,13 @@ end
 
 function _M:doDrop(inven, item, on_done, nb)
 	if self.no_inventory_access then return end
-	
+
 	local o = self:getInven(inven) and self:getInven(inven)[item]
 	if o and o.plot then
-		game.logPlayer(self, "You can not drop %s.", o:getName{do_colour=true}) --@@ 한글화 필요
+		game.logPlayer(self, "당신은 %s 버릴 수 없습니다.", o:getName{do_colour=true}:addJosa("를"))
 		return
 	end
-	
+
 	if game.zone.wilderness then
 		Dialog:yesnoLongPopup("경고", "월드맵에서는 물건을 내려놓을 수 없습니다.\n만약 그 물건을 버리면 영원히 사라질 것입니다.", 300, function(ret)
 			-- The test is reversed because the buttons are reversed, to prevent mistakes
@@ -1427,14 +1427,13 @@ function _M:useCommandOrb(o, x, y)
 	if g.orb_command then
 		g.orb_command:special(self)
 		if not g.orb_command.continue then return end
-		return
 	end
 	g.orbed = true
 
 	game.logPlayer(self, "당신이 받침대 위에 %s 놓자 멀리서 '클랑' 하는 소리가 납니다.", o:getName{do_colour=true}:addJosa("을"))
 	self:grantQuest("orb-command")
 	self:setQuestStatus("orb-command", engine.Quest.COMPLETED, o.define_as)
-	
+
 	if g.once_used_image and g.add_displays and g.add_displays[1] then
 		g.add_displays[1].image = g.once_used_image
 		g:removeAllMOs()

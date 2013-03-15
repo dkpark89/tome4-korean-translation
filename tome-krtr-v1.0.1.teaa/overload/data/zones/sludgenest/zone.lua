@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Sludgenest",
+	kr_name = "진창의 보금자리",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 3,
@@ -120,7 +123,7 @@ return {
 			game.zone:addEntity(game.level, m, "actor", spot.x, spot.y)
 			game.nicer_tiles:updateAround(game.level, spot.x, spot.y)
 			m:setTarget(game.player)
-			game.logSeen(m, "#YELLOW_GREEN#One of the wall shakes for a moment and then turns into %s!", m.name:capitalize())
+			game.logSeen(m, "#YELLOW_GREEN#한 쪽 벽이 잠시 떨리다가, %s 변신합니다!", (m.kr_name or m.name):capitalize():addJosa("로"))
 		end
 
 		game.level.data.spawn_chance = 3

@@ -52,12 +52,12 @@ newEntity{
 		end
 		if not ( who:knowTalentType("spell/staff-combat") or who:knowTalentType("spell/staff-combat") == false ) then 
 			who:learnTalentType("spell/staff-combat", false)
-			game.logPlayer(who, "#VIOLET#Images of yourself beating people with a stick spring into your mind. (Staff Combat category can be bought)") --@@ 한글화 필요
+			game.logPlayer(who, "#VIOLET#지팡이를 사용하여 마음속에서 분출하는 당신의 상상으로 사람들을 공격할 수 있게 되었습니다 (지팡이 전투기술 기술계열 습득).")
 			done = done + 1
 		end
 		if not ( who:knowTalentType("wild-gift/mindstar-mastery") or who:knowTalentType("wild-gift/mindstar-mastery") == false ) then 
 			who:learnTalentType("wild-gift/mindstar-mastery", false)
-			game.logPlayer(who, "#VIOLET#You suddenly understand how to channel your mental force through mindstars. (Mindstar Mastery category can be bought)") --@@ 한글화 필요
+			game.logPlayer(who, "#VIOLET#당신은 마석을 통해 정신력을 뿜어내는 방법을 알게 되었습니다 (마석 수련 기술계열 습득).")
 			done = done + 1
 		end
 

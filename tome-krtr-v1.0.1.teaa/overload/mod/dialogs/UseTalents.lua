@@ -162,16 +162,17 @@ function _M:use(item, button)
 		}
 
 		if self.actor:isTalentConfirmable(t) then
-			table.insert(list, 1, {name="#YELLOW#Disable talent confirmation", what="unset-confirm"}) --@@ 한글화 필요
+			table.insert(list, 1, {name="#YELLOW#기술 사용의 확인 작업 없애기", what="unset-confirm"})
 		else
-			table.insert(list, 1, {name=confirmMark:getDisplayString().."Request confirmation before using this talent", what="set-confirm"}) --@@ 한글화 필요
+			table.insert(list, 1, {name=confirmMark:getDisplayString().."이 기술을 사용하기 전 확인 받기", what="set-confirm"})
 		end
 		local automode = self.actor:isTalentAuto(t)
-		local ds = "#YELLOW#Disable " --@@ 한글화 필요 검사
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==1 and ds or "").."가능한 경우 항상 자동 사용", what=(automode==1 and "auto-dis" or "auto-en-1")})
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==2 and ds or "").."적이 보이지 않을때 항상 자동 사용", what=(automode==2 and "auto-dis" or "auto-en-2")})
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==3 and ds or "").."적이 보일때 항상 자동 사용", what=(automode==3 and "auto-dis" or "auto-en-3")})
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==4 and ds or "").."인접한 적이 보일때 항상 자동 사용", what=(automode==4 and "auto-dis" or "auto-en-4")})
+		local ds = "#YELLOW#"
+		local ds2 = " 비활성화"
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==1 and ds or "").."가능한 경우 항상 자동 사용"..(automode==1 and ds2 or ""), what=(automode==1 and "auto-dis" or "auto-en-1")})
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==2 and ds or "").."적이 보이지 않을때 항상 자동 사용"..(automode==2 and ds2 or ""), what=(automode==2 and "auto-dis" or "auto-en-2")})
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==3 and ds or "").."적이 보일때 항상 자동 사용"..(automode==3 and ds2 or ""), what=(automode==3 and "auto-dis" or "auto-en-3")})
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==4 and ds or "").."인접한 적이 보일때 항상 자동 사용"..(automode==4 and ds2 or ""), what=(automode==4 and "auto-dis" or "auto-en-4")})
 
 		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
 		

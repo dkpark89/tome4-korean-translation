@@ -175,7 +175,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "umbral ", prefix=true, instant_resolve=true,
-	kr_name = "어두운 ", --@@ 한글화 필요 (검수) : 원문이 dark -> umbral로 변경, 한글은 그냥 둬도 될것 같음. 검수후 주석 삭제 
+	kr_name = "어두운 ", 
 	keywords = {umbral=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -194,7 +194,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "radiant ", prefix=true, instant_resolve=true,
-	kr_name = "빛나는 ", --@@ 한글화 필요 (검수) : 원문이 light -> radiant로 변경, 한글은 그냥 둬도 될것 같음. 검수후 주석 삭제
+	kr_name = "빛나는 ",
 	keywords = {radiant=true},
 	level_range = {1, 50},
 	rarity = 9,
