@@ -302,11 +302,11 @@ function string.krTalentType(str)
 	elseif ori == "mindstar mastery" then return "마석 수련"
 	elseif ori == "mucus" then return "점액"
 	elseif ori == "ooze" then return "진흙 덩어리"
-	elseif ori == "moss" then return "이끼" --@@ 한글화 필요 (검수)
+	elseif ori == "moss" then return "이끼"
 	elseif ori == "malleable body" then return "신체 변화"
 	elseif ori == "oozing blades" then return "진흙 칼날" --@@ 한글화 필요 (검수)
 	elseif ori == "corrosive blades" then return "부식성 칼날" --@@ 한글화 필요 (검수)
-	-- misc 이 부분 모두 보강 필요
+	-- misc
 	elseif ori == "horror" then return "공포"
 	elseif ori == "horror techniques" then return "공포들의 물리기술"
 	elseif ori == "horror spells" then return "공포들의 주문"

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/grids/basic.lua")
 load("/data/general/grids/water.lua")
 load("/data/general/grids/slime.lua")
@@ -28,9 +30,9 @@ local orb_activate = function(self, x, y, who, act, couldpass)
 	local owner, orb = game.party:findInAllPartyInventoriesBy("define_as", self.define_as)
 
 	if not orb then
-		require("engine.ui.Dialog"):simplePopup("Strange Pedestal", "This pedestal looks old, you can see the shape of an orb carved on it.") --@@ 한글화 필요
+		require("engine.ui.Dialog"):simplePopup("이상한 받침대", "이 받침대는 오래된 것으로 보입니다. 그 표면에 어떤 모양의 오브가 새겨져 있는 것이 보입니다.")
 	else
-		require("engine.ui.Dialog"):yesnoLongPopup("Strange Pedestal", "The pedestal seems to react to something in your bag. After some tests you notice it is the "..tostring(orb:getName{do_color=true})..".\nDo you wish to use the orb on the pedestal?", 400, function(ret)  --@@ 한글화 필요
+		require("engine.ui.Dialog"):yesnoLongPopup("이상한 받침대", "받침대는 당신의 가방 속에 있는 어떤 소지품과 반응하고 있는 것 같습니다. 몇가지 실험 결과로 이 것이 "..tostring(orb:getName{do_color=true}:addJosa("와")).." 반응하고 있는 것을 발견했습니다.\n오브를 받침대에 사용합니까?", 400, function(ret)
 			if ret then game.player:useCommandOrb(orb, x, y) end
 		end, "예", "아니오")
 	end
@@ -147,7 +149,7 @@ newEntity{
 	notice = true,
 	change_level=1, change_zone="high-peak",
 	change_level_check = function()
-		require("engine.ui.Dialog"):yesnoLongPopup("최고봉", 'As you stand on the stairs you can feel this is a "do or die" one way trip. If you enter there will be no coming back.\nEnter?', 500, function(ret) if ret then --@@ 한글화 필요
+		require("engine.ui.Dialog"):yesnoLongPopup("최고봉", '계단에 올라서자, 이 것은 "성공이나 죽음"을 향한 일방통행임이 느껴집니다. 들어가면 돌아나올 수 있는 길이 없습니다.\n들어갑니까?', 500, function(ret) if ret then
 			game:changeLevel(1, "high-peak")
 		end end, "예", "아니오")
 		return true

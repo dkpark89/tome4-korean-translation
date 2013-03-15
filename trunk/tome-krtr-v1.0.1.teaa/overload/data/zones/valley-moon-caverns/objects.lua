@@ -24,7 +24,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tattered paper scrap", lore="valley-moon-"..i,
-	desc = [[A paper scrap, left by somebody named Rassir.]],
+	kr_name = "낡은 종이 조각",
+	desc = [[라시르라는 이름을 가진 이가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

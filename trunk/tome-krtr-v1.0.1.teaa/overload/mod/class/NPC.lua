@@ -337,7 +337,7 @@ function _M:die(src, death_note)
 			chat:invoke()
 			self.self_resurrect_chat = nil
 		end
-		
+
 		return
 	end
 
@@ -416,12 +416,12 @@ function _M:addedToLevel(level, x, y)
 			self:attr("difficulty_boosted", 1)
 		end
 	end
-	
+
 	-- Bosses that can pass through things should be smart about finding their target
 	if self.rank > 3 and self.can_pass and type(self.can_pass) == "table" and next(self.can_pass) and self.ai_state and not self.ai_state.boss_ghost_no_astar then
 		self.ai_state.ai_move = "move_astar"
 	end
-	
+
 	return mod.class.Actor.addedToLevel(self, level, x, y)
 end
 

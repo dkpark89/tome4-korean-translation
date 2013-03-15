@@ -45,8 +45,8 @@ function _M:saySimple(time, txt, ...)
 	self.center_x = (game.w) / 2
 	self.center_y = (game.h) / 5
 
-	if game.player.stopRun then game.player:stopRun("important news") end --@@ 한글화 필요
-	if game.player.stopRest then game.player:stopRest("important news") end --@@ 한글화 필요
+	if game.player.stopRun then game.player:stopRun("중요한 소식") end
+	if game.player.stopRest then game.player:stopRest("중요한 소식") end
 end
 
 function _M:display(nb_keyframes)

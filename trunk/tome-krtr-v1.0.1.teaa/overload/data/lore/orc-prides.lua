@@ -372,6 +372,7 @@ newLore{
 	id = "ukruk-log",
 	category = "orc prides",
 	name = "Ukruk's log",
+	kr_name = "우크룩의 기록",
 	lore = [[Sher'Tul ruin matches description from high command. Investigation begun, but slow. Looks like it crashed into the ground long ago - hard to access many areas. Target item has been described by command as a staff. Do not know why a staff so important. Surely the ultimate weapon should be a sword or axe, like that wielded by the great Garkul?
 
 Have heard many rumours against high command lately - strange rumours, indeed. Perhaps by completing this mission I shall get closer to them so that I might seek the truth...

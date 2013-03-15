@@ -232,9 +232,9 @@ end
 function _M:switchLocked()
 	self.locked = not self.locked
 	if self.locked then
-		game.bignews:say(60, "#CRIMSON#Interface locked, mouse enabled on the map") --@@ 한글화 필요
+		game.bignews:say(60, "#CRIMSON#인터페이스가 잠겼습니다. 지도에서의 마우스 사용이 가능합니다.")
 	else
-		game.bignews:say(60, "#CRIMSON#Interface unlocked, mouse disabled on the map") --@@ 한글화 필요
+		game.bignews:say(60, "#CRIMSON#인터페이스가 풀렸습니다. 지도에서의 마우스 사용이 불가능합니다.")
 	end
 end
 
@@ -312,7 +312,7 @@ function _M:saveSettings()
 	end
 
 	self:triggerHook{"UISet:Minimalist:saveSettings", lines=lines}
-	
+
 	game:saveSettings("tome.uiset_minimalist", table.concat(lines, "\n"))
 end
 
@@ -1830,7 +1830,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("tb_talents")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.inven = 0.6 return else self.tbbuttons.inven = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "Left mouse to show known talents") --@@ 한글화 필요한지 검사
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 알고 있는 기술 보기")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("USE_TALENTS") end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, tb_talents[6], tb_talents[7], desc_fct, nil, "tb_talents", true, scale)
@@ -1896,7 +1896,7 @@ function _M:displayToolbar(scale, bx, by)
 	if self:triggerHook(hd) then 
 		x, y = hd.x, hd.y
 	end
-	
+
 	local mhx, mhy = util.getval(self.mhandle_pos.mainicons.x, self), util.getval(self.mhandle_pos.mainicons.y, self)
 	if not self.locked then
 		move_handle[1]:toScreenFull(mhx, mhy, move_handle[6], move_handle[7], move_handle[2], move_handle[3])

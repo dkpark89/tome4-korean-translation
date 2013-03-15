@@ -397,10 +397,10 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "SWORD_DAWN",
 	on_set_complete = function(self, who)
 		self:specialSetAdd({"combat","melee_project"}, {[engine.DamageType.LIGHT]=15, [engine.DamageType.FIRE]=15})
 		self:specialSetAdd({"wielder","inc_damage"}, {[engine.DamageType.LIGHT]=12, [engine.DamageType.FIRE]=10})
-		game.logPlayer(who, "#GOLD#As you wield the sword and shield of the Sunwall, you feel the Sun's light radiating from your core.") --@@ 한글화 필요
+		game.logPlayer(who, "#GOLD#태양의 장벽의 검과 방패를 동시에 착용하자, 당신의 내부로부터 태양의 빛이 내뿜어 지는 것이 느껴집니다.")
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#GOLD#You feel the Sun's light vanish from within you.") --@@ 한글화 필요
+		game.logPlayer(who, "#GOLD#당신이 가지고 있던 태양의 빛이 사라지는 것을 느낍니다.")
 	end,
 }
 
@@ -507,17 +507,17 @@ newEntity{ base = "BASE_KNIFE", define_as = "KINETIC_SPIKE",
 	},
 }
 
---@@ 한글화 필요 : 아래 전체
 newEntity{ base = "BASE_STAFF",
 	power_source = {unknown=true},
 	unique = true,
 	name = "Rod of Sarrilon", image = "object/artifact/staff_lost_staff_archmage_tarelion.png",
 	unided_name = "ceremonial staff",
+	kr_name = "사릴론의 장대", kr_unided_name ="의식용 지팡이",
 	flavor_name = "starstaff",
 	level_range = {37, 50},
 	color=colors.VIOLET,
 	rarity = 250,
-	desc = [[ A plain looking ceremonial rod. It has connections with Time that even chronomancers do not yet understand.]],
+	desc = [[평범한 의식용 장대같이 보입니다. 이것은 아직 어떤 시공술사도 이해하지 못한 시간과 연결되어 있습니다.]],
 	cost = 400,
 	material_level = 5,
 

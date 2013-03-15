@@ -63,7 +63,7 @@ newEntity{ base = "BASE_LORE",
 	subtype = "oceans", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "The Oceans of Eyal", lore="oceans-of-yeal",
 	kr_name = "에이알의 바다",
-	desc = [[Thoughts about the impossibility of sea travel.]], --@@ 한글화 필요
+	desc = [[바다 여행의 불가능성에 대한 생각.]],
 	rarity = false,
 	encumberance = 0,
 	cost = 10,

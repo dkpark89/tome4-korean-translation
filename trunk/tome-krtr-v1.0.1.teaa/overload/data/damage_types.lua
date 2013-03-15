@@ -1916,11 +1916,10 @@ newDamageType{
 	end,
 }
 
---@@ 한글화 필요 : 표시된 이전까지
-
 -- Mosses
 newDamageType{
 	name = "grasping moss", type = "GRASPING_MOSS",
+	kr_name = "붙잡는 이끼",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -1929,7 +1928,7 @@ newDamageType{
 			if target:canBe("pin") and rng.percent(dam.pin) then
 				target:setEffect(target.EFF_PINNED, 4, {apply_power=src:combatMindpower()}, true)
 			else
-				game.logSeen(target, "%s resists!", target.name:capitalize())
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1937,6 +1936,7 @@ newDamageType{
 
 newDamageType{
 	name = "nourishing moss", type = "NOURISHING_MOSS",
+	kr_name = "영양이 되는 이끼",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -1948,6 +1948,7 @@ newDamageType{
 
 newDamageType{
 	name = "slippery moss", type = "SLIPPERY_MOSS",
+	kr_name = "미끄러운 이끼",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -1959,6 +1960,7 @@ newDamageType{
 
 newDamageType{
 	name = "hallucinogenic moss", type = "HALLUCINOGENIC_MOSS",
+	kr_name = "환각 유발의 이끼",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -1966,13 +1968,11 @@ newDamageType{
 			if target:canBe("confusion") and rng.percent(dam.chance) then
 				target:setEffect(target.EFF_CONFUSED, 2, {apply_power=src:combatMindpower(), power=dam.power}, true)
 			else
-				game.logSeen(target, "%s resists!", target.name:capitalize())
+				game.logSeen(target, "%s 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
 }
-
---@@ 여기까지 한글화 필요
 
 -- Circles
 newDamageType{

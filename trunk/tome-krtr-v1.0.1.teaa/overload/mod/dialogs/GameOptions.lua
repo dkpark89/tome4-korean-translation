@@ -224,14 +224,14 @@ function _M:generateList()
 		}))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Configure the chat ignore filter.#WHITE#"} --@@ 한글화 필요
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
-		return "select to configure" --@@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"대화창에서 무시할 사항을 설정합니다.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#대화창에서 무시할 사항#WHITE##{normal}#", status=function(item)
+		return "설정을 선택"
 	end, fct=function(item)	game:registerDialog(require("engine.dialogs.ChatIgnores").new()) end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Configure the chat channels to listen to.#WHITE#"} --@@ 한글화 필요
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Chat channels#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
-		return "select to configure" --@@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이야기를 들을 대화창 채널을 설정합니다.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#대화창 채널#WHITE##{normal}#", status=function(item)
+		return "설정을 선택"
 	end, fct=function(item)	game:registerDialog(require("engine.dialogs.ChatChannels").new()) end,}
 
 	if game.uiset:checkGameOption("icons_temp_effects") then

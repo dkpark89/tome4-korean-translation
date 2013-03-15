@@ -3910,7 +3910,7 @@ function _M:postUseTalent(ab, ret, silent)
 			local t = rng.tableRemove(tids)
 			if not t then break end
 			self.talents_cd[t.id] = self:attr("random_talent_cooldown_on_use_turns")
-			game.log("%s talent '%s%s' is disrupted by the mind parasite.", self.name:capitalize(), (t.display_entity and t.display_entity:getDisplayString() or ""), t.name) --@@ 한글화 필요
+			game.log("%s mind parasite에 의해 '%s%s' 기술을 방해받습니다.", (self.kr_name or self.name):capitalize():addJosa("가"), (t.display_entity and t.display_entity:getDisplayString() or ""), (t.kr_name or t.name)) --@@ 한글화 필요, 'mind parasite'는 /data/talents/gifts/oozing-blades.lua:75의 기술 이름
 		end
 	end
 	
@@ -4700,5 +4700,5 @@ function _M:transmoHelpPopup()
 end
 
 function _M:transmoGetName()
-	return "Transmogrification Chest" --@@ 한글화 필요한지 검사
+	return "변환 상자" --@@ 문제 없는지 확인 필요. 원래는 "Transmogrification Chest"
 end

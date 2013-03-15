@@ -234,7 +234,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 	end
 	self.changed = true
 	return true
-	
+
 end
 
 --- Replace some markers in a string with info on the talent
