@@ -85,6 +85,6 @@ newEntity{ define_as = "MINDWORM",
 
 	on_die = function(self)
 		game.level.data.fumes_active = false
-		require("engine.ui.Dialog"):simplePopup("연기", "정신 벌레가 죽자, 당신은 정신을 갉아먹던 유독성 연기의 독성이 줄어드는 것을 느꼈습니다.")
+		require("engine.ui.Dialog"):simplePopup("연기", "정신 벌레가 죽자, 당신의 정신을 갉아먹던 유독성 연기의 독성이 줄어드는 것을 느꼈습니다.")
 	end,
 }

@@ -77,107 +77,108 @@ newLore{
 	category = "adventures",
 	name = "letter to Rolf (1)",
 	kr_display_name = "롤프에게 보내는 편지 (1)",
-	lore = [[Dear Rolf,
+	lore = [[롤프에게,
 
-I hope this letter finds you well. I must apologise for this recent dry spell in our communication; my adventures across Maj'Eyal have taken many exciting and perilous turns as of late. What turns do I speak of, you ask? I know how you delight in reading the accounts of my exploits, so I shall waste no further time on this pre-amble.
+이 편지가 너에게 제대로 전달됐으면 좋겠군 그래. 최근 우리의 의사소통이 전혀 이루어지지 않았다는 점을 먼저 사과하겠네. 마즈'에이알 대륙을 가로지르는 나의 여행은 너무나 즐거우면서도 또한 위험해서, 편지를 보낼 생각조차 하지 못했다네. 내가 발견한 것을 설명해주면 자네가 얼마나 기뻐할지 알고 있으니, 글의 서두는 이쯤 쓰겠네.
 
-Imagine, if you will, a wolf. Imagine a beastly wolf, a wolf with strength, ferocity and a lust for flesh matching that of an entire pack of its lesser kind. You too may have some small experience with these "wargs" as the locals are wont to call them. Now... imagine one the size of a bear. Truly, as I travelled the lands surrounding Derth did I come across such a monstrous, awe-inspiring, lupine adversary. With fangs of a length to match my own blade, I entered combat against this lupine lord and its skulking brood. To my regret I failed in slaying the beast, but I assure you - simply surviving against such feral rage is an honour worthy of recognition and renown.
+상상해보게. 늑대를 상상해보게. 저 흉폭한 늑대를 상상해보게. 힘 세고, 흉포하고, 고기를 탐하는 저 모든 종류의 하등한 늑대들을 상상해보게. 자네 역시 지역 주민들이 주로 "와르그" 라고 부르는, 늑대들에 대해 들어본 적이 있을걸세.
+이제... 방금 전에 상상한 늑대가 곰의 크기를 가지고 있는 것을 상상해보게. 정말로, 데르스 주변을 여행하던 도중 나는 이 괴물 같은, 공포스러운, 늑대 같은 적수를 만났다네. 송곳니는 내 검 만큼이나 길었고, 나는 이 늑대들의 제왕과 전투를 시작했다네. 아쉬운 점은, 그 동물을 사냥하는 것에 실패했다는 것일세. 하지만 내 장담하네 - 그 무시무시한 분노로부터 살아남은 것만으로도 충분히 영광스러운 일이며, 그 명성이 널리 알려져야 할 일일세.
 
-And indeed, would there have been much glory in killing such a creature? True, I would have had enough to fur to line each and every boot and hat in Derth, but legends must live on. They are what give this world its very spirit!
+그리고 정말로, 이런 생명체를 죽여 영광을 얻을 수 있겠는가? 나는 실로 어마어마한 숫자의, 털가죽으로 만들어진 신발과 모자를 데르스에서 보았다네. 하지만 전설은 그렇게 허무하게 죽어서는 안된다네. 전설은 이 세계에 영혼을 불어넣어주는 존재니까 말일세!
 
-With eager anticipation for your reply,
-Weisman]]}
+자네의 답장을 즐겁게 기다리며,
+웨이스만 보냄]]}
 newLore{
 	id = "adventurer-letter-2",
 	category = "adventures",
 	name = "letter to Weisman (1)",
 	kr_display_name = "웨이스만에게 보내는 편지 (1)",
-	lore = [[Dear Weisman,
+	lore = [[웨이스만에게,
+	
+아! 자네의 마지막 편지가 나에게 준 느낌이란... 정말로 유쾌하고, 웃기는 느낌이었다네! 자네는 대체 언제까지 나에게 이 웃기는 이야기를 보내줄 셈인가? 그 나무로 만들어진 검을 들고, 이빨 빠진 잡종견이랑 싸운 이야기 말일세! 나에게 자네의 "전설" 을 훨씬 더 간결하게 말할 수 있게 해주게나 : 어느 날, 나는 개 한 마리를 죽이는데 실패했다. 이 얼마나 용감한가! 이 얼마나 용기 있고 대담한 일인가!
 
-Ah! What feelings your last letters inspired within me... primarily mirth, with a good amount of scorn! Must you continuously assail me with tale after tale of your waving of wooden swords and pestering of toothless mongrels? Allow me to recount your "legends" in a much more succinct manner: One day, I failed to kill a dog. Such bravery! Such pluck and derring-do!
+자네의 그 하찮고도 무모한 장난은 내가 최근에 겪은 시련에 비하면 정말 아무 것도 아닐세. 바로 며칠 전, 나는 오래된 숲 (이곳은 데르스 바깥에 있다네, 웨이스만! 벌써 겁에 질려 손이 떨리는게 눈에 보이는군 그래!) 으로 여행을 떠났다네. 그리고 나는 불행하게도, 그곳에서 가장 끔찍하고, 부풀어오르고, 끈적거리고 시끄러운 공포를 만났다네! 그것은 바로 역겨운 거대 개미들이었다네! 그 분노한 키틴질 부대는 마치 장군의 명령을 따르는 것 같이 움직였으며, 그것들은 나를 잡아먹을 듯이 덮쳐왔다네!
 
-Your petty escapades are made ever more insignificant by the trials I myself have recently overcome. Mere days ago I was trekking through the Old Forest (that's outside Derth, Weisman! Terror must already grip you!) when, by unfortunate happenstance, I came across a most hideous, bloated, oozing and chittering horror! No less than the giant ants' repulsive progenitor! Such hordes of frenzied chitinous young it had at its command, it was as though the ground itself was swarming forward to devour me!
+하지만 나는 살아남았다네, 웨이스만. 나의 편지가 자네의 모험이 얼마나 바보 같은 짓인지 알게 해주는 계기가 되었으면 좋겠군. 이런 진정한 모험을 겪은 자만이 자신을 모험가라고 칭할 수 있는 법일세. 자네의 이야기로 나를 더 이상 지루하게 만들지 말게나.
 
-And yet I live. Weisman, I sincerely hope that my letter has revealed to you your folly. Only when you have faced true danger can you call yourself an adventurer. Bore me with your tales no longer.
-
-Rolf]]}
+롤프 보냄]]}
 newLore{
 	id = "adventurer-letter-3",
 	category = "adventures",
 	name = "letter to Rolf (2)",
 	kr_display_name = "롤프에게 보내는 편지 (2)",
-	lore = [[Dear Rolf the Antslayer,
+	lore = [[개미살해자 롤프에게,
+	
+하! 그런 시련을 겪으셨는가! 이제 용이나 악마 따위는 사람들의 머리 속에서 잊혀지고, 개미에게서 살아남은 영웅의 이야기가 쓰여지겠군 그래! 그렇다면, 마지막 희망에서 생긴 이 즐거운 소식을 최대한 빨리 전해줘야겠군 - 자네의 명예는 나를 위한 행진의 구경꾼이 되고 말걸세!
 
-Ha! Such trials you have overcome! Forget dragons and demons, here we have a hero who has survived against ants! I shall deliver this joyous news to Last Hope with all haste - perhaps there shall be a parade in your honour!
+내가 방금 전에 사용한 풍자를 자네가 알아들었으면 하는군 그래. 하지만 나는 곤충들과 사투를 벌이는 자에게 그렇게 많은 기대를 해서는 안된다는 사실을 알고 있네. 내가 자네에게 진정한 모험가에게 어울리는 짐승이 무엇인지 알려주지. 나는 남쪽으로 여행을 떠났다네. 어느날 밤에 버려진 산길을 걷다가 - 다음날 아침에 내가 얻을 보물과 시련을 상상하면서 - 찬란한 빛이 갑자기 나의 시야를 가득 채웠다네! 나는 그 빛이 닿는 곳에 서서, 내 주변의 대지가 찬란한 빛으로 물드는 것을 지켜보았다네. 그리고 나는 무언가를 발견하였다네.
 
-I hope you registered the sarcasm in my previous words, but I obviously cannot expect much from one who struggles with insects. Allow me to share with you knowledge of a beast rather more fitting for a true adventurer to behold. My travels had taken me south, and as I walked one night along an abandoned mountain pass, imagining what treasures and trials the next day may bring, a brilliant light filled my vision! I stood in its radiance, the land around me illuminated so that it almost appeared to be in broad daylight, and that was when I saw it.
+그 얼마나 굉장한 장면이였는지! 타오르는 날개를 가지고 하늘을 불태우는, 그 새에게 나는 완전히 넋이 빠지고 말았다네. 저 멀리에서 불이 나고 있다는 사실을 간신히 발견할 수 있었다네. 그 새의 발톱 아래에 있던 돌에서도 엄청난 열기가 느껴졌다네. 롤프, 나는 그 순간 이것이야말로 모험이라는 것을 느꼈다네 - 이 세상에는 언제나 우리의 생각보다도 놀랍고 위대한 것들이 존재한다네.
 
-Such a magnificent sight! With wings of fire, leaving the air itself hissing and smouldering in its wake, I could only watch with rapt amazement as it alighted on a rocky outcrop mere yards away from me, the stone beneath its talons warping from its tremendous heat. It was at that moment, Rolf, that I realised that this was what being an adventurer was about - there is always more in this world of ours to amaze and astonish us.
-
-Learn from my experiences,
-Weisman]]}
+나의 경험에서 배우는 것이 있기를,
+웨이스만 보냄]]}
 newLore{
 	id = "adventurer-letter-4",
 	category = "adventures",
 	name = "letter to Weisman (2)",
 	kr_display_name = "웨이스만에게 보내는 편지 (2)",
-	lore = [[Dearest Weisman,
+	lore = [[나의 가장 친애하는 친구 웨이스만에게,
+	
+자네의 들새 관찰 이야기를 짧게 줄여서 미안하네만, 마지막에 농담 한 마디를 붙이지 않고서는 도저히 견딜 수가 없는 이야기로군 그래. 자네의 웃기지도 않는 거드름과 과장된 말을 참느라 힘들었네. 우선, 자네의 너무나 과장된 이야기 - 들판에 불이 난 이야기 - 를 아주 재미있게 꾸며낸 것은 좋았지만, 나는 이제 자네에게 진심으로 동정을 표한다네. 자네의 가련한 방황을 감히 전설로 생각하고 있다니 말일세.
 
-Sorry to cut your birdwatching session short, but I must bring this badinage to an end. I have tolerated your ridiculous pomposity and false heroics long enough. At first, I took your over-inflated tales of bothering local wildlife with good humour but now I realise, with dread, that you are sincere; you believe your pathetic wanderings to be the stuff of legend.
+음, 더 이상 말하지 않겠네. 우리는 7 일 후에 데르스의 중앙 광장에서 만나게 될걸세. 여행의 준비를 하게나. 마을 북쪽의 폐허에 괴물이 있다는 소문이 갈수록 늘어나, 이제는 더 이상 헛소문으로 볼 수 없을 지경까지 왔다네. 나와 함께 해도 좋다네. 내 옆에서 그 괴물을 바라보게. 그리고 자네의 기술과 내 기술 사이에 있는 어마어마한 차이를 직접 느끼게. 만약 우리가 운이 좋다면, 자네는 이 강의에서 상처 하나 없이 교훈을 배우게 될걸세. 하지만 아마 이 강의에 대한 수업료로 자네의 팔다리 한두개 쯤은 지불해야 하지 않을까 걱정이 되는군 그래.
 
-Well, no more. We shall meet seven days from now in Derth's town square. Come prepared for travel. The number of rumours claiming that a monster has taken up residence within the ruins just north of town have grown to the point where they cannot be considered rumours anymore. You shall come with me, face this creature alongside me, and experience intimately the vast difference between your skills and my own. If we're lucky, you will learn this lesson unscathed, but I fear that such a trial may cost you a limb or two.
-
-Prepare yourself, if you've the courage,
-Rolf]]}
+만약 자네에게 용기가 있다면, 준비를 하시게나.
+롤프 보냄]]}
 newLore{
 	id = "adventurer-letter-5",
 	category = "adventures",
 	name = "letter to Weisman (3)",
 	kr_display_name = "웨이스만에게 보내는 편지 (3)",
-	lore = [[Weisman,
+	lore = [[웨이스만,
 
-The tentacles. I still remember them. They have lashed into my mind as they lashed into my flesh. How can nature abide such a... a... being in her realm? What dark plane of existence could it have been born from? How can creation itself tolerate such an aberration?!
+그 촉수들. 나는 아직도 그것들이 기억난다네. 그것들은 나의 육체에 쇄도하면서, 동시에 나의 정신에도 쇄도하였다네. 어떻게 자연이라는 존재가 그... 그런 것을 존재하게 놔둔거지? 그러한 것이 태어날 정도로 어둡고 사악한 곳이 존재한단 말인가? 어떻게 창조라는 존재가 그런 기형아를 그대로 놔둘 수 있단 말인가?!
 
-How did we survive? I have no clue. All I can remember is pain, and panic, and fear. All I could think of was getting away, fleeing... to my shame, all other thoughts left me. Thoughts of you, home, the world... all I could do was keep hacking away at the... things between myself and freedom. Perhaps that is why it didn't... no. I shall not think on it. The beast is certain to fill my nightmares tonight, I won't allow it to fill my waking thoughts.
+어떻게 우리가 살아남은거지? 도저히 알 수가 없네. 내가 기억할 수 있는거라고는 고통, 공포, 그리고 두려움 뿐일세. 내가 생각할 수 있는 것이라고는 그 자리에서 최대한 멀리 떨어지는 것, 그리고 도망치는 것 뿐이었다네... 부끄럽게도, 다른 생각 따위는 떠오르지 않았다네. 자네에 대한 생각, 집에 대한 생각, 이 세계에 대한 생각... 내가 할 수 있던 것이라고는 그... 것들을 베어내고 내 몸 하나를 자유롭게 하는 것 뿐이었다네. 아마 이것이 왜 그것들이... 아니, 그에 대한 생각은 더 이상 하고 싶지 않네. 그 짐승은 분명 오늘 밤 나의 악몽 속에 나타나겠지. 깨어 있는 동안에는 그에 대한 생각을 안하려고 하니 말일세.
 
-Rest easy, brother. It may have taken your eye, but think of what else it could have taken. Anyway, I shall be leaving for the tavern soon. Maybe I can drown the images of that monster in a sea of ale.
+편히 쉬게, 형제여. 아마 그것이 자네의 눈을 가져갔을지는 몰라도, 그것이 자네의 무엇을 더 가져갈 수 있었는지를 생각해보게. 어찌됐건, 나는 곧 동굴로 갈걸세. 술의 바다에 그 괴물 놈에 대한 생각을 던져, 익사시켜버리고 말거라네.
 
-Make sure you write the words on your next letter nice and big,
-Rolf]]}
+다음 편지에는 글씨를 크고 깔끔하게 쓰는 것 잊지 말게,
+롤프 보냄]]}
 newLore{
 	id = "adventurer-letter-6",
 	category = "adventures",
 	name = "letter to Rolf (3)",
 	kr_display_name = "롤프에게 보내는 편지 (3)",
-	lore = [[Rolf,
+	lore = [[롤프,
 
-I can't remember anything from the fight save the sheer terror at being near something so horrid and powerful. There is no shame in running from a foe you cannot possibly hope to defeat, is there? Maybe ale from the tavern is a good idea, but maybe it is better to conquer your fear once and for all... I hope you can forgive me, but I must defeat this monster, if it takes me the rest of my life.
+그 너무나도 끔찍하고 강력했던, 순수한 공포와 맞서 싸운 일에 대해 나는 기억이 하나도 나지 않네. 그리고 자네가 해치우지 못할 적을 만나서 도망치는 것은 전혀 부끄러운 일이 아닐세, 그렇지 않은가? 동굴에 있는 술은 좋은 생각이네만, 그보다는 자네의 공포를 극복하는게 더 좋은 생각일 것 같네... 자네가 나를 용서해주었으면 좋겠군. 하지만 나는 그 괴물을 처치해야만 하네. 만약 그 괴물이 내 남은 생명을 가져간다면,
 
-Wishing you and your ale a hearty good-bye,
+자네와 자네의 술에게 다정한 작별 인사를 미리 하겠네.
 
-Weisman.]]}
+웨이스만 보냄.]]}
 newLore{
 	id = "adventurer-letter-7",
 	category = "adventures",
 	name = "letter to Weisman (4)",
 	kr_display_name = "웨이스만에게 보내는 편지 (4)",
-	lore = [[Weisman,
+	lore = [[웨이스만,
 
-By my ancestors' profits I hope you receive this message in good health and spirits. Please, old friend - there is no need to impress upon me your valour, I know full well how courageous you are. Please, do not go after that... that thing! If I must drag you away physically, that is what I shall do, but I beg of you, please, consider another foe to fight!
+내 조상님들의 노력으로, 자네가 이 편지를 좋은 육체와 좋은 정신상태를 가진 상태에서 받아보기를 바라네. 부디, 오랜 친구여 - 자네의 용기를 나에게 표현해줄 필요는 없네. 자네가 얼마나 용감한지는 내가 가장 잘 알고 있으니 말일세. 부디, ... 그것에게만은 덤비지 말게! 할 수만 있다면 자네를 강제로 끌어내고 싶다만, 부디 부탁하겠네. 부디, 다른 적수를 찾아보게!
 
-Your friend,
+자네의 친구인,
 
-Rolf.]]}
+롤프 보냄.]]}
 newLore{
 	id = "adventurer-letter-8",
 	category = "adventures",
 	name = "Last Will of Rolf",
 	kr_display_name = "롤프의 마지막 의지",
 	bloodstains = 6,
-	lore = [[Last Will and Testament of Rolf Two-Axes
-
-I have failed. Oh by the great wyrm's maw, I have failed! The beast Weisman set out to slay was dead already by another's hand, but its corruption remained still. When I arrived in its chamber, Weisman was already half-gone; he was hacking away at foes only he could see. When I tried to stop him, he turned his axe on me... I am beaten and broken, hiding in some crevasse away from... from my own friend, who through the corruption in this place has been perverted into a monstrosity my axes were unable to fell. I hold no doubt that this is the last time I shall put quill to parchment, as even now I can hear my old friend's perverted voice.. calling to me. I bequeathe my belongings to any who slay ...
-#{italic}#(the ink blotch seems to indicate Weisman had caught up to his old friend, one-half of that abomination)#{normal}#]]}
+	lore = [[쌍도끼 롤프의 마지막 의지이자 유언
+	
+나는 실패했다. 저 위대한 용의 어머니의 이름으로, 나는 실패하였다! 웨이스만이 사냥하고자 했던 짐승은 다른 자의 손에 이미 죽음을 맞이하였다. 하지만 타락은 여전히 남아있었다. 내가 이곳에 도착했을 때, 웨이스만은 이미 반쯤 사라진 뒤였다. 그가 베어낼 수 있었던 적은 그가 볼 수 있었던 적 뿐이었다. 나는 그를 멈추려 했지만, 그는 그의 도끼를 나에게 휘두를 뿐이었다... 나는 완전히 패배한 채, 멀리 떨어진... 나의 친구와 멀리 떨어진 곳에 있는 큰 틈으로 몸을 숨겼다. 이곳의 타락은 나의 친구를 괴물로 만들어, 내가 도끼를 휘두르지조차 못하게 만들었다. 분명, 지금 이 순간이 나의 깃펜과 양피지를 사용하는 마지막 순간이 될 것이다. 내 오랜 친구가 내지르는 비정상적인 목소리가 들려온다... 내 오랜 친구가 나를 부르고 있다. 나의 모든 것을 물려주겠노라. ...을 없애주는 자에게...
+#{italic}#(그 뒤에 남은 잉크 얼룩으로 보아, 웨이스만이 그의 오랜 친구를 붙잡아 그 혐오생물의 남은 절반을 채운 것으로 보인다)#{normal}#]]}
 
 --------------------------------------------------------------
 -- Myths of creations
@@ -188,19 +189,19 @@ newLore{
 	category = "myths of creation",
 	name = "memories of Artelia Firstborn",
 	kr_display_name = "아르텔리아 퍼스트본의 기억",
-	lore = [[#{italic}#This scroll looks ancient, possibly going back millennia, but has been incredibly well-preserved.#{normal}#
+	lore = [[#{italic}#이 두루마리는 적어도 천 년 전에 만들어진 고대의 두루마리로 보이지만, 엄청나게 잘 보존된 상태로 남아있습니다.#{normal}#
 
-I remember when I first woke, and I drew my first breath, and the fresh young air of the world filled me with vitality. I opened my eyes, and above me stood a figure of outstanding radiance. She was tall and slim, crowned in silver hair that fell to the ground in silken tresses. Her skin was pale to the point of luminance, and her eyes were brighter than the stars.
+나는 내가 처음 깨어난 그 순간, 내가 첫 숨을 들이마신 그 순간, 세계에 가득한 신선한 공기가 나에게 활력을 불어넣어주던 그 순간을 기억한다. 나는 눈을 떴다. 그리고 엄청난 빛을 뿜어내는 형체가 서있는 것을 보았다. 그녀는 키가 크고 마른 몸을 하고 있었다. 그녀는 땅에 닿을 정도의 긴, 은빛 머리카락을 가지고 있었다. 그녀의 피부는 밝다 못해 창백한 수준이었다. 그녀의 눈은 별빛보다도 밝게 빛나고 있었다.
 
-I watched her for what felt like a century, and she watched me, and I saw tears form in her eyes. I did not have a voice yet, but I thought, "Why does she look so sad?" And I felt then her reply in my thoughts, "For you are beautiful, and far more beautiful than all else in the world. But this is a world of pain and sorrow, and I cannot bear to think of my creation come to harm. I will give you strength to endure many years, and a voice to express all desires, but the burden of sadness will follow you forever. At that thought I weep..."
+나는 그녀를 본 순간, 그 짧은 시간이 마치 영겁의 시간처럼 느껴졌다. 그리고 그녀가 나를 보았다. 나는 그녀의 눈에서 눈물이 떨어지는 것을 발견하였다. 나는 아직 목소리를 낼 수 없었지만, 나는 생각했다. "그녀는 왜 이렇게 슬픈 얼굴을 하고 있을까?" 그리고 나는, 그녀의 대답이 생각을 통해 전해지는 것을 느꼈다. "당신이 아름답기 때문입니다. 아니, 당신이 이 세상에 존재하는 어떤 것보다도 아름답기 때문입니다. 하지만 이 세상은 고통과 슬픔의 세상이고, 저는 제 창조물이 피해를 입는 것을 참을 수 없습니다. 저는 당신에게 오랜 세월을 견뎌낼 수 있는 힘을 줄 것입니다. 원하는 모든 것을 표현할 수 있는 목소리를 줄 것입니다. 하지만 슬픔의 무게가 당신을 평생 동안 따라다니게 될 것입니다. 그래서 저는 눈물을 흘리는 것입니다..."
 
-I felt then strength come into my limbs, and a voice rise in my throat. I rose to the ground and I looked around, and in awe of the world around me and the stars above me I sang loudly for joy. And the woman smiled as she heard my voice, and her tears stopped, so I continued to sing for a while to entertain her. But then I said, "Am I alone?" She nodded, and said, "There are no others like you." At this I felt sad, and she could see the loneliness in my heart. She seemed to hesitate a moment, and said, "Though it pains me, I cannot deny your desires. You will sleep now, and when you awaken you will be among people like yourself, and you will walk out into this broken world and try to mend it."
+그 말이 끝나고, 나는 팔다리에 힘이 들어오며 목에서 목소리가 나오는 것을 느꼈다. 나는 땅에서 일어나, 주변을 둘러보았다. 나를 둘러싼 세계와 별들을 보고, 나는 경외와 즐거움에 가득 차 크게 노래를 불렀다. 그녀도 나의 목소리를 듣고, 눈물을 그치고 미소를 지었다. 그래서 나는 그녀를 즐겁게 만들기 위해 잠시 동안 노래를 계속 불렀다. 그러다가 내가 물었다. "저는 혼자인가요?" 그녀는 고개를 끄덕이고, 말했다. "이곳에 당신 같은 사람은 없습니다." 그 말을 듣고 나는 슬퍼졌고, 그녀 역시 내 마음 속에 있는 외로움을 보았다. 그녀는 잠시 망설이다가 입을 열었다. "제게는 고통스러운 일이지만, 당신의 바람을 그냥 보고만 있을 수는 없군요. 이제 잠시 수면을 취하세요. 당신이 눈을 뜨면, 당신과 같은 사람들을 발견할 수 있을거에요. 그들과 같이 이 망가진 세계를, 이 세계를 고쳐주세요."
 
-As she finished speaking I instantly fell into a trance, and when I awoke I saw the world had changed, and there was now a blazing light in the sky - it was the new-born Sun. And I saw all around dozens more people like me, and others similar in appearance but varying in traits and abilities. I woke them up, and gathered them together, and we all expressed delight in each other's being, and named ourselves Alor?. But the woman was gone, and no others knew anything about her, and my searches for any trace of her were in vain.
+그녀의 말이 끝남과 동시에, 나는 깊은 수면 상태에 빠져들었다. 정신을 차리고 눈을 뜨자, 나는 세계가 변해있음을 알아차렸다. 하늘에 타오르는 빛이 있었다 - 새로 태어난, 태양이었다. 그리고 주변에 나와 같은 수십 명의 사람들이 있는 것을 보았다. 그 모습은 비슷하지만, 그 성격이나 능력은 각각 달랐다. 나는 일어났다. 그리고 그들을 끌어모았다. 우리는 서로가 존재한다는 사실에 기쁨을 느꼈고, 우리들의 이름을 '알로ㄹ?' 라고 지었다. 하지만 그녀는 사라진 뒤였으며, 그곳에 있던 어느 누구도 그녀에 대해 알지 못했다. 그녀를 찾고자 하는 모든 노력은 허사로 돌아갔다.
 
-Times passed and changed, and other creatures were found, and oft they were fell and vile and we did war with them. Then we found the Sher'Tul, and they delighted in our beauty, and taught us the ways of the Arts. And then the War came, and some of us helped them in their battles, but soon we saw we had no place beside such masters, and we retreated to the woods as the War raged to its catastrophic conclusion.
+시간이 흐르고, 많은 것들이 변화하였다. 다른 생명체들을 찾아냈으며, 그것들은 종종 타락하고 사악해지고 자기들끼리 전쟁을 하였다. 그리고 우리는 쉐르'툴을 발견하였다. 그들은 우리의 아름다움에 기쁨을 표시하였다. 그리고 우리에게 다양한 기술들을 알려주었다. 그리고 전쟁이 시작되었다. 우리들 중 몇몇은 그들을 도와 전투에 참여하였다. 하지만 곧 우리는 그들의 상대가 되지 않는다는 것을 깨닫고, 그 전쟁이 괴멸적인 결과를 가져오기 전에 숲으로 피신하였다.
 
-In all those centuries I still searched for the woman and found no trace. I know that the gods were all hunted down, and I remember the thorough searches of the Sher'Tul in their holy war. I grow old now, and some of those who first woke with me have passed away, and each passing night seem ever colder and lonelier. But still at times when I lie asleep I see her face or I hear her voice, and I know that one day, somehow, I will see her again.]],
+수 세기가 지났고, 나는 여전히 그녀를 찾고 있지만 성과가 없다. 모든 신들이 사냥당했다는 사실을 안다. 쉐르'툴이 그들의 신성한 전쟁을 치르는 동안, 철저한 탐색이 있었다는 것을 기억한다. 나는 이제 늙었고, 나와 함께 깨어났던 자들 중 몇몇은 죽음을 맞이하였다. 밤이 찾아올 때마다, 점점 더 추워지고 외로워진다. 하지만 지금도 내가 잠에 들면 그녀의 얼굴이 보이고, 그녀의 목소리가 들려온다. 나는 언젠가, 어떻게든, 반드시 그녀와 다시 만날 것이다.]],
 }
 
 newLore{
@@ -292,26 +293,25 @@ newLore{
 	category = "ancient elven ruins",
 	name = "ancient papyrus scroll",
 	kr_display_name = "고대의 파피루스 두루마리",
-	lore = [[Death is nearing. I can feel her chilling breath down the back of my neck. So many of us firstborn have passed on already. I cannot allow it... I will not let myself rot into dirt like the others. I am the mightiest of the Shaloren - I have a right to life!
-]],
+	lore = [[죽음이 가까워지고 있다. 그녀 - 죽음 - 의 으스스한 숨소리가 목 뒤에서 느껴진다. 우리들 퍼스트본의 대부분은 이미 죽음을 맞이하였다. 나는 이를 받아들일 수 없다... 나는 다른 자들처럼 흙 속에서 썩어가는 최후를 맞이하지 않을 것이다. 나는 가장 강력한 샬로레다 - 나에게는 살아남을 권리가 있다!]],
 }
 newLore{
 	id = "ancient-elven-ruins-note-2",
 	category = "ancient elven ruins",
 	name = "ancient papyrus scroll",
 	kr_display_name = "고대의 파피루스 두루마리",
-	lore = [[Death mocks my experiments. I can preserve the flesh of my servants, tightly wrapped and salted, treated with the correct chemicals. I can animate them, make them shuffle about the empty halls of my mausoleum. But they are but empty shells, devoid of any soul. Is this how my majesty is to end? I demand a greater fate...
+	lore = [[죽음이 나의 실험을 조롱하고 있다. 나는 내 종속들의 육체를 보존할 수 있게 되었다. 붕대를 바싹 두르고 소금을 친 뒤, 적절한 약품을 사용해서 말이다. 나는 이것들을 다시 움직이게 만들 수도 있다. 나의 능묘를 걸어다니게 만들 수 있다. 하지만 이것들은 그저 빈 껍데기일 뿐이다. 그 안에 영혼이 들어있지 않다. 나의 위풍당당함도 여기서 끝이 나는가? 나는 보다 더 위대한 운명을 맞이하고 싶다...
 
-My days are numbered. Each night that passes saps strength from me. I must find the way to preserve my soul within my flesh. My greatness cannot be allowed to fade.]],
+이제 살 날이 며칠 남지 않았다. 매일 밤이 지날 때마다 나에게서 힘이 빠져나가는 것이 느껴진다. 나의 영혼을 내 몸 안에 유지시킬 방법을 찾아내야만 한다. 나의 위대함이 이렇게 희미해지게 놔둘 수는 없다.]],
 }
 newLore{
 	id = "ancient-elven-ruins-note-3",
 	category = "ancient elven ruins",
 	name = "ancient papyrus scroll",
 	kr_display_name = "고대의 파피루스 두루마리",
-	lore = [[Death has met her match. My results are complete, and I am ready to step to the Beyond. I have my sword by my side, and its icy edge will freeze even the dark one in her tracks. My powers cannot be denied...
+	lore = [[이제 죽음도 그녀의 적수를 만났다. 나의 실험은 완성되었으며, 나는 시간을 벗어난 존재가 될 준비가 끝났다. 나의 손에 들린 얼어붙은 칼날은 죽음마저 얼려버릴 것이다. 나의 힘은 결코 부정될 수 없다...
 
-Come, Death, try to lay your bony fingers on me! I will vanish before your very eyes and slice you apart! You and your agents are no threat to me. I am immortal!]],
+오라, 죽음이여. 나에게 그 앙상한 손가락을 내밀어보아라! 나는 네가 깨닫기도 전에 네 몸을 갈라버릴 것이다! 너와 네 부하들은 더 이상 두렵지 않다. 나는 불멸자다!]],
 }
 
 
