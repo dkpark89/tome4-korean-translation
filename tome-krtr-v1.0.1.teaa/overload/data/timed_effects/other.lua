@@ -2288,18 +2288,18 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 : 아랫부분 전체
 newEffect{
 	name = "SUFFOCATING",
 	desc = "Suffocating",
-	long_desc = function(self, eff) return ("You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)"):format(eff.dam) end,
+	k4_name = "숨막힘",
+	long_desc = function(self, eff) return ("숨막힘! : 매 턴마다 생명력 감소 (현재 : 최대 생명력의 %d%%) / 매 턴마다 생명력 감소량이 증가"):format(eff.dam) end,
 	type = "other",
 	subtype = { suffocating=true },
 	status = "detrimental",
 	decrease = 0, no_remove = true,
 	parameters = { dam=20 },
-	on_gain = function(self, err) return "#Target# is suffocating.", "+SUFFOCATING" end,
-	on_lose = function(self, err) return "#Target# can breathe again.", "-Suffocating" end,
+	on_gain = function(self, err) return "#Target1# 숨을 쉬지 못합니다.", "+숨막힘" end,
+	on_lose = function(self, err) return "#Target1# 다시 숨을 쉽니다.", "-숨막힘" end,
 	on_timeout = function(self, eff)
 		if self.air > self.air_regen then -- We must be over our natural regen
 			self:removeEffect(self.EFF_SUFFOCATING, false, true)
@@ -2309,7 +2309,7 @@ newEffect{
 		-- Bypass all shields & such
 		local old = self.onTakeHit
 		self.onTakeHit = nil
-		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="suffocated to death"})
+		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="숨막혀 죽음"})
 		eff.dam = util.bound(eff.dam + 5, 20, 100)
 		self.onTakeHit = old
 	end,
@@ -2318,7 +2318,8 @@ newEffect{
 newEffect{
 	name = "ANTIMAGIC_DISRUPTION",
 	desc = "Antimagic Disruption",
-	long_desc = function(self, eff) return ("Your arcane powers are disrupted by your antimagic equipment."):format() end,
+	k4_name = "반마법 붕괴",
+	long_desc = function(self, eff) return ("마법의 힘들이 착용한 반마법 장비에 의해 부서짐"):format() end,
 	type = "other",
 	subtype = { antimagic=true },
 	status = "detrimental",

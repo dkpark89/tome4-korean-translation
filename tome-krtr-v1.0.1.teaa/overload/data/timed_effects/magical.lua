@@ -2289,7 +2289,7 @@ newEffect{
 	name = "KEEPER_OF_REALITY", image = "effects/continuum_destabilization.png",
 	desc = "Keepers of Reality Rally Call",
 	kr_name = "현실 감시원의 집회",
-	long_desc = function(self, eff) return "영점 수호를 위한 현실 감시원 집회 : 최대 생명력 +5000 / 공격시 피해량 +300%." end,
+	long_desc = function(self, eff) return "영점 수호를 위한 현실 감시원 집회 : 최대 생명력 +5000 / 공격시 피해량 +300%" end,
 	type = "magical",
 	decrease = 0,
 	subtype = { temporal=true },
@@ -2306,11 +2306,11 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 : 아랫 부분
 newEffect{
 	name = "RECEPTIVE_MIND", image = "talents/rune__vision.png",
 	desc = "Receptive Mind",
-	long_desc = function(self, eff) return ("You can sense the presence of all %s around you."):format(eff.what) end,
+	kr_name = "수용적 정신",
+	long_desc = function(self, eff) return ("주변의 모든 %s 감지"):format(eff.what:addJosa("를")) end,
 	type = "magical",
 	subtype = { rune=true },
 	status = "beneficial",

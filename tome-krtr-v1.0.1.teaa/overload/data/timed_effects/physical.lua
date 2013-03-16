@@ -2090,17 +2090,17 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 : 아래 두 효과 - Corrosive Nature, Natural Acid
 newEffect{
 	name = "CORROSIVE_NATURE", image = "talents/corrosive_nature.png",
 	desc = "Corrosive Nature",
-	long_desc = function(self, eff) return ("Acid resistance decreased by %d%%."):format(eff.power) end,
+	kr_name = "부식성 자연",
+	long_desc = function(self, eff) return ("산성 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true, acid=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# is vulnerable to acid.", "+Corrosive Nature" end,
-	on_lose = function(self, err) return "#Target# is less vulnerable to acid.", "-Corrosive Nature" end,
+	on_gain = function(self, err) return "#Target1# 산성에 취약해졌습니다.", "+부식성 자연" end,
+	on_lose = function(self, err) return "#Target1# 산성에 조금 강해졌습니다.", "-부식성 자연" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {[DamageType.ACID]=-eff.power})
 	end,
@@ -2109,13 +2109,14 @@ newEffect{
 newEffect{
 	name = "NATURAL_ACID", image = "talents/natural_acid.png",
 	desc = "Natural Acid",
-	long_desc = function(self, eff) return ("Nature resistance decreased by %d%%."):format(eff.power) end,
+	kr_name = "자연적인 산성 물질",
+	long_desc = function(self, eff) return ("자연 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true, acid=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# is vulnerable to nature.", "+Natural Acid" end,
-	on_lose = function(self, err) return "#Target# is less vulnerable to nature.", "-Nature Acid" end,
+	on_gain = function(self, err) return "#Target1# 자연 속성에 취약해졌습니ㅏ.", "+자연적인 산성 물질" end,
+	on_lose = function(self, err) return "#Target1# 자연 속성에 조금 강해졌습니다.", "-자연적인 산성 물질" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {[DamageType.NATURE]=-eff.power})
 	end,
@@ -2139,17 +2140,17 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 : 아랫 부분
 newEffect{
 	name = "SLIPPERY_MOSS", image = "talents/slippery_moss.png",
 	desc = "Slippery Moss",
-	long_desc = function(self, eff) return ("The target is covered in slippery moss. Each time it tries to use a talent there is %d%% chance of failure."):format(eff.fail) end,
+	kr_name = "미끄러운 이끼",
+	long_desc = function(self, eff) return ("미끄러운 이끼로 둘러쌓임 : %d%% 확률로 기술 사용 실패"):format(eff.fail) end,
 	type = "physical",
 	subtype = { moss=true, nature=true },
 	status = "detrimental",
 	parameters = {fail=5},
-	on_gain = function(self, err) return "#Target# is covered in slippery moss!", "+Slippery Moss" end,
-	on_lose = function(self, err) return "#Target# is free from the slippery moss.", "-Slippery Moss" end,
+	on_gain = function(self, err) return "#Target1# 미끄러운 이끼로 둘러싸였습니다!", "+미끄러운 이끼" end,
+	on_lose = function(self, err) return "#Target1# 미끄러운 이끼로부터 벗어났습니다.", "-미끄러운 이끼" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("talent_fail_chance", eff.fail)
 	end,

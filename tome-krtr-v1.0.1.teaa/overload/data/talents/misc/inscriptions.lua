@@ -315,7 +315,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		return ([[주입된 힘을 사용하여, 독을 뱉습니다. 독에 맞은 대상은 7 턴 동안 총 %0.2f 자연 피해를 입으며, 회복 효율이 %d%% 감소합니다.
-		The sudden stream of natural forces also strips you of one random detrimental magical effect.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat) / 7, data.heal_factor) --@@ 한글화 필요 : 내용 한 줄 추가
+		갑작스러운 자연적 힘의 흐름으로, 당신이 가지고 있던 임의의 나쁜 마법 상태이상 효과 하나가 사라집니다.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat) / 7, data.heal_factor)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -351,7 +351,7 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local damage = t.getDamage(self, t)
 		return ([[땅에서 덩굴이 솟아나 %d 턴 동안 주변 %d 칸 반경에 있는 적들의 발을 묶고, %0.2f 물리 피해, %0.2f 자연 피해를 줍니다.
-		The vines also grow all around you, increasing your armour by %d and armour hardiness by %d.]]): --@@ 한글화 필요 : 내용 한 줄 추가
+		덩굴은 당신의 주변에서도 솟아나, 당신의 방어도를 %d 만큼 올려주고 방어 효율도 %d 만큼 올려줍니다.]]):
 		format(self:getTalentRadius(t), data.dur, damDesc(self, DamageType.PHYSICAL, damage)/3, damDesc(self, DamageType.NATURE, 2*damage)/3, data.armor or 50, data.hard or 30)
 	end,
 	short_info = function(self, t)
@@ -387,13 +387,13 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local power = (data.power or data.range) + data.inc_stat * 3
 		return ([[룬을 발동하여, %d 칸 주변의 무작위한 곳으로 순간이동합니다.
-		Afterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.]]):
-		format(data.range + data.inc_stat, data.dur or 3, power, power, power) --@@ 한글화 필요 : 윗줄, 내용 추가됨
+		그 이후, %d 턴 동안 당신은 현실에서 조금 벗어나 있게 됩니다. 그동안 모든 나쁜 상태이상 효과의 지속시간은 %d%% 만큼 감소하고, 회피도가 %d 만큼 상승하며, 전체 저항이 %d%% 상승합니다.]]):
+		format(data.range + data.inc_stat, data.dur or 3, power, power, power)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local power = (data.power or data.range) + data.inc_stat * 3
-		return ([[range %d; power %d; dur %d]]):format(data.range + data.inc_stat, power, data.dur or 3) --@@ 한글화 필요 : 내용 바뀜
+		return ([[주변 %d 칸 무작위 순간이동 (세기 %d), %d 턴 간 현실에서 벗어남]]):format(data.range + data.inc_stat, power, data.dur or 3)
 	end,
 }
 
@@ -588,12 +588,12 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		return ([[룬을 발동하여, 주변 %d 칸 반경의 시야를 %d 턴 동안 밝힙니다. 투명한 적과 은신한 적도 발견할 수 있게 됩니다. (투명, 은신 감지력 +%d)
-		Your mind will become more receptive for %d turns, allowing you to sense any %s around.]]): --@@ 한글화 필요 : 내용 추가됨
-		format(data.range, data.dur, data.power + data.inc_stat, data.dur, data.esp or "humanoid") --@@ 변수 순서 조정
+		당신의 정신은 %d 턴 동안 더욱 수용적이 되어, 주변의 모든 %s 감지하게 됩니다.]]):
+		format(data.range, data.dur, data.power + data.inc_stat, data.dur, (data.esp or "humanoid"):krActorType():addJosa("를")) --@@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[radius %d; dur %d; see %s]]):format(data.range, data.dur, data.esp or "humanoid") --@@ 한글화 필요 : 내용 변경
+		return ([[%d 턴 동안 주변 %d 칸 시야 확보 및 탐지, %s 감지]]):format(data.dur, data.range, (data.esp or "humanoid"):krActorType()) --@@ 변수 순서 조정
 	end,
 }
 
@@ -647,7 +647,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		return ([[룬을 발동하여, 적에게 5 턴 동안 %0.2f 화염 피해를 줍니다.
-		The intensity of the heat will also remove one random detrimental physical effect from you.]]):format(damDesc(self, DamageType.FIRE, data.power + data.inc_stat)) --@@ 한글화 필요 : 내용 한 줄 추가
+		열기의 격렬함에 의해, 당신이 가진 임의의 나쁜 물리 상태이상 효과 하나가 사라지게 됩니다.]]):format(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -694,7 +694,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		return ([[룬을 발동하여, 적에게 %0.2f 냉기 피해를 줍니다. 대상을 얼릴 확률이 있습니다.
-		The deep cold also crystalizes your mind, removing one random detrimental mental effect from you.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat)) --@@ 한글화 필요 : 내용 한 줄 추가
+		또한 짙은 냉기가 당신의 정신을 명확하게 만들어, 당신이 가진 임의의 나쁜 정신 상태이상 효과 하나가 사라지게 됩니다.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat))
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -735,13 +735,13 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local pow = data.reduce or 15
 		return ([[룬을 발동하여, 주변 %d 칸 반경에 %0.2f 산성 피해를 줍니다.
-		The corrosive acid will also reduce accuracy, defense and armour by %d for %d turns.]]): --@@ 한글화 필요 : 내용 한 줄 추가
-		format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, data.power + data.inc_stat), pow, data.dur or 3)
+		또한 부식성 산에 영향을 받은 이들은 %d 턴 동안 정확도와 회피도 그리고 방어도가 %d 만큼 저하됩니다.]]):
+		format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, pow) --@@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local pow = data.reduce or 15
-		return ([[%d acid damage; power %d; dur %d]]):format(damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, pow) --@@ 한글화 필요 : 내용 변경
+		return ([[%d 산성 피해, %d 턴 동안 정확도와 회피도, 방어도 %d 감소]]):format(damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, pow) --@@ 변수 순서 조정
 	end,
 }
 
@@ -781,7 +781,7 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local dam = damDesc(self, DamageType.LIGHTNING, data.power + data.inc_stat)
 		return ([[룬을 발동하여, 적에게 %0.2f - %0.2f 전기 피해를 줍니다.
-		Also transform you into pure lightning for %d turns; any damage will teleport you to an adjacent tile and ignore the damage (can only happen once per turn)]]): --@@ 한글화 필요 : 내용 한 줄 추가
+		또한 %d 턴 동안 당신은 순수한 번개로 변신합니다. 그동안 당신에게 가해지는 모든 피해는 인접한 칸의 존재에게 전이되거나 그냥 무시됩니다 (한 턴에 한번씩만 적용).]]):
 		format(dam / 3, dam, 2)
 	end,
 	short_info = function(self, t)

@@ -71,8 +71,8 @@ newTalent{
 		5 레벨 : 밤그림자 함정
 		세계를 여행하면서 새로운 함정 설치법을 배울 수도 있습니다.
 		이 기술은 함정의 효율 또한 %d%% 상승시킵니다. (함정마다 효율이 적용되는 곳은 다릅니다)
-		If a trap is not triggered 80%% of its stamina cost will be refunded when it expires.]]):
-		format(self:getTalentLevel(t) * 20) --@@ 한글화 필요 : 윗줄 - 내용 한 줄 추가
+		함정이 유지시간동안 발동하지 않으면, 사용된 체력의 80%% 만큼 반환됩니다.]]):
+		format(self:getTalentLevel(t) * 20)
 	end,
 }
 

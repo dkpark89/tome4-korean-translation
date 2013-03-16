@@ -3910,7 +3910,7 @@ function _M:postUseTalent(ab, ret, silent)
 			local t = rng.tableRemove(tids)
 			if not t then break end
 			self.talents_cd[t.id] = self:attr("random_talent_cooldown_on_use_turns")
-			game.log("%s mind parasite에 의해 '%s%s' 기술을 방해받습니다.", (self.kr_name or self.name):capitalize():addJosa("가"), (t.display_entity and t.display_entity:getDisplayString() or ""), (t.kr_name or t.name)) --@@ 한글화 필요, 'mind parasite'는 /data/talents/gifts/oozing-blades.lua:75의 기술 이름
+			game.log("%s 정신의 기생충에 의해 '%s%s' 기술을 방해받습니다.", (self.kr_name or self.name):capitalize():addJosa("가"), (t.display_entity and t.display_entity:getDisplayString() or ""), (t.kr_name or t.name))
 		end
 	end
 	

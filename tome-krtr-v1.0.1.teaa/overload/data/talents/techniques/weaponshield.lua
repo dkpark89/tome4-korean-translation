@@ -338,8 +338,8 @@ newTalent{
 	info = function(self, t)
 		local hp = self:combatTalentStatDamage(t, "con", 30, 500) + 100
 		return ([[단단히 버틸 준비를 합니다. 회피도가 %d / 최대 생명력과 현재 생명력이 %d 증가하는 대신, 움직이지 못하게 됩니다.
-		Your stand let you concentrate on every blow allowing you to not die from otherwise fatal wounds. You can only die when reaching -%d life; however below 0 life you can not see how much you have left.
-		회피도 증가는 민첩 능력치, 생명력 증가는 체격 능력치의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 : 내용 한 줄 추가
+		버티기 상태로 당신에게 가해지는 모든 공격에 집중하여, 치명적인 피해를 받지 않으면 죽지 않게 됩니다. 생명력이 -%d 이하가 되어야 죽게 되지만, 생명력이 0 이하인 경우 현재 생명력을 알 수는 없게 됩니다.
+		회피도 증가는 민첩 능력치, 생명력 증가는 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(5 + self:getDex(4, true) * self:getTalentLevel(t), hp, hp)
 	end,
 }

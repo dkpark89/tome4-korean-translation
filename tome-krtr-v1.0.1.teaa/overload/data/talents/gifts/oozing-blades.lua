@@ -58,6 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Natural Acid",
+	kr_name = "자연적인 산성 물질",
 	type = {"wild-gift/oozing-blades", 2},
 	require = gifts_req_high2,
 	points = 5,
@@ -73,6 +74,7 @@ newTalent{
 
 newTalent{
 	name = "Mind Parasite",
+	kr_name = "정신의 기생충",
 	type = {"wild-gift/oozing-blades", 3},
 	require = gifts_req_high3,
 	points = 5,
