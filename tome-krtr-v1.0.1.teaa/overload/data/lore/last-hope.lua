@@ -242,21 +242,22 @@ newLore{
 	id = "oceans-of-yeal",
 	category = "last hope",
 	name = "The Oceans of Eyal",
-	lore = [[The Oceans of Eyal represent a frontier which we have been powerless to break. In spite of advanced craft and skill, and even the more forbidden areas of magic, there are natural barriers that we simply cannot overcome. Long range seafaring has become seen as unprofitable and a fruitless endeavour. The last great ship to be built was the Vanguard, over a thousand years ago, which disappeared over the eastern horizon and was never seen again.
+	kr_name = "에이알 해",
+	lore = [[에이알 해의 경계는 곧 파괴의 경계이기도 하다. 발전된 도구와 기술에도 불구하고, 금지된 마법에 손을 댔음에도 불구하고, 그곳에는 우리가 절대로 극복할 수 없는 자연의 방벽이 존재한다. 장거리 항해는 이윤도 가치도 없는 행위가 되었다. 우리가 마지막으로 건조한 거대 함선은 수천 년 전에 만들어진, 뱅가드라는 이름의 배였다. 그 배는 동쪽 수평선을 넘어 사라졌으며, 두 번 다시 그 모습을 볼 수 없었다.
 
-Yet we know that the Sher’Tul once travelled the whole globe, that records exist from our younger days of other continents, of sailing routes that go right round the whole of Eyal. How it stirs my heart to think of the unexplored lands that lie beyond our stormy coasts!
+하지만 우리는 쉐르'툴 종족이 이 세계 전체를 여행했었다는 것을 알고 있다. 우리에게는 다른 대륙에 대한 예전의 기록들이 있다. 에이알 세계를 완전히 여행할 수 있는 항해 경로 말이다. 우리의 폭풍우치는 해안가 저 너머에 있는, 탐험되지 않은 땅을 생각하면 이 얼마나 가슴이 설레는가!
 
-Alas, records from the time of the Spellblaze and the Cataclysm show that those old routes can no longer be traversed. A reshaping of currents, an increase in storms and a greater abundance of dangerous sea creatures have all locked us onto the continent of Maj’Eyal.
+아아, 마법폭발과 대재앙이 일어난 시기에 쓰여진 기록들은 더 이상 그 항해 경로를 사용할 수 없다는 것을 보여준다. 현재의 변화한 환경, 더욱 더 늘어난 폭풍과 너무나 많은 위험한 바다 생물들은 우리를 마즈'에이알 대륙에 꼼짝없이 가두고 말았다.
 
-Yet my desire for knowledge is not sated. I spoke some time ago with an old fisherman - a halfling sea dog with a crusty beard, hideous scars, and the foul stench of stale ale all about him. Inbetween the wretched smelling breaths from his toothless mouth he told me some valuable information. I transcribe it as best I can here:
+하지만 나의 지식에 대한 욕구는 아직 만족되지 않았다. 나는 얼마 전에 한 늙은 - 신경질적이고, 수염나고, 끔찍한 상처가 있고, 퀴퀴한 술 냄새가 나지만, 아주 노련한 하플링 뱃사공인 - 어부로부터 이런 이야기를 들었다. 그는 이빨 빠진 입에서 흘러나오는 끔찍한 냄새와 함께, 나에게 몇몇 중요한 정보들을 말해주었다. 나는 내가 알아먹는 한도 내에서, 그가 한 말들을 최대한 열심히 기록하였다 :
 
-“Nay, ya’ll not get long out b’ond coast thar. In th’orth ya’ll run inta ice floes, miles wide stretches at’ll close in on ya and crush yar hull fro’neath. Out west be a field o’ storms, cyclones and hur’canes tha’ll swaller up any ‘at go near. And out east... ack, out east be th’orst. Nagas and sea dragons, switchin’ currents and ocean rifts, storms of hate like y’never seen in yar worst nightmares. As fer south, well tha’s best spot fer fishin’ and the like, we gots some good patches thar. But venture too far and ya meet a... I ‘unno, some magicy barrier or whatnot. Ships hit ‘gainst it like a wall o’ air. Go too fast and ya smash yar prow apart! And out b’ond it... some cloud of darkness lies on t’rizon. We stays clear o’ that, I tells ya.”
+"으흠, 배를 타고 저 바다를 너머보시게따? 택도 업는 소리여. 북쪽에는 떠다니는 어름 덩어리드리 너무 많어. 거기로 배를 타고 나가따간, 배 밑빠다게 숨구멍이 뻥 하고 뚫려버릴껄? 서쪽에는 바람하고 포풍이 대차게 불어. 가까이 가는 놈들은 죄다 거기에 말려들지. 딸꾹! 동쪽이 제일 끔찍한데 바다 용하고 나가들이 이써 거기엔. 그놈들 조류랑 바다 균열 갖고 장난치니까 가지마러. 안 조은 꼴 본다고 껄껄. 그리고 남쪼그로 말할거 가트면, 거기가 낚시하긴 조은데, 쭈우욱 내려가면 무슨 이상한 방어막 가튼거.. 그런게 막고 있어. 공기로 된 벽가튼거 말야. 흠흠, 엄청 빠른 속도로 부딪히면 깨지지 않을까? 아님 말고 껄껄... 게다가 저 멀리에는 시꺼먼 구름이 껴있따고. 불길하게시리. 그러니 항해가튼건 하지 말어. 알아들었어?"
 
-It’s a remarkable report, and one I’m minded to believe, in spite of the notorious unreliability of seafarer tales. South was once the continent of Tar’Eyal, said to be a desert-smothered land full of wild energies. What fate has swallowed it from our access now is hard to say. But my curiosity is sorely piqued, and I shall endeavour to charter a ship to investigate this strange barrier to the south. Likely the lesser races that crew these vessels would balk at such an enterprise, but I’m sure that with the leadership and influence of a Higher like myself I can persuade them to have a little more backbone.
+상당히 놀랄 만한 이야기였다. 악명 높고 신뢰할 수 없는 뱃사공의 이야기임에도, 나는 이 이야기를 믿고 싶은 생각이 들었다. 한때는 타르'에이알로 불렸던 남대륙은, 야생적인 힘이 넘쳐흐르는 황야였다고 한다. 도대체 어떤 운명이 그 섬을 집어삼켰으며, 우리가 그곳에 접근할 수 없게 되었는지는 알 수 없지만 말이다. 하지만 나의 호기심은 더욱 심하게 불타올랐으며, 결국 나는 배를 하나 빌려 남쪽에 있는 그 이상한 방벽을 조사해보기로 하였다. 아마 이 선박에 탑승한 하등 종족 선원들은 이러한 진취적 행동에 겁을 먹을 것이다. 하지만 나는 하이어 종족이 가진 지도력과 영향력이 있기 때문에, 그들이 조금 더 용감해질 수 있도록 설득할 수 있을 것이다.
 
-- Lord Estevan Asimir
+- 에스테반 아시미르 경
 
-#{italic}#Footnote: After this paper was published Lord Asimir was found dead and stripped of all valuables in one of the ports of Last Hope.#{normal}#]],
+#{italic}#각주 : 이 쪽지는 아시미르 경이 마지막 희망의 항구에서 죽은 채로 발견되고, 그의 모든 귀중품을 도난당한 뒤 발견된 것이다.#{normal}#]],
 }
 
 --------------------------------------------------------------------------
