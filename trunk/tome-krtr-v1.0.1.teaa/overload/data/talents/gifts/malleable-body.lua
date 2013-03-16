@@ -85,7 +85,7 @@ newTalent{
 
 newTalent{
 	name = "Indiscernible Anatomyblabla",
-	kr_name = "알 수 없는 신체구조의 궁시렁궁시렁", --@@ 한글화 필요 (검수) : 기술 이름 변경에 따른 한글 이름 변경. 기존 이름은 다른 곳에서 사용함.
+	kr_name = "알 수 없는 신체구조의 궁시렁궁시렁",
 	type = {"wild-gift/malleable-body", 4},
 	require = gifts_req4,
 	points = 5,

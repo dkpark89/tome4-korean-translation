@@ -150,8 +150,8 @@ newTalent{ short_name = "MUCUS_OOZE_SPIT",
 		game:playSoundNear(self, "talents/slime")
 		return true
 	end,
-	info = function(self, t) --@@ 한글화 필요 (검수) : 아랫줄 내용이 'bolt of slime' -> 'beam of slime'로 바뀌어, '슬라임 화살'->'슬라임 광선'으로 수정했습니다. 검수후 이 주석 삭제
-		return ([[%0.2f 슬라임 피해를 주는 슬라임 광선을 뱉습니다.
+	info = function(self, t)
+		return ([[%0.2f 슬라임 피해를 주는 슬라임 줄기를 뱉습니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.SLIME, self:combatTalentMindDamage(t, 8, 80)))
 	end,
 }

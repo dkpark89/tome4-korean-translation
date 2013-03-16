@@ -508,7 +508,7 @@ function string.krRace(str)
 	elseif ori == "patrol" then return "순찰대"
 	elseif ori == "plants" then return "식물"
 	elseif ori == "ritch" then return "릿치"
-	elseif ori == "rodent" then return "바퀴벌레"
+	elseif ori == "rodent" then return "설치류"
 	elseif ori == "runic golem" then return "룬 골렘"
 	elseif ori == "sand" then return "모래"
 	elseif ori == "sandworm" then return "지렁이"
