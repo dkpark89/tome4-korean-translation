@@ -237,7 +237,6 @@ newLore{
 토크놀 왕과 미르베니아 만세! 왕국연합 만세! 주도의 시대 만세!]],
 }
 
---@@ 한글화 필요
 newLore{
 	id = "oceans-of-yeal",
 	category = "last hope",
@@ -326,7 +325,7 @@ i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard",
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, red_rose=true, lore = [[#{bold}#
-세실 페리온, 여기 잠들다
+세실 패리온, 여기 잠들다
 #{normal}#98 - 122#{italic}#
 고귀했던 정신
 순수했던 영혼
@@ -384,7 +383,7 @@ i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard",
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-위대한 자, 가이객스
+위대한 자, 가이각스
 #{normal}#38 - 108#{italic}#
 이 세계를 그대와 함께 살았다는 것이
 우리에게는 가장 큰 축복일지어니
@@ -398,7 +397,7 @@ i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard",
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-위치먼 토이
+위치맨 토이
 #{normal}#80 - 121#{italic}#
 그대의 악동과 같은 매력은
 영원히 우리에게 영감을 주리라
@@ -503,7 +502,7 @@ i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard",
 #{normal}#]]}
 
 i=i+1 newLore{ id = "last-hope-graveyard-"..i, category = "last hope graveyard", name = "gravestone", kr_name = "묘비", text_color = {r=255,g=255,b=255}, special_ui = "tombstone", always_pop = true, lore = [[#{bold}#
-에릭 (Eric) 과 에릭 (Erik)
+에릭과 에맄
 #{normal}#66 - 114#{italic}#
 어두운 빛을 조사하다가 죽음을 만났다네
 아아, 그 구덩이는 생각보다 더 깊었다네
