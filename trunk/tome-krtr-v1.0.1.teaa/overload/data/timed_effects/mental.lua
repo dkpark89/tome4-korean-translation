@@ -1498,7 +1498,7 @@ newEffect{
 newEffect{
 	name = "WEAKENED_MIND", image = "talents/taint__telepathy.png",
 	desc = "Receptive Mind",
-	kr_name = "약해진 정신", --@@ 한글화 필요 (검수) : 'Weakened Mind' -> 'Receptive Mind'로 원문 이름이 바뀌었지만, 한글 이름은 그냥 둬도 될 것 같음. 검수 후 주석 삭제
+	kr_name = "수용적 정신",
 	long_desc = function(self, eff) return ("정신 내성 -%d / 정신력 +%d"):format(eff.save, eff.power) end,
 	type = "mental",
 	subtype = { morale=true },
@@ -2909,16 +2909,16 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 : 아랫부분
 newEffect{
 	name = "MIND_PARASITE", image = "talents/mind_parasite.png",
 	desc = "Mind Parasite",
-	long_desc = function(self, eff) return ("The target suffers from a mind parasite, giving %d%% chances on each talent use to place a random %d talents on cooldown for %d turns."):format(eff.chance, eff.nb, eff.turns) end,
+	kr_name = "정신의 기생충",
+	long_desc = function(self, eff) return ("정신의 기생충으로 인해 괴로움 : 기술 사용시 %d%% 확률로 %d 가지의 임의의 기술이 %d 턴간 재사용 대기상태로 변함"):format(eff.chance, eff.nb, eff.turns) end,
 	type = "mental",
 	subtype = { nature=true, mind=true },
 	status = "detrimental",
-	on_gain = function(self, err) return "#Target# is infected with a mind parasite.", "+Mind Parasite" end,
-	on_lose = function(self, err) return "#Target# is free from the mind parasite.", "-Mind Parasite" end,
+	on_gain = function(self, err) return "#Target1# 정신의 기생충에게 감염되었습니다.", "+정신의 기생충" end,
+	on_lose = function(self, err) return "#Target1# 정신의 기생충으로부터 벗어났습니다.", "-정신의 기생충" end,
 	parameters = { chance=40, nb=1, turns=2 },
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "random_talent_cooldown_on_use", eff.chance)

@@ -57,6 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Corrosive Nature",
+	kr_name = "부식성 자연",
 	type = {"wild-gift/corrosive-blades", 2},
 	require = gifts_req_high2,
 	points = 5,

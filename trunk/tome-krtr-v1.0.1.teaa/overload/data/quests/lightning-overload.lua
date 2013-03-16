@@ -33,7 +33,7 @@ desc = function(self, who)
 		desc[#desc+1] = " * 진정한 위협은 폭풍의 마도사, 우르키스라는 사실을 알았습니다. 당신은 그가 있는 곳으로 가는 길을 알게 되었습니다."
 	end
 	if self:isCompleted() then
-		desc[#desc+1] = " * Urkis has been dealt with. Permanently." --@@ 한글화 필요
+		desc[#desc+1] = " * 우르키스가 영구적으로 처리되었습니다."
 	end
 
 	return table.concat(desc, "\n")

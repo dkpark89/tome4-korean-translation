@@ -125,6 +125,7 @@ newTalent{
 
 newTalent{
 	name = "Slippery Moss",
+	kr_name = "미끄러운 이끼",
 	type = {"wild-gift/moss", 3},
 	require = gifts_req3,
 	points = 5,

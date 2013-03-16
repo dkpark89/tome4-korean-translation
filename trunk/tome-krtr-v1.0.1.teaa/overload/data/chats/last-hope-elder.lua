@@ -34,7 +34,7 @@ newChat{ id="found_staff",
 		 jump="given_staff", cond=function(npc, player) return game.party:findInAllPartyInventoriesBy("define_as", "STAFF_ABSORPTION") and player:isQuestStatus("staff-absorption", engine.Quest.COMPLETED, "survived-ukruk") or false end},
 		{"사실 지팡이를 잃어버려, 걱정이 됩니다. #LIGHT_GREEN#*그에게 오크들의 습격에 대해 말했습니다.*",
 		 jump="lost_staff", cond=function(npc, player) return player:isQuestStatus("staff-absorption", engine.Quest.COMPLETED, "ambush-finish") end},
-		{"I had it briefly but have lost it somehow.  It could have been some orcs I encountered ...", --@@ 한글화 필요
+		{"저는 잠시 그것을 가지고 있었지만, 여하튼 잃어버렸지요. 아마 제가 만났던 오크들의 짓인것 같습니다...",
 		 jump="lost_staff", fallback=true, cond=function(npc, player) return player:hasQuest("staff-absorption") end},
 	}
 }
