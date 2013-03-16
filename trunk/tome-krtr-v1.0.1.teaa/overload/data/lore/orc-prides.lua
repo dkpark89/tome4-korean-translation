@@ -373,25 +373,25 @@ newLore{
 	category = "orc prides",
 	name = "Ukruk's log",
 	kr_name = "우크룩의 기록",
-	lore = [[Sher'Tul ruin matches description from high command. Investigation begun, but slow. Looks like it crashed into the ground long ago - hard to access many areas. Target item has been described by command as a staff. Do not know why a staff so important. Surely the ultimate weapon should be a sword or axe, like that wielded by the great Garkul?
+	lore = [[이 쉐르'툴 유적의 생김새는 위에서 내려준 묘사와 일치한다. 유적 조사를 시작했지만, 느리게 진행되고 있다. 이곳은 오래 전에 땅 밑으로 무너져내린 것 같다 - 그 때문에 많은 장소에 접근하기 힘들다. 위에서 설명해준 바에 따르면, 목표물은 하나의 지팡이라고 한다. 어째서 지팡이 하나가 그렇게 중요한지는 모르겠다. 최강의 무기라면 마땅히 저 위대한 가르쿨이 들었을만한, 검이나 도끼가 되어야 하지 않는가?
 
-Have heard many rumours against high command lately - strange rumours, indeed. Perhaps by completing this mission I shall get closer to them so that I might seek the truth...
-
-...
-
-Curses and banes! Some bastard blaze-born THIEF has raided the ruins! And a halfling no less, a curr-damned halfling! I am pyred with rage!
-
-He got in during dusk somehow, crawling through a tunnel too narrow for my workers to reach. He grabbed a staff from the ruins and snuck out past my orcs! The dirty, treacherous sneak has run away, and my career with him! I have sent scouts to track him, but he is proving elusive. But I will not let him escape! This is unforgiveable!
+최근 위에서 많은 소문, 그것도 아주 이상한 소문들이 돌아다니고 있다. 아마 이 임무를 끝마치고 나면, 그 진실에 조금 더 접근 할 수 있지 않을까 싶다...
 
 ...
 
-We've followed the tracks of the wretch. It seems as if he met up with a dwarf and a human near a town called Derth, and they travelled south-east from there. Following the three of them was much easier than the sneak alone, but we still must take care to remain hidden. Our orders from high command strictly forbid showing ourselves, and we must avoid battle as much as possible. I have a trained team of archers and fighters with me that know how to stay hidden in the woods.
+이런 저주받을! 어떤 빌어먹을 도둑놈이 유적을 털어갔다! 빌어먹을, 씹어먹을 하플링 놈! 분노가 끓어오른다!
 
-The thief and his cursed allies have entered an old ruined tower called Dreadfell. It an ancient place, known to be filled with undead in its dungeons. If we break in we're bound to cause a stir, and so close to the big human town east of here... I am not sure how to proceed, and have sent a message to command requesting instructions. For now we wait in the woods, keeping an eye on the entrance for any change. If anyone comes out from the tower with that staff they will face my wrath!
+그는 황혼이 질 무렵에 어떻게 이곳에 침입하여, 내 일꾼들이 너무 좁아서 접근하지 못하는 지하 통로를 기어왔다. 그는 유적에서 지팡이를 훔쳐다가, 내 오크들 사이를 은신한 상태로 빠져나갔다! 그 더럽고 기만적인 좀도둑은 벌써 도망쳤고, 나는 즉시 그를 쫓기 시작했다! 나는 정찰병을 보내 그를 쫓도록 하였지만, 수색에 어려움을 겪고 있다. 하지만 그를 결코 도망치게 놔두지 않으리라! 그놈은 결코 용서받지 못하리라!
 
 ...
 
-Word is finally back from command - hold position and wait for the staff to emerge. If it doesn't happen soon then they will send their own agents in time.
+그 악마 같은 놈이 남긴 흔적을 따라가고 있다. 아마 데르스라고 불리는 마을에서, 드워프와 인간을 만난 것으로 보인다. 그리고 그들은 이곳에서 남동쪽으로 여행을 시작한 것 같다. 그 셋을 추적하는 것은 좀도둑 하나를 추적하는 것보다 훨씬 쉬웠다. 하지만 우리는 은밀히 추적할 필요가 있다. 위에서 결코 우리의 모습을 내보이지 말라는 명령이 있었기 때문이다. 가능한 전투를 피하라는 명령을 받았기 때문이다. 나는 궁수와 전사들을 훈련시켜, 나무 뒤에 은밀하게 숨는 법을 가르쳤다.
 
-In time! Bah! This will be my ruin if it comes to that. If there is any appearance of the staff I must snatch it and get back East as soon as possible...]],
+그 도둑놈과 저주받을 동료들이 두려움의 영역이라 불리는 오래된 탑의 폐허로 들어섰다. 이곳은 고대의 장소이며, 그 안에 언데드가 가득하다고 알려진 장소이다. 만약 우리가 저곳에 침입해서 소란을 일으키면, 저 동쪽에 있는 거대한 인간들의 도시까지 그 소란이 전해질 것이다... 어떤 결정을 내려야할지 확신이 서지 않는다. 그래서 위에다가 전언을 보내, 다음 명령이 내려질 때까지 나무 뒤에 숨어 기다리기로 하였다. 하지만 우리는 입구를 한시도 쉬지 않고 감시하고 있으며, 누구라도 지팡이를 들고 탑을 나오는 자는 내 분노를 맛보게 될 것이다!
+
+...
+
+마침내 위에서부터 명령이 도착했다 - 이곳에 자리를 잡고, 지팡이가 탑에서 나올 때까지 기다리라는 명령이었다. 만약 아무리 기다려도 지팡이가 나오지 않을 경우, 적당한 시기에 위에서 요원들을 보내겠다고 하였다.
+
+'적당한 시기' 라고! 하! 그때까지 대체 어떻게 기다리라는거지? 그냥 지팡이의 흔적이라도 보이는 순간 습격해버린 다음, 최대한 빨리 동대륙으로 돌아가고 말겠다...]],
 }

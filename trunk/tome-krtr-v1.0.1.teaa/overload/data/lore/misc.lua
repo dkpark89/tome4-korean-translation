@@ -209,20 +209,23 @@ newLore{
 	category = "myths of creation",
 	name = "human myth of creation",
 	kr_name = "인간의 창조 신화",
-	lore = [[At the start of time Sun was born, and Moons, and Eyal raised from the Darkness.
-And Gerlyk walked Eyal with his three brothers.
-But one day Gerlyk walked alone and realised he was alone, and he desired company.
-So Gerlyk took a burning coal, and put stones around it, and wrapped it in earth, and bathed it in water and breathed his breath into it, and it became alive. And Gerlyk named it Human.
-Now Gerlyk brought Human back to his brothers to see.
-But Gerlyk's brothers were jealous and tore Human apart. One brother grabbed the stone, and one brother grabbed the earth, and one brother grabbed the water.
-Gerlyk was sad, but took the burning coal that was left and made a new Human.
-Then the brother with the earth copied him, but made a short creature, and called it Halfling.
-And the brother with the stone made a thick creature, and called it Dwarf.
-And the brother with the water made a thin creature, and called it Elf.
-But Gerlyk's brothers grew jealous of each others creatures, and they fought, and they all were killed. And Elf cried and Dwarf cried and Halfling cried to see their creators fall.
-And Gerlyk was sad, and looked at Human and said, "I am sorry, but this is not a time for creators any more. I must go."
-And Gerlyk walked into the Darkness.
-But Human did not cry, for the coal in his heart burned hot, and he knew he was not truly alone.]],
+	lore = [[태초에 태양과 달이 태어나고, 에이알 세계가 어둠에서 일어났다.
+그리고 게를릭이 그의 세 형제들과 함께 에이알 세계를 걸어다녔다.
+하지만 어느 날, 게를릭은 자신이 홀로 걷고 있다는 사실을 깨달았다. 그는 동료를 원했다.
+그래서 게를릭은 타오르는 석탄을 꺼내들었다. 그 주변에 돌을 두었다. 그것을 흙으로 감싸, 물을 뿌리고 그의 숨결을 불어넣었다. 그러자 그것이 살아 움직이기 시작했다. 게를릭은 이것의 이름을 인간이라고 지었다.
+게를릭은 인간을 보내, 그의 형제들에게 다시 만나자고 하였다.
+하지만 게를릭의 형제들은 질투심을 느껴 인간을 박살내었다. 한 형제는 돌을, 다른 형제는 흙을, 마지막 형제는 물을 가져갔다.
+게를릭은 슬펐지만, 유일하게 남은 타오르는 석탄을 가지고 새로운 인간을 만들었다.
+흙을 가져간 형제는 그 복제품을 만들었지만, 그것은 땅딸막했다. 이것을 하플링이라고 이름붙였다.
+돌을 가져간 형제는 그 복제품을 만들었지만, 그것은 두꺼웠다. 이것을 드워프라고 이름붙였다.
+물을 가져간 형제는 그 복제품을 만들었지만, 그것은 얇았다. 이것을 엘프라고 이름붙였다.
+하지만 게를릭의 형제들은 서로가 만든 창조물들을 질투하기 시작했다. 그래서 그들은 싸웠고, 그들은 모두 죽고 말았다.
+엘프는 자신의 창조자가 쓰러진 것을 슬퍼하며 울었다.
+드워프는 자신의 창조자가 쓰러진 것을 슬퍼하며 울었다.
+하플링은 자신의 창조자가 쓰러진 것을 슬퍼하며 울었다.
+게를릭은 슬퍼하였다. 그래서 인간을 보고 말했다. "미안하지만, 이제 창조자는 떠나야 할 시간이로구나. 이제 가봐야 한다."
+그리고 게를릭은 어둠 속으로 걸어들어가, 사라졌다.
+하지만 인간은 자신의 창조자가 사라진 것을 슬퍼하며 울지 않았다. 그의 심장에 있는 석탄은 뜨겁게 타오르고 있었으며, 그는 그가 외톨이가 아니라는 사실을 알고 있었기 때문이다.]],
 }
 
 newLore{
@@ -230,23 +233,23 @@ newLore{
 	category = "myths of creation",
 	name = "a logical analysis of creation, by philosopher Smythen",
 	kr_name = "철학자 스미든의, 창조에 대한 논리적 분석",
-	lore = [[Many are the tales of how our world was made, from the absurd to the romantic to the horrific. But they are all mere myths, with no more than seeds of truth to even the most reliable. The history of our race goes back far, but it is tantalisingly scant in details from before we met the other races. Indeed, it is only through our battles with the others that we halflings have any ancient records at all.
+	lore = [[우리의 세계가 어떻게 만들어졌는지에 대한 이야기는, 환상적인 이야기부터 공포스러운 이야기까지 넓은 범위에 걸쳐 존재한다. 하지만 이것들은 모두 신화에 불과한 것이다. 그 신화를 아무리 많이 믿는다 하더라도, 진실에 대한 단서를 제공하는 정도밖에 되지 않는, 그런 종류의 이야기이다. 우리 종족의 역사는 무척이나 오래되었지만, 우리가 다른 종족들을 만나기 이전의 역사는 정말 감질나는 정도 밖에 존재하지 않는다. 정말로, 우리 하플링들이 다른 종족들과 전쟁을 시작한 것이 대부분의 고대 기록의 첫 장을 장식하고 있을 뿐이다.
 
-The elves one would suspect of having the greatest knowledge of elder times, but they are aloof and silent. One must judge from this that either they do not know, or that the truth ashames them. The latter would certainly not surprise me.
+엘프들은 아마 이 고대의 시기와 관련된 지식을 많이 가지고 있을 것으로 추정되지만, 그들은 냉담하고 조용하다. 분명 그들이 아무 것도 모르거나, 과거가 그들에게 부끄러운 일이던가의 둘 중 하나일 것이다. 후자가 사실이라 해도, 딱히 놀라운 일은 아니지만 말이다.
 
-The humans have more myths than they have brain cells. It seems that each village has several versions of their own local tales, usually passed down orally over the ages. It is clear that not a single element of any of their myths can be construed to contain any essence of the truth.
+인간들은... 그들에게 뇌세포가 존재하는지조차 의문스럽다. 그들은 각 마을마다 그 마을만의, 입에서 입으로 전해져 내려오는 창조 신화가 각각 존재한다. 그들의 신화에는 진실에 대한 단서 따위는 조금도 들어있지 않음이 확실하다.
 
-The dwarves are reticent about the subject of how they were made. They say that such talk is "not profitable". However upon further pressing (and bribing) they will open up a little further. They as a race are of the most fervent belief that they were the last people to be made in Maj'Eyal. They say they are the "final product". Their word for all other races in fact translates directly to "prototype". This mostly singular outlook does of course seem absurd, but one need only look at the rest of dwarven society to see that they are an absurd race with ridiculous ideals. If they are what they consider perfection then I thank whatever god made me that I am flawed!
+드워프들은 그들이 어떻게 만들어졌는지에 대해 말을 하지 않는다. 그들은 그런 이야기는 "이윤과는 아무 상관도 없는" 이야기일 뿐이라고 한다. 하지만 그들에게 압박을 가하면 (그리고 뇌물을 주면) 그들은 이에 대해 조금 이야기를 해준다. 그들은 그들이야말로 마즈'에이알에서 마지막으로 만들어진 사람이라는 것을 강렬하게 믿고 있다. 그들이 말하길, 그들이야말로 "최종 완성품" 이라고 한다. 즉, 다른 종족들은 모두 "시험 생산품" 이라는 것이다. 드워프들이 철석같이 믿고 있는 이 이야기는 그저 우스꽝스러울 뿐이지만, 최소한 다른 드워프 공동체들이 왜 그렇게 우스꽝스럽고 웃기는 생각들을 하고 있는지에 대한 단서 정도는 제공해주는 것으로 보인다. 만약 그들이 그들을 완전체라고 생각한다면, 나는 신에게 나를 결함 있는 종족으로 만든 것을 감사히 여길 것이다!
 
-The subject of gods is of course a difficult one. Clearly there are no divine forces at work in the world today. But the world as we know it did not come from nothing, and even the great Sher'Tul clearly did naught more than manipulate the world - they did not make it.
+신을 주제로 삼아 연구하는 것은 물론 어려운 일이다. 분명 오늘날에는 신의 힘 같은 것은 그 어디에서도 찾아볼 수 없다. 하지만 이 세계가 무의 공간에서 갑자기 튀어나온 것은 아닐 것이다. 저 위대한 쉐르'툴 종족들도 이 세계를 다루고 조작하기는 했지만, 분명히 말하건데 그들이 이 세계를 만든 것은 아니다.
 
-By logical conjecture one can only presume that some great being made the world. This must have been a benevolent being, for it is clear that "He" created creatures separate from himself to walk the earth. Clearly this is we halflings. We are the only race that truly appreciates the world. We do not warp it with magic experiments like the Shaloren, nor hide from it like the Thaloren. We do not bring destruction like the orcs, or petty greed like the dwarves. And our understanding and knowledge is so far advanced than the humans that it is hard to understand why we share the same world with them at all. We were quite clearly the first of the current races to be created, and our natural feelings of entitlement to all there is in Maj'Eyal must stem from this.
+논리적으로 추정해보면, 무언가 위대한 존재가 이 세계를 만들었을 것이라는 가설을 인정할 수밖에 없다. 또한 그 존재는 분명히 자애로운 존재였을 것이며, 이는 "그" 가 생명체를 창조한 뒤 생명체들이 대지를 걸을 수 있도록 자신과 분리시켜 주었다는 사실로 명확히 알 수 있다. 그리고 분명, 이 생명체는 우리 하플링이 틀림없다. 우리들이야말로 이 세계를 제대로 인식한 유일한 종족이다. 우리는 샬로레들처럼 마법적 실험 따위에 의존하지도 않았으며, 탈로레들처럼 숨지도 않았으며, 오크들처럼 파괴를 일삼지도 않았으며, 드워프들처럼 옹졸하고 탐욕스럽지 않다. 그리고 우리의 이해도와 지식은 저 인간들보다 훨씬 더 뛰어나기 때문에, 도대체 왜 우리가 그들과 같은 세계를 공유해서 사용하고 있는지조차 잘 이해가 되지 않는다. 우리는 분명히 처음으로 만들어진 종족이며, 우리에게는 이 마즈'에이알 세계를 차지할 권리가 자연스럽게 생겨나게 되는 것이다.
 
-Now that this has been clearly analysed in logical terms, one must consider the source of the other races. It is impossible that they were made by the same god - truly impossible. What strange being could create our race, so gifted and rounded, and yet make such warped and twisted creatures as the dwarves and humans? No, clearly other gods were responsible, lesser gods than our own which copied his grand design. But with fudging fingers and inelegant touches the works of their design were clearly far inferior to the subtleties and perfection which crafted us.
+그리고 이는 논리적 조건을 따져 명확하게 분석이 된 것이기 때문에, 이제는 다른 종족들이 어떻게 만들어졌는지에 대해 생각할 차례이다. 우선, 그들이 같은 신에 의해 만들어졌을 가능성은 없다 - 그럴 가능성은 완벽하게 없다. 우리와 같이 재능 있고 균형 있는 종족을 만든 존재가, 저런 뒤틀리고 왜곡된 드워프나 인간을 만들었다? 분명 이에 대한 책임은 그의 위대한 창조물을 조악하게 베낀, 어떤 하급 신에게 있을 것이다. 그 솜씨 없고 고상하지 못한 손놀림으로 인해, 그 창조물들은 우리와 같이 완벽하고 균형 잡힌 종족과는 너무나 비교되는 성질을 띄게 된 것이다.
 
-However there remains the matter of the Sher'Tul. Clearly these were of greater power than us, and yet they disappeared. One must presume that our god made this race before us, but was somehow unhappy with them, and so removed them and made us instead. We are not as powerful as the Sher'Tul - not yet at least - but we have our own gifts that evidently give us a greater place in our creator's heart. This would explain why we were the first race to unlock the powers of the Sher'Tul farportals. We had a natural affinity to the works of our elder brethren.
+하지만 아직 쉐르'툴 종족에 대한 문제가 남아 있다. 분명 그들은 우리 종족보다 더 강대한 힘을 가졌었다. 비록 그들은 이미 사라지고 없지만 말이다. 누군가는 우리의 신이 우리를 만들기 전에 쉐르'툴을 먼저 만들었다는 가설을 세우기도 한다. 하지만 쉐르'툴에게서 뭔가 불길한 징조를 느껴, 그들을 제거하고 그 대신 우리 하플링을 만들었다는 것이다. 우리는 쉐르'툴만큼 강력하지는 않지만, 우리는 창조자의 따뜻한 마음으로 인해 분명히 '더 좋은 세계' 라는 선물을 받았다. 그리고 이는 왜 첫 종족들이 쉐르'툴 장거리 관문을 만들었는지에 대한 설명이 될 수 있을 것이다. 우리는 우리 선조들의 작업물과 자연적 교감을 할 수 있기 때문이다.
 
-So what happened to these gods after they had made the races which we see today? One must presume strife between them, and that they killed themselves, or took their battle away from the world. Our creator, seeing the other gods killed or left, must have then entrusted the world to us halflings, knowing that we would rule over it in his stead. This is why at every point in history we have played a pivotal role in the shaping of our world. It is our rightful inheritance, and it is our duty to rule it well.]],
+그래서 그 신들이 다양한 종족들을 만들고 난 뒤, 오늘날이 오기까지 신들에게는 무슨 일이 있었을까? 누군가는 신들 사이에 갈등이 생겨났다는 가설을 세워, 그들이 그들을 서로 죽이거나 아니면 이 세계의 밖에서 서로 싸웠을 것이라고 한다. 우리들의 창조자는 다른 신들이 서로 죽고 죽이거나 떠나는 것을 보고, 우리 하플링들에게 이 세계를 맡겼음이 분명하다. 이 의지를 받들어, 우리는 그를 대신하여 이 세계를 지배해야 한다. 이것이 왜 모든 역사의 순간순간마다 우리가 중심 역할을 맡으며, 세계를 '우리의 세계' 로 만드는지에 대한 설명이다. 이는 우리의 정당한 권리이며, 이 세계를 잘 지배하는 것이 우리의 임무이기 때문이다.]],
 }
 
 newLore{
@@ -254,34 +257,36 @@ newLore{
 	category = "eyal",
 	name = "Tale of the Moonsisters",
 	kr_name = "달의 자매 이야기",
-	lore = [[Eyal was raised from Darkness,
-And One came who made a blinding light called Sun,
-But Eyal flinched and said, "It is too bright!"
-So Gerlyk spun Eyal around; thus his face was half-time in light and half-time in shadow,
-But in shadow Eyal became lonely and cried.
+	lore = [[에이알이 어둠 속에서 일어났다.
+그리고 태양이라고 불리는, 밝은 빛이 에이알 위로 떠올랐다.
+하지만 에이알은 눈을 찌푸리며 외쳤다. "너무 밝아!"
+그래서 게를릭은 에이알 세계를 뒤집었다. 
+그리하여 에이알은 절반의 시간은 빛을, 절반의 시간은 그림자를 마주하게 되었다.
 
-And so Gerlyk made him two younger sisters who danced around Eyal
-And kept him in good spirits.
-But the moonsisters became jealous of their brother's affection,
-Threatening to fight and scream.
-Thus Gerlyk separated them so that Eyal would only ever dance with one at a time.
+하지만 그림자를 마주하는 동안, 에이알은 외로움을 느껴 울음을 터뜨렸다.
+그래서 게를릭은 에이알과 함께 춤추는 두 명의 어린 자매를 만들어주었다.
+더 이상 에이알은 그림자 속에서도 외롭지 않았다.
+하지만 달의 자매들은 누가 더 애정을 받는지 서로 질투하기 시작했다.
+그래서 서로 위협하고 비명을 질렀다.
+그래서 게를릭은 그들을 떼어놓았다. 
+그리하여 에이알은 한번에 하나의 달과 함께 춤을 추게 되었다.
 
-In the summer Eyal dances with the moonsister Altia.
-She sings songs of joy and laughter,
-And brings friends and family together,
-And she glows yellow with mirth.
-In the winter Eyal dances with the moonsister Felia.
-She tells tales of times begone,
-And makes men walk alone in thought,
-And she glows blue with solemness.
+에이알에 여름이 찾아오면, 달의 자매 알티아와 함께 춤을 춘다.
+그녀는 즐거움과 웃음의 노래를 부른다.
+그녀는 친구와 가족을 하나되게 만든다.
+그녀는 환희에 가득 찬 노란 빛으로 빛난다.
+에이알에 겨울이 찾아오면, 달의 자매 펠리아와 함께 춤을 춘다.
+그녀는 지나간 시간에 대해 이야기한다.
+그녀는 사색에 잠긴 채 홀로 발걸음을 옮기게 만든다.
+그녀는 엄숙한 푸른 빛으로 빛난다.
 
-But in the time between,
-When both sisters are slimly seen on each side of Eyal,
-Glaring at each other from behind their brother's belly,
-Then the world goes still, and the winds hold their breath, and the oceans lie flat.
-For this is the Time of Balance, when the Darkness rises deepest, and all life is in peril.
-Aye, and Gerlyk did say, "Let no man walk abroad this night, lest Darkness catch him and take him forever."
-Aye, and Gerlyk did walk abroad that night, into Darkness beyond, and has ne'er since been seen.]],
+하지만 여름과 겨울 사이에는,
+에이알 양쪽 끝에 두 명의 자매가 흐릿하게 보인다.
+오빠의 배 위에서 서로를 노려본다.
+그리하여 세계는 정적을 지키고, 바람은 숨을 멈추고, 바다는 잔잔해진다.
+이는 균형의 시간이며, 어둠이 가장 깊어지는 시간이며, 모든 생명이 위험에 처하는 시간이다.
+아아, 그리고 게를릭이 말했다. "그 누구도 오늘 밤에 돌아다니지 못하게 하라. 그렇지 않으면 어둠이 그를 잡아 영원히 어둠 속에 던져버릴지니."
+아아, 그리고 게를릭이 그날 밤 홀로 걸음을 옮겼다. 그리고 그는 어둠 속으로 사라져, 다시는 그의 모습을 볼 수 없었다.]],
 }
 
 --------------------------------------------------------------------------
@@ -323,6 +328,7 @@ newLore{
 	id = "valley-moon-1",
 	category = "valley of the moon",
 	name = "Rassir's journal part 1",
+	kr_name = "라시르의 일지, 첫 번째 장",
 	lore = [[I have come to see the moonstone again. My younger brother Limmir understands a little of my obsession with it, yet the others do not care. I have tried to explain how it is of importance to Aeryn, but she simply asked if she could make a sword from it. Bah! Such stupidity from that grunt fighter.
 
 Our ancestors found their powers from the intense study of the stars, yet the people these days seem only to care about their applications in battle. I know our position with the orcs is grim, but we must not forget our roots in the celestial sphere! Only by sun, moon and stars do we find knowledge and power in life.
@@ -335,6 +341,7 @@ newLore{
 	id = "valley-moon-2",
 	category = "valley of the moon",
 	name = "Rassir's journal part 2",
+	kr_name = "라시르의 일지, 두 번째 장",
 	lore = [[Oh, what terrible horrors! Demons, clawed creatures, dark smog, clouds of acid, skins of lava! Where did they all come from?!
 
 It was when I was studying the moonstone, and as the red star was rising again before the dawn. The stone glowed blood-red and suddenly portals awakened in the rock of the valley. From them poured forth all manner of demonic creatures! I put my ring of invisibility on and fled into the caves. But now the creatures are everywhere! The caves are infested with them, prowling about like hungry animals.
@@ -345,6 +352,7 @@ newLore{
 	id = "valley-moon-3",
 	category = "valley of the moon",
 	name = "Rassir's journal part 3",
+	kr_name = "라시르의 일지, 세 번째 장",
 	lore = [[I fell asleep in a dark hollow, but my sleep was troubled by terrible dreams. The dreams are so vivid in my mind!
 
 I saw the red star, and it became a land of fire floating in the night sky, full of black creatures with yellow eyes and hungry red mouths. And beyond the red star, far beyond was a dim world, but fractured and split all about its surface. As the world spun the split continents crushed against each other, and lava spilled up, and lands sunk into the ground. Demonic mouths screamed up as they disappeared into fiery death. It was if the world was tearing itself apart, but some force of will was desperately trying to keep it held together.
@@ -543,22 +551,21 @@ newLore{
 	category = "shatur",
 	name = "Lament for Lands now Lost", always_pop = true,
 	kr_name = "이제는 잃어버린 땅에 대한 애도의 노래",
-	lore = [[You see a moss covered statue of a Thalore reciting a poem, over and over.
-#{italic}#"Where bright and berried yews did stand,
-Where the eldest oaks grew so grand,
-Where singing birds once flew to land,
-All is dust, all is dead.
+	lore = [[하나의 시를 끊임없이 낭독하는, 이끼 낀 탈로레 석상을 발견했습니다.
+#{italic}#"찬란한 열매가 열리는 주목나무가 있던 곳,
+가장 오래되고 거대한 오크 나무가 자라나던 곳,
+노래하는 새들이 하늘 위를 날아다니던 곳,
+모두 먼지가 되었네, 모두 죽음을 맞이하였네.
 
-Once flowers rose to reach the sky,
-Once blossoms fell from beech on high,
-Once thrush and owl did screech and cry,
-Now all lost, now all fled.
+하늘에 닿을 듯 자라난 꽃,
+밤나무 꼭대기에서 떨어지는 꽃,
+개똥지빠귀와 올빼미가 울던 곳,
+모두 사라졌네, 모두 날아갔네.
 
-Oaths from Shaloren mages sworn,
-Yet spells of fiery rages born,
-Our lands of bygone ages torn,
-Gone is trust, wrath is red.#{normal}#
-]] }
+샬로레 마법사들이 재앙을 불러왔네,
+마법은 화염의 분노를 불러왔네,
+그들은 고통의 시대를 불러왔네,
+복수를 부르네, 붉은 분노를 부르네.#{normal}#]] }
 
 newLore{
 	id = "eden-guile",
@@ -665,10 +672,11 @@ newLore{
 	id = "nature-vs-magic",
 	category = "magic",
 	name = "Nature vs Magic",
+	kr_name = "자연 vs 마법",
 	always_pop = true,
-	lore = [[Your arcane abilities have been interfered with!
-
-Eyal is a torn world, and the forces of nature can react strongly to the arcane energies that seek to manipulate them. Some items and areas are imbued with anti-magic, a natural energy that disrupts magical abilities and effects. There are even those who have learned to harness anti-magic into their own wild abilities, and who use them to hunt down and destroy those who practise magic. So beware, caster! It is a hostile world ye wander in.]],
+	lore = [[당신이 지닌 마법의 힘이 방해를 받고 있습니다!
+	
+에이알은 고통받는 세계입니다. 그래서 자연의 힘은 자연을 조작하려는 마법적 힘에 강하게 반발합니다. 몇몇 장비와 지역에는 반마법의 힘, 즉 마법적인 능력과 효과를 방해하는 자연의 힘이 깃들어 있습니다. 게다가 이 세계에는 자연의 능력을 사용하여, 마법 사용자를 사냥하고 파괴하는 자들도 존재합니다. 그러니 조심하십시오, 마법사여! 이 세계는 방랑하는 그대에게 호의적인 곳이 아닙니다.]],
 }
 
 --------------------------------------------------------------
