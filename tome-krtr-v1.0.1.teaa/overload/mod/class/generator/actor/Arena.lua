@@ -197,7 +197,7 @@ _M.miniboss = {
 }
 
 _M.bosses = {
-	{ name = "ARENA_BOSS_RYAL", display = "Ryal the Towering", chat = "arena_boss_ryal",
+	{ name = "ARENA_BOSS_RYAL", display = "Ryal the Towering", kr_name="우뚝 선 리얄", chat = "arena_boss_ryal",
 	score = 1500, power = 35,
 	start = function ()
 		local Chat = require "engine.Chat"
@@ -211,7 +211,7 @@ _M.bosses = {
 		chat:invoke("ryal-defeat")
 	end
 	},
-	{ name = "ARENA_BOSS_FRYJIA", display = "Fryjia the Hailstorm", chat= "arena_boss_fryjia",
+	{ name = "ARENA_BOSS_FRYJIA", display = "Fryjia the Hailstorm", kr_name="우박의 프리지아", chat= "arena_boss_fryjia",
 	score = 2500, power = 55,
 	start = function ()
 		local Chat = require "engine.Chat"
@@ -225,7 +225,7 @@ _M.bosses = {
 		chat:invoke("fryjia-defeat")
 	end
 	},
-	{ name = "ARENA_BOSS_RIALA", display = "Riala the Crimson", chat = "arena_boss_riala",
+	{ name = "ARENA_BOSS_RIALA", display = "Riala the Crimson", kr_name="'핏빛'의 리알라", chat = "arena_boss_riala",
 	score = 3500, power = 85,
 	start = function ()
 		local Chat = require "engine.Chat"
@@ -240,7 +240,7 @@ _M.bosses = {
 
 	end
 	},
-	{ name = "ARENA_BOSS_VALFREN", display = "Valfren the Rampage", chat = "arena_boss_valfren",
+	{ name = "ARENA_BOSS_VALFREN", display = "Valfren the Rampage", kr_name="격노의 발프렌", chat = "arena_boss_valfren",
 	score = 4500, power = 125,
 	start = function ()
 		game.level.map:setShown(0.3, 0.3, 0.3, 1)
@@ -347,7 +347,7 @@ function _M:generateMiniboss(e)
 			self.on_die = nil
 		end
 		self:place(m, entry, true)
-	else print("[ARENA] Miniboss error ("..e.display..")")
+	else print("[투기장] 부 보스 에러 ("..e.display..")")
 	end
 end
 
@@ -394,8 +394,8 @@ function _M:generateBoss(val)
 		m.arenaDefeat = e.finish
 		self.zone:addEntity(self.level, m, "actor", 7, 1)
 		game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), e.display}
-		game.log("#LIGHT_RED#WARNING! "..e.display.." appears!!!")
-		else print("[ARENA] - Boss error #1! ("..e.display..")")
+		game.log("#LIGHT_RED#주의하십시오! "..e.display.." 가 등장하였습니다!!!")
+		else print("[투기장] - 보스 캐릭터 에러 #1! ("..e.display..")")
 	end
 end
 
@@ -444,8 +444,8 @@ function _M:generateMaster()
 			self.zone:addEntity(self.level, m, "actor", 7, 1)
 			local rank = math.floor(game.level.arena.rank)
 			game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), "Rej the Master of Arena"}
-			game.log("#LIGHT_RED#WARNING! Rej Arkatis, the master of the arena, appears!!!")
-			else print("[ARENA] - Finale error #1! (Default master error)")
+			game.log("#LIGHT_RED#경고! 레즈 아르카티스, 현 투기장의 지배자가, 지금 등장하였습니다!!!")
+			else print("[투기장] - 마지막 에러 #1! (기본 지배자 에러)")
 		end
 	else
 		local m = master
@@ -481,7 +481,7 @@ function _M:generateMaster()
 		end
 		self.zone:addEntity(self.level, m, "actor", 7, 1)
 		game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), m.name.." the Master of Arena"}
-		game.log("#LIGHT_RED#WARNING! "..m.name..", the master of the arena, appears!!!")
+		game.log("#LIGHT_RED#주의! "..m.name..", 현 투기장의 지배자가, 지금 등장하였습니다!!!")
 	end
 end
 
@@ -528,20 +528,20 @@ function _M:setArenaTriggers(e, entry)
 			if self.arenaLastHit >= self.max_life * 2 then
 				local x, y = game.level.map:getTileToScreen(self.x, self.y)
 				game.flyers:add(x, y, 90, 0, -0.5, "OVERKILL", { 231, 0, 0 }, false)
-				game.log("#LIGHT_GREEN#Your powerful attack completely obliterates #WHITE#"..self.name.."#LIGHT_GREEN#!")
+				game.log("#LIGHT_GREEN#당신의 강력한 공격이 #WHITE#"..self.name.."#LIGHT_GREEN#를 완전히 말소시켜 버렸습니다!")
 				local val = (self.level * 0.015)
-				if val > 0.5 then game.log("#LIGHT_GREEN#The audience cheers!") end
+				if val > 0.5 then game.log("#LIGHT_GREEN#관객들이 환호합니다!") end
 				game.level.arena.raiseRank(val)
 			else
-				game.log("#LIGHT_GREEN#You destroy #WHITE#"..self.name.."#LIGHT_GREEN# in a single blow!")
+				game.log("#LIGHT_GREEN#당신은 한 방의 일격으로 #WHITE#"..self.name.."#LIGHT_GREEN# 를 작살내 버리셨습니다!")
 				local val = (self.level * 0.01)
-				if val > 0.5 then game.log("#LIGHT_GREEN#The audience cheers!") end
+				if val > 0.5 then game.log("#LIGHT_GREEN#관객들이 환호합니다!") end
 				game.level.arena.raiseRank(val)
 			end
 		end
 		game.level.arena.danger = game.level.arena.danger - self.arenaPower
 		if game.level.arena.pinch == false then
-			game.log("#LIGHT_GREEN#Your score multiplier increases by #WHITE#"..self.arenaBonusMult.."#LIGHT_GREEN#!")
+			game.log("#LIGHT_GREEN#당신의 점수 배수가 #WHITE#"..self.arenaBonusMult.."#LIGHT_GREEN# 만큼 증가하였습니다!")
 			game.level.arena.bonusMultiplier = game.level.arena.bonusMultiplier + self.arenaBonusMult
 		else
 			game.level.arena.bonus = game.level.arena.bonus + self.arenaScore
@@ -549,13 +549,13 @@ function _M:setArenaTriggers(e, entry)
 		game.level.arena.kills = game.level.arena.kills + 1
 		if game.level.arena.kills > 5 then
 			game.level.arena.bonusMultiplier = game.level.arena.bonusMultiplier + 0.1
-			game.log("#LIGHT_GREEN#Your score multiplier increases by #WHITE#0.1#LIGHT_GREEN#!")
+			game.log("#LIGHT_GREEN#당신의 점수 배수가 #WHITE#0.1#LIGHT_GREEN# 만큼 증가하였습니다!")
 		end
 		if self.level > game.player.level + 3 then
-			game.log("#YELLOW#You defeat an experienced enemy!")
+			game.log("#YELLOW#당신은 숙련된 적을 쓰러뜨렸습니다!")
 			local raise = (self.level - game.player.level) * 0.01
 			if raise > 0.5 then
-				game.log("#LIGHT_GREEN#The audience cheers!")
+				game.log("#LIGHT_GREEN#관객들이 환호합니다!")
 				raise = 0.5
 			end
 			game.level.arena.raiseRank(raise)

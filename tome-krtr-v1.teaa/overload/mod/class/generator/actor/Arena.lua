@@ -444,7 +444,7 @@ function _M:generateMaster()
 			self.zone:addEntity(self.level, m, "actor", 7, 1)
 			local rank = math.floor(game.level.arena.rank)
 			game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), "Rej the Master of Arena"}
-			game.log("#LIGHT_RED#WARNING! 레즈 아르카티스, 현 투기장의 지배자가, 지금 등장하였습니다!!!")
+			game.log("#LIGHT_RED#경고! 레즈 아르카티스, 현 투기장의 지배자가, 지금 등장하였습니다!!!")
 			else print("[투기장] - 마지막 에러 #1! (기본 지배자 에러)")
 		end
 	else
