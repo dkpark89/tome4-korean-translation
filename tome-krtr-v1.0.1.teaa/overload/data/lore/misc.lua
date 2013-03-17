@@ -329,41 +329,41 @@ newLore{
 	category = "valley of the moon",
 	name = "Rassir's journal part 1",
 	kr_name = "라시르의 일지, 첫 번째 장",
-	lore = [[I have come to see the moonstone again. My younger brother Limmir understands a little of my obsession with it, yet the others do not care. I have tried to explain how it is of importance to Aeryn, but she simply asked if she could make a sword from it. Bah! Such stupidity from that grunt fighter.
+	lore = [[이 월장석을 보기 위해, 이곳에 다시 왔다. 내 남동생 리미르도 내가 가진 열정을 조금 이해하는 듯 했지만, 다른 자들은 이를 신경조차 쓰지 않았다. 나는 아에린에게 이것이 얼마나 중요한지 설명하려 했으나, 그녀는 그저 월장석으로 검을 만들 수 있는지 나에게 물어봤을 뿐이었다. 제길! 저 돼지 같은 전사와는 말이 통하지 않는다.
 
-Our ancestors found their powers from the intense study of the stars, yet the people these days seem only to care about their applications in battle. I know our position with the orcs is grim, but we must not forget our roots in the celestial sphere! Only by sun, moon and stars do we find knowledge and power in life.
+우리의 조상들은 별에 대한 열정적인 연구를 통해 힘을 얻었다. 하지만 요즘 사람들은 그저 전투에 적용될만한 것이 아니면, 쓸모가 없다고 생각한다. 저 탐욕스런 오크들의 공격에 처한 우리 상황을 이해하고는 있지만, 우리의 뿌리인 천공의 별들을 잊어서는 안 될 일이다! 오직 태양과 달, 그리고 별만이 우리에게 지식을 주고 살아갈 힘을 줄 수 있다.
 
-Ah well, I shall at least be able to study here in peace. The ring of invisibility I have crafted affords me cover from any orc patrols, and the caves around the moonstone are quiet enough. I have set up my telescope in the open air of the Valley of the Moon itself.
+어찌됐건, 최소한 나는 이곳에서 평화롭게 연구를 할 수 있게 되었다. 내가 만든 이 투명화의 반지 덕분에 오크 정찰대에 들킬 염려는 없고, 동굴 주변에 있는 월장석의 양은 충분하다. 나는 언제나처럼, 달의 계곡에 내 망원경을 설치하였다.
 
-Last night I spotted a red star in the early dawn. How very peculiar... Could this be a new celestial body to study?]],
+지난 밤 여명이 밝아오기 시작할 때, 나는 망원경으로 하나의 붉은 별을 발견했다. 굉장히 기이한 별이다... 새로 연구할 가치가 있는 하늘의 별일까?]],
 }
 newLore{
 	id = "valley-moon-2",
 	category = "valley of the moon",
 	name = "Rassir's journal part 2",
 	kr_name = "라시르의 일지, 두 번째 장",
-	lore = [[Oh, what terrible horrors! Demons, clawed creatures, dark smog, clouds of acid, skins of lava! Where did they all come from?!
+	lore = [[오, 이 얼마나 끔찍한 공포인가! 악마, 손톱 달린 생명체, 어두운 연기, 산성 연기, 용암 피부까지! 이것들은 대체 어디서 온 것이란 말인가?!
 
-It was when I was studying the moonstone, and as the red star was rising again before the dawn. The stone glowed blood-red and suddenly portals awakened in the rock of the valley. From them poured forth all manner of demonic creatures! I put my ring of invisibility on and fled into the caves. But now the creatures are everywhere! The caves are infested with them, prowling about like hungry animals.
+내가 월장석을 연구하고 있을 때, 그리고 그 붉은 별이 다시 떠올랐을 때의 일이다. 월장석이 갑자기 핏빛으로 빛나기 시작하더니, 계곡 입구에 있던 관문들이 작동하기 시작하였다. 그 관문은 내가 말했던 온갖 악마들을 쏟아내기 시작하였다! 나는 즉시 투명화의 반지를 낀 다음 동굴 속으로 도망쳤다. 하지만 그 악마들이 어디에나 있다! 이 동굴은 그들로 인해 오염되었다. 그들이 마치 배고픈 짐승처럼 돌아다닌다.
 
-And there is something... something terrible. In the shadows, in the darkness, I can sense it looking for me. It stalks me, an invisible hunter after invisible prey. Now and then I hear the cracking of a terrible whip. I must stay hidden...]],
+그리고 여기에 무언가가 있다... 무언가 끔찍한 것이 있다. 저 그림자 속에, 저 어둠 속에 말이다. 그것이 나를 보는 시선이 느껴진다. 그것이 나를 따라온다. 투명한 사냥꾼이 투명한 사냥감을 쫓아온다. 끔찍한 채찍 소리가 들려온다. 조금 더 확실하게 숨어있어야 할 것 같다...]],
 }
 newLore{
 	id = "valley-moon-3",
 	category = "valley of the moon",
 	name = "Rassir's journal part 3",
 	kr_name = "라시르의 일지, 세 번째 장",
-	lore = [[I fell asleep in a dark hollow, but my sleep was troubled by terrible dreams. The dreams are so vivid in my mind!
+	lore = [[나는 어두운 동굴에서 잠이 들었다. 하지만 끔찍한 꿈이 내 잠을 방해하였다. 지금도 그 꿈이 너무나 생생하게 떠오른다!
 
-I saw the red star, and it became a land of fire floating in the night sky, full of black creatures with yellow eyes and hungry red mouths. And beyond the red star, far beyond was a dim world, but fractured and split all about its surface. As the world spun the split continents crushed against each other, and lava spilled up, and lands sunk into the ground. Demonic mouths screamed up as they disappeared into fiery death. It was if the world was tearing itself apart, but some force of will was desperately trying to keep it held together.
+나는 붉은 별을 보았다. 그곳의 대지는 불타오르고 있었으며, 하늘에는 노란 눈과 굶주린 붉은 입을 가진 검은 생명체들이 가득했다. 그리고 저 붉은 별 너머, 저 멀리 너머에는 희미하게 다른 세계가 있었다. 하지만 그 세계는 금이 가고 갈라져 있었다. 갑자기 세계가 회전하고, 대륙들은 갈라져 붕괴되었다. 용암이 솟아올랐다. 대지는 붕괴되어 가라앉았다. 악마와도 같은 입이 불타는 죽음 속으로 사라지면서 비명을 질렀다. 그것은 마치 세계가 스스로 박살날 것 같지만, 어떤 힘이 세계를 필사적으로 유지시키려고 하는 것 같았다.
 
-And I saw then in the centre of the world, as it spun and crumpled and crunched, a vast figure with a horned head and outstretched limbs and shining white eyes. It held tight to the innards of the world, holding it together against forces threatening to pull the whole planet apart. The giant face contorted and screamed in pain and fury.
+그리고 나는 세계의 중심을 보았다. 뒤틀리고 불쾌한, 빛나는 흰색 눈과 죽 뻗은 팔다리와 머리에 뿔이 달린 생명체가 세계의 중심에 있었다. 그 생명체는 이 세계를 조각내려는 힘에 맞서 싸우고 있었다. 그 거대한 얼굴은 고통과 분노로 일그러져 있었다.
 
-“Urh'Rok,” a deep voice spoke within my head. “Our god, our saviour, holder of our world. In the name of Urh'Rok we seek vengeance against Amakthel and the Sher'Tul. The petty world of Eyal shall fall!” And then I woke up, and I felt sure something was nearby, looking for me. I fled instantly.
+"울흐'록이여," 장중한 목소리가 머리 속에 들려왔다. "우리의 신, 우리의 구원자, 우리의 세계를 지키는 자여. 울흐'록의 이름으로, 우리는 아마크텔과 쉐르'툴을 응징할 방법을 찾아내었습니다. 이 하찮은 에이알 세계는 쓰러질 것입니다!" 그리고 나는 잠에서 깨어났다. 그리고 내 주변에 무언가가 있는 것을 느꼈다. 나는 즉시 도망쳤다.
 
-Am I going mad? The name “Urh'Rok” still rebounds through my skull and my vision is dimmed. Perhaps I have been wearing this ring too long...
+내가 미친 것일까? "울흐'록" 이라는 이름이 아직도 내 머리 속에 울리고 있으며, 나의 시야를 흐리게 만든다. 아마 이 반지를 너무 오래 끼고 있어서 그런 것 같다...
 
-Yes, yes, this is all clearly an illusion! A strange nightmare that I shall wake up from. I shall take the ring off, and go visit the lovely moonstone again. Once I see the stars all shall be well...]],
+그래, 그래, 이건 전부 환상임에 틀림없어! 그저 이상한 악몽이었을 뿐일 것이다. 일단 이 반지를 뺀 다음, 저 사랑스러운 월장석이 있는 곳으로 다시 가야할 것 같다. 그 별이 잘 있나 보러 가야할 것 같다...]],
 }
 
 --------------------------------------------------------------
@@ -375,22 +375,22 @@ newLore{
 	category = "races",
 	name = "Loremaster Greynot's Analysis of the Races - Introduction",
 	kr_name = "지식의 대가 그레이낫의 종족 분석 연구 - 서론",
-	lore = [[I set out here to give a full and complete analysis of all the intelligent races in Maj'Eyal. This is an ambitious project to say the least, but it is put together from a great many years labour, including travels across all the kingdoms and direct meetings with many of the highest rulers and most learned sages. I have drawn my findings from common knowledge, exclusive interviews, and studies of many thousands of pages of texts and histories, some going back dozens of centuries.
+	lore = [[나는 마즈'에이알 세계에 있는 모든 지성 있는 종족들에 대한, 완전하면서도 완벽한 분석을 시작하기로 하였다. 이것은 조금도 과장하지 않고 '어마어마한 작업' 이라 할 수 있다. 모든 왕국들을 돌아다니며, 여러 최고 지도자들을 만나며, 가장 현명한 현자들을 만나는 등, 엄청나게 오랜 시간이 걸리는 작업이기 때문이다. 나는 이곳에 일반적인 상식, 면담의 결과, 수천 장에 다다르는 기록과 - 때로는 수십 세기 전의 이야기를 다루는 - 역사서 등에서 나오는 내용들을 통합하여 정리할 것이다.
 
-I myself am a Higher human, in the employ of the court of King Tolak the Fair, but I have done my best to write all accounts from a purely neutral standpoint. I leave it to my peers to judge my success.
+나 자신은 하이어 종족인 인간이자, 공평한 왕 톨락에게 고용된 사람이다. 하지만 나는 그 어떤 종족적 편견도 담지 않고, 순수한 중립적 입장에서 모든 분석을 해나가기 위해 최선을 다할 것이다. 나는 이를 위해, 동료 없이 홀로 작업을 할 것이다.
 
-Index:
-Chapter 1 - Humans
-Chapter 2 - Halflings
-Chapter 3 - Dwarves
-Chapter 4 - Shaloren
-Chapter 5 - Thaloren
-Chapter 6 - Naloren (extinct)
-Chapter 7 - Orcs (extinct)
-Chapter 8 - Sher'Tul (extinct)
-Chapter 9 - Monstrous Races
-Chapter 10 - Dragons
-]]}
+목차 :
+첫 번째 장 - 인간
+두 번째 장 - 하플링
+세 번째 장 - 드워프
+네 번째 장 - 샬로레
+다섯 번째 장 - 탈로레
+여섯 번째 장 - 날로레 (멸종)
+일곱 번째 장 - 오크 (멸종)
+여덟 번째 장 - 쉐르'툴 (멸종)
+아홉 번째 장 - 괴물 종족들
+열 번째 장 - 용
+]]} --I leave it to my peers to judge my success 의 문장 의미가 정확히 해석이 안되네요..
 
 newLore{
 	id = "races-1",
@@ -592,66 +592,66 @@ newLore{
 	category = "artifacts",
 	name = "Gifts of Nature",
 	kr_name = "자연의 선물",
-	lore = [[In Age of Allure rose an archmage high
-With power beyond compare
-And the people poor would not come nigh
-His dark and terrible lair
+	lore = [[매혹의 시대에 한 대마법사가 있었다네
+누구와도 비교할 수 없는 힘을 가지고 있었다네
+다른 사람들은 결코 편히 쉴 수 없었다네
+그의 어둡고 끔찍한 거주지 앞에서는
 
-Whilst crops fell dead in drought and blight
-And children grew diseased
-The wizard dread stole in the night
-To pillage what he pleased
+작물은 시들고 죽고 황폐해진다네
+아이들은 병에 걸려 낫지 않는다네
+그 마법사는 밤마다 세계를 떠돌았다네
+그가 원하는 것을 약탈하기 위해서
 
-But a hero came with shining sword
-And a will of solid steel
-Not seeking fame or high reward
-He followed but his zeal
+하지만 빛나는 검과 함께 영웅이 나타났다네
+그 의지는 마치 강철과도 같았다네
+그는 명예나 보수를 원하지 않았다네
+그저 그는 한 가지 신념만을 따랐으니
 
-"From Zigur I come on righteous quest
-To battle foes arcane
-I will not succumb to magic detest
-I will end this evil reign"
+"지구르의 이름으로 신성한 임무를 하러 왔다네
+저 마법 사용자를 벌하기 위해 왔다네
+저 혐오스러운 마법에게 무릎꿇지 않겠다네
+나는 이 사악한 악의 치세를 끝낼 것이라네"
 
-And so he rode on pure-white steed
-To the warlock's hold
-That dank abode of dark misdeed
-He entered brave and bold
+그는 순백의 말을 타고 길을 나섰다네
+저 사악한 마법사를 물리치기 위해서
+어둠으로 오염된 마법사의 거주지로
+그는 용감하고 굳건하게 들어갔다네
 
-There battle blazed beyond all sight
-Sword clashed with spell
-Blood was razed in fearsome fight
-Scream followed yell
+그 전투는 눈이 멀 듯 빛났다네
+검과 마법이 충돌했다네
+공포스런 전투에 피가 끓어올랐다네
+비명과 고함이 가득했다네
 
-A beam was cast of arcane pure
-Piercing mail and shield
-But still steadfast with flesh secure
-The hero did not yield
+순수한 마법의 힘이 쏘아졌다네
+갑옷과 방패를 꿰뚫었다네
+하지만 그 굳건한 육체는 쓰러지지 않았다네
+영웅은 항복하지 않았다네
 
-A slash tore through the wizard's cloth
-His hat dropped to the ground
-From loose grip flew his staff so wroth
-Thus fell the mage renowned
+검이 마법사의 옷을 갈랐네
+그의 모자가 땅에 떨어졌다네
+사납게 날뛰던 지팡이를 떨어트리네
+악명 높은 마법사가 쓰러졌다네
 
-Now bare of skin and weaponless
-Here lay but a man
-No arcane sin could now redress
-The blood that freely ran
+그의 피부는 깨끗하고 무기도 없다네
+여기에 있는 자는 한 남자일 뿐이라네
+더 이상 마법의 원죄는 남아있지 않다네
+흐르는 피가 그를 자유롭게 해주었다네
 
-"Fool warlock dead, you were too vain
-To gifts of Nature trust
-Your faith instead in tools arcane
-Now to Nature you are dust"]] }
+"자연의 선물과 믿음을 저버린
+어리석은 마법사는 죽었다네
+마법에 의존한 그대의 몸을
+이제 자연이 먼지로 만들 것일세"]] }
 
 newLore{
 	id = "dreamscape-entry",
 	category = "dreamscape",
 	name = "If I Should Die Before I Wake",
 	kr_name = "만약 잠에서 깨기 전에 내가 죽는다면",
-	lore = [[You wake suddenly from your unexpected slumber and attempt to quickly regain your bearings. However, you are not prepared for the bizarre vision that greets you: instead of land and sky you see only amorphous shapes and varying degrees of light. A strange psychedelic haze permeates the air and otherworldly colors and shadows flicker in and out of your peripheral vision. 
-As you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition.
-They all seem to be focused on something in particular, but what? Just as soon as you set your mind to discerning what your dreamselves are focusing on, you feel it. With horror, you realize that you are not alone here. 
-Somehow, your foe has invaded your very subconcious and is attacking you in your dreams. Still unable to move, your lucid mind races on how to handle such an insane and horrible situation. On a whim you concentrate on one of your projections and you find that you can control it. 
-Free now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind.]],
+	lore = [[당신은 갑자기 쏟아진 잠에서 일어나, 빠르게 전투 준비를 하려고 했다. 하지만, 당신을 반기는 기묘한 풍경을 보고 당신은 넋을 잃었다. 대지와 하늘 대신에, 무정형의 물체들과 다양한 각도에서 내려오는 빛이 당신을 반겼다. 마치 환각이 일어난 듯 기이한 실안개가 하늘에 가득하고, 다른 세계에서 온 듯한 색깔과 그림자들이 당신의 주변에 나타났다 사라지기를 반복했다.
+이 기이한 환경에 조금씩 적응해가던 당신은, 당신이 움직일 수 없다는 것을 깨닫고 공포에 사로잡혔다! 당신의 몸에서는 그 어떤 무게도 느껴지지 않았으며, 아무리 움직이려 해봐도 마치 석상이 된 듯 조금도 움직일 수 없었다. 당신은 조금 전에 꾸었던 악몽이 데쟈뷰 현상을 일으키는 것을 느끼며, 한 가지 사실을 깨달았다. 자신은 '잠에서 깨어난 적' 이 없으며, 아직도 자신은 잠자고 있다는 사실을! 이 깨달음은 이상한 현상을 목격하면서 더욱 확실해졌다. 자신을 그대로 베낀 듯한 형체들이 천천히 나타나, 자기 의지를 가지고 행동하기 시작한 것이다.
+그들은 어떤 한 가지 목표에 집중하고 있는 것 같았다. 하지만 대체 무슨 목표? 무엇이 자신을 꿈꾸게 만들고 있는지 천천히 생각해본 결과, 그 답을 찾을 수 있었다. 공포. 이곳에 있는 것은 자신만이 아니었다. 공포가 자신의 근처에 있었다.
+그 방법은 알 수 없지만, 당신의 적은 당신의 무의식을 침범하였으며 당신을 꿈 속에서 공격하기 시작했다. 여전히 움직일 수 없는 상황 속에서, 자각몽 상태인 당신의 정신은 이 끔찍하고 정신 나간 상황을 어떻게 대처해야 하는지 고민했다. 그러면서 자신의 모습을 한 투사체에 정신을 집중해보자, 당신은 자신을 베낀 이 형체들을 조종할 수 있다는 사실을 깨달았다.
+이 악몽에서 자유를 되찾기 위해, 당신은 당신의 적에게 시선을 돌렸다. 자신을 베낀 이 형체가 하나 파괴된다고 해서 당신에게 재앙이 찾아오지는 않겠지만, 몇 개, 또는 다수의 형체가 파괴당한다면? 그 답을 찾지 못한 채, 당신은 자신의 정신을 지키기 위해 꿈 속에서 적을 공격하기 시작했다.]],
 }
 
 
@@ -688,16 +688,16 @@ newLore{
 	category = "boss",
 	name = "Z'quikzshl",
 	kr_name = "즈'퀵즈쉴",
-	lore = [[#{italic}#(The handwriting of this diary entry is poor at best. Whoever wrote this was in poor health.)
+	lore = [[#{italic}#(이 일기는 아무리 높게 쳐줘도 '엉망' 인 글씨체로 쓰여졌다. 누가 썼는지는 모르겠지만, 아마 죽기 직전에 쓴 것 같다.)
 
-#{bold}#53rd Allure, Year 603 of the Age of Pyre#{normal}#
+#{bold}#장작더미의 시대를 맞은 603 년, 매혹의 달 53 일#{normal}#
 
-I have done it! My fool of a master said I was not ready for the rites of lichdom, that I would attract undue attention... what utter idiocy. Already I can feel the transformation taking place, and I am certain that this weakness will only be momentary. My master was foolish to leave the Grimoire of Mortality Transcended open and unattended! All I needed was a bone from a magical creature, and as luck would have it, I had found a skeletal corpse of a dragon not far from our tower. The other ingredients were trivial and in possession of my master... surely he will be astounded that I, Zilquick the Eternal, will have transcended mortality!
+드디어 해냈다! 내 멍청한 스승이 말하길, 자신은 리치의 의식을 치를 준비가 되지 않았다고 했다. 마치 내 관심을 끌기 위한 말인 것 같았다... 그 얼마나 백치 같은 짓인가. 나는 이미 내 몸이 변화하는 것을 느낄 수 있으며, 이 약해진 것 같은 느낌은 머지않아 사라질 것이라고 확신한다. 내 스승은 너무나 멍청하여, 필멸을 초월하는 법에 대한 마도서를 열어둔 채 신경조차 쓰지 않았다! 내가 필요한 것이라고는 마법적 생명체의 뼈 뿐이었고, 운 좋게도 그것 역시 얻을 수 있었다. 우리의 탑에서 멀리 떨어지지 않은 곳에서, 용 시체가 남긴 뼈를 발견한 것이다. 다른 재료들은 내 스승이 가지고 있으니, 신경쓸 필요도 없다... 아마 그는 경악할 것이다. 나, '영원한 자' 지르퀵이 필멸을 초월한 것을 보면 말이다!
 
-(Another entry is written beneath this one, in a much more elegant and controlled script.)
+(이 글 밑에, 다른 글이 쓰여져 있다. 이 글은 훨씬 더 고상한 글씨체로 쓰여져 있다.)
 
-Zilquick the Eternal, hah! What an unbearable buffoon, and I am glad his pride was his undoing. The young fool used up the Ruby of Eldoral in creating his phylactery, however; I must acquire a new phylactery for myself. On the bright side, my incompetent apprentice did illustrate why a bone from a creature slain by my own hand is important: the dragon bone he chose had left to fester a mold infection, and the mold somehow infused itself with the bone's inherent magical properties, altering the magical composition of the spell. I do hope whoever finds this note shall kill this "lich" using the most painful means available, and shall deposit him someplace where he is sure to be found.
-Oh, look. He is trying to harm me with spells, but all he can manage is a corruption of his own name: Z'quikzshl.]]
+'영원한 자' 지르퀵이라, 하! 이 얼마나 성급한 바보 천치란 말인가. 그의 자만이 그의 실패를 불러왔으니, 차라리 기뻐해야겠군 그래. 이 풋사과 놈은 엘도랄의 루비를 사용해서 자기 생명의 함을 만들었다. 내가 사용할 생명의 함은 새로 구해야 되겠군. 그래도 좋은 점은, 나의 무능한 제자가 '왜 스스로의 힘으로 얻은 뼈를 사용해야 하는지' 에 대한 교훈을 주었다는 점이다. 그가 선택한 용의 뼈는 곰팡이가 가득 낀 상태였다. 그리고 어떤 알 수 없는 이유로 인해, 용의 뼈에 깃들어있던 마법적 힘이 곰팡이에 주입된 상태였다. 마법적 힘을 가지고 있던 것은 용의 뼈가 아니라, 곰팡이였다는 말이지. 이 가장 웃기고 성가신 "리치" 놈을 누가 죽이게 될지는 모르겠지만, 그가 '원래 있어야 할 곳' 에 그를 놔둬주게나.
+오, 보게. 그가 마법을 사용하여 나를 공격하려 하는군 그래. 하지만 그가 마법으로 할 수 있는 것이라고는, 자기 이름에 먹칠을 하는 것 뿐이겠지. 그렇지 않은가, "즈'퀵즈실" 이여.]]
 }
 
 newLore{
@@ -705,15 +705,15 @@ newLore{
 	category = "boss",
 	name = "Walrog",
 	kr_name = "왈록",
-	lore = [[Dirge of the Naloren
+	lore = [[날로레를 위한 장송곡
 
-There once was a village
-the Nalore held dear
-but when Ol' Walrog came t'pillage,
-they did quiver in fear.
+이곳에 한때 마을이 있었다
+날로레가 평화롭게 살았다
+하지만 왈록이 마을에 왔다
+그들은 공포를 불러왔다.
 
-So remember the tale
-of dead Old Shellsea,
-for Ol' Walrog sent the gale,
-that ended Old Shellsea.]]
+이 이야기를 기억하라
+늙은, 죽은 쉘시의 이야기를
+와르그의 광풍으로 인해
+죽은, 늙은 쉘시의 이야기를.]]
 }
