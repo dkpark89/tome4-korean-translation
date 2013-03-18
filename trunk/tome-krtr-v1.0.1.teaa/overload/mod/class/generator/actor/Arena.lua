@@ -308,7 +308,7 @@ function _M:summonMiniboss(val)
 	for i = 1, e.wave do
 		self:generateMiniboss(e)
 	end
-	game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..game.player.name, e.display} --@@ 한글화로 <명칭> <이름> 순으로 조정
+	game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), (e.kr_display or e.display)} --@@ 한글화로 <명칭> <이름> 순으로 조정
 	local verb = ""
 	game:playSoundNear(game.player, "talents/teleport")
 	--if e.wave > 1 then verb = " appear!!" else verb = " appears!!" end --@@ 한글화에는 필요없어 주석처리 
@@ -394,7 +394,7 @@ function _M:generateBoss(val)
 		e.start()
 		m.arenaDefeat = e.finish
 		self.zone:addEntity(self.level, m, "actor", 7, 1)
-		game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..game.player.name, e.display} --@@ 한글화로 <명칭> <이름> 순으로 조정
+		game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), (e.kr_display or e.display)} --@@ 한글화로 <명칭> <이름> 순으로 조정
 		game.log("#LIGHT_RED#주의하십시오! "..(e.kr_display or e.display):addJosa("가").." 등장하였습니다!!!")
 		else print("[ARENA] - Boss error #1! ("..e.display..")")
 	end
@@ -444,7 +444,7 @@ function _M:generateMaster()
 			end
 			self.zone:addEntity(self.level, m, "actor", 7, 1)
 			local rank = math.floor(game.level.arena.rank)
-			game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..game.player.name, "투기장의 지배자 레즈"} --@@ 한글화로 <명칭> <이름> 순으로 조정
+			game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), "투기장의 지배자 레즈"} --@@ 한글화로 <명칭> <이름> 순으로 조정
 			game.log("#LIGHT_RED#주의하십시오! 현 투기장의 지배자 레즈 알카티스가 지금 등장하였습니다!!!")
 			else print("[ARENA] - Finale error #1! (Default master error)")
 		end
@@ -481,7 +481,7 @@ function _M:generateMaster()
 
 		end
 		self.zone:addEntity(self.level, m, "actor", 7, 1)
-		game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..game.player.name, "투기장의 지배자 "..(m.kr_name or m.name)} --@@ 한글화로 <명칭> <이름> 순으로 조정
+		game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), "투기장의 지배자 "..(m.kr_name or m.name)} --@@ 한글화로 <명칭> <이름> 순으로 조정
 		game.log("#LIGHT_RED#주의하십시오! 현 투기장의 지배자 "..(m.kr_name or m.name):addJosa("가").." 지금 등장하였습니다!!!")
 	end
 end

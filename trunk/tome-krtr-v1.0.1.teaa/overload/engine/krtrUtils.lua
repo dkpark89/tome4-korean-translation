@@ -304,8 +304,8 @@ function string.krTalentType(str)
 	elseif ori == "ooze" then return "진흙 덩어리"
 	elseif ori == "moss" then return "이끼"
 	elseif ori == "malleable body" then return "신체 변화"
-	elseif ori == "oozing blades" then return "진흙 칼날" --@@ 한글화 필요 (검수)
-	elseif ori == "corrosive blades" then return "부식성 칼날" --@@ 한글화 필요 (검수)
+	elseif ori == "oozing blades" then return "진흙 칼날"
+	elseif ori == "corrosive blades" then return "부식성 칼날"
 	-- misc
 	elseif ori == "horror" then return "공포"
 	elseif ori == "horror techniques" then return "공포들의 물리기술"
@@ -588,7 +588,7 @@ function string.krClass(str)
 	elseif ori == "wilder" then return "자연의 추종자"
 	elseif ori == "summoner" then return "소환술사"
 	elseif ori == "wyrmic" then return "용인"
-	elseif ori == "oozemancer" then return "진흙술사" --@@ 한글화 필요 (검수)
+	elseif ori == "oozemancer" then return "진흙술사"
 	else return str end
 end
 
@@ -721,6 +721,7 @@ function string.krLoreCategory(str)
 	elseif ori == "kor'pul" then return "코르'풀"
 	elseif ori == "last hope graveyard" then return "마지막 희망 공동묘지"
 	elseif ori == "last hope" then return "마지막 희망"
+	elseif ori == "magic" then return "마법"
 	elseif ori == "maze" then return "미궁"
 	elseif ori == "misc" then return "기타"
 	elseif ori == "myths of creation" then return "창조 신화"
@@ -738,6 +739,7 @@ function string.krLoreCategory(str)
 	elseif ori == "spellblaze" then return "마법폭발"
 	elseif ori == "temple of creation" then return "창조의 사원"
 	elseif ori == "trollmire" then return "트롤 늪"
+	elseif ori == "valley of the moon" then return "달의 계곡"
 	elseif ori == "vault" then return "금고"
 	elseif ori == "zigur" then return "지구르"
 	else return str end

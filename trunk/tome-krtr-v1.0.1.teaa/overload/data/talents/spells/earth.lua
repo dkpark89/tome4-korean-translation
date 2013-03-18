@@ -52,7 +52,7 @@ newTalent{
 
 newTalent{
 	name = "Pulverizing Auger", short_name="DIG",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "파쇄용 시추 드릴",
 	type = {"spell/earth",2},
 	require = spells_req2,
 	points = 5,
@@ -84,9 +84,9 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local nb = t.getDigs(self, t)
-		return ([[Fire a powerful beam of stone shaterring forces, digging out any walls in its path up to %d.
-		The beam also affect any creatures in its path, dealing %0.2f physical damage to all.
-		The damage will increase with your Spellpower.]]): --@@ 한글화 필요
+		return ([[강력한 파쇄용 암석 줄기를 발사하여, %d 칸까지 벽을 굴착할 수 있습니다.
+		또한 암석 줄기는 그 경로에 있는 모든 존재에게 %0.2f 물리 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(nb, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
@@ -127,7 +127,7 @@ newTalent{
 
 newTalent{
 	name = "Stone Wall",
-	kr_name = "이동식 요새",
+	kr_name = "암석의 벽",
 	type = {"spell/earth",4},
 	require = spells_req4,
 	points = 5,
@@ -197,10 +197,10 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[시전자 주변에 암석 벽을 %d 턴 동안 만들어, 시전자를 보호합니다.
-		기술 레벨이 4 이상이면, 암석 벽을 원하는 곳에 만들어낼 수 있습니다.
-		Any hostile creature caught in the radius will also suffer %0.2f physical dmage.
-		Duration and damage will improve with your Spellpower.]]): --@@ 한글화 필요 : 내용 두 줄 변경
+		return ([[시전자 주변에 암석의 벽을 %d 턴 동안 만들어, 시전자를 보호합니다.
+		기술 레벨이 4 이상이면, 암석의 벽을 원하는 곳에 만들어낼 수 있습니다.
+		암석의 벽이 펼쳐진 영역 속에 갖힌 적대적 존재는 %0.2f 물리 피해를 받습니다.
+		유지시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }

@@ -39,8 +39,8 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[언제나 무리지어 다녔던 경험을 바탕으로, 동료와 위치를 바꿀 때 0.1 턴 만에 바꿀 수 있습니다 (this does not require the prodigy to be active, it is a passive effect).
-		You have also learnt to fight cleanly in a crowded area, you can never damage your friends of neutral creatures when this talent is active.]]) --@@ 한글화 필요 : 내용 추가 됨
+		return ([[언제나 무리지어 다녔던 경험을 바탕으로, 동료와 위치를 바꿀 때 0.1 턴 만에 바꿀 수 있습니다 (이 효과는 해당 특수기술이 유지중이 아니더라도, 항상 지속적으로 적용됩니다).
+		또한 당신은 군중 속에서도 깔끔하게 싸우는 방법을 배워, 이 기술이 유지되는 동안 절대 동료나 중립적인 존재에게 피해를 끼치지 않습니다.]])
 		:format()
 	end,
 }

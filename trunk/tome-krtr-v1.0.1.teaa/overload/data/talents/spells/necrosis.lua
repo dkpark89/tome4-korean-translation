@@ -147,7 +147,7 @@ newTalent{
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },
 		level = function(level) return 20 + (level-1)  end,
-		special = { desc="'죽음에서, 삶으로' 퀘스트 완료 and not already undead", fct=function(self, t) return not self:attr("undead") and self:isQuestStatus("lichform", engine.Quest.DONE) end}, --@@ 한글화 필요 : 내용이 뒤에 조금 더 붙었음
+		special = { desc="'죽음에서, 삶으로' 퀘스트를 완료했지만, 아직 언데드가 되진 않음", fct=function(self, t) return not self:attr("undead") and self:isQuestStatus("lichform", engine.Quest.DONE) end},
 	},
 	mode = "sustained",
 	points = 5,
@@ -253,7 +253,7 @@ newTalent{
 		기술 레벨 6 : 마법과 의지 능력치가 6 증가하고, 3 번 부활할 수 있게 됩니다. 주문 내성과 정신 내성이 15 증가하며, 전체 저항력의 최대치가 15%% 증가합니다. 천공 / 별의 분노 계열을 (x1.1) 적성으로 사용할 수 있게 되며, 턴 당 음기 재생이 1.0 증가합니다. 나의 힘 앞에 무릎 꿇으라!
 		언데드 종족은 리치가 될 수 없습니다.
 		이 기술을 활성화시키면, 턴 당 마나가 4 소진됩니다.
-		Once you die and turn into a Lich you can not invest any more in this talent.]]): --@@ 한글화 필요 : 내용 한 줄 추가
+		한번 죽어서 리치로 변하면, 이 기술을 더 이상 발전시키지 못하게 됩니다.]]):
 		format()
 	end,
 }

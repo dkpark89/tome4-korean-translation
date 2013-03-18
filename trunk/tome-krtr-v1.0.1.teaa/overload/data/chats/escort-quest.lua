@@ -315,7 +315,7 @@ newChat{ id="welcome",
 }
 
 newChat{ id="done",
-	text = [[여기 있네. 그럼 잘 있게!]],
+	text = [[수고했네. 그럼 잘 있게!]],
 	answers = {
 		{"그럼 안녕히."},
 	},

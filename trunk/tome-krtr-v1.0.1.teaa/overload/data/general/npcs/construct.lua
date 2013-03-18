@@ -93,7 +93,7 @@ newEntity{ base = "BASE_NPC_CONSTRUCT",
 
 newEntity{ base = "BASE_NPC_CONSTRUCT",
 	name = "alchemist golem", color=colors.YELLOW,
-	kr_name = "연금술사 골렘",
+	kr_name = "연금술 골렘",
 	desc = [[골렘의 눈이 마법의 힘으로 빛나고 있습니다.]],
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 4,

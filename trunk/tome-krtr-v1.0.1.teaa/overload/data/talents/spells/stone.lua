@@ -123,9 +123,9 @@ newTalent{
 		local stunres = t.getStunRes(self, t)
 		return ([[대지와 일체화되어, 움직이지 못하는 석상이 됩니다. 석상 상태에서는 이동할 수 없으며, 강제적으로 위치가 옮겨질 경우 석상 상태가 해제됩니다.
 		석상 상태에서는 다음과 같은 효과가 발생합니다.
-		* 암석 화살, Pulveziring Auger, 지진, 산사태 마법의 지연시간이 %d 줄어듭니다.
+		* 암석 화살, 파쇄용 시추 드릴, 지진, 산사태 마법의 지연시간이 %d 줄어듭니다.
 		* 화염 저항력이 %d%% / 전기 저항력이 %d%% / 산성 저항력이 %d%% / 기절 면역력이 %d%% 상승합니다.
-		저항력 증가량은 주문력의 영향을 받아 증가합니다.]]) --@@ 한글화 필요 : 두줄 위 'Pulveziring Auger' - earth.lua의 두번째 기술 (Dig 없애고 추가된 새로운 기술)
+		저항력 증가량은 주문력의 영향을 받아 증가합니다.]])
 		:format(cooldownred, fireres, lightningres, acidres, stunres*100)
 	end,
 }
