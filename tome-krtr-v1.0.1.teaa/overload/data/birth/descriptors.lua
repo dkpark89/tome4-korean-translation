@@ -144,7 +144,7 @@ newBirthDescriptor{
 	type = "difficulty",
 	name = "Easy",
 	display_name = "Easier",
-	kr_name = "쉬움",
+	kr_name = "쉬움", kr_display_name = "쉬움",
 	desc =
 	{
 		"#GOLD##{bold}#쉬운 난이도#WHITE##{normal}#",

@@ -505,7 +505,7 @@ function _M:raceUse(item, sel, v)
 		self.c_race:treeExpand(nil, item)
 	elseif not item.locked and item.basename then
 		if self.sel_race then
-			self.sel_race.name = self.sel_race.basename
+			self.sel_race.name = self.sel_race.kr_basename or self.sel_race.basename
 			self.c_race:drawItem(self.sel_race)
 		end
 		self:setDescriptor("race", item.pid)
@@ -525,7 +525,7 @@ function _M:classUse(item, sel, v)
 		self.c_class:treeExpand(nil, item)
 	elseif not item.locked and item.basename then
 		if self.sel_class then
-			self.sel_class.name = self.sel_class.basename
+			self.sel_class.name = self.sel_class.kr_basename or self.sel_class.basename
 			self.c_class:drawItem(self.sel_class)
 		end
 		self:setDescriptor("class", item.pid)
@@ -640,7 +640,7 @@ function _M:generateCampaigns()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				list[#list+1] = { name = tstring{d.kr_name or d.display_name}:toString(), id=d.name, desc=desc } --@@ 한글 이름 저장
+				list[#list+1] = { name = tstring{d.kr_display_name or d.display_name}:toString(), id=d.name, desc=desc } --@@ 한글 이름 저장
 			end
 		end
 	end
@@ -666,7 +666,7 @@ function _M:generateDifficulties()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				list[#list+1] = { name = tstring{d.kr_name or d.display_name}:toString(), id=d.name, desc=desc } --@@ 한글 이름 저장
+				list[#list+1] = { name = tstring{d.kr_display_name or d.display_name}:toString(), id=d.name, desc=desc } --@@ 한글 이름 저장
 				if oldsel == d.name then oldsel = #list end
 				if util.getval(d.selection_default) then self.default_difficulty = d.name end
 			end
@@ -698,7 +698,7 @@ function _M:generatePermadeaths()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				list[#list+1] = { name = tstring{d.kr_name or d.display_name}:toString(), id=d.name, desc=desc } --@@ 한글 이름 저장
+				list[#list+1] = { name = tstring{d.kr_display_name or d.display_name}:toString(), id=d.name, desc=desc } --@@ 한글 이름 저장
 				if oldsel == d.name then oldsel = #list end
 				if util.getval(d.selection_default) then self.default_permadeath = d.name end
 			end
@@ -733,7 +733,7 @@ function _M:generateRaces()
 					elseif locked == false then
 						local desc = sd.desc
 						if type(desc) == "table" then desc = table.concat(sd.desc, "\n") end
-						nodes[#nodes+1] = { name = sd.kr_name or sd.display_name, kr_basename = sd.kr_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc } --@@ 한글 이름 저장
+						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, kr_basename = sd.kr_display_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc } --@@ 한글 이름 저장
 						if self.sel_race and self.sel_race.id == sd.name then newsel = nodes[#nodes] end
 					end
 				end
@@ -745,7 +745,7 @@ function _M:generateRaces()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.kr_name or d.display_name, {"font", "normal"}}, id=d.name, shown = oldtree[d.name], nodes = nodes, desc=desc } --@@ 한글 이름 저장
+				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.kr_display_name or d.display_name, {"font", "normal"}}, id=d.name, shown = oldtree[d.name], nodes = nodes, desc=desc } --@@ 한글 이름 저장
 			end
 		end
 	end
@@ -793,7 +793,7 @@ function _M:generateClasses()
 						if how == "nolore" and self.descriptors_by_type.subrace then
 							desc = "#CRIMSON#이 직업은 선택한 종족과 썩 어울려 보이지 않습니다. 게임이 불가능한 것은 아니지만, 특정 퀘스트는 불가능할 수도 있습니다/...#WHITE#\n" .. desc
 						end
-						nodes[#nodes+1] = { name = sd.kr_name or sd.display_name, kr_basename= sd.kr_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc, def=sd }
+						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, kr_basename= sd.kr_display_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc, def=sd }
 						if self.sel_class and self.sel_class.id == sd.name then newsel = nodes[#nodes] end
 					end
 				end
@@ -805,7 +805,7 @@ function _M:generateClasses()
 			elseif locked == false then
 				local desc = d.desc
 				if type(desc) == "table" then desc = table.concat(d.desc, "\n") end
-				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.kr_name or d.display_name, {"font", "normal"}}, id=d.name, shown=oldtree[d.name], nodes = nodes, desc=desc } --@@ 한글 이름 저장
+				tree[#tree+1] = { name = tstring{{"font", "italic"}, {"color", "LIGHT_SLATE"}, d.kr_display_name or d.display_name, {"font", "normal"}}, id=d.name, shown=oldtree[d.name], nodes = nodes, desc=desc } --@@ 한글 이름 저장
 			end
 		end
 	end

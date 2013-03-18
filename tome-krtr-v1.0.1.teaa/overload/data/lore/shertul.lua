@@ -144,5 +144,5 @@ newLore{
 	name = "lost farportal", always_pop = true,
 	kr_name = "잊혀진 장거리 관문",
 	image = "farportal_entering.png",
-	lore = function() return game.player.name:addJos("는")..[[ 대담하게 쉐르'툴 장거리 관문 안으로 들어갔습니다.]] end,
+	lore = function() return game.player.name:addJosa("는")..[[ 대담하게 쉐르'툴 장거리 관문 안으로 들어갔습니다.]] end,
 }
