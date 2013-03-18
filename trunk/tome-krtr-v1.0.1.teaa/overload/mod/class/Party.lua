@@ -365,7 +365,7 @@ function _M:giveOrder(actor, order)
 	-------------------------------------------
 	elseif order == "escort_rest" then
 		-- Rest for a few turns
-		if actor.ai_state.tactic_escort_rest then actor:doEmote("안돼, 우린 좀 서둘러야 하네!", 40) return true end
+		if actor.ai_state.tactic_escort_rest then actor:doEmote("안돼요, 우린 좀 서둘러야 해요!", 40) return true end
 		actor.ai_state.tactic_escort_rest = rng.range(6, 10)
 		actor:doEmote("알겠어요, 하지만 너무 오래는 안 돼요.", 40)
 	elseif order == "escort_portal" then
@@ -376,7 +376,7 @@ function _M:giveOrder(actor, order)
 		end
 
 		local dir = game.level.map:compassDirection(actor.escort_target.x - actor.x, actor.escort_target.y - actor.y)
-		actor:doEmote(("관문은 %s 방향으로 %s 있다네."):format(dir or "알 수 없는", dist), 45) --@@ 변수 순서 조정
+		actor:doEmote(("관문은 %s 방향으로 %s 있어요."):format(dir or "알 수 없는", dist), 45) --@@ 변수 순서 조정
 	end
 
 	return true

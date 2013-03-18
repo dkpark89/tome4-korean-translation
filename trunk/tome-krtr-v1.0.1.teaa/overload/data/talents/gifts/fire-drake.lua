@@ -145,7 +145,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[불의 구름을 뿜어내, 주변 %d 칸 반경의 적들에게 %0.2f 화염 피해를 %d 턴 동안 줍니다.
 		피해량은 의지 능력치의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.
-		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(damDesc(self, DamageType.FIRE, dam), radius, duration)
+		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(radius, damDesc(self, DamageType.FIRE, dam), duration) --@@ 변수 순서 조정
 	end,
 }
 
