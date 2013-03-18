@@ -57,7 +57,7 @@ for i = 1, 3 do
 	g.special = true
 	g.block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return false end
-		who:runStop("weird pedestal")
+		who:runStop("이상한 받침대")
 		if self.pedestal_activated then return false end
 		require("engine.ui.Dialog"):yesnoPopup("이상한 받침대", "받침대를 조사해 보시겠습니까?", function(ret) if ret then
 			who:restInit(20, "inspecting", "inspected", function(cnt, max)

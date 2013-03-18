@@ -2445,7 +2445,7 @@ function _M:autoExplore()
 					local terrain = game.level.map(x, y, Map.TERRAIN)
 					if target_type == "door" then
 						if #path == 1 then
-							self:runStop("at door")
+							self:runStop("문 앞")
 							if terrain and (terrain.door_player_check or terrain.door_player_stop) then game.level.map.attrs(x, y, "autoexplore_ignore", true) end
 							return false
 						else
@@ -2550,7 +2550,7 @@ function _M:checkAutoExplore()
 	if terrain and terrain.door_opened then
 		-- we already tried to open the door but failed (always fails on vault doors)
 		if self.running.busy and self.running.busy.type == "opening door" then
-			self:runStop("checked door")
+			self:runStop("검사해본 문")
 			return false
 		-- we didn't know this was a door at the time, so explore a new path
 		elseif self.running.explore == "unseen" and self.running.cnt == #self.running.path and game.level.map.has_seens(cx, cy) then

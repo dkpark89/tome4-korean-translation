@@ -323,7 +323,6 @@ newLore{
 -- Valley of the Moon
 --------------------------------------------------------------
 
---@@ 한글화 필요 : 아래 lore 세가지 (Race 이전까지)
 newLore{
 	id = "valley-moon-1",
 	category = "valley of the moon",
@@ -667,7 +666,6 @@ newLore{
 사랑을 담아, #{italic}#에덴#{normal}#]]
 }
 
---@@ 한글화 필요 : 아래 lore
 newLore{
 	id = "nature-vs-magic",
 	category = "magic",

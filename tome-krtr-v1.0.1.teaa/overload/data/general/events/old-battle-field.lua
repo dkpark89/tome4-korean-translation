@@ -129,7 +129,7 @@ if tries < 100 then
 		g.block_move = function(self, x, y, who, act, couldpass)
 			if not who or not who.player or not act then return false end
 			if game.level.event_battlefield_entered then return false end
-			who:runStop("grave")
+			who:runStop("무덤")
 			require("engine.ui.Dialog"):yesnoPopup("무덤", "무덤을 파헤치길 원합니까?", function(ret) if ret then
 				local g = game.level.map(x, y, engine.Map.TERRAIN)
 				g:removeAllMOs()

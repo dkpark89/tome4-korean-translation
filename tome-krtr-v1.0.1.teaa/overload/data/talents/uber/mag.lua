@@ -112,7 +112,7 @@ uberTalent{
 		return ([[시간의 실로 몸을 감싸, 10 턴 동안 시간의 정령인 텔루그로스로 변신합니다.
 		속박, 출혈, 실명, 기절 상태효과에 완전 면역이 되며, 시간 저항력이 30%% 증가하고, 가장 높은 추가 피해량 수치 + 30%% 만큼 시간 피해를 추가로 줄 수 있게 되며, 모든 공격이 시간 피해를 주게 되고, 적의 시간 저항력을 20%% 무시할 수 있게 됩니다.
 		또한, 두 가지 특수한 현상을 일으킬 수 있습니다 - 이상 현상 : 재배열, 이상 현상 : 시간의 폭풍
-		변신 중에는 괴리 수치가 600 증가하며 but also grant an equivalent of +600 willpower to control paradoxes and failures, 변신이 풀리면 괴리 수치도 복구됩니다.]]) --@@ 한글화 필요 : 내용 추가
+		변신 중에는 괴리 수치가 600 증가하지만, 괴리를 제어하고 괴리적 실패를 판단하는 때에는 (의지력 + 600)까지 안정성도 보장됩니다. 변신이 풀리면 이 효과들도 복구됩니다.]])
 		:format()
 	end,
 }
@@ -191,7 +191,8 @@ uberTalent{
 	end,
 }
 newTalent{
-	name = "Unfold History", short_name = "REVISIONIST_HISTORY_BACK", --@@ 한글화 필요
+	name = "Unfold History", short_name = "REVISIONIST_HISTORY_BACK",
+	kr_name = "역사 펼치기",
 	type = {"uber/other",1},
 	cooldown = 30,
 	no_energy = true,
@@ -206,7 +207,7 @@ newTalent{
 		return nil -- We do not start the cooldown!
 	end,
 	info = function(self, t)
-		return ([[Rewrite the near-past to go back to when you casted Revisionist History.]]) --@@ 한글화 필요
+		return ([['수정론자의 역사 기록법'을 사용하고 있을 때, 얼마전의 과거로 돌아가 역사를 다시 씁니다.]])
 		:format()
 	end,
 }

@@ -23,7 +23,7 @@ newTalent{
 	kr_name = "생명력 전이",
 	type = {"spell/advanced-golemancy", 1},
 	require = {
-		special = { desc="Having an Alchemist Golem", fct=function(self, t) return self.alchemy_golem end}, --@@ 한글화 필요
+		special = { desc="연금술 골렘을 보유하고 있을 것", fct=function(self, t) return self.alchemy_golem end},
 		stat = { mag=function(level) return 22 + (level-1) * 2 end },
 		level = function(level) return 10 + (level-1)  end,
 	},
