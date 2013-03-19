@@ -18,22 +18,22 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Welcome @playername@ to my shop.]],
+	text = [[어서 오십시오. @playername@씨, 찾아주셔서 고맙습니다.]],
 	answers = {
-		{"Let me see your wares.", action=function(npc, player)
+		{"파는 물건들을 보고 싶은데요.", action=function(npc, player)
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"I am looking for staff training.", jump="training"},
-		{"Sorry, I have to go!"},
+		{"지팡이 전투기술을 배워볼까 해서 찾아왔어요.", jump="training"},
+		{"미안합니다, 이만 가볼게요!"},
 	}
 }
 
 newChat{ id="training",
-	text = [[I can briefly go over the basics (talent category Spell/Staff-combat, locked) for a fee of 100 gold pieces.  Alternatively, I can provide a more in-depth study for 750.]],
+	text = [[금화 100개의 비용으로 지팡이 전투기술 계열의 주문에 대한 기초를 간략히 설명해 줄 수 있습니다 (비활성화 상태로 해당 기술 계열 습득). 혹은, 금화 750개를 들여 더욱 깊이있는 학습을 받으실 수도 있습니다.]],
 	answers = {
-		{"Just give me the basics.", action=function(npc, player)
-			game.logPlayer(player, "The staff carver spends some time with you, teaching you the basics of staff combat.")
+		{"그냥 기초만 배울께요.", action=function(npc, player)
+			game.logPlayer(player, "지팡이 조각가에게 기초적인 지팡이 전투기술을 배웠습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("spell/staff-combat", false)
 			player.changed = true
@@ -43,8 +43,8 @@ newChat{ id="training",
 			if player:knowTalentType("spell/staff-combat") or player:knowTalentType("spell/staff-combat") == false then return end
 			return true
 		end},
-		{"Please teach me all there is to know.", action=function(npc, player)
-			game.logPlayer(player, "The staff carver spends a great deal of time going over the finer details of staff combat with you.")
+		{"알아야 할 모든 것을 가르쳐 주셨으면 좋겠네요.", action=function(npc, player)
+			game.logPlayer(player, "지팡이 조각가에게 지팡이 전투기술에 관하여 심도있는 교육을 받았습니다.")
 			player:incMoney(-750)
 			player:learnTalentType("spell/staff-combat", true)
 			player.changed = true
@@ -53,7 +53,7 @@ newChat{ id="training",
 			if player:knowTalentType("spell/staff-combat") then return end
 			return true
 		end},
-		{"No thanks."},
+		{"죄송합니다, 지금은 필요없을 것 같네요."},
 	}
 }
 

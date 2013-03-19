@@ -97,13 +97,13 @@ newTalent{
 	deactivate = function(self, t, p)
 		return true
 	end,
-	info = function(self, t) --@@ 한글화 필요 : 한 줄 제외하고 모든 내용 변경됨. 현재 'Ooze'와 'Bloated Ooze'가 둘 다 '진흙 덩어리'임
-		return ([[Your body is more like that of an ooze.
-		When you get hit you have a %d%% chance to split and create a Bloated Ooze with as much health as you have taken damage (up to %d).
+	info = function(self, t)
+		return ([[당신의 육체가 더욱 진흙같은 상태로 변합니다.
+		공격을 받으면 %d%% 확률로 당신이 분열하여, 당신이 받은 피해량만큼의 생명력을 가진 '진흙 덩어리'가 생성됩니다 (최대 생명력 %d).
 		자신이 받는 모든 피해량은 자신과 진흙 덩어리가 나눠서 받게 됩니다.
-		You may have up to %d Oozes active at any time (based on your Cunning).
-		Bloated Oozes are very resilient (50%% all damage resistance) to damage not coming through your shared link.
-		The maximum life depends on Mindpower and the chance on Cunning.]]):
+		당신은 (교활함 능력치에 따라) 최대 %d 마리 까지 진흙 덩어리를 가질 수 있습니다.
+		진흙 덩어리는 피해에 대해 매우 탄력이 뛰어납니다 (50%% 전체 피해 저항). 단, 당신을 통해서 전달되는 피해에는 이 효과가 적용되지 않습니다.
+		최대 생명력은 정신력의 영향을 받아 증가하고, 발생 확률은 교활함의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t), t.getMaxHP(self, t), t.getMax(self, t))
 	end,
 }
@@ -149,21 +149,21 @@ newTalent{
 
 		return true
 	end,
-	info = function(self, t) --@@ 한글화 필요 : 내용이 한 줄 빼고 모두 변경됨
-		return ([[You randomly merge with an adjacent bloated ooze, granting your a 50%% damage resistance for %d turns.
-		The merging also releases a burst of antimagic all around, dealing %0.2f manaburn damage in radius %d.
+	info = function(self, t)
+		return ([[당신은 임의의 인접한 진흙 덩어리와 합쳐짐으로써, %d 턴 동안 50%% 전체 피해 저항을 부여받습니다.
+		이렇게 합쳐지는 순간 반마법적 폭발이 발생하고, %d 칸 반경에 있는 주변의 모두에게 %0.2f 마나 태우기 피해가 주어집니다. 
 		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(
 			math.ceil(3 + self:getTalentLevel(t)),
-			damDesc(self, DamageType.ARCANE, t.getDam(self, t)),
-			3
-		)
+			3,
+			damDesc(self, DamageType.ARCANE, t.getDam(self, t))
+		) --@@ 변수 순서 조정
 	end,
 }
 
 newTalent{
 	name = "Call of the Ooze",
-	kr_name = "진흙 덩어리 소환", --@@ 한글화 필요 : 기술 이름 변경되었음 (완전히 다른 기술로 바뀜)
+	kr_name = "진흙 덩어리 불러오기",
 	type = {"wild-gift/ooze", 3},
 	require = gifts_req3,
 	points = 5,
@@ -216,10 +216,10 @@ newTalent{
 		game:playSoundNear(self, "talents/slime")
 		return true
 	end,
-	info = function(self, t) --@@ 한글화 필요 : 기술 변경에 따라 설명도 완전히 바뀜
-		return ([[Instantly call all your bloated oozes to fight and if below the maximum number of oozes allowed by the Mitosis talent, at most %d will be created (with %d life).
-		Each of them will be transported near a random foe in sight grab its attention.
-		Taking advantage of the situation you channel a melee attack though all of them to their foes dealing %d%% weapon damage as acid.]]):
+	info = function(self, t)
+		return ([[즉각적으로 당신이 데리고 있는 모든 진흙 덩어리를 전투를 위해 불러옵니다. 만약 '유사 분열' 기술에 의한 최대 진흙 덩어리 수보다 적게 데리고 있었다면, %d 마리 이하의 진흙 덩어리가 새로 생성됩니다 (생명력 %d).
+		각각의 진흙 덩어리는 당신의 시야내에 존재하는 임의의 적 근방으로 이동하며, 그 상대의 주의를 빼앗습니다.
+		이 상황을 이용하여, 당신은 대상이 된 모든 적들에게 진흙 덩어리를 통한 근접 공격을 취합니다. 이 공격은 무기 피해량의 %d%% 만큼 산성 속성 피해를 줍니다.]]):
 		format(self:getTalentLevel(t), self:combatTalentMindDamage(t, 30, 300), self:combatTalentWeaponDamage(t, 0.6, 2.2) * 100)
 	end,
 }
@@ -247,10 +247,10 @@ newTalent{
 		self:attr("confusion_immune", -0.2)
 		self:attr("ignore_direct_crits", -15)
 	end,
-	info = function(self, t) --@@ 한글화 필요 : 설명은 모두 바뀜
-		return ([[Your body's internal organs are melted together, making it much harder to suffer critical hits.
-		All direct critical hits (physical, mental, spells) against you have a %d%% chance to instead do their normal damage.
-		In addition you gain %d%% disease, poison, cuts, confusion and blindness resistances.]]):
+	info = function(self, t)
+		return ([[몸 속의 장기들이 녹아내리고 마구 섞여, 치명타를 잘 받지 않게 됩니다.
+		적에게 받은 치명타가 %d%% 확률로 보통 공격이 되버립니다.
+		추가적으로 당신의 질병과 중독, 출혈 그리고 혼란 상태들에 대한 면역력이 %d%% 증가합니다.]]):
 		format(self:getTalentLevelRaw(t) * 15, self:getTalentLevelRaw(t) * 20)
 	end,
 }
