@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Oozemancer (Wilder)",
+return "새로운 직업 : #LIGHT_GREEN#진흙술사 (자연의 추종자)",
 [[
 The long Nature's hatred of all arcane forces has managed to create Oozemancers as the ultimate answer to archmagi.
 You have met and destroyed a corrupted one and can now create new characters with the #LIGHT_GREEN#Oozemancer class#WHITE#.

@@ -97,7 +97,7 @@ newTalent{
 		self:attr("ignore_direct_crits", -15)
 	end,
 	info = function(self, t)
-		return ([[몸 속의 장기들이 녹아내리고 마구 섞여, 치명타를 받지 않게 됩니다.
+		return ([[몸 속의 장기들이 녹아내리고 마구 섞여, 치명타를 잘 받지 않게 됩니다.
 		적에게 받은 치명타가 %d%% 확률로 보통 공격이 되버립니다.]]):
 		format(self:getTalentLevelRaw(t) * 15)
 	end,

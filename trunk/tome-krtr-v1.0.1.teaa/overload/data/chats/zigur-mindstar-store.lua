@@ -18,22 +18,22 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Welcome @playername@ to my shop.]],
+	text = [[@playername@씨, 저희 가게에 오신 것을 환영합니다.]],
 	answers = {
-		{"Let me see your wares.", action=function(npc, player)
+		{"무엇을 파는지 알고 싶은데요.", action=function(npc, player)
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"I am looking for mindstar training.", jump="training"},
-		{"Sorry, I have to go!"},
+		{"마석 수련을 받기 위해 왔어요.", jump="training"},
+		{"미안합니다, 이만 가볼게요!"},
 	}
 }
 
 newChat{ id="training",
-	text = [[I can briefly go over the basics (talent category Wild-gift/Mindstar-mastery, locked) for a fee of 100 gold pieces.  Alternatively, I can provide a more in-depth study for 750.]],
+	text = [[금화 100개면 자연의 권능 중 마석 수련 계열의 기초를 간략히 설명해 줄 수 있지요 (비활성화 상태로 해당 기술 계열 습득). 아니면, 금화 750개로 더욱 깊이있는 도움을 받을 수도 있구요.]],
 	answers = {
-		{"Just give me the basics.", action=function(npc, player)
-			game.logPlayer(player, "The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.")
+		{"그냥 기초만 배울께요.", action=function(npc, player)
+			game.logPlayer(player, "가게 주인이 마석을 통해 힘을 뿜어내는 방법을 알려 줬습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("wild-gift/mindstar-mastery", false)
 			player.changed = true
@@ -43,8 +43,8 @@ newChat{ id="training",
 			if player:knowTalentType("wild-gift/mindstar-mastery") or player:knowTalentType("wild-gift/mindstar-mastery") == false then return end
 			return true
 		end},
-		{"Please teach me all there is to know.", action=function(npc, player)
-			game.logPlayer(player, "The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.")
+		{"알아야 할 모든 것을 가르쳐 주셨으면 좋겠네요.", action=function(npc, player)
+			game.logPlayer(player, "가게 주인이 공들여 마석을 통해 힘을 뿜어내는 방법과 그 자세한 원리를 설명해 줬습니다.")
 			player:incMoney(-750)
 			player:learnTalentType("wild-gift/mindstar-mastery", true)
 			player.changed = true
@@ -53,7 +53,7 @@ newChat{ id="training",
 			if player:knowTalentType("wild-gift/mindstar-mastery") then return end
 			return true
 		end},
-		{"No thanks."},
+		{"아니오, 지금은 필요없을 것 같네요."},
 	}
 }
 
