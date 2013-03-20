@@ -159,7 +159,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Oozemancer",
-	kr_name = "진흙술사 (Oozemancer)",
+	kr_name = "점액술사 (Oozemancer)",
 	locked = function() return profile.mod.allow_build.wilder_oozemancer end,
 	locked_desc = "Magic must fail, magic must lose, nothing arcane can face the ooze...",
 	desc = {

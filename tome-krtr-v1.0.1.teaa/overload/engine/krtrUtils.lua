@@ -576,7 +576,7 @@ function string.krClass(str)
 	elseif ori == "mindslayer" then return "정신 파괴자"
 	elseif ori == "solipsist" then return "유아론자"
 	elseif ori == "rogue" then return "도적"
-	elseif ori == "shadowblade" then return "쉐도우 블레이드"
+	elseif ori == "shadowblade" then return "그림자 칼"
 	elseif ori == "marauder" then return "약탈자"
 	elseif ori == "tutorial adventurer" then return "초보자 입문용 모험가"
 	elseif ori == "warrior" then return "전사"
@@ -588,7 +588,7 @@ function string.krClass(str)
 	elseif ori == "wilder" then return "자연의 추종자"
 	elseif ori == "summoner" then return "소환술사"
 	elseif ori == "wyrmic" then return "용인"
-	elseif ori == "oozemancer" then return "진흙술사"
+	elseif ori == "oozemancer" then return "점액술사"
 	else return str end
 end
 

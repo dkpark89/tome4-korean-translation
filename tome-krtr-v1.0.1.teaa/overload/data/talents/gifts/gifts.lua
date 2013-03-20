@@ -39,7 +39,7 @@ newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/ooze", name = "ooze", description = "몸이 진흙처럼 변해, 몸이 잘려나가도 아무렇지 않게 됩니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/moss", name = "moss", description = "이끼를 제어하는 법을 배워, 전장에서 당신이 필요로 할 때 이끼들을 자라나게 만드는 기술입니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/malleable-body", name = "malleable body", description = "신체구조가 알 수 없게 됩니다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/oozing-blades", name = "oozing blades", description = "염검을 통하여 진흙 덩어리와 교감하게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/oozing-blades", name = "oozing blades", description = "염검을 통하여 점액을 사용할 수 있게 됩니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/corrosive-blades", name = "corrosive blades", description = "염검을 통하여 산성 물질을 사용할 수 있게 됩니다." }
 
 -- Generic requires for gifts based on talent level
