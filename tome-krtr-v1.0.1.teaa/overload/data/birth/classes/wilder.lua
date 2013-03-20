@@ -61,7 +61,7 @@ newBirthDescriptor{
 	power_source = {nature=true},
 	getStatDesc = function(stat, actor)
 		if stat == actor.STAT_CUN then
-			return "Max summons: "..math.floor(actor:getCun()/10)
+			return "최대 소환수 : "..math.floor(actor:getCun()/10)
 		end
 	end,
 	stats = { wil=5, cun=3, dex=1, },
@@ -155,26 +155,25 @@ newBirthDescriptor{
 	},
 }
 
---@@ Oozemancer 부분 한글화 필요
 newBirthDescriptor{
 	type = "subclass",
 	name = "Oozemancer",
 	kr_name = "점액술사 (Oozemancer)",
 	locked = function() return profile.mod.allow_build.wilder_oozemancer end,
-	locked_desc = "Magic must fail, magic must lose, nothing arcane can face the ooze...",
+	locked_desc = "마법은 실패해야 하고, 마법은 사라져야 한다. 그 어떤 마법도 점액 앞에서는 고개를 들지 못할 것이다...",
 	desc = {
-		"Oozemancers separate themselves from normal civilisation so that they be more in harmony with Nature. Arcane force are reviled by them, and their natural attunement to the wilds lets them do battle with abusive magic-users on an equal footing.",
-		"They can spawn oozes to protect and attack from a distance while also being adept at harnessing the power of mindstars and psiblades.",
-		"Their most important stats are: Willpower and Cunning",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# -3",
+		"점액술사들은 스스로 평범한 문명과 거리를 둬, 자연과 더욱 조화되도록 만듭니다. 그들은 마법적 힘을 욕하고, 그들의 야생에 대한 자연적인 조율로 폭력적인 마법 사용자들과 대등하게 싸워나갑니다.",
+		"그들은 점액을 내뿜어 자신을 보호하고 마석과 염검의 힘을 지배하여 멀리 떨어진 자까지 공격합니다.",
+		"가장 중요한 능력치는 의지와 교활함입니다.",
+		"#GOLD#능력치 변화:",
+		"#LIGHT_BLUE# * 힘+0, 민첩+0, 체격+0",
+		"#LIGHT_BLUE# * 마법+0, 의지+5, 교활함+4",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# -3",
 	},
 	power_source = {nature=true},
 	getStatDesc = function(stat, actor)
 		if stat == actor.STAT_CUN then
-			return "Max summons: "..math.floor(actor:getCun()/10)
+			return "최대 소환수 : "..math.floor(actor:getCun()/10)
 		end
 	end,
 	birth_example_particles = {
