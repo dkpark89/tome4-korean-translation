@@ -19,16 +19,16 @@
 
 return "새로운 직업 : #LIGHT_GREEN#진흙술사 (자연의 추종자)",
 [[
-The long Nature's hatred of all arcane forces has managed to create Oozemancers as the ultimate answer to archmagi.
-You have met and destroyed a corrupted one and can now create new characters with the #LIGHT_GREEN#Oozemancer class#WHITE#.
+오랫동안 이어진 모든 마법적인 힘에 대한 자연의 혐오는 마도사에 궁극적으로 대항하기 위하여 진흙술사를 탄생시켰습니다.
+타락한 자를 만나 파괴함으로써, 이제 당신은 캐릭터를 만들 때 #LIGHT_GREEN#진흙술사 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Oozemancer are Wilders, who are at home in the wilds and draw their power from their connection with nature.
-Class features:#YELLOW#
-- Offensive long range nature and acidic attacks
-- Inherently antimagic
-- Summon various kinds of oozes to your side for a short while
-- Use oozes, slimes, mucus and moss against Nature's foes#WHITE#
+진흙술사들은 자연의 추종자이며, 야생을 집으로 삼아 살아가는 자들입니다. 소환술사들은 그들과 연결된 자연의 힘을 끌어낼 수 있습니다.
+직업 특성 :#YELLOW#
+- 공격적인 자연과 산성 속성의 장거리 공격
+- 타고난 반마법 성향
+- 여러 종류의 진흙 덩어리를 잠시 동료로 소환
+- 자연의 적들에 대항하여 진흙 덩어리와 슬라임, 점액 그리고 이끼를 이용#WHITE#
 
-All Wilder classes use Equilibrium for their powers. It represents their connection to nature. 
-The higher it gets the more off-balance they are with it. A high Equilibrium makes for a chance to fail to use a power and lose a turn.
+모든 자연의 추종자들은 원천력으로 평정을 사용합니다. 이것은 그들이 자연과 연결된 정도를 나타냅니다.
+평정 수치가 높아질수록 평정 상태가 깨지는 것을 나타냅니다. 평정 수치가 높으면 기술 사용이 실패하고 턴을 낭비할 확률이 높아지게 됩니다.
 ]]

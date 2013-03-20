@@ -27,6 +27,7 @@ end
 
 newTalent{
 	name = "Grasping Moss",
+	kr_name = "붙잡는 이끼",
 	type = {"wild-gift/moss", 1},
 	require = gifts_req1,
 	points = 5,
@@ -65,18 +66,19 @@ newTalent{
 		local slow = t.getSlow(self, t)
 		local pin = t.getPin(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Instantly grow a moss circle of radius %d at your feet.
-		Each turn the moss deals %0.2f nature damage to any foes with in its radius.
-		This moss is very thick and sticky, all foes passing through it have their movement speed reduced by %d%% and have %d%% chances to be stuck on the ground for 4 turns.
-		The moss lasts %d turns.
-		Using a moss talent takes no turn but places all other moss talents on a 3 turns cooldown.
-		The damage will increase with your Mindpower.]]):
+		return ([[발 밑에서 부터 반경 %d 칸의 영역에 즉각적으로 이끼를 자라나게 만듭니다.
+		해당 영역에 위치한 모든 적들은 매 턴마다 %0.2f 자연 속성 피해를 받습니다.
+		이 이끼는 아주 두껍고 끈적하기 때문에 그 사이로 지나가는 모든 적들은 이동 속도가 %d%% 감소하며, %d%% 확률로 4 턴간 그 자리에 묶입니다.
+		이끼는 %d 턴 동안 지속됩니다.
+		모든 이끼 계열 기술은 사용하는데 시간이 걸리지 않지만, 사용시 다른 모든 이끼 계열 기술들을 3 턴 동안 쓰지 못하게 만듭니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.NATURE, damage), slow, pin, duration)
 	end,
 }
 
 newTalent{
 	name = "Nourishing Moss",
+	kr_name = "흡혈 이끼",
 	type = {"wild-gift/moss", 2},
 	require = gifts_req2,
 	points = 5,
@@ -113,12 +115,12 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local heal = t.getHeal(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Instantly grow a moss circle of radius %d at your feet.
-		Each turn the moss deals %0.2f nature damage to any foes with in its radius.
-		This moss has vampiric properties, all damage it deals also heals the user for %d%% of the damage done.
-		The moss lasts %d turns.
-		Using a moss talent takes no turn but places all other moss talents on a 3 turns cooldown.
-		The damage will increase with your Mindpower.]]):
+		return ([[발 밑에서 부터 반경 %d 칸의 영역에 즉각적으로 이끼를 자라나게 만듭니다.
+		해당 영역에 위치한 모든 적들은 매 턴마다 %0.2f 자연 속성 피해를 받습니다.
+		이 이끼는 흡혈의 성향을 지녀, 적들에게 주어진 피해량의 %d%% 만큼 당신의 생명력을 회복시켜 줍니다.
+		이끼는 %d 턴 동안 지속됩니다.
+		모든 이끼 계열 기술은 사용하는데 시간이 걸리지 않지만, 사용시 다른 모든 이끼 계열 기술들을 3 턴 동안 쓰지 못하게 만듭니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.NATURE, damage), heal, duration)
 	end,
 }
@@ -162,18 +164,19 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local fail = t.getFail(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Instantly grow a moss circle of radius %d at your feet.
-		Each turn the moss deals %0.2f nature damage to any foes with in its radius.
-		This moss is very slippery, any foes trying to perform complex actions has %d%% chances of failing.
-		The moss lasts %d turns.
-		Using a moss talent takes no turn but places all other moss talents on a 3 turns cooldown.
-		The damage will increase with your Mindpower.]]):
+		return ([[발 밑에서 부터 반경 %d 칸의 영역에 즉각적으로 이끼를 자라나게 만듭니다.
+		해당 영역에 위치한 모든 적들은 매 턴마다 %0.2f 자연 속성 피해를 받습니다.
+		이 이끼는 매우 미끄러워, 그 위에서 적들이 복잡한 행동을 %d%% 확률로 실패하도록 만듭니다. 
+		이끼는 %d 턴 동안 지속됩니다.
+		모든 이끼 계열 기술은 사용하는데 시간이 걸리지 않지만, 사용시 다른 모든 이끼 계열 기술들을 3 턴 동안 쓰지 못하게 만듭니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.NATURE, damage), fail, duration)
 	end,
 }
 
 newTalent{
 	name = "Hallucinogenic Moss",
+	kr_name = "환각성 이끼",
 	type = {"wild-gift/moss", 4},
 	require = gifts_req4,
 	points = 5,
@@ -212,12 +215,12 @@ newTalent{
 		local chance = t.getChance(self, t)
 		local power = t.getPower(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Instantly grow a moss circle of radius %d at your feet.
-		Each turn the moss deals %0.2f nature damage to any foes with in its radius.
-		This moss is coated with strange fluids, any foes passing through it has %d%% chances to be confused (power %d%%) for 2 turns.
-		The moss lasts %d turns.
-		Using a moss talent takes no turn but places all other moss talents on a 3 turns cooldown.
-		The damage will increase with your Mindpower.]]):
+		return ([[발 밑에서 부터 반경 %d 칸의 영역에 즉각적으로 이끼를 자라나게 만듭니다.
+		해당 영역에 위치한 모든 적들은 매 턴마다 %0.2f 자연 속성 피해를 받습니다.
+		이 이끼는 이상한 액체로 뒤덮혀 있어, 그 사이로 지나가는 모든 적들은 %d%% 확률로 2 턴 동안 혼란에 빠지게 됩니다 (혼란 수치 %d%%).  
+		이끼는 %d 턴 동안 지속됩니다.
+		모든 이끼 계열 기술은 사용하는데 시간이 걸리지 않지만, 사용시 다른 모든 이끼 계열 기술들을 3 턴 동안 쓰지 못하게 만듭니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.NATURE, damage), chance, power, duration)
 	end,
 }

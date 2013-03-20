@@ -446,7 +446,7 @@ end
 function string.krRace(str)
 	-- 관련내용 /data/birth/races/ 하위 파일들, /data/general/npcs/ 하위 파일들, /data/zones/ 하위 파일 중 추가 생명체 정보, 기타 여러곳
 	local ori = str:lower()
-	if ori == "3head" then return "머리3개"
+	if ori == "3head" then return "삼두형"
 	elseif ori == "air" then return "공기"
 	elseif ori == "animal" then return "동물"
 	elseif ori == "ant" then return "개미"

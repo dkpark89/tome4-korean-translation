@@ -55,7 +55,7 @@ newChat{ id="die",
 나는... 너를 살려줄 계획이었지만, 네 자유의지를 방해할 수는 없겠지. 다만, 아직도 많은 운명이 물질계에서 너를 기다리고 있다는 것만 알아둬라.
 다시 묻지. 방금 전 말은 진심인가?]],
 	answers = {
-		{"그렇습니다. 저를 죽여주십시오.", action=function(npc, player) game:getPlayer(true):die(game.player, {special_death_msg=("%s는 에이돌론의 공간에서 편안하게 죽음을 맞이했습니다."):format(game.player.female and "그녀" or "그")}) end},
+		{"그렇습니다. 저를 죽여주십시오.", action=function(npc, player) game:getPlayer(true):die(game.player, {special_death_msg=("%s는 에이돌론의 공간에서 편안하게 죽음을 맞이했습니다"):format(game.player.female and "그녀" or "그")}) end},
 		{"역시, 살아가는 것이 가치가 있는 일이겠죠!"},
 	}
 }

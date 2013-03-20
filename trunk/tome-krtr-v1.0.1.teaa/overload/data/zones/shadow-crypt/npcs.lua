@@ -84,7 +84,7 @@ newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "CULTIST_RAK_SHOR",
 			a.rank = 4
 			a.kr_name = (a.kr_name or a.name).."의 파멸한 그림자"
 			a.name = "Doomed Shade of "..a.name
-			a.killer_message = "하지만 누구도 왜 갑자기 #sex# 악인이 되었는지 알지 못했습니다."
+			a.killer_message = "하지만 누구도 왜 갑자기 #sex#가 악인이 되었는지 알지 못했습니다."
 			a.color_r = 150 a.color_g = 150 a.color_b = 150
 			a:removeAllMOs()
 			a.ai = "tactical"

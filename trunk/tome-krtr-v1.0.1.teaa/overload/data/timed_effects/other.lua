@@ -2237,7 +2237,7 @@ newEffect{
 		if eff.invulnerable then
 			eff.invulnerable = nil
 		end
-		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="과격한 응급치료의 불꽃에 타죽음"})
+		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="과격한 응급치료의 불꽃에 타죽었습니다"})
 
 		local srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
 		local dtn = DamageType:get(DamageType.FIRE).kr_name or DamageType:get(DamageType.FIRE).name --@@ 다음줄 사용 - 너무 길어서 변수로 뺌
@@ -2309,7 +2309,7 @@ newEffect{
 		-- Bypass all shields & such
 		local old = self.onTakeHit
 		self.onTakeHit = nil
-		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="숨막혀 죽음"})
+		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="숨막혀 죽었습니다"})
 		eff.dam = util.bound(eff.dam + 5, 20, 100)
 		self.onTakeHit = old
 	end,

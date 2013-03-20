@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Acidbeam",
+	kr_name = "산성 광선",
 	type = {"wild-gift/corrosive-blades", 1},
 	require = gifts_req_high1,
 	points = 5,
@@ -49,8 +50,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Channel acid through your psiblades, extending their reach to create a beam doing %0.2f acid damage.
-		Damage increase with Mindpower.]]):
+		return ([[염검을 통하여 산성 물질을 내뿜어, 순간적으로 기다란 광선을 만들어 %0.2f 산성 피해량의 공격을 합니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ACID, dam))
 	end,
 }
@@ -65,8 +66,8 @@ newTalent{
 	getResist = function(self, t) return 10 + self:combatTalentMindDamage(t, 10, 70) end,
 	info = function(self, t)
 		local res = t.getResist(self, t)
-		return ([[Each time you deal nature damage to a creature its acid resistance is decreased by %d%% for 2 turns.
-		Resistance will decrease with Mindpower.]]):
+		return ([[당신이 다른 존재에게 자연 속성 피해를 줄 때마다, 상대의 산성 저항력을 2 턴 동안 %d%% 감소시킵니다.
+		저항력 감소치는 정신력의 영향을 받아 증가합니다.]]):
 		format(res)
 	end,
 }
@@ -75,6 +76,7 @@ local basetrap = function(self, t, x, y, dur, add)
 	local Trap = require "mod.class.Trap"
 	local trap = {
 		id_by_type=true, unided_name = "trap",
+		kr_unided_name = "함정",
 		display = '^',
 		faction = self.faction,
 		summoner = self, summoner_gain_exp = true,
@@ -98,6 +100,7 @@ end
 
 newTalent{
 	name = "Corrosive Seeds",
+	kr_name = "부식성 씨앗",
 	type = {"wild-gift/corrosive-blades", 3},
 	require = gifts_req_high3,
 	points = 5,
@@ -125,7 +128,7 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the corrosive seed.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "부식성 씨앗을 심는데 실패했습니다.") return nil end
 
 		local tg = {type="ball", radius=self:getTalentRadius(t), range=self:getTalentRange(t)}
 		local grids = {}
@@ -138,6 +141,7 @@ newTalent{
 			if not spot then break end
 			local t = basetrap(self, t, spot.x, spot.y, 6, {
 				type = "seed", name = "corrosive seed", color=colors.VIOLET, image = "trap/corrosive_seeds.png",
+				kr_name = "부식성 씨앗",
 				disarm_power = self:combatMindpower(),
 				dam = self:mindCrit(t.getDamage(self, t)),
 				triggered = function(self, x, y, who) return true, true end,
@@ -165,15 +169,16 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		local nb = t.getNb(self, t)
-		return ([[You focus on a target zone of radius 2 to make up to %d corrosive seeds appear.
-		When a creature walk over a seed it explodes, knocking them back and dealing %0.2f acid damage.
-		The damage will increase with your Mindpower.]]):
+		return ([[당신은 목표 지점의 2 칸 반경 영역에 집중하여, 최대 %d 개의 부식성 씨앗이 나타나게 만듭니다.
+		그 위로 누군가가 지나가는 순간 씨앗은 폭발하여, 대상은 %0.2f 산성 피해를 받으면서 밀려나게 됩니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(nb, damDesc(self, DamageType.ACID, dam))
 	end,
 }
 
 newTalent{
 	name = "Acidic Soil",
+	kr_name = "산성 토양",
 	type = {"wild-gift/corrosive-blades", 4},
 	require = gifts_req_high4,
 	mode = "sustained",
@@ -213,8 +218,8 @@ newTalent{
 		local damageinc = t.getFireDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local regen = t.getRegen(self, t)
-		return ([[Surround yourself with nature forces, increasing all your acid damage by %d%% and ignoring %d%% acid resistance of your targets.
-		In addition the acid will nurish your bloated oozes, giving them %d%% life regeneration per turn.]])
+		return ([[스스로를 자연의 힘으로 둘러쌈으로써, 당신의 모든 산성 공격 피해량을 %d%% 증가시키고 산성 저항 관통력을 %d%% 올려줍니다.
+		또 이 힘은 당신에게 속한 진흙 덩어리들에게 영양분이 되어, 진흙 덩어리들에게 %d%% 생명력 재생을 줍니다.]])
 		:format(damageinc, ressistpen, regen)
 	end,
 }
