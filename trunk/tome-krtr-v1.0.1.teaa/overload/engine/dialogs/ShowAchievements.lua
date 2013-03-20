@@ -166,7 +166,7 @@ function _M:generateList(kind)
 			end
 		end
 		if not data.notdone or a.show then
-			local an = a.kr_name or a.name --@@ 172, 176, 178 사용 : 한글이름 저장 변수
+			local an = a.kr_name or a.name --@@ 세줄 뒤, 일곱줄 뒤, 아홉줄 뒤 사용 : 한글이름 저장 변수
 			
 			if a.show == "full" or not data.notdone then
 				list[#list+1] = { name=an, ori_name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }

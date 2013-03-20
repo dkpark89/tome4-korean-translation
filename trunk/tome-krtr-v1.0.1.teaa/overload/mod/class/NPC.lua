@@ -226,7 +226,7 @@ function _M:checkAngered(src, set, value)
 
 	if not was_hostile and self:reactionToward(src) < 0 then
 		if self.anger_emote then
-			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "그녀를" or "그를"), 30) --@@ '스스로를'이라 번역하려다 일단 성별로 구분해 놓음
+			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "그녀를" or "그를"), 30)
 		end
 	end
 end

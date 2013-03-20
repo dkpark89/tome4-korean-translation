@@ -219,7 +219,7 @@ newTalent{
 		local ressistpen = t.getResistPenalty(self, t)
 		local regen = t.getRegen(self, t)
 		return ([[스스로를 자연의 힘으로 둘러쌈으로써, 당신의 모든 산성 공격 피해량을 %d%% 증가시키고 산성 저항 관통력을 %d%% 올려줍니다.
-		또 이 힘은 당신에게 속한 진흙 덩어리들에게 영양분이 되어, 진흙 덩어리들에게 %d%% 생명력 재생을 줍니다.]])
+		또 이 힘은 당신에게 속한 점액 덩어리들에게 영양분이 되어, 점액 덩어리들에게 %d%% 생명력 재생을 줍니다.]])
 		:format(damageinc, ressistpen, regen)
 	end,
 }

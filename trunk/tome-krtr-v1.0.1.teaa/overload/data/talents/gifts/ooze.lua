@@ -44,8 +44,8 @@ newTalent{
 			type = "vermin", subtype = "oozes",
 			display = "j", color=colors.GREEN, image = "npc/vermin_oozes_bloated_ooze.png",
 			name = "bloated ooze",
-			kr_name = "진흙 덩어리",
-			desc = "당신의 살점으로 만들어진 진흙 덩어리입니다.",
+			kr_name = "점액 덩어리",
+			desc = "당신의 살점으로 만들어진 점액 덩어리입니다.",
 			sound_moam = {"creatures/jelly/jelly_%d", 1, 3},
 			sound_die = {"creatures/jelly/jelly_die_%d", 1, 2},
 			sound_random = {"creatures/jelly/jelly_%d", 1, 3},
@@ -98,11 +98,11 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[당신의 육체가 더욱 진흙같은 상태로 변합니다.
-		공격을 받으면 %d%% 확률로 당신이 분열하여, 당신이 받은 피해량만큼의 생명력을 가진 '진흙 덩어리'가 생성됩니다 (최대 생명력 %d).
-		자신이 받는 모든 피해량은 자신과 진흙 덩어리가 나눠서 받게 됩니다.
-		당신은 (교활함 능력치에 따라) 최대 %d 마리 까지 진흙 덩어리를 가질 수 있습니다.
-		진흙 덩어리는 피해에 대해 매우 탄력이 뛰어납니다 (50%% 전체 피해 저항). 단, 당신을 통해서 전달되는 피해에는 이 효과가 적용되지 않습니다.
+		return ([[당신의 육체가 더욱 점액같은 상태로 변합니다.
+		공격을 받으면 %d%% 확률로 당신이 분열하여, 당신이 받은 피해량만큼의 생명력을 가진 '점액 덩어리'가 생성됩니다 (최대 생명력 %d).
+		자신이 받는 모든 피해량은 자신과 점액 덩어리가 나눠서 받게 됩니다.
+		당신은 (교활함 능력치에 따라) 최대 %d 마리 까지 점액 덩어리를 가질 수 있습니다.
+		점액 덩어리는 피해에 대해 매우 탄력이 뛰어납니다 (50%% 전체 피해 저항). 단, 당신을 통해서 전달되는 피해에는 이 효과가 적용되지 않습니다.
 		최대 생명력은 정신력의 영향을 받아 증가하고, 발생 확률은 교활함의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t), t.getMaxHP(self, t), t.getMax(self, t))
 	end,
@@ -150,7 +150,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[당신은 임의의 인접한 진흙 덩어리와 합쳐짐으로써, %d 턴 동안 50%% 전체 피해 저항을 부여받습니다.
+		return ([[당신은 임의의 인접한 점액 덩어리와 합쳐짐으로써, %d 턴 동안 50%% 전체 피해 저항을 부여받습니다.
 		이렇게 합쳐지는 순간 반마법적 폭발이 발생하고, %d 칸 반경에 있는 주변의 모두에게 %0.2f 마나 태우기 피해가 주어집니다. 
 		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(
@@ -163,7 +163,7 @@ newTalent{
 
 newTalent{
 	name = "Call of the Ooze",
-	kr_name = "진흙 덩어리 불러오기",
+	kr_name = "점액 불러오기",
 	type = {"wild-gift/ooze", 3},
 	require = gifts_req3,
 	points = 5,
@@ -217,9 +217,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[즉각적으로 당신이 데리고 있는 모든 진흙 덩어리를 전투를 위해 불러옵니다. 만약 '유사 분열' 기술에 의한 최대 진흙 덩어리 수보다 적게 데리고 있었다면, %d 마리 이하의 진흙 덩어리가 새로 생성됩니다 (생명력 %d).
-		각각의 진흙 덩어리는 당신의 시야내에 존재하는 임의의 적 근방으로 이동하며, 그 상대의 주의를 빼앗습니다.
-		이 상황을 이용하여, 당신은 대상이 된 모든 적들에게 진흙 덩어리를 통한 근접 공격을 취합니다. 이 공격은 무기 피해량의 %d%% 만큼 산성 속성 피해를 줍니다.]]):
+		return ([[즉각적으로 당신이 데리고 있는 모든 점액 덩어리를 전투를 위해 불러옵니다. 만약 '유사 분열' 기술에 의한 최대 점액 수보다 적게 데리고 있었다면, %d 마리 이하의 점액이 새로 생성됩니다 (생명력 %d).
+		각각의 점액 덩어리는 당신의 시야내에 존재하는 임의의 적 근방으로 이동하며, 그 상대의 주의를 빼앗습니다.
+		이 상황을 이용하여, 당신은 대상이 된 모든 적들에게 점액 덩어리를 통한 근접 공격을 취합니다. 이 공격은 무기 피해량의 %d%% 만큼 산성 속성 피해를 줍니다.]]):
 		format(self:getTalentLevel(t), self:combatTalentMindDamage(t, 30, 300), self:combatTalentWeaponDamage(t, 0.6, 2.2) * 100)
 	end,
 }

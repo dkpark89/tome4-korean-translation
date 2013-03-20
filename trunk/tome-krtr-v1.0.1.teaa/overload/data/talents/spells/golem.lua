@@ -304,7 +304,7 @@ newTalent{
 
 newTalent{
 	name = "Eye Beam", short_name = "GOLEM_BEAM",
-	kr_name = "눈에서 빔!", --@@ 이걸 뭐라 불러야 할지...   --그냥 이렇게 부르는 것도 좋을듯 ^ㅆ^
+	kr_name = "안광",
 	type = {"golem/arcane", 1},
 	require = spells_req1,
 	points = 5,
@@ -363,7 +363,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[골렘이 눈에서 빔을 발사하여 %0.2f 의 화염 피해, %0.2f 의 냉기 피해, %0.2f 의 전기 피해 중 하나를 줍니다.
+		return ([[골렘이 눈에서 광선을 발사하여 %0.2f 의 화염 피해, %0.2f 의 냉기 피해, %0.2f 의 전기 피해 중 하나를 줍니다.
 		피해량은 골렘의 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage), damDesc(self, DamageType.COLD, damage), damDesc(self, DamageType.LIGHTNING, damage))
 	end,
