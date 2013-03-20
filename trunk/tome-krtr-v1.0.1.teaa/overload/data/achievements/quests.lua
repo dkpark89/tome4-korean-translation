@@ -367,6 +367,6 @@ newAchievement{
 newAchievement{
 	name = "Oozemancer", id = "OOZEMANCER",
 	show = "name",
-	kr_name = "진흙술사",
-	desc = [[타락한 진흙술사를 죽임.]],
+	kr_name = "점액술사",
+	desc = [[타락한 점액술사를 죽임.]],
 }
