@@ -530,7 +530,7 @@ end
 newDamageType{
 	name = "physical", type = "PHYSICAL",
 	kr_name = "물리",
-	death_message = {"battered", "bludgeoned", "sliced", "maimed", "raked", "bled", "impaled", "dissected", "disembowelled", "decapitated", "stabbed", "pierced", "torn limb from limb", "crushed", "shattered", "smashed", "cleaved", "swiped", "struck", "mutilated", "tortured", "skewered", "squished", "mauled", "chopped into tiny pieces", "splattered", "ground", "minced", "punctured", "hacked apart", "eviscerated"},
+	death_message = {"공격받아", "맞아서", "잘려", "중상을 입어", "할퀴어져", "출혈상으로", "관통되어", "해부되어", "배가 갈라져", "참수되어", "찔려", "꿰뚫려", "사족이 찢겨나가", "찌부러져", "박살나", "부수어져", "쪼개어져", "강타를 맞고", "맞아", "절단되어", "괴롭힘을 당하다가", "꼬치가 되어", "짓이겨", "난폭하게", "잘게 잘려", "피분수를 뿜으며", "쓰러져", "썰려", "구멍나", "난도질되어", "내장이 꺼내어져"},
 }
 
 -- Arcane is basic (usually) unresistable damage
@@ -538,7 +538,7 @@ newDamageType{
 	name = "arcane", type = "ARCANE", text_color = "#PURPLE#",
 	kr_name = "마법",
 	antimagic_resolve = true,
-	death_message = {"blasted", "energised", "mana-torn", "dweomered", "imploded"},
+	death_message = {"폭발하면서", "힘을 빼앗겨", "마나로 찢겨", "마법으로", "내파되어"},
 }
 -- The elemental damages
 newDamageType{
@@ -564,7 +564,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"burnt", "scorched", "blazed", "roasted", "flamed", "fried", "combusted", "toasted", "slowly cooked", "boiled"},
+	death_message = {"화상으로", "시들어", "불 타", "산화되어", "타올라", "튀겨져", "연소되어", "굽혀져", "천천히 익어", "익어서"},
 }
 newDamageType{
 	name = "cold", type = "COLD", text_color = "#1133F3#",
@@ -577,7 +577,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"frozen", "chilled", "iced", "cooled", "frozen and shattered into a million little shards"},
+	death_message = {"얼어붙어", "열기를 빼앗겨", "얼음에 갖혀", "차가워져", "얼어붙은 다음 산산조각 나서"},
 }
 newDamageType{
 	name = "lightning", type = "LIGHTNING", text_color = "#ROYAL_BLUE#",
@@ -587,7 +587,7 @@ newDamageType{
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
 		return realdam
 	end,
-	death_message = {"electrocuted", "shocked", "bolted", "volted", "amped", "zapped"},
+	death_message = {"감전되어", "전기충격을 받아", "번갯불로", "전류가 흘러", "지저져", "공격당하여"},
 }
 -- Acid destroys potions
 newDamageType{
@@ -603,7 +603,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"dissolved", "corroded", "scalded", "melted"},
+	death_message = {"용해되어", "부식되어", "끓어올라", "녹아"},
 }
 
 -- Nature & Blight: Opposing damage types
@@ -620,7 +620,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"slimed", "splurged", "treehugged", "naturalised"},
+	death_message = {"점액으로 뒤덮혀", "생명력을 빼앗겨", "환경 보호를 위해", "자연의 법칙에 따라"},
 }
 newDamageType{
 	name = "blight", type = "BLIGHT", text_color = "#DARK_GREEN#",
@@ -639,7 +639,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"diseased", "poxed", "infected", "plagued", "debilitated by noxious blight before falling", "fouled", "tainted"},
+	death_message = {"질병으로", "천연두로", "감염되어", "전염병으로", "유독성 황폐 물질로 쇠약해져", "썩어가며", "더럽혀져"},
 }
 
 -- Light damage
@@ -647,7 +647,7 @@ newDamageType{
 	name = "light", type = "LIGHT", text_color = "#YELLOW#",
 	kr_name = "빛",
 	antimagic_resolve = true,
-	death_message = {"radiated", "seared", "purified", "sun baked", "jerkied", "tanned"},
+	death_message = {"방사능으로", "시들어", "정화되어", "태양열로 구워져", "발작을 일으키며", "햇빛에 타올라"},
 }
 
 -- Darkness damage
@@ -655,7 +655,7 @@ newDamageType{
 	name = "darkness", type = "DARKNESS", text_color = "#GREY#",
 	kr_name = "어둠",
 	antimagic_resolve = true,
-	death_message = {"shadowed", "darkened", "swallowed by the void"},
+	death_message = {"그림자에 먹혀", "흐릿해지면서", "공허에 삼켜져"},
 	projector = function(src, x, y, type, dam, extra)
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -692,7 +692,7 @@ newDamageType{
 		end
 		return 0
 	end,
-	death_message = {"psyched", "mentally tortured", "mindraped"},
+	death_message = {"불안감으로", "정신적 괴롭힘을 당하여", "정신적 폭행으로"},
 }
 
 -- Temporal damage
@@ -700,7 +700,7 @@ newDamageType{
 	name = "temporal", type = "TEMPORAL", text_color = "#LIGHT_STEEL_BLUE#",
 	kr_name = "시간",
 	antimagic_resolve = true,
-	death_message = {"timewarped", "temporally distorted", "spaghettified across the whole of space and time", "paradoxed", "replaced by a time clone (and no one ever knew the difference)", "grandfathered", "time dilated"},
+	death_message = {"뒤틀린 시간으로", "시간적인 왜곡으로", "모든 시공간으로 분산되어", "괴리적으로", "(아무도 알아채지 못한) 복제된 시간으로 교체되어", "조상이 사라져", "시간 팽창으로"},
 }
 
 -- Temporal + Stun
@@ -1936,7 +1936,7 @@ newDamageType{
 
 newDamageType{
 	name = "nourishing moss", type = "NOURISHING_MOSS",
-	kr_name = "영양이 되는 이끼",
+	kr_name = "흡혈 이끼",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -1960,7 +1960,7 @@ newDamageType{
 
 newDamageType{
 	name = "hallucinogenic moss", type = "HALLUCINOGENIC_MOSS",
-	kr_name = "환각 유발의 이끼",
+	kr_name = "환각성 이끼",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
