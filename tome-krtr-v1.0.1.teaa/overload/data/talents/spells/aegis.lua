@@ -165,7 +165,7 @@ newTalent{
 		local shield = t.getShield(self, t)
 		return ([[현재 시전자를 보호 중인 모든 보호막에 마력을 불어넣어, 보호막을 %d%% 증폭시킵니다.
 		피해량을 흡수하는 보호막일 경우에는 최대 흡수량이, 왜곡의 보호막일 경우 최대 마나량이 증가합니다.
-		%d 개 이하의 보호막이 적용 중일 때 가장 효과가 좋습니다.
+		이 효과는 최대 %d 개 이하의 보호막에만 적용됩니다.
 		성능 증가율은 주문력의 영향을 받아 증가합니다.]]):
 		format(shield, self:getTalentLevelRaw(t))
 	end,
