@@ -1141,8 +1141,8 @@ newEffect{
 newEffect{
 	name = "WASTING", image = "talents/ashes_to_ashes.png",
 	desc = "Wasting",
-	kr_name = "낭비",
-	long_desc = function(self, eff) return ("낭비 : 매 턴마다 시간 피해 %0.2f"):format(eff.power) end,
+	kr_name = "시간 낭비",
+	long_desc = function(self, eff) return ("시간 낭비 : 매 턴마다 시간 피해 %0.2f"):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",

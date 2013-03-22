@@ -171,7 +171,7 @@ newEntity{
 	on_stand = function(self, x, y, who)
 		local DT = engine.DamageType
 		local dam = DT:get(DT.POISON).projector(self, x, y, DT.POISON, rng.range(self.mindam, self.maxdam))
-		if dam > 0 then game.logPlayer(who, "유독성 물이 당신을 중독시켰습니다!") end
+		if dam > 0 then game.logPlayer(who, "유독한 물이 당신을 중독시켰습니다!") end
 	end,
 	combatAttack = function(self) return rng.range(self.mindam, self.maxdam) end,
 	nice_tiler = { method="replace", base={"POISON_DEEP_WATER", 100, 1, 6}},

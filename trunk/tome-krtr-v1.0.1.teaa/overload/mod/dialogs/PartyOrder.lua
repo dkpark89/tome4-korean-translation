@@ -26,10 +26,10 @@ module(..., package.seeall, class.inherit(engine.ui.Dialog))
 local orders = {
 	escort_rest = {-100, function(actor) return "잠시 대기" end},
 	escort_portal = {-99, function(actor) return "관문은 어디있죠?" end},
-	target = {1, function(actor) return ("목표 설정 [현재: %s]"):format(actor.ai_target.actor and actor.ai_target.actor.name or "없음") end},
-	behavior = {2, function(actor) return ("행동 설정 [현재: %s]"):format(actor.ai_tactic.type or "기본") end},
-	anchor = {3, function(actor) return ("기준 위치 설정 [현재: %s]"):format(actor.ai_state.tactic_leash_anchor and actor.ai_state.tactic_leash_anchor.name or "없음") end},
-	leash = {4, function(actor) return ("최대 거리 설정 [현재: %d]"):format(actor.ai_state.tactic_leash) end},
+	target = {1, function(actor) return ("목표 설정 [현재 : %s]"):format(actor.ai_target.actor and actor.ai_target.actor.name or "없음") end},
+	behavior = {2, function(actor) return ("행동 설정 [현재 : %s]"):format(actor.ai_tactic.type or "기본") end},
+	anchor = {3, function(actor) return ("기준 위치 설정 [현재 : %s]"):format(actor.ai_state.tactic_leash_anchor and actor.ai_state.tactic_leash_anchor.name or "없음") end},
+	leash = {4, function(actor) return ("최대 거리 설정 [현재 : %d]"):format(actor.ai_state.tactic_leash) end},
 	talents = {5, function(actor) return ("전략적 기술 사용 정의") end},
 }
 

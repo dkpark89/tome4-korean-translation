@@ -66,10 +66,10 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 	self.c_tile = Button.new{text="커스텀 타일 선택", fct=function() self:selectTile() end}
 	self.c_cancel = Button.new{text="취소", fct=function() self:atEnd("quit") end}
 	self.c_tut = Button.new{text="초보자용 연습게임", fct=function() self:tutorial() end}
-	self.c_options = Button.new{text="맞춤 설정", fct=function() self:customizeOptions() end}
+	self.c_options = Button.new{text="생김새 설정", fct=function() self:customizeOptions() end}
 	self.c_options.hide = true
 
-	self.c_name = Textbox.new{title="이름: ", text=(not config.settings.cheat and game.player_name == "player") and "" or game.player_name, chars=30, max_len=50, fct=function()
+	self.c_name = Textbox.new{title="이름 : ", text=(not config.settings.cheat and game.player_name == "player") and "" or game.player_name, chars=30, max_len=50, fct=function()
 		if config.settings.cheat then self:makeDefault() end
 	end, on_change=function() self:setDescriptor() end, on_mouse = function(button) if button == "right" then self:randomName() end end}
 
@@ -83,15 +83,15 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 	}
 
 	self:generateCampaigns()
-	self.c_campaign_text = Textzone.new{auto_width=true, auto_height=true, text="캠페인: "}
+	self.c_campaign_text = Textzone.new{auto_width=true, auto_height=true, text="캠페인 : "}
 	self.c_campaign = Dropdown.new{width=400, fct=function(item) self:campaignUse(item) end, on_select=function(item) self:updateDesc(item) end, list=self.all_campaigns, nb_items=#self.all_campaigns}
 
 	self:generateDifficulties()
-	self.c_difficulty_text = Textzone.new{auto_width=true, auto_height=true, text="난이도: "}
+	self.c_difficulty_text = Textzone.new{auto_width=true, auto_height=true, text="난이도 : "}
 	self.c_difficulty = Dropdown.new{width=100, fct=function(item) self:difficultyUse(item) end, on_select=function(item) self:updateDesc(item) end, list=self.all_difficulties, nb_items=#self.all_difficulties}
 
 	self:generatePermadeaths()
-	self.c_permadeath_text = Textzone.new{auto_width=true, auto_height=true, text="죽음 방식: "}
+	self.c_permadeath_text = Textzone.new{auto_width=true, auto_height=true, text="죽음 방식 : "}
 	self.c_permadeath = Dropdown.new{width=150, fct=function(item) self:permadeathUse(item) end, on_select=function(item) self:updateDesc(item) end, list=self.all_permadeaths, nb_items=#self.all_permadeaths}
 
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 3 - 10), height=self.ih - self.c_female.h - self.c_ok.h - self.c_difficulty.h - self.c_campaign.h - 10, scrollbar=true, no_color_bleed=true}
@@ -338,8 +338,8 @@ function _M:tutorial()
 	end
 
 	local d = Dialog.new("초보자 입문용 연습게임", 250, 100)
-	local basic = Button.new{text="기본적인 게임진행 (추천)", fct=function() run("Basic") d.key:triggerVirtual("EXIT") end}
-	local stats = Button.new{text="능력치와 상태이상 효과들 (숙련자용)", fct=function() run("Stats") d.key:triggerVirtual("EXIT") end}
+	local basic = Button.new{text="기본적인 게임진행 (기초)", fct=function() run("Basic") d.key:triggerVirtual("EXIT") end}
+	local stats = Button.new{text="능력치와 상태효과 (고급)", fct=function() run("Stats") d.key:triggerVirtual("EXIT") end}
 	local cancel = Button.new{text="취소", fct=function() d.key:triggerVirtual("EXIT") end}
 	local sep = Separator.new{dir="vertical", size=230}
 
@@ -629,7 +629,7 @@ function _M:getLock(d)
 end
 
 function _M:generateCampaigns()
-	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 게임 내에서 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제할 수 있습니다."
 	local list = {}
 
 	for i, d in ipairs(self.birth_descriptor_def.world) do
@@ -650,7 +650,7 @@ function _M:generateCampaigns()
 end
 
 function _M:generateDifficulties()
-	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 게임 내에서 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제할 수 있습니다."
 	local list = {}
 
 	local oldsel = nil
@@ -682,7 +682,7 @@ function _M:generateDifficulties()
 end
 
 function _M:generatePermadeaths()
-	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 게임 내에서 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제할 수 있습니다."
 	local list = {}
 
 	local oldsel = nil
@@ -714,7 +714,7 @@ function _M:generatePermadeaths()
 end
 
 function _M:generateRaces()
-	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 게임 내에서 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제할 수 있습니다."
 
 	local oldtree = {}
 	for i, t in ipairs(self.all_races or {}) do oldtree[t.id] = t.shown end
@@ -768,7 +768,7 @@ function _M:generateRaces()
 end
 
 function _M:generateClasses()
-	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제하여 선택할 수 있습니다."
+	local locktext = "\n\n#GOLD#이 캐릭터 생성 항목은 잠겨있습니다. 게임 내에서 어떤 행동이나 퀘스트를 수행함으로써, 잠겨진 게임 모드나 종족, 직업들을 해제할 수 있습니다."
 
 	local oldtree = {}
 	for i, t in ipairs(self.all_classes or {}) do oldtree[t.id] = t.shown end
@@ -791,7 +791,7 @@ function _M:generateClasses()
 						local desc = sd.desc
 						if type(desc) == "table" then desc = table.concat(sd.desc, "\n") end
 						if how == "nolore" and self.descriptors_by_type.subrace then
-							desc = "#CRIMSON#이 직업은 선택한 종족과 썩 어울려 보이지 않습니다. 게임이 불가능한 것은 아니지만, 특정 퀘스트는 불가능할 수도 있습니다/...#WHITE#\n" .. desc
+							desc = "#CRIMSON#이 직업은 선택한 종족과 썩 어울려 보이지 않습니다. 게임이 불가능한 것은 아니지만, 특정 퀘스트를 수행하지 못할 수도 있습니다/...#WHITE#\n" .. desc
 						end
 						nodes[#nodes+1] = { name = sd.kr_display_name or sd.display_name, kr_basename= sd.kr_display_name or sd.display_name, basename=sd.display_name, id=sd.name, pid=d.name, desc=desc, def=sd }
 						if self.sel_class and self.sel_class.id == sd.name then newsel = nodes[#nodes] end
@@ -939,7 +939,7 @@ function _M:loadPremadeUI()
 
 	local load = Button.new{text="불러오기", fct=function() if sel then self:loadPremade(sel) game:unregisterDialog(d) end end}
 	local del = Button.new{text="삭제", fct=function() if sel then
-		self:yesnoPopup(sel.name, "만들었던 캐릭터를 삭제하시겠습니까?: "..sel.name, function(ret) if ret then
+		self:yesnoPopup(sel.name, "만들었던 캐릭터를 삭제하시겠습니까? : "..sel.name, function(ret) if ret then
 			local vault = CharacterVaultSave.new(sel.short_name)
 			vault:delete()
 			vault:close()
@@ -1079,35 +1079,35 @@ end
 function _M:selectExplorationNoDonations()
 	Dialog:yesnoLongPopup("탐사 모드",
 	[[탐사 모드에서는 부활에 제한이 없는 캐릭터를 제공합니다.
-이 게임에서는, 죽음을 포함한 여러 실수들을 반복하면서 얻는 경험으로 플레이어의 실력이 향상되게 됩니다.
-하지만 수차례의 요청을 받은 뒤 모두가 이런 반복된 플레이가 강제되는 것을 즐거워하는 것은 아님을 깨닫고, 이 게임을 위해 기부해주신 분(donator)들이 마음껏 모든 것을 경험해보실 수 있도록 탐사 모드를 제공하게 되었습니다.
+이 게임에서는, 죽음을 포함한 여러 실수들을 반복하면서 얻는 경험으로 플레이어의 실력이 향상됩니다.
+하지만 수차례의 요청을 받은 뒤, 이런 반복된 플레이가 강제되는 것을 모두가 즐거워하는 것은 아니라는 것을 깨달았습니다. 그래서 이 게임을 위해 기부해주신 분(donator)들이 마음껏 모든 것을 경험해보실 수 있도록 탐사 모드를 제공하게 되었습니다.
 무한한 생명을 지녔다고 해도 어려움이 경감되는 것은 아니지만, 그래도 처음부터 다시 시작해야만 하는 상황에서 벗어나 도전을 계속해볼 수 있지요.
 
-만약 이 기능을 사용하고 싶으시고 이 게임이 마음에 드신다면 기부를 부탁드립니다.
-이 게임은 무료이고 취미삼아 만든 것이지만, 제 가족의 생계에 약간이나마 도움이 되게 된다면, 간혹 현실이 가혹하더라도 불평없이 기쁜 마음으로 제작을 계속할 수 있을꺼에요.
-온라인 프로파일이 활성화되어 있고 접속중이라면 커스텀 캐릭터 타일을 선택할 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
+만약 이 기능을 사용하고 싶으시고 이 게임이 마음에 드신다면, 기부를 부탁드립니다.
+이 게임은 무료이고 취미삼아 만든 것이지만, 이 게임이 제 가족의 생계에 약간이나마 도움이 된다면 간혹 현실이 가혹해지더라도 불평 없이 기쁜 마음으로 제작을 계속할 수 있을 것입니다.
+기부자 계정으로 온라인 접속중이라면, 탐사 모드를 선택하실 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
 
 기부해주신 분들은 커스텀 캐릭터 타일도 사용하실 수 있습니다.]], 400, function(ret)
 		if not ret then
 			game:registerDialog(require("mod.dialogs.Donation").new("exploration-mode"))
 		end
-	end, "나중에요..", "기부할께요!")
+	end, "나중에요...", "기부할께요!")
 end
 
 function _M:selectTileNoDonations()
 	Dialog:yesnoLongPopup("커스텀 캐릭터 타일",
-	[[커스텀 캐릭터 타일은 ToME을 위해 기부해주신 분들께 감사드리기 위해 추가되었습니다.
-특별한 인간형 타일에서부터 게임상에서 흔히 본 것들까지 총 180가지에 이르는 재미난 캐릭터 타일을 제공합니다(나중에 더 추가됩니다!)
+	[[커스텀 캐릭터 타일은 ToME을 위해 기부해주신 분들께 감사를 드리기 위해 추가되었습니다.
+게임상에서 흔히 본 것들에서부터 특별한 인간형 타일에서까지, 총 180 가지에 이르는 재미난 캐릭터 타일을 제공합니다. (계속 추가됩니다!)
 
-만약 이 기능을 사용하고 싶으시고 이 게임이 마음에 드신다면 기부를 부탁드립니다.
-이 게임은 무료이고 취미삼아 만든 것이지만, 제 가족의 생계에 약간이나마 도움이 되게 된다면, 간혹 현실이 가혹하더라도 불평없이 기쁜 마음으로 제작을 계속할 수 있을꺼에요.
-온라인 프로파일이 활성화되어 있고 접속중이라면 커스텀 캐릭터 타일을 선택할 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
+만약 이 기능을 사용하고 싶으시고 이 게임이 마음에 드신다면, 기부를 부탁드립니다.
+이 게임은 무료이고 취미삼아 만든 것이지만, 이 게임이 제 가족의 생계에 약간이나마 도움이 된다면 간혹 현실이 가혹해지더라도 불평 없이 기쁜 마음으로 제작을 계속할 수 있을 것입니다.
+기부자 계정으로 온라인 접속중이라면, 커스텀 캐릭터 타일을 선택하실 수 있습니다. 기부를 하셨다면 게임을 재시작하셔야 기부자 권한이 적용됩니다.
 
 기부해주신 분들은 탐사 모드도 사용하실 수 있습니다.]], 400, function(ret)
 		if not ret then
 			game:registerDialog(require("mod.dialogs.Donation").new("custom-tiles"))
 		end
-	end, "나중에요..", "기부할께요!")
+	end, "나중에요...", "기부할께요!")
 end
 
 function _M:selectTile()
@@ -1358,7 +1358,7 @@ function _M:isDonator()
 end
 
 function _M:customizeOptions()
-	local d = Dialog.new("맞춤 설정", 600, 550)
+	local d = Dialog.new("생김새 설정", 600, 550)
 
 	local sel = nil
 	local list list = List.new{width=450, list=self.cosmetic_unlocks, height=400,

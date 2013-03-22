@@ -63,7 +63,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[공격적인 자세를 취하여, 앞으로 전진할 때 전방 %d 칸 반경에 있는 적들을 밀어낼 수 있습니다.
+		return ([[공격적인 자세를 취하여, 적을 공격할 때마다 적을 %d 칸 밀어낼 수 있습니다.
 		이 기술은 체력을 급속도로 소모합니다. (1 턴 당 4 체력 소모)]]):
 		format(math.floor(self:getTalentLevel(t)))
 	end,
@@ -124,7 +124,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[무기에 온 힘을 실어, 적을 타격할 때마다 충격파를 만들어냅니다. 이 충격파는 근처의 모든 적들에게 %d%% 무기 피해를 줍니다. 
+		return ([[무기에 온 힘을 실어, 적을 타격할 때마다 충격파를 만들어냅니다. 이 충격파는 근처 1 칸 반경의 모든 적들에게 %d%% 무기 피해를 추가로 줍니다. 
 		대신, 매 타격마다 체력이 15 소모됩니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.2, 0.6))
 	end,

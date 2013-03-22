@@ -151,7 +151,7 @@ function _M:pickupFloor(i, vocal, no_sort)
 			if vocal then game.logSeen(self, "%s (%s) %s 줍습니다.", (self.kr_name or self.name):capitalize():addJosa("가"), letter, o:getName{do_color=true}:addJosa("를")) end
 			return o
 		elseif not prepickup then
-			if vocal then game.logSeen(self, "%s %s 가지기 위한 공간이 부족합니다.", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
+			if vocal then game.logSeen(self, "공간이 부족하여, %s %s 줍지 못했습니다.", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 			return
 		elseif prepickup == "skip" then
 			return
@@ -159,7 +159,7 @@ function _M:pickupFloor(i, vocal, no_sort)
 			return true
 		end
 	else
-		if vocal then game.logSeen(self, "거기엔 주울 것이 없습니다.") end
+		if vocal then game.logSeen(self, "여기에는 주울 것이 없습니다.") end
 	end
 end
 
@@ -319,7 +319,7 @@ function _M:canWearObject(o, try_slot)
 		local inven = self:getInven(o.slot_forbid)
 		-- If the object cant coexist with that inventory slot and it exists and is not empty, refuse wearing
 		if inven and #inven > 0 then
-			return nil, "해당 부위에 이미 착용한 것이 있음"
+			return nil, "해당 부위에 이미 착용한 장비가 있음"
 		end
 	end
 
@@ -330,7 +330,7 @@ function _M:canWearObject(o, try_slot)
 				print("fight: ", o.name, wo.name, "::", wo.slot_forbid, try_slot or o.slot)
 				if wo.slot_forbid and wo.slot_forbid == (try_slot or o.slot) then
 					print(" impossible => ", o.name, wo.name, "::", wo.slot_forbid, try_slot or o.slot)
-					return nil, "해당 부위에 이미 착용한 것이 있음"
+					return nil, "해당 부위에 이미 착용한 장비가 있음"
 				end
 			end
 		end
@@ -375,7 +375,7 @@ function _M:wearObject(o, replace, vocal)
 	elseif replace then
 		local ro = self:removeObject(inven, 1, true)
 
-		if vocal then game.logSeen(self, "%s %s 착용합니다 (교체).", (self.kr_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
+		if vocal then game.logSeen(self, "%s %s 착용합니다. (교체)", (self.kr_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
 
 		-- Can we stack the old and new one ?
 		if o:stack(ro) then ro = true end

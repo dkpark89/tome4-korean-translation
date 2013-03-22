@@ -46,9 +46,9 @@ newChat{ id="welcome",
 '한길' 은 결코 자네를 잊지 않을 것이라네. 이제 가서 역사를 만들게!
 ]],
 	answers = {
-		{"#LIGHT_GREEN#[자신을 희생하여 '한길'을 모든 이성 있는 생명체들에게 퍼뜨린다]", action=function(npc, player)
+		{"#LIGHT_GREEN#[자신을 희생하여 '한길' 을 모든 이성 있는 생명체들에게 퍼뜨린다]", action=function(npc, player)
 			player.no_resurrect = true
-			player:die(player, {special_death_msg="자신을 희생하여 '한길'을 모두에게 퍼뜨렸습니다"})
+			player:die(player, {special_death_msg="자신을 희생하여, '한길' 을 모두에게 퍼뜨렸습니다."})
 			player:setQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek")
 			player:hasQuest("high-peak"):win("yeek-sacrifice")
 		end},
@@ -61,9 +61,9 @@ newChat{ id="yeek-unsure",
 모든 이크들을 위해, 시키는대로 하게! '한길' 은 언제나 옳다네!
 ]],
 	answers = {
-		{"#LIGHT_GREEN#[자신을 희생하여 '한길'을 모든 이성 있는 생명체들에게 퍼뜨린다]", action=function(npc, player)
+		{"#LIGHT_GREEN#[자신을 희생하여 '한길' 을 모든 이성 있는 생명체들에게 퍼뜨린다]", action=function(npc, player)
 			player.no_resurrect = true
-			player:die(player, {special_death_msg="자신을 희생하여 '한길'을 모두에게 퍼뜨렸습니다"})
+			player:die(player, {special_death_msg="자신을 희생하여, '한길' 을 모두에게 퍼뜨렸습니다."})
 			player:setQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek")
 			player:hasQuest("high-peak"):win("yeek-sacrifice")
 		end},
@@ -88,7 +88,7 @@ newChat{ id="welcome",
 		{"아에린, 미안하지만 우리 둘 중 하나는 이 세계를 위해 희생해야 합니다. #LIGHT_GREEN#[세계의 평화를 위해, 아에린을 희생시킨다]", jump="aeryn-sacrifice", cond=aeryn_alive},
 		{"제가 관문을 닫죠. #LIGHT_GREEN#[세계의 평화를 위해, 자신을 희생한다]", action=function(npc, player)
 			player.no_resurrect = true
-			player:die(player, {special_death_msg="세계의 평화를 위해 자신을 희생했습니다"})
+			player:die(player, {special_death_msg="세계의 평화를 위해, 자신을 희생했습니다."})
 			player:hasQuest("high-peak"):win("self-sacrifice")
 		end},
 	}

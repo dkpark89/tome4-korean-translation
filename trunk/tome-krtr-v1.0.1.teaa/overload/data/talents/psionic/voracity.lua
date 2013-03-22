@@ -193,7 +193,7 @@ newTalent{
 		self.max_psi = self.max_psi - 10
 	end,
 	info = function(self, t)
-		return ([[더 많은 염력을 원하게 되어, 최대 염력량이 %d 늘어납니다.]]):format(10 * self:getTalentLevelRaw(t))
+		return ([[더 많은 염력을 원하게 되어, 최대 염력이 %d 늘어납니다.]]):format(10 * self:getTalentLevelRaw(t))
 	end,
 }
 

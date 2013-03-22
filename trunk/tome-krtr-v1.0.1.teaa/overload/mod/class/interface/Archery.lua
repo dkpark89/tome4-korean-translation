@@ -180,7 +180,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 		dam = dam * mult
 		print("[ATTACK ARCHERY] after mult", dam)
 
-		if crit then game.logSeen(self, "#{bold}#%s 치명타를 주는데 성공합니다!#{normal}#", (self.kr_name or self.name):capitalize():addJosa("가")) end
+		if crit then game.logSeen(self, "#{bold}#%s 치명타를 주는데 성공했습니다!#{normal}#", (self.kr_name or self.name):capitalize():addJosa("가")) end
 
 		-- Damage conversion?
 		-- Reduces base damage but converts it into another damage type

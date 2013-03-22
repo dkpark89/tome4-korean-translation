@@ -99,7 +99,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[발 아래에 %d 칸 반경의 권역을 생성하여, 빛을 밝히고 매 턴마다 양기를 %d 획득하며, 권역에 발을 들이는 자들에게 매 턴마다 %0.2f 빛 피해와 %0.2f 화염 피해를 줍니다. 권역은 %d 턴 간 유지됩니다.
+		return ([[발 아래에 %d 칸 반경의 권역을 생성하여 빛을 밝히고 매 턴마다 양기를 %d 획득하며, 권역에 발을 들이는 자들에게 매 턴마다 %0.2f 빛 피해와 %0.2f 화염 피해를 줍니다. 권역은 %d 턴 간 유지됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, 1 + (damage / 4), (damDesc (self, DamageType.LIGHT, damage)), (damDesc (self, DamageType.FIRE, damage)), duration)
 	end,

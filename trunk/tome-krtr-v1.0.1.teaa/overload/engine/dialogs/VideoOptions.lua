@@ -74,7 +74,7 @@ function _M:generateList()
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#FPS 설정#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.display_fps)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("재생 빈도를 입력하시오", "5에서 60 사이", config.settings.display_fps, 60, function(qty)
+		game:registerDialog(GetQuantity.new("재생 빈도를 입력하시오", "5 에서 60 사이", config.settings.display_fps, 60, function(qty)
 			qty = util.bound(qty, 5, 60)
 			game:saveSettings("display_fps", ("display_fps = %d\n"):format(qty))
 			config.settings.display_fps = qty
@@ -87,16 +87,16 @@ function _M:generateList()
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#입자 효과 밀도#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.particles_density)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("밀도를 입력하시오", "0에서 100 사이", config.settings.particles_density, 100, function(qty)
+		game:registerDialog(GetQuantity.new("밀도를 입력하시오", "0 에서 100 사이", config.settings.particles_density, 100, function(qty)
 			game:saveSettings("particles_density", ("particles_density = %d\n"):format(qty))
 			config.settings.particles_density = qty
 			self.c_list:drawItem(item)
 		end))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"글자들을 매끄럽게 보여줄지 결정합니다.\n글자들이 보기좋아 지지만, 게임속도가 조금 느려질 수 있습니다.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates antialiased texts.\nTexts will look nicer but it can be slower on some computers.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"글자들을 매끄럽게 보여줄지 결정합니다.\n글자들이 보기 좋아지지만, 게임 속도가 조금 느려질 수 있습니다.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates antialiased texts.\nTexts will look nicer but it can be slower on some computers.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#부드러운 글자#WHITE##{normal}#", status=function(item)
-		return tostring(core.display.getTextBlended() and "사용" or "사용안함")
+		return tostring(core.display.getTextBlended() and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		local state = not core.display.getTextBlended()
 		core.display.setTextBlended(state)
@@ -104,18 +104,18 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"화면의 프레임 버퍼를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 효과를 볼 수 있습니다.\n만약 화면이 이상하게 갑작스런 변화(glitch)가 발생하면 이 설정을 사용안함으로 바꿔보십시오.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates framebuffers.\nThis option allows for some special graphical effects.\nIf you encounter weird graphical glitches try to disable it.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"화면의 프레임 버퍼를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 효과를 볼 수 있습니다.\n만약 화면에 이상한 변화나 에러(glitch)가 발생한다면 이 설정을 '사용하지 않음' 으로 바꿔보십시오.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates framebuffers.\nThis option allows for some special graphical effects.\nIf you encounter weird graphical glitches try to disable it.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#프레임버퍼#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.fbo_active and "사용" or "사용안함")
+		return tostring(config.settings.fbo_active and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.fbo_active = not config.settings.fbo_active
 		game:saveSettings("fbo_active", ("fbo_active = %s\n"):format(tostring(config.settings.fbo_active)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"OpenGL의 그림자효과를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 효과를 볼 수 있습니다.\n만약 화면이 이상하게 갑작스런 변화(glitch)가 발생하면 이 설정을 사용안함으로 바꿔보십시오.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates OpenGL Shaders.\nThis option allows for some special graphical effects.\nIf you encounter weird graphical glitches try to disable it.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"OpenGL의 그림자 효과를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 효과를 볼 수 있습니다.\n만약 화면이 이상한 변화나 에러(glitch)가 발생한다면 이 설정을 '사용하지 않음' 으로 바꿔보십시오.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates OpenGL Shaders.\nThis option allows for some special graphical effects.\nIf you encounter weird graphical glitches try to disable it.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL 그림자효과#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.shaders_active and "사용" or "사용안함")
+		return tostring(config.settings.shaders_active and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.shaders_active = not config.settings.shaders_active
 		game:saveSettings("shaders_active", ("shaders_active = %s\n"):format(tostring(config.settings.shaders_active)))
@@ -124,7 +124,7 @@ function _M:generateList()
 
 	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임에서 제공하는 마우스 커서를 사용할지 결정합니다.\n사용하지 않으면 운영체제에서 제공하는 마우스 커서가 사용됩니다.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nUse the custom cursor.\nDisabling it will use your normal operating system cursor.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#마우스 커서#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.mouse_cursor and "사용" or "사용안함")
+		return tostring(config.settings.mouse_cursor and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.mouse_cursor = not config.settings.mouse_cursor
 		game:updateMouseCursor()
@@ -132,11 +132,11 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"감마 보정값을 설정합니다.\n화면이 밝아지길 원한다면, 높은 값으로 설정하세요.\n\nGamma correction setting.\nIncrease this to get a brighter display.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"감마 보정값을 설정합니다.\n밝은 화면을 원한다면, 높은 값으로 설정하세요.\n\nGamma correction setting.\nIncrease this to get a brighter display.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#감마 보정값 설정#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.gamma_correction)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("감마 보정값 설정", "50에서 300 사이", config.settings.gamma_correction, 300, function(qty)
+		game:registerDialog(GetQuantity.new("감마 보정값 설정", "50 에서 300 사이", config.settings.gamma_correction, 300, function(qty)
 			qty = util.bound(qty, 50, 300)
 			game:saveSettings("gamma_correction", ("gamma_correction = %d\n"):format(qty))
 			config.settings.gamma_correction = qty
@@ -145,9 +145,9 @@ function _M:generateList()
 		end), 50)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"시동 이미지중 '방어적'일수 있는 것은 허용하지 않습니다.\n\nDisallow boot images that could be fuond 'offensive'.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임을 불러올 때 사용되는 그림 중에서, '공격적' 일 수 있는 것을 허용하지 않게 됩니다.\n\nDisallow boot images that could be fuond 'offensive'.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#시동 검열#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.censor_boot and "사용" or "사용안함")
+		return tostring(config.settings.censor_boot and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.censor_boot = not config.settings.censor_boot
 		game:saveSettings("censor_boot", ("censor_boot = %s\n"):format(tostring(config.settings.censor_boot)))

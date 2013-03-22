@@ -182,7 +182,7 @@ function _M:canControl(actor, vocal)
 		return false
 	end
 	if actor.dead or (game.level and not game.level:hasEntity(actor)) then
-		if vocal then game.logPlayer(game.player, "이 존재의 제어권을 가져올수 없습니다.") end
+		if vocal then game.logPlayer(game.player, "이 존재의 제어권을 가져올 수 없습니다.") end
 		print("[PARTY] error trying to set player, no entity or dead")
 		return false
 	end
@@ -259,7 +259,7 @@ function _M:setPlayer(actor, bypass)
 
 	if not actor.hotkeys_sorted then actor:sortHotkeys() end
 
-	game.logPlayer(actor, "#MOCCASIN#캐릭터 제어를 %s에게로 바꿉니다.", (actor.kr_name or actor.name))
+	game.logPlayer(actor, "#MOCCASIN#%s의 조작을 시작합니다.", (actor.kr_name or actor.name))
 
 	return true
 end
@@ -289,7 +289,7 @@ function _M:canOrder(actor, order, vocal)
 		return false
 	end
 	if actor.dead or (game.level and not game.level:hasEntity(actor)) then
-		if vocal then game.logPlayer(game.player, "이 존재에게는 명령을 내릴수 없습니다.") end
+		if vocal then game.logPlayer(game.player, "이 존재에게는 명령을 내릴 수 없습니다.") end
 		return false
 	end
 	if actor.on_can_order and not actor:on_can_order(vocal) then
@@ -325,9 +325,9 @@ function _M:giveOrder(actor, order)
 	local def = self.members[actor]
 
 	if order == "leash" then
-		game:registerDialog(GetQuantity.new("행동 반경 설정: "..(actor.kr_name or actor.name), "동료의 대표로부터 떨어질수 있는 최대 거리를 설정합니다", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
+		game:registerDialog(GetQuantity.new("행동 반경 설정 : "..(actor.kr_name or actor.name), "기준 위치로부터 떨어질 수 있는 최대 거리를 설정합니다 ", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
 			actor.ai_state.tactic_leash = util.bound(qty, 1, actor.ai_state.tactic_leash_max or 100)
-			game.logPlayer(game.player, "%s의 최대 행동 반경이 %d으로 설정되었습니다..", (actor.kr_name or actor.name):capitalize(), actor.ai_state.tactic_leash)
+			game.logPlayer(game.player, "%s 이제 기준 위치로부터 %d 칸 반경 내에서만 행동할 수 있습니다.", (actor.kr_name or actor.name):capitalize():addJosa("는"), actor.ai_state.tactic_leash)
 		end), 1)
 	elseif order == "anchor" then
 		local co = coroutine.create(function()
@@ -340,7 +340,7 @@ function _M:giveOrder(actor, order)
 					anchor = {x=x, y=y, name="that location"}
 				end
 				actor.ai_state.tactic_leash_anchor = anchor
-				game.logPlayer(game.player, "%s %s의 주변에 머뭅니다.", (actor.kr_name or actor.name):capitalize():addJosa("가"), (anchor.kr_name or anchor.name))
+				game.logPlayer(game.player, "%s %s의 주변에 머물기 시작합니다.", (actor.kr_name or actor.name):capitalize():addJosa("가"), (anchor.kr_name or anchor.name))
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -365,13 +365,13 @@ function _M:giveOrder(actor, order)
 	-------------------------------------------
 	elseif order == "escort_rest" then
 		-- Rest for a few turns
-		if actor.ai_state.tactic_escort_rest then actor:doEmote("안돼요, 우린 좀 서둘러야 해요!", 40) return true end
+		if actor.ai_state.tactic_escort_rest then actor:doEmote("그럴 순 없어요. 우린 좀 더 서두를 필요가 있어요!", 40) return true end
 		actor.ai_state.tactic_escort_rest = rng.range(6, 10)
-		actor:doEmote("알겠어요, 하지만 너무 오래는 안 돼요.", 40)
+		actor:doEmote("알겠어요. 하지만 그렇게 오래 기다릴 수는 없어요.", 40)
 	elseif order == "escort_portal" then
 		local dist = core.fov.distance(actor.escort_target.x, actor.escort_target.y, actor.x, actor.y)
-		if dist < 8 then dist = "아주 가까이"
-		elseif dist < 16 then dist = "가까이"
+		if dist < 8 then dist = "아주 가까이에"
+		elseif dist < 16 then dist = "가까이에"
 		else dist = "아직 멀리"
 		end
 

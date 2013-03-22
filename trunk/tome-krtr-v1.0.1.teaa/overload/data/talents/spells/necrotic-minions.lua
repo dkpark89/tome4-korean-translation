@@ -85,9 +85,9 @@ newTalent{
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
 		local decay = t.getDecay(self, t)
-		return ([[사령술의 기운을 뿜어내, 주변 %d 칸 범위 내의 언데드 추종자들을 보호합니다. 범위 밖의 추종자들은 턴 당 %d%% 생명력 피해를 입습니다.
+		return ([[사령술의 기운을 뿜어내, 주변 %d 칸 범위 내의 언데드 추종자들을 보호합니다. 범위 밖의 추종자들은 턴 당 최대 생명력의 %d%% 에 해당하는 생명력 피해를 입습니다.
 		자신이나 추종자가 이 범위 안에서 적을 죽일 경우, 그 영혼이 속박되어 언데드 추종자로 만들어낼 수 있습니다.
-		구울이 뿜어내는 토사물을 통해서 생명력을 회복할 수 있게 되며, 이는 자신의 종족이 언데드가 아니더라도 적용됩니다.]]):
+		또한 구울이 뿜어내는 토사물을 통해서 생명력을 회복할 수 있게 되며, 이는 자신의 종족이 언데드가 아니더라도 적용됩니다.]]):
 		format(radius, decay)
 	end,
 }
@@ -672,7 +672,7 @@ end
 
 newTalent{
 	name = "Create Minions",
-	kr_name = "또 다른 추종자",
+	kr_name = "추종자 생성",
 	type = {"spell/necrotic-minions",1},
 	require = spells_req1,
 	points = 5,
@@ -784,7 +784,7 @@ newTalent{
 		self:forceUseTalent(self.T_NECROTIC_AURA, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 	end,
 	info = function(self, t)
-		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 범위 밖에서 언데드 추종자들이 입는 피해가 %d%% 감소합니다.]]):
+		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 언데드 추종자들이 사령술의 기운 범위 밖에서 턴 당 받는 생명력 피해가 %d%%p 감소합니다.]]):
 		format(self:getTalentLevelRaw(t), self:getTalentLevelRaw(t))
 	end,
 }
@@ -820,8 +820,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[모든 추종자들을 강화시켜 물리력과 주문력, 그리고 정확도를 %d 올립니다. 또한 방어도 관통력이 %d / 치명타율이 %d 상승합니다.
-		이 효과는 6 턴 동안 지속되며, 주문력의 영향을 받아 증가합니다.]]):
+		return ([[모든 추종자들을 강화시켜, 6 턴 동안 물리력, 주문력, 정확도를 %d /방어도 관통력을 %d / 치명타율을 %d 상승시킵니다.
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getAPR(self, t), t.getCrit(self, t))
 	end,
 }

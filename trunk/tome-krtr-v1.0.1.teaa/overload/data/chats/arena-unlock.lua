@@ -102,7 +102,7 @@ newChat{ id="win",
 내 이름은 '레즈' 라고 하네. 나는 투기장에서 좋은 볼거리를 만들어줄 뛰어난 싸움꾼들을 고용하고 있지... 두 방 맞고 죽어버리지 않을 그런 녀석들 말이야. 그리고 너 역시 이제 그들 중 하나가 된거고!
 나는 네 모험을 방해할 생각은 없어. 나 역시 모험가였거든, 오래 전에는 말이지. 하지만 우리는 너를 진정한 챔피언으로 만들어줄 수 있어. 많은 자들의 사랑을 받고 다이아몬드로 목욕할 수 있는 사람으로 말이지.
 
-#LIGHT_GREEN#*당신이 도적과 함께 데르스로 돌아오는 동안, 당신은 방금 전에 있었던 전투에 대해 이야기를 나눴습니다. 그는 당신에게 전투 기술에 대한 더 넓은 통찰력을 제공해주었습니다. (#WHITE#일반 기술 점수 +2#LIGHT_GREEN#)+
+#LIGHT_GREEN#*당신이 도적과 함께 데르스로 돌아오는 동안, 당신은 방금 전에 있었던 전투에 대해 이야기를 나눴습니다. 그는 당신에게 전투 기술에 대한 더 넓은 통찰력을 제공해주었습니다. (일반 기술 점수 +2)*#WHITE#
 #WHITE#좋아, @playername@. 이제 나는 가봐야 할 시간이야. 그대의 모험에 행운이 있기를. 그리고 모험이 끝나면 언제든지 우리 투기장에 들러주게!
 ]],
 	answers = {
@@ -116,7 +116,7 @@ newChat{ id="win",
 			g.kr_name = "데르스로의 출구"
 			game.zone:addEntity(game.level, g, "terrain", player.x, player.y)
 
-			game.party:reward("일반 기술 점수 2점을 받을 동료를 고르세요:", function(player)
+			game.party:reward("일반 기술 점수 2점을 받을 동료를 고르세요 :", function(player)
 				player.unused_generics = player.unused_generics + 2
 			end)
 			game:setAllowedBuild("campaign_arena", true)

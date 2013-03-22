@@ -54,7 +54,7 @@ function _M:okclick()
 		game:unregisterDialog(self)
 		self.action(self.qty)
 	else
-		Dialog:simplePopup("오류", "수량을 입력하시오.")
+		Dialog:simplePopup("오류", "수량을 입력하세요.")
 	end
 end
 

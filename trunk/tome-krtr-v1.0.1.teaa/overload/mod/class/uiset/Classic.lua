@@ -267,16 +267,16 @@ function _M:mouseIcon(bx, by)
 		if (not self.show_npc_list) then
 			game:tooltipDisplayAtMap(game.w, game.h, "기술 보기 (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n생물체 보기와 토글")
 		else
-			game:tooltipDisplayAtMap(game.w, game.h, "생물체 보기 (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n기술 보기와 토글#")
+			game:tooltipDisplayAtMap(game.w, game.h, "생물체 보기 (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n기술 보기와 토글")
 		end
 	elseif bx < 2*_talents_icon_w then
 		virtual = "SHOW_INVENTORY"
 		key = game.key.binds_remap[virtual] ~= nil and game.key.binds_remap[virtual][1] or game.key:findBoundKeys(virtual)
 		key = (key ~= nil and game.key:formatKeyString(key) or "단축키 없음"):capitalize()
 		if (key == "I") then
-			game:tooltipDisplayAtMap(game.w, game.h, "소지품목록 (#{bold}##GOLD#I#LAST##{normal}#)")
+			game:tooltipDisplayAtMap(game.w, game.h, "소지품 목록 (#{bold}##GOLD#I#LAST##{normal}#)")
 		else
-			game:tooltipDisplayAtMap(game.w, game.h, "소지품목록 (#{bold}##GOLD#"..key.."#LAST##{normal}#)")
+			game:tooltipDisplayAtMap(game.w, game.h, "소지품 목록 (#{bold}##GOLD#"..key.."#LAST##{normal}#)")
 		end
 	elseif bx < 3*_talents_icon_w then
 		virtual = "SHOW_CHARACTER_SHEET"
@@ -302,9 +302,9 @@ function _M:mouseIcon(bx, by)
 		key = game.key.binds_remap[virtual] ~= nil and game.key.binds_remap[virtual][1] or game.key:findBoundKeys(virtual)
 		key = (key ~= nil and game.key:formatKeyString(key) or "단축키 없음"):capitalize()
 		if (not config.settings.tome.actor_based_movement_mode and not self.bump_attack_disabled) or (config.settings.tome.actor_based_movement_mode and not game.player.bump_attack_disabled) then
-			game:tooltipDisplayAtMap(game.w, game.h, "이동방식: #LIGHT_GREEN#기본공격#LAST# (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n공격금지 상태와 토글")
+			game:tooltipDisplayAtMap(game.w, game.h, "이동방식 : #LIGHT_GREEN#이동+공격#LAST# (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n공격금지 상태와 토글")
 		else
-			game:tooltipDisplayAtMap(game.w, game.h, "이동방식: #LIGHT_RED#공격금지#LAST# (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n기본공격 상태와 토글")
+			game:tooltipDisplayAtMap(game.w, game.h, "이동방식 : #LIGHT_RED#공격금지#LAST# (#{bold}##GOLD#"..key.."#LAST##{normal}#)\n이동+공격 상태와 토글")
 		end
 	end
 end

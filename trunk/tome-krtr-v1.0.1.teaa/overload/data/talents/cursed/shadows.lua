@@ -179,7 +179,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[그림자가 파괴되기 직전에, %d%% 확률로 재구성되어 나타날 수 있게 됩니다.]]):format(chance)
+		return ([[그림자가 파괴되기 직전에, %d%% 확률로 재구성되어 다시 나타날 수 있게 됩니다.]]):format(chance)
 	end,
 }
 
@@ -438,9 +438,9 @@ newTalent{
 		local healLevel = t.getHealLevel(self, t)
 		local blindsideLevel = t.getBlindsideLevel(self, t)
 		return ([[이 기술을 활성화 시키면, %d 레벨인 그림자 %d 개가 지속적으로 생겨나 전투를 도와줍니다. 그림자는 소환할 때마다 증오가 6 씩 소모되며, 그림자는 약하지만 다양한 능력을 사용할 수 있습니다.
-		- 기술 레벨 1 인 '마법적 재구축' 을 통해 스스로 생명력을 회복합니다.
-		- 기술 레벨 1 인 '습격' 을 사용하여 적을 공격합니다.
-		- '근거리 순간이동' 을 사용하여 이동합니다.]]):format(level, maxShadows, healLevel, blindsideLevel)
+		- 기술 레벨 %d 인 '마법적 재구축' 을 통해 스스로 생명력을 회복합니다.
+		- 기술 레벨 %d 인 '습격' 을 사용하여 적을 공격합니다.
+		- '근거리 순간이동' 을 사용할 수 있습니다.]]):format(level, maxShadows, healLevel, blindsideLevel)
 	end,
 }
 
@@ -499,7 +499,7 @@ newTalent{
 		local dominateLevel = t.getDominateLevel(self, t)
 		local fadeCooldown = math.max(3, 8 - self:getTalentLevelRaw(t))
 		return ([[그림자에 증오를 주입시켜, 공격력을 강화시킵니다. 그림자의 정확도가 %d%% 상승하며, %d%% 추가 피해를 줍니다. 그리고, 그림자의 능력이 추가됩니다.
-		- 기술 레벨 %d 인 '지배' 기술을 사용하여, 근접한 적을 지배할 수 있게 됩니다. (지배당한 적에게는 %d%% 만큼 추가 피해를 줄 수 있습니다)
+		- 기술 레벨 %d 인 '지배' 기술을 사용하여, 근접한 적을 지배할 수 있게 됩니다. (지배 확률은 %d%% 입니다)
 		- 1 턴 동안 어떤 공격도 받지 않게 되는 '흐려짐' 기술을 사용할 수 있게 됩니다. (기술의 재사용 대기시간은 %d 턴 입니다)]]):format(combatAtk, incDamage, dominateLevel, dominateChance, fadeCooldown)
 	end,
 }
@@ -576,7 +576,7 @@ newTalent{
 		local spellpowerChange = t.getSpellpowerChange(self, t)
 		local lightningLevel = t.getLightningLevel(self, t)
 		local flamesLevel = t.getFlamesLevel(self, t)
-		return ([[그림자에 마법의 힘을 주입시켜, 강력한 마법을 쓸 수 있게 합니다. 그림자의 주문력이 %d 상승합니다. 그리고, 그림자의 능력이 추가됩니다.
+		return ([[그림자에 마법의 힘을 주입시켜, 강력한 마법을 쓸 수 있게 합니다. 그림자의 주문력이 %d 상승하며, 그림자의 능력이 추가됩니다.
 		-  %d%% 확률로 기술 레벨 %d 의 '전격' 마법을 사용하여 근접한 적을 공격합니다.
 		- 그림자 마법사의 기술 레벨이 3 이상이면, %d%% 확률로 기술 레벨 %d 인 '불꽃' 마법을 사용하여 멀리 있는 적을 불태웁니다. (사거리 : 2 - 6 칸)
 		- 그림자 마법사의 기술 레벨이 5 이상이면, 그림자가 파괴되었을 때 몸을 재구성하여 50%% 확률로 부활할 수 있게 됩니다.]]):format(spellpowerChange, closeAttackSpellChance, lightningLevel, farAttackSpellChance, flamesLevel)

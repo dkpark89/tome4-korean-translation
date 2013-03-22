@@ -45,7 +45,7 @@ function _M:runInit(dir)
 		block_hard_left = false,
 		block_hard_right = false,
 		cnt = 1,
-		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 Enter키를 누르세요.", function()
+		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 Enter 키를 누르세요.", function()
 			self:runStop()
 		end, false, true),
 	}
@@ -88,14 +88,14 @@ function _M:runFollow(path)
 	end
 
 	if #runpath == 0 then
-		game.logPlayer(self, "그 곳으로 갈수 있는 방법을 모릅니다...")
+		game.logPlayer(self, "그곳으로 갈 수 있는 방법을 찾지 못했습니다...")
 		return
 	end
 
 	self.running = {
 		path = runpath,
 		cnt = 1,
-		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 아무키나 누르세요.", function()
+		dialog = Dialog:simplePopup("달리는 중...", "달려가는 중입니다. 멈추기를 원하면 아무 키나 누르세요.", function()
 			self:runStop()
 		end, false, true),
 	}
@@ -367,7 +367,7 @@ function _M:runStop(msg)
 		msg = self.running.explore .. "에 도착"
 	end
 	if msg then
-		game.log("%d턴 동안 달렸습니다 (중지 이유: %s).", self.running.cnt, msg)
+		game.log("%d 턴 동안 달렸습니다 (중지 이유 : %s)", self.running.cnt, msg)
 	end
 
 	self:runStopped(self.running.cnt, msg)

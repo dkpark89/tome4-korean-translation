@@ -52,7 +52,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[전방 %d 칸 범위에 자신의 오염된 피를 뿌려, %0.2f 황폐 속성 피해를 줍니다.
-		오염된 피에 닿은 적은 %d%% 확률로 질병에 걸려, 6 턴 동안 매 턴마다 %0.2f 황폐 속성 피해를 받고 힘, 체격, 민첩 능력치 중 하나가 감소됩니다.
+		오염된 피에 닿은 적은 %d%% 확률로 질병에 걸려, 6 턴 동안 총 %0.2f 황폐 속성 피해를 나눠 받으며 힘, 체격, 민첩 능력치 중 하나가 감소됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 190)), 20 + self:getTalentLevel(t) * 10, damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 220)))
 	end,
 }

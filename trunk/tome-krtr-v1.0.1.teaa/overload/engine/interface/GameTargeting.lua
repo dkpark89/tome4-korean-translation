@@ -93,7 +93,7 @@ function _M:targetMode(v, msg, co, typ)
 
 	if not v then
 		Map:setViewerFaction(self.always_target == true and self.player.faction or nil)
-		if msg then self.log(type(msg) == "string" and msg or "전략적 화면이 비활성화됩니다. 활성화하려면 쉬프트+'t'를 누르세요.") end
+		if msg then self.log(type(msg) == "string" and msg or "전략적 화면이 비활성화됩니다. 활성화하려면 쉬프트+'T' 를 누르세요.") end
 		self.level.map.changed = true
 		self.target:setActive(false)
 
@@ -122,7 +122,7 @@ function _M:targetMode(v, msg, co, typ)
 		end
 	else
 		Map:setViewerFaction(self.player.faction)
-		if msg then self.log(type(msg) == "string" and msg or "전략적 화면이 활성화됩니다. 비활성화하려면 쉬프트+'t'를 누르세요.") end
+		if msg then self.log(type(msg) == "string" and msg or "전략적 화면이 활성화됩니다. 비활성화하려면 쉬프트+'T' 를 누르세요.") end
 		self.level.map.changed = true
 		self.target:setActive(true, typ)
 		self.target_style = "lock"

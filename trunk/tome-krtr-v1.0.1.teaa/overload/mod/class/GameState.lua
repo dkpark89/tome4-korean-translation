@@ -583,7 +583,7 @@ function _M:spawnWorldAmbush(enc, dx, dy)
 	game.player.energy.value = game.energy_to_act
 	game.paused = true
 	game:changeLevel(1, zone, {temporary_zone_shift=true})
-	engine.ui.Dialog:simplePopup("습격!", "습격 당했습니다!")
+	engine.ui.Dialog:simplePopup("습격!", "습격당했습니다!")
 
 	end)
 end

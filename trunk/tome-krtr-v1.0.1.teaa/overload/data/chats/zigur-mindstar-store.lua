@@ -30,10 +30,11 @@ newChat{ id="welcome",
 }
 
 newChat{ id="training",
-	text = [[금화 100개면 자연의 권능 중 마석 수련 계열의 기초를 간략히 설명해 줄 수 있지요 (비활성화 상태로 해당 기술 계열 습득). 아니면, 금화 750개로 더욱 깊이있는 도움을 받을 수도 있구요.]],
+	text = [[금화 100 개면 자연의 권능 중 마석 수련 계열의 기초를 간략히 설명해 줄 수 있습니다. (비활성화 상태로 해당 기술 계열 습득)
+아니면, 금화 750 개로 더욱 깊이있는 도움을 받을 수도 있지요. (활성화 상태로 해당 기술 계열 습득)]],
 	answers = {
-		{"그냥 기초만 배울께요.", action=function(npc, player)
-			game.logPlayer(player, "가게 주인이 마석을 통해 힘을 뿜어내는 방법을 알려 줬습니다.")
+		{"그냥 기초만 배울게요.", action=function(npc, player)
+			game.logPlayer(player, "가게 주인이 마석을 통해 힘을 뿜어내는 방법을 알려줬습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("wild-gift/mindstar-mastery", false)
 			player.changed = true
@@ -44,7 +45,7 @@ newChat{ id="training",
 			return true
 		end},
 		{"알아야 할 모든 것을 가르쳐 주셨으면 좋겠네요.", action=function(npc, player)
-			game.logPlayer(player, "가게 주인이 공들여 마석을 통해 힘을 뿜어내는 방법과 그 자세한 원리를 설명해 줬습니다.")
+			game.logPlayer(player, "가게 주인이 공을 들여, 마석을 통해 힘을 뿜어내는 방법과 그 자세한 원리를 설명해줬습니다.")
 			player:incMoney(-750)
 			player:learnTalentType("wild-gift/mindstar-mastery", true)
 			player.changed = true
@@ -53,7 +54,7 @@ newChat{ id="training",
 			if player:knowTalentType("wild-gift/mindstar-mastery") then return end
 			return true
 		end},
-		{"아니오, 지금은 필요없을 것 같네요."},
+		{"아니오, 지금은 필요 없을 것 같네요."},
 	}
 }
 

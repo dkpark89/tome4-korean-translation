@@ -21,31 +21,31 @@ newAchievement{
 	name = "Level 10",
 	show = "full",
 	kr_name = "레벨 10",
-	desc = [[캐릭터가 레벨 10이 됨.]],
+	desc = [[캐릭터가 레벨 10 이 됨.]],
 }
 newAchievement{
 	name = "Level 20",
 	show = "full",
 	kr_name = "레벨 20",
-	desc = [[캐릭터가 레벨 20이 됨.]],
+	desc = [[캐릭터가 레벨 20 이 됨.]],
 }
 newAchievement{
 	name = "Level 30",
 	show = "full",
 	kr_name = "레벨 30",
-	desc = [[캐릭터가 레벨 30이 됨.]],
+	desc = [[캐릭터가 레벨 30 이 됨.]],
 }
 newAchievement{
 	name = "Level 40",
 	show = "full",
 	kr_name = "레벨 40",
-	desc = [[캐릭터가 레벨 40이 됨.]],
+	desc = [[캐릭터가 레벨 40 이 됨.]],
 }
 newAchievement{
 	name = "Level 50",
 	show = "full",
 	kr_name = "레벨 50",
-	desc = [[캐릭터가 레벨 50이 됨.]],
+	desc = [[캐릭터가 레벨 50 이 됨.]],
 }
 
 newAchievement{
@@ -58,7 +58,7 @@ newAchievement{
 newAchievement{
 	name = "Utterly Destroyed", id = "EIDOLON_DEATH",
 	show = "name",
-	kr_name = "완전히 작살남",
+	kr_name = "완전히 파괴됨",
 	desc = [[에이돌론의 차원에서 사망.]],
 }
 
@@ -66,7 +66,7 @@ newAchievement{
 	name = "Fool of a Took!", id = "HALFLING_SUICIDE",
 	show = "name",
 	kr_name = "야 이 멍청아!",
-	desc = [[하플링으로 자살.]],
+	desc = [[하플링 캐릭터로 자살.]],
 	can_gain = function(self, who)
 		if who.descriptor and who.descriptor.race == "Halfling" then return true end
 	end
@@ -77,7 +77,7 @@ newAchievement{
 	image = "npc/alchemist_golem.png",
 	show = "name",
 	kr_name = "해방",
-	desc = [[주인이 죽은 상태인 골렘이 보스를 죽임.]],
+	desc = [[연금술사 주인이 죽은 상태에서, 골렘이 보스를 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		local p = game.party:findMember{main=true}

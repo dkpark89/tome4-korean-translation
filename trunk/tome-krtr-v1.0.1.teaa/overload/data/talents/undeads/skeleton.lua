@@ -54,7 +54,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[해골 갑옷을 만들어 피해를 %d 만큼 흡수합니다. 이 효과는 10턴 동안 유지됩니다.
+		return ([[해골 갑옷을 만들어 피해를 %d 만큼 흡수합니다. 이 효과는 10 턴 동안 유지됩니다.
 		해골 갑옷이 흡수할 수 있는 최대 피해량은 민첩 능력치의 영향을 받아 증가합니다.]]):
 		format(50 + 70 * self:getTalentLevel(t) + self:getDex(350, true))
 	end,

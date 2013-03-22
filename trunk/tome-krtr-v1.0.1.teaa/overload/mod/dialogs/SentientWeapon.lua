@@ -30,7 +30,7 @@ local Separator = require "engine.ui.Separator"
 
 module(..., package.seeall, class.inherit(Dialog))
 
-local _points_text = "남아있는 점수: #00FF00#%d#WHITE#"
+local _points_text = "남아있는 점수 : #00FF00#%d#WHITE#"
 
 
 -- This stuff is quite the mess.  I preserved Sus' Voice of Telos dialogues as much as possible but some of his stats we're simply not using
@@ -137,7 +137,7 @@ function _M:incStat(v, id)
 		end
 		print(self.o.wielder[id] or "false", self.o.factory_settings.maxes[id] or "false")
 		if self.o.wielder[id] >= self.o.factory_settings.maxes[id] then
-			self:simpleLongPopup("레벨 한계치", "레벨이 더 올라야 이 능력치를 올릴수 있습니다!", 300)
+			self:simpleLongPopup("레벨 한계치", "레벨이 더 올라야 이 능력치를 올릴 수 있습니다!", 300)
 			return
 		end
 	else
@@ -193,8 +193,8 @@ end
 function _M:drawDialog(s)
 	-- Description part
 	self:drawHBorder(s, self.iw / 2, 2, self.ih - 4)
-	local statshelp = ([[키보드: 키보드: #00FF00#'↑'/'↓'#FFFFFF# 능력치 선택 / #00FF00#'→'#FFFFFF# 능력치 상승 / #00FF00#'←'#FFFFFF# 능력치 감소
-마우스: #00FF00#클릭#FFFFFF# 능력치 상승 / #00FF00#우클릭#FFFFFF# 능력치 감소
+	local statshelp = ([[키보드 : #00FF00#'↑'/'↓'#FFFFFF# 능력치 선택 / #00FF00#'→'#FFFFFF# 능력치 상승 / #00FF00#'←'#FFFFFF# 능력치 감소
+마우스 : #00FF00#클릭#FFFFFF# 능력치 상승 / #00FF00#우클릭#FFFFFF# 능력치 감소
 ]]):splitLines(self.iw / 2 - 10, self.font)
 	local lines = self.actor.stats_def[self.sel].description:splitLines(self.iw / 2 - 10, self.font)
 	for i = 1, #statshelp do
@@ -205,7 +205,7 @@ function _M:drawDialog(s)
 	end
 
 	-- Stats
-	s:drawColorStringBlended(self.font, "남아있는 능력치 점수: #00FF00#"..self.actor.unused_stats, 2, 2)
+	s:drawColorStringBlended(self.font, "남아있는 능력치 점수 : #00FF00#"..self.actor.unused_stats, 2, 2)
 	self:drawWBorder(s, 2, 20, 200)
 
 	self:drawSelectionList(s, 2, 25, self.font_h, {

@@ -143,6 +143,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[소환수 하나와 위치를 서로 바꿉니다. 이 기술을 사용하면 적이 당황하여, 시전자와 소환수 모두 %d 턴 동안 모든 공격을 50%% 확률로 회피할 수 있게 됩니다.]]):format(1 + self:getTalentLevel(t))
+		return ([[소환수 하나와 위치를 서로 바꿉니다. 이 기술을 사용하면 적이 당황하여, 시전자와 소환수 모두 %d 턴 동안 모든 근접 공격을 50%% 확률로 회피할 수 있게 됩니다.]]):format(1 + self:getTalentLevel(t))
 	end,
 }

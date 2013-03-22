@@ -58,7 +58,7 @@ newEntity{ base = "BASE_LORE_RANDOM",
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "Tale of the Moonsisters", lore="moons-human", unique=true,
 	kr_name = "달의 자매 이야기",
-	desc = [[에이알의 달의 발생]],
+	desc = [[에이알의 달이 생긴 이야기]],
 	level_range = {1, 35},
 	rarity = 40,
 	-- Only humans can find it

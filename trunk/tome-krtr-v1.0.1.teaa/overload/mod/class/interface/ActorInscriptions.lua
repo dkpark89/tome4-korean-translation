@@ -45,7 +45,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 		if self.inscriptions[i] and self.inscriptions[i] == name.."_"..i then nb_same = nb_same + 1 end
 	end
 	if nb_same >= 2 and not bypass_max_same then
-		if vocal then game.logPlayer(self, "당신은 이미 이 종류의 각인을 많이 가지고 있습니다.") end
+		if vocal then game.logPlayer(self, "당신은 이 종류의 각인을 이미 충분히 새겼습니다.") end
 		-- Replace chat
 		if self.player and src then
 			local t = self:getTalentFromId(self["T_"..name.."_1"])
@@ -67,7 +67,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 	end
 	if not id then
 		if vocal then
-			game.logPlayer(self, "당신은 더 많은 각인을 가질수 없습니다.")
+			game.logPlayer(self, "당신은 더 많은 각인을 새질 수 없습니다.")
 		end
 		-- Replace chat
 		if self.player and src then
@@ -104,7 +104,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 	local t = self:getTalentFromId(self["T_"..name])
 	if cooldown then self:startTalentCooldown(t) end
 	if vocal then
-		game.logPlayer(self, "당신은 이제 %s 각인을 새겼습니다.", (t.kr_name or t.name))
+		game.logPlayer(self, "당신은 %s 각인을 새겼습니다.", (t.kr_name or t.name))
 	end
 
 	-- Hotkey

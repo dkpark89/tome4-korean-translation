@@ -23,7 +23,7 @@ newEntity{
 	define_as = "ROCKY_GROUND",
 	type = "floor", subtype = "rock",
 	name = "rocky ground", image = "terrain/rocky_ground.png",
-	kr_name = "돌투성이 바닥",
+	kr_name = "돌 투성이 바닥",
 	display = '.', color=colors.UMBER, back_color=colors.LIGHT_UMBER,
 	grow = "MOUNTAIN_WALL",
 }
@@ -49,7 +49,7 @@ newEntity{
 	define_as = "ROCKY_SNOWY_TREE",
 	type = "wall", subtype = "rock",
 	name = "snowy tree", image = "terrain/rocky_snowy_tree.png",
-	kr_name = "눈쌓인 나무",
+	kr_name = "눈 쌓인 나무",
 	display = '#', color=colors.WHITE, back_color=colors.LIGHT_UMBER,
 	always_remember = true,
 	can_pass = {pass_tree=1},

@@ -50,6 +50,6 @@ fillarel_dies = function(self, npc)
 	if self:isCompleted("sided-krogar") then game.player:setQuestStatus(self.id, self.COMPLETED, "helped-krogar")
 	else
 		game.player:setQuestStatus(self.id, self.COMPLETED, "helped-fillarel")
-		npc:doEmote(game.player.descriptor.race.." 남동쪽으로 가서, 아에린에게 지금 있었던 일을 말해주십시오!", 120)
+		npc:doEmote(game.player.descriptor.race..", 남동쪽으로 가서 아에린에게 지금 있었던 일을 말해주십시오!", 120)
 	end
 end

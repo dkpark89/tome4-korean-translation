@@ -293,7 +293,7 @@ newTalent{
 		if ammo then dam = t.computeDamage(self, t, ammo) end
 		dam = damDesc(self, DamageType.PHYSICAL, dam)
 		return ([[두 개의 연금술용 보석을 강제로 섞어, 극도로 불안정한 상태로 만듭니다. 이렇게 만들어진 연금술 폭탄으로 강렬한 폭발을 만들어내 %0.2f 물리 피해를 주고, 폭발에 휩쓸린 모든 적들을 밀어냅니다.
-		폭발할 때,두 개의 보석이 원래 가지고 있던 특수효과가 각각 발생합니다.
+		폭발할 때, 두 개의 보석이 원래 가지고 있던 특수효과가 각각 발생합니다.
 		폭발의 피해량은 보석의 등급과 주문력의 영향을 받아 증가합니다.]]):format(dam)
 	end,
 }

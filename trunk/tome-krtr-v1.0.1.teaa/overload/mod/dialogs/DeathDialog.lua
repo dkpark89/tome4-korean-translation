@@ -44,7 +44,7 @@ ToME에서 죽음은 보통 영원하지만, 당신은 아래 선택지에 나�
 ]]
 
 	if #game.party.on_death_show_achieved > 0 then
-		self.c_achv = Textzone.new{width=self.iw, scrollbar=true, height=100, text="#LIGHT_GREEN#게임하는 동안 발생한 것#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ")} --@@ 번역 맞을지 확인 필요
+		self.c_achv = Textzone.new{width=self.iw, scrollbar=true, height=100, text="#LIGHT_GREEN#게임하는 동안 이뤄낸 것#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ")} --@@ 번역 맞을지 확인 필요
 	end
 
 	self.c_desc = Textzone.new{width=self.iw, auto_height=true, text=text}
@@ -142,7 +142,7 @@ function _M:eidolonPlane()
 	game:onTickEnd(function()
 		if not self.actor:attr("infinite_lifes") then
 			self.actor:attr("easy_mode_lifes", -1)
-			game.log("#LIGHT_RED#이제 %s", (self.actor:attr("easy_mode_lifes") and self.actor:attr("easy_mode_lifes").." 번의 생명이 남았습니다.") or "생명이 다했습니다.")
+			game.log("#LIGHT_RED#이제 %s", (self.actor:attr("easy_mode_lifes") and self.actor:attr("easy_mode_lifes").." 개의 생명이 남았습니다.") or "생명이 다했습니다.")
 		end
 
 		self:cleanActor(self.actor)
@@ -190,7 +190,7 @@ function _M:eidolonPlane()
 			end
 		end
 
-		game.log("#LIGHT_RED#죽음의 끝에서 당신은 다른 차원으로 빨려 들어갑니다.")
+		game.log("#LIGHT_RED#죽음의 끝에서, 당신은 다른 차원으로 빨려 들어갔습니다.")
 		game.player:updateMainShader()
 		if not config.settings.cheat then game:saveGame() end
 	end)
@@ -276,7 +276,7 @@ function _M:generateList()
 	end)
 
 	if game.zone.is_eidolon_plane then
-		game.logPlayer(self, "에이돌론의 차원(eidolon plane)에서 당신의 죽음을 다룹니다! 죽었습니다!")
+		game.logPlayer(self, "에이돌론의 차원에서 당신의 죽음을 다룹니다! 당신은 죽었습니다!")
 		game:onTickEnd(function() world:gainAchievement("EIDOLON_DEATH", self.actor) end)
 		allow_res = false
 	end

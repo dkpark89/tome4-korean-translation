@@ -294,7 +294,7 @@ newTalent{
 		self.combat_spellresist = self.combat_spellresist - 2
 	end,
 	info = function(self, t)
-		return ([[방패 기반 기술을 사용할 때 공격과 방어를 더 능숙하게 할 수 있게 되며, 주문 내성이 %d / 물리 내성이 %d 상승합니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
+		return ([[방패를 사용하는 다른 기술들을 더 능숙하게 사용할 수 있게 되며, 주문 내성이 %d / 물리 내성이 %d 상승합니다.]]):format(2 * self:getTalentLevelRaw(t), 4 * self:getTalentLevelRaw(t))
 	end,
 }
 
@@ -338,7 +338,7 @@ newTalent{
 	info = function(self, t)
 		local hp = self:combatTalentStatDamage(t, "con", 30, 500) + 100
 		return ([[단단히 버틸 준비를 합니다. 회피도가 %d / 최대 생명력과 현재 생명력이 %d 증가하는 대신, 움직이지 못하게 됩니다.
-		버티기 상태로 당신에게 가해지는 모든 공격에 집중하여, 치명적인 피해를 받지 않으면 죽지 않게 됩니다. 생명력이 -%d 이하가 되어야 죽게 되지만, 생명력이 0 이하인 경우 현재 생명력을 알 수는 없게 됩니다.
+		버티기 상태로 당신에게 가해지는 모든 공격에 집중하여, 치명적인 피해를 받지 않으면 죽지 않게 됩니다. 생명력이 -%d 이하가 되어야 죽게 되지만, 생명력이 0 이하인 경우 현재 생명력을 알 수 없게 됩니다.
 		회피도 증가는 민첩 능력치, 생명력 증가는 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(5 + self:getDex(4, true) * self:getTalentLevel(t), hp, hp)
 	end,

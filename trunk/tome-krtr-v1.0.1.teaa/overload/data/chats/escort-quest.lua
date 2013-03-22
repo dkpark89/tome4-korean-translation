@@ -293,7 +293,7 @@ local function generate_rewards()
 				player:learnTalentType(tt, false)
 				player:hasQuest(npc.quest_id).reward_message = ("기술 계열 %s의 숙련도를 %0.2f 만큼 향상시켰습니다."):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), mastery)
 			end) end
-			answers[#answers+1] = {("[기술 계열을 훈련으로 %s의 숙련도를 %0.2f 만큼 향상시킨다]"):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), mastery),
+			answers[#answers+1] = {("[기술 계열을 훈련하여, %s의 숙련도를 %0.2f 만큼 향상시킨다]"):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), mastery),
 				jump="done",
 				action=doit,
 				on_select=function(npc, player)
@@ -309,8 +309,8 @@ end
 newChat{ id="welcome",
 	text = reward.is_antimagic and [[마지막 순간에 당신은 자연의 힘을 사용합니다. 관문은 오작동하여 @npcname3@ 지구르로 순간이동시켜 버렸습니다.
 당신은 자연이 당신에게 고마워하는 것을 느꼈습니다.]] or
-	[[고맙네, 나의 친구여. 자네가 없었다면 내가 어떻게 살아남았을지 생각도 되질 않는군.
-내게 고마움을 표시할 기회를 주게:]],
+	[[감사합니다. 당신이 없었다면 제가 어떻게 살아남았을지 상상도 되질 않는군요.
+저에게 고마움을 표시할 기회를 주세요 :]],
 	answers = generate_rewards(),
 }
 

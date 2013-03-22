@@ -357,7 +357,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[무기에 무력형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 적이 기술을 사용하려 할 때마다 %d%% 확률로 기술 사용에 실패하게 되며, 1 턴을 소모하게 됩니다.
+		return ([[무기에 무력형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 적은 기술을 사용하려 할 때마다 %d%% 확률로 기술 사용에 실패하여, 턴을 낭비하게 됩니다.
 		피해량은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
@@ -431,7 +431,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[무기에 마법의 독을 발라, %d 턴 동안 매 턴마다 %d 마법 피해를 줍니다. 그리고 중독된 적의 저항력이 %d%% 감소하게 됩니다.
+		return ([[무기에 마법의 독을 발라, %d 턴 동안 매 턴마다 %d 마법 피해를 줍니다. 중독된 적은 모든 저항력이 %d%% 감소하게 됩니다.
 		피해량은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,

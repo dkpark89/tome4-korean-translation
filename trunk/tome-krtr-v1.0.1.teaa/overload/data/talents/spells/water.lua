@@ -56,7 +56,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[땅에서 차가운 증기가 뿜어져나와, 주변 3 칸 반경에 매 턴마다 %0.2f 냉기 피해를 줍니다. (지속시간 : %d 턴)
+		return ([[땅에서 차가운 증기가 뿜어져 나와, 주변 3 칸 반경에 매 턴마다 %0.2f 냉기 피해를 줍니다. (지속시간 : %d 턴)
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, damage), duration)
 	end,
@@ -89,7 +89,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[대상 주변의 수분을 응결시켜, %d 피해를 주고 %d 턴 동안 얼립니다.
+		return ([[대상 주변의 수분을 응결시켜, %d 피해를 주고 %d 턴 동안 동결시킵니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), 2+math.ceil(self:getTalentLevelRaw(t)))
 	end,
 }
@@ -211,7 +211,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 얼립니다. (지속시간 : %d 턴)
+		return ([[시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 동결시킵니다. (지속시간 : %d 턴)
 		피해량과 폭풍의 지속시간은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration)
 	end,
 }

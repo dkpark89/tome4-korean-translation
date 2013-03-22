@@ -98,7 +98,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[그림자를 퍼뜨려서 %0.2f 어둠 피해를 주고, 주변 3칸 반경에 매 턴마다 %0.2f 어둠 피해를 %d 턴 동안 줍니다.
+		return ([[주변 3 칸 반경에 그림자를 퍼뜨려서 %0.2f 어둠 피해를 주고, 매 턴마다 %0.2f 어둠 피해를 %d 턴 동안 추가로 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage),damDesc(self, DamageType.DARKNESS, damageonspot),duration)
 	end,

@@ -47,18 +47,18 @@ end
 function _M:getUseDesc()
 	if self.use_power then
 		if self.show_charges then
-			return ("%s에 사용 가능: 사용가능 횟수 %d/%d."):format((self.use_power.kr_name or self.use_power.name):capitalize(), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power))
+			return ("%s에 사용 가능 : 사용 가능 횟수 %d / %d."):format((self.use_power.kr_name or self.use_power.name):capitalize(), math.floor(self.power / self.use_power.power), math.floor(self.max_power / self.use_power.power))
 		else
-			return ("%s에 사용 가능: 소모력 %d, 현재 보유력 %d/%d."):format((self.use_power.kr_name or self.use_power.name):capitalize(), self.use_power.power, self.power, self.max_power)
+			return ("%s에 사용 가능 : 소모력 %d, 현재 보유력 %d / %d."):format((self.use_power.kr_name or self.use_power.name):capitalize(), self.use_power.power, self.power, self.max_power)
 		end
 	elseif self.use_simple then
-		return ("%s 사용 가능."):format((self.use_simple.kr_name or self.use_simple.name):capitalize():addJosa("로"))
+		return ("%s 사용 가능"):format((self.use_simple.kr_name or self.use_simple.name):capitalize():addJosa("로"))
 	elseif self.use_talent then
 		local stn = self:getTalentFromId(self.use_talent.id).kr_name or self:getTalentFromId(self.use_talent.id).name --@@ 세줄뒤, 다섯줄뒤 사용 : 너무 길어져서 변수로 뺌 
 		if not self.use_talent.power then
-			return ("사용시 기술 발동: %s (레벨 %d)."):format(stn, self.use_talent.level)
+			return ("사용시 기술 발동 : %s (레벨 %d)."):format(stn, self.use_talent.level)
 		else
-			return ("사용시 기술 발동: %s (레벨 %d), 소모력 %d, 현재 보유력 %d/%d."):format(stn, self.use_talent.level, self.use_talent.power, self.power, self.max_power)
+			return ("사용시 기술 발동 : %s (레벨 %d), 소모력 %d, 현재 보유력 %d / %d."):format(stn, self.use_talent.level, self.use_talent.power, self.power, self.max_power)
 		end
 	end
 end
@@ -85,9 +85,9 @@ function _M:useObject(who, ...)
 			return ret
 		else
 			if self.talent_cooldown or (self.power_regen and self.power_regen ~= 0) then
-				game.logPlayer(who, "%s 아직 충전중입니다.", self:getName{no_count=true}:addJosa("는"))
+				game.logPlayer(who, "%s 아직 충전 중입니다.", self:getName{no_count=true}:addJosa("는"))
 			else
-				game.logPlayer(who, "%s 더이상 쓸 수 없습니다.", self:getName{no_count=true}:addJosa("는"))
+				game.logPlayer(who, "%s 더 이상 사용할 수 없습니다.", self:getName{no_count=true}:addJosa("는"))
 			end
 			return {}
 		end
@@ -113,9 +113,9 @@ function _M:useObject(who, ...)
 			return {used=ret}
 		else
 			if self.talent_cooldown or (self.power_regen and self.power_regen ~= 0) then
-				game.logPlayer(who, "%s 아직 충전중입니다.", self:getName{no_count=true}:addJosa("는"))
+				game.logPlayer(who, "%s 아직 충전 중입니다.", self:getName{no_count=true}:addJosa("는"))
 			else
-				game.logPlayer(who, "%s 더이상 쓸 수 없습니다.", self:getName{no_count=true}:addJosa("는"))
+				game.logPlayer(who, "%s 더 이상 사용할 수 없습니다.", self:getName{no_count=true}:addJosa("는"))
 			end
 			return {}
 		end

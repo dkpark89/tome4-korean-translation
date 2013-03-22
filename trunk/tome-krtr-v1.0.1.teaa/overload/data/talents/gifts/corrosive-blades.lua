@@ -50,7 +50,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[염검을 통하여 산성 물질을 내뿜어, 순간적으로 기다란 광선을 만들어 %0.2f 산성 피해량의 공격을 합니다.
+		return ([[염동 칼날을 통해 산성 물질을 내뿜어, 순간적으로 기다란 광선을 만들어냅니다. 
+		이 광선은 적들을 관통하며, %0.2f 산성 피해를 줍니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ACID, dam))
 	end,
@@ -66,7 +67,7 @@ newTalent{
 	getResist = function(self, t) return 10 + self:combatTalentMindDamage(t, 10, 70) end,
 	info = function(self, t)
 		local res = t.getResist(self, t)
-		return ([[당신이 다른 존재에게 자연 속성 피해를 줄 때마다, 상대의 산성 저항력을 2 턴 동안 %d%% 감소시킵니다.
+		return ([[당신이 적에게 자연 속성 피해를 줄 때마다, 적의 산성 저항력이 2 턴 동안 %d%% 감소하게 됩니다.
 		저항력 감소치는 정신력의 영향을 받아 증가합니다.]]):
 		format(res)
 	end,
@@ -170,7 +171,7 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local nb = t.getNb(self, t)
 		return ([[당신은 목표 지점의 2 칸 반경 영역에 집중하여, 최대 %d 개의 부식성 씨앗이 나타나게 만듭니다.
-		그 위로 누군가가 지나가는 순간 씨앗은 폭발하여, 대상은 %0.2f 산성 피해를 받으면서 밀려나게 됩니다.
+		씨앗 위로 적이 지나가면 씨앗은 폭발하며, 대상에게 %0.2f 산성 피해를 주고 밀어냅니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(nb, damDesc(self, DamageType.ACID, dam))
 	end,
@@ -218,8 +219,8 @@ newTalent{
 		local damageinc = t.getFireDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local regen = t.getRegen(self, t)
-		return ([[스스로를 자연의 힘으로 둘러쌈으로써, 당신의 모든 산성 공격 피해량을 %d%% 증가시키고 산성 저항 관통력을 %d%% 올려줍니다.
-		또 이 힘은 당신에게 속한 점액 덩어리들에게 영양분이 되어, 점액 덩어리들에게 %d%% 생명력 재생을 줍니다.]])
+		return ([[스스로를 자연의 힘으로 둘러싸, 모든 산성 공격 피해량을 %d%% 증가시키고 산성 저항 관통력을 %d%% 올립니다.
+		또한 이 힘은 당신의 진흙 덩어리들에게 영양분이 되어, 진흙 덩어리들에게 매 턴마다 최대 생명력의 %d%% 만큼을 재생할 수 있게 해줍니다.]])
 		:format(damageinc, ressistpen, regen)
 	end,
 }

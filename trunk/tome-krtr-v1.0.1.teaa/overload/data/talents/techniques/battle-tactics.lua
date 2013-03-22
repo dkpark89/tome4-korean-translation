@@ -89,7 +89,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 후려쳐서 %d%% 의 무기 피해를 줍니다.
-		공격이 성공하면, 대상은 출혈 상태가 되어 7 턴 동안 총 %d%% 의 무기 피해를 입으며 치유 효율이 %d%% 만큼 줄어듭니다.]]):
+		공격이 성공하면 대상은 출혈 상태가 되어 7 턴 동안 총 %d%% 의 무기 피해를 나눠서 입게 되며, 치유 효율이 %d%% 줄어들게 됩니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), 100 * self:combatTalentWeaponDamage(t, 2, 3.2), self:getTalentLevel(t) * 10)
 	end,
 }

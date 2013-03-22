@@ -26,7 +26,7 @@ desc = function(self, who)
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 나가 관문을 파괴했습니다. 나가들의 침략이 멈췄습니다.#WHITE#"
 
 		if self:isCompleted("return") then
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 서역 사람들이 동대륙이라 부르는 곳인, 바르'에이알에 돌아왔습니다.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 서역 사람들이 동대륙이라 부르는 곳인, 바르'에이알에서 돌아왔습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#SLATE#* 하지만 당신은 머나먼 땅에 떨어졌습니다. 아침의 문으로 돌아갈 수 있는 방법을 찾아야 합니다.#WHITE#"
 		end

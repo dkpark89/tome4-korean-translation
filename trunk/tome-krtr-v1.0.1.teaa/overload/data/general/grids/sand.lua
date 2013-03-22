@@ -71,7 +71,7 @@ newEntity{
 					local a = game.level.map(self.x, self.y, engine.Map.ACTOR)
 					if a and not a:attr("sand_dweller") then
 						game.logPlayer(a, "통로가 무너져 그 밑에 깔렸습니다! 숨이 막힙니다!")
-						a:suffocate(30, self, "생매장당해 죽음")
+						a:suffocate(30, self, "생매장 당해서 죽음")
 						engine.DamageType:get(engine.DamageType.PHYSICAL).projector(self, self.x, self.y, engine.DamageType.PHYSICAL, a.life / 2)
 					end
 				end

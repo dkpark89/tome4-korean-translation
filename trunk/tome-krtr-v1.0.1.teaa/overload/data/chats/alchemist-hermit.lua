@@ -239,19 +239,19 @@ newChat{ id="welcome",
 #{bold}#여기 틀어박혀 사는 것도 다 이유가 있어서 그렇다고, 이 개... 오, 자네였군.#{normal}#]],
 	answers = {
 		-- If not the final elixir:
-		{"#{bold}#"..e[1].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
+		{"#{bold}#"..e[1].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 1) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
 			end,
 		},
-		{"#{bold}#"..e[2].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
+		{"#{bold}#"..e[2].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 2) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
 			end,
 		},
-		{"#{bold}#"..e[3].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
+		{"#{bold}#"..e[3].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="complete",
 			cond = function(npc, player) return turn_in(npc, player, 3) end,
 			action = function(npc, player)
 				q:on_turnin(player, alch_picked, e_picked, false)
@@ -259,24 +259,24 @@ newChat{ id="welcome",
 		},
 
 		-- If the final elixir:
-		{"#{bold}#"..e[1].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
+		{"#{bold}#"..e[1].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 1) end,
 		},
-		{"#{bold}#"..e[2].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
+		{"#{bold}#"..e[2].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 2) end,
 		},
-		{"#{bold}#"..e[3].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
+		{"#{bold}#"..e[3].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="totally-complete",
 			cond = function(npc, player) return turn_in_final(npc, player, 3) end,
 		},
 
 		-- If the elixir got made while you were out:
-		{"#{bold}#"..e[1].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
+		{"#{bold}#"..e[1].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 1) end,
 		},
-		{"#{bold}#"..e[2].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
+		{"#{bold}#"..e[2].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 2) end,
 		},
-		{"#{bold}#"..e[3].cap_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
+		{"#{bold}#"..e[3].kr_name.."에 필요한 재료를 모두 가져왔습니다.#{normal}#", jump="poached",
 			cond = function(npc, player) return turn_in_poached(npc, player, 3) end,
 		},
 

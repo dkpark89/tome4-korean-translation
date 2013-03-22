@@ -56,7 +56,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[언데드 추종자들에게 어둠의 장막을 둘러, 시전자 곁으로 추종자들을 불러들입니다. 또한 언데드 추종자들이 5 턴 동안 %d%% 확률로 공격을 회피할 수 있게 됩니다.
+		return ([[언데드 추종자들에게 어둠의 장막을 둘러, 시전자 곁으로 추종자들을 불러들입니다. 또한 언데드 추종자들이 5 턴 동안 %d%% 확률로 근접 공격을 회피할 수 있게 됩니다.
 		회피율은 주문력의 영향을 받아 증가합니다.]]):
 		format(chance)
 	end,
@@ -278,8 +278,8 @@ newTalent{
 		local damageinc = t.getDarknessDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local affinity = t.getAffinity(self, t)
-		return ([[시전자 주변에 황혼이 지고, 서리가 낍니다. 모든 암흑 피해와 냉기 피해가 %d%% 상승하며, 적들의 암흑 저항력을 %d%% 무시할 수 있습니다.
-		그리고, 암흑 피해를 받으면 피해량의 %d%% 만큼 생명력을 회복합니다.]])
+		return ([[시전자 주변에 황혼이 지고, 서리가 낍니다. 모든 암흑 피해와 냉기 피해가 %d%% 상승하며, 적들의 암흑 저항력을 %d%% 무시할 수 있게 됩니다.
+		그리고, 암흑 피해를 받으면 피해량의 %d%% 만큼 생명력을 회복하게 됩니다.]])
 		:format(damageinc, ressistpen, affinity)
 	end,
 }

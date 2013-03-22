@@ -34,7 +34,7 @@ newAchievement{
 	kr_name = "보물 사냥꾼",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[금화 1,000개 이상 축적.]],
+	desc = [[금화 1,000 개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 1000
 	end,
@@ -45,7 +45,7 @@ newAchievement{
 	kr_name = "보물 비축자",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[금화 3,000개 이상 축적.]],
+	desc = [[금화 3,000 개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 3000
 	end,
@@ -53,10 +53,10 @@ newAchievement{
 
 newAchievement{ id = "DRAGON_GREED",
 	name = "Dragon's Greed",
-	kr_name = "드래곤의 탐욕",
+	kr_name = "용의 탐욕",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[금화 8,000개 이상 축적.]],
+	desc = [[금화 8,000 개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 8000
 	end,

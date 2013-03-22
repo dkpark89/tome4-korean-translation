@@ -30,7 +30,7 @@ newEffect{
 	name = "INFUSION_COOLDOWN", image = "effects/infusion_cooldown.png",
 	desc = "Infusion Saturation",
 	kr_name = "주입 포화",
-	long_desc = function(self, eff) return ("주입 능력을 많이 사용할수록, 사용한 주입의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
+	long_desc = function(self, eff) return ("주입 능력을 많이 사용할수록, 사용한 주입물의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
 	type = "other",
 	subtype = { infusion=true },
 	status = "detrimental",
@@ -339,7 +339,7 @@ newEffect{
 				game.logSeen(self, "#LIGHT_RED#주문이 헛나갔습니다.")
 				return
 			end
-			game.logPlayer(game.player, "#LIGHT_BLUE#시공간 연속체를 펼쳐 이전 상태로 되돌아 갑니다!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#시공간 연속체를 펼쳐, 이전 상태로 되돌아 갑니다!")
 			game:chronoRestore("precognition", true)
 			game.player.tmp[self.EFF_PRECOGNITION] = nil
 			if game._chronoworlds then game._chronoworlds = nil end
@@ -357,7 +357,7 @@ newEffect{
 	name = "SEE_THREADS", image = "talents/see_the_threads.png",
 	desc = "See the Threads",
 	kr_name = "시간의 흐름 - 예견",
-	long_desc = function(self, eff) return ("세 가지 시간의 흐름 체험 : 종료 후 세 가지 흐름 중에서 원하는 현실을 선택 (현재 체험: %d)"):format(eff.thread) end,
+	long_desc = function(self, eff) return ("세 가지 시간의 흐름 체험 : 종료 후 세 가지 흐름 중에서 원하는 현실을 선택 (현재 체험 : %d)"):format(eff.thread) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
@@ -641,7 +641,7 @@ newEffect{
 	desc = "Zero Gravity",
 	kr_name = "무중력",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("무중력 : 부유 / 이동 속도 세 배 느림 / 물리 공격시 밀어내기 효과 추가 / 최대 소지무게 20 배 증가") end,
+	long_desc = function(self, eff) return ("무중력 : 부유 / 이동 속도 3 배 느려짐 / 물리 공격시 밀어내기 효과 추가 / 최대 소지무게 20 배 증가") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { spacetime=true },
@@ -1552,7 +1552,7 @@ newEffect{
 	name = "POSSESSION", image = "talents/possess.png",
 	desc = "Psionic Consume",
 	kr_name = "잡아먹힌 정신",
-	long_desc = function(self, eff) return "정신이 파괴되었으며, 육신은 조종당하고 있음. 하지만 강렬한 염동 에너지가 육체를 불태우고 있어, 곧 사라지게 됨" end,
+	long_desc = function(self, eff) return "정신이 파괴되었으며, 육신은 조종당하고 있음. 하지만 강렬한 염동력이 육체를 불태우고 있어, 곧 육체도 붕괴됨" end,
 	type = "other",
 	subtype = { psionic=true, possess=true },
 	status = "detrimental",
@@ -1624,7 +1624,7 @@ newEffect{
 	name = "CLARITY", image = "talents/clarity.png",
 	desc = "Clarity",
 	kr_name = "깨달음",
-	long_desc = function(self, eff) return ("깨달음이 찾아와 세상의 원리 이해 : 모든 행동 속도 +%d%%"):format(eff.power * 100) end,
+	long_desc = function(self, eff) return ("깨달음이 찾아와, 세상의 원리 이해 : 모든 행동 속도 +%d%%"):format(eff.power * 100) end,
 	type = "other",
 	subtype = { psionic=true },
 	status = "beneficial",
@@ -1902,7 +1902,7 @@ newEffect{
 				self:startTalentCooldown(self.T_REVISIONIST_HISTORY)
 				return
 			end
-			game.logPlayer(game.player, "#LIGHT_BLUE#시간을 되돌려 역사를 새로 적습니다!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#시간을 되돌려, 역사를 새로 적습니다!")
 			game:chronoRestore("revisionist_history", true)
 			game._chronoworlds = nil
 			game.player:startTalentCooldown(self.T_REVISIONIST_HISTORY)
@@ -1991,7 +1991,7 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_ACID",
 	desc = "Noxious fumes",
-	kr_name = "유독가스",
+	kr_name = "유독한 연기",
 	no_stop_enter_worlmap = true,
 	long_desc = function(self, eff) return ("해당 지역 효과 : 산성 공격 피해량 +10% / 산성 저항 -10% / 회피도 -10% / 무장 해제 면역력 -20%") end,
 	decrease = 0, no_remove = true,
@@ -2237,7 +2237,7 @@ newEffect{
 		if eff.invulnerable then
 			eff.invulnerable = nil
 		end
-		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="과격한 응급치료의 불꽃에 타죽었습니다"})
+		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="당신은 과격한 응급치료의 불꽃에 타죽었습니다."})
 
 		local srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
 		local dtn = DamageType:get(DamageType.FIRE).kr_name or DamageType:get(DamageType.FIRE).name --@@ 다음줄 사용 - 너무 길어서 변수로 뺌
@@ -2299,7 +2299,7 @@ newEffect{
 	decrease = 0, no_remove = true,
 	parameters = { dam=20 },
 	on_gain = function(self, err) return "#Target1# 숨을 쉬지 못합니다.", "+숨막힘" end,
-	on_lose = function(self, err) return "#Target1# 다시 숨을 쉽니다.", "-숨막힘" end,
+	on_lose = function(self, err) return "#Target1# 다시 숨을 쉬기 시작합니다.", "-숨막힘" end,
 	on_timeout = function(self, eff)
 		if self.air > self.air_regen then -- We must be over our natural regen
 			self:removeEffect(self.EFF_SUFFOCATING, false, true)
@@ -2309,7 +2309,7 @@ newEffect{
 		-- Bypass all shields & such
 		local old = self.onTakeHit
 		self.onTakeHit = nil
-		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="숨막혀 죽었습니다"})
+		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="당신은 숨이 막혀 죽었습니다."})
 		eff.dam = util.bound(eff.dam + 5, 20, 100)
 		self.onTakeHit = old
 	end,
@@ -2318,8 +2318,8 @@ newEffect{
 newEffect{
 	name = "ANTIMAGIC_DISRUPTION",
 	desc = "Antimagic Disruption",
-	k4_name = "반마법 붕괴",
-	long_desc = function(self, eff) return ("마법의 힘들이 착용한 반마법 장비에 의해 부서짐"):format() end,
+	k4_name = "마법 단절",
+	long_desc = function(self, eff) return ("착용한 반마법 장비에 의해, 마법의 힘이 방해받음"):format() end,
 	type = "other",
 	subtype = { antimagic=true },
 	status = "detrimental",

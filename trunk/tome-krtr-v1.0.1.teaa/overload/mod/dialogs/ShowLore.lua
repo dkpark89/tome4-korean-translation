@@ -77,7 +77,7 @@ end
 
 function _M:select(item)
 	if item then
-		self.c_desc:switchItem(item, ("#GOLD#종류:#AQUAMARINE# %s\n#GOLD#지식 이름:#0080FF# %s\n#GOLD#내용:#ANTIQUE_WHITE# %s"):format(item.cat, item.name, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류 :#AQUAMARINE# %s\n#GOLD#지식 이름 :#0080FF# %s\n#GOLD#내용 :#ANTIQUE_WHITE# %s"):format(item.cat, item.name, item.desc))
 		if item.image then
 			if type(item.image) == "string" then
 				self.image = Image.new{file="lore/"..item.image, auto_width=true, auto_height=true}

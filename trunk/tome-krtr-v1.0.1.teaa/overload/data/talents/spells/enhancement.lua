@@ -46,8 +46,8 @@ newTalent{
 	info = function(self, t)
 		local firedamage = t.getFireDamage(self, t)
 		local firedamageinc = t.getFireDamageIncrease(self, t)
-		return ([[손과 무기가 마법의 불꽃으로 불타올라, 근접 공격에 %0.2f 화염 피해가 추가되고 모든 화염 피해가 %d%% 증가합니다.
-		매 타격마다 %0.2f 만큼 체력이 회복되는 효과도 있습니다.
+		return ([[손과 무기가 마법의 불꽃으로 불타올라, 근접 공격에 %0.2f 화염 피해가 추가되고 모든 화염 피해량이 %d%% 증가하게 됩니다.
+		또한, 근접공격을 할 때마다 %0.2f 만큼 체력이 회복되는 효과도 있습니다.
 		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, firedamage), firedamageinc, self:getTalentLevel(t) / 3)
 	end,
@@ -72,7 +72,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getPhysicalReduction(self, t)
-		return ([[대지의 힘으로 피부를 단단하게 만들어, 10 턴 동안 받는 물리 피해를 %d%% 감소시킵니다.
+		return ([[대지의 힘으로 피부를 단단하게 만들어, 10 턴 동안 받는 물리 피해량을 %d%% 감소시킵니다.
 		피해 감소량은 주문력의 영향을 받아 상승합니다.]]):
 		format(reduction)
 	end,
@@ -107,8 +107,8 @@ newTalent{
 	info = function(self, t)
 		local icedamage = t.getIceDamage(self, t)
 		local icedamageinc = t.getIceDamageIncrease(self, t)
-		return ([[손과 무기가 마법의 전류가 흘러, 근접 공격에 %0.2f 전기 피해가 추가되고 모든 전기 피해가 %d%% 증가합니다.
-		매 타격마다 %0.2f 만큼 마나가 회복되며, 25%% 확률로 적이 혼절 상태효과에 걸리는 효과도 있습니다.
+		return ([[손과 무기가 마법의 전류가 흘러, 근접 공격에 %0.2f 전기 피해가 추가되고 모든 전기 피해량이 %d%% 증가하게 됩니다.
+		또한 매 타격마다 %0.2f 만큼 마나가 회복되며, 25%% 확률로 적이 혼절 상태효과에 걸리는 효과도 있습니다.
 		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, icedamage), icedamageinc, self:getTalentLevel(t) / 3)
 	end,

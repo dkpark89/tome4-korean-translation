@@ -58,7 +58,7 @@ function _M:okclick()
 		game:unregisterDialog(self)
 		self.action(self.name)
 	else
-		Dialog:simplePopup("잘못된 숫자", ("%i에서 %i 글자 사이여야 합니다."):format(self.min, self.max))
+		Dialog:simplePopup("잘못된 숫자", ("%i에서 %i 글자 사이의 숫자여야 합니다."):format(self.min, self.max))
 	end
 end
 

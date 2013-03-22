@@ -78,7 +78,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[주변 %d 칸 반경에 중독성 포자를 뿌려, 적에게 무작위한 독을 걸고 10 턴 동안 %0.2f 자연 피해를 줍니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 40, 900)))
+		return ([[주변 %d 칸 반경에 중독성 포자를 뿌려, 적에게 무작위한 독을 걸고 10 턴 동안 총 %0.2f 자연 피해를 나눠서 줍니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 40, 900)))
 	end,
 }
 
@@ -163,8 +163,8 @@ newTalent{
 		local range = self:getTalentRange(t)
 		local radius = self:getTalentRadius(t)
 		local talents = t.getNbTalents(self, t)
-		return ([[슬라임 뿌리를 지면까지 늘어뜨려 따라오게 만들고, 주변 %d 칸 반경에 솟아나게 만듭니다. (오차 범위 : %d 칸)
-		이 기술은 자신의 신체 구조를 약간 변화시켜, 기술 %d 개의 재사용 대기시간이 사라지게 됩니다.]]):format(range, radius, talents)
+		return ([[슬라임 뿌리를 지면에 박아 원하는 위치까지 뻗어낸 다음, 그 뿌리를 이용하여 주변 %d 칸 반경을 순간이동합니다. (오차 범위 : %d 칸)
+		이 기술은 자신의 신체 구조를 약간 변화시켜, 기술 %d 개의 재사용 대기시간을 사라지게 만듭니다.]]):format(range, radius, talents)
 	end,
 }
 

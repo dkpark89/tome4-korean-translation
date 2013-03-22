@@ -51,11 +51,11 @@ function _M:onPartyDeath(src, death_note)
 		game.party:setPlayer(game.party:findMember{main=true}, true)
 		game.paused = true
 		game.player.energy.value = game.energy_to_act
-		src = src or {name="알 수 없는 이"}
+		src = src or {name="알 수 없는 자"}
 		game.player.killedBy = src
 		game.player.died_times[#game.player.died_times+1] = {name=src.name, level=game.player.level, turn=game.turn}
 		game.player:registerDeath(game.player.killedBy)
-		local dialog = require("mod.dialogs."..(game.player.death_dialog or "사망의 창")).new(game.player)
+		local dialog = require("mod.dialogs."..(game.player.death_dialog or "DeathDialog")).new(game.player)
 		if not dialog.dont_show then
 			game:registerDialog(dialog)
 		end
@@ -82,19 +82,19 @@ function _M:onPartyDeath(src, death_note)
 
 		local msg
 		if not death_note.special_death_msg then
-			msg = "%s : 레벨 %d %s %s - '%s'의 %s층에서 %s%s에게 %s 죽었습니다. %s"
+			msg = "%s : 레벨 %d %s %s - '%s' 의 %s 층에서, %s%s에게 %s죽었습니다. %s"
 			local srcname = src.kr_name or ( src.unique and src.name or src.name:a_an() )
 			local killermsg = (src.killer_message and " "..src.killer_message or ""):gsub("#sex#", game.player.female and "그녀" or "그")
 			if src.name == game.player.name then
 				srcname = "자기 자신" --@@ 성별 차이 제거 원래 코드 : game.player.female and "herself" or "himself"
 				killermsg = rng.table{
-					" (멍청이)",
-					" 극도로 무력한 행동이었죠.",
-					" 절정의 굴욕감이 들겁니다.",
-					" 당연히 사고였겠지만요.",
-					" 어떤 잘못된 집착적 실험 도중이었죠.",
-					" 야생에 공짜 식량을 제공하기 위해서 죽었습니다.",
-					" (얼마나 부끄러울까)",
+					"(멍청이)",
+					"극도로 바보 같은 행동이었죠.",
+					"절정의 굴욕감이 들겁니다.",
+					"당연히 사고였겠지만요.",
+					"어떤 잘못된 집착적 실험 도중이었죠.",
+					"야생의 동물들에게 식량을 제공해주기 위해서 죽었습니다.",
+					"(얼마나 부끄러울까)",
 				}
 			end
 			msg = msg:format(
@@ -106,7 +106,7 @@ function _M:onPartyDeath(src, death_note)
 				killermsg
 			) --@@ 변수 순서 조정
 		else
-			msg = "%s : 레벨 %d %s %s - '%s'의 %s층에서 %s."
+			msg = "%s : 레벨 %d %s %s - '%s' 의 %s 층에서 %s."
 			msg = msg:format(
 				(game.player.kr_name or game.player.name), game.player.level, game.player.descriptor.subrace:lower():krRace(), game.player.descriptor.subclass:lower():krClass(),
 				(game.zone.kr_name or game.zone.name), game.level.level,

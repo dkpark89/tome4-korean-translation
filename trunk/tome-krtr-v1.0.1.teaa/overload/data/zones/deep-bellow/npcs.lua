@@ -32,7 +32,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 	kr_name = "그 입",
 	color=colors.VIOLET,
 	desc = [["울림 속에서, 그것은 모든 것을 삼켜버린다."]],
-	killer_message = "그리고 찍찍거리는 박쥐로 되살아났습니다.", --lore 보고 제대로 수정 필요
+	killer_message = "당신은 찍찍거리는 박쥐로 되살아났습니다.", 
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_the_mouth.png", display_h=2, display_y=-1}}},
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 10000, life_rating = 0, fixed_rating = true,

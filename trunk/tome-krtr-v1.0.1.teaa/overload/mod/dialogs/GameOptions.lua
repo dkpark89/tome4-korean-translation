@@ -63,11 +63,11 @@ function _M:generateList()
 	local list = {}
 	local i = 0
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"스크롤을 시작할 플레이어와 화면 가장자리 사이의 최소거리입니다. 이 수치가 충분히 높으면 플레이어는 항상 게임 화면의 가운데에 있게 됩니다.\n\nDefines the distance from the screen edge at which scrolling will start. If set high enough the game will always center on the player.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"스크롤을 시작할 플레이어와 화면 가장자리 사이의 최소거리입니다. 이 수치가 충분히 높으면, 플레이어 캐릭터는 항상 게임 화면의 가운데에 있게 됩니다.\n\nDefines the distance from the screen edge at which scrolling will start. If set high enough the game will always center on the player.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#스크롤 거리#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.scroll_dist)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("스크롤 거리", "1에서 30 사이", config.settings.tome.scroll_dist, 30, function(qty)
+		game:registerDialog(GetQuantity.new("스크롤 거리", "1 에서 30 사이", config.settings.tome.scroll_dist, 30, function(qty)
 			qty = util.bound(qty, 1, 30)
 			game:saveSettings("tome.scroll_dist", ("tome.scroll_dist = %d\n"):format(qty))
 			config.settings.tome.scroll_dist = qty
@@ -75,29 +75,29 @@ function _M:generateList()
 		end, 1))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"백그라운드 방식으로 저장하면서, 계속 게임을 할 수 있습니다. 사용하지 않을 경우 저장하는 동안 기다려야하지만, 저장속도는 빨라집니다.\n\nSaves in the background, allowing you to continue playing. If disabled you will have to wait until the saving is done, but it will be faster.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"백그라운드 방식으로 저장하면서, 계속 게임을 할 수 있습니다. 사용하지 않을 경우에는 저장하는 동안 기다려야 하지만, 저장속도는 빨라집니다.\n\nSaves in the background, allowing you to continue playing. If disabled you will have to wait until the saving is done, but it will be faster.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#백그라운드 방식 저장#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.background_saves and "사용" or "사용안함")
+		return tostring(config.settings.background_saves and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.background_saves = not config.settings.background_saves
 		game:saveSettings("background_saves", ("background_saves = %s\n"):format(tostring(config.settings.background_saves)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"지역 정보를 지역별로 저장을 하는 대신, 지역의 모든 층마다 별도로 저장합니다.\n이 방식은 저장을 더 자주하지만, 깊은 던전에서 메모리 사용량을 줄일 수 있습니다.\n\n#LIGHT_RED#이미 방문한 지역정보는 변경되지 않습니다.\n*층이 바뀔때마다 자동으로 저장을 하지는 않습니다*.#WHITE#\n\nForces the game to save each level instead of each zone.\nThis makes it save more often but the game will use less memory when deep in a dungeon.\n\n#LIGHT_RED#Changing this option will not affect already visited zones.\n*THIS DOES NOT MAKE A FULL SAVE EACH LEVEL*.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"지역 정보를 지역별로 저장을 하는 대신, 지역의 모든 층마다 별도로 저장합니다.\n이 방식은 저장을 더 자주 하지만, 깊은 던전에서 메모리 사용량을 줄일 수 있습니다.\n\n#LIGHT_RED#이미 방문한 지역정보는 변경되지 않습니다.\n*층이 바뀔 때마다 자동으로 저장을 하지는 않습니다*#WHITE#\n\nForces the game to save each level instead of each zone.\nThis makes it save more often but the game will use less memory when deep in a dungeon.\n\n#LIGHT_RED#Changing this option will not affect already visited zones.\n*THIS DOES NOT MAKE A FULL SAVE EACH LEVEL*.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#지역의 층마다 따로 저장#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.save_zone_levels and "사용" or "사용안함")
+		return tostring(config.settings.tome.save_zone_levels and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.save_zone_levels = not config.settings.tome.save_zone_levels
 		game:saveSettings("tome.save_zone_levels", ("tome.save_zone_levels = %s\n"):format(tostring(config.settings.tome.save_zone_levels)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"어떤 존재나 발사체가 '부드럽게' 이동하도록 화면을 보여줍니다. 이 설정을 0으로 하면 이동시 순간적으로 변경됩니다.\n이 수치가 높을수록 움직임이 천천히 보입니다.\n\n주의: 이 설정은 게임 내부의 시간과는 상관없습니다. 기존 이동 화면이 끝나지 않았을때 새로운 명령을 주면, 현재 상태를 바꾼후 새로운 이동화면을 보여주기 시작합니다.\n\nMake the movement of creatures and projectiles 'smooth'. When set to 0 movement will be instantaneous.\nThe higher this value the slower the movements will appear.\n\nNote: This does not affect the turn-based idea of the game. You can move again while your character is still moving, and it will correctly update and compute a new animation."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"어떤 존재나 발사체가 '부드럽게' 이동하도록 화면을 보여줍니다. 이 설정을 0 으로 하면, 이동 애니메이션을 보여주지 않게 됩니다.\n이 수치가 높을수록, 움직임이 천천히 보이게 됩니다.\n\n주의 : 이 설정은 게임 내부의 시간과는 무관합니다. 기존 이동 화면이 끝나지 않았을 때 새로운 명령을 입력하면, 현재의 움직임을 즉시 끝내고 새로운 이동화면을 보여주게 됩니다.\n\nMake the movement of creatures and projectiles 'smooth'. When set to 0 movement will be instantaneous.\nThe higher this value the slower the movements will appear.\n\nNote: This does not affect the turn-based idea of the game. You can move again while your character is still moving, and it will correctly update and compute a new animation."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#부드러운 이동화면#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.smooth_move)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("이동 속도 입력(낮을수록 빠름)", "0에서 60 사이", config.settings.tome.smooth_move, 60, function(qty)
+		game:registerDialog(GetQuantity.new("이동 속도 입력 (낮을수록 빠름)", "0 에서 60 사이", config.settings.tome.smooth_move, 60, function(qty)
 			game:saveSettings("tome.smooth_move", ("tome.smooth_move = %d\n"):format(qty))
 			config.settings.tome.smooth_move = qty
 			engine.Map.smooth_scroll = qty
@@ -105,43 +105,43 @@ function _M:generateList()
 		end))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"'낚아채기' 이동의 사용을 결정합니다.\n사용하면 이동하거나 공격시에 존재들 사이에 작은 충돌이 발생합니다.\n\nEnables or disables 'twitch' movement.\nWhen enabled creatures will do small bumps when moving and attacking.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#낚아채기 이동과 공격#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.twitch_move and "사용" or "사용안함")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"'약한 흔들림' 현상의 사용을 결정합니다.\n사용하면 이동하거나 공격할 때 개체들이 더 생동감 있게 움직입니다.\n\nEnables or disables 'twitch' movement.\nWhen enabled creatures will do small bumps when moving and attacking.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#약한 흔들림 현상#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.tome.twitch_move and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.twitch_move = not config.settings.tome.twitch_move
 		game:saveSettings("tome.twitch_move", ("tome.twitch_move = %s\n"):format(tostring(config.settings.tome.twitch_move)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"특정 지역에서 날씨 효과를 보여줄지 결정합니다.\n사용하지 않으면 (컴퓨터 사용) 효율이 약간 올라갑니다. 기존에 방문한 지역에 대해서는 영향을 주지 않습니다.\n\nEnables or disables weather effects in some zones.\nDisabling it can gain some performance. It will not affect previously visited zones.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"특정 지역에서 날씨 효과를 보여줄지 결정합니다.\n사용하지 않으면 컴퓨터에 부담을 조금 덜 주게 됩니다. 기존에 이미 방문한 지역에는 영향을 주지 않습니다.\n\nEnables or disables weather effects in some zones.\nDisabling it can gain some performance. It will not affect previously visited zones.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#날씨 효과#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.weather_effects and "사용" or "사용안함")
+		return tostring(config.settings.tome.weather_effects and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.weather_effects = not config.settings.tome.weather_effects
 		game:saveSettings("tome.weather_effects", ("tome.weather_effects = %s\n"):format(tostring(config.settings.tome.weather_effects)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"낮/밤에 따른 여러가지 조명 효과를 보여줄지 결정합니다..\n\nEnables or disables day/night light variations effects..#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"낮과 밤에 따른 여러 가지 조명 효과를 보여줄지 결정합니다.\n\nEnables or disables day/night light variations effects.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#낮/밤 조명 변화#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.daynight and "사용" or "사용안함")
+		return tostring(config.settings.tome.daynight and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.daynight = not config.settings.tome.daynight
 		game:saveSettings("tome.daynight", ("tome.daynight = %s\n"):format(tostring(config.settings.tome.daynight)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"전장에서 부드러운 연기 효과를 사용합니다.\n사용하지 않으면 연기가 칸마다 '네모'모양으로 보이지만, 약간의 (컴퓨터 사용) 효율이 좋아집니다.\n\nEnables smooth fog-of-war.\nDisabling it will make the fog of war look 'blocky' but might gain a slight performance increase.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"부드러운 연기 효과를 사용합니다.\n사용하지 않으면 연기가 칸마다 '네모' 모양으로 보이지만, 컴퓨터에 부담을 조금 덜 주게 됩니다.\n\nEnables smooth fog-of-war.\nDisabling it will make the fog of war look 'blocky' but might gain a slight performance increase.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#부드러운 연기 효과#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.smooth_fov and "사용" or "사용안함")
+		return tostring(config.settings.tome.smooth_fov and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.smooth_fov = not config.settings.tome.smooth_fov
 		game:saveSettings("tome.smooth_fov", ("tome.smooth_fov = %s\n"):format(tostring(config.settings.tome.smooth_fov)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임화면이 어떤 방식으로 보일지 결정합니다. 기본은 '금속 예술품'방식입니다. '가장 단순'방식은 가장 기본적이지만 장식에 쓰이는 화면 공간이 가장 적습니다.\n이 설정의 효과는 게임을 다시 시작해야 적용됩니다.\n\nSelect the interface look. Metal is the default one. Simple is basic but takes less screen space.\nYou must restart the game for the change to take effect."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임 인터페이스를 얼마나 화려하게 만들지 결정합니다. 기본은 '금속 예술품' 방식입니다. '가장 단순' 방식은 장식을 완전히 없애버리며, 장식이 없기 때문에 게임 화면을 덜 가립니다.\n이 설정의 효과는 게임을 다시 시작해야 적용됩니다.\n\nSelect the interface look. Metal is the default one. Simple is basic but takes less screen space.\nYou must restart the game for the change to take effect."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#게임화면 형식#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.ui_theme2):capitalize():krUIStyle()
 	end, fct=function(item)
@@ -153,11 +153,11 @@ function _M:generateList()
 		end)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"HUD를 어떤방식으로 보일지 결정합니다. 기본은 '깔끔'방식입니다.\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nSelect the HUD look. 'Minimalist' is the default one.\n#LIGHT_RED#This will take effect on next restart.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"HUD를 어떤방식으로 보여줄지 결정합니다. 기본은 '깔끔' 방식입니다.\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nSelect the HUD look. 'Minimalist' is the default one.\n#LIGHT_RED#This will take effect on next restart.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#HUD 형식#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.uiset_mode):capitalize():krHUDStyle()
 	end, fct=function(item)
-		local huds = {{name="깔끔", ui="Minimalist"}, {name="기존", ui="Classic"}}
+		local huds = {{name="깔끔", ui="Minimalist"}, {name="고전", ui="Classic"}}
 		self:triggerHook{"GameOptions:HUDs", huds=huds}
 		Dialog:listPopup("HUD 형식", "원하는 형식을 고르시오.", huds, 300, 200, function(sel)
 			if not sel or not sel.ui then return end
@@ -167,7 +167,7 @@ function _M:generateList()
 		end)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"원래는 글꼴을 선택하는 메뉴입니다. 하지만 한글화와 한글글꼴 적용으로 현재 이 메뉴는 적용되지 않습니다. 설정을 바꿔도 게임에 영향을 주지 않습니다.\n\nSelect the fonts look. Fantasy is the default one. Basic is simplified and smaller.\nYou must restart the game for the change to take effect."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"원래는 글꼴을 선택하는 메뉴입니다. 하지만 한글화와 한글글꼴 적용으로 인해, 현재 이 메뉴는 적용되지 않습니다. 설정을 바꿔도 게임에 영향을 주지 않습니다.\n\nSelect the fonts look. Fantasy is the default one. Basic is simplified and smaller.\nYou must restart the game for the change to take effect."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#글꼴 모양#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.fonts.type):capitalize():krFontShape()
 	end, fct=function(item)
@@ -191,20 +191,20 @@ function _M:generateList()
 		end)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"지도에서 마우스를 클릭하는 곳으로 이동할것인지 결정합니다.\n\nEnables easy movement using the mouse by left-clicking on the map.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"지도에서 마우스를 클릭하는 곳으로 이동할 것인지 결정합니다.\n\nEnables easy movement using the mouse by left-clicking on the map.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#마우스를 사용한 이동#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.mouse_move and "사용" or "사용안함")
+		return tostring(config.settings.mouse_move and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.mouse_move = not config.settings.mouse_move
 		game:saveSettings("mouse_move", ("mouse_move = %s\n"):format(tostring(config.settings.mouse_move)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"기록과 대화가 흐려지기 시작하는 시간을 결정합니다.\n만약 0으로 설정하면 기록이 흐려지지 않게 됩니다.\n\nHow many seconds before log and chat lines begin to fade away.\nIf set to 0 the logs will never fade away."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"기록과 대화가 흐려지기 시작하는 시간을 결정합니다.\n만약 0 으로 설정하면 기록이 흐려지지 않게 됩니다.\n\nHow many seconds before log and chat lines begin to fade away.\nIf set to 0 the logs will never fade away."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#기록의 흐려짐 시간#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.log_fade)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("기록이 흐려지기 시작하는 시간 (초)", "0에서 20 사이", config.settings.tome.log_fade, 20, function(qty)
+		game:registerDialog(GetQuantity.new("기록이 흐려지기 시작하는 시간 (초)", "0 에서 20 사이", config.settings.tome.log_fade, 20, function(qty)
 			qty = util.bound(qty, 0, 20)
 			game:saveSettings("tome.log_fade", ("tome.log_fade = %d\n"):format(qty))
 			config.settings.tome.log_fade = qty
@@ -237,7 +237,7 @@ function _M:generateList()
 	if game.uiset:checkGameOption("icons_temp_effects") then
 		local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"상태 효과를 글자 대신 아이콘으로 표시합니다.\n\nUses the icons for status effects instead of text.#WHITE#"}
 		list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#상태 아이콘 표시#WHITE##{normal}#", status=function(item)
-			return tostring(config.settings.tome.effects_icons and "사용" or "사용안함")
+			return tostring(config.settings.tome.effects_icons and "사용" or "사용하지 않음")
 		end, fct=function(item)
 			config.settings.tome.effects_icons = not config.settings.tome.effects_icons
 			game:saveSettings("tome.effects_icons", ("tome.effects_icons = %s\n"):format(tostring(config.settings.tome.effects_icons)))
@@ -249,7 +249,7 @@ function _M:generateList()
 	if game.uiset:checkGameOption("icons_hotkeys") then
 		local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"단축 기술창에 글자 대신 아이콘으로 표시합니다.\n\nUses the icons hotkeys toolbar or the textual one.#WHITE#"}
 		list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#단축 기술창 아이콘 표시#WHITE##{normal}#", status=function(item)
-			return tostring(config.settings.tome.hotkey_icons and "사용" or "사용안함")
+			return tostring(config.settings.tome.hotkey_icons and "사용" or "사용하지 않음")
 		end, fct=function(item)
 			config.settings.tome.hotkey_icons = not config.settings.tome.hotkey_icons
 			game:saveSettings("tome.hotkey_icons", ("tome.hotkey_icons = %s\n"):format(tostring(config.settings.tome.hotkey_icons)))
@@ -260,7 +260,7 @@ function _M:generateList()
 	end
 
 	if game.uiset:checkGameOption("hotkeys_rows") then
-		local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"단축 기술창이 보여줄 줄 수를 결정합니다.\nHUD가 '깔끔' 방식이라면 이 설정 변경 후 '인터페이스 초기화'를 해야 줄 수가 바뀝니다.\n(단, 이렇게 할 경우 사용자가 설정한 다른 인터페이스의 위치와 크기도 모두 초기화 되어버리니 주의하세요.)\n인터페이스의 잠금을 풀고 기술창 크기를 직접 변경하실 수도 있습니다.\n(원래는 이 방식을 사용하라는 의미로 '깔끔' 방식에서는 이 설정이 보이지 않았습니다)\n\nNumber of rows to show in the icons hotkeys toolbar.#WHITE#"}
+		local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"단축 기술창이 보여줄 줄 수를 결정합니다.\nHUD가 '깔끔' 방식이라면 이 설정 변경 후 '인터페이스 초기화'를 해야 줄 수가 바뀝니다.\n(단, 이렇게 할 경우 사용자가 설정한 다른 인터페이스의 위치와 크기도 모두 초기화 되어버리니 주의하세요)\n인터페이스의 잠금을 풀고 기술창 크기를 직접 변경하실 수도 있습니다.\n(원래는 이 방식을 사용하라는 의미로 '깔끔' 방식에서는 이 설정이 보이지 않았습니다)\n\nNumber of rows to show in the icons hotkeys toolbar.#WHITE#"}
 		list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#단축 기술창 줄 수#WHITE##{normal}#", status=function(item)
 			return tostring(config.settings.tome.hotkey_icons_rows)
 		end, fct=function(item)
@@ -278,7 +278,7 @@ function _M:generateList()
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#단축 기술창 아이콘 크기#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.hotkey_icons_size)
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("아이콘 크기", "32에서 64 사이", config.settings.tome.hotkey_icons_size, 64, function(qty)
+		game:registerDialog(GetQuantity.new("아이콘 크기", "32 에서 64 사이", config.settings.tome.hotkey_icons_size, 64, function(qty)
 			qty = util.bound(qty, 32, 64)
 			game:saveSettings("tome.hotkey_icons_size", ("tome.hotkey_icons_size = %d\n"):format(qty))
 			config.settings.tome.hotkey_icons_size = qty
@@ -287,36 +287,36 @@ function _M:generateList()
 		end, 32))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"새로운 게임을 시작할 때, 캐릭터의 기본 기술을 자동으로 배운상태에서 시작할지 결정합니다.\n\nNew games begin with some talent points auto-assigned.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"새로운 게임을 시작할 때, 캐릭터의 기본 기술을 자동으로 배운 상태에서 시작할지 결정합니다.\n\nNew games begin with some talent points auto-assigned.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#캐릭터 생성시 기본 기술 할당#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.autoassign_talents_on_birth and "사용" or "사용안함")
+		return tostring(config.settings.tome.autoassign_talents_on_birth and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.autoassign_talents_on_birth = not config.settings.tome.autoassign_talents_on_birth
 		game:saveSettings("tome.autoassign_talents_on_birth", ("tome.autoassign_talents_on_birth = %s\n"):format(tostring(config.settings.tome.autoassign_talents_on_birth)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"자동탐험을 하기전에 자동으로 충분한 휴식을 취할지 결정합니다.\n\nAlways rest to full before auto-exploring.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"자동탐험을 하기 전에, 자동으로 충분한 휴식을 취할지 결정합니다.\n\nAlways rest to full before auto-exploring.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#자동탐험시 휴식사용#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.rest_before_explore and "사용" or "사용안함")
+		return tostring(config.settings.tome.rest_before_explore and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.rest_before_explore = not config.settings.tome.rest_before_explore
 		game:saveSettings("tome.rest_before_explore", ("tome.rest_before_explore = %s\n"):format(tostring(config.settings.tome.rest_before_explore)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지않으면, 모든 게임을 통틀어 처음으로 알게된 지식만 보여줍니다.\n이 설정을 사용하면, 캐릭터마다 처음으로 알게된 지식을 보여줍니다.\n\nIf disabled lore popups will only appear the first time you see the lore on your profile.\nIf enabled it will appear the first time you see it with each character.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지 않으면, 모든 게임을 통틀어 처음으로 알게 된 지식만 보여줍니다.\n이 설정을 사용하면, 캐릭터마다 처음으로 알게 된 지식을 보여줍니다.\n\nIf disabled lore popups will only appear the first time you see the lore on your profile.\nIf enabled it will appear the first time you see it with each character.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#항상 지식 보여주기#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.lore_popup and "사용" or "사용안함")
+		return tostring(config.settings.tome.lore_popup and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.lore_popup = not config.settings.tome.lore_popup
 		game:saveSettings("tome.lore_popup", ("tome.lore_popup = %s\n"):format(tostring(config.settings.tome.lore_popup)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지 않으면, 물건에 붙은 기술이 자동으로 단축키에 연결되지 않습니다. 물건의 기술은 소지품목록 창에서 마우스 드래그나 단축키를 눌러 연결시킬수 있습니다.\n\nIf disabled items with activations will not be auto-added to your hotkeys, you will need to manualty drag them from the inventory screen.#WHITE#"}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"이 설정을 사용하지 않으면, 장비에 포함된 기술이 자동으로 단축키에 연결되지 않게 됩니다. 일반적인 물건에 포함된 기술은 소지품 목록 창에서 마우스 드래그나 단축키를 눌러 연결시킬 수 있습니다.\n\nIf disabled items with activations will not be auto-added to your hotkeys, you will need to manualty drag them from the inventory screen.#WHITE#"}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#항상 물건을 단축키로 연결#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.auto_hotkey_object and "사용" or "사용안함")
+		return tostring(config.settings.tome.auto_hotkey_object and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.auto_hotkey_object = not config.settings.tome.auto_hotkey_object
 		game:saveSettings("tome.auto_hotkey_object", ("tome.auto_hotkey_object = %s\n"):format(tostring(config.settings.tome.auto_hotkey_object)))

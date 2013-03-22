@@ -38,8 +38,8 @@ desc = function(self, who)
 	if self:isCompleted("spared-aeryn") then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 태양의 장벽의 패배가 당신 때문에 일어났다고 비난하는 태양의 기사 아에린과 마주치게 되었습니다. 하지만 당신은 그녀의 목숨을 앗아가지 않았습니다.#LAST#" end
 
 	if game.winner and game.winner == "full" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠으며, 공허의 관문이 열리는 것도 막아냈습니다.#LAST#" end
-	if game.winner and game.winner == "aeryn-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려 버린 공허의 관문을 닫기 위해 아에린 스스로가 희생했습니다.#LAST#" end
-	if game.winner and game.winner == "self-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려 버린 공허의 관문을 닫기 위해 자신을 희생했습니다.#LAST#" end
+	if game.winner and game.winner == "aeryn-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려버린 공허의 관문을 닫기 위해 아에린 스스로가 희생했습니다.#LAST#" end
+	if game.winner and game.winner == "self-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려버린 공허의 관문을 닫기 위해 자신을 희생했습니다.#LAST#" end
 
 	return table.concat(desc, "\n")
 end

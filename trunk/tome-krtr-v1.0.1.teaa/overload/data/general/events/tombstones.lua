@@ -60,7 +60,7 @@ if tries < 100 then
 			local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
 			if m and x and y then
 				game.zone:addEntity(game.level, m, "actor", x, y)
-				game.log("당신이 여기 처음 온 것이 아닙니다. 시체는 언데드로 변해 있습니다.")
+				game.log("당신은 여기 처음 온 사람이 아닙니다. 시체는 언데드로 변해 있습니다.")
 			else
 				game.log("여기에는 아무 것도 없습니다.")
 			end

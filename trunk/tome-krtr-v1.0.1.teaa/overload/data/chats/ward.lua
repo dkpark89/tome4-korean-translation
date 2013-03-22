@@ -83,7 +83,7 @@ newChat{ id="welcome",
 			action = function() return set_ward(DamageType.MIND, (src.wards[DamageType.MIND] or 0)) end,
 		},
 
-		{"아무 것도 아니네."},
+		{"아니, 됐네."},
 	}
 }
 

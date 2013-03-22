@@ -129,7 +129,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 	local cancel = false
 	if ab.mode == "activated" and ab.action then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", (ab.kr_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기 시간이 %d 턴 만큼 남아있습니다.", (ab.kr_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		local co = coroutine.create(function()
@@ -174,7 +174,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 		if not success and err then print(debug.traceback(co)) error(err) end
 	elseif ab.mode == "sustained" and ab.activate and ab.deactivate then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s 아직 대기시간이 %d턴 만큼 남아있습니다.", (ab.kr_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기 시간이 %d 턴 만큼 남아있습니다.", (ab.kr_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		local co = coroutine.create(function()

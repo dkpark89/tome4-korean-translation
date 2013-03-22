@@ -35,7 +35,7 @@ function _M:init(adds)
 	}
 	for i, l in ipairs(adds or {}) do list[#list+1] = l end
 
-	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="보거나 보지않을 이벤트를 선택하세요."}
+	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="보거나 보지 않을 메세지를 선택하세요."}
 	local uis = { {left=0, top=0, ui=c_desc} }
 	for i, l in ipairs(list) do
 		local l = l

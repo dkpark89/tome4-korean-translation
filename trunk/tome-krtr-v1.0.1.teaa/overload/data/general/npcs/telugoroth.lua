@@ -66,7 +66,7 @@ end
 newEntity{
 	define_as = "BASE_NPC_TELUGOROTH", -- telu goroth = time terror
 	type = "elemental", subtype = "temporal",
-	killer_message = "그리고 시간의 바깥에서 길을 잃었습니다.",
+	killer_message = "당신은 시간의 밖에서 길을 잃었습니다.",
 	blood_color = colors.PURPLE,
 	display = "E", color=colors.YELLOW,
 

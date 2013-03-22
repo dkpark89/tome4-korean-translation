@@ -24,15 +24,16 @@ newChat{ id="welcome",
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"지팡이 전투기술을 배워볼까 해서 찾아왔어요.", jump="training"},
+		{"지팡이 전투기술을 배워볼까 해서 찾아왔습니다.", jump="training"},
 		{"미안합니다, 이만 가볼게요!"},
 	}
 }
 
 newChat{ id="training",
-	text = [[금화 100개의 비용으로 지팡이 전투기술 계열의 주문에 대한 기초를 간략히 설명해 줄 수 있습니다 (비활성화 상태로 해당 기술 계열 습득). 혹은, 금화 750개를 들여 더욱 깊이있는 학습을 받으실 수도 있습니다.]],
+	text = [[금화 100 개를 지불하시면 지팡이 전투기술 계열에 대한 기초를 간략히 설명해 줄 수 있습니다. (비활성화 상태로 해당 기술 계열 습득) 
+금화 750 개를 지불하시면 더욱 깊이 있는 학습을 받으실 수도 있지요. (활성화 상태로 해당 기술 계열 습득)]],
 	answers = {
-		{"그냥 기초만 배울께요.", action=function(npc, player)
+		{"그냥 기초만 배울게요.", action=function(npc, player)
 			game.logPlayer(player, "지팡이 조각가에게 기초적인 지팡이 전투기술을 배웠습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("spell/staff-combat", false)
@@ -53,7 +54,7 @@ newChat{ id="training",
 			if player:knowTalentType("spell/staff-combat") then return end
 			return true
 		end},
-		{"죄송합니다, 지금은 필요없을 것 같네요."},
+		{"죄송합니다, 지금은 필요 없을 것 같네요."},
 	}
 }
 

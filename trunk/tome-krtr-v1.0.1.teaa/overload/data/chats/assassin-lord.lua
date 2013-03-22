@@ -74,7 +74,7 @@ newChat{ id="offer",
 	answers = {
 		{"뭐, 확실히 여기서 죽는 것보다는 낫겠지.", action=evil},
 		{"돈? 나도 끼워줘!", action=evil},
-		{"나와 상인을 여기서 나가게 해주면 네 목숨만은 살려주지!", action=function(npc, player) engine.Faction:setFactionReaction(player.faction, npc.faction, -100, true) end},
+		{"나와 상인을 여기서 나가게 해주면, 네 목숨만은 살려주지!", action=function(npc, player) engine.Faction:setFactionReaction(player.faction, npc.faction, -100, true) end},
 	}
 }
 

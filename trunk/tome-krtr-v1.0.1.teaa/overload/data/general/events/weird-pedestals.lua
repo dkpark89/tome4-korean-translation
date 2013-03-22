@@ -83,7 +83,7 @@ for i = 1, 3 do
 					if i then
 						game.level.map:particleEmitter(i, j, 1, "teleport")
 						game.zone:addEntity(game.level, m, "actor", i, j)
-						m.emote_random = {chance=30, "그가 올 것이다!", "너는 파멸할 것이다!!", "그가 모든 것을 먹어치울 것이다!", "내 생명은 그의 것일지니!", "칩입자는 죽어라!"}
+						m.emote_random = {chance=30, "그가 올 것이다!", "너는 파멸할 것이다!!", "그가 모든 것을 먹어치울 것이다!", "내 생명은 그의 것일지니!", "침입자는 죽어라!"}
 						m.pedestal_x = self.x
 						m.pedestal_y = self.y
 						m.on_die = function(self)

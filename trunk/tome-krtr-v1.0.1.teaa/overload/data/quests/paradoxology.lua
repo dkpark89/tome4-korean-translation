@@ -22,7 +22,7 @@ kr_name = "우리가 원치 않았던 길"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "당신은 미래의 자신처럼 보이는 사람을 만났습니다.\n"
-	if self:isCompleted("combat") then desc[#desc+1] = "당신은 또 다른 자신이 무언가를 하거나 어디론가 가기 전에 죽이기로 했습니다... 그에 대한 확신은 없지만요.\n" end
+	if self:isCompleted("combat") then desc[#desc+1] = "당신은 또 다른 자신이 무언가를 하거나 어디론가 가기 전에 죽이기로 했습니다... 어떤 일이 일어날지에 대한 확신은 없지만요.\n" end
 	if self:isCompleted("now-died") then desc[#desc+1] = "당신은 미래의 자신에게 죽임을 당했습니다. 그리고 이 일은 완전히 일어나지 않은 일이 되었습니다.\n" end
 	if self:isCompleted("future-died") then desc[#desc+1] = "당신은 미래의 자신을 죽였습니다. 미래에, 당신은 이 순간으로 시간 여행을 하는 것만은 피하고 싶어질 것 같습니다...\n" end
 	return table.concat(desc, "\n")
@@ -93,7 +93,7 @@ generate = function(self, player, x, y)
 
 		game.player:setQuestStatus("paradoxology", engine.Quest.COMPLETED, "future-died")
 		world:gainAchievement("PARADOX_FUTURE", p)
-		game.logSeen(self, "#LIGHT_BLUE#미래의 자신을 죽이는 것은 기묘한 느낌이지만, 당신은 이 미래를 피할 수 있다는 것을 알고 있습니다. 시간 여행을 하지 않는다는 방법이 있으니까요.")
+		game.logSeen(self, "#LIGHT_BLUE#미래의 자신을 죽이는 것은 기묘한 느낌이지만, 당신은 이 미래를 피할 수 있다는 것을 알고 있습니다. '시간 여행을 하지 않는다' 는 방법이 있으니까요.")
 	end
 	a.on_takehit = function(self, val)
 		if not self.half_life_check and (self.life - val < self.max_life / 2) then
@@ -112,7 +112,7 @@ generate = function(self, player, x, y)
 		if who == p then
 			p:setQuestStatus("paradoxology", engine.Quest.COMPLETED, "now-died")
 			game.logSeen(self, "#LIGHT_BLUE#미래의 당신이 당신을 죽였습니다! 시간의 흐름이 왜곡에 의해 깨졌습니다!")
-			game.logSeen(self, "#LIGHT_BLUE#모든 일이 일어나지 않은 일로 되었습니다. 그들이 언젠가 할 일을 빼면 말이죠.")
+			game.logSeen(self, "#LIGHT_BLUE#모든 일이 일어나지 않은 일로 되었습니다... 그들이 언젠가 할 일을 빼면 말이죠.")
 			game:setAllowedBuild("chronomancer_paradox_mage", true)
 			world:gainAchievement("PARADOX_NOW", p)
 

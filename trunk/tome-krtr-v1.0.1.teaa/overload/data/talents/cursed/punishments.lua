@@ -65,7 +65,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local spreadFactor = t.getSpreadFactor(self, t)
-		return ([[증오심을 발산하여, 적에게 %d 정신 피해를 줍니다. 여러 대상을 동시에 공격할 수 있지만, 그 때마다 피해량이 %d%% 씩 줄어들게 됩니다.
+		return ([[증오심을 발산하여, 주변의 적들에게 %d 정신 피해를 줍니다. 여러 대상을 동시에 공격할 수 있지만, 그 때마다 피해량이 %d%% 씩 줄어들게 됩니다.
 		이 기술은 25%% 확률로 적에게 능력치의 단계 차이 효과를 주며, 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, damage), (1 - spreadFactor) * 100)
 	end,
 }

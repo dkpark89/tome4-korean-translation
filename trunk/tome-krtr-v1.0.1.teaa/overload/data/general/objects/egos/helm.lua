@@ -154,7 +154,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
-	kr_name = "단열 처리된",
+	kr_name = "단열 처리된 ",
 	keywords = {insulate=true},
 	level_range = {1, 50},
 	rarity = 6,

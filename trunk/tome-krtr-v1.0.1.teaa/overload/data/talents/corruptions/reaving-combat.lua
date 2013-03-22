@@ -36,7 +36,7 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[보조 무기로 모든 한손 무기를 사용할 수 있게 되며, 보조 무기의 피해량이 %d%% 상승합니다.
+		return ([[보조 무기로 모든 한손 무기를 사용할 수 있게 되며, 보조 무기의 피해 효율이 %d%% 가 됩니다.
 		그리고 1 턴 이상의 시전시간을 갖는 마법을 사용할 때, 턴 소모 없이 시전자 근처의 무작위한 적에게 무기 피해의 %d%% 에 해당하는 황폐 속성 피해를 줍니다.]]):
 		format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 9)), 100 * self:combatTalentWeaponDamage(t, 0.5, 1.1))
 	end,
@@ -50,7 +50,7 @@ newTalent{
 	require = str_corrs_req2,
 	points = 5,
 	info = function(self, t)
-		return ([[적에게 피해를 줄 때마다 피의 굶주림 상태가 되어, 주문력이 1 상승합니다. 적의 숫자에 따라 주문력 상승량도 달라집니다. (최대 : %d 주문력 / 턴)
+		return ([[하나의 적에게 피해를 줄 때마다 피의 굶주림 상태가 되어, 주문력이 1 씩 상승합니다. 한번에 많은 적을 공격하면 주문력도 빠르게 상승합니다. (최대 상승량 : %d 주문력 / 턴)
 		추가 주문력의 최대 허용량은 +%d 이며, 매 턴마다 추가 주문력은 1 씩 떨어집니다.]]):
 		format(math.floor(self:getTalentLevel(t)), math.floor(6 * self:getTalentLevel(t)))
 	end,

@@ -125,7 +125,7 @@ function _M:trigger(x, y, who)
 	if not self:canTrigger(x, y, who) then return end
 
 	if self.message == nil then
-		game.logSeen(who, "%s 함정(%s)을 발동시켰습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName())
+		game.logSeen(who, "%s 함정 (%s) 을 발동시켰습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName())
 	elseif self.message == false then
 		-- Nothing
 	else

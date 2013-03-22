@@ -35,7 +35,7 @@ function _M:restInit(turns, what, past, on_end, on_very_end)
 		on_end = on_end,
 		on_very_end = on_very_end,
 		cnt = 0,
-		dialog = Dialog:simplePopup(what:capitalize().."...", "당신은 "..what.." 중 입니다, 엔터키를 누르면 멈춥니다.", function()
+		dialog = Dialog:simplePopup(what:capitalize().."...", "당신은 "..what.." 중 입니다, Enter 키를 누르면 멈춥니다.", function()
 			self:restStop()
 		end),
 	}
@@ -100,9 +100,9 @@ function _M:restStop(msg)
 	game:unregisterDialog(self.resting.dialog)
 
 	if msg then
-		game.log("%d턴 동안 "..self.resting.past:capitalize():addJosa("를").." 했습니다 (중지 이유: %s).", self.resting.cnt, msg)
+		game.log("%d 턴 동안 "..self.resting.past:capitalize():addJosa("를").." 했습니다 (중지 이유 : %s).", self.resting.cnt, msg)
 	else
-		game.log("%d턴 동안 "..self.resting.past:capitalize():addJosa("를").." 했습니다.", self.resting.cnt)
+		game.log("%d 턴 동안 "..self.resting.past:capitalize():addJosa("를").." 했습니다.", self.resting.cnt)
 	end
 
 	local finish = self.resting.cnt and self.resting.rest_turns and self.resting.cnt > self.resting.rest_turns

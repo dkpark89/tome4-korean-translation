@@ -51,7 +51,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[염검을 통하여 슬라임을 내뿜어, 순간적으로 기다란 광선을 만들어 %0.2f 슬라임 피해량의 공격을 합니다.
+		return ([[염동 칼날을 통해 슬라임을 내뿜어, 순간적으로 기다란 광선을 만들어냅니다. 
+		이 광선은 적들을 관통하며, %0.2f 자연 피해를 줍니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, dam))
 	end,
@@ -67,8 +68,8 @@ newTalent{
 	getResist = function(self, t) return 10 + self:combatTalentMindDamage(t, 10, 70) end,
 	info = function(self, t)
 		local res = t.getResist(self, t)
-		return ([[당신이 다른 존재에게 산성 속성 피해를 줄 때마다, 상대의 자연 저항력을 2 턴 동안 %d%% 감소시킵니다.
-		저항력 감소치는 정신력의 영향을 받아 증가합니다.]]):
+		return ([[당신이 적에게 산성 피해를 줄 때마다, 적의 자연 속성 저항력이 2 턴 동안 %d%% 감소하게 됩니다.
+		저항력 감소치는 정신력의 영향을 받아 증가합니다]]):
 		format(res)
 	end,
 }
@@ -108,9 +109,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[염검을 사용하여 적에게 작은 벌레를 발사합니다.
-		목표에 명중하면 이 벌레는 대상의 뇌 속으로 파고 들어가 6 턴 동안 머무르면서, 숙주가 기술을 사용하는 것을 방해합니다.
-		숙주는 기술을 사용할 때마다 %d%% 확률로 %d 가지 기술이 %d 턴의 재사용 대기시간을 가지게 됩니다.
+		return ([[염동 칼날을 사용하여 적에게 작은 벌레를 발사합니다.
+		목표에 명중하면 이 벌레는 대상의 뇌 속으로 파고들어가 6 턴 동안 머무르면서, 숙주가 기술을 사용하는 것을 방해합니다.
+		숙주는 기술을 사용할 때마다, %d%% 확률로 %d 가지 기술이 %d 턴의 재사용 대기시간을 가지게 됩니다.
 		방해 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t), t.getNb(self, t), t.getTurns(self, t))
 	end,
@@ -118,7 +119,7 @@ newTalent{
 
 newTalent{
 	name = "Unstoppable Nature",
-	kr_name = "멈출수 없는 자연",
+	kr_name = "멈출 수 없는 자연",
 	type = {"wild-gift/oozing-blades", 4},
 	require = gifts_req_high4,
 	mode = "sustained",
@@ -175,8 +176,8 @@ newTalent{
 		local damageinc = t.getFireDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local chance = t.getChance(self, t)
-		return ([[스스로를 자연의 힘으로 둘러쌈으로써, 당신의 모든 자연 공격 피해량을 %d%% 증가시키고 자연 저항 관통력을 %d%% 올려줍니다.
-		또 당신이 자연의 권능을 사용하여 피해를 줄 때마다, 당신의 '진흙 점액'이 %d%% 확률로 대상에게 추가적으로 '슬라임 뱉기'를 사용합니다.]])
+		return ([[스스로를 자연의 힘으로 둘러싸, 모든 자연 속성 공격 피해량을 %d%% 증가시키고 자연 속성 저항 관통력을 %d%% 올립니다.
+		또한 당신이 '자연의 권능' 계열 기술을 사용하여 적에게 피해를 줄 때마다, 당신의 점액 덩어리가 %d%% 확률로 슬라임 뱉기를 사용하여 적을 추가로 공격할 수 있게 됩니다.]])
 		:format(damageinc, ressistpen, chance)
 	end,
 }

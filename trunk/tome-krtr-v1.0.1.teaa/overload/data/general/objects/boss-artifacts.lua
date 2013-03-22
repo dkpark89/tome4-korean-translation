@@ -30,7 +30,7 @@ newEntity{ base = "BASE_LONGSWORD",
 	name = "Wintertide", unique=true,
 	kr_name = "밀려오는 겨울", kr_unided_name = "반짝거리는 장검",
 	desc = [[검 주변의 공기가 얼어붙으면서, 주변의 모든 열기를 흡수하고 있습니다.
-제 1차 매혹의 전투가 있던 암흑의 시기에, 은둔자들이 그들의 전투 지휘자를 위해 이 검을 만들었다고 알려져 있습니다.]],
+제 1 차 매혹의 전투가 있던 암흑의 시기에, 은둔자들이 그들의 전투 지휘자를 위해 이 검을 만들었다고 알려져 있습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {35, 45},
 	rarity = 280,
@@ -533,7 +533,7 @@ newEntity{ base = "BASE_AMULET",
 	define_as = "VOX", rarity=false,
 	name = "Vox", unique=true,
 	unided_name = "ringing amulet", color=colors.BLUE, image="object/artifact/jewelry_amulet_vox.png",
-	kr_name = "소리", kr_unided_name = "진동하는 목걸이",
+	kr_name = "'소리'", kr_unided_name = "진동하는 목걸이",
 	desc = [[이 목걸이의 착용자를 침묵시킬 수 있는 힘은 거의 존재하지 않습니다.]],
 	level_range = {40, 50},
 	rarity = 220,
@@ -712,7 +712,7 @@ newEntity{ base = "BASE_SHIELD",
 	define_as = "SANGUINE_SHIELD",
 	unided_name = "bloody shield",
 	name = "Sanguine Shield", unique=true, image = "object/artifact/sanguine_shield.png",
-	kr_name = "핏빛의 방패", kr_unided_name = "피로 물든 방패",
+	kr_name = "핏빛 방패", kr_unided_name = "피로 물든 방패",
 	desc = [[피가 튀고 변색되었지만, 이 방패는 아직 태양의 문장을 통해 빛을 내뿜고 있습니다.]],
 	require = { stat = { str=39 }, },
 	level_range = {35, 45},
@@ -1303,7 +1303,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 			end end
 			-- only one twitch per action
 			if is_trap then
-				game.logSeen(actor, "#CRIMSON#%s 진동하면서 %s의 주변에 함정이 있다고 경고합니다.", self:getName():addJosa("가"), (actor.kr_name or actor.name):capitalize())
+				game.logSeen(actor, "#CRIMSON#%s 진동하면서, %s의 주변에 함정이 있다고 경고합니다.", self:getName():addJosa("가"), (actor.kr_name or actor.name):capitalize())
 				if actor == game.player then
 					game.player:runStop()
 				end

@@ -43,7 +43,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[냉기 드레이크의 강력한 얼음 발톱을 불러내, %d%% 무기 피해를 냉기 속성으로 줍니다.
-		기술 레벨이 4 이상이면, 대상을 얼릴 확률이 생기게 됩니다.
+		기술 레벨이 4 이상이면, 대상을 동결시킬 확률이 생기게 됩니다.
 		이 기술의 레벨이 오를 때마다, 냉기 저항력이 1%% 상승합니다.]]):format(100 * (1.4 + self:getTalentLevel(t) / 8))
 	end,
 }
@@ -179,7 +179,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전방 %d 칸 반경에 냉기 브레스를 뿜어내, %0.2f 냉기 피해를 주고 25%% 확률로 적을 몇 턴 동안 얼립니다. (적의 등급이 높으면 어는 시간이 짧아집니다)
+		return ([[전방 %d 칸 반경에 냉기 브레스를 뿜어내, %0.2f 냉기 피해를 주고 25%% 확률로 적을 몇 턴 동안 동결시킵니다. (적의 등급이 높으면 동결 시간이 짧아집니다)
 		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 따릅니다.
 		이 기술의 레벨이 오를 때마다, 냉기 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.COLD, self:combatTalentStatDamage(t, "str", 30, 430)))
 	end,

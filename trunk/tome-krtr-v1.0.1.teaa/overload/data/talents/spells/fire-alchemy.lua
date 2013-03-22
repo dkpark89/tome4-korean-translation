@@ -44,7 +44,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[대상의 신체 일부를 불태워, 8 턴 동안 총 %0.2f 화염 피해를 줍니다.
+		return ([[대상의 신체 일부를 불태워, 8 턴 동안 총 %0.2f 화염 피해를 나눠서 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
@@ -153,7 +153,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[불타오르는 화염 폭풍을 주변에 만들어내, 주변 3 칸 반경에 %0.2f 화염 피해를 줍니다. (지속시간 : %d 턴)
+		return ([[타오르는 화염 폭풍을 주변에 만들어내, 주변 3 칸 반경에 %0.2f 화염 피해를 줍니다. (지속시간 : %d 턴)
 		화염 폭풍 근처에서는 마법을 제어할 수 있어, 동료들이 화염 폭풍에 휘말리지 않게 할 수 있습니다.
 		피해량과 지속시간은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage), duration)

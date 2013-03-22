@@ -122,10 +122,10 @@ function _M:generateList()
 	if a and not self.on_player and config.settings.cheat then list[#list+1] = {name="목표로 지정", action="target-player", color=colors.simple(colors.RED), actor=a} end
 	if self.on_player then list[#list+1] = {name="휴식", action="rest", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if self.on_player then list[#list+1] = {name="자동탐사", action="autoexplore", color=colors.simple(colors.ANTIQUE_WHITE)} end
-	if self.on_player then list[#list+1] = {name="소지품목록", action="inventory", color=colors.simple(colors.ANTIQUE_WHITE)} end
+	if self.on_player then list[#list+1] = {name="소지품 목록", action="inventory", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if self.on_player then list[#list+1] = {name="퀘스트 기록", action="quests", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if a then list[#list+1] = {name="생명체 조사", action="character_sheet", color=colors.simple(colors.ANTIQUE_WHITE), actor=a} end
-	if not self.on_player and a and profile.auth and profile.hash_valid then list[#list+1] = {name="채팅으로 생명체 연결", action="chat-link"} end
+	if not self.on_player and a and profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 생명체 연결", action="chat-link"} end
 	if self.on_player and (player.unused_stats > 0 or player.unused_talents > 0 or player.unused_generics > 0 or player.unused_talents_types > 0) then list[#list+1] = {name="레벨 상승!", action="levelup", color=colors.simple(colors.YELLOW)} end
 
 	-- Talents

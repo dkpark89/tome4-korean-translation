@@ -53,8 +53,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[해당 지역에 얼음 파편을 흩뿌려 %0.2f 냉기 피해를 줍니다. 파편은 느리게 발사되며, 근처의 모든 적들에게 피해를 줍니다.
-		얼음 파편은 시전자에게 절대 다가오지 않습니다.
+		return ([[선택한 지역의 주변 1 칸 범위에 %0.2f 냉기 피해를 주는 얼음 파편들을 발사합니다. 파편의 속도는 느린 편이며, 범위 내에 있는 적의 숫자만큼 파편이 발사됩니다.
+		얼음 파편은 시전자에게 피해를 주지 않습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, damage))
 	end,
@@ -86,8 +86,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[주변 %d 칸 반경의 기온을 급격하게 떨어트려 %0.2f 냉기 피해를 주고, 주변의 적들에게 4 턴 동안 빙결 상태효과를 일으킵니다.
-		빙결 상태효과에 걸리면 이동은 할 수 없지만, 행동은 여전히 할 수 있습니다.
+		return ([[주변 %d 칸 반경의 기온을 급격하게 떨어트려 %0.2f 냉기 피해를 주고, 주변의 적들에게 4 턴 동안 '얼어붙은 발' 상태효과를 일으킵니다.
+		얼어붙은 발 상태효과에 걸리면 이동은 할 수 없게 되지만, 다른 행동에는 영향을 주지 않습니다.
 		피해량은 주문력의 영향을 받아 상승합니다.]]):format(radius, damDesc(self, DamageType.COLD, damage))
 	end,
 }
@@ -138,7 +138,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local targetcount = t.getTargetCount(self, t)
-		return ([[빙결 상태효과에 의해 얼음에 갇힌 적들을 부숴버립니다. 시야 내의 모든 적들에게 적용되며, %0.2f 냉기 피해를 줍니다.
+		return ([[동결 상태효과에 의해 얼음에 갇힌 적들을 부숴버립니다. 시야 내의 모든 적들에게 적용되며, %0.2f 냉기 피해를 줍니다.
 		대상의 등급에 따라, 추가 효과가 일어납니다 :
 		* '일반' 미만 등급의 적들은 즉사합니다.
 		* '일반' 등급의 적들에게는 치명타율이 50%% 증가합니다.

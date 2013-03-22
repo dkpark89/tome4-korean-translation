@@ -62,7 +62,7 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "해당 지역의 에테르 제어를 실패했습니다.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "해당 지역의 에테르 제어에 실패했습니다.") return nil end
 
 		local t = basetrap(self, t, x, y, 44, {
 			type = "aether", name = "aether beam", color=colors.VIOLET, image = "trap/trap_glyph_explosion_01_64.png",
@@ -188,7 +188,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[몸에 에테르의 힘을 주입시켜, %d 턴 동안 에테르의 화신이 됩니다.
-		지속시간 동안 마법 속성과 에테르 속성의 마법만을 사용할 수 있지만, 그 대신 모든 마법의 지연시간이 66%% 감소하고 피해량이 25%% 증가합니다. 
+		지속시간 동안 비술 계열과 에테르 계열의 마법만을 사용할 수 있지만, 그 대신 모든 마법의 지연시간이 66%% 감소하고 피해량이 25%% 증가합니다. 
 		또한 불안정한 보호막을 언제나 활성화시킬 수 있으며, 최대 마나량이 33%% 증가합니다.]]):
 		format(t.getNb(self, t))
 	end,

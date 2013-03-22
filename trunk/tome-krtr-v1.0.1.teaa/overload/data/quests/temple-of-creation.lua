@@ -30,7 +30,7 @@ desc = function(self, who)
 	end
 
 	if self:isCompleted("kill-slasul") and self:isCompleted("kill-drake") then
-		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클름스윅과 슬라슐을 모두 배신하여, 둘 다 죽였습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클름스윅과 슬라슐을 모두 배신하여, 그 둘을 모두 죽였습니다.#WHITE#"
 	elseif self:isCompleted("kill-slasul") and not self:isCompleted("kill-drake") then
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 우클름스윅의 편에 서서, 슬라슐을 죽였습니다.#WHITE#"
 	elseif not self:isCompleted("kill-slasul") and self:isCompleted("kill-drake") then

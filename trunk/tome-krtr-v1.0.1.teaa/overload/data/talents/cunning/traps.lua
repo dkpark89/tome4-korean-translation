@@ -71,7 +71,7 @@ newTalent{
 		5 레벨 : 밤그림자 함정
 		세계를 여행하면서 새로운 함정 설치법을 배울 수도 있습니다.
 		이 기술은 함정의 효율 또한 %d%% 상승시킵니다. (함정마다 효율이 적용되는 곳은 다릅니다)
-		함정이 유지시간동안 발동하지 않으면, 사용된 체력의 80%% 만큼 반환됩니다.]]):
+		설치된 함정이 작동되지 않았을 경우, 함정 설치에 사용된 체력의 80%% 만큼이 다시 회복됩니다.]]):
 		format(self:getTalentLevel(t) * 20)
 	end,
 }
@@ -150,7 +150,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[%d 턴 동안 유지되는 미끼를 설치하여, 주변 %d 칸 반경의 적들을 도발합니다.
-		기술 레벨이 5 이상이면, 미끼가 파괴되면서 주변 2 칸 반경에 함정들이 만들어집니다. (함정이 만들어질 확률은 각각의 함정마다 다릅니다)
+		기술 레벨이 5 이상이면, 미끼가 파괴되면서 주변 2 칸 반경에 있는 함정들을 작동시킵니다. (넓은 범위에 영향을 주는 함정만 작동합니다)
 		이 기술은 사용해도 은신 상태가 풀리지 않습니다.]]):format(4 + self:getTalentLevelRaw(t), 3 + self:getTalentLevelRaw(t))
 	end,
 }
@@ -178,7 +178,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[끈적이는 연기가 든 유리병을 던져, 주변 %d 칸 반경에 연막을 만들어냅니다. 
+		return ([[끈적이는 연기가 든 유리병을 던져, 주변 %d 칸 반경에 영향을 줍니다. 
 		범위 내의 적들은 5 턴 동안 시야 거리가 %d 감소하게 되며, 시전자가 은신 상태에 들어가는 것을 방해하지 못하게 됩니다.
 		이 기술은 사용해도 은신 상태가 풀리지 않습니다.]]):
 		format(self:getTalentRadius(t), math.ceil(self:getTalentLevel(t) * 1.2))
@@ -275,7 +275,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[닿으면 폭발하는, 단순하지만 효과적인 함정을 설치합니다. 주변 2 칸 반경에 %0.2f 화염 피해를 몇 턴에 걸쳐 줍니다.
-		높은 레벨의 미끼가 파괴될 때, 이 함정이 만들어질 수 있습니다.]]):
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 수 있습니다.]]):
 		format(damDesc(self, DamageType.FIRE, 30 + self:getCun() * 0.8 * self:getTalentLevel(self.T_TRAP_MASTERY)))
 	end,
 }
@@ -550,7 +550,7 @@ newTalent{
 	info = function(self, t)
 		return ([[밟으면 주변 2 칸 반경에 빛을 폭발시켜, %d 턴 동안 적들을 실명 혹은 혼절시키는 함정을 설치합니다.
 		지속시간은 함정 수련 기술의 영향을 받아 증가합니다.
-		높은 레벨의 미끼가 파괴될 때, 이 함정이 만들어질 수 있습니다.]]):
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 수 있습니다.]]):
 		format(math.floor(self:getTalentLevel(self.T_TRAP_MASTERY) + 4))
 	end,
 }
@@ -608,9 +608,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[밟으면 폭발하여, 주변 3 칸 반경에 4 턴 동안 독구름을 만들어냅니다.
-		매 턴마다, 독구름의 영향을 받은 적에게 %0.2f 자연 피해를 5 턴 동안 줍니다.
-		높은 레벨의 미끼가 파괴될 때, 이 함정이 만들어질 수 있습니다.]]):
+		return ([[밟으면 폭발하여, 주변 3 칸 반경에 4 턴 동안 지속되는 독구름을 만들어냅니다.
+		독구름의 영향을 받은 적은 5 턴 동안 매 턴마다 %0.2f 자연 피해를 입게 됩니다.
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 만들어질 수 있습니다.]]):
 		format(20 + self:getCun() * 0.5 * self:getTalentLevel(self.T_TRAP_MASTERY))
 	end,
 }

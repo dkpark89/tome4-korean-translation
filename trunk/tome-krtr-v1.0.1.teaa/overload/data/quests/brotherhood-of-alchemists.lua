@@ -30,7 +30,7 @@ desc = function(self, player, who)
 	elseif self:isStatus(self.DONE) and self.player_won == false then
 		desc[#desc+1] = "#RED#당신은 마즈'에이알에 있는 여러 연금술사들을 도와주었지만, 연금술사 형제단에 입단시킬 결정적인 도움은 주지 못했습니다. 올해의 새로운 단원은 "..self.winner:addJosa("로").." 결정되었습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#LIGHT_BLUE#마즈'에이알에 있는 여러 연금술사들은 연금술사 형제단에 들어가기 위해 서로 경쟁하고 있습니다. 그리고 한 명 이상의 연금술사가 당신의 도움을 받았습니다.#WHITE#"
+		desc[#desc+1] = "#LIGHT_BLUE#마즈'에이알에 있는 여러 연금술사들은 연금술사 형제단에 들어가기 위해 서로 경쟁하고 있습니다. 그리고 한 명 이상의 연금술사가 당신의 도움을 받기를 원합니다.#WHITE#"
 	end
 	--e (for elixir) is the name of the table listing all the elixirs and their various strings and ingredients and such. self.e[2][3], for example, refers to the table containing all the information for the second alchemist's third elixir. self.e[2][3].ingredients[1] refers to the first ingredient of the third elixir of the second alchemist. This saves a ton of work in making the desc function, since it's messy and it would suck to copy/paste twelve of them (one for each elixir).
 	for i = 1, 4 do --run through list of four alchemists
