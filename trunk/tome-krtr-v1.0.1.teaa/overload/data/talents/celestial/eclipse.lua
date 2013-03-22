@@ -65,7 +65,7 @@ newTalent{
 		local cooldownreduction = t.getCooldownReduction(self, t)
 		return ([[빛과 어둠 속성 저항 관통력을 %d 턴 동안 %d%% 증가시키고, 모든 천공 계열 기술의 재사용 대기시간을 %d 턴 감소시킵니다.
 		저항 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]):
-		format(duration, penetration, cooldownreduction)
+		format(duration, penetration, cooldownreduction) --@@ 변수 순서 조정
 	end,
 }
 
@@ -203,6 +203,6 @@ newTalent{
 		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 50%% 밖에 주지 못하게 됩니다.
 		투명화 중에 등불 따위를 들고 있으면, 투명화를 한 의미가 사실상 없어지게 됩니다.
 		투명 능력은 교활함 능력치, 폭발 피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(invisibilitypower, convert, radius, damDesc(self, DamageType.LIGHT, damage))
+		format(invisibilitypower, convert, radius, damDesc(self, DamageType.LIGHT, damage)) --@@ 변수 순서 조정
 	end,
 }

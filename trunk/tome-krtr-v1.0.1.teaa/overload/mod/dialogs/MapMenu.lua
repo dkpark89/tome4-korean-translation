@@ -32,7 +32,7 @@ function _M:init(mx, my, tmx, tmy, extra)
 	self:generateList()
 	self.__showup = false
 
-	local name = "Actions"
+	local name = "행동"
 	local w = self.font_bold:size(name)
 	engine.ui.Dialog.init(self, name, 1, 100, mx, my)
 

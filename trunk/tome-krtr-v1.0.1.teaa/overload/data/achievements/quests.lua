@@ -93,7 +93,7 @@ newAchievement{
 	name = "Orcrist", id = "ORC_PRIDE",
 	show = "name",
 	kr_name = "오크 살해자",
-	desc = [[오크 무리의 지도자들을 살해.]],
+	desc = [[오크 긍지의 지도자들을 살해.]],
 }
 
 --------------- Wins

@@ -28,7 +28,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_VOR", define_as = "VOR",
 	allow_infinite_dungeon = true,
 	name = "Vor, Grand Geomancer of the Pride", color=colors.VIOLET, unique = true,
-	kr_name = "오크 무리의 위대한 대지술사, 보르",
+	kr_name = "오크 긍지의 위대한 대지술사, 보르",
 	desc = [[늙은 오크로, 다양한 색이 섞인 로브를 입고 있습니다. 얼음 파편이 그의 주변을 날아다니고, 그 궤적으로 불이 타오르며 번개가 분출됩니다.]],
 	killer_message = "당신은 견습 마법사들의 표적이 되었습니다.",
 	level_range = {40, nil}, exp_worth = 1,

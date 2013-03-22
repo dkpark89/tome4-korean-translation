@@ -29,12 +29,12 @@ for i = 1, player.max_inscriptions do
 	local name = player.inscriptions[i]
 	if (not replace_same or replace_same.."_"..i == name) then
 		local t = player:getTalentFromId("T_"..name)
-		answers[#answers+1] = {t.name, action=function(npc, player)
+		answers[#answers+1] = {(t.kr_name or t.name), action=function(npc, player)
 			player:setInscription(i, iname, idata, true, true, {obj=obj}, replace_same)
 			player:removeObject(inven, item)
 		end, on_select=function(npc, player)
 			game.tooltip_x, game.tooltip_y = 1, 1
-			game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..t.name.."#LAST#\n"..tostring(player:getTalentFullDescription(t)))
+			game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..(t.kr_name or t.name).."#LAST#\n"..tostring(player:getTalentFullDescription(t)))
 		end, }
 	end
 end

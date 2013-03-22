@@ -19,7 +19,7 @@
 
 return {
 	name = "Vor Pride",
-	kr_name = "보르 무리",
+	kr_name = "보르 긍지",
 	level_range = {35, 60},
 	level_scheme = "player",
 	max_level = 3,

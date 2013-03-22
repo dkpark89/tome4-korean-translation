@@ -69,7 +69,7 @@ newAchievement{
 	kr_name = "해충 구제",
 	image = "npc/vermin_worms_green_worm_mass.png",
 	show = "full",
-	desc = [[1,000 마리의 해충 살해.]],
+	desc = [[1,000 마리의 번식형 해충 살해.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target:knowTalent(target.T_MULTIPLY) or target.clone_on_hit then

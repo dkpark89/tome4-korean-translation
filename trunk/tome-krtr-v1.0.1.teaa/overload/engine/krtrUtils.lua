@@ -5,7 +5,6 @@
 -- 한글 글꼴 설정
 --krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 글자 가독성이 좀 떨어짐
 krFont = "/data/font/LexiSaebomR.ttf" -- 렉시새봄R 글꼴(1491kB)
---krFont = "/data/font/NanumGothicBold.ttf" -- 나눔고딕B 글꼴(4188kB)
 
 function string.addJosa(str, temp)
 	local josa1, josa2, index
@@ -81,7 +80,7 @@ function string.krHUDStyle(str)
 	-- 관련내용 /mod/dialogs/GameOptions.lua:160
 	local ori = str:lower()
 	if ori == "minimalist" then return "깔끔"
-	elseif ori == "classic" then return "기존"
+	elseif ori == "classic" then return "고전"
 	else return str end
 end
 
@@ -503,7 +502,7 @@ function string.krRace(str)
 	elseif ori == "mummy" then return "미이라"
 	elseif ori == "naga" then return "나가"
 	elseif ori == "oozes" then return "점액"
-	elseif ori == "orc pride" then return "오크 무리"
+	elseif ori == "orc pride" then return "오크 긍지"
 	elseif ori == "orc" then return "오크"
 	elseif ori == "patrol" then return "순찰대"
 	elseif ori == "plants" then return "식물"
@@ -532,6 +531,7 @@ function string.krRace(str)
 	elseif ori == "troll" then return "트롤"
 	elseif ori == "turtle" then return "거북이"
 	elseif ori == "tutorial base" then return "연습게임용 종족"
+	elseif ori == "tutorial basic" then return "연습게임용 종족"
 	elseif ori == "tutorial human" then return "연습게임용 인간"
 	elseif ori == "tutorial stats" then return "연습게임용 능력자"
 	elseif ori == "undead" then return "언데드"
@@ -576,7 +576,7 @@ function string.krClass(str)
 	elseif ori == "mindslayer" then return "정신 파괴자"
 	elseif ori == "solipsist" then return "유아론자"
 	elseif ori == "rogue" then return "도적"
-	elseif ori == "shadowblade" then return "그림자 칼"
+	elseif ori == "shadowblade" then return "그림자 칼잡이"
 	elseif ori == "marauder" then return "약탈자"
 	elseif ori == "tutorial adventurer" then return "초보자 입문용 모험가"
 	elseif ori == "warrior" then return "전사"
@@ -622,7 +622,7 @@ function string.krFaction(str)
 	local ori = str:lower()
 	if ori == "rhalore" then return "랄로레"
 	elseif ori == "fearscape" then return "공포의 영역"
-	elseif ori == "orc pride" then return "오크 무리"
+	elseif ori == "orc pride" then return "오크 긍지"
 	elseif ori == "sunwall" then return "태양의 장벽"
 	elseif ori == "zigur" then return "지구르"
 	elseif ori == "angolwen" then return "앙골웬"
@@ -726,7 +726,7 @@ function string.krLoreCategory(str)
 	elseif ori == "misc" then return "기타"
 	elseif ori == "myths of creation" then return "창조 신화"
 	elseif ori == "old forest" then return "오래된 숲"
-	elseif ori == "orc prides" then return "오크 무리"
+	elseif ori == "orc prides" then return "오크 긍지"
 	elseif ori == "races" then return "종족"
 	elseif ori == "rhaloren" then return "랄로레"
 	elseif ori == "ruined dungeon" then return "파괴된 던전"
@@ -801,4 +801,46 @@ function string.krT_Reason(str)
 	elseif ori == "unknown talent type" then return "알 수 없는 기술 종류"
 	elseif ori == "not enough talents of this type known" then return "알고 있는 같은 종류의 기술 갯수 부족"
 	else return str end
+end
+
+function string.krRunningExplore(str)
+	-- 관련내용 <running.explore>로 검색해서 나오는 단어들 - /mod/class/interface/PlayerExplore.lua:2100~2360
+	local ori = str:lower()
+	if ori == "door" then return "문"
+	elseif ori == "exit" then return "출구"
+	elseif ori == "item" then return "물건"
+	elseif ori == "object" then return "물체"
+	elseif ori == "portal" then return "관문"
+	elseif ori == "special" then return "흥미로운 것"
+	elseif ori == "unseen" then return "알수 없는 것"
+	else return str end 
+end
+
+function string.krDifficulty(str)
+	-- 관련내용 /data/birth/descriptors.lua 
+	local ori = str:lower()
+	if ori == "tutorial" then return "연습게임"
+	elseif ori == "easy" then return "쉬움"
+	elseif ori == "normal" then return "보통"
+	elseif ori == "nightmare" then return "악몽"
+	elseif ori == "insane" then return "미치광이"
+	else return str end 
+end
+
+function string.krPermaDeath(str)
+	-- 관련내용 /data/birth/descriptors.lua
+	local ori = str:lower()
+	if ori == "exploration" then return "탐사 모드"
+	elseif ori == "adventure" then return "모험 모드"
+	elseif ori == "roguelike" then return "로그라이크 모드"
+	else return str end 
+end
+
+function string.krCampaign(str)
+	-- 관련내용 /data/birth/worlds.lua
+	local ori = str:lower()
+	if ori == "maj'eyal" then return "마즈'에이알"
+	elseif ori == "infinite" then return "무한의 던전"
+	elseif ori == "arena" then return "투기장"
+	else return str end 
 end

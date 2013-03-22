@@ -31,7 +31,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_GORBAT", define_as = "GORBAT",
 	allow_infinite_dungeon = true,
 	name = "Gorbat, Supreme Wyrmic of the Pride", color=colors.VIOLET, unique = true,
-	kr_name = "오크 무리 최고의 용인, 고르뱃",
+	kr_name = "오크 긍지 최고의 용인, 고르뱃",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_gorbat__supreme_wyrmic_of_the_pride.png", display_h=2, display_y=-1}}},
 	desc = [[비늘 피부와 날카로운 손톱을 가졌으며, 등 뒤에 작은 날개가 달린 오크입니다.]],
 	killer_message = "당신은 해츨링들의 먹잇감이 되었습니다.",

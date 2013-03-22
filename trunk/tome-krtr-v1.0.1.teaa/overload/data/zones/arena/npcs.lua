@@ -793,7 +793,7 @@ newEntity{ name = "trickster",
 }
 
 newEntity{ name = "shadowblade",
-	kr_name = "그림자 칼",
+	kr_name = "그림자 칼잡이",
 	base = "BASE_NPC_ARENA1",
 	type = "humanoid", subtype = "human",
 	color=colors.BLACK,

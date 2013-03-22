@@ -29,7 +29,7 @@ newEntity{
 	define_as = "ELIXIR_FOX",
 	type = "potion", subtype="potion", image = "object/elixir_of_the_fox.png",
 	name = "Elixir of the Fox", unique=true, unided_name="vial of pink fluid",
-	kr_name = "여우의 엘릭서", kr_unided_name = "핑크색 액체가 든 약병",
+	kr_name = "여우의 엘릭서", kr_unided_name = "분홍색 액체가 든 약병",
 	display = "!", color=colors.VIOLET,
 	desc = [[분홍색의 가벼워 보이는 액체가 든 약병입니다.]],
 	no_unique_lore = true,
