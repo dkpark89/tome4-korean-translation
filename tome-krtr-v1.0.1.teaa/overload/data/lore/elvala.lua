@@ -235,55 +235,55 @@ newLore{
 
 #{bold}#제 4장: 동이 트기 전에#{normal}#
 
-I rode my great grey horse at a low trot, surrounded by my lieutenants and their elite cavalry and spellrangers.  Beside me on a brown mare my squire held high a banner emblazoned with a flame-wreathed sword, symbol of my personal entourage.  The pole seemed to shiver slightly in the young elf’s hands, a sign of nervousness.
+나의 보좌관들과 기사, 마법궁수들의 호위하에 회색 말을 타고 행진했다. 내 곁에는 시종이 나의 상징인 불타는 검이 새겨진 깃발을 들고 있었다. 깃대는 어린 엘프의 손에서 긴장한 기색이 역력한듯 떨렸다.
  
-“Hold that banner firm, boy,” I said in a commanding tone.
+"깃발을 똑바로 들라, 소년" 명령투로 말했다.
  
-The squire suddenly sat upright in his saddle, and gripped tight on the banner pole.  “Yes, sire!” he said, alarmed.  “Whatever you say, sire!”  He kept his head faced forward but I could see his eyes glance towards me, desperate for approval.  Whatever I say indeed...  I had seen his gaze on me before, with all the adoration of a young soldier towards his commander, and perhaps a little more.  If I had not the joy of Linaniil’s company then the attention of such a pretty lad would not be unwelcome.  But this was not the time for such thoughts.
+시종은 안장위에서 곧게 허리를 세우고 깃대를 고쳐잡았다. "알겠습니다!" 소년은 불안해하며 말을 이었다. "명령만 하십쇼, 주군!" 시종의 고개는 똑바로 앞을 쳐다보고 있었지만 내 인정을 받고싶어하는 마음으로 날 곁눈질하는것을 볼 수 있었다. 어떤 명령이라도... 일전에도 이런 눈빛을 본적이 있다. 젊은 소년의 지휘관을 향한 눈빛보다는 더한 그런 눈빛을. 만약에 내가 리나니일의 일행들과 즐겁게 지내지 않았더라면 그런 소년의 관심은 기꺼워하지 않았을거다. 하지만 그런 생각을 할 시간이 아니였다.
  
-This would be the day, the day of the Spellblaze, and the boy had every right to be nervous.  It was a few hours after midnight, and already our scouts would be engaged alongside the other races, drawing out the orcs from their hiding places.  We marched through our main offensive lines, where we would hem them in before the great conflagration.  All around were arrayed spears and swords and mail, glistening in the starlight.  Troops upon troops of battlemages in purple robes held aloft glowing staves.  It was a sight to behold.  Yet we knew also the risk of engaging on open ground with the orcs in their full numbers.  If the Spellblaze failed then we would suffer greatly.
+오늘이 바로 그날이다. 마력폭발의 날. 그리고 소년은 긴장할만했다. 자정을 몇시간 지난 때에, 우리의 정찰병들은 이미 다른 종족들과 함께 오크들을 소굴에서 몰아내기 위한 교전중이였다. 우리는 주요 공격전선을 뚫고 엄청난 화염이 오크들을 둘러쌀 지점으로 향했다. 별빛에 반짝이는 창과 검, 갑옷을 든채로 모두가 정렬해있었다. 보라색의 로브를 입은 전투마법사들은 부대를 이뤄 빛나는 지팡이를 높게 치켜들었다. 장관이였다. 우리는 개활지에서 오크 무리들 전체와 교전한다는것이 얼마나 위험한지 인지하고 있었다. 마력폭발이 실패한다면 우리 모두는 크게 위험에 처할테니까.
 
-I set up camp upon a low hill overlooking the field, and then left my entourage to seek the Kar’Krul army to the north.  As I rode my stallion towards their station I could see smoke rising in the east.  Four thick grey plumes stood out against the pre-dawn light.  They would be villages looted and burned by the orcs as they rampaged against our feigned assaults.  The townsteads would be empty, but after this battle there would be nothing left for their residents to return to.  A small sacrifice in a game of war that spanned the continent.
+난 전장이 내려다보이는 낮은 언덕에 야영지를 설치하고 북쪽 칼'쿠를의 군대를 찾기 위해 수행원들을 떠났다. 북쪽의 야영지로 말을 달리면서 동쪽에서 피어오르는 연기를 볼 수 있었다. 네개의 두꺼운 회색 연기가 동트기 전 어스름에 빛났다. 아마 우리의 습격으로 오크들이 근처 마을들을 침략해 약탈했으리라. 마을은 이미 대피시켰지만 이 전쟁이 끝난후에 피난민들이 돌아올 장소는 없어졌으리라. 전쟁을 위한 작은 희생이 대륙으로 퍼져나가고 있었다.
 
-A fifth column of smoke began to rise, and in the greenish haze of early morn those pillars of smoke suddenly seemed to look like a demonic hand stretching over the world, ready to dig its claws into the earth and rip out the flesh beneath.  This, I knew, was the threat the orcs faced to us all, a menace to all civilisation.  Whatever price we paid to stop them would be a small one.  So I thought.  So we all thought.
+다섯번째 연기 기둥이 피어오르기 시작했다. 이른 아침을 장식하던 녹색의 연무가 세상을 향한 악마의 손짓으로 보였다. 대지를 가르고 속살을 찢어버릴듯한 손짓으로 보였다. 이것들은 우리에 맞선 오크들의 위협이며 모든 인류에 대한 위협이였다. 오크들을 멈추기 위한 댓가는 그리 크지 않을것이다. 그렇게 나는 생각했었다. 우리 모두가 그리 생각했었다. 
  
-When I reached the Kar’Krul camp Linaniil came out to meet me.  Her smile was warm at the sight of me, but I could tell from her eyes that she was more excited for the events of the day.  “Just a few more hours,” she whispered like an impatient child.  “This will be fascinating!”
+카를'쿨의 야영지에 다다르자 리나니일이 나를 만나러 나왔다. 리나니일이 나를 바라보는 웃음은 따뜻했지만 그 눈에서는 큰 사건을 앞둔 흥분을 엿볼수있었다. "몇시간만요" 성급한 아이처럼 리나니일이 속삭였다. "이건 정말 끝내줄거에요!"
  
-As I came in the Kar’Krul pavilion I saw Neira inside, and some of their senior mages and delegates from other human kingdoms.  I knew Turthel would not be with them, as he stayed in his northern city with his people.  It was not cowardice nor age that held him back from the front lines of war.  Indeed, it was said that ever since his wife was killed by the orcs he had to restrain himself from battle, lest his anger overcome him and he destroy friend and foe alike in his rage.  Yet it was known that sometimes he would venture through the lands alone, and he would bring with him a deafening storm of wrath, and the orcs would cower at the rumour of the approach of Turthel, Tempest of the North.
+카를'쿨의 천막으로 도달하니 네이라가 안에 보였고 몇명의 고위 마법사들과 다른 인간 종족의 대표자들이 모여있었다. 투르셀은 북쪽 도시에서 자기 사람들과 머물며 다른 이들과는 함께하지 않을거라 생각했었다. 전쟁 일선에서 투르셀이 물러난 이유는 용기가 없어서나 나이가 먹어서가 아니다. 실제로는 부인이 오크들에 의해 살해된 이후에 스스로를 전투에서 떠나게 해야만 했던것이다. 그렇지 않았더라면 스스로의 분노로 인해 눈에 보이는 모든 아군과 적을 파괴했을것이다. 그러나 아직까진 투르셀이 대지를 혼자서 떠돌며 폭풍의 분노를 몰고 다니며 오크들은 투르셀이 온다는 소문만 들어도 웅크렸다고들 맣했었다.
  
-Neira and Linaniil commanded the Kar’Krul forces, and from the firm-set look on their archmages’ faces it was clear that they were ready for whatever the day would bring.  Yet Neira looked troubled, doubt evident in her eyes.
+네이라와 리나니일이 칼'쿠를의 병력들에 명령을 내리고, 마도사들의 굳은 얼굴을 보자니 오늘이 바로 어떤 결과가 오던 계획했던 바로 그날임을 알 수 있었다. 이때까지도 네이라는 눈에는 의심이 있었고 불편해보였다.
  
-“What irks your sister?” I whispered to Linaniil.
- 
-“Some dumb dream,” she responded callously.
- 
-Neira’s eyes shot up.  “It were not a dream!” she barked.  “An omen it were, I tell ye!”  She turned to me then with pleading eyes.  “Ye must believe me, Aranion.  Something wilst go terribly wrong today.  I saw last night a terrible sight in mine dreams, as if it were a memory of long ago.  There were a burning city, made of glass and silver and marble.  And as it burned I did hear the cries of thousands, tens of thousands, young and old all dying.  And then the city fell, for it had been held in the sky, and it crashed down to the earth with a shattering torment that spilled across the land.  And other cities there were, and pillars of violet light struck up from them, and they did dance around filling the air with the scent of ozone and seared flesh.  Death was everywhere!  Death like none we have ever seen.
- 
-“It were no mere dream I tell ye.  It be a message, a warning - some forgotten tale of the dangers we play with.  We must stop this thing!”
- 
-Linaniil was tapping her foot impatiently as her sister raved, but I could see some of the other leaders looking worried.  I knew I had to quiet Neira down, so I drew myself near and put my hands on her shoulders, looking her calmly in the eyes and bringing my face close.
- 
-“It may well be that this is no dream.  For this is no normal day, and even in all the legends of ages past this will stand out as a day of reckoning.  Our civilisation in under peril, our way of life threatened from the orcish scourge.  We rest upon a knife edge, the world balancing on a pivot, and the wrong sway could tip us into darkness and despair forever.  Our actions today will decide this.  So yes, you have had a warning, you have had a message, and that message is to be strong.  For today we all hold the reins of fate in our palms, and only the steady hand can guide us past the threat of doom that is to come.  Neira, can you be that steady hand?”
- 
-She looked at me with open and hopeful gaze, her fingers clenched around my wrist as if she sought to draw strength from me.  She nodded slowly then.  “I’m sorry Aranion.  I just... I’ll be strong.”
- 
-I turned to the others who all seemed rapt by my words.  It was clear that leaving them to their own thoughts could only bring trouble.  I had to pull them into action straight away.  “It begins now!” I shouted.  “Gather your troops and prepare for the march.  Slow and steady we shall advance, carefully shall we hold the battle, and beyond fire and fury we will emerge free and victorious.  This day shall stand in history forever!  This day shall mark a new era for all the races!  The day of the Spellblaze is here!”
+"네이라가 왜 저렇게 불편해 보이는거지?" 리나니일에게 속삭였다.
 
-They all cheered and rushed to order their troops, taking courage from the duties of command.  Neira went to her own mages, and I left the pavilion alone.  But outside I was ambushed by Linaniil, who pulled me into an empty tent with a playful laugh.
+"어떤 멍청한 꿈때문이에요" 리나니일이 차갑게 대답했다.
  
-“Ye said ye were no leader!” she exclaimed with a grin.  “That were a leader’s speech if ever I heard one.”
+네이라가 눈을 치켜떴다. "꿈이 아니야!" 그녀가 소리쳤다. "이건 불길한 징조라고 말했잖아!" 네이라가 애원하는 눈빛으로 나를 바라보았다. "절 믿어주셔야해요, 아라니온. 오늘 뭔가가 크게 잘못될거에요. 어젯밤 저의 꿈속에서 마치 오래전의 기억인양 떠올랐어요. 그곳에는 유리와 은과 대리석으로 만들어진 도시가 불타고 있었어요. 불에 타는 도시에서는 수천 수만명의 사람들이 비명을 지르고 그 소리를 들었어요. 그리고 하늘을 지탱하던 도시가 무너지자 하늘은 엄청난 충격에 갈기갈기 찢어져서 땅으로 산산이 흩뿌려졌어요. 다른 도시들이 그곳에 있었고 보라색 빛의 기둥이 떨어지는 하늘을 올려치면서 공기중에는 오존과 살이 타는 냄새가 진동했어요. 모든 곳에 죽음이 있었어요! 우리가 한번도 보지 못했던 죽음이 말이에요.
+ 
+"이건 그냥 단순한 꿈이 아니라고 말씀드리겠어요. 이건 경고에요. 우리가 잊고있는 이야기란 말이에요. 이걸 당장 멈춰야해요!"
+ 
+네이라가 열변을 토하는 동안 리나니일은 짜증스럽게 발을 두드렸지만, 나는 다른 지도자들에게서 염려하는 기색을 엿볼수 있었다. 나는 네이라를 조용히 시켜야할 필요를 느꼈고 나의 손을 그녀의 어깨에 조용히 올렸다. 그녀의 눈을 차분하게 바라보면서 얼굴을 마주했다.
+ 
+"아마도 한낱 꿈이 아닐수도 있소. 오늘이 단순한 날이 아니기도하고, 오늘은 과거 수많은 전설에 견줄 심판의 날이 될테니까. 고통받고 있는 우리 백성들, 오크들의 위협에 숨죽여 살았던 우리 삶의 방식들을 말이오. 우리는 칼날 위에서 쉬고 있는거라오. 세상은 중심의 균형을 잡고 있고 잘못된 흔들림은 우리를 영원한 어둠과 절망에 빠뜨릴테지요. 오늘 우리의 행동이 결정할것이오. 그러니 물론 네이라 당신께서 경고를 하는게 당연하오. 전달할 메시지가 있는게 당연하오. 그리고 그 메시지는 강력할수밖에. 오늘날 우리는 운명의 고삐를 손아귀에 쥐고 있고, 오직 안정적인 손만이 고삐를 쥐고 과거 파멸의 위협에서 우리를 인도할것이오. 네이라, 당신이 그 안정적인 손이 될 수 있겠소?"
+ 
+네이라는 희망찬 눈빛으로 나를 바라보았다. 네이라의 손가락은 나에게서 흘러나온 힘을 찾는듯 나의 손목을 꽉 움켜쥐었다. 네이라는 고개를 천천히 끄덕이고는 말했다. "죄송해요 아라니온. 저는 그저... 제가 강해질께요."
+ 
+나는 내 이야기에 얼이 빠져버린 다른 사람들을 둘러보았다. 그자들을 자기만의 생각에 빠지게 내버려두는건 오직 문제를 일으킬게 분명했다. 그들에게서 즉시 행동을 이끌어내야만했다. "이제 시작합니다!" 내가 소리질렀다. "병력을 모으고 행진을 준비하십시요. 느리지만 확실하게 우리는 나아갈겁니다. 조심스럽게 전쟁을 치르고, 화염과 분노를 뛰어넘어 자유와 승리를 거머쥘것입니다. 이 순간은 역사에 영원히 남을겁니다! 오늘은 모든 종족들에게 새로운 시대로 남을겁니다! 마력폭발의 날이 왔습니다!"
 
-I shrugged and smiled modestly.  “I said what I had to.”
+그들은 모두 사기충천하여 지휘관의 임무를 다하기 위해 부대로 달려갔다. 네이라는 자신의 마법사들에게로 돌아갔고 천막에는 나 혼자 남았다. 하지만 바깥에서 리나니일이 나를 덮쳤고, 장난스런 웃음을 지으며 나를 빈 텐트로 밀어넣었다.
  
-She drew close then, a sudden flush of worry in her face.  “It were just a dream, right?”  I could see then beneath all the bravado and humour she was mortally scared, her fingers trembling as she gazed into my eyes, yearning for reassurance.
- 
-“It was just a dream,” I lied, and it is a lie I have paid for with all my heart and soul.  “Everything will be all right.”  I pulled her close and wrapped my arms around her slender frame, and she held tight to me, still trembling slightly.
- 
-“Thank you, Aranion,” she whispered.  Turning up her face she kissed me, and it was the softest, most delicate kiss she ever gave me.  It was also the last.
- 
-We parted then, and I began the lonely ride back to my own troops.  My heart was now pounding like a deafening war drum, whilst the words of Neira still echoed round my head.  They stirred up a memory in me of a dream I myself had that morning, but that had laid dormant in my mind till then.  I was lying in my bed, and floating above me was a shape of light and air, like the figure of a creature I had never seen before.  It had long tentacles for arms, and billowing robes fluttered about it slowly.  Where it should have a head there was only a small bump, but I could tell it was focused on me.  It stretched out a long tentacle towards me, as if it were warding against a dark and dangerous threat.  A feeling came over me of terrible foreboding, the looming portent of a doom like no other the world had ever seen.  As the tip of the tentacle neared my brow everything went black.
+"지도자감은 아니라고 말했잖아요!" 미소지으며 리나니일이 소리쳤다. "만약에 지도자의 연설이란걸 내가 들어봤다면 바로 그게 지도자의 연설일거에요."
 
-Was it a dream?  Some strange foretelling?  Or could it have been a true apparition, something trying to give me a direct warning?  But I had no time for such thoughts.  The time of the Spellblaze was nearly upon us, and there could be no room for doubt.  I spurred my horse on to my fate.]],
+나는 어깨를 으쓱이고 겸손하게 웃었다. "해야하는 말을 했을 뿐."
+ 
+리나니일은 갑자기 다가와 얼굴에 걱정하는 기색이 역력했다. "그냥 꿈이겠죠, 그렇죠?" 나를 바라보며 리나니일의 손가락에서 작은 떨림을 느끼자 나는 모든 용기와 유머로 가득찬 그녀의 내면에 극심한 공포가 숨어있음을 알아챘다. 
+ 
+"그냥 꿈일뿐이야" 거짓말을 했고 그 거짓말은 나의 심장과 영혼으로 댓가를 치뤄야만했다. "모든게 괜찮을 거야." 리나니일을 가까이 끌어당겨 나의 손으로 그녀의 가녀린 몸을 감싸자 그녀는 여전히 떨림을 유지한채 나에게 안겼다.
+ 
+"고마워요 아라니온" 리나니일이 속삭였다. 고개를 돌려 나에게 여태 했던 모든 키스중에 가장 부드럽고 우아한 키스를 했다. 이 또한 마지막이였다.
+ 
+우리는 갈라섰고, 나는 부대로 말을 돌렸다. 나의 심장은 전쟁북소리 마냥 쿵쾅거렸고 귓가에는 여전히 네이라의 말이 맴돌았다. 그들은 그전까지는 마음속에 묻혀있던 아침에 꿨던 꿈에 대한 기억을 떠올리게 했다. 나는 침대에 누워있었고 일전에 한번도 본적이 없는 형체를 가진 빛과 공기가 내 몸 위로 흘러갔다. 그 형체는 팔로 긴 촉수를 가지고 있었고 천천히 흔들리는 로브를 입고있었다. 머리가 있어야 할 곳에는 작은 혹이 있을 뿐이였지만 그것이 나에게 집중했단 사실은 알수 있었다. 그 생명체는 어둠과 위험한 위협으로부터 나를 보호하려는 듯 긴 촉수를 뻗었다. 끔찍한 예감이 나를 타고 흘렀고 여태 세상에 없던 파멸의 가능성이 피어오름을 느꼈다. 촉수의 끝부분이 이마에 근접하자 모든것이 어두워졌다.
+
+꿈이였던가? 아니면 이상한 예언인가? 아니면 나에게 직접적인 경고를 하려는 유령일수도 있나? 하지만 나에게는 그런 생각을 할 시간이 없었다. 마력폭발의 시간이 다가오고 있었고 의심을 할 여지는 없었기 때문이다. 나의 운명을 향해 말을 박찼다.]],
 	on_learn = function(who)
 		world:gainAchievement("SPELLBLAZE_LORE")
 	end,
@@ -296,41 +296,41 @@ newLore{
 	kr_name = "마력폭발 연대기(5): 마력폭발의 날",
 	lore = [[#{italic}#위대한 엘발라 의회의 지도자, 아라니온 가야에일의 회고록에서 발췌#{normal}#
 
-#{bold}#Chapter Five: The Day of the Spellblaze#{normal}#
+#{bold}#제 5장: 마력폭발의 날#{normal}#
 
-I loosened Mooncutter in its sheath as the troops marched forwards.  My grip tightened on the reins, holding my horse in check lest it gallop ahead in the excitement, and I could see my squire to my left doing the same.  The tension in the air was palpable.  Before us, less than a mile away, the vanguard of the orcish armies was now visible.  We had stirred up their nest and they had responded in full force.  They were like a shadowy blight that swallowed up the horizon, a great pestilence that threatened to consume the world.  Before me the armies of the Shaloren seemed small in comparison, but I knew our strength was not told by mere numbers.
+부대가 앞으로 전진함에 따라 칼집에서 월단검을 느슨하게 했다. 나의 말이 흥분하여 앞으로 박차고나가지 않도록 고삐를 쥔 손에 힘이 들어갔다. 그리고 나의 기사들 또한 나와 같은 모습임을 볼 수 있었다. 공기중의 긴장감은 손으로 만질수 있을 정도로 농후해졌다. 우리부대의 앞쪽으로 머지않은 거리에 오크 군대의 선봉대가 눈에 띄었다. 우리는 오크들의 보금자리를 휘저어놨고 오크들은 모든 병력을 이끌고 반응을 보였다. 오크들은 마치 수평선을 삼키는 그늘진 빛처럼 보였고 세상을 집어삼키려는 위협적인 역병과 같았다. 내 앞의 샬로레 병사들은 오크들에 비해서는 작아보였지만 우리의 힘이 숫자에서 나오지 않음을 알고있었다.
 
-Trumpets blared from the bulwarks at the front, as they readied to engage with the first wave when needed.  To the north were archers to crumble the initial resistance, and at their flank a legion of spellriders, their hands glowing with arcane energies as they sat atop their fearsome steeds.  On the south was the regular cavalry, the greatswords, the armoured knights and the main bulk of our mages, readying support spells.  Here and there senior battlemages were dotted about, ready to move swiftly to points of intense activity and blast it away.  There was no need to have more than one of them in any place - alone they could decimate a score of orcs with ease.
+첫번째 격돌을 준비하고 있는 최전방의 기사들이 모든 준비가 끝나자 트럼펫이 울려퍼졌다. 북쪽으로 궁수들이 첫번째 저지선을 무너뜨리고 측면으로는 주문을 외우는 자들의 부대가 공포스러운 말을 타고 손에는 아케인 에너지가 넘실거렸다. 남쪽으로는 대검으로 무장한 평범한 기사들과 보조 주문을 외워줄 주력 마법사들이 있었다. 이곳 저곳에 고위 전투마법사들이 점점이 포진하여 접전지로 빠르게 이동하여 날려버릴 준비를 하고있었다. 그들은  오직 혼자서 오크들을 대량학살할 수 있기에 어느 곳에 두명 이상 있을 필요가 없었다.
 
-Drums beat loudly in the distance, and a clamour arose from the enemy.  They had with them trained beasts and trolls, and were arrayed in swords and maces and crude armours.  One took up a loud howl and others joined in, and the air seemed to reverberate with their ugly voices.
+북이 멀리 울려퍼지고 오크들에게서 함성이 울려퍼졌다. 오크들에게는 훈련된 짐승들과 트롤들이 검과 메이스를 들고 조잡한 갑옷을 입고있었다. 하나가 울부짖으면 나머지가 따라했고 대기는 오크들의 추악한 목소리로 울리는듯했다.
 
-The cacophony was unsettling, but my army responded with a display of power.  Swords and speartips rose into the air, and crackles of lightning shot up to the heavens, the sparks shining off the gleaming blades and armour.  The orcish army gasped in dismay.  The eastern skyline was beginning to glow red, and we knew the dawn would break any moment now, the signal for the start of the Great Spellblaze.
+불협화음은 사그라들지 않았고 나의 군대는 힘의 방출로 함성에 응대했다. 검과 창을 든 병력들은 하늘로 치켜들고 번개의 찢어질듯한 소리가 하늘을 찢어버리고, 무기와 갑옷에는 밝은 빛이 번뜩였다. 오크 군대들은 충격에서 헤어나오지 못했다. 동쪽 하늘이 붉게 물들기 시작했고 금방이라도 새벽은 깨질것만 같았다. 위대한 마력폭발의 시작을 알리는 신호였다. 
 
-“The day is here!” one of our warriors shouted out, and it was taken up elsewhere by the marching troops.  “The day is here!” they began to chant, anticipating the glory to come.  “The day is here!” my squire sang, his voice full of youthful joy and hope.  “The day is here!” we all shouted in unison, the pride of the Shaloren kingdom in our hearts as we watched the first rays of sunlight shine out from the horizon.  “The day is here!  The day is here!  The day is-”
+"그날이 왔다!" 전사들 중 한명이 소리쳤고 행진하는 다른 부대에서도 따라하기 시작했다. "그날이 왔다!" 전사들은 다가올 영광을 기대하며 목소리를 높여갔다. "그날이 왔다!" 나의 부관도 혈기넘치고 희망찬 목소리로 목놓아 외치기 시작했다."그날이 왔다!" 지평선에 첫번째 빛줄기가 보이기 시작하면서 샬로레 왕국의 긍지를 가지고 모두가 함께 외쳤다."그날이 왔다! 그날이 왔다! 그날이-"
 
-Silence.  All at once our voices dropped, and a terrible brooding silence swept over the battlefield.  We could feel it, every one of us, so attuned are our race to the flows of magic.  It was like having the breath sucked from one’s lungs, or the earth disappear from beneath one’s feet.  All our mana channels were gone, changed suddenly, arcane energies beyond all reach.  Groans and murmurs began to arise, as mages clutched at their heads in sudden despair.  I saw my squire lurch forwards in his saddle and begin to vomit uncontrollably, my standard slipping from his hand, whilst others fell to the ground in pain.  I struggled to battle an overwhelming migraine, blotches appearing in front of my eyes, and with great effort of will I managed to keep control of myself and began to seek out new paths of mana.
+적막. 모두의 목소리가 끊어지고 음울한 적막만이 전장을 휩쓸었다. 마법의 흐름에 익숙한 우리 종족들은 모두 느낄수 있었다. 그것은 마치 폐에서 숨이 멈추는 것이나 발 밑에서 지구가 사라지는 느낌과 같았다. 모든것이 바뀌었다. 우리의 모든 마력의 근원이 사라졌고 어떤 마력에도 도달할 수 없었다. 마법사들의 갑작스러운 절망으로 신음소리와 웅성임이 퍼지기 시작했다.나의 부관이 갑자기 휘청하더니 안장 앞으로 고꾸라져 불규칙적으로 토하기 시작했다. 다른 부관들은 땅으로 떨어져 고통받고 있었다. 나는 갑자기 치솟아오르는 압도적인 힘에 맞서 고군분투했고 눈 앞에 별이 번쩍였다. 엄청난 노력으로 나 자신을 겨우 통제하고 새로운 마력의 길을 찾기 시작했다.
 
-But there was something wrong, terribly wrong.  Like a river run off its course the flow of magic across the whole of Eyal had changed.  What could have caused this?  And now I had to fight years of attunement and training that had taught me to naturally rely on the known flows and courses so that I might find new paths, new sources.  And as I did so I put my powers into divination, and what I discovered shocked me to my core.
+그러나 무언가가 잘못되었다. 잘못되고 너무나 잘못되었다. 마치 강물처럼 에이알 전역에 흘러넘치던 마법의 흐름이 바뀌었다. 어떻게 이런 일이 생길수가 있는것인가? 그리고 현재 나는 수년간의 분투와 훈련을 통해 새로운 마력의 길을 찾아 마력을 활용하는법을 배우려고 했다. 하늘의 뜻에 나의 힘을 맡겼었고 내가 발견한 진실은 나를 뼛속까지 충격으로 물들였다.
 
-The orcs saw us in disarray and began to charge.  But my attention was turned west, not east, towards Elvala and the Crystal Tower where our leaders had been manipulating the Sher’Tul farportal.  But the tower, I felt, was gone - crumpled into the earth, and from there now emanated a wave of white-hot flame.  The orcs tore into our army with little resistance, their weapons tearing through the elven troops, but they were soon met by a wave of destructive energy far greater.
+오크들은 혼란에 빠진 우리를 보고 돌진을 시작했다. 그러나 나의 관심은 동쪽이 아닌 서쪽의 엘발라와 우리의 지도자가 쉐르'툴 원거리 관문을 조작하고 있는 수정탑을 바라보았다. 그러나 탑은 내가 느끼기엔 땅으로 구겨지는듯이 그냥 사라져버렸다. 그리고 그곳에서부터 하얀 불꽃의 파도가 뿜어져나왔다. 오크들의 우리 엘프 군대를 손쉽게 공격했고, 오크들의 무기는 엘프 군대를 찢어발겼다. 그러나 오크들은 금새 파괴적인 위대한 힘의 파동에 맞딱드렸다.
 
-“Shields!” I shouted out as the whole sky turned redder than blood, but above the sudden deafening roar of roasting air I was not heard.  It would have helped little anyway, defenceless as my army was without their usual sources of mana.  Spears of flame streaked down on our heads, shearing through flesh and steel in an instant and sinking into the earth.  The ground shook, and lava blasted up from the deep holes torn into the rock.
+"보호막!" 하늘이 피보다도 더 붉게 물들자 소리쳤지만 대기가 찢어지는 소리에 귀가 먹어 아무도 들을 수가 없었다. 병사들이 사용하던 마력의 근원이 사라진 시점에서 군대는 무력했고 나의 외침은 도움이 됐을지 모른다. 화염의 창은 우리 머리 위에서 쏟아져 내려 육체와 갑옷을 갈라버렸다. 그리곤 순식간에 땅으로 파고들어 대지를 찢고 깊은 땅 속에서 용암이 솟구쳐올랐다.
 
-I put an arcane shield about myself with a great effort of will.  I saw my squire raise a hand to do the same, but a blaze tore off his arm.  He didn’t even get to scream before another wave burned through the top half of his torso.  Spurting blood evaporated instantly, and the air became full of red mist and fire.  I leapt from my horse as it neighed and stumbled and fell burning into ash.
+의지의 힘으로 엄청난 노력을 한 결과 겨우 마력 보호막을 시전할 수 있었다. 나의 부관이 똑같이 하기 위해 손을 치켜들었지만 폭발은 그 손을 찢어버렸다. 상체의 절반을 불태워버린 다른 파동이 그를 덮치기 전에 소리조차 지를 수 없었다. 뿜어져나온 피는 즉시 증발했고 공기는 피의 안개와 불길로 가득했다. 말이 울부짖으며 쓰러지자 나는 불타는 잿속으로 떨어졌다.
 
-Another wave came, and I tried to strengthen my shield, but the force of it took me off my feet and sent me flying.  I was thrashed through the air like a swirling leaf, unable to do anything more than struggle to maintain my protection.  All about my army was being utterly decimated, ranks and ranks of soldiers and mages burnt to a crisp or torn apart by the raw energies.  The orcs were the same, and a huge rent in the ground swallowed great numbers of their troops.  Blasts of lava soon thundered upward and rained down for miles around, turning into glowing rivers of death that swept across the consumed landscape.
+또 다른 파동이 닥쳐왔고 나는 나의 보호막을 강화하기위해 힘 썼으나 파동은 나를 날려버렸다. 소용돌이 치는 나뭇잎처럼 허공에서 몸부림을 쳤다. 단지 보호막을 유지하는것 외에는 아무것도 할 수 있는게 없었다. 나의 군대는 완전히 학살당했고 병사와 마법사들의 시체는 순수한 힘에 의해 바짝 타버린채 사방으로 흩뿌려졌다. 그것은 오크도 마찬가지였다. 그리고 땅에 생긴 커다란 구멍을 통해 오크 부대의 상당수가 빨려들어갔다. 용암폭발로 용암은 하늘로 치솟아 대지를 집어삼키는 죽음의 강으로 변해 아주 먼 거리까지 비가 되어 내렸다. 
 
-How I managed to stay alive I am still not sure.  I almost slipped from consciousness at several points, but by a mental tenacity I never knew I had I managed to stay focused and keep my protective shield active.  I became less aware of my surroundings, not knowing if the bubble of my ward was floating through air or fire or blood, or swallowed into the depths of Eyal into some hell never before witnessed.  At last, after what seemed like a tortuous age, the wave of energy passed, and I found myself lying alone on an outcrop of cracked and parched earth, the air a haze of heat about me.
+내가 어떻게 살아남았는지는 여전히 의문이다. 수차례나 의식을 잃었지만 나도 알지 못했던 나의 강인한 정신력으로 집중하여 보호막을 겨우 유지할 수 있었다. 나는 내 주변을 잘 인지하지 못했다. 나의 보호막이 공기중에 떠있는지 불속에서 타고있는지 아니면 피에 잠겨있는지 알지 못했다. 아니면 전에 본적 없던 지옥을 향해 에이알의 땅 속으로 빨려들어갔을지도 모른다. 마침내 고통스러운 시간이 지나 힘의 파동도 사그라들었다. 그리고 그을리고 갈라진 대지위에 혼자 누워있는 자신을 발견했고 공기 중의 열기는 나를 몽롱하게 만들었다.
 
-I struggled to my feet and looked around, seeing nothing but desolation in all directions.  Steam and smoke rose from rents in the ground, and blood, limbs and ashes were strewn about all over.  Nothing was alive.  In a daze I despaired that I was alone of the hundreds of thousands who had stood here but a short while before.  Friends and comrades, mentors and students, people I had never known and ones I was dearly close to - all gone.  A sudden pain lanced my heart as I thought of Linaniil.  She could not be dead, surely?
+겨우 두 발로 일어서 주변을 살펴보니 사방으로 보이는 거라곤 폐허뿐이였다. 대지의 구멍에서는 증기와 연기가 피어올랐고 사지와 재가 사방에 흩뿌려져 있었다. 살아있는 생명체라곤 하나도 없었다. 그 짧은 시간에 이곳에 서 있었던 수십만의 사람들 중에서 나만이 홀로 살아남았음에 절망에 빠졌다. 친구와 동료들 스승님들과 제자들 내가 알았던 사람들과 가깝게 지냈던 모든 사람들이.... 죽어버렸다. 리나니일을 생각하자 가슴에 갑작스런 고통이 밀려왔다. 리나니일이 죽었을리가 없다. 그렇지 않은가?
 
-I gritted my teeth and summoned the energy to levitate, and as I rose I began to get my bearings around the changed landscape.  Slowly I pushed north-east, passing over devastation beyond belief.  I struggled to keep a grip on my sanity as the scent of burnt flesh and blood surrounded me, my vision filled with a horrored landscape beyond imagination, the utter silence more deafening than any sound I had ever heard.  Eventually I came near to where the Kar’Krul army had stood, and cast about the ruined land for some sign of life.  Then faintly I detected something, some small sliver of life, and searching it out I found her.
+나는 이를 악물고 부양마법을 시전할 마력을 불러왔고 떠오르자 바뀐 지형에서 방향을 잡기 시작했다. 신념 이상의 것을 가지고 황페화된 지점을 지나 북동쪽으로 천천히 나아갔다. 나를 휘감는 피와 살이 타는 냄새에 제정신을 유지하기 위해 분투했고 상상을 아득히 초월하는 경악스러운 대지가 눈에 들어왔다. 내가 평생 들어본 어떤 소리보다도 나의 귀를 먹게 만든 완벽한 적막이 그곳에 있었다. 마침내 칼'쿠를의 군대가 있었던 위치에 근접했고 살아있는 사람을 찾기위해 폐허를 헤맸다. 그리고는 아주 약하게 빛나는 생명의 반응을 찾았고 리나니일임을 깨달았다.
 
-Her clothes had been mostly burned off, her hair half turned to ash, and blood was seeping freely from burns all across her body.  A weak shield still hummed over her, but as I knelt down and laid a hand on her it vanished.  Quietly she gasped a breath before whispering, “Neira”, and sinking into unconsciousness.  She was still alive, but barely.  I looked about and saw no signs of her sister, or of any of the rest of her troops, other than the scorched flesh and blackened bones that marked the scourging path swept by the blaze.
+리나니일의 옷은 거의 불타버렸다. 그녀의 머리카락은 절반이 재가 되어버렸고 불타버린 그녀의 온 몸에서 피가 스며나오고 있었다. 그녀의 주위를 감싸고 있는 미약한 보호막이 조용히 떨렸지만 나의 손을 그녀에게 올리자 보호막이 사라졌다. 리나니일은 "네이라" 한마디를 속삭이고 난 후 숨을 멈추고서 의식불명상태로 빠져들었다. 리나니일은 살아있었지만 간신히 숨을 유지하고 있었다. 나는 주변을 살펴봤지만 네이라의 흔적은 찾을수 없었고 그을린 살점과 검게 그슬린 뼈를 제외하고는 어떤 병력도 찾을 수 없었다.
 
-I began to cast what healing spells I could on Linaniil, but I could tell it was not enough, and my weakened powers could not hope to save her.  I began to cry openly, thinking of all I had lost this day, all that had gone so terribly wrong.  Hope had turned to crisis, and the cruelty of fate was far too much for me to bear.  Cradling my dying love’s head in my lap I turned my face to the sky and screamed.  Torment was in my cracked voice, and I raged against all the injustice of life and the futility of war, surrounded on all sides by blood and bones and ashes.  They had once been souls and lives with hopes and dreams, now all cast away like dust in the wind, and I lamented their deaths and my despair.
+리나니일에게 내가 할 수 있는 치료 주문을 외웠지만 충분하지 않았고 나의 약해진 주문력으로는 그녀를 살릴 희망이 없었다. 그리고는 이날 내가 잃어버린 모든 것들을 되새기면서 목놓아 울기 시작했다. 희망은 최악의 위기로 바뀌어버렸고, 운명의 잔인함은 내가 품기에는 너무나도 벅찼다. 사랑하는 연인의 머리를 무릎에 얹고는 하늘을 향해 소리를 질렀다. 나의 목소리에는 고통이 담겨있었고, 주변을 둘러싼 피와 뼈와 재, 전쟁의 무용함, 삶의 불공평함에 대하여 분노를 쏟아내었다. 한때 꿈과 희망을 가지고 살아가던 이들이 지금은 재로 변해 바람에 휘날리고 있었고 나는 나의 절망과 그들의 죽음을 애통해했다.
 
-But mine was just one voice, one torment, a single note in the great cacophony that spread across the continent.  Millions of lives lost and shattered, millions of voices raised in anguish and torture and suffering, as the devastation continued over all Maj’Eyal from the ultimate force of destruction, the Spellblaze.]],
+그러나 나의 것은 하나의 목소리요 하나의 고통이었다. 대륙에 울려퍼진 불협화음에 속한 하나의 음계였을뿐이다. 파괴적인 궁극의 힘이 마즈'에이알을 뒤덮었고 수백만명의 생명이 사라졌으며 수백만명의 목소리가 분노, 고통으로 변했다. 마력폭발로 인해서 말이다.]],
 	on_learn = function(who)
 		world:gainAchievement("SPELLBLAZE_LORE")
 	end,
