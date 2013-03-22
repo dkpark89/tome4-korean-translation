@@ -351,7 +351,7 @@ end
 function _M:getSaveDescription()
 	return {
 		name = "player",
-		description = [[Busy adventuring!]],
+		description = [[모험하느라 바쁨!]],
 	}
 end
 

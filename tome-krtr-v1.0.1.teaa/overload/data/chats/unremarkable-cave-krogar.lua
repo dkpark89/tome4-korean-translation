@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[@playerdescriptor.race@, 너는 저 엘프년을 죽이는 것을 도와주었다. 오크 무리가 감사를 표할 것이다... 지금부터는.]],
+	text = [[@playerdescriptor.race@, 너는 저 엘프년을 죽이는 것을 도와주었다. 오크 긍지가 감사를 표할 것이다... 지금부터는.]],
 	answers = {
 		{"어쨌든 엘프는 싫으니 말이야..."},
 	}

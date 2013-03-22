@@ -159,7 +159,7 @@ newEntity{
 newEntity{ base = "SLIME_UP",
 	define_as = "UP_GRUSHNAK",
 	name = "exit to Grushnak Pride",
-	kr_name = "그루쉬낙 무리로의 출구",
+	kr_name = "그루쉬낙 긍지로의 출구",
 	change_level = 6,
 	change_zone = "grushnak-pride",
 	force_down = true,

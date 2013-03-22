@@ -822,8 +822,8 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, 마나를 빠르게 회복합니다. 사용 즉시 %d 마나가 회복되며, 추가로 %d%% 턴에 걸쳐 1 턴당 마나 회복 효율이 %d%% 증가합니다.
-		그리고, 휴식하는 동안 매 턴마다 마나가 0.5 씩 회복됩니다.]]):format((data.mana + data.inc_stat) / 20, data.dur, data.mana + data.inc_stat)
+		return ([[룬을 발동하여, 마나를 빠르게 회복합니다. 사용 즉시 %d 마나가 회복되며, 추가로 %d 턴에 걸쳐 턴당 마나 회복 효율이 %d%% 증가합니다.
+		그리고, 휴식하는 동안 매 턴마다 마나가 0.5 씩 회복됩니다.]]):format((data.mana + data.inc_stat) / 20, data.dur, data.mana + data.inc_stat) --@@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)

@@ -37,5 +37,5 @@ on_grant = function(self, who)
 		local spot = level:pickSpot{type="zone-pop", subtype="eruan"}
 		game.zone:addEntity(level, g, "terrain", spot.x, spot.y)
 	end)
-	game.logPlayer(game.player, "아에린이 오크 무리가 포착된 장소를 알려줬습니다.")
+	game.logPlayer(game.player, "아에린이 오크 긍지가 포착된 장소를 알려줬습니다.")
 end

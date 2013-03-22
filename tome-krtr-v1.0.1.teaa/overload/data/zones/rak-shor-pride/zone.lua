@@ -19,7 +19,7 @@
 
 return {
 	name = "Rak'shor Pride",
-	kr_name = "락'쇼르 무리",
+	kr_name = "락'쇼르 긍지",
 	level_range = {30, 60},
 	level_scheme = "player",
 	max_level = 3,

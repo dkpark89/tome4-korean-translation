@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "Strange new world"
 kr_name = "새롭고 낯선 세상"
 desc = function(self, who)
@@ -33,7 +35,7 @@ desc = function(self, who)
 	if self:isCompleted("helped-fillarel") then
 		desc[#desc+1] = "필라렐은 남동쪽으로 가서 고위 태양의 기사 아에린을 만나보라고 말했습니다."
 	elseif self:isCompleted("helped-krogar") then
-		desc[#desc+1] = "크로가르는 서쪽으로 가서 크룩 무리를 살펴보라고 말했습니다."
+		desc[#desc+1] = "크로가르는 서쪽으로 가서 크룩 긍지를 살펴보라고 말했습니다."
 	end
 	return table.concat(desc, "\n")
 end
@@ -42,7 +44,7 @@ krogar_dies = function(self, npc)
 	if self:isCompleted("sided-fillarel") then game.player:setQuestStatus(self.id, self.COMPLETED, "helped-fillarel")
 	else
 		game.player:setQuestStatus(self.id, self.COMPLETED, "helped-krogar")
-		npc:doEmote(game.player.descriptor.race.." 서쪽으로 가서, 크룩 무리를 찾아라!", 120)
+		npc:doEmote(game.player.descriptor.race:krRace()..", 서쪽으로 가서 크룩 긍지를 찾아라!", 120)
 	end
 end
 
@@ -50,6 +52,6 @@ fillarel_dies = function(self, npc)
 	if self:isCompleted("sided-krogar") then game.player:setQuestStatus(self.id, self.COMPLETED, "helped-krogar")
 	else
 		game.player:setQuestStatus(self.id, self.COMPLETED, "helped-fillarel")
-		npc:doEmote(game.player.descriptor.race..", 남동쪽으로 가서 아에린에게 지금 있었던 일을 말해주십시오!", 120)
+		npc:doEmote(game.player.descriptor.race:krRace():addJosa(7).."여, 남동쪽으로 가서 아에린에게 지금 있었던 일을 말해주십시오!", 120)
 	end
 end

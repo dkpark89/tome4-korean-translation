@@ -125,7 +125,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[전방 %d 칸 반경에 불길을 내뿜어 %d 턴 동안 기절시키고, 기절한 적에게 추가로 %0.2f 화염 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(radius, stunduration, damDesc(self, DamageType.FIRE, damage))
+		format(radius, stunduration, damDesc(self, DamageType.FIRE, damage)) --@@ 변수 순서 조정
 	end,
 }
 

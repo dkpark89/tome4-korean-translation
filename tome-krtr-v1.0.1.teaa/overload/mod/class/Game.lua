@@ -488,8 +488,9 @@ function _M:updateCurrentChar()
 end
 
 function _M:getSaveDescription()
+--@@ 이 내용은 한글화 애드온이 적용되지 않는 로딩 창에서 보이는 부분이라 한글 사용할 수 없습니다.
 	local player = self.party:findMember{main=true}
---수정 필요 없는 부분인지?
+	
 	return {
 		name = player.name,
 		description = ([[%s the level %d %s %s.
@@ -507,15 +508,15 @@ end
 function _M:getVaultDescription(e)
 	e = e:findMember{main=true} -- Because vault "chars" are actualy parties for tome
 	return {
-		name = ([[%s the %s %s]]):format(e.name, e.descriptor.subrace, e.descriptor.subclass),
+		name = ([[%s : %s %s]]):format(e.name, e.descriptor.subrace:krRace(), e.descriptor.subclass:krClass() ),
 		descriptors = e.descriptor,
-		description = ([[%s the %s %s.
-Difficulty: %s / %s
-Campaign: %s]]):format(
-		e.name, e.descriptor.subrace, e.descriptor.subclass,
-		e.descriptor.difficulty, e.descriptor.permadeath,
-		e.descriptor.world
-		),
+		description = ([[%s : %s (%s) %s (%s).
+난이도: %s (%s) / %s (%s)
+캠페인: %s (%s)]]):format(
+		e.name, e.descriptor.subrace:krRace(), e.descriptor.subrace, e.descriptor.subclass:krClass(), e.descriptor.subclass,
+		e.descriptor.difficulty:krDifficulty(), e.descriptor.difficulty, e.descriptor.permadeath:krPermaDeath(), e.descriptor.permadeath,
+		e.descriptor.world:krCampaign(), e.descriptor.world
+		), --@@ 변수 조정
 	}
 end
 
@@ -1562,7 +1563,7 @@ do return end
 			if self.tooltip.locked then
 				self.tooltip.locked = false
 				self.tooltip.container.focused = self.tooltip.locked
-				game.log("툴팁 %s", self.tooltip.locked and "잠김" or "잠김 해제")
+				game.log("정보창 표시 %s", self.tooltip.locked and "잠김" or "잠김 해제")
 			end
 			local menu
 			local l = {
@@ -1622,7 +1623,7 @@ do return end
 			if not self.tooltip.empty then
 				self.tooltip.locked = not self.tooltip.locked
 				self.tooltip.container.focused = self.tooltip.locked
-				game.log("툴팁 %s", self.tooltip.locked and "잠김" or "잠김 해제")
+				game.log("정보창 표시 %s", self.tooltip.locked and "잠김" or "잠김 해제")
 			end
 		end,
 
@@ -1630,7 +1631,7 @@ do return end
 			if not self.tooltip.empty then
 				self.tooltip.locked = not self.tooltip.locked
 				self.tooltip.container.focused = self.tooltip.locked
-				game.log("툴팁 %s", self.tooltip.locked and "잠김" or "잠김 해제")
+				game.log("정보창 표시 %s", self.tooltip.locked and "잠김" or "잠김 해제")
 			end
 		end,
 

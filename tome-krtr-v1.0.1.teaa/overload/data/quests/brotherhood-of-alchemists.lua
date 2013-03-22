@@ -205,7 +205,7 @@ end
 
 recipes = function(self)
 	local ing_list = {}
-	for id, d in pairs(game.party.__ingredients_def) do if d.alchemy_text then ing_list[#ing_list+1] = {id=id, name=d.name} end end
+	for id, d in pairs(game.party.__ingredients_def) do if d.alchemy_text then ing_list[#ing_list+1] = {id=id, name=d.name, kr_name=d.kr_name} end end --@@ 한글 이름 추가
 	local e = {
 		{
 			{

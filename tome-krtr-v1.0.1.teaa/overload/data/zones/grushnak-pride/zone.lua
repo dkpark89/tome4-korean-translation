@@ -19,15 +19,15 @@
 
 return {
 	name = "Grushnak Pride",
-	kr_name = "그루쉬낙 무리",
+	kr_name = "그루쉬낙 긍지",
 	display_name = function()
 		if game.level.level % 2 == 0 then return "Grushnak Pride ("..(game.level.level/2)..")"
 		else return "Grushnak Pride (guarded barracks)"
 		end
 	end,
 	kr_display_name = function()
-		if game.level.level % 2 == 0 then return "그루쉬낙 무리 ("..(game.level.level/2)..")"
-		else return "그루쉬낙 무리 (경계 막사)"
+		if game.level.level % 2 == 0 then return "그루쉬낙 긍지 ("..(game.level.level/2)..")"
+		else return "그루쉬낙 긍지 (경계 막사)"
 		end
 	end,
 	variable_zone_name = true,

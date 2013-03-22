@@ -22,6 +22,7 @@
 --
 -- Note that the floodfill algorithm in this file can handle grids with different movement costs
 
+require "engine.krtrUtils"
 require "engine.class"
 local Map = require "engine.Map"
 local Dialog = require "engine.ui.Dialog"
@@ -2586,7 +2587,7 @@ function _M:checkAutoExplore()
 					end
 				end
 			end
-			self:runStop(self.running.explore .. "에 도착")
+			self:runStop(self.running.explore:krRunningExplore() .. "에 도착") --@@ 이유 한글화
 			return false
 		end
 	end

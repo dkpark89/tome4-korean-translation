@@ -857,9 +857,9 @@ function _M:runCheck(ignore_memory)
 		if grid and grid.notice and not (grid.special and self.running and self.running.explore and not grid.block_move and (grid.autoexplore_ignore or game.level.map.attrs(x, y, "autoexplore_ignore")))
 			and not (self.running and self.running.path and (game.level.map.attrs(x, y, "noticed")
 				or (what ~= self and (self.running.explore and grid.door_opened                     -- safe door
-				or #self.running.path == self.running.cnt and (self.running.explore == "출구"       -- auto-explore onto exit
+				or #self.running.path == self.running.cnt and (self.running.explore == "exit"       -- auto-explore onto exit
 				or not self.running.explore and grid.change_level))                                 -- A* onto exit
-				or #self.running.path - self.running.cnt < 2 and (self.running.explore == "관문"  -- auto-explore onto portal
+				or #self.running.path - self.running.cnt < 2 and (self.running.explore == "portal"  -- auto-explore onto portal
 				or not self.running.explore and grid.orb_portal)                                    -- A* onto portal
 				or self.running.cnt < 3 and grid.orb_portal and                                     -- path from portal
 				game.level.map:checkEntity(self.running.path[1].x, self.running.path[1].y, Map.TERRAIN, "orb_portal"))))
@@ -868,7 +868,7 @@ function _M:runCheck(ignore_memory)
 				game.level.map.attrs(x, y, "autoexplore_ignore", true)
 				noticed = "흥미로운 것"
 			elseif self.running and self.running.explore and self.running.path and self.running.explore ~= "unseen" and self.running.cnt == #self.running.path + 1 then
-				noticed = self.running.explore .. "에 도착"
+				noticed = self.running.explore:krRunningExplore() .. "에 도착" --@@ 이유 한글화
 			else
 				noticed = "흥미로운 지형"
 			end
