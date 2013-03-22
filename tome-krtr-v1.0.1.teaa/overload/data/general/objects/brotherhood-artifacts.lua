@@ -31,7 +31,7 @@ newEntity{
 	name = "Elixir of the Fox", unique=true, unided_name="vial of pink fluid",
 	kr_name = "여우의 엘릭서", kr_unided_name = "핑크색 액체가 든 약병",
 	display = "!", color=colors.VIOLET,
-	desc = [[핑크색의 가벼워 보이는 액체가 든 약병입니다.]],
+	desc = [[분홍색의 가벼워 보이는 액체가 든 약병입니다.]],
 	no_unique_lore = true,
 	cost = 1000,
 	quest = 1,

@@ -19,7 +19,7 @@
 
 newAchievement{
 	name = "That was close",
-	kr_name = "십년 감수",
+	kr_name = "십년감수",
 	show = "full",
 	desc = [[생명력이 1 만 남은 상태로 적을 죽임.]],
 }
@@ -56,7 +56,7 @@ newAchievement{
 	name = "Exterminator",
 	kr_name = "절멸자",
 	show = "full",
-	desc = [[1,000 명의 생명체를 살해.]],
+	desc = [[1,000 마리의 생명체를 살해.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -69,7 +69,7 @@ newAchievement{
 	kr_name = "해충 구제",
 	image = "npc/vermin_worms_green_worm_mass.png",
 	show = "full",
-	desc = [[1,000 마리의 번식형 해충 살해.]],
+	desc = [[1,000 마리의 해충 살해.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target:knowTalent(target.T_MULTIPLY) or target.clone_on_hit then
@@ -103,7 +103,7 @@ newAchievement{
 	kr_name = "중상모략적인 배반자",
 	image = "object/knife_stralite.png",
 	show = "full",
-	desc = [[모험가 호위를 6번 실패함.]],
+	desc = [[모험가 호위 중, 자기 손으로 모험가를 6 번 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -194,10 +194,10 @@ newAchievement{
 
 newAchievement{
 	name = "Are you out of your mind?!", id = "UBER_WYRMS_OPEN",
-	kr_name = "너 지금 정신 나갔냐?!",
+	kr_name = "너 지금 미쳤어?!",
 	image = "npc/dragon_multihued_multi_hued_drake.png",
 	show = "name",
-	desc = [[보르 무기고에서 '너무나 엄청나게 강력한 무지개빛 고위 용'의 관심을 받음. 목숨이 아깝다면 도망치는 것이 순리.]],
+	desc = [[보르 무기고에서 '너무나 엄청나게 강력한 무지개빛 고위 용' 의 관심을 받음. 목숨이 아깝다면 도망치는 것이 순리.]],
 	mode = "player",
 }
 
@@ -237,7 +237,7 @@ newAchievement{
 	kr_name = "다 큰 놈은 내버려 둬",
 	image = "npc/the_master.png",
 	show = "full",
-	desc = [['주인'을 죽이고, 그에게서 되돌림의 장대를 획득.]],
+	desc = [['주인' 을 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 

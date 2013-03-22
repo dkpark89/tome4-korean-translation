@@ -216,11 +216,11 @@ function _M:tooltip(x, y, seen_by)
 	local ts = tstring{}
 	ts:add({"uid",self.uid}) ts:merge(rank_color:toTString()) ts:add(self.kr_name and self.kr_name.." ["..self.name.."]" or self.name, {"color", "WHITE"}, true) --@@ 한글 이름에 원래 이름 덧붙이기
 	ts:add(self.type:capitalize():krActorType(), " / ", self.subtype:capitalize():krActorType(), true) --@@ 종족/직업 이름 한글화
-	ts:add("등급: ") ts:merge(rank_color:toTString()) ts:add(rank:krRank(), {"color", "WHITE"}, true) --@@ 등급 이름 한글화
+	ts:add("등급 : ") ts:merge(rank_color:toTString()) ts:add(rank:krRank(), {"color", "WHITE"}, true) --@@ 등급 이름 한글화
 	ts:add(self.desc, true)
-	ts:add("소속: ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) --@@ 소속 이름 한글화
+	ts:add("소속 : ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) --@@ 소속 이름 한글화
 	ts:add(
-		("당신에게 죽은 횟수: "):format(killed), true,
+		("당신에게 죽은 횟수 : "):format(killed), true,
 		"목표: ", self.ai_target.actor and (self.ai_target.actor.kr_name or self.ai_target.actor.name) or "없음", true, 
 		"UID: "..self.uid
 	)

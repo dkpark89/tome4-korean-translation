@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.UMBER,
 	faction = "zigur",
-	killer_message = "그리고 화형당했습니다.",
+	killer_message = "당신은 화형당했습니다.",
 
 	combat = { dam=resolvers.rngavg(5,12), atk=2, apr=6, physspeed=2 },
 

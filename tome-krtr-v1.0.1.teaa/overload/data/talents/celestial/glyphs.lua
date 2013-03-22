@@ -231,7 +231,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 빛의 폭발에 휘말려 %0.2f 피해를 받습니다.
 		빛의 폭발은 주변 1 칸 반경에 영향을 주며, 문양은 %d 턴 동안 유지됩니다.
-		피해량은 마법 능력치에 영향을 받아 증가됩니다.]]):
+		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), duration)
 	end,
 }

@@ -35,13 +35,13 @@ newAchievement{
 	image = "npc/the_master.png",
 	show = "name",
 	kr_name = "흡혈귀 분쇄",
-	desc = [[두려움의 영역에서 '주인'을 파괴.]],
+	desc = [[두려움의 영역에서 '주인' 을 파괴.]],
 }
 newAchievement{
 	name = "A dangerous secret",
 	show = "name",
 	kr_name = "위험한 비밀",
-	desc = [[신비한 지팡이를 찾아, '마지막 희망'에 보고.]],
+	desc = [[신비한 지팡이를 찾아, '마지막 희망' 에 보고.]],
 }
 newAchievement{
 	name = "The secret city",
@@ -52,13 +52,13 @@ newAchievement{
 newAchievement{
 	name = "Burnt to the ground", id="APPRENTICE_STAFF",
 	show = "none",
-	kr_name = "불타올라 대지로",
-	desc = [[견습 마법사에게 '흡수의 지팡이'를 주고, 이후의 불꽃놀이를 감상.]],
+	kr_name = "초토화",
+	desc = [[견습 마법사에게 '흡수의 지팡이' 를 주고, 이후의 불꽃놀이를 감상.]],
 }
 newAchievement{
 	name = "Against all odds", id = "KILL_UKRUK",
 	show = "name",
-	kr_name = "기괴한 놈들과 맞섬",
+	kr_name = "불가능과 맞서다",
 	desc = [[습격하는 우크룩 살해.]],
 }
 newAchievement{
@@ -66,7 +66,7 @@ newAchievement{
 	image = "object/artifact/orb_many_ways.png",
 	show = "name",
 	kr_name = "활주",
-	desc = [['여러 장소로의 오브'를 사용하여 관문 활성화.]],
+	desc = [['여러 장소로의 오브' 를 사용하여 관문 활성화.]],
 	on_gain = function()
 		game:onTickEnd(function() game.party:learnLore("first-farportal") end)
 	end
@@ -87,7 +87,7 @@ newAchievement{
 	name = "Race through fire", id = "CHARRED_SCAR_SUCCESS",
 	show = "name",
 	kr_name = "화염을 뚫고 질주",
-	desc = [['검게 탄 상처'의 화염을 뚫고 주술사들을 막기 위해 질주.]],
+	desc = [['검게 탄 상처' 의 화염을 뚫고 주술사들을 막기 위해 질주.]],
 }
 newAchievement{
 	name = "Orcrist", id = "ORC_PRIDE",
@@ -118,8 +118,8 @@ newAchievement{
 newAchievement{
 	name = "Triumph of the Way", id = "YEEK_SACRIFICE",
 	show = "name",
-	kr_name = "'한길'의 승리",
-	desc = [[스스로를 희생하여 ToME에서 승리함으로써, 에이알의 모든 지적 존재들에게 '한길'의 영향력 확대.]],
+	kr_name = "'한길' 의 승리",
+	desc = [[스스로를 희생하여 ToME에서 승리함으로써, 에이알의 모든 지적 존재들에게 '한길' 의 영향력 확대.]],
 }
 newAchievement{
 	name = "Tactical master", id = "SORCERER_NO_PORTAL",
@@ -137,19 +137,19 @@ newAchievement{
 	name = "Portal reaver", id = "SORCERER_TWO_PORTAL",
 	show = "name",
 	kr_name = "관문 약탈자", --@@ 일단, 여기만 그냥 둠. reaver를 약탈자로 변경시 marauder를 대체할 단어 필요 (둘다 캐릭터 직업, 현재 reaver:파괴자, marauder:약탈자)
-	desc = [[두개의 소환용 관문을 닫고 두 주술사와 싸움.]],
+	desc = [[두 개의 소환용 관문을 닫고 두 주술사와 싸움.]],
 }
 newAchievement{
 	name = "Portal ender", id = "SORCERER_THREE_PORTAL",
 	show = "name",
 	kr_name = "관문 폐지자",
-	desc = [[세개의 소환용 관문을 닫고 두 주술사와 싸움.]],
+	desc = [[세 개의 소환용 관문을 닫고 두 주술사와 싸움.]],
 }
 newAchievement{
 	name = "Portal master", id = "SORCERER_FOUR_PORTAL",
 	show = "name",
 	kr_name = "관문의 주인",
-	desc = [[네개의 소환용 관문을 닫고 두 주술사와 싸움.]],
+	desc = [[네 개의 소환용 관문을 닫고 두 주술사와 싸움.]],
 }
 
 -------------- Other quests
@@ -157,7 +157,7 @@ newAchievement{
 	name = "Rescuer of the lost", id = "LOST_MERCHANT_RESCUE",
 	show = "name",
 	kr_name = "실종자 구출",
-	desc = [['암살단 단장'으로부터 상인을 구출함.]],
+	desc = [['암살단 단장' 으로부터 상인을 구출함.]],
 }
 newAchievement{
 	name = "Poisonous", id = "LOST_MERCHANT_EVIL",
@@ -175,7 +175,7 @@ newAchievement{
 	name = "Treacherous Bastard", id = "SLASUL_DEAD_PRODIGY_LEARNT",
 	show = "name",
 	kr_name = "이런 배반자 자식",
-	desc = [[특수기술 '날로레의 유산'을 배우기 위해 슬라슐의 편에 선 다음, 슬라슐을 죽임.]],
+	desc = [[특수기술 '날로레의 유산' 을 배우기 위해 슬라슐의 편에 선 다음, 슬라슐을 죽임.]],
 }
 newAchievement{
 	name = "Flooder", id = "UKLLMSWWIK_DEAD",
@@ -199,7 +199,7 @@ newAchievement{
 	name = "Fast Curse Dispel", id = "CURSE_ALL",
 	show = "name",
 	kr_name = "빠른 저주 해제",
-	desc = [[모든 나무꾼이 살아있는 동안 저주받은 자 벤 크루스달을 죽임.]],
+	desc = [[모든 나무꾼을 살리면서, 저주받은 자 벤 크루스달을 죽임.]],
 }
 newAchievement{
 	name = "Eye of the storm", id = "EYE_OF_THE_STORM",
@@ -222,7 +222,7 @@ newAchievement{
 newAchievement{
 	name = "There and back again", id = "WEST_PORTAL",
 	show = "name",
-	kr_name = "그 곳에서 돌아옴",
+	kr_name = "또 다시 그 곳에",
 	desc = [[동대륙에서 마즈'에이알로 가는 관문 열기.]],
 }
 newAchievement{
@@ -279,7 +279,7 @@ newAchievement{
 newAchievement{
 	name = "Self-killer", id = "PARADOX_FUTURE",
 	show = "name",
-	kr_name = "자신-살인자",
+	kr_name = "자신을 죽인 자",
 	desc = [[미래의 자신을 죽임.]],
 	on_gain = function(_, src, personal)
 		if world:hasAchievement("PARADOX_NOW") then world:gainAchievement("PARADOX_FULL", src) end
@@ -295,13 +295,13 @@ newAchievement{
 	name = "Explorer", id = "EXPLORER",
 	show = "name",
 	kr_name = "탐험가",
-	desc = [[같은 캐릭터로 쉐르'툴 요새의 탐험용 장거리 관문을 7번 이상 이용.]],
+	desc = [[같은 캐릭터로 쉐르'툴 요새의 탐험용 장거리 관문을 7 번 이상 이용.]],
 }
 newAchievement{
 	name = "Orbituary", id = "ABASHED_EXPANSE",
 	show = "name",
 	kr_name = "궤도 안정자",
-	desc = [[궤도 유지를 위한 '너무나 광활한 공간' 안정화.]],
+	desc = [[궤도 유지를 위해, '너무나 광활한 공간' 을 안정화.]],
 }
 newAchievement{
 	name = "Wibbly Wobbly Timey Wimey Stuff", id = "UNHALLOWED_MORASS",
@@ -313,7 +313,7 @@ newAchievement{
 	name = "Matrix style!", id = "ABASHED_EXPANSE_NO_BLAST",
 	show = "full",
 	kr_name = "매트릭스 따라하기!",
-	desc = [['너무나 광활한 공간'에서 공허의 돌풍이나 마나 벌레에게 한 대도 맞지 않고 마무리함. 피하는 것도 재미있지요!]],
+	desc = [['너무나 광활한 공간' 에서 공허의 돌풍이나 마나 벌레에게 한 대도 맞지 않고 일을 마무리함. 피하는 것도 재미있지요!]],
 	can_gain = function(self, who, zone)
 		if not who:isQuestStatus("start-archmage", engine.Quest.DONE) then return false end
 		if zone.void_blast_hits and zone.void_blast_hits == 0 then return true end
@@ -330,7 +330,7 @@ newAchievement{
 	show = "full",
 	kr_name = "노예 해방",
 	mode = "player",
-	desc = [[노예 수용소에서 30명 이상의 매혹된 노예를 해방시킴.]],
+	desc = [[노예 수용소에서 30 명 이상의 매혹된 노예를 해방시킴.]],
 	can_gain = function(self)
 		self.nb = (self.nb or 0) + 1
 		if self.nb >= 30 then return true end
@@ -347,7 +347,7 @@ newAchievement{
 	name = "Dreaming my dreams", id = "ALL_DREAMS",
 	show = "full",
 	kr_name = "꿈 꾸기",
-	desc = [[도그로스 화산분지에서 모든 꿈을 경험하고 끝냄.]],
+	desc = [[도그로스 화산분지에서 모든 꿈을 경험하고, 임무를 완수함.]],
 	mode = "world",
 	can_gain = function(self, who, kind)
 		self[kind] = true

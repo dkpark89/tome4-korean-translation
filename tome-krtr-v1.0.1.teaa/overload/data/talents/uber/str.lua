@@ -70,8 +70,8 @@ uberTalent{
 	end,
 	info = function(self, t)
 		return ([[적에게 강력한 일격을 날려, 350%% 무기 피해를 주고 6 칸 뒤로 밀어냅니다.
-		신체 크기가 '큼'보다 크다면, 그 차이마다 추가적인 +80%%의 무기 피해량을 받습니다.
-		밀려나면서 다른 적과 부딪힐 때마다, 부딪힌 적이 3 턴간 기절하게 됩니다.]])
+		신체 크기가 '큼' 이상이라면, 한 단계 차이가 날 때마다 피해량이 80%% 증가하게 됩니다.
+		적이 밀려나면서 다른 적과 부딪힐 때마다, 부딪힌 적은 3 턴간 기절하게 됩니다.]])
 		:format()
 	end,
 }
@@ -142,7 +142,7 @@ uberTalent{
 	end,
 	info = function(self, t)
 		local dam = (50 + self:getStr() * 1.7) / 3
-		return ([[6 턴 동안 강력한 별의 힘을 빌어, 주변 5 칸 이내의 모든 적들을 끌어와 %0.2f 화염 피해, %0.2f 전기 피해, %0.2f 물리 피해를 동시에 줍니다.
+		return ([[6 턴 동안 강력한 별의 힘을 빌어, 주변 5 칸 이내의 모든 적들을 끌어오며 %0.2f 화염 피해, %0.2f 전기 피해, %0.2f 물리 피해를 동시에 줍니다.
 		시전자와 붙어있는 적에게는 피해량이 150%% 증가합니다.
 		피해량은 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.LIGHT, dam), damDesc(self, DamageType.PHYSICAL, dam))

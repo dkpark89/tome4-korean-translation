@@ -77,7 +77,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 종말을 앞당깁니다. 대상은 치유 효율이 100%% 감소하며, 10 턴 동안 남은 생명력의 %d%% 에 해당하는 마법 피해 또는 %0.2f 마법 피해를 입게 됩니다. (둘 중 더 작은 쪽)
+		return ([[대상의 종말을 앞당깁니다. 대상은 치유 효율이 100%% 감소하며, 10 턴 동안 남은 생명력의 %d%% 에 해당하는 마법 피해 또는 %0.2f 마법 피해를 나눠서 입게 됩니다. (둘 중 더 작은 쪽)
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getDamage(self, t), t.getMax(self, t))
 	end,
@@ -147,7 +147,7 @@ newTalent{
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },
 		level = function(level) return 20 + (level-1)  end,
-		special = { desc="'죽음에서, 삶으로' 퀘스트를 완료했지만, 아직 언데드가 되진 않음", fct=function(self, t) return not self:attr("undead") and self:isQuestStatus("lichform", engine.Quest.DONE) end},
+		special = { desc="'죽음에서, 삶으로' 퀘스트를 완료하였으며, 리치가 되기 전까지 언데드가 되지 않을 것", fct=function(self, t) return not self:attr("undead") and self:isQuestStatus("lichform", engine.Quest.DONE) end},
 	},
 	mode = "sustained",
 	points = 5,
@@ -253,7 +253,7 @@ newTalent{
 		기술 레벨 6 : 마법과 의지 능력치가 6 증가하고, 3 번 부활할 수 있게 됩니다. 주문 내성과 정신 내성이 15 증가하며, 전체 저항력의 최대치가 15%% 증가합니다. 천공 / 별의 분노 계열을 (x1.1) 적성으로 사용할 수 있게 되며, 턴 당 음기 재생이 1.0 증가합니다. 나의 힘 앞에 무릎 꿇으라!
 		언데드 종족은 리치가 될 수 없습니다.
 		이 기술을 활성화시키면, 턴 당 마나가 4 소진됩니다.
-		한번 죽어서 리치로 변하면, 이 기술을 더 이상 발전시키지 못하게 됩니다.]]):
+		한번 죽어서 리치로 변하면, 이 기술을 더 이상 강화시키킬 수 없게 됩니다.]]):
 		format()
 	end,
 }

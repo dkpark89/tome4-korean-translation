@@ -45,7 +45,7 @@ function _M:init()
 	self:generateList()
 	self.changed = false
 
-	Dialog.init(self, "그래픽 모양 변경", 300, 20)
+	Dialog.init(self, "그래픽 변경", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=7, list=self.list, fct=function(item) self:use(item) end}
 

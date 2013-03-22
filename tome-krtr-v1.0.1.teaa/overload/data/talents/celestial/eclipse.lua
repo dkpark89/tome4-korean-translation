@@ -65,7 +65,7 @@ newTalent{
 		local cooldownreduction = t.getCooldownReduction(self, t)
 		return ([[빛과 어둠 속성 저항 관통력을 %d 턴 동안 %d%% 증가시키고, 모든 천공 계열 기술의 재사용 대기시간을 %d 턴 감소시킵니다.
 		저항 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]):
-		format(penetration, duration, cooldownreduction)
+		format(duration, penetration, cooldownreduction)
 	end,
 }
 
@@ -198,11 +198,11 @@ newTalent{
 		local convert = t.getEnergyConvert(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[강력한 기술로, 이 기술이 유지되는 동안 몸이 투명해지며 (투명 수치 +%d), 매 턴마다 %d 만큼의 음기가 양기로 전환됩니다. 
+		return ([[이 기술이 유지되는 동안 몸이 투명해지며 (투명 수치 +%d), 매 턴마다 %d 만큼의 음기가 양기로 전환됩니다. 
 		양기가 음기를 초과하게 되거나 기술의 유지를 해제하면, 기술의 효과가 끝나면서 찬란한 빛이 폭발하여 주변 %d 칸 반경에 (가지고 있던 양기의 총량 + %0.2f) 피해를 줍니다.
 		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 50%% 밖에 주지 못하게 됩니다.
 		투명화 중에 등불 따위를 들고 있으면, 투명화를 한 의미가 사실상 없어지게 됩니다.
 		투명 능력은 교활함 능력치, 폭발 피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(invisibilitypower, convert, damDesc(self, DamageType.LIGHT, damage), radius)
+		format(invisibilitypower, convert, radius, damDesc(self, DamageType.LIGHT, damage))
 	end,
 }

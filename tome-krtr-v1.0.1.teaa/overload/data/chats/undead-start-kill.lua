@@ -33,7 +33,7 @@ newChat{ id="welcome2",
 		{"그래서, 네 녀석의 목적은?", jump="what"},
 		{"[그를 죽인다]", action=function(npc, player)
 			npc.die = nil
-			npc:doEmote("으아아아악... 너는 영원히 외톨이일 것이다! 너는 파괴될 것이다!", 60)
+			npc:doEmote("으아아아악... 하지만 이곳에 있는 언데드는 너 뿐만이 아니다! 너는 곧 파괴될 것이다!", 60)
 			npc:die(player)
 		end},
 	}
@@ -46,7 +46,7 @@ Please!]],
 	answers = {
 		{"정보에 대해선 감사를 표하도록 하지. 이제 죽어줘야겠다. [그를 죽인다]", action=function(npc, player)
 			npc.die = nil
-			npc:doEmote("으아아아악... 너는 영원히 외톨이일 것이다! 너는 파괴될 것이다!", 60)
+			npc:doEmote("으아아아악... 하지만 이곳에 있는 언데드는 너 뿐만이 아니다! 너는 곧 파괴될 것이다!", 60)
 			npc:die(player)
 		end},
 	}

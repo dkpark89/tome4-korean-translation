@@ -403,7 +403,7 @@ function _M:loadWorld()
 
 	fs.mount(path, self.load_dir)
 
-	local popup = Dialog:simpleWaiter("세계 불러오는중", "세계를 불러오는 동안 잠시 기다려 주십시오...")
+	local popup = Dialog:simpleWaiter("세계 불러오는 중", "세계를 불러오는 동안 잠시 기다려 주십시오...")
 	core.display.forceRedraw()
 
 	local loadedWorld = self:loadReal("main")
@@ -449,7 +449,7 @@ function _M:loadGame()
 
 	fs.mount(path, self.load_dir)
 
-	local popup = Dialog:simpleWaiter("게임 불러오는중", "게임을 불러오는 동안 잠시 기다려 주십시오...")
+	local popup = Dialog:simpleWaiter("게임 불러오는 중", "게임을 불러오는 동안 잠시 기다려 주십시오...")
 	core.display.forceRedraw()
 
 	local loadedGame = self:loadReal("main")
@@ -509,7 +509,7 @@ function _M:loadZone(zone)
 		f:close()
 	end
 
-	local popup = Dialog:simpleWaiter("지역 불러오는중", "지역을 불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
+	local popup = Dialog:simpleWaiter("지역 불러오는 중", "지역을 불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
 	core.wait.enableManualTick(true)
 	core.display.forceRedraw()
 
@@ -547,7 +547,7 @@ function _M:loadLevel(zone, level)
 		f:close()
 	end
 
-	local popup = Dialog:simpleWaiter("현재층 불러오는중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
+	local popup = Dialog:simpleWaiter("현재층 불러오는 중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
 	core.display.forceRedraw()
 
 	local loadedLevel = self:loadReal("main")
@@ -583,7 +583,7 @@ function _M:loadEntity(name)
 		f:close()
 	end
 
-	local popup = Dialog:simpleWaiter("존재 불러오는중", "존재를  불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
+	local popup = Dialog:simpleWaiter("존재 불러오는 중", "존재를  불러오는 동안 잠시 기다려 주십시오...", nil, nil, nb > 0 and nb)
 	core.display.forceRedraw()
 
 	local loadedEntity = self:loadReal("main")

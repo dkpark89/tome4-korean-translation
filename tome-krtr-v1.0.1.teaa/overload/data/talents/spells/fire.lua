@@ -68,7 +68,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[불꽃 화살을 만들어내, 대상에게 화상을 입히고 3 턴 동안 총 %0.2f 화염 피해를 줍니다.
+		return ([[불꽃 화살을 만들어내, 대상에게 3 턴 동안 총 %0.2f 화염 피해를 나눠서 줍니다.
 		기술 레벨이 5 이상이면, 불꽃이 적들을 관통합니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
@@ -123,9 +123,9 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local stunduration = t.getStunDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[전방 %d 칸 반경에 불길을 내뿜어 %0.2f 화염 피해를 주고, %d 턴 동안 기절시킵니다.
+		return ([[전방 %d 칸 반경에 불길을 내뿜어 %d 턴 동안 기절시키고, 기절한 적에게 추가로 %0.2f 화염 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(radius, damDesc(self, DamageType.FIRE, damage), stunduration)
+		format(radius, stunduration, damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 

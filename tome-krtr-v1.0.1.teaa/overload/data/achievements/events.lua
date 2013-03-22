@@ -42,7 +42,7 @@ newAchievement{
 	name = "The Restless Dead", id = "EVENT_OLDBATTLEFIELD",
 	show = "name",
 	kr_name = "쉬지 않는 죽은 자",
-	desc = [[오래된 전장을 동요시키고, 살아남음.]],
+	desc = [[오래된 전장에 떨어진 뒤, 그곳에서 살아남음.]],
 }
 
 newAchievement{
@@ -70,5 +70,5 @@ newAchievement{
 	name = "A living one!", id = "CALDIZAR",
 	show = "name",
 	kr_name = "살아있는 자!",
-	desc = [[멀리 별 사이의 공허에 있는 칼디자르의 요새로 순간이동.]],
+	desc = [[멀리 별 사이의 공허에 있는, 칼디자르의 요새로 순간이동.]],
 }

@@ -55,9 +55,9 @@ newTalent{
 		local dur = t.getDur(self, t)
 		local dam = t.getDamage(self, t)
 		local equi = t.getEqui(self, t)
-		return ([[서있거나 지나간 자리에 %d 턴 동안 점액을 만들어냅니다.
+		return ([[서 있는 곳, 또는 지나간 자리에 %d 턴 동안 점액을 만들어냅니다.
 		점액을 밟은 적은 독에 걸려, 5 턴 동안 매 턴마다 %0.2f 자연 피해를 입게 됩니다. (이 피해는 중첩됩니다)
-		동료가 점액을 밟을 경우 매 턴마다 평정을 %d 회복하게 됩니다.
+		동료가 점액을 밟을 경우, 매 턴마다 평정을 %d 회복하게 됩니다.
 		점액은 %d 턴 동안 유지됩니다.
 		기술 레벨이 4 이상이면, 점액이 주변 1 칸 반경까지 퍼지게 됩니다.
 		피해량과 평정 회복량은 정신력의 영향을 받아 증가합니다.]]):
@@ -122,8 +122,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[자연의 힘을 빌어, 주변 %d 칸 반경의 지면에 산성 폭발을 일으킵니다. 폭발에 휩쓸린 적은 %0.2f 산성 피해를 입으며, 폭발한 곳에 점액이 남게 됩니다.
-		진흙 점액이 존재하며 대상과 직선상에 있다면, 진흙 점액은 산성 폭발에 닿은 대상 중 하나에게 즉시 (감소된 위력으로) 슬라임을 뱉습니다.
+		return ([[자연의 힘을 빌어, 주변 %d 칸 반경의 지면에 산성 폭발을 일으킵니다. 폭발에 휩쓸린 적은 %0.2f 산성 피해를 입으며, 폭발한 곳에는 점액이 남게 됩니다.
+		또한 점액 덩어리가 존재한다면, 점액 덩어리는 산성 폭발에 닿은 대상 중 하나에게 즉시 (감소된 위력의) 슬라임을 뱉습니다. (점액 덩어리가 적을 볼 수 있는 위치에 있어야 합니다)
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, dam))
 	end,
@@ -151,14 +151,14 @@ newTalent{ short_name = "MUCUS_OOZE_SPIT",
 		return true
 	end,
 	info = function(self, t)
-		return ([[%0.2f 슬라임 피해를 주는 슬라임 줄기를 뱉습니다.
+		return ([[%0.2f 슬라임 피해를 주는, 관통하는 슬라임을 뱉습니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.SLIME, self:combatTalentMindDamage(t, 8, 80)))
 	end,
 }
 
 newTalent{
 	name = "Living Mucus",
-	kr_name = "살아있는 점액",
+	kr_name = "살아 있는 점액",
 	type = {"wild-gift/mucus", 3},
 	require = gifts_req3,
 	points = 5,
@@ -183,8 +183,8 @@ newTalent{
 			type = "vermin", subtype = "oozes",
 			display = "j", color=colors.GREEN, image = "npc/vermin_oozes_green_ooze.png",
 			name = "mucus ooze",
-			kr_name = "진흙 점액",
-			desc = "점액에서 만들어진 존재입니다. 물컹거립니다.",
+			kr_name = "점액 덩어리",
+			desc = "점액이 뭉쳐져 만들어진 존재입니다. 물컹거립니다.",
 			sound_moam = {"creatures/jelly/jelly_%d", 1, 3},
 			sound_die = {"creatures/jelly/jelly_die_%d", 1, 2},
 			sound_random = {"creatures/jelly/jelly_%d", 1, 3},
@@ -237,10 +237,10 @@ newTalent{
 
 	end,
 	info = function(self, t)
-		return ([[점액에 특수한 능력이 생겨, 매 턴마다 %d%% 확률로 점액이 있는 곳에 특수한 진흙 점액이 생겨납니다.
-		진흙 점액은 적에게 슬라임을 뱉는 공격을 합니다.
-		최대 %d 마리의 진흙 점액을 동시에 유지할 수 있습니다. (교활함 능력치에 따라 최대 유지량이 증가합니다)
-		정신적 공격으로 치명타가 발생할 때마다, 모든 진흙 점액들의 유지 시간이 2 턴 증가하게 됩니다.
+		return ([[점액에 특수한 능력이 생겨, 매 턴마다 %d%% 확률로 점액이 있는 곳에 특수한 '점액 덩어리' 가 생겨납니다.
+		점액 덩어리는 적에게 슬라임을 뱉는 공격을 합니다.
+		최대 %d 마리의 점액 덩어리를 동시에 유지할 수 있습니다. (교활함 능력치에 따라 최대 유지량이 증가합니다)
+		정신적 공격으로 치명타가 발생할 때마다, 모든 점액 덩어리들의 유지 시간이 2 턴 증가하게 됩니다.
 		이 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t), t.getMax(self, t))
 	end,
@@ -301,9 +301,9 @@ newTalent{
 	info = function(self, t)
 		local nb = t.getNb(self, t)
 		local energy = t.getEnergy(self, t)
-		return ([[일시적으로 자신의 점액과 결합하여, %d 가지의 물리적 상태효과나 마법적 상태효과를 제거합니다.
+		return ([[일시적으로 자신이 만들어낸 점액과 결합하여, %d 가지의 물리적 상태효과와 마법적 상태효과를 제거합니다.
 		또한, 시야 내의 점액으로 뒤덮힌 장소 중 임의의 위치로 즉시 이동할 수 있습니다.
-		이 과정은 1 턴의 %d%% 만큼 시간이 걸립니다.
+		이 과정은 굉장히 빠르게 진행되어, 1 턴의 %d%% 만큼 시간을 소모하는 것만으로도 사용할 수 있습니다.
 		이 기술은 점액 위에 서 있을 때에만 사용할 수 있습니다.]]):
 		format(nb, (energy) * 100)
 	end,

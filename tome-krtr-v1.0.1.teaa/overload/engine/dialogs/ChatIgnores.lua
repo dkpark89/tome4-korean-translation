@@ -31,7 +31,7 @@ function _M:init()
 	for l, _ in pairs(config.settings.chat.ignores) do if _ then list[#list+1] = {name=l} end end
 
 	local c_list = List.new{width=self.iw - 10, height=400, scrollbar=true, list=list, fct=function(item) 
-		Dialog:yesnoPopup("무시하기 중단", "정말 다음을 무시하지 않습니까? : "..(item.kr_name or item.name), function(ret) if ret then
+		Dialog:yesnoPopup("무시하기 중단", "정말 다음 사항들을 무시하지 않습니까? : "..(item.kr_name or item.name), function(ret) if ret then
 			config.settings.chat.ignores[item.name] = nil
 			self:regen()
 		end end, "예", "아니오")

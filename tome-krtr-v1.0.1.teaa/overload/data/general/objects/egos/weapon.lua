@@ -907,7 +907,7 @@ newEntity{
 	level_range = {1, 50},
 	rarity = 5,
 	cost = 15,
-	resolvers.charm("무기 피해의 100%% 만큼 정신력으로 사출 공격", 6,
+	resolvers.charm("무기 피해량의 100%% 만큼 정신력으로 사출 공격", 6,
 		function(self, who)
 			local tg = {type="bolt", range=5}
 			local x, y = who:getTarget(tg)

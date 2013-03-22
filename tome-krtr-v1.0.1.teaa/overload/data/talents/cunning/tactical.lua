@@ -56,7 +56,7 @@ newTalent{
 	info = function(self, t)
 		local defense = t.getDefense(self, t)
 		local maximum = t.getMaximum(self, t)
-		return ([[인접한 적의 숫자에 따라 회피도가 상승합니다. 적 1 명 당 회피도가 %d 상승합니다. (최대 회피도 : +%d)
+		return ([[인접한 적의 숫자에 따라 회피도가 상승합니다. 적 1 명 당 회피도가 %d 상승합니다. (최대 상승 가능한 회피도 : +%d)
 		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):format(defense, maximum)
 	end,
 }
@@ -99,7 +99,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
 		local defense = t.getDefense(self, t)
-		return ([[%d 턴 동안 회피도를 %d 상승시킵니다. 그리고 근접 공격을 피할 때마다, 자신을 공격한 적에게 치명타를 가할 확률이 %d%% 상승하며 적의 내성을 %d 감소시킵니다.
+		return ([[%d 턴 동안 회피도를 %d 상승시킵니다. 지속 시간 중에 근접 공격을 피할 때마다, 자신을 공격한 적은 치명타를 맞을 확률이 %d%% 상승하며 모든 내성이 %d 감소합니다. (중첩은 되지 않습니다)
 		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]])
 		:format(duration, defense, power, power)
 	end,
@@ -130,6 +130,6 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getReductionMax(self, t)
-		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 감소량 : %d%%)]]):format(reduction)
+		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 %d%% 까지 감소 가능)]]):format(reduction)
 	end,
 }

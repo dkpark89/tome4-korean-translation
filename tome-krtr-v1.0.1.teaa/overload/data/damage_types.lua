@@ -530,7 +530,7 @@ end
 newDamageType{
 	name = "physical", type = "PHYSICAL",
 	kr_name = "물리",
-	death_message = {"공격받아", "맞아서", "잘려", "중상을 입어", "할퀴어져", "출혈상으로", "관통되어", "해부되어", "배가 갈라져", "참수되어", "찔려", "꿰뚫려", "사족이 찢겨나가", "찌부러져", "박살나", "부수어져", "쪼개어져", "강타를 맞고", "맞아", "절단되어", "괴롭힘을 당하다가", "꼬치가 되어", "짓이겨", "난폭하게", "잘게 잘려", "피분수를 뿜으며", "쓰러져", "썰려", "구멍나", "난도질되어", "내장이 꺼내어져"},
+	death_message = {"공격받아", "맞아서", "잘려", "중상을 입어", "할퀴어져", "출혈상으로", "관통되어", "해부되어", "배가 갈라져", "참수되어", "찔려", "꿰뚫려", "사족이 찢겨나가", "찌부러져", "박살나", "부수어져", "쪼개어져", "강타를 맞고", "맞아", "절단되어", "괴롭힘을 당하다가", "꼬치가 되어", "짓이겨져", "난폭하게", "잘게 잘려", "피분수를 뿜으며", "쓰러져", "썰려", "구멍나", "난도질되어", "내장이 꺼내어져"},
 }
 
 -- Arcane is basic (usually) unresistable damage
@@ -538,7 +538,7 @@ newDamageType{
 	name = "arcane", type = "ARCANE", text_color = "#PURPLE#",
 	kr_name = "마법",
 	antimagic_resolve = true,
-	death_message = {"폭발하면서", "힘을 빼앗겨", "마나로 찢겨", "마법으로", "내파되어"},
+	death_message = {"폭발하여", "힘을 빼앗겨", "마나로 찢겨", "마법으로", "내파되어"},
 }
 -- The elemental damages
 newDamageType{
@@ -564,7 +564,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"화상으로", "시들어", "불 타", "산화되어", "타올라", "튀겨져", "연소되어", "굽혀져", "천천히 익어", "익어서"},
+	death_message = {"화상으로 인해", "바싹 말라", "불 타", "산화되어", "타올라", "튀겨져", "연소되어", "구워져", "천천히 익어", "익어서"},
 }
 newDamageType{
 	name = "cold", type = "COLD", text_color = "#1133F3#",
@@ -577,7 +577,7 @@ newDamageType{
 		end
 		return realdam
 	end,
-	death_message = {"얼어붙어", "열기를 빼앗겨", "얼음에 갖혀", "차가워져", "얼어붙은 다음 산산조각 나서"},
+	death_message = {"얼어붙어", "온기를 빼앗겨", "얼음에 갇혀", "차가워져", "얼어붙은 다음 산산조각 나서"},
 }
 newDamageType{
 	name = "lightning", type = "LIGHTNING", text_color = "#ROYAL_BLUE#",
@@ -587,7 +587,7 @@ newDamageType{
 		local realdam = DamageType.defaultProjector(src, x, y, type, dam)
 		return realdam
 	end,
-	death_message = {"감전되어", "전기충격을 받아", "번갯불로", "전류가 흘러", "지저져", "공격당하여"},
+	death_message = {"감전되어", "전기충격을 받아", "번갯불로", "전류가 흘러", "지져져서", "공격당하여"},
 }
 -- Acid destroys potions
 newDamageType{

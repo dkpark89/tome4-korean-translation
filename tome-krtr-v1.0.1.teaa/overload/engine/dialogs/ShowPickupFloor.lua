@@ -35,7 +35,7 @@ function _M:init(title, x, y, filter, action, takeall, actor)
 	self.actor = actor
 	Dialog.init(self, title or "줍기", math.max(800, game.w * 0.8), math.max(600, game.h * 0.8))
 
-	local takeall = Button.new{text=takeall or "(*) Take all", width=self.iw - 40, fct=function() self:takeAll() end}
+	local takeall = Button.new{text=takeall or "(*) 모두 줍기", width=self.iw - 40, fct=function() self:takeAll() end}
 
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), height=self.ih - takeall.h, no_color_bleed=true}
 

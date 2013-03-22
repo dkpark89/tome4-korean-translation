@@ -203,7 +203,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[사격할 때, 낼 수 있는 최대한의 속도를 냅니다. 발사 속도가 %d%% 증가하는 대신 정확도가 %d / 물리력이 %d / 치명타율이 %d 감소합니다.]]):
+		return ([[사격할 때, 낼 수 있는 최대한의 속도를 냅니다. 발사 속도가 %d%% 증가하는 대신, 정확도가 %d / 물리력이 %d / 치명타율이 %d 감소합니다.]]):
 		format(self:getTalentLevel(t) * 10, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4, -8 - self:getTalentLevelRaw(t) * 2.4)
 	end,
 }
@@ -306,7 +306,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 무력화시키는 사격을 가하여 %d%% 의 무기 피해를 주고, 7턴 동안 전체 속도를 %d%% 감소시킵니다.
+		return ([[대상을 무력화시키는 사격을 가하여 %d%% 의 무기 피해를 주고, 7 턴 동안 전체 속도를 %d%% 감소시킵니다.
 		감속 효과와 확률은 정확도 능력치의 영향을 받아 증가합니다.]]):format(self:combatTalentWeaponDamage(t, 1, 1.5) * 100, util.bound((self:combatAttack() * 0.15 * self:getTalentLevel(t)) / 100, 0.1, 0.4) * 100)
 	end,
 }

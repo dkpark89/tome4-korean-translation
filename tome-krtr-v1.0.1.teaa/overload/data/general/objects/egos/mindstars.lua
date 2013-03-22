@@ -270,7 +270,7 @@ newEntity{
 			[DamageType.NATURE] = resolvers.mbonus_material(8, 2),
 		},
 	},
-	resolvers.charm("마석을 조합하여 자연의 힘 보강", 20,
+	resolvers.charm("자연의 힘이 깃든 마석을 짝으로 찾는 다른 마석과 조화되어, 짝을 완성시킴", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
 				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_name or self.name):addJosa("를"))
@@ -320,7 +320,7 @@ newEntity{
 			[DamageType.MIND] = resolvers.mbonus_material(8, 2),
 		},
 	},
-	resolvers.charm("마석을 조합하여 염력 보강", 20,
+	resolvers.charm("염동력이 깃든 마석을 짝으로 찾는 다른 마석과 공명하여, 짝을 완성시킴", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
 				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_name or self.name):addJosa("를"))
@@ -352,7 +352,7 @@ newEntity{
  newEntity{
 	power_source = {nature=true},  define_as = "MS_EGO_SET_CALLERS",
 	name = "caller's ", prefix=true, instant_resolve=true,
-	kr_name = "선도자 ",
+	kr_name = "소환수 ",
 	keywords = {callers=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -441,13 +441,13 @@ newEntity{
 	on_set_broken = function(self, who)
 		game.logPlayer(who, "#SLATE#마석과의 연결이 끊어졌습니다.")
 	end,
-	resolvers.charm("마석 안에 깃든 드레이크 소환 (다른 보강 효과는 사라짐)", 20,
+	resolvers.charm("원소 속성 마석에 깃든 드레이크 소환 (그동안 짝을 완성시켜 얻은 효과는 사라짐)", 20,
 		function(self, who, ms_inven)
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
 				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_name or self.name):addJosa("를"))
 				return
 			end		
-			who:showEquipment("어느 마석에 깃든 드레이크를 소환합니까? (다른 보강 효과는 사라짐)", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
+			who:showEquipment("어느 마석에 깃든 드레이크를 소환합니까? (그동안 짝을 완성시켜 얻은 효과는 사라짐)", function(o) return o.subtype == "mindstar" and o.is_drake_star and o ~= self end, function(o)
 				-- remove any existing sets from the mindstar
 				o.set_list = nil
 				o.on_set_complete = nil
@@ -626,7 +626,7 @@ newEntity{
  newEntity{
 	power_source = {psionic=true}, define_as = "MS_EGO_SET_EPIPHANOUS",
 	name = "epiphanous ", prefix=true, instant_resolve=true,
-	kr_name = "계시받은 ",
+	kr_name = "꿈에서 깬 ",
 	keywords = {epiphanous=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -665,12 +665,12 @@ newEntity{
 		function(self, who)
 			-- Check for free slot first
 			if who:getFreeHands() == 0 then
-				game.logPlayer(who, "%s 나누려면, 한쪽 손은 아무 것도 들고 있으면 안됩니다.", (self.kr_name or self.name):addJosa("를"))
+				game.logPlayer(who, "%s 나누려면, 한 쪽 손은 아무 것도 들고 있으면 안됩니다.", (self.kr_name or self.name):addJosa("를"))
 			return
 			end
 
 			if who:getInven("PSIONIC_FOCUS") and who:getInven("PSIONIC_FOCUS")[1] == self then
-				game.logPlayer(who, "%s 염동력으로 잡고 있는 동안에는, 둘로 나눌 수 없습니다.", (self.kr_name or self.name):addJosa("를"))
+				game.logPlayer(who, "당신이 %s 염동력으로 잡고 있는 동안에는, 사용할 수 없는 기술입니다.", (self.kr_name or self.name):addJosa("를"))
 				return
 			end
 

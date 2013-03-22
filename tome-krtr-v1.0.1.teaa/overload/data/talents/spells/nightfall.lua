@@ -65,7 +65,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[어둠을 화살의 형태로 만들어, 대상에게 %0.2f 암흑 피해를 줍니다.
 		기술 레벨이 3 이상이면, 어둠이 적들을 관통합니다.
-		기술 레벨이 5 이상이면, 모든 주문 / 일몰 계열의 마법들이 언데드 추종자들에게 피해를 주지 않습니다.
+		기술 레벨이 5 이상이면, 모든 주문 / 일몰 계열의 마법들이 언데드 추종자들에게 피해를 주지 않게 됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage))
 	end,

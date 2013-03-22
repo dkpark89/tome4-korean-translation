@@ -327,7 +327,7 @@ newEntity{
 	greater_ego = 1,
 	rarity = 30,
 	cost = 40,
-	resolvers.charm("지팡이의 힘을 끌어내 탄환 발사", 10,
+	resolvers.charm("지팡이의 힘을 끌어내, 주변에 폭발을 일으킴", 10,
 		function(self, who)
 			local tg = {type="ball", range=0, radius=self.material_level + 1, selffire=false}
 			local weapon = who:hasStaffWeapon()
@@ -356,7 +356,7 @@ newEntity{
 
 			who:project(tg, who.x, who.y, damtype, dam, {type=explosion})
 
-			game.logSeen(who, "%s %s에서 원소탄을 발사했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), (self.kr_name or self.name))
+			game.logSeen(who, "%s %s의 힘을 끌어내, 폭발시켰습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), (self.kr_name or self.name))
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end
@@ -459,7 +459,7 @@ newEntity{
 
 			who:project(tg, x, y, damtype, dam, {type=explosion})
 
-			game.logSeen(who, "%s %s의 원소 에너지를 끌어모아, 원뿔 모양으로 발사합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), (self.kr_name or self.name))
+			game.logSeen(who, "%s %s의 힘을 끌어모아, 원뿔 모양으로 발사합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), (self.kr_name or self.name))
 			game:playSoundNear(who, "talents/arcane")
 			return {id=true, used=true}
 		end

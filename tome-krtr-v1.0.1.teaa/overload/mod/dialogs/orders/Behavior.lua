@@ -28,7 +28,7 @@ function _M:init(actor, def)
 	self.actor = actor
 	self.def = def
 	self:generateList()
-	engine.ui.Dialog.init(self, "행동 설정: "..(actor.kr_name or actor.name), 1, 1)
+	engine.ui.Dialog.init(self, "행동 설정 : "..(actor.kr_name or actor.name), 1, 1)
 
 	local list = List.new{width=400, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 
@@ -56,8 +56,8 @@ end
 function _M:generateList()
 	local list = {
 		{name="기본", set="default"},
-		{name="근접공격", set="melee"},
-		{name="장거리공격", set="ranged"},
+		{name="근접 공격", set="melee"},
+		{name="장거리 공격", set="ranged"},
 		{name="보호", set="tank"},
 		{name="대기", set="standby"},
 	}

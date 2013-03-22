@@ -84,8 +84,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local nb = t.getDigs(self, t)
-		return ([[강력한 파쇄용 암석 줄기를 발사하여, %d 칸까지 벽을 굴착할 수 있습니다.
-		또한 암석 줄기는 그 경로에 있는 모든 존재에게 %0.2f 물리 피해를 줍니다.
+		return ([[강력한 파쇄용 암석 줄기를 발사하여, 벽을 %d 칸 굴착합니다.
+		또한, 암석 줄기는 그 경로에 있는 모든 적들에게 %0.2f 물리 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(nb, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
@@ -199,8 +199,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[시전자 주변에 암석의 벽을 %d 턴 동안 만들어, 시전자를 보호합니다.
 		기술 레벨이 4 이상이면, 암석의 벽을 원하는 곳에 만들어낼 수 있습니다.
-		암석의 벽이 펼쳐진 영역 속에 갖힌 적대적 존재는 %0.2f 물리 피해를 받습니다.
-		유지시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):
+		암석의 벽을 만들 때, 범위 내에 있는 적들에게는 %0.2f 물리 피해를 줄 수 있습니다.
+		벽의 유지시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }

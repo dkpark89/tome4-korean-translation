@@ -94,7 +94,7 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 		self.at_end = at_end
 	end
 
-	Dialog.init(self, title and title or ("캐릭터 만들기: "..actor.name), w or 600, h or 400)
+	Dialog.init(self, title and title or ("캐릭터 만들기 : "..actor.name), w or 600, h or 400)
 
 	self.descriptors = {}
 	self.descriptors_by_type = {}
@@ -302,7 +302,7 @@ end
 
 function _M:randomSelect()
 	self.sel = rng.range(1, #self.list)
-	game.log("랜덤하게 %s 선택되었습니다.", self.list[self.sel].name:addJosa("가"))
+	game.log("무작위 선택으로 %s 선택되었습니다.", self.list[self.sel].name:addJosa("가"))
 	self:next()
 end
 

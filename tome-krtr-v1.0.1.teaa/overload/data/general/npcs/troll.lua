@@ -150,7 +150,7 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL", unique=true,
 	name = "Forest Troll Hedge-Wizard", color=colors.YELLOW_GREEN, 
-	kr_name = "숲 트롤 울타리마법사",
+	kr_name = "마법의 힘을 두른, 숲 트롤 마법사",
 	resolvers.nice_tile{tall=1},
 	desc = [[늙은 트롤로, 당신을 악의에 찬 눈빛으로 노려보고 있습니다. 근육은 늙어 쇠퇴하였지만, 알지 못할 어떤 힘이 그를 둘러싸고 있습니다.]],
 	level_range = {3, nil}, exp_worth = 2,

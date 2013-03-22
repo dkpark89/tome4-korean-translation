@@ -52,7 +52,7 @@ local changer = function(id)
 		cost = 150,
 		encumber = 1,
 		material_level = 3,
-		desc = [[이 고대의 스켈레톤은 리치 쥐가 남긴 전부입니다. 두개골의 일부에 아직 그 힘이 남아있고, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
+		desc = [[이 고대의 해골은 리치 쥐가 남긴 전부입니다. 두개골의 일부에는 아직 그 힘이 남아있으며, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
 
 		wielder = {
 			combat_spellpower = 10,

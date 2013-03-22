@@ -84,7 +84,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전장의 외침을 내질러, 생명력과 체력 최대치를 %d%% 증가시킵니다. (지속시간 %d 턴)]]):format( 10 + self:getTalentLevelRaw(t), 5 + self:getTalentLevelRaw(t) * 2)
+		return ([[전장의 외침을 내질러, 생명력과 체력 최대치를 %d%% 증가시킵니다. 증가량에 해당하는 만큼의 생명력과 체력은 회복됩니다. (지속시간 %d 턴)]]):format( 10 + self:getTalentLevelRaw(t), 5 + self:getTalentLevelRaw(t) * 2)
 	end,
 }
 

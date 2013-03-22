@@ -154,7 +154,7 @@ game.zone.on_turn = function()
 				kr_name = "샤쉬히'카이쉬",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_shasshhiy_kaish.png", display_h=2, display_y=-1}}},
 				desc = [[그녀의 머리 위를 떠다니는 화염의 왕관과 세 가닥의 꼬리, 그리고 날카로운 손톱만 뺀다면 이 악마는 아주 매혹적으로 생겼습니다. 그녀를 보는 순간 살을 파버리고 싶은 고통이 느껴지며, 또한 그녀는 당신이 고통받기를 원합니다.]],
-				killer_message = "그리고 그녀의 도착적인 욕구를 만족시키기 위해 사용되었습니다.",
+				killer_message = "당신은 그녀의 도착적인 욕구를 만족시키기 위해 '사용' 되었습니다.",
 				level_range = {25, nil}, exp_worth = 2,
 				female = 1,
 				faction = "fearscape",
@@ -254,7 +254,7 @@ game.zone.on_turn = function()
 			for uid, e in pairs(game.level.entities) do if e.is_cultist_event then cultists[#cultists+1] = e end end
 			if #cultists > 0 then
 				local c = rng.table(cultists)
-				game.logSeen(c, "%s 단검을 뽑아 그의 가슴을 드러내고, 단검으로 심장을 꿰뚫었습니다. 바위가 증오의 색깔로 물듭니다.", (c.kr_name or c.name):capitalize():addJosa("가"))
+				game.logSeen(c, "%s 단검을 뽑아 그의 가슴을 드러내고, 단검으로 심장을 꿰뚫었습니다. 바위가 증오의 색깔로 물들기 시작합니다.", (c.kr_name or c.name):capitalize():addJosa("가"))
 				c.self_sacrifice = true
 				c:die()
 			end

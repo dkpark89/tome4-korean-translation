@@ -148,7 +148,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[주변 %d 칸 반경에 시간의 왜곡장을 형성하여, 왜곡장 안의 적들에게 3 턴 동안 %0.2f 시간 피해를 누적해서 줍니다.
+		return ([[주변 %d 칸 반경에 시간의 왜곡장을 형성하여, 왜곡장 안의 적들에게 3 턴 동안 %0.2f 시간 피해를 나눠서 줍니다. 적이 계속 왜곡장 안에 있을 경우, 시간 피해도 지속적으로 받게 됩니다.
 		왜곡장은 %d 턴 동안 유지되며, 피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.TEMPORAL, damage), duration)
 	end,
 }

@@ -145,7 +145,7 @@ newTalent{
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
 		return ([[끔찍할 정도로 침울한 기운이 주변을 감싸, 주변 3 칸 반경의 적들에게 영향을 줍니다. 매 턴마다, 정신 내성에 따른 저항에 실패한 적은 %d%% 확률로 %d 턴 동안 감속, 기절, 혼란 중 하나의 상태효과에 걸리게 됩니다.
 		이 능력은 자연적인 것이며, 발동이나 취소에 어떤 원천력도 사용하지 않습니다. 
-		침울한 기운의 기술 레벨이 오를 때마다, 세 가지 상태효과를 걸기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, mindpowerChange)
+		기술 레벨이 오를 때마다, 침울한 기운 계열의 상태효과를 걸기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, mindpowerChange)
 	end,
 }
 
@@ -175,7 +175,7 @@ newTalent{
 		local hateBonus = t.getHateBonus(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
 		return ([[매 턴마다, 침울한 기운 속에 들어온 적들이 정신 내성에 따른 저항에 실패할 경우 %d%% 확률로 %d 턴 동안 약화 상태가 됩니다. 약화 상태에서는 대상의 피해량이 %d%% 감소하게 되며, 약화된 적을 처음 공격했을 경우 시전자의 증오심이 %d 회복됩니다.
-		약화 기술 레벨이 오를 때마다, 적을 약화시키기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, -incDamageChange, hateBonus, mindpowerChange)
+		기술 레벨이 오를 때마다, 침울한 기운 계열의 상태효과를 걸기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, -incDamageChange, hateBonus, mindpowerChange)
 	end,
 }
 
@@ -197,7 +197,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
 		return ([[매 턴마다, 침울한 기운 속에 들어온 적들이 정신 내성에 따른 저항에 실패할 경우 %0.1f%% 확률로 %d 턴 동안 정신적 충격을 받아 당황하게 됩니다. 당황한 적을 처음 공격했을 경우 반드시 치명타 효과가 발생합니다.
-		당황 기술 레벨이 오를 때마다, 적을 당황시키기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, mindpowerChange)
+		기술 레벨이 오를 때마다, 침울한 기운 계열의 상태효과를 걸기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(chance, duration, mindpowerChange)
 	end,
 }
 
@@ -236,6 +236,6 @@ newTalent{
 		local damageChange = t.getDamageChange(self, t)
 		local mindpowerChange = self:getTalentLevelRaw(self.T_GLOOM) + self:getTalentLevelRaw(self.T_WEAKNESS) + self:getTalentLevelRaw(self.T_DISMAY) + self:getTalentLevelRaw(self.T_SANCTUARY)
 		return ([[자신을 감싸고 있는 침울한 기운이 바깥 세상으로부터의 도피처가 됩니다. 침울한 기운 밖에서 날아온 공격을 받을 때, 피해량이 %d%% 감소됩니다.
-		도피처 기술 레벨이 오를 때마다, 앞의 세 기술들에 모두 사용되는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(-damageChange, mindpowerChange)
+		기술 레벨이 오를 때마다, 침울한 기운 계열의 상태효과를 걸기 위해 사용하는 정신력 수치가 높아집니다. (실제로 정신력이 오르는 것은 아닙니다. 현재 상승량 : %+d)]]):format(-damageChange, mindpowerChange)
 	end,
 }

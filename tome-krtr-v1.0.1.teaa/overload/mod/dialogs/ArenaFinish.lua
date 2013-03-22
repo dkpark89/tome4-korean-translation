@@ -50,7 +50,7 @@ end
 
 function _M:printRanking()
 	local scores = world.arena.scores
-	if not scores[1].name then return "#LIGHT_GREEN#고득점 기록이 없습니다. 이런일이 있을순 없는데요."
+	if not scores[1].name then return "#LIGHT_GREEN#고득점 기록이 없습니다. 이런 일이 있을 수는 없는데..."
 	else
 		local text = ""
 		local tmp = ""

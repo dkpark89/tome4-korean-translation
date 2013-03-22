@@ -123,7 +123,7 @@ newTalent{
 		local stunres = t.getStunRes(self, t)
 		return ([[대지와 일체화되어, 움직이지 못하는 석상이 됩니다. 석상 상태에서는 이동할 수 없으며, 강제적으로 위치가 옮겨질 경우 석상 상태가 해제됩니다.
 		석상 상태에서는 다음과 같은 효과가 발생합니다.
-		* 암석 화살, 파쇄용 시추 드릴, 지진, 산사태 마법의 지연시간이 %d 줄어듭니다.
+		* 암석 화살, 파쇄용 시추 드릴, 지진, 산사태 마법의 지연시간이 %d 턴 줄어듭니다.
 		* 화염 저항력이 %d%% / 전기 저항력이 %d%% / 산성 저항력이 %d%% / 기절 면역력이 %d%% 상승합니다.
 		저항력 증가량은 주문력의 영향을 받아 증가합니다.]])
 		:format(cooldownred, fireres, lightningres, acidres, stunres*100)
@@ -173,9 +173,9 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[지진을 일으켜서 매 턴마다 %0.2f 물리 피해를 줍니다. 주변 %d 칸 반경에 피해를 주며, 피해를 받은 적은 기절할 확률이 있습니다. (지속시간 : %d 턴)
+		return ([[주변 %d 칸 반경에 지진을 일으켜, 매 턴마다 %0.2f 물리 피해를 줍니다. 피해를 받은 적은 기절할 확률이 있습니다. (지속시간 : %d 턴)
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.PHYSICAL, damage), radius, duration)
+		format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
 	end,
 }
 
@@ -221,7 +221,7 @@ newTalent{
 		local ressistpen = t.getResistPenalty(self, t)
 		local saves = t.getSaves(self, t)
 		return ([[수정같이 맑은 정신을 유지하여 모든 물리 피해량을 %d%% 올리고, 적들의 물리 저항력을 %d%% 무시합니다.
-		또한, 시전자의 물리 저항과 정신 저항이 %d 상승합니다.]])
+		또한, 시전자의 물리 내성과 주문 내성이 %d 상승합니다.]])
 		:format(damageinc, ressistpen, saves)
 	end,
 }

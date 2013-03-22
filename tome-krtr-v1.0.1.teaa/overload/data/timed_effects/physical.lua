@@ -378,7 +378,7 @@ newEffect{
 	name = "CONSTRICTED", image = "talents/constrict.png",
 	desc = "Constricted",
 	kr_name = "목 막힘",
-	long_desc = function(self, eff) return ("목 막힘: 이동 불가능 / 질식 (매 턴마다 호흡 -%0.2f)"):format(eff.power) end,
+	long_desc = function(self, eff) return ("목 막힘 : 이동 불가능 / 질식 (매 턴마다 호흡 -%0.2f)"):format(eff.power) end,
 	type = "physical",
 	subtype = { grapple=true, pin=true },
 	status = "detrimental",
@@ -1839,7 +1839,7 @@ newEffect{
 	name = "COUNTERSTRIKE", image = "effects/counterstrike.png",
 	desc = "Counterstrike",
 	kr_name = "반격",
-	long_desc = function(self, eff) return "반격 : 대상을 근접 공격시 100% 더 큰 피해" end,
+	long_desc = function(self, eff) return "반격 : 근접 공격에 맞으면 100% 더 큰 피해를 입음" end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "detrimental",
@@ -2115,7 +2115,7 @@ newEffect{
 	subtype = { nature=true, acid=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target1# 자연 속성에 취약해졌습니ㅏ.", "+자연적인 산성 물질" end,
+	on_gain = function(self, err) return "#Target1# 자연 속성에 취약해졌습니다.", "+자연적인 산성 물질" end,
 	on_lose = function(self, err) return "#Target1# 자연 속성에 조금 강해졌습니다.", "-자연적인 산성 물질" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {[DamageType.NATURE]=-eff.power})
@@ -2144,12 +2144,12 @@ newEffect{
 	name = "SLIPPERY_MOSS", image = "talents/slippery_moss.png",
 	desc = "Slippery Moss",
 	kr_name = "미끄러운 이끼",
-	long_desc = function(self, eff) return ("미끄러운 이끼로 둘러쌓임 : %d%% 확률로 기술 사용 실패"):format(eff.fail) end,
+	long_desc = function(self, eff) return ("미끄러운 이끼에 둘러싸임 : %d%% 확률로 기술 사용 실패"):format(eff.fail) end,
 	type = "physical",
 	subtype = { moss=true, nature=true },
 	status = "detrimental",
 	parameters = {fail=5},
-	on_gain = function(self, err) return "#Target1# 미끄러운 이끼로 둘러싸였습니다!", "+미끄러운 이끼" end,
+	on_gain = function(self, err) return "#Target1# 미끄러운 이끼에 둘러싸였습니다!", "+미끄러운 이끼" end,
 	on_lose = function(self, err) return "#Target1# 미끄러운 이끼로부터 벗어났습니다.", "-미끄러운 이끼" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("talent_fail_chance", eff.fail)

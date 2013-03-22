@@ -39,10 +39,10 @@ function _M:move(x, y, force)
 	return moved
 end
 function _M:tooltip(x, y)
-	local tstr = tstring("발사체: ", (self.kr_name or self.name))
+	local tstr = tstring("발사체 : ", (self.kr_name or self.name))
 
 	if config.settings.cheat then
-		tstr:add(true, "UID: ", tostring(self.uid), true, "좌표: ", tostring(x), "x", tostring(y))
+		tstr:add(true, "UID: ", tostring(self.uid), true, "좌표 : ", tostring(x), "x", tostring(y))
 	end
 	return tstr
 end

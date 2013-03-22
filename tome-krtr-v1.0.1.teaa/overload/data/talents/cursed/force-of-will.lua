@@ -144,7 +144,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local knockback = t.getKnockback(self, t)
 		return ([[증오심을 집중하여, 보이지 않는 힘으로 적을 공격합니다. 이를 통해 적에게 %d 피해를 주고, %d 칸 뒤로 밀어냅니다.
-		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 피해량을 3%% 증가시킵니다. (현재 : %d%%)
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 배수를 3%% 증가시킵니다. (현재 : %d%%)
 		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), knockback, self.combat_critical_power or 0)
 	end,
 }
@@ -223,7 +223,7 @@ newTalent{
 		local maxDamage = t.getMaxDamage(self, t)
 		return ([[매 턴마다 0.2 만큼 증오를 소모하는 방벽을 만들어냅니다. 이 방벽은 의지의 힘으로 시전자가 받는 피해량을 최대 50%% 까지 튕겨내며, 최대 %d 피해량까지 튕겨낼 수 있습니다. 방벽은 매 턴마다 최대로 튕겨낼 수 있는 수치의 1/35 만큼을 충전합니다.
 		예를 들어 최대 70 피해량을 튕겨낼 수 있다면, 방벽은 매 턴마다 2 씩 충전됩니다. 이는 35 턴 후, 최대 충전량인 70 에 도달하면 멈추게 됩니다. 이 상태에서 30 의 피해를 받으면, 50%% 에 해당하는 15 의 피해를 튕겨내고 방벽의 충전량은 55 가 됩니다.
-		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 피해량을 3%% 증가시킵니다. (현재 : %d%%)
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 배수를 3%% 증가시킵니다. (현재 : %d%%)
 		방벽이 튕겨낼 수 있는 최대 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(maxDamage, self.combat_critical_power or 0)
 	end,
 }
@@ -301,7 +301,7 @@ newTalent{
 		local knockback = t.getKnockback(self, t)
 		local dazeDuration = t.getDazeDuration(self, t)
 		return ([[분노의 감정을 한 곳에 뭉쳐, 폭발시킵니다. 주변 %d 칸 반경의 적들에게 %d 피해를 주며, 폭발의 중심부에 있던 적은 %d 칸 밀려납니다. (멀리 있는 적일수록 밀려나는 거리가 줄어듭니다) 폭발에 휩쓸린 모든 적들은 3 턴 동안 혼절합니다.
-		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 피해량을 3%% 증가시킵니다. (현재 : %d%%)
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 배수를 3%% 증가시킵니다. (현재 : %d%%)
 		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), knockback, self.combat_critical_power or 0)
 	end,
 }
@@ -383,8 +383,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local knockback = t.getKnockback(self, t)
 		local secondHitChance = t.getSecondHitChance(self, t)
-		return ([[극한의 분노심이 보이지 않는 힘이 되어, 주변에 휘몰아치게 됩니다. %d 턴 동안, 주변의 적에게 %d 피해를 주고 %d 칸 밀어냅니다. 기술 레벨이 높아지면, %d%% 확률로 한 턴에 두 번의 공격을 하게 됩니다.
-		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 피해량을 3%% 증가시킵니다. (현재 : %d%%)
+		return ([[극한의 분노심이 보이지 않는 힘이 되어, 주변에 휘몰아치게 됩니다. %d 턴 동안, 주변의 적에게 %d 피해를 주고 %d 칸 밀어낼 수 있게 됩니다. 기술 레벨이 높아지면, %d%% 확률로 한 턴에 두 번의 공격을 하게 됩니다.
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 배수를 3%% 증가시킵니다. (현재 : %d%%)
 		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.PHYSICAL, damage), knockback, secondHitChance, self.combat_critical_power or 0)
 	end,
 }

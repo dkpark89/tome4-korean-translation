@@ -189,7 +189,7 @@ function _M:getRequirementDesc(who)
 	local req = rawget(self, "require")
 	if not req then return nil end
 
-	local str = tstring{"필요조건:", true}
+	local str = tstring{"필요 조건 : ", true}
 
 	if req.stat then
 		for s, v in pairs(req.stat) do

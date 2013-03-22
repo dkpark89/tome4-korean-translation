@@ -179,7 +179,7 @@ newTalent{
 		local ressistpen = t.getResistPenalty(self, t)
 		local daze = t.getDaze(self, t)
 		return ([[시전자 주변에 폭풍우가 몰아쳐, 모든 전기 속성 피해가 %d%% 증가하며 적들의 전기 저항력을 %d%% 무시합니다.
-		또한 전격과 전격 연계 마법이 %d%% 확률로 적들을 혼절시키게 되며, 뇌우 마법은 %d%% 확률로 적들을 혼절시킵니다.]])
+		또한 전격과 전격 연계 마법이 %d%% 확률로 적들을 혼절시키게 되며, 뇌우 마법은 %d%% 확률로 적들을 혼절시키게 됩니다.]])
 		:format(damageinc, ressistpen, daze, daze / 2)
 	end,
 }

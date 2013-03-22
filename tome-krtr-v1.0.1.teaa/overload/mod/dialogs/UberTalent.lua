@@ -41,7 +41,7 @@ function _M:init(actor, levelup_end_prodigies)
 	self.actor_dup = actor:clone()
 	self.actor_dup.uid = actor.uid -- Yes ...
 
-	Dialog.init(self, "특수기술: "..actor.name, 800, game.h * 0.9)
+	Dialog.init(self, "특수기술 : "..actor.name, 800, game.h * 0.9)
 
 	self:generateList()
 
@@ -123,9 +123,9 @@ end
 -- UI Stuff
 -----------------------------------------------------------------
 
-local tuttext = [[특수기술은 캐릭터가 얻을 수 있는 기술 중 가장 강력한 특별한 기술입니다.
-모든 특수기술은 주요 능력치가 50이 넘고 각각의 특별한 조건을 갖추어야 익힐수 있습니다. 레벨 30과 42가 될 때, 새로운 특수기술을 배울수 있는 특수기술 점수가 1씩 늘어납니다.  
-#LIGHT_GREEN#보유 특수기술 점수: %d]]
+local tuttext = [[특수기술은 캐릭터가 얻을 수 있는 가장 강력하며 특별한 기술입니다.
+모든 특수기술을 배우기 위해서는 주요 능력치가 50 을 넘어야 하며, 그 외에도 기술에 따른 특별한 조건을 갖추어야 배울 자격이 주어집니다. 새로운 특수기술은 30 레벨에 한 번, 42 레벨에 한 번 배울 수 있습니다.
+#LIGHT_GREEN#보유 특수기술 점수 : %d]]
 
 function _M:createDisplay()
 	self.c_tut = Textzone.new{ width=self.iw, auto_height = true, text=tuttext:format(self.actor.unused_prodigies or 0)}

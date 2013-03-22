@@ -35,12 +35,12 @@ newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/venom-drake", name = "venom drake aspect", description = "용의 일종인, 독 드레이크의 능력을 사용합니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/higher-draconic", name = "higher draconic abilities", description = "성장이 끝난 용의 엄청난 능력을 사용합니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mindstar-mastery", name = "mindstar mastery", generic = true, description = "마석에 정신력을 주입하는 법을 배워, 강력한 염동 칼날을 만들어내는 기술입니다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mucus", name = "mucus", description = "점액으로 바닥을 뒤덮어 다양한 효과를 얻게 됩니다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/ooze", name = "ooze", description = "몸이 점액으로 변해, 몸이 잘려나가도 아무렇지 않게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/mucus", name = "mucus", description = "점액으로 바닥을 뒤덮어, 다양한 효과를 얻게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/ooze", name = "ooze", description = "몸이 진흙으로 변해, 몸이 잘려나가도 아무렇지 않게 됩니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/moss", name = "moss", description = "이끼를 제어하는 법을 배워, 전장에서 당신이 필요로 할 때 이끼들을 자라나게 만드는 기술입니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/malleable-body", name = "malleable body", description = "신체구조가 알 수 없게 됩니다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/oozing-blades", name = "oozing blades", description = "염검을 통하여 점액을 사용할 수 있게 됩니다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/corrosive-blades", name = "corrosive blades", description = "염검을 통하여 산성 물질을 사용할 수 있게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/oozing-blades", name = "oozing blades", description = "염동 칼날을 통하여 점액을 사출할 수 있게 됩니다." }
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/corrosive-blades", name = "corrosive blades", description = "염동 칼날을 통하여 산성 물질을 사출할 수 있게 됩니다." }
 
 -- Generic requires for gifts based on talent level
 gifts_req1 = {

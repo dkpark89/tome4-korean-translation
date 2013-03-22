@@ -140,7 +140,7 @@ newEntity{ base = "BASE_NPC_XORN",
 		for _, m in ipairs(self.all_fragments) do
 			if not m.dead then
 				nb_alive = nb_alive + 1
-				game.logSeen(self, "#AQUAMARINE#%s 부서진 파편의 에너지를 흡수했습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
+				game.logSeen(self, "#AQUAMARINE#%s 부서진 파편의 힘을 흡수했습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 				m.max_life = m.max_life + m.add_max_life
 				m:heal(m.add_max_life)
 				m.inc_damage.all = (m.inc_damage.all or 0) + 20
@@ -156,7 +156,7 @@ newEntity{ base = "BASE_NPC_XORN",
 			if m then
 				game.zone:addEntity(game.level, m, "actor", x, y)
 				game.level.map:particleEmitter(x, y, 1, "teleport")
-				game.logSeen(self, "#AQUAMARINE#%s에게 모든 파편의 에너지가 흡수되었습니다. 진짜 하코르'준이 복원되었습니다!", (m.kr_name or m.name):capitalize())
+				game.logSeen(self, "#AQUAMARINE#%s에게 모든 파편의 힘이 흡수되었습니다. 진짜 하코르'준이 복원되었습니다!", (m.kr_name or m.name):capitalize())
 			end
 		end
 	end,

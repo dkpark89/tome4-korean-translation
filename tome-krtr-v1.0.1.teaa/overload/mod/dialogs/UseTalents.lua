@@ -39,7 +39,7 @@ local function TalentStatus(who,t)
 	elseif not who:preUseTalent(t, true, true) then
 		status = tstring{{"color", "GREY"}, "불가능"}
 	elseif t.mode == "sustained" then
-		status = who:isTalentActive(t.id) and tstring{{"color", "YELLOW"}, "유지중"} or tstring{{"color", "LIGHT_GREEN"}, "유지가능"}
+		status = who:isTalentActive(t.id) and tstring{{"color", "YELLOW"}, "유지중"} or tstring{{"color", "LIGHT_GREEN"}, "유지 가능"}
 	elseif t.mode == "passive" then
 		status = tstring{{"color", "LIGHT_BLUE"}, "지속"}
 	end
@@ -55,12 +55,12 @@ end
 function _M:init(actor)
 	self.actor = actor
 	actor.hotkey = actor.hotkey or {}
-	Dialog.init(self, "기술 사용: "..(actor.kr_name or actor.name), game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, "기술 사용 : "..(actor.kr_name or actor.name), game.w * 0.8, game.h * 0.8)
 
 	self.c_tut = Textzone.new{width=math.floor(self.iw / 2 - 10), height=1, auto_height=true, no_color_bleed=true, text=[[
-지속형이 아닌 기술은 선택후 원하는 단축키를 누르거나 우클릭을 해서 단축키로 연결할 수 있습니다.
-게임 메뉴의 명령어 입력 설정에서 단축키로 사용할 명령어를 정할 수 있습니다 (기본은 숫자키와 '-'키, '='키에 컨트롤, 알트, 쉬프트 키가 조합됩니다).
-우클릭을 하거나 '~'키를 누르면 기술 설정창이 열립니다. 이 창에서 기술 단축키 설정과 자동 사용 설정 등을 할 수 있습니다.
+지속형이 아닌 기술은 선택 후 원하는 단축키를 누르거나 우클릭을 해서 단축키로 연결할 수 있습니다.
+게임 메뉴의 명령어 입력 설정에서 단축키로 사용할 명령어를 정할 수 있습니다. (기본적으로는 숫자키부터 '=' 키 까지, 그리고 여기에 컨트롤, 알트, 쉬프트 키를 조합하여 사용합니다)
+기술을 우클릭 하거나 '~' 키를 누르면 기술 설정 창이 열립니다. 이 창에서 기술 단축키 설정과 자동 사용 설정 등을 할 수 있습니다.
 ]]}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), height=self.ih - self.c_tut.h - 20, scrollbar=true, no_color_bleed=true}
 
@@ -75,7 +75,7 @@ function _M:init(actor)
 		{name="단축키", width={75,"fixed"}, display_prop="hotkey"},
 		{name="마우스 클릭", width={60,"fixed"}, display_prop=function(item)
 			if item.talent and item.talent == self.actor.auto_shoot_talent then return "클릭"
-			elseif item.talent and item.talent == self.actor.auto_shoot_midclick_talent then return "중간클릭"
+			elseif item.talent and item.talent == self.actor.auto_shoot_midclick_talent then return "중간 클릭"
 			else return "" end
 		end},
 	}
@@ -157,12 +157,12 @@ function _M:use(item, button)
 	if button == "right" then
 		local list = {
 			{name="단축키 해제", what="unbind"},
-			{name="(목표에게) 마우스 클릭으로 사용", what="left"},
-			{name="(목표에게) 마우스 중간버튼 클릭으로 사용", what="middle"},
+			{name="(목표에게) 마우스 왼쪽버튼을 클릭하면 사용", what="left"},
+			{name="(목표에게) 마우스 중간버튼을 클릭하면 사용", what="middle"},
 		}
 
 		if self.actor:isTalentConfirmable(t) then
-			table.insert(list, 1, {name="#YELLOW#기술 사용의 확인 작업 없애기", what="unset-confirm"})
+			table.insert(list, 1, {name="#YELLOW#기술 사용 시 확인 작업 없애기", what="unset-confirm"})
 		else
 			table.insert(list, 1, {name=confirmMark:getDisplayString().."이 기술을 사용하기 전 확인 받기", what="set-confirm"})
 		end
@@ -170,13 +170,13 @@ function _M:use(item, button)
 		local ds = "#YELLOW#"
 		local ds2 = " 비활성화"
 		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==1 and ds or "").."가능한 경우 항상 자동 사용"..(automode==1 and ds2 or ""), what=(automode==1 and "auto-dis" or "auto-en-1")})
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==2 and ds or "").."적이 보이지 않을때 항상 자동 사용"..(automode==2 and ds2 or ""), what=(automode==2 and "auto-dis" or "auto-en-2")})
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==3 and ds or "").."적이 보일때 항상 자동 사용"..(automode==3 and ds2 or ""), what=(automode==3 and "auto-dis" or "auto-en-3")})
-		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==4 and ds or "").."인접한 적이 보일때 항상 자동 사용"..(automode==4 and ds2 or ""), what=(automode==4 and "auto-dis" or "auto-en-4")})
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==2 and ds or "").."적이 보이지 않을 경우 항상 자동 사용"..(automode==2 and ds2 or ""), what=(automode==2 and "auto-dis" or "auto-en-2")})
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==3 and ds or "").."적이 보일 경우 항상 자동 사용"..(automode==3 and ds2 or ""), what=(automode==3 and "auto-dis" or "auto-en-3")})
+		table.insert(list, 2, {name=autoMark:getDisplayString()..(automode==4 and ds or "").."적이 인접할 경우 항상 자동 사용"..(automode==4 and ds2 or ""), what=(automode==4 and "auto-dis" or "auto-en-4")})
 
 		for i = 1, 12 * self.actor.nb_hotkey_pages do list[#list+1] = {name="단축키 "..i, what=i} end
 		
-		Dialog:listPopup("기술 연결: "..(item.kr_name or item.name):toString(), "이 기술을 어디에 연결하겠습니까?", list, 400, 500, function(b)
+		Dialog:listPopup("기술 연결: "..(item.kr_name or item.name):toString(), "이 기술을 어디에 연결하시겠습니까?", list, 400, 500, function(b)
 			if not b then return end
 			local tn = (self.actor:getTalentFromId(item.talent).kr_name or self.actor:getTalentFromId(item.talent).name):capitalize() --@@ 여섯줄뒤, 아홉줄뒤, 열두줄뒤 사용 : 길고 반복 사용으로 변수로 뺌
 			if type(b.what) == "number" then
@@ -187,10 +187,10 @@ function _M:use(item, button)
 				self:simplePopup("단축키 "..(b.what).." 설정", tn:addJosa("가").." 단축키 "..("%d"):format(b.what):addJosa("로").." 설정되었습니다.")
 			elseif b.what == "middle" then
 				self.actor.auto_shoot_midclick_talent = item.talent
-				self:simplePopup("마우스 중간클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간 클릭시 사용되도록 연결되었습니다.")
+				self:simplePopup("마우스 중간클릭 연결", tn:addJosa("가").." 목표에게 마우스 중간버튼 클릭시 사용되도록 연결되었습니다.")
 			elseif b.what == "left" then
 				self.actor.auto_shoot_talent = item.talent
-				self:simplePopup("마우스 클릭 연결", tn:addJosa("가").." 목표에게 마우스 클릭시 사용되도록 연결되었습니다.")
+				self:simplePopup("마우스 클릭 연결", tn:addJosa("가").." 목표에게 마우스 왼쪽버튼 클릭시 사용되도록 연결되었습니다.")
 			elseif b.what == "unbind" then
 				if self.actor.auto_shoot_talent == item.talent then self.actor.auto_shoot_talent = nil end
 				if self.actor.auto_shoot_midclick_talent == item.talent then self.actor.auto_shoot_midclick_talent = nil end
@@ -340,12 +340,12 @@ function _M:generateList()
 	for i, node in ipairs(passives) do node.char = "" end
 
 	list = {
-		{ char='', name=('#{bold}#사용가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 사용가능 기술은 현재 사용할 수 있습니다.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=actives, shown=true },
-		{ char='', name=('#{bold}#유지가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 유지가능 기술은 현재 사용할 수 있습니다.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=sustains, shown=true },
-		{ char='', name=('#{bold}#유지중 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 유지중 기술은 현재 유지상태로 사용중이고, 다시 사용하면 유지상태가 풀립니다.", color=function() return colors.simple(colors.YELLOW) end, nodes=sustained, shown=true },
-		{ char='', name=('#{bold}#대기중 기술#{normal}#'):toTString(), status='', hotkey='', desc="기술을 사용하여 대기시간이 남아있는 기술입니다.", color=function() return colors.simple(colors.LIGHT_RED) end, nodes=cooldowns, shown=true },
-		{ char='', name=('#{bold}#사용 불가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="필요한 원천력이 부족하거나 다른 조건을 만족하지 못해 현재 사용이 불가능한 기술입니다.", color=function() return colors.simple(colors.GREY) end, nodes=unavailables, shown=true },
-		{ char='', name=('#{bold}#지속형 기술#{normal}#'):toTString(), status='', hotkey='', desc="모든 지속형 기술은 항상 사용하고 있습니다.", color=function() return colors.simple(colors.WHITE) end, nodes=passives, shown=true },
+		{ char='', name=('#{bold}#사용가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="사용가능 기술은 현재 사용할 수 있는 사용형 기술들을 나타냅니다.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=actives, shown=true },
+		{ char='', name=('#{bold}#유지가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="유지가능 기술은 현재 유지시킬 수 있는 유지형 기술들을 나타냅니다.", color=function() return colors.simple(colors.LIGHT_GREEN) end, nodes=sustains, shown=true },
+		{ char='', name=('#{bold}#유지중 기술#{normal}#'):toTString(), status='', hotkey='', desc="유지중 기술은 현재 유지 중인 유지형 기술들을 나타냅니다. 기술을 다시 사용할 경우 유지 상태가 풀립니다.", color=function() return colors.simple(colors.YELLOW) end, nodes=sustained, shown=true },
+		{ char='', name=('#{bold}#대기중 기술#{normal}#'):toTString(), status='', hotkey='', desc="대기중 기술은 다음 사용이 가능해질 때까지 대기 중인 기술들을 나타냅니다.", color=function() return colors.simple(colors.LIGHT_RED) end, nodes=cooldowns, shown=true },
+		{ char='', name=('#{bold}#사용 불가능 기술#{normal}#'):toTString(), status='', hotkey='', desc="사용 불가능 기술은 필요한 원천력이 부족하거나 다른 조건을 만족하지 못해, 현재 사용이 불가능한 기술들을 나타냅니다.", color=function() return colors.simple(colors.GREY) end, nodes=unavailables, shown=true },
+		{ char='', name=('#{bold}#지속형 기술#{normal}#'):toTString(), status='', hotkey='', desc="지속형 기술은 항상 그 효과가 지속되는 지속형 기술들을 나타냅니다.", color=function() return colors.simple(colors.WHITE) end, nodes=passives, shown=true },
 		chars = chars,
 	}
 	self.list = list

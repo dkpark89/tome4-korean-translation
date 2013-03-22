@@ -311,7 +311,7 @@ newEntity{
 newEntity{
 	define_as = "LOST_MERCHANT",
 	name = "rare goods",
-	kr_name = "진귀품 가게",
+	kr_name = "진귀한 물품 상점",
 	display = '7', color=colors.BLUE,
 	store = {
 		nb_fill = 20,

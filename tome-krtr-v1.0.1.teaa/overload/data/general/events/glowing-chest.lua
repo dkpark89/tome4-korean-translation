@@ -94,7 +94,7 @@ g.block_move = function(self, x, y, who, act, couldpass)
 			self:removeAllMOs()
 			game.level.map:updateMap(x, y)
 		end
-	end end, "열기", "그냥두기")
+	end end, "열기", "놔두기")
 
 	return false
 end

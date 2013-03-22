@@ -27,36 +27,36 @@ newAchievement{
 newAchievement{
 	name = "Arena Battler 20",
 	show = "full",
-	kr_name = "투기장의 20회 선전분투",
-	desc = [[투기장에서 20번의 쇄도를 극복.]],
+	kr_name = "투기장의 20 회 선전분투",
+	desc = [[투기장에서 20 번의 쇄도를 극복.]],
 }
 
 newAchievement{
 	name = "Arena Battler 50",
 	show = "full",
-	kr_name = "투기장의 50회 선전분투",
-	desc = [[투기장에서 50번의 쇄도를 극복.]],
+	kr_name = "투기장의 50 회 선전분투",
+	desc = [[투기장에서 50 번의 쇄도를 극복.]],
 }
 
 newAchievement{
 	name = "Almost Master of Arena",
 	show = "full",
-	kr_name = "예비된 투기장의 지배자",
-	desc = [[30회 쇄도 방식의 투기장에서 지배자가 됨.]],
+	kr_name = "투기장을 '거의' 지배한 자",
+	desc = [[30 회 쇄도 방식의 투기장에서 지배자가 됨.]],
 }
 
 newAchievement{
 	name = "Master of Arena",
 	show = "full",
 	kr_name = "투기장의 지배자",
-	desc = [[60회 쇄도 방식의 투기장에서 지배자가 됨.]],
+	desc = [[60 회 쇄도 방식의 투기장에서 지배자가 됨.]],
 }
 
 newAchievement{
 	name = "XXX the Destroyer",
 	show = "full",
 	kr_name = "파괴자 XXX",
-	desc = [[투기장에서 파괴자의 등급에 등극.]],
+	desc = [[투기장에서 '파괴자' 의 등급에 등극.]],
 }
 
 newAchievement{
@@ -70,5 +70,5 @@ newAchievement{
 	name = "Ten at one blow",
 	show = "full",
 	kr_name = "일석십조",
-	desc = [[투기장에서 10명 이상의 적을 한번의 공격으로 살해.]],
+	desc = [[투기장에서 10 명 이상의 적을 한 번의 공격으로 살해.]],
 }

@@ -68,7 +68,7 @@ if tries < 100 then
 			on_enter = function(lev)
 				game.level.turn_counter = 101 * 10
 				game.level.max_turn_counter = 101 * 10
-				game.level.turn_counter_desc = "언데드가 땅속에서 올라옵니다! 계속 나아가야 합니다!"
+				game.level.turn_counter_desc = "언데드가 땅속에서 올라옵니다! 이를 견뎌내야 합니다!"
 				game.level.nb_pop = 1
 			end,
 			on_turn = function(self)
@@ -93,7 +93,7 @@ if tries < 100 then
 						end
 
 						world:gainAchievement("EVENT_OLDBATTLEFIELD", game:getPlayer(true))
-						require("engine.ui.Dialog"):simpleLongPopup("맹습", "당신은 언데드의 맹습으로부터 살아남았습니다. 당신은 근처의 벽에 올라갈 길이 나있는 것을 발견했습니다..", 400)
+						require("engine.ui.Dialog"):simpleLongPopup("맹습", "당신은 언데드의 맹습으로부터 살아남았습니다. 당신은 근처의 벽에 올라갈 길이 생긴 것을 발견했습니다..", 400)
 					elseif game.level.turn_counter % 50 == 0 then
 						for i = 1, math.floor(game.level.nb_pop) do
 							local spot = game.level:pickSpot{type="pop", subtype="undead"}
@@ -142,7 +142,7 @@ if tries < 100 then
 				self.block_move = nil
 				self.autoexplore_ignore = true
 				self:change_level_check()
-				require("engine.ui.Dialog"):simplePopup("추락...", "무덤을 파헤치다가 땅속으로 굴러 떨어졌습니다. 정신을 차려보니 으스스한 공동에 서 있습니다.")
+				require("engine.ui.Dialog"):simplePopup("추락...", "무덤을 파헤치다가 땅속으로 굴러 떨어졌습니다. 정신을 차려보니, 으스스한 공동이 눈에 들어옵니다.")
 			end end, "예", "아니오")
 			return false
 		end

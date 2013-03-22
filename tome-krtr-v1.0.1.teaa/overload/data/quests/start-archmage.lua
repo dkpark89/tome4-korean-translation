@@ -29,7 +29,7 @@ desc = function(self, who)
 	if self:isCompleted("abashed") then
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 광활한 지역을 탐험하여, 세 개의 웜홀을 모두 닫았습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* 당신은 "..self.stables.." 웜홀을 닫았습니다.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 "..self.stables.." 개의 웜홀을 닫았습니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

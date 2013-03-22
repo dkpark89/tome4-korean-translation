@@ -192,7 +192,7 @@ function _M:init()
 	self.mhandle_pos = {
 		player = {x=296, y=73, name="플레이어 정보"},
 		resources = {x=fshat[6] / 2 - move_handle[6], y=0, name="원천력"},
-		minimap = {x=208, y=176, name="소형지도"},
+		minimap = {x=208, y=176, name="소형 지도"},
 		buffs = {x=40 - move_handle[6], y=0, name="현재 상태효과"},
 		party = {x=portrait[6] - move_handle[6], y=0, name="동료"},
 		gamelog = {x=function(self) return self.logdisplay.w - move_handle[6] end, y=function(self) return self.logdisplay.h - move_handle[6] end, name="게임 기록"},
@@ -232,9 +232,9 @@ end
 function _M:switchLocked()
 	self.locked = not self.locked
 	if self.locked then
-		game.bignews:say(60, "#CRIMSON#인터페이스가 잠겼습니다. 지도에서의 마우스 사용이 가능합니다.")
+		game.bignews:say(60, "#CRIMSON#인터페이스 변경이 잠겼습니다. 지도에서의 마우스 사용이 가능합니다.")
 	else
-		game.bignews:say(60, "#CRIMSON#인터페이스가 풀렸습니다. 지도에서의 마우스 사용이 불가능합니다.")
+		game.bignews:say(60, "#CRIMSON#인터페이스 변경이 풀렸습니다. 지도에서의 마우스 사용이 불가능합니다.")
 	end
 end
 
@@ -458,7 +458,7 @@ function _M:uiMoveResize(what, button, mx, my, xrel, yrel, bx, by, event, mode, 
 
 	mode = mode or "rescale"
 
-	game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, self.mhandle_pos[what].name.."\n---\n마우스 드래그: 위치 이동\n마우스 우클릭 드래그: 크기 변경\n마우스 중간클릭: 기본 크기로 되돌림"..(add_text or ""))
+	game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, self.mhandle_pos[what].name.."\n---\n마우스 드래그 : 위치 이동\n마우스 우클릭 드래그 : 크기 변경\n마우스 중간클릭 : 기본 크기로 되돌림"..(add_text or ""))
 	if event == "button" and button == "middle" then self.places[what].scale = 1 self:saveSettings()
 	elseif event == "motion" and button == "left" then
 		self.ui_moving = what
@@ -548,13 +548,13 @@ function _M:showResourceTooltip(x, y, w, h, id, desc, is_first)
 						if player:knowTalent(player.T_HATE_POOL) then list[#list+1] = {name="증오심", id="hate"} end
 						if player:knowTalent(player.T_PSI_POOL) then list[#list+1] = {name="염력", id="psi"} end
 						if player:knowTalent(player.T_FEEDBACK_POOL) then list[#list+1] = {name="반작용", id="feedback"} end
-						Dialog:listPopup("보이거나 가릴 원천력", "토글:", list, 300, 300, function(sel)
+						Dialog:listPopup("보거나 가릴 원천력", "토글 : ", list, 300, 300, function(sel)
 							if not sel or not sel.id then return end
 							game.player["_hide_resource_"..sel.id] = not game.player["_hide_resource_"..sel.id]
 						end)
 						return
 					end
-					self:uiMoveResize("resources", button, mx, my, xrel, yrel, bx, by, event, nil, nil, "\n마우스 우클릭: 원천력 표시 토글 가능")
+					self:uiMoveResize("resources", button, mx, my, xrel, yrel, bx, by, event, nil, nil, "\n마우스 우클릭 : 원천력 표시 토글 가능")
 					return
 				end
 			end
@@ -1156,9 +1156,9 @@ function _M:displayResources(scale, bx, by, a)
 				surf[1]:toScreenFull(_x, _y, surf[6], surf[7], surf[2], surf[3], 1, 1, 1, a)
 			end
 			if arena.score > world.arena.scores[1].score then
-				aprint(px, py, ("점수[1등]: %d"):format(arena.score), 255, 255, 100)
+				aprint(px, py, ("점수[1등] : %d"):format(arena.score), 255, 255, 100)
 			else
-				aprint(px, py, ("점수: %d"):format(arena.score), 255, 255, 255)
+				aprint(px, py, ("점수 : %d"):format(arena.score), 255, 255, 255)
 			end
 			local _event = ""
 			if arena.event > 0 then
@@ -1180,9 +1180,9 @@ function _M:displayResources(scale, bx, by, a)
 			end
 			py = py + h
 			if arena.pinch == true then
-				aprint(px, py, ("보너스: %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 50, 50)
+				aprint(px, py, ("보너스 : %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 50, 50)
 			else
-				aprint(px, py, ("보너스: %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 255, 255)
+				aprint(px, py, ("보너스 : %d (x%.1f)"):format(arena.bonus, arena.bonusMultiplier), 255, 255, 255)
 			end
 			py = py + h
 			if arena.display then
@@ -1190,7 +1190,7 @@ function _M:displayResources(scale, bx, by, a)
 				aprint(px, py + h, " VS", 255, 0, 255)
 				aprint(px, py + h + h,  arena.display[2], 255, 0, 255)
 			else
-				aprint(px, py, "등급: "..arena.printRank(arena.rank, arena.ranks), 255, 255, 255)
+				aprint(px, py, "등급 : "..arena.printRank(arena.rank, arena.ranks), 255, 255, 255)
 			end
 		end
 
@@ -1244,7 +1244,7 @@ function _M:handleEffect(player, eff_id, e, p, x, y, hs, bx, by, is_first, scale
 		local eff_subtype = table.concat(table.keys(e.subtype), "/")
 		if e.display_desc then name = e.display_desc(self, p) end
 		if p.save_string and p.amount_decreased and p.maximum and p.total_dur then
-			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d에서 %d로 %d턴만큼 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정
+			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d 턴에서 %d 턴으로 %d턴 만큼 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정
 		else
 			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p)
 		end
@@ -1424,7 +1424,7 @@ function _M:displayParty(scale, bx, by)
 			if not self.party[a] then
 				local def = game.party.members[a]
 
-				local text = "#GOLD##{bold}#"..(a.kr_name or a.name).."\n#WHITE##{normal}#생명력: "..math.floor(100 * a.life / a.max_life).."%\n레벨: "..a.level.."\n"..def.title
+				local text = "#GOLD##{bold}#"..(a.kr_name or a.name).."\n#WHITE##{normal}#생명력 : "..math.floor(100 * a.life / a.max_life).."%\n레벨 : "..a.level.."\n"..def.title
 				local is_first = is_first
 				local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 					if is_first then
@@ -1566,7 +1566,7 @@ function _M:displayPlayer(scale, bx, by)
 
 			-- Attack/defend
 			if bx >= 22 and bx <= 22 + pf_defend[6] and by >= 67 and by <= 67 + pf_defend[7] then
-				game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "이동방식을 변경합니다.\n기본공격: 적대적 존재가 있는 곳으로 움직이면 기본 공격을 합니다.\n공격금지: 특정 존재가 있는 곳으로 이동해도 공격을 하지 않습니다 (컨트롤+이동키나 우클릭으로 공격합니다)")
+				game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "이동방식을 변경합니다.\n이동+공격 : 적대적 존재가 있는 곳으로 이동할 경우, 자동으로 기본 공격을 합니다.\n공격금지 : 특정 존재가 있는 곳으로 이동해도 공격을 하지 않습니다. (Ctrl+이동키, 또는 우클릭으로 공격합니다)")
 				if event == "button" and button == "left" then game.key:triggerVirtual("TOGGLE_BUMP_ATTACK") end
 			-- Character sheet
 			elseif bx >= 22 and bx <= 22 + 40 and by >= 22 and by <= 22 + 40 then
@@ -1617,7 +1617,7 @@ function _M:displayMinimap(scale, bx, by)
 			else self.mhandle.minimap = true end
 			if self.no_minimap then return end
 
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 캐릭터 이동\n우클릭: 화면 이동\n중간클릭: 전체지도 보기")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 캐릭터 이동\n우클릭 : 화면 이동\n중간클릭 : 전체지도 보기")
 
 			-- Move handle
 			if not self.locked and bx >= self.mhandle_pos.minimap.x and bx <= self.mhandle_pos.minimap.x + move_handle[6] and by >= self.mhandle_pos.minimap.y and by <= self.mhandle_pos.minimap.y + move_handle[7] then
@@ -1776,7 +1776,7 @@ function _M:displayHotkeys(scale, bx, by)
 			self.hotkeys_display:onMouse(button, mx, my, event == "button",
 				function(text)
 					text = text:toTString()
-					text:add(true, "---", true, {"font","italic"}, {"color","GOLD"}, "클릭: 사용", true, "우클릭: 설정", true, "모든 기술설정창 : 'm'", {"color","LAST"}, {"font","normal"})
+					text:add(true, "---", true, {"font","italic"}, {"color","GOLD"}, "클릭 : 사용", true, "우클릭 : 설정", true, "모든 기술 설정창 : 'M'", {"color","LAST"}, {"font","normal"})
 					game:tooltipDisplayAtMap(game.w, game.h, text)
 				end,
 				function(i, hk)
@@ -1817,7 +1817,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("tb_inven")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.inven = 0.6 return else self.tbbuttons.inven = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 소지품 목록 보기")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 소지품 목록 보기")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("SHOW_INVENTORY") end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, tb_inven[6], tb_inven[7], desc_fct, nil, "tb_inven", true, scale)
@@ -1830,7 +1830,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("tb_talents")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.inven = 0.6 return else self.tbbuttons.inven = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 알고 있는 기술 보기")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 알고 있는 기술 보기")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("USE_TALENTS") end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, tb_talents[6], tb_talents[7], desc_fct, nil, "tb_talents", true, scale)
@@ -1843,7 +1843,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("tb_quest")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.quest = 0.6 return else self.tbbuttons.quest = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 메세지/채팅 기록 보기.")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 메세지/채팅 기록 보기.")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("SHOW_MESSAGE_LOG") end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, tb_quest[6], tb_quest[7], desc_fct, nil, "tb_quest", true, scale)
@@ -1856,7 +1856,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("tb_lore")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.lore = 0.6 return else self.tbbuttons.lore = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 퀘스트 기록 보기.\n우클릭:알고있는 지식 보기.")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 퀘스트 기록 보기.\n우클릭 : 알고 있는 지식 보기.")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("SHOW_QUESTS")
 			elseif button == "right" and not xrel and not yrel and event == "button" then game:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal Lore", game.party)) end
 		end
@@ -1870,7 +1870,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("tb_mainmenu")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.mainmenu = 0.6 return else self.tbbuttons.mainmenu = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭: 주요 메뉴 보기")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 주요 메뉴 보기")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("EXIT") end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, tb_mainmenu[6], tb_mainmenu[7], desc_fct, nil, "tb_mainmenu", true, scale)
@@ -1884,7 +1884,7 @@ function _M:displayToolbar(scale, bx, by)
 		game.mouse:unregisterZone("padlock")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 			if event == "out" then self.tbbuttons.padlock = 0.6 return else self.tbbuttons.padlock = 1 end
-			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, self.locked and "모든 인터페이스의 잠금을 풀어, 각각을 옮기거나 크기를 바꿀수 있게 만듭니다." or "모든 인터페이스를 잠가, 옮기거나 크기를 바꿀수 없게 만듭니다.")
+			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, self.locked and "모든 인터페이스의 잠금을 풀어, 각각을 옮기거나 크기를 바꿀 수 있게 만듭니다." or "모든 인터페이스를 잠궈, 옮기거나 크기를 바꿀 수 없게 만듭니다.")
 			if button == "left" and not xrel and not yrel and event == "button" then self:switchLocked() end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, padlock[6], padlock[7], desc_fct, nil, "padlock", true, scale)
@@ -2062,7 +2062,7 @@ function _M:setupMouse(mouse)
 					{ name="귓속말", fct=function() profile.chat:setCurrentTarget(false, user.login) profile.chat:talkBox() end },
 					{ name="무시", fct=function() Dialog:yesnoPopup("사용자 무시", "정말 다음 사용자로부터의 모든 메세지를 무시합니까? : "..user.login, function(ret) if ret then profile.chat:ignoreUser(user.login) end end, "예", "아니오") end },
 					{ name="나쁜 행위를 저지르는 사용자 보고", fct=function()
-						game:registerDialog(require('engine.dialogs.GetText').new("보고하는 이유: "..user.login, "Reason", 4, 500, function(text)
+						game:registerDialog(require('engine.dialogs.GetText').new("보고하는 이유 : "..user.login, "Reason", 4, 500, function(text)
 							profile.chat:reportUser(user.login, text)
 							game.log("#VIOLET#", "보고서를 보냈습니다.")
 						end))

@@ -269,6 +269,6 @@ newTalent{
 		local range = self:getTalentRange(t)
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
-		return ([[주변 %d 칸 반경의 적들을 %d 턴 동안 공황 상태에 빠트립니다. 정신 내성을 통한 저항에 실패한 적들은 매 턴마다 %d%% 확률로 정상적인 행동을 하지 못하고 시전자에게서 멀어지려 하게 됩니다.]]):format(range, duration, chance)
+		return ([[주변 %d 칸 반경의 적들을 %d 턴 동안 공황 상태에 빠트립니다. 정신 내성을 통한 저항에 실패한 적들은 매 턴마다 %d%% 확률로 정상적인 행동을 하지 못하고, 시전자에게서 멀어지려 하게 됩니다.]]):format(range, duration, chance)
 	end,
 }

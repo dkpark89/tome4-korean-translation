@@ -85,7 +85,7 @@ function _M:learnLore(lore, nopopup, silent, nostop)
 	if not config.settings.tome.lore_popup and profile.mod.lore and profile.mod.lore.lore and profile.mod.lore.lore[lore] and not l.always_pop then nopopup = true end
 
 	if not self:knownLore(lore) or l.always_pop then
-		game.logPlayer(self, "지식 발견: #0080FF#%s", (l.kr_name or l.name))
+		game.logPlayer(self, "지식 발견 : #0080FF#%s", (l.kr_name or l.name))
 		if not nopopup then
 			LorePopup.new(l, game.w * 0.6, 0.8)
 			game.logPlayer(self, "ESC키를 누르면 나오는 게임 메뉴에서 지금까지 모은 지식을 읽을 수 있습니다.")

@@ -99,7 +99,7 @@ newTalent{ short_name = "NATURE_TOUCH",
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상 (혹은 자신) 에 자연의 힘을 불어넣어, %d 생명력을 회복시킵니다. 언데드에게는 사용할 수 없습니다.
+		return ([[대상 (혹은 자신) 에게 자연의 힘을 불어넣어, %d 생명력을 회복시킵니다. 언데드에게는 사용할 수 없습니다.
 		생명력 회복량은 정신력의 영향을 받아 증가합니다.]]):
 		format(20 + self:combatTalentMindDamage(t, 20, 500))
 	end,

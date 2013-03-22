@@ -31,8 +31,8 @@ function _M:init()
 
 	self.c_enable = Checkbox.new{title="소리 사용", default=config.settings.audio.enable, fct=function() end, on_change=function(s) self:sfxEnable(s) end}
 
-	self.c_music_vol = Numberbox.new{title="배경음 크기: ", number=config.settings.audio.music_volume, max=100, min=0, chars=5, fct=function() end, on_change=function(v) self:sfxVolume("music", v) end}
-	self.c_effects_vol = Numberbox.new{title="효과음 크기: ", number=config.settings.audio.effects_volume, max=100, min=0, chars=5, fct=function() end, on_change=function(v) self:sfxVolume("effects", v) end}
+	self.c_music_vol = Numberbox.new{title="배경음 크기 : ", number=config.settings.audio.music_volume, max=100, min=0, chars=5, fct=function() end, on_change=function(v) self:sfxVolume("music", v) end}
+	self.c_effects_vol = Numberbox.new{title="효과음 크기 : ", number=config.settings.audio.effects_volume, max=100, min=0, chars=5, fct=function() end, on_change=function(v) self:sfxVolume("effects", v) end}
 
 	self:loadUI{
 		{left=0, top=0, ui=self.c_enable},

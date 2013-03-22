@@ -279,7 +279,7 @@ newEntity{ base = "BASE_NPC_FAEROS", define_as = "FYRK",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_fire_fyrk__faeros_high_guard.png", display_h=2, display_y=-1}}},
 	desc = [[패로스는 높은 지능을 가진 불의 정령으로, 화산 밖에서는 거의 볼 수 없는 정령이기도 합니다. 이 세상의 자연적인 존재는 아닌 것 같습니다.
 이 개체는 더 위험해 보이며, 당신을 경멸하는 눈빛으로 쳐다보고 있습니다. 그의 주변에는 불꽃이 소용돌이치고 있습니다.]],
-	killer_message = "그리고 숯덩이 조각이 되어, 그의 주인에게 토템의 용도로 쓰이게 되었습니다.",
+	killer_message = "당신은 숯덩이 조각이 되어, 그의 주인에게 토템의 용도로 쓰이게 되었습니다.",
 	level_range = {35, nil}, exp_worth = 2,
 	rank = 5,
 	max_life = resolvers.rngavg(800,900), life_rating = 20, fixed_rating = true,

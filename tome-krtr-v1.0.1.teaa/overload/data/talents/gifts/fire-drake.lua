@@ -88,7 +88,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[강력한 바람을 불러내, 주변 %d 칸 반경의 적들을 4 칸 밀어내고 %d 피해를 줍니다.
+		return ([[강력한 바람을 불러내, 전방 %d 칸 반경의 적들을 4 칸 밀어내고 %d 피해를 줍니다.
 		피해량은 힘 능력치의 영향을 받아 증가합니다.
 		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), self:combatTalentStatDamage(t, "str", 15, 90))
 	end,
@@ -143,9 +143,9 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[불의 구름을 뿜어내, 주변 %d 칸 반경의 적들에게 %0.2f 화염 피해를 %d 턴 동안 줍니다.
+		return ([[불의 구름을 뿜어내, 대상 지역의 주변 %d 칸 반경에 있는 적들에게 %d 턴 동안 매 턴마다 %0.2f 화염 피해를 줍니다.
 		피해량은 의지 능력치의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.
-		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(radius, damDesc(self, DamageType.FIRE, dam), duration) --@@ 변수 순서 조정
+		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(radius, duration, damDesc(self, DamageType.FIRE, dam)) --@@ 변수 순서 조정
 	end,
 }
 
@@ -179,7 +179,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전방 %d 칸 반경에 화염 브레스를 뿜어내, 3 턴 동안 %0.2f 화염 피해를 줍니다.
+		return ([[전방 %d 칸 반경에 화염 브레스를 뿜어내, 3 턴 동안 %0.2f 화염 피해를 나눠서 줍니다.
 		피해량은 힘 능력치의 영향을 받아 증가하며, 치명타율은 정신 치명타율을 따릅니다.
 		이 기술의 레벨이 오를 때마다, 화염 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, self:combatTalentStatDamage(t, "str", 30, 550)))
 	end,

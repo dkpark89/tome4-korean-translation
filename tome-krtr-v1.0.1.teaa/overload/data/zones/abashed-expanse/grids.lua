@@ -32,7 +32,7 @@ newEntity{ base="FLOATING_ROCKS", define_as = "WORMHOLE", nice_tiler = false,
 			self.change_level = 1
 			self.name = "stable wormhole"
 			self.kr_name = "안정된 웜홀"
-			game.logSeen(src, "#VIOLET#웜홀이 에너지를 흡수하여 안정화 되었습니다. 이제 이것을 사용하여 여행을 떠날 수 있습니다.")
+			game.logSeen(src, "#VIOLET#웜홀이 에너지를 흡수하여 안정화 되었습니다. 이제 이것을 사용하여 다른 지역으로 이동할 수 있습니다.")
 			local q = game.player:hasQuest("start-archmage")
 			if q then q:stabilized() end
 		end

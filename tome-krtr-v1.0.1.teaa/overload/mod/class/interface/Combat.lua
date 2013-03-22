@@ -96,7 +96,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act * speed)
 			self.did_energy = true
 		end
-		game.logSeen(self, "%s 공격할 수 없을만큼 무섭습니다.", (self.kr_name or self.name):capitalize():addJosa("는"))
+		game.logSeen(self, "%s 공격할 수 없을 만큼 공포를 느끼고 있습니다.", (self.kr_name or self.name):capitalize():addJosa("는"))
 		return false
 	end
 
@@ -105,7 +105,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act)
 			self.did_energy = true
 		end
-		game.logSeen(self, "%s 공격할 수 없을만큼 두렵습니다.", (self.kr_name or self.name):capitalize():addJosa("는"))
+		game.logSeen(self, "%s 공격할 수 없을만큼 겁에 질렸습니다.", (self.kr_name or self.name):capitalize():addJosa("는"))
 		return false
 	end
 
@@ -113,7 +113,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 	if self:isTalentActive(self.T_STEALTH) and target:canSee(self) then
 		self:useTalent(self.T_STEALTH)
 		self.changed = true
-		game.logPlayer(self, "%s 마지막 순간에 당신을 알아차렸습니다!", (target.kr_name or target.name):capitalize():addJosa("는"))
+		game.logPlayer(self, "%s 마지막 순간에 당신의 존재를 알아차렸습니다!", (target.kr_name or target.name):capitalize():addJosa("는"))
 	end
 
 	-- Change attack type if using gems
@@ -770,7 +770,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	local gwf = self:hasEffect(self.EFF_GREATER_WEAPON_FOCUS)
 	if hitted and not target.dead and weapon and gwf and not gwf.inside and rng.percent(gwf.chance) then
 		gwf.inside = true
-		game.logSeen(self, "%s 집중하여 추가타격을 합니다!", sn:capitalize():addJosa("가"))
+		game.logSeen(self, "%s 집중하여 추가 타격을 합니다!", sn:capitalize():addJosa("가"))
 		self:attackTargetWith(target, weapon, damtype, mult)
 		gwf.inside = nil
 	end
@@ -801,7 +801,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if hitted and crit then
 		local eff = self:hasEffect(self.EFF_RAMPAGE)
 		if eff and not eff.critHit and eff.actualDuration < eff.maxDuration and self:knowTalent(self.T_BRUTALITY) then
-			game.logPlayer(self, "#F53CBE#맹렬한 공격으로 당신의 돌진이 탄력을 받습니다! (지속시간 +1)")
+			game.logPlayer(self, "#F53CBE#맹렬한 공격으로 인해, 당신의 돌진이 탄력을 받습니다! (지속시간 +1)")
 			eff.critHit = true
 			eff.actualDuration = eff.actualDuration + 1
 			eff.dur = eff.dur + 1
@@ -1878,7 +1878,7 @@ end
 function _M:grappleSizeCheck(target)
 	size = target.size_category - self.size_category
 	if size > 1 then
-		game.logSeen(target, "%s %s 너무 커서 잡는데 실패했습니다!", (self.kr_name or self.name):capitalize():addJosa("는"), (target.kr_name or target.name):capitalize():addJosa("가"))
+		game.logSeen(target, "%s 너무 커서, %s 잡기 기술을 실패했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"), (self.kr_name or self.name):capitalize():addJosa("는"))
 		return true
 	else
 		return false
@@ -1910,7 +1910,7 @@ function _M:startGrapple(target)
 		self:setEffect(self.EFF_GRAPPLING, duration, {trgt=target})
 		return true
 	else
-		game.logSeen(target, "%s 잡기 공격에 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("는"))
+		game.logSeen(target, "%s 잡기 공격을 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("는"))
 		return false
 	end
 end

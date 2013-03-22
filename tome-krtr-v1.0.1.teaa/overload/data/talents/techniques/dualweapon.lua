@@ -27,7 +27,7 @@ newTalent{
 	points = 5,
 	require = techs_dex_req1,
 	info = function(self, t)
-		return ([[보조 무기의 피해량이 %d%% 증가합니다.]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
+		return ([[보조 무기의 피해 효율이 %d%% 가 됩니다..]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
 	end,
 }
 
@@ -249,7 +249,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전방 1 칸 반경의 적들에게 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 피해를 총 %d 턴 동안 주는 출혈 상태를 일으킵니다.]]):
+		return ([[대상과 근처에 있는 적들에게 양손의 무기로 각각 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 피해를 총 %d 턴 동안 주는 출혈 상태를 일으킵니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), self:getDex() * 0.5, 3 + self:getTalentLevel(t))
 	end,
 }
@@ -288,7 +288,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한바퀴 회전하여, 근접한 주변의 적들에게 양손의 무기로 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
+		return ([[한 바퀴 회전하여, 근접한 주변의 적들에게 양손의 무기로 각각 %d%% 의 무기 피해를 줍니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9))
 	end,
 }
 

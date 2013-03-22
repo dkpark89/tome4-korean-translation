@@ -37,9 +37,9 @@ function _M:init(title, player)
 
 	Dialog.init(self, (title or "업적").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
 
-	self.c_self = Checkbox.new{title="현재 캐릭터 달성", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
-	self.c_main = Checkbox.new{title="모든 캐릭터 달성", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
-	self.c_all = Checkbox.new{title="모든 과제", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("all") end end}
+	self.c_self = Checkbox.new{title="현재 캐릭터가 달성", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
+	self.c_main = Checkbox.new{title="모든 캐릭터가 달성", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
+	self.c_all = Checkbox.new{title="모든 도전과제", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("all") end end}
 
 	self.c_image = Image.new{file="trophy_gold.png", width=64, height=64, shadow=true}
 	self.c_desc = TextzoneList.new{scrollbar=true, width=math.floor(self.iw * 0.4 - 10), height=self.ih - self.c_self.h}
@@ -111,7 +111,7 @@ function _M:select(item)
 		end
 		self.c_image.item = item.tex
 		local track = self:getTrack(item.a)
-		local desc = ("#GOLD#%s#LAST#\n[%s]\n\n#GOLD#달성 시기:#LAST# %s\n#GOLD#달성자:#LAST# %s\n%s\n#GOLD#설명:#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@@ 한글이름과 원문이름 표시하도록 수정 
+		local desc = ("#GOLD#%s#LAST#\n[%s]\n\n#GOLD#달성 시기 :#LAST# %s\n#GOLD#달성자 :#LAST# %s\n%s\n#GOLD#설명 :#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@@ 한글이름과 원문이름 표시하도록 수정 
 		if track then
 			desc:add(true, true, {"color","GOLD"}, "진행정도: ", {"color","LAST"})
 			desc:merge(track)

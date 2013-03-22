@@ -86,7 +86,7 @@ newChat{ id="yeek-welcome",
 newChat{ id="explore",
 	text = [[네, 저 역시 그렇습니다. 우리는 갈라져서 이 땅을 찾아보는 것이 좋을 것 같군요.]],
 	answers = {
-		{"안녕히 가십시오. 우리는 언제나 '한길'을 걷고 있을 것입니다.", action=function()
+		{"안녕히 가십시오. 우리는 언제나 '한길' 을 걷고 있을 것입니다.", action=function()
 			game:setAllowedBuild("psionic")
 			game:setAllowedBuild("psionic_mindslayer", true)
 		end},

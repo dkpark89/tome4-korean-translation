@@ -537,7 +537,7 @@ newTalent{
 		local evasion = t.getEvasionChance(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[뛰어난 운 덕분에, 위험한 상황이 닥쳐오면 공격을 덜 맞게 됩니다.
-		최대 생명력의 %d%% 이상이 한번에 감소될 경우, %d 턴 동안 행운 수치만큼 (현재 %d%%) 공격이 맞지 않게 됩니다.]]):
+		최대 생명력의 %d%% 이상이 한번에 감소될 경우, %d 턴 동안 행운 수치만큼 (현재 %d%%) 근접 공격이 맞지 않게 됩니다.]]):
 		format(threshold * 100, duration, evasion) --@@ 변수 순서 조정
 	end,
 }
@@ -775,7 +775,7 @@ newTalent{
 		self.combat_mentalresist = self.combat_mentalresist - 4
 	end,
 	info = function(self, t)
-		return ([['한길'과 동화되어, 외부의 효과로부터 정신을 보호합니다.
+		return ([['한길' 과 동화되어, 외부의 효과로부터 정신을 보호합니다.
 		혼란과 침묵 면역력이 %d%% 증가하고, 정신 내성이 %d 증가합니다.]]):format(self:getTalentLevelRaw(t) * 12, self:getTalentLevelRaw(t) * 4)
 	end,
 }
@@ -796,7 +796,7 @@ newTalent{
 		self:recomputeGlobalSpeed()
 	end,
 	info = function(self, t)
-		return ([[이크 종족은 빠르게 행동하고, 빠르게 생각하고, '한길'을 위한 제물을 빠르게 준비합니다.
+		return ([[이크 종족은 빠르게 행동하고, 빠르게 생각하고, '한길' 을 위한 제물을 빠르게 준비합니다.
 		전체 속도가 %d%% 증가합니다.]]):format(self:getTalentLevelRaw(t) * 3)
 	end,
 }
@@ -876,7 +876,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[이크들의 정신 통합체 '한길'에 도움을 요청합니다.
+		return ([[이크들의 정신 통합체 '한길' 에 도움을 요청합니다.
 		이크 정신 파괴자 3 명이 아군으로 소환됩니다.]])
 	end,
 }
@@ -892,7 +892,7 @@ newTalent{
 	mode = "passive",
 	on_learn = function(self, t) self.auto_id = 100 end,
 	info = function(self, t)
-		return ([['한길'과 잠시 동화되어, 이크 종족이 가진 모든 지식에 접근합니다.
+		return ([['한길' 과 잠시 동화되어, 이크 종족이 가진 모든 지식에 접근합니다.
 		이를 통해 알 수 없었던 도구나 장비를 감정해냅니다.]])
 	end,
 }

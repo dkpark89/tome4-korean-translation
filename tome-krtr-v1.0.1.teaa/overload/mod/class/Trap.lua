@@ -51,7 +51,7 @@ function _M:tooltip()
 		local res = tstring{{"uid", self.uid}, (self:getName().." ["..self.name.."]")} --@@ 상점 이름 '한글이름[원문이름]'으로 수정
 		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		if config.settings.cheat then
-			res:add(true, "UID: "..self.uid, true, "탐지: "..self.detect_power, true, "해체: "..self.disarm_power)
+			res:add(true, "UID: "..self.uid, true, "탐지 : "..self.detect_power, true, "해체 : "..self.disarm_power)
 		end
 		return res
 	end

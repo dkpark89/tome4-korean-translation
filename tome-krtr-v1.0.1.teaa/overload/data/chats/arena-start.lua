@@ -184,8 +184,8 @@ newChat{ id="welcome",
 	text = "#LIGHT_GREEN#투기장에 들어가기 전에, 당신은 순위를 매긴 게시판을 확인했습니다.\n"..text,
 	answers = {
 		--{"Enter the arena for 3 rounds[DEBUG]", action=arena_3, jump="perks"},
-		{"투기장에 입장한다. (60회 쇄도)", action=arena_60},
-		{"투기장에 입장한다. (간략 방식, 30회 쇄도)", action=arena_30},
+		{"투기장에 입장한다. (60 회 쇄도)", action=arena_60},
+		{"투기장에 입장한다. (간략 방식, 30 회 쇄도)", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
 		{"#LIGHT_RED#[저장된 투기장 자료를 삭제한다]", action=save_clear},
 	}
@@ -194,8 +194,8 @@ newChat{ id="welcome",
 newChat{ id="welcome2",
 	text = "이제 무엇을 하시겠습니까?",
 	answers = {
-		{"60회 쇄도 방식의 투기장에 입장", action=arena_60},
-		{"30회 쇄도 방식의 투기장에 입장", action=arena_30},
+		{"60 회 쇄도 방식의 투기장에 입장", action=arena_60},
+		{"30 회 쇄도 방식의 투기장에 입장", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
 	}
 }

@@ -91,7 +91,7 @@ newTalent{
 	info = function(self, t)
 		local manaregen = t.getManaRegen(self, t)
 		return ([[그림자의 심연에서 힘을 끌어옵니다.
-		기술이 유지되는 동안 매 턴마다 마나가 %0.2f 재생하며, 공격속도와 시전속도가 %d%% 상승하게 됩니다.]]):
+		기술이 유지되는 동안 매 턴마다 마나가 %0.2f 재생되며, 공격속도와 시전속도가 %d%% 상승하게 됩니다.]]):
 		format(manaregen, 2.2 * self:getTalentLevel(t))
 	end,
 }

@@ -97,7 +97,7 @@ function _M:init(title, actor, filter, action, on_select)
 		if not game.tooltip.empty then
 			game.tooltip.locked = not game.tooltip.locked
 			game.tooltip.container.focused = game.tooltip.locked
-			game.log("툴팁 %s", game.tooltip.locked and "잠금" or "잠금해제")
+			game.log("정보창 표시 %s", game.tooltip.locked and "잠금" or "잠금 해제")
 			if game.tooltip.locked then
 				self.old_areas_name = self.mouse.areas_name
 				self.old_areas = self.mouse.areas
