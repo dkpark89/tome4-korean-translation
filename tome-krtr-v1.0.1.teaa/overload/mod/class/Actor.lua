@@ -1432,18 +1432,18 @@ function _M:tooltip(x, y, seen_by)
 		ts:add({"color", 0, 255, 128}, ("얼음덩어리 : %d"):format(eff.hp), {"color", "WHITE"}, true)
 	end
 	--ts:add(("Stats: %d / %d / %d / %d / %d / %d"):format(self:getStr(), self:getDex(), self:getCon(), self:getMag(), self:getWil(), self:getCun()), true)
-	if #resists > 0 then ts:add("저항: ", table.concat(resists, ','), true) end
-	ts:add("방어효율/방어도: ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
-	ts:add("크기: ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory():krSize(), {"color", "WHITE"}, true) --@@ 크기이름 한글화
+	if #resists > 0 then ts:add("저항 : ", table.concat(resists, ','), true) end
+	ts:add("방어효율/방어도 : ", tostring(math.floor(self:combatArmorHardiness())), '% / ', tostring(math.floor(self:combatArmor())), true)
+	ts:add("크기 : ", {"color", "ANTIQUE_WHITE"}, self:TextSizeCategory():krSize(), {"color", "WHITE"}, true) --@@ 크기이름 한글화
 
 	ts:add("#FFD700#정확도  #FFFFFF#: ", self:colorStats("combatAttack"), "  ")
 	ts:add("#0080FF#회피도   #FFFFFF#: ", self:colorStats("combatDefense"), true)
 	ts:add("#FFD700#물리력  #FFFFFF#: ", self:colorStats("combatPhysicalpower"), "  ")
-	ts:add("#0080FF#물리내성#FFFFFF#: ", self:colorStats("combatPhysicalResist"), true)
+	ts:add("#0080FF#물리내성#FFFFFF# : ", self:colorStats("combatPhysicalResist"), true)
 	ts:add("#FFD700#주문력  #FFFFFF#: ", self:colorStats("combatSpellpower"), "  ")
-	ts:add("#0080FF#주문내성#FFFFFF#: ", self:colorStats("combatSpellResist"), true)
+	ts:add("#0080FF#주문내성#FFFFFF# : ", self:colorStats("combatSpellResist"), true)
 	ts:add("#FFD700#정신력  #FFFFFF#: ", self:colorStats("combatMindpower"), "  ")
-	ts:add("#0080FF#정신내성#FFFFFF#: ", self:colorStats("combatMentalResist"), true)
+	ts:add("#0080FF#정신내성#FFFFFF# : ", self:colorStats("combatMentalResist"), true)
 	ts:add({"color", "WHITE"})
 	if self.summon_time then
 		ts:add("남은 시간 : ", {"color", "ANTIQUE_WHITE"}, ("%d"):format(self.summon_time), {"color", "WHITE"}, true)

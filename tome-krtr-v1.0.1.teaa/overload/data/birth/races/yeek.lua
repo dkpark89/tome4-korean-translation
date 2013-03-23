@@ -77,7 +77,7 @@ newBirthDescriptor
 		"#GOLD#능력치 변경 :",
 		"#LIGHT_BLUE# * 힘-3, 민첩-2, 체격-5",
 		"#LIGHT_BLUE# * 마법+0, 의지+6, 교활함+4",
-		"#GOLD#L레벨 당 생명력 :#LIGHT_BLUE# 7",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 7",
 		"#GOLD#경험치 불이익 :#LIGHT_BLUE# -15% (15% 이익)",
 		"#GOLD#혼란 면역력 :#LIGHT_BLUE# 35%",
 	},

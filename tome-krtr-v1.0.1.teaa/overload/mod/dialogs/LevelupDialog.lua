@@ -546,10 +546,10 @@ end
 -----------------------------------------------------------------
 
 local _points_left = [[
-남아있는 능력치 점수 : #00FF00#%d#LAST#
-남아있는 기술계열 점수 : #00FF00#%d#LAST#
-남아있는 직업기술 점수 : #00FF00#%d#LAST#
-남아있는 일반기술 점수 : #00FF00#%d#LAST#]]
+남아있는 능력치 점수: #00FF00#%d#LAST#
+남아있는 기술계열 점수: #00FF00#%d#LAST#
+남아있는 직업기술 점수: #00FF00#%d#LAST#
+남아있는 일반기술 점수: #00FF00#%d#LAST#]]
 
 local desc_stats = ([[능력치 점수로 당신의 기본 능력치를 올릴 수 있습니다.
 레벨이 오를 때마다 3 점의 능력치 점수를 얻습니다.
@@ -905,13 +905,13 @@ function _M:onUseTalent(item, inc)
 		self.c_gtree:redrawAllItems()
 	end
 
-	self.b_stat.text = "능력치 : "..self.actor.unused_stats
+	self.b_stat.text = "능력치: "..self.actor.unused_stats
 	self.b_stat:generate()
-	self.b_class.text = "직업기술 점수 : "..self.actor.unused_talents
+	self.b_class.text = "직업기술 점수: "..self.actor.unused_talents
 	self.b_class:generate()
-	self.b_generic.text = "일반기술 점수 : "..self.actor.unused_generics
+	self.b_generic.text = "일반기술 점수: "..self.actor.unused_generics
 	self.b_generic:generate()
-	self.b_types.text = "기술계열 점수 : "..self.actor.unused_talents_types
+	self.b_types.text = "기술계열 점수: "..self.actor.unused_talents_types
 	self.b_types:generate()
 end
 
