@@ -570,8 +570,8 @@ newEffect{
 	subtype = { cold=true, pin=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#Target#의 발이 땅에 얼어붙습니다!", "+동결" end,
-	on_lose = function(self, err) return "#Target#의 발이 녹았습니다.", "-동결" end,
+	on_gain = function(self, err) return "#Target#의 발이 땅에 얼어붙습니다!", "+빙결" end,
+	on_lose = function(self, err) return "#Target#의 발이 녹았습니다.", "-빙결" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("never_move", 1)
 		eff.frozid = self:addTemporaryValue("frozen", 1)
@@ -585,14 +585,14 @@ newEffect{
 newEffect{
 	name = "FROZEN", image = "talents/freeze.png",
 	desc = "Frozen",
-	kr_name = "동결",
+	kr_name = "빙결",
 	long_desc = function(self, eff) return ("얼음덩어리에 갇힘 : 모든 피해의 40%% 는 얼음덩어리가 흡수하고, 자신은 60%% 의 피해를 입음 / 회피 불가능 / 얼음덩어리만 공격 가능 / 다른 상태이상 효과에 완전 면역 / 공간이동 불가능 / 치료 불가능\n얼음덩어리의 남은 생명력 : %d"):format(eff.hp) end,
 	type = "physical", -- Frozen has some serious effects beyond just being frozen, no healing, no teleport, etc.  But it can be applied by clearly non-magical sources i.e. Ice Breath
 	subtype = { cold=true, stun=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#Target1# 얼음덩어리에 갇혔습니다!", "+동결" end,
-	on_lose = function(self, err) return "#Target1# 얼음덩어리에서 빠져나왔습니다.", "-동결" end,
+	on_gain = function(self, err) return "#Target1# 얼음덩어리에 갇혔습니다!", "+빙결" end,
+	on_lose = function(self, err) return "#Target1# 얼음덩어리에서 빠져나왔습니다.", "-빙결" end,
 	activate = function(self, eff)
 		-- Change color
 		eff.old_r = self.color_r

@@ -95,7 +95,7 @@ newTalent{
 		적에게 줄 수 있는 속성 효과는 다음과 같습니다.
 		- 모래바람 (물리+실명)
 		- 강산 (산성+무장 해제)
-		- 극한의 냉기 (냉기+동결)
+		- 극한의 냉기 (냉기+빙결)
 		- 굉음의 번개 (전기+기절)
 		- 타오르는 화염 (화염+화상)]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 2.0), radius, burstdamage)
 	end,
