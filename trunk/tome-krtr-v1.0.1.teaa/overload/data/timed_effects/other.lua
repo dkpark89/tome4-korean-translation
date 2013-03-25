@@ -2291,7 +2291,7 @@ newEffect{
 newEffect{
 	name = "SUFFOCATING",
 	desc = "Suffocating",
-	k4_name = "숨막힘",
+	kr_name = "숨막힘",
 	long_desc = function(self, eff) return ("숨막힘! : 매 턴마다 생명력 감소 (현재 : 최대 생명력의 %d%%) / 매 턴마다 생명력 감소량이 증가"):format(eff.dam) end,
 	type = "other",
 	subtype = { suffocating=true },
@@ -2318,7 +2318,7 @@ newEffect{
 newEffect{
 	name = "ANTIMAGIC_DISRUPTION",
 	desc = "Antimagic Disruption",
-	k4_name = "마법 단절",
+	kr_name = "마법 단절",
 	long_desc = function(self, eff) return ("착용한 반마법 장비에 의해, 마법의 힘이 방해받음"):format() end,
 	type = "other",
 	subtype = { antimagic=true },
