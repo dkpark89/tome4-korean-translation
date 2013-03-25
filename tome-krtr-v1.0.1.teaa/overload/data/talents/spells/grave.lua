@@ -321,7 +321,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		local darkCount = t.getDarkCount(self, t)
-		return ([[대상 지역의 %d 칸 반경에, 차가운 불꽃이 서서히 일어나기 시작합니다. 차가운 불꽃은 턴 당 %d 개씩 생겨나면서 해당 지역에 %0.2f 냉기 피해를 주며, 적에게 동결 상태효과를 가할 확률이 있습니다.
+		return ([[대상 지역의 %d 칸 반경에, 차가운 불꽃이 서서히 일어나기 시작합니다. 차가운 불꽃은 턴 당 %d 개씩 생겨나면서 해당 지역에 %0.2f 냉기 피해를 주며, 적에게 빙결 상태효과를 가할 확률이 있습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, darkCount, damDesc(self, DamageType.COLD, damage))
 	end,
 }

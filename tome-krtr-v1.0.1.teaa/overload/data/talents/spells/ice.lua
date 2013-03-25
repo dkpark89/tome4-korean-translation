@@ -138,7 +138,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local targetcount = t.getTargetCount(self, t)
-		return ([[동결 상태효과에 의해 얼음에 갇힌 적들을 부숴버립니다. 시야 내의 모든 적들에게 적용되며, %0.2f 냉기 피해를 줍니다.
+		return ([[빙결 상태효과에 의해 얼음에 갇힌 적들을 부숴버립니다. 시야 내의 모든 적들에게 적용되며, %0.2f 냉기 피해를 줍니다.
 		대상의 등급에 따라, 추가 효과가 일어납니다 :
 		* '일반' 미만 등급의 적들은 즉사합니다.
 		* '일반' 등급의 적들에게는 치명타율이 50%% 증가합니다.
