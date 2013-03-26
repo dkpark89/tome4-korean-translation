@@ -60,7 +60,7 @@ for i = 1, 3 do
 		who:runStop("이상한 받침대")
 		if self.pedestal_activated then return false end
 		require("engine.ui.Dialog"):yesnoPopup("이상한 받침대", "받침대를 조사해 보시겠습니까?", function(ret) if ret then
-			who:restInit(20, "inspecting", "inspected", function(cnt, max)
+			who:restInit(20, "조사 중", "조사 완료", function(cnt, max)
 				if cnt > max then
 					self.pedestal_activated = true
 					self.block_move = nil

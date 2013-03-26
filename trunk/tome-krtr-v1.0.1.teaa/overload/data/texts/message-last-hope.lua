@@ -20,7 +20,7 @@
 local delivered_staff = game.player:resolveSource():isQuestStatus("staff-absorption", engine.Quest.COMPLETED, "survived-ukruk")
 
 if delivered_staff then
-return [[@playername7@여, 이 전갈은 매우 중요한 내용을 담고 있네.
+return [[@playername@, 이 전갈은 매우 중요한 내용을 담고 있네.
 
 자네가 마지막 희망에 남겨둔 지팡이가 사라졌네. 오크들의 무리가 나타나, 지팡이를 비밀 창고로 옮기던 경비들을 습격하였다네.
 그러나 우리의 병사들이 간신히 오크 하나를 붙잡는데 성공했고, 이 오크를 심문하여 정보를 얻어내었네.

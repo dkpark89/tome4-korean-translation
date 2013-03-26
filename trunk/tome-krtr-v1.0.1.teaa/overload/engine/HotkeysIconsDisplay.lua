@@ -347,7 +347,7 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 						local o = a:findInAllInventories(a.hotkey[i][2], {no_add_name=true, force_id=true, no_count=true})
 						if o then
 							text = o:getDesc()
-						else text = "Missing!" end
+						else text = "찾을 수 없습니다!!" end
 					end
 					on_over(text)
 				end

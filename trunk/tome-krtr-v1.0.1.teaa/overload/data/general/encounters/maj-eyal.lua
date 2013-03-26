@@ -130,7 +130,7 @@ newEntity{
 		game.paused = true
 		who:runStop()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("lumberjack-quest", {name="Half-dead lumberjack", kr_name="반죽은 나무꾼"}, who)
+		local chat = Chat.new("lumberjack-quest", {name="Half-dead lumberjack", kr_name="반 죽은 나무꾼"}, who)
 		chat:invoke()
 		return true
 	end,

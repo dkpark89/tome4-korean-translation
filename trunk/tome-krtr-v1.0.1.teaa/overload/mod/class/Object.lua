@@ -636,7 +636,7 @@ function _M:getTextualDesc(compare_with)
 			desc:add({"color","RED"}, "기본 공격을 해도 은신이 풀리지 않습니다.", {"color","LAST"}, true)
 		end
 
-		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "이동 속도    : ", 100, false, false, add_table)
+		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "발사 속도    : ", 100, false, false, add_table)
 
 		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "보호막 관통 (이 무기에만 적용) : ", 1, false, false, add_table)
 

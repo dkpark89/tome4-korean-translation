@@ -337,7 +337,7 @@ function _M:giveOrder(actor, order)
 				if act then
 					anchor = act
 				else
-					anchor = {x=x, y=y, name="that location"}
+					anchor = {x=x, y=y, name="해당 지역"}
 				end
 				actor.ai_state.tactic_leash_anchor = anchor
 				game.logPlayer(game.player, "%s %s의 주변에 머물기 시작합니다.", (actor.kr_name or actor.name):capitalize():addJosa("가"), (anchor.kr_name or anchor.name))

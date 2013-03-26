@@ -1057,7 +1057,7 @@ newEffect{
 	name = "DISPAIR", image = "effects/despair.png",
 	desc = "Despair",
 	kr_name = "절망",
-	long_desc = function(self, eff) return ("절망 : 전체 저항 %+d%% 감소"):format(-eff.resistAllChange) end,
+	long_desc = function(self, eff) return ("절망 : 전체 저항 %-d%% 감소"):format(-eff.resistAllChange) end,
 	type = "mental",
 	subtype = { fear=true },
 	status = "detrimental",

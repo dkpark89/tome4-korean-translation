@@ -152,7 +152,7 @@ newEffect{
 	status = "beneficial",
 	parameters = { power=10 },
 	on_gain = function(self, err) return "#Target#의 피부가 용해된 용암으로 변했습니다.", "+용해된 피부" end,
-	on_lose = function(self, err) return "#Target#의 비푸가 보통의 상태로 되돌아 왔습니다.", "-용해된 피부" end,
+	on_lose = function(self, err) return "#Target#의 피부가 보통의 상태로 되돌아 왔습니다.", "-용해된 피부" end,
 	activate = function(self, eff)
 		eff.particle = self:addParticles(Particles.new("wildfire", 1))
 		eff.tmpid = self:addTemporaryValue("resists", {[DamageType.FIRE]=eff.power})
@@ -1865,7 +1865,7 @@ newEffect{
 	name = "OUT_OF_PHASE", image = "talents/phase_door.png",
 	desc = "Out of Phase",
 	kr_name = "탈상",
-	long_desc = function(self, eff) return ("현실 밖으로 위상변화 : 회피도 +%d / 전체 저항 +%d%% / 모든 상태효과 지속시간 +%d%%"):
+	long_desc = function(self, eff) return ("현실 밖으로 위상변화 : 회피도 +%d / 전체 저항 +%d%% / 나쁜 상태이상 지속시간 -%d%%"):
 	format(eff.defense or 0, eff.resists or 0, eff.effect_reduction or 0) end,
 	type = "magical",
 	subtype = { teleport=true },

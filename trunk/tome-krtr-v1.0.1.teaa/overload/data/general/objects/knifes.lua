@@ -66,7 +66,7 @@ newEntity{ base = "BASE_KNIFE",
 
 newEntity{ base = "BASE_KNIFE",
 	name = "dwarven-steel dagger", short_name = "d.steel",
-	kr_name = "드워프-강철 단검",
+	kr_name = "드워프강철 단검",
 	level_range = {20, 30},
 	require = { stat = { dex=24 }, },
 	cost = 15,
