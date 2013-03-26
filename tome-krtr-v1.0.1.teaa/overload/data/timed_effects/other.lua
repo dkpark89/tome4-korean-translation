@@ -2318,7 +2318,7 @@ newEffect{
 newEffect{
 	name = "ANTIMAGIC_DISRUPTION",
 	desc = "Antimagic Disruption",
-	kr_name = "마법 단절",
+	kr_name = "마법 방해",
 	long_desc = function(self, eff) return ("착용한 반마법 장비에 의해, 마법의 힘이 방해받음"):format() end,
 	type = "other",
 	subtype = { antimagic=true },

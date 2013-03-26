@@ -90,7 +90,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[재빠른 몸놀림을 통해 공격이 닿기 전에 피합니다. %d 턴 동안 %d%% 확률로 공격을 완전히 피합니다.
+		return ([[재빠른 몸놀림을 통해 공격이 닿기 전에 피합니다. %d 턴 동안 %d%% 확률로 근접 공격을 완전히 회피합니다.
 		지속시간은 의지력, 회피 확률은 교활함과 민첩 능력치의 영향을 받아 증가합니다.]]):format(5 + self:getWil(10), 5 * self:getTalentLevel(t) + self:getCun(25, true) + self:getDex(25, true))
 	end,
 }

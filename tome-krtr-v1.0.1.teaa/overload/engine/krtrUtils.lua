@@ -190,6 +190,14 @@ function string.krItemType(str)
 	elseif ori == "whip" then return "채찍"
 	elseif ori == "white" then return "흰색"
 	elseif ori == "yellow" then return "노란색"
+	elseif ori == "the great evil" then return "진정한 악"
+	elseif ori == "lecture on humility" then return "겸손에 대한 강의"
+	elseif ori == "magic teaching" then return "마법 강의"
+	elseif ori == "last hope foundation" then return "마지막 희망 재단"
+	elseif ori == "analysis" then return "분석"
+	elseif ori == "southspar" then return "남쪽 스파"
+	elseif ori == "oceans" then return "바다"
+	elseif ori == "spellblaze" then return "마법폭발"
 	else return str end
 end
 
@@ -742,6 +750,7 @@ function string.krLoreCategory(str)
 	elseif ori == "valley of the moon" then return "달의 계곡"
 	elseif ori == "vault" then return "금고"
 	elseif ori == "zigur" then return "지구르"
+	
 	else return str end
 end
 

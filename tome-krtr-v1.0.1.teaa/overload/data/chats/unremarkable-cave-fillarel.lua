@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[@playername7@여, 감사합니다. 인정하기는 싫지만, 당신이 제 목숨을 구했습니다.]],
+	text = [[@playername@, 감사합니다. 인정하기는 싫지만, 당신이 제 목숨을 구했습니다.]],
 	answers = {
 		{"당신을 위해서라면. 하지만 이 어두운 곳에서 무엇을 하고 있었는지 물어봐도 될까요?", jump="what", cond=function(npc, player) return not player:hasQuest("start-sunwall") end},
 		{"당신을 위해서라면. 비록 저는 몇 달 동안 이곳을 떠나 있었지만, 저는 느낄 수 있습니다. 이곳은 제 고향 땅입니다!", jump="back", cond=function(npc, player) return player:hasQuest("start-sunwall") end},
