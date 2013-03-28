@@ -34,8 +34,8 @@ function string.addJosa(str, temp)
 		josa2 = "과"
 		index = 6
 	elseif temp == 7 then
-		josa1 = "이"
-		josa2 = ""
+		josa1 = ""
+		josa2 = "이"
 		index = 7
 	else
 		if type(temp) == string then return str .. temp
