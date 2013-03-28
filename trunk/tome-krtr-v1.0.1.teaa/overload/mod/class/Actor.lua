@@ -2602,7 +2602,7 @@ function _M:levelup()
 		local x, y = game.level.map:getTileToScreen(self.x, self.y)
 		local sn = (self.kr_name or self.name) --@@ 두줄뒤, 네줄뒤, 11줄뒤 사용 : 반복된 사용으로 변수로 뺌
 		game.flyers:add(x, y, 80, 0.5, -2, "레벨 상승!", {0,255,255})
-		game.log("#00ffff#레벨 %d 이(가) 된 것을 환영합니다, [%s].", self.level, sn:capitalize())
+		game.log("#00ffff#레벨 %s 된 것을 환영합니다, [%s].", (("%d"):format(self.level)):addJosa("가"), sn:capitalize()) --@@ 숫자에 조사 붙이도록 변수 조정
 		local more = "사용하려면 'P' 키를 누르세요."
 		if game.player ~= self then more = sn:addJosa("를").. " 파티 목록에서 선택한 뒤 'G' 키를 눌러 사용하세요." end
 		local points = {}

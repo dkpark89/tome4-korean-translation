@@ -510,7 +510,7 @@ newEntity{
 newEntity{
 	define_as = "ELVALA_LIBRARY",
 	name = "shady library",
-	kr_name = "불법 도서 거래소",
+	kr_name = "수상한 도서관",
 	display = '*', color=colors.LIGHT_RED,
 	store = {
 		purse = 10,

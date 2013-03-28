@@ -116,7 +116,7 @@ newBirthDescriptor
 		"#LIGHT_BLUE# * 힘+2, 민첩+3, 체격+1",
 		"#LIGHT_BLUE# * 마법-2, 의지+1, 교활함+0",
 		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 11",
-		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 35%",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 30%",
 	},
 	inc_stats = { str=2, mag=-2, wil=1, cun=0, dex=3, con=1 },
 	talents_types = { ["race/thalore"]={true, 0} },

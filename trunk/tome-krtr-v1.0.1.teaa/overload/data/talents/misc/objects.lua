@@ -241,11 +241,11 @@ newTalent{
 		if n < 1 then return "(error 2)" end
 		local e_string = ""
 		if n == 1 then
-			e_string = DamageType.dam_def[next(bt)].name
+			e_string = DamageType.dam_def[next(bt)].kr_name or DamageType.dam_def[next(bt)].name
 		else
 			local list = table.keys(bt)
 			for i = 1, #list do
-				list[i] = DamageType.dam_def[list[i]].name
+				list[i] = DamageType.dam_def[list[i]].kr_name or DamageType.dam_def[list[i]].name
 			end
 			e_string = table.concat(list, ", ")
 		end

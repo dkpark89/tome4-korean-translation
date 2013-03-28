@@ -52,7 +52,14 @@ function string.addJosa(str, temp)
 	local c2 = str:byte(length-1)
 	local c3 = str:byte(length)
 	
-	local last = ( (c1-234)*4096 + (c2-128)*64 + (c3-128) - 3072 )%28
+	local last = 0
+	if ( c3 < 128 ) then
+		if ( c3 == '2' or c3 == '4' or c3 == '5' or c3 == '9' or c3 == 'a' or c3 == 'b' or c3 == 'd' or c3 == 'e' or c3 == 'f' or c3 == 'i' or c3 == 'j' or c3 == 'k' or c3 == 'o' or c3 == 'p' or c3 == 's' or c3 == 't' or c3 == 'u' or c3 == 'v' or c3 == 'w' or c3 == 'y' or c3 == 'z' ) then
+			last = 100 --@@ 한글이 아니고, josa2를 사용하는 경우 (알파벳은 대충 넣었음)
+		end  
+	else
+		last = ( (c1-234)*4096 + (c2-128)*64 + (c3-128) - 3072 )%28
+	end
 	
 	if last == 0 or ( index == 4 and last == 8 ) then
 		return str .. josa1
@@ -190,14 +197,6 @@ function string.krItemType(str)
 	elseif ori == "whip" then return "채찍"
 	elseif ori == "white" then return "흰색"
 	elseif ori == "yellow" then return "노란색"
-	elseif ori == "the great evil" then return "진정한 악"
-	elseif ori == "lecture on humility" then return "겸손에 대한 강의"
-	elseif ori == "magic teaching" then return "마법 강의"
-	elseif ori == "last hope foundation" then return "마지막 희망 재단"
-	elseif ori == "analysis" then return "분석"
-	elseif ori == "southspar" then return "남쪽 스파"
-	elseif ori == "oceans" then return "바다"
-	elseif ori == "spellblaze" then return "마법폭발"
 	else return str end
 end
 
@@ -750,7 +749,6 @@ function string.krLoreCategory(str)
 	elseif ori == "valley of the moon" then return "달의 계곡"
 	elseif ori == "vault" then return "금고"
 	elseif ori == "zigur" then return "지구르"
-	
 	else return str end
 end
 
