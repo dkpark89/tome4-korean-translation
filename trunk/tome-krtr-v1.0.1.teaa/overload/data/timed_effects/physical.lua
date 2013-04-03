@@ -1564,7 +1564,7 @@ newEffect{
 	name = "WEAKENED",
 	desc = "Weakened", image = "talents/ruined_earth.png",
 	kr_name = "약화",
-	long_desc = function(self, eff) return ("약화 : 모든 피해 +%d%%"):format(eff.power) end,
+	long_desc = function(self, eff) return ("약화 : 모든 피해 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { curse=true },
 	status = "detrimental",
