@@ -228,6 +228,6 @@ newTalent{
 		또한 느리게 움직이며, 시야 내의 적들을 목표로 하고 %0.2f 화염 피해를 주는 불꽃을 매 턴마다 %d 개씩 만들어냅니다. 이 불꽃은 아군에게 완전히 무해합니다.
 		마법을 유지하는 동안, 매 턴마다 %0.2f 마나가 소진됩니다.
 		피해량과 저항력 상승량은 주문력의 영향을 받아 증가합니다.]]):
-		format(res,onhitdam, math.floor(self:getTalentLevel(t)), insightdam,-manadrain)
+		format(res,onhitdam, insightdam, math.floor(self:getTalentLevel(t)), -manadrain)
 	end,
 }

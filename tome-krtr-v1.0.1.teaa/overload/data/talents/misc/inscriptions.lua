@@ -314,7 +314,7 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[주입된 힘을 사용하여, 독을 뱉습니다. 독에 맞은 대상은 7 턴 동안 총 %0.2f 자연 피해를 입으며, 회복 효율이 %d%% 감소합니다.
+		return ([[주입된 힘을 사용하여, 독을 뱉습니다. 독에 맞은 대상은 7 턴 동안 매 턴마다 %0.2f 자연 피해를 입으며, 회복 효율이 %d%% 감소합니다.
 		갑작스러운 자연적 힘의 흐름으로, 당신이 가지고 있던 임의의 나쁜 마법 상태이상 효과 하나가 사라집니다.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat) / 7, data.heal_factor)
 	end,
 	short_info = function(self, t)
