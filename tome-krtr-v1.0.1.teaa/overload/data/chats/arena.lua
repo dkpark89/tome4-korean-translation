@@ -20,7 +20,7 @@
 local entershop = function (self, player)
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(player, "Gladiator's wares")
+	arenashop:interact(player, "검투사 장비점")
 	arenashop = nil
 end
 

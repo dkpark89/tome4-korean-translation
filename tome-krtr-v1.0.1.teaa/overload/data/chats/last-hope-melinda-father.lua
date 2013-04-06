@@ -144,7 +144,7 @@ newChat{ id="home1",
 	text = [[#LIGHT_GREEN#*멜린다가 문을 열고 나타나, 당신에게 키스를 합니다.*#WHITE#
 @playername@! 보고싶었어요!]],
 	answers = {
-		{"미안해요, 저 지금 조금 바빠서요. 뭐, 당신도 알잖아요. 언제나처럼 광신도들을 죽이고, 오래된 보물들을 찾는 일 말이에요."},
+		{"미안해, 내가 요즘 조금 바빠서. 뭐, 당신도 알잖아. 언제나처럼 광신도들을 죽이고, 오래된 보물들을 찾는 일 말이야."},
 		{"사실, 우리를 위해서 하나 생각하고 있는게 있어, 얼마 전에, 굉장히 특별한 집을 하나 가지게 됐거든... #LIGHT_GREEN#[그녀에게 요새에 대한 이야기를 한다]#WHITE#", jump="home2", cond=function(npc, player) return ql and qs and qs:isCompleted("farportal") and not ql:isCompleted("moved-in") end},
 	}
 }
