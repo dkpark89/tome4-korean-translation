@@ -2042,7 +2042,7 @@ newEffect{
 	name = "SPINE_OF_THE_WORLD", image = "talents/spine_of_the_world.png",
 	desc = "Spine of the World",
 	kr_name = "세계 최강의 척추",
-	long_desc = function(self, eff) return ("나쁜 물리적 생태이상 효과에 완전 면역") end,
+	long_desc = function(self, eff) return ("나쁜 물리적 상태이상 효과에 완전 면역") end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",

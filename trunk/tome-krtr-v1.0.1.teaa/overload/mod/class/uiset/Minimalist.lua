@@ -1241,12 +1241,12 @@ function _M:handleEffect(player, eff_id, e, p, x, y, hs, bx, by, is_first, scale
 	if not self.tbuff[eff_id..":"..dur] then
 		local name = e.kr_name or e.desc --@@ 한글이름 사용하도록 수정
 		local desc = nil
-		local eff_subtype = table.concat(table.keys(e.subtype), "/")
+		local eff_subtype = table.concat(table.krEffectKeys(e.subtype), "/") --@@ 상태효과 속성을 한글로 바꿔 나열
 		if e.display_desc then name = e.display_desc(self, p) end
 		if p.save_string and p.amount_decreased and p.maximum and p.total_dur then
-			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d 턴에서 %d 턴으로 %d턴 만큼 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정
+			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type:krEffectType(), eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d 턴에서 %d 턴으로 %d턴 만큼 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정
 		else
-			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p)
+			desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type:krEffectType(), eff_subtype)..e.long_desc(player, p)
 		end
 		if allow_remove then desc = desc.."\n---\n우클릭으로 일찍 취소시킬 수 있습니다." end
 
