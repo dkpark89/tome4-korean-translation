@@ -956,9 +956,9 @@ function _M:getTextualDesc(compare_with)
 			desc:add("다음 장소에서 숨쉬기 가능 : ")
 			for what, isin in pairs(breaths) do
 				if isin[2] then
-					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(what), {"color","LAST"})
+					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(what:krBreath()), {"color","LAST"}) --@@ 한글명으로 변환
 				else
-					desc:add({"color","RED"}, ("%s "):format(what), {"color","LAST"})
+					desc:add({"color","RED"}, ("%s "):format(what:krBreath()), {"color","LAST"}) --@@ 한글명으로 변환
 				end
 			end
 			desc:add(true)

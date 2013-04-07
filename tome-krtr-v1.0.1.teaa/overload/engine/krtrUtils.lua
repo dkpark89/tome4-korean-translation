@@ -1404,3 +1404,12 @@ function table.krKeys(t)
 	for k, e in pairs(t) do tt[#tt+1] = k:krKeywords() end
 	return tt
 end
+
+function string.krBreath(str)
+	-- 관련내용 "can_breath"로 검색해서 나오는 것들
+	-- 사용장소 /mod/class/Object.lua:959, 961 - 숨쉬기 가능 장소 설명
+	local ori = str:lower()
+	if ori == "water" then return "물"
+	--elseif ori == "" then return "" --@@ 현재 'water'만 사용되고 있음
+	else return str end 
+end
