@@ -379,6 +379,10 @@ end
 function _M:finishEntity(level, type, e, ego_filter)
 	e = e:clone()
 	e:resolve()
+	
+	local newKrName, krAdd, krMain --@@ 한글 이름을 위한 변수 추가
+	krMain = (e.kr_name or e.name) --@@ 한글 이름 초기 작업
+	krAdd = "" --@@ 한글 이름 초기 작업
 
 	-- Add "addon" properties, awlays
 	if not e.unique and e.addons then
@@ -387,9 +391,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 		pick_ego(self, level, e, e.addons, egos_list, type, {}, "addon", nil)
 
 		if #egos_list > 0 then
-			local newKrName, krAdd, krMain --@@ 한글 이름을 위한 변수 추가
-			krMain = (e.kr_name or e.name) --@@ 한글 이름 초기 작업
-			krAdd = "" --@@ 한글 이름 초기 작업
+			--@@ 한글 이름 초기화 작업은 아래쪽과의 연동을 위해 바깥으로 뺌
 			
 			for ie, ego in ipairs(egos_list) do
 				--@@ 아래부분에서 물건 이름 조합 - 통채 kr_name도 조합하도록 변경
@@ -490,10 +492,7 @@ function _M:finishEntity(level, type, e, ego_filter)
 		end
 
 		if #egos_list > 0 then
-			local newKrName, krAdd, krMain --@@ 한글 이름을 위한 변수 추가
-			krMain = (e.kr_name or e.name) --@@ 한글 이름 초기 작업
-			krAdd = "" --@@ 한글 이름 초기 작업
-			
+			--@@ 한글 이름 초기화 작업은 위에서 수정한 내용을 그대로 이어받음			
 			for ie, ego in ipairs(egos_list) do
 				--@@ 아래부분에서 물건 이름 조합 - 통채 kr_name도 조합하도록 변경
 				print("ego", ego.__CLASSNAME, ego.name, getmetatable(ego))
