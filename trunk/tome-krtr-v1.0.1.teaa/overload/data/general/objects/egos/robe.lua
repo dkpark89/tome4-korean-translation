@@ -103,7 +103,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of darkness (#RESIST#)", suffix=true, instant_resolve=true,
-	kr_name = "어둠의 ",
+	kr_name = "어둠(#RESIST#)의 ",
 	keywords = {darkness=true},
 	level_range = {1, 50},
 	rarity = 6,

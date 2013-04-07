@@ -127,7 +127,7 @@ newEntity{
 	power_source = {technique=true},
 	name = " of stability", suffix=true, instant_resolve=true,
 	kr_name = "안정성의 ",
-	keywords = {stablity=true},
+	keywords = {stability=true},
 	level_range = {1, 50},
 	rarity = 7,
 	cost = 6,
