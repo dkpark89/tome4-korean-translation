@@ -73,7 +73,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of perseverance", suffix=true, instant_resolve=true,
-	kr_name = "보존의 ",
+	kr_name = "불굴의 ",
 	keywords = {perseverance =true},
 	level_range = {1, 50},
 	rarity = 4,
@@ -362,7 +362,7 @@ newEntity{
 	power_source = {technique=true},
 	name = "marksman's ", prefix=true, instant_resolve=true,
 	kr_name = "저격수 ",
-	keywords = {marskman=true},
+	keywords = {marksman=true},
 	level_range = {1, 50},
 	rarity = 7,
 	cost = 6,

@@ -336,6 +336,35 @@ function _M:getShortName(t)
 	end
 end
 
+--@@ getShortName의 한글화 버전 (필요시에만 사용할 것) : 현재, 장비착용창에서만 사용( /engine/ui/EquipDollFrame.lua:114 )
+function _M:getKrShortName(t)
+	if not self.short_name then return self:getName(t) end
+
+	t = t or {}
+	local qty = self:getNumber()
+	local name = self.short_name:krItemShortName() --@@ 짧은 한글 이름으로 변환
+
+	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
+
+	if self.keywords and next(self.keywords) then
+		local k = table.krKeys( self.keywords ) --@@ 한글 키워드로 변환하여 삽입
+		table.sort(k)
+		name = name..","..table.concat(k, ',')
+	end
+
+	if not t.do_color then
+		if qty == 1 or t.no_count then return name
+		else return qty.." "..name
+		end
+	else
+		local _, c = self:getDisplayColor()
+		local ds = t.no_image and "" or self:getDisplayString()
+		if qty == 1 or t.no_count then return c..ds..name.."#LAST#"
+		else return c..qty.." "..ds..name.."#LAST#"
+		end
+	end
+end
+
 --- Gets the full textual desc of the object without the name and requirements
 function _M:getTextualDesc(compare_with)
 	compare_with = compare_with or {}

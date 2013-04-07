@@ -86,7 +86,7 @@ newEntity{
 	power_source = {arcane=true},
 	name = "prismatic ", prefix=true, instant_resolve=true,
 	kr_name = "프리즘 ",
-	keywords = {primatic=true},
+	keywords = {prismatic=true},
 	level_range = {10, 50},
 	rarity = 10,
 	cost = 7,

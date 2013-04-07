@@ -35,8 +35,8 @@ local function floorEffect(t)
 	t.subtype = { floor=true }
 	t.status = "neutral"
 	t.parameters = {}
-	t.on_gain = function(self, err) return nil, "+"..t.desc end
-	t.on_lose = function(self, err) return nil, "-"..t.desc end
+	t.on_gain = function(self, err) return nil, "+"..(t.kr_name or t.desc) end
+	t.on_lose = function(self, err) return nil, "-"..(t.kr_name or t.desc) end
 
 	newEffect(t)
 end
