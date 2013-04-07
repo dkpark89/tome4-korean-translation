@@ -897,7 +897,7 @@ end
 
 function string.krKeywords(str)
 	-- 관련내용 /data/general/objects/egos/에 있는 일반 아이템들의 keywords 들
-	-- 장비창에서의 짧은 아이템 설명에 사용. 이 파일의 table.krKeys 함수에서 사용
+	-- 장비창에서의 짧은 아이템 설명에 사용. 이 파일의 table.krKeywordKeys 함수에서 사용
 	local ori = str:lower()
 	local firstCh = ori:sub(1, 1) -- 속도를 위해 첫번자 글자만 떼서 먼저 검사
 	if firstCh == "'" then
@@ -1398,7 +1398,7 @@ function string.krKeywords(str)
 	return str  
 end
 
-function table.krKeys(t)
+function table.krKeywordKeys(t)
 	-- 장비창에서의 짧은 아이템 설명에 사용. /mod/class/Object.lua:350번 줄에서 사용
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krKeywords() end
@@ -1412,4 +1412,111 @@ function string.krBreath(str)
 	if ori == "water" then return "물"
 	--elseif ori == "" then return "" --@@ 현재 'water'만 사용되고 있음
 	else return str end 
+end
+
+function string.krEffectType(str)
+	-- 관련내용 /data/timed_effects/하위에서 "type"으로 검색해서 나오는 것들
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1247, 1249번 줄에서 사용
+	local ori = str:lower()
+	if ori == "physical" then return "물리적 효과"
+	elseif ori == "magical" then return "마법적 효과"
+	elseif ori == "mental" then return "정신적 효과"
+	elseif ori == "other" then return "기타 효과"
+	else return str end 
+end
+
+function string.krEffectSubtype(str)
+	-- 관련내용 /data/timed_effects/하위에서 "subtype"으로 검색해서 나오는 것들
+	-- 상태 효과의 속성들. 이 파일의 table.krEffectKeys 함수에서 사용
+	local ori = str:lower()
+	if ori == '"cross tier"' then return "단계 차이"
+	elseif ori == 'acid' then return "산성"
+	elseif ori == 'antimagic' then return "반마법"
+	elseif ori == 'arcane' then return "마법"
+	elseif ori == 'aura' then return "오러"
+	elseif ori == 'bane' then return "맹독"
+	elseif ori == 'blight' then return "황폐"
+	elseif ori == 'blind' then return "실명"
+	elseif ori == 'blood' then return "피"
+	elseif ori == 'circle' then return "장치"
+	elseif ori == 'cold' then return "냉기"
+	elseif ori == 'confusion' then return "혼란"
+	elseif ori == 'corruption' then return "타락"
+	elseif ori == 'cross tier' then return "단계 차이"
+	elseif ori == 'curse' then return "저주"
+	elseif ori == 'cut' then return "출혈"
+	elseif ori == 'darkness' then return "어둠"
+	elseif ori == 'disarm' then return "무장해제"
+	elseif ori == 'disease' then return "질병"
+	elseif ori == 'distortion' then return "왜곡"
+	elseif ori == 'dominate' then return "지배"
+	elseif ori == 'earth' then return "대지"
+	elseif ori == 'eidolon' then return "에이돌론"
+	elseif ori == 'evade' then return "회피"
+	elseif ori == 'fear' then return "공포"
+	elseif ori == 'fire' then return "화염"
+	elseif ori == 'floor' then return "지형"
+	elseif ori == 'focus' then return "집중"
+	elseif ori == 'frenzy' then return "광란"
+	elseif ori == 'gloom' then return "침울함"
+	elseif ori == 'golem' then return "골렘"
+	elseif ori == 'grapple' then return "잡기"
+	elseif ori == 'heal' then return "치료"
+	elseif ori == 'healing' then return "치료"
+	elseif ori == 'hex' then return "매혹"
+	elseif ori == 'ice' then return "얼음"
+	elseif ori == 'infusion' then return "주입"
+	elseif ori == 'light' then return "빛"
+	elseif ori == 'lightning' then return "전기"
+	elseif ori == 'madness' then return "광기"
+	elseif ori == 'mind' then return "정신"
+	elseif ori == 'miscellaneous' then return "기타"
+	elseif ori == 'morale' then return "사기"
+	elseif ori == 'moss' then return "이끼"
+	elseif ori == 'mucus' then return "점액"
+	elseif ori == 'nature' then return "자연"
+	elseif ori == 'nightmare' then return "악몽"
+	elseif ori == 'pain' then return "고통"
+	elseif ori == 'phantasm' then return "환상"
+	elseif ori == 'pin' then return "속박"
+	elseif ori == 'poison' then return "독"
+	elseif ori == 'possess' then return "소유"
+	elseif ori == 'predator' then return "포식자"
+	elseif ori == 'psionic' then return "초능력"
+	elseif ori == 'psychic_drain' then return "정신적 흡수"
+	elseif ori == 'rune' then return "룬"
+	elseif ori == 'sense' then return "감지"
+	elseif ori == 'shield' then return "보호막"
+	elseif ori == 'silence' then return "침묵"
+	elseif ori == 'sleep' then return "수면"
+	elseif ori == 'slow' then return "감속"
+	elseif ori == 'spacetime' then return "시공간"
+	elseif ori == 'speed' then return "가속"
+	elseif ori == 'status' then return "상태"
+	elseif ori == 'stone' then return "암석"
+	elseif ori == 'stun' then return "기절"
+	elseif ori == 'suffocating' then return "숨막힘"
+	elseif ori == 'summon' then return "소환"
+	elseif ori == 'sunder' then return "손상"
+	elseif ori == 'tactic' then return "전술"
+	elseif ori == 'taint' then return "감염"
+	elseif ori == 'telekinesis' then return "염동력"
+	elseif ori == 'teleport' then return "순간이동"
+	elseif ori == 'temporal' then return "시간"
+	elseif ori == 'time' then return "시간왜곡"
+	elseif ori == 'timeport' then return "시공간이동"
+	elseif ori == 'undead' then return "언데드"
+	elseif ori == 'unknown' then return "알수없음"
+	elseif ori == 'vault' then return "금고"
+	elseif ori == 'veil' then return "은폐"
+	elseif ori == 'willpower' then return "의지"
+	elseif ori == 'wound' then return "상처"
+	else return str end 
+end
+
+function table.krEffectKeys(t)
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1244번 줄에서 사용
+	local tt = {}
+	for k, e in pairs(t) do tt[#tt+1] = k:krEffectSubtype() end
+	return tt
 end

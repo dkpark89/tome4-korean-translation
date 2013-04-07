@@ -347,7 +347,7 @@ function _M:getKrShortName(t)
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
 	if self.keywords and next(self.keywords) then
-		local k = table.krKeys( self.keywords ) --@@ 한글 키워드로 변환하여 삽입
+		local k = table.krKeywordKeys( self.keywords ) --@@ 한글 키워드로 변환하여 삽입
 		table.sort(k)
 		name = name..","..table.concat(k, ',')
 	end
