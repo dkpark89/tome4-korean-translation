@@ -113,7 +113,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the depths", suffix=true,
-	kr_name = "지하의 ",
+	kr_name = "깊이의 ",
 	keywords = {depths=true},
 	level_range = {15, 50},
 	rarity = 10,

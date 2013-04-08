@@ -455,6 +455,7 @@ function string.krRace(str)
 	local ori = str:lower()
 	if ori == "3head" then return "삼두형"
 	elseif ori == "air" then return "공기"
+	elseif ori == "all" then return "전체"
 	elseif ori == "animal" then return "동물"
 	elseif ori == "ant" then return "개미"
 	elseif ori == "antimagic" then return "반마법"
@@ -1019,7 +1020,7 @@ function string.krKeywords(str)
 		elseif ori == "defiled" then return "모독"
 		elseif ori == "deflection" then return "굴절"
 		elseif ori == "delving" then return "탐구"
-		elseif ori == "depths" then return "지하"
+		elseif ori == "depths" then return "깊이"
 		elseif ori == "detect" then return "탐정"
 		elseif ori == "dex" then return "민첩"
 		elseif ori == "dexterity" then return "민첩"
