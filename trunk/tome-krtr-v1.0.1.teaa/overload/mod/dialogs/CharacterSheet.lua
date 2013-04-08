@@ -524,7 +524,14 @@ function _M:drawDialog(kind, actor_to_compare)
 			self:mouseTooltip(self.TOOLTIP_ESP,  s:drawColorStringBlended(self.font, ("보유한 투시력 : "), w, h, 255, 255, 255, true)) h = h + self.font_h
 			if not esps_compare["All"] then
 				for type, v in pairs(esps_compare) do
-					self:mouseTooltip(self.TOOLTIP_ESP,  s:drawColorStringBlended(self.font, ("%s%s "):format(v[2] and (v[1] and "#GOLD#" or "#00ff00#") or "#ff0000#", type:capitalize():krActorType()), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
+					local _, _, ot, ost = type:find("^([^/]+)/?(.*)$") --@@ 종족이름 한글화를 위해 일단 종족/세부종족을 분리
+					local krType = ""
+					if ost and ost ~= "" then
+						krType = ot:capitalize():krActorType().."/"..ost:capitalize():krActorType() --@@ 종족이름 한글화 : 세부종족이 있는 경우
+					else
+						krType = ot:capitalize():krActorType() --@@ 종족이름 한글화 : 세부종족이 없는 경우
+					end
+					self:mouseTooltip(self.TOOLTIP_ESP,  s:drawColorStringBlended(self.font, ("%s%s "):format(v[2] and (v[1] and "#GOLD#" or "#00ff00#") or "#ff0000#", krType), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			else
 				self:mouseTooltip(self.TOOLTIP_ESP_ALL,  s:drawColorStringBlended(self.font, ("%s전체 "):format(esps_compare["All"][1] and "#GOLD#" or "#00ff00#"), w, h, 255, 255, 255, true)) h = h + self.font_h
@@ -761,15 +768,22 @@ function _M:drawDialog(kind, actor_to_compare)
 			end
 		end
 		for i, ts in pairs(inc_damage_actor_types) do
+			local _, _, ot, ost = i:find("^([^/]+)/?(.*)$") --@@ 종족이름 한글화를 위해 일단 종족/세부종족을 분리
+			local krType = ""
+			if ost and ost ~= "" then
+				krType = ot:capitalize():krActorType().."/"..ost:capitalize():krActorType() --@@ 종족이름 한글화 : 세부종족이 있는 경우
+			else
+				krType = ot:capitalize():krActorType() --@@ 종족이름 한글화 : 세부종족이 없는 경우
+			end
 			if ts[1] then
 				if ts[2] and ts[2] ~= ts[1] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format(i:capitalize():krActorType().."#LAST# 피해량", ts[1], ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%%s(%+.0f%%)"):format(krType.."#LAST# 피해량", ts[1], ts[2] > ts[1] and "#ff0000#" or "#00ff00#", ts[1] - ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				else
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%"):format(i:capitalize():krActorType().."#LAST# 피해량", ts[1]), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%"):format(krType.."#LAST# 피해량", ts[1]), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			else
 				if ts[2] then
-					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%(%+.0f%%)"):format(i:capitalize():krActorType().."#LAST# 피해량", 0,-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
+					self:mouseTooltip(self.TOOLTIP_INC_DAMAGE, s:drawColorStringBlended(self.font, ("#ORANGE#%-20s: #00ff00#%+d%%(%+.0f%%)"):format(krType.."#LAST# 피해량", 0,-ts[2] ), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			end
 		end
@@ -885,7 +899,14 @@ function _M:drawDialog(kind, actor_to_compare)
 		if player.resists_actor_type then
 			for i, t in pairs(player.resists_actor_type) do
 				if t and t ~= 0 then
-					self:mouseTooltip(self.TOOLTIP_RESIST, s:drawColorStringBlended(self.font, ("#ORANGE#%-10s#LAST#: #00ff00#%3d%% / %d%%"):format(i:capitalize():krActorType(), t, player.resists_cap_actor_type or 100), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
+					local _, _, ot, ost = i:find("^([^/]+)/?(.*)$") --@@ 종족이름 한글화를 위해 일단 종족/세부종족을 분리
+					local krType = ""
+					if ost and ost ~= "" then
+						krType = ot:capitalize():krActorType().."/"..ost:capitalize():krActorType() --@@ 종족이름 한글화 : 세부종족이 있는 경우
+					else
+						krType = ot:capitalize():krActorType() --@@ 종족이름 한글화 : 세부종족이 없는 경우
+					end
+					self:mouseTooltip(self.TOOLTIP_RESIST, s:drawColorStringBlended(self.font, ("#ORANGE#%-10s#LAST#: #00ff00#%3d%% / %d%%"):format(krType, t, player.resists_cap_actor_type or 100), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 종족이름 한글화
 				end
 			end
 		end

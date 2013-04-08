@@ -24,7 +24,7 @@ local List = require "engine.ui.List"
 module(..., package.seeall, class.inherit(engine.ui.Dialog))
 
 local orders = {
-	escort_rest = {-100, function(actor) return "잠시 대기" end},
+	escort_rest = {-100, function(actor) return "잠시만 기다리세요." end},
 	escort_portal = {-99, function(actor) return "관문은 어디있죠?" end},
 	target = {1, function(actor) return ("목표 설정 [현재 : %s]"):format(actor.ai_target.actor and actor.ai_target.actor.name or "없음") end},
 	behavior = {2, function(actor) return ("행동 설정 [현재 : %s]"):format(actor.ai_tactic.type or "기본") end},
