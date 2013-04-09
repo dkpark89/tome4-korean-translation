@@ -250,7 +250,7 @@ newTalent{
 	info = function(self, t)
 		return ([[몸 속의 장기들이 녹아내리고 마구 섞여, 치명타를 잘 받지 않게 됩니다.
 		적에게 치명타를 받았을 경우, 이를 %d%% 확률로 보통 공격이 되게 만듭니다.
-		추가적으로, 당신의 질병, 중독, 출혈, 혼란 면역력이 %d%% 증가하게 됩니다.]]):
+		추가적으로, 당신의 질병, 중독, 출혈, 혼란, 실명 면역력이 %d%% 증가하게 됩니다.]]):
 		format(self:getTalentLevelRaw(t) * 15, self:getTalentLevelRaw(t) * 20)
 	end,
 }
