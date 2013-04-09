@@ -172,7 +172,7 @@ function necroSetupSummon(self, m, x, y, level, no_control, no_decay)
 		game.party:addMember(m, {
 			control=can_control and "full" or "no",
 			type="minion",
-			title="Necrotic Minion",
+			title="Necrotic Minion", kr_title="언데드 추종자",
 			orders = {target=true},
 		})
 	end

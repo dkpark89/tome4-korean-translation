@@ -116,7 +116,7 @@ newEffect{
 		game.party:addMember(self, {
 			control="full",
 			type="thrall",
-			title="Thrall",
+			title="Thrall", kr_title="지배됨",
 			orders = {leash=true, follow=true},
 			on_control = function(self)
 				self:hotkeyAutoTalents()

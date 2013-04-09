@@ -469,7 +469,7 @@ newTalent{
 		sentry.no_points_on_levelup = true
 		if game.party:hasMember(self) then
 			sentry.remove_from_party_on_death = true
-			game.party:addMember(sentry, { control="no", type="summon", title="Summon"})
+			game.party:addMember(sentry, { control="no", type="summon", title="Summon", kr_title="소환수"})
 		end
 
 		game:playSoundNear(self, "talents/spell_generic")

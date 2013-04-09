@@ -230,7 +230,7 @@ newTalent{
 			game.party:addMember(m, {
 				control="no",
 				type="minion",
-				title="Forgery of Haze",
+				title="Forgery of Haze", kr_title="아지랑이 환영",
 				orders = {target=true},
 			})
 		end

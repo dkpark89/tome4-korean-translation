@@ -105,7 +105,7 @@ newTalent{
 		game.party:addMember(target, {
 			control="full",
 			type="possesed",
-			title="Possessed Husk",
+			title="Possessed Husk", kr_title="소유된 껍데기",
 			orders = {leash=true, follow=true},
 			on_control = function(self)
 				self:hotkeyAutoTalents()

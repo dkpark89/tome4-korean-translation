@@ -30,7 +30,7 @@ newChat{ id="welcome",
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
@@ -57,7 +57,7 @@ newChat{ id="welcome",
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
@@ -67,7 +67,7 @@ newChat{ id="welcome",
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
@@ -92,7 +92,7 @@ newChat{ id="welcome",
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},

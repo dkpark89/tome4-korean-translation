@@ -342,7 +342,7 @@ newTalent{
 			game.party:addMember(m, {
 				control="no",
 				type="terror",
-				title="Night Terror",
+				title="Night Terror", kr_title="밤의 공포",
 				orders = {target=true},
 			})
 		end

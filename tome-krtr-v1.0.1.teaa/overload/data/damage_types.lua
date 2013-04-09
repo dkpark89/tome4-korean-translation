@@ -2415,7 +2415,7 @@ newDamageType{
 		orc:forceLevelup(src.level)
 
 		orc.remove_from_party_on_death = true
-		game.party:addMember(orc, {control="no", type="garkul spirit", title="Garkul Spirit"})
+		game.party:addMember(orc, {control="no", type="garkul spirit", title="Garkul Spirit", kr_title="가르쿨의 영혼"})
 		orc:setTarget(target)
 	end,
 }

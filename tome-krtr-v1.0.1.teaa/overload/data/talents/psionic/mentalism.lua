@@ -206,7 +206,7 @@ newTalent{
 			game.party:addMember(m, {
 				control="full",
 				type = m.type, subtype="ghost",
-				title="Projection of "..self.name,
+				title="Projection of "..self.name, kr_title=(self.kr_name or self.name).."의 투영",
 				temporary_level=1,
 				orders = {target=true},
 				on_control = function(self)

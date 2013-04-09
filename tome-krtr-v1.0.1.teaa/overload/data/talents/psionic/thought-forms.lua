@@ -137,7 +137,7 @@ function setupThoughtForm(self, m, x, y, t)
 		game.party:addMember(m, {
 			control="no",
 			type="thought-form",
-			title="thought-form",
+			title="thought-form", kr_title="생각의 구현",
 			orders = {target=true, leash=true, anchor=true, talents=true},
 		})
 	end
