@@ -4721,7 +4721,7 @@ newEntity{ base = "BASE_LITE", --Thanks Grayswandir!
 			game.party:addMember(m, {
 				control=false,
 				type="summon",
-				title="Summon",
+				title="Summon", kr_title="소환수",
 				orders = {target=true, leash=true, anchor=true, talents=true},
 			})
 			return {id=true, used=true}
@@ -4821,7 +4821,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 			game.party:addMember(m, {
 				control=false,
 				type="summon",
-				title="Summon",
+				title="Summon", kr_title="소환수",
 				orders = {target=true, leash=true, anchor=true, talents=true},
 			})
 			return {id=true, used=true}

@@ -182,7 +182,7 @@ function _M:newGame()
 	self.party:addMember(player, {
 		control="full",
 		type="player",
-		title="Main character",
+		title="Main character", kr_title="주 캐릭터",
 		main=true,
 		orders = {target=true, anchor=true, behavior=true, leash=true, talents=true},
 	})

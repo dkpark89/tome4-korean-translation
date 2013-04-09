@@ -230,7 +230,7 @@ newTalent{
 			game.party:addMember(m, {
 				control="no",
 				type="minion",
-				title="Paradox Clone",
+				title="Paradox Clone", kr_title="모순된 복제",
 				orders = {target=true},
 			})
 		end

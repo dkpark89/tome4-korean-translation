@@ -1424,7 +1424,7 @@ function _M:displayParty(scale, bx, by)
 			if not self.party[a] then
 				local def = game.party.members[a]
 
-				local text = "#GOLD##{bold}#"..(a.kr_name or a.name).."\n#WHITE##{normal}#생명력 : "..math.floor(100 * a.life / a.max_life).."%\n레벨 : "..a.level.."\n"..def.title
+				local text = "#GOLD##{bold}#"..(a.kr_name or a.name).."\n#WHITE##{normal}#생명력 : "..math.floor(100 * a.life / a.max_life).."%\n레벨 : "..a.level.."\n"..(def.kr_title or def.title)
 				local is_first = is_first
 				local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
 					if is_first then

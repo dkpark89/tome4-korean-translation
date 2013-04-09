@@ -106,7 +106,7 @@ function melindaCompanion(self, who, c, sc)
 	melinda:forceLevelup(who.level)
 
 	game.party:addMember(melinda, {
-		control="full", type="companion", title="Melinda",
+		control="full", type="companion", title="Melinda", kr_title="멜린다",
 		orders = {target=true, leash=true, anchor=true, talents=true, behavior=true},
 	})
 end

@@ -44,7 +44,7 @@ on_grant = function(self, who)
 	game.zone:addEntity(game.level, norgan, "actor", x, y)
 
 	game.party:addMember(norgan, {
-		control="order", type="squadmate", title="Norgan",
+		control="order", type="squadmate", title="Norgan", kr_title="노르간",
 		orders = {leash=true, anchor=true}, -- behavior=true},
 	})
 end

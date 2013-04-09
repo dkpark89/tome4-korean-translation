@@ -787,7 +787,7 @@ newEffect{
 			-- Add to the party
 			if self.player then
 				m.remove_from_party_on_death = true
-				game.party:addMember(m, {control="no", type="summon", title="Summon"})
+				game.party:addMember(m, {control="no", type="summon", title="Summon", kr_title="소환수"})
 			end
 
 			game.level.map:particleEmitter(x, y, 1, "slime")
@@ -1235,7 +1235,7 @@ newEffect{
 						-- Add to the party
 						if e.src.player then
 							m.remove_from_party_on_death = true
-							game.party:addMember(m, {control="no", type="nightmare", title="Nightmare"})
+							game.party:addMember(m, {control="no", type="nightmare", title="Nightmare", kr_title="악몽"})
 						end
 
 						game.zone:addEntity(game.level, m, "actor", location[1], location[2])
@@ -1725,7 +1725,7 @@ newEffect{
 				game.party:addMember(m, {
 					control="full",
 					type="projection",
-					title="Dream Self",
+					title="Dream Self", kr_title="스스로의 꿈",
 					orders = {target=true},
 				})
 				if eff.target == game.player then

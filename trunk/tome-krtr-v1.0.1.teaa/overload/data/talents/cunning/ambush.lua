@@ -178,7 +178,7 @@ newTalent{
 			game.party:addMember(m, {
 				control="full",
 				type="shadow",
-				title="Shadow of "..self.name,
+				title="Shadow of "..self.name, kr_title=(self.kr_name or self.name).."의 그림자",
 				temporary_level=1,
 				orders = {target=true},
 				on_control = function(self)

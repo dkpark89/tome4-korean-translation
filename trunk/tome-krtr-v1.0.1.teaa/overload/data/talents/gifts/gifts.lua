@@ -143,7 +143,7 @@ function setupSummon(self, m, x, y, no_control)
 		game.party:addMember(m, {
 			control=can_control and "full" or "no",
 			type="summon",
-			title="Summon",
+			title="Summon", kr_title="소환수",
 			orders = {target=true, leash=true, anchor=true, talents=true},
 			on_control = function(self)
 				local summoner = self.summoner
