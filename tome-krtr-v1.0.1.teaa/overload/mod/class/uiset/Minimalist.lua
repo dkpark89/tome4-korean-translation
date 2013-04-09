@@ -1782,7 +1782,7 @@ function _M:displayHotkeys(scale, bx, by)
 				function(i, hk)
 					if button == "right" and hk and hk[1] == "talent" then
 						local d = require("mod.dialogs.UseTalents").new(game.player)
-						d:use({talent=hk[2], name=game.player:getTalentFromId(hk[2]).name}, "right")
+						d:use({talent=hk[2], name=game.player:getTalentFromId(hk[2]).name, kr_name=game.player:getTalentFromId(hk[2]).kr_name}, "right") --@@ 한글이름도 넘겨줌
 						return true
 					end
 				end
