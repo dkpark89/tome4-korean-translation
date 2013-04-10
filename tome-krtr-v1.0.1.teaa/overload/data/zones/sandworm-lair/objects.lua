@@ -46,9 +46,9 @@ newEntity{
 		who.unused_stats = who.unused_stats + 3
 		who.unused_talents = who.unused_talents + 1
 		who.unused_generics = who.unused_generics + 1
-		game.logPlayer(who, "사용할 수 있는 능력치 점수 %d점이 있습니다. 'G' 키를 눌러 사용할 수 있습니다.", who.unused_stats)
-		game.logPlayer(who, "사용할 수 있는 직업기술 점수 %d점이 있습니다. 'G' 키를 눌러 사용할 수 있습니다.", who.unused_talents)
-		game.logPlayer(who, "사용할 수 있는 일반기술 점수 %d점이 있습니다. 'G' 키를 눌러 사용할 수 있습니다.", who.unused_generics)
+		game.logPlayer(who, "사용할 수 있는 능력치 점수 %d점이 있습니다. 'Shift + G' 키를 눌러 사용할 수 있습니다.", who.unused_stats)
+		game.logPlayer(who, "사용할 수 있는 직업기술 점수 %d점이 있습니다. 'Shift + G' 키를 눌러 사용할 수 있습니다.", who.unused_talents)
+		game.logPlayer(who, "사용할 수 있는 일반기술 점수 %d점이 있습니다. 'Shift + G' 키를 눌러 사용할 수 있습니다.", who.unused_generics)
 
 		if not who:attr("forbid_nature") then
 			if who:knowTalentType("wild-gift/harmony") then
@@ -61,7 +61,7 @@ newEntity{
 			-- Make sure a previous amulet didnt bug it out
 			if who:getTalentTypeMastery("wild-gift/harmony") == 0 then who:setTalentTypeMastery("wild-gift/harmony", 1) end
 			game.logPlayer(who, "여왕의 심장이 당신을 변화시켰습니다!")
-			game.logPlayer(who, "#00FF00#당신은 자연과의 친화력을 얻어, 이제 새로운 기술계열 '조화' 를 배울 수 있습니다. ('G' 키를 눌러 확인할 수 있습니다)")
+			game.logPlayer(who, "#00FF00#당신은 자연과의 친화력을 얻어, 이제 새로운 기술계열 '조화' 를 배울 수 있습니다. ('Shift + G' 키를 눌러 확인할 수 있습니다)")
 
 			who:attr("drake_touched", 1)
 		end
@@ -86,7 +86,7 @@ newEntity{
 	use_simple = { name="drink the vile blood", kr_name="불결한 피 섭취", use = function(self, who)
 		game.logPlayer(who, "#00FFFF#당신은 용의 담즙을 마셨고, 영원히 변화했음을 느낍니다!")
 		who.unused_talents_types = who.unused_talents_types + 1
-		game.log("사용할 수 있는 기술계열 점수 %d점이 있습니다. 'G' 키를 눌러 사용할 수 있습니다.", who.unused_talents_types)
+		game.log("사용할 수 있는 기술계열 점수 %d점이 있습니다. 'Shift + G' 키를 눌러 사용할 수 있습니다.", who.unused_talents_types)
 
 		local str, dex, con, mag, wil, cun = rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6), rng.range(-3, 6)
 		who:incStat("str", str) if str >= 0 then str="+"..str end
