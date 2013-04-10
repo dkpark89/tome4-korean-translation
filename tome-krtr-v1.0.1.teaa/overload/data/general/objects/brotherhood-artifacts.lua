@@ -148,7 +148,7 @@ newEntity{
 		game.logPlayer(who, "#00FFFF#당신은 엘릭서를 마셨습니다. 신체가 영구적으로 변화되었습니다!")
 		who.unused_stats = who.unused_stats + 4
 		game.logPlayer(who, "#00FF00#이 엘릭서는 당신의 육체나 정신을 향상시킬 수 있는 수용력을 넓혀줍니다.")
-		game.logPlayer(who, "당신은 %d 점의 능력치 점수를 사용할 수 있습니다. 사용하려면 'G'를 누르세요.", who.unused_stats)
+		game.logPlayer(who, "당신은 %d 점의 능력치 점수를 사용할 수 있습니다. 사용하려면 'p' 키를 누르세요.", who.unused_stats)
 		return {used=true, id=true, destroy=true}
 	end}
 }

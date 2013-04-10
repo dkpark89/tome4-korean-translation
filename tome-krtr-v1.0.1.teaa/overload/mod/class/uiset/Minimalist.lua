@@ -1776,7 +1776,7 @@ function _M:displayHotkeys(scale, bx, by)
 			self.hotkeys_display:onMouse(button, mx, my, event == "button",
 				function(text)
 					text = text:toTString()
-					text:add(true, "---", true, {"font","italic"}, {"color","GOLD"}, "클릭 : 사용", true, "우클릭 : 설정", true, "모든 기술 설정창 : 'M'", {"color","LAST"}, {"font","normal"})
+					text:add(true, "---", true, {"font","italic"}, {"color","GOLD"}, "클릭 : 사용", true, "우클릭 : 설정", true, "모든 기술 설정창 : 'm'키", {"color","LAST"}, {"font","normal"})
 					game:tooltipDisplayAtMap(game.w, game.h, text)
 				end,
 				function(i, hk)

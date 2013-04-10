@@ -172,9 +172,9 @@ ActorInventory:defineInventory("FEET", "On feet", true, "발에는 신발을 신
 ActorInventory:defineInventory("TOOL", "Tool", true, "여기에는 언제든 바로 쓸 수 있도록 도구를 준비해 둡니다.", nil, {equipdoll_back="ui/equipdoll/tool_inv.png"})
 ActorInventory:defineInventory("QUIVER", "Quiver", true, "준비된 탄환입니다.", nil, {equipdoll_back="ui/equipdoll/ammo_inv.png"})
 ActorInventory:defineInventory("GEM", "Socketed Gems", true, "보석이 들어갈 구멍입니다.", nil, {equipdoll_back="ui/equipdoll/gem_inv.png"})
-ActorInventory:defineInventory("QS_MAINHAND", "Second weapon set: In main hand", false, "두 번째 무장 : 대부분의 무기는 편한 쪽 손으로 쥡니다. 'x' 를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
-ActorInventory:defineInventory("QS_OFFHAND", "Second weapon set: In off hand", false, "두 번째 무장 : 반대쪽 손으로는 방패를 잡거나 보조 무기를 듭니다. 'x' 를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
-ActorInventory:defineInventory("QS_PSIONIC_FOCUS", "Second weapon set: psionic focus", false, "두 번째 무장 : 염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 물건이 주는 혜택을 받기 위해 다른 물건을 잡을 수도 있습니다. 'x'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_MAINHAND", "Second weapon set: In main hand", false, "두 번째 무장 : 대부분의 무기는 편한 쪽 손으로 쥡니다. 'q' 를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_OFFHAND", "Second weapon set: In off hand", false, "두 번째 무장 : 반대쪽 손으로는 방패를 잡거나 보조 무기를 듭니다. 'q' 를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
+ActorInventory:defineInventory("QS_PSIONIC_FOCUS", "Second weapon set: psionic focus", false, "두 번째 무장 : 염동력으로 물체를 잡을 수 있습니다. 여기에는 전투를 위해 무기를 들 수도 있고, 물건이 주는 혜택을 받기 위해 다른 물건을 잡을 수도 있습니다. 'q'를 누르면 준비된 무장을 바꿀 수 있습니다.", true)
 ActorInventory:defineInventory("QS_QUIVER", "Second weapon set: Quiver", false, "두 번째 무장 : 준비된 탄환입니다.", true)
 ActorInventory.equipdolls = {
 	default = { w=48, h=48, itemframe="ui/equipdoll/itemframe48.png", itemframe_sel="ui/equipdoll/itemframe-sel48.png", ix=3, iy=3, iw=42, ih=42, doll_x=116, doll_y=168+64, list={
