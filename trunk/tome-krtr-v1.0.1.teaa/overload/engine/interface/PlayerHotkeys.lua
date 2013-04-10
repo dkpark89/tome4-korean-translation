@@ -108,7 +108,7 @@ function _M:activateHotkey(id)
 	if self.hotkey[id] then
 		self["hotkey"..self.hotkey[id][1]:capitalize()](self, self.hotkey[id][2])
 	else
-		Dialog:simplePopup("단축키 없음", "단축키는 'M'키를 눌러 설정할 수 있습니다.")
+		Dialog:simplePopup("단축키 없음", "단축키는 'm'키를 눌러 설정할 수 있습니다.")
 	end
 end
 

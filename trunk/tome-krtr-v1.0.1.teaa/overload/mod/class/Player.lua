@@ -1462,23 +1462,23 @@ end
 
 ------ Quest Events
 function _M:on_quest_grant(quest)
-	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'J' 키를 눌러서 볼 수 있습니다)", (quest.kr_name or quest.name))
+	game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 수락! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", (quest.kr_name or quest.name))
 	game.bignews:saySimple(60, "#LIGHT_GREEN#'%s' 퀘스트 수락!", (quest.kr_name or quest.name))
 end
 
 function _M:on_quest_status(quest, status, sub)
 	local qn = (quest.kr_name or quest.name) --@@ 두줄뒤부터 열두줄뒤까지 사용 : 반복 사용으로 변수로 뺌
 	if sub then
-		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'J' 키를 눌러서 볼 수 있습니다)", qn)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 갱신! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
 		game.bignews:saySimple(60, "#LIGHT_GREEN#'%s' 퀘스트 갱신!", qn)
 	elseif status == engine.Quest.COMPLETED then
-		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 완료! #WHITE#(퀘스트 일지는 'J' 키를 눌러서 볼 수 있습니다)", qn)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 완료! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
 		game.bignews:saySimple(60, "#LIGHT_GREEN#'%s' 퀘스트 완료!", qn)
 	elseif status == engine.Quest.DONE then
-		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 성공! #WHITE#(퀘스트 일지는 'J' 키를 눌러서 볼 수 있습니다)", qn)
+		game.logPlayer(game.player, "#LIGHT_GREEN#'%s' 퀘스트 성공! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
 		game.bignews:saySimple(60, "#LIGHT_GREEN#'%s' 퀘스트 성공!", qn)
 	elseif status == engine.Quest.FAILED then
-		game.logPlayer(game.player, "#LIGHT_RED#'%s' 퀘스트 실패! #WHITE#(퀘스트 일지는 'J' 키를 눌러서 볼 수 있습니다)", qn)
+		game.logPlayer(game.player, "#LIGHT_RED#'%s' 퀘스트 실패! #WHITE#(퀘스트 일지는 'j' 키를 눌러서 볼 수 있습니다)", qn)
 		game.bignews:saySimple(60, "#LIGHT_RED#'%s' 퀘스트 실패!", qn)
 	end
 end

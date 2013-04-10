@@ -60,7 +60,7 @@ function _M:init(actor)
 	self.c_tut = Textzone.new{width=math.floor(self.iw / 2 - 10), height=1, auto_height=true, no_color_bleed=true, text=[[
 지속형이 아닌 기술은 선택 후 원하는 단축키를 누르거나 우클릭을 해서 단축키로 연결할 수 있습니다.
 게임 메뉴의 명령어 입력 설정에서 단축키로 사용할 명령어를 정할 수 있습니다. (기본적으로는 숫자키부터 '=' 키 까지, 그리고 여기에 컨트롤, 알트, 쉬프트 키를 조합하여 사용합니다)
-기술을 우클릭 하거나 '~' 키를 누르면 기술 설정 창이 열립니다. 이 창에서 기술 단축키 설정과 자동 사용 설정 등을 할 수 있습니다.
+기술을 우클릭 하거나 'Shift + ~' 키를 누르면 기술 설정 창이 열립니다. 이 창에서 기술 단축키 설정과 자동 사용 설정 등을 할 수 있습니다.
 ]]}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), height=self.ih - self.c_tut.h - 20, scrollbar=true, no_color_bleed=true}
 
