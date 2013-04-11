@@ -27,7 +27,7 @@ newTalent{
 	points = 5,
 	require = techs_dex_req1,
 	info = function(self, t)
-		return ([[보조 무기의 피해 효율이 %d%% 가 됩니다..]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
+		return ([[보조 무기의 피해 효율이 %d%% 가 됩니다.]]):format(100 / (2 - (math.min(self:getTalentLevel(t), 8) / 6)))
 	end,
 }
 
