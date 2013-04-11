@@ -74,7 +74,7 @@ uberTalent{
 	name = "Tricky Defenses",
 	kr_name = "교묘한 방어",
 	mode = "passive",
-	require = { special={desc="반마법", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
+	require = { special={desc="마법을 증오할 것", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	info = function(self, t)
 		return ([[속임수와 각종 기술의 달인이 되어, 반마법 보호막이 %d%% 더 많은 피해량을 흡수하게 됩니다.
 		피해 흡수량은 교활함 능력치의 영향을 받아 증가합니다.]])
