@@ -290,7 +290,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as = "BASE_NPC_ELDRICTH_EYE",
 		end
 		if nb == 0 and self.summoner and self.summoner.is_headless_horror then
 			local sx, sy = game.level.map:getTileToScreen(self.summoner.x, self.summoner.y)
-			game.flyers:add(sx, sy, 20, (rng.range(0,2)-1) * 0.5, -3, "+Blind", {255,100,80})
+			game.flyers:add(sx, sy, 20, (rng.range(0,2)-1) * 0.5, -3, "+실명", {255,100,80})
 			self.summoner.blind = 1
 			game.logSeen(self.summoner, "%s 모든 눈을 잃어, 실명 상태가 되었습니다.", (self.summoner.kr_name or self.summoner.name):capitalize():addJosa("가"))
 		end
