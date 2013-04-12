@@ -1204,7 +1204,7 @@ function string.krKeywords(str)
 		elseif ori == "phasing" then return "위상"
 		elseif ori == "physical" then return "물리"
 		elseif ori == "piercing" then return "관통"
-		elseif ori == "pilfering" then return 좀도둑""
+		elseif ori == "pilfering" then return "좀도둑"
 		elseif ori == "plague" then return "질병"
 		elseif ori == "polar" then return "극지방"
 		elseif ori == "potent" then return "잠재적"
