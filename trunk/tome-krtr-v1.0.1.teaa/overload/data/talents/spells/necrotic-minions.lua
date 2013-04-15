@@ -784,7 +784,7 @@ newTalent{
 		self:forceUseTalent(self.T_NECROTIC_AURA, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 	end,
 	info = function(self, t)
-		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 언데드 추종자들이 사령술의 기운 범위 밖에서 턴 당 받는 생명력 피해가 %d%%p 감소합니다.]]):
+		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 언데드 추종자들이 사령술의 기운 범위 밖에서 턴 당 받는 생명력 피해가 %d%%P 감소합니다.]]):
 		format(self:getTalentLevelRaw(t), self:getTalentLevelRaw(t))
 	end,
 }

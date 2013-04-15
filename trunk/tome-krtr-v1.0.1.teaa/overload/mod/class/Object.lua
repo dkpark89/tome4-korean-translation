@@ -1064,7 +1064,7 @@ function _M:getTextualDesc(compare_with)
 		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "순간이동 후 전체 저항력 : ")
 		compare_fields(w, compare_with, field, "effect_reduction_on_teleport", "%+d%%", "순간이동후 상태효과 시간 감소 : ")
 
-		compare_fields(w, compare_with, field, "damage_resonance", "%+d%%", "공격 성공시 피해 공진 : ")
+		compare_fields(w, compare_with, field, "damage_resonance", "%+d%%", "공격 받을시 해당 속성 피해량 증가 : ")
 
 		compare_fields(w, compare_with, field, "size_category", "%+d", "크기 변화    : ")
 
