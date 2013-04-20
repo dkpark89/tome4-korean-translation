@@ -1858,7 +1858,7 @@ function _M:displayToolbar(scale, bx, by)
 			if event == "out" then self.tbbuttons.lore = 0.6 return else self.tbbuttons.lore = 1 end
 			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 퀘스트 기록 보기.\n우클릭 : 알고 있는 지식 보기.")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("SHOW_QUESTS")
-			elseif button == "right" and not xrel and not yrel and event == "button" then game:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal Lore", game.party)) end
+			elseif button == "right" and not xrel and not yrel and event == "button" then game:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal 지식", game.party)) end
 		end
 		game.mouse:registerZone(bx + x * scale, by +y*scale, tb_lore[6], tb_lore[7], desc_fct, nil, "tb_lore", true, scale)
 	end

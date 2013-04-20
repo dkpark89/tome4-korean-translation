@@ -528,7 +528,7 @@ function _M:setArenaTriggers(e, entry)
 		if self.arenaLastHit >= self.max_life then
 			if self.arenaLastHit >= self.max_life * 2 then
 				local x, y = game.level.map:getTileToScreen(self.x, self.y)
-				game.flyers:add(x, y, 90, 0, -0.5, "OVERKILL", { 231, 0, 0 }, false)
+				game.flyers:add(x, y, 90, 0, -0.5, "과잉 살육", { 231, 0, 0 }, false)
 				game.log("#LIGHT_GREEN#당신의 강력한 공격이 #WHITE#"..(self.kr_name or  self.name):addJosa("를").."#LIGHT_GREEN# 완전히 말소시켜 버렸습니다!")
 				local val = (self.level * 0.015)
 				if val > 0.5 then game.log("#LIGHT_GREEN#관객들이 환호합니다!") end
