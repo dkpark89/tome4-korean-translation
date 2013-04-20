@@ -1028,9 +1028,9 @@ newDamageType{
 			local sx, sy = game.level.map:getTileToScreen(x, y)
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_FROZEN, dam.dur, {hp=dam.hp * 1.5, apply_power=src:combatSpellpower(), min_dur=1})
-				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "Frozen!", {0,255,155})
+				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "얼어붙음!", {0,255,155})
 			else
-				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "Resist!", {0,255,155})
+				game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "저항함!", {0,255,155})
 				game.logSeen(target, "%s 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
