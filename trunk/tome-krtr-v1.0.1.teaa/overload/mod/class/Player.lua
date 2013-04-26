@@ -1224,18 +1224,18 @@ function _M:quickSwitchWeapons()
 	local names = ""
 	if pf1 and pf2 then
 		if not pf1[1] then
-			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}.." and "..oh1[1]:getName{do_color=true}
+			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}:addJosa("와").." "..oh1[1]:getName{do_color=true}
 			elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}
 			elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}
 			end
 		else
-			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}.." and "..oh1[1]:getName{do_color=true}.." and "..pf1[1]:getName{do_color=true}
-			elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}.." and "..pf1[1]:getName{do_color=true}
-			elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}.." and "..pf1[1]:getName{do_color=true}
+			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}:addJosa("와").." "..oh1[1]:getName{do_color=true}:addJosa("와").." "..pf1[1]:getName{do_color=true}
+			elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}:addJosa("와").." "..pf1[1]:getName{do_color=true}
+			elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}:addJosa("와").." "..pf1[1]:getName{do_color=true}
 			end
 		end
 	else
-		if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}.." and "..oh1[1]:getName{do_color=true}
+		if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}:addJosa("와").." "..oh1[1]:getName{do_color=true}
 		elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}
 		elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}
 		end
