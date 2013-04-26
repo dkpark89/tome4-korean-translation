@@ -454,11 +454,11 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, 최소 %d 칸 이상의 무작위한 곳으로 순간이동합니다.]]):format(data.range + data.inc_stat)
+		return ([[룬을 발동하여, 최소 15 칸에서 최대 %d 칸 이내의 무작위한 곳으로 순간이동합니다.]]):format(data.range + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[최소 %d 칸 이상 무작위 순간이동]]):format(data.range + data.inc_stat)
+		return ([[최대 %d 칸 이내 무작위 순간이동]]):format(data.range + data.inc_stat)
 	end,
 }
 

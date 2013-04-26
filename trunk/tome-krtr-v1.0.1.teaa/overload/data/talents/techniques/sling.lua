@@ -135,6 +135,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한 번에 %d 발의 탄환을 대상에게 날려, 각 탄환마다 %d%% 무기 피해를 줍니다.]]):format(2+self:getTalentLevelRaw(t)/2, 100 * self:combatTalentWeaponDamage(t, 0.3, 0.7))
+		return ([[한 번에 %d 발의 탄환을 대상에게 날려, 각 탄환마다 %d%% 무기 피해를 줍니다.]]):format(math.floor(2+self:getTalentLevelRaw(t)/2), 100 * self:combatTalentWeaponDamage(t, 0.3, 0.7)) --@@ 탄환수는 실제에 맞게 버림계산 추가했음
 	end,
 }
