@@ -154,7 +154,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[타오르는 화염 폭풍을 주변에 만들어내, 주변 3 칸 반경에 %0.2f 화염 피해를 줍니다. (지속시간 : %d 턴)
-		화염 폭풍 근처에서는 마법을 제어할 수 있어, 동료들이 화염 폭풍에 휘말리지 않게 할 수 있습니다.
+		화염 폭풍 마법은 세밀하게 제어할 수 있어, 동료들이 화염 폭풍에 휘말리지 않게 할 수 있습니다.
 		피해량과 지속시간은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage), duration)
 	end,
