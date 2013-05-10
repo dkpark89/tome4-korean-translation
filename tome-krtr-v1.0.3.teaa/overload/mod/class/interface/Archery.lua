@@ -49,7 +49,7 @@ function _M:archeryAcquireTargets(tg, params)
 	if weapon.use_resource then
 		local val = self['get'..weapon.use_resource.kind:capitalize()](self)
 		if val < weapon.use_resource.value then
-			game.logPlayer(self, "You do not have enough %s left!", weapon.use_resource.kind) --@@ 한글화 필요
+			game.logPlayer(self, "%s 충분히 남아있지 않습니다!", weapon.use_resource.kind:capitalize():krRWKind():addJosa("가"))
 			return nil
 		end
 	end

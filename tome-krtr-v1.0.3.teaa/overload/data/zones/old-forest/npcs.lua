@@ -40,14 +40,15 @@ end
 
 local Talents = require("engine.interface.ActorTalents")
 
-newEntity{ define_as = "SHARDSKIN", --@@ 한글화 필요
+newEntity{ define_as = "SHARDSKIN",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "crystal", unique = true,
 	name = "Shardskin",
+	kr_name = "조각난 피부",
 	display = "%", color=colors.VIOLET,
 	image = "npc/immovable_crystal_golden_crystal.png",
 	desc = [[This crystaline structure seems to be filled with a malovelant aura. Thourgh the crystal surface you can still see the remains of what once was a huge tree..]],
-	killer_message = "and integrated into the crystaline structure",
+	killer_message = "and integrated into the crystaline structure", --@@ 한글화 필요
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 200, life_rating = 17, fixed_rating = true,
 	stats = { str=15, dex=10, cun=8, mag=20, wil=20, con=20 },
@@ -81,7 +82,7 @@ newEntity{ define_as = "SHARDSKIN", --@@ 한글화 필요
 	resolvers.inscriptions(1, "rune"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "Have you heard, the old forest seems to have been claimed by a new evil!")
+		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 하는군!")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest-crystal")
@@ -134,7 +135,7 @@ newEntity{ define_as = "WRATHROOT",
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 하는군.")
+		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 하는군!")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest")
 	end,

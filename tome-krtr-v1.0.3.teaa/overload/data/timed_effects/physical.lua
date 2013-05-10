@@ -1732,14 +1732,14 @@ newEffect{
 newEffect{
 	name = "RESONANCE", image = "talents/alchemist_protection.png",
 	desc = "Resonance",
-	kr_name = "공진",
+	kr_name = "반향",
 	long_desc = function(self, eff) return ("%s 공격시 피해량 +%d%%"):format((DamageType:get(eff.damtype).kr_name or DamageType:get(eff.damtype).name), eff.dam) end, --@@ 변수 순서 조정
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = { dam=10, damtype=DamageType.ARCANE },
-	on_gain = function(self, err) return "#Target1# 피해와 공진하기 시작합니다.", "+공진" end,
-	on_lose = function(self, err) return "#Target#의 공진이 멈췄습니다.", "-공진" end,
+	on_gain = function(self, err) return "#Target1# 피해와 반향하기 시작합니다.", "+반향" end,
+	on_lose = function(self, err) return "#Target#의 반향이 멈췄습니다.", "-반향" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("inc_damage", {[eff.damtype]=eff.dam})
 	end,

@@ -25,7 +25,7 @@ desc = function(self, who)
 	desc[#desc+1] = "'한길' 을 보호하고, 적을 물리치십시오.\n"
 	if self:isCompleted("murgol") then
 		if self:isCompleted("murgol-invaded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the underwater zone and vanquished the naga invader, Lady Nashva.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 수중지역을 탐험하여, 나가 침략자인 숙녀 나쉬바를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 수중지역을 탐험하여, 무르골을 물리쳤습니다.#WHITE#"
 		end

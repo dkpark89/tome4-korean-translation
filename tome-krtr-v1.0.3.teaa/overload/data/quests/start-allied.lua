@@ -25,7 +25,7 @@ desc = function(self, who)
 	desc[#desc+1] = "보물과 명예를 찾아, 코르'풀 유적 아래에 있는 동굴과 트롤 늪을 탐험하라!\n"
 	if self:isCompleted("trollmire") then
 		if self:isCompleted("trollmire-flooded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 트롤 늪을 탐험하여, 트롤 샥스를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 트롤 늪을 탐험하여, 트롤 프록스를 물리쳤습니다.#WHITE#"
 		end
@@ -34,7 +34,7 @@ desc = function(self, who)
 	end
 	if self:isCompleted("kor-pul") then
 		if self:isCompleted("kor-pul-invaded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 코르'풀 유적을 탐험하여, 잡아먹힌 자를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 코르'풀 유적을 탐험하여, 음영을 물리쳤습니다.#WHITE#"
 		end

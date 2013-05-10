@@ -188,8 +188,8 @@ TOOLTIP_STR = [[#GOLD#힘#LAST#
 힘은 캐릭터의 물리력을 의미합니다. 캐릭터가 들고 다닐 수 있는 최대 무게, 근력을 사용하는 무기 (장검, 철퇴, 도끼 등) 의 피해량, 그리고 물리 내성을 상승시킵니다.
 ]]
 TOOLTIP_DEX = [[#GOLD#민첩#LAST#
-민첩은 캐릭터가 얼마나 재빠르고 반사신경이 좋은지를 나타냅니다. 공격이 성공할 확률, 적의 공격을 회피할 확률, chance to shrug off critical hits, 그리고 단검이나 채찍 같은 가벼운 무기의 피해량을 상승시킵니다.
-]] --@@ 한글화 필요
+민첩은 캐릭터가 얼마나 재빠르고 반사신경이 좋은지를 나타냅니다. 공격이 성공할 확률, 적의 공격을 회피할 확률, 적의 공격에 대한 치명타 떨치기 확률, 그리고 단검이나 채찍 같은 가벼운 무기의 피해량을 상승시킵니다.
+]]
 TOOLTIP_CON = [[#GOLD#체격#LAST#
 체격은 캐릭터가 얼마나 적의 공격에 잘 버티는지를 나타냅니다. 최대 생명력과 물리 내성을 상승시킵니다.
 ]]
@@ -267,9 +267,9 @@ TOOLTIP_ARMOR_HARDINESS = [[#GOLD#방어 효율#LAST#
 TOOLTIP_CRIT_REDUCTION = [[#GOLD#치명타 억제#LAST#
 적에게 근접 공격과 원거리 공격으로 인해 치명적인 피해를 입게 될 확률을 감소시킵니다.
 ]]
-TOOLTIP_CRIT_SHRUG = [[#GOLD#Crits Shrug Off#LAST#
-Gives a chance to ignore the bonus critical damage from any direct damage attacks (melee, spells, ranged, mind powers, ...).
-]] --@@ 한글화 필요
+TOOLTIP_CRIT_SHRUG = [[#GOLD#치명타 떨치기#LAST#
+적에게 받는 (근접, 주문, 장거리, 정신 등의) 공격에서 치명타로 추가되는 피해를 확률적으로 무시합니다.
+]]
 TOOLTIP_DEFENSE = [[#GOLD#회피도#LAST#
 상대의 정확도와 비교하여, 근접 공격의 회피 확률을 결정합니다.
 ]]
@@ -348,15 +348,15 @@ TOOLTIP_RESIST = [[#GOLD#피해 저항 : 특정 속성#LAST#
 모든 피해량 감소를 같이 가지고 있을 경우, 이 수치가 포함되어 여기에 표시됩니다.
 예) 모든 피해량 감소가 3% 있고 화염 피해량 감소가 20% 있다면, 화염 피해량 감소는 23% 라고 표시됩니다.
 ]]
-TOOLTIP_AFFINITY_ALL = [[#GOLD#Damage affinity: all#LAST#
-All damage you receive, through any means, also heals you for this percentage of the damage.
-This stacks with individual damage type affinities.
-Important: Affinity healing happens after damage has been taken, it can not prevent death.
-]] --@@ 한글화 필요
-TOOLTIP_AFFINITY = [[#GOLD#Damage affinity: specific#LAST#
-All damage of this type that you receive, through any means, also heals you for this percentage of the damage..
-Important: Affinity healing happens after damage has been taken, it can not prevent death.
-]] --@@ 한글화 필요
+TOOLTIP_AFFINITY_ALL = [[#GOLD#피해 친화 : 모든 속성#LAST#
+당신이 피해를 받을 때마다, 피해량과 피해 친화도에 비례하여 생명력이 회복됩니다.
+이 것은 각각의 피해 속성 별로 따로 계산이 됩니다.
+주의 : 피해 친화에 따른 회복은 피해를 받은 다음 발생하므로, 죽음을 방지하지 못합니다.
+]]
+TOOLTIP_AFFINITY = [[#GOLD#피해 친화 : 특정 속성#LAST#
+당신이 이 속성에 해당하는 피해를 받을 때마다, 피해량과 피해 친화도에 비례하여 생명력이 회복됩니다.
+주의 : 피해 친화에 따른 회복은 피해를 받은 다음 발생하므로, 죽음을 방지하지 못합니다.
+]]
 TOOLTIP_SPECIFIC_IMMUNE = [[#GOLD#상태이상 면역력#LAST#
 해당 상태이상에 걸리지 않을 확률을 나타냅니다.
 ]]

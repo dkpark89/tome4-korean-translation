@@ -200,7 +200,7 @@ return {
 		local m = game.zone:makeEntityByName(game.level, "actor", "SANDWORM_TUNNELER_HUGE")
 		if not m then return end
 		game.zone:addEntity(game.level, m, "actor", tx, ty)
-		game.log("#OLIVE_DRAB#You feel the ground shacking from the west.") --@@ 한글화 필요
+		game.log("#OLIVE_DRAB#서쪽으로부터 땅이 흔들리는 것이 느껴집니다.")
 	end,
 }
 

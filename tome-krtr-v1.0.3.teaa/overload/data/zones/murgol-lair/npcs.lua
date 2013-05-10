@@ -72,8 +72,6 @@ newEntity{ base = "BASE_NPC_YAECH", define_as = "MURGOL",
 
 if currentZone.is_invaded then
 
---@@ 한글화 필요 : 아래 전부
-
 newEntity{
 	define_as = "BASE_NPC_NAGA",
 	type = "humanoid", subtype = "naga",
@@ -105,6 +103,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_NAGA", define_as = "NAGA_TIDEWARDEN",
 	name = "naga tidewarden", color=colors.DARK_UMBER,
+	kr_name = "파도를 감시하는 나가",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_naga_naga_tidewarden.png", display_h=2, display_y=-1}}},
 	level_range = {1, nil}, exp_worth = 3,
 	rarity = 1,
@@ -119,8 +118,9 @@ newEntity{ base = "BASE_NPC_NAGA", define_as = "NAGA_TIDEWARDEN",
 
 newEntity{ base = "BASE_NPC_NAGA", define_as = "NAGA_TIDECALLER",
 	name = "naga tidecaller", color=colors.BLUE,
+	kr_name = "파도를 타는 나가",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_naga_naga_tidecaller.png", display_h=2, display_y=-1}}},
-	desc = [[A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful elf-like woman. As she moves her delicate hands water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.]],
+	desc = [[이 기이한 생명체는 움직일 때마다 미끄러지는 소리를 흘리며, 그 뱀과도 같은 꼬리는 아름다운 엘프의 형상을 한 여성의 상체를 들어올리고 있습니다. 그녀가 섬세한 손동작을 취하면 땅에서 물줄기가 솟아나며, 당신은 이 존재가 단순한 괴물이 아닌, 두려운 힘을 가진 하나의 생명체라는 것을 느낍니다.]],
 	level_range = {2, nil}, exp_worth = 3, female = true,
 	rarity = 1,
 	max_life = resolvers.rngavg(50,60), life_rating = 10,
@@ -136,7 +136,8 @@ newEntity{ base = "BASE_NPC_NAGA", define_as = "NAGA_TIDECALLER",
 
 newEntity{ base = "BASE_NPC_NAGA",
 	name = "naga nereid", color=colors.YELLOW,
-	desc = [[Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.]],
+	kr_name = "나가 바다의 요정",
+	desc = [[창백한 피부를 가진 그녀는 기다란 금빛 머리카락을 흩날리며, 그 녹색 눈으로 파도가 부서지는 것을 부드럽게 응시하고 있습니다. 당신은 이 노출된 모습에 눈을 떼지 못할 정도로 매혹되었지만, 좀 더 자세히 보면 그녀의 다리가 있어야 할 부분에 어두운 비늘이 덮인 긴 뱀의 꼬리같은 것이 있다는 것을 알 수 있습니다. 그녀의 움직임을 따라 시선을 옮기면, 머리카락이 흩날리면서 드러난 날씬하고 아름다운 얼굴과 높은 광대뼈, 그리고 매력적인 입술을 볼 수 있습니다. 하지만 이 환상적인 생명체의 매혹은, 그 뱀의 꼬리가 당신의 등골을 오싹하게 만들면서 사라집니다.]],
 	level_range = {2, nil}, exp_worth = 3, female = true,
 	rarity = 1,
 	max_life = resolvers.rngavg(80,90), life_rating = 11,
@@ -154,10 +155,11 @@ newEntity{ base = "BASE_NPC_NAGA",
 newEntity{ base="BASE_NPC_NAGA", define_as = "NASHVA",
 	unique = true,
 	name = "Lady Nashva the Streambender",
+	kr_name = "해류를 구부리는 숙녀, 나쉬바",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_naga_lady_zoisla_the_tidebringer.png", display_h=2, display_y=-1}}},
 	color=colors.VIOLET, female = true,
 	desc = [[Water circles slowly on the ground around this naga's tail. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to simmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.]],
-	killer_message = "and brougth back to Vargh for experimentations",
+	killer_message = "and brougth back to Vargh for experimentations", --@@ 한글화 필요
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,

@@ -25,7 +25,7 @@ desc = function(self, who)
 	desc[#desc+1] = "숲의 서쪽 경계에는 음울한 기운이 생겨나고 있습니다. 그곳에 있는 것들은... 뒤틀렸습니다.\n"
 	if self:isCompleted("norgos") then
 		if self:isCompleted("norgos-invaded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored Norgos' Lair and stopped the shivgoroth invasion.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 노르고스 동굴을 탐험하여, 쉬브고로스의 침략을 막았습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 노르고스 동굴을 탐험하여, 그에게 안식을 안겨줬습니다.#WHITE#"
 		end
@@ -34,7 +34,7 @@ desc = function(self, who)
 	end
 	if self:isCompleted("heart-gloom") then
 		if self:isCompleted("heart-gloom-purified") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Heart of the Gloom and slain the Dreaming One.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장을 탐험하여, 꿈꾸는 자를 죽였습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장을 탐험하여, 시듦의 원천을 죽였습니다.#WHITE#"
 		end

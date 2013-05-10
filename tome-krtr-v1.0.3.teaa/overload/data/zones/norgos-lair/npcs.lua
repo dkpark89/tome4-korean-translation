@@ -45,15 +45,16 @@ else
 
 	load("/data/general/npcs/all.lua", rarity(4, 35))
 
-	newEntity{ base="BASE_NPC_BEAR", define_as = "FROZEN_NORGOS", --@@ 한글화 필요
+	newEntity{ base="BASE_NPC_BEAR", define_as = "FROZEN_NORGOS",
 		allow_infinite_dungeon = true,
 		unique = true,
 		name = "Norgos, the Frozen",
+		kr_name = "얼어붙은 노르고스",
 		display = "q", color=colors.VIOLET,
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/animal_bear_norgos_the_frozen.png", display_h=2, display_y=-1}}},
-		desc = [[This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the thaloren.
+		desc = [[이 고대의 곰은 숲의 서쪽 지역을 오랫동안 지켜왔었습니다. 하지만 그가 미쳐버린 이후, 이제는 탈로레까지도 공격하고 있습니다.
 It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen it seems like a statue, animated by the elementals.]],
-		killer_message = "and was turned into icicles",
+		killer_message = "and was turned into icicles", --@@ 한글화 필요
 		level_range = {7, nil}, exp_worth = 2,
 		max_life = 200, life_rating = 17, fixed_rating = true, life_regen = 0,
 		max_stamina = 85,

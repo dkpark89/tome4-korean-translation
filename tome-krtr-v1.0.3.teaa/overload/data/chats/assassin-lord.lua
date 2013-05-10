@@ -33,7 +33,7 @@ local function evil(npc, player)
 	
 	if p:knowTalent(p.T_TRAP_MASTERY) then
 		p:learnTalent(p.T_FLASH_BANG_TRAP, 1, nil, {no_unlearn=true})
-		game.log("#LIGHT_GREEN#Before you leave the Lord teaches you how to create flash bang traps!") --@@ 한글화 필요
+		game.log("#LIGHT_GREEN#당신이 떠나기 전, '암살단 단장'이 섬광 폭발 함정을 만드는 방법을 가르쳐 주었습니다!")
 	end
 	
 	game:changeLevel(1, "wilderness")

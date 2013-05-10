@@ -2443,14 +2443,14 @@ newEffect{
 newEffect{
 	name = "RESONANCE_FIELD", image = "talents/resonance_field.png",
 	desc = "Resonance Field",
-	kr_name = "공진 장막",
+	kr_name = "반향 장막",
 	long_desc = function(self, eff) return ("염동막 보호 : 모든 피해의 50%% 흡수 (남은 흡수량 : %d / 최대 흡수량 : %d)"):format(self.resonance_field_absorb, eff.power) end,
 	type = "mental",
 	subtype = { psionic=true, shield=true },
 	status = "beneficial",
 	parameters = { power=100 },
-	on_gain = function(self, err) return "#Target# 주변을 염동막이 둘러쌉니다.", "+공진 장막" end,
-	on_lose = function(self, err) return "#Target3# 둘러싼 염동막이 부서졌습니다.", "-공진 장막" end,
+	on_gain = function(self, err) return "#Target# 주변을 염동막이 둘러쌉니다.", "+반향 장막" end,
+	on_lose = function(self, err) return "#Target3# 둘러싼 염동막이 부서졌습니다.", "-반향 장막" end,
 	damage_feedback = function(self, eff, src, value)
 		if eff.particle and eff.particle._shader and eff.particle._shader.shad and src and src.x and src.y then
 			local r = -rng.float(0.2, 0.4)
