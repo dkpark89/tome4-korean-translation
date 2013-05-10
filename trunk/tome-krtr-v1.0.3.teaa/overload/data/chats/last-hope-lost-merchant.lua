@@ -37,22 +37,22 @@ newChat{ id="welcome",
 	}
 }
 
---@@ 한글화 필요 : 41~58
+
 hat{ id="trap",
-	text = [[You know, I have asked here and there and it happens to be a very rare thing this contraption...
-But since you have saved me, I'm willing to part from it for only 3000 gold pieces, a real bargain!]],
+	text = [[당신도 알다싶이, 여기저기 수소문을 해 본 결과 이 장치는 매우 희귀한 것으로 밝혀 졌어요...
+하지만 당신은 저를 구해줬으니, 제가 딱잘라 금화 3000 개에 기꺼이 팔도록 하죠. 정말 싼거라구요!]],
 	answers = {
-		{"Expensive, but I will take it.", cond=function(npc, player) return player.money >= 3000 end, jump="traplearn"},
+		{"비싸지만, 제가 살께요.", cond=function(npc, player) return player.money >= 3000 end, jump="traplearn"},
 		{"..."},
 	}
 }
 
 newChat{ id="traplearn",
-	text = [[Nice doing business with you my friend. There you go!]],
+	text = [[친구여, 당신과 좋은 거래를 하게 되어 기쁘네요. 여기 있습니다!]],
 	answers = {
-		{"Thanks.", action=function(npc, player)
+		{"고마워요.", action=function(npc, player)
 			p:learnTalent(p.T_FLASH_BANG_TRAP, 1, nil, {no_unlearn=true})
-			game.log("#LIGHT_GREEN#You learn the schematic, you can now create flash bang traps!")
+			game.log("#LIGHT_GREEN#당신은 설계도를 보고 익혀, 이제 섬광 폭발 함정을 만들수 있게 되었습니다!")
 		end},
 	}
 }

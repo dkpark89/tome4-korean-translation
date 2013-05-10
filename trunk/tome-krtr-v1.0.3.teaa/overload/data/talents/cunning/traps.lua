@@ -194,7 +194,7 @@ newTalent{
 	require = cuns_req4,
 	info = function(self, t)
 		return ([[특수 장치를 만들어, 모든 함정을 %d 칸 떨어진 곳에 설치할 수 있게 됩니다.
-		At level 5 you learn to do that in total silence, letting you lay traps without breaking stealth.]]):format(trap_range(self, t)) --@@ 한글화 필요
+		기술 레벨 5 이상이면 아무 소리도 내지 않고 작업을 할 수 있게 되어, 은신 상태가 풀리지 않고도 함정을 설치할 수 있게됩니다.]]):format(trap_range(self, t))
 	end,
 }
 
