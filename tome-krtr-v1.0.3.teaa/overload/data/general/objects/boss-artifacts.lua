@@ -439,16 +439,17 @@ newEntity{ base = "BASE_GEM",
 	},
 }
 
-newEntity{ base = "BASE_STAFF", --@@ 한글화 필요
+newEntity{ base = "BASE_STAFF",
 	power_source = {arcane=true},
 	unique = true, define_as = "CRYSTAL_SHARD",
 	name = "Crystal Shard",
 	unided_name = "crystalline tree branch",
+	kr_name = "수정의 파편", kr_unided_name = "수정 나뭇가지",
 	flavor_name = "magestaff",
 	level_range = {10, 22},
 	color=colors.BLUE, image = "object/artifact/crystal_shard.png",
 	rarity = 300,
-	desc = [[This crystalline tree branch is remarkably rigid, and refracts light in myriad colors. Gazing at it entrances you, and you worry where its power may have come from.]],
+	desc = [[이 수정 나뭇가지는 놀라울만큼 단단하고, 빛을 무수한 무지개 빛깔로 굴절시킵니다. 그 것을 보고 있으면 넋이 나가게 되고, 그 힘이 도대체 어디서 오는 것인지가 걱정됩니다.]],
 	cost = 200,
 	material_level = 2,
 	require = { stat = { mag=20 }, },
@@ -477,8 +478,8 @@ newEntity{ base = "BASE_STAFF", --@@ 한글화 필요
 		},
 	},
 	max_power = 45, power_regen = 1,
-	use_power = { name = "create living shards of crystal", power = 45, use = function(self, who)
-		if not who:canBe("summon") then game.logPlayer(who, "You cannot summon; you are suppressed!") return end
+	use_power = { name = "create living shards of crystal", kr_name = "살아있는 수정의 파편 생성", power = 45, use = function(self, who)
+		if not who:canBe("summon") then game.logPlayer(who, "소환 할 수 없습니다. 억압된 상태입니다!") return end
 
 		local NPC = require "mod.class.NPC"
 		local list = NPC:loadList("/data/general/npcs/crystal.lua")

@@ -109,7 +109,7 @@ newTalent{
 	info = function(self, t)
 		return ([[하이어 종족은 미혹의 시대 때 생겨난 인종이기 때문에, 그 근본부터 마력의 영향을 받은 종족입니다.
 		그 영향으로 주문 내성이 %d / 마법 속성 저항력이 %d%% 상승합니다.
-		Also when you cast a spell dealing damage, you gain a 15%% bonus to the damage type for 5 turns (this effect has a cooldown)]]): --@@ 한글화 필요
+		또한 주문을 사용하여 피해를 입힐 때마다, 5 턴 동안 마법 속성 피해량이 15%% 증가합니다 (이 효과는 지연시간이 존재합니다)]]):
 		format(self:getTalentLevelRaw(t) * 5, self:getTalentLevelRaw(t) * 5, self:getTalentLevelRaw(t) * 5)
 	end,
 }

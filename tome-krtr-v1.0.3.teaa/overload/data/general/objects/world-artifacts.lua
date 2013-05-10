@@ -3822,12 +3822,13 @@ newEntity{ base = "BASE_LONGSWORD",
 	end,
 }
 
-newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR", --@@ 한글화 필요
+newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR",
 	power_source = {arcane=true, unknown=true},
 	unique = true, sentient = true,
 	name = "Morrigor", image = "object/artifact/morrigor.png",
 	unided_name = "jagged, segmented, sword",
-	desc = [[This heavy, ridged blade emanates magical power, yet as you grasp the handle an icy chill runs its course through your spine. You feel the disembodied presence of all those slain by it. In unison, they demand company.]],
+	kr_name = "모리고르", kr_unided_name = "톱니 모양으로 갈라진 검", --@@ 한글 이름이 사실 맘에 안 듦 : more + rigor 일까?, 이 이름은 /data/talents/misc/objects.lua:419 줄에서도 사용됨
+	desc = [[이 무겁고 길죽한 칼날은 마법의 힘을 발산하고 있어, 손잡이를 쥐고 있으면 척추를 따라 올라오는 차가운 한기를 느낄 수 있습니다. 이 검에 의해 살해된 모든 육체를 떠난 존재가 느껴집니다. 일치단결하여, 그들은 새로운 일행을 요구합니다.]],
 	level_range = {20, 30},
 	rarity = 250,
 	require = { stat = { mag=40, }, },
@@ -3838,12 +3839,12 @@ newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR", --@@ 한글화 필요
 		apr = 12,
 		physcrit = 7,
 		dammod = {str=0.7, mag=0.7},
-		special_on_hit = {desc="deal magical damage", fct=function(combat, who, target)
+		special_on_hit = {desc="마법적 피해 추가", fct=function(combat, who, target)
 			local tg = {type="ball", range=0, radius=0, selffire=false}
 			who:project(tg, target.x, target.y, engine.DamageType.ARCANE, who:getMag()*0.5)
 			who:project(tg, target.x, target.y, engine.DamageType.DARKNESS, who:getMag()*0.5)
 		end},
-		special_on_kill = {desc="swallows the victim's soul, gaining a new power until unequipped", fct=function(combat, who, target)
+		special_on_kill = {desc="희생자의 영혼을 삼켜, 착용 해제시까지 새로운 힘을 획득", fct=function(combat, who, target)
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "MORRIGOR")
 			if o.use_talent then return end
 			local got_talent = false

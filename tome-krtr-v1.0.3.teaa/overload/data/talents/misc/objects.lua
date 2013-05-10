@@ -364,10 +364,9 @@ newTalent{
 	end,
 }
 
---@@ 한글화 필요 : 아래 전부
-
 newTalent{
 	name = "Battle Trance", image = "talents/clarity.png",
+	kr_name = "전장의 최면",
 	type = {"wild-gift/objects",1},
 	points = 1,
 	mode = "sustained",
@@ -392,18 +391,19 @@ newTalent{
 		if rng.percent((t.trance_counter - 5) * 2) then
 			self:forceUseTalent(self.T_BATTLE_TRANCE, {ignore_energy=true})
 			self:setEffect(self.EFF_CONFUSED, 4, {power=40})
-			game.logPlayer(self, "You overdose on the honeyroot sap!")
+			game.logPlayer(self, "당신은 벌꿀나무 뿌리의 수액을 과다 복용하였습니다!")
 		end
 		
 		return
 	end,
 	info = function(self, t)
-		return ([[You enter into a fighting trance, gaining 15%% resist all, losing 15 mindpower, but gaining 20 mental save. However, each turn after the fifth that this talent is active, there is a chance that you will be overcome and become confused.]])
+		return ([[당신은 전투 최면 상태에 빠집니다. 그 동안 전체 저항이 15%% 상승하고, 정신력이 15 감소하며, 정신 내성이 20 상승합니다. 하지만, 사용하고 다섯 턴 이상이 지나면, 일정 확률로 효과에서 벗어나면서 혼란에 빠지게 됩니다.]])
 	end,
 }
 
 newTalent{
 	name = "Soul Purge", image = "talents/stoic.png",
+	kr_name = "영혼의 정화",
 	type = {"misc/objects", 1},
 	cooldown = 3,
 	points = 1,
@@ -416,6 +416,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Remove any talent Morrigor has absorbed.]])
+		return ([[모리고르가 흡수한 기술을 제거합니다.]])
 	end,
 }
