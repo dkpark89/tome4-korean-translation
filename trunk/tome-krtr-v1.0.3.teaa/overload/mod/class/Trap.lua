@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Trap"
 require "engine.interface.ActorProject"
@@ -60,12 +61,12 @@ function _M:tooltip()
 		local res = tstring{{"uid", self.uid}, (self:getName().." ["..self.name.."]")} --@@ 상점 이름 '한글이름[원문이름]'으로 수정
 		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		
-		if self.store_faction then --@@ 한글화 필요 : 63~69
-			local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "neutral", Faction:factionReaction(self.store_faction, game.player.faction)
-			if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "hostile"
-			elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "friendly"
+		if self.store_faction then
+			local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "중립", Faction:factionReaction(self.store_faction, game.player.faction)
+			if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "적대"
+			elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "우호"
 			end
-			if Faction.factions[self.store_faction] then res:add(true, "Faction: ") res:merge(factcolor:toTString()) res:add(("%s (%s, %d)"):format(Faction.factions[self.store_faction].name, factstate, factlevel), {"color", "WHITE"}, true) end
+			if Faction.factions[self.store_faction] then res:add(true, "소속: ") res:merge(factcolor:toTString()) res:add(("%s (%s, %d)"):format(Faction.factions[self.store_faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) end --@@ 소속이름 한글화
 		end	
 		
 		if config.settings.cheat then

@@ -1846,7 +1846,7 @@ function _M:onTakeHit(value, src)
 			self.resonance_field_absorb = 0
 		end
 		if self.resonance_field_absorb <= 0 then
-			game.logPlayer(self, "공진 장막이 피해로 인해 부서졌습니다!")
+			game.logPlayer(self, "반향 장막이 피해로 인해 부서졌습니다!")
 			self:removeEffect(self.EFF_RESONANCE_FIELD)
 		end
 	end
@@ -4684,9 +4684,9 @@ function _M:transmoHelpPopup()
 end
 
 function _M:transmoGetName()
-	return "변환 상자" --@@ 문제 없는지 확인 필요. 원래는 "Transmogrification Chest"
+	return "변환 상자"
 end
 
 function _M:transmoGetWord()
-	return "transmogrify" --@@ 한글화 필요 (?)
+	return "변환"
 end

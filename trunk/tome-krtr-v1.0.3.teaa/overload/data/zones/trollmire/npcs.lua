@@ -106,14 +106,15 @@ newEntity{ define_as = "TROLL_PROX",
 	end,
 }
 
-newEntity{ define_as = "TROLL_SHAX", --@@ 한글화 필요
+newEntity{ define_as = "TROLL_SHAX",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Shax the Slimy",
+	kr_name = "끈적이는 샥스",
 	display = "T", color=colors.VIOLET, image="npc/giant_troll_prox_the_mighty.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_troll_shax_the_slimy.png", display_h=2, display_y=-1}}},
 	desc = [[A huge troll, he seems to be adapted to aquatic life.]],
-	killer_message = "and eaten raw",
+	killer_message = "당신은 산 채로 먹혔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,
@@ -148,7 +149,7 @@ newEntity{ define_as = "TROLL_SHAX", --@@ 한글화 필요
 			if n then
 				self.on_takehit = nil
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "Shax staggers for a moment. A note seems to drop at his feet.")
+				game.logSeen(self, "샥스가 잠시 비틀거립니다. 그의 발밑으로 작은 쪽지가 떨어집니다.")
 			end
 		end
 		return val
@@ -163,7 +164,7 @@ newEntity{ define_as = "TROLL_SHAX", --@@ 한글화 필요
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
 			end
 		end
-		game.state:activateBackupGuardian("ALUIN", 2, 35, "... and we thought the trollmire was safer now!")
+		game.state:activateBackupGuardian("ALUIN", 2, 35, "...트롤 늪이 더 안전해진 것 같습니다!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "trollmire")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "trollmire-flooded")
 	end,

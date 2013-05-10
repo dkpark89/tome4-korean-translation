@@ -770,8 +770,20 @@ function string.krUnIDPreName(str)
 	elseif ori == "rune-covered" then return "룬으로 덮힌"
 	elseif ori == "unblemished" then return "흠없는"
 	elseif ori == "jewel-encrusted" then return "보석박힌"
-	--@@ 한글화 필요 : 다음줄 내용들 추가 필요
-	-- "humming","gleaming","immaculate","flawless","crackling","glistening","plated","twisted","silvered","faceted","faded","sigiled","shadowy","laminated" 추가 필요
+	elseif ori == "humming" then return "웅웅거리는"
+	elseif ori == "gleaming" then return "어슴푸레한"
+	elseif ori == "immaculate" then return "티없는"
+	elseif ori == "flawless" then return "흠없는"
+	elseif ori == "crackling" then return "파직거리는"
+	elseif ori == "glistening" then return "반짝이는"
+	elseif ori == "plated" then return "도금된"
+	elseif ori == "twisted" then return "꼬인"
+	elseif ori == "silvered" then return "은색의"
+	elseif ori == "faceted" then return "가공된"
+	elseif ori == "faded" then return "바랜"
+	elseif ori == "sigiled" then return "인장의"
+	elseif ori == "shadowy" then return "어두운"
+	elseif ori == "laminated" then return "박편의"
 	else return str end
 end
 
@@ -1529,4 +1541,12 @@ function table.krEffectKeys(t)
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krEffectSubtype() end
 	return tt
+end
+
+function string.krRWKind(str)
+	-- /mod/class/interface/Archery.lua:52번 줄에서 사용
+	local ori = str:lower()
+	if ori == "bow" then return "활"
+	elseif ori == "sling" then return "투석구"
+	else return str end 
 end

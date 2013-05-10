@@ -24,7 +24,7 @@ local p = game:getPlayer(true)
 newChat{ id="welcome",
 	text = [[아니, 제 #{italic}#친절한#{normal}# 친구, @playername@ 아니십니까!
 당신 덕분에, 이 위대한 도시에 무사히 도착할 수 있었습니다! 이제 저는 이곳에서 가장 뛰어난 제품만을 취급하는 가게를 열 준비를 한창 하고 있습니다만, 당신에게 빚진 것도 있고 하니 당신만을 위해 가게를 미리 열도록 하지요. 희귀한 물건이 필요하시면 언제든지 오십시오.]]
-..((p:knowTalent(p.T_TRAP_MASTERY) and not p:knowTalent(p.T_FLASH_BANG_TRAP)) and "\nDuring our escape I found the plans for a #YELLOW#Flash Bang Trap#LAST#, you would not happen to be interrested by any chances?" or "") --@@ 한글화 필요
+..((p:knowTalent(p.T_TRAP_MASTERY) and not p:knowTalent(p.T_FLASH_BANG_TRAP)) and "\n탈출하는 동안 제가 #YELLOW#섬광 폭발 함정#LAST# 설계도를 발견했어요. 혹시 이 것에 대해 관심이 있나요?" or "")
 ..((game.state:isAdvanced() and "\n오, 친구여. 좋은 소식이 있습니다! 제가 저번에 말했듯이, 이제 당신만을 위해 만들어지는 정말로 #{italic}#특별한#{normal}# 장비들을 주문할 수 있게 되었습니다. 물론 정말 특별한 가격표가 붙습니다만..." or "\n저는 정말 뛰어난 안목을 지닌 고객만을 위한 아주 특별한 서비스를 계획하고 있습니다. 그 준비가 다 끝날 때 쯤에, 다시 한번 이곳을 들러주십시오! 당신만을 위한, 정말로 굉장한 장비들을 구할 수 있을겁니다. 물론 정말로 #{italic}#그에 걸맞는#{normal}# 가격표가 붙겠지만요.")),
 	answers = {
 		{"아, 그럼 물건들을 좀 봐볼까요.", action=function(npc, player)
@@ -32,7 +32,7 @@ newChat{ id="welcome",
 			npc.store:interact(player)
 		end},
 		{"특별한 장비?", cond=function(npc, player) return game.state:isAdvanced() end, jump="unique1"},
-		{"Flash Bang Trap ? Sounds useful.", cond=function(npc, player) return p:knowTalent(p.T_TRAP_MASTERY) and not p:knowTalent(p.T_FLASH_BANG_TRAP) end, jump="trap"}, --@@ 한글화 필요
+		{"섬광 폭발 함정이요? 쓸모있을것 같은데요.", cond=function(npc, player) return p:knowTalent(p.T_TRAP_MASTERY) and not p:knowTalent(p.T_FLASH_BANG_TRAP) end, jump="trap"}, --@@ 한글화 필요
 		{"아니, 이만 가보겠습니다!"},
 	}
 }
@@ -61,7 +61,7 @@ newChat{ id="traplearn",
 newChat{ id="unique1",
 	text = [[일반적으로는 그에 맞는 응당한 가격을 청구하지만, 당신은 제 친구니 20% 할인을 해드리지요. - #{italic}#딱#{normal}# 금화 4,000 개만 주시면 원하시는 종류의 엄청나게 희귀한 장비를 만들어 드리겠습니다. 어떠신가요?]],
 	answers = {
-		{"오, 그거 너무 싼거 아냐? 이봐, 주문을 받게. 상품 준비를 빨리 하는게 좋을걸!", cond=function(npc, player) return player.money >= 10000 end, jump="make"},
+		{"오, 그거 너무 싼거 아니예요? 당장 주문을 하죠. 가능한 빨리 상품 준비를 해 주세요!", cond=function(npc, player) return player.money >= 10000 end, jump="make"},
 		{"좋죠. 부탁할게요!", cond=function(npc, player) return player.money >= 4000 end, jump="make"},
 		{"얼마라고?! 어, 잠깐 좀 도와줘요. 시... 신선한 공기가 필요해...", cond=function(npc, player) return player.money < 500 end},
 		{"감사합니다만, 지금은 됐습니다."},

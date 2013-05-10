@@ -44,14 +44,15 @@ end
 local Talents = require("engine.interface.ActorTalents")
 
 -- The boss of the maze, no "rarity" field means it will not be randomly generated
-newEntity{ define_as = "HORNED_HORROR", --@@ 한글화 필요
+newEntity{ define_as = "HORNED_HORROR",
 	allow_infinite_dungeon = true,
 	type = "horror", subtype = "corrupted", unique = true,
 	name = "Horned Horror",
+	kr_name = "뿔달린 공포",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_horner_horror.png", display_h=2, display_y=-1}}},
 	desc = [[A fearsome bull-headed monster, he swings a mighty axe as he curses all that defy him.]],
-	killer_message = "and revived as a mindless horror",
+	killer_message = "and revived as a mindless horror", --@@ 한글화 필요
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,
 	stats = { str=20, dex=20, cun=20, mag=10, wil=10, con=20 },
@@ -87,7 +88,7 @@ newEntity{ define_as = "HORNED_HORROR", --@@ 한글화 필요
 	resolvers.inscriptions(2, {"invisibility rune", "lightning rune"}),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("NIMISIL", 2, 40, "Have you hard about the patrol that disappeared in the maze in the west?")
+		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식을 들었나?")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze-horror")
@@ -137,7 +138,7 @@ newEntity{ define_as = "MINOTAUR_MAZE",
 	resolvers.inscriptions(2, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("NIMISIL", 2, 40, "서쪽의 미궁에서, 정찰대들이 자꾸 사라진다는 소식이 들려오는군 그래.")
+		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식을 들었나?")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze")
 	end,

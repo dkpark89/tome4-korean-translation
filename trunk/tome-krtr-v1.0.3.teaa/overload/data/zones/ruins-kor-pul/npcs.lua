@@ -83,11 +83,12 @@ newEntity{ define_as = "SHADE",
 	end,
 }
 
-newEntity{ base = "BASE_NPC_THIEF", define_as = "THE_POSSESSED", --@@ 한글화 필요
+newEntity{ base = "BASE_NPC_THIEF", define_as = "THE_POSSESSED",
 	allow_infinite_dungeon = true,
 	name = "The Possessed", color=colors.VIOLET,
-	desc = [[He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.]],
-	killer_message = "and used as a new host",
+	kr_name = "잡아먹힌 자",
+	desc = [[그는 코르'풀의 '음영'에게 살해된 강도 무리의 지도자였지만, 이제는 단지 '음영'에게 확실히 잡아먹힌 상태입니다. 시체는 이제 살해자가 소유하고 있습니다.]],
+	killer_message = "당신은 새로운 잡아먹힌 자로 사용되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	unique = true,
 	rank = 4,
@@ -118,7 +119,7 @@ newEntity{ base = "BASE_NPC_THIEF", define_as = "THE_POSSESSED", --@@ 한글화 
 	ai = "tactical", ai_state = { talent_in=2, ai_move="move_astar", },
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("KOR_FURY", 3, 35, ".. yes I tell you! The old ruins of Kor'Pul are still haunted!")
+		game.state:activateBackupGuardian("KOR_FURY", 3, 35, "... 내가 말하는데! 저 코르'풀 폐허는 아직도 저주받았다고!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul-invaded")
 	end,

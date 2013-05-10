@@ -55,14 +55,15 @@ newEntity{ define_as = "SANDWORM_TUNNELER",
 
 -- They make the tunnels, temporarily
 -- High life to not kill them by accident
-newEntity{ define_as = "SANDWORM_TUNNELER_HUGE", --@@ 한글화 필요
+newEntity{ define_as = "SANDWORM_TUNNELER_HUGE",
 	type = "vermin", subtype = "sandworm",
 	name = "huge sandworm burrower",
+	kr_name = "거대한 굴 파는 지렁이",
 	display_w = 2, display_h = 2, display_x = -0.5, display_y = -0.5,
 	display = "w", color=colors.GREEN,
-	desc = [[This sandworm seems to not care about your presence at all and simply continues digging its way through the sand.
+	desc = [[이 지렁이는 당신을 전혀 신경쓰지 않고, 단순히 그 앞쪽으로 모래를 파서 굴을 만드는 일만 계속하고 있습니다.
 	
-Maybe following it is the only way to move around here...]],
+아마 이 지렁이를 따라다니는 것만이 이 지역을 돌아다니는 유일한 방법인 것 같습니다...]],
 	level_range = {12, 50}, exp_worth = 0,
 	max_life = 10000,
 	faction = "sandworm-burrowers",

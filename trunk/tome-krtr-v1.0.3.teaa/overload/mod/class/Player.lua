@@ -745,7 +745,7 @@ end
 --- Can we continue resting ?
 -- We can rest if no hostiles are in sight, and if we need life/mana/stamina/psi (and their regen rates allows them to fully regen)
 function _M:restCheck()
-	if game:hasDialogUp(1) then return false, "dialog is displayed" end --@@ 한글화 필요
+	if game:hasDialogUp(1) then return false, "대화창 표시" end
 	
 	local spotted = spotHostiles(self)
 	if #spotted > 0 then
@@ -834,7 +834,7 @@ end
 -- Known traps aren't interesting.  We let the engine run around traps, or stop if it can't.
 -- 'ignore_memory' is only used when checking for paths around traps.  This ensures we don't remember items "obj_seen" that we aren't supposed to
 function _M:runCheck(ignore_memory)
-	if game:hasDialogUp(1) then return false, "dialog is displayed" end --@@ 한글화 필요
+	if game:hasDialogUp(1) then return false, "대화창 표시" end
 	
 	local spotted = spotHostiles(self)
 	if #spotted > 0 then

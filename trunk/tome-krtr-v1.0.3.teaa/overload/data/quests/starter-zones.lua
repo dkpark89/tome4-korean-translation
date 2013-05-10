@@ -29,7 +29,7 @@ desc = function(self, who)
 	desc[#desc+1] = "다이카라는 탈로레의 숲 동쪽 경계선에 있습니다."
 	if self:isCompleted("old-forest") then
 		if self:isCompleted("old-forest-crystal") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲을 탐험하여, 조각난 피부를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲을 탐험하여, 분노의 뿌리를 물리쳤습니다.#WHITE#"
 		end
@@ -38,7 +38,7 @@ desc = function(self, who)
 	end
 	if self:isCompleted("maze") then
 		if self:isCompleted("maze-horror") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Maze and vanquished the Horned Horror.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 미궁을 탐험하여, 뿔달린 공포를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 미궁을 탐험하여, 미노타우루스를 물리쳤습니다.#WHITE#"
 		end

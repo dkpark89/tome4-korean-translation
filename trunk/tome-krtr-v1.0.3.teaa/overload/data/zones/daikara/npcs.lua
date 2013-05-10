@@ -85,14 +85,15 @@ newEntity{ define_as = "RANTHA_THE_WORM",
 	end,
 }
 
-newEntity{ define_as = "VARSHA_THE_WRITHING", --@@ 한글화 필요
+newEntity{ define_as = "VARSHA_THE_WRITHING",
 	allow_infinite_dungeon = true,
 	type = "dragon", subtype = "fire", unique = true,
 	name = "Varsha the Writhing",
+	kr_name = "몸부림치는 바르샤",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_fire_varsha_the_writhing.png", display_h=2, display_y=-1}}},
 	desc = [[Claws and teeth. Fire and death. Dragons are not all extinct it seems...]],
-	killer_message = "and fed to the hatchlings",
+	killer_message = "and fed to the hatchlings", --@@ 한글화 필요
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 230, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,
@@ -131,7 +132,7 @@ newEntity{ define_as = "VARSHA_THE_WRITHING", --@@ 한글화 필요
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("MASSOK", 4, 43, "I have heard there is a dragon hunter in the Daikara that is unhappy about the wyrm being already dead.")
+		game.state:activateBackupGuardian("MASSOK", 4, 43, "다이카라에는 용 사냥꾼이 있다고 들었어. 그 용 사냥꾼은 자신의 사냥감을 뺏긴 것에 대해 상당히 안 좋은 감정을 가지고 있는 것 같다는군.")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "daikara")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "daikara-volcano")

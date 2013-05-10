@@ -30,16 +30,17 @@ newEntity{
 
 local cracks_editer = {method="borders_def", def="blackcracks"}
 
-newEntity{ --@@ 한글화 필요
+newEntity{
 	define_as = "CRACKS",
 	type = "wall", subtype = "cracks",
 	name = "huge crack in the floor", image = "terrain/cracks/ground_9_01.png",
+	kr_name = "바닥의 커다란 균열",
 	display = '.', color=colors.BLACK, back_color=colors.BLACK,
 	nice_editer = cracks_editer,
 	block_move = function(self, x, y, who, act)
 		if not who or not act or not who.player then return true end
 		require("engine.ui.Dialog"):yesnoLongPopup("Crack in the floor", "This area seems to have been hit by a huge tremor, breaking the floor in a huge crack.\nYou think you can jump to the level bellow.", 400, function(ret) if ret then
-			game:changeLevel(game.level.level + 1)
+			game:changeLevel(game.level.level + 1) --@@ 한글화 필요
 		end end, "Jump", "Stay")
 		return true
 	end,

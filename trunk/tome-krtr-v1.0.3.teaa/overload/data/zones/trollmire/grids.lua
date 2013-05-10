@@ -43,12 +43,11 @@ newEntity{
 
 local grass_editer = { method="borders_def", def="grass"}
 
---@@ 한글화 필요 : 아래 전부
-
 newEntity{
 	define_as = "BOGTREE",
 	type = "wall", subtype = "water",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color=colors.DARK_BLUE,
 	always_remember = true,
@@ -63,6 +62,7 @@ for i = 1, 20 do newEntity{ base="BOGTREE", define_as = "BOGTREE"..i, image = "t
 newEntity{ base="WATER_BASE",
 	define_as = "BOGWATER",
 	name = "bog water",
+	kr_name = "늪", 
 	image="terrain/water_grass_5_1.png",
 }
 

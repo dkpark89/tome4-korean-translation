@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Object = require "engine.Object"
 local DamageType = require "engine.DamageType"
 
@@ -119,7 +121,7 @@ newAI("sandworm_tunneler_huge", function(self)
 		self.ai_state.next_spot = self.ai_state.next_spot + 1
 		local s = game.level.ordered_spots[self.ai_state.next_spot]
 		if not s then
-			game.logSeen(self, "#OLIVE_DRAB#The %s burrows into the ground and disappears.", self.name) --@@ 한글화 필요
+			game.logSeen(self, "#OLIVE_DRAB#%s 땅 속으로 파고들며 사라졌습니다.", (self.kr_name or self.name):capitalize():addJosa("가"))
 			self:disappear()
 			return
 		end

@@ -34,10 +34,10 @@ function _M:init()
 	self.c_desc = Textzone.new{width=math.floor(self.iw / 2 - 10), height=self.ih, text=""}
 
 	self.c_tabs = Tabs.new{width=self.iw - 5, tabs={
-		{title="UI", kind="ui"}, --@@ 한글화 필요 : 37~40
-		{title="Gameplay", kind="gameplay"},
-		{title="Online", kind="online"},
-		{title="Misc", kind="misc"},
+		{title="UI", kind="ui"},
+		{title="게임진행", kind="gameplay"},
+		{title="온라인", kind="online"},
+		{title="기타", kind="misc"},
 	}, on_change=function(kind) self:switchTo(kind) end}
 
 	self:loadUI{
@@ -173,11 +173,11 @@ function _M:generateListUi()
 		end, 0))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"How long will flying text messages be visible on screen.\nThe range is 1 (very short) to 100 (10x slower) than the normal duration, which varies with each individual message."} --@@ 한글화 필요
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Duration of flying text#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"'떠오르는 글'을 화면에 보여줄 시간을 결정합니다.\n설정 범위는 1 (아주 짧음)에서 100 (10배로 김) 사이이고, 보통의 속도는 10 입니다. 각각의 '떠오르는 글'마다 따로 적용이 됩니다.\n\nHow long will flying text messages be visible on screen.\nThe range is 1 (very short) to 100 (10x slower) than the normal duration, which varies with each individual message."}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#'떠오르는 글'을 보여줄 시간#WHITE##{normal}#", status=function(item)
 		return tostring((config.settings.tome.flyers_fade_time or 10) )
 	end, fct=function(item)
-		game:registerDialog(GetQuantity.new("Relative duration", "From 1 to 100", (config.settings.tome.flyers_fade_time or 10), 100, function(qty) --@@ 한글화 필요
+		game:registerDialog(GetQuantity.new("상대적 보여줄 시간 (보통이 10)", "1 에서 100 사이", (config.settings.tome.flyers_fade_time or 10), 100, function(qty)
 			qty = util.bound(qty, 1, 100)
 			config.settings.tome.flyers_fade_time = qty
 			game:saveSettings("tome.flyers_fade_time", ("tome.flyers_fade_time = %d\n"):format(qty))
@@ -303,8 +303,8 @@ function _M:generateListGameplay()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Enables quick melee targetting.\nTalents that require a melee target will automatically target when pressing a direction key instead of requiring a confirmation.#WHITE#"} --@@ 한글화 필요
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Quick melee targetting#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"빠른 근접 목표 지정 방식을 사용할 것인지 결정합니다.\n인접한 목표를 필요로 하는 기술 사용시, 방향키를 누르면 따로 확인받지 않고 해당하는 방향의 존재가 자동으로 목표로 지정됩니다.\n\nEnables quick melee targetting.\nTalents that require a melee target will automatically target when pressing a direction key instead of requiring a confirmation.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#빠른 근접 목표 지정#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.immediate_melee_keys and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.immediate_melee_keys = not config.settings.tome.immediate_melee_keys
@@ -339,7 +339,7 @@ function _M:generateListOnline()
 	local i = 0
 
 	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"화면에 보여줄 대화 메세지 종류를 결정합니다.\n\nConfigure the chat filters to select what kind of messages to see.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#대화창에서 무시할 사항#WHITE##{normal}#", status=function(item)
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#대화창에서 보여줄 사항#WHITE##{normal}#", status=function(item)
 		return "설정을 선택"
 	end, fct=function(item)
 		game:registerDialog(require("engine.dialogs.ChatFilter").new({

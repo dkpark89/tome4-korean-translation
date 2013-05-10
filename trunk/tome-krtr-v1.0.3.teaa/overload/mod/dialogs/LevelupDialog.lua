@@ -816,7 +816,7 @@ function _M:getStatDesc(item)
 		text:add("회피도 : ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 		text:add("장거리 회피 : ", color, ("%0.2f"):format(diff * 0.35), dc, true)
 		text:add("정확도 : ", color, ("%0.2f"):format(diff), dc, true)
-		text:add("Shrug off criticals chance: ", color, ("%0.2f%%"):format(diff * 0.3), dc, true) --@@ 한글화 필요
+		text:add("치명타 떨치기 : ", color, ("%0.2f%%"):format(diff * 0.3), dc, true)
 	end
 
 	if self.actor.player and self.desc_def and self.desc_def.getStatDesc and self.desc_def.getStatDesc(stat_id, self.actor) then
