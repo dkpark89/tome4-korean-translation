@@ -364,8 +364,6 @@ newTalent{
 	end,
 }
 
---@@ 한글화 필요 : 아래 전부
-
 newTalent{
 	name = "Battle Trance", image = "talents/clarity.png",
 	kr_name = "전투의 무아지경",

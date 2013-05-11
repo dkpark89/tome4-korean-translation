@@ -439,7 +439,7 @@ newEntity{ base = "BASE_GEM",
 	},
 }
 
-newEntity{ base = "BASE_STAFF", --@@ 한글화 필요
+newEntity{ base = "BASE_STAFF",
 	power_source = {arcane=true},
 	unique = true, define_as = "CRYSTAL_SHARD",
 	name = "Crystal Shard",
@@ -1814,8 +1814,6 @@ newEntity{ base = "BASE_MINDSTAR", define_as = "PSIONIC_FURY",
 		end
 	},
 }
-
---@@ 한글화 필요 : 아래 전부
 
 newEntity{ base = "BASE_GAUNTLETS", define_as = "STORM_BRINGER_GAUNTLETS",
 	power_source = {arcane=true},

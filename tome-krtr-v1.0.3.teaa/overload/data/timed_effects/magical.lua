@@ -2322,11 +2322,11 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요
+newEffect{
 	name = "BORN_INTO_MAGIC", image = "talents/born_into_magic.png",
 	desc = "Born into Magic",
 	kr_name = "마법과 함께 태어난 자",
-	long_desc = function(self, eff) return ("%s 속성 피해량 15%% 증가"):format(DamageType:get(eff.damtype).name:capitalize()) end,
+	long_desc = function(self, eff) return ("%s 속성 피해량 15%% 증가"):format((DamageType:get(eff.damtype).kr_name or DamageType:get(eff.damtype).name):capitalize()) end,
 	type = "magical",
 	subtype = { race=true },
 	status = "beneficial",

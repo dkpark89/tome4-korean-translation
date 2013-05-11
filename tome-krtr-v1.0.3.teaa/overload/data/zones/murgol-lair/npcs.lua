@@ -159,7 +159,7 @@ newEntity{ base="BASE_NPC_NAGA", define_as = "NASHVA",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_naga_lady_zoisla_the_tidebringer.png", display_h=2, display_y=-1}}},
 	color=colors.VIOLET, female = true,
 	desc = [[이 나가의 꼬리 주변에서는 물줄기가 천천히 회전하고 있습니다. 그녀의 검은 꼬리는 단단히 감겨 그녀의 키를 짧아보이게 만들지만, 그녀의 차분하면서도 자신감 넘치는 시선은 당신에게 있어 그녀가 쉽게 극복될 상대가 아니라는 것을 확신하게 만듭니다. 그녀 주변의 물줄기가 솟아오르기 시작하자 그녀 주변의 대기가 끓어오르고, 모든 것을 꿰뚫을 듯한 그녀의 검은 눈은 당신을 불편하게 만듭니다.]],
-	killer_message = "당신은 바르그에 실험 대상으로 보내졌습니다.", --@@ 한글화 필요
+	killer_message = "당신은 바르그에 실험 대상으로 보내졌습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,

@@ -103,7 +103,7 @@ newEntity{ define_as = "DREAMING_ONE",
 	kr_name = "꿈꾸는 자",
 	color=colors.VIOLET, image = "npc/seed_of_dreams.png",
 	desc = [[푸른 빛을 내뿜는 이 이상한 구체는 살아있으며, 잠든 상태인 것 같습니다. 이것은 움직이지 않고 있지만, 그 꿈의 힘은 당신의 정신을 짓누를 듯 다가옵니다.]],
-	killer_message = "당신은 영원한 악몽 속으로 빨려들어갔습니다.", --@@ 한글화 필요
+	killer_message = "당신은 영원한 악몽 속으로 빨려들어갔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 70, life_rating = 10, fixed_rating = true,
 	stats = { str=10, dex=10, cun=20, wil=25, con=10 },
