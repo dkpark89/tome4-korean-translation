@@ -479,7 +479,7 @@ newEntity{ base = "BASE_STAFF", --@@ 한글화 필요
 		},
 	},
 	max_power = 45, power_regen = 1,
-	use_power = { name = "살아있는 수정 조각 소환", power = 45, use = function(self, who)
+	use_power = { name = "create living shards of crystal", kr_name = "살아있는 수정의 파편 생성", power = 45, use = function(self, who)
 		if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 억압된 상태입니다!") return end
 
 		local NPC = require "mod.class.NPC"
@@ -1878,7 +1878,7 @@ newEntity{ base = "BASE_TRIDENT",
 	power_source = {arcane=true},
 	define_as = "TRIDENT_STREAM",
 	unided_name = "ornate trident",
-	kr_name "강의 분노",
+	kr_name = "강의 분노",
 	kr_unided_name = "화려하게 장식된 삼지창",
 	name = "The River's Fury", unique=true, image = "object/artifact/trident_of_the_tides.png",
 	desc = [[이 화려하게 장식된 삼지창은 해류를 굽히는 숙녀, 나쉬바가 들고 있던 삼지창입니다. 창을 잡으면, 쇄도하는 강의 분노를 어렴풋하게 느낄 수 있습니다.]],
@@ -1915,7 +1915,8 @@ newEntity{ base = "BASE_KNIFE",
 	unique = true,
 	name = "Unerring Scalpel", image = "object/artifact/unerring_scalpel.png",
 	unided_name = "long sharp scalpel",
-	kr_name = "정확한 수술용 칼", kr_unided_name = "길고 날카로운 수술용 칼",
+	kr_name = "정확한 수술용 칼", 
+	kr_unided_name = "길고 날카로운 수술용 칼",
 	desc = [[황혼의 시대에 살았던 공포의 주술사 코르'풀이 사령술을 배우기 시작할 때 사용했다고 알려진, 수술용 칼입니다. 많은 육체가 그 끔찍한 실험의 본의 아닌 희생자가 되었습니다. 살아 있던 몸이건, 죽어 있던 몸이건 간에 말이죠.]],
 	level_range = {1, 12},
 	rarity = 200,
