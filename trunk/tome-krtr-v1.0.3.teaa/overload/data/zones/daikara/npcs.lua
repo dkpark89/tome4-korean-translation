@@ -93,7 +93,7 @@ newEntity{ define_as = "VARSHA_THE_WRITHING",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_fire_varsha_the_writhing.png", display_h=2, display_y=-1}}},
 	desc = [[발톱과 이빨. 화염과 죽음. 용은 멸종된 것이 아니었습니다...]],
-	killer_message = "당신은 해츨링들의 먹잇감이 되었습니다.", --@@ 한글화 필요
+	killer_message = "당신은 해츨링들의 먹잇감이 되었습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 230, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,

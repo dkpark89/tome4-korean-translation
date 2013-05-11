@@ -133,7 +133,7 @@ return {
 	on_enter = function(lev)
 		if lev == 1 and not game.level.data.warned and game.zone.is_volcano then
 			game.level.data.warned = true
-			require("engine.ui.Dialog"):simpleLongPopup("쾅!", "다이카라로 발을 내딛은 당신은, 산의 중앙에서 거대한 화산 폭발이 일어나는 것을 발견했습니다.\n용암이 당신이 가려는 길로 흘러내리고, 쇄설암이 화산에서 뿜어져 나왔습니다. 그다지 위험하지는 않지만, 굉장히 인상적인 광경입니다.", 400) --@@ 한글화 필요
+			require("engine.ui.Dialog"):simpleLongPopup("쾅!", "다이카라로 발을 내딛은 당신은, 산의 중앙에서 거대한 화산 폭발이 일어나는 것을 발견했습니다.\n용암이 당신이 가려는 길로 흘러내리고, 쇄설암이 화산에서 뿜어져 나왔습니다. 그다지 위험하지는 않지만, 굉장히 인상적인 광경입니다.", 400)
 		end
 	end,
 }

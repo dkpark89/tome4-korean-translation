@@ -3822,11 +3822,11 @@ newEntity{ base = "BASE_LONGSWORD",
 	end,
 }
 
-newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR", --@@ 한글화 필요
+newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR",
 	power_source = {arcane=true, unknown=true},
 	unique = true, sentient = true,
 	name = "Morrigor", image = "object/artifact/morrigor.png",
-	kr_name = "모리고르", --@@ 아일랜드 신화에서 전쟁과 죽음의 여신을 뜻하는 Morrigan 의 남성형 이름이 아닐까요? 아님 말구요 :P
+	kr_name = "모리고르",
 	kr_unided_name = "톱니 모양으로, 갈라진, 검",
 	unided_name = "jagged, segmented, sword",
 	desc = [[무겁고, 길다란 검으로, 마법의 힘을 뿜어내고 있으며, 손잡이를 쥐면 얼음을 쥔 듯한 한기가, 이 검에 의해 살해된 모든 적들의 영혼이 느껴진다. 일치단결하여, '그들' 은 새로운 일행을 요구한다.]],
@@ -5655,8 +5655,6 @@ newEntity{ base = "BASE_MINDSTAR",
 	use_talent = { id = Talents.T_SLIME_WAVE, level = 3, power = 60 },
 }
 
---@@ 한글화 필요 : 아래 전부
-
 newEntity{ base = "BASE_CLOTH_ARMOR",
 	power_source = {nature=true},
 	unique = true,
@@ -5737,7 +5735,7 @@ newEntity{ base = "BASE_ARROW",
 		special_on_crit = {desc="대상을 근처의 벽에 박아 강제로 속박", fct=function(combat, who, target)
 			if not target or target == self then return end
 			if target:checkHit(who:combatPhysicalpower()*1.25, target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
-				game.logSeen(target, "%s 밀려나 속박되었습니다!", target.name:capitalize():addJosa("가"))
+				game.logSeen(target, "%s 밀려나 속박되었습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 				target:knockback(who.x, who.y, 10)
 				target:setEffect(target.EFF_PINNED, 5, {}) --ignores pinning resistance, too strong!
 			end
@@ -5747,9 +5745,9 @@ newEntity{ base = "BASE_ARROW",
 
 newEntity{ base = "BASE_RING",
 	power_source = {technique=true, psionic=true},
-	name = "Inertial Twine",
+	name = "Inertial Twine", unique=true,
 	unided_name = "entwined iron ring",
-	kr_name = "휘감긴 관성", unique=true,
+	kr_name = "휘감긴 관성",
 	desc = [[두 개의 나선으로 이루어진 반지로, 반지 자체에 관성의 힘이 작용하고 있습니다. 반지를 착용하면 반지의 능력이 몸 전체로 퍼지는 것을 느낄 수 있습니다.]],
 	kr_unided_name = "얽힌 철제 반지",
 	level_range = {17, 28},
@@ -5855,7 +5853,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 	unique = true,
 	unided_name = "gore stained battleaxe",
 	kr_name = "엑사틴의 최후통첩",
-	kr_unided_nmae = "피에 젖은 전투도끼",
+	kr_unided_nmae = "피에 젖은 대형도끼",
 	name = "Eksatin's Ultimatum", color = colors.GREY, image = "object/artifact/crude_iron_battleaxe_of_kroll.png",
 	desc = [[이 피에 젖은 전투도끼는 가학증이 있던 악명 높은 왕이 사용하던 것으로, 그는 모든 처형을 스스로의 손으로 직접 내렸다고 합니다. 그는 그가 잘라낸 자들의 목을 소중하게 관리하였으며, 이를 금고에 넣어 보관했습니다. 그의 왕위는 결국 타도당했고, 그의 머리는 금고의 중앙을 장식하여 그의 잔인성에 대한 증거로 남겨졌습니다.]],
 	require = { stat = { str=50 }, },
@@ -5871,7 +5869,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 			if not target or target == self then return end
 			if target:checkHit(who:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("instakill") and target.life > 0 and ((target.life < target.max_life * 0.25 and target.rank < 3.5) or target.life < target.max_life * 0.10) then
 				target:die(who)
-				game.logSeen(target, "#RED#%s#GOLD# 참수되었습니다!#LAST#", target.name:capitalize():addJosa("는"))
+				game.logSeen(target, "#RED#%s#GOLD# 참수되었습니다!#LAST#", (target.kr_name or target.name):capitalize():addJosa("는"))
 			end
 		end},
 	},

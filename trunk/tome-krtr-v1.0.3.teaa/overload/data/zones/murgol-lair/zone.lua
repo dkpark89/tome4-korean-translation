@@ -76,7 +76,7 @@ return {
 	on_enter = function(lev)
 		if lev == 1 and not game.level.data.warned and game.zone.is_invaded then
 			game.level.data.warned = true
-			require("engine.ui.Dialog"):simplePopup("무르골 동굴", "당신이 동굴에 들어가자, 저 멀리서 싸우는 소리가 들려옵니다. 누군가가 이미 동굴에 침입한 것 같습니다.") --@@ 한글화 필요
+			require("engine.ui.Dialog"):simplePopup("무르골 동굴", "당신이 동굴에 들어가자, 저 멀리서 싸우는 소리가 들려옵니다. 누군가가 이미 동굴에 침입한 것 같습니다.")
 		end
 	end,
 }

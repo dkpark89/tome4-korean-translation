@@ -48,7 +48,7 @@ newEntity{ define_as = "SHARDSKIN",
 	display = "%", color=colors.VIOLET,
 	image = "npc/immovable_crystal_golden_crystal.png",
 	desc = [[사악한 기운이 흐르고 있는 수정화된 구조체로, 수정으로 덮인 표면 안에서는 한때 거대한 나무였던 존재의 흔적을 발견할 수 있습니다...]],
-	killer_message = "당신은 수정화된 구조체와 융합되었습니다.", --@@ 한글화 필요
+	killer_message = "당신은 수정화된 구조체와 융합되었습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 200, life_rating = 17, fixed_rating = true,
 	stats = { str=15, dex=10, cun=8, mag=20, wil=20, con=20 },

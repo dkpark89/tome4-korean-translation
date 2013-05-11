@@ -54,7 +54,7 @@ else
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/animal_bear_norgos_the_frozen.png", display_h=2, display_y=-1}}},
 		desc = [[이 고대의 곰은 숲의 서쪽 지역을 오랫동안 지켜왔었습니다. 하지만 그가 미쳐버린 이후, 이제는 탈로레까지도 공격하고 있습니다.
 게다가 이 곰은 이 지역을 침입한 쉬브고로스의 먹이가 된 것 같습니다. 얼어붙은 채 움직이는 이 시체는, 마치 정령에 의해 움직이는 석상인 것 같습니다.]],
-		killer_message = "당신은 얼어붙어 고드름이 되었습니다.", --@@ 한글화 필요
+		killer_message = "당신은 얼어붙어 고드름이 되었습니다.",
 		level_range = {7, nil}, exp_worth = 2,
 		max_life = 200, life_rating = 17, fixed_rating = true, life_regen = 0,
 		max_stamina = 85,

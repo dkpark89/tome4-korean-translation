@@ -52,9 +52,9 @@ desc = function(self, who)
 	end
 	if self:isCompleted("daikara") then
 		if self:isCompleted("daikara-volcano") then
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험해, 그곳에 살고 있던 거대한 화염 용을 물리쳤습니다.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험해, 그곳에 살고 있던 거대한 화염 용을 물리쳤습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험해, 그곳에 살고 있던 거대한 냉기 용을 물리쳤습니다.#WHITE#" --@@ 한글화 필요
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험해, 그곳에 살고 있던 거대한 냉기 용을 물리쳤습니다.#WHITE#"
 		end
 	else
 		desc[#desc+1] = "#SLATE#* 당신은 '다이카라' 를 탐험해, 그곳에 무슨 위험이 도사리고 있는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
