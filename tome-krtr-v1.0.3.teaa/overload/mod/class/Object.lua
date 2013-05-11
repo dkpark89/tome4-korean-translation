@@ -1294,7 +1294,7 @@ function _M:getTextualDesc(compare_with)
 	if self.curse then
 		local t = game.player:getTalentFromId(game.player.T_DEFILING_TOUCH)
 		if t and t.canCurseItem(game.player, t, self) then
-			desc:add({"color",0xf5,0x3c,0xbe}, game.player.tempeffect_def[self.curse].desc, {"color","LAST"}, true)
+			desc:add({"color",0xf5,0x3c,0xbe}, (game.player.tempeffect_def[self.curse].kr_name or game.player.tempeffect_def[self.curse].desc), {"color","LAST"}, true) --@@ 저주이름 한글화
 		end
 	end
 
