@@ -106,9 +106,9 @@ newTalent{
 	-- gets the name of the currently set cursed aura
 	getCursedAuraName = function(self, t)
 		if not self.cursed_aura then
-			return "None"
+			return "없음"
 		else
-			return self.tempeffect_def[self.cursed_aura].desc
+			return (self.tempeffect_def[self.cursed_aura].kr_name or self.tempeffect_def[self.cursed_aura].desc) --@@ 저주 한글이름 반환 
 		end
 	end,
 	on_onWear = function(self, t, o)

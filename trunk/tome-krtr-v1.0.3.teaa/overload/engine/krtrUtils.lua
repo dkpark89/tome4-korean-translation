@@ -609,7 +609,7 @@ function string.krClass(str)
 end
 
 function string.krSize(str)
-	-- 관련내용 /mod/class/Actor.lua:1347~1357
+	-- 관련내용 /mod/class/Actor.lua:1331~1337
 	local ori = str:lower()
 	if ori == "tiny" then return "조그마함"
 	elseif ori == "small" then return "작음"
@@ -621,7 +621,7 @@ function string.krSize(str)
 end
 
 function string.krRank(str)
-	-- 관련내용 /mod/class/Actor.lua:1334~1345
+	-- 관련내용 /mod/class/Actor.lua:1318~1325
 	local ori = str:lower()
 	if ori == "normal" then return "평범함"
 	elseif ori == "critter" then return "모자람"
@@ -636,29 +636,29 @@ end
 function string.krFaction(str)
 	-- 관련내용 /data/factions.lua (한글화에는 제외되는 파일)
 	local ori = str:lower()
-	if ori == "rhalore" then return "랄로레"
-	elseif ori == "fearscape" then return "공포의 영역"
-	elseif ori == "orc pride" then return "오크 긍지"
-	elseif ori == "sunwall" then return "태양의 장벽"
-	elseif ori == "zigur" then return "지구르"
-	elseif ori == "angolwen" then return "앙골웬"
-	elseif ori == "iron throne" then return "철의 왕좌"
+	if ori == "enemies" then return "적"
 	elseif ori == "undead" then return "언데드"
+	elseif ori == "allied kingdoms" then return "왕국연합"
 	elseif ori == "shalore" then return "샬로레"
 	elseif ori == "thalore" then return "탈로레"
-	elseif ori == "allied kingdoms" then return "왕국연합"
+	elseif ori == "iron throne" then return "철의 왕좌"
 	elseif ori == "the way" then return "한길"
-	elseif ori == "enemies" then return "적"
+	elseif ori == "angolwen" then return "앙골웬"
 	elseif ori == "keepers of reality" then return "현실 감시원"
 	elseif ori == "dreadfell" then return "두려움의 영역"
 	elseif ori == "temple of creation" then return "창조의 사원"
 	elseif ori == "water lair" then return "수중단"
 	elseif ori == "assassin lair" then return "암살단"
+	elseif ori == "rhalore" then return "랄로레"
+	elseif ori == "zigur" then return "지구르"
 	elseif ori == "vargh republic" then return "바르그 공화국"
+	elseif ori == "sunwall" then return "태양의 장벽"
+	elseif ori == "orc pride" then return "오크 긍지"
 	elseif ori == "sandworm burrowers" then return "굴 파는 지렁이"
 	elseif ori == "victim" then return "제물"
 	elseif ori == "slavers" then return "노예"
 	elseif ori == "sorcerers" then return "주술사"
+	elseif ori == "fearscape" then return "공포의 영역"
 	elseif ori == "sher'tul" then return "쉐르'툴"
 	elseif ori == "neutral" then return "중립"
 	elseif ori == "unaligned" then return "비동맹"
@@ -887,7 +887,7 @@ function string.krItemShortName(str)
 	elseif ori == "copper" then return "구리"
 	elseif ori == "coral" then return "산호"
 	elseif ori == "cured" then return "가공"
-	elseif ori == "d.steel" then return "D.강철" --@@ 현재 드워프강철(dwarven steel)과 심해강철(deep steel)이 둘다 d.steel로 표시됨
+	elseif ori == "d.steel" then return "D강철" --@@ 현재 드워프강철(dwarven steel)과 심해강철(deep steel)이 둘다 d.steel로 표시됨
 	elseif ori == "dragonbone" then return "용뼈"
 	elseif ori == "drakeskin" then return "용가죽"
 	elseif ori == "dwarven" then return "드워프"
@@ -1506,6 +1506,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'predator' then return "포식자"
 	elseif ori == 'psionic' then return "초능력"
 	elseif ori == 'psychic_drain' then return "정신적 흡수"
+	elseif ori == 'race' then return "종족"
 	elseif ori == 'rune' then return "룬"
 	elseif ori == 'sense' then return "감지"
 	elseif ori == 'shield' then return "보호막"

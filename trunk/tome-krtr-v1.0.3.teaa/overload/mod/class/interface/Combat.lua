@@ -326,7 +326,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	damtype = damtype or (weapon and weapon.damtype) or DamageType.PHYSICAL
 	mult = mult or 1
 
-	--@@ 다음줄, 두줄뒤 : 세줄뒤 부터 이 함수 끝(550여줄뒤, 현재 876번 줄)까지 반복적으로 계산 사용되어 변수로 뺌
+	--@@ 다음줄, 두줄뒤 : 세줄뒤 부터 이 함수 끝(550여줄뒤, 현재 880번 줄)까지 반복적으로 계산 사용되어 변수로 뺌
 	local sn = self.kr_name or self.name
 	local tn = target.kr_name or target.name
 

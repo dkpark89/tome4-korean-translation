@@ -1031,7 +1031,7 @@ function _M:updateZoneName()
 	else
 		local lev = self.level.level
 		if self.level.data.reverse_level_display then lev = 1 + self.level.data.max_level - lev end
-		local szn = (self.zone.kr_name and self.zone.kr_name.." ["..self.zone.name.."]") or self.zone.name --@@ 1022, 1024 사용: 길어서 변수로 뺌 - 지역 이름을 한글이름[원문이름]으로 변경
+		local szn = (self.zone.kr_name and self.zone.kr_name.." ["..self.zone.name.."]") or self.zone.name --@@ 두줄뒤, 네줄뒤 사용: 길어서 변수로 뺌 - 지역 이름을 한글이름[원문이름]으로 변경
 		if self.zone.max_level == 1 then
 			name = szn
 		else
