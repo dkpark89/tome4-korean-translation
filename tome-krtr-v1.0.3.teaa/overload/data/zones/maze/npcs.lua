@@ -48,11 +48,11 @@ newEntity{ define_as = "HORNED_HORROR",
 	allow_infinite_dungeon = true,
 	type = "horror", subtype = "corrupted", unique = true,
 	name = "Horned Horror",
-	kr_name = "뿔달린 공포",
+	kr_name = "뿔 달린 공포",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_horner_horror.png", display_h=2, display_y=-1}}},
-	desc = [[A fearsome bull-headed monster, he swings a mighty axe as he curses all that defy him.]],
-	killer_message = "and revived as a mindless horror", --@@ 한글화 필요
+	desc = [[황소의 머리를 한, 공포스러운 괴물입니다. 그는 거대한 도끼를 휘두르며, 그를 거역하는 모든 자들에게 저주를 내립니다.]],
+	killer_message = "당신은 이성이 없는 공포로 되살아났습니다.", --@@ 한글화 필요
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,
 	stats = { str=20, dex=20, cun=20, mag=10, wil=10, con=20 },
@@ -88,7 +88,7 @@ newEntity{ define_as = "HORNED_HORROR",
 	resolvers.inscriptions(2, {"invisibility rune", "lightning rune"}),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식을 들었나?")
+		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식 들었나?")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze-horror")

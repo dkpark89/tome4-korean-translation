@@ -95,7 +95,7 @@ return {
 	on_enter = function(lev)
 		if lev == 1 and not game.level.data.warned then
 			game.level.data.warned = true
-			require("engine.ui.Dialog"):simplePopup("Caves...", "As you enter the caves you notice the magic here has distorted the land, making sharp angles and turns.") --@@ 한글화 필요
+			require("engine.ui.Dialog"):simplePopup("동굴...", "동굴에 들어서자, 당신은 이곳의 마법이 대지를 왜곡시켜 모든 것을 날카롭게 되었다는 느낌을 받았습니다.") --@@ 한글화 필요
 		end
 	end,
 }

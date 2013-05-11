@@ -29,7 +29,7 @@ desc = function(self, who)
 	desc[#desc+1] = "다이카라는 탈로레의 숲 동쪽 경계선에 있습니다."
 	if self:isCompleted("old-forest") then
 		if self:isCompleted("old-forest-crystal") then
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲을 탐험하여, 조각난 피부를 물리쳤습니다.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲을 탐험하여, 수정의 외피를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 오래된 숲을 탐험하여, 분노의 뿌리를 물리쳤습니다.#WHITE#"
 		end
@@ -38,7 +38,7 @@ desc = function(self, who)
 	end
 	if self:isCompleted("maze") then
 		if self:isCompleted("maze-horror") then
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 미궁을 탐험하여, 뿔달린 공포를 물리쳤습니다.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 미궁을 탐험하여, 뿔 달린 공포를 물리쳤습니다.#WHITE#"
 		else
 			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 미궁을 탐험하여, 미노타우루스를 물리쳤습니다.#WHITE#"
 		end
@@ -52,9 +52,9 @@ desc = function(self, who)
 	end
 	if self:isCompleted("daikara") then
 		if self:isCompleted("daikara-volcano") then
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험하여, 그 곳에 살던 거대한 화염 용을 물리쳤습니다.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험해, 그곳에 살고 있던 거대한 화염 용을 물리쳤습니다.#WHITE#" --@@ 한글화 필요
 		else
-			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험하여, 그 곳에 살던 거대한 냉기 용을 물리쳤습니다.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 다이카라를 탐험해, 그곳에 살고 있던 거대한 냉기 용을 물리쳤습니다.#WHITE#" --@@ 한글화 필요
 		end
 	else
 		desc[#desc+1] = "#SLATE#* 당신은 '다이카라' 를 탐험해, 그곳에 무슨 위험이 도사리고 있는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
