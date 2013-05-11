@@ -173,8 +173,8 @@ function _M:generateListUi()
 		end, 0))
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"'떠오르는 글'을 화면에 보여줄 시간을 결정합니다.\n설정 범위는 1 (아주 짧음)에서 100 (10배로 김) 사이이고, 보통의 속도는 10 입니다. 각각의 '떠오르는 글'마다 따로 적용이 됩니다.\n\nHow long will flying text messages be visible on screen.\nThe range is 1 (very short) to 100 (10x slower) than the normal duration, which varies with each individual message."}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#'떠오르는 글'을 보여줄 시간#WHITE##{normal}#", status=function(item)
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"말풍선을 화면에 보여줄 시간을 결정합니다.\n설정 범위는 1 (아주 짧음)에서 100 (10배로 김) 사이이고, 보통의 속도는 10 입니다. 각각의 말풍선마다 따로 적용이 됩니다.\n\nHow long will flying text messages be visible on screen.\nThe range is 1 (very short) to 100 (10x slower) than the normal duration, which varies with each individual message."}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#말풍선을 보여줄 시간#WHITE##{normal}#", status=function(item)
 		return tostring((config.settings.tome.flyers_fade_time or 10) )
 	end, fct=function(item)
 		game:registerDialog(GetQuantity.new("상대적 보여줄 시간 (보통이 10)", "1 에서 100 사이", (config.settings.tome.flyers_fade_time or 10), 100, function(qty)

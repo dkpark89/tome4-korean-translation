@@ -135,7 +135,7 @@ return {
 			Dialog:simplePopup("누르 호수", "다음 층으로 내려가면서, 물이 침범하지 못하는 어떤 종류의 마법 장벽을 지나쳤습니다. 끔찍한 비명소리가 들립니다.")
 			game.level.shown_warning = true
 		elseif lev == 3 and not game.level.shown_warning and game.level.data.is_flooded then
-			Dialog:simpleLongPopup("누르 호수", "다음 층으로 내려가면서, 물이 침범하지 못하는 어떤 종류의 마법 장벽을 지나쳤습니다. 그러나 이 장벽에 문제가 있는지, 다음 층도 역시 물에 잠겨 있습니다.", 400)
+			Dialog:simpleLongPopup("누르 호수", "다음 층으로 내려가면서, 물이 침범하지 못하는 어떤 종류의 마법 장벽을 지나쳤습니다. 하지만 이 장벽에 문제가 있었는지, 다음 층 역시 물에 잠긴 상태입니다.", 400)
 			game.level.shown_warning = true
 		end
 	end,

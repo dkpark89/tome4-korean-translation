@@ -3822,13 +3822,14 @@ newEntity{ base = "BASE_LONGSWORD",
 	end,
 }
 
-newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR",
+newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR", --@@ 한글화 필요
 	power_source = {arcane=true, unknown=true},
 	unique = true, sentient = true,
 	name = "Morrigor", image = "object/artifact/morrigor.png",
+	kr_name = "모리고르", --@@ 아일랜드 신화에서 전쟁과 죽음의 여신을 뜻하는 Morrigan 의 남성형 이름이 아닐까요? 아님 말구요 :P
+	kr_unided_name = "톱니 모양으로, 갈라진, 검",
 	unided_name = "jagged, segmented, sword",
-	kr_name = "모리고르", kr_unided_name = "톱니 모양으로 갈라진 검", --@@ 한글 이름이 사실 맘에 안 듦 : more + rigor 일까?, 이 이름은 /data/talents/misc/objects.lua:419 줄에서도 사용됨
-	desc = [[이 무겁고 길죽한 칼날은 마법의 힘을 발산하고 있어, 손잡이를 쥐고 있으면 척추를 따라 올라오는 차가운 한기를 느낄 수 있습니다. 이 검에 의해 살해된 모든 육체를 떠난 존재가 느껴집니다. 일치단결하여, 그들은 새로운 일행을 요구합니다.]],
+	desc = [[무겁고, 길다란 검으로, 마법의 힘을 뿜어내고 있으며, 손잡이를 쥐면 얼음을 쥔 듯한 한기가, 이 검에 의해 살해된 모든 적들의 영혼이 느껴진다. 일치단결하여, '그들' 은 새로운 일행을 요구한다.]],
 	level_range = {20, 30},
 	rarity = 250,
 	require = { stat = { mag=40, }, },
@@ -3839,12 +3840,12 @@ newEntity{ base = "BASE_GREATSWORD", define_as="MORRIGOR",
 		apr = 12,
 		physcrit = 7,
 		dammod = {str=0.7, mag=0.7},
-		special_on_hit = {desc="마법적 피해 추가", fct=function(combat, who, target)
+		special_on_hit = {desc="추가적인 마법 피해", fct=function(combat, who, target)
 			local tg = {type="ball", range=0, radius=0, selffire=false}
 			who:project(tg, target.x, target.y, engine.DamageType.ARCANE, who:getMag()*0.5)
 			who:project(tg, target.x, target.y, engine.DamageType.DARKNESS, who:getMag()*0.5)
 		end},
-		special_on_kill = {desc="희생자의 영혼을 삼켜, 착용 해제시까지 새로운 힘을 획득", fct=function(combat, who, target)
+		special_on_kill = {desc="희생자의 영혼을 삼켜, 장비를 해제하기 전까지 새로운 힘을 획득", fct=function(combat, who, target)
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "MORRIGOR")
 			if o.use_talent then return end
 			local got_talent = false
@@ -5660,8 +5661,10 @@ newEntity{ base = "BASE_CLOTH_ARMOR",
 	power_source = {nature=true},
 	unique = true,
 	name = "Evermoss Robe", color = colors.DARK_GREEN, image = "object/artifact/robe_spider_silk_robe_spydre.png",
+	kr_name = "늘푸른이끼 로브",
+	kr_unided_name = "보송보송한 녹색 로브",
 	unided_name = "fuzzy green robe",
-	desc = [[This thick robe is woven from a dark green moss, firmly bound and cool to the touch. It is said to have rejuvenating properties.]],
+	desc = [[짙은 녹색 이끼를 단단히 묶어 만든 두꺼운 로브로, 만져보면 시원함이 느껴집니다. 이 로브에는 착용자를 더 활기차게 만들어주는 힘이 있다고 합니다.]],
 	level_range = {30, 42},
 	rarity = 200,
 	cost = 350,
@@ -5686,8 +5689,10 @@ newEntity{ base = "BASE_SLING",
 	power_source = {arcane=true},
 	unique = true,
 	name = "Nithan's Force", image = "object/artifact/sling_eldoral_last_resort.png",
+	kr_name = "닛탄의 힘",
+	kr_unided_name = "묵직한 투석구",
 	unided_name = "massive sling",
-	desc = [[This powerful sling is said to have belonged to a warrior so strong his shots could knock down a brick wall. It appears he may have had some magical assistance...]],
+	desc = [[벽돌로 만들어진 벽도 뚫어버릴 수 있었다는, 한 강력한 전사가 사용했던 투석구입니다. 지금 보니, 그의 강력했던 힘은 어떤 마법적 도움을 받아왔던 것 같습니다.]],
 	level_range = {35, 50},
 	rarity = 220,
 	require = { stat = { dex=32 }, },
@@ -5713,8 +5718,10 @@ newEntity{ base = "BASE_ARROW",
 	power_source = {technique=true},
 	unique = true,
 	name = "The Titan's Quiver", image = "object/artifact/hornet_stingers.png",
+	kr_name = "거인의 화살통",
+	kr_unided_name = "거대한 세라믹 화살이 담긴 통",
 	unided_name = "gigantic ceramic arrows",
-	desc = [[These massive arrows are honed to a vicious sharpness, and appear to be nearly unbreakable. They seem more like spikes than any arrow you've ever seen.]],
+	desc = [[이 거대한 화살들은 끝이 매우 날카롭게 갈려 있으며, 절대 부러지지 않을 것 같아보입니다. 마치 화살이라기보다는, 거대한 가시 같습니다.]],
 	color = colors.GREY,
 	level_range = {35, 50},
 	rarity = 300,
@@ -5727,10 +5734,10 @@ newEntity{ base = "BASE_ARROW",
 		apr = 20,
 		physcrit = 8,
 		dammod = {dex=0.5, str=0.7},
-		special_on_crit = {desc="pin the target to the nearest wall", fct=function(combat, who, target)
+		special_on_crit = {desc="대상을 근처의 벽에 박아 강제로 속박", fct=function(combat, who, target)
 			if not target or target == self then return end
 			if target:checkHit(who:combatPhysicalpower()*1.25, target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
-				game.logSeen(target, "%s is knocked back and pinned!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나 속박되었습니다!", target.name:capitalize():addJosa("가"))
 				target:knockback(who.x, who.y, 10)
 				target:setEffect(target.EFF_PINNED, 5, {}) --ignores pinning resistance, too strong!
 			end
@@ -5740,9 +5747,11 @@ newEntity{ base = "BASE_ARROW",
 
 newEntity{ base = "BASE_RING",
 	power_source = {technique=true, psionic=true},
-	name = "Inertial Twine", unique=true,
-	desc = [[This double-helical ring seems resistant to attempts to move it. Wearing it seems to extend this property to your entire body.]],
+	name = "Inertial Twine",
 	unided_name = "entwined iron ring",
+	kr_name = "휘감긴 관성", unique=true,
+	desc = [[두 개의 나선으로 이루어진 반지로, 반지 자체에 관성의 힘이 작용하고 있습니다. 반지를 착용하면 반지의 능력이 몸 전체로 퍼지는 것을 느낄 수 있습니다.]],
+	kr_unided_name = "얽힌 철제 반지",
 	level_range = {17, 28},
 	rarity = 250,
 	cost = 300,
@@ -5763,11 +5772,13 @@ newEntity{ base = "BASE_LONGSWORD",
 	power_source = {nature=true, technique=true},
 	unique = true,
 	name = "Everpyre Blade",
+	kr_name = "늘타오르는 검",
+	kr_unided_name = "타오르는 목재 검",
 	unided_name = "flaming wooden blade", image = "object/artifact/latafayn.png",
 	level_range = {28, 38},
 	color=colors.RED,
 	rarity = 300,
-	desc = [[This ornate blade is carved from the wood of a tree said to burn eternally. Its hilt is encrusted with gems, suggesting it once belonged to a figure of considerable status. The flames seem to bend to the will of the sword's holder.]],
+	desc = [[이 화려한 검은 영원히 불타오른다고 알려진 나무를 깎아 만들어졌습니다. 칼자루 부분은 보석으로 만들어져, 상당히 높은 지위에 있던 자의 소유물이었음을 짐작할 수 있습니다. 검에서 나오는 불꽃은 착용자의 의지에 따라 구부릴 수 있습니다.]],
 	cost = 400,
 	require = { stat = { str=40 }, },
 	material_level = 4,
@@ -5801,7 +5812,9 @@ newEntity{ base = "BASE_STAFF",
 	unided_name = "dark, radiant staff",
 	flavor_name = "starstaff",
 	name = "Eclipse", unique=true,
-	desc = [[This tall staff is tipped with a pitch black sphere that yet seems to give off a strong light.]],
+	kr_name = "일월식",
+	kr_unided_name = "검은, 빛을 내뿜는 지팡이",
+	desc = [[긴 마법지팡이로, 끝부분에 칠흑같이 새까만 구체가 달려 있습니다. 구체는 새까맣지만, 강렬한 빛을 내뿜고 있습니다.]],
 	require = { stat = { mag=32 }, },
 	level_range = {10, 20},
 	rarity = 200,
@@ -5841,8 +5854,10 @@ newEntity{ base = "BASE_BATTLEAXE",
 	power_source = {technique=true},
 	unique = true,
 	unided_name = "gore stained battleaxe",
+	kr_name = "엑사틴의 최후통첩",
+	kr_unided_nmae = "피에 젖은 전투도끼",
 	name = "Eksatin's Ultimatum", color = colors.GREY, image = "object/artifact/crude_iron_battleaxe_of_kroll.png",
-	desc = [[This gore stained battleaxe was once used by an infamously sadistic king, who took the time to personally perform each and every execution he ordered. He kept a vault of every head he ever removed, each and every one of them carefully preserved. When he was overthrown, his own head was added as the centrepiece of the vault, which was maintained as a testament to his cruelty.]],
+	desc = [[이 피에 젖은 전투도끼는 가학증이 있던 악명 높은 왕이 사용하던 것으로, 그는 모든 처형을 스스로의 손으로 직접 내렸다고 합니다. 그는 그가 잘라낸 자들의 목을 소중하게 관리하였으며, 이를 금고에 넣어 보관했습니다. 그의 왕위는 결국 타도당했고, 그의 머리는 금고의 중앙을 장식하여 그의 잔인성에 대한 증거로 남겨졌습니다.]],
 	require = { stat = { str=50 }, },
 	level_range = {39, 46},
 	rarity = 300,
@@ -5852,11 +5867,11 @@ newEntity{ base = "BASE_BATTLEAXE",
 		apr = 7,
 		physcrit = 5,
 		dammod = {str=1.3},
-		special_on_crit = {desc="decapitate a weakened target", fct=function(combat, who, target)
+		special_on_crit = {desc="약해진 적을 참수", fct=function(combat, who, target)
 			if not target or target == self then return end
 			if target:checkHit(who:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("instakill") and target.life > 0 and ((target.life < target.max_life * 0.25 and target.rank < 3.5) or target.life < target.max_life * 0.10) then
 				target:die(who)
-				game.logSeen(target, "#RED#%s#GOLD# has been decapitated!#LAST#", target.name:capitalize())
+				game.logSeen(target, "#RED#%s#GOLD# 참수되었습니다!#LAST#", target.name:capitalize():addJosa("는"))
 			end
 		end},
 	},
@@ -5875,7 +5890,9 @@ newEntity{ base = "BASE_CLOAK",
 	unique = true,
 	name = "Radiance",
 	unided_name = "a sparkling, golden cloak",
-	desc = [[This pristine golden cloak flows with a wind that seems to be conjured from nowhere. Its inner surface is a completely plain white, but the outside shines with intense light.]],
+	kr_name = "광휘",
+	kr_unided_name = "빛나는, 금색 망토",
+	desc = [[이 아주 깨끗한 금색 망토는 어디선가 불어오는 마법의 바람으로 펄럭이고 있습니다. 망토 안쪽은 순백색이면서도, 바깥쪽에서는 눈부신 빛이 빛나고 있습니다.]],
 	level_range = {45, 50},
 	color = colors.GOLD,
 	rarity = 500,
@@ -5907,8 +5924,10 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 	power_source = {technique=true},
 	unique = true,
 	name = "Unbreakable Greaves", image = "object/artifact/scorched_boots.png",
+	kr_name = "부서지지 않는 정강이받이",
+	kr_unided_name = "거대한 석재 신발",
 	unided_name = "huge stony boots",
-	desc = [[These titanic boots appear to have been carved from stone. They appear weathered and cracked, but easily deflect all blows.]],
+	desc = [[이 거대한 신발은 바위를 깎아 만든 것으로 보입니다. 비록 풍화되고 금이 갔지만, 이 신발에는 모든 공격을 튕겨내는 힘을 가지고 있습니다.]],
 	color = colors.DARK_GRAY,
 	level_range = {40, 50},
 	rarity = 250,
@@ -5934,10 +5953,13 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 	power_source = {arcane=true},
 	unique = true, sentient=true,
 	name = "The Untouchable", color = colors.BLUE, image = "object/artifact/the_untouchable.png",
+	kr_name = "무적",
+	kr_unided_name = "거친 가죽 조끼",
 	unided_name = "tough leather coat",
-	desc = [[This rugged jacket is subject of many a rural legend. 
-Some say it was fashioned by an adventurous mage turned rogue, in times before the spellblaze, but was since lost.
-All manner of shady gamblers have since claimed to have worn it at one point or another. To fail, but live, is what it means to be untouchable, they said.]],
+	desc = [[이 튼튼한 조끼는 많은 시골 전설의 소재가 되어왔습니다.
+누군가는 이 조끼가 모험심 강한 마법사가 도적이 되면서 만들었으며, 마법폭발이 일어나 잊혀지게 된 옷이라고 합니다.
+그리고, 때때로 이것을 입고 (내기에 걸지 않아놓고 이기는 내기에 걸었다고 우기는) 클레임을 시도하는 자가 있었다고 합니다.
+클레임에는 실패했지만 언제나 살아가는 그 모습을 보고, 모든 도박사들이 그 조끼를 '무적' 이라고 부르게 되었다고 합니다.]],
 	level_range = {20, 30},
 	rarity = 200,
 	cost = 350,
@@ -5966,7 +5988,7 @@ All manner of shady gamblers have since claimed to have worn it at one point or 
 		
 		if hp_diff >= 0.2 and not self.worn_by:hasEffect(self.worn_by.EFF_DAMAGE_SHIELD) then
 			self.worn_by:setEffect(self.worn_by.EFF_DAMAGE_SHIELD, 3, {power = (hp_diff * self.worn_by.life)*2})
-			game.logPlayer(self.worn_by, "#LIGHT_BLUE#A barrier bursts from the leather jacket!")
+			game.logPlayer(self.worn_by, "#LIGHT_BLUE#가죽 조끼에서 보호막이 펼쳐집니다!")
 		end		
 		
 		self.wearer_hp = self.worn_by.life/self.worn_by.max_life
@@ -5979,9 +6001,11 @@ newEntity{ base = "BASE_TOOL_MISC",
 	type = "charm", subtype="totem",
 	name = "Honeywood Chalice",
 	unided_name = "sap filled cup",
+	kr_name = "벌꿀나무 성배",
+	kr_unided_name = "수액이 가득한 잔",
 	color = colors.BROWN,
 	level_range = {30, 40},
-	desc = [[This wooden cup seems perpetually filled with a thick sap-like substance. Tasting it is exhilarating, and you feel intensely aware when you do so.]],
+	desc = [[이 나무로 만들어진 잔은 끊임없이 수액과 같은 물질이 채워지고 있습니다. 그 맛은 매우 좋으며, 마실 때마다 의식이 고양되는 느낌이 듭니다.]],
 	cost = 320,
 	material_level = 4,
 	wielder = {
