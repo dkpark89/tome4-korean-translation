@@ -1993,7 +1993,7 @@ newEffect{
 	no_remove = true,
 	cancel_on_level_change = true,
 	long_desc = function(self, eff)
-		local desc = ([[현재 사냥감 : %s / %s, 사냥 효율 : %d%% 사냥한 횟수 : %d / %d, 추가 피해량 %+d%% / %+d%%]]):format(eff.type, eff.subtype, (eff.effectiveness * 100) or 0, eff.typeKills, eff.subtypeKills, (eff.typeDamageChange * 100) or 0, (eff.subtypeDamageChange * 100) or 0)
+		local desc = ([[현재 사냥감 : %s / %s, 사냥 효율 : %d%% 사냥한 횟수 : %d / %d, 추가 피해량 %+d%% / %+d%%]]):format(eff.type:krActorType(), eff.subtype:krActorType(), (eff.effectiveness * 100) or 0, eff.typeKills, eff.subtypeKills, (eff.typeDamageChange * 100) or 0, (eff.subtypeDamageChange * 100) or 0) --@@ 종족이름 한글로 바꿈
 		if eff.subtypeAttackChange or 0 > 0 then
 			desc = desc..([[, 정확도 추가 : %+d / %+d, 기절 확률 : -- / %0.1f%%, 의표 찌르기 확률 : %0.1f%% / %0.1f%%]]):format(eff.typeAttackChange or 0, eff.subtypeAttackChange or 0, eff.subtypeStunChance or 0, eff.typeOutmaneuverChance or 0, eff.subtypeOutmaneuverChance or 0)
 		end

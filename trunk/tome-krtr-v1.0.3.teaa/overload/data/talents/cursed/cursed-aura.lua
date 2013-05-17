@@ -77,7 +77,7 @@ newTalent{
 
 		local def = self.tempeffect_def[item.curse]
 		item.special = true
-		item.add_name = (item.add_name or "").." ("..def.short_desc..")"
+		item.add_name = (item.add_name or "").." ("..(def.kr_short_desc or def.short_desc)..")" --@@ 짧은 저주이름 한글로 바꿈
 	end,
 	-- curses all items on the floor
 	curseFloor = function(self, t, x, y)
