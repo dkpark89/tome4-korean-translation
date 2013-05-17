@@ -65,7 +65,7 @@ function _M:generateList()
 	local t = self.actor:getTalentFromId(self.actor.T_DEFILING_TOUCH)
 	local curses = t.getCurses(self.actor, t)
 	for i, curse in pairs(curses) do
-		list[#list+1] = {name=self.actor.tempeffect_def[curse].desc, curse=curse}
+		list[#list+1] = {name=self.actor.tempeffect_def[curse].kr_name or self.actor.tempeffect_def[curse].desc, curse=curse} --@@ 저주이름 한글로 바꿈
 	end
 	print("* CAS", #list, list[1].name, list[5].name)
 	

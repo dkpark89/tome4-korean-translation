@@ -1438,7 +1438,7 @@ end
 
 function string.krEffectType(str)
 	-- 관련내용 /data/timed_effects/하위에서 "type"으로 검색해서 나오는 것들
-	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1247, 1249번 줄에서 사용
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1247, 1249번 줄과 /mod/class/PalyerDisplay.lua:172, 174번 줄에서 사용
 	local ori = str:lower()
 	if ori == "physical" then return "물리적 효과"
 	elseif ori == "magical" then return "마법적 효과"
@@ -1538,7 +1538,7 @@ function string.krEffectSubtype(str)
 end
 
 function table.krEffectKeys(t)
-	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1244번 줄에서 사용
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1244번 줄, /mod/class/PlayerDisplay.lua:169번 줄에서 사용
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krEffectSubtype() end
 	return tt

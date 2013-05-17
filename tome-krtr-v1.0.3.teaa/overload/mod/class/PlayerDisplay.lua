@@ -166,12 +166,12 @@ function _M:handleEffect(eff_id, e, p, ex, h)
 	local dur = p.dur + 1
 	local name = e.kr_name or e.desc --@@ 한글 이름 추가
 	local desc = nil
-	local eff_subtype = table.concat(table.keys(e.subtype), "/")
+	local eff_subtype = table.concat(table.krEffectKeys(e.subtype), "/") --@@ 상태효과 속성을 한글로 바꿔 나열
 	if e.display_desc then name = e.display_desc(self, p) end
 	if p.save_string and p.amount_decreased and p.maximum and p.total_dur then
-		desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d 턴에서 %d 턴으로 %d 턴 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정
+		desc = ("#{bold}##GOLD#%s\n(%s: %s)#WHITE##{normal}#\n"):format(name, e.type:krEffectType(), eff_subtype)..e.long_desc(player, p).." "..("%s 이 효과의 지속시간을 %d 턴에서 %d 턴으로 %d 턴 줄였습니다."):format(p.save_string:addJosa("가"), p.maximum, p.total_dur, p.amount_decreased) --@@ 변수 순서 조정, 임시 효과 분류 한글로 바꿈
 	else
-		desc = ("#{bold}##GOLD#%s\n(%s : %s)#WHITE##{normal}#\n"):format(name, e.type, eff_subtype)..e.long_desc(player, p)
+		desc = ("#{bold}##GOLD#%s\n(%s : %s)#WHITE##{normal}#\n"):format(name, e.type:krEffectType(), eff_subtype)..e.long_desc(player, p) --@@ 임시 효과 분류 한글로 바꿈
 	end
 
 	if config.settings.tome.effects_icons and e.display_entity then

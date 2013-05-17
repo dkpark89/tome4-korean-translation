@@ -665,7 +665,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_CORPSES",
 	desc = "Curse of Corpses",
-	kr_name = "시체의 저주",
+	kr_name = "시체의 저주", kr_short_desc = "시체",
 	short_desc = "Corpses",
 	type = "other",
 	subtype = { curse=true },
@@ -805,7 +805,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_MADNESS",
 	desc = "Curse of Madness",
-	kr_name = "광기의 저주",
+	kr_name = "광기의 저주", kr_short_desc = "광기",
 	short_desc = "Madness",
 	type = "other",
 	subtype = { curse=true },
@@ -915,7 +915,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_SHROUDS",
 	desc = "Curse of Shrouds",
-	kr_name = "장막의 저주",
+	kr_name = "장막의 저주", kr_short_desc = "장막",
 	short_desc = "Shrouds",
 	type = "other",
 	subtype = { curse=true },
@@ -1068,7 +1068,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_NIGHTMARES",
 	desc = "Curse of Nightmares",
-	kr_name = "악몽의 저주",
+	kr_name = "악몽의 저주", kr_short_desc = "악몽",
 	short_desc = "Nightmares",
 	type = "other",
 	subtype = { curse=true },
@@ -1254,7 +1254,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_MISFORTUNE",
 	desc = "Curse of Misfortune",
-	kr_name = "불운의 저주",
+	kr_name = "불운의 저주", kr_short_desc = "불운",
 	short_desc = "Misfortune",
 	type = "other",
 	subtype = { curse=true },
