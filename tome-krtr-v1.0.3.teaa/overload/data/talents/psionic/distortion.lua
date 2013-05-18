@@ -101,7 +101,7 @@ newTalent{
 		return ([[전방 %d 칸 반경에 왜곡의 파동을 만들어내, %0.2f 물리 피해를 주고 적들을 뒤로 밀어냅니다.
 		파동의 영향을 받은 적은 왜곡되며, 2 턴 동안 유지됩니다.
 		이미 왜곡된 적에게 왜곡 파동을 맞출 경우, 대상은 %d 턴 동안 기절하게 됩니다.
-		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), power)
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), power)
 	end,
 }
 
