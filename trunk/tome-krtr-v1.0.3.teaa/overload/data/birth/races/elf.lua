@@ -78,10 +78,10 @@ newBirthDescriptor
 		"#LIGHT_BLUE# * 힘-2, 민첩+1, 체격+0",
 		"#LIGHT_BLUE# * 마법+2, 의지+3, 교활함+1",
 		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 9",
-		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 30%",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 25%",
 	},
 	inc_stats = { str=-2, mag=2, wil=3, cun=1, dex=1, con=0 },
-	experience = 1.3,
+	--experience = 1.3, --@@ 괜히 헷깔려 주석처리함
 	talents_types = { ["race/shalore"]={true, 0} },
 	talents = { [ActorTalents.T_SHALOREN_SPEED]=1 },
 	copy = {
