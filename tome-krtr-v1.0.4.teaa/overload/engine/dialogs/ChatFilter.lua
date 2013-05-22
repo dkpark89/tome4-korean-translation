@@ -31,9 +31,9 @@ function _M:init(adds)
 		{name = "공개적 대화", kind = "talk"},
 		{name = "개인적 귓속말", kind = "whisper"},
 		{name = "메세지 참가", kind = "join"},
-		{name = "First time achievements (recommanded to keep them on)", kind = "achievement_first"}, --@@ 한글화 필요 : 현재줄~두줄아래 name만
-		{name = "Important achievements (recommanded to keep them on)", kind = "achievement_huge"},
-		{name = "Other achievements", kind = "achievement_other"},
+		{name = "최초로 획득한 도전과제 (항상 보는 것을 추천합니다)", kind = "achievement_first"}, 
+		{name = "중요한 도전과제 (항상 보는 것을 추천합니다)", kind = "achievement_huge"},
+		{name = "기타 도전과제", kind = "achievement_other"},
 	}
 	for i, l in ipairs(adds or {}) do list[#list+1] = l end
 

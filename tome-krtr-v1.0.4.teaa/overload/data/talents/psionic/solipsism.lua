@@ -60,10 +60,11 @@ newTalent{
 		local psi_damage_resist = t.getPsiDamageResist(self, t)
 		return ([[실재하는 것은 자아 뿐이고, 다른 모든 것들은 현상에 불과한 것이라고 생각합니다. 
 		레벨이 오를 때마다 염력 최대량이 5 증가합니다. 그 대신 생명력 증가량이 50%% 줄어듭니다. (기술 레벨이 1 이 될 때, 한 번만 적용됩니다)
-		정신력으로 피해를 극복하는 법을 배워 적에게 받는 피해량의 %d%% 가 생명력 대신 염력을 소진시키고, 생명력 회복량의 %d%% 가 생명력 대신 염력을 회복시킵니다.  Converted Psi damage will be further reduced by %d%%.
+		정신력으로 피해를 극복하는 법을 배워 적에게 받는 피해량의 %d%% 가 생명력 대신 염력을 소진시키고, 생명력 회복량의 %d%% 가 생명력 대신 염력을 회복시킵니다.
+		(또한 생명력 대신 염력으로 피해를 받았을 경우, 받는 피해량이 %d%% 감소합니다)
 		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
 		또한 독존 한계량이 기본적으로 20%% (현재 : %d%%) 가 되며, 현재 염력이 독존 한계량보다 부족할 경우 부족한 %% 만큼 전체 속도가 1%% 감소하게 됩니다.]])
-		:format(conversion_ratio * 100, conversion_ratio * 100, psi_damage_resist, (self.solipsism_threshold or 0) * 100) --@@ 한글화 필요 : 세줄위
+		:format(conversion_ratio * 100, conversion_ratio * 100, psi_damage_resist, (self.solipsism_threshold or 0) * 100)
 	end,
 }
 

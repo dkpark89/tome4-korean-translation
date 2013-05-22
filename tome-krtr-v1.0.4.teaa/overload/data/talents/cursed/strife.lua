@@ -91,8 +91,8 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		return ([[초자연적인 감각을 통해, 다음 희생양을 사냥하기 위한 도움을 받습니다. 주변 %0.1f 칸 반경의 적들을 탐지할 수 있게 되며, 사냥감으로 지정된 적은 주변 10 칸 반경에 있는 한 무조건 감지할 수 있게 됩니다.
-		Also increases stealth detection by %d and invisibility detection by %d.
-		Sealth and invisibility detection improves with your Willpower]]): --@@ 한글화 필요 : 현재줄, 윗줄
+		또한 은신 감지력이 %d / 투명체 감지력이 %d 상승합니다.
+		은신과 투명체 감지력은 의지 능력치의 영향을 받아 증가합니다.]]): 
 		format(range, 5 + self:getTalentLevel(t) * self:getWil(15, true), 5 + self:getTalentLevel(t) * self:getWil(15, true))
 	end,
 }
