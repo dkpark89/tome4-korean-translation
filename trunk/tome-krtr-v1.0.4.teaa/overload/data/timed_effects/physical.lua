@@ -1921,14 +1921,14 @@ newEffect{
 newEffect{
 	name = "DISTORTION", image = "talents/maelstrom.png",
 	desc = "Distortion",
-	--kr_name = "", --@@ 한글화 필요 : 일곱줄 아래까지
-	long_desc = function(self, eff) return ("The target has recently taken distortion damage, is vulnerable to distortion effects, and has it's physical resistance decreased by %d%%."):format(eff.power) end,
+	kr_name = "왜곡",
+	long_desc = function(self, eff) return ("왜곡 피해 : 왜곡 효과에 취약해짐 / 물리 저항 -%d%%"):format(eff.power) end,
 	type = "physical",
 	subtype = { distortion=true },
 	status = "detrimental",
 	parameters = {power=0},
-	on_gain = function(self, err) return  nil, "+Distortion" end,
-	on_lose = function(self, err) return "#Target# is no longer distorted." or nil, "-Distortion" end,
+	on_gain = function(self, err) return  nil, "+왜곡" end,
+	on_lose = function(self, err) return "#Target1# 왜곡에서 벗어났습니다." or nil, "-왜곡" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {[DamageType.PHYSICAL]=-eff.power})
 	end,
