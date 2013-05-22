@@ -2041,6 +2041,6 @@ newTalent{
 	info = function(self, t)
 		return ([[대상을 붙잡아 %0.2f 물리 피해를 주고, 자신 쪽으로 이동시킵니다. 대상은 얼어붙어, 이동 속도가 %d 턴 동안 50%% 감소하게 됩니다.
 		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
-		format(math.floor(damDesc(self, DamageType.COLD, self:combatTalentSpellDamage(t, 5, 140)), 3 + self:getTalentLevel(t)))
+		format(math.floor(damDesc(self, DamageType.COLD, self:combatTalentSpellDamage(t, 5, 140)), 3 + self:getTalentLevel(t))) --@@ 변수 순서 조정
 	end,
 }

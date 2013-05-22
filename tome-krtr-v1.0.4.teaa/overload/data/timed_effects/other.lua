@@ -164,14 +164,14 @@ newEffect{
 newEffect{
 	name = "TIME_DOT",
 	desc = "Temporal Restoration Field",
-	--kr_name = "시간의 ", --@@ 한글화 필요 : 일곱줄 아래까지
-	long_desc = function(self, eff) return ("The time distortion has created a restoration field, healing the target for %d each turn."):format(eff.power) end,
+	kr_name = "시간 회복막",
+	long_desc = function(self, eff) return ("시간 왜곡으로 회복막 생성 : %d 턴 동안 매 턴마다 치료 효과"):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "The powerful time-altering energies generate a restoration field on #target#.", "+Temporal Restoration Field" end,
-	on_lose = function(self, err) return "The fabric of time around #target# returns to normal.", "-Temporal Restoration Field" end,
+	on_gain = function(self, err) return "강력한 시간 변화의 힘으로 #target#에게 회복막이 생성되었습니다.", "+시간 회복막" end,
+	on_lose = function(self, err) return "#Target# 주위의 시간 구조가 정상적으로 돌아왔습니다.", "-시간 회복막" end,
 	activate = function(self, eff)
 		eff.particle = self:addParticles(Particles.new("time_shield", 1))
 	end,
