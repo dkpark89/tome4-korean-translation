@@ -108,9 +108,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[타락한 힘의 돌풍을 만들어내 전방 3 칸 반경에 %0.2f 황폐 속성 피해를 주고, 물리적 효과나 마법적 효과를 최대 %d 개 까지 없애버립니다.
-		For each effect the creature has a chance to resist based on its spell save.
+		대상은 주문 내성으로 각각의 효과에 대해 저항할 확률이 있습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 120)), self:getTalentLevelRaw(t))
-	end, --@@ 한글화 필요 : 두줄 위, 세줄 위는 제가 조금 수정했습니다
+	end, 
 }
 
 newTalent{

@@ -176,8 +176,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[뼈의 방패가 시전자 주변을 돌면서, 공격을 완전히 막아냅니다.
-		%d shield(s) will be generated when first activated.
-		Then every %d turns a new one will be created if not full.]]): --@@ 한글화 필요 : 윗줄, 현재줄
+		하나의 방패는 한 번의 공격을 막아내며, 처음 주문을 시전하면 %d 개의 방패가 생겨납니다.
+		이후 방패의 개수가 줄어들었을 경우, %d 턴 마다 하나씩 방패가 재생됩니다.]]): 
 		format(t.getNb(self, t), t.getRegen(self, t))
 	end,
 }

@@ -312,8 +312,8 @@ function _M:generateListGameplay()
 		self.c_list:drawItem(item)
 	end,}
 	
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Enables quick melee targetting auto attacking.\nTalents that require a melee target will automatically target and confirm if there is only one hostile creatue around.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Quick melee targetting auto attack#WHITE##{normal}#", status=function(item) --@@ 한글화 필요 : 현재줄, 윗줄 - 윗줄은 원문 놔두고 번역문을 앞에 추가
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"빠른 근접 목표 자동 공격 방식을 사용할 것인지 결정합니다.\n인접한 목표를 필요로 하는 기술 사용시, 시야 주변에 인접한 적 하나만이 존재할 경우 자동으로 기술이 사용됩니다.\n\nEnables quick melee targetting auto attacking.\nTalents that require a melee target will automatically target and confirm if there is only one hostile creatue around.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#근접 목표 자동 공격 사용#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.immediate_melee_keys_auto and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.immediate_melee_keys_auto = not config.settings.tome.immediate_melee_keys_auto

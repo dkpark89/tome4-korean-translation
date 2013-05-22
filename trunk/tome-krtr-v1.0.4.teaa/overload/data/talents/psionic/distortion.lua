@@ -67,11 +67,11 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local distort = DistortionCount(self)
-		return ([[왜곡의 화살을 발사하여, 저항을 무시하고 %0.2f 물리 피해를 줍니다. 화살에 맞은 적은 왜곡되며, decreasing physical resistance by %d%% and 2 턴 동안 유지됩니다.
+		return ([[왜곡의 화살을 발사하여, 저항을 무시하고 %0.2f 물리 피해를 줍니다. 화살에 맞은 적은 왜곡되어 물리 저항력이 %d%% 감소하며, 왜곡 효과는 2 턴 동안 유지됩니다.
 		이미 왜곡된 적에게 왜곡의 화살을 맞출 경우, 왜곡 폭발이 일어나 주변 %d 칸 반경에 원래 피해량의 150%% 에 해당하는 피해를 줍니다.
-		Each talent point invested in Distortion Bolt will increase physical redistance reduction from distortion effects by 1%%.
+		왜곡의 화살 기술에 기술 점수를 투자할 때마다, 왜곡 효과의 물리 저항력 감소 효과가 1%% 상승하게 됩니다.
 		기술 레벨이 5 이상이면, 왜곡의 형태를 조절하여 자신과 아군은 폭발에 휘말리지 않게 만들 수 있게 됩니다.
-		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), distort, radius) --@@ 한글화 필요 : 두줄위, 네줄위
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), distort, radius) 
 	end,
 }
 
@@ -114,10 +114,10 @@ newTalent{
 		local power = t.getPower(self, t)
 		local distort = DistortionCount(self)
 		return ([[전방 %d 칸 반경에 왜곡의 파동을 만들어내, %0.2f 물리 피해를 주고 적들을 뒤로 밀어냅니다.
-		파동의 영향을 받은 적은 왜곡되며, decreasing physical resistance by %d%% and 2 턴 동안 유지됩니다.
-		Each talent point invested in Distortion Wave will increase physical redistance reduction from distortion effects by 1%%.
+		파동의 영향을 받은 적은 왜곡되어 물리 저항력이 %d%% 감소하며, 왜곡 효과는 2 턴 동안 유지됩니다.
+		왜곡 파동 기술에 기술 점수를 투자할 때마다, 왜곡 효과의 물리 저항력 감소 효과가 1%% 상승하게 됩니다.
 		이미 왜곡된 적에게 왜곡 파동을 맞출 경우, 대상은 %d 턴 동안 기절하게 됩니다.
-		피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), distort, power) --@@ 한글화 필요 : 두줄위, 세줄위
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), distort, power) 
 	end,
 }
 
@@ -161,10 +161,10 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local distort = DistortionCount(self)
 		return ([[왜곡의 힘으로 대상을 유린하여, 매 턴마다 %0.2f 물리 피해를 줍니다. (지속시간 : %d 턴)
-		유린당한 대상은 왜곡되며, decreasing physical resistance by %d%% and 2 턴 동안 유지됩니다.
+		유린당한 대상은 왜곡되어 물리 저항력이 %d%% 감소하며, 왜곡 효과는 2 턴 동안 유지됩니다.
 		이미 왜곡된 대상을 유린할 경우 피해량이 50%% 증가하며, 매 턴마다 대상의 이로운 물리적 상태효과나 유지형 기술이 해제됩니다.
-		Each talent point invested in Ravage will increase physical redistance reduction from distortion effects by 1%%.
-		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration, distort) --@@ 한글화 필요 : 한줄위, 세줄위
+		유린 기술에 기술 점수를 투자할 때마다, 왜곡 효과의 물리 저항력 감소 효과가 1%% 상승하게 됩니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), duration, distort) 
 	end,
 }
 
@@ -259,8 +259,8 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local distort = DistortionCount(self)
 		return ([[%d 턴 동안 강력한 소용돌이를 만들어냅니다. 매 턴마다 소용돌이는 주변 %d 칸 반경의 적들을 끌어당기며, %0.2f 물리 피해를 줍니다.
-		소용돌이의 영향을 받은 적은 왜곡되며, decreasing physical resistance by %d%% and 2 턴 동안 유지됩니다.
-		Each talent point invested in Maelstrom will increase physical resistance reduction from distortion effects by 1%%.
-		피해량은 정신력의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage), distort) --@@ 한글화 필요 : 두줄위, 세줄위
+		소용돌이의 영향을 받은 적은 왜곡되어 물리 저항력이 %d%% 감소하며, 왜곡 효과는 2 턴 동안 유지됩니다.
+		염력의 소용돌이 기술에 기술 점수를 투자할 때마다, 왜곡 효과의 물리 저항력 감소 효과가 1%% 상승하게 됩니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage), distort) 
 	end,
 }

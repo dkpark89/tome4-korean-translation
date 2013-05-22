@@ -2008,8 +2008,9 @@ newTalent{
 	end,
 }
 
-newTalent{ --@@ 한글화 필요
+newTalent{ 
 	name = "Frost Grab",
+	kr_name = "얼어붙은 손",
 	type = {"spell/other", 1},
 	points = 5,
 	mana = 19,
@@ -2038,9 +2039,8 @@ newTalent{ --@@ 한글화 필요
 		return true
 	end,
 	info = function(self, t)
-		return ([[Grab a target and teleport it to your side, covering it with frost, reducing its movement speed by 50%% for %d turns.
-		The bone will also deal %0.2f physical damage.
-		The damage will increase with your Spellpower.]]):
-		format(math.floor(3 + self:getTalentLevel(t)), damDesc(self, DamageType.COLD, self:combatTalentSpellDamage(t, 5, 140)))
+		return ([[대상을 붙잡아 %0.2f 물리 피해를 주고, 자신 쪽으로 이동시킵니다. 대상은 얼어붙어, 이동 속도가 %d 턴 동안 50%% 감소하게 됩니다.
+		피해량은 주문력 능력치의 영향을 받아 증가합니다.]]):
+		format(math.floor(damDesc(self, DamageType.COLD, self:combatTalentSpellDamage(t, 5, 140)), 3 + self:getTalentLevel(t)))
 	end,
 }

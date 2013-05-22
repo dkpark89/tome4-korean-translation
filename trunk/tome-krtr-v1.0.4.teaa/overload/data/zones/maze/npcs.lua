@@ -51,7 +51,7 @@ newEntity{ define_as = "HORNED_HORROR",
 	kr_name = "뿔 달린 공포",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_horner_horror.png", display_h=2, display_y=-1}}},
-	desc = [[Some horrible power has twisted this brutish minotaur into something altogether more terrifying. Huge tentacles undulate from its back as it clenches and unclenches its powerful fists.]], --@@ 한글화 필요
+	desc = [[어떤 끔찍한 힘이 이 난폭한 미노타우르스를 보다 공포스러운 존재로 만들었습니다. 거대한 촉수가 이 존재의 뒤에서 파도치고 있으며, 그 강력한 주먹을 쥐었다 폈다 하고 있습니다.]],
 	killer_message = "당신은 이성이 없는 공포로 되살아났습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,

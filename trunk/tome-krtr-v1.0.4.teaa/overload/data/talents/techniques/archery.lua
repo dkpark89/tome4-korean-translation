@@ -91,7 +91,7 @@ newTalent{
 	info = function(self, t)
 		local spt = t.shots_per_turn(self, t)
 		return ([[화살통이나 탄환 주머니에 매 턴마다 %d 발 씩 발사체를 장전합니다.
-		Reloading does not break stealth.]]):format(spt) --@@ 두번째 변수: 단수/복수 구분을 위한 %s 제거 --@@ 한글화 필요
+		재장전 기술은 사용해도 은신 상태가 해제되지 않습니다.]]):format(spt) --@@ 두번째 변수: 단수/복수 구분을 위한 %s 제거
 	end,
 }
 
