@@ -134,8 +134,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[고도의 집중력을 발휘하여, %d 턴 동안 근접공격의 정확도를 100 증가시킵니다. 
-		지속시간 동안에는, 보이지 않는 적을 공격할 때 생기는 불리함을 무시할 수 있습니다.]]):format(1 + self:getTalentLevel(t))
+		return ([[고도의 집중력을 발휘하여, %d 턴 동안 근접, 원거리 물리 공격의 정확도를 100 증가시킵니다. 
+		또한 지속시간 동안, 보이지 않는 적을 공격할 때 생기는 불리함을 무시할 수 있게 됩니다.]]):format(1 + self:getTalentLevel(t))
 	end,
 }
 
