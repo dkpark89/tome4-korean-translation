@@ -69,7 +69,7 @@ newTalent{
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[%d 턴 동안 매 턴마다 %d 체력을 회복하고, 모든 기술의 재사용 대기시간이 2 배 빨리 감소됩니다.
-		지속시간은 괴리 능력치의 영향을 받아 증가합니다.]]):format(duration, power)
+		지속시간은 괴리 수치의 영향을 받아 증가합니다.]]):format(duration, power)
 	end,
 }
 

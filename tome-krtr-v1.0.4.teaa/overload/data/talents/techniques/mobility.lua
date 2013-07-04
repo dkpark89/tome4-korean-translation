@@ -58,7 +58,7 @@ newTalent{
 
 newTalent{
 	name = "Mobile Defence",
-	kr_name = "가볍지만 단단하게",
+	kr_name = "회피 기동술",
 	type = {"technique/mobility", 2},
 	mode = "passive",
 	points = 5,
