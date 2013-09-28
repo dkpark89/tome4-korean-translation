@@ -130,6 +130,6 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getReductionMax(self, t)
-		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 %d%% 까지 감소 가능)]]):format(reduction)
+		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 물리 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 %d%% 까지 감소 가능)]]):format(reduction)
 	end,
 }

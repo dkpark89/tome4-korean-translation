@@ -79,7 +79,7 @@ newEntity{ base = "BASE_STORE", define_as = "LIBRARY",
 
 newEntity{ base = "BASE_STORE", define_as = "TRAINER",
 	name="Trainer",
-	kr_name = "재단사",
+	kr_name = "훈련 교관",
 	display='1', color=colors.UMBER, image = "store/shop_door2.png", add_mos={{display_x=0.6, image="store/shop_sign_trainer.png"}},
 	resolvers.chatfeature("zigur-trainer", "zigur"),
 }

@@ -782,7 +782,7 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local dam = damDesc(self, DamageType.LIGHTNING, data.power + data.inc_stat)
 		return ([[룬을 발동하여, 적에게 %0.2f - %0.2f 전기 피해를 줍니다.
-		또한 %d 턴 동안 당신은 순수한 번개로 변신합니다. 그동안 당신에게 가해지는 모든 피해는 인접한 칸의 존재에게 전이되거나 그냥 무시됩니다 (한 턴에 한번씩만 적용).]]):
+		또한 %d 턴 동안 당신은 순수한 번개로 변신합니다. 번개로 변신 중에 피해를 받을 경우, 한 턴에 한 번 적에게 공격을 받았을 때 인접한 곳으로 피해 공격을 무시할 수 있습니다.]]):
 		format(dam / 3, dam, 2)
 	end,
 	short_info = function(self, t)
