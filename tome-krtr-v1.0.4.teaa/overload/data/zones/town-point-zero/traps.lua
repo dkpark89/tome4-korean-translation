@@ -42,7 +42,7 @@ newEntity{ base = "BASE_STORE", define_as = "KNIFE_WEAPON_STORE",
 
 newEntity{ base = "BASE_STORE", define_as = "ARCHER_WEAPON_STORE",
 	name="Death from Afar",
-	kr_name = "죽음에서 멀어지는 법",
+	kr_name = "먼 곳으로부터의 죽음",
 	display='3', color=colors.UMBER,
 	resolvers.store("ARCHER_WEAPON", "keepers-of-reality", "store/shop_door.png", "store/shop_sign_bows.png"),
 }
