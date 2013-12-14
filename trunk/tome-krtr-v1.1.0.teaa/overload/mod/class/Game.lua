@@ -1261,14 +1261,14 @@ function _M:displayDelayedLogDamage()
 			local tn = target.kr_name or target.name
 			
 			if #dams.descs > 1 then
-				game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다 (합계 %0.0f) %s.", table.concat(dams.descs, ", "), dams.total, dams.healing<0 and (" #LIGHT_GREEN#[%0.0f healing]#LAST#"):format(-dams.healing) or "")) --@@ 한글화 필요
+				game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다 (합계 %0.0f) %s.", table.concat(dams.descs, ", "), dams.total, dams.healing<0 and (" #LIGHT_GREEN#[%0.0f 회복]#LAST#"):format(-dams.healing) or "")) --@@ 한글화 필요 table
 			else
 				if dams.healing >= 0 then
 					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다.", table.concat(dams.descs, ", ")))
 				elseif src == target then
-					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source# receives %s.", table.concat(dams.descs, ", "))) --@@ 한글화 필요
+					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# %s 피해를 받았습니다..", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
 				else
-					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Target# receives %s from #Source#.", table.concat(dams.descs, ", "))) --@@ 한글화 필요
+					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Target1# #Source4#부터 %s 피해를 받았습니다.", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
 				end
 			end
 			local rsrc = src.resolveSource and src:resolveSource() or src
@@ -1721,7 +1721,7 @@ do return end
 
 		TOGGLE_AUTOTALENT = function()
 			self.player.no_automatic_talents = not self.player.no_automatic_talents
-			game.log("#GOLD#Automatic talent usage: %s", not self.player.no_automatic_talents and "#LIGHT_GREEN#enabled" or "#LIGHT_RED#disabled") --@@ 한글화 필요
+			game.log("#GOLD#기술 자동 사용 : %s", not self.player.no_automatic_talents and "#LIGHT_GREEN#활성화" or "#LIGHT_RED#비활성화")
 		end,
 
 		SAVE_GAME = function()
@@ -1785,7 +1785,7 @@ do return end
 			local menu
 			local l = {
 				"resume",
-				{ "Show Achievements", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowAchievements").new("Tales of Maj'Eyal Achievements", self.player)) end }, --@@ 한글화 필요
+				{ "업적 보기", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowAchievements").new("Tales of Maj'Eyal 업적", self.player)) end },
 				{ "알게된 지식 보기", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowLore").new("Tales of Maj'Eyal 지식", self.party)) end },
 				{ "연금술 재료 보기", function() self:unregisterDialog(menu) self:registerDialog(require("mod.dialogs.ShowIngredients").new(self.party)) end },
 				"highscores",

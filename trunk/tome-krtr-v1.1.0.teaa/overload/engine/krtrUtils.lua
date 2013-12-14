@@ -1573,3 +1573,12 @@ function string.krRWKind(str)
 	elseif ori == "sling" then return "투석구"
 	else return str end 
 end
+
+function string.krHisHer(str)
+	-- /mod/class/interface/Archery.lua:52번 줄에서 사용
+	local ori = str:lower()
+	if ori == "her" then return "그녀"
+	elseif ori == "his" then return "그"
+	elseif ori == "it" then return "그것"
+	else return str end 
+end

@@ -122,28 +122,27 @@ function _M:generateList()
 		self.c_list:drawItem(item)
 	end,}
 
-	--@@ 한글화 필요 #126~151
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Activates advanced shaders.\nThis option allows for advanced effects (like water surfaces, ...). Disabling it can improve performance.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL Shaders: Advanced#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.shaders_kind_adv and "enabled" or "disabled")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"고급 그림자 효과를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 고급 화면 효과(물 표면 효과 등)를 볼 수 있습니다. 사용하지 않으면 게임 속도가 빨라집니다.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates advanced shaders.\nThis option allows for advanced effects (like water surfaces, ...). Disabling it can improve performance.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL 고급 그림자효과#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.shaders_kind_adv and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.shaders_kind_adv = not config.settings.shaders_kind_adv
 		game:saveSettings("shaders_kind_adv", ("shaders_kind_adv = %s\n"):format(tostring(config.settings.shaders_kind_adv)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Activates distorting shaders.\nThis option allows for distortion effects (like spell effects doing a visual distortion, ...). Disabling it can improve performance.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL Shaders: Distortions#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.shaders_kind_distort and "enabled" or "disabled")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"왜곡 그림자 효과를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 화면 왜곡 효과(마법에 의한 시야 왜곡 효과 등)를 볼 수 있습니다. 사용하지 않으면 게임 속도가 빨라집니다.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates distorting shaders.\nThis option allows for distortion effects (like spell effects doing a visual distortion, ...). Disabling it can improve performance.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL 왜곡 그림자효과#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.shaders_kind_distort and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.shaders_kind_distort = not config.settings.shaders_kind_distort
 		game:saveSettings("shaders_kind_distort", ("shaders_kind_distort = %s\n"):format(tostring(config.settings.shaders_kind_distort)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Activates volumetric shaders.\nThis option allows for volumetricion effects (like deep starfields). Enabling it will severely reduce performance when shaders are displayed.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL Shaders: Volumetric#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.shaders_kind_volumetric and "enabled" or "disabled")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"굴곡 그림자 효과를 사용할지 결정합니다.\n이 설정을 사용하면 몇몇 특별한 굴곡 화면 효과(별자리 효과 등)를 볼 수 있습니다. 사용시 특정 장면에서 게임 속도가 많이 느려질 수 있습니다.\n\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nActivates volumetric shaders.\nThis option allows for volumetricion effects (like deep starfields). Enabling it will severely reduce performance when shaders are displayed.\n\n#LIGHT_RED#You must restart the game for it to take effect.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#OpenGL 굴곡 그림자효과#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.shaders_kind_volumetric and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.shaders_kind_volumetric = not config.settings.shaders_kind_volumetric
 		game:saveSettings("shaders_kind_volumetric", ("shaders_kind_volumetric = %s\n"):format(tostring(config.settings.shaders_kind_volumetric)))

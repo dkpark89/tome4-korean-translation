@@ -423,10 +423,10 @@ function _M:tooltip(x, y, seen_by)
 		local dx, dy = tx - self.ai_target.actor.x, ty - self.ai_target.actor.y
 		local offset = engine.Map:compassDirection(dx, dy)
 		if offset then
-			str:add(" looking " ..offset) --@@ 한글화 필요
+			str:add(" " ..offset:addJosa("을").." 보고 있음")
 			if config.settings.cheat then str:add((" (%+d, %+d)"):format(dx, dy)) end
 		else
-			str:add(" looking at you.") --@@ 한글화 필요
+			str:add(" 당신을 보고 있음.")
 		end
 	end
 	if config.settings.cheat then

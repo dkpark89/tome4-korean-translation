@@ -79,13 +79,13 @@ function _M:init(actor)
 	end
 
 	local all_kills_kind = self.actor.all_kills_kind or {}
-	local playtimetext = ([[#GOLD#Days adventuring / current month:#LAST# %d / %s
-#GOLD#Time playing:#LAST# %s
-#GOLD#Creatures killed:           #ANTIQUE_WHITE#%d
-#GOLD#Elites/Rares/Bosses killed: #YELLOW#%d/#SALMON#%d/#ORANGE#%d
-]]):format( --@@ 한글화 필요 #네줄 위~한줄 위
+	local playtimetext = ([[#GOLD#모험 일자 / 현재 월:#LAST# %d / %s
+#GOLD#게임 진행 시간:#LAST# %s
+#GOLD#총 살해수:             #ANTIQUE_WHITE#%d
+#GOLD#정예/희귀/보스 살해수: #YELLOW#%d/#SALMON#%d/#ORANGE#%d
+]]):format(
 		game.turn / game.calendar.DAY,
-		game.calendar:getMonthName(game.calendar:getDayOfYear(game.turn)),
+		game.calendar:getMonthName(game.calendar:getDayOfYear(game.turn)):krMonth(),
 		playtime,
 		all_kills_kind.creature or 0,
 		all_kills_kind.elite or 0,
@@ -375,7 +375,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		end
 		if player:getMaxFeedback() > 0 then
 			text = compare_fields(player, actor_to_compare, "psionic_feedback_max", "%d", "%+.0f")
-			local tt = self.TOOLTIP_FEEDBACK..("Current Feedback gain is %0.1f%% of damge taken."):format(player:callTalent(player.T_FEEDBACK_POOL, "getFeedbackRatio")*100) --@@ 한글화 필요
+			local tt = self.TOOLTIP_FEEDBACK..("받은 피해량의 %0.1f%% 만큼을 반작용으로 획득합니다."):format(player:callTalent(player.T_FEEDBACK_POOL, "getFeedbackRatio")*100)
 			self:mouseTooltip(tt, s:drawColorStringBlended(self.font, ("#7fffd4#반작용: #00ff00#%d/%s"):format(player:getFeedback(), text), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end
 
@@ -426,7 +426,7 @@ function _M:drawDialog(kind, actor_to_compare)
 		end
 		text = compare_fields(player, actor_to_compare, function(actor) return (actor:attr("infravision") or actor:attr("heightened_senses")) and math.max((actor.heightened_senses or 0), (actor.infravision or 0)) end, "%d", "%+.0f")
 		if text then
-			self:mouseTooltip(self.TOOLTIP_VISION_INFRA,  s:drawColorStringBlended(self.font, ("Heighten Senses: #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h --@@ 한글화 필요 : 기존은 'Infravision->야간 투시력'으로 한글화 했었는데, 원문이 바뀜. 야간 투시력으로 둘지 향상된 감각으로 바꿀지 결정 필요
+			self:mouseTooltip(self.TOOLTIP_VISION_INFRA,  s:drawColorStringBlended(self.font, ("향상된 감각  : #00ff00#%s"):format(text), w, h, 255, 255, 255, true)) h = h + self.font_h
 		end
 		text = compare_fields(player, actor_to_compare, function(who) return who:attr("stealth") and who.stealth + (who:attr("inc_stealth") or 0) end, "%.1f", "%+.1f")
 		if text then

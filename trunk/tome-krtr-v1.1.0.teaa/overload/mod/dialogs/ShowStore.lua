@@ -154,7 +154,7 @@ function _M:on_register()
 end
 
 function _M:getStoreTitle()
-	return self.base_title..(" (Gold available: %0.2f)"):format(self.actor_actor.money) --@@ 한글화 필요
+	return self.base_title..(" (사용 가능한 금화: %0.2f)"):format(self.actor_actor.money)
 end
 
 function _M:updateStore()

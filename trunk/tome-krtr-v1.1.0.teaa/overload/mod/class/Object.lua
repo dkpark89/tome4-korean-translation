@@ -396,15 +396,15 @@ function _M:descAccuracyBonus(desc, weapon, use_actor)
 
 	local m = weapon.accuracy_effect_scale or 1
 	if kind == "sword" then
-		desc:add("Accuracy bonus: ", {"color","LIGHT_GREEN"}, showpct(0.4, m), {"color","LAST"}, " crit.pwr / acc", true) --@@ 한글화 필요
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.4, m), {"color","LAST"}, " 치명타 피해 / 정확도", true)
 	elseif kind == "axe" then
-		desc:add("Accuracy bonus: ", {"color","LIGHT_GREEN"}, showpct(0.2, m), {"color","LAST"}, " crit / acc", true) --@@ 한글화 필요
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.2, m), {"color","LAST"}, " 치명타 / 정확도", true)
 	elseif kind == "mace" then
-		desc:add("Accuracy bonus: ", {"color","LIGHT_GREEN"}, showpct(0.1, m), {"color","LAST"}, " dam / acc", true) --@@ 한글화 필요
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.1, m), {"color","LAST"}, " 피해량 / 정확도", true)
 	elseif kind == "staff" then
-		desc:add("Accuracy bonus: ", {"color","LIGHT_GREEN"}, showpct(4, m), {"color","LAST"}, " procs dam / acc", true) --@@ 한글화 필요
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(4, m), {"color","LAST"}, " procs dam / 정확도", true) --@@ 한글화 필요
 	elseif kind == "knife" then
-		desc:add("Accuracy bonus: ", {"color","LIGHT_GREEN"}, showpct(0.5, m), {"color","LAST"}, " APR / acc", true) --@@ 한글화 필요
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.5, m), {"color","LAST"}, " 방어도 관통력 / 정확도", true)
 	end
 end
 
@@ -414,11 +414,11 @@ function _M:getTextualDesc(compare_with, use_actor)
 	compare_with = compare_with or {}
 	local desc = tstring{}
 
-	if self.quest then desc:add({"color", "VIOLET"},"[Plot Item]", {"color", "LAST"}, true)
+	if self.quest then desc:add({"color", "VIOLET"},"[중요한 물건]", {"color", "LAST"}, true)
 	elseif self.unique then
-		if self.legendary then desc:add({"color", "FF4000"},"[Legendary]", {"color", "LAST"}, true)
-		elseif self.godslayer then desc:add({"color", "AAD500"},"[Godslayer]", {"color", "LAST"}, true)
-		else desc:add({"color", "FFD700"},"[Unique]", {"color", "LAST"}, true)
+		if self.legendary then desc:add({"color", "FF4000"},"[전설]", {"color", "LAST"}, true)
+		elseif self.godslayer then desc:add({"color", "AAD500"},"[신 살해자]", {"color", "LAST"}, true)
+		else desc:add({"color", "FFD700"},"[고유]", {"color", "LAST"}, true)
 		end
 	end
 
@@ -588,7 +588,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 
 		if combat.talented then
 			local t = use_actor:combatGetTraining(combat)
-			if t and t.name then desc:add("Mastery: ", {"color","GOLD"}, (t.kr_name or t.name), {"color","LAST"}, true) end --@@ 한글화 필요
+			if t and t.name then desc:add("숙련도 : ", {"color","GOLD"}, (t.kr_name or t.name), {"color","LAST"}, true) end
 		end
 
 		self:descAccuracyBonus(desc, combat, use_actor)
@@ -814,7 +814,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
 
-		compare_table_fields(w, compare_with, field, "flat_damage_armor", "%+d", "Reduce damage by fixed amount: ", function(item) --@@ 한글화 필요
+		compare_table_fields(w, compare_with, field, "flat_damage_armor", "%+d", "피해량 감소 : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
 				return col[2], (" %s"):format(item == "all" and "전체" or DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name), {"color","LAST"} --@@ 속성이름 한글화
 			end)
@@ -835,12 +835,12 @@ function _M:getTextualDesc(compare_with, use_actor)
 			end)
 
 
-		compare_table_fields(w, compare_with, field, "inc_damage_actor_type", "%+d%% ", "Damage against: ", function(item) --@@ 한글화 필요
+		compare_table_fields(w, compare_with, field, "inc_damage_actor_type", "%+d%% ", "피해량 변화 : ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
-					return st:capitalize()
+					return st:capitalize():krActorType() --@@ 종족이름 한글화
 				else
-					return t:capitalize()
+					return t:capitalize():krActorType() --@@ 종족이름 한글화
 				end
 			end)
 

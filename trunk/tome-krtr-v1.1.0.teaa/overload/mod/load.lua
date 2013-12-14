@@ -228,7 +228,7 @@ ActorResource:defineResource("Negative", "negative", ActorTalents.T_NEGATIVE_POO
 ActorResource:defineResource("Hate", "hate", ActorTalents.T_HATE_POOL, "hate_regen", "증오심은 저주받은 영혼이 광란하는 정도를 나타냅니다.")
 ActorResource:defineResource("Paradox", "paradox", ActorTalents.T_PARADOX_POOL, "paradox_regen", "괴리는 당신이 시공 연속체에 입힌 손상 정도를 나타냅니다. 괴리가 심해질수록 주문은 강력해지지만, 동시에 신뢰하기 힘들어지고 더욱 위험해집니다.", 0, false)
 ActorResource:defineResource("Psi", "psi", ActorTalents.T_PSI_POOL, "psi_regen", "염력은 정신이 다룰 수 있는 힘의 세기를 나타냅니다.")
-ActorResource:defineResource("Soul", "soul", ActorTalents.T_SOUL_POOL, "soul_regen", "Soul fragments you have extracted from your foes.", 0, 10) --@@ 한글화 필요
+ActorResource:defineResource("Soul", "soul", ActorTalents.T_SOUL_POOL, "soul_regen", "적들에게서 뽑아낸 영혼 조각들입니다.", 0, 10)
 
 -- Actor stats
 ActorStats:defineStat("Strength",	"str", 10, 1, 100, "힘은 캐릭터의 물리력을 의미합니다. 캐릭터가 들고 다닐 수 있는 최대 무게, 근력을 사용하는 무기 (장검, 철퇴, 도끼 등) 의 피해량, 그리고 물리 내성을 상승시킵니다.")

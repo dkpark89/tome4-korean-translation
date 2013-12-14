@@ -73,7 +73,7 @@ end
 function _M:tooltip()
 	if self:knownBy(game.player) then
 		local res = tstring{{"uid", self.uid}, (self:getName().." ["..self.name.."]")} --@@ 상점 이름 '한글이름[원문이름]'으로 수정
-		if self.temporary then res:add(true, ("#LIGHT_GREEN#%d turns#WHITE#"):format(self.temporary)) end --@@ 한글화 필요
+		if self.temporary then res:add(true, ("#LIGHT_GREEN#%d 턴#WHITE#"):format(self.temporary)) end
 		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 		
 		if self.store_faction then

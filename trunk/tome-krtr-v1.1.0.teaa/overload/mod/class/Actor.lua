@@ -1597,9 +1597,9 @@ function _M:onHeal(value, src)
 			game.flyers:add(sx, sy, 30, rng.float(-3, -2), (rng.range(0,2)-1) * 0.5, tostring(math.ceil(value)), {255,255,0})
 		end
 		if psi_heal > 0 then
-			game:delayedLogDamage(src or self, self, -value-psi_heal, ("#LIGHT_GREEN#%d healing #LAST##AQUAMARINE#(%d psi heal)#LAST#"):format(value, psi_heal), false) --@@ 한글화 필요
+			game:delayedLogDamage(src or self, self, -value-psi_heal, ("#LIGHT_GREEN#%d 회복 #LAST##AQUAMARINE#(%d 염력 회복)#LAST#"):format(value, psi_heal), false)
 		else
-			game:delayedLogDamage(src or self, self, -value, ("#LIGHT_GREEN#%d healing#LAST#"):format(value), false) --@@ 한글화 필요
+			game:delayedLogDamage(src or self, self, -value, ("#LIGHT_GREEN#%d 회복#LAST#"):format(value), false)
 		end
 	end
 	return value
@@ -1663,7 +1663,7 @@ function _M:onTakeHit(value, src, death_note)
 	if self:attr("retribution") then
 	-- Absorb damage into the retribution
 		local absorb = math.min(value/2, self.retribution_absorb)
-		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d absorbed)#LAST#"):format(absorb), false) --@@ 한글화 필요
+		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d 흡수)#LAST#"):format(absorb), false)
 		if absorb < self.retribution_absorb then
 			self.retribution_absorb = self.retribution_absorb - absorb
 			value = value - absorb
@@ -1699,7 +1699,7 @@ function _M:onTakeHit(value, src, death_note)
 		if a then
 			local displace = value/2
 			game:delayedLogMessage(self, a, "displace_damage"..(a.uid or ""), "#PINK##Source#의 피해 일부분이 #Target#에게로 돌아갔습니다!")
-			game:delayedLogDamage(self, a, displace, ("#PINK#%d displaced#LAST#"):format(displace), false) --@@ 한글화 필요
+			game:delayedLogDamage(self, a, displace, ("#PINK#%d 피해 대체#LAST#"):format(displace), false)
 			a:takeHit(value / 2, self)
 			value = value / 2
 		end
@@ -1724,7 +1724,7 @@ function _M:onTakeHit(value, src, death_note)
 			end
 		end
 		if #acts > 0 then
-			game:delayedLogMessage(self, nil, "mitosis_damage", "#DARK_GREEN##Source# shares damage with %s oozes!", string.his_her(self)) --@@ 한글화 필요
+			game:delayedLogMessage(self, nil, "mitosis_damage", "#DARK_GREEN##Source1# %s의 진흙들과 피해를 나눴습니다!", string.his_her(self):krHisHer())
 			value = value / (#acts+1)
 			for _, act in ipairs(acts) do 
 				act.resists.all = act.resists.all - 50
@@ -1737,7 +1737,7 @@ function _M:onTakeHit(value, src, death_note)
 	if value > 0 and self:attr("time_shield") then
 		-- Absorb damage into the time shield
 		self.time_shield_absorb = self.time_shield_absorb or 0
-		game:delayedLogDamage(src, self, 0, ("#STEEL_BLUE#(%d to time)#LAST#"):format(math.min(value, self.time_shield_absorb)), false) --@@ 한글화 필요
+		game:delayedLogDamage(src, self, 0, ("#STEEL_BLUE#(%d 시간 속으로)#LAST#"):format(math.min(value, self.time_shield_absorb)), false)
 		if value < self.time_shield_absorb then
 			self.time_shield_absorb = self.time_shield_absorb - value
 			value = 0
@@ -1776,13 +1776,13 @@ function _M:onTakeHit(value, src, death_note)
 			value = adjusted_value - self.damage_shield_absorb
 			self.damage_shield_absorb = 0
 		end
-		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d absorbed)#LAST#"):format(adjusted_value), false) --@@ 한글화 필요
+		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d 흡수)#LAST#"):format(adjusted_value), false)
 		if reflection and reflect_damage and reflection > 0 and reflect_damage > 0 and src.y and src.x and not src.dead then
 			local a = game.level.map(src.x, src.y, Map.ACTOR)
 			if a and self:reactionToward(a) < 0 then
 				local reflected = reflect_damage * reflection
 				a:takeHit(reflected, self)
-				game:delayedLogDamage(self, src, reflected, ("#SLATE#%d reflected#LAST#"):format(reflected), false) --@@ 한글화 필요
+				game:delayedLogDamage(self, src, reflected, ("#SLATE#%d 반사#LAST#"):format(reflected), false)
 				game:delayedLogMessage(self, src, "reflection" ,"#CRIMSON##Source1# 피해를 #Target#에게 되돌려줬습니다!#LAST#")
 			end
 		end
@@ -1799,8 +1799,8 @@ function _M:onTakeHit(value, src, death_note)
 			game:delayedLogMessage(self, src,  "displacement_shield"..(self.displacement_shield_target.uid or ""), "#CRIMSON##Source1# #Target#에게 피해를 이동시켰습니다!")
 			local displaced = math.min(value, self.displacement_shield)
 			self.displacement_shield_target:takeHit(displaced, src)
-			game:delayedLogDamage(src, self, 0, ("#CRIMSON#(%d teleported)#LAST#"):format(displaced), false) --@@ 한글화 필요
-			game:delayedLogDamage(src, self.displacement_shield_target, displaced, ("#CRIMSON#%d teleported#LAST#"):format(displaced), false) --@@ 한글화 필요
+			game:delayedLogDamage(src, self, 0, ("#CRIMSON#(%d 이동)#LAST#"):format(displaced), false)
+			game:delayedLogDamage(src, self.displacement_shield_target, displaced, ("#CRIMSON#%d 이동#LAST#"):format(displaced), false)
 			if displaced < self.displacement_shield then
 				self.displacement_shield = self.displacement_shield - displaced
 				value = 0
@@ -1815,8 +1815,8 @@ function _M:onTakeHit(value, src, death_note)
 		local mana = self:getMaxMana() - self:getMana()
 		local mana_val = value * self:attr("disruption_shield")
 		local converted = math.min(value, mana / self:attr("disruption_shield"))
-		game:delayedLogMessage(self, nil,  "disruption_shield", "#LIGHT_BLUE##Source# converts damage to mana!") --@@ 한글화 필요
-		game:delayedLogDamage(src, self, 0, ("#LIGHT_BLUE#(%d converted)#LAST#"):format(converted), false) --@@ 한글화 필요
+		game:delayedLogMessage(self, nil,  "disruption_shield", "#LIGHT_BLUE##Source1# 받은 피해를 마나로 변화시킵니다!")
+		game:delayedLogDamage(src, self, 0, ("#LIGHT_BLUE#(%d 변화)#LAST#"):format(converted), false)
 
 		-- We have enough to absorb the full hit
 		if mana_val <= mana then
@@ -1843,7 +1843,7 @@ function _M:onTakeHit(value, src, death_note)
 	if value > 0 and self:isTalentActive(self.T_BONE_SHIELD) then
 		local t = self:getTalentFromId(self.T_BONE_SHIELD)
 		if t.absorb(self, t, self:isTalentActive(self.T_BONE_SHIELD)) then
-			game:delayedLogDamage(src, self, 0, ("#SLATE#(%d to bones)#LAST#"):format(value), false) --@@ 한글화 필요
+			game:delayedLogDamage(src, self, 0, ("#SLATE#(%d 뼈의 방패)#LAST#"):format(value), false)
 			value = 0
 		end
 	end
@@ -1863,7 +1863,7 @@ function _M:onTakeHit(value, src, death_note)
 			local oldval = value
 			value = self:callTalent(self.T_DEFLECTION, "do_onTakeHit", tal, value)
 			if value ~= oldval then
-				game:delayedLogDamage(src, self, 0, ("#SLATE#(%d deflected)#LAST#"):format(oldval - value), false) --@@ 한글화 필요
+				game:delayedLogDamage(src, self, 0, ("#SLATE#(%d 흘려보냄)#LAST#"):format(oldval - value), false)
 			end
 		end
 	end
@@ -1895,7 +1895,7 @@ function _M:onTakeHit(value, src, death_note)
 			absorb = absorb - absorb * (util.bound(src:attr("iceblock_pierce") or 0, 0, 100)) / 100
 		end
 		eff.hp = eff.hp - value * absorb
-		game:delayedLogDamage(src or {}, self, 0, ("#STEEL_BLUE#(%d to ice)#LAST#"):format(value*absorb), nil) --@@ 한글화 필요
+		game:delayedLogDamage(src or {}, self, 0, ("#STEEL_BLUE#(%d 얼음덩어리)#LAST#"):format(value*absorb), nil)
 		value = value * (1 - absorb)
 		if eff.hp < 0 and not eff.begone then
 			game:onTickEnd(function() self:removeEffect(self.EFF_FROZEN) end)
@@ -1932,7 +1932,7 @@ function _M:onTakeHit(value, src, death_note)
 	-- Resonance Field, must be called after Feedback gains
 	if self:attr("resonance_field") then
 		local absorb = math.min(value/2, self.resonance_field_absorb)
-		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d resonance)#LAST#"):format(absorb), false) --@@ 한글화 필요
+		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d 반향)#LAST#"):format(absorb), false)
 		if absorb < self.resonance_field_absorb then
 			self.resonance_field_absorb = self.resonance_field_absorb - absorb
 		else
@@ -2048,10 +2048,10 @@ function _M:onTakeHit(value, src, death_note)
 
 	if self:attr("unstoppable") then
 		if value > self.life - 1 then
-			game:delayedLogDamage(src, self, 0, ("#RED#(%d refused)#LAST#"):format(value - self.life - 1), false) --@@ 한글화 필요
+			game:delayedLogDamage(src, self, 0, ("#RED#(%d 거부)#LAST#"):format(value - self.life - 1), false)
 			value = self.life - 1
 			self.life = 1
-			game:delayedLogMessage(self, nil, "unstoppable", "#RED##Source# is unstoppable!") --@@ 한글화 필요
+			game:delayedLogMessage(self, nil, "무쌍", "#RED##Source2# 전투 광란 상태입니다!")
 			if self.life <= 1 then
 				value = 0
 			end
@@ -2093,8 +2093,8 @@ function _M:onTakeHit(value, src, death_note)
 			self:incPsi(-damage_to_psi)
 		end
 		local mindcolor = DamageType:get(DamageType.MIND).text_color or "#aaaaaa#"
-		game:delayedLogMessage(self, nil, "Solipsism hit", mindcolor.."#Source# converts some damage to Psi!") --@@ 한글화 필요
-		game:delayedLogDamage(src, self, damage_to_psi*psi_damage_resist, ("%s%d %s#LAST#"):format(mindcolor, damage_to_psi*psi_damage_resist, "to psi"), false) --@@ 한글화 필요
+		game:delayedLogMessage(self, nil, "Solipsism hit", mindcolor.."#Source1# 받은 피해의 일부를 염력으로 변화시켰습니다!")
+		game:delayedLogDamage(src, self, damage_to_psi*psi_damage_resist, ("%s%d %s#LAST#"):format(mindcolor, damage_to_psi*psi_damage_resist, "염력으로 변화"), false)
 
 		value = value - damage_to_psi
 	end
@@ -2134,7 +2134,7 @@ function _M:onTakeHit(value, src, death_note)
 			value = 0
 			self.life = sl
 			game.logSeen(self, "#YELLOW#%s 양기의 폭발로 인해 목숨을 구했습니다!#LAST#", (self.kr_name or self.name):capitalize():addJosa("가"))
-			game:delayedLogDamage(tal, self, -sl, ("#LIGHT_GREEN#%d healing#LAST#"):format(sl), false) --@@ 한글화 필요
+			game:delayedLogDamage(tal, self, -sl, ("#LIGHT_GREEN#%d 회복#LAST#"):format(sl), false)
 			self:forceUseTalent(self.T_SECOND_LIFE, {ignore_energy=true})
 		end
 	end
@@ -2213,7 +2213,7 @@ function _M:onTakeHit(value, src, death_note)
 		if self.flat_damage_cap[death_note.damtype] then cap = self.flat_damage_cap[death_note.damtype] end
 		if cap and cap > 0 then
 			local ignored = math.max(0, value - cap * self.max_life / 100)
-			if ignored > 0 then game:delayedLogDamage(src, self, 0, ("#LIGHT_GREY#(%d resilience)#LAST#"):format(ignored), false) end --@@ 한글화 필요
+			if ignored > 0 then game:delayedLogDamage(src, self, 0, ("#LIGHT_GREY#(%d 활력)#LAST#"):format(ignored), false) end
 			value = value - ignored
 			print("[TAKE HIT] after flat damage cap", value)
 		end
@@ -2306,7 +2306,7 @@ function _M:die(src, death_note)
 	-- Self resurrect, mouhaha!
 	if self:attr("self_resurrect") then
 		self:attr("self_resurrect", -1)
-		game.logSeen(self, "#LIGHT_RED#%s rises from the dead!", self.name:capitalize()) -- src, not self as the source, to make sure the player knows his doom ;> --@@ 한글화 필요
+		game.logSeen(self, "#LIGHT_RED#죽었던 %s 다시 일어섭니다!", (self.kr_name or self.name):capitalize():addJosa("가")) -- src, not self as the source, to make sure the player knows his doom ;>
 		local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
 		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "부활!", {255,120,0})
 
@@ -2472,7 +2472,7 @@ function _M:die(src, death_note)
 			rsrc:incSoul(1)
 			if rsrc:attr("extra_soul_chance") and rng.percent(rsrc:attr("extra_soul_chance")) then
 				rsrc:incSoul(1)				
-				game.logPlayer(rsrc, "%s rips more animus from its victim. (+1 more soul)", rsrc.name:capitalize()) --@@ 한글화 필요
+				game.logPlayer(rsrc, "%s rips more animus from its victim. (+1 more soul)", (rsrc.kr_name or rsrc.name):capitalize()) --@@ 한글화 필요
 			end
 			rsrc.changed = true
 		end
@@ -5080,32 +5080,32 @@ function _M:doDrop(inven, item, on_done, nb)
 
 	local o = self:getInven(inven) and self:getInven(inven)[item]
 	if o and o.plot then
-		game.logPlayer(self, "You can not drop %s (plot item).", o:getName{do_colour=true}) --@@ 한글화 필요
+		game.logPlayer(self, "당신은 %s 버릴 수 없습니다 (중요한 물건).", o:getName{do_colour=true}:addJosa("를"))
 		return
 	end
 
 	if o and o.__tagged then
-		game.logPlayer(self, "You can not drop %s (tagged).", o:getName{do_colour=true}) --@@ 한글화 필요
+		game.logPlayer(self, "당신은 %s 버릴 수 없습니다 (표시됨).", o:getName{do_colour=true}:addJosa("를"))
 		return
 	end
 
 	if game.zone.wilderness then
-		Dialog:yesnoLongPopup("Warning", "You cannot drop items on the world map.\nIf you drop it, it will be lost forever.", 300, function(ret) --@@ 한글화 필요
+		Dialog:yesnoLongPopup("경고", "세계지도 상에는 물건을 놓아둘 수 없습니다.\n만약 그것을 버리게 되면, 그것은 영원히 사라지게 됩니다.", 300, function(ret)
 			-- The test is reversed because the buttons are reversed, to prevent mistakes
 			if not ret then
 				local o = self:getInven(inven) and self:getInven(inven)[item]
 				if o and not o.plot then
 					if o:check("on_drop", self) then return end
 					local o = self:removeObject(inven, item, true)
-					game.logPlayer(self, "You destroy %s.", o:getName{do_colour=true, do_count=true}) --@@ 한글화 필요
+					game.logPlayer(self, "당신은 %s 파괴했습니다.", o:getName{do_colour=true, do_count=true}:addJosa("를"))
 					self:sortInven()
 					self:useEnergy()
 					if on_done then on_done() end
 				elseif o then
-					game.logPlayer(self, "You can not destroy %s.", o:getName{do_colour=true}) --@@ 한글화 필요
+					game.logPlayer(self, "당신은 %s 파괴할 수 없습니다.", o:getName{do_colour=true}:addJosa("를"))
 				end
 			end
-		end, "Cancel", "Destroy", true) --@@ 한글화 필요
+		end, "취소", "파괴", true)
 		return
 	end
 	if nb == nil or nb >= self:getInven(inven)[item]:getNumber() then
@@ -5160,7 +5160,7 @@ function _M:getEncumberTitleUpdator(title)
 		elseif enc > max * 0.9 then color = "#ff8a00#"
 		elseif enc > max * 0.75 then color = "#fcff00#"
 		end
-		return ("%s - %sEncumbrance %d/%d"):format(title, color, enc, max) --@@ 한글화 필요
+		return ("%s - %s소지 무게 %d/%d"):format(title, color, enc, max)
 	end
 end
 

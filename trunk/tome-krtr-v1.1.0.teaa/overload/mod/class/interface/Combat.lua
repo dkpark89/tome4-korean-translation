@@ -404,7 +404,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 			local deflect = math.min(dam, target:callTalent(target.T_DUAL_WEAPON_DEFENSE, "doDeflect"))
 			if deflect > 0 then
 --				self:logCombat(target, "#Target# parries %d damage from #Source#'s attack.", deflect)
-				game:delayedLogDamage(self, target, 0, ("%s(%d parried#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflect), false) --@@ 한글화 필요
+				game:delayedLogDamage(self, target, 0, ("%s(흘려내기 %d#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflect), false)
 				dam = math.max(dam - deflect,0)
 				print("[ATTACK] after DUAL_WEAPON_DEFENSE", dam)
 			end 
@@ -413,7 +413,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 			local deflected = math.min(dam, target:callTalent(target.T_GESTURE_OF_GUARDING, "doGuard")) or 0
 --			if deflected > 0 then self:logCombat(target, "#Target# dismisses %d damage from #Source#'s attack with a sweeping gesture.", deflected) end
 			if deflected > 0 then
-				game:delayedLogDamage(self, target, 0, ("%s(%d gestured#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflected), false) --@@ 한글화 필요
+				game:delayedLogDamage(self, target, 0, ("%s(%d gestured#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflected), false) --@@ 한글화 필요 : /data/talents/cursed/gestures.lua #252~253 수호의 손짓 설명의 한글화 이후 해당하는 단어로 치환
 				dam = dam - deflected
 			end
 			print("[ATTACK] after GESTURE_OF_GUARDING", dam)
@@ -634,7 +634,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if hitted and self:attr("shattering_impact") and (not self.shattering_impact_last_turn or self.shattering_impact_last_turn < game.turn) then
 		local dam = dam * self.shattering_impact
 		local invuln = target.invulnerable
-		game.logSeen(target, "The shattering blow creates a shockwave!") --@@ 한글화 필요
+		game.logSeen(target, "공격의 충돌로 인한 충격파가 발생했습니다!")
 		target.invulnerable = 1 -- Target already hit, don't damage it twice
 		self:project({type="ball", radius=1, selffire=false}, target.x, target.y, DamageType.PHYSICAL, dam)
 		target.invulnerable = invuln

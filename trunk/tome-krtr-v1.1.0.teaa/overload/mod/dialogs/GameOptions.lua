@@ -377,8 +377,8 @@ function _M:generateListOnline()
 		return "설정을 선택"
 	end, fct=function(item)	game:registerDialog(require("engine.dialogs.ChatChannels").new()) end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Allow various events that are pushed by the server when playing online\nDisabling this will make you miss cool and fun zones.#WHITE#"} --@@ 한글화 필요
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Allow online events#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"온라인으로 게임 진행 중 서버에서 보내는 여러가지 이벤트 사용여부를 설정합니다.\n사용하지 않으면 멋지고 재미있는 지역들을 놓치게 됩니다.#WHITE#\n\nAllow various events that are pushed by the server when playing online\nDisabling this will make you miss cool and fun zones.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#온라인 이벤트 허용#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
 		return tostring(config.settings.tome.allow_online_events and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.allow_online_events = not config.settings.tome.allow_online_events
