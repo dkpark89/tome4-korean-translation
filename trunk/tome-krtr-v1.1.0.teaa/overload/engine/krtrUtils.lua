@@ -177,6 +177,7 @@ function string.krItemType(str)
 	elseif ori == "orb" then return "오브"
 	elseif ori == "organic" then return "장기"
 	elseif ori == "potion" then return "물약"
+	elseif ori == "projectile" then return "발사체"
 	elseif ori == "red" then return "붉은색"
 	elseif ori == "ring" then return "반지"
 	elseif ori == "rod" then return "장대"

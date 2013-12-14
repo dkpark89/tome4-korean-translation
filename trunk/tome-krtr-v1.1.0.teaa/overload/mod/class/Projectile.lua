@@ -50,7 +50,7 @@ function _M:tooltip(x, y)
 		if hostile < 0 then color = {"color", "LIGHT_RED"}
 		elseif hostile == 0 then color = {"color", "LIGHT_BLUE"}
 		end
-		tstr:add(true, "Origin: ", color, self.src.name, {"color", "LAST"}) --@@ 한글화 필요
+		tstr:add(true, "Origin: ", color, (self.src.kr_name or self.src.name), {"color", "LAST"}) --@@ 한글화 필요
 	end
 
 	if self.project and self.project.def and self.project.def.typ then
@@ -82,6 +82,15 @@ end
 
 --gets the full name of the projectile
 function _M:getName() --@@ 한글화 필요한지 검사
+	local name = self.kr_namr or self.name or "발사체"
+	if self.src and self.src.name then
+		return (self.src.kr_name or self.src.name):capitalize().."의 "..name
+	else
+		return name
+	end
+end
+
+function _M:getOriName() --@@ 원문 이름 반환하는 함수 추가
 	local name = self.name or "projectile"
 	if self.src and self.src.name then
 		return self.src.name:capitalize().."'s "..name
