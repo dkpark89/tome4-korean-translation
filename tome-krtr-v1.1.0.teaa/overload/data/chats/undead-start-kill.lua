@@ -42,7 +42,7 @@ newChat{ id="welcome2",
 newChat{ id="what",
 	text = [[난 너에게 네 정체를 숨길 수 있는 망토를 줄 수 있어!
 이것만 있으면 네 주위의 사람들은 너를 평범한 사람으로 보게 되고, 너는 지상에서 하고 싶은 일을 마음껏 할 수 있어!
-Please!]],
+제발!]],
 	answers = {
 		{"정보에 대해선 감사를 표하도록 하지. 이제 죽어줘야겠다. [그를 죽인다]", action=function(npc, player)
 			npc.die = nil

@@ -83,21 +83,22 @@ function _M:generateList(actions)
 			local menu = require("engine.dialogs.ViewHighScores").new()
 			game:registerDialog(menu)
 	 	end },
-		steam = { "Steam", function() --@@ 한글화 필요(?)
+		steam = { "스팀", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.SteamOptions").new()
 			game:registerDialog(menu)
 		end },
-		cheatmode = { "#GREY#Developer Mode", function() --@@ 한글화 필요 #91~114
+		cheatmode = { "#GREY#개발자 상태", function()
 			game:unregisterDialog(self)
 			if config.settings.cheat then
-				Dialog:yesnoPopup("Developer Mode", "Disable developer mode?", function(ret) if ret then
+				Dialog:yesnoPopup("개발자 상태", "개발자 상태를 비활성화 하겠습니까?", function(ret) if ret then
 					config.settings.cheat = false
 					game:saveSettings("cheat", "cheat = nil\n")
 					util.showMainMenu()
 				end end, nil, nil, true)
 			else
-				Dialog:yesnoLongPopup("Developer Mode", [[Enable developer mode?
+				Dialog:yesnoLongPopup("개발자 상태", [[개발자 상태를 활성화 하겠습니까?
+(개발자 관련 부분들은 한글화하지 않습니다.)
 Developer Mode is a special game mode used to debug and create addons.
 Using it will #CRIMSON#invalidate#LAST# any savefiles loaded.
 When activated you will have access to special commands:
@@ -108,7 +109,7 @@ When activated you will have access to special commands:
 					config.settings.cheat = true
 					game:saveSettings("cheat", "cheat = true\n")
 					util.showMainMenu()
-				end end, "No", "Yes", true)
+				end end, "아니오", "예", true)
 		
 			end
 		end },

@@ -106,7 +106,7 @@ function _M:use(item)
 		self.object.__tagged = nil
 		self.onuse(self.inven, self.item, self.object, false)
 	elseif act == "tag" then
-		local d = require("engine.dialogs.GetText").new("Tag object (tagged objects can not be destroyed or dropped)", "Tag:", 2, 25, function(tag) if tag then --@@ 한글화 필요
+		local d = require("engine.dialogs.GetText").new("물건에 표시하기 (표시된 물건은 파괴하거나 버릴수 없습니다)", "표시:", 2, 25, function(tag) if tag then
 			self.object.__tagged = tag
 			self.object.__transmo = false
 			self.onuse(self.inven, self.item, self.object, false)
@@ -141,8 +141,8 @@ function _M:generateList()
 	if not self.dst_actor and not self.object.__tagged and self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="지금 "..self.actor:transmoGetWord():capitalize(), action="transmo"} end
 	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 물건 연결", action="chat-link"} end
 	if config.settings.cheat then list[#list+1] = {name="Lua inspect", action="debug-inspect", color=colors.simple(colors.LIGHT_BLUE)} end --@@ 한글화 필요
-	if not self.object.__tagged then list[#list+1] = {name="Tag", action="tag"} end --@@ 한글화 필요
-	if self.object.__tagged then list[#list+1] = {name="Untag", action="untag"} end --@@ 한글화 필요
+	if not self.object.__tagged then list[#list+1] = {name="표시", action="tag"} end
+	if self.object.__tagged then list[#list+1] = {name="표시 지우기", action="untag"} end
 
 	self:triggerHook{"UseItemMenu:generate", actor=self.actor, object=self.object, inven=self.inven, item=self.item, menu=list}
 

@@ -279,7 +279,7 @@ function _M:useTalentMessage(ab)
 	str = str:gsub("@Target6@", tname:capitalize():addJosa("과"))
 	str = str:gsub("@target7@", tname:addJosa(7))
 	str = str:gsub("@Target7@", tname:capitalize():addJosa(7))
-	str = str:gsub("@hisher@", string.his_her(self)) --@@ 한글화 필요한지 검사
+	str = str:gsub("@hisher@", string.his_her(self):krHisHer())
 	return str
 end
 

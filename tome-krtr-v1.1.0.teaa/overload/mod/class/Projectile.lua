@@ -50,19 +50,19 @@ function _M:tooltip(x, y)
 		if hostile < 0 then color = {"color", "LIGHT_RED"}
 		elseif hostile == 0 then color = {"color", "LIGHT_BLUE"}
 		end
-		tstr:add(true, "Origin: ", color, (self.src.kr_name or self.src.name), {"color", "LAST"}) --@@ 한글화 필요
+		tstr:add(true, "발사한 이 : ", color, (self.src.kr_name or self.src.name), {"color", "LAST"})
 	end
 
 	if self.project and self.project.def and self.project.def.typ then
 		if self.project.def.typ.selffire then
 			local x = self.project.def.typ.selffire
 			if x == true then x = 100 end
-			tstr:add(true, "Affect origin chance: ", tostring(x), "%") --@@ 한글화 필요
+			tstr:add(true, "명중 확률 : ", tostring(x), "%")
 		end
 		if self.project.def.typ.friendlyfire then
 			local x = self.project.def.typ.friendlyfire
 			if x == true then x = 100 end
-			tstr:add(true, "Affect origin's friends chance: ", tostring(x), "%") --@@ 한글화 필요
+			tstr:add(true, "발사한 이의 동료에게로의 명중 확률 : ", tostring(x), "%")
 		end
 	end
 

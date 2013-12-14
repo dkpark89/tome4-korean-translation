@@ -49,9 +49,9 @@ function _M:generateList(kind)
 			if a.show == "full" or not data.notdone then
 				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "none" then
-				list[#list+1] = { name="???", color=color, desc="-- Unknown --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name="???", color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "name" then
-				list[#list+1] = { name=a.name, color=color, desc="-- Unknown --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name=a.name, color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			else
 				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			end
