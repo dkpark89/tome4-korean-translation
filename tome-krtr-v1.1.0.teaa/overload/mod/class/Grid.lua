@@ -148,7 +148,7 @@ function _M:tooltip(x, y)
 	local tstr
 	local dist = nil
 	local sn = self.kr_name and self.kr_name.." ["..self.name.."]" or self.name --@@ 세줄뒤, 열네줄뒤 사용 - 지역 이름을 '한글이름[원문이름]'으로 변수에 저장
-	if game.player.x and game.player.y then dist = tstring{" (range: ", {"font", "italic"}, {"color", "LIGHT_GREEN"}, tostring(core.fov.distance(game.player.x, game.player.y, x, y)), {"color", "LAST"}, {"font", "normal"}, ")"} end
+	if game.player.x and game.player.y then dist = tstring{" (거리: ", {"font", "italic"}, {"color", "LIGHT_GREEN"}, tostring(core.fov.distance(game.player.x, game.player.y, x, y)), {"color", "LAST"}, {"font", "normal"}, ")"} end
 	if self.show_tooltip then
 		local name = ((self.show_tooltip == true) and sn or self.show_tooltip)
 		if self.desc then

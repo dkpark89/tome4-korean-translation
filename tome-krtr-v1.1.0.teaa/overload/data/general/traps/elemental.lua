@@ -50,7 +50,6 @@ newEntity{ base = "TRAP_ELEMENTAL",
 	dam = resolvers.clscale(70, 30, 15, 0.75, 0),
 	damtype = DamageType.ACID,
 }
-}
 newEntity{ base = "TRAP_ELEMENTAL",
 	subtype = "fire",
 	name = "fire trap", image = "trap/blast_fire01.png",
