@@ -363,7 +363,7 @@ newTalent{
 	points = 5,
 	mode = "passive",
 	info = function(self, t)
-		local c = getAdvancedMinionChances(self)
+		local c = getAdvancedMinionChances(self) --@@ 에러 발생
 		return ([[언데드 추종자를 만들 때, 더 강력한 추종자를 만들어낼 확률이 증가합니다. Your chance for each type of minion is as follows:%s]]): --@@ 한글화 필요
 		format(self:callTalent(self.T_CREATE_MINIONS,"MinionChancesDesc"))
 	end,
