@@ -38,7 +38,7 @@ local energycount = function(self)
 		if not q:isCompleted("chat-energy") and q.shertul_energy <= 0 then return end
 		if not tex or lastenergy ~= q.shertul_energy then 
 			lastenergy = q.shertul_energy
-			local text = ("%0.2f Energy Stored"):format(q.shertul_energy) --@@ 한글화 필요
+			local text = ("에너지가 %0.2f 만큼 저장되었습니다"):format(q.shertul_energy)
 			tex, nblines, wline = font:draw(text, text:toTString():maxWidth(font), 0, 255, 128)
 		end
 
@@ -81,9 +81,10 @@ newEntity{
 	change_level = 1, change_zone = "wilderness",
 }
 
-newEntity{ --@@ 한글화 필요 : kr_name 추가
+newEntity{
 	define_as = "TELEPORT_OUT_MELINDA",
 	name = "teleportation circle for Melinda", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image="terrain/maze_teleport.png"}},
+	kr_name = "멜린다에게로의 순간이동 장치",
 	display = '>', color_r=255, color_g=0, color_b=255,
 	notice = true, show_tooltip = true,
 }
@@ -253,10 +254,10 @@ newEntity{ define_as = "MURAL_PAINTING"..i,
 }
 end
 
---@@ 한글화 필요 #256~끝 : kr_name 추가
 newEntity{
 	define_as = "TRAINING_ORB",
 	name = "Training Control Orb", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image="terrain/pedestal_orb_02.png", display_h=2, display_y=-1}},
+	kr_name = "연습 통제 오브",
 	display = '*', color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
@@ -274,7 +275,7 @@ local dcb = function(self)
 	local tex, nblines, wline = nil
 	local DamageType = require "engine.DamageType"
 	local shader = require("engine.Shader").default.textoutline and require("engine.Shader").default.textoutline.shad
-	local font = core.display.newFont("/data/font/DroidSansMono.ttf", 16)
+	local font = core.display.newFont(krKont or "/data/font/DroidSansMono.ttf", 16) --@@ 한글 글꼴 추가
 	local UIBase = require "engine.ui.Base"
 	local MyUI = require("engine.class").inherit(UIBase){}
 	MyUI.ui = "metal"
@@ -287,14 +288,14 @@ local dcb = function(self)
 			local turns = (game.turn - data.start_turn) / 10
 			local text
 			if self.monitor_mode == "global" then
-				text = ("Turns: %d\nTotal Damage: %d\nDamage/turns: %d"):format(turns, data.total, data.total / turns)
+				text = ("턴 : %d\n총 피해량 : %d\n턴당 피해량 : %d"):format(turns, data.total, data.total / turns)
 				data.changed = false
 			else
 				text = {}
 				for damtype, value in pairs(data.damtypes) do if damtype ~= "changed" then
 					local dt = DamageType:get(damtype)
 					if dt then
-						text[#text+1] = ("%s%s#WHITE#: %d (%d%%)"):format(dt.text_color or "#WHITE#", dt.name, value, value / data.total * 100)
+						text[#text+1] = ("%s%s#WHITE#: %d (%d%%)"):format(dt.text_color or "#WHITE#", (dt.kr_name or dt.name), value, value / data.total * 100)
 					end
 				end end
 				text = table.concat(text, "\n")
@@ -328,6 +329,7 @@ end
 newEntity{
 	define_as = "MONITOR_ORB1",
 	name = "Training Monitor Orb", image = "terrain/solidwall/solid_floor1.png",
+	kr_name = "연습 관측 오브",
 	add_displays = {class.new{
 		image="terrain/shertul_control_orb_greenish.png", z=17,
 		monitor_mode = "global",
@@ -342,6 +344,7 @@ newEntity{
 newEntity{
 	define_as = "MONITOR_ORB2",
 	name = "Training Monitor Orb", image = "terrain/solidwall/solid_floor1.png",
+	kr_name = "연습 관측 오브",
 	add_displays = {class.new{
 		image="terrain/shertul_control_orb_greenish.png", z=17,
 		monitor_mode = "specific",

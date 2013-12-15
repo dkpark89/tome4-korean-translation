@@ -186,6 +186,6 @@ newTalent{
 		local talentcount = t.getTalentCount(self, t)
 		local maxlevel = t.getMaxLevel(self, t)
 		return ([[마력의 흐름에 대한 깊은 이해를 통해, 마법의 지연시간을 초기화시킵니다. %d 레벨 이하의 마법 %d 개를 바로 사용할 수 있도록 만듭니다.]]):
-		format(maxlevel, talentcount)
+		format(maxlevel, talentcount) --@@ 변수 순서 조정
 	end,
 }

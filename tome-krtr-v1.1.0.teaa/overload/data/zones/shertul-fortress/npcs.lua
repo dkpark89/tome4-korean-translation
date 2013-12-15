@@ -130,10 +130,11 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="BUTLER",
 	can_talk = "shertul-fortress-butler",
 }
 
-newEntity{ define_as="TRAINING_DUMMY", --@@ 한글화 필요 #133~162
+newEntity{ define_as="TRAINING_DUMMY",
 	type = "training", subtype = "dummy",
 	name = "Training Dummy", color=colors.GREY,
-	desc = "Training dummy.", image = "npc/lure.png",
+	kr_name = "연습용 허수아비",
+	desc = "연습용 허수아비.", image = "npc/lure.png",
 	level_range = {1, 1}, exp_worth = 0,
 	rank = 3,
 	max_life = 300000, life_rating = 0,

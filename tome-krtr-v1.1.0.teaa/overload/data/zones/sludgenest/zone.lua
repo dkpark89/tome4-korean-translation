@@ -123,7 +123,7 @@ return {
 		local randelite = 10 + (dl / 10) ^ 1.6
 		local randboss = (dl / 10) ^ 1.2 - 3
 
-		if dl == 20 then require("engine.ui.Dialog"):simplePopup("Sludgenest", "It seems the slimes coming from the walls become stronger with time.") end --@@ 한글화 필요
+		if dl == 20 then require("engine.ui.Dialog"):simplePopup("진창의 보금자리", "벽에서 슬라임들이 튀어나오고, 시간이 지날수록 더욱 위험해집니다.") end
 		if dl == 100 then world:gainAchievement("SLUDGENEST100", game.player) end
 		if dl == 200 then world:gainAchievement("SLUDGENEST200", game.player) end
 		if dl == 300 then world:gainAchievement("SLUDGENEST300", game.player) end

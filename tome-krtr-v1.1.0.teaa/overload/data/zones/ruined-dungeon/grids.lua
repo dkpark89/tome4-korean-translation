@@ -39,9 +39,10 @@ newEntity{
 }
 end
 
-newEntity{ --@@ 한글화 필요 #42~55, kr_name 추가 필요
+newEntity{
 	define_as = "LORE4",
 	name = "inscription", image = "terrain/maze_floor.png",
+	kr_name = "비문",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},
 	always_remember = true,
@@ -111,12 +112,12 @@ newEntity{
 		elseif self.portal_type == "arcane" then text = "오브에서 마법의 에너지가 소용돌이칩니다."
 		elseif self.portal_type == "fire" then text = "오브에서 불꽃이 튀고 있습니다."
 
-		elseif self.portal_type == "darkness" then text = "The orb seems to absorb all light." --@@ 한글화 필요
-		elseif self.portal_type == "blood" then text = "The orb is drips with thick blood." --@@ 한글화 필요
-		elseif self.portal_type == "ice" then text = "The orb is icy to the touch." --@@ 한글화 필요
-		elseif self.portal_type == "time" then text = "Time seems to slow down around the orb." --@@ 한글화 필요
-		elseif self.portal_type == "mind" then text = "Your mind is filled with strange thoughts as you approach the orb." --@@ 한글화 필요
-		elseif self.portal_type == "blight" then text = "The orb seems to corrupt all it touches." --@@ 한글화 필요
+		elseif self.portal_type == "darkness" then text = "오브가 모든 빛을 흡수하는 것 같습니다."
+		elseif self.portal_type == "blood" then text = "오브에서 짙은 핏물이 흘러 떨어지고 있습니다."
+		elseif self.portal_type == "ice" then text = "오브를 건드리면 매우 차갑습니다."
+		elseif self.portal_type == "time" then text = "오브의 주변에서는 시간이 매우 느리게 흐르는 것 같습니다."
+		elseif self.portal_type == "mind" then text = "오브를 건드리면 마음 속이 기묘한 생각으로 가득 찹니다."
+		elseif self.portal_type == "blight" then text = "이 오브는 접촉하는 모든 것을 타락시킬 것 같습니다."
 		end
 		require("engine.ui.Dialog"):yesnoLongPopup("신비한 오브", text.."\n건드려 봅니까?", 400, function(ret)
 			if ret then

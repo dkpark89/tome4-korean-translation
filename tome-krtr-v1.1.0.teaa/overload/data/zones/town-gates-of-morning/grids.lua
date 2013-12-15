@@ -23,10 +23,11 @@ load("/data/general/grids/mountain.lua")
 load("/data/general/grids/water.lua")
 load("/data/general/grids/sand.lua")
 
-newEntity{ --@@ 한글화 필요 #26~33 : kr_name 추가
+newEntity{
 	define_as = "FLOOR_ROAD_STONE",
 	type = "floor", subtype = "floor", road="oldstone",
 	name = "old road", image = "terrain/marble_floor.png",
+	kr_name = "오래된 길",
 	display = '=', color=colors.DARK_GREY,
 	always_remember = true,
 	nice_editer2 = { method="roads_def", def="oldstone" },

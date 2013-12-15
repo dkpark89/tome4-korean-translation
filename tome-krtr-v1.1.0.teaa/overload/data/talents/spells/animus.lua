@@ -188,7 +188,7 @@ newTalent{
 				})
 				game:onTickEnd(function() self:incSoul(2) end)
 
-				self:logCombat(m, "#GREY##Source# 이(가) #target# 의 영혼을 제거하여, 언데드 하수인으로 만들었습니다.")
+				self:logCombat(m, "#GREY##Source1# #target#의 영혼을 제거하여, 언데드 하수인으로 만들었습니다.")
 			end
 		end)
 
