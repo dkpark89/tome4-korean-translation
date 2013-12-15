@@ -85,7 +85,7 @@ return {
 			local spot = game.level:pickSpotRemove{type="portal", subtype="portal"}
 			if spot then
 				game.level.map(spot.x, spot.y, engine.Map.TERRAIN).orb_allowed = true
-				require("engine.ui.Dialog"):simplePopup("Guardian", "You can hear a magical trigger firing off.") --@@ 한글화 필요
+				require("engine.ui.Dialog"):simplePopup("수호자", "마법 장치가 기동하기 시작하는 소리가 들립니다.")
 			end
 		end}, add_levels=5}
 		local _, guardians = level:pickSpot{type="spawn", subtype="guardian"}

@@ -190,11 +190,11 @@ newTalent{
 	no_npc_use = true,
 	getDamage = function(self, t) return self:combatLimit(self:combatTalentSpellDamage(t, 20, 70), 90, 0, 0, 25, 25) end, -- Limit to 50% life
 	action = function(self, t)
-		local tg = {type="ball", range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t, friendlyfire=not rng.percent(self:getTalentLevelRaw(self.T_DARK_EMPATHY) * 0.2)}
+		local tg = {type="hit", range=self:getTalentRange(t), talent=t, first_target="friend"}
 		local tx, ty, target = self:getTarget(tg)
 		if not tx or not ty or not target or not target.summoner or not target.summoner == self or not target.necrotic_minion then return nil end
 
-		local tg = {type="ball", range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t}
+		local tg = {type="ball", range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t, friendlyfire=not rng.percent(self:getTalentLevelRaw(self.T_DARK_EMPATHY) * 0.2)}
 		local dam = target.max_life * t.getDamage(self, t) / 100
 		target:die()
 		target:project(tg, target.x, target.y, DamageType.BLIGHT, dam)
@@ -284,6 +284,12 @@ newTalent{
 			end
 		end
 
+		local empower = necroEssenceDead(self)
+		for i = 1, empower and 2 or 1 do
+			make_golem()
+			if nbgolem >= (empower and 2 or 1) then break end
+		end
+
 		if nbgolem >= 2 and empower then empower() end
 
 		game:playSoundNear(self, "talents/spell_generic2")
@@ -363,7 +369,6 @@ newTalent{
 	points = 5,
 	mode = "passive",
 	info = function(self, t)
-		local c = getAdvancedMinionChances(self) --@@ 에러 발생
 		return ([[언데드 추종자를 만들 때, 더 강력한 추종자를 만들어낼 확률이 증가합니다. Your chance for each type of minion is as follows:%s]]): --@@ 한글화 필요
 		format(self:callTalent(self.T_CREATE_MINIONS,"MinionChancesDesc"))
 	end,

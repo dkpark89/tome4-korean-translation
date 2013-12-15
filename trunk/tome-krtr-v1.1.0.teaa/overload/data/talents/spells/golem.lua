@@ -208,7 +208,7 @@ newTalent{
 		local duration = t.getPinDuration(self, t)
 		return ([[골렘이 대상에게 돌진하여, %d%% 피해를 주고 대상을 짓밟아 땅에 %d 턴 동안 고정시킵니다.
 		속박 확률은 기술 레벨의 영향을 받아 증가합니다.]]):
-		format(100 * damage, duration)
+		format(100 * damage, duration) --@@ 변수 순서 조정
 	end,
 }
 

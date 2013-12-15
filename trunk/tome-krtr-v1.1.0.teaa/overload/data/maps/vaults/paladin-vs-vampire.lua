@@ -35,11 +35,11 @@ defineTile('~', mod.class.Grid.new{
 		local DT = engine.DamageType
 		local dam = DT:get(DT.RETCH).projector(self, x, y, DT.RETCH, rng.range(self.mindam, self.maxdam))
 		self.x, self.y = x, y
-		if who.player and not who:attr("undead") then self:logCombat(who, "#Source# emits dark energies at your feet.") end --@@ 한글화 필요 
+		if who.player and not who:attr("undead") then self:logCombat(who, "#Source1# 당신의 발 아래에 어둠의 에너지를 내뿜습니다.") end 
 		if who.dead and not who:attr("undead") then
 			--add undead
 			local m = game.zone:makeEntityByName(game.level, "actor", "RISEN_CORPSE")
-			game.logSeen(who, "The corrupted lava reanimates %s's corpse!", who.name:capitalize()) --@@ 한글화 필요
+			game.logSeen(who, "타락한 용암이 %s의 시체를 다시 일으켜 세웁니다!", (who.kr_name or who.name):capitalize())
 			game.zone:addEntity(game.level, m, "actor", x, y)
 		end
 	end,
