@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Consume Soul",
+	kr_name = "영혼 흡수",
 	type = {"spell/animus",1},
 	require = spells_req1,
 	points = 5,
@@ -44,14 +45,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Crush and consume one of your captured souls, healing your for %d life and restoring %d mana.
-		The life and mana healed will increase with your Spellpower.]]):
+		return ([[사로잡은 원혼 하나를 흡수하여 생명력을 %d 만큼, 마나를 %d 만큼 회복합니다.
+		생명력과 마나 회복량은 주문력의 영향을 받아 증가합니다.]]):
 		format(heal, heal / 3)
 	end,
 }
 
 newTalent{
 	name = "Animus Hoarder",
+	kr_name = "원한 수집가",
 	type = {"spell/animus",2},
 	require = spells_req2,
 	mode = "sustained",
@@ -72,14 +74,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local max, chance = t.getMax(self, t), t.getChance(self, t)
-		return ([[Your hunger for souls grows ever more. When you kill a creature you rip away its animus with great force, granting you %d%% chances to gain one more soul.
-		In addition you are able to store %d more souls.]]):
+		return ([[영혼에 대한 당신의 갈망이 더 강해집니다. 적을 살해할 때마다 적의 원한을 끄집어내, %d%% 확률로 하나의 원혼을 더 얻을 수 있게 됩니다.
+		또한, 최대로 소유할 수 있는 원혼이 %d 개 늘어나게 됩니다.]]):
 		format(chance, max)
 	end,
 }
 
 newTalent{
 	name = "Animus Purge",
+	kr_name = "영혼 제거",
 	type = {"spell/animus",3},
 	require = spells_req3,
 	points = 5,
@@ -163,7 +166,7 @@ newTalent{
 
 				m.on_can_control = function(self, vocal)
 					if not self:hasLOS(self.summoner.x, self.summoner.y) then
-						if vocal then game.logPlayer(game.player, "Your husk is out of sight; you cannot establish direct control.") end
+						if vocal then game.logPlayer(game.player, "하수인이 시야에서 벗어났습니다. 하수인을 직접 조종할 수 없게 됩니다.") end
 						return false
 					end
 					return true
@@ -185,7 +188,7 @@ newTalent{
 				})
 				game:onTickEnd(function() self:incSoul(2) end)
 
-				self:logCombat(m, "#GREY##Source# rips apart the animus of #target# and creates an undead husk.")
+				self:logCombat(m, "#GREY##Source# 이(가) #target# 의 영혼을 제거하여, 언데드 하수인으로 만들었습니다.")
 			end
 		end)
 
@@ -194,19 +197,21 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Try to crush the soul of your foe, doing %0.2f darkness damage (that can never kill the target).
-		If the target is left with less than %d%% life you try to take control of its body.
-		Should this succeed the target becomes your permanent minion (unaffected by your aura) and you regain 2 souls.
-		Husks prossess the same abilities as they had in life (affected by Dark Empathy), are healed to full when created but can never heal or be healed by any means.
-		Only one husk can be controlled at any time.
-		Bosses, other undeads and summoned creatures can not be turned into husks.
-		The damage and chance will increase with your Spellpower.]]):
+		return ([[적의 영혼을 부숴, %0.2f 암흑 피해를 줍니다. (이 공격으로는 대상을 죽일 수 없습니다)
+		만약 대상의 생명력이 %d%% 이하가 된다면, 대상의 육신을 자신의 것으로 만들 수 있는 기회가 생기게 됩니다.
+		성공할 경우 원혼을 2 얻게 되며, 대상은 당신의 (사령술의 기운에 영향을 받지 않는) 영구적인 하수인이 됩니다.
+		대상의 육신은 생전의 능력을 그대로 사용할 수 있으며, 어둠의 공감 기술 역시 적용됩니다.
+		대상의 육신을 하수인으로 만들면 대상의 생명력이 완전히 회복되지만, 이후 어떤 방법으로도 대상의 생명력은 회복되지 않습니다.
+		한번에 하나의 육신만을 조종할 수 있습니다.
+		보스, 언데드, 소환된 적은 조종할 수 없습니다.
+		피해량과 성공 확률은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage), t.getMaxLife(self, t))
 	end,
 }
 
 newTalent{
 	name = "Essence of the Dead",
+	kr_name = "죽은 자의 정수",
 	type = {"spell/animus",4},
 	require = spells_req4,
 	points = 5,
@@ -221,16 +226,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local nb = t.getnb(self, t)
-		return ([[Crush and consume two souls to empower your next %d spells, granting them a special effect.
-		Affected spells are:
-		- Undeath Link: in addition to the heal a shield is created for half the heal power
-		- Create Minions: allows you to summon 2 more minions
-		- Assemble: allows you to summon a second bone golem
-		- Invoke Darkness: becomes a cone of darkness
-		- Shadow Tunnel: teleported minions will also be healed for 30%% of their max life
-		- Cold Flames: freeze chance increased to 100%%
-		- Ice Shards: each shard becomes a beam
-		- Consume Soul: effect increased by 50%%]]):
+		return ([[사로잡은 원혼 두 개를 흡수하여, 다음에 사용하는 주문 %d 개를 강화시킵니다.
+		이 기술에 영향을 받는 주문은 다음과 같습니다.
+		- 불사의 연결고리 : 생명력 흡수량의 절반만큼 보호막이 추가로 생성됩니다.
+		- 추종자 생성 : 추종자를 2 마리 추가로 소환할 수 있게 됩니다.
+		- 결합 : 두 번째 해골 거인을 소환할 수 있게 됩니다.
+		- 어둠 화살 : 어둠이 전방의 모든 적에게 피해를 주게 됩니다.
+		- 그림자 통로 : 순간이동한 추종자들이 최대 생명력의 30%% 만큼 생명력을 회복하게 됩니다.
+		- 차가운 불꽃 : 빙결 시도 확률이 100%% 가 됩니다.
+		- 얼음 파편 : 각각의 파편들이 적을 관통할 수 있게 됩니다.
+		- 영혼 흡수 : 회복 효율이 50%% 증가하게 됩니다.]]):
 		format(nb)
 	end,
 }
