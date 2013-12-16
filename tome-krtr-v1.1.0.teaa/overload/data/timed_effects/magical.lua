@@ -2420,10 +2420,11 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 : kr_name 추가, long_desc 한글화 
+newEffect{
 	name = "ESSENCE_OF_THE_DEAD", image = "talents/essence_of_the_dead.png",
 	desc = "Essence of the Dead",
-	long_desc = function(self, eff) return ("The target consumed souls to gain new powers. %d spells affected."):format(eff.nb) end,
+	kr_name = "죽은 자의 정수",
+	long_desc = function(self, eff) return ("원혼을 사용하여 새로운 힘을 습득 : 주문 %d 개 강화"):format(eff.nb) end,
 	type = "magical",
 	decrease = 0,
 	subtype = { necrotic=true },

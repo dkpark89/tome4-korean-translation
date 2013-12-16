@@ -76,7 +76,7 @@ function string.krSex(str)
 end
 
 function string.krFontShape(str)
-	-- 관련내용 /mod/dialogs/GameOptions.lua:174
+	-- 관련내용 /mod/dialogs/GameOptions.lua:152
 	local ori = str:lower()
 	if ori == "fantasy" then return "환상적"
 	elseif ori == "basic" then return "기본"
@@ -84,7 +84,7 @@ function string.krFontShape(str)
 end
 
 function string.krHUDStyle(str)
-	-- 관련내용 /mod/dialogs/GameOptions.lua:160
+	-- 관련내용 /mod/dialogs/GameOptions.lua:138
 	local ori = str:lower()
 	if ori == "minimalist" then return "깔끔"
 	elseif ori == "classic" then return "고전"
@@ -92,7 +92,7 @@ function string.krHUDStyle(str)
 end
 
 function string.krUIStyle(str)
-	-- 관련내용 /mod/dialogs/GameOptions.lua:148
+	-- 관련내용 /mod/dialogs/GameOptions.lua:124
 	local ori = str:lower()
 	if ori == "metal" then return "금속 예술품"
 	elseif ori == "stone" then return "석기 도구"
@@ -101,7 +101,7 @@ function string.krUIStyle(str)
 end
 
 function string.krFontSize(str)
-	-- 관련내용 /mod/dialogs/GameOptions.lua:186
+	-- 관련내용 /mod/dialogs/GameOptions.lua:164
 	local ori = str:lower()
 	if ori == "small" then return "작음"
 	elseif ori == "normal" then return "보통"
@@ -123,9 +123,10 @@ function string.krStat(str)
 end
 
 function string.krItemType(str)
-	-- 관련내용 /data/general/objects/ 하위 파일들
+	-- 관련내용 /data/general/objects/ 하위 파일들의 type, subtype
 	local ori = str:lower()
-	if ori == "ammo" then return "탄환"
+	if ori == "alchemist-gem" then return "연금술 보석"
+	elseif ori == "ammo" then return "탄환"
 	elseif ori == "amulet" then return "목걸이"
 	elseif ori == "analysis" then return "분석"
 	elseif ori == "ankh" then return "성물"
@@ -143,6 +144,7 @@ function string.krItemType(str)
 	elseif ori == "dagger" then return "단검"
 	elseif ori == "digger" then return "곡괭이"
 	elseif ori == "egg" then return "알"
+	elseif ori == "fang" then return "이빨"
 	elseif ori == "feet" then return "신발"
 	elseif ori == "gem" then return "보석"
 	elseif ori == "golem" then return "골렘"
@@ -228,6 +230,7 @@ function string.krTalentType(str)
 	elseif ori == "spell" then return "주문"
 	elseif ori == "undead" then return "언데드"
 	elseif ori == "misc" then return "기타"
+	elseif ori == "other" then return "기타"
 	---- celestial
 	elseif ori == "guardian" then return "고급 : 빛의 수호"
 	elseif ori == "chants" then return "찬가"
@@ -326,7 +329,14 @@ function string.krTalentType(str)
 	elseif ori == "horror techniques" then return "공포들의 물리기술"
 	elseif ori == "horror spells" then return "공포들의 주문"
 	elseif ori == "horror powers" then return "공포들의 힘"
+	elseif ori == "class" then return "직업"
+	elseif ori == "race" then return "종족"
+	elseif ori == "inscriptions" then return "각인"
+	elseif ori == "infusions" then return "인퓨전"
+	elseif ori == "runes" then return "룬"
+	elseif ori == "taints" then return "감염"
 	elseif ori == "keepsake shadow" then return "'고통의 자취' 의 그림자"
+	elseif ori == "objects" then return "물체"
 	elseif ori == "fortress" then return "요새"
 	elseif ori == "object spells" then return "물체 부여 주문"
 	elseif ori == "object techniques" then return "물체 부여 기술"
@@ -337,14 +347,7 @@ function string.krTalentType(str)
 	elseif ori == "halfling" then return "하플링"
 	elseif ori == "orc" then return "오크"
 	elseif ori == "yeek" then return "이크"
-	elseif ori == "race" then return "종족"
-	elseif ori == "class" then return "직업"
-	elseif ori == "inscriptions" then return "각인"
-	elseif ori == "infusions" then return "인퓨전"
-	elseif ori == "runes" then return "룬"
-	elseif ori == "taints" then return "감염"
-	elseif ori == "objects" then return "물체"
-	elseif ori == "other" then return "기타"
+	elseif ori == "tutorial" then return "연습게임 전용 기술"
 	-- psionic
 	elseif ori == "absorption" then return "흡수"
 	elseif ori == "projection" then return "발산"
@@ -397,15 +400,16 @@ function string.krTalentType(str)
 	elseif ori == "fire alchemy" then return "연금술 : 화염"
 	elseif ori == "stone alchemy" then return "연금술 : 암석"
 	elseif ori == "staff combat" then return "지팡이 전투기술"
+	elseif ori == "fighting" then return "전투기술"
 	elseif ori == "golem" then return "골렘"
 	elseif ori == "drolem" then return "드롤렘"
-	elseif ori == "fighting" then return "전투기술"
 	elseif ori == "necrotic minions" then return "사령의 추종자"
 	elseif ori == "advanced necrotic minions" then return "고급 사령의 추종자"
 	elseif ori == "nightfall" then return "일몰"
 	elseif ori == "shades" then return "고급 : 그림자"
 	elseif ori == "necrosis" then return "사령술"
 	elseif ori == "grave" then return "묘지"
+	elseif ori == "animus" then return "증오"
 	-- techniques
 	elseif ori == "two-handed weapons" then return "양손무기 공격기술"
 	elseif ori == "two-handed maiming" then return "양손무기 제압기술"
@@ -418,6 +422,7 @@ function string.krTalentType(str)
 	elseif ori == "archery - slings" then return "투석구 사격기술"
 	elseif ori == "archery training" then return "사격기술 수련"
 	elseif ori == "archery prowess" then return "특수 사격기술"
+	elseif ori == "archery excellence" then return "고급 사격기술"
 	elseif ori == "superiority" then return "고급 전투기술 : 압도"
 	elseif ori == "battle tactics" then return "고급 전투기술 : 전술"
 	elseif ori == "warcries" then return "고급 전투기술 : 전투 함성"
@@ -613,7 +618,7 @@ function string.krClass(str)
 end
 
 function string.krSize(str)
-	-- 관련내용 /mod/class/Actor.lua:1331~1337
+	-- 관련내용 /mod/class/Actor.lua:1378~1384
 	local ori = str:lower()
 	if ori == "tiny" then return "조그마함"
 	elseif ori == "small" then return "작음"
@@ -625,7 +630,7 @@ function string.krSize(str)
 end
 
 function string.krRank(str)
-	-- 관련내용 /mod/class/Actor.lua:1318~1325
+	-- 관련내용 /mod/class/Actor.lua:1364~1372
 	local ori = str:lower()
 	if ori == "normal" then return "평범함"
 	elseif ori == "critter" then return "모자람"
@@ -740,6 +745,7 @@ function string.krLoreCategory(str)
 	elseif ori == "iron throne" then return "철의 왕좌"
 	elseif ori == "keepsake" then return "유품"
 	elseif ori == "kor'pul" then return "코르'풀"
+	elseif ori == "lake of nur" then return "누르 호수"
 	elseif ori == "last hope graveyard" then return "마지막 희망 공동묘지"
 	elseif ori == "last hope" then return "마지막 희망"
 	elseif ori == "magic" then return "마법"
@@ -768,7 +774,7 @@ end
 
 -- 새로운 물건의 랜덤 이름 생성시 확인되지 않은 이름의 접두사
 function string.krUnIDPreName(str)
-	-- 관련내용 /mod/class/GameState.lua:353
+	-- 관련내용 /mod/class/GameState.lua:356
 	local ori = str:lower()
 	if ori == "glowing" then return "빛나는"
 	elseif ori == "scintillating" then return "번뜩이는"
@@ -793,14 +799,13 @@ function string.krUnIDPreName(str)
 end
 
 function string.krBossName(str)
-	-- 관련내용 /mod/class/GameState.lua:348
+	-- 관련내용 "#rng#"로 검색
 	local ori = str:lower()
-	if ori == "the guardian" then return "수호자"
-	elseif ori == "the invader" then return "침략자"
+	if ori == "the invader" then return "침략자"
 	elseif ori == "the tidebender" then return "조류 왜곡자"
 	elseif ori == "the invoker" then return "호출자"
 	elseif ori == "the bringer of doom" then return "파멸을 부르는 자"
-	-- 아래 관련 내용 /data/zones/slime-tunnels/grid.lua:62, 82, 102, 122
+	elseif ori == "the guardian" then return "수호자"
 	elseif ori == "the fearsome" then return "무서운"
 	elseif ori == "the neverdead" then return "죽지않는"
 	elseif ori == "the silent death" then return "조용한 죽음"
@@ -809,7 +814,7 @@ function string.krBossName(str)
 end
 
 function string.krZonename(str)
-	-- 관련내용 /data/maps/wilderness/eyal.lua:454~463, /data/maps/zones/shertul-fortress.lua:62~66, /data/maps/zones/shertul-fortress-caldizar.lua:42~43 (모두 한글화에는 제외되는 파일) 
+	-- 관련내용 /data/maps/wilderness/eyal.lua:456~465, /data/maps/zones/shertul-fortress.lua:110~115, /data/maps/zones/shertul-fortress-caldizar.lua:42~44 (모두 한글화에는 제외되는 파일) 
 	local ori = str:lower()
 	if ori == "charred scar" then return "검게 탄 상처"
 	elseif ori == "far east" then return "동대륙"
@@ -827,8 +832,8 @@ function string.krZonename(str)
 end
 
 function string.krT_Reason(str)
-	-- 관련내용 /engine/interface/ActorTalents.lua:471~520 canLearnTalent 함수의 두번째 반환 값 내용들
-	-- 직접 번역하면 수정할 곳이 너무 많아 출력부분에만 이함수 사용해서 바꿈. 사용처 : /mod/dialpgs/LevelupDialog.lua:265
+	-- 관련내용 /engine/interface/ActorTalents.lua:474~523 canLearnTalent 함수의 두번째 반환 값 내용들
+	-- 직접 번역하면 수정할 곳이 너무 많아 출력부분에만 이함수 사용해서 바꿈. 사용처 : /mod/dialpgs/LevelupDialog.lua:268
 	local ori = str:lower()
 	if ori == "not enough stat" then return "능력치 부족"
 	elseif ori == "not enough levels" then return "낮은 레벨"
@@ -839,7 +844,7 @@ function string.krT_Reason(str)
 end
 
 function string.krRunningExplore(str)
-	-- 관련내용 <running.explore>로 검색해서 나오는 단어들 - /mod/class/interface/PlayerExplore.lua:2100~2360
+	-- 관련내용 <running.explore>로 검색해서 나오는 단어들 - /mod/class/interface/PlayerExplore.lua:2100~2540
 	local ori = str:lower()
 	if ori == "door" then return "문"
 	elseif ori == "exit" then return "출구"
@@ -1443,7 +1448,7 @@ function string.krKeywords(str)
 end
 
 function table.krKeywordKeys(t)
-	-- 장비창에서의 짧은 아이템 설명에 사용. /mod/class/Object.lua:350번 줄에서 사용
+	-- 장비창에서의 짧은 아이템 설명에 사용. /mod/class/Object.lua:370번 줄에서 사용
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krKeywords() end
 	return tt
@@ -1451,7 +1456,7 @@ end
 
 function string.krBreath(str)
 	-- 관련내용 "can_breath"로 검색해서 나오는 것들
-	-- 사용장소 /mod/class/Object.lua:959, 961 - 숨쉬기 가능 장소 설명
+	-- 사용장소 /mod/class/Object.lua:1032, 1034 - 숨쉬기 가능 장소 설명
 	local ori = str:lower()
 	if ori == "water" then return "물"
 	--elseif ori == "" then return "" --@@ 현재 'water'만 사용되고 있음
@@ -1459,8 +1464,8 @@ function string.krBreath(str)
 end
 
 function string.krEffectType(str)
-	-- 관련내용 /data/timed_effects/하위에서 "type"으로 검색해서 나오는 것들
-	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1247, 1249번 줄과 /mod/class/PalyerDisplay.lua:172, 174번 줄에서 사용
+	-- 관련내용 /data/timed_effects/하위에서 "type = "으로 검색해서 나오는 것들
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1264, 1266번 줄과 /mod/class/PalyerDisplay.lua:172, 174번 줄에서 사용
 	local ori = str:lower()
 	if ori == "physical" then return "물리적 효과"
 	elseif ori == "magical" then return "마법적 효과"
@@ -1519,6 +1524,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'moss' then return "이끼"
 	elseif ori == 'mucus' then return "점액"
 	elseif ori == 'nature' then return "자연"
+	elseif ori == 'necrotic' then return "사령술"
 	elseif ori == 'nightmare' then return "악몽"
 	elseif ori == 'pain' then return "고통"
 	elseif ori == 'phantasm' then return "환상"
@@ -1526,6 +1532,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'poison' then return "독"
 	elseif ori == 'possess' then return "소유"
 	elseif ori == 'predator' then return "포식자"
+	elseif ori == 'prodigy' then return "특수기술"
 	elseif ori == 'psionic' then return "초능력"
 	elseif ori == 'psychic_drain' then return "정신적 흡수"
 	elseif ori == 'race' then return "종족"
@@ -1535,6 +1542,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'silence' then return "침묵"
 	elseif ori == 'sleep' then return "수면"
 	elseif ori == 'slow' then return "감속"
+	elseif ori == 'space' then return "공간"
 	elseif ori == 'spacetime' then return "시공간"
 	elseif ori == 'speed' then return "가속"
 	elseif ori == 'status' then return "상태"
@@ -1542,7 +1550,9 @@ function string.krEffectSubtype(str)
 	elseif ori == 'stun' then return "기절"
 	elseif ori == 'suffocating' then return "숨막힘"
 	elseif ori == 'summon' then return "소환"
+	elseif ori == 'sun' then return "태양"
 	elseif ori == 'sunder' then return "손상"
+	elseif ori == 'superiority' then return "압도"
 	elseif ori == 'tactic' then return "전술"
 	elseif ori == 'taint' then return "감염"
 	elseif ori == 'telekinesis' then return "염동력"
@@ -1560,14 +1570,14 @@ function string.krEffectSubtype(str)
 end
 
 function table.krEffectKeys(t)
-	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1244번 줄, /mod/class/PlayerDisplay.lua:169번 줄에서 사용
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua:1261번 줄, /mod/class/PlayerDisplay.lua:169번 줄에서 사용
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krEffectSubtype() end
 	return tt
 end
 
 function string.krRWKind(str)
-	-- /mod/class/interface/Archery.lua:52번 줄에서 사용
+	-- /mod/class/interface/Archery.lua:54번 줄에서 사용
 	local ori = str:lower()
 	if ori == "bow" then return "활"
 	elseif ori == "sling" then return "투석구"
@@ -1575,7 +1585,7 @@ function string.krRWKind(str)
 end
 
 function string.krHisHer(str)
-	-- /mod/class/interface/Archery.lua:52번 줄에서 사용
+	-- /engine/interface/ActorTalents.lua #282, /mod/class/Actor.lua #1727 에서 사용
 	local ori = str:lower()
 	if ori == "her" then return "그녀"
 	elseif ori == "his" then return "그"

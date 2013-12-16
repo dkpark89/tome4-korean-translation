@@ -21,7 +21,7 @@ require "engine.krtrUtils"
 
 -- race & classes
 
-newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "튜토리얼 전용 기술." }
+newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "연습게임 전용 기술." }
 
 newTalent{
 	name = "Shove", short_name = "TUTORIAL_PHYS_KB",

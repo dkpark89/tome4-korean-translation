@@ -332,7 +332,7 @@ function _M:getAccuracyEffect(weapon, atk, def, scale, max)
 end
 
 function _M:isAccuracyEffect(weapon, kind)
-	if not weapon then return false, "none" end --@@ 한글화 필요여부 검사
+	if not weapon then return false, "none" end
 	local eff = weapon.accuracy_effect or weapon.talented
 	return eff == kind, eff
 end

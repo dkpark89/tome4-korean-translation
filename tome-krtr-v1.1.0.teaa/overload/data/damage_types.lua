@@ -394,11 +394,11 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		end
 
 		if dam > 0 and src.attr and src:attr("martyrdom") and not no_martyr then
-			game:delayedLogMessage(src, target, "martyrdom", "#CRIMSON##Source1# 피해가 %s에게도 고난을 가합니다!", string.his_her_self(src)) 
+			game:delayedLogMessage(src, target, "martyrdom", "#CRIMSON##Source#의 피해가 %s에게도 고난을 가합니다!", string.his_her_self(src)) 
 			DamageType.defaultProjector(target, src.x, src.y, type, dam * src.martyrdom / 100, tmp, true)
 		end
 		if target.attr and target:attr("reflect_damage") and not no_martyr and src.x and src.y then
-			game:delayedLogMessage(target, src, "reflect_damage"..(src.uid or ""), "#CRIMSON##Source1# 피해가 #Target#에게 반사됩니다!") 
+			game:delayedLogMessage(target, src, "reflect_damage"..(src.uid or ""), "#CRIMSON##Source#의 피해가 #Target#에게 반사됩니다!") 
 			DamageType.defaultProjector(target, src.x, src.y, type, dam * target.reflect_damage / 100, tmp, true)
 		end
 
@@ -779,7 +779,7 @@ newDamageType{
 -- Break stealth
 newDamageType{
 	name = "illumination", type = "BREAK_STEALTH",
-	kr_name = "조명", --@@ 원문 이름이 break stealth에서 바뀌었음.
+	kr_name = "조명",
 	projector = function(src, x, y, type, dam)
 		-- Dont lit magically unlit grids
 		local a = game.level.map(x, y, Map.ACTOR)
@@ -1046,7 +1046,7 @@ newDamageType{
 -- Cold damage + freeze ground
 newDamageType{
 	name = "cold ground", type = "COLDNEVERMOVE",
-	kr_name = "얼어붙은 땅", --@@  원문 이름이 coldnevermove에서 바뀌었음
+	kr_name = "얼어붙은 땅",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, dur=4} end
 		DamageType:get(DamageType.COLD).projector(src, x, y, DamageType.COLD, dam.dam)
@@ -1176,7 +1176,7 @@ newDamageType{
 -- Cold/physical damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "cold repulsion", type = "WAVE",
-	kr_name = "냉기 파동", --@@ 원문 이름이 wave에서 바뀌었음
+	kr_name = "냉기 파동",
 	projector = function(src, x, y, type, dam)
 		local srcx, srcy = dam.x, dam.y
 		local base = dam
@@ -1203,7 +1203,7 @@ newDamageType{
 -- Fireburn damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "fire repulsion", type = "FIREKNOCKBACK",
-	kr_name = "화염 파동", --@@ 원문 이름이 fire knockback에서 바뀌었음
+	kr_name = "화염 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if _G.type(dam) ~= "table" then dam = {dam=dam, dist=3} end
@@ -1225,7 +1225,7 @@ newDamageType{
 -- Fireburn damage + repulsion; checks for mind power against physical resistance
 newDamageType{
 	name = "burning repulsion", type = "FIREKNOCKBACK_MIND",
-	kr_name = "정신적 화염 파동", --@@  원문 이름이 fire knockback mind에서 바뀌었음
+	kr_name = "정신적 화염 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if _G.type(dam) ~= "table" then dam = {dam=dam, dist=3} end
@@ -1247,7 +1247,7 @@ newDamageType{
 -- Darkness damage + repulsion; checks for spell power against mental resistance
 newDamageType{
 	name = "darkness repulsion", type = "DARKKNOCKBACK",
-	kr_name = "어둠 파동", --@@  원문 이름이 darkness knockback에서 바뀌었음
+	kr_name = "어둠 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if _G.type(dam) ~= "table" then dam = {dam=dam, dist=3} end
@@ -1269,7 +1269,7 @@ newDamageType{
 -- Physical damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "physical repulsion", type = "SPELLKNOCKBACK",
-	kr_name = "주문형 물리 파동", --@@  원문 이름이 spell knockback에서 바뀌었음
+	kr_name = "물리적 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local realdam = 0
@@ -1293,7 +1293,7 @@ newDamageType{
 -- Physical damage + repulsion; checks for mind power against physical resistance
 newDamageType{
 	name = "physical repulsion", type = "MINDKNOCKBACK",
-	kr_name = "정신적 물리 파동", --@@  원문 이름이 mind knockback에서 바뀌었음
+	kr_name = "물리적 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1314,7 +1314,7 @@ newDamageType{
 -- Physical damage + repulsion; checks for attack power against physical resistance
 newDamageType{
 	name = "physical repulsion", type = "PHYSKNOCKBACK",
-	kr_name = "물리적 파동", --@@  원문 이름이 physknockback에서 바뀌었음
+	kr_name = "물리적 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1336,7 +1336,7 @@ newDamageType{
 -- Fear check + repulsion; checks for mind power against physical resistance
 newDamageType{
 	name = "fear repulsion", type = "FEARKNOCKBACK",
-	kr_name = "두려움의 파동", --@@  원문 이름이 fear knockback에서 바뀌었음
+	kr_name = "두려움의 파동",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -1375,7 +1375,7 @@ newDamageType{
 -- Inferno: fire and maybe remove stuff
 newDamageType{
 	name = "cleansing fire", type = "INFERNO",
-	kr_name = "정화의 불길", --@@  원문 이름이 inferno에서 바뀌었음
+	kr_name = "정화의 불길",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1470,7 +1470,7 @@ newDamageType{
 -- Slime damage
 newDamageType{
 	name = "nature slow", type = "SLIME", text_color = "#LIGHT_GREEN#",
-	kr_name = "자연적 감속", --@@  원문 이름이 slime에서 바뀌었음
+	kr_name = "자연적 감속",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, power=0.15} end
 		DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam)
@@ -1589,7 +1589,7 @@ newDamageType{
 
 newDamageType{
 	name = "gloom", type = "RANDOM_GLOOM",
-	kr_name = "침울함", --@@  원문 이름이 % chance to cause a gloom effect에서 바뀌었음
+	kr_name = "침울함",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and rng.percent(dam) then
@@ -1618,7 +1618,7 @@ newDamageType{
 -- gBlind
 newDamageType{
 	name = "blinding", type = "RANDOM_BLIND",
-	kr_name = "실명", --@@  원문 이름이 % chance to blind에서 바뀌었음
+	kr_name = "실명",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1635,7 +1635,7 @@ newDamageType{
 -- Physical + Blind
 newDamageType{
 	name = "blinding physical", type = "SAND",
-	kr_name = "물리적 실명", --@@  원문 이름이 sand에서 바뀌었음
+	kr_name = "물리적 실명",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1643,7 +1643,7 @@ newDamageType{
 			if target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, dam.dur, {apply_power=src:combatPhysicalpower(), apply_save="combatPhysicalResist"})
 			else
-				game.logSeen(target, "%s 저항했습니다.", (target.kr_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(target, "%s 수면의 폭풍을 저항했습니다.", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
@@ -1652,7 +1652,7 @@ newDamageType{
 -- Physical + Pinned
 newDamageType{
 	name = "physical pinning", type = "PINNING",
-	kr_name = "물리적 속박", --@@  원문 이름이 pinning에서 바뀌었음
+	kr_name = "물리적 속박",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1669,7 +1669,7 @@ newDamageType{
 -- Drain Exp
 newDamageType{
 	name = "regressive blight", type = "DRAINEXP",
-	kr_name = "퇴행하는 황폐", --@@  원문 이름이 drain experience에서 바뀌었음
+	kr_name = "퇴행하는 황폐",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local realdam = DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
@@ -1689,7 +1689,7 @@ newDamageType{
 -- Drain Life
 newDamageType{
 	name = "draining blight", type = "DRAINLIFE", text_color = "#DARK_GREEN#",
-	kr_name = "흡수하는 황폐", --@@  원문 이름이 drain life에서 바뀌었음
+	kr_name = "흡수하는 황폐",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, healfactor=0.4} end
 		local target = game.level.map(x, y, Map.ACTOR) -- Get the target first to make sure we heal even on kill
@@ -1705,7 +1705,7 @@ newDamageType{
 -- Drain Vim
 newDamageType{
 	name = "enervating blight", type = "DRAIN_VIM",
-	kr_name = "약화시키는 황폐", --@@  원문 이름이 drain vim에서 바뀌었음
+	kr_name = "약화시키는 황폐",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, vim=0.2} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1736,7 +1736,7 @@ newDamageType{
 -- Retch: heal undead; damage living
 newDamageType{
 	name = "purging blight", type = "RETCH",
-	kr_name = "구역질나는 황폐", --@@  원문 이름이 retch에서 바뀌었음
+	kr_name = "구역질나는 황폐",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and (target:attr("undead") or target:attr(retch_heal)) then
@@ -1811,7 +1811,7 @@ newDamageType{
 
 newDamageType{
 	name = "healing light", type = "HEALING_POWER",
-	kr_name = "치료의 빛", --@@  원문 이름이 healing power에서 바뀌었음
+	kr_name = "치료의 빛",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") then
@@ -1846,7 +1846,7 @@ newDamageType{
 -- Corrupted blood, blight damage + potential diseases
 newDamageType{
 	name = "infective blight", type = "CORRUPTED_BLOOD", text_color = "#DARK_GREEN#",
-	kr_name = "전염시키는 황폐", --@@  원문 이름이 corrupted blood에서 바뀌었음
+	kr_name = "전염시키는 황폐",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam.dam)
@@ -1861,7 +1861,7 @@ newDamageType{
 -- blood boiled, blight damage + slow
 newDamageType{
 	name = "hindering_blight", type = "BLOOD_BOIL",
-	kr_name = "저해시키는 황폐", --@@  원문 이름이 blood boil에서 바뀌었음
+	kr_name = "저해시키는 황폐",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.BLIGHT).projector(src, x, y, DamageType.BLIGHT, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1901,7 +1901,7 @@ newDamageType{
 -- Physical Damage/Cut Split
 newDamageType{
 	name = "physical bleed", type = "SPLIT_BLEED",
-	kr_name = "물리적 출혈", --@@  원문 이름이 split bleed에서 바뀌었음
+	kr_name = "물리적 출혈",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 2)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 12)
@@ -1917,7 +1917,7 @@ newDamageType{
 -- Temporal/Physical damage
 newDamageType{
 	name = "temporal shear", type = "MATTER",
-	kr_name = "시간 베기", --@@  원문 이름이 matter에서 바뀌었음
+	kr_name = "시간 베기",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam / 2)
 		DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam / 2)
@@ -1927,7 +1927,7 @@ newDamageType{
 -- Temporal/Darkness damage
 newDamageType{
 	name = "temporal darkness", type = "VOID", text_color = "#GREY#",
-	kr_name = "시간의 어둠", --@@  원문 이름이 void에서 바뀌었음
+	kr_name = "시간의 어둠",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam / 2)
 		DamageType:get(DamageType.DARKNESS).projector(src, x, y, DamageType.DARKNESS, dam / 2)
@@ -1974,7 +1974,7 @@ newDamageType{
 
 newDamageType{
 	name = "physical repulsion", type = "REPULSION",
-	kr_name = "물리적 반발력", --@@  원문 이름이 repulsion에서 바뀌었음
+	kr_name = "물리적 반발력",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		tmp = tmp or {}
@@ -2022,7 +2022,7 @@ newDamageType{
 -- Mosses
 newDamageType{
 	name = "pinning nature", type = "GRASPING_MOSS",
-	kr_name = "고정시키는 자연", --@@  원문 이름이 grasping moss에서 바뀌었음
+	kr_name = "고정시키는 자연",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -2039,7 +2039,7 @@ newDamageType{
 
 newDamageType{
 	name = "healing nature", type = "NOURISHING_MOSS",
-	kr_name = "회복시키는 자연", --@@  원문 이름이 nourishing moss에서 바뀌었음
+	kr_name = "회복시키는 자연",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -2051,7 +2051,7 @@ newDamageType{
 
 newDamageType{
 	name = "impeding nature", type = "SLIPPERY_MOSS",
-	kr_name = "방해하는 자연", --@@  원문 이름이 slippery moss에서 바뀌었음
+	kr_name = "방해하는 자연",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -2063,7 +2063,7 @@ newDamageType{
 
 newDamageType{
 	name = "confounding nature", type = "HALLUCINOGENIC_MOSS",
-	kr_name = "혼란시키는 자연", --@@  원문 이름이 hallucinogenic moss에서 바뀌었음
+	kr_name = "혼란시키는 자연",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -2097,7 +2097,7 @@ newDamageType{
 
 newDamageType{
 	name = "defensive darkness", type = "SHIFTINGSHADOWS",
-	kr_name = "방어적 그림자", --@@  원문 이름이 shiftingshadows에서 바뀌었음
+	kr_name = "방어적 그림자",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2112,7 +2112,7 @@ newDamageType{
 
 newDamageType{
 	name = "blazing light", type = "BLAZINGLIGHT",
-	kr_name = "타오르는 빛", --@@  원문 이름이 blazinglight에서 바뀌었음
+	kr_name = "타오르는 빛",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2128,7 +2128,7 @@ newDamageType{
 
 newDamageType{
 	name = "prismatic repulsion", type = "WARDING",
-	kr_name = "무지개빛 파동", --@@  원문 이름이 warding에서 바뀌었음
+	kr_name = "무지개빛 파동",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2198,7 +2198,7 @@ newDamageType{
 -- Temporal + Stat damage
 newDamageType{
 	name = "regressive temporal", type = "CLOCK",
-	kr_name = "시간 역행", --@@  원문 이름이 reverse aging에서 바뀌었음
+	kr_name = "시간 역행",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2213,7 +2213,7 @@ newDamageType{
 -- Temporal Over Time
 newDamageType{
 	name = "wasting temporal", type = "WASTING", text_color = "#LIGHT_STEEL_BLUE#",
-	kr_name = "시간 낭비", --@@  원문 이름이 wasting에서 바뀌었음
+	kr_name = "시간 낭비",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local dur = 3
@@ -2247,7 +2247,7 @@ newDamageType{
 
 newDamageType{
 	name = "debilitating temporal", type = "RETHREAD",
-	kr_name = "쇠약의 시간", --@@  원문 이름이 rethread에서 바뀌었음
+	kr_name = "쇠약의 시간",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		local chance = rng.range(1, 4)
@@ -2300,7 +2300,7 @@ newDamageType{
 
 newDamageType{
 	name = "draining physical", type = "DEVOUR_LIFE",
-	kr_name = "물리적 흡수", --@@  원문 이름이 devour life에서 바뀌었음
+	kr_name = "물리적 흡수",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam} end
 		local target = game.level.map(x, y, Map.ACTOR) -- Get the target first to make sure we heal even on kill
@@ -2321,7 +2321,7 @@ newDamageType{
 
 newDamageType{
 	name = "temporal slow", type = "CHRONOSLOW",
-	kr_name = "감속의 시간", --@@  원문 이름이 chronoslow에서 바뀌었음
+	kr_name = "감속의 시간",
 	projector = function(src, x, y, type, dam)
 		DamageType:get(DamageType.TEMPORAL).projector(src, x, y, DamageType.TEMPORAL, dam.dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2367,7 +2367,7 @@ newDamageType{
 
 newDamageType{
 	name = "manaworm arcane", type = "MANAWORM",
-	kr_name = "마법의 마나 벌레", --@@  원문 이름이 manaworm에서 바뀌었음
+	kr_name = "마법의 마나 벌레",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.ARCANE).projector(src, x, y, DamageType.ARCANE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2387,7 +2387,7 @@ newDamageType{
 
 newDamageType{
 	name = "arcane blast", type = "VOID_BLAST",
-	kr_name = "마력 돌풍", --@@  원문 이름이 void blast에서 바뀌었음
+	kr_name = "마력 돌풍",
 	projector = function(src, x, y, type, dam)
 		local realdam = DamageType:get(DamageType.ARCANE).projector(src, x, y, DamageType.ARCANE, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2422,7 +2422,7 @@ newDamageType{
 -- Darkness damage + speed reduction + minion damage inc
 newDamageType{
 	name = "decaying darkness", type = "RIGOR_MORTIS",
-	kr_name = "부패하는 어둠", --@@  원문 이름이 rigor mortis에서 바뀌었음
+	kr_name = "부패하는 어둠",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2435,7 +2435,7 @@ newDamageType{
 
 newDamageType{
 	name = "abyssal darkness", type = "ABYSSAL_SHROUD",
-	kr_name = "심연의 어둠", --@@  원문 이름이 abyssal shroud에서 바뀌었음
+	kr_name = "심연의 어둠",
 	projector = function(src, x, y, type, dam)
 		--make it dark
 		game.level.map.remembers(x, y, false)
@@ -2556,7 +2556,7 @@ newDamageType{
 -- Generic apply temporary effect
 newDamageType{
 	name = "special effect", type = "TEMP_EFFECT",
-	kr_name = "특수한 효과", --@@  원문 이름이 temp effect에서 바뀌었음
+	kr_name = "특수한 효과",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2572,7 +2572,7 @@ newDamageType{
 
 newDamageType{
 	name = "manaburn arcane", type = "MANABURN", text_color = "#PURPLE#",
-	kr_name = "마법적 마나 태우기", --@@  원문 이름이 manaburn에서 바뀌었음
+	kr_name = "마법적 마나 태우기",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -2618,7 +2618,7 @@ newDamageType{
 -- Distortion; Includes knockback, penetrate, stun, and explosion paramters
 newDamageType{
 	name = "distorting physical", type = "DISTORTION",
-	kr_name = "물리적 왜곡", --@@  원문 이름이 distortion에서 바뀌었음
+	kr_name = "물리적 왜곡",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if not target then return end
@@ -2728,7 +2728,7 @@ newDamageType{
 
 newDamageType{
 	name = "natural mucus", type = "MUCUS",
-	kr_name = "점액", --@@  원문 이름이 nature mucus에서 바뀌었음
+	kr_name = "점액",
 	projector = function(src, x, y, type, dam, tmp)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target.turn_procs.mucus then
@@ -2750,7 +2750,7 @@ newDamageType{
 
 newDamageType{
 	name = "disarming acid", type = "ACID_DISARM", text_color = "#GREEN#",
-	kr_name = "산성 무장해제", --@@  원문 이름이 disarming acid에서 바뀌었음
+	kr_name = "산성 무장해제",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {chance=25, dam=dam} end
 		local realdam = DamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam.dam)

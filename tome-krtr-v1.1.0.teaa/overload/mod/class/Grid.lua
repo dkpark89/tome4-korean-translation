@@ -136,6 +136,15 @@ end
 
 -- Gets the full name of the grid
 function _M:getName()
+	local name = self.kr_name or self.name or "spot" --@@ 한글화 필요 : "spot" (현재 쓰이는 장소가 없어 그냥 둬도 큰 문제는 없음)
+	if self.summoner and self.summoner.name then
+		return (self.summoner.kr_name or self.summoner.name):capitalize().."의 "..name
+	else
+		return name
+	end
+end
+
+function _M:getOriName()
 	local name = self.name or "spot"
 	if self.summoner and self.summoner.name then
 		return self.summoner.name:capitalize().."'s "..name
