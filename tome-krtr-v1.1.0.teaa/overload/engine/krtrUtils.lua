@@ -983,7 +983,7 @@ function string.krKeywords(str)
 		elseif ori == "blighted" then return "황폐"
 		elseif ori == "blood" then return "핏빛마법"
 		elseif ori == "bloodhexed" then return "핏빛매혹"
-		elseif ori == "bloodlich" then return "bloodlich" --@@ /data/general/objects/ego/staves.lua #549~674 한글화 이후 결과 반영 필요
+		elseif ori == "bloodlich" then return "핏빛리치"
 		elseif ori == "blooming" then return "꽃피움"
 		elseif ori == "blurring" then return "희미함"
 		elseif ori == "bounder" then return "망나니"
@@ -1150,7 +1150,7 @@ function string.krKeywords(str)
 		elseif ori == "implac." then return "확고함"
 		elseif ori == "implacable" then return "확고함"
 		elseif ori == "inertial" then return "관성"
-		elseif ori == "infernal" then return "infernal" --@@ /data/general/objects/ego/staves.lua #549~674 한글화 이후 결과 반영 필요
+		elseif ori == "infernal" then return "지옥"
 		elseif ori == "inquisitors" then return "종교재판"
 		elseif ori == "insid" then return "잠식형"
 		elseif ori == "insulate" then return "단열"
@@ -1174,7 +1174,7 @@ function string.krKeywords(str)
 		if ori == "learwalker" then return "잎사귀걸음"
 		elseif ori == "leech" then return "강탈"
 		elseif ori == "life" then return "생명"
-		elseif ori == "lifebinding" then return "lifebinding" --@@ /data/general/objects/ego/staves.lua #549~674 한글화 이후 결과 반영 필요
+		elseif ori == "lifebinding" then return "생명이 얽힌"
 		elseif ori == "light" then return "빛"
 		elseif ori == "lightening" then return "가벼움"
 		elseif ori == "lightning res" then return "전기저항"
@@ -1185,9 +1185,9 @@ function string.krKeywords(str)
 	elseif firstCh == 'm' then
 		if ori == "madness" then return "광기"
 		elseif ori == "magehunters" then return "마법사냥꾼"
-		elseif ori == "magelord" then return "magelord" --@@ /data/general/objects/ego/staves.lua #549~674 한글화 이후 결과 반영 필요
+		elseif ori == "magelord" then return "마법군주"
 		elseif ori == "magery" then return "마법사용자"
-		elseif ori == "magewarrior" then return "magewarrior" --@@ /data/general/objects/ego/staves.lua #549~674 한글화 이후 결과 반영 필요
+		elseif ori == "magewarrior" then return "전투마법사"
 		elseif ori == "magic" then return "마법"
 		elseif ori == "manaburning" then return "마나태움"
 		elseif ori == "manastream" then return "마나흐름"
@@ -1317,7 +1317,7 @@ function string.krKeywords(str)
 		elseif ori == "shielding" then return "방어"
 		elseif ori == "shimmering" then return "희미한빛"
 		elseif ori == "shocking" then return "전기충격"
-		elseif ori == "short" then return "short" --@@ /data/general/objects/ego/staves.lua #549~674 한글화 이후 결과 반영 필요
+		elseif ori == "short" then return "짧은"
 		elseif ori == "sky" then return "창공"
 		elseif ori == "skylord" then return "천공군주"
 		elseif ori == "slime" then return "끈적임"

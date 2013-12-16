@@ -157,7 +157,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "stabilizing ", prefix=true, instant_resolve=true,
-	kr_name = "안정된 ", --@@ 한글화 검수 필요 : 이름이 anchoring(고정된)에서 바뀌었음 
+	kr_name = "안정된 ", 
 	keywords = {stabilizing=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -173,7 +173,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "warrior's ", prefix=true, instant_resolve=true,
-	kr_name = "전사 ", --@@ 한글화 검수 필요 : 이름이 inertial(관성)에서 바뀌었음
+	kr_name = "전사 ",
 	keywords = {warrior=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -203,7 +203,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "starlit ", prefix=true, instant_resolve=true,
-	kr_name = "별빛 ", --@@ 한글화 검수 필요 : 이름이 shielding(눈 가리는)에서 바뀌었음
+	kr_name = "별빛 ",
 	keywords = {starlit=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -583,7 +583,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the eclipse", suffix=true, instant_resolve=true,
-	kr_name = "일식의 ", --@@ 한글화 검수 필요 : 이름이 of the chosen(선택받은 자의)에서 바뀌었음
+	kr_name = "일식의 ",
 	keywords = {eclipse=true},
 	level_range = {25, 50},
 	greater_ego = 1,

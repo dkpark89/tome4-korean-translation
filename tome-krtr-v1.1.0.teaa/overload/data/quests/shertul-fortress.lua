@@ -39,7 +39,7 @@ desc = function(self, who)
 		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 변환 상자를 강화시켜, 변환 상자가 금속 장비들을 보석으로 자동 변환시킬 수 있게 만들었습니다.#WHITE#"
 	end
 	if self:isCompleted("training") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have unlocked the training room.#WHITE#" --@@ 한글화 필요
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 연습실의 봉인을 풀었습니다.#WHITE#"
 	end
 	if self:isCompleted("recall") then
 		if self:isCompleted("recall-done") then

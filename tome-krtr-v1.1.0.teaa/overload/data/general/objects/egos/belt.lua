@@ -139,7 +139,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "reinforced ", prefix=true, instant_resolve=true,
-	kr_name = "보강된 ", --@@ 한글화 검수 필요
+	kr_name = "보강된 ",
 	keywords = {reinforced=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -155,7 +155,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of transcendance", suffix=true, instant_resolve=true,
-	kr_name = "초월의 ", --@@ 한글화 검수 필요
+	kr_name = "초월의 ",
 	keywords = {transcend=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -183,7 +183,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the giants", suffix=true, instant_resolve=true,
-	kr_name = "거인의 ", --@@ 한글화 검수 필요 : of the titan(타이탄의)에서 바뀌었음
+	kr_name = "거인의 ",
 	keywords = {giant=true},
 	level_range = {1, 50},
 	rarity = 5,

@@ -154,7 +154,8 @@ newAchievement{
 newAchievement{
 	name = "Never Look Back And There Again", id = "WIN_NEVER_WEST",
 	show = "full", huge=true,
-	desc = [[Win the game without ever setting foot on Maj'Eyal.]], --@@ 한글화 필요 : kr_name 추가하고 desc 번역.
+	kr_name = "'다시 또 그곳에' 따윈 필요없어",
+	desc = [[마즈'에이알을 한 번도 밟지 않고 게임에서 승리.]],
 }
 
 -------------- Other quests
@@ -375,8 +376,9 @@ newAchievement{
 	kr_name = "점액술사",
 	desc = [[타락한 점액술사를 죽임.]],
 }
-newAchievement{ --@@ 한글화 필요 #381, kr_name 추가
+newAchievement{
 	name = "Lucky Girl", id = "MELINDA_LUCKY",
 	show = "name",
-	desc = [[Saved Melinda again and invited her to the Fortress to cure her.]],
+	kr_name = "운 좋은 소녀",
+	desc = [[멜린다를 다시 구출하고, 요새로 초청하여 그녀를 치료할 것.]],
 }

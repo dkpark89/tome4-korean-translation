@@ -19,6 +19,8 @@
 
 -- last updated:  10:46 AM 2/3/2010
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
@@ -54,7 +56,7 @@ newEntity{
 				end
 			end
 		end end
-		game.logSeen(self, "#LIGHT_BLUE#%s explodes into a huge bubble of air!", (self.kr_name or self.name):capitalize()) --@@ 한글화 필요
+		game.logSeen(self, "#LIGHT_BLUE#%s 거대한 공기 방울로 폭발하였습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 	end,
 }
 

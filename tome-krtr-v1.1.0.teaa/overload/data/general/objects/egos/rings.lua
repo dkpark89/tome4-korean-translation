@@ -642,7 +642,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of blinding strikes", suffix=true, instant_resolve=true,
-	kr_name = "실명 공격의 ", --@@ 한글화 검수 필요 : of blasting(폭발의)에서 바뀌었음
+	kr_name = "실명 공격의 ",
 	keywords = {strikes=true},
 	level_range = {10, 50},
 	greater_ego = 1,

@@ -73,33 +73,37 @@ newAchievement{
 	desc = [[멀리 별 사이의 공허에 있는, 칼디자르의 요새로 순간이동.]],
 }
 
---@@ 한글화 필요 : 아래 전부. kr_name 추가하고 desc 번역.
 newAchievement{
 	name = "Slimefest", id = "SLUDGENEST100",
 	show = "full",
-	desc = [[Have 100 walls on the sludgenest turn into hostile creatures.]],
+	kr_name = "슬라임 축제",
+	desc = [[진창의 보금자리에서 100개의 벽이 적으로 변할때까지 있을 것.]],
 }
 
 newAchievement{
 	name = "Slime killer party", id = "SLUDGENEST200",
 	show = "full", huge=true,
-	desc = [[Have 200 walls on the sludgenest turn into hostile creatures.]],
+	kr_name = "슬라임 살해자의 즐거움",
+	desc = [[진창의 보금자리에서 200개의 벽이 적으로 변할때까지 있을 것.]],
 }
 
 newAchievement{
 	name = "Mad slime dash", id = "SLUDGENEST300",
 	show = "full", huge=true,
-	desc = [[Have 300 walls on the sludgenest turn into hostile creatures.]],
+	kr_name = "미친 슬라임의 돌진",
+	desc = [[진창의 보금자리에서 300개의 벽이 적으로 변할때까지 있을 것.]],
 }
 
 newAchievement{
 	name = "Don't mind the slimy smell", id = "SLUDGENEST400",
 	show = "full", huge=true,
-	desc = [[Have 400 walls on the sludgenest turn into hostile creatures.]],
+	kr_name = "슬라임 냄새는 신경쓰지 않아요",
+	desc = [[진창의 보금자리에서 400개의 벽이 적으로 변할때까지 있을 것.]],
 }
 
 newAchievement{
 	name = "In the company of slimes", id = "SLUDGENEST500",
 	show = "full", huge=true,
-	desc = [[Have 500 walls on the sludgenest turn into hostile creatures.]],
+	kr_name = "슬라임의 세상 속에서",
+	desc = [[진창의 보금자리에서 500개의 벽이 적으로 변할때까지 있을 것.]],
 }

@@ -902,7 +902,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 	on_act = function(self)
 		if self.summoner.dead then
 			self:die()
-			self:logCombat(self.summoner, "#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!") --@@ 한글화 필요
+			self:logCombat(self.summoner, "#AQUAMARINE##Source1# 쓰러지자, 당신은 #Target1# 고통에 몸서리 치는 것을 발견합니다!")
 		end
 	end,
 

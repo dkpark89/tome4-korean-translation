@@ -153,7 +153,7 @@ newBirthDescriptor{
 		"더 어려운 모드에서 플레이하기 힘들다면 선택하세요.",
 		"플레이어가 받는 모든 피해가 30% 감소됩니다.",
 		"플레이어가 받는 모든 치유효과가 30% 증가됩니다.",
-		"All detrimental status effects durations reduced by 50%", --@@ 한글화 필요
+		"모든 나쁜 상태 이상 효과의 지속시간이 50% 감소합니다.",
 		"업적을 달성할 수 없습니다.",
 	},
 	descriptor_choices =
@@ -213,7 +213,7 @@ newBirthDescriptor{
 	name = "Insane",
 	kr_name = "정신나간",
 	locked = function() return profile.mod.allow_build.difficulty_insane end,
-	locked_desc = "쉬움은 너무 약해! 보통도 너무 약해! 약몽은 아주 쉽지! 진짜 고통을 가져오라고!",
+	locked_desc = "쉬움은 너무 약해! 보통도 너무 약해! 악몽은 아주 쉽지! 진짜 고통을 가져오라고!",
 	desc =
 	{
 		"#GOLD##{bold}#정신나간 난이도#WHITE##{normal}#",
@@ -238,17 +238,17 @@ newBirthDescriptor{
 	name = "Madness",
 	kr_name = "미치광이",
 	locked = function() return profile.mod.allow_build.difficulty_madness end,
-	locked_desc = "Insane is for the weak! Bring on the true mind-shattering experience!", --@@ 한글화 필요 : #241~251
+	locked_desc = "정신이 나갔어도 너무 쉬워! 진짜로 머리가 깨질 경험을 가져오라고!",
 	desc =
 	{
-		"#GOLD##{bold}#Madness mode#WHITE##{normal}#",
-		"Absolutely unfair game setting.  You are really mentally ill and wish to get worse to play this mode!",
-		"All zone levels increased by 150% + 10",
-		"All creature talent levels increased by 170%",
-		"Rare creatures are far more frequent and random bosses start to appear",
-		"Player is being hunted! Randomly all foes in a radius will get a feeling of where she/he is",
-		"Player rank is normal instead of elite",
-		"Player can earn Madness version of achievements if also playing in Roguelike or Adventure permadeath mode.",
+		"#GOLD##{bold}#미치광이 난이도#WHITE##{normal}#",
+		"절대적으로 불리한 게이 설정입니다. 정말 정신병이 걸렸을 정도로 이 게임에 빠져있다면 이 난이도로 즐겨보세요!",
+		"모든 지역의 레벨이 150% + 10 증가됩니다.",
+		"모든 적들의 기술 레벨이 170% 증가됩니다.",
+		"'희귀' 등급의 적들이 훨씬 자주 등장하고, 아무 곳에서나 '보스' 등급의 적들이 나타나기 시작합니다.",
+		"플레이어가 사냥감이 됩니다! 가끔씩 일정 반경내의 모든 적들이 플레이어의 위치를 알아차리게 됩니다.",
+		"플레이어의 등급이 '정예' 가 아닌 '보통' 으로 설정됩니다.",
+		"미치광이 난이도에서 로그라이크 모드나 모험 모드로 플레이하면, 미치광이 등급의 업적을 달성할 수 있습니다.",
 	},
 	descriptor_choices =
 	{

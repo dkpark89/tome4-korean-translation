@@ -546,10 +546,10 @@ newEntity{
 	},
 }
 
---@@ 한글화 필요 : #549~674 kr_name 추가 필요. 추가 후 /engine/krtrUtils.lua 파일의 krKeywords 함수에서 해당 부분 작업 필요 
 newEntity{
 	power_source = {nature=true},
 	name = "lifebinding ", prefix=true, instant_resolve=true,
+	kr_name = "생명이 얽힌 ",
 	keywords = {lifebinding=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -568,6 +568,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "infernal ", prefix=true, instant_resolve=true,
+	kr_name = "지옥 ",
 	keywords = {infernal=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -586,6 +587,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "bloodlich's ", prefix=true, instant_resolve=true,
+	kr_name = "핏빛 리치 ",
 	keywords = {bloodlich=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -608,6 +610,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "magelord's ", prefix=true, instant_resolve=true,
+	kr_name = "마법군주 ",
 	keywords = {magelord=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -637,6 +640,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "short ", prefix=true, instant_resolve=true, dual_wieldable = true,
+	kr_name = "짧은 ",
 	slot_forbid = false,
 	twohanded = false,
 	keywords = {short=true},
@@ -650,6 +654,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "magewarrior's short ", prefix=true, instant_resolve=true, dual_wieldable = true,
+	kr_name = "전투마법사 ",
 	slot_forbid = false,
 	twohanded = false,
 	keywords = {magewarrior=true},

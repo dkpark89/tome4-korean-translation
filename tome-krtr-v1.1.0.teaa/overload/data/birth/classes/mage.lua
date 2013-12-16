@@ -114,7 +114,7 @@ newBirthDescriptor{
 	},
 	cosmetic_unlock = {
 		cosmetic_class_alchemist_drolem = {
-			{name="Golem becomes a Drolem [donator only]", on_actor=function(actor) actor.alchemist_golem_is_drolem = true end}, --@@ 한글화 필요
+			{name="골렘 대신 드롤렘으로 [기부자 전용]", on_actor=function(actor) actor.alchemist_golem_is_drolem = true end},
 		},
 	},
 }

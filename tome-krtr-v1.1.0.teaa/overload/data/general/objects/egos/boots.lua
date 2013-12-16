@@ -325,7 +325,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of massiveness", suffix=true, instant_resolve=true,
-	kr_name = "커다람의 ", --@@ 한글화 검수 필요
+	kr_name = "커다람의 ",
 	keywords = {massive=true},
 	level_range = {40, 50},
 	greater_ego = 1,

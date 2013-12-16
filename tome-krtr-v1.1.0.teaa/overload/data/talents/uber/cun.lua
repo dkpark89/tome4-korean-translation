@@ -191,7 +191,7 @@ uberTalent{
 		
 		local ok = false
 		if damtype == DamageType.ARCANE and rng.percent(30) then ok=true self:setEffect(self.EFF_ELEMENTAL_SURGE_ARCANE, 5, {})
-		elseif damtype == DamageType.FIRE and rng.percent(30) then ok=true self:removeEffectsFilter{type="magical", status="detrimental"} self:removeEffectsFilter{type="physical", status="detrimental"} game.logSeen(self, "#CRIMSON#%s fiery attack invokes a cleansing flame!", self.name:capitalize())
+		elseif damtype == DamageType.FIRE and rng.percent(30) then ok=true self:removeEffectsFilter{type="magical", status="detrimental"} self:removeEffectsFilter{type="physical", status="detrimental"} game.logSeen(self, "#CRIMSON#%s 정화의 불꽃을 소환하여 공격했습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		elseif damtype == DamageType.COLD and rng.percent(30) then
 			-- EFF_ELEMENTAL_SURGE_COLD in mod.data.timed_effect.magical.lua holds the parameters
 			ok=true self:setEffect(self.EFF_ELEMENTAL_SURGE_COLD, 5, t.getColdEffects(self, t))

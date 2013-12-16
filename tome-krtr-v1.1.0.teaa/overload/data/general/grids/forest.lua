@@ -113,7 +113,7 @@ newEntity{
 	define_as = "GRASS_ROAD_STONE",
 	type = "floor", subtype = "grass", road="oldstone",
 	name = "old road", image = "terrain/grass.png",
-	kr_name = "오래된 길", --@@ 한글화 검수 필요
+	kr_name = "오래된 길",
 	display = '=', color=colors.DARK_GREY,
 	always_remember = true,
 	nice_editer = grass_editer,
@@ -123,7 +123,7 @@ newEntity{
 	define_as = "GRASS_ROAD_DIRT",
 	type = "floor", subtype = "grass", road="dirt",
 	name = "old road", image = "terrain/grass.png",
-	kr_name = "오래된 길", --@@ 한글화 검수 필요
+	kr_name = "오래된 길",
 	display = '=', color=colors.DARK_GREY,
 	always_remember = true,
 	nice_editer = grass_editer,

@@ -492,7 +492,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the sentry", suffix=true, instant_resolve=true,
-	kr_name = "파수꾼의 ", --@@ 한글화 검수 필요
+	kr_name = "파수꾼의 ",
 	keywords = {sentry=true},
 	level_range = {1, 50},
 	rarity = 15,
