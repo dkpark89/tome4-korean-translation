@@ -19,6 +19,7 @@
 
 return {
 	name = "Stellar System: Shandral",
+	kr_name = "샨들라 항성계",
 	display_name = function(x, y)
 		return "Stellar System: Shandral"
 	end,

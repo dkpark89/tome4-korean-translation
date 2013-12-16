@@ -19,6 +19,7 @@
 
 return {
 	name = "Fortress Gladium",
+	kr_name = "요새 검투장",
 	level_range = {1, 1},
 	level_scheme = "player",
 	max_level = 1,

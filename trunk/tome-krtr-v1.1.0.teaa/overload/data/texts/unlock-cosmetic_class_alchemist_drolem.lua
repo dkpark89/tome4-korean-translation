@@ -17,12 +17,12 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class Option: #LIGHT_GREEN#Drolem",
-[[You have defeated Tannen with your Alchemist and took some time to figure how he built a mighty Drolem.
-Drolems are dragon-shaped golems able to breath powerful poison at their foes.
+return "새로운 직업 : #LIGHT_GREEN#드롤렘",
+[[당신은 연금술사로 탄넨을 쓰러트리고, 그의 강력한 골렘인 드롤렘의 제작 방법을 알아냈습니다.
+드롤렘은 용의 형상을 가진 골렘으로, 적들에게 강력한 독 브레스를 뿜어낼 수 있습니다.
 
-You may now create alchemist characters with a drolem instead of a golem.
-Drolems look awesome and can eventually learn to breathe poison.
+이제 당신은 연금술사 캐릭터로 골렘 대신 드롤렘을 만들어낼 수 있습니다.
+드롤렘은 멋진 외모와 독 브레스를 가지고 있습니다.
 
-#LIGHT_GREEN#This is only available to donators. Thanks for your support!
+#LIGHT_GREEN#이 기능은 기부자들만 사용할 수 있습니다. 당신의 지원에 감사드립니다!
 ]]
