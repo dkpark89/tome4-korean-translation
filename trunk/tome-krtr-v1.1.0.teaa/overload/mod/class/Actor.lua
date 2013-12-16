@@ -2051,7 +2051,7 @@ function _M:onTakeHit(value, src, death_note)
 			game:delayedLogDamage(src, self, 0, ("#RED#(%d 거부)#LAST#"):format(value - self.life - 1), false)
 			value = self.life - 1
 			self.life = 1
-			game:delayedLogMessage(self, nil, "무쌍", "#RED##Source2# 전투 광란 상태입니다!")
+			game:delayedLogMessage(self, nil, "unstoppable", "#RED##Source2# 전투 광란 상태입니다!")
 			if self.life <= 1 then
 				value = 0
 			end

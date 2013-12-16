@@ -209,7 +209,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of protection", suffix=true, instant_resolve=true,
-	kr_name = "보호의 ", --@@ 한글화 검수 필요
+	kr_name = "보호의 ",
 	keywords = {prot=true},
 	level_range = {10, 50},
 	rarity = 7,
@@ -267,7 +267,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the elements", suffix=true, instant_resolve=true,
-	kr_name = "다속성의 ", --@@ 한글화 검수 필요 : of retribution(심판의)에서 바뀌었음
+	kr_name = "다속성의 ",
 	keywords = {elemental=true},
 	level_range = {20, 50},
 	greater_ego = 1,

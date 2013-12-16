@@ -165,7 +165,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "survivor's ", prefix=true, instant_resolve=true,
-	kr_name = "생존자 ", --@@ 한글화 검수 필요 : healer's(치료사)에서 바뀌었음
+	kr_name = "생존자 ",
 	keywords = {survivor=true},
 	level_range = {1, 50},
 	rarity = 9,

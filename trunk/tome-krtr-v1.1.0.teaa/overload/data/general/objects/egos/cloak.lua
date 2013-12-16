@@ -159,7 +159,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "resilient ", prefix=true, instant_resolve=true,
-	kr_name = "활력 ", --@@ 한글화 검수 필요 : 접미사 of resilience(활력의)에서 접두사로 바뀌었음
+	kr_name = "활력 ",
 	keywords = {resilient=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -398,7 +398,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of battle", suffix=true, instant_resolve=true,
-	kr_name = "전장의 ", --@@ 한글화 검수 필요 : of warlust(전투 욕구의)에서 바뀌었음
+	kr_name = "전투의 ",
 	keywords = {battle=true},
 	level_range = {1, 50},
 	rarity = 15,

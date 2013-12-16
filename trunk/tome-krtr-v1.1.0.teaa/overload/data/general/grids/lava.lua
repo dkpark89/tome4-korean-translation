@@ -34,7 +34,7 @@ newEntity{
 		local DT = engine.DamageType
 		local dam = DT:get(DT.FIRE).projector(self, x, y, DT.FIRE, rng.range(self.mindam, self.maxdam))
 		self.x, self.y = x, y
-		if dam > 0 and who.player then self:logCombat(who, "#Source# burns #Target#!") end --@@ 한글화 필요
+		if dam > 0 and who.player then self:logCombat(who, "#Source1# #Target3# 불태웁니다!") end
 	end,
 	nice_tiler = { method="replace", base={"LAVA_FLOOR", 100, 1, 16}},
 	nice_editer = lava_editer,

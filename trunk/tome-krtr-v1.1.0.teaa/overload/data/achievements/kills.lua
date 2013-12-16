@@ -259,19 +259,20 @@ newAchievement{
 	mode = "player",
 }
 
---@@ 한글화 필요 : 아래 전부. kr_name 추가하고 desc 번역.
 newAchievement{
 	name = "Now, this is impressive!", id = "LINANIIL_DEAD",
+	kr_name = "이제, 정말 인상적이로군!",
 	image = "npc/humanoid_human_linaniil_supreme_archmage.png",
 	show = "full", huge=true,
-	desc = [[Killed Linaniil, the Supreme Archmage of Angolwen.]],
+	desc = [[앙골웬의 고위 마도사, 리나니일을 죽임.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Fear of Fours", id = "SLIME_TUNNEL_BOSSES",
+	kr_name = "넷의 공포",
 	show = "full", huge=true,
-	desc = [[Killed all four bosses of the Slime Tunnels.]],
+	desc = [[슬라임 굴의 '보스' 넷을 모두 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -282,7 +283,8 @@ newAchievement{
 
 newAchievement{
 	name = "Well trained", id = "TRAINING_DUMMY_1000000",
+	kr_name = "훌륭한 연습",
 	show = "full", huge=true,
-	desc = [[Deal one million damage to training dummies in a single training session.]],
+	desc = [[한 번의 연습에서 연습용 허수아비에게 백만점 이상의 피해를 입힘.]],
 	mode = "player",
 }

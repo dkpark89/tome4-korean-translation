@@ -103,7 +103,7 @@ newEntity{
 	define_as = "WATER_FLOOR_BUBBLE",
 	name = "underwater air bubble", image = "terrain/underwater/subsea_floor_bubbles.png",
 	kr_name = "물 속 공기방울",
-	desc = "#LIGHT_BLUE#Replenishes air level when standing inside.#LAST#", show_tooltip = true, --@@ 한글화 필요
+	desc = "#LIGHT_BLUE#이 곳에 서 있으면 누구나 호흡을 할 수 있습니다.#LAST#", show_tooltip = true,
 	display = ':', color=colors.LIGHT_BLUE, back_color=colors.DARK_BLUE,
 	air_level = 15, nb_charges = resolvers.rngrange(4, 7),
 	force_clone = true,

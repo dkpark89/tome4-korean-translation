@@ -23,19 +23,19 @@ desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "크릴-페이얀의 광신도로부터 멜린다를 구해준 뒤, 당신은 그녀를 마지막 희망에서 다시 만났습니다."
 	if self:isCompleted("saved-beach") then
-		desc[#desc+1] = "Melinda was saved from the brink of death at the beach, by a strange wave of blight." --@@ 한글화 필요
+		desc[#desc+1] = "기묘한 황폐의 파동으로 멜린다는 죽기 일보 직전에 해변에서 구출되었습니다."
 	end
 	if self:isCompleted("death-beach") then
-		desc[#desc+1] = "Melinda died to a Yaech raiding party at the beach." --@@ 한글화 필요
+		desc[#desc+1] = "해변의 야크 습격단에 의해 멜린다는 죽었습니다."
 	end
 	if self:isCompleted("can_come_fortress") then
-		desc[#desc+1] = "The Fortress Shadow said she could be cured." --@@ 한글화 필요
+		desc[#desc+1] = "그녀는 치료될 수 있다고 요새의 그림자가 말합니다."
 	end
 	if self:isCompleted("moved-in") then
 		desc[#desc+1] = "멜린다는 당신의 요새에서 당신과 함께 살기로 결심하였습니다."
 	end
 	if self:isCompleted("portal-done") then
-		desc[#desc+1] = "The Fortress Shadow has established a portal for her so she can come and go freely." --@@ 한글화 필요
+		desc[#desc+1] = "요새의 그림자가 그녀도 자유롭게 이용할 수 있도록 순간이동 장치를 조정했습니다."
 	end
 	return table.concat(desc, "\n")
 end
