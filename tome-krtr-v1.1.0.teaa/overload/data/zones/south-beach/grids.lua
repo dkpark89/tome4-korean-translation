@@ -26,6 +26,7 @@ newEntity{ base = "SAND",
 	define_as = "UMBRELLA",
 	type = "floor", subtype = "sand",
 	name = "lovely umbrella", image = "terrain/sandfloor.png", add_mos = {{image="terrain/picnic_umbrella.png"}},
+	kr_name = "사랑스러운 우산",
 	display = '~', color=colors.PINK, back_color={r=93,g=79,b=22},
 	does_block_move = true,
 }
@@ -34,6 +35,7 @@ newEntity{ base = "SAND",
 	define_as = "BASKET",
 	type = "floor", subtype = "sand",
 	name = "picnic basket", image = "terrain/sandfloor.png", add_mos = {{image="terrain/picnic_basket.png"}},
+	kr_name = "소풍 바구니",
 	display = '_', color=colors.PINK, back_color={r=93,g=79,b=22},
 }
 
@@ -41,6 +43,7 @@ newEntity{
 	define_as = "BEACH_UP",
 	type = "floor", subtype = "grass",
 	name = "exit to the worldmap", image = "terrain/grass.png", add_mos = {{image="terrain/worldmap.png"}},
+	kr_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -57,7 +60,7 @@ newEntity{
 			chat:invoke()
 		else
 -- chat if you successfully defend her?
-			game.log("You have not finished your romantic time at the beach.")
+			game.log("아직 해변에서의 낭만적인 시간을 다 보내지 않았습니다.")
 		end
 		return true
 	end,

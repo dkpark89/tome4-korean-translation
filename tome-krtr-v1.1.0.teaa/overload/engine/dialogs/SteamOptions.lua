@@ -27,7 +27,7 @@ local GetQuantity = require "engine.dialogs.GetQuantity"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init()
-	Dialog.init(self, "Steam Options", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, "스팀 설정", game.w * 0.8, game.h * 0.8)
 
 	self.c_desc = Textzone.new{width=math.floor(self.iw / 2 - 10), height=self.ih, text=""}
 
@@ -72,21 +72,21 @@ function _M:generateList()
 	local list = {}
 	local i = 0
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Enable Steam Cloud saves.\nYour saves will be put on steam cloud and always be availwable everywhere.\nDisable if you have bandwidth limitations.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Cloud Saves#WHITE##{normal}#", status=function(item)
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"스팀 클라우드 저장 사용\n스팀 클라우드 서비스를 사용해서, 어디서나 세이브 파일을 불러올 수 있게 됩니다.\n종량제 등으로 인해 인터넷 사용량에 한계가 있다면, 설정을 바꾸세요.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#스팀 클라우드 저장#WHITE##{normal}#", status=function(item)
 		return tostring(core.steam.isCloudEnabled(true) and "enabled" or "disabled")
 	end, fct=function(item)
 		core.steam.cloudEnable(not core.steam.isCloudEnabled(true))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Purge all Steam Cloud saves.\nThis will remove all saves from the cloud cloud (but not your local copy). Only use if you somehow encounter storage problems on it (which should not happen, the game automatically manages it for you).#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Purge Cloud Saves#WHITE##{normal}#", status=function(item)
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"스팀 클라우드 저장 초기화\n스팀 클라우드에 있는 모든 세이브 파일을 삭제합니다. (자신의 컴퓨터에 저장된 세이브 파일은 삭제되지 않습니다) 스팀 클라우드 저장에 문제가 있을 경우에만 사용하세요. (보통은 게임이 자동적으로 설정을 해줍니다)#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#클라우드 저장 초기화#WHITE##{normal}#", status=function(item)
 		return "purge"
 	end, fct=function(item)
-		Dialog:yesnoPopup("Steam Cloud Purge", "Confirm purge?", function(ret) if ret then
+		Dialog:yesnoPopup("스팀 클라우드 초기화", "정말로 초기화합니까?", function(ret) if ret then
 			self:purgeCloud()
-			Dialog:simplePopup("Steam Cloud Purge", "All data purged from the cloud.")
+			Dialog:simplePopup("스팀 클라우드 초기화", "클라우드에 있는 모든 세이브 파일이 삭제되었습니다.")
 		end end)
 	end,}
 
