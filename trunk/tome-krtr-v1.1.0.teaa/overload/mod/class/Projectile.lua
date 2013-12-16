@@ -81,7 +81,7 @@ function _M:resolveSource()
 end
 
 --gets the full name of the projectile
-function _M:getName() --@@ 한글화 필요한지 검사
+function _M:getName()
 	local name = self.kr_namr or self.name or "발사체"
 	if self.src and self.src.name then
 		return (self.src.kr_name or self.src.name):capitalize().."의 "..name

@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Shoot Down",
 	kr_name = "격추",
@@ -55,7 +57,7 @@ newTalent{
 				proj:terminate(x, y)
 				game.level:removeEntity(proj, true)
 				proj.dead = true
-				self:logCombat(proj, "#Source1# 이(가) '#Target#' 을(를) 격추시켰습니다.")
+				self:logCombat(proj, "#Source1# '#Target3#' 격추시켰습니다.") --@@ '가 붙으면 조사처리가 제대로 안 되어 일단 조사 뒤로 '를 뺐습니다.
 			end
 		end
 		
@@ -165,7 +167,7 @@ newTalent{
 		if not self:checkHit(self:combatAttackRanged(weapon, ammo), target:combatDefenseRanged()) or target:checkEvasion(self) then 
 			xatk, ret = -1e6, false
 		end
-		game.logSeen(self, "%s 이(가) 공격을 %s!", self.name:capitalize(), ret and "방해했습니다" or "방해하는데 실패했습니다")
+		game.logSeen(self, "%s 공격을 %s!", (self.kr_name or self.name):capitalize():addJosa("이"), ret and "방해했습니다" or "방해하는데 실패했습니다")
 		self:archeryShoot(targets, t, nil, {atk = xatk, mult=self:combatTalentWeaponDamage(t, 0.4, 0.9)})
 		return ret
 	end,
@@ -206,7 +208,7 @@ newTalent{
 		if target:canBe("silence") then
 			target:setEffect(target.EFF_SILENCED, t.getDur(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s이(가) 침묵 사격을 저항했습니다!", target.name:capitalize())
+			game.logSeen(target, "%s 침묵 사격을 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)

@@ -774,7 +774,7 @@ newTalent{
 		local c = getMinionChances(self)
 		local chancelist = tstring({})
 		for i, k in ipairs(minion_order) do
-			 if c[k] then chancelist:add(true,minions_list[k].name:capitalize(),(": %d%%"):format(c[k])) end --@@ 한글화 필요
+			 if c[k] then chancelist:add(true,(minions_list[k].kr_name or minions_list[k].name):capitalize(),(": %d%%"):format(c[k])) end
 		end
 		return chancelist:toString()
 	end,

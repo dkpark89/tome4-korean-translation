@@ -407,7 +407,7 @@ newTalent{
 			type = "construct", subtype = "weapon",
 			display = o.display, color=o.color, image = o.image, blood_color = colors.GREY,
 			kr_name = "살아 움직이는 "..(o.kr_name or o.name),
-			name = "animated "..o.name, -- bug fix --@@ 원래 o:getName()를 사용하는데 이 함수가 한글 이름을 반환하므로 o.name을 사용. 버그가 없는지? (버그가 있는 것 같아 v1.0.5에서 함수사용하도록 바뀌었음)
+			name = "animated "..o.getOriName(), -- bug fix --@@ 원래 o:getName()를 사용하는데 이 함수가 한글 이름을 반환하므로 o.getOriName()을 사용
 			faction = self.faction,			
 			desc = "살아 움직이는 저주에 걸린 무기입니다. 다음 희생자를 찾고 있는 것 같습니다.",
 			faction = self.faction,

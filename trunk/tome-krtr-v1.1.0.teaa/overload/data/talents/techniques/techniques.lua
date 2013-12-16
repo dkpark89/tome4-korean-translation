@@ -29,7 +29,7 @@ newTalentType{ allow_random=true, type="technique/archery-bow", name = "archery 
 newTalentType{ allow_random=true, type="technique/archery-sling", name = "archery - slings", description = "투석구를 사용하는 전투방법에 특화된 공격기술입니다." }
 newTalentType{ allow_random=true, type="technique/archery-training", name = "archery training", description = "원거리 무기에 공통적으로 사용되는 기술입니다." }
 newTalentType{ allow_random=true, type="technique/archery-utility", name = "archery prowess", description = "원거리 무기를 사용해서 적을 무력화시키는 공격기술입니다." }
-newTalentType{ allow_random=true, type="technique/archery-excellence", name = "archery excellence", min_lev = 10, description = "Specialized archery techniques that result from honed training." } --@@ 한글화 필요
+newTalentType{ allow_random=true, type="technique/archery-excellence", name = "archery excellence", min_lev = 10, description = "많은 훈련으로 획득할 수 있는 특별한 원거리 공격기술입니다." }
 newTalentType{ allow_random=true, type="technique/superiority", name = "superiority", min_lev = 10, description = "다수의 적들 사이에서 벌어지는 전투에 특화된 기술입니다." }
 newTalentType{ allow_random=true, type="technique/battle-tactics", name = "battle tactics", min_lev = 10, description = "전략적인 전투를 위한 기술입니다." }
 newTalentType{ allow_random=true, type="technique/warcries", name = "warcries", no_silence = true, min_lev = 10, description = "자신을 강화하고 적을 약화시키는 전투 함성을 수련합니다." }

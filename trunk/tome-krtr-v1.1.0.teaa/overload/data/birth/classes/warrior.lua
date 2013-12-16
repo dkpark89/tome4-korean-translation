@@ -310,7 +310,8 @@ newBirthDescriptor{
 		[ActorTalents.T_UPPERCUT] = 1,
 		[ActorTalents.T_DOUBLE_STRIKE] = 1,
 		[ActorTalents.T_WEAPON_COMBAT] = 1,
-		[ActorTalents.T_ARMOUR_TRAINING] = 1,	},
+		[ActorTalents.T_ARMOUR_TRAINING] = 1,
+	},
 	copy = {
 		resolvers.equip{ id=true,
 			{type="armor", subtype="hands", name="iron gauntlets", autoreq=true, ego_chance=-1000, ego_chance=-1000},
