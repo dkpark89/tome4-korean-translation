@@ -1208,7 +1208,7 @@ function _M:logMessage(source, srcSeen, target, tgtSeen, style, ...)
 		if source.player then
 			srcname = "#fbd578#"..(source.kr_name or source.name).."#LAST#"
 		elseif srcSeen then
-			srcname = engine.Entity.check(source, "getName") or (source.kr_name or source.name) or "알 수 없는 것"
+			srcname = engine.Entity.check(source, "getName") or (source.kr_name or source.name) or "알 수 없는 것" --@@ 한글 이름이 사용되지 않고 있는 듯
 		end
 		if srcname ~= "무엇인가" then Dstring = source.__is_actor and source.getDisplayString and source:getDisplayString() end
 	style = style:gsub("#source#", srcname):gsub("#source1#", srcname:addJosa("가")):gsub("#source2#", srcname:addJosa("는")):gsub("#source3#", srcname:addJosa("를")):gsub("#source4#", srcname:addJosa("로")):gsub("#source5#", srcname:addJosa("다")):gsub("#source6#", srcname:addJosa("과")):gsub("#source7#", srcname:addJosa(7)) --@@ 조사 추가 코드 삽입
@@ -1219,7 +1219,7 @@ function _M:logMessage(source, srcSeen, target, tgtSeen, style, ...)
 			if target.player then
 				tgtname = "#fbd578#"..(target.kr_name or target.name).."#LAST#"
 			elseif tgtSeen then
-				tgtname = engine.Entity.check(target, "getName") or (target.kr_name or target.name) or "알 수 없는 것"
+				tgtname = engine.Entity.check(target, "getName") or (target.kr_name or target.name) or "알 수 없는 것" --@@ 한글 이름이 사용되지 않고 있는 듯
 			end
 		style = style:gsub("#target#", tgtname):gsub("#target1#", tgtname:addJosa("가")):gsub("#target2#", tgtname:addJosa("는")):gsub("#target3#", tgtname:addJosa("를")):gsub("#target4#", tgtname:addJosa("로")):gsub("#target5#", tgtname:addJosa("다")):gsub("#target6#", tgtname:addJosa("과")):gsub("#target7#", tgtname:addJosa(7)) --@@ 조사 추가 코드 삽입
 		style = style:gsub("#Target#", tgtname:capitalize()):gsub("#Target1#", tgtname:capitalize():addJosa("가")):gsub("#Target2#", tgtname:capitalize():addJosa("는")):gsub("#Target3#", tgtname:capitalize():addJosa("를")):gsub("#Target4#", tgtname:capitalize():addJosa("로")):gsub("#Target5#", tgtname:capitalize():addJosa("다")):gsub("#Target6#", tgtname:capitalize():addJosa("과")):gsub("#Target7#", tgtname:capitalize():addJosa(7)) --@@ 조사 추가 코드 삽입

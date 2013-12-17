@@ -99,7 +99,6 @@ newLore{
 	end,
 }
 
-
 newLore{
 	id = "lake-nur-not-flooded",
 	category = "lake of nur",

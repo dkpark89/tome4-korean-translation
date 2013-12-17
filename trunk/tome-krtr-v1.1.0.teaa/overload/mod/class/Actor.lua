@@ -2472,7 +2472,7 @@ function _M:die(src, death_note)
 			rsrc:incSoul(1)
 			if rsrc:attr("extra_soul_chance") and rng.percent(rsrc:attr("extra_soul_chance")) then
 				rsrc:incSoul(1)				
-				game.logPlayer(rsrc, "%s이(가) 적의 원혼을 끄집어냈습니다. (+1 추가 원혼)", (rsrc.kr_name or rsrc.name):capitalize()) 
+				game.logPlayer(rsrc, "%s 적의 원혼을 끄집어냈습니다. (+1 추가 원혼)", (rsrc.kr_name or rsrc.name):capitalize():addJosa("가")) 
 			end
 			rsrc.changed = true
 		end

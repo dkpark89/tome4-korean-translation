@@ -19,7 +19,7 @@
 
 local change_inven = function(npc, player)
 	local d
-	local titleupdator = player:getEncumberTitleUpdator(("Equipment(%s) <=> Inventory(%s)"):format(npc.name:capitalize(), player.name:capitalize())) --@@ 한글화 필요
+	local titleupdator = player:getEncumberTitleUpdator(("장비(%s) <=> 소지품(%s)"):format((npc.kr_name or npc.name):capitalize(), (player.kr_name or player.name):capitalize()))
 	d = require("mod.dialogs.ShowEquipInven").new(titleupdator(), npc, nil, function(o, inven, item, button, event)
 		if not o then return end
 		local ud = require("mod.dialogs.UseItemDialog").new(event == "button", npc, o, item, inven, function(_, _, _, stop)
@@ -59,10 +59,10 @@ local change_name = function(npc, player)
 end
 
 local ans = {
-	{"I want to change your equipment.", action=change_inven}, --@@ 한글화 필요
-	{"I want to change your talents.", action=change_talents}, --@@ 한글화 필요
-	{"I want to change your tactics.", action=change_tactics}, --@@ 한글화 필요
-	{"I want to take direct control.", action=change_control}, --@@ 한글화 필요
+	{"장비를 바꿔주고 싶은데.", action=change_inven},
+	{"기술을 바꿔주고 싶은데.", action=change_talents},
+	{"전술을 바꿔주고 싶은데.", action=change_tactics},
+	{"직접 제어하고 싶은데.", action=change_control},
 	{"이름을 바꿔주고 싶은데.", action=change_name},
 	{"아무 것도 아냐. 그냥 가자."},
 }

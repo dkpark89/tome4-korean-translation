@@ -133,7 +133,7 @@ newEntity{ base = "BASE_STAFF",
 
 			self:specialWearAdd({"wielder","resists"}, { [DamageType.BLIGHT] = 10})
 			self:specialWearAdd({"wielder","disease_immune"}, 0.5)
-			game.logPlayer(who, "#DARK_GREEN#You feel the cleansing power of Penitence attune to you.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#'참회'가 지닌 정화의 힘이 당신에게 깃드는 것이 느껴집니다.")
 		end
 	end,
 }
@@ -289,7 +289,7 @@ newEntity{ base = "BASE_RING",
 	rarity = 200,
 	cost = 200,
 	material_level = 3,
-	special_desc = function(self) return "All your damage is converted and split into arcane, fire, cold and lightning." end, --@@ 한글화 필요
+	special_desc = function(self) return "당신이 적들에게 주는 모든 피해가 마법 속성과 화염 속성, 냉기 속성, 전기 속성으로 나뉘어 변화됩니다." end,
 	wielder = {
 		elemental_mastery = 0.25,
 		inc_stats = { [Stats.STAT_MAG] = 3,[Stats.STAT_CUN] = 3, },
@@ -606,7 +606,7 @@ newEntity{ base = "BASE_LONGBOW",
 
 			self:specialWearAdd({"wielder","resists"}, { [DamageType.DARKNESS] = 20, [DamageType.NATURE] = 20,} )
 			self:specialWearAdd({"wielder","combat_def"}, 12)
-			game.logPlayer(who, "#DARK_GREEN#You understand this bow-and its connection to nature-in a way few can.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#당신은 자연과 연결되어 있는 이 활로 할 수 있는 것들을 깨닫습니다.")
 		end
 	end,
 }
@@ -639,7 +639,7 @@ newEntity{ base = "BASE_LONGBOW",
 			local DamageType = require "engine.DamageType"
 
 			self:specialWearAdd({"combat","ranged_project"}, {[DamageType.DRAINLIFE]=20})
-			game.logPlayer(who, "#DARK_BLUE#You feel a kindred spirit in this bow...") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_BLUE#당신은 이 활 속에 있는 동족의 영혼을 느낍니다...")
 		end
 	end,
 }
@@ -833,7 +833,7 @@ newEntity{ base = "BASE_SHIELD",
 	cost = 400,
 	material_level = 3,
 	metallic = false,
-	special_desc = function(self) return "When you block an attack, there is a 30% of pulling in the attacker." end, --@@ 한글화 필요
+	special_desc = function(self) return "이 방패로 공격을 막으면, 30%의 확률로 공격자를 당겨올 수 있습니다." end,
 	special_combat = {
 		dam = resolvers.rngavg(25,35),
 		block = resolvers.rngavg(90, 120),
@@ -965,7 +965,7 @@ newEntity{ base = "BASE_HELM",
 			local Stats = require "engine.interface.ActorStats"
 
 			self:specialWearAdd({"wielder","inc_stats"}, { [Stats.STAT_CUN] = 5, [Stats.STAT_MAG] = 5, [Stats.STAT_WIL] = 5, })
-			game.logPlayer(who, "#LIGHT_BLUE#The legacy of Dwarven Emperors grants you their wisdom.") --@@ 한글화 필요
+			game.logPlayer(who, "#LIGHT_BLUE#드워프 황제의 유물이 당신에게 그들의 지혜를 부여합니다.")
 		end
 	end,
 }
@@ -1003,7 +1003,7 @@ newEntity{ base = "BASE_KNIFE",
 			local Stats = require "engine.interface.ActorStats"
 
 			self:specialWearAdd({"wielder","inc_stats"}, {  [Stats.STAT_CUN] = 6, [Stats.STAT_LCK] = 25, })
-			game.logPlayer(who, "#LIGHT_BLUE#Herah's guile and luck is with you, her successor!") --@@ 한글화 필요
+			game.logPlayer(who, "#LIGHT_BLUE#헤라의 후계자여, 그녀의 꾀와 운이 당신과 함께 할 것입니다!")
 		end
 	end,
 }
@@ -1242,7 +1242,7 @@ newEntity{ base = "BASE_MACE",
 
 			self:specialWearAdd({"wielder","resists"}, { all = 4 })
 
-			game.logPlayer(who, "#LIGHT_BLUE#You feel nature defending you.") --@@ 한글화 필요
+			game.logPlayer(who, "#LIGHT_BLUE#자연이 당신을 보호하는 것이 느껴집니다.")
 		end
 	end,
 }
@@ -1334,7 +1334,7 @@ newEntity{ base = "BASE_HELM",
 		if who.descriptor and who.descriptor.race == "Halfling" then
 			local Stats = require "engine.interface.ActorStats"
 			self:specialWearAdd({"wielder","inc_stats"}, { [Stats.STAT_CUN] = 7, [Stats.STAT_STR] = 7, }) 
-			game.logPlayer(who, "#LIGHT_BLUE#You gain understanding of the might of your race.", self:getName()) --@@ 한글화 필요
+			game.logPlayer(who, "#LIGHT_BLUE#당신의 종족이 가진 힘을 이해하게 되었습니다.", self:getName())
 		end
 	end,
 	on_takeoff = function(self)
@@ -1964,7 +1964,7 @@ newEntity{ base = "BASE_LEATHER_BELT",
 
 			self:specialWearAdd({"wielder","resists"}, { [DamageType.MIND] = 20,} )
 			self:specialWearAdd({"wielder","combat_mentalresist"}, 15)
-			game.logPlayer(who, "#DARK_GREEN#Nessilla's belt seems to come alive as you put it on.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#네씰라의 허리띠를 두르자, 이 것이 살아있는 것처럼 느껴집니다.")
 		end
 	end,
 }
@@ -2116,7 +2116,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 			self:specialWearAdd({"wielder", "talents_types_mastery"}, { ["cunning/stealth"] = 0.2 })
 			self:specialWearAdd({"wielder","confusion_immune"}, 0.3)
 			self:specialWearAdd({"wielder","fear_immune"}, 0.3)
-			game.logPlayer(who, "#DARK_BLUE#The skin seems pleased to be worn by the unliving, and grows silent.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_BLUE#이 가죽은 언데드에게 입힌 것을 만족하면서, 조용해졌습니다.")
 		end
 	end,
 }
@@ -2159,7 +2159,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 			local Stats = require "engine.interface.ActorStats"
 
 			self:specialWearAdd({"wielder","combat_spellresist"}, 20)
-			game.logPlayer(who, "#DARK_GREEN#You feel especially blessed.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#당신은 아주 특별한 축복을 느낍니다.")
 		end
 	end,
 }
@@ -2305,7 +2305,7 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 			self:specialWearAdd({"wielder","max_life"}, 100)
 			self:specialWearAdd({"wielder","fatigue"}, -15)
 
-			game.logPlayer(who, "#LIGHT_BLUE#You feel your dwarven power swelling to meet the challenge of this armor!") --@@ 한글화 필요
+			game.logPlayer(who, "#LIGHT_BLUE#이 갑옷의 도전을 받아들일만큼, 당신이 가진 드워프의 힘이 크다는 것을 느낍니다!")
 		end
 	end,
 }
@@ -3214,7 +3214,7 @@ newEntity{ base = "BASE_MINDSTAR",
 			local DamageType = require "engine.DamageType"
 
 			self:specialWearAdd({"combat","melee_project"}, {[DamageType.MANABURN]=30})
-			game.logPlayer(who, "#DARK_GREEN#The Heart pulses with antimagic forces as you grasp it.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#당신이 이 심장을 움켜쥐자, 그것은 반마법의 힘으로 맥동하기 시작합니다.")
 		end
 	end,
 }
@@ -3991,7 +3991,7 @@ newEntity{ base = "BASE_LONGSWORD",
 				if not rng.percent(20) then return end
 				if not who:checkHit(who:combatMindpower(), target:combatMentalResist()) then return end
 				target:setEffect(target.EFF_WEAKENED_MIND, 2, {power=5})
-				who:logCombat(target, "Anmalice focuses its mind-piercing eye on #Target#!") --@@ 한글화 필요
+				who:logCombat(target, "'악의'가 그 정신을 꿰뚫는 눈으로 #Target3# 쳐다봅니다!")
 			end)
 	end,
 	on_takeoff = function(self, who)
@@ -4632,7 +4632,7 @@ newEntity{ base = "BASE_GREATSWORD", -- Thanks Alex!
 	require = { stat = { str=10 }, },
 	sentient=true,
 	material_level = 3,
-	special_desc = function(self) return "Attack speed improves with strength and size category." end, --@@ 한글화 필요
+	special_desc = function(self) return "공격 속도가 힘과 크기에 비례하여 빨라집니다." end,
 	combat = {
 		dam = 48,
 		apr = 12,
@@ -4736,7 +4736,7 @@ newEntity{ base = "BASE_LITE", --Thanks Frumple!
 	material_level=3,
 	sentient=true,
 	charge = 0,
-	special_desc = function(self) return "Absorbs all darkness in its light radius." end, --@@ 한글화 필요
+	special_desc = function(self) return "그 빛이 발하는 반경내의 모든 어둠을 흡수합니다." end,
 	on_wear = function(self, who)
 		self.worn_by = who
 	end,
@@ -5120,7 +5120,7 @@ newEntity{ base = "BASE_MASSIVE_ARMOR", -- Thanks SageAcrin!
 			local Stats = require "engine.interface.ActorStats"
 
 			self:specialWearAdd({"wielder","fatigue"}, -14)
-			game.logPlayer(who, "#DARK_GREEN#The armor molds comfortably to one of its caretakers.") --@@ 한글화 필요
+			game.logPlayer(who, "#DARK_GREEN#이 갑옷은 그의 관리인들이 편안하도록 만들어 줍니다.")
 		end
 	end,
 }
@@ -5137,7 +5137,7 @@ newEntity{ base = "BASE_SHIELD", --Thanks SageAcrin!
 	cost = 60,
 	material_level = 1,
 	metallic = false,
-	special_desc = function(self) return "When you block an attack, there is a chance that a spray of icy cold water will spray at the target." end, --@@ 한글화 필요
+	special_desc = function(self) return "이 방패로 공격을 막으면, 가끔씩 싸늘한 물줄기를 공격자에게 뿜어냅니다." end,
 	special_combat = {
 		dam = 18,
 		block = 48,
@@ -5165,7 +5165,7 @@ newEntity{ base = "BASE_SHIELD", --Thanks SageAcrin!
 		
 			who:project(burst, target.x, target.y, engine.DamageType.ICE, 30)
 			game.level.map:particleEmitter(who.x, who.y, burst.radius, "breath_cold", {radius=burst.radius, tx=target.x-who.x, ty=target.y-who.y})
-			who:logCombat(target, "A wave of icy water bursts out from #Source#'s shield towards #Target#!") --@@ 한글화 필요
+			who:logCombat(target, "#Source#의 방패에서 싸늘한 물줄기가 #Target#에게로 뿜어져 나옵니다!")
 		end
 	end,
 }
@@ -5665,7 +5665,7 @@ newEntity{ base = "BASE_TOOL_MISC", --Thanks Alex!
 	finished=false,
 	sentient=true,
 	metallic = false,
-	special_desc = function(self) return "Offers either offensive or defensive benefits, depending on the position of the sands." end, --@@ 한글화 필요
+	special_desc = function(self) return "모래의 위치에 따라서, 공격적이거나 방어적인 혜택을 제공합니다." end,
 	wielder = {
 		inc_damage = { [DamageType.TEMPORAL]= 15},
 		resists = { [DamageType.TEMPORAL] = 15, all = 0, },
@@ -6186,7 +6186,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 	on_takeoff = function(self)
 		self.worn_by = nil
 	end,
-	special_desc = function(self) return "When you take a hit of more than 20% of your max life a shield is created equal to double the damage taken." end, --@@ 한글화 필요
+	special_desc = function(self) return "당신이 한번에 최대 생명력의 20%가 넘는 피해를 받으면 보호막이 펼쳐집니다. 이 보호막은 생성시 받은 피해량의 두배 만큼의 보호력을 가집니다." end,
 	act = function(self)
 		self:useEnergy()	
 		if not self.worn_by then return end

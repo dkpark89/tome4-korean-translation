@@ -111,12 +111,12 @@ local maker_list = function()
 			{"voratun torque", "voratun torque"},
 		},
 	}
-	local l = {{"I've changed my mind.", jump = "welcome"}} --@@ 한글화 필요
+	local l = {{"생각이 바뀌었습니다.", jump = "welcome"}}
 	for kind, bases in pairs(mainbases) do
 		l[#l+1] = {kind:capitalize(), action=function(npc, player)
-			local l = {{"I've changed my mind.", jump = "welcome"}} --@@ 한글화 필요
+			local l = {{"생각이 바뀌었습니다.", jump = "welcome"}}
 			newChat{ id="makereal",
-				text = [[Which kind of item would you like ?]], --@@ 한글화 필요
+				text = [[어떤 종류의 물건을 원하시는지요?]],
 				answers = l,
 			}
 
