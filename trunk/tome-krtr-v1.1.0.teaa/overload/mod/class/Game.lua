@@ -1266,7 +1266,7 @@ function _M:displayDelayedLogDamage()
 				if dams.healing >= 0 then
 					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다.", table.concat(dams.descs, ", ")))
 				elseif src == target then
-					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# %s 피해를 받았습니다..", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
+					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# %s 피해를 받았습니다.", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
 				else
 					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Target1# #Source4#부터 %s 피해를 받았습니다.", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
 				end

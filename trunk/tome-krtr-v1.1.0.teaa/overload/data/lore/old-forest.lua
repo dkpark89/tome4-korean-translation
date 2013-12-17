@@ -99,11 +99,12 @@ newLore{
 	end,
 }
 
---@@ 한글화 필요 #102~109
+
 newLore{
 	id = "lake-nur-not-flooded",
 	category = "lake of nur",
 	name = "magical barrier", always_pop = true,
+	kr_name = "마법적인 장벽",
 	image = "nur-barrier.png",
-	lore = [[As you descend to the next level you traverse a kind of magical barrier keeping the water away. You hear terrible screams.]],
+	lore = [[다음 층계로 내려오면서, 당신은 물을 막고 있는 어떤 마법적인 장벽을 통과했습니다. 끔찍한 비명이 들려옵니다.]],
 }

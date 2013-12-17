@@ -76,7 +76,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[미래를 엿봐, %d 턴 동안 미래에 일어날 일을 직접 체험할 수 있게 됩니다. 예지 효과가 끝나면 처음 마법을 시전했던 순간으로 돌아가며, 예지 도중에 사망했을 경우 마법의 효과가 사라집니다.
 		이 마법은 시간의 흐름을 분절시키기 때문에, 이 마법을 사용하는 도중에는 시간의 흐름을 나누는 다른 마법을 사용할 수 없습니다.
-		Splitting the timeline is difficult, you will only be protected after the current turn ends.]]):format(duration) --@@ 한글화 필요
+		또한 시간의 흐름을 분절시키는 것은 어려운 작업이기 때문에, 주문을 시전하는 1 턴 동안에는 보호받을 수 없습니다.]]):format(duration)
 	end,
 }
 

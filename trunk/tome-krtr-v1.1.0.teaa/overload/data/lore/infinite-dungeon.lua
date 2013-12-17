@@ -49,32 +49,33 @@ newLore{
 #{italic}#...마법의 힘이 모든 것을 불태울 것이리라.#{normal}#]],
 }
 
---@@ 한글화 필요 #52~78
+
 newLore{
 	id = "alt1-infinite-dungeon-1",
 	category = "ruined dungeon",
 	name = "clue (ruined dungeon)", always_pop = true,
-	lore = [[There is an inscription here:
-#{italic}#Darkness beyond twilight.
-Crimson from the blood that flows...#{normal}#]],
+	kr_name = "파괴된 던전에서 찾은 단서",
+	lore = [[글귀가 새겨져 있다 :
+#{italic}#어둠은 황혼의 저편에, 흐르는 피의 진홍빛은...#{normal}#]],
 }
 
 newLore{
 	id = "alt1-infinite-dungeon-2",
 	category = "ruined dungeon",
 	name = "clue (ruined dungeon)", always_pop = true,
-	lore = [[There is an inscription here:
-#{italic}#...Buried in the flow of time.
-Colder than the coldest ice...#{normal}#]],
+	kr_name = "파괴된 던전에서 찾은 단서",
+	lore = [[글귀가 새겨져 있다 :
+#{italic}#...시간의 흐름 속에 파묻혔다.
+가장 차가운 얼음보다 차가운 냉기가...#{normal}#]],
 }
 
 newLore{
 	id = "alt1-infinite-dungeon-3",
 	category = "ruined dungeon",
 	name = "clue (ruined dungeon)", always_pop = true,
-	lore = [[There is an inscription here:
-#{italic}#...Unleash dark thoughts.
-Upon this blighted land!#{normal}#]],
+	kr_name = "파괴된 던전에서 찾은 단서",
+	lore = [[글귀가 새겨져 있다 :
+#{italic}#...사악한 생각을 부른다, 이 황폐화된 대지 위에!#{normal}#]],
 }
 
 

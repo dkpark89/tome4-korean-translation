@@ -49,8 +49,8 @@ newTalent{
 	info = function(self, t)
 		return ([[어둠과 빛의 사이에 선 자의 권능으로, 15 의 양기를 %d 의 음기로 전환합니다.
 		이 기술을 배우면 양기와 음기의 기본값이 최대치의 %d%% 에 해당하는 값으로 변경됩니다. 0 대신, 이 기본값을 향하여 매 턴마다 양기와 음기가 조금씩 변화합니다.
-		획득하는 음기의 양는 교활함 능력치의 영향을 받아 증가합니다.]]):
-		format(t.getNegativeGain(self, t), t.getRestValue(self, t)) --@@ 한글화 검수 필요 : 위 두줄 처음부분
+		획득하는 음기의 양은 교활함 능력치의 영향을 받아 증가합니다.]]):
+		format(t.getNegativeGain(self, t), t.getRestValue(self, t)) 
 	end,
 }
 
@@ -182,9 +182,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
-		return ([[마음의 절규를 내질러, 주변 3칸 반경에 있는 적들의 의지를 꺾어 %d 턴 동안 혼란 상태(%d%% to act randomly)로 만듭니다.
-		혼란의 지속시간은 교활함 능력치의 영향을 받아 증가합니다.]]):
-		format(t.getConfuseEfficency(self,t),duration) --@@ 한글화 필요 : 두줄 위
+		return ([[마음의 절규를 내질러, 주변 3 칸 반경에 있는 적들의 의지를 꺾습니다. 영향을 받은 적은 혼란 상태가 되어 %d%% 확률로 무작위한 행동을 하게 되며, 이는 %d 턴 동안 지속됩니다.
+		지속시간은 교활함 능력치의 영향을 받아 증가합니다.]]):
+		format(t.getConfuseEfficency(self,t),duration) 
 	end,
 }
 
@@ -219,7 +219,7 @@ newTalent{
 		end
 
 		if target:attr("summon_time") then
-			game.logPlayer(self, "Wrong target!") --@@ 한글화 필요
+			game.logPlayer(self, "잘못된 대상입니다!")
 			return
 		end
 
@@ -281,10 +281,10 @@ newTalent{
 		elseif allowed < 6 then
 			size = "거대함"
 		end
-		return ([[크기가 '%s' 이하인 적의 그림자 분신을 만들어냅니다. 그림자 분신은 생성 즉시 자신의 본체를 공격하기 시작합니다. 분신은 %d 턴 동안 유지됩니다.
-		The duplicate has %d%% of the target's life, %d%% all damage resistance, +50%% darkness resistance and -50%% light resistance.
-		분신의 지속시간과 생명력 그리고 모든 피해 저항은 교활함 능력치의 영향을 받아 증가합니다. and this ability will not work on bosses.]]):
-		format(size, duration, t.getPercent(self, t), t.getPercent(self, t)) --@@ 한글화 필요 : 위 두줄
+		return ([[크기가 '%s' 이하인 적의 그림자 분신을 만들어냅니다. 그림자 분신은 생성 즉시 자신의 본체를 공격하기 시작하며, %d 턴 동안 유지됩니다.
+		그림자는 대상 생명력의 %d%% 만큼을 생명력으로 가집니다. 전체 저항력은 %d%% 이며, 여기에 어둠 저항력은 +50%%, 빛 저항력은 -50%% 만큼이 더해집니다.
+		분신의 지속시간과 생명력 그리고 전체 저항력은 교활함 능력치의 영향을 받아 증가합니다. 보스에게는 이 능력을 사용해도 효과가 없습니다.]]):
+		format(size, duration, t.getPercent(self, t), t.getPercent(self, t)) 
 	end,
 }
 
