@@ -378,11 +378,8 @@ newEntity{ base = "BASE_ROD",
 	identified=true, force_lore_artifact=true,
 	name = "Transmogrification Chest", display = '~', color=colors.GOLD, unique=true, image = "object/chest4.png",
 	kr_name = "변환 상자",
---@@ 한글화 필요 첫 두줄의 내용이 조금 바뀜. 기존 번역을 주석으로 남겨둠 (번역 완료시 기존 번역 주석 삭제 필요.
---	desc = [[이 상자는 이일크구르와 연결되어, 상자 안에 있는 물건들을 요새로 운반하여 파괴한 뒤, 에너지를 추출합니다.
---이 작업의 부산물로 금화가 만들어지는데, 이것은 요새에서는 쓸모 없는 것이므로 금화는 당신에게 돌아옵니다.
-	desc = [[This chest is an extension of old Sher'tul places of power, any items dropped inside is transported to an other place, processed and destroyed to extract energy.
-The byproduct of this effect is the creation of gold, which is useless to process, so it is sent back to you.
+	desc = [[이 상자는 오래된 쉐르'툴의 장소와 연결되어, 상자 안에 있는 물건들을 그 곳으로 운반하여 파괴한 뒤, 에너지를 추출합니다.
+이 작업의 부산물로 금화가 만들어지는데, 이것은 요새에서는 쓸모 없는 것이므로 금화는 당신에게 돌아옵니다.
 	
 이 상자를 가지고 있다면 바닥에서 자동으로 줍는 모든 물건들이 일단 상자 속으로 들어가며, 해당 층을 벗어날 때 변형 작업을 시작합니다.
 상자 속에 있는 물건 중 계속 가지고 있기를 원하는 것은, 상자 밖으로 꺼내놓아야 합니다.

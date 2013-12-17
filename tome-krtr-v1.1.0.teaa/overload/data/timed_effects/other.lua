@@ -2406,7 +2406,6 @@ newEffect{
 	end,
 }
 
-
 newEffect{
 	name = "SWIFT_HANDS_CD", image = "talents/swift_hands.png",
 	desc = "Swift Hands",

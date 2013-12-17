@@ -247,7 +247,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상을 중심으로 반경 %d 칸에 있는, 적 및 아군 (최대 %d 명) 의 전체 속도를 %d%% 증가시킵니다.]]): --@@ 한글화 검수 필요 - 적과 아군 동시 적용 맞는지..
-		format(10, t.getTargetCount(self, t), t.getPower(self, t)*100) 
+		format(10, t.getTargetCount(self, t), t.getPower(self, t)*100)  --@@ 변수 순서 조정
 	end,
 }
 
@@ -492,7 +492,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[시전자와 반경 %d 칸 안에 있는 무작위한 대상의 위치가 서로 바뀌며, 둘 모두 혼란 상태에 걸려 %d 턴 동안 %d%% 확률로 무작위한 행동을 하게 됩니다.]]):
-		format(t.getRange(self, t), t.getConfuseDuration(self, t), t.getConfuseEfficency(self, t)) --@@ 변수 순서 변경
+		format(t.getRange(self, t), t.getConfuseDuration(self, t), t.getConfuseEfficency(self, t)) --@@ 변수 순서 조정
 	end,
 }
 
@@ -601,7 +601,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[반경 10 칸의 거품 내부에 있는, 적 및 아군 (최대 %d 명) 의 기술 %d 개에 재사용 대기시간을 %d 턴 부여합니다.]]): 
-		format(t.getTargetCount(self, t), t.getTalentCount(self, t), t.getPower(self, t)) --@@ 변수 순서 조정 -- 재조정
+		format(t.getTargetCount(self, t), t.getTalentCount(self, t), t.getPower(self, t)) --@@ 변수 순서 조정
 	end,
 }
 
@@ -766,7 +766,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[시전자 주위 %d 칸 범위에 있는 적을 %d 명 끌어옵니다.]]): 
-		format(t.getRange(self, t), t.getTargetCount(self, t)) --@@변수 순서 조정
+		format(t.getRange(self, t), t.getTargetCount(self, t)) --@@ 변수 순서 조정
 	end,
 }
 

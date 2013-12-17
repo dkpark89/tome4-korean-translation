@@ -49,7 +49,6 @@ newLore{
 #{italic}#...마법의 힘이 모든 것을 불태울 것이리라.#{normal}#]],
 }
 
-
 newLore{
 	id = "alt1-infinite-dungeon-1",
 	category = "ruined dungeon",
@@ -77,7 +76,6 @@ newLore{
 	lore = [[글귀가 새겨져 있다 :
 #{italic}#...사악한 생각을 부른다, 이 황폐화된 대지 위에!#{normal}#]],
 }
-
 
 newLore{
 	id = "infinite-dungeon-4",

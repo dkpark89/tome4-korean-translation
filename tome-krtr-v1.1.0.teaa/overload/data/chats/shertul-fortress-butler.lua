@@ -40,9 +40,9 @@ newChat{ id="welcome",
 		{"네가 나를 불러서 왔다. 장거리 관문 때문이라고 했나?", jump="farportal", cond=function() return q:isCompleted("farportal") and not q:isCompleted("farportal-spawn") end},
 		{"네가 나를 불러서 왔다. 되돌림의 장대 때문이라고 했나?", jump="recall", cond=function() return q:isCompleted("recall") and not q:isCompleted("recall-done") end},
 		{"내 변환 상자가 자동적으로 보석을 추출해낼 수 있게 해줄 수 있나?", jump="transmo-gems", cond=function(npc, player) return not q:isCompleted("transmo-chest-extract-gems") and q:isCompleted("transmo-chest") and player:knowTalent(player.T_EXTRACT_GEMS) end},
-		{"Are there any training facilities?", jump="training", cond=function() return not q:isCompleted("training") end}, --@@ 한글화 필요
+		{"여기 연습을 위한 시설이 있나?", jump="training", cond=function() return not q:isCompleted("training") end},
 		{"네 생김새를 보고 있자니 심기가 불편하군 그래. 외모를 바꿀 수 있겠나?", jump="changetile", cond=function() return q:isCompleted("recall-done") end},
-		{"I have come upon a strange thing indeed. #LIGHT_GREEN#[tell him about Melinda]", jump="cure-melinda", cond=function() return ql and ql:isStatus(engine.Quest.COMPLETED, "saved-beach") and not ql:isStatus(engine.Quest.FAILED) and not ql:isStatus(engine.Quest.COMPLETED, "can_come_fortress") end}, --@@ 한글화 필요
+		{"내가 우연히 정말 기묘한 일을 겪었어. #LIGHT_GREEN#[멜린다에 대한 이야기를 한다]", jump="cure-melinda", cond=function() return ql and ql:isStatus(engine.Quest.COMPLETED, "saved-beach") and not ql:isStatus(engine.Quest.FAILED) and not ql:isStatus(engine.Quest.COMPLETED, "can_come_fortress") end},
 		{"[떠난다]"},
 	}
 }
@@ -142,11 +142,11 @@ newChat{ id="recall",
 }
 
 newChat{ id="training",
-	text = [[Yes master, a training facility is available to the north, but it is not yet powered on.
-I will need to use 50 energy to do this.]], --@@ 한글화 필요 : 145~149
+	text = [[예 주인님, 연습용 시설은 북쪽에서 이용할 수 있습니다. 하지만 아직 기동되지 않고 있습니다.
+그 것을 사용하기 위해서는 에너지가 50 만큼 필요합니다.]], --@@ 한글화 필요 : 145~149
 	answers = {
-		{"Maybe later."},
-		{"That could be quite useful. Yes, please do it.", cond=function() return q.shertul_energy >= 50 end, action=function() q:open_training() end},
+		{"다음에 하도록 하지."},
+		{"꽤 유용하겠는걸. 그렇게 해줘.", cond=function() return q.shertul_energy >= 50 end, action=function() q:open_training() end},
 	}
 }
 
@@ -160,7 +160,7 @@ newChat{ id="transmo-gems",
 }
 
 newChat{ id="changetile",
-	text = [[요새의 홀로그램 발생기를 통해, 취향에 맞는 형상으로 외모를 변경할 수 있습니다. 하지만 이를 위해서는 에너지가 60 필요합니다.]],
+	text = [[요새의 홀로그램 발생기를 통해, 취향에 맞는 형상으로 외모를 변경할 수 있습니다. 하지만 이를 위해서는 에너지가 60 만큼 필요합니다.]],
 	answers = {
 		{"인간 여성의 외모로 부탁할게.", cond=function() return q.shertul_energy >= 60 end, action=function(npc, player)
 			q.shertul_energy = q.shertul_energy - 60
@@ -210,11 +210,11 @@ newChat{ id="permanent-cloak",
 	}
 }
 
-newChat{ id="cure-melinda", --@@ 한글화 필요 #214~217
-	text = [[Demonic taint. Yes I have a way to help in the archives. However this is a long process, the subject will need to live here for a while.
-She will have to spend 8 hours per day in the regeneration tank.]],
+newChat{ id="cure-melinda",
+	text = [[악마의 감염이로군요. 예, 기록을 살펴보니 제가 도울 방법이 있습니다. 하지만 이 방법은 긴 시간이 필요해서, 대상이 한동안 여기서 지낼 필요가 있습니다.
+그녀는 재생 장치에서 매일 8 시간씩을 보내야 할 것입니다.]],
 	answers = {
-		{"This is great news! I will tell her at once.", action=function(npc, player)
+		{"대단한 소식이로군! 그녀에게 당장 말해줘야겠어.", action=function(npc, player)
 		player:setQuestStatus("love-melinda", engine.Quest.COMPLETED, "can_come_fortress")
 		end},
 	}

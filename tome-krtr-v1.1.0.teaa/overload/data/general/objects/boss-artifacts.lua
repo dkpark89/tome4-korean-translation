@@ -1379,7 +1379,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 	metallic = false,
 	sentient = true,
 	cooldown=0,
-	special_desc = function(self) return "Detects traps.\nGives a 25% to shrug off up to three stuns, pins, and dazes each turn, with a 10 turn cooldown." end, --@@ 한글화 필요
+	special_desc = function(self) return "함정을 탐지합니다.\n매 턴마다 25%의 확률로 기절이나 속박, 혼절을 세개까지 뿌리쳐 내줍니다. (이 효과는 10 턴의 지연시간이 있습니다.)" end,
 	wielder = {
 		inc_stats = { [Stats.STAT_LCK] = 5, },
 		combat_def = 5,
@@ -1443,7 +1443,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 				end
 			end
 			if num == 1 then
-				game.logSeen(who, "%s shrugs off some effects!", who.name:capitalize()) --@@ 한글화 필요
+				game.logSeen(who, "%s 일부 효과를 뿌리쳐 냈습니다!", (who.kr_name or who.name):capitalize():addJosa("가"))
 				self.cooldown = 10
 			end
 	end,
@@ -1477,7 +1477,7 @@ newEntity{ base = "BASE_LONGBOW",
 	cost = 300,
 	material_level = 5,
 	sentient = true,
-	special_desc = function(self) return "Automatically fires lightning bolts at nearby enemies, with a chance to inflict Daze." end, --@@ 한글화 필요
+	special_desc = function(self) return "자동으로 근방에 있는 적들에게 뇌전의 화살을 쏩니다. 이 공격으로 적을 혼절시킬 수도 있습니다." end,
 	combat = {
 		range=10,
 		physspeed = 0.7,

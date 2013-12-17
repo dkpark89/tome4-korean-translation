@@ -1810,7 +1810,7 @@ newEffect{
 	end,
 }
 
-newEffect{
+newEffect{ -- Note: This effect is cancelled by EFF_DISARMED
 	name = "DUAL_WEAPON_DEFENSE", image = "talents/dual_weapon_defense.png",
 	desc = "Parrying",
 	kr_name = "무기 쳐내기",
@@ -1873,7 +1873,7 @@ newEffect{
 		if shield then shield:check("on_block", self, src, type, dam, eff) end
 		if eff.properties.br then
 			self:heal(blocked, src)
-			game:delayedLogMessage(self, src, "block_heal", "#CRIMSON##Source1# 회복 효과가 %s의 방패에 의해 막혔습니다!", string.his_her(self)) 
+			game:delayedLogMessage(self, src, "block_heal", "#CRIMSON##Source#의 회복 효과가 %s의 방패에 의해 막혔습니다!", string.his_her(self):krHisHer()) 
 		end
 		if eff.properties.ref and src.life then DamageType.defaultProjector(src, src.x, src.y, type, blocked, tmp, true) end
 		if (self:knowTalent(self.T_RIPOSTE) or amt == 0) and src.life then src:setEffect(src.EFF_COUNTERSTRIKE, (1 + dur_inc) * (src.global_speed or 1), {power=eff.power, no_ct_effect=true, src=self, crit_inc=crit_inc, nb=nb}) end -- specify duration here to avoid stacking for high speed attackers

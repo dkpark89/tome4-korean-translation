@@ -1888,7 +1888,7 @@ newEffect{
 		eff.cur_regen = eff.regen
 		eff.life_regen_id = self:addTemporaryValue("life_regen", eff.regen)
 		eff.stamina_regen_id = self:addTemporaryValue("stamina_regen", eff.regen /5)
-		game.logSeen(self, "%s은(는) 피가 흐르는 광경을 즐기며 더 강해졌습니다!",(self.kr_name or self.name):capitalize()) 
+		game.logSeen(self, "%s 피가 흐르는 광경을 즐기며 더 강해졌습니다!",(self.kr_name or self.name):capitalize():addJosa("는")) 
 
 		if core.shader.active(4) then
 			eff.particle1 = self:addParticles(Particles.new("shader_shield", 1, {toback=true,  size_factor=1.5, y=-0.3, img="healarcane"}, {type="healing", time_factor=4000, noup=2.0, beamColor1={0xff/255, 0x22/255, 0x22/255, 1}, beamColor2={0xff/255, 0x60/255, 0x60/255, 1}, circleColor={0,0,0,0}, beamsCount=8}))
@@ -1904,7 +1904,7 @@ newEffect{
 		self:removeTemporaryValue("stamina_regen", eff.stamina_regen_id)
 
 		self:removeTemporaryValue("life",eff.templife_id) -- remove extra hps to prevent excessive heals at high level
-		game.logSeen(self, "%s은(는) 이제 피를 봐도 그다지 즐거운 기분이 들지 않습니다.",(self.kr_name or self.name):capitalize()) 
+		game.logSeen(self, "%s 이제 피를 봐도 그다지 즐거운 기분이 들지 않습니다.",(self.kr_name or self.name):capitalize():addJosa("는")) 
 	end,
 }
 
@@ -1995,7 +1995,7 @@ newEffect{
 			deflects = 1
 		end
 		if self:isTalentActive(self.T_GESTURE_OF_PAIN) then xs = ("%d%% 확률로 반격"):format(self:callTalent(self.T_GESTURE_OF_GUARDING,"getCounterAttackChance")) end
-		return ("물리 피해로부터 보호 : 다음 %0.1f 회의 공격을, 최대 %d 피해량만큼 보호. %s"):format(deflects, dam, xs)
+		return ("물리 피해로부터 보호 : 다음 %0.1f 회의 공격을, 최대 %d 피해량만큼 보호. %s"):format(deflects, dam, xs) --@@ 변수 순서 조정
 	end,
 	charges = function(self, eff) return "#LIGHT_GREEN#"..math.ceil(eff.deflects) end,
 	type = "mental",
