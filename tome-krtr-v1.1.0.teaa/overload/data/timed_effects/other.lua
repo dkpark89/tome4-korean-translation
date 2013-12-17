@@ -199,12 +199,12 @@ newEffect{
 	name = "GOLEM_OFS",
 	desc = "Golem out of sight",
 	kr_name = "시야를 벗어난 골렘",
-	long_desc = function(self, eff) return "골렘이 연금술사의 시야에서 벗어나, 직접적인 제어가 불가능한 상태가 되었습니다!" end,
+	long_desc = function(self, eff) return "골렘이 연금술사의 시야에서 벗어나, 직접적인 제어가 곧 불가능해집니다!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "detrimental",
 	parameters = { },
-	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 끊어졌습니다!.", "+시야를 벗어난 골렘" end,
+	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 곧 끊어집니다!", "+시야를 벗어난 골렘" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -223,15 +223,16 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 #226~250 : kr_name 추가 필요
+newEffect{
 	name = "AMBUSCADE_OFS", image = "talents/ambuscade.png",
 	desc = "Shadow out of sight",
-	long_desc = function(self, eff) return "The shadow is out of sight of its host; direct control will be lost!" end,
+	kr_name = "시야를 벗어난 그림자",
+	long_desc = function(self, eff) return "그림자가 주인의 시야에서 벗어나, 직접적인 제어가 곧 불가능해집니다!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "detrimental",
 	parameters = { },
-	on_gain = function(self, err) return "#LIGHT_RED##Target# is out of sight of its master; direct control will break!.", "+Out of sight" end,
+	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 곧 끊어집니다!", "+시야 벗어남" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -241,24 +242,25 @@ newEffect{ --@@ 한글화 필요 #226~250 : kr_name 추가 필요
 
 		if eff.dur <= 1 then
 			game:onTickEnd(function()
-				game.logPlayer(self, "#LIGHT_RED#You lost sight of your shadow for too long; it dissipates!")
-				game.player:runStop("shadow out of sight")
-				game.player:restStop("shadow out of sight")
+				game.logPlayer(self, "#LIGHT_RED#오랫동안 그림자가 시야 내에서 보이지 않아, 직접적인 제어가 끊어졌습니다!")
+				game.player:runStop("시야를 벗어난 그림자")
+				game.player:restStop("시야를 벗어난 그림자")
 				game.party:setPlayer(self.summoner)
 			end)
 		end
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 #253~279 : kr_name 추가 필요
+newEffect{ 
 	name = "HUSK_OFS", image = "talents/animus_purge.png",
 	desc = "Husk out of sight",
-	long_desc = function(self, eff) return "The husk is out of sight of its host; direct control will be lost!" end,
+	kr_name = "시야를 벗어난 하수인",
+	long_desc = function(self, eff) return "하수인이 주인의 시야에서 벗어나, 직접적인 제어가 곧 불가능해집니다!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "detrimental",
 	parameters = { },
-	on_gain = function(self, err) return "#LIGHT_RED##Target# is out of sight of its master; direct control will break!.", "+Out of sight" end,
+	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 곧 끊어집니다!", "+시야 벗어남" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -268,9 +270,9 @@ newEffect{ --@@ 한글화 필요 #253~279 : kr_name 추가 필요
 
 		if eff.dur <= 1 then
 			game:onTickEnd(function()
-				game.logPlayer(self, "#LIGHT_RED#You lost sight of your husk for too long; it disintegrates!")
-				game.player:runStop("husk out of sight")
-				game.player:restStop("husk out of sight")
+				game.logPlayer(self, "#LIGHT_RED#오랫동안 하수인이 시야 내에서 보이지 않아, 직접적인 제어가 끊어졌습니다!")
+				game.player:runStop("시야를 벗어난 하수인")
+				game.player:restStop("시야를 벗어난 하수인")
 				game.party:setPlayer(self.summoner)
 				self:die(self)
 			end)
@@ -2369,7 +2371,7 @@ newEffect{
 	status = "detrimental",
 	decrease = 0, no_remove = true,
 	parameters = { dam=20 },
-	on_gain = function(self, err) return "#Target1# 숨을 쉬지 못합니다.", "+숨막힘" end,
+	on_gain = function(self, err) return "#Target1# 숨을 쉬지 못하게 되었습니다.", "+숨막힘" end,
 	on_lose = function(self, err) return "#Target1# 다시 숨을 쉬기 시작합니다.", "-숨막힘" end,
 	on_timeout = function(self, eff)
 		if self.air > self.air_regen then -- We must be over our natural regen
@@ -2404,11 +2406,12 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 #2407~2455 : (desc에 대응하는) kr_name 추가, long_desc의 반환문장 한글화
+
 newEffect{
 	name = "SWIFT_HANDS_CD", image = "talents/swift_hands.png",
 	desc = "Swift Hands",
-	long_desc = function(self, eff) return "You swaped an item without taking time this turn." end,
+	kr_name = "빠른 손놀림",
+	long_desc = function(self, eff) return "이번 턴에 시간 소모 없이 장비를 교체했습니다." end,
 	type = "other",
 	subtype = { prodigy=true },
 	status = "neutral",
@@ -2421,7 +2424,8 @@ newEffect{
 newEffect{
 	name = "HUNTER_PLAYER", image = "talents/hunted_player.png",
 	desc = "Hunter!",
-	long_desc = function(self, eff) return "Knows where you are!" end,
+	kr_name = "사냥꾼!",
+	long_desc = function(self, eff) return "네가 어디 있는지 알라!" end,
 	type = "other",
 	subtype = { madness=true },
 	status = "beneficial",
@@ -2436,7 +2440,8 @@ newEffect{
 newEffect{
 	name = "THROUGH_THE_CROWD", image = "talents/through_the_crowd.png",
 	desc = "Through The Crowd",
-	long_desc = function(self, eff) return ("Increases physical save, spell save, and mental save by %d."):format(eff.power) end,
+	kr_name = "군중 속으로",
+	long_desc = function(self, eff) return ("모든 내성 %d 증가"):format(eff.power) end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "beneficial",

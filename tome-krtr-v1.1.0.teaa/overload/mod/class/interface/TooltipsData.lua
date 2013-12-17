@@ -124,9 +124,10 @@ TOOLTIP_PSI = [[#GOLD#염력#LAST#
 
 TOOLTIP_FEEDBACK = [[#GOLD#반작용#LAST#
 반작용은 사용자가 받는 고통을 정신력으로 활용하는 것을 나타냅니다.
-Feedback decays at the rate of 10% or 1 per turn (which ever is greater) depending on talents.
-All damage you take from an outside source will increase your Feedback based on to how much of your health is lost and your level.  First level characters gain 100 Feedback when losing 50% health, while 50th level characters gain the same amount when losing 20% health.
-]] --@@ 한글화 필요 : 두줄위~한줄위
+매 턴마다 1 또는 10% 만큼 감소하며 (두 수치 중 큰 쪽이 적용됩니다), 기술을 통해 감소량을 변화시킬 수 있습니다.
+반작용은 외부로부터 받는 모든 피해를 통해 증가시킬 수 있으며, 캐릭터 레벨과 잃은 생명력 수치에 따라 증가량이 달라집니다.
+1 레벨 캐릭터는 50% 의 생명력을 잃으면 반작용 100 을 얻지만, 50 레벨 캐릭터는 20% 의 생명력만 잃어도 반작용 100 을 얻을 수 있습니다.
+]] 
 
 TOOLTIP_NECROTIC_AURA = [[#GOLD#원혼#LAST#
 언데드를 불러 일으킬 때 사용되는 혼을 모아둔, 영혼의 수량을 나타냅니다.

@@ -1865,7 +1865,7 @@ newEffect{
 	on_gain = function(self, err) return nil, "+피바다" end,
 	on_lose = function(self, err) return nil, "-피바다" end,
 	on_merge = function(self, old_eff, new_eff)
-		if old_eff.cur_regen + new_eff.regen < new_eff.max then	game.logSeen(self, "%s's blood frenzy intensifies!", (self.kr_name or self.name):capitalize()) end --@@ 한글화 필요
+		if old_eff.cur_regen + new_eff.regen < new_eff.max then	game.logSeen(self, "%s의 핏빛 광기가 더욱 끓어오릅니다!", (self.kr_name or self.name):capitalize()) end 
 		new_eff.templife_id = old_eff.templife_id
 		self:removeTemporaryValue("max_life", old_eff.life_id)
 		self:removeTemporaryValue("life_regen", old_eff.life_regen_id)
@@ -1888,7 +1888,7 @@ newEffect{
 		eff.cur_regen = eff.regen
 		eff.life_regen_id = self:addTemporaryValue("life_regen", eff.regen)
 		eff.stamina_regen_id = self:addTemporaryValue("stamina_regen", eff.regen /5)
-		game.logSeen(self, "%s revels in the spilt blood and grows stronger!",(self.kr_name or self.name):capitalize()) --@@ 한글화 필요
+		game.logSeen(self, "%s은(는) 피가 흐르는 광경을 즐기며 더 강해졌습니다!",(self.kr_name or self.name):capitalize()) 
 
 		if core.shader.active(4) then
 			eff.particle1 = self:addParticles(Particles.new("shader_shield", 1, {toback=true,  size_factor=1.5, y=-0.3, img="healarcane"}, {type="healing", time_factor=4000, noup=2.0, beamColor1={0xff/255, 0x22/255, 0x22/255, 1}, beamColor2={0xff/255, 0x60/255, 0x60/255, 1}, circleColor={0,0,0,0}, beamsCount=8}))
@@ -1904,7 +1904,7 @@ newEffect{
 		self:removeTemporaryValue("stamina_regen", eff.stamina_regen_id)
 
 		self:removeTemporaryValue("life",eff.templife_id) -- remove extra hps to prevent excessive heals at high level
-		game.logSeen(self, "%s no longer revels in blood quite so much.",(self.kr_name or self.name):capitalize()) --@@ 한글화 필요
+		game.logSeen(self, "%s은(는) 이제 피를 봐도 그다지 즐거운 기분이 들지 않습니다.",(self.kr_name or self.name):capitalize()) 
 	end,
 }
 
@@ -1983,9 +1983,10 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 :kr_name 추가, #1995~1996 한글화
+newEffect{ 
 	name = "GESTURE_OF_GUARDING", image = "talents/gesture_of_guarding.png",
 	desc = "Guarded",
+	kr_name = "수호의 손짓",
 	long_desc = function(self, eff)
 		local xs = ""
 		local dam, deflects = eff.dam, eff.deflects
@@ -1993,8 +1994,8 @@ newEffect{ --@@ 한글화 필요 :kr_name 추가, #1995~1996 한글화
 			dam = dam*math.max(0,deflects)
 			deflects = 1
 		end
-		if self:isTalentActive(self.T_GESTURE_OF_PAIN) then xs = (" with a %d%% chance to counterattack"):format(self:callTalent(self.T_GESTURE_OF_GUARDING,"getCounterAttackChance")) end
-		return ("Guarding against melee damage:  Will dismiss up to %d damage from the next %0.1f attack(s)%s."):format(dam, deflects, xs)
+		if self:isTalentActive(self.T_GESTURE_OF_PAIN) then xs = ("%d%% 확률로 반격"):format(self:callTalent(self.T_GESTURE_OF_GUARDING,"getCounterAttackChance")) end
+		return ("물리 피해로부터 보호 : 다음 %0.1f 회의 공격을, 최대 %d 피해량만큼 보호. %s"):format(deflects, dam, xs)
 	end,
 	charges = function(self, eff) return "#LIGHT_GREEN#"..math.ceil(eff.deflects) end,
 	type = "mental",
@@ -3031,10 +3032,11 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 : kr_name 추가, long_desc 반환 문장 한글화
+newEffect{
 	name = "MINDLASH", image = "talents/mindlash.png",
+	kr_name = "염력 채찍",
 	desc = "Mindlash",
-	long_desc = function(self, eff) return ("Repeated mindlash usage is very taxing increasing the psi cost each time (currently %d%%)"):format(eff.power * 100) end,
+	long_desc = function(self, eff) return ("염력 채찍을 연속으로 사용하면, 염력 소모량이 점차 증가하게 됩니다. (현재 %d%%)"):format(eff.power * 100) end,
 	type = "mental",
 	subtype = { mind=true },
 	status = "detrimental",

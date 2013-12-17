@@ -98,9 +98,9 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[전방 %d 칸 반경에 있는 적들의 정신을 유아 수준으로 퇴행시켜, %d 턴 동안 혼란 상태(%d%% to act randomly)로 만듭니다.
+		return ([[전방 %d 칸 반경에 있는 적들의 정신을 유아 수준으로 퇴행시킵니다. 영향을 받은 적은 혼란 상태가 되어 %d%% 확률로 무작위한 행동을 하게 되며, 이는 %d 턴 동안 지속됩니다.
 		지속시간은 괴리 수치의 영향을 받아 증가합니다.]]):
-		format(radius, t.getConfuseEfficency(self, t), duration) --@@ 한글화 필요 : 두줄 위
+		format(radius, t.getConfuseEfficency(self, t), duration)
 	end,
 }
 

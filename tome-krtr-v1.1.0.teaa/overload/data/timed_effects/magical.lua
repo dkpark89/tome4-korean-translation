@@ -2420,11 +2420,11 @@ newEffect{
 	end,
 }
 
-newEffect{
+newEffect{ 
 	name = "ESSENCE_OF_THE_DEAD", image = "talents/essence_of_the_dead.png",
-	desc = "Essence of the Dead",
 	kr_name = "죽은 자의 정수",
-	long_desc = function(self, eff) return ("원혼을 사용하여 새로운 힘을 습득 : 주문 %d 개 강화"):format(eff.nb) end,
+	desc = "Essence of the Dead",
+	long_desc = function(self, eff) return ("원혼을 흡수하여 새로운 힘 획득. 다음에 사용할 주문 %d 개 강화."):format(eff.nb) end,
 	type = "magical",
 	decrease = 0,
 	subtype = { necrotic=true },

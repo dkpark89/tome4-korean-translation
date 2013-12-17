@@ -413,7 +413,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 			local deflected = math.min(dam, target:callTalent(target.T_GESTURE_OF_GUARDING, "doGuard")) or 0
 --			if deflected > 0 then self:logCombat(target, "#Target# dismisses %d damage from #Source#'s attack with a sweeping gesture.", deflected) end
 			if deflected > 0 then
-				game:delayedLogDamage(self, target, 0, ("%s(%d gestured#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflected), false) --@@ 한글화 필요 : /data/talents/cursed/gestures.lua #252~253 수호의 손짓 설명의 한글화 이후 해당하는 단어로 치환
+				game:delayedLogDamage(self, target, 0, ("%s(수호의 손짓으로 인해 %d 피해 감소#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflected), false) 
 				dam = dam - deflected
 			end
 			print("[ATTACK] after GESTURE_OF_GUARDING", dam)

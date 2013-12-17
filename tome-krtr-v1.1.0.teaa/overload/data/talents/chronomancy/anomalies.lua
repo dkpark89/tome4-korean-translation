@@ -164,7 +164,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[반경 %d 칸의 거품에 들어간 모든 대상들을 %d 턴 동안 기절시킵니다.]]):format(t.getRadius(self, t), t.getStop(self, t)) --@@ 한글화 검수 필요
+		return ([[반경 %d 칸의 거품에 들어간 모든 대상들을 %d 턴 동안 기절시킵니다.]]):format(t.getRadius(self, t), t.getStop(self, t)) 
 	end,
 }
 
@@ -206,7 +206,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[반경 %d 칸의 거품에 들어간 모든 대상들을 %d%% 감속시킵니다.]]):
-		format(t.getRadius(self, t), t.getSlow(self, t)*100) --@@ 한글화 검수 필요
+		format(t.getRadius(self, t), t.getSlow(self, t)*100) 
 	end,
 }
 
@@ -246,8 +246,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 중심으로 반경 %d 칸 안에 있는 존재들(최대 %d)의 전체 속도를 %d%% 증가시킵니다.]]): --@@ 한글화 검수 필요
-		format(10, t.getTargetCount(self, t), t.getPower(self, t)*100) --@@ 변수 순서 조정
+		return ([[대상을 중심으로 반경 %d 칸에 있는, 적 및 아군 (최대 %d 명) 의 전체 속도를 %d%% 증가시킵니다.]]): --@@ 한글화 검수 필요 - 적과 아군 동시 적용 맞는지..
+		format(10, t.getTargetCount(self, t), t.getPower(self, t)*100) 
 	end,
 }
 
@@ -491,8 +491,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[시전자와 반경 %d 칸 안에 있는 무작위한 대상의 위치가 서로 바뀝니다, confusing (%d%% chance to act randomly) both of them for %d turns.]]):
-		format(t.getRange(self, t), t.getConfuseEfficency(self, t), t.getConfuseDuration(self, t)) --@@ 한글화 필요
+		return ([[시전자와 반경 %d 칸 안에 있는 무작위한 대상의 위치가 서로 바뀌며, 둘 모두 혼란 상태에 걸려 %d 턴 동안 %d%% 확률로 무작위한 행동을 하게 됩니다.]]):
+		format(t.getRange(self, t), t.getConfuseDuration(self, t), t.getConfuseEfficency(self, t)) --@@ 변수 순서 변경
 	end,
 }
 
@@ -600,8 +600,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[반경 10 칸의 거품 내부에 있는 존재들(최대 %d)의 기술 %d 개의 재사용 대기시간 %d 턴을 부여합니다.]]): --@@ 한글화 검수 필요
-		format(t.getTalentCount(self, t), t.getTargetCount(self, t), t.getPower(self, t)) --@@ 변수 순서 조정
+		return ([[반경 10 칸의 거품 내부에 있는, 적 및 아군 (최대 %d 명) 의 기술 %d 개에 재사용 대기시간을 %d 턴 부여합니다.]]): 
+		format(t.getTargetCount(self, t), t.getTalentCount(self, t), t.getPower(self, t)) --@@ 변수 순서 조정 -- 재조정
 	end,
 }
 
@@ -765,8 +765,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Pulls up to %d enemies within range %d to the caster's location.]]): --@@ 한글화 필요
-		format(t.getTargetCount(self, t), t.getRange(self, t))
+		return ([[시전자 주위 %d 칸 범위에 있는 적을 %d 명 끌어옵니다.]]): 
+		format(t.getRange(self, t), t.getTargetCount(self, t)) --@@변수 순서 조정
 	end,
 }
 
@@ -807,7 +807,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[반경 10칸 내의 몇몇 존재들을 약화시킵니다.]]) --@@ 한글화 검수 필요
+		return ([[반경 10칸 내의 몇몇 존재들을 약화시킵니다.]]) 
 	end,
 }
 
@@ -850,7 +850,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Substantially toughens and hastes one target for 8 turns.]]) --@@ 한글화 필요
+		return ([[대상 하나를 정해, 8 턴 동안 엄청나게 강화시킵니다.]]) 
 	end,
 }
 

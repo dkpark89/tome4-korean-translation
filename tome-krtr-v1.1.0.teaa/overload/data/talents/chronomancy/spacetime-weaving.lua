@@ -297,6 +297,6 @@ newTalent{
 		local wormhole = t.cdred(self, t, 20)
 		return ([[시공간에 대한 수련을 통해 차원의 걸음, 추방, 시간의 흔적 마법의 재사용 대기시간을 %d 턴 줄이고, 웜홀의 재사용 대기시간을 %d 턴 줄입니다.
 		그리고 추방, 시간 지우기 등 '연속체 불안정화' 효과가 일어날 수 있는 시공 계열 마법으로 적을 공격할 때 주문력을 높이고, 자신의 연속체 불안정화 면역 확률을 %d%% 증가시킵니다.]]):
-		format(cooldown, wormhole, t.getPower(self, t)*100) --@@ 한글화 검수 필요 : 윗줄
+		format(cooldown, wormhole, t.getPower(self, t)*100) 
 	end,
 }

@@ -1810,15 +1810,16 @@ newEffect{
 	end,
 }
 
-newEffect{ -- Note: This effect is cancelled by EFF_DISARMED --@@ 한글화 필요 #1813~1842, (desc에 대응하는) kr_name 추가, long_desc 반환문장 한글화
+newEffect{
 	name = "DUAL_WEAPON_DEFENSE", image = "talents/dual_weapon_defense.png",
 	desc = "Parrying",
+	kr_name = "무기 쳐내기",
 	deflectchance = function(self, eff) -- The last partial deflect has a reduced chance to happen
 		if self:attr("encased_in_ice") or self:hasEffect(self.EFF_DISARMED) then return 0 end
 		return util.bound(eff.deflects>=1 and eff.chance or eff.chance*math.mod(eff.deflects,1),0,100)
 	end,
 	long_desc = function(self, eff)
-		return ("Parrying melee attacks: Has a %d%% chance to deflect up to %d damage from the next %0.1f attack(s)."):format(self.tempeffect_def.EFF_DUAL_WEAPON_DEFENSE.deflectchance(self, eff),eff.dam, math.max(eff.deflects,1))
+		return ("무기로 근접 공격을 흘려냄 : %d%% 확률로, 최대 %d 피해량까지 막아냄. 앞으로 %0.1f 회 가능"):format(self.tempeffect_def.EFF_DUAL_WEAPON_DEFENSE.deflectchance(self, eff),eff.dam, math.max(eff.deflects,1))
 	end,
 	charges = function(self, eff) return math.ceil(eff.deflects) end,
 	type = "physical",
@@ -1872,7 +1873,7 @@ newEffect{
 		if shield then shield:check("on_block", self, src, type, dam, eff) end
 		if eff.properties.br then
 			self:heal(blocked, src)
-			game:delayedLogMessage(self, src, "block_heal", "#CRIMSON##Source# heals from blocking with %s shield!", string.his_her(self)) --@@ 한글화 필요
+			game:delayedLogMessage(self, src, "block_heal", "#CRIMSON##Source1# 회복 효과가 %s의 방패에 의해 막혔습니다!", string.his_her(self)) 
 		end
 		if eff.properties.ref and src.life then DamageType.defaultProjector(src, src.x, src.y, type, blocked, tmp, true) end
 		if (self:knowTalent(self.T_RIPOSTE) or amt == 0) and src.life then src:setEffect(src.EFF_COUNTERSTRIKE, (1 + dur_inc) * (src.global_speed or 1), {power=eff.power, no_ct_effect=true, src=self, crit_inc=crit_inc, nb=nb}) end -- specify duration here to avoid stacking for high speed attackers
@@ -1892,15 +1893,16 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 #1895~1920, (desc에 대응하는) kr_name 추가, long_desc 반환문장 한글화
+newEffect{ 
 	name = "COUNTER_ATTACKING", image = "talents/counter_attack.png",
+	kr_name = "반격",
 	desc = "Counter Attacking",
 	counterchance = function(self, eff) --The last partial counter attack has a reduced chance to happen
 		if self:attr("encased_in_ice") or self:hasEffect(self.EFF_DISARMED) then return 0 end
 		return util.bound(eff.counterattacks>=1 and eff.chance or eff.chance*math.mod(eff.counterattacks,1),0,100)
 	end,
 	long_desc = function(self, eff)
-		return ("Countering melee attacks: Has a %d%% chance to get an automatic counter attack when avoiding a melee attack. (%0.1f counters remaining)"):format(self.tempeffect_def.EFF_COUNTER_ATTACKING.counterchance(self, eff), math.max(eff.counterattacks,1))
+		return ("근접 공격 반격 : %d%% 확률로 근접 공격을 피하고 자동 반격. (앞으로 %0.1f 회 반격 가능))"):format(self.tempeffect_def.EFF_COUNTER_ATTACKING.counterchance(self, eff), math.max(eff.counterattacks,1))
 	end,
 	charges = function(self, eff) return math.ceil(eff.counterattacks) end,
 	type = "physical",
@@ -1919,15 +1921,16 @@ newEffect{ --@@ 한글화 필요 #1895~1920, (desc에 대응하는) kr_name 추�
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 #1922~1948, (desc에 대응하는) kr_name 추가, long_desc 반환문장 한글화
+newEffect{ 
 	name = "DEFENSIVE_GRAPPLING", image = "talents/defensive_throw.png",
 	desc = "Grappling Defensively",
+	kr_name = "방어적 붙잡기",
 	throwchance = function(self, eff) -- the last partial defensive throw has a reduced chance to happen
 		if not self:isUnarmed() or self:attr("encased_in_ice") then return 0 end	-- Must be unarmed
 		return util.bound(eff.throws>=1 and eff.chance or eff.chance*math.mod(eff.throws,1),0,100)
 	end,
 	long_desc = function(self, eff)
-		return ("Has a %d%% chance to counter attack with a defensive throw when avoiding a melee attack, possibly throwing the target to the ground and stunning it. (%0.1f throws remaining)"):format(self.tempeffect_def.EFF_DEFENSIVE_GRAPPLING.throwchance(self, eff), math.max(eff.throws,1))
+		return ("%d%% 확률로 근접 공격을 피하고, 방어적 던지기로 반격. 대상을 집어던지고 기절시킬 확률 존재 (앞으로 %0.1f 회 던지기 가능)"):format(self.tempeffect_def.EFF_DEFENSIVE_GRAPPLING.throwchance(self, eff), math.max(eff.throws,1))
 	end,
 	charges = function(self, eff) return math.ceil(eff.throws) end,
 	type = "physical",
@@ -1950,14 +1953,14 @@ newEffect{ --@@ 한글화 필요 #1922~1948, (desc에 대응하는) kr_name 추�
 newEffect{
 	name = "COUNTERSTRIKE", image = "effects/counterstrike.png",
 	desc = "Counterstrike",
-	kr_name = "반격",
-	long_desc = function(self, eff) return "반격 : 근접 공격에 맞으면 100% 더 큰 피해를 입음" end,
+	kr_name = "반격 대상",
+	long_desc = function(self, eff) return "반격 대상 : 근접 공격에 맞으면 100% 더 큰 피해를 입음" end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "detrimental",
 	parameters = { nb=1 },
-	on_gain = function(self, eff) return nil, "+반격" end,
-	on_lose = function(self, eff) return nil, "-반격" end,
+	on_gain = function(self, eff) return nil, "+반격 대상" end,
+	on_lose = function(self, eff) return nil, "-반격 대상" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("counterstrike", 1)
 		eff.def = self:addTemporaryValue("combat_def", -eff.power)
@@ -2289,16 +2292,17 @@ newEffect{
 	end,
 }
 
-newEffect{ --@@ 한글화 필요 #2292~2310 : (desc에 대응하는) kr_name 추가, long_desc 반환문장 한글화, on_gain 반환문장들 한글화, on_lose 반환문장들 한글화
+newEffect{
 	name = "JUGGERNAUT", image = "talents/juggernaut.png",
 	desc = "Juggernaut",
-	long_desc = function(self, eff) return ("Reduces physical damage received by %d%%."):format(eff.power) end,
+	kr_name = "저돌적인 전투",
+	long_desc = function(self, eff) return ("물리 피해를 %d%% 더 적게 받음"):format(eff.power) end,
 	type = "physical",
 	subtype = { superiority=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# hardens its skin.", "+Juggernaut" end,
-	on_lose = function(self, err) return "#Target#'s skin returns to normal.", "-Juggernaut" end,
+	on_gain = function(self, err) return "#Target#의 피부가 단단해졌습니다.", "+저돌적인 전투" end,
+	on_lose = function(self, err) return "#Target#의 피부가 원래 상태로 돌아갔습니다.", "-저돌적인 전투" end,
 	activate = function(self, eff)
 		eff.particle = self:addParticles(Particles.new("stone_skin", 1, {density=4}))
 		eff.tmpid = self:addTemporaryValue("resists", {[DamageType.PHYSICAL]=eff.power})

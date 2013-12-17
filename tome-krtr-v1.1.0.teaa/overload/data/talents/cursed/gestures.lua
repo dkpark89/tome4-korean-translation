@@ -249,8 +249,8 @@ newTalent{
 	info = function(self, t)
 		local damageChange = t.getDamageChange(self, t, true)
 		local counterAttackChance = t.getCounterAttackChance(self, t, true)
-		return ([[You guard against melee damage with a sweep of your hand. So long as you can use Gestures (Requires two free or mindstar-equipped hands), you deflect up to %d damage (%0.1f%% of your best free hand melee damage) from up to %0.1f melee attack(s) each turn (based on your cunning).
-		If Gesture of Pain is active, you also have a %0.1f%% chance to counterattack.]]): --@@ 한글화 필요 #252~253
+		return ([[손짓을 사용하여 적의 근접 공격을 막아낼 수 있게 됩니다. 손짓을 사용하는 동안 (두 손 모두 비어있거나 마석만을 들고 있어야 합니다), 최대 %d 피해 (자신의 최대 근접 공격력에서 %0.1f%%) 만큼, 매 턴마다 최대 %0.1f 회의 공격 (교활함 능력치 기반) 을 막아낼 수 있습니다.
+		고통의 손짓이 활성화 중일 경우, %0.1f%% 확률로 적에게 반격을 가할 수도 있습니다.]]):
 		format(damageChange, t.getGuardPercent(self, t), t.getDeflects(self, t, true), counterAttackChance)
 	end,
 }
