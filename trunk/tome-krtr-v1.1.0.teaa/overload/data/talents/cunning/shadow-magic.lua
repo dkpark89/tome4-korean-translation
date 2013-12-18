@@ -144,8 +144,8 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[그림자를 통해 대상에게 다가가, %d 턴 동안 혼절시키고 %d%% 무기 피해를 어둠 속성으로 줍니다.
-		Dazed targets are significantly impaired, but any damage will free them.
-		그림자 걷기를 사용하기 위해서는, 우선 대상을 볼 수 있어야 합니다.]]): --@@ 한글화 필요 : 윗줄
+		혼절된 적은 크게 약화되지만, 피해를 받으면 혼절 상태가 해제됩니다.
+		그림자 걷기를 사용하기 위해서는 우선 대상을 볼 수 있어야 합니다.]]): 
 		format(duration, t.getDamage(self, t) * 100)
 	end,
 }

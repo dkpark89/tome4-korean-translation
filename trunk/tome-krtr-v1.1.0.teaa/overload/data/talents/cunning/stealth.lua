@@ -60,7 +60,7 @@ newTalent{
 		if not self.x or not self.y or not game.level then return end
 		if not rng.percent(self.hide_chance or 0) then
 			if stealthDetection(self, t.getRadius(self, t)) > 0 then 
-				if not silent then game.logPlayer(self, "You are being observed too closely to enter Stealth!") end --@@ 한글화 필요
+				if not silent then game.logPlayer(self, "너무 가까이에 적이 있어서, 은신 상태가 될 수 없습니다!") end 
 				return nil
 			end
 		end
@@ -151,11 +151,11 @@ newTalent{
 	end,
 	-- Note it would be easy to include the %chance of success from the player's current location here
 	info = function(self, t)
-		return ([[You have learned how to be stealthy even when in plain sight of your foes.  You may attempt to enter stealth regardless of how close you are to your enemies, but success is more likely against fewer opponents that are farther away.
-		Your chance to succeed is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection of all enemies (reduced by 10%% per tile distance) that have a clear line of sight to you.
-		You always succeed if you are not directly observed.
-		If successful, all creatures currently following you will lose track of your position.
-		This also resets the cooldown of your Stealth talent.]]): --@@ 한글화 필요 : 네줄위~현재줄
+		return ([[적들이 보고 있는 중에서도 은신할 수 있는 방법을 배우게 됩니다. 적들이 얼마나 가까이 있는지와 상관없이 은신 시도를 할 수 있지만, 적이 많고 가까이 있을수록 성공률이 떨어지게 됩니다.
+		은신 성공 확률은 자기 은신 수치의 %0.2f 배 (즉, 은신 수치 %d), 그리고 자신을 보고 있는 모든 적들의 은신 감지력을 비교하여 결정됩니다. (계산시, 자신과 1 칸 떨어져 있을수록 적의 은신 감지력은 10%% 씩 감소합니다) 
+		자신을 직접 보고 있는 적이 없을 경우, 은신이 언제나 성공합니다.
+		성공적으로 은신을 하면 적들이 자신의 정확한 위치를 알지 못하거나, 아예 자신의 존재를 모르게 됩니다.
+		또한 은신 기술의 재사용 대기시간이 초기화됩니다.]]): 
 		format(t.stealthMult(self, t), t.getChance(self, t, true))
 	end,
 }
@@ -182,8 +182,8 @@ newTalent{
 	end,
 	-- Note it would be easy to include the %chance of success from the player's current location here
 	info = function(self, t)
-		return ([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.  When you perform such an action while stealthed, you have a chance to stay hidden.  Success is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you.
-		Your base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it.]]): --@@ 한글화 필요
+		return ([[은신 상태를 해제시키는 행동 (공격, 도구 사용, ...) 을 해도 은신 상태를 유지할 수 있게 되지만, 적이 많고 가까이 있을수록 성공률이 떨어지게 됩니다. 성공 확률은 자기 은신 수치의 %0.2f 배 (즉, 은신 수치 %d), 그리고 자신을 보고 있는 모든 적들의 은신 감지력을 비교하여 결정됩니다. (계산시, 자신과 1 칸 떨어져 있을수록 적의 은신 감지력은 10%% 씩 감소합니다) 
+		적에게 감지되지 않았을 경우의 기본 성공률은 100%% 이며, 캐릭터의 행운 역시 영향을 미칩니다.]]): 
 		format(t.stealthMult(self, t), t.getChance(self, t, true))
 	end,
 }

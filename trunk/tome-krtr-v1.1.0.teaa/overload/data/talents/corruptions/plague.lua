@@ -242,7 +242,7 @@ newTalent{
 	do_spread = function(self, t, carrier, dam)
 		if not dam or type(dam) ~= "number" then return end
 		if not rng.percent(100*dam/(t.spreadFactor(self, t)*carrier.max_life)) then return end
-		game.logSeen(self, "The diseases of %s spread!", self.name) --@@ 한글화 필요
+		game.logSeen(self, "%s의 질병이 다른 대상에게 감염됩니다!", self.name) 
 		-- List all diseases
 		local diseases = {}
 		for eff_id, p in pairs(carrier.tmp) do
@@ -291,10 +291,10 @@ newTalent{
 	info = function(self, t)
 		return ([[대상에게 전염성이 강한 질병을 감염시켜, 6 턴 동안 매 턴마다 %0.2f 피해를 줍니다.
 		이 질병에 의한 것을 제외한 황폐 속성 피해를 받을 때마다, 2 칸 반경의 다른 적들에게 질병이 전염됩니다.
-		The chance to spread increases with the blight damage dealt and is 100%% if it is at least %d%% of the target's maximum life.
+		전염될 확률은 대상에게 가한 황폐 속성 피해량의 영향을 받아 증가하며, 최대 생명력의 %d%% 이상 피해를 줄 경우 100%% 전염됩니다.
 		이 질병에 감염된 적들은 생명력 회복 효율이 %d%% 감소하며, 질병 면역력이 %d%% 감소합니다.
 		이 질병은 엄청나게 강력하기 때문에, 대상의 질병 면역력을 완전히 무시합니다.
-		피해량은 주문력, 전염될 확률은 대상에게 가한 황폐 속성 피해량의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 : 세줄 위
+		기술의 피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 70)), t.spreadFactor(self, t)*100 ,t.healloss(self,t), t.disfact(self,t))
 	end,
 }

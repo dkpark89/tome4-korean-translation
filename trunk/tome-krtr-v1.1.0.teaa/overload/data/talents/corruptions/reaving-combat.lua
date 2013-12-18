@@ -59,8 +59,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local SPbonus, maxDur = t.getParams(self, t)
-		return ([[Each time you deal damage to one of your foes, you enter a bloodlust-infused frenzy, increasing your Spellpower by 1 (maximum %d Spellpower per turn, %d Spellpower overall), and extending any current frenzy for an additional turn.
-		The frenzy lasts up to %d turns, and the bonus decreases by %0.1f%% of its current value each turn you don't deal damage.]]): --@@ 한글화 필요
+		return ([[하나의 적에게 피해를 입힐 때마다, 피의 분노 상태에 들어가 주문력이 1 상승합니다. (한 턴에 최대 %d 주문력, 전체 최대 %d 주문력)
+		또한 현재 유지 중인 다른 분노의 지속시간이 늘어납니다.
+		피의 분노는 %d 턴 동안 유지되며, 적에게 피해를 주지 않은 턴에는 증가한 주문력이 %0.1f%% 감소합니다.]]): 
 		format(SPbonus, SPbonus*6, maxDur, 100/maxDur)
 	end,
 }
@@ -80,7 +81,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[질병 면역력이 %d%% 상승하며, 근접 공격을 할 때마다 %d%% 확률로 대상에게 무작위한 질병을 감염시킵니다.
-		(As the Epidemic talent with the melee attack treated like blight damage.)]]): --@@ 한글화 필요
+		(유행성 질병 기술에 걸린 적에게는 근접 공격이 황폐 피해처럼 적용됩니다.)]]): 
 		format(t.getDiseaseImmune(self, t)*100, t.getDiseaseSpread(self, t))
 	end,
 }

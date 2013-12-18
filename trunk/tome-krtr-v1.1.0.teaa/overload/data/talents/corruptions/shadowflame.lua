@@ -34,8 +34,8 @@ newTalent{
 	info = function(self, t)
 		return ([[악령으로 변신하여, %d 턴 동안 벽을 통과할 수 있게 됩니다. (단, 벽 안에서는 숨을 쉴 수 없습니다)
 		또한 회피도가 %d / 방어도가 %d 상승합니다.
-		If you are still in a wall when the effect ends you will randomly teleport.
-		이 효과는 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 : 윗줄
+		기술 지속시간이 끝날 때 벽 속에 있게 되면, 무작위한 곳으로 순간이동하게 됩니다.
+		이 기술의 효과는 주문력의 영향을 받아 증가합니다.]]): 
 		format(t.getDuration(self, t), self:combatTalentSpellDamage(t, 5, 19), self:combatTalentSpellDamage(t, 5, 15))
 	end,
 }

@@ -77,8 +77,8 @@ newTalent{
 		4 레벨 : 무장해제 함정
 		5 레벨 : 밤그림자 함정
 		세계를 여행하면서 새로운 함정 설치법을 배울 수도 있습니다.
-		이 기술은 함정의 효율 또한 %d%% 상승시킵니다. (함정마다 효율이 적용되는 곳은 다릅니다) and makes them more difficult to detect and disarm (%d detection 'power' and %d disarm 'power') based on your Cunning.
-		설치된 함정이 작동되지 않았을 경우, 함정 설치에 사용된 체력의 80%% 만큼이 다시 회복됩니다.]]): --@@ 한글화 필요 : 윗줄
+		이 기술은 함정의 효율을 %d%% 상승시키며 (함정마다 효율이 적용되는 곳은 다릅니다), 교활함 능력치의 영향을 받아 함정의 탐지 및 해체가 더 어려워집니다. (탐지 난이도 %d / 해체 난이도 %d)
+		설치된 함정이 작동되지 않았을 경우, 함정 설치에 사용된 체력의 80%% 만큼이 다시 회복됩니다.]]): 
 		format(t.getTrapMastery(self,t), detect_power, disarm_power) --I5
 	end,
 }
@@ -696,7 +696,7 @@ newTalent{
 						if target:canBe("knockback") then 
 							target:pull(self.x, self.y, 1)
 							if target.x ~= ox or target.y ~= oy then
-								self.summoner:logCombat(target, "#Target# is pulled towards #Source#'s gravity trap!") --@@ 한글화 필요
+								self.summoner:logCombat(target, "#Target1# 중력장 함정에 의해 #Source# 쪽으로 끌려왔습니다!") 
 							end
 						end
 					end
