@@ -218,9 +218,9 @@ uberTalent{
 		- 이크 '한길'의 일원 : 어둠의 문
 		- 진흙 덩어리 : 뼈의 방패 (레벨 %d)
 		- 점액 덩어리 : 악성 질병
-		Your necrotic minions and wild-summons get a bonus to Magic equal to yours.
-		The talent levels increase with your level, and other race- or object-based summons may also be affected.
-		]]):format(tl,math.ceil(tl*2/3)) --@@ 한글화 필요 : 두줄위~윗줄
+		또한, 어둠의 추종자들과 야생의 소환수들에게 시전자의 마법 능력치만큼 마법 능력치를 부여합니다.
+		소환수들의 기술 레벨은 시전자의 레벨에 따라 증가하며, 종족이나 도구를 통한 소환물 역시 이 기술의 영향을 받습니다.
+		]]):format(tl,math.ceil(tl*2/3)) 
 	end,
 -- Note: Choker of Dread Vampire, and Mummified Egg-sac of Ungol� spiders handled by default
 -- Crystal Shard summons use specified talent

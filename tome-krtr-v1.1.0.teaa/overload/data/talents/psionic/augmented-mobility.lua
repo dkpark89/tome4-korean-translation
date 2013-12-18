@@ -52,7 +52,7 @@ newTalent{
 		local range = self:getTalentRange(t)
 		return ([[염력으로 대상을 붙잡아, 시전자가 있는 곳으로 끌어옵니다.
 		%d 칸 이내에 있는 대상까지 끌어올 수 있으며, 기술 레벨이 증가할수록 재사용 대기시간이 줄어들고 최대 사거리가 늘어납니다.
-		This talent receives a reduced benefit from the Reach talent.]]): --@@ 한글화 필요
+		이 기술은 도달 기술을 통해서 받는 효과가 감소됩니다.]]): 
 		format(range)
 	end,
 }
@@ -115,7 +115,7 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		return ([[염동력을 이용해, 최대 %d 칸 까지 도약합니다.
-		This talent receives a reduced benefit from the Reach talent.]]): --@@ 한글화 필요
+		이 기술은 도달 기술을 통해서 받는 효과가 감소됩니다.]]): 
 		format(range)
 	end,
 }
@@ -215,7 +215,7 @@ newTalent{
 		기술 레벨이 5 이상이면, 단단한 벽을 뚫어버릴 수 있습니다.
 		몸의 보호를 위해서, 동역학적 보호막의 파편이 반드시 필요합니다.
 		돌진을 사용하면 자동적으로 동역학적 보호막이 깨져 파편 상태가 되며, 동역학적 보호막이 없다면 동역학적 돌진 역시 사용할 수 없습니다.
-		This talent receives a reduced benefit from the Reach talent.]]): --@@ 한글화 필요
+		이 기술은 도달 기술을 통해서 받는 효과가 감소됩니다.]]): 
 		format(range, 2*dam/3, dam)
 	end,
 }

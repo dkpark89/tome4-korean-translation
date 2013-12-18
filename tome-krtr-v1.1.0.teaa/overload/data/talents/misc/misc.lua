@@ -236,8 +236,9 @@ newTalent{
 }
 
 -- Madness difficulty
-newTalent{ --@@ 한글화 필요 : kr_name 추가, info 번역
+newTalent{ 
 	name = "Hunted!", short_name = "HUNTED_PLAYER",
+	kr_name = "사냥 대상!",
 	type = {"base/class", 1},
 	mode = "passive",
 	no_unlearn_last = true,
@@ -252,8 +253,8 @@ newTalent{ --@@ 한글화 필요 : kr_name 추가, info 번역
 			end
 		end end end
 	end,
-	info = function(self, t) return ([[You are hunted!.
-		There is %d%% chances each turn that all foes in a %d radius get a glimpse of your position for 6 turns.]]):
+	info = function(self, t) return ([[적들의 사냥감이 되었습니다!
+	6 턴 동안, 매 턴마다 %d%% 확률로 주변 %d 칸 반경의 모든 적들이 캐릭터의 현재 위치를 알게 됩니다.]]):
 		format(1 + self.level / 7, 10 + self.level / 5)
 	end,
 }
@@ -403,7 +404,7 @@ newTalent{
 		return true
 	end,
 	info = [[특수한 단거리 순간이동 마법으로, 지표면으로 돌아갈 수 있습니다.
-	Requires being in flight above the ground of a planet.]] --@@ 한글화 필요
+	행성의 지면 위를 비행 중일 경우에만 사용할 수 있습니다.]] 
 }
 
 newTalent{
@@ -435,12 +436,13 @@ newTalent{
 		return true
 	end,
 	info = [[요새 에너지를 10 사용하여, 지면에 강력한 에너지탄을 발사합니다. 에너지탄에 휩쓸린 모든 적들은 큰 피해를 입습니다.
-	Requires being in flight above the ground of a planet.]] --@@ 한글화 필요
+	행성의 지면 위를 비행 중일 경우에만 사용할 수 있습니다.]] 
 }
 
-newTalent{ --@@ 한글화 필요 : kr_name 추가, info 번역 
+newTalent{ 
 	short_name = "SHERTUL_FORTRESS_ORBIT",
 	name = "High Planetary Orbit",
+	kr_name = "행성 궤도 비행",
 	type = {"base/race", 1},
 	fortress_energy = 100,
 	no_npc_use = true,
@@ -453,6 +455,6 @@ newTalent{ --@@ 한글화 필요 : kr_name 추가, info 번역
 
 		return true
 	end,
-	info = [[Activate the powerful flight engines of the Fortress, propelling it fast into high planetary orbit.
-	Requires being in flight above the ground of a planet.]]
+	info = [[요새의 강력한 비행 엔진을 작동시켜, 행성 궤도를 볼 수 있을 때까지 날아오릅니다.
+	행성의 지면 위를 비행 중일 경우에만 사용할 수 있습니다.]]
 }

@@ -174,7 +174,7 @@ newTalent{
 		local power = t.getPower(self, t) *100
 		return ([[대상을 깨물어 %d%% 무기 피해를 줍니다. 5 턴 동안 %d%% 무기 피해를 주는 출혈 상태효과를 걸 확률이 있습니다.
 		대상이 출혈에 걸리면, 피냄새를 맡은 자신을 포함한 주변의 '포식자' 들이 %d 턴 간 광란 상태에 빠집니다.
-		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]]): --@@ 한글화 필요
+		광란 상태에 빠지면 전체 속도가 %d%% / 물리 치명타율이 %d%% 상승하며, 생명력이 -%d%% 이하로 떨어지기 전까지는 죽지 않게 됩니다.]]):
 		format(damage, bleed, t.getDuration(self, t), power, power, power)
 	end,
 }

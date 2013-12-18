@@ -162,7 +162,7 @@ newTalent{
 					name = "stone wall", image = "terrain/granite_wall1.png",
 					kr_name = "암석의 벽",
 					display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
-					desc = "a summoned wall of stone", --@@ 한글화 필요
+					desc = "소환된 암석 벽", 
 					type = "wall", --subtype = "floor",
 					always_remember = true,
 					can_pass = {pass_wall=1},

@@ -96,12 +96,12 @@ newTalent{
 		if self:knowTalent(self.T_STEALTH) then
 			classrestriction = "(중갑이나 판갑은 은신할 때 방해가 됩니다)"
 		end
-		return ([[You become better at using your armour to deflect blows and protect your vital areas.
-		현재 장비한 방어구들로 방어도가 %d 상승하고, 방어 효율이 %d%% 증가하며, 적에게 치명타를 맞을 확률이 %d%% 줄어들었습니다.
+		return ([[갑옷을 더 능숙하게 사용해, 공격을 막아내고 치명타로부터 몸을 지킬 수 있게 됩니다.
+		현재 장비한 방어구들로 방어도가 %d 상승하고, 방어 효율이 %d%% 증가하며, 적에게 치명타를 맞을 확률이 %d%% 줄어듭니다.
 		1 레벨에는 중갑과 갑옷용 장갑, 투구, 중장화를 착용할 수 있게 되며,
 		2 레벨에는 방패를 들 수 있게 되고,
 		3 레벨에는 판갑을 착용할 수 있게 됩니다.
-		%s]]):format(armor, hardiness, criticalreduction, classrestriction) --@@ 한글화 필요 : 다섯줄 위
+		%s]]):format(armor, hardiness, criticalreduction, classrestriction) 
 	end,
 }
 

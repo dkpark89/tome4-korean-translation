@@ -539,14 +539,15 @@ newTalent{
 	end,
 }
 
-newTalent{ --@@ 한글화 필요 : kr_name 추가, message 한글화, info의 리턴 한글화 
+newTalent{ 
 	name = "Poison Breath", short_name = "DROLEM_POISON_BREATH", image = "talents/poison_breath.png",
+	kr_name = "독 브레스",
 	type = {"golem/drolem",1},
 	require = spells_req_high1,
 	points = 5,
 	mana = 25,
 	cooldown = 8,
-	message = "@Source@ breathes poison!",
+	message = "@Source1@ 독을 뿜었습니다!",
 	tactical = { ATTACKAREA = { NATURE = 1, poison = 1 } },
 	range = 0,
 	radius = 5,
@@ -564,7 +565,7 @@ newTalent{ --@@ 한글화 필요 : kr_name 추가, message 한글화, info의 �
 		return true
 	end,
 	info = function(self, t)
-		return ([[Breathe poison on your foes, doing %d damage over a few turns.
-		The damage will increase with your Magic.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentStatDamage(t, "mag", 30, 460)))
+		return ([[적에게 독성 브레스를 뿜어, 몇 턴 동안 %d 피해를 줍니다.
+		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentStatDamage(t, "mag", 30, 460)))
 	end,
 }

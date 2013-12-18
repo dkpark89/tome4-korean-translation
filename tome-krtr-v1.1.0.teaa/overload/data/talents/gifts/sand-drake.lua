@@ -69,8 +69,8 @@ newTalent{
 	info = function(self, t)
 		return ([[대상을 공격하여, %d%% 무기 피해를 자연 속성으로 줍니다.
 		공격에 맞은 대상의 생명력이 %d%% 이하로 떨어졌거나 죽었을 경우, 적을 삼켜 즉사시키고 레벨에 따라 생명력과 평정을 회복합니다.
-		The chance to swallow depends on your talent level and the relative size of the target.
-		이 기술의 레벨이 오를 때마다, 물리 저항력이 0.5%% 상승합니다.]]): --@@ 한글화 필요 : 윗줄
+		적을 삼킬 확률은 기술 레벨과 대상의 신체 크기에 따라 달라집니다.
+		또한 이 기술의 레벨이 오를 때마다, 물리 저항력이 0.5%% 상승합니다.]]): 
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.5), t.maxSwallow(self, t, self))
 	end,
 }

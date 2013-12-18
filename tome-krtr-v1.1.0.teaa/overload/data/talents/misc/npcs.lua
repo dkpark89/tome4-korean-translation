@@ -452,7 +452,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. If the attack hits, the target is afflicted with a disease, inflicting %d blight damage per turn for %d turns and reducing constitution.]]): --@@ 한글화 필요
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 적중할 경우, 대상은 질병에 걸려 매 턴마다 %d 황폐 피해를 %d 턴 동안 받으며 체격 능력치가 감소됩니다.]]): 
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 1),damDesc(self, DamageType.BLIGHT,self:getStr() / 3 + self:getTalentLevel(t) * 2),t.getDuration(self, t))
 	end,
 }
@@ -486,7 +486,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. If the attack hits, the target is afflicted with a disease, inflicting %d blight damage per turn for %d turns and reducing dexterity.]]): --@@ 한글화 필요
+		return ([[대상을 공격하여 %d%% 피해를 줍니다.공격이 적중할 경우, 대상은 질병에 걸려 매 턴마다 %d 황폐 피해를 %d 턴 동안 받으며 민첩 능력치가 감소됩니다.]]): 
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 1),damDesc(self, DamageType.BLIGHT,self:getStr() / 3 + self:getTalentLevel(t) * 2),t.getDuration(self, t))
 	end,
 }
@@ -520,7 +520,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 공격하여 %d%% 피해를 줍니다. If the attack hits, the target is afflicted with a disease, inflicting %d blight damage per turn for %d turns and reducing strength.]]): --@@ 한글화 필요
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 적중할 경우, 대상은 질병에 걸려 매 턴마다 %d 황폐 피해를 %d 턴 동안 받으며 힘 능력치가 감소됩니다]]): 
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 1),damDesc(self, DamageType.BLIGHT,self:getStr() / 3 + self:getTalentLevel(t) * 2),t.getDuration(self, t))
 	end,
 }
@@ -1311,7 +1311,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Causes the user to explode (killing it) in a blinding light burst for %d damage.]]): --@@ 한글화 필요
+		return ([[시전자를 폭발시켜 (시전자는 사망합니다), 강렬한 빛을 뿜어내 %d 피해를 줍니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, t.getDamage(self, t)))
 	end,
 }
@@ -1548,8 +1548,8 @@ newTalent{
 	info = function(self, t)
 		local range = t.radius(self,t)
 		local power = t.getPower(self,t) * 100
-		return ([[Sends Dredges in a radius of %d into a frenzy for %d turns.
-		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]]): --@@ 한글화 필요 : 윗줄~현재줄
+		return ([[주변 %d 칸 범위 안에 있는 드렛지를 %d 턴 동안 광란 상태로 만듭니다.
+		광란 상태에 빠지면 전체 속도가 %d%% / 물리 치명타율이 %d%% 상승하며, 생명력이 -%d%% 이하로 떨어지기 전까지는 죽지 않게 됩니다.]]): 
 		format(range, t.getDuration(self, t), power, power, power)
 	end,
 }

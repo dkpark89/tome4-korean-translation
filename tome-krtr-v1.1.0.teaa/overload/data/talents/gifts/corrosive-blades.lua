@@ -70,7 +70,7 @@ newTalent{
 		local res = t.getResist(self, t)
 		return ([[당신이 적에게 자연 속성 피해를 줄 때마다, 적의 산성 저항력이 2 턴 동안 %d%% 감소하게 됩니다.
 		저항력 감소치는 정신력의 영향을 받아 증가합니다.
-		This effect can only happen at most once every %d turns.]]): --@@ 한글화 필요
+		또한 이 효과는 한번 발동하면 %d 턴 동안 다시 발동되지 않습니다.]]): 
 		format(res, self:getTalentCooldown(t))
 	end,
 }

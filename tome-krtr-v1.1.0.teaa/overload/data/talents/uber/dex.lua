@@ -225,13 +225,11 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You have learned to take a few hits when needed and can flow with the tide of battle.
-		So long as you can move, you find a way to dodge, evade, deflect or otherwise reduce physical damage against you by %d%%.
-		Once per turn, when you get hit by a melee or archery attack you move back one tile for free and gain 200%% movement speed for a turn.
-		The damage avoidance scales with your Dexterity and applies after resistances.]])
-		:format(100*(1-t.getMult(self, t))) --@@ 한글화 필요 : 참고용으로 기존 번역본 주석으로 놔둠 - 한글화 이후 아래 주석 두 줄 삭제
---		return ([[경험을 통해, 적의 공격을 맞아주면서 전투의 흐름을 탈 수 있게 되었습니다. 적의 물리 공격을 받을 때 피해를 10%% 덜 입게 됩니다. 
---		또한 근접 공격이나 원거리 물리 공격을 맞을 때마다 턴 소모 없이 한 칸 뒤로 이동할 수 있게 되며 (한 턴에 한 번만 가능합니다), 1 턴 동안 이동속도가 200%% 증가합니다.]]):format()
+		return ([[경험을 통해, 적의 공격을 허용해주면서 전투의 흐름을 타는 방법을 익혔습니다.
+		때문에 이동할 수 있는 한 공격을 피하고, 흘리며, 튕겨내는 등 캐릭터가 받는 물리 공격 피해를 %d%% 감소시킬 수 있게 됩니다.
+		또한 근접 공격이나 원거리 물리 공격을 맞을 때마다 턴 소모 없이 한 칸 뒤로 이동할 수 있게 되며 (한 턴에 한 번만 가능합니다), 1 턴 동안 200%% 의 이동속도를 얻게 됩니다.
+		피해 감소량은 민첩 능력치의 영향을 받아 증가하며, 다른 저항력에 의한 계산이 끝난 뒤에 적용됩니다.]])
+		:format(100*(1-t.getMult(self, t))) 
 	end,
 }
 
