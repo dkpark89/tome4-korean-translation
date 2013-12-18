@@ -814,11 +814,12 @@ newTalent{
 	info = function(self, t)
 		local nb = t.getMax(self, t)
 		local lev = t.getLevel(self, t)
-		local mm = self:knowTalent(self.T_MINION_MASTERY) and " (Minion Mastery effects included)" or "" --@@ 한글화 필요
+		local mm = self:knowTalent(self.T_MINION_MASTERY) and " (언데드 추종 수련 기술의 효과 포함)" or ""
 		return ([[강렬한 언데드의 기운을 불어넣어, 사령술의 기운에 의해 붙잡힌 영혼을 언데드 추종자로 되살려냅니다. (최대 %d 마리 유지 가능)
 		언데드 추종자는 사령술의 기운이 깃든 범위 내에서만 일으킬 수 있습니다.
 		언데드 추종자의 레벨은 시전자의 %+d 입니다.
-		생성될 언데드 추종자의 확률은 다음과 같습니다 %s:%s]]):
+		생성될 언데드 추종자의 확률은 다음과 같습니다 %s :
+		%s]]):
 		format(nb, lev, mm, t.MinionChancesDesc(self, t))
 	end,
 }

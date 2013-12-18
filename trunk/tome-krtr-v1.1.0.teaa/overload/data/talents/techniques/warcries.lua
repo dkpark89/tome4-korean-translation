@@ -87,7 +87,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전장의 외침을 내질러, 생명력과 체력 최대치를 %0.1f%% 증가시킵니다. 증가량에 해당하는 만큼의 생명력과 체력은 회복됩니다 (지속시간 %d 턴). When the effect ends, the additional life and stamina will be lost.]]):format(t.getPower(self, t), t.getdur(self, t)) --@@ 한글화 필요
+		return ([[전장의 외침을 내질러, 생명력과 체력 최대치를 %0.1f%% 증가시킵니다. 증가량에 해당하는 만큼의 생명력과 체력은 회복됩니다 (지속시간 %d 턴). 효과가 끝나면, 증가된 생명력과 체력은 사라집니다.]]):format(t.getPower(self, t), t.getdur(self, t))
 	end,
 }
 

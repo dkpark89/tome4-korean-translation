@@ -33,8 +33,8 @@ newTalent{
 		local decaySpeed = t.getDecaySpeed(self, t)
 		local newDecay = decaySpeed*0.1
 		local netHeal = newDecay*heal
-		return ([[Your Feedback decay now heals you for %0.1f times the loss, and the decay rate is reduced to %d%% of the normal rate (up to %0.1f%% per turn).  As a result, you are healed for %0.2f%% of your feedback pool each turn.
-		The healing effect improves with your Willpower.]]):format(heal, decaySpeed*100, newDecay*100, netHeal*100) --@@ 한글화 필요 : 윗줄~현재줄
+		return ([[감소된 반작용이 %0.1f%% 효율로 생명력을 회복시킵니다. 또한 반작용 감소가 원래 감소량의 %d%% 만큼만 적용됩니다. (매 턴마다 %0.1f%%) 결과적으로, 매 턴마다 반작용 총량의 %0.2f%% 만큼의 생명력을 회복하게 됩니다.
+		회복 효과는 의지 능력치의 영향을 받아 증가합니다.]]):format(heal*100, decaySpeed*100, newDecay*100, netHeal*100) --@@ 변수 변경 : heal->heal*100
 	end,
 }
 
@@ -91,8 +91,8 @@ newTalent{
 		local max_feedback = t.getMaxFeedback(self, t)
 		local gain = t.getFeedbackGain(self, t)
 		local feedbackratio = self:callTalent(self.T_FEEDBACK_POOL, "getFeedbackRatio")
-		return ([[최대 반작용 수치를 %d 증가시키고, increases the Feedback you gain from damage by %0.1f%% (to %0.1f%% of damage received).
-		반작용 획득 비율은 정신력의 영향을 받아 증가합니다.]]):format(max_feedback, gain*100, feedbackratio*100) --@@ 한글화 필요 : 윗줄
+		return ([[최대 반작용 수치를 %d 증가시키고, 피해로부터 받는 반작용이 %0.1f%% 증가합니다. (즉, 피해량의 %0.1f%% 만큼 회복)
+		반작용 획득 비율은 정신력의 영향을 받아 증가합니다.]]):format(max_feedback, gain*100, feedbackratio*100) 
 	end, --@@ info 함수가 두번 중복되어 있는 것은 실수가 아니고, 원래 코드가 그럼(원 제작자의 실수인 듯)
 }
 

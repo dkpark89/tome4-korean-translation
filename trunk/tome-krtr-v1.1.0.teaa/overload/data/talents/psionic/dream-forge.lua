@@ -144,7 +144,7 @@ newTalent{
 				shader = "shadow_simulacrum",
 				shader_args = { color = {0.6, 0.0, 0.0}, base = 0.9, time_factor = 1500 },
 				always_remember = true,
-				desc = "a summoned wall of mental energy", --@@ 한글화 필요
+				desc = "소환된 정신의 벽", 
 				type = "wall",
 				can_pass = {pass_wall=1},
 				does_block_move = true,

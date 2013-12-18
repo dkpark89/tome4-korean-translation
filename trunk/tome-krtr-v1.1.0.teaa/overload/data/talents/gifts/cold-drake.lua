@@ -117,7 +117,7 @@ newTalent{
 				old_feat = oe,
 				name = "ice wall", image = "npc/iceblock.png",
 				kr_name = "얼음 벽",
-				desc = "a summoned, transparent wall of ice", --@@ 한글화 필요
+				desc = "소환된, 투명한 얼음 벽", 
 				type = "wall",
 				display = '#', color=colors.LIGHT_BLUE, back_color=colors.BLUE,
 				always_remember = true,

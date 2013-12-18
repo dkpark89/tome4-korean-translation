@@ -68,11 +68,11 @@ newTalent{
 		local psi_damage_resist, psi_damage_resist_base, psi_damage_resist_talent = t.getPsiDamageResist(self, t)
 		local threshold = math.min((self.solipsism_threshold or 0),self:callTalent(self.T_CLARITY, "getClarityThreshold") or 1)
 		return ([[실재하는 것은 자아 뿐이고, 다른 모든 것들은 현상에 불과한 것이라고 생각합니다. 
-		레벨이 오를 때마다 염력 최대량이 5 증가합니다. 그 대신 생명력 증가량이 50%% 줄어듭니다. (기술 레벨이 1 이 될 때, 한 번만 적용됩니다)
+		레벨이 오를 때마다 염력 최대량이 5 증가하지만, 그 대신 생명력 증가량이 50%% 줄어듭니다. (기술 레벨이 1 이 될 때, 한 번만 적용됩니다)
 		정신력으로 피해를 극복하는 법을 배워 적에게 받는 피해량의 %d%% 가 생명력 대신 염력을 소진시키고, 생명력 회복시 회복량의 %d%% 가 생명력 대신 염력을 회복시킵니다.
-		또한 생명력 대신 염력으로 피해를 받을 때, 받는 염력 소진량이 %0.1f%% 감소합니다 (%0.1f%% from character level with the remainder further reduced by %0.1f%% from talent level).
+		또한 생명력 대신 염력으로 피해를 받을 때, 염력 소진량이 %0.1f%% 감소합니다. (캐릭터 레벨을 통해 %0.1f%% 만큼, 기술 레벨을 통해 %0.1f%% 만큼 감소)
 		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
-		또한 독존 한계량이 기본적으로 20%% (현재 : %d%%) 가 되며, 현재 염력이 독존 한계량보다 부족할 경우 부족한 %% 만큼 전체 속도가 1%% 감소하게 됩니다.]]): --@@ 한글화 필요 : 두줄 위
+		또한 독존 한계량이 기본적으로 20%% (현재 : %d%%) 가 되며, 현재 염력이 독존 한계량보다 부족할 경우 부족한 %% 만큼 전체 속도가 1%% 감소하게 됩니다.]]): 
 		format(conversion_ratio * 100, conversion_ratio * 100, psi_damage_resist, psi_damage_resist_base * 100, psi_damage_resist_talent, (self.solipsism_threshold or 0) * 100)
 	end,
 }
@@ -152,7 +152,7 @@ newTalent{
 		local threshold = t.getClarityThreshold(self, t)
 		local bonus = ""
 		if not self.max_level or self.max_level > 50 then
-			bonus = " Exceptional focus on this talent can suppress your solipsism threshold." --@@ 한글화 필요
+			bonus = " 이 기술에 대한 특별한 집중을 통해, 독존 한계량을 극복해냈습니다." 
 		end
 		return ([[현재 염력이 최대 염력의 %d%% 이상일 경우, 넘치는 %% 만큼 전체 속도가 증가합니다. (최대 %+d%%)
 		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
@@ -198,8 +198,8 @@ newTalent{
 		print("[Dismissal] ", self.name:capitalize(), " attempting to ignore ", value, "damage from ", src.name:capitalize(), "using", saving_throw,  "mental save.")
 		if self:checkHit(saving_throw, value) then
 			local dismissed = value * 1/self:mindCrit(2) -- Diminishing returns on high crits
-			game:delayedLogMessage(self, nil, "Dismissal", "#TAN##Source# mentally dismisses some damage!") --@@ 한글화 필요
-			game:delayedLogDamage(src, self, 0, ("#TAN#(%d dismissed)#LAST#"):format(dismissed)) --@@ 한글화 필요
+			game:delayedLogMessage(self, nil, "묵살", "#TAN##Source1# 정신적으로 피해를 저항해냈습니다!") 
+			game:delayedLogDamage(src, self, 0, ("#TAN#(%d 저항)#LAST#"):format(dismissed)) 
 			return value - dismissed
 		else
 			return value

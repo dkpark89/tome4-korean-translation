@@ -49,7 +49,8 @@ newTalent{
 	info = function(self, t)
 		local cooldown = t.cooldownred(self,t)
 		local mast = t.mastery(self,t)
-		return ([[염력 보호법을 수련하여 보호막의 재사용 대기시간이 %d 턴 줄어들고, 염력 회복량이 증가합니다. (%0.1f 피해를 덜 받아도 염력이 1 회복됩니다) and the maximum energy you can gain from each shield is increased by %0.1f per turn.]]): --@@ 한글화 필요
+		return ([[염력 보호법을 수련하여 보호막의 재사용 대기시간이 %d 턴 줄어들고, 염력 회복량이 증가합니다. (%0.1f 피해를 덜 받아도 염력이 1 회복됩니다)
+		또한 각각의 보호막을 통해 매 턴마다 얻을 수 있는 최대 염력량이 %0.1f 증가합니다.]]): 
 		format(cooldown, mast, t.absorbLimit(self, t))
 	end,
 }

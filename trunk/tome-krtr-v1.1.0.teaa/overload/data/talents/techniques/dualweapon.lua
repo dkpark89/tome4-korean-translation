@@ -81,9 +81,9 @@ newTalent{ -- Note: classes: Temporal Warden, Rogue, Shadowblade, Marauder
 		self:removeEffect(self.EFF_DUAL_WEAPON_DEFENSE)
 	end,
 	info = function(self, t)
-		local xs = ([[  At talent levels higher than 5, you may parry melee attacks with your offhand weapon (except mindstars).
-		(You currently have a %d%% chance to deflect up to %d damage (%d%% of your offhand weapon damage) from approximately %0.1f melee attacks (based on your Cunning) each turn.)]]):
-		format(t.getDeflectChance(self,t),t.getDamageChange(self, t, true), t.getDeflectPercent(self,t), t.getDeflects(self, t, true)) --@@ 한글화 필요 : 두줄위~윗줄
+		local xs = ([[기술 레벨이 5 이상일 경우, (마석을 제외한) 보조 무기를 사용해서 공격을 흘려낼 수 있게 됩니다.
+		(현재 %d%% 확률로 %d 피해량 (보조 무기 피해량의 %d%%), 그리고 매 턴마다 대략 %0.1f 번 (교활함 능력치 기반) 까지의 공격을 흘려낼 수 있습니다)]]):
+		format(t.getDeflectChance(self,t),t.getDamageChange(self, t, true), t.getDeflectPercent(self,t), t.getDeflects(self, t, true)) 
 		return ([[무기로 공격을 흘려내는 방법을 익혀, 회피도가 %d 증가합니다.
 		회피도는 민첩성 능력치의 영향을 받아 증가합니다.%s]]):format(t.getDefense(self, t), xs)
 	end,
@@ -304,7 +304,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상과 근처에 있는 적들에게 양손의 무기로 각각 %d%% 의 무기 피해를 주고, 매 턴마다 %d 의 피해를 총 %d 턴 동안 주는 출혈 상태를 일으킵니다.
-		The bleed damage increases with your main hand weapon damage and Dexterity.]]): --@@ 한글화 필요
+		출혈 피해는 주 무기의 피해량과 민첩 능력치의 영향을 받아 증가합니다.]]): 
 		format(100 * self:combatTalentWeaponDamage(t, 1, 1.7), damDesc(self, DamageType.PHYSICAL, t.cutPower(self, t)), t.cutdur(self, t))
 	end,
 }

@@ -164,7 +164,7 @@ newTalent{
 			xs = xs .. (xs ~= "" and ", " or "") .. engine.DamageType.dam_def[w].name:capitalize() .. "(" .. tostring(nb) .. ")" --@@ 한글화 필요
 		end
 		return ([[시전자 주변에 특수한 속성 피해를 막아내는 보호구역을 만들어냅니다. 보호구역은 도구의 충전량만큼 해당 속성 공격을 무효화시킵니다.
-		You can activate the following wards: %s]]):format(xs) --@@ 한글화 필요
+		다음 속성에 대한 보호구역을 만들어낼 수 있습니다 : %s]]):format(xs) 
 	end,
 }
 
@@ -370,7 +370,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[The target has a %d%% chance (stacking to a maximum of %d%%) to fail to cast any spell.  At level 2 magical effects may be disrupted, at level 3 magical sustains may be disrupted, and at level 5 magical constructs and undead may be stunned.]]):format(t.getpower(self, t),t.maxpower(self,t)) --@@ 한글화 필요
+		return ([[대상을 %d%% 확률로 주문 시전에 실패하게 만듭니다. (최대 %d%% 까지 중첩) 2 레벨에서는 마법적인 효과를 방해하며, 3 레벨에서는 유지 중인 마법 기술을 방해합니다. 5 레벨에서는 마법으로 만들어진 구조체와 언데드들이 기절하게 됩니다.]]):format(t.getpower(self, t),t.maxpower(self,t))
 	end,
 }
 
@@ -431,8 +431,9 @@ newTalent{
 	end,
 }
 
-newTalent{ --@@ 한글화 필요 : kr_name 추가. #434~483 
+newTalent{ 
 	name = "Dig", short_name = "DIG_OBJECT",
+	kr_name = "굴착",
 	type = {"misc/objects", 1},
 	findBest = function(self, t)
 		local best = nil
@@ -477,7 +478,7 @@ newTalent{ --@@ 한글화 필요 : kr_name 추가. #434~483
 	end,
 	info = function(self, t)
 		local best = t.findBest(self, t) or {digspeed=100}
-		return ([[Dig/cut a tree/...
-		Digging takes %d turns (based on your currently best digger available).]]):format(best.digspeed)
+		return ([[벽을 허물고 나무를 베는 등, 굴착 가능한 벽을 제거합니다.
+		굴착에는 %d 턴이 소모됩니다. (현재 소지 중인 가장 좋은 굴착도구를 사용했을 때 기준)]]):format(best.digspeed)
 	end,
 }

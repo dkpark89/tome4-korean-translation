@@ -35,7 +35,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[구울의 신체를 개선하여, 힘과 체격 능력치를 %d 만큼 증가시킵니다.
-		Your body also becomes incredibly resilient to damage, you can never take a blow that deals more than %d%% of your maximum life.]]) --@@ 한글화 필요
+		또한 신체의 피해 저항력이 크게 증가하여, 한번의 타격에 최대 생명력의 %d%% 이상은 절대 피해를 받지 않게 됩니다.]]) 
 		:format(t.statBonus(self, t), t.getMaxDamage(self, t))
 	end,
 }
@@ -115,9 +115,8 @@ newTalent{
 	info = function(self, t)
 		local dam = 10 + self:combatTalentStatDamage(t, "con", 10, 60)
 		return ([[주변의 땅에 구토를 해, 해당 지역의 언데드에게는 치료 효과를 주고 생명체에게는 피해를 줍니다.
-		%d 턴간 지속되며, 황폐 속성의 피해를 %d 만큼 주거나 생명력을 %d 만큼 치료합니다.
-		Creatures standing in the retch also have %d%% chance to remove a physical effect each turn.
-		Undeads will be stripped from a detrimental effect while others will be stripped from a beneficial effect.]]): --@@ 한글화 필요 : 윗줄~현재줄
+		이는 %d 턴간 지속되며, 황폐 속성의 피해를 %d 만큼 주거나 생명력을 %d 만큼 치료합니다.
+		해당 지역에 있는 동안에는, 매 턴마다 %d%% 확률로 하나의 물리적 상태이상이 제거됩니다. (언데드는 해로운 상태이상이, 다른 생명체들은 이로운 상태이상이 제거됩니다)]]): 
 		format(t.getduration(self, t), damDesc(self, DamageType.BLIGHT, dam), dam * 1.5, t.getPurgeChance(self, t))
 	end,
 }

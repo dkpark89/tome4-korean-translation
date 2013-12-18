@@ -64,7 +64,7 @@ newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=tru
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/shades", name = "shades", min_lev = 10, description = "그림자를 조종하고 불러오는 마법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/necrosis", name = "necrosis", description = "죽음을 넘어, 최종적으로는 리치가 되는 사령술입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/grave", name = "grave", description = "묘지의 차갑고 절망적인 기운을 이용하여, 적들을 나락으로 떨어뜨리는 마법입니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/animus", name = "animus", description = "Crush the souls of your foes to improve yourself." } --@@ 한글화 필요
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/animus", name = "animus", description = "적의 영혼을 부숴, 자신을 강화시키는 마법입니다." } 
 
 -- Generic requires for spells based on talent level
 spells_req1 = {

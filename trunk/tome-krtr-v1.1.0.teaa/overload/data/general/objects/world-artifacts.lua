@@ -1657,13 +1657,15 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "SET_TEMPORAL_ROBE",
 	end,
 }
 
-newEntity{ base = "BASE_WIZARD_HAT", define_as = "SET_TEMPORAL_FEZ", --@@ 한글화 필요 #1660~1702 : kr_name, kr_unided_name 추가
+newEntity{ base = "BASE_WIZARD_HAT", define_as = "SET_TEMPORAL_FEZ", 
 	power_source = {arcane=true, psionic=true},
 	unique = true,
 	name = "Un'fezan's Cap",
 	unided_name = "red stylish hat",
-	desc = [[This fez once belonged to a traveler, it always seems to be found lying around in odd locations.
-#{italic}#Fezzes are cool.#{normal}#]],
+	kr_name = "운'페잔의 모자",
+	kr_unided_name = "멋진 붉은색 모자",
+	desc = [[이 페즈는 한 여행자의 소유물이었던 것으로, 언제나 기묘한 곳에 떨어져 있습니다.
+#{italic}#페즈는 멋져.#{normal}# (닥터 후 패러디)]],
 	color = colors.BLUE, image = "object/artifact/fez.png",
 	moddable_tile = "special/fez",
 	moddable_tile_big = true,
@@ -1689,7 +1691,7 @@ newEntity{ base = "BASE_WIZARD_HAT", define_as = "SET_TEMPORAL_FEZ", --@@ 한글
 
 	set_list = { {"define_as", "SET_TEMPORAL_ROBE"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#STEEL_BLUE#A time vortex briefly appears in front of you.")
+		game.logPlayer(who, "#STEEL_BLUE#시간의 소용돌이가 당신 앞에 잠깐 나타났습니다.")
 		self:specialSetAdd({"wielder","paradox_reduce_fails"}, 40)
 		self:specialSetAdd({"wielder","confusion_immune"}, 0.4)
 		self:specialSetAdd({"wielder","combat_spellspeed"}, 0.1)
@@ -1697,7 +1699,7 @@ newEntity{ base = "BASE_WIZARD_HAT", define_as = "SET_TEMPORAL_FEZ", --@@ 한글
 	end,
 	on_set_broken = function(self, who)
 		self.use_talent = nil
-		game.logPlayer(who, "#STEEL_BLUE#A time vortex briefly appears in front of you.")
+		game.logPlayer(who, "#STEEL_BLUE#시간의 소용돌이가 당신 앞에 잠깐 나타났습니다.")
 	end,
 }
 

@@ -206,7 +206,7 @@ newTalent{
 	info = function(self, t)
 		return ([[부하는 도구일 뿐입니다. 불필요한 부하는 제거해야죠. 자폭시키는건 어때요?
 		선택된 언데드 추종자를 자폭시켜, 언데드 추종자가 지녔던 최대 생명력의 %d%% 에 해당하는 황폐 속성 피해를 %d 칸 반경의 주변에 줍니다.
-		부하의 자폭에 휘말리는 멍청한 주인이 아니길 빕니다. (unless you know Dark Empthy: %d%% chances to ignore damage)]]): --@@ 한글화 필요
+		부하의 자폭에 휘말리는 멍청한 주인이 아니길 빕니다. (단 어둠의 공감 기술을 알고 있다면, 멍청한 주인이라도 %d%% 확률로 피해를 무시할 수 있습니다)]]): 
 		format(t.getDamage(self, t),t.radius(self,t), self:getTalentLevelRaw(self.T_DARK_EMPATHY) * 20)
 	end,
 }
@@ -369,7 +369,8 @@ newTalent{
 	points = 5,
 	mode = "passive",
 	info = function(self, t)
-		return ([[언데드 추종자를 만들 때, 더 강력한 추종자를 만들어낼 확률이 증가합니다. Your chance for each type of minion is as follows:%s]]): --@@ 한글화 필요
+		return ([[언데드 추종자를 만들 때, 더 강력한 추종자를 만들어낼 확률이 증가합니다. 만들어지는 추종자는 다음과 같습니다 : 
+		%s]]): 
 		format(self:callTalent(self.T_CREATE_MINIONS,"MinionChancesDesc"))
 	end,
 }

@@ -128,8 +128,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[무기에 온 힘을 실어, 적을 타격할 때마다 충격파를 만들어냅니다. 이 충격파는 근처 1 칸 반경의 모든 존재들에게 %d%% 물리적 무기 피해를 추가로 줍니다. Only one shockwave will be created per action, and the primary target does not take extra damage. 
-		대신, 충격파가 발생할 때마다 체력이 15 소모됩니다.]]): --@@ 한글화 필요 : 윗줄
+		return ([[무기에 온 힘을 실어, 적을 타격할 때마다 충격파를 만들어냅니다. 이 충격파는 근처 1 칸 반경의 모든 존재들에게 %d%% 물리적 무기 피해를 추가로 줍니다. 한 번의 행동에 하나의 충격파만이 만들어지며, 직접 타격한 적은 충격파의 피해를 받지 않습니다.
+		단, 충격파가 발생할 때마다 체력이 15 소모됩니다.]]): 
 		format(100*t.weaponDam(self, t))
 	end,
 }

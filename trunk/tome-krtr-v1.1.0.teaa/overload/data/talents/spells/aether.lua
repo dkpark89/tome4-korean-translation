@@ -64,7 +64,7 @@ newTalent{
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
 		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "해당 지역의 에테르 제어에 실패했습니다.") return nil end
-		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "You somehow fail to set the aether beam.") return nil end --@@ 한글화 필요
+		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "알 수 없는 이유로, 에테르 소용돌이 설치에 실패했습니다.") return nil end 
 
 		local t = basetrap(self, t, x, y, 44, {
 			type = "aether", name = "aether beam", color=colors.VIOLET, image = "trap/trap_glyph_explosion_01_64.png",

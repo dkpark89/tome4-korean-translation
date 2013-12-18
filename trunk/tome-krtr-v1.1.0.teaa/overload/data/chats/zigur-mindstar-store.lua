@@ -29,16 +29,16 @@ newChat{ id="welcome",
 	}
 }
 
-newChat{ id="training", --@@ 한글화 필요 : #33~69
-	text = [[I can teach you mindstar mastery (talent category Wild-gift/Mindstar mastery).  Learning the basics costs 100 gold, while more intensive training to gain proficiency costs 500 gold.  Once you're proficient, I can teach you some additional skills for 750 gold.]],
+newChat{ id="training", 
+	text = [[그렇다면 제가 마석 사용법 (자연의 권능 / 마석 수련) 을 가르쳐드릴 수 있습니다. 기초적인 기술을 배우려면 금화 100 개, 보다 집중적인 훈련을 통해 실제로 기술을 습득하려면 금화 500 개, 그리고 기술을 습득한 상태라면 금화 750 개를 받고 추가적인 기술을 가르쳐드릴 수 있습니다.]],
 	answers = {
-		{"Just give me the basics (reveals locked talent category) - 100 gold.", action=function(npc, player) -- Normal basic training
-			game.logPlayer(player, "The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.")
+		{"그냥 기초적인 것만 알려주세요. (잠겨진 상태로 기술 계열 습득) - 금화 100 개", action=function(npc, player) -- Normal basic training
+			game.logPlayer(player, "상점 주인이 당신과 약간의 시간을 보내면서, 마석을 통해 힘을 이끌어내는 방법을 가르쳐주었습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("wild-gift/mindstar-mastery", false)
 			if player:getTalentTypeMastery("wild-gift/mindstar-mastery") < 1 then
 				player:setTalentTypeMastery("wild-gift/mindstar-mastery", math.min(1.1, player:getTalentTypeMastery("wild-gift/mindstar-mastery") + 0.3))
-				game.logPlayer(player, "He is impressed with your affinity for natural forces.")
+				game.logPlayer(player, "그는 당신과 자연의 힘 사이의 친화력에 깊은 인상을 받았습니다.")
 			end
 			player.changed = true
 		end, cond=function(npc, player)
@@ -46,15 +46,15 @@ newChat{ id="training", --@@ 한글화 필요 : #33~69
 			if player:knowTalentType("wild-gift/mindstar-mastery") or player:knowTalentType("wild-gift/mindstar-mastery") == false then return end
 			return true
 		end},
-		{"Please teach me what I need to know (unlocks talent category) - 500 gold.", action=function(npc, player)
-			game.logPlayer(player, "The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you.")
+		{"제가 알아야 할 것들을 가르쳐주세요. (기술 계열 잠금 해제) - 금화 500 개", action=function(npc, player)
+			game.logPlayer(player, "상점 주인이 당신과 많은 시간을 보내면서, 마석을 통해 힘을 이끌어내는 방법을 세세하게 가르쳐주었습니다.")
 			player:incMoney(-500)
 			player:learnTalentType("wild-gift/mindstar-mastery", true)
 			if player:getTalentTypeMastery("wild-gift/mindstar-mastery") < 1 then -- Special case for previously locked category (escort)
 				player:setTalentTypeMastery("wild-gift/mindstar-mastery", math.max(1.0, player:getTalentTypeMastery("wild-gift/mindstar-mastery") + 0.3))
 			end
 			if player:getTalentTypeMastery("wild-gift/mindstar-mastery") > 1 then
-				game.logPlayer(player, "He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.")
+				game.logPlayer(player, "그는 당신의 숙련도와 강력한 힘을 다루는 몇몇 기술들에 깊은 인상을 받았습니다.")
 			end
 			player.changed = true
 		end, cond=function(npc, player)
@@ -62,11 +62,11 @@ newChat{ id="training", --@@ 한글화 필요 : #33~69
 			if player:knowTalentType("wild-gift/mindstar-mastery") then return end
 			return true
 		end},
-		{"I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", action=function(npc, player) --Enhanced intensive training
+		{"저는 이미 마석 사용 기술을 알고 있습니다. 더 전문적인 기술을 알려주세요. (기술 계열 숙련도 0.2 향상) - 금화 750 개", action=function(npc, player) --Enhanced intensive training
 			player:incMoney(-750)
 			player:learnTalentType("wild-gift/mindstar-mastery", true)
 			player:setTalentTypeMastery("wild-gift/mindstar-mastery", player:getTalentTypeMastery("wild-gift/mindstar-mastery") + 0.2)
-			game.logPlayer(player, ("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you%s."):format(player:getTalentTypeMastery("wild-gift/mindstar-mastery")>1 and ", and teaches you enhanced mental discipline needed to maintain powerful energy fields" or ""))
+			game.logPlayer(player, ("상점 주인이 당신과 많은 시간을 보내면서, 마석을 통해 힘을 이끌어내는 방법을 세세하게 가르쳐주었습니다.%s."):format(player:getTalentTypeMastery("wild-gift/mindstar-mastery")>1 and " 또한 강력한 힘의 역장을 유지시키기 위해 필요한 정신 수련법을 알려주었습니다." or ""))
 			player.changed = true
 		end, cond=function(npc, player)
 			if player.money < 750 then return end

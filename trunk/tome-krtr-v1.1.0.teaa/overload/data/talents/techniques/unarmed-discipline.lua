@@ -115,7 +115,7 @@ newTalent{
 				end
 			end
 		else
-			self:logCombat(target, "#Source# misses a defensive throw against #Target#!", (self.kr_name or self.name):capitalize(), (target.kr_name or target.name):capitalize()) --@@ 한글화 필요
+			self:logCombat(target, "#Source2# #Target#의 공격을 되치는데 실패했습니다!", (self.kr_name or self.name):capitalize(), (target.kr_name or target.name):capitalize()) 
 		end
 	end,
 	on_unlearn = function(self, t)
@@ -126,7 +126,7 @@ newTalent{
 		local damagetwo = t.getDamageTwo(self, t)
 		return ([[맨손전투 상태에서 근접공격을 회피할 때마다, %d%% 확률로 공격자를 넘어뜨립니다. 공격자가 넘어지면 %0.2f 피해를 받고, 2 턴 동안 혼절합니다.
 		공격자를 붙잡고 있었다면 %0.2f 피해를 주고, 2 턴 동안 기절시킵니다. 매 턴마다 최대 %0.1f 번의 되치기를 시도할 수 있습니다.
-		되치기 확률은 정확도 능력치에 따라 증가하며, 피해량은 물리력에 따라 증가하며, 턴당 최대 되치기 시도 횟수는 힘 능력치와 민첩 능력치에 따라 증가합니다.]]):
+		되치기 확률은 정확도 능력치에 따라 증가하며, 피해량은 물리력에 따라 증가하고, 턴당 최대 되치기 시도 횟수는 힘 능력치와 민첩 능력치에 따라 증가합니다.]]):
 		format(t.getchance(self,t), damDesc(self, DamageType.PHYSICAL, (damage)), damDesc(self, DamageType.PHYSICAL, (damagetwo)), t.getThrows(self, t))
 	end,
 }

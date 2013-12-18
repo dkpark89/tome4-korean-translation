@@ -160,8 +160,9 @@ local function makeGolem(self)
 	return g
 end
 
-newTalent{ --@@ 한글화 필요 : kr_name 추가, info 한글화
+newTalent{ 
 	name = "Interact with the Golem", short_name = "INTERACT_GOLEM",
+	kr_name = "골렘과의 교류",
 	type = {"spell/golemancy-base", 1},
 	require = spells_req1,
 	points = 1,
@@ -186,8 +187,8 @@ newTalent{ --@@ 한글화 필요 : kr_name 추가, info 한글화
 		return true
 	end,
 	info = function(self, t)
-		return ([[Interact with your golem to check its inventory, talents, ...
-		Note: You can also do that while taking direct control of the golem.]]):
+		return ([[골렘과 상호작용해서 소지품 확인, 기술 확인 등을 실시합니다.
+		참고 : 이 기술은 골렘을 직접 조작하면서도 사용할 수 있습니다.]]):
 		format()
 	end,
 }

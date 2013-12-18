@@ -1924,13 +1924,13 @@ newEffect{
 newEffect{ 
 	name = "DEFENSIVE_GRAPPLING", image = "talents/defensive_throw.png",
 	desc = "Grappling Defensively",
-	kr_name = "방어적 붙잡기",
+	kr_name = "되치기",
 	throwchance = function(self, eff) -- the last partial defensive throw has a reduced chance to happen
 		if not self:isUnarmed() or self:attr("encased_in_ice") then return 0 end	-- Must be unarmed
 		return util.bound(eff.throws>=1 and eff.chance or eff.chance*math.mod(eff.throws,1),0,100)
 	end,
 	long_desc = function(self, eff)
-		return ("%d%% 확률로 근접 공격을 피하고, 방어적 던지기로 반격. 대상을 집어던지고 기절시킬 확률 존재 (앞으로 %0.1f 회 던지기 가능)"):format(self.tempeffect_def.EFF_DEFENSIVE_GRAPPLING.throwchance(self, eff), math.max(eff.throws,1))
+		return ("%d%% 확률로 근접 공격을 피하고, 되치기로 반격. 대상을 집어던지고 기절시킬 확률 존재 (앞으로 %0.1f 회 던지기 가능)"):format(self.tempeffect_def.EFF_DEFENSIVE_GRAPPLING.throwchance(self, eff), math.max(eff.throws,1))
 	end,
 	charges = function(self, eff) return math.ceil(eff.throws) end,
 	type = "physical",

@@ -80,9 +80,8 @@ newTalent{
 		- 암석 골렘 : 적들을 혼절시킵니다.
 		- 거북이 : 아군을 회복시켜줍니다.
 		- 거미 : 적들이 근처에 오지 않으려 하게 됩니다.
-		기술의 효과는 의지 능력치의 영향을 받아 증가합니다.
-		Radius for effects is %d, and the duration of each lasting effect is %d turns.
-		The effects improve with your Willpower.]]):format(t.nbEscorts(self, t), radius, t.effectDuration(self, t)) --@@ 한글화 필요 : 윗줄~현재줄
+		각 효과는 소환수 주변 %d 칸에 적용되며, 효과의 지속 시간은 %d 턴입니다.
+		기술의 효과는 시전자의 의지 능력치에 영향을 받아 증가합니다.]]):format(t.nbEscorts(self, t), radius, t.effectDuration(self, t)) 
 	end,
 }
 

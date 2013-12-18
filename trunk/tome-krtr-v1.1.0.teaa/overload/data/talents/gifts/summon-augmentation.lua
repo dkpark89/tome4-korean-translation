@@ -107,7 +107,7 @@ newTalent{
 	points = 5,
 	incCon = function(self, t) return math.floor(self:combatTalentScale(t, 2, 10, 0.75)) end,
 	info = function(self, t)
-		return ([[Improves all your summons' Constitution by %d, and adds %0.1f effective talent levels to your summon talents to determine your summons' lifetime.]]):format(t.incCon(self, t), self:getTalentLevel(t)) --@@ 한글화 필요
+		return ([[모든 소환수의 체격 능력치를 %d 상승시키고, 소환 기술 레벨을 %0.1f 만큼 더해 소환수의 지속 시간을 증가시킵니다. (증가된 소환 기술 레벨은 소환수의 지속 시간에만 영향을 주며, 소환수의 능력치는 증가되지 않습니다)]]):format(t.incCon(self, t), self:getTalentLevel(t)) 
 	end,
 }
 
