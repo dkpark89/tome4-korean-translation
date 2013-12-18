@@ -161,7 +161,7 @@ newTalent{
 	info = function(self, t)
 		local xs = ""
 		for w, nb in pairs(self.wards) do
-			xs = xs .. (xs ~= "" and ", " or "") .. engine.DamageType.dam_def[w].name:capitalize() .. "(" .. tostring(nb) .. ")" --@@ 한글화 필요
+			xs = xs .. (xs ~= "" and ", " or "") .. (engine.DamageType.dam_def[w].kr_name or engine.DamageType.dam_def[w].name):capitalize() .. "(" .. tostring(nb) .. ")"
 		end
 		return ([[시전자 주변에 특수한 속성 피해를 막아내는 보호구역을 만들어냅니다. 보호구역은 도구의 충전량만큼 해당 속성 공격을 무효화시킵니다.
 		다음 속성에 대한 보호구역을 만들어낼 수 있습니다 : %s]]):format(xs) 
@@ -450,7 +450,7 @@ newTalent{
 	no_npc_use = true,
 	action = function(self, t)
 		local best = t.findBest(self, t)
-		if not best then game.logPlayer(self, "You require a digger to dig.") return end
+		if not best then game.logPlayer(self, "굴착을 하기 위해서는 곡괭이가 필요합니다.") return end
 
 		local tg = {type="bolt", range=1, nolock=true}
 		local x, y = self:getTarget(tg)
@@ -465,7 +465,7 @@ newTalent{
 			end)
 			coroutine.yield()
 			if not ok then
-				game.logPlayer(self, "You have been interrupted!")
+				game.logPlayer(self, "굴착을 방해받았습니다!")
 				return false
 			end
 			return true

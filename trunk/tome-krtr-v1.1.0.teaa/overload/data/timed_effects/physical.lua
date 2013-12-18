@@ -618,7 +618,7 @@ newEffect{
 			self.add_displays = { Entity.new{image='npc/iceblock.png', display=' ', display_on_seen=true } }
 			eff.added_display = true
 		end
-		eff.ice = mod.class.Object.new{name = "Iceblock", kr_name = "얼음덩어리", type = "wall", image='npc/iceblock.png', display = ' '} -- use type Object to facilitate the combat log --@@ kr_name 추가하는 것이 맞는지 검사 필요
+		eff.ice = mod.class.Object.new{name = "Iceblock", kr_name = "얼음덩어리", type = "wall", image='npc/iceblock.png', display = ' '} -- use type Object to facilitate the combat log
 		self:removeAllMOs()
 		game.level.map:updateMap(self.x, self.y)
 

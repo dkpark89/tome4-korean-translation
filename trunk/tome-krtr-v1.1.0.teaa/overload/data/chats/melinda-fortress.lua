@@ -24,7 +24,6 @@ local melinda = game.level:findEntity{define_as="MELINDA_NPC"}
 local butler = game.level:findEntity{define_as="BUTLER"}
 print("===", butler)
 
---@@ 한글화 필요 #32~78 : 내용이 추가되었음
 newChat{ id="welcome",
 	text = [[안녕, 내 사랑!]],
 	answers = {
