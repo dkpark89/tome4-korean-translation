@@ -88,7 +88,7 @@ newTalent{
 		local dazeduration = t.getDazeDuration(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 적들은 %d 턴 동안 혼절하게 됩니다.
-		문양은 (마법 능력치의 영향을 받아 증가하며, 탐지 수준 %d / 해체 수준 %d 인) 숨겨진 함정이며, %d 턴 동안 유지됩니다.]]):format(dazeduration, t.trapPower(self,t)*0.8, t.trapPower(self,t), duration)
+		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다.]]):format(dazeduration, t.trapPower(self,t)*0.8, t.trapPower(self,t), duration)
 	end,
 }
 
@@ -167,7 +167,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 물리 속성의 %0.2f 피해를 받고 밀려납니다.
-		문양은 (마법 능력치의 영향을 받아 증가하며, 탐지 수준 %d / 해체 수준 %d 인) 숨겨진 함정이며, %d 턴 동안 유지됩니다.
+		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.SPELLKNOCKBACK, damage), t.trapPower(self, t)*0.8, t.trapPower(self, t), duration) 
 	end,
@@ -243,7 +243,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 빛의 폭발에 휘말려 %0.2f 피해를 받습니다. 빛의 폭발은 주변 1 칸 반경에 영향을 줍니다.
-		문양은 (마법 능력치의 영향을 받아 증가하며, 탐지 수준 %d / 해체 수준 %d 인) 숨겨진 함정이며, %d 턴 동안 유지됩니다.
+		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다.
 		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), t.trapPower(self, t)*0.8, t.trapPower(self, t)*0.8, duration)
 	end,
@@ -316,7 +316,7 @@ newTalent{
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 5 턴 동안 %d%% 감속됩니다.
-		문양은 (마법 능력치의 영향을 받아 증가하며, 탐지 수준 %d / 해체 수준 %d 인) 숨겨진 함정이며, %d 턴 동안 유지됩니다.]]):
+		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다.]]):
 		format(100 * slow, t.trapPower(self, t), t.trapPower(self, t), duration) 
 	end,
 }

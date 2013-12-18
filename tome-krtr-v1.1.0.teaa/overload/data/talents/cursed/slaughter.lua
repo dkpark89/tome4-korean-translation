@@ -201,7 +201,7 @@ newTalent{
 				end
 
 				if blocked then
-					self:logCombat(blockingTarget, "#Target# blocks #Source#!") --@@ 한글화 필요
+					self:logCombat(blockingTarget, "#Target1# #Source#의 공격을 막아냈습니다!") 
 				end
 			end
 

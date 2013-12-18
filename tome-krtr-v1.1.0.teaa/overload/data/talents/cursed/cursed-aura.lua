@@ -255,9 +255,9 @@ newTalent{
 		game:registerDialog(cursedAuraSelect)
 	end,
 	info = function(self, t)
-		return ([[더럽혀진 자신의 손길은 주변의 모든 것들을 오염시킵니다. When you equip a cursed item, you gain the effects of that curse (shown as a beneficial effect). Each item with the same curse that is equipped increases the curse's power.  Initially curses are harmful, but powerful benefits accumulate as the power of the curse increases.
-		The Dark Gifts talent unlocks higher level curse effects and increases their power.
-		Your aura permeates your equipment more thoroughly with talent level and can affect items as follows:
+		return ([[더럽혀진 자신의 손길은 주변의 모든 것들을 오염시킵니다. 저주받은 장비를 장착하면 저주의 효과를 받게 되며, 같은 저주에 걸린 장비를 다수 착용하면 저주의 레벨이 증가합니다. 최초의 저주는 해롭지만, 저주가 중첩되면 강력한 강화 효과를 얻을 수 있습니다.
+		어둠의 선물 기술을 통해 더 높은 레벨의 저주 효과를 받을 수 있게 됩니다.
+		저주의 기운은 장비에 스며드며, 기술 레벨이 높아지면 더 다양한 장비를 오염시킬 수 있게 됩니다.
 		기술 레벨 1  -- 무기
 		기술 레벨 2  -- 옷, 망토
 		기술 레벨 3  -- 방패, 모자
@@ -268,7 +268,7 @@ newTalent{
 		기술 레벨 9  -- 도구/토템/주술고리/마법봉
 		기술 레벨 10 -- 탄환
 		기술 레벨이 5 이상일 경우, 자신의 주변에 저주의 기운을 둘러 선택한 저주의 레벨을 2 올릴 수 있게 됩니다. (현재 : %s)
-		Also, talent levels above 5 reduce the negative effects of your curses (currently %d%% reduction).]]): --@@ 한글화 필요 #258~271
+		또한 기술 레벨이 5 이상일 경우, 저주의 부정적인 효과를 감소시킬 수 있게 됩니다. (현재 감소율 : %d%%)]]): 
 		format(t.getCursedAuraName(self, t), (1-t.cursePenalty(self, t))*100)
 	end,
 }
@@ -295,8 +295,8 @@ newTalent{
 	info = function(self, t)
 		local level = math.min(4, self:getTalentLevelRaw(t))
 		local xs = t.curseBonusLevel(self,t)
-		return ([[저주가 어둠의 선물을 가져다줍니다. 최대 %d 레벨의 저주 효과를 볼 수 있게 됩니다. 기술 레벨이 5 이상일 경우, 저주에 의한 행운 감소량이 1 로 줄어듭니다.
-		Talent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).]]): --@@ 한글화 필요
+		return ([[저주가 어둠의 선물을 가져다줍니다. 최대 %d 레벨의 저주 효과를 볼 수 있게 되며, 기술 레벨이 5 이상일 경우 저주에 의한 행운 감소량이 1 로 줄어듭니다.
+		또한 기술 레벨이 5 이상일 경우, 저주의 레벨을 강화시킬 수 있게 됩니다. (현재 강화 수준 : %0.1f)]]): 
 		format(level, xs)
 	end,
 }

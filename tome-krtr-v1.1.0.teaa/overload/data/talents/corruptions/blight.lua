@@ -183,9 +183,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[A furious poison storm rages around the caster in a radius of %d for %d turns.  Each creature hit by the storm is poisoned for %0.2f nature damage over 6 turns.
-		독은 중첩되며, 중첩될수록 독성이 더 강해지고 더 오랫동안 지속됩니다.
-		피해량은 주문력의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]): --@@ 한글화 필요 : 두줄 위
+		return ([[격렬한 독성 폭풍이 시전자 주변 반경 %d 칸 내에서 %d 턴 동안 일어납니다. 폭풍에 닿은 대상은 %0.2f 자연 피해를 6 턴에 걸쳐 받게 됩니다.
+		이 독은 중첩되며, 중첩될수록 독성이 더 강해지고 더 오랫동안 지속됩니다.
+		피해량은 주문력의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]): 
 		format(self:getTalentRadius(t), t.getDuration(self, t), damDesc(self, DamageType.NATURE, self:combatTalentSpellDamage(t, 12, 130)))
 	end,
 }
