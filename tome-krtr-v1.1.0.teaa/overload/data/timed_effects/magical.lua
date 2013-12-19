@@ -1880,7 +1880,7 @@ newEffect{
 	name = "WARD", image = "talents/ward.png",
 	desc = "Ward",
 	kr_name = "보호",
-	long_desc = function(self, eff) return ("%s 피해 %d 흡수"):format(DamageType.dam_def[eff.d_type].name, #eff.particles) end, --@@ 변수 조정
+	long_desc = function(self, eff) return ("%s 피해 %d 흡수"):format(DamageType.dam_def[eff.d_type].name, #eff.particles) end, --@@ 변수 조정:단수 복수 구분 변수 삭제
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",

@@ -32,7 +32,7 @@ newChat{ id="welcome",
 			npc.store:interact(player)
 		end},
 		{"특별한 장비?", cond=function(npc, player) return game.state:isAdvanced() end, jump="unique1"},
-		{"섬광 폭발 함정이요? 쓸모 있을 것 같은데요.", cond=function(npc, player) return p:knowTalent(p.T_TRAP_MASTERY) and not p:knowTalent(p.T_FLASH_BANG_TRAP) end, jump="trap"}, --@@ 한글화 필요
+		{"섬광 폭발 함정이요? 쓸모 있을 것 같은데요.", cond=function(npc, player) return p:knowTalent(p.T_TRAP_MASTERY) and not p:knowTalent(p.T_FLASH_BANG_TRAP) end, jump="trap"},
 		{"아니, 이만 가보겠습니다!"},
 	}
 }
@@ -169,7 +169,7 @@ local maker_list = function()
 									{"네, 부탁드립니다.", action=function(npc, player)
 										local d = require("engine.dialogs.GetText").new("이름을 정하세요", "이름", 2, 40, function(txt)
 											art.name = txt:removeColorCodes():gsub("#", " ")
-											art.kr_name = art.name --@@ 사용자가 결정한 이름은 한글 이름도 같도록 그냥 저장
+											art.kr_name = art.name
 											game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다. : %s", art:getName{do_color=true})
 										end, function() game.log("#LIGHT_BLUE#상인이 조심스럽게 물건을 건네줍니다, : %s", art:getName{do_color=true}) end)
 										game:registerDialog(d)

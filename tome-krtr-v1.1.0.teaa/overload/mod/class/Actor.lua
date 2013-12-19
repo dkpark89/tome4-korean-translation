@@ -3793,7 +3793,7 @@ end
 -- @param ab the talent (not the id, the table)
 -- @return true to continue, false to stop
 function _M:preUseTalent(ab, silent, fake)
-	--@@ 다음줄, 두줄뒤 - 세줄뒤부터 이 함수 끝(220여줄뒤, 현재 3878)까지 사용 : 반복된 이용으로 변수로 뺌
+	--@@ 다음줄, 두줄뒤 - 세줄뒤부터 이 함수 끝(230여줄뒤, 현재 4028)까지 사용 : 반복된 이용으로 변수로 뺌
 	local sn = self.kr_name or self.name
 	local abn = ab.kr_name or ab.name
 	

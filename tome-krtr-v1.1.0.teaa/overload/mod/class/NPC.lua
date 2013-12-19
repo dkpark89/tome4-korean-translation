@@ -278,6 +278,20 @@ function _M:checkAngered(src, set, value)
 	end
 end
 
+function _M:setPersonalReaction(src, value)
+	local rsrc = src:resolveSource()
+	local rid = rsrc.unique or rsrc.name
+	if not self.reaction_actor then self.reaction_actor = {} end
+	self.reaction_actor[rid] = util.bound(value, -200, 200)
+end
+
+function _M:getPersonalReaction(src, value)
+	local rsrc = src:resolveSource()
+	local rid = rsrc.unique or rsrc.name
+	if not self.reaction_actor then self.reaction_actor = {} end
+	return self.reaction_actor[rid] or 0
+end
+
 --- Counts down timedEffects, but need to avoid the damaged A* pathing
 function _M:timedEffects(filter)
 	self._in_timed_effects = true
@@ -336,58 +350,6 @@ function _M:die(src, death_note)
 		end
 	end
 
-	-- Self resurrect, mouhaha!
-	if self:attr("self_resurrect") then
-		self:attr("self_resurrect", -1)
-		game.logSeen(self, "#LIGHT_RED#%s 죽음으로부터 부활했습니다!", (self.kr_name or self.name):capitalize():addJosa("가")) -- src, not self as the source, to make sure the player knows his doom ;>
-		local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
-		game.flyers:add(sx, sy, 30, (rng.range(0,2)-1) * 0.5, -3, "부활!", {255,120,0})
-
-		local effs = {}
-
-		-- Go through all spell effects
-		for eff_id, p in pairs(self.tmp) do
-			local e = self.tempeffect_def[eff_id]
-			effs[#effs+1] = {"effect", eff_id}
-		end
-
-		-- Go through all sustained spells
-		for tid, act in pairs(self.sustain_talents) do
-			if act then
-				effs[#effs+1] = {"talent", tid}
-			end
-		end
-
-		while #effs > 0 do
-			local eff = rng.tableRemove(effs)
-
-			if eff[1] == "effect" then
-				self:removeEffect(eff[2])
-			else
-				self:forceUseTalent(eff[2], {ignore_energy=true})
-			end
-		end
-		self.life = self.max_life
-		self.mana = self.max_mana
-		self.stamina = self.max_stamina
-		self.equilibrium = 0
-		self.air = self.max_air
-
-		self.dead = false
-		self.died = (self.died or 0) + 1
-		self:move(self.x, self.y, true)
-
-		self:check("on_resurrect", "basic_resurrect")
-
-		if self:attr("self_resurrect_chat") then
-			local chat = Chat.new(self.self_resurrect_chat, self, game.player)
-			chat:invoke()
-			self.self_resurrect_chat = nil
-		end
-
-		return
-	end
-
 	if self.rank >= 4 and game.state:allowRodRecall() and not self:attr("no_rod_recall") then
 		local rod = game.zone:makeEntityByName(game.level, "object", "ROD_OF_RECALL")
 		if rod then
@@ -411,7 +373,7 @@ function _M:tooltip(x, y, seen_by)
 	if not str then return end
 	local killed = game:getPlayer(true).all_kills and (game:getPlayer(true).all_kills[self.name] or 0) or 0
 	local target = self.ai_target.actor
-
+	
 	str:add(
 		true,
 		("당신에게 죽은 횟수 : %s"):format(killed), true,

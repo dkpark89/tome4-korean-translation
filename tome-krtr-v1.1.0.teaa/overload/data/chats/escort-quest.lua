@@ -217,7 +217,7 @@ if quest.to_zigur and reward.antimagic then reward = reward.antimagic reward.is_
 game.player:registerEscorts(quest.to_zigur and "zigur" or "saved")
 
 local saves_name = { mind="mental", spell="spell", phys="physical"}
-local kr_saves_name = { mind="정신", spell="주문", phys="물리"} --@@ 한글이름 추가
+local kr_saves_name = { mind="정신", spell="주문", phys="물리"}
 local saves_tooltips = { mind="MENTAL", spell="SPELL", phys="PHYS"}
 
 local function generate_rewards()

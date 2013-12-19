@@ -630,7 +630,7 @@ function string.krSize(str)
 end
 
 function string.krRank(str)
-	-- 관련내용 /mod/class/Actor.lua:1364~1372
+	-- 관련내용 /mod/class/Actor.lua #1364~1372
 	local ori = str:lower()
 	if ori == "normal" then return "평범함"
 	elseif ori == "critter" then return "모자람"
@@ -639,6 +639,7 @@ function string.krRank(str)
 	elseif ori == "unique" then return "유일함"
 	elseif ori == "boss" then return "보스"
 	elseif ori == "elite boss" then return "정예 보스"
+	elseif ori == "god" then return "신"
 	else return str end
 end
 
@@ -718,7 +719,7 @@ function string.krQuestStatus(str)
 	else return str end
 end
 
---@@ 아래 번역은 지형 이름들을 번역하에 그에 맞춰 바꿀 필요가 있음
+--@@ 아래 번역은 지형 이름이 바뀌면 그에 맞춰 바꿀 필요가 있음
 function string.krLoreCategory(str)
 	-- 관련내용 /data/lore 하위 파일들 전체, /data/general/ 하위 일부, /data/quests/ 하위 일부, /data/zones/ 하위 일부
 	local ori = str:lower()

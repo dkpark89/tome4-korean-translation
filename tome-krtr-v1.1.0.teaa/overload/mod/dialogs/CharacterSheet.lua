@@ -656,7 +656,7 @@ function _M:drawDialog(kind, actor_to_compare)
 			end
 		end
 		
-		--@@ 현재줄부터 사십여섯줄뒤까지 : 염동력 무기 정보 추가 코드 추가
+		--@@ 현재줄부터 오십여줄 뒤까지 : 염동력 무기 정보 추가 코드 추가
 		h = h + self.font_h
 		-- All weapons in psionic focus
 		if player:getInven(player.INVEN_PSIONIC_FOCUS) then

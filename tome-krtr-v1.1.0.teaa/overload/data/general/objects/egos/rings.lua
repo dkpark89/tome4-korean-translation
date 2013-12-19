@@ -284,7 +284,7 @@ newEntity{
 newEntity{ 
 	power_source = {arcane=true},
 	name = " of power", suffix=true, instant_resolve=true,
-	kr_name = "강력함의 ", --@@ 한글화 검수 필요
+	kr_name = "강력함의 ",
 	keywords = {power=true},
 	level_range = {6, 50},
 	rarity = 4,

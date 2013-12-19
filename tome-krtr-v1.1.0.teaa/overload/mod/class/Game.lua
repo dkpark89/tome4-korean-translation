@@ -104,7 +104,7 @@ function _M:runReal()
 	local flysize = ({normal=14, small=12, big=16})[config.settings.tome.fonts.size]
 	self.tooltip = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
 	self.tooltip2 = Tooltip.new(self.uiset.init_font_mono, self.uiset.init_size_mono, {255,255,255}, {30,30,30,230})
-	self.flyers = FlyingText.new(krFont or "/data/font/INSULA__.ttf", flysize, "/data/font/INSULA__.ttf", flysize + 3) --@@ 한글 글꼴 추가
+	self.flyers = FlyingText.new(krFont or "/data/font/INSULA__.ttf", flysize, krFont or "/data/font/INSULA__.ttf", flysize + 3) --@@ 한글 글꼴 추가
 	self.flyers:enableShadow(0.6)
 	game:setFlyingText(self.flyers)
 
@@ -459,7 +459,7 @@ function _M:setupDisplayMode(reboot, mode)
 
 		local map_x, map_y, map_w, map_h = self.uiset:getMapSize()
 		if th <= 20 then
-			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, "/data/font/FSEX300.ttf", pot_th, do_bg) --@@ 일단 일부러 글꼴 수정 안함
+			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, krFont or "/data/font/FSEX300.ttf", pot_th, do_bg) --@@ 한글 글꼴 추가
 		else
 			Map:setViewPort(map_x, map_y, map_w, map_h, tw, th, nil, fsize, do_bg)
 		end
@@ -1261,14 +1261,14 @@ function _M:displayDelayedLogDamage()
 			local tn = target.kr_name or target.name
 			
 			if #dams.descs > 1 then
-				game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다 (합계 %0.0f) %s.", table.concat(dams.descs, ", "), dams.total, dams.healing<0 and (" #LIGHT_GREEN#[%0.0f 회복]#LAST#"):format(-dams.healing) or "")) --@@ 한글화 필요 table
+				game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다 (합계 %0.0f) %s.", table.concat(dams.descs, ", "), dams.total, dams.healing<0 and (" #LIGHT_GREEN#[%0.0f 회복]#LAST#"):format(-dams.healing) or ""))
 			else
 				if dams.healing >= 0 then
 					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다.", table.concat(dams.descs, ", ")))
 				elseif src == target then
-					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# %s 피해를 받았습니다.", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
+					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# %s 피해를 받았습니다.", table.concat(dams.descs, ", ")))
 				else
-					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Target1# #Source4#부터 %s 피해를 받았습니다.", table.concat(dams.descs, ", "))) --@@ 한글화 필요 table
+					game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Target1# #Source4#부터 %s 피해를 받았습니다.", table.concat(dams.descs, ", ")))
 				end
 			end
 			local rsrc = src.resolveSource and src:resolveSource() or src
@@ -2227,7 +2227,7 @@ function _M:placeRandomLoreObject(define)
 	end
 end
 
---@@ 아랫부분이 번역이 필요한지?
+--@@ 아랫부분이 번역이 필요한지? - 필요 없는 것 같음
 unlocks_list = {
 	birth_transmo_chest = "Birth option: Transmogrification Chest",
 	birth_zigur_sacrifice = "Birth option: Zigur sacrifice",

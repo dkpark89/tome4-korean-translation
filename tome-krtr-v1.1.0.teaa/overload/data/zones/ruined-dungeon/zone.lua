@@ -81,7 +81,7 @@ return {
 		end
 
 		-- Pop guardians
-		local guardian_filter = {not_properties = {"unique"}, random_elite={name_scheme="#rng# the Guardian", on_die=function(self) --@@ 한글화 필요한지 검사
+		local guardian_filter = {not_properties = {"unique"}, random_elite={name_scheme="#rng# the Guardian", on_die=function(self) --@@ 번역하는 부분 아님
 			local spot = game.level:pickSpotRemove{type="portal", subtype="portal"}
 			if spot then
 				game.level.map(spot.x, spot.y, engine.Map.TERRAIN).orb_allowed = true

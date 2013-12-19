@@ -367,7 +367,7 @@ function _M:wearObject(o, replace, vocal)
 		if vocal then game.logSeen(self, "%s %s 착용합니다.", (self.kr_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
 		return true
 	elseif offslot and self:getInven(offslot) and #(self:getInven(offslot)) < self:getInven(offslot).max and self:canWearObject(o, offslot) then
-		if vocal then game.logSeen(self, "%s %s 착용합니다 (offslot).", (self.kr_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end --@@ offslot 번역 필요
+		if vocal then game.logSeen(self, "%s %s 착용합니다 (보조장비).", (self.kr_name or self.name):capitalize():addJosa("가"), o:getName{do_color=true}:addJosa("를")) end
 		-- Warning: assume there is now space
 		self:addObject(self:getInven(offslot), o)
 		return true

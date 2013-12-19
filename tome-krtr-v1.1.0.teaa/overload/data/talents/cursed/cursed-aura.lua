@@ -85,7 +85,7 @@ newTalent{
 
 		local def = self.tempeffect_def[item.curse]
 		item.special = true
-		item.add_name = (item.add_name or "").." ("..(def.kr_short_desc or def.short_desc)..")" --@@ 짧은 저주이름 한글로 바꿈
+		item.add_name = (item.add_name or "").." ("..(def.kr_short_desc or def.short_desc)..")"
 	end,
 	-- curses all items on the floor
 	curseFloor = function(self, t, x, y)
@@ -116,7 +116,7 @@ newTalent{
 		if not self.cursed_aura then
 			return "없음"
 		else
-			return (self.tempeffect_def[self.cursed_aura].kr_name or self.tempeffect_def[self.cursed_aura].desc) --@@ 저주 한글이름 반환 
+			return (self.tempeffect_def[self.cursed_aura].kr_name or self.tempeffect_def[self.cursed_aura].desc) 
 		end
 	end,
 	on_onWear = function(self, t, o)
@@ -406,8 +406,8 @@ newTalent{
 		local sentry = NPC.new {
 			type = "construct", subtype = "weapon",
 			display = o.display, color=o.color, image = o.image, blood_color = colors.GREY,
-			kr_name = "살아 움직이는 "..(o.kr_name or o.name),
-			name = "animated "..o.getOriName(), -- bug fix --@@ 원래 o:getName()를 사용하는데 이 함수가 한글 이름을 반환하므로 o.getOriName()을 사용
+			kr_name = "살아 움직이는 "..o.getName(),
+			name = "animated "..o.getOriName(), -- bug fix
 			faction = self.faction,			
 			desc = "살아 움직이는 저주에 걸린 무기입니다. 다음 희생자를 찾고 있는 것 같습니다.",
 			faction = self.faction,

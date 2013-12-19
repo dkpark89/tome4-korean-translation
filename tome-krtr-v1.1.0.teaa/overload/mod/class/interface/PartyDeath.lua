@@ -86,7 +86,7 @@ function _M:onPartyDeath(src, death_note)
 			local srcname = src.kr_name or ( src.unique and src.name or src.name:a_an() )
 			local killermsg = (src.killer_message and " "..src.killer_message or ""):gsub("#sex#", game.player.female and "그녀" or "그")
 			if src.name == game.player.name then
-				srcname = "자기 자신" --@@ 성별 차이 제거 원래 코드 : game.player.female and "herself" or "himself"
+				srcname = "자기 자신" --@@ 성별 차이 제거 - 원래 코드 : game.player.female and "herself" or "himself"
 				killermsg = rng.table{
 					"(멍청이)",
 					"극도로 바보 같은 행동이었죠.",

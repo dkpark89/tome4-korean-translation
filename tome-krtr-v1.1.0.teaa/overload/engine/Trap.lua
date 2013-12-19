@@ -131,7 +131,7 @@ function _M:trigger(x, y, who)
 	else
 		local tname = who.kr_name or who.name --@@ 세줄뒤부터 18줄뒤까지 사용 : 반복사용으로 변수로 뺌
 		local str =self.message
-		--@@ 다음줄 ~ 16줄뒤 : 함정 메세지에 조사를 추가할 수 있으도록 수정
+		--@@ 다음줄 ~ 16줄뒤 : 함정 메세지에 조사를 추가할 수 있도록 수정
 		str = str:gsub("@target@", tname)
 		str = str:gsub("@Target@", tname:capitalize())
 		str = str:gsub("@target1@", tname:addJosa("가"))

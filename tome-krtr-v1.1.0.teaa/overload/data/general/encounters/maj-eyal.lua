@@ -29,6 +29,7 @@ newEntity{
 
 		local g = mod.class.WorldNPC.new{
 			name="Novice mage",
+			kr_name = "풋내기 마법사",
 			type="humanoid", subtype="human", faction="angolwen",
 			display='@', color=colors.RED,
 			image = "npc/humanoid_human_apprentice_mage.png",
