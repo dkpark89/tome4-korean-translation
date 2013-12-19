@@ -345,7 +345,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local incDamage = t.getIncDamage(self, t)
 
-		return ([[%d 턴 동안 자신의 주변 %d 칸 반경의 땅에 저주를 내립니다. 저주받은 땅 위에 선 자들은 약화되어, 피해량이 %d%% 감소하게 됩니다. 시전자도 이 기술의 영향을 받습니다.]]):format(duration, range, incDamage)
+		return ([[%d 턴 동안 자신의 주변 %d 칸 반경의 땅에 저주를 내립니다. 저주받은 땅 위에 선 자들은 약화되어, 피해량이 %d%% 감소하게 됩니다. 시전자도 이 기술의 영향을 받습니다.]]):format(duration, range, incDamage) --@@ 변수 순서 조정
 	end,
 }
 
@@ -406,9 +406,8 @@ newTalent{
 		local sentry = NPC.new {
 			type = "construct", subtype = "weapon",
 			display = o.display, color=o.color, image = o.image, blood_color = colors.GREY,
-			kr_name = "살아 움직이는 "..o.getName(),
-			name = "animated "..o.getOriName(), -- bug fix
-			faction = self.faction,			
+			name = "살아 움직이는  "..o:getName(), -- bug fix --@@ 이유는 모르겠지만, kr_name을 추가하면 오류가 발생하여 그냥 name을 한글화 했음
+			faction = self.faction,
 			desc = "살아 움직이는 저주에 걸린 무기입니다. 다음 희생자를 찾고 있는 것 같습니다.",
 			faction = self.faction,
 			body = { INVEN = 10, MAINHAND=1, QUIVER=1 },
