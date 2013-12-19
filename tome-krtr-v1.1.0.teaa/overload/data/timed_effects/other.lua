@@ -854,7 +854,7 @@ newEffect{
 				-- Add to the party
 				if self.player then
 					m.remove_from_party_on_death = true
-					game.party:addMember(m, {control="no", type="summon", title="Summon"})
+					game.party:addMember(m, {control="no", type="summon", title="Summon", kr_title="소환수"})
 				end
 
 				game.level.map:particleEmitter(x, y, 1, "slime")

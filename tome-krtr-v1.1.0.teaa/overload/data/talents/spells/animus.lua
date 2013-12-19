@@ -181,6 +181,7 @@ newTalent{
 					control="full",
 					type="husk",
 					title="Lifeless Husk",
+					kr_title="언데드 하수인",
 					orders = {leash=true, follow=true},
 					on_control = function(self)
 						self:hotkeyAutoTalents()

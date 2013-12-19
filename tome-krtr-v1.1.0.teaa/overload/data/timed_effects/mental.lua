@@ -127,6 +127,7 @@ newEffect{
 			control="full",
 			type="thrall",
 			title="Thrall",
+			kr_title="노예",
 			orders = {leash=true, follow=true},
 			on_control = function(self)
 				self:hotkeyAutoTalents()

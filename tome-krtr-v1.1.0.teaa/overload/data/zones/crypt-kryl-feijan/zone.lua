@@ -91,7 +91,8 @@ return {
 						if m then
 							game.zone:addEntity(game.level, m, "actor", x, y)
 							game.level.map:particleEmitter(x, y, 1, "blood")
-						endgame.player:setQuestStatus("kryl-feijan-escape", engine.Quest.FAILED)
+						end
+						game.player:setQuestStatus("kryl-feijan-escape", engine.Quest.FAILED)
 
 						local spot = game.level:pickSpot{type="locked-door", subtype="locked-door"}
 						local g = game.zone:makeEntityByName(game.level, "terrain", "FLOOR")
