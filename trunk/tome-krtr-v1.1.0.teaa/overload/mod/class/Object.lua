@@ -1438,7 +1438,9 @@ function _M:getDesc(name_param, compare_with, never_compare, use_actor)
 	compare_with = compare_with or {}
 
 	desc:merge(self:getName(name_param):toTString()) --@@ 한글 이름 붙이기
-	desc:add("\n[", self.name, "]\n") --@@ 원래이름 덧붙이기
+	desc:add("\n[") --@@ 원래이름 덧붙이기
+	desc:merge(self:getOriName(name_param):toTString()) --@@ 원래이름 덧붙이기
+	desc:add("]\n") --@@ 원래이름 덧붙이기
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(use_actor)
 	if reqs then

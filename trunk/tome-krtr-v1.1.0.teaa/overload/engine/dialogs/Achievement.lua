@@ -30,7 +30,7 @@ function _M:init(title, a)
 	local c_frame = Image.new{file="achievement-ui/runes_inner.png", width=154, height=154}
 	local c_image = Image.new{file=a.image or "trophy_gold.png", width=128, height=128}
 	local color = a.huge and "#GOLD#" or "#LIGHT_GREEN#"
-	local c_desc = Textzone.new{width=500, auto_height=true, text=color..a.name.."#LAST#\n"..a.desc, font={krFont or "/data/font/DroidSans-Bold.ttf", 26}} --@@ 한글 글꼴 추가
+	local c_desc = Textzone.new{width=500, auto_height=true, text=color..(a.kr_name or a.name).."#LAST#\n"..a.desc, font={krFont or "/data/font/DroidSans-Bold.ttf", 26}} --@@ 한글 글꼴 추가
 	c_desc:setTextShadow(1)
 	c_desc:setShadowShader(Shader.default.textoutline and Shader.default.textoutline.shad, 1.2)
 	self.ui = "achievement"

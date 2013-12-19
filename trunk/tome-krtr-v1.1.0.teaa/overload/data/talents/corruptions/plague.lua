@@ -242,7 +242,7 @@ newTalent{
 	do_spread = function(self, t, carrier, dam)
 		if not dam or type(dam) ~= "number" then return end
 		if not rng.percent(100*dam/(t.spreadFactor(self, t)*carrier.max_life)) then return end
-		game.logSeen(self, "%s의 질병이 다른 대상에게 감염됩니다!", (self.kr_name or self.name)) 
+		game.logSeen(self, "%s의 질병이 다른 대상에게 감염됩니다!", (self.kr_name or self.name):capitalize() ) 
 		-- List all diseases
 		local diseases = {}
 		for eff_id, p in pairs(carrier.tmp) do

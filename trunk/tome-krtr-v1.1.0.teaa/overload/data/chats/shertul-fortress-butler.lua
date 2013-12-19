@@ -143,7 +143,7 @@ newChat{ id="recall",
 
 newChat{ id="training",
 	text = [[예 주인님, 연습용 시설은 북쪽에서 이용할 수 있습니다. 하지만 아직 기동되지 않고 있습니다.
-그 것을 사용하기 위해서는 에너지가 50 만큼 필요합니다.]], --@@ 한글화 필요 : 145~149
+그 것을 사용하기 위해서는 에너지가 50 만큼 필요합니다.]],
 	answers = {
 		{"다음에 하도록 하지."},
 		{"꽤 유용하겠는걸. 그렇게 해줘.", cond=function() return q.shertul_energy >= 50 end, action=function() q:open_training() end},

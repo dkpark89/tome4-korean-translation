@@ -2447,7 +2447,7 @@ newDamageType{
 			-- silence the apply message it if the target already has the effect
 			for eff_id, p in pairs(target.tmp) do
 				local e = target.tempeffect_def[eff_id]
-				if e.desc == "Abyssal Shroud" then --@@ 이건 번역하는 부분 아닙니다
+				if e.desc == "Abyssal Shroud" then --@@ 번역하는 부분 아님
 					reapplied = true
 				end
 			end

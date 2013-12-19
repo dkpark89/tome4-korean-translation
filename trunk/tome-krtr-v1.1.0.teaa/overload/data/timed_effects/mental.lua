@@ -1717,6 +1717,7 @@ newEffect{
 	name = "DOMINATION_HEX", image = "talents/domination_hex.png",
 	desc = "Domination Hex",
 	kr_name = "지배의 매혹",
+	--long_desc = function(self, eff) return ("The target is hexed, temporarily changing its faction to %s."):format(engine.Faction.factions[eff.faction].name) end,
 	long_desc = function(self, eff) return ("매혹됨 : 잠시동안 소속 집단이 변경") end, --@@ 에러 걸려서 집단 보여주는 변수 빼버림. (원 소스 코드가 에러남)
 	type = "mental",
 	subtype = { hex=true, dominate=true },

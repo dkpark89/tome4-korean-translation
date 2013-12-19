@@ -348,13 +348,13 @@ function _M:activate()
 	if config.settings.tome.fonts.type == "fantasy" then
 		size = ({normal=16, small=14, big=18})[config.settings.tome.fonts.size]
 		size_mono = ({normal=14, small=10, big=16})[config.settings.tome.fonts.size]
-		font = "/data/font/DroidSans.ttf" --@@ 일부러 글꼴 놔둠
-		font_mono = "/data/font/DroidSansMono.ttf" --@@ 일부러 글꼴 놔둠
+		font = krFont or "/data/font/DroidSans.ttf" --@@ 한글 글꼴 추가
+		font_mono = krFont or "/data/font/DroidSansMono.ttf" --@@ 한글 글꼴 추가
 	else
 		size = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
 		size_mono = ({normal=12, small=10, big=14})[config.settings.tome.fonts.size]
-		font = "/data/font/Vera.ttf" --@@ 일부러 글꼴 놔둠
-		font_mono = "/data/font/VeraMono.ttf" --@@ 일부러 글꼴 놔둠
+		font = krFont or "/data/font/Vera.ttf" --@@ 한글 글꼴 추가
+		font_mono = krFont or "/data/font/VeraMono.ttf" --@@ 한글 글꼴 추가
 	end
 	local f = core.display.newFont(font, size)
 	font_h = f:lineSkip()

@@ -33,8 +33,8 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize, icon_w, icon_h)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	self.font = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", fontsize or 10) --@@ 글꼴 일부러 그냥둠 
-	self.fontbig = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", (fontsize or 10) * 2) --@@ 글꼴 일부러 그냥둠
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 10) --@@ 한글 글꼴 추가 
+	self.fontbig = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", (fontsize or 10) * 2) --@@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 	self.dragclics = {}
 	self.clics = {}
@@ -42,7 +42,7 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize, icon_w, icon_h)
 	self.cache = {}
 	setmetatable(self.cache, {__mode="v"})
 	self.icon_w, self.icon_h = icon_w, icon_h
-	self.tiles = Tiles.new(icon_w, icon_h, fontname or "/data/font/DroidSansMono.ttf", fontsize or 10, true, true) --@@ 글꼴 일부러 그냥둠
+	self.tiles = Tiles.new(icon_w, icon_h, krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 10, true, true) --@@ 한글 글꼴 추가
 	self.tiles.use_images = true
 	self.tiles.force_back_color = {r=0, g=0, b=0}
 

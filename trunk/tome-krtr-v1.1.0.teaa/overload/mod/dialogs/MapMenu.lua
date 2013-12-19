@@ -138,8 +138,8 @@ function _M:generateList()
 	if a and not self.on_player and game.party:canControl(a, false) then list[#list+1] = {name="조종", action="control", color=colors.simple(colors.TEAL), actor=a} end
 	if a and not self.on_player and game.party:canOrder(a, false) then list[#list+1] = {name="명령 주문", action="order", color=colors.simple(colors.TEAL), actor=a} end
 	if a and not self.on_player and config.settings.cheat then list[#list+1] = {name="목표로 지정", action="target-player", color=colors.simple(colors.RED), actor=a} end
-	if a and config.settings.cheat then list[#list+1] = {name="Lua inspect", action="debug-inspect", color=colors.simple(colors.LIGHT_BLUE), actor=a} end --@@ 디버그 모드 전용이라서 일단 번역 안 함
-	if a and config.settings.cheat then list[#list+1] = {name="Show inventory", action="debug-inventory", color=colors.simple(colors.YELLOW), actor=a} end
+	if a and config.settings.cheat then list[#list+1] = {name="Lua inspect", action="debug-inspect", color=colors.simple(colors.LIGHT_BLUE), actor=a} end --@@ 디버그 모드 전용 : 한글화 제외
+	if a and config.settings.cheat then list[#list+1] = {name="Show inventory", action="debug-inventory", color=colors.simple(colors.YELLOW), actor=a} end --@@ 디버그 모드 전용 : 한글화 제외
 	if self.on_player then list[#list+1] = {name="휴식", action="rest", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if self.on_player then list[#list+1] = {name="자동탐사", action="autoexplore", color=colors.simple(colors.ANTIQUE_WHITE)} end
 	if self.on_player then list[#list+1] = {name="소지품 목록", action="inventory", color=colors.simple(colors.ANTIQUE_WHITE)} end

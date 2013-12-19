@@ -44,7 +44,7 @@ ToME에서 죽음은 보통 영원하지만, 당신은 아래 선택지에 나�
 ]]
 
 	if #game.party.on_death_show_achieved > 0 then
-		self.c_achv = Textzone.new{width=self.iw, scrollbar=true, height=100, text="#LIGHT_GREEN#게임하는 동안 이뤄낸 것#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ")} --@@ 번역 맞을지 확인 필요
+		self.c_achv = Textzone.new{width=self.iw, scrollbar=true, height=100, text="#LIGHT_GREEN#게임하는 동안 이뤄낸 것#WHITE#:\n* "..table.concat(game.party.on_death_show_achieved, "\n* ")}
 	end
 
 	self.c_desc = Textzone.new{width=self.iw, auto_height=true, text=text}
