@@ -143,10 +143,10 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[주변 %d 칸 반경에 중력을 왜곡시키는 역장을 만들어내, 적들을 밀어내고 %0.2f 물리 피해를 줍니다.
+		return ([[%d 턴 동안 자신의 주변 %d 칸 반경에 중력을 왜곡시키는 역장을 만들어내, 매 턴마다 적들을 밀어내고 %0.2f 물리 피해를 줍니다.
 		속박된 적에게는 50%% 추가 피해를 주며, 더 멀리 밀어냅니다.
 		이 역장은 역장 반경과 밀어내는 효과에 따라, 하나의 적을 여러 번 공격할 수도 있습니다.
-		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 
@@ -193,7 +193,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[주변 %d 칸 반경의 중력을 끌어올려, %0.2f 물리 피해를 줍니다. 피해를 받은 적은 %d 턴 동안 속박될 확률이 있습니다.
-		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration)
+		return ([[%d 턴 동안 주변 %d 칸 반경의 중력을 끌어올려, 매 턴마다 %0.2f 물리 피해를 줍니다. 피해를 받은 적은 속박될 확률이 있습니다.
+		피해량은 괴리 수치와 주문력의 영향을 받아 증가합니다.]]):format(duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
