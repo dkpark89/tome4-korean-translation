@@ -91,7 +91,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[대상 주변의 수분을 응결시켜, %d 피해를 주고 %d 턴 동안 빙결시킵니다.
-		피해량은 주문력의 영향을 받아 증가합니다.]]):format(t.getDuration(self, t), damDesc(self, DamageType.COLD, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), t.getDuration(self, t))
 	end,
 }
 
