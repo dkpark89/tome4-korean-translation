@@ -1402,7 +1402,7 @@ function _M:getUseDesc(use_actor)
 		ret = tstring{{"color","YELLOW"}, ("사용처 : %s."):format(self.use_simple.kr_name or self.use_simple.name), {"color","LAST"}}
 	elseif self.use_talent then
 		local t = use_actor:getTalentFromId(self.use_talent.id)
-		local desc = use_actor:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
+		local desc = use_actor:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "소모량 : ", {"color",0x7f,0xff,0xd4},("%d (보유량 : %d/%d)."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
 		if self.talent_cooldown then
 			ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_name or t.name)," 기술 발동, 다른 발동형 기술들의 지연시간을 ", tostring(math.floor(usepower(self.use_talent.power))) ,"턴 늘림 : ", {"color","LAST"}, true}
 		else
