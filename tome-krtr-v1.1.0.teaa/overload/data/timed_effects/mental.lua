@@ -1718,8 +1718,7 @@ newEffect{
 	name = "DOMINATION_HEX", image = "talents/domination_hex.png",
 	desc = "Domination Hex",
 	kr_name = "지배의 매혹",
-	--long_desc = function(self, eff) return ("The target is hexed, temporarily changing its faction to %s."):format(engine.Faction.factions[eff.faction].name) end,
-	long_desc = function(self, eff) return ("매혹됨 : 잠시동안 소속 집단이 변경") end, --@@ 에러 걸려서 집단 보여주는 변수 빼버림. (원 소스 코드가 에러남)
+	long_desc = function(self, eff) return ("매혹됨 : 잠시동안 소속 집단이 %s 변경."):format(engine.Faction.factions[eff.faction].name:krFaction():addJosa("로")) end,
 	type = "mental",
 	subtype = { hex=true, dominate=true },
 	status = "detrimental",
@@ -2181,7 +2180,7 @@ newEffect{
 	desc = "Outmaneuvered",
 	kr_name = "허를 찔림",
 	long_desc = function(self, eff)
-		local desc = ("허를 찔림 : 물리 저항 %d%% 감소"):format(eff.physicalResistChange) --@@ 변수가 음수인 경우 '감소' 삭제 필요
+		local desc = ("허를 찔림 : 물리 저항 %d%%"):format(eff.physicalResistChange) --@@ 변수값이 음수라서 이렇게 둠
 		--local first = true --@@ 필요없어져 주석 처리
 		for id, value in pairs(eff.incStats) do
 			--if not first then desc = desc.." / " end --@@ 필요없어져 주석 처리
