@@ -170,7 +170,7 @@ end
 
 function _M:mouseLink(link, text, _, _, _, w, h, x, y)
 	self:mouseZones({
-		{ x=x, y=y + self.hoffset, w=w, h=h, fct=function(button)
+		{ x=x, y=y, w=w, h=h, fct=function(button)
 			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, text)
 			if button == "left" then
 				util.browserOpenUrl(link)
@@ -1064,7 +1064,7 @@ function _M:dump()
 
 	nnl(("%-32s"):format(makelabel("Gold", ("%.2f"):format(player.money))))
 	nl(("CON:  %d"):format(player:getCon()))
-	
+
 	if player.died_times then
 		nl(("Times died       : %d"):format(#player.died_times))
 	end
