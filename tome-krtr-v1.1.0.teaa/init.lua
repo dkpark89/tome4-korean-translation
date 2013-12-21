@@ -17,16 +17,18 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-long_name = "ToME4-V1.1.0 korean translation"
+long_name = "Korean translation addon"
 short_name = "krTr"
 for_module = "tome"
-version = {1,1,0}
+version = {1,1,1}
 
 weight = 10 -- 한글화가 먼저되고 다른 애드온이 실행되는게 애드온끼리의 충돌이 적을거 같아 무게를 가볍게 잡음 (100이 제일 나중인 듯)
 tags = {'Korean','translation'}
 author = { "nethackboard", "blank@blank.com" }
 homepage = "http://tome.te4.org/"
-description = [[ToME4 korean translation add-on by nethack board]]
+description = [[ToME4 korean translation add-on by nethack board
+
+우리말화(한글화) 애드온입니다!]]
 
 overload = true
 superload = false
