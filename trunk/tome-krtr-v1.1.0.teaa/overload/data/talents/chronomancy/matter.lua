@@ -99,7 +99,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local armor = t.getArmor(self, t)
-		return ([[부서지기 쉬운 탄소 가시를 맨몸, 옷, 갑옷 등에 돌출시켜 방어도가 %d 상승하며, 자신을 공격한 적에게 6 턴 동안 총 %0.2f 출혈 피해를 줍니다.
+		return ([[부서지기 쉬운 탄소 가시를 맨몸, 옷, 갑옷 등에 돌출시켜 방어도를 %d 상승시키며, 자신을 공격한 적에게 6 턴 동안 총 %0.2f 출혈 피해를 줍니다.
 		공격을 받을 때마다 방어도 증가량이 1 씩 줄어들며, 매 턴마다 감소된 방어도가 1 씩 복구됩니다.
 		방어도 상승량과 출혈 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(armor, damDesc(self, DamageType.PHYSICAL, damage))
