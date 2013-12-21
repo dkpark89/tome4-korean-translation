@@ -38,7 +38,7 @@ newTalent{
 	info = function(self, t)
 		local primary = t.getThread(self, t)
 		local reduction = t.getReduction(self, t)
-		return ([[다른 시간축에서 에너지를 모아 주문력이 %0.2f 상승하며, 매 턴마다 주문력이 %0.2f 만큼 추가로 상승합니다.
+		return ([[다른 시간축에서 에너지를 모아 주문력을 %0.2f 상승시키며, 매 턴마다 %0.2f 만큼의 주문력을 추가로 상승시킵니다.
 		이 효과는 주문을 시전하거나, 5 턴이 지나면 사라집니다.
 		이 효과가 활성화된 동안, 매 턴마다 괴리 수치가 %d 감소합니다.
 		이 마법은 시공간 조율의 효과를 깨뜨리지 않으며, 그 반대도 마찬가지입니다.]]):format(primary + (primary/5), primary/5, reduction)
