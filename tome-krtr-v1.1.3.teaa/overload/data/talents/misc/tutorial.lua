@@ -20,7 +20,6 @@
 require "engine.krtrUtils"
 
 -- race & classes
-
 newTalentType{ type="tutorial", name = "tutorial", hide = true, description = "연습게임 전용 기술." }
 
 newTalent{

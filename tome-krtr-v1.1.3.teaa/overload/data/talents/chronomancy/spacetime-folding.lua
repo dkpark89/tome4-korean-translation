@@ -110,7 +110,7 @@ newTalent{
 		local duration = t.getConfuseDuration(self, t)
 		local power = t.getConfuseEfficency(self, t)
 		return ([[시공간 연속체를 다루어, 주변 %d 칸 내의 대상과 서로 자리를 바꿉니다. 대상은 %d 턴 동안 혼란 상태에 빠집니다. (혼란 수치 +%d%%)
-		마법의 성공 확률은 주문력의 영향을 받아 증가합니다.]]):format (range, duration, power)
+		마법의 성공 확률은 주문력의 영향을 받아 증가합니다.]]):format (range, duration, power) --@ 변수 순서 조정
 	end,
 }
 

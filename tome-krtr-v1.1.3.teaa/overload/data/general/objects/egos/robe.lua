@@ -211,7 +211,7 @@ newEntity{
 	name = " of protection", suffix=true, instant_resolve=true,
 	kr_name = "보호의 ",
 	keywords = {prot=true},
-	level_range = {10, 50},
+	level_range = {1, 50},
 	rarity = 7,
 	cost = 6,
 	wielder = {

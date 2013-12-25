@@ -127,6 +127,14 @@ newEntity{ base = "BASE_SHIELD", define_as = "SHIELD_UNSETTING",
 		resists = {[DamageType.BLIGHT] = 30, [DamageType.DARKNESS] = 30},
 		learn_talent = { [Talents.T_BLOCK] = 5, },
 	},
+	set_list = { {"define_as","SWORD_DAWN"} },
+	on_set_complete = function(self, who)
+		self:specialSetAdd({"wielder","life_regen"}, 0.25)
+		self:specialSetAdd({"wielder","lite"}, 1)
+	end,
+	on_set_broken = function(self, who)
+		
+	end,
 }
 
 newEntity{ base = "BASE_HEAVY_BOOTS",
@@ -136,7 +144,7 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 	unided_name = "pair of blackened boots",
 	kr_name = "불타오른 신발", kr_unided_name = "검게 탄 신발",
 	desc = [[고위 피의 마법사 루'칸은, 장작더미의 시대에 쉐르'툴 장거리 관문의 힘을 실험한 첫 번째 오크였습니다. 그러나 첫 번째 실험은 제대로 성공하지 못했고, 그 힘이 폭발한 다음 루'칸이 있던 곳에 남아있던 것은 이 불타오른 신발 뿐이었습니다.]],
-	ccolor = colors.DARK_GRAY,
+	color = colors.DARK_GRAY,
 	level_range = {30, 40},
 	rarity = 250,
 	cost = 200,

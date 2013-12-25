@@ -96,7 +96,7 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "uruivellas", color=colors.LIGHT_RED, -- Hot strength
-	kr_name = "우뤼옐라스",
+	kr_name = "우뤼벨라스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_uruivellas.png", display_h=2, display_y=-1}}},
 	desc = [[이 악마는 주변을 뒤덮은 강렬한 기운과 온몸에 뿔이 나있다는 것을 제외하면, 미노타우르스와 비슷하게 생겼습니다.
 미노타우르스보다 두 배는 더 커다랗지만요.]],

@@ -1816,10 +1816,10 @@ newDamageType{
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") then
 			target:setEffect(target.EFF_EMPOWERED_HEALING, 1, {power=(dam/100)})
-			if dam >= 100 then target:attr("allow_on_heal", 1) else target:attr("silent_heal", 1) end
+			if dam >= 100 then target:attr("allow_on_heal", 1) end
 			target:heal(dam, src)
 			if not target:hasEffect(target.EFF_DAMAGE_SHIELD) then target:setEffect(target.EFF_DAMAGE_SHIELD, 2, {power=dam * util.bound((target.healing_factor or 1), 0, 2.5)}) end
-			if dam >= 100 then target:attr("allow_on_heal", -1) else target:attr("silent_heal", -1) end
+			if dam >= 100 then target:attr("allow_on_heal", -1) end
 		elseif target then
 			DamageType:get(DamageType.LIGHT).projector(src, x, y, DamageType.LIGHT, dam)
 			DamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, {dam=dam, dur=2, initial=0})
@@ -1833,9 +1833,9 @@ newDamageType{
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and not target:attr("undead") then
-			if dam >= 100 then target:attr("allow_on_heal", 1) end
+			if dam >= 100 then target:attr("allow_on_heal", 1) else target:attr("silent_heal", 1) end
 			target:heal(dam, src)
-			if dam >= 100 then target:attr("allow_on_heal", -1) end
+			if dam >= 100 then target:attr("allow_on_heal", -1) else target:attr("silent_heal", -1) end
 		elseif target then
 			DamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam)
 			

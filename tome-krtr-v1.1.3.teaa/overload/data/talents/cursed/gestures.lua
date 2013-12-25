@@ -172,7 +172,7 @@ newTalent{
 		local resistAllChange = t.getResistAllChange(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[고통의 손짓을 강화하여, 적에게 사악한 저주를 추가로 내립니다. %d 턴 동안 적의 전체 저항력을 %d%% 낮춥니다.
-		]]):format(duration, -resistAllChange)
+		]]):format(duration, -resistAllChange) --@ 변수 순서 조정
 	end,
 }
 

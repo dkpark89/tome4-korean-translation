@@ -74,7 +74,7 @@ newTalent{
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), 
 		damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 28, 220) / 2), 
 		damDesc(self, DamageType.DARKNESS, 
-		self:combatTalentSpellDamage(t, 28, 220) / 2))
+		self:combatTalentSpellDamage(t, 28, 220) / 2)) --@ 변수 순서 조정
 	end,
 }
 

@@ -70,7 +70,7 @@ newEntity{
 }
 
 newEntity{
-	name = "Sect of Kryl-Feijan",
+	name = "Sect of Kryl-Feijan", --@ 원래 코드가 Faijan으로 오타나 있는것을 수정했음
 	kr_name = "크릴-페이얀의 이교도",
 	type = "hostile", subtype = "special", unique = true,
 	level_range = {24, 35},

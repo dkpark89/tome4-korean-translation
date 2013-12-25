@@ -120,7 +120,7 @@ newTalent{
 		local defense = t.getDefense(self, t)
 		return ([[%d 턴 동안 회피도를 %d 상승시킵니다. 지속 시간 중에 근접 공격을 피할 때마다, 자신을 공격한 적은 치명타를 맞을 확률이 %d%% 상승하며 모든 내성이 %d 감소합니다. (중첩은 되지 않습니다)
 		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]])
-		:format(duration, defense, power, power)
+		:format(duration, defense, power, power) --@ 변수 순서 조정
 	end,
 }
 
@@ -149,6 +149,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getReductionMax(self, t)
-		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 물리 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 %d%% 까지 감소 가능)]]):format(reduction)
+		return ([[공격을 통해 대상의 물리적 약점을 노출시킵니다. 적에게 주는 물리 피해량이 10%% 감소하는 대신, 공격을 적중시킬 때마다 적의 물리 저항력이 5%% 감소합니다. (최대 %d%% 까지 감소 가능)
+		]]):format(reduction)
 	end,
 }

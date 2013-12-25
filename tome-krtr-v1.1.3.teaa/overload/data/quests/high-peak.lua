@@ -107,7 +107,7 @@ function failed_charred_scar(self, level)
 		local spot = level:pickSpot{type="zone-pop", subtype="ruined-gates-of-morning"}
 		local wild = level.map(spot.x, spot.y, engine.Map.TERRAIN)
 		wild.name = "Ruins of the Gates of Morning"
-		wild.kr_display_nmae = "파괴된 아침의 문"
+		wild.kr_name = "파괴된 아침의 문"
 		wild.desc = "당신이 최고봉에 갇혀 있는 동안, 태양의 장벽은 파괴되었습니다."
 		wild.change_level = nil
 		wild.change_zone = nil

@@ -32,7 +32,7 @@ newChat{ id="welcome",
 newChat{ id="training",
 	text = [[그렇다면 제가 지팡이 사용법 (주문 / 지팡이 전투 기술 계열) 을 가르쳐드릴 수 있습니다. 기초적인 기술을 배우려면 금화 100 개, 보다 집중적인 훈련을 통해 실제로 기술을 습득하려면 금화 500 개, 그리고 기술을 습득한 상태라면 금화 750 개를 받고 더 세부적인 기술을 가르쳐드릴 수 있습니다.]], 
 	answers = {
-		{"그냥 기초적인 것만 알려주세요. (잠겨진 상태로 기술 계열 습득) - 금화 100 개", action=function(npc, player) 
+		{"그냥 기초적인 것만 알려주세요. (잠겨진 상태로 기술 계열 습득) - 금화 100 개", action=function(npc, player) -- Normal basic training
 			game.logPlayer(player, "지팡이 조각가에게 기초적인 지팡이 전투기술을 배웠습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("spell/staff-combat", false)

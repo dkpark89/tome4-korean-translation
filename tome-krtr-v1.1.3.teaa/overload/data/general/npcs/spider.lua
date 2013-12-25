@@ -23,7 +23,7 @@ newEntity{
 	define_as = "BASE_NPC_SPIDER",
 	type = "spiderkin", subtype = "spider",
 	display = "S", color=colors.WHITE,
-	desc = [[거미공포즘...]],
+	desc = [[거미공포증...]],
 
 	combat = { dam=resolvers.levelup(resolvers.mbonus(40, 70), 1, 0.9), atk=16, apr=9, damtype=DamageType.NATURE, dammod={dex=1.2} },
 

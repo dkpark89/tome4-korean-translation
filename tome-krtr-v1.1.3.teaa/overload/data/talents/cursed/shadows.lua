@@ -436,7 +436,7 @@ newTalent{
 		return ([[이 기술을 활성화 시키면, %d 레벨인 그림자 %d 개가 지속적으로 생겨나 전투를 도와줍니다. 그림자는 소환할 때마다 증오가 6 씩 소모되며, 그림자는 약하지만 다양한 능력을 사용할 수 있습니다.
 		- 기술 레벨 %d 인 '마법적 재구축' 을 통해 스스로 생명력을 회복합니다.
 		- 기술 레벨 %d 인 '습격' 을 사용하여 적을 공격합니다.
-		- '근거리 순간이동' 을 사용할 수 있습니다.]]):format(level, maxShadows, healLevel, blindsideLevel)
+		- '근거리 순간이동' 을 사용할 수 있습니다.]]):format(level, maxShadows, healLevel, blindsideLevel) --@ 변수 순서 조정
 	end,
 }
 
@@ -573,7 +573,7 @@ newTalent{
 		return ([[그림자에 마법의 힘을 주입시켜, 강력한 마법을 쓸 수 있게 합니다. 그림자의 주문력이 %d 상승하며, 그림자의 능력이 추가됩니다.
 		-  %d%% 확률로 기술 레벨 %d 의 '전격' 마법을 사용하여 근접한 적을 공격합니다.
 		- 그림자 마법사의 기술 레벨이 3 이상이면, %d%% 확률로 기술 레벨 %d 인 '불꽃' 마법을 사용하여 멀리 있는 적을 불태웁니다. (사거리 : 2 - 6 칸)
-		- 그림자 마법사의 기술 레벨이 5 이상이면, 그림자가 파괴되었을 때 몸을 재구성하여 50%% 확률로 부활할 수 있게 됩니다.]]):format(spellpowerChange, closeAttackSpellChance, lightningLevel, farAttackSpellChance, flamesLevel)
+		- 그림자 마법사의 기술 레벨이 5 이상이면, 그림자가 파괴되었을 때 몸을 재구성하여 50%% 확률로 부활할 수 있게 됩니다.]]):format(spellpowerChange, closeAttackSpellChance, lightningLevel, farAttackSpellChance, flamesLevel) --@ 변수 순서 조정
 	end,
 }
 

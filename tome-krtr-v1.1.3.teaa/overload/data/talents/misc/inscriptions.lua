@@ -90,11 +90,11 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[주입된 힘을 사용하여, %d 턴 동안 총 %d 생명력을 회복합니다.]]):format(data.dur, data.heal + data.inc_stat)
+		return ([[주입된 힘을 사용하여, %d 턴 동안 총 %d 생명력을 회복합니다.]]):format(data.dur, data.heal + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d 턴 동안 총 %d 생명력 회복]]):format(data.dur, data.heal + data.inc_stat)
+		return ([[%d 턴 동안 총 %d 생명력 회복]]):format(data.dur, data.heal + data.inc_stat) --@ 변수 순서 조정
 	end,
 }
 
@@ -256,7 +256,7 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		return ([[주입된 힘을 사용하여, 주변 %d 칸을 밝게 비춥니다. 빛에 의해 은신 중인 적의 은신 수치가 %d 감소하여, 은신이 해제될 수도 있습니다. %s
 		빛에 노출된 적들은 %d 턴 동안 실명 상태효과에 걸립니다. (실명 수치 +%d)]]):
-		format(data.range, (data.power + data.inc_stat)/2, data.power >= 19 and "\n이 강렬한 빛은 마법적인 어둠마저 없애버릴 수 있습니다." or "", data.turns, data.power + data.inc_stat)
+		format(data.range, (data.power + data.inc_stat)/2, data.power >= 19 and "\n이 강렬한 빛은 마법적인 어둠마저 없애버릴 수 있습니다." or "", data.turns, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -486,7 +486,7 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, %d 턴 동안 최대 %d 피해량을 막아주는 보호막을 만들어냅니다.]]):format(data.dur, data.power + data.inc_stat)
+		return ([[룬을 발동하여, %d 턴 동안 최대 %d 피해량을 막아주는 보호막을 만들어냅니다.]]):format(data.dur, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -514,7 +514,7 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		return ([[룬을 발동하여, %d 턴 동안 최대 %d 피해량을 반사하는 보호막을 만들어냅니다.
-		반사량은 마법 능력치의 영향을 받아 증가합니다.]]):format(5, 100+1.5*self:getMag())
+		반사량은 마법 능력치의 영향을 받아 증가합니다.]]):format(5, 100+1.5*self:getMag()) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -537,7 +537,8 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		return ([[룬을 발동하여, %d 턴 동안 투명해집니다. (투명 수치 +%d)
-		투명해지면 현실에서의 존재감이 떨어져 적에게 원래 피해량의 40%% 밖에 줄 수 없게 됩니다.]]):format(data.dur, data.power + data.inc_stat)
+		투명해지면 현실에서의 존재감이 떨어져 적에게 원래 피해량의 40%% 밖에 줄 수 없게 됩니다.
+		]]):format(data.dur, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -560,7 +561,7 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[룬을 발동하여, %d 턴 동안 전체 속도를 %d%% 증가시킵니다.]]):format(data.dur, data.power + data.inc_stat)
+		return ([[룬을 발동하여, %d 턴 동안 전체 속도를 %d%% 증가시킵니다.]]):format(data.dur, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -832,7 +833,7 @@ newInscription{
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d 턴 동안 마나 회복 효율 %d%%, 사용 즉시 %d 마나 회복]]):format(data.dur, data.mana + data.inc_stat, (data.mana + data.inc_stat) / 20)
+		return ([[%d 턴 동안 마나 회복 효율 %d%%, 사용 즉시 %d 마나 회복]]):format(data.dur, data.mana + data.inc_stat, (data.mana + data.inc_stat) / 20) --@ 변수 순서 조정
 	end,
 }
 

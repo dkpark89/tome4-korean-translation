@@ -141,7 +141,8 @@ newTalent{
 	getResist = function(self, t) return self:combatTalentSpellDamage(t, 10, 50) * getParadoxModifier(self, pm) end,
 	getdurred = function(self, t) return self:combatLimit(self:combatTalentSpellDamage(t, 10, 50) * getParadoxModifier(self, pm), 100, 0, 0, 32.9, 32.9) end, -- Limit < 100%
 	action = function(self, t)
-		self:setEffect(self.EFF_FADE_FROM_TIME, 10, {power=t.getResist(self, t)})
+		-- fading managed by FADE_FROM_TIME effect in mod.data.timed_effects.other.lua
+		self:setEffect(self.EFF_FADE_FROM_TIME, 10, {power=t.getResist(self, t), durred=t.getdurred(self,t)})
 		game:playSoundNear(self, "talents/heal")
 		return true
 	end,

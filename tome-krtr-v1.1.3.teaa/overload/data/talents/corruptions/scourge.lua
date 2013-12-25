@@ -185,7 +185,7 @@ newTalent{
 			if hit2 and target:canBe("blind") then
 				target:setEffect(target.EFF_BLINDED, 4, {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s 어둠을 이겨냈습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
+				game.logSeen(self, "%s 어둠을 이겨냈습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 		DamageType:projectingFor(self, nil)

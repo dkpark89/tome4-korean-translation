@@ -190,7 +190,7 @@ function _M:mouseEvent(button, x, y, xrel, yrel, bx, by, event)
 							profile.chat:setCurrentTarget(false, citem.login)
 							profile.chat:talkBox()
 						elseif sel.ui == "ignore" then
-							Dialog:yesnoPopup("사용자 무시하기", "다음 사용자로부터의 모든 메세지를 정말로 무시합니까? : "..citem.login, function(ret) if ret then profile.chat:ignoreUser(citem.login) end end)
+							Dialog:yesnoPopup("사용자 무시하기", "다음 사용자로부터의 모든 메세지를 정말로 무시합니까? : "..citem.login, function(ret) if ret then profile.chat:ignoreUser(citem.login) end end, "예", "아니오")
 						elseif sel.ui == "report" then
 							game:registerDialog(require('engine.dialogs.GetText').new("보고서 작성 이유 : "..citem.login, "이유 (영어로 작성할 것)", 4, 500, function(text)
 								profile.chat:reportUser(citem.login, text)

@@ -348,7 +348,7 @@ newTalent{
 		local darkCount = t.getDarkCount(self, t)
 		local damageIncrease = getDamageIncrease(self)
 		return ([[대상 주변의 %d 칸 반경에, 매 턴마다 기어오는 어둠이 %d 칸 씩 퍼져나갑니다. 이 어둠은 적에게 %d 피해를 주며, 어둠의 시야 혹은 마법적 시야를 가지지 않은 적의 시야를 가립니다.
-		피해량은 정신력 능력치의 영향을 받아 증가하며, 기어오는 어둠 안에 있는 적에게는 %d%% 더 강력한 공격을 할 수 있게 됩니다.]]):format(radius, darkCount, damage, damageIncrease)
+		피해량은 정신력 능력치의 영향을 받아 증가하며, 기어오는 어둠 안에 있는 적에게는 %d%% 더 강력한 공격을 할 수 있게 됩니다.]]):format(radius, darkCount, damage, damageIncrease) --@ 변수 순서 조정
 	end,
 }
 
