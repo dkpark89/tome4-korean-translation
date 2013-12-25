@@ -87,7 +87,7 @@ function _M:generateList()
 		Dialog:yesnoPopup("스팀 클라우드 초기화", "정말로 초기화합니까?", function(ret) if ret then
 			self:purgeCloud()
 			Dialog:simplePopup("스팀 클라우드 초기화", "클라우드에 있는 모든 세이브 파일이 삭제되었습니다.")
-		end end)
+		end end, "예", "아니오")
 	end,}
 
 	self.list = list

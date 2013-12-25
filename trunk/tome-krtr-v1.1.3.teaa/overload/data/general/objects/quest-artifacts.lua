@@ -299,7 +299,6 @@ newEntity{ define_as = "ORB_SCRYING",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_scrying.png",
 	encumber = 1,
 	plot = true, quest = true,
-	save_hotkey = true,
 	desc = [[이것은 자동으로 발견한 물건들을 감정해 줍니다.]],
 
 	on_drop = function(self, who)

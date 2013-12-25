@@ -216,16 +216,16 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 		end)
 		local success, err
 		if not no_confirm and self:isTalentConfirmable(ab) then
-			local abname = game:getGenericTextTiles(ab)..ab.name
-			require "engine.ui.Dialog":yesnoPopup("Talent Use Confirmation", ("%s %s?"):
-			format(self:isTalentActive(ab.id) and "Deactivate" or "Activate",abname),
+			local abname = game:getGenericTextTiles(ab)..(ab.kr_name or ab.name)
+			require "engine.ui.Dialog":yesnoPopup("기술 사용 확인", ("%s : %s?"):
+			format(self:isTalentActive(ab.id) and "비활성화" or "활성화",abname),
 			function(quit)
 				if quit ~= false then
 					cancel = true
 				end
 				success, err = coroutine.resume(co)
 			end,
-			"Cancel","Continue")
+			"취소","계속") --@@ 한글화 필요
 		else
 			-- cancel checked in coroutine
 			success, err = coroutine.resume(co)

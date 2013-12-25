@@ -343,7 +343,7 @@ newEntity{
 	power_source = {technique=true},
 	name = "marksman's ", prefix=true, instant_resolve=true,
 	kr_name = "저격수 ",
-	keywords = {marksman=true},
+	keywords = {marskman=true},
 	level_range = {1, 50},
 	rarity = 7,
 	cost = 6,

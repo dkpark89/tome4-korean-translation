@@ -189,7 +189,7 @@ newTalent{
 		- 괴로움 : 대상의 모든 내성을 %d 감소시킵니다.
 		공포 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(turnsUntilTrigger, range, duration,
 		t.getTerrifiedActionFailureChance(self, t),
-		-t.getDistressedSaveChange(self, t))
+		-t.getDistressedSaveChange(self, t)) --@ 변수 순서 조정
 	end,
 }
 

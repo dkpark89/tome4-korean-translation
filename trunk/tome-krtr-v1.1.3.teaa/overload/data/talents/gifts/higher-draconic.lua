@@ -95,7 +95,7 @@ newTalent{
 		- 강산 (산성+무장 해제)
 		- 극한의 냉기 (냉기+빙결)
 		- 굉음의 번개 (전기+기절)
-		- 타오르는 화염 (화염+화상)]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 2.0), radius, burstdamage)
+		- 타오르는 화염 (화염+화상)]]):format(100 * self:combatTalentWeaponDamage(t, 1.2, 2.0), radius, burstdamage) --@ 변수 순서 조정
 	end,
 }
 

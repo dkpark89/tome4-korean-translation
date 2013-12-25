@@ -36,7 +36,7 @@ newEntity{
 }
 
 newEntity{ base = "BASE_HEAVY_ARMOR",
-	name = "iron mail armour", short_name = "iron",
+	name = "iron mail armour", short_name = "iron", --@ 원래 코드 오류 수정
 	kr_name = "무쇠 중갑",
 	level_range = {1, 10},
 	require = { stat = { str=14 }, },

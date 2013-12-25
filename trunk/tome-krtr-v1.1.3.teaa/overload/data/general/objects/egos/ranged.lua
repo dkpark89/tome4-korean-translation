@@ -229,7 +229,7 @@ newEntity{
 	},
 	combat = {
 		talent_on_hit = { [Talents.T_ARCANE_VORTEX] = {level=3, chance=10} },
-	},
+	}, --@ 원래 코드에서 가독성 보정
 }
 
 newEntity{

@@ -17,8 +17,9 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-local Stats = require "engine.interface.ActorStats"
 require "engine.krtrUtils"
+
+local Stats = require "engine.interface.ActorStats"
 
 newTalent{
 	name = "Stalk",
@@ -201,7 +202,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[사냥감을 빠르게 두 번 공격하여, 각각 %d%% 에서 %d%% 피해를 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해) 
 		각각의 공격은 사냥감의 기술이나 룬, 주입 능력 중 하나를 방해하여, 재사용 대기시간을 %d 턴 증가시킵니다. 사냥감은 공격을 받으면 불안감에 빠져, %d 턴 동안 피해량이 %d%% 만큼 감소하게 됩니다.
-		피해 감소량은 의지 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, cooldownDuration, duration, -targetDamageChange * 100)
+		피해 감소량은 의지 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, cooldownDuration, duration, -targetDamageChange * 100) --@ 변수 순서 조정
 	end,
 }
 

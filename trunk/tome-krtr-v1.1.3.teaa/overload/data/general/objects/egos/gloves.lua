@@ -157,7 +157,7 @@ newEntity{
 	power_source = {arcane=true},
 	name = "blighted ", prefix=true, instant_resolve=true,
 	kr_name = "황폐한 ",
-	keywords = {blighted=true},
+	keywords = {blighed=true},
 	level_range = {1, 50},
 	rarity = 9,
 	cost = 5,

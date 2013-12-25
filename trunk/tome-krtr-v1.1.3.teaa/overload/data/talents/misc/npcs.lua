@@ -1738,7 +1738,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[땅에서 산성 증기가 뿜어져나와, 주변 3 칸 반경에 %d 턴 동안 %0.2f 산성 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(duration, damDesc(self, DamageType.ACID, damage))
+		format(duration, damDesc(self, DamageType.ACID, damage)) --@ 변수 순서 조정
 	end,
 }
 

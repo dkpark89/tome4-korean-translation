@@ -212,7 +212,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[냉기 폭풍을 발생시켜, 주변 3 칸 반경에 %d 턴 동안 %0.2f 냉기 피해를 줍니다.
 		피해를 받은 적은 25%% 확률로 빙결 상태효과에 걸립니다.
-		피해량과 지속시간은 의지 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.COLD, damage))
+		피해량과 지속시간은 의지 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.COLD, damage)) --@ 변수 순서 조정
 	end,
 }
 

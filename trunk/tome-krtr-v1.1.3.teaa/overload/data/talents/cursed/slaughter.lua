@@ -68,7 +68,7 @@ newTalent{
 		local woundDuration = t.getWoundDuration(self, t)
 		return ([[대상을 공격하여, %d%% 에서 %d%% 피해를 줍니다. (증오심 0 일 때 최소 피해, 증오심 100 이상일 때 최대 피해)
 		기술 레벨이 3 이상이면, 적을 공격하면서 자신의 저주를 적에게 옮깁니다. 이를 통해 대상의 생명력 회복 효율을 %d 턴 동안 %d%% 낮출 수 있게 되며, 이 효과는 중첩됩니다.
-		피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, woundDuration, -healFactorChange * 100)
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]]):format(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, woundDuration, -healFactorChange * 100) --@ 변수 순서 조정
 	end,
 }
 

@@ -371,7 +371,7 @@ newTalent{
 		local chance = secondHitChance - math.floor(secondHitChance/100)*100
 		return ([[극한의 분노심이 보이지 않는 힘이 되어, 주변에 휘몰아치게 됩니다. %d 턴 동안, 주변의 %d 명(%d%% 확률로 %d 명)에게 %d 피해를 주고 %d 칸 밀어낼 수 있게 됩니다. 기술 레벨이 높아지면, %d%% 확률로 한 턴에 두 번의 공격을 하게 됩니다.
 		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 배수를 %d%% 증가시킵니다. (현재 : %d%%)
-		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, hits, chance, hits+1, damDesc(self, DamageType.PHYSICAL, damage), knockback, secondHitChance, t.critpower(self, t), self.combat_critical_power or 0)
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, hits, chance, hits+1, damDesc(self, DamageType.PHYSICAL, damage), knockback, secondHitChance, t.critpower(self, t), self.combat_critical_power or 0) --@ 변수 조정 : 원래 코드가 잘못된 것을 제대로 수정
 	end,
 }
 

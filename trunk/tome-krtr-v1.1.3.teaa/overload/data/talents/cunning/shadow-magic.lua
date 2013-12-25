@@ -43,7 +43,7 @@ newTalent{
 		local manacost = t.getManaCost(self, t)
 		return ([[근접 공격에 마력의 힘을 실어, 매 공격마다 %.2f 마나를 사용하여 %.2f 어둠 피해를 줄 수 있게 됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(manacost, damDesc(self, DamageType.DARKNESS, damage))
+		format(manacost, damDesc(self, DamageType.DARKNESS, damage)) --@ 변수 순서 조정
 	end,
 }
 

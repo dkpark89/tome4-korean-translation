@@ -669,13 +669,13 @@ newTalent{
 	range = trap_range,
 	no_break_stealth = trap_stealth,
 	no_unlearn_last = true,
-	getDamage = function(self, t) return 20 + self:combatStatScale("cun", 5, 50) * self:callTalent(self.T_TRAP_MASTERY,"getTrapMastery")/20 end,
 	getDamage = function(self, t) return 20 + self:combatStatScale("cun", 5, 50) * self:callTalent(self.T_TRAP_MASTERY,"getTrapMastery") / 40 end,
 	action = function(self, t)
 		local tg = {type="bolt", nowarning=true, range=self:getTalentRange(t), nolock=true, simple_dir_request=true, talent=t}
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local dam = t.getDamage(self, t)
