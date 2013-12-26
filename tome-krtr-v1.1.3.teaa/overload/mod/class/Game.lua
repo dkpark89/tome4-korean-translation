@@ -1264,10 +1264,6 @@ function _M:displayDelayedLogDamage()
 	if not self.uiset or not self.uiset.logdisplay then return end
 	for src, tgts in pairs(self.delayed_log_damage) do
 		for target, dams in pairs(tgts) do
-			--@ 다음줄, 두줄뒤 - 다섯줄뒤, 일곱줄뒤, 17줄뒤 사용 : 반복된 사용으로 변수로 뺌
-			local srn = src.kr_name or src.name
-			local tn = target.kr_name or target.name
-			
 			if #dams.descs > 1 then
 				game.uiset.logdisplay(self:logMessage(src, dams.srcSeen, target, dams.tgtSeen, "#Source1# #Target3# 공격하여 %s 피해를 입혔습니다 (합계 %0.0f) %s.", table.concat(dams.descs, ", "), dams.total, dams.healing<0 and (" #LIGHT_GREEN#[%0.0f 회복]#LAST#"):format(-dams.healing) or ""))
 			else

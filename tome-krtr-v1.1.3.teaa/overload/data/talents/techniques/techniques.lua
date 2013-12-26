@@ -38,7 +38,7 @@ newTalentType{ allow_random=true, type="technique/field-control", name = "field 
 newTalentType{ allow_random=true, type="technique/combat-techniques-active", name = "combat techniques", description = "공통적으로 활용되는 기본 전투기술입니다." }
 newTalentType{ allow_random=true, type="technique/combat-techniques-passive", name = "combat veteran", description = "지치지 않고 오랫동안 전투를 지속할 수 있는 기술입니다." }
 newTalentType{ allow_random=true, type="technique/combat-training", name = "combat training", generic = true, description = "다양한 무기와 방어구, 그리고 기본 체력을 수련합니다." }
-newTalentType{ allow_random=true, type="technique/magical-combat", name = "magical combat", description = "마법과 무기기술을 혼합한 전투방법을 수련합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="technique/magical-combat", name = "magical combat", description = "마법과 무기기술을 혼합한 전투방법을 수련합니다." }
 newTalentType{ allow_random=true, type="technique/mobility", name = "mobility", generic = true, description = "기동성에 중점을 둔, 전장에서의 행동기술입니다." }
 newTalentType{ allow_random=true, type="technique/thuggery", name = "thuggery", generic = true, description = "수단과 방법을 가리지 않는, 난폭한 전투기술입니다." }
 

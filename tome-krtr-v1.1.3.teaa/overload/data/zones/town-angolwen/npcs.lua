@@ -101,7 +101,7 @@ newEntity{ define_as = "SUPREME_ARCHMAGE_LINANIIL",
 
 	self_resurrect = 5,
 	on_resurrect = function(self)
-		game.bignews:saySimple(120, "#GOLD#Linaniil concentrates her formidable will to restore her body!")
+		game.bignews:saySimple(120, "#GOLD#리나니일이 그녀의 육체를 회복하기 위해 위협적인 의지력으로 집중하기 시작합니다!")
 		self.inc_damage.all = self.inc_damage.all + 35
 		self.max_life = self.max_life * 1.3
 		self.life = self.life * 1.3

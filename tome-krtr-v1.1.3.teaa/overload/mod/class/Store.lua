@@ -39,6 +39,7 @@ function _M:init(t, no_default)
 	t.store.purse = t.store.purse or 20
 	Store.init(self, t, no_default)
 
+	self.kr_name = (self.kr_name or self.name) .. (" (금화 %0.2f 개 이상의 물건만 취급)"):format(self.store.purse)
 	self.name = self.name .. (" (금화 %0.2f 개 이상의 물건만 취급)"):format(self.store.purse)
 
 	if not self.store.actor_filter then

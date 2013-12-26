@@ -261,7 +261,7 @@ end
 
 --- Forbid some options from showing up, they are useless for this ui
 function _M:checkGameOption(name)
-	local list = table.reverse{"icons_temp_effects", "icons_hotkeys", "log_lines"} --@ "hotkeys_rows"는 있으면 편해서 나오도록 수정
+	local list = table.reverse{"icons_temp_effects", "icons_hotkeys", "hotkeys_rows", "log_lines"}
 	return not list[name]
 end
 
@@ -1896,7 +1896,7 @@ function _M:displayToolbar(scale, bx, by)
 	if not game.mouse:updateZone("tb_talents", bx + x * scale, by +y*scale, tb_talents[6], tb_talents[7], nil, scale) then
 		game.mouse:unregisterZone("tb_talents")
 		local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
-			if event == "out" then self.tbbuttons.inven = 0.6 return else self.tbbuttons.inven = 1 end
+			if event == "out" then self.tbbuttons.talents = 0.6 return else self.tbbuttons.talents = 1 end
 			game.tooltip_x, game.tooltip_y = 1, 1; game:tooltipDisplayAtMap(game.w, game.h, "클릭 : 알고 있는 기술 보기")
 			if button == "left" and not xrel and not yrel and event == "button" then game.key:triggerVirtual("USE_TALENTS") end
 		end

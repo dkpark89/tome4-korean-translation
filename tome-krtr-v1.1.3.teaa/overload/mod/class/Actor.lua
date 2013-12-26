@@ -1769,11 +1769,11 @@ function _M:onTakeHit(value, src, death_note)
 		if adjusted_value <= self.damage_shield_absorb then
 			self.damage_shield_absorb = self.damage_shield_absorb - adjusted_value
 			if reflection > 0 then reflect_damage = adjusted_value end
-			adjusted_value = self.damage_shield_absorb
 			value = value - adjusted_value
 		else
 			if reflection > 0 then reflect_damage = self.damage_shield_absorb end
 			value = adjusted_value - self.damage_shield_absorb
+			adjusted_value = self.damage_shield_absorb
 			self.damage_shield_absorb = 0
 		end
 		game:delayedLogDamage(src, self, 0, ("#SLATE#(%d 흡수)#LAST#"):format(adjusted_value), false)
@@ -4450,7 +4450,7 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 		if t.positive then d:add({"color",0x6f,0xff,0x83}, "양기 소모량 : ", {"color",255, 215, 0}, ""..math.round(util.getval(t.positive, self, t) * (100 + self:combatFatigue()) / 100, 0.1), true) end
 		if t.negative then d:add({"color",0x6f,0xff,0x83}, "음기 소모량 : ", {"color", 127, 127, 127}, ""..math.round(util.getval(t.negative, self, t) * (100 + self:combatFatigue()) / 100, 0.1), true) end
 		if t.hate then d:add({"color",0x6f,0xff,0x83}, "증오심 소모량 :  ", {"color", 127, 127, 127}, ""..math.round(util.getval(t.hate, self, t) * (100 + 2 * self:combatFatigue()) / 100, 0.1), true) end
-		if t.paradox then d:add({"color",0x6f,0xff,0x83}, "괴리 증가량 : ", {"color",  176, 196, 222}, ("%0.1f"):format(util.getval(t.paradox, self, t) * (1 + (self.paradox / 300)), 0.1), true) end
+		if t.paradox then d:add({"color",0x6f,0xff,0x83}, "괴리 증가량 : ", {"color",  176, 196, 222}, ("%0.1f"):format(util.getval(t.paradox, self, t) * (1 + (self.paradox / 300))), true) end
 		if t.psi then d:add({"color",0x6f,0xff,0x83}, "염력 소모량 : ", {"color",0x7f,0xff,0xd4}, ""..math.round(util.getval(t.psi, self, t) * (100 + 2 * self:combatFatigue()) / 100, 0.1), true) end
 		if t.feedback then d:add({"color",0x6f,0xff,0x83}, "반작용 소모량 : ", {"color",0xFF, 0xFF, 0x00}, ""..math.round(util.getval(t.feedback, self, t) * (100 + 2 * self:combatFatigue()) / 100, 0.1), true) end
 		if t.fortress_energy then d:add({"color",0x6f,0xff,0x83}, "요새 에너지 소모량 : ", {"color",0x00,0xff,0xa0}, ""..math.round(t.fortress_energy, 0.1), true) end

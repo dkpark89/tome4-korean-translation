@@ -233,7 +233,6 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 			dam = dam * hd.mult
 		end
 		print("[ATTACK ARCHERY] after hook", dam)
-		
 
 		if crit then self:logCombat(target, "#{bold}##Source1# #Target#에게 장거리 치명타 공격을 성공시킵니다!#{normal}#") end
 

@@ -193,7 +193,7 @@ newTalent{
 		return ([[전방 %d 칸 반경에 연마의 굉음을 뿜어내 %0.2f 정신 피해, %0.2f 화염 피해를 주고 적들을 밀어냅니다.
 		적이 없는 곳에는 50%% 확률로 %d 턴 동안 벽이 생성되어 이동을 막고, 주변의 적들에게 %0.2f 정신 피해, %0.2f 화염 피해를 줍니다.
 		피해량과 밀어내기 확률은 정신력의 영향을 받아 증가합니다.]]):
-		format(radius, damDesc(self, DamageType.MIND, blast_damage), damDesc(self, DamageType.FIRE, blast_damage), duration, damDesc(self, DamageType.MIND, forge_damage), damDesc(self, DamageType.FIRE, forge_damage))
+		format(radius, damDesc(self, DamageType.MIND, blast_damage), damDesc(self, DamageType.FIRE, blast_damage), duration, damDesc(self, DamageType.MIND, forge_damage), damDesc(self, DamageType.FIRE, forge_damage)) --@ 변수 순서 조정
 	end,
 }
 

@@ -102,7 +102,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[대상의 전두엽을 염력으로 무력화시켜 %0.2f 정신 피해를 주고, 복잡한 사고를 하지 못하게 만듭니다. %d 턴 동안 대상의 교활함 수치가 %d 감소하며, 혼란 상태에 빠집니다. (%d%% 위력)
 		피해량, 교활함 수치 감소량, 혼란의 위력은 정신력의 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.MIND, (damage)), duration, cunning_damage, power)
+		format(damDesc(self, DamageType.MIND, (damage)), duration, cunning_damage, power) --@ 변수 순서 조정
 	end,
 }
 

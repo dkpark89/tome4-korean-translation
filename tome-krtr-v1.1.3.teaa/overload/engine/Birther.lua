@@ -55,7 +55,7 @@ function _M:newBirthDescriptor(t)
 	t.short_name = t.short_name or t.name
 	t.short_name = t.short_name:upper():gsub("[ ]", "_")
 	t.display_name = t.display_name or t.name
-	t.kr_display_name = t.kr_display_name or t.kr_name or t.display_name or t.name 
+	t.kr_display_name = t.kr_display_name or t.kr_name or t.display_name or t.name --@ 순서가 이상해 보이지만, 여기는 이게 맞음
 	assert(t.desc, "no birth description")
 	if type(t.desc) == "table" then t.desc = table.concat(t.desc, "\n") end
 	t.desc = t.desc:gsub("\n\t+", "\n")

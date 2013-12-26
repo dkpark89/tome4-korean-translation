@@ -105,7 +105,7 @@ newEntity{ base = "BASE_NPC_SUNWALL_DEFENDER", define_as = "SUN_PALADIN_DEFENDER
 	on_added = function(self)
 		self.energy.value = game.energy_to_act self:useTalent(self.T_WEAPON_OF_LIGHT)
 		self.energy.value = game.energy_to_act self:useTalent(self.T_CHANT_OF_FORTRESS)
-		self:doEmote("가라, "..game.player.name.."! 이 방어선은 내가 지킨다!", 150)
+		self:doEmote("가라, "..(game.player.kr_name or game.player.name).."! 이 방어선은 내가 지킨다!", 150)
 	end,
 }
 

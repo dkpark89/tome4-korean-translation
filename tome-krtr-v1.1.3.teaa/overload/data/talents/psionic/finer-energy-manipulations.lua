@@ -41,7 +41,7 @@ newTalent{
 		local dur = t.getDuration(self, t)
 		return ([[염력으로 몸을 제어해, 몸의 불필요한 동작을 없애고 가장 효율적인 움직임만을 취할 수 있게 됩니다.
 		%d 턴 동안 정확도가 %d / 치명타율이 %0.2f%% 상승합니다.]]):
-		format(dur, boost, 0.5*boost)
+		format(dur, boost, 0.5*boost) --@ 변수 순서 조정
 	end,
 }
 

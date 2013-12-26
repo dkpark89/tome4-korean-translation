@@ -710,7 +710,7 @@ newEffect{
 	name = "BLOODLUST", image = "talents/bloodlust.png",
 	desc = "Bloodlust",
 	kr_name = "피의 굶주림",
-	long_desc = function(self, eff) return ("주문력 +%d"):format(eff.dur) end,
+	long_desc = function(self, eff) return ("주문력 +%d"):format(eff.power) end,
 	type = "magical",
 	subtype = { frenzy=true },
 	status = "beneficial",
@@ -1880,7 +1880,7 @@ newEffect{
 	name = "WARD", image = "talents/ward.png",
 	desc = "Ward",
 	kr_name = "보호",
-	long_desc = function(self, eff) return ("%s 피해 %d 흡수"):format(DamageType.dam_def[eff.d_type].name, #eff.particles) end, --@ 변수 조정:단수 복수 구분 변수 삭제
+	long_desc = function(self, eff) return ("%s 피해 %d 흡수"):format((DamageType.dam_def[eff.d_type].kr_name or DamageType.dam_def[eff.d_type].name), #eff.particles) end, --@ 변수 순서 조정, 변수 조정:단수 복수 구분 변수 삭제
 	type = "magical",
 	subtype = { arcane=true },
 	status = "beneficial",

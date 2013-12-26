@@ -153,7 +153,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[전방 %d 칸 반경에 %0.2f 암흑 피해를 주고, 범위 내의 적들에게 밤의 공포를 심어줍니다. 대상의 정신 내성 능력치에 따라 저항할 확률이 달라지며, 저항에 실패할 경우 대상은 4 칸 뒤로 도망치게 됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage))
+		format(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, damage)) --@ 변수 순서 조정
 	end,
 }
 
