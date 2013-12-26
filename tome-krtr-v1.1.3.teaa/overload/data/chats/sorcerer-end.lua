@@ -67,21 +67,21 @@ newChat{ id="yeek-unsure",
 			player:setQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek")
 			player:hasQuest("high-peak"):win("yeek-sacrifice")
 		end},
-		{"#LIGHT_GREEN#[In a last incredible display of willpower you fight the Way for a few seconds, letting you project your thoughts to Aeryn.]#WHITE# High Lady! Kill me #{bold}#NOW#{normal}#", --@@ 한글화 필요
+		{"#LIGHT_GREEN#[마지막 의지력을 끌어내어, '한길' 의 의지를 잠시나마 극복해내고 아에린에게 자신의 생각을 전달해냅니다.]#WHITE# 고귀한 여인이시여! 저를 죽이십시오! #{bold}#지금 당장!#{normal}#",
 			cond=function(npc, player) return not void_portal_open(nil, player) and aeryn_alive(npc, player) and player:getWil() >= 55 end, jump="yeek-stab"
 		},
 	}
 }
 
 newChat{ id="yeek-stab",
-	text = [[#LIGHT_GREEN#*Through your mind Aeryn sees what the Way is planning.*#WHITE#
-You were a precious ally and a friend. The world will remember your last act of selfless sacrifice. I swear it.
-#LIGHT_GREEN#*As she says this she pierces your body with a mighty thrust of her sword, ending the plans of the Way.*#WHITE#
-]], --@@ 한글화 필요 :  세줄위~한줄위
+	text = [[#LIGHT_GREEN#*당신의 생각을 통해, 아에린은 '한길' 의 계획을 알게 되었습니다.*#WHITE#
+당신은 소중한 동료이자 친구였습니다. 이 세계는 당신이 마지막에 해낸 이타적 희생을 기억할 것입니다. 제가 맹세하지요.
+#LIGHT_GREEN#*그녀의 말이 끝남과 동시에, 그녀의 검이 당신의 목숨과 '한길' 의 계획을 세차게 꿰뚫어 끊어버렸습니다.*#WHITE#
+]], 
 	answers = {
-		{"#LIGHT_GREEN#[slip peacefully into death.]", action=function(npc, player) --@@ 한글화 필요
+		{"#LIGHT_GREEN#[평화롭게 죽음을 맞이한다.]", action=function(npc, player)
 			player.no_resurrect = true
-			player:die(player, {special_death_msg="sacrificing "..string.his_her_self(player).." to stop the Way"}) --@@ 한글화 필요, --@ his_her_self 함수 한글화 작업 필요
+			player:die(player, {special_death_msg=""..string.his_her_self(player).."의 목숨을 바쳐, '한길' 의 계획을 막음"}) --@ his_her_self 함수 한글화 작업 필요
 			player:setQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek-stab")
 			player:hasQuest("high-peak"):win("yeek-selfless")
 		end},

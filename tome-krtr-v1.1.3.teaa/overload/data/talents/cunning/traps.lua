@@ -588,9 +588,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[밟으면 주변 2 칸 반경에 빛을 폭발시켜, %d 턴 동안 적들을 실명 혹은 혼절시키는 함정을 설치합니다.
-		지속시간은 함정 수련 기술의 영향을 받아 증가합니다.
-		All foes caught inside take %0.2f physical damage.
-		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 수 있습니다.]]): --@@ 한글화 필요 : 윗줄
+		지속시간은 함정 수련 기술의 영향을 받아 증가하며, 범위 내의 적들은 %0.2f 물리 피해를 받게 됩니다.
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 수 있습니다.]]): 
 		format(t.getDuration(self, t), damDesc(self, engine.DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }

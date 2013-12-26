@@ -17,19 +17,19 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game difficulty mode: #LIGHT_GREEN#Madness",
-[[You won the game on Insane mode.  You are one of the best players!
-But fear not because the game is just about to get even more unfair on you!
+return "새로운 게임 난이도 : #LIGHT_GREEN#미친 난이도",
+[[당신은 정신나간 난이도에서 게임을 승리하셨습니다. 당신은 최고의 플레이어들 중의 한 명입니다!
+하지만 걱정하지 마십시오! 당신을 위해, 더욱 불공평한 난이도가 기다리고 있으니까요!
 
-Welcome to Madness!
+미친 난이도에 오신 것을 환영합니다!
 
-Madness features:#YELLOW#
-- All zone levels increased by 150% + 10
-- All creature talent levels increased by 170%
-- Rare creatures are far more frequent and random bosses start to appear
-- Player is being hunted! Randomly all foes in a radius will get a feeling of where she/he is
-- Player rank is normal instead of elite
-- Player can earn Madness version of achievements if also playing in Roguelike or Adventure permadeath mode.
+미친 난이도에서는 :#YELLOW#
+- 모든 지역의 레벨이 150% + 10 증가됩니다.
+- 모든 적들의 기술 레벨이 170% 증가됩니다.
+- '희귀한' 적들을 훨씬 더 자주 만나게 되며, 보스급 적들이 무작위로 나타나기 시작합니다.
+- 플레이어는 모든 적들의 사냥감입니다! 범위 내의 모든 적들이 무작위하게 플레이어의 현재 위치를 알게 됩니다.
+- 플레이어의 등급이 '정예' 가 아닌 '보통' 으로 설정됩니다.
+- 미친 난이도에서 플레이하면, 미친 등급의 업적을 달성할 수 있습니다.
 
-#WHITE#May you suffer many fun and unfair deaths!
+#WHITE#당신에게 즐거움과 공정치 못한 죽음이 더욱 더 가득하기를!
 ]]

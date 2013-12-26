@@ -112,7 +112,8 @@ newAchievement{
 newAchievement{
 	name = "The Sun Still Shines", id = "WIN_AERYN_SURVIVE",
 	show = "name", huge=true,
-	desc = [[Aeryn survived the last battle.]], --@@ 한글화 필요, kr_name 추가
+	kr_name = "태양은 아직 빛나고 있다",
+	desc = [[마지막 전투에서 아에린 생존.]], 
 }
 newAchievement{
 	name = "Selfless", id = "WIN_SACRIFICE",
@@ -128,8 +129,9 @@ newAchievement{
 }
 newAchievement{
 	name = "No Way!", id = "YEEK_SELFLESS",
+	kr_name = "그 '길' 은 안돼!",
 	show = "name", huge=true,
-	desc = [[Won ToME by closing the Void portal and letting yourself be killed by Aeryn to prevent the Way to enslave every sentient being on Eyal.]], --@@ 한글화 필요, kr_name 추가
+	desc = [[공허의 관문을 닫고 아에린이 자신을 죽이도록 하여, '한길' 이 에이알의 모든 지적 존재들을 지배하지 못하게 만들고 ToME 승리.]], 
 }
 newAchievement{
 	name = "Tactical master", id = "SORCERER_NO_PORTAL",

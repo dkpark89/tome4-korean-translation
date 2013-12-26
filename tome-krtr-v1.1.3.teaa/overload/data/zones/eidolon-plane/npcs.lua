@@ -23,7 +23,7 @@ newEntity{ define_as = "EIDOLON",
 	kr_name = "에이돌론",
 	display = "@", color=colors.GREY,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/unknown_unknown_the_eidolon.png", display_h=2, display_y=-1}}},
-	desc = [[A ripple in the void that somehow seems... 살아있습니다. 이 생명체는 흥미로운 눈으로 당신을 쳐다보고 있습니다.]], --@@ 한글화 필요
+	desc = [[공허 속의 파문과 같은 존재로 보이지만... 살아있습니다. 이 생명체는 흥미로운 눈으로 당신을 쳐다보고 있습니다.]], 
 	faction = "neutral",
 	blood_color = colors.DARK,
 	level_range = {200, nil}, exp_worth = 0,

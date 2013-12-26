@@ -331,8 +331,8 @@ function _M:generateListGameplay()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Enables mouse targeting. If disabled mouse movements will not change the target when casting a spell or using a talent.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Mouse targeting#WHITE##{normal}#", status=function(item) --@@ 한글화 필요 : 윗줄~현재줄
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"마우스 타겟팅 가능 여부를 설정합니다.\n사용하지 않을 경우, 마우스를 통해 대상 설정이나 기술 사용 등을 할 수 없게 됩니다.\n\nEnables mouse targeting. If disabled mouse movements will not change the target when casting a spell or using a talent.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#마우스 타겟팅#WHITE##{normal}#", status=function(item) 
 		return tostring(config.settings.tome.disable_mouse_targeting and "사용하지 않음" or "사용") --@ 여기만 옵션 순서가 반대임. 실수 아님.
 	end, fct=function(item)
 		config.settings.tome.disable_mouse_targeting = not config.settings.tome.disable_mouse_targeting
@@ -386,8 +386,8 @@ function _M:generateListOnline()
 		return "설정을 선택"
 	end, fct=function(item)	game:registerDialog(require("engine.dialogs.ChatChannels").new()) end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"온라인으로 게임 진행 중 서버에서 보내는 여러가지 이벤트 사용여부를 설정합니다.\n사용하지 않으면 멋지고 재미있는 지역들을 놓치게 됩니다.#WHITE#\n\nAllow various events that are pushed by the server when playing online\nDisabling this will make you miss cool and fun zones.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#온라인 이벤트 허용#WHITE##{normal}#", status=function(item) --@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"온라인으로 게임 진행 중, 서버에서 보내는 여러 종류의 이벤트 사용 여부를 설정합니다.\n사용하지 않으면 멋지고 재미있는 지역들을 놓치게 됩니다.#WHITE#\n\nAllow various events that are pushed by the server when playing online\nDisabling this will make you miss cool and fun zones.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#온라인 이벤트 허용#WHITE##{normal}#", status=function(item) 
 		return tostring(config.settings.tome.allow_online_events and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.allow_online_events = not config.settings.tome.allow_online_events

@@ -104,7 +104,7 @@ return {
 				game.zone:addEntity(game.level, kitty, "actor", x, y)
 				kitty.faction = game.player.faction
 				game.state.kitty_summoned = true
-				Dialog:simpleLongPopup("Yiilkgur", "As you enter the familiar Fortress you notice a small orange cat has followed you somehow.\nIt looks like the kitty you fed earlier.", 400) --@@ 한글화 필요
+				Dialog:simpleLongPopup("이일크구르", "친숙해진 요새 안으로 들어서자, 당신은 작은 오렌지색 고양이가 알 수 없는 방법을 통해 당신을 따라왔다는 것을 알게 되었습니다.\n조금 전에 밥을 줬던 그 고양이 같습니다.", 400) 
 			end
 		end
 	end,

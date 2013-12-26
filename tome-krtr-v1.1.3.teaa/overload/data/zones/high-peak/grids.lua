@@ -197,7 +197,7 @@ newEntity{
 	always_remember = true,
 	show_tooltip = true,
 	desc = [[이 관문은 이 지역에 있는 특별한 장소와 연결되어 있는 것 같습니다.]],
-	change_level_check = function() game.bignews:say(60, "#GOLD#This portal looks like it reacts only to the Orb of Many Ways.") return true end, --@@ 한글화 필요
+	change_level_check = function() game.bignews:say(60, "#GOLD#이 관문은 오직 '여러 장소로의 오브' 에만 반응하는 것 같습니다.") return true end, 
 	change_level = 1,
 	orb_portal = {
 		nothing = true,
