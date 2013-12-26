@@ -54,7 +54,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[대상 지역에 죽음의 기운이 실린 냉기 덩어리를 발사합니다. 냉기 덩어리는 천천히 이동하며, 폭발하여 주변 %d 칸 반경에 %0.2f 냉기 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(radius, damDesc(self, DamageType.COLD, damage))
+		format(radius, damDesc(self, DamageType.COLD, damage)) --@ 변수 순서 조정
 	end,
 }
 
@@ -322,7 +322,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local darkCount = t.getDarkCount(self, t)
 		return ([[대상 지역의 %d 칸 반경에, 차가운 불꽃이 서서히 일어나기 시작합니다. 차가운 불꽃은 턴 당 %d 개씩 생겨나면서 해당 지역에 %0.2f 냉기 피해를 주며, 적에게 빙결 상태효과를 가할 확률이 있습니다.
-		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, darkCount, damDesc(self, DamageType.COLD, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, darkCount, damDesc(self, DamageType.COLD, damage)) --@ 변수 순서 조정
 	end,
 }
 

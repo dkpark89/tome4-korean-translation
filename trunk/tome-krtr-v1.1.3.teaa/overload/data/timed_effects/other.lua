@@ -143,7 +143,7 @@ newEffect{
 	activate = function(self, eff)
 		if self:attr("shield_factor") then eff.power = eff.power * (100 + self:attr("shield_factor")) / 100 end
 		if self:attr("shield_dur") then eff.dur = eff.dur + self:attr("shield_dur") end
-		eff.durid = self:addTemporaryValue("reduce_status_effects_time", eff.time_reducer)
+		eff.durid = self:addTemporaryValue("reduce_detrimental_status_effects_time", eff.time_reducer)
 		eff.tmpid = self:addTemporaryValue("time_shield", eff.power)
 		--- Warning there can be only one time shield active at once for an actor
 		self.time_shield_absorb = eff.power
@@ -1393,9 +1393,9 @@ newEffect{
 		if eff.incStatsId then self:removeTemporaryValue("inc_stats", eff.incStatsId) end
 		if eff.trapAvoidanceId then self:removeTemporaryValue("trap_avoidance", eff.trapAvoidanceId) end
 	end,
+	on_merge = function(self, old_eff, new_eff) return old_eff end,
 	
 	-- called by default projector in mod.data.damage_types.lua
-	on_merge = function(self, old_eff, new_eff) return old_eff end,
 	doUnfortunateEnd = function(self, eff, target, dam)
 		if math.min(eff.unlockLevel, eff.level) >=4 then
 			local def = self.tempeffect_def[self.EFF_CURSE_OF_MISFORTUNE]

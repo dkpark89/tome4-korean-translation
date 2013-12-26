@@ -140,7 +140,7 @@ function _M:generateList()
 	if not self.dst_actor and self.inven == self.actor.INVEN_INVEN and game.party:countInventoryAble() >= 2 then list[#list+1] = {name="동료에게 건네주기", action="transfer"} end
 	if not self.dst_actor and not self.object.__tagged and self.inven == self.actor.INVEN_INVEN and transmo_chest and self.actor:transmoFilter(self.object) then list[#list+1] = {name="지금 "..self.actor:transmoGetWord():capitalize(), action="transmo"} end
 	if profile.auth and profile.hash_valid then list[#list+1] = {name="채팅창에 물건 연결", action="chat-link"} end
-	if config.settings.cheat then list[#list+1] = {name="Lua inspect", action="debug-inspect", color=colors.simple(colors.LIGHT_BLUE)} end --@ 한글화 필요
+	if config.settings.cheat then list[#list+1] = {name="Lua inspect", action="debug-inspect", color=colors.simple(colors.LIGHT_BLUE)} end
 	if not self.object.__tagged then list[#list+1] = {name="표시", action="tag"} end
 	if self.object.__tagged then list[#list+1] = {name="표시 지우기", action="untag"} end
 

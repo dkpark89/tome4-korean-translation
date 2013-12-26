@@ -50,8 +50,8 @@ function _M:addMember(actor, def)
 		return false
 	end
 	if type(def.control) == "nil" then def.control = "no" end
-	def.title = def.title or "Party member"
 	def.kr_title = def.kr_title or def.title or "동료"
+	def.title = def.title or "Party member"
 	self.members[actor] = def
 	self.m_list[#self.m_list+1] = actor
 	def.index = #self.m_list

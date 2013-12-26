@@ -138,7 +138,7 @@ newTalent{
 		dam = damDesc(self, damtype, dam)
 		return ([[연금술용 보석에 폭발력을 불어넣어 던집니다. 던져진 보석은 폭발하여 %0.2f 피해를 줍니다. (속성 : %s)
 		보석의 종류마다 폭발할 때 발생하는 효과가 달라집니다.
-		연금술 폭탄의 피해량은 보석의 등급과 주문력의 영향을 받아 증가합니다.]]):format(dam, DamageType:get(damtype).name)
+		연금술 폭탄의 피해량은 보석의 등급과 주문력의 영향을 받아 증가합니다.]]):format(dam, (DamageType:get(damtype).kr_name or DamageType:get(damtype).name))
 	end,
 }
 

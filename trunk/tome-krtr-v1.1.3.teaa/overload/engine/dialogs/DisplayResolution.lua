@@ -33,11 +33,11 @@ function _M:init(on_change)
 	Dialog.init(self, "해상도 변경", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
-	self.c_fs = Checkbox.new{title="Fullscreen", default=fullscreen, --@@ 한글화 필요 여부 검사
+	self.c_fs = Checkbox.new{title="Fullscreen", default=fullscreen,
 		fct=function() end,
 		on_change=function(s) if s then self.c_bl.checked = false end end
 	}
-	self.c_bl = Checkbox.new{title="Borderless", default=borderless, --@@ 한글화 필요 여부 검사
+	self.c_bl = Checkbox.new{title="Borderless", default=borderless,
 		fct=function() end,
 		on_change=function(s) if s then self.c_fs.checked = false end end
 	}
@@ -66,12 +66,12 @@ function _M:use(item)
 	-- See if we need a restart (confirm).
 	if core.display.setWindowSizeRequiresRestart(w, h, self.c_fs.checked
 		, self.c_bl.checked) then
-		Dialog:yesnoPopup("Engine Restart Required"
-			, "Continue?" .. (game.creating_player and "" or " (progress will be saved)")
+		Dialog:yesnoPopup("엔진의 재시작이 필요합니다"
+			, "계속합니까?" .. (game.creating_player and "" or " (게임 진행 상황은 저장됩니다)")
 			, function(restart)
 				if restart then
-					local resetPos = Dialog:yesnoPopup("Reset Window Position?"
-						, "Simply restart or restart+reset window position?"
+					local resetPos = Dialog:yesnoPopup("창 위치를 초기화 합니까?"
+						, "재시작만 할까요, 아니면 재시작을 하면서 창의 위치도 초기화할까요?"
 						, function(simplyRestart)
 							if not simplyRestart then
 								core.display.setWindowPos(0, 0)
@@ -83,7 +83,7 @@ function _M:use(item)
 							util.showMainMenu(false, nil, nil
 								, game.__mod_info.short_name, game.save_name
 								, false)
-						end, "Restart", "Restart with reset")
+						end, "재시작", "재시작 + 창 위치 초기화")
 				end
 			end, "예", "아니오") 
 	else

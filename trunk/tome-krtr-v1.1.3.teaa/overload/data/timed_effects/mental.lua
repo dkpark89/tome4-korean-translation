@@ -358,7 +358,7 @@ newEffect{
 	desc = "Stalking",
 	kr_name = "추적자",
 	display_desc = function(self, eff)
-		return ([[%d 단계 추적중 (대상의 생명력 : %d / %d)]]):format(eff.bonus, eff.target.life, eff.target.max_life) --변수 순서 조정. 대상의 생명력이 맞는지 테스트 필요.
+		return ([[%d 단계 추적중 (대상의 생명력 : %d / %d)]]):format(eff.bonus, eff.target.life, eff.target.max_life) --@ 변수 순서 조정. 대상의 생명력이 맞는지 테스트 필요.
 	end,
 	long_desc = function(self, eff)
 		local t = self:getTalentFromId(self.T_STALK)
@@ -443,7 +443,7 @@ newEffect{
 	desc = "Beckoned",
 	kr_name = "목표 지정",
 	long_desc = function(self, eff)
-		local message = ("%s의 목표로 지정됨 : 매 턴마다 %d%% 확률로 사냥꾼 방향으로 끌려감"):format(eff.src.name, eff.chance)
+		local message = ("%s의 목표로 지정됨 : 매 턴마다 %d%% 확률로 사냥꾼 방향으로 끌려감"):format((eff.src.kr_name or eff.src.name), eff.chance)
 		if eff.spellpowerChangeId and eff.mindpowerChangeId then
 			message = message..(" / 주문력 : %d / 정신력 : %d"):format(eff.spellpowerChange, eff.mindpowerChange)
 		end
@@ -2468,7 +2468,7 @@ newEffect{
 	name = "LOBOTOMIZED", image = "talents/psychic_lobotomy.png",
 	desc = "Lobotomized (confused)",
 	kr_name = "사고 방해 (혼란)",
-	long_desc = function(self, eff) return ("정신 능력 손상 : 매 턴마다 %d%% 의 확률로 멋대로 행동 / 교활함 -%d"):format(eff.power, eff.power/2) end,
+	long_desc = function(self, eff) return ("정신 능력 손상 : 매 턴마다 %d%% 의 확률로 멋대로 행동 / 교활함 -%d"):format(eff.confuse, eff.power/2) end,
 	type = "mental",
 	subtype = { confusion=true },
 	status = "detrimental",

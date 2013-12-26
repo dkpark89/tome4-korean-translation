@@ -1251,18 +1251,18 @@ function _M:quickSwitchWeapons()
 	local names = ""
 	if pf1 and pf2 then
 		if not pf1[1] then
-			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}..", "..oh1[1]:getName{do_color=true}
+			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}..", "..oh1[1]:getName{do_color=true} --@ and를 ,로 변경
 			elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}
 			elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}
 			end
 		else
-			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}..", "..oh1[1]:getName{do_color=true}..", "..pf1[1]:getName{do_color=true}
-			elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}..", "..pf1[1]:getName{do_color=true}
-			elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}..", "..pf1[1]:getName{do_color=true}
+			if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}..", "..oh1[1]:getName{do_color=true}..", "..pf1[1]:getName{do_color=true} --@ and를 ,로 변경
+			elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}..", "..pf1[1]:getName{do_color=true} --@ and를 ,로 변경
+			elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}..", "..pf1[1]:getName{do_color=true} --@ and를 ,로 변경
 			end
 		end
 	else
-		if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}..", "..oh1[1]:getName{do_color=true}
+		if mh1[1] and oh1[1] then names = mh1[1]:getName{do_color=true}..", "..oh1[1]:getName{do_color=true} --@ and를 ,로 변경
 		elseif mh1[1] and not oh1[1] then names = mh1[1]:getName{do_color=true}
 		elseif not mh1[1] and oh1[1] then names = oh1[1]:getName{do_color=true}
 		end

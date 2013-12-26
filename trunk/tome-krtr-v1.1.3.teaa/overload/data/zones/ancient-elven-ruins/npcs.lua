@@ -40,7 +40,7 @@ newEntity{ define_as = "GREATER_MUMMY_LORD",
 	max_life = 250, life_rating = 21, fixed_rating = true,
 	max_stamina = 200,
 	max_mana = 200,
-	mana_regen = 7,
+	mana_regen = 7, --@ 원래 코드 오류 수정
 	stats = { str=25, dex=10, cun=8, mag=35, wil=20, con=20 },
 	rank = 4,
 	size_category = 2,

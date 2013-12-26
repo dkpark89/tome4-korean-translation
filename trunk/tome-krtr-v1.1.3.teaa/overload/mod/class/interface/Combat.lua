@@ -342,10 +342,6 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	damtype = damtype or (weapon and weapon.damtype) or DamageType.PHYSICAL
 	mult = mult or 1
 
-	--@ 다음줄, 두줄뒤 : 세줄뒤 부터 이 함수 끝(590줄뒤, 현재 935번 줄)까지 반복적으로 계산 사용되어 변수로 뺌
-	local sn = self.kr_name or self.name
-	local tn = target.kr_name or target.name
-
 	local mode = "other"
 	if self:hasShield() then mode = "shield"
 	elseif self:hasTwoHandedWeapon() then mode = "twohanded" 
@@ -805,7 +801,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if not hitted and not target.dead and not evaded and not target:attr("stunned") and not target:attr("dazed") and not target:attr("stoned") and target:knowTalent(target.T_COUNTER_ATTACK) and self:isNear(target.x,target.y, 1) then --Adjacency check
 		local cadam = target:callTalent(target.T_COUNTER_ATTACK,"checkCounterAttack")
 		if cadam then
-		game.logSeen(self, "%s 반격을 합니다!", tn:capitalize():addJosa("가"))
+		game.logSeen(self, "%s 반격을 합니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		target:attackTarget(self, nil, cadam, true)
 		end 
 	end 
@@ -826,7 +822,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	local gwf = self:hasEffect(self.EFF_GREATER_WEAPON_FOCUS)
 	if hitted and not target.dead and weapon and gwf and not gwf.inside and rng.percent(gwf.chance) then
 		gwf.inside = true
-		game.logSeen(self, "%s 집중하여 추가 타격을 합니다!", sn:capitalize():addJosa("가"))
+		game.logSeen(self, "%s 집중하여 추가 타격을 합니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		self:attackTargetWith(target, weapon, damtype, mult)
 		gwf.inside = nil
 	end
@@ -872,7 +868,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 3, {})
 				else
-					game.logSeen(target, "%s 기절 효과에 저항했습니다!", tn:capitalize():addJosa("가"))
+					game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 
@@ -2085,6 +2081,8 @@ function _M:hasDualWeapon(type)
 	if not weapon or not offweapon or not weapon.combat or not offweapon.combat then
 		return nil
 	end
+	if type and weapon.combat.talented ~= type then return nil end
+	if type and offweapon.combat.talented ~= type then return nil end
 	return weapon, offweapon
 end
 
@@ -2105,8 +2103,6 @@ function _M:hasPsiblades(main, off)
 		offweapon = self:getInven("OFFHAND")[1]
 		if not offweapon or not offweapon.combat or not offweapon.psiblade_active then return nil, "unactivated psiblade" end
 	end
-	if type and weapon.combat.talented ~= type then return nil end
-	if type and offweapon.combat.talented ~= type then return nil end
 	return weapon, offweapon
 end
 
