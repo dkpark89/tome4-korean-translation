@@ -184,8 +184,8 @@ function _M:generateList()
 	-- *Requested* Window Position
 	--  SDL tends to lie about where windows are positioned in fullscreen mode,
 	-- so always store the position requests, not the actual positions. 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text="Request a specific origin point for the game window.\nThis point corresponds to where the upper left corner of the window will be located.\nUseful when dealing with multiple monitors and borderless windows.\n\nThe default origin is (0,0).\n\nNote: This value will automatically revert after ten seconds if not confirmed by the user.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Requested Window Position#WHITE##{normal}#", status=function(item) --@@ 한글화 필요 : 윗줄~현재줄
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text="윈도우 화면 내에서 게임 창이 표시되는 위치를 고정시킵니다.\n결과값으로 나타나는 숫자는, 윈도우 화면의 가장 왼쪽 위 지점에서 얼마나 떨어지는지를 나타냅니다.\n여러 개의 모니터를 사용하거나, 게임 창의 경계를 없애고 사용할 경우에 유용합니다.\n기본 값은 (0,0) 입니다.\n참고 : 값을 설정할 때 10 초 이상 확인 버튼을 누르지 않을 경우, 자동으로 설정이 취소됩니다.\n\nRequest a specific origin point for the game window.\nThis point corresponds to where the upper left corner of the window will be located.\nUseful when dealing with multiple monitors and borderless windows.\n\nThe default origin is (0,0).\n\nNote: This value will automatically revert after ten seconds if not confirmed by the user.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#게임 창의 표시 위치 고정#WHITE##{normal}#", status=function(item)
 		config.settings.window.pos = config.settings.window.pos or {x=0, y=0}
 		local curX, curY = config.settings.window.pos.x, config.settings.window.pos.y
 		return table.concat({"(", curX, ",", curY, ")"})
@@ -200,10 +200,10 @@ function _M:generateList()
 			self.c_list:drawItem(itemRef)						 
 		end		
 		-- TODO: Maybe change this to a GetText and parse?
-		game:registerDialog(GetQuantity.new("Window Origin: X-Coordinate", "Enter the x-coordinate", oldX, 99999 --@@ 한글화 필요
+		game:registerDialog(GetQuantity.new("X축 값 설정", "X축(가로) 값을 입력하세요", oldX, 99999 
 			, function(qty) 
 				newX=util.bound(qty, -99999, 99999) 
-				game:registerDialog(GetQuantity.new("Window Origin: Y-Coordinate", "Enter the y-coordinate", oldY, 99999 --@@ 한글화 필요
+				game:registerDialog(GetQuantity.new("Y축 값 설정", "Y축(세로) 값을 입력하세요.", oldY, 99999 
 					, function(qty)
 						newY = util.bound(qty, -99999, 99999)
 						core.display.setWindowPos(newX, newY)
@@ -211,7 +211,7 @@ function _M:generateList()
 						config.settings.window.pos.y = newY
 						self.c_list:drawItem(itemRef)
 						local userAnswered = false
-						local confirmDialog = Dialog:yesnoPopup("Position changed.", "Save position?" --@@ 한글화 필요
+						local confirmDialog = Dialog:yesnoPopup("위치 변경", "변경된 위치를 저장하시겠습니까?"
 							, function(ret)
 								userAnswered = true
 								if ret then
@@ -222,7 +222,7 @@ function _M:generateList()
 									revertMove()
 								end
 							end
-							,  "Accept", "Revert") --@@ 한글화 필요
+							,  "확인", "취소") 
 						game:registerTimer(10
 							, function()
 								-- Blast out changes if no response

@@ -28,7 +28,7 @@ g = require("mod.class.Object").new(g)
 g.identified = true
 g.name = "glimmerstone"
 g.kr_name = "깜박이는 암석"
-g.desc = "It shimmers and changes the light all around. This is dazling!" --@@ 한글화 필요
+g.desc = "깜빡이면서 주변에 빛을 내고 있는 암석입니다. 눈이 부십니다!" 
 g.display='&' g.color_r=255 g.color_g=255 g.color_b=255 g.notice = true
 g:removeAllMOs()
 if engine.Map.tiles.nicer_tiles then

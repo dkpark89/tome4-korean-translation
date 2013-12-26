@@ -166,8 +166,9 @@ newEntity{ define_as="TRAINING_DUMMY",
 
 newEntity{ base = "BASE_NPC_CAT", define_as = "KITTY",
 	name = "Pumpkin, the little kitty", color=colors.ORANGE,
+	kr_name = "작은 고양이, 펌프킨",
 	image="npc/sage_kitty.png",
-	desc = [[An orange kitty with a white star blaze on his chest. Has a strange affinity for licking your face whenever possible.]], --@@ 한글화 필요, kr_name 추가
+	desc = [[가슴 부분에 하얀 별 모양 점이 있는 오렌지색 고양이입니다. 기이할 정도의 친화력을 가져, 가능할 때마다 당신의 얼굴을 햝으려고 합니다.]], 
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 4,
 	self_resurrect = 9,

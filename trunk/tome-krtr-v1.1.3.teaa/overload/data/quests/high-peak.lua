@@ -156,9 +156,9 @@ function onWin(self, who)
 		desc[#desc+1] = "오직 앙골웬의 마법사들만이 정신적 충격에서 버텨내었고, 이제 그들만이 아직 '안전하지 못한' 사람들이 되었습니다. 하지만 '한길' 의 위대함 앞에서 그들이 무엇을 할 수 있을까요?"
 		return 0, desc
 	elseif who:isQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek-stab") then
-		desc[#desc+1] = "In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being." --@@ 한글화 필요
-		desc[#desc+1] = "Through an incredible display of willpower you resisted long enough to ask Aeryn to kill you." --@@ 한글화 필요
-		desc[#desc+1] = "She sadly agreed and ran her sword through you, enabling you to do the last sacrifice you could for the world." --@@ 한글화 필요
+		desc[#desc+1] = "싸움이 끝나고, '한길' 은 모든 이성 있는 생명체들에게 '한길' 의 힘을 주입시키는 통로로 당신을 사용하려 했습니다. 그것도 강제로."
+		desc[#desc+1] = "하지만 엄청난 정신력으로, 당신은 아에린이 당신을 죽일 수 있을 만큼의 시간 동안 '한길' 의 의지를 저항해냈습니다"
+		desc[#desc+1] = "그녀는 슬프게 동의하며, 그녀의 검을 당신에게 꽂아넣었습니다. 당신이 이 세계를 위해 할 수 있는, 마지막 희생이 가능하도록 말이죠."
 		return 0, desc
 	end
 

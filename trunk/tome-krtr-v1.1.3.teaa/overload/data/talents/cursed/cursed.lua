@@ -31,7 +31,7 @@ newTalentType{ allow_random=true, is_mind=true, type="cursed/force-of-will", nam
 newTalentType{ allow_random=true, is_mind=true, type="cursed/darkness", name = "darkness", description = "어둠의 힘으로 적들을 감싸, 그들을 죽음의 길로 인도한다." }
 newTalentType{ allow_random=true, is_mind=true, type="cursed/shadows", name = "shadows", description = "어둠 속에서 그림자를 불러내, 나를 돕게 만든다." }
 newTalentType{ allow_random=true, is_mind=true, type="cursed/punishments", name = "punishments", description = "나의 증오심은 적들에게 내리는 징벌이 되리라." }
-newTalentType{ allow_random=true, is_mind=true, type="cursed/one-with-shadows", name = "one with shadows", min_lev = 10, description = "Harness your shadows to their full potential." } --@@ 한글화 필요
+newTalentType{ allow_random=true, is_mind=true, type="cursed/one-with-shadows", name = "one with shadows", min_lev = 10, description = "그림자를 활용하여, 모든 잠재력을 이끌어낸다." } 
 
 -- Generic
 newTalentType{ allow_random=true, is_mind=true, type="cursed/gestures", name = "gestures", generic = true, description = "특수한 손짓으로 정신의 힘을 고양시킨다." }

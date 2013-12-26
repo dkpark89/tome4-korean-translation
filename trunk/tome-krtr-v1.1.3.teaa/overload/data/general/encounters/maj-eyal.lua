@@ -95,7 +95,8 @@ newEntity{
 }
 
 newEntity{
-	name = "Lost kitten", --@@ 한글화 필요 : kr_name 추가
+	name = "Lost kitten", 
+	kr_name = "길 잃은 고양이",
 	type = "harmless", subtype = "special", unique = true,
 	level_range = {15, 35},
 	rarity = 100,
@@ -106,7 +107,7 @@ newEntity{
 		game.paused = true
 		who:runStop()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("sage-kitty", mod.class.NPC.new{name="Lost Kitty", image="npc/sage_kitty.png"}, who) --@@ 한글화 필요 : kr_name 추가
+		local chat = Chat.new("sage-kitty", mod.class.NPC.new{name="Lost Kitty", kr_name="길 잃은 고양이", image="npc/sage_kitty.png"}, who) 
 		chat:invoke()
 		return true
 	end,

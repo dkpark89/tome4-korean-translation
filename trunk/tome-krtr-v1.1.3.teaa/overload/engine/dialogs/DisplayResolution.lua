@@ -85,7 +85,7 @@ function _M:use(item)
 								, false)
 						end, "Restart", "Restart with reset")
 				end
-			end, "Yes", "No") --@@ 한글화 필요 #69~88
+			end, "예", "아니오") 
 	else
 		game:setResolution(r, true)
 	end

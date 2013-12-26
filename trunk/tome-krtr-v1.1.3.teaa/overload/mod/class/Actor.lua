@@ -1797,11 +1797,11 @@ function _M:onTakeHit(value, src, death_note)
 		-- Absorb damage into a random shadow
 		local shadow = self:callTalent(self.T_SHADOW_EMPATHY, "getRandomShadow")
 		if shadow then
-			game:delayedLogMessage(self, src,  "displacement_shield"..(shadow.uid or ""), "#CRIMSON##Source# shares some damage with a shadow!") --@@ 한글화 필요
+			game:delayedLogMessage(self, src,  "displacement_shield"..(shadow.uid or ""), "#CRIMSON##Source1# 그림자와 피해를 공유했습니다!") 
 			local displaced = math.min(value * self.shadow_empathy / 100, shadow.life)
 			shadow:takeHit(displaced, src)
-			game:delayedLogDamage(src, self, 0, ("#PINK#(%d linked)#LAST#"):format(displaced), false) --@@ 한글화 필요
-			game:delayedLogDamage(src, shadow, displaced, ("#PINK#%d linked#LAST#"):format(displaced), false) --@@ 한글화 필요
+			game:delayedLogDamage(src, self, 0, ("#PINK#(%d 공유)#LAST#"):format(displaced), false) 
+			game:delayedLogDamage(src, shadow, displaced, ("#PINK#%d 공유됨#LAST#"):format(displaced), false) 
 			value = value - displaced
 		end
 	end

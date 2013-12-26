@@ -3053,8 +3053,9 @@ newEffect{
 
 newEffect{
 	name = "SHADOW_EMPATHY", image = "talents/shadow_empathy.png",
-	desc = "Shadow Empathy", --@@ 한글화 필요 #현재줄~다음줄, kr_name 추가
-	long_desc = function(self, eff) return ("%d%% of all damage is redirected to a random shadow."):format(eff.power) end,
+	kr_name = "그림자 공감",
+	desc = "Shadow Empathy", 
+	long_desc = function(self, eff) return ("피해량의 %d%% 만큼이 무작위한 그림자에게로 전이"):format(eff.power) end,
 	type = "mental",
 	subtype = { mind=true, shield=true },
 	status = "beneficial",
@@ -3070,8 +3071,9 @@ newEffect{
 
 newEffect{
 	name = "SHADOW_DECOY", image = "talents/shadow_decoy.png",
-	desc = "Shadow Decoy", --@@ 한글화 필요 #현재줄~다음줄, kr_name 추가
-	long_desc = function(self, eff) return ("A random shadow absorbed a fatal blow for you, granting you a negative shield of %d."):format(eff.power) end,
+	kr_name = "그림자 분신",
+	desc = "Shadow Decoy", 
+	long_desc = function(self, eff) return ("무작위한 그림자가 치명적인 일격을 흡수, %d 만큼 생명력이 떨어져도 죽지 않게 보호."):format(eff.power) end,
 	type = "mental",
 	subtype = { mind=true, shield=true },
 	status = "beneficial",

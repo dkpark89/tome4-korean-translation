@@ -295,7 +295,7 @@ function string.krTalentType(str)
 	elseif ori == "darkness" then return "어둠"
 	elseif ori == "shadows" then return "그림자"
 	elseif ori == "punishments" then return "처단"
-	elseif ori == "one with shadows" then return "one with shadows" --@@ 한글화 필요 : 추가된 기술 계열 - /data/talents/cursed/cursed.lua #34, /data/talents/cursed/one-with-shadows.lua 내용과 연동
+	elseif ori == "one with shadows" then return "고급 : 그림자 합일" 
 	elseif ori == "gestures" then return "저주받은 손짓"
 	elseif ori == "cursed form" then return "저주받은 형상"
 	elseif ori == "cursed aura" then return "저주받은 기운"
