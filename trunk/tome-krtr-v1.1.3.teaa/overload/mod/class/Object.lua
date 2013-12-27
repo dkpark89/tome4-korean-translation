@@ -1090,7 +1090,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "적살해시 증오심 회복 : ")
 		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "적 살해시 염력 회복 : ")
 
-		compare_fields(w, compare_with, field, "die_at", "%+.2f life", "죽지 않고 견딜 수 있는 생명력 수치 : ", 1, true, true)
+		compare_fields(w, compare_with, field, "die_at", "%+.2f 생명력", "죽지 않고 견딜 수 있는 생명력 수치 : ", 1, true, true)
 		compare_fields(w, compare_with, field, "max_life", "%+.2f", "최대 생명력 : ")
 		compare_fields(w, compare_with, field, "max_mana", "%+.2f", "최대 마나    : ")
 		compare_fields(w, compare_with, field, "max_stamina", "%+.2f", "최대 체력    : ")

@@ -81,7 +81,7 @@ newChat{ id="yeek-stab",
 	answers = {
 		{"#LIGHT_GREEN#[평화롭게 죽음을 맞이한다.]", action=function(npc, player)
 			player.no_resurrect = true
-			player:die(player, {special_death_msg=""..string.his_her_self(player).."의 목숨을 바쳐, '한길' 의 계획을 막음"}) --@ his_her_self 함수 한글화 작업 필요
+			player:die(player, {special_death_msg="스스로의 목숨을 바쳐, '한길' 의 계획을 막음"})
 			player:setQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek-stab")
 			player:hasQuest("high-peak"):win("yeek-selfless")
 		end},
