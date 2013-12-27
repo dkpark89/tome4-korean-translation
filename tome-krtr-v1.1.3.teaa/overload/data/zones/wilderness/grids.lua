@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local grass_editer = {method="borders_def", def="grass_wm"}
 local jungle_grass_editer = { method="borders_def", def="jungle_grass"}
 local sand_editer = {method="borders_def", def="sand"}
@@ -208,6 +210,7 @@ newEntity{
 	define_as = id.."MOUNTAIN",
 	type = "rockwall", subtype = "grass",
 	name = name, image = "terrain/rocky_mountain.png",
+	kr_name = name:krMountainName(),
 	display = '#', color=colors.UMBER, back_color=colors.LIGHT_UMBER,
 	always_remember = true,
 	can_pass = {pass_wall=1},

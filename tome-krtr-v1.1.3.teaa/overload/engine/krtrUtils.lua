@@ -491,6 +491,7 @@ function string.krRace(str)
 	elseif ori == "demon" then return "악마"
 	elseif ori == "dragon" then return "용"
 	elseif ori == "drolem" then return "드롤렘"
+	elseif ori == "dummy" then return "허수아비"
 	elseif ori == "dwarf" then return "드워프"
 	elseif ori == "eldritch" then return "섬뜩한자"
 	elseif ori == "elemental" then return "정령"
@@ -568,6 +569,7 @@ function string.krRace(str)
 	elseif ori == "thought-form" then return "생각의 구현"
 	elseif ori == "thrall" then return "노예"
 	elseif ori == "totem" then return "토템"
+	elseif ori == "training" then return "연습대상"
 	elseif ori == "treant" then return "나무 정령"
 	elseif ori == "troll" then return "트롤"
 	elseif ori == "turtle" then return "거북이"
@@ -846,6 +848,7 @@ function string.krZonename(str)
 	elseif ori == "exploratory farportal" then return "탐험용 장거리 관문"
 	elseif ori == "library of lost mysteries" then return "잊혀진 신비의 도서관"
 	elseif ori == "temporal locked vault" then return "잠겨있는 시간의 금고"
+	elseif ori == "experimentation room" then return "연습실"
 	else return str end
 end
 
@@ -1611,5 +1614,15 @@ function string.krHisHer(str)
 	if ori == "her" then return "그녀"
 	elseif ori == "his" then return "그"
 	elseif ori == "it" then return "그것"
+	else return str end 
+end
+
+function string.krMountainName(str)
+	-- 전체 지도상의 산맥의 세부 이름들. /data/zones/wilderness/grids.lua #213번 줄에서 사용
+	local ori = str:lower()
+	if ori == "mountain chain" then return "산맥"
+	elseif ori == "daikara" then return "다이카라"
+	elseif ori == "iron throne" then return "철의 왕좌"
+	elseif ori == "volcanic mountains" then return "화산 지형"
 	else return str end 
 end

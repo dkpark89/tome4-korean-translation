@@ -394,7 +394,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 		end
 
 		if dam > 0 and src.attr and src:attr("martyrdom") and not no_martyr then
-			game:delayedLogMessage(src, target, "martyrdom", "#CRIMSON##Source#의 피해가 %s에게도 고난을 가합니다!", string.his_her_self(src)) 
+			game:delayedLogMessage(src, target, "martyrdom", "#CRIMSON##Source#의 피해가 자기 자신에게도 고난을 가합니다!") 
 			DamageType.defaultProjector(target, src.x, src.y, type, dam * src.martyrdom / 100, tmp, true)
 		end
 		if target.attr and target:attr("reflect_damage") and not no_martyr and src.x and src.y then
