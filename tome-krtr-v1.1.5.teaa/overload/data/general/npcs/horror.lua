@@ -921,7 +921,7 @@ newEntity{ base="BASE_NPC_HORROR", define_as = "GRGGLCK_TENTACLE",
 newEntity{ base = "BASE_NPC_HORROR",
 	name = "Ak'Gishil", color=colors.GREY, unique = true,
 	kr_name = "악'기실",
-	desc = "This Blade Horror has been infused with intense temporal magic, causing its power to increase dramatically. 그 주변으로 공간의 균열이 끊임없이 열리며, 칼날이 끊임없이 소환됐다가 사라졌다를 반복합니다.", --@@ 한글화 필요
+	desc = "이 '칼날의 공포'는 강력한 시간 마법의 주입으로 그 힘이 극적으로 상향되었습니다. 그 주변으로 공간의 균열이 끊임없이 열리며, 칼날이 끊임없이 소환됐다가 사라졌다를 반복합니다.",
 	resolvers.nice_tile{tall=1},
 	level_range = {30, nil}, exp_worth = 2,
 	rarity = 45,

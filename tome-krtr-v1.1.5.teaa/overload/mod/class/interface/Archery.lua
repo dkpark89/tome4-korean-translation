@@ -409,7 +409,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 	if hitted and ammo and ammo.siege_impact and (not self.shattering_impact_last_turn or self.shattering_impact_last_turn < game.turn) then
 		local dam = dam * ammo.siege_impact
 		local invuln = target.invulnerable
-		game.logSeen(target, "The shattering blow creates a shockwave!") --@@ 한글화 필요
+		game.logSeen(target, "파쇄적인 공격으로 인해 충격파가 발생했습니다!")
 		target.invulnerable = 1 -- Target already hit, don't damage it twice
 		self:project({type="ball", radius=1, friendlyfire=false}, target.x, target.y, DamageType.PHYSICAL, dam)
 		target.invulnerable = invuln

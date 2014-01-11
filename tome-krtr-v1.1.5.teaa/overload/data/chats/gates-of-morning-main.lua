@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newChat{ id="welcome",
 	text = [[제가 도와드릴 일이라도?]],
 	answers = {
@@ -26,7 +28,7 @@ newChat{ id="welcome",
 		{"제가 잃어버린 지팡이를 찾을 수 있는 단서를 찾고 있습니다. 도와주십시오.", jump="clues", cond=function(npc, player) return game.state:isAdvanced() and not player:hasQuest("orc-pride") end},
 		{"오크 긍지의 지도자들을 모두 없애고 왔습니다.", jump="prides-dead", cond=function(npc, player) return player:isQuestStatus("orc-pride", engine.Quest.COMPLETED) end},
 		{"오크들이 지팡이를 가져갔던, 검게 탄 상처에서 돌아왔습니다.", jump="charred-scar", cond=function(npc, player) return player:hasQuest("charred-scar") and player:hasQuest("charred-scar"):isCompleted() end},
-		{"A dying paladin gave me this map; something about orc breeding pits. [tell her the story]", jump="orc-breeding-pits", cond=function(npc, player) return player:hasQuest("orc-breeding-pits") and player:isQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED, "wuss-out") and not player:isQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED, "wuss-out-done") end}, --@@ 한글화 필요
+		{"죽어가는 태양의 기사가 오크 번식용 동굴을 찾기 위한 지도를 건네줬습니다. [그녀에게 그 이야기를 한다]", jump="orc-breeding-pits", cond=function(npc, player) return player:hasQuest("orc-breeding-pits") and player:isQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED, "wuss-out") and not player:isQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED, "wuss-out-done") end},
 		{"아닙니다, 이만 가볼게요!"},
 	}
 }
@@ -146,9 +148,9 @@ newChat{ id="charred-scar-fail",
 }
 
 newChat{ id="orc-breeding-pits",
-	text = [[Ah! This is wonderful! Finally a ray of hope amidst the darkness. I will assign my best troops to this. Thank you, @playername@ - take this as a token of gratitude.]], --@@ 한글화 필요
+	text = [[아! 정말 훌륭하네요! 암흑 속에서 마침내 찾아온 한 줄기의 희망이로군요. 이 것을 처리하기 위해 최고의 부대를 파병할 것임을 약속드리지요. @playername7@여, 고맙습니다. 이 감사의 표식을 받아주세요.]],
 	answers = {
-		{"Good luck.", action=function(npc, player) --@@ 한글화 필요
+		{"행운을 빕니다.", action=function(npc, player)
 			player:setQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED, "wuss-out-done")
 			player:setQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED)
 
@@ -156,7 +158,7 @@ newChat{ id="orc-breeding-pits",
 				local ro = game.zone:makeEntity(game.level, "object", {ignore_material_restriction=true, type="gem", special=function(o) return o.material_level and o.material_level >= 5 end}, nil, true)
 				if ro then
 					ro:identify(true)
-					game.logPlayer(player, "Aeryn gives you: %s", ro:getName{do_color=true}) --@@ 한글화 필요
+					game.logPlayer(player, "아에린이 당신에게 %s 건네줍니다.", ro:getName{do_color=true}:addJosa("를"))
 					game.zone:addEntity(game.level, ro, "object")
 					player:addObject(player:getInven("INVEN"), ro)
 				end

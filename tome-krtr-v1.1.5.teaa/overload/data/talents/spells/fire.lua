@@ -121,8 +121,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local stunduration = t.getStunDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Conjures up a cone of flame with radius %d. Any targets caught in the area will suffer Burning Shock, stunning them and dealing %0.2f fire damage over %d turns.
-		피해량은 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 : 윗줄 내용이 많이 바뀜 - 기존 번역 : 전방 %d 칸 반경에 불길을 내뿜어 %d 턴 동안 기절시키고, 기절한 적에게 추가로 %0.2f 화염 피해를 줍니다.
+		return ([[전방 %d 칸 반경에 불길을 내뿜습니다. 이 불길 속에 갖힌 대상들은 '화염 충격'을 받게 되어, %d 턴 동안 기절시키고 추가로 %0.2f 화염 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, stunduration, damDesc(self, DamageType.FIRE, damage)) --@ 변수 순서 조정
 	end,
 }

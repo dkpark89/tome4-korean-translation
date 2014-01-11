@@ -508,16 +508,16 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
-		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
-		The power will increase with your Spellpower.]]): --@@ 한글화 필요 : 두줄위~현재줄
+		return ([[주변의 잠재된 냉기를 모두 흡수하여, %d 턴 동안 냉기의 정령인 쉬브고로스로 변신합니다.
+		변신 중에는 호흡이 필요없게 되며, %d 레벨의 얼음 폭풍 마법을 사용할 수 있게 됩니다. 또한 출혈과 기절 면역력이 %d%% / 냉기 저항력이 %d%% 증가합니다. 그리고 변신 중에 입는 냉기 피해의 %d%% 만큼 생명력이 회복됩니다.
+		주문의 위력은 주문력의 영향을 받아 상승합니다.]]):
 		format(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100)
 	end,
 }
 
 newTalent{
 	name = "Mental Refresh",
-	kr_name = "새로움 마음",
+	kr_name = "새로운 마음",
 	type = {"misc/objects", 1},
 	points = 5,
 	equilibrium = 20,
