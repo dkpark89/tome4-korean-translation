@@ -157,53 +157,27 @@ TOOLTIP_INSCRIPTIONS = [[#GOLD#각인#LAST#
 -------------------------------------------------------------
 -- Speeds
 -------------------------------------------------------------
-----@@ 한글화 필요 #160~182 : 내용이 거의 바뀌었음 - 참고용으로 기존 번역본을 주석처리하여 #183~207에 놔둠 (한글화 이후 삭제 필요) 
-TOOLTIP_SPEED_GLOBAL = [[#GOLD#Global Speed#LAST#
-Global speed represents how fast you are and affects everything you do.
-Higher is faster, so at 200% global speed you can performa twice as many actions as you would at 100% speed.
-Note that the amount of time to performa various actions like moving, casting spells, and attacking is also affected by their respective speeds.
+TOOLTIP_SPEED_GLOBAL = [[#GOLD#전체 속도#LAST#
+전체 속도는 모든 행동이 얼마나 빠른지를 표현합니다.
+숫자가 높을수록 더 빠른 것입니다. 따라서 전체 속도가 200%이라면 100%인 때에 비해서 두배의 일을 할 수 있습니다.
+특정 행동(이동이나 주문 시전, 공격 등)에 소요되는 시간은 각각의 행동에 대응하는 속도에도 영향을 받아 결정됩니다.
 ]]
-TOOLTIP_SPEED_MOVEMENT = [[#GOLD#Movement Speed#LAST#
-How quickly you move compared to normal.
-Higher is faster, so 200% means that you move twice as fast as normal.
+TOOLTIP_SPEED_MOVEMENT = [[#GOLD#이동 속도#LAST#
+얼마나 빨리 이동할 수 있는지를 표현합니다.
+숫자가 높을수록 더 빠른 것입니다. 따라서 이동 속도가 200%이라면 100%인 때에 비해서 두배로 빨리 이동 할 수 있습니다.
 ]]
-TOOLTIP_SPEED_SPELL = [[#GOLD#Spell Speed#LAST#
-How quickly you cast spells.
-Higher is faster, so 200% means that you can cast spells twice as fast as normal.
+TOOLTIP_SPEED_SPELL = [[#GOLD#시전 속도#LAST#
+얼마나 빨리 주문을 시전할 수 있는지를 표현합니다.
+숫자가 높을수록 더 빠른 것입니다. 따라서 시전 속도가 200%이라면 100%인 때에 비해서 두배로 많은 주문을 시전 할 수 있습니다.
 ]]
-TOOLTIP_SPEED_ATTACK = [[#GOLD#Attack Speed#LAST#
-How quickly you attack with weapons, either ranged or melee.
-Higher is faster, so 200% means that you can attack twice as fast as normal.
-The actual speed may also be affected by the weapon used.
+TOOLTIP_SPEED_ATTACK = [[#GOLD#공격 속도#LAST#
+얼마나 빨리 물리적인 공격(근접공격이나 장거리 공격 둘 다)을 할 수 있는지를 표현합니다.
+숫자가 높을수록 더 빠른 것입니다. 따라서 공격 속도가 200%이라면 100%인 때에 비해서 두배로 많이 공격 할 수 있습니다.
+실제 공격 속도는 사용하는 무기의 영향도 받아 결정됩니다.
 ]]
-TOOLTIP_SPEED_MENTAL = [[#GOLD#Mental Speed#LAST#
-How quickly you perform mind powers.
-Higher is faster, so 200% means that you can use mind powers twice as fast as normal.
-]]
---[[TOOLTIP_SPEED_GLOBAL = [[#GOLD#전체 속도#LAST#
-전체 속도는 모든 행동에 영향을 줍니다.
-당신이 게임 턴마다 얻는 행동력을 나타내며, 행동력이 일정 수치에 달하면 행동할 수 있습니다.
-예) 전체 속도가 200% 일 때는 두 배의 행동력을 게임 턴마다 얻게 되어, 다른 생물이 한 번 움직일 때 당신은 두 번 움직일 수 있게 됩니다.
-]]
---[[TOOLTIP_SPEED_MOVEMENT = [[#GOLD#이동 속도#LAST#
-이동시 추가적으로 적용되는 속도입니다.
-같은 시간 동안 얼마나 더 이동할 수 있는지를 나타냅니다.
-예) 100% 일 때는 0% 일 때보다 두 배 더 많이 이동할 수 있습니다.
-]]
---[[TOOLTIP_SPEED_SPELL = [[#GOLD#시전 속도#LAST#
-주문 시전시 추가적으로 적용되는 속도입니다.
-같은 시간 동안 주문을 얼마나 더 많이 시전할 수 있는지를 나타냅니다.
-예) 100% 일 때는 0% 일 때보다 두 배 더 많이 주문을 시전할 수 있습니다.
-]]
---[[TOOLTIP_SPEED_ATTACK = [[#GOLD#공격 속도#LAST#
-공격시 (근접 공격이나 장거리 공격) 추가적으로 적용되는 속도입니다.
-같은 시간 동안 얼마나 더 많은 공격을 가할 수 있는지를 나타냅니다.
-예) 100% 일 때는 0% 일 때보다 두 배 더 많이 공격할 수 있습니다.
-]]
---[[TOOLTIP_SPEED_MENTAL = [[#GOLD#사고 속도#LAST#
-정신 능력 사용시 추가적으로 적용되는 속도입니다.
-같은 시간 동안 얼마나 더 많은 정신 능력을 사용할 수 있는지를 나타냅니다.
-예) 100% 일 때는 0% 일 때보다 두 배 더 많이 정신 능력을 사용할 수 있습니다.
+TOOLTIP_SPEED_MENTAL = [[#GOLD#사고 속도#LAST#
+얼마나 빨리 생각할 수 있는지를 표현합니다.
+숫자가 높을수록 더 빠른 것입니다. 따라서 사고 속도가 200%이라면 100%인 때에 비해서 두배로 많은 정신 능력을 사용할 수 있습니다.
 ]]
 -------------------------------------------------------------
 -- Stats
@@ -255,8 +229,8 @@ TOOLTIP_COMBAT_CRIT = [[#GOLD#치명타율#LAST#
 ]]
 TOOLTIP_COMBAT_SPEED = [[#GOLD#공격 속도#LAST#
 적을 공격할 때 소모되는 턴을 나타냅니다.
-Higher is faster, representing more attacks performed in the same amount of time.
-]] --@@ 한글화 필요 : 윗줄
+숫자가 높을수록 더 빠른 것으로써, 같은 시간에 더 많은 공격을 할 수 있다는 것을 의미합니다.
+]]
 TOOLTIP_COMBAT_RANGE = [[#GOLD#최대 사거리#LAST#
 무기의 최대 사거리입니다.
 ]]
@@ -323,8 +297,8 @@ TOOLTIP_SPELL_CRIT = [[#GOLD#주문 치명타율#LAST#
 ]]
 TOOLTIP_SPELL_SPEED = [[#GOLD#시전 속도#LAST#
 주문을 시전할 때 소모되는 턴을 나타냅니다.
-Higher is faster - 200% means that you cast spells twice as fast as someone at 100%.
-]] --@@ 한글화 필요 : 윗줄
+숫자가 높을수록 더 빠른 것입니다. 만약 속도가 200%라면 100%인 사람보다 두 배 더 빠르다는 것을 의미합니다.
+]]
 TOOLTIP_SPELL_COOLDOWN = [[#GOLD#재시전 시간#LAST#
 재사용 시간은 주문을 다시 사용할 수 있게 될 때까지 걸리는 시간을 의미합니다.
 수치가 낮을수록 주문과 룬을 더 자주 쓸 수 있게 됩니다.
@@ -343,8 +317,8 @@ TOOLTIP_MIND_CRIT = [[#GOLD#정신 치명타율#LAST#
 ]]
 TOOLTIP_MIND_SPEED = [[#GOLD#사고 속도#LAST#
 정신 능력을 시전할 때 소모되는 턴을 나타냅니다.
-Higher is faster.
-]] --@@ 한글화 필요 : 윗줄
+숫자가 높을수록 더 빠른 것입니다.
+]]
 -------------------------------------------------------------
 -- Damage and resists
 -------------------------------------------------------------

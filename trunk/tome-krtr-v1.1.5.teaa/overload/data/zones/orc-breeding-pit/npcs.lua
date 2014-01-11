@@ -107,7 +107,7 @@ newEntity{ base = "BASE_NPC_ORC",
 	kr_name = "어미 오크",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_mother.png", display_h=2, display_y=-1}}},
 	desc = [[거대하게 부풀어 오른 형상을 한 존재입니다. 온 몸의 구멍에서 점액과 끈적한 덩어리가 흘러내려 동굴 바닥을 적시고 있습니다. 어린 오크들이 부푼 젖꼭지를 차지하려고 싸우고 있고, 접혀진 살 사이로 작은 아기들이 밀려나오고 있습니다. 구역질이 나오는 광경이자 냄새입니다.
-Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], --@@ 한글화 필요 : 추가됨
+여기 용과 같이 어마어마한 크기의 존재가 있습니다. 두꺼운 주름이 진 피부는 부풀어 올랐고, 넓은 모공에서는 끈적한 점액이 스며나오고 있습니다. 수백 개의 젖꼭지에서는 어린 오크들이 다투고 있습니다. 그 중 가장 억센 놈들만이 귀중한 영양분을 획득하며 더 강하게 자라고 있으며, 약한 놈들은 곰팡내 나는 바닥에 쳐박혀 있습니다. 이 거대한 몸집의 최상부에서는 기다랗게 엉킨 머리카락으로 덮힌 무력한 머리가 달려있습니다. 그 멍한 눈빛에서는 슬픔과 고통이 섞여있었지만, 당신을 보자 눈빛이 분노로 가득 차오르기 시작했습니다. 이 생명체의 얼굴은 자신의 자식들을 지키려는 거센 욕망으로 일그러집니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	female = true,
 	rarity = 8,
