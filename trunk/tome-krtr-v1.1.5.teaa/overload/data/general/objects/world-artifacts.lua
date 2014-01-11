@@ -274,7 +274,7 @@ newEntity{ base = "BASE_RING",
 	rarity = 250,
 	cost = 500,
 	material_level = 4,
-	special_desc = function(self) return "Will bring you back from death, but only once!" end, --@@ 한글화 필요
+	special_desc = function(self) return "사망시에 단 한번 부활시켜 줍니다!" end,
 	wielder = {
 		inc_stats = { [Stats.STAT_LCK] = 10, },
 		die_at = -100,
@@ -1212,7 +1212,7 @@ newEntity{ base = "BASE_MACE",
 	name = "Crooked Club", color = colors.GREEN, image = "object/artifact/weapon_crooked_club.png",
 	unided_name = "weird club",
 	kr_name = "구부정한 곤봉", kr_unided_name = "이상한 곤봉",
-	desc = [[육중한 무게가 끝쪽으로 쏠린, 기묘하게 비틀린 곤봉입니다. There's something very strange about it.]], --@@ 한글화 필요
+	desc = [[육중한 무게가 끝쪽으로 쏠린, 기묘하게 비틀린 곤봉입니다. 뭔가 정말 이상합니다.]],
 	level_range = {12, 20},
 	rarity = 192,
 	require = { stat = { str=20 }, },
@@ -3700,7 +3700,7 @@ newEntity{ base = "BASE_GREATSWORD",
 	level_range = {32, 40},
 	color=colors.DARKRED,
 	rarity = 300,
-	desc = [[불꽃이 타오르는 이 거대한 대검은, 황혼의 시대에 모험가 케스틴 하이핀이 훔친 것입니다. It originally belonged to a demon named Frond'Ral the Red.  It roars with vile flames and its very existence seems to be a blight upon the lands.]], --@@ 한글화 필요
+	desc = [[불꽃이 타오르는 이 거대한 대검은, 황혼의 시대에 모험가 케스틴 하이핀이 훔친 것입니다. 그 이전에는 원래 붉은 프론드'랄이라는 악마가 가지고 있었습니다. 이 것으로부터 고약한 불꽃이 피어오르고, 이는 땅을 황폐하게 만드는 것이 틀림없습니다.]],
 	cost = 400,
 	require = { stat = { str=40 }, },
 	material_level = 4,
@@ -5283,7 +5283,7 @@ newEntity{ base = "BASE_SHOT", --Thanks Grayswandir!
 		travel_speed = 1,
 		dammod = {dex=0.7, cun=0.5},
 		talent_on_hit = { [Talents.T_TORNADO] = {level=2, chance=10} },
-		special_on_hit = {desc="35% chance for lightning to arc to a second target", fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="35% 확률로 두번째 대상을 감전", fct=function(combat, who, target)
 			if not rng.percent(35) then return end
 			local tgts = {}
 			local x, y = target.x, target.y
@@ -5541,7 +5541,7 @@ newEntity{ base = "BASE_TOOL_MISC", --Sorta Thanks Donkatsu!
 	desc = [[이 작은 나무 모양의 토템에는 강력한 치유의 힘이 주입되어 있습니다.]],
 	cost = 320,
 	material_level = 4,
-	special_desc = function(self) return "Heals all nearby living creatures by 5 points each turn." end, --@@ 한글화 필요
+	special_desc = function(self) return "주변의 모든 생명체를 턴당 생명력 5 만큼씩 치유합니다." end,
 	sentient=true,
 	wielder = {
 		resists={[DamageType.BLIGHT] = 10, [DamageType.NATURE] = 10},

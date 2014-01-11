@@ -1774,7 +1774,7 @@ newEntity{ base = "BASE_TOOL_MISC", image="object/temporal_instability.png",
 	material_level = 5,
 	metallic = false,
 	use_no_energy = true,
-	special_desc = function(self) return "This item does not take a turn to use." end, --@@ 한글화 필요
+	special_desc = function(self) return "이 아이템을 사용하는 데에는 턴이 소모되지 않습니다." end,
 	wielder = {
 		combat_spellpower=10,
 		combat_mindpower=10,
@@ -1810,7 +1810,7 @@ newEntity{ base = "BASE_LONGSWORD", define_as = "RIFT_SWORD",
 		physcrit = 8,
 		dammod = {str=0.9,mag=0.2},
 		convert_damage={[DamageType.TEMPORAL] = 20},
-		special_on_hit = {desc="inflicts bonus temporal damage and slows target", fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="대상에게 추가적인 시간 속성 피해를 주고 속도 저하", fct=function(combat, who, target)
 			local dam = (20 + who:getMag()/2)
 			local slow = (10 + who:getMag()/5)/100
 			who:project({type="hit", range=1}, target.x, target.y, engine.DamageType.CHRONOSLOW, {dam=dam, slow=slow})

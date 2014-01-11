@@ -958,14 +958,14 @@ newEffect{
 newEffect{
 	name = "HUNTER_SPEED", image = "talents/infusion__movement.png",
 	desc = "Hunter",
-	kr_name = "Hunter", --@@ 한글화 필요
-	long_desc = function(self, eff) return ("You are searching for a new target. Any other action other than movement will cancel it. Movement is %d%% faster."):format(eff.power) end, --@@ 한글화 필요
+	kr_name = "사냥꾼",
+	long_desc = function(self, eff) return ("새로운 사냥감을 탐색 중 : 이동 속도 +%d%% / 이동 외의 행동시 즉시 사냥꾼 제거"):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true, speed=true },
 	status = "beneficial",
 	parameters = {power=1000},
-	on_gain = function(self, err) return "#Target# prepares for the next kill!.", "+Hunter" end, --@@ 한글화 필요
-	on_lose = function(self, err) return "#Target# slows down.", "-Hunter" end, --@@ 한글화 필요
+	on_gain = function(self, err) return "#Target1# 다음 사냥감을 위한 준비를 시작합니다!.", "+사냥꾼" end,
+	on_lose = function(self, err) return "#Target1# 느려졌습니다.", "-사냥꾼" end,
 	activate = function(self, eff)
 		eff.tmpid = self:addTemporaryValue("wild_speed", 1)
 		eff.moveid = self:addTemporaryValue("movement_speed", eff.power/100)

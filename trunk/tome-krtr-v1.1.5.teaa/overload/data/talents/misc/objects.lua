@@ -428,7 +428,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[모리고르가 흡수했던 모든 능력을 제거합니다.
-This does not take a turn to use.]]) --@@ 한글화 필요
+이 기술은 사용시 턴을 소모하지 않습니다.]])
 	end,
 }
 
@@ -484,9 +484,9 @@ newTalent{
 	end,
 }
 
---@@ 한글화 필요 : 아랫줄~끝까지
 newTalent{
 	name = "Shivgoroth Form", short_name = "SHIV_LORD", image = "talents/shivgoroth_form.png",
+	kr_name = "쉬브고로스로 변신",
 	type = {"spell/objects",1},
 	points = 5,
 	random_ego = "attack",
@@ -499,7 +499,7 @@ newTalent{
 	requires_target = true,
 	getDuration = function(self, t) return 4 + math.ceil(self:getTalentLevel(t)) end,
 	getPower = function(self, t) return util.bound(50 + self:combatTalentSpellDamage(t, 50, 450), 0, 500) / 500 end,
-	on_pre_use = function(self, t, silent) if self:attr("is_shivgoroth") then if not silent then game.logPlayer(self, "You are already a Shivgoroth!") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:attr("is_shivgoroth") then if not silent then game.logPlayer(self, "당신은 이미 쉬브고로스입니다!") end return false end return true end,
 	action = function(self, t)
 		self:setEffect(self.EFF_SHIVGOROTH_FORM_LORD, t.getDuration(self, t), {power=t.getPower(self, t), lvl=self:getTalentLevelRaw(t)})
 		game:playSoundNear(self, "talents/tidalwave")
@@ -510,13 +510,14 @@ newTalent{
 		local dur = t.getDuration(self, t)
 		return ([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
 		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
-		The power will increase with your Spellpower.]]):
+		The power will increase with your Spellpower.]]): --@@ 한글화 필요 : 두줄위~현재줄
 		format(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100)
 	end,
 }
 
 newTalent{
 	name = "Mental Refresh",
+	kr_name = "새로움 마음",
 	type = {"misc/objects", 1},
 	points = 5,
 	equilibrium = 20,
@@ -542,6 +543,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Reset up to 3 wild gift, psionic or cursed talents.]])
+		return ([[자연의 권능이나 초능력 혹은 저주 계열의 기술 3 개를 사용 가능한 상태로 만들어줍니다.]])
 	end,
 }

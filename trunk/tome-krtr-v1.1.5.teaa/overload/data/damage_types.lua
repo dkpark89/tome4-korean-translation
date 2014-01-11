@@ -1206,7 +1206,7 @@ newDamageType{
 -- Bloodspring damage + repulsion; checks for spell power against physical resistance
 newDamageType{
 	name = "bloodspring", type = "BLOODSPRING",
-	kr_name = "bloodspring", --@@ 한글화 필요
+	kr_name = "피분수",
 	projector = function(src, x, y, type, dam)
 		local srcx, srcy = dam.x, dam.y
 		local base = dam
@@ -1219,7 +1219,7 @@ newDamageType{
 				target:crossTierEffect(target.EFF_OFFBALANCE, base.power or src:combatSpellpower())
 				game.logSeen(target, "%s 밀려났습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			else
-				game.logSeen(target, "%s resists the bloody wave!", (target.kr_name or target.name):capitalize():addJosa("가")) --@@ 한글화 필요
+				game.logSeen(target, "%s 피분수를 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end,
