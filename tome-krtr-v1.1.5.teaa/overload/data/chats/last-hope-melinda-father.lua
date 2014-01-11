@@ -26,10 +26,10 @@ local ql = game.player:hasQuest("love-melinda")
 if ql and ql:isStatus(q.COMPLETED, "death-beach") then
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*A man talks to you from inside, the door half open. His voice is sad.*#WHITE#
-Sorry, the store is closed.]], --@@ 한글화 필요 : 윗줄~현재줄
+	text = [[#LIGHT_GREEN#*한 남자가 문을 절반만 연 채, 안에서 슬픈 목소리로 말했습니다.*#WHITE#
+미안합니다, 이곳은 휴업 중입니다.]],
 	answers = {
-		{"[leave]"}, --@@ 한글화 필요
+		{"[떠난다]"},
 	}
 }
 

@@ -733,7 +733,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 
 		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "보호막 관통 (이 무기에만 적용) : ", 1, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "lifesteal", "%+d%%", "Lifesteal (this weapon only): ", 1, false, false, add_table) --@@ 한글화 필요
+		compare_fields(combat, compare_with, field, "lifesteal", "%+d%%", "생명력 강탈 (이 무기에만 적용) : ", 1, false, false, add_table)
 
 		if combat.tg_type and combat.tg_type == "beam" then
 			desc:add({"color","YELLOW"}, ("공격이 모든 상대를 꿰뚦고 지나갑니다."), {"color","LAST"}, true)
@@ -1142,7 +1142,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "보호막 관통력 : ")
 
 		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "발사체 회피 : ")
-		compare_fields(w, compare_with, field, "evasion", "%+d%%", "Chance to avoid attacks: ") --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "evasion", "%+d%%", "공격 회피 확률 : ")
 
 		compare_fields(w, compare_with, field, "defense_on_teleport", "%+d", "순간이동 후 회피도 : ")
 		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "순간이동 후 전체 저항력 : ")
@@ -1155,8 +1155,8 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "nature_summon_max", "%+d", "최대 야생의 소환수 : ")
 		compare_fields(w, compare_with, field, "nature_summon_regen", "%+.2f", "추가 생명력 재생 (야생의 소환수) : ")
 
-		compare_fields(w, compare_with, field, "shield_dur", "%+d", "Damage Shield Duration: ") --@@ 한글화 필요
-		compare_fields(w, compare_with, field, "shield_factor", "%+d%%", "Damage Shield Power: ") --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "shield_dur", "%+d", "보호막 유지시간 : ")
+		compare_fields(w, compare_with, field, "shield_factor", "%+d%%", "보호막 강도 : ")
 
 		compare_fields(w, compare_with, field, "slow_projectiles", "%+d%%", "발사체 속도 감소 : ")
 
