@@ -6285,18 +6285,18 @@ newEntity{ base = "BASE_TOOL_MISC",
 	},
 }
 
---@@ 한글화 필요 : 아랫줄~끝까지
 newEntity{ base = "BASE_CLOTH_ARMOR",
 	power_source = {arcane=true},
 	unique = true,
 	name = "The Calm", color = colors.GREEN, image = "object/artifact/the_calm.png",
 	unided_name = "ornate green robe",
-	desc = [[This green robe is engraved with icons showing clouds and swirling winds. Its original owner, a powerful mage named Proccala, was often revered for both his great benevolence and his intense power when it proved necessary.]],
+	kr_name = "고요", kr_unided_name = "화려한 녹색 로브",
+	desc = [[이 녹색 로브에는 구름과 소용돌이치는 바람의 형상이 수놓아져 있습니다. 원소유자인 강력한 마법사 프로칼라는 그의 커다란 선행들과 필요한 때마다 보여준 강력한 능력으로 많은 존경을 받고 있습니다.]],
 	level_range = {30, 40},
 	rarity = 250,
 	cost = 500,
 	material_level = 4,
-	special_desc = function(self) return "Your Lightning and Chain Lightning spells gain a 24% chance to daze, and your Thunderstorm spell gains a 12% chance to daze." end,
+	special_desc = function(self) return "당신의 '전격'과 '전격 연계' 마법이 24% 확률로 상대를 혼절시키고, '뇌우' 마법은 12% 확률로 상대를 혼절시킵니다." end,
 	wielder = {
 		combat_spellpower = 20,
 		inc_damage = {[DamageType.LIGHTNING]=25},
@@ -6315,11 +6315,12 @@ newEntity{ base = "BASE_LEATHER_CAP",
 	unique = true,
 	name = "Omniscience", image = "object/artifact/omniscience.png",
 	unided_name = "very plain leather cap",
+	kr_name = "박학다식", kr_unided_name = "매우 평범한 가죽 모자",
 	level_range = {40, 50},
 	color=colors.WHITE,
 	encumber = 1,
 	rarity = 300,
-	desc = [[This white cap is plain and dull, but as the light reflects off of its surface, you see images of faraway corners of the world in the sheen."]],
+	desc = [[이 흰 모자는 평범하고 단조롭지만, 그 표면에 빛을 반사시켜보면 멀리 떨어진 장소들의 영상이 비춰집니다."]],
 	cost = 200,
 	material_level=5,
 	wielder = {
@@ -6336,10 +6337,10 @@ newEntity{ base = "BASE_LEATHER_CAP",
 		psi_on_crit=6,
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "reveal the surrounding area", power = 30,
+	use_power = { name = "reveal the surrounding area", kr_name = "주변 영역 살펴보기", power = 30,
 		use = function(self, who)
 			who:magicMap(20)
-			game.logSeen(who, "%s has a sudden vision!", who.name:capitalize())
+			game.logSeen(who, "%s 지형을 탐지했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"))
 			return {id=true, used=true}
 		end
 	},
@@ -6350,13 +6351,14 @@ newEntity{ base = "BASE_AMULET",
 	unique = true,
 	name = "Earthen Beads", color = colors.BROWN, image = "object/artifact/earthen_beads.png",
 	unided_name = "strung clay beads",
-	desc = [[This is a string of ancient, hardened clay beads, cracked and faded with age. It was used by Wilders in the Age of Dusk, in an attempt to enhance their connection with Nature.]],
+	kr_name = "대지의 염주", kr_unided_name = "진흙 염주 목걸이",
+	desc = [[이것은 단단한 진흙 염주가 꿰어진 고대의 목걸이로, 그 세월에의해 색이 바래고 금도 가 있습니다. 이 것은 황혼의 시대에 자연의 추종자들이 자연과의 일체감을 높이기 위해 사용하던 것입니다.]],
 	level_range = {10, 20},
 	rarity = 200,
 	cost = 100,
 	material_level = 2,
 	metallic = false,
-	special_desc = function(self) return "Enhances the effectiveness of Meditation by 20%" end,
+	special_desc = function(self) return "'명상' 기술의 효율이 20% 상승합니다." end,
 	wielder = {
 		combat_mindpower = 5,
 		enhance_meditate=0.2,
@@ -6375,7 +6377,8 @@ newEntity{ base = "BASE_GAUNTLETS",
 	unique = true,
 	name = "Hand of the World-Shaper", color = colors.BROWN, image = "object/artifact/hand_of_the_worldshaper.png",
 	unided_name = "otherworldly stone gauntlets",
-	desc = [[These heavy stone gauntlets make the very ground beneath you bend and warp as they move.]],
+	kr_name = "세상을 주물럭거리는 손", kr_unided_name = "이계의 돌장갑",
+	desc = [[이 무거운 돌로 만들어진 전투장갑은 그 움직임에 따라 발 아래의 대지를 변형하고 움직일 수 있게 만들어줍니다.]],
 	level_range = {40, 50},
 	rarity = 300,
 	cost = 800,
@@ -6418,7 +6421,8 @@ newEntity{ base = "BASE_KNIFE", --Razakai's idea, slightly modified
 	unique = true,
 	name = "Mercy", image = "object/artifact/mercy.png",
 	unided_name = "wickedly sharp dagger",
-	desc = [[This dagger was used by a nameless healer during the Age of Dusk. The plagues that ravaged his town were beyond the ability of mortal man to treat, so he took to using his dagger to as an act of mercy when faced with hopeless patients. Despite his good intentions, it is now cursed with dark power, letting it kill in a single stroke against those already weakened.]],
+	kr_name = "자비", kr_unided_name = "심술궂게 날카로운 단검",
+	desc = [[이 단검은 황혼의 시대에 한 이름없는 치료사가 사용하던 것입니다. 그의 마을을 파괴한 전염병은 필멸자가 대응할 능력을 넘어서는 것이었고, 그는 희망조차 잃어버린 환자들을 마주한 채 그의 단검으로 마지막 자비를 베풀 수 밖에 없었습니다. 그의 훌륭한 의도에도 불구하고, 그 행동은 어둠의 힘을 불러와 저주를 일으켰고, 이 단검에는 다친이를 가볍게 찌르는 것만으로 죽음을 가져오는 힘이 깃들어 버렸습니다.]],
 	level_range = {30, 40},
 	rarity = 250,
 	require = { stat = { dex=42 }, },
@@ -6429,7 +6433,7 @@ newEntity{ base = "BASE_KNIFE", --Razakai's idea, slightly modified
 		apr = 9,
 		physcrit = 20,
 		dammod = {str=0.45, dex=0.55},
-		special_on_hit = {desc="deals physical damage up to 15% of foe's missing health, based on enemy rank", fct=function(combat, who, target)
+		special_on_hit = {desc="(상대의 등급에 따라) 현재 상대가 가진 총 생명력 피해량의 15% 까지 물리속성 피해를 가함", fct=function(combat, who, target)
 			local tg = {type="ball", range=10, radius=0, selffire=false}
 			who:project(tg, target.x, target.y, engine.DamageType.PHYSICAL, (target.max_life - target.life)*(0.15/target.rank))
 		end},
@@ -6445,10 +6449,11 @@ newEntity{ base = "BASE_CLOAK",
 	unique = true,
 	name = "Guise of the Hated", image = "object/artifact/guise_of_the_hated.png",
 	unided_name = "gloomy black cloak",
-	desc = [[Forget the moons, the starry sky,
-The warm and greeting sheen of sun,
-The rays of light will never reach inside,
-The heart which wishes that it be unseen.]],
+	kr_name = "혐오자의 겉치레", kr_unided_name = "우울한 검은 망토",
+	desc = [[달은 잊어, 반짝이는 하늘도,
+따뜻하게 맞이하는 태양의 광채도
+빛줄기는 절대 닿지않고,
+심장은 이제 숨기를 바랄뿐]],
 	level_range = {40, 50},
 	color = colors.BLACK,
 	rarity = 370,
@@ -6485,8 +6490,9 @@ newEntity{ base = "BASE_KNIFE", --Thanks FearCatalyst/FlarePusher!
 	unique = true,
 	name = "Spelldrinker", image = "object/artifact/spelldrinker.png",
 	unided_name = "eerie black dagger",
-	desc = [[Countless mages have fallen victim to the sharp sting of this blade, betrayed by those among them with greed for ever greater power.
-Passed on and on, this blade has developed a thirst of its own.]],
+	kr_name = "마법흡입기", kr_unided_name = "으스스한 검은 단검",
+	desc = [[셀 수 없이 많은 마법사들이 처음보는 이 강력한 힘에 욕심을 내고 이 것을 손에 쥐었지만, 결국은 배신당하고 이 날카로운 칼날의 찌름에 희생되어 쓰러졌습니다.
+그렇게 손에서 손을 거쳐, 이 칼날은 그 소유주들의 갈증으로 개발되었습니다.]],
 	level_range = {20, 30},
 	rarity = 250,
 	require = { stat = { dex=30 }, },
@@ -6498,7 +6504,7 @@ Passed on and on, this blade has developed a thirst of its own.]],
 		physcrit = 10,
 		dammod = {str=0.45, dex=0.55, mag=0.05},
 		talent_on_hit = { T_DISPERSE_MAGIC = {level=1, chance=15},},
-		special_on_hit = {desc="steals up to 50 mana from the target", fct=function(combat, who, target)
+		special_on_hit = {desc="대상으로부터 마나를 50 강탈", fct=function(combat, who, target)
 			local manadrain = util.bound(target:getMana(), 0, 50)
 			target:incMana(-manadrain)
 			who:incMana(manadrain)
@@ -6520,13 +6526,14 @@ newEntity{ base = "BASE_AMULET",
 	unique = true,
 	name = "Frost Lord's Chain",
 	unided_name = "ice coated chain", image = "object/artifact/frost_lords_chain.png",
-	desc = [[This impossibly cold chain of frost coated metal radiates a strange and imposing aura.]],
+	kr_name = "서리 군주의 사슬", kr_unided_name = "얼음으로 덮여진 사슬",
+	desc = [[이상하고 위압적인 기운이 뿜어져 나오는 서리로 뒤덮힌 금속으로 이어진 비현실적으로 차가운 사슬 목걸이입니다.]],
 	color = colors.LIGHT_RED,
 	level_range = {40, 50},
 	rarity = 220,
 	cost = 350,
 	material_level = 5,
-	special_desc = function(self) return "Gives all your cold damage a 20% chance to freeze the target, and allows 20% of your damage to ignore ice blocks." end,
+	special_desc = function(self) return "냉기속성 피해를 줄 때 마다 20% 확률로 상대를 빙결시키고, 피해량의 20%는 얼음덩어리를 관통하여 직접 상대에게 전달 됩니다." end,
 	wielder = {
 		combat_spellpower=12,
 		inc_damage={
@@ -6548,10 +6555,11 @@ newEntity{ base = "BASE_LONGSWORD", --Thanks BadBadger?
 	unique = true,
 	name = "Twilight's Edge", image = "object/artifact/twilights_edge.png",
 	unided_name = "shining long sword",
+	kr_name = "석양의 가장자리", kr_unided_name = "빛나는 장검",
 	level_range = {32, 42},
 	color=colors.GREY,
 	rarity = 250,
-	desc = [[The blade of this sword seems to have been forged of a mixture of voratun and stralite, resulting in a blend of swirling light and darkness.]],
+	desc = [[이 검의 칼날은 보라툰과 스트라라이트의 합성 물질로 벼려진 듯 합니다. 그 결과 빛과 어둠이 서로 맞물려 소용돌이치는 문양을 띄고 있습니다.]],
 	cost = 800,
 	require = { stat = { str=35,}, },
 	material_level = 4,
@@ -6560,7 +6568,7 @@ newEntity{ base = "BASE_LONGSWORD", --Thanks BadBadger?
 		apr = 7,
 		physcrit = 12,
 		dammod = {str=1},
-		special_on_crit = {desc="release a burst of light and dark damage (scales with Magic)", on_kill=1, fct=function(combat, who, target)
+		special_on_crit = {desc="빛과 어둠의 폭발을 만들어 주위의 모두에게 (마법 능력치에 비례하는) 피해를 줌", on_kill=1, fct=function(combat, who, target)
 			local tg = {type="ball", range=10, radius=2, selffire=false}
 			who:project(tg, target.x, target.y, engine.DamageType.LIGHT, 40 + who:getMag()*0.6)
 			who:project(tg, target.x, target.y, engine.DamageType.DARKNESS, 40 + who:getMag()*0.6)
@@ -6582,13 +6590,14 @@ newEntity{ base = "BASE_LONGSWORD", --Thanks BadBadger?
 newEntity{ base = "BASE_RING",
 	power_source = {psionic=true},
 	name = "Mnemonic", unique=true, image = "object/artifact/mnemonic.png",
-	desc = [[As long as you wear this ring, you will never forget who you are.]],
+	kr_name = "암기력", kr_unided_name = "익숙한 반지",
+	desc = [[이 반지를 끼고 있는 동안, 자신이 누구인지를 절대 잊지 않습니다.]],
 	unided_name = "familiar ring",
 	level_range = {40, 50},
 	rarity = 250,
 	cost = 300,
 	material_level = 5,
-	special_desc = function(self) return "When using a mental talent, gives a 10% chance to lower the current cooldowns of up to three of your wild gift, psionic, or cursed talents by three turns." end,
+	special_desc = function(self) return "정신 기술을 사용할 때마다, 10% 확률로 자연의 권능이나 초능력 혹은 저주 계열 기술의 남은 지연시간을 최대 세개 까지 세턴 줄여줍니다." end,
 	wielder = {
 		combat_mentalresist = 20,
 		combat_mindpower = 12,
@@ -6610,10 +6619,11 @@ newEntity{ base = "BASE_LONGSWORD",
 	unique = true,
 	name = "Acera",
 	unided_name = "corroded sword", image = "object/artifact/acera.png",
+	kr_name = "아세라", kr_unided_name = "부식된 검",
 	level_range = {25, 35},
 	color=colors.GREEN,
 	rarity = 300,
-	desc = [[This warped, blackened sword drips acid from its countless pores.]],
+	desc = [[이 뒤틀린 더러운 검의 셀수없이 많은 작은 구멍들에서 산성액이 흘러 떨어지고 있습니다.]],
 	cost = 400,
 	require = { stat = { str=40 }, },
 	material_level = 3,
@@ -6643,7 +6653,8 @@ newEntity{ base = "BASE_GREATSWORD",
 	define_as = "DOUBLESWORD",
 	name = "Borosk's Hate", unique=true, image="object/artifact/borosks_hate.png",
 	unided_name = "double-bladed sword", color=colors.GREY,
-	desc = [[This impressive looking sword features two massive blades aligned in parallel. They seem weighted remarkably well.]],
+	kr_name = "보로스크의 증오", kr_unided_name = "이중날 검",
+	desc = [[이 인상깊은 검에는 커다란 칼날 두개가 평행하게 달려있습니다. 두 날의 균형이 놀라울만큼 잘 맞춰져 있습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {40, 50},
 	rarity = 240,
@@ -6655,7 +6666,7 @@ newEntity{ base = "BASE_GREATSWORD",
 		apr = 22,
 		physcrit = 10,
 		dammod = {str=1.2},
-		special_on_hit = {desc="25% chance to strike the target again", fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 상대를 한번 더 공격", fct=function(combat, who, target)
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "DOUBLESWORD")
 			if not o or not who:getInven(inven_id).worn then return end
 			if o.running == true then return end
@@ -6677,7 +6688,8 @@ newEntity{ base = "BASE_LONGSWORD",
 	power_source = {technique=true, psionic=true}, define_as = "BUTCHER",
 	name = "Butcher", unique=true, image="object/artifact/butcher.png",
 	unided_name = "blood drenched shortsword", color=colors.CRIMSON,
-	desc = [["Be it corruption, madness or eccentric boredom, the halfling butcher by the name of Caleb once took up to eating his kin instead of cattle. His spree was never ended and nobody knows where he disappeared. Only the blade remained, stuck fast in bloodied block. Beneath, a carving said "This was fun, let's do it again some time.".]],
+	kr_name = "도살자", kr_unided_name = "피에 젖은 단검",
+	desc = [["저주받아, 미쳐있고 비정상적으로 권태로운, 하플링 도살자 칼렙은 어느날 소대신 동족을 먹어 보기로 마음 먹었습니다. 그렇게 시작된 그의 잔치는 끝날 줄을 몰랐고, 아무도 그가 어디로 사라졌는지 알지 못합니다. 그 장소에는 오직 이 칼만이 피에 젖은 받침대에 단단히 박힌채로 남아있었습니다. 그리고 그 아래에는 "이건 재밌군, 언젠가 또 해봐야겠어."라는 말이 새겨져 있었습니다.]],
 	require = { stat = { str=40 }, },
 	level_range = {36, 48},
 	rarity = 250,
@@ -6685,13 +6697,13 @@ newEntity{ base = "BASE_LONGSWORD",
 	material_level = 5,
 	sentient=true,
 	running=false,
-	special_desc = function(self) return ("Enter Rampage if HP falls under 20%% (Shared 30 turn cooldown) \nCurrent Cooldown: %d"):format(self.power) end,
+	special_desc = function(self) return ("생명력이 20%% 아래로 떨어지면 '광란' 상태가 됩니다 (공유되는 지연시간 30 턴). \n현재 남은 지연시간 : %d"):format(self.power) end,
 	combat = {
 		dam = 48,
 		apr = 12,
 		physcrit = 10,
 		dammod = {str=1},
-		special_on_hit = {desc="Attempt to devour a low HP enemy, striking again and possibly killing instantly.", fct=function(combat, who, target)
+		special_on_hit = {desc="생명력이 낮아 즉사시킬수 있는 적을 재공격하여 삼키기 시도", fct=function(combat, who, target)
 			local Talents = require "engine.interface.ActorTalents"
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "BUTCHER")
 			if not o or not who:getInven(inven_id).worn then return end
@@ -6703,7 +6715,7 @@ newEntity{ base = "BASE_LONGSWORD",
 			end
 			o.running=false
 		end},
-		special_on_kill = {desc="Enter a Rampage(Shared 30 turn cooldown).", fct=function(combat, who, target)
+		special_on_kill = {desc="'광란' 상태로 돌입 (공유되는 지연시간 30 턴).", fct=function(combat, who, target)
 			local Talents = require "engine.interface.ActorTalents"
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "BUTCHER")
 			if not o or not who:getInven(inven_id).worn then return end
@@ -6749,7 +6761,8 @@ newEntity{ base = "BASE_CLOAK",
 	unique = true,
 	name = "Ethereal Embrace", image = "object/artifact/ethereal_embrace.png",
 	unided_name = "wispy purple cloak",
-	desc = [[This cloak waves and bends with shimmering light, reflecting the depths of space and the heart of the Aether.]],
+	kr_name = "천상의 포옹", kr_unided_name = "성긴 보라빛 망토",
+	desc = [[이 망토는 빛이 어른거리고 공간의 깊이와 에테르의 심장을 반사시키며 물결치고 있습니다.]],
 	level_range = {30, 40},
 	rarity = 400,
 	cost = 250,
@@ -6780,7 +6793,8 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 	unique = true,
 	name = "Boots of the Hunter", image = "object/artifact/boots_of_the_hunter.png",
 	unided_name = "well-worn boots",
-	desc = [[These cracked boots are caked with a thick layer of mud. It isn't clear who they previously belonged to, but they've clearly seen extensive use.]],
+	kr_name = "사냥꾼의 신발", kr_unided_name = "잘 길들여진 신발",
+	desc = [[이 균열진 신발에는 짙은 진흙이 한 겹 두껍게 발라져 있습니다. 이전에 이 것을 가지고 있던 이가 누구인지는 확실하지 않지만, 광범위하게 사용되었음이 분명해 보입니다.]],
 	color = colors.BLACK,
 	level_range = {30, 40},
 	rarity = 240,
@@ -6804,7 +6818,7 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 		},
 	},
 	max_power = 32, power_regen = 1,
-	use_power = { name = "boost movement speed by 300% for 4 turns (does not use a turn)", power = 32,
+	use_power = { name = "boost movement speed by 300% for 4 turns (does not use a turn)", kr_name = "4 턴 동안 이동 속도 300% 증가 (사용하는데에는 턴이 소모되지 않음)", power = 32,
 	use = function(self, who)
 		game:onTickEnd(function() who:setEffect(who.EFF_HUNTER_SPEED, 5, {power=300}) end)
 		return {id=true, used=true}
@@ -6817,7 +6831,8 @@ newEntity{ base = "BASE_GLOVES",
 	unique = true,
 	name = "Sludgegrip", color = colors.GREEN, image = "object/artifact/sludgegrip.png",
 	unided_name = "slimy gloves",
-	desc = [[These gloves are coated with a thick, green liquid.]],
+	kr_name = "진창의 손", kr_unided_name = "슬라임 장갑",
+	desc = [[이 장갑은 두꺼운 녹색 액체로 코팅되어 있습니다.]],
 	level_range = {1, 10},
 	rarity = 190,
 	cost = 70,
@@ -6847,8 +6862,9 @@ newEntity{ base = "BASE_RING", define_as = "SET_LICH_RING",
 	unique = true,
 	name = "Ring of the Archlich", image = "object/artifact/ring_of_the_archlich.png",
 	unided_name = "dusty, cracked ring",
-	desc = [[This ring is filled with an overwhelming power, yet restrained. It lashes, grasps from its metal prison, seatching for life to snuff out. You alone are unharmed.
-Perhaps it feels all the death you will bring to others in the near future.]],
+	kr_name = "고위 리치의 반지", kr_unided_name = "잿빛의 갈라진 반지",
+	desc = [[이 반지는 거기에 구속된 압도적인 힘으로 가득차 있습니다. 이 힘은 갉아먹을 생명을 찾기 위해 그 금속의 감옥 속에서 몸부림치고 있습니다. 소유자만이 그 힘으로부터 안전할 뿐입니다.
+아마도 이 것은 가까운 시간내에 당신이 취할 타인의 죽음을 느끼고 있는 듯합니다.]],
 	color = colors.DARK_GREY,
 	level_range = {30, 40},
 	cost = 170,
@@ -6866,14 +6882,14 @@ Perhaps it feels all the death you will bring to others in the near future.]],
 	max_power = 40, power_regen = 1,
 	set_list = { {"define_as", "SET_SCEPTRE_LICH"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#DARK_GREY#Your ring releases a burst of necromantic energy!")
+		game.logPlayer(who, "#DARK_GREY#반지에서 사령의 힘이 폭발적으로 방출됩니다!")
 		self:specialSetAdd({"wielder","combat_spellpower"}, 10)
 		self.use_talent = { id = "T_IMPENDING_DOOM", level = 2, power = 40 }
 		self:specialSetAdd({"wielder","inc_damage"}, { [engine.DamageType.DARKNESS] = 14 })
 		self:specialSetAdd({"wielder","resists"}, { [engine.DamageType.DARKNESS] = 5 })
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#DARK_GREY#Your ring's power fades away.")
+		game.logPlayer(who, "#DARK_GREY#반지의 힘이 사라집니다.")
 		self.use_talent = nil
 	end,
 }
@@ -6884,9 +6900,10 @@ newEntity{ base = "BASE_TOOL_MISC",
 	type = "charm", subtype="wand",
 	name = "Lightbringer's Rod", image = "object/artifact/lightbringers_rod.png",
 	unided_name = "bright wand",
+	kr_name = "빛을 부르는 자의 장대", kr_unided_name = "밝은 마법봉",
 	color = colors.GOLD,
 	level_range = {20, 30},
-	desc = [[This gold-tipped wand shines with an unnatural sheen.]],
+	desc = [[이 황금이 끝에 달린 마법봉은 비현실적인 광채로 빛나고 있습니다.]],
 	cost = 320,
 	material_level = 3,
 	wielder = {
@@ -6897,7 +6914,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 		lite=2,
 	},
 		max_power = 35, power_regen = 1,
-	use_power = { name = "summon a shining orb", power = 35,
+	use_power = { name = "summon a shining orb", kr_name = "빛나는 오브 소환", power = 35,
 		use = function(self, who)
 			local tg = {type="bolt", nowarning=true, range=5, nolock=true}
 			local tx, ty, target = who:getTarget(tg)
@@ -6907,7 +6924,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 			if target == who then target = nil end
 			local x, y = util.findFreeGrid(tx, ty, 5, true, {[engine.Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to invoke!")
+				game.logPlayer(self, "소환할 공간이 부족합니다!")
 				return
 			end
 			local Talents = require "engine.interface.ActorTalents"
@@ -6915,8 +6932,9 @@ newEntity{ base = "BASE_TOOL_MISC",
 			local m = NPC.new{
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_ghost_will_o__the_wisp.png", display_h=1, display_y=0}}},
 				name = "Lightbringer",
+				kr_name = "빛을 부르는 자",
 				type = "orb", subtype = "light",
-				desc = "A shining orb.",
+				desc = "빛나는 오브.",
 				rank = 1,
 				blood_color = colors.YELLOW,
 				display = "T", color=colors.YELLOW,
@@ -6968,6 +6986,7 @@ newEntity{ base = "BASE_TOOL_MISC",
 				control=false,
 				type="summon",
 				title="Summon",
+				kr_title="소환수",
 				orders = {target=true, leash=true, anchor=true, talents=true},
 			})
 			return {id=true, used=true}
@@ -6980,7 +6999,8 @@ newEntity{ base = "BASE_CLOAK",
 	unique = true,
 	name = "Destala's Scales", image = "object/artifact/destalas_scales.png",
 	unided_name = "green dragon-scale cloak",
-	desc = [[This cloak is made from the scales of an infamous Venom Drake that terrorized the country side towards the end of the Age of Dusk. It was slain by a party led by Kestin Highfin, who had this cloak fashioned personally.]],
+	kr_name = "데스탈라의 비늘", kr_unided_name = "녹색 용비늘 망토",
+	desc = [[이 망토는 황혼의 시대 말기에 변경 지역을 위협한 것으로 악명높은 산성 드레이크의 비늘로 만들어진 것입니다. 그 드레이크는 케스틴 하이핀과 그의 동료들에게 죽었고, 케스틴 하이핀은 개인적으로 이 망토를 만들어 가졌습니다.]],
 	level_range = {20, 30},
 	rarity = 240,
 	cost = 200,
@@ -7003,7 +7023,8 @@ newEntity{ base = "BASE_SHIELD",
 	unique = true,
 	unided_name = "handled hole in space",
 	name = "Temporal Rift", image = "object/artifact/temporal_rift.png",
-	desc = [[Some mad Chronomancer appears to have affixed a handle to this hole in spacetime. It looks highly effective, in its own strange way.]],
+	kr_name = "시간의 균열", kr_unided_name = "손잡이달린 공간의 구멍",
+	desc = [[어떤 미친 시공제어사가 나타나 시공간의 구멍에다가 손잡이를 달았습니다. 그 결과 매우 독특하게 사용되고 있지만, 한편으로는 매우 효과적으로 보입니다.]],
 	color = colors.LIGHT_GREY,
 	rarity = 300,
 	level_range = {35, 45},
@@ -7037,14 +7058,15 @@ newEntity{ base = "BASE_ARROW",
 	unique = true,
 	name = "Arkul's Seige Arrows", image = "object/artifact/arkuls_seige_arrows.png",
 	unided_name = "gigantic spiral arrows",
-	desc = [[These titanic double-helical arrows seem to have been designed more for knocking down towers than for use in regular combat. They'll no doubt make short work of most foes.]],
+	kr_name = "아르쿨의 공성용 화살", kr_unided_name = "거대한 나선형 화살",
+	desc = [[이 거대한 이중 나선형 화살은 일반적인 전투보다는 성채를 무너뜨리는 용도에 더 적합하게 만들어진 것 같습니다. 대부분의 적들을 얼른 해치울 것이라는게 확실합니다.]],
 	color = colors.GREY,
 	level_range = {42, 50},
 	rarity = 400,
 	cost = 400,
 	material_level = 5,
 	require = { stat = { dex=20, str=30 }, },
-	special_desc = function(self) return "25% of all damage splashes in a radius of 1 around the target." end,
+	special_desc = function(self) return "충격파가 발생하여 대상에게 주어진 모든 피해량의 25% 만큼의 피해가 그 주변 1 칸 반경의 다른 이들에게도 가해집니다." end,
 	combat = {
 		capacity = 14,
 		dam = 68,
@@ -7060,10 +7082,11 @@ newEntity{ base = "BASE_LONGSWORD", --For whatever artists draws this: it's a ra
 	unique = true,
 	name = "Punae's Blade",
 	unided_name = "thin blade", image = "object/artifact/punaes_blade.png",
+	kr_name = "푸내의 칼", kr_unided_name = "얇은 칼",
 	level_range = {28, 38},
 	color=colors.GREY,
 	rarity = 300,
-	desc = [[This very thin sword cuts through the air with ease, allowing remarkably quick movement.]],
+	desc = [[이 것은 쉽게 대기마저 관통하여 현저히 빠르게 움직일 수 있도록 만들어진 매우 얇은 검입니다.]],
 	cost = 400,
 	require = { stat = { str=30 }, },
 	material_level = 4,
@@ -7085,12 +7108,13 @@ newEntity{ base = "BASE_CLOTH_ARMOR", --Thanks SageAcrin!
 	unique = true,
 	name = "Crimson Robe", color = colors.RED, image = "object/artifact/crimson_robe.png",
 	unided_name = "blood-stained robe",
-	desc = [[This robe was formerly owned by Callister the Psion, a powerful Psionic that pioneered many Psionic abilities. After his wife was murdered, Callister became obsessed with finding her killer, using his own hatred as a fuel for new and disturbing arts. After forcing the killer to torture himself to death, Callister walked the land, forcing any he found to kill themselves-his way of releasing them from the world's horrors. One day, he simply disappeared. This robe, soaked in blood, was the only thing he left behind.]],
+	kr_name = "핏빛 로브", kr_unided_name = "피로 얼룩진 로브",
+	desc = [[이 로브는 한때는 많은 초능력 기술을 창시한 강력한 초능력자인 염동력자 칼리스터가 입던 것입니다. 그의 아내가 살해당한 후, 칼리스터는 그의 증오심을 원동력으로 삼는 새롭고 불온한 기술을 만들어 아내의 살해자를 찾는데 몰두했습니다. 살해자가 스스로를 고문하여 죽도록 만든 이후, 칼리스터는 그저 대지위를 걸었고, 눈에 띄는 모든 것이 세상의 공포로부터 벗어나기 위해 자살하도록 만들었습니다. 그러던 어느 날, 그는 갑자기 사라졌습니다. 이 피에 젖은 로브가 그가 남긴 유일한 것이었습니다.]],
 	level_range = {40, 50},
 	rarity = 230,
 	cost = 350,
 	material_level = 5,
-	special_desc = function(self) return "Increases your solipsism threshold by 20% (if you have one). If you do, also grants 15% global speed when worn." end,
+	special_desc = function(self) return "독존 한계량이 (보유시) 20% 향상됩니다. 독존 한계량이 향상되면, 이 로브를 입고있는 동안 전체 속도도 15% 빨라집니다." end,
 	wielder = {
 		combat_def=12,
 		inc_stats = { [Stats.STAT_WIL] = 10, [Stats.STAT_CUN] = 10, },
@@ -7109,7 +7133,7 @@ newEntity{ base = "BASE_CLOTH_ARMOR", --Thanks SageAcrin!
 		if who:attr("solipsism_threshold") then
 			self:specialWearAdd({"wielder","solipsism_threshold"}, 0.2)
 			self:specialWearAdd({"wielder","global_speed_add"}, 0.15)
-			game.logPlayer(who, "#RED#You feel yourself lost in the aura of the robe.")
+			game.logPlayer(who, "#RED#당신은 로브에서 나온 기운에 갖혀 자신이 누구인지를 잊었습니다.")
 		end
 	end,
 	talent_on_mind  = { {chance=8, talent=Talents.T_HATEFUL_WHISPER, level=2}, {chance=8, talent=Talents.T_AGONY, level=2}  },
@@ -7118,8 +7142,9 @@ newEntity{ base = "BASE_CLOTH_ARMOR", --Thanks SageAcrin!
 newEntity{ base = "BASE_RING", --Thanks Alex!
 	power_source = {arcane=true},
 	name = "Exiler", unique=true, image = "object/artifact/exiler.png",
-	desc = [[The chronomancer known as Solith was renowned across all of Maj'Eyal. He always seemed to catch his enemies alone.
-In the case of opponents who weren't alone, he had to improvise.]],
+	kr_name = "망명자", kr_unided_name = "표식 반지",
+	desc = [[솔리쓰라고 알려진 시공 제어사는 마즈'에이알의 전역을 횡단한 것으로 유명합니다. 그는 항상 홀로 있는 적과 일대일로 대결했습니다.
+만약 상대방이 혼자가 아니게 된 경우, 그는 즉석에서 일대일의 상황을 만들었습니다.]],
 	unided_name = "insignia ring",
 	level_range = {40, 50},
 	rarity = 250,
@@ -7140,7 +7165,7 @@ In the case of opponents who weren't alone, he had to improvise.]],
 	},
 	talent_on_spell = { {chance=10, talent="T_RETHREAD", level = 2} },
 	max_power = 32, power_regen = 1,
-	use_power = { name = "deal temporal damage to summons, and if they survive, remove them from time", power = 32,
+	use_power = { name = "deal temporal damage to summons, and if they survive, remove them from time", kr_name = "소환수에게 시간속성 피해를 주고, 살아남은 소환수는 시간에서 제거함", power = 32,
 		use = function(self, who)
 			local Talents = require "engine.interface.ActorTalents"
 			local tg = {type="ball", range=5, radius=2}
@@ -7163,7 +7188,8 @@ newEntity{ base = "BASE_SHIELD",
 	unique = true,
 	name = "Piercing Gaze", image = "object/artifact/piercing_gaze.png",
 	unided_name = "stone-eyed shield",
-	desc = [[This gigantic shield has a stone eye embedded in it.]],
+	kr_name = "날카로운 응시", kr_unided_name = "석안 방패",
+	desc = [[이 거대한 방패에는 돌로 만들어진 눈이 박혀 있습니다.]],
 	color = colors.BROWN,
 	level_range = {30, 40},
 	rarity = 270,
@@ -7171,7 +7197,7 @@ newEntity{ base = "BASE_SHIELD",
 	cost = 400,
 	material_level = 4,
 	metallic = false,
-	special_desc = function(self) return "When you block an attack, there is a 30% of petrifying the attacker." end,
+	special_desc = function(self) return "막기 사용시, 30% 확률로 공격자를 석화시킵니다." end,
 	special_combat = {
 		dam = 40,
 		block = 100,
@@ -7189,7 +7215,7 @@ newEntity{ base = "BASE_SHIELD",
 	on_block = function(self, who, src, type, dam, eff)
 		if rng.percent(30) then
 			if not src then return end
-			game.logSeen(src, "The eye locks onto %s, freezing it in place!", src.name:capitalize())
+			game.logSeen(src, "석안이 %s 응시하여 그 자리에서 얼어붙게 만들었습니다!", (src.kr_name or src.name):capitalize():addJosa("를"))
 			if src:canBe("stun") and src:canBe("stone") and src:canBe("instakill") then
 				src:setEffect(who.EFF_STONED, 5, {})
 			end
@@ -7207,10 +7233,11 @@ newEntity{ base = "BASE_KNIFE", --Shibari's #1
 	unique = true,
 	name = "Shantiz the Stormblade",
 	unided_name = "thin stormy blade", image = "object/artifact/shantiz_the_stromblade.png",
+	kr_name = "폭풍검 샨티즈", kr_unided_name = "얇은 폭풍의 칼",
 	level_range = {18, 33},
 	material_level = 3,
 	rarity = 300,
-	desc = [[This surreal dagger crackles with the intensity of a vicious storm.]],
+	desc = [[이 초현실적인 단검은 격렬한 심술궂은 폭풍으로 둘러쌓여 있습니다.]],
 	cost = 400,
 	color=colors.BLUE,
 	require = { stat = { dex=30}},
@@ -7219,7 +7246,7 @@ newEntity{ base = "BASE_KNIFE", --Shibari's #1
 		apr = 20,
 		physcrit = 18,
 		dammod = {dex=1},
-		special_on_hit = {desc="25% chance for lightning to strike and destroy any projectiles in a radius of 10, dealing damage and stunning enemies around the projectile.", on_kill=1, fct=function(combat, who, target)
+		special_on_hit = {desc="25% 확률로 뇌전이 발사되어 10칸 반경 이내의 발사체를 파괴. 파괴된 발사체 주변의 적들에게 피해를 주고 기절시킴.", on_kill=1, fct=function(combat, who, target)
 			if not rng.percent(25) then return end
 			local grids = core.fov.circle_grids(who.x, who.y, 10, true)
 			for x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do
