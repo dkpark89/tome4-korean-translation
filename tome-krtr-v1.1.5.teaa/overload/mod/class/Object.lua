@@ -402,7 +402,7 @@ function _M:descAccuracyBonus(desc, weapon, use_actor)
 	elseif kind == "mace" then
 		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.1, m), {"color","LAST"}, " 피해량 / 정확도", true)
 	elseif kind == "staff" then
-		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(4, m), {"color","LAST"}, " 속성 피해량 / 정확도", true) --@ 게임 내 검수 필요
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(4, m), {"color","LAST"}, " 속성 피해량 / 정확도", true)
 	elseif kind == "knife" then
 		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.5, m), {"color","LAST"}, " 방어도 관통력 / 정확도", true)
 	end

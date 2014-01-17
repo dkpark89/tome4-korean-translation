@@ -17,7 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "새로운 초기 능력 : #LIGHT_GREEN#지구르 추종자의 희생", --@@ 'Ziguranth Sacrifice'의 번역 검수가 필요합니다.
+return "새로운 초기 능력 : #LIGHT_GREEN#지구르 추종자의 희생",
 [[당신은 모든 마법과 맞서 싸우는 자연의 성체, 지구르를 발견하셨습니다.
 마법은 이 세계에 엄청난 고통과 파괴를 가져왔습니다. 이제 마법의 사용을 멈춰야 할 필요가 있습니다.
 

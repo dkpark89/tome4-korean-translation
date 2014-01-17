@@ -782,7 +782,7 @@ function string.krLoreCategory(str)
 	elseif ori == "shatur" then return "샤툴"
 	elseif ori == "sher'tul" then return "쉐르'툴"
 	elseif ori == "slazish fens" then return "슬라지쉬 늪지"
-	elseif ori == "southspar" then return "남쪽스파" --@?? spar의 뜻
+	elseif ori == "southspar" then return "남쪽스파"
 	elseif ori == "spellblaze" then return "마법폭발"
 	elseif ori == "temple of creation" then return "창조의 사원"
 	elseif ori == "trollmire" then return "트롤 늪"
@@ -919,7 +919,7 @@ function string.krItemShortName(str)
 	elseif ori == "copper" then return "구리"
 	elseif ori == "coral" then return "산호"
 	elseif ori == "cured" then return "가공"
-	elseif ori == "d.steel" then return "D강철" --@ 현재 드워프강철(dwarven steel)과 심해강철(deep steel)이 둘다 d.steel로 표시됨
+	elseif ori == "d.steel" then return "D.강철" --@ 현재 드워프강철(dwarven steel)과 심해강철(deep steel)이 둘다 d.steel로 표시됨
 	elseif ori == "dragonbone" then return "용뼈"
 	elseif ori == "drakeskin" then return "용가죽"
 	elseif ori == "dwarven" then return "드워프"
@@ -1480,7 +1480,7 @@ end
 
 function string.krBreath(str)
 	-- 관련내용 "can_breath"로 검색해서 나오는 것들
-	-- 사용장소 /mod/class/Object.lua #1032, #1034 - 숨쉬기 가능 장소 설명
+	-- 사용장소 /mod/class/Object.lua #1040, #1042 - 숨쉬기 가능 장소 설명
 	local ori = str:lower()
 	if ori == "water" then return "물"
 	--elseif ori == "" then return "" --@ 현재 'water'만 사용되고 있음
@@ -1603,7 +1603,7 @@ function string.krEffectSubtype(str)
 end
 
 function table.krEffectKeys(t)
-	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua #1261, /mod/class/PlayerDisplay.lua #169에서 사용
+	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua #1261, /mod/class/PlayerDisplay.lua #169 에서 사용
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krEffectSubtype() end
 	return tt
@@ -1618,7 +1618,7 @@ function string.krRWKind(str)
 end
 
 function string.krHisHer(str)
-	-- /data/timed_effects/physical.lua #1876, /engine/interface/ActorTalents.lua #282, /mod/class/Actor.lua #1727 에서 사용
+	-- /data/timed_effects/physical.lua #1899, /engine/interface/ActorTalents.lua #282, /mod/class/Actor.lua #1727 에서 사용
 	local ori = str:lower()
 	if ori == "her" then return "그녀"
 	elseif ori == "his" then return "그"
@@ -1627,7 +1627,7 @@ function string.krHisHer(str)
 end
 
 function string.krMountainName(str)
-	-- 전체 지도상의 산맥의 세부 이름들. /data/zones/wilderness/grids.lua #213번 줄에서 사용
+	-- 전체 지도상의 산맥의 세부 이름들. /data/zones/wilderness/grids.lua #213 에서 사용
 	local ori = str:lower()
 	if ori == "mountain chain" then return "산맥"
 	elseif ori == "daikara" then return "다이카라"

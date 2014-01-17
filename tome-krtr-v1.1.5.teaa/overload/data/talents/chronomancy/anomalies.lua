@@ -247,7 +247,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상을 중심으로 반경 %d 칸에 있는, 적 및 아군 (최대 %d 명) 의 전체 속도를 %d%% 증가시킵니다.]]): --@@ 한글화 검수 필요 - 적과 아군 동시 적용 맞는지..
+		return ([[대상을 중심으로 반경 %d 칸에 있는, 존재들 (최대 %d 명) 의 전체 속도를 %d%% 증가시킵니다.]]):
 		format(10, t.getTargetCount(self, t), t.getPower(self, t)*100)  --@ 변수 순서 조정
 	end,
 }

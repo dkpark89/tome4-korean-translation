@@ -4471,7 +4471,7 @@ function _M:getTalentFullDescription(t, addlevel, config, fake_mastery)
 		if t.sustain_stamina then d:add({"color",0x6f,0xff,0x83}, "체력 유지량 : ", {"color",0xff,0xcc,0x80}, ""..(util.getval(t.sustain_stamina, self, t)), true) end
 		if t.sustain_equilibrium then d:add({"color",0x6f,0xff,0x83}, "평정 유지량 : ", {"color",0x00,0xff,0x74}, ""..(util.getval(t.sustain_equilibrium, self, t)), true) end
 		if t.sustain_vim then d:add({"color",0x6f,0xff,0x83}, "원기 유지량 : ", {"color",0x88,0x88,0x88}, ""..(util.getval(t.sustain_vim, self, t)), true) end
-		if t.drain_vim then d:add({"color",0x6f,0xff,0x83}, "원기 흡수량 : ", {"color",0x88,0x88,0x88}, "-"..(util.getval(t.drain_vim, self, t)), true) end --@@ 한글화 검수 필요
+		if t.drain_vim then d:add({"color",0x6f,0xff,0x83}, "원기 흡수량 : ", {"color",0x88,0x88,0x88}, "-"..(util.getval(t.drain_vim, self, t)), true) end
 		if t.sustain_positive then d:add({"color",0x6f,0xff,0x83}, "양기 유지량 : ", {"color",255, 215, 0}, ""..(util.getval(t.sustain_positive, self, t)), true) end
 		if t.sustain_negative then d:add({"color",0x6f,0xff,0x83}, "음기 유지량 : ", {"color", 127, 127, 127}, ""..(util.getval(t.sustain_negative, self, t)), true) end
 		if t.sustain_hate then d:add({"color",0x6f,0xff,0x83}, "증오심 유지량 :  ", {"color", 127, 127, 127}, ""..(util.getval(t.sustain_hate, self, t)), true) end
