@@ -157,7 +157,7 @@ function _M:descAttribute(attr)
 		return (i and i > 0 and "+"..i or tostring(i)).."%"
 	elseif attr == "REGEN" then
 		local i = self.wielder.mana_regen or self.wielder.stamina_regen or self.wielder.life_regen or self.wielder.hate_regen or self.wielder.positive_regen_ref_mod or self.wielder.negative_regen_ref_mod
-		return ("%s%0.2f/turn"):format(i > 0 and "+" or "-", math.abs(i))
+		return ("%s%0.2f/턴"):format(i > 0 and "+" or "-", math.abs(i))
 	elseif attr == "COMBAT" then
 		local c = self.combat
 		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도 관통 "..(c.apr or 0)
@@ -314,6 +314,10 @@ function _M:getOriName(t) --@ 원래 이름 반환하는 함수 추가 : 내부�
 		end)
 	end
 
+	if not t.no_add_name and self.__tagged then
+		name = name .. " #ORANGE#="..self.__tagged.."=#LAST#"
+	end
+
 	if not t.do_color then
 		if qty == 1 or t.no_count then return name
 		else return qty.." "..name
@@ -402,7 +406,7 @@ function _M:descAccuracyBonus(desc, weapon, use_actor)
 	elseif kind == "mace" then
 		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.1, m), {"color","LAST"}, " 피해량 / 정확도", true)
 	elseif kind == "staff" then
-		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(4, m), {"color","LAST"}, " 속성 피해량 / 정확도", true)
+		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(4, m), {"color","LAST"}, " 확률적 추가 피해량 / 정확도", true)
 	elseif kind == "knife" then
 		desc:add("정확도 특수 보정 : ", {"color","LIGHT_GREEN"}, showpct(0.5, m), {"color","LAST"}, " 방어도 관통력 / 정확도", true)
 	end

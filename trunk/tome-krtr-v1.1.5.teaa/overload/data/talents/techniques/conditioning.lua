@@ -127,7 +127,7 @@ newTalent{
 			local eff = rng.tableRemove(effs)
 			if eff[1] == "effect" and rng.percent(t.getChance(self, t)) then
 				self:removeEffect(eff[2])
-				game.logSeen(self, "%s has recovered!", self.name:capitalize())
+				game.logSeen(self, "%s 회복 되었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 			end
 		end
 	end,

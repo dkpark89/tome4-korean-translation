@@ -167,7 +167,7 @@ uberTalent{
 	kr_name = "속성 고조",
 	mode = "passive",
 	cooldown = 12,
-	require = { special={desc="마법, 화염, 냉기, 전기, 자연 속성 중 하나로 적에게 총 50,000 이상의 피해를 줄 것", fct=function(self) return 
+	require = { special={desc="마법, 화염, 냉기, 전기, 빛, 자연 속성 중 하나로 적에게 총 50,000 이상의 피해를 줄 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.ARCANE] and self.damage_log[DamageType.ARCANE] >= 50000) or
 			(self.damage_log[DamageType.FIRE] and self.damage_log[DamageType.FIRE] >= 50000) or

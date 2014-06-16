@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
+
 local q = game.player:hasQuest("lost-merchant")
 if q and q:isStatus(q.COMPLETED, "saved") then
 
@@ -106,14 +109,14 @@ local maker_list = function()
 			"voratun amulet",
 			"dwarven lantern",
 			"voratun pickaxe",
-			{"dragonbone wand", "dragonbone wand"},
-			{"dragonbone totem", "dragonbone totem"},
-			{"voratun torque", "voratun torque"},
+			{"dragonbone wand", "용뼈 마법봉"},  --@ 현재줄~두줄 아래 : 앞 뒤 중 어느쪽을 고쳤을때 화면의 글자만 바뀌고 물건 만드는데 문제 없는지 확인 필요 - 코드로 봤을 때 아마 뒤인듯(#125)
+			{"dragonbone totem", "용뼈 토템"}, --@ 윗줄부터 차례로 원문(되돌릴시 필요) : "dragonbone wand", "dragonbone totem", "voratun torque"
+			{"voratun torque", "보라툰 주술고리"},
 		},
 	}
 	local l = {{"생각이 바뀌었습니다.", jump = "welcome"}}
 	for kind, bases in pairs(mainbases) do
-		l[#l+1] = {kind:capitalize(), action=function(npc, player)
+		l[#l+1] = {kind:capitalize():krMerchantKind(), action=function(npc, player) --@ 종류 한글화
 			local l = {{"생각이 바뀌었습니다.", jump = "welcome"}}
 			newChat{ id="makereal",
 				text = [[어떤 종류의 물건을 원하시는지요?]],

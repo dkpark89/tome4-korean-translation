@@ -252,7 +252,7 @@ newAchievement{
 
 newAchievement{
 	name = "You know who's to blame (reprise)", id = "FIRST_BOSS_MYSSIL",
-	kr_name = "누가 비난받을지 알지 (반복)",
+	kr_name = "누가 비난받을지 알지 (재평가)",
 	image = "npc/humanoid_halfling_protector_myssil.png",
 	show = "full", huge=true,
 	desc = [[미씰을 죽이고, 그에게서 되돌림의 장대를 획득.]],

@@ -144,7 +144,7 @@ newTalent{
 
 			if #p.particles < t.getNb(self, t) then
 				p.particles[#p.particles+1] = self:addParticles(Particles.new("bone_shield", 1))
-				game.logSeen(self, "A part of %s's bone shield regenerates.", self.name)
+				game.logSeen(self, "%s의 주위를 맴돌던 뼈의 방패 조각이 재생되었습니다.", (self.kr_name or self.name):capitalize())
 			end
 		end
 	end,

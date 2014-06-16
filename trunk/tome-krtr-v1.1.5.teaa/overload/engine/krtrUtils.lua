@@ -44,20 +44,20 @@ function string.addJosa(str, temp)
 
 	local length = str:len()
 	
-	if length < 3 then
-		return str .. josa1
-	end
-	
-	local c1 = str:byte(length-2)
-	local c2 = str:byte(length-1)
+	local c1, c2
 	local c3 = str:byte(length)
 	
 	local last = 0
-	if ( c3 < 128 ) then
-		if ( c3 == '2' or c3 == '4' or c3 == '5' or c3 == '9' or c3 == 'a' or c3 == 'b' or c3 == 'd' or c3 == 'e' or c3 == 'f' or c3 == 'i' or c3 == 'j' or c3 == 'k' or c3 == 'o' or c3 == 'p' or c3 == 's' or c3 == 't' or c3 == 'u' or c3 == 'v' or c3 == 'w' or c3 == 'y' or c3 == 'z' ) then
-			last = 100 --@ 한글이 아니고, josa2를 사용하는 경우 (알파벳은 대충 넣었음)
+	if ( length < 3 ) or ( c3 < 128 ) then
+		if ( c3 == '1' or c3 == '7' or c3 == '8' or c3 == 'l' or c3 == 'r' ) then
+			last = 8 --@ 한글이 아니고, josa2를 사용하지만 '로'가 맞는 경우
+		elseif ( c3 == '3' or c3 == '6' or c3 == '0' or c3 == 'm' or c3 == 'n' ) then
+			last = 100 --@ 한글이 아니고, josa2를 사용하는 경우
 		end  
-	else
+	else --@ 한글로 추정 (정확히는 더 검사가 필요하지만..)
+		c1 = str:byte(length-2)
+		c2 = str:byte(length-1)
+		
 		last = ( (c1-234)*4096 + (c2-128)*64 + (c3-128) - 3072 )%28
 	end
 	
@@ -1502,7 +1502,7 @@ function string.krSaveType(str)
 	-- /mod/class/uiset/Minimalist.lua #1264, /mod/class/PalyerDisplay.lua #172에서 사용
 	local ori = str:lower()
 	if ori == "physical save" then return "물리 내성"
-	elseif ori == "magical save" then return "마법 내성"
+	elseif ori == "spell save" then return "마법 내성"
 	elseif ori == "mental save" then return "정신 내성"
 	else return str end 
 end
@@ -1633,5 +1633,14 @@ function string.krMountainName(str)
 	elseif ori == "daikara" then return "다이카라"
 	elseif ori == "iron throne" then return "철의 왕좌"
 	elseif ori == "volcanic mountains" then return "화산 지형"
+	else return str end 
+end
+
+function string.krMerchantKind(str)
+	-- /data/chat/last-hope-lost-merchant.lua #119번 줄에서 사용
+	local ori = str:lower()
+	if ori == "armours" then return "갑옷류"
+	elseif ori == "weapons" then return "무기류"
+	elseif ori == "misc" then return "기타 장구류"
 	else return str end 
 end

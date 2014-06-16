@@ -21,7 +21,7 @@ uberTalent{
 	name = "Spectral Shield",
 	kr_name = "7색의 방패",
 	mode = "passive",
-	require = { special={desc="방패 막기 기술을 알고 있으며, 방패로 200 회 이상의 공격을 막았으며, 마법을 100 번 이상 사용했을 것", fct=function(self)
+	require = { special={desc="막기 값이 200 이상인 방패 막기 기술을 알고 있으며, 마법을 100 번 이상 사용했을 것", fct=function(self)
 		return self:knowTalent(self.T_BLOCK) and self:getTalentFromId(self.T_BLOCK).getBlockValue(self) >= 200 and self.talent_kind_log and self.talent_kind_log.spell and self.talent_kind_log.spell >= 100
 	end} },
 	on_learn = function(self, t)

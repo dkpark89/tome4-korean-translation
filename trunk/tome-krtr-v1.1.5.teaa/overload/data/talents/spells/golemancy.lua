@@ -261,7 +261,7 @@ newTalent{
 		local wait = function()
 			local co = coroutine.running()
 			local ok = false
-			self:restInit(20, "refitting", "refitted", function(cnt, max)
+			self:restInit(20, "정비", "정비", function(cnt, max)
 				if cnt > max then ok = true end
 				coroutine.resume(co)
 			end)
