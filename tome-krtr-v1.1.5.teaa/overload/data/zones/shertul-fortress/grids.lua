@@ -84,7 +84,7 @@ newEntity{
 newEntity{
 	define_as = "TELEPORT_OUT_MELINDA",
 	name = "teleportation circle for Melinda", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image="terrain/maze_teleport.png"}},
-	kr_name = "멜린다에게로의 순간이동 장치",
+	kr_name = "멜린다용 순간이동 장치",
 	display = '>', color_r=255, color_g=0, color_b=255,
 	notice = true, show_tooltip = true,
 }

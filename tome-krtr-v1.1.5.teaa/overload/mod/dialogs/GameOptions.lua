@@ -158,7 +158,7 @@ function _M:generateListUi()
 	end,}
 
 	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"글꼴의 크기를 선택합니다.\n#LIGHT_RED#이 설정의 효과는 게임을 다시 시작해야 적용됩니다.#WHITE#\n\nSelect the fonts size.\nYou must restart the game for the change to take effect."}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#글끌 크기#WHITE##{normal}#", status=function(item)
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#글꼴 크기#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.fonts.size):capitalize():krFontSize()
 	end, fct=function(item)
 		Dialog:listPopup("글꼴 크기", "크기를 선택하시오", {{name="보통", size="normal"},{name="작음", size="small"},{name="큼", size="big"},}, 300, 200, function(sel)

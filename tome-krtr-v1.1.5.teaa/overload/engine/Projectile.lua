@@ -268,6 +268,7 @@ function _M:makeProject(src, display, def, do_move, do_act, do_stop)
 	local kr_name = def.tg.kr_name or def.tg.name --@ 한글 이름 추가
 	if def.tg.talent then
 		speed = src:getTalentProjectileSpeed(def.tg.talent) or speed
+		kr_name = kr_name or name or def.tg.kr_name or def.tg.talent.name --@ 한글 이름 추가
 		name = name or def.tg.talent.name
 		def.tg.talent_id = def.tg.talent.id
 		def.tg.talent = nil
@@ -275,7 +276,7 @@ function _M:makeProject(src, display, def, do_move, do_act, do_stop)
 	speed = def.tg.speed or speed or 10
 	local p = self.new{
 		name = name,
-		kr_name = kr_name, --@ 한글 이름 추가
+		kr_name = kr_name or name, --@ 한글 이름 추가
 		display = display.display or ' ', color = display.color or colors.WHITE, image = display.image or nil,
 		travel_particle = display.particle,
 		travel_particle_args = display.particle_args,
@@ -306,7 +307,7 @@ function _M:makeHoming(src, display, def, target, count, on_move, on_hit)
 	speed = speed or 10
 	local p =self.new{
 		name = name,
-		kr_name = kr_name, --@ 한글 이름 추가
+		kr_name = kr_name or name, --@ 한글 이름 추가
 		display = display.display or ' ', color = display.color or colors.WHITE, image = display.image or nil,
 		travel_particle = display.particle,
 		travel_particle_args = display.particle_args,

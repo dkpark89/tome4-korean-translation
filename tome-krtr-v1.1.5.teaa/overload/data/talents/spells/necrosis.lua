@@ -165,7 +165,7 @@ newTalent{
 	require = {
 		stat = { mag=function(level) return 40 + (level-1) * 2 end },
 		level = function(level) return 20 + (level-1)  end,
-		special = { desc="'죽음에서, 삶으로' 퀘스트를 완료하였으며, 리치가 아닐 것", fct=function(self, t) return not self:attr("undead") and (self:isQuestStatus("lichform", engine.Quest.DONE) or game.state.birth.ignore_prodigies_special_reqs) end},
+		special = { desc="'죽음에서, 삶으로' 퀘스트를 완료하였으며, 언데드가 아닐 것", fct=function(self, t) return not self:attr("undead") and (self:isQuestStatus("lichform", engine.Quest.DONE) or game.state.birth.ignore_prodigies_special_reqs) end},
 	},
 	mode = "sustained",
 	points = 5,
