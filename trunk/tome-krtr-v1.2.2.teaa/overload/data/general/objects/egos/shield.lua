@@ -447,7 +447,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "scouring ", prefix=true, instant_resolve=true,
-	--kr_name = " ", --@@ 한글화 필요
+	kr_name = "세척된 ",
 	keywords = {scouring=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -479,7 +479,7 @@ newEntity{
 	greater_ego = 1,
 	cost = 5,
 	special_combat = {
-		special_on_hit = {desc="reduce the cooldown of your ward talent by 1", fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="'보호구역'기술의 지연시간을 1 감소", fct=function(combat, who, target)
 		if who.talents_cd[who.T_WARD] then
 			who.talents_cd[who.T_WARD] = who.talents_cd[who.T_WARD] - 1
 		end
@@ -501,7 +501,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "cosmic ", prefix=true, instant_resolve=true,
-	--kr_name = " ", --@@ 한글화 필요
+	kr_name = "우주 ",
 	keywords = {cosmic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -519,7 +519,7 @@ newEntity{
 			[DamageType.DARKNESS] = resolvers.mbonus_material(10, 5),
 		},
 	},
-	on_block = {desc = "Unleash the fury of the cosmos, dealing light and darkness damage to your attackers", fct = function(self, who, target, type, dam, eff) --@@ 한글화 필요
+	on_block = {desc = "우주의 분노를 발산하여, 공격자에게 빛과 어둠 속성의 피해를 줌", fct = function(self, who, target, type, dam, eff)
 			if not target or target:attr("dead") or not target.x or not target.y then return end
 			if who.turn_procs and who.turn_procs.shield_cosmic and who.turn_procs.shield_cosmic[target.uid] then return end
 
@@ -532,7 +532,7 @@ newEntity{
 
 			who:project(tg, target.x, target.y, engine.DamageType.DARKNESS, damage)
 			who:project(tg, target.x, target.y, engine.DamageType.LIGHT, damage)
-			who:logCombat(target, "#Source# unleashes cosmic retribution at #Target#!") --@@ 한글화 필요
+			who:logCombat(target, "#Source1# #Target#에게 우주의 심판을 내립니다!")
 			
 
 	end,},
@@ -610,7 +610,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of radiance", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "광휘의 ",
 	keywords = {radiance=true},
 	level_range = {10, 50},
 	rarity = 14,
@@ -647,7 +647,7 @@ newEntity{
 	special_combat = {
 		dam = resolvers.mbonus_material(5, 5),
 		-- Just a retheme of Crippling, most of the weapon egos aren't getting copied though
-		special_on_crit = {desc="smash the target with your shield crippling them", fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_crit = {desc="방패로 상대를 가격하여 장애 유발", fct=function(combat, who, target)
 			target:setEffect(target.EFF_CRIPPLE, 4, {src=who, apply_power=who:combatAttack(combat)})
 		end},
 	},
@@ -669,7 +669,7 @@ newEntity{
 	rarity = 25,
 	cost = 40,
 	special_combat = {
-		special_on_hit = {desc="deal bonus physical damage equal to your armor", fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="방어도 만큼의 물리 속성 피해 추가", fct=function(combat, who, target)
 			local tg = {type="hit", range=1}
 			local damage = who:combatArmor()
 			who:project(tg, target.x, target.y, engine.DamageType.PHYSICAL, damage)

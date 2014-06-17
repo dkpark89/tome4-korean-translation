@@ -24,8 +24,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "diary page", lore="ardhungol-"..i,
-	--kr_name = "", --@@ 한글화 필요
-	desc = [[A page of a diary.]], --@@ 한글화 필요
+	kr_name = "일기장",
+	desc = [[일기장입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

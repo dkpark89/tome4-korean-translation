@@ -478,7 +478,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "noble's ", prefix=true, instant_resolve=true,
-	--kr_name = " ", --@@ 한글화 필요
+	kr_name = "귀족적 ",
 	keywords = {noble=true},
 	level_range = {10, 50},
 	greater_ego = 1,

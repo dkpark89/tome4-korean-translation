@@ -35,7 +35,7 @@ newEntity{
 	name = "Corrupted heart of the Sandworm Queen", unique=true, unided_name="pulsing organ",
 	display = "*", color=colors.VIOLET,
 	kr_name = "타락한 지렁이 여왕의 심장", kr_unided_name = "맥동하는 장기",
-	desc = [[The heart of the Sandworm Queen, ripped from her dead body and corrupted in the mark of the spellblaze altar. 당신이 충분히 정신 나간 사람이라면, 한번 먹어볼 수도 있습니다...]], --@@ 한글화 필요
+	desc = [[지렁이 여왕의 죽은 몸에서 떼어낸 심장으로, '마법폭발의 흔적'의 제단에서 타락시킨 상태입니다. 당신이 충분히 정신 나간 사람이라면, 한번 먹어볼 수도 있습니다...]],
 	cost = 3000,
 	quest = 1,
 
@@ -59,7 +59,7 @@ newEntity{
 			-- Make sure a previous amulet didnt bug it out
 			if who:getTalentTypeMastery("corruption/vile-life") == 0 then who:setTalentTypeMastery("corruption/vile-life", 1) end
 			game.logPlayer(who, "타락한 여왕의 심장이 당신을 변화시켰습니다!")
-			game.logPlayer(who, "#00FF00#You gain an affinity for blight. You can now learn new Vile Life talents. ('p' 키를 눌러 확인할 수 있습니다)") --@@ 한글화 필요
+			game.logPlayer(who, "#00FF00#당신은 황폐와의 친화력을 얻어,이제 새로운 기술계열 '불결한 생명력' 을 배울 수 있습니다. ('p' 키를 눌러 확인할 수 있습니다)") 
 
 			who:attr("drake_touched", 1)
 		end

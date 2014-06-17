@@ -76,7 +76,7 @@ function _M:init(t, no_gen)
 
 	if t.font then
 		if type(t.font) == "table" then
-			self.font = core.display.newFont(t.font[1], t.font[2]) --@@ 글꼴 처리 필요한지 검사
+			self.font = core.display.newFont(t.font[1], t.font[2]) --@ 글꼴 처리 필요한지 검사
 			self.font_h = self.font:lineSkip()
 		else
 			self.font = t.font

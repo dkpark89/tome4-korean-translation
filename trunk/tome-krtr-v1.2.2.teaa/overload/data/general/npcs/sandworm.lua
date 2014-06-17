@@ -75,7 +75,7 @@ newEntity{ base = "BASE_NPC_SANDWORM",
 	kr_name = "모래 드레이크",
 	type = "dragon", subtype = "sand",
 	color={r=204,g=255,b=95},
-	desc = [[날개없는 용처럼 생긴 부정한 생물입니다. but it is sand-colored, making it all the more dangerous for its prey.]], --@@ 한글화 필요
+	desc = [[날개없는 용처럼 생긴 부정한 생물입니다. 하지만 이 것은 모랫빛을 띄고 있어, 사냥감에게 더욱 위험합니다.]],
 	rarity = 5,
 	rank = 3,
 	size_category = 5,

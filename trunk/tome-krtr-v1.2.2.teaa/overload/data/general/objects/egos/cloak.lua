@@ -433,7 +433,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the voidstalker", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "공허추격자의 ",
 	keywords = {voidstriker=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -449,7 +449,7 @@ newEntity{
 		},
 	},
 	charm_power_def = {add=5, max=10, floor=true},
-	resolvers.charm("blink to a random location within 2 spaces of target hostile creature", 10, function(self, who) --@@ 한글화 필요
+	resolvers.charm("적 주변 2 칸 반경의 임의의 위치로 단거리 순간이동", 10, function(self, who)
 		local tg = {type="hit", range=8, friendlyfire = false}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end

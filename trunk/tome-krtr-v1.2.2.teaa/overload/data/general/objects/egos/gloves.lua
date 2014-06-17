@@ -440,7 +440,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of the verdant", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "신록의 ",
 	keywords = {verdant_avenger=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -467,7 +467,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "scouring ", prefix=true, instant_resolve=true,
-	--kr_name = " ", --@@ 한글화 필요
+	kr_name = "세척된 ",
 	keywords = {scouring=true},
 	level_range = {20, 50},
 	greater_ego = 1,

@@ -468,7 +468,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "stormwoven ", prefix=true, instant_resolve=true,
-	kr_name = "폭풍으로 짜여진 ",
+	kr_name = "폭풍이 엮인 ",
 	keywords = {storm=true},
 	level_range = {30, 50},
 	greater_ego = 1,

@@ -74,6 +74,7 @@ newTalent{
 
 newTalent{
 	name = "Caustic Mire",
+	kr_name = "부식성 늪",
 	type = {"spell/acid-alchemy",3},
 	require = spells_req3,
 	points = 5,

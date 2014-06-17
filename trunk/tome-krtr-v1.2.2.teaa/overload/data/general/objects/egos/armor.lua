@@ -355,7 +355,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of natural resilience", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "자연적 활력의 ",
 	keywords = {natural_resilience=true},
 	level_range = {30, 50},
 	rarity = 20,

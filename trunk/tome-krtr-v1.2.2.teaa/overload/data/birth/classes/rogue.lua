@@ -200,20 +200,20 @@ newBirthDescriptor{
 	},
 }
 
-newBirthDescriptor{ --@@ 한글화 필요 #208~217 : locked_desc와 desc 번역
+newBirthDescriptor{
 	type = "subclass",
 	name = "Skirmisher",
 	kr_name = "척후병 (Skirmisher)",
 	locked = function() return profile.mod.allow_build.rogue_skirmisher end,
-	locked_desc = "Fleet of foot and strong of throw, overwhelming every foe, from afar we counter, strike and thud, in the chaos'd skirmish spilling blood.",
+	locked_desc = "빠른 발과 강한 투척, 모든 적을 절대 압도, 마주 보고 멀리 서서, 퍽 퍽 부딪친다. 혼돈 가운데에 흩뿌리는 피의 접전.",
 	desc = {
-		"While able to take maximum advantage of their sling by using deft movements to avoid and confuse enemies that try to get close, the Skirmisher truly excels when fighting other ranged users.",
-		"They have mastered the use of their shield as well as their sling and are nearly impossible to defeat in a standoff.",
-		"Their most important stats are: Dexterity and Cunning",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +0 Magic, +1 Willpower, +4 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# +0",
+		"다가오는 적들을 혼란스럽게 만들고 회피하는 능숙한 움직임으로 투석구의 장점을 최대한 사용하는 척후병은 장거리 공격을 상대하는 전투에 정말 뛰어납니다.",
+		"그들은 투석구 만큼 방패를 사용하는 것에도 숙련되어 있어, 거리를 둔 채로 그들을 무찌르는 것은 거의 불가능합니다.",
+		"가장 중요한 능력치는 민첩과 그리고 교활함입니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+0, 민첩+4, 체격+0",
+		"#LIGHT_BLUE# * 마법+0, 의지+1, 교활함+4",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# +0",
 	},
 	power_source = {technique=true},
 	stats = {dex = 4, cun = 4, wil = 1},

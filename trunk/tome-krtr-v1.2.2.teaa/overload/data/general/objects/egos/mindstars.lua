@@ -180,7 +180,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of persecution", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "박해의 ",
 	keywords = {disruption=true},
 	level_range = {30, 50},
 	greater_ego = 1,

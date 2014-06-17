@@ -79,7 +79,7 @@ newEntity{
 newEntity{
    power_source = {nature=true},
    name = "tempestuous ", prefix=true, instant_resolve=true,
-   --kr_name = " ", --@@ 한글화 필요
+   kr_name = "흉포한 ",
    keywords = {tempestuous=true},
    level_range = {20, 50},
    greater_ego = 1,
@@ -130,7 +130,7 @@ newEntity{
 newEntity{
    power_source = {nature=true},
    name = "miasmic ", prefix=true, instant_resolve=true,
-   --kr_name = " ", --@@ 한글화 필요
+   kr_name = "유해성 ",
    keywords = {miasmic=true},
    level_range = {20, 50},
    greater_ego = 1,
@@ -155,7 +155,7 @@ newEntity{
 newEntity{
    power_source = {arcane=true},
    name = "aetheric ", prefix=true, instant_resolve=true,
-   --kr_name = " ", --@@ 한글화 필요
+   kr_name = "에테르적인 ",
    keywords = {aetheric=true},
    level_range = {30, 50},
    greater_ego = 1,
@@ -205,7 +205,7 @@ newEntity{
 
    charm_power = resolvers.mbonus_material(80, 20),
    charm_power_def = {add=5, max=10, floor=true},
-   resolvers.charm("blink to a nearby random location", 25, function(self, who) --@@ 한글화 필요
+   resolvers.charm("주변의 임의의 장소로 단거리 순간이동", 25, function(self, who)
 			  game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 			  who:teleportRandom(who.x, who.y, self:getCharmPower(who))
 			  game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
@@ -297,7 +297,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of alacrity", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "기민함의 ",
 	keywords = {alacrity=true},
 	level_range = {40, 50},
 	greater_ego = 1,

@@ -62,9 +62,9 @@ function string.addJosa(str, temp, addStr)
 	end
 	
 	if last == 0 or ( index == 4 and last == 8 ) then
-		return str .. addStr .. josa1
+		return str .. (addStr or "") .. josa1
 	else
-		return str .. addStr .. josa2
+		return str .. (addStr or "") .. josa2
 	end
 end
 
@@ -142,7 +142,7 @@ function string.krItemType(str)
 	elseif ori == "cloth" then return "의류"
 	elseif ori == "corpse" then return "시체"
 	elseif ori == "dagger" then return "단검"
-	elseif ori == 'demonic' then return "demonic" --@@ 한글화 필요
+	elseif ori == 'demonic' then return "악마"
 	elseif ori == "digger" then return "곡괭이"
 	elseif ori == "egg" then return "알"
 	elseif ori == "fang" then return "이빨"
@@ -237,9 +237,9 @@ function string.krTalentType(str)
 	elseif ori == "chants" then return "찬가"
 	elseif ori == "light" then return "빛"
 	elseif ori == "combat" then return "빛의 전투"
-	elseif ori == "radiance" then return "radiance" --@@ 한글화 필요
-	elseif ori == "crusader" then return "crusader" --@@ 한글화 필요
-	elseif ori == "sunlight" then return "sunlight" --@@ 한글화 필요
+	elseif ori == "radiance" then return "광휘"
+	elseif ori == "crusader" then return "성전사"
+	elseif ori == "sunlight" then return "햇빛"
 	elseif ori == "sun" then return "태양"
 	elseif ori == "glyphs" then return "고급 : 문양"
 	elseif ori == "twilight" then return "황혼"
@@ -269,7 +269,7 @@ function string.krTalentType(str)
 	elseif ori == "bone" then return "해골"
 	elseif ori == "hexes" then return "매혹술"
 	elseif ori == "curses" then return "저주"
-	elseif ori == "vile life" then return "vile life" --@@ 한글화 필요
+	elseif ori == "vile life" then return "불결한 생명력"
 	elseif ori == "plague" then return "질병"
 	elseif ori == "scourge" then return "재앙"
 	elseif ori == "reaving combat" then return "오염된 전투"
@@ -288,7 +288,7 @@ function string.krTalentType(str)
 	elseif ori == "survival" then return "생존"
 	elseif ori == "tactical" then return "전략"
 	elseif ori == "scoundrel" then return "무뢰배"
-	elseif ori == "called shots" then return "Called Shots" --@@ 한글화 필요
+	elseif ori == "called shots" then return "착탄점"
 	-- cursed
 	elseif ori == "slaughter" then return "대학살"
 	elseif ori == "endless hunt" then return "끝없는 사냥"
@@ -331,7 +331,7 @@ function string.krTalentType(str)
 	elseif ori == "malleable body" then return "신체 변화"
 	elseif ori == "oozing blades" then return "고급 : 점액 칼날"
 	elseif ori == "corrosive blades" then return "고급 : 산성 칼날"
-	elseif ori == "eyal's fury" then return "eyal's fury" --@@ 한글화 필요
+	elseif ori == "eyal's fury" then return "에이알의 분노"
 	-- misc
 	elseif ori == "horror" then return "공포"
 	elseif ori == "horror techniques" then return "공포들의 물리기술"
@@ -363,14 +363,14 @@ function string.krTalentType(str)
 	elseif ori == "psi-fighting" then return "염력 전투기술"
 	elseif ori == "focus" then return "집중"
 	elseif ori == "augmented mobility" then return "고급 : 기동성 강화"
-	elseif ori == "augmented striking" then return "augmented striking" --@@ 한글화 필요
+	elseif ori == "augmented striking" then return "고급 : 타격"
 	elseif ori == "voracity" then return "탐욕"
 	elseif ori == "finer energy manipulations" then return "고급 : 염동력 미세 조작법"
 	elseif ori == "mental discipline" then return "정신력 수련"
 	elseif ori == "grip" then return "고급 : 염동적 악력"
-	elseif ori == "kinetic mastery" then return "kinetic mastery" --@@ 한글화 필요
-	elseif ori == "thermal mastery" then return "thermal mastery" --@@ 한글화 필요
-	elseif ori == "charged mastery" then return "charged mastery" --@@ 한글화 필요
+	elseif ori == "kinetic mastery" then return "수련 : 동역학"
+	elseif ori == "thermal mastery" then return "수련 : 열역학"
+	elseif ori == "charged mastery" then return "수련 : 전하"
 	elseif ori == "psi-archery" then return "고급 : 염동력 궁술"
 	elseif ori == "greater psi-fighting" then return "고급 : 염력 전투기술"
 	elseif ori == "brainstorm" then return "고급 : 창조적 발상"
@@ -412,8 +412,8 @@ function string.krTalentType(str)
 	elseif ori == "advanced-golemancy" then return "고급 골렘학"
 	elseif ori == "fire alchemy" then return "연금술 : 화염"
 	elseif ori == "acid alchemy" then return "연금술 : 산성"
-	elseif ori == "frost alchemy" then return "연금술 : frost" --@@ 한글화 필요
-	elseif ori == "energy alchemy" then return "연금술 : energy" --@@ 한글화 필요
+	elseif ori == "frost alchemy" then return "연금술 : 서리"
+	elseif ori == "energy alchemy" then return "연금술 : 에너지"
 	elseif ori == "stone alchemy" then return "연금술 : 암석"
 	elseif ori == "staff combat" then return "지팡이 전투기술"
 	elseif ori == "fighting" then return "전투기술"
@@ -427,8 +427,8 @@ function string.krTalentType(str)
 	elseif ori == "grave" then return "묘지"
 	elseif ori == "animus" then return "증오"
 	-- techniques
-	elseif ori == "two-handed assault" then return "two-handed assault" --@@ 한글화 필요
-	elseif ori == "berserker's strength" then return "berserker's strength" --@@ 한글화 필요
+	elseif ori == "two-handed assault" then return "양손무기 타격기술"
+	elseif ori == "berserker's strength" then return "광전사의 힘"
 	elseif ori == "two-handed weapons" then return "양손무기 공격기술"
 	elseif ori == "two-handed maiming" then return "양손무기 제압기술"
 	elseif ori == "shield offense" then return "방패 공격기술"
@@ -452,10 +452,10 @@ function string.krTalentType(str)
 	elseif ori == "magical combat" then return "마법 전투기술"
 	elseif ori == "mobility" then return "기동성"
 	elseif ori == "thuggery" then return "폭력"
-	elseif ori == "acrobatics" then return "Acrobatics" --@@ 한글화 필요
-	elseif ori == "buckler training" then return "Buckler Training" --@@ 한글화 필요
-	elseif ori == "skirmisher - slings" then return "Skirmisher - Slings" --@@ 한글화 필요
-	elseif ori == "tireless combatant" then return "Tireless Combatant" --@@ 한글화 필요
+	elseif ori == "acrobatics" then return "곡예"
+	elseif ori == "buckler training" then return "방패 수련"
+	elseif ori == "skirmisher - slings" then return "척후병 - 투석구"
+	elseif ori == "tireless combatant" then return "지치지않는 전투원"
 	elseif ori == "pugilism" then return "타격기"
 	elseif ori == "finishing moves" then return "마무리 공격"
 	elseif ori == "grappling" then return "잡기 기술"
@@ -772,6 +772,7 @@ function string.krLoreCategory(str)
 	elseif ori == "analysis" then return "분석"
 	elseif ori == "ancient elven ruins" then return "고대 엘프의 폐허 "
 	elseif ori == "angolwen" then return "앙골웬"
+	elseif ori == "ardhungol" then return "알드훈골"
 	elseif ori == "arena" then return "투기장"
 	elseif ori == "artifacts" then return "아티팩트"
 	elseif ori == "blighted ruins" then return "황폐화된 폐허"
@@ -782,7 +783,7 @@ function string.krLoreCategory(str)
 	elseif ori == "dreamscape" then return "꿈 속 여행"
 	elseif ori == "eyal" then return "에이알"
 	elseif ori == "fearscape" then return "공포의 영역"
-	elseif ori == "highfink" then return "highfin" --@@ 한글화 필요 : 관련 내용 /data/lore/misc.lua #680~697
+	elseif ori == "highfin" then return "하이핀"
 	elseif ori == "high peak" then return "최고봉"
 	elseif ori == "history of the sunwall" then return "태양의 장벽에 대한 역사"
 	elseif ori == "infinite dungeon" then return "무한의 던전"
@@ -849,7 +850,7 @@ function string.krBossName(str)
 	elseif ori == "the tidebender" then return "조류 왜곡자"
 	elseif ori == "the invoker" then return "호출자"
 	elseif ori == "the bringer of doom" then return "파멸을 부르는 자"
-	elseif ori == "the witherer" then return "Witherer" --@@ 한글화 필요
+	elseif ori == "the witherer" then return "시들어 버린 자"
 	elseif ori == "the guardian" then return "수호자"
 	elseif ori == "the fearsome" then return "무서운"
 	elseif ori == "the neverdead" then return "죽지않는"
@@ -976,7 +977,7 @@ end
 
 function string.krKeywords(str)
 	-- 관련내용 /data/general/objects/egos/에 있는 일반 아이템들의 keywords 들
-	-- 장비창에서의 짧은 아이템 설명에 사용. 현재 파일의 다음에 있는 table.krKeywordKeys 함수에서 사용 (#1498)
+	-- 장비창에서의 짧은 아이템 설명에 사용. 현재 파일의 다음에 있는 table.krKeywordKeys 함수에서 사용 (#1499)
 	local ori = str:lower()
 	local firstCh = ori:sub(1, 1) -- 속도를 위해 첫번자 글자만 떼서 먼저 검사
 	if firstCh == "'" then
@@ -1004,9 +1005,9 @@ function string.krKeywords(str)
 		elseif ori == "acidic" then return "산성"
 		elseif ori == "aegis" then return "수호"
 		elseif ori == "aether" then return "에테르"
-		elseif ori == "aetheric" then return "aetheric" --@@ 한글화 필요
+		elseif ori == "aetheric" then return "에테르적"
 		elseif ori == "ailments" then return "질환"
-		elseif ori == "alacrity" then return "alacrity" --@@ 한글화 필요
+		elseif ori == "alacrity" then return "기민함"
 		elseif ori == "alchemist" then return "연금술사"
 		elseif ori == "alchemy" then return "연금술"
 		elseif ori == "amnesia" then return "망각"
@@ -1058,10 +1059,10 @@ function string.krKeywords(str)
 		elseif ori == "champion" then return "투사"
 		elseif ori == "channeling" then return "공급"
 		elseif ori == "chargedshield" then return "전하보호막"
-		elseif ori == "chilling" then return "chilling" --@@ 한글화 필요
+		elseif ori == "chilling" then return "얼어붙음"
 		elseif ori == "chosen" then return "선택받은자"
 		elseif ori == "cinder" then return "타고남은"
-		elseif ori == "clairvoyance" then return "clairvoyance" --@@ 한글화 필요
+		elseif ori == "clairvoyance" then return "천리안"
 		elseif ori == "clarifying" then return "명석"
 		elseif ori == "clarity" then return "명석함"
 		elseif ori == "cleanse" then return "깨끗함"
@@ -1081,7 +1082,7 @@ function string.krKeywords(str)
 		elseif ori == "corrosive" then return "부식성"
 		elseif ori == "corruption" then return "타락"
 		elseif ori == "coruscating" then return "번쩍임"
-		elseif ori == "cosmic" then return "cosmic" --@@ 한글화 필요
+		elseif ori == "cosmic" then return "우주"
 		elseif ori == "crackling" then return "파직거림"
 		elseif ori == "crippling" then return "무력화"
 		elseif ori == "cruel" then return "잔인함"
@@ -1242,7 +1243,7 @@ function string.krKeywords(str)
 		elseif ori == "massive" then return "커다람"
 		elseif ori == "mastery" then return "숙련"
 		elseif ori == "mental" then return "정신력"
-		elseif ori == "miasmic" then return "miasmic" --@@ 한글화 필요
+		elseif ori == "miasmic" then return "유해성"
 		elseif ori == "might" then return "완력"
 		elseif ori == "mighty" then return "강력"
 		elseif ori == "mind" then return "정신"
@@ -1266,14 +1267,14 @@ function string.krKeywords(str)
 	elseif firstCh == 'n' then
 		if ori == "natural" then return "자연적"
 		elseif ori == "nature" then return "자연"
-		elseif ori == "natural resilience" then return "natural resilience" --@@ 한글화 필요
-		elseif ori == "natural_resilience" then return "natural_resilience" --@@ 한글화 필요
+		elseif ori == "natural resilience" then return "자연적활력"
+		elseif ori == "natural_resilience" then return "자연적활력"
 		elseif ori == "nightfall" then return "황혼"
 		elseif ori == "nighthunter" then return "밤사냥꾼"
 		elseif ori == "nightruned" then return "밤의룬"
 		elseif ori == "nightwalker" then return "밤걸음"
 		elseif ori == "nimble" then return "민첩함"
-		elseif ori == "noble" then return "noble" --@@ 한글화 필요
+		elseif ori == "noble" then return "귀족"
 		end
 	elseif firstCh == 'o' then
 		if ori == "overpower" then return "압도적"
@@ -1283,15 +1284,15 @@ function string.krKeywords(str)
 		elseif ori == "paradox" then return "괴리"
 		elseif ori == "patience" then return "인내"
 		elseif ori == "penetrating" then return "관통"
-		elseif ori == "perfection" then return "perfection" --@@ 한글화 필요
-		elseif ori == "persecution" then return "persecution" --@@ 한글화 필요
+		elseif ori == "perfection" then return "완벽"
+		elseif ori == "persecution" then return "박해"
 		elseif ori == "perseverance" then return "불굴"
 		elseif ori == "phase" then return "위상"
 		elseif ori == "phasing" then return "위상"
 		elseif ori == "physical" then return "물리"
 		elseif ori == "piercing" then return "관통"
 		elseif ori == "pilfering" then return "좀도둑"
-		elseif ori == "pixie" then return "pixie" --@@ 한글화 필요
+		elseif ori == "pixie" then return "요정"
 		elseif ori == "plague" then return "질병"
 		elseif ori == "polar" then return "극지방"
 		elseif ori == "potent" then return "잠재적"
@@ -1319,7 +1320,7 @@ function string.krKeywords(str)
 		elseif ori == "quiet" then return "조용함"
 		end
 	elseif firstCh == 'r' then
-		if ori == "radiance" then return "radiance" --@@ 한글화 필요
+		if ori == "radiance" then return "광휘"
 		elseif ori == "radiant" then return "빛남"
 		elseif ori == "rage" then return "분노"
 		elseif ori == "ranger" then return "순찰대"
@@ -1351,7 +1352,7 @@ function string.krKeywords(str)
 		elseif ori == "savior" then return "구원자"
 		elseif ori == "scholar" then return "학자"
 		elseif ori == "scorching" then return "뜨거움"
-		elseif ori == "scouring" then return "scouring" --@@ 한글화 필요
+		elseif ori == "scouring" then return "세척"
 		elseif ori == "searing" then return "타는듯함"
 		elseif ori == "seduction" then return "유혹"
 		elseif ori == "seeing" then return "관측"
@@ -1412,7 +1413,7 @@ function string.krKeywords(str)
 	elseif firstCh == 't' then
 		if ori == "telekinetic" then return "염력"
 		elseif ori == "teleport" then return "순간이동"
-		elseif ori == "tempestuous" then return "tempestuous" --@@ 한글화 필요
+		elseif ori == "tempestuous" then return "흉포"
 		elseif ori == "temporal" then return "시간"
 		elseif ori == "temporal res" then return "시간저항"
 		elseif ori == "tenacity" then return "끈질김"
@@ -1441,7 +1442,7 @@ function string.krKeywords(str)
 	elseif firstCh == 'u' then
 		if ori == "u.dodge" then return "뛰어난회피"
 		elseif ori == "umbral" then return "어두움"
-		elseif ori == "undeterred" then return "undeterred" --@@ 한글화 필요
+		elseif ori == "undeterred" then return "저해되지않음"
 		elseif ori == "unlife" then return "언데드"
 		end
 	elseif firstCh == 'v' then
@@ -1449,13 +1450,13 @@ function string.krKeywords(str)
 		elseif ori == "vagrant" then return "부랑자"
 		elseif ori == "valiance" then return "용기"
 		elseif ori == "verdant" then return "파릇파릇함"
-		elseif ori == "verdant avenger" then return "verdant avenger" --@@ 한글화 필요
-		elseif ori == "verdant_avenger" then return "verdant_avenger" --@@ 한글화 필요
+		elseif ori == "verdant avenger" then return "신록의 복수자"
+		elseif ori == "verdant_avenger" then return "신록의 복수자"
 		elseif ori == "vile" then return "혐오"
 		elseif ori == "vision" then return "심안"
 		elseif ori == "vitalizing" then return "활기참"
 		elseif ori == "void" then return "공허"
-		elseif ori == "voidstriker" then return "voidstriker" --@@ 한글화 필요
+		elseif ori == "voidstriker" then return "공허추격자"
 		elseif ori == "volcanic" then return "화산"
 		end
 	elseif firstCh == 'w' then
@@ -1543,9 +1544,9 @@ function string.krEffectSubtype(str)
 	elseif ori == 'blind' then return "실명"
 	elseif ori == 'blood' then return "피"
 	elseif ori == 'circle' then return "장치"
-	elseif ori == 'coating' then return "coating" --@@ 한글화 필요
+	elseif ori == 'coating' then return "코팅"
 	elseif ori == 'cold' then return "냉기"
-	elseif ori == 'concussion' then return "concussion" --@@ 한글화 필요
+	elseif ori == 'concussion' then return "뇌진탕"
 	elseif ori == 'confusion' then return "혼란"
 	elseif ori == 'cooldown' then return "지연시간"
 	elseif ori == 'corruption' then return "타락"
@@ -1595,7 +1596,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'psionic' then return "초능력"
 	elseif ori == 'psychic_drain' then return "정신적 흡수"
 	elseif ori == 'race' then return "종족"
-	elseif ori == 'radiance' then return "radiance" --@@ 한글화 필요
+	elseif ori == 'radiance' then return "광휘"
 	elseif ori == 'rune' then return "룬"
 	elseif ori == 'sense' then return "감지"
 	elseif ori == 'shield' then return "보호막"
@@ -1617,7 +1618,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'taint' then return "감염"
 	elseif ori == 'telekinesis' then return "염동력"
 	elseif ori == 'teleport' then return "순간이동"
-	elseif ori == 'tempo' then return "tempo" --@@ 한글화 필요
+	elseif ori == 'tempo' then return "템포"
 	elseif ori == 'temporal' then return "시간"
 	elseif ori == 'time' then return "시간왜곡"
 	elseif ori == 'timeport' then return "시공간이동"
@@ -1647,7 +1648,7 @@ function string.krRWKind(str)
 end
 
 function string.krHisHer(str)
-	-- /data/timed_effects/physical.lua #2126, /engine/interface/ActorTalents.lua #283, /mod/class/Actor.lua #2125 에서 사용
+	-- /data/timed_effects/physical.lua #2126, /engine/interface/ActorTalents.lua #283, /mod/class/Actor.lua #2125, /mod/class/interface/Combat.lua #404 에서 사용
 	local ori = str:lower()
 	if ori == "her" then return "그녀"
 	elseif ori == "his" then return "그"

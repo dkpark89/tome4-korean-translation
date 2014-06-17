@@ -288,10 +288,11 @@ newAchievement{
 	desc = [[한 번의 연습에서 연습용 허수아비에게 백만점 이상의 피해를 입힘.]],
 	mode = "player",
 }
-newAchievement{ --@@ 한글화 필요 #291~301 : kr_name 추가, desc 번역
+newAchievement{
 	name = "I meant to do that...", id = "AVOID_DEATH",
 	show = "full",
-	desc = [[Avoid death 50 times with a life-saving talent.]],
+	kr_name = "내가 말하려 했던건 말이지...",
+	desc = [[50번의 구명 기술을 사용한 죽음 회피.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1

@@ -88,11 +88,11 @@ function _M:generateListUi()
 	local list = {}
 	local i = 0
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Select the graphical mode to display the world.\nDefault is 'Modern'.\nWhen you change it make a new character or it may lok strange."} --@@ 한글화 필요
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Graphic Mode#WHITE##{normal}#", status=function(item) --@@ 한글화 필요
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"세상을 보여줄 그래픽 방식을 선택합니다.\n기본은 'Modern'입니다.\n이 설정을 바꾼 후에 새로 캐릭터를 만드세요. 새로운 캐릭터를 만들고 바로 바꾸지 않으면, 화면이 이상해 질 수도 있습니다.\n\nSelect the graphical mode to display the world.\nDefault is 'Modern'.\nWhen you change it make a new character or it may lok strange."}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#그래픽 방식#WHITE##{normal}#", status=function(item)
 		local ts = GraphicMode.tiles_packs[config.settings.tome.gfx.tiles]
 		local size = config.settings.tome.gfx.size or "???x???"
-		return (ts and ts.name or "???").." <"..size..">" --@ 한글화 여부 검사
+		return (ts and ts.name or "???").." <"..size..">"
 	end, fct=function(item)
 		game:registerDialog(GraphicMode.new())
 	end,}
@@ -127,7 +127,7 @@ function _M:generateListUi()
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임 인터페이스를 얼마나 화려하게 만들지 결정합니다. 기본은 '금속 예술품' 방식입니다. '가장 단순' 방식은 장식을 완전히 없애버리며, 장식이 없기 때문에 게임 화면을 덜 가립니다.\n이 설정의 효과는 게임을 다시 시작해야 적용됩니다.\n\nSelect the interface look. Metal is the default one. Simple is basic but takes less screen space.\nYou must restart the game for the change to take effect."}
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"게임 화면 형식을 결정합니다. 기본은 '금속 예술품' 방식입니다. '가장 단순' 방식은 장식을 완전히 없애버리며, 장식이 없기 때문에 게임 화면을 덜 가립니다.\n이 설정의 효과는 게임을 다시 시작해야 적용됩니다.\n\nSelect the interface look. Metal is the default one. Simple is basic but takes less screen space.\nYou must restart the game for the change to take effect."}
 	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#게임화면 형식#WHITE##{normal}#", status=function(item)
 		return tostring(config.settings.tome.ui_theme2):capitalize():krUIStyle()
 	end, fct=function(item)
@@ -276,59 +276,67 @@ function _M:generateListUi()
 		self.c_list:drawItem(item)
 	end,}
 
- --@@ 한글화 필요 : 다음줄~칠십여줄 아래(현재 #347)
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString[[Toggles between various tactical information display:
+ 	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString[[다음의 여러가지 전략적 정보 표시 방식 중 하나를 선택합니다 :
+- 생명력 막대와 작은 경계 표시 (작은 복합식)
+- 생명력 막대와 큰 경계 표시 (큰 복합식)
+- 생명력 막대만 표시
+- 아무런 전략적 정보도 표시하지 않음
+
+#{italic}#이 설정은 게임 도중 단축키 'Shift+T'를 눌러서 바로 변경할 수 있습니다.#{normal}##WHITE#
+
+
+Toggles between various tactical information display:
 - Combined healthbar and small tactical frame
 - Combined healthbar and big tactical frame
 - Only healthbar
 - No tactical information at all
 
 #{italic}#You can also change this directly ingame by pressing shift+T.#{normal}##WHITE#]]}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Tactical overlay#WHITE##{normal}#", status=function(item)
-		local vs = "Combined Small"
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#전략적 정보 표시 방식#WHITE##{normal}#", status=function(item)
+		local vs = "작은 복합식"
 		if game.always_target == "old" then
-			local vs = "Combined Big"
+			vs = "큰 복합식"
 		elseif game.always_target == "health" then
-			local vs = "Only Healthbars"
+			vs = "생명력 막대만"
 		elseif game.always_target == nil then
-			local vs = "Nothing"
+			vs = "표시 없음"
 		elseif game.always_target == true then
-			local vs = "Combined Small"
+			vs = "작은 복합식"
 		end
 		return vs
 	end, fct=function(item)
-		Dialog:listPopup("Tactical overlay", "Select overlay mode", {
-			{name="Combined Small", mode=true},
-			{name="Combined Big", mode="old"},
-			{name="Only Healthbars", mode="health"},
-			{name="Nothing", mode=nil},
+		Dialog:listPopup("전략적 정보 표시 방식", "방식을 선택하십시오", {
+			{name="작은 복합식", mode=true},
+			{name="큰 복합식", mode="old"},
+			{name="생명력 막대만", mode="health"},
+			{name="표시 없음", mode=nil},
 		}, 300, 200, function(sel)
 			if not sel then return end
 			game:setTacticalMode(sel.mode)
 		end)
-	end,}
+	end,} --@ 이 부분의 설정을 바꿀때 설정창의 현재 방식 표시가 업데이트 안 되는 문제 발생 (적용은 바뀜) : 한글 애드온 문제가 아님 (원래 그럼)
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Toggles between a normal or flagpost tactical bars.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Flagpost tactical bars#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.flagpost_tactical and "Enabled" or "Disabled")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"전략적 깃발을 사용할 것인지 결정합니다.#WHITE#\n(전략적 깃발 사용시 생명력 막대 옆의 장식 모양이 소속에 따라 달라집니다.)\n\nToggles between a normal or flagpost tactical bars.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#전략적 깃발#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.tome.flagpost_tactical and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.flagpost_tactical = not config.settings.tome.flagpost_tactical
 		game:saveSettings("tome.flagpost_tactical", ("tome.flagpost_tactical = %s\n"):format(tostring(config.settings.tome.flagpost_tactical)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"Toggles between a bottom or side display for tactial healthbars.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Healthbars position#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.small_frame_side and "Sides" or "Bottom")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"생명력 막대의 위치를 옆쪽과 아래쪽 중 결정합니다.#WHITE#\n\nToggles between a bottom or side display for tactial healthbars.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#생명력 막대 위치#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.tome.small_frame_side and "옆" or "아래")
 	end, fct=function(item)
 		config.settings.tome.small_frame_side = not config.settings.tome.small_frame_side
 		game:saveSettings("tome.small_frame_side", ("tome.small_frame_side = %s\n"):format(tostring(config.settings.tome.small_frame_side)))
 		self.c_list:drawItem(item)
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"If disabled you will not get a fullscreen notification of stun/daze effects. Beware.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Fullscreen stun/daze notification#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.fullscreen_stun and "enabled" or "disabled")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"사용하지 않는 경우 기절이나 혼절시 전체화면 경고를 받지 못합니다. 주의하세요.#WHITE#\n\nIf disabled you will not get a fullscreen notification of stun/daze effects. Beware.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#전체화면 기절/혼절 알림#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.tome.fullscreen_stun and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.fullscreen_stun = not config.settings.tome.fullscreen_stun
 		game:saveSettings("tome.fullscreen_stun", ("tome.fullscreen_stun = %s\n"):format(tostring(config.settings.tome.fullscreen_stun)))
@@ -336,9 +344,9 @@ function _M:generateListUi()
 		if game.player.updateMainShader then game.player:updateMainShader() end
 	end,}
 
-	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"If disabled you will not get a fullscreen notification of confusion effects. Beware.#WHITE#"}
-	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#Fullscreen confusion notification#WHITE##{normal}#", status=function(item)
-		return tostring(config.settings.tome.fullscreen_confusion and "enabled" or "disabled")
+	local zone = Textzone.new{width=self.c_desc.w, height=self.c_desc.h, text=string.toTString"사용하지 않는 경우 혼란시 전체화면 경고를 받지 못합니다. 주의하세요.#WHITE#\n\nIf disabled you will not get a fullscreen notification of confusion effects. Beware.#WHITE#"}
+	list[#list+1] = { zone=zone, name=string.toTString"#GOLD##{bold}#전체화면 혼란 알림#WHITE##{normal}#", status=function(item)
+		return tostring(config.settings.tome.fullscreen_confusion and "사용" or "사용하지 않음")
 	end, fct=function(item)
 		config.settings.tome.fullscreen_confusion = not config.settings.tome.fullscreen_confusion
 		game:saveSettings("tome.fullscreen_confusion", ("tome.fullscreen_confusion = %s\n"):format(tostring(config.settings.tome.fullscreen_confusion)))

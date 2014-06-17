@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Shader = require "engine.Shader"
 local KeyBind = require "engine.KeyBind"
@@ -585,7 +586,7 @@ function _M:resize(x, y, w, h, fontname, fontsize, color, bgcolor)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	self.font = core.display.newFont(fontname or "/data/font/DroidSans.ttf", fontsize or 12)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 12) --@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 
 	self.scroll = 0

@@ -31,13 +31,13 @@ Wands
 
 newEntity{
 	name = " of clairvoyance", addon=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "천리안의 ",
 	keywords = {clairvoyance=true},
 	level_range = {1, 50},
 	rarity = 8,
 
 	charm_power_def = {add=8, max=10, floor=true},
-	resolvers.charm("reveal the area around you dispelling darkness and detecting the presence of nearby creatures (rad %d)", 6, function(self, who) --@@ 한글화 필요
+	resolvers.charm("%d 칸 반경으로 어둠을 쫓아 주변 지도를 밝히고, 생명체를 탐지", 6, function(self, who)
 		local rad = self:getCharmPower(who)
 		who:setEffect(who.EFF_SENSE, 3, {
 			range = rad,

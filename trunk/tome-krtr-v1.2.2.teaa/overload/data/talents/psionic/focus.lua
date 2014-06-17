@@ -104,7 +104,7 @@ newTalent{
 
 newTalent{
 	name = "Brain Storm",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "영감",
 	type = {"psionic/focus", 3},
 	points = 5, 
 	require = psi_wil_req3,
