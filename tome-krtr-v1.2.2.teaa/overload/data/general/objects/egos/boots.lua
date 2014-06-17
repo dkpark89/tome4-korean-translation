@@ -288,7 +288,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "undeterred ", prefix=true, instant_resolve=true,
-	--kr_name = " ", --@@ 한글화 필요
+	kr_name = "저해되지 않는 ",
 	keywords = {undeterred=true},
 	level_range = {10, 50},
 	greater_ego = 1,

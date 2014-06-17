@@ -677,10 +677,11 @@ newLore{
 에이알은 고통받는 세계입니다. 그래서 대자연의 힘은 자연을 조작하려는 마법적 힘에 강하게 반발합니다. 몇몇 장비와 지역에는 반마법의 힘, 즉 마법적인 능력과 효과를 방해하는 특수한 힘이 깃들어 있습니다. 게다가 이 세계에는 자연의 능력을 사용하여, 마법 사용자를 사냥하고 파괴하는 자들도 존재합니다. 그러니 조심하십시오, 마법사여! 이 세계는 방랑하는 그대에게 호의적인 곳이 아닙니다.]],
 }
 
-newLore{ --@@ 한글화 필요 #680~697 : kr_name 추가하고 lore 번역
+newLore{
 	id = "kestin-highfin-adventuring-notes",
 	category = "highfin",
 	name = "On Adventuring",
+	kr_name = "모험가의 길",
 	lore = [[ I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortune.
 
 Hear me out on this.
@@ -693,7 +694,7 @@ What does reach us then, are not people, but objects. Artifacts of great power, 
 
 It is important to remember, that every artifact has a meaning, beings of great power and importance behind them. Stories, that now slowly wane into nothing. This is why it is not artifacts that make an adventurer. It is his great deeds, the will to dare where nobody did before. It is not important if you get known in the process or not, after all, if you were truly great, maybe you will leave behind a legacy of your own.
 
--#{italic}#Kestin Highfin#{normal}#]]
+-#{italic}#케스틴 하이핀#{normal}#]] --@@ 한글화 필요 #685~697
 }
 
 

@@ -169,15 +169,17 @@ newAchievement{
 	kr_name = "'다시 또 그곳에' 따윈 필요없어",
 	desc = [[마즈'에이알을 한 번도 밟지 않고 게임에서 승리.]],
 }
-newAchievement{ --@@ 한글화 필요
+newAchievement{
 	name = "Bikining along!", id = "WIN_BIKINI",
 	show = "full", huge=true,
-	desc = [[Won the game without ever taking off her bikini.]],
+	kr_name = "비키니와 함께!",
+	desc = [[비키니를 입은 후 절대 벗지 않고 게임에서 승리.]],
 }
-newAchievement{ --@@ 한글화 필요
+newAchievement{
 	name = "Mankining it happen!", id = "WIN_MANKINI",
 	show = "full", huge=true,
-	desc = [[Won the game without ever taking off his mankini.]],
+	kr_name = "맨키니가 나타났다!",
+	desc = [[맨키니를 입은 후 절대 벗지 않고 게임에서 승리.]],
 }
 
 -------------- Other quests

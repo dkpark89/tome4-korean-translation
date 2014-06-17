@@ -277,7 +277,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "chilling ", prefix=true, instant_resolve=true,
-	--kr_name = " ", --@@ 한글화 필요
+	kr_name = "얼어붙은 ",
 	keywords = {chilling=true},
 	level_range = {15, 50},
 	rarity = 5,
@@ -646,7 +646,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of persecution", suffix=true, instant_resolve=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "박해의 ",
 	keywords = {banishment=true},
 	level_range = {1, 50},
 	rarity = 20,

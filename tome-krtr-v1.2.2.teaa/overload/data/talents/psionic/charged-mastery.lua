@@ -78,6 +78,7 @@ newTalent{
 
 newTalent{
 	name = "Static Net",
+	kr_name = "정전기 망",
 	type = {"psionic/charged-mastery", 3},
 	require = psi_cun_high3,
 	points = 5,

@@ -1569,7 +1569,7 @@ function _M:displayParty(scale, bx, by)
 
 				local text = "#GOLD##{bold}#"..(a.kr_name or a.name).."\n#WHITE##{normal}#생명력 : "..math.floor(100 * a.life / a.max_life).."%\n레벨 : "..a.level.."\n"..(def.kr_title or def.title)
 				if a.summon_time then
-					text = text.."\nTurns remaining: "..a.summon_time --@@ 한글화 필요
+					text = text.."\n남은 시간 : "..a.summon_time
 				end
 				local is_first = is_first
 				local desc_fct = function(button, mx, my, xrel, yrel, bx, by, event)
@@ -2237,9 +2237,9 @@ function _M:setupMouse(mouse)
 					end },
 				}
 				if profile.chat:isFriend(user.login) then
-					table.insert(extra.add_map_action, 3, { name="Remove Friend", fct=function() Dialog:yesnoPopup("Remove Friend", "Really remove "..user.login.." from your friends?", function(ret) if ret then profile.chat:removeFriend(user.login, user.id) end end, "예", "아니오") end }) --@@ 한글화 필요
+					table.insert(extra.add_map_action, 3, { name="친구 삭제", fct=function() Dialog:yesnoPopup("친구 삭제", "정말 "..(user.login):addJosa("를").." 친구 목록에서 삭제합니까?", function(ret) if ret then profile.chat:removeFriend(user.login, user.id) end end, "예", "아니오") end })
 				else
-					table.insert(extra.add_map_action, 3, { name="Add Friend", fct=function() Dialog:yesnoPopup("Add Friend", "Really add "..user.login.." to your friends?", function(ret) if ret then profile.chat:addFriend(user.login, user.id) end end, "예", "아니오") end }) --@@ 한글화 필요
+					table.insert(extra.add_map_action, 3, { name="친구 추가", fct=function() Dialog:yesnoPopup("친구 추가", "정말 "..(user.login):addJosa("를").." 친구 목록에 추가합니까?", function(ret) if ret then profile.chat:addFriend(user.login, user.id) end end, "예", "아니오") end })
 				end
 			end
 		end

@@ -401,7 +401,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if target:knowTalent(target.T_SKIRMISHER_BUCKLER_EXPERTISE) then
 		local t = target:getTalentFromId(target.T_SKIRMISHER_BUCKLER_EXPERTISE)
 		if t.shouldEvade(target, t) then
-			game.logSeen(target, "#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#", target.name:capitalize(), string.his_her(target)) --@@ 한글화 필요
+			game.logSeen(target, "#ORCHID#%s 영리하게 공격을 %s의 방패로 빗막았습니다!#LAST#", (target.kr_name or target.name):capitalize():addJosa("가"), string.his_her(target):krHisHer())
 			t.onEvade(target, t, self)
 			repelled = true
 		end

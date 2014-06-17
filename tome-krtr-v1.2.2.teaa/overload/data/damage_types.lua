@@ -369,7 +369,7 @@ setDefaultProjector(function(src, x, y, type, dam, tmp, no_martyr)
 
 		if src:attr("crushing_blow") and (dam * (1.25 + (src.combat_critical_power or 0)/200)) > target.life then
 			dam = dam * (1.25 + (src.combat_critical_power or 0)/200)
-			game.logPlayer(src, "You end your target with a crushing blow!") --@@ 한글화 필요
+			game.logPlayer(src, "당신은 완파 공격으로 상대방을 끝장냈습니다!")
 		end
 
 		if target:attr("resist_unseen") and not target:canSee(src) then
@@ -629,12 +629,12 @@ local function tryDestroy(who, inven, dam, destroy_prop, proof_prop, msg)
 	end
 end
 
-newDamageType{ --@@ 한글화 필요 #632~638 : kr_name 추가, death_message 번역
+newDamageType{
 	name = "cosmetic", type = "COSMETIC", text_color = "#WHITE#",
-	--kr_name = "",
+	kr_name = "미용",
 	projector = function(src, x, y, type, dam)
 	end,
-	death_message = {"cosmeticed"},
+	death_message = {"미용 효과로"},
 }
 
 newDamageType{
@@ -813,7 +813,7 @@ newDamageType{
 -- If you use this for something else make sure to note it has no power check or sanity check on how much turn energy is drained
 newDamageType{
 	name = "winter", type = "WINTER",
-	--kr_name = "", --@@ 한글화 필요 : kr_name 추가
+	kr_name = "겨울",
 	projector = function(src, x, y, type, dam)
 		local srcx, srcy = dam.x, dam.y
 		local base = dam
@@ -1143,7 +1143,7 @@ newDamageType{
 -- Cold damage + freeze chance, increased if wet
 newDamageType{
 	name = "ice storm", type = "ICE_STORM", text_color = "#1133F3#",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "얼음 폭풍",
 	projector = function(src, x, y, type, dam)
 		local chance = 25
 
@@ -1161,7 +1161,7 @@ newDamageType{
 -- Increased cold damage + freeze chance if wet
 newDamageType{
 	name = "glacial vapour", type = "GLACIAL_VAPOUR", text_color = "#1133F3#",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "차가운 증기",
 	projector = function(src, x, y, type, dam)
 		local chance = 0
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -1287,7 +1287,7 @@ newDamageType{
 -- Lightning damage + daze chance
 newDamageType{
 	name = "dazing lightning", type = "LIGHTNING_DAZE", text_color = "#ROYAL_BLUE#",
-	--kr_name = "전기", --@@ 한글화 필요 : 이름이 바뀜 (기존 이름 lightning)
+	kr_name = "혼절의 번개",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, daze=25} end
 		dam.daze = dam.daze or 25
@@ -1771,7 +1771,7 @@ newDamageType{
 
 newDamageType{
 	name = "% chance of gloom effects", type = "RANDOM_GLOOM",
-	--kr_name = "침울함", --@@ 한글화 필요 : 이름이 바뀜 (기존 이름 gloom)
+	kr_name = "% 확률로 침울 효과",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and rng.percent(dam) then
@@ -1797,7 +1797,6 @@ newDamageType{
 	end,
 }
 
---@@ 한글화 필요 #1800~2116
 ----------------------------------------------------------------
 -- Item-specific damage types
 ----------------------------------------------------------------
@@ -1809,6 +1808,7 @@ newDamageType{
 -- Log entries are pretty limited currently because it can be quite spammy with the default messages already
 newDamageType{
 	name = "item mind gloom", type = "ITEM_MIND_GLOOM",
+	kr_name = "물체부여된 정신적 침울함",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -1820,7 +1820,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to cause #YELLOW#random insanity#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #YELLOW#임의의 광기#LAST#를 발생 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1851,6 +1851,7 @@ newDamageType{
 
 newDamageType{
 	name = "item darkness numbing", type = "ITEM_DARKNESS_NUMBING",
+	kr_name = "물체부여된 어둠의 마비",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -1862,7 +1863,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to inflict #GREY#damage reduction#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #GREY#공격력 감소#LAST# 발생 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1877,6 +1878,7 @@ newDamageType{
 
 newDamageType{
 	name = "item temporal energize", type = "ITEM_TEMPORAL_ENERGIZE",
+	kr_name = "물체부여된 시간의 기운",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -1888,14 +1890,14 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to gain #LIGHT_STEEL_BLUE#10%% of a turn#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #LIGHT_STEEL_BLUE#한 턴의 10%%#LAST# 만큼 추가 시간 획득 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src and src.name and rng.percent(dam) then
 				if src.turn_procs and src.turn_procs.item_temporal_energize and src.turn_procs.item_temporal_energize > 3 then
-					game.logSeen(src, "#LIGHT_STEEL_BLUE#%s can't gain any more energy this turn! ", src.name:capitalize())
+					game.logSeen(src, "#LIGHT_STEEL_BLUE#%s 이번 턴에 더이상 추가 시간을 얻을 수 없습니다! ", (src.kr_name or src.name):capitalize():addJosa("는"))
 				return
 				end
 
@@ -1910,6 +1912,7 @@ newDamageType{
 
 newDamageType{
 	name = "item acid corrode", type = "ITEM_ACID_CORRODE", text_color = "#GREEN#",
+	kr_name = "물체부여된 산성 부식",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -1921,7 +1924,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to #GREEN#corrode armor#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #GREEN#방어구 부식#LAST# 발생 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1936,6 +1939,7 @@ newDamageType{
 
 newDamageType{
 	name = "item light blind", type = "ITEM_LIGHT_BLIND",
+	kr_name = "물체부여된 실명의 빛",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -1947,7 +1951,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to #YELLOW#blind#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #YELLOW#실명#LAST# 발생 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1965,6 +1969,7 @@ newDamageType{
 
 newDamageType{
 	name = "item lightning daze", type = "ITEM_LIGHTNING_DAZE",
+	kr_name = "물체부여된 혼절의 번개",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -1976,7 +1981,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to #ROYAL_BLUE#daze#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #ROYAL_BLUE#혼절#LAST# 발생 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1995,6 +2000,7 @@ newDamageType{
 
 newDamageType{
 	name = "item blight disease", type = "ITEM_BLIGHT_DISEASE", text_color = "#DARK_GREEN#",
+	kr_name = "물체부여된 황폐의 질병",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -2006,7 +2012,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to #DARK_GREEN#disease#LAST#%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #DARK_GREEN#질병#LAST# 발생 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2021,6 +2027,7 @@ newDamageType{
 
 newDamageType{
 	name = "item manaburn arcane", type = "ITEM_ANTIMAGIC_MANABURN", text_color = "#PURPLE#",
+	kr_name = "물체부여된 마법 원천력 태우기",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -2032,7 +2039,7 @@ newDamageType{
 				parens = (" (#RED#%d#LAST#)"):format(diff)
 			end
 		end
-		return ("* #DARK_ORCHID#%d arcane resource#LAST# burn%s")
+		return ("* #DARK_ORCHID#%d 마법 원천력#LAST#을 불태움 (%s)")
 			:format(dam or 0, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2063,6 +2070,7 @@ newDamageType{
 
 newDamageType{
 	name = "item nature slow", type = "ITEM_NATURE_SLOW", text_color = "#LIGHT_GREEN#",
+	kr_name = "물체부여된 자연적 감속",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -2074,7 +2082,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* Slows global speed by #LIGHT_GREEN#%d%%#LAST#%s")
+		return ("* 전체 속도 #LIGHT_GREEN#%d%%#LAST# 감소 (%s)")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2088,6 +2096,7 @@ newDamageType{
 -- Reduces all offensive powers by 20%
 newDamageType{
 	name = "item antimagic scouring", type = "ITEM_ANTIMAGIC_SCOURING", text_color = "#ORCHID#",
+	kr_name = "물체부여된 반마법 세척",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -2099,7 +2108,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# chance to #ORCHID#reduce powers#LAST# by %d%%%s")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #ORCHID#공격력 %d%% 감소#LAST# (%s)") --@ "reduce power"를 "공격력 감소"로 번역 : 확인 필요
 			:format(dam, 20, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2205,7 +2214,7 @@ newDamageType{
 -- Drain Vim
 newDamageType{
 	name = "vim draining blight", type = "DRAIN_VIM", text_color = "#DARK_GREEN#",
-	--kr_name = "약화시키는 황폐", --@@ 한글화 필요 : 이름 바뀜 (기존 이름 enervaing blight)
+	kr_name = "원기를 흡수하는 황폐",
 	projector = function(src, x, y, type, dam)
 		if _G.type(dam) == "number" then dam = {dam=dam, vim=0.2} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -2337,7 +2346,7 @@ newDamageType{
 				if shield.dur_extended then
 					shield.dur_extended = shield.dur_extended + 1
 					if shield.dur_extended >= 20 then
-						game.logPlayer(target, "#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.") --@@ 한글화 필요
+						game.logPlayer(target, "#DARK_ORCHID#피해 보호막이 더이상 연장되지 못하고 터져버렸습니다.")
 						target:removeEffect(target.EFF_DAMAGE_SHIELD)
 					end
 				else shield.dur_extended = 1 end
@@ -2350,7 +2359,7 @@ newDamageType{
 -- Light damage+heal source, used by Radiance
 newDamageType{
 	name = "judgement", type = "JUDGEMENT",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "판결",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and target ~= src then
@@ -3358,10 +3367,10 @@ newDamageType{
 	end,
 }
 
---@@ 한글화 필요 #3361~3440(끝)
 -- Acid damage + Slow
 newDamageType{
 	name = "caustic mire", type = "CAUSTIC_MIRE",
+	kr_name = "부식성 늪",
 	projector = function(src, x, y, type, dam, tmp)
 		if _G.type(dam) == "number" then dam = {dur = 2, slow=20} end
 		local target = game.level.map(x, y, Map.ACTOR)
@@ -3375,6 +3384,7 @@ newDamageType{
 -- Sun Path damage
 newDamageType{
 	name = "sun path", type = "SUN_PATH",
+	kr_name = "태양의 길",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then
@@ -3385,6 +3395,7 @@ newDamageType{
 
 newDamageType{
 	name = "telekinetic shove", type = "TK_PUSHPIN",
+	kr_name = "염동력 압박",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -3394,7 +3405,7 @@ newDamageType{
 					if target:canBe("pin") then
 						target:setEffect(target.EFF_PINNED, dam.dur, {apply_power=src:combatMindpower()})
 					else
-						game.logSeen(src, "%s resists!", target.name:capitalize())
+						game.logSeen(src, "%s 속박을 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 			end)
@@ -3405,6 +3416,7 @@ newDamageType{
 
 newDamageType{
 	name = "brain storm", type = "BRAINSTORM",
+	kr_name = "영감",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then
@@ -3412,7 +3424,7 @@ newDamageType{
 			if target:checkHit(src:combatMindpower(), target:combatMentalResist(), 0, 95, 15) then
 				target:crossTierEffect(target.EFF_BRAINLOCKED, src:combatMindpower())
 			else
-				game.logSeen(target, "%s resists the mind attack!", target.name:capitalize())
+				game.logSeen(target, "%s 정신 공격을 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 			
 			if src:hasEffect(src.EFF_TRANSCENDENT_TELEKINESIS) then
@@ -3427,6 +3439,7 @@ newDamageType{
 
 newDamageType{
 	name = "static net", type = "STATIC_NET",
+	kr_name = "정전기 망",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and src:reactionToward(target) < 0 then

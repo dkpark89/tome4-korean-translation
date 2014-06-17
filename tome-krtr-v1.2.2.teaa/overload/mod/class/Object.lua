@@ -201,7 +201,7 @@ function _M:descAttribute(attr)
 		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도 관통 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_name or DamageType:get(c.damtype).name).." 속성"
 	elseif attr == "COMBAT_ELEMENT" then
 		local c = self.combat
-		return c.dam.."-"..(c.dam*(c.damrange or 1.1)).." power, "..("%d"):format((c.apr or 0)).." apr, "..DamageType:get(c.element or DamageType.PHYSICAL).name.." element" --@@ 한글화 필요
+		return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))..", 방어도 관통 "..("%d"):format((c.apr or 0))..", "..(DamageType:get(c.element or DamageType.PHYSICAL).kr_name or DamageType:get(c.element or DamageType.PHYSICAL).name).." 원소"
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
@@ -871,7 +871,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		if combat.crushing_blow then
-			desc:add({"color", "YELLOW"}, "Crushing Blows: ", {"color", "LAST"}, "Damage dealt by this weapon is increased by half your critical multiplier, if doing so would kill the target.", true) --@@ 한글화 필요
+			desc:add({"color", "YELLOW"}, "완파 공격 : ", {"color", "LAST"}, "이 무기로 치명타 공격을 할 때, 치명타 배수가 현재의 1.5배가 되면 상대를 죽일 수 있는 경우에는 피해량이 그만큼 증가합니다.", true)
 		end
 
 		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "발사 속도    : ", 100, false, false, add_table)
@@ -946,7 +946,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 
 		compare_fields(w, compare_with, field, "ammo_reload_speed", "%+d", "턴당 재장전 : ")
 
- --@ 한글화 여부 검사 : #941~987
+ --@ 한글화 여부 검사 : #949~995
 		local dt_string = tstring{}
 		local found = false
 		local combat2 = { melee_project = {} }
@@ -962,7 +962,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		if found then
-			desc:add({"color","ORANGE"}, "Effects on melee hit: ", {"color","LAST"}, true) --@@ 한글화 필요
+			desc:add({"color","ORANGE"}, "근접공격 성공시 효과 : ", {"color","LAST"}, true)
 			desc:merge(dt_string)
 		end
 
@@ -1000,7 +1000,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 			end)
 
 		if ranged_found then
-			desc:add({"color","ORANGE"}, "Effects on ranged hit: ", {"color","LAST"}, true) --@@ 한글화 필요
+			desc:add({"color","ORANGE"}, "장거리공격 성공시 효과 : ", {"color","LAST"}, true)
 			desc:merge(ranged)
 		end
 
@@ -1010,7 +1010,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 			end)
 
 		if found then
-			desc:add({"color","ORANGE"}, "Effects when hit in melee: ", {"color","LAST"}, true) --@@ 한글화 필요
+			desc:add({"color","ORANGE"}, "근접공격 피해 발생시 효과 : ", {"color","LAST"}, true)
 			desc:merge(onhit)
 		end
 
@@ -1063,7 +1063,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 				end
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists_actor_type", "%+d%% ", "Reduced damage from: ", function(item) --@@ 한글화 필요
+		compare_table_fields(w, compare_with, field, "resists_actor_type", "%+d%% ", "피해 감소 : ", function(item)
 		local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 			if st and st ~= "" then
 				return st:capitalize():krActorType() --@ 종족이름 한글화
@@ -1268,7 +1268,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		compare_fields(w, compare_with, field, "combat_critical_power", "%+.2f%%", "치명타 피해량 배수 : ")
-		compare_fields(w, compare_with, field, "ignore_direct_crits", "%-.2f%%", "Reduces incoming crit damage: ") --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "ignore_direct_crits", "%-.2f%%", "방어시 치명타 피해 감소 : ")
 		compare_fields(w, compare_with, field, "combat_crit_reduction", "%-d%%", "적의 치명타 억제 : ")
 
 		compare_fields(w, compare_with, field, "disarm_bonus", "%+d", "추가 함정 탐지력 : ")
@@ -1318,7 +1318,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "psi_on_crit", "%+.2f", "정신 공격 치명타 발생시 염력 회복 : ")
 		compare_fields(w, compare_with, field, "equilibrium_on_crit", "%+.2f", "정신 공격 치명타 발생시 평정 회복 : ")
 
-		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "적살해시 증오심 회복 : ")
+		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "적 살해시 증오심 회복 : ")
 		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "적 살해시 염력 회복 : ")
 
 		compare_fields(w, compare_with, field, "die_at", "%+.2f 생명력", "죽지 않고 견딜 수 있는 생명력 수치 : ", 1, true, true)
@@ -1368,7 +1368,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 
 		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "발사체 회피 : ")
 		compare_fields(w, compare_with, field, "evasion", "%+d%%", "공격 회피 확률 : ")
-		compare_fields(w, compare_with, field, "cancel_damage_chance", "%+d%%", "Chance to avoid any damage: ") --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "cancel_damage_chance", "%+d%%", "피해 무효화 확률 : ")
 
 		compare_fields(w, compare_with, field, "defense_on_teleport", "%+d", "순간이동 후 회피도 : ")
 		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "순간이동 후 전체 저항력 : ")
@@ -1384,15 +1384,15 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "shield_dur", "%+d", "보호막 유지시간 : ")
 		compare_fields(w, compare_with, field, "shield_factor", "%+d%%", "보호막 강도 : ")
 
-		compare_fields(w, compare_with, field, "iceblock_pierce", "%+d%%", "Ice block penetration: ") --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "iceblock_pierce", "%+d%%", "얼음덩어리 관통 : ")
 
 		compare_fields(w, compare_with, field, "slow_projectiles", "%+d%%", "발사체 속도 감소 : ")
 
 		compare_fields(w, compare_with, field, "paradox_reduce_fails", "%+d", "괴리 실패율 감소 (의지력만큼) : ")
 
-		compare_fields(w, compare_with, field, "damage_backfire", "%+d%%", "Damage Backlash: ", nil, true) --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "damage_backfire", "%+d%%", "역발시 피해 반동 : ", nil, true)
 
-		compare_fields(w, compare_with, field, "resist_unseen", "%-d%%", "Reduce all damage from unseen attackers: ") --@@ 한글화 필요
+		compare_fields(w, compare_with, field, "resist_unseen", "%-d%%", "보이지않는 적으로 부터의 피해 감소 : ")
 
 		if w.undead then
 			desc:add("착용자는 언데드로 취급됩니다.", true)
@@ -1523,7 +1523,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 	if self.on_block and self.on_block.desc then
 		local d = self.on_block.desc
 		desc:add({"color", "ORCHID"})
-		desc:add("Special effect on block: " .. d) --@@ 한글화 필요
+		desc:add("막기 사용시 특수 효과 : " .. d)
 		desc:add({"color", "LAST"}, true)
 	end
 
@@ -1637,7 +1637,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 	end
 
 	if self.use_no_energy then
-		desc:add("Activating this item is instant.", true) --@@ 한글화 필요
+		desc:add("이 아이템은 시간 소모 없이 순간 사용이 가능합니다.", true)
 	end
 
 	if self.curse then

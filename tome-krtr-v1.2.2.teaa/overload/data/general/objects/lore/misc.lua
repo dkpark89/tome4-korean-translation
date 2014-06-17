@@ -27,7 +27,8 @@ newEntity{ base = "BASE_LORE_RANDOM",
 
 newEntity{ base = "BASE_LORE_RANDOM",
 	name = "On Adventuring", lore="kestin-highfin-adventuring-notes", unique=true,
-	desc = [[Fragments of a fabled traveler.]], --@@ 한글화 필요 : + kr_name 추가
+	kr_name = "모험가의 길",
+	desc = [[전설적인 여행자의 단편.]],
 	level_range = {10, 25},
 	rarity = 35,
 }

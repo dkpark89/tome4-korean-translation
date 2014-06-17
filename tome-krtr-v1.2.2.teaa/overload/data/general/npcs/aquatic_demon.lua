@@ -62,7 +62,7 @@ newEntity{ base = "BASE_NPC_AQUATIC_DEMON",
 newEntity{ base = "BASE_NPC_AQUATIC_DEMON",
 	name = "Walrog", color=colors.DARK_SEA_GREEN, unique=true,
 	kr_name = "왈록",
-	desc = "물의 군주, 왈록 is fearsome to behold. The water writhes around him as if trying to escape, making his form indistinct. He does not seem surprised to see you.", --@@ 한글화 필요
+	desc = "물의 군주 왈록을 바라보기엔 너무 무섭습니다. 마치 그에게서 벗어나려는 것처럼 물줄기는 그의 주변에서 몸부림치고 있어, 그의 형태는 뚜렷하지 않습니다. 그는 당신을 보고도 별로 놀라워하지 않는 것 같습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/aquatic_demon_walrog.png", display_h=2, display_y=-1}}},
 	level_range = {20, 30}, exp_worth = 1,
 	rarity = 50,

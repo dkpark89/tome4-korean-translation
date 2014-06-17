@@ -1787,7 +1787,7 @@ function _M:tooltip(x, y, seen_by)
 	ts:add({"color", "WHITE"})
 	
 	if (150 + (self.combat_critical_power or 0) ) > 150 then
-		ts:add("Critical Mult: ", ("%d%%"):format(150 + (self.combat_critical_power or 0) ), true ) --@@ 한글화 필요
+		ts:add("치명타 배수 : ", ("%d%%"):format(150 + (self.combat_critical_power or 0) ), true )
 	end
 
 	if self.summon_time then
@@ -1795,24 +1795,24 @@ function _M:tooltip(x, y, seen_by)
 	end
 
 	if self:getInven("MAINHAND") and self:getInven("MAINHAND").worn and self:getInven("MAINHAND")[1] and self:getInven("MAINHAND")[1].keywords then
-		ts:add("Weapon Keywords: ", {"color", "RED"}) --@@ 한글화 필요
+		ts:add("무기 핵심어 : ", {"color", "RED"})
 		local keywords = tstring{}
 		local archery = self:getInven("MAINHAND")[1].archery or false
 
 
 		for k, v in pairs(self:getInven("MAINHAND")[1].keywords) do
-			ts:add(tostring(k), ", " ) --@ 한글화 여부 검사
+			ts:add(tostring(k):krKeywords(), ", " )
 		end
 
 		if self:getInven("OFFHAND") and self:getInven("OFFHAND").worn and self:getInven("OFFHAND")[1] and self:getInven("OFFHAND")[1].keywords then
 			for k, v in pairs(self:getInven("OFFHAND")[1].keywords) do
-				ts:add(tostring(k), ", ") --@ 한글화 여부 검사
+				ts:add(tostring(k):krKeywords(), ", ")
 			end
 		end
 
 		if archery and self:getInven("QUIVER") and self:getInven("QUIVER").worn and self:getInven("QUIVER")[1] and self:getInven("QUIVER")[1].keywords then
 			for k, v in pairs(self:getInven("QUIVER")[1].keywords) do
-				ts:add(tostring(k), ", ") --@ 한글화 여부 검사
+				ts:add(tostring(k):krKeywords(), ", ")
 			end
 		end
 
@@ -1827,20 +1827,20 @@ function _M:tooltip(x, y, seen_by)
 		end
 	end
 
-	if retal > 0 then ts:add("Melee Retaliation: ", {"color", "RED"}, tostring(math.floor(retal)), {"color", "WHITE"}, true ) end --@@ 한글화 필요
+	if retal > 0 then ts:add("근접공격 앙갚음 : ", {"color", "RED"}, tostring(math.floor(retal)), {"color", "WHITE"}, true ) end
 
 	if self.desc then ts:add(self.desc, true) end
 	if self.faction and Faction.factions[self.faction] then ts:add("소속 : ") ts:merge(factcolor:toTString()) ts:add(("%s (%s, %d)"):format(Faction.factions[self.faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) end --@ 소속이름 한글화
 	if game.player ~= self then ts:add("개별 성향 : ") ts:merge(pfactcolor:toTString()) ts:add(("%s, %d"):format(pfactstate, pfactlevel), {"color", "WHITE"} ) end
 
-	ts:add(true, {"color", "ORANGE"}, "Sustained Talents: ",{"color", "WHITE"}) --@@ 한글화 필요
+	ts:add(true, {"color", "ORANGE"}, "유지중인 기술 : ",{"color", "WHITE"})
 	for tid, act in pairs(self.sustain_talents) do
 		if act then ts:add(true, "- ", {"color", "LIGHT_GREEN"}, self:getTalentFromId(tid) and (self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name) or "???", {"color", "WHITE"} ) end --@ 기술이름 한글화
 	end
 
-	if ts[#ts-1] == "Sustained Talents: " then table.remove(ts) table.remove(ts) table.remove(ts) table.remove(ts) end  --@ 한글화 여부 검사
+	if ts[#ts-1] == "유지중인 기술 : " then table.remove(ts) table.remove(ts) table.remove(ts) table.remove(ts) end
 
-	ts:add(true, {"color", "ORANGE"}, "Temporary Status Effects: ",{"color", "WHITE"}) --@@ 한글화 필요
+	ts:add(true, {"color", "ORANGE"}, "임시 상태효과 : ",{"color", "WHITE"})
 
 	local effmental = tstring{}
 	local effphysical = tstring{}
@@ -1874,7 +1874,7 @@ function _M:tooltip(x, y, seen_by)
 	ts:merge(effother)
 	ts:merge(effbeneficial)
 
-	if ts[#ts-1] == "Temporary Status Effects: " then table.remove(ts) table.remove(ts) table.remove(ts) table.remove(ts) end --@ 한글화 여부 검사
+	if ts[#ts-1] == "임시 상태효과 : " then table.remove(ts) table.remove(ts) table.remove(ts) table.remove(ts) end
 
 	return ts
 end
@@ -2034,7 +2034,7 @@ function _M:onTakeHit(value, src, death_note)
 			local ox, oy = self.x, self.y
 			self:move(nx, ny, true)
 			game.level.map:particleEmitter(ox, oy, math.max(math.abs(nx-ox), math.abs(ny-oy)), "lightning", {tx=nx-ox, ty=ny-oy})
-			game:delayedLogDamage(src or {}, self, 0, ("#STEEL_BLUE#(%d shifted)#LAST#"):format(value), nil) --@@ 한글화 필요
+			game:delayedLogDamage(src or {}, self, 0, ("#STEEL_BLUE#(%d 위상변환)#LAST#"):format(value), nil)
 			return 0
 		end
 	end

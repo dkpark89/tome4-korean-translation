@@ -598,7 +598,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of perfection (#MASTERY#)", suffix=true,
-	--kr_name = "의 ", --@@ 한글화 필요
+	kr_name = "완벽(#MASTERY#)의 ",
 	keywords = {perfection=true},
 	level_range = {30, 50},
 	rarity = 25,

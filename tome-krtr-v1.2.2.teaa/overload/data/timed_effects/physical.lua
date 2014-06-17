@@ -109,6 +109,7 @@ newEffect{
 newEffect{
 	name = "DELIRIOUS_CONCUSSION", image = "talents/slippery_moss.png",
 	desc = "Concussion",
+	kr_name = "뇌진탕",
 	long_desc = function(self, eff) return ("The target can't think straight, causing their actions to fail."):format() end,
 	type = "physical",
 	subtype = { concussion=true },
