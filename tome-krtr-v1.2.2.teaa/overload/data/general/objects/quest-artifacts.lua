@@ -448,20 +448,20 @@ newEntity{ base = "BASE_ROD",
 	end,
 }
 
---@@ 한글화 필요 #451~500(끝)
 newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "FUN_BIKINI",
 	unique = true,
 	name = "Bikini", color = colors.RED, image = "object/artifact/bikini.png",
 	unided_name = "tiny piece of cloth",
-	desc = [[Revealing, pink, fun.
-#{bold}#If you never take it off and win you will gain a neat achievement and bragging rights!#{normal}#]],
+	kr_name = "비키니", kr_unided_name = "작은 천조각",
+	desc = [[노출이 심한 핑크색의 재미난 옷입니다.
+#{bold}#이걸 입은 뒤에 한번도 벗지 않고 게임에서 이기면 멋진 업적을 얻고 자랑스러워 할 수 있습니다!#{normal}#]],
 	level_range = {1, 1},
 	rarity = false,
 	cost = 1,
 	material_level = 1,
 	moddable_tile = "special/bikini_01",
 	moddable_tile_big = true,
-	special_desc = function(self) return "You have never taken it off." end,
+	special_desc = function(self) return "한번도 벗은 적이 없습니다." end,
 	on_win = function(self)
 		world:gainAchievement("WIN_BIKINI", game.player)
 	end,
@@ -478,15 +478,16 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "FUN_MANKINI",
 	unique = true,
 	name = "Mankini", color = colors.RED, image = "object/artifact/bikini.png",
 	unided_name = "tiny piece of cloth",
-	desc = [[Revealing, green, fun.
-#{bold}#If you never take it off and win you will gain a neat achievement and bragging rights!#{normal}#]],
+	kr_name = "맨키니", kr_unided_name = "작은 천조각",
+	desc = [[노출이 삼한 녹색의 재미난 옷입니다.
+#{bold}#이걸 입은 뒤에 한번도 벗지 않고 게임에서 이기면 멋진 업적을 얻고 자랑스러워 할 수 있습니다!#{normal}#]],
 	level_range = {1, 1},
 	rarity = false,
 	cost = 1,
 	material_level = 1,
 	moddable_tile = "special/mankini_01",
 	moddable_tile_big = true,
-	special_desc = function(self) return "You have never taken it off." end,
+	special_desc = function(self) return "한번도 벗은 적이 없습니다." end,
 	on_win = function(self)
 		world:gainAchievement("WIN_MANKINI", game.player)
 	end,

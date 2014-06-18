@@ -747,7 +747,7 @@ newInscription{
 
 newInscription{
 	name = "Rune: Biting Gale",
-	--kr_name = "", --@@ 한글화 필요 : 이름 바뀐것 아님 ( 여기 원래 있던 빙결의 창 룬은 아래쪽에 따로 있음 ) /data/general/objects/scrolls.lua #405 와 이름 연동 필요
+	kr_name = "룬 : 살을 에는 강풍",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,

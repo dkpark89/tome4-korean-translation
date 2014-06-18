@@ -623,6 +623,7 @@ newTalent{
 
 newTalent{
 	name = "Shieldsmaiden Aura",
+	kr_name = "처녀방패의 오러",
 	type = {"misc/objects", 1},
 	points = 1,
 	mode = "passive",

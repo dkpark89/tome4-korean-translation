@@ -37,8 +37,8 @@ newEntity{ base = "BASE_GEM",
 	name = "Windborne Azurite", subtype = "blue",
 	color = colors.BLUE, image = "object/artifact/windborn_azurite.png",
 	level_range = {18, 40},
-	kr_name = "Windborne Azurite", kr_unided_name = "windy gem", --@@ 한글화 필요
-	desc = [[Air currents swirl around this bright blue jewel.]], --@@ 한글화 필요
+	kr_name = "풍화된 남동광", kr_unided_name = "바람의 보석",
+	desc = [[이 반짝이는 푸른 귀중품 주위로 대기가 소용돌이 칩니다.]],
 	rarity = 240,
 	cost = 200,
 	identified = false,
@@ -67,8 +67,8 @@ newEntity{ base = "BASE_GEM",
 -- The 3rd type is pretty meaningless balance-wise.  Magic debuffs hardly matter.  The real advantage is the affinity.
 newEntity{ base = "BASE_INFUSION",
 	name = "Primal Infusion", unique=true, image = "object/artifact/primal_infusion.png",
-	kr_name = "Primal Infusion", kr_unided_name = "pulsing infusion", --@@ 한글화 필요
-	desc = [[This wild infusion has evolved.]], --@@ 한글화 필요
+	kr_name = "근원의 주입물", kr_unided_name = "맥동하는 주입물",
+	desc = [[이 것은 진화한 야생의 주입물입니다.]],
 	unided_name = "pulsing infusion",
 	level_range = {15, 40},
 	rarity = 300,
@@ -547,7 +547,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 	on_takeoff = function(self, who)
 		self.worn_by = nil
 	end,
-	special_desc = function(self) return "Transfers a bleed, poison, or wound to its source or a nearby enemy every 4 turns." --@@ 한글화 필요
+	special_desc = function(self) return "4 턴 마다 착용자의 출혈, 중독 혹은 상처를 그 원천이나 인근의 적에게로 옮깁니다."
 	end,
 	wielder = {
 		combat_def = 6,
@@ -583,7 +583,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 				if p.src and p.src.setEffect and not p.src.dead then -- Most debuffs don't define a source
 					p.src:setEffect(eff_id, p.dur, effectParam)
 					who:removeEffect(eff_id)
-					game.logPlayer(who, "#CRIMSON#Rogue Plight transfers an effect to its source!") --@@ 한글화 필요
+					game.logPlayer(who, "#CRIMSON#'도둑의 맹세'가 원천에게로 상태 효과를 옮겼습니다!")
 					return true
 				else 
 					-- If there is no source move the debuff to an adjacent enemy instead
@@ -593,7 +593,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 						if act then
 							act:setEffect(eff_id, p.dur, effectParam)
 							who:removeEffect(eff_id)
-							game.logPlayer(who, "#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!") --@@ 한글화 필요
+							game.logPlayer(who, "#CRIMSON#'도둑의 맹세'가 인근의 적에게로 상태 효과를 옮겼습니다!")
 							return true
 						end		
 					end
@@ -4628,7 +4628,7 @@ newEntity{ base = "BASE_TOOL_MISC", --Sorta Thanks Donkatsu!
 		who:project(blast, who.x, who.y, engine.DamageType.HEALING_NATURE, 5)
 	end,
 	max_power = 15, power_regen = 1,
-	use_power = { name = "take root increasing health, armor, and armor hardiness but rooting you in place", power = 10, --@@ 한글화 필요 : kr_name 추가
+	use_power = { name = "take root increasing health, armor, and armor hardiness but rooting you in place", kr_name = "뿌리를 내려 그 자리에 속박되는 대신 생명력과 방어도, 방어 효율을 증가", power = 10,
 		use = function(self, who)
 			who:setEffect(who.EFF_TREE_OF_LIFE, 4, {})
 			return {id=true, used=true}
@@ -6250,9 +6250,9 @@ newEntity{ base = "BASE_KNIFE", --Shibari's #1
 					local DamageType = require "engine.DamageType" -- I don't entirely follow why this is necessary
 					if p.src and (p.src == who) then return end -- Keep Arcane Blade procs from hitting them since the projectile is still on top of them.
 					if p.name then 
-						game.logPlayer(who, "#GREEN#Lightning strikes the " .. (p.kr_name or p.name) .. "!") --@@ 한글화 필요
+						game.logPlayer(who, "#GREEN#뇌전이 " .. (p.kr_name or p.name) .. "에게 발사되었습니다!")
 					else
-						game.logPlayer(who, "#GREEN#Shantiz strikes down a projectile!") --@@ 한글화 필요
+						game.logPlayer(who, "#GREEN#샨티즈가 발사체를 파괴하였습니다!")
 					end
 					
 					p:terminate(x, y)
@@ -6285,26 +6285,26 @@ newEntity{ base = "BASE_KNIFE", --Shibari's #1
 	},
 }
 
---@@ 한글화 필요 #6288~6968(끝)
 newEntity{ base = "BASE_KNIFE",
 	power_source = {technique=true},
 	unique = true,
 	name = "Swordbreaker", image = "object/artifact/swordbreaker.png",
 	unided_name = "hooked blade",
-	desc = [[This ordinary blade is made of fine, sturdy voratun and outfitted with jagged hooks along the edge. This simple appearance belies a great power - the hooked maw of this dagger broke many a blade and the stride of many would-be warriors.]],
+	kr_name = "무기파괴자", kr_unided_name = "갈고리 칼",
+	desc = [[양질의 튼튼한 보라툰으로 만든 이 단검은 칼날 부분이 톱니 모양의 갈고리 같이 생겼습니다. 이 단순한 모양은 믿기 힘들 정도로 굉장한 성능을 보입니다. 이 단검의 갈고리는 많은 칼날들을 부숴왔고, 많은 전사들의 발걸음을 먹어치웠습니다.]],
 	level_range = {20, 30},
 	rarity = 250,
 	require = { stat = { dex=10, cun=10 }, },
 	cost = 300,
 	material_level = 3,
-	special_desc = function(self) return "Can block like a shield, potentially disarming the enemy." end,
+	special_desc = function(self) return "방패와 비슷한 막기 기술을 사용할 수 있고, 어쩌면 적을 무장해제 시킬수도 있습니다." end,
 	combat = {
 		dam = 25,
 		apr = 20,
 		physcrit = 15,
 		physspeed = 0.9,
 		dammod = {dex=0.5,cun=0.5},
-		special_on_crit = {desc="Breaks enemy weapon.", fct=function(combat, who, target)
+		special_on_crit = {desc="적의 무기 부수기.", fct=function(combat, who, target)
 			target:setEffect(target.EFF_SUNDER_ARMS, 5, {power=5+(who:combatPhysicalpower()*0.33), apply_power=who:combatPhysicalpower()})
 		end},
 	},
@@ -6328,7 +6328,8 @@ newEntity{ base = "BASE_SHIELD",
 	unided_name = "icy shield",
 	moddable_tile = "special/%s_shieldmaiden",
 	moddable_tile_big = true,
-	desc = [[Myths tell of shieldsmaidens, a tribe of warrior women from the northern wastes of Maj'Eyal. Their martial prowess and beauty drew the fascination of swaths of admirers, yet all unrequited. So began the saying, that a shieldsmaiden's heart is as cold and unbreakable as her shield.]],
+	kr_name = "처녀방패", kr_unided_name = "차가운 방패",
+	desc = [[신화에 따르면, 부족의 여전사 처녀방패들은 마즈'에이알 북쪽의 황무지에서 왔다고 합니다. 그녀들의 전투 역량과 아름다움은 수많은 이들을 매혹시켜 구혼자로 만들었으나, 아직도 모두가 짝사랑으로만 남아 있습니다. 그래서 처녀방패의 심장은 그녀의 방패와 같이 차갑고 꺾을 수 없다는 말이 돌고 있습니다.]],
 	color = colors.BLUE,
 	level_range = {36, 48},
 	rarity = 270,
@@ -6336,7 +6337,7 @@ newEntity{ base = "BASE_SHIELD",
 	cost = 400,
 	material_level = 5,
 	metallic = false,
-	special_desc = function(self) return "Granted talent can block up to 1 instance of damage each 10 turns." end,
+	special_desc = function(self) return "10 턴 마다 한번의 공격을 완전히 막아내는 기술이 부여되어 있습니다." end,
 	special_combat = {
 		dam = 48,
 		block = 150,
@@ -6361,12 +6362,13 @@ newEntity{ base = "BASE_GREATMAUL",
 	unique = true,
 	color = colors.BLUE,
 	name = "Tirakai's Maul", image = "object/artifact/tirakais_maul.png",
-	desc = [[This massive hammer is formed from a thick mass of strange crystalline growths. In the side of the hammer itself you see an empty slot; it looks like a gem of your own could easily fit inside it.]],
-	gemDesc = "None", -- Defined by the elemental properties and used by special_desc
+	kr_name = "티라카이의 대형망치",
+	desc = [[이 거대한 망치는 기묘하게 자라난 두꺼운 수정으로 형성되어 있습니다. 망치의 측면을 보면 비어있는 홈을 볼 수 있습니다. 이 홈에는 쉽게 보석을 박을 수 있을 것 같습니다.]],
+	gemDesc = "없음", -- Defined by the elemental properties and used by special_desc
 	special_desc = function(self)
 	-- You'll want to color this and such
 		if not self.Gem then return ("No gem") end
-		return ("%s: %s"):format(self.Gem.name:capitalize(), self.gemDesc or ("Write a description for this gem's properties!"))
+		return ("%s : %s"):format((self.Gem.kr_name or self.Gem.name):capitalize(), self.gemDesc or ("이 보석의 속성을 설명해 주세요!"))
 	end,	
 	cost = 1000,
 	material_level = 2, -- Changes to gem material level on socket
@@ -6380,12 +6382,12 @@ newEntity{ base = "BASE_GREATMAUL",
 		dammod = {str=1.2, mag=0.1},
 	},
 	max_power = 1, power_regen = 1,
-	use_power = { name = "imbue the hammer with a gem of your choice", power = 0,
+	use_power = { name = "imbue the hammer with a gem of your choice", kr_name = "망치에 원하는 보석 박기", power = 0,
 		use = function(self, who)
 			local DamageType = require "engine.DamageType"
 			local Stats = require "engine.interface.ActorStats"
 			local d
-			d = who:showInventory("Use which gem?", who:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.imbue_powers and gem.material_level end, function(gem, gem_item)
+			d = who:showInventory("어느 보석을 사용합니까?", who:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.imbue_powers and gem.material_level end, function(gem, gem_item)
 				local _, _, inven_id = who:findInAllInventoriesByObject(self)
 				who:onTakeoff(self, inven_id)
 				local name_old=self.name
@@ -6400,7 +6402,7 @@ newEntity{ base = "BASE_GREATMAUL",
 				local old_gem=self.Gem
 				if old_gem then
 					who:addObject(who:getInven("INVEN"), old_gem)
-					game.logPlayer(who, "You remove your %s.", old_gem:getName{do_colour=true, no_count=true})
+					game.logPlayer(who, "당신은 %s 뽑아 냈습니다.", old_gem:getName{do_colour=true, no_count=true}:addJosa("을"))
 				end
 				
 				if gem then
@@ -6408,7 +6410,7 @@ newEntity{ base = "BASE_GREATMAUL",
 					-- The Blank Slate.
 					self.Gem = nil
 					self.Gem = gem
-					self.gemDesc = "something has gone wrong"
+					self.gemDesc = "뭔가 잘못되었습니다"
 					
 					self.sentient = false
 					self.act = mod.class.Object.act
@@ -6439,7 +6441,7 @@ newEntity{ base = "BASE_GREATMAUL",
 						table.mergeAdd(self.wielder, {inc_damage = { [DamageType.ACID] = 4 * scalingFactor} }, true)
 						
 						self.combat.burst_on_crit = {[DamageType.ACID_DISARM] = 12 * scalingFactor,}
-						self.gemDesc = "Acid"
+						self.gemDesc = "산성"
 					end
 					if gem.subtype =="blue" then  -- Lightning
 						self.combat.damtype = DamageType.LIGHTNING
@@ -6448,7 +6450,7 @@ newEntity{ base = "BASE_GREATMAUL",
 						
 							}, true)
 						self.combat.burst_on_crit = {[DamageType.LIGHTNING_DAZE] = 12 * scalingFactor,}
-						self.gemDesc = "Lightning"
+						self.gemDesc = "전기"
 					end
 					if gem.subtype =="green" then  -- Nature
 						self.combat.damtype = DamageType.NATURE
@@ -6457,7 +6459,7 @@ newEntity{ base = "BASE_GREATMAUL",
 							
 							}, true)
 						self.combat.burst_on_crit = {[DamageType.SPYDRIC_POISON] = 12 * scalingFactor,}
-						self.gemDesc = "Nature"
+						self.gemDesc = "자연"
 					end
 					if gem.subtype =="red" then  -- Fire					
 						self.combat.damtype = DamageType.FIRE
@@ -6465,7 +6467,7 @@ newEntity{ base = "BASE_GREATMAUL",
 							inc_damage = { [DamageType.FIRE] = 4 * scalingFactor}, 
 						}, true)
 						self.combat.burst_on_crit = {[DamageType.FLAMESHOCK] = 12 * scalingFactor,}
-						self.gemDesc = "Fire"
+						self.gemDesc = "화염"
 					end
 					if gem.subtype =="violet" then -- Arcane
 						self.combat.damtype = DamageType.ARCANE
@@ -6474,7 +6476,7 @@ newEntity{ base = "BASE_GREATMAUL",
 							
 						}, true)
 						self.combat.burst_on_crit = {[DamageType.ARCANE_SILENCE] = 12 * scalingFactor,}
-						self.gemDesc = "Arcane"
+						self.gemDesc = "마법"
 					end
 					if gem.subtype =="white" then  -- Cold
 						self.combat.damtype = DamageType.COLD
@@ -6483,7 +6485,7 @@ newEntity{ base = "BASE_GREATMAUL",
 							
 						}, true)
 						self.combat.burst_on_crit = {[DamageType.ICE] = 12 * scalingFactor,}
-						self.gemDesc = "Cold"
+						self.gemDesc = "냉기"
 					end
 					if gem.subtype =="yellow" then -- Light
 						self.combat.damtype = DamageType.LIGHT
@@ -6492,7 +6494,7 @@ newEntity{ base = "BASE_GREATMAUL",
 							
 						}, true)	
 						self.combat.burst_on_crit = {[DamageType.LIGHT_BLIND] = 12 * scalingFactor,}
-						self.gemDesc = "Light"
+						self.gemDesc = "빛"
 					end
 					if gem.subtype == "multi-hued"  then -- Some but not all artifacts, if you want to do artifact specific effects make conditionals by name, don't use this
 						table.mergeAdd(self.combat, {convert_damage = {[DamageType.COLD] = 25, [DamageType.FIRE] = 25, [DamageType.LIGHTNING] = 25, [DamageType.ARCANE] = 25,} }, true)
@@ -6500,7 +6502,7 @@ newEntity{ base = "BASE_GREATMAUL",
 							inc_damage = { all = 2 * scalingFactor},
 							resists_pen = { all = 2 * scalingFactor},
 							}, true)	
-							self.gemDesc = "Unique"							
+							self.gemDesc = "고유"							
 					end
 					if gem.subtype == "demonic"  then -- Goedalath Rock
 						self.combat.damtype = DamageType.SHADOWFLAME
@@ -6508,9 +6510,9 @@ newEntity{ base = "BASE_GREATMAUL",
 							inc_damage = { [DamageType.FIRE] = 3 * scalingFactor, [DamageType.DARKNESS] = 3 * scalingFactor,},
 							resists_pen = { all = 2 * scalingFactor},
 							}, true)	
-							self.gemDesc = "Demonic"							
+							self.gemDesc = "악마"							
 					end
-					game.logPlayer(who, "You imbue your %s with %s.", self:getName{do_colour=true, no_count=true}, gem:getName{do_colour=true, no_count=true})
+					game.logPlayer(who, "당신은 %s에 %s 박아 넣었습니다.", self:getName{do_colour=true, no_count=true}, gem:getName{do_colour=true, no_count=true}:addJosa("를"))
 
 					--self.name = (gem.name .. " of Divinity")
 					
@@ -6551,7 +6553,8 @@ newEntity{ base = "BASE_GLOVES", define_as = "SET_GLOVE_DESTROYER",
 	unique = true,
 	name = "Fist of the Destroyer", color = colors.RED, image = "object/artifact/fist_of_the_destroyer.png",
 	unided_name = "vile gauntlets",
-	desc = [[These fell looking gloves glow with untold power.]],
+	kr_name = "파괴자의 주먹", kr_unided_name = "불결한 전투장갑",
+	desc = [[이 짐승 가죽은 밝혀지지 않은 힘으로 달아오른 장갑으로 보입니다.]],
 	level_range = {40, 50},
 	rarity = 300,
 	cost = 800,
@@ -6561,7 +6564,7 @@ newEntity{ base = "BASE_GLOVES", define_as = "SET_GLOVE_DESTROYER",
 		if self.set_complete then
 			num=6
 		end
-		return ("Increases all damage by %d%% of current vim \nCurrent Bonus: %d%%"):format(num, num*0.01*(game.player:getVim() or 0)) 
+		return ("현재 원기의 %d%% 만큼 모든 공격력 증가 \n현재 증가량 : %d%%"):format(num, num*0.01*(game.player:getVim() or 0)) 
 	end,
 	wielder = {
 		inc_stats = { [Stats.STAT_STR] = 9, [Stats.STAT_MAG] = 9, [Stats.STAT_CUN] = 3, },
@@ -6584,12 +6587,12 @@ newEntity{ base = "BASE_GLOVES", define_as = "SET_GLOVE_DESTROYER",
 	use_talent = { id = Talents.T_DARKFIRE, level = 5, power = 12 },
 	set_list = { {"define_as", "SET_ARMOR_MASOCHISM"} },
 	on_set_complete = function(self, who)
-		game.logPlayer(who, "#STEEL_BLUE#The fist and the mangled clothing glow ominously!")
+		game.logPlayer(who, "#STEEL_BLUE#주먹과 짓이긴 옷이 불길하게 달아오릅니다!")
 		self:specialSetAdd({"wielder","demonblood_dam"}, 0.02)
 		self:specialSetAdd({"wielder","inc_damage"}, { [engine.DamageType.FIRE] = 15, [engine.DamageType.DARKNESS] = 15, all = 5 })
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#STEEL_BLUE#The ominous glow dies down.")
+		game.logPlayer(who, "#STEEL_BLUE#불길한 달아오름이 사그라듭니다.")
 	end,
 }
 
@@ -6598,10 +6601,11 @@ newEntity{ base = "BASE_LIGHT_ARMOR", define_as = "SET_ARMOR_MASOCHISM",
 	unique = true,
 	name = "Masochism", color = colors.RED, image = "object/artifact/masochism.png",
 	unided_name = "mangled clothing",
-	desc = [[Stolen flesh,
-	Stolen pain,
-	To give it up,
-	Is to live again.]],
+	kr_name = "피학대 도착증", kr_unided_name = "짓이긴 옷",
+	desc = [[살점이 사라지고,
+	고통도 사라지네,
+	모두 다 포기하면,
+	다시금 살아나네.]],
 	level_range = {40, 50},
 	rarity = 300,
 	cost = 800,
@@ -6611,7 +6615,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR", define_as = "SET_ARMOR_MASOCHISM",
 		if self.set_complete then
 			num=10
 		end
-		return ("Reduces all damage by %d%% of current vim or 50%% of the damage, whichever is lower; but at the cost of vim equal to 5%% of the damage blocked. \nCurrent Bonus: %d"):format(num, num*0.01*(game.player:getVim() or 0)) 
+		return ("현재 원기의 %d%% 만큼 착용자가 받는 모든 피해를 줄여줍니다 (최대 감소량은 피해의 50%%). 피해 감소량의 5%% 만큼 원기가 사용됩니다. \n현재 감소량 : %d"):format(num, num*0.01*(game.player:getVim() or 0)) 
 	end,
 	wielder = {
 		inc_stats = {[Stats.STAT_MAG] = 9, [Stats.STAT_CUN] = 3, },
@@ -6642,7 +6646,8 @@ newEntity{ base = "BASE_GREATMAUL",
 	unique = true,
 	name = "Obliterator", color = colors.UMBER, image = "object/artifact/obliterator.png",
 	unided_name = "titanic maul",
-	desc = [[This massive hammer strikes with deadly force. Bones crunch, splinter and grind to dust under its impact.]],
+	kr_name = "소멸자", kr_unided_name = "타이탄의 대형망치",
+	desc = [[이 엄청나게 큰 망치를 휘두르는 것은 치명적입니다. 그 충격은 뼈를 부수고 작게 조각낸 후 갈아서 먼지가 될 정도입니다.]],
 	level_range = {23, 30},
 	rarity = 270,
 	require = { stat = { str=40 }, },
@@ -6667,7 +6672,8 @@ newEntity{ base = "BASE_HELM",
 	unique = true,
 	name = "Yaldan Baoth", image = "object/artifact/yaldan_baoth.png",
 	unided_name = "obscuring helm",
-	desc = [[The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, "Fear no evil", the crown was passed onto his successor.]],
+	kr_name = "얄단 바오쓰", kr_unided_name = "잘 보이지 않는 투구",
+	desc = [[The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, "Fear no evil", the crown was passed onto his successor.]], --@@ 한글화 필요
 	level_range = {28, 39,},
 	rarity = 240,
 	cost = 700,
@@ -6696,19 +6702,20 @@ newEntity{ base = "BASE_GREATSWORD",
 	power_source = {technique=true, arcane=true},
 	name = "Champion's Will", unique=true, image = "object/artifact/champions_will.png",
 	unided_name = "blindingly bright sword", color=colors.YELLOW,
-	desc = [[This impressive looking sword features a golden engraving of a sun in its hilt. Etched into its blade are a series of runes claiming that only one who has mastered both their body and mind may wield this sword effectively.]],
+	kr_name = "투사의 의지", kr_unided_name = "눈이 멀 정도로 환한 장검",
+	desc = [[이 인상깊게 생긴 장검의 손잡이에는 태양의 금장이 조각되어 있습니다. 그 칼날에 새겨진 일련의 룬들은 이 검을 효과적으로 다룰 이는 육체와 정신에 모두 정통한 자 뿐이라는 것을 단언하고 있습니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {40, 50},
 	rarity = 240,
 	cost = 280,
 	material_level = 5,
-	special_desc = function(self) return "Increases the damage of Sun Beam by 15%." end,
+	special_desc = function(self) return "태양광으로 공격력이 15% 상승합니다." end,
 	combat = {
 		dam = 67,
 		apr = 22,
 		physcrit = 12,
 		dammod = {str=1.15, con = 0.2},
-		special_on_hit = {desc="releases a burst of light, dealing damage equal to your spellpower in a 3 radius cone.", on_kill=1, fct=function(combat, who, target)
+		special_on_hit = {desc="폭발적인 빛으로 전방 3 칸 반경에 주문력 만큼의 피해 발생.", on_kill=1, fct=function(combat, who, target)
 			who.turn_procs.champion_will = (who.turn_procs.champion_will or 0) + 1
 			local tg = {type="cone", range=10, radius=3, force_target=target, selffire=false}
 			local grids = who:project(tg, target.x, target.y, engine.DamageType.LIGHT, who:combatSpellpower() / (who.turn_procs.champion_will))
@@ -6731,7 +6738,7 @@ newEntity{ base = "BASE_GREATSWORD",
 		amplify_sun_beam = 15,
 	},
 	max_power = 30, power_regen = 1,
-	use_power = { name = "strike with your weapon as 100% light damage, up to 4 spaces away, healing for 50% of the damage dealt", power = 30,
+	use_power = { name = "strike with your weapon as 100% light damage, up to 4 spaces away, healing for 50% of the damage dealt", kr_name = "무기로 100% 빛 속성 피해를 주는 공격 시도 (사정거리 4 칸), 피해량의 50% 만큼 생명력 회복", power = 30,
 		use = function(self, who)
 			local tg = {type="beam", range=4}
 			local x, y = who:getTarget(tg)
@@ -6756,14 +6763,15 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 	unique = true,
 	name = "Tarrasca", image = "object/artifact/terrasca.png",
 	unided_name = "absurdly large armor",
-	desc = [[This massive suit of plate boasts an enormous bulk and overbearing weight. Said to belong to a nameless soldier who safeguarded a passage across the bridge to his village, in defiance to the cohorts of invading orcs. After days of assault failed to fell him, the orcs turned back. The man however, fell dead on the spot - from exhaustion. The armor had finally claimed his life.]],
+	kr_name = "타라스카", kr_unided_name = "터무니없이 큰 갑옷",
+	desc = [[이 판갑은 그 거대한 크기와 위압적인 무게를 자랑합니다. 이것은 한 이름없는 병사의 것으로 알려져 있습니다. 그는 그의 마을로 가는 다리로 이어진 길을 오크 침략자 무리에 대항하여 막아낸 수호자였습니다. 오크들은 그를 쓰러뜨리는 것에 실패한 이후 되돌아갔습니다. 그러나 그 자리에서 그는 극도의 피로로 쓰러져 죽음을 맞이했습니다. 마지막까지 남아있는 갑옷만이 그의 삶을 증명하고 있습니다.]],
 	color = colors.RED,
 	level_range = {30, 40},
 	rarity = 320,
 	require = { stat = { str=52 }, },
 	cost = 500,
 	material_level = 4,
-	special_desc = function(self) return ("When your effective movement speed (global speed times movement speed) is less than 100%%, reduces all incoming damage equal to the speed detriment, but never to less than 30%% of the original damage.\nCurrent Resistance: %d%%"):format(100*(1-(util.bound(game.player.global_speed * game.player.movement_speed, 0.3, 1)))) end,
+	special_desc = function(self) return ("실질적인 이동 속도(전체속도x이동속도)가 100%% 보다 느리다면, 착용자가 받는 모든 피해를 느려진 속도 만큼 감소시켜 줍니다 (최대 감소량 70%%).\n현재 저항력 : %d%%"):format(100*(1-(util.bound(game.player.global_speed * game.player.movement_speed, 0.3, 1)))) end,
 	wielder = {
 		inc_stats = { [Stats.STAT_CON] = 15, },
 		combat_armor = 50,
@@ -6774,14 +6782,14 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 		speed_resist=1,
 	},
 	max_power = 25, power_regen = 1,
-	use_power = { name = "slow all units within 5 spaces (including yourself) by 40%", power = 25,
+	use_power = { name = "slow all units within 5 spaces (including yourself) by 40%", kr_name = "(자신을 포함한) 5 칸 반경의 모두를 40% 감속", power = 25,
 		use = function(self, who)
 			who:project({type="ball", range=0, radius=5}, who.x, who.y, function(px, py)
 				local target = game.level.map(px, py, engine.Map.ACTOR)
 				if not target then return end
 				target:setEffect(target.EFF_SLOW_MOVE, 3, {power=0.4, no_ct_effect=true, })
 			end)
-			game.logSeen(who, "%s thinks things really need to slow down for a bit.", who.name:capitalize())
+			game.logSeen(who, "%s 모든 것이 조금 느려질 필요가 있다고 생각했습니다.", (who.kr_name or who.name):capitalize():addJosa("는"))
 			return {id=true, used=true}
 		end
 	},
@@ -6798,7 +6806,8 @@ newEntity{ base = "BASE_LEATHER_CAP",
 	moddable_tile_big = true,
 	encumber = 2,
 	rarity = 200,
-	desc = [[This mask appears to be carved out of the skull of a creature that never should have existed, malformed and distorted. You shiver as you look upon it, and it's hollow eye sockets seem to stare back into you.]],
+	kr_name = "두려움의 얼굴", kr_unided_name = "뼈 가면",
+	desc = [[이 가면은 존재하지 말았어야 할 기형적이고 왜곡된 생명체의 두개골을 조각해서 만든 것입니다. 그것을 통해서 보면 전율이 오고, 그 움푹한 눈 구멍이 거꾸로 당신을 응시하는 것 같습니다.]],
 	cost = 200,
 	material_level=3,
 	wielder = {
@@ -6816,7 +6825,8 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	power_source = {arcane=true},
 	unided_name = "flame coated sandals",
 	name = "Cinderfeet", unique=true, image = "object/artifact/cinderfeet.png",
-	desc = [[A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.]],
+	kr_name = "재투성이 발", kr_unided_name = "불붙은 샌달",
+	desc = [[카임이라 불리는 고대의 요술사에 관해 전해오는 경계의 메세지가 있습니다. 그는 가혹한 악마의 황무지와 스스로를 시험하기 위해 매일 같이 괴달라스를 걷는 것을 좋아했습니다. 그는 악마가 그를 찾는 표식으로 사용될까봐 돌아올 때 아무것도 가져오지 않기 위해 주의를 했었습니다. 시간이 흘러 불행히도, 그의 샌달이 공포의 영역에서 재와 검댕으로 흠뻑 젖어버렸습니다. 결국 불길이 바깥으로 이어진 그의 발자국을 쫒아와, 그의 섬뜩한 운명의 결말을 그렸습니다.]],
 	require = { stat = { dex=10 }, },
 	level_range = {28, 38},
 	material_level = 4,
@@ -6838,7 +6848,7 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 		},
 		inc_stats = { [Stats.STAT_MAG] = 4, [Stats.STAT_CUN] = 4, },
 	},
-	special_desc = function(self) return "Trails fire behind you, dealing damage based on spellpower." end,
+	special_desc = function(self) return "화염이 당신 뒤를 쫒아오면서, 주문력에 비례한 피해를 줍니다." end,
 	on_wear = function(self, who)
 		self.worn_by = who
 		self.oldx=who.x
@@ -6887,7 +6897,8 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 	unided_name = "black, spiked armor",
 	moddable_tile = "special/dgs_clothes",
 	moddable_tile_big = true,
-	desc = [[Worn by a villain long forgotten, this armor was powered by the blood of thousands of innocents. Decrepit and old, the dark lord died in solitude, his dominion crumbled, his subjects gone. Only the plate remained, dying to finally taste fresh blood again.]],
+	kr_name = "암흑 군주의 흉갑", kr_unided_name = "징박힌 검은 갑옷",
+	desc = [[오랫동안 잊혀진 악당이 입던 이 갑옷은 수천의 무고한 생명체의 피에서 추출한 힘이 부여되어 있습니다. 암흑 군주가 늙고 약해져 고독하게 죽을 때, 그의 영토는 허물어지고 그의 신하들은 사라졌습니다. 결국 마지막으로 다시 한번 신선한 피를 맛본 이 철판만이 남았습니다.]],
 	color = colors.RED,
 	level_range = {40, 50},
 	rarity = 320,
@@ -6908,7 +6919,7 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 		resists={[DamageType.PHYSICAL] = 20},
 	},
 	max_power = 25, power_regen = 1,
-	use_power = { name = "drain blood from all units within 5 spaces, causing them to bleed for 120 physical damage over 4 turns. For every unit (up to 10) drained, the armor's stats increase, but decrease over 10 turns until back to normal", power = 25,
+	use_power = { name = "drain blood from all units within 5 spaces, causing them to bleed for 120 physical damage over 4 turns. For every unit (up to 10) drained, the armor's stats increase, but decrease over 10 turns until back to normal", kr_name = "5 칸 반경의 모두에게서 피를 흡수하여, 4 턴 동안 물리 속성 피해를 120 만큼 받는 출혈 상태를 일으킴. 피를 흡수한 생명의 수에 비례하여 (최대 10명까지) 일시적으로 갑옷의 능력이 상승 (10 턴 후 원상복구됨).", power = 25,
 		use = function(self, who)
 			self.blood_charge = 0
 			who:project({type="ball", range=0, radius=5, selffire=false}, who.x, who.y, function(px, py)
@@ -6919,7 +6930,7 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 			end)
 			if self.blood_charge > 10 then self.blood_charge = 10 end
 			self.blood_dur = 10
-			game.logSeen(who, "%s revels in blood!", self.name:capitalize())
+			game.logSeen(who, "피에 젖자, %s 매우 기뻐합니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 			return {id=true, used=true}
 		end
 	},
@@ -6930,7 +6941,7 @@ newEntity{ base = "BASE_MASSIVE_ARMOR",
 		self.worn_by = nil
 	end,
 	special_desc = function(self)
-		return ("Blood Charges: " .. (self.blood_charge or 0))
+		return ("채워진 피의 양 : " .. (self.blood_charge or 0))
 	end,
 	act = function(self)
 		self:useEnergy()

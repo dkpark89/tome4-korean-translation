@@ -103,7 +103,7 @@ for i, p in ipairs(list) do
 			local g = game.level.map(self.monolith_x, self.monolith_y, engine.Map.TERRAIN)
 			if not g or not g.is_monolith then return end
 			if self.self_sacrifice then
-				self:doEmote(rng.table{"제 영혼을 바칩니다!", "암흑의 여왕이 지배할 것입니다!", "저를 바치겠습니다! 저를 데려가십시오!", "죽음에서 삶이 오는 것이니!"}, 60)
+				self:doEmote(rng.table{"제 영혼을 바칩니다!", "암흑 여왕이 지배할 것입니다!", "저를 바치겠습니다! 저를 데려가십시오!", "죽음에서 삶이 오는 것이니!"}, 60)
 				g.add_displays[#g.add_displays].image = g.add_displays[#g.add_displays].image:gsub("/moonstone_0", "/darkgreen_moonstone_0")
 				g.name = "corrupted monolith"
 				game.level.event_cultists.sacrifice = game.level.event_cultists.sacrifice + 1
