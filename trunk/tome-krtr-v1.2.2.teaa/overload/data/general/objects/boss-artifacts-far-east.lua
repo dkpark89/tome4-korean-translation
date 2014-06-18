@@ -474,7 +474,7 @@ newEntity{ base = "BASE_GREATMAUL", define_as="ROTTING_MAUL",
 		dammod = {str=1.4},
 		convert_damage = {[DamageType.BLIGHT] = 20},
 		melee_project={[DamageType.ITEM_BLIGHT_DISEASE] = 50},
-		special_on_hit = {desc="Damages enemies in radius 1 around your target (based on Strength).", on_kill=1, fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="주변 1칸 반경의 적들에게 (힘 능력치에 따른) 피해 발생.", on_kill=1, fct=function(combat, who, target)
 			local o, item, inven_id = who:findInAllInventoriesBy("define_as", "ROTTING_MAUL")
 			local dam = rng.avg(1,3) * (70+ who:getStr())
 			game.logSeen(who, "%s의 충돌로 인해, 대지가 흔들립니다!", o:getName():capitalize())

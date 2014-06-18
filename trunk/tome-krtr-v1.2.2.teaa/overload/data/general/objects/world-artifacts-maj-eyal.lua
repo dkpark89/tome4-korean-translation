@@ -1110,7 +1110,7 @@ newEntity{ base = "BASE_KNIFE", --Razakai's idea, slightly modified
 		apr = 9,
 		physcrit = 15,
 		dammod = {str=0.45, dex=0.55},
-		special_on_hit = {desc="deals physical damage equal to 3% of the target's missing health", fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="대상이 받은 전체 생명력 피해량의 3% 만큼 물리 속성 피해 발생", fct=function(combat, who, target)
 			local tg = {type="ball", range=10, radius=0, selffire=false}
 			who:project(tg, target.x, target.y, engine.DamageType.PHYSICAL, (target.max_life - target.life)*0.03)
 		end},

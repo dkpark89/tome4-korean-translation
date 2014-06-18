@@ -73,7 +73,7 @@ newGem("Diamond",	"다이아몬드",	"object/diamond.png",5,		18,	"white",	40,	5
 )
 newGem("Pearl",	"진주",	"object/pearl.png",	5,		18,	"white",	40,	50, 5, 70,
 	{ resists = {all=5}, combat_armor = 5 },
-	{ splash={type="LITE", dam=100, desc = "Lights terrain (power 100)"} } --@@ 한글화 필요
+	{ splash={type="LITE", dam=100, desc = "지형 밝히기 (세기 100)"} }
 )
 newGem("Moonstone",	"월장석",	"object/moonstone.png",5,	18,	"white",	40,	50, 5, 70,
 	{ combat_def=10, combat_mentalresist=10, combat_spellresist=10, combat_physresist=10, },
@@ -101,7 +101,7 @@ newGem("Turquoise",	"터키옥",	"object/turquoise.png",4,	16,	"green",	30,	40, 
 )
 newGem("Jade",	"비취",		"object/jade.png",	4,	16,	"green",	30,	40, 4, 65,
 	{ resists = {all=4}, combat_armor = 4 },
-	{ splash={type="SLOW", dam= 1 - 1 / (1 + 0.20), desc = "Slows by 17%"} } --@@ 한글화 필요
+	{ splash={type="SLOW", dam= 1 - 1 / (1 + 0.20), desc = "17% 감속"} }
 )
 newGem("Sapphire",	"사파이어",	"object/sapphire.png",4,	16,	"blue",		30,	40, 4, 65,
 	{ combat_def=8, combat_mentalresist=8, combat_spellresist=8, combat_physresist=8, },
@@ -145,7 +145,7 @@ newGem("Aquamarine",	"남옥",	"object/aquamarine.png",2,	10,	"blue",		10,	20, 2
 )
 newGem("Ametrine",	"아메트린",	"object/ametrine.png",1,	8,	"yellow",	1,	10, 1, 20,
 	{ inc_damage = {all=2}, combat_physcrit=1, combat_mindcrit=1, combat_spellcrit=1, },
-	{ splash={type="LITE", dam=10, desc = "Lights terrain (power 10)"} } --@@ 한글화 필요
+	{ splash={type="LITE", dam=10, desc = "지형 밝히기 (세기 10)"} }
 )
 newGem("Zircon",	"지르콘",	"object/zircon.png",1,	8,	"yellow",	1,	10, 1, 20,
 	{ resists = {all=1}, combat_armor = 1 },

@@ -824,7 +824,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		compare_list(
-			"On weapon hit:", --@ 한글화 여부 검사
+			"공격 성공시 :",
 			function(combat)
 				if not combat then return {} end
 				local list = {}
@@ -842,7 +842,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		)
 
 		compare_list(
-			"On weapon crit:", --@ 한글화 여부 검사
+			"치명타 공격 성공시 :",
 			function(combat)
 				if not combat then return {} end
 				return get_special_list(combat, 'special_on_crit')
@@ -850,7 +850,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		)
 
 		compare_list(
-			"On weapon kill:", --@ 한글화 여부 검사
+			"이 무기로 살해시 :",
 			function(combat)
 				if not combat then return {} end
 				return get_special_list(combat, 'special_on_kill')
@@ -992,7 +992,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 			else
 				onhit_combat.on_melee_hit[i] = v
 			end
-		end --@ 여기까지 모두 한글화 코드 수정 필요
+		end --@ 여기까지
 
 		compare_table_fields(combat2, compare_with, field, "melee_project", "%d", "피해량 (근접공격) : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()

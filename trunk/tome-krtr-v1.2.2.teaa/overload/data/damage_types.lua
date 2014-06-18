@@ -1820,7 +1820,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #YELLOW#임의의 광기#LAST#를 발생 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #YELLOW#임의의 광기#LAST#를 발생 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1863,7 +1863,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #GREY#공격력 감소#LAST# 발생 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #GREY#공격력 감소#LAST# 발생 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1890,7 +1890,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #LIGHT_STEEL_BLUE#한 턴의 10%%#LAST# 만큼 추가 시간 획득 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #LIGHT_STEEL_BLUE#한 턴의 10%%#LAST# 만큼 추가 시간 획득 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1924,7 +1924,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #GREEN#방어구 부식#LAST# 발생 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #GREEN#방어구 부식#LAST# 발생 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1951,7 +1951,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #YELLOW#실명#LAST# 발생 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #YELLOW#실명#LAST# 발생 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -1981,7 +1981,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #ROYAL_BLUE#혼절#LAST# 발생 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #ROYAL_BLUE#혼절#LAST# 발생 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2012,7 +2012,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #DARK_GREEN#질병#LAST# 발생 (%s)")
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #DARK_GREEN#질병#LAST# 발생 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2039,7 +2039,7 @@ newDamageType{
 				parens = (" (#RED#%d#LAST#)"):format(diff)
 			end
 		end
-		return ("* #DARK_ORCHID#%d 마법 원천력#LAST#을 불태움 (%s)")
+		return ("* #DARK_ORCHID#%d 마법 원천력#LAST#을 불태움 %s")
 			:format(dam or 0, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2082,7 +2082,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* 전체 속도 #LIGHT_GREEN#%d%%#LAST# 감소 (%s)")
+		return ("* 전체 속도 #LIGHT_GREEN#%d%%#LAST# 감소 %s")
 			:format(dam, parens)
 	end,
 	projector = function(src, x, y, type, dam)
@@ -2108,7 +2108,7 @@ newDamageType{
 				parens = (" (#RED#%d%%#LAST#)"):format(diff)
 			end
 		end
-		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #ORCHID#공격력 %d%% 감소#LAST# (%s)") --@ "reduce power"를 "공격력 감소"로 번역 : 확인 필요
+		return ("* #LIGHT_GREEN#%d%%#LAST# 확률로 #ORCHID#공격력 %d%% 감소#LAST# %s") --@ "reduce power"를 "공격력 감소"로 번역 : 확인 필요
 			:format(dam, 20, parens)
 	end,
 	projector = function(src, x, y, type, dam)

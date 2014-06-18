@@ -41,9 +41,9 @@ newEntity{ base = "BASE_LONGSWORD",
 	winterStorm = nil,
 	special_desc = function(self)
 		if not self.winterStorm then 
-			return ("Storm Duration:  None") --@@ 한글화 필요
+			return ("폭풍 지속시간 : 없음")
 		else
-			return ("Storm Duration: " .. (self.winterStorm.duration or "None")) --@@ 한글화 필요
+			return ("폭풍 지속시간 : " .. (self.winterStorm.duration or "없음"))
 		end
 	end,
 	combat = {
@@ -53,7 +53,7 @@ newEntity{ base = "BASE_LONGSWORD",
 		dammod = {str=1},
 		damrange = 1.4,
 		melee_project={[DamageType.ICE] = 25}, -- Iceblock HP is based on damage, since were adding iceblock pierce we want this to be less generous
-		special_on_hit = {desc="Create a Winter Storm that gradually expands, dealing cold damage to your enemies each turn and reducing their turn energy by 20%.  Melee attacks will relocate the storm on top of your target and increase its duration.", on_kill=1, fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_hit = {desc="서서히 팽창하는 겨울의 폭풍을 만들어, 적들에게 매 턴마다 냉기 피해를 주고 전체 속도를 20% 느리게 만듭니다. 근접공격을 하면 폭풍은 그 대상의 위로 이동하면서 지속시간이 늘어납니다.", on_kill=1, fct=function(combat, who, target)
 			local Object = require "mod.class.Object"
 			local Map = require "engine.Map"
 
@@ -121,7 +121,7 @@ newEntity{ base = "BASE_LONGSWORD",
 		inc_damage = { [DamageType.COLD] = 20 },
 	},
 	max_power = 40, power_regen = 1,
-	use_power = { name ="intensify your winter storm creating unbreakable ice walls in each space", kr_name ="intensify your winter storm creating unbreakable ice walls in each space", power = 30, --@@ 한글화 필요 : kr_name만
+	use_power = { name ="intensify your winter storm creating unbreakable ice walls in each space", kr_name ="겨울의 폭풍이 중심부에 부서지지않는 얼음의 벽을 생성하도록 강화", power = 30,
 		use = function(self, who)
 			
 			local Object = require "mod.class.Object"
@@ -145,9 +145,9 @@ newEntity{ base = "BASE_LONGSWORD",
 					local e = Object.new{
 						old_feat = oe,
 						name = "winter wall", image = "npc/iceblock.png",
-						kr_name = "winter wall", --@@ 한글화 필요
+						kr_name = "겨울의 벽",
 						display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
-						desc = "a summoned wall of ice", --@@ 한글화 필요
+						desc = "소환된 얼음의 벽",
 						type = "wall", --subtype = "floor",
 						always_remember = true,
 						can_pass = {pass_wall=1},

@@ -402,7 +402,7 @@ newEntity{ base = "BASE_RUNE",
 -- This is mostly aimed at classes that want a decent way to land their stuns more reliably
 newEntity{ base = "BASE_RUNE",
 	name = "biting gale rune",
-	--kr_name = " 룬", --@@ 한글화 필요 /data/talents/misc/inscriptions.lua #750 내용과 연동 필요
+	kr_name = "살을 에는 강풍 룬",
 	level_range = {10, 50},
 	rarity = 25,
 	cost = 20,

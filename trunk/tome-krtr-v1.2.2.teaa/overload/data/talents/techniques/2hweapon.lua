@@ -323,7 +323,7 @@ newTalent{
 
 newTalent{
 	name = "Sunder Arms",
-	kr_name = "팔 부러뜨리기",
+	kr_name = "무기 부수기",
 	type = {"technique/2hweapon-cripple", 3},
 	require = techs_req3,
 	points = 5,
@@ -337,7 +337,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "양손 무기 없이는 팔 부러뜨리기를 쓸 수 없습니다!")
+			game.logPlayer(self, "양손 무기 없이는 무기 부수기를 쓸 수 없습니다!")
 			return nil
 		end
 
@@ -355,7 +355,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[대상의 팔을 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 정확도를 %d 감소시킵니다.
+		return ([[대상의 무기를 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 정확도를 %d 감소시킵니다.
 		정확도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5), t.getDuration(self, t), 3 * self:getTalentLevel(t)) --@ 변수 순서 조정

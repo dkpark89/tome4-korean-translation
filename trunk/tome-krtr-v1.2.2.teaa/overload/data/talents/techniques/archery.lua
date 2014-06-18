@@ -126,11 +126,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		local spt = t.shots_per_turn(self, t)
 		return ([[Quickly reload your ammo by %d (depends on masteries and object bonuses).
 		Doing so requires no turn but you are considered disarmed for 2 turns.
 
-		재장전 기술은 사용해도 은신 상태가 해제되지 않습니다.]]) --@@ 한글화 필요 #130~131
+		재장전 기술은 사용해도 은신 상태가 해제되지 않습니다.]]) --@@ 한글화 필요 #129~130
 		:format(self:reloadRate())
 	end,
 }

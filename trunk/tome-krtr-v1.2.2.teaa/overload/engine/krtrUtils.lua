@@ -6,7 +6,34 @@
 --krFont = "/data/font/soya.ttf" -- 소야논8 글꼴(288kB), 글자 가독성이 좀 떨어짐
 krFont = "/data/font/LexiSaebomR.ttf" -- 렉시새봄R 글꼴(1491kB)
 
-function string.addJosa(str, temp, addStr)
+local function findJosaType(str)
+	local length = str:len()
+	
+	local c1, c2
+	local c3 = str:lower():byte(length)
+	
+	local last = 0
+	if ( length < 3 ) or ( c3 < 128 ) then
+		--@ 여기오면 일단 한글은 아님
+
+		--@ 여기에 숫자나 알파벳인지 검사해서 아니면 마지막 글자 빼고 재귀호출하는 코드 삽입 필요
+		
+		if ( c3 == '1' or c3 == '7' or c3 == '8' or c3 == 'l' or c3 == 'r' ) then
+			last = 8 --@ 한글이 아니고, josa2를 사용하지만 '로'가 맞는 경우
+		elseif ( c3 == '3' or c3 == '6' or c3 == '0' or c3 == 'm' or c3 == 'n' ) then
+			last = 100 --@ 한글이 아니고, josa2를 사용하는 경우
+		end  
+	else --@ 한글로 추정 (정확히는 더 검사가 필요하지만..)
+		c1 = str:byte(length-2)
+		c2 = str:byte(length-1)
+		
+		last = ( (c1-234)*4096 + (c2-128)*64 + (c3-128) - 3072 )%28
+	end
+	
+	return last
+end
+
+function string.addJosa(str, temp)
 	local josa1, josa2, index
 
 	if temp == 1 or temp == "가" or temp == "이" then
@@ -41,30 +68,13 @@ function string.addJosa(str, temp, addStr)
 		if type(temp) == string then return str .. temp
 		else return str end 
 	end
-
-	local length = str:len()
 	
-	local c1, c2
-	local c3 = str:byte(length)
+	local type = findJosaType(str)
 	
-	local last = 0
-	if ( length < 3 ) or ( c3 < 128 ) then
-		if ( c3 == '1' or c3 == '7' or c3 == '8' or c3 == 'l' or c3 == 'r' ) then
-			last = 8 --@ 한글이 아니고, josa2를 사용하지만 '로'가 맞는 경우
-		elseif ( c3 == '3' or c3 == '6' or c3 == '0' or c3 == 'm' or c3 == 'n' ) then
-			last = 100 --@ 한글이 아니고, josa2를 사용하는 경우
-		end  
-	else --@ 한글로 추정 (정확히는 더 검사가 필요하지만..)
-		c1 = str:byte(length-2)
-		c2 = str:byte(length-1)
-		
-		last = ( (c1-234)*4096 + (c2-128)*64 + (c3-128) - 3072 )%28
-	end
-	
-	if last == 0 or ( index == 4 and last == 8 ) then
-		return str .. (addStr or "") .. josa1
+	if type == 0 or ( index == 4 and type == 8 ) then
+		return str .. josa1
 	else
-		return str .. (addStr or "") .. josa2
+		return str .. josa2
 	end
 end
 
@@ -977,7 +987,7 @@ end
 
 function string.krKeywords(str)
 	-- 관련내용 /data/general/objects/egos/에 있는 일반 아이템들의 keywords 들
-	-- 장비창에서의 짧은 아이템 설명에 사용. 현재 파일의 다음에 있는 table.krKeywordKeys 함수에서 사용 (#1499)
+	-- 장비창에서의 짧은 아이템 설명에 사용. 이 파일의 바로 다음에 있는 함수 table.krKeywordKeys() 에서 사용
 	local ori = str:lower()
 	local firstCh = ori:sub(1, 1) -- 속도를 위해 첫번자 글자만 떼서 먼저 검사
 	if firstCh == "'" then
@@ -1531,7 +1541,7 @@ end
 
 function string.krEffectSubtype(str)
 	-- 관련내용 /data/timed_effects/하위에서 "subtype"으로 검색해서 나오는 것들
-	-- 상태 효과의 속성들. 이 파일의 table.krEffectKeys 함수에서 사용 (#1637)
+	-- 상태 효과의 속성들. 이 파일의 바로 아래 함수 table.krEffectKeys() 에서 사용
 	local ori = str:lower()
 	if ori == '"cross tier"' then return "단계 차이"
 	elseif ori == 'acid' then return "산성"

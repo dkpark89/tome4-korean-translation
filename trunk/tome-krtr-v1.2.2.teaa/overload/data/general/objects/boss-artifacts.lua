@@ -184,7 +184,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 		physcrit = 8,
 		dammod = {str=1.2},
 		melee_project={[DamageType.SLIME] = 50, [DamageType.ACID] = 50},
-		special_on_crit = {desc="deal manaburn damage equal to your mindpower in a radius 3 cone", on_kill=1, fct=function(combat, who, target) --@@ 한글화 필요
+		special_on_crit = {desc="전방 3칸 반경으로 정신력 만큼의 마나태우기 피해 발생", on_kill=1, fct=function(combat, who, target)
 			who.turn_procs.gaping_maw = (who.turn_procs.gaping_maw or 0) + 1
 			local tg = {type="cone", range=10, radius=3, force_target=target, selffire=false}
 			local grids = who:project(tg, target.x, target.y, engine.DamageType.MANABURN, who:combatMindpower() / (who.turn_procs.gaping_maw))

@@ -954,8 +954,8 @@ newEffect{
 newEffect{
 	name = "SUNDER_ARMS", image = "talents/sunder_arms.png",
 	desc = "Sunder Arms",
-	kr_name = "팔 부상",
-	long_desc = function(self, eff) return ("팔 부상 : 정확도 -%d"):format(eff.power) end,
+	kr_name = "무기 손상",
+	long_desc = function(self, eff) return ("무기 손상 : 정확도 -%d"):format(eff.power) end,
 	type = "physical",
 	subtype = { sunder=true },
 	status = "detrimental",
