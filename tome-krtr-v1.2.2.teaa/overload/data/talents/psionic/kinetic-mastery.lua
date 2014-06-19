@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Transcendent Telekinesis",
+	kr_name = "발군의 염동력",
 	type = {"psionic/kinetic-mastery", 1},
 	require = psi_wil_high1,
 	points = 5,

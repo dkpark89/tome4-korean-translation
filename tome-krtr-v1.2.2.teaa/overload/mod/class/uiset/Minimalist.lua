@@ -1299,7 +1299,7 @@ function _M:handleEffect(player, eff_id, e, p, x, y, hs, bx, by, is_first, scale
 	local charges = e.charges and tostring(e.charges(player, p)) or "0"
 
 	if not self.tbuff[eff_id..":"..dur..":"..charges] then
-		local name = e.kr_name or e.desc --@ 한글이름 사용하도록 수정
+		local name = e.kr_desc or e.desc --@ 한글이름 사용하도록 수정
 		local desc = nil
 		local eff_subtype = table.concat(table.krEffectKeys(e.subtype), "/") --@ 상태효과 속성을 한글로 바꿔 나열
 		if e.display_desc then name = e.display_desc(self, p) end

@@ -103,7 +103,7 @@ newTalent{
 
 newTalent{
 	name = "Warding Weapon",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "방어적 무기술",
 	type = {"psionic/psi-fighting", 3},
 	require = psi_cun_req3,
 	points = 5,

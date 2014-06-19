@@ -69,7 +69,7 @@ newTalent{
 -- Spamming Crusade+whatever is always more energy efficient than this
 newTalent{
 	name = "Brandish",
-	kr_name = "광휘",
+	kr_name = "휘두르기",
 	type = {"celestial/guardian", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -84,7 +84,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 광휘를 사용할 수 없습니다!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 휘두르기를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -123,7 +123,7 @@ newTalent{
 
 newTalent{
 	name = "Retribution",
-	kr_name = "심판",
+	kr_name = "응보",
 	type = {"celestial/guardian", 3},
 	require = divi_req_high3, no_sustain_autoreset = true,
 	points = 5,
@@ -136,7 +136,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 심판을 사용할 수 없습니다!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 응보를 사용할 수 없습니다!")
 			return nil
 		end
 		local power = t.getDamage(self, t)

@@ -27,6 +27,7 @@ end
 
 newTalent{
 	name = "Radiance",
+	kr_name = "광휘",
 	type = {"celestial/radiance", 1},
 	mode = "passive",
 	require = divi_req1,
@@ -48,6 +49,7 @@ newTalent{
 
 newTalent{
 	name = "Illumination",
+	kr_name = "조명",
 	type = {"celestial/radiance", 2},
 	require = divi_req2,
 	points = 5,
@@ -85,6 +87,7 @@ newTalent{
 -- It can stay like this for now but may be worth making better
 newTalent{
 	name = "Searing Sight",
+	kr_name = "불타는 시선",
 	type = {"celestial/radiance",3},
 	require = divi_req3,
 	mode = "sustained",
@@ -124,6 +127,7 @@ newTalent{
 
 newTalent{
 	name = "Judgement",
+	kr_name = "심판",
 	type = {"celestial/radiance", 4},
 	require = divi_req4,
 	points = 5,
@@ -148,7 +152,7 @@ newTalent{
 			local proj = require("mod.class.Projectile"):makeHoming(
 				self,
 				{particle="bolt_light", trail="lighttrail"},
-				{speed=1, name="Judgement", dam=dam, movedam=movedam},
+				{speed=1, name="Judgement", kr_name="심판", dam=dam, movedam=movedam},
 				target,
 				self:getTalentRange(t),
 				function(self, src)

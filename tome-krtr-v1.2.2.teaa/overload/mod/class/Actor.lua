@@ -1853,18 +1853,18 @@ function _M:tooltip(x, y, seen_by)
 		local dur = p.dur + 1
 		if e.status == "detrimental" then
 			if e.type == "physical" then
-				effphysical:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_name or e.desc,dur) or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
+				effphysical:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_desc or e.desc, dur) or e.kr_desc or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
 			elseif e.type == "magical" then
-				effmagical:add(true, "- ", {"color", "DARK_ORCHID"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_name or e.desc,dur) or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
+				effmagical:add(true, "- ", {"color", "DARK_ORCHID"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_desc or e.desc, dur) or e.kr_desc or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
 			elseif e.type == "mental" then
-				effmental:add(true, "- ", {"color", "YELLOW"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_name or e.desc,dur) or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
+				effmental:add(true, "- ", {"color", "YELLOW"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_desc or e.desc, dur) or e.kr_desc or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
 			elseif e.type == "other" then
-				effother:add(true, "- ", {"color", "ORCHID"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_name or e.desc,dur) or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
+				effother:add(true, "- ", {"color", "ORCHID"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_desc or e.desc, dur) or e.kr_desc or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
 			else
-				ts:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_name or e.desc,dur) or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
+				ts:add(true, "- ", {"color", "LIGHT_RED"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_desc or e.desc, dur) or e.kr_desc or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
 			end		
 		else
-			effbeneficial:add(true, "- ", {"color", "LIGHT_GREEN"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_name or e.desc,dur) or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
+			effbeneficial:add(true, "- ", {"color", "LIGHT_GREEN"}, (e.decrease > 0) and ("%s(%d)"):format(e.kr_desc or e.desc, dur) or e.kr_desc or e.desc, {"color", "WHITE"} ) --@ 상태효과 한글화
 		end
 	end
 
@@ -5505,7 +5505,7 @@ function _M:on_set_temporary_effect(eff_id, e, p)
 		p.total_dur = p.dur
 
 		if e.status == "detrimental" and self:checkHit(save, p.apply_power, 0, 95) and p.dur > 0 then
-			game.logSeen(self, "#ORANGE#%s '%s' 효과를 벗어납니다!", (self.kr_name or self.name):capitalize():addJosa("는"), (e.kr_name or e.desc))
+			game.logSeen(self, "#ORANGE#%s '%s' 효과를 벗어납니다!", (self.kr_name or self.name):capitalize():addJosa("는"), (e.kr_desc or e.desc))
 			p.dur = 0
 		end
 

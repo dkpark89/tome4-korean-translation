@@ -20,6 +20,7 @@
 -- Baseline blind because the class has a lot of trouble with CC early game and rushing TL4 isn't reasonable
 newTalent{
 	name = "Sun Ray", short_name = "SUN_BEAM",
+	kr_name = "태양 광선",
 	type = {"celestial/sun", 1},
 	require = divi_req1,
 	random_ego = "attack",
@@ -68,6 +69,7 @@ newTalent{
 
 newTalent{
 	name = "Path of the Sun",
+	kr_name = "태양의 길",
 	type = {"celestial/sun", 2},
 	require = divi_req2,
 	points = 5,
@@ -110,6 +112,7 @@ newTalent{
 -- Can someone put a really obvious visual on this?
 newTalent{
 	name = "Sun's Vengeance", short_name = "SUN_VENGEANCE",
+	kr_name = "태양의 복수",
 	type = {"celestial/sun",3},
 	require = divi_req3,
 	mode = "passive",
@@ -151,6 +154,7 @@ newTalent{
 -- Banned from NPCs due to sheer scaling insanity
 newTalent{
 	name = "Suncloak",
+	kr_name = "태양 망토",
 	type = {"celestial/sun", 4},
 	require = divi_req4,
 	points = 5,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Transcendent Pyrokinesis",
+	kr_name = "발군의 염화",
 	type = {"psionic/thermal-mastery", 1},
 	require = psi_wil_high1,
 	points = 5,

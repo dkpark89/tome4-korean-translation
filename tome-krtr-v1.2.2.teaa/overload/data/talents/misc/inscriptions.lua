@@ -210,9 +210,9 @@ newInscription{
 }
 
 -- fixedart wild variant
-newInscription{ --@@ 한글화 필요 #213~285
+newInscription{
 	name = "Infusion: Primal", image = "talents/infusion__wild.png",
-	--kr_name = "",
+	kr_name = "주입 : 근원",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -267,20 +267,20 @@ newInscription{ --@@ 한글화 필요 #213~285
 			end
 		end
 		if known then
-			game.logSeen(self, "%s is cured!", self.name:capitalize())
+			game.logSeen(self, "%s 치료되었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		end
 		self:setEffect(self.EFF_PRIMAL_ATTUNEMENT, data.dur, {power=data.power + data.inc_stat})
 		return true
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		local what = table.concat(table.keys(data.what), ", ")
-		return ([[Activate the infusion to cure yourself of %s effects and increase affinity for all damage by %d%% for %d turns.]]):format(what, data.power+data.inc_stat, data.dur)
+		local what = table.concat(table.krEffectKeys(data.what), ", ") --@ 상태효과 이름 한글화
+		return ([[주입된 힘을 사용하여 %s 효과를 치료하고, %d 턴 동안 전체 피해 친화를 %d%% 상승시킵니다.]]):format(what, data.dur, data.power+data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		local what = table.concat(table.keys(data.what), ", ")
-		return ([[affinity %d%%; cure %s]]):format(data.power + data.inc_stat, what)
+		local what = table.concat(table.krEffectKeys(data.what), ", ") --@ 상태효과 이름 한글화
+		return ([[피해 친화 %d%% / %s 치료]]):format(data.power + data.inc_stat, what)
 	end,
 }
 

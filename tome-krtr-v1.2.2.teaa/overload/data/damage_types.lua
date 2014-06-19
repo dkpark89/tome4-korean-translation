@@ -1851,7 +1851,7 @@ newDamageType{
 
 newDamageType{
 	name = "item darkness numbing", type = "ITEM_DARKNESS_NUMBING",
-	kr_name = "물체부여된 어둠의 마비",
+	kr_name = "물체부여된 마비의 어둠",
 	tdesc = function(dam, oldDam)
 		parens = ""
 		dam = dam or 0
@@ -2359,7 +2359,7 @@ newDamageType{
 -- Light damage+heal source, used by Radiance
 newDamageType{
 	name = "judgement", type = "JUDGEMENT",
-	kr_name = "판결",
+	kr_name = "심판",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target and target ~= src then
@@ -3359,7 +3359,7 @@ newDamageType{
 				end)
 				if #list > 0 then
 					local st = rng.table(list)
-					src:projectile({type="bolt", range=6, x=x, y=y, speed = tg.speed or 6, name=tg.name or "bouncing slime", selffire=false, display={particle="bolt_slime"}}, st.x, st.y, DamageType.BOUNCE_SLIME, dam, {type="slime"})
+					src:projectile({type="bolt", range=6, x=x, y=y, speed = tg.speed or 6, name=tg.name or "bouncing slime", kr_name=tg.kr_name or tg.name or "활발한 슬라임", selffire=false, display={particle="bolt_slime"}}, st.x, st.y, DamageType.BOUNCE_SLIME, dam, {type="slime"})
 				end
 			end
 			return realdam
