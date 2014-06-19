@@ -116,7 +116,7 @@ newTalent{
 		if not self.cursed_aura then
 			return "없음"
 		else
-			return (self.tempeffect_def[self.cursed_aura].kr_name or self.tempeffect_def[self.cursed_aura].desc) 
+			return (self.tempeffect_def[self.cursed_aura].kr_desc or self.tempeffect_def[self.cursed_aura].desc) 
 		end
 	end,
 	on_onWear = function(self, t, o)

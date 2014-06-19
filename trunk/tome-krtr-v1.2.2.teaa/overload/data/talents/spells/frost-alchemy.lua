@@ -48,6 +48,7 @@ newTalent{
 
 newTalent{
 	name = "Ice Armour",
+	kr_name = "얼음 갑옷",
 	type = {"spell/frost-alchemy", 2},
 	require = spells_req2,
 	mode = "passive",

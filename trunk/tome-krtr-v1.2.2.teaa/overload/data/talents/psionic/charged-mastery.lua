@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Transcendent Electrokinesis",
+	kr_name = "발군의 전기역학",
 	type = {"psionic/charged-mastery", 1},
 	require = psi_cun_high1,
 	points = 5,
@@ -56,6 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Thought Sense",
+	kr_name = "관념적 감지",
 	type = {"psionic/charged-mastery", 2},
 	require = psi_cun_high2, 
 	points = 5,
@@ -127,6 +129,7 @@ newTalent{
 
 newTalent{
 	name = "Heartstart",
+	kr_name = "심장마사지",
 	type = {"psionic/charged-mastery", 4},
 	require = psi_cun_high4,
 	points = 5,

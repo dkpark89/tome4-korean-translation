@@ -1628,7 +1628,7 @@ function string.krEffectSubtype(str)
 	elseif ori == 'taint' then return "감염"
 	elseif ori == 'telekinesis' then return "염동력"
 	elseif ori == 'teleport' then return "순간이동"
-	elseif ori == 'tempo' then return "템포"
+	elseif ori == 'tempo' then return "전투적응"
 	elseif ori == 'temporal' then return "시간"
 	elseif ori == 'time' then return "시간왜곡"
 	elseif ori == 'timeport' then return "시공간이동"
@@ -1643,7 +1643,7 @@ function string.krEffectSubtype(str)
 end
 
 function table.krEffectKeys(t)
-	-- 상태 효과의 속성들. /mod/class/uiset/Minimalist.lua #1304, /mod/class/PlayerDisplay.lua #169 에서 사용
+	-- 상태 효과의 속성들. /data/talents/misc/inscriptions.lua #277, #282, /mod/class/uiset/Minimalist.lua #1304, /mod/class/PlayerDisplay.lua #169 에서 사용
 	local tt = {}
 	for k, e in pairs(t) do tt[#tt+1] = k:krEffectSubtype() end
 	return tt
@@ -1658,7 +1658,7 @@ function string.krRWKind(str)
 end
 
 function string.krHisHer(str)
-	-- /data/timed_effects/physical.lua #2126, /engine/interface/ActorTalents.lua #283, /mod/class/Actor.lua #2125, /mod/class/interface/Combat.lua #404 에서 사용
+	-- /data/timed_effects/mental.lua #3137, physical.lua #2126, /engine/interface/ActorTalents.lua #283, /mod/class/Actor.lua #2125, /mod/class/interface/Combat.lua #404 에서 사용
 	local ori = str:lower()
 	if ori == "her" then return "그녀"
 	elseif ori == "his" then return "그"

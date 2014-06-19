@@ -30,8 +30,8 @@ _M.display_on_unknown = false
 
 function _M:init(t, no_default)
 	t = t or {}
-	self.name = t.name or "발사체"
-	self.kr_name = t.kr_name or self.name --@ 한글 이름 추가
+	self.name = t.name or "projectile"
+	self.kr_name = t.kr_name or t.name or "발사체" --@ 한글 이름 추가
 	self.energy = t.energy or { value=game.energy_to_act, mod=2 }
 	self.energy.value = self.energy.value or game.energy_to_act
 	self.energy.mod = self.energy.mod or 10

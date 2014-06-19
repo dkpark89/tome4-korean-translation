@@ -48,6 +48,7 @@ newTalent{
 
 newTalent{
 	name = "Caustic Golem",
+	kr_name = "부식성 골렘",
 	type = {"spell/acid-alchemy", 2},
 	require = spells_req2,
 	mode = "passive",

@@ -1643,7 +1643,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 	if self.curse then
 		local t = use_actor:getTalentFromId(use_actor.T_DEFILING_TOUCH)
 		if t and t.canCurseItem(use_actor, t, self) then
-			desc:add({"color",0xf5,0x3c,0xbe}, (use_actor.tempeffect_def[self.curse].kr_name or use_actor.tempeffect_def[self.curse].desc), {"color","LAST"}, true) --@ 저주이름 한글화
+			desc:add({"color",0xf5,0x3c,0xbe}, (use_actor.tempeffect_def[self.curse].kr_desc or use_actor.tempeffect_def[self.curse].desc), {"color","LAST"}, true) --@ 저주이름 한글화
 		end
 	end
 

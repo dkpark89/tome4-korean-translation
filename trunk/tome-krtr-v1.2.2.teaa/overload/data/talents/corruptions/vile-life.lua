@@ -121,6 +121,7 @@ newTalent{
 
 newTalent{
 	name = "Healing Inversion",
+	kr_name = "회복 반전",
 	type = {"corruption/vile-life", 3},
 	require = corrs_req3,
 	points = 5,

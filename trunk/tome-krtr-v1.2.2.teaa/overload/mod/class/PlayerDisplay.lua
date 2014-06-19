@@ -164,7 +164,7 @@ end
 function _M:handleEffect(eff_id, e, p, ex, h)
 	local player = game.player
 	local dur = p.dur + 1
-	local name = e.kr_name or e.desc --@ 한글 이름 추가
+	local name = e.kr_desc or e.desc --@ 한글 이름 추가
 	local desc = nil
 	local eff_subtype = table.concat(table.krEffectKeys(e.subtype), "/") --@ 상태효과 속성을 한글로 바꿔 나열
 	if e.display_desc then name = e.display_desc(self, p) end

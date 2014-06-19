@@ -65,6 +65,7 @@ newTalent{
 -- Part of 2H core defense to be compared with Shield of Light, Retribution, etc
 newTalent{
 	name = "Mark of Light",
+	kr_name = "빛의 표식",
 	type = {"celestial/crusader", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -94,6 +95,7 @@ newTalent{
 -- Sustain because dealing damage is not strictly beneficial (radiants) and because 2H needed some sustain cost
 newTalent{
 	name = "Righteous Strength",
+	kr_name = "올바른 힘",
 	type = {"celestial/crusader",3},
 	require = divi_req_high3,
 	points = 5,
