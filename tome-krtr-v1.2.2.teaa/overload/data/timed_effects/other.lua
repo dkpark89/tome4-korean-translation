@@ -879,7 +879,7 @@ newEffect{
 	end,
 	npcWalkingCorpse = {
 		name = "walking corpse",
-		kr_desc = "걸어다니는 시체",
+		kr_name = "걸어다니는 시체",
 		display = "z", color=colors.GREY, image="npc/undead_ghoul_ghoul.png",
 		type = "undead", subtype = "ghoul",
 		desc = [[방금 전까지 살아있던 적의 시체입니다. 자신의 몸이 움직이는 것을 신기해 하는 것 같습니다.]],
@@ -1290,7 +1290,7 @@ newEffect{
 	end,
 	npcTerror = {
 		name = "terror",
-		kr_desc = "공포",
+		kr_name = "공포",
 		display = "h", color=colors.DARK_GREY, image="npc/horror_eldritch_nightmare_horror.png",
 		blood_color = colors.BLUE,
 		desc = "형체가 없는 공포로, 희생자를 포함한 모든 것을 베어버립니다.",
@@ -1825,7 +1825,7 @@ newEffect{
 				ai = "summoned", ai_real = "tactical",
 				ai_state = eff.target.ai_state or { ai_move="move_complex", talent_in=1 },
 				name = eff.target.name.."'s dream projection",
-				kr_desc = (eff.target.kr_name or eff.target.name).."의 투영된 꿈",
+				kr_name = (eff.target.kr_name or eff.target.name).."의 투영된 꿈",
 			})
 			m.ai_state.ally_compassion = 10
 			m:removeAllMOs()

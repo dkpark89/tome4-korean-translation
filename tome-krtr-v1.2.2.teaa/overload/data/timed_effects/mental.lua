@@ -1228,7 +1228,7 @@ newEffect{
 	end,
 	npcTormentor = {
 		name = "tormentor",
-		kr_desc = "격통을 주는 자",
+		kr_name = "격통을 주는 자",
 		display = "h", color=colors.DARK_GREY, image="npc/horror_eldritch_nightmare_horror.png",
 		blood_color = colors.BLACK,
 		desc = "정신을 파괴하는 두려운 환영입니다.",
