@@ -148,6 +148,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_TRAINED_REACTIONS",
 	name = "Trained Reactions",
+	kr_name = "훈련된 반사반응",
 	type = {"technique/acrobatics", 3},
 	mode = "sustained",
 	points = 5,
@@ -212,6 +213,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_SUPERB_AGILITY",
 	name = "Superb Agility",
+	kr_name = "최고급의 기민함",
 	type = {"technique/acrobatics", 4},
 	require = techs_dex_req4,
 	mode = "passive",

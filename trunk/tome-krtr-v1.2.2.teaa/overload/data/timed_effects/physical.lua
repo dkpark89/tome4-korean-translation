@@ -2666,18 +2666,17 @@ newEffect{
 	end,
 }
 
---@@ 한글화 필요 #2669~2927(끝)
 newEffect{
 	name = "NATURE_REPLENISHMENT", image = "talents/meditation.png",
 	desc = "Natural Replenishment",
-	--kr_desc = "",
-	long_desc = function(self, eff) return ("The target has been directly exposed to arcane energies and has responded by reasserting it's connection to nature, restoring %0.1f Equilibrium per turn."):format(eff.power) end,
+	kr_desc = "자연적 보급",
+	long_desc = function(self, eff) return ("마법 에너지에 직접적 노출, 자연과의 연결점에 반응 : 매 턴 마다 %0.1f 평정 회복."):format(eff.power) end,
 	type = "physical",
 	subtype = { nature=true },
 	status = "beneficial",
 	parameters = {power=1},
-	on_gain = function(self, err) return ("#Target# defiantly reasserts %s connection to nature!"):format(string.his_her(self)), "+Nature Replenishment" end,
-	on_lose = function(self, err) return "#Target# stops restoring Equilibrium.", "-Nature Replenishment" end,
+	on_gain = function(self, err) return ("#Target2# %s 자연의 연결점에 적대적으로 반응합니다!"):format(string.his_her(self):krHisHer():addJosa("와")), "+자연적 보급" end, 
+	on_lose = function(self, err) return "#Target#의 평정 회복이 멈췄습니다.", "-자연적 보급" end,
 	on_timeout = function(self, eff)
 		self:incEquilibrium(-eff.power)
 	end,
@@ -2687,8 +2686,8 @@ newEffect{
 newEffect{
 	name = "BERSERKER_RAGE", image = "talents/berserker.png",
 	desc = "Berserker Rage",
-	--kr_desc = "",
-	long_desc = function(self, eff) return ("Increases critical hit chance by %d%%."):format(eff.power) end,
+	kr_desc = "광전사의 분노",
+	long_desc = function(self, eff) return ("치명타 확률 %d%% 증가."):format(eff.power) end,
 	type = "physical",
 	subtype = { tactic=true },
 	status = "beneficial",
@@ -2704,8 +2703,8 @@ newEffect{
 newEffect{
 	name = "RELENTLESS_FURY", image = "talents/relentless_fury.png",
 	desc = "Relentless Fury",
-	--kr_desc = "",
-	long_desc = function(self, eff) return ("Increases stamina regeneration by %d, movement and attack speed by %d%%."):format(eff.stamina, eff.speed) end,
+	kr_desc = "무자비한 분노",
+	long_desc = function(self, eff) return ("체력 재생 %d 증가 / 이동속도 %d%% 증가 / 공격속도 %d%% 증가."):format(eff.stamina, eff.speed, eff.speed) end, --@ 변수 조정
 	type = "physical",
 	subtype = { tactic=true },
 	status = "beneficial",
@@ -2732,7 +2731,7 @@ end
 newEffect {
 	name = "SKIRMISHER_DIRECTED_SPEED",
 	desc = "Directed Speed",
-	--kr_desc = "",
+	kr_desc = "통제된 속도",
 	type = "physical",
 	subtype = {speed = true},
 	parameters = {
@@ -2744,7 +2743,7 @@ newEffect {
 		move_speed_bonus = 1.00
 	},
 	status = "beneficial",
-	on_lose = function(self, eff) return "#Target# loses speed.", "-Directed Speed" end,
+	on_lose = function(self, eff) return "#Target2# 속도를 유지하지 못하게 되었습니다.", "-통제된 속도" end,
 	callbackOnMove = function(self, eff, moved, force, ox, oy)
 		local angle_start = normalize_direction(math.atan2(self.y - eff.start_y, self.x - eff.start_x))
 		local angle_last = normalize_direction(math.atan2(self.y - eff.last_y, self.x - eff.last_x))
@@ -2779,8 +2778,8 @@ newEffect {
 		end
 	end,
 	long_desc = function(self, eff)
-		return ([[Target is currently moving with %d%% additional speed in a single direction (%s). Stopping or changing directions will remove this effect.]])
-		:format(eff.move_speed_bonus * 100, eff.compass or "unknown")
+		return ([[대상은 한쪽 방향으로 움직일 때 %d%% 만큼 추가적인 속도를 낼 수 있습니다 (현재 방향 : %s). 멈추거나 움직이는 방향을 바꾸면 이 효과는 사라집니다.]])
+		:format(eff.move_speed_bonus * 100, eff.compass or "알수없는 방향") --@ 한글화 여부 검사 : eff.compass
 	end,
 }
 
@@ -2789,14 +2788,14 @@ newEffect {
 newEffect {
 	name = "SKIRMISHER_STUN_INCREASE",
 	desc = "Stun Lengthen",
-	--kr_desc = "",
+	kr_desc = "기절 연장",
 	type = "physical",
 	subtype = {stun = true},
 	status = "detrimental",
 	on_gain = function(self, eff)
 		local stun = self:hasEffect(self.EFF_STUNNED)
 		if stun and stun.dur and stun.dur > 1 then
-			return ("#Target# is stunned further! (now %d turns)"):format(stun.dur), "Stun Lengthened"
+			return ("#Target2# 더 오래 기절합니다! (현재 %d 턴)"):format(stun.dur), "기절 연장"
 		end
 	end,
 	activate = function(self, eff)
@@ -2813,7 +2812,7 @@ newEffect {
 newEffect {
 	name = "SKIRMISHER_ETERNAL_WARRIOR",
 	desc = "Eternal Warrior",
-	--kr_desc = "",
+	kr_desc = "불멸의 전사",
 	image = "talents/skirmisher_the_eternal_warrior.png",
 	type = "mental",
 	subtype = { morale=true },
@@ -2826,10 +2825,10 @@ newEffect {
 		-- Maximum stacking applications
 		max=5
 	},
-	on_gain = function(self, err) return nil, "+Eternal Warrior" end,
-	on_lose = function(self, err) return nil, "-Eternal Warrior" end,
+	on_gain = function(self, err) return nil, "+불멸의 전사" end,
+	on_lose = function(self, err) return nil, "-불멸의 전사" end,
 	long_desc = function(self, eff)
-		return ("The target stands strong, increasing all resistances by %0.1f%% and resistance caps by %0.1f%%."):
+		return ("강력함을 유지 : 전체 저항 %0.1f%% 상승 / 전체 한계 저항 %0.1f%% 상승."):
 		format(eff.res, eff.cap)
 	end,
 	activate = function(self, eff)
@@ -2854,16 +2853,16 @@ newEffect {
 newEffect {
 	name = "SKIRMISHER_TACTICAL_POSITION",
 	desc = "Tactical Position",
-	--kr_desc = "",
+	kr_desc = "전략적 위치선정",
 	type = "physical",
 	subtype = {tactic = true},
 	status = "beneficial",
 	parameters = {combat_physcrit = 10},
 	long_desc = function(self, eff)
-		return ([[The target has relocated to a favorable position, giving them +%d%% physical critical chance.]])
+		return ([[유리한 위치 선정 : 물리 치명타 확률 +%d%%.]])
 		:format(eff.combat_physcrit)
 	end,
-	on_gain = function(self, eff) return "#Target# is poised to strike!" end,
+	on_gain = function(self, eff) return "#Target1# 공격하기 위한 자세를 잡습니다!" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_physcrit", eff.combat_physcrit)
 	end,
@@ -2872,7 +2871,7 @@ newEffect {
 newEffect {
 	name = "SKIRMISHER_DEFENSIVE_ROLL",
 	desc = "Defensive Roll",
-	--kr_desc = "",
+	kr_desc = "방어용 몸놀림",
 	type = "physical",
 	subtype = {tactic = true},
 	status = "beneficial",
@@ -2880,12 +2879,12 @@ newEffect {
 		-- percent of all damage to ignore
 		reduce = 50
 	},
-	on_gain = function(self, eff) return "#Target# rolls to avoid some damage!" end,
+	on_gain = function(self, eff) return "#Target1# 피해를 회피하기 위해 몸을 돌렸습니다!" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "incoming_reduce", eff.reduce)
 	end,
 	long_desc = function(self, eff)
-		return ([[The target is in a defensive roll, ignoring %d%% of all incoming damage.]])
+		return ([[방어용 몸놀림 : 전체 피해 중 %d%% 무시.]])
 		:format(eff.reduce)
 	end,
 }
@@ -2893,21 +2892,21 @@ newEffect {
 newEffect {
 	name = "SKIRMISHER_TRAINED_REACTIONS_COOLDOWN",
 	desc = "Trained Reactions Cooldown",
-	--kr_desc = "",
+	kr_desc = "훈련된 반사반응의 지연시간",
 	type = "other",
 	subtype = {cooldown = true},
 	status = "detrimental",
 	no_stop_resting = true,
-	on_lose = function(self, eff) return "#LIGHT_BLUE##Target# may dodge again.", "+Trained Reactions" end,
+	on_lose = function(self, eff) return "#LIGHT_BLUE##Target2# 이번에도 회피할 것 같습니다.", "+훈련된 반사반응" end,
 	long_desc = function(self, eff)
-		return "Trained Reactions may not trigger."
+		return "훈련된 반사반응을 수행하지 못합니다."
 	end,
 }
 
 newEffect {
 	name = "SKIRMISHER_SUPERB_AGILITY",
 	desc = "Superb Agility",
-	--kr_desc = "",
+	kr_desc = "최고급의 기민함",
 	image = "talents/skirmisher_superb_agility.png",
 	type = "physical",
 	subtype = {speed = true},
@@ -2915,12 +2914,12 @@ newEffect {
 	parameters = {
 		global_speed_add = 0.1,
 	},
-	on_gain = function(self, eff) return "#Target# has sped up!" end,
+	on_gain = function(self, eff) return "#Target1# 속도를 높입니다!" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "global_speed_add", eff.global_speed_add)
 	end,
 	long_desc = function(self, eff)
-		return ([[The target's reactions have quickened, giving +%d%% global speed.]])
+		return ([[반응이 빨라짐 : 전체 속도 +%d%%.]])
 		:format(eff.global_speed_add * 100)
 	end,
 }

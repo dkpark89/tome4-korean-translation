@@ -1658,7 +1658,7 @@ function string.krRWKind(str)
 end
 
 function string.krHisHer(str)
-	-- /data/timed_effects/mental.lua #3137, physical.lua #2126, /engine/interface/ActorTalents.lua #283, /mod/class/Actor.lua #2125, /mod/class/interface/Combat.lua #404 에서 사용
+	-- /data/timed_effects/mental.lua #3137, physical.lua #2126, #2679, /engine/interface/ActorTalents.lua #283, /mod/class/Actor.lua #2125, /mod/class/interface/Combat.lua #404 에서 사용
 	local ori = str:lower()
 	if ori == "her" then return "그녀"
 	elseif ori == "his" then return "그"
