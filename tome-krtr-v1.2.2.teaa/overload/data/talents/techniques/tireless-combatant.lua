@@ -167,6 +167,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_THE_ETERNAL_WARRIOR",
 	name = "The Eternal Warrior",
+	kr_name = "불멸의 전사",
 	type = {"technique/tireless-combatant", 4},
 	require = techs_wil_req4,
 	mode = "passive",

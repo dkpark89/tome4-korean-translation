@@ -59,6 +59,7 @@ newTalent{
 
 newTalent{
 	name = "Berserker Rage", image = "talents/berserker.png",
+	kr_name = "광전사의 분노",
 	type = {"technique/strength-of-the-berserker", 2},
 	require = techs_req2,
 	points = 5,
@@ -199,6 +200,7 @@ newTalent{
 
 newTalent{
 	name = "Relentless Fury",
+	kr_name = "무자비한 분노",
 	type = {"technique/strength-of-the-berserker", 4},
 	require = techs_req4,
 	points = 5,
