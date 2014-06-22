@@ -69,10 +69,10 @@ newTalent{
 		local saves = t.getResists(self, t)
 		local life = t.getLifePct(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[태양의 영광을 노래하여, 물리 내성과 주문 내성을 %d 상승시킵니다 and increasing your maximum life by %0.1f%% (Currently:  %d).
+		return ([[태양의 영광을 노래하여, 물리 내성과 주문 내성을 %d 상승시키고 최대 생명력을 %0.1f%% 증가시킵니다. (현재 상승량 : %d)
 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다.
 		한번에 하나의 찬가만을 유지할 수 있습니다.
-		내성 상승량과 피해량은 주문력의 영향을 받아 증가하고, 생명력은 기술 레벨의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #72
+		내성 상승량과 피해량은 주문력의 영향을 받아 증가하고, 생명력은 기술 레벨의 영향을 받아 증가합니다.]]):
 		format(saves, life*100, life*self.max_life, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -114,10 +114,10 @@ newTalent{
 	info = function(self, t)
 		local range = -t.getDamageChange(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[태양의 영광을 노래하여, reducing the damage enemies 2 or more spaces away deal by %d%%.
+		return ([[태양의 영광을 노래하여, 2 칸 이상 떨어진 적에게서 받는 공격의 피해량을 %d%% 만큼 감소시킵니다.
 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다.
 		한번에 하나의 찬가만을 유지할 수 있습니다.
-		피해 감소량은 기술 레벨의 영향을 받아 증가하고, 피해량은 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #117
+		피해 감소량은 기술 레벨의 영향을 받아 증가하고, 피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(range, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -208,11 +208,11 @@ newTalent{
 		local damageinc = t.getLightDamageIncrease(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local lite = t.getLite(self, t)
-		return ([[태양의 영광을 노래하여, 빛 과 화염 속성으로 적을 공격할 때 %d%% 피해를 추가로 줍니다.
+		return ([[태양의 영광을 노래하여, 빛과 화염 속성으로 적을 공격할 때 %d%% 피해를 추가로 줍니다.
 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 의 빛 피해를 되돌려 줍니다.
-		또한, 광원 반경이 %d 칸 증가됩니다.
-		한번에 하나의 찬가만을 유지할 수 있습니다 and this Chant costs less power to sustain.
-		기술의 효과는 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #214
+		또한, 광원 반경이 %d 칸 증가됩니다. 이 찬가는 다른 찬가들에 비해 적은 원천력으로 유지할 수 있습니다.
+		한번에 하나의 찬가만을 유지할 수 있습니다. 
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]): 
 		format(damageinc, damDesc(self, DamageType.LIGHT, damage), lite)
 	end,
 }

@@ -224,9 +224,9 @@ newTalent{
 		local s_str = getShieldStrength(self, t)
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 물리/산성/자연/시간 속성의 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
-		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
-		At talent level 3, when you de-activate the shield all the absorbed damage in the last 6 turns is released as a full psionic shield (absorbing all damage).
-		보호막의 최대 피해 흡수량과 the efficiency of the psi gain는 정신력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #228~229
+		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
+		기술 레벨이 3 이상일 경우, 보호막을 해제할 때 마지막 6 턴 동안 흡수한 피해량만큼을 완전히 막아내는 염력 보호막을 만들어냅니다.
+		보호막의 최대 피해 흡수량과 염력 회복 효율은 정신력의 영향을 받아 증가합니다.]]): 
 		format(absorb, s_str, shieldMastery(self, t), maxPsiAbsorb(self,t))
 	end,
 }
@@ -370,9 +370,9 @@ newTalent{
 		local s_str = getShieldStrength(self, t)
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 화염/냉기/빛/마법 속성 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
-		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
-		At talent level 3, when you de-activate the shield all the absorbed damage in the last 6 turns is released as a full psionic shield (absorbing all damage).
-		보호막의 최대 피해 흡수량과 the efficiency of the psi gain는 정신력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #374~375
+		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
+		기술 레벨이 3 이상일 경우, 보호막을 해제할 때 마지막 6 턴 동안 흡수한 피해량만큼을 완전히 막아내는 염력 보호막을 만들어냅니다.
+		보호막의 최대 피해 흡수량과 염력 회복 효율은 정신력의 영향을 받아 증가합니다.]]): 
 		format(absorb, s_str, shieldMastery(self, t), maxPsiAbsorb(self,t))
 	end,
 }
@@ -515,15 +515,16 @@ newTalent{
 		local xs = (chargedElement(self, t, DamageType.DARKNESS) and "어둠 속성, " or "")..(chargedElement(self, t, DamageType.MIND) and "정신 속성, " or "")
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 전기/황폐/어둠/정신 속성 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
-		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수했을 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
-		At talent level 3, when you de-activate the shield all the absorbed damage in the last 6 turns is released as a full psionic shield (absorbing all damage).
-		보호막의 최대 피해 흡수량과 the efficiency of the psi gain는 정신력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #519~520
+		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
+		기술 레벨이 3 이상일 경우, 보호막을 해제할 때 마지막 6 턴 동안 흡수한 피해량만큼을 완전히 막아내는 염력 보호막을 만들어냅니다.
+		보호막의 최대 피해 흡수량과 염력 회복 효율은 정신력의 영향을 받아 증가합니다.]]): 
 		format(absorb, s_str, shieldMastery(self, t), maxPsiAbsorb(self,t))
 	end,
 }
 
 newTalent{
 	name = "Forcefield",
+	kr_name = "정신역장",
 	--kr_name = "", --@@ 한글화 필요
 	type = {"psionic/absorption", 4},
 	require = psi_cun_req4,
@@ -568,8 +569,8 @@ newTalent{
 		self.forcefield_timer = self.forcefield_timer + 1
 	end,
 	info = function(self, t)
-		return ([[Surround yourself with a forcefield, reducing all incoming damage by %d%%. 
-		Such a shield is very expensive to maintain, and will drain 5%% of your maximum psi each turn, for each turn you have it maintained. eg. turn 2 it will drain 10%%.]]): --@@ 한글화 필요 #571~572
+		return ([[시전자 주변을 정신역장으로 둘러싸, 모든 피해량을 %d%% 감소시킵니다.
+		이 강력한 보호막은 매우 유지하기 힘들기 때문에, 매 턴마다 최대 염력의 5%% 만큼이 소모됩니다. 염력 소모량은 중첩됩니다. (1 턴 지속 : 5%% 소모 / 2 턴 지속 : 5%% + 10%% 소모 / ...)]]): 
 		format(t.getResist(self,t))
 	end,
 }

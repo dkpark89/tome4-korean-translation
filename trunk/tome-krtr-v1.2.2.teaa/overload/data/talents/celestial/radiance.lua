@@ -39,9 +39,9 @@ newTalent{
 		self:talentTemporaryValue(p, "blind_immune", t.getResist(self, t) / 100)
 	end,
 	info = function(self, t)
-		return ([[You are so infused with sunlight that your body glows permanently in radius %d, even in dark places.
-		Your vision adapts to this glow, giving you %d%% blindness resistance.
-		The light radius overrides your normal light if it is bigger (it does not stack).
+		return ([[몸에 주입된 빛의 힘으로 인해서, 어두운 곳에서도 적용되는 영구적인 광원 반경을 %d 칸 얻게 됩니다.
+		또한 눈이 빛에 적응하여, 실명 면역력이 %d%% 증가하게 됩니다.
+		이 기술을 통해 얻는 광원 반경이 장비의 광원 반경보다 클 경우, 보다 큰 쪽을 따릅니다. (즉, 서로 더해지지 않습니다)
 		]]):
 		format(radianceRadius(self), t.getResist(self, t))
 	end,
@@ -75,10 +75,10 @@ newTalent{
 		end end end		
 	end,
 	info = function(self, t)
-		return ([[The light of your Radiance allows you to see that which would normally be unseen.
-		All enemies in your Radiance aura have their invisibility and stealth power reduced by %d.
-		In addition, all actors affected by illumination are easier to see and therefore hit; their defense is reduced by %d and all evasion bonuses from being unseen are negated.
-		The effects increase with your Spellpower.]]):
+		return ([[몸에서 나오는 광휘를 통해, 보통은 볼 수 없는 것들까지 볼 수 있게 됩니다.
+		광휘의 광원 반경 내에 있는 적들은 은신 능력과 투명화 능력이 %d 감소하게 됩니다.
+		그리고 조명의 영향을 받은 모든 대상들은 더 공격하기 쉬워지게 되어, 회피도가 %d 감소하고 보이지 않는 것으로부터 얻는 회피 상승 효과가 무효화됩니다.
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getDef(self, t))
 	end,
 }
@@ -118,9 +118,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your Radiance is so powerful it burns all foes caught in it, doing up to %0.1f light damage (reduced with distance) to all foes caught inside.
-		At level 4 the light is so bright it has %d%% chances to daze them for 3 turns.
-		The damage increases with your Spellpower.]]):
+		return ([[몸에서 나오는 광휘가 너무나 강렬하여, 광휘의 영향범위에 있는 모든 적들에게 최대 %0.1f 의 빛 피해를 입힙니다. (거리에 따라 피해량 감소)
+		기술 레벨이 4 이상일 경우, 적들은 너무나 밝은 빛에 의해 %d%% 확률로 3 턴 동안 혼절 상태에 빠지게 됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, t.getDamage(self, t)), t.getDaze(self, t))
 	end,
 }
@@ -175,7 +175,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fire a glowing orb of light at each enemy within your Radiance.  Each orb will slowly follow its target until it connects dealing %d light damage to anything else it contacts along the way.  When the target is reached the orb will explode dealing %d light damage and healing you for 50%% of the damage dealt.  This powerful ability will dim your Radiance, reducing its radius to 1 for 5 turns.]]):
+		return ([[광휘 안에 있는 모든 적들에게 빛나는 오브를 발사합니다. 각각의 오브는 대상을 천천히 추적하며, 추적 중에 부딪히는 모든 대상에게 %d 빛 피해를 줍니다. 추적 대상에 도달할 경우 오브는 폭발하여 %d 빛 피해를 주고, 피해량의 50%% 만큼 시전자의 생명력을 회복시킵니다.
+		이 강력한 능력은 광휘를 일시적으로 흐리게 만들어, 5 턴 동안 광휘의 반경이 1 로 줄어들게 됩니다.]]):
 		format(t.getMoveDamage(self, t), t.getExplosionDamage(self, t))
 	end,
 }

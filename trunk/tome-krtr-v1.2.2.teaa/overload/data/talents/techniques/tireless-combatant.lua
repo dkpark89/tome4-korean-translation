@@ -18,6 +18,7 @@
 newTalent {
 	short_name = "SKIRMISHER_BREATHING_ROOM",
 	name = "Breathing Room",
+	kr_name = "휴게실",
 	type = {"technique/tireless-combatant", 1},
 	require = techs_wil_req1,
 	mode = "passive",
@@ -67,7 +68,8 @@ newTalent {
 	end,
 	info = function(self, t)
 		local stamina = t.getRestoreRate(self, t)
-		return ([[Any time you do not have an opponent in a square adjacent to you, you gain %0.1f Stamina regeneration. With the third talent point, you also gain an equal amount of life regen when Breathing Room is active.]])
+		return ([[인접한 곳에 적이 없을 경우, 체력 재생량이 %0.1f 만큼 늘어납니다.
+		이 기술에 직업기술 점수를 3 점 이상 투자할 경우, 체력 재생량 증가분만큼 생명력 재생량도 증가하게 됩니다.]])
 			:format(stamina)
 	end,
 }
@@ -75,6 +77,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_PACE_YOURSELF",
 	name = "Pace Yourself",
+	kr_name = "완급 조절",
 	type = {"technique/tireless-combatant", 2},
 	mode = "sustained",
 	points = 5,
@@ -101,7 +104,7 @@ newTalent {
 	info = function(self, t)
 		local slow = t.getSlow(self, t) * 100
 		local reduction = t.getReduction(self, t)
-		return ([[Control your movements to conserve your energy.  While this talent is activated, you are globally slowed by %0.1f%%, and your fatigue is decreased by %d%% (to a minimum of 0%%).]])
+		return ([[움직임을 통제하여 힘을 비축합니다. 이 기술이 활성화 중인 동안 전체 속도가 %0.1f%% 감소하게 되지만, 대신 피로도가 %d%% 감소하게 됩니다. (최소 0%% 까지 감소)]])
 		:format(slow, reduction)
 	end,
 }
@@ -109,6 +112,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_DAUNTLESS_CHALLENGER",
 	name = "Dauntless Challenger",
+	kr_name = "불굴의 도전가",
 	type = {"technique/tireless-combatant", 3},
 	require = techs_wil_req3,
 	mode = "passive",
@@ -159,7 +163,8 @@ newTalent {
 	info = function(self, t)
 		local stamina = t.getStaminaRate(self, t)
 		local health = t.getLifeRate(self, t)
-		return ([[When the going gets tough, you get tougher. You gain %0.1f Stamina regen per enemy in sight, and beginning with the third talent point, you also gain %0.1f life regen per enemy. The bonuses cap at 4 enemies.]])
+		return ([[좌절감이 사나이를 키우는 법입니다. 시야의 적 하나마다 체력 회복량이 %0.1f 상승하게 됩니다.
+		이 기술에 직업기술 점수를 3 점 이상 투자할 경우, 시야의 적 하나마다 생명력 회복량도 %0.1f 상승하게 됩니다. 이 효과는 최대 4 명의 적이 있을 때까지 적용됩니다.]])
 			:format(stamina, health)
 	end,
 }
@@ -211,8 +216,8 @@ newTalent {
 		local resist = t.getResist(self, t)
 		local cap = t.getResistCap(self, t)
 		local mult = (t.getMult(self, t, true) - 1) * 100
-		return ([[For each turn you spend stamina, you gain %0.1f%% resist all and %0.1f%% all resistances cap for %d turns. The buff stacks up to %d times, and each new application refreshes the duration.
-		Additionally, at the fifth talent point, Breathing Room and Dauntless Challenger are %d%% more effective.]])
-			:format(resist, cap, duration, max, mult)
+		return ([[체력을 소모한 매 턴마다, %d 턴 동안 %0.1f%% 전체 저항력과 %0.1f%% 전체 저항력 한계수치가 상승합니다. 이 효과는 최대 %d 번 까지 중첩되며, 새로 적용될 때마다 지속 시간이 초기화됩니다.
+		또한 이 기술에 직업기술 점수를 5 점 이상 투자할 경우, 휴게실 기술과 불굴의 도전자 기술의 효율이 %d%% 증가합니다.]])
+			:format(duration, resist, cap, max, mult)
 	end,
 }

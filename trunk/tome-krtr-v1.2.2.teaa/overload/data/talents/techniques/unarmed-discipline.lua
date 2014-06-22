@@ -23,7 +23,7 @@ require "engine.krtrUtils"
 -- I lied, letting the AI use this is a terrible idea
 newTalent{
 	name = "Combination Kick",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "연속 발차기", 
 	type = {"technique/unarmed-discipline", 1},
 	short_name = "PUSH_KICK",
 	require = techs_dex_req1,
@@ -31,7 +31,7 @@ newTalent{
 	random_ego = "attack",
 	cooldown = 10,
 	stamina = 40,
-	message = "@Source@ unleashes a flurry of disrupting kicks.", --@@ 한글화 필요
+	message = "@Source1@ 적의 집중을 방해하는 연속 발차기를 날립니다.", 
 	tactical = { ATTACK = { weapon = 2 }, },
 	requires_target = true,
 	--on_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_COMBO) then if not silent then game.logPlayer(self, "You must have a combo going to use this ability.") end return false end return true end,
@@ -82,10 +82,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Unleash a flurry of disruptive kicks at your target's vulnerable areas.  For each combo point you attack for %d%% weapon damage and deactivate one physical sustain.
-			At talent level 3 #DARK_ORCHID#Magical#LAST# sustains will also be effected.
-			At talent level 5 #YELLOW#Mental#LAST# sustains will also be effected.
-			Using this talent removes your combo points.]]) --@@ 한글화 필요 #85~88
+		return ([[적의 약점을 찌르는 연속 발차기를 날립니다. 연계 점수당 한 번씩 %d%% 무기 피해로 공격하며, 적의 집중력에 지장을 주어 이로운 물리적 상태효과를 하나씩 제거합니다.
+		기술 레벨이 3 이상일 경우, 이로운 #DARK_ORCHID#마법적#LAST# 상태효과도 제거됩니다.
+		기술 레벨이 5 이상일 경우, 이로운 #YELLOW#정신적#LAST# 상태효과도 제거됩니다.
+		이 기술을 사용하면 연계 점수가 초기화됩니다.]]) 
 		:format(damage)
 	end,
 }
@@ -149,7 +149,7 @@ newTalent{
 
 newTalent{
 	name = "Open Palm Block",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "손날 막기", 
 	short_name = "BREATH_CONTROL",
 	type = {"technique/unarmed-discipline", 3},
 	require = techs_dex_req3,
@@ -157,7 +157,7 @@ newTalent{
 	random_ego = "attack",
 	cooldown = 8,
 	stamina = 25,
-	message = "@Source@ prepares to block incoming attacks.", --@@ 한글화 필요
+	message = "@Source2@ 수비 자세를 취합니다.",
 	tactical = { ATTACK = 3, DEFEND = 3 },
 	requires_target = true,
 	getBlock = function(self, t) return self:combatTalentPhysicalDamage(t, 10, 75) end,
@@ -172,9 +172,9 @@ newTalent{
 	info = function(self, t)
 		local block = t.getBlock(self, t)
 		local maxblock = block*5
-		return ([[Toughen your body blocking up to %d damage per combo point (Max %d) across 2 turns.
-			Current block value:  %d
-			Using this talent removes your combo points.]]) --@@ 한글화 필요 #175~177
+		return ([[육체를 강화시켜, 연계 점수 당 %d 피해를 막아냅니다. (최대 %d) 방어는 2 턴 동안 유지됩니다.
+		현재 막아낼 수 있는 피해량 : %d
+		이 기술을 사용하면 연계 점수가 초기화됩니다.]]) 
 		:format(block, maxblock, block * self:getCombo())
 	end,
 }

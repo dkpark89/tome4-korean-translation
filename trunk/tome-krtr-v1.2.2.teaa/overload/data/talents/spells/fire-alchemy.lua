@@ -20,7 +20,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Flame Infusion", short_name = "FIRE_INFUSION",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "화염 주입",
 	type = {"spell/fire-alchemy", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -41,8 +41,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with flames that burn for a few turns.
-		In addition all fire damage you do is increased by %d%%.]]): --@@ 한글화 필요 #44~45
+		return ([[연금술 폭탄을 던질 때, 적을 몇 턴 동안 불타오르게 만드는 화염을 주입해 던집니다.
+		또한, 모든 화염 피해량이 %d%% 증가합니다.]]): 
 		format(daminc)
 	end,
 }

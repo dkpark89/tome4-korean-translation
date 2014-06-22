@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 newChat{ id="caravan",
-	text = [[#VIOLET#*마지막 상인이 죽기 직전, 당신은 그를 보았습니다. 그의 눈에 차오른 증오를 보았습니다.*#LAST#
-우리는 오늘까지만 하면 이 일을 끝낼 수 있었다. 이 자비심 없는 놈아!]],
+	text = [[#VIOLET#*마지막 상인이 죽기 직전, 당신은 그를, 그의 눈에 차오른 증오를 보았습니다.*#LAST#
+그날 네놈을 확실히 끝내버렸어야 했다. 네놈에게 자비 따위는 필요 없었어!]],
 	answers = {
 		{
-			"그렇다면 너에게도 내 무자비함을 보여주지. #LIGHT_GREEN#[그를 죽인다]#LAST#",
+			"그렇다면 너에게 내 무자비함을 보여주지. #LIGHT_GREEN#[그를 죽인다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_evil_choice(player)
 				player:hasQuest("keepsake"):on_caravan_destroyed_chat_over(player)
@@ -39,7 +39,7 @@ newChat{ id="caravan",
 }
 
 newChat{ id="apology",
-	text = [[#VIOLET#*당신이 그를 도와주기 전에, 그는 땅에 쓰러져 죽음을 맞이했습니다.*#LAST#]],
+	text = [[#VIOLET#*당신이 그를 도와주기도 전에, 그는 땅에 쓰러져 죽음을 맞이했습니다.*#LAST#]],
 	answers = {
 		{
 			"...",

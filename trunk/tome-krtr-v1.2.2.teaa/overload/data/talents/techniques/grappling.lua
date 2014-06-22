@@ -105,10 +105,10 @@ newTalent{
 		local drain = t.getDrain(self, t)
 		local share = t.getSharePct(self, t)*100
 		local damage = t.getDamage(self, t)*100
-		return ([[자신의 신체 크기보다 한 단계 큰 대상까지에게 %d%% 피해의 근접공격을 한 뒤 붙잡기 시도를 합니다. 붙잡기에 성공하면 대상을 %d 턴 동안 붙잡고 있게됩니다.
-		붙잡힌 대상은 이동할 수 없게 되고, 붙잡힌 동안 매 턴마다 %d의 피해를 받습니다. 또한 붙잡힌 상태에서 붙잡은 이가 받는 피해의 %d%%는 붙잡힌 대상에게 전달됩니다. 
+		return ([[자신의 신체 크기보다 한 단계 큰 대상까지에게 %d%% 피해의 근접공격을 한 뒤 붙잡기 시도를 합니다. 붙잡기에 성공하면 대상을 %d 턴 동안 붙잡고 있게 됩니다.
+		붙잡힌 대상은 이동할 수 없게 되고, 붙잡힌 동안 매 턴마다 %d의 피해를 받습니다. 또한 붙잡힌 상태에서 붙잡은 이가 받는 피해의 %d%% 는 붙잡힌 대상에게 전달됩니다. 
 		붙잡은 상태에서 이동하게 되면 기술이 풀리며, 붙잡기를 유지하는 동안에는 매 턴마다 체력이 %d 씩 소모됩니다.
-		한 번에 하나의 대상만을 붙잡을 수 있으며, 다른 대상에게 맨손 전투 기술을 사용하면 붙잡은 대상이 풀려납니다.]])
+		한번에 하나의 대상만을 붙잡을 수 있으며, 다른 대상에게 맨손 전투 기술을 사용하면 붙잡은 대상이 풀려납니다.]])
 		:format(damage, duration, power, share, drain)
 	end,
 }
@@ -148,10 +148,10 @@ newTalent{
 		local reduction = t.getDamageReduction(self, t)
 		local slow = t.getSlow(self, t)
 		
-		return ([[Enhances your grapples with additional effects.  All additional effects will apply to every grapple with no additional save or resist check.
-		#RED#Talent Level 1:  Reduces base weapon damage by %d
-		Talent Level 3:  Silences
-		Talent Level 5:  Reduces global action speed by %d%%]]) --@@ 한글화 필요 #151~154
+		return ([[적을 잡는 능력을 강화하여, 추가 효과를 발생시킵니다. 모든 추가 효과는 내성이나 저항을 무시하고 발동합니다.
+		#RED#기술 레벨 1 이상 : 적의 기본 무기 피해량 %d 감소
+		기술 레벨 3 이상 : 적 침묵
+		기술 레벨 5 이상 : 적의 전체 행동 속도 %d%% 감소#LAST#]]) 
 		:format(reduction, slow*100)
 	end,
 }
@@ -241,7 +241,7 @@ newTalent{
 	info = function(self, t)
 		local takedown = t.getDamage(self, t)*100
 		local slam = t.getSlam(self, t)
-		return ([[대상에게 달려들어 넘어뜨리면서 %d%% 피해의 근접공격을 하고, 대상을 붙잡습니다. 대상이 이미 붙잡힌 상태라면, 대상을 땅바닥에 내동댕이 쳐서 5 칸 반경으로 %d 의 물리 피해를 발생시키는 충격파를 일으키면서 대상에게로의 붙잡기는 풀리게 됩니다.
+		return ([[대상에게 달려들어 넘어뜨리면서 %d%% 피해의 근접공격을 하고, 대상을 붙잡습니다. 대상이 이미 붙잡힌 상태라면, 대상을 땅바닥에 내동댕이 쳐서 5 칸 반경으로 %d 의 물리 피해를 발생시키는 충격파를 일으키지만 대상에게로의 붙잡기는 풀리게 됩니다.
 		붙잡기 효과는 다른 붙잡기 기술들의 영향을 받으며, 물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (takedown)), damDesc(self, DamageType.PHYSICAL, (slam)))
 	end,
@@ -249,7 +249,7 @@ newTalent{
 
 newTalent{
 	name = "Hurricane Throw",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "폭풍 투척", 
 	type = {"technique/grappling", 4},
 	require = techs_req4,
 	points = 5,
@@ -313,6 +313,6 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[In a mighty show of strength you whirl your grappled victim around and throw them into the air causing %d%% damage to them and any nearby enemies they collide with on landing.]]):format(t.getDamage(self, t)*100) --@@ 한글화 필요	
+		return ([[붙잡은 적을 강력한 힘으로 빙빙 돌린 뒤, 멀리 던져버립니다. 이를 통해 던져진 적과 낙하지점 주변의 모든 적들에게 %d%% 피해를 줍니다.]]):format(t.getDamage(self, t)*100) 
 	end,
 }

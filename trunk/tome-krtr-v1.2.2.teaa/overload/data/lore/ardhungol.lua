@@ -25,13 +25,13 @@ newLore{
 	id = "ardhungol-1",
 	category = "ardhungol",
 	name = "Rashim Journal (1)",
-	lore = [[#{bold}#Journal Entry I#{normal}#
+	lore = [[#{bold}#여행 일지 I#{normal}#
 
-It's been some time since High Sun Paladin Aeryn sent me out on an assignment. According to recent intelligence, it would seem that a cavern has mysteriously emerged near our outpost, the Gates of Morning. They have bestowed the name "Ardhungol" on the newly discovered cavern. The elder warriors seem anxious in regards to the origin of this new subterranean area; they're likely concerned that the orcs are using Ardhungol as a staging point for further aggression against the Gates of Morning. I'll have to make sure I'm well equipped for this journey; the fate of us all could hang in the balance.
+고위 태양의 기사 아에린이 나를 밖으로 파견한지도 꽤 시간이 흘렀다. 최근 정보에 의하면, 그 동굴은 기이하게도 우리의 전초기지, 아침의 문 근처에서 솟아났다고 한다. 그들은 이 새롭게 발견된 동굴에 "알드훈골" 이라는 이름을 붙였다. 원로 전사들은 이 새로운 지하 지형의 기원에 관해서 염려하는 것으로 보인다. 아마 오크들이 아침의 문 공습의 발판으로 사용하려고 이 동굴을 만든건지에 대해 걱정하는 거겠지. 아무래도 내가 이 여행을 위해 철저히 준비했다는 것을 확신시켜줄 필요가 있을 것 같다. 우리의 운명은 앞날을 알 수 없는 상태이지만 말이다.
 
-#{bold}#Journal Entry II#{normal}#
+#{bold}#여행 일지 II#{normal}#
 
-I spoke with the border patrols tonight. There seem to have been several sightings of orcs and other wild beasts roaming throughout the wilderness, yet strangely enough, none seem to have been anywhere near Ardhungol. Perhaps the subterranean cavern was simply a natural phenomenon with unfortunate timing. It's either that, or an unknown force powerful enough to alter the very foundation of the land upon its arrival. I shudder at the latter thought, but for now this is all merely speculation. If all goes well, I'll be ready to depart by dawn.
+오늘 밤은 경계 순찰대와 이야기하였다. 그들은 몇몇 오크와 야생동물들을 목격했다고 한다. 기이하게도, 알드훈골 근처에서는 그 누구도 보이지 않았다고 한다. 아마 그 지하 동굴은 그저 운 없는 시기에 발생한 자연현상일 것이다. 아니면 지형조차 목적에 따라 바꿔버릴 수 있는, 어떤 강력한 힘이 작용했거나. 나는 후자에 대한 생각에 몸서리를 쳤으나, 일단 이 모든 것은 추측에 불과하다. 일이 잘 풀린다면, 새벽에는 도착할 수 있을 것 같다.
 ]]
 }
 
@@ -39,7 +39,13 @@ newLore{
 	id = "ardhungol-2",
 	category = "ardhungol",
 	name = "Rashim Journal (2)",
-	lore = [[#{bold}#Journal Entry III#{normal}#
+	lore = [[#{bold}#여행 일지 III#{normal}#
+
+아침의 문에서 알드훈골까지 가기 위해 반나절 정도의 여행이 필요했지만, 마침내 도착하였다. 거대한 오크 나무의 그림자에 기대 휴식을 취하면서, 나의 아내 멜넬라가 준비해준 달콤한 롤빵을 즐기기로 하였다. 그 이유는 정확히 모르겠으나, 알드훈골에 가까워질수록 주변의 공기가 두꺼워지는 느낌이 든다. 거의 다른 곳의 힘이 영향을 미쳐, 숨쉬기조차 힘들정도로 말이다. 이 넓은 세계의 여러 장소에 있어봤지만, 이러한 기운은 처음 느껴본다. 아에린에게 결과 보고서를 제출하기 전에, 이 힘의 근원이 무엇인지를 반드시 밝혀내야만 할 것 같다.
+
+#{bold}#여행 일지 IV#{normal}#
+
+두꺼운 초록색 먼지막이 동굴의 대기 중에 퍼져있다. 이것이 여기에 사는 생명체의 부산물인지, 아니면 다른 근원이 있는지 모르겠다. 
 
 It was a half days journey from the Gates of Morning to Ardhungol, but I've finally arrived. I've decided to rest beneath the shade of a great oak tree and enjoy one of the sweet rolls my wife Melnela prepared for me. I'm unsure why, but the closer I've come to Ardhungol, the thicker the atmosphere has become, almost as if there is a foreign energy infecting the very air I breathe. I've been to many places in this vast world, but I've never felt an aura quite like this; I will have to uncover the source of this energy before I can bring a full report back to Aeryn.
 

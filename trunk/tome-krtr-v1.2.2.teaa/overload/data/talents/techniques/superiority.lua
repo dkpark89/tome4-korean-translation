@@ -38,7 +38,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[자신의 몸을 신경쓰지 않고 전투에 집중하여, 전투 중에 받는 피해를 약간 무시합니다.
-		20 턴 동안 물리 피해 감소량이 %d%% 증가하고 provides %d%% chances to shrug off critical damage.]]): --@@ 한글화 필요
+		20 턴 동안 물리 피해 감소량이 %d%% 증가하고 치명타 공격에 맞을 확률이 %d%% 감소합니다.]]): 
 		format(t.getResist(self,t), t.critResist(self, t))
 	end,
 }

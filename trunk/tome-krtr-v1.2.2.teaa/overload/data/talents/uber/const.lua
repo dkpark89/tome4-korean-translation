@@ -128,7 +128,7 @@ uberTalent{
 
 uberTalent{
 	name = "Spine of the World",
-	kr_name = "세계 최강의 척추",
+	kr_name = "최강의 척추신경",
 	mode = "passive",
 	trigger = function(self, t)
 		if self:hasEffect(self.EFF_SPINE_OF_THE_WORLD) then return end

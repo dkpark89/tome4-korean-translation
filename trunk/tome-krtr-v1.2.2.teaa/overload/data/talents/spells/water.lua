@@ -57,8 +57,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[땅에서 차가운 증기가 뿜어져 나와, 주변 3 칸 반경에 매 턴마다 %0.2f 냉기 피해를 줍니다. (지속시간 : %d 턴)
-		Creatures that are wet will take 30%% more damage and have 15%% chance to get frozen.
-		피해량은 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #60
+		대상이 젖은 상태라면 피해량이 30%% 증가하며, 15%% 확률로 빙결됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.COLD, damage), duration)
 	end,
 }
@@ -105,8 +105,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[대상 주변의 수분을 응결시켜, %d 피해를 주고 %d 턴 동안 빙결시킵니다.
-		If this is used on a friendly target the cooldown is halved.
-		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), t.getDuration(self, t)) --@ 변수 순서 조정 --@@ 한글화 필요 #108
+		아군에게 사용되었을 경우, 재사용 대기 시간이 절반으로 감소합니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), t.getDuration(self, t)) --@ 변수 순서 조정 
 	end,
 }
 
@@ -155,8 +155,8 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[시전자로부터 1 칸 떨어진 곳부터 해일이 일어나기 시작하며, 매 턴마다 1 칸씩 더 해일이 넓어져 최대 %d 칸 범위까지 넓어집니다. 해일에 휩쓸린 적은 매 턴마다 %0.2f 냉기 피해와 %0.2f 물리 피해를 입으며, 뒤로 밀려납니다.
 		해일은 %d 턴 동안 유지됩니다.
-		All creatures hit gain the wet effect which reduces their stun/freeze resistance by half of their value and interracts with other cold spells.
-		피해량은 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #158
+		피해를 받은 모든 대상은 몸이 젖어, 기절/빙결 면역력이 절반으로 떨어지며 다른 냉기 주문의 영향을 받습니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, damDesc(self, DamageType.COLD, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2), duration)
 	end,
 }
@@ -237,7 +237,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 빙결시킵니다. (지속시간 : %d 턴)
-		If the target is wet the damage increases by 30%% and the freeze chance increases to 50%%.
-		피해량과 폭풍의 지속시간은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration) --@@ 한글화 필요 #240
+		대상이 젖은 상태라면 피해량이 30%% 증가하며, 빙결 확률이 50%% 상승합니다. 
+		피해량과 폭풍의 지속시간은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration) 
 	end,
 }

@@ -51,8 +51,8 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		return ([[염동 칼날을 통해 산성 물질을 내뿜어, 순간적으로 기다란 광선을 만들어냅니다. 
-		이 광선은 적들을 관통하며, %0.1f 산성 피해를 줍니다 (which can disarm them).
-		피해량은 정신력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #54
+		이 광선은 적들을 관통하며, %0.1f 산성 피해를 줍니다. (또한, 적을 무장해제 시킬 수 있습니다)
+		피해량은 정신력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.ACID, dam))
 	end,
 }
@@ -74,11 +74,11 @@ newTalent{
 		self:talentTemporaryValue(p, "resists", {[DamageType.ACID]=t.getResist(self, t)})
 	end,
 	info = function(self, t)
-		return ([[You gain %d%% Acid resistance.
-		When you deal Nature damage to a creature, you gain a %0.1f%% bonus to Acid damage for %d turns. 
-		This damage bonus will improve up to 4 times (no more than once each turn) with later Nature damage you do, up to a maximum of %0.1f%%.
-		The resistance and damage increase improve with your Mindpower.]]): --@@ 한글화 필요 #77~80
-		format(t.getResist(self, t), t.getAcidDamage(self, t, 1), t.getDuration(self, t), t.getAcidDamage(self, t, 5))
+		return ([[산성 저항력이 %d%% 증가합니다.
+		또한 적에게 자연 피해를 가할 경우, %d 턴 동안 산성 피해량이 %0.1f%% 상승합니다.
+		피해량 증가는 최대 4 번까지 점차적으로 상승하여, 최대 %0.1f%% 까지 상승합니다. (한 턴에 최대 1 번 까지만 발동시킬 수 있습니다)
+		저항력과 피해 상승량은 주문력의 영향을 받아 증가합니다.]]):
+		format(t.getResist(self, t), t.getDuration(self, t), t.getAcidDamage(self, t, 1), t.getAcidDamage(self, t, 5))
 	end,
 }
 
@@ -179,10 +179,10 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		local nb = t.getNb(self, t)
-		return ([[당신은 목표 지점의 2 칸 반경 영역에 집중하여, 최대 %d 개의 부식성 씨앗이 나타나게 만듭니다.
-		The first seed will appear at the center of the target zone, while others will appear at random spots.
-		Each seed lasts %d turns and will explode when a hostile creature walks over it, knocking the creature back and dealing %0.1f Acid damage within radius 1.
-		피해량은 정신력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #183~184
+		return ([[목표 지점의 2 칸 반경 영역에 집중하여, 최대 %d 개의 부식성 씨앗이 나타나게 만듭니다.
+		첫 번째 씨앗은 목표 지점의 중앙에 나타나며, 나머지 씨앗은 영역 내의 무작위한 곳에 나타납니다.
+		각각의 씨앗은 %d 턴 동안 유지되다가 적이 밟으면 폭발하며, 대상을 밀어내고 씨앗의 주변 1 칸 반경에 %0.1f 산성 피해를 줍니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]): 
 		format(nb, t.getDuration(self, t), damDesc(self, DamageType.ACID, dam))
 	end,
 }
@@ -226,6 +226,6 @@ newTalent{
 		local regen = t.getRegen(self, t)
 		return ([[스스로를 자연의 힘으로 둘러싸, 산성 저항 관통력을 %d%% 올립니다.
 		또한 이 힘은 당신의 진흙 덩어리들에게 영양분이 되어, 진흙 덩어리들에게 매 턴마다 최대 생명력의 %d%% 만큼을 재생할 수 있게 해줍니다.]])
-		:format(damageinc, ressistpen, regen)
+		:format(ressistpen, regen) --@@damageinc 변수 삭제
 	end,
 }

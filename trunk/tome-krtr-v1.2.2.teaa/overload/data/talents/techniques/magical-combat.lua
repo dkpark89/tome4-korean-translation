@@ -147,7 +147,7 @@ newTalent{
 		return ([[순수한 마력을 무기에 흘려보내, 물리력을 %d 향상시킵니다.
 		또한 근접무기로 치명타를 발생시킬 때마다, 주위 2 칸 반경에 %0.2f 의 화염, 전기, 마법 피해 중 하나를 줍니다.
 		화염, 전기, 마법 피해량은 주문력의 영향을 받아 증가합니다.
-		If you are dual wielding or using a shield this will only occur 50%% of the time.]]): --@@ 한글화 필요
+		양손에 각각 무기를 들고 있거나 방패를 사용 중일 경우, 발동 확률이 50%% 로 줄어듭니다.]]): 
 		format(self:combatSpellpower() * t.getSPMult(self, t), self:combatSpellpower() * 2)
 	end,
 }

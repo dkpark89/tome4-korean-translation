@@ -48,11 +48,11 @@ newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=tru
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/golemancy-base", name = "golemancy", hide = true, description = "골렘을 만드는 기초적인 방법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/golemancy", name = "golemancy", description = "골렘을 만들고, 수리하고, 강화하는 방법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/advanced-golemancy", name = "advanced-golemancy", min_lev = 10, description = "더 강력한 골렘을 만들고, 조작하는 방법입니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/war-alchemy", name = "fire alchemy", description = "Alchemical spells designed to wage war." } --@ 원래 이름이 "war alchemy"가 아님 --@@ 한글화 필요
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/war-alchemy", name = "fire alchemy", description = "전쟁 수행용으로 만들어진 연금술 기술입니다." } --@ 원래 이름이 "war alchemy"가 아님 
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/fire-alchemy", name = "fire alchemy", description = "연금술을 이용하여 불을 다루는 방법입니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/acid-alchemy", name = "acid alchemy", description = "Alchemical control over acid." } --@@ 한글화 필요
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/frost-alchemy", name = "frost alchemy", description = "Alchemical control over frost." } --@@ 한글화 필요
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/energy-alchemy", name = "energy alchemy", min_lev = 10, description = "Alchemical control over lightning energies." } --@@ 한글화 필요
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/acid-alchemy", name = "acid alchemy", description = "산성을 다루는 연금술 기술입니다." } 
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/frost-alchemy", name = "frost alchemy", description = "냉기를 다루는 연금술 기술입니다.." } 
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, mana_regen=true, type="spell/energy-alchemy", name = "energy alchemy", min_lev = 10, description = "전기를 다루는 연금술 기술입니다." } 
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/stone-alchemy-base", name = "stone alchemy", hide = true, description = "보석을 다루고, 그 힘을 이용하는 기초적인 방법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/stone-alchemy", name = "stone alchemy", generic = true, description = "다양한 보석을 다루고, 그 힘을 이용하는 방법입니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="spell/staff-combat", name = "staff combat", generic = true, description = "마법 지팡이의 힘을 이용하는 방법입니다." }

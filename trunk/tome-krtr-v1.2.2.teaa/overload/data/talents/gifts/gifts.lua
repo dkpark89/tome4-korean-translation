@@ -41,7 +41,7 @@ newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/malleable-body", name = "malleable body", description = "신체구조가 알 수 없게 됩니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/oozing-blades", name = "oozing blades", description = "염동 칼날을 통하여 점액을 사출할 수 있게 됩니다." }
 newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/corrosive-blades", name = "corrosive blades", description = "염동 칼날을 통하여 산성 물질을 사출할 수 있게 됩니다." }
-newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/eyals-fury", name = "eyal's fury", description = "Unleash nature's fury against foes around you." } --@@ 한글화 필요
+newTalentType{ allow_random=true, is_mind=true, is_nature=true, type="wild-gift/eyals-fury", name = "eyal's fury", description = "자연의 분노를 적에게 쏟아냅니다." } 
 
 -- Generic requires for gifts based on talent level
 gifts_req1 = {

@@ -578,10 +578,10 @@ newTalent{
 	end,
 }
 
---@@ 한글화 필요 #581~694
 -- Crystal Flame replacement
 newTalent{
 	name = "Flame Bolt",
+	kr_name = "불꽃 화살",
 	type = {"spell/other",1},
 	points = 1,
 	random_ego = "attack",
@@ -615,8 +615,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[불꽃 화살을 발사하여, 대상을 불태웁니다. 3 턴 동안 %0.2f 화염 피해를 나누어 입게 됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
@@ -625,6 +625,7 @@ newTalent{
 -- Very slow, moderate damage, freezes
 newTalent{
 	name = "Ice Bolt",
+	kr_name = "얼음 화살",
 	type = {"spell/other",1},
 	points = 1,
 	random_ego = "attack",
@@ -655,8 +656,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Hurl ice shard at the target dealing %0.2f ice damage.
-		The damage will increase with your Spellpower.]]):
+		return ([[얼음 조각을 발사하여, %0.2f 냉기 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, damage))
 	end,
 }
@@ -665,6 +666,7 @@ newTalent{
 -- Slower projectile, higher damage, crit bonus
 newTalent{
 	name = "Blight Bolt",
+	kr_name = "황폐 화살",
 	type = {"spell/other",1},
 	points = 1,
 	random_ego = "attack",
@@ -686,9 +688,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Projects a bolt of pure blight, doing %0.2f blight damage.
-		This spell has an improved critical strike chance of +%0.2f%%.
-		The damage will increase with your Spellpower.]]):
+		return ([[순수한 황폐의 힘을 담은 화살을 발사해, %0.2f 황폐 피해를 줍니다.
+		이 주문은 치명타가 발생할 확률이 +%0.2f%% 더 높습니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 1, 180)), t.getCritChance(self, t))
 	end,
 }
@@ -2247,14 +2249,15 @@ newTalent{
 }
 
 
---@@ 한글화 필요 #2250~2576(끝)
+
 newTalent{
 	name = "Body Shot",
+	kr_name = "몸통 치기",
 	type = {"technique/other", 1},
 	points = 5,
 	cooldown = 10,
 	stamina = 10,
-	message = "@Source@ throws a body shot.",
+	message = "@Source1@ 마무리로 몸통을 가격했습니다.",
 	tactical = { ATTACK = { weapon = 2 }, DISABLE = { stun = 2 } },
 	requires_target = true,
 	--on_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_COMBO) then if not silent then game.logPlayer(self, "You must have a combo going to use this ability.") end return false end return true end,
@@ -2279,7 +2282,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_DAZED, t.getDuration(self, t, self:getCombo(combo)), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the body shot!", target.name:capitalize())
+				game.logSeen(target, "%s 혼절하지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 
 			target:incStamina(- t.getDrain(self, t))
@@ -2295,15 +2298,16 @@ newTalent{
 		local drain = self:getTalentLevel(t) * 2
 		local daze = t.getDuration(self, t, 0)
 		local dazemax = t.getDuration(self, t, 5)
-		return ([[A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.
-		The daze chance will increase with your Physical Power.
-		Using this talent removes your combo points.]])
+		return ([[대상의 몸통을 가격하여 %d%% 의 피해를 주고, 연계 점수당 대상의 체력을 %d 씩 소진시키며, 연계 점수에 따라 대상을 %d 에서 %d 턴 동안 혼절시킵니다.
+		혼절 확률은 물리력의 영향을 받아 증가합니다.
+		이 기술은 마무리 기술이기 때문에, 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, drain, daze, dazemax)
 	end,
 }
 
 newTalent{
 	name = "Relentless Strikes",
+	kr_name = "가차없는 공격",
 	type = {"technique/other", 1},
 	points = 5,
 	mode = "passive",
@@ -2312,14 +2316,15 @@ newTalent{
 	info = function(self, t)
 		local stamina = t.getStamina(self, t)
 		local cooldown = t.getCooldownReduction(self, t)
-		return ([[Reduces the cooldown on all your Pugilism talents by %d%%.  Additionally, every time you earn a combo point, you will regain %0.2f stamina.
-		Note that stamina gains from combo points occur before any talent stamina costs.]])
+		return ([[모든 타격계 기술의 지연 시간을 %d%% 줄입니다. 그리고, 연계 점수를 1 획득할 때마다 체력을 %0.2f 회복할 수 있게 됩니다.
+		만약 현재 체력이 부족해 어떤 기술을 사용할 수 없더라도, 이 기술을 통해 어떤 기술을 사용할 수 있을만큼 체력을 확보할 수 있다면 그 기술을 사용할 수 있습니다.]])
 		:format(cooldown * 100, stamina)
 	end,
 }
 
 newTalent{
 	name = "Combo String",
+	kr_name = "연계 강화",
 	type = {"technique/other", 1},
 	mode = "passive",
 	points = 5,
@@ -2328,14 +2333,15 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
-		return ([[When gaining a combo point, you have a %d%% chance to gain an extra combo point.  Additionally, your combo points will last %d turns longer before expiring.
-		The chance of building a second combo point will improve with your Cunning.]]):
+		return ([[연계 점수를 획득할 때마다, %d%% 확률로 1 의 연계 점수를 추가로 획득합니다. 그리고, 연계 점수의 지속 시간이 %d 턴 늘어납니다.
+		연계 점수를 추가로 획득할 확률은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(chance, duration)
 	end,
 }
 
 newTalent{
 	name = "Steady Mind",
+	kr_name = "평정심",
 	type = {"technique/other", 1},
 	mode = "passive",
 	points = 5,
@@ -2344,14 +2350,15 @@ newTalent{
 	info = function(self, t)
 		local defense = t.getDefense(self, t)
 		local saves = t.getMental(self, t)
-		return ([[Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.
-		The Defense bonus will scale with your Dexterity, and the save bonus with your Cunning.]]):
+		return ([[정신적 수양을 통해 평정심을 갖게 되었습니다. 적들의 물리적, 정신적 공격에 차분하게 대응하여 회피도가 %d / 정신 내성이 %d 상승합니다.
+		회피도는 민첩 능력치, 정신 내성은 교활함 능력치의 영향을 받아 상승합니다.]]):
 		format(defense, saves)
 	end,
 }
 
 newTalent{
 	name = "Maim",
+	kr_name = "관절기",
 	type = {"technique/other", 1},
 	points = 5,
 	random_ego = "attack",
@@ -2401,14 +2408,16 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local maim = t.getMaim(self, t)
-		return ([[Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
-		The grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]])
+		return ([[대상을 붙잡아 %0.2f 의 물리 피해를 줍니다. 
+		대상이 이미 붙잡힌 상태라면 대상에게 관절기를 걸어서, 대상의 공격력을 %d 감소시키고 전체 속도를 30%% 감소시키는 효과를 %d 턴 동안 유지시킵니다.
+		붙잡기 효과는 다른 붙잡기 기술들의 영향을 받으며, 물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (damage)), maim, duration)
 	end,
 }
 
 newTalent{
 	name = "Bloodrage",
+	kr_name = "피의 분노",
 	type = {"technique/other", 1},
 	points = 5,
 	mode = "passive",
@@ -2417,13 +2426,14 @@ newTalent{
 		self:setEffect(self.EFF_BLOODRAGE, t.getDuration(self, t), {max=math.floor(self:getTalentLevel(t) * 6), inc=2})
 	end,
 	info = function(self, t)
-		return ([[Each time one of your foes bites the dust, you feel a surge of power, increasing your strength by 2 up to a maximum of %d for %d turns.]]):
+		return ([[적의 머리통을 박살낼 때마다 힘이 솟구칩니다! 적을 죽일 때마다 힘이 2 씩 증가하며, %d 턴 동안 유지됩니다. 최대로 올릴 수 있는 힘은 %d 입니다.]]):
 		format(math.floor(self:getTalentLevel(t) * 6), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Martyrdom",
+	kr_name = "고난",
 	type = {"spell/other", 1},
 	points = 5,
 	random_ego = "attack",
@@ -2450,13 +2460,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local returndamage = t.getReturnDamage(self, t)
-		return ([[Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.]]):
+		return ([[대상을 10 턴 동안 고난을 받을 자로 지정합니다. 대상이 남에게 피해를 줄 때마다, %d%% 만큼의 피해를 자신도 받게 됩니다.]]):
 		format(returndamage)
 	end,
 }
 
 newTalent{
 	name = "Overpower",
+	kr_name = "압도",
 	type = {"technique/other", 1},
 	points = 5,
 	random_ego = "attack",
@@ -2464,11 +2475,11 @@ newTalent{
 	stamina = 22,
 	requires_target = true,
 	tactical = { ATTACK = 2, ESCAPE = { knockback = 1 }, DISABLE = { knockback = 1 } },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a weapon and a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 무기와 방패가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Overpower without a shield!")
+			game.logPlayer(self, "방패가 없으면 압도 기술을 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -2489,21 +2500,22 @@ newTalent{
 			if target:checkHit(self:combatAttack(shield.special_combat), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("knockback") then
 				target:knockback(self.x, self.y, 4)
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("이"))
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your weapon doing %d%% damage and two shield strikes doing %d%% damage, trying to overpower your target.
-		If the last attack hits, the target is knocked back. The chance for knockback increases with your Accuracy.]])
+		return ([[대상을 무기로 공격하여 %d%% 의 무기 피해를 주고, 방패로 두 번 밀어쳐 %d%% 의 방패 피해를 줍니다.
+		마지막 공격이 적중하면, 대상은 압도되어 밀려납니다. 밀어내기 확률은 정확도 능력치의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3), 100 * self:combatTalentWeaponDamage(t, 0.8, 1.3, self:getTalentLevel(self.T_SHIELD_EXPERTISE)))
 	end,
 }
 
 newTalent{
 	name = "Perfect Control",
+	kr_name = "완벽한 조작",
 	type = {"psionic/other", 1},
 	cooldown = 50,
 	psi = 15,
@@ -2520,14 +2532,15 @@ newTalent{
 	info = function(self, t)
 		local boost = t.getBoost(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.
-		Increases Accuracy by %d and critical strike chance by %0.1f%% for %d turns.]]):
-		format(boost, 0.5*boost, dur)
+		return ([[육체를 정신력으로 감싸, 신경과 근육을 통한 비효율적인 운동 방식을 제거하고 몸의 움직임을 극도로 효율적이게 만듭니다. 
+		%d 턴 동안 정확도가 %d / 치명타율이 %0.1f%% 증가합니다.]]):
+		format(dur, boost, 0.5*boost)
 	end,
 }
 
 newTalent{
 	name = "Mindhook",
+	kr_name = "염동 갈고리",
 	type = {"psionic/other", 1},
 	cooldown = function(self, t) return math.ceil(self:combatTalentLimit(t, 5, 18, 10)) end, -- Limit to >5
 	psi = 20,
@@ -2546,7 +2559,7 @@ newTalent{
 		local _ _, x, y = self:canProject(tg, x, y)
 		local target = game.level.map(x, y, engine.Map.ACTOR)
 		if not target then
-			game.logPlayer(self, "The target is out of range")
+			game.logPlayer(self, "대상이 사거리 밖에 있습니다.")
 			return
 		end
 		target:pull(self.x, self.y, tg.range)
@@ -2557,15 +2570,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Briefly extend your telekinetic reach to grab an enemy and haul them towards you.
-		Works on enemies up to %d squares away. The cooldown decreases, and the range increases, with additional talent points spent.
-		This talent receives a reduced benefit from the Reach talent.]]):
+		return ([[염력으로 대상을 붙잡아, 시전자가 있는 곳으로 끌어옵니다.
+		%d 칸 이내에 있는 대상까지 끌어올 수 있으며, 기술 레벨이 증가할수록 재사용 대기시간이 줄어들고 최대 사거리가 늘어납니다.
+		이 기술은 도달 기술을 통해서 받는 효과가 감소됩니다.]]):
 		format(range)
 	end,
 }
 
 newTalent{
 	name = "Reach",
+	kr_name = "도달",
 	type = {"psionic/other", 1},
 	mode = "passive",
 	points = 5,

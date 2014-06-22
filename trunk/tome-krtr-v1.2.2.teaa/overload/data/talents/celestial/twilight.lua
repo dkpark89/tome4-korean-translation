@@ -258,7 +258,7 @@ newTalent{
 			ai_target = {actor=target},
 			ai = "summoned", ai_real = target.ai,
 			resists = { all = modifier, [DamageType.DARKNESS] = 50, [DamageType.LIGHT] = - 50, },
-			desc = [[A dark, shadowy shape whose form resembles the humanoid creature it was taken from. It is not a perfect replica, though, and it makes you feel uneasy to look at it.]], --@@ 한글화 필요
+			desc = [[어두운 그림자로, 본체의 모습을 닮아있습니다. 다만 완벽한 복제품은 아니며, 바라보고 있으면 불편한 감정이 생겨납니다.]], 
 		}
 		m:removeAllMOs()
 		m.make_escort = nil

@@ -95,7 +95,7 @@ newTalent{
 
 newTalent{
 	name = "Shield Slam",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "방패 난타", 
 	type = {"technique/shield-offense", 3},
 	require = techs_req3,
 	points = 5,
@@ -109,7 +109,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Shield Slam without a shield!") --@@ 한글화 필요
+			game.logPlayer(self, "방패가 없으면 방패 난타를 사용할 수 없습니다!") 
 			return nil
 		end
 
@@ -129,7 +129,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getShieldDamage(self, t)*100
-		return ([[Hit your target with your shield 3 times for %d%% damage then quickly return to a blocking position.  The bonus block will not check or trigger Block cooldown.]])
+		return ([[대상을 방패로 3 번 내리쳐 각각 %d%% 피해를 주고, 재빨리 방어 자세를 취합니다. 이를 통한 막기는 막기 기술의 재사용 대기 시간을 발생시키지도 않고, 막기 기술이 재사용 대기 중이라도 사용할 수 있습니다.]])
 		:format(damage)
 	end,
 }

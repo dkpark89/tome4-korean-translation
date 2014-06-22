@@ -63,8 +63,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[선택한 지역의 주변 1 칸 범위에 %0.2f 냉기 피해를 주는 얼음 파편들을 발사합니다. %s, 범위 내에 있는 적의 숫자만큼 파편이 발사됩니다.
 		얼음 파편은 시전자에게 피해를 주지 않습니다.
-		If the target is wet the damage increases by 30%% and the ice freeze chance increases to 50%%.
-		피해량은 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #66
+		대상이 젖은 상태라면 피해량이 30%% 증가하며, 빙결 확률이 50%% 상승합니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.COLD, damage), necroEssenceDead(self, true) and "파편은 이동 경로에 있는 모든 적들에게 영향을 주고" or "파편의 속도는 느린 편이며") --@ 변수 순서 조정
 	end,
 }
@@ -98,8 +98,8 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경의 기온을 급격하게 떨어트려 %0.2f 냉기 피해를 주고, 주변의 적들에게 4 턴 동안 '얼어붙은 발' 상태효과를 일으킵니다.
 		얼어붙은 발 상태효과에 걸리면 이동은 할 수 없게 되지만, 다른 행동에는 영향을 주지 않습니다.
-		For each affected creature that is also wet the cooldown of Shatter decreases by 2.
-		피해량은 주문력의 영향을 받아 상승합니다.]]):format(radius, damDesc(self, DamageType.COLD, damage)) --@@ 한글화 필요 #101
+		이 기술의 영향을 받은 적마다, 파쇄 기술의 재사용 대기 시간이 2 줄어듭니다.
+		피해량은 주문력의 영향을 받아 상승합니다.]]):format(radius, damDesc(self, DamageType.COLD, damage)) 
 	end,
 }
 
@@ -156,9 +156,9 @@ newTalent{
 		* '일반' 미만 등급의 적들은 즉사합니다.
 		* '일반' 등급의 적들에게는 치명타율이 50%% 증가합니다.
 		* '정예' 와 '보스' 등급의 적들에게는 치명타율이 25%% 증가합니다.
-		All affected foes will get the wet effect.
+		이 기술의 영향을 받은 젇르은 젖음 상태효과에 걸립니다.
 		한번에 %d 개의 얼음까지 파괴할 수 있습니다.
-		피해량은 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #159
+		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.COLD, damage), targetcount)
 	end,
 }

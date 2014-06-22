@@ -62,7 +62,7 @@ newTalent{
 
 		local paradox = getQuantity(
 			"시공간 조율",
-			"What's your preferred paradox level?", --@@ 한글화 필요
+			"괴리 원천력을 몇으로 유지하시겠습니까?", --@@ 한글화 필요
 			math.floor(self.paradox))
 		if not paradox then return end
 		if paradox > 1000 then paradox = 1000 end
@@ -78,16 +78,16 @@ newTalent{
 		local _, failure = self:paradoxFailChance()
 		local _, anomaly = self:paradoxAnomalyChance()
 		local _, backfire = self:paradoxBackfireChance()
-		return ([[Use to set your preferred Paradox.  While resting you'll adjust your Paradox towards this number over %d turns.
-		The time it takes you to adjust your Paradox scales down with your Spellpower to a minimum of 10 turns.
+		return ([[선호하는 괴리 수치를 설정합니다. 휴식하는 동안, 괴리 원천력이 %d 턴에 걸쳐 선호하는 괴리 수치로 변경됩니다.
+		괴리 수치를 조정하는데 걸리는 시간은 주문력의 영향을 받아 감소하며, 최소 10 턴까지 감소시킬 수 있습니다.
 		
-		Preferred Paradox           : %d
-		Paradox effect multiplier   : %d%%
-		Willpower failure modifier  : %d
-		Paradox after Willpower     : %d
+		선호하는 괴리 수치           : %d
+		괴리 효과 배율   : %d%%
+		의지를 통한 괴리 감소량  : %d
+		의지 적용 후 괴리 수치     : %d
 		현재 실패 확률              : %d%%
 		현재 이상 현상 발생 확률    : %d%%
-		현재 역효과 확률            : %d%%]]):format(duration, preference, multiplier, will_modifier, after_will, failure, anomaly, backfire) --@@ 한글화 필요 #81~90
+		현재 역효과 확률            : %d%%]]):format(duration, preference, multiplier, will_modifier, after_will, failure, anomaly, backfire) 
 	end,
 }
 

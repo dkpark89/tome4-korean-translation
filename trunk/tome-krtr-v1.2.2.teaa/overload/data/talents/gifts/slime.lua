@@ -42,9 +42,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[슬라임 덩어리를 대상에게 뱉어, %0.2f 자연 피해를 주고 3 턴 동안 대상을 30%% 감속시킵니다.
-		The slime can bounce from foe to foe, hitting up to a total of %d target(s).
-		Additional targets must be within 6 tiles of each other and the slime loses %0.1f%% damage per bounce.
-		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 30, 250)), t.getTargetCount(self, t), 100-t.bouncePercent(self, t)) --@@ 한글화 필요 #45~46
+		슬라임은 적들 사이를 튕겨다니면서, 최대 %d 명의 적을 공격합니다.
+		이를 위해서는 다른 적이 6 칸 이내의 위치에 있어야 하며, 공격이 튕겨질 때마다 피해량이 %0.1f%% 감소하게 됩니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 30, 250)), t.getTargetCount(self, t), 100-t.bouncePercent(self, t)) 
 	end,
 }
 
@@ -85,8 +85,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[주변 %d 칸 반경에 중독성 포자를 뿌려, 적에게 무작위한 독을 걸고 10 턴 동안 총 %0.1f 자연 피해를 나눠서 줍니다.
-		This attack can crit and deals %d%% additional critical damage.
-		The damage and critical bonus increase with your Mindpower.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.NATURE, t.getDamage(self, t)), t.critPower(self, t)) --@@ 한글화 필요 #88~89
+		이 공격은 치명타가 발생할 수 있으며, %d%% 더 높은 치명타 피해를 입힙니다.
+		피해량과 치명타 피해 증가량은 정신력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.NATURE, t.getDamage(self, t)), t.critPower(self, t)) 
 	end,
 }
 

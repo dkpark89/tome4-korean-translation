@@ -235,7 +235,7 @@ newTalent{
 		local tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if tx and ty and a:canBe("knockback") then
 			a:move(tx, ty, true)
-			game.logSeen(a, "%s telekinetically grabs %s!", (self.kr_name or self.name):capitalize(), (a.kr_name or a.name)) --@@ 한글화 필요
+			game.logSeen(a, "%s %s 염동적 악력으로 쥐었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"), (a.kr_name or a.name):addJosa("을")) --@@ 한글화 필요
 		end
 	end,
 	on_pre_use = function (self, t)
@@ -276,12 +276,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		local base = [[Allows you to wield a physical melee weapon, a mindstar or a gem telekinetically, gaining a special effect for each.
-		A gem will provide +4 bonus to all primary stats per tier of the gem.
-		A mindstar will randomly try to telekinetically grab a far away foe (5% chance and range 2 for a tier 1 mindstar, +1 range and +5% chance for each tier above 1) and pull it into melee range.
-		A physical melee weapon will act as a semi independant entity, attacking foes nearby each turn while also replacing Strength and Dexterity with Willpower and Cunning for accuracy and damage calculations (for all melee weapons).
-		
-		]] --@@ 한글화 필요 #279~282
+		local base = [[물리 근접 무기, 마석, 혹은 보석을 염동력으로 쥐어 특수한 효과를 얻습니다.
+		보석은 단계 당 모든 능력치를 +4 만큼 증가시킵니다.
+		마석은 염동력으로 멀리 떨어진 적을 근접 공격이 가능한 거리로 끌어옵니다. (1 단계 마석의 경우 5% 확률로 2 칸 떨어진 곳에 있는 적을 끌어오며, 단계가 상승할 때마다 확률이 +5% / 사거리가 1 칸 추가됨)
+		물리 근접 무기는 거의 독립적으로 움직이며, 매 턴마다 근처의 적들을 자동으로 공격합니다. 또한 무기의 정확도와 피해량을 결정하는 힘과 민첩 능력치는 의지와 교활함 능력치로 대체됩니다.]] 
 
 		local o = self:getInven("PSIONIC_FOCUS") and self:getInven("PSIONIC_FOCUS")[1]
 		if type(o) == "boolean" then o = nil end
@@ -294,10 +292,10 @@ newTalent{
 		local speed = 1
 		if o.type == "gem" then
 			local ml = o.material_level or 1
-			base = base..([[The telekinetically-wielded gem grants you +%d stats.]]):format(ml * 4) --@@ 한글화 필요
+			base = base..([[염동력으로 쥐고 있는 보석이 모든 능력치를 +%d 상승시킵니다.]]):format(ml * 4) 
 		elseif o.subtype == "mindstar" then
 			local ml = o.material_level or 1			
-			base = base..([[The telekinetically-wielded mindstar has a %d%% chance to grab a foe up to %d range away.]]):format((ml + 1) * 5, ml + 2) --@@ 한글화 필요
+			base = base..([[염동력으로 쥐고 있는 마석이 %d%% 확률로 최대 %d 칸 떨어진 곳에 있는 적을 끌어옵니다.]]):format((ml + 1) * 5, ml + 2) 
 		else
 			self:attr("use_psi_combat", 1)
 			atk = self:combatAttack(o.combat)

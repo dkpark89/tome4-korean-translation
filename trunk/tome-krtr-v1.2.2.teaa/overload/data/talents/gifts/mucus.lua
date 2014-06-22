@@ -76,11 +76,11 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local equi = t.getEqui(self, t)
 		return ([[%d 턴 동안, 서 있는 장소와 지나간 자리에 점액을 만들어냅니다.
-		The mucus is placed automatically every turn and lasts %d turns.
-		At talent level 4 or greater, the mucus will expand to a radius 1 area from where it is placed.
+		점액은 매 턴마다 자동적으로 만들어지며, %d 턴 동안 유지됩니다.
+		기술 레벨이 4 이상일 경우, 점액이 주변 1 칸 반경까지 확산됩니다.
 		점액을 밟은 적은 독에 걸려, 5 턴 동안 매 턴마다 %0.1f 자연 피해를 입게 됩니다. (이 피해는 중첩됩니다)
-		In addition, each turn, you will restore %0.1f Equilibrium while in your own mucus, and other friendly creatures in your mucus will restore 1 Equilibrium both for you and for themselves.
-		The Poison damage and Equilibrium regeneration increase with your Mindpower, and laying down more mucus in the same spot will intensify its effects and refresh its duration.]]): --@@ 한글화 필요 #79~83
+		또한 매 턴마다 자신의 점액으로 인해 평정이 %0.1f 회복되며, 다른 아군들이 점액 안에 있을 경우 자신과 아군 모두 추가적으로 평정이 각각 1 회복됩니다.
+		독 피해량과 평정 회복량은 정신력의 영향을 받아 증가하며, 같은 지역에 점액을 더 만들어낼 경우 효과가 중첩되며 독의 지속 기간이 초기화됩니다.]]): 
 		format(dur, dur, damDesc(self, DamageType.NATURE, dam), equi)
 	end,
 }

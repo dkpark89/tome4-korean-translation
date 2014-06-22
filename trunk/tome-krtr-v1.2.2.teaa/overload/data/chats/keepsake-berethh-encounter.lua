@@ -18,31 +18,31 @@
 -- darkgod@te4.org
 
 newChat{ id="berethh",
-	text = [[#VIOLET#*당신 앞에 베레쓰가 서있습니다. 그의 얼굴에는 감정이 드러나있지 않지만, 그의 자세는 공포에 질린 것 같습니다.#LAST#
+	text = [[#VIOLET#*당신 앞에 베레쓰가 서있습니다. 그의 얼굴에는 감정이 드러나있지 않지만, 그의 자세는 위협적입니다.#LAST#
 ]],
 	answers = {
-		{"킬레스는 죽었습니다.", jump="response"}
+		{"킬레스는 죽었다.", jump="response"}
 	}
 }
 
 newChat{ id="response",
-	text = [[네 운명을 받아들였는지 모르겠군. 하지만 나는 도저히 너를 살려둘 수 없다.]],
+	text = [[네 운명을 스스로 받아들였는지 모르겠군. 하지만 나는 도저히 너를 살려둘 수 없다.]],
 	answers = {
 		{
-			"그렇다면 당신도 킬레스처럼 죽게 되겠죠. #LIGHT_GREEN#[공격한다]#LAST#",
+			"그렇다면 너도 킬레스처럼 죽게 되겠지. #LIGHT_GREEN#[공격한다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_evil_choice(player)
 			end
 		},
 		{
-			"당신의 도움이 필요합니다. 제 저주를 이겨내고 싶습니다.",
+			"네 도움이 필요하다. 내 저주를 극복하고 싶어.",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_good_choice(player)
 			end,
 			jump="attack"
 		},
 		{
-			"저는 당신을 죽이고 싶지 않습니다.",
+			"나는 너를 죽이고 싶지 않아.",
 			jump="attack"
 		}
 	}

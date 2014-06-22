@@ -58,9 +58,9 @@ newTalent{
 	info = function(self, t)
 		local attack = t.getAttack(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[타격 자세를 취해 정확도를 %d 올리고, 모든 타격계 기술과 마무리 기술의 최종 피해량을 %d%% 증가시키며, reduces all damage taken by %d.
-		정확도와 피해량 상승은 민첩성 능력치의 영향을 받아 증가하고 the damage reduction with your Strength.]]): --@@ 한글화 필요 #61~62
-		format(attack, damage)
+		return ([[타격 자세를 취해 정확도를 %d 올리고, 모든 타격계 기술과 마무리 기술의 최종 피해량을 %d%% 증가시키며, 받는 피해량을 %d 감소시킵니다.
+		정확도와 피해량 상승은 민첩성 능력치의 영향을 받아 증가하고, 피해 감소량은 힘 능력치의 영향을 받아 증가합니다.]]): 
+		format(attack, damage) --@@변수 하나 부족함!!!
 	end,
 }
 
@@ -253,7 +253,7 @@ newTalent{
 
 newTalent{
 	name = "Axe Kick",
-	kr_name = "가위차기", 
+	kr_name = "내려차기", 
 	type = {"technique/pugilism", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -265,7 +265,7 @@ newTalent{
 	getDuration = function(self, t)
 		return self:combatTalentLimit(t, 5, 1, 4)
 	end,
-	message = "@Source@ raises their leg and snaps it downward in a devastating axe kick.", --@@ 한글화 필요
+	message = "@Source1@ 다리를 들어 적을 내려찹니다.", 
 	tactical = { ATTACK = { weapon = 2 } },
 	requires_target = true,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.8, 2) + getStrikingStyle(self, dam) end, -- low damage scaling, investment gets the extra CP
@@ -298,8 +298,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Deliver a devastating axe kick dealing %d%% damage.  If the blow connects your target is brain damaged, causing all talents to fail for %d turns and earning 2 combo points.
-		This effect cannot be saved against, though it can be dodged and checks confusion immunity.]]) --@@ 한글화 필요 #301~302
+		return ([[내려차기를 날려 적에게 %d%% 피해를 줍니다. 공격이 성공할 경우, 적은 뇌진탕에 걸려 %d 턴 동안 기술 사용에 실패하게 되며 연계 점수를 2 점 획득합니다.
+		기술 효과는 내성으로 저항할 수 없지만, 공격을 회피할 수는 있으며 혼란 면역력으로 저항할 수도 있습니다.]]) 
 		:format(damage, t.getDuration(self, t))
 	end,
 }

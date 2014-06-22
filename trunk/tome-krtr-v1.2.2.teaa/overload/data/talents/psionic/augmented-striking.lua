@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Kinetic Strike",
+	kr_name = "동역학적 강타",
 	type = {"psionic/augmented-striking", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -33,7 +34,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 들고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = {type="hit", range=self:getTalentRange(t)}
@@ -69,9 +70,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus kinetic energy and strike an enemy for %d%% weapon damage as physical.
-		They will then be thrown back by the force of the hit, taking an extra %0.1f Physical damage if they hit a wall, where they will be pinned for 4 turns.
-		The knockback damage will scale with your Mindpower.]]):
+		return ([[동역학적 에너지를 무기에 집중해, 적에게 %d%% 무기 피해를 물리 속성으로 입힙니다.
+		그로 인해 적은 밀려나며, 적이 벽에 부딪힐 경우 %0.1f 물리 피해를 추가로 입고 4 턴 동안 속박됩니다.
+		적이 밀려날 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 2.0), damDesc(self, DamageType.PHYSICAL, t.getDam(self, t)))
 	end,
 }
@@ -79,6 +80,7 @@ newTalent{
 
 newTalent{
 	name = "Thermal Strike",
+	kr_name = "열역학적 강타",
 	type = {"psionic/augmented-striking", 1},
 	require = psi_wil_req2,
 	points = 5,
@@ -93,7 +95,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 들고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = {type="hit", range=self:getTalentRange(t)}
@@ -117,15 +119,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus thermal energy and strike an enemy for %d%% weapon damage as cold.
-		A burst of cold will then engulf them, doing an extra %0.1f Cold damage and also freeze them for 4 turns.
-		The cold burst damage will scale with your Mindpower.]]):
+		return ([[열역학적 에너지를 무기에 집중해, 적에게 %d%% 무기 피해를 냉기 속성으로 입힙니다.
+		또한 강렬한 냉기가 적을 덮쳐, %0.1f 냉기 피해를 추가로 입히고 4 턴 동안 빙결시킵니다.
+		냉기 추가 피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 2.0), damDesc(self, DamageType.COLD, t.getDam(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Charged Strike",
+	kr_name = "전하적 강타",
 	type = {"psionic/augmented-striking", 1},
 	require = psi_wil_req3,
 	points = 5,
@@ -140,7 +143,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 들고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = {type="hit", range=self:getTalentRange(t)}
@@ -210,15 +213,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus charged energy and strike an enemy for %d%% weapon damage as lightning.
-		Energy will then discharge from your weapon, doing an extra %0.1f Lightning damage and blinding them for 4 turns.
-		The discharge damage will scale with your Mindpower.]]):
+		return ([[전하적 에너지를 무기에 집중해, 적에게 %d%% 무기 피해를 전기 속성으로 입힙니다.
+		또한 강렬한 전기가 적을 덮쳐, %0.1f 전기 피해를 추가로 입히고 4 턴 동안 실명시킵니다.
+		전기 추가 피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 2.0), damDesc(self, DamageType.LIGHTNING, t.getDam(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Psi Tap",
+	kr_name = "염력 수집",
 	type = {"psionic/augmented-striking", 4},
 	mode = "passive",
 	points = 5,
@@ -228,7 +232,7 @@ newTalent{
 		self:talentTemporaryValue(p, "psi_regen_on_hit", t.getPsiRecover(self, t))
 	end,
 	info = function(self, t)
-		return ([[Siphon excess energy from each weapon hit you land, gaining %0.1f psi per hit.]]):format(t.getPsiRecover(self, t))
+		return ([[무기 타격에서 생기는 과잉 에너지를 이용하여, 매 타격마다 %0.1f 염력을 회복합니다.]]):format(t.getPsiRecover(self, t))
 	end,
 }
 

@@ -48,7 +48,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "You try to split, but there is no free space close enough to summon!") --@@ 한글화 필요
+			game.logPlayer(self, "몸을 분열시키려 했지만, 분열될 공간이 부족합니다!") 
 			return
 		end
 
@@ -57,7 +57,7 @@ newTalent{
 			display = "j", color=colors.GREEN, image = "npc/vermin_oozes_bloated_ooze.png",
 			name = "bloated ooze",
 			kr_name = "진흙 덩어리",
-			desc = "당신의 살점으로 만들어진 진흙 덩어리입니다.",
+			desc = "시전자의 살점으로 만들어진 진흙 덩어리입니다.",
 			sound_moam = {"creatures/jelly/jelly_%d", 1, 3},
 			sound_die = {"creatures/jelly/jelly_die_%d", 1, 2},
 			sound_random = {"creatures/jelly/jelly_%d", 1, 3},
@@ -109,31 +109,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		local xs = self:knowTalent(self.T_REABSORB) and ([[In addition, you restore %0.1f Equilibrium per turn while this talent is active.
+		local xs = self:knowTalent(self.T_REABSORB) and ([[추가적으로, 이 기술이 유지되는 동안 매 턴마다 평정을 %0.1f 회복합니다.
 		]]):format(self:callTalent(self.T_REABSORB, "equiRegen")) or ""
-		return ([[Your body is more like that of an ooze.
-		When you take damage, you may split and create a Bloated Ooze nearby within your line of sight.
-		This ooze has as much health as twice the damage you took (up to a maximum of %d, based on your Mindpower and maximum life).
-		The chance to split equals the percent of your health lost times %0.2f.
-		You may have up to %d Bloated Oozes active at any time (limited by talent level and the summoning limit), and all damage you take will be split equally between you and them so long as this talent is active.
-		Bloated Oozes last for %d turns, are very resilient (%d%% all damage resistance to damage not coming through your shared link), and regenerate life quickly.
-		%sThe chance to split increases with your Cunning.]]): --@@ 한글화 필요 #112~120
+		return ([[시전자의 육체가 더욱 진흙과도 같은 상태로 변합니다.
+		피해를 받을 때마다, 몸이 분열되어 시야 내의 근처에 '진흙 덩어리' 가 생성됩니다.
+		진흙 덩어리의 생명력은 받은 피해량의 2 배입니다. (진흙 덩어리의 최대 생명력 : %d / 시전자의 정신력과 최대 생명력의 영향을 받아 증가)
+		육체가 분열될 확률은 (%0.2f * 잃은 생명력)%% 입니다.
+		한번에 최대 %d 개의 진흙 덩어리를 유지시킬 수 있으며 (기술 레벨과 소환 한계량의 영향을 받음), 시전자가 받는 모든 피해는 기술이 유지되는 한 시전자와 진흙 덩어리들이 공평하게 나눠받게 됩니다.
+		진흙 덩어리들은 %d 턴 동안 유지되며, 저항력이 매우 높고 (진흙 덩어리가 직접 공격받을 경우 전체 저항력 %d%%) 생명력을 빠르게 재생합니다.
+		%s육체가 분열될 확률은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getMaxHP(self, t), t.getChance(self, t)*3/100, t.getMax(self, t), t.getSummonTime(self, t), t.getOozeResist(self, t), xs)
-		--[[ 참고용으로 붙여놓는 기존 내용 #122~136 : 위 내용 한글화 이후 삭제
-		원문 : Your body is more like that of an ooze.
-		When you get hit you have up to a %d%% chance to split and create a Bloated Ooze with as much health as you have taken damage (up to %d).
-		All damage you take will be split equally between you and your Bloated Oozes.
-		You may have up to %d Bloated Oozes active at any time (based on your Cunning and talent level).
-		Bloated Oozes are very resilient (50%% all damage resistance) to damage not coming through your shared link.
-		The maximum life depends on Mindpower and the chance on Cunning.
-		번역 : 당신의 육체가 더욱 진흙과도 같은 상태로 변합니다.
-		공격을 받으면 %d%% 확률로 몸이 분열되어, 당신이 받은 피해량만큼의 생명력을 가진 '진흙 덩어리' 가 생성됩니다, (진흙 덩어리의 최대 생명력 : %d)
-		당신이 받는 모든 피해량은 당신과 진흙 덩어리가 나눠서 받게 됩니다.
-		당신은 (교활함 능력치와 기술 레벨에 따라) 최대 %d 마리 까지 진흙을 유지할 수 있습니다.
-		진흙 덩어리는 피해에 대한 탄력이 매우 뛰어납니다. (50%% 전체 피해 저항력) 단, 당신을 통해서 전달되는 피해에는 이 효과가 적용되지 않습니다.
-		진흙 덩어리의 최대 생명력은 정신력의 영향을 받아 증가하고, 발생 확률은 교활함의 영향을 받아 증가합니다.
-		파라매터 : format(t.getChance(self, t), t.getMaxHP(self, t), t.getMax(self, t))
-		]]--
 	end,
 }
 
@@ -182,8 +167,8 @@ newTalent{
 	info = function(self, t)
 		return ([[자신의 옆에 있는 진흙 덩어리와 합쳐져, %d 턴 동안 40%% 전체 피해 저항력을 부여받게 됩니다.
 		이 과정에서 반마법적 폭발이 발생하여, %d 칸 반경으로 %0.1f 마나 태우기 피해를 줍니다.
-		This talent allows you to restore %0.1f Equilibrium per turn while Mitosis is active.
-		The damage, duration and Equilibrium restoration increase with your Mindpower.]]): --@@ 한글화 필요 #185~186
+		이 기술을 배우면, 유사 분열 기술이 유지되는 동안 매 턴마다 평정을 %0.1f 회복하게 됩니다.
+		피해량, 지속 시간, 평정 회복량은 정신력의 영향을 받아 증가합니다.]]): 
 		format(t.getDuration(self, t),	3, damDesc(self, DamageType.ARCANE, t.getDam(self, t)), t.equiRegen(self, t)) --@ 변수 순서 조정
 	end,
 }

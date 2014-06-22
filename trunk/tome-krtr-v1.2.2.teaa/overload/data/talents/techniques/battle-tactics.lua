@@ -141,11 +141,11 @@ newTalent{
 		local drain = t.getStaminaDrain(self, t)
 		local resistC = t.resistCoeff(self, t)
 		return ([[방어 자세를 취하여 적의 맹공에 저항합니다.
-		While wounded, you gain all damage resistance equal to %d%% of your missing health.
-		(So if you have lost 70%% of your life, you gain %d%% all resistance.)
-		In addition, your all damage resistance cap increases %0.1f%% closer to 100%%.
+		생명력을 잃은 경우, 잃은 생명력의 %d%% 에 해당하는 전체 피해 저항력을 얻습니다.
+		(예를 들어 생명력의 70%% 를 잃은 경우, 전체 피해 저항력을 %d%% 획득)
+		또한, 전체 피해 저항력 한계치가 %0.1f%% 올라 100%% 에 가까워집니다.
 		투지를 불태우는 동안에는 체력이 급격히 감소됩니다. (턴 당 체력 %d 감소)
-		The effects are refreshed at the start of each turn.]]): --@@ 한글화 필요 #144~148
+		기술의 효과는 매 턴마다 초기화되어 다시 적용됩니다.]]): 
 		format(resistC, resistC*0.7, t.getCapApproach(self, t)*100, drain)
 	end,
 }

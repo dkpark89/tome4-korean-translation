@@ -76,7 +76,7 @@ newTalent{
 
 newTalent{
 	name = "Unified Body",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "합일의 경지", 
 	type = {"technique/unarmed-training", 2},
 	require = techs_cun_req2,
 	mode = "passive",
@@ -95,7 +95,7 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Your mastery of unarmed combat unifies your body.  Increases your Strength by %d based on Cunning and your Constitution by %d based on Dexterity.]]):format(t.getStr(self, t), t.getCon(self, t)) --@@ 한글화 필요
+		return ([[맨손 격투 수련을 통해 합일의 경지에 이릅니다. 교활함 능력치에 비례해 힘 능력치가 %d 상승하며, 민첩 능력치에 비례해 건강 능력치가 %d 상승합니다.]]):format(t.getStr(self, t), t.getCon(self, t)) 
 	end
 }
 
@@ -120,7 +120,7 @@ newTalent{
 -- It's a bit wierd that this works against mind attacks
 newTalent{
 	name = "Reflex Defense",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "반사적 회피", 
 	type = {"technique/unarmed-training", 4},
 	require = techs_cun_req4, -- bit icky since this is clearly dex, but whatever, cun turns defense special *handwave*
 	points = 5,
@@ -135,12 +135,13 @@ newTalent{
 		if ( cb.value > (t.getDamagePct(self, t) * self.max_life) ) then
 			local damageReduction = cb.value * t.getDamageReduction(self, t)
 			cb.value = cb.value - damageReduction
-			game.logPlayer(self, "#GREEN#You twist your body in complex ways mitigating the blow by #ORCHID#" .. math.ceil(damageReduction) .. "#LAST#.") --@@ 한글화 필요
+			game.logPlayer(self, "#GREEN#몸을 복잡한 방식으로 뒤틀어, 피해량을 #ORCHID#" .. math.ceil(damageReduction) .. "#LAST# 감소시켰습니다.") 
 		end
 		return cb.value
 	end, 
 	info = function(self, t)
-		return ([[Your understanding of physiology allows you to apply your reflexes in new ways.  Whenever you would receive damage (from any source) greater than %d%% of your maximum life you reduce that damage by %0.1f%% (based on your Defense).]]): --@@ 한글화 필요
+		return ([[인체 생리학에 대한 높은 이해를 통해, 반사신경을 새로운 방식으로 사용합니다. 어떠한 방식으로든 최대 생명력의 %d%% 이상 피해를 입을 경우, 그 피해량을 %0.1f%% 감소시킵니다. 
+		피해 감소량은 회피도의 영향을 받아 증가합니다.]]): 
 		format(t.getDamagePct(self, t)*100, t.getDamageReduction(self, t)*100 )
 	end,
 }
