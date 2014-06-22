@@ -104,7 +104,7 @@ newTalent{
 
 newTalent{
 	name = "Brain Storm",
-	kr_name = "브레인스톰",
+	kr_name = "뇌파 폭풍",
 	type = {"psionic/focus", 3},
 	points = 5, 
 	require = psi_wil_req3,

@@ -78,7 +78,7 @@ newTalent{
 		또한 적에게 자연 피해를 가할 경우, %d 턴 동안 산성 피해량이 %0.1f%% 상승합니다.
 		피해량 증가는 최대 4 번까지 점차적으로 상승하여, 최대 %0.1f%% 까지 상승합니다. (한 턴에 최대 1 번 까지만 발동시킬 수 있습니다)
 		저항력과 피해 상승량은 주문력의 영향을 받아 증가합니다.]]):
-		format(t.getResist(self, t), t.getDuration(self, t), t.getAcidDamage(self, t, 1), t.getAcidDamage(self, t, 5))
+		format(t.getResist(self, t), t.getDuration(self, t), t.getAcidDamage(self, t, 1), t.getAcidDamage(self, t, 5)) --@ 변수 순서 조정
 	end,
 }
 
@@ -226,6 +226,6 @@ newTalent{
 		local regen = t.getRegen(self, t)
 		return ([[스스로를 자연의 힘으로 둘러싸, 산성 저항 관통력을 %d%% 올립니다.
 		또한 이 힘은 당신의 진흙 덩어리들에게 영양분이 되어, 진흙 덩어리들에게 매 턴마다 최대 생명력의 %d%% 만큼을 재생할 수 있게 해줍니다.]])
-		:format(ressistpen, regen) --@@damageinc 변수 삭제
+		:format(ressistpen, regen)
 	end,
 }

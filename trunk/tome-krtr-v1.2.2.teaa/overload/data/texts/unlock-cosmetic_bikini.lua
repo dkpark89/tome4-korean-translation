@@ -17,13 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Cosmetic Option: #LIGHT_GREEN#Bikini and Mankini",
-[[You have saved Melinda again at the beach.
+return "새로운 모습 설정 : #LIGHT_GREEN#비키니와 맨키니",
+[[당신은 멜린다를 해변에서 또 한번 구해냈습니다.
 
-You may now create characters that start equiped with either bikini or mankini.
-This has no effect on gameplay at all but it is fun!
+이제 당신은 새로운 캐릭터를 만들 때, 비키니나 맨키니를 입은 채로 시작할 수 있습니다.
+게임 진행에는 아무런 영향을 주지 않지만, 재미있을 겁니다!
 
-#{bold}#Also if you never take your bikini/mankini off and manage to win, you will get an achievement!#{normal}#
+#{bold}#또한 비니키나 맨키니를 입은 후 한번도 벗지않고 게임에서 승리하면, 업적을 달성할 수 있습니다!#{normal}#
 
-#LIGHT_GREEN#This is only available to donators. Thanks for your support!
+#LIGHT_GREEN#이 기능은 기부자들만 사용할 수 있습니다. 당신의 지원에 감사드립니다!
 ]]

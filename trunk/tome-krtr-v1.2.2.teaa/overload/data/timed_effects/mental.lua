@@ -3032,13 +3032,13 @@ newEffect{
 newEffect{
 	name = "MIND_PARASITE", image = "talents/mind_parasite.png",
 	desc = "Mind Parasite",
-	kr_desc = "정신의 기생충",
-	long_desc = function(self, eff) return ("정신의 기생충에 감염 : 기술 사용시 %d%% 확률로 %d 가지의 임의의 기술이 %d 턴간 재사용 대기상태로 변함"):format(eff.chance, eff.nb, eff.turns) end,
+	kr_desc = "정신 기생충",
+	long_desc = function(self, eff) return ("정신 기생충에 감염 : 기술 사용시 %d%% 확률로 %d 가지의 임의의 기술이 %d 턴간 재사용 대기상태로 변함"):format(eff.chance, eff.nb, eff.turns) end,
 	type = "mental",
 	subtype = { nature=true, mind=true },
 	status = "detrimental",
-	on_gain = function(self, err) return "#Target1# 정신의 기생충에게 감염되었습니다.", "+정신의 기생충" end,
-	on_lose = function(self, err) return "#Target1# 정신의 기생충으로부터 벗어났습니다.", "-정신의 기생충" end,
+	on_gain = function(self, err) return "#Target1# 정신 기생충에게 감염되었습니다.", "+정신 기생충" end,
+	on_lose = function(self, err) return "#Target1# 정신 기생충으로부터 벗어났습니다.", "-정신 기생충" end,
 	parameters = { chance=40, nb=1, turns=2 },
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "random_talent_cooldown_on_use", eff.chance)
@@ -3188,8 +3188,8 @@ newEffect{
 newEffect{
 	name = "THOUGHTSENSE", image = "talents/thought_sense.png",
 	desc = "Thought Sense",
-	kr_desc = "관념적 감지",
-	long_desc = function(self, eff) return ("관념적 주변 탐지 : %d 칸 반경의 생명체 드리남 / 회피도 %d 상승."):format(eff.range, eff.def) end,
+	kr_desc = "사고 감지",
+	long_desc = function(self, eff) return ("사고를 통해 주변 탐지 : %d 칸 반경의 생명체 드리남 / 회피도 %d 상승."):format(eff.range, eff.def) end,
 	type = "mental",
 	subtype = { tactic=true },
 	status = "beneficial",
@@ -3256,7 +3256,7 @@ newEffect{
 newEffect{
 	name = "TRANSCENDENT_TELEKINESIS", image = "talents/transcendent_telekinesis.png",
 	desc = "Transcendent Telekinesis",
-	kr_desc = "발군의 염동력",
+	kr_desc = "초월 - 염동력",
 	long_desc = function(self, eff) return ("비범한 염동력 : 물리 속성 피해량 +%d / 물리 피해 관통력 +%d%% / 동역학적 효과 증대."):format(eff.power, eff.penetration) end,
 	type = "mental",
 	subtype = { physical=true },
@@ -3277,7 +3277,7 @@ newEffect{
 newEffect{
 	name = "TRANSCENDENT_PYROKINESIS", image = "talents/transcendent_pyrokinesis.png",
 	desc = "Transcendent Pyrokinesis",
-	kr_desc = "발군의 염화",
+	kr_desc = "초월 - 염화",
 	long_desc = function(self, eff) return ("비범한 염화 : 화염 속성 피해량 +%d%% / 냉기 속성 피해량 +%d%% / 화염 피해 관통력 +%d%% / 냉기 피해 관통력 +%d%% / 열역학적 효과 증대."):format(eff.power, eff.power, eff.penetration, eff.penetration) end, --@ 변수 조정
 	type = "mental",
 	subtype = { fire=true, cold=true },
@@ -3298,7 +3298,7 @@ newEffect{
 newEffect{
 	name = "TRANSCENDENT_ELECTROKINESIS", image = "talents/transcendent_electrokinesis.png",
 	desc = "Transcendent Electrokinesis",
-	kr_desc = "발군의 전기역학",
+	kr_desc = "초월 - 전기역학",
 	long_desc = function(self, eff) return ("비범한 전기역학 : 전기 속성 피해량 +%d%% / 전기 피해 관통력 +%d%% / 전하적 효과 증대."):format(eff.power, eff.penetration) end,
 	type = "mental",
 	subtype = { lightning=true, mind=true },

@@ -3416,7 +3416,7 @@ newDamageType{
 
 newDamageType{
 	name = "brain storm", type = "BRAINSTORM",
-	kr_name = "영감",
+	kr_name = "뇌파 폭풍",
 	projector = function(src, x, y, type, dam)
 		local target = game.level.map(x, y, Map.ACTOR)
 		if target then

@@ -64,7 +64,7 @@ newTalent{
 
 newTalent{
 	name = "Sun Flare",
-	kr_name = "플레어",
+	kr_name = "번지는 햇빛",
 	type = {"celestial/sunlight", 2},
 	require = divi_req2,
 	points = 5,
@@ -100,7 +100,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[태양 플레어를 시전자 주변 %d 칸 반경에 발생시켜, 적들을 %d 턴 동안 실명시킵니다. 또한 주변 %d 칸 반경이 밝아집니다.
+		return ([[시전자 주변 %d 칸 반경으로 햇빛을 번지게 만들어, 적들을 %d 턴 동안 실명시킵니다. 또한 주변 %d 칸 반경이 밝아집니다.
 		기술 레벨이 3 이상일 경우, 주변 %d 칸 반경에 %0.2f 빛 피해를 가할 수 있게 됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(radius, duration, radius * 2, damDesc(self, DamageType.LIGHT, damage), radius)
@@ -145,7 +145,7 @@ newTalent{
 
 newTalent{
 	name = "Sunburst",
-	kr_name = "태양 폭발",
+	kr_name = "햇빛 폭발",
 	type = {"celestial/sunlight", 4},
 	require = divi_req4,
 	points = 5,
@@ -172,7 +172,7 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[태양빛을 폭발시켜, 시전자 주변 %d 칸 반경의 모든 대상들에게 %0.2f 빛 피해를 가합니다.
+		return ([[햇빛을 폭발시켜, 시전자 주변 %d 칸 반경의 모든 대상들에게 %0.2f 빛 피해를 가합니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.LIGHT, damage))
 	end,
 }

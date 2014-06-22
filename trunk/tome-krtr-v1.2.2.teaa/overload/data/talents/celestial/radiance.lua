@@ -87,7 +87,7 @@ newTalent{
 -- It can stay like this for now but may be worth making better
 newTalent{
 	name = "Searing Sight",
-	kr_name = "불타는 시선",
+	kr_name = "타오르는 시선",
 	type = {"celestial/radiance",3},
 	require = divi_req3,
 	mode = "sustained",

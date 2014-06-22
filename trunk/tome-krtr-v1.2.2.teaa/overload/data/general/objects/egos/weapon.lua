@@ -292,7 +292,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of daylight", suffix=true, instant_resolve=true,
-	kr_name = "태양빛의 ",
+	kr_name = "햇빛의 ",
 	keywords = {daylight=true},
 	level_range = {1, 50},
 	rarity = 10,

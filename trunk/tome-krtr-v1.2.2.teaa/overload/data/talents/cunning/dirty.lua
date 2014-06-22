@@ -106,7 +106,7 @@ newTalent{
 
 		if hitted and not self.dead and tx == target.x and ty == target.y then
 			if not self:canMove(tx,ty,true) or not target:canMove(sx,sy,true) then
-				self:logCombat(target, "#Source6# #Target# 사이의 자리 바꾸기가 지형의 방해를 받고 있습니다.") 
+				self:logCombat(target, "지형 때문에 #Source2# #Target6# 자리 바꾸기를 할 수 없습니다.") 
 				return true
 			end						
 			self:setEffect(self.EFF_EVASION, t.getDuration(self, t), {chance=50})

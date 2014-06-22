@@ -79,7 +79,7 @@ newTalent{
 		또한 적에게 산성 피해를 가할 경우, %d 턴 동안 자연 피해량이 %0.1f%% 상승합니다.
 		피해량 증가는 최대 4 번까지 점차적으로 상승하여, 최대 %0.1f%% 까지 상승합니다. (한 턴에 최대 1 번 까지만 발동시킬 수 있습니다)
 		저항력과 피해 상승량은 주문력의 영향을 받아 증가합니다.]]): 
-		format(t.getResist(self, t), t.getDuration(self, t), t.getNatureDamage(self, t, 1), t.getNatureDamage(self, t, 5))
+		format(t.getResist(self, t), t.getDuration(self, t), t.getNatureDamage(self, t, 1), t.getNatureDamage(self, t, 5)) --@ 변수 순서 조정
 	end,
 }
 

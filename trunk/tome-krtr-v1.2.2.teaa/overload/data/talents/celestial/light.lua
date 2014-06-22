@@ -42,7 +42,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[자신을 향해 내리비치는 태양빛을 통해, %d 생명력을 회복합니다.
+		return ([[자신을 향해 내리비치는 햇빛을 통해, %d 생명력을 회복합니다.
 		회복량은 주문력의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,

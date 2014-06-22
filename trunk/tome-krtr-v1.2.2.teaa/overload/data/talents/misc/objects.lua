@@ -624,7 +624,7 @@ newTalent{
 
 newTalent{
 	name = "Shieldsmaiden Aura",
-	kr_name = "방패 든 여전사의 기운",
+	kr_name = "처녀방패의 기운",
 	type = {"misc/objects", 1},
 	points = 1,
 	mode = "passive",
