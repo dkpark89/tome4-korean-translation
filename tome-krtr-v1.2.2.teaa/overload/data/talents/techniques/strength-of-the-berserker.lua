@@ -17,13 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Warshout", short_name = "WARSHOUT_BERSERKER", image = "talents/warshout.png",
 	kr_name = "전투 함성",
 	type = {"technique/strength-of-the-berserker",1},
 	require = techs_req1,
 	points = 5,
-	message = function(self) if self.subtype == "rodent" then return "@Source1@ 이 전투의 찍찍거림을 사용합니다." else return "@Source1@ 전투 함성을 사용합니다." end end ,
+	message = function(self) if self.subtype == "rodent" then return "@Source1@ 전투의 찍찍거림을 사용합니다." else return "@Source1@ 전투 함성을 사용합니다." end end ,
 	stamina = 30,
 	cooldown = 18,
 	tactical = { ATTACKAREA = { confusion = 1 }, DISABLE = { confusion = 3 } },
@@ -196,7 +198,7 @@ newTalent{
 		return ([[무기로 대상을 가격해, %d%% 피해를 줍니다. 공격이 명중했을 경우, 대상의 방어도와 내성이 %d 턴 동안 %d 감소합니다.
 		또한 대상이 일시적인 피해 보호막을 활성화 중일 경우, %d%% 확률로 보호막을 박살냅니다.
 		방어도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
-		:format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.4), t.getDuration(self, t), t.getArmorReduc(self, t),  t.getShatter(self, t))
+		:format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.4), t.getDuration(self, t), t.getArmorReduc(self, t),  t.getShatter(self, t)) --@ 변수 순서 조정
 	end,
 }
 

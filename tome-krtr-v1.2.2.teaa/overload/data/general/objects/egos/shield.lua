@@ -403,7 +403,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "deflecting ", prefix=true, instant_resolve=true,
-	kr_name = "굴절시키는 ",
+	kr_name = "편향시키는 ",
 	keywords = {deflection=true},
 	level_range = {10, 50},
 	rarity = 10,

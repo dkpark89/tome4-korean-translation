@@ -316,7 +316,7 @@ newEntity{ base = "BASE_GEM",
 	rarity = 250,
 	material_level = 3,
 	kr_name = "타오르는 별", kr_unided_name = "타오르는 보석",
-	desc = [[매혹의 시대에, 태양빛을 보석에 담는 방법을 발견한 최초의 하플링 마법사가 있었습니다.
+	desc = [[매혹의 시대에, 햇빛을 보석에 담는 방법을 발견한 최초의 하플링 마법사가 있었습니다.
 이 별은 그중에서도 가장 뛰어난 보석으로, 끊임없이 모양이 변하는 노란 표면에서 빛이 뿜어져 나옵니다.]],
 	cost = 400,
 
@@ -1959,7 +1959,7 @@ newEntity{ base = "BASE_ARROW",
 	name = "Quiver of the Sun",
 	unided_name = "bright quiver",
 	kr_name = "태양의 화살통", kr_unided_name = "밝은 화살통",
-	desc = [[놋쇠로 만들어졌으며, 빛을 쬐면 반짝거리면서 달아오르는 빨간색 룬이 많이 새겨진 이상한 화살통입니다. 이 안에 있는 화살들은 마치 태양빛처럼 뜨거운 빛을 내고 있으며, 단단하게 연마되어 있습니다.]],
+	desc = [[놋쇠로 만들어졌으며, 빛을 쬐면 반짝거리면서 달아오르는 빨간색 룬이 많이 새겨진 이상한 화살통입니다. 이 안에 있는 화살들은 마치 햇빛처럼 뜨거운 빛을 내고 있으며, 단단하게 연마되어 있습니다.]],
 	color = colors.BLUE, image = "object/artifact/quiver_of_the_sun.png",
 	level_range = {20, 40},
 	rarity = 300,

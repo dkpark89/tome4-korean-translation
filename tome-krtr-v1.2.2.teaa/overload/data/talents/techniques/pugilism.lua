@@ -60,7 +60,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[타격 자세를 취해 정확도를 %d 올리고, 모든 타격계 기술과 마무리 기술의 최종 피해량을 %d%% 증가시키며, 받는 피해량을 %d 감소시킵니다.
 		정확도와 피해량 상승은 민첩성 능력치의 영향을 받아 증가하고, 피해 감소량은 힘 능력치의 영향을 받아 증가합니다.]]): 
-		format(attack, damage) --@@변수 하나 부족함!!!
+		format(attack, damage, t.getFlatReduction(self, t))
 	end,
 }
 

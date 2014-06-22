@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
+
 local Object = require "engine.Object"
 
 newTalent{
@@ -134,7 +137,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[연금술 보석을 부숴, %d 칸 반경의 원뿔형으로 %0.2f 물리 피해 / %0.2f 전기 피해를 입힙니다.
 		피해를 입은 모든 대상은 밀려나며, %d 턴 동안 무장해제됩니다.
-		지속시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)), damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), t.getDuration(self, t))
+		지속시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)), damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), t.getDuration(self, t)) --@ 변수 순서 조정
 	end,
 }
 

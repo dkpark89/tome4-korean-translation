@@ -71,7 +71,7 @@ newTalent{
 	tactical = { ATTACK = { weapon = 2 }, CLOSEIN = 0.5 },
 	requires_target = true,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.7, 1.8) end,
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then return nil end
@@ -173,7 +173,7 @@ newTalent{
 	requires_target = true,
 	tactical = { ATTACK = { weapon = 1 } },
 	getPower = function(self, t) return self:combatTalentScale(t, 1.0, 2.5, "log") end, -- +125% bonus against 50% damaged foe at talent level 5.0
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then return nil end

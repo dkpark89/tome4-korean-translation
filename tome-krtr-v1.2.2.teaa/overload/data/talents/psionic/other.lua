@@ -235,7 +235,7 @@ newTalent{
 		local tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if tx and ty and a:canBe("knockback") then
 			a:move(tx, ty, true)
-			game.logSeen(a, "%s %s 염동적 악력으로 쥐었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"), (a.kr_name or a.name):addJosa("을")) --@@ 한글화 필요
+			game.logSeen(a, "%s %s 염동적 악력으로 끌어옵니다!", (self.kr_name or self.name):capitalize():addJosa("가"), (a.kr_name or a.name):addJosa("을"))
 		end
 	end,
 	on_pre_use = function (self, t)

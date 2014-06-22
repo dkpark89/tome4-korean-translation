@@ -67,7 +67,7 @@ newTalent{
 			end
 		end
 		if known then
-			game.logSeen(self, "%s 치료되었습니다!", (slef.kr_name or self.name):capitalize():addJosa("가"))
+			game.logSeen(self, "%s 치료되었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		end
 		
 		if core.shader.active(4) then
@@ -226,7 +226,33 @@ newTalent{
 				GEM_CITRINE = "Citrine",
 				GEM_AGATE = "Agate",
 			}
-			self:setEffect(self.EFF_CRYSTAL_BUFF, dur, {name=gem_names[gem.define_as], gem=gem.define_as})
+			local gem_kr_names = {
+				GEM_DIAMOND = "다이아몬드",
+				GEM_PEARL = "진주",
+				GEM_MOONSTONE = "월장석", 
+				GEM_FIRE_OPAL = "화단백석",
+				GEM_BLOODSTONE = "혈석",
+				GEM_RUBY = "루비",
+				GEM_AMBER = "호박",
+				GEM_TURQUOISE = "터키옥",
+				GEM_JADE = "비취",
+				GEM_SAPPHIRE = "사파이어",
+				GEM_QUARTZ = "석영",
+				GEM_EMERALD = "에메랄드",
+				GEM_LAPIS_LAZULI = "청금석",
+				GEM_GARNET = "석류석",
+				GEM_ONYX = "오닉스",
+				GEM_AMETHYST = "자수정", 
+				GEM_OPAL = "오팔", 
+				GEM_TOPAZ = "황옥",
+				GEM_AQUAMARINE = "남옥",
+				GEM_AMETRINE = "아메트린",
+				GEM_ZIRCON = "지르콘",
+				GEM_SPINEL = "첨정석",
+				GEM_CITRINE = "황수정",
+				GEM_AGATE = "마노",
+			}
+			self:setEffect(self.EFF_CRYSTAL_BUFF, dur, {name=gem_names[gem.define_as], kr_name=gem_kr_names[gem.define_as], gem=gem.define_as})
 		end)
 		local co = coroutine.running()
 		d.unload = function(self) coroutine.resume(co, self.used_talent) end

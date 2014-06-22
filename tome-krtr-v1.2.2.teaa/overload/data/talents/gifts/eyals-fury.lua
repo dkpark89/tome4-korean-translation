@@ -192,7 +192,7 @@ newTalent{
 		act:incMana(-mana); act:incVim(-vim); act:incPositive(-positive); act:incNegative(-negative)
 		local drain = mana + vim + positive + negative
 		if drain > 0 then
-			game:delayedLogMessage(eff.src, act, "Eyal's Wrath", ("#CRIMSON#%s drains magical energy!"):format(eff:getName())) 
+			game:delayedLogMessage(eff.src, act, "Eyal's Wrath", ("#CRIMSON#%s 마법적 원천력을 흡수했습니다!"):format(eff:getName():addJosa("가"))) 
 			eff.src:incEquilibrium(-drain/10)
 		end
 	end,

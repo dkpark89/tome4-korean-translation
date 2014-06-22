@@ -13,6 +13,8 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+require "engine.krtrUtils"
+
 local sling_equipped = function(self, silent)
 	if not self:hasArcheryWeapon("sling") then
 		if not silent then
@@ -123,7 +125,7 @@ newTalent {
 		:format(t.damage_multiplier(self, t) * 100,
 				t.pin_duration(self, t),
 				t.slow_duration(self, t),
-				t.slow_power(self, t) * 100)
+				t.slow_power(self, t) * 100) --@ 변수 순서 조정
 				
 	end,
 }

@@ -156,7 +156,7 @@ newTalent{
 
 newTalent{
 	name = "Vile Transplant",
-	kr_name = "비열한 전송",
+	kr_name = "비열한 이식",
 	type = {"corruption/vile-life", 4},
 	require = corrs_req4,
 	points = 5,
@@ -198,7 +198,7 @@ newTalent{
 					self:removeEffect(eff_id)
 					local dead, val = self:takeHit(dam, self, {source_talent=t})
 					target:heal(val, self)
-					game:delayedLogMessage(self, target, "vile_transplant"..e.desc, ("#CRIMSON##Source# transfers an effect (%s) to #Target#!"):format(e.desc))
+					game:delayedLogMessage(self, target, "vile_transplant"..e.desc, ("#CRIMSON##Source1# '%s' 효과를 #Target#에게로 이식시켰습니다!"):format(e.kr_desc or e.desc))
 				end
 				nb = nb - 1
 			end
@@ -209,9 +209,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[최대 %d 개의 해로운 물리적 / 마법적 효과들을 손이 닿을 거리에 있는 대상에게 전송시킵니다.
-		그 대가로, 전송 대상은 전송된 해로운 효과 1 개당 시전자의 현재 생명력을 %0.1%% 만큼 흡수해갑니다.
-		해로운 효과를 전송시킬 확률은 주문력의 영향을 받아 증가합니다.]]):
+		return ([[최대 %d 개의 해로운 물리적 / 마법적 효과들을 손이 닿을 거리에 있는 대상에게 이식시킵니다.
+		그 대가로, 이식 대상은 이식된 해로운 효과 1 개당 시전자의 현재 생명력을 %0.1%% 만큼 흡수해갑니다.
+		해로운 효과를 이식시킬 확률은 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getNb(self, t), t.getDam(self, t))
 	end,
 }

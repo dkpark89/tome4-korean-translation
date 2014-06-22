@@ -218,6 +218,6 @@ newTalent {
 		local mult = (t.getMult(self, t, true) - 1) * 100
 		return ([[체력을 소모한 매 턴마다, %d 턴 동안 %0.1f%% 전체 저항력과 %0.1f%% 전체 저항력 한계수치가 상승합니다. 이 효과는 최대 %d 번 까지 중첩되며, 새로 적용될 때마다 지속 시간이 초기화됩니다.
 		또한 이 기술에 직업기술 점수를 5 점 이상 투자할 경우, 휴게실 기술과 불굴의 도전자 기술의 효율이 %d%% 증가합니다.]])
-			:format(duration, resist, cap, max, mult)
+			:format(duration, resist, cap, max, mult) --@ 변수 순서 조정
 	end,
 }

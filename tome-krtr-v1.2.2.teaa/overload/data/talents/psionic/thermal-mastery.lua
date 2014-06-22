@@ -57,7 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Brainfreeze",
-	kr_name = "브레인프리즈",
+	kr_name = "뇌 얼리기",
 	type = {"psionic/thermal-mastery", 2},
 	require = psi_wil_high2, 
 	points = 5,
@@ -190,7 +190,7 @@ newTalent{
 		%d 칸 반경의 적들에게 현재 남은 염력에 따라 적들에게 %0.1f 화염 피해를 주고, (최대 염력 - 남은 염력) 에 따라 %0.1f 냉기 피해를 줍니다.
 		이를 통해 현재 염력을 최대 염력의 절반으로 조정합니다.
 		피해량은 정신력의 영향을 받아 증가합니다.]]):
-		format(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, dam2), damDesc(self, DamageType.COLD, dam1))
+		format(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, dam2), damDesc(self, DamageType.COLD, dam1)) --@ 변수 순서 조정
 	end,
 }
 

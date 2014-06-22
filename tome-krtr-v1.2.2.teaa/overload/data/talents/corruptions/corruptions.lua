@@ -24,7 +24,7 @@ newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corrupti
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/bone", name = "bone", description = "해골과 뼈의 힘을 사용합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/hexes", name = "hexes", generic = true, description = "매혹술을 걸어, 적들의 행동을 방해하고 무력화시킵니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/curses", name = "curses", generic = true, description = "저주를 걸어, 적들의 행동을 방해하고 무력화시킵니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/vile-life", name = "vile life", generic = true, description = "사악한 필요에 따라, 생명의 힘을 조작합니다." } 
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/vile-life", name = "vile life", generic = true, description = "불결한 욕망에 따라, 생명의 힘을 조작합니다." } 
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/plague", name = "plague", description = "적들에게 질병을 퍼뜨립니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/scourge", name = "scourge", description = "세상에 고통과 파괴를 가져옵니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/reaving-combat", name = "reaving combat", description = "어둠의 마법을 사용해 근접 전투력을 높입니다." }

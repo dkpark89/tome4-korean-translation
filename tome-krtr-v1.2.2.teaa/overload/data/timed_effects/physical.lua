@@ -2489,14 +2489,14 @@ newEffect{
 newEffect{
 	name = "SPINE_OF_THE_WORLD", image = "talents/spine_of_the_world.png",
 	desc = "Spine of the World",
-	kr_desc = "세계 최강의 척추",
+	kr_desc = "최강의 척추신경",
 	long_desc = function(self, eff) return ("나쁜 물리적 상태이상 효과에 완전 면역") end,
 	type = "physical",
 	subtype = { status=true },
 	status = "beneficial",
 	parameters = { },
-	on_gain = function(self, err) return "#Target1# 물리 효과에 강해졌습니다.", "+세계 최강의 척추" end,
-	on_lose = function(self, err) return "#Target1# 물리 효과에 약해졌습니다.", "-세계 최강의 척추" end,
+	on_gain = function(self, err) return "#Target1# 물리 효과에 강해졌습니다.", "+최강의 척추신경" end,
+	on_lose = function(self, err) return "#Target1# 물리 효과에 약해졌습니다.", "-최강의 척추신경" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "physical_negative_status_effect_immune", 1)
 	end,
@@ -2906,7 +2906,7 @@ newEffect {
 newEffect {
 	name = "SKIRMISHER_SUPERB_AGILITY",
 	desc = "Superb Agility",
-	kr_desc = "최고급의 기민함",
+	kr_desc = "기막힌 몸놀림",
 	image = "talents/skirmisher_superb_agility.png",
 	type = "physical",
 	subtype = {speed = true},

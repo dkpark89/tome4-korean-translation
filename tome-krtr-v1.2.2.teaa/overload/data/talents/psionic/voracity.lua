@@ -210,7 +210,7 @@ newTalent{
 		주변 %d 칸 반경의 모든 대상은 %0.1f (최대 %0.1f) 전기 피해를 입으며, %d%% (최대 %d%%) 확률로 3 턴 동안 혼절됩니다,
 		이를 통해 %d (최대 %d) 염력을 첫 번째 대상을 통해 흡수하고, 나머지 대상을 통해서는 20%% 더 적은 염력을 흡수합니다.
 		기술의 효과는 현재 남은 염력량이 낮을수록 증가합니다.]]) 
-		:format(range, t.getDam(self, t), t.getDam(self, t, 0), t.getDaze(self, t), t.getDaze(self, t, 0), t.getLeech(self, t), t.getLeech(self, t, 0))
+		:format(range, t.getDam(self, t), t.getDam(self, t, 0), t.getDaze(self, t), t.getDaze(self, t, 0), t.getLeech(self, t), t.getLeech(self, t, 0)) --@ 변수 순서 조정
 	end,
 }
 
