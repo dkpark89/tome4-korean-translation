@@ -20,6 +20,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Frost Infusion",
+	kr_name = "냉기 주입",
 	type = {"spell/frost-alchemy", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -40,8 +41,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with cold damage that can freeze your foes.
-		In addition all cold damage you do is increased by %d%%.]]):
+		return ([[연금술 폭탄을 던질 때, 적을 빙결시킬 수 있는 냉기를 주입해 던집니다.
+		또한, 모든 냉기 피해량이 %d%% 증가합니다.]]):
 		format(daminc)
 	end,
 }
@@ -66,15 +67,16 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local dam = self.alchemy_golem and self.alchemy_golem:damDesc(engine.DamageType.COLD, t.getDamage(self, t)) or 0
 		local armor = t.getArmor(self, t)
-		return ([[While Frost Infusion is active, your bombs deposit a layer of ice on your golem for %d turns when they hit it.
-		This ice provides your golem with %d additional armour, melee attacks against it deal %0.1f Cold damage to the attacker, and 50%% of its damage is converted to Cold.
-		The effects increase with your talent level and with the Spellpower and damage modifiers of your golem.]]):
+		return ([[냉기 주입이 활성화 중인 동안, 연금술 폭탄이 연금술 골렘에게 %d 턴 동안 얼음막을 씌웁니다.
+		이 얼음막은 골렘에게 추가 방어도를 %d 부여하며, 골렘을 근접 공격하는 적들은 %0.1f 냉기 피해로 반격받습니다. 또한 골렘의 피해가 50%% 만큼 냉기 피해로 전환됩니다.
+		기술의 효과는 골렘의 피해 변화량과 기술 레벨, 시전자의 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, armor, dam)
 	end,
 }
 
 newTalent{
 	name = "Flash Freeze",
+	kr_name = "순간 동결",
 	type = {"spell/frost-alchemy",3},
 	require = spells_req3,
 	points = 5,
@@ -99,14 +101,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Invoke a blast of cold all around you with a radius of %d, doing %0.1f Cold damage and freezing creatures to the ground for %d turns.
-		Affected creatures can still act, but cannot move.
-		The duration will increase with your Spellpower.]]):format(radius, damDesc(self, DamageType.COLD, t.getDamage(self, t)), t.getDuration(self, t))
+		return ([[주변 %d 칸 반경에 냉기를 폭발시켜, %0.1f 냉기 피해를 주고 적들의 발을 %d 턴 동안 얼려 움직이지 못하게 만듭니다.
+		적들은 평범하게 행동할 수 있지만, 대신 움직이지는 못합니다.
+		상태효과의 지속 시간은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.COLD, t.getDamage(self, t)), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Ice Core", short_name = "BODY_OF_ICE",
+	kr_name = "얼음 핵",
 	type = {"spell/frost-alchemy",4},
 	require = spells_req4,
 	mode = "sustained",
@@ -136,9 +139,9 @@ newTalent{
 	info = function(self, t)
 		local resist = t.getResistance(self, t)
 		local crit = t.critResist(self, t)
-		return ([[Turn your body into pure ice, increasing your Cold damage affinity by %d%% and your physical resistance by %d%%.
-		All direct critical hits (physical, mental, spells) against you have a %d%% lower Critical multiplier (but always do at least normal damage).
-		The effects increase with your Spellpower.]]):
+		return ([[육신을 순수한 냉기로 바꿔, 냉기 피해 친화도를 %d%% / 물리 저항력을 %d%% 상승시킵니다.
+		시전자를 직접 대상으로 한 모든 치명타 공격은 치명타 배수가 %d%% 감소하게 됩니다. (보통 피해량 이하로 줄어들지는 않습니다)
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getAffinity(self, t), resist, resist * 0.6, crit)
 	end,
 }

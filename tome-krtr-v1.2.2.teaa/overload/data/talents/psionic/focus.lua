@@ -59,8 +59,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Focus energies into a beam to lash enemies with physical force, doing %d Physical damage and knocking them off balance for 2 turns (-15%% global speed).
-		The damage will scale with your Mindpower.]]): --@@ 한글화 필요 #62~63
+		return ([[염력을 채찍 형태로 휘둘러, %d 물리 피해를 주고 2 턴 동안 신체 균형을 무너뜨립니다. (전체 속도 -15%%)
+		이 공격은 적을 관통하며, 피해량은 정신력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }
@@ -97,14 +97,14 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local dam = t.getDamage(self, t)
-		return ([[Telekinetically energize the matter of all foes within %d squares at the molecular level, setting them ablaze. This does %0.1f fire damage over six turns.]]): --@@ 한글화 필요
+		return ([[염력으로 %d 칸 반경에 있는 모든 적들의 신체를 분자 단위로 활성화시켜, 불타오르게 만듭니다. 적들은 6 턴에 걸쳐 총 %0.1f 화염 피해를 입게 됩니다.]]): 
 		format(radius, damDesc(self, DamageType.FIREBURN, dam))
 	end,
 }
 
 newTalent{
 	name = "Brain Storm",
-	kr_name = "영감",
+	kr_name = "브레인스톰",
 	type = {"psionic/focus", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -139,17 +139,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Mentally focus electricity into a ball of plasma and hurl it at the target.
-		The plasma will explode on impact, dealing %0.1f Lightning damage within radius %d.
-		This talent will apply cross tier Brainlock.
-		The damage will increase with your Mindpower.]]): --@@ 한글화 필요 #142~145
-		format(damDesc(self, DamageType.LIGHTNING, dam), self:getTalentRadius(t))
+		return ([[정신력으로 전기를 플라즈마 구체 상태로 만들어, 대상에게 날려보냅니다.
+		플라즈마는 대상에 닿으면 폭발하며, 주변 %d 칸 반경에 %0.1f 전기 피해를 줍니다.
+		이 기술은 시전자의 정신력과 대상의 정신 내성의 등급 차에 따라, 정신 잠금 효과를 일으킵니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]): 
+		format(self:getTalentRadius(t), damDesc(self, DamageType.LIGHTNING, dam))
 	end,
 }
 
 newTalent{
 	name = "Iron Will", image = "talents/iron_will.png",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "강철의 의지", 
 	type = {"psionic/focus", 4},
 	require = psi_wil_req4,
 	points = 5,
@@ -174,11 +174,11 @@ newTalent{
 		if #effs > 0 then
 			local eff = rng.tableRemove(effs)
 			self:removeEffect(eff[2])
-			game.logSeen(self, "%s has recovered!", self.name:capitalize()) --@@ 한글화 필요
+			game.logSeen(self, "%s 회복됐습니다!", (self.kr_name or self.name):capitalize():addJosa("가")) 
 		end
 	end,
 	info = function(self, t)
-		return ([[Your Iron Will improves your stun immunity by %d%% and gives you a %d%% chance of recovering from a random mental effect each turn.]]): --@@ 한글화 필요
+		return ([[강철과도 같은 의지로 기절 면역력을 %d%% 상승시키며, 매 턴마다 %d%% 확률로 무작위한 정신적 효과 하나로부터 회복합니다.]]): 
 		format(t.stunImmune(self, t)*100, t.cureChance(self, t)*100)
 	end,
 }

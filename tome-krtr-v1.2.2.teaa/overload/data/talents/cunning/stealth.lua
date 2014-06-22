@@ -106,8 +106,8 @@ newTalent{
 	info = function(self, t)
 		local multiplier = t.getMultiplier(self, t)
 		return ([[은신 중에 적을 공격했으며 적이 자신의 존재를 알아채지 못했을 경우, 공격은 자동적으로 치명타가 됩니다.
-		Shadowstrikes do +%.02f%% damage versus a normal critical hit up to 3 grids away and then disminishes to 0%% at distance 10.
-		These bonuses are guaranteed for spell and mind crits even if the target can see you before it hits.]]): --@@ 한글화 필요 #109~110
+		그림자 베기는 적과 3 칸 이내로 떨어져서 공격할 경우 일반 치명타보다 +%.02f%% 더 높은 피해를 주지만, 그 이상 떨어진 상태에서 공격할 경우 피해량 증가 수치가 감소하게 됩니다. (10 칸 떨어진 곳에서 공격할 경우 피해량 증가 0%%)
+		이 피해량 증가는 주문 및 정신 치명타에도 똑같이 적용되며, 이 공격을 통해 적이 자신의 존재를 알아챘더라도 기술의 효과는 적용됩니다.]]): 
 		format(multiplier * 100)
 	end,
 }

@@ -22,9 +22,9 @@ newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestia
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/chants", name = "chants", generic = true, description = "태양의 영광을 노래합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/light", name = "light", generic = true, description = "빛의 힘을 일으켜 치유와 보호의 힘을 얻습니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/combat", name = "combat", description = "태양의 힘에 대한 헌신을 통해, 불굴의 의지를 가지고 적과 맞섭니다." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/radiance", name = "radiance", description = "You channel the light of the sun through your body." } --@@ 한글화 필요
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/crusader", name = "crusader", description = "Forgo your shield for the chance to crush your foes with a mighty two handed weapon." } --@@ 한글화 필요
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/sunlight", name = "sunlight", description = "Summon the power of the Sun to burn your foes." } --@@ 한글화 필요
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/radiance", name = "radiance", description = "자신의 몸을 태양과 연결시켜 빛을 뿜어냅니다." } 
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/crusader", name = "crusader", description = "방패를 포기하는 대신, 강력한 양손 무기로 적을 분쇄합니다." } 
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/sunlight", name = "sunlight", description = "태양의 힘을 불러내, 적들을 불태웁니다." } 
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/sun", name = "sun", description = "태양의 힘으로 적을 불사릅니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/glyphs", name = "glyphs", min_lev = 10, description = "문양에 힘을 불어넣어, 함정으로 사용합니다." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="celestial/twilight", name = "twilight", description = "빛과 어둠의 사이에 서서, 두 힘을 동시에 다룹니다." }

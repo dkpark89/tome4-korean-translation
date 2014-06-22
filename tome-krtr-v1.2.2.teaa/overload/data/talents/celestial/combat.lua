@@ -60,7 +60,7 @@ newTalent{
 			if shield.dur_extended then
 				shield.dur_extended = shield.dur_extended + 1
 				if shield.dur_extended >= 20 then
-					game.logPlayer(self, "#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.") --@@ 한글화 필요
+					game.logPlayer(self, "#DARK_ORCHID#피해 보호막은 이 이상 재충전될 수 없습니다. 보호막이 폭발했습니다.") 
 					self:removeEffect(self.EFF_DAMAGE_SHIELD)
 				end
 			else shield.dur_extended = 1 end
@@ -70,10 +70,10 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local shieldflat = t.getShieldFlat(self, t)
-		return ([[무기에 태양의 힘을 불어넣어, 근접공격마다 %0.1f 빛 피해를 추가로 줍니다.
-		Additionally, if you have a temporary damage shield active, melee attacks will increase its power by %d.
-		If the same shield is refreshed 20 times it will become unstable and explode, removing it.
-		피해량과 shield bonus는 주문력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #74~76
+		return ([[무기에 태양의 힘을 불어넣어, 근접 공격마다 %0.1f 빛 피해를 추가로 줍니다.
+		또한 일시적인 피해 보호막이 발동 중일 경우, 근접 공격이 보호막을 재충전시켜 피해 흡수량을 %d 만큼 증가시킵니다.
+		하나의 피해 보호막을 20 회 이상 재충전시킬 경우, 보호막이 불안정해져 사라지게 됩니다.
+		피해량과 보호막 충전량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, damage), shieldflat)
 	end,
 }
@@ -112,7 +112,7 @@ newTalent{
 			self:attackTarget(target, nil, t.getDamage(self, t), true)
 			local range = core.fov.distance(self.x, self.y, target.x, target.y)
 			if range > 1 and rng.percent(t.SecondStrikeChance(self, t, range)) then
-				game.logSeen(self, "#CRIMSON#"..(self.kr_name or self.name).."strikes twice with Wave of Power!#NORMAL#") --@@ 한글화 필요
+				game.logSeen(self, "#CRIMSON#"..(self.kr_name or self.name).."의 두 번째 힘의 파동이 발사됩니다!#NORMAL#") 
 				self:attackTarget(target, nil, t.getDamage(self, t, true), true)
 			end
 		else
@@ -123,17 +123,17 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		return ([[순수한 힘을 방출하여, 원거리에 있는 적에게 %d%% 무기 피해를 줍니다.
-		If the target is outside of melee range, you have a chance to project a second attack against it for %d%% weapon damage.
-		The second strike chance (which increases with distance) is %0.1f%% at range 2 and %0.1f%% at the maximum range of %d.
-		최대 사거리는 힘 능력치의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #126~127
-		format(t.getDamage(self, t)*100, t.getDamage(self, t, true)*100, t.SecondStrikeChance(self, t, 2), t.SecondStrikeChance(self, t, range), range)
+		적이 근접공격 범위 밖에 있다면, %d%% 의 무기 피해로 두 번째 공격을 발사할 확률이 존재합니다.
+		두 번 공격할 확률은 거리에 따라 증가하여, 2 칸 밖의 적에게 %0.1f%% / 최대 %d 칸 밖의 적에게 %0.1f%% 확률을 가집니다.
+		최대 사거리는 힘 능력치의 영향을 받아 증가합니다.]]): 
+		format(t.getDamage(self, t)*100, t.getDamage(self, t, true)*100, t.SecondStrikeChance(self, t, 2), range, t.SecondStrikeChance(self, t, range))
 	end,
 }
 
 -- Interesting interactions with shield timing, lots of synergy and antisynergy in general
 newTalent{
 	name = "Weapon of Wrath",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "분노의 무기", 
 	type = {"celestial/combat", 3},
 	mode = "sustained",
 	require = divi_req3,
@@ -177,8 +177,8 @@ newTalent{
 		local martyr = t.getMartyrDamage(self, t)
 		local damagepct = t.getLifeDamage(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
-		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.]]): --@@ 한글화 필요 #180~181
+		return ([[무기가 정당한 분노로 타올라, 잃은 생명력의 %d%% 만큼 적에게 추가 피해를 입힙니다. (최대 피해량 : %d / 현재 피해량 : %d)
+		또한 피해를 입은 적은 고난 상태효과에 걸려, 4 턴 동안 대상이 가한 피해량의 %d%% 만큼 대상 스스로도 피해를 입게 됩니다.]]): 
 		format(damagepct*100, t.getMaxDamage(self, t, 10, 400), damage, martyr)
 	end,
 } 

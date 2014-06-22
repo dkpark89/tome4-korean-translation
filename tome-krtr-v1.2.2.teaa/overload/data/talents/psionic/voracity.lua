@@ -65,7 +65,7 @@ newTalent{
 						act:setEffect(act.EFF_SLEEP, 4, {src=self, power=en, insomnia=en, no_ct_effect=true, apply_power=self:combatMindpower()})
 						game.level.map:particleEmitter(act.x, act.y, 1, "generic_charge", {rm=0, rM=0, gm=180, gM=255, bm=180, bM=255, am=35, aM=90})
 					else
-						game.logSeen(self, "%s resists the sleep!", (act.kr_name or act.name):capitalize()) --@@ 한글화 필요
+						game.logSeen(self, "%s 잠들지 않았습니다!", (act.kr_name or act.name):capitalize():addJosa("가")) 
 					end
 				end
 			end
@@ -76,10 +76,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRadius(t)
-		return ([[You draw kinetic energy from your surroundings to replenish your Psi.
-		This will slow all targets within radius %d by %d%% (max %d%%) for four turns, draining %0.1f (max %0.1f) stamina from each.
-		You replenish %d (max %d) Psi from the first target, with each additional target restoring 20%% less than the one before it.
-		The strength of these effects increases as your Psi depletes.]]) --@@ 한글화 필요 #79~82
+		return ([[주변에서 동역학적 에너지를 흡수해서, 염력을 회복합니다.
+		주변 %d 칸 반경의 모든 대상은 4 턴 동안 %d%% (최대 %d%%) 감속되며, %0.1f (최대 %0.1f) 체력을 흡수합니다.
+		이를 통해 %d (최대 %d) 염력을 첫 번째 대상을 통해 흡수하고, 나머지 대상을 통해서는 20%% 더 적은 염력을 흡수합니다.
+		기술의 효과는 현재 남은 염력량이 낮을수록 증가합니다.]]) 
 		:format(range, t.getSlow(self, t)*100, t.getSlow(self, t, 0)*100, t.getDam(self, t), t.getDam(self, t, 0), t.getLeech(self, t), t.getLeech(self, t, 0))
 	end,
 }
@@ -137,10 +137,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRadius(t)
-		return ([[You draw thermal energy from your surroundings to replenish your Psi.
-		This will freeze all targets within radius %d for %d (max %d) turns, and deal %0.1f (max %0.1f) Cold damage.
-		You replenish %d (max %d) Psi from the first target, with each additional target restoring 20%% less than the one before it.
-		The damage and the strength of these effects increases as your Psi depletes.]]) --@@ 한글화 필요 #140~143
+		return ([[주변에서 열역학적 에너지를 흡수해서, 염력을 회복합니다.
+		주변 %d 칸 반경의 모든 대상은 냉각되어 %d (최대 %d) 턴 동안 빙결되며, %0.1f (최대 %0.1f) 냉기 피해를 입습니다.
+		이를 통해 %d (최대 %d) 염력을 첫 번째 대상을 통해 흡수하고, 나머지 대상을 통해서는 20%% 더 적은 염력을 흡수합니다.
+		기술의 효과는 현재 남은 염력량이 낮을수록 증가합니다.]]) 
 		:format(range, t.getDur(self, t), t.getDur(self, t, 0), damDesc(self, DamageType.COLD, t.getDam(self, t)), damDesc(self, DamageType.COLD, t.getDam(self, t, 0)), t.getLeech(self, t), t.getLeech(self, t, 0))
 	end,
 }
@@ -206,11 +206,11 @@ newTalent{
 	end,
 	info = function(self, t) -- could this use another effect?
 		local range = self:getTalentRadius(t)
-		return ([[You draw electical potential energy from your surroundings to replenish your Psi.
-		This deals %0.1f (max %0.1f) Lightning damage to all targets around you within radius %d, and has a %d%% (max %d%%) chance to daze them for 3 turns.
-		You replenish %d (max %d) Psi from the first target, with each additional target restoring 20%% less than the one before it.
-		The strength of these effects increases as your Psi depletes.]]) --@@ 한글화 필요 #209~212
-		:format(t.getDam(self, t), t.getDam(self, t, 0), range, t.getDaze(self, t), t.getDaze(self, t, 0), t.getLeech(self, t), t.getLeech(self, t, 0))
+		return ([[주변에서 전하적 에너지를 흡수해서, 염력을 회복합니다.
+		주변 %d 칸 반경의 모든 대상은 %0.1f (최대 %0.1f) 전기 피해를 입으며, %d%% (최대 %d%%) 확률로 3 턴 동안 혼절됩니다,
+		이를 통해 %d (최대 %d) 염력을 첫 번째 대상을 통해 흡수하고, 나머지 대상을 통해서는 20%% 더 적은 염력을 흡수합니다.
+		기술의 효과는 현재 남은 염력량이 낮을수록 증가합니다.]]) 
+		:format(range, t.getDam(self, t), t.getDam(self, t, 0), t.getDaze(self, t), t.getDaze(self, t, 0), t.getLeech(self, t), t.getLeech(self, t, 0))
 	end,
 }
 
@@ -230,7 +230,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local recover = t.getPsiRecover(self, t)
-		return ([[더 많은 염력을 원하게 되어, 최대 염력이 %d 늘어납니다. You also gain %0.1f Psi for each kill and %0.1f Psi for each mind critical.]]):format(10 * self:getTalentLevel(t), recover, 0.5*recover) --@@ 한글화 필요
+		return ([[더 많은 염력을 원하게 되어, 최대 염력이 %d 늘어납니다. 또한 적을 죽일 때마다 %0.1f 염력, 정신 치명타를 발생시킬 때마다 %0.1f 염력을 회복합니다.]]):format(10 * self:getTalentLevel(t), recover, 0.5*recover) 
 	end,
 }
 

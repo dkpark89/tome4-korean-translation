@@ -19,7 +19,7 @@
 
 newTalent{
 	name = "Transcendent Pyrokinesis",
-	kr_name = "발군의 염화",
+	kr_name = "초월 - 염화",
 	type = {"psionic/thermal-mastery", 1},
 	require = psi_wil_high1,
 	points = 5,
@@ -42,21 +42,22 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[For %d turns your pyrokinesis transcends your normal limits, increasing your Fire and Cold damage by %d%% and your Fire and Cold resistance penetration by %d%%.
-		In addition:
-		The cooldowns of Thermal Shield, Thermal Leech, Thermal Aura and Pyrokinesis are reset.
-		Thermal Aura will either increase in radius to 2, or apply its damage bonus to all of your weapons, whichever is applicable.
-		Your Thermal Shield will have 100%% absorption efficiency and will absorb twice the normal amount of damage.
-		Pyrokinesis will inflict Flameshock.
-		Thermal Leech will reduce enemy damage by %d%%.
-		Thermal Strike will have its secondary cold/freeze explode in radius 1.
-		The damage bonus and resistance penetration scale with your Mindpower.
-		Only one Transcendent talent may be in effect at a time.]]):format(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t), t.getDamagePenalty(self, t))
+		return ([[%d 턴 동안, 한계를 뛰어넘은 초월적인 염화를 다룰 수 있게 됩니다.
+		- 화염과 냉기 피해량이 %d%% / 화염과 냉기 저항 관통력이 %d%% 상승합니다.
+		- 열역학적 보호막, 열역학적 오러 발산, 염화, 열역학적 흡수 기술의 재사용 대기 시간이 초기화됩니다.
+		- 열역학적 보호막의 흡수 효율이 100%% 가 되며, 최대 흡수 가능량이 2 배 증가합니다.
+		- 열역학적 오러 발산이 주변 2 칸 범위에 영향을 미치며, 피해량 추가가 적용 가능한 모든 무기에 적용됩니다.
+		- 염화가 화염 충격 효과를 추가로 부여합니다.
+		- 열역학적 흡수가 적의 피해량을 %d%% 감소시킵니다.
+		- 열역학적 타격이 빙결성 냉기 폭발을 추가로 일으킵니다. (주변 1 칸 범위 폭발)
+		피해량 증가와 저항 관통력은 정신력의 영향을 받아 증가합니다.
+		한번에 하나의 '초월' 기술만을 사용할 수 있습니다.]]):format(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t), t.getDamagePenalty(self, t))
 	end,
 }
 
 newTalent{
 	name = "Brainfreeze",
+	kr_name = "브레인프리즈",
 	type = {"psionic/thermal-mastery", 2},
 	require = psi_wil_high2, 
 	points = 5,
@@ -85,15 +86,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Quickly drain the heat from your target's brain, dealing %0.1f Cold damage.
-		Affected creatures will also be brainlocked for 4 turns, putting a random talent on cooldown, and freezing cooldowns.
-		The damage and chance to brainlock increase with your Mindpower.]]):
+		return ([[대상의 뇌에서 급격하게 열을 뺏어, %0.1f 냉기 피해를 줍니다.
+		대상은 4 턴 동안 정신 잠금 상태가 되어, 무작위한 기술 하나가 재사용 대기 상태가 됩니다.
+		또한 정신 잠금 상태에서는 시간이 지나도 재사용 대기 시간이 감소하지 않게 됩니다.
+		피해량과 정신 잠금이 걸릴 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.COLD, dam))
 	end,
 }
 
 newTalent{
 	name = "Heat Shift",
+	kr_name = "열 교환",
 	type = {"psionic/thermal-mastery", 3},
 	require = psi_wil_high3,
 	points = 5,
@@ -139,16 +142,17 @@ newTalent{
 		local dur = t.getDuration(self, t)
 		local rad = self:getTalentRadius(t)
 		local dam = t.getDamage(self, t)
-		return ([[Within radius %d, transfer heat from a group of enemies bodies to their equipment, freezing them to the floor while the excess heat disables their weapons and armor.
-		Those afflicted will be dealt %0.1f Cold and %0.1f Fire damage, and be pinned (Frozen Feet) and disarmed for %d turns.
-		Targets suffering both types of damage will also have have their Armour and saves reduced by %d.
-		The chance to apply the effects and the duration increase with your Mindpower.]]):
+		return ([[주변 %d 칸 반경에 걸쳐, 적들의 육체와 장비의 열을 교환합니다. 이를 통해 적들은 발이 얼어붙고, 장비는 너무나 뜨거워 사용할 수 없게 됩니다.
+		이를 통해 %0.1f 냉기 피해와 %0.1f 화염 피해를 주며, 적은 %d 턴 동안 속박 (얼어붙은 발) 및 장비해제 상태가 됩니다.
+		또한 두 속성의 피해를 모두 받은 대상은 방어도와 내성이 %d 감소하게 됩니다.
+		효과가 적용될 확률과 지속 시간은 정신력의 영향을 받아 증가합니다.]]):
 		format(rad, damDesc(self, DamageType.COLD, dam), damDesc(self, DamageType.FIRE, dam), dur, t.getArmor(self, t))
 	end,
 }
 
 newTalent{
 	name = "Thermal Balance",
+	kr_name = "열에너지 균형",
 	type = {"psionic/thermal-mastery", 4},
 	require = psi_wil_high4,
 	points = 5,
@@ -182,11 +186,11 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local dam1 = dam * (self:getMaxPsi() - self:getPsi()) / self:getMaxPsi()
 		local dam2 = dam * self:getPsi() / self:getMaxPsi()
-		return ([[You seek balance between fire and cold based on your current Psi level.
-		You blast your foes with %0.1f Fire damage based on your current Psi, %0.1f Cold damage based on your max Psi minus your current Psi, in a radius %d ball.
-		This sets your current Psi to half of your maximum Psi.
-		The damage scales with your Mindpower.]]):
-		format(damDesc(self, DamageType.FIRE, dam2), damDesc(self, DamageType.COLD, dam1), self:getTalentRadius(t))
+		return ([[현재 염력 상태에 따라, 화염과 냉기의 균형을 유지합니다.
+		%d 칸 반경의 적들에게 현재 남은 염력에 따라 적들에게 %0.1f 화염 피해를 주고, (최대 염력 - 남은 염력) 에 따라 %0.1f 냉기 피해를 줍니다.
+		이를 통해 현재 염력을 최대 염력의 절반으로 조정합니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
+		format(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, dam2), damDesc(self, DamageType.COLD, dam1))
 	end,
 }
 

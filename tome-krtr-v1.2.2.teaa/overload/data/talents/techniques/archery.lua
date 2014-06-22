@@ -64,7 +64,7 @@ newTalent{
 		if not weapon then return nil end
 		local infinite = ammo.infinite or self:attr("infinite_ammo")
 		if not ammo or (ammo.combat.shots_left <= 0 and not infinite) then
-			game.logPlayer(self, "You do not have enough ammo left!") --@@ 한글화 필요
+			game.logPlayer(self, "화살이나 탄환이 다 떨어졌습니다!") 
 			return nil
 		end
 
@@ -126,10 +126,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Quickly reload your ammo by %d (depends on masteries and object bonuses).
-		Doing so requires no turn but you are considered disarmed for 2 turns.
-
-		재장전 기술은 사용해도 은신 상태가 해제되지 않습니다.]]) --@@ 한글화 필요 #129~130
+		return ([[재빠르게 %d 발의 화살이나 탄환을 재장전합니다. (해당 무기 수련 기술과 장비 보너스에 의존)
+		직접 재장전하는 것은 시간이 소모되지 않지만, 대신 2 턴 동안 무장해제 된 것으로 간주됩니다.
+		재장전 기술은 사용해도 은신 상태가 해제되지 않습니다.]]) 
 		:format(self:reloadRate())
 	end,
 }

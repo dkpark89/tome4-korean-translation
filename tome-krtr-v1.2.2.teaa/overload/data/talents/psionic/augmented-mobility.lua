@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Skate",
+	kr_name = "스케이트",
 	--kr_name = "", --@@ 한글화 필요
 	type = {"psionic/augmented-mobility", 1},
 	require = psi_wil_req1,
@@ -42,9 +43,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You telekinetically float just off the ground.
-		This allows you to slide around the battle quickly, increasing your movement speed by %d%%. 
-		It also makes you more vulnerable to being pushed around (-%d%% knockback resistance).]]): --@@ 한글화 필요 #45~47 
+		return ([[염력을 사용해서 지면 위로 살짝 날아오릅니다.
+		이를 통해 지면을 미끄러지듯 신속하게 움직일 수 있게 되어, 이동 속도가 %d%% 증가하게 됩니다.
+		하지만 날아다니기 때문에, 보다 쉽게 밀려나게 됩니다. (밀어내기 면역력 -%d%%)]]): 
 		format(t.getSpeed(self, t)*100, t.getKBVulnerable(self, t)*100) 
 	end,
 }
@@ -73,10 +74,10 @@ newTalent{
 		local inc = t.speed(self, t)
 		local percentinc = 100 * inc
 		local boost = t.getBoost(self, t)
-		return ([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.
-		Increases Accuracy by %d, your critical strike chance by %0.1f%% and 공격 속도를 %d 턴 동안 %d%% 올립니다.
-		지속시간은 정신력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #76~77
-		format(boost, 0.5*boost, t.getDuration(self, t), percentinc) --@ 변수 순서 조정
+		return ([[육체를 정신력으로 감싸, 신경과 근육을 통한 비효율적인 운동 방식을 제거하고 몸의 움직임을 극도로 효율적이게 만듭니다. 
+		%d 턴 동안 정확도가 %d / 치명타율이 %0.1f%% / 공격 속도가 %d%% 증가합니다.
+		기술의 지속 시간은 정신력의 영향을 받아 증가합니다.]]): 
+		format(t.getDuration(self, t), boost, 0.5*boost, percentinc) --@ 변수 순서 조정
 	end,
 }
 

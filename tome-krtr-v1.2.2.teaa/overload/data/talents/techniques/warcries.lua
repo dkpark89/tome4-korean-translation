@@ -46,7 +46,7 @@ newTalent{
 				proj:terminate(x, y)
 				game.level:removeEntity(proj, true)
 				proj.dead = true
-				self:logCombat(proj, "#Source# shatters '#Target#'.") --@@ 한글화 필요
+				self:logCombat(proj, "#Source1# '#Target3#' 박살냈습니다.") 
 			end)
 		end
 		game.level.map:particleEmitter(self.x, self.y, self:getTalentRadius(t), "directional_shout", {life=8, size=2, tx=x-self.x, ty=y-self.y, distorion_factor=0.1, radius=self:getTalentRadius(t), nb_circles=8, rm=0.8, rM=1, gm=0.8, gM=1, bm=0.1, bM=0.2, am=0.6, aM=0.8})
@@ -54,8 +54,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[강렬한 외침을 내질러, 전방의 적들에게 %0.2f 의 물리 피해를 줍니다. (전방 %d 칸 반경)
-		At level 5 the shout is so strong it shatters all incomming projectiles caught inside.
-		피해량은 힘 능력치의 영향을 받아 증가합니다.]]) --@@ 한글화 필요 #56
+		기술 레벨이 5 이상일 경우, 외침이 더욱 강력해져 공격 범위 내의 모든 투사체를 박살내버립니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]]) 
 		:format(damDesc(self, DamageType.PHYSICAL, t.getdamage(self,t)), t.radius(self,t))
 	end,
 }
@@ -132,8 +132,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[전장의 포효를 들은 적들은 두려움에 사로잡혀 몸이 굳어버립니다. 전방 %d 칸 범위에 있는 적의 회피도를 7턴 동안 %d 감소시킵니다.
-		All evasion and concealment bonuses are also disabled.
-		회피도 감소 효과는 물리력의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #134
+		모든 추가적인 회피 보너스와 은신으로 인한 보너스도 사라지게 됩니다.
+		회피도 감소 효과는 물리력의 영향을 받아 증가합니다.]]): 
 		format(self:getTalentRadius(t), 7 * self:getTalentLevel(t))
 	end,
 }

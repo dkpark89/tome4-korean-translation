@@ -61,6 +61,7 @@ newTalent{
 
 newTalent{
 	name = "Fearless Cleave",
+	kr_name = "대담한 가로베기",
 	type = {"technique/2hweapon-assault", 2},
 	require = techs_req2,
 	points = 5,
@@ -103,8 +104,8 @@ newTalent{
 	info = function(self, t)
 	local damage = t.getDamage(self, t) * 100
 	local movedamage = t.getDamage(self, t) * 0.5 * 100
-		return ([[Take a step toward your foes using the momentum to cleave all creatures in a 3 wide arc in front of you for %d%% weapon damage.
-		If you failed to move the damage is instead %d%%.]])
+		return ([[한 칸 앞으로 전진하며, 그 탄력을 통해 전방의 적 3 명을 %d%% 무기 피해로 가로벱니다.
+		전진하지 못했을 경우, %d%% 무기 피해만을 입힙니다.]])
 		:format(damage, movedamage)
 	end,
 }
@@ -156,13 +157,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한바퀴 돌면서, 근접한 주변의 적들에게 %d%% 의 무기 피해를 입힙니다.
-		At level 3 all damage done will also make the targets bleed for an additional %d%% damage over 5 turns]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1), t.getBleed(self, t) * 100)
+		return ([[한바퀴 돌면서, 주변 1 칸 반경의 모두에게 %d%% 의 무기 피해를 입힙니다.
+		기술 레벨이 3 이상일 경우, 공격이 출혈을 일으켜 5 턴에 걸쳐 %d%% 피해를 추가로 가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1), t.getBleed(self, t) * 100)
 	end,
 }
 
 newTalent{
 	name = "Execution",
+	kr_name = "처형",
 	type = {"technique/2hweapon-assault", 4},
 	require = techs_req4,
 	points = 5,
@@ -190,8 +192,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Takes advantage of a wounded foe to perform a killing strike.  This attack is an automatic critical hit that does %0.1f%% extra weapon damage for each %% of life the target is below maximum.
-		(A victim with 30%% remaining life (70%% damaged) would take %0.1f%% weapon damage.)]]):
+		return ([[이미 부상당한 적에게 최적의 효과를 발휘하는 기술입니다. 반드시 치명타로 적중하며, 대상의 현재 생명력이 최대 생명력보다 1%% 낮을 때마다 %0.1f%% 만큼 추가 무기 피해를 입힙니다.
+		(예를 들어 적의 생명력이 30%% 남았을 경우 (70%% 감소했을 경우), %0.1f%% 무기 피해를 가할 수 있게 됩니다)]]):
 		format(t.getPower(self, t), 100 + t.getPower(self, t) * 70)
 	end,
 }

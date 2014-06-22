@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Heat",
+	kr_name = "불꽃",
 	type = {"spell/war-alchemy", 1},
 	require = spells_req1,
 	points = 5,
@@ -42,7 +43,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Turn part of your target into fire, burning the rest for %0.2f fire damage over 8 turns.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.FIRE, damage))
+		return ([[대상의 신체 일부를 화염으로 바꿔, 8 턴에 걸쳐 %0.2f 화염 피해를 가합니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }

@@ -20,6 +20,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Acid Infusion",
+	kr_name = "산성 주입",
 	type = {"spell/acid-alchemy", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -40,8 +41,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with explosive acid that can blind.
-		In addition all acid damage you do is increased by %d%%.]]):
+		return ([[연금술 폭탄을 던질 때, 적을 실명시킬 수 있는 산성을 주입해 던집니다.
+		또한, 모든 산성 피해량이 %d%% 증가합니다.]]):
 		format(daminc)
 	end,
 }
@@ -66,9 +67,9 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
 		local dam = self.alchemy_golem and self.alchemy_golem:damDesc(engine.DamageType.ACID, t.getDamage(self, t)) or 0
-		return ([[While Acid Infusion is active, your bombs coat your golem in acid for %d turns when they hit it.
-		While coated, any melee hit agaist your golem has a %d%% chance to trigger a radius 4 cone of acid towards the attacker that does %0.1f Acid damage to all caught inside. (This can only happen once per turn.)
-		The effects increase with your talent level and with the Spellpower and damage modifiers of your golem.]]):
+		return ([[연금술 폭탄에 산성을 주입해서 던질 때, 골렘이 폭탄에 맞으면 %d 턴 동안 산성막으로 덮히게 됩니다.
+		산성막에 덮힌 골렘이 근접 공격으로 공격당할 경우. %d%% 확률로 4 칸 반경의 원뿔형으로 산성이 뿜어져나와 %0.1f 산성 피해로 반격하게 됩니다. (한 턴에 최대 1 번까지만 효과가 발현됩니다)
+		기술의 효과는 골렘의 피해량 변화 수치, 기술 레벨, 시전자의 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, chance, dam)
 	end,
 }
@@ -115,15 +116,16 @@ newTalent{
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[A radius %d pool of acid spawns at the target location, doing %0.1f Acid damage each turn for %d turns.
-		All creatures caught in the mire will also suffer a %d%% slowness effect.
-		The damage will increase with your Spellpower.]]):
-		format(radius, damDesc(self, DamageType.ACID, damage), duration, slow)
+		return ([[지정한 곳으로부터 주변 %d 칸 반경에 산성 늪지대가 만들어집니다.
+		늪지대에 발을 내딛은 모든 적은 %d 턴 동안 매 턴마다 %0.1f 피해를 받으며, %d%% 감속됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
+		format(radius, duration, damDesc(self, DamageType.ACID, damage), slow)
 	end,
 }
 
 newTalent{
 	name = "Dissolving Acid",
+	kr_name = "용해되는 산",
 	type = {"spell/acid-alchemy",4},
 	require = spells_req4,
 	points = 5,
@@ -184,8 +186,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Acid errupts all around your target, dealing %0.1f acid damage.
-		The acid attack is extremely distracting, and may remove up to %d physical or mental temporary effects or mental sustains (depending on the Spell Save of the target).
-		The damage and chance to remove effects will increase with your Spellpower.]]):format(damDesc(self, DamageType.ACID, damage), t.getRemoveCount(self, t))
+		return ([[대상 주변에 산을 분출시켜, %0.1f 산성 피해를 입힙니다.
+		이 산성 공격은 극도로 집중을 방해하여, 최대 %d 개의 물리적 / 마법적 / 정신적 지속 효과를 제거합니다. (대상의 주문 내성에 따라 변화)
+		피해량과 제거 가능한 효과의 개수는 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.ACID, damage), t.getRemoveCount(self, t))
 	end,
 }

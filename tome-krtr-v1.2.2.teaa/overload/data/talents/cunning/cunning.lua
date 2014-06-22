@@ -37,7 +37,7 @@ newTalentType {
   type = "cunning/called-shots",
   name = "Called Shots",
   allow_random = true,
-  description = "Inflict maximum pain to specific places on your enemies.", --@@ 한글화 필요
+  description = "적의 특정 신체부위에 고통을 극대화시킵니다.", 
 }
 
 -- Generic requires for cunning based on talent level

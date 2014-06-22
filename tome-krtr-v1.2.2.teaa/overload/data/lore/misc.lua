@@ -66,7 +66,7 @@ newLore{
 	category = "temple of creation",
 	name = "personal note (Slasul)",
 	kr_name = "슬라슐의 개인적인 쪽지",
-	lore = [[오랜 세월 끝에, 이 신전은 드디어 그 비밀을 나에게 드러내었다. 그리고 나의 계획 또한 실현할 수 있게 되었다. 유연한 몸과 완전무결한 전투 능력, 그 누구도 따라잡을 수 없는 바다에서의 속도... 자연은 이런 종족을 그저 '단순한 나가' 로 만들었을 리가 없다. 이 창조의 사원이 나에게 보여준 것을 통해, 우리는 나가 이상의 존재가 될 수 있을 것이다. 나의 지도를 통해, 섬세하게 다듬어진 쉐르'툴 마법과 함께, 나의 숙련된 손길 아래 우리 위대한 종족은 그 정점에 다다르게 될 것이다. 이제 새로운 글, 바로 '포식자의 글' 이 쓰여지게 될 것이다.]],
+	lore = [[오랜 세월 끝에, 이 신전은 드디어 그 비밀을 나에게 드러내었다. 그리고 나의 계획 또한 실현할 수 있게 되었다. 유연한 몸과 완전무결한 전투 능력, 그 누구도 따라잡을 수 없는 바다에서의 속도... 자연은 이런 종족을 그저 '단순한 나가' 로 만들었을 리가 없다. 이 창조의 사원이 나에게 보여준 것을 통해, 우리는 나가 이상의 존재가 될 수 있을 것이다. 나의 지도를 통해, 섬세하게 다듬어진 쉐르'툴 마법과 함께, 나의 숙련된 손길 아래 우리 위대한 종족은 그 정점에 다다르게 될 것이다. 이제 새로운 글, 바로 '포식자의 기록' 이 쓰여지게 될 것이다.]],
 }
 
 --------------------------------------------------------------
@@ -682,7 +682,19 @@ newLore{
 	category = "highfin",
 	name = "On Adventuring",
 	kr_name = "모험가의 길",
-	lore = [[ I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortune.
+	lore = [[정말로, 시간이 흐를수록, 내가 더욱 더 '모험가' 라고 불리는 존재와는 멀어지는 기분이 든단 말이지. 마치 네가 시골 길을 어슬렁거릴 수 있듯이 말이야. 방랑하는 영웅의 전설은 너무나 쉬운 명성과 부의 징조 가려진 느낌이 들고, 다른 종류의 행운을 보는 눈 따위는 없고 말이야.
+	
+내 얘기 좀 들어보라고.
+	
+최근, 우리가 사는 곳이 얼마나 흥미로운 곳인지 깨닫고 있는 사람이 거의 없는 것 같아. 이 세상은 정말 어마어마하고, 네가 상상할 수 있는 것 그 이상이라고. 내 장담할 수 있는데, 네 - 독자 여러분들 말입니다 - 가 상상할 수 있는 가장 거친 생각도, 진실의 발끝마저 쫓아올 수 없어. 얼마나 불가사의한지, 내가 본 것들 대부분은 전설에나 존재하는 것으로 치고 싶어진다고, 나 따위는 거기 있을 수 없다는 듯하고 말야. 그리고 가끔은, 내 눈을 정말 믿어야만 하는 것인지 싶기도 한다니까.
+
+내가 너무 애매하게 말하고 있는 걸지도 모르겠다만, 아니면 그러한 약속들이 너무나 많은 것을 원하도록 남겼는지도 모르겠다만... 어쨌건 간에, 모험하는 것은 언제나 즐겁고 진기한 경험이 아냐. 위험과 지속적인 죽음의 위협이 기다리고 있다고. 혹은 죽음보다 더 무서운게 기다리고 있거나. 그러니 내 말이 더 구체적이게 되길 바란다면, 버려지고 무너진 무덤, 광신교, 악마 따위를 생각해봐. 괴물이 가득한 굶주린 숲이나, 시공간 너머에 존재하는 힘도 괜찮겠군. 사실 더 경이롭고 오싹한 것들도 많지만, 세세하게 설명해주기는 어렵다고. 그런걸 말해줄 생존자들이 너무 적어서 말이야.
+
+우리에게 닿는 이야기는 대부분, 사람보다는 물건에 대한 것이겠지. 엄청난 힘을 지닌 아티팩트라던가, 과거의 유물이라던가 말이지. 확신하는데, 어떤 술고래라도 술 한 두잔 들어가면 이런 이야기를 해주곤 하지만, 마법의 검이라는건 그것을 본 자들을 조용하게 만들어버린다는 증명이나 다름없다고. 그러니, 위대한 영웅은 보통 알아차리기 쉽지. 마치 걸어다니는 역사책처럼 말이야. 시대의 중요한 이벤트 - 그가 알 길이 없는 - 를 걸치고 말이지.
+
+기억하라고. 그 어떤 아티팩트라도 말이지, 엄청난 힘과 중요성, 그리고 의미가 숨겨져있다는 것을 말이야. 이야기들, 그것들은 천천히 약해지고 사라져. '모험가를 완성시켜주는 것' 이 아티팩트가 아닌 이유지. 아티팩트는 모험가의 위대한 훈장이자, 누구도 전에 가보지 못한 곳에 갈 수 있는 용기와 의지. 그 과정을 네가 알건 모르건 간에, 그건 중요하지 않아. 어쨌든, 네가 정말 훌륭하다면, 너는 너 자신의 유물을 후대에 남길 수 있을테니 말이야.
+	
+I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortune.
 
 Hear me out on this.
 
@@ -726,28 +738,18 @@ newLore{
 	kr_name = "왈록",
 	lore = [[날로레를 위한 장송곡
 
-There once was a village
-the Nalore held dear,
-but when Ol' Walrog came t'pillage,
-they cowered in fear.
+옛날에 한 마을이 있었고,
+날로레가 평화롭게 살았다.
+하지만 왈록이 마을을 덮치자,
+그들은 공포에 떨었다.
 
-He trampled their men
-and their babes newly born,
-and seeing it finished,
-he summoned a storm.
+그는 사람들을 짓밟았고,
+아기들도 용서받지 못했다.
+그 모든 일이 끝나자,
+그는 폭풍을 소환했다.
 
-So remember old Shellsea
-as she was in the past,
-for Ol' Walrog sent the gale
-that drowned her at last.]] --@@ 한글화 필요 #728~741
---[[ 참고용으로 붙여놓은 이전 내용 #742~751: 번역 이후 삭제
-There once was a village				이곳에 한때 마을이 있었고
-the Nalore held dear,					날로레가 평화롭게 살았으나,
-but when Ol' Walrog came t'pillage,		하지만 왈록이 마을에 왔다
-they did quiver in fear.				그들은 공포를 불러왔다.				
-
-So remember the tale					이 이야기를 기억하라
-of dead Old Shellsea,					늙은, 죽은 쉘시의 이야기를
-for Ol' Walrog sent the gale,			왈록의 광풍으로 인해
-that ended Old Shellsea.				죽은, 늙은 쉘시의 이야기를.]]--
+늙은 쉘시를 기억하라
+과거의 그녀를 기억하라
+왈록의 광풍으로 인해
+익사한 그녀를 기억하라.]]--
 }

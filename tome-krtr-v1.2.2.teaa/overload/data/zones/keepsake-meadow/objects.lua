@@ -75,7 +75,7 @@ newEntity{
 	material_level = 1,
 	encumber = 0,
 	not_in_stores = true,
-	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다. 한 때 밴더의 것이었지만, 이제는 당신의 것입니다. 당신은 정신을 안정시키고 다가올 시련을 준비하기 위해, 도토리를 가진 이들을 도와줄 방법을 찾아야 합니다.]],
+	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다. 한 때 밴더의 것이었지만, 이제는 당신의 것입니다. 이 도토리는 당신의 정신을 안정시키고, 다가올 시련에 대한 준비를 도와주고 있습니다.]],
 	carrier = {
 		resists={[DamageType.MIND] = 30, [DamageType.PHYSICAL] = 8,},
 		combat_mindpower = 15,
@@ -104,7 +104,7 @@ newEntity{
 	material_level = 1,
 	encumber = 0,
 	not_in_stores = true,
-	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다. 한 때 밴더의 것이었지만, 이제는 당신의 것입니다. 이 도토리는 당신이 누구이며 무엇을 하고 있었는지를 기억하게 만들어 줍니다.]],
+	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다. 한 때 밴더의 것이었지만, 이제는 당신의 것입니다. 이 도토리는 당신이 누구이며, 또한 '어떤 존재' 인지를 상기시켜주고 있습니다.]],
 	carrier = {
 		resists={[DamageType.MIND] = 30,},
 		inc_damage = { [DamageType.PHYSICAL] = 12 },
@@ -123,7 +123,7 @@ for i = 1, 4 do
 		define_as = "KYLESS_JOURNAL_"..i,
 		name = "journal page", lore="keepsake-kyless-journal-"..i,
 		kr_name = "여행 일지",
-		desc = [[킬레스의 일지에 있던, 출입 방법이 적힌 종이입니다.]],
+		desc = [[킬레스의 일지가 일부 적혀 있는 종이입니다.]],
 		rarity = false,
 		is_magic_device = false,
 		encumberance = 0,
@@ -145,7 +145,7 @@ newEntity{
 	material_level = 1,
 	encumber = 5,
 	not_in_stores = true,
-	desc = [[이것이 킬레스에게 힘을 주고 마침내 그를 파멸로 이끈 책입니다. 아무런 표시도 없는 가죽 표지에, 그 내용은 모두 텅 비어 있습니다.]],
+	desc = [[이것이 킬레스에게 힘을 주고, 마침내 그를 파멸로 이끈 책입니다. 아무런 표시도 없는 가죽 표지에, 그 내용은 모두 텅 비어 있습니다.]],
 }
 
 

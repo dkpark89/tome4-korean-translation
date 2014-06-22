@@ -81,7 +81,7 @@ newTalent{
 
 newTalent{
 	name = "Bloody Butcher",
-	--kr_name = "", --@@ 한글화 필요
+	kr_name = "핏빛 도살자",
 	type = {"technique/bloodthirst", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -89,9 +89,9 @@ newTalent{
 	getDam = function(self, t) return self:combatScale(self:getStr(7, true) * self:getTalentLevel(t), 5, 0, 40, 35) end,
 	getResist = function(self,t) return self:combatTalentLimit(t, 50, 10, 40) end,
 	info = function(self, t)
-		return ([[You delight in the inflicting of wounds, providing %d physical power.
-		In addition when you make a creature bleed its physical damage resistance is reduced by %d%% (but never below 0%%).
-		Physical power depends on your Strength stat.]]): --@@ 한글화 필요 #92~94
+		return ([[적에게 상처내는 것을 즐기게 되어, 물리력이 %d 상승합니다.
+		또한 적이 출혈 상태에 빠질 경우, 적의 물리 저항력 역시 %d%% 감소하게 됩니다. (단, 저항력은 0%% 아래로 내려가지 않습니다)
+		물리력 상승량은 힘 능력치의 영향을 받아 증가합니다.]]): 
 		format(t.getDam(self, t), t.getResist(self, t))
 	end,
 }
@@ -114,7 +114,7 @@ newTalent{
 	info = function(self, t)
 		return ([[%d 턴 동안 전투 광란 상태가 됩니다. 효과가 지속되는 동안에는 물품을 사용할 수 없고 치유 효과도 적용되지 않지만, 생명력이 1 밑으로 떨어지지 않습니다.
 		전투 광란 상태가 끝나면, 전투 광란 상태에서 살해한 적 하나당 전체 생명력의 %d%% 에 해당하는 생명력을 회복합니다.
-		While Unstoppable is active, Berserker Rage critical bonus is disabled as you lose the thrill of the risk of death.]]): --@@ 한글화 필요
+		무쌍 기술이 활성화 중인 동안, Berserker Rage의 치명타 증가량은 적용되지 않습니다. 죽음에 대한 공포를 완전히 잃어버리기 때문이죠.]]): 
 		format(t.getDuration(self, t), t.getHealPercent(self,t))
 	end,
 }

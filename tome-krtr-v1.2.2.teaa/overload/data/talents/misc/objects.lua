@@ -554,9 +554,10 @@ newTalent{
 	end,
 }
 
---@@ 한글화 필요 #557~643(끝)
+
 newTalent{
 	name = "Dagger Block",
+	kr_name = "단검 방패",
 	image = "talents/block.png",
 	type = {"technique/objects", 1},
 	cooldown = function(self, t)
@@ -616,14 +617,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Raise your dagger into blocking position for one turn, reducing the damage of all physical melee attacks against you by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn and be left disarmed for 3 turns.
-		The blocking value will increase with your Dexterity and Cunning.]]):format(t.getPower(self, t))
+		return ([[1 턴 동안 단검으로 방패막기 자세를 취합니다. 모든 물리적 피해를 %d 만큼 막아내며, 적의 공격을 완전히 막아냈을 경우 1 턴 동안 치명적인 반격을 할 수 있게 됩니다 (일반 공격이 200%% 의 피해량을 입힘). 또한 적은 3 턴 동안 무장해제 상태가 됩니다.
+		피해 감소량은 민첩과 교활함 능력치의 영향을 받아 증가합니다.]]):format(t.getPower(self, t))
 	end,
 }
 
 newTalent{
 	name = "Shieldsmaiden Aura",
-	kr_name = "처녀방패의 오러",
+	kr_name = "방패 든 여전사의 기운",
 	type = {"misc/objects", 1},
 	points = 1,
 	mode = "passive",
@@ -632,13 +633,13 @@ newTalent{
 		if not self:isTalentCoolingDown(t) then
 			self:startTalentCooldown(t)
 			cb.value=0
-			game.logSeen(self, "#CRIMSON#%s's shield deflects the blow!", self.name)
+			game.logSeen(self, "#CRIMSON#%s의 방패가 공격을 튕겨냅니다!", self.name)
 			return true
 		else
 		return false
 		end
 	end,
 	info = function(self, t)
-		return ([[Can block up to 1 hit per 10 turns.]])
+		return ([[10 턴 마다 최대 1 번의 공격을 받아냅니다.]])
 	end,
 }

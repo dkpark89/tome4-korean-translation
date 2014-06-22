@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Reclaim",
+	kr_name = "환원",
 	type = {"wild-gift/eyals-fury", 1},
 	require = gifts_req_high1,
 	points = 5,
@@ -44,15 +45,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[You focus the inexorable pull of nature against a single creature, eroding it and allowing it to be reclaimed by the cycle of life.
-		This deals %0.1f Nature and %0.1f Acid damage to the target, and is particularly devastating against undead and constructs, dealing %d%% more damage to them.
-		The damage increases with your Mindpower.]]):
+		return ([[하나의 대상에게 가차없는 자연의 힘을 가해, 대상을 부패시키고 생명의 순환 과정 내부로 환원시킵니다.
+		이를 통해 %0.1f 자연 피해와 %0.1f 산성 피해를 주며, 언데드나 건축물에게는 %d%% 더 강력한 피해를 줍니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, dam/2), damDesc(self, DamageType.ACID, dam/2), t.undeadBonus)
 	end,
 }
 
 newTalent{
 	name = "Nature's Defiance",
+	kr_name = "자연의 저항",
 	type = {"wild-gift/eyals-fury", 2},
 	require = gifts_req_high2,
 	points = 5,
@@ -73,16 +75,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local p = t.getPower(self, t)
-		return ([[Your devotion to nature has made your body more attuned to the natural world and resistant to unnatural energies.
-		You gain %d Spell save, %0.1f%% Arcane resistance, and %0.1f%% Nature damage affinity.
-		You defy arcane forces, so that any time you take damage from a spell, you restore %0.1f Equilibrium each turn for %d turns.
-		The effects increase with your Mindpower.]]):
+		return ([[자연에 대한 헌신을 통해, 육체를 보다 자연의 세계에 동화시키고 비자연적인 힘으로부터 저항력을 얻습니다.
+		주문 내성이 %d / 마법 저항력이 %0.1f%% / 자연 피해 친화도가 %0.1%% 상승합니다.
+		마법의 힘을 반항하기 때문에, 주문 공격을 받을 때마다 %0.1f 만큼의 평정을 %d 턴 동안 회복하게 됩니다.
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getSave(self, t), t.getResist(self, t), t.getAffinity(self, t), t.getPower(self, t), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Acidfire", 
+	kr_name = "산화",
 	type = {"wild-gift/eyals-fury", 3},
 	require = gifts_req_high3,
 	points = 5,
@@ -160,15 +163,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You call upon the earth to create a blinding, corrosive cloud in an area of radius %d for %d turns.
-		Each turn, this cloud deals %0.1f Acid damage to each foe while (%d%% chance) burning away one beneficial magical effect.
-		The damage increases with your Mindpower.]]):
+		return ([[대지의 힘을 끌어내, 주변 %d 칸 반경에 %d 턴 동안 실명성, 부식성 산성 구름을 만들어냅니다.
+		매 턴마다, 이 구름은 적들에게 %0.1f 산성 피해를 주고 %d%% 확률로 하나의 이로운 마법적 효과를 태워버립니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), t.getDuration(self, t), damDesc(self, DamageType.ACID, t.getDamage(self, t)), t.getChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Eyal's Wrath",
+	kr_name = "에이알의 분노",
 	type = {"wild-gift/eyals-fury", 4},
 	require = gifts_req_high5,
 	points = 5,
@@ -224,10 +228,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local drain = t.getDrain(self, t)
-		return ([[You draw deeply from your connection with nature to create a radius %d storm of natural forces around you for %d turns.
-		This storm moves with you and deals %0.1f Nature damage each turn to all foes it hits.
-		In addtion, it will drain up to %d Mana, %d Vim, %d Positive, and %d Negative energy from each enemy within it's area every turn, while you restore Equilibrium equal to 10%% of the amount drained.
-		The damage and drain increase with your Mindpower.]]):
+		return ([[자연과의 깊은 연결을 통해, %d 칸 범위의 자연력 폭풍을 %d 턴 동안 만들어냅니다.
+		이 폭풍은 시전자를 따라 움직이며, 매 턴마다 적에게 %0.1f 자연 피해를 줍니다.
+		또한 이 폭풍에 피해를 입는 적은 추가적으로 %d 마나 / %d 원기 / %d 양기 / %d 음기를 흡수당하며, 시전자는 흡수된 양의 10%% 만큼 평정을 회복합니다.
+		피해량과 원천력 흡수량은 정신력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), t.getDuration(self, t), damDesc(self, DamageType.NATURE, t.getDamage(self, t)), drain, drain/2, drain/4, drain/4)
 	end,
 }

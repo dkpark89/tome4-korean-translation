@@ -75,17 +75,17 @@ newTalent{
 		self:talentTemporaryValue(p, "resists", {[DamageType.NATURE]=t.getResist(self, t)})
 	end,
 	info = function(self, t)
-		return ([[You gain %d%% Nature resistance.
-		When you deal Acid damage to a creature, you gain a %0.1f%% bonus to Nature damage for %d turns. 
-		This damage bonus will improve up to 4 times (no more than once each turn) with later Acid damage you do, up to a maximum of %0.1f%%.
-		The resistance and damage increase improve with your Mindpower.]]): --@@ 한글화 필요 #78~81
-		format(t.getResist(self, t), t.getNatureDamage(self, t, 1), t.getDuration(self, t), t.getNatureDamage(self, t, 5))
+		return ([[자연 저항력이 %d%% 증가합니다.
+		또한 적에게 산성 피해를 가할 경우, %d 턴 동안 자연 피해량이 %0.1f%% 상승합니다.
+		피해량 증가는 최대 4 번까지 점차적으로 상승하여, 최대 %0.1f%% 까지 상승합니다. (한 턴에 최대 1 번 까지만 발동시킬 수 있습니다)
+		저항력과 피해 상승량은 주문력의 영향을 받아 증가합니다.]]): 
+		format(t.getResist(self, t), t.getDuration(self, t), t.getNatureDamage(self, t, 1), t.getNatureDamage(self, t, 5))
 	end,
 }
 
 newTalent{
 	name = "Mind Parasite",
-	kr_name = "정신의 기생충",
+	kr_name = "정신 기생충",
 	type = {"wild-gift/oozing-blades", 3},
 	require = gifts_req_high3,
 	points = 5,

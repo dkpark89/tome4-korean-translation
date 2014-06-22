@@ -56,7 +56,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[한바퀴 돌면서, 근접한 주변의 적들에게 %d%% 의 무기 피해를 입힙니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1))
+		return ([[한바퀴 돌면서, 주변 1 칸 반경의 모두에게 %d%% 의 무기 피해를 입힙니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1))
 	end,
 }
 
@@ -304,7 +304,7 @@ newTalent{
 					local eff = rng.tableRemove(effs)
 
 					if eff[1] == "effect" then
-						game.logSeen(self, "#CRIMSON#%s shatters %s shield!", (self.kr_name or self.name):capitalize(), (target.kr_name or target.name)) --@@ 한글화 필요
+						game.logSeen(self, "#CRIMSON#%s %s의 보호막을 부쉈습니다!", (self.kr_name or self.name):capitalize():addJosa("이"), (target.kr_name or target.name)) 
 						target:removeEffect(eff[2])
 					end
 				end
@@ -315,8 +315,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 방어도와 모든 내성을 %d 감소시킵니다.
-		Also if the target is protected by a temporary damage shield there is %d%% chance to shatter it.
-		방어도 감소 확률은 물리력의 영향을 받아 증가합니다.]]) --@@ 한글화 필요 #318
+		또한 대상이 일시적인 피해 보호막에 의해 보호받고 있다면, %d%% 확률로 보호막을 분쇄해버립니다.
+		방어도 감소 확률은 물리력의 영향을 받아 증가합니다.]]) 
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.5), t.getDuration(self, t), t.getArmorReduc(self, t), t.getShatter(self, t)) --@ 변수 순서 조정
 	end,
 }

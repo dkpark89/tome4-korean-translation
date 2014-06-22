@@ -18,8 +18,8 @@
 -- darkgod@te4.org
 
 -- Physical combat
-newTalentType{ allow_random=true, type="technique/2hweapon-assault", name = "two-handed assault", description = "Specialized two-handed techniques." } --@@ 한글화 필요
-newTalentType{ allow_random=true, type="technique/strength-of-the-berserker", name = "berserker's strength", description = "Fear nothing!" } --@@ 한글화 필요
+newTalentType{ allow_random=true, type="technique/2hweapon-assault", name = "two-handed assault", description = "양손무기에 특화된 공격기술입니다." } 
+newTalentType{ allow_random=true, type="technique/strength-of-the-berserker", name = "berserker's strength", description = "아무 것도 두렵지 않다!" } 
 newTalentType{ allow_random=true, type="technique/2hweapon-offense", name = "two-handed weapons", description = "양손무기에 특화된 공격기술입니다." }
 newTalentType{ allow_random=true, type="technique/2hweapon-cripple", name = "two-handed maiming", description = "양손무기에 특화된 무력화 기술입니다." }
 newTalentType{ allow_random=true, type="technique/shield-offense", name = "shield offense", description = "무기와 방패를 드는 전투방법에 특화된 공격기술입니다." }
@@ -50,28 +50,28 @@ newTalentType {
   name = "Acrobatics",
   generic = true,
   allow_random = true,
-  description = "For light footed Rogues who prefer flight to fighting fair!", --@@ 한글화 필요
+  description = "절대 공평하게 싸워주지 않는, 발빠른 도적들을 위한 기술입니다!", 
 }
 
 newTalentType {
   type = "technique/buckler-training",
   name = "Buckler Training",
   allow_random = true,
-  description = "Mastery over their shields separates Skirmishers from Archers, and gives them an edge.", --@@ 한글화 필요
+  description = "방패 수련은 척후병들을 평범한 궁수와 다르게 만들어주는 요소이자, 척후병만이 갖는 장점입니다.", 
 }
 
 newTalentType {
   type = "technique/skirmisher-slings",
   name = "Skirmisher - Slings",
   allow_random = true,
-  description = "Slings! Pow Pow!", --@@ 한글화 필요
+  description = "내 탄환을 받아라! 퓽퓽!", 
 }
 
 newTalentType {
   type = "technique/tireless-combatant",
   name = "Tireless Combatant",
   allow_random = true,
-  description = "Your will carries you through the most difficult struggles, allowing you to fight on when others would have collapsed from exhaustion.", --@@ 한글화 필요
+  description = "그 어떤 어려운 상황에서도 버틸 수 있는 의지를 통해, 다른 자들이 지쳐 쓰러지더라도 끝까지 싸웁니다.", 
 }
 
 -- Unarmed Combat

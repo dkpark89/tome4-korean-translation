@@ -125,7 +125,7 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[주입된 힘을 사용하여, %d 생명력을 즉시 회복하고 cleanse 1 wound and poison effect.]]):format(data.heal + data.inc_stat) --@@ 한글화 필요
+		return ([[주입된 힘을 사용하여, %d 생명력을 즉시 회복하고 1 개의 상처나 독 효과를 치료합니다.]]):format(data.heal + data.inc_stat) 
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -363,7 +363,7 @@ newInscription{
 		return ([[주입된 힘을 사용하여, 시전자의 세 가지 주요 능력치 (가장 높은 능력치) 를 %d 턴 동안 %d 만큼 올립니다.
 		영웅 효과가 지속되는 동안에는 생명력이 0 이 되도 죽지 않으며, -%d 생명력이 되어야 사망합니다. 
 		하지만 생명력이 0 이하로 떨어지면 남은 생명력을 알 수 없게 됩니다.
-		If your life is below 0 when this effect wears off it will be set to 1.]]):format(data.dur, data.power + data.inc_stat, data.die_at + data.inc_stat * 30) --@ 변수 순서 조정 --@@ 한글화 필요
+		생명력이 0 이하일 때 주입물의 효과가 끝날 경우, 생명력이 1 로 회복됩니다.]]):format(data.dur, data.power + data.inc_stat, data.die_at + data.inc_stat * 30) --@ 변수 순서 조정 
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
@@ -795,15 +795,15 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
-		return ([[Activate the rune to direct a cone of chilling stormwind doing %0.2f cold damage.
-			The storm will soak enemies hit reducing their resistance to stuns by 50%% then attempt to freeze them for 3 turns with an apply power of %d.
-		또한 짙은 냉기가 당신의 정신을 명확하게 만들어, 당신이 가진 임의의 나쁜 정신 상태이상 효과 하나가 사라지게 됩니다.]]): --@@ 한글화 필요 #798~799 
+		return ([[룬을 발동시켜, %0.2f 냉기 피해를 주는 원뿔 모양의 차가운 강풍을 만들어냅니다.
+		강풍은 적들을 젖게 만들어 기절 저항력을 50%% 감소시키고, 3 턴 동안 빙결시키려고 시도합니다. (얼음의 생명력 : %d).
+		또한 짙은 냉기가 당신의 정신을 명확하게 만들어, 당신이 가진 임의의 나쁜 정신 상태이상 효과 하나가 사라지게 됩니다.]]): 
 			format(damDesc(self, DamageType.COLD, data.power + data.inc_stat), apply)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
-		return ([[%d 냉기 피해, %d apply power]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat), apply) --@@ 한글화 필요
+		return ([[%d 냉기 피해, 빙결 (얼음 생명력 %d)]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat), apply) 
 	end,
 }
 
@@ -865,8 +865,8 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local pow = data.apply + data.inc_stat
 		  local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
-		  return ([[Activate the rune to unleash a wave of acid in a cone of radius %d, doing %0.2f acid damage. The corrosive acid will also disarm enemies struck for %d turns with an apply power of %d.
-	  The surge of natural acids will remove one detrimental magical effect from you.]]): --@@ 한글화 필요 #868~869
+		  return ([[룬을 발동시켜, %d 칸 반경에 %0.2f 산성 피해를 주는 원뿔 모양의 산성 파동을 만들어냅니다. 산의 부식성으로 인해, 적들은 %d 턴 동안 무장해제 됩니다. (파워 : %d)
+		  또한 산성의 자연적인 힘을 통해, 임의의 나쁜 마법 상태이상 효과 하나가 사라지게 됩니다.]]): 
 			 format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, apply)
 	end,
 	short_info = function(self, t)
@@ -874,7 +874,7 @@ newInscription{
 		local pow = data.power
 		local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
 
-		return ([[%d acid damage; dur %d; apply %d]]):format(damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, apply) --@@ 한글화 필요
+		return ([[%d 산성 피해, 지속 %d 턴, 파워 %d]]):format(damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, apply) 
 	end,
 }
 

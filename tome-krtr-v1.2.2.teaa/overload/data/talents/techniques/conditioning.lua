@@ -41,8 +41,8 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local totalheal = baseheal + self.max_life*healpct/duration
 		return ([[중독, 질병, 출혈 상태의 지속 시간이 %d%% 감소합니다.
-		Additionally, when your life falls below 50%%, you heal for a base %0.1f health plus %0.1f%% of your maximum life (currently %0.1f total) each turn for %d turns .
-		base healing scales은 체격 능력치의 영향을 받아 증가합니다.]]): --@@ 한글화 필요 #44~45
+		또한 생명력이 50%% 밑으로 떨어질 경우 기본적으로 %0.1f 생명력, 그리고 추가적으로 최대 생명력의 %0.1f%% 만큼을 (총합 : %0.1f 생명력) %d 턴 동안 매 턴마다 회복하게 됩니다.
+		기본 생명력 회복량은 체격 능력치의 영향을 받아 증가합니다.]]): 
 		format(wounds, baseheal, healpct/duration*100, totalheal, duration)
 	end,
 }
