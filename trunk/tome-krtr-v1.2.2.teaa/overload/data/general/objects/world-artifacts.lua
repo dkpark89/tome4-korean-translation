@@ -6673,7 +6673,7 @@ newEntity{ base = "BASE_HELM",
 	name = "Yaldan Baoth", image = "object/artifact/yaldan_baoth.png",
 	unided_name = "obscuring helm",
 	kr_name = "얄단 바오쓰", kr_unided_name = "잘 보이지 않는 투구",
-	desc = [[The golden bascinet crown, affiliated with Veluca of Yaldan. King of the mythical city of Yaldan, that was struck from the face of Eyal by the arrogance of its people. Lone survivor of his kin, he spent his last years wandering the early world, teaching man to stand against the darkness. With his dying words, "Fear no evil", the crown was passed onto his successor.]], --@@ 한글화 필요
+	desc = [[중세 시대를 연상시키는 금색 투구로, 얄단의 벨루카와 관련된 물품입니다. 왕국민들의 오만에 의해 에이알 세계에서 사라졌다고 전해지는, 신화 속 도시 얄단의 왕 벨루카. 일족의 유일한 생존자가 된 그는, 남은 일생을 사람들에게 어둠과 맞서는 방법을 가르치면서 세계의 초창기를 방랑하는데 사용했습니다. 그의 유언은 "어둠을 두려워 말라" 였고, 이 투구는 그의 가르침을 계승받은 자들에게 이어져 내려왔습니다.]], 
 	level_range = {28, 39,},
 	rarity = 240,
 	cost = 700,

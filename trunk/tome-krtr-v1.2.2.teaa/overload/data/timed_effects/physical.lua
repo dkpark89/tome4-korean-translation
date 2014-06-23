@@ -2779,7 +2779,7 @@ newEffect {
 	end,
 	long_desc = function(self, eff)
 		return ([[대상은 한쪽 방향으로 움직일 때 %d%% 만큼 추가적인 속도를 낼 수 있습니다 (현재 방향 : %s). 멈추거나 움직이는 방향을 바꾸면 이 효과는 사라집니다.]])
-		:format(eff.move_speed_bonus * 100, eff.compass or "알수없는 방향") --@ 한글화 여부 검사 : eff.compass
+		:format(eff.move_speed_bonus * 100, eff.compass or "알 수 없는 방향") --@ 한글화 여부 검사 : eff.compass
 	end,
 }
 

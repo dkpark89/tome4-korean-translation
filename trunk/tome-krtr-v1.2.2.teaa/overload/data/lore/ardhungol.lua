@@ -47,12 +47,11 @@ newLore{
 
 #{bold}#여행 일지 IV#{normal}#
 
-두꺼운 초록색 먼지막이 동굴의 대기 중에 퍼져있다. 이것이 여기에 사는 생명체의 부산물인지, 아니면 다른 근원이 있는지 모르겠다. There also seem to be arcane rifts appearing in different locations throughout the cavern, though I dare not approach them; I will leave them for our anorithils to assess after I have secured the area. I must admit, I'm not looking forward to encountering the origin of a threat this grave, yet it is my sworn duty as a Sun Paladin to face what lies ahead; even should it be my own doom.
+두꺼운 초록색 먼지막이 동굴의 대기 중에 퍼져있다. 이것이 여기서 사는 생명체의 부산물인지, 아니면 다른 근원이 있는지 모르겠다. 또한 동굴 도처에 마법적 균열이 관찰되고 있다. 위험할지도 모르니 가까이 가지 않는 것이 좋을 것 같다. 저것들은 우선 주변 지역 안전을 확보한 뒤에, 우리의 아노리실들에게 조사를 맡겨야겠다. 인정하기는 싫지만, 역시 나는 이 무덤과도 같은 곳에 있는 위협의 근원을 만나고 싶지 않다. 이곳에 무엇이 있을지 밝혀내겠다고 태양의 기사로서 맹세를 했지만, 그 '무엇' 이 나 자신의 재앙을 불러올 수도 있으니까.
 
 #{bold}#여행 일지 V#{normal}#
 
-Impossible; how could spiders have grown to such an immense size? Not only that, but the markings and physical traits are unlike any arachnid I have previously encountered. The first one I encountered nearly took my left arm during its initial assault, if my reflexes had been a split second slower, I fear the worst may have transpired. If the Gates of Morning are assaulted by not only the orcs, but also this new –found species of arachnids, I fear all hope will be lost. For the sake of all Eyal, I must venture further into this spider infested cavern and destroy the source of this incursion.
-]] --@@ 한글화 필요 #50~54
+불가능한 일이다. 어떻게 거미가 저렇게까지 거대해질 수가 있지? 그뿐만이 아니다. 무늬도, 육체적 능력도 내가 지금까지 봐온 어떤 거미와도 다르다. 내가 처음 만난 거미는 단 한번의 기습으로 내 왼쪽 팔을 가져갈 뻔 했다. 내 반응이 조금만 느렸더라면, 최악의 사태가 일어날 뻔 했다. 만약 아침의 문이 오크만이 아닌 이 새로운 거미들에게까지 공격을 받는다면, '마지막 희망' 은 산산조각나고 말 것이다. 에이알 세계를 위해서, 나는 이 거미놈들로 가득한 동굴을 더 탐사해서 습격의 근원을 찾아야만 한다.]] 
 }
 
 newLore{
@@ -62,13 +61,13 @@ newLore{
 	kr_name = "라심의 여행 일지 (3)",
 	lore = [[#{bold}#여행 일지 VI#{normal}#
 
-It took some time, but my muscles have started to adapt and react to the unique movements of these arachnid. The way they fight, it's almost as if they possess a higher level of thought, elevating them far beyond the base intelligence of lesser arachnid... is it possible that they could be sentient? Do they act individually, or are they perhaps manipulated by a greater arachnid? Let us pray that this species is not connected through a hive mind, for this threat could become even greater than I had imagined.
+시간이 조금 걸렸지만, 내 몸이 이 거미들의 독특한 움직임에 적응하기 시작했다. 놈들이 싸우는 방식은, 마치 고등 정신활동에 기반하고 있는 것처럼 보인다. 보통 거미들과는 차원이 다른... 정말로 거미가 지성을 가지는게 가능한 일인가? 그리고 놈들은 개별적으로 행동하는 것인가, 아니면 어떤 고등한 거미가 조종하는 것인가? 후자가 아니길 빌 수밖에 없다. 만약 후자라면 내가 상상할 수 있는 것보다도 더 큰 위협이 닥칠테니.
 
 #{bold}#여행 일지 VII#{normal}#
 
-I have slain dozens of these arachnids, each one seemingly more difficult than the last. I am unsure if this is a result of my weariness, or if they are also adapting to my movements and battle techniques. I don't see how that could be possible however, a mere spider couldn't possibly adapt to the battle techniques of a veteran Sun Paladin, it's simply not feasible. Furthermore, the origin of these spiders worries me. So far I have not found any other entrances to this cavern, meaning they were transported here via other means. Those arcane rifts I found earlier are starting to worry me, and I fear for us all when I think of what may be waiting for us beyond them. I must put these thoughts out of my mind; distractions will only serve to weaken my resolve.
+거의 10 마리에 가까운 거미들을 해치웠다. 마지막 놈은 다른 놈들보다 더 강력했다. 내 체력이 떨어져서 그렇게 느껴졌던 것인지, 아니면 놈들이 내 움직임과 전략에 적응하고 있어서인지, 확신하기 힘들다. 정말 놈들이 내 전략에 적응하고 있는 것일까? 당연하지만 평범한 거미는 숙련된 태양의 기사가 사용하는 전략에 적응할 수 없다. 불가능한 일이다. 게다가, 이 거미들이 대체 어디서 온 것인지에 대해 갈수록 불안감이 더해지고 있다. 이 동굴로 통하는 다른 입구는 전혀 발견하지 못했다. 그 뜻은, 놈들이 이곳으로 '전송' 됐거나 아니면 다른 방법을 사용했다는 것이다. 이전에 본 마법적 균열이 생각나는군. 그 균열 너머에 무엇이 우리를 기다리고 있을지 생각하기조차 두렵다. 일단은 빨리 이런 생각을 떨쳐내야겠다. 내 결의를 흔들리게 만들 뿐이니.
 
 #{bold}#여행 일지 VIII#{normal}#
 
-Incredible, the size of that arachnid is unimaginable; there is no doubt about it, that spider is the matriarch here. I am heavily wounded, but there is no turning back now; I must finish what I started for the sake of all those awaiting my return. If I don't make it back, whoever is now reading this journal, please make High Sun Paladin Aeryn at the Gates of Morning aware of the grave situation... and tell Melnela that I'm sorry.]] --@@ 한글화 필요 #65~72
+세상에, 저 거미의 덩치는 정말 상상 이상이군. 의심할 여지 없이 저 거미가 놈들의 우두머리인게 확실하다. 하지만 나는 이미 심한 부상을 입었고, 이제 돌아갈 수도 없다. 나의 복귀를 기다리는 모든 자들을 위해서, 나는 이 일을 어떻게든 끝내야만 한다. 만약 내가 귀환하지 못하게 된다면, 이 일지를 읽는 누구라도 좋으니, 아침의 문에 있는 고위 태양의 기사 아에린에게 이 심각한 상황을 알려주기를... 그리고 멜넬라에게 미안하다고 전해주기를.]]
 }
