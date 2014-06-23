@@ -57,7 +57,7 @@ newTalent{
 
 newTalent{
 	name = "Brainfreeze",
-	kr_name = "뇌 얼리기",
+	kr_name = "두뇌 빙결",
 	type = {"psionic/thermal-mastery", 2},
 	require = psi_wil_high2, 
 	points = 5,
