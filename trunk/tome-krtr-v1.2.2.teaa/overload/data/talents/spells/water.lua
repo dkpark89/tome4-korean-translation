@@ -155,7 +155,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[시전자로부터 1 칸 떨어진 곳부터 해일이 일어나기 시작하며, 매 턴마다 1 칸씩 더 해일이 넓어져 최대 %d 칸 범위까지 넓어집니다. 해일에 휩쓸린 적은 매 턴마다 %0.2f 냉기 피해와 %0.2f 물리 피해를 입으며, 뒤로 밀려납니다.
 		해일은 %d 턴 동안 유지됩니다.
-		피해를 받은 모든 대상은 몸이 젖어, 기절/빙결 면역력이 절반으로 떨어지며 다른 냉기 주문의 영향을 받습니다.
+		피해를 받은 모든 대상은 몸이 젖어, 기절/빙결 면역력이 절반으로 떨어지며 다른 냉기 주문의 영향을 받게 됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, damDesc(self, DamageType.COLD, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2), duration)
 	end,
@@ -237,7 +237,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		return ([[시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 빙결시킵니다. (지속시간 : %d 턴)
-		대상이 젖은 상태라면 피해량이 30%% 증가하며, 빙결 확률이 50%% 상승합니다. 
+		대상이 젖은 상태라면 피해량이 30%% 증가하며, 빙결 확률이 50%% 로 상승합니다. 
 		피해량과 폭풍의 지속시간은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration) 
 	end,
 }

@@ -76,7 +76,7 @@ newTalent{
 	info = function(self, t)
 		local p = t.getPower(self, t)
 		return ([[자연에 대한 헌신을 통해, 육체를 보다 자연의 세계에 동화시키고 비자연적인 힘으로부터 저항력을 얻습니다.
-		주문 내성이 %d / 마법 저항력이 %0.1f%% / 자연 피해 친화도가 %0.1%% 상승합니다.
+		주문 내성이 %d / 마법 저항력이 %0.1f%% / 자연 피해 친화도가 %0.1f%% 상승합니다.
 		마법의 힘을 반항하기 때문에, 주문 공격을 받을 때마다 %0.1f 만큼의 평정을 %d 턴 동안 회복하게 됩니다.
 		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getSave(self, t), t.getResist(self, t), t.getAffinity(self, t), t.getPower(self, t), t.getDuration(self, t))

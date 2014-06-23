@@ -91,7 +91,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[전격의 기운이 실린 화살을 발사하여, %0.2f - %0.2f 전기 피해를 주고 대상을 3 턴 동안 혼절시킵니다.
-		대상이 혼절 상태효과를 저항할 경우, 쇼크를 일으켜 기절/혼절 면역력을 5 턴 동안 절반으로 깎습니다.
+		적이 혼절 상태효과를 저항할 경우, 대신 쇼크를 일으켜 기절/혼절 면역력을 5 턴 동안 절반으로 깎습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHTNING, damage/3), damDesc(self, DamageType.LIGHTNING, damage))
 	end,

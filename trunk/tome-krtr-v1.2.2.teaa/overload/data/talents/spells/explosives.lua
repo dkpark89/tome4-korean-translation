@@ -166,7 +166,7 @@ newTalent{
 		self.resists[DamageType.ACID] = self.resists[DamageType.ACID] - 3
 	end,
 	info = function(self, t)
-		return ([[당신과 당신의 골렘 그리고 동료들에게 보호대책을 마련하여 자신의 연금술 폭탄에 대한 속성 피해를 %d%% 감소시키고, 기타 일반적인 속성 피해도 %d%% 감소시킵니다. (적용 속성 : 화염, 냉기, 전격, 산성)
+		return ([[시전자와 시전자의 골렘, 그리고 동료들에게 보호대책을 마련하여 자신의 연금술 폭탄에 대한 속성 피해를 %d%% 감소시키고, 기타 일반적인 속성 피해도 %d%% 감소시킵니다. (적용 속성 : 화염, 냉기, 전격, 산성)
 		기술 레벨이 5 가 되면, 연금술 폭탄으로 발생하는 특수효과까지 무시할 수 있습니다.]]):
 		format(math.min(100, self:getTalentLevelRaw(t) * 20), self:getTalentLevelRaw(t) * 3)
 	end,

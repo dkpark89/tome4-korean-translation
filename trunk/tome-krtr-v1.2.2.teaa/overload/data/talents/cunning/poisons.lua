@@ -174,7 +174,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[독의 지속시간을 50%% 줄이고, 피해량을 %d%% 늘립니다.
-		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(100 + self:combatTalentStatDamage(t, "cun", 40, 250))
 	end,
 }
@@ -300,7 +300,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[무기에 마비형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 대상은 무언가를 공격할 때 피해량이 %d%% 감소하게 됩니다.
-		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }
@@ -335,7 +335,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[무기에 잠식형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 대상은 회복 효율이 %d%% 감소하게 됩니다.
-		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }

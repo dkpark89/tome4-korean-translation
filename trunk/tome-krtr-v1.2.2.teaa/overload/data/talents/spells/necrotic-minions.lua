@@ -820,7 +820,7 @@ newTalent{
 		return ([[강렬한 언데드의 기운을 불어넣어, 사령술의 기운에 의해 붙잡힌 영혼을 언데드 추종자로 되살려냅니다. (최대 %d 마리 유지 가능)
 		언데드 추종자는 사령술의 기운이 깃든 범위 내에서만 일으킬 수 있습니다.
 		언데드 추종자의 레벨은 시전자의 %+d 입니다.
-		생성될 언데드 추종자의 확률은 다음과 같습니다 %s :
+		생성될 언데드 추종자의 확률은 다음과 같습니다 %s : 
 		%s]]):
 		format(nb, lev, mm, t.MinionChancesDesc(self, t))
 	end,
@@ -843,7 +843,7 @@ newTalent{
 		self:forceUseTalent(self.T_NECROTIC_AURA, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 	end,
 	info = function(self, t)
-		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 언데드 추종자들이 사령술의 기운 범위 밖에서 턴 당 받는 생명력 피해가 %d%%P 감소합니다.]]):
+		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 언데드 추종자들이 사령술의 기운 범위 밖에서 턴 당 받는 생명력 피해가 %d%%p 감소합니다.]]):
 		format(math.floor(t.getbonusRadius(self, t)), math.min(7, self:getTalentLevelRaw(t)))
 	end,
 }
@@ -879,8 +879,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[모든 추종자들을 강화시켜, 6 턴 동안 물리력, 주문력, 정확도를 %d /방어도 관통력을 %d / 치명타율을 %d 상승시킵니다.
-		이 효과는 주문력의 영향을 받아 증가합니다.]]):
+		return ([[모든 추종자들을 강화시켜, 6 턴 동안 물리력, 주문력, 정확도를 %d / 방어도 관통력을 %d / 치명타율을 %d 상승시킵니다.
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getAPR(self, t), t.getCrit(self, t))
 	end,
 }
@@ -896,7 +896,7 @@ newTalent{
 	info = function(self, t)
 		return ([[언데드 추종자에게 힘을 나눠줘서, 시전자가 지닌 모든 내성과 속성 저항력의 %d%% 만큼을 추종자들에게 부여합니다.
 		그리고 언데드 추종자의 공격에 의해 시전자가 피해를 받을 때, 그 피해량을 %d%% 만큼 감소시킵니다.
-		이 효과는 주문력의 영향을 받아 증가합니다.]]):
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPerc(self, t), self:getTalentLevelRaw(t) * 20)
 	end,
 }

@@ -119,7 +119,7 @@ newTalent{
 		local power = t.getPower(self, t)
 		local defense = t.getDefense(self, t)
 		return ([[%d 턴 동안 회피도를 %d 상승시킵니다. 지속 시간 중에 근접 공격을 피할 때마다, 자신을 공격한 적은 치명타를 맞을 확률이 %d%% 상승하며 모든 내성이 %d 감소합니다. (중첩은 되지 않습니다)
-		이 효과는 교활함 능력치의 영향을 받아 증가합니다.]])
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]])
 		:format(duration, defense, power, power) --@ 변수 순서 조정
 	end,
 }

@@ -102,7 +102,7 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[주변 %d 칸 반경에 냉기를 폭발시켜, %0.1f 냉기 피해를 주고 적들의 발을 %d 턴 동안 얼려 움직이지 못하게 만듭니다.
-		적들은 평범하게 행동할 수 있지만, 대신 움직이지는 못합니다.
+		얼어붙은 발 상태효과에 걸리면 이동을 할 수 없게 되지만, 다른 행동에는 영향을 주지 않습니다.
 		상태효과의 지속 시간은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.COLD, t.getDamage(self, t)), t.getDuration(self, t))
 	end,
 }

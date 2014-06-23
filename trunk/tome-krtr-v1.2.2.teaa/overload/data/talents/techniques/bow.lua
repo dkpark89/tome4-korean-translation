@@ -64,7 +64,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[어떤 것이든 꿰뚫는 화살을 쏴서, %d%% 의 무기 피해를 주고 적을 관통합니다.
-		아주 특수한 경우가 아닌 한, 적의 방어도는 무시됩니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
+		아주 특수한 경우가 아닌 한, 적의 방어도를 무시할 수 있습니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
 
