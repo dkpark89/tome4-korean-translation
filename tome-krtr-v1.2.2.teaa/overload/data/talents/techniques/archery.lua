@@ -331,7 +331,7 @@ newTalent{
 		if self:getTalentLevel(t) >= 3 then rad = rad + 1 end
 		if self:getTalentLevel(t) >= 5 then rad = rad + 1 end
 		return ([[화살이나 탄환을 발사할 때 불을 붙여, 대상에게 %d%% 의 화염 피해를 주고 주변 %d 칸 반경에 빛을 비춥니다.
-		기술 레벨이 3 이상이면, 3턴 동안 대상을 실명 상태로 만들 수 있습니다.]]):
+		기술 레벨이 3 이상이면, 3 턴 동안 대상을 실명 상태로 만들 수 있습니다.]]):
 		format(self:combatTalentWeaponDamage(t, 0.5, 1.2) * 100, rad)
 	end,
 }

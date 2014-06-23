@@ -110,12 +110,12 @@ newTalent{
 
 newTalent{
 	name = "Warshout",
-	kr_name = "전투의 외침",
+	kr_name = "전투함성",
 	type = {"technique/2hweapon-offense",3},
 	require = techs_req3,
 	points = 5,
 	random_ego = "attack",
-	message = function(self) if self.subtype == "rodent" then return "@Source1@ 전투의 외침을 내지릅니다. 찍찍!" else return "@Source1@ 전투의 외침을 내지릅니다." end end ,
+	message = function(self) if self.subtype == "rodent" then return "@Source1@ 전투함성을 내지릅니다. 찍찍!" else return "@Source1@ 전투함성을 내지릅니다." end end ,
 	stamina = 30,
 	cooldown = 18,
 	tactical = { ATTACKAREA = { confusion = 1 }, DISABLE = { confusion = 3 } },
@@ -130,7 +130,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "양손 무기 없이는 전투의 외침을 내지를 수 없습니다!")
+			game.logPlayer(self, "양손 무기 없이는 전투함성을 내지를 수 없습니다!")
 			return nil
 		end
 
@@ -147,7 +147,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[전방 %d 칸 반경에 전투의 외침을 내지릅니다. 범위 내의 대상들은 %d 턴 동안 혼란 상태에 빠집니다.]]):
+		return ([[전방 %d 칸 반경에 전투함성을 내지릅니다. 범위 내의 대상들은 %d 턴 동안 혼란 상태에 빠집니다.]]):
 		format(self:getTalentRadius(t), t.getDuration(self, t))
 	end,
 }
@@ -204,7 +204,7 @@ newTalent{
 	info = function(self, t)
 		return ([[적중시 무조건 치명타 효과가 발생하며, %d%% 의 무기 피해를 주는 즉사 공격을 시도합니다. 
 		공격을 받은 대상이 빈사상태 (생명력 20%% 미만) 이며 대상이 저항하지 못했을 경우, 대상은 즉사합니다.
-		기술 레벨이 4 이상이면, 남은 체력의 절반을 쏟아부어 그만큼 더 강력한 공격을 할 수 있습니다.
+		기술 레벨이 4 이상일 경우 남은 체력의 절반을 쏟아부어, 소모한 체력 수치만큼 더 강력한 공격을 할 수 있게 됩니다.
 		즉사 확률은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
 	end,
 }

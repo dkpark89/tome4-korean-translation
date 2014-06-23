@@ -624,7 +624,7 @@ newTalent{
 
 newTalent{
 	name = "Shieldsmaiden Aura",
-	kr_name = "처녀방패의 기운",
+	kr_name = "쉴드메이든의 기운",
 	type = {"misc/objects", 1},
 	points = 1,
 	mode = "passive",
@@ -633,7 +633,7 @@ newTalent{
 		if not self:isTalentCoolingDown(t) then
 			self:startTalentCooldown(t)
 			cb.value=0
-			game.logSeen(self, "#CRIMSON#%s의 방패가 공격을 튕겨냅니다!", self.name)
+			game.logSeen(self, "#CRIMSON#%s의 방패가 공격을 튕겨냅니다!", (self.kr_name or self.name))
 			return true
 		else
 		return false

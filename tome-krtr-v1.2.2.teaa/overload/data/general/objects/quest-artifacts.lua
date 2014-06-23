@@ -453,7 +453,7 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "FUN_BIKINI",
 	name = "Bikini", color = colors.RED, image = "object/artifact/bikini.png",
 	unided_name = "tiny piece of cloth",
 	kr_name = "비키니", kr_unided_name = "작은 천조각",
-	desc = [[노출이 심한 핑크색의 재미난 옷입니다.
+	desc = [[노출이 심한, 핑크색의 재미난 옷입니다.
 #{bold}#이걸 입은 뒤에 한번도 벗지 않고 게임에서 이기면 멋진 업적을 얻고 자랑스러워 할 수 있습니다!#{normal}#]],
 	level_range = {1, 1},
 	rarity = false,
@@ -479,7 +479,7 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "FUN_MANKINI",
 	name = "Mankini", color = colors.RED, image = "object/artifact/bikini.png",
 	unided_name = "tiny piece of cloth",
 	kr_name = "맨키니", kr_unided_name = "작은 천조각",
-	desc = [[노출이 삼한 녹색의 재미난 옷입니다.
+	desc = [[노출이 심한, 녹색의 재미난 옷입니다.
 #{bold}#이걸 입은 뒤에 한번도 벗지 않고 게임에서 이기면 멋진 업적을 얻고 자랑스러워 할 수 있습니다!#{normal}#]],
 	level_range = {1, 1},
 	rarity = false,

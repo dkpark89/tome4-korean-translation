@@ -51,7 +51,7 @@ newTalent {
 		local block = t.chance(self, t)
 		local armor = t.getHardiness(self, t)
 		return ([[방패 착용이 가능해지고, 힘 대신 교활함 능력치로 방패를 착용할 수 있게 됩니다.
-		또한 근접 공격을 당할 때마다, %d%% 확률로 방패를 들어 공격을 튕겨내 완전히 막아냅니다.
+		또한 근접 공격을 당할 때마다, %d%% 확률로 방패를 들어 공격을 완전히 막아냅니다.
 		방어 확률은 교활함 능력치의 영향을 받아 증가합니다.]])
 			:format(block, armor)
 	end,
@@ -182,9 +182,9 @@ newTalent {
 		local t2 = self:getTalentFromId(self.T_SKIRMISHER_BASH_AND_SMASH)
 		if t2 then
 			if self:getTalentLevelRaw(t2) >= 5 then
-				crit = " 기술 레벨이 5 이상일 경우, 후려치고 박살내기 기술의 방패 공격이 항상 치명타 공격으로 됩니다."
+				crit = " 기술 레벨이 5 이상일 경우, 후려치고 박살내기 기술의 방패 공격이 항상 치명타 공격으로 적용됩니다."
 			else
-				crit = " 기술 레벨이 5 이상일 경우, 후려치고 박살내기 기술의 방패 공격이 항상 치명타 공격으로 됩니다."
+				crit = " 기술 레벨이 5 이상일 경우, 후려치고 박살내기 기술의 방패 공격이 항상 치명타 공격으로 적용됩니다."
 			end
 		end
 		return ([[투사체에 피격당하기 직전, %d%% 확률로 투사체를 주변 %d 칸 밖으로 튕겨냅니다.%s]])

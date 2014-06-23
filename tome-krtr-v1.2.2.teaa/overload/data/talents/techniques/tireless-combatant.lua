@@ -163,7 +163,7 @@ newTalent {
 	info = function(self, t)
 		local stamina = t.getStaminaRate(self, t)
 		local health = t.getLifeRate(self, t)
-		return ([[좌절감이 사나이를 키우는 법입니다. 시야의 적 하나마다 체력 회복량이 %0.1f 상승하게 됩니다.
+		return ([[좌절감이 사나이를 키우는 법입니다. 시야에 적이 하나 보일 때마다, 체력 회복량이 %0.1f 상승하게 됩니다.
 		이 기술에 직업기술 점수를 3 점 이상 투자할 경우, 시야의 적 하나마다 생명력 회복량도 %0.1f 상승하게 됩니다. 이 효과는 최대 4 명의 적이 있을 때까지 적용됩니다.]])
 			:format(stamina, health)
 	end,
@@ -216,7 +216,7 @@ newTalent {
 		local resist = t.getResist(self, t)
 		local cap = t.getResistCap(self, t)
 		local mult = (t.getMult(self, t, true) - 1) * 100
-		return ([[체력을 소모한 매 턴마다, %d 턴 동안 %0.1f%% 전체 저항력과 %0.1f%% 전체 저항력 한계수치가 상승합니다. 이 효과는 최대 %d 번 까지 중첩되며, 새로 적용될 때마다 지속 시간이 초기화됩니다.
+		return ([[체력을 소모한 매 턴마다, %d 턴 동안 전체 저항력이 %0.1f%% / 전체 저항력 한계치가 %0.1f%% 상승합니다. 이 효과는 최대 %d 번 까지 중첩되며, 새로 적용될 때마다 지속 시간이 초기화됩니다.
 		또한 이 기술에 직업기술 점수를 5 점 이상 투자할 경우, 휴게실 기술과 불굴의 도전자 기술의 효율이 %d%% 증가합니다.]])
 			:format(duration, resist, cap, max, mult) --@ 변수 순서 조정
 	end,

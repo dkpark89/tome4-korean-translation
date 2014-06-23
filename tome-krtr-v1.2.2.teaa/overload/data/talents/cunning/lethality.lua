@@ -98,7 +98,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[%d 턴 동안, 공격에 의지를 담아 %d 물리력이 추가 됩니다.
-		이 효과는 교활함 능력치와 의지 능력치의 영향을 받아 증가합니다.]]):
+		기술의 효과는 교활함 능력치와 의지 능력치의 영향을 받아 증가합니다.]]):
 		format(duration, damage)
 	end,
 }

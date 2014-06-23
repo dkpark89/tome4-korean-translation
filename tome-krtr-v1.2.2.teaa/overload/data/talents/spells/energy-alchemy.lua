@@ -206,7 +206,7 @@ newTalent{
 		local range = self:getTalentRange(t)
 		return ([[몸에 전기의 힘을 주입시켜, 이동 속도를 +%d%% 상승시킵니다. 그리고 매 턴마다 %d 칸 이내의 적 하나에게 전기 공격을 해서 %0.1f 전기 피해를 입힙니다.
 		또한, 생명력에 피해가 갔을 경우 추가적인 힘이 주입됩니다.
-		턴이 시작할 때마다, 지난 턴에 %d 생명력 이상 (최대 생명력의 20%%) 을 잃었다면 턴의 %d%% 만큼을 이번 턴에 얻습니다.
+		턴이 시작할 때마다, 지난 턴에 %d 생명력 이상 (최대 생명력의 20%%) 을 잃었다면 1 턴의 %d%% 에 해당하는 시간을 이번 턴에 얻습니다.
 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(speed, range, damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), self.max_life * 0.2, turn)
 	end,
