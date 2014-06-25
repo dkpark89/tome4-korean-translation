@@ -2827,7 +2827,7 @@ newEffect{
 	name = "LIGHT_BURST_SPEED",
 	desc = "Light Burst Speed", image = "effects/light_burst_speed.png",
 	kr_desc = "폭발하는 빛의 속도",
-	long_desc = function(self, eff) return ("'타오로는 시선'으로 고무됨 : 이동 속도 %d%% 증가."):format(eff.charges * 10) end,
+	long_desc = function(self, eff) return ("'타오르는 시선'으로 고무됨 : 이동 속도 %d%% 증가."):format(eff.charges * 10) end,
 	type = "magical",
 	subtype = { sun=true },
 	status = "beneficial",

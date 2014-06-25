@@ -31,6 +31,6 @@ description = [[ToME4 korean translation add-on by nethack board
 우리말화(한글화) 애드온입니다!]]
 
 overload = true
-superload = false
+superload = true
 hooks = false
 data = false
