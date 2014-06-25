@@ -1,22 +1,27 @@
-﻿-- TE4 - T-Engine 4
--- Copyright (C) 2009 - 2014 Nicolas Casalini
---
--- This program is free software: you can redistribute it and/or modify
--- it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 3 of the License, or
--- (at your option) any later version.
---
--- This program is distributed in the hope that it will be useful,
--- but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
--- GNU General Public License for more details.
---
--- You should have received a copy of the GNU General Public License
--- along with this program.  If not, see <http://www.gnu.org/licenses/>.
---
--- Nicolas Casalini "DarkGod"
--- darkgod@te4.org
+﻿-- krTr AddOn
 
+local _M = loadPrevious(...)
+
+-- 바뀐 코드들과 원래 소스에서 그 위치(주석)
+local base_init = _M.init -- #45~182
+local base_checkNew = _M.checkNew -- #184~193
+local base_tutorial = _M.tutorial -- #340~369
+local base_on_focus = _M.on_focus -- #452~466
+local base_raceUse = _M.raceUse -- #515~533
+local base_classUse = _M.classUse -- #535~551
+local base_generateCampaigns = _M.generateCampaigns -- #645~664
+local base_generateDifficulties = _M.generateDifficulties -- #666~696
+local base_generatePermadeaths = _M.generatePermadeaths -- #698~728
+local base_generateRaces = _M.generateRaces -- #730~782
+local base_generateClasses = _M.generateClasses -- #784~845
+local base_loadPremadeUI = _M.loadPremadeUI -- #934~978
+local base_selectExplorationNoDonations = _M.selectExplorationNoDonations -- #1126~1142
+local base_selectTileNoDonations = _M.selectTileNoDonations -- #1144~1158
+local base_selectTile = _M.selectTile -- #1160~1417
+local base_customizeOptions = _M.customizeOptions -- #1423~1446
+
+-- 기존 require들 포함 필요
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local Birther = require "engine.Birther"
@@ -41,7 +46,7 @@ local Object = require "mod.class.Object"
 
 module(..., package.seeall, class.inherit(Birther))
 
---- Instanciates a birther for the given actor
+
 function _M:init(title, actor, order, at_end, quickbirth, w, h)
 	self.quickbirth = quickbirth
 	self.actor = actor:cloneFull()
@@ -192,151 +197,6 @@ function _M:checkNew(fct)
 	end
 end
 
-function _M:applyingDescriptor(i, d)
-	if d.unlockable_talents_types then
-		for t, v in pairs(d.unlockable_talents_types) do
-			if profile.mod.allow_build[v[3]] then
-				local mastery
-				if type(v) == "table" then
-					v, mastery = v[1], v[2]
-				else
-					v, mastery = v, 0
-				end
-				self.actor:learnTalentType(t, v)
-				self.actor.talents_types_mastery[t] = (self.actor.talents_types_mastery[t] or 0) + mastery
-			end
-		end
-	end
-	if d.party_copy then
-		local copy = table.clone(d.party_copy, true)
-		-- Append array part
-		while #copy > 0 do
-			local f = table.remove(copy)
-			table.insert(game.party, f)
-		end
-		-- Copy normal data
-		table.merge(game.party, copy, true)
-	end
-	self:applyGameState(d)
-end
-
-function _M:applyGameState(d)
-	if d.game_state then
-		local copy = table.clone(d.game_state, true)
-		-- Append array part
-		while #copy > 0 do
-			local f = table.remove(copy)
-			table.insert(game.state.birth, f)
-		end
-		-- Copy normal data
-		table.merge(game.state.birth, copy, true)
-	end
-	if d.game_state_execute then
-		d.game_state_execute()
-	end
-end
-
-function _M:atEnd(v)
-	if v == "created" and not self.ui_by_ui[self.c_ok].hidden then
-		self:checkNew(function()
-			local ps = self.actor:getParticlesList()
-			for i, p in ipairs(ps) do self.actor:removeParticles(p) end
-			self.actor:defineDisplayCallback()
-			self.actor:removeAllMOs()
-
-			game:unregisterDialog(self)
-			self.actor = self.actor_base
-			if self.has_custom_tile then
-				self:setTile(self.has_custom_tile.f, self.has_custom_tile.w, self.has_custom_tile.h, true)
-				self.actor.has_custom_tile = self.has_custom_tile.f
-			end
-			self:resetAttachementSpots()
-			-- Prevent the game from auto-assigning talents if necessary.
-			if (not config.settings.tome.autoassign_talents_on_birth) and not game.state.birth.always_learn_birth_talents then
-				for _, d in pairs(self.descriptors) do
-					local unlearned_talents = { }
-
-					if (d.talents ~= nil and (d.type == "race" or d.type == "subrace" or d.type == "class" or d.type == "subclass")) then
-						for t_id, t_level in pairs(d.talents) do
-							local talent = self.actor:getTalentFromId(t_id)
-							if (talent ~= nil and not talent.no_unlearn_last) then
-								--[[ Award talent points based on the highest available level of the talent
-								     This is in the potential case of a player selecting a race with two points in phase door
-								     and Archmage as his class. Archmage starts with one point in phase door. Cases like this may
-									 result in a conflict of what the player might expect to get back in points. The highest
-									 amount of points is always awarded to the player (two, in this case).
-								  ]]
-								if (unlearned_talents[talent] == nil) then
-									unlearned_talents[talent] = t_level
-								elseif (unlearned_talents[talent] < t_level) then
-									unlearned_talents[talent] = t_level
-								end
-
-								self.actor:learnPool(talent)
-								print("[BIRTHER] Ignoring auto-assign for " .. t_id .. " (from " .. d.type .. " descriptor \"" .. d.name .. "\")")
-								d.talents[t_id] = nil
-							end
-						end
-
-						-- Give the player the appropriate amount of talent points
-						for talent, t_level in pairs(unlearned_talents) do
-							if (talent.generic == true) then
-								self.actor.unused_generics = self.actor.unused_generics + t_level
-							else
-								self.actor.unused_talents = self.actor.unused_talents + t_level
-							end
-						end
-					end
-				end
-			end
-			self:apply()
-			if self.has_custom_tile then
-				self.actor.make_tile = nil
-				self.actor.moddable_tile = nil
-			end
-			self:applyCosmeticActor(true)
-			game:setPlayerName(self.c_name.text)
-
-			local save = Savefile.new(game.save_name)
-			save:delete()
-			save:close()
-
-			game:saveSettings("tome.default_birth", ("tome.default_birth = {permadeath=%q, sex=%q}\n"):format(self.actor.descriptor.permadeath, self.actor.descriptor.sex))
-
-			self.at_end(false)
-		end)
-	elseif v == "loaded" then
-		self:checkNew(function()
-			game:unregisterDialog(self)
-			game:setPlayerName(self.c_name.text)
-
-			for type, kind in pairs(game.player.descriptor) do
-				local d = self:getBirthDescriptor(type, kind)
-				if d then self:applyGameState(d) end
-			end
-
-			self.at_end(true)
-		end)
-	elseif v == "quit" then
-		util.showMainMenu()
-	end
-end
-
---- Make a default character when using cheat mode, for easier testing
-function _M:makeDefault()
-	self:setDescriptor("sex", "Female")
-	self:setDescriptor("world", "Maj'Eyal")
-	self:setDescriptor("difficulty", "Normal")
-	self:setDescriptor("permadeath", "Adventure")
-	self:setDescriptor("race", "Human")
-	self:setDescriptor("subrace", "Higher")
-	self:setDescriptor("class", "Warrior")
-	self:setDescriptor("subclass", "Berserker")
-	__module_extra_info.no_birth_popup = true
-	self:atEnd("created")
-end
-
---- Run one of the tutorials
 function _M:tutorial()
 	local run = function(t)
 		self:setDescriptor("sex", "Female")
@@ -368,87 +228,6 @@ function _M:tutorial()
 	game:registerDialog(d)
 end
 
-function _M:randomBirth()
-	-- Random sex
-	local sex = rng.percent(50)
-	self.c_male.checked = sex
-	self.c_female.checked = not sex
-	self:setDescriptor("sex", sex and "Male" or "Female")
-
-	self.descriptors_by_type.race = nil
-	self.descriptors_by_type.subrace = nil
-	self.descriptors_by_type.class = nil
-	self.descriptors_by_type.subclass = nil
---[[
-	-- Random campaign
-	local camp, camp_id = nil
-	repeat camp, camp_id = rng.table(self.c_campaign.c_list.list)
-	until not camp.locked
-	self.c_campaign.c_list.sel = camp_id
-	self:campaignUse(camp)
-
-	-- Random difficulty
-	local diff, diff_id = nil
-	repeat diff, diff_id = rng.table(self.c_difficulty.c_list.list)
-	until diff.name ~= "Tutorial" and not diff.locked
-	self.c_difficulty.c_list.sel = diff_id
-	self:difficultyUse(diff)
---]]
-	-- Random race
-	local race, race_id = nil
-	repeat race, race_id = rng.table(self.all_races)
-	until not race.locked
-	self:raceUse(race)
-
-	-- Random subrace
-	local subrace, subrace_id = nil
-	repeat subrace, subrace_id = rng.table(self.all_races[race_id].nodes)
-	until not subrace.locked
-	self:raceUse(subrace)
-
-	-- Random class
-	local class, class_id = nil
-	repeat class, class_id = rng.table(self.all_classes)
-	until not class or not class.locked
-	self:classUse(class)
-
-	-- Random subclass
-	if class then
-		local subclass, subclass_id = nil
-		repeat subclass, subclass_id = rng.table(self.all_classes[class_id].nodes)
-		until not subclass.locked
-		self:classUse(subclass)
-	end
-
-	self:randomName()
-end
-
-function _M:randomName()
-	if not self.descriptors_by_type.sex or not self.descriptors_by_type.subrace then return end
-	local sex_def = self.birth_descriptor_def.sex[self.descriptors_by_type.sex]
-	local race_def = self.birth_descriptor_def.subrace[self.descriptors_by_type.subrace]
-	if race_def.copy.random_name_def then
-		local namegen = NameGenerator2.new("/data/languages/names/"..race_def.copy.random_name_def:gsub("#sex#", sex_def.copy.female and "female" or "male")..".txt")
-		self.c_name:setText(namegen:generate(nil, race_def.copy.random_name_min_syllables, race_def.copy.random_name_max_syllables))
-	else
-		local namegen = NameGenerator.new((not sex_def.copy.female) and {
-			phonemesVocals = "a, e, i, o, u, y",
-			phonemesConsonants = "b, c, ch, ck, cz, d, dh, f, g, gh, h, j, k, kh, l, m, n, p, ph, q, r, rh, s, sh, t, th, ts, tz, v, w, x, z, zh",
-			syllablesStart = "Aer, Al, Am, An, Ar, Arm, Arth, B, Bal, Bar, Be, Bel, Ber, Bok, Bor, Bran, Breg, Bren, Brod, Cam, Chal, Cham, Ch, Cuth, Dag, Daim, Dair, Del, Dr, Dur, Duv, Ear, Elen, Er, Erel, Erem, Fal, Ful, Gal, G, Get, Gil, Gor, Grin, Gun, H, Hal, Han, Har, Hath, Hett, Hur, Iss, Khel, K, Kor, Lel, Lor, M, Mal, Man, Mard, N, Ol, Radh, Rag, Relg, Rh, Run, Sam, Tarr, T, Tor, Tul, Tur, Ul, Ulf, Unr, Ur, Urth, Yar, Z, Zan, Zer",
-			syllablesMiddle = "de, do, dra, du, duna, ga, go, hara, kaltho, la, latha, le, ma, nari, ra, re, rego, ro, rodda, romi, rui, sa, to, ya, zila",
-			syllablesEnd = "bar, bers, blek, chak, chik, dan, dar, das, dig, dil, din, dir, dor, dur, fang, fast, gar, gas, gen, gorn, grim, gund, had, hek, hell, hir, hor, kan, kath, khad, kor, lach, lar, ldil, ldir, leg, len, lin, mas, mnir, ndil, ndur, neg, nik, ntir, rab, rach, rain, rak, ran, rand, rath, rek, rig, rim, rin, rion, sin, sta, stir, sus, tar, thad, thel, tir, von, vor, yon, zor",
-			rules = "$s$v$35m$10m$e",
-		} or {
-			phonemesVocals = "a, e, i, o, u, y",
-			syllablesStart = "Ad, Aer, Ar, Bel, Bet, Beth, Ce'N, Cyr, Eilin, El, Em, Emel, G, Gl, Glor, Is, Isl, Iv, Lay, Lis, May, Ner, Pol, Por, Sal, Sil, Vel, Vor, X, Xan, Xer, Yv, Zub",
-			syllablesMiddle = "bre, da, dhe, ga, lda, le, lra, mi, ra, ri, ria, re, se, ya",
-			syllablesEnd = "ba, beth, da, kira, laith, lle, ma, mina, mira, na, nn, nne, nor, ra, rin, ssra, ta, th, tha, thra, tira, tta, vea, vena, we, wen, wyn",
-			rules = "$s$v$35m$10m$e",
-		})
-		self.c_name:setText(namegen:generate())
-	end
-end
-
 function _M:on_focus(id, ui)
 	if self.focus_ui and self.focus_ui.ui == self.c_name then self.c_desc:switchItem(self.c_name, "이것은 당신의 캐릭터 이름입니다.\n마우스 우클릭을 하면 주어진 종족과 성별에 맞는 랜덤한 이름이 만들어 집니다.")
 	elseif self.focus_ui and self.focus_ui.ui == self.c_female then self.c_desc:switchItem(self.c_female, self.birth_descriptor_def.sex.Female.desc)
@@ -462,53 +241,6 @@ function _M:on_focus(id, ui)
 	elseif self.focus_ui and self.focus_ui.ui == self.c_permadeath then
 		local item = self.c_permadeath.c_list.list[self.c_permadeath.c_list.sel]
 		self.c_desc:switchItem(item, item.desc)
-	end
-end
-
-function _M:updateDesc(item)
-	if item and item.desc then
-		self.c_desc:switchItem(item, item.desc)
-	end
-end
-
-function _M:campaignUse(item)
-	if not item then return end
-	if item.locked then
-		self.c_campaign.c_list.sel = self.c_campaign.previous
-	else
-		self:setDescriptor("world", item.id)
-
-		self:generateDifficulties()
-		self:generatePermadeaths()
-		self:generateRaces()
-		self:generateClasses()
-	end
-end
-
-function _M:difficultyUse(item)
-	if not item then return end
-	if item.locked then
-		self.c_difficulty.c_list.sel = self.c_difficulty.previous
-	else
-		self:setDescriptor("difficulty", item.id)
-
-		self:generatePermadeaths()
-		self:generateRaces()
-		self:generateRaces()
-		self:generateClasses()
-	end
-end
-
-function _M:permadeathUse(item)
-	if not item then return end
-	if item.locked then
-		self.c_permadeath.c_list.sel = self.c_permadeath.previous
-		if item.locked_select then item.locked_select(self) end
-	else
-		self:setDescriptor("permadeath", item.id)
-
-		self:generateRaces()
-		self:generateClasses()
 	end
 end
 
@@ -548,98 +280,6 @@ function _M:classUse(item, sel, v)
 		self.sel_class.name = tstring{{"font","bold"}, {"color","LIGHT_GREEN"}, (self.sel_class.kr_basename or self.sel_class.basename):toString(), {"font","normal"}}
 		self.c_class:drawItem(item)
 	end
-end
-
-function _M:updateDescriptors()
-	self.descriptors = {}
-	table.insert(self.descriptors, self.birth_descriptor_def.base[self.descriptors_by_type.base])
-	table.insert(self.descriptors, self.birth_descriptor_def.world[self.descriptors_by_type.world])
-	table.insert(self.descriptors, self.birth_descriptor_def.difficulty[self.descriptors_by_type.difficulty])
-	table.insert(self.descriptors, self.birth_descriptor_def.permadeath[self.descriptors_by_type.permadeath])
-	table.insert(self.descriptors, self.birth_descriptor_def.sex[self.descriptors_by_type.sex])
-	if self.descriptors_by_type.subrace then
-		table.insert(self.descriptors, self.birth_descriptor_def.race[self.descriptors_by_type.race])
-		table.insert(self.descriptors, self.birth_descriptor_def.subrace[self.descriptors_by_type.subrace])
-	end
-	if self.descriptors_by_type.subclass then
-		table.insert(self.descriptors, self.birth_descriptor_def.class[self.descriptors_by_type.class])
-		table.insert(self.descriptors, self.birth_descriptor_def.subclass[self.descriptors_by_type.subclass])
-	end
-
-	self.cosmetic_unlocks = {}
-	for _, d in ipairs(self.descriptors) do
-		if d.cosmetic_unlock then
-			for u, datas in pairs(d.cosmetic_unlock) do for _, data in ipairs(datas) do
-				if profile.mod.allow_build[u] and (not data.check or data.check(self)) then
-					table.insert(self.cosmetic_unlocks, data)
-				end
-			end end
-		end
-	end
-	table.sort(self.cosmetic_unlocks, function(a, b) return a.name < b.name end)
-	self.c_options.hide = #self.cosmetic_unlocks == 0
-end
-
-function _M:setDescriptor(key, val)
-	if key then
-		self.descriptors_by_type[key] = val
-		print("[BIRTHER] set descriptor", key, val)
-	end
-	self:updateDescriptors()
-	self:setTile()
-
-	local ok = self.c_name.text:len() >= 2
-	for i, o in ipairs(self.order) do
-		if not self.descriptors_by_type[o] then
-			ok = false
-			print("Missing ", o)
-			break
-		end
-	end
-	self:toggleDisplay(self.c_ok, ok)
-end
-
-function _M:isDescriptorAllowed(d, ignore_type)
-	self:updateDescriptors()
-
-	if type(ignore_type) == "string" then
-		ignore_type = {[ignore_type] = true}
-	end
-	ignore_type = ignore_type or {}
-
-	local allowed = true
-	local type = d.type
-	print("[BIRTHER] checking allowance for ", d.name, d.type, "::", table.serialize(ignore_type, nil, true))
-	for j, od in ipairs(self.descriptors) do
-		if od.descriptor_choices and od.descriptor_choices[type] and not ignore_type[type] then
-			local what = util.getval(od.descriptor_choices[type][d.name], self) or util.getval(od.descriptor_choices[type].__ALL__, self)
-			if what and what == "allow" then
-				allowed = true
-			elseif what and what == "nolore" then
-				allowed = "nolore"
-			elseif what and what == "allow-nochange" then
-				if not allowed then allowed = true end
-			elseif what and (what == "never" or what == "disallow") then
-				allowed = false
-			elseif what and what == "forbid" then
-				allowed = nil
-			end
-			print("[BIRTHER] test against ", od.name, "=>", what, allowed)
-			if allowed == nil then break end
-		end
-	end
-
-	if d.special_check and not d.special_check(self) then return nil end
-
-	-- Check it is allowed
-	return allowed and not d.never_show
-end
-
-function _M:getLock(d)
-	if not d.locked then return false end
-	local ret = d.locked(self)
-	if ret == "hide" then return "hide" end
-	return not ret
 end
 
 function _M:generateCampaigns()
@@ -844,93 +484,6 @@ function _M:generateClasses()
 	end
 end
 
-function _M:loadPremade(pm)
-	local fallback = pm.force_fallback
-
-	-- Load the entities directly
-	if not fallback and pm.module_version and pm.module_version[1] == game.__mod_info.version[1] and pm.module_version[2] == game.__mod_info.version[2] and pm.module_version[3] == game.__mod_info.version[3] then
-		savefile_pipe:ignoreSaveToken(true)
-		local qb = savefile_pipe:doLoad(pm.short_name, "entity", "engine.CharacterVaultSave", "character")
-		savefile_pipe:ignoreSaveToken(false)
-
-		-- Load the player directly
-		if qb then
-			game.party = qb
-			game.player = nil
-			game.party:setPlayer(1, true)
-			self.c_name:setText(game.player.name)
-			self:atEnd("loaded")
-		else
-			fallback = true
-		end
-	else
-		fallback = true
-	end
-
-	-- Fill in the descriptors and validate
-	if fallback then
-		local ok = 0
-
-		-- Name
-		self.c_name:setText(pm.short_name)
-
-		-- Sex
-		self.c_male.checked = pm.descriptors.sex == "Male"
-		self.c_female.checked = pm.descriptors.sex == "Female"
-		self:setDescriptor("sex", pm.descriptors.sex and "Male" or "Female")
-
-		-- Campaign
-		for i, item in ipairs(self.all_campaigns) do if not item.locked and item.id == pm.descriptors.world then
-			self:campaignUse(item)
-			self.c_campaign.c_list.sel = i
-			ok = ok + 1
-			break
-		end end
-
-		-- Difficulty
-		for i, item in ipairs(self.all_difficulties) do if not item.locked and item.id == pm.descriptors.difficulty then
-			self:difficultyUse(item)
-			self.c_difficulty.c_list.sel = i
-			ok = ok + 1
-			break
-		end end
-
-		-- Permadeath
-		for i, item in ipairs(self.all_permadeaths) do if not item.locked and item.id == pm.descriptors.permadeath then
-			self:permadeathUse(item)
-			self.c_permadeath.c_list.sel = i
-			ok = ok + 1
-			break
-		end end
-
-		-- Race
-		for i, pitem in ipairs(self.all_races) do
-			for j, item in ipairs(pitem.nodes) do
-				if not item.locked and item.id == pm.descriptors.subrace and pitem.id == pm.descriptors.race then
-					self:raceUse(pitem)
-					self:raceUse(item)
-					ok = ok + 1
-					break
-				end
-			end
-		end
-
-		-- Class
-		for i, pitem in ipairs(self.all_classes) do
-			for j, item in ipairs(pitem.nodes) do
-				if not item.locked and item.id == pm.descriptors.subclass and pitem.id == pm.descriptors.class then
-					self:classUse(pitem)
-					self:classUse(item)
-					ok = ok + 1
-					break
-				end
-			end
-		end
-
-		if ok == 4 then self:atEnd("created") end
-	end
-end
-
 function _M:loadPremadeUI()
 	local lss = Module:listVaultSavesForCurrent()
 	local d = Dialog.new("캐릭터 저장소", 600, 550)
@@ -975,152 +528,6 @@ function _M:loadPremadeUI()
 	d:setupUI(true, true)
 	d.key:addBind("EXIT", function() game:unregisterDialog(d) end)
 	game:registerDialog(d)
-end
-
--- Disable stuff from the base Birther
-function _M:updateList() end
-function _M:selectType(type) end
-
-function _M:on_register()
-	if __module_extra_info.auto_quickbirth then
-		local qb_short_name = __module_extra_info.auto_quickbirth:gsub("[^a-zA-Z0-9_-.]", "_")
-		local lss = Module:listVaultSavesForCurrent()
-		for i, pm in ipairs(lss) do
-			if pm.short_name == qb_short_name then
-				self:loadPremade(pm)
-				break
-			end
-		end
-	end
-end
-
--- Display the player tile
-function _M:innerDisplay(x, y, nb_keyframes)
-	if self.actor.image then
-		self.actor:toScreen(self.tiles, x + self.iw - 64, y, 64, 64)
-	elseif self.actor.image and self.actor.add_mos then
-		self.actor:toScreen(self.tiles, x + self.iw - 64, y - 64, 128, 64)
-	end
-end
-
---- Fake a body & starting equipment
-function _M:fakeEquip(v)
-	if not v then
-		self.actor.body = nil
-		self.actor.inven = {}
-	else
-		self.actor.inven = {}
-		local fake_body = { INVEN = 1000, QS_MAINHAND = 1, QS_OFFHAND = 1, MAINHAND = 1, OFFHAND = 1, FINGER = 2, NECK = 1, LITE = 1, BODY = 1, HEAD = 1, CLOAK = 1, HANDS = 1, BELT = 1, FEET = 1, TOOL = 1, QUIVER = 1 }
-		self.actor.body = fake_body
-		self.actor:initBody()
-
-		local c = self.birth_descriptor_def.class[self.descriptors_by_type.class or "Warrior"]
-		local sc = self.birth_descriptor_def.subclass[self.descriptors_by_type.subclass or "Berserker"]
-		local function apply_equip(r)
-			for i, f in ipairs(r[1]) do
-				local o = self.obj_list_by_name[f.name]
-				if o and o.slot then
-					o = o:clone()
-					o:resolve()
-					o:resolve(nil, true)
-					local inven = self.actor:getInven(o.slot)
-					if inven[1] and o.offslot then inven = self.actor:getInven(o.offslot) end
-					if not inven[1] then inven[1] = o end
-				end
-			end
-		end
-
-		for _, r in pairs(c.copy or {}) do if type(r) == "table" and r.__resolver == "equip" then apply_equip(r) end end
-		for _, r in pairs(sc.copy or {}) do if type(r) == "table" and r.__resolver == "equip" then apply_equip(r) end end
-	end
-end
-
-function _M:resetAttachementSpots()
-	self.actor.attachement_spots = nil
-	if self.has_custom_tile then 
-		self.actor.attachement_spots = self.has_custom_tile.f
-		return
-	end
-
-	local dbr = self.birth_descriptor_def.race[self.descriptors_by_type.race or "Human"]
-	local dr = self.birth_descriptor_def.subrace[self.descriptors_by_type.subrace or "Cornac"]
-	local ds = self.birth_descriptor_def.sex[self.descriptors_by_type.sex or "Female"]
-
-	local moddable_attachement_spots = dr.moddable_attachement_spots or dbr.moddable_attachement_spots
-	local moddable_attachement_spots_sexless = dr.moddable_attachement_spots_sexless or dbr.moddable_attachement_spots_sexless
-	if moddable_attachement_spots then
-		if moddable_attachement_spots_sexless then self.actor.attachement_spots = "dolls_"..moddable_attachement_spots.."_all"
-		elseif self.descriptors_by_type.sex == "Female" then self.actor.attachement_spots = "dolls_"..moddable_attachement_spots.."_female"
-		else self.actor.attachement_spots = "dolls_"..moddable_attachement_spots.."_male"
-		end
-	end
-end
-
-function _M:setTile(f, w, h, last)
-	self.actor:removeAllMOs()
-	if not f then
-		if not self.has_custom_tile then
-			local dbr = self.birth_descriptor_def.race[self.descriptors_by_type.race or "Human"]
-			local dr = self.birth_descriptor_def.subrace[self.descriptors_by_type.subrace or "Cornac"]
-			local ds = self.birth_descriptor_def.sex[self.descriptors_by_type.sex or "Female"]
-			self.actor.image = "player/"..(self.descriptors_by_type.subrace or "Cornac"):lower():gsub("[^a-z0-9_]", "_").."_"..(self.descriptors_by_type.sex or "Female"):lower():gsub("[^a-z0-9_]", "_")..".png"
-			self.actor.add_mos = nil
-			self.actor.female = ds.copy.female
-			self.actor.male = ds.copy.male
-			self.actor.moddable_tile = dr.copy.moddable_tile
-			self.actor.moddable_tile_base = dr.copy.moddable_tile_base
-			self.actor.moddable_tile_ornament = dr.copy.moddable_tile_ornament
-			self.actor.moddable_tile_ornament2 = dr.copy.moddable_tile_ornament2
-		end
-	else
-		self.actor.make_tile = nil
-		self.actor.moddable_tile = nil
-		if h > w then
-			self.actor.image = "invis.png"
-			self.actor.add_mos = {{image=f, display_h=2, display_y=-1}}
-		else
-			self.actor.add_mos = nil
-			self.actor.image = f
-		end
-		self.has_custom_tile = {f=f,w=w,h=h}
-	end
-	self:resetAttachementSpots()
-
-	if not last then
-		-- Add an example particles if any
-		local ps = self.actor:getParticlesList("all")
-		for i, p in ipairs(ps) do self.actor:removeParticles(p) end
-		if self.actor.shader_auras then self.actor.shader_auras = {} end
-		if self.descriptors_by_type.subclass then
-			local d = self.birth_descriptor_def.subclass[self.descriptors_by_type.subclass]
-			if d and d.birth_example_particles then
-				local p = d.birth_example_particles
-				if type(p) == "table" then p = rng.table(p) end
-				p = util.getval(p, self.actor)
-				if type(p) == "string" then self.actor:addParticles(Particles.new(p, 1)) end
-			end
-		end
-
-		self:fakeEquip(true)
-		self:applyCosmeticActor(false)
-		self.actor:updateModdableTile()
-		self:fakeEquip(false)
-	else
-		self:applyCosmeticActor(true)
-	end
-end
-
-function _M:applyCosmeticActor(last)
-	self.actor.is_redhaed = nil -- Booh this is ugly
-
-	local list = {}
-	for i, d in ipairs(self.cosmetic_unlocks) do
-		if self.selected_cosmetic_unlocks[d.name] and d.on_actor then list[#list+1] = d if not d.priority then d.priority = 1 end end
-	end
-	table.sort(list, function(a,b) return a.priority < b.priority end)
-	for i, d in ipairs(list) do
-		d.on_actor(self.actor, self, last)
-	end
 end
 
 function _M:selectExplorationNoDonations()
@@ -1416,10 +823,6 @@ function _M:selectTile()
 	game:registerDialog(d)
 end
 
-function _M:isDonator()
-	return profile:isDonator(1)
-end
-
 function _M:customizeOptions()
 	local d = Dialog.new("생김새 설정", 600, 550)
 
@@ -1444,3 +847,5 @@ function _M:customizeOptions()
 	d.key:addBind("EXIT", function() game:unregisterDialog(d) end)
 	game:registerDialog(d)
 end
+
+return _M
