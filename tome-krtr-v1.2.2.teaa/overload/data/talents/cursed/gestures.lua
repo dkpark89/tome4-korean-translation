@@ -117,7 +117,7 @@ newTalent{
 			local effGloomWeakness = target:hasEffect(target.EFF_GLOOM_WEAKNESS)
 			if effGloomWeakness and effGloomWeakness.hateBonus or 0 > 0 then
 			   self:incHate(effGloomWeakness.hateBonus)
-			   game.logPlayer(self, "#F53CBE#You revel in attacking a weakened foe! (+%d hate)", effGloomWeakness.hateBonus)
+			   game.logPlayer(self, "#F53CBE#당신은 약화된 적을 공격하는 것을 크게 기뻐합니다! (증오심 +%d)", effGloomWeakness.hateBonus)
 			   effGloomWeakness.hateBonus = nil
 			end
 

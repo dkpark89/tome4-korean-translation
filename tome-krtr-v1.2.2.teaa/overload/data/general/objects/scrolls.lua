@@ -479,6 +479,7 @@ newEntity{ base = "BASE_RUNE",
 -----------------------------------------------------------
 -- Taints
 -----------------------------------------------------------
+
 --[[
 newEntity{ base = "BASE_TAINT",
 	name = "taint of the devourer",

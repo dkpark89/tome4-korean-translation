@@ -148,7 +148,7 @@ newTalent{
 		local reduction = t.getDamageReduction(self, t)
 		local slow = t.getSlow(self, t)
 		
-		return ([[적을 잡는 능력을 강화하여, 추가 효과를 발생시킵니다. 모든 추가 효과는 내성이나 저항을 무시하고 발동합니다.
+		return ([[적을 잡는 능력을 강화하여, 추가 효과를 발생시킵니다. 모든 추가 효과는 내성이나 저항, 면역력을 무시하고 발동합니다.
 		#RED#기술 레벨 1 이상 : 적의 기본 무기 피해량 %d 감소
 		기술 레벨 3 이상 : 적 침묵
 		기술 레벨 5 이상 : 적의 전체 행동 속도 %d%% 감소#LAST#]]) 

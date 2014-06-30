@@ -20,7 +20,6 @@
 newTalent{
 	name = "Skate",
 	kr_name = "스케이트",
-	--kr_name = "", --@@ 한글화 필요
 	type = {"psionic/augmented-mobility", 1},
 	require = psi_wil_req1,
 	points = 5,

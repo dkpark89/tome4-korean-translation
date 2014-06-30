@@ -108,7 +108,7 @@ newTalent{
 	getMinimumLife = function(self, t)
 		return self.max_life * self:combatTalentLimit(t, 0.1, 0.45, 0.25) -- Limit > 10% life
 	end,
-	on_pre_use = function(self, t, silent) if t.getMinimumLife(self, t) > self.life then if not silent then game.logPlayer(self, "You are too injured to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if t.getMinimumLife(self, t) > self.life then if not silent then game.logPlayer(self, "이 기술을 사용하기에는 생명력이 부족합니다.") end return false end return true end,
 	do_daunting_presence = function(self, t)
 		local tg = {type="ball", range=0, radius=t.getRadius(self, t), friendlyfire=false, talent=t}
 		self:project(tg, self.x, self.y, function(px, py)

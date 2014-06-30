@@ -24,7 +24,7 @@ newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type=
 newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/focus", name = "focus", description = "보석과 마석으로 염력을 집중시키는 기술입니다." }
 newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/augmented-mobility", generic = true, name = "augmented mobility", description = "염력을 이용하여 빠르게 움직이고, 적을 끌어오는 기술입니다." }
 newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/augmented-striking", name = "augmented striking", description = "염동력을 통해 강화된 근접 공격 기술입니다." } 
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/voracity", generic = true, name = "voracity", description = "주변의 에너지를 흡수하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/voracity", name = "voracity", description = "주변의 에너지를 흡수하는 기술입니다." }
 newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/finer-energy-manipulations", generic = true, name = "finer energy manipulations", description = "염동력을 이용한 미세 조작 기술입니다." }
 --newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/mental-discipline", generic = true, name = "mental discipline", description = "정신력과 끈기를 수련합니다." }
 newTalentType{ is_mind=true, type="psionic/other", name = "other", description = "여러 가지 염동적 기술입니다." }
@@ -161,11 +161,6 @@ function getGemLevel(self)
 		local tk_item = self:getInven("PSIONIC_FOCUS")[1]
 		if tk_item and ((tk_item.type == "gem") or (tk_item.subtype == "mindstar") or tk_item.combat.is_psionic_focus == true) then
 			gem_level = tk_item.material_level or 5
-		end
-	end
-	if self:knowTalent(self.T_GREATER_TELEKINETIC_GRASP) and gem_level > 0 then
-		if self:getTalentLevelRaw(self.T_GREATER_TELEKINETIC_GRASP) >= 5 then
-			gem_level = gem_level + 1
 		end
 	end
 	return gem_level
