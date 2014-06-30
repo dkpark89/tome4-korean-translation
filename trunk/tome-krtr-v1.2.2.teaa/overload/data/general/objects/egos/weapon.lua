@@ -104,15 +104,15 @@ newEntity{
 	kr_name = "무력화의 ",
 	keywords = {crippling=true},
 	level_range = {1, 50},
-	rarity = 3,
-	cost = 4,
+	rarity = 15,
+	greater_ego = 1,
+	cost = 40,
 	wielder = {
 		combat_physcrit = resolvers.mbonus_material(10, 5),
 	},
 	combat = {
 		special_on_crit = {desc="대상을 무력화", fct=function(combat, who, target)
-			local power = 5 + (who:combatPhysicalpower()/5)
-			target:setEffect(target.EFF_CRIPPLE, 4, {src=who, atk=power, dam=power, apply_power=who:combatAttack(combat)})
+			target:setEffect(target.EFF_CRIPPLE, 4, {src=who, apply_power=who:combatAttack(combat)})
 		end},
 	},
 }
@@ -284,7 +284,7 @@ newEntity{
 	cost = 10,
 	combat = {
 		melee_project={
-			[DamageType.COLD] = resolvers.mbonus_material(15, 5)
+			[DamageType.COLD] = resolvers.mbonus_material(25, 5)
 		},
 	},
 }

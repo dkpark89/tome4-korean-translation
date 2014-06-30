@@ -167,9 +167,7 @@ newEffect{
 	name = "BATTLE_SHOUT", image = "talents/battle_shout.png",
 	desc = "Battle Shout",
 	kr_desc = "전장의 외침",
-	
 	long_desc = function(self, eff) return ("최대 생명력 +%d%% / 최대 체력 +%d%% : 효과 종료시 여분의 생명력과 체력은 사라짐"):format(eff.power, eff.power) end, --@ 변수 조정
-	
 	type = "mental",
 	subtype = { morale=true },
 	status = "beneficial",

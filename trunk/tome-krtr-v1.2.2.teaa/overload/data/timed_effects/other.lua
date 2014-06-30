@@ -463,7 +463,7 @@ newEffect{
 	status = "beneficial",
 	parameters = { power=10 },
 	cancel_on_level_change = function(self, eff)
-		game.logPlayer(game.player, "#LIGHT_BLUE#Precognition fizzles and dissipates.")
+		game.logPlayer(game.player, "#LIGHT_BLUE#예지가 파직거리면서 사라졌습니다.")
 		game._chronoworlds = nil
 	end,
 	activate = function(self, eff)

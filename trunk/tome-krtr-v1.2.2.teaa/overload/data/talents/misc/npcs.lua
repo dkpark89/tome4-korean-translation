@@ -45,11 +45,11 @@ newTalent{
 	requires_target = true,
 	tactical = { ATTACK = 3 },
 	action = function(self, t)
-		if not self.can_multiply or self.can_multiply <= 0 then print("더 이상 복제 불가") return nil end
+		if not self.can_multiply or self.can_multiply <= 0 then print("no more multiply") return nil end
 
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 1, true, {[Map.ACTOR]=true})
-		if not x then print("공간 부족") return nil end
+		if not x then print("no free space") return nil end
 
 		-- Find a place around to clone
 		self.can_multiply = self.can_multiply - 1

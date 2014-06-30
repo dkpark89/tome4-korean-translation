@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Reclaim",
 	kr_name = "환원",
@@ -223,6 +225,7 @@ newTalent{
 		eff.drain = t.getDrain(self, t)
 		eff.drainMagic = t.drainMagic
 		eff.name = "Eyal's Wrath"
+		eff.kr_name = "에이알의 분노"
 		game:playSoundNear(self, "talents/thunderstorm")
 		return true
 	end,

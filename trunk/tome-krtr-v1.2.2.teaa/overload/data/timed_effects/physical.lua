@@ -508,11 +508,11 @@ newEffect{
 	on_gain = function(self, err) return "#Target1# 무장 해제 되었습니다!", "+무장 해제" end,
 	on_lose = function(self, err) return "#Target1# 다시 무장을 갖췄습니다.", "-무장 해제" end,
 	activate = function(self, eff)
+		self:removeEffect(self.EFF_COUNTER_ATTACKING) -- Cannot parry or counterattack while disarmed
+		self:removeEffect(self.EFF_DUAL_WEAPON_DEFENSE) 
 		eff.tmpid = self:addTemporaryValue("disarmed", 1)
 	end,
 	deactivate = function(self, eff)
-		self:removeEffect(self.EFF_COUNTER_ATTACKING) -- Cannot parry or counterattack while disarmed
-		self:removeEffect(self.EFF_DUAL_WEAPON_DEFENSE) 
 		self:removeTemporaryValue("disarmed", eff.tmpid)
 	end,
 }
@@ -2828,7 +2828,7 @@ newEffect {
 	on_gain = function(self, err) return nil, "+불멸의 전사" end,
 	on_lose = function(self, err) return nil, "-불멸의 전사" end,
 	long_desc = function(self, eff)
-		return ("강력함을 유지 : 전체 저항 %0.1f%% 상승 / 전체 한계 저항 %0.1f%% 상승."):
+		return ("강력함을 유지 : 전체 저항 %0.1f%% 상승 / 전체 저항 한계치 %0.1f%% 상승."):
 		format(eff.res, eff.cap)
 	end,
 	activate = function(self, eff)

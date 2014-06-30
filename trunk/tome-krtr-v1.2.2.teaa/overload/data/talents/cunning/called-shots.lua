@@ -126,7 +126,6 @@ newTalent {
 				t.pin_duration(self, t),
 				t.slow_duration(self, t),
 				t.slow_power(self, t) * 100) --@ 변수 순서 조정
-				
 	end,
 }
 

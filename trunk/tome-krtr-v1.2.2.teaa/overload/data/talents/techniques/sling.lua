@@ -39,7 +39,7 @@ newTalent{
 		local inc = t.getPercentInc(self, t)
 		local reloads = t.ammo_mastery_reload(self, t)
 		return ([[투석구를 사용하면 물리력이 %d / 투석구의 피해량이 %d%% 증가합니다.
-		또한, 한번에 %d 발의 탄환을 재장전할 수 있게 됩니다.]]):format(damage, inc * 100, reloads) 
+		또한, 한번에 %d 발의 탄환을 추가로 재장전할 수 있게 됩니다.]]):format(damage, inc * 100, reloads) 
 	end,
 }
 

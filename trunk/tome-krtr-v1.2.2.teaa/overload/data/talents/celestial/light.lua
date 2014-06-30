@@ -84,13 +84,13 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local heal = t.getHeal(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[햇빛이 내리비치는 마력 지대를 만들어, 주변 %d 칸 반경에 있는 모든 아군에게 빛의 세례를 내립니다. 
+		return ([[햇빛이 내리비치는 마력 지대를 만들어, 주변 %d 칸 반경에 있는 모든 존재에게 빛의 세례를 내립니다. 
 		- 매 턴마다 %0.2f 만큼의 생명력이 회복됩니다.
 		- 매 턴마다 %0.2f 만큼의 피해 보호막이 생성되며, 보호막의 피해량 감소 수치는 재충전됩니다. 이미 다른 피해 보호막이 발동 중일 경우에도 피해량 감소 수치가 재충전되며, 보호막의 남은 지속시간이 2 턴 미만일 경우 2 턴으로 고정됩니다. 하나의 피해 보호막을 20 회 이상 재충전시킬 경우, 보호막이 불안정해져 사라지게 됩니다.
 		- 치유 효과를 %d%% 증가시킵니다.
 		- 이 효과는 %d 턴 동안 지속되며, 해당 지역에 빛이 밝혀집니다.
 		회복량은 주문력의 영향을 받아 증가합니다.]]):
-		format(radius, heal, heal, heal / 2, duration)
+		format(radius, heal, heal, heal / 2, duration) --@ 변수 조정
 	end,
 }
 

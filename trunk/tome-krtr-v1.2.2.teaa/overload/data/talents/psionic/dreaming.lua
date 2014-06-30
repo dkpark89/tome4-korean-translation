@@ -201,7 +201,7 @@ newTalent{
 	require = psi_wil_req4,
 	mode = "sustained",
 	sustain_psi = 40,
-	cooldown = function(self, t) return 50 - self:getTalentLevelRaw(t) * 5 end,
+	cooldown = function(self, t) return math.floor(self:combatTalentLimit(t, 0, 45, 25)) end, -- Limit > 0
 	tactical = { DISABLE = function(self, t, target) if target and target:attr("sleep") then return 4 else return 0 end end},
 	range = 7,
 	requires_target = true,

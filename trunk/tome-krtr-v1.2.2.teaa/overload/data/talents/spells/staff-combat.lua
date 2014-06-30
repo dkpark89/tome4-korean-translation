@@ -49,7 +49,8 @@ newTalent{
 		local particle = "bolt_fire"
 		local explosion = "flame"
 
-		local damtype = combat.damtype
+		local damtype = combat.element or combat.damtype or engine.DamageType.PHYSICAL
+		
 		if     damtype == DamageType.FIRE then      explosion = "flame"               particle = "bolt_fire"      trail = "firetrail"
 		elseif damtype == DamageType.COLD then      explosion = "freeze"              particle = "ice_shards"     trail = "icetrail"
 		elseif damtype == DamageType.ACID then      explosion = "acid"                particle = "bolt_acid"      trail = "acidtrail"
@@ -68,7 +69,7 @@ newTalent{
 		if not x or not y then return nil end
 
 		-- Compute damage
-		local dam = self:combatDamage(combat)
+		local dam = self:combatDamage(combat, {mag=0.2})
 		local damrange = self:combatDamageRange(combat)
 		dam = rng.range(dam, dam * damrange)
 		dam = self:spellCrit(dam)
@@ -165,9 +166,9 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y or not target then return nil end
 		if core.fov.distance(self.x, self.y, x, y) > 1 then return nil end
-		if self:getTalentLevel(t) >= 5 then self.combat_atk = self.combat_atk + 1000 end
+		if self:getTalentLevel(t) >= 5 then self.turn_procs.auto_melee_hit = true end
 		local speed, hit = self:attackTargetWith(target, weapon.combat, nil, t.getDamage(self, t))
-		if self:getTalentLevel(t) >= 5 then self.combat_atk = self.combat_atk - 1000 end
+		if self:getTalentLevel(t) >= 5 then self.turn_procs.auto_melee_hit = nil end
 		
 		-- Try to stun !
 		if hit then

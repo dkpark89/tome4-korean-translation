@@ -124,7 +124,7 @@ newTalent{
 		end
 		return math.floor(self:combatTalentLimit(tl, 24, 3.5, 9.5))  -- Limit <24
 	end,
-	on_pre_use = function(self, t, silent) if self:getFeedback() <= 0 then if not silent then game.logPlayer(self, "You have no feedback to start a feedback loop!") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:getFeedback() <= 0 then if not silent then game.logPlayer(self, "힘의 순환을 사용하기엔 반작용이 부족합니다!") end return false end return true end,
 	action = function(self, t)
 		local wrath = self:hasEffect(self.EFF_FOCUSED_WRATH)
 		self:setEffect(self.EFF_FEEDBACK_LOOP, t.getDuration(self, t), {})

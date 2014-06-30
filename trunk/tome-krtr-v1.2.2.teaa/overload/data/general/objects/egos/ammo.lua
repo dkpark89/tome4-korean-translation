@@ -602,7 +602,6 @@ newEntity{
 			local check = math.max(who:combatSpellpower(), who:combatMindpower(), who:combatAttack())
 			if not who:checkHit(check, target:combatMentalResist()) then game.logSeen(target, "%s 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가")) return nil end
 			
-			
 			-- Pick a spell
 			local tids = {}
 			for tid, lev in pairs(target.talents) do
