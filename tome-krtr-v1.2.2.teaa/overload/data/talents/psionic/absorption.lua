@@ -525,7 +525,6 @@ newTalent{
 newTalent{
 	name = "Forcefield",
 	kr_name = "정신역장",
-	--kr_name = "", --@@ 한글화 필요
 	type = {"psionic/absorption", 4},
 	require = psi_cun_req4,
 	points = 5,
