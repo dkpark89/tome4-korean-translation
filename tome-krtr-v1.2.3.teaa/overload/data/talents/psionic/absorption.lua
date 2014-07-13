@@ -505,8 +505,6 @@ newTalent{
 	end,
 	info = function(self, t)
 		local s_str = getShieldStrength(self, t)
-		local spike_str = getSpikeStrength(self, t)
-		local xs = (chargedElement(self, t, DamageType.DARKNESS) and "어둠 속성, " or "")..(chargedElement(self, t, DamageType.MIND) and "정신 속성, " or "")
 		local absorb = 100*getEfficiency(self,t)
 		return ([[시전자 주변을 보호막으로 둘러싸, 전기/황폐/어둠/정신 속성 공격의 %d%% 를 막아냅니다. (한번에 %d 피해까지 막아낼 수 있습니다)
 		보호막이 피해를 흡수할 때마다 공격력의 일부를 변환하여 염력을 2 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다 (턴 당 최대 염력 회복 : %0.1f).
