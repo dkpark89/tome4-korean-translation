@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="12">
+ <tileset firstgid="1" name="dg_grounds32" tilewidth="32" tileheight="32">
+  <image source="../../../../../../tiled-maps/gfx/dg_grounds32.gif" width="288" height="640"/>
+  <tile id="9">
+   <properties>
+    <property name="id" value="GRASS"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="id" value="FOUNTAIN_MAIN"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="id" value="GRASS_ROAD_STONE"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="id" value="TREE"/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="id" value="FOUNTAIN"/>
+   </properties>
+  </tile>
+  <tile id="117">
+   <properties>
+    <property name="id" value="HARDMOUNTAIN_WALL"/>
+   </properties>
+  </tile>
+  <tile id="159">
+   <properties>
+    <property name="id" value="FIELDS"/>
+   </properties>
+  </tile>
+  <tile id="168">
+   <properties>
+    <property name="id" value="ROCK"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="181" name="numbers" tilewidth="32" tileheight="32">
+  <image source="../../../../../../tiled-maps/gfx/numbers.png" width="192" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="custom" value="grid_class.new{show_tooltip=true, name='portal back', display='&lt;', color=colors.WHITE, change_level=1, change_zone=game.player.last_wilderness, image=&quot;terrain/stone_road1.png&quot;, add_displays = {mod.class.Grid.new{image=&quot;terrain/worldmap.png&quot;}},}, nil, {type=&quot;portal&quot;, subtype=&quot;back&quot;}"/>
+    <property name="end" value=""/>
+    <property name="start" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="id" value="JEWELRY"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="id" value="SUPREME_ARCHMAGE_LINANIIL"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="id" value="ALCHEMIST"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="id" value="LIBRARY"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="id" value="STAVES"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="id" value="TARELION"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="217" name="dg_dungeon32" tilewidth="32" tileheight="32">
+  <image source="../../../../../../tiled-maps/gfx/dg_dungeon32.gif" width="288" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="id" value="HARDWALL"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Terrain" width="50" height="50" opacity="0.99">
+  <data encoding="base64" compression="zlib">
+   eJztmM0NwyAMhTlnhR4yRmboQszTawboMN2ml1iyLMcCE2yDODyphRb85cXmJ6eU8tJSUG0KecfMxb8rFIkHc8Dng7TtpJ3+3psBOH5IG9Mm9UXioM+Xtkl9ETlGzg/MQvPjLm+i1iyJiXunvGOs5TkuDvDBO6YWFvDDO5bFsTiiCee5dyzwXHHNLK2h0fxYHLE48hWP9H1mjmh5Pqof3Lw1HNI+0ZKBm7OUgzLQs4YFi3SnUcsB8b8Zlt4MJ8OhOeNhBhDXXyKtFy1j4f9A/C+GpXRMLccMfkTMDy0HZZHGtKhXLRz5Zi6P9aOVo2TMHus5914/fddixfER5MVRu0/szWF1/piV45yE42k/Wvhn4IiW55Z+9F4/LDiianHEUsR7H60XeN/uHZPGB+D4Io4RfZnBD8ziWfdH1B8b5N70
+  </data>
+ </layer>
+ <layer name="Actor" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzjERAAAEAED9CxmUE8DqWP4TfAQAcKW+AwAAAAz5HQAAAABgTQMM6AFz
+  </data>
+ </layer>
+ <layer name="Trap" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztziEOACAMA8D9/0GE8ToMcnJT3JkmrWkEwF9W0e2XWWxn8AsAAAAAAAAAAH0uDmoC4g==
+  </data>
+ </layer>
+</map>
