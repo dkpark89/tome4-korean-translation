@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -29,8 +29,8 @@ newTalent{
 	cooldown = 30,
 	tactical = { BUFF = 2 },
 	getIncrease = function(self, t) return self:combatTalentScale(t, 0.05, 0.25) * 100 end,
-	sustain_slots = 'alchemy_infusion',
 	activate = function(self, t)
+		cancelAlchemyInfusions(self)
 		game:playSoundNear(self, "talents/arcane")
 		local ret = {}
 		self:talentTemporaryValue(ret, "inc_damage", {[DamageType.FIRE] = t.getIncrease(self, t)})
@@ -84,7 +84,7 @@ newTalent{
 						if self.temporary <= 0 then
 							game.level.map:remove(self.x, self.y, engine.Map.TERRAIN+2)
 							game.level:removeEntity(self)
-							game.level.map:scheduleRedisplay()
+							game.level.map:redisplay()
 						end
 					end,
 					summoner_gain_exp = true,
@@ -97,12 +97,11 @@ newTalent{
 			self:project(tg, x, y, function(px, py)
 				local target = game.level.map(px, py, Map.ACTOR)
 				if target and not target:hasEffect(target.EFF_BURNING) and self:reactionToward(target) < 0 then
-					target:setEffect(target.EFF_BURNING, heat.dur + math.ceil(t.getDuration(self, t)/3), {src=self, power=heat.power})
+					target:setEffect(target.EFF_BURNING, heat.dur + math.ceil(t.getDuration(self, t)/3), {src=self, power=heat.power}) 
 				end
 			end)
 		end
 		game:playSoundNear(self, "talents/breath")
-		game.level.map:redisplay()
 		return true
 	end,
 	info = function(self, t)
@@ -178,7 +177,7 @@ newTalent{
 	getResistance = function(self, t) return self:combatTalentSpellDamage(t, 5, 45) end,
 	getFireDamageInSight = function(self, t) return self:combatTalentSpellDamage(t, 15, 70) end,
 	getManaDrain = function(self, t) return -0.1 * self:getTalentLevelRaw(t) end,
-	callbackOnActBase = function(self, t)
+	do_fire = function(self, t)
 		if self:getMana() <= 0 then
 			self:forceUseTalent(t.id, {ignore_energy=true})
 			return

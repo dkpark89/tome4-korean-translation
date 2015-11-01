@@ -337,7 +337,7 @@ function resolvers.calc.store(t, e)
 		if who and who.player and act then
 			if self.store_faction and who:reactionToward({faction=self.store_faction}) < 0 then return true end
 			self.store:loadup(game.level, game.zone)
-			self.store:interact(who, self.name)
+			self.store:interact(who, (self.kr_name or self.name)) --@ 한글 이름 사용
 		end
 		return true
 	end
