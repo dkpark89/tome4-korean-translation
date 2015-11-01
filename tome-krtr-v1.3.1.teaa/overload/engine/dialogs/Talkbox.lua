@@ -1,0 +1,240 @@
+-- TE4 - T-Engine 4
+-- Copyright (C) 2009 - 2015 Nicolas Casalini
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--
+-- Nicolas Casalini "DarkGod"
+-- darkgod@te4.org
+
+require "engine.class"
+local Module = require "engine.Module"
+local Dialog = require "engine.ui.Dialog"
+local Button = require "engine.ui.Button"
+local Textbox = require "engine.ui.Textbox"
+local Dropdown = require "engine.ui.Dropdown"
+local Textzone = require "engine.ui.Textzone"
+
+module(..., package.seeall, class.inherit(Dialog))
+
+function _M:init(chat, on_end, only_friends)
+	chat:getChannelCode("----------------")
+
+	self.on_end = on_end
+	self.chat = chat
+	self.min = 2
+	self.max = 300
+	self.absolute = absolute
+	self.only_friends = self.only_friends
+
+	Dialog.init(self, self:getTitle(), 320, 110, nil, nil, nil, nil, false)
+
+	local c_box = Textbox.new{title="Say: ", text="", chars=60, max_len=max,
+		fct=function(text) self:okclick() end,
+		on_change = function(text) self:checkTarget(text) end,
+	}
+	self.c_box = c_box
+	local ok = Button.new{text="Accept", fct=function() self:okclick() end}
+	local cancel = Button.new{text="Cancel", fct=function() self:cancelclick() end}
+
+	local list = self:getTargets(only_friends)
+	if #list == 0 then self.nobody = true end
+
+	if only_friends and #list > 0 then
+		local type, name = self.chat:getCurrentTarget()
+		if type ~= "whisper" then
+			self.chat:setCurrentTarget(false, list[1].id)
+		end
+	end
+
+	self.c_list_text = Textzone.new{auto_width=true, auto_height=true, text="Target: "}
+	self.c_list = Dropdown.new{width=250, fct=function(item) if not item then return end self:checkTarget(item.id..":") self:setFocus(c_box) end, list=list, nb_items=math.min(#list, 10), scrollbar=true}
+
+	self:loadUI{
+		{left=0, top=0, ui=self.c_box},
+
+		{left=self.c_box.w - self.c_list.w - self.c_list_text.w - 6, top=self.c_box.h + 10, ui=self.c_list_text},
+		{left=self.c_box.w - self.c_list.w, top=self.c_box.h + 10, ui=self.c_list},
+
+		{left=0, bottom=0, ui=ok},
+		{left=self.c_box.w - ok.w, bottom=0, ui=cancel},
+	}
+	self:setFocus(c_box)
+	self:setupUI(true, true)
+
+	self:getTitle()
+
+	self.key:addBinds{
+		EXIT = function() game:unregisterDialog(self) end,
+	}
+	self.key:addCommand("_ESCAPE", function() game:unregisterDialog(self) end)
+	self.key:addCommand("_TAB", function()
+		local type, name = self.chat:getCurrentTarget()
+		if type == "whisper" then
+			local found = nil
+			for i, l in ipairs(self.chat.last_whispers) do if l == name then found = i break end end
+			if found then
+				found = util.boundWrap(found + 1, 1, #self.chat.last_whispers)
+				self.chat:setCurrentTarget(false, self.chat.last_whispers[found])
+				self:updateTitle(self:getTitle())
+			end
+		else
+			self:autoComplete()
+		end
+	end)
+end
+
+function _M:on_register()
+	self:updateTitle(self:getTitle())
+end
+
+function _M:getTargets(only_friends)
+	local list = {}
+	if not only_friends then
+		for name, _ in pairs(self.chat.channels) do list[#list+1] = {name="Channel: "..name, id=name} end
+	end
+
+	local name_added = {}
+	for login, data in pairs(self.chat.friends) do list[#list+1] = {name="Friend: "..data.name, id=data.name} name_added[data.name] = true end
+
+	if not only_friends and self.chat.channels[self.chat.cur_channel] then
+		for login, data in pairs(self.chat.channels[self.chat.cur_channel].users) do if not name_added[data.name] then list[#list+1] = {name="User: "..data.name, id=data.name} name_added[data.name] = true end end
+	end
+	return list
+end
+
+function _M:getTitle()
+	local type, name = self.chat:getCurrentTarget()
+	if self.c_list then for i = 1, #self.c_list.c_list.list do
+		if self.c_list.c_list.list[i].id == name then self.c_list.c_list.sel = i break end
+	end end
+	if type == "channel" then
+		return "Talk on channel: "..name
+	elseif type == "whisper" then
+		return "Whisper to: "..name
+	end
+	return "????"
+end
+
+function _M:checkTarget(text)
+	if text:sub(text:len()) == ":" then
+		local name = text:sub(1, text:len() - 1)
+		local channel = self.chat:findChannel(name)
+		local uname = self.chat:findUser(name)
+		if uname then
+			self.chat:setCurrentTarget(false, uname or name)
+			self:updateTitle(self:getTitle())
+			self.c_box:setText("")
+		elseif channel then
+			self.chat:setCurrentTarget(true, channel)
+			self:updateTitle(self:getTitle())
+			self.c_box:setText("")
+		end
+	end
+	if text:sub(1, 1) == "/" then
+		if text == "/r " and self.chat.last_whispers and self.chat.last_whispers[1] then
+			self.chat:setCurrentTarget(false, self.chat.last_whispers[1])
+			self:updateTitle(self:getTitle())
+			self.c_box:setText("")
+		else
+			local _, _, chancode = text:find("^/([0-9]+) ")
+			chancode = tonumber(chancode)
+			if chancode and self.chat.channel_codes_rev and self.chat.channel_codes_rev[chancode] then
+				self.chat:setCurrentTarget(true, self.chat.channel_codes_rev[chancode])
+				self:updateTitle(self:getTitle())
+				self.c_box:setText("")
+			end
+		end
+	end
+end
+
+function _M:autoComplete()
+	local text, text_len = self.c_box.text, self.c_box.text:len()
+
+	local matches = {}
+
+	-- Try friends
+	for k, v in pairs(self.chat.friends) do
+		if k:sub(1, text_len) == text then
+			matches[#matches+1] = k
+		end
+	end
+	
+	-- Try channel users
+	if self.chat.channels and self.chat.cur_channel and self.chat.channels[self.chat.cur_channel] then
+		for k, v in pairs(self.chat.channels[self.chat.cur_channel].users) do
+			if k:sub(1, text_len) == text then
+				matches[#matches+1] = k
+			end
+		end
+	end
+
+	if #matches == 1 then
+		self.c_box:setText(matches[1])
+	elseif #matches > 1 then
+		-- Find the longest common substring and complete it
+		local substring = matches[1]:sub(#text+1)
+		for i=2,#matches do
+			local min_len = math.min(#matches[i]-#text, #substring)
+			for j=1,min_len do
+				if substring:sub(j, j) ~= matches[i]:sub(#text+j, #text+j) then
+					substring = substring:sub(1, util.bound(j-1, 0))
+					break
+				end
+			end
+			if #substring > 0 then
+				self.c_box:setText(text .. substring)
+			end
+		end
+	end
+end
+
+function _M:okclick()
+	local text = self.c_box.text
+
+	local _, _, command, params = text:find("^/([a-z]+) (.*)$")
+	if command then
+		if command == "join" and params:find("^[a-z_-]+$") then
+			self.chat:join(params)
+			self.c_box:setText("")
+			game:unregisterDialog(self)
+			self.chat:setCurrentTarget(true, params)
+			return
+		end
+		if command == "part" and params:find("^[a-z_-]+$") then
+			self.chat:part(params)
+			self.c_box:setText("")
+			game:unregisterDialog(self)
+			self.chat:setCurrentTarget(true, game.__mod_info.short_name)
+			return
+		end
+		self:triggerHook{"Chat:Talkbox:command", command=command, params=params, talkbox=self}
+	end
+
+	if text:len() >= self.min and text:len() <= self.max then
+		game:unregisterDialog(self)
+
+		local type, name = self.chat:getCurrentTarget()
+		if type == "channel" then
+			self.chat:talk(text)
+		elseif type == "whisper" then
+			self.chat:whisper(name, text)
+		end
+
+		if self.on_end then self.on_end() end
+	end
+end
+
+function _M:cancelclick()
+	self.key:triggerVirtual("EXIT")
+end
