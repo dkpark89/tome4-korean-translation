@@ -23,10 +23,11 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Dwarf",
+	kr_name = "드워프",
 	desc = {
-		"Dwarves are a secretive people, hailing from their underground home of the Iron Throne.",
-		"They are a sturdy race and are known for their masterwork, yet they are not well loved, having left other races to fend for themselves in past conflicts.",
-		"All dwarves are united under the Empire and their love of money.",
+		"드워프는 '철의 왕좌' 라는 지하왕국에서 살고 있는 무뚝뚝한 종족으로, 강인한 육체와 그들이 만든 걸작품으로 명성이 높습니다.",
+		"하지만 과거에 있었던 전란에서 다른 종족들과 연합하지 않고 그들끼리 오크와 싸우도록 놔둔 일 때문에, 다른 종족들에게 그리 환영받지는 못합니다.",
+		"모든 드워프들은 그들의 제국과 금전에 대한 사랑으로 똘똘 뭉쳐있습니다.",
 	},
 	descriptor_choices =
 	{
@@ -65,11 +66,11 @@ newBirthDescriptor{
 			{priority=1, name="Redhead [donator only]", donator=true, reset=function(actor) actor.is_redhead=false end, on_actor=function(actor) if actor.moddable_tile then actor.is_redhead = true actor.is_redhead = true actor.moddable_tile_base = "base_redhead_01.png" actor.moddable_tile_ornament2={female="braid_redhead_01"} end end, check=function(birth) return birth.descriptors_by_type.sex == "Female" end},
 		},
 		cosmetic_bikini =  {
-			{name="Bikini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="비키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Bikini if not o then print("No bikini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_BIKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Female" end},
-			{name="Mankini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="맨키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Mankini if not o then print("No mankini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_MANKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Male" end},
@@ -84,15 +85,16 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Dwarf",
+	kr_name = "드워프",
 	desc = {
-		"Dwarves are a secretive people, hailing from their underground home of the Iron Throne.",
-		"They are a sturdy race and are known for their masterwork, yet they are not well loved, having left other races to fend for themselves in past conflicts.",
-		"They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +4 Strength, -2 Dexterity, +3 Constitution",
-		"#LIGHT_BLUE# * -2 Magic, +3 Willpower, +0 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# 12",
-		"#GOLD#Experience penalty:#LIGHT_BLUE# 25%",
+		"드워프는 '철의 왕좌' 라는 지하왕국에서 살고 있는 무뚝뚝한 종족으로, 강인한 육체와 그들이 만든 걸작품으로 명성이 높습니다.",
+		"하지만 과거에 있었던 전란에서 다른 종족들과 연합하지 않고 그들끼리 오크와 싸우도록 놔둔 일 때문에, 다른 종족들에게 그리 환영받지는 못합니다.",
+		"몇 턴 동안 방어도와 물리,주문 내성을 향상시켜주는 #GOLD#드워프의 체질#WHITE#을 비롯한 드워프 종족 기술들을 사용할 수 있습니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+4, 민첩-2, 체격+3",
+		"#LIGHT_BLUE# * 마법-2, 의지+3, 교활함+0",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 12",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 25%",
 	},
 	inc_stats = { str=4, con=3, wil=3, mag=-2, dex=-2 },
 	talents_types = { ["race/dwarf"]={true, 0} },

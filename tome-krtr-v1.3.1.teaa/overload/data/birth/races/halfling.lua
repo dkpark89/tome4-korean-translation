@@ -23,11 +23,12 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Halfling",
+	kr_name = "하플링",
 	desc = {
-		"Halflings are a race of very short stature, rarely exceeding four feet in height.",
-		"They are like humans in that they can do just about anything they set their minds to, yet they excel at ordering and studying things.",
-		"Halfling armies have brought many kingdoms to their knees and they kept a balance of power with the Human kingdoms during the Age of Allure.",
-		"Halflings are agile, lucky, and resilient but lacking in strength.",
+		"하플링은 대부분 키가 120 cm 를 넘지 못하는, 조그만 종족입니다.",
+		"생각한 일을 행동에 옮기는 기민함은 인간과 비슷하지만, 계획성과 학습능력은 더 뛰어난 편입니다.",
+		"하플링들의 군대는 많은 왕국을 굴복시켰으며, 미혹의 시대 이래로는 인간 왕국과 힘의 균형을 유지해오고 있습니다.",
+		"하플링은 기민하며, 운이 좋고, 힘은 약하지만 몸은 튼튼합니다.",
 	},
 	descriptor_choices =
 	{
@@ -62,11 +63,11 @@ newBirthDescriptor{
 			{name="Redhead [donator only]", donator=true, on_actor=function(actor) if actor.moddable_tile then actor.moddable_tile_base = "base_redhead_01.png" end end},
 		},
 		cosmetic_bikini =  {
-			{name="Bikini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="비키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Bikini if not o then print("No bikini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_BIKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Female" end},
-			{name="Mankini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="맨키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Mankini if not o then print("No mankini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_MANKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Male" end},
@@ -81,17 +82,18 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Halfling",
+	kr_name = "하플링",
 	desc = {
-		"Halflings are a race of very short stature, rarely exceeding four feet in height.",
-		"They are like humans in that they can do just about anything they set their minds to, yet they excel at ordering and studying things.",
-		"Halfling armies have brought many kingdoms to their knees and they kept a balance of power with the Human kingdoms during the Age of Allure.",
-		"They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * -3 Strength, +3 Dexterity, +1 Constitution",
-		"#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning",
-		"#LIGHT_BLUE# * +5 Luck",
-		"#GOLD#Life per level:#LIGHT_BLUE# 12",
-		"#GOLD#Experience penalty:#LIGHT_BLUE# 20%",
+		"하플링은 대부분 키가 120 cm 를 넘지 못하는, 조그만 종족입니다.",
+		"생각한 일을 행동에 옮기는 기민함은 인간과 비슷하지만, 계획성과 학습능력은 더 뛰어난 편입니다.",
+		"하플링들의 군대는 많은 왕국을 굴복시켰으며, 미혹의 시대 이래로는 인간 왕국과 힘의 균형을 유지해오고 있습니다.",
+		"잠시 동안 치명타 확률을 향상시켜주는 #GOLD#작은 이의 행운#WHITE#을 비롯한, 하플링 종족 기술들을 사용할 수 있습니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘-3, 민첩+3, 체격+1",
+		"#LIGHT_BLUE# * 마법+0, 의지+0, 교활함+3",
+		"#LIGHT_BLUE# * 행운+5",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 12",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 20%",
 	},
 	inc_stats = { str=-3, dex=3, con=1, cun=3, lck=5, },
 	experience = 1.20,
