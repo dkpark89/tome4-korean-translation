@@ -21,10 +21,11 @@ local Particles = require "engine.Particles"
 newBirthDescriptor{
 	type = "class",
 	name = "Defiler",
+	kr_name = "모독자 (Defiler)",
 	locked = function() return profile.mod.allow_build.corrupter end,
-	locked_desc = "Dark thoughts, black bloods, vile deeds... Those who spill their brethren's blood will find its power.",
+	locked_desc = "사악한 마음, 검은 피, 타락한 행위... 동포의 피로 땅을 적시는 자가 힘을 얻으리라.",
 	desc = {
-		"Defilers are touched by the mark of evil. They are a blight on the world. Working to promote the cause of evil, they serve their masters, or themselves become masters.",
+		"모독자는 악의 낙인을 받았습니다. 그들은 세상의 역병이며 악의 씨앗을 흩뿌리는 주인을 섬기거나, 스스로 그런 자들의 주인이 되기도 합니다.",
 	},
 	descriptor_choices =
 	{
@@ -43,16 +44,17 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Reaver",
+	kr_name = "파괴자 (Reaver)",
 	locked = function() return profile.mod.allow_build.corrupter_reaver end,
-	locked_desc = "Reap thee the souls of thine enemies, and the powers of darkness shall enter thy flesh.",
+	locked_desc = "그대에게 대적하는 자들의 영혼을 거두라, 그리하면 그대의 육신에 어둠의 권능이 깃들지니.",
 	desc = {
-		"Reavers are terrible foes, charging their enemies with a weapon in each hand.",
-		"They can harness the blight of evil, infecting their foes with terrible contagious diseases while crushing their skulls with devastating combat techniques.",
-		"Their most important stats are: Strength and Magic",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +4 Strength, +1 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# +2",
+		"파괴자는 각각의 손에 무기를 들고 적에게 달려드는 무시무시한 자들입니다.",
+		"지독한 전투기술로 적의 두개골을 깨부수는 동시에, 사악한 타락의 기운을 휘둘러 끔찍한 전염병에 감염시키기도 합니다.",
+		"가장 중요한 능력치는 힘과 마법입니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+4, 민첩+1, 체력+0",
+		"#LIGHT_BLUE# * 마법+4, 의지+0, 교활함+0",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# +2",
 	},
 	birth_example_particles = {
 		function(actor)
@@ -95,17 +97,18 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Corruptor",
+	kr_name = "타락자 (Corruptor)",
 	locked = function() return profile.mod.allow_build.corrupter_corruptor end,
-	locked_desc = "Blight and depravity hold the greatest powers. Accept temptation and become one with corruption.",
+	locked_desc = "타락과 사악한 행위에는 강력한 힘이 있나니, 유혹을 받아들여 타락하라.",
 	desc = {
-		"A corruptor is a terrible foe, wielding dark magics that can sap the very soul of her target.",
-		"They can harness the blight of evil, crushing souls, stealing life force to replenish themselves.",
-		"The most powerful corruptors can even take on some demonic aspects for themselves.",
-		"Their most important stats are: Magic and Willpower",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +2 Constitution",
-		"#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# +0",
+		"타락자는 적의 영혼을 쥐어짜낼 수 있으며, 이를 위해 어둠의 마법을 사용하는 무시무시한 자들입니다.",
+		"사악한 타락의 기운을 휘둘러, 적의 영혼을 파괴하고 생명력을 빼앗아 흡수합니다.",
+		"강력한 타락자는 악마로 변신할 수도 있습니다.",
+		"가장 중요한 능력치는 마법과 의지입니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+0, 민첩+0, 체격+2",
+		"#LIGHT_BLUE# * 마법+4, 의지+3, 교활함+0",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# +0",
 	},
 	power_source = {arcane=true},
 	stats = { mag=4, wil=3, con=2, },

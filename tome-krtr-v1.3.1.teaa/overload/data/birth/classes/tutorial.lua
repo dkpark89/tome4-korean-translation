@@ -20,8 +20,9 @@
 newBirthDescriptor{
 	type = "class",
 	name = "Tutorial Adventurer",
+	kr_name = "초보자 입문용 모험가",
 	desc = {
-		"Adventurers have a generic talent set to teach to young ones.",
+		"모험가는 초보자에게 가르쳐줄 수 있는 일반 기술계열을 가지고 있습니다.",
 	},
 	descriptor_choices =
 	{
@@ -45,8 +46,9 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Tutorial Adventurer",
+	kr_name = "초보자 입문용 모험가",
 	desc = {
-		"Adventurers have a generic talent set to teach to young ones.",
+		"모험가는 초보자에게 가르쳐줄 수 있는 일반 기술계열을 가지고 있습니다.",
 	},
 	not_on_random_boss = true,
 	stats = { str=10, con=5, dex=8, mag=10, wil=5, cun=5 },

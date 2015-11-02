@@ -22,11 +22,12 @@ local Particles = require "engine.Particles"
 newBirthDescriptor{
 	type = "class",
 	name = "Wilder",
+	kr_name = "자연의 추종자 (Wilder)",
 	locked = function() return profile.mod.allow_build.wilder_wyrmic or profile.mod.allow_build.wilder_summoner or profile.mod.allow_build.wilder_stone_warden end,
-	locked_desc = "Natural abilities can go beyond mere skill. Experience the true powers of nature to learn of its amazing gifts.",
+	locked_desc = "자연의 힘은 단순한 기술을 능가하는 위력을 지녔으니, 자연의 진정한 힘을 경험하고 놀라운 은총을 배우라.",
 	desc = {
-		"Wilders are one with nature, in one manner or another. There are as many different Wilders as there are aspects of nature.",
-		"They can take on the aspects of creatures, summon creatures to them, feel the druidic call, ...",
+		"자연의 추종자들은 여러 방법으로 자연과 하나가 된 자들입니다. 자연이 보여주는 여러 모습만큼이나 다양한 추종자들이 존재합니다.",
+		"어떤 생물의 능력을 흉내내거나, 자신의 곁으로 소환할 수도 있습니다.",
 	},
 	descriptor_choices =
 	{
@@ -45,21 +46,22 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Summoner",
+	kr_name = "소환술사 (Summoner)",
 	locked = function() return profile.mod.allow_build.wilder_summoner end,
-	locked_desc = "Not all might comes from within. Hear the invocations of nature, hear its calling power. See that from without we can find our true strengths.",
+	locked_desc = "모든 힘이 몸 안에서 나오는 것은 아니다. 자연의 기도를 들어보라, 그 힘을 느껴보라. 우리의 진정한 힘을 찾을 수 없을 때에는 두 눈으로 직접 보고 배우라.",
 	desc = {
-		"Summoners never fight alone. They are always ready to summon one of their many minions to fight at their side.",
-		"Summons can range from a combat hound to a fire drake.",
-		"Their most important stats are: Willpower and Cunning",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +0 Strength, +1 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +0 Magic, +5 Willpower, +3 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# +0",
+		"소환술사는 결코 혼자 싸우지 않습니다. 그들은 자신의 곁에서 싸울 부하를 부를 준비가 항상 되어 있습니다.",
+		"전투용 개에서부터 화염 비룡까지도 소환할 수 있습니다.",
+		"가장 중요한 능력치는 의지와 교활함입니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+0, 민첩+1, 체격+0",
+		"#LIGHT_BLUE# * 마법+0, 의지+5, 교활함+3",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# +0",
 	},
 	power_source = {nature=true},
 	getStatDesc = function(stat, actor)
 		if stat == actor.STAT_CUN then
-			return "Max summons: "..math.floor(actor:getCun()/10)
+			return "최대 소환수 : "..math.floor(actor:getCun()/10)
 		end
 	end,
 	stats = { wil=5, cun=3, dex=1, },
@@ -104,16 +106,17 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Wyrmic",
+	kr_name = "용인 (Wyrmic)",
 	locked = function() return profile.mod.allow_build.wilder_wyrmic end,
-	locked_desc = "Sleek, majestic, powerful... In the path of dragons we walk, and their breath is our breath. See their beating hearts with your eyes and taste their majesty between your teeth.",
+	locked_desc = " 우리는 용의 길을 걸으며, 그들의 숨결은 우리의 숨결이다. 그들의 맥동하는 심장을 보고, 이빨로 그들의 위엄을 맛보라.",
 	desc = {
-		"Wyrmics are fighters who have learnt how to mimic some of the aspects of the dragons.",
-		"They have access to talents normally belonging to the various kind of drakes.",
-		"Their most important stats are: Strength and Willpower",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution",
-		"#LIGHT_BLUE# * +0 Magic, +3 Willpower, +0 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# +2",
+		"용인은 용의 능력을 흉내내는 법을 배운 전사입니다.",
+		"그들은 다양한 종류의 용들이 가진 능력을 사용할 수 있습니다.",
+		"가장 중요한 능력치는 힘과 의지입니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+5, 민첩+0, 체격+1",
+		"#LIGHT_BLUE# * 마법+0, 의지+3, 교활함+0",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# +2",
 	},
 	birth_example_particles = {
 		function(actor) if core.shader.active(4) then local x, y = actor:attachementSpot("back", true) actor:addParticles(Particles.new("shader_wings", 1, {x=x, y=y, life=18, fade=-0.006, deploy_speed=14})) end end,
@@ -165,22 +168,23 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "subclass",
 	name = "Oozemancer",
+	kr_name = "점액술사 (Oozemancer)",
 	locked = function() return profile.mod.allow_build.wilder_oozemancer end,
-	locked_desc = "Magic must fail, magic must lose, nothing arcane can face the ooze...",
+	locked_desc = "마법은 실패해야 하고, 마법은 사라져야 한다. 그 어떤 마법도 점액 앞에서는 고개를 들지 못할 것일지...",
 	desc = {
-		"Oozemancers separate themselves from normal civilisation so that they be more in harmony with Nature. Arcane force are reviled by them, and their natural attunement to the wilds lets them do battle with abusive magic-users on an equal footing.",
-		"They can spawn oozes to protect and attack from a distance while also being adept at harnessing the power of mindstars and psiblades.",
-		"Their most important stats are: Willpower and Cunning",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# -3",
+		"점액술사들은 스스로 일반적인 문명과 거리를 두어, 자신과 자연이 더욱 조화되도록 만듭니다. 이들은 마법적 힘을 욕하며, 야생과의 자연적인 감응력을 통해 저 존재 자체가 모욕이나 마찬가지인 마법 사용자들과 대등하게 싸워나갑니다.",
+		"이들은 점액을 내뿜어 자신을 보호하며, 마석과 염동 칼의 힘을 사용하여 멀리 떨어진 적까지 공격할 수 있니다.",
+		"가장 중요한 능력치는 의지와 교활함입니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+0, 민첩+0, 체격+0",
+		"#LIGHT_BLUE# * 마법+0, 의지+5, 교활함+4",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# -3",
 	},
 	power_source = {nature=true, antimagic=true},
 	random_rarity = 3,
 	getStatDesc = function(stat, actor)
 		if stat == actor.STAT_CUN then
-			return "Max summons: "..math.floor(actor:getCun()/10)
+			return "최대 소환수 : "..math.floor(actor:getCun()/10)
 		end
 	end,
 	birth_example_particles = {

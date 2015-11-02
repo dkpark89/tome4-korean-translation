@@ -23,11 +23,12 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Elf",
+	kr_name = "엘프",
 	desc = {
-		"The elven races are usually named as a whole 'elves', but this is incorrect.",
-		"Elves are split into three separate races - albeit related - of which only two remain in the current age.",
-		"Elves usually live about one thousand years, except for the Shaloren who magically sustain themselves forever.",
-		"Their view of the world varies wildly across the different elven races.",
+		"엘프 종족은 흔히 '엘프' 라는 단어로 뭉뚱그려 불려지지만, 이는 잘못된 것입니다.",
+		"엘프는 원래 세 종족으로 나뉘어지며, 현재는 두 종족만이 남아있습니다.",
+		"마법의 힘으로 영생을 누리는 샬로레 족을 제외하면, 엘프의 수명은 보통 천 년 정도입니다.",
+		"엘프 종족은 저마다 판이한 세계관을 가지고 있습니다.",
 	},
 	descriptor_choices =
 	{
@@ -60,11 +61,11 @@ newBirthDescriptor{
 			{name="Redhead [donator only]", donator=true, on_actor=function(actor) if actor.moddable_tile then actor.moddable_tile_base = "base_redhead_01.png" actor.moddable_tile_ornament={female="braid_redhead_02"} end end, check=function(birth) return birth.descriptors_by_type.sex == "Female" end},
 		},
 		cosmetic_bikini =  {
-			{name="Bikini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="비키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Bikini if not o then print("No bikini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_BIKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Female" end},
-			{name="Mankini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="맨키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Mankini if not o then print("No mankini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_MANKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Male" end},
@@ -79,15 +80,16 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Shalore",
+	kr_name = "샬로레",
 	desc = {
-		"Shaloren elves have close ties with the magic of the world, and produced in the past many great mages.",
-		"Yet they remain quiet and try to hide their magic from the world, for they remember too well the Spellblaze - and the Spellhunt that followed.",
-		"They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +2 Magic, +3 Willpower, +1 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# 9",
-		"#GOLD#Experience penalty:#LIGHT_BLUE# 25%",
+		"샬로레 엘프 족은 마법과 깊은 관계를 맺고 있기 때문에, 과거 많은 마도사를 배출하였습니다.",
+		"그들의 뇌리에 아직도 선명히 남아있는 '마법폭발' 과 뒤이어 벌어진 '마법사냥' 의 여파로 인해, 지금까지도 마법을 숨기고 조용히 살고 있습니다.",
+		"잠시 동안 모든 행동을 가속할 수 있는 #GOLD#불멸의 은총#WHITE#을 비롯한 샬로레 종족 기술들을 사용할 수 있습니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘-2, 민첩+1, 체격+0",
+		"#LIGHT_BLUE# * 마법+2, 의지+3, 교활함+1",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 9",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 25%",
 	},
 	inc_stats = { str=-2, mag=2, wil=3, cun=1, dex=1, con=0 },
 	experience = 1.3,
@@ -116,16 +118,17 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Thalore",
+	kr_name = "탈로레",
 	desc = {
-		"Thaloren elves have spent most of the ages hidden within their forests, seldom leaving them.",
-		"The ages of the world passed by and yet they remained unchanged.",
-		"Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.",
-		"They possess the #GOLD#Wrath of the Eternals#WHITE# talent, which allows them a boost to the damage both inflicted and resisted once in a while.",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +2 Strength, +3 Dexterity, +1 Constitution",
-		"#LIGHT_BLUE# * -2 Magic, +1 Willpower, +0 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# 11",
-		"#GOLD#Experience penalty:#LIGHT_BLUE# 35%",
+		"탈로레 엘프 족은 대부분의 시간을 숲 속에서 은둔하며, 그곳을 거의 벗어나질 않은 채 살아왔습니다.",
+		"세월이 흐르고 시대는 변하였지만, 그들의 생활방식만은 변하지 않아왔습니다.",
+		"자연 친화적이고 은둔적인 성향은 그들을 훌륭한 자연의 수호자로 만들었고, 이로 인해 종종 샬로레 엘프들과 대립하는 일도 생기게 되었습니다.",
+		"잠시 동안 적에게 입히는 피해와 적에게 받는 피해 저항력을 동시에 끌어올리는 #GOLD#나무의 분노#WHITE#를 비롯한, 탈로레 종족 기술들을 사용할 수 있습니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+2, 민첩+3, 체격+1",
+		"#LIGHT_BLUE# * 마법-2, 의지+1, 교활함+0",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 11",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 35%",
 	},
 	inc_stats = { str=2, mag=-2, wil=1, cun=0, dex=3, con=1 },
 	talents_types = { ["race/thalore"]={true, 0} },
