@@ -149,7 +149,7 @@ newBirthDescriptor{
 	type = "difficulty",
 	name = "Easy",
 	display_name = "Easier",
-	kr_name = "쉬움", kr_display_name = "쉬움",
+	kr_name = "쉬움",
 	desc =
 	{
 		"#GOLD##{bold}#쉬운 난이도#WHITE##{normal}#",
@@ -173,7 +173,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Normal",
-	kr_name = "보통", kr_display_name = "보통",
+	kr_name = "보통",
 	selection_default = true,
 	desc =
 	{
@@ -193,7 +193,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Nightmare",
-	kr_name = "악몽", kr_display_name = "악몽",
+	kr_name = "악몽",
 	desc =
 	{
 		"#GOLD##{bold}#악몽 난이도#WHITE##{normal}#",
@@ -215,7 +215,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Insane",
-	kr_name = "정신나간", kr_display_name = "정신나간",
+	kr_name = "정신나간",
 	locked = function() return profile.mod.allow_build.difficulty_insane end,
 	locked_desc = "쉬움은 너무 약해! 보통도 너무 약해! 악몽은 아주 쉽지! 진짜 고통을 가져오라고!",
 	desc =
@@ -247,7 +247,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "difficulty",
 	name = "Madness",
-	kr_name = "미치광이", kr_display_name = "미치광이",
+	kr_name = "미치광이",
 	locked = function() return profile.mod.allow_build.difficulty_madness end,
 	locked_desc = "정신이 나갔어도 너무 쉬워! 진짜로 머리가 깨질 경험을 가져오라고!",
 	desc =
@@ -284,7 +284,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Exploration",
-	kr_name = "탐사 모드", kr_display_name = "탐사 모드",
+	kr_name = "탐사 모드",
 	locked = function(birther) return birther:isDonator() end,
 	locked_desc = "탐사 모드 : 무한한 생명 (기부자용 모드)",
 	locked_select = function(birther) birther:selectExplorationNoDonations() end,
@@ -308,7 +308,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Adventure",
-	kr_name = "모험 모드", kr_display_name = "모험 모드",
+	kr_name = "모험 모드",
 	selection_default = (not config.settings.tome.default_birth) or (config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Adventure"),
 	desc =
 	{
@@ -324,7 +324,7 @@ newBirthDescriptor{
 newBirthDescriptor{
 	type = "permadeath",
 	name = "Roguelike",
-	kr_name = "로그라이크 모드", kr_display_name = "로그라이크 모드",
+	kr_name = "로그라이크 모드",
 	selection_default = config.settings.tome.default_birth and config.settings.tome.default_birth.permadeath == "Roguelike",
 	desc =
 	{

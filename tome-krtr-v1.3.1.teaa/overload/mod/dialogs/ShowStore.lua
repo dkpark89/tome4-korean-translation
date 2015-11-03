@@ -37,7 +37,7 @@ function _M:init(title, store_inven, actor_inven, store_filter, actor_filter, ac
 	self.actor_filter = actor_filter
 	self.store_actor = store_actor
 	self.actor_actor = actor_actor
-	self.base_title = title or "Store"
+	self.base_title = title or "상점"
 	Dialog.init(self, self:getStoreTitle(), game.w * 0.8, game.h * 0.8)
 
 	if store_actor.faction then
@@ -50,9 +50,9 @@ function _M:init(title, store_inven, actor_inven, store_filter, actor_filter, ac
 		columns={
 			{name="", width={30,"fixed"}, display_prop="char", sort="id"},
 			{name="", width={24,"fixed"}, display_prop="object", direct_draw=function(item, x, y) item.object:toScreen(nil, x+4, y, 16, 16) end},
-			{name="Inventory", width=80, display_prop="name", sort="name"},
-			{name="Category", width=20, display_prop="cat", sort="cat"},
-			{name="Price", width={70,"fixed"}, display_prop=function(item) return self.descprice("sell", item.object) end, sort=function(a, b) return descprice("sell", a.object) < descprice("sell", b.object) end},
+			{name="소지품", width=80, display_prop="name", sort="name"},
+			{name="종류", width=20, display_prop="cat", sort="cat"},
+			{name="가격", width={70,"fixed"}, display_prop=function(item) return self.descprice("sell", item.object) end, sort=function(a, b) return descprice("sell", a.object) < descprice("sell", b.object) end},
 		},
 		fct=function(item, sel, button, event) self:use(item, button, event) end,
 		select=function(item, sel) self:select(item) end,
@@ -86,9 +86,9 @@ function _M:init(title, store_inven, actor_inven, store_filter, actor_filter, ac
 		columns={
 			{name="", width={30,"fixed"}, display_prop="char", sort="id"},
 			{name="", width={24,"fixed"}, display_prop="object", direct_draw=direct_draw},
-			{name="Store", width=80, display_prop="name"},
-			{name="Category", width=20, display_prop="cat"},
-			{name="Price", width={70,"fixed"}, display_prop=function(item) return self.descprice("buy", item.object) end, sort=function(a, b) return descprice("buy", a.object) < descprice("buy", b.object) end},
+			{name="판매품", width=80, display_prop="name"},
+			{name="종류", width=20, display_prop="cat"},
+			{name="가격", width={70,"fixed"}, display_prop=function(item) return self.descprice("buy", item.object) end, sort=function(a, b) return descprice("buy", a.object) < descprice("buy", b.object) end},
 		},
 		fct=function(item, sel, button, event) self:use(item, button, event) end,
 		select=function(item, sel) self:select(item) end,
@@ -170,7 +170,7 @@ function _M:on_register()
 end
 
 function _M:getStoreTitle()
-	return self.base_title..(" (pays up to %0.2f gold, Your Gold: %0.2f)"):format(self.store_actor.store.purse, self.actor_actor.money)
+	return self.base_title..(" (상점 금화 보유량: %0.2f gold, 가진 금화: %0.2f)"):format(self.store_actor.store.purse, self.actor_actor.money)
 end
 
 function _M:updateStore()

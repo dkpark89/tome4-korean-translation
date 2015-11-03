@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local Textzone = require "engine.ui.Textzone"
@@ -29,7 +30,7 @@ module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(actor)
 	self.actor = actor
-	Dialog.init(self, "Arena mode", 500, 300)
+	Dialog.init(self, "투기장 모드", 500, 300)
 
 	actor:saveUUID()
 
@@ -49,16 +50,16 @@ end
 
 function _M:printRanking()
 	local scores = world.arena.scores
-	if not scores[1].name then return "#LIGHT_GREEN#No high scores. This should not happen."
+	if not scores[1].name then return "#LIGHT_GREEN#고득점 기록이 없습니다. 이런 일이 있을 수는 없는데..."
 	else
 		local text = ""
 		local tmp = ""
 		local line = function (txt, col) return " "..col..txt.."\n" end
-		local stri = "%s (%s %s %s)\n Score %d[%s]) - Wave: %d"
+		local stri = "%s (%s %s %s)\n 점수 %d[%s]) - 쇄도 횟수: %d"
 		local i = 1
 		while(scores[i] and scores[i].name) do
 			p = scores[i]
-			tmp = stri:format((p.name or "unknown"):capitalize(), p.sex or "unknown", p.race or "unknown", p.class or "unknown", p.score or "unknown", p.perk or "unknown", p.wave or -1)
+			tmp = stri:format((p.name or "모름"):capitalize(), p.sex:krSex() or "모름", p.race:krRace() or "모름", p.class:krClass() or "모름", p.score or "모름", p.perk or "모름", p.wave or -1) --@ 성별, 종족, 직업 이름 한글화
 			if p.name == world.arena.lastScore.name and p.score == world.arena.lastScore.score and p.wave == world.arena.lastScore.wave and p.perk == world.arena.lastScore.perk then
 				text = text..line(tmp, "#YELLOW#")
 			else
@@ -141,7 +142,7 @@ function _M:use(item)
 			util.showMainMenu(false, engine.version[4], engine.version[1].."."..engine.version[2].."."..engine.version[3], game.__mod_info.short_name, game.save_name, true)
 		end
 	elseif act == "cheat" then
-		game.logPlayer(self.actor, "#LIGHT_BLUE#You resurrect! CHEATER !")
+		game.logPlayer(self.actor, "#LIGHT_BLUE#부활했습니다! 사기꾼(CHEATER)이로군요!")
 
 		self:cleanActor(self.actor)
 		self:restoreResources(self.actor)
@@ -156,12 +157,12 @@ end
 function _M:generateList()
 	local list = {}
 
-	if config.settings.cheat then list[#list+1] = {name="Resurrect by cheating", action="cheat"} end
-	list[#list+1] = {name=(not profile.auth and "Message Log" or "Message/Chat log (allows to talk)"), action="log"}
-	list[#list+1] = {name="Character dump", action="dump"}
-	list[#list+1] = {name="Restart the same character", action="exit", subaction="restart"}
-	list[#list+1] = {name="Restart with a new character", action="exit", subaction="restart-new"}
-	list[#list+1] = {name="Exit to main menu", action="exit", subaction="none"}
+	if config.settings.cheat then list[#list+1] = {name="사기(cheating)로 부활하기", action="cheat"} end
+	list[#list+1] = {name=(not profile.auth and "메세지 로그" or "메세지/대화 로그 (대화 가능)"), action="log"}
+	list[#list+1] = {name="캐릭터 덤프 기록 생성", action="dump"}
+	list[#list+1] = {name="같은 캐릭터로 다시 시작하기", action="exit", subaction="restart"}
+	list[#list+1] = {name="새로운 캐릭터로 다시 시작하기", action="exit", subaction="restart-new"}
+	list[#list+1] = {name="메인 메뉴로 나가기", action="exit", subaction="none"}
 
 	self.list = list
 end

@@ -43,7 +43,7 @@ function _M:init(title, shadow, log, chat)
 	for name, data in pairs(chat.channels) do list[#list+1] = name end
 	table.sort(list, function(a,b) if a == "global" then return 1 elseif b == "global" then return nil else return a < b end end)
 
-	tabs[#tabs+1] = {top=0, left=0, ui = Tab.new{title="Game Log", fct=function() end, on_change=function() local i = #tabs self:switchTo(tabs[1]) end, default=true}, tab_channel="__log", timestamp=log:getLogLast()}
+	tabs[#tabs+1] = {top=0, left=0, ui = Tab.new{title="게임 기록", fct=function() end, on_change=function() local i = #tabs self:switchTo(tabs[1]) end, default=true}, tab_channel="__log", timestamp=log:getLogLast()}
 	for i, name in ipairs(list) do
 		local oname = name
 		local nb_users = 0
@@ -133,7 +133,7 @@ function _M:mouseEvent(button, x, y, xrel, yrel, bx, by, event)
 					for i, e in ipairs(sub_es) do
 						if e.tooltip then
 							tooltip:merge(e:tooltip())
-							if e:getEntityKind() == "actor" then tooltip:add(true, "Right click to inspect.", true) end
+							if e:getEntityKind() == "actor" then tooltip:add(true, "우클릭 : 생명체 조사", true) end
 							if i < #sub_es then tooltip:add(true, "---", true)
 							else tooltip:add(true) end
 						end
@@ -168,14 +168,14 @@ function _M:mouseEvent(button, x, y, xrel, yrel, bx, by, event)
 				local data = profile.chat:getUserInfo(citem.login)
 				if data then
 					local list = {
-						{name="Show infos", ui="show"},
-						{name="Whisper", ui="whisper"},
-						{name="Ignore", ui="ignore"},
-						{name="Open profile(in browser)", ui="profile"},
-						{name="Report for bad behavior", ui="report"}
+						{name="정보 보기", ui="show"},
+						{name="귓속말", ui="whisper"},
+						{name="무시하기", ui="ignore"},
+						{name="프로파일 열기 (웹 브라우저로)", ui="profile"},
+						{name="나쁜 행동 보고하기", ui="report"}
 					}
-					if data.char_link then table.insert(list, 3, {name="Open charsheet(in browser)", ui="charsheet"}) end
-					Dialog:listPopup("User: "..citem.login, "Action", list, 300, 200, function(sel)
+					if data.char_link then table.insert(list, 3, {name="캐릭터 상태창 열기 (웹 브라우저로)", ui="charsheet"}) end
+					Dialog:listPopup("사용자 : "..citem.login, "행동", list, 300, 200, function(sel)
 						if not sel or not sel.ui then return end
 						if sel.ui == "show" then
 							local UserInfo = require "engine.dialogs.UserInfo"
@@ -188,11 +188,11 @@ function _M:mouseEvent(button, x, y, xrel, yrel, bx, by, event)
 							profile.chat:setCurrentTarget(false, citem.login)
 							profile.chat:talkBox()
 						elseif sel.ui == "ignore" then
-							Dialog:yesnoPopup("Ignore user", "Really ignore all messages from: "..citem.login, function(ret) if ret then profile.chat:ignoreUser(citem.login) end end)
+							Dialog:yesnoPopup("사용자 무시하기", "다음 사용자로부터의 모든 메세지를 정말로 무시합니까? : "..citem.login, function(ret) if ret then profile.chat:ignoreUser(citem.login) end end, "예", "아니오")
 						elseif sel.ui == "report" then
-							game:registerDialog(require('engine.dialogs.GetText').new("Reason to report: "..citem.login, "Reason", 4, 500, function(text)
+							game:registerDialog(require('engine.dialogs.GetText').new("보고서 작성 이유 : "..citem.login, "이유 (영어로 작성할 것)", 4, 500, function(text)
 								profile.chat:reportUser(citem.login, text)
-								game.log("#VIOLET#", "Report sent.")
+								game.log("#VIOLET#", "보고서를 제출했습니다.")
 							end))							
 						end
 					end)

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "mod.class.interface.TooltipsData"
 
@@ -35,13 +36,13 @@ function _M:init(actor, levelup_end_prodigies)
 	self.actor = actor
 	self.levelup_end_prodigies = levelup_end_prodigies
 
-	self.font = core.display.newFont(FontPackage:getFont("mono_small", "mono"))
+	self.font = core.display.newFont(krFont or "/data/font/DroidSansMono.ttf", 12) --@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 
 	self.actor_dup = actor:clone()
 	self.actor_dup.uid = actor.uid -- Yes ...
 
-	Dialog.init(self, "Prodigies: "..actor.name, 800, game.h * 0.9)
+	Dialog.init(self, "특수기술 : "..actor.name, 800, game.h * 0.9)
 
 	self:generateList()
 
@@ -95,7 +96,8 @@ function _M:generateList()
 				if t.display_entity then t.display_entity:getMapObjects(game.uiset.hotkeys_display_icons.tiles, {}, 1) end
 
 				n[#n+1] = {
-					rawname = t.name,
+					rawname = t.kr_name or t.name, --@ 한글이름 저장
+					oriname = t.name, --@ 변수 추가하여 원문이름 저장
 					talent = t.id,
 					entity=t.display_entity,
 					do_shadow = function(item) if not self.actor:canLearnTalent(t) then return true else return false end end,
@@ -122,9 +124,9 @@ end
 -- UI Stuff
 -----------------------------------------------------------------
 
-local tuttext = [[Prodigies are special talents that only the most powerful of characters can attain.
-All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 30 and 42.
-#LIGHT_GREEN#Prodigies available: %d]]
+local tuttext = [[특수기술은 캐릭터가 얻을 수 있는 가장 강력하며 특별한 기술입니다.
+모든 특수기술을 배우기 위해서는 주요 능력치가 50 을 넘어야 하며, 그 외에도 기술에 따른 특별한 조건을 갖추어야 배울 자격이 주어집니다. 새로운 특수기술은 30 레벨에 한 번, 42 레벨에 한 번 배울 수 있습니다.
+#LIGHT_GREEN#보유 특수기술 점수 : %d]]
 
 function _M:createDisplay()
 	self.c_tut = Textzone.new{ width=self.iw, auto_height = true, text=tuttext:format(self.actor.unused_prodigies or 0)}
@@ -132,7 +134,7 @@ function _M:createDisplay()
 	local vsep = Separator.new{dir="horizontal", size=self.ih - 20 - self.c_tut.h}
 	self.c_desc = TextzoneList.new{ focus_check = true, scrollbar = true, pingpong = 20, width=self.iw - 370 - vsep.w - 20, height = self.ih - self.c_tut.h, dest_area = { h = self.ih - self.c_tut.h } }
 	self.c_list = TalentGrid.new{
-		font = core.display.newFont("/data/font/DroidSans.ttf", 14),
+		font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 14), --@ 한글 글꼴 추가
 		tiles=game.uiset.hotkeys_display_icons,
 		grid=self.list,
 		width=370, height=self.ih - self.c_tut.h,
@@ -182,7 +184,7 @@ function _M:getTalentDesc(item)
 	if not item.talent then return end
 	local text = tstring{}
 
- 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), {"color", "LAST"}, {"font", "normal"})
+ 	text:add({"color", "GOLD"}, {"font", "bold"}, util.getval(item.rawname, item), "\n[", util.getval(item.oriname, item), "]", {"color", "LAST"}, {"font", "normal"}) --@ 기술 설명에 한글이름과 원문이름 나오도록 추가
 	text:add(true, true)
 
 	if item.talent then

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Entity"
 local Particles = require "engine.Particles"
@@ -495,24 +496,37 @@ function _M:generateRandart(data)
 	-----------------------------------------------------------
 	-- Make up a name based on themes
 	-----------------------------------------------------------
+	--@ 새 물건 랜덤 이름 결정 부분 - 통채 kr_name도 조합하도록 수정 -> 실제 이름 덮어쓰는 부분은 200줄 뒤(현재 529)
+	--@ 새로 랜덤하게 덧붙는 이름의 한글화시 이 부분 수정 필요
 	local themename = power_themes[#power_themes]
 	themename = themename and themename[1] or nil
 	local ngd = NameGenerator.new(rng.chance(2) and randart_name_rules.default or randart_name_rules.default2)
 	local ngt = (themename and randart_name_rules[themename] and NameGenerator.new(randart_name_rules[themename])) or ngd
-	local name
+	local name, krName --@ 한글이름 변수 생성
 	local namescheme = data.namescheme or ((ngt ~= ngd) and rng.range(1, 4) or rng.range(1, 3))
 	if namescheme == 1 then
-		name = o.name.." '"..ngt:generate().."'"
+		local ngtg = ngt:generate() --@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
+		name = o.name.." '"..ngtg.."'"
+		krName = (o.kr_name or o.name).." '"..ngtg.."'" --@ 한글 이름 조합
 	elseif namescheme == 2 then
-		name = ngt:generate().." the "..o.name
+		local ngtg = ngt:generate() --@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
+		name = ngtg.." the "..o.name
+		krName = ngtg.." "..(o.kr_name or o.name) --@ 한글 이름 조합
 	elseif namescheme == 3 then
 		name = ngt:generate()
+		krName = name --@ 한글 이름 조합
 	elseif namescheme == 4 then
-		name = ngd:generate().." the "..ngt:generate()
+		local ngtg = ngt:generate() --@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
+		local ngdg = ngd:generate() --@ 랜덤한 이름을 일단 변수에 저장 (원문이름과 한글이름에 같은 단어가 들어 갈 수 있도록)
+		name = ngdg.." the "..ngtg
+		krName = ngdg.." "..ngtg --@ 한글 이름 조합
 	end
 	o.define_as = name:upper():gsub("[^A-Z]", "_")
-	o.unided_name = rng.table(unided_names).." "..(o.unided_name or o.name)
-	o.unique = name
+
+	local rnts = rng.table{"glowing","scintillating","rune-covered","unblemished","jewel-encrusted","humming","gleaming","immaculate","flawless","crackling","glistening","plated","twisted","silvered","faceted","faded","sigiled","shadowy","laminated"} --@ 랜덤한 수식어를 변수로 저장 (원문과 한글이 같도록)
+	o.kr_unided_name = rnts:krUnIDPreName().." "..(o.kr_unided_name or o.unided_name or o.kr_name or o.name) --@ 미감정시 한글이름 조합
+	o.unided_name = rnts.." "..(o.unided_name or o.name)	
+	o.unique = name --@ unique는 게임 도중에 사용하는 곳이 있나? 코드 번역 확인 필요
 	o.name = name
 	o.randart = true
 	o.no_unique_lore = true
@@ -701,6 +715,10 @@ function _M:generateRandart(data)
 		o.power_source = ps
 	end
 
+
+	o.name = name
+	o.kr_name = krName --@ 만들어진 한글 이름 저장
+
 	-- Assign weapon damage
 	if o.combat and not (o.subtype == "staff" or o.subtype == "mindstar") then
 		local theme_map = {
@@ -821,6 +839,7 @@ function _M:spawnWorldAmbush(enc, dx, dy, kind)
 
 	local zone = mod.class.Zone.new("ambush", {
 		name = "Ambush!",
+		kr_name = "습격!",
 		level_range = {game.player.level, game.player.level},
 		level_scheme = "player",
 		max_level = 1,
@@ -864,7 +883,7 @@ function _M:spawnWorldAmbush(enc, dx, dy, kind)
 	game.player.energy.value = game.energy_to_act
 	game.paused = true
 	game:changeLevel(1, zone, {temporary_zone_shift=true})
-	engine.ui.Dialog:simplePopup("Ambush!", "You have been ambushed!")
+	engine.ui.Dialog:simplePopup("습격!", "습격당했습니다!")
 
 	end)
 end
@@ -1598,7 +1617,7 @@ end
 
 local random_zone_layouts = {
 	-- Forest
-	{ name="forest", rarity=3, gen=function(data) return {
+	{ name="forest", kr_name="숲", rarity=3, gen=function(data) return {
 		class = "engine.generator.map.Forest",
 		edge_entrances = {data.less_dir, data.more_dir},
 		zoom = rng.range(2,6),
@@ -1610,7 +1629,7 @@ local random_zone_layouts = {
 		down = data:getDown(),
 	} end },
 	-- Cavern
-	{ name="cavern", rarity=3, gen=function(data)
+	{ name="cavern", kr_name="동굴", rarity=3, gen=function(data)
 		local floors = data.w * data.h * 0.4
 		return {
 		class = "engine.generator.map.Cavern",
@@ -1622,7 +1641,7 @@ local random_zone_layouts = {
 		down = data:getDown(),
 	} end },
 	-- Rooms
-	{ name="rooms", rarity=3, gen=function(data)
+	{ name="rooms", kr_name="방", rarity=3, gen=function(data)
 		local rooms = {"random_room"}
 		if rng.percent(30) then rooms = {"forest_clearing"} end
 		return {
@@ -1637,7 +1656,7 @@ local random_zone_layouts = {
 		door = data:getDoor(),
 	} end },
 	-- Maze
-	{ name="maze", rarity=3, gen=function(data)
+	{ name="maze", kr_name="미로", rarity=3, gen=function(data)
 		return {
 		class = "engine.generator.map.Maze",
 		floor = data:getFloor(),
@@ -1647,7 +1666,7 @@ local random_zone_layouts = {
 		door = data:getDoor(),
 	} end, guardian_alert=true },
 	-- Sets
-	{ name="sets", rarity=3, gen=function(data)
+	{ name="sets", kr_name="시설", rarity=3, gen=function(data)
 		local set = rng.table{
 			{"3x3/base", "3x3/tunnel", "3x3/windy_tunnel"},
 			{"5x5/base", "5x5/tunnel", "5x5/windy_tunnel", "5x5/crypt"},
@@ -1664,7 +1683,7 @@ local random_zone_layouts = {
 		["'"] = data:getDoor(),
 	} end },
 	-- Building
---[[ not yet	{ name="building", rarity=4, gen=function(data)
+--[[ not yet	{ name="building", kr_name="건물", rarity=4, gen=function(data)
 		return {
 		class = "engine.generator.map.Building",
 		lite_room_chance = rng.range(0, 100),
@@ -1678,7 +1697,7 @@ local random_zone_layouts = {
 	} end },
 ]]
 	-- "Octopus"
-	{ name="octopus", rarity=6, gen=function(data)
+	{ name="octopus", kr_name="문어", rarity=6, gen=function(data)
 		return {
 		class = "engine.generator.map.Octopus",
 		main_radius = {0.3, 0.4},
@@ -1695,7 +1714,7 @@ local random_zone_layouts = {
 
 local random_zone_themes = {
 	-- Trees
-	{ name="trees", rarity=3, gen=function() return {
+	{ name="trees", kr_name="나무", rarity=3, gen=function() return {
 		load_grids = {"/data/general/grids/forest.lua"},
 		getDoor = function(self) return "GRASS" end,
 		getFloor = function(self) return function() if rng.chance(20) then return "FLOWER" else return "GRASS" end end end,
@@ -1704,7 +1723,7 @@ local random_zone_themes = {
 		getDown = function(self) return "GRASS_DOWN"..self.more_dir end,
 	} end },
 	-- Walls
-	{ name="walls", rarity=2, gen=function() return {
+	{ name="walls", kr_name="벽", rarity=2, gen=function() return {
 		load_grids = {"/data/general/grids/basic.lua"},
 		getDoor = function(self) return "DOOR" end,
 		getFloor = function(self) return "FLOOR" end,
@@ -1713,7 +1732,7 @@ local random_zone_themes = {
 		getDown = function(self) return "DOWN" end,
 	} end },
 	-- Underground
-	{ name="underground", rarity=5, gen=function() return {
+	{ name="underground", kr_name="지하", rarity=5, gen=function() return {
 		load_grids = {"/data/general/grids/underground.lua"},
 		getDoor = function(self) return "UNDERGROUND_FLOOR" end,
 		getFloor = function(self) return "UNDERGROUND_FLOOR" end,
@@ -1722,7 +1741,7 @@ local random_zone_themes = {
 		getDown = function(self) return "UNDERGROUND_LADDER_DOWN" end,
 	} end },
 	-- Crystals
-	{ name="crystal", rarity=4, gen=function() return {
+	{ name="crystal", kr_name="수정", rarity=4, gen=function() return {
 		load_grids = {"/data/general/grids/underground.lua"},
 		getDoor = function(self) return "CRYSTAL_FLOOR" end,
 		getFloor = function(self) return "CRYSTAL_FLOOR" end,
@@ -1731,7 +1750,7 @@ local random_zone_themes = {
 		getDown = function(self) return "CRYSTAL_LADDER_DOWN" end,
 	} end },
 	-- Sand
-	{ name="sand", rarity=3, gen=function() return {
+	{ name="sand", kr_name="모래밭", rarity=3, gen=function() return {
 		load_grids = {"/data/general/grids/sand.lua"},
 		getDoor = function(self) return "UNDERGROUND_SAND" end,
 		getFloor = function(self) return "UNDERGROUND_SAND" end,
@@ -1740,7 +1759,7 @@ local random_zone_themes = {
 		getDown = function(self) return "SAND_LADDER_DOWN" end,
 	} end },
 	-- Desert
-	{ name="desert", rarity=3, gen=function() return {
+	{ name="desert", kr_name="사막", rarity=3, gen=function() return {
 		load_grids = {"/data/general/grids/sand.lua"},
 		getDoor = function(self) return "SAND" end,
 		getFloor = function(self) return "SAND" end,
@@ -1749,7 +1768,7 @@ local random_zone_themes = {
 		getDown = function(self) return "SAND_DOWN"..self.more_dir end,
 	} end },
 	-- Slime
-	{ name="slime", rarity=4, gen=function() return {
+	{ name="slime", kr_name="슬라임", rarity=4, gen=function() return {
 		load_grids = {"/data/general/grids/slime.lua"},
 		getDoor = function(self) return "SLIME_DOOR" end,
 		getFloor = function(self) return "SLIME_FLOOR" end,
@@ -1854,6 +1873,7 @@ function _M:createRandomZone(zbase)
 	------------------------------------------------------------
 	local zone = mod.class.Zone.new(short_name, {
 		name = name,
+		kr_name = kr_name or name, --@ 지역의 한글 이름 추가
 		level_range = {data.min_lev, data.max_lev},
 		level_scheme = "player",
 		max_level = data.depth,

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -29,7 +30,7 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(party)
 	self.party = party
 
-	Dialog.init(self, "Ingredients collected", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, "획득한 연금술 재료", game.w * 0.8, game.h * 0.8)
 
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - 10), scrollbar=true, height=self.ih}
 
@@ -37,9 +38,9 @@ function _M:init(party)
 
 	local vsep = Separator.new{dir="horizontal", size=self.ih - 10}
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - vsep.w / 2), height=self.ih - 10, scrollbar=true, sortable=true, columns={
-		{name="Ingredient", width=50, display_prop="name", sort="name"},
-		{name="Category", width=30, display_prop="cat", sort="cat"},
-		{name="Quantity", width=20, display_prop="nb", sort="nb"},
+		{name="재료명", width=50, display_prop="name", sort="name"},
+		{name="종류", width=30, display_prop="cat", sort="cat"},
+		{name="수량", width=20, display_prop="nb", sort="nb"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -62,7 +63,8 @@ function _M:generateList()
 	local i = 0
 	for id, nb in pairs(self.party.ingredients) do
 		local d = self.party:getIngredient(id)
-		list[#list+1] = { dname=d.name, name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), cat=d.type, nb=nb==-1 and "inf" or tostring(nb) }
+		local dn = d.kr_name or d.name --@ 연금술재료 한글이름 저장
+		list[#list+1] = { dname=dn, name=d.display_entity:getDisplayString(true):add(dn), ori_name=d.display_entity:getDisplayString(true):add(d.name), desc=util.getval(d.desc), cat=d.type:krItemType(), ori_cat=d.type, nb=nb==-1 and "inf" or tostring(nb) } --@ 종류이름 한글화
 		i = i + 1
 	end
 	-- Add known artifacts
@@ -72,6 +74,6 @@ end
 
 function _M:select(item)
 	if item then
-		self.c_desc:switchItem(item, ("#GOLD#Category:#AQUAMARINE# %s\n#GOLD#Ingredient:#0080FF# %s\n#GOLD#Quantity:#0080FF# %s\n#GOLD#Text:#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.nb, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류 :#AQUAMARINE# %s\n#GOLD#재료명 :#0080FF# %s\n        [%s]\n#GOLD#수량 :#0080FF# %s\n#GOLD#설명 :#ANTIQUE_WHITE# %s"):format(item.cat, item.name:toString(), item.ori_name:toString(), item.nb, item.desc)) --@ 한글이름 뒤에 원문이름 추가
 	end
 end

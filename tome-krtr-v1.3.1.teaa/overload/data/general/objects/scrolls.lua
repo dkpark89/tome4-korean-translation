@@ -124,6 +124,7 @@ newEntity{
 -- Cons:  Significantly less healing outputper cast than Regeneration
 newEntity{ base = "BASE_INFUSION",
 	name = "healing infusion",
+	kr_name = "치료 주입물",
 	level_range = {7, 50},
 	rarity = 16,
 	cost = 10,

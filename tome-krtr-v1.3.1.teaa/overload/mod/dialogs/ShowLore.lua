@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -33,8 +34,7 @@ function _M:init(title, actor)
 	local nb = 0
 	for id, data in pairs(actor.lore_known) do nb = nb + 1 end
 
-	Dialog.init(self, (title or "Lore").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
-
+	Dialog.init(self, (title or "지식").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
 	local vsep = Separator.new{dir="horizontal", size=self.ih - 10}
 	self.c_desc = TextzoneList.new{width=math.floor(self.iw / 2 - vsep.w / 2), scrollbar=true, height=self.ih}
 
@@ -42,8 +42,8 @@ function _M:init(title, actor)
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - vsep.w / 2), height=self.ih - 10, scrollbar=true, sortable=true, columns={
 		{name="", width={40,"fixed"}, display_prop="order", sort="order"},
-		{name="Lore", width=60, display_prop="name", sort="name"},
-		{name="Category", width=40, display_prop="cat", sort="cat"},
+		{name="지식", width=60, display_prop="name", sort="name"},
+		{name="종류", width=40, display_prop="cat", sort="cat"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -66,7 +66,8 @@ function _M:generateList()
 	local i = 0
 	for id, _ in pairs(self.actor.lore_known) do
 		local l = self.actor:getLore(id)
-		list[#list+1] = { name=l.name, desc=util.getval(l.lore), cat=l.category, order=l.order, image=l.image }
+		local ln = l.kr_name or l.name --@ 지식 한글이름 저장
+		list[#list+1] = { name=ln, desc=util.getval(l.lore), cat=l.category:krLoreCategory(), order=l.order, image=l.image } --@ 종류이름 한글화
 		i = i + 1
 	end
 	-- Add known artifacts
@@ -76,7 +77,7 @@ end
 
 function _M:select(item)
 	if item then
-		self.c_desc:switchItem(item, ("#GOLD#Category:#AQUAMARINE# %s\n#GOLD#Found as:#0080FF# %s\n#GOLD#Text:#ANTIQUE_WHITE# %s"):format(item.cat, item.name, item.desc))
+		self.c_desc:switchItem(item, ("#GOLD#종류 :#AQUAMARINE# %s\n#GOLD#지식 이름 :#0080FF# %s\n#GOLD#내용 :#ANTIQUE_WHITE# %s"):format(item.cat, item.name, item.desc))
 		if item.image then
 			if type(item.image) == "string" then
 				self.image = Image.new{file="lore/"..item.image, auto_width=true, auto_height=true}
