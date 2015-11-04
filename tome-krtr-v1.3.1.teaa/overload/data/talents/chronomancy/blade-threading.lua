@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Warp Blade",
+	kr_name = "칼날 왜곡",
 	type = {"chronomancy/blade-threading", 1},
 	require = chrono_req1,
 	points = 5,
@@ -34,7 +35,7 @@ newTalent{
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t), talent=t} end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.1, 1.9) end,
 	getDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 3, 7))) end,
-	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "dual") then if not silent then game.logPlayer(self, "You require two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "dual") then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local swap = doWardenWeaponSwap(self, t, "blade")
 
@@ -60,15 +61,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
 		local duration = t.getDuration(self, t)
-		return ([[Attack with your melee weapons for %d%% weapon damage as physical and temporal (warp) damage. If either attack hits you may stun, blind, pin, or confuse the target for %d turns.
+		return ([[근접무기로 공격을 하여 %d%% 의 무기 피해를 물리/시간(왜곡) 속성으로 가합니다. 만약 두 공격이 적중하였다면 상대를 %d 턴 동안 기절, 실명, 속박, 혼란 상태에 빠트릴 수 있습니다.
 		
-		Blade Threading talents will freely swap to your dual-weapons when activated if you have them in your secondary slots.  Additionally you may use the Attack talent in a similar manner.]])
+		이 카테고리의 기술들은 만약 두 번째 장비 칸에 쌍수 무기가 있다면 자유롭게 교체 되어 사용 될 수 있습니다. 또한 '공격' 기술도 같은 방식으로 사용 가능합니다.]])
 		:format(damage, duration)
 	end
 }
 
 newTalent{
 	name = "Blink Blade",
+	kr_name = "칼날 명멸",
 	type = {"chronomancy/blade-threading", 2},
 	require = chrono_req2,
 	points = 5,
@@ -82,7 +84,7 @@ newTalent{
 	is_melee = true,
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t), talent=t} end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.4, 1) end,
-	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "dual") then if not silent then game.logPlayer(self, "You require two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "dual") then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local swap = doWardenWeaponSwap(self, t, "blade")
 
@@ -107,7 +109,7 @@ newTalent{
 		end
 		
 		local first_teleport = teleport_hit(self, t, target, x, y)
-		if not first_teleport then game.logSeen(self, "The spell fizzles!") return true end
+		if not first_teleport then game.logSeen(self, "마법이 실패하였습니다!") return true end
 		
 		local teleports = 1
 		local attempts = 10
@@ -166,14 +168,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Teleport to the target and attack with your melee weapons for %d%% damage.  Then teleport next to a second random enemy, attacking for %d%% damage.
-		Blink Blade can hit the same target multiple times.]])
+		return ([[목표에게 텔레포트하여 당신의 근접무기로 %d%%의 무기 피해를 입힙니다. 그 다음 두 번째 무작위의 적의 옆으로 텔레포트하여 %d%% 피해를 가합니다.
+		칼날 명멸은 같은 목표를 여러번 공격 할 수 있습니다.]])
 		:format(damage, damage)
 	end
 }
 
 newTalent{
 	name = "Blade Shear",
+	kr_name = "시간 자르기",
 	type = {"chronomancy/blade-threading", 3},
 	require = chrono_req3,
 	points = 5,
@@ -190,7 +193,7 @@ newTalent{
 	target = function(self, t)
 		return {type="cone", range=0, radius=self:getTalentRadius(t), talent=t, selffire=false }
 	end,
-	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "dual") then if not silent then game.logPlayer(self, "You require two weapons to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "dual") then if not silent then game.logPlayer(self, "이 기술을 사용하려면 쌍수 무장을 해야 합니다.") end return false end return true end,
 	action = function(self, t)
 		local swap = doWardenWeaponSwap(self, t, "blade")
 		local tg = self:getTalentTarget(t)
@@ -238,10 +241,10 @@ newTalent{
 				if target and self:reactionToward(target) < 0 then
 					if target:checkHit(getParadoxSpellpower(self, t), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("instakill") and target.life > 0 and target.life < target.max_life * 0.2 then
 						-- KILL IT !
-						game.logSeen(target, "%s has been cut from the timeline!", target.name:capitalize())
+						game.logSeen(target, "%s 은 시간의 흐름에서 잘려나갔습니다!", target.name:capitalize())
 						target:die(self)
 					elseif target.life > 0 and target.life < target.max_life * 0.2 then
-						game.logSeen(target, "%s resists the temporal shear!", target.name:capitalize())
+						game.logSeen(target, "%s 은 시간 자르기를 버텨냈습니다!", target.name:capitalize())
 					end
 				end
 			end)
@@ -255,15 +258,16 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local shear = t.getShear(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Attack up to three adjacent targets for %d%% weapon damage.  If any attack hits you'll create a temporal shear dealing %0.2f temporal damage in a radius %d cone.
-		Each target you hit with your weapons beyond the first increases the damage of the shear by 25%%.  Targets reduced below 20%% of maximum life by the shear may be instantly slain.
-		The cone damage improves with your Spellpower.]])
+		return ([[ 최대 3명의 인접한 적을 %d%% 의 무기 피해로 공격합니다. 만약 어떠한 공격이라도 적중한다면, 당신은 시간의 전단층을 형성하여 %0.2f 시간 피해를 범위 %d의 원뿔 형으로 입힙니다.
+		하나의 목표 보다 많은 적을 무기로 공격하였을 시, 각각 시간의 전단의 피해량이 25%%씩 상승합니다. 시간의 전단으로 생명력이 20%% 이하로 떨어진 목표는 즉시 살해 될 수 있습니다.
+		시간의 전단의 피해량은 주문력에 비례하여 증가합니다.]])
 		:format(damage, damDesc(self, DamageType.TEMPORAL, shear), radius)
 	end
 }
 
 newTalent{
 	name = "Blade Ward",
+	kr_name = "칼날 방어",
 	type = {"chronomancy/blade-threading", 4},
 	require = chrono_req4,
 	mode = "passive",
@@ -271,7 +275,7 @@ newTalent{
 	getChance = function(self, t) return self:combatTalentLimit(t, 40, 10, 30) end, -- Limit < 40%
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[While dual-wielding you have a %d%% chance of parrying melee attacks made against you.]])
+		return ([[쌍수 무기를 장비하는 동안 당신은 %d%% 의 확률로 당신을 향한 근접 공격을 튕겨 낼 수 있습니다.]])
 		:format(chance)
 	end
 }
