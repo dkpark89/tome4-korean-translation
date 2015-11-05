@@ -46,7 +46,7 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		local duration = t.getDuration(self, t)
-		return ([[당신은 미래를 들여다 보아, %d 범위 내의 있는 존재와 함정들을 %d 턴 동안 감지합니다.
+		return ([[당신은 미래를 들여다 보아, %d 칸 범위 내의 있는 존재들과 함정들을 %d 턴 동안 감지합니다.
 		만약 당신이 예견을 알고 있다면, 당신은 예지가 활성화 되어 있는 동안 회피율과 치명타 피해 무시 확율을 추가로 얻습니다(예견의 추가량 만큼). ]]):format(range, duration)
 	end,
 }
@@ -73,7 +73,7 @@ newTalent{
 		local defense = t.getDefense(self, t)
 		local crits = t.getCritDefense(self, t)
 		return ([[%d 회피율과 %d%% 만큼의 치명타 피해 무시 확율을 얻습니다. 
-		만약 당신이 예지나 시간선 관측 기술을 사용했을 때의 추가량은 이 수치만큼 한 번 더 더해집니다. 
+		당신이 예지나 시간선 관측 기술을 사용했을 때의 추가량은 이 수치만큼 한 번 더 더해집니다. 
 		이 추가량은 당신의 마법 능력치에 비례합니다.]]):
 		format(defense, crits)
 	end,
@@ -155,8 +155,8 @@ newTalent{
 		local trigger = t.getTrigger(self, t) * 100
 		local cooldown = self:getTalentCooldown(t)
 		local talent = self:isTalentActive(t.id) and self:getTalentFromId(self:isTalentActive(t.id).talent).name or "None"
-		return ([[당신에게만 영향을 끼치고 목표가 필요하지 않은 마법을 하나 고릅니다. 만약 당신이 당신의 생명력을 %d%% 아래로 떨어트리는 공격을 받는다면 이 마법이 자동으로 시전 됩니다.
-		이 마법은 재사용 대기 시간 중에서도 발동이 되며, 턴이나 자원을 소모하지 않고, 기술 레벨은 긴급이나 그 마법의 레벨 중 낮은 쪽으로 선택 됩니다.
+		return ([[당신에게만 영향을 끼치고 목표가 필요하지 않은 마법을 하나 고릅니다. 만약 당신이 당신의 생명력을 %d%% 아래로 떨어트리는 공격을 받는다면 선택 된 마법이 자동으로 시전 됩니다.
+		선택 된 마법은 재사용 대기 시간 중에서도 발동이 되며, 턴이나 자원을 소모하지 않고, 기술 레벨은 긴급이나 그 마법의 레벨 중 낮은 쪽으로 선택 됩니다.
 		이 효과는 매 %d 턴마다 한번만 일어날 수 있으며 피해를 받은 후에 발동 됩니다.
 		
 		현재 긴급 마법: %s]]):
