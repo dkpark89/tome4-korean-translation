@@ -135,7 +135,7 @@ newTalent{
 		local talentcount = t.getTalentCount(self, t)
 		local cooldown = t.getCooldown(self, t)
 		return ([[당신은 목표의 에너지를 약화 시킨 후에 그것을 자신의 것으로 만듭니다. 영향을 받은 목표는 최대 %d 개의 무작위의 기술이 %d턴의 재사용 대기시간 상태로 변합니다. 
-		재사용 대기시간으로 바꾼 기술 하나마다, 현재 재사용 대기 상태인 기술 중 하나의 대기시간이 %d 턴 줄어듭니다.]]):
+		재사용 대기시간으로 바꾼 기술 하나마다, 당신의 현재 재사용 대기 상태인 기술 중 하나의 대기시간이 %d 턴 줄어듭니다.]]):
 		format(talentcount, cooldown, cooldown)
 	end,
 }
