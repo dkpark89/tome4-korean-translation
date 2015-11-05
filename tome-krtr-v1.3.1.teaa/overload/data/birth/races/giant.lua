@@ -23,6 +23,7 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Giant",
+	kr_name = "거인",
 	locked = function() return profile.mod.allow_build.race_giant end,
 	locked_desc = "누구 보다 높이 선 강력한 존재들, 하지만 거대하면 거대 할 수록, 더 심하게 쓰러질 것이니...",
 	desc = {
@@ -48,6 +49,7 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Ogre",
+	kr_name = "오거",
 	locked = function() return profile.mod.allow_build.race_ogre end,
 	locked_desc = [[오래 지난 증오의 시대에 구축되어,
 전쟁을 위해 만들어졌지만 결국 마지막까지 살아 남았다.
