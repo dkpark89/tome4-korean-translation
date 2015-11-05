@@ -23,10 +23,11 @@
 newBirthDescriptor{
 	type = "race",
 	name = "Giant",
+	kr_name = "거인",
 	locked = function() return profile.mod.allow_build.race_giant end,
-	locked_desc = "Powerful beings that tower over all, but the bigger they are, the harder they fall...",
+	locked_desc = "누구 보다 높이 선 강력한 존재들, 하지만 거대하면 거대 할 수록, 더 심하게 쓰러질 것이니...",
 	desc = {
-		[[#{italic}#"Giant"#{normal}# is a catch-all term for humanoids which are typically over eight feet in height.  Their origins, cultures, and relationships to other races differ wildly, but they tend to live as refugees and outcasts, shunned by smaller sentient races who usually see them as a threat.]],
+		[[#{italic}#"거인"#{normal}#은 두루뭉술하게 표현 되곤 하지만 보통 신장이 2.5m를 넘는 인간종을 부르는 말입니다. 그들의 기원, 문화, 다른 종족과의 관계는 종족마다 심하게 다르지만, 보통 그들은 이방인 취급을 받거나 따돌림을 받는 경향이 있습니다, 그들보다 작은 종족들에게 공포의 대상이 되어 피해지면서 말이죠.]],
 	},
 	descriptor_choices =
 	{
@@ -48,23 +49,24 @@ newBirthDescriptor
 {
 	type = "subrace",
 	name = "Ogre",
+	kr_name = "오거",
 	locked = function() return profile.mod.allow_build.race_ogre end,
-	locked_desc = [[Forged in the hatred of ages long passed,
-made for a war that they've come to outlast.
-Their forgotten birthplace lies deep underground,
-its tunnels ruined so it wouldn't be found.
-Past burglars have failed, but their data's immortal;
-to start, look where halflings once tinkered with portals...]],
+	locked_desc = [[오래 지난 증오의 시대에 구축되어,
+전쟁을 위해 만들어졌지만 결국 마지막까지 살아 남았다.
+그들의 잊혀진 탄생지는 깊은 지하에 존재하고,
+그것의 통로는 파괴되어 찾을 수 없었다.
+이전의 도굴꾼들은 실패하였지만, 그들의 정보는 불멸이니;
+시작하기 위해서는, 하플링들이 포탈에 손을 대었었던 장소를 살펴보는 게 좋을 것이다...]],
 	desc = {
-		"Ogres are an altered form of Human, created in the Age of Allure as workers and warriors for the Conclave.",
-		"Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.",
-		"Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.",
-		"They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.",
-		"#GOLD#Stat modifiers:",
-		"#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution",
-		"#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning",
-		"#GOLD#Life per level:#LIGHT_BLUE# 13",
-		"#GOLD#Experience penalty:#LIGHT_BLUE# 30%",
+		"오거는 인간의 변형 된 모습으로, 매혹의 시대에 콘클라베를 위해 일할 노동자나 전사로서 만들어졌습니다.",
+		"각인은 그들의 한계를 아득히 넘어선 물리적, 마법적 힘을 부여해 주었지만, 그들의 룬 마법에 대한 의존성은 마법사냥의 손쉬운 표적이 되게 하였습니다, 그것은 결과적으로 그들이 샬로레들 사이에 피난 하게 만들었죠.",
+		"간단하고 직접적인 해결 방안을 선호하는 그들의 성향은 멍청한 야만인이라는 부당한 평가를 받게 하였습니다. 각인을 다루는 특별한 기술과 겸손하고 순종적인 성격을 가졌음에도 말입니다",
+		"그들은 그들의 공격이 빗나가거나 막혔을 때 치명타 확률과 배율을 올려주고, 혼란과 기절에 대한 저항성을 부여하는 #GOLD#오거의 분노#WHITE# 기술을 보유하고 있습니다.",
+		"#GOLD#능력치 변화 :",
+		"#LIGHT_BLUE# * 힘+3, 민첩-1, 체격+0",
+		"#LIGHT_BLUE# * 마법+2, 의지-2, 교활+2",
+		"#GOLD#레벨 당 생명력 :#LIGHT_BLUE# 13",
+		"#GOLD#경험치 불이익 :#LIGHT_BLUE# 30%",
 	},
 	moddable_attachement_spots = "race_ogre",
 	inc_stats = { str=3, mag=2, wil=-2, cun=2, dex=-1, con=0 },
@@ -91,14 +93,14 @@ to start, look where halflings once tinkered with portals...]],
 
 	cosmetic_unlock = {
 		cosmetic_race_human_redhead = {
-			{name="Redhead [donator only]", donator=true, on_actor=function(actor) if actor.moddable_tile then actor.moddable_tile_base = "base_redhead_01.png" end end},
+			{name="빨간머리 [기부자 전용]", donator=true, on_actor=function(actor) if actor.moddable_tile then actor.moddable_tile_base = "base_redhead_01.png" end end},
 		},
 		cosmetic_bikini =  {
-			{name="Bikini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="비키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Bikini if not o then print("No bikini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_BIKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Female" end},
-			{name="Mankini [donator only]", donator=true, on_actor=function(actor, birther, last)
+			{name="맨키니 [기부자 전용]", donator=true, on_actor=function(actor, birther, last)
 				if not last then local o = birther.obj_list_by_name.Mankini if not o then print("No mankini found!") return end actor:getInven(actor.INVEN_BODY)[1] = o:cloneFull()
 				else actor:registerOnBirthForceWear("FUN_MANKINI") end
 			end, check=function(birth) return birth.descriptors_by_type.sex == "Male" end},
