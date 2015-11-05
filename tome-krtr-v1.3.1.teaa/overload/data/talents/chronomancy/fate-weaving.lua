@@ -48,8 +48,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local save = t.getSaveBonus(self, t)
-		return ([[다른 이에게 피해를 받을 때 마다, 당신은 실타래 효과 하나를 얻습니다. 실타래는 3 턴간 유지되며 하나당 당신의 회피율과 내성을 %d 만큼 추가로 얻습니다. (최대 추가량은 %d)
-		이 효과는 한 턴에 한번 씩만 일어나며, 실타래 효과는 3개까지만 쌓입니다.]]):
+		return ([[다른 이에게 피해를 받을 때 마다, 당신은 실타래 효과 하나를 얻습니다. 실타래는 3 턴간 유지되며 하나당 당신의 회피율과 내성을 %d 만큼 추가로 부여합니다. (최대 추가량은 %d)
+		이 효과는 한 턴에 한 번씩만 일어나며, 실타래 효과는 3개까지만 쌓입니다.]]):
 		format(save, save * 3)
 	end,
 }
@@ -75,7 +75,7 @@ newTalent{
 		local procs = t.getProcs(self, t)
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
-		return ([[운명 날인을 %d 턴간 발동합니다. 운명 날인이 유지 되는 동안 당신이 목표에게 피해를 입혔다면 당신은 실타래를 하나 얻습니다. 또한 목표의 해로운 효과 하나의 지속 시간을 1 턴을 %d%%의 확률로 늘립니다. 
+		return ([[운명 날인을 %d 턴간 발동합니다. 운명 날인이 유지되는 동안 당신이 목표에게 피해를 입혔다면 당신은 실타래를 하나 얻은 후, %d%%의 확률로 목표의 해로운 효과 하나의 지속 시간을 1 턴 늘립니다. 
 		만약 당신이 실타래 효과를 가지고 있다면 이 확률은 실타래 하나당 33%% 만큼 상승합니다. (실타래 3개를 가지고 있다면 최종 확률은 %d%% .)
 		지속 시간 연장 효과는 1 턴당 %d 번 일어 날 수 있으며, 추가 실타래는 1 턴당 하나만 얻을 수 있습니다.]]):format(duration, chance, chance * 2, procs)
 	end,
@@ -123,7 +123,7 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t) * 100
 		local duration = t.getDuration(self, t)
-		return ([[다음 %d 턴 동안 당신은 당신이 받을 피해를 %d%% 만큼 무작위의 적에게 옮깁니다.
+		return ([[다음 %d 턴 동안 당신은 당신이 받을 피해의 %d%% 만큼을 무작위의 적에게 옮깁니다.
 		운명의 거미줄이 유지 되는 동안에는 당신은 한 턴에 하나씩 실타래 효과를 얻으며, 최대 실타래 보유수가 두배로 늘어납니다.]])
 		:format(duration, power)
 	end,
