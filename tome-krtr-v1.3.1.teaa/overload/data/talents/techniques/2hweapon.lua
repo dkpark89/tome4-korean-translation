@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Death Dance",
 	kr_name = "죽음의 춤",
@@ -246,7 +248,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s가 기절에 저항했습니다!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
 			end
 		end
 
