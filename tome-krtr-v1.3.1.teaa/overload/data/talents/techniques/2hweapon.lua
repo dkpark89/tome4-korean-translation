@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Death Dance",
+	kr_name = "죽음의 춤",
 	type = {"technique/2hweapon-offense", 1},
 	require = techs_req1,
 	points = 5,
@@ -34,11 +35,11 @@ newTalent{
 	target = function(self, t)
 		return {type="ball", range=self:getTalentRange(t), selffire=false, radius=self:getTalentRadius(t)}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Death Dance without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 죽음의 춤을 출 수 없습니다!")
 			return nil
 		end
 
@@ -55,12 +56,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1))
+		return ([[한바퀴 돌면서, 주변 1 칸 반경의 모두에게 %d%% 의 무기 피해를 입힙니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1.4, 2.1))
 	end,
 }
 
 newTalent{
 	name = "Berserker",
+	kr_name = "광전사",
 	type = {"technique/2hweapon-offense", 2},
 	require = techs_req2,
 	points = 5,
@@ -68,14 +70,14 @@ newTalent{
 	cooldown = 30,
 	sustain_stamina = 40,
 	tactical = { BUFF = 2 },
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	getDam = function(self, t) return self:combatScale(self:getStr(7, true) * self:getTalentLevel(t), 5, 0, 40, 35)end,
 	getAtk = function(self, t) return self:combatScale(self:getDex(7, true) * self:getTalentLevel(t), 5, 0, 40, 35) end ,
 	getImmune = function(self, t) return self:combatTalentLimit(t, 1, 0.17, 0.5) end,
 	activate = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Berserker without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 광전사 상태가 될 수 없습니다!")
 			return nil
 		end
 
@@ -99,20 +101,21 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You enter an aggressive battle stance, increasing Accuracy by %d and Physical Power by %d, at the cost of -10 Defense and -10 Armour.
-		While berserking, you are nearly unstoppable, granting you %d%% stun and pinning resistance.
-		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]]):
+		return ([[공격적인 전투 자세를 취합니다. 회피도와 방어력이 10 씩 감소하는 대신, 정확도가 %d / 물리력이 %d 증가합니다.
+		광전사 상태인 사람을 멈춰세우기란 거의 불가능하기 때문에, %d%% 만큼의 기절과 속박 면역력을 얻게 됩니다.
+		정확도는 민첩, 물리력은 힘 능력치의 영향을 받아 증가합니다.]]):
 		format( t.getAtk(self, t), t.getDam(self, t), t.getImmune(self, t)*100)
 	end,
 }
 
 newTalent{
 	name = "Warshout",
+	kr_name = "전투함성",
 	type = {"technique/2hweapon-offense",3},
 	require = techs_req3,
 	points = 5,
 	random_ego = "attack",
-	message = function(self) if self.subtype == "rodent" then return "@Source@ uses Warsqueak." else return "@Source@ uses Warshout." end end ,
+	message = function(self) if self.subtype == "rodent" then return "@Source1@ 전투함성을 내지릅니다. 찍찍!" else return "@Source1@ 전투함성을 내지릅니다." end end ,
 	stamina = 30,
 	cooldown = 18,
 	tactical = { ATTACKAREA = { confusion = 1 }, DISABLE = { confusion = 3 } },
@@ -127,7 +130,7 @@ newTalent{
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Warshout without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 전투함성을 내지를 수 없습니다!")
 			return nil
 		end
 
@@ -144,13 +147,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Shout your warcry in a frontal cone of radius %d. Any targets caught inside will be confused for %d turns.]]):
+		return ([[전방 %d 칸 반경에 전투함성을 내지릅니다. 범위 내의 대상들은 %d 턴 동안 혼란 상태에 빠집니다.]]):
 		format(self:getTalentRadius(t), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Death Blow",
+	kr_name = "죽음의 일격",
 	type = {"technique/2hweapon-offense", 4},
 	require = techs_req4,
 	points = 5,
@@ -162,11 +166,11 @@ newTalent{
 	is_melee = true,
 	range = 1,
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t)} end,
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Death Blow without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 죽음의 일격을 쓸 수 없습니다!")
 			return nil
 		end
 
@@ -191,18 +195,19 @@ newTalent{
 		if hit then
 			if target:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("instakill") and target.life > 0 and target.life < target.max_life * 0.2 then
 				-- KILL IT !
-				game.logSeen(target, "%s feels the pain of the death blow!", target.name:capitalize())
+				game.logSeen(target, "%s에게 죽음의 고통을 안겨줬습니다!", target.name:capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s resists the death blow!", target.name:capitalize())
+				game.logSeen(target, "%s가 죽음의 고통을 저항했습니다!", target.name:capitalize())
 			end
 		end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Tries to perform a killing blow, doing %d%% weapon damage and dealing an automatic critical hit. If the target ends up with low enough life (<20%%), it might be instantly killed.
-		At level 4, it drains half your remaining stamina, and uses it to increase the blow damage by 100%% of it.
-		The chance to instantly kill will increase with your Physical Power.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
+		return ([[적중시 무조건 치명타 효과가 발생하며, %d%% 의 무기 피해를 주는 즉사 공격을 시도합니다. 
+		공격을 받은 대상이 빈사상태 (생명력 20%% 미만) 이며 대상이 저항하지 못했을 경우, 대상은 즉사합니다.
+		기술 레벨이 4 이상일 경우 남은 체력의 절반을 쏟아부어, 소모한 체력 수치만큼 더 강력한 공격을 할 수 있게 됩니다.
+		즉사 확률은 물리력의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.8, 1.3))
 	end,
 }
 
@@ -211,6 +216,7 @@ newTalent{
 -----------------------------------------------------------------------------
 newTalent{
 	name = "Stunning Blow",
+	kr_name = "기절시키기",
 	type = {"technique/2hweapon-cripple", 1},
 	require = techs_req1,
 	points = 5,
@@ -222,12 +228,12 @@ newTalent{
 	is_melee = true,
 	range = 1,
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t)} end,
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	getDuration = function(self, t) return math.floor(self:combatTalentScale(t, 3, 7)) end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Stunning Blow without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 기절시키기를 쓸 수 없습니다!")
 			return nil
 		end
 
@@ -241,21 +247,22 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the stunning blow!", target.name:capitalize())
+				game.logSeen(target, "%s가 기절에 저항했습니다!", target.name:capitalize())
 			end
 		end
 
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target is stunned for %d turns.
-		The stun chance increases with your Physical Power.]])
+		return ([[대상의 머리를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 기절시킵니다.
+		기절 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.5), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Sunder Armour",
+	kr_name = "방어구 부수기",
 	type = {"technique/2hweapon-cripple", 2},
 	require = techs_req2,
 	points = 5,
@@ -267,14 +274,14 @@ newTalent{
 	range = 1,
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t)} end,
 	tactical = { ATTACK = { weapon = 2 }, DISABLE = { stun = 2 } },
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	getShatter = function(self, t) return self:combatTalentLimit(t, 100, 10, 85) end,
 	getDuration = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)) end,
 	getArmorReduc = function(self, t) return self:combatTalentScale(t, 5, 25, 0.75) end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Sunder Armour without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 방어구 부수기를 쓸 수 없습니다!")
 			return nil
 		end
 
@@ -303,7 +310,7 @@ newTalent{
 					local eff = rng.tableRemove(effs)
 
 					if eff[1] == "effect" then
-						game.logSeen(self, "#CRIMSON#%s shatters %s shield!", self.name:capitalize(), target.name)
+						game.logSeen(self, "#CRIMSON#%s %s의 보호막을 부쉈습니다!", self.name:capitalize(), target.name)
 						target:removeEffect(eff[2])
 					end
 				end
@@ -313,15 +320,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target's armour and saves are reduced by %d for %d turns.
-		Also if the target is protected by a temporary damage shield there is %d%% chance to shatter it.
-		Armor reduction chance increases with your Physical Power.]])
+		return ([[대상의 방어구를 무기로 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 방어도와 모든 내성을 %d 감소시킵니다.
+		또한 대상이 일시적인 피해 보호막에 의해 보호받고 있다면, %d%% 확률로 보호막을 분쇄해버립니다.
+		방어도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(100 * self:combatTalentWeaponDamage(t, 1, 1.5),t.getArmorReduc(self, t), t.getDuration(self, t), t.getShatter(self, t))
 	end,
 }
 
 newTalent{
 	name = "Sunder Arms",
+	kr_name = "무기 부수기",
 	type = {"technique/2hweapon-cripple", 3},
 	require = techs_req3,
 	points = 5,
@@ -333,12 +341,12 @@ newTalent{
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t)} end,
 	range = 1,
 	is_melee = true,
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	getDuration = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)) end,
 	action = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Sunder Arms without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 무기 부수기를 쓸 수 없습니다!")
 			return nil
 		end
 
@@ -355,8 +363,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target's Accuracy is reduced by %d for %d turns.
-		Accuracy reduction chance increases with your Physical Power.]])
+		return ([[대상의 무기를 내리쳐서 %d%% 의 무기 피해를 주고, 공격에 성공하면 %d 턴 동안 대상의 정확도를 %d 감소시킵니다.
+		정확도 감소 확률은 물리력의 영향을 받아 증가합니다.]])
 		:format(
 			100 * self:combatTalentWeaponDamage(t, 1, 1.5), 3 * self:getTalentLevel(t), t.getDuration(self, t))
 	end,
@@ -364,6 +372,7 @@ newTalent{
 
 newTalent{
 	name = "Blood Frenzy",
+	kr_name = "피의 광란",
 	type = {"technique/2hweapon-cripple", 4},
 	require = techs_req4,
 	points = 5,
@@ -377,12 +386,12 @@ newTalent{
 			self.blood_frenzy = math.max(self.blood_frenzy - 2, 0)
 		end
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "You require a two handed weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면 양손 무기가 필요합니다.") end return false end return true end,
 	bonuspower = function(self,t) return self:combatTalentScale(t, 2, 10, 0.5, 0, 2) end, -- called by _M:die function in mod.class.Actor.lua
 	activate = function(self, t)
 		local weapon = self:hasTwoHandedWeapon()
 		if not weapon then
-			game.logPlayer(self, "You cannot use Blood Frenzy without a two-handed weapon!")
+			game.logPlayer(self, "양손 무기 없이는 피의 광란을 쓸 수 없습니다!")
 			return nil
 		end
 		self.blood_frenzy = 0
@@ -396,8 +405,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Enter a blood frenzy, draining stamina quickly (-2 stamina/turn). Each time you kill a foe while in the blood frenzy, you gain a cumulative bonus to Physical Power of %d.
-		Each turn, this bonus decreases by 2.]]):
+		return ([[매 턴마다 체력이 2 씩 감소하는 피의 광란 상태에 빠지며, 이 상태에서는 적을 죽일 때마다 물리력이 %d 씩 상승하게 됩니다.
+		물리력 상승 효과는 중첩되며 한계도 없지만, 추가로 얻은 물리력은 턴이 지날 때마다 2 씩 감소합니다.]]):
 		format(t.bonuspower(self,t))
 	end,
 }
