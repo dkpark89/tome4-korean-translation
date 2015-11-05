@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Energy Decomposition",
+	kr_name = "에너지 분해",
 	type = {"chronomancy/energy",1},
 	mode = "sustained",
 	require = chrono_req1,
@@ -53,13 +54,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local decomp = t.getDecomposition(self, t)
-		return ([[Partially dissipates all incoming damage, reducing it by 30%%, up to a maximum of %d.
-		The maximum damage reduction will scale with your Spellpower.]]):format(decomp)
+		return ([[모든 피해를 부분적으로 소멸 시켜, 피해의 30%% 를 줄입니다. (최대 %d)
+		최대 피해량 감소는 주문력에 비례하여 상승합니다.]]):format(decomp)
 	end,
 }
 
 newTalent{
 	name = "Energy Absorption",
+	kr_name = "에너지 흡수",
 	type = {"chronomancy/energy", 2},
 	require = chrono_req2,
 	points = 5,
@@ -86,7 +88,7 @@ newTalent{
 		if not target then return end
 
 		if not self:checkHit(getParadoxSpellpower(self, t), target:combatSpellResist()) then
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
 			return true
 		end
 
@@ -103,7 +105,7 @@ newTalent{
 			local t = rng.tableRemove(tids)
 			if not t then break end
 			target.talents_cd[t.id] = cdr
-			game.logSeen(target, "%s's %s is disrupted by the Energy Absorption!", target.name:capitalize(), t.name)
+			game.logSeen(target, "%s의 %s 기술이 흡수 당했습니다!", target.name:capitalize(), t.name)
 			count = count + 1
 		end
 
@@ -132,14 +134,15 @@ newTalent{
 	info = function(self, t)
 		local talentcount = t.getTalentCount(self, t)
 		local cooldown = t.getCooldown(self, t)
-		return ([[You sap the target's energy and add it to your own, placing up to %d random talents on cooldown for %d turns.
-		For each talent put on cooldown, you reduce the cooldown of one of your talents currently on cooldown by %d turns.]]):
+		return ([[당신은 목표의 에너지를 약화 시킨 후에 그것을 자신의 것으로 만듭니다. 영향을 받은 목표는 최대 %d 개의 무작위의 기술이 %d턴의 재사용 대기시간 상태로 변합니다. 
+		재사용 대기시간으로 바꾼 기술 하나마다, 현재 재사용 대기 상태인 기술 중 하나의 대기시간이 %d 턴 줄어듭니다.]]):
 		format(talentcount, cooldown, cooldown)
 	end,
 }
 
 newTalent{
 	name = "Redux",
+	kr_name = "재현",
 	type = {"chronomancy/energy",3},
 	require = chrono_req3,
 	points = 5,
@@ -158,14 +161,15 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local cooldown = t.getMaxCooldown(self, t)
-		return ([[The next talent you cast with a cooldown of %d or less will not go on cooldown.
-		Once a talent is effected by this spell or %d turns pass the effect is lost.]]):
+		return ([[다음에 시전하는 당신의 기술이 %d 턴 이하의 재사용 대기시간을 가졌다면, 대기시간을 가지지 않게 됩니다.
+		이 효과는 %d 턴간 지속되며, 한 번 기술의 대기시간을 없앴다면 사라집니다.]]):
 		format(cooldown, duration)
 	end,
 }
 
 newTalent{
 	name = "Entropy",
+	kr_name = "엔트로피",
 	type = {"chronomancy/energy",4},
 	require = chrono_req4,
 	points = 5,
@@ -194,6 +198,6 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Each turn, for the next %d turns, one of the target's sustained talents will be deactivated.]]):format(duration)
+		return ([[이 기술이 유지 되는 %d 턴 동안, 목표의 유지 기술이 하나씩 매턴 취소됩니다.]]):format(duration)
 	end,
 }
