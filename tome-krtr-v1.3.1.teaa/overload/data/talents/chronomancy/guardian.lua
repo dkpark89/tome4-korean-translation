@@ -160,7 +160,7 @@ newTalent{
 
 newTalent{
 	name = "Warden's Focus", short_name=WARDEN_S_FOCUS,
-	kr_name = "감시자의 주목"
+	kr_name = "감시자의 주목",
 	type = {"chronomancy/guardian", 4},
 	require = chrono_req4,
 	points = 5,
