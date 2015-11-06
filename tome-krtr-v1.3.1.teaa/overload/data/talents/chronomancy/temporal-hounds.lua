@@ -146,6 +146,7 @@ end
 
 newTalent{
 	name = "Temporal Hounds",
+	kr_name = "시간의 사냥개",
 	type = {"chronomancy/temporal-hounds", 1},
 	require = chrono_req_high1,
 	mode = "sustained",
@@ -215,15 +216,16 @@ newTalent{
 		local incStats = t.incStats(self, t, true)
 		local cooldown = self:getTalentCooldown(t)
 		local resists = t.getResists(self, t)
-		return ([[Upon activation summon a Temporal Hound.  Every %d turns another hound will be summoned, up to a maximum of three hounds. If a hound dies you'll summon a new hound in %d turns.  
-		Your hounds inherit your increased damage percent, have %d%% physical resistance and %d%% temporal resistance, and are immune to teleportation effects.
-		Hounds will get, %d Strength, %d Dexterity, %d Constitution, %d Magic, %d Willpower, and %d Cunning, based on your Magic stat.]])
+		return ([[유지되는 동안 시간의 사냥개를 소환합니다. 매 %d 턴 마다 다른 사냥개가 소환 될 것입니다(최대 3마리). 
+		당신의 사냥개는 당신의 피해량 증가를 물려 받으며, %d%% 의 물리 저항력과 %d%% 의 시간 저항력을 가지고, 순간이동 효과에 면역입니다.
+		사냥개는 힘 능력치 %d , 민첩 능력치 %d , 체격 능력치 %d , 마법 능력치 %d , 의지 능력치 %d , 교활 능력치 %d 를 당신의 마법 능력치에 따라 가집니다.]])
 		:format(cooldown, cooldown, resists/2, math.min(100, resists*2), incStats.str + 1, incStats.dex + 1, incStats.con + 1, incStats.mag + 1, incStats.wil +1, incStats.cun + 1)
 	end
 }
 
 newTalent{
 	name = "Command Hounds: Blink", short_name="COMMAND_BLINK",
+	kr_name = "명령전달: 점멸",
 	type = {"chronomancy/temporal-hounds", 2},
 	require = chrono_req_high2,
 	points = 5,
@@ -236,7 +238,7 @@ newTalent{
 		local p = self:isTalentActive(self.T_TEMPORAL_HOUNDS)
 		if not p then
 			if not silent then
-				game.logPlayer(self, "Temporal Hounds must be sustained to cast this spell.")
+				game.logPlayer(self, "이 기술을 사용하기 위해서는 시간의 사냥개 기술이 유지되고 있어야 합니다.")
 			end
 			return false
 		end
@@ -255,7 +257,7 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		if not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then
-			game.logPlayer(self, "You do not have line of sight.")
+			game.logPlayer(self, "당신의 시야 안에 없습니다.")
 			return nil
 		end
 		local __, x, y = self:canProject(tg, x, y)
@@ -293,7 +295,7 @@ newTalent{
 				
 				game.level.map:particleEmitter(a.x, a.y, 1, "temporal_teleport")
 			else
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 실패하였습니다!")
 			end
 			
 			-- Set the target so we feel like a wolf pack
@@ -310,15 +312,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local defense = t.getDefense(self, t)
-		return ([[Command your Temporal Hounds to teleport to the targeted location.  If you target an enemy your hounds will set that enemy as their target.
-		When you learn this talent, your hounds gain %d defense and %d%% resist all after any teleport.
-		At talent level five, if you're not at your maximum number of hounds when you cast this spell a new one will be summoned.
-		The teleportation bonuses scale with your Spellpower.]]):format(defense, defense, defense/2, defense/2)
+		return ([[당신의 사냥개들에게 목표 지점으로 순간이동 하기를 명령합니다. 만약 적을 목표로 한다면 당신의 사냥개들은 이제 그 적을 그들의 목표로 설정 할 것입니다.
+		이 기술을 배움으로서, 당신의 사냥개는 순간이동 후에 %d 의 회피율과 %d%% 의 모든 속성 저항력을 추가로 가지게 됩니다.
+		기술 레벨이 5에 도달했을 때, 당신이 만약 이 주문을 사냥개를 모두 소환 하지 않은 채로 사용한다면, 새로운 사냥개가 한 마리 소환 될 것입니다.
+		순간이동시 추가 회피율과 저항력은 당신의 주문력에 비례하여 상승합니다.]]):format(defense, defense, defense/2, defense/2)
 	end,
 }
 
 newTalent{
 	name = "Temporal Vigour",
+	kr_name = "시간의 활력",
 	type = {"chronomancy/temporal-hounds", 3},
 	require = chrono_req_high3,
 	points = 5,
@@ -349,15 +352,17 @@ newTalent{
 		local regen = t.getRegen(self, t)
 		local haste = t.getHaste(self, t) * 100
 		local immunities = t.getImmunities(self, t) * 100
-		return ([[Your hounds can now survive for up to %d turns after their hit points are reduced below 1.  While in this state they deal 50%% less damage but are immune to additional damage.
-		Command Blink will now regenerate your hounds for %d life per turn and increase their global speed by %d%% for five turns.  Hounds below 1 life when this effect occurs will have the bonuses doubled.
-		When you learn this talent, your hounds gain %d%% stun, blind, confusion, and pin resistance.
-		The regeneration scales with your Spellpower.]]):format(duration, regen, haste, immunities)
+		return ([[당신의 사냥개는 이제 최대 %d 턴 동안 생명력이 1 미만으로 떨어졌을 때에도 살아남을 수 있습니다. 이 상태에서 사냥개들은 50%% 낮은 피해를 입히지만 모든 피해에 면역 상태가 됩니다.
+		이 기술을 배움으로서, 명령전달: 점멸 은 5 턴간 당신의 사냥개들의 생명력을 매턴 %d 만큼 회복시킬 것이며, 그들의 전체 속도를 %d%% 만큼 상승시킵니다. 이 효과가 발동 할 때 사냥개가 생명력이 1 미만이었다면, 이 효과는 두배가 됩니다.
+		또한 당신의 사냥개들은 %d%% 의 기절, 실명, 혼란, 속박 면역을 가지게 됩니다.
+		
+		회복량은 당신의 주문력에 비례하여 상승합니다.]]):format(duration, regen, haste, immunities)
 	end
 }
 
 newTalent{
 	name = "Command Hounds: Breathe", short_name= "COMMAND_BREATHE",  -- Turn Back the Clock multi-breath attack
+	kr_name = "명령전달: 숨결",
 	type = {"chronomancy/temporal-hounds", 4},
 	require = chrono_req_high4,
 	points = 5,
@@ -372,7 +377,7 @@ newTalent{
 		local p = self:isTalentActive(self.T_TEMPORAL_HOUNDS)
 		if not p or p.hounds < 1 then
 			if not silent then
-				game.logPlayer(self, "You must have temporal hounds to use this talent.")
+				game.logPlayer(self, "이 기술을 사용하기 위해서는 시간의 사냥개 기술을 유지해야 합니다.")
 			end
 			return false
 		end
@@ -440,8 +445,8 @@ newTalent{
 		local stat_damage = t.getDamageStat(self, t)
 		local duration =t.getDuration(self, t)
 		local affinity = t.getResists(self, t)
-		return ([[Command your Temporal Hounds to breathe time, dealing %0.2f temporal damage and reducing the three highest stats of all targets in a radius %d cone.
-		Affected targets will have their stats reduced by %d for %d turns.  You are immune to the breath of your own hounds and your hounds are immune to stat damage from other hounds.
-		When you learn this talent, your hounds gain %d%% temporal damage affinity.]]):format(damDesc(self, DamageType.TEMPORAL, damage), radius, stat_damage, duration, affinity)
+		return ([[당신의 사냥개들에게 시간의 숨결을 내뿜게 명령합니다. 시간의 숨결은 %0.2f 의 시간 피해를 %d 원뿔 모양으로 입히며, 공격 당한 목표들은 가장 높은 세가지의 능력치가 감소 됩니다. 능력치들은 %d 만큼 %d 턴 동안 감소됩니다.
+		당신은 당신의 사냥개로 부터의 숨결에 대해 면역이고, 사냥개들은 능력치 감소에 대해 면역입니다.
+		당신이 이 기술을 배움으로서, 당신의 사냥개들은 이제 %d%% 시간 피해 친화를 얻습니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), radius, stat_damage, duration, affinity)
 	end,
 }
