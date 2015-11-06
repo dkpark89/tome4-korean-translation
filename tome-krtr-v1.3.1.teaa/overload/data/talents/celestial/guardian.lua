@@ -23,6 +23,7 @@
 -- Flag if its a crit once for each turn then calculate damage manually?
 newTalent{
 	name = "Shield of Light",
+	kr_name = "빛의 방패",
 	type = {"celestial/guardian", 1},
 	mode = "sustained",
 	require = divi_req_high1,
@@ -52,10 +53,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Infuse your shield with light, healing you for %0.2f each time you take damage at the expense of up to 2 positive energy.
-		If you do not have any positive energy, the effect will not trigger.
-		Additionally, once per turn successful melee attacks will trigger a bonus attack with your shield dealing %d%% light damage.
-		The healing done will increase with your Spellpower.]]):
+		return ([[방패에 빛의 힘을 불어넣어, 피해를 받을 때마다 양기를 2 소모하여 생명력을 %0.2f 회복합니다. 
+61 		양기가 부족하면, 이 효과는 발동되지 않습니다. 
+62 		또한 1 턴에 한 번, 근접 공격을 성공시킬 경우 방패로 %d%% 빛 피해를 추가로 가합니다.  
+63 		치유량은 주문력의 영향을 받아 증가합니다.]]):  
 		format(heal, t.getShieldDamage(self, t)*100)
 	end,
 }
@@ -64,6 +65,7 @@ newTalent{
 -- Spamming Crusade+whatever is always more energy efficient than this
 newTalent{
 	name = "Brandish",
+	kr_name = "휘두르기",
 	type = {"celestial/guardian", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -80,7 +82,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Brandish without a shield!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 휘두르기를 사용할 수 없습니다!")
 			return nil
 		end
 
@@ -111,14 +113,15 @@ newTalent{
 		local shielddamage = t.getShieldDamage(self, t)
 		local lightdamage = t.getLightDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Hits the target with your weapon doing %d%% damage, and with a shield strike doing %d%% damage. If the shield strike connects, your shield will explode in a burst of light that inflicts %0.2f light damage on all targets except yourself within radius %d of the target, and light up all tiles in that radius.
-		The light damage will increase with your Spellpower.]]):
+		return ([[대상을 무기로 공격하여 %d%% 무기 피해를 준 뒤, 방패로 쳐서 %d%% 방패 피해를 줍니다. 방패 공격이 적중하면, 찬란한 빛이 뿜어져나와 %0.2f 빛 피해를 주변 %d 칸 반경에 있는 적들에게 주고, 어두운 곳을 밝힙니다. 
+119 		빛 피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(100 * weapondamage, 100 * shielddamage, damDesc(self, DamageType.LIGHT, lightdamage), radius)
 	end,
 }
 
 newTalent{
 	name = "Retribution",
+	kr_name = "응보",
 	type = {"celestial/guardian", 3},
 	require = divi_req_high3, no_sustain_autoreset = true,
 	points = 5,
@@ -131,7 +134,7 @@ newTalent{
 	activate = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Retribution without a shield!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 응보를 사용할 수 없습니다!")
 			return nil
 		end
 		local power = t.getDamage(self, t)
@@ -157,12 +160,12 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local absorb_string = ""
 		if self.retribution_absorb and self.retribution_strike then
-			absorb_string = ([[#RED#Absorb Remaining: %d]]):format(self.retribution_absorb)
+			absorb_string = ([[#RED#남은 흡수 가능량 : %d]]):format(self.retribution_absorb)
 		end
 
-		return ([[Retribution negates half of all damage you take while it is active. Once Retribution has negated %0.2f damage, your shield will explode in a burst of light, inflicting damage equal to the amount negated in a radius of %d and deactivating the talent.
-		The amount absorbed will increase with your Spellpower.
-		%s]]):
+		return ([[적에게 받는 피해량의 절반을 흡수합니다. %0.2f 피해를 흡수하면, 방패에서 찬란한 빛이 뿜어져나와 주변 %d 칸 반경에 흡수했던 피해량과 동일한 피해를 주고 기술이 해제됩니다. 
+169 		흡수량은 주문력의 영향을 받아 증가합니다. 
+170 		%s]]): 
 		format(damage, self:getTalentRange(t), absorb_string)
 	end,
 }
@@ -171,6 +174,7 @@ newTalent{
 -- Spamming this on cooldown keeps positive energy up and gives a lot of cooldown management
 newTalent{
 	name = "Crusade",
+	kr_name = "성전",
 	type = {"celestial/guardian", 4},
 	require = divi_req_high4,
 	random_ego = "attack",
@@ -189,7 +193,7 @@ newTalent{
 	action = function(self, t)
 		local shield = self:hasShield()
 		if not shield then
-			game.logPlayer(self, "You cannot use Crusade without a shield!")
+			game.logPlayer(self, "방패를 장착하지 않은 상태에서는 성전을 사용할 수 없습니다!") 
 			return nil
 		end
 
@@ -211,9 +215,10 @@ newTalent{
 		local shield = t.getShieldDamage(self, t)*100
 		local cooldown = t.getCooldownReduction(self, t)
 		local cleanse = t.getDebuff(self, t)
-		return ([[You demonstrate your dedication to the light with a measured attack striking once with your weapon for %d%% damage and once with your shield for %d%% damage.
-			If the first strike connects %d random talent cooldowns are reduced by 1.
-			If the second strike connects you are cleansed of %d debuffs.]]):
+		return ([[신중한 공격을 통해 빛에 대한 헌신을 증명합니다.  
+218 		우선 무기로 적에게 %d%% 피해를 주고, 다음에는 방패로 적에게 %d%% 피해를 줍니다. 
+219 		첫 번째 공격이 성공할 경우, 무작위한 기술 %d 개의 재사용 대기 시간이 1 턴 줄어들게 됩니다. 
+220 		두 번째 공격이 성공할 경우, 해로운 상태효과가 %d 개 정화됩니다.]]):  
 		format(weapon, shield, cooldown, cleanse)
 	end,
 }
