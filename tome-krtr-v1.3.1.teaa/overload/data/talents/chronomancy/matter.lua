@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Dust to Dust",
+	kr_name = "먼지는 먼지로",
 	type = {"chronomancy/matter",1},
 	require = chrono_req1,
 	points = 5,
@@ -104,15 +105,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Fires a beam that turns matter into dust, inflicting %0.2f temporal damage and %0.2f physical (warp) damage.
-		Alternatively you may target yourself, creating a field of radius %d around you that will inflict the damage over three turns.
-		The damage will scale with your Spellpower.]]):
+		return ([[물질을 먼지로 바꾸어 버리는 빛줄기를 발사하여 %0.2f 의 시간피해와 %0.2f의 물리(왜곡)피해를 가합니다.
+		혹은, 목표로 당신을 지정한다면, 당신의 %d 범위 주위에 역장을 만들어 같은 피해를 3 턴에 나누어 입힙니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage / 2), damDesc(self, DamageType.PHYSICAL, damage / 2), radius)
 	end,
 }
 
 newTalent{
 	name = "Matter Weaving",
+	kr_name = "물질 엮기",
 	type = {"chronomancy/matter",2},
 	require = chrono_req2,
 	points = 5,
@@ -148,14 +150,14 @@ newTalent{
 	info = function(self, t)
 		local armor = t.getArmor(self, t)
 		local immune = t.getImmunity(self, t) * 100
-		return ([[Weave matter into your flesh, becoming incredibly resilient to damage.  While active you gain %d armour, %d%% resistance to stunning, and %d%% resistance to cuts.
-		The bonus to armour will scale with your Magic.]]):
+		return ([[물질을 당신의 피부 내부에 엮어, 피해에 대해 강력한 내구성을 가지게 합니다. 유지되고 있는 동안 당신은 %d 만큼의 방어도와 %d%% 만큼의 기절 저항, %d%% 만큼의 출혈 저항을 얻습니다.]]):
 		format(armor, immune, immune)
 	end,
 }
 
 newTalent{
 	name = "Materialize Barrier",
+	kr_name = "장벽 물질화",
 	type = {"chronomancy/matter",3},
 	require = chrono_req3,
 	points = 5,
@@ -253,14 +255,15 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Create a tightly bound matter wall of up to a length of %d that lasts %d turns.
-		If any part of this wall is dug out it will explode, causing targets in a radius of %d to bleed for %0.2f physical damage over six turns.]])
+		return ([[%d 길이의 잘 짜여진 물질 장벽을 %d 턴 동안 만들어 냅니다.
+		만약 물질 장벽의 어떠한 부분이라도 파여진다면, 폭발하여 주변 %d 반경에 있는 목표들에게 %0.2f 의 물리 피해를 6 턴간 나누어 주는 출혈을 일으킵니다..]])
 		:format(length, duration, radius, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 
 newTalent{
 	name = "Disintegration",
+	kr_name = "분해",
 	type = {"chronomancy/matter",4},
 	require = chrono_req4,
 	points = 5,
@@ -330,9 +333,9 @@ newTalent{
 	info = function(self, t)
 		local digs = t.getDigs(self, t)
 		local chance = t.getChance(self, t)
-		return ([[While active your physical and temporal damage has a %d%% chance to remove one beneficial physical or magical temporary effect (respectively) from targets you hit.
-		Only one physical and one magical effect may be removed per turn from each target.
-		Additionally your Dust to Dust spell now digs up to %d tiles into walls.]]):
+		return ([[이 기술이 유지되는 동안 당신의 물리, 시간 속성의 피해는, 이제 당신이 피해를 입힌 목표의 물리적 혹은 마법적인 이로운 일시적 효과를 %d%% 확률로 하나 지워냅니다.
+		한 턴에는 한 목표당 하나의 물리적 효과와 하나의 마법적 효과만을 지울 수 있습니다.
+		또한 이제 당신의 먼지는 먼지로 마법이 %d 칸만큼 벽을 파낼 수 있습니다.]]):
 		format(chance, digs)
 	end,
 }

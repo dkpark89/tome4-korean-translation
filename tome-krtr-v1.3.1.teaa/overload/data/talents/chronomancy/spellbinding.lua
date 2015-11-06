@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Empower",
+	kr_name = "강화",
 	type = {"chronomancy/spellbinding", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -48,16 +49,17 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t) * 100
 		local talent = self:isTalentActive(t.id) and self:getTalentFromId(self:isTalentActive(t.id).talent).name or "None"
-		return ([[Empowers the selected chronomancy spell, increasing spellpower when casting it by %d%%.
-		Each spell can only be spellbound in one way at a time.
+		return ([[선택한 시공계열 주문을 강화하여, 그 주문을 사용 할때 적용 되는 주문력을 %d%% 만큼 상승시킵니다.
+		각각의 주문은 두 개 이상의 주문묶기에 영향을 받을 수 없습니다.
 		
-		Current Empowered Spell: %s]]):
+		현재 강화된 주문: %s]]):
 		format(power, talent)
 	end,
 }
 
 newTalent{
 	name = "Extension",
+	kr_nmae = "연장",
 	type = {"chronomancy/spellbinding", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -85,16 +87,17 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t) * 100
 		local talent = self:isTalentActive(t.id) and self:getTalentFromId(self:isTalentActive(t.id).talent).name or "None"
-		return ([[Extends the duration of the selected chronomancy spell by %d%%.
-		Each spell can only be spellbound in one way at a time.
+		return ([[선택한 시공 계열 주문을 연장하여, 그 주문의 지속시간을 %d%% 만큼 늘립니다.
+		각각의 주문은 두 개 이상의 주문묶기에 영향을 받을 수 없습니다.
 		
-		Current Extended Spell: %s]]):
+		현재 연장된 주문: %s]]):
 		format(power, talent)
 	end,
 }
 
 newTalent{
 	name = "Matrix",
+	kr_name = "거푸집",
 	type = {"chronomancy/spellbinding", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -122,16 +125,17 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t) * 100
 		local talent = self:isTalentActive(t.id) and self:getTalentFromId(self:isTalentActive(t.id).talent).name or "None"
-		return ([[Reduces the cooldown of the selected chronomancy spell by %d%%.
-		Each spell can only be spellbound in one way at a time.
+		return ([[선택한 시공 계열 주문의 재사용 대기 시간을 %d%% 만큼 줄입니다.
+		각각의 주문은 두 개 이상의 주문묶기에 영향을 받을 수 없습니다.
 		
-		Current Matrix Spell: %s]]):
+		현재 거푸집이 짜여진 주문: %s]]):
 		format(power, talent)
 	end,
 }
 
 newTalent{
 	name = "Quicken",
+	kr_name = "촉진",
 	type = {"chronomancy/spellbinding", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -159,10 +163,10 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t) * 100
 		local talent = self:isTalentActive(t.id) and self:getTalentFromId(self:isTalentActive(t.id).talent).name or "None"
-		return ([[Reduces the casting speed of the selected chronomancy spell by %d%%.
-		Each spell can only be spellbound in one way at a time.
+		return ([[선택한 시공 계열 주문의 시전 속도를 %d%% 만큼 상승 시킵니다.
+		각각의 주문은 두 개 이상의 주문묶기에 영향을 받을 수 없습니다.
 		
-		Current Quickened Spell: %s]]):
+		현재 촉진된 주문: %s]]):
 		format(power, talent)
 	end,
 }

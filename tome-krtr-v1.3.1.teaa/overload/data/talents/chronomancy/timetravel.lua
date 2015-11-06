@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Temporal Bolt",
+	kr_name = "시간의 화살",
 	type = {"chronomancy/timetravel",1},
 	require = chrono_req1,
 	points = 5,
@@ -109,15 +110,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Pull a bolt of temporal energy back through time.  The bolt will home in on your location, dealing %0.2f temporal damage to targets, and reducing the cooldown of one chronomancy talent on cooldown by one turn per enemy hit.
-		The bolt gains 5%% damage each time it moves and the damage will scale with your Spellpower.
-		At talent level five cooldowns are reduced by two.]]):
+		return ([[시간의 에너지로 이루어진 화살을 시간으로부터 끌어올립니다. 화살은 당신을 목표로 움직이며, 화살에 맞은 적에게 %0.2f 의 시간 피해를 입히고, 피해를 입힌 적 하나마다 당신의 시공 계열 기술 중 하나의 재사용 대기 시간을 1 턴 줄입니다.
+		화살은 1 칸씩 움직일 때마다 5%%의 피해가 추가되며 피해량은 주문력에 비례하여 상승합니다.
+		기술 레벨이 5가 되면 재사용 대기 시간 감소량은 2 턴이 됩니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }
 
 newTalent{
 	name = "Time Skip",
+	kr_name = "시간 지우기",
 	type = {"chronomancy/timetravel",2},
 	require = chrono_req2,
 	points = 5,
@@ -141,7 +143,7 @@ newTalent{
 		if not target then return end
 
 		if target:attr("timetravel_immune") then
-			game.logSeen(target, "%s is immune!", target.name:capitalize())
+			game.logSeen(target, "%s 면역입니다!", target.name:capitalize())
 			return true
 		end
 
@@ -157,7 +159,7 @@ newTalent{
 		-- Check hit
 		local power = getParadoxSpellpower(self, t)
 		local hit = self:checkHit(power, target:combatSpellResist() + (target:attr("continuum_destabilization") or 0))
-		if not hit then game.logSeen(target, "%s resists!", target.name:capitalize()) return true end
+		if not hit then game.logSeen(target, "%s 저항하였습니다!", target.name:capitalize()) return true end
 		
 		-- Apply spellshock and destabilization
 		target:crossTierEffect(target.EFF_SPELLSHOCKED, getParadoxSpellpower(self, t))
@@ -165,7 +167,7 @@ newTalent{
 		
 		-- Placeholder for the actor
 		local oe = game.level.map(x, y, Map.TERRAIN+1)
-		if (oe and oe:attr("temporary")) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "Something has prevented the timetravel.") return true end
+		if (oe and oe:attr("temporary")) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "무엇인가가 시간여행을 방해하였습니다.") return true end
 		local e = mod.class.Object.new{
 			old_feat = oe, type = "temporal", subtype = "instability",
 			name = "temporal instability",
@@ -200,7 +202,7 @@ newTalent{
 		}
 		
 		-- Remove the target
-		game.logSeen(target, "%s has moved forward in time!", target.name:capitalize())
+		game.logSeen(target, "%s 는 미래로 날려 보내졌습니다!", target.name:capitalize())
 		game.level:removeEntity(target, true)
 		
 		-- add the time skip object to the map
@@ -215,13 +217,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Inflicts %0.2f temporal damage.  If your target survives, it may be removed from time for %d turns.
-		The damage will scale with your Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
+		return ([[%0.2f 의 시간 피해를 입힙니다. 만약 목표가 살아남았다면, %d 턴 동안 시간에서 지워질 수 있습니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
 	end,
 }
 
 newTalent{
 	name = "Temporal Reprieve",
+	kr_name = "시간의 유예",
 	type = {"chronomancy/timetravel", 3},
 	require = chrono_req3,
 	points = 5,
@@ -233,17 +236,17 @@ newTalent{
 	getDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 2, 6))) end,
 	action = function(self, t)
 		if game.zone.is_temporal_reprieve then
-			game.logPlayer(self, "This talent cannot be used from within the reprieve.")
+			game.logPlayer(self, "이 기술은 유예지에서 사용 될 수 없습니다")
 			return
 		end
 		if game.zone.no_planechange then
-			game.logPlayer(self, "This talent cannot be used here.")
+			game.logPlayer(self, "이 기술은 여기서 사용될 수 없습니다.")
 			return
 		end
 		if not (self.player and self.game_ender) then return nil end
 
 		if not self:canBe("planechange") or self.summon_time or self.summon then
-			game.logPlayer(self, "The spell fizzles...")
+			game.logPlayer(self, "주문이 실패했습니다...")
 			return
 		end
 
@@ -284,7 +287,7 @@ newTalent{
 				end)
 			end
 
-			game.logPlayer(game.player, "#STEEL_BLUE#You time travel to a quiet place.")
+			game.logPlayer(game.player, "#STEEL_BLUE#당신은 조용한 장소로 시간 여행을 하였습니다.")
 			game.nicer_tiles:postProcessLevelTiles(game.level)
 
 		end)
@@ -295,13 +298,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Transport yourself to a safe place for %d turns.]]):
+		return ([[당신을 안전한 장소로 %d 턴 동안 옮깁니다.]]):
 		format(duration)
 	end,
 }
 
 newTalent{
 	name = "Echoes From The Past",
+	kr_name = "과거의 메아리",
 	type = {"chronomancy/timetravel", 4},
 	require = chrono_req4,
 	points = 5,
@@ -340,8 +344,8 @@ newTalent{
 		local percent = t.getPercent(self, t) * 100
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[Creates a temporal echo in a radius of %d around you.  Affected target take %0.2f temporal damage, as well as up to %d%% of the difference between their current life and max life as additional temporal damage.
-		The additional damage will be divided by the target's rank and the damage scales with your Spellpower.]]):
+		return ([[%d 칸 반경에 시간의 메아리를 만들어 범위 내의 적들에게 %0.2f 시간 피해를 주고, 최대 생명력에서 현재 생명력을 뺀 값의 %d%% 에 해당하는 시간 피해를 추가로 줍니다.
+		추가 피해는 목표의 랭크에 의해 나누어 지며 피해량은 주문력에 비례하여 상승합니다.]]):
 		format(radius, damDesc(self, DamageType.TEMPORAL, damage), percent)
 	end,
 }

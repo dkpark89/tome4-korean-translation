@@ -39,6 +39,7 @@ end
 
 newTalent{
 	name = "Fold Fate",
+	kr_name = "운명 감기",
 	type = {"chronomancy/manifold", 1},
 	cooldown = 8,
 	points = 5,
@@ -78,15 +79,15 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local resists = t.getResists(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f temporal damage to enemies in a radius of %d.
-		Affected targets may also have their physical and temporal resistance reduced by %d%% for %d turns.
-		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Warp by one turn.]])
+		return ([[당신이 무기 덧대기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
+		이 기술은 재사용 대기 시간이 있습니다. 만약 이 스킬이 대기 시간 도중에 발동 된다면, 피해를 주는 대신에 중력 감기와 왜곡 감기의 재사용 대기 시간이 1 턴 줄어듭니다.]])
 		:format(chance, damDesc(self, DamageType.TEMPORAL, damage), radius, resists, duration)
 	end,
 }
 
 newTalent{
 	name = "Fold Warp",
+	kr_name = "왜곡 감기",
 	type = {"chronomancy/manifold", 1},
 	cooldown = 8,
 	points = 5,
@@ -124,15 +125,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical and %0.2f temporal (warp) damage to enemies in a radius of %d.
-		Each target hit may be stunned, blinded, pinned, or confused for %d turns.
-		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Fate by one turn.]])
+		return ([[당신이 무기 덧대기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
+		이 기술은 재사용 대기 시간이 있습니다. 만약 이 스킬이 대기 시간 도중에 발동 된다면, 피해를 주는 대신에 중력 감기와 운명 감기의 재사용 대기 시간이 1 턴 줄어듭니다.]])
 		:format(chance, damDesc(self, DamageType.TEMPORAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2), radius, duration)
 	end,
 }
 
 newTalent{
 	name = "Fold Gravity",
+	kr_name = "중력 감기",
 	type = {"chronomancy/manifold", 1},
 	cooldown = 8,
 	points = 5,
@@ -172,15 +173,15 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical (gravity) damage to enemies in a radius of %d.
-		Affected targets may also be slowed, decreasing their global speed speed by %d%% for %d turns
-		This effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Fate and Fold Warp by one turn.]])
+		return ([[당신이 무기 덧대기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 물리 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 만큼 %d 턴 동안 느려집니다.
+		이 기술은 재사용 대기 시간이 있습니다. 만약 이 스킬이 대기 시간 도중에 발동 된다면, 피해를 주는 대신에 운명 감기와 왜곡 감기의 재사용 대기 시간이 1 턴 줄어듭니다.]])
 		:format(chance, damDesc(self, DamageType.PHYSICAL, damage), radius, slow, duration)
 	end,
 }
 
 newTalent{
 	name = "Weapon Folding",
+	kr_name = "무기 덧대기",
 	type = {"chronomancy/temporal-combat", 1},
 	mode = "sustained",
 	require = chrono_req1,
@@ -214,14 +215,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local chance = t.getChance(self, t)
-		return ([[Folds a single dimension of your weapons (or ammo) upon itself, adding %0.2f temporal damage to your strikes.
-		Additionally you have a %d%% chance to gain 10%% of a turn when your weapons hit.
-		The damage will scale with your Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage), chance)
+		return ([[당신의 무기 (혹은 투사체)에 하나의 차원을 덧대어 공격을 맞출 때마다 %0.2f 의 시간 피해를 추가합니다.
+		또한 무기 공격 성공시 당신은 %d%% 의 확률로 10%%의 턴을 얻을 수 있습니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), chance)
 	end,
 }
 
 newTalent{
 	name = "Invigorate",
+	kr_name = "활성화",
 	type = {"chronomancy/temporal-combat", 2},
 	require = chrono_req2,
 	points = 5,
@@ -240,13 +242,14 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[For the next %d turns, you recover %0.1f life and talents without fixed cooldowns will have their cooldowns refresh twice as fast as usual.
-		The life regeneration will scale with your Spellpower.]]):format(duration, power)
+		return ([[다음 %d 턴 동안 매 턴마다 %0.1f 생명력을 회복하고, 재사용 대기 시간이 고정된 기술을 제외한 모든 기술들의 재사용 대기 시간이 2 배 빨리 감소됩니다.
+		생명력 회복은 주문력에 비례하여 상승합니다.]]):format(duration, power)
 	end,
 }
 
 newTalent{
 	name = "Weapon Manifold",
+	kr_name = "무기 감싸기",
 	type = {"chronomancy/temporal-combat", 3},
 	require = chrono_req3,
 	mode = "passive",
@@ -281,13 +284,12 @@ newTalent{
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
 		local resists = t.getResists(self, t)
-		return ([[You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon Folding damage.
+		return ([[당신은 이제 %d%% 의 확률로 무기 덧대기 피해에 운명, 중력, 왜곡을 감을 수 있습니다.
 		
-		Fold Fate: Deals %0.2f temporal damage to enemies in a radius of %d.  Affected targets may lose %d%% physical and temporal resistance for %d turns.
-		Fold Warp: Deals %0.2f physical and %0.2f temporal damage to enemies in a radius of %d.  Affected targets may be stunned, blinded, confused, or pinned for %d turns.
-		Fold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.
-		
-		Each Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]])
+		운명 감기: %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
+		왜곡 감기: %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
+		중력 감기: %0.2f 의 물리 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 만큼 %d 턴 동안 느려집니다.
+		각각의 무기 감써기는 8 턴의 재사용 대기 시간이 있습니다. 만약 대기 시간 도중에 효과가 발동 되었다면 다른 두 무기 감싸기의 대기 시간을 1 턴 줄입니다.]])
 		:format(chance, damDesc(self, DamageType.TEMPORAL, damage), radius, resists, duration, damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.TEMPORAL, damage/2), radius,
 		duration, damDesc(self, DamageType.PHYSICAL, damage), radius, slow, duration)
 	end,
@@ -295,6 +297,7 @@ newTalent{
 
 newTalent{
 	name = "Breach",
+	kr_name = "관통",
 	type = {"chronomancy/temporal-combat", 4},
 	require = chrono_req4,
 	points = 5,
@@ -310,7 +313,7 @@ newTalent{
 	speed = function(self, t) return self:hasArcheryWeapon() and "archery" or "weapon" end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1, 1.5) end,
 	getDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 3, 7))) end,
-	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "You require a weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 무기가 필요합니다.") end return false end return true end,
 	archery_onhit = function(self, t, target, x, y)
 		target:setEffect(target.EFF_BREACH, t.getDuration(self, t), {apply_power=getParadoxSpellpower(self, t)})
 	end,
@@ -340,9 +343,9 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Attack the target with either your ranged or melee weapons for %d%% damage.
-		If the attack hits you'll breach the target's immunities, reducing armor hardiness, stun, pin, blindness, and confusion immunity by 50%% for %d turns.
-		Breach chance scales with your Spellpower.]])
+		return ([[목표를 당신의 장거리 혹은 근거리 무기로 공격하여 %d%% 무기 피해를 입힙니다.
+		만약 공격이 맞았다면 당신은 목표의 방어를 부수어, %d 턴동안 방어율, 기절, 속박, 실명, 혼란 저항력을 반으로 깎아 내립니다.
+		관통 확률은 주문력에 비례하여 상승합니다.]])
 		:format(damage, duration)
 	end
 }

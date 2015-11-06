@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Spacetime Stability",
+	kr_name = "시공간 안정성",
 	type = {"chronomancy/stasis", 1},
 	require = chrono_req1,
 	mode = "passive",
@@ -33,14 +34,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local tune = t.getTuning(self, t)
-		return ([[You automatically adjust your Paradox %0.2f points towards your preferred Paradox each turn.
-		While using Spacetime Tuning twice this value will instead be added to the amount you would normally tune.]]):
+		return ([[당신은 당신의 괴리 수치를 매턴 %0.2f 만큼 지정한 괴리 수치로 자동으로 조정합니다.
+		시공간 조율 기술을 사용 하는 중이라면 이 값은 두배로 늘어납니다.]]):
 		format(tune)
 	end,
 }
 
 newTalent{
 	name = "Time Shield", short_name = "CHRONO_TIME_SHIELD",
+	kr_name = "시간의 보호막",
 	type = {"chronomancy/stasis",2},
 	require = chrono_req2,
 	points = 5,
@@ -60,17 +62,18 @@ newTalent{
 		local maxabsorb = t.getMaxAbsorb(self, t)
 		local duration = t.getDuration(self, t)
 		local time_reduc = t.getTimeReduction(self,t)
-		return ([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.
-		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
-		Each turn the restoration field is active, you get healed for 10%% of the absorbed damage.
-		While under the effect of Time Shield, all newly applied magical, physical and mental effects will have their durations reduced by %d%%.
-		The shield's max absorption will increase with your Spellpower.]]):
+		return ([[시전자 주변에 시간의 보호막을 즉시 만들어내는, 복잡한 마법입니다. 
+		시간의 보호막은 모든 피해를 흡수하여 미래로 보내버리며, 보호막이 총 %d 이상의 피해량을 흡수하거나 %d 턴이 지나 지속시간이 끝나면 보호막이 사라집니다. 
+		이 보호막은 사라지면서 5 턴 동안 시간의 회복장을 만들어내, 매 턴마다 보호막에 누적됐던 피해량의 10%% 만큼 생명력을 회복시켜줍니다. 
+		시간의 보호막이 시전되는 동안 가해진 모든 상태효과는, 보호막의 효과로 인해 지속시간이 %d%% 감소하게 됩니다.
+		보호막의 최대 흡수량은 주문력의 영향을 받아 증가합니다.]]):
 		format(maxabsorb, duration, time_reduc)
 	end,
 }
 
 newTalent{
 	name = "Stop",
+	kr_name = "정지",
 	type = {"chronomancy/stasis",3},
 	require = chrono_req3,
 	points = 5,
@@ -113,14 +116,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[Inflicts %0.2f temporal damage, and attempts to stun all targets in a radius %d ball for %d turns.
-		The damage will scale with your Spellpower.]]):
+		return ([[%0.2f 의 시간 피해를 %d 칸 범위 내의 있는 모든 목표들에게 가하고, %d 턴 동안 기절 상태에 빠트립니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage), radius, duration)
 	end,
 }
 
 newTalent{
 	name = "Static History",
+	kr_name = "고정된 역사",
 	type = {"chronomancy/stasis",4},
 	require = chrono_req4,
 	points = 5,
@@ -136,8 +140,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[For the next %d turns you may not create minor anomalies.  You do not regain Paradox or lose the spell you're casting if a random anomaly would normally occur.
-		This spell has no effect on major anomalies.]]):
+		return ([[다음 %d 턴 동안 당신은 비주요 이상 현상을 일으키지 않습니다. 원래 일어났어야 할 이상 현상 때문에 괴리 수치를 회복하지도, 마법이 취소되지도 않습니다.
+		이 마법은 주요 이상 현상에는 아무 효과가 없습니다.]]):
 		format(duration)
 	end,
 }

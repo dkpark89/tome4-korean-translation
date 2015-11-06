@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Rethread",
+	kr_name = "흐름 재조정",
 	type = {"chronomancy/timeline-threading", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -110,15 +111,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local targets = t.getTargetCount(self, t)
-		return ([[Rethread the timeline, dealing %0.2f temporal damage to the target before moving on to a second target.
-		Rethread can hit up to %d targets up to 10 grids apart, and will never hit the same one twice; nor will it hit the caster.
-		The damage will increase with your Spellpower.]]):
+		return ([[시간선을 재조정하여, %0.2f 의 시간 피해를 주고 다음 목표를 다시 타격합니다. 
+		흐름 재조정 기술은 최대 %d 개의 10칸 내의 목표를 공격 할 수 있으며, 같은 목표를 두번 공격하지는 않습니다. (시전자를 공격하지도 않습니다)
+		피해량은 주문력에 비례하여 상승합니다.]]):
 		format(damDesc(self, DamageType.TEMPORAL, damage), targets)
 	end,
 }
 
 newTalent{
 	name = "Temporal Fugue",
+	kr_name = "시간의 푸가",
 	type = {"chronomancy/timeline-threading", 2},
 	require = chrono_req_high2,
 	points = 5,
@@ -137,7 +139,7 @@ newTalent{
 			local m = makeParadoxClone(self, self, t.getDuration(self, t))
 			-- Add and change some values
 			m.name = self.name
-			m.desc = [[The real you... or so ]]..sex..[[ says.]]
+			m.desc = [[진정한 당신... 일지도 모른다.]]
 			m.shader = nil
 			m.shader_args = nil
 			m.faction = self.faction
@@ -193,15 +195,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[For the next %d turns two alternate versions of you enter your timeline.  While the effect is active all damage done by you or your copies is reduced by two thirds and all damage received is split between the three of you.
-		Temporal Fugue does not normally cooldown while active.  You may take direct control of your clones, give them orders, and set their talent usage.
-		Damage you deal to Fugue Clones or that they deal to you or each other is reduced to zero.]]):
+		return ([[다음 %d 턴 동안 두개의 다른 형태의 당신이 당신의 시간선에 진입합니다. 이 효과가 지속 되는 동안 당신과 당신의 복제들이 가하는 피해량은 삼분의 이로 줄어들고, 당신들이 받는 피해는 모두 나누어 가집니다. 
+		시간의 푸가는 발동된 동안 재사용 대기 시간이 정상적으로 줄어 들지 않습니다. 당신은 당신의 복제들을 직접 조종하거나, 명령을 내리거나, 사용 할 기술을 골라줄 수 있습니다.
+		당신과 복제가 서로에게 가하는 피해는 0으로 고정됩니다.]]):
 		format(duration)
 	end,
 }
 
 newTalent{
 	name = "Braid Lifelines",
+	kr_nmae = "생명선 엮기",
 	type = {"chronomancy/timeline-threading", 3},
 	require = chrono_req_high3,
 	mode = "passive",
@@ -211,14 +214,15 @@ newTalent{
 	info = function(self, t)
 		local braid = t.getBraid(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Your Rethread now braids the lifelines of all targets it hits for %d turns.  Braided targets take %d%% of all damage dealt to other braided targets.
-		The amount of damage shared will scale with your Spellpower.]])
+		return ([[당신의 흐름 재조정 기술은 이제 타격한 목표들의 생명선을 %d 턴간 엮어 버립니다. 엮여진 목표들은 다른 엮여진 목표들에게 가해진 피해의 %d%% 만큼의 피해를 입습니다.
+		피해의 공유량은 주문력에 비례하여 상승합니다.]])
 		:format(duration, braid)
 	end
 }
 
 newTalent{
 	name = "Cease to Exist",
+	kr_name = "중단된 실존",
 	type = {"chronomancy/timeline-threading", 4},
 	require = chrono_req_high4,
 	points = 5,
@@ -237,7 +241,7 @@ newTalent{
 	on_pre_use = function(self, t, silent)
 		if checkTimeline(self) then
 			if not silent then
-				game.logPlayer(self, "The timeline is too fractured to do this now.")
+				game.logPlayer(self, "이 기술을 사용하기엔 시간선이 너무 불안정합니다.")
 			end
 			return false
 		end
@@ -253,7 +257,7 @@ newTalent{
 		if target then
 			game:onTickEnd(function()
 				target:removeEffect(target.EFF_CEASE_TO_EXIST)
-				game.logSeen(target, "#LIGHT_BLUE#%s never existed, this never happened!", target.name:capitalize())
+				game.logSeen(target, "#LIGHT_BLUE#% 존재 한 적도 없습니다. 이 일은 일어나지도 않았습니다!", target.name:capitalize())
 				target:die(self)
 			end)
 		end
@@ -269,7 +273,7 @@ newTalent{
 		if not target then return end
 
 		if target == self then
-			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s tries to remove %sself from existance!", self.name, string.his_her(self))
+			game.logSeen(self, "#LIGHT_STEEL_BLUE#%s 자기 자신의 존재를 지우려고 하고 있습니다!", self.name, string.his_her(self))
 			self:incParadox(400)
 			game.level.map:particleEmitter(self.x, self.y, 1, "ball_temporal", {radius=1, tx=self.x, ty=self.y})
 			return true
@@ -298,10 +302,10 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
-		return ([[Over the next %d turns, you attempt to remove the target from the timeline, lowering its resistance to physical and temporal damage by %d%%.
-		If you manage to kill the target while the spell is in effect, you'll be returned to the point in time you cast this spell and the target will be slain.
-		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
-		The resistance penalty will scale with your Spellpower.]])
+		return ([[다음 %d 턴 동안, 당신은 목표를 시간선에서 없애려고 시도합니다. 목표의 물리, 시간 저항력을 %d%% 만큼 깎습니다.
+		만약 이 효과의 지속시간 동안 목표를 죽이는 데에 성공한다면, 당신은 이 주문을 사용했던 시점으로 되돌아오고, 목표는 죽은 상태로 됩니다.
+		이 마법은 시간선을 나눕니다. 이 마법이 유지되는 동안 다른 시간선을 나누려는 마법은 실패 할 것입니다.
+		저항력 감소는 주문력에 비례하여 상승합니다.]])
 		:format(duration, power)
 	end,
 }

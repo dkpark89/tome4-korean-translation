@@ -32,6 +32,7 @@ makeWarpMine = function(self, t, x, y, type, dam)
 	-- Our Mines
 	local mine = Trap.new{
 		name = ("warp mine: %s"):format(type),
+		kr_name = ("왜곡 지뢰: %s"):format(type),
 		type = "temporal", id_by_type=true, unided_name = "trap",
 		display = '^', color=colors.BLUE, image = ("trap/chronomine_%s_0%d.png"):format(type == "toward" and "blue" or "red", rng.avg(1, 4, 3)),
 		shader = "shadow_simulacrum", shader_args = { color = {0.2, 0.2, 0.2}, base = 0.8, time_factor = 1500 },
@@ -84,7 +85,7 @@ makeWarpMine = function(self, t, x, y, type, dam)
 						game:playSoundNear(self, "talents/teleport")
 					end
 				else
-					game.logSeen(who, "%s resists the teleport!", who.name:capitalize())
+					game.logSeen(who, "%s 순간이동을 저항했습니다!", who.name:capitalize())
 				end					
 			end
 	
@@ -107,6 +108,7 @@ end
 
 newTalent{
 	name = "Warp Mine Toward",
+	kr_name = "왜곡 지뢰 - 소환",
 	type = {"chronomancy/other", 1},
 	points = 1,
 	cooldown = 10,
@@ -148,15 +150,16 @@ newTalent{
 		local duration = self:callTalent(self.T_WARP_MINES, "getDuration")
 		local detect = self:callTalent(self.T_WARP_MINES, "trapPower") * 0.8
 		local disarm = self:callTalent(self.T_WARP_MINES, "trapPower")
-		return ([[Lay Warp Mines in a radius of 1 that teleport enemies to you and inflict %0.2f physical and %0.2f temporal (warp) damage.
-		The mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns.
-		The damage caused by your Warp Mines will improve with your Spellpower.]]):
+		return ([[밟은 적을 당신에게로 순간이동 시키고, %0.2f 의 물리 피해와 %0.2f 의 시간(왜곡) 피해를 입히는 왜곡 지뢰를 반경 1 칸에 깝니다.
+		지뢰들은 숨겨진 함정이며 (%d 의 함정 탐지력과 %d 의 함정 해제력 만큼의 저항력을 당신의 마법 능력치에 의해 가지고 있음), %d 턴 동안 유지 됩니다.
+		왜곡 지뢰로 인한 피해는 주문력에 비례해서 상승합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage), detect, disarm, duration)
 	end,
 }
 
 newTalent{
 	name = "Warp Mine Away",
+	kr_name = "왜곡 지뢰 - 방출",
 	type = {"chronomancy/other", 1},
 	points = 1,
 	cooldown = 10,
@@ -198,15 +201,16 @@ newTalent{
 		local duration = self:callTalent(self.T_WARP_MINES, "getDuration")
 		local detect = self:callTalent(self.T_WARP_MINES, "trapPower") * 0.8
 		local disarm = self:callTalent(self.T_WARP_MINES, "trapPower")
-		return ([[Lay Warp Mines in a radius of 1 that teleport enemies away from you and inflict %0.2f physical and %0.2f temporal (warp) damage.
-		The mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns.
-		The damage caused by your Warp Mines will improve with your Spellpower.]]):
+		return ([[밟은 적을 당신으로부터 멀리 순간이동 시키고, %0.2f 의 물리 피해와 %0.2f 의 시간(왜곡) 피해를 입히는 왜곡 지뢰를 반경 1 칸에 깝니다.
+		지뢰들은 숨겨진 함정이며 (%d 의 함정 탐지력과 %d 의 함정 해제력 만큼의 저항력을 당신의 마법 능력치에 의해 가지고 있음), %d 턴 동안 유지 됩니다.
+		왜곡 지뢰로 인한 피해는 주문력에 비례해서 상승합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage), detect, disarm, duration) 
 	end,
 }
 
 newTalent{
 	name = "Warp Mines",
+	kr_name = "왜곡 지뢰",
 	type = {"chronomancy/spacetime-folding", 1},
 	points = 5,
 	mode = "passive",
@@ -235,17 +239,19 @@ newTalent{
 		local detect = t.trapPower(self,t)*0.8
 		local disarm = t.trapPower(self,t)
 		local duration = t.getDuration(self, t)
-		return ([[Learn to lay Warp Mines in a radius of 1.  Warp Mines teleport targets that trigger them either toward you or away from you depending on the type of mine used and inflict %0.2f physical and %0.2f temporal (warp) damage.
-		The mines are hidden traps (%d detection and %d disarm power based on your Magic), last for %d turns, and each have a ten turn cooldown.
-		Investing in this talent improves the range of all Spacetime Folding talents and the damage caused by your Warp Mines will improve with your Spellpower.
+		return ([[왜곡 지뢰를 까는 방법을 배웁니다. 왜곡 지뢰는 발동이 되었을 때 %0.2f 의 물리 피해와 %0.2f 의 시간(왜곡) 피해를 입히며, 당신에게로 순간이동 시키는 유형과 당신으로부터 멀리 순간이동 시키는 유형이 있습니다.
+		지뢰들은 숨겨진 함정이며 (%d 의 함정 탐지력과 %d 의 함정 해제력 만큼의 저항력을 당신의 마법 능력치에 의해 가지고 있음), %d 턴 동안 유지 됩니다. 또한 재사용 대기 시간은 10 턴씩 가지고 있습니다.
+		이 기술에 투자 할 때 마다 모든 시공간 접기 계열 기술들의 사정거리가 늘어납니다.
+		왜곡 지뢰로 인한 피해는 주문력에 비례해서 상승합니다.
 		
-		Current Spacetime Folding Range: %d]]):
+		현재 시공간 접기 사정거리: %d]]):
 		format(damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage), detect, disarm, duration, range) --I5
 	end,
 }
 
 newTalent{
 	name = "Spatial Tether",
+	kr_name = "공간의 사슬",
 	type = {"chronomancy/spacetime-folding", 2},
 	require = chrono_req2,
 	points = 5,
@@ -329,7 +335,7 @@ newTalent{
 								target:setEffect(target.EFF_CONTINUUM_DESTABILIZATION, 100, {power=self.dest_power})
 							end
 							game:playSoundNear(self, "talents/teleport")
-							game.logSeen(target, "#CRIMSON#%s has been yanked back to the tether!", target.name:capitalize())
+							game.logSeen(target, "#CRIMSON#%s 사슬로 인해 잡아 당겨졌습니다!", target.name:capitalize())
 						end
 						
 						-- Secondary blast, this occurs as long as the teleport is not resisted, even if it fails, say from Anchor
@@ -344,7 +350,7 @@ newTalent{
 						end
 
 					else
-						game.logSeen(target, "%s resists the teleport!", target.name:capitalize())
+						game.logSeen(target, "%s 순간이동에 저항했습니다!", target.name:capitalize())
 					end
 					
 				end
@@ -383,15 +389,16 @@ newTalent{
 		local chance = t.getChance(self, t)
 		local damage = t.getDamage(self, t)/2
 		local radius = self:getTalentRadius(t)
-		return ([[Tether the target to the location for %d turns.  
-		Each turn the target has a %d%% chance per tile it's travelled away from the tether to be teleported back, inflicting %0.2f physical and %0.2f temporal (warp) damage to all enemies in a radius of %d at both the entrance and exit locations.
-		The damage will scale with your Spellpower.]])
+		return ([[목표를 해당 장소에 사슬로 %d 턴 동안 묶어 버립니다.
+		매턴 목표는 해당 목표에서 떨어질 때 마다 1 칸당 %d%% 의 확률로 순간이동 되어 다시 되돌아오게 되고, %0.2f 의 물리 피해와 %0.2f 의 시간(왜곡)피해를 %d 범위 내의 적들에게 가합니다. 피해를 가하는 지점은 묶여있는 장소와, 되돌아 오기 전의 장소 두 곳입니다.
+		피해량은 주문력에 비례하여 상승합니다.]])
 		:format(duration, chance, damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage), radius)
 	end,
 }
 
 newTalent{
 	name = "Banish",
+	kr_name = "추방",
 	type = {"chronomancy/spacetime-folding", 3},
 	require = chrono_req3,
 	points = 5,
@@ -420,14 +427,14 @@ newTalent{
 			game.level.map:particleEmitter(target.x, target.y, 1, "temporal_teleport")
 			if self:checkHit(getParadoxSpellpower(self, t), target:combatSpellResist() + (target:attr("continuum_destabilization") or 0)) and target:canBe("teleport") then
 				if not target:teleportRandom(self.x, self.y, t.getTeleport(self, t), t.getTeleport(self, t)/2) then
-					game.logSeen(target, "The spell fizzles on %s!", target.name:capitalize())
+					game.logSeen(target, "%s 에게의 주문이 실패하였습니다!", target.name:capitalize())
 				else
 					target:setEffect(target.EFF_CONTINUUM_DESTABILIZATION, 100, {power=getParadoxSpellpower(self, t, 0.3)})
 					game.level.map:particleEmitter(target.x, target.y, 1, "temporal_teleport")
-					game.logSeen(target, "#CRIMSON#%s has been banished!", target.name:capitalize())
+					game.logSeen(target, "#CRIMSON#%s 추방되었습니다!", target.name:capitalize())
 				end
 			else
-				game.logSeen(target, "%s resists the banishment!", target.name:capitalize())
+				game.logSeen(target, "%s 추방에 저항하였습니다!", target.name:capitalize())
 			end
 			-- random warp
 			DamageType:get(DamageType.RANDOM_WARP).projector(self, target.x, target.y, DamageType.RANDOM_WARP, {dur=t.getDuration(self, t), apply_power=getParadoxSpellpower(self, t)})
@@ -440,13 +447,14 @@ newTalent{
 	info = function(self, t)
 		local range = t.getTeleport(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Randomly teleports all enemies within a radius of three.  Enemies will be teleported between %d and %d tiles from you and may be stunned, blinded, confused, or pinned for %d turns.
-		The chance of teleportion will scale with your Spellpower.]]):format(range / 2, range, duration)
+		return ([[세 칸 안에 있는 모든 적을 무작위로 순간이동 시킵니다. 적들은 당신으로 부터 %d 칸 에서 %d 칸 떨어진 장소로 순간이동 되며, 기절, 실명, 혼란, 속박에 %d 턴 동안 걸릴 수 있습니다.
+		순간이동의 확률은 주문력에 비례하여 상승합니다.]]):format(range / 2, range, duration)
 	end,
 }
 
 newTalent{
 	name = "Dimensional Anchor",
+	kr_name = "차원의 닻",
 	type = {"chronomancy/spacetime-folding", 4},
 	require = chrono_req4,
 	points = 5,
@@ -497,8 +505,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)/2
 		local duration = t.getDuration(self, t)
-		return ([[Create a radius three anti-teleport field for %d turns and daze all enemies in the area of effect for two turns.
-		Enemies attempting to teleport while anchored take %0.2f physical and %0.2f temporal (warp) damage.
-		The damage will scale with your Spellpower.]]):format(duration, damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage))
+		return ([[범위 세 칸의 순간이동 방해장을 %d 턴 동안 깔아, 내부의 적을 두 턴 동안 혼절 시킵니다.
+		닻에 묶인 적이 순간 이동을 시도할 때 마다 순간이동을 취소시키고 %0.2f 의 물리 피해와 %0.2f 의 시간(왜곡)피해를 입힙니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):format(duration, damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage))
 	end,
 }

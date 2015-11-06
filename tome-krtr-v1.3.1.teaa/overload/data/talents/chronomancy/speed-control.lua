@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Celerity",
+	kr_name = "민첩함",
 	type = {"chronomancy/speed-control", 1},
 	require = chrono_req1,
 	points = 5,
@@ -36,12 +37,13 @@ newTalent{
 	info = function(self, t)
 		local speed = t.getSpeed(self, t) * 100
 		local duration = t.getDuration(self, t)
-		return ([[When you move you gain %d%% movement speed for %d turns.  This effect stacks up to three times but can only occur once per turn.]]):format(speed, duration)
+		return ([[당신이 이동하였을 때, %d%% 만큼의 이동 속도를 %d 턴 동안 추가합니다. 이 효과는 세 번 중첩되지만 한 턴에 한 번만 일어납니다.]]):format(speed, duration)
 	end,
 }
 
 newTalent{
 	name = "Time Dilation",
+	kr_name = "시간 확장",
 	type = {"chronomancy/speed-control",2},
 	require = chrono_req2,
 	points = 5,
@@ -59,13 +61,13 @@ newTalent{
 	info = function(self, t)
 		local speed = t.getSpeed(self, t) * 100
 		local duration = t.getDuration(self, t)
-		return ([[When you use a non-instant chronomancy spell you gain %d%% attack, spell, and mind speed for %d turns.  This effect stacks up to three times but can only occur once per turn.
-		]]):format(speed, duration)
+		return ([[당신이 턴을 소모하는 시공 계열 마법을 사용 할 때, %d%% 만큼의 공격, 시전, 사고 속도를 %d 턴간 추가합니다. 이 효과는 세 번 중첩되지만 한 턴에 한 번만 일어납니다.]]):format(speed, duration)
 	end,
 }
 
 newTalent{
 	name = "Haste",
+	kr_name = "가속",
 	type = {"chronomancy/speed-control", 3},
 	require = chrono_req3,
 	points = 5,
@@ -84,12 +86,13 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local speed = t.getSpeed(self, t) * 100
-		return ([[Increases your global speed by %d%% for %d game turns.]]):format(speed, duration)
+		return ([[당신의 전체 속도를 %d%% 만큼 %d 게임 턴 동안 늘립니다.]]):format(speed, duration)
 	end,
 }
 
 newTalent{
 	name = "Time Stop",
+	kr_name = "시간 정지",
 	type = {"chronomancy/speed-control", 4},
 	require = chrono_req4,
 	points = 5,
@@ -105,7 +108,7 @@ newTalent{
 			self.energy.value = self.energy.value + (t.getDuration(self, t) * 1000)
 			self:setEffect(self.EFF_TIME_STOP, 1, {power=100})
 			
-			game.logSeen(self, "#STEEL_BLUE#%s has stopped time!#LAST#", self.name:capitalize())
+			game.logSeen(self, "#STEEL_BLUE#%s 가 시간을 멈추었다!#LAST#", self.name:capitalize())
 			game:playSoundNear(self, "talents/heal")
 		end)
 		return true
@@ -113,6 +116,6 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local reduction = t.getReduction(self, t)
-		return ([[Gain %d turns.  During this time your damage will be reduced by %d%%.]]):format(duration, reduction)
+		return ([[%d 턴을 얻습니다. 이 시간 동안 당신의 모든 피해량은 %d%% 만큼 줄어듭니다.]]):format(duration, reduction)
 	end,
 }
