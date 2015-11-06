@@ -31,7 +31,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[검, 도끼, 둔기, 단검, 활을 사용할 때 물리력이 %d만큼 상승하고, 무기 피해량을 %d%%만큼 상승시킵니다.
+		return ([[검, 도끼, 둔기, 단검, 활을 사용할 때 물리력이 %d 만큼 상승하고, 무기 피해량을 %d%% 만큼 상승시킵니다.
 		당신은 또한 무기 착용시 요구 능력치나, 무기 피해의 능력치를 고려 할때, 힘 능력치 대신에 마법 능력치가 적용됩니다.
 		물리력 상승이나 무기 피해량 상승은 무기 수련이나 단검 수련, 활 수련에 같이 적용 되지 않습니다.]]):
 		format(damage, 100*inc)
@@ -118,7 +118,7 @@ newTalent{
 		local split = t.getDamageSplit(self, t) * 100
 		local duration = t.getDuration(self, t)
 		local cooldown = self:getTalentCooldown(t)
-		return ([[만약 하나의 공격이 당신의 최대 생명력의 %d%% 보다 많이 피해를 입혔다면, 또 다른 당신이 나타나 %d%%의 피해를 가져가고 다음에 입을 피해 또한 %d%% 만큼 %d턴 간 가져갑니다.
+		return ([[만약 하나의 공격이 당신의 최대 생명력의 %d%% 보다 많이 피해를 입혔다면, 또 다른 당신이 나타나 %d%% 의 피해를 가져가고 다음에 입을 피해 또한 %d%% 만큼 %d 턴 간 가져갑니다.
 		또 다른 당신은 이 현실의 위상에서 벗어나 있기 때문에 50%% 만큼 적은 피해를 입히지만, 그의 화살은 아군을 통과 할 수 있습니다.
 		이 스킬은 재사용 대기시간이 있습니다.]]):format(trigger, split * 2, split, duration)
 	end,
@@ -152,7 +152,7 @@ newTalent{
 	info = function(self, t)
 		local sense = t.getSense(self, t)
 		local power = t.getPower(self, t)
-		return ([[투명체 감지 능력을 +%d 만큼, 은신 감지 능력을 +%d만큼 상승 시킵니다. 또한 당신은 매턴 %d%% 확률로 하나의 부정적인 효과를 회복 할 수 있습니다.
+		return ([[투명체 감지 능력을 +%d 만큼, 은신 감지 능력을 +%d 만큼 상승 시킵니다. 또한 당신은 매턴 %d%% 확률로 하나의 부정적인 효과를 회복 할 수 있습니다.
 			감지 능력은 마법 능력치에 비례하여 상승합니다.]]):
 		format(sense, sense, power)
 	end,
@@ -208,8 +208,8 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[당신의 목표를 원거리 무기나, 근접 무기 중 하나로 %d%%의 무기 피해를 입힙니다. 다음 %d 턴 동안 무작위 상대를 고르는 기술(칼날 명멸이나 감시자의 부름 같은)은 이제 이 목표에게 집중되게 됩니다.
-		이 목표에 대한 공격은 %d%%의 추가 치명타 확률과 치명타 배율을 가지며 목표보다 낮은 랭크의 적에게서 받는 피해를 %d%% 만큼 줄입니다.]])
+		return ([[당신의 목표를 원거리 무기나, 근접 무기 중 하나로 %d%% 의 무기 피해를 입힙니다. 다음 %d 턴 동안 무작위 상대를 고르는 기술(칼날 명멸이나 감시자의 부름 같은)은 이제 이 목표에게 집중되게 됩니다.
+		이 목표에 대한 공격은 %d%% 의 추가 치명타 확률과 치명타 배율을 가지며 목표보다 낮은 랭크의 적에게서 받는 피해를 %d%% 만큼 줄입니다.]])
 		:format(damage, duration, power, power, power)
 	end
 }
