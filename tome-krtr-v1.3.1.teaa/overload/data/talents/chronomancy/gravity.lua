@@ -227,7 +227,7 @@ newTalent{
 
 newTalent{
 	name = "Gravity Well",
-	kr_name = "중력우물"
+	kr_name = "중력우물",
 	type = {"chronomancy/gravity", 4},
 	require = chrono_req4,
 	points = 5,
