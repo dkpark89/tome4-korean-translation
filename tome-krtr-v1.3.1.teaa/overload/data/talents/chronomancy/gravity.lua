@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Repulsion Blast",
+	kr_name = "반발력 폭발",
 	type = {"chronomancy/gravity",1},
 	require = chrono_req1,
 	points = 5,
@@ -76,15 +77,15 @@ newTalent{
 							slam = true
 							self:project({type="hit"}, target.x, target.y, DamageType.GRAVITY, bonus_dam)
 							self:project({type="hit"}, x, y, DamageType.GRAVITY, bonus_dam)
-							game.logSeen(target, "%s slams into something solid!", target.name:capitalize())
+							game.logSeen(target, "%s 벽에 부딪혔습니다!", target.name:capitalize())
 						end
 					end)
 					
 					tgts[#tgts+1] = target
-					if not slam then game.logSeen(target, "%s is knocked back!", target.name:capitalize()) end
+					if not slam then game.logSeen(target, "%s 밀려났습니다!", target.name:capitalize()) end
 					target:crossTierEffect(target.EFF_OFFBALANCE, getParadoxSpellpower(self, t))
 				else
-					game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+					game.logSeen(target, "%s 밀려나는 것을 저항했습니다!", target.name:capitalize())
 				end
 				
 			end
@@ -97,15 +98,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Sends out a blast wave of gravity in a radius %d cone, dealing %0.2f base physical (gravity) damage and knocking back targets caught in the area.
-		Targets knocked into walls or other targets take 25%% additional damage and deal 25%% damage to targets they're knocked into.
-		Closer targets will be knocked back further and the damage will scale with your Spellpower.]]):
+		return ([[%d 범위의 원뿔 형태로 중력의 폭발폭풍을 쏘아내어 %0.2f의 물리(중력) 피해를 입히고 적을 밀어냅니다.
+		밀려나 벽이나 다른 이들에게 부딪힌 목표는 25%%의 추가 피해를 입고 25%%의 피해를 부딪힌 적에게 입힙니다.
+		가까운 적은 더 멀리 밀려나고, 피해량은 주문력이 비례하여 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Gravity Spike",
+	kr_name = "중력 급증",
 	type = {"chronomancy/gravity", 2},
 	require = chrono_req2,
 	points = 5,
@@ -142,13 +144,13 @@ newTalent{
 					if target:checkHit(getParadoxSpellpower(self, t), target:combatPhysicalResist(), 0, 95) and target:canBe("knockback") then -- Deprecated Checkhit call
 						return true
 					else
-						game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+						game.logSeen(target, "%s 밀려남을 저항하였습니다!", target.name:capitalize())
 					end
 				end
 				if can(target) then
 					target:pull(x, y, tg.radius, can)
 					tgts[#tgts+1] = target
-					game.logSeen(target, "%s is drawn in by the singularity!", target.name:capitalize())
+					game.logSeen(target, "%s 특이점으로 끌려갑니다!", target.name:capitalize())
 					target:crossTierEffect(target.EFF_OFFBALANCE, getParadoxSpellpower(self, t))
 				end
 			end
@@ -175,16 +177,18 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Creates a gravity spike in a radius of %d that moves all targets towards the spell's center and inflicts %0.2f physical (gravity) damage.
-		Each target moved beyond the first increases the damage by %0.2f (up to a maximum of %0.2f bonus damage).
-		Targets take reduced damage the further they are from the epicenter (20%% less per tile).
-		The damage dealt will scale with your Spellpower.]])
+		return ([[%d 의 범위에 중력 급증을 일으켜 주문의 중심으로 모든 목표를 끌어당기고 %0.2f 의 물리(중력) 피해를 입힙니다.
+		끌어당겨진 목표 하나마다 피해량이 %0.2f 만큼 상승합니다 (최대 상승량은 %0.2f)
+		중심에서 멀리 있는 목표일 수록 더 적은 피해를 받습니다. (한 칸당 20%% 적게)
+		
+		피해량은 주문력에 비례하여 상승합니다.]])
 		:format(radius, damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.PHYSICAL, damage/8), damDesc(self, DamageType.PHYSICAL, damage/2))
 	end,
 }
 
 newTalent{
 	name = "Gravity Locus",
+	kr_name = "중력의 근원",
 	type = {"chronomancy/gravity",3},
 	require = chrono_req3,
 	mode = "sustained",
@@ -216,13 +220,14 @@ newTalent{
 		local conv = t.getConversion(self, t)
 		local proj = t.getSlow(self, t)
 		local anti = t.getAnti(self, t)
-		return ([[Create a gravity field around you that converts %d%% all damage you deal into physical damage, slows incoming projectiles by %d%%, and protects you from all gravity damage and effects.
-		Additionally, damage dealt by Repulsion Blast has a %d%% chance to reduce the target's knockback resistance by half for two turns.]]):format(conv, proj, anti)
+		return ([[당신의 주변에 중력장을 만들어 당신의 모든 피해를 %d%% 만큼 물리 피해로 바꿉니다. 또한 당신을 목표로 하는 투사체의 속도를 %d%% 만큼 줄이고, 당신을 모든 중력 피해와 효과로 부터 지켜냅니다. 
+		그리고, 반발력 폭발이 피해를 입혔을 때 %d%% 의 확률로 적의 밀려남 저항을 두 턴간 반으로 줄입니다.]]):format(conv, proj, anti)
 	end,
 }
 
 newTalent{
 	name = "Gravity Well",
+	kr_name = "중력우물",
 	type = {"chronomancy/gravity", 4},
 	require = chrono_req4,
 	points = 5,
@@ -263,7 +268,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		local slow = t.getSlow(self, t)
-		return ([[Increases local gravity in a radius of %d for %d turns, dealing %0.2f physical (gravity) damage as well as decreasing the global speed of all affected targets by %d%%.
-		The damage done will scale with your Spellpower.]]):format(radius, duration, damDesc(self, DamageType.PHYSICAL, damage), slow*100)
+		return ([[%d 범위의 공간을 %d 턴 동안 부분적으로 중력을 늘려, 안에 있는 존재에게 %0.2f 의 물리(중력) 피해를 입히고 전체 속도를 %d%% 만큼 줄입니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):format(radius, duration, damDesc(self, DamageType.PHYSICAL, damage), slow*100)
 	end,
 }

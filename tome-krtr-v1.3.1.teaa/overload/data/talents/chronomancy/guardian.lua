@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Strength of Purpose",
+	kr_name = "목표의 힘",
 	type = {"chronomancy/guardian", 1},
 	points = 5,
 	require = { stat = { mag=function(level) return 12 + level * 6 end }, },
@@ -30,15 +31,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d, and increases weapon damage by %d%% when using swords, axes, maces, knives, or bows.
-		You now also use your Magic in place of Strength when equipping weapons and ammo as well as when calculating weapon damage.
-		These bonuses override rather than stack with weapon mastery, dagger mastery, and bow mastery.]]):
+		return ([[검, 도끼, 둔기, 단검, 활을 사용할 때 물리력이 %d 만큼 상승하고, 무기 피해량을 %d%% 만큼 상승시킵니다.
+		당신은 또한 무기 착용시 요구 능력치나, 무기 피해의 능력치를 고려 할때, 힘 능력치 대신에 마법 능력치가 적용됩니다.
+		물리력 상승이나 무기 피해량 상승은 무기 수련이나 단검 수련, 활 수련에 같이 적용 되지 않습니다.]]):
 		format(damage, 100*inc)
 	end,
 }
 
 newTalent{
 	name = "Guardian Unity",
+	kr_name = "수호자 연합",
 	type = {"chronomancy/guardian", 2},
 	require = chrono_req2,
 	points = 5,
@@ -54,7 +56,7 @@ newTalent{
 		-- If we already have a guardian, split the damage
 		if self.unity_warden and game.level:hasEntity(self.unity_warden) then
 		
-			game:delayedLogDamage(src, self.unity_warden, split, ("#STEEL_BLUE#(%d shared)#LAST#"):format(split), nil)
+			game:delayedLogDamage(src, self.unity_warden, split, ("#STEEL_BLUE#(%d 나눠 줌)#LAST#"):format(split), nil)
 			cb.value = cb.value - split
 			self.unity_warden:takeHit(split, src)
 		
@@ -101,11 +103,11 @@ newTalent{
 				self.unity_warden = m
 				m:takeHit(split, src)
 				m:setTarget(src or nil)
-				game:delayedLogMessage(self, nil, "guardian_damage", "#STEEL_BLUE##Source# shares damage with %s guardian!", string.his_her(self))
-				game:delayedLogDamage(src or self, self, 0, ("#STEEL_BLUE#(%d shared)#LAST#"):format(split), nil)
+				game:delayedLogMessage(self, nil, "guardian_damage", "#STEEL_BLUE##Source# 피해를 %s의 수호자에게 나눠 주었습니다!", string.his_her(self))
+				game:delayedLogDamage(src or self, self, 0, ("#STEEL_BLUE#(%d 나눠 줌)#LAST#"):format(split), nil)
 
 			else
-				game.logPlayer(self, "Not enough space to summon warden!")
+				game.logPlayer(self, "감시자를 소환하기 위한 공간이 부족합니다!")
 			end
 		end
 		
@@ -116,14 +118,15 @@ newTalent{
 		local split = t.getDamageSplit(self, t) * 100
 		local duration = t.getDuration(self, t)
 		local cooldown = self:getTalentCooldown(t)
-		return ([[When a single hit deals more than %d%% of your maximum life another you appears and takes %d%% of the damage as well as %d%% of all damage you take for the next %d turns.
-		The clone is out of phase with this reality and deals 50%% less damage but its arrows will pass through friendly targets.
-		This talent has a cooldown.]]):format(trigger, split * 2, split, duration)
+		return ([[만약 하나의 공격이 당신의 최대 생명력의 %d%% 보다 많이 피해를 입혔다면, 또 다른 당신이 나타나 %d%% 의 피해를 가져가고 다음에 입을 피해 또한 %d%% 만큼 %d 턴 간 가져갑니다.
+		또 다른 당신은 이 현실의 위상에서 벗어나 있기 때문에 50%% 만큼 적은 피해를 입히지만, 그의 화살은 아군을 통과 할 수 있습니다.
+		이 스킬은 재사용 대기시간이 있습니다.]]):format(trigger, split * 2, split, duration)
 	end,
 }
 
 newTalent{
 	name = "Vigilance",
+	kr_name = "경계",
 	type = {"chronomancy/guardian", 3},
 	require = chrono_req3,
 	points = 5,
@@ -149,14 +152,15 @@ newTalent{
 	info = function(self, t)
 		local sense = t.getSense(self, t)
 		local power = t.getPower(self, t)
-		return ([[Improves your capacity to see invisible foes by +%d and to see through stealth by +%d.  Additionally you have a %d%% chance to recover from a single negative status effect each turn.
-		Sense abilities will scale with your Magic stat.]]):
+		return ([[투명체 감지 능력을 +%d 만큼, 은신 감지 능력을 +%d 만큼 상승 시킵니다. 또한 당신은 매턴 %d%% 확률로 하나의 부정적인 효과를 회복 할 수 있습니다.
+			감지 능력은 마법 능력치에 비례하여 상승합니다.]]):
 		format(sense, sense, power)
 	end,
 }
 
 newTalent{
 	name = "Warden's Focus", short_name=WARDEN_S_FOCUS,
+	kr_name = "감시자의 주목",
 	type = {"chronomancy/guardian", 4},
 	require = chrono_req4,
 	points = 5,
@@ -174,7 +178,7 @@ newTalent{
 	end,
 	is_melee = function(self, t) return not self:hasArcheryWeapon() end,
 	speed = function(self, t) return self:hasArcheryWeapon() and "archery" or "weapon" end,
-	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "You require a weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "당신은 이 기술을 사용하기 위해서는 무기가 필요합니다.") end return false end return true end,
 	getPower = function(self, t) return self:combatTalentLimit(t, 40, 10, 30) end, -- Limit < 40%
 	getDamage = function(self, t) return 1.2 end,
 	getDuration = function(self, t) return getExtensionModifier(self, t, 10) end,
@@ -183,7 +187,7 @@ newTalent{
 		local tg = self:getTalentTarget(t)
 		local _, x, y = self:canProject(tg, self:getTarget(tg))
 		local target = game.level.map(x, y, game.level.map.ACTOR)
-		if not x or not y or not target then game.logPlayer(self, "You must pick a focus target.")return nil end
+		if not x or not y or not target then game.logPlayer(self, "당신은 주목할 상대를 선택해야 합니다.")return nil end
 
 		if self:hasArcheryWeapon() then
 			-- Ranged attack
@@ -204,8 +208,8 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local power = t.getPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Attack the target with either your ranged or melee weapons for %d%% weapon damage.  For the next %d turns random targeting, such as from Blink Blade and Warden's Call, will focus on this target.
-		Attacks against this target gain %d%% critical chance and critical strike power while you take %d%% less damage from all enemies whose rank is lower then that of your focus target.]])
+		return ([[당신의 목표를 원거리 무기나, 근접 무기 중 하나로 %d%% 의 무기 피해를 입힙니다. 다음 %d 턴 동안 무작위 상대를 고르는 기술(칼날 명멸이나 감시자의 부름 같은)은 이제 이 목표에게 집중되게 됩니다.
+		이 목표에 대한 공격은 %d%% 의 추가 치명타 확률과 치명타 배율을 가지며 목표보다 낮은 랭크의 적에게서 받는 피해를 %d%% 만큼 줄입니다.]])
 		:format(damage, duration, power, power, power)
 	end
 }

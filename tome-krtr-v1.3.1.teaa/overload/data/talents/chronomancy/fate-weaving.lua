@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Spin Fate",
+	kr_name = "운명 잣기",
 	type = {"chronomancy/fate-weaving", 1},
 	require = chrono_req1,
 	mode = "passive",
@@ -47,14 +48,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local save = t.getSaveBonus(self, t)
-		return ([[Each time you would take damage from someone else you gain one Spin, increasing your defense and saves by %d for three turns.
-		This effect may occur once per turn and stacks up to three Spin (for a maximum bonus of %d).]]):
+		return ([[다른 이에게 피해를 받을 때 마다, 당신은 실타래 효과 하나를 얻습니다. 실타래는 3 턴간 유지되며 하나당 당신의 회피율과 내성을 %d 만큼 추가로 부여합니다. (최대 추가량은 %d)
+		이 효과는 한 턴에 한 번씩만 일어나며, 실타래 효과는 3개까지만 쌓입니다.]]):
 		format(save, save * 3)
 	end,
 }
 
 newTalent{
 	name = "Seal Fate",
+	kr_name = "운명 날인",
 	type = {"chronomancy/fate-weaving", 2},
 	require = chrono_req2,
 	points = 5,
@@ -73,14 +75,15 @@ newTalent{
 		local procs = t.getProcs(self, t)
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
-		return ([[Activate to Seal Fate for %d turns.  When you damage a target while Seal Fate is active you gain Spin and have a %d%% chance to increase the duration of one detrimental status effect on it by one turn.
-		If you have Spin Fate active the chance will be increased by 33%% per Spin (for %d%% at three Spin.)
-		The duration increase can occur up to %d times per turn and the bonus Spin once per turn.]]):format(duration, chance, chance * 2, procs)
+		return ([[운명 날인을 %d 턴간 발동합니다. 운명 날인이 유지되는 동안 당신이 목표에게 피해를 입혔다면 당신은 실타래를 하나 얻은 후, %d%% 의 확률로 목표의 해로운 효과 하나의 지속 시간을 1 턴 늘립니다. 
+		만약 당신이 실타래 효과를 가지고 있다면 이 확률은 실타래 하나당 33%% 만큼 상승합니다. (실타래 3개를 가지고 있다면 최종 확률은 %d%% .)
+		지속 시간 연장 효과는 1 턴당 %d 번 일어 날 수 있으며, 추가 실타래는 1 턴당 하나만 얻을 수 있습니다.]]):format(duration, chance, chance * 2, procs)
 	end,
 }
 
 newTalent{
 	name = "Fateweaver",
+	kr_name = "운명의 방직자",
 	type = {"chronomancy/fate-weaving", 3},
 	require = chrono_req3,
 	mode = "passive",
@@ -94,13 +97,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPowerBonus(self, t)
-		return ([[You now gain %d combat accuracy, physical power, spellpower, and mindpower per Spin.]]):
+		return ([[당신은 이제 실타래 하나당 정확도, 물리력, 주문력, 정신력을 %d 만큼 얻습니다.]]):
 		format(power)
 	end,
 }
 
 newTalent{
 	name = "Webs of Fate",
+	kr_name = "운명의 거미줄",
 	type = {"chronomancy/fate-weaving", 4},
 	require = chrono_req4,
 	points = 5,
@@ -119,8 +123,8 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t) * 100
 		local duration = t.getDuration(self, t)
-		return ([[For the next %d turns you displace %d%% of any damage you receive onto a random enemy.
-		While Webs of Fate is active you may gain one additional Spin per turn and your maximum Spin is doubled.]])
+		return ([[다음 %d 턴 동안 당신은 당신이 받을 피해의 %d%% 만큼을 무작위의 적에게 옮깁니다.
+		운명의 거미줄이 유지 되는 동안에는 당신은 한 턴에 하나씩 실타래 효과를 얻으며, 최대 실타래 보유수가 두배로 늘어납니다.]])
 		:format(duration, power)
 	end,
 }

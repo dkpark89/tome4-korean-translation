@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Arrow Stitching",
+	kr_name = "화살 꿰매기",
 	type = {"chronomancy/bow-threading", 1},
 	require = chrono_req1,
 	points = 5,
@@ -35,7 +36,7 @@ newTalent{
 	target = function(self, t)
 		return {type="bolt", range=self:getTalentRange(t), talent=t, friendlyfire=false, friendlyblock=false}
 	end,
-	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "bow") then if not silent then game.logPlayer(self, "You require a bow to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "bow") then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 활을 장비하여야 합니다.") end return false end return true end,
 	passives = function(self, t, p)
 		self:talentTemporaryValue(p,"archery_pass_friendly", 1)
 	end,
@@ -92,16 +93,17 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
 		local penalty = t.getDamagePenalty(self, t)
-		return ([[Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on available space, that will each fire a single arrow before returning to their timelines.
-		The wardens are out of phase with normal reality and deal %d%% less damage but shoot through friendly targets.  All your arrows, including arrows from Shoot and other talents, now phase through friendly targets without causing them harm.
+		return ([[%d%% 의 무기 피해를 주는 화살을 발사한 후에, 만약 충분한 공간이 있다면, 감시자들을 2명까지 불러냅니다. 감시자들은 그들의 시간선으로 돌아가기 전까지 하나의 화살을 각각 발사 할 수 있습니다.
+		감시자들은 정상적인 현실의 위상에서 벗어나 있기 때문에 %d%% 만큼 낮은 피해를 입히지만 모든 공격이 아군을 지나가게 됩니다. 이제 모든 당신의 화살들은, 사격 혹은 다른 기술으로 부터 발사 된 것을 포함해, 위상을 변화 시켜 아군들을 피해 입히지 않고 뚫고 지나게 됩니다.  
 		
-		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot.  You may use the Shoot talent in a similar manner.]])
+		이 카테고리의 기술들은 만약 두 번째 장비 칸에 활이 있다면 자유롭게 교체 되어 사용 될 수 있습니다. 또한 사격 기술도 같은 방식으로 사용 가능합니다.]])
 		:format(damage, penalty)
 	end
 }
 
 newTalent{
 	name = "Singularity Arrow",
+	kr_name = "붕괴의 화살",
 	type = {"chronomancy/bow-threading", 2},
 	require = chrono_req2,
 	points = 5,
@@ -117,7 +119,7 @@ newTalent{
 	target = function(self, t)
 		return {type="ball", range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t, stop_block=true, friendlyfire=false, friendlyblock=false}
 	end,
-	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "bow") then if not silent then game.logPlayer(self, "You require a bow to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "bow") then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 활을 장비하여야 합니다.") end return false end return true end,
 	archery_onreach = function(self, t, x, y)
 		game:onTickEnd(function() -- Let the arrow hit first
 			local tg = self:getTalentTarget(t)
@@ -140,13 +142,13 @@ newTalent{
 						if target:checkHit(getParadoxSpellpower(self, t), target:combatPhysicalResist(), 0, 95) and target:canBe("knockback") then -- Deprecated Checkhit call
 							return true
 						else
-							game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+							game.logSeen(target, "%s 밀려나지 않았습니다!", target.name:capitalize())
 						end
 					end
 					if can(target) then
 						target:pull(x, y, tg.radius, can)
 						tgts[#tgts+1] = target
-						game.logSeen(target, "%s is drawn in by the singularity!", target.name:capitalize())
+						game.logSeen(target, "%s 붕괴에 휩쓸려 특이점에 끌려갑니다!", target.name:capitalize())
 						target:crossTierEffect(target.EFF_OFFBALANCE, getParadoxSpellpower(self, t))
 					end
 				end
@@ -190,16 +192,15 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local radius = self:getTalentRadius(t)
 		local aoe = t.getDamageAoE(self, t)
-		return ([[Fire an arrow for %d%% weapon damage.  When the arrow reaches its destination or hits a target it will draw in all other targets in a radius of %d and inflict %0.2f physical damage.
-		Each target moved beyond the first increases the damage %0.2f (up to %0.2f bonus damage).
-		Targets take reduced damage the further they are from the epicenter (20%% less per tile).
-		The additional damage scales with your Spellpower.]])
+		return ([[ %d%% 의 무기 피해를 입히는 화살을 발사합니다. 화살이 목적지에 도착하거나, 목표를 타격했다면 화살은 %d 의 거리 안에 있는 모든 목표를 끌어 당기고 %0.2f 의 물리 피해를 입힙니다. 
+			물질 붕괴에 휩쓸려 끌어 당겨진 목표 하나마다 %0.2f 만큼 피해가 상승합니다 (최대 %0.2f 피해). 목표는 공격의 중심에서 멀어질 때마다 피해를 적게 받습니다 (한 타일 당 20%%씩). 추가 피해는 주문력에 비례합니다.]])
 		:format(damage, radius, damDesc(self, DamageType.PHYSICAL, aoe), damDesc(self, DamageType.PHYSICAL, aoe/8), damDesc(self, DamageType.PHYSICAL, aoe/2))
 	end
 }
 
 newTalent{
 	name = "Arrow Echoes",
+	kr_name = "화살의 메아리",
 	type = {"chronomancy/bow-threading", 3},
 	require = chrono_req3,
 	points = 5,
@@ -212,7 +213,7 @@ newTalent{
 	target = function(self, t)
 		return {type="bolt", range=self:getTalentRange(t), talent=t, friendlyfire=false, friendlyblock=false}
 	end,
-	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "bow") then if not silent then game.logPlayer(self, "You require a bow to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not doWardenPreUse(self, "bow") then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 활을 장비하여야 합니다.") end return false end return true end,
 	getDuration = function(self, t) return getExtensionModifier(self, t, 4) end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.5, 1.3) end,
 	doEcho = function(self, t, eff)
@@ -239,7 +240,7 @@ newTalent{
 		
 		-- Sanity check
 		if not self:hasLOS(x, y) then
-			game.logSeen(self, "You do not have line of sight.")
+			game.logSeen(self, "당신의 시야에 들어 오지 않습니다")
 			return nil
 		end
 		
@@ -250,14 +251,15 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Over the next %d turns you'll fire up to %d arrows at this target from this location, each dealing %d%% weapon damage to the target. 
-		These shots do not consume ammo.]])
+		return ([[%d 턴에 걸쳐서 당신은 이 자리에서 그 목표에게 화살을 %d 개 까지 발사합니다. 화살은 각각 %d%% 의 무기 피해를 입힙니다.
+		이 사격은 화살을 소모하지 않습니다.]])
 		:format(duration, duration, damage)
 	end
 }
 
 newTalent{
 	name = "Arrow Threading",
+	kr_name = "화살의 흐름",
 	type = {"chronomancy/bow-threading", 4},
 	require = chrono_req4,
 	mode = "passive",
@@ -270,7 +272,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local tune = t.getTuning(self, t)
-		return ([[Your arrows now tune your Paradox %0.2f points towards your preferred Paradox on hit.]])
+		return ([[당신의 화살은 이제 목표를 맞출 때 마다 당신의 괴리 수치를 %0.2f 만큼 선택한 괴리 수치를 목표로 조정합니다.]])
 		:format(tune)
 	end
 
