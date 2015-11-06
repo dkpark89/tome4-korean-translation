@@ -18,19 +18,19 @@
 -- darkgod@te4.org
 
 -- Corruptions
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/sanguisuge", name = "sanguisuge", description = "Manipulate life force to feed your own dark powers." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/torment", name = "torment", generic = true, description = "All the tools to torment your foes." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/vim", name = "vim", description = "Touch the very essence of your victims." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/bone", name = "bone", description = "Harness the power of bones." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/hexes", name = "hexes", generic = true, description = "Hex your foes, hindering and crippling them." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/curses", name = "curses", generic = true, description = "Curse your foes, hindering and crippling them." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/vile-life", name = "vile life", generic = true, description = "Manipulate life for your vile needs." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/plague", name = "plague", description = "Spread diseases to your foes." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/scourge", name = "scourge", description = "Bring pain and destruction to the world." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/reaving-combat", name = "reaving combat", description = "Enhanced melee combat through the dark arts." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/blood", name = "blood", description = "Harness the power of blood, both your own and your foes'." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/blight", name = "blight", description = "Bring corruption and decay to all who oppose you." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/shadowflame", name = "Shadowflame", description = "Harness the power of the demonic shadowflame." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/sanguisuge", name = "sanguisuge", description = "생명의 힘을 통해, 어둠의 힘을 키웁니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/torment", name = "torment", generic = true, description = "모든 도구를 이용하여, 적들을 고문합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/vim", name = "vim", description = "희생자들이 지닌 생명의 근원에 손을 뻗칩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/bone", name = "bone", description = "해골과 뼈의 힘을 사용합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/hexes", name = "hexes", generic = true, description = "매혹술을 걸어, 적들의 행동을 방해하고 무력화시킵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/curses", name = "curses", generic = true, description = "저주를 걸어, 적들의 행동을 방해하고 무력화시킵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/vile-life", name = "vile life", generic = true, description = "불결한 욕망에 따라, 생명의 힘을 조작합니다." } 
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/plague", name = "plague", description = "적들에게 질병을 퍼뜨립니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/scourge", name = "scourge", description = "세상에 고통과 파괴를 가져옵니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/reaving-combat", name = "reaving combat", description = "어둠의 마법을 사용해 근접 전투력을 높입니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/blood", name = "blood", description = "피의 힘을 사용합니다. 자신의 것이든, 남의 것이든..." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/blight", name = "blight", description = "적들을 오염시키고 부패하게 만듭니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="corruption/shadowflame", name = "Shadowflame", description = "악마들이 사용하는 어둠의 불꽃을 사용합니다." }
 
 -- Generic requires for corruptions based on talent level
 corrs_req1 = {

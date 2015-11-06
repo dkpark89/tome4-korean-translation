@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Soul Rot",
+	kr_name = "영혼의 부패",
 	type = {"corruption/vim", 1},
 	require = corrs_req1,
 	points = 5,
@@ -38,15 +39,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Projects a bolt of pure blight, doing %0.2f blight damage.
-		This spell has an improved critical strike chance of +%0.2f%%.
-		The damage will increase with your Spellpower.]]):
+		return ([[순수한 황폐의 기운을 발사하여, %0.2f 황폐 속성 피해를 줍니다.
+		이 마법은 치명타 확률이 다른 마법보다 %0.2f%% 더 높습니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 20, 250)), t.getCritChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Vimsense",
+	kr_name = "원혼의 기운",
 	type = {"corruption/vim", 2},
 	require = corrs_req2,
 	points = 5,
@@ -73,15 +75,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Feel the very existence of creatures around you for %d turns, in a radius of 10.
-		The evil touch will reduce their blight resistance by %d%%, but also make them aware of you.
-		The resistance reduction will improve with your Spellpower.]]):
+		return ([[주변 10 칸 반경의 적들을 %d 턴 동안 감지합니다.
+		사악한 기운이 적들을 둘러싸 황폐 속성 저항력을 %d%% 낮추지만, 그 대신 적들도 시전자의 존재를 느끼게 됩니다.
+		저항 감소량은 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getDuration(self,t), t.getResistPenalty(self,t))
 	end,
 }
 
 newTalent{
 	name = "Leech",
+	kr_name = "착취",
 	type = {"corruption/vim", 3},
 	require = corrs_req3,
 	mode = "passive",
@@ -90,13 +93,14 @@ newTalent{
 	getVim = function(self, t) return self:combatTalentScale(t, 3.7, 6.5, 0.75) end,
 	getHeal = function(self, t) return self:combatTalentScale(t, 8, 20, 0.75) end,
 	info = function(self, t)
-		return ([[Each time a creature affected by vimsense hurts you, you regain %0.2f vim and %0.2f health.]]):
+		return ([[원혼의 기운이 깃든 적에게 공격받으면, %0.2f 원기와 %0.2f 생명력이 회복됩니다.]]):
 		format(t.getVim(self,t),t.getHeal(self,t))
 	end,
 }
 
 newTalent{
 	name = "Dark Portal",
+	kr_name = "어둠의 문",
 	type = {"corruption/vim", 4},
 	require = corrs_req4,
 	points = 5,
@@ -113,7 +117,7 @@ newTalent{
 		self:project(tg, x, y, function(px, py)
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target or target == self then return end
-			if not target:canBe("teleport") then game.logSeen("%s resists the portal!") return end
+			if not target:canBe("teleport") then game.logSeen("어둠의 문에 끌려가지 않고 저항한 개체(%s)가 있습니다!") return end
 			actors[#actors+1] = target
 		end)
 		local _ _, x, y = self:canProject(tg, x, y)
@@ -139,8 +143,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Open a dark portal (radius 3) to the target zone. All creatures caught inside will be teleported to your location, and you to theirs.
-		All creatures (except you) traversing the portal will catch a random disease, doing %0.2f blight damage per turn for 6 turns and reducing one of its physical stats (strength, constitution, dexterity) by %d.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 12, 80)), self:combatTalentSpellDamage(t, 5, 25))
+		return ([[선택한 지점의 주변 3 칸 반경에 어둠의 문이 열립니다. 해당 영역의 모든 적들은 시전자가 있던 곳으로 이동되며, 시전자는 선택 지점으로 이동합니다.
+		어둠의 문을 통과한 모든 적들은 질병에 걸려, 6 턴 동안 매 턴마다 %0.2f 황폐 속성 피해를 받으며 힘, 체격, 민첩 능력치 중 하나가 %d 감소합니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 12, 80)), self:combatTalentSpellDamage(t, 5, 25))
 	end,
 }

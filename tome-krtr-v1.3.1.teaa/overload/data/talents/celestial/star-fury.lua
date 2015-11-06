@@ -136,7 +136,7 @@ newTalent{
 		local darknessdam = t.getDarknessDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[황혼의 물결이 퍼져나가, %0.2f 빛 피해와 %0.2f 어둠 피해를 주변 %d 칸 반경에 줍니다. 
-140 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, lightdam),damDesc(self, DamageType.DARKNESS, darknessdam), radius)
 	end,
 }
@@ -179,7 +179,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		return ([[별똥별을 떨어뜨려, 주변 %d 칸 반경의 적들을 4턴 동안 기절시키고 %0.2f  어둠 피해를 줍니다. 
-183 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }

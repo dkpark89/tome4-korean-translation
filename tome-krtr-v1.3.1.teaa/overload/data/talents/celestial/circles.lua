@@ -53,7 +53,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[발 아래에 %d 칸 반경의 권역을 생성하여 회피도를 %d 증가시키고, 권역에 발을 들이는 자들에게 매 턴마다 %0.2f 어둠 피해를 줍니다. 권역은 %d 턴 간 유지됩니다. 
-56 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, damage, (damDesc (self, DamageType.DARKNESS, damage)), duration)
 	end,
 }
@@ -96,7 +96,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[발 아래에 %d 칸 반경의 권역을 생성하여 빛을 밝히고 매 턴마다 양기를 %d 획득하며, 권역에 발을 들이는 자들에게 매 턴마다 %0.2f 빛 피해와 %0.2f 화염 피해를 줍니다. 권역은 %d 턴 간 유지됩니다. 
-99 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, 1 + (damage / 4), (damDesc (self, DamageType.LIGHT, damage)), (damDesc (self, DamageType.FIRE, damage)), duration)
 	end,
 }
@@ -135,7 +135,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[발 아래에 %d 칸 반경의 권역을 생성하여, 자신을 제외한 권역에 발을 들이는 자들을 침묵시킵니다. 권역은 %d 턴 간 유지됩니다.]]): 
-138 		format(radius, duration) 
+ 		format(radius, duration) 
 	end,
 }
 
@@ -175,7 +175,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[발 아래에 %d 칸 반경의 권역을 생성하여 날아오는 발사체의 속도를 %d%% 감속시키고, 권역에 발을 들이는 자들을 밀어내며 매 턴마다 %0.2f 빛 피해와 %0.2f 어둠 피해를 줍니다. 권역은 %d 턴 간 유지됩니다. 
-178 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]): 
+ 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, damage*5, (damDesc (self, DamageType.LIGHT, damage)), (damDesc (self, DamageType.DARKNESS, damage)), duration)
 	end,
 }

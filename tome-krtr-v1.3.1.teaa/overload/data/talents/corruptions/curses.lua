@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Curse of Defenselessness",
+	kr_name = "무저항의 저주",
 	type = {"corruption/curses", 1},
 	require = corrs_req1,
 	points = 5,
@@ -42,13 +43,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Curses your target, decreasing its Defense and all saves by %d for 10 turns.
-		The effects will improve with your Spellpower.]]):format(self:combatTalentSpellDamage(t, 30, 60))
+		return ([[대상을 저주하여, 회피도와 모든 내성을 10 턴 동안 %d 감소시킵니다.
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 30, 60))
 	end,
 }
 
 newTalent{
 	name = "Curse of Impotence",
+	kr_name = "무기력의 저주",
 	type = {"corruption/curses", 2},
 	require = corrs_req2,
 	points = 5,
@@ -73,13 +75,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Curses your target, decreasing all damage they do by %d%% for 10 turns.
-		The effects will improve with your Spellpower.]]):format(t.imppower(self,t))
+		return ([[대상을 저주하여, 대상이 주는 모든 피해량을 10 턴 동안 %d%% 감소시킵니다.
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(t.imppower(self,t))
 	end,
 }
 
 newTalent{
 	name = "Curse of Death",
+	kr_name = "죽음의 저주",
 	type = {"corruption/curses", 3},
 	require = corrs_req3,
 	points = 5,
@@ -103,13 +106,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Curses your target, stopping any natural healing and dealing %0.2f darkness damage each turn for 10 turns.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.DARKNESS, self:combatTalentSpellDamage(t, 10, 70)))
+		return ([[대상을 저주하여, 10 턴 동안 자연적인 생명력 회복을 정지시키고 매 턴마다 %0.2f 어둠 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.DARKNESS, self:combatTalentSpellDamage(t, 10, 70)))
 	end,
 }
 
 newTalent{
 	name = "Curse of Vulnerability",
+	kr_name = "약화의 저주",
 	type = {"corruption/curses", 4},
 	require = corrs_req4,
 	points = 5,
@@ -133,7 +137,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Curses your target, decreasing all its resistances by %d%% for 7 turns.
-		The effect will improve with your Spellpower.]]):format(self:combatTalentSpellDamage(t, 10, 40))
+		return ([[대상을 저주하여, 대상의 전체 저항력을 7 턴 동안 %d%% 감소시킵니다.
+		이 효과는 주문력의 영향을 받아 증가합니다.]]):format(self:combatTalentSpellDamage(t, 10, 40))
 	end,
 }

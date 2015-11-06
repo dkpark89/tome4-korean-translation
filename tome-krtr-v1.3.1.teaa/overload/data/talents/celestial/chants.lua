@@ -61,9 +61,9 @@ newTalent{
 		local life = t.getLifePct(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
 		return ([[태양의 영광을 노래하여, 물리 내성과 주문 내성을 %d 상승시키고 최대 생명력을 %0.1f%% 증가시킵니다. (현재 상승량 : %d) 
-73 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
-74 		한번에 하나의 찬가만을 유지할 수 있습니다. 
-75 		내성 상승량과 피해량은 주문력의 영향을 받아 증가하고, 생명력은 기술 레벨의 영향을 받아 증가합니다.]]): 
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다. 
+ 		내성 상승량과 피해량은 주문력의 영향을 받아 증가하고, 생명력은 기술 레벨의 영향을 받아 증가합니다.]]): 
 		format(saves, life*100, life*self.max_life, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -106,9 +106,9 @@ newTalent{
 		local range = -t.getDamageChange(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
 		return ([[태양의 영광을 노래하여, 3 칸 이상 떨어진 적에게서 받는 공격의 피해량을 %d%% 만큼 감소시킵니다. 
-118 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
-119 		한번에 하나의 찬가만을 유지할 수 있습니다. 
-120 		피해 감소량은 기술 레벨의 영향을 받아 증가하고, 피해량은 주문력의 영향을 받아 증가합니다.]]):  
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다. 
+ 		피해 감소량은 기술 레벨의 영향을 받아 증가하고, 피해량은 주문력의 영향을 받아 증가합니다.]]):  
 		format(range, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -152,9 +152,9 @@ newTalent{
 		local resists = t.getResists(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		return ([[태양의 영광을 노래하여, 전체 저항력을 %d%% 상승시킵니다. 
-164 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
-165 		한번에 하나의 찬가만을 유지할 수 있습니다. 
-166 		저항력과 피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다. 
+ 		저항력과 피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(resists, damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
@@ -200,10 +200,10 @@ newTalent{
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local lite = t.getLite(self, t)
 		return ([[태양의 영광을 노래하여, 빛과 화염 속성으로 적을 공격할 때 %d%% 피해를 추가로 줍니다. 
-212 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 의 빛 피해를 되돌려 줍니다. 
-213 		또한, 광원 반경이 %d 칸 증가됩니다. 이 찬가는 다른 찬가들에 비해 적은 원천력으로 유지할 수 있습니다. 
-214 		한번에 하나의 찬가만을 유지할 수 있습니다.  
-215 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):  
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 의 빛 피해를 되돌려 줍니다. 
+ 		또한, 광원 반경이 %d 칸 증가됩니다. 이 찬가는 다른 찬가들에 비해 적은 원천력으로 유지할 수 있습니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다.  
+ 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):  
 		format(damageinc, damDesc(self, DamageType.LIGHT, damage), lite)
 	end,
 }

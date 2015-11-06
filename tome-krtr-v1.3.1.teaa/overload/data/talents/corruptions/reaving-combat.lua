@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Corrupted Strength",
+	kr_name = "오염된 힘",
 	type = {"corruption/reaving-combat", 1},
 	mode = "passive",
 	points = 5,
@@ -36,14 +37,15 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Allows you to dual wield any type of one handed weapons, and increases the damage of the off-hand weapon to %d%%.
-		Also, casting a spell (which uses a turn) will give a free melee attack at a random target in melee range for %d%% blight damage.]]):
+		return ([[보조 무기로 모든 한손 무기를 사용할 수 있게 되며, 보조 무기의 피해 효율이 %d%% 가 됩니다.
+		그리고 1 턴 이상의 시전시간을 갖는 주문을 사용할 때, 턴 소모 없이 시전자 근처의 무작위한 적에게 무기 피해의 %d%% 에 해당하는 황폐 속성 피해를 줍니다.]]):
 		format(100*t.getoffmult(self,t), 100 * self:combatTalentWeaponDamage(t, 0.5, 1.1))
 	end,
 }
 
 newTalent{
 	name = "Bloodlust",
+	kr_name = "피의 굻주림",
 	type = {"corruption/reaving-combat", 2},
 	mode = "passive",
 	require = str_corrs_req2,
@@ -56,14 +58,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local SPbonus, maxDur = t.getParams(self, t)
-		return ([[Each time you deal damage to one of your foes, you enter a bloodlust-infused frenzy, increasing your Spellpower by 1 (maximum %d Spellpower per turn, %d Spellpower overall), and extending any current frenzy for an additional turn.
-		The frenzy lasts up to %d turns, and the bonus decreases by %0.1f%% of its current value each turn you don't deal damage.]]):
+		return ([[하나의 적에게 피해를 입힐 때마다, 피의 분노 상태에 들어가 주문력이 1 상승합니다. (한 턴에 최대 %d 주문력, 전체 최대 %d 주문력)
+		또한 현재 유지 중인 다른 분노의 지속시간이 늘어납니다.
+		피의 분노는 %d 턴 동안 유지되며, 적에게 피해를 주지 않은 턴에는 증가한 주문력이 %0.1f%% 감소합니다.]]): 
 		format(SPbonus, SPbonus*6, maxDur, 100/maxDur)
 	end,
 }
 
 newTalent{
 	name = "Carrier",
+	kr_name = "보균자",
 	type = {"corruption/reaving-combat", 3},
 	mode = "passive",
 	require = str_corrs_req3,
@@ -75,14 +79,15 @@ newTalent{
 		self:talentTemporaryValue(p, "disease_immune", t.getDiseaseImmune(self, t))
 	end,
 	info = function(self, t)
-		return ([[You gain a %d%% resistance to diseases, and each of your melee attacks have a %d%% chance to spread any diseases on your target.
-		(As the Epidemic talent with the melee attack treated like blight damage.)]]):
+		return ([[질병 면역력이 %d%% 상승하며, 근접 공격을 할 때마다 %d%% 확률로 대상에게 무작위한 질병을 감염시킵니다.
+		(유행성 질병 기술에 걸린 적에게는 근접 공격이 황폐 피해처럼 적용됩니다.)]]): 
 		format(t.getDiseaseImmune(self, t)*100, t.getDiseaseSpread(self, t))
 	end,
 }
 
 newTalent{
 	name = "Acid Blood",
+	kr_name = "산성 피",
 	type = {"corruption/reaving-combat", 4},
 	mode = "passive",
 	require = str_corrs_req4,
@@ -98,10 +103,10 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Your blood turns into an acidic mixture. When you get hit, the attacker is splashed with acid.
-		This deals %0.2f acid damage each turn for 5 turns, and reduces the attacker's Accuracy by %d.
-		At level 3, it will also reduce Armour by %d for 5 turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[피가 산성 혼합물이 되어, 자신을 공격한 적은 산성 피해를 받게 됩니다.
+		자신을 공격한 적은 5 턴 동안 매 턴마다 %0.2f 산성 피해를 받게 되며, 정확도가 %d 떨어지게 됩니다.
+		기술 레벨이 3 이상이면, 추가적으로 적의 방어도를 5 턴 동안 %d 감소시킵니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 5, 30)), self:combatTalentSpellDamage(t, 15, 35), self:combatTalentSpellDamage(t, 15, 40))
 	end,
 }

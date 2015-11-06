@@ -58,8 +58,8 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		return ([[양손무기로 적을 공격하여 %d%% 의 무기 피해를 줍니다. 
-61 		공격이 명중할 경우, 5 턴 동안 주변 2 칸 반경에 있는 모든 적들의 빛 저항력이 %d%% / 피해량이 %d%% 감소합니다.]]): 
-62 		format(100 * damage, t.getWeakness(self, t), t.getNumb(self, t)) 
+ 		공격이 명중할 경우, 5 턴 동안 주변 2 칸 반경에 있는 모든 적들의 빛 저항력이 %d%% / 피해량이 %d%% 감소합니다.]]): 
+ 		format(100 * damage, t.getWeakness(self, t), t.getNumb(self, t)) 
 	end,
 }
 
@@ -89,7 +89,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[대상에게 5 턴 동안 빛의 표식을 부여합니다. 표식이 부여된 적에게 근접 피해를 줄 경우, 자신의 생명력이 피해량의 %d%% 만큼 회복됩니다.]]): 
-92 		format(t.getPower(self, t)) 
+ 		format(t.getPower(self, t)) 
 	end,
 }
 
@@ -124,8 +124,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[양손 무기를 들고 있는 동안, 물리 치명타율이 %d%% 상승합니다. 또한 근접 치명타를 성공시킬 경우, 올바른 힘이 몸에 스며들어 물리 피해량과 빛 피해량이 %d%% 상승합니다. (최대 3회까지 중첩) 
-127 		추가적으로, 근접 치명타가 대상에게 빛에 의한 화상을 일으켜 5 턴 동안 %0.2f 빛 피해를 가하며 방어도를 %d 감소시키게 됩니다. 
-128 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		추가적으로, 근접 치명타가 대상에게 빛에 의한 화상을 일으켜 5 턴 동안 %0.2f 빛 피해를 가하며 방어도를 %d 감소시키게 됩니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(t.getCrit(self, t), t.getPower(self, t), damDesc(self, DamageType.LIGHT, t.getDamage(self, t)), t.getArmor(self, t))
 	end,
 }
@@ -178,9 +178,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[양손 무기에 빛의 힘을 불어넣은 뒤, 몸을 팽이처럼 회전시켜 공격합니다. 
-181 		주변 1 칸 반경에 있는 모든 적들에게 %d%% 의 무기 피해를 줍니다. 
-182 		또한 무기에 주입된 빛의 힘이 너무나 밝아, 주변 2 칸 반경에 있는 모든 적들에게 %d%% 무기 피해를 빛 속성으로 가합니다. 
-183 		기술 레벨이 4 이상일 경우, 회전하는 검이 모든 피해를 막아주는 보호막을 1 턴 동안 생성합니다.]]): 
+ 		주변 1 칸 반경에 있는 모든 적들에게 %d%% 의 무기 피해를 줍니다. 
+ 		또한 무기에 주입된 빛의 힘이 너무나 밝아, 주변 2 칸 반경에 있는 모든 적들에게 %d%% 무기 피해를 빛 속성으로 가합니다. 
+ 		기술 레벨이 4 이상일 경우, 회전하는 검이 모든 피해를 막아주는 보호막을 1 턴 동안 생성합니다.]]): 
 		format(t.get1Damage(self, t) * 100, t.get2Damage(self, t) * 100)
 	end,
 }

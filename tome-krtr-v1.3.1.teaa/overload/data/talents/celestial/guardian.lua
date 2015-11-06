@@ -54,9 +54,9 @@ newTalent{
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
 		return ([[방패에 빛의 힘을 불어넣어, 피해를 받을 때마다 양기를 2 소모하여 생명력을 %0.2f 회복합니다. 
-61 		양기가 부족하면, 이 효과는 발동되지 않습니다. 
-62 		또한 1 턴에 한 번, 근접 공격을 성공시킬 경우 방패로 %d%% 빛 피해를 추가로 가합니다.  
-63 		치유량은 주문력의 영향을 받아 증가합니다.]]):  
+ 		양기가 부족하면, 이 효과는 발동되지 않습니다. 
+ 		또한 1 턴에 한 번, 근접 공격을 성공시킬 경우 방패로 %d%% 빛 피해를 추가로 가합니다.  
+ 		치유량은 주문력의 영향을 받아 증가합니다.]]):  
 		format(heal, t.getShieldDamage(self, t)*100)
 	end,
 }
@@ -114,7 +114,7 @@ newTalent{
 		local lightdamage = t.getLightDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		return ([[대상을 무기로 공격하여 %d%% 무기 피해를 준 뒤, 방패로 쳐서 %d%% 방패 피해를 줍니다. 방패 공격이 적중하면, 찬란한 빛이 뿜어져나와 %0.2f 빛 피해를 주변 %d 칸 반경에 있는 적들에게 주고, 어두운 곳을 밝힙니다. 
-119 		빛 피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		빛 피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(100 * weapondamage, 100 * shielddamage, damDesc(self, DamageType.LIGHT, lightdamage), radius)
 	end,
 }
@@ -164,8 +164,8 @@ newTalent{
 		end
 
 		return ([[적에게 받는 피해량의 절반을 흡수합니다. %0.2f 피해를 흡수하면, 방패에서 찬란한 빛이 뿜어져나와 주변 %d 칸 반경에 흡수했던 피해량과 동일한 피해를 주고 기술이 해제됩니다. 
-169 		흡수량은 주문력의 영향을 받아 증가합니다. 
-170 		%s]]): 
+ 		흡수량은 주문력의 영향을 받아 증가합니다. 
+ 		%s]]): 
 		format(damage, self:getTalentRange(t), absorb_string)
 	end,
 }
@@ -216,9 +216,9 @@ newTalent{
 		local cooldown = t.getCooldownReduction(self, t)
 		local cleanse = t.getDebuff(self, t)
 		return ([[신중한 공격을 통해 빛에 대한 헌신을 증명합니다.  
-218 		우선 무기로 적에게 %d%% 피해를 주고, 다음에는 방패로 적에게 %d%% 피해를 줍니다. 
-219 		첫 번째 공격이 성공할 경우, 무작위한 기술 %d 개의 재사용 대기 시간이 1 턴 줄어들게 됩니다. 
-220 		두 번째 공격이 성공할 경우, 해로운 상태효과가 %d 개 정화됩니다.]]):  
+ 		우선 무기로 적에게 %d%% 피해를 주고, 다음에는 방패로 적에게 %d%% 피해를 줍니다. 
+ 		첫 번째 공격이 성공할 경우, 무작위한 기술 %d 개의 재사용 대기 시간이 1 턴 줄어들게 됩니다. 
+ 		두 번째 공격이 성공할 경우, 해로운 상태효과가 %d 개 정화됩니다.]]):  
 		format(weapon, shield, cooldown, cleanse)
 	end,
 }

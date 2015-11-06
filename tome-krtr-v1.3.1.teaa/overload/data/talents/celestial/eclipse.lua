@@ -63,7 +63,7 @@ newTalent{
 		local penetration = t.getResistancePenetration(self, t)
 		local cooldownreduction = t.getCooldownReduction(self, t)
 		return ([[빛과 어둠 속성 저항 관통력을 %d 턴 동안 %d%% 증가시키고, 모든 천공 계열 기술의 재사용 대기시간을 %d 턴 감소시킵니다. 
-65 		저항 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]): 
+ 		저항 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]): 
 		format(penetration, duration, cooldownreduction)
 	end,
 }
@@ -130,8 +130,8 @@ newTalent{
 		local lightdamage = t.getLightDamage(self, t)
 		local darknessdamage = t.getDarknessDamage(self, t)
 		return ([[주문이 치명타로 적중할 때마다, 주변 %d 칸 반경에 있는 적 %d 명에게 빛이나 어둠의 화살을 발사하여 %0.2f 빛 피해나 %0.2f 어둠 피해를 줍니다. 
-131 		이 효과가 발동될 때마다 양기나 음기가 2 소모되며, 양기나 음기가 부족하다면 효과가 발동되지 않습니다. 
-132 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		이 효과가 발동될 때마다 양기나 음기가 2 소모되며, 양기나 음기가 부족하다면 효과가 발동되지 않습니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(targetcount, self:getTalentRange(t), damDesc(self, DamageType.LIGHT, lightdamage), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
@@ -207,10 +207,10 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = t.getRadius(self, t)
 		return ([[이 기술이 유지되는 동안 몸이 투명해지며 (투명 수치 +%d), 매 턴마다 %d 만큼의 음기가 양기로 전환됩니다.  
-200 		양기가 음기를 초과하게 되거나 기술의 유지를 해제하면, 기술의 효과가 끝나면서 찬란한 빛이 폭발하여 주변 %d 칸 반경에 (가지고 있던 양기의 총량 + %0.2f) 피해를 줍니다. 
-201 		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 50%% 밖에 주지 못하게 됩니다. 
-202 		투명화 중에 등불 따위를 들고 있으면, 투명화를 한 의미가 사실상 없어지게 됩니다. 
-203 		투명 능력은 교활함 능력치, 폭발 피해량은 주문력의 영향을 받아 증가합니다.]]): 
-204 		format(invisibilitypower, convert, radius, damDesc(self, DamageType.LIGHT, damage)) --@ 변수 순서 조정 
+ 		양기가 음기를 초과하게 되거나 기술의 유지를 해제하면, 기술의 효과가 끝나면서 찬란한 빛이 폭발하여 주변 %d 칸 반경에 (가지고 있던 양기의 총량 + %0.2f) 피해를 줍니다. 
+ 		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 50%% 밖에 주지 못하게 됩니다. 
+ 		투명화 중에 등불 따위를 들고 있으면, 투명화를 한 의미가 사실상 없어지게 됩니다. 
+ 		투명 능력은 교활함 능력치, 폭발 피해량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		format(invisibilitypower, convert, radius, damDesc(self, DamageType.LIGHT, damage)) --@ 변수 순서 조정 
 	end,
 }

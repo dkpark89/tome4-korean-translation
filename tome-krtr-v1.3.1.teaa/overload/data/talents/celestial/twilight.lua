@@ -45,8 +45,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[어둠과 빛의 사이에 선 자의 권능으로, 15 의 양기를 %d 의 음기로 전환합니다. 
-51 		이 기술을 배우면 양기와 음기의 기본값이 최대치의 %d%% 에 해당하는 값으로 변경됩니다. 0 대신, 이 기본값을 향하여 매 턴마다 양기와 음기가 조금씩 변화합니다. 
-52 		획득하는 음기의 양은 교활함 능력치의 영향을 받아 증가합니다.]]): 
+ 		이 기술을 배우면 양기와 음기의 기본값이 최대치의 %d%% 에 해당하는 값으로 변경됩니다. 0 대신, 이 기본값을 향하여 매 턴마다 양기와 음기가 조금씩 변화합니다. 
+ 		획득하는 음기의 양은 교활함 능력치의 영향을 받아 증가합니다.]]): 
 		format(t.getNegativeGain(self, t), t.getRestValue(self, t))
 	end,
 }
@@ -158,8 +158,8 @@ newTalent{
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
 		return ([[현재 위치에 그림자 도약문을 생성합니다. 이 기술이 유지되는 동안, '도약문 : 이동' 기술을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다. 
-164 		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 도약문 기술을 해제해야 합니다. 
-165 		기술 레벨이 4 이상이면, 두번째 도약문을 생성할 수 있습니다.]]):format(range) 
+ 		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 도약문 기술을 해제해야 합니다. 
+ 		기술 레벨이 4 이상이면, 두번째 도약문을 생성할 수 있습니다.]]):format(range) 
  	end,
  }
 
@@ -194,7 +194,7 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
 		return ([[마음의 절규를 내질러, 주변 3 칸 반경에 있는 적들의 의지를 꺾습니다. 영향을 받은 적은 혼란 상태가 되어 %d%% 확률로 무작위한 행동을 하게 되며, 이는 %d 턴 동안 지속됩니다. 
-200 		지속시간은 교활함 능력치의 영향을 받아 증가합니다.]]): 
+ 		지속시간은 교활함 능력치의 영향을 받아 증가합니다.]]): 
 		format(t.getConfuseEfficency(self,t),duration)
 	end,
 }
@@ -256,7 +256,7 @@ newTalent{
 			ai = "summoned", ai_real = target.ai,
 			resists = { all = modifier, [DamageType.DARKNESS] = 50, [DamageType.LIGHT] = - 50, },
 			desc = [[어두운 그림자로, 본체의 모습을 닮아있습니다. 다만 완벽한 복제품은 아니며, 바라보고 있으면 불편한 감정이 생겨납니다.]],  
-262 		} 
+ 		} 
 		m:removeAllMOs()
 		m.make_escort = nil
 		m.on_added_to_level = nil
@@ -293,9 +293,9 @@ newTalent{
 			size = "거대함"
 		end
 		return ([[크기가 '%s' 이하인 적의 그림자 분신을 만들어냅니다. 그림자 분신은 생성 즉시 자신의 본체를 공격하기 시작하며, %d 턴 동안 유지됩니다. 
-299 		그림자는 대상 생명력의 %d%% 만큼을 생명력으로 가집니다. 전체 저항력은 %d%% 이며, 여기에 어둠 저항력은 +50%%, 빛 저항력은 -50%% 만큼이 더해집니다. 
-300 		분신의 지속시간과 생명력 그리고 전체 저항력은 교활함 능력치의 영향을 받아 증가합니다. 보스에게는 이 능력을 사용해도 효과가 없습니다.]]): 
-301 		format(size, duration, t.getPercent(self, t), t.getPercent(self, t))  
+ 		그림자는 대상 생명력의 %d%% 만큼을 생명력으로 가집니다. 전체 저항력은 %d%% 이며, 여기에 어둠 저항력은 +50%%, 빛 저항력은 -50%% 만큼이 더해집니다. 
+ 		분신의 지속시간과 생명력 그리고 전체 저항력은 교활함 능력치의 영향을 받아 증가합니다. 보스에게는 이 능력을 사용해도 효과가 없습니다.]]): 
+ 		format(size, duration, t.getPercent(self, t), t.getPercent(self, t))  
 	end,
 }
 
@@ -365,8 +365,8 @@ newTalent{
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT_TWO)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
 		return ([[현재 위치에 두번째 그림자 도약문을 생성합니다. 이 기술이 유지되는 동안, '두번째 도약문 : 이동' 기술을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다. 
-371 		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 두번째 도약문 기술을 해제해야 합니다.]]):format(range) 
-372 	end, 
+ 		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 두번째 도약문 기술을 해제해야 합니다.]]):format(range) 
+ 	end, 
 }
 
 newTalent{
