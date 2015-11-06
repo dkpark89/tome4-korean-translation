@@ -21,6 +21,7 @@ local Trap = require "mod.class.Trap"
 
 newTalent{
 	name = "Glyph of Paralysis",
+	kr_name = "마비의 문양",
 	type = {"celestial/glyphs", 1},
 	require = divi_req_high1,
 	random_ego = "attack",
@@ -45,6 +46,7 @@ newTalent{
 		local dam = self:spellCrit(t.getDazeDuration(self, t))
 		local trap = Trap.new{
 			name = "glyph of paralysis",
+			kr_name = "마비의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_paralysis_01_64.png",
 			dam = dam,
@@ -85,13 +87,14 @@ newTalent{
 	info = function(self, t)
 		local dazeduration = t.getDazeDuration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All enemies walking over the glyph will be dazed for %d turns.
-		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]]):format(dazeduration, t.trapPower(self,t)*0.8, t.trapPower(self,t), duration)
-	end,
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 적들은 %d 턴 동안 혼절하게 됩니다. 
+91 		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다.]]):format(dazeduration, t.trapPower(self,t)*0.8, t.trapPower(self,t), duration) 
+92 	end, 
 }
 
 newTalent{
 	name = "Glyph of Repulsion",
+	kr_name = "격퇴의 문양",
 	type = {"celestial/glyphs", 2},
 	require = divi_req_high2,
 	random_ego = "attack",
@@ -117,6 +120,7 @@ newTalent{
 		local sp = self:combatSpellpower()
 		local trap = Trap.new{
 			name = "glyph of repulsion",
+			kr_name = "격퇴의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_repulsion_01_64.png",
 			dam = dam,
@@ -162,15 +166,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets walking over the glyph will be hit by a blast that knocks them back and does %0.2f physical damage.
-		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 물리 속성의 %0.2f 피해를 받고 밀려납니다. 
+170 		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다. 
+171 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.PHYSICAL, damage), t.trapPower(self, t)*0.8, t.trapPower(self, t), duration)
 	end,
 }
 
 newTalent{
 	name = "Glyph of Explosion",
+	kr_name = "폭발의 문양",
 	type = {"celestial/glyphs", 3},
 	require = divi_req_high3,
 	random_ego = "attack",
@@ -195,6 +200,7 @@ newTalent{
 		local dam = self:spellCrit(t.getDamage(self, t))
 		local trap = Trap.new{
 			name = "glyph of explosion",
+			kr_name = "폭발의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_explosion_02_64.png",
 			dam = dam,
@@ -236,15 +242,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets walking over the glyph will trigger an explosion of light that does %0.2f damage to everyone within 1 tile.
-		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 빛의 폭발에 휘말려 %0.2f 피해를 받습니다. 빛의 폭발은 주변 1 칸 반경에 영향을 줍니다. 
+246 		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다. 
+247 		피해량은 마법 능력치의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, damage), t.trapPower(self, t)*0.8, t.trapPower(self, t)*0.8, duration)
 	end,
 }
 
 newTalent{
 	name = "Glyph of Fatigue",
+	kr_name = "피로의 문양",
 	type = {"celestial/glyphs", 4},
 	require = divi_req_high4,
 	random_ego = "attack",
@@ -269,6 +276,7 @@ newTalent{
 		local dam = self:spellCrit(t.getSlow(self, t))
 		local trap = Trap.new{
 			name = "glyph of fatigue",
+			kr_name = "피로의 문양", kr_unided_name = "함정",
 			type = "elemental", id_by_type=true, unided_name = "trap",
 			display = '^', color=colors.GOLD, image = "trap/trap_glyph_fatigue_01_64.png",
 			dam = dam,
@@ -307,8 +315,8 @@ newTalent{
 	info = function(self, t)
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You bind light in a glyph on the floor. All targets walking over the glyph will be slowed by %d%% for 5 turns.
-		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]]):
-		format(100 * slow, t.trapPower(self, t), t.trapPower(self, t), duration)
-	end,
+		return ([[바닥에 문양을 새기고 빛을 불어넣습니다. 문양 위에 발을 올린 모든 대상은 5 턴 동안 %d%% 감속됩니다. 
+319 		문양은 (탐지 난이도 %d / 해체 난이도 %d 이며 마법 능력치의 영향을 받아 난이도가 증가하는) 숨겨진 함정이며, %d 턴 동안 유지됩니다.]]): 
+320 		format(100 * slow, t.trapPower(self, t), t.trapPower(self, t), duration)  
+321 	end, 
 }
