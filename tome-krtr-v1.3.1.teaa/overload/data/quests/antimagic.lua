@@ -18,9 +18,10 @@
 -- darkgod@te4.org
 
 name = "The Curse of Magic"
+kr_name = "마법의 저주"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have been invited to join a group called the Ziguranth, dedicated to opposing magic."
+	desc[#desc+1] = "당신은 모든 마법을 물리치는 것이 목표인 '지구르 추종자' 들의 모임에 초대를 받았습니다."
 	return table.concat(desc, "\n")
 end
 
@@ -74,7 +75,7 @@ next_combat = function(self)
 
 		if not self:isEnded() then
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("antimagic-end", {name="Grim-looking fighter"}, game.player)
+			local chat = Chat.new("antimagic-end", {name="Grim-looking fighter", kr_name="엄격하게 생긴 전사"}, game.player)
 			chat:invoke()
 		end
 	end
@@ -124,8 +125,8 @@ add_foe = function(self, next_wave, first, foe_idx)
 			end
 			m:setTarget(game.player)
 			game.zone:addEntity(game.level, m, "actor", x, y)
-			if first then game.logSeen(m, "#VIOLET#A foe is summoned to the arena!")
-			else game.logSeen(m, "#VIOLET#Another foe is summoned to the arena!") end
+			if first then game.logSeen(m, "#VIOLET#투기장에 적이 소환되었습니다!")
+			else game.logSeen(m, "#VIOLET#또다른 적이 투기장에 소환되었습니다!") end
 		else
 			-- err weird, lets try again
 			return self:add_foe(next_wave, first, foe_idx)
