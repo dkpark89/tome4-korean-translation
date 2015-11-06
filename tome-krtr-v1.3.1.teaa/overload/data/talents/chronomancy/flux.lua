@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Induce Anomaly",
+	kr_name = "이상 현상 유발",
 	type = {"chronomancy/flux", 1},
 	require = chrono_req1,
 	points = 5,
@@ -37,14 +38,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getReduction(self, t)
-		return ([[Create an anomaly, reducing your Paradox by %d.  This spell will never produce a major anomaly.
-		Induced Anomalies may not be held by Twist Fate, nor do they cause held anomalies to trigger.  However upon learning Twist Fate you may target Induced Anomalies.
-		The Paradox reduction will increase with your Spellpower.]]):format(reduction)
+		return ([[이상 현상을 일으켜, 당신의 괴리 수치를 %d 만큼 줄입니다. 이 마법은 주요 이상 현상은 일으키지 않습니다.
+		유발된 이상 현상은 운명 비틀기에 의해 잡히지 않고, 이미 잡혀 있는 이상 현상을 발동 시키지도 않습니다. 하지만 운명 비틀기를 배운다면, 이 기술을 사용 할 때 어느 위치에 이상 현상을 발생 시킬 것인지 정할 수 있습니다.
+		괴리 수치 감소량은 주문력에 비례합니다.]]):format(reduction)
 	end,
 }
 
 newTalent{
 	name = "Reality Smearing",
+	kr_name = "현실 흐리기",
 	type = {"chronomancy/flux", 2},
 	require = chrono_req2,
 	mode = "sustained", 
@@ -73,7 +75,7 @@ newTalent{
 		local paradox = absorb * t.getPercent(self, t)
 		
 		self:setEffect(self.EFF_REALITY_SMEARING, t.getDuration(self, t), {paradox=paradox/t.getDuration(self, t)})
-		game:delayedLogMessage(self, nil,  "reality smearing", "#LIGHT_BLUE##Source# converts damage to paradox!")
+		game:delayedLogMessage(self, nil,  "reality smearing", "#LIGHT_BLUE##Source# 피해를 괴리로 바꿔치었습니다!")
 		game:delayedLogDamage(src, self, 0, ("#LIGHT_BLUE#(%d converted)#LAST#"):format(absorb), false)
 		cb.value = cb.value - absorb
 		
@@ -91,14 +93,15 @@ newTalent{
 	info = function(self, t)
 		local ratio = t.getPercent(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[While active 30%% of all damage you take is converted into %0.2f Paradox damage.
-		The Paradox damage is taken over three turns.]]):
+		return ([[발동된 동안 모든 피해의 30%%를 %0.2f 의 괴리 피해로 바꿔칩니다.
+		괴리 피해는 세 턴간 나눠져 가해집니다.]]):
 		format(ratio, duration)
 	end,
 }
 
 newTalent{
 	name = "Attenuate",
+	kr_name = "희석",
 	type = {"chronomancy/flux", 3},
 	require = chrono_req3,
 	points = 5,
@@ -140,14 +143,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Deals %0.2f temporal damage over %d turns to all targets in a radius of %d.  Targets with Reality Smearing active will instead recover %d life over four turns.
-		If a target is reduced below 20%% life while Attenuate is active it may be instantly slain.
-		The damage will scale with your Spellpower.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration, radius, damage *0.4)
+		return ([[%0.2f 의 시간 피해를 %d 턴 동안 %d 칸 내에 있는 모든 목표에게 가합니다. 현실 흐리기 기술이 발동 하고 있는 목표는 피해를 입지 않고 %d의 생명력을 4 턴간 회복합니다.
+		만약 목표가 희석이 유지되는 동안 생명력이 20%% 이하로 떨어진다면 즉시 살해 될 수 있습니다.
+		피해량은 주문력에 비례하여 상승합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration, radius, damage *0.4)
 	end,
 }
 
 newTalent{
 	name = "Twist Fate",
+	kr_name = "운명 비틀기",
 	type = {"chronomancy/flux", 4},
 	require = chrono_req4,
 	points = 5,
@@ -190,11 +194,11 @@ newTalent{
 			t_name = talent.name
 			t_info = talent.info(self, talent)
 		end
-		return ([[If Twist Fate is not on cooldown minor anomalies will be held for %d turns, allowing your spell to cast as normal.  While held you may cast Twist Fate in order to trigger the anomaly and may choose the target area.
-		If a second anomaly occurs while a prior one is held or the timed effect expires the first anomaly will trigger immediately, interrupting your current turn or action.
-		Paradox reductions from held anomalies occur when triggered.
-				
-		Current Anomaly: %s
+		return ([[만약 운명 비틀기가 재사용 대기 상태가 아니라면, 발생될 비주요 이상 현상들이 %d 턴간 붙잡혀 주문이 정상적으로 시전됩니다. 이상 현상을 잡고 있는 동안 운명 비틀기를 사용한다면, 이상 현상을 원하는 자리에 풀어 줄 수 있습니다.
+		만약 이미 이상 현상을 잡고 있는 도중 한 번 더 이상 현상이 발동하거나, 정해진 턴수를 넘어선다면 즉시 잡혀 있던 이상 현상이 발동 됩니다. 이 것은 당신의 모든 행동을 취소하고 현재 턴을 사용합니다.
+		잡혀 있던 이상 현상이 풀려난다면 그에 맞게 괴리 수치를 회복합니다.
+		
+		현재 이상 현상: %s
 		
 		%s]]):
 		format(duration, t_name, t_info)
