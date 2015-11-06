@@ -143,7 +143,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[%0.2f 의 시간 피해를 %d 턴 동안 %d 칸 내에 있는 모든 목표에게 가합니다. 현실 흐리기 기술이 발동 하고 있는 목표는 피해를 입지 않고 %d의 생명력을 4 턴간 회복합니다.
+		return ([[%0.2f 의 시간 피해를 %d 턴 동안 %d 칸 내에 있는 모든 목표에게 가합니다. 현실 흐리기 기술이 발동 하고 있는 목표는 피해를 입지 않고 %d 의 생명력을 4 턴간 회복합니다.
 		만약 목표가 희석이 유지되는 동안 생명력이 20%% 이하로 떨어진다면 즉시 살해 될 수 있습니다.
 		피해량은 주문력에 비례하여 상승합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration, radius, damage *0.4)
 	end,
