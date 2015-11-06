@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Thread Walk",
+	kr_name = "흐름 걷기",
 	type = {"chronomancy/threaded-combat", 1},
 	require = chrono_req_high1,
 	points = 5,
@@ -38,7 +39,7 @@ newTalent{
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1, 1.5) end,
 	getDefense = function(self, t) return self:combatTalentStatDamage(t, "mag", 10, 25) end,
 	getResist = function(self, t) return self:combatTalentStatDamage(t, "mag", 5, 15) end,
-	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "You require a weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 무기가 필요합니다.") end return false end return true end,
 	passives = function(self, t, p)
 		self:talentTemporaryValue(p, "defense_on_teleport", t.getDefense(self, t))
 		self:talentTemporaryValue(p, "resist_all_on_teleport", t.getResist(self, t))
@@ -56,7 +57,7 @@ newTalent{
 			if self:teleportRandom(x, y, 0) then
 				game.level.map:particleEmitter(self.x, self.y, 1, "temporal_teleport")
 			else
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "마법이 실패하였습니다!")
 			end
 		end)
 	end,
@@ -82,7 +83,7 @@ newTalent{
 			local weapon = self:hasArcheryWeaponQS()
 			if weapon then range = weapon.combat.range end
 			local poss = {}
-			game.logPlayer(self, "range %d", range)
+			game.logPlayer(self, "사정거리 %d", range)
 			for i = x - range, x + range do
 				for j = y - range, y + range do
 					if game.level.map:isBound(i, j) and
@@ -93,7 +94,7 @@ newTalent{
 					end
 				end
 			end
-			if #poss == 0 then return game.logSeen(self, "The spell fizzles!") end
+			if #poss == 0 then return game.logSeen(self, "주문이 실패하였습니다!") end
 			local pos = poss[rng.range(1, #poss)]
 			x, y = pos[1], pos[2]
 			
@@ -103,7 +104,7 @@ newTalent{
 			if self:teleportRandom(x, y, 0) then
 				game.level.map:particleEmitter(self.x, self.y, 1, "temporal_teleport")
 			else
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 실패하였습니다!")
 			end
 			
 			
@@ -130,7 +131,7 @@ newTalent{
 			end]]
 
 		else
-			game.logPlayer(self, "You cannot use Thread Walk without an appropriate weapon!")
+			game.logPlayer(self, "당신은 합당한 무기 없이는 이 기술을 사용할 수 없습니다!")
 			return nil
 		end
 		
@@ -140,15 +141,16 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local defense = t.getDefense(self, t)
 		local resist = t.getResist(self, t)
-		return ([[Attack with your bow or dual-weapons for %d%% damage.  If you shoot an arrow you'll teleport near the target location.  If you use your dual-weapons you'll teleport up to your bow's range away.
-		Additionally you now go Out of Phase for five turns after any teleport, gaining %d defense and %d%% resist all.
-		The Out of Phase bonuses will scale with your Magic stat.]])
+		return ([[당신의 쌍수무기나 활로 %d%% 의 무기 피해를 입힙니다. 만약 당신이 화살을 쏘았다면 당신은 목표의 근처로 순간이동 할 것입니다. 만약 당신이 쌍수무기로 공격했다면, 당신은 활의 사정거리 내로 순간이동 할 것입니다.
+		또한 당신은 이제 어떠한 순간이동 후에도 위상에서 벗어남 효과를 다섯 턴 동안 가지게 됩니다. 이 효과는 %d 의 회피율과 %d%% 만큼의 모든 속성 저항력을 추가합니다.
+		위상에서 벗어남 효과는 당신의 마법 능력치에 비례하여 상승합니다.]])
 		:format(damage, defense, resist)
 	end
 }
 
 newTalent{
 	name = "Blended Threads",
+	kr_name = "뒤섞인 흐름",
 	type = {"chronomancy/threaded-combat", 2},
 	require = chrono_req_high2,
 	mode = "passive",
@@ -198,15 +200,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local count = t.getCount(self, t)
-		return ([[Each time you hit with an arrow you reduce the cooldown of one Blade Threading talent on cooldown by one turn.
-		Each time you hit with a melee weapon you reduce the cooldown of one Bow Threading talent on cooldown by one turn.
-		This effect can only occur %d times per turn.]])
+		return ([[당신이 화살을 맞출 때마다 검의 흐름 계열의 기술 중 하나의 재사용 대기 시간이 한 턴 줄어듭니다.
+		당신이 근접무기를 맞출 때마다 활의 흐름 계열의 기술 중 하나의 재사용 대기 시간이 한 턴 줄어듭니다.
+		이 효과는 한 턴에 %d 번만 일어날 수 있습니다.]])
 		:format(count)
 	end
 }
 
 newTalent{
 	name = "Thread the Needle",
+	kr_name = "바늘의 흐름",
 	type = {"chronomancy/threaded-combat", 3},
 	require = chrono_req_high3,
 	points = 5,
@@ -221,7 +224,7 @@ newTalent{
 	is_melee = function(self, t) return not self:hasArcheryWeapon("bow") end,
 	speed = function(self, t) return self:hasArcheryWeapon("bow") and "archery" or "weapon" end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.1, 2.2) end,
-	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "You require a weapon to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:attr("disarmed") then if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 무기가 필요합니다.") end return false end return true end,
 	target = function(self, t)
 		local tg = {type="beam", range=self:getTalentRange(t)}
 		if not self:hasArcheryWeapon("bow") then
@@ -249,7 +252,7 @@ newTalent{
 			end)
 			self:addParticles(Particles.new("meleestorm2", 1, {}))
 		else
-			game.logPlayer(self, "You cannot use Thread the Needle without an appropriate weapon!")
+			game.logPlayer(self, "당신은 합당한 무기 없이 이 기술을 사용 할 수 없습니다!")
 			return nil
 		end
 
@@ -257,13 +260,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[Attack with your bow or dual-weapons for %d%% damage.  If you use your bow you'll shoot all targets in a beam.  If you use your dual-weapons you'll attack all targets within a radius of one around you.]])
+		return ([[당신의 활이나 쌍수무기로 %d%% 의 무기 피해를 입힙니다. 만약 당신이 활을 쏘았다면 당신은 일직선의 모든 목표를 타격할 것입니다. 만약 당신이 쌍수무기를 휘둘렀다면 당신은 당신의 주변 한 칸에 있는 모든 적들을 공격 할 것입니다.]])
 		:format(damage)
 	end
 }
 
 newTalent{
 	name = "Warden's Call", short_name = WARDEN_S_CALL,
+	kr_name = "감시자의 부름",
 	type = {"chronomancy/threaded-combat", 4},
 	require = chrono_req_high4,
 	mode = "passive",
@@ -398,9 +402,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage_penalty = t.getDamagePenalty(self, t)
-		return ([[When you hit with a melee or arrow attack a warden may appear from another timeline, depending on available space, and shoot or attack a random enemy.
-		The wardens are out of phase with this reality and deal %d%% less damage but the bow warden's arrows will pass through friendly targets.
-		This effect can only occur once per turn and the wardens return to their own timeline after attacking.]])
+		return ([[당신이 근접이나 화살로 공격을 맞추었을 때에, 적당한 공간이 있다면, 감시자가 다른 시간선으로 부터 나타날 수 있습니다. 나타난 감시자는 무작위의 적을 쏘거나 공격합니다.
+		감시자들은 이 현실의 위상에서 벗어나 있기 때문에 %d%% 만큼 낮은 피해를 입히지만, 감시자의 화살은 아군을 통과해서 지나갈 것입니다.
+		이 효과는 오직 한 턴에 한 번만 일어나며, 감시자들은 공격한 후에 그들의 시간선으로 되돌아갑니다.]])
 		:format(damage_penalty)
 	end
 }
