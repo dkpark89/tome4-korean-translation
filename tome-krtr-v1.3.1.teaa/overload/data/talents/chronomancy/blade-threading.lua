@@ -168,7 +168,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t) * 100
-		return ([[목표에게 텔레포트하여 당신의 근접무기로 %d%%의 무기 피해를 입힙니다. 그 다음 두 번째 무작위의 적의 옆으로 텔레포트하여 %d%% 피해를 가합니다.
+		return ([[목표에게 텔레포트하여 당신의 근접무기로 %d%% 의 무기 피해를 입힙니다. 그 다음 두 번째 무작위의 적의 옆으로 텔레포트하여 %d%% 피해를 가합니다.
 		칼날 명멸은 같은 목표를 여러번 공격 할 수 있습니다.]])
 		:format(damage, damage)
 	end
@@ -241,10 +241,10 @@ newTalent{
 				if target and self:reactionToward(target) < 0 then
 					if target:checkHit(getParadoxSpellpower(self, t), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("instakill") and target.life > 0 and target.life < target.max_life * 0.2 then
 						-- KILL IT !
-						game.logSeen(target, "%s 은 시간의 흐름에서 잘려나갔습니다!", target.name:capitalize())
+						game.logSeen(target, "%s 시간의 흐름에서 잘려나갔습니다!", target.name:capitalize())
 						target:die(self)
 					elseif target.life > 0 and target.life < target.max_life * 0.2 then
-						game.logSeen(target, "%s 은 시간 자르기를 버텨냈습니다!", target.name:capitalize())
+						game.logSeen(target, "%s 시간 자르기를 버텨냈습니다!", target.name:capitalize())
 					end
 				end
 			end)
@@ -258,7 +258,7 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local shear = t.getShear(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[ 최대 3명의 인접한 적을 %d%% 의 무기 피해로 공격합니다. 만약 어떠한 공격이라도 적중한다면, 당신은 시간의 전단층을 형성하여 %0.2f 시간 피해를 범위 %d의 원뿔 형으로 입힙니다.
+		return ([[ 최대 3명의 인접한 적을 %d%% 의 무기 피해로 공격합니다. 만약 어떠한 공격이라도 적중한다면, 당신은 시간의 전단층을 형성하여 %0.2f 시간 피해를 범위 %d 의 원뿔 형으로 입힙니다.
 		하나의 목표 보다 많은 적을 무기로 공격하였을 시, 각각 시간의 전단의 피해량이 25%%씩 상승합니다. 시간의 전단으로 생명력이 20%% 이하로 떨어진 목표는 즉시 살해 될 수 있습니다.
 		시간의 전단의 피해량은 주문력에 비례하여 증가합니다.]])
 		:format(damage, damDesc(self, DamageType.TEMPORAL, shear), radius)
