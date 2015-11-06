@@ -56,7 +56,7 @@ newTalent{
 
 newTalent{
 	name = "Seal Fate",
-	kr_name = "운명 날인"
+	kr_name = "운명 날인",
 	type = {"chronomancy/fate-weaving", 2},
 	require = chrono_req2,
 	points = 5,
