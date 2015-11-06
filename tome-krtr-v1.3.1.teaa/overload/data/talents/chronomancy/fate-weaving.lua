@@ -75,7 +75,7 @@ newTalent{
 		local procs = t.getProcs(self, t)
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
-		return ([[운명 날인을 %d 턴간 발동합니다. 운명 날인이 유지되는 동안 당신이 목표에게 피해를 입혔다면 당신은 실타래를 하나 얻은 후, %d%%의 확률로 목표의 해로운 효과 하나의 지속 시간을 1 턴 늘립니다. 
+		return ([[운명 날인을 %d 턴간 발동합니다. 운명 날인이 유지되는 동안 당신이 목표에게 피해를 입혔다면 당신은 실타래를 하나 얻은 후, %d%% 의 확률로 목표의 해로운 효과 하나의 지속 시간을 1 턴 늘립니다. 
 		만약 당신이 실타래 효과를 가지고 있다면 이 확률은 실타래 하나당 33%% 만큼 상승합니다. (실타래 3개를 가지고 있다면 최종 확률은 %d%% .)
 		지속 시간 연장 효과는 1 턴당 %d 번 일어 날 수 있으며, 추가 실타래는 1 턴당 하나만 얻을 수 있습니다.]]):format(duration, chance, chance * 2, procs)
 	end,
