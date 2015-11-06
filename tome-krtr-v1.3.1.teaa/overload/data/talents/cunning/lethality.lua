@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Lethality",
+	kr_name = "약점 포착",
 	type = {"cunning/lethality", 1},
 	mode = "passive",
 	points = 5,
@@ -32,14 +33,15 @@ newTalent{
 	info = function(self, t)
 		local critchance = t.getCriticalChance(self, t)
 		local power = t.critpower(self, t)
-		return ([[You have learned to find and hit weak spots. All your strikes have a %0.2f%% greater chance to be critical hits, and your critical hits do %0.1f%% more damage.
-		Also, when using knives, you now use your Cunning instead of your Strength for bonus damage.]]):
+		return ([[적의 약점을 찾고 공격하는 방법을 배워, 적을 공격할 때 치명타율이 %0.2f%% 상승하고 치명타 피해량이 %0.1f%% 상승합니다.
+		그리고 단검류 무기를 사용할 때, 적용 능력치로 힘 대신 교활함 능력치를 사용할 수 있게 됩니다.]]):
 		format(critchance, power)
 	end,
 }
 
 newTalent{
 	name = "Deadly Strikes",
+	kr_name = "치명적 타격",
 	type = {"cunning/lethality", 2},
 	points = 5,
 	random_ego = "attack",
@@ -73,14 +75,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local apr = t.getArmorPierce(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You hit your target, doing %d%% damage. If your attack hits, you gain %d armour penetration for %d turns.
-		The APR will increase with your Cunning.]]):
-		format(100 * damage, apr, duration)
+		return ([[대상을 공격하여 %d%% 피해를 줍니다. 공격이 명중하면, %d 턴 동안 방어도 관통력이 %d 상승하게 됩니다.
+		방어도 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]):
+		format(100 * damage, duration, apr) --@ 변수 순서 조정
 	end,
 }
 
 newTalent{
 	name = "Willful Combat",
+	kr_name = "의지의 전투",
 	type = {"cunning/lethality", 3},
 	points = 5,
 	random_ego = "attack",
@@ -98,14 +101,15 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[For %d turns, you put all your will into your blows, adding %d physical power to each strike.
-		The effect will improve with your Cunning and Willpower stats.]]):
+		return ([[%d 턴 동안, 공격에 의지를 담아 %d 물리력이 추가 됩니다.
+		기술의 효과는 교활함 능력치와 의지 능력치의 영향을 받아 증가합니다.]]):
 		format(duration, damage)
 	end,
 }
 
 newTalent{
 	name = "Snap",
+	kr_name = "재빠른 결정",
 	type = {"cunning/lethality",4},
 	require = cuns_req4,
 	points = 5,
@@ -137,7 +141,7 @@ newTalent{
 	info = function(self, t)
 		local talentcount = t.getTalentCount(self, t)
 		local maxlevel = t.getMaxLevel(self, t)
-		return ([[Your quick wits allow you to reset the cooldown of up to %d of your combat talents (cunning or technique) of tier %d or less.]]):
-		format(talentcount, maxlevel)
+		return ([[재빠른 생각과 몸놀림을 통해, %d 단계 이하의 전투 기술 (물리 / 교활 계열 기술) 중에서 최대 %d 개의 재사용 대기시간을 없애버립니다.]]):
+		format(maxlevel, talentcount) --@ 변수 순서 조정
 	end,
 }

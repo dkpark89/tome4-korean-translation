@@ -13,10 +13,11 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+require "engine.krtrUtils"
 local sling_equipped = function(self, silent)
 	if not self:hasArcheryWeapon("sling") then
 		if not silent then
-			game.logPlayer(self, "You must wield a sling!")
+			game.logPlayer(self, "투석구를 장착해야 합니다!")
 		end
 		return false
 	end
@@ -79,6 +80,7 @@ end
 newTalent {
 	short_name = "SKIRMISHER_KNEECAPPER",
 	name = "Kneecapper",
+	kr_name = "무릎 깨기",
 	type = {"cunning/called-shots", 1},
 	require = techs_cun_req1,
 	points = 5,
@@ -106,7 +108,7 @@ newTalent {
 		if target:canBe("pin") then
 			target:setEffect(target.EFF_PINNED, t.pin_duration(self, t), {apply_power = self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists being knocked down.", target.name:capitalize())
+			game.logSeen(target, "%s 속박되지 않았습니다.", (target.kr_name or target.name):capitalize():addJosa("가"))
 		end
 		pen_off(self, t, target, x, y)
 	end,
@@ -117,13 +119,13 @@ newTalent {
 	speed = "archery",
 	action = fire_shot,
 	info = function(self, t)
-		return ([[Strike your opponent in the knee (or other critical point in an ambulatory appendage) for %d%% weapon damage, knocking them down (%d turn pin) and slowing their movement by %d%% for %d turns afterwards.
-		This shot will bypass other enemies between you and your target.
-		The slow effect becomes more powerful with your Cunning.]])
+		return ([[대상의 무릎 (혹은 구조상 이동에 중요한 부분) 을 공격하여, %d%% 의 무기 피해를 주고 %d 턴 동안 이동하지 못하게 만듭니다. 또한 속박 상태가 끝난 이후에도 대상은 %d 턴 동안 이동속도가 %d%% 감소하게 됩니다.
+		시전자와 대상 사이의 다른 적들은 이 공격의 영향을 받지 않습니다.
+		감속 효과는 교활 능력치의 영향을 받아 증가합니다.]])
 		:format(t.damage_multiplier(self, t) * 100,
 				t.pin_duration(self, t),
-				t.slow_power(self, t) * 100,
-				t.slow_duration(self, t))
+				t.slow_duration(self, t),
+				t.slow_power(self, t) * 100) --@ 변수 순서 조정
 	end,
 }
 
@@ -133,6 +135,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_THROAT_SMASHER",
 	name = "Kill Shot",
+	kr_name = "결정타",
 	type = {"cunning/called-shots", 2},
 	require = techs_cun_req2,
 	points = 5,
@@ -174,7 +177,7 @@ newTalent {
 
 		local target = game.level.map(targets[1].x, targets[1].y, engine.Map.ACTOR)
 		if not target then return end
-		game:delayedLogMessage(self, target, "kill_shot", "#DARK_ORCHID##Source# snipes #Target# (%+d%%%%%%%% weapon bonus for range)!#LAST#", distbonus*100)
+		game:delayedLogMessage(self, target, "kill_shot", "#DARK_ORCHID##Source1# #Target3# 저격했습니다! (사거리에 의해 %+d%%%%%%%% 피해량 추가)#LAST#", distbonus*100)
 
 		local params = {mult = damage + distbonus}
 		if bonuses.crit_chance then params.crit_chance = bonuses.crit_chance end
@@ -186,10 +189,10 @@ newTalent {
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Employ a specialized sniping shot at a target.
-		This shot is focused on precision at long range and deals base %d%% ranged damage with a bonus that increases with distance.
-		The ranged bonus is %d%% (penalty) at point blank range, while at your maximum range of %d it is %d%%.
-		This shot will bypass other enemies between you and your target.]])
+		return ([[대상을 저격용 탄환으로 공격합니다.
+		이 탄환은 장거리 사격에 특화되어, 기본적으로 %d%% 의 무기 피해를 가하며 거리에 따라 추가 피해를 입힙니다.
+		거리에 따른 추가 피해는 지근거리에서 %d%% 만큼, 최대 사거리 %d 칸에 있는 대상에게는 %d%% 만큼 가해집니다.
+		시전자와 대상 사이의 다른 적들은 이 공격의 영향을 받지 않습니다.]])
 		:format(t.damage_multiplier(self, t) * 100, t.getDistanceBonus(self, t, 1)*100, range, t.getDistanceBonus(self, t, range)*100)
 
 		end,
@@ -198,6 +201,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_NOGGIN_KNOCKER",
 	name = "Noggin Knocker",
+	kr_name = "머리 깨기",
 	type = {"cunning/called-shots", 3},
 	require = techs_cun_req3,
 	points = 5,
@@ -217,7 +221,7 @@ newTalent {
 		if target:canBe("stun") then
 			target:setEffect(target.EFF_SKIRMISHER_STUN_INCREASE, 1, {apply_power = self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists the stunning shot!", target.name:capitalize())
+			game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		end
 		pen_off(self, t, target, x, y)
 	end,
@@ -225,10 +229,10 @@ newTalent {
 	speed = "archery",
 	action = fire_shot,
 	info = function(self, t)
-		return ([[Fire three shots in quick succession at a vulnerable point on the target (usually the head).
-		Each shot deals %d%% Ranged damage and will try to stun or increase the target's stun duration by 1.
-		These shots will bypass other enemies between you and your target.
-		The chance to stun increases with your Accuracy.]])
+		return ([[대상의 약점 (주로 머리) 에 세 발의 탄환을 연속으로 날립니다.
+		각 탄환은 %d%% 원거리 피해를 주며, 대상을 기절시키거나 기절의 지속 기간을 1 턴 늘리려고 시도합니다.
+		시전자와 대상 사이의 다른 적들은 이 공격의 영향을 받지 않습니다.
+		기절 확률은 정확도의 영향을 받아 증가합니다.]])
 		:format(t.damage_multiplier(self, t) * 100)
 	end,
 }
@@ -236,6 +240,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_SLING_SNIPER",
 	name = "Sling Sniper",
+	kr_name = "투석구 저격수",
 	type = {"cunning/called-shots", 4},
 	require = techs_cun_req4,
 	points = 5,
@@ -243,7 +248,9 @@ newTalent {
 	mode = "passive",
 	info = function(self, t)
 		local bonuses = sniper_bonuses(self, true)
-		return ([[Your mastery of called shots is unparalleled. and you gain %d%% bonus critical chance and %d%% critical damage with your Called Shots Talents. At rank 3 the cooldowns of all of your Called Shots Talents are reduced by 2 each. At rank 5 you gain %d%% Physical resistance penetration with all Called Shot attacks.]])
+		return ([[당신의 조준사격 실력은 유래가 없을 정도로 뛰어납니다. 치명타 확률이 %d%% 상승하며, 조준사격 기술 계열의 치명타 피해량이 %d%% 상승합니다. 
+		기술 레벨이 3 이상일 경우, 모든 조준사격 기술 계열의 재사용 대기 시간이 2 줄어들게 됩니다. 
+		기술 레벨이 5 이상일 경우, 모든 조준사격 기술 계열의 물리 저항력 관통이 %d%% 상승합니다.]])
 		:format(bonuses.crit_chance,
 			bonuses.crit_power * 100,
 			bonuses.resists_pen[DamageType.PHYSICAL])

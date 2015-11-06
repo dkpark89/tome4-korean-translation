@@ -25,6 +25,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Vile Poisons",
+	kr_name = "독 바르기",
 	type = {"cunning/poisons", 1},
 	points = 5,
 	mode = "passive",
@@ -60,24 +61,25 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Learn how to coat your melee weapons, sling and bow ammo with poison. Each level, you will learn a new kind of poison:
-		Level 1: Deadly Poison
-		Level 2: Numbing Poison
-		Level 3: Insidious Poison
-		Level 4: Crippling Poison
-		Level 5: Stoning Poison
-		New poisons can also be learned from special teachers in the world.
-		Also increases the effectiveness of your poisons by %d%%. (The effect varies for each poison.)
-		Coating your weapons in poisons does not break stealth.
-		You may only have two poisons active at once.
-		Every time you hit a creature with one of your weapons, you have a %d%% chance to randomly apply one of your active poisons.
-		The chance to apply a poison lowers if the target is already poisoned.]]):
+		return ([[근접무기나 투석뭉치 혹은 화살에 독을 입히는 법을 배웁니다. 기술 레벨이 오를 때마다, 새로운 종류의 독을 사용할 수 있게 됩니다.
+		1 레벨 : 맹독
+		2 레벨 : 마비형 독
+		3 레벨 : 잠식형 독
+		4 레벨 : 무력형 독
+		5 레벨 : 석화형 독
+		세계를 여행하면서 새로운 독 제조법을 배울 수도 있습니다.
+		이 기술은 독의 효율 또한 %d%% 상승시킵니다. (독마다 효율이 적용되는 곳은 다릅니다)
+		이 기술은 사용해도 은신 상태가 풀리지 않습니다.
+		한번에 두 가지 독까지 바를 수 있습니다.
+		독이 발린 무기로 적을 공격하면, %d%% 확률로 발라놓은 독 중 하나가 적에게 묻어 효과가 발동합니다.
+		적이 이미 중독된 상태라면, 독을 묻힐 확률이 낮아집니다.]]):
 		format(self:getTalentLevel(t) * 20, 20 + self:getTalentLevel(t) * 5)
 	end,
 }
 
 newTalent{
 	name = "Venomous Strike",
+	kr_name = "독의 일격",
 	type = {"cunning/poisons", 2},
 	points = 5,
 	cooldown = 5,
@@ -135,18 +137,19 @@ newTalent{
 		local dam1 = 100 * self:combatTalentWeaponDamage(t, 0.5 + 0.6,   0.9 + 1)
 		local dam2 = 100 * self:combatTalentWeaponDamage(t, 0.5 + 0.6*2, 0.9 + 1*2)
 		local dam3 = 100 * self:combatTalentWeaponDamage(t, 0.5 + 0.6*3, 0.9 + 1*3)
-		return ([[You hit your target, doing nature damage depending on the number of poisons on the target:
-		- 0 poisons: %d%%
-		- 1 poisons: %d%%
-		- 2 poisons: %d%%
-		- 3 poisons: %d%%
-		If you wield a bow or sling you shoot instead.
+		return ([[대상을 공격하여, 대상이 독에 걸린 개수에 따라 자연 피해를 줍니다.
+		- 독 0 개 : %d%%
+		- 독 1 개 : %d%%
+		- 독 2 개 : %d%%
+		- 독 3 개 : %d%%
+		투석구나 활을 쥐고 있다면 사격을 합니다.
 		]]):
 		format(dam0, dam1, dam2, dam3)
 	end,
 }
 newTalent{
 	name = "Empower Poisons",
+	kr_name = "독성 강화",
 	type = {"cunning/poisons", 3},
 	points = 5,
 	cooldown = 24,
@@ -175,14 +178,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Reduces the duration of all poisons on the target by 50%%, but increases their damage by %d%%.
-		The effect increases with your Cunning.]]):
+		return ([[독의 지속시간을 50%% 줄이고, 피해량을 %d%% 늘립니다.
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(100 + self:combatTalentStatDamage(t, "cun", 40, 250))
 	end,
 }
 
 newTalent{
 	name = "Toxic Death",
+	kr_name = "유독성 죽음",
 	type = {"cunning/poisons", 4},
 	points = 5,
 	mode = "passive",
@@ -207,7 +211,7 @@ newTalent{
 		end)
 	end,
 	info = function(self, t)
-		return ([[When you kill a creature, all the poisons affecting it will have a %d%% chance to spread to foes in a radius of %d.]]):format(20 + self:getTalentLevelRaw(t) * 8, t.getRadius(self, t))
+		return ([[중독된 적을 죽이면, 시체에서 독이 퍼져 %d%% 확률로 %d 칸 반경의 적들이 똑같은 독에 걸리게 됩니다.]]):format(20 + self:getTalentLevelRaw(t) * 8, t.getRadius(self, t))
 	end,
 }
 
@@ -238,6 +242,7 @@ end
 
 newTalent{
 	name = "Deadly Poison",
+	kr_name = "맹독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -263,15 +268,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Coat your weapons with a deadly poison, inflicting %d nature damage per turn for %d turns.
-		The damage scales with your Cunning.
-		Every application of the poison stacks.]]):
+		return ([[무기에 맹독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다.
+		피해량은 교활함 능력치의 영향을 받아 증가합니다.
+		모든 독의 효과는 중첩됩니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Numbing Poison",
+	kr_name = "마비형 독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -298,15 +304,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Coat your weapons with a numbing poison, inflicting %d nature damage per turn for %d turns.
-		Poisoned creatures will deal %d%% less damage.
-		The effects scale with your Cunning.]]):
+		return ([[무기에 마비형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 대상은 무언가를 공격할 때 피해량이 %d%% 감소하게 됩니다.
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }
 
 newTalent{
 	name = "Insidious Poison",
+	kr_name = "잠식형 독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -333,15 +339,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Coat your weapons with an insidious poison, inflicting %d nature damage per turn for %d turns.
-		Poisoned creatures have their healing reduced by %d%%.
-		The effects scale with your Cunning.]]):
+		return ([[무기에 잠식형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 대상은 회복 효율이 %d%% 감소하게 됩니다.
+		기술의 효과는 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }
 
 newTalent{
 	name = "Crippling Poison",
+	kr_name = "무력형 독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -368,15 +374,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Coat your weapons with a crippling poison, inflicting %d nature damage per turn for %d turns.
-		Every time a poisoned creature tries to use a talent, it will have a %d%% chance to fail and lose a turn.
-		The damage scales with your Cunning.]]):
+		return ([[무기에 무력형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다. 중독된 적은 기술을 사용하려 할 때마다 %d%% 확률로 기술 사용에 실패하여, 턴을 낭비하게 됩니다.
+		피해량은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }
 
 newTalent{
 	name = "Stoning Poison",
+	kr_name = "석화형 독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -404,9 +410,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Coat your weapons with a stoning poison, inflicting %d nature damage per turn for %d turns.
-		When the poison runs its full duration, the victim will turn to stone for %d turns.
-		The damage scales with your Cunning.]]):
+		return ([[무기에 석화형 독을 발라, %d 턴 동안 매 턴마다 %d 자연 피해를 줍니다.
+		지속시간의 끝까지 독의 효과가 남아있었다면, 대상은 %d 턴 동안 석화됩니다.
+		피해량은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }
@@ -414,6 +420,7 @@ newTalent{
 
 newTalent{
 	name = "Vulnerability Poison",
+	kr_name = "약화형 독",
 	type = {"cunning/poisons-effects", 1},
 	points = 1,
 	mode = "sustained",
@@ -441,9 +448,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Coat your weapons with an arcane poison, inflicting %d arcane damage per turn for %d turns.
-		The resistances of poisoned creatures are reduced by %d%%.
-		The damage scales with your Cunning.]]):
+		return ([[무기에 마법의 독을 발라, %d 턴 동안 매 턴마다 %d 마법 피해를 줍니다. 중독된 적은 모든 저항력이 %d%% 감소하게 됩니다.
+		피해량은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDOT(self, t)), t.getDuration(self, t), t.getEffect(self, t))
 	end,
 }
+

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 local Map = require "engine.Map"
 
 local trap_range = function(self, t)
@@ -30,6 +31,7 @@ local trapPower = function(self,t) return math.max(1,self:combatScale(self:getTa
 
 newTalent{
 	name = "Trap Mastery",
+	kr_name = "함정 수련",
 	type = {"cunning/trapping", 1},
 	points = 5,
 	mode = "passive",
@@ -67,21 +69,22 @@ newTalent{
 	info = function(self, t)
 		local detect_power = t.getPower(self, t)
 		local disarm_power = t.getPower(self, t)*1.25
-		return ([[Learn how to set up traps. You will learn new traps as follows:
-		Level 1: Explosion Trap
-		Level 2: Bear Trap
-		Level 3: Catapult Trap
-		Level 4: Disarm Trap
-		Level 5: Nightshade Trap
-		New traps can also be learned from special teachers in the world.
-		This talent also increases the effectiveness of your traps by %d%% (The effect varies for each trap.) and makes them more difficult to detect and disarm (%d detection 'power' and %d disarm 'power') based on your Cunning.
-		If a trap is not triggered 80%% of its stamina cost will be refunded when it expires.]]):
+		return ([[함정 설치법을 배웁니다. 기술 레벨이 오를 때마다, 새로운 종류의 함정을 설치할 수 있게 됩니다.
+		1 레벨 : 폭발 함정
+		2 레벨 : 올가미 함정
+		3 레벨 : 밀어내기 함정
+		4 레벨 : 무장해제 함정
+		5 레벨 : 밤그림자 함정
+		세계를 여행하면서 새로운 함정 설치법을 배울 수도 있습니다.
+		이 기술은 함정의 효율을 %d%% 상승시키며 (함정마다 효율이 적용되는 곳은 다릅니다), 교활함 능력치의 영향을 받아 함정의 탐지 및 해체가 더 어려워집니다. (탐지 난이도 %d / 해체 난이도 %d)
+		설치된 함정이 작동되지 않았을 경우, 함정 설치에 사용된 체력의 80%% 만큼이 다시 회복됩니다.]]): 
 		format(t.getTrapMastery(self,t), detect_power, disarm_power) --I5
 	end,
 }
 
 newTalent{
 	name = "Lure",
+	kr_name = "미끼",
 	type = {"cunning/trapping", 2},
 	points = 5,
 	cooldown = 15,
@@ -103,7 +106,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -112,7 +115,8 @@ newTalent{
 			type = "construct", subtype = "lure",
 			display = "*", color=colors.UMBER,
 			name = "lure", faction = self.faction, image = "npc/lure.png",
-			desc = [[A noisy lure.]],
+			kr_name = "미끼",
+			desc = [[시끄러운 소리를 내는 미끼입니다.]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented", ai_state = { talent_in=1, },
 			level_range = {1, 1}, exp_worth = 0,
@@ -155,13 +159,14 @@ newTalent{
 	info = function(self, t)
 		local t2 = self:getTalentFromId(self.T_TAUNT)
 		local rad = t2.radius(self, t)
-		return ([[Project a noisy lure for %d turns that attracts all creatures in a radius %d to it.
-		At level 5, when the lure is destroyed, it will trigger some traps in a radius of 2 around it (check individual traps to see if they are triggered).
-		Use of this talent will not break stealth.]]):format(t.getDuration(self,t), rad)
+		return ([[%d 턴 동안 유지되는 미끼를 설치하여, 주변 %d 칸 반경의 적들을 도발합니다.
+		기술 레벨이 5 이상이면, 미끼가 파괴되면서 주변 2 칸 반경에 있는 함정들을 작동시킵니다. (넓은 범위에 영향을 주는 함정만 작동합니다)
+		이 기술은 사용해도 은신 상태가 풀리지 않습니다.]]):format(t.getDuration(self,t), rad)
 	end,
 }
 newTalent{
 	name = "Sticky Smoke",
+	kr_name = "끈적이는 연기",
 	type = {"cunning/trapping", 3},
 	points = 5,
 	cooldown = 15,
@@ -185,22 +190,23 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Throws a vial of sticky smoke that explodes in radius %d on your foes, reducing their vision range by %d for 5 turns.
-		Creatures affected by smoke bomb can never prevent you from stealthing, even if their proximity would normally forbid it.
-		Use of this will not break stealth.]]):
+		return ([[끈적이는 연기가 든 유리병을 던져, 주변 %d 칸 반경에 영향을 줍니다. 
+		범위 내의 적들은 5 턴 동안 시야 거리가 %d 감소하게 되며, 시전자가 은신 상태에 들어가는 것을 방해하지 못하게 됩니다.
+		이 기술은 사용해도 은신 상태가 풀리지 않습니다.]]):
 		format(self:getTalentRadius(t), t.getSightLoss(self,t))
 	end,
 }
 
 newTalent{
 	name = "Trap Launcher",
+	kr_name = "함정 발사기",
 	type = {"cunning/trapping", 4},
 	points = 5,
 	mode = "passive",
 	require = cuns_req4,
 	info = function(self, t)
-		return ([[Allows you to create self deploying traps that you can launch up to %d grids away.
-		At level 5 you learn to do this in total silence, letting you lay traps without breaking stealth.]]):format(trap_range(self, t))
+		return ([[특수 장치를 만들어, 모든 함정을 %d 칸 떨어진 곳에 설치할 수 있게 됩니다.
+		기술 레벨이 5 이상이면 아무 소리도 내지 않고 작업을 할 수 있게 되어, 함정을 설치해도 은신 상태가 풀리지 않게 됩니다.]]):format(trap_range(self, t))
 	end,
 }
 
@@ -212,6 +218,7 @@ local basetrap = function(self, t, x, y, dur, add)
 	local Trap = require "mod.class.Trap"
 	local trap = {
 		id_by_type=true, unided_name = "trap",
+		kr_unided_name = "함정",
 		display = '^',
 		faction = self.faction,
 		summoner = self, summoner_gain_exp = true,
@@ -251,6 +258,7 @@ end
 
 newTalent{
 	name = "Explosion Trap",
+	kr_name = "폭발 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 8,
@@ -267,11 +275,12 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local dam = t.getDamage(self, t)
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "elemental", name = "explosion trap", color=colors.LIGHT_RED, image = "trap/blast_fire01.png",
+			kr_name = "폭발 함정",
 			dam = dam,
 			stamina = t.stamina,
 			lure_trigger = true,
@@ -292,14 +301,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a simple yet effective trap that explodes on contact, doing %0.2f fire damage over a few turns in a radius of 2.
-		High level lure can trigger this trap.]]):
+		return ([[닿으면 폭발하는, 단순하지만 효과적인 함정을 설치합니다. 주변 2 칸 반경에 %0.2f 화염 피해를 몇 턴에 걸쳐 줍니다.
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 수 있습니다.]]):
 		format(damDesc(self, DamageType.FIRE, t.getDamage(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Bear Trap",
+	kr_name = "올가미 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 12,
@@ -316,12 +326,13 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local dam = t.getDamage(self, t)
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "physical", name = "bear trap", color=colors.UMBER, image = "trap/beartrap01.png",
+			kr_name = "올가미 함정",
 			dam = dam,
 			stamina = t.stamina,
 			check_hit = self:combatAttack(),
@@ -330,7 +341,7 @@ newTalent{
 				if who:canBe("pin") then
 					who:setEffect(who.EFF_PINNED, 5, {apply_power=self.check_hit})
 				else
-					game.logSeen(who, "%s resists!", who.name:capitalize())
+					game.logSeen(who, "%s 저항했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"))
 				end
 				return true, true
 			end,
@@ -346,13 +357,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a bear trap. The first creature passing by will be caught in the trap, pinned and bleeding for %0.2f physical damage each turn for 5 turns.]]):
+		return ([[올가미 함정, 즉 사냥용 덫을 설치합니다. 함정을 밟은 적은 5 턴 동안 속박되며, 출혈 상태가 되어 매 턴마다 %0.2f 물리 피해를 입습니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t))) --I5
 	end,
 }
 
 newTalent{
 	name = "Catapult Trap",
+	kr_name = "밀어내기 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 10,
@@ -369,12 +381,13 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "physical", name = "catapult trap", color=colors.LIGHT_UMBER, image = "trap/trap_catapult_01_64.png",
+			kr_name = "밀어내기 함정",
 			dist = t.getDistance(self, t),
 			check_hit = self:combatAttack(),
 			stamina = t.stamina,
@@ -384,7 +397,7 @@ newTalent{
 					if target:checkHit(self.check_hit, target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 						return true
 					else
-						game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+						game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 
@@ -406,13 +419,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a catapult trap that knocks back any creature that steps over it up to %d grids away, dazing them.]]):
+		return ([[밀어내기 함정을 설치하여, 함정을 밟은 적을 %d 칸 밀어내고 혼절시킵니다.]]):
 		format(t.getDistance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Disarming Trap",
+	kr_name = "무장해제 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 25,
@@ -430,12 +444,13 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local Trap = require "mod.class.Trap"
 		local dam = t.getDamage(self, t)
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "physical", name = "disarming trap", color=colors.DARK_GREY, image = "trap/trap_magical_disarm_01_64.png",
+			kr_name = "무장해제 함정",
 			dur = t.getDuration(self, t),
 			check_hit = self:combatAttack(),
 			dam = dam,
@@ -445,7 +460,7 @@ newTalent{
 				if who:canBe("disarm") then
 					who:setEffect(who.EFF_DISARMED, self.dur, {apply_power=self.check_hit})
 				else
-					game.logSeen(who, "%s resists!", who.name:capitalize())
+					game.logSeen(who, "%s 저항했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"))
 				end
 				return true, true
 			end,
@@ -461,13 +476,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a tricky trap that maims the arms of creatures passing by with acid doing %0.2f damage and disarming them for %d turns.]]):
+		return ([[특수한 함정을 설치하여, 함정을 밟은 적에게 %0.2f 산성 피해를 주고 %d 턴 동안 무장을 해제시킵니다.]]):
 		format(damDesc(self, DamageType.ACID, t.getDamage(self, t)), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Nightshade Trap",
+	kr_name = "밤그림자 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 8,
@@ -484,12 +500,13 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local dam = t.getDamage(self, t)
 		local Trap = require "mod.class.Trap"
 		local t = basetrap(self, t, x, y, 5 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "nature", name = "nightshade trap", color=colors.LIGHT_BLUE, image = "trap/poison_vines01.png",
+			kr_name = "밤그림자 함정",
 			dam = dam,
 			stamina = t.stamina,
 			check_hit = self:combatAttack(),
@@ -512,13 +529,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a trap coated with a potent venom, doing %0.2f nature damage to a creature passing by and stunning it for 4 turns.]]):
+		return ([[강력한 독을 칠한 함정을 설치하여, 함정을 밟은 적에게 %0.2f 자연 피해를 주고 4 턴 동안 기절시킵니다.]]):
 		format(damDesc(self, DamageType.NATURE, t.getDamage(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Flash Bang Trap",
+	kr_name = "섬광 폭발 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 12,
@@ -536,12 +554,13 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local Trap = require "mod.class.Trap"
 		local dam = t.getDamage(self, t)
 		local t = basetrap(self, t, x, y, 5 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "elemental", name = "flash bang trap", color=colors.YELLOW, image = "trap/blast_acid01.png",
+			kr_name = "섬광 폭발 함정",
 			dur = t.getDuration(self, t),
 			check_hit = self:combatAttack(),
 			lure_trigger = true,
@@ -556,7 +575,7 @@ newTalent{
 					elseif who and who:canBe("stun") then
 						who:setEffect(who.EFF_DAZED, self.dur, {apply_power=self.check_hit})
 					elseif who then
-						game.logSeen(who, "%s resists the flash bang!", who.name:capitalize())
+						game.logSeen(who, "%s 섬광 폭발을 저항했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"))
 					end
 					engine.DamageType:get(engine.DamageType.PHYSICAL).projector(self.summoner, px, py, engine.DamageType.PHYSICAL, self.dam)
 				end)
@@ -575,16 +594,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a trap that explodes in a radius of 2, blinding or dazing anything caught inside for %d turns.
-		The duration increases with Trap Mastery.
-		All foes caught inside take %0.2f physical damage.
-		High level lure can trigger this trap.]]):
+		return ([[밟으면 주변 2 칸 반경에 빛을 폭발시켜, %d 턴 동안 적들을 실명 혹은 혼절시키는 함정을 설치합니다.
+		지속시간은 함정 수련 기술의 영향을 받아 증가하며, 범위 내의 적들은 %0.2f 물리 피해를 받게 됩니다.
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 수 있습니다.]]): 
 		format(t.getDuration(self, t), damDesc(self, engine.DamageType.PHYSICAL, t.getDamage(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Poison Gas Trap",
+	kr_name = "독구름 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 10,
@@ -601,12 +620,13 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local dam = t.getDamage(self, t)
 		-- Need to pass the actor in to the triggered function for the apply_power to work correctly
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "nature", name = "poison gas trap", color=colors.LIGHT_RED, image = "trap/blast_acid01.png",
+			kr_name = "독구름 함정",
 			dam = dam,
 			check_hit = self:combatAttack(),
 			stamina = t.stamina,
@@ -636,15 +656,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a trap that explodes in a radius of 3, releasing a thick poisonous cloud lasting 4 turns.
-		Each turn, the cloud infects all creatures with a poison that deals %0.2f nature damage over 5 turns.
-		High level lure can trigger this trap.]]):
+		return ([[밟으면 폭발하여, 주변 3 칸 반경에 4 턴 동안 지속되는 독구름을 만들어냅니다.
+		독구름의 영향을 받은 적은 5 턴 동안 매 턴마다 %0.2f 자연 피해를 입게 됩니다.
+		높은 레벨의 미끼가 파괴될 때, 이 함정을 작동시킬 만들어질 수 있습니다.]]):
 		format(damDesc(self, DamageType.POISON, t.getDamage(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Gravitic Trap",
+	kr_name = "중력장 함정",
 	type = {"cunning/traps", 1},
 	points = 1,
 	cooldown = 15,
@@ -662,13 +683,14 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
-		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "You somehow fail to set the trap.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
+		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "알 수 없는 이유로, 함정 설치에 실패했습니다.") return nil end
 
 		local dam = t.getDamage(self, t)
 		-- Need to pass the actor in to the triggered function for the apply_power to work correctly
 		local t = basetrap(self, t, x, y, 8 + self:getTalentLevel(self.T_TRAP_MASTERY), {
 			type = "arcane", name = "gravitic trap", color=colors.LIGHT_RED, image = "invis.png",
+			kr_name = "중력장 함정",
 			embed_particles = {{name="wormhole", rad=1, args={image="shockbolt/terrain/wormhole", speed=1}}},
 			dam = dam,
 			stamina = t.stamina,
@@ -688,7 +710,7 @@ newTalent{
 						if target:canBe("knockback") then
 							target:pull(self.x, self.y, 1)
 							if target.x ~= ox or target.y ~= oy then
-								self.summoner:logCombat(target, "#Target# is pulled towards #Source#'s gravity trap!")
+								self.summoner:logCombat(target, "#Target1# 중력장 함정에 의해 #Source# 쪽으로 끌려왔습니다!") 
 							end
 						end
 					end
@@ -706,8 +728,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Lay a trap that creates a gravitic anomaly, pulling in all foes around it in a radius of 5.
-		All foes caught inside take %0.2f temporal damage per turn.]]):
+		return ([[엄청난 중력을 발생시키는 함정을 설치하여, 주변 5 칸 반경의 적들을 끌어당깁니다.
+		적들은 끌어당겨지면서 매 턴마다 %0.2f 시간 피해를 입습니다.]]):
 		format(damDesc(self, engine.DamageType.TEMPORAL, t.getDamage(self, t)))
 	end,
 }

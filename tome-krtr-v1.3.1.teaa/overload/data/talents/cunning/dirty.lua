@@ -17,10 +17,12 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 local Map = require "engine.Map"
 
 newTalent{
 	name = "Dirty Fighting",
+	kr_name = "비열한 전투",
 	type = {"cunning/dirty", 1},
 	points = 5,
 	random_ego = "attack",
@@ -46,7 +48,7 @@ newTalent{
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatAttack()})
 			end
 			if not target:hasEffect(target.EFF_STUNNED) then
-				self:logCombat(target, "#Target# resists the stun and #Source# quickly regains its footing!")
+				self:logCombat(target, "#Target1# 기절하지 않았고, #Source2# 재빨리 자세를 잡았습니다!")
 				self.energy.value = self.energy.value + game.energy_to_act * self:getSpeed("weapon")
 			end
 		end
@@ -56,15 +58,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You hit your target doing %d%% damage, trying to stun it instead of damaging it. If your attack hits, the target is stunned for %d turns.
-		Stun chance increase with your Accuracy.
-		If you fail to stun the target (or if it shrugs off the effect), you quickly recover; the use of the skill does not take a turn.]]):
+		return ([[대상에게 %d%% 피해를 주고, 공격이 성공했을 경우 대상을 %d 턴 동안 기절시킵니다.
+		기절 확률은 정확도 능력치의 영향을 받아 증가합니다.
+		공격에 성공했지만 적을 기절시키지는 못했다면, 자세를 빠르게 복구하여 턴 소모를 하지 않게 됩니다.]]):
 		format(100 * damage, duration)
 	end,
 }
 
 newTalent{
 	name = "Backstab",
+	kr_name = "뒤치기",
 	type = {"cunning/dirty", 2},
 	mode = "passive",
 	points = 5,
@@ -74,13 +77,14 @@ newTalent{
 	-- called by _M:attackTargetWith in mod.class.interface.Combat.lua
 	getStunChance = function(self, t) return self:combatTalentLimit(t, 100, 3, 15) end, -- Limit < 100%
 	info = function(self, t)
-		return ([[Your quick wit gives you a big advantage against stunned targets; all your hits will have a %d%% greater chance of being critical.
-		Also, your melee critical strikes have %d%% chance to stun the target for 3 turns.]]):
+		return ([[빠른 손재간을 이용하여, 기절한 대상에게 큰 피해를 줍니다. 기절한 대상에게 치명타를 발생시킬 확률이 %d%% 증가합니다.
+		또한, 일반적인 근접 치명타 공격이 %d%% 확률로 대상을 3 턴 동안 기절시키게 됩니다.]]):
 		format(t.getCriticalChance(self, t), t.getStunChance(self, t))
 	end,
 }
 newTalent{
 	name = "Switch Place",
+	kr_name = "자리 바꾸기",
 	type = {"cunning/dirty", 3},
 	points = 5,
 	random_ego = "defensive",
@@ -107,7 +111,7 @@ newTalent{
 
 		if hitted and not self.dead and tx == target.x and ty == target.y then
 			if not self:canMove(tx,ty,true) or not target:canMove(sx,sy,true) then
-				self:logCombat(target, "Terrain prevents #Source# from switching places with #Target#.")
+				self:logCombat(target, "지형 때문에 #Source2# #Target6# 자리 바꾸기를 할 수 없습니다.") 
 				return true
 			end
 			self:setEffect(self.EFF_EVASION, t.getDuration(self, t), {chance=50})
@@ -122,15 +126,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Using a series of tricks and maneuvers, you switch places with your target.
-		Switching places will confuse your foes, granting you Evasion (50%%) for %d turns.
-		While switching places, your weapon(s) will connect with the target; this will not do weapon damage, but on hit effects of the weapons can trigger.]]):
+		return ([[각종 기술과 움직임을 이용하여, 대상과 자리를 바꿉니다.
+		자리를 바꾸면 적들이 당황하여, %d 턴 동안 50%% 확률로 모든 근접 공격을 회피할 수 있게 됩니다.
+		대상과 자리를 바꾸기 위해서는, 자신의 무기를 대상에게 닿게 할 필요가 있습니다. 때문에 우선 공격이 명중해야 기술의 효과가 발동되며, 이를 통해 무기 피해를 줄 수는 없지만 무기의 공격시 효과는 발동시킬 수 있습니다.]]):
 		format(duration)
 	end,
 }
 
 newTalent{
 	name = "Cripple",
+	kr_name = "무력화",
 	type = {"cunning/dirty", 4},
 	points = 5,
 	random_ego = "attack",
@@ -163,8 +168,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
 		local speedpen = t.getSpeedPenalty(self, t)
-		return ([[You hit your target, doing %d%% damage. If your attack connects, the target is crippled for %d turns, losing %d%% melee, spellcasting and mind speed.
-		The chance to land the status improves with Accuracy, and the status power improves with Cunning.]]):
+		return ([[대상을 공격하여, %d%% 피해를 줍니다. 공격이 명중하면 대상은 %d 턴 동안 무력화 상태가 되어 공격속도, 시전속도, 사고속도가 %d%% 줄어들게 됩니다.
+		무력화 확률은 정확도 능력치의 영향을 받아 증가하며, 무력화의 위력은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage, duration, speedpen)
 	end,
 }
