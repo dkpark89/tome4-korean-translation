@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Dimensional Step",
+	kr_name = "차원의 발걸음",
 	type = {"chronomancy/spacetime-weaving", 1},
 	require = chrono_req1,
 	points = 5,
@@ -40,7 +41,7 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		if not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then -- To prevent teleporting through walls
-			game.logSeen(self, "You do not have line of sight.")
+			game.logSeen(self, "당신의 시야 내가 아닙니다.")
 			return nil
 		end
 		local _ _, x, y = self:canProject(tg, x, y)
@@ -65,15 +66,15 @@ newTalent{
 				else
 					-- If we can't teleport, return the target
 					game.level.map(target.x, target.y, Map.ACTOR, target)
-					game.logSeen(self, "The spell fizzles!")
+					game.logSeen(self, "주문이 실패하였습니다!")
 				end
 			else
-				game.logSeen(target, "%s resists the swap!", target.name:capitalize())
+				game.logSeen(target, "%s 자리 바꿈을 저항했습니다!", target.name:capitalize())
 			end
 		else
 			game.level.map:particleEmitter(self.x, self.y, 1, "temporal_teleport")
 			if not self:teleportRandom(x, y, 0) then
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 실패하였습니다!")
 			else
 				game.level.map:particleEmitter(self.x, self.y, 1, "temporal_teleport")
 			end
@@ -84,13 +85,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Teleports you to up to %d tiles away, to a targeted location in line of sight.
-		At talent level 5 you may swap positions with a target creature.]]):format(range)
+		return ([[당신의 시야 안에 있는 최대 %d 칸 거리내로 순간이동합니다.
+		기술 레벨이 5 이상이라면 당신은 목표 존재와 위치를 바꿀 수 있습니다.]]):format(range)
 	end,
 }
 
 newTalent{
 	name = "Dimensional Shift",
+	kr_name = "차원 전환",
 	type = {"chronomancy/spacetime-weaving", 2},
 	mode = "passive",
 	require = chrono_req2,
@@ -120,13 +122,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getReduction(self, t)
-		return ([[When you teleport you reduce the duration of a single detrimental effect by %d turns.]]):
+		return ([[당신이 순간이동 할때, 당신의 해로운 상태효과 중 하나의 지속시간을 %d 턴 줄입니다.]]):
 		format(reduction)
 	end,
 }
 
 newTalent{
 	name = "Wormhole",
+	kr_name = "웜홀",
 	type = {"chronomancy/spacetime-weaving", 3},
 	require = chrono_req3,
 	points = 5,
@@ -145,7 +148,7 @@ newTalent{
 		if not entrance_x or not entrance_y then return nil end
 		local _ _, entrance_x, entrance_y = self:canProject(tg, entrance_x, entrance_y)
 		local trap = game.level.map(entrance_x, entrance_y, engine.Map.TRAP)
-		if trap or game.level.map:checkEntity(entrance_x, entrance_y, Map.TERRAIN, "block_move") then game.logPlayer(self, "You can't place a wormhole entrance here.") return end
+		if trap or game.level.map:checkEntity(entrance_x, entrance_y, Map.TERRAIN, "block_move") then game.logPlayer(self, "여기에 웜홀 입구를 만들 수 없습니다.") return end
 
 		-- Target the exit location
 		local tg = {type="hit", nolock=true, pass_terrain=true, nowarning=true, range=self:getTalentRange(t)}
@@ -153,7 +156,7 @@ newTalent{
 		if not exit_x or not exit_y then return nil end
 		local _ _, exit_x, exit_y = self:canProject(tg, exit_x, exit_y)
 		local trap = game.level.map(exit_x, exit_y, engine.Map.TRAP)
-		if trap or game.level.map:checkEntity(exit_x, exit_y, Map.TERRAIN, "block_move") or core.fov.distance(entrance_x, entrance_y, exit_x, exit_y) < 2 then game.logPlayer(self, "You can't place a wormhole exit here.") return end
+		if trap or game.level.map:checkEntity(exit_x, exit_y, Map.TERRAIN, "block_move") or core.fov.distance(entrance_x, entrance_y, exit_x, exit_y) < 2 then game.logPlayer(self, "여기에 웜홀 출구를 만들 수 없습니다.") return end
 
 		-- Wormhole values
 		local power = getParadoxSpellpower(self, t)
@@ -166,7 +169,7 @@ newTalent{
 				type = "annoy", subtype="teleport", id_by_type=true, unided_name = "trap",
 				image = "terrain/wormhole.png",
 				display = '&', color_r=255, color_g=255, color_b=255, back_color=colors.STEEL_BLUE,
-				message = "@Target@ moves onto the wormhole.",
+				message = "@Target@ 웜홀로 들어갔습니다.",
 				temporary = t.getDuration(self, t),
 				x = x, y = y, dest_x = dest_x, dest_y = dest_y,
 				radius = self:getTalentRadius(t),
@@ -180,14 +183,14 @@ newTalent{
 					if hit or (who.reactionToward and who:reactionToward(self) >= 0) then
 						game.level.map:particleEmitter(who.x, who.y, 1, "temporal_teleport")
 						if not who:teleportRandom(self.dest_x, self.dest_y, self.radius, 1) then
-							game.logSeen(who, "%s tries to enter the wormhole but a violent force pushes it back.", who.name:capitalize())
+							game.logSeen(who, "%s 들어가려고 시도했지만 난폭한 힘이 밖으로 밀어내었습니다", who.name:capitalize())
 						else
 							if who ~= self.summoner then who:setEffect(who.EFF_CONTINUUM_DESTABILIZATION, 100, {power=self.dest_power}) end
 							game.level.map:particleEmitter(who.x, who.y, 1, "temporal_teleport")
 							game:playSoundNear(self, "talents/teleport")
 						end
 					else
-						game.logSeen(who, "%s ignores the wormhole.", who.name:capitalize())
+						game.logSeen(who, "%s 웜홀을 무시했습니다.", who.name:capitalize())
 					end
 					return true
 				end,
@@ -195,7 +198,7 @@ newTalent{
 					self:useEnergy()
 					self.temporary = self.temporary - 1
 					if self.temporary <= 0 then
-						game.logSeen(self, "Reality asserts itself and forces the wormhole shut.")
+						game.logSeen(self, "현실의 힘이 밀려들어와 웜홀이 강제로 닫혔습니다.")
 						if game.level.map(self.x, self.y, engine.Map.TRAP) == self then game.level.map:remove(self.x, self.y, engine.Map.TRAP) end
 						game.level:removeEntity(self)
 					end
@@ -226,22 +229,23 @@ newTalent{
 		entrance.dest = exit
 		exit.dest = entrance
 
-		game.logSeen(self, "%s folds the space between two points.", self.name)
+		game.logSeen(self, "%s 두 지점 사이의 공간을 접습니다.", self.name)
 		return true
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local radius = self:getTalentRadius(t)
 		local range = self:getTalentRange(t)
-		return ([[You fold the space between yourself and a second point within a range of %d, creating a pair of wormholes.  Any creature stepping on either wormhole will be teleported near the other (radius %d accuracy).  
-		The wormholes will last %d turns and must be placed at least two tiles apart.
-		The chance of teleporting enemies will scale with your Spellpower.]])
+		return ([[당신은 당신이 있는 공간과 %d 내의 거리에 있는 다른 점을 접어 웜홀 한쌍을 만들어 냅니다. 웜홀에 발을 들이는 모든 존재들은 반대 쪽의 웜홀로 순간이동 됩니다 (범위 %d 칸의 정확도로). 
+		웜홀은 %d 턴간 유지 되며, 최소한 2 칸 이상은 떨어져 있어야 합니다.
+		적을 순간이동 시킬 확율은 주문력에 비례하여 상승합니다.]])
 		:format(range, radius, duration)
 	end,
 }
 
 newTalent{
 	name = "Phase Pulse",
+	kr_name = "위상 파동",
 	type = {"chronomancy/spacetime-weaving", 4},
 	require = chrono_req4,
 	tactical = { DISABLE = 2 },
@@ -291,8 +295,8 @@ newTalent{
 		local chance = t.getChance(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[When you teleport you fire a pulse that jolts enemies out of phase in a radius of %d around both the start and the destination point. 
-		Each target has a %d%% chance per tile you travelled to be stunned, blinded, confused, or pinned for %d turns.]]):
+		return ([[당신이 텔레포트 할때, 시작 지점과 도착 지점에 %d 범위의 강력한 파동이 일어나 적들을 다른 위상으로 내쫓습니다.
+		영향을 받은 목표들은 당신이 이동한 타일 한 칸마다 %d%% 의 확률로 %d 턴간 기절, 실명, 혼란, 속박 될 수 있습니다.]]):
 		format(radius, chance, duration)
 	end,
 }
