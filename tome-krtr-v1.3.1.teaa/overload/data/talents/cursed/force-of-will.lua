@@ -17,8 +17,10 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 newTalent{
 	name = "Willful Strike",
+	kr_name = "의지의 타격",
 	type = {"cursed/force-of-will", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -72,14 +74,14 @@ newTalent{
 					local nextTarget = game.level.map(x, y, Map.ACTOR)
 					if nextTarget then
 						if knockbackCount > 0 then
-							target:logCombat(nextTarget, "#Source# was blasted %d spaces into #Target#!", knockbackCount)
+						target:logCombat(nextTarget, "#Source2# %d 칸 밀려나 #Target6# 부딪쳤습니다!", knockbackCount)
 						else
-							target:logCombat(nextTarget, "#Source# was blasted into #Target#!")
+						target:logCombat(nextTarget, "#Source2# #Target6# 부딪쳤습니다!")
 						end
 					elseif knockbackCount > 0 then
-						game.logSeen(target, "%s was smashed back %d spaces!", target.name:capitalize(), knockbackCount)
+					game.logSeen(target, "%s %d 칸 밀려났습니다!", (target.kr_name or target.name):capitalize():addJosa("은"), knockbackCount)
 					else
-						game.logSeen(target, "%s was smashed!", target.name:capitalize())
+					game.logSeen(target, "%s 밀려났습니다!", (target.kr_name or target.name):capitalize():addJosa("은"))
 					end
 
 					-- take partial damage
@@ -104,7 +106,7 @@ newTalent{
 			end
 
 			if not blocked and knockbackCount > 0 then
-				game.logSeen(target, "%s was blasted back %d spaces!", target.name:capitalize(), knockbackCount)
+			game.logSeen(target, "%s %d 칸 밀려났습니다!", (target.kr_name or target.name):capitalize():addJosa("은"), knockbackCount)
 			end
 
 			if not target.dead and (finalX ~= target.x or finalY ~= target.y) then
@@ -138,14 +140,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local knockback = t.getKnockback(self, t)
-		return ([[Focusing your hate, you strike your foe with unseen force for %d damage and %d knockback.
-		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		Damage increases with your Mindpower.]]):format(damDesc(self, DamageType.PHYSICAL, damage), knockback, t.critpower(self, t), self.combat_critical_power or 0)
+		return ([[증오심을 집중하여, 보이지 않는 힘으로 적을 공격합니다. 이를 통해 적에게 %d 피해를 주고, %d 칸 뒤로 밀어냅니다.
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 기술 유지 중 모든 치명타 배수를 %d%% 증가시킵니다. (현재 : %d%%)
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.PHYSICAL, damage), knockback, t.critpower(self, t), self.combat_critical_power or 0)
 	end,
 }
 
 newTalent{
 	name = "Deflection",
+	kr_name = "굴절",
 	type = {"cursed/force-of-will", 2},
 	mode = "sustained",
 	no_energy = true,
@@ -159,7 +162,7 @@ newTalent{
 		return self:combatTalentMindDamage(t, 0, 240)
 	end,
 	getDisplayName = function(self, t, p)
-		return ("Deflection (%d)"):format(p.value)
+		return ("굴절 (%d)"):format(p.value)
 	end,
 	critpower = function(self, t) return self:combatTalentScale(t, 4, 15) end,
 	activate = function(self, t)
@@ -196,7 +199,7 @@ newTalent{
 				p.__update_display = true
 				t.updateParticles(self, t, p)
 
-				game.logPlayer(self, "You have deflected %d incoming damage!", deflectDamage)
+				game.logPlayer(self, "받은 피해량을 %d 만큼 튕겨냈습니다!", deflectDamage)
 			end
 		end
 		return damage
@@ -214,14 +217,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local maxDamage = t.getMaxDamage(self, t)
-		return ([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/35th of its maximum charge per turn.
-		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		The maximum damage deflected increases with your Mindpower.]]):format(maxDamage, t.critpower(self, t),self.combat_critical_power or 0)
+		return ([[매 턴마다 0.2 만큼 증오를 소모하는 방벽을 만들어냅니다. 이 방벽은 의지의 힘으로 시전자가 받는 피해량을 최대 50%% 까지 튕겨내며, 최대 %d 피해량까지 튕겨낼 수 있습니다. 방벽은 매 턴마다 최대로 튕겨낼 수 있는 수치의 1/35 만큼을 충전합니다.
+		예를 들어 최대 70 피해량을 튕겨낼 수 있다면, 방벽은 매 턴마다 2 씩 충전됩니다. 이는 35 턴 후, 최대 충전량인 70 에 도달하면 멈추게 됩니다. 이 상태에서 30 의 피해를 받으면, 50%% 에 해당하는 15 의 피해를 튕겨내고 방벽의 충전량은 55 가 됩니다.
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 기술 유지 중 모든 치명타 배수를 %d%% 증가시킵니다. (현재 : %d%%)
+		방벽이 튕겨낼 수 있는 최대 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(maxDamage, t.critpower(self, t), self.combat_critical_power or 0)
 	end,
 }
 
 newTalent{
 	name = "Blast",
+	kr_name = "돌풍",
 	type = {"cursed/force-of-will", 3},
 	require = cursed_wil_req3,
 	points = 5,
@@ -288,14 +293,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local knockback = t.getKnockback(self, t)
 		local dazeDuration = t.getDazeDuration(self, t)
-		return ([[You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.
-		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		Damage increases with your Mindpower.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), knockback, t.critpower(self, t), self.combat_critical_power or 0)
+		return ([[분노의 감정을 한 곳에 뭉쳐, 폭발시킵니다. 주변 %d 칸 반경의 적들에게 %d 피해를 주며, 폭발의 중심부에 있던 적은 %d 칸 밀려납니다. (멀리 있는 적일수록 밀려나는 거리가 줄어듭니다) 폭발에 휩쓸린 모든 적들은 3 턴 동안 혼절합니다.
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 기술 유지 중 모든 치명타 배수를 %d%% 증가시킵니다. (현재 : %d%%)
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, damage), knockback, t.critpower(self, t), self.combat_critical_power or 0)
 	end,
 }
 
 newTalent{
 	name = "Unseen Force",
+	kr_name = "보이지 않는 힘",
 	type = {"cursed/force-of-will", 4},
 	require = cursed_wil_req4,
 	points = 5,
@@ -341,8 +347,8 @@ newTalent{
 		local secondHitChance = t.getSecondHitChance(self, t)
 		local hits = 1 + math.floor(secondHitChance/100)
 		local chance = secondHitChance - math.floor(secondHitChance/100)*100
-		return ([[Your fury becomes an unseen force that randomly lashes out at foes around you. For %d turns you strike %d (%d%% chance for %d) nearby target(s) within range 5 doing %d damage and %d knockback.  The number of extra strikes increases at higher talent levels.
-		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		Damage increases with your Mindpower.]]):format(duration, hits, chance, hits+1, damDesc(self, DamageType.PHYSICAL, damage), knockback, t.critpower(self, t), self.combat_critical_power or 0)
+		return ([[극한의 분노심이 보이지 않는 힘이 되어, 주변에 휘몰아치게 됩니다. %d 턴 동안, 주변의 %d 명(%d%% 확률로 %d 명)에게 %d 피해를 주고 %d 칸 밀어낼 수 있게 됩니다. 기술 레벨이 높아지면, %d%% 확률로 한 턴에 두 번의 공격을 하게 됩니다.
+		추가적으로, 기술 레벨이 오를 때마다 힘의 통로가 개방되어 모든 치명타 배수를 %d%% 증가시킵니다. (현재 : %d%%)
+		피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, hits, chance, hits+1, damDesc(self, DamageType.PHYSICAL, damage), knockback, secondHitChance, t.critpower(self, t), self.combat_critical_power or 0) --@ 변수 조정 : 원래 코드가 잘못된 것을 제대로 수정
 	end,
 }

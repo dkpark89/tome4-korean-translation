@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Mark Prey",
+	kr_name = "사냥감 지정",
 	type = {"cursed/predator", 1},
 	require = cursed_lev_req1,
 	points = 5,
@@ -76,15 +77,21 @@ newTalent{
 		local hateDesc = ""
 		if self:knowTalent(self.T_HATE_POOL) then
 			local hateBonus = t.getHateBonus(self, t)
-			hateDesc = (" Every kill of a marked sub-type gives you an additional +%d hate regardless of your current effectiveness."):format(hateBonus)
+			hateDesc = (" 또한, 사냥 대상인 종족을 죽일 때마다 추가적으로 %d 증오를 획득할 수 있게 됩니다. 이 증오 획득량은 다른 요소에 의해 증감되지 않습니다."):format(hateBonus)
 		end
-		return ([[Mark a single opponent as your prey, gaining bonuses against the targeted creature's type and sub-type. Bonuses scale with the experience you gain from killing your marked type (+0.25 kill experience) and marked sub-type (+1 kill experience). At %0.1f kill experience, you reach 100%% effectiveness. Combat attacks against the marked type gain +%d%% damage, while those against the marked sub-type gain +%d%% damage.%s
-		Each point in Mark Prey reduces the kill experience required to reach 100%% effectivess as a Predator.]]):format(maxKillExperience, typeDamageChange * 100, subtypeDamageChange * 100, hateDesc)
+		return ([[사냥할 대상을 지정하여, 대상과 같은 종류와 종족을 사냥할 때 더 효과적으로 사냥할 수 있게 됩니다. 
+		사냥 대상으로 선택한 종류와 종족을 많이 죽일수록, 추가 효과도 더 강력해집니다. (같은 종류 살해시 경험치 +0.25, 같은 종족 살해시 경험치 +1) 
+		살해 경험치를 %0.1f 만큼 쌓으면, 추가 효과를 최대로 볼 수 있게 됩니다. 
+		사냥 대상인 종류를 공격하면 최대 %d%% 추가 피해를, 사냥 대상인 종족을 공격하면 최대 %d%% 추가 피해를 주게 됩니다.%s
+		기술 레벨이 상승할 때마다, 최대 효율을 보기 위한 살해 경험치 수치가 줄어들게 됩니다.
+		
+		(예를 들어 '갈색 뱀' 을 사냥 대상으로 지정했다면 모든 '동물' 은 같은 종류이며, 모든 '뱀' 은 같은 종족입니다)]]):format(maxKillExperience, typeDamageChange * 100, subtypeDamageChange * 100, hateDesc)
 	end,
 }
 
 newTalent{
 	name = "Anatomy",
+	kr_name = "해부학",
 	type = {"cursed/predator", 2},
 	mode = "passive",
 	require = cursed_lev_req2,
@@ -108,13 +115,15 @@ newTalent{
 		local subtypeAttackChange = t.getSubtypeAttackChange(self, t)
 		local typeAttackChange = t.getTypeAttackChange(self, t)
 		local subtypeStunChance = t.getSubtypeStunChance(self, t)
-		return ([[Your knowledge of your prey allows you to strike with extra precision. Attacks against the marked type gain +%d Accuracy, while those against the marked sub-type gain +%d Accuracy. Melee hits also gain a %0.1f%% chance to stun the marked sub-type for 3 turns with each attack.
-		Each point in Anatomy reduces the kill experience required to reach 100%% effectivess as a Predator.]]):format(typeAttackChange, subtypeAttackChange, subtypeStunChance)
+		return ([[사냥감에 대한 학습을 통해, 사냥감의 약점을 정확히 공격합니다. 사냥감으로 지정된 종류를 공격하면 정확도가 최대 %d 상승하며, 사냥감으로 지정된 종족을 공격하면 정확도가 최대 %d 상승합니다. 
+		또한, 근접공격 시 최대 %0.1f%% 확률로 사냥감으로 지정된 종족을 3 턴 동안 기절시킬 수 있게 됩니다.
+		기술 레벨이 상승할 때마다, 최대 효율을 보기 위한 살해 경험치 수치가 줄어들게 됩니다.]]):format(typeAttackChange, subtypeAttackChange, subtypeStunChance)
 	end,
 }
 
 newTalent{
 	name = "Outmaneuver",
+	kr_name = "의표 찌르기",
 	type = {"cursed/predator", 3},
 	mode = "passive",
 	require = cursed_lev_req3,
@@ -150,13 +159,14 @@ newTalent{
 		local physicalResistChange = t.getPhysicalResistChange(self, t)
 		local statReduction = t.getStatReduction(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Each melee hit gives you a chance to outmaneuver your marked prey, lowering their physical resistance by %d%% and reducing their highest statistic by %d. Subject to your effectiveness against the marked prey, there is a %0.1f%% chance to outmaneuver your marked type and a %0.1f%% maximum chance to outmaneuver your marked sub-type. The effects last for %d turns, and can accumulate.
-		Each point in Outmaneuver reduces the kill experience required to reach 100%% effectivess as a Predator.]]):format(-physicalResistChange, statReduction, typeChance, subtypeChance, duration)
+		return ([[근접 공격을 할 때마다 사냥감의 허를 찔러, 물리 저항력을 %d%% 낮추고 가장 높은 능력치를 %d 감소시킵니다. 사냥감으로 지정한 종류에게는 최대 %0.1f%% 확률, 사냥감으로 지정한 종족에게는 최대 %0.1f%% 확률로 허를 찌를 수 있습니다. 이 효과는 %d 턴 동안 지속되며, 연속으로 효과를 발생시킬 경우 그만큼 지속시간이 연장됩니다.
+		기술 레벨이 상승할 때마다, 100%% 효율을 보기 위한 살해 경험치 수치가 줄어들게 됩니다.]]):format(-physicalResistChange, statReduction, typeChance, subtypeChance, duration)
 	end,
 }
 
 newTalent{
 	name = "Mimic",
+	kr_name = "흉내 내기",
 	type = {"cursed/predator", 4},
 	mode = "passive",
 	require = cursed_lev_req4,
@@ -170,7 +180,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local maxIncrease = t.getMaxIncrease(self, t)
-		return ([[You learn to mimic the strengths of your prey. Killing a marked sub-type raises your stats to match the strengths of the victim (up to a maximum of %d total points, subject to your current effectiveness). The effect lasts indefinitely, but only the effects of the lastest kill will be applied.
-		Each point in Mimic reduces the kill experience required to reach 100%% effectivess as a Predator.]]):format(maxIncrease)
+		return ([[사냥감의 강점을 흉내냅니다. 사냥감으로 지정한 종족을 죽이면, 사냥감에 맞는 능력치가 상승합니다. (모든 능력치를 합쳐 최대 %d 상승, 증오 수치에 따라 증감 적용) 기술의 지속시간은 무한하지만, 최근에 죽인 사냥감들의 능력치만 적용됩니다.
+		기술 레벨이 상승할 때마다, 100%% 효율을 보기 위한 살해 경험치 수치가 줄어들게 됩니다.]]):format(maxIncrease)
 	end,
 }

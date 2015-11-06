@@ -27,6 +27,7 @@ end
 
 newTalent{
 	name = "Arcane Bolts",
+	kr_name = "마법 화살",
 	type = {"cursed/primal-magic", 1},
 	require = cursed_mag_req1,
 	points = 5,
@@ -92,13 +93,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Each turn for 4 turns you fire a bolt of arcane energy at your nearest enemy inflicting %d damage.
-		The damage will increase with the Magic stat.]]):format(damDesc(self, DamageType.ARCANE, damage))
+		return ([[4 턴 동안, 매 턴마다 마법의 힘으로 이루어진 화살을 가장 근접한 적에게 날려 %d 피해를 줍니다.
+		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.ARCANE, damage))
 	end,
 }
 
 newTalent{
 	name = "Displace",
+	kr_name = "위치 이동",
 	type = {"cursed/primal-magic", 2},
 	require = cursed_mag_req2,
 	points = 5,
@@ -113,7 +115,7 @@ newTalent{
 	action = function(self, t)
 		local x, y = self.x, self.y
 		local range = self:getTalentRange(t)
-		game.logPlayer(self, "Selects a displacement location...")
+		game.logPlayer(self, "이동할 위치를 선택하세요...")
 		local tg = {type="ball", nolock=true, pass_terrain=false, nowarning=true, range=range, radius=0}
 		x, y = self:getTarget(tg)
 		if not x or not self:hasLOS(x, y) then return nil end
@@ -124,7 +126,7 @@ newTalent{
 
 		if not self:canMove(x, y) or (self.x == x and self.y == y) then return nil end
 		if not self:canBe("teleport") or game.level.map.attrs(x, y, "no_teleport") then
-			game.logSeen(self, "Your attempt to displace fails!")
+			game.logSeen(self, "위치 이동에 실패했습니다!")
 			return true
 		end
 
@@ -136,12 +138,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Instantaneously displace yourself within line of sight up to 3 squares away.]])
+		return ([[시야 내에 있는 3 칸 이내의 장소로 즉시 이동합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Primal Skin",
+	kr_name = "태고의 피부",
 	type = {"cursed/primal-magic", 3},
 	require = cursed_mag_req3,
 	points = 5,
@@ -150,13 +153,14 @@ newTalent{
 	getArmor = function(self, t) return combatTalentDamage(self, t, 4, 40) end,
 	info = function(self, t)
 		local armor = t.getArmor(self, t)
-		return ([[Years of magic have permeated your skin leaving it resistant to the physical world. Your armor is increased by %d.
-		The bonus will increase with the Magic stat.]]):format(armor)
+		return ([[오랜 세월 수련한 마법이 피부에 스며들어, 물리적 피해를 저항해낼 수 있게 됩니다. 이를 통해 방어도가 %d 상승합니다.
+		방어도 상승량은 마법 능력치의 영향을 받아 증가합니다.]]):format(armor)
 	end,
 }
 
 newTalent{
 	name = "Vaporize",
+	kr_name = "증발",
 	type = {"cursed/primal-magic", 4},
 	require = cursed_mag_req4,
 	points = 5,
@@ -202,8 +206,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Bathes the target in raw magic inflicting %d damage. Such wild magic is difficult to control and if you fail to keep your wits you will be confused for 4 turns.
-		The damage will increase with the Magic stat.]]):
+		return ([[대상에게 순수한 마법의 힘으로 %d 피해를 줍니다. 너무나 격렬한 마법이라 통제가 어려우며, 통제에 실패할 경우 4 턴 동안 혼란 상태가 됩니다.
+		피해량은 마법 능력치의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ARCANE, damage))
 	end,
 }

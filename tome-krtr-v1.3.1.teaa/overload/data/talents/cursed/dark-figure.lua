@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Radiant Fear",
+	kr_name = "공포 발산",
 	type = {"cursed/dark-figure", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -35,7 +36,7 @@ newTalent{
 		if not x or not y or not target then return nil end
 
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then
-			game.logPlayer(self, "You are too far to from the target!")
+			game.logPlayer(self, "대상과 너무 멀리 떨어져 있습니다!")
 			return nil
 		end
 
@@ -49,12 +50,13 @@ newTalent{
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Fear radiates from your target in a radius of %d for %d turns driving all others away.]]):format(radius, duration)
+		return ([[주변 %d 칸 반경의 적들을 %d 턴 동안 공포에 질리게 해, 도망가게 만듭니다.]]):format(radius, duration)
 	end,
 }
 
 newTalent{
 	name = "Suppression",
+	kr_name = "억제",
 	type = {"cursed/dark-figure", 2},
 	mode = "passive",
 	require = cursed_wil_req2,
@@ -66,12 +68,13 @@ newTalent{
 	getPercent = function(self, t) return 15 + math.floor(self:getTalentLevel(t) * 10) end,
 	info = function(self, t)
 		local percent = t.getPercent(self, t)
-		return ([[The time you have spent suppressing the curse has taught you self control. The duration of most non-magical effects are reduced by %d%%.]]):format(percent)
+		return ([[자신의 저주를 끊임없이 억제해온 세월을 통해, 자신을 통제할 수 있는 능력을 얻었습니다. 부정적인 육체적, 정신적 상태효과의 지속시간이 %d%% 줄어듭니다.]]):format(percent)
 	end,
 }
 
 newTalent{
 	name = "Cruel Vigor",
+	kr_name = "잔혹한 활력",
 	type = {"cursed/dark-figure", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -90,7 +93,7 @@ newTalent{
 	info = function(self, t)
 		local speed = t.getSpeed(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You are invigorated by the death around you. Each life you take grants %d%% speed for %d more turns.]]):format(100 + speed, duration)
+		return ([[주변에 서린 죽음의 기운에서 활력을 얻습니다. 생명력을 취할 때마다 %d%% 만큼 속도가 올라가며, %d 턴 동안 유지됩니다.]]):format(100 + speed, duration)
 	end,
 }
 
@@ -117,6 +120,7 @@ newTalent{
 
 newTalent{
 	name = "Pity",
+	kr_name = "동정심 유발",
 	type = {"cursed/dark-figure", 4},
 	mode = "sustained", no_sustain_autoreset = true,
 	require = cursed_wil_req4,
@@ -140,7 +144,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = t.range(self, t)
-		return ([[You hide your terrible nature behind a pitiful figure. Those that see you from a distance of %d will ignore you. If you attack or use a talent they will see you for what you are and pity will be deactivated.]]):format(range)
+		return ([[끔찍한 본성을 숨기고, 상대의 동정심을 유발합니다. 이를 통해, %d 칸 이상 떨어진 곳에 있는 적들이 자신을 무시하게 됩니다. 누군가를 공격하거나 다른 기술을 사용하면, 적들이 시전자의 정체를 알아차리게 되어 기술의 유지가 해제됩니다.]]):format(range)
 	end,
 }
 

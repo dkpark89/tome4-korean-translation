@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 local Object = require "engine.Object"
 local Entity = require "engine.Entity"
 local Dialog = require "engine.ui.Dialog"
@@ -28,6 +29,7 @@ local curses_weapon
 
 newTalent{
 	name = "Defiling Touch",
+	kr_name = "더럽혀진 손길",
 	type = {"cursed/cursed-aura", 1},
 	require = cursed_lev_req1,
 	points = 5,
@@ -119,9 +121,9 @@ newTalent{
 	-- gets the name of the currently set cursed aura
 	getCursedAuraName = function(self, t)
 		if not self.cursed_aura then
-			return "None"
+			return "없음"
 		else
-			return self.tempeffect_def[self.cursed_aura].desc
+			return (self.tempeffect_def[self.cursed_aura].kr_desc or self.tempeffect_def[self.cursed_aura].desc) 
 		end
 	end,
 	on_onWear = function(self, t, o)
@@ -162,12 +164,12 @@ newTalent{
 
 			if choose then
 				Dialog:yesnoLongPopup(
-					"Cursed Fate",
-					("The %s lying nearby catches your attention. What draws you to it is not the thing itself, but something burning inside you. You feel contempt for it and all worldly things. This feeling is not new but the power of it overwhelms you. You reach out to touch the object, to curse it, to defile it. And you notice it begin to change. The colors of it begin to fade and are replaced with an insatiable hate. For a moment you hesitate. You know you must choose to resist this manifestation of your curse now and forever, or fall further into your madness."):format(item.name),
+					"저주받은 자의 저주받은 운명",
+					("근처에 놓여있는 %s에 눈이 갔다. 하지만, 그 장비에 딱히 관심이 있었던 것은 아니다. 자신의 내면에서 갑자기 타오르는 무언가를 느꼈기 때문이다. 평소와 같이, 당신은 이 느낌을 무시하였다. 이 느낌 자체는 그다지 새로운 것이 아니었지만, 이 느낌과 함께 찾아온 힘만은 자신을 압도할 듯 흘러나왔다. 당신은 무의식적으로 그 장비를 저주하고, 오염시키기 위해 손을 뻗었다. 그러자, 그 장비가 변화하기 시작하였다. 장비가 원래 지니고 있던 색은 옅어지고, 끝없는 증오의 색으로 물들기 시작하였다. 잠시 동안, 당신은 주춤하였다. 이 저주의 징후를 견뎌내고 다시는 저주가 발현하지 못하게 만들 것인지, 아니면 더 깊은 광기로 빠져들 것인지. 선택할 시간이 다가온 것 같다."):format((item.kr_name or item.name)),
 					300,
 					function(ret)
 						if ret then
-							Dialog:simpleLongPopup("Cursed Fate", ("The %s lies defiled at your feet. An aura of hatred surrounds you and you now feel truly cursed. You have gained the Cursed Aura talent tree and 1 point in Defiling Touch, but at the cost of 2 Willpower."):format(item.name), 300)
+							Dialog:simpleLongPopup("저주받은 자의 저주받은 운명", ("%s의 본래 색깔은 완전히 사라지고, 오염되었다. 갑자기 증오의 기운이 자신의 주변을 감싸고 있는 것을 느꼈으며, 이제 자신은 진정으로 저주받았다는 것을 느꼈다. 저주받은 기운 기술 계열을 얻었으며 더럽혀진 손길 기술을 1 레벨 얻었지만, 의지 능력치가 2 감소하였다."):format((item.kr_name or item.name)), 300)
 							self:learnTalentType("cursed/cursed-aura", true)
 							self:learnTalent(self.T_DEFILING_TOUCH, true, 1, {no_unlearn=true})
 							self:incIncStat(Stats.STAT_WIL, -2)
@@ -176,11 +178,11 @@ newTalent{
 							t.curseFloor(self, t, self.x, self.y)
 							t.updateCurses(self, t, false)
 						else
-							Dialog:simplePopup("Cursed Fate", ("The %s returns to normal and your hate subsides."):format(item.name))
+							Dialog:simplePopup("저주받은 자의 저주받은 운명", ("%s의 색깔이 정상으로 돌아왔으며, 들끓던 증오심도 사라졌다."):format((item.kr_name or item.name)))
 						end
 					end,
-					"Release your hate upon the object",
-					"Suppress your affliction")
+					"장비에 자신의 증오를 풀어놓는다",
+					"이 고통과 증오를 억누른다")
 			end
 			return choose
 		end
@@ -259,26 +261,27 @@ newTalent{
 		game:registerDialog(cursedAuraSelect)
 	end,
 	info = function(self, t)
-		return ([[Your defiling touch permeates everything around you, permanently imparting a random curse on each item you find. When you equip a cursed item, you gain the effects of that curse (shown as a beneficial effect). Each item with the same curse that is equipped increases the curse's power.  Initially curses are harmful, but powerful benefits accumulate as the power of the curse increases.
-		The Dark Gifts talent unlocks higher level curse effects and increases their power.
-		Your aura permeates your equipment more thoroughly with talent level and can affect items as follows:
-		Level 1  -- weapons
-		Level 2  -- body armor and cloaks
-		Level 3  -- shields and helmets
-		Level 4  -- gloves, boots and belts
-		Level 6  -- rings
-		Level 7  -- amulets/necklaces
-		Level 8  -- lites
-		Level 9  -- tools/totems/torques/wands
-		level 10 -- ammunition
-		At level 5, you can activate this talent to surround yourself with an aura that adds 2 levels to a curse of your choosing. (%s chosen)
-		Also, talent levels above 5 reduce the negative effects of your curses (currently %d%% reduction).]]):
+		return ([[더럽혀진 자신의 손길은 주변의 모든 것들을 오염시킵니다. 저주받은 장비를 장착하면 저주의 효과를 받게 되며, 같은 저주에 걸린 장비를 다수 착용하면 저주의 레벨이 증가합니다. 최초의 저주는 해롭지만, 저주가 중첩되면 강력한 강화 효과를 얻을 수 있습니다.
+		어둠의 선물 기술을 통해 더 높은 레벨의 저주 효과를 받을 수 있게 됩니다.
+		저주의 기운은 장비에 스며드며, 실질 기술 레벨이 높아지면 더 다양한 장비를 오염시킬 수 있게 됩니다.
+		실질 기술 레벨 1  -- 무기
+		실질 기술 레벨 2  -- 옷, 망토
+		실질 기술 레벨 3  -- 방패, 모자
+		실질 기술 레벨 4  -- 장갑, 신발, 허리띠
+		실질 기술 레벨 6  -- 반지
+		실질 기술 레벨 7  -- 부적/목걸이
+		실질 기술 레벨 8  -- 조명
+		실질 기술 레벨 9  -- 도구/토템/주술고리/마법봉
+		실질 기술 레벨 10 -- 탄환
+		기술 레벨이 5 이상일 경우, 자신의 주변에 저주의 기운을 둘러 선택한 저주의 레벨을 2 올릴 수 있게 됩니다. (현재 : %s)
+		또한 실질 기술 레벨이 5 이상일 경우, 저주의 부정적인 효과를 감소시킬 수 있게 됩니다. (현재 감소율 : %d%%)]]): 
 		format(t.getCursedAuraName(self, t), (1-t.cursePenalty(self, t))*100)
 	end,
 }
 
 newTalent{
 	name = "Dark Gifts",
+	kr_name = "어둠의 선물",
 	type = {"cursed/cursed-aura", 2},
 	mode = "passive",
 	require = cursed_lev_req2,
@@ -298,14 +301,15 @@ newTalent{
 	info = function(self, t)
 		local level = math.min(4, self:getTalentLevelRaw(t))
 		local xs = t.curseBonusLevel(self,t)
-		return ([[Your curses bring you dark gifts. Unlocks bonus level %d effects on all of your curses, allowing you to gain that effect when the power level of your curse reaches that level. At talent level 5, the luck penalty of cursed effects is reduced to 1.
-		Talent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).]]):
+		return ([[저주가 어둠의 선물을 가져다줍니다. 최대 %d 레벨의 저주 효과를 볼 수 있게 되며, 기술 레벨이 5 이상일 경우 저주에 의한 행운 감소량이 1 로 줄어듭니다.
+		또한 실질 기술 레벨이 5 이상일 경우, 저주의 레벨을 강화시킬 수 있게 됩니다. (현재 강화 수준 : %0.1f)]]): 
 		format(level, xs)
 	end,
 }
 
 newTalent{
 	name = "Ruined Earth",
+	kr_name = "망가진 대지",
 	type = {"cursed/cursed-aura", 3},
 	require = cursed_lev_req3,
 	points = 5,
@@ -348,7 +352,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local incDamage = t.getIncDamage(self, t)
 
-		return ([[Curse the earth around you in a radius of %d for %d turns. Any who stand upon it are weakened, reducing the damage they inflict by %d%%]]):format(range, duration, incDamage)
+		return ([[%d 턴 동안 자신의 주변 %d 칸 반경의 땅에 저주를 내립니다. 저주받은 땅 위에 선 자들은 약화되어, 피해량이 %d%% 감소하게 됩니다. 시전자도 이 기술의 영향을 받습니다.]]):format(duration, range, incDamage) --@ 변수 순서 조정
 	end,
 }
 
@@ -372,6 +376,7 @@ newTalent{
 
 newTalent{
 	name = "Cursed Sentry",
+	kr_name = "저주받은 파수꾼",
 	type = {"cursed/cursed-aura", 4},
 	require = cursed_lev_req4,
 	points = 5,
@@ -397,7 +402,7 @@ newTalent{
 			end
 		end
 		if not found then
-			game.logPlayer(self, "You cannot use %s without a weapon in your inventory!", t.name)
+			game.logPlayer(self, "소지 중인 무기가 없으면, %s의 사용은 불가능합니다!", (t.kr_name or t.name))
 			return false
 		end
 
@@ -427,9 +432,9 @@ newTalent{
 		local sentry = NPC.new {
 			type = "construct", subtype = "weapon",
 			display = o.display, color=o.color, image = o.image, blood_color = colors.GREY,
-			name = "animated "..o:getName(), -- bug fix
+			name = "살아 움직이는  "..o:getName(), -- bug fix --@ 이유는 모르겠지만, kr_name을 추가하면 오류가 발생하여 그냥 name을 한글화 했음
 			faction = self.faction,
-			desc = "A weapon imbued with a living curse. It seems to be searching for its next victim.",
+			desc = "살아 움직이는 저주에 걸린 무기입니다. 다음 희생자를 찾고 있는 것 같습니다.",
 			faction = self.faction,
 			body = { INVEN = 10, MAINHAND=1, QUIVER=1 },
 			rank = 2,
@@ -481,7 +486,7 @@ newTalent{
 			summon_time = t.getDuration(self, t),
 			summon_quiet = true,
 			on_die = function(self, who)
-				game.logSeen(self, "#F53CBE#%s drops to the ground.", self.name:capitalize())
+				game.logSeen(self, "#F53CBE#%s 재가 되어 사라집니다.", (self.kr_name or self.name):capitalize():addJosa("가"))
 			end,
 		}
 
@@ -565,7 +570,7 @@ newTalent{
 		sentry.no_points_on_levelup = true
 		if game.party:hasMember(self) then
 			sentry.remove_from_party_on_death = true
-			game.party:addMember(sentry, { control="no", type="summon", title="Summon"})
+			game.party:addMember(sentry, { control="no", type="summon", title="Summon", kr_title="소환수"})
 		end
 
 		game:playSoundNear(self, "talents/spell_generic")
@@ -576,10 +581,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local attackSpeed = t.getAttackSpeed(self, t)*100
 
-		return ([[Instill a part of your living curse into a weapon in your inventory, and toss it nearby. This nearly impervious sentry will attack all nearby enemies for %d turns. When the curse ends, the weapon will drop to the ground.
-			Cursed Sentry attack speed (currently %d%%) will improve with talent level.
-			When you first select a weapon, it will be remembered and used as long as it's in your inventory. Use Choose Cursed Sentry talent to alter your selection.
-			At talent level 3, you get the ability to afflict powerful mundane objects (greater egos).
-			At talent level 5, you can corrupt artifacts.]]):format(duration, attackSpeed)
+		return ([[소지하고 있는 무기 하나에 살아 움직이는 저주를 걸어, 근처에 둡니다. 이 무적에 가까운 무기 파수꾼은 %d 턴 동안 근처의 모든 적들을 공격합니다. 저주가 끝나면, 무기는 그 자리에 떨어집니다. 
+		무기의 공격 속도 : %d%% (1 턴에 1 번 공격할 경우를 100%% 로 보며, %% 수치가 작아질수록 공격 속도는 빨라집니다)]]):format(duration, attackSpeed)
 	end,
 }

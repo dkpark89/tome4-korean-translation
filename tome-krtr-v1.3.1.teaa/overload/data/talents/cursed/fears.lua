@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Instill Fear",
+	kr_name = "공포 주입",
 	type = {"cursed/fears", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -49,7 +52,7 @@ newTalent{
 	end,
 	applyEffect = function(self, t, target)
 		if not target:canBe("fear") then
-			game.logSeen(target, "#F53CBE#%s ignores the fear!", target.name:capitalize())
+			game.logSeen(target, "#F53CBE#%s 공포를 무시합니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			return true
 		end
 		
@@ -61,7 +64,7 @@ newTalent{
 		
 		local mindpower = self:combatMindpower(1, mindpowerChange)
 		if not target:checkHit(mindpower, target:combatMentalResist()) then
-			game.logSeen(target, "%s resists the fear!", target.name:capitalize())
+			game.logSeen(target, "%s 공포를 이겨냈습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			return nil
 		end
 		
@@ -143,9 +146,12 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Instill fear in your target, causing one of several possible fears that lasts for %d turns. There is also a 25%% chance of instilling fear in any foe in a radius of %d. The target can save versus Mindpower to resist the effect, and can be affected by multiple fears.  
-		You gain 2 new fears: The Paranoid effect gives the target an %d%% chance to physically attack a nearby creature, friend or foe. If hit, their target will be afflicted with Paranoia as well. The Despair effect reduces the target's resistance to all damage by %d%%.
-		Fear effects improve with your Mindpower.]]):format(t.getDuration(self, t), self:getTalentRadius(t),
+		return ([[대상에게 공포를 심어, 공포 효과 중 무작위한 하나를 %d 턴 동안 겁니다. 25%% 확률로 %d 칸 반경 안에 있는 다른 적에게도 공포를 겁니다. 
+		적들은 정신 내성으로 공포를 저항하려 하며, 여러 공포 효과가 한번에 걸릴 수도 있습니다.
+		그리고, 두 가지 공포 효과를 사용할 수 있게 됩니다.
+		- 피해망상 : %d%% 확률로, 대상이 피아를 가리지 않고 근처에 있는 개체를 근접 공격하게 만듭니다. 공격이 명중할 경우, 그 개체 역시 피해망상에 빠지게 됩니다. 
+		- 절망 : 대상의 전체 저항력을 %d%% 감소시킵니다.
+		공포 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(t.getDuration(self, t), self:getTalentRadius(t),
 		t.getParanoidAttackChance(self, t),
 		-t.getDespairResistAllChange(self, t))
 	end,
@@ -153,6 +159,7 @@ newTalent{
 
 newTalent{
 	name = "Heighten Fear",
+	kr_name = "고조된 공포",
 	type = {"cursed/fears", 2},
 	require = cursed_wil_req2,
 	mode = "passive",
@@ -175,16 +182,20 @@ newTalent{
 		local range = self:getTalentRange(t)
 		local turnsUntilTrigger = t.getTurnsUntilTrigger(self, t)
 		local duration = tInstillFear.getDuration(self, tInstillFear)
-		return ([[Heighten the fears of everyone around you. Any foe you inflict at least one fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will gain a new fear that lasts for %d turns. The target can save versus Mindpower to resist the effect, and each added fear reduces the chances of another by 10%%. 
-		You gain 2 new fears: The Terrified effect causes talents and attacks to fail %d%% of the time. The Distressed effect reduces all saves by %d.
-		Fear effects improve with your Mindpower.]]):format(range, turnsUntilTrigger, duration,
+		return ([[주변에 있는 모든 적들의 공포를 고조시킵니다. 당신이 하나 이상의 공포 효과를 건 대상이 %d 턴 동안 시전자 시야 내의 %d 칸 반경내에 있었을 경우, 대상은 %d 턴 동안 새로운 공포 효과에 걸립니다.
+		적들은 정신 내성으로 공포를 저항하려 하며, 고조된 공포를 통해 걸린 공포 효과 하나 당 다른 공포 효과에 걸릴 확률을 10%% 씩 감소시킵니다.
+		그리고, 두 가지 새로운 공포 효과를 사용할 수 있게 됩니다.
+		- 두려움 : %d%% 확률로 대상의 기술이나 공격이 실패하게 됩니다. 
+		- 괴로움 : 대상의 모든 내성을 %d 감소시킵니다.
+		공포 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(turnsUntilTrigger, range, duration,
 		t.getTerrifiedActionFailureChance(self, t),
-		-t.getDistressedSaveChange(self, t))
+		-t.getDistressedSaveChange(self, t)) --@ 변수 순서 조정
 	end,
 }
 
 newTalent{
 	name = "Tyrant",
+	kr_name = "폭군",
 	type = {"cursed/fears", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -206,9 +217,11 @@ newTalent{
 		return self:combatTalentMindDamage(t, 40, 60)
 	end,
 	info = function(self, t)
-		return ([[Impose your tyranny on the minds of those who fear you. Your mindpower is increased by %d against foes who attempt to resist your fears. 
-		You gain 2 new fears: The Haunted effect causes each existing or new fear effect that the target suffers from to inflict %d mind damage. The Tormented effect causes %d apparitions to manifest and attack the target, inflicting %d mind damage each before disappearing.
-		Fear effects improve with your Mindpower.]]):format(t.getMindpowerChange(self, t),
+		return ([[공포에 질린 적들을 지배합니다. 적이 공포 상태를 저항할 경우, 그 적을 상대로 할 때 한정으로 정신력이 %d 상승하게 됩니다.
+		그리고, 두 가지 새로운 공포 효과를 사용할 수 있게 됩니다.
+		- 불안 : 다른 공포에 걸릴 때마다, 불안에 빠져 %d 정신 피해를 받습니다. 이전에 걸려있던 공포에도 적용됩니다.
+		- 격통 : %d 마리의 '격통을 주는 자' 가 나타나 대상을 공격합니다. 이들은 사라지기 전까지 %d 정신 피해를 줍니다.
+		공포 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(t.getMindpowerChange(self, t),
 		t.getHauntedDamage(self, t),
 		t.getTormentedCount(self, t), t.getTormentedDamage(self, t))
 	end,
@@ -216,6 +229,7 @@ newTalent{
 
 newTalent{
 	name = "Panic",
+	kr_name = "공황",
 	type = {"cursed/fears", 4},
 	require = cursed_wil_req4,
 	points = 5,
@@ -240,11 +254,11 @@ newTalent{
 				local actor = game.level.map(px, py, engine.Map.ACTOR)
 				if actor and self:reactionToward(actor) < 0 and actor ~= self then
 					if not actor:canBe("fear") then
-						game.logSeen(actor, "#F53CBE#%s ignores the panic!", actor.name:capitalize())
+						game.logSeen(actor, "#F53CBE#%s 공황 상태를 무시합니다!", (actor.kr_name or actor.name):capitalize():addJosa("가"))
 					elseif actor:checkHit(self:combatMindpower(), actor:combatMentalResist(), 0, 95) then
 						actor:setEffect(actor.EFF_PANICKED, duration, {src=self,range=10,chance=chance})
 					else
-						game.logSeen(actor, "#F53CBE#%s resists the panic!", actor.name:capitalize())
+						game.logSeen(actor, "#F53CBE#%s 공황 상태를 저항합니다!", (actor.kr_name or actor.name):capitalize():addJosa("가"))
 					end
 				end
 			end,
@@ -255,6 +269,6 @@ newTalent{
 		local range = self:getTalentRange(t)
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
-		return ([[Panic your enemies within a range of %d for %d turns. Anyone who fails to make a mental save against your Mindpower has a %d%% chance each turn of trying to run away from you.]]):format(range, duration, chance)
+		return ([[주변 %d 칸 반경의 적들을 %d 턴 동안 공황 상태에 빠트립니다. 정신 내성을 통한 저항에 실패한 적들은 매 턴마다 %d%% 확률로 정상적인 행동을 하지 못하고, 시전자에게서 멀어지려 하게 됩니다.]]):format(range, duration, chance)
 	end,
 }

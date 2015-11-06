@@ -23,6 +23,7 @@ end
 
 newTalent{
 	name = "Unnatural Body",
+	kr_name = "잠식된 육체",
 	type = {"cursed/cursed-form", 1},
 	mode = "passive",
 	require = cursed_wil_req1,
@@ -70,13 +71,15 @@ newTalent{
 		local maxUnnaturalBodyHeal = t.getMaxUnnaturalBodyHeal(self, t)
 		local regenRate = t.getRegenRate(self, t)
 
-		return ([[Your body's strength is fed by your hatred. This causes most forms of healing to be between 50%% effective (at 0 Hate) to 100%% effective (at 100+ Hate). In addition, after each kill, you store the waning life force to invigorate yourself, restoring %d life (limited by the foe's maximum life, up to a maximum of %d at any time).  You can heal no more than %0.1f life per turn this way, and it is not affected by your hatred level or other effects.
-		Healing from kills improves with your Willpower.]]):format(healPerKill, maxUnnaturalBodyHeal, regenRate)
+		return ([[증오의 힘이 육체를 잠식합니다. 이로 인해, 치유 효율이 증오심에 따라 50%% 에서 100%% 까지 증감합니다. (증오가 0 일 때 50%% / 증오가 100 이상일 때 100%%)		
+		그리고 적을 살해할 때마다, 적의 생명력을 저장해서 자신의 생명력을 %d 회복할 수 있게 됩니다. (적의 최대 생명력 이상은 회복할 수 없으며, %d 이상은 회복할 수 없습니다) 매 턴마다 %0.1f 이상의 생명력은 회복할 수 없으며, 이는 증오심에 따른 치유 효율이나 다른 효과의 영향을 받지 않습니다.
+		살육을 통한 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):format(healPerKill, maxUnnaturalBodyHeal, regenRate) 
 	end,
 }
 
 newTalent{
 	name = "Relentless",
+	kr_name = "무자비함",
 	type = {"cursed/cursed-form", 2},
 	mode = "passive",
 	require = cursed_wil_req2,
@@ -89,12 +92,13 @@ newTalent{
 		self:talentTemporaryValue(p, "stun_immune", t.getImmune(self, t))
 	end,
 	info = function(self, t)
-		return ([[Your thirst for blood drives your movements. You gain +%d%% confusion, fear, knockback and stun immunity.]]):format(t.getImmune(self, t)*100)
+		return ([[피에 대한 갈망이 몸의 움직임을 지배합니다. 기절, 혼란, 공포, 밀어내기 면역력이 %d%% 상승합니다.]]):format(t.getImmune(self, t)*100)
 	end,
 }
 
 newTalent{
 	name = "Seethe",
+	kr_name = "끓어오르는 분노의 힘",
 	type = {"cursed/cursed-form", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -104,12 +108,13 @@ newTalent{
 	end,
 	info = function(self, t)
 		local incDamageChangeMax = t.getIncDamageChange(self, t, 5)
-		return ([[You have learned to hold onto your hate and use your suffering to fuel your body's rage. Every turn you take damage, the damage you inflict increases, until it reaches a maximum of +%d%% after 5 turns. Any turn in which you do not take damage will reduce the bonus.]]):format(incDamageChangeMax)
+		return ([[자신의 증오심과 고통으로 육체의 분노를 이끌어내는 법을 알게 되었습니다. 적에게 피해를 받을 때마다, 자신이 적에게 주는 피해량이 증가하게 됩니다. 최대 5 턴 동안 피해를 받아서, 피해량을 %d%% 까지 증가시킬 수 있습니다. 중간에 한 턴이라도 피해를 받지 않으면, 그만큼 피해 증가량도 줄어들게 됩니다.]]):format(incDamageChangeMax)
 	end
 }
 
 newTalent{
 	name = "Grim Resolve",
+	kr_name = "냉혹한 결심",
 	type = {"cursed/cursed-form", 4},
 	require = cursed_wil_req4,
 	mode = "passive",
@@ -119,8 +124,8 @@ newTalent{
 	info = function(self, t)
 		local statChangeMax = t.getStatChange(self, t, 5)
 		local neutralizeChance = t.getNeutralizeChance(self, t)
-		return ([[You rise to meet the pain that others would inflict on you. Every turn you take damage, your Strength and Willpower increase until they reach a maximum of +%d after 5 turns. Any turn in which you do not take damage will reduce the bonus. While in effect, your body also has a %d%% chance to overcome poisons and diseases each turn.]]):format(statChangeMax, neutralizeChance)
+		return ([[자신이 받는 고통과 당당히 맞서 싸우게 됩니다. 적에게 피해를 받을 때마다, 힘과 의지 능력치가 증가하게 됩니다. 최대 5 턴 동안 피해를 받아서, 각 능력치를 %d 까지 증가시킬 수 있습니다. 중간에 한 턴이라도 피해를 받지 않으면, 그만큼 능력치 증가량도 줄어들게 됩니다. 
+		그리고 이 효과가 지속되는 동안, 매 턴마다 %d%% 확률로 자신에게 걸린 독과 질병을 이겨낼 수 있게 됩니다.]]):format(statChangeMax, neutralizeChance)
 	end,
 }
-
 
