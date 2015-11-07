@@ -18,32 +18,32 @@
 -- darkgod@te4.org
 
 -- Class Trees
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/blade-threading", name = "Blade Threading", description = "A blend of chronomancy and dual-weapon combat." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/bow-threading", name = "Bow Threading", description = "A blend of chronomancy and ranged combat." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-combat", name = "Temporal Combat", description = "A blend of chronomancy and physical combat." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/guardian", name = "Temporal Guardian", description = "Warden combat training and techniques." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/threaded-combat", name = "Threaded Combat", min_lev = 10, description = "A blend of ranged and dual-weapon combat." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-hounds", name = "Temporal Hounds", min_lev = 10, description = "Call temporal hounds to aid you in combat." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/blade-threading", name = "Blade Threading", description = "시공마법과 쌍수 무기술의 조화." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/bow-threading", name = "Bow Threading", description = "시공마법과 장거리 무기술의 조화."}
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-combat", name = "Temporal Combat", description = "시공마법과 물리 전투 기술의 조화." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/guardian", name = "Temporal Guardian", description = "감시자의 전투 수련과 기술들." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/threaded-combat", name = "Threaded Combat", min_lev = 10, description = "장거리 무기술과 쌍수 무기술의 조화." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-hounds", name = "Temporal Hounds", min_lev = 10, description = "시간의 사냥개를 불러 당신의 전투를 돕습니다." }
 
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/flux", name = "flux", description = "Fluctuate spacetime." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/gravity", name = "gravity", description = "Call upon the force of gravity to crush, push, and pull your foes." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/matter", name = "matter", description = "Change and shape matter itself." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-folding", name = "Spacetime Folding", description = "Mastery of folding points in space." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/speed-control", name = "Speed Control", description = "Control how fast objects and creatures move through spacetime." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/stasis", name = "stasis", description = "Stabilize spacetime." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timeline-threading", name = "Timeline Threading", min_lev = 10, description = "Examine and alter the timelines that make up the spacetime continuum." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timetravel", name = "timetravel", description = "Directly manipulate the flow of time" }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spellbinding", name = "Spellbinding", min_lev = 10, description = "Manipulate chronomantic spells." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/flux", name = "flux", description = "시공간을 조정합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/gravity", name = "gravity", description = "중력의 힘을 불러내어 당신의 적을 부수고, 밀고, 당깁니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/matter", name = "matter", description = "물질 자체를 바꾸고 빚어냅니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-folding", name = "Spacetime Folding", description = "공간을 자유자재로 접습니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/speed-control", name = "Speed Control", description = "시공간에서 물질들과 존재들의 속도를 조절합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/stasis", name = "stasis", description = "시공간을 안정화합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timeline-threading", name = "Timeline Threading", min_lev = 10, description = "시간선을 관찰하고 개변시켜 시공간 연속체를 다스립니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/timetravel", name = "timetravel", description = "시간의 흐름을 직접적으로 다룹니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spellbinding", name = "Spellbinding", min_lev = 10, description = "시공간 주문을 다룹니다." }
 
 -- Generic Chronomancy
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/chronomancy", name = "Chronomancy", generic = true, description = "Allows you to glimpse the future, or become more aware of the present." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/energy", name = "energy", generic = true, description = "Manipulate raw energy by addition or subtraction." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/fate-weaving", name = "Fate Weaving", generic = true, description = "Weave the threads of fate." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-weaving", name = "Spacetime Weaving", generic = true, description = "Weave the threads of spacetime." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/chronomancy", name = "Chronomancy", generic = true, description = "미래를 어렴풋이 볼 수 있게 합니다, 혹은 현재에 대해 더 잘 알게됩니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/energy", name = "energy", generic = true, description = "순수한 에너지를 다루어 줄이거나, 늘립니다.Manipulate raw energy by addition or subtraction." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/fate-weaving", name = "Fate Weaving", generic = true, description = "운명의 실을 엮습니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/spacetime-weaving", name = "Spacetime Weaving", generic = true, description = "시공간의 선을 엮습니다." }
 
 -- Misc and Outdated Trees
-newTalentType{ no_silence=true, is_spell=true, type="chronomancy/manifold", name = "Manifold", generic = true, description = "Passive effects that Weapon Folding can trigger." }
-newTalentType{ no_silence=true, is_spell=true, type="chronomancy/other", name = "Other", generic = true, description = "Miscellaneous Chronomancy effects." }
+newTalentType{ no_silence=true, is_spell=true, type="chronomancy/manifold", name = "Manifold", generic = true, description = "무기 폴딩이 발동 할 수 있게하는 효과들입니다." }
+newTalentType{ no_silence=true, is_spell=true, type="chronomancy/other", name = "Other", generic = true, description = "여러 종류의 시공간 효과들입니다." }
 
 newTalentType{ no_silence=true, is_spell=true, type="chronomancy/age-manipulation", name = "Age Manipulation", description = "Manipulate the age of creatures you encounter." }
 newTalentType{ no_silence=true, is_spell=true, type="chronomancy/temporal-archery", name = "Temporal Archery", description = "A blend of chronomancy and ranged combat." }
