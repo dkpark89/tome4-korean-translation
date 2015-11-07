@@ -43,7 +43,7 @@ newTalent{
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
 		return ([[자신을 향해 내리비치는 햇빛을 통해, %d 생명력을 회복합니다. 
- 		회복량은 주문력의 영향을 받아 증가합니다.]]): 
+ 		회복량은 주문력의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,
 }
@@ -90,7 +90,7 @@ newTalent{
  		- 치유 효과를 %d%% 증가시킵니다. 
  		- 이 효과는 %d 턴 동안 지속되며, 해당 지역에 빛이 밝혀집니다. 
  		회복량은 주문력의 영향을 받아 증가합니다.]]): 
-		format(radius, heal, heal / 2, duration)
+		format(radius, heal, heal, heal / 2, duration) --@ 변수 조정
 	end,
 }
 

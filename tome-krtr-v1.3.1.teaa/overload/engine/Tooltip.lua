@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Base = require "engine.ui.Base"
 local TextzoneList = require "engine.ui.TextzoneList"
@@ -36,7 +37,7 @@ function _M:init(fontname, fontsize, color, bgcolor, max, lockstatus_icon)
 	self.ui = "simple"
 	
 	self.fontsize = fontsize
-	self.font = core.display.newFont(fontname or "/data/font/DroidSans.ttf", fontsize or 12)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSans.ttf", fontsize or 12) --@ 한글 글꼴 추가
 	self.font_line_skip = self.font:lineSkip()
 	self.scroll_delay = 20 -- ms/pixel
 
