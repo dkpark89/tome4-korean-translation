@@ -103,7 +103,7 @@ newTalent{
 
 newTalent{
 	name = "Singularity Arrow",
-	kr_name = "특이점 사격",
+	kr_name = "특이점 화살",
 	type = {"chronomancy/bow-threading", 2},
 	require = chrono_req2,
 	points = 5,
