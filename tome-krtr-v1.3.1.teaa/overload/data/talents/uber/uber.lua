@@ -17,13 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-newTalentType{ hide = true, type="uber/strength", name = "strength", description = "Ultimate talents you may only know one." }
-newTalentType{ hide = true, type="uber/dexterity", name = "dexterity", description = "Ultimate talents you may only know one." }
-newTalentType{ hide = true, type="uber/constitution", name = "constitution", description = "Ultimate talents you may only know one." }
-newTalentType{ hide = true, type="uber/magic", name = "magic", description = "Ultimate talents you may only know one." }
-newTalentType{ hide = true, type="uber/willpower", name = "willpower", description = "Ultimate talents you may only know one." }
-newTalentType{ hide = true, type="uber/cunning", name = "cunning", description = "Ultimate talents you may only know one." }
-newTalentType{ hide = true, type="uber/other", name = "other", description = "Ultimate talents you may only know one." }
+newTalentType{ hide = true, type="uber/strength", name = "strength", description = "당신만이 아는, 궁극의 기술." }
+newTalentType{ hide = true, type="uber/dexterity", name = "dexterity", description = "당신만이 아는, 궁극의 기술." }
+newTalentType{ hide = true, type="uber/constitution", name = "constitution", description = "당신만이 아는, 궁극의 기술." }
+newTalentType{ hide = true, type="uber/magic", name = "magic", description = "당신만이 아는, 궁극의 기술." }
+newTalentType{ hide = true, type="uber/willpower", name = "willpower", description = "당신만이 아는, 궁극의 기술." }
+newTalentType{ hide = true, type="uber/cunning", name = "cunning", description = "당신만이 아는, 궁극의 기술." }
+newTalentType{ hide = true, type="uber/other", name = "other", description = "당신만이 아는, 궁극의 기술." } 
 
 
 knowRessource = function(self, r, v)

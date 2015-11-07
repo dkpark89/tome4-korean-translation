@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 uberTalent{
 	name = "Fast As Lightning",
+	kr_name = "번개보다 빠르게",
 	mode = "passive",
 	trigger = function(self, t, ox, oy)
 		local dx, dy = (self.x - ox), (self.y - oy)
@@ -45,45 +48,47 @@ uberTalent{
 			self:setEffect(self.EFF_FAST_AS_LIGHTNING, 1, {})
 			eff = self:hasEffect(self.EFF_FAST_AS_LIGHTNING)
 			eff.dir = dir eff.nb = 0
-			game.logSeen(self, "#LIGHT_BLUE#%s slows from critical velocity!", self.name:capitalize())
+			game.logSeen(self, "#LIGHT_BLUE#%s의 초신속 상태가 해제됩니다!", (self.kr_name or self.name):capitalize())
 		end
 
 		eff.nb = eff.nb + 1
 
 		if eff.nb >= 3 and not eff.blink then
 			self:effectTemporaryValue(eff, "prob_travel", 5)
-			game.logSeen(self, "#LIGHT_BLUE#%s reaches critical velocity!", self.name:capitalize())
+			game.logSeen(self, "#LIGHT_BLUE#%s 초신속 상태에 들어갑니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y)
-			game.flyers:add(sx, sy, 30, rng.float(-3, -2), (rng.range(0,2)-1) * 0.5, "CRITICAL VELOCITY!", {0,128,255})
+			game.flyers:add(sx, sy, 30, rng.float(-3, -2), (rng.range(0,2)-1) * 0.5, "치명적 속도!", {0,128,255})
 			eff.particle = self:addParticles(Particles.new("megaspeed", 1, {angle=util.dirToAngle((dir == 4 and 6) or (dir == 6 and 4 or dir))}))
 			eff.blink = true
 			game:playSoundNear(self, "talents/thunderstorm")
 		end
 	end,
 	info = function(self, t)
-		return ([[When moving over 800%% speed for at least 3 steps in the same direction, you become so fast you can blink through obstacles as if they were not there.
-		Changing direction will break the effect.]])
+		return ([[800%% 이상의 이동 속도로 3 턴 동안 같은 방향으로 이동하게 되면, 초신속 상태가 되어 지형지물을 통과할 수 있게 됩니다.
+		이동 방향을 바꾸면 효과가 사라집니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Tricky Defenses",
+	kr_name = "교묘한 방어",
 	mode = "passive",
-	require = { special={desc="Antimagic", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
+	require = { special={desc="마법을 증오할 것", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	-- called by getMax function in Antimagic shield talent definition mod.data.talents.gifts.antimagic.lua
 	shieldmult = function(self) return self:combatStatScale("cun", 0.1, 0.5) end,
 	info = function(self, t)
-		return ([[You are full of tricks and surprises; your Antimagic Shield can absorb %d%% more damage.
-		The increase scales with your Cunning.]])
+		return ([[속임수와 각종 기술의 달인이 되어, 반마법 보호막이 %d%% 더 많은 피해량을 흡수하게 됩니다.
+		피해 흡수량은 교활함 능력치의 영향을 받아 증가합니다.]])
 		:format(t.shieldmult(self)*100)
 	end,
 }
 
 uberTalent{
 	name = "Endless Woes",
+	kr_name = "끝없는 고통",
 	mode = "passive",
-	require = { special={desc="Have dealt over 50000 acid, blight, darkness, mind or temporal damage", fct=function(self) return 
+	require = { special={desc="산성, 황폐, 암흑, 시간, 정신 속성 중 하나로 적에게 총 50,000 이상의 피해를 줄 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.ACID] and self.damage_log[DamageType.ACID] >= 50000) or
 			(self.damage_log[DamageType.BLIGHT] and self.damage_log[DamageType.BLIGHT] >= 50000) or
@@ -110,22 +115,23 @@ uberTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Surround yourself with a malevolent aura.
-		Any acid damage you do has a 20%% chance to apply a lasting acid that deals %d%% of the initial damage for 5 turns and reduces accuracy by %d.
-		Any blight damage you do has a 20%% chance to cause a random disease that deals %d%% of the initial damage for 5 turns and reduces a stat by %d.
-		Any darkness damage you do has a 20%% chance to blind the target for 5 turns.
-		Any temporal damage you do has a 20%% chance to slow (30%%) the target for 5 turns.
-		Any mind damage you do has a 20%% chance to confuse (20%%) the target for 5 turns.
-		This only triggers for hits over 150 damage.
-		The damage values increase with your Cunning.]])
+		return ([[사악한 기운이 온몸을 흐르기 시작합니다.
+		- 모든 산성 피해가 20%% 확률로 지속성 산성을 묻혀, 원래 피해량의 %d%% 만큼 추가 피해를 주고 5 턴 동안 정확도를 %d 감소시킵니다.
+		- 모든 황폐 피해가 20%% 확률로 추가적인 황폐화를 일으켜, 원래 피해량의 %d%% 만큼 추가 피해를 주고 5 턴 동안 능력치 하나를 %d 감소시킵니다.
+		- 모든 암흑 피해가 20%% 확률로 5 턴 동안 적을 실명시킵니다.
+		- 모든 시간 피해가 20%% 확률로 5 턴 동안 적을 30%% 감속시킵니다.
+		- 모든 정신 피해가 20%% 확률로 5 턴 동안 적을 20%% 혼란시킵니다.
+		모든 효과는 150 이상의 피해량을 줬을 경우에만 발동합니다.
+		모든 피해량은 교활함 능력치의 영향을 받아 증가합니다.]])
 		:format(100*t.cunmult(self) / 2.5, self:getCun() / 2, 100*t.cunmult(self) / 2.5, self:getCun() / 3)
 	end,
 }
 
 uberTalent{
 	name = "Secrets of Telos",
+	kr_name = "텔로스의 비밀",
 	mode = "passive",
-	require = { special={desc="Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", fct=function(self)
+	require = { special={desc="부서진 텔로스 지팡이 (상단), 부서진 텔로스 지팡이 (하단), 텔로스 지팡이의 수정을 모두 가지고 있을 것", fct=function(self)
 		local o1 = self:findInAllInventoriesBy("define_as", "GEM_TELOS")
 		local o2 = self:findInAllInventoriesBy("define_as", "TELOS_TOP_HALF")
 		local o3 = self:findInAllInventoriesBy("define_as", "TELOS_BOTTOM_HALF")
@@ -147,20 +153,21 @@ uberTalent{
 
 			self:sortInven()
 
-			game.logSeen(self, "#VIOLET#%s assembles %s!", self.name:capitalize(), o:getName{do_colour=true, no_count=true})
+			game.logSeen(self, "#VIOLET#%s %s 조립했습니다!", (self.kr_name or self.name):capitalize():addJosa("가"), o:getName{do_colour=true, no_count=true}:addJosa("를"))
 		end
 	end,
 	info = function(self, t)
-		return ([[You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.]])
+		return ([[세 가지 텔로스와 관련된 부품을 모아 신중하게 연구한 결과, 복원이 가능하다는 사실을 깨달았습니다. 하나의 강력한 지팡이를 복원해냅니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Elemental Surge",
+	kr_name = "속성 고조",
 	mode = "passive",
 	cooldown = 12,
-	require = { special={desc="Have dealt over 50000 arcane, fire, cold, lightning, light or nature damage", fct=function(self) return 
+	require = { special={desc="마법, 화염, 냉기, 전기, 빛, 자연 속성 중 하나로 적에게 총 50,000 이상의 피해를 줄 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.ARCANE] and self.damage_log[DamageType.ARCANE] >= 50000) or
 			(self.damage_log[DamageType.FIRE] and self.damage_log[DamageType.FIRE] >= 50000) or
@@ -199,21 +206,22 @@ uberTalent{
 	end,
 	info = function(self, t)
 		local cold = t.getColdEffects(self, t)
-		return ([[Surround yourself with an elemental aura. When you deal a critical hit with an element, you have a chance to trigger a special effect.
-		Arcane damage has a 30%% chance to increase your spellcasting speed by 20%% for 5 turns.
-		Fire damage has a 30%% chance to cleanse all physical or magical detrimental effects on you.
-		Cold damage has a 30%% chance to turn your skin into ice for 5 turns, reducing physical damage taken by %d%%, increasing armor by %d, and dealing %d ice damage to attackers.
-		Lightning damage has a 30%% chance to transform you into pure lightning for 5 turns; any damage will teleport you to an adjacent tile and ignore the damage (can only happen once per turn).
-		Light damage has a 30%% chance to create a barrier around you, absorbing %d damage for 5 turns.
-		Nature damage has a 30%% chance to harden your skin, preventing the application of any magical detrimental effects for 5 turns.
-		The Cold and Light effects scale with your Cunning.
-		These effects only trigger for hits over %d damage (based on your level).]])
+		return ([[원소의 기운이 온몸을 흐르기 시작합니다. 다양한 속성의 공격으로 치명타를 발생시킬 때마다, 특수한 효과가 일어납니다.
+		- 공격이 마법 속성이었을 경우, 30%% 확률로 주문시전 속도를 5 턴 동안 20%% 증가시킵니다.
+		- 공격이 화염 속성이었을 경우, 30%% 확률로 자신에게 걸린 모든 해로운 물리적, 마법적 상태효과를 없애버립니다.
+		- 공격이 냉기 속성이었을 경우, 30%% 확률로 5 턴 동안 피부가 얼음이 되어 물리 피해를 %d%% 덜 받게 되며, 방어도가 %d 상승하고, 적에게 %d 냉기 피해를 돌려줍니다.
+		- 공격이 전기 속성이었을 경우, 30%% 확률로 5 턴 동안 순수한 전격의 존재가 되어 받은 피해를 무효화하고 근처로 순간이동합니다. (한 턴에 한 번만 가능합니다)
+		- 공격이 빛 속성이었을 경우, 30%% 확률로 보호막을 만들어 5 턴 동안 %d 피해를 흡수합니다.
+		- 공격이 자연 속성이었을 경우, 30%% 확률로 신체가 강화되어 5 턴 동안 해로운 마법적 상태효과에 걸리지 않게 됩니다.
+		냉기와 빛 속성의 효과는 교활함 능력치의 영향을 받아 증가합니다.
+		모든 효과는 %d 이상의 피해를 줬을 경우에만 발동합니다 (이는 캐릭터 레벨의 영향을 받습니다).]])
 		:format(cold.physresist, cold.armor, cold.dam, t.getShield(self, t), t.getThreshold(self, t))
 	end,
 }
 
 uberTalent{
 	name = "Eye of the Tiger",
+	kr_name = "호랑이의 눈",
 	mode = "passive",
 	trigger = function(self, t, kind)
 		if self.turn_procs.eye_tiger then return end
@@ -258,48 +266,50 @@ uberTalent{
 		self.turn_procs.eye_tiger = true
 	end,
 	info = function(self, t)
-		return ([[All physical criticals reduce the remaining cooldown of a random technique or cunning talent by 2.
-		All spell criticals reduce the remaining cooldown of a random spell talent by 1.
-		All mind criticals reduce the remaining cooldown of a random wild gift/psionic/afflicted talent by 2.
-		This can only happen once per turn, and cannot affect the talent that triggers it.]])
+		return ([[물리 치명타를 입힐 때마다, 물리 혹은 교활 계통의 무작위한 기술 하나를 골라 재사용 대기시간을 2 줄입니다.
+		주문 치명타를 입힐 때마다, 무작위한 주문 하나를 골라 재사용 대기시간을 1 줄입니다.
+		정신 치명타를 입힐 때마다, 자연의 힘 / 초능력 / 고통 계열의 무작위한 기술 하나를 골라 재사용 대기시간을 2 줄입니다.
+		한 턴에 한 번만 효과가 발생하며, 지속형 기술에는 영향을 주지 않습니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Worldly Knowledge",
+	kr_name = "세상의 모든 지식",
 	mode = "passive",
 	on_learn = function(self, t, kind)
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("worldly-knowledge", {name="Worldly Knowledge"}, self)
+		local chat = Chat.new("worldly-knowledge", {name="Worldly Knowledge", kr_name="세상의 모든 지식"}, self)
 		chat:invoke()
 	end,
 	info = function(self, t)
-		return ([[Learn a new talent category from one of the below at 0.9 mastery, unlocked. Group 1 categories are available to anyone; Group 2 are available only to people without any spells or runes, and Group 3 are not available to followers of Zigur.
-		GROUP 1:
-		- Technique / Conditioning
-		- Cunning / Survival
-		GROUP 2:
-		- Technique / Mobility
-		- Technique / Field Control
-		- Wild Gift / Call of the Wild
-		- Wild Gift / Mindstar Mastery
-		- Psionic / Dreaming
-		GROUP 3:
-		- Spell / Divination
-		- Spell / Staff Combat
-		- Spell / Stone Alchemy
-		- Celestial / Chants
-		- Celestial / Light
-		- Chronomancy / Chronomancy]])
+		return ([[새로운 기술 계열을 기술 숙련도 0.9 의 배율로 습득합니다. 
+		제한 없이 배울 수 있는 기술 계열 :
+		- 물리 / 신체 조절
+		- 교활 / 생존
+		마법이나 룬을 사용하지 않는 경우에만 배울 수 있는 기술 계열 :
+		- 물리 / 기동성
+		- 물리 / 전장 제어
+		- 자연의 권능 / 자연의 부름
+		- 자연의 권능 / 마석 수련
+		- 초능력 / 꿈
+		지구르의 추종자가 아닐 경우에만 배울 수 있는 기술 계열 :
+		- 주문 / 예견
+		- 주문 / 지팡이 전투기술
+		- 주문 / 연금술 : 암석
+		- 천공 / 찬가
+		- 천공 / 빛
+		- 시공 / 시공]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Tricks of the Trade",
+	kr_name = "뒷세계의 거래",
 	mode = "passive",
-	require = { special={desc="Have sided with the Assassin Lord", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:isQuestStatus("lost-merchant", engine.Quest.COMPLETED, "evil")) end} },
+	require = { special={desc="암살단 단장 편에 설 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:isQuestStatus("lost-merchant", engine.Quest.COMPLETED, "evil")) end} },
 	on_learn = function(self, t) 
 		if self:knowTalentType("cunning/stealth") then
 			self:setTalentTypeMastery("cunning/stealth", self:getTalentTypeMastery("cunning/stealth") + 0.2)
@@ -315,9 +325,10 @@ uberTalent{
 		self.invisible_damage_penalty_divisor = (self.invisible_damage_penalty_divisor or 0) + 2
 	end,
 	info = function(self, t)
-		return ([[You have friends in low places and have learned some underhanded tricks.
-		Gain 0.2 Category Mastery to the Cunning/Stealth Category (or unlock it, if locked), and either gain +0.1 to the Cunning/Scoundrel category or learn and unlock the category at 0.9 if you lack it.
-		Additionally, all of your damage penalties from invisibility are permanently halved.]]):
+		return ([[지하 세력과 친분을 맺어, 뒷세계의 기술들을 전수받습니다.
+		교활/은신 기술 계열의 숙련도가 0.2 상승하며, 기술 계열이 없다면 기술 계열의 잠금이 해제됩니다. (이 경우, 교활/은신 기술 계열을 사용하기 위해서는 기술 계열 점수를 추가로 투자해야 합니다)
+		그리고 교활/무뢰배 기술 계열의 숙련도가 0.1 상승하며, 기술 계열이 없다면 0.9 의 숙련도를 가진 채로 기술 계열을 사용할 수 있게 됩니다.
+		또한, 투명 상태일 때 받는 피해량 감소 효과가 절반으로 줄어듭니다.]]):
 		format()
 	end,
 }

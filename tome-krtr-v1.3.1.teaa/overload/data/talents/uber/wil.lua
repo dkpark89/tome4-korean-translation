@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 uberTalent{
 	name = "Draconic Will",
+	kr_name = "용인의 의지",
 	cooldown = 15,
 	no_energy = true,
 	requires_target = true,
@@ -29,20 +32,21 @@ uberTalent{
 		self:setEffect(self.EFF_DRACONIC_WILL, 5, {})
 		return true
 	end,
-	require = { special={desc="Be close to the draconic world", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("drake_touched") and self:attr("drake_touched") >= 2) end} },
+	require = { special={desc="용인들의 세계와 가까워질 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or (self:attr("drake_touched") and self:attr("drake_touched") >= 2) end} },
 	info = function(self, t)
-		return ([[Your body is like that of a drake, easily resisting detrimental effects.
-		For 5 turns, no detrimental effects may target you.]])
+		return ([[용인의 의지를 이어받아, 부정적인 상태효과를 저항해냅니다.
+		5 턴 동안, 부정적인 상태효과에 걸리지 않게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Meteoric Crash",
+	kr_name = "유성 충돌",
 	mode = "passive",
 	cooldown = 15,
 	getDamage = function(self, t) return math.max(100 + self:combatSpellpower() * 5, 100 + self:combatMindpower() * 5) end,
-	require = { special={desc="Have witnessed a meteoric crash", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or self:attr("meteoric_crash") end} },
+	require = { special={desc="유성 충돌을 목격했을 것", fct=function(self) return game.state.birth.ignore_prodigies_special_reqs or self:attr("meteoric_crash") end} },
 	trigger = function(self, t, target)
 		self:startTalentCooldown(t)
 		local terrains = t.terrains or mod.class.Grid:loadList("/data/general/grids/lava.lua")
@@ -97,7 +101,7 @@ uberTalent{
 						if target:canBe("stun") then
 							target:setEffect(target.EFF_STUNNED, 3, {apply_power=math.max(src:combatSpellpower(), src:combatMindpower())})
 						else
-							game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+							game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 						end
 					end
 				end)
@@ -116,15 +120,16 @@ uberTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)/2
-		return ([[When casting damaging spells or mind attacks, the release of your willpower can call forth a meteor to crash down near your foes.
-		The affected area is turned into lava for 8 turns, and the crash itself will deal %0.2f fire and %0.2f physical damage.
-		The meteor also stuns affected creatures for 3 turns. The damage scales with your Spellpower or Mindpower.]])
+		return ([[공격적인 마법이나 정신 공격을 할 때, 의지의 힘으로 운석을 불러낼 수 있게 됩니다.
+		운석은 %0.2f 물리 피해와 %0.2f 화염 피해를 주며, 운석이 떨어진 곳은 8 턴 동안 용암 지형이 됩니다. 
+		운석에 맞은 적은 3 턴 동안 기절하게 되며, 피해량은 주문력이나 정신력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }
 
 uberTalent{
 	name = "Garkul's Revenge",
+	kr_name = "가르쿨의 복수",
 	mode = "passive",
 	on_learn = function(self, t)
 		self.inc_damage_actor_type = self.inc_damage_actor_type or {}
@@ -135,7 +140,7 @@ uberTalent{
 		self.inc_damage_actor_type.construct = (self.inc_damage_actor_type.construct or 0) - 1000
 		self.inc_damage_actor_type.humanoid = (self.inc_damage_actor_type.humanoid or 0) - 20
 	end,
-	require = { special={desc="Possess and wear two of Garkul's artifacts and know all about Garkul's life", fct=function(self)
+	require = { special={desc="가르쿨과 관련된 물건 2 가지를 모으고, 가르쿨의 일생에 대해 알게 될 것", fct=function(self)
 		local o1 = self:findInAllInventoriesBy("define_as", "SET_GARKUL_TEETH")
 		local o2 = self:findInAllInventoriesBy("define_as", "HELM_OF_GARKUL")
 		return o1 and o2 and o1.wielded and o2.wielded and (game.state.birth.ignore_prodigies_special_reqs or (
@@ -147,13 +152,14 @@ uberTalent{
 			))
 	end} },
 	info = function(self, t)
-		return ([[Garkul's spirit is with you. You now deal 1000%% more damage to constructs and 20%% more damage to humanoids.]])
+		return ([[가르쿨의 의지가 함께합니다. 구조물에 1000%% 추가 피해를, 인간형 적에게 20%% 추가 피해를 주게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Hidden Resources",
+	kr_name = "숨겨진 원천력",
 	cooldown = 15,
 	no_energy = true,
 	tactical = { BUFF = 2 },
@@ -161,10 +167,9 @@ uberTalent{
 		self:setEffect(self.EFF_HIDDEN_RESOURCES, 5, {})
 		return true
 	end,
-	require = { special={desc="Have been close to death(killed a foe while below 1 HP)", fct=function(self) return self:attr("barely_survived") end} },
+	require = { special={desc="죽다 살아날 것 (생명력 1 이하인 상황에서 적을 죽일 것)", fct=function(self) return self:attr("barely_survived") end} },
 	info = function(self, t)
-		return ([[You focus your mind on the task at hand, regardless of how dire the situation is.
-		For 5 turns, none of your talents use any resources.]])
+		return ([[호랑이 굴에 들어가도 정신만 차리면 산다고 하였습니다. 정신을 집중하여, 5 턴 동안 원천력 소모 없이 기술을 사용할 수 있게 됩니다.]])
 		:format()
 	end,
 }
@@ -172,8 +177,9 @@ uberTalent{
 
 uberTalent{
 	name = "Lucky Day",
+	kr_name = "행운의 날",
 	mode = "passive",
-	require = { special={desc="Be lucky already (at least +5 luck)", fct=function(self) return self:getLck() >= 55 end} },
+	require = { special={desc="운이 좋은 상태일 것 (다른 수단으로 5 이상의 행운을 올렸을 것)", fct=function(self) return self:getLck() >= 55 end} },
 	on_learn = function(self, t)
 		self.inc_stats[self.STAT_LCK] = (self.inc_stats[self.STAT_LCK] or 0) + 40
 		self:onStatChange(self.STAT_LCK, 40)
@@ -183,35 +189,37 @@ uberTalent{
 		self:onStatChange(self.STAT_LCK, -40)
 	end,
 	info = function(self, t)
-		return ([[Every day is your lucky day! You gain a permanent +40 luck bonus.]])
+		return ([[언제나 행운이 함께합니다! 행운이 40 증가합니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Unbreakable Will",
+	kr_name = "불굴의 의지",
 	mode = "passive",
 	cooldown = 7,
 	trigger = function(self, t)
 		self:startTalentCooldown(t)
-		game.logSeen(self, "#LIGHT_BLUE#%s's unbreakable will shrugs off the effect!", self.name:capitalize())
+		game.logSeen(self, "#LIGHT_BLUE#%s 꺾을 수 없는 의지로 정신 상태효과에 걸리지 않았습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your will is so strong that you simply ignore mental effects used against you.
-		Warning: this has a cooldown.]])
+		return ([[극한의 의지로, 정신 상태효과를 무시할 수 있게 됩니다.
+		주의 : 한 가지 정신 상태효과를 무시한 뒤에는, 7 턴 동안 정신 상태효과를 무시할 수 없게 됩니다.]])
 		:format()
 	end,
 }
 
 uberTalent{
 	name = "Spell Feedback",
+	kr_name = "주문 반작용",
 	mode = "passive",
 	cooldown = 9,
-	require = { special={desc="Antimagic", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
+	require = { special={desc="마법을 증오할 것", fct=function(self) return self:knowTalentType("wild-gift/antimagic") end} },
 	trigger = function(self, t, target, source_t)
 		self:startTalentCooldown(t)
-		self:logCombat(target, "#LIGHT_BLUE##Source# punishes #Target# for casting a spell!", self.name:capitalize(), target.name)
+		self:logCombat(target, "#LIGHT_BLUE##Source1# #Target#에게 주문 시전에 대한 징벌을 내립니다!", (self.kr_name or self.name):capitalize(), (target.kr_name or target.name))
 		DamageType:get(DamageType.MIND).projector(self, target.x, target.y, DamageType.MIND, 20 + self:getWil() * 2)
 
 		local dur = target:getTalentCooldown(source_t)
@@ -221,21 +229,22 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your will is a shield against assaults from crazed arcane users.
-		Each time that you take damage from a spell, you punish the spellcaster with %0.2f mind damage.
-		Also, they will suffer a 35%% spell failure chance (with duration equal to the cooldown of the spell they used on you).
-		Note: this talent has a cooldown.]])
+		return ([[저 정신나간 마법사들의 공격 하에서, 꺾이지 않는 의지를 보여줍니다.
+		마법 피해를 입을 때마다, 적에게 %0.2f 정신 피해를 되돌려줄 수 있게 됩니다.
+		또한 자신을 공격한 마법사는, 방금 전에 시전한 마법의 재사용 대기시간 동안 35%% 확률로 주문 시전에 실패하게 됩니다 (이 효과의 지속시간은 마법사가 당신에게 사용한 마법의 지속시간과 같습니다).
+		주의 : 이 기술은 재사용 대기시간이 존재합니다.]])
 		:format(damDesc(self, DamageType.MIND, 20 + self:getWil() * 2))
 	end,
 }
 
 uberTalent{
 	name = "Mental Tyranny",
+	kr_name = "정신적 압제",
 	mode = "sustained",
 	require = { },
 	cooldown = 20,
 	tactical = { BUFF = 2 },
-	require = { special={desc="Have dealt over 50000 mind damage", fct=function(self) return 
+	require = { special={desc="정신 속성으로 적에게 총 50,000 이상의 피해를 가할 것", fct=function(self) return 
 		self.damage_log and (
 			(self.damage_log[DamageType.MIND] and self.damage_log[DamageType.MIND] >= 50000)
 		)
@@ -257,9 +266,9 @@ uberTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Transcend the physical and rule over all with an iron will!
-		While this sustain is active, 33%% of your damage is converted into mind damage.
-		Additionally, you gain +30%% mind resistance penetration, and +10%% mind damage.]]):
+		return ([[강철의 의지를 통해, 물리적 법칙을 초월합니다!
+		기술이 유지되는 동안, 자신이 가하는 모든 피해의 33%%는 정신 피해로 전환됩니다.
+		또한 적의 정신 저항을 30%% 무시할 수 있게 되며, 자신이 가하는 정신 피해량이 10%% 증가하게 됩니다.]]):
 		format()
 	end,
 }
