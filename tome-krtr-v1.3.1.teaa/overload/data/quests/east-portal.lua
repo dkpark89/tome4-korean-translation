@@ -18,39 +18,40 @@
 -- darkgod@te4.org
 
 name = "Back and there again"
+kr_name = "다시 또 그 곳에"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back."
+	desc[#desc+1] = "당신은 마즈'에이알로 돌아갈 수 있는 관문을 만들었습니다. 마지막 희망에 있는 누군가와 대화를 해서, 동대륙에 다시 갈 수 있는 관문을 만들어야 할 것 같습니다."
 
 	if self:isCompleted("talked-elder") then
-		desc[#desc+1] = "You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city."
+		desc[#desc+1] =  "당신은 마지막 희망의 장로에게서 탄넨과 이야기 해보라는 말을 들었습니다. 그는 도시 북쪽에 살고 있습니다."
 	end
 
 	if self:isCompleted("gave-orb") then
-		desc[#desc+1] = "You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor."
+		desc[#desc+1] = "당신은 레크놀에서 제례단검과 다이아몬드를 찾는 동안 그가 연구할 수 있도록, 탄넨에게 여러 장소로의 오브를 주었습니다."
 	end
 	if self:isCompleted("withheld-orb") then
-		desc[#desc+1] = "You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor."
+		desc[#desc+1] = "탄넨이 여러 장소로의 오브를 연구하기 위해 잠시 빌려줄 것을 요구했지만, 당신은 이를 거절했습니다. 이제 레크놀에 가서 제례단검과 다이아몬드를 찾아봐야 합니다."
 	end
 	if self:isCompleted("open-telmur") then
-		desc[#desc+1] = "You brought back the diamond and athame to Tannen who asked you to check the tower of Telmur, looking for a text of portals, although he is not sure it is even there. He told you to come back in a few days."
+		desc[#desc+1] = "탄넨에게 제례단검과 다이아몬드를 전해주자, 그는 텔무르의 탑에 가서 관문과 관련된 글이 있을지도 모르니, 그곳에 가서 글을 찾아보라고 했습니다. 또한, 그는 당신에게 며칠이 지난 후에 돌아올 것을 요구했습니다."
 	end
 	if self:isCompleted("ask-east") then
-		desc[#desc+1] = "You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions."
+		desc[#desc+1] = "탄넨에게 제례단검과 다이아몬드를 전해주자, 그는 제메키스에게 돌아가 몇 가지 질문을 해줄 것을 요구했습니다."
 	end
 	if self:isCompleted("just-wait") then
-		desc[#desc+1] = "You brought back the diamond and athame to Tannen who asked you to come back in a few days."
+		desc[#desc+1] = "탄넨에게 제례단검과 다이아몬드를 전해주자, 그는 당신에게 며칠이 지난 후에 돌아올 것을 요구했습니다."
 	end
 	if self:isCompleted("tricked-demon") then
-		desc[#desc+1] = "Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!"
+		desc[#desc+1] = "탄넨은 당신을 속였습니다! 그는 오브를 악마들의 공간으로 이동시키는 가짜와 바꿔치기 했습니다. 출구를 찾고, 그에게 복수를 해야합니다!"
 	end
 	if self:isCompleted("trapped") then
-		desc[#desc+1] = "Tannen revealed himself as the vile scum he really is and trapped you in his tower."
+		desc[#desc+1] = "탄넨은 자신의 추악한 본모습을 드러내었으며, 당신을 그의 탑에 가두었습니다."
 	end
 
 	if self:isCompleted() then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "#LIGHT_GREEN#* The portal to the Far East is now functional and can be used to go back.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 동대륙으로 돌아가는 관문이 활성화 되었습니다. 이것을 사용해 동대륙으로 갈 수 있을 것 같습니다.#WHITE#"
 	end
 
 	return table.concat(desc, "\n")
@@ -127,7 +128,7 @@ open_telmur = function(self, player)
 		game.state:locationRevealAround(spot.x, spot.y)
 	end)
 
-	game.logPlayer(game.player, "Tannen points to the location of Telmur on your map.")
+	game.logPlayer(game.player, "탄넨이 텔무르로 가는 길을 당신의 지도에 표시해줬습니다.")
 	player:setQuestStatus(self.id, engine.Quest.COMPLETED, "open-telmur")
 	self.wait_turn = game.turn + game.calendar.DAY * 3
 end
@@ -153,7 +154,7 @@ tannen_tower = function(self, player)
 end
 
 tannen_exit = function(self, player)
-	require("engine.ui.Dialog"):simplePopup("Back and there again", "A portal appears in the center of the tower!")
+	require("engine.ui.Dialog"):simplePopup("다시 또 그 곳에", "탑 중앙에 관문이 생겨났습니다!")
 	local g = game.zone:makeEntityByName(game.level, "terrain", "PORTAL_BACK")
 	game.zone:addEntity(game.level, g, "terrain", 12, 12)
 end
@@ -171,6 +172,7 @@ back_to_last_hope = function(self)
 	-- Add the mage
 	local g = mod.class.NPC.new{
 		name="Meranas, Herald of Angolwen",
+		kr_name="앙골웬의 전령, 메라나스",
 		type="humanoid", subtype="human", faction="angolwen",
 		display='p', color=colors.RED,
 	}
@@ -183,5 +185,5 @@ back_to_last_hope = function(self)
 	local Chat = require("engine.Chat")
 	local chat = Chat.new("east-portal-end", g, game.player)
 	chat:invoke()
-	game.logPlayer(who, "#VIOLET#You enter the swirling portal and in the blink of an eye you are back in Last Hope.")
+	game.logPlayer(who, "#VIOLET#회오리치는 관문에 들어가자, 당신은 눈 깜짝할 사이에 마지막 희망으로 돌아왔습니다.")
 end
