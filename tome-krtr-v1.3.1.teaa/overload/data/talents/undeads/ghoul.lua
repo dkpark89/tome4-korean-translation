@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Ghoul",
+	kr_name = "구울",
 	type = {"undead/ghoul", 1},
 	mode = "passive",
 	require = undeads_req1,
@@ -31,14 +34,15 @@ newTalent{
 		self:talentTemporaryValue(p, "flat_damage_cap", {all=t.getMaxDamage(self, t)})
 	end,
 	info = function(self, t)
-		return ([[Improves your ghoulish body, increasing Strength and Constitution by %d.
-		Your body also becomes incredibly resilient to damage, you can never take a blow that deals more than %d%% of your maximum life.]])
+		return ([[구울의 신체를 개선하여, 힘과 체격 능력치를 %d 만큼 증가시킵니다.
+		또한 신체의 피해 저항력이 크게 증가하여, 한번의 타격에 최대 생명력의 %d%% 이상은 절대 피해를 받지 않게 됩니다.]]) 
 		:format(t.statBonus(self, t), t.getMaxDamage(self, t))
 	end,
 }
 
 newTalent{
 	name = "Ghoulish Leap",
+	kr_name = "구울의 도약",
 	type = {"undead/ghoul", 2},
 	require = undeads_req2,
 	points = 5,
@@ -74,12 +78,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Leap toward your target.]])
+		return ([[목표 지점으로 도약합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Retch",
+	kr_name = "구역질",
 	type = {"undead/ghoul",3},
 	require = undeads_req3,
 	points = 5,
@@ -109,15 +114,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = 10 + self:combatTalentStatDamage(t, "con", 10, 60)
-		return ([[Vomit on the ground around you, healing any undead in the area and damaging anyone else.
-		Lasts %d turns, and deals %d blight damage or heals %d life.
-		Creatures standing in the retch also have %d%% chance to remove a physical effect each turn.
-		Undeads will be stripped from a detrimental effect while others will be stripped from a beneficial effect.]]):format(t.getduration(self, t), damDesc(self, DamageType.BLIGHT, dam), dam * 1.5, t.getPurgeChance(self, t))
+		return ([[주변의 땅에 구토를 해, 해당 지역의 언데드에게는 치료 효과를 주고 생명체에게는 피해를 줍니다.
+		이는 %d 턴간 지속되며, 황폐 속성의 피해를 %d 만큼 주거나 생명력을 %d 만큼 치료합니다.
+		해당 지역에 있는 동안에는, 매 턴마다 %d%% 확률로 하나의 물리적 상태이상이 제거됩니다. (언데드는 해로운 상태이상이, 다른 생명체들은 이로운 상태이상이 제거됩니다)]]): 
+		format(t.getduration(self, t), damDesc(self, DamageType.BLIGHT, dam), dam * 1.5, t.getPurgeChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Gnaw",
+	kr_name = "물어뜯기",
 	type = {"undead/ghoul", 4},
 	require = undeads_req4,
 	points = 5,
@@ -157,7 +163,7 @@ newTalent{
 		game.zone:addEntity(game.level, m, "actor", target.x, target.y)
 		game.level.map:particleEmitter(target.x, target.y, 1, "slime")
 		game:playSoundNear(target, "talents/slime")
-		m:logCombat(target, "A #GREY##Source##LAST# rises from the corpse of #Target#.")
+		m:logCombat(target, "#Target#의 시체가 #GREY##Source1##LAST# 되어 일어납니다.")
 	end,
 	action = function(self, t)
 		local tg = self:getTalentTarget(t)
@@ -182,7 +188,7 @@ newTalent{
 				end
 				target:setEffect(target.EFF_GHOUL_ROT, t.getDuration(self,t), {src=self, apply_power=self:combatPhysicalpower(), dam=t.getDiseaseDamage(self, t), str=str_damage, con=con_damage, dex=dex_damage, make_ghoul=ghoulify})
 			else
-				game.logSeen(target, "%s resists the disease!", target.name:capitalize())
+				game.logSeen(target, "%s 질병에 걸리지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -193,10 +199,10 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local disease_damage = t.getDiseaseDamage(self, t)
 		local stat_damage = t.getStatDamage(self, t)
-		return ([[Gnaw your target for %d%% damage.  If your attack hits, the target may be infected with Ghoul Rot for %d turns.
-		Each turn, Ghoul Rot inflicts %0.2f blight damage.  At talent level 2, Ghoul Rot also reduces Strength by %d; at level 3 it reduces Dexterity by %d, and at level 4 it reduces Constitution by %d.
-		At talent level 5 targets suffering from Ghoul Rot rise as friendly ghouls when slain.
-		The blight damage and stat damage scales with your Constitution.]]):
+		return ([[목표를 물어뜯어 %d%% 피해를 줍니다. 공격이 성공하면, 목표는 %d 턴간 '구울의 부패' 에 감염됩니다.
+		'구울의 부패' 에 감염되면 매 턴마다 %0.2f 만큼의 황폐 속성 피해릅 입게 됩니다. 기술 레벨이 2 가 되면 '구울의 부패' 는 힘을 %d 만큼 감소시키고, 기술 레벨 3 부터는 민첩도 %d 만큼 감소시키며, 기술 레벨 4 부터는 체격도 %d 만큼 감소시킵니다.
+		기술 레벨이 5 가 되면, '구울의 부패' 에 감염된 채로 죽은 대상은 동료 구울로 되살아나게 됩니다.
+		황폐 속성 피해량과 능력치 감소량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(100 * damage, duration, damDesc(self, DamageType.BLIGHT, disease_damage), stat_damage, stat_damage, stat_damage)
 	end,
 }

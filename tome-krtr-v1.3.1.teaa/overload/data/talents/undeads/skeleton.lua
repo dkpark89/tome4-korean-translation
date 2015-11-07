@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Skeleton",
+	kr_name = "스켈레톤",
 	type = {"undead/skeleton", 1},
 	mode = "passive",
 	require = undeads_req1,
@@ -29,13 +30,14 @@ newTalent{
 		self:talentTemporaryValue(p, "inc_stats", {[self.STAT_DEX]=t.statBonus(self, t)})
 	end,
 	info = function(self, t)
-		return ([[Improves your skeletal condition, increasing Strength and Dexterity by %d.]]):
+		return ([[골격 상태를 개선하여, 힘과 민첩 능력치를 각각 %d 만큼 증가시킵니다.]]):
 		format(t.statBonus(self, t))
 	end,
 }
 
 newTalent{
 	name = "Bone Armour",
+	kr_name = "해골 갑옷",
 	type = {"undead/skeleton", 2},
 	require = undeads_req2,
 	points = 5,
@@ -50,14 +52,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Creates a shield of bones, absorbing %d damage. Lasts for 10 turns.
-		The total damage the shield can absorb increases with your Dexterity.]]):
+		return ([[해골 갑옷을 만들어 피해를 %d 만큼 흡수합니다. 이 효과는 10 턴 동안 유지됩니다.
+		해골 갑옷이 흡수할 수 있는 최대 피해량은 민첩 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getShield(self, t))
 	end,
 }
 
 newTalent{
 	name = "Resilient Bones",
+	kr_name = "재생하는 뼈",
 	type = {"undead/skeleton", 3},
 	require = undeads_req3,
 	points = 5,
@@ -66,13 +69,14 @@ newTalent{
 	-- called by _M:on_set_temporary_effect function in mod.class.Actor.lua
 	durresist = function(self, t) return self:combatTalentLimit(t, 1, 0.1, 5/12) end, -- Limit < 100%
 	info = function(self, t)
-		return ([[Your undead bones are very resilient, reducing the duration of all detrimental effects on you by up to %d%%.]]):
+		return ([[죽음을 거스른 자의 뼈는 회복력이 뛰어나기 때문에, 모든 나쁜 상태효과의 지속시간을 최대 %d%% 까지 줄여줍니다.]]):
 		format(100 * t.durresist(self, t))
 	end,
 }
 
 newTalent{ short_name = "SKELETON_REASSEMBLE",
 	name = "Re-assemble",
+	kr_name = "재조합",
 	type = {"undead/skeleton",4},
 	require = undeads_req4,
 	points = 5,
@@ -104,8 +108,8 @@ newTalent{ short_name = "SKELETON_REASSEMBLE",
 		return true
 	end,
 	info = function(self, t)
-		return ([[Re-position some of your bones, healing yourself for %d.
-		At level 5, you will gain the ability to completely re-assemble your body should it be destroyed (can only be used once)]]):
+		return ([[뼈의 위치를 조금씩 조정하여, 생명력을 %d 만큼 회복합니다.
+		기술 레벨이 5 가 되면, 파괴된 뼈의 완전한 재조합이 가능해집니다. (사망시 부활할 수 있으며, 한 번만 사용할 수 있습니다)]]):
 		format(t.getHeal(self, t))
 	end,
 }
