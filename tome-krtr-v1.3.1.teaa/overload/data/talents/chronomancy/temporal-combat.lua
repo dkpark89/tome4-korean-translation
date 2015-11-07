@@ -79,7 +79,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local resists = t.getResists(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[당신이 무기 덧대기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
+		return ([[당신이 무기 감기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
 		이 기술은 재사용 대기 시간이 있습니다. 만약 이 스킬이 대기 시간 도중에 발동 된다면, 피해를 주는 대신에 중력 감기와 왜곡 감기의 재사용 대기 시간이 1 턴 줄어듭니다.]])
 		:format(chance, damDesc(self, DamageType.TEMPORAL, damage), radius, resists, duration)
 	end,
@@ -125,7 +125,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
-		return ([[당신이 무기 덧대기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
+		return ([[당신이 무기 감기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
 		이 기술은 재사용 대기 시간이 있습니다. 만약 이 스킬이 대기 시간 도중에 발동 된다면, 피해를 주는 대신에 중력 감기와 운명 감기의 재사용 대기 시간이 1 턴 줄어듭니다.]])
 		:format(chance, damDesc(self, DamageType.TEMPORAL, damage/2), damDesc(self, DamageType.PHYSICAL, damage/2), radius, duration)
 	end,
@@ -173,7 +173,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[당신이 무기 덧대기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 물리 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 만큼 %d 턴 동안 느려집니다.
+		return ([[당신이 무기 감기가 활성화 된 상태로 공격이 적중하였을 때, %d%% 확률로 추가적인 %0.2f 의 물리 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 만큼 %d 턴 동안 느려집니다.
 		이 기술은 재사용 대기 시간이 있습니다. 만약 이 스킬이 대기 시간 도중에 발동 된다면, 피해를 주는 대신에 운명 감기와 왜곡 감기의 재사용 대기 시간이 1 턴 줄어듭니다.]])
 		:format(chance, damDesc(self, DamageType.PHYSICAL, damage), radius, slow, duration)
 	end,
@@ -181,7 +181,7 @@ newTalent{
 
 newTalent{
 	name = "Weapon Folding",
-	kr_name = "무기 덧대기",
+	kr_name = "무기 감기",
 	type = {"chronomancy/temporal-combat", 1},
 	mode = "sustained",
 	require = chrono_req1,
@@ -215,7 +215,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local chance = t.getChance(self, t)
-		return ([[당신의 무기 (혹은 투사체)에 하나의 차원을 덧대어 공격을 맞출 때마다 %0.2f 의 시간 피해를 추가합니다.
+		return ([[당신의 무기 (혹은 투사체)에 하나의 차원을 겹쳐 휘감아서 공격을 맞출 때마다 %0.2f 의 시간 피해를 추가합니다.
 		또한 무기 공격 성공시 당신은 %d%% 의 확률로 10%%의 턴을 얻을 수 있습니다.
 		피해량은 주문력에 비례하여 상승합니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), chance)
 	end,
@@ -249,7 +249,7 @@ newTalent{
 
 newTalent{
 	name = "Weapon Manifold",
-	kr_name = "무기 감싸기",
+	kr_name = "무기 휘감기",
 	type = {"chronomancy/temporal-combat", 3},
 	require = chrono_req3,
 	mode = "passive",
@@ -284,7 +284,7 @@ newTalent{
 		local slow = t.getSlow(self, t)
 		local duration = t.getDuration(self, t)
 		local resists = t.getResists(self, t)
-		return ([[당신은 이제 %d%% 의 확률로 무기 덧대기 피해에 운명, 중력, 왜곡을 감을 수 있습니다.
+		return ([[당신은 이제 %d%% 의 확률로 무기 감기 피해에 운명, 중력, 왜곡을 감을 수 있습니다.
 		
 		운명 감기: %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
 		왜곡 감기: %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
