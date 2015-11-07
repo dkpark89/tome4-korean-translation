@@ -19,11 +19,12 @@
 
 newTalent{
 	name = "Acidic Spray",
+	kr_name = "산성 분사",
 	type = {"wild-gift/venom-drake", 1},
 	require = gifts_req1,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ spits acid!",
+	message = "@Source@ 산을 뱉습니다!",
 	equilibrium = 3,
 	cooldown = function(self, t) return math.ceil(self:combatTalentLimit(t, 3, 6.9, 5.5)) end, -- Limit >=3
 	tactical = { ATTACK = { ACID = 2 } },
@@ -60,17 +61,18 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Spray forth a glob of acidic moisture at your enemy.
-		The target will take %0.2f Mindpower-based acid damage.
-		Enemies struck have a 25%% chance to be Disarmed for three turns, as their weapon is rendered useless by an acid coating.
-		At Talent Level 5, this becomes a piercing line of acid.
-		Every level in Acidic Spray additionally raises your Mindpower by 4, passively.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(damDesc(self, DamageType.ACID, damage))
+		return ([[적을 향해 산성의 액체 방울을 앞으로 뿌립니다.
+		목표는 정신력 기반의 %0.2f 의 산성 피해를 입습니다.
+		공격 받은 적은 무기가 산에 녹아 쓸모가 없어져, 25%% 확율로 3 턴간 무장해제 상태에 빠집니다.
+		기술 레벨 5에 도달했을 때, 산성 액체는 적을 한 줄로 관통 할 수 있게 됩니다.
+		산성분사에 투자된 레벨 하나마다 당신의 정신력이 4씩 오릅니다.
+		이 카테고리의 기술들은 기술 레벨을 투자 할 때마다, 산성 저항력이 1%% 상승합니다.]]):format(damDesc(self, DamageType.ACID, damage))
 	end,
 }
 
 newTalent{
 	name = "Corrosive Mist",
+	kr_name = "부식성 안개",
 	type = {"wild-gift/venom-drake", 2},
 	require = gifts_req2,
 	points = 5,
@@ -124,15 +126,16 @@ newTalent{
 		local cordur = t.getCorrodeDur(self, t)
 		local atk = t.getAtk(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Exhale a mist of lingering acid, dealing %0.2f acid damage that can critical in a radius of %d each turn for %d turns.
-		Enemies in this mist will be corroded for %d turns, lowering their Accuracy, their Armour and their Defense by %d.
-		The damage and duration will increase with your Mindpower, and the radius will increase with talent level.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(damDesc(self, DamageType.ACID, damage), radius, duration, cordur, atk)
+		return ([[지속성 산으로 이루어진 안개를 내쉬어, %0.2f 의 산성 피해를 %d 범위 내에 %d 턴간 가합니다. 이 공격은 치명타가 일어날 수 있습니다.
+		안개의 영향을 받은 적은 %d 턴 동안 부식되어 정확도, 방어도, 회피도가 %d 감소하게 됩니다.
+		피해량과 지속시간은 정신력, 안개의 범위는 기술 레벨에 따라 증가합니다.
+		이 카테고리의 기술들은 기술 레벨을 투자 할 때마다, 산성 저항력이 1%% 상승합니다.]]):format(damDesc(self, DamageType.ACID, damage), radius, duration, cordur, atk)
 	end,
 }
 
 newTalent{
 	name = "Dissolve",
+	kr_name = "용해",
 	type = {"wild-gift/venom-drake", 3},
 	require = gifts_req3,
 	points = 5,
@@ -158,21 +161,22 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You strike the enemy with a rain of fast, acidic blows. You strike four times for pure acid damage. Every blow does %d%% damage.
-		Every two talent levels, one of your strikes becomes blinding acid instead of normal acid, blinding the target 25%% of the time if it hits.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(100 * self:combatTalentWeaponDamage(t, 0.1, 0.6))
+		return ([[당신은 적에게 빠르고, 무수히 많은 산성 타격을 가합니다. 총 4번 가격해 순수한 산성 피해를 입힙니다. 매 타격은 %d%% 의 무기 피해를 가집니다.
+		기술 레벨이 2 오를 때마다, 공격 중 하나가 25%% 확률로 적을 실명시키는 특수 산성 공격으로 변화합니다.
+		이 카테고리의 기술들은 기술 레벨을 투자 할 때마다, 산성 저항력이 1%% 상승합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 0.1, 0.6))
 	end,
 }
 
 newTalent{
 	name = "Corrosive Breath",
+	kr_name = "부식성 브레스",
 	type = {"wild-gift/venom-drake", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
 	equilibrium = 12,
 	cooldown = 12,
-	message = "@Source@ breathes acid!",
+	message = "@Source@ 산의 숨결을 내뱉습니다!",
 	tactical = { ATTACKAREA = { ACID = 2 } },
 	range = 0,
 	radius = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)) end,
@@ -202,9 +206,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local disarm = t.getDisarm(self, t)
-		return ([[You breathe acid in a frontal cone of radius %d. Any target caught in the area will take %0.2f acid damage.
-		Enemies caught in the acid have a %d%% chance of their weapons becoming useless for three turns.
-		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate. The Disarm chance is based on your Mindpower.
-		Each point in acid drake talents also increases your acid resistance by 1%%.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "str", 30, 520)), disarm)
+		return ([[당신은 산의 숨결을 내뱉어 %d 범위의 원뿔 모양으로 발사합니다. 산의 숨결에 휩싸인 목표는 %0.2f 의 산성 피해를 받고, 무기가 녹아 %d%% 의 확율로 3 턴간 무장해제 상태에 빠집니다.
+		피해량은 당신의 힘 능력치에 비례하고, 치명타율은 정신 치명타율을 따릅니다. 혼절 확율은 정신력에 비례합니다.
+		이 카테고리의 기술들은 기술 레벨을 투자 할 때마다, 산성 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "str", 30, 520)), disarm)
 	end,
 }
