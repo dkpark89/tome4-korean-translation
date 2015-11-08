@@ -230,7 +230,7 @@ newTalent{
 		self.inc_damage[DamageType.ACID] = (self.inc_damage[DamageType.ACID] or 0) - 2
 	end,
 	info = function(self, t)
-		return ([[당신은 무지개빛 용의 힘을 전부 얻어내고, 모든 원소의 수련이 끝났습니다.
+		return ([[당신은 무지개빛 용의 힘을 전부 얻어내고, 모든 원소의 수련을 마쳤습니다.
 		물리, 화염, 냉기, 전기, 산성 피해량을 %d%% 만큼 상승시키고, 그 원소들의 저항 관통을 %d%% 만큼 얻습니다.
 		무지개빛 분노에 투자된 레벨 하나마다, 당신의 물리, 화염, 냉기, 전기, 산성 저항력이 0.5%% 만큼 오릅니다.]])
 		:format(2*self:getTalentLevelRaw(t), t.resistPen(self:getTalentLevelRaw(t)))

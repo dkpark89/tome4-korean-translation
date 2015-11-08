@@ -39,7 +39,7 @@ end
 
 newTalent{
 	name = "Fold Fate",
-	kr_name = "운명 감기",
+	kr_name = "운명 폴딩",
 	type = {"chronomancy/manifold", 1},
 	cooldown = 8,
 	points = 5,
@@ -87,7 +87,7 @@ newTalent{
 
 newTalent{
 	name = "Fold Warp",
-	kr_name = "왜곡 감기",
+	kr_name = "왜곡 폴딩",
 	type = {"chronomancy/manifold", 1},
 	cooldown = 8,
 	points = 5,
@@ -133,7 +133,7 @@ newTalent{
 
 newTalent{
 	name = "Fold Gravity",
-	kr_name = "중력 감기",
+	kr_name = "중력 폴딩",
 	type = {"chronomancy/manifold", 1},
 	cooldown = 8,
 	points = 5,
@@ -181,7 +181,7 @@ newTalent{
 
 newTalent{
 	name = "Weapon Folding",
-	kr_name = "무기 감기",
+	kr_name = "무기 폴딩",
 	type = {"chronomancy/temporal-combat", 1},
 	mode = "sustained",
 	require = chrono_req1,
@@ -249,7 +249,7 @@ newTalent{
 
 newTalent{
 	name = "Weapon Manifold",
-	kr_name = "무기 휘감기",
+	kr_name = "무기 겹폴딩",
 	type = {"chronomancy/temporal-combat", 3},
 	require = chrono_req3,
 	mode = "passive",
@@ -286,10 +286,10 @@ newTalent{
 		local resists = t.getResists(self, t)
 		return ([[당신은 이제 %d%% 의 확률로 무기 감기 피해에 운명, 중력, 왜곡을 감을 수 있습니다.
 		
-		운명 감기: %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
-		왜곡 감기: %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
-		중력 감기: %0.2f 의 물리 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 만큼 %d 턴 동안 느려집니다.
-		각각의 무기 감써기는 8 턴의 재사용 대기 시간이 있습니다. 만약 대기 시간 도중에 효과가 발동 되었다면 다른 두 무기 감싸기의 대기 시간을 1 턴 줄입니다.]])
+		운명 폴딩: %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 의 물리, 시간 저항력을 %d 턴간 잃을 수 있습니다.
+		왜곡 폴딩: %0.2f 의 물리 피해와, %0.2f 의 시간 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d 턴 동안 기절, 실명, 혼란, 속박 될 수 있습니다.
+		중력 폴딩: %0.2f 의 물리 피해를 %d 범위 내의 적에게 입힙니다. 영향을 받은 목표는 %d%% 만큼 %d 턴 동안 느려집니다.
+		각각의 무기 겹폴딩는 8 턴의 재사용 대기 시간이 있습니다. 만약 대기 시간 도중에 효과가 발동 되었다면 다른 두 무기 겹폴딩의 대기 시간을 1 턴 줄입니다.]])
 		:format(chance, damDesc(self, DamageType.TEMPORAL, damage), radius, resists, duration, damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.TEMPORAL, damage/2), radius,
 		duration, damDesc(self, DamageType.PHYSICAL, damage), radius, slow, duration)
 	end,
