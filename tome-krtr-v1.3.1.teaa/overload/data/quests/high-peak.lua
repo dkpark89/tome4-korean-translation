@@ -17,26 +17,29 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "Falling Toward Apotheosis"
+kr_name = "신에 이르는 길"
 desc = function(self, who)
 	local desc = {}
 
 	if not self:isCompleted() then
-		desc[#desc+1] = "You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak."
-		desc[#desc+1] = "Seek the Sorcerers and stop them before they bend the world to their will."
-		desc[#desc+1] = "To enter, you will need the four orbs of command to remove the shield over the peak."
-		desc[#desc+1] = "The entrance to the peak passes through a place called 'the slime tunnels', probably located inside or near Grushnak Pride."
+		desc[#desc+1] = "당신은 오크 긍지를 통솔하는 네 명의 오크들을 무찔렀습니다. 이제 당신은 이 세계에서 가장 위험한 곳인, 최고봉을 탐험해야 합니다."
+		desc[#desc+1] = "그곳에서 세계를 마음대로 주무르려고 하는 주술사들을 찾아, 그들을 막아야 합니다."
+		desc[#desc+1] = "최고봉에 있는 보호막을 해제하고 그곳에 들어가기 위해서는, 지배의 오브가 4 개 필요합니다."
+		desc[#desc+1] = "최고봉의 입구와 연결된 길은 '슬라임 굴' 이라고 불리는 곳에 있으며, 이곳은 그루쉬낙 긍지 어딘가에 있다고 합니다."
 	else
-		desc[#desc+1] = "You have reached the summit of the High Peak, entered the sanctum of the Sorcerers and destroyed them, freeing the world from the threat of evil."
-		desc[#desc+1] = "You have won the game!"
+		desc[#desc+1] = "당신은 최고봉의 꼭대기에 올라, 주술사들의 성소에 도착했습니다. 이제 주술사들을 파괴하고, 이 세계를 악의 위협으로부터 구원할 시간입니다."
+		desc[#desc+1] = "당신은 게임에서 승리하셨습니다!"
 	end
 
-	if self:isCompleted("killed-aeryn") then desc[#desc+1] = "#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall. You were forced to kill her.#LAST#" end
-	if self:isCompleted("spared-aeryn") then desc[#desc+1] = "#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall, but you spared her.#LAST#" end
+	if self:isCompleted("killed-aeryn") then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 태양의 장벽의 패배가 당신 때문에 일어났다고 비난하는 태양의 기사 아에린과 마주치게 되었습니다. 당신은 어쩔 수 없이 그녀를 죽였습니다.#LAST#" end
+	if self:isCompleted("spared-aeryn") then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 태양의 장벽의 패배가 당신 때문에 일어났다고 비난하는 태양의 기사 아에린과 마주치게 되었습니다. 하지만 당신은 그녀의 목숨을 앗아가지 않았습니다.#LAST#" end
 
-	if game.winner and game.winner == "full" then desc[#desc+1] = "#LIGHT_GREEN#* You defeated the Sorcerers before the Void portal could open.#LAST#" end
-	if game.winner and game.winner == "aeryn-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* You defeated the Sorcerers and Aeryn sacrificed herself to close the Void portal.#LAST#" end
-	if game.winner and game.winner == "self-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* You defeated the Sorcerers and sacrificed yourself to close the Void portal.#LAST#" end
+	if game.winner and game.winner == "full" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠으며, 공허의 관문이 열리는 것도 막아냈습니다.#LAST#" end
+	if game.winner and game.winner == "aeryn-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려버린 공허의 관문을 닫기 위해 아에린 스스로가 희생했습니다.#LAST#" end
+	if game.winner and game.winner == "self-sacrifice" then desc[#desc+1] = "#LIGHT_GREEN#* 당신은 주술사들을 해치웠지만, 열려버린 공허의 관문을 닫기 위해 자신을 희생했습니다.#LAST#" end
 
 	return table.concat(desc, "\n")
 end
@@ -56,7 +59,7 @@ on_status_change = function(self, who, status, sub)
 			end
 
 			local Chat = require"engine.Chat"
-			local chat = Chat.new("sorcerer-end", {name="Endgame"}, game:getPlayer(true))
+			local chat = Chat.new("sorcerer-end", {name="Endgame", kr_name="대단원"}, game:getPlayer(true))
 			chat:invoke()
 
 			self:end_end_combat()
@@ -96,14 +99,15 @@ function failed_charred_scar(self, level)
 	if not game.state:isUniqueDead("High Sun Paladin Aeryn") then
 		local aeryn = game.zone:makeEntityByName(level, "actor", "FALLEN_SUN_PALADIN_AERYN")
 		game.zone:addEntity(level, aeryn, "actor", level.default_down.x, level.default_down.y)
-		game.logPlayer(game.player, "#LIGHT_RED#As you enter the level you hear a familiar voice.")
-		game.logPlayer(game.player, "#LIGHT_RED#Fallen Sun Paladin Aeryn: '%s YOU BROUGHT ONLY DESTRUCTION TO THE SUNWALL! YOU WILL PAY!'", game.player.name:upper())
+		game.logPlayer(game.player, "#LIGHT_RED#당신이 이곳에 도착하자, 친숙한 목소리가 들렸습니다.")
+		game.logPlayer(game.player, "#LIGHT_RED#패배한 태양의 기사 아에린이 외칩니다. '%s여, 네가 태양의 장벽에 가져다준 것은 파괴 뿐이다! 너는 그 대가를 치르게 될 것이다!'", (game.player.kr_name or game.player.name):upper():addJosa(7))
 	end
 
 	game:onLevelLoad("wilderness-1", function(zone, level)
 		local spot = level:pickSpot{type="zone-pop", subtype="ruined-gates-of-morning"}
 		local wild = level.map(spot.x, spot.y, engine.Map.TERRAIN)
 		wild.name = "Ruins of the Gates of Morning"
+		wild.kr_name = "파괴된 아침의 문"
 		wild.desc = "The Sunwall was destroyed while you were trapped in the High Peak."
 		wild.change_level = nil
 		wild.change_zone = nil
@@ -136,7 +140,7 @@ function win(self, how)
 
 	local p = game:getPlayer(true)
 	p.winner = how
-	game:registerDialog(require("engine.dialogs.ShowText").new("Winner", "win", {playername=p.name, how=how}, game.w * 0.6))
+	game:registerDialog(require("engine.dialogs.ShowText").new("승리자", "win", {playername=p.name, how=how}, game.w * 0.6))
 
 	-- Save the winner, if alive
 	if not p.dead then
@@ -168,46 +172,46 @@ end
 function onWin(self, who)
 	local desc = {}
 
-	desc[#desc+1] = "#GOLD#Well done! You have won the Tales of Maj'Eyal: The Age of Ascendancy#WHITE#"
+	desc[#desc+1] = "#GOLD#축하합니다! 당신은 마즈'에이알 : 주도의 시대 게임에서 승리하셨습니다!#WHITE#"
 	desc[#desc+1] = ""
-	desc[#desc+1] = "The Sorcerers are dead, and the Orc Pride lies in ruins, thanks to your efforts."
+	desc[#desc+1] = "당신의 노력 덕분에 주술사들은 죽었으며, 오크 긍지들은 파괴되었습니다."
 	desc[#desc+1] = ""
 
 	-- Yeeks are special
 	if who:isQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek") then
-		desc[#desc+1] = "Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave."
-		desc[#desc+1] = "Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all."
-		desc[#desc+1] = "Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?"
+		desc[#desc+1] = "당신의 희생은 성과가 있었습니다. 당신의 정신력은 장거리 관문의 힘에 주입되었으며, '한길' 은 최고봉에서 에이알 세계의 끝자락까지 닿는 정신력의 파도를 방출했습니다."
+		desc[#desc+1] = "에이알 세계에 있는 모든 이성 있는 생명체들은 이제 '한길' 의 일원입니다. 평화와 행복이 모두에게 강제되었습니다."
+		desc[#desc+1] = "오직 앙골웬의 마법사들만이 정신적 충격에서 버텨내었고, 이제 그들만이 아직 '안전하지 못한' 사람들이 되었습니다. 하지만 '한길' 의 위대함 앞에서 그들이 무엇을 할 수 있을까요?"
 		return 0, desc
 	elseif who:isQuestStatus("high-peak", engine.Quest.COMPLETED, "yeek-stab") then
-		desc[#desc+1] = "In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being."
-		desc[#desc+1] = "Through an incredible display of willpower you resisted long enough to ask Aeryn to kill you."
-		desc[#desc+1] = "She sadly agreed and ran her sword through you, enabling you to do the last sacrifice you could for the world."
+		desc[#desc+1] = "싸움이 끝나고, '한길' 은 모든 이성 있는 생명체들에게 '한길' 의 힘을 주입시키는 통로로 당신을 사용하려 했습니다. 그것도 강제로."
+		desc[#desc+1] = "하지만 엄청난 정신력으로, 당신은 '한길' 의 의지를 잠시동안 저항해내고 아에린에게 당신을 죽이도록 부탁하였습니다."
+		desc[#desc+1] = "그녀는 슬프게 동의하며, 그녀의 검을 당신에게 꽂아넣었습니다. 당신이 이 세계를 위해 할 수 있는, 마지막 희생이 가능하도록 말이죠."
 		return 0, desc
 	end
 
 	if who.winner == "full" then
-		desc[#desc+1] = "You have prevented the portal to the Void from opening and thus stopped the Creator from bringing about the end of the world."
+		desc[#desc+1] = "당신은 공허의 관문이 열리는 것을 막아내었으며, 이를 통해 창조자가 이 세계의 종말을 불러오지 못하도록 만들었습니다."
 	elseif who.winner == "aeryn-sacrifice" then
-		desc[#desc+1] = "In a selfless act, High Sun Paladin Aeryn sacrificed herself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world."
+		desc[#desc+1] = "이타적인 마음으로, 고위 태양의 기사 아에린은 그녀 스스로를 희생하여 공허의 관문이 열리는 것을 막아내었습니다. 창조자가 공허의 관문을 타고 넘어와 이 세계의 종말을 불러오지 못하도록 만든 것입니다."
 	elseif who.winner == "self-sacrifice" then
-		desc[#desc+1] = "In a selfless act, you sacrificed yourself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world."
+		desc[#desc+1] = "이타적인 마음으로, 당신은 스스로를 희생하여 공허의 관문이 열리는 것을 막아내었습니다. 창조자가 공허의 관문을 타고 넘어와 이 세계의 종말을 불러오지 못하도록 만든 것입니다."
 	end
 
 	if who:isQuestStatus("high-peak", engine.Quest.COMPLETED, "gates-of-morning-destroyed") then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "The Gates of Morning have been destroyed and the Sunwall has fallen. The last remnants of the free people in the Far East will surely diminish, and soon only orcs will inhabit this land."
+		desc[#desc+1] = "아침의 문은 파괴되었고, 태양의 장벽은 패배했습니다. 동대륙에 있던 마지막 자유민들은 완전히 절멸했으며, 곧 오크들이 이 땅을 지배하게 될 것입니다."
 	else
 		desc[#desc+1] = ""
-		desc[#desc+1] = "The orc presence in the Far East has greatly been diminished by the loss of their leaders and the destruction of the Sorcerers. The free people of the Sunwall will be able to prosper and thrive on this land."
+		desc[#desc+1] = "주술사들이 사라지고 그들의 지도자들이 사망하자, 동대륙에서의 오크 세력은 그 힘이 급격하게 줄어들기 시작했습니다. 태양의 장벽의 자유민들은 이제 이 땅에서 번영하고 번창하게 될 것입니다."
 	end
 
 	desc[#desc+1] = ""
-	desc[#desc+1] = "Maj'Eyal will once more know peace. Most of its inhabitants will never know they even were on the verge of destruction, but then this is what being a true hero means: to do the right thing even though nobody will know about it."
+	desc[#desc+1] = "마즈'에이알은 다시 한번 평화를 되찾았습니다. 대부분의 사람들은 세계가 멸망할 수 있었다는 사실조차 모르고 평소와 같이 살아가겠지만, '아무도 알아주지 않더라도 옳은 길을 걷는' 당신이 바로 진정한 영웅이라는 사실은 변하지 않을 것입니다."
 
 	if who.winner ~= "self-sacrifice" then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "You may continue playing and enjoy the rest of the world."
+		desc[#desc+1] = "이제 자유롭게 이 세계를 여행하고, 즐기실 수 있습니다."
 	end
 	return 0, desc
 end
