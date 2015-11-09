@@ -26,6 +26,7 @@ end
 newTalent {
 	short_name = "SKIRMISHER_VAULT",
 	name = "Vault",
+	kr_name = "뛰어넘기",
 	type = {"technique/acrobatics", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -55,7 +56,7 @@ newTalent {
 		if target or
 			game.level.map:checkEntity(tx, ty, Map.TERRAIN, "block_move", self)
 		then
-			game.logPlayer(self, "You must have an empty space to land in.")
+			game.logPlayer(self, "착지할 공간이 충분히 확보되지 않았습니다.")
 			return
 		end
 
@@ -67,7 +68,7 @@ newTalent {
 		local lx, ly, is_corner_blocked = line:step()
 		local launch_target = game.level.map(lx, ly, Map.ACTOR)
 		if not launch_target then
-			game.logPlayer(self, "You need someone adjacent to vault over.")
+			game.logPlayer(self, "발판으로 사용할 아군이나 적이 근처에 있어야 합니다.")
 			return
 		end
 
@@ -87,15 +88,15 @@ newTalent {
 		return true
 	end,
 	info = function(self, t)
-		return ([[Use an adjacent friend or foe as a springboard, vaulting over them to another tile within range.
-		This maneuver grants you a burst of speed from your momentum, allowing you run %d%% faster (movement speed bonus) in the same direction you vaulted for 3 turns.
-		The increased speed ends if you change directions or stop moving.
-		]]):format(t.speed_bonus(self, t) * 100)
+		return ([[근처의 아군이나 적을 발판 삼아, 뛰어넘을 수 있게 됩니다.
+		또한 그 탄력으로 인해 가속도가 붙어, 뛰어넘은 방향과 같은 방향으로 달릴 경우 3 턴 동안 이동 속도가 %d%% 빨라집니다.
+		빨라진 속도는 이동 방향을 바꾸거나 이동을 멈출 경우 사라집니다.]]):format(t.speed_bonus(self, t) * 100)
 	end,
 }
 
 newTalent {
 	name = "Tumble",
+	kr_name = "공중제비",
 	short_name = "SKIRMISHER_CUNNING_ROLL",
 	type = {"technique/acrobatics", 2},
 	require = techs_dex_req2,
@@ -124,7 +125,7 @@ newTalent {
 		if core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) or not self:hasLOS(x, y) then return end
 
 		if target or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move", self) then
-			game.logPlayer(self, "You must have an empty space to roll to.")
+			game.logPlayer(self, "공중제비를 할 공간이 충분히 확보되지 않았습니다.")
 			return false
 		end
 
@@ -140,14 +141,15 @@ newTalent {
 		return true
 	end,
 	info = function(self, t)
-		return ([[Move to a spot within range, bounding around, over, or through any enemies in the way.
-		This maneuver can surprise your foes and improves your tactical position, improving your physical critical chance by %d%% for 1 turn.]]):format(t.combat_physcrit(self, t))
+		return ([[지정한 곳으로 공중제비를 넘으며 이동합니다. 적들을 통과해서 이동할 수 있으며, 장애물이 있을 경우 돌아서 이동합니다.
+		이를 통해 적들을 놀래키고 전술적 위치를 확보해, 1 턴 동안 물리 치명타 확률이 %d%% 상승하게 됩니다.]]):format(t.combat_physcrit(self, t))
 	end
 }
 
 newTalent {
 	short_name = "SKIRMISHER_TRAINED_REACTIONS",
 	name = "Trained Reactions",
+	kr_name = "훈련된 반사반응",
 	type = {"technique/acrobatics", 3},
 	mode = "sustained",
 	points = 5,
@@ -201,10 +203,10 @@ newTalent {
 		local trigger = t.getLifeTrigger(self, t)
 		local reduce = t.getReduction(self, t)
 		local cost = t.stamina_per_use(self, t) * (1 + self:combatFatigue() * 0.01)
-		return ([[While this talent is sustained, you anticipate deadly attacks against you.
-		Any time you would lose more than %d%% of your life in a single hit, you instead duck out of the way and assume a defensive posture.
-		This reduces the triggering damage and all further damage in the same turn by %d%%.
-		You need %0.1f Stamina and an adjacent open tile to perform this feat (though it does not cause you to move).]])
+		return ([[이 기술이 유지 중인 동안에는, 치명적 공격을 예상하고 대비하게 됩니다.
+		한 번의 타격으로 생명력의 %d%% 이상을 잃게 될 경우, 잽싸게 몸을 굴려 방어적 자세를 취합니다.
+		이를 통해 해당 턴에 가해지는 모든 피해량을 %d%% 감소시킵니다.
+		회피 동작에는 %0.1f 체력이 소모되며, 근처에 빈 공간이 있어야 회피 동작을 취할 수 있습니다. (실제로 회피 동작을 통해 이동을 하지는 않습니다)]])
 		:format(trigger, reduce, cost)
 	end,
 }
@@ -212,6 +214,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_SUPERB_AGILITY",
 	name = "Superb Agility",
+	kr_name = "기막힌 몸놀림",
 	type = {"technique/acrobatics", 4},
 	require = techs_dex_req4,
 	mode = "passive",
@@ -224,8 +227,9 @@ newTalent {
 		if level >= 3 then return {global_speed_add = 0.1, duration = 1} end
 	end,
 	info = function(self, t)
-		return ([[You gain greater facility with your acrobatic moves, lowering the cooldowns of Vault, Tumble, and Trained Reactions by %d, and their stamina costs by %0.1f.
-		At Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns.]])
+		return ([[곡예 실력이 더욱 향상되어, 뛰어넘기, 공중제비, 훈련된 반사반응의 재사용 대기 시간이 %d 턴 / 체력 소모량이 %0.1f 감소합니다.
+		기술 레벨이 3 이상일 경우, 훈련된 반사반응으로 회피 동작을 취한 이후 1 턴 동안 전체 속도가 10%% 증가합니다.
+		기술 레벨이 5 이상일 경우, 전체 속도 증가량이 20%% 로 상승하고 2 턴 동안 지속됩니다.]])
 		:format(t.cooldown_bonus(self, t), t.stamina_bonus(self, t))
 	end,
 }
