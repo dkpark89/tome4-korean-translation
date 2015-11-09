@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Entity = require "engine.Entity"
 local Map = require "engine.Map"
@@ -73,7 +74,7 @@ end
 --- Get trap name
 -- Can be overloaded to do trap identification if needed
 function _M:getName()
-	return self.name
+	return self.kr_name or self.name --@ 한글 이름 사용하도록 수정
 end
 
 --- Setup the trap
@@ -99,14 +100,14 @@ end
 --- Try to disarm the trap
 function _M:disarm(x, y, who)
 	if not self:canDisarm(x, y, who) then
-		game.logSeen(who, "%s fails to disarm a trap (%s).", who.name:capitalize(), self:getName())
+		game.logSeen(who, "%s %s 함정을 해제하는데 실패했습니다.", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName())
 		return false
 	end
 	game.level.map:remove(x, y, Map.TRAP)
 	if self.removed then
 		self:removed(x, y, who)
 	end
-	game.logSeen(who, "%s disarms a trap (%s).", who.name:capitalize(), self:getName())
+	game.logSeen(who, "%s %s 함정을 해제하였습니다.", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName())
 	self:onDisarm(x, y, who)
 	return true
 end
@@ -124,14 +125,29 @@ function _M:trigger(x, y, who)
 	if not self:canTrigger(x, y, who) then return end
 
 	if self.message == nil then
-		game.logSeen(who, "%s triggers a trap (%s)!", who.name:capitalize(), self:getName())
+		game.logSeen(who, "%s 함정 (%s) 을 발동시켰습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName())
 	elseif self.message == false then
 		-- Nothing
 	else
-		local tname = who.name
+		local tname = who.kr_name or who.name --@ 세줄뒤부터 18줄뒤까지 사용 : 반복사용으로 변수로 뺌
 		local str =self.message
+		--@ 다음줄 ~ 16줄뒤 : 함정 메세지에 조사를 추가할 수 있도록 수정
 		str = str:gsub("@target@", tname)
 		str = str:gsub("@Target@", tname:capitalize())
+		str = str:gsub("@target1@", tname:addJosa("가"))
+		str = str:gsub("@Target1@", tname:capitalize():addJosa("가"))
+		str = str:gsub("@target2@", tname:addJosa("는"))
+		str = str:gsub("@Target2@", tname:capitalize():addJosa("는"))
+		str = str:gsub("@target3@", tname:addJosa("를"))
+		str = str:gsub("@Target3@", tname:capitalize():addJosa("를"))
+		str = str:gsub("@target4@", tname:addJosa("로"))
+		str = str:gsub("@Target4@", tname:capitalize():addJosa("로"))
+		str = str:gsub("@target5@", tname:addJosa("다"))
+		str = str:gsub("@Target5@", tname:capitalize():addJosa("다"))
+		str = str:gsub("@target6@", tname:addJosa("과"))
+		str = str:gsub("@Target6@", tname:capitalize():addJosa("과"))
+		str = str:gsub("@target7@", tname:addJosa(7))
+		str = str:gsub("@Target7@", tname:capitalize():addJosa(7))
 		game.logSeen(who, "%s", str)
 	end
 	local known, del = false, false

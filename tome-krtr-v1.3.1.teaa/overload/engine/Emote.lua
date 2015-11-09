@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Base = require "engine.ui.Base"
 
@@ -32,11 +33,11 @@ function _M:init(text, dur, color)
 	self.dur = dur or 60
 	self.color = color or colors.BLACK
 
-	Base.init(self, {font = {"/data/font/DroidSans-Bold.ttf", 16}})
+	Base.init(self, {font = {krFont or "/data/font/DroidSans-Bold.ttf", 16}}) --@ 한글 글꼴 추가
 end
 
 function _M:loaded()
-	Base.init(self, {font = {"/data/font/DroidSans-Bold.ttf", 16}})
+	Base.init(self, {font = {krFont or "/data/font/DroidSans-Bold.ttf", 16}}) --@ 한글 글꼴 추가
 end
 
 --- Serialization

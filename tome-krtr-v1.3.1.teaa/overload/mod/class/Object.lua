@@ -202,19 +202,19 @@ function _M:use(who, typ, inven, item)
 	inven = who:getInven(inven)
 
 	if self.use_no_blind and who:attr("blind") then
-		game.logPlayer(who, "½Ç¸í »óÅÂÀÔ´Ï´Ù!")
+		game.logPlayer(who, "ì‹¤ëª… ìƒíƒœì…ë‹ˆë‹¤!")
 		return
 	end
 	if self.use_no_silence and who:attr("silence") then
-		game.logPlayer(who, "Ä§¹¬ »óÅÂÀÔ´Ï´Ù!")
+		game.logPlayer(who, "ì¹¨ë¬µ ìƒíƒœì…ë‹ˆë‹¤!")
 		return
 	end
 	if self:wornInven() and not self.wielded and not self.use_no_wear then
-		game.logPlayer(who, "ÀÌ ¹°°ÇÀº Âø¿ëÇØ¾ß »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù!")
+		game.logPlayer(who, "ì´ ë¬¼ê±´ì€ ì°©ìš©í•´ì•¼ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤!")
 		return
 	end
 	if who:hasEffect(self.EFF_UNSTOPPABLE) then
-		game.logPlayer(who, "ÀüÅõÀÇ ±¤¶õ¿¡ ºüÁ®ÀÖ´Â µ¿¾È¿¡´Â ¹°°ÇÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù!")
+		game.logPlayer(who, "ì „íˆ¬ì˜ ê´‘ë€ì— ë¹ ì ¸ìˆëŠ” ë™ì•ˆì—ëŠ” ë¬¼ê±´ì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!")
 		return
 	end
 	
@@ -251,8 +251,8 @@ function _M:tooltip(x, y)
 	local str = self:getDesc({do_color=true}, game.player:getInven(self:wornInven()))
 	if config.settings.cheat then str:add(true, "UID: "..self.uid, true, self.image) end
 	local nb = game.level.map:getObjectTotal(x, y)
-	if nb == 2 then str:add(true, "---", true, "¹°°ÇÀÌ ÇÏ³ª ´õ ÀÖ½À´Ï´Ù.")
-	elseif nb > 2 then str:add(true, "---", true, "¹°°ÇÀÌ "..(nb-1).."°³ ´õ ÀÖ½À´Ï´Ù.")
+	if nb == 2 then str:add(true, "---", true, "ë¬¼ê±´ì´ í•˜ë‚˜ ë” ìˆìŠµë‹ˆë‹¤.")
+	elseif nb > 2 then str:add(true, "---", true, "ë¬¼ê±´ì´ "..(nb-1).."ê°œ ë” ìˆìŠµë‹ˆë‹¤.")
 	end
 	return str
 end
@@ -275,12 +275,12 @@ function _M:descAttribute(attr)
 			tms[#tms+1] = ("%0.2f %s"):format(i, name)
 		end
 		return table.concat(tms, ",")
-	elseif attr == "KR_MASTERY" then --@ MASTERY¿¡ ÇØ´çÇÏ´Â ÇÑ±ÛÀÌ¸§ ¹İÈ¯ ÄÚµå ÇöÀçÁÙ~¿©´üÁÙµÚ±îÁö Ãß°¡
+	elseif attr == "KR_MASTERY" then --@ MASTERYì— í•´ë‹¹í•˜ëŠ” í•œê¸€ì´ë¦„ ë°˜í™˜ ì½”ë“œ í˜„ì¬ì¤„~ì—¬ëŸì¤„ë’¤ê¹Œì§€ ì¶”ê°€
 		local tms = {}
 		for ttn, i in pairs(self.wielder.talents_types_mastery) do
 			local tt = Talents.talents_types_def[ttn]
 			local cat = tt.type:gsub("/.*", "")
-			local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@ ÇÑ±ÛÀÌ¸§À¸·Î º¯È¯
+			local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@ í•œê¸€ì´ë¦„ìœ¼ë¡œ ë³€í™˜
 			tms[#tms+1] = ("%0.2f %s"):format(i, name)
 		end
 		return table.concat(tms, ",")
@@ -295,7 +295,7 @@ function _M:descAttribute(attr)
 		return (i and i > 0 and "+"..i or tostring(i)).."%"
 	elseif attr == "REGEN" then
 		local i = self.wielder.mana_regen or self.wielder.stamina_regen or self.wielder.life_regen or self.wielder.hate_regen or self.wielder.positive_regen_ref_mod or self.wielder.negative_regen_ref_mod
-		return ("%s%0.2f/ÅÏ"):format(i > 0 and "+" or "-", math.abs(i))
+		return ("%s%0.2f/í„´"):format(i > 0 and "+" or "-", math.abs(i))
 	elseif attr == "COMBAT" then
 		local c = self.combat
 		return power(c)..", "..(c.apr or 0).." apr"
@@ -410,7 +410,7 @@ end
 function _M:getName(t)
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.kr_name or self.name --@ ÇÑ±Û ÀÌ¸§ Ãß°¡
+	local name = self.kr_name or self.name --@ í•œê¸€ ì´ë¦„ ì¶”ê°€
 
 	if not t.no_add_name and (self.been_reshaped or self.been_imbued) then
 		name = (type(self.been_reshaped) == "string" and self.been_reshaped or "") .. name .. (type(self.been_imbued) == "string" and self.been_imbued or "")
@@ -446,7 +446,7 @@ function _M:getName(t)
 	end
 end
 
-function _M:getOriName(t) --@ ¿ø·¡ ÀÌ¸§ ¹İÈ¯ÇÏ´Â ÇÔ¼ö Ãß°¡ : ³»ºÎÀûÀÎ ¾ÆÀÌÅÛ ÀÌ¸§ °Ë»ö ÄÚµå µî¿¡ »ç¿ëÇÔ
+function _M:getOriName(t) --@ ì›ë˜ ì´ë¦„ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ ì¶”ê°€ : ë‚´ë¶€ì ì¸ ì•„ì´í…œ ì´ë¦„ ê²€ìƒ‰ ì½”ë“œ ë“±ì— ì‚¬ìš©í•¨
 	t = t or {}
 	local qty = self:getNumber()
 	local name = self.name
@@ -514,18 +514,18 @@ function _M:getShortName(t)
 	end
 end
 
---@ getShortNameÀÇ ÇÑ±ÛÈ­ ¹öÀü (ÇÊ¿ä½Ã¿¡¸¸ »ç¿ëÇÒ °Í) : ÇöÀç, ÀåºñÂø¿ëÃ¢¿¡¼­¸¸ »ç¿ë( /engine/ui/EquipDollFrame.lua #114 )
+--@ getShortNameì˜ í•œê¸€í™” ë²„ì „ (í•„ìš”ì‹œì—ë§Œ ì‚¬ìš©í•  ê²ƒ) : í˜„ì¬, ì¥ë¹„ì°©ìš©ì°½ì—ì„œë§Œ ì‚¬ìš©( /engine/ui/EquipDollFrame.lua #114 )
 function _M:getKrShortName(t)
 	if not self.short_name then return self:getName(t) end
 
 	t = t or {}
 	local qty = self:getNumber()
-	local name = self.short_name:krItemShortName() --@ ÂªÀº ÇÑ±Û ÀÌ¸§À¸·Î º¯È¯
+	local name = self.short_name:krItemShortName() --@ ì§§ì€ í•œê¸€ ì´ë¦„ìœ¼ë¡œ ë³€í™˜
 
 	if not self:isIdentified() and not t.force_id and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 
 	if self.keywords and next(self.keywords) then
-		local k = table.krKeywordKeys( self.keywords ) --@ ÇÑ±Û Å°¿öµå·Î º¯È¯ÇÏ¿© »ğÀÔ
+		local k = table.krKeywordKeys( self.keywords ) --@ í•œê¸€ í‚¤ì›Œë“œë¡œ ë³€í™˜í•˜ì—¬ ì‚½ì…
 		table.sort(k)
 		name = name..","..table.concat(k, ',')
 	end
@@ -554,15 +554,15 @@ function _M:descAccuracyBonus(desc, weapon, use_actor)
 
 	local m = weapon.accuracy_effect_scale or 1
 	if kind == "sword" then
-		desc:add("Á¤È®µµ Æ¯¼ö º¸Á¤ : ", {"color","LIGHT_GREEN"}, showpct(0.4, m), {"color","LAST"}, " Ä¡¸íÅ¸ ÇÇÇØ / Á¤È®µµ", true)
+		desc:add("ì •í™•ë„ íŠ¹ìˆ˜ ë³´ì • : ", {"color","LIGHT_GREEN"}, showpct(0.4, m), {"color","LAST"}, " ì¹˜ëª…íƒ€ í”¼í•´ / ì •í™•ë„", true)
 	elseif kind == "axe" then
-		desc:add("Á¤È®µµ Æ¯¼ö º¸Á¤ : ", {"color","LIGHT_GREEN"}, showpct(0.2, m), {"color","LAST"}, " Ä¡¸íÅ¸ / Á¤È®µµ", true)
+		desc:add("ì •í™•ë„ íŠ¹ìˆ˜ ë³´ì • : ", {"color","LIGHT_GREEN"}, showpct(0.2, m), {"color","LAST"}, " ì¹˜ëª…íƒ€ / ì •í™•ë„", true)
 	elseif kind == "mace" then
-		desc:add("Á¤È®µµ Æ¯¼ö º¸Á¤ : ", {"color","LIGHT_GREEN"}, showpct(0.1, m), {"color","LAST"}, " ÇÇÇØ·® / Á¤È®µµ", true)
+		desc:add("ì •í™•ë„ íŠ¹ìˆ˜ ë³´ì • : ", {"color","LIGHT_GREEN"}, showpct(0.1, m), {"color","LAST"}, " í”¼í•´ëŸ‰ / ì •í™•ë„", true)
 	elseif kind == "staff" then
-		desc:add("Á¤È®µµ Æ¯¼ö º¸Á¤ : ", {"color","LIGHT_GREEN"}, showpct(2.5, m), {"color","LAST"}, " È®·üÀû Ãß°¡ ÇÇÇØ·® / Á¤È®µµ", true)
+		desc:add("ì •í™•ë„ íŠ¹ìˆ˜ ë³´ì • : ", {"color","LIGHT_GREEN"}, showpct(2.5, m), {"color","LAST"}, " í™•ë¥ ì  ì¶”ê°€ í”¼í•´ëŸ‰ / ì •í™•ë„", true)
 	elseif kind == "knife" then
-		desc:add("Á¤È®µµ Æ¯¼ö º¸Á¤ : ", {"color","LIGHT_GREEN"}, showpct(0.5, m), {"color","LAST"}, " ¹æ¾îµµ °üÅë·Â / Á¤È®µµ", true)
+		desc:add("ì •í™•ë„ íŠ¹ìˆ˜ ë³´ì • : ", {"color","LIGHT_GREEN"}, showpct(0.5, m), {"color","LAST"}, " ë°©ì–´ë„ ê´€í†µë ¥ / ì •í™•ë„", true)
 	end
 end
 
@@ -572,28 +572,28 @@ function _M:getTextualDesc(compare_with, use_actor)
 	compare_with = compare_with or {}
 	local desc = tstring{}
 
-	if self.quest then desc:add({"color", "VIOLET"},"[Áß¿äÇÑ ¹°°Ç]", {"color", "LAST"}, true)
+	if self.quest then desc:add({"color", "VIOLET"},"[ì¤‘ìš”í•œ ë¬¼ê±´]", {"color", "LAST"}, true)
 	elseif self.unique then
-		if self.legendary then desc:add({"color", "FF4000"},"[Àü¼³]", {"color", "LAST"}, true)
-		elseif self.godslayer then desc:add({"color", "AAD500"},"[½Å »ìÇØÀÚ]", {"color", "LAST"}, true)
-		else desc:add({"color", "FFD700"},"[°íÀ¯]", {"color", "LAST"}, true)
+		if self.legendary then desc:add({"color", "FF4000"},"[ì „ì„¤]", {"color", "LAST"}, true)
+		elseif self.godslayer then desc:add({"color", "AAD500"},"[ì‹  ì‚´í•´ì]", {"color", "LAST"}, true)
+		else desc:add({"color", "FFD700"},"[ê³ ìœ ]", {"color", "LAST"}, true)
 		end
 	end
 
-	desc:add(("Á¾·ù: %s / %s"):format(tostring(rawget(self, 'type'):krItemType() or "¾Ë ¼ö ¾øÀ½"), tostring(rawget(self, 'subtype'):krItemType() or "¾Ë ¼ö ¾øÀ½")))
-	if self.material_level then desc:add(" ; ", tostring(self.material_level), "´Ü°è") end
+	desc:add(("ì¢…ë¥˜: %s / %s"):format(tostring(rawget(self, 'type'):krItemType() or "ì•Œ ìˆ˜ ì—†ìŒ"), tostring(rawget(self, 'subtype'):krItemType() or "ì•Œ ìˆ˜ ì—†ìŒ")))
+	if self.material_level then desc:add(" ; ", tostring(self.material_level), "ë‹¨ê³„") end
 	desc:add(true)
-	if self.slot_forbid == "OFFHAND" then desc:add("¾ç¼ÕÀ¸·Î Áã´Â ¹«±âÀÔ´Ï´Ù.", true) end
+	if self.slot_forbid == "OFFHAND" then desc:add("ì–‘ì†ìœ¼ë¡œ ì¥ëŠ” ë¬´ê¸°ì…ë‹ˆë‹¤.", true) end
 	desc:add(true)
 
 	if self.set_list then
-		desc:add({"color","GREEN"}, "Â¦ÀÌ ÀÖ´Â ÀåºñÀÔ´Ï´Ù.", {"color","LAST"}, true)
+		desc:add({"color","GREEN"}, "ì§ì´ ìˆëŠ” ì¥ë¹„ì…ë‹ˆë‹¤.", {"color","LAST"}, true)
 		if self.set_desc then
 			for set_id, text in pairs(self.set_desc) do
 				desc:add({"color","GREEN"}, text, {"color","LAST"}, true)
 			end
 		end
-		if self.set_complete then desc:add({"color","LIGHT_GREEN"}, "Â¦ÀÌ ¿Ï¼ºµÇ¾ú½À´Ï´Ù.", {"color","LAST"}, true) end
+		if self.set_complete then desc:add({"color","LIGHT_GREEN"}, "ì§ì´ ì™„ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.", {"color","LAST"}, true) end
 	end
 
 	-- Stop here if unided
@@ -802,33 +802,33 @@ function _M:getTextualDesc(compare_with, use_actor)
 				else
 					power_diff = ("(%s)"):format(table.concat(power_diff, " / "))
 				end
-			desc:add(("±âº» °ø°İ·Â : %.1f - %.1f"):format((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))
+			desc:add(("ê¸°ë³¸ ê³µê²©ë ¥ : %.1f - %.1f"):format((combat.dam or 0) + (add_table.dam or 0), ((combat.damrange or (1.1 - (add_table.damrange or 0))) + (add_table.damrange or 0)) * ((combat.dam or 0) + (add_table.dam or 0))))
 				desc:merge(power_diff:toTString())
 			end
 			desc:add(true)
 			desc:add(("Uses stat%s: %s"):format(#dm > 1 and "s" or "",table.concat(dm, ', ')), true)
 			local col = (combat.damtype and DamageType:get(combat.damtype) and DamageType:get(combat.damtype).text_color or "#WHITE#"):toTString()
-			desc:add("°ø°İ ¼Ó¼º    : ", col[2],DamageType:get(combat.damtype or DamageType.PHYSICAL).name:capitalize(),{"color","LAST"}, true)
+			desc:add("ê³µê²© ì†ì„±    : ", col[2],DamageType:get(combat.damtype or DamageType.PHYSICAL).name:capitalize(),{"color","LAST"}, true)
 		end
 
 		if combat.talented then
 			local t = use_actor:combatGetTraining(combat)
-			if t and t.name then desc:add("¼÷·Ãµµ : ", {"color","GOLD"}, (t.kr_name or t.name), {"color","LAST"}, true) end
+			if t and t.name then desc:add("ìˆ™ë ¨ë„ : ", {"color","GOLD"}, (t.kr_name or t.name), {"color","LAST"}, true) end
 		end
 
 		self:descAccuracyBonus(desc, combat, use_actor)
 
 		if combat.wil_attack then
-			desc:add("ÀÌ ¹«±âÀÇ Á¤È®µµ´Â ÀÇÁö¸¦ ±â¹İÀ¸·Î ÇÏ¿© °è»êµË´Ï´Ù.", true)
+			desc:add("ì´ ë¬´ê¸°ì˜ ì •í™•ë„ëŠ” ì˜ì§€ë¥¼ ê¸°ë°˜ìœ¼ë¡œ í•˜ì—¬ ê³„ì‚°ë©ë‹ˆë‹¤.", true)
 		end
 
 		if combat.is_psionic_focus then
-			desc:add("ÀÌ ¹«±â´Â ¿°µ¿·ÂÀ» °­ÇÏ°Ô ¸¸µé¾îÁİ´Ï´Ù.", true)
+			desc:add("ì´ ë¬´ê¸°ëŠ” ì—¼ë™ë ¥ì„ ê°•í•˜ê²Œ ë§Œë“¤ì–´ì¤ë‹ˆë‹¤.", true)
 		end
 
-		compare_fields(combat, compare_with, field, "atk", "%+d", "Á¤È®µµ        : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "apr", "%+d", "¹æ¾îµµ °üÅë : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "physcrit", "%+.1f%%", "Ä¡¸íÅ¸À²     : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "atk", "%+d", "ì •í™•ë„        : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "apr", "%+d", "ë°©ì–´ë„ ê´€í†µ : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "physcrit", "%+.1f%%", "ì¹˜ëª…íƒ€ìœ¨     : ", 1, false, false, add_table)
 		local physspeed_compare = function(orig, compare_with)
 			orig = 100 / orig
 			if compare_with then return ("%+.0f%%"):format(orig - 100 / compare_with)
@@ -836,13 +836,13 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 		compare_fields(combat, compare_with, field, "physspeed", physspeed_compare, "Attack speed: ", 1, false, true, add_table)
 
-		compare_fields(combat, compare_with, field, "block", "%+d", "¸·À» ¼ö ÀÖ´Â ÇÇÇØ·® : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "block", "%+d", "ë§‰ì„ ìˆ˜ ìˆëŠ” í”¼í•´ëŸ‰ : ", 1, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "dam_mult", "%d%%", "ÇÇÇØ·® ¹è¼ö : ", 100, false, false, add_table)
-		compare_fields(combat, compare_with, field, "range", "%+d", "ÃÖ´ë »ç°Å¸® : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "capacity", "%d", "ÅºÃ¢/È­»ìÅë ¿ë·® : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "shots_reloaded_per_turn", "%+d", "ÀçÀåÀü ¼Óµµ : ", 1, false, false, add_table)
-		compare_fields(combat, compare_with, field, "ammo_every", "%d", "ÀÚµ¿ÀåÀü ´ë±â½Ã°£ : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "dam_mult", "%d%%", "í”¼í•´ëŸ‰ ë°°ìˆ˜ : ", 100, false, false, add_table)
+		compare_fields(combat, compare_with, field, "range", "%+d", "ìµœëŒ€ ì‚¬ê±°ë¦¬ : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "capacity", "%d", "íƒ„ì°½/í™”ì‚´í†µ ìš©ëŸ‰ : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "shots_reloaded_per_turn", "%+d", "ì¬ì¥ì „ ì†ë„ : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "ammo_every", "%d", "ìë™ì¥ì „ ëŒ€ê¸°ì‹œê°„ : ", 1, false, false, add_table)
 
 		local talents = {}
 		if combat.talent_on_hit then
@@ -853,16 +853,16 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_hit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ³Ê¹« ±æ¾îÁ® º¯¼ö·Î »­
-					desc:add({"color","RED"}, ("°ø°İ ¼º°ø½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+					local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ë„ˆë¬´ ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+					desc:add({"color","RED"}, ("ê³µê²© ì„±ê³µì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
 			end
 		end
 		for tid, data in pairs(talents) do
-			local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ³Ê¹« ±æ¾îÁ® º¯¼ö·Î »­
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("°ø°İ ¼º°ø½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ë„ˆë¬´ ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("ê³µê²© ì„±ê³µì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
 		local talents = {}
@@ -874,16 +874,16 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for i, v in ipairs(compare_with or {}) do
 			for tid, data in pairs(v[field] and (v[field].talent_on_crit or {})or {}) do
 				if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-					local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ³Ê¹« ±æ¾îÁ® º¯¼ö·Î »­
-					desc:add({"color","RED"}, ("Ä¡¸íÅ¸ ¼º°ø½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+					local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ë„ˆë¬´ ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+					desc:add({"color","RED"}, ("ì¹˜ëª…íƒ€ ì„±ê³µì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 				else
 					talents[tid][3] = true
 				end
 			end
 		end
 		for tid, data in pairs(talents) do
-			local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ³Ê¹« ±æ¾îÁ® º¯¼ö·Î »­
-			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("Ä¡¸íÅ¸ ¼º°ø½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+			local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ë„ˆë¬´ ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+			desc:add(talents[tid][3] and {"color","WHITE"} or {"color","GREEN"}, ("ì¹˜ëª…íƒ€ ì„±ê³µì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 		end
 
 		local special = ""
@@ -896,7 +896,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for i, v in ipairs(compare_with or {}) do
 			if v[field] and v[field].special_on_hit then
 				if special ~= v[field].special_on_hit.desc then
-					desc:add({"color","RED"}, "°ø°İ ¼º°ø½Ã È¿°ú : "..v[field].special_on_hit.desc, {"color","LAST"}, true)
+					desc:add({"color","RED"}, "ê³µê²© ì„±ê³µì‹œ íš¨ê³¼ : "..v[field].special_on_hit.desc, {"color","LAST"}, true)
 				else
 					found = true
 				end
@@ -933,7 +933,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 				-- Exit early if no items.
 				if not next(left) and not next(right) then return end
 
-				desc:add(header, true) --@ ÇÑ±ÛÈ­ ¿©ºÎ °Ë»ç
+				desc:add(header, true) --@ í•œê¸€í™” ì—¬ë¶€ ê²€ì‚¬
 
 				local combined = table.clone(left)
 				table.merge(combined, right)
@@ -943,7 +943,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 					r = right[k]
 					message = (l and l[2]) or (r and r[2])
 					if type(message) == 'function' then
-						desc:add(message(l and l[3], r and r[3] or 0), true) --@ ÇÑ±ÛÈ­ ¿©ºÎ °Ë»ç
+						desc:add(message(l and l[3], r and r[3] or 0), true) --@ í•œê¸€í™” ì—¬ë¶€ ê²€ì‚¬
 					elseif type(message) == 'string' then
 						local prefix = '* '
 						local color = 'WHITE'
@@ -955,7 +955,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 							color = 'RED'
 							prefix = '- '
 						end
-						desc:add({'color',color}, prefix, message, {'color','LAST'}, true) --@ ÇÑ±ÛÈ­ ¿©ºÎ °Ë»ç
+						desc:add({'color',color}, prefix, message, {'color','LAST'}, true) --@ í•œê¸€í™” ì—¬ë¶€ ê²€ì‚¬
 					end
 				end
 			else
@@ -967,7 +967,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 						if type(message) == 'function' then
 							desc:add(message(v[3]), true)
 						elseif type(message) == 'string' then
-							desc:add({'color','WHITE'}, '* ', message, {'color','LAST'}, true) --@ ÇÑ±ÛÈ­ ¿©ºÎ °Ë»ç
+							desc:add({'color','WHITE'}, '* ', message, {'color','LAST'}, true) --@ í•œê¸€í™” ì—¬ë¶€ ê²€ì‚¬
 						end
 					end
 				end
@@ -993,7 +993,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		compare_list(
-			"°ø°İ ¼º°ø½Ã :",
+			"ê³µê²© ì„±ê³µì‹œ :",
 			function(combat)
 				if not combat then return {} end
 				local list = {}
@@ -1011,7 +1011,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		)
 
 		compare_list(
-			"Ä¡¸íÅ¸ °ø°İ ¼º°ø½Ã :",
+			"ì¹˜ëª…íƒ€ ê³µê²© ì„±ê³µì‹œ :",
 			function(combat)
 				if not combat then return {} end
 				return get_special_list(combat, 'special_on_crit')
@@ -1019,7 +1019,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		)
 
 		compare_list(
-			"ÀÌ ¹«±â·Î »ìÇØ½Ã :",
+			"ì´ ë¬´ê¸°ë¡œ ì‚´í•´ì‹œ :",
 			function(combat)
 				if not combat then return {} end
 				return get_special_list(combat, 'special_on_kill')
@@ -1034,64 +1034,64 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		if combat.no_stealth_break then
-			desc:add(found and {"color","WHITE"} or {"color","GREEN"},"±âº» °ø°İÀ» ÇØµµ Àº½ÅÀÌ Ç®¸®Áö ¾Ê½À´Ï´Ù.", {"color","LAST"}, true)
+			desc:add(found and {"color","WHITE"} or {"color","GREEN"},"ê¸°ë³¸ ê³µê²©ì„ í•´ë„ ì€ì‹ ì´ í’€ë¦¬ì§€ ì•ŠìŠµë‹ˆë‹¤.", {"color","LAST"}, true)
 		elseif found then
-			desc:add({"color","RED"}, "±âº» °ø°İÀ» ÇØµµ Àº½ÅÀÌ Ç®¸®Áö ¾Ê½À´Ï´Ù.", {"color","LAST"}, true)
+			desc:add({"color","RED"}, "ê¸°ë³¸ ê³µê²©ì„ í•´ë„ ì€ì‹ ì´ í’€ë¦¬ì§€ ì•ŠìŠµë‹ˆë‹¤.", {"color","LAST"}, true)
 		end
 
 		if combat.crushing_blow then
-			desc:add({"color", "YELLOW"}, "¿ÏÆÄ °ø°İ : ", {"color", "LAST"}, "ÀÌ ¹«±â·Î Ä¡¸íÅ¸ °ø°İÀ» ÇÒ ¶§, Ä¡¸íÅ¸ ¹è¼ö°¡ ÇöÀçÀÇ 1.5¹è°¡ µÇ¸é »ó´ë¸¦ Á×ÀÏ ¼ö ÀÖ´Â °æ¿ì¿¡´Â ÇÇÇØ·®ÀÌ ±×¸¸Å­ Áõ°¡ÇÕ´Ï´Ù.", true)
+			desc:add({"color", "YELLOW"}, "ì™„íŒŒ ê³µê²© : ", {"color", "LAST"}, "ì´ ë¬´ê¸°ë¡œ ì¹˜ëª…íƒ€ ê³µê²©ì„ í•  ë•Œ, ì¹˜ëª…íƒ€ ë°°ìˆ˜ê°€ í˜„ì¬ì˜ 1.5ë°°ê°€ ë˜ë©´ ìƒëŒ€ë¥¼ ì£½ì¼ ìˆ˜ ìˆëŠ” ê²½ìš°ì—ëŠ” í”¼í•´ëŸ‰ì´ ê·¸ë§Œí¼ ì¦ê°€í•©ë‹ˆë‹¤.", true)
 		end
 
-		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "¹ß»ç ¼Óµµ    : ", 100, false, false, add_table)
+		compare_fields(combat, compare_with, field, "travel_speed", "%+d%%", "ë°œì‚¬ ì†ë„    : ", 100, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "º¸È£¸· °üÅë (ÀÌ ¹«±â¿¡¸¸ Àû¿ë) : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "phasing", "%+d%%", "ë³´í˜¸ë§‰ ê´€í†µ (ì´ ë¬´ê¸°ì—ë§Œ ì ìš©) : ", 1, false, false, add_table)
 
-		compare_fields(combat, compare_with, field, "lifesteal", "%+d%%", "»ı¸í·Â °­Å» (ÀÌ ¹«±â¿¡¸¸ Àû¿ë) : ", 1, false, false, add_table)
+		compare_fields(combat, compare_with, field, "lifesteal", "%+d%%", "ìƒëª…ë ¥ ê°•íƒˆ (ì´ ë¬´ê¸°ì—ë§Œ ì ìš©) : ", 1, false, false, add_table)
 
 		if combat.tg_type and combat.tg_type == "beam" then
-			desc:add({"color","YELLOW"}, ("°ø°İÀÌ ¸ğµç »ó´ë¸¦ ²çŒå°í Áö³ª°©´Ï´Ù."), {"color","LAST"}, true)
+			desc:add({"color","YELLOW"}, ("ê³µê²©ì´ ëª¨ë“  ìƒëŒ€ë¥¼ ê¿°ÂŒå¼±?ì§€ë‚˜ê°‘ë‹ˆë‹¤."), {"color","LAST"}, true)
 		end
 
 		compare_table_fields(
-			combat, compare_with, field, "melee_project", "%+d", "ÇÇÇØ·® (±ÙÁ¢°ø°İ): ",
+			combat, compare_with, field, "melee_project", "%+d", "í”¼í•´ëŸ‰ (ê·¼ì ‘ê³µê²©): ",
 			function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end,
 			nil, nil,
 			function(k, v) return not DamageType.dam_def[k].tdesc end)
 
 		compare_table_fields(
-			combat, compare_with, field, "ranged_project", "%+d", "ÇÇÇØ·® (Àå°Å¸®°ø°İ): ",
+			combat, compare_with, field, "ranged_project", "%+d", "í”¼í•´ëŸ‰ (ì¥ê±°ë¦¬ê³µê²©): ",
 			function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end,
 			nil, nil,
 			function(k, v) return not DamageType.dam_def[k].tdesc end)
 
-		compare_table_fields(combat, compare_with, field, "burst_on_hit", "%+d", "°ø°İ ¼º°ø½Ã Æø¹ß(1 Ä­ ¹İ°æ) ÇÇÇØ·® : ", function(item)
+		compare_table_fields(combat, compare_with, field, "burst_on_hit", "%+d", "ê³µê²© ì„±ê³µì‹œ í­ë°œ(1 ì¹¸ ë°˜ê²½) í”¼í•´ëŸ‰ : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(combat, compare_with, field, "burst_on_crit", "%+d", "Ä¡¸íÅ¸ ¼º°ø½Ã Æø¹ß(2 Ä­ ¹İ°æ) ÇÇÇØ·® : ", function(item)
+		compare_table_fields(combat, compare_with, field, "burst_on_crit", "%+d", "ì¹˜ëª…íƒ€ ì„±ê³µì‹œ í­ë°œ(2 ì¹¸ ë°˜ê²½) í”¼í•´ëŸ‰ : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(combat, compare_with, field, "convert_damage", "%d%%", "°ø°İ ¼Ó¼º º¯È¯ : ", function(item)
+		compare_table_fields(combat, compare_with, field, "convert_damage", "%d%%", "ê³µê²© ì†ì„± ë³€í™˜ : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "´ÙÀ½ »ó´ë¿¡°Ô ÇÇÇØ·® Áõ°¡ : ", function(item)
+		compare_table_fields(combat, compare_with, field, "inc_damage_type", "%+d%% ", "ë‹¤ìŒ ìƒëŒ€ì—ê²Œ í”¼í•´ëŸ‰ ì¦ê°€ : ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
-					return st:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+					return st:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 				else
-					return t:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+					return t:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 				end
 			end)
 
@@ -1101,21 +1101,21 @@ function _M:getTextualDesc(compare_with, use_actor)
 	local desc_wielder = function(w, compare_with, field)
 		w = w or {}
 		w = w[field] or {}
-		compare_scaled(w, compare_with, field, "combat_atk", {"combatAttack"}, "%+d #LAST#(%+d eff.)", "Á¤È®µµ        : ")
-		compare_fields(w, compare_with, field, "combat_apr", "%+d", "¹æ¾îµµ °üÅë : ")
-		compare_fields(w, compare_with, field, "combat_physcrit", "%+.1f%%", "Ä¡¸íÅ¸À²     : ")
-		compare_scaled(w, compare_with, field, "combat_dam", {"combatPhysicalpower"}, "%+d #LAST#(%+d eff.)", "¹°¸®·Â        : ")
+		compare_scaled(w, compare_with, field, "combat_atk", {"combatAttack"}, "%+d #LAST#(%+d eff.)", "ì •í™•ë„        : ")
+		compare_fields(w, compare_with, field, "combat_apr", "%+d", "ë°©ì–´ë„ ê´€í†µ : ")
+		compare_fields(w, compare_with, field, "combat_physcrit", "%+.1f%%", "ì¹˜ëª…íƒ€ìœ¨     : ")
+		compare_scaled(w, compare_with, field, "combat_dam", {"combatPhysicalpower"}, "%+d #LAST#(%+d eff.)", "ë¬¼ë¦¬ë ¥        : ")
 
-		compare_fields(w, compare_with, field, "combat_armor", "%+d", "¹æ¾îµµ        : ")
-		compare_fields(w, compare_with, field, "combat_armor_hardiness", "%+d%%", "¹æ¾î È¿À²    : ")
-		compare_scaled(w, compare_with, field, "combat_def", {"combatDefense", true}, "%+d #LAST#(%+d eff.)", "È¸ÇÇµµ        : ")
-		compare_scaled(w, compare_with, field, "combat_def_ranged", {"combatDefenseRanged", true}, "%+d #LAST#(%+d eff.)", "¿ø°Å¸® °ø°İ È¸ÇÇ : ")
+		compare_fields(w, compare_with, field, "combat_armor", "%+d", "ë°©ì–´ë„        : ")
+		compare_fields(w, compare_with, field, "combat_armor_hardiness", "%+d%%", "ë°©ì–´ íš¨ìœ¨    : ")
+		compare_scaled(w, compare_with, field, "combat_def", {"combatDefense", true}, "%+d #LAST#(%+d eff.)", "íšŒí”¼ë„        : ")
+		compare_scaled(w, compare_with, field, "combat_def_ranged", {"combatDefenseRanged", true}, "%+d #LAST#(%+d eff.)", "ì›ê±°ë¦¬ ê³µê²© íšŒí”¼ : ")
 
-		compare_fields(w, compare_with, field, "fatigue", "%+d%%", "ÇÇ·Îµµ        : ", 1, true, true)
+		compare_fields(w, compare_with, field, "fatigue", "%+d%%", "í”¼ë¡œë„        : ", 1, true, true)
 
-		compare_fields(w, compare_with, field, "ammo_reload_speed", "%+d", "ÅÏ´ç ÀçÀåÀü : ")
+		compare_fields(w, compare_with, field, "ammo_reload_speed", "%+d", "í„´ë‹¹ ì¬ì¥ì „ : ")
 
- --@ ÇÑ±ÛÈ­ ¿©ºÎ °Ë»ç : #949~995
+ --@ í•œê¸€í™” ì—¬ë¶€ ê²€ì‚¬ : #949~995
 		local dt_string = tstring{}
 		local found = false
 		local combat2 = { melee_project = {} }
@@ -1131,7 +1131,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		if found then
-			desc:add({"color","ORANGE"}, "±ÙÁ¢°ø°İ ¼º°ø½Ã È¿°ú : ", {"color","LAST"}, true)
+			desc:add({"color","ORANGE"}, "ê·¼ì ‘ê³µê²© ì„±ê³µì‹œ íš¨ê³¼ : ", {"color","LAST"}, true)
 			desc:merge(dt_string)
 		end
 
@@ -1161,92 +1161,92 @@ function _M:getTextualDesc(compare_with, use_actor)
 			else
 				onhit_combat.on_melee_hit[i] = v
 			end
-		end --@ ¿©±â±îÁö
+		end --@ ì—¬ê¸°ê¹Œì§€
 
-		compare_table_fields(combat2, compare_with, field, "melee_project", "%d", "ÇÇÇØ·® (±ÙÁ¢°ø°İ) : ", function(item)
+		compare_table_fields(combat2, compare_with, field, "melee_project", "%d", "í”¼í•´ëŸ‰ (ê·¼ì ‘ê³µê²©) : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
 		if ranged_found then
-			desc:add({"color","ORANGE"}, "Àå°Å¸®°ø°İ ¼º°ø½Ã È¿°ú : ", {"color","LAST"}, true)
+			desc:add({"color","ORANGE"}, "ì¥ê±°ë¦¬ê³µê²© ì„±ê³µì‹œ íš¨ê³¼ : ", {"color","LAST"}, true)
 			desc:merge(ranged)
 		end
 
-		compare_table_fields(ranged_combat, compare_with, field, "ranged_project", "%d", "ÇÇÇØ·® (Àå°Å¸®°ø°İ) : ", function(item)
+		compare_table_fields(ranged_combat, compare_with, field, "ranged_project", "%d", "í”¼í•´ëŸ‰ (ì¥ê±°ë¦¬ê³µê²©) : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
 		if found then
-			desc:add({"color","ORANGE"}, "±ÙÁ¢°ø°İ ÇÇÇØ ¹ß»ı½Ã È¿°ú : ", {"color","LAST"}, true)
+			desc:add({"color","ORANGE"}, "ê·¼ì ‘ê³µê²© í”¼í•´ ë°œìƒì‹œ íš¨ê³¼ : ", {"color","LAST"}, true)
 			desc:merge(onhit)
 		end
 
-		compare_table_fields(onhit_combat, compare_with, field, "on_melee_hit", "%d", "ÇÇÇØ ¹İ»ç (±ÙÁ¢°ø°İ) : ", function(item)
+		compare_table_fields(onhit_combat, compare_with, field, "on_melee_hit", "%d", "í”¼í•´ ë°˜ì‚¬ (ê·¼ì ‘ê³µê²©) : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2],(" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2],(" %s"):format(DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name),{"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
 --		desc:add({"color","ORANGE"}, "General effects: ", {"color","LAST"}, true)
 
-		compare_table_fields(w, compare_with, field, "inc_stats", "%+d", "´É·ÂÄ¡ º¯È­ : ", function(item)
-				return (" %s"):format(Stats.stats_def[item].short_name:capitalize():krStat()) --@ ´É·ÂÄ¡ÀÌ¸§ ÇÑ±ÛÈ­
+		compare_table_fields(w, compare_with, field, "inc_stats", "%+d", "ëŠ¥ë ¥ì¹˜ ë³€í™” : ", function(item)
+				return (" %s"):format(Stats.stats_def[item].short_name:capitalize():krStat()) --@ ëŠ¥ë ¥ì¹˜ì´ë¦„ í•œê¸€í™”
 			end)
-		compare_table_fields(w, compare_with, field, "resists", "%+d%%", "ÀúÇ×·Â º¯È­ : ", function(item)
+		compare_table_fields(w, compare_with, field, "resists", "%+d%%", "ì €í•­ë ¥ ë³€í™” : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists_cap", "%+d%%", "ÀúÇ×·Â ÃÖ´ëÄ¡ º¯È­ : ", function(item)
+		compare_table_fields(w, compare_with, field, "resists_cap", "%+d%%", "ì €í•­ë ¥ ìµœëŒ€ì¹˜ ë³€í™” : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(w, compare_with, field, "flat_damage_armor", "%+d", "ÇÇÇØ·® °¨¼Ò : ", function(item)
+		compare_table_fields(w, compare_with, field, "flat_damage_armor", "%+d", "í”¼í•´ëŸ‰ ê°ì†Œ : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(w, compare_with, field, "wards", "%+d", "ÃÖ´ë º¸È£ È½¼ö : ", function(item)
+		compare_table_fields(w, compare_with, field, "wards", "%+d", "ìµœëŒ€ ë³´í˜¸ íšŸìˆ˜ : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists_pen", "%+d%%", "ÀúÇ×·Â °üÅë : ", function(item)
+		compare_table_fields(w, compare_with, field, "resists_pen", "%+d%%", "ì €í•­ë ¥ ê´€í†µ : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(w, compare_with, field, "inc_damage", "%+d%%", "ÇØ´ç ¼Ó¼ºÀÇ ÇÇÇØ·® º¯È­ : ", function(item)
+		compare_table_fields(w, compare_with, field, "inc_damage", "%+d%%", "í•´ë‹¹ ì†ì„±ì˜ í”¼í•´ëŸ‰ ë³€í™” : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_table_fields(w, compare_with, field, "inc_damage_actor_type", "%+d%% ", "ÇÇÇØ·® º¯È­ : ", function(item)
+		compare_table_fields(w, compare_with, field, "inc_damage_actor_type", "%+d%% ", "í”¼í•´ëŸ‰ ë³€í™” : ", function(item)
 				local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 				if st and st ~= "" then
-					return st:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+					return st:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 				else
-					return t:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+					return t:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 				end
 			end)
 
-		compare_table_fields(w, compare_with, field, "resists_actor_type", "%+d%% ", "ÇÇÇØ °¨¼Ò : ", function(item)
+		compare_table_fields(w, compare_with, field, "resists_actor_type", "%+d%% ", "í”¼í•´ ê°ì†Œ : ", function(item)
 		local _, _, t, st = item:find("^([^/]+)/?(.*)$")
 			if st and st ~= "" then
-				return st:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+				return st:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 			else
-				return t:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+				return t:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 			end
 		end)
 
-		compare_table_fields(w, compare_with, field, "damage_affinity", "%+d%%", "ÇÇÇØ Ä£È­ : ", function(item)
+		compare_table_fields(w, compare_with, field, "damage_affinity", "%+d%%", "í”¼í•´ ì¹œí™” : ", function(item)
 				local col = (DamageType.dam_def[item] and DamageType.dam_def[item].text_color or "#WHITE#"):toTString()
-				return col[2], (" %s"):format(item == "all" and "ÀüÃ¼" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+				return col[2], (" %s"):format(item == "all" and "ì „ì²´" or (DamageType.dam_def[item] and DamageType.dam_def[item].kr_name or DamageType.dam_def[item].name or "??")), {"color","LAST"} --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 			end)
 
-		compare_fields(w, compare_with, field, "esp_range", "%+d", "Åõ½Ã °Å¸® º¯È­ : ")
+		compare_fields(w, compare_with, field, "esp_range", "%+d", "íˆ¬ì‹œ ê±°ë¦¬ ë³€í™” : ")
 
 		local any_esp = false
 		local esps_compare = {}
@@ -1260,9 +1260,9 @@ function _M:getTextualDesc(compare_with, use_actor)
 				local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 				local esp = ""
 				if st and st ~= "" then
-					esp = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+					esp = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 				else
-					esp = t:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+					esp = t:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 				end
 				esps_compare[esp] = esps_compare[esp] or {}
 				esps_compare[esp][1] = true
@@ -1280,18 +1280,18 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for type, i in pairs(w.esp or {}) do if i and i > 0 then
 			local _, _, t, st = type:find("^([^/]+)/?(.*)$")
 			if st and st ~= "" then
-				esps[#esps+1] = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+				esps[#esps+1] = t:capitalize():krActorType().."/"..st:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 			else
-				esps[#esps+1] = t:capitalize():krActorType() --@ Á¾Á·ÀÌ¸§ ÇÑ±ÛÈ­
+				esps[#esps+1] = t:capitalize():krActorType() --@ ì¢…ì¡±ì´ë¦„ í•œê¸€í™”
 			end
 			esps_compare[esps[#esps]] = esps_compare[esps[#esps]] or {}
 			esps_compare[esps[#esps]][2] = true
 			any_esp = true
 		end end
 		if any_esp then
-			desc:add("Åõ½Ã ºÎ¿© : ")
+			desc:add("íˆ¬ì‹œ ë¶€ì—¬ : ")
 			for esp, isin in pairs(esps_compare) do
-				local temp = ( esp == "All" and "ÀüÃ¼" ) or esp --@ µÎÁÙµÚ, ³×ÁÙµÚ »ç¿ë : ¸ğµç Á¾Á·½Ã ÇÑ±Û·Î º¯°æ 
+				local temp = ( esp == "All" and "ì „ì²´" ) or esp --@ ë‘ì¤„ë’¤, ë„¤ì¤„ë’¤ ì‚¬ìš© : ëª¨ë“  ì¢…ì¡±ì‹œ í•œê¸€ë¡œ ë³€ê²½ 
 				if isin[2] then
 					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(esp), {"color","LAST"})
 				else
@@ -1318,12 +1318,12 @@ function _M:getTextualDesc(compare_with, use_actor)
 			any_mastery = any_mastery + 1
 		end
 		if any_mastery > 0 then
-			desc:add("±â¼ú°è¿­ È¿À² Çâ»ó : ")
+			desc:add("ê¸°ìˆ ê³„ì—´ íš¨ìœ¨ í–¥ìƒ : ")
 			for ttn, ttid in pairs(masteries) do
 				local tt = Talents.talents_types_def[ttn]
 				if tt then
 					local cat = tt.type:gsub("/.*", "")
-					local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@ ±â¼ú°è¿­ÀÌ¸§ ÇÑ±ÛÈ­
+					local name = cat:capitalize():krTalentType().." / "..tt.name:capitalize():krTalentType() --@ ê¸°ìˆ ê³„ì—´ì´ë¦„ í•œê¸€í™”
 					local diff = (ttid[2] or 0) - (ttid[1] or 0)
 					if diff ~= 0 then
 						if ttid[1] then
@@ -1356,18 +1356,18 @@ function _M:getTextualDesc(compare_with, use_actor)
 			any_cd_reduction = any_cd_reduction + 1
 		end
 		if any_cd_reduction > 0 then
-			desc:add("±â¼úÀÇ Àç»ç¿ë ´ë±â½Ã°£ :")
+			desc:add("ê¸°ìˆ ì˜ ì¬ì‚¬ìš© ëŒ€ê¸°ì‹œê°„ :")
 			for tid, cds in pairs(cd_reductions) do
 				local diff = (cds[2] or 0) - (cds[1] or 0)
-				local tn = Talents.talents_def[tid].kr_name or Talents.talents_def[tid].name --@ ¼¼ÁÙµÚ, ´Ù¼¸ÁÙµÚ, ¿©´üÁÙµÚ »ç¿ë : ±æ¾îÁö°í ¹İº¹µÇ¾î º¯¼ö·Î »­
+				local tn = Talents.talents_def[tid].kr_name or Talents.talents_def[tid].name --@ ì„¸ì¤„ë’¤, ë‹¤ì„¯ì¤„ë’¤, ì—¬ëŸì¤„ë’¤ ì‚¬ìš© : ê¸¸ì–´ì§€ê³  ë°˜ë³µë˜ì–´ ë³€ìˆ˜ë¡œ ëºŒ
 				if diff ~= 0 then
 					if cds[1] then
-						desc:add((" %s ("):format(tn), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "ÅÏ)")
+						desc:add((" %s ("):format(tn), ("(%+d"):format(-(cds[2] or 0)), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(%+d) "):format(-diff), {"color","LAST"}, "í„´)")
 					else
-						desc:add((" %s ("):format(tn), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " ÅÏ)")
+						desc:add((" %s ("):format(tn), {"color","LIGHT_GREEN"}, ("%+d"):format(-(cds[2] or 0)), {"color","LAST"}, " í„´)")
 					end
 				else
-					desc:add({"color","WHITE"}, (" %s (%+d(-) ÅÏ)"):format(tn, -(cds[2] or cds[1])), {"color","LAST"})
+					desc:add({"color","WHITE"}, (" %s (%+d(-) í„´)"):format(tn, -(cds[2] or cds[1])), {"color","LAST"})
 				end
 			end
 			desc:add(true)
@@ -1391,10 +1391,10 @@ function _M:getTextualDesc(compare_with, use_actor)
 			any_learn_talent = any_learn_talent + 1
 		end end
 		if any_learn_talent > 0 then
-			desc:add("±â¼ú º¸Àå    : ")
+			desc:add("ê¸°ìˆ  ë³´ì¥    : ")
 			for tid, tl in pairs(learn_talents) do
 				local diff = (tl[2] or 0) - (tl[1] or 0)
-				local name = Talents.talents_def[tid].kr_name or Talents.talents_def[tid].name --@ ÇÑ±Û ÀÌ¸§ Ãß°¡
+				local name = Talents.talents_def[tid].kr_name or Talents.talents_def[tid].name --@ í•œê¸€ ì´ë¦„ ì¶”ê°€
 				if diff ~= 0 then
 					if tl[1] then
 						desc:add(("+%d"):format(tl[2] or 0), diff < 0 and {"color","RED"} or {"color","LIGHT_GREEN"}, ("(+%d) "):format(diff), {"color","LAST"}, ("%s "):format(name))
@@ -1425,188 +1425,188 @@ function _M:getTextualDesc(compare_with, use_actor)
 			any_breath = any_breath + 1
 		end
 		if any_breath > 0 then
-			desc:add("´ÙÀ½ Àå¼Ò¿¡¼­ ¼û½¬±â °¡´É : ")
+			desc:add("ë‹¤ìŒ ì¥ì†Œì—ì„œ ìˆ¨ì‰¬ê¸° ê°€ëŠ¥ : ")
 			for what, isin in pairs(breaths) do
 				if isin[2] then
-					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(what:krBreath()), {"color","LAST"}) --@ ÇÑ±Û¸íÀ¸·Î º¯È¯
+					desc:add(isin[1] and {"color","WHITE"} or {"color","GREEN"}, ("%s "):format(what:krBreath()), {"color","LAST"}) --@ í•œê¸€ëª…ìœ¼ë¡œ ë³€í™˜
 				else
-					desc:add({"color","RED"}, ("%s "):format(what:krBreath()), {"color","LAST"}) --@ ÇÑ±Û¸íÀ¸·Î º¯È¯
+					desc:add({"color","RED"}, ("%s "):format(what:krBreath()), {"color","LAST"}) --@ í•œê¸€ëª…ìœ¼ë¡œ ë³€í™˜
 				end
 			end
 			desc:add(true)
 		end
 
-		compare_fields(w, compare_with, field, "combat_critical_power", "%+.2f%%", "Ä¡¸íÅ¸ ÇÇÇØ·® ¹è¼ö : ")
-		compare_fields(w, compare_with, field, "ignore_direct_crits", "%-.2f%%", "¹æ¾î½Ã Ä¡¸íÅ¸ ÇÇÇØ °¨¼Ò : ")
-		compare_fields(w, compare_with, field, "combat_crit_reduction", "%-d%%", "ÀûÀÇ Ä¡¸íÅ¸ ¾ïÁ¦ : ")
+		compare_fields(w, compare_with, field, "combat_critical_power", "%+.2f%%", "ì¹˜ëª…íƒ€ í”¼í•´ëŸ‰ ë°°ìˆ˜ : ")
+		compare_fields(w, compare_with, field, "ignore_direct_crits", "%-.2f%%", "ë°©ì–´ì‹œ ì¹˜ëª…íƒ€ í”¼í•´ ê°ì†Œ : ")
+		compare_fields(w, compare_with, field, "combat_crit_reduction", "%-d%%", "ì ì˜ ì¹˜ëª…íƒ€ ì–µì œ : ")
 
-		compare_fields(w, compare_with, field, "disarm_bonus", "%+d", "Ãß°¡ ÇÔÁ¤ Å½Áö·Â : ")
-		compare_fields(w, compare_with, field, "inc_stealth", "%+d", "Ãß°¡ Àº½Å·Â : ")
-		compare_fields(w, compare_with, field, "max_encumber", "%+d", "ÃÖ´ë ¼ÒÁö ¹«°Ô »ó½Â : ")
+		compare_fields(w, compare_with, field, "disarm_bonus", "%+d", "ì¶”ê°€ í•¨ì • íƒì§€ë ¥ : ")
+		compare_fields(w, compare_with, field, "inc_stealth", "%+d", "ì¶”ê°€ ì€ì‹ ë ¥ : ")
+		compare_fields(w, compare_with, field, "max_encumber", "%+d", "ìµœëŒ€ ì†Œì§€ ë¬´ê²Œ ìƒìŠ¹ : ")
 
-		compare_scaled(w, compare_with, field, "combat_physresist", {"combatPhysicalResist", true}, "%+d #LAST#(%+d eff.)", "¹°¸® ³»¼º    : ")
-		compare_scaled(w, compare_with, field, "combat_spellresist", {"combatSpellResist", true}, "%+d #LAST#(%+d eff.)", "ÁÖ¹® ³»¼º    : ")
-		compare_scaled(w, compare_with, field, "combat_mentalresist", {"combatMentalResist", true}, "%+d #LAST#(%+d eff.)", "Á¤½Å ³»¼º    : ")
+		compare_scaled(w, compare_with, field, "combat_physresist", {"combatPhysicalResist", true}, "%+d #LAST#(%+d eff.)", "ë¬¼ë¦¬ ë‚´ì„±    : ")
+		compare_scaled(w, compare_with, field, "combat_spellresist", {"combatSpellResist", true}, "%+d #LAST#(%+d eff.)", "ì£¼ë¬¸ ë‚´ì„±    : ")
+		compare_scaled(w, compare_with, field, "combat_mentalresist", {"combatMentalResist", true}, "%+d #LAST#(%+d eff.)", "ì •ì‹  ë‚´ì„±    : ")
 
-		compare_fields(w, compare_with, field, "blind_immune", "%+d%%", "½Ç¸í ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "poison_immune", "%+d%%", "Áßµ¶ ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "disease_immune", "%+d%%", "Áúº´ ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "cut_immune", "%+d%%", "ÃâÇ÷ ¸é¿ª·Â : ", 100)
+		compare_fields(w, compare_with, field, "blind_immune", "%+d%%", "ì‹¤ëª… ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "poison_immune", "%+d%%", "ì¤‘ë… ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "disease_immune", "%+d%%", "ì§ˆë³‘ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "cut_immune", "%+d%%", "ì¶œí˜ˆ ë©´ì—­ë ¥ : ", 100)
 
-		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "Ä§¹¬ ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "¹«ÀåÇØÁ¦ ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "È¥¶õ ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "sleep_immune", "%+d%%", "¼ö¸é ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "¼Ó¹Ú ¸é¿ª·Â : ", 100)
+		compare_fields(w, compare_with, field, "silence_immune", "%+d%%", "ì¹¨ë¬µ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "disarm_immune", "%+d%%", "ë¬´ì¥í•´ì œ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "confusion_immune", "%+d%%", "í˜¼ë€ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "sleep_immune", "%+d%%", "ìˆ˜ë©´ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "pin_immune", "%+d%%", "ì†ë°• ë©´ì—­ë ¥ : ", 100)
 
-		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "±âÀı/ºù°á ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "fear_immune", "%+d%%", "°øÆ÷ ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "knockback_immune", "%+d%%", "¹Ğ¾î³»±â ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "instakill_immune", "%+d%%", "Áï»ç ¸é¿ª·Â : ", 100)
-		compare_fields(w, compare_with, field, "teleport_immune", "%+d%%", "¼ø°£ÀÌµ¿ ¸é¿ª·Â : ", 100)
+		compare_fields(w, compare_with, field, "stun_immune", "%+d%%", "ê¸°ì ˆ/ë¹™ê²° ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "fear_immune", "%+d%%", "ê³µí¬ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "knockback_immune", "%+d%%", "ë°€ì–´ë‚´ê¸° ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "instakill_immune", "%+d%%", "ì¦‰ì‚¬ ë©´ì—­ë ¥ : ", 100)
+		compare_fields(w, compare_with, field, "teleport_immune", "%+d%%", "ìˆœê°„ì´ë™ ë©´ì—­ë ¥ : ", 100)
 
-		compare_fields(w, compare_with, field, "life_regen", "%+.2f", "»ı¸í·Â Àç»ı : ")
-		compare_fields(w, compare_with, field, "stamina_regen", "%+.2f", "Ã¼·Â Àç»ı : ")
-		compare_fields(w, compare_with, field, "mana_regen", "%+.2f", "¸¶³ª Àç»ı : ")
-		compare_fields(w, compare_with, field, "hate_regen", "%+.2f", "Áõ¿À½É Àç»ı : ")
-		compare_fields(w, compare_with, field, "psi_regen", "%+.2f", "¿°·Â Àç»ı : ")
+		compare_fields(w, compare_with, field, "life_regen", "%+.2f", "ìƒëª…ë ¥ ì¬ìƒ : ")
+		compare_fields(w, compare_with, field, "stamina_regen", "%+.2f", "ì²´ë ¥ ì¬ìƒ : ")
+		compare_fields(w, compare_with, field, "mana_regen", "%+.2f", "ë§ˆë‚˜ ì¬ìƒ : ")
+		compare_fields(w, compare_with, field, "hate_regen", "%+.2f", "ì¦ì˜¤ì‹¬ ì¬ìƒ : ")
+		compare_fields(w, compare_with, field, "psi_regen", "%+.2f", "ì—¼ë ¥ ì¬ìƒ : ")
 		compare_fields(w, compare_with, field, "vim_regen", "%+.2f", "Vim each turn: ")
-		compare_fields(w, compare_with, field, "positive_regen_ref_mod", "%+.2f", "¾ç±â Àç»ı : ")
-		compare_fields(w, compare_with, field, "negative_regen_ref_mod", "%+.2f", "À½±â Àç»ı : ")
+		compare_fields(w, compare_with, field, "positive_regen_ref_mod", "%+.2f", "ì–‘ê¸° ì¬ìƒ : ")
+		compare_fields(w, compare_with, field, "negative_regen_ref_mod", "%+.2f", "ìŒê¸° ì¬ìƒ : ")
 
-		compare_fields(w, compare_with, field, "stamina_regen_when_hit", "%+.2f", "°ø°İ ¼º°ø½Ã Ã¼·Â È¸º¹ : ")
-		compare_fields(w, compare_with, field, "mana_regen_when_hit", "%+.2f", "°ø°İ ¼º°ø½Ã ¸¶³ª È¸º¹ : ")
-		compare_fields(w, compare_with, field, "equilibrium_regen_when_hit", "%+.2f", "°ø°İ ¼º°ø½Ã ÆòÁ¤ È¸º¹ : ")
-		compare_fields(w, compare_with, field, "psi_regen_when_hit", "%+.2f", "°ø°İ ¼º°ø½Ã ¿°·Â È¸º¹ : ")
-		compare_fields(w, compare_with, field, "hate_regen_when_hit", "%+.2f", "°ø°İ ¼º°ø½Ã Áõ¿À½É È¸º¹ : ")
+		compare_fields(w, compare_with, field, "stamina_regen_when_hit", "%+.2f", "ê³µê²© ì„±ê³µì‹œ ì²´ë ¥ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "mana_regen_when_hit", "%+.2f", "ê³µê²© ì„±ê³µì‹œ ë§ˆë‚˜ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "equilibrium_regen_when_hit", "%+.2f", "ê³µê²© ì„±ê³µì‹œ í‰ì • íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "psi_regen_when_hit", "%+.2f", "ê³µê²© ì„±ê³µì‹œ ì—¼ë ¥ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "hate_regen_when_hit", "%+.2f", "ê³µê²© ì„±ê³µì‹œ ì¦ì˜¤ì‹¬ íšŒë³µ : ")
 		compare_fields(w, compare_with, field, "vim_regen_when_hit", "%+.2f", "Vim when hit: ")
 
 		compare_fields(w, compare_with, field, "vim_on_melee", "%+.2f", "Vim when hitting in melee: ")
 
-		compare_fields(w, compare_with, field, "mana_on_crit", "%+.2f", "ÁÖ¹® Ä¡¸íÅ¸ ¹ß»ı½Ã ¸¶³ª È¸º¹ : ")
-		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "ÁÖ¹® Ä¡¸íÅ¸ ¹ß»ı½Ã ¿ø±â È¸º¹ : ")
-		compare_fields(w, compare_with, field, "spellsurge_on_crit", "%+d", "ÁÖ¹® Ä¡¸íÅ¸ ¹ß»ı½Ã ÁÖ¹®·Â »ó½Â (ÃÖ´ë 3¹ø ´©Àû °¡´É) : ")
+		compare_fields(w, compare_with, field, "mana_on_crit", "%+.2f", "ì£¼ë¬¸ ì¹˜ëª…íƒ€ ë°œìƒì‹œ ë§ˆë‚˜ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "ì£¼ë¬¸ ì¹˜ëª…íƒ€ ë°œìƒì‹œ ì›ê¸° íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "spellsurge_on_crit", "%+d", "ì£¼ë¬¸ ì¹˜ëª…íƒ€ ë°œìƒì‹œ ì£¼ë¬¸ë ¥ ìƒìŠ¹ (ìµœëŒ€ 3ë²ˆ ëˆ„ì  ê°€ëŠ¥) : ")
 
-		compare_fields(w, compare_with, field, "hate_on_crit", "%+.2f", "Á¤½Å °ø°İ Ä¡¸íÅ¸ ¹ß»ı½Ã Áõ¿À½É È¸º¹ : ")
-		compare_fields(w, compare_with, field, "psi_on_crit", "%+.2f", "Á¤½Å °ø°İ Ä¡¸íÅ¸ ¹ß»ı½Ã ¿°·Â È¸º¹ : ")
-		compare_fields(w, compare_with, field, "equilibrium_on_crit", "%+.2f", "Á¤½Å °ø°İ Ä¡¸íÅ¸ ¹ß»ı½Ã ÆòÁ¤ È¸º¹ : ")
+		compare_fields(w, compare_with, field, "hate_on_crit", "%+.2f", "ì •ì‹  ê³µê²© ì¹˜ëª…íƒ€ ë°œìƒì‹œ ì¦ì˜¤ì‹¬ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "psi_on_crit", "%+.2f", "ì •ì‹  ê³µê²© ì¹˜ëª…íƒ€ ë°œìƒì‹œ ì—¼ë ¥ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "equilibrium_on_crit", "%+.2f", "ì •ì‹  ê³µê²© ì¹˜ëª…íƒ€ ë°œìƒì‹œ í‰ì • íšŒë³µ : ")
 
-		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "Àû »ìÇØ½Ã Áõ¿À½É È¸º¹ : ")
-		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "Àû »ìÇØ½Ã ¿°·Â È¸º¹ : ")
+		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "ì  ì‚´í•´ì‹œ ì¦ì˜¤ì‹¬ íšŒë³µ : ")
+		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "ì  ì‚´í•´ì‹œ ì—¼ë ¥ íšŒë³µ : ")
 		compare_fields(w, compare_with, field, "vim_on_death", "%+.2f", "Vim per kill: ")
 
-		compare_fields(w, compare_with, field, "die_at", "%+.2f »ı¸í·Â", "Á×Áö ¾Ê°í °ßµô ¼ö ÀÖ´Â »ı¸í·Â ¼öÄ¡ : ", 1, true, true)
-		compare_fields(w, compare_with, field, "max_life", "%+.2f", "ÃÖ´ë »ı¸í·Â : ")
-		compare_fields(w, compare_with, field, "max_mana", "%+.2f", "ÃÖ´ë ¸¶³ª    : ")
-		compare_fields(w, compare_with, field, "max_soul", "%+.2f", "ÃÖ´ë ¿øÈ¥    : ")
-		compare_fields(w, compare_with, field, "max_stamina", "%+.2f", "ÃÖ´ë Ã¼·Â    : ")
-		compare_fields(w, compare_with, field, "max_hate", "%+.2f", "ÃÖ´ë Áõ¿À½É : ")
-		compare_fields(w, compare_with, field, "max_psi", "%+.2f", "ÃÖ´ë ¿°·Â    : ")
-		compare_fields(w, compare_with, field, "max_vim", "%+.2f", "ÃÖ´ë ¿ø±â    : ")
-		compare_fields(w, compare_with, field, "max_positive", "%+.2f", "ÃÖ´ë ¾ç±â    : ")
-		compare_fields(w, compare_with, field, "max_negative", "%+.2f", "ÃÖ´ë À½±â    : ")
-		compare_fields(w, compare_with, field, "max_air", "%+.2f", "ÃÖ´ë ÆóÈ°·® : ")
+		compare_fields(w, compare_with, field, "die_at", "%+.2f ìƒëª…ë ¥", "ì£½ì§€ ì•Šê³  ê²¬ë”œ ìˆ˜ ìˆëŠ” ìƒëª…ë ¥ ìˆ˜ì¹˜ : ", 1, true, true)
+		compare_fields(w, compare_with, field, "max_life", "%+.2f", "ìµœëŒ€ ìƒëª…ë ¥ : ")
+		compare_fields(w, compare_with, field, "max_mana", "%+.2f", "ìµœëŒ€ ë§ˆë‚˜    : ")
+		compare_fields(w, compare_with, field, "max_soul", "%+.2f", "ìµœëŒ€ ì›í˜¼    : ")
+		compare_fields(w, compare_with, field, "max_stamina", "%+.2f", "ìµœëŒ€ ì²´ë ¥    : ")
+		compare_fields(w, compare_with, field, "max_hate", "%+.2f", "ìµœëŒ€ ì¦ì˜¤ì‹¬ : ")
+		compare_fields(w, compare_with, field, "max_psi", "%+.2f", "ìµœëŒ€ ì—¼ë ¥    : ")
+		compare_fields(w, compare_with, field, "max_vim", "%+.2f", "ìµœëŒ€ ì›ê¸°    : ")
+		compare_fields(w, compare_with, field, "max_positive", "%+.2f", "ìµœëŒ€ ì–‘ê¸°    : ")
+		compare_fields(w, compare_with, field, "max_negative", "%+.2f", "ìµœëŒ€ ìŒê¸°    : ")
+		compare_fields(w, compare_with, field, "max_air", "%+.2f", "ìµœëŒ€ íí™œëŸ‰ : ")
 
-		compare_scaled(w, compare_with, field, "combat_spellpower", {"combatSpellpower"}, "%+d #LAST#(%+d eff.)", "ÁÖ¹®·Â        :")
-		compare_fields(w, compare_with, field, "combat_spellcrit", "%+d%%", "ÁÖ¹® Ä¡¸íÅ¸À² : ")
-		compare_fields(w, compare_with, field, "spell_cooldown_reduction", "%d%%", "ÁÖ¹® ´ë±â½Ã°£ °¨¼Ò : ", 100)
+		compare_scaled(w, compare_with, field, "combat_spellpower", {"combatSpellpower"}, "%+d #LAST#(%+d eff.)", "ì£¼ë¬¸ë ¥        :")
+		compare_fields(w, compare_with, field, "combat_spellcrit", "%+d%%", "ì£¼ë¬¸ ì¹˜ëª…íƒ€ìœ¨ : ")
+		compare_fields(w, compare_with, field, "spell_cooldown_reduction", "%d%%", "ì£¼ë¬¸ ëŒ€ê¸°ì‹œê°„ ê°ì†Œ : ", 100)
 
-		compare_scaled(w, compare_with, field, "combat_mindpower", {"combatMindpower"}, "%+d #LAST#(%+d eff.)", "Á¤½Å·Â        : ")
-		compare_fields(w, compare_with, field, "combat_mindcrit", "%+d%%", "Á¤½Å°ø°İ Ä¡¸íÅ¸À² : ")
+		compare_scaled(w, compare_with, field, "combat_mindpower", {"combatMindpower"}, "%+d #LAST#(%+d eff.)", "ì •ì‹ ë ¥        : ")
+		compare_fields(w, compare_with, field, "combat_mindcrit", "%+d%%", "ì •ì‹ ê³µê²© ì¹˜ëª…íƒ€ìœ¨ : ")
 
-		compare_fields(w, compare_with, field, "lite", "%+d", "±¤¿ø ¹İ°æ    : ")
-		compare_fields(w, compare_with, field, "infravision", "%+d", "¾ß°£ Åõ½Ã ¹İ°æ : ")
-		compare_fields(w, compare_with, field, "heightened_senses", "%+d", "¾ß°£ Åõ½Ã ¹İ°æ : ")
+		compare_fields(w, compare_with, field, "lite", "%+d", "ê´‘ì› ë°˜ê²½    : ")
+		compare_fields(w, compare_with, field, "infravision", "%+d", "ì•¼ê°„ íˆ¬ì‹œ ë°˜ê²½ : ")
+		compare_fields(w, compare_with, field, "heightened_senses", "%+d", "ì•¼ê°„ íˆ¬ì‹œ ë°˜ê²½ : ")
 		compare_fields(w, compare_with, field, "sight", "%+d", "Sight radius: ")
 
-		compare_fields(w, compare_with, field, "see_stealth", "%+d", "Àº½Å °¨Áö    : ")
+		compare_fields(w, compare_with, field, "see_stealth", "%+d", "ì€ì‹  ê°ì§€    : ")
 
-		compare_fields(w, compare_with, field, "see_invisible", "%+d", "Åõ¸íÃ¼ °¨Áö : ")
-		compare_fields(w, compare_with, field, "invisible", "%+d", "Åõ¸íÈ­        : ")
+		compare_fields(w, compare_with, field, "see_invisible", "%+d", "íˆ¬ëª…ì²´ ê°ì§€ : ")
+		compare_fields(w, compare_with, field, "invisible", "%+d", "íˆ¬ëª…í™”        : ")
 
-		compare_fields(w, compare_with, field, "global_speed_add", "%+d%%", "ÀüÃ¼ ¼Óµµ    : ", 100)
-		compare_fields(w, compare_with, field, "movement_speed", "%+d%%", "ÀÌµ¿ ¼Óµµ    : ", 100)
-		compare_fields(w, compare_with, field, "combat_physspeed", "%+d%%", "°ø°İ ¼Óµµ    : ", 100)
-		compare_fields(w, compare_with, field, "combat_spellspeed", "%+d%%", "½ÃÀü ¼Óµµ    : ", 100)
-		compare_fields(w, compare_with, field, "combat_mindspeed", "%+d%%", "»ç°í ¼Óµµ    : ", 100)
+		compare_fields(w, compare_with, field, "global_speed_add", "%+d%%", "ì „ì²´ ì†ë„    : ", 100)
+		compare_fields(w, compare_with, field, "movement_speed", "%+d%%", "ì´ë™ ì†ë„    : ", 100)
+		compare_fields(w, compare_with, field, "combat_physspeed", "%+d%%", "ê³µê²© ì†ë„    : ", 100)
+		compare_fields(w, compare_with, field, "combat_spellspeed", "%+d%%", "ì‹œì „ ì†ë„    : ", 100)
+		compare_fields(w, compare_with, field, "combat_mindspeed", "%+d%%", "ì‚¬ê³  ì†ë„    : ", 100)
 
-		compare_fields(w, compare_with, field, "healing_factor", "%+d%%", "Ä¡À¯ È¿À²    : ", 100)
-		compare_fields(w, compare_with, field, "heal_on_nature_summon", "%+d", "ÀÚ¿¬ÀÇ ÈûÀ» »ç¿ëÇÑ ¼ÒÈ¯½Ã ÁÖº¯ µ¿·á »ı¸í·Â È¸º¹ : ")
+		compare_fields(w, compare_with, field, "healing_factor", "%+d%%", "ì¹˜ìœ  íš¨ìœ¨    : ", 100)
+		compare_fields(w, compare_with, field, "heal_on_nature_summon", "%+d", "ìì—°ì˜ í˜ì„ ì‚¬ìš©í•œ ì†Œí™˜ì‹œ ì£¼ë³€ ë™ë£Œ ìƒëª…ë ¥ íšŒë³µ : ")
 
-		compare_fields(w, compare_with, field, "life_leech_chance", "%+d%%", "»ı¸í·Â °­Å» È®·ü : ")
-		compare_fields(w, compare_with, field, "life_leech_value", "%+d%%", "»ı¸í·Â °­Å» : ÀÔÈù ÇÇÇØ·®ÀÇ ")
+		compare_fields(w, compare_with, field, "life_leech_chance", "%+d%%", "ìƒëª…ë ¥ ê°•íƒˆ í™•ë¥  : ")
+		compare_fields(w, compare_with, field, "life_leech_value", "%+d%%", "ìƒëª…ë ¥ ê°•íƒˆ : ì…íŒ í”¼í•´ëŸ‰ì˜ ")
 
-		compare_fields(w, compare_with, field, "resource_leech_chance", "%+d%%", "¿øÃµ·Â °­Å» È®·ü : ")
-		compare_fields(w, compare_with, field, "resource_leech_value", "%+d", "¿øÃµ·Â °­Å» : ÀÔÈù ÇÇÇØ·®ÀÇ ")
+		compare_fields(w, compare_with, field, "resource_leech_chance", "%+d%%", "ì›ì²œë ¥ ê°•íƒˆ í™•ë¥  : ")
+		compare_fields(w, compare_with, field, "resource_leech_value", "%+d", "ì›ì²œë ¥ ê°•íƒˆ : ì…íŒ í”¼í•´ëŸ‰ì˜ ")
 
-		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "º¸È£¸· °üÅë·Â : ")
+		compare_fields(w, compare_with, field, "damage_shield_penetrate", "%+d%%", "ë³´í˜¸ë§‰ ê´€í†µë ¥ : ")
 
-		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "¹ß»çÃ¼ È¸ÇÇ : ")
-		compare_fields(w, compare_with, field, "evasion", "%+d%%", "°ø°İ È¸ÇÇ È®·ü : ")
-		compare_fields(w, compare_with, field, "cancel_damage_chance", "%+d%%", "ÇÇÇØ ¹«È¿È­ È®·ü : ")
+		compare_fields(w, compare_with, field, "projectile_evasion", "%+d%%", "ë°œì‚¬ì²´ íšŒí”¼ : ")
+		compare_fields(w, compare_with, field, "evasion", "%+d%%", "ê³µê²© íšŒí”¼ í™•ë¥  : ")
+		compare_fields(w, compare_with, field, "cancel_damage_chance", "%+d%%", "í”¼í•´ ë¬´íš¨í™” í™•ë¥  : ")
 
-		compare_fields(w, compare_with, field, "defense_on_teleport", "%+d", "¼ø°£ÀÌµ¿ ÈÄ È¸ÇÇµµ : ")
-		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "¼ø°£ÀÌµ¿ ÈÄ ÀüÃ¼ ÀúÇ×·Â : ")
-		compare_fields(w, compare_with, field, "effect_reduction_on_teleport", "%+d%%", "¼ø°£ÀÌµ¿ÈÄ »õ·Î¿î »óÅÂÈ¿°ú ½Ã°£ °¨¼Ò : ")
+		compare_fields(w, compare_with, field, "defense_on_teleport", "%+d", "ìˆœê°„ì´ë™ í›„ íšŒí”¼ë„ : ")
+		compare_fields(w, compare_with, field, "resist_all_on_teleport", "%+d%%", "ìˆœê°„ì´ë™ í›„ ì „ì²´ ì €í•­ë ¥ : ")
+		compare_fields(w, compare_with, field, "effect_reduction_on_teleport", "%+d%%", "ìˆœê°„ì´ë™í›„ ìƒˆë¡œìš´ ìƒíƒœíš¨ê³¼ ì‹œê°„ ê°ì†Œ : ")
 
-		compare_fields(w, compare_with, field, "damage_resonance", "%+d%%", "°ø°İ ¹ŞÀ»½Ã ÇØ´ç ¼Ó¼º ÇÇÇØ·® Áõ°¡ : ")
+		compare_fields(w, compare_with, field, "damage_resonance", "%+d%%", "ê³µê²© ë°›ì„ì‹œ í•´ë‹¹ ì†ì„± í”¼í•´ëŸ‰ ì¦ê°€ : ")
 
-		compare_fields(w, compare_with, field, "size_category", "%+d", "Å©±â º¯È­    : ")
+		compare_fields(w, compare_with, field, "size_category", "%+d", "í¬ê¸° ë³€í™”    : ")
 
-		compare_fields(w, compare_with, field, "nature_summon_max", "%+d", "ÃÖ´ë ¾ß»ıÀÇ ¼ÒÈ¯¼ö : ")
-		compare_fields(w, compare_with, field, "nature_summon_regen", "%+.2f", "Ãß°¡ »ı¸í·Â Àç»ı (¾ß»ıÀÇ ¼ÒÈ¯¼ö) : ")
+		compare_fields(w, compare_with, field, "nature_summon_max", "%+d", "ìµœëŒ€ ì•¼ìƒì˜ ì†Œí™˜ìˆ˜ : ")
+		compare_fields(w, compare_with, field, "nature_summon_regen", "%+.2f", "ì¶”ê°€ ìƒëª…ë ¥ ì¬ìƒ (ì•¼ìƒì˜ ì†Œí™˜ìˆ˜) : ")
 
-		compare_fields(w, compare_with, field, "shield_dur", "%+d", "º¸È£¸· À¯Áö½Ã°£ : ")
-		compare_fields(w, compare_with, field, "shield_factor", "%+d%%", "º¸È£¸· °­µµ : ")
+		compare_fields(w, compare_with, field, "shield_dur", "%+d", "ë³´í˜¸ë§‰ ìœ ì§€ì‹œê°„ : ")
+		compare_fields(w, compare_with, field, "shield_factor", "%+d%%", "ë³´í˜¸ë§‰ ê°•ë„ : ")
 
-		compare_fields(w, compare_with, field, "iceblock_pierce", "%+d%%", "¾óÀ½µ¢¾î¸® °üÅë : ")
+		compare_fields(w, compare_with, field, "iceblock_pierce", "%+d%%", "ì–¼ìŒë©ì–´ë¦¬ ê´€í†µ : ")
 
-		compare_fields(w, compare_with, field, "slow_projectiles", "%+d%%", "¹ß»çÃ¼ ¼Óµµ °¨¼Ò : ")
+		compare_fields(w, compare_with, field, "slow_projectiles", "%+d%%", "ë°œì‚¬ì²´ ì†ë„ ê°ì†Œ : ")
 
-		compare_fields(w, compare_with, field, "paradox_reduce_anomalies", "%+d", "±«¸® ½ÇÆĞÀ² °¨¼Ò (ÀÇÁö·Â¸¸Å­) : ")
+		compare_fields(w, compare_with, field, "paradox_reduce_anomalies", "%+d", "ê´´ë¦¬ ì‹¤íŒ¨ìœ¨ ê°ì†Œ (ì˜ì§€ë ¥ë§Œí¼) : ")
 
-		compare_fields(w, compare_with, field, "damage_backfire", "%+d%%", "¿ª¹ß½Ã ÇÇÇØ ¹İµ¿ : ", nil, true)
+		compare_fields(w, compare_with, field, "damage_backfire", "%+d%%", "ì—­ë°œì‹œ í”¼í•´ ë°˜ë™ : ", nil, true)
 
-		compare_fields(w, compare_with, field, "resist_unseen", "%-d%%", "º¸ÀÌÁö¾Ê´Â ÀûÀ¸·Î ºÎÅÍÀÇ ÇÇÇØ °¨¼Ò : ")
+		compare_fields(w, compare_with, field, "resist_unseen", "%-d%%", "ë³´ì´ì§€ì•ŠëŠ” ì ìœ¼ë¡œ ë¶€í„°ì˜ í”¼í•´ ê°ì†Œ : ")
 
 		if w.undead then
-			desc:add("Âø¿ëÀÚ´Â ¾ğµ¥µå·Î Ãë±ŞµË´Ï´Ù.", true)
+			desc:add("ì°©ìš©ìëŠ” ì–¸ë°ë“œë¡œ ì·¨ê¸‰ë©ë‹ˆë‹¤.", true)
 		end
 
 		if w.demon then
-			desc:add("Âø¿ëÀÚ´Â ¾Ç¸¶·Î Ãë±ŞµË´Ï´Ù.", true)
+			desc:add("ì°©ìš©ìëŠ” ì•…ë§ˆë¡œ ì·¨ê¸‰ë©ë‹ˆë‹¤.", true)
 		end
 
 		if w.blind then
-			desc:add("Âø¿ëÀÚ´Â ½Ç¸í »óÅÂ°¡ µË´Ï´Ù.", true)
+			desc:add("ì°©ìš©ìëŠ” ì‹¤ëª… ìƒíƒœê°€ ë©ë‹ˆë‹¤.", true)
 		end
 
 		if w.sleep then
-			desc:add("Âø¿ëÀÚ´Â Àá¿¡ ºüÁı´Ï´Ù.", true)
+			desc:add("ì°©ìš©ìëŠ” ì ì— ë¹ ì§‘ë‹ˆë‹¤.", true)
 		end
 
 		if w.blind_fight then
-			desc:add({"color", "YELLOW"}, "´« ¸Õ ÀüÅõÀÇ ´ŞÀÎ : ", {"color", "LAST"}, "ÀÌ ¹°°ÇÀº Âø¿ëÀÚ°¡ ºÒÀÌÀÍ ¾øÀÌ º¸ÀÌÁö ¾Ê´Â »ó´ë¿Í ½Î¿ï ¼ö ÀÖ°Ô ÇØÁİ´Ï´Ù.", true)
+			desc:add({"color", "YELLOW"}, "ëˆˆ ë¨¼ ì „íˆ¬ì˜ ë‹¬ì¸ : ", {"color", "LAST"}, "ì´ ë¬¼ê±´ì€ ì°©ìš©ìê°€ ë¶ˆì´ìµ ì—†ì´ ë³´ì´ì§€ ì•ŠëŠ” ìƒëŒ€ì™€ ì‹¸ìš¸ ìˆ˜ ìˆê²Œ í•´ì¤ë‹ˆë‹¤.", true)
 		end
 
 		if w.lucid_dreamer then
-			desc:add({"color", "YELLOW"}, "ÀÚ°¢¸ù : ", {"color", "LAST"}, "ÀÌ ¹°°ÇÀº Âø¿ëÀÚ°¡ Àá¿¡ ºüÁ³À» ¶§¿¡¸¸ È°¼ºÈ­ µË´Ï´Ù.", true)
+			desc:add({"color", "YELLOW"}, "ìê°ëª½ : ", {"color", "LAST"}, "ì´ ë¬¼ê±´ì€ ì°©ìš©ìê°€ ì ì— ë¹ ì¡Œì„ ë•Œì—ë§Œ í™œì„±í™” ë©ë‹ˆë‹¤.", true)
 		end
 
 		if w.no_breath then
-			desc:add("Âø¿ëÀÚ´Â ¼ûÀ» ½¯ ÇÊ¿ä°¡ ¾ø¾îÁı´Ï´Ù.", true)
+			desc:add("ì°©ìš©ìëŠ” ìˆ¨ì„ ì‰´ í•„ìš”ê°€ ì—†ì–´ì§‘ë‹ˆë‹¤.", true)
 		end
 
 		if w.quick_weapon_swap then
-			desc:add({"color", "YELLOW"}, "ºü¸¥ ¹«Àå º¯°æ : ", {"color", "LAST"}, "ÀÌ ¹°°ÇÀº Âø¿ëÀÚ°¡ ÅÏÀ» »ç¿ëÇÏÁö ¾Ê°í Áï°¢ÀûÀ¸·Î º¸Á¶ ¹«ÀåÀ¸·Î º¯°æÇÒ ¼ö ÀÖ°Ô ÇØÁİ´Ï´Ù.", true)
+			desc:add({"color", "YELLOW"}, "ë¹ ë¥¸ ë¬´ì¥ ë³€ê²½ : ", {"color", "LAST"}, "ì´ ë¬¼ê±´ì€ ì°©ìš©ìê°€ í„´ì„ ì‚¬ìš©í•˜ì§€ ì•Šê³  ì¦‰ê°ì ìœ¼ë¡œ ë³´ì¡° ë¬´ì¥ìœ¼ë¡œ ë³€ê²½í•  ìˆ˜ ìˆê²Œ í•´ì¤ë‹ˆë‹¤.", true)
 		end
 
 		if w.avoid_pressure_traps then
-			desc:add({"color", "YELLOW"}, "¾Ğ·Â½Ä ÇÔÁ¤ È¸ÇÇ : ", {"color", "LAST"}, "Âø¿ëÀÚ´Â ¾Ğ·Â¿¡ ÀÇÇØ ÀÛµ¿ÇÏ´Â ÇÔÁ¤À» Àı´ë ¹ßµ¿ÇÏÁö ¾Ê°Ô µË´Ï´Ù.", true)
+			desc:add({"color", "YELLOW"}, "ì••ë ¥ì‹ í•¨ì • íšŒí”¼ : ", {"color", "LAST"}, "ì°©ìš©ìëŠ” ì••ë ¥ì— ì˜í•´ ì‘ë™í•˜ëŠ” í•¨ì •ì„ ì ˆëŒ€ ë°œë™í•˜ì§€ ì•Šê²Œ ë©ë‹ˆë‹¤.", true)
 		end
 
 		if w.speaks_shertul then
-			desc:add("½¦¸£'Åø ¾ğ¾î¸¦ ÀĞ°í ¸»ÇÒ ¼ö ÀÖ°Ô µË´Ï´Ù.", true)
+			desc:add("ì‰ë¥´'íˆ´ ì–¸ì–´ë¥¼ ì½ê³  ë§í•  ìˆ˜ ìˆê²Œ ë©ë‹ˆë‹¤.", true)
 		end
 
 		self:triggerHook{"Object:descWielder", compare_with=compare_with, compare_fields=compare_fields, compare_table_fields=compare_table_fields, desc=desc, w=w, field=field}
@@ -1624,7 +1624,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		end
 
 		if (w and w.combat or can_combat_unarmed) and (use_actor:knowTalent(use_actor.T_EMPTY_HAND) or use_actor:attr("show_gloves_combat")) then
-			desc:add({"color","YELLOW"}, "¸Ç¼Õ °İÅõ½Ã Àû¿ë :", {"color", "LAST"}, true)
+			desc:add({"color","YELLOW"}, "ë§¨ì† ê²©íˆ¬ì‹œ ì ìš© :", {"color", "LAST"}, true)
 			compare_tab = { dam=1, atk=1, apr=0, physcrit=0, physspeed =(use_actor:knowTalent(use_actor.T_EMPTY_HAND) and 0.6 or 1), dammod={str=1}, damrange=1.1 }
 			desc_combat(w, compare_unarmed, "combat", compare_tab, true)
 		end
@@ -1658,7 +1658,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 	end
 
 	if (self.special_combat or can_special_combat) and (use_actor:knowTalentType("technique/shield-offense") or use_actor:knowTalentType("technique/shield-defense") or use_actor:attr("show_shield_combat")) then
-		desc:add({"color","YELLOW"}, "¹æÆĞ °ø°İ½Ã Àû¿ë :", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "ë°©íŒ¨ ê³µê²©ì‹œ ì ìš© :", {"color", "LAST"}, true)
 		desc_combat(self, compare_with, "special_combat")
 	end
 
@@ -1670,21 +1670,21 @@ function _M:getTextualDesc(compare_with, use_actor)
 	end
 
 	if self.no_teleport then
-		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "¼ø°£ÀÌµ¿ È¿°ú¿¡ ´ëÇØ ¿ÏÀü ¸é¿ªÀÌ µË´Ï´Ù. ´Ü, ¼ø°£ÀÌµ¿À» ¹æÇØÇÑ µÚ ÀÌ ¹°°ÇÀº ¶¥¿¡ ¶³¾îÁö°Ô µË´Ï´Ù.", {"color", "LAST"}, true)
+		desc:add(found and {"color","WHITE"} or {"color","GREEN"}, "ìˆœê°„ì´ë™ íš¨ê³¼ì— ëŒ€í•´ ì™„ì „ ë©´ì—­ì´ ë©ë‹ˆë‹¤. ë‹¨, ìˆœê°„ì´ë™ì„ ë°©í•´í•œ ë’¤ ì´ ë¬¼ê±´ì€ ë•…ì— ë–¨ì–´ì§€ê²Œ ë©ë‹ˆë‹¤.", {"color", "LAST"}, true)
 	elseif found then
-		desc:add({"color","RED"}, "¼ø°£ÀÌµ¿ È¿°ú¿¡ ´ëÇØ ¿ÏÀü ¸é¿ªÀÌ µË´Ï´Ù. ´Ü, ¼ø°£ÀÌµ¿À» ¹æÇØÇÑ µÚ ÀÌ ¹°°ÇÀº ¶¥¿¡ ¶³¾îÁö°Ô µË´Ï´Ù.", {"color", "LAST"}, true)
+		desc:add({"color","RED"}, "ìˆœê°„ì´ë™ íš¨ê³¼ì— ëŒ€í•´ ì™„ì „ ë©´ì—­ì´ ë©ë‹ˆë‹¤. ë‹¨, ìˆœê°„ì´ë™ì„ ë°©í•´í•œ ë’¤ ì´ ë¬¼ê±´ì€ ë•…ì— ë–¨ì–´ì§€ê²Œ ë©ë‹ˆë‹¤.", {"color", "LAST"}, true)
 	end
 
 	if self.wielder or can_wielder then
-		desc:add({"color","YELLOW"}, "Âø¿ë½Ã Àû¿ë :", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "ì°©ìš©ì‹œ ì ìš© :", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "wielder")
 		if self:attr("skullcracker_mult") and use_actor:knowTalent(use_actor.T_SKULLCRACKER) then
-			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "¹ÚÄ¡±â ¹è¼ö : ")
+			compare_fields(self, compare_with, "wielder", "skullcracker_mult", "%+d", "ë°•ì¹˜ê¸° ë°°ìˆ˜ : ")
 		end
 	end
 
 	if self.carrier or can_carrier then
-		desc:add({"color","YELLOW"}, "º¸À¯½Ã Àû¿ë :", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "ë³´ìœ ì‹œ ì ìš© :", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "carrier")
 	end
 
@@ -1708,12 +1708,12 @@ function _M:getTextualDesc(compare_with, use_actor)
 	if self.on_block and self.on_block.desc then
 		local d = self.on_block.desc
 		desc:add({"color", "ORCHID"})
-		desc:add("¸·±â »ç¿ë½Ã Æ¯¼ö È¿°ú : " .. d)
+		desc:add("ë§‰ê¸° ì‚¬ìš©ì‹œ íŠ¹ìˆ˜ íš¨ê³¼ : " .. d)
 		desc:add({"color", "LAST"}, true)
 	end
 
 	if self.imbue_powers or can_imbue_powers then
-		desc:add({"color","YELLOW"}, "¹°°Ç¿¡ ÇÕ¼º½Ã Àû¿ë :", {"color", "LAST"}, true)
+		desc:add({"color","YELLOW"}, "ë¬¼ê±´ì— í•©ì„±ì‹œ ì ìš© :", {"color", "LAST"}, true)
 		desc_wielder(self, compare_with, "imbue_powers")
 	end
 
@@ -1724,20 +1724,20 @@ function _M:getTextualDesc(compare_with, use_actor)
 			if a then a = a.alchemist_bomb end
 		end
 		if a then
-			desc:add({"color","YELLOW"}, "¿¬±İ¼ú ÆøÅº »ç¿ë½Ã :", {"color", "LAST"}, true)
-			if a.power then desc:add(("Æø¹ß ÇÇÇØ·® +%d%%"):format(a.power), true) end
-			if a.range then desc:add(("ÆøÅº »ç°Å¸® +%d"):format(a.range), true) end
-			if a.mana then desc:add(("¸¶³ª È¸º¹ %d"):format(a.mana), true) end
-			if a.daze then desc:add(("%d ÅÏ µ¿¾È %d%% È®·ü·Î È¥Àı"):format(a.daze.dur, a.daze.chance), true) end --@ º¯¼ö ¼ø¼­ Á¶Á¤
-			if a.stun then desc:add(("%d ÅÏ µ¿¾È %d%% È®·ü·Î ±âÀı"):format(a.stun.dur, a.stun.chance), true) end --@ º¯¼ö ¼ø¼­ Á¶Á¤
+			desc:add({"color","YELLOW"}, "ì—°ê¸ˆìˆ  í­íƒ„ ì‚¬ìš©ì‹œ :", {"color", "LAST"}, true)
+			if a.power then desc:add(("í­ë°œ í”¼í•´ëŸ‰ +%d%%"):format(a.power), true) end
+			if a.range then desc:add(("í­íƒ„ ì‚¬ê±°ë¦¬ +%d"):format(a.range), true) end
+			if a.mana then desc:add(("ë§ˆë‚˜ íšŒë³µ %d"):format(a.mana), true) end
+			if a.daze then desc:add(("%d í„´ ë™ì•ˆ %d%% í™•ë¥ ë¡œ í˜¼ì ˆ"):format(a.daze.dur, a.daze.chance), true) end --@ ë³€ìˆ˜ ìˆœì„œ ì¡°ì •
+			if a.stun then desc:add(("%d í„´ ë™ì•ˆ %d%% í™•ë¥ ë¡œ ê¸°ì ˆ"):format(a.stun.dur, a.stun.chance), true) end --@ ë³€ìˆ˜ ìˆœì„œ ì¡°ì •
 			if a.splash then
 				if a.splash.desc then
-					desc:add(a.splash.desc, true) --@ ÇÑ±ÛÈ­ ¿©ºÎ °Ë»ç
+					desc:add(a.splash.desc, true) --@ í•œê¸€í™” ì—¬ë¶€ ê²€ì‚¬
 				else
-					desc:add(("Ãß°¡ÀûÀ¸·Î %d %s ÇÇÇØ"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).kr_name or DamageType:get(DamageType[a.splash.type]).name), true) --@ ¼Ó¼ºÀÌ¸§ ÇÑ±ÛÈ­
+					desc:add(("ì¶”ê°€ì ìœ¼ë¡œ %d %s í”¼í•´"):format(a.splash.dam, DamageType:get(DamageType[a.splash.type]).kr_name or DamageType:get(DamageType[a.splash.type]).name), true) --@ ì†ì„±ì´ë¦„ í•œê¸€í™”
 				end
 			end
-			if a.leech then desc:add(("ÃÖ´ë »ı¸í·ÂÀÇ %d%% ¿¡ ÇØ´çÇÏ´Â »ı¸í·Â È¸º¹"):format(a.leech), true) end
+			if a.leech then desc:add(("ìµœëŒ€ ìƒëª…ë ¥ì˜ %d%% ì— í•´ë‹¹í•˜ëŠ” ìƒëª…ë ¥ íšŒë³µ"):format(a.leech), true) end
 		end
 	end
 
@@ -1754,7 +1754,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		if t then
 			local ok, tdesc = pcall(use_actor.getTalentFullDescription, use_actor, t)
 			if ok and tdesc then
-				desc:add({"color","YELLOW"}, "°¢ÀÎ½Ã Àû¿ë :", {"color", "LAST"}, true)
+				desc:add({"color","YELLOW"}, "ê°ì¸ì‹œ ì ìš© :", {"color", "LAST"}, true)
 				desc:merge(tdesc)
 				desc:add(true)
 			end
@@ -1772,16 +1772,16 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for _, data in ipairs(v[field] and (v[field].talent_on_spell or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ±æ¾îÁ® º¯¼ö·Î »­
-				desc:add({"color","RED"}, ("ÁÖ¹® ¸íÁß½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+				local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+				desc:add({"color","RED"}, ("ì£¼ë¬¸ ëª…ì¤‘ì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ±æ¾îÁ® º¯¼ö·Î »­
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("ÁÖ¹® ¸íÁß½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("ì£¼ë¬¸ ëª…ì¤‘ì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	local talents = {}
@@ -1794,16 +1794,16 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for _, data in ipairs(v[field] and (v[field].talent_on_wild_gift or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ±æ¾îÁ® º¯¼ö·Î »­
-				desc:add({"color","RED"}, ("ÀÚ¿¬ ¼Ó¼º ±â¼ú ¸íÁß½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+				local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+				desc:add({"color","RED"}, ("ìì—° ì†ì„± ê¸°ìˆ  ëª…ì¤‘ì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ±æ¾îÁ® º¯¼ö·Î »­
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("ÀÚ¿¬ ¼Ó¼º ±â¼ú ¸íÁß½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("ìì—° ì†ì„± ê¸°ìˆ  ëª…ì¤‘ì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	local talents = {}
@@ -1816,27 +1816,27 @@ function _M:getTextualDesc(compare_with, use_actor)
 		for _, data in ipairs(v[field] and (v[field].talent_on_mind or {})or {}) do
 			local tid = data.talent
 			if not talents[tid] or talents[tid][1]~=data.chance or talents[tid][2]~=data.level then
-				local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ±æ¾îÁ® º¯¼ö·Î »­
-				desc:add({"color","RED"}, ("ÀÚ¿¬ ¼Ó¼º ±â¼ú ¸íÁß½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
+				local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+				desc:add({"color","RED"}, ("ìì—° ì†ì„± ê¸°ìˆ  ëª…ì¤‘ì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, data.chance, data.level), {"color","LAST"}, true)
 			else
 				talents[tid][3] = true
 			end
 		end
 	end
 	for tid, data in pairs(talents) do
-		local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ´ÙÀ½ÁÙ »ç¿ë : ±æ¾îÁ® º¯¼ö·Î »­
-		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("Á¤½Å ±â¼ú ¸íÁß½Ã : %s (%d%% È®·ü ·¹º§ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
+		local tn = self:getTalentFromId(tid).kr_name or self:getTalentFromId(tid).name --@ ë‹¤ìŒì¤„ ì‚¬ìš© : ê¸¸ì–´ì ¸ ë³€ìˆ˜ë¡œ ëºŒ
+		desc:add(talents[tid][3] and {"color","GREEN"} or {"color","WHITE"}, ("ì •ì‹  ê¸°ìˆ  ëª…ì¤‘ì‹œ : %s (%d%% í™•ë¥  ë ˆë²¨ %d)."):format(tn, talents[tid][1], talents[tid][2]), {"color","LAST"}, true)
 	end
 
 	if self.use_no_energy and self.use_no_energy ~= "fake" then
-		desc:add("ÀÌ ¾ÆÀÌÅÛÀº ½Ã°£ ¼Ò¸ğ ¾øÀÌ ¼ø°£ »ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.", true)
+		desc:add("ì´ ì•„ì´í…œì€ ì‹œê°„ ì†Œëª¨ ì—†ì´ ìˆœê°„ ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.", true)
 	end
 
 
 	if self.curse then
 		local t = use_actor:getTalentFromId(use_actor.T_DEFILING_TOUCH)
 		if t and t.canCurseItem(use_actor, t, self) then
-			desc:add({"color",0xf5,0x3c,0xbe}, (use_actor.tempeffect_def[self.curse].kr_desc or use_actor.tempeffect_def[self.curse].desc), {"color","LAST"}, true) --@ ÀúÁÖÀÌ¸§ ÇÑ±ÛÈ­
+			desc:add({"color",0xf5,0x3c,0xbe}, (use_actor.tempeffect_def[self.curse].kr_desc or use_actor.tempeffect_def[self.curse].desc), {"color","LAST"}, true) --@ ì €ì£¼ì´ë¦„ í•œê¸€í™”
 		end
 	end
 
@@ -1857,7 +1857,7 @@ function _M:getUseDesc(use_actor)
 	if self.use_power and not self.use_power.hidden then
 		local desc = util.getval(self.use_power.name, self, use_actor)
 		if self.show_charges then
-			ret = tstring{{"color","YELLOW"}, ("»ç¿ëÃ³ : %s (ÇöÀç ÃæÀü·®/ÃÖ´ë ÃæÀü·® :  %d/%d)."):format(desc, math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}} --I5
+			ret = tstring{{"color","YELLOW"}, ("ì‚¬ìš©ì²˜ : %s (í˜„ì¬ ì¶©ì „ëŸ‰/ìµœëŒ€ ì¶©ì „ëŸ‰ :  %d/%d)."):format(desc, math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}} --I5
 		elseif self.talent_cooldown then
 			local t_name = self.talent_cooldown == "T_GLOBAL_CD" and "all charms" or "Talent "..use_actor:getTalentDisplayName(use_actor:getTalentFromId(self.talent_cooldown))
 			ret = tstring{{"color","YELLOW"}, ("It can be used to %s, putting %s on cooldown for %d turns."):format(desc:format(self:getCharmPower(use_actor)), t_name, usepower(self.use_power.power)), {"color","LAST"}}
@@ -1880,9 +1880,9 @@ function _M:getUseDesc(use_actor)
 	end
 
 	if self.charm_on_use then
-		ret:add(true, "»ç¿ë½Ã:", true)
+		ret:add(true, "ì‚¬ìš©ì‹œ:", true)
 		for i, d in ipairs(self.charm_on_use) do
-			ret:add(tostring(d[1]), "% È®·ü·Î ", d[2](self, use_actor), ".", true)
+			ret:add(tostring(d[1]), "% í™•ë¥ ë¡œ ", d[2](self, use_actor), ".", true)
 		end
 	end
 
@@ -1895,20 +1895,20 @@ function _M:getDesc(name_param, compare_with, never_compare, use_actor)
 	local desc = tstring{}
 
 	if self.__new_pickup then
-		desc:add({"font","bold"},{"color","LIGHT_BLUE"},"»õ·Î È¹µæÇßÀ½",{"font","normal"},{"color","LAST"},true)
+		desc:add({"font","bold"},{"color","LIGHT_BLUE"},"ìƒˆë¡œ íšë“í–ˆìŒ",{"font","normal"},{"color","LAST"},true)
 	end
 	if self.__transmo then
-		desc:add({"font","bold"},{"color","YELLOW"},"ÀÌ ¹°°ÇÀº ÇöÀç ÃşÀ» ¹ş¾î³¯ ¶§ ÀÚµ¿À¸·Î º¯ÇüµË´Ï´Ù.",{"font","normal"},{"color","LAST"},true)
+		desc:add({"font","bold"},{"color","YELLOW"},"ì´ ë¬¼ê±´ì€ í˜„ì¬ ì¸µì„ ë²—ì–´ë‚  ë•Œ ìë™ìœ¼ë¡œ ë³€í˜•ë©ë‹ˆë‹¤.",{"font","normal"},{"color","LAST"},true)
 	end
 
 	name_param = name_param or {}
 	name_param.do_color = true
 	compare_with = compare_with or {}
 
-	desc:merge(self:getName(name_param):toTString()) --@ ÇÑ±Û ÀÌ¸§ ºÙÀÌ±â
-	desc:add("\n[") --@ ¿ø·¡ÀÌ¸§ µ¡ºÙÀÌ±â
-	desc:merge(self:getOriName(name_param):toTString()) --@ ¿ø·¡ÀÌ¸§ µ¡ºÙÀÌ±â
-	desc:add("]\n") --@ ¿ø·¡ÀÌ¸§ µ¡ºÙÀÌ±â
+	desc:merge(self:getName(name_param):toTString()) --@ í•œê¸€ ì´ë¦„ ë¶™ì´ê¸°
+	desc:add("\n[") --@ ì›ë˜ì´ë¦„ ë§ë¶™ì´ê¸°
+	desc:merge(self:getOriName(name_param):toTString()) --@ ì›ë˜ì´ë¦„ ë§ë¶™ì´ê¸°
+	desc:add("]\n") --@ ì›ë˜ì´ë¦„ ë§ë¶™ì´ê¸°
 	desc:add({"color", "WHITE"}, true)
 	local reqs = self:getRequirementDesc(use_actor)
 	if reqs then
@@ -1916,17 +1916,17 @@ function _M:getDesc(name_param, compare_with, never_compare, use_actor)
 	end
 
 	if self.power_source then
-		if self.power_source.arcane then desc:add({"color", "VIOLET"}, "¸¶¹ıÀÇ Èû", {"color", "LAST"}, " ºÎ¿©", true) end
-		if self.power_source.nature then desc:add({"color", "OLIVE_DRAB"}, "ÀÚ¿¬ÀÇ Èû", {"color", "LAST"}, " ÁÖÀÔ", true) end
-		if self.power_source.antimagic then desc:add({"color", "ORCHID"}, "¹İ¸¶¹ıÀÇ Èû", {"color", "LAST"}, " ÁÖÀÔ", true) end
-		if self.power_source.technique then desc:add({"color", "LIGHT_UMBER"}, "ÀåÀÎ", {"color", "LAST"}, "ÀÌ ¸¸µê", true) end
-		if self.power_source.psionic then desc:add({"color", "YELLOW"}, "¿°µ¿·Â", {"color", "LAST"}, " ÁÖÀÔ", true) end
-		if self.power_source.unknown then desc:add({"color", "CRIMSON"}, "¾Ë ¼ö ¾ø´Â Èû", {"color", "LAST"}, " ºÎ¿©", true) end
+		if self.power_source.arcane then desc:add({"color", "VIOLET"}, "ë§ˆë²•ì˜ í˜", {"color", "LAST"}, " ë¶€ì—¬", true) end
+		if self.power_source.nature then desc:add({"color", "OLIVE_DRAB"}, "ìì—°ì˜ í˜", {"color", "LAST"}, " ì£¼ì…", true) end
+		if self.power_source.antimagic then desc:add({"color", "ORCHID"}, "ë°˜ë§ˆë²•ì˜ í˜", {"color", "LAST"}, " ì£¼ì…", true) end
+		if self.power_source.technique then desc:add({"color", "LIGHT_UMBER"}, "ì¥ì¸", {"color", "LAST"}, "ì´ ë§Œë“¦", true) end
+		if self.power_source.psionic then desc:add({"color", "YELLOW"}, "ì—¼ë™ë ¥", {"color", "LAST"}, " ì£¼ì…", true) end
+		if self.power_source.unknown then desc:add({"color", "CRIMSON"}, "ì•Œ ìˆ˜ ì—†ëŠ” í˜", {"color", "LAST"}, " ë¶€ì—¬", true) end
 		self:triggerHook{"Object:descPowerSource", desc=desc, object=self}
 	end
 
 	if self.encumber then
-		desc:add({"color",0x67,0xAD,0x00}, ("¹«°Ô %0.2f"):format(self.encumber), {"color", "LAST"})
+		desc:add({"color",0x67,0xAD,0x00}, ("ë¬´ê²Œ %0.2f"):format(self.encumber), {"color", "LAST"})
 	end
 	-- if self.ego_bonus_mult then
 	-- 	desc:add(true, {"color",0x67,0xAD,0x00}, ("%0.2f Ego Multiplier."):format(1 + self.ego_bonus_mult), {"color", "LAST"})
@@ -1947,7 +1947,7 @@ function _M:getDesc(name_param, compare_with, never_compare, use_actor)
 		desc:add({"color", "WHITE"})
 	end
 
-	if could_compare and not never_compare then desc:add(true, {"font","italic"}, {"color","GOLD"}, "ºñ±³ÇÏ·Á¸é <control>Å°¸¦ ´©¸£¼¼¿ä", {"color","LAST"}, {"font","normal"}) end
+	if could_compare and not never_compare then desc:add(true, {"font","italic"}, {"color","GOLD"}, "ë¹„êµí•˜ë ¤ë©´ <control>í‚¤ë¥¼ ëˆ„ë¥´ì„¸ìš”", {"color","LAST"}, {"font","normal"}) end
 
 	return desc
 end

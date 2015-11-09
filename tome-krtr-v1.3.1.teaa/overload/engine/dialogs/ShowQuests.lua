@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -27,15 +28,16 @@ module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(actor)
 	self.actor = actor
-	Dialog.init(self, "Quest Log for "..actor.name, game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, actor.name.."의 퀘스트 기록", game.w * 0.8, game.h * 0.8)
 
 	self.c_desc = TextzoneList.new{scrollbar=true, width=math.floor(self.iw / 2 - 10), height=self.ih}
 
 	self:generateList()
 
+	--@ 두줄뒤와 세줄뒤 : 이름을 name 대신 kr_name을 표시하도록 수정, 한글이름으로 소팅하도록 수정, 상태를 status 대신 kr_status 표시하도록 수정
 	self.c_list = ListColumns.new{width=math.floor(self.iw / 2 - 10), height=self.ih - 10, scrollbar=true, sortable=true, columns={
-		{name="Quest", width=70, display_prop="name", sort="name"},
-		{name="Status", width=30, display_prop="status", sort="status_order"},
+		{name="퀘스트", width=70, display_prop="kr_name", sort="kr_name"},
+		{name="상태", width=30, display_prop="kr_status", sort="status_order"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	self:loadUI{
@@ -71,13 +73,16 @@ function _M:generateList()
 			elseif q:isStatus(q.FAILED) then color = colors.simple(colors.RED)
 			end
 
-			list[#list+1] = {  name=q.name, quest=q, color = color, status=q.status_text[q.status], status_order=q.status, desc=q:desc(self.actor) }
+			--@ 두줄뒤 : kr_name 만들어 한글이름 저장, kr_status 만들어 한글상태이름 저장 
+			local qn = q.kr_name or q.name	--@ 다음줄 사용 : 한글 이름 저장 변수		
+			list[#list+1] = { kr_name=qn, name=q.name, quest=q, color = color, kr_status=q.status_text[q.status]:krQuestStatus(), status=q.status_text[q.status], status_order=q.status, desc=q:desc(self.actor) }
 		end
 	end
 	if game.turn then
 		table.sort(list, function(a, b) return a.quest.gained_turn < b.quest.gained_turn end)
 	else
-		table.sort(list, function(a, b) return a.quest.name < b.quest.name end)
+		--@ 다음줄 : 소팅을 이름 대신 한글이름을 기준으로 하도록 수정
+		table.sort(list, function(a, b) return a.quest.kr_name < b.quest.kr_name end)
 	end
 	self.list = list
 end

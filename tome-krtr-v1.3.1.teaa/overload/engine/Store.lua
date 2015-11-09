@@ -117,7 +117,7 @@ end
 -- @param who the actor who interacts
 function _M:interact(who, name)
 	local store, inven = self:getInven("INVEN"), who:getInven("INVEN")
-	local d; d = ShowStore.new("Store: "..(name or self.name), store, inven, self.store.store_filter, self.store.actor_filter, function(what, o, item)
+	local d; d = ShowStore.new("상점 : "..(name or self.kr_name or self.name), store, inven, self.store.store_filter, self.store.actor_filter, function(what, o, item)
 		if what == "buy" then
 			if o:getNumber() > 1 then
 				local q = GetQuantity.new(nil, nil, o:getNumber(), o:getNumber(), function(qty) self:doBuy(who, o, item, qty, d) end)
@@ -157,12 +157,12 @@ function _M:doBuy(who, o, item, nb, store_dialog)
 	nb = math.min(nb, o:getNumber())
 	nb = self:tryBuy(who, o, item, nb)
 	if nb then
-		Dialog:yesnoPopup("Buy", ("Buy %d %s"):format(nb, o:getName{do_color=true, no_count=true}), function(ok) if ok then
+		Dialog:yesnoPopup("구입", ("%d %s 구입"):format(nb, o:getName{do_color=true, no_count=true}), function(ok) if ok then
 			self:onBuy(who, o, item, nb, true)
 			self:transfer(self, who, item, nb)
 			self:onBuy(who, o, item, nb, false)
 			if store_dialog then store_dialog:updateStore() end
-		end end, "Buy", "Cancel")
+		end end, "구입", "취소")
 	end
 end
 
@@ -170,12 +170,12 @@ function _M:doSell(who, o, item, nb, store_dialog)
 	nb = math.min(nb, o:getNumber())
 	nb = self:trySell(who, o, item, nb)
 	if nb then
-		Dialog:yesnoPopup("Sell", ("Sell %d %s"):format(nb, o:getName{do_color=true, no_count=true}), function(ok) if ok then
+		Dialog:yesnoPopup("판매", ("%d %s 판매"):format(nb, o:getName{do_color=true, no_count=true}), function(ok) if ok then
 			self:onSell(who, o, item, nb, true)
 			self:transfer(who, self, item, nb)
 			self:onSell(who, o, item, nb, false)
 			if store_dialog then store_dialog:updateStore() end
-		end end, "Sell", "Cancel")
+		end end, "판매", "취소")
 	end
 end
 

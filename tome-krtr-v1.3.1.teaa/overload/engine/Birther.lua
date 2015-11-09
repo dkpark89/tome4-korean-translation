@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Dialog = require "engine.ui.Dialog"
 local ListColumns = require "engine.ui.ListColumns"
@@ -54,6 +55,7 @@ function _M:newBirthDescriptor(t)
 	t.short_name = t.short_name or t.name
 	t.short_name = t.short_name:upper():gsub("[ ]", "_")
 	t.display_name = t.display_name or t.name
+	t.kr_display_name = t.kr_display_name or t.kr_name or t.display_name or t.name --@ 순서가 이상해 보이지만, 여기는 이게 맞음
 	assert(t.desc, "no birth description")
 	if type(t.desc) == "table" then t.desc = table.concat(t.desc, "\n") end
 	t.desc = t.desc:gsub("\n\t+", "\n")
@@ -81,7 +83,7 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 	self.order = order
 	if order.get_name then
 		self.at_end = function()
-			game:registerDialog(require('engine.dialogs.GetText').new("Enter your character's name", "Name", 2, 25, function(text)
+			game:registerDialog(require('engine.dialogs.GetText').new("캐릭터의 이름을 입력하세요", "이름", 2, 25, function(text)
 				game:setPlayerName(text)
 				at_end()
 			end, function()
@@ -92,7 +94,7 @@ function _M:init(title, actor, order, at_end, quickbirth, w, h)
 		self.at_end = at_end
 	end
 
-	Dialog.init(self, title and title or ("Character Creation: "..actor.name), w or 600, h or 400)
+	Dialog.init(self, title and title or ("캐릭터 만들기 : "..actor.name), w or 600, h or 400)
 
 	self.descriptors = {}
 	self.descriptors_by_type = {}
@@ -155,12 +157,12 @@ function _M:on_register()
 			self.do_quickbirth = true
 			self:quickBirth()
 		else
-			self:yesnoPopup("Quick Birth", "Do you want to recreate the same character?", function(ret)
+			self:yesnoPopup("빠른 생성", "기존의 같은 캐릭터로 다시 시작하길 원하십니까?", function(ret)
 				if ret then
 					self.do_quickbirth = true
 					self:quickBirth()
 				end
-			end, "Recreate", "New character")
+			end, "기존 캐릭터", "새 캐릭터")
 		end
 	end
 end
@@ -300,7 +302,7 @@ end
 
 function _M:randomSelect()
 	self.sel = rng.range(1, #self.list)
-	game.log("Randomly selected %s.", self.list[self.sel].name)
+	game.log("무작위 선택으로 %s 선택되었습니다.", self.list[self.sel].name:addJosa("가"))
 	self:next()
 end
 

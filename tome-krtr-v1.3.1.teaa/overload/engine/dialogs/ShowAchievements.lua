@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Tiles = require "engine.Tiles"
 local Dialog = require "engine.ui.Dialog"
@@ -34,11 +35,11 @@ function _M:init(title, player)
 	local nb = 0
 	for id, data in pairs(world.achieved) do nb = nb + 1 end
 
-	Dialog.init(self, (title or "Achievements").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, (title or "업적").." ("..nb.."/"..total..")", game.w * 0.8, game.h * 0.8)
 
-	self.c_self = Checkbox.new{title="Yours only", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
-	self.c_main = Checkbox.new{title="All achieved", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
-	self.c_all = Checkbox.new{title="Everything", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("all") end end}
+	self.c_self = Checkbox.new{title="현재 캐릭터가 달성", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("self") end end}
+	self.c_main = Checkbox.new{title="모든 캐릭터가 달성", default=true, fct=function() end, on_change=function(s) if s then self:switchTo("main") end end}
+	self.c_all = Checkbox.new{title="모든 도전과제", default=false, fct=function() end, on_change=function(s) if s then self:switchTo("all") end end}
 
 	self.c_image = Image.new{file="trophy_gold.png", width=128, height=128, shadow=true}
 	self.c_desc = TextzoneList.new{scrollbar=true, width=math.floor(self.iw * 0.4 - 10), height=self.ih - self.c_self.h}
@@ -67,9 +68,9 @@ function _M:init(title, player)
 
 	self.c_list = ListColumns.new{width=math.floor(self.iw * 0.6 - 10), height=self.ih - 10 - self.c_self.h, floating_headers = true, scrollbar=true, sortable=true, columns={
 		{name="", width={24,"fixed"}, display_prop="--", direct_draw=direct_draw},
-		{name="Achievement", width=60, display_prop="name", sort="name"},
-		{name="When", width=20, display_prop="when", sort="when"},
-		{name="Who", width=20, display_prop="who", sort="who"},
+		{name="업적", width=60, display_prop="name", sort="name"},
+		{name="달성시기", width=20, display_prop="when", sort="when"},
+		{name="달성자", width=20, display_prop="who", sort="who"},
 	}, list=self.list, fct=function(item) end, select=function(item, sel) self:select(item) end}
 
 	local sep = Separator.new{dir="horizontal", size=self.ih - 10 - self.c_self.h}
@@ -107,15 +108,15 @@ function _M:select(item)
 	if item then
 		local also = ""
 		if self.player and self.player.achievements and self.player.achievements[item.id] then
-			also = "#GOLD#Also achieved by your current character#LAST#\n"
+			also = "#GOLD#현재 캐릭터도 달성했습니다.#LAST#\n"
 		end
 		self.c_image.item = item.tex
 		self.c_image.iw = item.tex[6]
 		self.c_image.ih = item.tex[7]
 		local track = self:getTrack(item.a)
-		local desc = ("#GOLD#Achieved on:#LAST# %s\n#GOLD#Achieved by:#LAST# %s\n%s\n#GOLD#Description:#LAST# %s"):format(item.when, item.who, also, item.desc):toTString()
+		local desc = ("#GOLD#%s#LAST#\n[%s]\n\n#GOLD#달성 시기 :#LAST# %s\n#GOLD#달성자 :#LAST# %s\n%s\n#GOLD#설명 :#LAST# %s"):format(item.name, item.ori_name, item.when, item.who, also, item.desc):toTString() --@ 한글이름과 원문이름 표시하도록 수정 
 		if track then
-			desc:add(true, true, {"color","GOLD"}, "Progress: ", {"color","LAST"})
+			desc:add(true, true, {"color","GOLD"}, "진행정도: ", {"color","LAST"})
 			desc:merge(track)
 		end
 		self.c_desc:switchItem(item, desc)
@@ -168,14 +169,15 @@ function _M:generateList(kind)
 			end
 		end
 		if not data.notdone or a.show then
+			local an = a.kr_name or a.name --@ 두줄 뒤, 여섯줄 뒤, 여덟줄 뒤 사용 : 한글이름 저장 변수
 			if a.show == "full" or not data.notdone then
-				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name=an, ori_name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "none" then
-				list[#list+1] = { name="???", color=color, desc="-- Unknown --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name="???", ori_name="???", color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			elseif a.show == "name" then
-				list[#list+1] = { name=a.name, color=color, desc="-- Unknown --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name=an, ori_name=a.name, color=color, desc="-- 알 수 없음 --", when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			else
-				list[#list+1] = { name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
+				list[#list+1] = { name=an, ori_name=a.name, color=color, desc=a.desc, when=data.when, who=data.who, order=a.order, id=id, tex=tex, a=a }
 			end
 			i = i + 1
 		end

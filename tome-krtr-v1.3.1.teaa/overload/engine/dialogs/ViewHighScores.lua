@@ -25,7 +25,7 @@ local HighScores = require "engine.HighScores"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init()
-	Dialog.init(self, "High Scores", game.w * 0.8, game.h * 0.8)
+	Dialog.init(self, "고득점 기록", game.w * 0.8, game.h * 0.8)
 
 	game:registerHighscore()
 
