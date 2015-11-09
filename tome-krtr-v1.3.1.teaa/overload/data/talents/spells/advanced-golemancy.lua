@@ -20,9 +20,10 @@ local Chat = require "engine.Chat"
 
 newTalent{
 	name = "Life Tap", short_name = "GOLEMANCY_LIFE_TAP",
+	kr_name = "생명력 전이",
 	type = {"spell/advanced-golemancy", 1},
 	require = {
-		special = { desc="Having an Alchemist Golem", fct=function(self, t) return self.alchemy_golem end},
+		special = { desc="연금술 골렘을 보유하고 있을 것", fct=function(self, t) return self.alchemy_golem end},
 		stat = { mag=function(level) return 22 + (level-1) * 2 end },
 		level = function(level) return 10 + (level-1)  end,
 	},
@@ -35,7 +36,7 @@ newTalent{
 	action = function(self, t)
 		local mover, golem = getGolem(self)
 		if not golem then
-			game.logPlayer(self, "Your golem is currently inactive.")
+			game.logPlayer(self, "당신의 골렘은 비활성화 상태입니다.")
 			return
 		end
 
@@ -54,27 +55,30 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power=t.getPower(self, t)
-		return ([[You tap into your golem's life energies to replenish your own. Drains %d life.]]):
+		return ([[골렘의 생명력을 이용해서 자신의 생명력을 회복합니다. %d 생명력을 흡수합니다.]]):
 		format(power)
 	end,
 }
 
 newTalent{
 	name = "Gem Golem",
+	kr_name = "보석 골렘",
 	type = {"spell/advanced-golemancy",2},
 	require = spells_req_high2,
 	mode = "passive",
 	points = 5,
 	no_unlearn_last = true,
 	info = function(self, t)
-		return ([[Insert a pair of gems into your golem, providing it with the gem bonuses and changing its melee attack damage type. You may remove the gems and insert different ones; this does not destroy the gems you remove.
-		Gem level usable: %d
-		Gem changing is done in the golem's inventory.]]):format(self:getTalentLevelRaw(t))
+		return ([[골렘에 보석을 장착하여, 보석의 특수 효과를 적용시키고 골렘의 근접 공격 속성을 변화시킵니다. 
+		보석은 필요에 따라 다른 보석으로 바꿔서 장착할 수 있으며, 이 때 전에 장착시켰던 보석은 파괴되지 않고 원형 그대로 재사용할 수 있습니다.
+		가능한 보석의 수준 : %d 단계
+		보석 교체는 골렘의 소지품 안에서 이루어집니다.]]):format(self:getTalentLevelRaw(t))
 	end,
 }
 
 newTalent{
 	name = "Supercharge Golem",
+	kr_name = "과충전된 골렘",
 	type = {"spell/advanced-golemancy", 3},
 	require = spells_req_high3,
 	points = 5,
@@ -93,7 +97,7 @@ newTalent{
 			-- Find space
 			local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to supercharge!")
+				game.logPlayer(self, "골렘을 재기동시킬 자리가 없습니다!")
 				return
 			end
 			game.zone:addEntity(game.level, self.alchemy_golem, "actor", x, y)
@@ -104,7 +108,7 @@ newTalent{
 
 		local mover, golem = getGolem(self)
 		if not golem then
-			game.logPlayer(self, "Your golem is currently inactive.")
+			game.logPlayer(self, "당신의 골렘은 비활성화 상태입니다.")
 			return
 		end
 
@@ -115,9 +119,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local regen, turns, life = t.getPower(self, t)
-		return ([[You activate a special mode of your golem, boosting its regeneration rate by %0.2f life per turn for %d turns.
-		If your golem was dead, it is instantly brought back to life with %d%% life.
-		While supercharged, your golem is enraged and deals 25%% more damage.]]):
+		return ([[골렘을 과충전시켜, 턴 당 생명력 회복량을 %0.2f 증가시킵니다. (지속시간 : %d 턴)
+		골렘이 파괴된 상태였다면 즉시 재기동에 들어가며, 최대 생명력의 %d%% 에 해당하는 생명력이 회복됩니다.
+		과충전된 동안에는, 골렘이 더 강력해져 피해량이 25%% 증가합니다.]]):
 		format(regen, turns, life)
 	end,
 }
@@ -126,6 +130,7 @@ newTalent{
 
 newTalent{
 	name = "Runic Golem",
+	kr_name = "룬 골렘",
 	type = {"spell/advanced-golemancy",4},
 	require = spells_req_high4,
 	mode = "passive",
@@ -154,9 +159,9 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Increases your golem's life, mana and stamina regeneration rates by %0.2f.
-		At level 1, 3 and 5, the golem also gains a new rune slot.
-		Even without this talent, Golems start with three rune slots.]]):
+		return ([[골렘의 턴 당 생명력, 마나, 체력 회복량을 %0.2f 증가시킵니다.
+		또한, 룬 골렘 기술이 1, 3, 5 레벨에 도달할 때마다 골렘의 룬 슬롯이 하나씩 늘어납니다.
+		이 기술이 없더라도, 골렘은 기본적으로 3 개의 룬 슬롯을 사용할 수 있습니다.]]):
 		format(self:getTalentLevelRaw(t))
 	end,
 }
