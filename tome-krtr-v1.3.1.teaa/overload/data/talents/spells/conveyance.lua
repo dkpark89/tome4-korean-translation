@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Phase Door",
+	kr_name = "근거리 순간이동",
 	type = {"spell/conveyance",1},
 	require = spells_req1,
 	points = 5,
@@ -33,7 +34,7 @@ newTalent{
 	action = function(self, t)
 		local target = self
 		if self:getTalentLevel(t) >= 4 then
-			game.logPlayer(self, "Select a target to teleport...")
+			game.logPlayer(self, "순간이동시킬 대상을 선택하세요.")
 			local tg = {default_target=self, type="hit", nowarning=true, range=10, first_target="friend"}
 			local tx, ty = self:getTarget(tg)
 			if tx then
@@ -46,7 +47,7 @@ newTalent{
 		if target ~= self and target:canBe("teleport") then
 			local hit = self:checkHit(self:combatSpellpower(), target:combatSpellResist() + (target:attr("continuum_destabilization") or 0))
 			if not hit then
-				game.logSeen(target, "The spell fizzles!")
+				game.logSeen(target, "마법이 헛나갔습니다!")
 				return true
 			end
 		end
@@ -58,7 +59,7 @@ newTalent{
 		local rad = t.getRange(self, t)
 		local radius = t.getRadius(self, t)
 		if self:getTalentLevel(t) >= 5 or game.zone.force_controlled_teleport then
-			game.logPlayer(self, "Select a teleport location...")
+			game.logPlayer(self, "순간이동할 지역을 선택하세요.")
 			local tg = {type="ball", nolock=true, pass_terrain=true, nowarning=true, range=rad, radius=radius, requires_knowledge=false}
 			x, y = self:getTarget(tg)
 			if not x then return nil end
@@ -69,7 +70,7 @@ newTalent{
 
 			-- Check LOS
 			if not self:hasLOS(x, y) and rng.percent(35 + (game.level.map.attrs(self.x, self.y, "control_teleport_fizzle") or 0)) then
-				game.logPlayer(self, "The targetted phase door fizzles and works randomly!")
+				game.logPlayer(self, "순간이동 제어에 실패했습니다! 무작위한 곳에 순간이동됩니다!")
 				x, y = self.x, self.y
 				rad = t.getRange(self, t)
 			end
@@ -89,15 +90,16 @@ newTalent{
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
 		local range = t.getRange(self, t)
-		return ([[Teleports you randomly within a small range of up to %d grids.
-		At level 4, it allows you to specify which creature to teleport.
-		At level 5, it allows you to choose the target area (radius %d). If the target area is not in line of sight, there is a chance the spell will fizzle.
-		The range will increase with your Spellpower.]]):format(range, radius)
+		return ([[주변 %d 칸 반경 내 무작위한 곳으로 단거리 순간이동합니다.
+		기술 레벨이 4 이상이면, 대상을 지정하여 순간이동시킬 수 있습니다.
+		기술 레벨이 5 이상이면, 순간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경) 단, 선택한 지역이 시야 밖의 지역일 경우 마법이 실패할 수도 있습니다.
+		순간이동 범위는 주문력의 영향을 받아 증가합니다.]]):format(range, radius)
 	end,
 }
 
 newTalent{
 	name = "Teleport",
+	kr_name = "원거리 순간이동",
 	type = {"spell/conveyance",2},
 	require = spells_req2,
 	points = 5,
@@ -113,7 +115,7 @@ newTalent{
 		local target = self
 
 		if self:getTalentLevel(t) >= 4 then
-			game.logPlayer(self, "Select a target to teleport...")
+			game.logPlayer(self, "순간이동시킬 대상을 선택하세요.")
 			local tg = {default_target=self, type="hit", nowarning=true, range=10, first_target="friend"}
 			local tx, ty = self:getTarget(tg)
 			if tx then
@@ -127,7 +129,7 @@ newTalent{
 		if target ~= self and target:canBe("teleport") then
 			local hit = self:checkHit(self:combatSpellpower(), target:combatSpellResist() + (target:attr("continuum_destabilization") or 0))
 			if not hit then
-				game.logSeen(target, "The spell fizzles!")
+				game.logSeen(target, "마법이 헛나갔습니다!")
 				return true
 			end
 		end
@@ -138,7 +140,7 @@ newTalent{
 		local x, y = self.x, self.y
 		local newpos
 		if self:getTalentLevel(t) >= 5 then
-			game.logPlayer(self, "Select a teleport location...")
+			game.logPlayer(self, "순간이동할 지역을 선택하세요.")
 			local tg = {type="ball", nolock=true, pass_terrain=true, nowarning=true, range=t.getRange(self, t), radius=t.getRadius(self, t), requires_knowledge=false}
 			x, y = self:getTarget(tg)
 			if not x then return nil end
@@ -159,7 +161,7 @@ newTalent{
 		end
 
 		if not newpos then
-			game.logSeen(game.player,"The spell fails: no suitable places to teleport to.")
+			game.logSeen(game.player,"순간이동이 실패했습니다. 너무 좁은 지역이거나, 기타 다른 이유로 순간이동을 할 수 없는 지역입니다.")
 		end
 		game:playSoundNear(self, "talents/teleport")
 		return true
@@ -167,15 +169,16 @@ newTalent{
 	info = function(self, t)
 		local range = t.getRange(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[Teleports you randomly within a large range (%d), with a minimum range of 15.
-		At level 4, it allows you to specify which creature to teleport.
-		At level 5, it allows you to choose the target area (radius %d).
-		The range will increase with your Spellpower.]]):format(range, radius)
+		return ([[주변 %d 칸 반경 내 무작위한 곳으로 원거리 순간이동합니다. 15 칸 미만의 거리는 순간이동할 수 없습니다.
+		기술 레벨이 4 이상이면, 대상을 지정하여 순간이동시킬 수 있습니다.
+		기술 레벨이 5 이상이면, 순간이동할 지역을 선택할 수 있습니다. (오차 범위 : 주변 %d 칸 반경)
+		순간이동 범위는 주문력의 영향을 받아 증가합니다.]]):format(range, radius)
 	end,
 }
 
 newTalent{
 	name = "Displacement Shield",
+	kr_name = "왜곡의 보호막",
 	type = {"spell/conveyance", 3},
 	require = spells_req3,
 	points = 5,
@@ -204,16 +207,17 @@ newTalent{
 		local chance = t.getTransferChange(self, t)
 		local maxabsorb = t.getMaxAbsorb(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[This intricate spell erects a space distortion around the caster that is linked to another distortion, placed around a target.
-		Any time the caster should take damage, there is a %d%% chance that it will instead be warped by the shield and hit the designated target.
-		Once the maximum damage (%d) is absorbed, the time runs out (%d turns), or the target dies, the shield will crumble.
-		The max damage the shield can absorb will increase with your Spellpower.]]):
+		return ([[복잡한 술식으로 공간을 왜곡시키는 보호막을 만들어내고, 희생양을 하나 지정합니다. 
+		보호막의 시전자가 피해를 받을 때마다 %d%% 확률로 피해를 전송하여, 시전자 대신 희생양이 피해를 받게 됩니다.
+		총 %d 의 피해량을 전송했거나, %d 턴이 흘러 보호막의 지속시간이 끝나거나, 희생양이 사망하면 보호막은 사라집니다.
+		보호막이 받아낼 수 있는 최대 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(chance, maxabsorb, duration)
 	end,
 }
 
 newTalent{
 	name = "Probability Travel",
+	kr_name = "마법 확률 이동",
 	type = {"spell/conveyance",4},
 	mode = "sustained",
 	require = spells_req4,
@@ -236,10 +240,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = t.getRange(self, t)
-		return ([[When you hit a solid surface, this spell tears down the laws of probability to make you instantly appear on the other side.
-		Teleports up to %d grids.
-		After a successful probability travel you are left unstable, unable to do it again for a number of turns equal to %d%% of the number of tiles you blinked through.
-		The range will improve with your Spellpower.]]):
+		return ([[벽을 향해 이동하면 100%% 확률로 벽에 부딪힌다는 확률법칙을 뛰어넘어, 벽을 통과할 수 있게 됩니다.
+		최대 %d 칸의 벽까지 통과할 수 있습니다.
+		성공적인 벽 통과 후에도 몸이 안정화되려면 시간이 걸리기 때문에, 통과한 거리의 %d%% 에 해당하는 턴 동안에는 다시 벽을 통과할 수 없습니다.
+		최대 이동 거리는 주문력의 영향을 받아 증가합니다.]]):
 		format(range, (2 + (5 - math.min(self:getTalentLevelRaw(t), 5)) / 2) * 100)
 	end,
 }
