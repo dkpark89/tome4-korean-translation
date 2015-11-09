@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local ActorAI = require "engine.interface.ActorAI"
 local Faction = require "engine.Faction"
@@ -295,7 +296,7 @@ function _M:checkAngered(src, set, value)
 
 	if not was_hostile and self:reactionToward(src) < 0 then
 		if self.anger_emote then
-			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "her" or "him"), 30)
+			self:doEmote(self.anger_emote:gsub("@himher@", src.female and "그녀를" or "그를"), 30)
 		end
 	end
 end
@@ -407,8 +408,8 @@ function _M:tooltip(x, y, seen_by)
 	
 	str:add(
 		true,
-		("Killed by you: %s"):format(killed), true,
-		"Target: ", target and target.name or "none"
+		("당신에게 죽은 횟수 : %s"):format(killed), true,
+		"목표: ", target and (target.kr_name or target.name) or "없음"
 	)
 	-- Give hints to stealthed/invisible players about where the NPC is looking (if they have LOS)
 	if target == game.player and (game.player:attr("stealth") or game.player:attr("invisible")) and game.player:hasLOS(self.x, self.y) then
@@ -416,10 +417,10 @@ function _M:tooltip(x, y, seen_by)
 		local dx, dy = tx - self.ai_target.actor.x, ty - self.ai_target.actor.y
 		local offset = engine.Map:compassDirection(dx, dy)
 		if offset then
-			str:add(" looking " ..offset)
+			str:add(" " ..offset:addJosa("을").." 보고 있음")
 			if config.settings.cheat then str:add((" (%+d, %+d)"):format(dx, dy)) end
 		else
-			str:add(" looking at you.")
+			str:add(" 당신을 보고 있음.")
 		end
 	end
 	if config.settings.cheat then
@@ -443,7 +444,7 @@ end
 
 --- Make emotes appear in the log too
 function _M:setEmote(e)
-	game.logSeen(self, "%s says: '%s'", self.name:capitalize(), e.text)
+	game.logSeen(self, "%s 말했습니다 : '%s'", (self.kr_name or self.name):capitalize():addJosa("가"), e.text)
 	mod.class.Actor.setEmote(self, e)
 end
 
@@ -565,7 +566,7 @@ function _M:aiCanPass(x, y)
 				local check_dir = sides[side]
 				local sx, sy = util.coordAddDir(target.x, target.y, check_dir)
 				if target:canMove(sx, sy) and target:move(sx, sy) then
-					self:logCombat(target, "#Source# shoves #Target# forward.")
+					self:logCombat(target, "#Source1# #Target3# 앞쪽으로 밀어버렸습니다.")
 					target.shove_pressure = nil
 					target._last_shove_pressure = nil
 					break

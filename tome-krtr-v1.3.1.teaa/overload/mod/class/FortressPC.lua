@@ -30,6 +30,7 @@ function _M:init(t, no_default)
 	mod.class.Player.init(self, t, no_default)
 
 	self.name = "Yiilkgur, the Sher'Tul Fortress"
+	self.kr_name = "이일크구르, 쉐르'툴 요새"
 	self.type = "construct"
 	self.subtype = "fortress"
 	self.size_category = 10
@@ -155,7 +156,7 @@ function _M:moveModActor(x, y, force)
 		elseif not force and self:attr("never_move") then
 			-- A bit weird, but this simple asks the collision code to detect an attack
 			if not game.level.map:checkAllEntities(x, y, "block_move", self, true) then
-				game.logPlayer(self, "You are unable to move!")
+				game.logPlayer(self, "이동할 수 없습니다!")
 			end
 		else
 			moved = self:moveEngineMove(x, y, force)
@@ -175,7 +176,7 @@ function _M:moveModActor(x, y, force)
 			if trap and not trap:knownBy(self) and self:canSee(trap) and self:checkHit(power, trap.detect_power) then
 				trap:setKnown(self, true)
 				game.level.map:updateMap(x, y)
-				game.logPlayer(self, "You have found a trap (%s)!", trap:getName())
+				game.logPlayer(self, "함정(%s)을 발견했습니다!", trap:getName())
 			end
 		end end
 	end
@@ -248,13 +249,13 @@ end
 -- Do not touch!
 function _M:block_move(x, y, e, act)
 	if act and e == game.player then
-		Dialog:yesnoPopup(self.name, "Do you wish to teleport to the fortress?", function(ret) if ret then
+		Dialog:yesnoPopup(self.name, "요새로 순간이동하기를 원합니까?", function(ret) if ret then
 			if not game.zone.wilderness then
-				Dialog:simplePopup(self.name, "The teleport fizzles!")
+				Dialog:simplePopup(self.name, "순간이동이 실패했습니다!")
 				return
 			end
 			self:takeControl(e)
-		end end)
+		end end, "예", "아니오")
 	end
 	return false
 end

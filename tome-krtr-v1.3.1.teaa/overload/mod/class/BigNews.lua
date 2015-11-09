@@ -54,8 +54,8 @@ function _M:easingSimple(time, easing, txt, ...)
 	self.center_x = (game.w) / 2
 	self.center_y = (game.h) / 5
 
-	if game.player.stopRun then game.player:stopRun("important news") end
-	if game.player.stopRest then game.player:stopRest("important news") end
+	if game.player.stopRun then game.player:stopRun("중요한 소식") end
+	if game.player.stopRest then game.player:stopRest("중요한 소식") end
 
 	self.scale = 1
 	if self.tweenid then tween.stop(self.tweenid) end
