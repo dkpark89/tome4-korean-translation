@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Stone Skin",
+	kr_name = "단단한 피부",
 	type = {"spell/earth", 1},
 	mode = "sustained",
 	require = spells_req1,
@@ -47,14 +48,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local armor = t.getArmor(self, t)
-		return ([[The caster's skin grows as hard as stone, granting a %d bonus to Armour.
-		The bonus to Armour will increase with your Spellpower.]]):
+		return ([[시전자의 피부가 돌과 같이 단단해져, 방어도가 %d 상승합니다.
+		방어도 상승량은 주문력의 영향을 받아 증가합니다.]]):
 		format(armor)
 	end,
 }
 
 newTalent{
 	name = "Pulverizing Auger", short_name="DIG",
+	kr_name = "파쇄용 시추 드릴",
 	type = {"spell/earth",2},
 	require = spells_req2,
 	points = 5,
@@ -86,15 +88,16 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local nb = t.getDigs(self, t)
-		return ([[Fire a powerful beam of stone shaterring forces, digging out any walls in its path up to %d.
-		The beam also affect any creatures in its path, dealing %0.2f physical damage to all.
-		The damage will increase with your Spellpower.]]):
+		return ([[강력한 파쇄용 암석 줄기를 발사하여, 벽을 %d 칸 굴착합니다.
+		또한, 암석 줄기는 그 경로에 있는 모든 적들에게 %0.2f 물리 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(nb, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 
 newTalent{
 	name = "Mudslide",
+	kr_name = "산사태",
         type = {"spell/earth",3},
 	require = spells_req3,
 	points = 5,
@@ -120,14 +123,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Conjures a mudslide, dealing %0.2f physical damage in a radius of %d. Any creatures caught inside will be knocked back.
-		The damage will increase with your Spellpower.]]):
+		return ([[소규모 산사태를 만들어내, 전방의 주변 %d 칸 반경에 %0.2f 물리 피해를 줍니다. 산사태에 휩쓸린 적들은 밀려납니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.PHYSICAL, damage), self:getTalentRadius(t))
 	end,
 }
 
 newTalent{
 	name = "Stone Wall",
+	kr_name = "암석의 벽",
 	type = {"spell/earth",4},
 	require = spells_req4,
 	points = 5,
@@ -160,8 +164,10 @@ newTalent{
 				local e = Object.new{
 					old_feat = oe,
 					name = "stone wall", image = "terrain/granite_wall1.png",
+					kr_name = "암석의 벽",
 					display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 					desc = "a summoned wall of stone",
+					desc = "소환된 암석 벽", 
 					type = "wall", --subtype = "floor",
 					always_remember = true,
 					can_pass = {pass_wall=1},
@@ -202,10 +208,10 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Entomb yourself in a wall of stone for %d turns.
-		At level 4, it becomes targetable.
-		Any hostile creature caught in the radius will also suffer %0.2f physical damage.
-		Duration and damage will improve with your Spellpower.]]):
+		return ([[시전자 주변에 암석의 벽을 %d 턴 동안 만들어, 시전자를 보호합니다.
+		기술 레벨이 4 이상이면, 암석의 벽을 원하는 곳에 만들어낼 수 있습니다.
+		암석의 벽을 만들 때, 범위 내에 있는 적들에게는 %0.2f 물리 피해를 줄 수 있습니다.
+		벽의 유지시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration, damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
