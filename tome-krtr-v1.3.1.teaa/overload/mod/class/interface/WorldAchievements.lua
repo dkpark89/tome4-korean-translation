@@ -56,6 +56,7 @@ function _M:newAchievement(t)
 		-- Normal
 		local t2 = table.clone(t)
 		t2.id = "NORMAL_ROGUELIKE_"..t2.id
+		t2.kr_name = (t2.kr_name or t2.name).." (로그라이크)"
 		t2.name = t2.name.." (Roguelike)"
 		t2.difficulty = DIFFICULTY_NORMAL
 		t2.permadeath = PERMADEATH_ONE
@@ -65,6 +66,7 @@ function _M:newAchievement(t)
 		-- Exploration
 		local t3 = table.clone(t)
 		t3.id = "EXPLORATION_"..t3.id
+		t3.kr_name = (t3.kr_name or t3.name).." (탐사 모드)"
 		t3.name = t3.name.." (Exploration mode)"
 		t3.permadeath = PERMADEATH_INFINITE
 		findTile(t3)
@@ -77,6 +79,7 @@ function _M:newAchievement(t)
 		-- Nightmare
 		local t4 = table.clone(t)
 		t4.id = "NIGHTMARE_ADVENTURE_"..t4.id
+		t4.kr_name = (t4.kr_name or t4.name).." (악몽 (모험) 난이도)"
 		t4.name = t4.name.." (Nightmare (Adventure) difficulty)"
 		t4.difficulty = DIFFICULTY_NIGHTMARE
 		t4.permadeath = PERMADEATH_MANY
@@ -86,6 +89,7 @@ function _M:newAchievement(t)
 
 		local t5 = table.clone(t)
 		t5.id = "NIGHTMARE_"..t5.id
+		t5.kr_name = (t5.kr_name or t5.name).." (악몽 (로그라이크) 난이도)"
 		t5.name = t5.name.." (Nightmare (Roguelike) difficulty)"
 		t5.difficulty = DIFFICULTY_NIGHTMARE
 		t5.permadeath = PERMADEATH_ONE
@@ -96,6 +100,7 @@ function _M:newAchievement(t)
 		-- Insane
 		local t6 = table.clone(t)
 		t6.id = "INSANE_ADVENTURE_"..t6.id
+		t6.kr_name = (t6.kr_name or t6.name).." (정신나간 (모험) 난이도)"
 		t6.name = t6.name.." (Insane (Adventure) difficulty)"
 		t6.difficulty = DIFFICULTY_INSANE
 		t6.permadeath = PERMADEATH_MANY
@@ -105,6 +110,7 @@ function _M:newAchievement(t)
 
 		local t7 = table.clone(t)
 		t7.id = "INSANE_"..t7.id
+		t7.kr_name = (t7.kr_name or t7.name).." (정신나간 (로그라이크) 난이도)"
 		t7.name = t7.name.." (Insane (Roguelike) difficulty)"
 		t7.difficulty = DIFFICULTY_INSANE
 		t7.permadeath = PERMADEATH_ONE
@@ -115,6 +121,7 @@ function _M:newAchievement(t)
 		-- Madness
 		local t8 = table.clone(t)
 		t8.id = "MADNESS_ADVENTURE_"..t8.id
+		t8.kr_name = (t8.kr_name or t8.name).." (미치광이 (모험) 난이도)"
 		t8.name = t8.name.." (Madness (Adventure) difficulty)"
 		t8.difficulty = DIFFICULTY_MADNESS
 		t8.permadeath = PERMADEATH_MANY
@@ -124,6 +131,7 @@ function _M:newAchievement(t)
 
 		local t9 = table.clone(t)
 		t9.id = "MADNESS_"..t9.id
+		t9.kr_name = (t9.kr_name or t9.name).." (미치광이 (로그라이크) 난이도)"
 		t9.name = t9.name.." (Madness (Roguelike) difficulty)"
 		t9.difficulty = DIFFICULTY_MADNESS
 		t9.permadeath = PERMADEATH_ONE

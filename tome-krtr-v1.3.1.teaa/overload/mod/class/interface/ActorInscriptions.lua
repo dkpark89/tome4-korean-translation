@@ -35,7 +35,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 	-- Check allowance
 	local t = self:getTalentFromId(self["T_"..name.."_1"])
 	if self.inscription_restrictions and not self.inscription_restrictions[t.type[1]] then
-		if vocal then game.logPlayer(self, "You are unable to use this kind of inscription.") end
+		if vocal then game.logPlayer(self, "당신은 이 종류의 각인을 사용할 수 없습니다.") end
 		return
 	end
 
@@ -45,7 +45,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 		if self.inscriptions[i] and self.inscriptions[i] == name.."_"..i then nb_same = nb_same + 1 end
 	end
 	if nb_same >= 2 and not bypass_max_same then
-		if vocal then game.logPlayer(self, "You already have too many of this inscription.") end
+		if vocal then game.logPlayer(self, "당신은 이 종류의 각인을 이미 충분히 새겼습니다.") end
 		-- Replace chat
 		if self.player and src then
 			local t = self:getTalentFromId(self["T_"..name.."_1"])
@@ -53,7 +53,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 			src.iname = name
 			src.idata = data
 			src.replace_same = name
-			local chat = Chat.new("player-inscription", {name=t.name}, self, src)
+			local chat = Chat.new("player-inscription", {name=t.name, kr_name=(t.kr_name or t.name)}, self, src)
 			chat:invoke()
 		end
 		return
@@ -67,7 +67,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 	end
 	if not id then
 		if vocal then
-			game.logPlayer(self, "You have no more inscription slots.")
+			game.logPlayer(self, "당신은 더 많은 각인을 새질 수 없습니다.")
 		end
 		-- Replace chat
 		if self.player and src then
@@ -75,7 +75,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 			src.player = self
 			src.iname = name
 			src.idata = data
-			local chat = Chat.new("player-inscription", {name=t.name}, self, src)
+			local chat = Chat.new("player-inscription", {name=t.name, kr_name=(t.kr_name or t.name)}, self, src)
 			chat:invoke()
 		end
 		return
@@ -104,7 +104,7 @@ function _M:setInscription(id, name, data, cooldown, vocal, src, bypass_max_same
 	local t = self:getTalentFromId(self["T_"..name])
 	if cooldown then self:startTalentCooldown(t) end
 	if vocal then
-		game.logPlayer(self, "You are now inscribed with %s.", t.name)
+		game.logPlayer(self, "당신은 %s 각인을 새겼습니다.", (t.kr_name or t.name))
 	end
 
 	-- Hotkey
@@ -147,7 +147,7 @@ function _M:usedInscription(name)
 	d.nb_uses = d.nb_uses - 1
 	if d.nb_uses <= 0 then
 		local t = self:getTalentFromId(self["T_"..name])
-		game.logPlayer(self, "Your %s is depleted!", t.name)
+		game.logPlayer(self, "당신의 %s 각인이 고갈되었습니다!", (t.kr_name or t.name))
 		game:onTickEnd(function()
 			self:unlearnTalent(self["T_"..name])
 			self.inscriptions[d.__id] = nil

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local DamageType = require "engine.DamageType"
 local Map = require "engine.Map"
@@ -35,13 +36,13 @@ function _M:archeryAcquireTargets(tg, params)
 	-- Awesome, we can shoot from our offhand!
 	if self.can_offshoot and not weapon and offweapon then weapon, offweapon = offweapon, nil end
 	if not weapon then
-		game.logPlayer(self, "You must wield a bow or a sling (%s)!", ammo)
+		game.logPlayer(self, "활이나 투석구로 무장해야 합니다 (%s)!", ammo)
 		return nil
 	end
 	local infinite = ammo.infinite or self:attr("infinite_ammo") or params.infinite
 
 	if not ammo or (ammo.combat.shots_left <= 0 and not infinite) then
-		game.logPlayer(self, "You do not have enough ammo left!")
+		game.logPlayer(self, "준비된 탄환이 부족합니다!")
 		return nil
 	end
 
@@ -52,7 +53,7 @@ function _M:archeryAcquireTargets(tg, params)
 	if weapon.use_resource then
 		local val = self['get'..weapon.use_resource.kind:capitalize()](self)
 		if val < weapon.use_resource.value then
-			game.logPlayer(self, "You do not have enough %s left!", weapon.use_resource.kind)
+			game.logPlayer(self, "%s 충분히 남아있지 않습니다!", weapon.use_resource.kind:capitalize():krRWKind():addJosa("가")) --@ 장거리 무기 종류 한글화
 			print("== no ressource")
 			return nil
 		end
@@ -244,7 +245,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 		end
 		print("[ATTACK ARCHERY] after hook", dam)
 
-		if crit then self:logCombat(target, "#{bold}##Source# performs a ranged critical strike against #Target#!#{normal}#") end
+		if crit then self:logCombat(target, "#{bold}##Source1# #Target#에게 장거리 치명타 공격을 성공시킵니다!#{normal}#") end
 
 		-- Damage conversion?
 		-- Reduces base damage but converts it into another damage type
@@ -285,8 +286,8 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 
 		target:fireTalentCheck("callbackOnArcheryHit", self)
 	else
-		local srcname = game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
-		game.logSeen(target, "%s misses %s.", srcname, target.name)
+		local srcname = game.level.map.seens(self.x, self.y) and (self.kr_name or self.name):capitalize() or "무엇인가"
+		game.logSeen(target, "%s %s 빗맞췄습니다.", srcname:addJosa("이"), (target.kr_name or target.name):addJosa("을"))
 
 		if talent.archery_onmiss then talent.archery_onmiss(self, talent, target, target.x, target.y) end
 
@@ -424,7 +425,7 @@ local function archery_projectile(tx, ty, tg, self, tmp)
 	if hitted and ammo and ammo.siege_impact and (not self.shattering_impact_last_turn or self.shattering_impact_last_turn < game.turn) then
 		local dam = dam * ammo.siege_impact
 		local invuln = target.invulnerable
-		game.logSeen(target, "The shattering blow creates a shockwave!")
+		game.logSeen(target, "파쇄적인 공격으로 인해 충격파가 발생했습니다!")
 		target.invulnerable = 1 -- Target already hit, don't damage it twice
 		self:project({type="ball", radius=1, friendlyfire=false}, target.x, target.y, DamageType.PHYSICAL, dam)
 		target.invulnerable = invuln
@@ -485,11 +486,11 @@ _M.archery_projectile = archery_projectile
 function _M:archeryShoot(targets, talent, tg, params)
 	local weapon, ammo, offweapon = self:hasArcheryWeapon()
 	if not weapon then
-		game.logPlayer(self, "You must wield a bow or a sling (%s)!", ammo)
+		game.logPlayer(self, "활이나 투석구로 무장해야 합니다 (%s)!", ammo)
 		return nil
 	end
 	if self:attr("disarmed") then
-		game.logPlayer(self, "You are disarmed!")
+		game.logPlayer(self, "당신은 무장해제 되었습니다!")
 		return nil
 	end
 	print("[SHOOT WITH]", weapon.name, ammo.name)
@@ -544,11 +545,11 @@ end
 --- Check if the actor has a bow or sling and corresponding ammo
 function _M:hasArcheryWeapon(type)
 	if self:attr("disarmed") then
-		return nil, "disarmed"
+		return nil, "무장해제 상태효과"
 	end
 
-	if not self:getInven("MAINHAND") then return nil, "no shooter" end
-	if not self:getInven("QUIVER") then return nil, "no ammo" end
+	if not self:getInven("MAINHAND") then return nil, "장거리 무기 없음" end
+	if not self:getInven("QUIVER") then return nil, "탄환 없음" end
 	local weapon = self:getInven("MAINHAND")[1]
 	local offweapon = self:getInven("OFFHAND") and self:getInven("OFFHAND")[1]
 	local ammo = self:getInven("QUIVER")[1]
@@ -563,17 +564,17 @@ function _M:hasArcheryWeapon(type)
 		if self:attr("can_offshoot") and offweapon then
 			weapon, offweapon = offweapon, nil
 		else
-			return nil, "no shooter"
+			return nil, "장거리 무기 없음"
 		end
 	end
 	if not ammo then
-		return nil, "no ammo"
+		return nil, "탄환 없음"
 	else
 		if not ammo.archery_ammo or weapon.archery ~= ammo.archery_ammo then
-			return nil, "bad ammo"
+			return nil, "잘못된 탄환"
 		end
 		if offweapon and (not ammo.archery_ammo or offweapon.archery ~= ammo.archery_ammo) then
-			return nil, "bad ammo"
+			return nil, "잘못된 탄환"
 		end
 	end
 	if type and weapon.archery_kind ~= type then return nil, "bad type" end
@@ -607,17 +608,17 @@ function _M:hasArcheryWeaponQS(type)
 		end
 	end
 	if not ammo then
-		return nil, "no ammo"
+		return nil, "탄환 없음"
 	else
 		if not ammo.archery_ammo or weapon.archery ~= ammo.archery_ammo then
-			return nil, "bad ammo"
+			return nil, "잘못된 탄환"
 		end
 		if offweapon and (not ammo.archery_ammo or offweapon.archery ~= ammo.archery_ammo) then
-			return nil, "bad ammo"
+			return nil, "잘못된 탄환"
 		end
 	end
-	if type and weapon.archery_kind ~= type then return nil, "bad type" end
-	if type and offweapon and offweapon.archery_kind ~= type then return nil, "bad type" end
+	if type and weapon.archery_kind ~= type then return nil, "잘못된 무기" end
+	if type and offweapon and offweapon.archery_kind ~= type then return nil, "잘못된 무기" end
 	return weapon, ammo, offweapon
 end
 
@@ -631,14 +632,14 @@ end
 
 --- Check if the actor has a bow or sling and corresponding ammo
 function _M:hasAmmo(type)
-	if not self:getInven("QUIVER") then return nil, "no ammo" end
+	if not self:getInven("QUIVER") then return nil, "탄환 없음" end
 	local ammo = self:getInven("QUIVER")[1]
 
-	if not ammo then return nil, "no ammo" end
-	if not ammo.archery_ammo then return nil, "bad ammo" end
-	if not ammo.combat then return nil, "bad ammo" end
-	if not ammo.combat.capacity then return nil, "bad ammo" end
-	if type and ammo.archery_ammo ~= type then return nil, "bad type" end
+	if not ammo then return nil, "탄환 없음" end
+	if not ammo.archery_ammo then return nil, "잘못된 탄환" end
+	if not ammo.combat then return nil, "잘못된 탄환" end
+	if not ammo.combat.capacity then return nil, "잘못된 탄환" end
+	if type and ammo.archery_ammo ~= type then return nil, "잘못된 무기" end
 	return ammo
 end
 
@@ -647,11 +648,11 @@ function _M:hasAmmoQS(type)
 	if not self:getInven("QS_QUIVER") then return nil, "no ammo" end
 	local ammo = self:getInven("QS_QUIVER")[1]
 
-	if not ammo then return nil, "no ammo" end
-	if not ammo.archery_ammo then return nil, "bad ammo" end
-	if not ammo.combat then return nil, "bad ammo" end
-	if not ammo.combat.capacity then return nil, "bad ammo" end
-	if type and ammo.archery_ammo ~= type then return nil, "bad type" end
+	if not ammo then return nil, "탄환 없음" end
+	if not ammo.archery_ammo then return nil, "잘못된 탄환" end
+	if not ammo.combat then return nil, "잘못된 탄환" end
+	if not ammo.combat.capacity then return nil, "잘못된 탄환" end
+	if type and ammo.archery_ammo ~= type then return nil, "잘못된 무기" end
 	return ammo
 end
 
