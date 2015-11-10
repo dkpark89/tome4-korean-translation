@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Arcane Reconstruction", short_name = "HEAL",
+	kr_name = "마법적 재구축",
 	type = {"spell/aegis", 1},
 	require = spells_req1,
 	points = 5,
@@ -41,14 +42,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[Imbues your body with arcane forces, reconstructing it to a default state, healing for %d life.
-		The life healed will increase with your Spellpower.]]):
+		return ([[몸에 마력을 주입하여, 신체를 최상의 몸 상태로 재구축합니다. 재구축을 통해 시전자의 생명력이 %d 회복됩니다.
+		생명력 회복량은 주문력의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,
 }
 
 newTalent{
 	name = "Shielding",
+	kr_name = "보호막 수련",
 	type = {"spell/aegis", 2},
 	require = spells_req2,
 	points = 5,
@@ -78,16 +80,18 @@ newTalent{
 	info = function(self, t)
 		local shield = t.getShield(self, t)
 		local dur = t.getDur(self, t)
-		return ([[Surround yourself with strengthening arcane forces.
-		Every damage shield, time shield, displacement shield, and disruption shield affecting you has its power increased by %d%%.
-		At level 5, it also increases the duration of all shields by 1 turn.
-		The shield value will increase with your Spellpower.]]):
+		return ([[시전자를 감싸고 있는 보호막에 추가적인 마력을 흘려넣어, 모든 보호막 관련 마법들이 %d%% 강화됩니다.
+		(적용되는 보호막 : 피해 보호막, 시간의 보호막, 왜곡의 보호막, 불안정한 보호막)
+		피해량을 흡수하는 보호막일 경우에는 최대 흡수량이 증가하며, 불안정한 보호막일 경우 마나 회복량이 줄어드는 효과가 있습니다.
+		기술 레벨이 5 이상이면, 모든 보호막의 지속시간이 1 턴 증가합니다.
+		강화 효율은 주문력의 영향을 받아 증가합니다.]]):
 		format(shield, dur)
 	end,
 }
 
 newTalent{
 	name = "Arcane Shield",
+	kr_name = "마력의 보호막",
 	type = {"spell/aegis", 3},
 	require = spells_req3,
 	points = 5,
@@ -112,15 +116,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local shield = t.getShield(self, t)
-		return ([[Surround yourself with protective arcane forces.
-		Each time you receive a direct heal (not a life regeneration effect), you automatically get a damage shield of %d%% of the heal value for 3 turns.
-		The shield value will increase with your Spellpower.]]):
+		return ([[시전자 주변에 보호의 성질을 지닌 마력을 만들어냅니다.
+		직접적인 생명력 회복 효과를 받을 때마다 마력이 반응하여, 회복량의 %d%% 에 해당하는 피해를 막아주는 보호막이 3 턴 동안 생성됩니다.
+		'직접적인 생명력 회복 효과' 만이 마력을 반응시킬 수 있으며, '생명력 재생을 강화하는 효과' 에는 마력이 반응하지 않습니다. 
+		보호막의 성능은 주문력의 영향을 받아 증가합니다.]]):
 		format(shield)
 	end,
 }
 
 newTalent{
 	name = "Aegis",
+	kr_name = "수호",
 	type = {"spell/aegis", 4},
 	require = spells_req4,
 	points = 5,
@@ -166,10 +172,11 @@ newTalent{
 	end,
 	info = function(self, t)
 		local shield = t.getShield(self, t)
-		return ([[Release arcane energies into any magical shield currently protecting you, further charging it by %d%% of its max absorb value.
-		It will affect at most %d shield effects.
-		Affected shields are: Damage Shield, Time Shield, Displacement Shield, and Disruption Shield.
-		The charging will increase with your Spellpower.]]):
+		return ([[현재 시전자를 보호 중인 모든 보호막에 마력을 불어넣어, 보호막을 %d%% 증폭시킵니다.
+		피해량을 흡수하는 보호막일 경우에는 최대 흡수량이, 불안정한 보호막일 경우 최대 마나량이 증가합니다.
+		이 효과는 최대 %d 개 이하의 보호막에만 적용됩니다.
+		적용되는 보호막 : 피해 보호막, 시간의 보호막, 왜곡의 보호막, 불안정한 보호막
+		성능 증가율은 주문력의 영향을 받아 증가합니다.]]):
 		format(shield, t.getNumEffects(self, t))
 	end,
 }
