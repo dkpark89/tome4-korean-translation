@@ -21,6 +21,7 @@ local basetrap = function(self, t, x, y, dur, add)
 	local Trap = require "mod.class.Trap"
 	local trap = {
 		id_by_type=true, unided_name = "trap",
+		kr_unided_name = "함정",
 		display = '^',
 		faction = self.faction,
 		summoner = self, summoner_gain_exp = true,
@@ -44,6 +45,7 @@ end
 
 newTalent{
 	name = "Aether Beam",
+	kr_name = "에테르 소용돌이",
 	type = {"spell/aether", 1},
 	require = spells_req_high1,
 	mana = 20,
@@ -61,11 +63,12 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		local _ _, x, y = self:canProject(tg, x, y)
-		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "You somehow fail to set the aether beam.") return nil end
-		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "You somehow fail to set the aether beam.") return nil end
+		if game.level.map(x, y, Map.TRAP) then game.logPlayer(self, "해당 지역의 에테르 제어에 실패했습니다.") return nil end
+		if game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then game.logPlayer(self, "알 수 없는 이유로, 에테르 소용돌이 설치에 실패했습니다.") return nil end
 
 		local t = basetrap(self, t, x, y, 44, {
 			type = "aether", name = "aether beam", color=colors.VIOLET, image = "trap/aether_beam.png",
+			kr_name = "에테르 소용돌이", 
 			dam = self:spellCrit(t.getDamage(self, t)),
 			triggered = function(self, x, y, who) return true, true end,
 			combatSpellpower = function(self) return self.summoner:combatSpellpower() end,
@@ -120,16 +123,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[You focus the aether into a spinning beam of arcane energies, doing %0.2f arcane damage and having 25%% chance to silence the creatures it pierces.
-		The beam will also damage its epicenter each turn for 10%% of the damage (but it will not silence).
-		The beam spins with incredible speed (1600%%).
-		The damage will increase with your Spellpower.]]):
+		return ([[해당 지점의 에테르로 세 갈래의 빔으로 이루어진 마법 소용돌이를 만들어내, 주변에 %0.2f 마법 피해를 주고 25%% 확률로 침묵 상태효과를 겁니다.
+		회전의 중심은 주변 피해의 10%% 만을 입으며, 침묵 상태효과도 걸리지 않습니다.
+		소용돌이는 아주 빠른 속도로 회전합니다. (1600%% 속도).
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.ARCANE, dam))
 	end,
 }
 
 newTalent{
 	name = "Aether Breach",
+	kr_name = "에테르 파괴",
 	type = {"spell/aether", 2},
 	require = spells_req_high2,
 	points = 5,
@@ -165,15 +169,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Rupture reality to temporarily open a passage to the aether, triggering %d random arcane explosions in the target area.
-		Each explosion does %0.2f arcane damage in radius 2, and will each trigger at one turn intervals.
-		The damage will increase with your Spellpower.]]):
+		return ([[에테르가 지나가는 통로를 일시적으로 파괴하여, 대상 지역 근처에 %d 번의 마법 폭발을 무작위로 일으킵니다.
+		각각의 폭발은 주변 2 칸 반경에 %0.2f 마법 피해를 주고, 1 턴 당 1 번의 폭발만 일어납니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getNb(self, t), damDesc(self, DamageType.ARCANE, damage))
 	end,
 }
 
 newTalent{
 	name = "Aether Avatar",
+	kr_name = "에테르의 화신",
 	type = {"spell/aether", 3},
 	require = spells_req_high3,
 	points = 5,
@@ -195,14 +200,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fill yourself with aether forces, completely surrounding your body for %d turns.
-		While active, you can only cast arcane or aether spells, your cooldown for them is divided by 3, your arcane damage is increased by 25%%, your Disruption Shield can be used at any time, and your maximum mana is increased by 33%%.]]):
+		return ([[몸에 에테르의 힘을 주입시켜, %d 턴 동안 에테르의 화신이 됩니다.
+		지속시간 동안 비술 계열과 에테르 계열의 마법만을 사용할 수 있지만, 그 대신 모든 마법의 지연시간이 66%% 감소하고 피해량이 25%% 증가합니다. 
+		또한 불안정한 보호막을 언제나 활성화시킬 수 있으며, 최대 마나량이 33%% 증가합니다.]]):
 		format(t.getNb(self, t))
 	end,
 }
 
 newTalent{
 	name = "Pure Aether",
+	kr_name = "순수한 에테르",
 	type = {"spell/aether",4},
 	require = spells_req_high4,
 	points = 5,
@@ -238,8 +245,8 @@ newTalent{
 	info = function(self, t)
 		local damageinc = t.getDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
-		return ([[Surround yourself with Pure Aether, increasing all your arcane damage by %d%% and ignoring %d%% arcane resistance of your targets.
-		At level 5 it allows Aegis spells to be used while in Aether Avatar form.]])
+		return ([[시전자의 주변을 순수한 에테르의 힘으로 둘러싸, 마법 속성 피해량을 %d%% 증가시키고 적의 마법 속성 저항력을 %d%% 무시합니다.
+		기술 레벨이 5 이상이면, '수호' 마법을 에테르의 화신 상태에서도 사용할 수 있게 됩니다.]])
 		:format(damageinc, ressistpen)
 	end,
 }
