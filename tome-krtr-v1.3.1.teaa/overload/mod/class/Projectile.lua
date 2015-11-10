@@ -97,3 +97,4 @@ function _M:getOriName() --@ 원문 이름 반환하는 함수 추가
 	else
 		return name
 	end
+end
