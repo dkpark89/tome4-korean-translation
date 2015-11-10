@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Vitality",
+	kr_name = "활력",
 	type = {"technique/conditioning", 1},
 	require = techs_con_req1,
 	mode = "passive",
@@ -40,15 +41,16 @@ newTalent{
 		local baseheal, healpct = t.getHealValues(self, t)
 		local duration = t.getDuration(self, t)
 		local totalheal = baseheal + self.max_life*healpct/duration
-		return ([[You recover faster from poisons, diseases and wounds, reducing the duration of all such effects by %d%%.  
-		Additionally, when your life falls below 50%%, you heal for a base %0.1f health plus %0.1f%% of your maximum life (currently %0.1f total) each turn for %d turns. This effect can only happen once every %d turns.
-		The base healing scales with your Constitution.]]):
+		return ([[중독, 질병, 출혈 상태의 지속 시간이 %d%% 감소합니다.
+		또한 생명력이 50%% 밑으로 떨어질 경우 기본적으로 %0.1f 생명력, 그리고 추가적으로 최대 생명력의 %0.1f%% 만큼을 (총합 : %0.1f 생명력) %d 턴 동안 매 턴마다 회복하게 됩니다. 이 효과는 %d 턴 당 한번씩 발동됩니다.
+		기본 생명력 회복량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(wounds, baseheal, healpct/duration*100, totalheal, duration, self:getTalentCooldown(t))
 	end,
 }
 
 newTalent{
 	name = "Unflinching Resolve",
+	kr_name = "불굴의 의지",
 	type = {"technique/conditioning", 2},
 	require = techs_con_req2,
 	mode = "passive",
@@ -78,21 +80,22 @@ newTalent{
 			local eff = rng.tableRemove(effs)
 			if eff[1] == "effect" and rng.percent(t.getChance(self, t)) then
 				self:removeEffect(eff[2])
-				game.logSeen(self, "#ORCHID#%s has recovered!#LAST#", self.name:capitalize())
+				game.logSeen(self, "#ORCHID#%s가 불굴의 의지로 상태이상을 극복해냈습니다!#LAST#", self.name:capitalize())
 			end
 		end
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[You've learned to recover quickly from effects that would disable you. Each turn, you have a %d%% chance to recover from a single stun effect.
-		At talent level 2 you may also recover from blindness, at level 3 confusion, level 4 pins, and level 5 slows and wounds. 
-		Only one effect may be recovered from each turn, and the chance to recover from an effect scales with your Constitution.]]):
+		return ([[부정적인 상태 효과로부터 빠르게 회복할 수 있게 됩니다. 
+		매 턴마다 %d%% 확률로 기절 효과에서 벗어날 수 있게 되며, 기술 레벨이 2 이상일 때는 실명, 3 이상일 때는 혼란, 4 이상일 때는 속박, 그리고 5 이상일 때는 감속이나 상처 효과를 추가로 해제합니다. 
+		매 턴마다 단 한 개의 효과만 해제할 수 있으며, 해제 확률은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(chance)
 	end,
 }
 
 newTalent{
 	name = "Daunting Presence",
+	kr_name = "위협적인 존재감",
 	type = {"technique/conditioning", 3},
 	require = techs_con_req3,
 	points = 5,
@@ -116,7 +119,7 @@ newTalent{
 					target:setEffect(target.EFF_INTIMIDATED, 4, {apply_power=self:combatAttackStr(), power=t.getPenalty(self, t), no_ct_effect=true})
 					game.level.map:particleEmitter(target.x, target.y, 1, "flame")
 				else
-					game.logSeen(target, "%s is not intimidated!", target.name:capitalize())
+					game.logSeen(target, "%s가 주눅들지 않았습니다!", target.name:capitalize())
 				end
 			end
 		end)
@@ -137,15 +140,17 @@ newTalent{
 		local radius = t.getRadius(self, t)
 		local penalty = t.getPenalty(self, t)
 		local min_life = t.getMinimumLife(self, t)
-		return ([[Enemies are intimidated by how composed you remain under fire.  When you take more then 5%% of your maximum life in a single hit, all enemies in a radius of %d will be intimidated, reducing their Physical Power, Mindpower, and Spellpower by %d for 4 turns.
-		If your health drops below %d, you'll be unable to maintain your daunting presence, and the sustain will deactivate.  
-		The power of the intimidation effect improves with your Physical power, and it's chance to affect your enemies improves with your Strength.]]):
+		return ([[어떠한 공격에도 꿈쩍하지 않는 당신을 보고, 적들이 두려움에 빠집니다. 
+		최대 생명력의 5%% 이상에 해당하는 피해를 한 번에 받으면, 반경 %d 칸 이내의 적들이 두려움에 빠져 물리력, 정신력, 주문력을 4 턴 동안 %d 만큼 잃게 됩니다.
+		현재 생명력이 %d 밑으로 떨어지면 위협적인 존재감이 사라져서, 기술을 유지할 수 없게 됩니다. 
+		두려움 효과는 물리력의 영향을 받아 증가하고, 적들이 두려움에 빠질 확률은 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(radius, penalty, min_life)
 	end,
 }
 
 newTalent{
 	name = "Adrenaline Surge", -- no stamina cost; it's main purpose is to give the player an alternative means of using stamina based talents
+	kr_name = "솟구치는 아드레날린",
 	type = {"technique/conditioning", 4},
 	require = techs_con_req4,
 	points = 5,
@@ -161,10 +166,10 @@ newTalent{
 	info = function(self, t)
 		local attack_power = t.getAttackPower(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[You release a surge of adrenaline that increases your Physical Power by %d for %d turns. While the effect is active, you may continue to fight beyond the point of exhaustion.
-		Your stamina based sustains will not be disabled if your stamina reaches zero, and you may continue to use stamina based talents while at zero stamina at the cost of life.
-		The Physical Power increase will scale with your Constitution.
-		Using this talent does not take a turn.]]):
+		return ([[아드레날린 분비를 자극하여, 물리력을 %d 증가시키고 %d 턴 동안 육체의 한계를 넘어 전투를 지속할 수 있게 됩니다.
+		체력이 바닥나도 유지형 기술들이 해제되지 않으며, 체력 대신 생명력을 소모하여 기술을 사용할 수 있게 됩니다.
+		물리력은 체격 능력치의 영향을 받아 증가합니다.
+		이 기술은 턴을 소모하지 않고 즉시 사용할 수 있습니다.]]):
 		format(attack_power, duration)
 	end,
 }
