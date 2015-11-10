@@ -240,8 +240,8 @@ function _M:display()
 	-- Player
 	if player.unused_stats > 0 or player.unused_talents > 0 or player.unused_generics > 0 or player.unused_talents_types > 0 then
 		self.font:setStyle("bold")
-		local fw = self.font:size("LEVELUP!")
-		self:makeTexture("LEVELUP!", self.w - fw, h, colors.VIOLET.r, colors.VIOLET.g, colors.VIOLET.b, fw)
+		local fw = self.font:size("레벨업!")
+		self:makeTexture("레벨업!", self.w - fw, h, colors.VIOLET.r, colors.VIOLET.g, colors.VIOLET.b, fw)
 		self.items[#self.items].glow = true
 		self:mouseTooltip(("#GOLD##{bold}#%s\n#WHITE##{normal}#Unused stats: %d\nUnused class talents: %d\nUnused generic talents: %d\nUnused categories: %d"):format(player.name, player.unused_stats, player.unused_talents, player.unused_generics, player.unused_talents_types), self.w, self.font_h, 0, h, function()
 			player:playerLevelup()
@@ -253,11 +253,11 @@ function _M:display()
 	self:makeTexture(("%s#{normal}#"):format(player.name), 0, h, colors.GOLD.r, colors.GOLD.g, colors.GOLD.b, self.w) h = h + self.font_h
 	self.font:setStyle("normal")
 
-	self:mouseTooltip(self.TOOLTIP_LEVEL, self:makeTexture(("Level / Exp: #00ff00#%s / %2d%%"):format(player.level, 100 * cur_exp / max_exp), x, h, 255, 255, 255)) h = h + self.font_h
-	self:mouseTooltip(self.TOOLTIP_GOLD, self:makeTexture(("Gold: #00ff00#%0.2f"):format(player.money or 0), x, h, 255, 255, 255)) h = h + self.font_h
+	self:mouseTooltip(self.TOOLTIP_LEVEL, self:makeTexture(("레벨 / 경험치 : #00ff00#%s / %2d%%"):format(player.level, 100 * cur_exp / max_exp), x, h, 255, 255, 255)) h = h + self.font_h
+	self:mouseTooltip(self.TOOLTIP_GOLD, self:makeTexture(("금화 : #00ff00#%0.2f"):format(player.money or 0), x, h, 255, 255, 255)) h = h + self.font_h
 
 	--Display attack, defense, spellpower, mindpower, and saves.
-	local attack_stats = {{"combatAttack", "TOOLTIP_COMBAT_ATTACK", "Accuracy:"}, {"combatPhysicalpower", "TOOLTIP_COMBAT_PHYSICAL_POWER", "P. power:"}, {"combatSpellpower", "TOOLTIP_SPELL_POWER", "S. power:"}, {"combatMindpower", "TOOLTIP_MINDPOWER", "M. power:"}, {"combatDefense", "TOOLTIP_DEFENSE", "Defense:"}, {"combatPhysicalResist", "TOOLTIP_PHYS_SAVE", "P. save:"}, {"combatSpellResist", "TOOLTIP_SPELL_SAVE", "S. save:"}, {"combatMentalResist", "TOOLTIP_MENTAL_SAVE", "M. save:"}}
+	local attack_stats = {{"combatAttack", "TOOLTIP_COMBAT_ATTACK", "정확도:"}, {"combatPhysicalpower", "TOOLTIP_COMBAT_PHYSICAL_POWER", "물리력:"}, {"combatSpellpower", "TOOLTIP_SPELL_POWER", "주문력:"}, {"combatMindpower", "TOOLTIP_MINDPOWER", "정신력:"}, {"combatDefense", "TOOLTIP_DEFENSE", " 방어도 :"}, {"combatPhysicalResist", "TOOLTIP_PHYS_SAVE", "물리내성:"}, {"combatSpellResist", "TOOLTIP_SPELL_SAVE", "주문내성:"}, {"combatMentalResist", "TOOLTIP_MENTAL_SAVE", "정신내성:"}}
 
 	local attack_stat_color = "#FFD700#"
 	local defense_stat_color = "#0080FF#"
@@ -286,15 +286,15 @@ function _M:display()
 		h = h + self.font_h
 	end
 
-	self:mouseTooltip(self.TOOLTIP_STRDEXCON, self:makeTexture(("Str/Dex/Con: #00ff00#%3d/%3d/%3d"):format(player:getStr(), player:getDex(), player:getCon()), x, h, 255, 255, 255)) h = h + self.font_h
-	self:mouseTooltip(self.TOOLTIP_MAGWILCUN, self:makeTexture(("Mag/Wil/Cun: #00ff00#%3d/%3d/%3d"):format(player:getMag(), player:getWil(), player:getCun()), x, h, 255, 255, 255)) h = h + self.font_h
+	self:mouseTooltip(self.TOOLTIP_STRDEXCON, self:makeTexture(("힘/민첩/체격: #00ff00#%3d/%3d/%3d"):format(player:getStr(), player:getDex(), player:getCon()), x, h, 255, 255, 255)) h = h + self.font_h
+	self:mouseTooltip(self.TOOLTIP_MAGWILCUN, self:makeTexture(("마법/의지/교활함: #00ff00#%3d/%3d/%3d"):format(player:getMag(), player:getWil(), player:getCun()), x, h, 255, 255, 255)) h = h + self.font_h
 	h = h + self.font_h
 
 	if player.life < 0 then
 		--self:mouseTooltip(self.TOOLTIP_LIFE, self:makeTextureBar("#c00000#Life:", "???", 0, player.max_life, player.life_regen * util.bound((player.healing_factor or 1), 0, 2.5), x, h, 255, 255, 255, colors.DARK_RED, colors.VERY_DARK_RED)) h = h + self.font_h
-		self:mouseTooltip(self.TOOLTIP_LIFE, self:makeTextureBar("#c00000#Life:", nil, player.life, player.max_life, player.life_regen * util.bound((player.healing_factor or 1), 0, 2.5), x, h, 255, 255, 255, colors.DARK_RED, colors.VERY_DARK_RED)) h = h + self.font_h	
+		self:mouseTooltip(self.TOOLTIP_LIFE, self:makeTextureBar("#c00000#생명:", nil, player.life, player.max_life, player.life_regen * util.bound((player.healing_factor or 1), 0, 2.5), x, h, 255, 255, 255, colors.DARK_RED, colors.VERY_DARK_RED)) h = h + self.font_h	
 	else
-		self:mouseTooltip(self.TOOLTIP_LIFE, self:makeTextureBar("#c00000#Life:", nil, player.life, player.max_life, player.life_regen * util.bound((player.healing_factor or 1), 0, 2.5), x, h, 255, 255, 255, colors.DARK_RED, colors.VERY_DARK_RED)) h = h + self.font_h
+		self:mouseTooltip(self.TOOLTIP_LIFE, self:makeTextureBar("#c00000#생명:", nil, player.life, player.max_life, player.life_regen * util.bound((player.healing_factor or 1), 0, 2.5), x, h, 255, 255, 255, colors.DARK_RED, colors.VERY_DARK_RED)) h = h + self.font_h
 	end
 
 	local shield, max_shield = 0, 0
@@ -302,14 +302,14 @@ function _M:display()
 	if player:attr("damage_shield") then shield = shield + player.damage_shield_absorb max_shield = max_shield + player.damage_shield_absorb_max end
 	if player:attr("displacement_shield") then shield = shield + player.displacement_shield max_shield = max_shield + player.displacement_shield_max end
 	if max_shield > 0 then
-		self:mouseTooltip(self.TOOLTIP_DAMAGE_SHIELD, self:makeTextureBar("#WHITE#Shield:", nil, shield, max_shield, nil, x, h, 255, 255, 255, {r=colors.GREY.r / 3, g=colors.GREY.g / 3, b=colors.GREY.b / 3}, {r=colors.GREY.r / 6, g=colors.GREY.g / 6, b=colors.GREY.b / 6})) h = h + self.font_h
+		self:mouseTooltip(self.TOOLTIP_DAMAGE_SHIELD, self:makeTextureBar("#WHITE#방어:", nil, shield, max_shield, nil, x, h, 255, 255, 255, {r=colors.GREY.r / 3, g=colors.GREY.g / 3, b=colors.GREY.b / 3}, {r=colors.GREY.r / 6, g=colors.GREY.g / 6, b=colors.GREY.b / 6})) h = h + self.font_h
 	end
 
 	if player:knowTalent(player.T_STAMINA_POOL) then
-		self:mouseTooltip(self.TOOLTIP_STAMINA, self:makeTextureBar("#ffcc80#Stamina:", nil, player:getStamina(), player.max_stamina, player.stamina_regen, x, h, 255, 255, 255, {r=0xff / 3, g=0xcc / 3, b=0x80 / 3}, {r=0xff / 6, g=0xcc / 6, b=0x80 / 6})) h = h + self.font_h
+		self:mouseTooltip(self.TOOLTIP_STAMINA, self:makeTextureBar("#ffcc80#체력:", nil, player:getStamina(), player.max_stamina, player.stamina_regen, x, h, 255, 255, 255, {r=0xff / 3, g=0xcc / 3, b=0x80 / 3}, {r=0xff / 6, g=0xcc / 6, b=0x80 / 6})) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_MANA_POOL) then
-		self:mouseTooltip(self.TOOLTIP_MANA, self:makeTextureBar("#7fffd4#Mana:", nil, player:getMana(), player.max_mana, player.mana_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_MANA, self:makeTextureBar("#7fffd4#마나:", nil, player:getMana(), player.max_mana, player.mana_regen, x, h, 255, 255, 255,
 			{r=0x7f / 2, g=0xff / 2, b=0xd4 / 2},
 			{r=0x7f / 5, g=0xff / 5, b=0xd4 / 5}
 		)) h = h + self.font_h
@@ -328,25 +328,25 @@ function _M:display()
 		)) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_POSITIVE_POOL) then
-		self:mouseTooltip(self.TOOLTIP_POSITIVE, self:makeTextureBar("#7fffd4#Positive:", nil, player:getPositive(), player.max_positive, player.positive_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_POSITIVE, self:makeTextureBar("#7fffd4#양기:", nil, player:getPositive(), player.max_positive, player.positive_regen, x, h, 255, 255, 255,
 			{r=colors.GOLD.r / 2, g=colors.GOLD.g / 2, b=colors.GOLD.b / 2},
 			{r=colors.GOLD.r / 5, g=colors.GOLD.g / 5, b=colors.GOLD.b / 5}
 		)) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_NEGATIVE_POOL) then
-		self:mouseTooltip(self.TOOLTIP_NEGATIVE, self:makeTextureBar("#7fffd4#Negative:", nil, player:getNegative(), player.max_negative, player.negative_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_NEGATIVE, self:makeTextureBar("#7fffd4#음기:", nil, player:getNegative(), player.max_negative, player.negative_regen, x, h, 255, 255, 255,
 			{r=colors.GREY.r / 2, g=colors.GREY.g / 2, b=colors.GREY.b / 2},
 			{r=colors.GREY.r / 5, g=colors.GREY.g / 5, b=colors.GREY.b / 5}
 		)) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_VIM_POOL) then
-		self:mouseTooltip(self.TOOLTIP_VIM, self:makeTextureBar("#904010#Vim:", nil, player:getVim(), player.max_vim, player.vim_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_VIM, self:makeTextureBar("#904010#Vim :", nil, player:getVim(), player.max_vim, player.vim_regen, x, h, 255, 255, 255,
 			{r=0x90 / 3, g=0x40 / 3, b=0x10 / 3},
 			{r=0x90 / 6, g=0x40 / 6, b=0x10 / 6}
 		)) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_HATE_POOL) then
-		self:mouseTooltip(self.TOOLTIP_HATE, self:makeTextureBar("#F53CBE#Hate:", "%d/%d", player:getHate(), player.max_hate, player.hate_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_HATE, self:makeTextureBar("#F53CBE#증오:", "%d/%d", player:getHate(), player.max_hate, player.hate_regen, x, h, 255, 255, 255,
 			{r=0xF5 / 2, g=0x3C / 2, b=0xBE / 2},
 			{r=0xF5 / 5, g=0x3C / 5, b=0xBE / 5}
 		)) h = h + self.font_h
@@ -364,7 +364,7 @@ function _M:display()
 		)) h = h + self.font_h
 	end
 	if player:knowTalent(player.T_PSI_POOL) then
-		self:mouseTooltip(self.TOOLTIP_PSI, self:makeTextureBar("#7fffd4#Psi:", nil, player:getPsi(), player.max_psi, player.psi_regen, x, h, 255, 255, 255,
+		self:mouseTooltip(self.TOOLTIP_PSI, self:makeTextureBar("#7fffd4#염력:", nil, player:getPsi(), player.max_psi, player.psi_regen, x, h, 255, 255, 255,
 			{r=colors.BLUE.r / 2, g=colors.BLUE.g / 2, b=colors.BLUE.b / 2},
 			{r=colors.BLUE.r / 5, g=colors.BLUE.g / 5, b=colors.BLUE.b / 5}
 		)) h = h + self.font_h

@@ -6456,7 +6456,7 @@ function _M:transmoGetName()
 end
 
 function _M:transmoGetWord()
-	return "transmogrify"
+	return "변환하기"
 end
 
 function _M:canUseTinker(tinker)

@@ -17,8 +17,6 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-require "engine.krtrUtils"
-
 newInscription = function(t)
 	-- Warning, up that if more than 5 inscriptions are ever allowed
 	for i = 1, 6 do
@@ -35,22 +33,11 @@ newInscription = function(t)
 				return t.name
 			end
 		end
-		tt.kr_display_name = function(self, t)
-			local data = self:getInscriptionData(t.short_name)
-			if data.item_name then
-				local n = tstring{(t.kr_name or t.name), " ["}
-				n:merge(data.item_name)
-				n:add("]")
-				return n
-			else
-				return (t.kr_name or t.name)
-			end
-		end
 		if tt.type[1] == "inscriptions/infusions" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_INFUSION_COOLDOWN) end
 		elseif tt.type[1] == "inscriptions/runes" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_RUNE_COOLDOWN) end
 		elseif tt.type[1] == "inscriptions/taints" then tt.auto_use_check = function(self, t) return not self:hasEffect(self.EFF_TAINT_COOLDOWN) end
 		end
-		tt.auto_use_warning = "- 포화 상태가 아닐 경우에만, 자동으로 사용합니다"
+		tt.auto_use_warning = "- will only auto use when no saturation effect exists"
 		tt.cooldown = function(self, t)
 			local data = self:getInscriptionData(t.short_name)
 			return data.cooldown
@@ -60,7 +47,7 @@ newInscription = function(t)
 			local ret = t.old_info(self, t)
 			local data = self:getInscriptionData(t.short_name)
 			if data.use_stat and data.use_stat_mod then
-				ret = ret..("\n 효과는 %s 능력치의 영향을 받아 증가합니다."):format(self.stats_def[data.use_stat].name:krStat())
+				ret = ret..("\nIts effects scale with your %s stat."):format(self.stats_def[data.use_stat].name)
 			end
 			return ret
 		end
@@ -78,7 +65,6 @@ end
 -----------------------------------------------------------------------
 newInscription{
 	name = "Infusion: Regeneration",
-	kr_name = "주입 : 재생",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { HEAL = 2 },
@@ -90,17 +76,16 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[주입된 힘을 사용하여, %d 턴 동안 총 %d 생명력을 회복합니다.]]):format(data.dur, data.heal + data.inc_stat) --@ 변수 순서 조정
+		return ([[Activate the infusion to heal yourself for %d life over %d turns.]]):format(data.heal + data.inc_stat, data.dur)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d 턴 동안 총 %d 생명력 회복]]):format(data.dur, data.heal + data.inc_stat) --@ 변수 순서 조정
+		return ([[heal %d over %d turns]]):format(data.heal + data.inc_stat, data.dur)
 	end,
 }
 
 newInscription{
 	name = "Infusion: Healing",
-	kr_name = "주입 : 치료",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { HEAL = 2 },
@@ -125,11 +110,11 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[주입된 힘을 사용하여, %d 생명력을 즉시 회복하고 1 개의 상처나 독 효과를 치료합니다.]]):format(data.heal + data.inc_stat) 
+		return ([[Activate the infusion to instantly heal yourself for %d and cleanse 1 wound and poison effect.]]):format(data.heal + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[생명력 %d 회복]]):format(data.heal + data.inc_stat)
+		return ([[heal %d]]):format(data.heal + data.inc_stat)
 	end,
 }
 
