@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Sling Mastery",
+	kr_name = "투석구 수련",
 	type = {"technique/archery-sling", 1},
 	points = 5,
 	require = { stat = { dex=function(level) return 12 + level * 6 end }, },
@@ -35,13 +38,14 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
 		local reloads = t.ammo_mastery_reload(self, t)
-		return ([[Increases Physical Power by %d and increases weapon damage by %d%% when using slings.
-		Also, increases your reload rate by %d.]]):format(damage, inc * 100, reloads)
+		return ([[투석구를 사용하면 물리력이 %d / 투석구의 피해량이 %d%% 증가합니다.
+		또한, 한번에 %d 발의 탄환을 추가로 재장전할 수 있게 됩니다.]]):format(damage, inc * 100, reloads)
 	end,
 }
 
 newTalent{
 	name = "Eye Shot",
+	kr_name = "눈 맞추기",
 	type = {"technique/archery-sling", 2},
 	no_energy = "fake",
 	points = 5,
@@ -57,11 +61,11 @@ newTalent{
 		if target:canBe("blind") then
 			target:setEffect(target.EFF_BLINDED, t.getBlindDur(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!",  (target.kr_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)
-		if not self:hasArcheryWeapon("sling") then game.logPlayer(self, "You must wield a sling!") return nil end
+		if not self:hasArcheryWeapon("sling") then game.logPlayer(self, "투석구를 장비하고 있어야 합니다!") return nil end
 
 		local targets = self:archeryAcquireTargets(nil, {one_shot=true})
 		if not targets then return end
@@ -69,14 +73,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a shot into your target's eyes, blinding it for %d turns and doing %d%% damage.
-		The blind chance increases with your Accuracy.]])
+		return ([[대상의 눈을 조준하여 탄환을 발사합니다. 적중 시 대상을 %d 턴 동안 실명 상태로 만들며, %d%% 의 무기 피해를 줍니다.
+		실명 확률은 정확도 능력치의 영향을 받아 증가합니다.]])
 		:format(t.getBlindDur(self, t),	100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
 
 newTalent{
 	name = "Inertial Shot",
+	kr_name = "관성의 힘",
 	type = {"technique/archery-sling", 3},
 	no_energy = "fake",
 	points = 5,
@@ -91,13 +96,13 @@ newTalent{
 		if target:checkHit(self:combatAttack(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe("knockback") then
 			target:knockback(self.x, self.y, 4)
 			target:crossTierEffect(target.EFF_OFFBALANCE, self:combatAttack())
-			game.logSeen(target, "%s is knocked back!", target.name:capitalize())
+			game.logSeen(target, "%s 밀려나지 않습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		else
-			game.logSeen(target, "%s stands firm!", target.name:capitalize())
+			game.logSeen(target, "%s 확고히 서있습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		end
 	end,
 	action = function(self, t)
-		if not self:hasArcheryWeapon("sling") then game.logPlayer(self, "You must wield a sling!") return nil end
+		if not self:hasArcheryWeapon("sling") then game.logPlayer(self, "투석구를 장비하고 있어야 합니다!") return nil end
 
 		local targets = self:archeryAcquireTargets(nil, {one_shot=true})
 		if not targets then return end
@@ -105,13 +110,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a mighty shot at your target, doing %d%% damage and knocking it back.
-		The knockback chance increases with your Accuracy.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
+		return ([[대상에게 온 힘을 실은 탄환을 날려, %d%% 의 무기 피해를 주고 대상을 밀어냅니다.
+		밀어낼 확률은 정확도 능력치의 영향을 받아 증가합니다.]]):format(100 * self:combatTalentWeaponDamage(t, 1, 1.5))
 	end,
 }
 
 newTalent{
 	name = "Multishot",
+	kr_name = "다연장 탄환 발사술",
 	type = {"technique/archery-sling", 4},
 	no_energy = "fake",
 	points = 5,
@@ -126,15 +132,15 @@ newTalent{
 		if fake then return count end
 		return math.floor(count) + (rng.percent(100*(count - math.floor(count))) and 1 or 0)
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("sling") then if not silent then game.logPlayer(self, "You require a sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon("sling") then if not silent then game.logPlayer(self, "이 기술을 쓰려면 투석구를 장비하고 있어야 합니다.") end return false end return true end,
 	action = function(self, t)
-		if not self:hasArcheryWeapon("sling") then game.logPlayer(self, "You must wield a sling!") return nil end
+		if not self:hasArcheryWeapon("sling") then game.logPlayer(self, "투석구를 장비하고 있어야 합니다!") return nil end
 		local targets = self:archeryAcquireTargets(nil, {multishots=t.getShots(self, t)})
 		if not targets then return end
 		self:archeryShoot(targets, t, nil, {mult=self:combatTalentWeaponDamage(t, 0.3, 0.7)})
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire an average of %0.1f shots at your target, doing %d%% damage with each shot.]]):format(t.getShots(self, t, true), 100 * self:combatTalentWeaponDamage(t, 0.3, 0.7))
+		return ([[한번에 평균적으로 %0.1f 발의 탄환을 대상에게 날려, 각 탄환마다 %d%% 무기 피해를 줍니다.]]):format(t.getShots(self, t, true), 100 * self:combatTalentWeaponDamage(t, 0.3, 0.7))
 	end,
 }
