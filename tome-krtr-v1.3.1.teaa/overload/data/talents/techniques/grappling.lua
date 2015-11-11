@@ -16,9 +16,13 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
+
 -- Obsolete but undeleted incase something uses it
 newTalent{
 	name = "Grappling Stance",
+	kr_name = "잡기 자세",
 	type = {"technique/unarmed-other", 1},
 	mode = "sustained",
 	hide = true,
@@ -46,14 +50,15 @@ newTalent{
 	info = function(self, t)
 		local save = t.getSave(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Increases your Physical Save by %d and your Physical Power by %d.
-		The bonuses will scale with your Strength.]])
+		return ([[잡기 자세를 취해 물리 내성을 %d 증가시키고, 물리력을 %d 증가시킵니다.
+		이 효과는 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(save, damage)
 	end,
 }
 
 newTalent{
 	name = "Clinch",
+	kr_name = "붙잡기",
 	type = {"technique/grappling", 1},
 	require = techs_req1,
 	points = 5,
@@ -101,8 +106,10 @@ newTalent{
 		local drain = t.getDrain(self, t)
 		local share = t.getSharePct(self, t)*100
 		local damage = t.getDamage(self, t)*100
-		return ([[Make a melee attack for %d%% damage and then attempt to grapple a target up to one size category larger then yourself for %d turns. A grappled opponent will be unable to move, take %d damage each turn, and %d%% of the damage you receive from any source will be redirected to them.  Any movement from the target or you will break the grapple.  Maintaining a grapple drains %d stamina per turn.
-		You may only grapple a single target at a time, and using any targeted unarmed talent on a target that you're not grappling will break the grapple.]])
+		return ([[자신의 신체 크기보다 한 단계 큰 대상까지에게 %d%% 피해의 근접공격을 한 뒤 붙잡기 시도를 합니다. 붙잡기에 성공하면 대상을 %d 턴 동안 붙잡고 있게 됩니다.
+		붙잡힌 대상은 이동할 수 없게 되고, 붙잡힌 동안 매 턴마다 %d의 피해를 받습니다. 또한 붙잡힌 상태에서 붙잡은 이가 받는 피해의 %d%% 는 붙잡힌 대상에게 전달됩니다. 
+		붙잡은 상태에서 이동하게 되면 기술이 풀리며, 붙잡기를 유지하는 동안에는 매 턴마다 체력이 %d 씩 소모됩니다.
+		한번에 하나의 대상만을 붙잡을 수 있으며, 다른 대상에게 맨손 전투 기술을 사용하면 붙잡은 대상이 풀려납니다.]])
 		:format(damage, duration, power, share, drain)
 	end,
 }
@@ -110,6 +117,7 @@ newTalent{
 -- I tried to keep this relatively consistent with the existing Grappling code structure, but it wound up pretty awkward as a result
 newTalent{
 	name = "Crushing Hold",
+	kr_name = "눌러 조르기",
 	type = {"technique/grappling", 2},
 	require = techs_req2,
 	mode = "passive",
@@ -141,16 +149,17 @@ newTalent{
 		local reduction = t.getDamageReduction(self, t)
 		local slow = t.getSlow(self, t)
 
-		return ([[Enhances your grapples with additional effects.  All additional effects will apply to every grapple with no additional save or resist check.
-		#RED#Talent Level 1:  Reduces base weapon damage by %d
-		Talent Level 3:  Silences
-		Talent Level 5:  Reduces global action speed by %d%%]])
+		return ([[적을 잡는 능력을 강화하여, 추가 효과를 발생시킵니다. 모든 추가 효과는 내성이나 저항, 면역력을 무시하고 발동합니다.
+		#RED#기술 레벨 1 이상 : 적의 기본 무기 피해량 %d 감소
+		기술 레벨 3 이상 : 적 침묵
+		기술 레벨 5 이상 : 적의 전체 행동 속도 %d%% 감소]])
 		:format(reduction, slow*100)
 	end,
 }
 
 newTalent{
 	name = "Take Down",
+	kr_name = "넘어뜨리기",
 	type = {"technique/grappling", 3},
 	require = techs_req3,
 	points = 5,
@@ -236,14 +245,15 @@ newTalent{
 	info = function(self, t)
 		local takedown = t.getDamage(self, t)*100
 		local slam = t.getSlam(self, t)
-		return ([[Rushes forward and attempts to take the target to the ground, making a melee attack for %d%% damage then attempting to grapple them. If you're already grappling the target you'll instead slam them into the ground creating a radius 5 shockwave for %d physical damage and breaking your grapple.
-		The grapple effects and duration will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]])
+		return ([[대상에게 달려들어 넘어뜨리면서 %d%% 피해의 근접공격을 하고, 대상을 붙잡습니다. 대상이 이미 붙잡힌 상태라면, 대상을 땅바닥에 내동댕이 쳐서 5 칸 반경으로 %d 의 물리 피해를 발생시키는 충격파를 일으키지만 대상에게로의 붙잡기는 풀리게 됩니다.
+		붙잡기 효과는 다른 붙잡기 기술들의 영향을 받으며, 물리 피해량은 물리력의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, (takedown)), damDesc(self, DamageType.PHYSICAL, (slam)))
 	end,
 }
 
 newTalent{
 	name = "Hurricane Throw",
+	kr_name = "폭풍 던지기", 
 	type = {"technique/grappling", 4},
 	require = techs_req4,
 	points = 5,
@@ -308,6 +318,6 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[In a mighty show of strength you whirl your grappled victim around and throw them into the air causing %d%% damage to them and any nearby enemies they collide with on landing.]]):format(t.getDamage(self, t)*100)
+		return ([[붙잡은 적을 강력한 힘으로 빙빙 돌린 뒤, 멀리 던져버립니다. 이를 통해 던져진 적과 낙하지점 주변의 모든 적들에게 %d%% 피해를 줍니다.]]):format(t.getDamage(self, t)*100)
 	end,
 }
