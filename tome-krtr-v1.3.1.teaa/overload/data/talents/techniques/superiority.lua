@@ -17,9 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Juggernaut",
+	kr_name = "저돌적인 전투",
 	type = {"technique/superiority", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -35,14 +37,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Concentrate on the battle, ignoring some of the damage you take.
-		Improves physical damage reduction by %d%% and provides a %d%% chance to shrug off critical damage for 20 turns.]]):
+		return ([[자신의 몸을 신경쓰지 않고 전투에 집중하여, 전투 중에 받는 피해를 약간 무시합니다.
+		20 턴 동안 물리 피해 감소량이 %d%% 증가하고 치명타 공격에 맞을 확률이 %d%% 감소합니다.]]):
 		format(t.getResist(self,t), t.critResist(self, t))
 	end,
 }
 
 newTalent{
 	name = "Onslaught",
+	kr_name = "맹습",
 	type = {"technique/superiority", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -65,14 +68,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Take an offensive stance. As you walk through your foes, you knock them all back in an frontal arc (up to %d grids).
-		This consumes stamina rapidly (-1 stamina/turn).]]):
+		return ([[공격적인 자세를 취하여, 적을 공격할 때마다 적을 %d 칸 밀어낼 수 있습니다.
+		이 기술은 체력을 급속도로 소모합니다. (매 턴 마다 체력 1 소모)]]):
 		format(t.range(self, t))
 	end,
 }
 
 newTalent{
 	name = "Battle Call",
+	kr_name = "전장의 부름",
 	type = {"technique/superiority", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -95,18 +99,19 @@ newTalent{
 			local tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 			if tx and ty and target:canBe("teleport") then
 				target:move(tx, ty, true)
-				game.logSeen(target, "%s is called to battle!", target.name:capitalize())
+				game.logSeen(target, "%s 전장의 부름을 받았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end)
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call all foes in a radius of %d around you into battle, getting them into melee range in an instant.]]):format(t.radius(self,t))
+		return ([[주위 %d 칸 반경에 있는 적들을 불러와, 근접공격을 할 수 있는 거리까지 즉시 끌어들입니다.]]):format(t.radius(self,t))
 	end,
 }
 
 newTalent{
 	name = "Shattering Impact",
+	kr_name = "충격파",
 	type = {"technique/superiority", 4},
 	require = techs_req_high4,
 	points = 5,
@@ -126,8 +131,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Put all of your strength into your weapon blows, creating shockwaves that deal %d%% Physical weapon damage to all nearby targets.  Only one shockwave will be created per action, and the primary target does not take extra damage.
-		Each shattering impact will drain 8 stamina.]]):
+		return ([[무기에 온 힘을 실어, 적을 타격할 때마다 충격파를 만들어냅니다. 이 충격파는 근처 1 칸 반경의 모든 존재들에게 %d%% 물리적 무기 피해를 추가로 줍니다. 한 번의 행동에 하나의 충격파만이 만들어지며, 직접 타격한 적은 충격파의 피해를 받지 않습니다.
+		단, 충격파가 발생할 때마다 체력이 8 씩 소모됩니다.]]):
 		format(100*t.weaponDam(self, t))
 	end,
 }
