@@ -21,6 +21,7 @@ local Map = require "engine.Map"
 
 newTalent{
 	name = "Hack'n'Back",
+	kr_name = "치고 빠지기",
 	type = {"technique/mobility", 1},
 	points = 5,
 	cooldown = 14,
@@ -52,13 +53,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local dist = t.getDist(self, t)
-		return ([[You hit your target, doing %d%% damage, distracting it while you jump back %d squares away.]]):
+		return ([[대상을 공격하여 %d%% 의 피해를 입히고, %d 칸 뒤로 빠집니다.]]):
 		format(100 * damage, dist)
 	end,
 }
 
 newTalent{
 	name = "Mobile Defence",
+	kr_name = "회피 기동술",
 	type = {"technique/mobility", 2},
 	mode = "passive",
 	points = 5,
@@ -70,13 +72,14 @@ newTalent{
 	-- called by _M:combatArmorHardiness function in mod\class\interface\Combat.lua
 	getHardiness = function(self, t) return self:combatTalentLimit(t, 100, 6, 30) end, -- Limit < 100%
 	info = function(self, t)
-		return ([[Whilst wearing leather or lighter armour, you gain %d%% Defense and %d%% Armour hardiness.]]):
+		return ([[경갑이나 가죽 갑옷을 입으면 회피도가 %d%% / 방어 효율이 %d%% 증가합니다.]]):
 		format(t.getDef(self, t) * 100, t.getHardiness(self, t))
 	end,
 }
 
 newTalent{
 	name = "Light of Foot",
+	kr_name = "가벼운 발놀림",
 	type = {"technique/mobility", 3},
 	mode = "passive",
 	points = 5,
@@ -86,8 +89,8 @@ newTalent{
 		self:talentTemporaryValue(p, "fatigue", -t.getFatigue(self, t))
 	end,
 	info = function(self, t)
-		return ([[You are light on your feet, handling your armour better. Each step you take regenerates %0.2f stamina, and your fatigue is permanently reduced by %0.1f%%.
-		At level 3 you are able to walk so lightly that you never trigger traps that require pressure.]]):
+		return ([[발놀림이 가벼워져, 갑옷의 무게를 덜 느끼게 됩니다. 발걸음을 옮길 때마다 체력이 %0.2f 만큼 추가로 재생되며, 영구적으로 피로도가 %0.1f%% 감소합니다.
+		기술 레벨이 3 이상이 되면 발놀림이 극도로 가벼워져, 밟으면 작동되는 함정 위에 올라서도 함정이 발동하지 않습니다.]]):
 		format(self:getTalentLevelRaw(t) * 0.2, t.getFatigue(self, t))
 	end,
 
@@ -95,6 +98,7 @@ newTalent{
 
 newTalent{
 	name = "Strider",
+	kr_name = "전장의 춤꾼",
 	type = {"technique/mobility", 4},
 	mode = "passive",
 	points = 5,
@@ -108,7 +112,7 @@ newTalent{
 			{[Talents.T_RUSH]=cdr, [Talents.T_HACK_N_BACK]=cdr, [Talents.T_DISENGAGE]=cdr, [Talents.T_EVASION]=cdr})
 	end,
 	info = function(self, t)
-		return ([[You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.]]):
+		return ([[적들의 사이에서 춤을 추듯 부드럽게 움직일 수 있게 됩니다. 이동 속도가 %d%% 빨라지며, '치고 빠지기', '돌진', '작전상 후퇴', '회피술' 의 지연 시간을 %d 턴 줄여줍니다.]]):
 		format(t.incspeed(self, t)*100,t.CDreduce(self, t))
 	end,
 }
