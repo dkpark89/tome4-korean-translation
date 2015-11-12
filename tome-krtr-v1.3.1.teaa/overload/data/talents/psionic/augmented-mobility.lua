@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Skate",
+	kr_name = "스케이트",
 	type = {"psionic/augmented-mobility", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -42,15 +43,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You telekinetically float just off the ground.
-		This allows you to slide around the battle quickly, increasing your movement speed by %d%%.
-		It also makes you more vulnerable to being pushed around (-%d%% knockback resistance).]]):
+		return ([[염력을 사용해서 지면 위로 살짝 날아오릅니다.
+		이를 통해 지면을 미끄러지듯 신속하게 움직일 수 있게 되어, 이동 속도가 %d%% 증가하게 됩니다.
+		하지만 날아다니기 때문에, 보다 쉽게 밀려나게 됩니다. (밀어내기 면역력 -%d%%)]]):
 		format(t.getSpeed(self, t)*100, t.getKBVulnerable(self, t)*100)
 	end,
 }
 
 newTalent{
 	name = "Quick as Thought",
+	kr_name = "생각의 속도",
 	type = {"psionic/augmented-mobility", 2},
 	require = psi_wil_req2,
 	points = 5,
@@ -72,15 +74,16 @@ newTalent{
 		local inc = t.speed(self, t)
 		local percentinc = 100 * inc
 		local boost = t.getBoost(self, t)
-		return ([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.
-		Increases Accuracy by %d, your critical strike chance by %0.1f%% and your global speed by %d%% for %d turns.
-		The duration improves with your Mindpower.]]):
+		return ([[육체를 정신력으로 감싸, 신경과 근육을 통한 비효율적인 운동 방식을 제거하고 몸의 움직임을 직접 제어하여 매우 효율적이게 만듭니다.
+		%d 턴 동안 정확도가 %d / 치명타율이 %0.1f%% / 전체 속도가 %d%% 증가합니다.
+		기술의 지속 시간은 정신력의 영향을 받아 증가합니다.]]):
 		format(boost, 0.5*boost, percentinc, t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Mindhook",
+	kr_name = "정신의 갈고리",
 	type = {"psionic/augmented-mobility", 3},
 	require = psi_wil_req3,
 	cooldown = function(self, t) return math.ceil(self:combatTalentLimit(t, 5, 18, 10)) end, -- Limit to >5
@@ -96,7 +99,7 @@ newTalent{
 		local _ _, x, y = self:canProject(tg, x, y)
 		local target = game.level.map(x, y, engine.Map.ACTOR)
 		if not target then
-			game.logPlayer(self, "The target is out of range")
+			game.logPlayer(self, "대상이 사거리 밖에 있습니다.")
 			return
 		end
 		target:pull(self.x, self.y, tg.range)
@@ -107,15 +110,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Briefly extend your telekinetic reach to grab an enemy and haul them towards you.
-		Works on enemies up to %d squares away.
-		The cooldown decreases, and the range increases, with additional talent points spent.]]):
+		return ([[잠시 염동력의 범위를 확장함으로써 대상을 붙잡아, 시전자가 있는 곳으로 끌어옵니다.
+		%d 칸 이내에 있는 대상까지 끌어올 수 있습니다.
+		기술 레벨이 증가할수록 재사용 대기시간이 줄어들고 최대 사거리가 늘어납니다.]]):
 		format(range)
 	end,
 }
 
 newTalent{
 	name = "Telekinetic Leap",
+	kr_name = "염동력 도약",
 	type = {"psionic/augmented-mobility", 4},
 	require = psi_wil_req4,
 	cooldown = 15,
@@ -145,7 +149,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[You perform a precise, telekinetically-enhanced leap, landing up to %d squares away.]]):
+		return ([[염동력을 이용해, 최대 %d 칸 까지 도약합니다.]]):
 		format(range)
 	end,
 }
