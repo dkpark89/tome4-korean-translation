@@ -69,7 +69,7 @@ newAchievement{
 }
 newAchievement{
 	name = "Best album ever!", id = "THE_CURE",
-	kr_name = "최고의 앨범"
+	kr_name = "최고의 앨범",
 	desc = [[적의 이로운 효과를 89번 제거]],
 	show = "full", 	mode = "player",
 	can_gain = function(self, who)
