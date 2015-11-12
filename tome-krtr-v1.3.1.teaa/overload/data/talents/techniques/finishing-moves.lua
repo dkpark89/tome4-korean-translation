@@ -17,15 +17,18 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Uppercut",
+	kr_name = "올려치기",
 	type = {"technique/finishing-moves", 1},
 	require = techs_dex_req1,
 	points = 5,
 	random_ego = "attack",
 	cooldown = 10,
 	stamina = 12,
-	message = "@Source@ throws a finishing uppercut.",
+	message = "@Source@는 연계기의 마무리로 올려치기를 사용했습니다!",
 	tactical = { ATTACK = { weapon = 2 }, DISABLE = { stun = 2 } },
 	requires_target = true,
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t)} end,
@@ -50,7 +53,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getDuration(self, t, self:getCombo(combo)), {apply_power=self:combatPhysicalpower()})
 			else
-				game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -62,9 +65,9 @@ newTalent{
 		local damage = t.getDamage(self, t) * 100
 		local stun = t.getDuration(self, t, 0)
 		local stunmax = t.getDuration(self, t, 5)
-		return ([[A finishing uppercut that deals %d%% damage, and attempts to stun your target for %d to %d turns, depending on the amount of combo points you've accumulated.
-		The stun chance will improve with your Physical Power.
-		Using this talent removes your combo points.]])
+		return ([[적을 올려쳐서 %d%% 의 피해를 주고, 연계 점수에 따라 %d 에서 %d 턴 동안 기절시킵니다.
+		기절 확률은 물리력의 영향을 받아 증가합니다.
+		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, stun, stunmax)
 	end,
 }
@@ -73,13 +76,14 @@ newTalent{
 -- Its pretty crap at low combo point
 newTalent{
 	name = "Concussive Punch",
+	kr_name = "충격타",
 	type = {"technique/finishing-moves", 2},
 	require = techs_dex_req2,
 	points = 5,
 	random_ego = "attack",
 	cooldown = 6,
 	stamina = 20,
-	message = "@Source@ throws a concussive punch.",
+	message = "@Source@는 연계기의 마무리로 충격타를 날렸습니다.",
 	tactical = { ATTACK = { weapon = 2 }, },
 	requires_target = true,
 	target = function(self, t) return {type="hit", range=self:getTalentRange(t)} end,
@@ -119,15 +123,16 @@ newTalent{
 		local area = t.getAreaDamage(self, t) * 0.25
 		local areamax = t.getAreaDamage(self, t) * 1.25
 		local radius = self:getTalentRadius(t)
-		return ([[A powerful concussive punch that deals %d%% weapon damage to your target.  If the punch hits, all targets in a radius of %d will take %0.2f to %0.2f damage, depending on the amount of combo points you've accumulated.
-		The area damage will scale with your Strength, and the radius will increase by 1 per combo point.
-		Using this talent removes your combo points.]])
+		return ([[강력한 충격이 실린 주먹으로 대상을 가격하여 %d%% 의 피해를 주고, 공격이 성공하면 반경 %d 칸 내의 모든 적들에게 연계 점수에 따라 %0.2f - %0.2f 의 물리 피해를 줍니다.
+		광역 피해량은 힘 능력치의 영향을 받아 증가하며, 피해 반경은 연계 점수만큼 증가합니다.
+		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, radius, damDesc(self, DamageType.PHYSICAL, area), damDesc(self, DamageType.PHYSICAL, areamax))
 	end,
 }
 
 newTalent{
 	name = "Butterfly Kick",
+	kr_name = "나비차기",
 	type = {"technique/finishing-moves", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -188,20 +193,21 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You spin into a flying leap and deliver a powerful kick dealing %d%% weapon damage to all enemies in a radius of 1 as you land.  The range will increase by 1 per combo point and total damage will increase by 10%% per combo point.
-		Using this talent removes your combo points and you must have at least 1 combo point to use it.]]):format(t.getDamage(self, t)*100)
+		return ([[공중에서 날아차, 착지 지점 주변 1 칸에 있는 모든 적들에게 %d%% 무기 피해를 가합니다. 사거리는 연계 점수가 증가할 때마다 늘어나며, 총 피해량 역시 연계 점수 당 10%% 씩 상승합니다.
+		이 기술을 사용하면 연계 점수가 초기화됩니다.]]):format(t.getDamage(self, t)*100)
 	end,
 }
 
 newTalent{
 	name = "Haymaker",
+	kr_name = "죽음의 강타",
 	type = {"technique/finishing-moves", 4},
 	require = techs_dex_req4,
 	points = 5,
 	random_ego = "attack",
 	cooldown = 12,
 	stamina = 12,
-	message = "@Source@ throws a wild haymaker!",
+	message = "@Source@는 연계기의 마무리로 죽음의 강타를 날렸습니다!",
 	tactical = { ATTACK = { weapon = 2 } },
 	requires_target = true,
 	range = 1,
@@ -231,10 +237,10 @@ newTalent{
 		if hit then
 			if target:checkHit(self:combatPhysicalpower(), target:combatPhysicalResist(), 0, 95, 5 - self:getTalentLevel(t) / 2) and target:canBe("instakill") and target.life > target.die_at and target.life < target.max_life * 0.2 then
 				-- KILL IT !
-				game.logSeen(target, "%s feels the pain of the death blow!", target.name:capitalize())
+				game.logSeen(target, "%s 에게 죽음의 고통을 안겨줬습니다!", target.name:capitalize())
 				target:die(self)
 			elseif target.life > 0 and target.life < target.max_life * 0.2 then
-				game.logSeen(target, "%s resists the death blow!", target.name:capitalize())
+				game.logSeen(target, "%s 죽음의 고통을 저항했습니다!",  (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -252,9 +258,10 @@ newTalent{
 		local maxDamage = damage * 2
 		local stamina = t.getStamina(self, t, 0)/self.max_stamina*100
 		local staminamax = t.getStamina(self, t, 5)/self.max_stamina*100
-		return ([[A vicious finishing strike that deals %d%% damage increased by 20%% per combo point you have up to a max of %d%%.  If the target ends up with low enough life (<20%%), it might be instantly killed.
-		Killing a target with Haymaker will instantly restore %d%% to %d%% of your maximum stamina, depending on the amount of combo points you've accumulated.
-		Using this talent removes your combo points.]])
+		return ([[%d%% 의 피해에 연계 점수당 20%% 의 추가 피해(최대 추가 피해 최대 %d%%)를 주는, 치명적인 타격을 가합니다.
+		공격을 받은 대상이 빈사상태 (생명력 20%% 미만) 이며 대상이 저항하지 못했을 경우, 대상은 즉사합니다.
+		죽음의 강타로 적을 쓰러뜨리면, 연계 점수에 따라 최대 체력의 %d%% 에서 %d%% 에 해당하는 체력이 회복됩니다.
+		이 기술을 사용하면 연계 점수가 초기화됩니다.]])
 		:format(damage, maxDamage, stamina, staminamax)
 	end,
 }
