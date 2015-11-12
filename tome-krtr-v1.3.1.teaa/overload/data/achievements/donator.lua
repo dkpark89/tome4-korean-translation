@@ -19,26 +19,31 @@
 
 newAchievement{
 	name = "Bronze Donator", id = "BRONZE_DONATOR",
-	desc = [[Donated up to 5 euros to Tales of Maj'Eyal.]],
+	kr_name = "기부자 동상",
+	desc = [[Tales of Maj'Eyal에게 5유로 이상을 기부함.]],
 	no_difficulty_duplicate = true, no_chat_broadcast = true,
 }
 newAchievement{
 	name = "Silver Donator", id = "SILVER_DONATOR",
-	desc = [[Donated at least 6 euros to Tales of Maj'Eyal.]],
+	kr_name = "기부자 은상",
+	desc = [[Tales of Maj'Eyal에게 6유로 이상을 기부함.]],
 	no_difficulty_duplicate = true, no_chat_broadcast = true,
 }
 newAchievement{
 	name = "Gold Donator", id = "GOLD_DONATOR",
-	desc = [[Donated at least 16 euros to Tales of Maj'Eyal.]],
+	kr_name = "기부자 금상",
+	desc = [[Tales of Maj'Eyal에게 16유로 이상을 기부함.]],
 	no_difficulty_duplicate = true, no_chat_broadcast = true,
 }
 newAchievement{
 	name = "Stralite Donator", id = "STRALITE_DONATOR",
-	desc = [[Donated at least 31 euros to Tales of Maj'Eyal.]],
+	kr_name = "기부자 스트라라이트상",
+	desc = [[Tales of Maj'Eyal에게 31유로 이상을 기부함.]],
 	no_difficulty_duplicate = true, no_chat_broadcast = true,
 }
 newAchievement{
 	name = "Voratun Donator", id = "VORATUN_DONATOR",
-	desc = [[Donated more than 60 euros to Tales of Maj'Eyal.]],
+	kr_name = "기부자 보라툰상",
+	desc = [[Tales of Maj'Eyal에게 60유로 이상을 기부함.]],
 	no_difficulty_duplicate = true, no_chat_broadcast = true,
 }
