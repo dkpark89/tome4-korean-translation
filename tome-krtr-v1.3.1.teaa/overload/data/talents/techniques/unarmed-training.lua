@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Empty Hand",
+	kr_name = "맨주먹의 힘",
 	type = {"technique/unarmed-other", 1},
 	innate = true,
 	hide = true,
@@ -47,8 +48,8 @@ newTalent{
 	getDamage = function(self, t) return self.level * 0.5 end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Grants %d Physical Power when fightning unarmed (or with gloves or gauntlets).
-		This talent's effects will scale with your level.]]):
+		return ([[무기를 사용하지 않을 때, 물리력을 %d 증가시킵니다.
+		물리력 상승량은 캐릭터의 레벨에 따라 증가합니다.]]):
 		format(damage)
 	end,
 }
@@ -57,6 +58,7 @@ newTalent{
 -- Regardless, it gives much less damage than most weapon trees and is slightly more frontloaded
 newTalent{
 	name = "Unarmed Mastery",
+	kr_name = "맨손 격투법",
 	type = {"technique/unarmed-training", 1},
 	points = 5,
 	require = { stat = { cun=function(level) return 12 + level * 6 end }, },
@@ -66,14 +68,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Increases Physical Power by %d, and increases all unarmed damage by %d%% (including grapples and kicks).
-		Note that brawlers naturally gain 0.5 Physical Power per character level while unarmed (current brawler physical power bonus: %0.1f) and attack 40%% faster while unarmed.]]):
+		return ([[무기를 사용하지 않으면 물리력이 %d 증가하고, 모든 맨손 격투의 피해량이 %d%% 증가합니다. (발차기와 잡기류 포함)
+		격투가는 캐릭터 레벨 당 0.5 의 물리력을 추가로 얻고 (현재 격투가의 추가 물리력 : %0.1f), 다른 직업보다 맨손 공격 속도가 40%% 더 빠릅니다.]]):
 		format(damage, 100*inc, self.level * 0.5)
 	end,
 }
 
 newTalent{
 	name = "Unified Body",
+	kr_name = "합일의 경지", 
 	type = {"technique/unarmed-training", 2},
 	require = techs_cun_req2,
 	mode = "passive",
@@ -91,12 +94,13 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Your mastery of unarmed combat unifies your body.  Increases your Strength by %d based on Cunning and your Constitution by %d based on Dexterity.]]):format(t.getStr(self, t), t.getCon(self, t))
+		return ([[맨손 격투 수련을 통해 합일의 경지에 이릅니다. 교활함 능력치에 비례해 힘 능력치가 %d 상승하며, 민첩 능력치에 비례해 건강 능력치가 %d 상승합니다.]]):format(t.getStr(self, t), t.getCon(self, t))
 	end
 }
 
 newTalent{
 	name = "Heightened Reflexes",
+	kr_name = "반사신경 향상",
 	type = {"technique/unarmed-training", 3},
 	require = techs_cun_req3,
 	mode = "passive",
@@ -107,7 +111,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn.  Taking any action other then movement will break the effect.]]):
+		return ([[발사체가 자신을 향해 날아올 때, 전체 속도가 1 턴 동안 %d%% 증가합니다. 이동 이외의 행동을 하면 이 효과는 사라집니다.]]):
 		format(power * 100)
 	end,
 }
@@ -115,6 +119,7 @@ newTalent{
 -- It's a bit wierd that this works against mind attacks
 newTalent{
 	name = "Reflex Defense",
+	kr_name = "반사적 회피", 
 	type = {"technique/unarmed-training", 4},
 	require = techs_cun_req4, -- bit icky since this is clearly dex, but whatever, cun turns defense special *handwave*
 	points = 5,
@@ -129,12 +134,13 @@ newTalent{
 		if ( cb.value > (t.getDamagePct(self, t) * self.max_life) ) then
 			local damageReduction = cb.value * t.getDamageReduction(self, t)
 			cb.value = cb.value - damageReduction
-			game.logPlayer(self, "#GREEN#You twist your body in complex ways mitigating the blow by #ORCHID#" .. math.ceil(damageReduction) .. "#LAST#.")
+			game.logPlayer(self, "#GREEN# 당신은 몸을 복잡한 방식으로 뒤틀어, 피해량을 #ORCHID#" .. math.ceil(damageReduction) .. "#LAST# 감소시켰습니다.")
 		end
 		return cb.value
 	end, 
 	info = function(self, t)
-		return ([[Your understanding of physiology allows you to apply your reflexes in new ways.  Whenever you would receive damage (from any source) greater than %d%% of your maximum life you reduce that damage by %0.1f%% (based on your Defense).]]):
+		return ([[인체 생리학에 대한 높은 이해를 통해, 반사신경을 새로운 방식으로 사용합니다. 어떠한 방식으로든 최대 생명력의 %d%% 이상 피해를 입을 경우, 그 피해량을 %0.1f%% 감소시킵니다. 
+		피해 감소량은 회피도의 영향을 받아 증가합니다.]]):
 		format(t.getDamagePct(self, t)*100, t.getDamageReduction(self, t)*100 )
 	end,
 }
