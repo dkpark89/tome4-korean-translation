@@ -136,6 +136,7 @@ end
 
 newTalent{
 	name = "Kinetic Shield",
+	kr_name = "동역학적 보호막",
 	type = {"psionic/absorption", 1},
 	require = psi_cun_req1,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -150,7 +151,7 @@ newTalent{
 	end,
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_THERMAL_SHIELD) and self:isTalentActive(self.T_CHARGED_SHIELD) then
-			if not silent then game.logSeen(self, "You may only sustain two shields at once. Shield activation cancelled.") end
+			if not silent then game.logSeen(self, "보호막은 한번에 2개 까지만 유지할 수 있습니다. 보호막 생성이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -185,17 +186,18 @@ newTalent{
 	info = function(self, t)
 		local s_str = getShieldStrength(self, t)
 		local absorb = 100*getEfficiency(self,t)
-		return ([[Surround yourself with a shield that will absorb %d%% of any physical/acid/nature/temporal attack, up to a maximum of %d damage per attack.
-		Every time your shield absorbs damage, you convert some of the attack into energy, gaining one point of Psi, plus an additional point for every %0.1f points of damage absorbed, up to a maximum %0.1f points each turn.
-		At talent level 3, when you de-activate the shield twice the absorbed damage (if any) in the last 3 turns is released as a full psionic shield (absorbing all damage).
-		The maximum amount of damage your shield can absorb and the efficiency of the psi gain scale with your mindpower.
-		You can only have two of these shields active at once.]]):
+		return ([[시전자 주변을 보호막으로 둘러싸, 물리/산성/자연/시간 속성 공격의 %d%% 를 막아냅니다. 한번에 %d 피해까지 막아낼 수 있습니다
+		보호막이 피해를 흡수할 때마다, 공격의 일부를 염력으로 변환하여, 염력을 1 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다, 턴 당 염력을 최대 %0.1f까지 회복할 수 있습니다.
+		기술 레벨이 3 이상일 경우, 보호막을 해제할 때 보호막을 해제할 때 마지막 3 턴 동안 흡수한 피해량의 두 배 만큼을 완전히 막아내는 염력 보호막을 만들어냅니다.
+		보호막의 최대 피해 흡수량과 염력 회복 효율은 정신력의 영향을 받아 증가합니다.
+		보호막은 한번에 2개 까지만 유지할 수 있습니다.]]):
 		format(absorb, s_str, shieldMastery(self, t), maxPsiAbsorb(self,t))
 	end,
 }
 
 newTalent{
 	name = "Thermal Shield",
+	kr_name = "열역학적 보호막",
 	type = {"psionic/absorption", 1},
 	require = psi_cun_req2,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -210,7 +212,7 @@ newTalent{
 	end,
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_KINETIC_SHIELD) and self:isTalentActive(self.T_CHARGED_SHIELD) then
-			if not silent then game.logSeen(self, "You may only sustain two shields at once. Shield activation cancelled.") end
+			if not silent then game.logSeen(self, "보호막은 한번에 2 개 까지만 유지할 수 있습니다. 보호막 생성이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -247,17 +249,18 @@ newTalent{
 	info = function(self, t)
 		local s_str = getShieldStrength(self, t)
 		local absorb = 100*getEfficiency(self,t)
-		return ([[Surround yourself with a shield that will absorb %d%% of any fire/cold/light/arcane attack, up to a maximum of %d damage per attack.
-		Every time your shield absorbs damage, you convert some of the attack into energy, gaining one point of Psi, plus an additional point for every %0.1f points of damage absorbed, up to a maximum %0.1f points each turn.
-		At talent level 3, when you de-activate the shield twice the absorbed damage (if any) in the last 3 turns is released as a full psionic shield (absorbing all damage).
-		The maximum amount of damage your shield can absorb and the efficiency of the psi gain scale with your mindpower.
-		You can only have two of these shields active at once.]]):
+		return ([[시전자 주변을 보호막으로 둘러싸, 화염/냉기/빛/마법 속성 공격의 %d%% 를 막아냅니다. 한번에 %d 피해까지 막아낼 수 있습니다
+		보호막이 피해를 흡수할 때마다, 공격의 일부를 염력으로 변환하여, 염력을 1 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다, 턴 당 염력을 최대 %0.1f까지 회복할 수 있습니다.
+		기술 레벨이 3 이상일 경우, 보호막을 해제할 때 보호막을 해제할 때 마지막 3 턴 동안 흡수한 피해량의 두 배 만큼을 완전히 막아내는 염력 보호막을 만들어냅니다.
+		보호막의 최대 피해 흡수량과 염력 회복 효율은 정신력의 영향을 받아 증가합니다.
+		보호막은 한번에 2개 까지만 유지할 수 있습니다.]]):
 		format(absorb, s_str, shieldMastery(self, t), maxPsiAbsorb(self,t))
 	end,
 }
 
 newTalent{
 	name = "Charged Shield",
+	kr_name = "전하적 보호막",
 	type = {"psionic/absorption", 1},
 	require = psi_cun_req3,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -273,7 +276,7 @@ newTalent{
 	end,
 	on_pre_use = function(self, t, silent)
 		if self:isTalentActive(self.T_KINETIC_SHIELD) and self:isTalentActive(self.T_THERMAL_SHIELD) then
-			if not silent then game.logSeen(self, "You may only sustain two shields at once. Shield activation cancelled.") end
+			if not silent then game.logSeen(self, "보호막은 한번에 2 개 까지만 유지할 수 있습니다. 보호막 생성이 취소됩니다.") end
 			return false
 		end
 		return true
@@ -309,17 +312,18 @@ newTalent{
 	info = function(self, t)
 		local s_str = getShieldStrength(self, t)
 		local absorb = 100*getEfficiency(self,t)
-		return ([[Surround yourself with a shield that will absorb %d%% of any lightning/blight/darkness/mind attack, up to a maximum of %d damage per attack.
-		Every time your shield absorbs damage, you convert some of the attack into energy, gaining one point of Psi, plus an additional point for every %0.1f points of damage absorbed, up to a maximum %0.1f points each turn.
-		At talent level 3, when you de-activate the shield twice the absorbed damage (if any) in the last 3 turns is released as a full psionic shield (absorbing all damage).
-		The maximum amount of damage your shield can absorb and the efficiency of the psi gain scale with your mindpower.
-		You can only have two of these shields active at once.]]):
+		return ([[시전자 주변을 보호막으로 둘러싸, 전기/황폐/어둠/정신 속성 공격의 %d%% 를 막아냅니다. 한번에 %d 피해까지 막아낼 수 있습니다
+		보호막이 피해를 흡수할 때마다, 공격의 일부를 염력으로 변환하여, 염력을 1 회복하며, %0.1f 피해를 흡수할 때마다 추가로 염력을 1 회복합니다, 턴 당 염력을 최대 %0.1f까지 회복할 수 있습니다.
+		기술 레벨이 3 이상일 경우, 보호막을 해제할 때 보호막을 해제할 때 마지막 3 턴 동안 흡수한 피해량의 두 배 만큼을 완전히 막아내는 염력 보호막을 만들어냅니다.
+		보호막의 최대 피해 흡수량과 염력 회복 효율은 정신력의 영향을 받아 증가합니다.
+		보호막은 한번에 2개 까지만 유지할 수 있습니다.]]):
 		format(absorb, s_str, shieldMastery(self, t), maxPsiAbsorb(self,t))
 	end,
 }
 
 newTalent{
 	name = "Forcefield",
+	kr_name = "역장",
 	type = {"psionic/absorption", 4},
 	require = psi_cun_req4,
 	points = 5,
@@ -363,8 +367,8 @@ newTalent{
 		self.forcefield_timer = self.forcefield_timer + 1
 	end,
 	info = function(self, t)
-		return ([[Surround yourself with a forcefield, reducing all incoming damage by %d%%.
-		Such a shield is very expensive to maintain, and will drain 5%% of your maximum psi each turn and 5%% more for each turn you have it maintained. For example, on turn 2 it will drain 10%%.]]):
+		return ([[시전자 주변을 정신역장으로 둘러싸, 모든 피해량을 %d%% 감소시킵니다.
+		이 강력한 보호막은 매우 유지하기 힘들기 때문에, 매 턴마다 최대 염력의 5%% 만큼이 소모되고 염력 소모량이 5%%씩 증가합니다. 예를 들면, 2턴째에는 10%%가 소모됩니다.]]):
 		format(t.getResist(self,t))
 	end,
 }
