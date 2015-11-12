@@ -19,13 +19,15 @@
 
 newAchievement{
 	name = "That was close",
+	kr_name = "십년감수",
 	show = "full", huge=true,
-	desc = [[Killed your target while having only 1 life left.]],
+	desc = [[생명력이 1 만 남은 상태로 적을 죽임.]],
 }
 newAchievement{
 	name = "Size matters",
+	kr_name = "크기의 문제",
 	show = "full",
-	desc = [[Did over 600 damage in one attack.]],
+	desc = [[한 번의 공격으로 600 이상의 피해를 줌.]],
 	on_gain = function(_, src, personal)
 		if src.descriptor and (src.descriptor.subclass == "Rogue" or src.descriptor.subclass == "Shadowblade") then
 			game:setAllowedBuild("rogue_marauder", true)
@@ -34,23 +36,27 @@ newAchievement{
 }
 newAchievement{
 	name = "Size is everything", id = "DAMAGE_1500",
+	kr_name = "크기가 전부야",
 	show = "full", huge=true,
 	desc = [[Did over 1500 damage in one attack.]],
 }
 newAchievement{
 	name = "The bigger the better!", id = "DAMAGE_3000",
+	kr_name = "크면 클수록 더 좋지!",
 	show = "full", huge=true,
-	desc = [[Did over 3000 damage in one attack.]],
+	desc = [[한 번의 공격으로 3,000 이상의 피해를 줌.]],
 }
 newAchievement{
 	name = "Overpowered!", id = "DAMAGE_6000",
+	kr_name = "압도적인 힘!",
 	show = "full", huge=true,
-	desc = [[Did over 6000 damage in one attack.]],
+	desc = [[한 번의 공격으로 6,000 이상의 피해를 줌.]],
 }
 newAchievement{
 	name = "Exterminator",
+	kr_name = "절멸자",
 	show = "full",
-	desc = [[Killed 1000 creatures.]],
+	desc = [[1,000 마리의 생명체를 살해.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -60,9 +66,10 @@ newAchievement{
 }
 newAchievement{
 	name = "Pest Control",
+	kr_name = "해충 구제",
 	image = "npc/vermin_worms_green_worm_mass.png",
 	show = "full",
-	desc = [[Killed 1000 reproducing vermin.]],
+	desc = [[1,000 마리의 번식형 해충 살해.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target:knowTalent(target.T_MULTIPLY) or target.clone_on_hit then
@@ -74,8 +81,9 @@ newAchievement{
 }
 newAchievement{
 	name = "Reaver",
+	kr_name = "약탈자",
 	show = "full",
-	desc = [[Killed 1000 humanoids.]],
+	desc = [[1,000 명의 영장류 살해.]],
 	mode = "world",
 	can_gain = function(self, who, target)
 		if target.type == "humanoid" then
@@ -92,9 +100,10 @@ newAchievement{
 
 newAchievement{
 	name = "Backstabbing Traitor", id = "ESCORT_KILL",
+	kr_name = "중상모략적인 배반자",
 	image = "object/knife_stralite.png",
 	show = "full",
-	desc = [[Killed 6 escorted adventurers while you were supposed to save them.]],
+	desc = [[모험가 호위 중, 자기 손으로 모험가를 6 번 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -105,8 +114,9 @@ newAchievement{
 
 newAchievement{
 	name = "Bad Driver", id = "ESCORT_LOST",
+	kr_name = "나쁜 길잡이",
 	show = "full",
-	desc = [[Failed to save any escorted adventurers.]],
+	desc = [[모험가 호위를 모두 실패함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -117,8 +127,9 @@ newAchievement{
 
 newAchievement{
 	name = "Guiding Hand", id = "ESCORT_SAVED",
+	kr_name = "인도의 손길",
 	show = "full",
-	desc = [[Saved all escorted adventurers.]],
+	desc = [[모험가 호위를 모두 성공함.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -129,13 +140,15 @@ newAchievement{
 
 newAchievement{
 	name = "Earth Master", id = "GEOMANCER",
+	kr_name = "대지의 명인",
 	show = "name",
-	desc = [[Killed Harkor'Zun and unlocked Stone magic.]],
+	desc = [[하코르'준을 죽이고, 암석 마법 계열의 봉인을 해제.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Kill Bill!", id = "KILL_BILL",
+	kr_name = "킬 빌!",
 	image = "object/artifact/bill_treestump.png",
 	show = "full", huge=true,
 	desc = [[Killed Bill in the Trollmire with a level one character.]],
@@ -144,16 +157,18 @@ newAchievement{
 
 newAchievement{
 	name = "Atamathoned!", id = "ATAMATHON",
+	kr_name = "아타마쏜!",
 	image = "npc/atamathon.png",
 	show = "name", huge=true,
-	desc = [[Killed the giant golem Atamathon after foolishly reactivating it.]],
+	desc = [[거대 골렘 아타마쏜을 어리석게도 재작동시킨 후, 다시 파괴함.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Huge Appetite", id = "EAT_BOSSES",
+	kr_name = "거대한 식욕",
 	show = "full",
-	desc = [[Ate 20 bosses.]],
+	desc = [[보스 20명 '삼키기'.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target.rank < 3.5 then return false end
@@ -165,8 +180,9 @@ newAchievement{
 
 newAchievement{
 	name = "Headbanger", id = "HEADBANG",
+	kr_name = "박치기왕",
 	show = "full", huge=true,
-	desc = [[Headbanged 20 bosses to death.]],
+	desc = [[20명의 보스를 '박치기'로 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		if target.rank < 3.5 then return false end
@@ -178,17 +194,19 @@ newAchievement{
 
 newAchievement{
 	name = "Are you out of your mind?!", id = "UBER_WYRMS_OPEN",
+	kr_name = "미친 거 아니야?!",
 	image = "npc/dragon_multihued_multi_hued_drake.png",
 	show = "name", huge=true,
-	desc = [[Caught the attention of overpowered greater multi-hued wyrms in Vor Armoury. Perhaps fleeing is in order.]],
+	desc = [[보르 무기고에서 '너무나 엄청나게 강력한 무지개빛 고위 용' 의 관심을 받음. 목숨이 아깝다면 도망치는 것이 순리.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "I cleared the room of death and all I got was this lousy achievement!", id = "UBER_WYRMS",
+	kr_name = "죽음의 방을 싹쓸이했지만, 내가 얻은 것이라고는 이 바보같은 도전과제 뿐이야!",
 	image = "npc/dragon_multihued_multi_hued_drake.png",
 	show = "name", huge=true,
-	desc = [[Killed the seven overpowered wyrms in the "Room of Death" in Vor Armoury.]],
+	desc = [[보르 무기고의 "죽음의 방"에 있는 일곱 마리의 압도적인 용을 죽임.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
@@ -198,56 +216,63 @@ newAchievement{
 
 newAchievement{
 	name = "I'm a cool hero", id = "NO_DERTH_DEATH",
+	kr_name = "나는 멋진 영웅이지",
 	image = "npc/humanoid_human_human_farmer.png",
 	show = "name", huge=true,
-	desc = [[Saved Derth without a single inhabitant dying.]],
+	desc = [[마을 주민을 한 명도 죽게 놔두지 않고 데르스 마을 구출.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Kickin' it old-school", id = "FIRST_BOSS_URKIS",
+	kr_name = "옛 방식으로 작살내기",
 	image = "npc/humanoid_human_urkis__the_high_tempest.png",
 	show = "full", huge=true,
-	desc = [[Killed Urkis, the Tempest, causing him to drop the Rod of Recall.]],
+	desc = [[대기술사 우르키스를 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Leave the big boys alone", id = "FIRST_BOSS_MASTER",
+	kr_name = "다 큰 놈은 내버려 둬",
 	image = "npc/the_master.png",
 	show = "full", huge=true,
-	desc = [[Killed The Master, causing him to drop the Rod of Recall.]],
+	desc = [['주인' 을 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "You know who's to blame", id = "FIRST_BOSS_GRAND_CORRUPTOR",
+	kr_name = "누가 비난받을지 알지",
 	image = "npc/humanoid_shalore_grand_corruptor.png",
 	show = "full", huge=true,
-	desc = [[Killed the Grand Corruptor, causing him to drop the Rod of Recall.]],
+	desc = [[위대한 타락자를 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "You know who's to blame (reprise)", id = "FIRST_BOSS_MYSSIL",
+	kr_name = "누가 비난받을지 알지 (재평가)",
 	image = "npc/humanoid_halfling_protector_myssil.png",
 	show = "full", huge=true,
-	desc = [[Killed Myssil, causing her to drop the Rod of Recall.]],
+	desc = [[미씰을 죽이고, 그에게서 되돌림의 장대를 획득.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Now, this is impressive!", id = "LINANIIL_DEAD",
+	kr_name = "이제, 정말 인상적이로군!",
 	image = "npc/humanoid_human_linaniil_supreme_archmage.png",
 	show = "full", huge=true,
-	desc = [[Killed Linaniil, the Supreme Archmage of Angolwen.]],
+	desc = [[앙골웬의 고위 마도사, 리나니일을 죽임.]],
 	mode = "player",
 }
 
 newAchievement{
 	name = "Fear of Fours", id = "SLIME_TUNNEL_BOSSES",
+	kr_name = "4의 공포",
 	show = "full", huge=true,
-	desc = [[Killed all four bosses of the Slime Tunnels.]],
+	desc = [[슬라임 굴의 '보스' 넷을 모두 죽임.]],
 	mode = "player",
 	can_gain = function(self, who, target)
 		self.nb = (self.nb or 0) + 1
@@ -258,14 +283,16 @@ newAchievement{
 
 newAchievement{
 	name = "Well trained", id = "TRAINING_DUMMY_1000000",
+	kr_name = "훌륭한 연습",
 	show = "full", huge=true,
-	desc = [[Deal one million damage to training dummies in a single training session.]],
+	desc = [[한 번의 연습에서 연습용 허수아비에게 백만점 이상의 피해를 입힘.]],
 	mode = "player",
 }
 newAchievement{
 	name = "I meant to do that...", id = "AVOID_DEATH",
+	kr_name = "내가 말하려 했던건 말이지...",
 	show = "full",
-	desc = [[Avoid death 50 times with a life-saving talent.]],
+	desc = [[50번의 구명 기술을 사용한 죽음 회피.]],
 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1
