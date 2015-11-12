@@ -18,31 +18,31 @@
 -- darkgod@te4.org
 
 -- Physical combat
-newTalentType{ allow_random=true, type="technique/2hweapon-assault", name = "two-handed assault", description = "Specialized two-handed techniques." }
-newTalentType{ allow_random=true, type="technique/strength-of-the-berserker", name = "berserker's strength", description = "Fear nothing!" }
-newTalentType{ allow_random=true, type="technique/2hweapon-offense", name = "two-handed weapons", description = "Specialized two-handed techniques." }
-newTalentType{ allow_random=true, type="technique/2hweapon-cripple", name = "two-handed maiming", description = "Specialized two-handed techniques." }
-newTalentType{ allow_random=true, type="technique/shield-offense", name = "shield offense", speed = "shield", description = "Specialized weapon and shield techniques." }
-newTalentType{ allow_random=true, type="technique/shield-defense", name = "shield defense", speed = "shield", description = "Specialized weapon and shield techniques." }
-newTalentType{ allow_random=true, type="technique/dualweapon-training", name = "dual weapons", description = "Specialized dual wielding techniques." }
-newTalentType{ allow_random=true, type="technique/dualweapon-attack", name = "dual techniques", description = "Specialized dual wielding techniques." }
-newTalentType{ allow_random=true, type="technique/archery-base", name = "archery - base", description = "Ability to shoot." }
-newTalentType{ allow_random=true, type="technique/archery-bow", name = "archery - bows", description = "Specialized bow techniques." }
-newTalentType{ allow_random=true, type="technique/archery-sling", name = "archery - slings", description = "Specialized sling techniques." }
-newTalentType{ allow_random=true, type="technique/archery-training", name = "archery training", description = "Generic archery techniques." }
-newTalentType{ allow_random=true, type="technique/archery-utility", name = "archery prowess", description = "Specialized archery techniques to maim your targets." }
-newTalentType{ allow_random=true, type="technique/archery-excellence", name = "archery excellence", min_lev = 10, description = "Specialized archery techniques that result from honed training." }
-newTalentType{ allow_random=true, type="technique/superiority", name = "superiority", min_lev = 10, description = "Advanced combat techniques." }
-newTalentType{ allow_random=true, type="technique/battle-tactics", name = "battle tactics", min_lev = 10, description = "Advanced combat tactics." }
-newTalentType{ allow_random=true, type="technique/warcries", name = "warcries", no_silence = true, min_lev = 10, description = "Master the warcries to improve yourself and weaken others." }
-newTalentType{ allow_random=true, type="technique/bloodthirst", name = "bloodthirst", min_lev = 10, description = "Delight in the act of battle and the spilling of blood." }
-newTalentType{ allow_random=true, type="technique/field-control", name = "field control", generic = true, description = "Control the battlefield using various techniques." }
-newTalentType{ allow_random=true, type="technique/combat-techniques-active", name = "combat techniques", description = "Generic combat oriented techniques." }
-newTalentType{ allow_random=true, type="technique/combat-techniques-passive", name = "combat veteran", description = "Generic combat oriented techniques." }
-newTalentType{ allow_random=true, type="technique/combat-training", name = "combat training", generic = true, description = "Teaches to use various armours, weapons and improves health." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="technique/magical-combat", name = "magical combat", description = "The blending together of magic and melee prowess." }
-newTalentType{ allow_random=true, type="technique/mobility", name = "mobility", generic = true, description = "Controlling your movements on the battlefields is the sure way to victory." }
-newTalentType{ allow_random=true, type="technique/thuggery", name = "thuggery", generic = true, description = "Whatever wins the day, wins the day." }
+newTalentType{ allow_random=true, type="technique/2hweapon-assault", name = "two-handed assault", description = "양손무기에 특화된 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/strength-of-the-berserker", name = "berserker's strength", description = "아무 것도 두렵지 않다!" }
+newTalentType{ allow_random=true, type="technique/2hweapon-offense", name = "two-handed weapons", description = "양손무기에 특화된 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/2hweapon-cripple", name = "two-handed maiming", description = "양손무기에 특화된 무력화 기술입니다." }
+newTalentType{ allow_random=true, type="technique/shield-offense", name = "shield offense", speed = "shield", description = "무기와 방패를 드는 전투방법에 특화된 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/shield-defense", name = "shield defense", speed = "shield", description = "무기와 방패를 드는 전투방법에 특화된 방어기술입니다." }
+newTalentType{ allow_random=true, type="technique/dualweapon-training", name = "dual weapons", description = "두 개의 무기를 동시에 사용하는 전투방법을 수련합니다." }
+newTalentType{ allow_random=true, type="technique/dualweapon-attack", name = "dual techniques", description = "두 개의 무기를 동시에 사용하는 전투방법에 특화된 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/archery-base", name = "archery - base", description = "원거리 무기를 사용하는 기본기술입니다." }
+newTalentType{ allow_random=true, type="technique/archery-bow", name = "archery - bows", description = "활을 사용하는 전투방법에 특화된 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/archery-sling", name = "archery - slings", description = "투석구를 사용하는 전투방법에 특화된 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/archery-training", name = "archery training", description = "원거리 무기에 공통적으로 사용되는 기술입니다." }
+newTalentType{ allow_random=true, type="technique/archery-utility", name = "archery prowess", description = "원거리 무기를 사용해서 적을 무력화시키는 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/archery-excellence", name = "archery excellence", min_lev = 10, description = "많은 훈련으로 획득할 수 있는 특별한 원거리 공격기술입니다." }
+newTalentType{ allow_random=true, type="technique/superiority", name = "superiority", min_lev = 10, description = "다수의 적들 사이에서 벌어지는 전투에 특화된 기술입니다." }
+newTalentType{ allow_random=true, type="technique/battle-tactics", name = "battle tactics", min_lev = 10, description = "전략적인 전투를 위한 기술입니다." }
+newTalentType{ allow_random=true, type="technique/warcries", name = "warcries", no_silence = true, min_lev = 10, description = "자신을 강화하고 적을 약화시키는 전투 함성을 수련합니다." }
+newTalentType{ allow_random=true, type="technique/bloodthirst", name = "bloodthirst", min_lev = 10, description = "광란의 전투를 통해, 낭자한 선혈과 전투의 희열을 느낍니다." }
+newTalentType{ allow_random=true, type="technique/field-control", name = "field control", generic = true, description = "다양한 행동으로 전장을 제어하는 기술입니다." }
+newTalentType{ allow_random=true, type="technique/combat-techniques-active", name = "combat techniques", description = "공통적으로 활용되는 기본 전투기술입니다." }
+newTalentType{ allow_random=true, type="technique/combat-techniques-passive", name = "combat veteran", description = "지치지 않고 오랫동안 전투를 지속할 수 있는 기술입니다." }
+newTalentType{ allow_random=true, type="technique/combat-training", name = "combat training", generic = true, description = "다양한 무기와 방어구, 그리고 기본 체력을 수련합니다." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="technique/magical-combat", name = "magical combat", description = "마법과 무기기술을 혼합한 전투방법을 수련합니다." }
+newTalentType{ allow_random=true, type="technique/mobility", name = "mobility", generic = true, description = "기동성에 중점을 둔, 전장에서의 행동기술입니다." }
+newTalentType{ allow_random=true, type="technique/thuggery", name = "thuggery", generic = true, description = "수단과 방법을 가리지 않는, 난폭한 전투기술입니다." }
 
 -- Skirmisher
 newTalentType {
@@ -50,39 +50,39 @@ newTalentType {
   name = "Acrobatics",
   generic = true,
   allow_random = true,
-  description = "For light footed Rogues who prefer flight to fighting fair!",
+  description = "절대 공평하게 싸워주지 않는, 발빠른 도적들을 위한 기술입니다!",
 }
 
 newTalentType {
   type = "technique/buckler-training",
   name = "Buckler Training",
   allow_random = true,
-  description = "Mastery over their shields separates Skirmishers from Archers, and gives them an edge.",
+  description = "방패 수련은 척후병들을 평범한 궁수와 다르게 만들어주는 요소이자, 척후병만이 갖는 장점입니다.",
 }
 
 newTalentType {
   type = "technique/skirmisher-slings",
   name = "Skirmisher - Slings",
   allow_random = true,
-  description = "Slings! Pow Pow!",
+  description = "내 탄환을 받아라! 퓽퓽!",
 }
 
 newTalentType {
   type = "technique/tireless-combatant",
   name = "Tireless Combatant",
   allow_random = true,
-  description = "Your will carries you through the most difficult struggles, allowing you to fight on when others would have collapsed from exhaustion.",
+  description = "그 어떤 어려운 상황에서도 버틸 수 있는 의지를 통해, 다른 자들이 지쳐 쓰러지더라도 끝까지 싸웁니다.",
 }
 
 -- Unarmed Combat
-newTalentType{ is_unarmed=true, allow_random=true, type="technique/pugilism", name = "pugilism", description = "Unarmed Boxing techniques that may not be practiced in massive armor or while a weapon or shield is equipped." }
-newTalentType{ is_unarmed=true, allow_random=true, type="technique/finishing-moves", name = "finishing moves", description = "Finishing moves that use combo points and may not be practiced in massive armor or while a weapon or shield is equipped." }
-newTalentType{ is_unarmed=true, allow_random=true, type="technique/grappling", name = "grappling", description = "Grappling techniques that may not be practiced in massive armor or while a weapon or shield is equipped." }
-newTalentType{ is_unarmed=true, allow_random=true, type="technique/unarmed-discipline", name = "unarmed discipline", description = "Advanced unarmed techniques including kicks and throw that may not be practiced in massive armor or while a weapon or shield is equipped." }
-newTalentType{ is_unarmed=true, allow_random=true, generic = true, type="technique/unarmed-training", name = "unarmed training", description = "Teaches various martial arts techniques that may not be practiced in massive armor or while a weapon or shield is equipped." }
-newTalentType{ allow_random=true, type="technique/conditioning", name = "conditioning", generic = true, description = "Physical conditioning." }
+newTalentType{ is_unarmed=true, allow_random=true, type="technique/pugilism", name = "pugilism", description = "판금갑옷, 무기, 방패 어느 것도 사용하지 않는 비무장 상태에서의 타격 기술입니다." }
+newTalentType{ is_unarmed=true, allow_random=true, type="technique/finishing-moves", name = "finishing moves", description = "판금갑옷, 무기, 방패 어느 것도 사용하지 않는 비무장 상태에서, 연계 점수를 사용하는 마무리 공격입니다." }
+newTalentType{ is_unarmed=true, allow_random=true, type="technique/grappling", name = "grappling", description = "판금갑옷, 무기, 방패 어느 것도 사용하지 않는 비무장 상태에서의 잡기 기술입니다." }
+newTalentType{ is_unarmed=true, allow_random=true, type="technique/unarmed-discipline", name = "unarmed discipline", description = "판금갑옷, 무기, 방패 어느 것도 사용하지 않는 비무장 상태의, 발차기와 던지기를 포함한 기본기술입니다." }
+newTalentType{ is_unarmed=true, allow_random=true, generic = true, type="technique/unarmed-training", name = "unarmed training", description = "판금갑옷, 무기, 방패 어느 것도 사용하지 않는 비무장 상태에서의 전투 기술을 수련합니다." }
+newTalentType{ allow_random=true, type="technique/conditioning", name = "conditioning", generic = true, description = "전투 지속 능력을 위한 신체 조절법입니다." }
 
-newTalentType{ is_unarmed=true, type="technique/unarmed-other", name = "unarmed other", generic = true, description = "Base martial arts attack and stances." }
+newTalentType{ is_unarmed=true, type="technique/unarmed-other", name = "unarmed other", generic = true, description = "기본적인 맨손 전투기술과 자세입니다." }
 
 
 
