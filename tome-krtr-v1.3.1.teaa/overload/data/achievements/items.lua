@@ -19,7 +19,8 @@
 
 newAchievement{
 	name = "Deus Ex Machina",
-	desc = [[Found the ever-refilling potion and the blood of life.]],
+	kr_name = "데우스 엑스 마키나",
+	desc = [[끊임없는 생명력의 물약과 생명의 피 발견.]],
 	mode = "player",
 	can_gain = function(self, who, obj)
 		if obj:getName{force_id=true} == "Blood of Life" then self.blood = true end
@@ -30,9 +31,10 @@ newAchievement{
 
 newAchievement{
 	name = "Treasure Hunter",
+	kr_name = "보물 사냥꾼",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[Amassed 1000 gold pieces.]],
+	desc = [[금화 1,000 개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 1000
 	end,
@@ -40,9 +42,10 @@ newAchievement{
 
 newAchievement{
 	name = "Treasure Hoarder",
+	kr_name = "보물 비축자",
 	image = "object/money_large.png",
 	show = "name",
-	desc = [[Amassed 3000 gold pieces.]],
+	desc = [[금화 3,000 개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 3000
 	end,
@@ -50,9 +53,10 @@ newAchievement{
 
 newAchievement{ id = "DRAGON_GREED",
 	name = "Dragon's Greed",
+	kr_name = "용의 탐욕",
 	image = "object/money_large.png",
 	show = "name", huge=true,
-	desc = [[Amassed 8000 gold pieces.]],
+	desc = [[금화 8,000 개 이상 축적.]],
 	can_gain = function(self, who)
 		return who.money >= 8000
 	end,
