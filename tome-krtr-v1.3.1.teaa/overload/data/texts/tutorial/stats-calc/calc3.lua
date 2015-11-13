@@ -18,9 +18,5 @@
 -- darkgod@te4.org
 
 return [[
-That one you should have been able to occasionally hit, and-- if you were persistent-- kill. 
-
-I hope you took note of its #LIGHT_GREEN#Defense#WHITE# score before it died.
-
-(If not, it was 47, which is nine more than your #LIGHT_GREEN#38 Accuracy#WHITE#)
+사실 처음 나온 오크보다 회피도 수치가 딱 1 낮은 오크였습니다. 두 오크 사이에 차이가 느껴지셨나요?
 ]]
