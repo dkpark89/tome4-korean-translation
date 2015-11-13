@@ -18,13 +18,14 @@
 -- darkgod@te4.org
 
 return [[
-Congratulations! Hopefully this series of obstacles has led you to some conclusions:
+축하합니다! 이제 #GOLD#전투 능력치#WHITE# 의 정확한 계산법을 알려드리겠습니다. 지금까지 한 경험들을 잘 떠올려보세요.
 
-1) When comparing #GOLD#combat stat#WHITE# scores, a difference of ten is the magic number that maximizes success.
+1) 공격자의 #GOLD#전투 능력치#WHITE# 와 방어자의 #GOLD#전투 능력치#WHITE# 를 비교할 때, 그 수치가 20 이상 차이가 난다면 공격은 무조건 성공 또는 실패하게 됩니다.
+공격자의 정확도가 40 이고 방어자의 회피도가 20 이라면, 공격은 절대 빗나가지 않는다는 뜻이죠. 이는 단순한 공격은 물론, 기절이나 밀어내기 등 각종 상태효과의 성공 확률에도 똑같이 적용됩니다.
 
-2) Comparing roughly equal #GOLD#combat stat#WHITE# scores results in a success about half the time.
+2) 공격자의 #GOLD#전투 능력치#WHITE# 와 방어자의 #GOLD#전투 능력치#WHITE# 가 서로 같다면, 공격이 성공할 확률은 50% 가 됩니다.
 
-For the purposes of this tutorial, the maximum success chance is 100%, which will mostly not be the case in the proper game-- but a difference of ten points is still what you're shooting for in order to hit the max, whatever it happens to be.
+이 두 가지 사실을 종합하면, 결국 #GOLD#공격자와 방어자 사이의 전투 능력치가 1 차이날 때마다, 공격/상태효과의 성공 확률이 2.5% 씩 증감한다#WHITE# 는 것을 알 수 있죠.
 
-You might also have concluded that this simple "win by ten points for best results" rule means that maximizing success becomes harder and harder when comparing higher-tier #GOLD#combat stat#WHITE# scores. True enough!
+#GOLD#전투 능력치#WHITE# 는 그 수치가 높아질수록 올리기 힘들어진다는 것을 잘 떠올려보면, 결국 적과 수치 차이를 20 이상 벌려서 '무조건 성공' 이나 '무조건 실패' 를 만들어내는 것은 굉장히 어려운 일이라는 사실도 추측해낼 수 있죠.
 ]]
