@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Transcendent Electrokinesis",
+	kr_name = "초월 - 전기역학",
 	type = {"psionic/charged-mastery", 1},
 	require = psi_cun_high1,
 	points = 5,
@@ -41,21 +42,22 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[For %d turns your electrokinesis transcends your normal limits, increasing your Lightning damage by %d%% and your Lightning resistance penetration by %d%%.
-		In addition:
-		The cooldowns of Charged Shield, Charged Leech, Charged Aura, Charged Strike and Brainstorm are reset.
-		Charged Aura effects will have their radius increased by 1.
-		Your Charged Shield will have 100%% absorption efficiency and will absorb twice the normal amount of damage.
-		Brainstorm will also inflict blindness.
-		Charge Leech will also inflict confusion (%d%% effect).
-		Charged Strike will have its secondary lightning burst chain to up to 3 targets in a radius of 3.
-		The damage bonus and resistance penetration scale with your Mindpower.
-		Only one Transcendent talent may be in effect at a time.]]):format(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t), t.getConfuse(self, t))
+		return ([[[%d 턴 동안, 한계를 뛰어넘은 초월적인 전기역학을 다룰 수 있게 됩니다.
+		- 전기 피해량이 %d%% / 전기 저항 관통력이 %d%% 상승합니다.
+		- 전하적 보호막, 전하적 흡수, 전하적 오러 발산, 전하적 강타, 뇌파 폭풍의 재사용 대기 시간이 초기화됩니다.
+		- 전하적 오러 발산 효과의 범위가 1 칸 증가합니다.
+		- 전하적 보호막의 흡수 효율이 100%% 가 되며, 일반적인 피해량을 두 배로 흡수합니다.
+		- 뇌파 폭풍이 실명 효과를 추가로 부여합니다.
+		- 전하적 흡수가 %d%% 효과의 혼란 효과를 추가로 부여합니다.
+		- 전하적 타격이 실명을 일으키는 두 번째 전기 폭발을 일으켜, 3 칸 이내에 있는 최대 3 대상에게 연쇄됩니다.
+		피해량 증가와 저항 관통력은 정신력의 영향을 받아 증가합니다.
+		한번에 하나의 '초월' 기술만을 사용할 수 있습니다.]]):format(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t), t.getConfuse(self, t))
 	end,
 }
 
 newTalent{
 	name = "Thought Sense",
+	kr_name = "사고 감지",
 	type = {"psionic/charged-mastery", 2},
 	require = psi_cun_high2, 
 	points = 5,
@@ -70,14 +72,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Detect the mental activity of creatures in a radius of %d for %d turns.
-		This reveals their location and boosts your defense by %d.
-		The defense scales with you Mindpower and the range with your Willpower.]]):format(t.radius(self, t), t.getDuration(self, t), t.getDefense(self, t))
+		return ([[주변 %d 칸 반경에 있는 적들의 정신 활동을 %d 턴 동안 감지합니다.
+		이를 통해 적들의 위치를 감지하며, 시전자의 회피도가 %d 상승합니다.
+		회피도 상승량은 정신력의 영향을 받아 증가하고 감지 반경은 의지 스탯의 영향을 받아 증가합니다.]]):format(t.radius(self, t), t.getDuration(self, t), t.getDefense(self, t))
 	end,
 }
 
 newTalent{
 	name = "Static Net",
+	kr_name = "정전기 망",
 	type = {"psionic/charged-mastery", 3},
 	require = psi_cun_high3,
 	points = 5,
@@ -116,16 +119,18 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Cast a net of static electricity in a radius of %d for %d turns.
-		Enemies standing in the net will take %0.1f Lightning damage and be slowed by %d%%.
-		When you move through the net, a static charge will accumulate on your weapon which will add %0.1f additional Lightning damage to your next attack for each turn you spend within its area.
-		These effects scale with your Mindpower.]]):
+		return ([[%d 칸 반경에 %d 턴 동안 정전기 망을 설치합니다.
+		정전기 망 안에 있는 적은 %0.1f 전기 피해를 입고 %d%% 감속됩니다.
+		시전자가 정전기 망 안으로 들어갈 경우, 정전하가 무기에 충전되어 다음 공격에 %0.1f 만큼의 추가 전기 피해를 입힙니다.
+		이 효과는 정전기 망 안에 있는 동안 계속 유지됩니다.
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), duration, damDesc(self, DamageType.LIGHTNING, damage), t.getSlow(self, t), damDesc(self, DamageType.LIGHTNING, t.getWeaponDamage(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Heartstart",
+	kr_name = "제세동기",
 	type = {"psionic/charged-mastery", 4},
 	require = psi_cun_high4,
 	points = 5,
@@ -154,9 +159,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Store an electric charge for saving your life at a later time.
-		If you are reduced to less than zero life while this is active, it will deactivate, cure you of all stun/daze/freeze effects and allow you to survive with up to %d negative health for %d turns.
-		The negative health limit scales with your Mindpower and maxium life.]]):
+		return ([[나중을 위해 전하를 충전해놓습니다.
+		이 기술이 유지되는 동안 생명력이 0 이하로 떨어질 경우, 기술을 비활성화시키고, 모든 기절/혼절/빙결 상태효과를 해제시키고 %d 이하로 생명력이 떨어져야 죽을 수 있는 상태가 됩니다.
+		이 효과는 %d 턴 동안 유지됩니다.
+		최저 생명력 한계수치는 정신력과 최대 생명력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getDuration(self, t))
 	end,
 }
