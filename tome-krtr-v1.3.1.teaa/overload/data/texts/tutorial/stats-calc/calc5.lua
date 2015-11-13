@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 return [[
-There's an orc ahead with some prodigous health regeneration.
+앞에 있는 오크는 생명력 회복 속도가 엄청납니다. 절대 죽지 않는 샌드백이죠!
 
-Compare your #LIGHT_GREEN#Accuracy#WHITE# and #LIGHT_GREEN#Defense#WHITE# to its #LIGHT_GREEN#Defense#WHITE# and #LIGHT_GREEN#Accuracy#WHITE#.
+자신의 #LIGHT_GREEN#정확도#WHITE# 와 #LIGHT_GREEN#회피도#WHITE#, 그리고 저 오크의 #LIGHT_GREEN#회피도#WHITE# 와 #LIGHT_GREEN#정확도#WHITE# 를 비교해보세요.
 
-Do you expect to be successful attacking it? 
+자신의 공격은 얼마나 명중할까요?
 
-Do you expect it to be successful attacking you?
+오크의 공격은 얼마나 명중할까요?
 ]]
