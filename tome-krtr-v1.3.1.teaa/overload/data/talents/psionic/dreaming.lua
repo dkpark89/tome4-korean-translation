@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Sleep",
+	kr_name = "재우기",
 	type = {"psionic/dreaming", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -78,7 +79,7 @@ newTalent{
 					target:setEffect(target.EFF_SLEEP, t.getDuration(self, t), {src=self, power=power,  contagious=is_contagious, waking=is_waking, insomnia=t.getInsomniaPower(self, t), no_ct_effect=true, apply_power=self:combatMindpower()})
 					game.level.map:particleEmitter(target.x, target.y, 1, "generic_charge", {rm=0, rM=0, gm=180, gM=255, bm=180, bM=255, am=35, aM=90})
 				else
-					game.logSeen(self, "%s resists the sleep!", target.name:capitalize())
+					game.logSeen(self, "%s 잠들지 않았습니다!", target.name:capitalize())
 				end
 			end
 		end)
@@ -90,15 +91,17 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local power = t.getSleepPower(self, t)
 		local insomnia = t.getInsomniaPower(self, t)
-		return([[Puts targets in a radius of %d to sleep for %d turns, rendering them unable to act.  Every %d points of damage the target suffers will reduce the effect duration by one turn.
-		When Sleep ends, the target will suffer from Insomnia for a number of turns equal to the amount of time it was asleep (up to ten turns max), granting it %d%% sleep immunity for each turn of the Insomnia effect.
-		At talent level 5 Sleep will become contagious and has a 25%% chance to spread to nearby targets each turn.
-		The damage threshold will scale with your Mindpower.]]):format(radius, duration, power, insomnia)
+		return([[%d 칸 반경의 적들을 %d 턴 동안 재웁니다.
+		수면 중에는 행동할 수 없게 되며, %d 피해를 받을 때마다 수면의 지속시간이 1 턴씩 줄어들게 됩니다.
+		수면이 끝나면, 대상은 불면증 상태가 되어 잠들었던 시간만큼 %d%% 수면 면역력을 얻게 됩니다. (최대 10 턴)
+		기술 레벨이 5 이상이면 수면이 전염성을 띄게 되어, 매 턴마다 25%% 확률로 잠든 대상 근처의 잠들지 않은 적이 잠들게 됩니다.
+		피해 한계량은 정신력의 영향을 받아 증가합니다.]]):format(radius, duration, power, insomnia)
 	end,
 }
 
 newTalent{
 	name = "Lucid Dreamer",
+	kr_name = "자각몽",
 	type = {"psionic/dreaming", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -129,14 +132,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local power = t.getPower(self, t)
-		return ([[Slip into a lucid dream.  While in this state, you are considered sleeping, but can still act, are immune to insomnia, inflict %d%% more damage to targets under the effects of Insomnia, and your Physical, Mental, and Spell saves are increased by %d.
-		Note that being asleep may make you more vulnerable to certain effects (such as Inner Demons, Night Terror, and Waking Nightmare).
-		The saving throw bonuses scale with your Mindpower.]]):format(power, power)
+		return ([[자각몽에 빠져, 수면 상태이면서 행동할 수 있는 상태가 됩니다.
+		불면증 상태에 완전 면역이 되고, 불면증 상태의 적에게 %d%% 더 많은 피해를 줄 수 있으며, 물리 내성, 주문 내성, 정신 내성이 %d 증가합니다.
+		잠든 상대에게 더욱 치명적인 기술들에는 취약해집니다. (내면의 악마, 잠들지 못하는 공포, 밤의 공포 등)
+		내성 증가량은 정신력의 영향을 받아 증가합니다.]]):format(power, power)
 	end,
 }
 
 newTalent{
 	name = "Dream Walk",
+	kr_name = "꿈 속을 걷는 자",
 	type = {"psionic/dreaming", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -156,7 +161,7 @@ newTalent{
 		local x, y, target = self:getTarget(tg)
 		if not x or not y then return nil end
 		if not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, "block_move") then
-			game.logPlayer(self, "You do not have line of sight to this location.")
+			game.logPlayer(self, "보이지 않는 곳입니다.")
 			return nil
 		end
 		local __, x, y = self:canProject(tg, x, y)
@@ -169,7 +174,7 @@ newTalent{
 		game.level.map:particleEmitter(x, y, 1, "generic_teleport", {rm=0, rM=0, gm=180, gM=255, bm=180, bM=255, am=35, aM=90})
 
 		if not self:teleportRandom(x, y, teleport) then
-			game.logSeen(self, "The dream walk fizzles!")
+			game.logSeen(self, "꿈 속의 세계로 이동하지 못했습니다!")
 		end
 
 		game.level.map:particleEmitter(self.x, self.y, 1, "generic_teleport", {rm=0, rM=0, gm=180, gM=255, bm=180, bM=255, am=35, aM=90})
@@ -179,12 +184,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[You move through the dream world, reappearing near the target location (%d teleport accuracy).  If the target is a sleeping creature, you'll instead appear as close to them as possible.]]):format(radius)
+		return ([[꿈 속의 세계를 통해 이동하여, 선택 지역 근처로 순간이동 합니다. (순간이동 정확도 : %d)
+		대상이 수면 중이라면, 무조건 수면 중인 대상 근처로 순간이동 합니다.]]):format(radius)
 	end,
 }
 
 newTalent{
 	name = "Dream Prison",
+	kr_name = "꿈의 감옥",
 	type = {"psionic/dreaming", 4},
 	points = 5,
 	require = psi_wil_req4,
@@ -214,8 +221,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local drain = t.getDrain(self, t)
-		return ([[Imprisons all sleeping targets within range in their dream state, effectively extending sleeping effects for as long as Dream Prison is maintainted.
-		This powerful effect constantly drains %0.2f%% of your maximum Psi per turn, and is considered a psionic channel; as such it will break if you move.
-		(Note that sleeping effects that happen each turn, such as Nightmare's damage and Sleep's contagion, will cease to function for the duration of the effect.)]]):format(drain)
+		return ([[범위 내의 모든 수면 중인 적들을 꿈의 감옥에 가둬, 감옥의 지속시간 동안 깨어나지 못하게 만듭니다.
+		지속시간 동안 매 턴마다 최대 염력의 %0.2f%% 에 해당하는 염력이 소진되며, 염력 집중이 필요합니다. (이동하면 집중이 깨집니다)
+		악몽의 지속 피해나 재우기의 수면 전염 등 매 턴마다 적용되는 효과들은, 이 기술을 사용해도 그 지속시간이 늘어나지 않습니다.]]):format(drain)
 	end,
 }
