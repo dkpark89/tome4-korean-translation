@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Biofeedback",
+	kr_name = "생체 반작용",
 	type = {"psionic/feedback", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -32,13 +33,15 @@ newTalent{
 		local decaySpeed = t.getDecaySpeed(self, t)
 		local newDecay = decaySpeed*0.1
 		local netHeal = newDecay*heal
-		return ([[Your Feedback decay now heals you for %0.1f times the loss, and the decay rate is reduced to %d%% of the normal rate (up to %0.1f%% per turn).  As a result, you are healed for %0.2f%% of your feedback pool each turn.
-		The healing effect improves with your Willpower.]]):format(heal, decaySpeed*100, newDecay*100, netHeal*100)
+		return ([[감소된 반작용이 %0.1f%% 효율로 생명력을 회복시킵니다. 또한 반작용 감소가 원래 감소량의 %d%% 만큼만 적용됩니다. (매 턴마다 %0.1f%%) 
+		결과적으로, 매 턴마다 반작용 총량의 %0.2f%% 만큼의 생명력을 회복하게 됩니다.
+		회복 효과는 의지 능력치의 영향을 받아 증가합니다.]]):format(heal, decaySpeed*100, newDecay*100, netHeal*100)
 	end,
 }
 
 newTalent{
 	name = "Resonance Field",
+	kr_name = "반향 장막",
 	type = {"psionic/feedback", 2},
 	points = 5,
 	feedback = 25,
@@ -54,13 +57,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local shield_power = t.getShieldPower(self, t)
-		return ([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain.
-		The max absorption value will scale with your Mindpower, and the effect lasts up to ten turns.]]):format(shield_power)
+		return ([[반향 장막을 만들어, 받는 피해의 50%% 를 흡수합니다. (최대 %d 피해까지 흡수 가능)
+		반향 장막은 반작용 획득을 감소시키지 않습니다.
+		최대 피해 흡수량은 정신력의 영향을 받아 증가하며, 반향 장막은 최대 10 턴 동안 유지할 수 있습니다.]]):format(shield_power)
 	end,
 }
 
 newTalent{
 	name = "Amplification",
+	kr_name = "증폭",
 	type = {"psionic/feedback", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -80,20 +85,21 @@ newTalent{
 	info = function(self, t)
 		local max_feedback = t.getMaxFeedback(self, t)
 		local gain = t.getFeedbackGain(self, t)
-		return ([[Increases your maximum Feedback by %d, and increases your base Feedback gain ratio to %d%%.
-		The Feedback gain will scale with your Mindpower.]]):format(max_feedback, gain * 100)
+		return ([[최대 반작용 수치를 %d 증가시키고, 반작용 획득 기본 비율이 %d%% 가 됩니다.
+		반작용 획득 비율은 정신력의 영향을 받아 증가합니다.]]):format(max_feedback, gain * 100)
 	end,
 	info = function(self, t)
 		local max_feedback = t.getMaxFeedback(self, t)
 		local gain = t.getFeedbackGain(self, t)
 		local feedbackratio = self:callTalent(self.T_FEEDBACK_POOL, "getFeedbackRatio")
-		return ([[Increases your maximum Feedback by %d, and increases the Feedback you gain from damage by %0.1f%% (to %0.1f%% of damage received).
-		The Feedback gain will scale with your Mindpower.]]):format(max_feedback, gain*100, feedbackratio*100)
-	end,
+		return ([[최대 반작용 수치를 %d 증가시키고, 피해로부터 받는 반작용이 %0.1f%% 증가합니다. (즉, 피해량의 %0.1f%% 만큼 회복)
+		반작용 획득 비율은 정신력의 영향을 받아 증가합니다.]]):format(max_feedback, gain*100, feedbackratio*100)
+	end, --@ info 함수가 두번 중복되어 있는 것은 실수가 아니고, 원래 코드가 그럼(원 제작자의 실수인 듯)
 }
 
 newTalent{
 	name = "Conversion",
+	kr_name = "변환",
 	type = {"psionic/feedback", 4},
 	points = 5,
 	feedback = 25,
@@ -135,7 +141,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local data = t.getData(self, t)
-		return ([[Use Feedback to replenish yourself.  This heals you for %d life, and restores %d stamina, %d mana, %d equilibrium, %d vim, %d positive and negative energies, %d psi energy, and %d hate.
-		The heal and resource gain will improve with your Mindpower.]]):format(data.heal, data.stamina, data.mana, -data.equilibrium, data.vim, data.positive, data.psi, data.hate)
+		return ([[반작용을 사용하여 다른 원천력을 회복합니다.
+		생명력이 %d / 체력이 %d / 마나가 %d / 평정이 %d / 원기가 %d / 양기와 음기가 %d / 염력이 %d / 증오가 %d 회복됩니다.
+		회복량은 정신력의 영향을 받아 증가합니다.]]):format(data.heal, data.stamina, data.mana, -data.equilibrium, data.vim, data.positive, data.psi, data.hate)
 	end,
 }
