@@ -18,10 +18,11 @@
 -- darkgod@te4.org
 
 return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You died ages ago, but that did not stop you. You were raised as an undead skeleton.
+당신은 오래전에 죽었으나 그렇다고 당신의 여정이 끝난 건 아닙니다. 당신은 해골 언데드가 되어 부활했기 때문입니다.
 
-Your Necromancer master has plans for you, but something is wrong: you seem to have kept your free will.
-Get rid of this evil mage and try to find a place in the world.
+당신의 주인인 네크로맨서는 당신에 대해 미리 계획한 바가 있었지만 뭔가 잘못됐군요. 당신 아직 자유의지가 남아있는 거 같습니다. 
 
-You have been raised in a place called the Blighted Scar, on the northern border of the Shaloren lands. Escape this forsaken pit and try your luck in old forgotten places.
+사악한 마법사를 물리치고, 당신이 어울려 살만한 곳이 세상 어딘가에 있을지 찾아보도록 하십시오.
+
+당신은 샬로렌 영역 북쪽 변방의 황폐화된 폐허라는 곳에서 깨어났습니다. 이 버려진 구렁텅이를 떠나 이 낡고 버려진 지역에서 당신의 운을 시험해보세요.
 ]]
