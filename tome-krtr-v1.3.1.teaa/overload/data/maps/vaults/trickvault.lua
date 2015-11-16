@@ -37,7 +37,7 @@ defineTile('m', "FLOOR", nil, {random_filter={add_levels=10}})
 defineTile('M', "FLOOR", nil, {random_filter={add_levels=20}})
 defineTile('*', "FLOOR", {random_filter={add_levels=15, tome_mod="vault"}})
 defineTile('?', "FLOOR", {random_filter={name = "teleportation rune"}})
-defineTile('S', "HARDWALL", nil, nil, nil, {on_block_change="DOOR", on_block_change_msg="You've discovered a secret door!"})
+defineTile('S', "HARDWALL", nil, nil, nil, {on_block_change="DOOR", on_block_change_msg="비밀의 문을 찾았습니다!"})
 
 defineTile('1', "GENERIC_LEVER", nil, nil, nil, {lever=1,  lever_kind = {a = true, b = true, x = true}, lever_radius=100, lever_block="block"})
 defineTile('2', "GENERIC_LEVER", nil, nil, nil, {lever=1,  lever_kind = {a = true, b = true, c = true, d = true}, lever_radius=100, lever_block="block"})
@@ -63,6 +63,7 @@ defineTile('t', mod.class.Grid.new{
 	define_as = "TELEPORT_FLOOR_1",
 	type = "floor", subtype = "floor",
 	name = "runed floor", image = "terrain/marble_floor.png", add_displays={mod.class.Grid.new{z=5, image = "trap/trap_teleport_01.png"}},
+	kr_name = "룬이 적힌 바닥",
 	display = '^', color_r=255, color_g=0, color_b=255, back_color=colors.DARK_GREY,
 	on_move = function(self, x, y, actor, forced)
 		if not actor.player then return end
@@ -76,12 +77,12 @@ defineTile('t', mod.class.Grid.new{
 		game.level.map:particleEmitter(x, y, 1, "teleport")
 		game.level.map:particleEmitter(fx, fy, 1, "teleport")
 
-		game.logPlayer(actor, "#YELLOW#The world spins around you!")
+		game.logPlayer(actor, "#YELLOW#주변 환경이 급격하게 변화합니다!")
 	end,
 },
 nil, nil, nil, {lever_action_value=0, lever_action_only_once=true, lever_action_kind="teleporter", lever_action_custom=function(i, j, who, val, old)
 	if val == 2 then
-		game.logPlayer(who, "#YELLOW#The air comes alive with terrible magics!")
+		game.logPlayer(who, "#YELLOW#끔찍한 마법이 발동하여, 악마가 소환되었습니다!")
 		local g = game.level.map(i, j, game.level.map.TERRAIN)
 		g.activated = true
 		local m = game.zone:makeEntity(game.level, "actor", {type = "demon", subtype = "major", random_boss={nb_classes=2, rank=3.5, loot_quantity = 3}})
@@ -97,6 +98,7 @@ defineTile('u', mod.class.Grid.new{
 	define_as = "TELEPORT_FLOOR_2",
 	type = "floor", subtype = "floor",
 	name = "runed floor", image = "terrain/marble_floor.png", add_displays={mod.class.Grid.new{z=5, image = "trap/trap_teleport_01.png"}},
+	kr_name = "룬이 적힌 바닥",
 	display = '^', color_r=255, color_g=0, color_b=255, back_color=colors.DARK_GREY,
 	on_move = function(self, x, y, actor, forced)
 		if not actor.player then return end
@@ -110,7 +112,7 @@ defineTile('u', mod.class.Grid.new{
 		game.level.map:particleEmitter(x, y, 1, "teleport")
 		game.level.map:particleEmitter(fx, fy, 1, "teleport")
 
-		game.logPlayer(actor, "#YELLOW#The world spins around you!")
+		game.logPlayer(actor, "#YELLOW#주변 환경이 급격하게 변화합니다!")
 	end,
 },
 nil, nil, nil, {lever_action_value=0, lever_action_only_once=true, lever_action_kind="teleporter", lever_action_custom=function(i, j, who, val, old)
