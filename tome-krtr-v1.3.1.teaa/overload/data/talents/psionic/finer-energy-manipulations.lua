@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Realign",
+	kr_name = "재조정", 
 	type = {"psionic/finer-energy-manipulations", 1},
 	require = psi_cun_req1,
 	points = 5,
@@ -63,7 +64,7 @@ newTalent{
 			end
 		end
 		if known then
-			game.logSeen(self, "%s is cured!", self.name:capitalize())
+			game.logSeen(self, "%s 치료되었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		end
 		
 		if core.shader.active(4) then
@@ -76,14 +77,15 @@ newTalent{
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
 		local cure = t.numCure(self, t)
-		return ([[Realign and readjust your body with the power of your mind, curing up to %d detrimental physical effects and healing you for %d life.
-		The life healed increases with your Mindpower.]]):
+		return ([[정신력을 통해 육체를 재조정 및 재변경하여, %d 개의 해로운 물리적 상태 이상을 치료하고 생명력을 %d 회복합니다.
+		생명력 회복량은 정신력의 영향을 받아 증가합니다.]]):
 		format(cure, heal)
 	end,
 }
 
 newTalent{
 	name = "Reshape Weapon/Armour", image = "talents/reshape_weapon.png",
+	kr_name = "무기/갑옷 재구성",
 	type = {"psionic/finer-energy-manipulations", 2},
 	require = psi_cun_req2,
 	mode = "passive",
@@ -115,16 +117,17 @@ newTalent{
 		local weapon_boost = t.damBoost(self, t)
 		local arm = t.armorBoost(self, t)
 		local fat = t.fatigueBoost(self, t)
-		return ([[Manipulate forces on the molecular level to realign, rebalance, and hone a weapon, set of body armor, or a shield.  (Mindstars resist being adjusted because they are already in an ideal natural state.)
-		The accuracy and damage of any weapon will act as if %d higher.
-		Your total armour will increase by %d and your fatigue rating by %d for each body armour and shield worn.
-		The effects increase with your Mindpower.]]):
+		return ([[무기나 갑옷, 또는 방패를 원자 레벨에서부터 재구성합니다. (마석은 이미 이상적인 상태로 존재하기 때문에, 재구성을 저항합니다)
+		무기의 정확도와 피해량이 영구적으로 %d 상승합니다.
+		갑옷이나 방패 착용시 각각 방어도가 영구적으로 %d 상승하고, 피로도가 영구적으로 %d 감소합니다.
+		변화량은 정신력의 영향을 받아 증가합니다.]]):
 		format(weapon_boost, arm, fat)
 	end,
 }
 
 newTalent{
 	name = "Matter is Energy",
+	kr_name = "에너지 추출",
 	type = {"psionic/finer-energy-manipulations", 3},
 	require = psi_cun_req3,
 	cooldown = 50,
@@ -135,7 +138,7 @@ newTalent{
 		return self:combatTalentMindDamage(t, 10, 40)
 	end,
 	action = function(self, t)
-		local ret = self:talentDialog(self:showInventory("Use which gem?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.material_level and not gem.unique end, function(gem, gem_item)
+		local ret = self:talentDialog(self:showInventory("어느 보석을 사용합니까?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.material_level and not gem.unique end, function(gem, gem_item)
 			self:removeObject(self:getInven("INVEN"), gem_item)
 			local amt = t.energy_per_turn(self, t)
 			local dur = 3 + 2*(gem.material_level or 0)
@@ -148,15 +151,19 @@ newTalent{
 	end,
 	info = function(self, t)
 		local amt = t.energy_per_turn(self, t)
-		return ([[Matter is energy, as any good Mindslayer knows. Unfortunately, the various bonds and particles involved are just too numerous and complex to make the conversion feasible in most cases. The ordered, crystalline structure of a gem, however, make it possible to transform a small percentage of its matter into usable energy.
-		This talent consumes one gem and grants %d energy per turn for between 5 and 13 turns, depending on the quality of the gem used.
-		This process also creates a resonance field that provides the (imbued) effects of the gem to you while this effect lasts.]]):
+		return ([[위대한 정신 파괴자의 말에 의하면, '모든 물체는 에너지의 근원이다' 고 합니다. 
+		하지만 불행하게도, 대부분의 물체들은 너무나 복잡한 구성 방식을 가지고 있어서 에너지로 활용할 수 없습니다. 
+		그나마 관리가 된 보석의 결정 구조는 단순한 편이기 때문에, 에너지를 추출해낼 수 있습니다.
+		이 기술은 보석을 하나 소모하여, 5 - 13 턴 동안 매 턴마다 %d 염력을 추가로 회복합니다.
+		수준 높은 보석일수록, 더 오랫동안 염력을 회복시켜줍니다.
+		이 과정은 공명 역장을 형성해, 염력을 회복하는 동안 보석의 합성 효과를 제공합니다.]]):
 		format(amt)
 	end,
 }
 
 newTalent{
 	name = "Resonant Focus",
+	kr_name = "공명 집중", 
 	type = {"psionic/finer-energy-manipulations", 4},
 	require = psi_cun_req4,
 	mode = "passive",
@@ -176,10 +183,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local inc = t.bonus(self,t)
-		return ([[By carefully synchronizing your mind to the resonant frequencies of your psionic focus, you strengthen its effects.
-		For conventional weapons, this increases the percentage of your willpower and cunning that is used in place of strength and dexterity for all weapon attacks, from 60%% to %d%%.
-		For mindstars, this increases the chance to pull enemies to you by +%d%%.
-		For gems, this increases the bonus stats by %d.]]):
+		return ([[염동력의 공명 파장과 시전자의 정신력을 조심스럽게 동기 조정해, 그 효과를 강화시킵니다.
+		염동력으로 쥐고 있는 무기의 경우, 힘과 민첩 능력치 대신 사용하는 의지와 교활함의 비율을 강화시킵니다. (기존 60%% 에서 %d%%)
+		마석의 경우, 적을 끌어 당길 확률이 +%d%%만큼 상승합니다.
+		보석의 경우, 모든 능력치가 %d 만큼 더 상승합니다.]]):
 		format(60+inc, inc, math.ceil(inc/5))
 	end,
 }
