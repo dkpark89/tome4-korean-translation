@@ -17,13 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You are a member of the proud, but secretive, race of the Dwarves.
-Hailing from the Dwarven Empire of the Iron Throne, you have been sent to investigate the old fortress of Reknor which has been overrun by orcs.
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 자랑스럽지만, 다른 종족들에게는 비밀을 유지하고 있는 드워프 종족의 일원입니다.
+드워프 제국 '철의 왕좌' 출신인 당신은, 오크들이 들끓고 있는 레크놀의 오래된 요새를 조사하기 위해 파견되었습니다.
 
-Upon arriving most of your team got killed and now you must crawl back to the Iron Council and report what you saw there.
-Only you and Norgan, a fellow Dwarf berserker, have survived, but the orcs will not let you go easily.
+하지만 그곳에 도착한지 얼마 되지 않아 대부분의 동료들은 죽어버렸고, 이제 당신은 어떻게든 철의 평의회로 돌아가 당신이 본 것을 보고해야 합니다.
+오직 당신과 동료 드워프 버서커인 노르간만이 살아남았지만, 오크들은 쉽게 당신들을 놓아주지 않을 것입니다.
 
-You have sworn that once you reach the Iron Council safely you will take on a life of adventure, looking for fame and treasures of old.
-Away from all those orcs....
+당신은 철의 왕좌에 어떻게든 도착하기만 한다면, 그때부터는 명예와 오래된 보물들을 쫓는 모험의 삶을 살아가리라고 맹세했습니다.
+이 오크들에게서 벗어난 후의 이야기지만 말이죠...
 ]]
