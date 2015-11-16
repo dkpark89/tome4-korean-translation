@@ -18,7 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-These tiers are not just for show. 
+단계 구분은 단순한 보여주기 용이 아닙니다.
 
-Let's see if you can discover a way in which they're NOT purely cosmetic. Go plunder the room ahead!
+단계 표시가 그저 장식용이 아닌 이유를 보여드리죠. 앞에 있는 장비를 주워서 착용해보세요.
+
+분명 남의 물건들이긴 하지만, 뭐 어때요. 최소한 어떤 게임의 주인공처럼 남의 집을 무단침입해서 귀중품을 훔쳐가는건 아니니까요.
 ]]
