@@ -17,11 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You died ages ago, but that did not stop you. You were raised as an undead ghoul.
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 오래 전에 죽었지만, 죽음도 당신을 멈추게 할 수 없었습니다. 당신은 언데드 구울로 일으켜졌습니다.
 
-Your Necromancer master has plans for you, but something is wrong: you seem to have kept your free will.
-Get rid of this evil mage and try to find a place in the world.
+당신의 사령술사 주인은 당신을 일으키기 위한 준비를 하였지만, 어딘가에 문제가 있었던 것 같습니다. 당신의 자유의지가 사라지지 않은 것입니다.
+이 사악한 마법사를 죽여버리고, 세계를 탐험하십시오!
 
-You have been raised in a place called the Blighted Scar, on the northern border of the Shaloren lands. Escape this forsaken pit and try your luck in old forgotten places.
+당신은 샬로레 영역의 북쪽 경계에 위치한, 황폐화된 폐허에서 언데드로 일으켜졌습니다. 이 버려진 곳에서 탈출할 수 있을지, 자신의 운을 시험해 볼 시간입니다.
 ]]
