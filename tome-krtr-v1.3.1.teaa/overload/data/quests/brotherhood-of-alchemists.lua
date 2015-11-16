@@ -38,7 +38,7 @@ desc = function(self, player, who)
 			if self:isCompleted(self.e[i][j].full) and not self:isCompleted(self.e[i][j].poached) then
 				desc[#desc+1] = "#GREEN#당신은 "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist).."의 작업을 도와, "..(self.e[i][j].kr_name or self.e[i][j].name):addJosa("를").." 만들었습니다.#WHITE#"
 			elseif self:isCompleted(self.e[i][j].full) and self:isCompleted(self.e[i][j].poached) then
-				desc[#desc+1] = "#RED#"당신의 도움을 받지 않고, "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist):addJosa("는").." "..(self.e[i][j].kr_name or self.e[i][j].name):addJosa("를").." 만들었습니다.#WHITE#"
+				desc[#desc+1] = "#RED#당신의 도움을 받지 않고, "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist):addJosa("는").." "..(self.e[i][j].kr_name or self.e[i][j].name):addJosa("를").." 만들었습니다.#WHITE#"
 			elseif self:isCompleted(self.e[i][j].start) and not self:isCompleted(self.e[i][j].full) and self:isStatus(self.DONE) then
 				desc[#desc+1] = "#SLATE#연금술사 형제단에 입단할 수 없게 됐기 때문에, "..(self.e[i][j].kr_alchemist or self.e[i][j].alchemist):addJosa("는").." 더 이상 당신에게 "..(self.e[i][j].kr_name or self.e[i][j].name):addJosa("를").." 만들어줄 이유가 없어졌습니다."
 			elseif self:isCompleted(self.e[i][j].start) and not self:isCompleted(self.e[i][j].full) then
