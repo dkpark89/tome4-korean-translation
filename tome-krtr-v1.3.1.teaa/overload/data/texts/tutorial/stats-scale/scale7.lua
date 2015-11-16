@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Those boots appear to have only increased your #LIGHT_GREEN#Physical save#WHITE# by 5.
+분명 #LIGHT_GREEN#물리 내성#WHITE# 을 10 올려주는 장화를 신었는데, #LIGHT_GREEN#물리 내성#WHITE# 수치가 5 밖에 증가하지 않네요.
 
-What do you suppose would be the effects of putting on a helmet with +6 #LIGHT_GREEN#Accuracy#WHITE#?
+#LIGHT_GREEN#정확도#WHITE# 를 6 올려주는 투구를 쓰면 어떻게 될까요?
 ]]
