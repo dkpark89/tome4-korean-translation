@@ -17,10 +17,10 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You have arrived in the Infinite Dungeon.
-Your life outside did not satisfy you, so you came here looking for adventure.
-While you know this is a one way trip, you hope to go in a blaze of glory!
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 무한의 던전에 도착했습니다.
+바깥 세상에서의 삶은 당신을 만족시키지 못했고, 그래서 당신은 모험을 찾아 여기로 오게 되었습니다.
+다시 돌아올 수 없는 길이라는 걸 안다면, 영광스럽게 불타며 최후를 맞기를 비십시오!
 
-Go forth, venture into the depths of the dungeon and see how far you can get before the end.
+나아가십시오. 던전의 가장 깊은 곳까지 탐험하고, 숨이 끊어지기 전에 어디까지 도달할 수 있는지 그 두 눈으로 똑똑히 지켜보십시오.
 ]]
