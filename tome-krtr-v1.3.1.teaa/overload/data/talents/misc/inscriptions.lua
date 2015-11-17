@@ -135,6 +135,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Wild",
+	kr_name = "주입 : 자연",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -157,7 +158,7 @@ newInscription{
 		removed = removed + target:removeEffectsFilter({types=data.what, status="detrimental"}, 1)
 
 		if removed > 0 then
-			game.logSeen(self, "%s is cured!", self.name:capitalize())
+			game.logSeen(self, "%s 치료되었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		end
 		self:setEffect(self.EFF_PAIN_SUPPRESSION, data.dur, {power=data.power + data.inc_stat})
 		return true
@@ -165,21 +166,21 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local what = table.concatNice(table.keys(data.what), ", ", " or ")
-
-		return ([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
-
-Also removes cross-tier effects of the affected types for free.]]):format(what, data.power+data.inc_stat, data.dur)
+		what = what:gsub("physical", "물리적"):gsub("magical", "마법적"):gsub("mental", "정신적")
+		return ([[주입된 힘을 사용하여 나쁜 %s 상태효과를 제거하고, %d 턴 동안 시전자가 받는 피해량이 %d%% 감소합니다.]]):format(what, data.dur, data.power+data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local what = table.concat(table.keys(data.what), ", ")
-		return ([[resist %d%%; cure %s]]):format(data.power + data.inc_stat, what)
+		what = what:gsub("physical", "물리적"):gsub("magical", "마법적"):gsub("mental", "정신적")
+		return ([[피해량 %d%% 감소, %s 상태효과 치료]]):format(data.power + data.inc_stat, what)
 	end,
 }
 
 -- fixedart wild variant
 newInscription{
 	name = "Infusion: Primal", image = "talents/infusion__wild.png",
+	kr_name = "주입 : 근원",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -201,28 +202,26 @@ newInscription{
 		removed = target:removeEffectsFilter({types=data.what, subtype={["cross tier"] = true}, status="detrimental"})
 		removed = removed + target:removeEffectsFilter({types=data.what, status="detrimental"}, 1)
 		if removed > 0 then
-			game.logSeen(self, "%s is cured!", self.name:capitalize())
+			game.logSeen(self, "%s 치료되었습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		end
 		self:setEffect(self.EFF_PRIMAL_ATTUNEMENT, data.dur, {power=data.power + data.inc_stat})
 		return true
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		local what = table.concatNice(table.keys(data.what), ", ", " or ")
-
-		return ([[Activate the infusion to cure yourself of one random %s effect and increase affinity for all damage by %d%% for %d turns.
-
-Also removes cross-tier effects of the affected types for free.]]):format(what, data.power+data.inc_stat, data.dur)
+		local what = table.concatNice(table.krEffectKeys(data.what), ", ", " or ")
+		return ([[주입된 힘을 사용하여 무작위로 %s 효과를 치료하고, %d 턴 동안 전체 피해 친화를 %d%% 상승시킵니다.]]):format(what, data.dur,  data.power+data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		local what = table.concat(table.keys(data.what), ", ")
-		return ([[affinity %d%%; cure %s]]):format(data.power + data.inc_stat, what)
+		local what = table.concat(table.krEffectKeys(data.what), ", ") --@ 상태효과 이름 한글화
+		return ([[피해 친화 %d%% / %s 치료]]):format(data.power + data.inc_stat, what)
 	end,
 }
 
 newInscription{
 	name = "Infusion: Movement",
+	kr_name = "주입 : 이동",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -236,14 +235,14 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
-		Any actions other than movement will cancel the effect.
-		Also prevent stuns, dazes and pinning effects for %d turns.
-		Note: since you will be moving very fast, game turns will pass very slowly.]]):format(data.speed + data.inc_stat, data.dur)
+		return ([[주입된 힘을 사용하여, 이동 속도가 %d%% 증가합니다.
+		이동 속도가 굉장히 빨라지기 때문에, 상대적으로 게임의 전체적인 턴은 느리게 진행됩니다.
+		이 효과는 게임의 전체적인 턴으로 1 턴이 지나거나, 이동을 제외한 다른 행동을 하면 사라집니다.
+		그리고, %d 턴 동안 기절, 혼절, 속박 상태효과에 걸리지 않게 됩니다.]]):format(data.speed + data.inc_stat, data.dur)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d%% speed; %d turns]]):format(data.speed + data.inc_stat, data.dur)
+		return ([[%d%% 이동 속도, 상태효과 완전 면역 %d 턴]]):format(data.speed + data.inc_stat, data.dur)
 	end,
 }
 
@@ -251,6 +250,7 @@ newInscription{
 
 newInscription{
 	name = "Infusion: Sun",
+	kr_name = "주입 : 태양",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACKAREA = 1, DISABLE = { blind = 2 } },
@@ -277,19 +277,20 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local apply = self:rescaleCombatStats((data.power + data.inc_stat))
-		return ([[Activate the infusion to brighten the area in a radius of %d and illuminate stealthy creatures, possibly revealing them (reduces stealth power by %d).%s
-		It will also blind any creatures caught inside (power %d) for %d turns.]]):
-		format(data.range, apply/2, apply >= 19 and "\nThe light is so powerful it will also banish magical darkness" or "", apply, data.turns)
+		return ([[주입된 힘을 사용하여, 주변 %d 칸을 밝게 비춥니다. 빛에 의해 은신 중인 적의 은신 수치가 %d 감소하여, 은신이 해제될 수도 있습니다. %s
+		빛에 노출된 적들은 %d 턴 동안 실명 상태효과에 걸립니다. (실명 수치 +%d)]]):
+		format(data.range, apply/2, apply >= 19 and "\n이 강렬한 빛은 마법적인 어둠마저 없애버릴 수 있습니다." or "", data.turns, apply) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local apply = self:rescaleCombatStats((data.power + data.inc_stat))
-		return ([[rad %d; power %d; turns %d%s]]):format(data.range, apply, data.turns, apply >= 19 and "; dispells darkness" or "")
+		return ([[범위 %d, 위력 %d, %d 턴 유지%s]]):format(data.range, apply, data.turns, apply >= 19 and "; 마법적 어둠 제거" or "")
 	end,
 }
 
 newInscription{
 	name = "Infusion: Heroism",
+	kr_name = "주입 : 영웅",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	no_energy = true,
@@ -301,19 +302,20 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the infusion to increase three of your primary stats by %d for %d turns.
-		While Heroism is active, you will only die when reaching -%d life. However, when below 0 you cannot see how much life you have left.
-		It will always increase your three highest stats.
-		If your life is below 0 when this effect wears off it will be set to 1.]]):format(data.power + data.inc_stat, data.dur, data.die_at + data.inc_stat * 30)
+		return ([[주입된 힘을 사용하여, 시전자의 세 가지 주요 능력치 (가장 높은 능력치) 를 %d 턴 동안 %d 만큼 올립니다.
+		영웅 효과가 지속되는 동안에는 생명력이 0 이 되도 죽지 않으며, -%d 생명력이 되어야 사망합니다. 
+		하지만 생명력이 0 이하로 떨어지면 남은 생명력을 알 수 없게 됩니다.
+		생명력이 0 이하인 상태로 주입물의 효과가 끝날 경우, 생명력이 1 로 회복됩니다.]]):format(data.dur, data.power + data.inc_stat, data.die_at + data.inc_stat * 30) --@ 변수 순서 조정 
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[+%d for %d turns, die at -%d]]):format(data.power + data.inc_stat, data.dur, data.die_at + data.inc_stat * 30)
+		return ([[능력치 +%d, %d 턴 유지, 생명력 하한 -%d]]):format(data.power + data.inc_stat, data.dur, data.die_at + data.inc_stat * 30)
 	end,
 }
 
 newInscription{
 	name = "Infusion: Insidious Poison",
+	kr_name = "주입 : 잠식형 독",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACK = { NATURE = 1 }, DISABLE=1, CURE = function(self, t, target)
@@ -342,18 +344,19 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the infusion to spit a bolt of poison doing %0.2f nature damage per turn for 7 turns, and reducing the target's healing received by %d%%.
-		The sudden stream of natural forces also strips you of one random detrimental magical effect.]]):format(damDesc(self, DamageType.NATURE, data.power + data.inc_stat) / 7, data.heal_factor)
+		return ([[주입된 힘을 사용하여, 독을 뱉습니다. 독에 맞은 대상은 7 턴 동안 매 턴마다 %0.2f 자연 피해를 입으며, 회복 효율이 %d%% 감소합니다.
+		갑작스러운 자연적 힘의 흐름으로, 당신이 가지고 있던 임의의 나쁜 마법 상태이상 효과 하나가 사라집니다.]]):format(damDesc(self, DamageType.NATURE, data.power + data.inc_stat) / 7, data.heal_factor)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d nature damage, %d%% healing reduction]]):format(damDesc(self, DamageType.NATURE, data.power + data.inc_stat) / 7, data.heal_factor)
+		return ([[%d 자연 피해, 회복 효율 %d%% 감소]]):format(damDesc(self, DamageType.NATURE, data.power + data.inc_stat) / 7, data.heal_factor)
 	end,
 }
 
 -- Opportunity cost for this is HUGE, it should not hit friendly, also buffed duration
 newInscription{
 	name = "Infusion: Wild Growth",
+	kr_name = "주입 : 야생",
 	type = {"inscriptions/infusions", 1},
 	points = 1,
 	tactical = { ATTACKAREA = { PHYSICAL = 1, NATURE = 1 }, DISABLE = 3 },
@@ -378,13 +381,13 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local damage = t.getDamage(self, t)
-		return ([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place and dealing %0.2f physical damage and %0.2f nature damage.
-		The vines also grow all around you, increasing your armour by %d and armour hardiness by %d.]]):
+		return ([[땅에서 덩굴이 솟아나 %d 턴 동안 주변 %d 칸 반경에 있는 적들의 발을 묶고, %0.2f 물리 피해, %0.2f 자연 피해를 줍니다.
+		덩굴은 당신의 주변에서도 솟아나, 당신의 방어도를 %d 만큼 올려주고 방어 효율도 %d 만큼 올려줍니다.]]):
 		format(self:getTalentRadius(t), data.dur, damDesc(self, DamageType.PHYSICAL, damage)/3, damDesc(self, DamageType.NATURE, 2*damage)/3, data.armor or 50, data.hard or 30)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Rad %d for %d turns]]):format(self:getTalentRadius(t), data.dur)
+		return ([[주변 %d 칸 속박, %d 턴 유지]]):format(self:getTalentRadius(t), data.dur)
 	end,
 }
 
@@ -393,6 +396,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Rune: Phase Door",
+	kr_name = "룬 : 근거리 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -413,19 +417,20 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local power = (data.power or data.range) + data.inc_stat * 3
-		return ([[Activate the rune to teleport randomly in a range of %d.
-		Afterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.]]):
+		return ([[룬을 발동하여, %d 칸 주변의 무작위한 곳으로 순간이동합니다.
+		그 이후, %d 턴 동안 당신은 현실에서 조금 벗어나 있게 됩니다. 그동안 모든 나쁜 상태이상 효과의 지속시간은 %d%% 만큼 감소하고, 회피도가 %d 만큼 상승하며, 전체 저항이 %d%% 상승합니다.]]):
 		format(data.range + data.inc_stat, data.dur or 3, power, power, power)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local power = (data.power or data.range) + data.inc_stat * 3
-		return ([[range %d; power %d; dur %d]]):format(data.range + data.inc_stat, power, data.dur or 3)
+		return ([[주변 %d 칸 무작위 순간이동 (세기 %d), %d 턴 간 현실에서 벗어남]]):format(data.range + data.inc_stat, power, data.dur or 3)
 	end,
 }
 
 newInscription{
 	name = "Rune: Controlled Phase Door",
+	kr_name = "룬 : 제어된 근거리 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -443,7 +448,7 @@ newInscription{
 		-- Check LOS
 		local rad = 3
 		if not self:hasLOS(x, y) and rng.percent(35 + (game.level.map.attrs(self.x, self.y, "control_teleport_fizzle") or 0)) then
-			game.logPlayer(self, "The targetted phase door fizzles and works randomly!")
+			game.logPlayer(self, "순간이동 제어에 실패하여, 무작위한 곳으로 이동됩니다!")
 			x, y = self.x, self.y
 			rad = tg.range
 		end
@@ -455,16 +460,17 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to teleport in a range of %d.]]):format(data.range + data.inc_stat)
+		return ([[룬을 발동하여, %d 칸 주변의 원하는 곳에 순간이동합니다.]]):format(data.range + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[range %d]]):format(data.range + data.inc_stat)
+		return ([[주변 %d 칸 제어된 순간이동]]):format(data.range + data.inc_stat)
 	end,
 }
 
 newInscription{
 	name = "Rune: Teleportation",
+	kr_name = "룬 : 원거리 순간이동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -479,16 +485,17 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to teleport randomly in a range of %d with a minimum range of 15.]]):format(data.range + data.inc_stat)
+		return ([[룬을 발동하여, 최소 15 칸에서 최대 %d 칸 이내의 무작위한 곳으로 순간이동합니다.]]):format(data.range + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[range %d]]):format(data.range + data.inc_stat)
+		return ([[최대 %d 칸 이내 무작위 순간이동]]):format(data.range + data.inc_stat)
 	end,
 }
 
 newInscription{
 	name = "Rune: Shielding",
+	kr_name = "룬 : 보호막",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -505,16 +512,17 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to create a protective shield absorbing at most %d damage for %d turns.]]):format(data.power + data.inc_stat, data.dur)
+		return ([[룬을 발동하여, %d 턴 동안 최대 %d 피해량을 막아주는 보호막을 만들어냅니다.]]):format(data.dur, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[absorb %d for %d turns]]):format(data.power + data.inc_stat, data.dur)
+		return ([[%d 피해 흡수, %d 턴 유지]]):format(data.power + data.inc_stat, data.dur)
 	end,
 }
 
 newInscription{
 	name = "Rune: Reflection Shield",
+	kr_name = "룬 : 반사 보호막",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -535,19 +543,20 @@ newInscription{
 		local data = self:getInscriptionData(t.short_name)
 		local power = 100+5*self:getMag()
 		if data.power and data.inc_stat then power = data.power + data.inc_stat end
-		return ([[Activate the rune to create a protective shield absorbing and reflecting at most %d damage for %d turns.
-The effect will scale with your magic stat.]]):format(power, data.dur or 5)
+		return ([[룬을 발동하여, %d 턴 동안 최대 %d 피해량을 반사하는 보호막을 만들어냅니다.
+		반사량은 마법 능력치의 영향을 받아 증가합니다.]]):format(data.dur or 5, power)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local power = 100+5*self:getMag()
 		if data.power and data.inc_stat then power = data.power + data.inc_stat end
-		return ([[absorb and reflect %d for %d turns]]):format(power, data.dur or 5)
+		return ([[%d 피해 반사, %d 턴 유지]]):format(power, data.dur or 5)
 	end,
 }
 
 newInscription{
 	name = "Rune: Invisibility",
+	kr_name = "룬 : 투명화",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -559,18 +568,19 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to become invisible (power %d) for %d turns.
-		As you become invisible you fade out of phase with reality, all your damage is reduced by 40%%.
-		]]):format(data.power + data.inc_stat, data.dur)
+		return ([[룬을 발동하여, %d 턴 동안 투명해집니다. (투명 수치 +%d)
+		투명해지면 현실에서의 존재감이 떨어져 적에게 원래 피해량의 40%% 밖에 줄 수 없게 됩니다.
+		]]):format(data.dur, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[power %d for %d turns]]):format(data.power + data.inc_stat, data.dur)
+		return ([[투명화 (투명 수치 +%d), %d 턴 유지]]):format(data.power + data.inc_stat, data.dur)
 	end,
 }
 
 newInscription{
 	name = "Rune: Speed",
+	kr_name = "룬 : 가속",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -583,17 +593,18 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to increase your global speed by %d%% for %d turns.]]):format(data.power + data.inc_stat, data.dur)
+		return ([[룬을 발동하여, %d 턴 동안 전체 속도를 %d%% 증가시킵니다.]]):format(data.dur, data.power + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[speed %d%% for %d turns]]):format(data.power + data.inc_stat, data.dur)
+		return ([[전체 속도 +%d%%, %d 턴 유지]]):format(data.power + data.inc_stat, data.dur)
 	end,
 }
 
 
 newInscription{
 	name = "Rune: Vision",
+	kr_name = "룬 : 심안",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -615,13 +626,13 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to get a vision of the area surrounding you (%d radius) and to allow you to see invisible and stealthed creatures (power %d) for %d turns.
-		Your mind will become more receptive for %d turns, allowing you to sense any %s around.]]):
-		format(data.range, data.power + data.inc_stat, data.dur, data.dur, data.esp or "humanoid")
+		return ([[룬을 발동하여, 주변 %d 칸 반경의 시야를 %d 턴 동안 밝힙니다. 투명한 적과 은신한 적도 발견할 수 있게 됩니다. (투명, 은신 감지력 +%d)
+		당신의 정신은 %d 턴 동안 더욱 수용적이 되어, 주변의 모든 %s 감지하게 됩니다.]]):
+		format(data.range, data.dur, data.power + data.inc_stat, data.dur, (data.esp or "humanoid"):krActorType():addJosa("를")) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[radius %d; dur %d; see %s]]):format(data.range, data.dur, data.esp or "humanoid")
+		return ([[%d 턴 동안 주변 %d 칸 시야 확보 및 탐지, %s 감지]]):format(data.dur, data.range, (data.esp or "humanoid"):krActorType()) --@ 변수 순서 조정
 	end,
 }
 
@@ -635,6 +646,7 @@ end
 
 newInscription{
 	name = "Rune: Heat Beam",
+	kr_name = "룬 : 열기 발산",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -673,17 +685,18 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns
-		The intensity of the heat will also remove one random detrimental physical effect from you.]]):format(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))
+		return ([[룬을 발동하여, 적에게 5 턴 동안 %0.2f 화염 피해를 줍니다.
+		열기의 격렬함에 의해, 당신이 가진 임의의 나쁜 물리 상태이상 효과 하나가 사라지게 됩니다.]]):format(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d fire damage]]):format(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))
+		return ([[%d 화염 피해]]):format(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))
 	end,
 }
 
 newInscription{
 	name = "Rune: Biting Gale",
+	kr_name = "룬 : 살을 에는 강풍",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -732,20 +745,21 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
-		return ([[Activate the rune to direct a cone of chilling stormwind doing %0.2f cold damage.
-			The storm will soak enemies hit reducing their resistance to stuns by 50%% then attempt to freeze them for 3 turns with an apply power of %d.
-		The deep cold also crystalizes your mind, removing one random detrimental mental effect from you.]]):
+		return ([[룬을 발동시켜, %0.2f 냉기 피해를 주는 원뿔 모양의 차가운 강풍을 만들어냅니다.
+		강풍은 적들을 젖게 만들어 기절 저항력을 50%% 감소시키고, 3 턴 동안 빙결시키려고 시도합니다. (얼음의 생명력 : %d).
+		또한 짙은 냉기가 당신의 정신을 명확하게 만들어, 당신이 가진 임의의 나쁜 정신 상태이상 효과 하나가 사라지게 됩니다.]]): 
 			format(damDesc(self, DamageType.COLD, data.power + data.inc_stat), apply)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
-		return ([[%d cold damage; %d apply power]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat), apply)
+		return ([[%d 냉기 피해, 빙결 (얼음 생명력 %d)]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat), apply) 
 	end,
 }
 
 newInscription{
 	name = "Rune: Acid Wave",
+	kr_name = "룬 : 산성 파동",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -803,8 +817,8 @@ newInscription{
 		  local data = self:getInscriptionData(t.short_name)
 		  local pow = data.apply + data.inc_stat
 		  local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
-		  return ([[Activate the rune to unleash a wave of acid in a cone of radius %d, doing %0.2f acid damage. The corrosive acid will also disarm enemies struck for %d turns with an apply power of %d.
-	  The surge of natural acids will remove one detrimental magical effect from you.]]):
+		  return ([[룬을 발동시켜, %d 칸 반경에 %0.2f 산성 피해를 주는 원뿔 모양의 산성 파동을 만들어냅니다. 산의 부식성으로 인해, 적들은 %d 턴 동안 무장해제 됩니다. (파워 : %d)
+		  또한 산성의 자연적인 힘을 통해, 임의의 나쁜 마법 상태이상 효과 하나가 사라지게 됩니다.]]): 
 			 format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, apply)
 	   end,
 	short_info = function(self, t)
@@ -812,12 +826,13 @@ newInscription{
 		local pow = data.power
 		local apply = self:rescaleCombatStats((data.apply + data.inc_stat))
 
-		return ([[%d acid damage; dur %d; apply %d]]):format(damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, apply)
+		return ([[%d 산성 피해, 지속 %d 턴, 파워 %d]]):format(damDesc(self, DamageType.ACID, data.power + data.inc_stat), data.dur or 3, apply) 
 	end,
 }
 
 newInscription{
 	name = "Rune: Lightning",
+	kr_name = "룬 : 번개",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -850,18 +865,19 @@ newInscription{
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
 		local dam = damDesc(self, DamageType.LIGHTNING, data.power + data.inc_stat)
-		return ([[Activate the rune to fire a beam of lightning, doing %0.2f to %0.2f lightning damage.
-		Also transform you into pure lightning for %d turns; any damage will teleport you to an adjacent tile and ignore the damage (can only happen once per turn)]]):
+		return ([[룬을 발동하여, 적에게 %0.2f - %0.2f 전기 피해를 줍니다.
+		또한 %d 턴 동안 당신은 순수한 번개로 변신합니다. 번개로 변신 중에 피해를 받을 경우, 한 턴에 한 번 적에게 공격을 받았을 때 인접한 곳으로 피해 공격을 무시할 수 있습니다.]]):
 		format(dam / 3, dam, 2)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d lightning damage]]):format(damDesc(self, DamageType.LIGHTNING, data.power + data.inc_stat))
+		return ([[%d 전기 피해]]):format(damDesc(self, DamageType.LIGHTNING, data.power + data.inc_stat))
 	end,
 }
 
 newInscription{
 	name = "Rune: Manasurge",
+	kr_name = "룬 : 마나의 급류",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -882,26 +898,27 @@ newInscription{
 			self:setEffect(self.EFF_MANASURGE, data.dur, {power=self.mana_regen * (data.mana + data.inc_stat) / 100})
 		else
 			if self.mana_regen < 0 then
-				game.logPlayer(self, "Your negative mana regeneration rate is unaffected by the rune.")
+				game.logPlayer(self, "시간이 지날수록 마나가 감소하고 있기 때문에, 룬의 효과가 없습니다.")
 			else
-				game.logPlayer(self, "Your nonexistant mana regeneration rate is unaffected by the rune.")
+				game.logPlayer(self, "마나가 존재하지 않기 때문에, 룬의 효과가 없습니다.")
 			end
 		end
 		return true
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% over %d turns and instantly restoring %d mana.
-			Also when resting your mana will regenerate at 0.5 per turn.]]):format(data.mana + data.inc_stat, data.dur, (data.mana + data.inc_stat) / 20)
+		return ([[룬을 발동하여, 마나를 빠르게 회복합니다. 사용 즉시 %d 마나가 회복되며, 추가로 %d 턴에 걸쳐 턴당 마나 회복 효율이 %d%% 증가합니다.
+		그리고, 휴식하는 동안 매 턴마다 마나가 0.5 씩 회복됩니다.]]):format((data.mana + data.inc_stat) / 20, data.dur, data.mana + data.inc_stat) --@ 변수 순서 조정
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d%% regen over %d turns; %d instant mana]]):format(data.mana + data.inc_stat, data.dur, (data.mana + data.inc_stat) / 20)
+		return ([[%d 턴 동안 마나 회복 효율 %d%%, 사용 즉시 %d 마나 회복]]):format(data.dur, data.mana + data.inc_stat, (data.mana + data.inc_stat) / 20) --@ 변수 순서 조정
 	end,
 }
 
 newInscription{
 	name = "Rune: Frozen Spear",
+	kr_name = "룬 : 빙결의 창",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_attack_rune = true,
@@ -937,12 +954,12 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chance to freeze the target.
-		The deep cold also crystalizes your mind, removing one random detrimental mental effect from you.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat))
+		return ([[룬을 발동하여, 적에게 %0.2f 냉기 피해를 줍니다. 대상을 얼릴 확률이 있습니다.
+		또한 짙은 냉기가 당신의 정신을 명확하게 만들어, 당신이 가진 임의의 나쁜 정신 상태이상 효과 하나가 사라지게 됩니다.]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat))
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d cold damage]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat))
+		return ([[%d 냉기 피해]]):format(damDesc(self, DamageType.COLD, data.power + data.inc_stat))
 	end,
 }
 
@@ -950,6 +967,7 @@ newInscription{
 -- This is mostly a copy of Time Skip :P
 newInscription{
 	name = "Rune of the Rift",
+	kr_name = "균열의 룬",
 	type = {"inscriptions/runes", 1},
 	points = 1,
 	is_spell = true,
@@ -972,12 +990,12 @@ newInscription{
 		if not target then return end
 
 		if target:attr("timetravel_immune") then
-			game.logSeen(target, "%s is immune!", target.name:capitalize())
+			game.logSeen(target, "%s 적용 대상이 아닙니다!", (target.kr_name or target.name):capitalize():addJosa("는"))
 			return true
 		end
 
 		local hit = self:checkHit(self:combatSpellpower(), target:combatSpellResist() + (target:attr("continuum_destabilization") or 0))
-		if not hit then game.logSeen(target, "%s resists!", target.name:capitalize()) return true end
+		if not hit then game.logSeen(target, "%s 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가")) return true end
 
 		self:project(tg, x, y, DamageType.TEMPORAL, self:spellCrit(t.getDamage(self, t)))
 		game.level.map:particleEmitter(x, y, 1, "temporal_thrust")
@@ -992,6 +1010,7 @@ newInscription{
 		local e = mod.class.Object.new{
 			old_feat = oe, type = "temporal", subtype = "instability",
 			name = "temporal instability",
+			kr_name = "불안정한 시공간",
 			display = '&', color=colors.LIGHT_BLUE,
 			temporary = t.getDuration(self, t),
 			canAct = false,
@@ -1023,7 +1042,7 @@ newInscription{
 		}
 		
 		-- Remove the target
-		game.logSeen(target, "%s has moved forward in time!", target.name:capitalize())
+		game.logSeen(target, "%s 미래로 보내졌습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		game.level:removeEntity(target, true)
 		
 		-- add the time skip object to the map
@@ -1038,12 +1057,12 @@ newInscription{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Inflicts %0.2f temporal damage.  If your target survives, it will be sent %d turns into the future.
-		It will also lower your paradox by 25 (if you have any).
-		Note that messing with the spacetime continuum may have unforeseen consequences.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
+		return ([[대상에게 %0.2f 시간 피해를 줍니다. 대상이 죽지 않았다면, 대상을 %d 턴 뒤의 미래로 보내버립니다.
+		이 룬을 사용하면 괴리 수치가 60 감소합니다. (괴리 원천력을 사용할 때 한정)
+		시공간의 흐름을 지나치게 어지럽히면, 가끔 예상치 못한 결과가 일어날 수도 있습니다.]]):format(damDesc(self, DamageType.TEMPORAL, damage), duration)
 	end,
 	short_info = function(self, t)
-		return ("%0.2f temporal damage, removed from time %d turns"):format(t.getDamage(self, t), t.getDuration(self, t))
+		return ("%0.2f 시간 피해, %d 턴 미래로 이동"):format(t.getDamage(self, t), t.getDuration(self, t))
 	end,
 }
 
@@ -1052,6 +1071,7 @@ newInscription{
 -----------------------------------------------------------------------
 newInscription{
 	name = "Taint: Devourer",
+	kr_name = "감염 : 포식자",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,
@@ -1112,17 +1132,18 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Activate the taint on a foe, removing %d effects from it and healing you for %d for each effect.]]):format(data.effects, data.heal + data.inc_stat)
+		return ([[감염으로 생긴 능력을 사용하여 적의 상태효과 %d 개를 먹어치우고, 먹어치운 상태효과 1 개마다 %d 생명력을 회복합니다.]]):format(data.effects, data.heal + data.inc_stat)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[%d effects / %d heal]]):format(data.effects, data.heal + data.inc_stat)
+		return ([[%d 상태효과 제거 / %d 생명력 회복]]):format(data.effects, data.heal + data.inc_stat)
 	end,
 }
 
 
 newInscription{
 	name = "Taint: Telepathy",
+	kr_name = "감염 : 감지",
 	type = {"inscriptions/taints", 1},
 	points = 1,
 	is_spell = true,
@@ -1138,11 +1159,11 @@ newInscription{
 	end,
 	info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.]]):format(data.dur, self:getTalentRange(t), 10, 35)
+		return ([[마음의 장벽을 %d 턴 동안 벗어던져 %d 칸 반경의 적들을 감지할 수 있게 되지만, 10 턴 동안 정신 내성이 %d 감소하고 정신력이 %d 상승하게 됩니다.]]):format(data.dur, self:getTalentRange(t), 10, 35)
 	end,
 	short_info = function(self, t)
 		local data = self:getInscriptionData(t.short_name)
-		return ([[Range %d telepathy for %d turns]]):format(self:getTalentRange(t), data.dur)
+		return ([[주변 %d 칸 적 감지, %d 턴 유지]]):format(self:getTalentRange(t), data.dur)
 	end,
 }
 
