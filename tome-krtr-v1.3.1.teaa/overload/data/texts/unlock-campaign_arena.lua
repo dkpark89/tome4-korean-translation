@@ -17,18 +17,19 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game campaign: #LIGHT_GREEN#The Arena: Challenge of the Master",
+
+return "새로운 게임 캠페인 : #LIGHT_GREEN#"투기장 : 최강자가 되기 위한 도전",
 [[
-The arena, a way of violent entertainment. 
-A delight for the audience, a source of wealth and glory. A place where aspiring fighters, former adventurers and those cursed to fight
-eternally gather to hack away at each other.
+투기장, 난폭한 볼거리 중의 하나입니다.
+관중들에게는 즐거움을, 최강자에게는 부와 명예가 약속된 곳이기도 합니다. 이를 노리는 야망 넘치는 투사들이 있는 곳이며, 여행가들과 영원히 싸워야만 하는 저주를 받은 자들이 서로에게 칼날을 내미는 곳이기도 하지요.
 
-You have unlocked the Arena and can now create new characters in a new campaign: #LIGHT_GREEN#The Arena#WHITE#.
+당신은 투기장에 입장할 수 있는 자격을 얻었으며, 이제 새로운 게임 형식인 #LIGHT_GREEN#투기장#WHITE#을 즐기실 수 있습니다.
 
-The arena pits you against multiple enemies in an open field, making your battle tactics important for survival.
-Campaign features:#YELLOW#
-- No quests, plots, friendly creatures or ways out: only you against all odds.
-- Exclusive scoring system where the faster you kill, the more you earn. Scores are kept for bragging rights!
-- Pure hack and slash MAYHEM!
-- Your champion becomes the new master of the arena, allowing you to challenge your own champions!
+투기장은 개활지에서 여러 명의 적들과 동시에 싸우는 곳으로, 생존을 위해서는 전략과 전술이 가장 중요합니다.
+
+게임 형식 :#YELLOW#
+- 임무, 줄거리, 동료, 출구 따위는 없습니다. 당신이 상대해야 할 적들만이 가득합니다.
+- 더 빨리, 더 위험하게, 더 잔인하게 적을 죽일수록 더 많은 점수를 얻게 됩니다. 투기장에서의 점수는 생존 다음으로 중요한 요소입니다!
+- 정말로 순수한, 핵 앤 슬래쉬 형식의 아수라장입니다!
+- 당신의 챔피언은 투기장의 새로운 주인이 될 수 있습니다. 당신은 자신의 손으로 만들어낸 챔피언에 도전할 수 있습니다!
 ]]
