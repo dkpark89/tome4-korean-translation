@@ -19,6 +19,8 @@
 
 require "engine.krtrUtils"
 
+newTalentType{ no_silence=true, is_spell=true, type="sher'tul/fortress", name = "fortress", description = "Yiilkgur abilities." }
+newTalentType{ no_silence=true, is_spell=true, type="spell/objects", name = "object spells", description = "Spell abilities of the various objects of the world." }
 newTalentType{ type="technique/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 물리적 기술입니다." }
 newTalentType{ type="wild-gift/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 자연의 권능입니다." }
 newTalentType{ type="misc/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 힘입니다." }
