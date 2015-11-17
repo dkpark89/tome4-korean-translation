@@ -17,9 +17,9 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New birth power: #LIGHT_GREEN#Ziguranth Sacrifice",
-[[You have discovered Zigur, the bastion of Nature fighting against all arcane magics.
-Magic has caused so much pain and suffering on the world, it needs to stop.
+return "새로운 초기 능력 : #LIGHT_GREEN#지구르 추종자의 희생",
+[[당신은 모든 마법과 맞서 싸우는 자연의 성체, 지구르를 발견하셨습니다.
+마법은 이 세계에 엄청난 고통과 파괴를 가져왔기에, 마법의 사용은 중단되어야 할 것입니다.
 
-All your new characters will now be able to betray arcane escort quests to send them to Zigur, granting new, different, rewards.
+이제부터 당신의 새로운 캐릭터들은 호위 임무를 시작하기 전에, 호위 대상이 마법 사용자일 경우 그들을 배반하고 지구르로 보낼 수 있게 됩니다. 그리고 그 대가로 새로운, 다른 보상들을 얻을 수 있습니다.
 ]]
