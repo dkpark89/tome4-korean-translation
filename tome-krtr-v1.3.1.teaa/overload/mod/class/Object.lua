@@ -219,7 +219,7 @@ function _M:use(who, typ, inven, item)
 	end
 	
 	if who:attr("sleep") and not who:attr("lucid_dreamer") then
-		game.logPlayer(who, "You can not use items while sleeping!")
+		game.logPlayer(who, "수면상태에선 물건을 사용할 수 없습니다.!")
 		return
 	end
 
@@ -261,9 +261,9 @@ end
 function _M:descAttribute(attr)
 	local power = function(c)
 		if config.settings.tome.advanced_weapon_stats then
-			return math.floor(game.player:combatDamagePower(self.combat)*100).."% power"
+			return "공격력 "..math.floor(game.player:combatDamagePower(self.combat)*100).."%"
 		else
-			return c.dam.."-"..(c.dam*(c.damrange or 1.1)).." power"
+			return "공격력 "..c.dam.."-"..(c.dam*(c.damrange or 1.1))
 		end
 	end
 	if attr == "MASTERY" then
@@ -298,43 +298,43 @@ function _M:descAttribute(attr)
 		return ("%s%0.2f/턴"):format(i > 0 and "+" or "-", math.abs(i))
 	elseif attr == "COMBAT" then
 		local c = self.combat
-		return power(c)..", "..(c.apr or 0).." apr"
+		return power(c)..", 방어도 관통 "..(c.apr or 0)
 	elseif attr == "COMBAT_AMMO" then
 		local c = self.combat
-		return c.shots_left.."/"..math.floor(c.capacity)..", "..power(c)..", "..(c.apr or 0).." apr"
+		return c.shots_left.."/"..math.floor(c.capacity)..", "..power(c)..", 방어도 관통 "..(c.apr or 0)
 	elseif attr == "COMBAT_DAMTYPE" then
 		local c = self.combat
-		return power(c)..", "..("%d"):format((c.apr or 0)).." apr, "..DamageType:get(c.damtype).name.." damage"
+		return power(c)..", 방어도 관통 "..(c.apr or 0)..", "..(DamageType:get(c.damtype).kr_name or DamageType:get(c.damtype).name).." 속성"
 	elseif attr == "COMBAT_ELEMENT" then
 		local c = self.combat
-		return power(c)..", "..("%d"):format((c.apr or 0)).." apr, "..DamageType:get(c.element or DamageType.PHYSICAL).name.." element"
+		return power(c)..", 방어도 관통 "..(c.apr or 0)..", "..(DamageType:get(c.element or DamageType.PHYSICAL).kr_name or DamageType:get(c.element or DamageType.PHYSICAL).name).." 원소"
 	elseif attr == "SHIELD" then
 		local c = self.special_combat
 		if c and (game.player:knowTalentType("technique/shield-offense") or game.player:knowTalentType("technique/shield-defense") or game.player:attr("show_shield_combat")) then
-			return power(c)..", "..c.block.." block"
+			return power(c)..", ".."막기 "..c.block
 		else
-			return c.block.." block"
+			return "막기 "..c.block
 		end
 	elseif attr == "ARMOR" then
-		return (self.wielder and self.wielder.combat_def or 0).." def, "..(self.wielder and self.wielder.combat_armor or 0).." armour"
+		return "회피도 "..(self.wielder and self.wielder.combat_def or 0)..", 방어도 "..(self.wielder and self.wielder.combat_armor or 0)
 	elseif attr == "ATTACK" then
-		return (self.wielder and self.wielder.combat_atk or 0).." accuracy, "..(self.wielder and self.wielder.combat_apr or 0).." apr, "..(self.wielder and self.wielder.combat_dam or 0).." power"
+		return "정확도 "..(self.wielder and self.wielder.combat_atk or 0)..", 방어도 관통 "..(self.wielder and self.wielder.combat_apr or 0)..", 공격력 "..(self.wielder and self.wielder.combat_dam or 0)
 	elseif attr == "MONEY" then
-		return ("worth %0.2f"):format(self.money_value / 10)
+		return ("금화 %0.2f개 가치"):format(self.money_value / 10)
 	elseif attr == "USE_TALENT" then
-		return self:getTalentFromId(self.use_talent.id).name:lower()
+		return (self:getTalentFromId(self.use_talent.id).kr_name or self:getTalentFromId(self.use_talent.id).name):lower()
 	elseif attr == "DIGSPEED" then
-		return ("dig speed %d turns"):format(self.digspeed)
+		return ("굴착 속도 %d 턴"):format(self.digspeed)
 	elseif attr == "CHARM" then
-		return (" [power %d]"):format(self:getCharmPower(game.player))
+		return (" [세기 %d]"):format(self:getCharmPower(game.player))
 	elseif attr == "CHARGES" then
 		local reduce = 100 - util.bound(game.player:attr("use_object_cooldown_reduce") or 0, 0, 100)
 		if self.talent_cooldown and (self.use_power or self.use_talent) then
 			local cd = game.player.talents_cd[self.talent_cooldown]
 			if cd and cd > 0 then
-				return " ("..cd.."/"..(math.ceil((self.use_power or self.use_talent).power * reduce / 100)).." cooldown)"
+				return " (지연시간 "..cd.."/"..(math.ceil((self.use_power or self.use_talent).power * reduce / 100))..")"
 			else
-				return " ("..(math.ceil((self.use_power or self.use_talent).power * reduce / 100)).." cooldown)"
+				return " (지연시간 "..(math.ceil((self.use_power or self.use_talent).power * reduce / 100))..")"
 			end
 		elseif self.use_power or self.use_talent then
 			return (" (%d/%d)"):format(math.floor(self.power / (math.ceil((self.use_power or self.use_talent).power * reduce / 100))), math.floor(self.max_power / (math.ceil((self.use_power or self.use_talent).power * reduce / 100))))
@@ -1050,7 +1050,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(combat, compare_with, field, "lifesteal", "%+d%%", "생명력 강탈 (이 무기에만 적용) : ", 1, false, false, add_table)
 
 		if combat.tg_type and combat.tg_type == "beam" then
-			desc:add({"color","YELLOW"}, ("공격이 모든 상대를 꿰弱?지나갑니다."), {"color","LAST"}, true)
+			desc:add({"color","YELLOW"}, ("공격이 모든 상대를 꿰뚫고 지나갑니다."), {"color","LAST"}, true)
 		end
 
 		compare_table_fields(
