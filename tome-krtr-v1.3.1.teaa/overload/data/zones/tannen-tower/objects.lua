@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/objects/objects-maj-eyal.lua")
 
 local Stats = require "engine.interface.ActorStats"
@@ -24,12 +26,13 @@ local Stats = require "engine.interface.ActorStats"
 newEntity{ base = "BASE_GEM",
 	define_as = "RESONATING_DIAMOND_WEST2",
 	name = "Resonating Diamond", color=colors.VIOLET, quest=true, unique="Resonating Diamond West2", identified=true, no_unique_lore=true,
+	kr_name = "공명하는 다이아몬드",
 	image = "object/artifact/resonating_diamond.png",
 	material_level = 5,
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -48,11 +51,12 @@ newEntity{ define_as = "ATHAME_WEST2",
 	level_range = {50, 50},
 	display = "|", color=colors.VIOLET,
 	encumber = 1,
-	desc = [[An athame, covered in blood runes. It radiates power.]],
+	kr_name = "피의 룬 제례단검", kr_unided_name = "제례단검",
+	desc = [[피의 룬이 새겨진 제례단검입니다. 힘을 내뿜고 있습니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -73,11 +77,12 @@ newEntity{ define_as = "ORB_MANY_WAYS2",
 	level_range = {30, 30},
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_many_ways.png",
 	encumber = 1,
-	desc = [[The orb projects images of distant places, some that seem not to be of this world, switching rapidly.
-If used near a portal, it could probably activate it.]],
+	kr_name = "여러 장소로의 오브", kr_unided_name = "소용돌이 오브",
+	desc = [[이 오브는 멀리 떨어진 곳의 형상들을 보여주는 물건입니다. 어떤 장소는 이 세상과는 동떨어진 장소처럼 보이기도 하며, 빠르게 형상들이 바뀌고 있습니다.
+관문 근처에서 사용하면, 관문을 활성화시킬 수 있을 것 같습니다.]],
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "activate a portal", power = 10,
+	use_power = { name = "activate a portal", kr_name = "관문 활성화", power = 10,
 		use = function(self, who)
 			self:identify(true)
 			local g = game.level.map(who.x, who.y, game.level.map.TERRAIN)
@@ -85,7 +90,7 @@ If used near a portal, it could probably activate it.]],
 				world:gainAchievement("SLIDERS", who:resolveSource())
 				who:useOrbPortal(g.orb_portal)
 			else
-				game.logPlayer(who, "There is no portal to activate here.")
+				game.logPlayer(who, "여기에는 활성화시킬 관문이 없습니다.")
 			end
 			return {id=true, used=true}
 		end
@@ -93,7 +98,7 @@ If used near a portal, it could probably activate it.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -103,13 +108,3 @@ If used near a portal, it could probably activate it.]],
 		end
 	end,
 }
-
-for i = 1, 4 do
-newEntity{ base = "BASE_LORE",
-	define_as = "NOTE"..i,
-	name = "tattered paper scrap", lore="tannen-level"..i,
-	desc = [[A paper scrap, left by Tannen.]],
-	rarity = false,
-	encumberance = 0,
-}
-end

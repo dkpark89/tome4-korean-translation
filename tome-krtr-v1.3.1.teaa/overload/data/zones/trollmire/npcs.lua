@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -47,10 +47,11 @@ newEntity{ define_as = "TROLL_PROX",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Prox the Mighty",
+	kr_name = "강력한 자, 프록스",
 	display = "T", color=colors.VIOLET, image="npc/giant_troll_prox_the_mighty.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_troll_prox_the_mighty.png", display_h=2, display_y=-1}}},
-	desc = [[A huge troll, he might move slowly but he does look dangerous nonetheless.]],
-	killer_message = "and eaten raw",
+	desc = [[거대한 트롤로, 천천히 움직임에도 불구하고 굉장히 위협적입니다.]],
+	killer_message = "당신은 산 채로 먹혔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,
@@ -85,7 +86,7 @@ newEntity{ define_as = "TROLL_PROX",
 			if n then
 				self.on_takehit = nil
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "Prox staggers for a moment. A note seems to drop at his feet.")
+				game.logSeen(self, "프록스가 잠시 비틀거립니다. 그의 발밑으로 작은 쪽지가 떨어집니다.")
 			end
 		end
 		return val
@@ -100,7 +101,7 @@ newEntity{ define_as = "TROLL_PROX",
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
 			end
 		end
-		game.state:activateBackupGuardian("ALUIN", 2, 35, "... and we thought the trollmire was safer now!")
+		game.state:activateBackupGuardian("ALUIN", 2, 35, "...트롤 늪이 더 안전해진 것 같습니다!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "trollmire")
 	end,
 }
@@ -109,10 +110,11 @@ newEntity{ define_as = "TROLL_SHAX",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Shax the Slimy",
+	kr_name = "끈적이는 샥스",
 	display = "T", color=colors.VIOLET, image="npc/giant_troll_prox_the_mighty.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_troll_shax_the_slimy.png", display_h=2, display_y=-1}}},
-	desc = [[A huge troll, he seems to be adapted to aquatic life.]],
-	killer_message = "and eaten raw",
+	desc = [[거대한 트롤로, 물 속 생활에 익숙한 것 같습니다.]],
+	killer_message = "당신은 산 채로 먹혔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,
@@ -147,7 +149,7 @@ newEntity{ define_as = "TROLL_SHAX",
 			if n then
 				self.on_takehit = nil
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "Shax staggers for a moment. A note seems to drop at his feet.")
+				game.logSeen(self, "샥스가 잠시 비틀거립니다. 그의 발밑으로 작은 쪽지가 떨어집니다.")
 			end
 		end
 		return val
@@ -162,7 +164,7 @@ newEntity{ define_as = "TROLL_SHAX",
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
 			end
 		end
-		game.state:activateBackupGuardian("ALUIN", 2, 35, "... and we thought the trollmire was safer now!")
+		game.state:activateBackupGuardian("ALUIN", 2, 35, "...트롤 늪이 더 안전해진 것 같습니다!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "trollmire")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "trollmire-flooded")
 	end,
@@ -172,12 +174,13 @@ newEntity{ define_as = "TROLL_BILL",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Bill the Stone Troll",
+	kr_name = "암석 트롤, 빌",
 	display = "T", color=colors.VIOLET, image="npc/troll_bill.png",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/troll_bill.png", display_h=2, display_y=-1}}},
-	desc = [[Big, brawny, powerful and with a taste for Halfling.
-He is wielding a small tree trunk and lumbering toward you.
-This is the troll the notes spoke about, no doubt.]],
-	killer_message = "and clobbered into soup",
+	desc = [[갈색의 크고 강하며 하플링 먹는 것을 좋아하는 트롤입니다.
+작은 나무를 통째로 꺾어 든 채, 당신을 겨누고 있습니다.
+확실히, 이 트롤이 종이에 적혀있던 바로 그 트롤인 것 같습니다.]],
+	killer_message = "당신은 음식 재료로 사용되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 18, fixed_rating = true,
 	max_stamina = 85,
@@ -215,8 +218,9 @@ newEntity{ define_as = "ALUIN",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Aluin the Fallen",
+	kr_name = "타락한 알루인",
 	display = "p", color=colors.VIOLET,
-	desc = [[His once-shining armour now dull and bloodstained, this Sun Paladin has given in to despair.]],
+	desc = [[한때 빛나던 그의 갑옷은 무뎌졌으며, 피에 절었습니다. 이 태양의 기사는 절망에 빠져 있습니다.]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 350, life_rating = 23, fixed_rating = true,
 	hate_regen = 100,

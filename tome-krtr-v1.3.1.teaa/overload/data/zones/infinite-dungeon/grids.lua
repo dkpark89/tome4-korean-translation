@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@ for id, i in ipairs{1, 10, 20, 30, 40} do
 newEntity{
 	define_as = "ID_HISTORY"..i,
 	name = "The Hunter and the Hunted", lore="infinite-dungeon-history-"..id,
-	desc = [[The infinite hunt.]],
+	kr_name = "사냥꾼과 사냥감",
+	desc = [[무한한 추적.]],
 	image = "terrain/marble_floor.png",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},

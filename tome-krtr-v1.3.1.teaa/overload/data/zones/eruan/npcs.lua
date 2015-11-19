@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@ newEntity{ define_as = "SUN_PALADIN_GUREN",
 	display = "p",
 	faction = "sunwall",
 	name = "Sun Paladin Guren", color=colors.GOLD, unique = true,
-	desc = [[A Human warrior, clad in shining plate armour. Power radiates from him.]],
+	kr_name = "태양의 기사 구렌",
+	desc = [[빛나는 판갑을 입은 인간 전사입니다. 그를 중심으로 힘이 퍼지고 있습니다.]],
 	level_range = {50, nil}, exp_worth = 2,
 	life_regen = 10,
 	rank = 3,

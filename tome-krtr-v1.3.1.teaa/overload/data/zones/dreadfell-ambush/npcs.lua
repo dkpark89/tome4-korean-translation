@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,9 +24,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC", define_as = "UKRUK",
 	unique = true,
 	name = "Ukruk the Fierce",
+	kr_name = "난폭한 자, 우크룩",
 	faction = "orc-pride",
 	color=colors.VIOLET,
-	desc = [[This ugly orc looks really nasty and vicious. He is obviously looking for something and bears an unknown symbol on his shield.]],
+	desc = [[아주 비열하고 사악해보이는, 못생긴 오크입니다. 아무리 봐도 그는 무언가 찾고 있는 것 같으며, 그의 방패에는 처음 보는 문양이 그려져 있습니다.]],
 	level_range = {30, nil}, exp_worth = 2,
 	max_life = 1500, life_rating = 18, fixed_rating = true,
 	rank = 4,

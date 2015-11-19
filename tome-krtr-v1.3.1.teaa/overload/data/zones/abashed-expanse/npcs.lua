@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -31,11 +31,12 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_LOSGOROTH", define_as = "SPACIAL_DISTURBANCE",
 	unique = true,
 	name = "Spacial Disturbance",
+	kr_name = "공간 구조의 방해물",
 	color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png"},
 	resolvers.generic(function(e) if engine.Map.tiles.nicer_tiles then e:addParticles(engine.Particles.new("wormhole", 1, {image="shockbolt/npc/elemental_losgoroth_space_disturbance", speed=1})) end end),
-	desc = [[A hole in the fabric of space, it seems to be the source of the expanse instability.]],
-	killer_message = "and folded out of existence",
+	desc = [[공간 구조에 생긴 구멍으로, 불안정성이 확산되는 근원으로 보입니다.]],
+	killer_message = "당신은 현실의 차원 밖으로 접혀 사라졌습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 10, fixed_rating = true,
 	mana_regen = 7,

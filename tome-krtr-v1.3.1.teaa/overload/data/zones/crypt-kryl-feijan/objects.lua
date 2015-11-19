@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,8 @@ newEntity{ base = "BASE_MINDSTAR",
 	power_source = {psionic = true },
 	unique = true,
 	name = "Writhing Essence of Nightmares",
-	desc = [[Whispers seem to ceaselessly emanate from this writhing mass of black tentacles, murmuring unspeakable horrors into the ears of any unfortunate enough to hear them.]],
+	kr_name = "고통스러운 악몽의 정수", kr_unided_name = "몸부림치는 마석",
+	desc = [[이 검은 촉수 덩어리에서는 속삭이는 소리가 끊임없이 나오고 있습니다. 이 속삭임을 듣게 된 불행한 자에게는, 말로 설명하지 못할 공포가 귀를 통해 엄습하게 됩니다.]],
 	unided_name = "writhing mindstar",
 	level_range = {20, 32},
 	colors = colors.PURPLE , image = "object/artifact/writhing_essence_of_nightmares.png",
@@ -52,7 +53,7 @@ newEntity{ base = "BASE_MINDSTAR",
 			["cursed/fears"] = 0.2,
 			["psionic/nightmare"] = 0.2,
 		},
-		inc_stats = { [Stats.STAT_WIL] = 2, [Stats.STAT_CUN] = 4, },
+		inc_stats = { [Stats.STAT_WIL] = 4, [Stats.STAT_CUN] = 2, },
 	},
 	max_power = 40, power_regen=1,
 	use_talent = { id = Talents.T_WAKING_NIGHTMARE , level = 2, power = 40},

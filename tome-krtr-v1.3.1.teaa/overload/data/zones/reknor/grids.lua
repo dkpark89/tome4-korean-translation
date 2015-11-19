@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,12 +22,13 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "FAR_EAST_PORTAL",
 	name = "Farportal: the Far East",
+	kr_name = "장거리 관문 : 동대륙",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go to the Far East, a continent of which only rumours are known...]],
+	desc = [[장거리 관문은 눈 깜짝할 사이에 놀랄만큼 먼 거리를 이동하는 수단입니다. 이것을 사용하기 위해서는 보통 어떤 물건이 필요하며, 이 관문이 쌍방향으로 사용이 가능한 것인지조차도 알 수 없습니다.
+이 관문은 일부 소문으로만 떠도는, 동대륙과 연결된 것으로 보입니다...]],
 
 	orb_portal = {
 		change_level = 1,
@@ -39,7 +40,7 @@ This one seems to go to the Far East, a continent of which only rumours are know
 		after_zone_teleport = {
 			x = 98, y = 25,
 		},
-		message = "#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on an unfamiliar cave, with no trace of the portal...",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈 깜짝할 사이에 관문의 흔적은 없어지고, 자신이 익숙하지 않은 동굴에 서 있는 것을 알아차립니다...",
 		on_use = function(self, who)
 			game.state:goneEast()
 			who:setQuestStatus("wild-wild-east", engine.Quest.DONE)
@@ -49,6 +50,7 @@ This one seems to go to the Far East, a continent of which only rumours are know
 
 newEntity{ base = "FAR_EAST_PORTAL", define_as = "CFAR_EAST_PORTAL",
 	name = "Farportal: the Far East",
+	kr_name = "장거리 관문 : 동대륙",
 	image = "terrain/marble_floor.png",
 	add_displays = {
 		class.new{image="terrain/farportal-base.png", display_x=-1, display_y=-1, display_w=3, display_h=3},
@@ -65,7 +67,8 @@ newEntity{ base = "FAR_EAST_PORTAL", define_as = "CFAR_EAST_PORTAL",
 newEntity{
 	define_as = "IRON_THRONE_EDICT",
 	name = "Iron Throne Edict", lore="iron-throne-reknor-edict",
-	desc = [["AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE"]],
+	kr_name = "철의 왕좌 칙령",
+	desc = [["철의 왕좌에 사는 모든 시민에 대한 칙령. 우리 제국은 오랫동안 지속될 것이다."]],
 	image = "terrain/marble_floor.png",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},

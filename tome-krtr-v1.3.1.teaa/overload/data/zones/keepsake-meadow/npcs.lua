@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ newEntity{
 	ai = "dumb_talented_simple", ai_state = { ai_move="move_complex", talent_in=3, },
 	stats = { str=20, dex=8, mag=6, con=16 },
 	
-	emote_random = {chance=10, "To arms!", "Monster!", "Die!", "You will not kill us!", "We will end this!"},
+	emote_random = {chance=10, "무장하라!", "괴물이다!", "죽어!", "우리를 죽일 수는 없을 것이다!", "우리가 끝을 내겠다!"},
 	
 	on_die = function(self, who)
 		-- wait for all caravanners to die
@@ -61,8 +61,9 @@ newEntity{
 
 newEntity{ base = "BASE_CARAVANEER", define_as = "CARAVAN_MERCHANT",
 	name = "caravan merchant", color=colors.KHAKI, image="npc/humanoid_human_spectator02.png",
+	kr_name = "대상 행렬 상인",
 	subtype = "human",
-	desc = [[A caravan merchant.]],
+	desc = [[대상 형렬의 상인입니다.]],
 	level_range = {1, 10}, exp_worth = 1,
 	max_life = resolvers.rngavg(40,50), life_rating = 7,
 	combat_armor = 0, combat_def = 6,
@@ -74,8 +75,9 @@ newEntity{ base = "BASE_CARAVANEER", define_as = "CARAVAN_MERCHANT",
 
 newEntity{ base = "BASE_CARAVANEER", define_as = "CARAVAN_GUARD",
 	name = "caravan guard", color=colors.KHAKI, image="npc/humanoid_human_spectator.png",
+	kr_name = "대상 행렬 경비",
 	subtype = "human",
-	desc = [[A caravan guard.]],
+	desc = [[대상 행렬의 경비입니다.]],
 	level_range = {1, 15}, exp_worth = 1,
 	max_life = resolvers.rngavg(80,90), life_rating = 11,
 	combat_armor = 0, combat_def = 6,
@@ -90,8 +92,9 @@ newEntity{ base = "BASE_CARAVANEER", define_as = "CARAVAN_GUARD",
 
 newEntity{ base = "BASE_CARAVANEER", define_as = "CARAVAN_PORTER",
 	name = "caravan porter", color=colors.KHAKI, image="npc/humanoid_human_spectator03.png",
+	kr_name = "대상 행렬 짐꾼",
 	subtype = "human",
-	desc = [[A caravan porter.]],
+	desc = [[대상 행렬의 짐꾼입니다.]],
 	level_range = {1, 8}, exp_worth = 1,
 	max_life = resolvers.rngavg(60,70), life_rating = 8,
 	combat_armor = 0, combat_def = 6,
@@ -103,7 +106,8 @@ newEntity{ base = "BASE_CARAVANEER", define_as = "CARAVAN_PORTER",
 
 newEntity{ base = "BASE_NPC_CANINE", define_as = "WAR_DOG",
 	name = "war dog", color=colors.KHAKI, image="npc/canine_dw.png",
-	desc = [[This is a large dog, bred and trained for fighting.]],
+	kr_name = "전투견",
+	desc = [[이 커다란 개는 전투를 위해 키워졌고 훈련받았습니다.]],
 	level_range = {15, 30}, exp_worth = 1,
 	max_life = resolvers.rngavg(60,100), life_rating = 10,
 	combat_armor = 4, combat_def = 7,
@@ -117,7 +121,8 @@ newEntity{ base = "BASE_NPC_CANINE", define_as = "WAR_DOG",
 
 newEntity{ base = "BASE_NPC_CANINE", define_as = "CORRUPTED_WAR_DOG",
 	name = "corrupted war dog", color=colors.BLACK, image="npc/canine_dw.png",
-	desc = [[This is a large dog, bred and trained for fighting. Something about the way it moves doesn't look normal.]],
+	kr_name = "타락한 전투견",
+	desc = [[이 커다란 개는 전투를 위해 키워졌고 훈련받았습니다. 알 수 없는 이유로 인해, 정상적이지 않은 움직임을 보이고 있습니다.]],
 	level_range = {15, 30}, exp_worth = 1,
 	rarity = 5, cave_rarity = 5,
 	max_life = resolvers.rngavg(60,100),
@@ -170,7 +175,8 @@ newEntity{
 
 newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_CLAW",
 	name = "shadow claw", image="npc/shadow-claw.png",
-	desc = [[A shadow, almost humanoid in shape. Long claws extend in front of it as is swims through the air.]],
+	kr_name = "할퀴는 그림자",
+	desc = [[거의 사람과 비슷한 모습의 그림자입니다. 허공을 헤엄치듯 다가오고 있으며, 길고 날카로운 손톱이 뻗어나와 있습니다.]],
 	rarity = 5, cave_rarity = 5, vault_rarity = 5,
 	
 	max_life = resolvers.rngavg(80,100), life_rating = 8,
@@ -192,7 +198,8 @@ newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_CLAW",
 
 newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_STALKER",
 	name = "shadow stalker", image="npc/shadow-stalker.png",
-	desc = [[A shadow, almost humanoid in shape. It seems to move carefully and with cunning before swiftly striking.]],
+	kr_name = "추적하는 그림자",
+	desc = [[거의 사람과 비슷한 모습의 그림자입니다. 교활하며 조심스레 움직이고, 빠르게 공격합니다.]],
 	rarity = 5, cave_rarity = 5, vault_rarity = 5,
 	
 	max_life = resolvers.rngavg(30,50), life_rating = 5,
@@ -225,7 +232,8 @@ newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_STALKER",
 
 newEntity{ base = "BASE_SHADOW", define_as = "SHADOW_CASTER",
 	name = "shadow claw", image="npc/shadow-caster.png",
-	desc = [[A shadow, almost humanoid in shape. At times its form seems to be a force of will rather than something real.]],
+	kr_name = "할퀴는 그림자",
+	desc = [[거의 사람과 비슷한 모습의 그림자입니다. 시간이 흘러, 실존하는 형상이라기보다는 의지의 힘 그 자체가 되었습니다.]],
 	rarity = 5, cave_rarity = 5, vault_rarity = 5,
 	
 	max_life = resolvers.rngavg(50,60), life_rating = 6,
@@ -272,8 +280,9 @@ newEntity{
 
 newEntity{ base = "BASE_BERETHH_COMPANION", define_as = "BERETHH_WARRIOR",
 	name = "Companion Warrior",
+	kr_name = "동료 전사",
 	color=colors.DARK_GREEN, image="npc/humanoid_elenulach_thief.png",
-	desc = [[This elf is a companion of Berethh. He's dressed in light armor and wields a sword.]],
+	desc = [[이 엘프는 베레쓰의 동료입니다. 경갑을 입고 장검을 쥐고 있습니다.]],
 	
 	autolevel = "warrior",
 	stats = { str=22, dex=16, mag=6, con=16 },
@@ -295,8 +304,9 @@ newEntity{ base = "BASE_BERETHH_COMPANION", define_as = "BERETHH_WARRIOR",
 
 newEntity{ base = "BASE_BERETHH_COMPANION", define_as = "BERETHH_ARCHER",
 	name = "Companion Archer",
+	kr_name = "동료 궁수",
 	color=colors.GREEN, image="npc/humanoid_elf_elven_archer.png",
-	desc = [[This elf is a companion of Berethh. He's dressed in light armor and wields a bow.]],
+	desc = [[이 엘프는 베레쓰의 동료입니다. 경갑을 입고 활을 쥐고 있습니다.]],
 	
 	autolevel = "archer",
 	stats = { str=16, dex=22, mag=6, con=14, cun=14 },
@@ -319,10 +329,11 @@ newEntity{ base = "BASE_BERETHH_COMPANION", define_as = "BERETHH_ARCHER",
 
 newEntity{ define_as="KYLESS",
 	name = "Kyless",
+	kr_name = "킬레스",
 	type = "humanoid", subtype = "human",
 	color=colors.VIOLET, display = "p", image = "player/cornac_male.png",
-	desc = "This is Kyless, your old friend. He seems dirtier than you recall and a good bit more dangerous.",
-	killer_message = "and fed to his corrupted dogs",
+	desc = "당신의 옛 친구인 킬레스입니다. 기억보다 많이 더러워진 듯 하고, 훨씬 더 위험해졌습니다.",
+	killer_message = "당신은 그의 타락한 개들의 먹잇감이 되었습니다.",
 	
 	stats = { str=10, dex=20, wil=40, cun=30, con=15 },
 	autolevel = "wildcaster",
@@ -386,10 +397,11 @@ newEntity{ define_as="KYLESS",
 
 newEntity{ define_as="BERETHH",
 	name = "Berethh",
+	kr_name = "베레쓰",
 	type = "humanoid", subtype = "thalore",
 	color=colors.LIGHT_GREEN, display = "p", image = "player/thalore_male.png",
-	desc = "This is Berethh, your old friend. He is dressed in well-worn leather and skillfully wields a bow. There is something noble about the way he carries himself but his expression carries no emotion.",
-	killer_message = "and quickly burned in a pyre",
+	desc = "당신의 옛 친구인 베레쓰입니다. 몸에 익숙한 가죽 갑옷을 입고, 능숙하게 활을 쥐고 있습니다. 그가 지고 가는 길에서는 숭고함이 느껴지지만, 그의 표정에는 아무런 감정도 느껴지지 않습니다.",
+	killer_message = "당신은 순식간에 불타올라 재가 되었습니다.",
 	level_range = {20, 35}, exp_worth = 2,
 	rank = 4,
 	autolevel = "archer",

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,8 +23,9 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 	name = "Weirdling Beast", color=colors.VIOLET,
-	desc = "A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.",
-	killer_message = "and slowly consumed",
+	kr_name = "불가사의한 짐승",
+	desc = "인간을 아주 약간 닮았지만, 팔과 다리가 있어야 할 곳에 촉수가 달려있습니다. 당신은 이 생명체가 머리가 없다는 것을 알아차리고, 공포에 질립니다. 썩은 종기가 빠르게 피부에 생겼다가, 빠르게 터지면서 진액이 흘러나옵니다.",
+	killer_message = "당신은 천천히 소화되었습니다.",
 	level_range = {19, nil}, exp_worth = 3,
 	rank = 3.5,
 	autolevel = "warriormage",
@@ -80,7 +81,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 		local spot = game.level:pickSpot{type="door", subtype="weirdling"}
 		if spot then
 			game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
-			game.log("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!")
+			game.log("#LIGHT_RED#불가사의한 짐승이 마지막 비명과 함께 쓰러지자, 그 뒤에 있던 문이 폭발하면서 부서졌고 뒤쪽의 방이 나타났습니다. 그리고, 올라가는 계단이 무너졌습니다!")
 		end
 		local spot = game.level:pickSpot{type="stair", subtype="up"}
 		if spot then
@@ -98,6 +99,7 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 			local g = mod.class.Grid.new{
 				show_tooltip=true, always_remember = true,
 				name="Teleportation portal to the Sher'Tul Fortress",
+				kr_name = "쉐르'툴 요새의 순간이동 관문",
 				display='>', color=colors.ANTIQUE_WHITE, image = "terrain/grass.png", add_mos = {{image = "terrain/maze_teleport.png"}},
 				notice = true,
 				change_level=1, change_zone="shertul-fortress",
@@ -118,7 +120,8 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="WEIRDLING_BEAST",
 newEntity{ base = "BASE_NPC_HORROR", define_as="BUTLER",
 	subtype = "Sher'Tul",
 	name = "Fortress Shadow", color=colors.GREY,
-	desc = "The shadow created by the fortress, it resembles somewhat the horrors you saw previously, but it is not the same.",
+	kr_name = "요새의 그림자",
+	desc = "요새가 만든 그림자로, 이전까지 봤던 '공포' 들을 약간 닮았지만 같은 존재는 아닙니다.",
 	level_range = {19, nil}, exp_worth = 3,
 	rank = 3,
 	max_life = 300, life_rating = 16,
@@ -131,7 +134,8 @@ newEntity{ base = "BASE_NPC_HORROR", define_as="BUTLER",
 newEntity{ define_as="TRAINING_DUMMY",
 	type = "training", subtype = "dummy",
 	name = "Training Dummy", color=colors.GREY,
-	desc = "Training dummy.", image = "npc/lure.png",
+	kr_name = "연습용 허수아비",
+	desc = "연습용 허수아비.", image = "npc/lure.png",
 	level_range = {1, 1}, exp_worth = 0,
 	rank = 3,
 	max_life = 300000, life_rating = 0,
@@ -162,8 +166,9 @@ newEntity{ define_as="TRAINING_DUMMY",
 
 newEntity{ base = "BASE_NPC_CAT", define_as = "KITTY",
 	name = "Pumpkin, the little kitty", color=colors.ORANGE,
+	kr_name = "작은 고양이, 펌프킨",
 	image="npc/sage_kitty.png",
-	desc = [[An orange kitty with a white star blaze on his chest. Has a strange affinity for licking your face whenever possible.]],
+	desc = [[가슴 부분에 하얀 별 모양 점이 있는 오렌지색 고양이입니다. 기이할 정도의 친화력을 가져, 가능할 때마다 당신의 얼굴을 햝으려고 합니다.]], 
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 4,
 	self_resurrect = 9,

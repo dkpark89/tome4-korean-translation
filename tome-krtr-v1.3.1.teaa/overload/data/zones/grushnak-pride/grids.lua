@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ load("/data/general/grids/forest.lua")
 newEntity{
 	define_as = "SLIME_TUNNELS",
 	name = "entrance to a slimy pit",
+	kr_name = "슬라임 굴 입구",
 	display = '>', color=colors.LIGHT_GREEN, image = "terrain/underground_floor.png", add_displays = {class.new{image="terrain/slime/slime_stair_down_01.png"}},
 	always_remember = true,
 	notice = true,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Lost Dwarven Kingdom of Reknor",
+	kr_name = "잊혀진 드워프 왕국, 레크놀",
 	level_range = {18, 35},
 	level_scheme = "player",
 	max_level = 4,
@@ -29,8 +30,8 @@ return {
 --	all_lited = true,
 	persistent = "zone",
 	ambient_music = "To the Depths.ogg",
-	min_material_level = function() return game.state:isAdvanced() and 4 or 3 end,
-	max_material_level = function() return game.state:isAdvanced() and 5 or 4 end,
+	min_material_level = 3,
+	max_material_level = 4,
 	generator =  {
 		map = {
 			class = "engine.generator.map.TileSet",

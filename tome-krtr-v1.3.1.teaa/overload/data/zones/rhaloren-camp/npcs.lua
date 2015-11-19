@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -31,10 +31,10 @@ newEntity{ define_as = "INQUISITOR",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "shalore", unique = true,
 	name = "Rhaloren Inquisitor",
+	kr_name = "랄로레 심문관",
 	display = "p", color=colors.VIOLET, female = true,
-	desc = [[This tall elf rushes at you, wielding both her greatsword and magical spells.]],
-	faction = "rhalore",
-	killer_message = "and hung from the rafters",
+	desc = [[키 큰 엘프가 양손에 대검을 들고, 주문을 외우면서 당신에게 돌진해 옵니다.]],
+	killer_message = "당신은 서까래 밑에서 교수형에 처해졌습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	rank = 4,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,7 +22,8 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "UNDEAD_POEM_LEVEL_2",
 	name = "paper scrap", lore="dreadfell-poem-level-2",
-	desc = [[A smudged poem chalked on a dark piece of slate]],
+	kr_name = "종이 조각",
+	desc = [[검은색 바닥 위에 분필같은 것으로 쓴, 얼룩덜룩한 시]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -30,7 +31,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "UNDEAD_POEM_LEVEL_5",
 	name = "paper scrap", lore="dreadfell-poem-level-5",
-	desc = [[A poem written in scribbled, child-like writing]],
+	kr_name = "종이 조각",
+	desc = [[꼭 어린애가 쓴 것 같이 유치한, 휘갈긴 글씨체의 시]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -38,7 +40,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "UNDEAD_POEM_LEVEL_7",
 	name = "paper scrap", lore="dreadfell-poem-level-7",
-	desc = [[A poem written in an elegant Gothic script]],
+	kr_name = "종이 조각",
+	desc = [[고풍스러운 글씨체로 쓰여진 시]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -46,7 +49,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "BORFAST_LETTER",
 	name = "a letter from the Master", lore="dreadfell-borfast-letter",
-	desc = [[A letter written in a bold, commanding script]],
+	kr_name = "'주인' 이 보낸 편지",
+	desc = [[명령문이 뚜렷하게 적힌 편지]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -54,7 +58,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "ALETTA_LETTER",
 	name = "a letter from the Master", lore="dreadfell-aletta-letter",
-	desc = [[A letter written in a bold, commanding script]],
+	kr_name = "'주인' 이 보낸 편지",
+	desc = [[명령문이 뚜렷하게 적힌 편지]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -62,7 +67,8 @@ newEntity{ base = "BASE_LORE",
 newEntity{ base = "BASE_LORE",
 	define_as = "FILIO_LETTER",
 	name = "a letter from the Master", lore="dreadfell-filio-letter",
-	desc = [[A letter written in a bold, commanding script]],
+	kr_name = "'주인' 이 보낸 편지",
+	desc = [[명령문이 뚜렷하게 적힌 편지]],
 	rarity = false,
 	encumberance = 0,
 }

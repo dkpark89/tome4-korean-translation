@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,9 +19,14 @@
 
 return {
 	name = "Ring of Blood",
+	kr_name = "피의 투기장",
 	display_name = function(x, y)
 		if game.level.level < 3 then return "Slavers Compound ("..game.level.level..")" end
 		return "Ring of Blood"
+	end,
+	kr_display_name = function(x, y)
+		if game.level.level < 3 then return "노예 수용소 ("..game.level.level..")" end
+		return "피의 투기장"
 	end,
 	variable_zone_name = true,
 	level_range = {10, 25},

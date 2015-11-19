@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "LOCK",
 	type = "floor", subtype = "floor",
 	name = "sealed door", image = "terrain/granite_door1.png",
+	kr_name = "봉인된 문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="LOCK_VERT", west_east="LOCK_HORIZ" },
 	notice = true,
@@ -38,6 +39,7 @@ newEntity{ base = "LOCK", define_as = "LOCK_VERT", image = "terrain/marble_floor
 newEntity{
 	define_as = "PENTAGRAM",
 	name = "demonic symbol",
+	kr_name = "악마의 상징",
 	image = "terrain/marble_floor.png", add_mos = {{image="terrain/floor_pentagram.png"}},
 	display = ';', color=colors.RED, back_color=colors.DARK_UMBER,
 	notice = true,

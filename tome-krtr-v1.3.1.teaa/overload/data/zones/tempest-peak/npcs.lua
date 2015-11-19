@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,10 +30,11 @@ newEntity{ define_as = "URKIS",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Urkis, the High Tempest",
+	kr_name = "고위 대기술사, 우르키스",
 	display = "p", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_urkis__the_high_tempest.png", display_h=2, display_y=-1}}},
-	desc = [[Lightning crackles around this middle-aged man. He radiates power.]],
-	killer_message = "and used in mad electrical reanimation experiments",
+	desc = [[이 중년 남자의 주변에는 번개가 파직거립니다. 그가 내뿜는 힘이 느껴집니다.]],
+	killer_message = "당신은 전격의 힘으로 사람을 살린다는, 그가 구상한 정신나간 실험의 실험 대상이 되었습니다.",
 	level_range = {17, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,
 	max_mana = 850, mana_regen = 40,
@@ -74,6 +75,5 @@ newEntity{ define_as = "URKIS",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("lightning-overload", engine.Quest.COMPLETED)
-		game:unlockBackground("urkis", "Urkis, the High Tempest")
 	end,
 }

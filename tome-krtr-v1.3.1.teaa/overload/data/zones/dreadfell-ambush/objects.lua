@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,7 +22,8 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "UKRUK_NOTE",
 	name = "hastily written log", lore="ukruk-log",
-	desc = [[A paper scrap, left by Ukruk.]],
+	kr_name = "급히 적어놓은 기록",
+	desc = [[우크룩이 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

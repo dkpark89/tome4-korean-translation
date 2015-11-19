@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.WHITE,
 	faction = "allied-kingdoms",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -55,7 +55,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	name = "derth guard", color=colors.LIGHT_UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_name = "데르스 경비",
+	desc = [[엄격해 보이는 경비입니다. 이 경비는 당신이 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -69,8 +70,9 @@ newEntity{ base = "BASE_NPC_DERTH_TOWN",
 
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	name = "halfling slinger", color=colors.UMBER,
+	kr_name = "하플링 투석 전사",
 	subtype = "halfling",
-	desc = [[A Halfling, with a sling. Beware.]],
+	desc = [[이 하플링은 투석구를 가지고 있습니다. 조심하는 편이 좋을 것 같습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),
@@ -82,7 +84,8 @@ newEntity{ base = "BASE_NPC_DERTH_TOWN",
 
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	name = "human farmer", color=colors.WHITE,
-	desc = [[A weather-worn Human farmer.]],
+	kr_name = "인간 농부",
+	desc = [[비바람에 익숙한, 인간 농부입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(30,40),
@@ -91,8 +94,9 @@ newEntity{ base = "BASE_NPC_DERTH_TOWN",
 
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	name = "halfling gardener", color=colors.WHITE,
+	kr_name = "하플링 정원사",
 	subtype = "halfling",
-	desc = [[A Halfling, he seems to be looking for plants.]],
+	desc = [[이 하플링은 식물을 돌보고 있는 것 같습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(30,40),
@@ -101,6 +105,7 @@ newEntity{ base = "BASE_NPC_DERTH_TOWN",
 newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	define_as ="ARENA_AGENT",
 	name = "Shady cornac man", color=colors.DARK_BLUE, unique = true,
+	kr_name = "수상한 코르낙 남자",
 	level_range = {1, nil}, exp_worth = 1,
 	can_talk = "arena-unlock",
 	can_quest = true,
@@ -110,7 +115,7 @@ newEntity{ base = "BASE_NPC_DERTH_TOWN",
 	seen_by = function(self, who)
 		if not game.party:hasMember(who) then return end
 		self.seen_by = nil
-		self:doEmote("Hey you. Come here.", 60)
+		self:doEmote("이봐 거기. 잠깐 이리로 와보게나.", 60)
 	end,
 	on_die = false,
 }

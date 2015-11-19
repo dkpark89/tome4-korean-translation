@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Southern Beach",
+	kr_name = "남쪽 해변",
 	level_range = {24, 35},
 	level_scheme = "player",
 	max_level = 1,
@@ -125,7 +126,7 @@ return {
 			if game.level.data.yaech_start_in < 0 then
 				game.level.data.yaech_start_in = nil
 				local melinda = game.party:findMember{type="Girlfriend"}
-				if melinda then melinda:doEmote("Look over there!", 120) end
+				if melinda then melinda:doEmote("저기 좀 봐봐!", 120) end
 				game.level.data.nb_yaech_killed = 0
 				for i = 1, 12 do
 					local m = game.zone:makeEntity(game.level, "actor", {type = "humanoid", subtype = "yaech"}, nil, true)
@@ -138,7 +139,7 @@ return {
 							if game.level.data.nb_yaech_killed >= 4 then
 								local melinda = game.party:findMember{type="Girlfriend"}
 								if melinda then
-									game.bignews:say(120, "#DARK_GREEN#Melinda begins to glow with an eerie aura!")
+									game.bignews:say(120, "#DARK_GREEN#멜린다의 몸이 섬뜩한 기운으로 빛나기 시작합니다!")
 									melinda.self_resurrect = 1
 									melinda.resists = {}									
 									game.zone.more_spawn()

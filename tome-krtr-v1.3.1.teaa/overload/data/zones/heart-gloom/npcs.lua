@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -59,9 +59,10 @@ load("/data/general/npcs/plant.lua", alter(0))
 newEntity{ base="BASE_NPC_CANINE", define_as = "WITHERING_THING",
 	unique = true,
 	name = "The Withering Thing", tint=colors.PURPLE,
+	kr_name = "시듦의 원천",
 	color=colors.VIOLET,
-	desc = [[This deformed beast might have been a wolf before, but now it is just... terrible.]],
-	killer_message = "and corrupted into a pile of writhing worms",
+	desc = [[이 기형의 짐승은 한때 늑대였던것 같지만, 이제는 그냥... 끔찍합니다.]],
+	killer_message = "당신은 오염되어 꿈틀거리는 벌레 무리가 되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 100, life_rating = 15, fixed_rating = true,
 	stats = { str=20, dex=20, cun=12, wil=20, con=10 },
@@ -94,15 +95,15 @@ newEntity{ base="BASE_NPC_CANINE", define_as = "WITHERING_THING",
 	end,
 }
 
-
 newEntity{ define_as = "DREAMING_ONE",
 	type = "horror", subtype = "eldritch",
 	display = "h",
 	unique = true,
 	name = "The Dreaming One", tint=colors.PURPLE,
+	kr_name = "꿈꾸는 자",
 	color=colors.VIOLET, image = "npc/seed_of_dreams.png",
-	desc = [[This strange globe of blue light seems to be alive and asleep. Nothing about it moves, yet you can feel the crushing power of its dreams assaulting your mind.]],
-	killer_message = "and absorbed into nightmares forever",
+	desc = [[푸른 빛을 내뿜는 이 이상한 구체는 살아있으며, 잠든 상태인 것 같습니다. 이것은 움직이지 않고 있지만, 그 꿈의 힘은 당신의 정신을 짓누를 듯 다가옵니다.]],
+	killer_message = "당신은 영원한 악몽 속으로 빨려들어갔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 70, life_rating = 10, fixed_rating = true,
 	stats = { str=10, dex=10, cun=20, wil=25, con=10 },

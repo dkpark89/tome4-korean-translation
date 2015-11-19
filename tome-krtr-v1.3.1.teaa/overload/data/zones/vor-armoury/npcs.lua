@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -29,7 +29,8 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_GRUSHNAK", define_as = "GNARG",
 	allow_infinite_dungeon = true,
 	name = "Warmaster Gnarg", color=colors.VIOLET, unique = true,
-	desc = [[This ugly orc looks really nasty and vicious. He wields a huge two-handed sword and means to use it.]],
+	kr_name = "전투의 대가 나르그",
+	desc = [[굉장히 더럽고 사악하게 생긴, 못생긴 오크입니다. 커다란 양손검을 쥐고 있으며, 이것을 사용할 준비를 하고 있습니다.]],
 	level_range = {35, nil}, exp_worth = 2,
 	rank = 4,
 	max_life = 250, life_rating = 27, fixed_rating = true,
@@ -80,6 +81,7 @@ newEntity{ base="BASE_NPC_ORC_GRUSHNAK", define_as = "GNARG",
 
 newEntity{ base="GREATER_MULTI_HUED_WYRM", define_as="OVERPOWERED_WYRM",
 	name = "overpowered greater multi-hued wyrm",
+	kr_name = "너무나 엄청나게 강력한 무지개빛 고위 용",
 	image = "npc/dragon_multihued_greater_multi_hued_wyrm.png",
 	level_range = {100, nil}, exp_worth = 3,
 	wyrm_rarity = 1, rarity = false,

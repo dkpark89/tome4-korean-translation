@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,10 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils" 
+
 local layout = game.state:alternateZoneTier1(short_name, {"ALT1", 1})
 
 return {
 	name = "Ruined Dungeon",
+	kr_name = "파괴된 던전",
 	level_range = {10, 30},
 	level_scheme = "player",
 	max_level = 1,
@@ -78,11 +81,11 @@ return {
 		end
 
 		-- Pop guardians
-		local guardian_filter = {not_properties = {"unique"}, random_elite={name_scheme="#rng# the Guardian", on_die=function(self)
+		local guardian_filter = {not_properties = {"unique"}, random_elite={name_scheme="#rng# the Guardian", on_die=function(self) --@ 번역하는 부분 아님
 			local spot = game.level:pickSpotRemove{type="portal", subtype="portal"}
 			if spot then
 				game.level.map(spot.x, spot.y, engine.Map.TERRAIN).orb_allowed = true
-				require("engine.ui.Dialog"):simplePopup("Guardian", "You can hear a magical trigger firing off.")
+				require("engine.ui.Dialog"):simplePopup("수호자", "마법 장치가 기동하기 시작하는 소리가 들립니다.")
 			end
 		end}, add_levels=5}
 		local _, guardians = level:pickSpot{type="spawn", subtype="guardian"}
@@ -110,7 +113,7 @@ return {
 			-- Failed!
 			if o[i] ~= order[i] then
 				game.level.orbs_touched = {}
-				Dialog:simplePopup("Strange Orb", "The orb seems to react badly to your touch, there is a high shriek!")
+				Dialog:simplePopup("기묘한 오브", "오브를 건드리자, 상당히 좋지 않은 것 같은 반응과 함께 시끄러운 비명이 들립니다!")
 				for i = 1, 4 do
 					-- Find space
 					local x, y = util.findFreeGrid(sx, sy, 10, true, {[game.level.map.ACTOR]=true})
@@ -124,7 +127,7 @@ return {
 						m.exp_worth = 0
 						m:emptyDrops()
 						game.zone:addEntity(game.level, m, "actor", x, y)
-						game.logSeen(m, "%s appears out of the thin air!", m.name:capitalize())
+						game.logSeen(m, "어디선가 갑자기 %s 나타났습니다!", (m.kr_name or m.name):capitalize():addJosa("가"))
 					end
 				end
 				return
@@ -132,13 +135,13 @@ return {
 		end
 		-- Success
 		if #o == #order then
-			Dialog:simplePopup("Strange Orb", "The orb glows brightly. There is a loud crack coming from the northern central chamber.")
+			Dialog:simplePopup("기묘한 오브", "오브가 환하게 빛납니다. 큰 소리와 함께, 북쪽 중앙의 문이 열립니다.")
 			local spot = game.level:pickSpot{type="door", subtype="sealed"}
 			local g = game.zone:makeEntityByName(game.level, "terrain", "OLD_FLOOR")
 			game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
 			game.level.orbs_used = true
 		else
-			Dialog:simplePopup("Strange Orb", "The orb glows brightly.")
+			Dialog:simplePopup("기묘한 오브", "오브가 환하게 빛납니다.")
 		end
 	end,
 }

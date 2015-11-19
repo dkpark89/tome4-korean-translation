@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,8 +25,8 @@ load("/data/general/grids/lava.lua", function(e) if e.define_as == "LAVA_FLOOR" 
 		local dam = DT:get(DT.DEMONFIRE).projector(game.level.plane_owner, x, y, DT.DEMONFIRE, game.level.demonfire_dam or 1)
 		if dam then
 			self.x, self.y = x, y
-			if dam > 0 then self:logCombat(who, "#Source# burns #Target#!")
-			elseif dam < 0 then self:logCombat(who, "#Source# heals #Target#!") end
+			if dam > 0 then self:logCombat(who, "#Source1# #Target3# 불태웁니다!")
+			elseif dam < 0 then self:logCombat(who, "#Source1# #Target3# 치료합니다!") end
 		end
 	end
 end end)

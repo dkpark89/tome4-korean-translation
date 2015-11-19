@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ newEntity{
 	define_as = "STEW",
 	type = "wall", subtype = "grass",
 	name = "troll stew", image = "terrain/grass.png", add_mos={{image="terrain/troll_stew.png"}},
+	kr_name = "트롤의 찌개",
 	display = '~', color=colors.LIGHT_RED, back_color=colors.RED,
 	does_block_move = true,
 	pass_projectile = true,
@@ -37,6 +38,7 @@ newEntity{
 	define_as = "GRASS_EVENT",
 	type = "floor", subtype = "grass",
 	name = "grass", image = "terrain/grass.png",
+	kr_name = "풀밭",
 	display = '.', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	nice_editer = grass_editer,
 }
@@ -104,6 +106,7 @@ newEntity{
 	define_as = "CAVEFLOOR_EVENT",
 	type = "floor", subtype = "dirt",
 	name = "cave floor", image = "terrain/cave/cave_floor_1_01.png",
+	kr_name = "동굴 바닥",
 	display = '.', color=colors.SANDY_BROWN, back_color=colors.DARK_UMBER,
 	always_remember = true,
 	notice = true,
@@ -112,6 +115,7 @@ newEntity{
 newEntity{
 	define_as = "CAVEFLOOR_CAVE_MARKER",
 	name = "cave marker", image = "terrain/cave/cave_floor_1_01.png",
+	kr_name = "동굴 표지",
 	display = '_', color=colors.SANDY_BROWN, back_color=colors.DARK_UMBER,
 	add_displays = {class.new{image="terrain/signpost.png"}},
 	always_remember = true,
@@ -191,6 +195,7 @@ newEntity{
 	define_as = "CAVE_DOOR",
 	type = "wall", subtype = "floor",
 	name = "door", image = "terrain/cave/cave_door1.png",
+	kr_name = "문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="CAVE_DOOR_VERT", west_east="CAVE_DOOR_HORIZ" },
 	notice = true,
@@ -204,6 +209,7 @@ newEntity{
 	define_as = "CAVE_DOOR_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open door", image="terrain/cave/cave_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	always_remember = true,
 	is_door = true,

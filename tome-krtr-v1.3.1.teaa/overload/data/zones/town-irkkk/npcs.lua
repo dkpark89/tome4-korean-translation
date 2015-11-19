@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "yeek",
 	display = "p", color=colors.WHITE,
 	faction = "the-way",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -51,8 +51,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN",
 	name = "yeek mindslayer", color=colors.LIGHT_UMBER,
+	kr_name = "이크 정신 파괴자",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_yeek_yeek_mindslayer.png", display_h=2, display_y=-1}}},
-	desc = [[A mindslayer in training.]],
+	desc = [[훈련 중인 정신 파괴자입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -70,7 +71,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN",
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN",
 	name = "yeek psionic", color=colors.YELLOW,
-	desc = [[You can literaly feel the mental energies emitted by this yeek.]],
+	kr_name = "이크 초능력자",
+	desc = [[이크가 내뿜는 정신 에너지가 실제로 느껴집니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),
@@ -89,7 +91,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN",
 -------------------------------- Stores
 newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_GEM",
 	name = "gem crafter", color=colors.BLUE, image = "npc/humanoid_yeek_yeek_psionic.png",
-	desc = [[This yeek has all sorts of gems to sell.]],
+	kr_name = "보석 공예가",
+	desc = [[갖가지 판매용 보석을 가지고 있는 이크입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	ai_state = { talent_in=1, },
@@ -107,7 +110,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_GEM",
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_2HANDS",
 	name = "two hander weapons crafter", color=colors.UMBER, image = "npc/humanoid_yeek_yeek_commoner_06.png",
-	desc = [[This yeek has all sorts of two handed weapons to sell.]],
+	kr_name = "양손무기 장인",
+	desc = [[갖가지 판매용 양손무기를 가지고 있는 이크입니다..]],
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	ai_state = { talent_in=1, },
@@ -125,7 +129,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_2HANDS",
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_1HAND",
 	name = "one hander weapons crafter", color=colors.UMBER, image = "npc/humanoid_yeek_yeek_commoner_08.png",
-	desc = [[This yeek has all sorts of one handed weapons to sell.]],
+	kr_name = "한손무기 장인",
+	desc = [[갖가지 판매용 한손무기를 가지고 있는 이크입니다..]],
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	ai_state = { talent_in=1, },
@@ -143,7 +148,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_1HAND",
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_CLOTH",
 	name = "tailor", color=colors.BLUE, image = "npc/humanoid_yeek_yeek_commoner_04.png",
-	desc = [[This yeek has all sorts of cloth to sell.]],
+	kr_name = "재단사",
+	desc = [[갖가지 판매용 옷을 가지고 있는 이크입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	ai_state = { talent_in=1, },
@@ -161,7 +167,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_CLOTH",
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_LEATHER",
 	name = "tanner", color=colors.BLUE, image = "npc/humanoid_yeek_yeek_commoner_07.png",
-	desc = [[This yeek has all sorts of leathers to sell.]],
+	kr_name = "무두장이",
+	desc = [[갖가지 판매용 가죽 제품을 가지고 있는 이크입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	ai_state = { talent_in=1, },
@@ -179,7 +186,8 @@ newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_LEATHER",
 
 newEntity{ base = "BASE_NPC_IRKKK_TOWN", define_as = "YEEK_STORE_NATURE",
 	name = "natural infusions", color=colors.BLUE, image = "npc/humanoid_yeek_yeek_summoner.png",
-	desc = [[This yeek has all sorts of infusions to sell.]],
+	kr_name = "자연의 주입물",
+	desc = [[갖가지 판매용 주입물을 가지고 있는 이크입니다..]],
 	level_range = {1, nil}, exp_worth = 1,
 	max_life = resolvers.rngavg(50,60),
 	ai_state = { talent_in=1, },

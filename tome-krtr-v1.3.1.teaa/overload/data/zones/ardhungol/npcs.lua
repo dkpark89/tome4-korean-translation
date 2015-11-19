@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,9 +26,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "UNGOLE", base = "BASE_NPC_SPIDER",
 	allow_infinite_dungeon = true,
 	name = "Ungolë", color=colors.VIOLET, unique = true,
+	kr_name = "운골뢰",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_ungole.png", display_h=2, display_y=-1}}},
-	desc = [[A huge spider, shrouded in darkness, her red glowing eyes darting to fix on you. She looks hungry.]],
-	killer_message = "and devoured alongside a Sun Paladin",
+	desc = [[어둠의 장막을 두른 거대한 거미로, 붉게 빛나는 눈은 당신을 뚫어져라 쳐다보고 있습니다. 매우 배고파 보입니다.]],
+	killer_message = "당신은 태양의 기사와 함께 잡아먹혔습니다.",
 	level_range = {30, nil}, exp_worth = 2,
 	female = 1,
 	max_life = 450, life_rating = 15, fixed_rating = true,
@@ -66,7 +67,7 @@ newEntity{ define_as = "UNGOLE", base = "BASE_NPC_SPIDER",
 
 	on_die = function(self, who)
 		local Chat = require"engine.Chat"
-		local chat = Chat.new("ardhungol-end", {name="Sun Paladin Rashim"}, game.player:resolveSource())
+		local chat = Chat.new("ardhungol-end", {name="Sun Paladin Rashim", kr_name="태양의 기사 라심"}, game.player:resolveSource())
 		chat:invoke()
 	end,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,11 +25,12 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "GOD_GERLYK",
 	type = "god", subtype = "eyal", unique = true,
 	name = "Gerlyk, the Creator",
+	kr_name = "창조자, 게를릭",
 	display = "P", color=colors.VIOLET,
-	desc = [[During the Age of Haze nearly all gods were destroyed by the Sher'tul Godslayers. However, a small number escaped.
-Gerlyk, the creator of the Human race, prefered to flee into the void between the stars than to face death. He has been trapped ever since.
-The sorcerers tried to bring him back and nearly succeeded.
-Now you have come to finish what the Sher'tul began. Become a Godslayer yourself.]],
+	desc = [[아지랑이의 시대동안, 쉐르'툴 종족의 신 살해자들에 의해 거의 모든 신들이 파괴되었습니다. 하지만 몇몇 신들은 도망칠 수 있었습니다.
+인류의 창조자, 게를릭은 죽음을 맞이하는 대신 별 사이의 공허로 도망치는 것을 선택했습니다. 그 이후로, 그는 이곳에 갇혀있었습니다.
+'주술사' 들이 그를 불러오려 노력했었고, 거의 성공할 뻔 했었습니다.
+이제 쉐르'툴의 주인으로서, 당신이 모든 일의 마무리를 지어야 합니다. 신 살해자가 되어 보세요.]],
 	level_range = {100, nil}, exp_worth = 3,
 	max_life = 900, life_rating = 100, fixed_rating = true,
 	life_regen = 70,

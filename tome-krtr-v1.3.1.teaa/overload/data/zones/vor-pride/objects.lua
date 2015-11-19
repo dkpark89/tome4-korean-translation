@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,20 +27,21 @@ local Stats = require"engine.interface.ActorStats"
 newEntity{ base = "BASE_SCROLL", subtype="tome",
 	power_source = {arcane=true},
 	name = "Tome of Wildfire", unided_name = "burning book", unique=true, no_unique_lore=true, image = "object/artifact/tome_of_wildfire.png",
-	desc = "This huge book is covered in searing flames. Yet they do not harm you.",
+	kr_name = "열화의 서적", kr_unided_name = "타오르는 책",
+	desc = "타오르는 화염이 이 커다란 책을 감싸고 있습니다. 하지만 만져봐도 별 문제는 없는 것 같습니다.",
 	color = colors.VIOLET,
 	level_range = {35, 45},
 	rarity = 200,
 	cost = 100,
 
-	use_simple = { name="learn the ancient secrets", use = function(self, who)
+	use_simple = { name="learn the ancient secrets", kr_name="고대의 비밀 학습", use = function(self, who)
 		if not who:knowTalent(who.T_FLAME) then
 			who:learnTalent(who.T_FLAME, true, 3, {no_unlearn=true})
-			game.logPlayer(who, "#00FFFF#You read the tome and learn about ancient forgotten fire magic!")
+			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 잊혀진 고대의 화염 마법을 배웠습니다!")
 		else
 			who.talents_types_mastery["spell/fire"] = (who.talents_types_mastery["spell/fire"] or 1) + 0.1
 			who.talents_types_mastery["spell/wildfire"] = (who.talents_types_mastery["spell/wildfire"] or 1) + 0.1
-			game.logPlayer(who, "#00FFFF#You read the tome and perfect your mastery of fire magic!")
+			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 화염 마법들의 기술 숙련도를 올렸습니다!")
 		end
 
 		return {used=true, id=true, destroy=true}
@@ -51,20 +52,21 @@ newEntity{ base = "BASE_SCROLL", subtype="tome",
 newEntity{ base = "BASE_SCROLL", subtype="tome",
 	power_source = {arcane=true},
 	name = "Tome of Uttercold", unided_name = "frozen book", unique=true, no_unique_lore=true, image = "object/artifact/tome_of_uttercold.png",
-	desc = "This huge book is covered in slowly shifting patterns of ice. Yet they do not harm you.",
+	kr_name = "절대영도의 서적", kr_unided_name = "얼어붙은 책",
+	desc = "서서히 변화하는 얼음이 이 커다란 책을 감싸고 있습니다. 하지만 만져봐도 별 문제는 없는 것 같습니다.",
 	color = colors.VIOLET,
 	level_range = {35, 45},
 	rarity = 200,
 	cost = 100,
 
-	use_simple = { name="learn the ancient secrets", use = function(self, who)
+	use_simple = { name="learn the ancient secrets", kr_name="고대의 비밀 학습", use = function(self, who)
 		if not who:knowTalent(who.T_ICE_STORM) then
 			who:learnTalent(who.T_ICE_STORM, true, 3, {no_unlearn=true})
-			game.logPlayer(who, "#00FFFF#You read the tome and learn about ancient forgotten ice magic!")
+			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 잊혀진 고대의 얼음 마법을 배웠습니다!")
 		else
 			who.talents_types_mastery["spell/water"] = (who.talents_types_mastery["spell/water"] or 1) + 0.1
 			who.talents_types_mastery["spell/ice"] = (who.talents_types_mastery["spell/ice"] or 1) + 0.1
-			game.logPlayer(who, "#00FFFF#You read the tome and perfect your mastery of ice magic!")
+			game.logPlayer(who, "#00FFFF#당신은 이 서적을 읽고, 냉기 마법들의 기술 숙련도를 올렸습니다!")
 		end
 
 		return {used=true, id=true, destroy=true}
@@ -74,7 +76,8 @@ newEntity{ base = "BASE_SCROLL", subtype="tome",
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE_LORE",
 	name = "draft note", lore="vor-pride-note",
-	desc = [[A note.]],
+	kr_name = "휘갈겨 쓴 쪽지",
+	desc = [[쪽지입니다.]],
 	rarity = false,
 }
 
@@ -82,7 +85,8 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "ORC_HISTORY"..i,
 	name = "Records of Lorekeeper Hadak", lore="orc-history-"..i, unique="Records of Lorekeeper Hadak "..i,
-	desc = [[Part of the long history of the Orc race.]],
+	kr_name = "지식 관리인 하닥의 기록",
+	desc = [[오크류의 오랜 역사의 일부분입니다.]],
 	rarity = false,
 }
 end

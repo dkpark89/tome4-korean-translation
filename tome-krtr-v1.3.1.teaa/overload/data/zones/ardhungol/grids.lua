@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,12 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/grids/basic.lua")
 load("/data/general/grids/cave.lua")
 load("/data/general/grids/water.lua")
 
 newEntity{ base="CAVEFLOOR", define_as = "WORMHOLE", nice_tiler = false,
 	name = "unstable wormhole",
+	kr_name = "불안정한 웜홀",
 	display = '*', color = colors.GREY,
 	force_clone = true,
 	damage_project = function(self, src, x, y, type, dam)
@@ -31,10 +34,10 @@ newEntity{ base="CAVEFLOOR", define_as = "WORMHOLE", nice_tiler = false,
 		if dam and source_talent and source_talent.is_spell and rng.percent(dam / 3) and not game.__tmp_ardhungol_projecting then
 			local a = game.level.map(x, y, engine.Map.ACTOR)
 			if a then
-				game.logSeen(src, "#VIOLET#The wormhole absorbs the energy of the spell and teleports %s away!", a.name)
+				game.logSeen(src, "#VIOLET#웜홀이 주문의 힘을 흡수하자, %s 순간이동을 했습니다!", (a.kr_name or a.name):addJosa("는"))
 				a:teleportRandom(x, y, 20)
 			else
-				game.logSeen({x=x,y=y}, "#VIOLET#The wormhole absorbs the energy of the spell and explodes in a burst of nullmagic!")
+				game.logSeen({x=x,y=y}, "#VIOLET#웜홀이 주문의 힘을 흡수하자, 마력 진공으로 인한 폭발이 발생했습니다!")
 				local DT = engine.DamageType
 
 				local grids = core.fov.circle_grids(x, y, 2, true)

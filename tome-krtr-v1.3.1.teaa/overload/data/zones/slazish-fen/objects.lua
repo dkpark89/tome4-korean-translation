@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "SLAZISH_NOTE"..i,
 	name = "weird conch", lore="slazish-note-"..i, image = "terrain/shell1.png",
-	desc = [[A conch; it seems the naga was using it as a communication tool.]],
+	kr_name = "소라고둥",
+	desc = [[나가가 통신 도구로 사용하던 것으로 보이는 고둥입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -37,7 +38,8 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "ROBES_DEFLECTION",
 	unique = true,
 	name = "Robes of Deflection", color = colors.UMBER, image = "object/artifact/robes_of_deflection.png",
 	unided_name = "iridescent robe",
-	desc = [[This set of robes seems to shine with metallic colors.]],
+	kr_name = "편향의 로브", kr_unided_name = "무지개빛 로브",
+	desc = [[금속 색깔로 빛나는 로브입니다.]],
 	level_range = {1, 10},
 	rarity = false,
 	cost = 70,

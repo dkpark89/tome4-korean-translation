@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,9 +19,14 @@
 
 return {
 	name = "High Peak",
+	kr_name = "최고봉",
 	display_name = function(x, y)
 		if game.level.level == 11 then return "High Peak: The Sanctum" end
 		return "High Peak ("..game.level.level..")"
+	end,
+	kr_display_name = function(x, y)
+		if game.level.level == 11 then return "최고봉 : 성소" end
+		return "최고봉 ("..game.level.level..")"
 	end,
 	level_range = {55, 80},
 	level_scheme = "player",

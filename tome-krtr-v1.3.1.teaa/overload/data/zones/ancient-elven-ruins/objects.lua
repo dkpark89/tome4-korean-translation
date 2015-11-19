@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,7 +24,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "ancient papyrus scroll", lore="ancient-elven-ruins-note-"..i,
-	desc = [[This seems to be an account of the last days of a great Shaloren mage.]],
+	kr_name = "고대의 파피루스 두루마리",
+	desc = [[위대한 샬로레 마법사의 마지막 나날들을 엿볼 수 있는 글입니다.]],
 	rarity = false,
 }
 end
@@ -37,7 +38,8 @@ newEntity{ base = "BASE_MUMMY_WRAPPING", define_as = "BINDINGS_ETERNAL_NIGHT",
 	unique = true,
 	name = "Bindings of Eternal Night", image = "object/artifact/bindings_of_eternal_night.png",
 	unided_name = "blackened, slithering mummy wrappings",
-	desc = [[Woven through with fell magics of undeath, these bindings suck the light and life out of everything they touch. Any who don them will find themselves suspended in a nightmarish limbo between life and death.]],
+	kr_name = "영원한 밤의 붕대", kr_unided_name = "검고 미끌미끌한 미이라 붕대",
+	desc = [[역생의 마법으로 짜여진 이 붕대는, 붕대에 닿는 모든 빛과 생명력을 흡수합니다. 붕대를 걸친 사람은, 곧 삶과 죽음 사이에 존재하는 악몽과도 같은 연옥에 매달린 자신을 발견하게 될 것입니다.]],
 	color = colors.DARK_GREY,
 	level_range = {1, 50},
 	rarity = 20,
@@ -65,9 +67,6 @@ newEntity{ base = "BASE_MUMMY_WRAPPING", define_as = "BINDINGS_ETERNAL_NIGHT",
 	max_power = 80, power_regen = 1,
 
 	set_list = { {"define_as","CROWN_ETERNAL_NIGHT"} },
-	set_desc = {
-		eternalnight = "A complementing item would be your crowning glory.",
-	},
 	on_set_complete = function(self, who)
 		self.use_talent = { id = "T_ABYSSAL_SHROUD", level = 2, power = 47 }
 	end,
@@ -81,7 +80,8 @@ newEntity{ base = "BASE_LEATHER_CAP", define_as = "CROWN_ETERNAL_NIGHT",
 	unique = true,
 	name = "Crown of Eternal Night", image = "object/artifact/crown_of_eternal_night.png",
 	unided_name = "blackened crown",
-	desc = [[This crown looks useless, yet you can feel it is woven with fell magics of undeath. Maybe it has a use.]],
+	kr_name = "영원한 밤의 왕관", kr_unided_name = "검은 왕관",
+	desc = [[겉보기에는 쓸모 없는 왕관이지만, 아직 그 안에 엮여 있는 역생의 마법을 느낄 수 있습니다. 사용할 수는 있을 것 같습니다.]],
 	color = colors.DARK_GREY,
 	level_range = {1, 50},
 	cost = 100,
@@ -97,9 +97,6 @@ newEntity{ base = "BASE_LEATHER_CAP", define_as = "CROWN_ETERNAL_NIGHT",
 	max_power = 80, power_regen = 1,
 
 	set_list = { {"define_as","BINDINGS_ETERNAL_NIGHT"} },
-	set_desc = {
-		eternalnight = "You need to find something to bind its powers.",
-	},
 	on_set_complete = function(self, who)
 		self:specialSetAdd({"wielder","lite"}, -1)
 		self:specialSetAdd({"wielder","confusion_immune"}, 0.3)
@@ -112,10 +109,10 @@ newEntity{ base = "BASE_LEATHER_CAP", define_as = "CROWN_ETERNAL_NIGHT",
 		self:specialSetAdd({"wielder","inc_damage"}, {[engine.DamageType.DARKNESS]=20})
 		self:specialSetAdd({"wielder","talents_types_mastery"}, {["cunning/stealth"] = 0.1,})
 		self.use_talent = { id = "T_RETCH", level = 2, power = 47 }
-		game.logSeen(who, "#ANTIQUE_WHITE#The Crown of Eternal Night seems to react with the Bindings, you feel tremendous dark power.")
+		game.logSeen(who, "#ANTIQUE_WHITE#영원한 밤의 왕관이 붕대와 서로 반응하기 시작합니다. 어마어마한 어둠의 힘이 느껴집니다.")
 	end,
 	on_set_broken = function(self, who)
-		game.logPlayer(who, "#ANTIQUE_WHITE#The powerful darkness aura you felt wanes away.")
+		game.logPlayer(who, "#ANTIQUE_WHITE#강력한 어둠의 힘이 사라졌습니다.")
 		self.use_talent = nil
 	end,
 }

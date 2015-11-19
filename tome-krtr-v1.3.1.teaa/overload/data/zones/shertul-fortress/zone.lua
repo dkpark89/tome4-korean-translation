@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,12 +17,20 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Yiilkgur, the Sher'Tul Fortress",
+	kr_name = "쉐르'툴 요새, 이일크구르",
 	display_name = function(x, y)
 		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
 		if zn then return zn.." (Yiilkgur, the Sher'Tul Fortress)"
 		else return "Yiilkgur, the Sher'Tul Fortress" end
+	end,
+	kr_display_name = function(x, y)
+		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
+		if zn then return zn:krZonename().." (쉐르'툴 요새, 이일크구르)"
+		else return "쉐르'툴 요새, 이일크구르" end
 	end,
 	variable_zone_name = true,
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,
@@ -83,7 +91,7 @@ return {
 
 		local Dialog = require("engine.ui.Dialog")
 		if not game.level.shown_warning then
-			Dialog:simpleLongPopup("Yiilkgur", "This level seems to be removed from the rest of the ruins. The air is fresh and the level is lighted. You hear the distant crackling of magical energies.", 400)
+			Dialog:simpleLongPopup("이일크구르", "이 지역은 다른 곳과는 전혀 달라보입니다. 공기는 신선하고 조명은 밝으며, 조금 떨어진 곳에서는 마법 에너지가 파직거리는 소리가 들립니다.", 400)
 			game.level.shown_warning = true
 		end
 
@@ -96,7 +104,7 @@ return {
 				game.zone:addEntity(game.level, kitty, "actor", x, y)
 				kitty.faction = game.player.faction
 				game.state.kitty_summoned = true
-				Dialog:simpleLongPopup("Yiilkgur", "As you enter the familiar Fortress you notice a small orange cat has followed you somehow.\nIt looks like the kitty you fed earlier.", 400)
+				Dialog:simpleLongPopup("이일크구르", "친숙해진 요새 안으로 들어서자, 당신은 작은 오렌지색 고양이가 알 수 없는 방법을 통해 당신을 따라왔다는 것을 알게 되었습니다.\n조금 전에 밥을 줬던 그 고양이 같습니다.", 400) 
 			end
 		end
 	end,
@@ -119,15 +127,15 @@ return {
 				map:particleEmitter(x, y, 1, "demon_teleport")
 
 				if  map:getObjectTotal(x, y) == 1 then
-					game.logPlayer(who, "Your %s is magically sorted by the storage room.", o:getName{do_color=true})
+					game.logPlayer(who, "당신의 %s 창고에 마법같이 깔끔하게 정리됩니다.", o:getName{do_color=true}:addJosa("가"))
 				else
-					game.logPlayer(who, "Your %s is magically sorted by the storage room and put in a pile with the others items of the same type.", o:getName{do_color=true})
+					game.logPlayer(who, "당신의 %s 창고에 마법같이 깔끔하게 정리되어, 같은 종류의 다른 물건들과 같이 쌓입니다.", o:getName{do_color=true}:addJosa("가"))
 				end
 				return
 			end
 		end end
 
-		game.logPlayer(who, "It seems the room has no more space to sort your %s.", o:getName{do_color=true})
+		game.logPlayer(who, "당신의 %s 정리하기 위한 공간이 부족합니다.", o:getName{do_color=true}:addJosa("를"))
 		map:addObject(dx, dy, o) -- Add the object back, no room, so dont loose it
 	end,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -35,10 +35,11 @@ newEntity{ define_as = "RANTHA_THE_WORM",
 	allow_infinite_dungeon = true,
 	type = "dragon", subtype = "ice", unique = true,
 	name = "Rantha the Worm",
+	kr_name = "해츨링 수호자, 란싸",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_ice_rantha_the_worm.png", display_h=2, display_y=-1}}},
-	desc = [[Claws and teeth. Ice and death. Dragons are not all extinct it seems...]],
-	killer_message = "and fed to the hatchlings",
+	desc = [[발톱과 이빨. 얼음과 죽음. 용은 멸종된 것이 아니었습니다...]],
+	killer_message = "당신은 해츨링들의 먹잇감이 되었습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 230, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,
@@ -78,7 +79,7 @@ newEntity{ define_as = "RANTHA_THE_WORM",
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("MASSOK", 4, 43, "I have heard there is a dragon hunter in the Daikara that is unhappy about the wyrm being already dead.")
+		game.state:activateBackupGuardian("MASSOK", 4, 43, "다이카라에는 용 사냥꾼이 있다고 들었어. 그 용 사냥꾼은 자신의 사냥감을 뺏긴 것에 대해 상당히 안 좋은 감정을 가지고 있는 것 같다는군.")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "daikara")
 	end,
@@ -88,10 +89,11 @@ newEntity{ define_as = "VARSHA_THE_WRITHING",
 	allow_infinite_dungeon = true,
 	type = "dragon", subtype = "fire", unique = true,
 	name = "Varsha the Writhing",
+	kr_name = "몸부림 치는 바르샤",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_fire_varsha_the_writhing.png", display_h=2, display_y=-1}}},
-	desc = [[Claws and teeth. Fire and death. Dragons are not all extinct it seems...]],
-	killer_message = "and fed to the hatchlings",
+	desc = [[발톱과 이빨. 화염과 죽음. 용은 멸종된 것이 아니었습니다...]],
+	killer_message = "당신은 해츨링들의 먹잇감이 되었습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 230, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,
@@ -130,7 +132,7 @@ newEntity{ define_as = "VARSHA_THE_WRITHING",
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("MASSOK", 4, 43, "I have heard there is a dragon hunter in the Daikara that is unhappy about the wyrm being already dead.")
+		game.state:activateBackupGuardian("MASSOK", 4, 43, "다이카라에는 용 사냥꾼이 있다고 들었어. 그 용 사냥꾼은 자신의 사냥감을 뺏긴 것에 대해 상당히 안 좋은 감정을 가지고 있는 것 같다는군.")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "daikara")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "daikara-volcano")
@@ -140,8 +142,9 @@ newEntity{ define_as = "VARSHA_THE_WRITHING",
 newEntity{ base="BASE_NPC_ORC_GRUSHNAK", define_as = "MASSOK",
 	allow_infinite_dungeon = true,
 	name = "Massok the Dragonslayer", color=colors.VIOLET, unique = true,
+	kr_name = "용 사냥꾼, 마속",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_massok_the_dragonslayer.png", display_h=2, display_y=-1}}},
-	desc = [[A huge and heavily-scarred orc with a gigantic sword. His helm is fashioned from a dragon's skull.]],
+	desc = [[거대한 검을 들고 있으며, 크고 깊은 상처가 있는 오크입니다. 그의 투구는 용의 두개골로 만든 것 같습니다.]],
 	level_range = {45, nil}, exp_worth = 3,
 	rank = 4,
 	max_life = 500, life_rating = 25, fixed_rating = true,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/npcs/rodent.lua", rarity(5))
 load("/data/general/npcs/horror-corrupted.lua", rarity(0))
 
@@ -27,9 +29,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 	unique = true,
 	name = "The Mouth", tint=colors.PURPLE,
+	kr_name = "그 입",
 	color=colors.VIOLET,
-	desc = [["From bellow, it devours."]],
-	killer_message = "and revived as a screeching drem bat",
+	desc = [["울림 속에서, 그것은 모든 것을 삼켜버린다."]],
+	killer_message = "당신은 찍찍거리는 박쥐로 되살아났습니다.", 
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_the_mouth.png", display_h=2, display_y=-1}}},
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 10000, life_rating = 0, fixed_rating = true,
@@ -59,7 +62,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 
 	on_takehit = function(self, value)
 		if value <= 500 then
-			game.logSeen(self, "#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", self.name:capitalize())
+			game.logSeen(self, "#CRIMSON#%s 무적이지만, 다른 방법을 이용하면 죽일 수 있을 것 같습니다!", (self.kr_name or self.name):capitalize():addJosa("는"))
 			return 0
 		end
 		return value
@@ -79,7 +82,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("deep-bellow", engine.Quest.COMPLETED)
-		game.state:activateBackupGuardian("ABOMINATION", 3, 35, "I have heard a dwarf whispering about some abomination in the deep bellow.")
+		game.state:activateBackupGuardian("ABOMINATION", 3, 35, "드워프들 사이에서, '깊은 울림' 속에 혐오생물이 있다는 속삭임을 들은 적이 있어.")
 
 		if game:getPlayer(true).female then
 			game:setAllowedBuild("cosmetic_race_dwarf_female_beard", true)
@@ -89,9 +92,10 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "THE_MOUTH",
 
 newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "SLIMY_CRAWLER",
 	name = "slimy crawler",
+	kr_name = "기어다니는, 형체 없는 자",
 	color = colors.GREEN,
-	desc = [[This disgusting... thing crawls on the floor toward you with great speed.
-It seems to come from the digestive system of the mouth.]],
+	desc = [[이 구역질 나는... 어떤 존재는 엄청난 속도로 바닥을 기어다니며 당신에게 접근하고 있습니다.
+'그 입' 의 소화 기관에서 나온 것으로 보입니다.]],
 	level_range = {4, nil}, exp_worth = 0,
 	max_life = 80, life_rating = 10, fixed_rating = true,
 	movement_speed = 3,
@@ -115,13 +119,13 @@ It seems to come from the digestive system of the mouth.]],
 
 		if self.summoner.dead then
 			self:die()
-			game.logSeen(self, "#AQUAMARINE#With the Mouth's death its crawler also falls lifeless on the ground!")
+			game.logSeen(self, "#AQUAMARINE#'그 입' 의 죽음으로, '그 입' 에서 나왔던 것들 역시 생명이 다해 땅에 쓰러집니다!")
 		end
 	end,
 
 	on_die = function(self, who)
 		if self.summoner and not self.summoner.dead then
-			self:logCombat(self.summoner, "#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!")
+			self:logCombat(self.summoner, "#AQUAMARINE##Source1# 쓰러지자, #Target#도 고통에 몸부림칩니다!")
 			self.summoner.no_take_hit_achievements = true
 			self.summoner:takeHit(1000, who)
 			self.summoner.no_take_hit_achievements = nil
@@ -133,9 +137,10 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "ABOMINATION",
 	unique = true,
 	allow_infinite_dungeon = true,
 	name = "The Abomination",
+	kr_name = "혐오생물",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_the_abomination.png", display_h=2, display_y=-1}}},
-	desc = [[A horrid mass of pustulent flesh, sinew, and bone; this creature seems to constantly be in pain. Two heads glare malevolently at you, an intruder in its domain.]],
+	desc = [[화농이 생긴 살점과 힘줄, 그리고 뼈가 마구 뭉쳐 있는 모양인 이 무시무시한 존재는, 끊임없이 고통에 몸부림치고 있는 것 같습니다. 그의 영역에 침입한 당신을 발견하자, 두 개의 머리가 증오섞인 눈빛으로 당신을 쏘아보기 시작합니다.]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 350, life_rating = 23, fixed_rating = true,
 	life_regen = 30,
@@ -181,7 +186,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "ABOMINATION",
 			if n then
 				self.dropped_note6 = true
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "A parchment falls to the floor near The Abomination.")
+				game.logSeen(self, "혐오생물 근처의 바닥에 양피지가 떨어졌습니다.")
 			end
 		end
 		if self.life - val < self.max_life * 0.25 and not self.dropped_note7 then
@@ -189,7 +194,7 @@ newEntity{ base="BASE_NPC_CORRUPTED_HORROR", define_as = "ABOMINATION",
 			if n then
 				self.dropped_note7 = true
 				game.zone:addEntity(game.level, n, "object", self.x, self.y)
-				game.logSeen(self, "A parchment falls to the floor near The Abomination.")
+				game.logSeen(self, "혐오생물 근처의 바닥에 양피지가 떨어졌습니다.")
 			end
 		end
 		return val

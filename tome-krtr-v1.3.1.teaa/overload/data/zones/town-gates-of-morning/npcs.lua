@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,8 +27,9 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 	display = "p",
 	faction = "sunwall",
 	name = "High Sun Paladin Aeryn", color=colors.VIOLET, unique = true,
+	kr_name = "고위 태양의 기사 아에린",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_high_sun_paladin_aeryn.png", display_h=2, display_y=-1}}},
-	desc = [[A beautiful woman, clad in shining plate armour. Power radiates from her.]],
+	desc = [[빛나는 판갑을 입은 아름다운 여성입니다. 그녀로부터 힘이 퍼져나갑니다.]],
 	level_range = {50, nil}, exp_worth = 2,
 	rank = 4,
 	size_category = 3,
@@ -72,7 +73,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 		if not game.player:hasQuest("orc-pride") then
 			game.player:setQuestStatus("orc-hunt", engine.Quest.DONE)
 			game.player:grantQuest("orc-pride")
-			game.logPlayer(game.player, "You find a note containing the location of the Orc Prides on Aeryn's body.")
+			game.logPlayer(game.player, "아에린의 몸에서, 오크 긍지의 위치가 적현 종이를 발견했습니다.")
 		end
 	end,
 

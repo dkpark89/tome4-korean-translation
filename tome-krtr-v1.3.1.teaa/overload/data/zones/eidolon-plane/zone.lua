@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Eidolon Plane",
+	kr_name = "에이돌론의 차원",
 	level_range = {1, 1},
 	level_scheme = "player",
 	max_level = 1,
@@ -31,7 +34,6 @@ return {
 	zero_gravity = true,
 	no_autoexplore = true,
 	ambient_music = "Alchemist.ogg",
-	allow_respec = "limited",
 	generator =  {
 		map = {
 			class = "engine.generator.map.Empty",
@@ -89,7 +91,7 @@ return {
 		local map = game.level.map
 		map:removeObject(dx, dy, idx)
 
-		game.logPlayer(who, "The Eidolon Plane seems not to physically exist in the same way the normal world does. You cannot seem to drop anything here. %s comes back into your backpack.", o:getName{do_color=true})
+		game.logPlayer(who, "에이돌론의 차원은 일반적인 세상처럼 물리적으로 존재하는 곳이 아닌 것 같습니다. 여기서는 아무것도 버릴 수가 없습니다. %s 소지품으로 되돌아옵니다.", o:getName{do_color=true}:capitalize():addJosa("가"))
 		who:addObject(who.INVEN_INVEN, o)
 	end,
 
@@ -169,7 +171,7 @@ return {
 				game:changeLevel(1, game.player.last_wilderness or "wilderness", {temporary_zone_shift_back=game.level.temp_shift_zone and true or false, direct_switch=true})
 			end
 
-			game.logPlayer(game.player, "#LIGHT_RED#You are sent back to the material plane!")
+			game.logPlayer(game.player, "#LIGHT_RED#당신은 에이돌론의 차원을 벗어나, 물질계로 되돌아왔습니다!")
 			game.player:updateMainShader()
 			game.nicer_tiles:postProcessLevelTilesOnLoad(game.level)
 			game:onLevelLoadRun()

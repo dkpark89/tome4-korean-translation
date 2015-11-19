@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ local grass_editer = { method="borders_def", def="grass"}
 
 newEntity{ base = "FLOOR", define_as = "DIRT",
 	name="dirt road",
+	kr_name = "진흙 도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }
@@ -34,6 +35,7 @@ newEntity{
 	define_as = "STEW",
 	type = "wall", subtype = "grass",
 	name = "troll stew", image = "terrain/grass.png", add_mos={{image="terrain/troll_stew.png"}},
+	kr_name = "트롤의 찌개",
 	display = '~', color=colors.LIGHT_RED, back_color=colors.RED,
 	does_block_move = true,
 	pass_projectile = true,
@@ -46,6 +48,7 @@ newEntity{
 	define_as = "BOGTREE",
 	type = "wall", subtype = "water",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color=colors.DARK_BLUE,
 	always_remember = true,
@@ -72,6 +75,7 @@ end
 newEntity{ base="WATER_BASE",
 	define_as = "BOGWATER",
 	name = "bog water",
+	kr_name = "늪", 
 	image="terrain/water_grass_5_1.png",
 }
 
@@ -79,4 +83,4 @@ newEntity{ base="BOGWATER",
 	define_as = "BOGWATER_MISC",
 	nice_tiler = { method="replace", base={"BOGWATER_MISC", 100, 1, 7}},
 }
-for i = 1, 7 do newEntity{ base="BOGWATER_MISC", define_as = "BOGWATER_MISC"..i, add_displays={class.new{image="terrain/misc_bog"..i..".png"}}} end
+for i = 1, 7 do newEntity{ base="BOGWATER_MISC", define_as = "BOGWATER_MISC"..i, add_mos={{image="terrain/misc_bog"..i..".png"}}} end

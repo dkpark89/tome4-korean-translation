@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,7 +23,8 @@ newEntity{ base = "BASE_LORE",
 	define_as = "LINANIIL_LECTURE",
 	subtype = "lecture on humility", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "Lecture on Humility by Archmage Linaniil", lore="angolwen-linaniil-lecture",
-	desc = [[Lecture on Humility by Archmage Linaniil. A tale of the first ages and the Spellblaze.]],
+	kr_name = "마도사 리나니일의 겸손에 대한 강의",
+	desc = [[마도사 리나니일의 겸손에 대한 강의입니다. 첫 번째 시대와 마법폭발에 관한 이야기입니다.]],
 	rarity = false,
 	cost = 2,
 }
@@ -32,7 +33,8 @@ newEntity{ base = "BASE_LORE",
 	define_as = "TARELION_LECTURE_MAGIC",
 	subtype = "magic teaching", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = "'What is Magic' by Archmage Tarelion", lore="angolwen-tarelion-magic",
-	desc = [[Lecture on the nature of magic by Archmage Tarelion.]],
+	kr_name = "마도사 타렐리온의 강의 '마법이란 무엇인가'",
+	desc = [[마도사 타렐리온의 마법의 본질에 대한 강의입니다.]],
 	rarity = false,
 	cost = 2,
 }

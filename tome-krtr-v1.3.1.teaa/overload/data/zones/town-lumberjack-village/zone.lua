@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Small lumberjack village",
+	kr_name = "작은 나무꾼 마을",
 	level_range = {8, 14},
 	max_level = 1,
 	width = 25, height = 25,
@@ -48,7 +49,7 @@ return {
 	},
 	on_enter = function(lev, old_lev, zone)
 		if not game.level.heard_screams then
-			require("engine.ui.Dialog"):simplePopup("Screams", "You hear screaming not too far from you.")
+			require("engine.ui.Dialog"):simplePopup("비명", "가까운 곳에서, 비명 소리를 들었습니다.")
 			game.level.heard_screams = true
 		end
 	end,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,9 +30,10 @@ newEntity{ define_as = "GOLBUG",
 	type = "humanoid", subtype = "orc", unique = true,
 	faction = "orc-pride",
 	name = "Golbug the Destroyer",
+	kr_name = "파괴자, 골부그",
 	display = "o", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_golbug_the_destroyer.png", display_h=2, display_y=-1}}},
-	desc = [[A huge and muscular orc of unknown breed. He looks both menacing and cunning...]],
+	desc = [[그 혈통이 궁금해질 정도로, 크고 근육질인 오크입니다. 그는 위협적이면서, 또한 교활해 보입니다.]],
 	level_range = {28, nil}, exp_worth = 2,
 	max_life = 350, life_rating = 16, fixed_rating = true,
 	max_stamina = 245,
@@ -95,8 +96,8 @@ newEntity{ define_as = "GOLBUG",
 	end,
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("LITHFENGEL", 4, 35, "They say that after it has been confirmed orcs still inhabited Reknor, they found a mighty demon there.", function(gen)
-			if gen then require("engine.ui.Dialog"):simpleLongPopup("Danger...", "When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", 400) end
+		game.state:activateBackupGuardian("LITHFENGEL", 4, 35, "레크놀의 오크들이 아직도 살아있다는 말 들었어? 그들이 레크놀에서 강력한 악마를 찾아냈다고 하던데...", function(gen)
+			if gen then require("engine.ui.Dialog"):simpleLongPopup("위험...", "마지막으로 이곳을 봤을 때, 이 동굴은 당신이 죽인 오크의 시체로 어지럽혀져 있었습니다. 하지만 지금은, 훨씬 더 많은 시체가 바닥을 완전히 덮고 있으며 이 까맣게 탄 시체에서는 유황 냄새가 납니다. 동쪽으로 연결된 동굴의 저쪽 끝에서, 뭔가가 희미하게 주황색 빛을 내고 있습니다.", 400) end
 		end)
 
 		world:gainAchievement("DESTROYER_BANE", game.player:resolveSource())
@@ -116,8 +117,9 @@ newEntity{ define_as = "HARNO",
 	type = "humanoid", subtype = "human", unique = true,
 	faction = "allied-kingdoms",
 	name = "Harno, Herald of Last Hope",
+	kr_name = "마지막 희망의 전령, 하르노",
 	display = "@", color=colors.LIGHT_BLUE,
-	desc = [[This is one of the heralds of Last Hope. He seems to be looking for you.]],
+	desc = [[마지막 희망에서 온 전령입니다. 당신을 찾아온 것 같습니다.]],
 	global_speed_base = 2,
 	level_range = {40, 40}, exp_worth = 0,
 	max_life = 150, life_rating = 12,
@@ -144,7 +146,7 @@ newEntity{ define_as = "HARNO",
 	can_talk_only_once = true,
 
 	on_die = function(self, who)
-		game.logPlayer(game.player, "#LIGHT_RED#You hear a death cry. '%s I have a messag... ARG!'", game.player.name:capitalize())
+		game.logPlayer(game.player, "#LIGHT_RED#누군가의 단말마를 들었습니다. '%s, 건네줄 전언이 있소... 으악!'", (game.player.kr_name or game.player.name):capitalize())
 		game.player:setQuestStatus("orc-hunt", engine.Quest.DONE, "herald-died")
 	end,
 }
@@ -153,8 +155,9 @@ newEntity{ define_as = "LITHFENGEL", -- Lord of Ash; backup guardian
 	allow_infinite_dungeon = true,
 	type = "demon", subtype = "major", unique = true,
 	name = "Lithfengel",
+	kr_name = "리스펜젤",
 	display = "U", color=colors.VIOLET,
-	desc = [[A terrible demon of decay and atrophy, drawn to the energy of the farportal. A beast of blight!]],
+	desc = [[부패와 쇠퇴를 상징하는 끔찍한 악마로, 장거리 관문의 힘을 흡수하고 있습니다. 황폐의 짐승입니다!]],
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 400, life_rating = 25, fixed_rating = true,
 	rank = 4,
@@ -199,7 +202,7 @@ newEntity{ define_as = "LITHFENGEL", -- Lord of Ash; backup guardian
 
 	on_die = function(self, who)
 		if who.resolveSource and who:resolveSource().player and who:resolveSource():hasQuest("east-portal") then
-			require("engine.ui.Dialog"):simpleLongPopup("Back and there again", "A careful examination of the demon's body turns up a Blood-Runed Athame and a Resonating Diamond, both covered in soot and gore but otherwise in good condition.", 400)
+			require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 곳에", "악마의 몸을 조심스럽게 살펴본 결과, 피의 룬 제례단검과 공명하는 다이아몬드를 발견했습니다. 둘 다 그을음과 피가 묻어있지만, 다른 이상한 점은 없는 것 같습니다.", 400)
 		end
 	end,
 }

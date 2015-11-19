@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,13 +28,14 @@ newEntity{ define_as = "STAFF_ABSORPTION_AWAKENED", base="BASE_STAFF",
 	power_source = {unknown=true},
 	unique = true, godslayer=true, flavor_name = "magestaff",
 	name = "Awakened Staff of Absorption", identified=true, force_lore_artifact=true,
+	kr_name = "각성한 흡수의 지팡이",
 	display = "\\", color=colors.VIOLET, image = "object/artifact/staff_absorption.png",
 	encumber = 7,
 	plot=true,
-	desc = [[Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.
-Light around it seems to dim and you can feel its tremendous power simply by touching it.
-The Sorcerers seem to have awakened its power.
-#{italic}#"And lo they came to Amakthel himself, and thousands were killed in the assault on his throne, and three of the Godslayers were broken beneath his feet. But Falion with his dying breath pierced the great god on his knee with the icy sword Arkil, and seeing his opportunity Caldizar, leader of the Godslayers, advanced with the Staff of Absorption and struck a terrifying blow against Amakthel. So fell the greatest of the gods by the hands of his own children, and his face was forced into the dust."#{normal}#]],
+	desc = [[힘을 내장한 룬이 새겨진 이 지팡이는, 아주 오래전에 만들어진 것으로 보입니다. 하지만 아직도 변색된 흔적은 보이지 않습니다.
+주변에 희미하게 빛이 나고 있으며, 살짝만 건드려도 그 안에 엄청난 힘이 들어있음을 느낄 수 있습니다.
+'주술사' 들이 그 힘을 각성시킨 것으로 보입니다.
+#{italic}#"보라 그들이 아마크텔을 불러오자, 그의 왕좌에서 수천의 생명이 죽어갔으며, 신 살해자 셋이 그의 발밑에서 부서졌다. 하지만 팔리온은 죽어가면서 차가운 검 아르킬로 고위신의 무릎을 꿰뚫었고, 신 살해자의 지도자 칼디자르는 그 기회를 잡아 흡수의 지팡이를 내밀어 아마크텔에게 최후의 일격을 가했다. 그렇게 가장 위대한 신이 그 자식들에 의해 쓰러지고, 먼지가 되어 사라졌다."#{normal}#]],
 
 	modes = {"fire", "cold", "lightning", "arcane"},
 	require = { stat = { mag=40 }, },
@@ -82,25 +83,21 @@ The Sorcerers seem to have awakened its power.
 	moddable_tile_particle = {"godslayer_swirl", {size=64, x=-16}},
 
 	max_power = 200, power_regen = 1,
-	use_power = {
-		name = function(self, who) return ("absorb the essence of a target in range %d, draining 30%% of its life and increasing your own damage by 30%% for %d turns"):format(self.use_power.range, self.use_power.duration) end,
-		power = 200,
-		range = 8,
-		duration =7,
+	use_power = { name = "absorb energies", kr_name = "에너지 흡수", power = 200,
 		use = function(self, who)
-			local tg = {type="hit", range=self.use_power.range}
+			local tg = {type="hit", range=8}
 			local x, y = who:getTarget(tg)
 			if not x or not y then return nil end
 			local _ _, x, y = who:canProject(tg, x, y)
 			local target = game.level.map(x, y, engine.Map.ACTOR)
 			if not target then return nil end
 			if target.staff_drained then
-				game.logPlayer(who, "This foe has already been drained.")
+				game.logPlayer(who, "이 상대는 이미 흡수 당했습니다.")
 			end
-			_, x = target:takeHit(target.max_life * 0.3, who, {special_death_msg = "was absorbed by the ".. self.name.." held by "..who.name:capitalize()})
-			game.logPlayer(who, "%s brandishes %s %s, absorbing the essence of %s!", who.name:capitalize(), who:his_her(), self:getName({no_add_name=true}), target.name:capitalize())
-			game:delayedLogDamage(who, target, x, ("#ORCHID# %d essence drain#LAST#"):format(x), false)
-			who:setEffect(who.EFF_POWER_OVERLOAD, self.use_power.duration, {power=30})
+
+			game.logPlayer(who, "당신은 지팡이를 휘둘러, 상대의 에너지를 흡수합니다.")
+			who:setEffect(who.EFF_POWER_OVERLOAD, 7, {power=30})
+			target:takeHit(target.life * 0.3, who)
 			return {id=true, used=true}
 		end
 	},
@@ -115,7 +112,8 @@ newEntity{ define_as = "PEARL_LIFE_DEATH",
 	display = "*", color=colors.WHITE, image = "object/artifact/pearl_of_life.png",
 	encumber = 2,
 	plot=true,
-	desc = [[A pearl, three times the size of a normal pearl, that glitters in infinite colours, with slight patterns ever shifting away.]],
+	kr_name = "삶과 죽음의 진주", kr_unided_name = "빛나는 진주",
+	desc = [[보통의 것보다 세 배는 큰 진주입니다. 무한한 색깔로 변하면서 반짝이고 있지만, 결코 변하지 않는 약간의 무늬가 보입니다.]],
 
 	carrier = {
 		lite = 1,

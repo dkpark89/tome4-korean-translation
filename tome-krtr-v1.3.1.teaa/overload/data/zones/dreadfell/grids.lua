@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "LORE_NOTE",
 	name = "sign post with a note", image = "terrain/marble_floor.png",
+	kr_name = "종이가 붙어있는 이정표",
 	display = '_', color=colors.GREEN, back_color=colors.DARK_GREY,
 	add_displays = {class.new{image="terrain/signpost.png"}},
 	always_remember = true,

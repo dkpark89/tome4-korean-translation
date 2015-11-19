@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,9 +25,10 @@ newEntity{ define_as = "BRIAGH",
 	allow_infinite_dungeon = true,
 	type = "dragon", subtype = "sand", unique = true,
 	name = "Briagh, Great Sand Wyrm",
+	kr_name = "위대한 모래의 용, 브리아그흐",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_sand_briagh__great_sand_wyrm.png", display_h=2, display_y=-1}}},
-	desc = [[A towering sand drake stands before you. This wingless worm is mighty and could easily crush you.]],
+	desc = [[당신 앞에 압도적인 위용을 뿜으며 우뚝 서있는, 모래 드레이크입니다. 이 날개 없는 용은 당신을 쉽게 찌부러뜨릴 수 있을 정도로 강력합니다.]],
 	level_range = {35, nil}, exp_worth = 2,
 	max_life = 350, life_rating = 29, fixed_rating = true,
 	max_mana = 900, mana_regen=100,

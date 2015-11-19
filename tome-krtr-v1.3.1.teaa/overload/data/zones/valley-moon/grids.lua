@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "MOONSTONE",
 	name = "moonstone",
+	kr_name = "월장석",
 	image = "terrain/grass.png",
 	display = '&', color=colors.GREY, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -38,9 +39,10 @@ newEntity{
 	type = "floor", subtype = "grass",
 	define_as = "PORTAL_DEMON",
 	name = "Fearscape Portal", image = "terrain/grass.png", add_displays={class.new{z=5, image = "terrain/demon_portal3.png"}},
+	kr_name = "공포의 영역으로의 관문",
 	display = '&', color=colors.RED, back_color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[An invocation portal, perpetually summoning beings through it.]],
+	desc = [[끊임없이 소환수가 나오는 관문입니다.]],
 }

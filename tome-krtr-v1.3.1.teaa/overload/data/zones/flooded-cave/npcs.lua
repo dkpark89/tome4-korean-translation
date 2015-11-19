@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,9 +26,10 @@ newEntity{ define_as = "UKLLMSWWIK",
 	allow_infinite_dungeon = true,
 	type = "dragon", subtype = "water", unique = true,
 	name = "Ukllmswwik the Wise",
+	kr_name = "현명한 자, 우클름스윅",
 	faction="water-lair",
 	display = "D", color=colors.VIOLET,
-	desc = [[It looks like a cross between a shark and a dragon, only nastier.]],
+	desc = [[상어와 용의 강력한 부분만을 섞어놓은 듯한 모습을 하고 있습니다.]],
 	global_speed_base = 1.4,
 	level_range = {30, nil}, exp_worth = 4,
 	max_life = 250, life_rating = 27, fixed_rating = true,
@@ -66,13 +67,6 @@ newEntity{ define_as = "UKLLMSWWIK",
 		[Talents.T_ICE_BREATH]={base=5, every=5, max=8},
 		[Talents.T_LIGHTNING_BREATH]={base=5, every=5, max=8},
 		[Talents.T_POISON_BREATH]={base=5, every=5, max=8},
-
-		[Talents.T_DRACONIC_WILL]=1,
-		[Talents.T_DRACONIC_BODY]=1,
-		[Talents.T_BLOODSPRING]=1,
-		[Talents.T_SPINE_OF_THE_WORLD]=1,
-		[Talents.T_SPELL_FEEDBACK]=1,
-		[Talents.T_UNBREAKABLE_WILL]=1,
 	},
 	resolvers.sustains_at_birth(),
 

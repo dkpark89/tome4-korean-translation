@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/objects/objects-maj-eyal.lua")
 
 -- Allows undeads to pass as normal humans
@@ -30,7 +32,8 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 	name = "Cloak of Deception",
 	display = ")", color=colors.DARK_GREY,
 	encumber = 1,
-	desc = [[A black cloak, with subtle illusion enchantments woven into its very fabric.]],
+	kr_name = "기만의 망토", kr_unided_name = "검은 망토",
+	desc = [[착용자를 인간처럼 보이게 만드는 환영이 부여된, 잘 짜여진 검은 망토입니다.]],
 
 	wielder = {
 		combat_spellpower = 5,
@@ -43,7 +46,7 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 			for m, _ in pairs(game.party.members) do
 				m:setEffect(m.EFF_CLOAK_OF_DECEPTION, 1, {})
 			end
-			game.logPlayer(who, "#LIGHT_BLUE#An illusion appears around %s, making it appear human.", who.name:capitalize())
+			game.logPlayer(who, "#LIGHT_BLUE#%s의 환영이 나타나, 인간의 모습처럼 보이게 되었습니다.", (who.kr_name or who.name):capitalize())
 		end
 	end,
 	on_takeoff = function(self, who)
@@ -52,7 +55,7 @@ newEntity{ define_as = "CLOAK_DECEPTION",
 			for m, _ in pairs(game.party.members) do
 				m:removeEffect(m.EFF_CLOAK_OF_DECEPTION, true, true)
 			end
-			game.logPlayer(who, "#LIGHT_BLUE#The illusion covering %s disappears", who.name:capitalize())
+			game.logPlayer(who, "#LIGHT_BLUE#%s 감싸던 환영이 사라집니다.", (who.kr_name or who.name):capitalize():addJosa("를"))
 		end
 	end,
 	on_pickup = function(self, who)
@@ -64,7 +67,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "journal page", lore="blighted-ruins-note-"..i,
-	desc = [[A paper scrap, left by the Necromancer.]],
+	kr_name = "일지의 한 페이지",
+	desc = [[사령술사가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

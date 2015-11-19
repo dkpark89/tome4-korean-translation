@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -31,9 +31,10 @@ newEntity{ base="BASE_NPC_CRYSTAL", define_as = "SPELLBLAZE_CRYSTAL",
 	allow_infinite_dungeon = true,
 	unique = true,
 	name = "Spellblaze Crystal", tint=colors.PURPLE, image = "npc/spellblaze_crystal.png",
+	kr_name = "마법폭발의 수정",
 	color=colors.VIOLET,
-	desc = [[A formation of purple crystal. It seems strangely aware.]],
-	killer_message = "and vaporised into nothingness",
+	desc = [[보라색 수정입니다. 기이하게도, 사물을 인식하는 능력을 지닌 것 같습니다.]],
+	killer_message = "당신은 증발하여 무의 존재가 되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 12, fixed_rating = true,
 	mana_regen = 3,
@@ -63,7 +64,7 @@ newEntity{ base="BASE_NPC_CRYSTAL", define_as = "SPELLBLAZE_CRYSTAL",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("start-shaloren", engine.Quest.COMPLETED, "spellblaze")
-		game.state:activateBackupGuardian("SPELLBLAZE_SIMULACRUM", 3, 35, "I heard that some old crystals are nearly alive now in the scintillating caves.")
+		game.state:activateBackupGuardian("SPELLBLAZE_SIMULACRUM", 3, 35, "오래된 수정 중 몇몇은, 이제 거의 생명체에 가까운 존재가 되어 번뜩이는 동굴에 머물고 있다고 하더군.")
 	end,
 }
 
@@ -71,10 +72,11 @@ newEntity{ base="BASE_NPC_CRYSTAL", define_as = "SPELLBLAZE_SIMULACRUM",
 	allow_infinite_dungeon = true,
 	unique = true,
 	name = "Spellblaze Simulacrum", display = "g", image = "npc/spellblaze_simulacrum.png",
+	kr_name = "마법폭발의 환영",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spellblaze_simulacrum.png", display_h=2, display_y=-1}}},
 	color=colors.VIOLET,
-	desc = [[A formation of purple crystal, but where the others could only be described as polyhedral, this construct seems to strangely resemble... you, if you were much, much larger.]],
-	killer_message = "and vaporised into nothingness",
+	desc = [[보라색 수정이지만, 다면체로 묘사된 다른 '무언가' 인 것 같습니다. 이 존재는 이상하게도 당신을 닮았습니다... 아주 엄청나게 거대하다는 점만 빼면요.]],
+	killer_message = "당신은 증발하여 무의 존재가 되었습니다.",
 	level_range = {35, nil}, exp_worth = 3,
 	max_life = 300, life_rating = 25, fixed_rating = true,
 	life_regen = 0,

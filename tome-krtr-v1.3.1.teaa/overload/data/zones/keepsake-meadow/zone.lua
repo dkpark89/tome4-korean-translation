@@ -1,5 +1,6 @@
-return {
+﻿return {
 	name = "Tranquil Meadow",
+	kr_name = "고요한 목초지",
 	level_range = {15, 25},
 	level_scheme = "player",
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,
