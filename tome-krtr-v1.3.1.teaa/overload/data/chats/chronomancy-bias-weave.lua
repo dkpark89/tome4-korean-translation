@@ -27,27 +27,27 @@ local function set_bias(which)
 end
 
 newChat{ id="welcome",
-	text = [[What kind of anomaly do you prefer?]],
+	text = [[어떤 이상현상을 선택하시겠습니까?]],
 	answers = {
-		{"Physical",
+		{"물리",
 			action = function()
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport")
 			return set_bias({type = "physical", chance=chance}) 
 			end,
 		},
-		{"Warp", 
+		{"왜곡", 
 			action = function() 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport")
 			return set_bias({type = "Warp", chance=chance})
 			end,
 		},
-		{"Temporal",
+		{"시간",
 			action = function()
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport")
 			return set_bias({type = "temporal", chance=chance})
 			end,
 		},
-		{"Never mind"},
+		{"아니야"},
 	}
 }
 
