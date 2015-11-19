@@ -40,7 +40,7 @@ newChat{ id="conclave",
 ]],
 	answers = {
 		{"기다려! 전쟁은 끝났다! 몇 천년이나 지났다고, 콘클라베는 더이상 존재하지 않아!", jump="angry-conclave"},
-		{"[attack]"},
+		{"[공격한다]"},
 	}
 }
 
