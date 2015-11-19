@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,18 +18,18 @@
 -- darkgod@te4.org
 
 newChat{ id="caravan",
-	text = [[#VIOLET#*As the last member of the caravan lies dying, you look at him and see the hate that fills his eyes.*#LAST#
-We should have finished you off that day. You deserved no mercy!]],
+	text = [[#VIOLET#*마지막 상인이 죽기 직전, 당신은 그를, 그의 눈에 차오른 증오를 보았습니다.*#LAST#
+그날 네놈을 확실히 끝내버렸어야 했다. 네놈에게 자비 따위는 필요 없었어!]],
 	answers = {
 		{
-			"And I will show you no mercy. #LIGHT_GREEN#[Kill him]#LAST#",
+			"그렇다면 너에게 내 무자비함을 보여주지. #LIGHT_GREEN#[그를 죽인다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_evil_choice(player)
 				player:hasQuest("keepsake"):on_caravan_destroyed_chat_over(player)
 			end
 		},
 		{
-			"I am sorry. #LIGHT_GREEN#[Help him]#LAST#",
+			"미안하게 됐군. #LIGHT_GREEN#[그를 돕는다]#LAST#",
 			action=function(npc, player)
 				player:hasQuest("keepsake"):on_good_choice(player)
 			end,
@@ -39,7 +39,7 @@ We should have finished you off that day. You deserved no mercy!]],
 }
 
 newChat{ id="apology",
-	text = [[#VIOLET#*Before you can help him, he collapses to the ground and dies.*#LAST#]],
+	text = [[#VIOLET#*당신이 그를 도와주기도 전에, 그는 땅에 쓰러져 죽음을 맞이했습니다.*#LAST#]],
 	answers = {
 		{
 			"...",

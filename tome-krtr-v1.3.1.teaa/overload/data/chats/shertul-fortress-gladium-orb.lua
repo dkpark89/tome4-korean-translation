@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[*#LIGHT_GREEN#This orb is used to control the gladium arena.#WHITE#*]],
+	text = [[*#LIGHT_GREEN#이 오브는 검투장을 통제할 때 사용됩니다.#WHITE#*]],
 	answers = {
-		{"[Go back to the Fortress]", action=function() game:changeLevel(1, "shertul-fortress") end},
-		{"[Leave the orb alone]"},
+		{"[요새로 돌아간다]", action=function() game:changeLevel(1, "shertul-fortress") end},
+		{"[오브를 놔두고 떠난다]"},
 	}
 }
 

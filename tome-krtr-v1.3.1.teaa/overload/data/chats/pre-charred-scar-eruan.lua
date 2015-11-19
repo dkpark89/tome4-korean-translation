@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,12 +18,12 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[@playername@, I am one of a party of Sun Paladins sent by Aeryn. We arrived here tracking the orcs.
-They have gone through the portal, and a few of my friends were pulled in with them.
-We captured an orc earlier.  He revealed that the staff you seek is to be used to absorb the power of a remote place for dark rituals.
-You must traverse this portal, if you have any means to, and stop the orcs.]],
+	text = [[@playername@, 저는 아에린이 보낸 태양의 기사 중 하나입니다. 우리는 오크들을 쫓아 이곳에 도착했습니다.
+그들은 이 관문을 통해 사라졌습니다. 그리고 동료 기사들 몇 명도 그들을 따라갔습니다.
+관문에 도착하기 전에, 우리는 오크를 하나 사로잡았었습니다. 그 오크는 당신이 말한 지팡이를 사용해, 주변의 힘을 흡수하고 어둠의 의식을 치를 것이라고 하더군요.
+만약 당신이 이 관문을 사용할 수 있다면, 부디 가서 오크들을 멈춰주십시오.]],
 	answers = {
-		{"I think I can use the portal. Do not worry!"},
+		{"관문은 사용할 수 있습니다. 걱정 마십시오!"},
 	}
 }
 

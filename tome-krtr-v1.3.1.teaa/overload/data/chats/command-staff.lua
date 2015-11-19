@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -43,32 +43,32 @@ end
 -- Alot of this code is unused, telos is the only sentient staff in the game right now
 local function intro(o)
 	local sentient_responses = {
-		default = [[Greetings. How can I help you?]],
-		aggressive = [[Hurry up and make with the foe-blasting.]],
-		fawning = [[O wise wielder, instruct me that I may better serve you.]],
-		penitent = [[Make amends, magic-user, for the harm ye have wrought is beyond compare.]],
-		telos = [[You really could have chosen a better home for me, you know. I was reasonably happy in my old crystal. This stick smells like armpit.]],
-		telos_full = [[Tremble before the might of Telos!]],
+		default = [[어서오게. 도와줄 것이라도 있는가?]],
+		aggressive = [[빨리 적들을 박살내자고.]],
+		fawning = [[오 현명한 착용자이시여, 제게 지식을 알려주시면 더욱 더 당신을 잘 모실 수 있을 것입니다.]],
+		penitent = [[배상을 하십시오, 마법 사용자여. 그대가 끼친 손해는 비교할 수 없는 것이니.]],
+		telos = [[나를 위해 정말 좋은 곳을 골랐군 그래. 이 수정 안에 있으니 정말 행복해. 지팡이에서 내 겨드랑이 냄새가 나는 것 같군.]],
+		telos_full = [[텔로스의 힘 앞에 무릎 꿇으라!]],
 	}
 	if o.no_command then
-		return [[It is not yet your place to command such a staff as this. To do so invites obliteration.]]
+		return [[아직 이곳은 당신이 이 강력한 지팡이를 다루기 좋은 장소가 아닙니다. 만일 여기서 지팡이를 다루면, 지팡이가 소멸되어 버릴 것입니다.]]
 	end
 	if o.combat.sentient then
 		return sentient_responses[o.combat.sentient] or sentient_responses["default"]
 	else
-		return [[Call on which aspect of the staff?]]
+		return [[지팡이의 어느 속성을 불러오시겠습니까??]]
 	end
 end
 
 local function how_speak(o)
-	if not o.combat.sentient then return [[error!]] end
+	if not o.combat.sentient then return [[에러!]] end
 	local sentient_responses = {
-		default = [[Oh, I was once a mighty Eldritch Channeler. Mighty and absentminded, as it turns out. Had a bit of a mishap with an Inverted Kugala's Soul-infusion technique. Long story short, my soul is now stuck in this stick, and the soul I was working with... well, I don't rightly know where he got to. But I hope we never meet him.]],
-		aggressive = [[Argh! Bollocksed up a tricky bit of soul magic and the fool that I was supposed to be imprisoning for all eternity flitted away. My body, like all the targets of my spells, intended or otherwise, got reduced to elementary particles. Fortunately, I had this soul-cage of a staff all prepped and ready for a stray soul, so I'm not completely gone. But enough chit-chat. Let's fry somebody.]],
-		fawning = [[My old master-- who, though a powerful enchanter, did not compare to you and your glory-- saw fit to imprison me in this fine staff to aid him in his work. Alas, he is long gone, but I despair not, for I have found a mighty new master.]],
-		penitent = [[I am a portion of the very spirit of the world that was ripped free during the Spellblaze. I speak that I might enlighten those who bear me.]],
-		telos = [[What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.]],
-		telos_full = [[What's the good of immortality if you can't even speak? No archmage worth his salt is going to concoct some immoral life-after-death scheme without including some sort of capacity for making his opinions known. And, by the way, your energy manipulation techniques are on the same level as those of my average pair of shoes. Best study up if you don't want to die forgotten and incompetent.]],
+		default = [[아, 나는 이전에 '섬뜩한자'들 중 전지전능한 영매였지. 전지전능했었지만 그래, 멍청했었어. 결국 이렇게 되어버렸지. 약간의 사고로 인해 주입 기술 '쿠갈라의 영혼 역행' 에 걸려버렸어. 내 상황을 요약하자면, 내 영혼은 이제 이 막대기 속에 갇혀버렸어, 그리고 내가 같이 일하던 영혼은... 뭐, 그가 어디로 가버렸는지는 자세히는 모르지만. 그러나 난 우리가 그를 만나는 일은 없었으면 하고 바라고 있어.]], --@ '섬뜩한자'는 종족
+		aggressive = [[으윽! 영혼 마법의 영창하던 도중 일부 부분에서 실수를 저질러 버리고 그리고 이젠 내가 영원히 가둬놓으려던 녀석은 도망쳐 버렸네. 내 몸은, 나의 마법에 당한 녀석들과 똑같이, 고의던 아니던, 원소 입자가 되어버렸지. 다행히도 말이지, 내가 이 영혼의 보관이 가능한 지팡이를 가지고 있었고 또 언제든지 영혼을 가둘 수 있도록 준비시켜 놓았었지, 그래서 난 완전히 죽어버리진 않았지. 대화는 이 정도로 충분하겠지. 뭣 좀 작살내러 가자고.]],
+		fawning = [[당신이나 당신의 영광과는 비교도 되지 않던 강력한 부여술사인 옛 주인이 이 지팡이를 발견한 이후, 그는 그의 일에 도움이 되도록 저를 이 상급 지팡이 속에 감금하였습니다. 유감스럽게도 그는 이미 먼 옛날에 가버렸지만, 그래도 전 절망하지 않습니다, 지금 저는 당신같은 전지전능한 새 주인을 찾았으니까요.]],
+		penitent = [[나는 세계의 위대한 영혼의 정수로 마법폭발 도중에 세계에서 떨어져 나와 자유가 된 존재라네. 나는 나의 말을 주의깊게 듣는 사람을 계몽시킬 수 있을거라 말하겠네.]],
+		telos = [[말조차 할 수가 없다면 영생이 뭐가 좋겠나? 어떤 마도사라도 자신의 의견을 알릴 수 있는 방법을 준비해두지 않는다면 불멸의 계획에 사용될 소금보다도 더 가치가 없지. 아, 그리고 말이지, 자네의 에너지 생산 기술은 내 신발 한 짝과 동등한 수준에 머물러 있군. 만약 무능력해지고 잊혀진 채로 죽기를 원하지 않는다면 공부를 더 하는 게 좋을걸세.]],
+		telos_full = [[말조차 할 수가 없다면 영생이 뭐가 좋겠나? 어떤 마도사라도 자신의 의견을 알릴 수 있는 방법을 준비해두지 않는다면 불멸의 계획에 사용될 소금보다도 더 가치가 없지. 아, 그리고 말이지, 자네의 에너지 생산 기술은 내 신발 한 짝과 동등한 수준에 머물러 있군 만약 무능력해지고 잊혀진 채로 죽기를 원하지 않는다면 공부를 더 하는 게 좋을걸세.]],
 	}
 	return sentient_responses[o.combat.sentient] or sentient_responses["default"]
 end
@@ -76,12 +76,12 @@ end
 local function which_aspect(o)
 	if not o.combat.sentient then return [[error!]] end
 	local sentient_responses = {
-		default = [[Of course. Which aspect?]],
-		aggressive = [[I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.]],
-		fawning = [[I live to serve-- though my use of the word 'live' is perhaps loose here.]],
-		penitent = [[Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.]],
-		telos = [[Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.]],
-		telos_full = [[Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.]],
+		default = [[물론이지. 어떤 속성을 원하나?]],
+		aggressive = [[나는 마법사 속성과 화염 속성을 강력히 추천하겠어. 고깃 덩어리들을 증발 전부 증발시켜 버리면 좋은 걸 찾을 수는 없을걸.]],
+		fawning = [[저는 섬기기 위해 살아갑니다. 제가 '살다'라는 단어를 사용하는 건 아마 조금 엉성한 측면이 있을거라 생각하긴 하지만 말입니다.]],
+		penitent = [[현명하게 고르게. 자네의 지식을 너머선 힘은 조심히 놓여진 자연적인 질서를 더욱 혼란스럽게 만드는 결과를 초래할걸세.]],
+		telos = [[내가 살던 시대에는, 지팡이를 이것 저것 바꿀 필요가 없었네. 우린 그저 원소를 골라서 그걸 지팡이에 담아서 가지고 다녔지, 마치 신처럼 말이지.]],
+		telos_full = [[내가 살던 시대에는, 지팡이를 이것 저것 바꿀 필요가 없었네. 우린 그저 원소를 골라서 그걸 지팡이에 담아서 가지고 다녔지, 마치 신처럼 말이지.]],
 	}
 	return sentient_responses[o.combat.sentient] or sentient_responses["default"]
 end
@@ -90,8 +90,8 @@ end
 local function alter_combat(o)
 	if not o.combat.sentient then return [[error!]] end
 	local sentient_responses = {
-		default = [[Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?]],
-		aggressive = [[Fine, as long as it leads to blasting something soon. What do you want me to change?]],
+		default = [[확실히. 자넨 확실히 감명받을걸세, 뭐 그건 됐고, 그정도 일이라면 내가 해줄 수 있지. 내 기술에 대한 수련이 부족한 자라면 어려움을 겪었겠지만 말이지. 무엇을 바꿔야 하지?]],
+		aggressive = [[좋았어, 곧바로 다른 걸 작살낼 수만 있다면야. 바꾸고 싶은 걸 한개 골라보겠어?]],
 	}
 	return sentient_responses[o.combat.sentient] or sentient_responses["default"]
 end
@@ -126,7 +126,6 @@ local function set_element(element, new_flavor, player)
 	local dam = o.staff_power or o.combat.dam
 	local inven = player:getInven("MAINHAND")
 	local o = player:takeoffObject(inven, 1)
-
 	local dam_tables = {
 		magestaff = {engine.DamageType.FIRE, engine.DamageType.COLD, engine.DamageType.LIGHTNING, engine.DamageType.ARCANE},
 		starstaff = {engine.DamageType.LIGHT, engine.DamageType.DARKNESS, engine.DamageType.TEMPORAL, engine.DamageType.PHYSICAL},
@@ -166,9 +165,9 @@ end
 newChat{ id="welcome",
 	text = intro(o),
 	answers = {
-		{"How is it that you speak?", cond = function() return is_sentient() and not o.no_command end, jump="how_speak"},
-		{"I'd like you to bring forth a different aspect.", cond = function() return is_sentient() and not o.no_command end, jump="which_aspect"},
-		{"I'd like to alter your basic properties.", cond = function() return is_sentient() and not o.no_command end, 
+		{"대체 어떻게 말을 할 수 있는거지?", cond = function() return is_sentient() and not o.no_command end, jump="how_speak"},
+		{"다른 속성을 불러내고 싶은데.", cond = function() return is_sentient() and not o.no_command end, jump="which_aspect"},
+		{"기본 특성을 바꾸고 싶어.", cond = function() return is_sentient() and not o.no_command end, 
 			action = function()
 				coroutine.resume(co, true)
 				local SentientWeapon = require "mod.dialogs.SentientWeapon"
@@ -176,125 +175,125 @@ newChat{ id="welcome",
 				game:registerDialog(ds)
 			end,
 		},
-		{"[Mage]", cond = function() return not is_sentient() and not o.no_command and (not o.only_element or o.only_element == "element_mage") end, jump="element_mage"},
-		{"[Star]", cond = function() return not is_sentient() and not o.no_command and (not o.only_element or o.only_element == "element_star") end, jump="element_star"},
-		{"[Vile]", cond = function() return not is_sentient() and not o.no_command and (not o.only_element or o.only_element == "element_vile") end, jump="element_vile"},
-		{"Never mind"},
+		{"[마법사]", cond = function() return not is_sentient() and not o.no_command end, jump="element_mage"},
+		{"[별]", cond = function() return not is_sentient() and not o.no_command end, jump="element_star"},
+		{"[독성]", cond = function() return not is_sentient() and not o.no_command end, jump="element_vile"},
+		{"아무 것도 아냐."},
 	}
 }
 
 newChat{ id="element_mage",
-	text = [[Call forth which element?]],
+	text = [[어떤 속성을 불러냅니까?]],
 	answers = {
-		{"[Fire]", 
+		{"[화염]", 
 			action = function()
 				set_element(DamageType.FIRE, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Lightning]", 
+		{"[전격]", 
 			action = function() 
 				set_element(DamageType.LIGHTNING, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Cold]", 
+		{"[냉기]", 
 			action = function() 
 				set_element(DamageType.COLD, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Arcane]", 
+		{"[마법]", 
 			action = function() 
 				set_element(DamageType.ARCANE, "magestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "teleport") 
 			end,
 		},
-		{"[Choose different aspect]", jump="welcome"},
-		{"Never mind"},
+		{"[다른 속성을 고른다]", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
 newChat{ id="element_star",
-	text = [[Call forth which element?]],
+	text = [[어떤 속성을 불러냅니까?]],
 	answers = {
-		{"[Light]", 
+		{"[빛]", 
 			action = function() 
 				set_element(DamageType.LIGHT, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Darkness]", 
+		{"[어둠]", 
 			action = function() 
 				set_element(DamageType.DARKNESS, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Temporal]", 
+		{"[시간]", 
 			action = function() 
 				set_element(DamageType.TEMPORAL, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Physical]", 
+		{"[물리]", 
 			action = function() 
 				set_element(DamageType.PHYSICAL, "starstaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "temporal_teleport") 
 			end,
 		},
-		{"[Choose different aspect]", jump="welcome"},
-		{"Never mind"},
+		{"[다른 속성을 고른다]", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
 
 newChat{ id="element_vile",
-	text = [[Call forth which element?]],
+	text = [[어떤 속성을 불러냅니까?]],
 	answers = {
-		{"[Darkness]", 
+		{"[어둠]", 
 			action = function() 
 				set_element(DamageType.DARKNESS, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Blight]", 
+		{"[황폐]", 
 			action = function() 
 				set_element(DamageType.BLIGHT, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Acid]", 
+		{"[산성]", 
 			action = function() 
 				set_element(DamageType.ACID, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Fire]", 
+		{"[화염]", 
 			action = function() 
 				set_element(DamageType.FIRE, "vilestaff", game.player) 
 				game.level.map:particleEmitter(game.player.x, game.player.y, 1, "demon_teleport") 
 			end,
 		},
-		{"[Choose different aspect]", jump="welcome"},
-		{"Never mind"},
+		{"[다른 속성을 고른다]", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 
 newChat{ id="how_speak",
 	text = how_speak(o),
 	answers = {
-		{"I see.", jump="welcome"},
+		{"그러죠.", jump="welcome"},
 	}
 }
 
 newChat{ id="which_aspect",
 	text = which_aspect(o),
 	answers = {
-		{"[Mage]", jump="element_mage"},
-		{"[Star]", jump="element_star"},
-		{"[Vile]", jump="element_vile"},
-		{"Back up a second.", jump="welcome"},
-		{"Never mind"},
+		{"[마법사]", jump="element_mage"},
+		{"[별]", jump="element_star"},
+		{"[독성]", jump="element_vile"},
+		{"조금 전으로 돌아가지.", jump="welcome"},
+		{"아무 것도 아냐."},
 	}
 }
 

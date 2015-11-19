@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,27 +18,27 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Welcome @playername@ to my shop.]],
+	text = [[어서 오십시오. @playername@씨, 찾아주셔서 고맙습니다.]],
 	answers = {
-		{"Let me see your wares.", action=function(npc, player)
+		{"파는 물건들을 보고 싶은데요.", action=function(npc, player)
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"I am looking for staff training.", jump="training"},
-		{"Sorry, I have to go!"},
+		{"지팡이 전투기술을 배워볼까 해서 찾아왔습니다.", jump="training"},
+		{"미안합니다, 이만 가볼게요!"},
 	}
 }
 
 newChat{ id="training",
-	text = [[I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.]],
+	text = [[그렇다면 제가 지팡이 사용법 (주문 / 지팡이 전투 기술 계열) 을 가르쳐드릴 수 있습니다. 기초적인 기술을 배우려면 금화 100 개, 보다 집중적인 훈련을 통해 실제로 기술을 습득하려면 금화 500 개, 그리고 기술을 습득한 상태라면 금화 750 개를 받고 더 세부적인 기술을 가르쳐드릴 수 있습니다.]], 
 	answers = {
-		{"Just give me the basics (reveals locked talent category) - 100 gold.", action=function(npc, player) -- Normal basic training
-			game.logPlayer(player, "The staff carver spends some time with you, teaching you the basics of staff combat.")
+		{"그냥 기초적인 것만 알려주세요. (잠겨진 상태로 기술 계열 습득) - 금화 100 개", action=function(npc, player) -- Normal basic training
+			game.logPlayer(player, "지팡이 조각가에게 기초적인 지팡이 전투기술을 배웠습니다.")
 			player:incMoney(-100)
 			player:learnTalentType("spell/staff-combat", false)
 			if player:getTalentTypeMastery("spell/staff-combat") < 1 then
 				player:setTalentTypeMastery("spell/staff-combat", math.min(1.1, player:getTalentTypeMastery("spell/staff-combat") + 0.3))
-				game.logPlayer(player, "He is surprised at how quickly you are able to follow his tutelage.")
+				game.logPlayer(player, "그는 당신이 그의 교육을 빠르게 소화해내는 것에 놀라움을 느꼈습니다.") 
 			end
 			player.changed = true
 		end, cond=function(npc, player)
@@ -46,16 +46,16 @@ newChat{ id="training",
 			if player:knowTalentType("spell/staff-combat") or player:knowTalentType("spell/staff-combat") == false then return end
 			return true
 		end},
-		{("Please teach me what I need to know (unlocks talent category) - %d gold."):format(500),
+		{("제가 알아야 할 것들을 가르쳐주세요. (기술 계열 잠금 해제) - 금화 %d 개"):format(500), 
 		action=function(npc, player) --Normal intensive training
-			game.logPlayer(player, "The staff carver spends a substantial amount of time teaching you all of the techniques of staff combat.")
+			game.logPlayer(player, "지팡이 조각가가 당신과 많은 시간을 보내면서, 지팡이 전투 기술을 세세하게 가르쳐주었습니다.") 
 			player:incMoney(-500)
 			player:learnTalentType("spell/staff-combat", true)
 			if player:getTalentTypeMastery("spell/staff-combat") < 1 then -- Special case for previously locked category (escort)
 				player:setTalentTypeMastery("spell/staff-combat", math.max(1.0, player:getTalentTypeMastery("spell/staff-combat") + 0.3))
 			end
 			if player:getTalentTypeMastery("spell/staff-combat") > 1 then
-				game.logPlayer(player, "He is impressed with your mastery and shows you a few extra techniques.")
+				game.logPlayer(player, "그는 당신의 숙련도와 배운 것을 기초로 하는 몇몇 응용 기술들에 깊은 인상을 받았습니다.") 
 			end
 			player.changed = true
 		end,
@@ -64,17 +64,17 @@ newChat{ id="training",
 			if player:knowTalentType("spell/staff-combat") then return end
 			return true
 		end},
-		{"I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", action=function(npc, player) --Enhanced intensive training
+		{"저는 이미 지팡이 전투 기술을 알고 있습니다. 더 전문적인 기술을 알려주세요. (기술 계열 숙련도 0.2 향상) - 금화 750 개", action=function(npc, player) --Enhanced intensive training 
 			player:incMoney(-750)
 			player:learnTalentType("spell/staff-combat", true)
 			player:setTalentTypeMastery("spell/staff-combat", player:getTalentTypeMastery("spell/staff-combat") + 0.2)
-			game.logPlayer(player, ("The staff carver spends a great deal of time going over the finer details of staff combat with you%s."):format(player:getTalentTypeMastery("spell/staff-combat")>1 and ", including some esoteric techniques" or ""))
+			game.logPlayer(player, ("지팡이 조각가가 당신과 많은 시간을 보내면서, 지팡이 전투 기술을 세세하게 가르쳐주었습니다. %s"):format(player:getTalentTypeMastery("spell/staff-combat")>1 and " 또한 몇몇 고급 기술들을 알려주었습니다." or "")) 
 			player.changed = true
 		end, cond=function(npc, player)
 			if player.money < 750 then return end
 			if player:knowTalentType("spell/staff-combat") and player:getTalentTypeMastery("spell/staff-combat") < 1.2 then return true end
 		end},
-		{"No thanks."},
+		{"죄송합니다, 지금은 필요 없을 것 같네요."},
 	}
 }
 

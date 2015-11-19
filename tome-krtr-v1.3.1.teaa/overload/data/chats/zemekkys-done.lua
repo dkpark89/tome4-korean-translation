@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[What? Ah, it is you, @playername@.
-I take it you are satisfied with the portal.]],
+	text = [[흠? 아, @playername@, 그대로군.
+관문은 어떤가? 만족스러운가?]],
 	answers = {
-		{"Yes, thank you."},
-		{"Whatever."},
+		{"네, 감사합니다."},
+		{"괜찮군요."},
 	}
 }
 

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -40,13 +40,13 @@ end
 -----------------------------------------------------------------
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*A slot in the door opens and a pair of wild eyes peers out.*#WHITE#
-What do you want, @playerdescriptor.race@?]],
+	text = [[#LIGHT_GREEN#*문틈이 벌어지면서, 사나운 눈이 당신을 노려봅니다.*#WHITE#
+원하는 것이 뭐지, @playerdescriptor.race@?]],
 	answers = {
-		{"Paladin Aeryn told me that you could help me. I need to get to Maj'Eyal.", jump="help", cond=function(npc, player) return game.state:isAdvanced() and not player:hasQuest("west-portal") end},
-		{"I found the Blood-Runed Athame, but there was no Resonating Diamond.", jump="athame", cond=function(npc, player) return player:hasQuest("west-portal") and player:hasQuest("west-portal"):isCompleted("athame") and not player:hasQuest("west-portal"):isCompleted("gem") end},
-		{"I have a Resonating Diamond.", jump="complete", cond=function(npc, player) return player:hasQuest("west-portal") and player:hasQuest("west-portal"):isCompleted("gem") end},
-		{"Sorry, I have to go!"},
+		{"태양의 기사 아에린이 말하길, 당신이 저를 도와줄 수 있다고 하더군요. 저는 마즈'에이알로 돌아가야 합니다.", jump="help", cond=function(npc, player) return game.state:isAdvanced() and not player:hasQuest("west-portal") end},
+		{"피의 룬 제례단검을 찾았습니다. 하지만 그곳에 공명하는 다이아몬드는 없었습니다.", jump="athame", cond=function(npc, player) return player:hasQuest("west-portal") and player:hasQuest("west-portal"):isCompleted("athame") and not player:hasQuest("west-portal"):isCompleted("gem") end},
+		{"공명하는 다이아몬드를 찾았습니다.", jump="complete", cond=function(npc, player) return player:hasQuest("west-portal") and player:hasQuest("west-portal"):isCompleted("gem") end},
+		{"미안합니다, 이만 가볼게요!"},
 	}
 }
 
@@ -54,44 +54,44 @@ What do you want, @playerdescriptor.race@?]],
 -- Give quest
 -----------------------------------------------------------------
 newChat{ id="help",
-	text = [[Pfaugh! Her goal in life is to waste my time! Maj'Eyal? Why not Narnia or Chicago? Just as easy to send you someplace entirely fictional as Maj'Eyal. Go away.
-#LIGHT_GREEN#*Slot slams shut.*#WHITE#]],
+	text = [[풋! 그녀의 인생의 목표는 내 시간을 낭비시키는 건가? 마즈'에이알? 왜, 나니아 대륙이나 시카고에 보내달라고 하지 차라리? 어짜피 마즈'에이알이나 저곳들이나 상상 속에 존재하는 곳인건 마찬가지니까 말이야. 꺼져버려.
+#LIGHT_GREEN#*문이 쾅 소리를 내며 닫혔습니다.*#WHITE#]],
 	answers = {
-		{"I got here from Maj'Eyal, didn't I? I have this magic Orb I looted from a dead orc, see, and...", jump="offer"},
+		{"저는 마즈'에이알에서 온 사람입니다. 그리고 죽은 오크가 가지고 있던 마법의 오브 또한 있습니다. 한번 보시는게...", jump="offer"},
 	}
 }
 
 newChat{ id="offer",
-	text = [[#LIGHT_GREEN#*Slot opens.*#WHITE#
-Orb, you say? That you used to travel here from Maj'Eyal? Surely you don't possess the Orb of Many Ways! It's been lost for ages!]],
+	text = [[#LIGHT_GREEN#*문틈이 열립니다.*#WHITE#
+오브라고 했나? 그걸 사용해서 마즈'에이알에서 이곳으로 왔다고? 아무리 그래도 그 오브가 여러 장소로의 오브는 아니겠지? 그 오브는 없어진지 수없이 많은 세월이 지난거라고!]],
 	answers = {
-		{"[Hold up the orb]", jump="offer2"},
+		{"[오브를 들어보인다]", jump="offer2"},
 	}
 }
 newChat{ id="offer2",
-	text = [[#LIGHT_GREEN#*His eyes widen.*#WHITE#
-Great Socks of Aeryn! It IS the Orb! Maybe we can get you home after all. Or maybe we can get you embedded in magma a thousand leagues straight down.]],
+	text = [[#LIGHT_GREEN#*그의 눈이 커집니다.*#WHITE#
+아에린 년에게 축복 있기를! 진짜 그 오브잖아! 아마 너를 집으로 보내줄 수도 있겠군 그래. 물론 일이 잘못되면 천리 밑의 마그마에 쳐박힐 수도 있겠지만 말이야.]],
 	answers = {
-		{"May I come in?", jump="offer3"},
+		{"들어가도 되겠습니까?", jump="offer3"},
 	}
 }
 
 newChat{ id="offer3",
-	text = [[You think I'm letting some filthy @playerdescriptor.race@ in my house with the Orb of Many Ways?
-I blow myself up quite enough already without that thing in the house, thank you.
-Besides, I still can't help you unless you have a Blood-Runed Athame to etch a portal.
-Err, and that portal must be etched on a piece of prepared Resonating Marble.
-The Gates of the Morning has a slab of Marble that once could have served, but a number of, um, incidents have taken their toll.
-It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]],
+	text = [[내가 너같이 더러운 @playerdescriptor.race@ 종족과 여러 장소로의 오브를 집에 들어오게 해줄거라고 생각하나?
+그런 것 없어도 내 집은 충분히 어지럽다고. 그러니 사양하겠네.
+게다가, 관문을 새길 피의 룬 제례단검 없이는 너를 도와줄 수도 없어.
+어... 그리고 그 관문은 공명하는 대리석 조각 위에 새겨야 제대로 작동을 해.
+아침의 문에 있던 석판이 그 역할을 해왔지만... 여러... 사건들 때문에 수리비가 필요한 상황이 돼서 말이지.
+그것을 수리하려면 공명하는 다이아몬드가 필요해. 아, 그리고 금화 100 개 정도도 필요하지.]],
 	answers = {
-		{"Where can I find all that?", jump="quest"},
+		{"어디서 그것들을 찾을 수 있죠?", jump="quest"},
 	}
 }
 
 newChat{ id="quest",
-	text = [[Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.]],
+	text = [[일단 지갑에 금화 100 개가 있는지부터 확인하는게 좋을걸? 그리고 제례단검과 공명하는 다이아몬드는 오크들이 가지고 있을 거야. 그들이 관문을 만들고 오브를 가지고 있었으니 말이야. 보르 무기고를 뒤져보는게 좋을 것 같군. 내가 어쩌다보니 그곳의 뒷문을 알아냈으니 말이야. 어떻게 찾았는지는 묻지 말고.]],
 	answers = {
-		{"Thank you.", action=function(npc, player)
+		{"감사합니다.", action=function(npc, player)
 			player:grantQuest("west-portal")
 		end},
 	}
@@ -102,21 +102,21 @@ newChat{ id="quest",
 -- Return athame
 -----------------------------------------------------------------
 newChat{ id="athame",
-	text = [[Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?]],
+	text = [[공명하는 다이아몬드는 당연히 없지. 브리아그흐가 잠시라도 그것을 몸에서 떼놓고 있을거라 생각한거야?]],
 	answers = {
-		{"Briagh?", jump="athame2"},
+		{"브리아그흐?", jump="athame2"},
 	}
 }
 newChat{ id="athame2",
-	text = [[Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.]],
+	text = [[거대한 모래 용, 브리아그흐 말이야. 대체 공명하는 다이아몬드가 어떻게 만들어진다고 생각한거지? 그것들은 다이아몬드가 브리아그흐의 비늘에 끼인 상태로, 수 세기 동안 녀석의 생명의 힘을 주입받아야 만들어지는 것들이라고. 놈은 값비싼 보석과 금속 더미에서 잠을 청하니까, 딱 보면 알거야.]],
 	answers = {
-		{"Where might I find Briagh's lair??", jump="athame3"},
+		{"브리아그흐가 있는 곳은 어디입니까?", jump="athame3"},
 	}
 }
 newChat{ id="athame3",
-	text = [[Well south of the Sunwall. I'll mark it for you on your map.]],
+	text = [[태양의 장벽에서 남쪽으로 가면 있다. 내가 지도에 표시해주도록 하지.]],
 	answers = {
-		{"I'll be back with a Resonating Diamond.", action=function(npc, player) player:hasQuest("west-portal"):wyrm_lair(player) end},
+		{"공명하는 다이아몬드를 가지고 돌아오겠습니다.", action=function(npc, player) player:hasQuest("west-portal"):wyrm_lair(player) end},
 	}
 }
 
@@ -124,17 +124,17 @@ newChat{ id="athame3",
 -- Return gem
 -----------------------------------------------------------------
 newChat{ id="complete",
-	text = [[Yes? You got the Athame, the gem and 100 gold?]],
+	text = [[오? 제례단검과 보석, 금화 100 개를 가져왔나?]],
 	answers = {
-		{"[Give him the gem, the athame and 100 gold]", jump="complete2", cond=check_materials, action=remove_materials},
-		{"Sorry, it seems I lack some stuff. I will be back."},
+		{"[그에게 단검과 보석, 금화 100 개를 준다.]", jump="complete2", cond=check_materials, action=remove_materials},
+		{"아뇨, 부족한 물건이 있는 것 같습니다. 잠시 후에 다시 오겠습니다."},
 	}
 }
 newChat{ id="complete2",
-	text = [[#LIGHT_GREEN#*The door opens and a shabby Elf emerges.*#WHITE#
-Off we go to prepare the portal!]],
+	text = [[#LIGHT_GREEN#*문이 열리고, 초췌한 엘프가 나왔습니다.*#WHITE#
+좋아! 이제 관문을 열 시간이로군!]],
 	answers = {
-		{"[follow him]", action=function(npc, player) player:hasQuest("west-portal"):create_portal(npc, player) end},
+		{"[그를 따라간다]", action=function(npc, player) player:hasQuest("west-portal"):create_portal(npc, player) end},
 	}
 }
 

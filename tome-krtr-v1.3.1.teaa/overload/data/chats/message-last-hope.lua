@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,19 +17,21 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newChat{ id="welcome",
-	text = [[Well met, @playername@. I was sent with a message from King Tolak of Last Hope.
-I followed the trail of bodies that you left - very impressive! We are lucky to have you on our side.
-But enough talk; take this message.  I must go now.
-#LIGHT_GREEN#He gives you a sealed scroll and vanishes into the shadows.#LAST#]],
+	text = [[@playername@씨, 만나서 반갑습니다. 저는 마지막 희망에서 톨락 왕이 보낸 편지를 전해드리기 위해 왔습니다.
+당신이 남긴 시체의 흔적들을 따라 왔습니다. 굉장히 인상적이더군요! 당신이 저희 편인 것이 참으로 행운입니다.
+더 이상 대화는 됐고, 이 편지를 받으십시오. 저는 이제 가봐야 합니다.
+#LIGHT_GREEN#그는 당신에게 봉인된 편지를 주고, 그림자 속으로 사라집니다.#LAST#]],
 	answers = {
-		{"Thank you for your courage.", action=function(npc, player)
+		{"자네의 용기에 감사하지.", action=function(npc, player)
 			local o, item, inven_id = npc:findInAllInventories("Sealed Scroll of Last Hope")
 			if o then
 				npc:removeObject(inven_id, item, true)
 				player:addObject(player.INVEN_INVEN, o)
 				player:sortInven()
-				game.logPlayer(player, "The herald gives you %s.", o:getName{do_color=true})
+				game.logPlayer(player, "전령이 당신에게 %s 줬습니다.", o:getName{do_color=true}:addJosa("를"))
 			end
 
 			if game.level:hasEntity(npc) then game.level:removeEntity(npc) end

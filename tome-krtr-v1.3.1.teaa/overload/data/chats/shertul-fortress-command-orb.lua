@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,32 +23,32 @@ end
 local read = player:attr("speaks_shertul")
 
 newChat{ id="welcome",
-	text = [[*#LIGHT_GREEN#This orb seems to represent the world of Eyal as a whole. It is also probably used for controlling the fortress.
-]]..(not read and [[You do not understand the inscriptions there.#WHITE#*
-#{italic}#"Rokzan krilt copru."#{normal}#]] or [[#WHITE#*#{italic}#"Insert control rod."#{normal}#]]),
+	text = [[*#LIGHT_GREEN#에이알 세계 전체를 보여주고 있는 오브입니다. 아마 이 요새를 제어할 때 사용하는 오브 같습니다.
+]]..(not read and [[글자가 적혀 있지만, 모르는 문자입니다.#WHITE#*
+#{italic}#"Rokzan krilt copru."#{normal}#]] or [[#WHITE#*#{italic}#"제어의 장대를 넣으시오."#{normal}#]]),
 	answers = {
-		{"[Examine the orb]", jump="examine", cond=has_rod},
-		{"[Fly the fortress -- #LIGHT_RED#FOR TESTING ONLY#LAST#]", action=function(npc, player) player:hasQuest("shertul-fortress"):fly() end, cond=function() return config.settings.cheat end},
-		{"[Begin the Lichform ceremory]", cond=function(npc, player) local q = player:hasQuest("lichform") return q and q:check_lichform(player) end, action=function(npc, player) player:setQuestStatus("lichform", engine.Quest.COMPLETED) end},
-		{"[Leave the orb alone]"},
+		{"[오브를 조사한다]", jump="examine", cond=has_rod},
+		{"[요새의 비행을 시작한다 -- #LIGHT_RED#시험용으로만#LAST#]", action=function(npc, player) player:hasQuest("shertul-fortress"):fly() end, cond=function() return config.settings.cheat end},
+		{"[리치의 의식을 시작한다]", cond=function(npc, player) local q = player:hasQuest("lichform") return q and q:check_lichform(player) end, action=function(npc, player) player:setQuestStatus("lichform", engine.Quest.COMPLETED) end},
+		{"[오브를 놔두고 떠난다]"},
 	}
 }
 
 newChat{ id="examine",
-	text = [[*#LIGHT_GREEN#The device seems to be made of pure crystal. It projects a very accurate map of the known world - including the forbidden continent of the south.
-There seems to be a hole about the size and form of your Rod of Recall.#WHITE#*]],
+	text = [[*#LIGHT_GREEN#이 오브는 순수한 수정으로 만들어진 것 같으며, 지금까지 알려진 세계의 지도를 아주 정확하게 그려내고 있습니다. 금지된 땅인, 남쪽 대륙까지 포함해서 말이죠.
+되돌림의 장대와 딱 맞는 모양과 크기의 구멍이 뚫려 있습니다.#WHITE#*]],
 	answers = {
-		{"[Insert the rod]", jump="activate"},
-		{"[Leave the orb alone]"},
+		{"[장대를 집어넣는다]", jump="activate"},
+		{"[오브를 놔두고 떠난다]"},
 	}
 }
 newChat{ id="activate",
-	text = [[*#LIGHT_GREEN#As you take the rod close to the orb it seems to vibrate and react.
-A shadow appears in a corner of the room! You retract the rod immediately but the shadow stays.
-It looks like the horrors you fought when coming inside, only less degenerated.
-The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]],
+	text = [[*#LIGHT_GREEN#장대를 오브 근처에 가져다 대자, 오브가 진동하면서 반응합니다.
+갑자기 방의 구석진 곳에서 그림자가 나타났습니다! 당신은 장대를 즉시 멀리 떨어뜨렸지만, 그림자는 사라지지 않습니다.
+이 그림자는 이곳으로 오면서 당신과 싸운 공포들과 비슷하게 생겼지만, 부패의 정도가 덜한 것 같습니다.
+다른 공포들과는 달리 약간이나마 인간의 형체를 띄고 있지만, 이것도 머리가 없으며 팔다리는 촉수처럼 생겼습니다. 적대적인 존재는 아닌 것 같습니다.#WHITE#*]],
 	answers = {
-		{"[Leave the orb alone]", action=function(npc, player)
+		{"[오브를 놔두고 떠난다]", action=function(npc, player)
 			player:hasQuest("shertul-fortress"):spawn_butler()
 		end,},
 	}

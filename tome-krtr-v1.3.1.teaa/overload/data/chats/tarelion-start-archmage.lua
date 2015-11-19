@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,45 +18,45 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Wait a minute!]],
+	text = [[잠시 기다리게!]],
 	answers = {
-		{"Archmage Tarelion?", jump="next1"},
+		{"마도사 타렐리온님?", jump="next1"},
 	}
 }
 
 newChat{ id="next1",
-	text = [[Yes @playername@, I have heard you plan on going into the wild world, looking for some adventures of your own.
-This is good, more of us should get out of here once in a while and actually help people out there.
-Say, maybe you might want to get an adventure and help Angolwen?]],
+	text = [[그래, @playername@, 자네가 바깥 세계에 나가려고 하고 있다는 소식을 들었네, 자네만의 모험을 찾아서 말이야.
+그건 좋은 일일세, 나는 우리들 중 더 많은 사람들이 마을을 나와 바깥의 사람들을 도와야 한다고 생각하네.
+말해보게, 혹시 자네는 모험을 하면서 앙골웬도 도울 수 있는 방법을 알고 싶나?]],
 	answers = {
-		{"Perhaps, what do you need?", jump="next2"},
+		{"아마도요, 무슨 일이죠?", jump="next2"},
 	}
 }
 
 newChat{ id="next2",
-	text = [[During the Spellblaze the world was torn apart - literally. A part of it, that we now call the Abashed Expanse, was ripped from the world and thrown into the void between the stars.
-We managed to stabilize it and it is now orbiting Eyal. Recently we have noticed a disturbance there; if we do nothing it will crash onto Eyal, bringing much destruction in its wake.
-Because it was once part of a land we know well we can teleport you there. You will need to stabilize three wormholes by firing any attack spells at them.
-The instability is also to your advantage there, your simple phase door spell will be fully controllable.
+	text = [[마법폭발과 함께, 세계는 산산조각이 났네, 말 그대로 말이야. 그 중에는 현재 우리가 '너무나 광활한 공간'이라고 부르는, 이 세계에서 떨어져나가 별들 사이의 공허 속으로 던져지고 만 곳도 있지.
+우리는 그곳을 안정화시켜 이곳 에이알 세계를 선회하도록 만들었지만, 최근 그곳에서 문제가 일어나는 것을 알아냈다네. 우리가 아무 행동도 취하지 않는다면, 그 지역은 에이알 세계와 충동하여 엄청난 파괴를 일으키게 될걸세.
+그곳은 이 땅의 일부분이였기 때문에, 우리는 자네를 그곳으로 순간이동 시킬 수 있는 방법을 알고 있다네. 자네는 그곳에서 어떤 공격 마법을 사용해서라도, 그곳에 있는 세 개의 웜홀을 안정화시켜야만 하네.
+그곳의 불안정한 상태가 자네에게 유리하게 작용하는 점도 있을걸세. 그곳에서는 간단한 근거리 순간이동 마법으로도 도착지점을 완벽하게 조종할 수 있으니 말일세.
 
-So, you think you can help us ?]],
+그래서, 우리를 도와줄 수 있겠나?]],
 	answers = {
-		{"Yes Archmage, send me there!", jump="teleport"},
-		{"No sorry, I need to go.", jump="refuse"},
+		{"물론입니다, 마도사 타렐리온. 저를 그곳으로 보내주십시오!", jump="teleport"},
+		{"아뇨, 죄송하지만 전 이만 가봐야겠습니다.", jump="refuse"},
 	}
 }
 
 newChat{ id="teleport",
-	text = [[Good luck!]],
+	text = [[자네에게 행운이 있기를!]],
 	answers = {
-		{"[teleport]", action=function(npc, player) game:changeLevel(1, "abashed-expanse", {direct_switch=true}) end},
+		{"[공간이동]", action=function(npc, player) game:changeLevel(1, "abashed-expanse", {direct_switch=true}) end},
 	}
 }
 
 newChat{ id="refuse",
-	text = [[Oh well, farewell on your trips. Now I need to find somebody else to go up there.]],
+	text = [[알겠네, 즐거운 모험이 되기를 바라네. 이제 나는 그곳에 가서 일을 처리할 다른 사람을 찾아봐야겠군.]],
 	answers = {
-		{"Bye.", action=function(npc, player) player:setQuestStatus("start-archmage", engine.Quest.FAILED) end},
+		{"그럼 안녕히.", action=function(npc, player) player:setQuestStatus("start-archmage", engine.Quest.FAILED) end},
 	}
 }
 

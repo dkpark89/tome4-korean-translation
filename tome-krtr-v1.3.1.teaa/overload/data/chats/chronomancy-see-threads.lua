@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,11 +18,6 @@
 -- darkgod@te4.org
 
 local function select(id)
-	if not game._chronoworlds then
-		game.logPlayer(game.player, "#PURPLE#A paradox has already destroyed other timelines!")
-		return
-	end
-
 	if id == 1 or id == 2 then
 		game:chronoRestore("see_threads_"..id, true)
 	end
@@ -33,17 +28,17 @@ local function select(id)
 		game._chronoworlds.see_threads_base = nil
 	end
 
-	game.logPlayer(game.player, "#LIGHT_BLUE#You select the timeline and re-arrange the universe to your liking!")
+	game.logPlayer(game.player, "#LIGHT_BLUE#당신이 고른 마음에 드는 시간선으로, 세계의 시간을 재배열합니다!")
 	game.level.map:particleEmitter(game.player.x, game.player.y, 1, "rewrite_universe")
 	game._chronoworlds = nil
 end
 
 newChat{ id="welcome",
-	text = [[You have lived ]]..turns..[[ turns in three different timelines. Which do you choose to be the real timeline?]],
+	text = [[당신은 ]]..turns..[[ 턴 동안 다른 시간의 흐름에서 시간을 보냈습니다. 어느 시간의 흐름을 '진짜' 시간으로 선택하시겠습니까?]],
 	answers = {
-		{"The first.", action=function(npc, player) select(1) end},
-		{"The second.", action=function(npc, player) select(2) end},
-		{"The third.", action=function(npc, player) select(3) end},
+		{"첫 번째 시간.", action=function(npc, player) select(1) end},
+		{"두 번째 시간.", action=function(npc, player) select(2) end},
+		{"세 번째 시간.", action=function(npc, player) select(3) end},
 	}
 }
 

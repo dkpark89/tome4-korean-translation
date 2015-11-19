@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@ end
 
 local function resist_dummies()
 	local GetQuantity = require "engine.dialogs.GetQuantity"
-	game:registerDialog(GetQuantity.new("All resistances", "From 0 to 100", 0, 100, function(qty)
+	game:registerDialog(GetQuantity.new("전체 저항력", "0에서 100까지", 0, 100, function(qty)
 		qty = util.bound(qty, 0, 100)
 		for uid, e in pairs(game.level.entities) do
 			if e.define_as == "TRAINING_DUMMY" then e.resists.all = qty end
@@ -60,13 +60,13 @@ end
 
 local function armor_dummies()
 	local GetQuantity = require "engine.dialogs.GetQuantity"
-	game:registerDialog(GetQuantity.new("Armour Hardiness", "From 0 to 100", 0, 100, function(qty)
+	game:registerDialog(GetQuantity.new("방어 효율", "0에서 100까지", 0, 100, function(qty)
 		qty = util.bound(qty, 0, 100)
 		for uid, e in pairs(game.level.entities) do
 			if e.define_as == "TRAINING_DUMMY" then e.combat_armor_hardiness = qty - 30 end
 		end
 
-		game:registerDialog(GetQuantity.new("Armour", "From 0 to 1000", 0, 1000, function(qty)
+		game:registerDialog(GetQuantity.new("방어도", "0에서 1000까지", 0, 1000, function(qty)
 			qty = util.bound(qty, 0, 1000)
 			for uid, e in pairs(game.level.entities) do
 				if e.define_as == "TRAINING_DUMMY" then e.combat_armor = qty end
@@ -76,17 +76,17 @@ local function armor_dummies()
 end
 
 newChat{ id="welcome",
-	text = [[*#LIGHT_GREEN#This orb is used to control the training facilities.#WHITE#*]],
+	text = [[*#LIGHT_GREEN#이 오브는 연습 설비를 통제할 때 사용됩니다.#WHITE#*]],
 	answers = {
-		{"[Create one target dummy]", action=dummies(1)},
-		{"[Create two target dummy]", action=dummies(2)},
-		{"[Create three target dummy]", action=dummies(3)},
-		{"[Create five target dummy]", action=dummies(5)},
-		{"[Create ten target dummy]", action=dummies(10)},
-		{"[Change dummies armour]", action=armor_dummies},
-		{"[Change dummies resistances]", action=resist_dummies},
-		{"[Reset]", action=remove_dummies},
-		{"[Leave the orb alone]"},
+		{"[연습용 허수아비 한 개 생성]", action=dummies(1)},
+		{"[연습용 허수아비 두 개 생성]", action=dummies(2)},
+		{"[연습용 허수아비 세 개 생성]", action=dummies(3)},
+		{"[연습용 허수아비 다섯 개 생성]", action=dummies(5)},
+		{"[연습용 허수아비 열 개 생성]", action=dummies(10)},
+		{"[연습용 허수아비의 방어 수준 설정]", action=armor_dummies},
+		{"[연습용 허수아비의 저항력 설정]", action=resist_dummies},
+		{"[초기화]", action=remove_dummies},
+		{"[오브를 놔두고 떠난다]"},
 	}
 }
 

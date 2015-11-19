@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[I ain't no chatting! Speak to the boss!]],
+	text = [[나에게 말 걸지 말고, 가서 단장님이랑 말해!]],
 	answers = {
-		{"[leave]"},
+		{"[떠난다]"},
 	}
 }
 

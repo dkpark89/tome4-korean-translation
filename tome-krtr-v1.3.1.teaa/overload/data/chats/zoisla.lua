@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,15 +18,15 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*A naga steps through the portal, she seems to be a high ranked one.*#WHITE#
-NO! You fool, the portal is breaking down!]],
+	text = [[#LIGHT_GREEN#*한 마리의 나가가 관문 쪽으로 다가오고 있습니다. 그녀는 상당히 높은 지위에 있는 나가 같습니다.*#WHITE#
+안돼! 이 멍청한 놈, 관문이 부서진다고!]],
 	answers = {
-		{"And thus my task is done, serpent!", jump="fool"},
+		{"그러면 내 임무도 끝나게 되겠지, 파충류!", jump="fool"},
 	}
 }
 
 newChat{ id="fool",
-	text = [[You do not understand: it will explode!]],
+	text = [[이해를 못하는 것 같군. 그 관문이 폭발한단 말이다!]],
 	answers = {
 		{"...", action = function(npc, player)
 			game:onTickEnd(function()
@@ -66,9 +66,9 @@ newChat{ id="fool",
 }
 
 newChat{ id="kill",
-	text = [[The portal randomly teleported us before exploding.
-You fool! You have doomed us, we could be #{bold}#anywhere!#{normal}#
-DIE !]],
+	text = [[관문이 폭발하기 직전, 간신히 우리를 무작위한 곳으로 이동시키는 데 성공했다.
+이 멍청한 놈! 너는 우리를 파멸시켰다. 어디로 가게 될지 #{bold}#전혀#{normal}# 모른다고!
+죽어라!]],
 	answers = {
 		{"...", action=function(npc, player) world:gainAchievement("SUNWALL_LOST", player) end},
 	}

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,28 +18,28 @@
 -- darkgod@te4.org
 
 local function recharge(npc, player)
-	player:showEquipInven("Select the item to recharge", function(o) return o.recharge_cost and o.power and o.max_power and o.power < o.max_power end, function(o, inven, item)
+	player:showEquipInven("재충전할 물건을 고르시오", function(o) return o.recharge_cost and o.power and o.max_power and o.power < o.max_power end, function(o, inven, item)
 		local cost = math.ceil(o.recharge_cost * (o.max_power / (o.use_talent and o.use_talent.power or o.use_power.power)))
-		if cost > player.money then require("engine.ui.Dialog"):simplePopup("Not enough money", "This costs "..cost.." gold.") return true end
-		require("engine.ui.Dialog"):yesnoPopup("Recharge?", "This will cost you "..cost.." gold.", function(ok) if ok then
+		if cost > player.money then require("engine.ui.Dialog"):simplePopup("금화가 부족합니다", "비용으로 금화가 "..cost.." 개 필요합니다.") return true end
+		require("engine.ui.Dialog"):yesnoPopup("재충전합니까?", "비용으로 금화 "..cost.." 개가 필요합니다.", function(ok) if ok then
 			o.power = o.max_power
 			player:incMoney(-cost)
 			player.changed = true
-		end end)
+		end end, "예", "아니오")
 		return true
 	end)
 
 end
 
 newChat{ id="welcome",
-	text = [[Welcome, @playername@, to my shop.]],
+	text = [[@playername@씨, 제 가게에 오신것을 환영합니다.]],
 	answers = {
-		{"Let me see your wares.", action=function(npc, player)
+		{"자네가 가진 물건들을 보여주게.", action=function(npc, player)
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"I want to recharge some of my equipment.", action=recharge},
-		{"Sorry, I have to go!"},
+		{"내 장비중 몇가지를 재충전하고 싶은데.", action=recharge},
+		{"미안, 난 가봐야 할 것 같군!"},
 	}
 }
 
