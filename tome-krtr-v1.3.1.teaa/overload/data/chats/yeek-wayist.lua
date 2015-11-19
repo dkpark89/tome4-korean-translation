@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,50 +22,50 @@
 -----------------------------------------------------------
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*Before you stands a creature about as tall as a Halfling, covered in small white fur and with a disproportionate head.
-You also notice he does not wield his greatsword. It seems to float in the air, bound to his will.*#WHITE#
-Why did you save me, stranger? You are not of the Way.]],
+	text = [[#LIGHT_GREEN#*당신 앞에 하플링만한 키에, 짧은 흰색 털가죽과 굉장히 큰 머리를 가진 생명체가 서있습니다.
+당신은 그의 손이 대검을 잡고 있지 않다는 것을 발견했습니다. 그의 검은 공중을 떠다니며, 그의 의지를 따르는 것 같습니다.*#WHITE#
+왜 저를 구해주셨습니까, 낯선 이여. 당신은 '한길' 의 사람이 아닙니다만.]],
 	answers = {
-		{"Well, you seemed to need help.", jump="kindness"},
-		{"So I could rip your throat myself!", action=function(npc, player) npc:checkAngered(player, false, -200) end},
+		{"음, 당신이 도움이 필요해보여서 그랬지요.", jump="kindness"},
+		{"내가 직접 네 목을 따고 싶었기 때문이지!", action=function(npc, player) npc:checkAngered(player, false, -200) end},
 	}
 }
 
 newChat{ id="kindness",
-	text = [[#LIGHT_GREEN#*The greatsword floats to a less aggressive stance. He seems surprised.*#WHITE#
-Then, on behalf of the Way, I thank you.]],
+	text = [[#LIGHT_GREEN#*공중을 떠다니는 대검이 조금 덜 호전적인 움직임을 보입니다. 그는 놀란 것 같습니다.*#WHITE#
+그렇다면 '한길' 을 대신해서, 감사드립니다.]],
 	answers = {
-		{"What is the Way, and what are you?", jump="what"},
+		{"'한길' 은 대체 무엇이고, 당신은 무슨 종족인가요?", jump="what"},
 	}
 }
 
 newChat{ id="what",
-	text = [[The Way is enlightenment, peace and protection. I am a Yeek. I came through this tunnel to explore this part of the world that was closed to us for centuries.]],
+	text = [['한길' 은 깨달음이자, 평화이며, 보호입니다. 그리고 저는 이크 종족입니다. 저는 수 세기 동안 닫혀있던 이 터널을 통해 세계를 탐험하려고 왔습니다.]],
 	answers = {
-		{"Can you tell me more about the Way?", jump="way", action=function(npc, player)
-			game.party:reward("Select the party member to receive the mental shield:", function(player)
+		{"'한길' 에 대해 더 설명해줄 수 있나요?", jump="way", action=function(npc, player)
+			game.party:reward("정신적 보호를 받을 인원을 고르세요 :", function(player)
 				player.combat_mentalresist = player.combat_mentalresist + 15
 				player:attr("confusion_immune", 0.10)
 			end)
-			game.logPlayer(player, "The contact with the Wayist mind has improved your mental shields. (+15 mental save, +10%% confusion resistance)")
+			game.logPlayer(player, "'한길' 의 추종자가 당신의 정신을 보호해주는 힘을 불어넣었습니다. (정신 내성 +15, 혼란 면역 +10%%)")
 		end},
 --		{"So you will wander the land alone?", jump="done"},
 	}
 }
 
 newChat{ id="done",
-	text = [[I am never alone. I have the Way.]],
+	text = [[저는 결코 혼자가 아닙니다. 저에게는 '한길' 이 있습니다.]],
 	answers = {
-		{"Farewell, then.", action=function(npc, player) npc:disappear() end},
+		{"음... 그럼 이만.", action=function(npc, player) npc:disappear() end},
 	}
 }
 
 newChat{ id="way",
-	text = [[I cannot, but I may show you a glimpse.
-#LIGHT_GREEN#*He leans toward you. Your mind is suddenly filled with feelings of peace and happiness.*#WHITE#
-This is the Way.]],
+	text = [[그럴 수는 없습니다. 하지만 당신에게 살짝 보여주도록 하죠.
+#LIGHT_GREEN#*그가 당신에게 몸을 기댔습니다. 당신의 정신은 갑자기 평화와 행복함으로 가득 찼습니다.*#WHITE#
+이것이 '한길' 입니다.]],
 	answers = {
-		{"Thank you for this vision. Farewell, my friend.", action=function(npc, player)
+		{"좋은 것을 보여주어 고맙습니다. 그럼 잘 지내시길, 나의 친구여.", action=function(npc, player)
 			npc:disappear()
 			game:setAllowedBuild("yeek", true)
 		end},
@@ -77,16 +77,16 @@ This is the Way.]],
 -----------------------------------------------------------
 
 newChat{ id="yeek-welcome",
-	text = [[Thank the Way. This... thing... would have killed me.]],
+	text = [['한길' 이여, 감사합니다. 이... 것... 이 저를 죽이려 했습니다.]],
 	answers = {
-		{"The Way sent me to explore this side of the tunnel.", jump="explore"},
+		{"'한길' 이 이 터널의 반대편을 조사해보라고 했습니다.", jump="explore"},
 	}
 }
 
 newChat{ id="explore",
-	text = [[Yes, me too. We should split up to cover more ground.]],
+	text = [[네, 저 역시 그렇습니다. 우리는 갈라져서 이 땅을 찾아보는 것이 좋을 것 같군요.]],
 	answers = {
-		{"Farewell. We are the Way, always.", action=function()
+		{"안녕히 가십시오. 우리는 언제나 '한길' 을 걷고 있을 것입니다.", action=function()
 			game:setAllowedBuild("psionic")
 			game:setAllowedBuild("psionic_mindslayer", true)
 		end},

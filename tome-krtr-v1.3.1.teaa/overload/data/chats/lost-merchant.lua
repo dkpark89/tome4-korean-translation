@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,17 +18,17 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Please save me! I will make it worth your whi..
-*#LIGHT_GREEN#The assassin lord hits him in the face.#WHITE#*Shut up!]],
+	text = [[살려주십시오! 저를 살려주시면 무엇이든지...
+*#LIGHT_GREEN#'암살단 단장' 이 상인의 얼굴을 쳤습니다.#WHITE#* 닥쳐!]],
 	answers = {
-		{"Sorry, I have to go!", action = function(npc, player) npc.can_talk = nil end},
+		{"미안합니다, 이만 가보겠습니다!", action = function(npc, player) npc.can_talk = nil end},
 	}
 }
 
 newChat{ id="welcome2",
-	text = [[Please get me out of here!]],
+	text = [[저를 여기서 내보내주십시오!]],
 	answers = {
-		{"Come, there is a way out!", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},
+		{"여기로 오십시오, 나가는 길이 있습니다!", action = function(npc, player) npc.can_talk = nil npc.cant_be_moved = nil end},
 	}
 }
 

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,36 +27,36 @@ end
 if not game.player:isQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") then
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*@npcname@'s deep voice booms through the caverns.*#WHITE#
-This is my domain, and I do not take kindly to intruders. What is your purpose here?]],
+	text = [[#LIGHT_GREEN#*@npcname@의 깊은 목소리가 동굴 전체에 울려퍼집니다.*#WHITE#
+이곳은 나의 영토이다. 이곳은 침입자를 친절하게 받아들이는 장소가 아니다. 네가 이곳에 온 목적은?]],
 	answers = {
-		{"I am here to kill you and take your treasures! Die, damned fish!", action=attack("DIE!")},
-		{"I did not mean to intrude. I shall leave now.", jump="quest"},
+		{"너를 죽이고 네 보물을 가지기 위해서 왔다! 죽어라, 이 빌어먹을 물고기!", action=attack("죽어라!")},
+		{"이곳에 침입하려고 온 것은 아닙니다. 지금 나가도록 하겠습니다.", jump="quest"},
 	}
 }
 
 newChat{ id="quest",
-	text = [[Wait! You seem to be worthy, so let me tell you a story.
-During the Age of Pyre the world was sundered by the last effects of the Spellblaze. A part of the continental shelf of Maj'Eyal was torn apart and thrown into the sea.
-The Naloren Elves perished... or so the world thinks. Some of them survived; using ancient Sher'Tul magic they had kept for themselves, they transformed to live underwater.
-They are now called the nagas. They live deep in the ocean between Maj'Eyal and the Far East.
-One of them, Slasul, rebelled against his order and decided he wanted the world for himself, both underwater and above. He found an ancient temple, probably a Sher'Tul remain, called the Temple of Creation.
-He believes he can use it to #{italic}#improve#{normal}# nagas.
-But he has become mad and now looks upon all other intelligent water life as a threat, and that includes myself.
-I cannot leave this sanctuary, but perhaps you could help me?
-After all, it would be an act of mercy to end his madness.]],
+	text = [[잠깐! 너라면 가치가 있겠군. 내 이야기를 하나 해주지.
+장작더미의 시대 동안, 이 세계는 마법폭발의 후폭풍에 고통받고 있었다. 그리고 마즈'에이알의 대륙붕 일부는 찢겨져 바다 속으로 가라앉게 되었지.
+그로 인해 날로레 엘프 종족은 멸망했다... 고 세상 사람들은 이야기하지. 하지만 그들 중 몇몇은 살아남았다. 그들은 쉐르'툴 종족이 남긴 고대의 마법을 그들 스스로에게 사용해서, 물 속에서 살아갈 수 있는 몸이 되었지.
+그들의 이름은 이제 '나가' 라고 불린다. 그들은 바다 깊은 곳, 마즈'에이알 대륙과 동대륙 사이에서 살고 있지.
+그들 중 하나인 슬라슐은, 그의 의지에 따라 세계를 지배하기로 결심했다. 바다 속과 지상 모두를 말이지. 그는 쉐르'툴 종족의 유적으로 생각되는 고대의 유적,'창조의 사원' 을 찾아 그곳에 머물고 있다.
+그는 그곳에 잠든 힘을 통해 나가들을 한 차원 더 #{italic}#발전#{normal}#시킬 수 있다고 생각했다.
+하지만 그는 미쳐버렸고, 이제 바다 속에 있는 모든 지성체들을 적으로 여긴다. 나를 포함해서 말이지.
+나는 이 성역을 벗어날 수 없다. 나를 도와줄 수 있겠나?
+어찌 됐건, 그의 광기를 끝내주는 것은 그에게 자비를 베풀어주는 것이 될 것이다.]],
 	answers = {
-		{"I would still rather kill you and take your treasure!", action=attack("DIE!")},
-		{"I shall do as you say, but how do I find him?", jump="givequest"},
-		{"That seems... unwise. My apologies, but I must refuse.", action=function(npc, player) player:grantQuest("temple-of-creation") player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") player:setQuestStatus("temple-of-creation", engine.Quest.FAILED) end},
+		{"아니, 나는 여전히 너를 죽이고 네 보물을 가지는 것이 더 좋을 것 같군!", action=attack("죽어라!")},
+		{"그 말대로 하겠습니다. 어디서 그를 찾을 수 있습니까?", jump="givequest"},
+		{"그 말은... '현명하지 못한 것' 같군요. 미안합니다, 하지만 그 제안은 거절하겠습니다.", action=function(npc, player) player:grantQuest("temple-of-creation") player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") player:setQuestStatus("temple-of-creation", engine.Quest.FAILED) end},
 	}
 }
 
 newChat{ id="givequest",
-	text = [[I can open a portal to his lair, far away in the western sea, but be warned: this is one-way only. I cannot bring you back. You will have to find your own way.]],
+	text = [[그가 있는 곳으로 관문을 열어줄 수 있다. 멀리 떨어진 서쪽 바다지. 하지만 조심해라. 이 관문은 단방향 관문이다. 네 복귀는 내가 장담할 수 없다. 너 스스로 길을 찾아야 할 것이다.]],
 	answers = {
-		{"I will.", action=function(npc, player) player:grantQuest("temple-of-creation") player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") end},
-		{"This is a death trap! Goodbye.", action=function(npc, player) player:grantQuest("temple-of-creation") player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") player:setQuestStatus("temple-of-creation", engine.Quest.FAILED) end},
+		{"그러죠.", action=function(npc, player) player:grantQuest("temple-of-creation") player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") end},
+		{"나를 죽이려는 함정이 분명하군! 잘 있으시오.", action=function(npc, player) player:grantQuest("temple-of-creation") player:setQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "drake-story") player:setQuestStatus("temple-of-creation", engine.Quest.FAILED) end},
 	}
 }
 
@@ -66,28 +66,28 @@ newChat{ id="givequest",
 -----------------------------------------------------------------------
 else
 newChat{ id="welcome",
-	text = [[Yes?]],
+	text = [[흠?]],
 	answers = {
-		{"[attack]", action=attack("TREACHERY!")},
-		{"I want your treasures, water beast!", action=attack("Oh, is that so? Well, COME GET THEM!")},
-		{"I spoke with Slasul, and he did not seem hostile, or mad.", jump="slasul_friend", cond=function(npc, player) return player:isQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "slasul-story") and not player:isQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "kill-slasul") end},
-		{"Farewell, dragon."},
+		{"[공격한다]", action=attack("이 배반자!")},
+		{"네 보물을 내놔라, 물 속 짐승이여!", action=attack("오, 네 대답은 그것인가? 좋다, 가져가 보아라!")},
+		{"슬라슐의 말을 들었습니다. 그는 딱히 적대적이거나 미쳐보이지 않았습니다.", jump="slasul_friend", cond=function(npc, player) return player:isQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "slasul-story") and not player:isQuestStatus("temple-of-creation", engine.Quest.COMPLETED, "kill-slasul") end},
+		{"잘 있으시오, 용이여."},
 	}
 }
 
 newChat{ id="slasul_friend",
-	text = [[#LIGHT_GREEN#*@npcname@ roars!*#WHITE# You listen to the lies of this mad naga!
-You are corrupted! TAINTED!]],
+	text = [[#LIGHT_GREEN#*@npcname1@ 소리지릅니다!*#WHITE# 그 정신 나간 나가의 거짓말을 믿는 것인가!
+너는 타락하였다! 병들었다!]],
 	answers = {
-		{"[attack]", action=attack("DO NOT MEDDLE IN THE AFFAIRS OF DRAGONS!")},
-		{"#LIGHT_GREEN#*Shake your head.*#LAST#He swayed my mind! Please, I am not your enemy.", jump="last_chance", cond=function(npc, player) return rng.percent(30 + player:getLck()) end},
+		{"[공격한다]", action=attack("용들의 일에 간섭하지 말지어다!")},
+		{"#LIGHT_GREEN#*자신의 머리를 흔듭니다.*#LAST#그가 내 마음을 어지럽혔습니다! 용이시여, 저는 당신의 적이 아닙니다.", jump="last_chance", cond=function(npc, player) return rng.percent(30 + player:getLck()) end},
 	}
 }
 
 newChat{ id="last_chance",
-	text = [[#LIGHT_GREEN#*@npcname@ calms down!*#WHITE# Very well; he is indeed a trickster.  Now go finish your task, or do not come back!]],
+	text = [[#LIGHT_GREEN#*@npcname1@ 분노를 가라앉혔습니다!*#WHITE# 좋아. 그는 정말 사기꾼이나 다름없군. 이제 가서 네 일을 끝내라. 그 전까지는 돌아올 생각도 하지 않는게 좋을 것이다!]],
 	answers = {
-		{"Thank you, mighty one."},
+		{"감사합니다, 위대한 자여."},
 	}
 }
 

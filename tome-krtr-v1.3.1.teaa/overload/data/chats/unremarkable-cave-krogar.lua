@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[@playerdescriptor.race@, you have helped me kill the Elf-wench. The Orc Pride thanks you... for now]],
+	text = [[@playerdescriptor.race@, 너는 저 엘프년을 죽이는 것을 도와주었다. 오크 긍지가 감사를 표할 것이다... 지금부터는.]],
 	answers = {
-		{"I hate Elves anyway..."},
+		{"어쨌든 엘프는 싫으니 말이야..."},
 	}
 }
 

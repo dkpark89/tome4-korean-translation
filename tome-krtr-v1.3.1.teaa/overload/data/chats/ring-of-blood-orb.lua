@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,23 +18,23 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*You place your hands on the orb.*#WHITE#
-You must provide 150 gold to take part in the fight.]],
+	text = [[#LIGHT_GREEN#*당신은 오브에 손을 가져다 대었습니다.*#WHITE#
+전투에 참가하시려면 금화 150 개를 지불하셔야 합니다.]],
 	answers = {
-		{"[Pay 150 gold]", jump="pay",
+		{"[금화 150 개를 지불한다]", jump="pay",
 			cond=function(npc, player)
 				return player:hasQuest("ring-of-blood") and player:hasQuest("ring-of-blood"):find_master() and player.money >= 150
 			end,
 			action=function(npc, player) player:incMoney(-150) end
 		},
-		{"[Leave]"},
+		{"[떠난다]"},
 	}
 }
 
 newChat{ id="pay",
-	text = [[Let the fight start!]],
+	text = [[전투가 시작됩니다!]],
 	answers = {
-		{"Bring it on!", action=function(npc, player) player:hasQuest("ring-of-blood"):start_game() end},
+		{"한번 해보자고!", action=function(npc, player) player:hasQuest("ring-of-blood"):start_game() end},
 	}
 }
 

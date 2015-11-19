@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,12 +18,12 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[#LIGHT_GREEN#*Before you stands a man covered in dirt and blood. He is out of breath and half mad.*#WHITE#
-PLEASE! You must help! #{bold}#IT#{normal}# is slaughtering everybody in my village! Please!
-#LIGHT_GREEN#*He points his finger at the nearby forest.*#WHITE#]],
+	text = [[#LIGHT_GREEN#*당신 앞에 흙과 피로 칠갑이 된 사람이 나타났습니다. 그는 지금 당장이라도 숨이 넘어갈 듯이 보이며, 반쯤 미쳐있습니다.*#WHITE#
+부탁드립니다! 제발 도와주십시오! #{bold}#그놈#{normal}#이 제 마을에 있는 사람들을 마구잡이로 학살하고 있습니다! 제발!
+#LIGHT_GREEN#*그는 손가락으로 근처에 있는 숲을 가리킵니다.*#WHITE#]],
 	answers = {
-		{"I will go there and see what I can do.", action=function(npc, player) player:grantQuest("lumberjack-cursed") end},
-		{"This is not my problem. Go away!"},
+		{"제가 가서 뭐라도 해보겠습니다.", action=function(npc, player) player:grantQuest("lumberjack-cursed") end},
+		{"그건 내가 상관할 일이 아니다. 썩 꺼져!"},
 	}
 }
 

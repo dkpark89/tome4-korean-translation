@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,23 +19,23 @@
 
 newChat{ id="welcome",
 
-	text = [[#LIGHT_GREEN#*The two of you spend some time relaxing on the beach.
-The air is fresh, the sand shimmers, and the surf roars softly.*#WHITE#
+	text = [[#LIGHT_GREEN#*당신과 멜린다는 해변을 거닐며 잠시 휴식을 취했습니다.
+공기는 신선하고, 모래는 햇빛을 받아 어른거리며, 파도는 부드럽게 넘실거립니다.*#WHITE#
 
-This was such a lovely idea!
-I have had a wonderful time with you today.
+해변에 온 것은 정말 좋은 선택이었어요!
+당신 덕분에 오늘 정말 환상적인 시간을 가질 수 있었어요.
 
-#LIGHT_GREEN#*She looks longingly into your eyes.*#WHITE#]],
+#LIGHT_GREEN#*그녀는 동경의 감정을 담아 당신의 눈을 바라보았습니다.*#WHITE#]],
 	answers = {
-		{"#LIGHT_GREEN#[Lean closer and kiss her]#WHITE#", action=function() game.zone.start_yaech() end, jump="firstbase"},
+		{"#LIGHT_GREEN#[몸을 기울여 그녀에게 키스한다]#WHITE#", action=function() game.zone.start_yaech() end, jump="firstbase"},
 	}
 }
 
 newChat{ id="firstbase",
-	text = [[Just before your lips touch, you sense that something is very wrong.
+	text = [[입술이 닿기 직전, 당신은 무언가가 굉장히 잘못된 듯한 기분이 들었습니다.
 ]],
 	answers = {
-		{"#LIGHT_GREEN#[Continue...]#WHITE#"},
+		{"#LIGHT_GREEN#[계속...]#WHITE#"},
 	}
 }
 

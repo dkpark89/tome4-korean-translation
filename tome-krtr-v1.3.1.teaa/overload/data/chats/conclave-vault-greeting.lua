@@ -18,38 +18,38 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	template = [[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
-YOU!  Name, rank, and identification.  NOW.
+	template = [[#LIGHT_GREEN#*방에 들어가니, 두 명의 거대한 오우거 막아서고 있는 것이 보입니다. 오우거들은 오랜 잠에서 깨어난 듯이 눈을 깜빡이고 있다가, 당신을 보더니 바로 말을 겁니다. 오른 쪽에 서있는 오우거가 말 하길:*#WHITE#
+	너! 관등성명. 당장!
 ]],
 	answers = {
-		{"My what?"},
-		{"[attack]"},
+		{"내 뭐?"},
+		{"[공격한다]"},
 	}
 }
 
 newChat{ id="nargol-scum",
-	template = [[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately draw their weapons.]],
+	template = [[#LIGHT_GREEN#*방에 들어가니, 두 명의 거대한 오우거 막아서고 있는 것이 보입니다. 오우거들은 오랜 잠에서 깨어난 듯이 눈을 깜빡이고 있다가, 당신을 보더니 바로 무기를 들어올립니다.]],
 	answers = {
-		{"[attack]", action=function(npc, player) npc:doEmote("#CRIMSON#NARGOL SCUM!  WE'RE UNDER ATTACK!", 120) end},
+		{"[공격한다]", action=function(npc, player) npc:doEmote("#CRIMSON#나르골의 쓰레기구나! 적의 공격이다!", 120) end},
 	}
 }
 
 newChat{ id="conclave",
-	template = [[#LIGHT_GREEN#*Entering the room, you see two massive ogres standing guard, blinking as though awakened from a long sleep. They see you, and immediately snap to attention. The one on the right speaks:*#WHITE#
-Ah!  Reinforcements!  I don't know how long it's been, but I'll get Astelrid up here to--  wait a minute, where are the rest of them?  #LIGHT_GREEN#*He frowns.*#WHITE# What's your identification number?
+	template = [[#LIGHT_GREEN#*방에 들어가니, 두 명의 거대한 오우거 막아서고 있는 것이 보입니다. 오우거들은 오랜 잠에서 깨어난 듯이 눈을 깜빡이고 있다가, 당신을 보더니 바로 말을 겁니다. 오른 쪽에 서있는 오우거가 말 하길:*#WHITE#
+	아! 지원병력! 도대체 내가 여기에 얼마나 있었는지는 모르지만, 아스테리드를 불러올테... 잠깐만, 나머지 녀석들은 어디있지? #LIGHT_GREEN#*그가 눈살을 찌푸립니다*#WHITE# 너 인식번호를 어떻게 되지?
 ]],
 	answers = {
-		{"Wait! The war's over! It's been thousands of years, the Conclave doesn't exist anymore!", jump="angry-conclave"},
-		{"[attack]"},
+		{"기다려! 전쟁은 끝났다! 몇 천년이나 지났다고, 콘클라베는 더이상 존재하지 않아!", jump="angry-conclave"},
+		{"[공격한다]"},
 	}
 }
 
 newChat{ id="angry-conclave",
-	text = [[#LIGHT_GREEN#*They look at each other and scowl, drawing their weapons.  The one on the left growls:*#WHITE#
-LIES!  The Conclave could not have lost!  I don't know who you are, but we can't afford witnesses!
+	text = [[#LIGHT_GREEN#*그들은 서로를 쳐다보더니 무기를 들어올리고 사납게 쳐다보았습니다. 왼 쪽에 있는 오우거가 으르렁 거리며:*#WHITE#
+거짓말! 콘클라베는 사라질 수 없다! 네가 누군지는 몰라도 목격자를 남겨둘 수는 없다!
 ]],
 	answers = {
-		{"[attack]"},
+		{"[공격한다]"},
 	}
 }
 

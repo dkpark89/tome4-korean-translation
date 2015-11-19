@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,58 +32,58 @@ local function set_ward(which, charges)
 end
 
 newChat{ id="welcome",
-	text = [[Call forth which ward?]],
+	text = [[어떤 속성의 보호력을 불러옵니까?]],
 	answers = {
-		{"Fire ["..(src.wards[DamageType.FIRE] or 0).."]", 
+		{"화염 ["..(src.wards[DamageType.FIRE] or 0).."]", 
 			cond = function() return has_ward(DamageType.FIRE) end,
 			action = function() return set_ward(DamageType.FIRE, (src.wards[DamageType.FIRE] or 0)) end,
 		},
-		{"Lightning ["..(src.wards[DamageType.LIGHTNING] or 0).."]",
+		{"전기 ["..(src.wards[DamageType.LIGHTNING] or 0).."]",
 			cond = function() return has_ward(DamageType.LIGHTNING) end,
 			action = function() return set_ward(DamageType.LIGHTNING, (src.wards[DamageType.LIGHTNING] or 0)) end,
 		},
-		{"Cold ["..(src.wards[DamageType.COLD] or 0).."]",
+		{"냉기 ["..(src.wards[DamageType.COLD] or 0).."]",
 			cond = function(who) return has_ward(DamageType.COLD) end,
 			action = function() return set_ward(DamageType.COLD, (src.wards[DamageType.COLD] or 0)) end,
 		},
-		{"Arcane ["..(src.wards[DamageType.ARCANE] or 0).."]",
+		{"마법 ["..(src.wards[DamageType.ARCANE] or 0).."]",
 			cond = function(who) return has_ward(DamageType.ARCANE) end,
 			action = function() return set_ward(DamageType.ARCANE, (src.wards[DamageType.ARCANE] or 0)) end,
 		},
-		{"Light ["..(src.wards[DamageType.LIGHT] or 0).."]", 
+		{"빛 ["..(src.wards[DamageType.LIGHT] or 0).."]", 
 			cond = function() return has_ward(DamageType.LIGHT) end,
 			action = function() return set_ward(DamageType.LIGHT, (src.wards[DamageType.LIGHT] or 0)) end,
 		},
-		{"Darkness ["..(src.wards[DamageType.DARKNESS] or 0).."]", 
+		{"어둠 ["..(src.wards[DamageType.DARKNESS] or 0).."]", 
 			cond = function() return has_ward(DamageType.DARKNESS) end,
 			action = function() return set_ward(DamageType.DARKNESS, (src.wards[DamageType.DARKNESS] or 0)) end,
 		},
-		{"Temporal ["..(src.wards[DamageType.TEMPORAL] or 0).."]", 
+		{"시간 ["..(src.wards[DamageType.TEMPORAL] or 0).."]", 
 			cond = function() return has_ward(DamageType.TEMPORAL) end,
 			action = function() return set_ward(DamageType.TEMPORAL, (src.wards[DamageType.TEMPORAL] or 0)) end,
 		},
-		{"Physical ["..(src.wards[DamageType.PHYSICAL] or 0).."]", 
+		{"물리 ["..(src.wards[DamageType.PHYSICAL] or 0).."]", 
 			cond = function() return has_ward(DamageType.PHYSICAL) end,
 			action = function() return set_ward(DamageType.PHYSICAL, (src.wards[DamageType.PHYSICAL] or 0)) end,
 		},
-		{"Nature ["..(src.wards[DamageType.NATURE] or 0).."]", 
+		{"자연 ["..(src.wards[DamageType.NATURE] or 0).."]", 
 			cond = function() return has_ward(DamageType.NATURE) end,
 			action = function() return set_ward(DamageType.NATURE, (src.wards[DamageType.NATURE] or 0)) end,
 		},
-		{"Blight ["..(src.wards[DamageType.BLIGHT] or 0).."]", 
+		{"황폐 ["..(src.wards[DamageType.BLIGHT] or 0).."]", 
 			cond = function() return has_ward(DamageType.BLIGHT) end,
 			action = function() return set_ward(DamageType.BLIGHT, (src.wards[DamageType.BLIGHT] or 0)) end,
 		},
-		{"Acid ["..(src.wards[DamageType.ACID] or 0).."]", 
+		{"산성 ["..(src.wards[DamageType.ACID] or 0).."]", 
 			cond = function() return has_ward(DamageType.ACID) end,
 			action = function() return set_ward(DamageType.ACID, (src.wards[DamageType.ACID] or 0)) end,
 		},
-		{"Mind ["..(src.wards[DamageType.MIND] or 0).."]", 
+		{"정신 ["..(src.wards[DamageType.MIND] or 0).."]", 
 			cond = function() return has_ward(DamageType.MIND) end,
 			action = function() return set_ward(DamageType.MIND, (src.wards[DamageType.MIND] or 0)) end,
 		},
 
-		{"Never mind"},
+		{"아니, 됐네."},
 	}
 }
 

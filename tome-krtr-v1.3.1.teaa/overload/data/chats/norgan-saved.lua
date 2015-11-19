@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Thank you, @playername@! We both survived for the wealth of the Empire. I will bring them the news and then rest.
-I do not think I want to see death so closely for some time now.
-Farewell.]],
+	text = [[고맙네, @playername@! 제국의 부를 위해 우리 둘 다 살아남았군. 나는 이 소식을 알린 다음, 휴식을 취해야 겠네.
+다시는 그렇게 죽음이 임박한 상황에 처하고 싶지 않군 그래.
+그럼 잘있게.]],
 	answers = {
-		{"For the Empire! Take care.", action=function(npc, player)
+		{"제국을 위하여! 잘 있게나.", action=function(npc, player)
 			npc:disappear()
 			world:gainAchievement("NORGAN_SAVED", player)
 		end},

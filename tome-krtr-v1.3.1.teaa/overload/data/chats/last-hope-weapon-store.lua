@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,22 +18,22 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[Welcome @playername@ to my shop.]],
+	text = [[상점에 오신 것을 환영하오, @playername@ 씨.]],
 	answers = {
-		{"Let me see your wares.", action=function(npc, player)
+		{"파는 물건들을 보고 싶습니다.", action=function(npc, player)
 			npc.store:loadup(game.level, game.zone)
 			npc.store:interact(player)
 		end},
-		{"I am looking for martial training.", jump="training"},
-		{"Sorry, I have to go!"},
+		{"육체적 훈련을 받기 위해 왔습니다.", jump="training"},
+		{"미안합니다, 이만 가볼게요!"},
 	}
 }
 
 newChat{ id="training",
-	text = [[I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.]],
+	text = [[물론 가능하지. 육체적 훈련 (물리 / 전투장비 수련) 에는 금화 50 개, 기초적인 활과 투석구 사용법 (사격 기술) 은 금화 8 개를 요금으로 받고 있다네.]],
 	answers = {
-		{"Please train me in generic weapons and armour usage.", action=function(npc, player)
-			game.logPlayer(player, "The smith spends some time with you, teaching you the basics of armour and weapon usage.")
+		{"기본적인 무기와 방어구 사용법 훈련을 받고 싶습니다.", action=function(npc, player)
+			game.logPlayer(player, "대장장이는 당신과 시간을 보내면서, 기본적인 무기와 방어구 사용법을 알려주었습니다.")
 			player:incMoney(-50)
 			player:learnTalentType("technique/combat-training", true)
 			player.changed = true
@@ -42,8 +42,8 @@ newChat{ id="training",
 			if player:knowTalentType("technique/combat-training") then return end
 			return true
 		end},
-		{"Please train me in the basic usage of bows and slings.", action=function(npc, player)
-			game.logPlayer(player, "The smith spends some time with you, teaching you the basics of bows and slings.")
+		{"기초적인 활과 투석구 사용법을 배우고 싶습니다.", action=function(npc, player)
+			game.logPlayer(player, "대장장이는 당신과 시간을 보내면서, 기초적인 활과 투석구 사용법을 알려주었습니다.")
 			player:incMoney(-8)
 			player:learnTalent(player.T_SHOOT, true, nil, {no_unlearn=true})
 			player.changed = true
@@ -52,7 +52,7 @@ newChat{ id="training",
 			if player:knowTalent(player.T_SHOOT) then return end
 			return true
 		end},
-		{"No thanks."},
+		{"사양하겠습니다."},
 	}
 }
 

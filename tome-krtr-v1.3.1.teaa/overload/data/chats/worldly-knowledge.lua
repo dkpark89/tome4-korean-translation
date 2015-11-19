@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
 
 local reward = {
 	all = {
@@ -50,11 +52,11 @@ local function generate_rewards()
 				if player:knowTalentType(tt) == nil then player:setTalentTypeMastery(tt, 0.9) end
 				player:learnTalentType(tt, true)
 			end
-			answers[#answers+1] = {("[%s (at mastery %0.2f)]"):format(cat:capitalize().." / "..tt_def.name:capitalize(), 0.9),
+			answers[#answers+1] = {("[%s (기술 계열 숙련도 : %0.2f)]"):format(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType(), 0.9),
 				action=doit,
 				on_select=function(npc, player)
 					game.tooltip_x, game.tooltip_y = 1, 1
-					game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..(cat:capitalize().." / "..tt_def.name:capitalize()).."#LAST#\n"..tt_def.description)
+					game:tooltipDisplayAtMap(game.w, game.h, "#GOLD#"..(cat:capitalize():krTalentType().." / "..tt_def.name:capitalize():krTalentType()).."#LAST#\n"..tt_def.description)
 				end,
 			}
 		end end
@@ -63,7 +65,7 @@ local function generate_rewards()
 end
 
 newChat{ id="welcome",
-	text = [[Learn which category?]],
+	text = [[어떤 기술 계열을 배우시겠습니까?]],
 	answers = generate_rewards(),
 }
 

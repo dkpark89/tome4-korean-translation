@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,18 +18,18 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[I say, you there. Yes, you, young one!
-You seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]],
+	text = [[거기 자네 말일세. 그래, 자네, 젊은이!
+보아하니 여행길을 걷고 있는 모양인데, 바깥 세상의 온갖 것들을 경험하기 위한 여행 말이야. 상상이 되는군. 여하튼, 이곳에서 배운 우리의 지식을 잊지 말게나. 세상의 부자들은 모두 잘 살고 있지만, 지식의 선물이 없다면 그들이 존재하는 의미는 어디에 있겠는가? 또한 모든 변화는 미래로 나아가기 위한 연구의 재원이 되어야 한다네. 그 이상의 이유는 없지. 알겠는가?]], 
 	answers = {
-		{"Uh, yes, of course... I'll be moving on now."},
-		{"Hold on! You... You're that apprentice mage I met in the wilds!", cond=function(npc, player) return player:isQuestStatus("mage-apprentice", engine.Quest.DONE) and player:getCun() >= 35 end, jump="apprentice"},
+		{"어, 물론이죠... 이제 가보겠습니다."},
+		{"잠깐! 당신은... 당신은 밖에서 만났던 그 견습 마법사 아닙니까?", cond=function(npc, player) return player:isQuestStatus("mage-apprentice", engine.Quest.DONE) and player:getCun() >= 35 end, jump="apprentice"},
 	}
 }
 
 newChat{ id="apprentice",
-	text = [[Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!]],
+	text = [[오, 눈치가 빠르군 그래, 애송이! 그렇다네, 그럴 기분이 들면 나는 가끔 견습 마법사 행세를 하며 여행을 다니지. 이를 통해, 나는 다른 사람들의 눈에 띄지 않은 채 내 연구를 진행할 수 있어. 그러다가 앙골웬의 목적에 공감하면서 실력이 있다고 생각되는 사람을 만나면 더 좋고 말이야. 게다가, 꽤 재미있는 일 아닌가!]],
 	answers = {
-		{"Uh, yes, of course... I'll be moving on now."},
+		{"어, 물론이죠... 이제 가보겠습니다."},
 	}
 }
 

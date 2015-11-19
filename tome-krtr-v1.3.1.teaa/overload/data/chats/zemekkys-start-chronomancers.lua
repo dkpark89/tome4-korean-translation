@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 newChat{ id="welcome",
-	text = [[@playername@, you are called to serve. The nearby unhallowed morass inhabitants are growing restless.
-You must go there and find the source.]],
+	text = [[@playername@, 그대에게 맡길 임무가 있다네. 부정한 저습지에 갑자기 거미들이 폭증하고 있다고 하더군.
+그곳에 가서 문제의 원인을 찾게.]],
 	answers = {
-		{"I will, Grand Keeper.", action=function() game:changeLevel(1, "unhallowed-morass") end},
-		{"I am sorry, but I cannot do that.", action=function(npc, player) player:setQuestStatus("start-point-zero", engine.Quest.FAILED) end},
+		{"그러겠습니다, 위대한 감시원이여.", action=function() game:changeLevel(1, "unhallowed-morass") end},
+		{"죄송합니다. 그 일은 할 수 없을 것 같습니다.", action=function(npc, player) player:setQuestStatus("start-point-zero", engine.Quest.FAILED) end},
 	}
 }
 

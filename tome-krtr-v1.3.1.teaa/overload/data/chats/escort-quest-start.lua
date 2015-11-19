@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,17 +24,17 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"#LIGHT_GREEN#[Pretend to help but when it is time you will use a Ziguranth technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\nLead on; I will protect you.", action=function(npc, player)
+		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만, 때가 되면 당신은 지구르의 기술을 써서 관문의 작동이 실패하도록 만들 것입니다. @npcname2@ 지구르로 보내져서 제대로 '처리' 될 것입니다.]#WHITE#\n안내하게. 어느 정도 지켜는 주겠어.", action=function(npc, player)
 			player:hasQuest(npc.quest_id).to_zigur = true
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"Go away; I do not help filthy arcane users!", action=function(npc, player)
+		{"저리 꺼져. 난 더러운 마법 사용자들 따위는 돕지 않아!", action=function(npc, player)
 			game.player:registerEscorts("lost")
 			npc:disappear()
 			npc:removed()
@@ -52,26 +52,26 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"Lead on; I will protect you.", action=function(npc, player)
+		{"안내하게. 내가 보호해주지.", action=function(npc, player)
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"#LIGHT_GREEN#[Pretend to help but when it is time you will use a technique to make the portal fizzle. @npcname@ will be sent to Zigur to be 'dealt with' properly.]#WHITE#\nLead on; I will protect you.", action=function(npc, player)
+		{"#LIGHT_GREEN#[지금은 도와주는 척을 하지만, 때가 되면 당신은 지구르의 기술을 써서 관문의 작동이 실패하도록 할 것입니다. @npcname2@ 지구르로 보내져서 제대로 '처리' 될 것입니다.]#WHITE#\n안내하게. 어느 정도 지켜는 주겠어.", action=function(npc, player)
 			player:hasQuest(npc.quest_id).to_zigur = true
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"Go away; I do not care for the weak.", action=function(npc, player)
+		{"저리 가라. 난 약한 자들에는 관심 없다.", action=function(npc, player)
 			game.player:registerEscorts("lost")
 			npc:disappear()
 			npc:removed()
@@ -87,16 +87,16 @@ newChat{ id="welcome",
 	text = text,
 	answers =
 	{
-		{"Lead on; I will protect you.", action=function(npc, player)
+		{"안내하게. 내가 보호해주지.", action=function(npc, player)
 			npc.ai_state.tactic_leash = 100
 			game.party:addMember(npc, {
 				control="order",
 				type="escort",
-				title="Escort",
+				title="Escort", kr_title="호위대상",
 				orders = {escort_portal=true, escort_rest=true},
 			})
 		end},
-		{"Go away; I do not care for the weak.", action=function(npc, player)
+		{"저리 가라. 난 약한 자들에는 관심 없다.", action=function(npc, player)
 			game.player:registerEscorts("lost")
 			npc:disappear()
 			npc:removed()

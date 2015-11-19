@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -128,7 +128,7 @@ local arena_3 = function(self, player)
 	game.level.arena.modeString = "3"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사 장비점")
 	arenashop = nil
 end
 
@@ -138,7 +138,7 @@ local arena_30 = function(self, player)
 	game.level.arena.modeString = "30"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사 장비점")
 	arenashop = nil
 end
 
@@ -148,7 +148,7 @@ local arena_60 = function(self, player)
 	game.level.arena.modeString = "60"
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사 장비점")
 	arenashop = nil
 end
 
@@ -176,26 +176,26 @@ local save_clear = function(self, player)
 
 	local arenashop = game:getStore("ARENA_SHOP")
 	arenashop:loadup(game.level, game.zone)
-	arenashop:interact(game.player, "Gladiator's wares")
+	arenashop:interact(game.player, "검투사 장비점")
 	arenashop = nil
 end
 
 newChat{ id="welcome",
-	text = "#LIGHT_GREEN#You take a look at the ranking boards before entering.\n"..text,
+	text = "#LIGHT_GREEN#투기장에 들어가기 전에, 당신은 순위를 매긴 게시판을 확인했습니다.\n"..text,
 	answers = {
 		--{"Enter the arena for 3 rounds[DEBUG]", action=arena_3, jump="perks"},
-		{"Enter the arena (60 waves)", action=arena_60},
-		{"Enter the arena (shorter mode, 30 rounds)", action=arena_30},
+		{"투기장에 입장한다. (60 회 쇄도)", action=arena_60},
+		{"투기장에 입장한다. (간략 방식, 30 회 쇄도)", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
-		{"#LIGHT_RED#[Reset all arena save data]", action=save_clear},
+		{"#LIGHT_RED#[저장된 투기장 자료를 삭제한다]", action=save_clear},
 	}
 }
 
 newChat{ id="welcome2",
-	text = "What will you do now?",
+	text = "이제 무엇을 하시겠습니까?",
 	answers = {
-		{"Enter the arena for 60 rounds", action=arena_60},
-		{"Enter the arena for 30 rounds", action=arena_30},
+		{"60 회 쇄도 방식의 투기장에 입장", action=arena_60},
+		{"30 회 쇄도 방식의 투기장에 입장", action=arena_30},
 		--{"Enter the arena for as long as you can last", action=arena_inf, jump="perks"},
 	}
 }
