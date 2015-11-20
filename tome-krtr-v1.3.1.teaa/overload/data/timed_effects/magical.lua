@@ -3729,7 +3729,7 @@ newEffect{
 	subtype = { teleport=true, temporal=true },
 	status = "beneficial",
 	parameters = { chance = 1 },
-	on_gain = function(self, err) return "#Target# 사슬에 묶입니다!" "+Tether" end,
+	on_gain = function(self, err) return "#Target# 사슬에 묶입니다!", "+Tether" end,
 	on_lose = function(self, err) return "#Target# 사슬에서 풀려납니다.", "-Tether" end,
 	activate = function(self, eff)
 	end,

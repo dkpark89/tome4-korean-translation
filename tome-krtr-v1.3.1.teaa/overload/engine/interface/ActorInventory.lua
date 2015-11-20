@@ -112,7 +112,7 @@ end
 --  @param id inventory id or table (stack_limit in inventory table takes precedence)
 function _M:invenStackLimit(id)
 	local inven = self:getInven(id)
-	return inven.stack_limit or self.inven_def[inven.id].stack_limit or math.hugefunction _M:pickupFloor
+	return inven.stack_limit or self.inven_def[inven.id].stack_limit or math.huge
 end
 
 --- Adds an object to an inventory
