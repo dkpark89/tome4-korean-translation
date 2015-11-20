@@ -35,7 +35,7 @@ newEntity{
 	next_dream = 1,
 	block_move = function(self, x, y, who, act)
 		if who == game.player and act then
-			require("engine.ui.Dialog"):yesnoLongPopup("꿈의 제단", "제단의 안쪽을 들여다보면, 당신은 꿈의 경험을 하게 됩니다. 정신기생충의 영향을 받지 않는다면, 당신의 몸에는 아무런 영향을 끼치지는 않을 겁니다. 들여다봅니까?", 400, function(ret)
+			require("engine.ui.Dialog"):yesnoLongPopup("꿈의 제단", "제단의 안쪽을 들여다보면, 당신은 꿈의 경험을 하게 됩니다. 정신 벌레의 영향을 받지 않는다면, 당신의 몸에는 아무런 영향을 끼치지는 않을 겁니다. 들여다봅니까?", 400, function(ret)
 				if ret then
 					local dream = self.next_dream
 					self.next_dream = util.boundWrap(self.next_dream+1, 1, game.zone.max_dreams)
