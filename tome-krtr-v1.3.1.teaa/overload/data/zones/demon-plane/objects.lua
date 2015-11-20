@@ -44,11 +44,15 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 	},
 
 	max_power = 40, power_regen = 1,
-	use_power = { name = "blink to a nearby random location", kr_name = "임의의 장소로 단거리 순간이동", power = 22, use = function(self, who)
+	use_power = {name = function(self, who) return ("%d 범위(마법 능력치 비례) 내로 무작위로 단거리 순간이동합니다."):format(self.use_power.range(self, who)) end,
+		power = 22,
+		range = function(self, who) return 10 + who:getMag(5) end,
+		use = function(self, who)
+		game.logSeen(who, "%s %s 사용했습니다!", who.name:capitalize(), self:getName{no_count=true, no_add_name = true})
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		who:teleportRandom(who.x, who.y, 10 + who:getMag(5))
+		who:teleportRandom(who.x, who.y, self.use_power.range(self, who))
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		game.logSeen(who, "%s %s 사용했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
+		
 	end}
 }
