@@ -56,6 +56,7 @@ newEntity{
 	kr_name = "오브의 받침대 (용)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 	always_remember = true,
+	special_minimap = colors.SALMON,
 	notice = true,
 	once_used_image = "terrain/pedestal_orb_03.png",
 	orb_command = {
@@ -76,6 +77,7 @@ newEntity{
 	kr_name = "오브의 받침대 (역생)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 	always_remember = true,
+	special_minimap = colors.SALMON,
 	notice = true,
 	once_used_image = "terrain/pedestal_orb_05.png",
 	orb_command = {
@@ -96,6 +98,7 @@ newEntity{
 	kr_name = "오브의 받침대 (정령)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 	always_remember = true,
+	special_minimap = colors.SALMON,
 	notice = true,
 	once_used_image = "terrain/pedestal_orb_04.png",
 	orb_command = {
@@ -116,6 +119,7 @@ newEntity{
 	kr_name = "오브의 받침대 (파괴)",
 	display = '_', color_r=255, color_g=255, color_b=255, back_color=colors.LIGHT_RED,
 	always_remember = true,
+	special_minimap = colors.SALMON,
 	notice = true,
 	once_used_image = "terrain/pedestal_orb_02.png",
 	orb_command = {
