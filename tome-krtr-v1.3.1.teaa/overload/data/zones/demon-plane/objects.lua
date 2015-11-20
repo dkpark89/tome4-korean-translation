@@ -48,7 +48,7 @@ newEntity{ base = "BASE_LEATHER_BOOT",
 		power = 22,
 		range = function(self, who) return 10 + who:getMag(5) end,
 		use = function(self, who)
-		game.logSeen(who, "%s %s 사용했습니다!", who.name:capitalize(), self:getName{no_count=true, no_add_name = true})
+		game.logSeen(who, "%s %s 사용했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(who.x, who.y, self.use_power.range(self, who))
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
