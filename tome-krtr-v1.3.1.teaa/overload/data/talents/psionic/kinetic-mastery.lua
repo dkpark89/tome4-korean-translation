@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Transcendent Telekinesis",
+	kr_name = "초월 - 염동력",
 	type = {"psionic/kinetic-mastery", 1},
 	require = psi_wil_high1,
 	points = 5,
@@ -40,21 +41,22 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[For %d turns your telekinesis transcends your normal limits, increasing your Physical damage by %d%% and you Physical resistance penetration by %d%%.
-		In addition:
-		The cooldowns of Kinetic Shield, Kinetic Leech, Kinetic Aura, Kinetic Strike and Mindlash are reset.
-		Kinetic Aura effects will have their radius increased by 1.
-		Your Kinetic Shield will have 100%% absorption efficiency and will absorb twice the normal amount of damage.
-		Mindlash will also inflict stun.
-		Kinetic Leech will put enemies to sleep.
-		Kinetic Strike will hit 2 adjacent enemies in a sweeping attack.
-		The damage bonus and resistance penetration scale with your Mindpower.
-		Only one Transcendent talent may be in effect at a time.]]):format(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t))
+		return ([[[[%d 턴 동안, 한계를 뛰어넘은 초월적인 염동력을 다룰 수 있게 됩니다.
+		- 물리 피해량이 %d%% / 물리 저항 관통력이 %d%% 상승합니다.
+		- 동역학적 보호막, 동역학적 오러 발산, 염력 채찍, 동역학적 흡수 기술의 재사용 대기 시간이 초기화됩니다.
+		- 동역학적 오러 발산의 범위가 1 칸 증가합ㄴ디ㅏ.
+		- 동역학적 보호막의 흡수 효율이 100%% 가 되며, 최대 흡수 가능량이 2 배 증가합니다.
+		- 염력 채찍이 기절 효과를 추가로 부여합니다.
+		- 동역학적 흡수가 적에게 수면 효과를 추가로 부여합니다.
+		- 동역학적 타격이 휩쓸기 공격으로 변해, 대상 옆의 적 2 명을 동시에 공격합니다.
+		피해량 증가와 저항 관통력은 정신력의 영향을 받아 증가합니다.
+		한번에 하나의 '초월' 기술만을 사용할 수 있습니다.]]):format(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Kinetic Surge", image = "talents/telekinetic_throw.png",
+	kr_name= "동역학적 쇄도",
 	type = {"psionic/kinetic-mastery", 2},
 	require = psi_wil_high2,
 	points = 5,
@@ -99,10 +101,10 @@ newTalent{
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, math.floor(self:getTalentRange(t) / 2), {apply_power=self:combatMindpower()})
 				else
-					game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+					game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
 				end
 			else --If the target resists the knockback, do half damage to it.
-				target:logCombat(self, "#YELLOW##Source# resists #Target#'s throw!")
+				target:logCombat(self, "#YELLOW##Source# #Target#의 던지기를 저항했습니다!")
 				self:project({type="hit", range=tg.range}, target.x, target.y, DamageType.PHYSICAL, dam/2)
 			end
 		else
@@ -141,16 +143,16 @@ newTalent{
 	info = function(self, t)
 		local range = self:getTalentRange(t)
 		local dam = damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t))
-		return ([[Build telekinetic power and dump it onto an adjacent creature or yourself. 
-		This will launch them to where ever you target in a radius of %d. 
+		return ([[염동력으로 인접한 존재나 스스로를 밀어냅니다. 
+		발사된 자는 목표 지점을 중심으로 반경 %d 칸 안쪽에 떨어지게 됩니다. 
 		
-		Upon landing, launched enemy takes %0.1f Physical damage and is stunned for %d turns.  
-		All other creatures within radius 2 of the landing point take %0.1f Physical damage and are knocked away from you.
-		This talent ignores %d%% of the knockback resistance of the thrown target, which takes half damage if it resists being thrown.
+		적을 발사한 경우, 상대는 땅에 떨어진 충격으로 %0.1f 물리 피해를 받고, %d 턴 동안 기절하게 됩니다.  
+		낙하 지점으로부터 2 칸 이내에 있는 모든 존재는 %0.1f 물리 피해를 받고, 당신의 반대편으로 밀려나게 됩니다.
+		이 기술은 대상의 밀어내기 면역력을 %d%% 만큼 무시합니다. 던지기에 실패한 경우에는 피해를 절반만 주게 됩니다.
 		
-		When used on yourself, you will launch in a straight line, knocking enemies flying and doing %0.1f Physical damage to each.
-		You can break through %d walls while doing this.
-		The damage improves with your Mindpower and the range increases with Mindpower.]]):
+		스스로를 발사한 경우, 직선으로 날아가게 됩니다. 날아가는 동안 경로에 있는 적들은 각각 %0.1f 물리 피해를 받고 밀려나게 됩니다.
+		이렇게 날아가는 동안 %d 개의 벽을 파괴하여 뚫고 지나갈 수 있습니다.
+		피해량과 사정거리는 정신력의 영향을 받아 증가합니다.]]):
 		format(range, dam, math.floor(range/2), dam/2, t.getKBResistPen(self, t), dam, math.floor(range/2))
 	end,
 }
@@ -158,6 +160,7 @@ newTalent{
 
 newTalent{
 	name = "Deflect Projectiles",
+	kr_name = "투사체 편향",
 	type = {"psionic/kinetic-mastery", 3},
 	require = psi_wil_high3, 
 	points = 5,
@@ -208,16 +211,17 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance, spread = t.getEvasion(self, t)
-		return ([[You learn to devote a portion of your attention to mentally swatting, grabbing, or otherwise deflecting incoming projectiles.
-		All projectiles targeting you have a %d%% chance to instead target another spot within radius %d and move %d%% slower.
-		If you choose, you can use your mind to grab all projectiles within radius 10 of you and hurl them toward any location within range %d of you, but this will break your concentration.
-		To do this, deactivate this sustained talent.]]):
+		return ([[투사체를 붙잡고 튕겨내는 등, 투사체를 편향시키는데 정신을 집중합니다.
+		시전자를 대상으로 한 모든 투사체는 %d%% 확률로 주변 %d 칸 반경의 다른 곳에 명중하고 %d%% 만큼 느리게 이동합니다.
+		유지 중인 기술을 해제하는 것으로, 주변 10 칸 반경의 모든 투사체를 붙잡아 주변 %d 칸 반경의 특정 위치에 내꽂을 수도 있습니다.
+		하지만 이를 사용할 경우 집중력이 흐트러지게 됩니다.]]):
 		format(chance, spread, chance, self:getTalentRange(t))
 	end,
 }
 
 newTalent{
 	name = "Implode",
+	kr_name = "내파",
 	type = {"psionic/kinetic-mastery", 4},
 	require = psi_wil_high4,
 	points = 5,
@@ -253,8 +257,8 @@ newTalent{
 	info = function(self, t)
 		local dur = t.getDuration(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Bind the target mercilessly with constant, bone-shattering pressure, pinning and slowing it by 50%% for %d turns and dealing %0.1f Physical damage each turn.
-		The duration and damage will improve with your Mindpower.]]):
+		return ([[대상에게 극도의 압력을 지속적으로 불어넣어,%d 턴 동안 매 턴마다 %0.1f 물리 피해를 주고 속박 및 50%% 만큼 감속시킵니다.
+		지속 시간과 피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(dur, damDesc(self, DamageType.PHYSICAL, dam))
 	end,
 }
