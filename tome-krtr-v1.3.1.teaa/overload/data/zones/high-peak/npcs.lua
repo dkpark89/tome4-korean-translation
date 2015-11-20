@@ -1,5 +1,5 @@
 ﻿-- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2014 Nicolas Casalini
+-- Copyright (C) 2009 - 2015 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -74,7 +74,6 @@ newEntity{
 	stun_immune = 0.5,
 	confusion_immune = 0.5,
 	blind_immune = 1,
-	ignore_irresistible_sun = 1, -- Do not let Argoniel annoy Elandar
 
 	combat_armor = 20,
 	combat_def = 20,
@@ -306,6 +305,8 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 	never_anger = true,
 
 	open_door = true,
+
+	no_auto_resists = true,
 
 	autolevel = "warriormage",
 	ai = "tactical", ai_state = { talent_in=2, ai_move="move_astar", },
