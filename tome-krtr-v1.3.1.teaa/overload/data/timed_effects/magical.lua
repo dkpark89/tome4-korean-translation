@@ -1792,16 +1792,16 @@ newEffect{
 newEffect{
 	name = "SPIN_FATE", image = "talents/spin_fate.png",
 	desc = "Spin Fate",
-	kr_desc = "운명 왜곡",
+	kr_desc = "실타래",
 	long_desc = function(self, eff) return ("목표물의 방어력 및 내성이 %d 만큼 상승한다."):format(eff.save_bonus * eff.spin) end,
-	display_desc = function(self, eff) return eff.spin.." Spin" end,
+	display_desc = function(self, eff) return eff.spin.." 실타래" end,
 	charges = function(self, eff) return eff.spin end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "beneficial",
 	parameters = { save_bonus=0, spin=0, max_spin=3},
-	on_gain = function(self, err) return "#Target# spins fate.", "+Spin Fate" end,
-	on_lose = function(self, err) return "#Target# stops spinning fate.", "-Spin Fate" end,
+	on_gain = function(self, err) return "#Target# 운명을 잣습니다", "+Spin Fate" end,
+	on_lose = function(self, err) return "#Target# 운명을 잣는 것을 멈춥니다.", "-Spin Fate" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- remove the four old values
 		self:removeTemporaryValue("combat_def", old_eff.defid)
