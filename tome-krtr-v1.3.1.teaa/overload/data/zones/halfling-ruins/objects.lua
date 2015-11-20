@@ -29,6 +29,13 @@ newEntity{ base = "BASE_LORE",
 	encumberance = 0,
 }
 end
+newEntity{ base = "BASE_LORE",
+	define_as = "DIRECTOR_HOMPALAN_ORDER",
+	name = "order for Director Hompalan", lore="conclave-vault-start",
+	kr_name = "책임자 홈팔란에게의 명령",
+	desc = [[매우 희미해져 거의 읽는 것이 불가능한 기록입니다.]],
+	rarity = false,
+	encumberance = 0,
 
 newEntity{ base = "BASE_CLOTH_ARMOR",
 	power_source = {psionic=true},
