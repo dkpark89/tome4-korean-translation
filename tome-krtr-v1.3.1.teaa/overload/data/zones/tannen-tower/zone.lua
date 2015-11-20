@@ -58,6 +58,10 @@ return {
 		end
 		if lev == 4 then
 			core.fov.set_actor_vision_size(0)
+			if not game.level.data.seen_tannen then
+				game.level.data.seen_tannen = true
+				require("engine.ui.Dialog"):simpleLongPopup("Tannen's Tower", [[당신이 걸어 올라가자, 탄넨이 양피지 뭉치를 읽으며 그의 드롤렘과 같이 서있는 것이 보입니다. 양피지를 읽으면서, 그의 눈동자는 확장되고, 앞뒤로 걸으면서 땀을 흘리기 시작합니다. 그가 마침내 양피지를 주머니에 집어넣는 순간, 당신을 발견하고 깜짝 놀란 고양이 처럼 뒤로 펄쩍 뛰었습니다. "안돼! 지금은 안돼! 넌 지금 뭐가 중요한지 몰라!" 그는 로브에서 한가득 형형색색의 플라스크를 꺼내고, 그의 드롤렘은 삶을 얻은 듯이 눈동자를 빛냅니다, ...(line truncated)...
+			end
 		end
 	end,
 	on_leave = function()
