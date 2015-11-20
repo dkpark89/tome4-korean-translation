@@ -33,8 +33,10 @@ summonTemporalHound = function(self, t)
 		type = "animal", subtype = "canine",
 		display = "C", color=colors.LIGHT_DARK, image = ("npc/temp_hound_0%d.png"):format(rng.range(1, 12)),
 		shader = "shadow_simulacrum", shader_args = { color = {0.4, 0.4, 0.1}, base = 0.8, time_factor = 1500 },
-		name = "temporal hound", faction = self.faction,
-		desc = [[A trained hound that appears to be all at once a little puppy and a toothless old dog.]],
+		name = "temporal hound",
+		kr_name = "시간의 사냥개", 
+		faction = self.faction,
+		desc = [[조그마한 새끼 강아지의 모습도, 이빨이 빠진 늙은 개의 모습도 동시에 가진 훈련 된 사냥개입니다.]],
 		sound_moam = {"creatures/wolves/wolf_hurt_%d", 1, 2}, sound_die = {"creatures/wolves/wolf_hurt_%d", 1, 1},
 		
 		autolevel = "none",
