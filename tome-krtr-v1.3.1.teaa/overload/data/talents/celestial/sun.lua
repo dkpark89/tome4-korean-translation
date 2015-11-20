@@ -20,6 +20,7 @@
 -- Baseline blind because the class has a lot of trouble with CC early game and rushing TL4 isn't reasonable
 newTalent{
 	name = "Sun Ray", short_name = "SUN_BEAM",
+	kr_name = "태양 광선",
 	type = {"celestial/sun", 1},
 	require = divi_req1,
 	random_ego = "attack",
@@ -64,15 +65,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Calls forth a ray of light from the Sun, doing %0.1f Light damage to the target.
-		At level 3 the ray will be so intense it will also blind the target and everyone in a radius 2 around it for %d turns.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[태양으로부터 빛의 힘을 불러와, 대상에게 %0.1f 빛 피해를 줍니다. 
+ 		기술 레벨이 3 이상일 경우, 강렬한 빛이 대상과 주변 2 칸 반경의 모두를 %d 턴 동안 실명시키게 됩니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, damage), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Path of the Sun",
+	kr_name = "태양의 길",
 	type = {"celestial/sun", 2},
 	require = divi_req2,
 	points = 5,
@@ -106,15 +108,16 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[A path of sunlight appears in front of you for 5 turns. All foes standing inside take %0.1f Light damage per turn.
-		While standing in the path, your movement takes no time and can not trigger traps.
-		The damage done will increase with your Spellpower.]]):format(damDesc(self, DamageType.LIGHT, damage / 5), radius)
+		return ([[태양의 길이 시전자를 중심으로 5 턴 동안 생겨납니다. 태양의 길에 서있는 모든 적들은 매 턴마다 %0.1f 빛 피해를 받게 됩니다. 
+ 		또한 시전자는 태양의 길에 서있는 한, 이동할 때 시간이 소모되지 않고 함정을 발동시키지 않게 됩니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.LIGHT, damage / 5), radius) 
 	end,
 }
 
 -- Can someone put a really obvious visual on this?
 newTalent{
 	name = "Sun's Vengeance", short_name = "SUN_VENGEANCE",
+	kr_name = "태양의 복수",
 	type = {"celestial/sun",3},
 	require = divi_req3,
 	mode = "passive",
@@ -141,11 +144,11 @@ newTalent{
 	info = function(self, t)
 		local crit = t.getCrit(self, t)
 		local chance = t.getProcChance(self, t)
-		return ([[Infuse yourself with the raging fury of the Sun, increasing your physical and spell critical chance by %d%%.
-		Each time you crit with a physical attack or a spell you have %d%% chance to gain Sun's Vengeance for 2 turns.
-		While affected by Sun's Vengeance, your Sun Ray will take no time to use and will deal 25%% more damage.
-		If Sun Ray was on cooldown, the remaining turns are reduced by one instead.
-		This effect can only happen once per turn.]]):
+		return ([[태양의 타오르는 분노를 몸에 주입시켜, 물리 치명타율과 주문 치명타율을 %d%% 상승시킵니다. 
+ 		그리고 물리 혹은 주문 치명타를 발생시킬 때마다, %d%% 확률로 태양의 복수 효과가 2 턴 동안 발동됩니다. 
+ 		태양의 복수 효과가 지속되는 동안에는, 태양 광선 기술을 사용할 때 시간이 소모되지 않으며 25%% 더 많은 피해를 입힐 수 있게 됩니다. 
+ 		만약 태양 광선 기술이 재사용 대기 중일 경우, 기존 효과 대신 태양 광선의 재사용 대기 시간이 1 턴 줄어들게 됩니다. 
+ 		이 효과는 한 턴에 1 번까지만 나타납니다.]]): 
 		format(crit, chance)
 	end,
 }
@@ -156,6 +159,7 @@ newTalent{
 -- Banned from NPCs due to sheer scaling insanity
 newTalent{
 	name = "Suncloak",
+	kr_name = "태양 망토",
 	type = {"celestial/sun", 4},
 	require = divi_req4,
 	points = 5,
@@ -176,9 +180,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You wrap yourself in a cloak of sunlight that empowers your magic and protects you for 6 turns.
-		While the cloak is active, your spell casting speed is increased by %d%%, your spell cooldowns are reduced by %d%%, and you cannot take more than %d%% of your maximum life from a single blow.
-		The effects will increase with your Spellpower.]]):
+		return ([[스스로를 햇빛 망토로 둘러싸, 6 턴 동안 마력을 강화시키고 몸을 보호합니다. 
+ 		태양 망토 효과가 유지되는 동안, 주문 시전 속도는 %d%% 증가하며 주문의 재사용 대기 시간은 %d%% 감소합니다. 그리고 한번의 타격에 최대 생명력의 %d%% 이상은 절대 피해를 받지 않게 됩니다. 
+ 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]): 
 		format(t.getHaste(self, t)*100, t.getCD(self, t)*100, t.getCap(self, t))
    end,
 }

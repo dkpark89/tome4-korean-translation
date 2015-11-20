@@ -42,7 +42,7 @@ function _M:move(x, y, force)
 	return moved
 end
 function _M:tooltip(x, y)
-	local tstr = tstring{"Projectile: ", self.name}
+	local tstr = tstring{"발사체 : ", (self.kr_name or self.name)}
 
 	if self.src and self.src.name then 
 		local hostile = self.src.faction and game.player:reactionToward(self.src) or 0
@@ -50,24 +50,24 @@ function _M:tooltip(x, y)
 		if hostile < 0 then color = {"color", "LIGHT_RED"}
 		elseif hostile == 0 then color = {"color", "LIGHT_BLUE"}
 		end
-		tstr:add(true, "Origin: ", color, self.src.name, {"color", "LAST"})
+		tstr:add(true, "발사한 이 : ", color, (self.src.kr_name or self.src.name), {"color", "LAST"})
 	end
 
 	if self.project and self.project.def and self.project.def.typ then
 		if self.project.def.typ.selffire then
 			local x = self.project.def.typ.selffire
 			if x == true then x = 100 end
-			tstr:add(true, "Affect origin chance: ", tostring(x), "%")
+			tstr:add(true, "명중 확률 : ", tostring(x), "%")
 		end
 		if self.project.def.typ.friendlyfire then
 			local x = self.project.def.typ.friendlyfire
 			if x == true then x = 100 end
-			tstr:add(true, "Affect origin's friends chance: ", tostring(x), "%")
+			tstr:add(true, "발사한 이의 동료에게로의 명중 확률 : ", tostring(x), "%")
 		end
 	end
 
 	if config.settings.cheat then
-		tstr:add(true, "UID: ", tostring(self.uid), true, "Coords: ", tostring(x), "x", tostring(y))
+		tstr:add(true, "UID: ", tostring(self.uid), true, "좌표 : ", tostring(x), "x", tostring(y))
 	end
 	return tstr
 end
@@ -82,6 +82,15 @@ end
 
 --gets the full name of the projectile
 function _M:getName()
+	local name = self.kr_name or self.name or "발사체"
+	if self.src and self.src.name then
+		return (self.src.kr_name or self.src.name):capitalize().."의 "..name
+	else
+		return name
+	end
+end
+
+function _M:getOriName() --@ 원문 이름 반환하는 함수 추가
 	local name = self.name or "projectile"
 	if self.src and self.src.name then
 		return self.src.name:capitalize().."'s "..name

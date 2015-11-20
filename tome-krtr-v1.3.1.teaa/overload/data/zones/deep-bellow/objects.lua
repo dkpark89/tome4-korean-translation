@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,7 +23,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "Deep Bellow excavation report "..i, lore="deep-bellow-"..i,
-	desc = [[A paper scrap.]],
+	kr_name = "'깊은 울림' 발굴 보고서 "..i,
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -32,18 +33,21 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "ADV_LTR_6",
 	name = "letter to Rolf (3)", lore="adventurer-letter-6",
-	desc = [[A paper scrap.]],
+	kr_name = "롤프에게 보내는 편지",
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 }
 newEntity{ base = "BASE_LORE",
 	define_as = "ADV_LTR_7",
 	name = "letter to Weisman (4)", lore="adventurer-letter-7",
-	desc = [[A paper scrap.]],
+	kr_name = "웨이스만에게 보내는 편지",
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 }
 newEntity{ base = "BASE_LORE",
 	define_as = "ADV_LTR_8",
 	name = "Last Will of Rolf", lore="adventurer-letter-8",
-	desc = [[A paper scrap.]],
+	kr_name = "롤프의 마지막 의지",
+	desc = [[종이 조각입니다.]],
 	rarity = false,
 }

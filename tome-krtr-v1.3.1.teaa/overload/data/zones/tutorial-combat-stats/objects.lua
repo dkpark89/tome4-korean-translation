@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@ newEntity{ base = "BASE_HEAVY_BOOTS", define_as = "PHYSSAVE_BOOTS",
 	color = colors.YELLOW,
 	encumber = 1,
 	rarity = 300,
-	desc = [[Fine boots that increase your Physical Save by 10.]],
+	kr_name = "물리 내성의 신발 (+10)", kr_unided_name = "말라붙은 오래된 신발",
+	desc = [[물리 내성을 10 만큼 올려주는 훌륭한 신발입니다.]],
 	cost = 100,
 	wielder = {
 		combat_physresist = 10,
@@ -48,7 +49,8 @@ newEntity{ base = "BASE_AMULET", define_as = "MINDPOWER_AMULET",
 	color = colors.YELLOW,
 	encumber = 1,
 	rarity = 300,
-	desc = [[A beautiful amulet that increases your Mindpower by 3.]],
+	kr_name = "정신력의 목걸이 (+3)", kr_unided_name = "화려한 목걸이",
+	desc = [[정신력을 3 만큼 올려주는 아름다운 목걸이입니다.]],
 	cost = 100,
 	wielder = {
 		combat_mindpower = 3,
@@ -66,7 +68,8 @@ newEntity{ base = "BASE_HELM", define_as = "ACCURACY_HELM",
 	color = colors.YELLOW,
 	encumber = 1,
 	rarity = 300,
-	desc = [[A finely-wrought helmet that increases your Accuracy by 6.]],
+	kr_name = "정확도의 투구 (+6)",  kr_unided_name = "단단해 보이는 투구",
+	desc = [[정확도를 6 만큼 올려주는, 잘 만들어진 투구입니다.]],
 	cost = 100,
 	wielder = {
 		combat_atk = 6,
@@ -84,7 +87,8 @@ newEntity{ base = "BASE_RING", define_as = "MENTALSAVE_RING",
 	color = colors.YELLOW,
 	encumber = 1,
 	rarity = 300,
-	desc = [[A ruby-studded ring.]],
+	kr_name = "정신 내성의 반지 (+6)", kr_unided_name = "매끈한 반지",
+	desc = [[루비가 박힌 반지입니다.]],
 	cost = 100,
 	wielder = {
 		combat_mentalresist = 6,

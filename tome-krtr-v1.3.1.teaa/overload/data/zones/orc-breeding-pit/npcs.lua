@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -50,7 +50,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ORC_SUMMON",
 	name = "orc baby", color=colors.GREEN,
-	desc = [[Crawling on all fours, this green-skinned creature is far from cute, with vicious little sharp teeth and nails, and slime still sticking to its skin.]],
+	kr_name = "아기 오크",
+	desc = [[손발을 써서 기어다니는 녹색 피부의 생명체로, 작지만 날카로운 이빨과 손톱을 가지고 있어 귀여움과는 거리가 먼 존재입니다. 피부에서는 아직도 점액이 진득거리고 있습니다.]],
 	level_range = {25, nil}, exp_worth = 0,
 	resolvers.generic(function(e) if rng.percent(50) then e.female = true end end),
 	rarity = 3,
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_ORC_SUMMON",
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "orc child", color=colors.LIGHT_GREEN,
-	desc = [[This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.]],
+	kr_name = "어린이 오크",
+	desc = [[심술궃고 탐욕스러운 눈빛을 가진, 작은 오크입니다. 새로운 생명을 위해 혈관이 꿈틀거리고 있으며, 이 오크는 빠른 속도로 움직이고 있습니다. 완전히 자라지는 않았지만 상당히 근육질의 몸을 하고 있으며, 손가락과 발가락에는 날카로운 손톱과 발톱이 달려있습니다.]],
 	resolvers.generic(function(e) if rng.percent(50) then e.female = true end end),
 	level_range = {25, nil}, exp_worth = 0,
 	rarity = 3,
@@ -83,7 +85,8 @@ newEntity{ base = "BASE_NPC_ORC",
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "young orc", color=colors.TEAL,
-	desc = [[This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.]],
+	kr_name = "젊은 오크",
+	desc = [[이 젊은 오크는 두꺼운 피부와 그 아래로 보이는 단단한 근육으로 볼 때, 거의 성장한 것 같습니다. 더 어린 동족과 지내느라 야생의 기운은 덜하지만, 그 어두운 눈 속에서는 지혜롭고 차갑고 계산적인 빛이 번뜩이는 것을 알 수 있습니다.]],
 	resolvers.generic(function(e) if rng.percent(50) then e.female = true end end),
 	level_range = {25, nil}, exp_worth = 0,
 	rarity = 3,
@@ -101,9 +104,10 @@ newEntity{ base = "BASE_NPC_ORC",
 
 newEntity{ base = "BASE_NPC_ORC",
 	name = "orc mother", color=colors.YELLOW,
+	kr_name = "어미 오크",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_mother.png", display_h=2, display_y=-1}}},
-	desc = [[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.
-Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]],
+	desc = [[거대하게 부풀어 오른 형상을 한 존재입니다. 온 몸의 구멍에서 점액과 끈적한 덩어리가 흘러내려 동굴 바닥을 적시고 있습니다. 어린 오크들이 부푼 젖꼭지를 차지하려고 싸우고 있고, 접혀진 살 사이로 작은 아기들이 밀려나오고 있습니다. 구역질이 나오는 광경이자 냄새입니다.
+여기 용과 같이 어마어마한 크기의 존재가 있습니다. 두꺼운 주름이 진 피부는 부풀어 올랐고, 넓은 모공에서는 끈적한 점액이 스며나오고 있습니다. 수백 개의 젖꼭지에서는 어린 오크들이 다투고 있습니다. 그 중 가장 억센 놈들만이 귀중한 영양분을 획득하며 더 강하게 자라고 있으며, 약한 놈들은 곰팡내 나는 바닥에 쳐박혀 있습니다. 이 거대한 몸집의 최상부에서는 기다랗게 엉킨 머리카락으로 덮힌 무력한 머리가 달려있습니다. 그 멍한 눈빛에서는 슬픔과 고통이 섞여있었지만, 당신을 보자 눈빛이 분노로 가득 차오르기 시작했습니다. 이 생명체의 얼굴은 자신의 자식들을 지키려는 거센 욕망으로 일그러집니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	female = true,
 	rarity = 8,
@@ -134,10 +138,11 @@ Here stands a tremendous form almost the size of a dragon. Bloated skin rises in
 
 newEntity{ base="BASE_NPC_ORC", define_as = "GREATMOTHER",
 	name = "Orc Greatmother", color=colors.VIOLET, unique = true,
+	kr_name = "오크 대모",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_orc_greatmother.png", display_h=2, display_y=-1}}},
-	desc = [[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.
-Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]],
-	killer_message = "and given to the children as a plaything",
+	desc = [[거대하게 부풀어 오른 형상을 한 존재입니다. 온 몸의 구멍에서 점액과 끈적한 덩어리가 흘러내려 동굴 바닥을 적시고 있습니다. 어린 오크들이 부푼 젖꼭지를 차지하려고 싸우고 있고, 접혀진 살 사이로 작은 아기들이 밀려나오고 있습니다. 구역질이 나오는 광경이자 냄새입니다.
+여기 용과 같이 어마어마한 크기의 존재가 있습니다. 두꺼운 주름이 진 피부는 부풀어 올랐고, 넓은 모공에서는 끈적한 점액이 스며나오고 있습니다. 수백 개의 젖꼭지에서는 어린 오크들이 다투고 있습니다. 그 중 가장 억센 놈들만이 귀중한 영양분을 획득하며 더 강하게 자라고 있으며, 약한 놈들은 곰팡내 나는 바닥에 쳐박혀 있습니다. 이 거대한 몸집의 최상부에서는 기다랗게 엉킨 머리카락으로 덮힌 무력한 머리가 달려있습니다. 그 멍한 눈빛에서는 슬픔과 고통이 섞여있었지만, 당신을 보자 눈빛이 분노로 가득 차오르기 시작했습니다. 이 생명체의 얼굴은 자신의 자식들을 지키려는 거센 욕망으로 일그러집니다.]],
+	killer_message = "당신은 오크 아기들의 장난감이 되었습니다.",
 	level_range = {40, nil}, exp_worth = 1,
 	female = true,
 	rank = 5,
@@ -178,7 +183,7 @@ Here stands a tremendous form almost the size of a dragon. Bloated skin rises in
 	resolvers.sustains_at_birth(),
 
 	on_die = function(self, who)
-		game.log("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.")
+		game.log("#PURPLE#당신은 모든 오크들의 대모를 죽여, 오크들에게 엄청난 피해를 주었습니다.")
 		game.state:eastPatrolsReduce()
 		world:gainAchievement("GREATMOTHER_DEAD", who)
 		who:setQuestStatus("orc-breeding-pits", engine.Quest.COMPLETED, "genocide")

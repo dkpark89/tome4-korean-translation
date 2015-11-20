@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Ritches Tunnels",
+	kr_name = "릿치 터널",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,
@@ -47,8 +48,7 @@ return {
 			door = "UNDERGROUND_SAND",
 		},
 		actor = {
-			class = "engine.generator.actor.Random",
-			--class = "mod.class.generator.actor.Random",
+			class = "mod.class.generator.actor.Random",
 			nb_npc = {20, 30},
 			filters = { {max_ood=2}, },
 			randelite = 0,

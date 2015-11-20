@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Tannen's Tower",
+	kr_name = "탄넨의 탑",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 4, reverse_level_display=true,
@@ -52,15 +53,11 @@ return {
 	},
 	on_enter = function(lev, old_lev, newzone)
 		if newzone and not game.level.shown_warning then
-			require("engine.ui.Dialog"):simplePopup("Tannen's Tower", "The portal brought you to what seems to be a cell in the basement of the tower. You must escape!")
+			require("engine.ui.Dialog"):simplePopup("탄넨의 탑", "그 관문은 당신을 탑의 지하실에 있는 방과 같은 곳으로 데리고 왔습니다. 이곳에서 탈출해야 합니다!")
 			game.level.shown_warning = true
 		end
 		if lev == 4 then
 			core.fov.set_actor_vision_size(0)
-			if not game.level.data.seen_tannen then
-				game.level.data.seen_tannen = true
-				require("engine.ui.Dialog"):simpleLongPopup("Tannen's Tower", [[As you climb up the steps, you see Tannen standing with his drolem, reading a scrap of parchment.  As he reads, his eyes grow wider, and he starts sweating and pacing back and forth.  When he reaches to stuff it in his pocket, he sees you and jumps back like a startled cat.  "No!  Not now!  You have no idea what's at stake!"  He retrieves a fistful of brightly-colored flasks from his robes, and his drolem's eyes glow as it springs to life, metal screeching in an impressive imitation of a roar.]], 500)
-			end
 		end
 	end,
 	on_leave = function()

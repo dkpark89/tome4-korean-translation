@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -31,10 +31,11 @@ newEntity{ define_as = "BROTOQ",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "orc", unique = true,
 	name = "Brotoq the Reaver",
+	kr_name = "파괴자, 브로토크",
 	display = "o", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_brotoq_the_reaver.png", display_h=2, display_y=-1}}},
-	desc = [[A huge orc blocks your way to the Iron Council. You must pass.]],
-	killer_message = ", who ate their brains still warm,",
+	desc = [[거대한 오크가 철의 평의회로 가는 길을 막고 서 있습니다. 당신은 반드시 여길 지나가야 합니다.]],
+	killer_message = "당신은 따뜻한 뇌를 파먹혔습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	rank = 4,
@@ -80,9 +81,10 @@ newEntity{ define_as = "BROTOQ",
 newEntity{ define_as = "NORGAN",
 	type = "humanoid", subtype = "dwarf", unique = true,
 	name = "Norgan",
+	kr_name = "노르간",
 	display = "@", color=colors.UMBER,
 	faction = "iron-throne",
-	desc = [[Norgan and you are the sole survivors of the Reknor expedition; your duty is to make sure the news makes it back to the Iron Council.]],
+	desc = [[레크놀 원정대에서, 노르간과 당신 둘만이 살아남았습니다. 당신의 임무는 철의 평의회로 돌아가, 정확한 소식을 전달하는 것입니다.]],
 	level_range = {1, nil},
 	max_life = 120, life_rating = 12, fixed_rating = true,
 	rank = 3,

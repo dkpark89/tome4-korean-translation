@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,18 +17,17 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Skirmisher (Rogue)",
-[[In Maj'Eyal threats are everywhere when you walk the wildlands, some rogues prefer to forgo the use of stealth instead using their cunning skills to kill silently from afar with a sling well protected with a buckler.
+return "새로운 직업 : #LIGHT_GREEN#척후병 (도적)",
+[[마즈'에이알의 황무지는 어느 곳에나 위험이 산재되어 있습니다. 일부 도적들은 은신하는 대신 교활한 기술을 택하여, 방패로 스스로를 보호하면서 투석구로 멀리서 조용히 적을 죽이기 시작했습니다.
 
-You have learned the power of counterstriking from afar and can now create characters with the #LIGHT_GREEN#Skirmisher class#WHITE#.
+당신은 멀리서 역습을 하는 방법을 알게 되어, 이제 캐릭터를 만들 때 #LIGHT_GREEN#척후병 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Skirmishers are highly mobile rogues that specialize in running and gunning, using Slings to harass, debilitate, and wear down enemies before finishing them off with extremely quick attacks.
+척후병은 달리기와 투석구 사격에 특화되었으며 뛰어난 기동성을 가진 도적으로, 아주 빠른 공격으로 적들을 죽을 때까지 괴롭히고 손상시키며 지쳐 쓰러지게 만듭니다.
 
-Class features:#YELLOW#
-- Vault and roll around your foes, staying one step ahead and just out of
-reach
-- Cripple your opponents and unleash a torrent of sling bullets
-- Block enemy fire with your buckler mastery and counter attack#WHITE#
+직업 특성 :#YELLOW#
+- 적들 사이를 뛰어넘고 구르면서, 적의 사정거리에서 한발짝 더 벗어남
+- 상대의 육체를 손상시키고, 투석구로 탄막을 펼침
+- 방패를 수련하여 적의 탄환을 막고, 반격을 시도#WHITE#
 
-Skirmisher use stamina to fuel their techniques, which replenishes slowly over time.
+척후병들은 기술의 원천력으로 체력을 사용하며, 체력은 휴식을 취하면 조금씩 회복되는 기본적인 원천력입니다.
 ]]

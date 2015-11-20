@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,13 +24,15 @@ load("/data/general/grids/void.lua")
 
 newEntity{ base="FLOATING_ROCKS", define_as = "WORMHOLE", nice_tiler = false,
 	name = "unstable wormhole",
+	kr_name = "불안정한 웜홀",
 	display = '*', color = colors.GREY,
 	force_clone = true,
 	damage_project = function(self, src, x, y, type, dam)
 		if type ~= engine.DamageType.PHYSICAL and game.party:hasMember(src) and not self.change_level then
 			self.change_level = 1
 			self.name = "stable wormhole"
-			game.logSeen(src, "#VIOLET#The wormhole absorbs energies and stabilizes. You can now use it to travel.")
+			self.kr_name = "안정된 웜홀"
+			game.logSeen(src, "#VIOLET#웜홀이 에너지를 흡수하여 안정화 되었습니다. 이제 이것을 사용하여 다른 지역으로 이동할 수 있습니다.")
 			local q = game.player:hasQuest("start-archmage")
 			if q then q:stabilized() end
 		end

@@ -1417,11 +1417,11 @@ function _M:compassDirection(dx, dy)
 		return nil
 	else
 		local dydx, dxdy = dy/math.abs(dx), dx/math.abs(dy)
-		if dydx <= -0.5 then dir = "north" elseif dydx >= 0.5 then dir="south" end
-		if dxdy < -0.5 then dir = dir.."west"
-		elseif dxdy > 0.5 then dir = dir.."east" end
+		if dydx <= -0.5 then dir = "북" elseif dydx >= 0.5 then dir="남" end
+		if dxdy < -0.5 then dir = dir.."서" 
+		elseif dxdy > 0.5 then dir = dir.."동" end
 	end
-	return dir
+	return dir.."쪽" --@ 방향 한글화
 end
 -------------------------------------------------------------
 -------------------------------------------------------------

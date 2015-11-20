@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Shoot Down",
+	kr_name = "격추",
 	type = {"technique/archery-excellence", 1},
 	no_energy = true,
 	points = 5,
@@ -36,7 +37,7 @@ newTalent{
 		if #tgts > 0 then return tgts[1].x, tgts[1].y, tgts[1].tgt end
 	end,
 	on_pre_use_ai = function(self, t, silent) return t.onAIGetTarget(self, t) and true or false end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면, 활 또는 투석구가 필요합니다.") end return false end return true end,
 	requires_target = true,
 	getNb = function(self, t) return math.floor(self:combatTalentScale(t, 1, 5, "log")) end,
 	target = function(self, t)
@@ -54,21 +55,22 @@ newTalent{
 				proj:terminate(x, y)
 				game.level:removeEntity(proj, true)
 				proj.dead = true
-				self:logCombat(proj, "#Source# shoots down '#Target#'.")
+				self:logCombat(proj, "#Source# 가 '#Target# 을(를)격추시켰습니다.'.")
 			end
 		end
 		
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your reflexes are lightning-fast, if you spot a projectile (arrow, shot, spell, ...) you can instantly shoot at it without taking a turn to take it down.
-		You can shoot down up to %d projectiles.]]):
+		return ([[빛과 같은 반응속도를 가지게 되어, (화살, 탄환, 주문 등의) 투사체를 시간 소모 없이 격추시킬 수 있게 됩니다.
+		한번에 최대 %d 개의 투사체를 격추시킬 수 있습니다.]]):
 		format(t.getNb(self, t))
 	end,
 }
 
 newTalent{
 	name = "Bull Shot",
+	kr_name = "돌진 사격",
 	type = {"technique/archery-excellence", 2},
 	no_energy = "fake",
 	points = 5,
@@ -80,7 +82,7 @@ newTalent{
 	tactical = { ATTACK = { weapon = 1 } },
 	requires_target = true,
 	on_pre_use = function(self, t, silent)
-		if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end
+		if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면, 활 또는 투석구가 필요합니다.") end return false end
 		if self:attr("never_move") then return false end
 		return true
 	end,
@@ -104,7 +106,7 @@ newTalent{
 			lx, ly, is_corner_blocked = linestep:step()
 		until is_corner_blocked or not lx or not ly or game.level.map:checkAllEntities(lx, ly, "block_move", self)
 		if not tx or core.fov.distance(self.x, self.y, tx, ty) < 1 then
-			game.logPlayer(self, "You are too close to build up momentum!")
+			game.logPlayer(self, "대상과의 거리가 너무 가까워, 달려들 수 없습니다!")
 			return
 		end
 		if not tx or not ty or core.fov.distance(x, y, tx, ty) > 1 then return nil end
@@ -125,14 +127,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You rush toward your foe, readying your shot. If you reach the enemy, you release the shot, imbuing it with great power.
-		The shot does %d%% weapon damage and knocks back your target by %d.]]):
+		return ([[사격 준비와 함께 적에게 돌격하며, 대상에게 도달하면 강력한 힘이 담긴 사격을 실시합니다.
+		사격을 통해 %d%% 의 무기 피해를 주고, 대상을 %d 칸 뒤로 밀어냅니다.]]):
 		format(self:combatTalentWeaponDamage(t, 1.5, 2.8) * 100, t.getDist(self, t))
 	end,
 }
 
 newTalent{
 	name = "Intuitive Shots",
+	kr_name = "직감 사격",
 	type = {"technique/archery-excellence", 3},
 	mode = "sustained",
 	points = 5,
@@ -166,7 +169,7 @@ newTalent{
 		self:archeryShoot(targets, t, nil, {atk = xatk, mult=self:combatTalentWeaponDamage(t, 0.4, 0.9)})
 		return ret
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면, 활 또는 투석구가 필요합니다.") end return false end return true end,
 	activate = function(self, t)
 		return {}
 	end,
@@ -174,14 +177,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Activating this talent enhances your reflexes to incredible levels.  Each time you are attacked in melee, you have a %d%% chance get a defensive shot off in time to intercept the attack, fully disrupting it (including extra blows from certain talents), dealing %d%% archery damage, and knocking the attacker back %d tiles.
-		Activating this talent will not interrupt reloading.]])
+		return ([[반응 속도를 극도로 강화시켜, 근접 공격을 당할 때마다 %d%% 확률로 반응 사격을 실시할 수 있게 됩니다. 반응 사격은 (특정 기술을 사용한 연타 공격을 포함해서) 해당 대상의 모든 공격을 방해하며, %d%% 사격 피해를 주고 적을 %d 칸 뒤로 밀어냅니다.
+		이 기술은 활성화시켜도 재장전을 방해하지 않습니다.]])
 		:format(t.getChance(self, t), self:combatTalentWeaponDamage(t, 0.4, 0.9) * 100, t.getDist(self, t))
 	end,
 }
 
 newTalent{
 	name = "Strangling Shot",
+	kr_name = "침묵 사격",
 	type = {"technique/archery-excellence", 4},
 	no_energy = "fake",
 	points = 5,
@@ -196,13 +200,13 @@ newTalent{
 		local weapon, ammo = self:hasArcheryWeapon()
 		return {type="bolt", range=self:getTalentRange(t), display=self:archeryDefaultProjectileVisual(weapon, ammo)}
 	end,
-	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "You require a bow or sling for this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasArcheryWeapon() then if not silent then game.logPlayer(self, "이 기술을 사용하려면, 활 또는 투석구가 필요합니다.") end return false end return true end,
 	getDur = function(self, t) return math.floor(self:combatTalentScale(t, 2, 6)) end,
 	archery_onhit = function(self, t, target, x, y)
 		if target:canBe("silence") then
 			target:setEffect(target.EFF_SILENCED, t.getDur(self, t), {apply_power=self:combatAttack()})
 		else
-			game.logSeen(target, "%s resists the strangling shot!", target.name:capitalize())
+			game.logSeen(target, "%s가 침묵 사격에 저항했습니다!", target.name:capitalize())
 		end
 	end,
 	action = function(self, t)
@@ -213,8 +217,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You fire a shot at your target's throat, mouth, or equivalent body part, doing %d%% damage and silencing it for %d turns.
-		The silence chance increases with your Accuracy.]])
+		return ([[대상의 목, 입, 또는 그에 해당하는 신체 부위에 사격을 가해 %d%% 피해를 주고 %d 턴 동안 침묵시킵니다.
+		침묵 확률은 정확도 능력치의 영향을 받아 증가합니다.]])
 		:format(self:combatTalentWeaponDamage(t, 0.9, 1.7) * 100, t.getDur(self,t))
 	end,
 }

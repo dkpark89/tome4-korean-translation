@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@ newEntity{ define_as = "ATHAME",
 	level_range = {50, 50},
 	display = "|", color=colors.VIOLET,
 	encumber = 1,
-	desc = [[An athame, covered in blood runes. It radiates power.]],
+	kr_name = "피의 룬 제례단검", kr_unided_name = "제례단검",
+	desc = [[피의 룬이 새겨진 제례단검입니다. 힘을 내뿜고 있습니다.]],
 
 	on_pickup = function(self, who)
 		if who == game.player then

@@ -18,12 +18,13 @@
 -- darkgod@te4.org
 
 name = "From bellow, it devours"
+kr_name = "울림 속의 포식자"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold."
-	desc[#desc+1] = "Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow."
-	desc[#desc+1] = "It has been long sealed away but still, from time to time adventurers go there looking for wealth."
-	desc[#desc+1] = "None that you know of has come back yet, but you did survive Reknor. You are great."
+	desc[#desc+1] = "당신은 간신히 레크놀을 탈출하였으며, 이제 당신의 막대한 부와 힘을 원하는 마음은 10 배로 증폭되었습니다."
+	desc[#desc+1] = "당신의 모험가 경력을 쌓을 때가 온 것 같습니다. 철의 왕좌 깊은 곳에는 '깊은 울림' 이라는 곳이 있습니다."
+	desc[#desc+1] = "오랫동안 봉인된 곳이지만 여전히 존재하는 곳이며, 가끔 모험가들은 부를 위해 이곳에 들어가고는 했습니다."
+	desc[#desc+1] = "아직까지는 아무도 살아 돌아오지 못했지만, 당신은 레크놀에서도 살아남았습니다. 당신이라면 가능할 것입니다."
 	return table.concat(desc, "\n")
 end
 

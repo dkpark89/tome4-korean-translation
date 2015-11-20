@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ newEntity{
 	define_as = "CLOUD",
 	type = "floor", subtype = "cloud",
 	name = "floor", image = "terrain/clouds/cloud_normal_002.png",
+	kr_name = "바닥",
 	display = '~', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 	shader = "cloud_anim",
 }

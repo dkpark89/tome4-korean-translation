@@ -21,6 +21,7 @@
 -- Leaving as is for now but will likely change somehow
 newTalent{
 	name = "Weapon of Light",
+	kr_name = "빛의 무기",
 	type = {"celestial/combat", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -69,10 +70,10 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local shieldflat = t.getShieldFlat(self, t)
-		return ([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
-		Additionally, if you have a temporary damage shield active, melee attacks will increase its power by %d.
-		If the same shield is refreshed 20 times it will become unstable and explode, removing it.
-		The damage dealt and shield bonus will increase with your Spellpower.]]):
+		return ([[무기에 태양의 힘을 불어넣어, 근접 공격마다 %0.1f 빛 피해를 추가로 줍니다.
+		또한 일시적인 피해 보호막이 발동 중일 경우, 근접 공격이 보호막을 재충전시켜 피해 흡수량을 %d 만큼 증가시킵니다.
+		하나의 피해 보호막을 20 회 이상 재충전시킬 경우, 보호막이 불안정해져 사라지게 됩니다.
+		피해량과 보호막 충전량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage), shieldflat)
 	end,
 }
@@ -81,6 +82,7 @@ newTalent{
 -- 2nd attack does reduced damage to balance high damage on 1st attack (so that the talent is always useful at low levels and close ranges)
 newTalent{
 	name = "Wave of Power",
+	kr_name = "힘의 파동",
 	type = {"celestial/combat",2},
 	require = divi_req2,
 	points = 5,
@@ -111,7 +113,7 @@ newTalent{
 			self:attackTarget(target, nil, t.getDamage(self, t), true)
 			local range = core.fov.distance(self.x, self.y, target.x, target.y)
 			if range > 1 and rng.percent(t.SecondStrikeChance(self, t, range)) then
-				game.logSeen(self, "#CRIMSON#"..self.name.."strikes twice with Wave of Power!#NORMAL#")
+				game.logSeen(self, "#CRIMSON#"..self.name.."의 두 번째 힘의 파동이 발사됩니다!#NORMAL#")
 				self:attackTarget(target, nil, t.getDamage(self, t, true), true)
 			end
 		else
@@ -121,10 +123,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = self:getTalentRange(t)
-		return ([[In a pure display of power, you project a ranged melee attack, doing %d%% weapon damage.
-		If the target is outside of melee range, you have a chance to project a second attack against it for %d%% weapon damage.
-		The second strike chance (which increases with distance) is %0.1f%% at range 2 and %0.1f%% at the maximum range of %d.
-		The range will increase with your Strength.]]):
+		return ([[순수한 힘을 방출하여, 원거리에 있는 적에게 %d%% 무기 피해를 줍니다.
+		적이 근접공격 범위 밖에 있다면, %d%% 의 무기 피해로 두 번째 공격을 발사할 확률이 존재합니다.
+		두 번 공격할 확률은 거리에 따라 증가하여, 2 칸 밖의 적에게 %0.1f%% / 최대 %d 칸 밖의 적에게 %0.1f%% 확률을 가집니다.
+		최대 사거리는 힘 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getDamage(self, t)*100, t.getDamage(self, t, true)*100, t.SecondStrikeChance(self, t, 2), t.SecondStrikeChance(self, t, range), range)
 	end,
 }
@@ -132,6 +134,7 @@ newTalent{
 -- Interesting interactions with shield timing, lots of synergy and antisynergy in general
 newTalent{
 	name = "Weapon of Wrath",
+	kr_name = "분노의 무기", 
 	type = {"celestial/combat", 3},
 	mode = "sustained",
 	require = divi_req3,
@@ -175,8 +178,8 @@ newTalent{
 		local martyr = t.getMartyrDamage(self, t)
 		local damagepct = t.getLifeDamage(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
-		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.]]):
+		return ([[무기가 정당한 분노로 타올라, 잃은 생명력의 %d%% 만큼 적에게 추가 피해를 입힙니다. (최대 피해량 : %d / 현재 피해량 : %d)
+		또한 피해를 입은 적은 고난 상태효과에 걸려, 4 턴 동안 대상이 가한 피해량의 %d%% 만큼 대상 스스로도 피해를 입게 됩니다.]]):
 		format(damagepct*100, t.getMaxDamage(self, t, 10, 400), damage, martyr)
 	end,
 }
@@ -185,6 +188,7 @@ newTalent{
 -- !H/Shield could conceivably reactivate this in the same fight with Crusade spam if it triggers with Suncloak up, 2H never will without running
 newTalent{
 	name = "Second Life",
+	kr_name = "두번째 생명",
 	type = {"celestial/combat", 4},
 	require = divi_req4, no_sustain_autoreset = true,
 	points = 5,
@@ -208,7 +212,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.]]):
+		return ([[공격을 받아 생명력이 1 밑으로 떨어지게 되면, 두번째 생명이 발동되어 기술 유지가 해제되고 생명력이 %d 인 상태가 됩니다.]]):
 		format(t.getLife(self, t))
 	end,
 }

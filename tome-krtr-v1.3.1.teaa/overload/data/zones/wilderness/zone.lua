@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,9 +17,16 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "World of Eyal",
+	kr_name = "에이알 세계",
 	display_name = function(x, y) return game.level and game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename") or "Eyal" end,
+	kr_display_name = function(x, y)
+		local zn = game.level and game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename") or nil
+		return zn and zn:krZonename() or "에이알"
+	end,
 	variable_zone_name = true,
 	level_range = {1, 1},
 	max_level = 1,

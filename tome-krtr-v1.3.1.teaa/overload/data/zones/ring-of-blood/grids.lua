@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ load("/data/general/grids/sand.lua")
 
 newEntity{ define_as = "LAVA_WALL",
 	name='lava pit',
+	kr_name = "용암 구덩이",
 	display='~', color=colors.LIGHT_RED, back_color=colors.RED,
 	always_remember = true, does_block_move = true,
 	image="terrain/lava_floor.png",
@@ -29,6 +30,7 @@ newEntity{ define_as = "LAVA_WALL",
 
 newEntity{ define_as = "LAVA_WALL_OPAQUE",
 	name='lava pit',
+	kr_name = "용암 구덩이",
 	display='~', color=colors.LIGHT_RED, back_color=colors.RED,
 	always_remember = true, does_block_move = true,
 	block_sight = true,
@@ -40,6 +42,7 @@ newEntity{ define_as = "LAVA_WALL_OPAQUE",
 newEntity{
 	define_as = "CONTROL_ORB",
 	name = "Slave Control Orb", image = "terrain/marble_floor.png", add_displays = {class.new{image="terrain/control_orb_red.png"}},
+	kr_name = "노예 제어용 오브",
 	display = '*', color=colors.PURPLE,
 	notice = true,
 	always_remember = true,

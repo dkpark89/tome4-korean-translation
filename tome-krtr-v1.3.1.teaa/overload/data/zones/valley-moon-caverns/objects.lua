@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,7 +24,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tattered paper scrap", lore="valley-moon-"..i,
-	desc = [[A paper scrap, left by somebody named Rassir.]],
+	kr_name = "낡은 종이 조각",
+	desc = [[라시르라는 이름을 가진 이가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

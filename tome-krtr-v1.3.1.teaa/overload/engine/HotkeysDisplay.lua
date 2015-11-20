@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 
 module(..., package.seeall, class.make)
@@ -29,7 +30,7 @@ function _M:init(actor, x, y, w, h, bgcolor, fontname, fontsize)
 		self.bgcolor = {0,0,0}
 		self.bg_image = bgcolor
 	end
-	self.font = core.display.newFont(fontname or "/data/font/DroidSansMono.ttf", fontsize or 10)
+	self.font = core.display.newFont(krFont or fontname or "/data/font/DroidSansMono.ttf", fontsize or 10) --@ 한글 글꼴 추가
 	self.font_h = self.font:lineSkip()
 	self.clics = {}
 	self.items = {}
@@ -105,16 +106,16 @@ function _M:display()
 			local tid = ts[1]
 			local t = a:getTalentFromId(tid)
 			if a:isTalentCoolingDown(t) then
-				txt = ("%s (%d)"):format(t.name, a:isTalentCoolingDown(t))
+				txt = ("%s (%d)"):format((t.kr_name or t.name), a:isTalentCoolingDown(t))
 				color = {255,0,0}
 			elseif a:isTalentActive(t.id) then
-				txt = t.name
+				txt = (t.kr_name or t.name)
 				color = {255,255,0}
 			elseif not a:preUseTalent(t, true, true) then
-				txt = t.name
+				txt = (t.kr_name or t.name)
 				color = {190,190,190}
 			else
-				txt = t.name
+				txt = (t.kr_name or t.name)
 				color = {0,255,0}
 			end
 		elseif ts[3] == "inventory" then
@@ -194,11 +195,11 @@ function _M:onMouse(button, mx, my, click, on_over, on_click)
 					local text = ""
 					if a.hotkey[i] and a.hotkey[i][1] == "talent" then
 						local t = self.actor:getTalentFromId(a.hotkey[i][2])
-						text = tstring{{"color","GOLD"}, {"font", "bold"}, t.name, {"font", "normal"}, {"color", "LAST"}, true}
+						text = tstring{{"color","GOLD"}, {"font", "bold"}, (t.kr_name or t.name), {"font", "normal"}, {"color", "LAST"}, true}
 						text:merge(self.actor:getTalentFullDescription(t))
 					elseif a.hotkey[i] and a.hotkey[i][1] == "inventory" then
 						local o = a:findInAllInventories(a.hotkey[i][2])
-						if o then text = o:getDesc() else text = "Missing!" end
+						if o then text = o:getDesc() else text = "찾을 수 없습니다!" end
 					end
 					on_over(text)
 				end

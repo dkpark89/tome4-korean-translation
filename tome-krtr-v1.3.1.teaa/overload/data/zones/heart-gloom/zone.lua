@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ local is_purified = layout == "PURIFIED"
 
 return {
 	name = "Heart of the Gloom",
+	kr_name = "어둠의 심장",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

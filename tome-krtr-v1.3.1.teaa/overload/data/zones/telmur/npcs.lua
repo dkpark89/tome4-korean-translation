@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,9 +30,10 @@ newEntity{ define_as = "SHADE_OF_TELOS",
 	allow_infinite_dungeon = true,
 	type = "undead", subtype = "ghost", unique = true,
 	name = "The Shade of Telos",
+	kr_name = "텔로스의 그림자",
 	display = "G", color=colors.VIOLET,
-	desc = [[Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.]],
-	killer_message = "and was savagely mutilated, a show of his rage towards all living things",
+	desc = [[세상 사람들은 텔로스가 이미 죽었으며, 그의 정신은 파괴되었다고 생각합니다. 하지만 그가 오래 머물렀던 이곳에, 그의 힘은 아직도 남아있습니다.]],
+	killer_message = "당신은 난폭하게 몸이 찢겨져, 모든 살아있는 것에 대한 그의 분노를 보여주었습니다.",
 	level_range = {38, nil}, exp_worth = 3,
 	max_life = 250, life_rating = 22, fixed_rating = true,
 	rank = 4,
@@ -84,6 +85,6 @@ newEntity{ define_as = "SHADE_OF_TELOS",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 
 	on_die = function(self, who)
-		require("engine.ui.Dialog"):simpleLongPopup("Back and there again", 'As the shade dissipates, you see no sign of the text entitled "Inverted and Reverted Probabilistic Fields". You should go back to Tannen.', 400)
+		require("engine.ui.Dialog"):simpleLongPopup("다시 또 그 곳에", '그림자가 흩어지자, "확률적 역장의 뒤집힘과 되돌아감" 이라는 제목의 글을 발견했습니다. 당신은 탄넨에게 돌아가기로 했습니다.', 400) 
 	end,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,11 +23,13 @@ load("/data/general/grids/water.lua")
 
 newEntity{ base = "GRASS", define_as = "FIELDS",
 	name="cultivated fields",
+	kr_name = "경작지",
 	display=';', image="terrain/cultivation.png"
 }
 
 newEntity{ base = "FLOOR", define_as = "COBBLESTONE",
 	name="cobblestone road",
+	kr_name = "조약돌 포장도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }

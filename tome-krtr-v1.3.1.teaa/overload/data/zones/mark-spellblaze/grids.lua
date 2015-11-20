@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ newEntity{ base = "ALTAR",
 		local o, item, inven = who:findInAllInventoriesBy("define_as", "SANDQUEEN_HEART")
 		if not o then return end
 
-		require("engine.ui.Dialog"):yesnoPopup("Heart of the Sandworm Queen", "The altar seems to react to the heart. You feel you could corrupt it here.", function(ret)
+		require("engine.ui.Dialog"):yesnoPopup("지렁이 여왕의 심장", "제단이 심장에 대해서 반응하는 것 같습니다. 심장을 여기서 타락시킬 수 있을 것 같습니다.", function(ret)
 			if ret then return end
 			local o = game.zone:makeEntityByName(game.level, "object", "CORRUPTED_SANDQUEEN_HEART", true)
 			if o then
@@ -38,8 +38,8 @@ newEntity{ base = "ALTAR",
 				o:identify(true)
 				who:addObject(who.INVEN_INVEN, o)
 				who:sortInven(who.INVEN_INVEN)
-				game.log("#GREEN#You put the heart on the altar. The heart shrivels and shakes, vibrating with new corrupt forces.")
+				game.log("#GREEN#당신은 제단에 심장을 놓았습니다. 그러자 심장은 새로운 타락의 힘으로 인해 쭈그러들면서 뒤흔들리고 진동했습니다.")
 			end
-		end, "Cancel", "Corrupt", nil, true)
+		end, "취소", "타락시킴", nil, true)
 	end,
 }

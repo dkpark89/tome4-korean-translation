@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Sludgenest",
+	kr_name = "진창의 보금자리",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 3,
@@ -120,7 +123,7 @@ return {
 		local randelite = 10 + (dl / 10) ^ 1.6
 		local randboss = (dl / 10) ^ 1.2 - 3
 
-		if dl == 20 then require("engine.ui.Dialog"):simplePopup("Sludgenest", "It seems the slimes coming from the walls become stronger with time.") end
+		if dl == 20 then require("engine.ui.Dialog"):simplePopup("진창의 보금자리", "벽에서 슬라임들이 튀어나오고, 시간이 지날수록 더욱 위험해집니다.") end
 		if dl == 100 then world:gainAchievement("SLUDGENEST100", game.player) end
 		if dl == 200 then world:gainAchievement("SLUDGENEST200", game.player) end
 		if dl == 300 then world:gainAchievement("SLUDGENEST300", game.player) end
@@ -138,7 +141,7 @@ return {
 			game.zone:addEntity(game.level, m, "actor", spot.x, spot.y)
 			game.nicer_tiles:updateAround(game.level, spot.x, spot.y)
 			m:setTarget(game.player)
-			game.logSeen(m, "#YELLOW_GREEN#One of the wall shakes for a moment and then turns into %s!", m.name:capitalize())
+			game.logSeen(m, "#YELLOW_GREEN#한 쪽 벽이 잠시 떨리다가, %s 변신합니다!", (m.kr_name or m.name):capitalize():addJosa("로"))
 
 			game.level.data.dangerlevel = game.level.data.dangerlevel + 1
 		end

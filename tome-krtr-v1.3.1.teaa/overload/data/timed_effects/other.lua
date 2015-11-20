@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Stats = require "engine.interface.ActorStats"
 local Particles = require "engine.Particles"
 local Entity = require "engine.Entity"
@@ -28,11 +30,12 @@ local Combat = require "mod.class.interface.Combat"
 newEffect{
 	name = "FLASH_SHIELD", image = "talents/flash_of_the_blade.png",
 	desc = "Protected by the Sun",
-	long_desc = function(self, eff) return "The Sun has granted a brief immunity to all damage." end,
+	kr_desc = "태양의 보호",
+	long_desc = function(self, eff) return "태양으로부터 잠시 모든 피해 면역 부여." end,
 	type = "other",
 	subtype = { },
 	status = "beneficial",
-	on_gain = function(self, err) return "#Target# whirls around and a radiant shield surrounds them!", "+Divine Shield" end,
+	on_gain = function(self, err) return "#Target#의 주변이 광휘의 보호막으로 둘러싸였습니다!", "+신성 보호막" end,
 	parameters = {},
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "cancel_damage_chance", 100)
@@ -46,13 +49,14 @@ newEffect{
 newEffect{
 	name = "ABSORPTION_STRIKE", image = "talents/absorption_strike.png",
 	desc = "Absorption Strike",
-	long_desc = function(self, eff) return ("The target's light has been drained, reducing light resistance by %d%% and damage by %d%%."):format(eff.power, eff.numb) end,
+	kr_desc = "타격 흡수",
+	long_desc = function(self, eff) return ("대상은 빛을 빼앗김 : 빛 속성 저항 %d%% 감소 / 공격력 %d%% 감소."):format(eff.power, eff.numb) end,
 	type = "other",
 	subtype = { sun=true, },
 	status = "detrimental",
 	parameters = { power = 10, numb = 1 },
-	on_gain = function(self, err) return "#Target# is drained from light!", "+Absorption Strike" end,
-	on_lose = function(self, err) return "#Target#'s light is back.", "-Absorption Strike" end,
+	on_gain = function(self, err) return "#Target1# 빛을 빼았겼습니다!", "+타격 흡수" end,
+	on_lose = function(self, err) return "#Target#의 빛이 되돌아왔습니다.", "-타격 흡수" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists", {[DamageType.LIGHT]=-eff.power})
 		self:effectTemporaryValue(eff, "numbed", eff.numb)
@@ -63,13 +67,14 @@ newEffect{
 newEffect{
 	name = "TREE_OF_LIFE", image = "shockbolt/object/artifact/tree_of_life.png",
 	desc = "You have taken root!",
-	long_desc = function(self, eff) return "You have taken root becoming one with nature.  Or at least the ground.  Your health, armor, and armor hardiness are improved but you cannot move." end,
+	kr_desc = "뿌리 내리기",
+	long_desc = function(self, eff) return "지면에 뿌리를 내려 자연과 하나가 됨 : 생명력 향상 / 방어도 향상 / 방어 효율 향상 / 이동할 수 없음." end,
 	type = "other",
 	subtype = { nature=true },
 	--status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#LIGHT_BLUE##Target# takes root.", "+Pinned" end,
-	on_lose = function(self, err) return "#LIGHT_BLUE##Target# is no longer a badass tree.", "-Pinned" end,
+	on_gain = function(self, err) return "#LIGHT_BLUE##Target1# 뿌리를 내렸습니다.", "+속박" end,
+	on_lose = function(self, err) return "#LIGHT_BLUE##Target#의 뿌리가 사라졌습니다.", "-속박" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "never_move", 1)
 		self:effectTemporaryValue(eff, "max_life", 300)
@@ -97,7 +102,8 @@ newEffect{
 newEffect{
 	name = "INFUSION_COOLDOWN", image = "effects/infusion_cooldown.png",
 	desc = "Infusion Saturation",
-	long_desc = function(self, eff) return ("The more you use infusions, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
+	kr_desc = "주입 포화",
+	long_desc = function(self, eff) return ("주입 능력을 많이 사용할수록, 사용한 주입물의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
 	type = "other",
 	subtype = { infusion=true },
 	status = "detrimental",
@@ -113,7 +119,8 @@ newEffect{
 newEffect{
 	name = "RUNE_COOLDOWN", image = "effects/rune_cooldown.png",
 	desc = "Runic Saturation",
-	long_desc = function(self, eff) return ("The more you use runes, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
+	kr_desc = "룬 포화",
+	long_desc = function(self, eff) return ("룬을 많이 사용할수록, 사용한 룬의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
 	type = "other",
 	subtype = { rune=true },
 	status = "detrimental",
@@ -129,7 +136,8 @@ newEffect{
 newEffect{
 	name = "TAINT_COOLDOWN", image = "effects/tainted_cooldown.png",
 	desc = "Tainted",
-	long_desc = function(self, eff) return ("The more you use taints, the longer they will take to recharge (+%d cooldowns)."):format(eff.power) end,
+	kr_desc = "감염",
+	long_desc = function(self, eff) return ("감염을 많이 사용할수록, 사용한 감염의 재사용 대기시간이 길어짐 (+%d 턴)"):format(eff.power) end,
 	type = "other",
 	subtype = { taint=true },
 	status = "detrimental",
@@ -145,14 +153,15 @@ newEffect{
 newEffect{
 	name = "TIME_PRISON", image = "talents/time_prison.png",
 	desc = "Time Prison",
-	long_desc = function(self, eff) return "The target is removed from the normal time stream, unable to act but unable to take any damage. Time does not pass for this creature." end,
+	kr_desc = "시간의 감옥",
+	long_desc = function(self, eff) return "시간의 흐름에서 대상 제거 : 행동 불가능 / 모든 피해 완전 면역 / 이 대상에게는 시간이 흐르지 않음" end,
 	type = "other",
 	subtype = { time=true },
 	status = "detrimental",
 	tick_on_timeless = true,
 	parameters = {},
-	on_gain = function(self, err) return "#Target# is removed from time!", "+Out of Time" end,
-	on_lose = function(self, err) return "#Target# is returned to normal time.", "-Out of Time" end,
+	on_gain = function(self, err) return "#Target1# 시간으로부터 지워졌습니다!", "+시간의 감옥" end,
+	on_lose = function(self, err) return "#Target1# 보통의 시간으로 돌아왔습니다.", "-시간의 감옥" end,
 	activate = function(self, eff)
 		eff.iid = self:addTemporaryValue("invulnerable", 1)
 		eff.sid = self:addTemporaryValue("time_prison", 1)
@@ -180,13 +189,14 @@ newEffect{
 newEffect{
 	name = "TIME_SHIELD", image = "talents/time_shield.png",
 	desc = "Time Shield",
-	long_desc = function(self, eff) return ("The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%."):format(self.time_shield_absorb, eff.power, eff.time_reducer) end,
+	kr_desc = "시간의 보호막",
+	long_desc = function(self, eff) return ("시간 왜곡 : 피해를 흡수 %d (%d) / 흡수된 피해는 미래로 보냄 / 새로운 상태효과 지속시간 -%d%%"):format(self.time_shield_absorb, eff.power, eff.time_reducer) end,
 	type = "other",
 	subtype = { time=true, shield=true },
 	status = "beneficial",
 	parameters = { power=10, dot_dur=5, time_reducer=20 },
-	on_gain = function(self, err) return "The very fabric of time alters around #target#.", "+Time Shield" end,
-	on_lose = function(self, err) return "The fabric of time around #target# stabilizes to normal.", "-Time Shield" end,
+	on_gain = function(self, err) return "#Target# 주변의 시간 구조가 변했습니다.", "+시간의 보호막" end,
+	on_lose = function(self, err) return "#Target# 주변의 시간 구조가 안정적으로 되돌아왔습니다.", "-시간의 보호막" end,
 	on_aegis = function(self, eff, aegis)
 		self.time_shield_absorb = self.time_shield_absorb + eff.power * aegis / 100
 		if core.shader.active(4) then
@@ -220,7 +230,7 @@ newEffect{
 		self:removeTemporaryValue("reduce_detrimental_status_effects_time", eff.durid)
 
 		self:removeParticles(eff.particle)
-
+		
 		-- Time shield ends, setup a restoration field if needed
 		if eff.power - self.time_shield_absorb > 0 then
 			local val = (eff.power - self.time_shield_absorb) / eff.dot_dur / 2
@@ -238,13 +248,14 @@ newEffect{
 newEffect{
 	name = "TIME_DOT",
 	desc = "Temporal Restoration Field",
-	long_desc = function(self, eff) return ("The time distortion has created a restoration field, healing the target for %d each turn."):format(eff.power) end,
+	kr_desc = "시간 회복막",
+	long_desc = function(self, eff) return ("시간 왜곡으로 회복막 생성 : %d 턴 동안 매 턴마다 치료 효과"):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "The powerful time-altering energies generate a restoration field on #target#.", "+Temporal Restoration Field" end,
-	on_lose = function(self, err) return "The fabric of time around #target# returns to normal.", "-Temporal Restoration Field" end,
+	on_gain = function(self, err) return "강력한 시간 변화의 힘으로 #target#에게 회복막이 생성되었습니다.", "+시간 회복막" end,
+	on_lose = function(self, err) return "#Target# 주위의 시간 구조가 정상적으로 돌아왔습니다.", "-시간 회복막" end,
 	activate = function(self, eff)
 		eff.particle = self:addParticles(Particles.new("time_shield", 1))
 	end,
@@ -259,12 +270,13 @@ newEffect{
 newEffect{
 	name = "GOLEM_OFS",
 	desc = "Golem out of sight",
-	long_desc = function(self, eff) return "The golem is out of sight of the alchemist; direct control will be lost!" end,
+	kr_desc = "시야를 벗어난 골렘",
+	long_desc = function(self, eff) return "골렘이 연금술사의 시야에서 벗어나, 직접적인 제어가 곧 불가능해집니다!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "detrimental",
 	parameters = { },
-	on_gain = function(self, err) return "#LIGHT_RED##Target# is out of sight of its master; direct control will break!.", "+Out of sight" end,
+	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 곧 끊어집니다!", "+시야를 벗어난 골렘" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -274,9 +286,9 @@ newEffect{
 
 		if eff.dur <= 1 then
 			game:onTickEnd(function()
-				game.logPlayer(self, "#LIGHT_RED#You lost sight of your golem for too long; direct control is broken!")
-				game.player:runStop("golem out of sight")
-				game.player:restStop("golem out of sight")
+				game.logPlayer(self, "#LIGHT_RED#오랫동안 골렘이 시야 내에서 보이지 않아, 직접적인 제어가 끊어졌습니다!")
+				game.player:runStop("시야를 벗어난 골렘")
+				game.player:restStop("시야를 벗어난 골렘")
 				game.party:setPlayer(self.summoner)
 			end)
 		end
@@ -286,12 +298,13 @@ newEffect{
 newEffect{
 	name = "AMBUSCADE_OFS", image = "talents/ambuscade.png",
 	desc = "Shadow out of sight",
-	long_desc = function(self, eff) return "The shadow is out of sight of its host; direct control will be lost!" end,
+	kr_desc = "시야를 벗어난 그림자",
+	long_desc = function(self, eff) return "그림자가 주인의 시야에서 벗어나, 직접적인 제어가 곧 불가능해집니다!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "detrimental",
 	parameters = { },
-	on_gain = function(self, err) return "#LIGHT_RED##Target# is out of sight of its master; direct control will break!.", "+Out of sight" end,
+	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 곧 끊어집니다!", "+시야 벗어남" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -301,24 +314,25 @@ newEffect{
 
 		if eff.dur <= 1 then
 			game:onTickEnd(function()
-				game.logPlayer(self, "#LIGHT_RED#You lost sight of your shadow for too long; it dissipates!")
-				game.player:runStop("shadow out of sight")
-				game.player:restStop("shadow out of sight")
+				game.logPlayer(self, "#LIGHT_RED#오랫동안 그림자가 시야 내에서 보이지 않아, 직접적인 제어가 끊어졌습니다!")
+				game.player:runStop("시야를 벗어난 그림자")
+				game.player:restStop("시야를 벗어난 그림자")
 				game.party:setPlayer(self.summoner)
 			end)
 		end
 	end,
 }
 
-newEffect{
+newEffect{ 
 	name = "HUSK_OFS", image = "talents/animus_purge.png",
 	desc = "Husk out of sight",
-	long_desc = function(self, eff) return "The husk is out of sight of its host; direct control will be lost!" end,
+	kr_desc = "시야를 벗어난 하수인",
+	long_desc = function(self, eff) return "하수인이 주인의 시야에서 벗어나, 직접적인 제어가 곧 불가능해집니다!" end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "detrimental",
 	parameters = { },
-	on_gain = function(self, err) return "#LIGHT_RED##Target# is out of sight of its master; direct control will break!.", "+Out of sight" end,
+	on_gain = function(self, err) return "#LIGHT_RED##Target1# 주인의 시야 밖으로 벗어나, 직접적인 제어가 곧 끊어집니다!", "+시야 벗어남" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -328,9 +342,9 @@ newEffect{
 
 		if eff.dur <= 1 then
 			game:onTickEnd(function()
-				game.logPlayer(self, "#LIGHT_RED#You lost sight of your husk for too long; it disintegrates!")
-				game.player:runStop("husk out of sight")
-				game.player:restStop("husk out of sight")
+				game.logPlayer(self, "#LIGHT_RED#오랫동안 하수인이 시야 내에서 보이지 않아, 직접적인 제어가 끊어졌습니다!")
+				game.player:runStop("시야를 벗어난 하수인")
+				game.player:restStop("시야를 벗어난 하수인")
 				game.party:setPlayer(self.summoner)
 				self:die(self)
 			end)
@@ -341,13 +355,14 @@ newEffect{
 newEffect{
 	name = "CONTINUUM_DESTABILIZATION",
 	desc = "Continuum Destabilization",
-	long_desc = function(self, eff) return ("The target has been affected by space or time manipulations and is becoming more resistant to them (+%d)."):format(eff.power) end,
+	kr_desc = "연속체 불안정화",
+	long_desc = function(self, eff) return ("시공간 조작의 영향 : 시공간에 대한 저항 +%d"):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# looks a little pale around the edges.", "+Destabilized" end,
-	on_lose = function(self, err) return "#Target# is firmly planted in reality.", "-Destabilized" end,
+	on_gain = function(self, err) return "#Target#의 가장자리 부분이 조금 희미하게 보입니다.", "+불안정" end,
+	on_lose = function(self, err) return "#Target1# 현실에 단단히 자리잡았습니다.", "-불안정" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- Merge the continuum_destabilization
 		local olddam = old_eff.power * old_eff.dur
@@ -371,7 +386,8 @@ newEffect{
 newEffect{
 	name = "SUMMON_DESTABILIZATION",
 	desc = "Summoning Destabilization",
-	long_desc = function(self, eff) return ("The more the target summons creatures the longer it will take to summon more (+%d turns)."):format(eff.power) end,
+	kr_desc = "불안정한 소환",
+	long_desc = function(self, eff) return ("현재 소환수가 많을수록, 새로운 소환을 위해서는 더 많은 시간이 필요 (+%d 턴)"):format(eff.power) end,
 	type = "other", -- Type "other" so that nothing can dispel it
 	subtype = { miscellaneous=true },
 	status = "detrimental",
@@ -396,13 +412,14 @@ newEffect{
 newEffect{
 	name = "DAMAGE_SMEARING", image = "talents/damage_smearing.png",
 	desc = "Damage Smearing",
-	long_desc = function(self, eff) return ("Damage received in the past is returned as %0.2f temporal damage per turn."):format(eff.dam) end,
+	kr_desc = "피해 분산",
+	long_desc = function(self, eff) return ("분산된 과거의 피해 : 매 턴마다 시간 피해 %0.2f"):format(eff.dam) end,
 	type = "other",
 	subtype = { time=true },
 	status = "detrimental",
 	parameters = { dam=10 },
-	on_gain = function(self, err) return "#Target# is taking damage received in the past!", "+Smeared" end,
-	on_lose = function(self, err) return "#Target# stops taking damage received in the past.", "-Smeared" end,
+	on_gain = function(self, err) return "#Target1# 분산된 과거의 피해를 받습니다!", "+분산된 피해" end,
+	on_lose = function(self, err) return "#Target#에게 전해지던 분산된 과거의 피해가 멈췄습니다.", "-분산된 피해" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- Merge the flames!
 		local olddam = old_eff.dam * old_eff.dur
@@ -420,7 +437,8 @@ newEffect{
 newEffect{
 	name = "SEE_THREADS", image = "talents/see_the_threads.png",
 	desc = "See the Threads",
-	long_desc = function(self, eff) return ("You walk three different timelines, choosing the one you prefer at the end (current timeline: %d)."):format(eff.thread) end,
+	kr_desc = "시간의 흐름 - 예견",
+	long_desc = function(self, eff) return ("세 가지 시간의 흐름 체험 : 종료 후 세 가지 흐름 중에서 원하는 현실을 선택 (현재 체험 : %d)"):format(eff.thread) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
@@ -445,7 +463,7 @@ newEffect{
 		game:onTickEnd(function()
 			
 			if game._chronoworlds == nil then
-				game.logSeen(self, "#LIGHT_RED#The see the threads spell fizzles and cancels, leaving you in this timeline.")
+				game.logSeen(self, "#LIGHT_RED#시간의 흐름 - 예견 주문이 헛나갔습니다. 현재의 시간이 그대로 유지됩니다.")
 				return
 			end
 
@@ -463,7 +481,7 @@ newEffect{
 				-- Setup next thread
 				local eff = game.player:hasEffect(game.player.EFF_SEE_THREADS)
 				eff.thread = eff.thread + 1
-				game.logPlayer(game.player, "#LIGHT_BLUE#You unfold the space time continuum to the start of the time threads!")
+				game.logPlayer(game.player, "#LIGHT_BLUE#시공간 연속체를 펼쳐, 시간이 갈라진 시작점으로 되돌아 갑니다!")
 
 				game._chronoworlds = worlds
 				game:chronoClone("see_threads_base")
@@ -474,7 +492,7 @@ newEffect{
 				return
 		else
 				game._chronoworlds.see_threads_base = nil
-				local chat = Chat.new("chronomancy-see-threads", {name="See the Threads"}, self, {turns=eff.max_dur})
+				local chat = Chat.new("chronomancy-see-threads", {name="See the Threads", kr_name="시간의 흐름 예견"}, self, {turns=eff.max_dur})
 				chat:invoke()
 			end
 		end)
@@ -484,7 +502,8 @@ newEffect{
 newEffect{
 	name = "IMMINENT_PARADOX_CLONE",
 	desc = "Imminent Paradox Clone",
-	long_desc = function(self, eff) return "When the effect expires you'll be pulled into the past." end,
+	kr_desc = "일촉즉발의 모순된 복제",
+	long_desc = function(self, eff) return "효과 종료시 과거로 회귀" end,
 	type = "other",
 	subtype = { time=true },
 	status = "detrimental",
@@ -499,7 +518,7 @@ newEffect{
 		local base = t.getDuration(self, t) - 2
 		game:onTickEnd(function()
 			if game._chronoworlds == nil then
-				game.logSeen(self, "#LIGHT_RED#You've altered your destiny and will not be pulled into the past.")
+				game.logSeen(self, "#LIGHT_RED#운명이 바뀌어, 과거로의 회귀가 발생하지 않게 되었습니다.")
 				return
 			end
 
@@ -516,7 +535,7 @@ newEffect{
 			game:chronoRestore("paradox_past", true)
 			game._chronoworlds = game._chronoworlds or {}
 			game._chronoworlds["paradox_future"] = clone
-			game.logPlayer(self, "#LIGHT_BLUE#You've been pulled into the past!")
+			game.logPlayer(self, "#LIGHT_BLUE#과거로 회귀합니다!")
 			-- pass health and resources into the new timeline
 			game.player.life = oldplayer.life
 			for i, r in ipairs(game.player.resources_def) do
@@ -536,7 +555,8 @@ newEffect{
 newEffect{
 	name = "PARADOX_CLONE", image = "talents/paradox_clone.png",
 	desc = "Paradox Clone",
-	long_desc = function(self, eff) return "You've been pulled into the past." end,
+	kr_desc = "모순된 복제",
+	long_desc = function(self, eff) return "과거로 회귀" end,
 	type = "other",
 	subtype = { time=true },
 	status = "detrimental",
@@ -549,7 +569,7 @@ newEffect{
 		game:onTickEnd(function()
 			game:chronoRestore("paradox_future")
 			-- Reload the player's health and resources
-			game.logPlayer(game.player, "#LIGHT_BLUE#You've been returned to the present!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#현재로 돌아왔습니다!")
 			game.player.life = oldplayer.life
 			for i, r in ipairs(game.player.resources_def) do
 				game.player[r.short_name] = oldplayer[r.short_name]
@@ -561,7 +581,8 @@ newEffect{
 newEffect{
 	name = "MILITANT_MIND", image = "talents/militant_mind.png",
 	desc = "Militant Mind",
-	long_desc = function(self, eff) return ("Increases physical power, physical save, spellpower, spell save, mindpower, and mental save by %d."):format(eff.power) end,
+	kr_desc = "투쟁 정신",
+	long_desc = function(self, eff) return ("물리력 +%d / 주문력 +%d / 정신력 +%d / 모든 내성 +%d"):format(eff.power, eff.power, eff.power, eff.power) end, --@ 변수 조정
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "beneficial",
@@ -587,12 +608,13 @@ newEffect{
 newEffect{
 	name = "SEVER_LIFELINE", image = "talents/sever_lifeline.png",
 	desc = "Sever Lifeline",
-	long_desc = function(self, eff) return ("The target's lifeline is being cut. When the effect ends %0.2f temporal damage will hit the target."):format(eff.power) end,
+	kr_desc = "생명선 절단",
+	long_desc = function(self, eff) return ("생명선 절단 : 효과 종료시 시간 피해 %0.2f"):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "detrimental",
 	parameters = {power=10000},
-	on_gain = function(self, err) return "#Target#'s lifeline is being severed!", "+Sever Lifeline" end,
+	on_gain = function(self, err) return "#Target#의 생명선이 잘렸습니다!", "+생명선 절단" end,
 	deactivate = function(self, eff)
 		if not eff.src or eff.src.dead then return end
 		if not eff.src:hasLOS(self.x, self.y) then return end
@@ -604,14 +626,15 @@ newEffect{
 newEffect{
 	name = "FADE_FROM_TIME", image = "talents/fade_from_time.png",
 	desc = "Fade From Time",
-	long_desc = function(self, eff) return ("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%."):
+	kr_desc = "시간에서 흐려진 자",
+	long_desc = function(self, eff) return ("시간의 흐름에서 일부 벗어남 : 공격시 피해량 -%d%% / 전체 저항 +%d%% / 나쁜 상태이상 효과 지속시간 -%d%%"):
 	format(math.min(20,eff.dur * 2 + 2), eff.cur_power or eff.power, eff.cur_dur or eff.durred) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
 	parameters = { power=10 ,durred = 15 },
-	on_gain = function(self, err) return "#Target# has partially removed itself from the timeline.", "+Fade From Time" end,
-	on_lose = function(self, err) return "#Target# has returned fully to the timeline.", "-Fade From Time" end,
+	on_gain = function(self, err) return "#Target1# 시간의 흐름에서 약간 빠져나갑니다.", "+시간에서 흐려진 자" end,
+	on_lose = function(self, err) return "#Target1# 시간의 흐름 속으로 완전히 되돌아 왔습니다.", "-시간에서 흐려진 자" end,
 	on_merge = function(self, old_eff, new_eff)
 		self:removeTemporaryValue("inc_damage", old_eff.dmgid)
 		self:removeTemporaryValue("resists", old_eff.rstid)
@@ -645,13 +668,14 @@ newEffect{
 newEffect{
 	name = "SHADOW_VEIL", image = "talents/shadow_veil.png",
 	desc = "Shadow Veil",
-	long_desc = function(self, eff) return ("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character."):format(eff.res, eff.range, eff.dam * 100) end,
+	kr_desc = "그림자의 장막",
+	long_desc = function(self, eff) return ("그림자의 장막에게 제어권 넘김 : 나쁜 상태이상 효과에 완전 면역 / 전체 저항 +%d%% / 매 턴마다 %d칸 내의 적에게 순간이동하여 공격 (어둠 피해 %d%%) / 사망하지 않는 한 멈추지 않음 / 제어 불가능"):format(eff.res, eff.range, eff.dam * 100) end,
 	type = "other",
 	subtype = { darkness=true },
 	status = "beneficial",
 	parameters = { res=10, dam=1.5, range=5},
-	on_gain = function(self, err) return "#Target# is covered in a veil of shadows!", "+Assail" end,
-	on_lose = function(self, err) return "#Target# is no longer covered by shadows.", "-Assail" end,
+	on_gain = function(self, err) return "#Target1# 그림자의 장막으로 둘러싸입니다!", "+습격" end,
+	on_lose = function(self, err) return "#Target#의 그림자 장막이 사라졌습니다.", "-습격" end,
 	activate = function(self, eff)
 		eff.sefid = self:addTemporaryValue("negative_status_effect_immune", 1)
 		eff.resid = self:addTemporaryValue("resists", {all=eff.res})
@@ -689,8 +713,9 @@ newEffect{
 newEffect{
 	name = "ZERO_GRAVITY", image = "effects/zero_gravity.png",
 	desc = "Zero Gravity",
+	kr_desc = "무중력",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("There is no gravity here; you float in the air. Movement is three times as slow, and any melee or archery blows have a chance to knockback. Maximum encumbrance is greatly increased.") end,
+	long_desc = function(self, eff) return ("무중력 : 부유 / 이동 속도 3 배 느려짐 / 물리 공격시 밀어내기 효과 추가 / 최대 소지무게 20 배 증가") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { spacetime=true },
@@ -703,7 +728,7 @@ newEffect{
 	activate = function(self, eff)
 		eff.encumb = self:addTemporaryValue("max_encumber", self:getMaxEncumbrance() * 20),
 		self:checkEncumbrance()
-		game.logPlayer(self, "#LIGHT_BLUE#You enter a zero gravity zone, beware!")
+		game.logPlayer(self, "#LIGHT_BLUE#무중력인 지역으로 들어섰습니다. 조심하십시오!")
 	end,
 	deactivate = function(self, eff)
 		self:removeTemporaryValue("max_encumber", eff.encumb)
@@ -714,6 +739,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_CORPSES",
 	desc = "Curse of Corpses",
+	kr_desc = "시체의 저주", kr_short_desc = "시체",
 	short_desc = "Corpses",
 	type = "other",
 	subtype = { curse=true },
@@ -733,15 +759,16 @@ newEffect{
 	getMagChange = function(level) return level end,
 	getCorpselightRadius = function(level) return math.floor(level + 1) end,
 	getReprieveChance = function(level) return Combat:combatLimit(level-4, 100, 35, 0, 50, 5)  end, -- Limit < 100%
-	display_desc = function(self, eff) return ([[Curse of Corpses (power %0.1f)]]):format(eff.level) end,
+	display_desc = function(self, eff) return ([[시체의 저주 %0.1f 단계]]):format(eff.level) end,
 	long_desc = function(self, eff)
 		local def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_CORPSES], eff.level, math.min(eff.unlockLevel, eff.level)
-		return ([[An aura of death surrounds you.
-#CRIMSON#Penalty : #WHITE#Fear of Death: %+d%% resistance against damage from the undead.
-#CRIMSON#Power 1+: %sPower over Death: %+d%% damage against the undead.
-#CRIMSON#Power 2+: %s%+d Luck, %+d Strength, %+d Magic
-#CRIMSON#Power 3+: %sCorpselight: Each death you cause leaves behind a trace of itself, an eerie light of radius %d.
-#CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]]):format(
+
+		return ([[죽음의 기운이 주변을 감돌기 시작합니다.
+#CRIMSON#불이익  : #WHITE#죽음의 공포 : 언데드에게 받는 공격일 경우, 피해 저항 %+d%%
+#CRIMSON#단계 1+ : %s죽음을 극복한 힘 : 언데드 공격시 피해량 %+d%%
+#CRIMSON#단계 2+ : %s행운 %+d / 힘 %+d / 마법 %+d
+#CRIMSON#단계 3+ : %s시체의 빛 : 적을 살해할 때마다, 적의 시체에서 섬뜩한 빛 발산 (주변 %d 칸 반경)
+#CRIMSON#단계 4+ : %s죽음의 집행유예 : 인간형 적 살해시, %d%% 확률로 6 턴간 적의 시체가 동료 구울로 되살아남]]):format(
 		def.getResistsUndead(eff, level),
 		bonusLevel >= 1 and "#WHITE#" or "#GREY#", def.getIncDamageUndead(math.max(level, 1)),
 		bonusLevel >= 2 and "#WHITE#" or "#GREY#", def.getLckChange(eff, math.max(level, 2)), def.getStrChange(math.max(level, 2)), def.getMagChange(math.max(level, 2)),
@@ -780,14 +807,15 @@ newEffect{
 			local def = self.tempeffect_def[self.EFF_CURSE_OF_CORPSES]
 			local tg = {type="ball", 10, radius=def.getCorpselightRadius(eff.level), talent=t}
 			self:project(tg, target.x, target.y, DamageType.LITE, 1)
-			game.logSeen(target, "#F53CBE#%s's remains glow with a strange light.", target.name:capitalize())
+			game.logSeen(target, "#F53CBE#%s의 유해에서 섬뜩한 빛이 나기 시작합니다.", (target.kr_name or target.name):capitalize())
 		end
 	end,
 	npcWalkingCorpse = {
 		name = "walking corpse",
+		kr_name = "걸어다니는 시체",
 		display = "z", color=colors.GREY, image="npc/undead_ghoul_ghoul.png",
 		type = "undead", subtype = "ghoul",
-		desc = [[This corpse was recently alive but moves as though it is just learning to use its body.]],
+		desc = [[방금 전까지 살아있던 적의 시체입니다. 자신의 몸이 움직이는 것을 신기해 하는 것 같습니다.]],
 		body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 		no_drops = true,
 		autolevel = "ghoul",
@@ -831,12 +859,12 @@ newEffect{
 				-- Add to the party
 				if self.player then
 					m.remove_from_party_on_death = true
-					game.party:addMember(m, {control="no", type="summon", title="Summon"})
+					game.party:addMember(m, {control="no", type="summon", title="Summon", kr_title="소환수"})
 				end
 
 				game.level.map:particleEmitter(x, y, 1, "slime")
 
-				game.logSeen(m, "#F53CBE#The corpse of the %s pulls itself up to fight for you.", target.name)
+				game.logSeen(m, "#F53CBE#%s의 시체가 일어나, 당신을 위해 싸우기 시작합니다.", (target.kr_name or target.name):capitalize())
 				game:playSoundNear(who, "talents/slime")
 			end)
 			return true
@@ -849,6 +877,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_MADNESS",
 	desc = "Curse of Madness",
+	kr_desc = "광기의 저주", kr_short_desc = "광기",
 	short_desc = "Madness",
 	type = "other",
 	subtype = { curse=true },
@@ -871,15 +900,16 @@ newEffect{
 	getManiaDamagePercent = function(level) 
 		return Combat:combatLimit(level - 4, 5, 13, 1, 8, 5) -- Limit > 5%
 	end,
-	display_desc = function(self, eff) return ([[Curse of Madness (power %0.1f)]]):format(eff.level) end,
+	display_desc = function(self, eff) return ([[광기의 저주 %0.1f 단계]]):format(eff.level) end,
 	long_desc = function(self, eff)
 		local def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_MADNESS], eff.level, math.min(eff.unlockLevel, eff.level)
-		return ([[You feel your grip on reality slipping.
-#CRIMSON#Penalty : #WHITE#Fractured Sanity: %+d%% Mind Resistance, %+d%% Confusion Immunity
-#CRIMSON#Power 1+: %sUnleashed: %+d%% critical damage, %+d%% off-hand weapon damage
-#CRIMSON#Power 2+: %s%+d Luck, %+d Dexterity
-#CRIMSON#Power 3+: %sConspirator: When you are confused, any foe that hits you or that you hit in melee becomes confused.
-#CRIMSON#Power 4+: %sMania: Any time you lose more than %0.1f%% of your life over a single turn, the remaining cooldown of one of your talents is reduced by 1.]]):format(
+
+		return ([[이성이 약해지기 시작합니다.
+#CRIMSON#불이익  : #WHITE#이성의 균열 : 정신 저항 %+d%% / 혼란 면역력 %+d%%
+#CRIMSON#단계 1+ : %s통제 불가 : 치명타 피해량 %+d%% / 보조무기 피해량 %+d%%
+#CRIMSON#단계 2+ : %s행운 %+d / 민첩 %+d
+#CRIMSON#단계 3+ : %s공모자 : 자신이 혼란에 걸릴 때, 자신을 공격한 적과 자신이 근접공격한 모든 적에게도 혼란 상태 부여
+#CRIMSON#단계 4+ : %s열광 : 한 턴에 최대 생명력의 %0.1f%% 이상에 해당하는 생명력을 잃으면, 지연 중인 기술 하나의 재사용 대기시간 1 턴 감소]]):format(
 		def.getMindResistChange(eff, level), def.getConfusionImmuneChange(eff, level) * 100,
 		bonusLevel >= 1 and "#WHITE#" or "#GREY#", def.getCombatCriticalPowerChange(math.max(level, 1)), def.getOffHandMultChange(math.max(level, 1)),
 		bonusLevel >= 2 and "#WHITE#" or "#GREY#", def.getLckChange(eff, math.max(level, 2)), def.getDexChange(math.max(level, 2)),
@@ -940,7 +970,7 @@ newEffect{
 					self.talents_cd[tid] = nil
 					if self.onTalentCooledDown then self:onTalentCooledDown(tid) end
 				end
-				game.logSeen(self, "#F53CBE#%s's mania hastens %s.", self.name:capitalize(), t.name)
+				game.logSeen(self, "#F53CBE#%s 열광하여, %s 기술의 재사용 대기시간이 촉진됩니다.", (self.kr_name or self.name):capitalize():addJosa("이"), (t.kr_name or t.name))
 			end
 			eff.last_life = self.life
 		end
@@ -949,15 +979,15 @@ newEffect{
 	doConspirator = function(self, eff, target)
 		if math.min(eff.unlockLevel, eff.level) >= 3 and self:attr("confused") and target:canBe("confusion") then
 			target:setEffect(target.EFF_CONFUSED, 3, {power=50})
-			self:logCombat(target, "#F53CBE##Source# spreads confusion to #Target#.")
+			self:logCombat(target, "#F53CBE##Source1# #Target#에게 혼란을 퍼뜨립니다.")
 		end
 	end,
 }
 
-
 newEffect{
 	name = "CURSE_OF_SHROUDS",
 	desc = "Curse of Shrouds",
+	kr_desc = "장막의 저주", kr_short_desc = "장막",
 	short_desc = "Shrouds",
 	type = "other",
 	subtype = { curse=true },
@@ -977,15 +1007,16 @@ newEffect{
 	end,
 	getConChange = function(level) return -1 + level * 2 end,
 	getShroudResistsAllChange = function(level) return (level - 1) * 5 end,
-	display_desc = function(self, eff) return ([[Curse of Shrouds (power %0.1f)]]):format(eff.level) end,
+	display_desc = function(self, eff) return ([[장막의 저주 %0.1f 단계]]):format(eff.level) end,
 	long_desc = function(self, eff)
 		local def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_SHROUDS], eff.level, math.min(eff.unlockLevel, eff.level)
-		return ([[A shroud of darkness seems to fall across your path.
-#CRIMSON#Penalty : #WHITE#Shroud of Weakness: Small chance of becoming enveloped in a Shroud of Weakness (reduces damage dealt by %d%%) for 4 turns.
-#CRIMSON#Power 1+: %sNightwalker: %+d Darkness Resistance, %+d%% Max Darkness Resistance, %+d See Invisible
-#CRIMSON#Power 2+: %s%+d Luck, %+d Constitution
-#CRIMSON#Power 3+: %sShroud of Passing: Your form seems to fade as you move, reducing all damage taken by %d%% for 1 turn after movement.
-#CRIMSON#Power 4+: %sShroud of Death: The power of every kill seems to envelop you like a shroud, reducing all damage taken by %d%% for 3 turns.]]):format(
+
+		return ([[자신의 길 앞에 어둠의 장막이 펼쳐집니다.
+#CRIMSON#불이익  : #WHITE#약화의 장막 : 가끔씩, 4 턴간 유지되는 약화의 장막에 둘러싸임 (공격시 피해량 -%d%%)
+#CRIMSON#단계 1+ : %s밤에 걷는 자 : 어둠 저항 %+d / 최대 어둠 저항 %+d%% / 투명 감지 %+d
+#CRIMSON#단계 2+ : %s행운 %+d / 체격 %+d
+#CRIMSON#단계 3+ : %s흐려짐의 장막: 이동할 때 몸이 흐릿해져, 이동한 뒤 1 턴 동안 받는 피해량 -%d%% 감소
+#CRIMSON#단계 4+ : %s죽음의 장막 : 적을 살해할 때마다 장막이 강화되어, 3 턴 동안 받는 피해량 -%d%% 감소]]):format(
 		-def.getShroudIncDamageChange(eff, level),
 		bonusLevel >= 1 and "#WHITE#" or "#GREY#", def.getResistsDarknessChange(math.max(level, 1)), def.getResistsCapDarknessChange(math.max(level, 1)), def.getSeeInvisible(math.max(level, 1)),
 		bonusLevel >= 2 and "#WHITE#" or "#GREY#", def.getLckChange(eff, math.max(level, 2)), def.getConChange(math.max(level, 2)),
@@ -1053,7 +1084,8 @@ newEffect{
 newEffect{
 	name = "SHROUD_OF_WEAKNESS",
 	desc = "Shroud of Weakness",
-	long_desc = function(self, eff) return ("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%)."):format(-eff.power) end,
+	kr_desc = "약화의 장막",
+	long_desc = function(self, eff) return ("굉장히 무겁게 느껴지는 장막에 둘러싸임 : 공격시 피해량 -%d%%"):format(-eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "detrimental",
@@ -1071,7 +1103,8 @@ newEffect{
 newEffect{
 	name = "SHROUD_OF_PASSING",
 	desc = "Shroud of Passing",
-	long_desc = function(self, eff) return ("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all)."):format(eff.power) end,
+	kr_desc = "흐려짐의 장막",
+	long_desc = function(self, eff) return ("육체가 흐릿해짐 : 전체 저항 +%d%%"):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
@@ -1088,7 +1121,8 @@ newEffect{
 newEffect{
 	name = "SHROUD_OF_DEATH",
 	desc = "Shroud of Death",
-	long_desc = function(self, eff) return ("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all)."):format(eff.power) end,
+	kr_desc = "죽음의 장막",
+	long_desc = function(self, eff) return ("육체가 흐릿해짐 : 전체 저항 +%d%%"):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
@@ -1104,6 +1138,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_NIGHTMARES",
 	desc = "Curse of Nightmares",
+	kr_desc = "악몽의 저주", kr_short_desc = "악몽",
 	short_desc = "Nightmares",
 	type = "other",
 	subtype = { curse=true },
@@ -1130,24 +1165,24 @@ newEffect{
 	getNightmareRadius = function(level) return 5 + (level - 4) * 2 end,
 	display_desc = function(self, eff)
 		if math.min(eff.unlockLevel, eff.level) >= 4 then
-			return ([[Curse of Nightmares (power %0.1f): %d%%]]):format(eff.level, eff.nightmareChance or 0)
+			return ([[악몽의 저주 %0.1f 단계 : 악몽 확률 %d%%]]):format(eff.level, eff.nightmareChance or 0)
 		else
-			return ([[Curse of Nightmares (power %0.1f)]]):format(eff.level)
+			return ([[악몽의 저주 %0.1f 단계]]):format(eff.level)
 		end
 	end,
 	long_desc = function(self, eff)
 		local def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_NIGHTMARES], eff.level, math.min(eff.unlockLevel, eff.level)
 
-		return ([[Horrible visions fill your mind.
-#CRIMSON#Penalty : #WHITE#Plagued by Visions: Your mental save has a 20%% chance to be reduced by %d%% when tested.
-#CRIMSON#Power 1+: %sRemoved from Reality: %+d Physical Resistance, %+d Maximum Physical Resistance
-#CRIMSON#Power 2+: %s%+d Luck, %+d Willpower
-#CRIMSON#Power 3+: %sSuffocate: Your touch instills a horror that suffocates any weak, non-elite foe that hits you or that you hit in melee. At 3 levels below yours they lose %d air and an additional %d air for each level below that.
-#CRIMSON#Power 4+: %sNightmare: Each time you are damaged by a foe there is a chance (currently %d%%) of triggering a radius %d nightmare (slow effects, hateful whispers, and summoned Terrors) for 8 turns. This chance grows each time you are struck but fades over time.]]):format(
+		return ([[끔찍한 형상이 마음 속을 채웁니다.
+#CRIMSON#불이익  : #WHITE#괴로운 정신 : 정신 내성으로 저항할 때, 20%% 확률로 -%d%% 만큼 감소된 정신 내성 적용
+#CRIMSON#단계 1+ : %s비현실화 : 물리 저항 %+d / 최대 물리 저항 %+d
+#CRIMSON#단계 2+ : %s행운 %+d / 의지 %+d
+#CRIMSON#단계 3+ : %s숨막힘 : 자신을 공격하거나 자신이 근접공격한 적을 공포로 질식시킴. (정예 등급 미만인 적에게만 적용) 적이 잃는 호흡 : -%d * (자신의 레벨-적의 레벨-2) (0 이상의 값이 나올 경우, 모두 0 이 됩니다)
+#CRIMSON#단계 4+ : %s악몽 : 적에게 피해를 받을 때마다, %d%% 확률로 8 턴간 주변 %d 칸 반경에 악몽 유발 (느려짐 / 증오의 속삭임 / 공포 소환) (악몽 발생 확률은 피해를 받을 때마다 증가)]]):format(
 		def.getVisionsReduction(eff, level),
 		bonusLevel >= 1 and "#WHITE#" or "#GREY#", def.getResistsPhysicalChange(math.max(level, 1)), def.getResistsCapPhysicalChange(math.max(level, 1)),
 		bonusLevel >= 2 and "#WHITE#" or "#GREY#", def.getLckChange(eff, math.max(level, 2)), def.getWilChange(math.max(level, 2)),
-		bonusLevel >= 3 and "#WHITE#" or "#GREY#", def.getBaseSuffocateAirChange(math.max(level, 3)), def.getSuffocateAirChange(math.max(level, 3)),
+		bonusLevel >= 3 and "#WHITE#" or "#GREY#", def.getBaseSuffocateAirChange(math.max(level, 3)), --@ 변수 조정
 		bonusLevel >= 4 and "#WHITE#" or "#GREY#", eff.nightmareChance or 0, def.getNightmareRadius(math.max(level, 4)), def.getNightmareChance(math.max(level, 4)))
 	end,
 	activate = function(self, eff)
@@ -1181,16 +1216,17 @@ newEffect{
 			if target and target.rank <= 2 and target.level <= self.level - 3 and not target:attr("no_breath") and not target:attr("invulnerable") then
 				local def = self.tempeffect_def[self.EFF_CURSE_OF_NIGHTMARES]
 				local airLoss = def.getBaseSuffocateAirChange(eff.level) + Combat:combatTalentScale(self.level - target.level - 3, 1, 5) * def.getSuffocateAirChange(eff.level)
-				game.logSeen(self, "#F53CBE#%s begins to choke from a suffocating curse. (-%d air)", target.name, airLoss)
-				target:suffocate(airLoss, self, "suffocated from a curse")
+				game.logSeen(self, "#F53CBE#%s 저주로 인해 숨이 막힙니다 (호흡 -%d).", (target.kr_name or target.name):capitalize():addJosa("가"), airLoss)
+				target:suffocate(airLoss, self, "저주로 인한 숨막힘")
 			end
 		end
 	end,
 	npcTerror = {
 		name = "terror",
+		kr_name = "공포",
 		display = "h", color=colors.DARK_GREY, image="npc/horror_eldritch_nightmare_horror.png",
 		blood_color = colors.BLUE,
-		desc = "A formless terror that seems to cut through the air, and its victims, like a knife.",
+		desc = "형체가 없는 공포로, 희생자를 포함한 모든 것을 베어버립니다.",
 		type = "horror", subtype = "eldritch",
 		rank = 2,
 		size_category = 2,
@@ -1276,7 +1312,7 @@ newEffect{
 						-- Add to the party
 						if e.src.player then
 							m.remove_from_party_on_death = true
-							game.party:addMember(m, {control="no", type="nightmare", title="Nightmare"})
+							game.party:addMember(m, {control="no", type="nightmare", title="Nightmare", kr_title="악몽"})
 						end
 
 						game.zone:addEntity(game.level, m, "actor", location[1], location[2])
@@ -1285,7 +1321,7 @@ newEffect{
 					end end,
 					false, false)
 
-				game.logSeen(self, "#F53CBE#The air around %s grows cold and terrifying shapes begin to coalesce. A nightmare has begun.", self.name:capitalize())
+				game.logSeen(self, "#F53CBE#%s 주변의 공기가 차가워지고, 끔찍한 형체가 생겨납니다. 악몽이 시작됩니다...", (self.kr_name or self.name):capitalize())
 				game:playSoundNear(self, "talents/cloud")
 			end
 		end
@@ -1296,6 +1332,7 @@ newEffect{
 newEffect{
 	name = "CURSE_OF_MISFORTUNE",
 	desc = "Curse of Misfortune",
+	kr_desc = "불운의 저주", kr_short_desc = "불운",
 	short_desc = "Misfortune",
 	type = "other",
 	subtype = { curse=true },
@@ -1317,16 +1354,16 @@ newEffect{
 	getDeviousMindChange = function(level) return Combat:combatTalentLimit(math.max(1,level-3), 100, 35, 55) end, -- Limit < 100%
 	getUnfortunateEndChance = function(level) return Combat:combatTalentLimit(math.max(1, level-3), 100, 30, 40) end, -- Limit < 50%
 	getUnfortunateEndIncrease = function(level) return Combat:combatTalentLimit(math.max(1, level-3), 50, 30, 40) end, -- Limit < 50%
-	display_desc = function(self, eff) return ([[Curse of Misfortune (power %0.1f)]]):format(eff.level) end,
+	display_desc = function(self, eff) return ([[불운의 저주 %0.1f 단계]]):format(eff.level) end,
 	long_desc = function(self, eff)
 		local def, level, bonusLevel = self.tempeffect_def[self.EFF_CURSE_OF_MISFORTUNE], eff.level, math.min(eff.unlockLevel, eff.level)
 
-		return ([[Mayhem and destruction seem to follow you.
-#CRIMSON#Penalty : #WHITE#Lost Fortune: You seem to find less gold in your journeys.
-#CRIMSON#Power 1+: %sMissed Opportunities: %+d Defense, +%d Ranged Defense
-#CRIMSON#Power 2+: %s%+d Luck, %+d Cunning
-#CRIMSON#Power 3+: %sDevious Mind: You have an affinity for seeing the devious plans of others (+%d%% chance to avoid traps).
-#CRIMSON#Power 4+: %sUnfortunate End: There is a %d%% chance that the damage you deal will increase by %d%% if the increase would be enough to kill your opponent.]]):format(
+		return ([[혼란과 파괴가 당신을 뒤따릅니다.
+#CRIMSON#불이익  : #WHITE#잃어버린 부 : 금화 발견 확률 감소
+#CRIMSON#단계 1+ : %s빗나간 행운 : 회피도 %+d / 장거리 회피 +%d
+#CRIMSON#단계 2+ : %s행운 %+d / 교활함 %+d
+#CRIMSON#단계 3+ : %s사악한 마음 : 타인의 계획이 틀어지는 것을 즐김 (함정 회피 확률 +%d%%)
+#CRIMSON#단계 4+ : %s불행한 최후 : 지금보다 공격력이 %d%% 더 증가하면 적을 일격사시킬 수 있을 경우, %d%% 확률로 증가한 공격력을 이용해 공격]]):format(
 		bonusLevel >= 1 and "#WHITE#" or "#GREY#", def.getCombatDefChange(math.max(level, 1)), def.getCombatDefRangedChange(math.max(level, 1)),
 		bonusLevel >= 2 and "#WHITE#" or "#GREY#", def.getLckChange(eff, math.max(level, 2)), def.getCunChange(math.max(level, 2)),
 		bonusLevel >= 3 and "#WHITE#" or "#GREY#", def.getDeviousMindChange(math.max(level, 3)),
@@ -1375,9 +1412,9 @@ newEffect{
 					-- unfortunate end! note that this does not kill if target.die_at < 0
 					dam = dam * multiplier
 					if target.life - dam <= target.die_at then
-						game.logSeen(target, "#F53CBE#%s suffers an unfortunate end.", target.name:capitalize())
+						game.logSeen(target, "#F53CBE#%s 불행한 최후를 맞이합니다.", (target.kr_name or target.name):capitalize():addJosa("가"))
 					else
-						game.logSeen(target, "#F53CBE#%s suffers an unfortunate blow.", target.name:capitalize())
+						game.logSeen(target, "#F53CBE#%s 불행한 일격으로 고통스러워 합니다.", (target.kr_name or target.name):capitalize():addJosa("가"))
 					end
 				end
 			end
@@ -1390,7 +1427,8 @@ newEffect{
 newEffect{
 	name = "PROB_TRAVEL_UNSTABLE", image = "talents/probability_travel.png",
 	desc = "Unstable Probabilites",
-	long_desc = function(self, eff) return "The target has recently blinked through a wall using probability travel." end,
+	kr_desc = "불안정한 확률",
+	long_desc = function(self, eff) return "최근 마법 확률 이동을 사용하여 벽을 통과한 적이 있음" end,
 	type = "other",
 	subtype = { time=true, space=true },
 	status = "detrimental",
@@ -1406,8 +1444,9 @@ newEffect{
 newEffect{
 	name = "HEIGHTEN_FEAR", image = "talents/heighten_fear.png",
 	desc = "Heighten Fear",
-	long_desc = function(self, eff) return ("The target is in a state of growing fear. If they spend %d more turns within range %d and in sight of the source of this fear (%s), they will be subjected to a new fear."):
-	format(eff.turns_left, eff.range, eff.src.name) end,
+	kr_desc = "고조된 공포",
+	long_desc = function(self, eff) return ("공포 고조 : 공포의 시전자인 %s 의 시야 범위, 혹은 %d 칸 이내에 %d 턴 동안 더 있을 경우, 또 다른 공포에 걸림"): 
+	format((eff.src.kr_name or eff.src.name), eff.turns_left, eff.range) end, --@ 변수 순서 조정
 	type = "other",
 	subtype = { fear=true },
 	status = "detrimental",
@@ -1431,10 +1470,10 @@ newEffect{
 				eff.turns_left = eff.turns
 				if rng.percent(eff.chance or 100) then
 					eff.chance = (eff.chance or 100) - 10
-					game.logSeen(self, "%s succumbs to heightening fears!", self.name:capitalize())
+					game.logSeen(self, "%s 고조된 공포에 빠집니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 					tInstillFear.applyEffect(eff.src, tInstillFear, self)
 				else
-					game.logSeen(self, "%s feels a little less afraid!", self.name:capitalize())
+					game.logSeen(self, "%s의 두려움이 줄어들었습니다!", (self.kr_name or self.name):capitalize())
 				end
 			end
 		else
@@ -1451,6 +1490,7 @@ newEffect{
 newEffect{
 	name = "CURSED_FORM", image = "talents/seethe.png",
 	desc = "Cursed Form",
+	kr_desc = "저주받은 신체",
 	type = "other",
 	subtype = { curse=true },
 	status = "beneficial",
@@ -1459,12 +1499,12 @@ newEffect{
 	cancel_on_level_change = true,
 	parameters = {},
 	long_desc = function(self, eff)
-		local desc = "The target's unnatural body has responded to damage taken."
+		local desc = "저주받은 신체가 피해에 반응"
 		if (eff.incDamageChange or 0) > 0 then
-			desc = desc..(" All damage that the target inflicts is increased by %d%%."):format(eff.incDamageChange)
+			desc = desc..(" : 공격시 피해량 +%d%%"):format(eff.incDamageChange)
 		end
 		if (eff.statChange or 0) > 0 then
-			desc = desc..(" Strength and Willpower are increased by %d. Poisons and diseases have a %d%% chance of being neutralized each turn."):format(eff.statChange, eff.neutralizeChance)
+			desc = desc..(" : 힘 +%d / 의지 +%d / 매 턴마다 %d%% 확률로 중독과 질병 치료"):format(eff.statChange, eff.statChange, eff.neutralizeChance) --@ 변수 조정
 		end
 		return desc
 	end,
@@ -1550,11 +1590,12 @@ newEffect{
 newEffect{
 	name = "FADED", image = "talents/shadow_fade.png",
 	desc = "Faded",
-	long_desc = function(self, eff) return "The target has faded and is no longer taking damage." end,
+	kr_desc = "흐려짐",
+	long_desc = function(self, eff) return "흐려짐 : 피해를 입지 않음" end,
 	type = "other",
 	subtype = { },
 	status = "beneficial",
-	on_gain = function(self, err) return "#Target# fades!", "+Faded" end,
+	on_gain = function(self, err) return "#Target#의 형체가 흐릿해집니다!", "+흐려짐" end,
 	parameters = {},
 	activate = function(self, eff)
 		eff.iid = self:addTemporaryValue("invulnerable", 1)
@@ -1574,7 +1615,8 @@ newEffect{
 newEffect{
 	name = "HIGHBORN_S_BLOOM", image = "talents/highborn_s_bloom.png",
 	desc = "Highborn's Bloom",
-	long_desc = function(self, eff) return "The target is using talents without consuming resources." end,
+	kr_desc = "잠재된 마력 발현",
+	long_desc = function(self, eff) return "원천력 소모 없이 기술 사용 가능" end,
 	type = "other",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -1590,7 +1632,8 @@ newEffect{
 newEffect{
 	name = "VICTORY_RUSH_ZIGUR", image = "talents/arcane_destruction.png",
 	desc = "Victory Rush",
-	long_desc = function(self, eff) return "The thrill of victory makes this creature invulnerable." end,
+	kr_desc = "승리의 돌진",
+	long_desc = function(self, eff) return "승리의 전율 : 무적 상태" end,
 	type = "other",
 	subtype = { arcane=true },
 	status = "beneficial",
@@ -1606,7 +1649,8 @@ newEffect{
 newEffect{
 	name = "SOLIPSISM", image = "talents/solipsism.png",
 	desc = "Solipsism",
-	long_desc = function(self, eff) return ("This creature has fallen into a solipsistic state and is caught up in its own egoic thoughts (-%d%% global speed)."):format(eff.power * 100) end,
+	kr_desc = "유아론",
+	long_desc = function(self, eff) return ("유아론적 상태에 빠져, 자존적 사고에 지나치게 몰두 : 모든 행동 속도 -%d%%"):format(eff.power * 100) end,
 	type = "other",
 	subtype = { psionic=true },
 	status = "detrimental",
@@ -1624,7 +1668,8 @@ newEffect{
 newEffect{
 	name = "CLARITY", image = "talents/clarity.png",
 	desc = "Clarity",
-	long_desc = function(self, eff) return ("The creature has found a state of clarity and sees the world for what it is (+%d%% global speed)."):format(eff.power * 100) end,
+	kr_desc = "깨달음",
+	long_desc = function(self, eff) return ("깨달음이 찾아와, 세상의 원리 이해 : 모든 행동 속도 +%d%%"):format(eff.power * 100) end,
 	type = "other",
 	subtype = { psionic=true },
 	status = "beneficial",
@@ -1642,7 +1687,8 @@ newEffect{
 newEffect{
 	name = "DREAMSCAPE", image = "talents/dreamscape.png",
 	desc = "Dreamscape",
-	long_desc = function(self, eff) return ("This target has invaded %s's dreams and has gained a %d%% bonus to all damage."):format(eff.target.name, eff.power) end,
+	kr_desc = "꿈 속 여행",
+	long_desc = function(self, eff) return ("%s의 꿈 : 공격시 피해량 +%d%%"):format((eff.target.kr_name or eff.target.name), eff.power) end,
 	type = "other",
 	subtype = { psionic=true },
 	status = "beneficial",
@@ -1660,7 +1706,7 @@ newEffect{
 			-- Fine space
 			local x, y = util.findFreeGrid(eff.target.x, eff.target.y, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to summon!")
+				game.logPlayer(self, "소환할 장소가 없습니다!")
 				return
 			end
 			
@@ -1675,6 +1721,7 @@ newEffect{
 				ai = "summoned", ai_real = "tactical",
 				ai_state = eff.target.ai_state or { ai_move="move_complex", talent_in=1 },
 				name = eff.target.name.."'s dream projection",
+				kr_name = (eff.target.kr_name or eff.target.name).."의 투영된 꿈",
 			})
 			
 			-- Change some values; most of this is typical clone protection stuff
@@ -1729,19 +1776,19 @@ newEffect{
 				local p = (who and who:hasEffect(who.EFF_DREAMSCAPE)) or (who and who.summoner and who.summoner:hasEffect(who.summoner.EFF_DREAMSCAPE))
 				if p then -- For the rare instance we die after the effect ends but before the dreamscape instance closes
 					p.projections_killed = p.projections_killed + 1
-					game.logSeen(p.target, "#LIGHT_RED#%s writhes in agony as a fragment of its mind is destroyed!", p.target.name:capitalize())
+					game.logSeen(p.target, "#LIGHT_RED#%s의 정신을 일부 파괴하였습니다. 대상이 고통에 몸부림치기 시작합니다!", (p.target.kr_name or p.target.name):capitalize())
 				end
 			end
 
 			game.zone:addEntity(game.level, m, "actor", x, y)
 			game.level.map:particleEmitter(x, y, 1, "generic_teleport", {rm=0, rM=0, gm=180, gM=255, bm=180, bM=255, am=35, aM=90})
-			game.logSeen(eff.target, "#LIGHT_BLUE#%s has spawned a dream projection to protect its mind!", eff.target.name:capitalize())
+			game.logSeen(eff.target, "#LIGHT_BLUE#%s 정신을 보호하기 위해, 꿈의 투영체를 만들어냅니다!", (eff.target.kr_name or eff.target.name):capitalize():addJosa("가"))
 
 			if game.party:hasMember(eff.target) then
 				game.party:addMember(m, {
 					control="full",
 					type="projection",
-					title="Dream Self",
+					title="Dream Self", kr_title="스스로의 꿈",
 					orders = {target=true},
 				})
 				if eff.target == game.player then
@@ -1760,7 +1807,7 @@ newEffect{
 		if eff.projections_killed/10 >= eff.target.life/eff.target.max_life then
 			game:onTickEnd(function()
 				eff.target:die(self)
-				game.logSeen(eff.target, "#LIGHT_RED#%s's mind shatters into %d tiny fragments!", eff.target.name:capitalize(), eff.target.max_life)
+				game.logSeen(eff.target, "#LIGHT_RED#%s의 정신이 %d 개의 작은 파편들로 부서집니다!", (eff.target.kr_name or eff.target.name):capitalize(), eff.target.max_life)
 				eff.projections_killed = 0 -- clear this out to prevent closing messages
 			end)
 		end
@@ -1858,7 +1905,7 @@ newEffect{
 			game.uiset:setupMinimap(game.level)
 			game.nicer_tiles:postProcessLevelTilesOnLoad(game.level)
 
-			game.logPlayer(game.player, "#LIGHT_BLUE#You are brought back from the Dreamscape!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#꿈 속 여행에서 돌아왔습니다!")
 
 			-- Apply Dreamscape hit
 			if eff.projections_killed > 0 then
@@ -1866,9 +1913,9 @@ newEffect{
 				eff.target:takeHit(eff.target.max_life/10 * kills, self)
 				eff.target:setEffect(eff.target.EFF_BRAINLOCKED, kills, {})
 
-				local loss = "loss"
-				if kills >= 10 then loss = "potentially fatal loss" elseif kills >=8 then loss = "devastating loss" elseif kills >=6 then loss = "tremendous loss" elseif kills >=4 then loss = "terrible loss" end
-				game.logSeen(eff.target, "#LIGHT_RED#%s suffered a %s of self in the Dreamscape!", eff.target.name:capitalize(), loss)
+				local loss = "손상으로"
+				if kills >= 10 then loss = "약간 위험한 수준의 손상으로" elseif kills >=8 then loss = "통렬한 손상으로" elseif kills >=6 then loss = "엄청난 손상으로" elseif kills >=4 then loss = "끔찍한 손상으로" end
+				game.logSeen(eff.target, "#LIGHT_RED#%s 꿈 속 여행에서 입은 %s 괴로워합니다!", (eff.target.kr_name or eff.target.name):capitalize():addJosa("가"), loss)
 			end
 		end)
 	end,
@@ -1877,7 +1924,8 @@ newEffect{
 newEffect{
 	name = "REVISIONIST_HISTORY", image = "talents/revisionist_history.png",
 	desc = "Revisionist History",
-	long_desc = function(self, eff) return "While this effect holds you can decide recent history did not happen the way it did." end,
+	kr_desc = "수정론자의 역사 기록법",
+	long_desc = function(self, eff) return "최근에 발생한 사건의 무효화 가능" end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
@@ -1901,11 +1949,11 @@ newEffect{
 			-- Update the shader of the original player
 			self:updateMainShader()
 			if game._chronoworlds == nil then
-				game.logSeen(self, "#LIGHT_RED#The spell fizzles.")
+				game.logSeen(self, "#LIGHT_RED#주문이 헛나갔습니다.")
 				self:startTalentCooldown(self.T_REVISIONIST_HISTORY)
 				return
 			end
-			game.logPlayer(game.player, "#LIGHT_BLUE#You go back in time to rewrite history!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#시간을 되돌려, 역사를 새로 적습니다!")
 			game:chronoRestore("revisionist_history", true)
 			game._chronoworlds = nil
 			game.player.talents_cd[self.T_REVISIONIST_HISTORY] = nil
@@ -1930,8 +1978,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_FIRE",
 	desc = "Oil mist",
+	kr_desc = "기름 안개",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% fire damage, -10% fire resistance, -10% armour, -2 sight range.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 화염 공격 피해량 +10% / 화염 저항 -10% / 방어도 -10% / 시야 거리 -2") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -1951,8 +2000,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_COLD",
 	desc = "Grave chill",
+	kr_desc = "묘지의 냉기",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% cold damage, -10% cold resistance, -10% physical save, -20% confusion immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 냉기 공격 피해량 +10% / 냉기 저항 -10% / 물리내성 -10% / 혼란 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -1972,8 +2022,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_LIGHTNING",
 	desc = "Static discharge",
+	kr_desc = "정전기 방출",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% lightning damage, -10% lightning resistance, -10% physical power, -20% stun immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 전기 공격 피해량 +10% / 전기 저항 -10% / 물리력 -10% / 기절 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -1993,8 +2044,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_ACID",
 	desc = "Noxious fumes",
+	kr_desc = "유독한 연기",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% acid damage, -10% acid resistance, -10% defense, -20% disarm immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 산성 공격 피해량 +10% / 산성 저항 -10% / 회피도 -10% / 무장 해제 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2014,8 +2066,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_DARKNESS",
 	desc = "Echoes of the void",
+	kr_desc = "공허로부터의 메아리",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% darkness damage, -10% darkness resistance, -10% mental save, -20% fear immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 어둠 공격 피해량 +10% / 어둠 저항 -10% / 정신내성 -10% / 공포 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2035,8 +2088,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_MIND",
 	desc = "Eerie silence",
+	kr_desc = "으스스한 침묵",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% mind damage, -10% mind resistance, -10% spellpower, -20% silence immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 정신 공격 피해량 +10% / 정신 저항 -10% / 주문력 -10% / 침묵 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2056,8 +2110,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_LIGHT",
 	desc = "Aura of light",
+	kr_desc = "빛의 기운",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% light damage, -10% light resistance, -10% accuracy, -20% blind immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 빛 공격 피해량 +10% / 빛 저항 -10% / 정확도 -10% / 실명 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2077,8 +2132,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_ARCANE",
 	desc = "Aether residue",
+	kr_desc = "에테르 잔여물",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% arcane damage, -10% arcane resistance, -10% armour hardiness, -20% stoning immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 마법 공격 피해량 +10% / 마법 저항 -10% / 방어 효율 -10% / 석화 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2098,8 +2154,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_TEMPORAL",
 	desc = "Impossible geometries",
+	kr_desc = "불가능한 지형",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% temporal damage, -10% temporal resistance, -10% spell save, -20% pinning immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 시간 공격 피해량 +10% / 시간 저항 -10% / 주문내성 -10% / 속박 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2119,8 +2176,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_PHYSICAL",
 	desc = "Uncontrolled anger",
+	kr_desc = "억제되지 않는 분노",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% physical damage, -10% physical resistance, -10% mindpower, -20% knockback immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 물리 공격 피해량 +10% / 물리 저항 -10% / 정신력 -10% / 밀어내기 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2140,8 +2198,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_BLIGHT",
 	desc = "Miasma",
+	kr_desc = "독기",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% blight damage, -10% blight resistance, -20% healing mod, -20% disease immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 황폐 공격 피해량 +10% / 황폐 저항 -10% / 치유 효율 -20% / 질병 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2161,8 +2220,9 @@ newEffect{
 newEffect{
 	name = "ZONE_AURA_NATURE",
 	desc = "Slimy floor",
+	kr_desc = "질척한 바닥",
 	no_stop_enter_worlmap = true,
-	long_desc = function(self, eff) return ("Zone-wide effect: +10% nature damage, -10% nature resistance, -10% ranged defense, -20% poison immunity.") end,
+	long_desc = function(self, eff) return ("해당 지역 효과 : 지연 공격 피해량 +10% / 자연 저항 -10% / 장거리 회피 -10% / 중독 면역력 -20%") end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { aura=true },
@@ -2182,7 +2242,8 @@ newEffect{
 newEffect{
 	name = "VAULTED", image = "talents/time_prison.png",
 	desc = "In Vault",
-	long_desc = function(self, eff) return "The target is part of a vault and cannot act until it has been openend." end,
+	kr_desc = "금고 내부",
+	long_desc = function(self, eff) return "금고 경비 : 문이 열릴 때까지 행동 불가능" end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { vault=true },
@@ -2209,13 +2270,14 @@ newEffect{
 newEffect{
 	name = "CAUTERIZE", image = "talents/cauterize.png",
 	desc = "Cauterize",
-	long_desc = function(self, eff) return ("Your body is cauterizing, burning for %0.2f damage each turn."):format(eff.dam) end,
+	kr_desc = "지져짐",
+	long_desc = function(self, eff) return ("지져짐 : 매 턴마다 화염 피해 %0.2f"):format(eff.dam) end,
 	type = "other",
 	subtype = { fire=true },
 	status = "detrimental",
 	parameters = { dam=10 },
-	on_gain = function(self, err) return "#CRIMSON##Target# is wreathed in flames on the brink of death!", "+Cauterize" end,
-	on_lose = function(self, err) return "#CRIMSON#The flames around #target# vanish.", "-Cauterize" end,
+	on_gain = function(self, err) return "#CRIMSON##Target1# 죽음의 순간, 불꽃으로 상처를 지져 위기를 넘깁니다!", "+지져짐" end,
+	on_lose = function(self, err) return "#CRIMSON##Target# 주변의 불꽃이 사그러들었습니다.", "-지져짐" end,
 	on_merge = function(self, old_eff, new_eff)
 		old_eff.dur = new_eff.dur
 		old_eff.dam = old_eff.dam + new_eff.dam
@@ -2236,17 +2298,19 @@ newEffect{
 			eff.dur = eff.dur + 1
 			return
 		end
-		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="burnt to death by cauterize"})
+		local dead, val = self:takeHit(eff.dam, self, {special_death_msg="당신은 과격한 응급치료의 불꽃에 타죽었습니다."})
 
 		local srcname = self.x and self.y and game.level.map.seens(self.x, self.y) and self.name:capitalize() or "Something"
-		game:delayedLogDamage(eff, self, val, ("%s%d %s#LAST#"):format(DamageType:get(DamageType.FIRE).text_color or "#aaaaaa#", math.ceil(val), DamageType:get(DamageType.FIRE).name), false)
+		local dtn = DamageType:get(DamageType.FIRE).kr_name or DamageType:get(DamageType.FIRE).name --@ 다음줄 사용 - 너무 길어서 변수로 뺌
+		game:delayedLogDamage(eff, self, val, ("%s%d %s#LAST#"):format(DamageType:get(DamageType.FIRE).text_color or "#aaaaaa#", math.ceil(val), dtn), false)
 	end,
 }
 
 newEffect{
 	name = "EIDOLON_PROTECT", image = "shockbolt/npc/unknown_unknown_the_eidolon.png",
 	desc = "Protected by the Eidolon",
-	long_desc = function(self, eff) return "The target is protected by the Eidolon, no creature may harm it (except self-harm)." end,
+	kr_desc = "에이돌론의 보호",
+	long_desc = function(self, eff) return "에이돌론의 보호 : (스스로를 제외한) 그 어떤 존재도 해를 끼칠 수 없음" end,
 	zone_wide_effect = true,
 	decrease = 0, no_remove = true,
 	type = "other",
@@ -2264,7 +2328,8 @@ newEffect{
 newEffect{
 	name = "CLOAK_OF_DECEPTION", image = "shockbolt/object/artifact/black_cloak.png",
 	desc = "Cloak of Deception",
-	long_desc = function(self, eff) return "The target is under the effect of the cloak of deception, making it look alive." end,
+	kr_desc = "기만의 망토",
+	long_desc = function(self, eff) return "기만의 망토 효과 : 살아있는 존재로 보임" end,
 	decrease = 0, no_remove = true,
 	type = "other",
 	subtype = { undead=true },
@@ -2288,14 +2353,15 @@ newEffect{
 newEffect{
 	name = "SUFFOCATING",
 	desc = "Suffocating",
-	long_desc = function(self, eff) return ("You are suffocating! Each turn you lose an ever increasing percent of your total life (currently %d%%)"):format(eff.dam) end,
+	kr_desc = "숨막힘",
+	long_desc = function(self, eff) return ("숨막힘! : 매 턴마다 생명력 감소 (현재 : 최대 생명력의 %d%%) / 매 턴마다 생명력 감소량이 증가"):format(eff.dam) end,
 	type = "other",
 	subtype = { suffocating=true },
 	status = "detrimental",
 	decrease = 0, no_remove = true,
 	parameters = { dam=20 },
-	on_gain = function(self, err) return "#Target# is suffocating.", "+SUFFOCATING" end,
-	on_lose = function(self, err) return "#Target# can breathe again.", "-Suffocating" end,
+	on_gain = function(self, err) return "#Target1# 숨을 쉬지 못하게 되었습니다.", "+숨막힘" end,
+	on_lose = function(self, err) return "#Target1# 다시 숨을 쉬기 시작합니다.", "-숨막힘" end,
 	on_timeout = function(self, eff)
 		if not self.is_suffocating then
 			self:removeEffect(self.EFF_SUFFOCATING, false, true)
@@ -2305,7 +2371,7 @@ newEffect{
 		-- Bypass all shields & such
 		local old = self.onTakeHit
 		self.onTakeHit = nil
-		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="suffocated to death"})
+		mod.class.interface.ActorLife.takeHit(self, self.max_life * eff.dam / 100, self, {special_death_msg="당신은 숨이 막혀 죽었습니다."})
 		eff.dam = util.bound(eff.dam + 5, 20, 100)
 		self.onTakeHit = old
 	end,
@@ -2314,7 +2380,8 @@ newEffect{
 newEffect{
 	name = "ANTIMAGIC_DISRUPTION",
 	desc = "Antimagic Disruption",
-	long_desc = function(self, eff) return ("Your arcane powers are disrupted by your antimagic equipment."):format() end,
+	kr_desc = "마법 방해",
+	long_desc = function(self, eff) return ("착용한 반마법 장비에 의해, 마법의 힘이 방해받음"):format() end,
 	type = "other",
 	subtype = { antimagic=true },
 	no_stop_enter_worlmap = true,
@@ -2331,7 +2398,8 @@ newEffect{
 newEffect{
 	name = "SWIFT_HANDS_CD", image = "talents/swift_hands.png",
 	desc = "Swift Hands",
-	long_desc = function(self, eff) return "You swaped an item without taking time this turn." end,
+	kr_desc = "빠른 손놀림",
+	long_desc = function(self, eff) return "이번 턴에 시간 소모 없이 장비를 교체했습니다." end,
 	type = "other",
 	subtype = { prodigy=true },
 	status = "neutral",
@@ -2344,7 +2412,8 @@ newEffect{
 newEffect{
 	name = "HUNTER_PLAYER", image = "talents/hunted_player.png",
 	desc = "Hunter!",
-	long_desc = function(self, eff) return "Knows where you are!" end,
+	kr_desc = "사냥꾼!",
+	long_desc = function(self, eff) return "네가 어디 있는지 알라!" end,
 	type = "other",
 	subtype = { madness=true },
 	status = "beneficial",
@@ -2359,7 +2428,8 @@ newEffect{
 newEffect{
 	name = "THROUGH_THE_CROWD", image = "talents/through_the_crowd.png",
 	desc = "Through The Crowd",
-	long_desc = function(self, eff) return ("Increases physical save, spell save, and mental save by %d."):format(eff.power) end,
+	kr_desc = "군중 속으로",
+	long_desc = function(self, eff) return ("모든 내성 %d 증가"):format(eff.power) end,
 	type = "other",
 	subtype = { miscellaneous=true },
 	status = "beneficial",
@@ -2379,13 +2449,14 @@ newEffect{
 newEffect{
 	name = "RELOAD_DISARMED", image = "talents/disarm.png",
 	desc = "Reloading",
-	long_desc = function(self, eff) return "The target has replenished some ammo." end,
+	kr_desc = "재장전",
+	long_desc = function(self, eff) return "탄환 재장전." end,
 	type = "other",
 	subtype = { disarm=true },
 	status = "detrimental",
 	parameters = {},
-	on_gain = function(self, err) return "#Target# is disarmed!", "+Disarmed" end,
-	on_lose = function(self, err) return "#Target# rearms.", "-Disarmed" end,
+	on_gain = function(self, err) return "#Target2# 무장해제 되었습니다!", "+무장해제" end,
+	on_lose = function(self, err) return "#Target1# 재무장 하였습니다.", "-무장해제" end,
 	activate = function(self, eff)
 		self:removeEffect(self.EFF_COUNTER_ATTACKING) -- Cannot parry or counterattack while disarmed
 		self:removeEffect(self.EFF_DUAL_WEAPON_DEFENSE) 
@@ -2399,12 +2470,13 @@ newEffect{
 newEffect{
 	name = "SPACETIME_TUNING", image = "talents/spacetime_tuning.png",
 	desc = "Spacetime Tuning",
-	long_desc = function(self, eff) return ("Tuning Paradox at a rate of %d per turn."):format(eff.power) end,
+	kr_desc = "시공간 조율",
+	long_desc = function(self, eff) return ("매 턴마다 %d 씩 괴리 수치 조율."):format(eff.power) end,
 	type = "other",
 	subtype = { time=true },
 	status = "beneficial",
 	parameters = { power=10},
-	on_gain = function(self, err) return "#Target# retunes the fabric of spacetime.", "+Spacetime Tuning" end,
+	on_gain = function(self, err) return "#Target1# 시공간의 구조를 재조정합니다.", "+시공간 조율" end,
 	on_timeout = function(self, eff)
 		self:callTalent(self.T_SPACETIME_TUNING, "tuneParadox")
 	end,

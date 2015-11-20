@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,24 +28,23 @@ newEntity{ base = "BASE_LONGBOW",
 	-- not sure what rarity does so commented out for now
 	rarity=false,
 	name = "Epoch's Curve", unided_name = "white ash longbow", unique=true, image="object/artifact/bow_epochs_curve.png",
-	desc = [[Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.
-According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]],
+	kr_name = "에포크의 곡선", kr_unided_name = "흰 물푸레나무 활",
+	desc = [[에포크의 곡선은 시대의 감시자에게 주어졌었고, 잃어버리기 전까지 여러 시대가 지나는 동안 한 감시자에게서 다음 감시자에게 전해지던 물건입니다.
+전설에 따르면 이 물건은 마법폭발이 일어난 뒤에 싹튼 첫 번째 물푸레나무의 묘목으로 만든 것이며, 시간과 재생의 힘을 동시에 가지고 있다고 합니다.]],
 	level_range = {20, 40},
 	rarity = 200,
 	require = { stat = { dex=24 }, },
 	cost = 200,
-	material_level = 3,
+	material_level = 5,
 	combat = {
-		range = 8,
-		physspeed = 0.7,
+		range = 9,
+		physspeed = 0.6,
 	},
 	wielder = {
 		life_regen = 2.0,
+		stamina_regen = 1.0,
 		inc_damage={ [DamageType.TEMPORAL] = 10, },
-		inc_stats = { [Stats.STAT_DEX] = 5, [Stats.STAT_MAG] = 4,  },
+		inc_stats = { [Stats.STAT_DEX] = 5, [Stats.STAT_WIL] = 4,  },
 		ranged_project={[DamageType.TEMPORAL] = 15},
-		talents_types_mastery = {
-			["chronomancy/bow-threading"] = 0.1,
-		}
 	},
 }

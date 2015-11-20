@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,11 +26,12 @@ load("/data/general/grids/mountain.lua")
 newEntity{
 	define_as = "RIFT",
 	name = "Temporal Rift to Maj'Eyal", image="terrain/floating_rocks05_01.png", add_mos={{image="terrain/demon_portal2.png"}},
+	kr_name = "마즈'에이알로의 시간의 균열",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[The rift leads to Maj'Eyal.]],
+	desc = [[이 균열은 마즈'에이알과 연결되어 있습니다.]],
 	change_level = 1,
 	change_zone = "wilderness",
 }
@@ -41,6 +42,7 @@ newEntity{
 	define_as = "COLD_FOREST",
 	type = "wall", subtype = "ice",
 	name = "cold forest", image = "terrain/tree_dark_snow1.png",
+	kr_name = "차가운 숲",
 	display = '#', color=colors.WHITE, back_color=colors.LIGHT_UMBER,
 	always_remember = true,
 	can_pass = {pass_tree=1},
@@ -62,6 +64,7 @@ newEntity{
 	define_as = "POLAR_CAP",
 	type = "floor", subtype = "ice",
 	name = "polar cap", image = "terrain/frozen_ground.png",
+	kr_name = "극지의 빙관",
 	display = '.', color=colors.LIGHT_BLUE, back_color=colors.WHITE,
 	can_encounter=true, equilibrium_level=-10,
 	nice_editer = ice_editer,

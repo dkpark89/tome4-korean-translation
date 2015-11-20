@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Reproach",
+	kr_name = "비난",
 	type = {"cursed/punishments", 1},
 	require = cursed_cun_req1,
 	points = 5,
@@ -64,13 +65,14 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local spreadFactor = t.getSpreadFactor(self, t)
-		return ([[You unleash your hateful mind on any who dare approach you, inflicing %d mind damage. The attack will hit multiple targets, but each additional target will further reduce damage by %d%%.
-		25%% chance of cross tier effects. The damage increases with your Mindpower.]]):format(damDesc(self, DamageType.MIND, damage), (1 - spreadFactor) * 100)
+		return ([[증오심을 발산하여, 주변의 적들에게 %d 정신 피해를 줍니다. 여러 대상을 동시에 공격할 수 있지만, 그 때마다 피해량이 %d%% 씩 줄어들게 됩니다.
+		이 기술은 25%% 확률로 적에게 능력치의 단계 차이 효과를 주며, 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, damage), (1 - spreadFactor) * 100)
 	end,
 }
 
 newTalent{
 	name = "Hateful Whisper",
+	kr_name = "증오의 속삭임",
 	type = {"cursed/punishments", 2},
 	require = cursed_cun_req2,
 	points = 5,
@@ -137,8 +139,8 @@ newTalent{
 		local jumpCount = t.getJumpCount(self, t)
 		local jumpChance = t.getJumpChance(self, t)
 		local hateGain = t.getHateGain(self, t)
-		return ([[Send a whisper filled with hate to spread throughout your foes. When the whisper is first heard, they will suffer %d mind damage and feed you %d hate. For the first %d turns, the whisper will travel from the original victim to a new one within a range of %0.1f. Every victim of the whisper has a %d%% chance of spreading it to another victim every turn.
-		25%% chance of cross tier effects. The damage increases with your Mindpower.]]):format(damDesc(self, DamageType.MIND, damage), hateGain, jumpCount, jumpRange, jumpChance)
+		return ([[증오로 가득 찬 말을 적에게 속삭입니다. 속삭임을 듣는 순간, 적은 %d 정신 피해를 입으며 시전자는 %d 증오를 회복합니다. 처음 %d 턴 동안, 이 속삭임은 %0.1f 칸 반경에 있는 다른 적에게 흘러갑니다. 이후 이 속삭임은 %d%% 확률로 계속 또 다른 적에게 흘러갑니다.
+		이 기술은 25%% 확률로 적에게 능력치의 단계 차이 효과를 주며. 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, damage), hateGain, jumpCount, jumpRange, jumpChance)
 	end,
 }
 
@@ -262,6 +264,7 @@ newTalent{
 
 newTalent{
 	name = "Agony",
+	kr_name = "고통",
 	type = {"cursed/punishments", 3},
 	require = cursed_cun_req3,
 	points = 5,
@@ -300,13 +303,14 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local maxDamage = t.getDamage(self, t)
 		local minDamage = maxDamage / duration
-		return ([[Unleash agony upon your target. The pain will grow over the course of %d turns. The first turn will inflict %d damage, and slowly increase to %d on the last turn (%d total).
-		25%% chance of cross tier effects. The damage will increase with your Mindpower.]]):format(duration, damDesc(self, DamageType.MIND, minDamage), damDesc(self, DamageType.MIND, maxDamage), maxDamage * (duration + 1) / 2)
+		return ([[대상에게 고통을 줍니다. 고통은 %d 턴 동안 유지되며, 처음에는 %d 피해를 주지만 이 피해량은 점점 증가하여 마지막 턴에는 %d 피해를 줍니다. (총 %d 피해)
+		이 기술은 25%% 확률로 적에게 능력치의 단계 차이 효과를 주며, 피해량은 정신력 능력치의 영향을 받아 증가합니다.]]):format(duration, damDesc(self, DamageType.MIND, minDamage), damDesc(self, DamageType.MIND, maxDamage), maxDamage * (duration + 1) / 2)
 	end,
 }
 
 newTalent{
 	name = "Madness",
+	kr_name = "광기",
 	type = {"cursed/punishments", 4},
 	mode = "passive",
 	require = cursed_cun_req4,
@@ -339,7 +343,7 @@ newTalent{
 	info = function(self, t)
 		local chance = t.getChance(self, t)
 		local mindResistChange = t.getMindResistChange(self, t)
-		return ([[Every time you inflict mental damage, there is a %d%% chance that your foe must save against your Mindpower or go mad. Madness can cause them to become confused, slowed or stunned for 3 turns, and lowers resistance to mental damage by %d%%.]]):format(chance, -mindResistChange)
+		return ([[적에게 정신 피해를 줄 때마다, 정신 내성을 통한 저항에 실패한 적은 %d%% 확률로 미쳐버립니다. 미쳐버린 적은 혼란, 감속, 기절 중 하나의 상태효과에 3 턴 동안 걸리게 되며, 정신 저항력이 %d%% 감소하게 됩니다.]]):format(chance, -mindResistChange)
 	end,
 }
 

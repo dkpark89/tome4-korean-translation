@@ -17,20 +17,20 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Class: #LIGHT_GREEN#Reaver (Defiler)",
-[[Under a veil of darkness and blight come the Reavers.
-The foot soldiers of evil forces, Reavers are found everywhere.
-Very rarely a Reaver will realise the wrongness of her way and use her powers to atone for her crimes.
+return "새로운 직업 : #LIGHT_GREEN#파괴자 (모독자)",
+[[어둠과 황폐의 장막 아래에, 파괴자들은 존재합니다.
+악의 힘을 대변하는 보병과 같은 존재로, 파괴자들은 세계의 어디에서나 찾아볼 수 있습니다.
+아주 드물게 파괴자들은 자신의 잘못됨을 깨닫고, 자신의 죄를 속죄하기 위해 자신의 힘을 사용하는 경우도 있습니다.
 
-You have slain numerous humanoids and can now create new characters with the #LIGHT_GREEN#Reaver class#WHITE#.
+당신은 수많은 인간형 생명체들을 살해하였으며, 이제 새로운 캐릭터를 만들 때 #LIGHT_GREEN#파괴자 직업#WHITE#을 선택할 수 있게 되었습니다.
 
-Reavers are heavy melee with spellcasting support.
-Class features:#YELLOW#
-- Plague your foes with deadly and contagious diseases
-- Hex and curse your foes, hindering and withering them away
-- Accomplish deadly melee moves of utmost evil
-- Harness the power of bones to attack and protect#WHITE#
+약탈자들은 강력한 전사로, 주문을 사용해 근접전 능력을 보조합니다.
+직업 특성 :#YELLOW#
+- 적들에게 치명적이고 전염성 있는 질병을 퍼뜨림
+- 적들을 매혹하고 저주하여, 행동을 방해하고 약화시킴
+- 악의 힘을 사용한 치명적인 근접 공격
+- 뼈의 힘을 불러내, 적을 공격하고 자신을 보호#WHITE#
 
-Reavers use "vim" to power their special abilities.
-Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.
+파괴자들은 원천력으로 '원기' 를 사용합니다.
+원기는 모든 살아있는 존재이 사용하는 생명의 힘을 의미합니다. 원기는 재생되지 않으며, 적들의 원기를 뺏어오는 방법으로만 회복할 수 있습니다.
 ]]

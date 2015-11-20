@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@ local Talents = require("engine.interface.ActorTalents")
 load("/data/general/npcs/elven-caster.lua", function(e) if e.rarity then e.rarity, e.corruptor_rarity = nil, e.rarity end end)
 newEntity{ base = "BASE_NPC_ELVEN_CASTER", define_as = "GRAND_CORRUPTOR",
 	name = "Grand Corruptor", color=colors.VIOLET, unique = "Grand Corruptor Zigur",
-	desc = [[An Elven corruptor, drawn to these blighted lands.]],
+	kr_name = "위대한 타락자",
+	desc = [[이 황폐화된 땅을 지키는, 엘프 타락자입니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rank = 3.5,
 	max_vim = 800,
@@ -73,7 +74,8 @@ newEntity{ base = "BASE_NPC_ELVEN_CASTER", define_as = "GRAND_CORRUPTOR",
 load("/data/general/npcs/ziguranth.lua", function(e) if e.rarity then e.rarity, e.ziguranth_rarity = nil, e.rarity end end)
 newEntity{ base = "BASE_NPC_ZIGURANTH", define_as = "PROTECTOR_MYSSIL",
 	name = "Protector Myssil", color=colors.VIOLET, unique = true,
-	desc = [[A Halfling Ziguranth, clad in dark steel plates. She is the current leader of Zigur.]],
+	kr_name = "수호자 미씰",
+	desc = [[검은색 강철 판갑을 입은, 하플링 지구르 추종자입니다. 그녀가 현재 지구르의 지도자입니다.]],
 	female = true, subtype = "halfling",
 	level_range = {30, nil}, exp_worth = 1,
 	rank = 4,

@@ -19,7 +19,8 @@
 
 newAchievement{
 	name = "Pyromancer",
-	desc = [[Unlocked Archmage class and did over one million fire damage (with any item/talent/class).]],
+	kr_name = "화염술사",
+	desc = [[마도사 직업 봉인 해제 후, 누적 화염 피해를 백만 점 이상 입힘 (물체 속성/기술/직업 모두 사용 가능).]],
 	show = "full",
 	mode = "world",
 	can_gain = function(self, who, dam)
@@ -40,7 +41,8 @@ newAchievement{
 }
 newAchievement{
 	name = "Cryomancer",
-	desc = [[Unlocked Archmage class and did over one million cold damage (with any item/talent/class).]],
+	kr_name = "냉기술사",
+	desc = [[마도사 직업 봉인 해제 후, 누적 냉기 피해를 백만 점 이상 입힘 (물체 속성/기술/직업 모두 사용 가능).]],
 	show = "full",
 	mode = "world",
 	can_gain = function(self, who, dam)
@@ -61,12 +63,14 @@ newAchievement{
 }
 newAchievement{
 	name = "Lichform",
-	desc = [[Achieved your wild dreams of power and eternal life: you turned into a Lich!]],
+	kr_name = "리치의 몸",
+	desc = [[모든 사령술사들의 꿈이자 진정한 목표를 달성하여, 영원히 죽지 않는 리치가 되었습니다!]],
 	show = "name",
 }
 newAchievement{
 	name = "Best album ever!", id = "THE_CURE",
-	desc = [[Removed 89 beneficial effects from enemies via Disintegration.]],
+	kr_name = "최고의 앨범",
+	desc = [[적의 이로운 효과를 89번 제거]],
 	show = "full", 	mode = "player",
 	can_gain = function(self, who)
 		self.nb = (self.nb or 0) + 1

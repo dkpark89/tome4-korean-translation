@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Astar = require "engine.Astar"
 
 -- AI for the escort quest
@@ -44,7 +46,7 @@ newAI("escort_quest", function(self)
 					self.ai_state.fleeing_msg = true
 					local enemy = self.ai_target.actor
 					local dir = game.level.map:compassDirection(enemy.x-self.x, enemy.y-self.y)
-					self:doEmote("Help!"..(dir and (" %s to the %s!"):format(self:canSee(enemy) and string.capitalize(enemy.name) or "Something", dir) or ""))
+					self:doEmote("도와주세요! "..(dir and ("%s 방향의 %s 처리해주세요!"):format(dir, self:canSee(enemy) and string.capitalize(enemy.kr_name or enemy.name):addJosa("를") or "알 수 없는 적을") or "")) --@ 변수 순서 조정
 				end
 			else
 				self:runAI("move_escort")

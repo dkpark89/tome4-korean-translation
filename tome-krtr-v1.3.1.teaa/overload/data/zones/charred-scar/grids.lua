@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,11 +26,12 @@ newEntity{
 	define_as = "FAR_EAST_PORTAL",
 	type = "floor", subtype = "lava",
 	name = "Farportal: the Far East",
+	kr_name = "장거리 관문 : 동대륙",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/lava_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use.]],
+	desc = [[장거리 관문은 눈 깜짝할 사이에 놀랄만큼 먼 거리를 이동하는 수단입니다. 이 관문을 사용하기 위해서는 보통 어떤 물건이 필요합니다.]],
 	nice_editer = lava_editer,
 
 	orb_portal = {
@@ -39,7 +40,7 @@ newEntity{
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="fareast"},
 		},
-		message = "#VIOLET#You enter the swirling portal and in the blink of an eye you are back to the far east.",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈 깜짝할 사이에 관문의 흔적은 없어지고, 동대륙에 도착한 자신을 발견하였습니다.",
 	},
 }
 

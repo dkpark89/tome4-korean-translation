@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Ruins of Telmur",
+	kr_name = "텔무르의 폐허",
 	level_range = {35, 45},
 	level_scheme = "player",
 	max_level = 5,
@@ -59,7 +60,7 @@ return {
 	},
 	on_enter = function(lev, old_lev, newzone)
 		if newzone and not game.level.shown_warning then
-			require("engine.ui.Dialog"):simplePopup("Telmur", "As you approach the tower you notice it is utterly destroyed, only the basement remaining.")
+			require("engine.ui.Dialog"):simplePopup("텔무르", "탑에 도달하자, 탑이 완전히 파괴되어 지하실만이 남아있다는 것을 발견하였습니다.")
 			game.level.shown_warning = true
 		end
 	end,

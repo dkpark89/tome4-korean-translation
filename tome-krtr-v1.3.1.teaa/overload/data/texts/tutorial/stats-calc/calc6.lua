@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-You've learned Shove, a weak knockback effect.
+앞에 있는 문을 열고 지금 이 글을 보고 있다는 것은, 밟으면 가시가 튀어나오는 함정일지도 모르는 수상한 문양을 밟고 '밀치기' 기술을 배웠다는 뜻이겠지요.
 
-Which #GOLD#combat stats#WHITE# will get compared when you attempt to Shove somebody?
+이 '밀치기' 기술을 사용할 때, 과연 어떤 #GOLD#전투 능력치#WHITE# 를 사용할까요?
 
-Try to push your way into the next room!
+다음 방에 있는 적들을 밀쳐내보세요!
 ]]

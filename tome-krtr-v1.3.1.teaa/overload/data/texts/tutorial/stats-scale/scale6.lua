@@ -18,9 +18,11 @@
 -- darkgod@te4.org
 
 return [[
-By how much did the amulet increase your #B4B4B4#tier 1#WHITE# #LIGHT_GREEN#Mindpower#WHITE# score?
+목걸이를 장비했더니 #B4B4B4#1 단계#WHITE# #LIGHT_GREEN#정신력#WHITE# 수치가 얼마나 상승했나요?
 
-By how much did the boots increase your #FFFFFF#tier 2#WHITE# #LIGHT_GREEN#Physical save#WHITE# score?
+장화를 신었더니 #FFFFFF#2 단계#WHITE# #LIGHT_GREEN#물리 내성#WHITE# 수치가 얼마나 상승했나요?
 
-Take them off and put them back on if you didn't see their effects. One of the results might be surprising.
+장비를 벗었다가 다시 입어보고, 수치 변화를 유심히 살펴보세요. 
+둘 중 하나의 결과가 조금 이상하게 나올겁니다.
 ]]
+

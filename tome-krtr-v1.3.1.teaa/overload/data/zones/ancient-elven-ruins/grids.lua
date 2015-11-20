@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "QUICK_EXIT",
 	name = "teleporting circle to the surface", image = "terrain/maze_floor.png", add_displays = {class.new{image="terrain/maze_teleport.png"}},
+	kr_name = "지표면으로의 순간이동 장치",
 	display = '>', color_r=255, color_g=0, color_b=255,
 	notice = true, show_tooltip = true,
 	change_level = 1, change_zone = "wilderness",

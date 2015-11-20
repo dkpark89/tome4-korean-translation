@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@ newEntity{
 	define_as = "FLOOR_ROAD_STONE",
 	type = "floor", subtype = "floor", road="oldstone",
 	name = "old road", image = "terrain/marble_floor.png",
+	kr_name = "오래된 길",
 	display = '=', color=colors.DARK_GREY,
 	always_remember = true,
 	nice_editer2 = { method="roads_def", def="oldstone" },
@@ -33,12 +34,13 @@ newEntity{
 newEntity{
 	define_as = "FAR_EAST_PORTAL",
 	name = "Farportal: Gates of Morning",
+	kr_name = "장거리 관문 : 아침의 문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the Gates of Morning in the Far East.]],
+	desc = [[장거리 관문은 눈 깜짝할 사이에 놀랄만큼 먼 거리를 이동하는 수단입니다. 이것을 사용하기 위해서는 보통 어떤 물건이 필요하며, 이 관문이 쌍방향으로 사용이 가능한 것인지조차도 알 수 없습니다.
+이 관문의 목표지점은 동대륙의 도시, 아침의 문 근방인 것 같습니다.]],
 
 	orb_portal = {
 		change_level = 1,
@@ -46,7 +48,7 @@ This one seems to go near the Gates of Morning in the Far East.]],
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="gates-of-morning"},
 		},
-		message = "#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in sight of the Gates of Morning, with no trace of the portal...",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈 깜짝할 사이에 관문의 흔적은 없어지고, 아침의 문이 보이는 곳에 서있는 자신을 발견하였습니다...",
 		on_use = function(self, who)
 		end,
 	},

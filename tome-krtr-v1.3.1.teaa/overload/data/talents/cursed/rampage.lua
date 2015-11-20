@@ -17,8 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalent{
 	name = "Rampage",
+	kr_name = "광란",
 	type = {"cursed/rampage", 1},
 	require = cursed_str_req1,
 	points = 5,
@@ -36,7 +39,7 @@ newTalent{
 	getCombatPhysSpeedChange = function(self, t) return self:combatTalentScale(t, 0.224, 0.5, 0.75) end,
 	on_pre_use = function(self, t, silent)
 		if self:hasEffect(self.EFF_RAMPAGE) then 
-			if not silent then game.logPlayer(self, "You are already rampaging!") end
+			if not silent then game.logPlayer(self, "이미 광란 상태입니다!") end
 			return false
 		end
 		return true
@@ -85,15 +88,15 @@ newTalent{
 		local maxDuration = t.getMaxDuration(self, t)
 		local movementSpeedChange = t.getMovementSpeedChange(self, t)
 		local combatPhysSpeedChange = t.getCombatPhysSpeedChange(self, t)
-		return ([[You enter a terrible rampage for %d turns (up to a maximum of %d turns), destroying everything in your path. Starting a rampage is instantaneous. You may also enter a rampage (50%% chance) when you are hit for more than 8%% of your max life. 
-		Any talent, rune or infusion you use while rampaging becomes a distraction, and reduces the duration of the rampage by 1. Your first movement while rampaging increases the rampage duration by 1.
-		Rampage Bonus: +%d%% movement speed.
-		Rampage Bonus: +%d%% attack speed]]):format(duration, maxDuration, movementSpeedChange * 100, combatPhysSpeedChange * 100)
+		return ([[%d 턴 동안 광란 상태가 되어, 모든 것을 파괴합니다. (최대 %d 턴 까지 유지할 수 있습니다) 광란 상태는 턴 소모 없이 들어갈 수 있으며, 최대 생명력의 8%% 이상에 해당하는 피해를 한번에 받아도 50%% 확률로 광란 상태가 됩니다.
+		모든 기술, 룬, 주입 능력을 사용할 때마다 조금씩 안정을 찾아, 광란 상태의 지속시간이 1 턴 줄어듭니다. 광란 상태에 들어간 뒤 첫 걸음을 내딛으면, 광란 상태의 지속시간이 1 턴 증가합니다.
+		- 광란 상태일 때, 이동 속도가 %d%% / 공격 속도가 %d%% 상승합니다.]]):format(duration, maxDuration, movementSpeedChange * 100, combatPhysSpeedChange * 100)
 	end,
 }
 
 newTalent{
 	name = "Brutality",
+	kr_name = "무자비",
 	type = {"cursed/rampage", 2},
 	mode = "passive",
 	require = cursed_str_req2,
@@ -109,14 +112,14 @@ newTalent{
 		local physicalDamageChange = t.getPhysicalDamageChange(self, t)
 		local combatPhysResistChange = t.getCombatPhysResistChange(self, t)
 		local combatMentalResistChange = t.getCombatMentalResistChange(self, t)
-		return ([[You attack with mindless brutality. The first critical hit inflicted while rampaging increases the rampage duration by 1.
-		Rampage Bonus: Your physical damage increases by %d%%.
-		Rampage Bonus: Your Physical Save increases by %d and Mental Save increases by %d.]]):format(physicalDamageChange, combatPhysResistChange, combatMentalResistChange)
+		return ([[무자비하고 난폭하게 공격합니다. 광란 상태에서 첫 번째 치명타 효과를 내면, 광란 상태의 지속시간이 1 턴 증가합니다.
+		- 광란 상태일 때, 추가적으로 물리 피해량이 %d%% / 물리 내성이 %d / 정신 내성이 %d 상승합니다.]]):format(physicalDamageChange, combatPhysResistChange, combatMentalResistChange)
 	end,
 }
 
 newTalent{
 	name = "Tenacity",
+	kr_name = "끈기",
 	type = {"cursed/rampage", 3},
 	mode = "passive",
 	require = cursed_str_req3,
@@ -134,14 +137,15 @@ newTalent{
 	info = function(self, t)
 		local damageShield = t.getDamageShield(self, t)
 		local damageShieldBonus = t.getDamageShieldBonus(self, t)
-		return ([[Nothing will stop your rampage.
-		Rampage Bonus: You shrug off up to %d damage each turn during your rampage. If you shrug off more than %d damage, the rampage duration increases by 1.
-		The amount of damage you can shrug off improves with your Strength.]]):format(damageShield, damageShieldBonus)
+		return ([[그 무엇도 광란 상태를 멈출 수 없게 됩니다. 
+		- 광란 상태일 때 추가적으로 매 턴마다 최대 %d 피해를 흡수할 수 있게 되며, 총 피해 흡수량이 %d 를 넘을 경우 광란 상태의 지속시간이 1 턴 증가합니다.
+		피해 흡수량은 힘 능력치의 영향을 받아 증가합니다.]]):format(damageShield, damageShieldBonus)
 	end,
 }
 
 newTalent{
 	name = "Slam",
+	kr_name = "광란의 후려치기",
 	type = {"cursed/rampage", 4},
 	require = cursed_str_req4,
 	points = 5,
@@ -160,7 +164,7 @@ newTalent{
 	end,
 	on_pre_use = function(self, t, silent)
 		if not self:hasEffect(self.EFF_RAMPAGE) then 
-			if not silent then game.logPlayer(self, "You must be rampaging to use this talant.") end
+			if not silent then game.logPlayer(self, "이 기술을 사용하려면 광란 상태여야 합니다.") end
 			return false
 		end
 		return true
@@ -168,7 +172,7 @@ newTalent{
 	action = function(self, t)
 		local eff = self:hasEffect(self.EFF_RAMPAGE)
 		if not eff then 
-			if not silent then game.logPlayer(self, "You must be rampaging to use this talant.") end
+			if not silent then game.logPlayer(self, "이 기술을 사용하려면 광란 상태여야 합니다.") end
 			return false
 		end
 		
@@ -182,12 +186,12 @@ newTalent{
 			local y = self.y + math.floor((i % 9) / 3) - 1
 			local target = game.level.map(x, y, Map.ACTOR)
 			if target and not target.dead and self:reactionToward(target) < 0 then
-				game.logSeen(self, "#F53CBE#%s slams %s!", self.name:capitalize(), target.name)
+				game.logSeen(self, "#F53CBE#%s %s 후려칩니다!", (self.kr_name or self.name):capitalize():addJosa("가"), (target.kr_name or target.name):addJosa("를"))
 				DamageType:get(DamageType.PHYSICAL).projector(self, target.x, target.y, DamageType.PHYSICAL, damage)
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, stunDuration, {apply_power=self:combatPhysicalpower()})
 				else
-					game.logSeen(target, "#F53CBE#%s resists the stunning blow!", target.name:capitalize())
+					game.logSeen(target, "#F53CBE#%s 기절하지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 				end
 			
 				hitCount = hitCount - 1
@@ -198,7 +202,7 @@ newTalent{
 		
 		-- bonus duration
 		if hits >= 2 and eff.actualDuration < eff.maxDuration and not eff.slam then
-			game.logPlayer(self, "#F53CBE#Your rampage is invigorated by the collosal slam! (+1 duration)")
+			game.logPlayer(self, "#F53CBE#적을 연속으로 후려쳐, 더욱 광란 상태에 빠져듭니다! (지속시간 1 턴 추가)")
 			eff.actualDuration = eff.actualDuration + 1
 			eff.dur = eff.dur + 1
 			eff.slam = true
@@ -210,7 +214,7 @@ newTalent{
 		local hitCount = t.getHitCount(self, t)
 		local stunDuration = t.getStunDuration(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[While rampaging, you slam up to %d adjacent opponents, stunning them for %d turns and damaging them for between %d and %d physical damage. Your first slam of at least two opponents increases the rampage duration by 1.
-		Damage increases with your Physical Power.]]):format(hitCount, stunDuration, damage * 0.5, damage)
+		return ([[광란 상태일 때 사용할 수 있으며, 근처의 적 %d 명을 동시에 후려쳐 %d 턴 동안 기절시키고 %d - %d 물리 피해를 줍니다. 처음으로 두 명 이상의 적에게 후려치기를 날릴 경우, 광란 상태의 지속시간이 1 턴 늘어납니다.
+		피해량은 물리력 능력치의 영향을 받아 증가합니다.]]):format(hitCount, stunDuration, damage * 0.5, damage)
 	end,
 }

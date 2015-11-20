@@ -466,7 +466,6 @@ local pick_ego = function(self, level, e, eegos, egos_list, type, picked_etype, 
 
 	if egos_list[#egos_list] then print("Picked ego", type.."/"..eegos..":"..etype, ":=>", egos_list[#egos_list].name) else print("Picked ego", type.."/"..eegos..":"..etype, ":=>", #egos_list) end
 end
-
 -- Applies a single ego to a (pre-resolved) entity
 -- May be in need to resolve afterwards
 function _M:applyEgo(e, ego, type, no_name_change)
@@ -569,6 +568,10 @@ function _M:finishEntity(level, type, e, ego_filter)
 	e = e:clone()
 	e:resolve()
 
+	local newKrName, krAdd, krMain --@ 한글 이름을 위한 변수 추가
+	krMain = (e.kr_name or e.name) --@ 한글 이름 초기 작업
+	krAdd = "" --@ 한글 이름 초기 작업
+
 	-- Add "addon" properties, always
 	if not e.unique and e.addons then
 		local egos_list = {}
@@ -576,8 +579,37 @@ function _M:finishEntity(level, type, e, ego_filter)
 		pick_ego(self, level, e, e.addons, egos_list, type, {}, "addon", nil)
 
 		if #egos_list > 0 then
+			--@ 한글 이름 초기화 작업은 아래쪽과의 연동을 위해 바깥으로 뺌
+			
 			for ie, ego in ipairs(egos_list) do
-				self:applyEgo(e, ego, type)
+				--@ 아래부분에서 물건 이름 조합 - 통채 kr_name도 조합하도록 변경
+				print("addon", ego.__CLASSNAME, ego.name, getmetatable(ego))
+				ego = ego:clone()
+				local newname
+				if ego.prefix then 
+					newname = ego.name .. e.name
+					krAdd = krAdd..(ego.kr_name or ego.name) --@ 주이름 바로 앞에 앞쪽 수식어 삽입
+				else 
+					newname = e.name .. ego.name
+					if ego.kr_name then krAdd = ego.kr_name..krAdd --@ 한글화 된 뒷쪽 수식어는 가장 앞쪽에 삽입
+					else krMain = krMain..ego.name end --@ 한글화 되지 않은 뒷쪽 수식어는 가장 뒷쪽에 삽입
+				end
+				newKrName = krAdd .. krMain --@ 한글 이름 조합
+				
+				print("applying addon", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
+				ego.unided_name = nil
+				ego.kr_unided_name = nil --@ 혹시 몰라 삽입
+				ego.__CLASSNAME = nil
+				-- The ego requested instant resolving before merge ?
+				if ego.instant_resolve then ego:resolve(nil, nil, e) end
+				ego.instant_resolve = nil
+				-- Void the uid, we dont want to erase the base entity's one
+				ego.uid = nil
+				-- Merge according to Object's ego rules.
+				table.ruleMergeAppendAdd(e, ego, self.ego_rules[type] or {})
+				e.name = newname
+				e.kr_name = newKrName --@ 한글 이름 삽입
+				e.egoed = true
 			end
 			-- Re-resolve with the (possibly) new resolvers
 			e:resolve()
@@ -648,8 +680,36 @@ function _M:finishEntity(level, type, e, ego_filter)
 		end
 
 		if #egos_list > 0 then
+			--@ 한글 이름 초기화 작업은 위에서 수정한 내용을 그대로 이어받음			
 			for ie, ego in ipairs(egos_list) do
-				self:applyEgo(e, ego, type)
+				--@ 아래부분에서 물건 이름 조합 - 통채 kr_name도 조합하도록 변경
+				print("ego", ego.__CLASSNAME, ego.name, getmetatable(ego))
+				ego = ego:clone()
+				local newname
+				if ego.prefix then 
+					newname = ego.name .. e.name
+					krAdd = krAdd..(ego.kr_name or ego.name) --@ 주이름 바로 앞에 앞쪽 수식어 삽입
+				else 
+					newname = e.name .. ego.name
+					if ego.kr_name then krAdd = ego.kr_name..krAdd --@ 한글화 된 뒷쪽 수식어는 가장 앞쪽에 삽입
+					else krMain = krMain..ego.name end --@ 한글화 되지 않은 뒷쪽 수식어는 가장 뒷쪽에 삽입
+				end
+				newKrName = krAdd .. krMain --@ 한글 이름 조합
+				
+				print("applying ego", ego.name, "to ", e.name, "::", newname, "///", e.unided_name, ego.unided_name)
+				ego.unided_name = nil
+				ego.kr_unided_name = nil --@ 혹시 몰라 삽입
+				ego.__CLASSNAME = nil
+				-- The ego requested instant resolving before merge ?
+				if ego.instant_resolve then ego:resolve(nil, nil, e) end
+				ego.instant_resolve = nil
+				-- Void the uid, we dont want to erase the base entity's one
+				ego.uid = nil
+				-- Merge according to Object's ego rules.
+				table.ruleMergeAppendAdd(e, ego, self.ego_rules[type] or {})
+				e.name = newname
+				e.kr_name = newKrName --@ 한글 이름 삽입
+				e.egoed = true
 			end
 			-- Re-resolve with the (possibly) new resolvers
 			e:resolve()
@@ -828,7 +888,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 	-- Load persistent level?
 	if type(level_data.persistent) == "string" and level_data.persistent == "zone_temporary" then
 		forceprint("Loading zone temporary level", self.short_name, lev)
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는 중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		self.temp_memory_levels = self.temp_memory_levels or {}
@@ -844,7 +904,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 		popup:done()
 	elseif type(level_data.persistent) == "string" and level_data.persistent == "zone" and not self.save_per_level then
 		forceprint("Loading zone persistance level", self.short_name, lev)
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는 중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		self.memory_levels = self.memory_levels or {}
@@ -860,7 +920,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 		popup:done()
 	elseif type(level_data.persistent) == "string" and level_data.persistent == "memory" then
 		forceprint("Loading memory persistance level", self.short_name, lev)
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는 중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		game.memory_levels = game.memory_levels or {}
@@ -876,7 +936,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 		popup:done()
 	elseif level_data.persistent then
 		forceprint("Loading level persistance level", self.short_name, lev)
-		local popup = Dialog:simpleWaiter("Loading level", "Please wait while loading the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 불러오는 중", "현재층을 불러오는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		-- Try to load from a savefile
@@ -892,7 +952,7 @@ function _M:getLevel(game, lev, old_lev, no_close)
 	-- In any cases, make one if none was found
 	if not level then
 		forceprint("Creating level", self.short_name, lev)
-		local popup = Dialog:simpleWaiter("Generating level", "Please wait while generating the level...", nil, 10000)
+		local popup = Dialog:simpleWaiter("현재층 생성 중", "현재층을 만드는 동안 잠시 기다려 주십시오...", nil, 10000)
 		core.display.forceRedraw()
 
 		level = self:newLevel(level_data, lev, old_lev, game)

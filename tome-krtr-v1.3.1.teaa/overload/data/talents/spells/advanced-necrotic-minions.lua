@@ -43,7 +43,8 @@ local minions_list = {
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
 		name = "bone giant", color=colors.WHITE,
-		desc = [[A towering creature, made from the bones of dozens of dead bodies. It is covered by an unholy aura.]],
+		kr_name = "해골 거인",
+		desc = [[수십 개의 시체를 쌓아 만들어진 언데드입니다. 부정한 기운이 흐르고 있습니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_bone_giant.png", display_h=2, display_y=-1}}},
 		max_life = resolvers.rngavg(100,120),
 		level_range = {1, nil}, exp_worth = 0,
@@ -77,7 +78,8 @@ local minions_list = {
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
 		name = "heavy bone giant", color=colors.RED,
-		desc = [[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.]],
+		kr_name = "무거운 해골 거인",
+		desc = [[수백 개의 시체를 쌓아 만들어진 언데드입니다. 부정한 기운을 뿜어내고 있습니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_heavy_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
 		max_life = resolvers.rngavg(100,120),
@@ -111,7 +113,8 @@ local minions_list = {
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
 		name = "eternal bone giant", color=colors.GREY,
-		desc = [[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.]],
+		kr_name = "영겁의 해골 거인",
+		desc = [[수백 개의 시체를 쌓아 만들어진 언데드입니다. 극도로 부정한 기운을 뿜어내고 있습니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_eternal_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
 		max_life = resolvers.rngavg(100,120),
@@ -147,7 +150,8 @@ local minions_list = {
 		see_invisible = resolvers.mbonus(15, 5),
 		undead = 1,
 		name = "runed bone giant", color=colors.RED,
-		desc = [[A towering creature, made from the bones of hundreds of dead bodies, rune-etched and infused with hateful sorceries.]],
+		kr_name = "룬 해골 거인",
+		desc = [[수백 개의 시체에 룬을 새겨넣고, 증오의 마력을 주입시켜 만든 아주 강력한 언데드입니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_runed_bone_giant.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
 		rank = 3,
@@ -173,6 +177,7 @@ local minions_list = {
 
 newTalent{
 	name = "Undead Explosion",
+	kr_name = "언데드 폭발",
 	type = {"spell/advanced-necrotic-minions",1},
 	require = spells_req_high1,
 	points = 5,
@@ -199,15 +204,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Minions are only tools. You may dispose of them... Violently.
-		Makes the targeted minion explode for %d%% of its maximum life in a radius of %d as blight damage.
-		Beware! Don't get caught in the blast! (unless you know Dark Empthy: %d%% chance to ignore damage)]]):
+		return ([[부하는 도구일 뿐입니다. 불필요한 부하는 제거해야죠. 자폭시키는건 어때요?
+		선택된 언데드 추종자를 자폭시켜, 언데드 추종자가 지녔던 최대 생명력의 %d%% 에 해당하는 황폐 속성 피해를 주변 %d 칸 반경에 줍니다.
+		부하의 자폭에 휘말리는 멍청한 주인이 아니길 빕니다. (단 어둠의 공감 기술을 알고 있다면, 멍청한 주인이라도 %d%% 확률로 피해를 무시할 수 있습니다)]]):
 		format(t.getDamage(self, t),t.radius(self,t), self:getTalentLevelRaw(self.T_DARK_EMPATHY) * 20)
 	end,
 }
 
 newTalent{
 	name = "Assemble",
+	kr_name = "결합",
 	type = {"spell/advanced-necrotic-minions",2},
 	require = spells_req_high2,
 	points = 5,
@@ -290,18 +296,19 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Combines 3 of your minions into a bone giant.
-		At level 1, it makes a bone giant.
-		At level 3, it makes a heavy bone giant.
-		At level 5, it makes an eternal bone giant.
-		At level 6, it has a 20%% chance to produce a runed bone giant.
-		Only %s can be active at any time.]]):
+		return ([[시전자의 추종자 셋을 결합시켜, 해골 거인을 만들어냅니다.
+		기술 레벨이 1 이상이면, 일반적인 해골 거인을 만들어냅니다.
+		기술 레벨이 3 이상이면, 육중한 해골 거인을 만들어냅니다.
+		기술 레벨이 5 이상이면, 영겁의 해골 거인을 만들어냅니다.
+		기술 레벨이 6 이상이면, 20%% 확률로 룬 해골 거인을 만들어냅니다.
+		한번에 %s만을 부릴 수 있습니다.]]):
 		format(necroEssenceDead(self, true) and "two bone giants" or "one bone giant")
 	end,
 }
 
 newTalent{
 	name = "Sacrifice",
+	kr_name = "희생",
 	type = {"spell/advanced-necrotic-minions",3},
 	require = spells_req_high3,
 	points = 5,
@@ -348,20 +355,22 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Sacrifice a bone giant minion. Using its bones, you make a temporary shield around you that prevents any attacks from doing more than %d%% of your total life.
-		The effect lasts %d turns.]]):
+		return ([[해골 거인을 희생시키고, 그 뼈를 이용하여 보호막을 만들어냅니다. 이 보호막은 최대 생명력의 %d%% 를 넘는 피해량이 들어올 시, 초과 피해량을 모두 막아줍니다.
+		이 보호막은 %d 턴 동안 지속됩니다.]]):
 		format(t.getPower(self, t), t.getTurns(self, t))
 	end,
 }
 
 newTalent{
 	name = "Minion Mastery",
+	kr_name = "언데드 추종 수련",
 	type = {"spell/advanced-necrotic-minions",4},
 	require = spells_req_high4,
 	points = 5,
 	mode = "passive",
 	info = function(self, t)
-		return ([[Each minion you summon has a chance to be a more advanced form of undead. Your chance for each type of minion is as follows:%s]]):
+		return ([[언데드 추종자를 만들 때, 더 강력한 추종자를 만들어낼 확률이 증가합니다. 만들어지는 추종자는 다음과 같습니다 : 
+		%s]]):
 		format(self:callTalent(self.T_CREATE_MINIONS,"MinionChancesDesc"))
 	end,
 }

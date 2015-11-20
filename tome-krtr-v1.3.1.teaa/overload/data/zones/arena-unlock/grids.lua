@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ load("/data/general/grids/forest.lua")
 newEntity{
 	define_as = "WALL_SEE",
 	name = "wall", image = "terrain/granite_wall1.png",
+	kr_name = "벽",
 	display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 	always_remember = true,
 	does_block_move = true,
@@ -36,6 +37,7 @@ newEntity{
 newEntity{
 	define_as = "LOCK",
 	name = "closed gate", image = "terrain/sealed_door.png",
+	kr_name = "닫힌 관문",
 	display = '+', color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,

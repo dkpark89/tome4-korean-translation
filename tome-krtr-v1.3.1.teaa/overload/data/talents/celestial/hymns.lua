@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Hymn of Shadows",
+	kr_name = "그림자의 송가",
 	type = {"celestial/hymns", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -50,16 +51,17 @@ newTalent{
 	info = function(self, t)
 		local darknessinc = t.getDarknessDamageIncrease(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the Moon, empowering your dark elemental attacks so that they do %d%% additional darkness damage.
-		In addition, this talent surrounds you with a shield of shadows, dealing %0.2f darkness damage to anything that attacks you.
-		You may only have one Hymn active at once.
-		The effects will increase with your Spellpower.]]):
+		return ([[달의 영광을 노래하여, 적에게 주는 어둠 속성 공격의 피해량을 %d%% 증가시킵니다. 
+ 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다. 
+ 		동시에 하나의 송가만을 유지할 수 있습니다. 
+ 		피해량과 피해 증가효과는 주문력의 영향을 받아 증가합니다.]]): 
 		format(darknessinc, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Hymn of Detection",
+	kr_name = "간파의 송가",
 	type = {"celestial/hymns", 2},
 	mode = "sustained",
 	require = divi_req2,
@@ -99,16 +101,17 @@ newTalent{
 		local invis = t.getSeeInvisible(self, t)
 		local stealth = t.getSeeStealth(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the Moon, granting you infravision up to %d grids, stealth detection (+%d power), and invisibility detection (+%d power).
-		In addition, this talent surrounds you with a shield of shadows, dealing %0.2f darkness damage to anything that attacks you.
-		You may only have one Hymn active at once.
-		The stealth and invisibility detection, as well as the on-hit damage, will increase with your Spellpower.]]):
+		return ([[달의 영광을 노래하여 야간 투시력을 %d / 은신 감지력을 %d / 투명화 감지력을 %d 증가시킵니다. 
+ 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다. 
+ 		동시에 하나의 송가만을 유지할 수 있습니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(infra, stealth, invis, damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Hymn of Perseverance",
+	kr_name = "불굴의 송가",
 	type = {"celestial/hymns",3},
 	mode = "sustained",
 	require = divi_req3,
@@ -145,16 +148,17 @@ newTalent{
 	info = function(self, t)
 		local immunities = t.getImmunities(self, t)
 		local darknessdamage = t.getDamageOnMeleeHit(self, t)
-		return ([[Chant the glory of the Moon, granting you %d%% stun, blindness and confusion resistance.
-		In addition, this talent surrounds you with a shield of shadows, dealing %0.2f darkness damage to anything that attacks you.
-		You may only have one Hymn active at once.
-		The on-hit damage will increase with your Spellpower.]]):
+		return ([[달의 영광을 노래하여, 기절, 실명, 혼란 면역력이 %d%% 증가합니다. 
+ 		그리고 주변을 그림자로 감싸, 공격을 받으면 적에게 %0.2f 어둠 피해를 되돌려줍니다. 
+ 		동시에 하나의 송가만을 유지할 수 있습니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(100 * (immunities), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
 newTalent{
 	name = "Hymn of Moonlight",
+	kr_name = "달빛의 송가",
 	type = {"celestial/hymns",4},
 	mode = "sustained",
 	require = divi_req4,
@@ -211,11 +215,10 @@ newTalent{
 		local targetcount = t.getTargetCount(self, t)
 		local damage = t.getDamage(self, t)
 		local drain = t.getNegativeDrain(self, t)
-		return ([[Chant the glory of the Moon, conjuring a shroud of dancing shadows that follows you as long as this spell is active.
-		Each turn, a shadowy beam will hit up to %d of your foes within radius 5 for 1 to %0.2f damage.
-		This powerful spell will drain %0.1f negative energy for each beam; no beam will fire if your negative energy is too low.
-		You may only have one Hymn active at once.
-		The damage will increase with your Spellpower.]]):
+		return ([[기술이 지속되는 동안 자신을 따라다니는, 춤추는 그림자를 불러들입니다. 
+ 		매 턴마다 주변 5 칸 반경에 있는 적 %d 명에게 그림자 화살이 발사되어, 1 - %0.2f 피해를 줍니다. 
+ 		그림자 화살이 발사될 때마다 음기가 %0.1f 소모되며, 음기가 부족하면 효과가 발동되지 않습니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(targetcount, damDesc(self, DamageType.DARKNESS, damage), drain)
 	end,
 }

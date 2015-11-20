@@ -1,4 +1,4 @@
--- ToME - Tales of Maj'Eyal
+﻿-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009 - 2015 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -54,11 +54,12 @@ newEntity{
 	define_as = "ELANDAR",
 	type = "humanoid", subtype = "shalore",
 	name = "Elandar",
+	kr_name = "엘란다르",
 	display = "@", color=colors.AQUAMARINE,
 	faction = "sorcerers",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_shalore_elandar.png", display_h=2, display_y=-1}}},
 
-	desc = [[Renegade mages from Angolwen, the Sorcerers have set up in the Far East, slowly growing corrupt. Now they must be stopped.]],
+	desc = [[앙골웬을 떠난 마법사 중 한 명으로, 이들은 '주술사' 라는 이름을 가진 단체를 동대륙에 세워 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
 	level_range = {75, nil}, exp_worth = 15,
 	max_life = 1000, life_rating = 36, fixed_rating = true,
 	max_mana = 10000,
@@ -129,12 +130,13 @@ newEntity{
 	define_as = "ARGONIEL",
 	type = "humanoid", subtype = "human",
 	name = "Argoniel",
+	kr_name = "아르고니엘",
 	display = "@", color=colors.ROYAL_BLUE,
 	faction = "sorcerers",
 	female = true,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_argoniel.png", display_h=2, display_y=-1}}},
 
-	desc = [[Renegade mages from Angolwen, the Sorcerers have set up in the Far East, slowly growing corrupt. Now they must be stopped.]],
+	desc = [[앙골웬을 떠난 마법사 중 한 명으로, 이들은 '주술사' 라는 이름을 가진 단체를 동대륙에 세워 서서히 타락을 키워왔습니다. 이제 그들을 멈춰야 합니다.]],
 	level_range = {75, nil}, exp_worth = 15,
 	max_life = 1000, life_rating = 42, fixed_rating = true,
 	max_mana = 10000,
@@ -190,11 +192,9 @@ newEntity{
 		[Talents.T_ACID_STRIKE]={base=7, every=6},
 		[Talents.T_ELEMENTAL_DISCORD]={base=7, every=6},
 		[Talents.T_BLOOD_SPLASH]={base=7, every=6},
-
 		[Talents.T_WEAPON_COMBAT]=5,
 		[Talents.T_WEAPONS_MASTERY]={base=4, every=10},
 		[Talents.T_ARMOUR_TRAINING]={base=5, every=6},
-
 		[Talents.T_ENDLESS_WOES]=1,
 		[Talents.T_SPINE_OF_THE_WORLD]=1,
 	},
@@ -218,7 +218,8 @@ newEntity{ define_as = "FALLEN_SUN_PALADIN_AERYN",
 	faction = "sorcerers",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_fallen_sun_paladin_aeryn.png", display_h=2, display_y=-1}}},
 	name = "Fallen Sun Paladin Aeryn", color=colors.VIOLET, unique = true,
-	desc = [[A beautiful woman, clad in shining plate armour. Power radiates from her.]],
+	kr_name = "타락한 태양의 기사 아에린",
+	desc = [[빛나는 판갑을 입은 아름다운 여성입니다. 그녀로부터 힘이 퍼져나갑니다.]],
 	level_range = {56, nil}, exp_worth = 2,
 	rank = 5,
 	size_category = 3,
@@ -235,7 +236,7 @@ newEntity{ define_as = "FALLEN_SUN_PALADIN_AERYN",
 	ai = "tactical", ai_state = { talent_in=2, ai_move="move_astar", },
 	ai_tactic = resolvers.tactic"melee",
 	resolvers.inscriptions(4, {}),
-	
+
 	no_auto_resists = true,
 
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, HEAD=1, FEET=1 },
@@ -264,7 +265,6 @@ newEntity{ define_as = "FALLEN_SUN_PALADIN_AERYN",
 		[Talents.T_WEAPON_COMBAT]=5,
 		[Talents.T_WEAPONS_MASTERY]=5,
 		[Talents.T_RUSH]=3,
-
 		[Talents.T_CHANT_OF_FORTRESS]=7,
 		[Talents.T_SUN_BEAM]=7,
 		[Talents.T_BARRIER]=7,
@@ -289,8 +289,9 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 	display = "p",
 	faction = "sunwall",
 	name = "High Sun Paladin Aeryn", color=colors.VIOLET, unique = "High Sun Paladin Aeryn High Peak Help",
+	kr_name = "고위 태양의 기사 아에린",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_high_sun_paladin_aeryn.png", display_h=2, display_y=-1}}},
-	desc = [[A beautiful woman, clad in shining plate armour. Power radiates from her.]],
+	desc = [[빛나는 판갑을 입은 아름다운 여성입니다. 그녀로부터 힘이 퍼져나갑니다.]],
 	level_range = {56, 56}, exp_worth = 2,
 	rank = 5,
 	size_category = 3,
@@ -304,7 +305,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 	never_anger = true,
 
 	open_door = true,
-	
+
 	no_auto_resists = true,
 
 	autolevel = "warriormage",
@@ -322,7 +323,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 		{type="armor", subtype="feet", force_drop=true, tome_drops="boss", forbid_power_source={antimagic=true}, autoreq=true},
 		{type="armor", subtype="head", force_drop=true, tome_drops="boss", forbid_power_source={antimagic=true}, autoreq=true},
 	},
-	
+
 	resolvers.talents{
 		[Talents.T_ARMOUR_TRAINING]=4,
 		[Talents.T_WEAPON_COMBAT]=5,
@@ -340,7 +341,7 @@ newEntity{ define_as = "HIGH_SUN_PALADIN_AERYN",
 		[Talents.T_BATHE_IN_LIGHT]=7,
 		[Talents.T_PROVIDENCE]=7,
 		[Talents.T_THICK_SKIN]=5,
-
+		
 		[Talents.T_SPECTRAL_SHIELD]=1,
 		[Talents.T_IRRESISTIBLE_SUN]=1,
 	},

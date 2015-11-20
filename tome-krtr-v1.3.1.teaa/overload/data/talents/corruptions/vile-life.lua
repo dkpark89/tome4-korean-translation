@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blood Splash",
+	kr_name = "핏방울",
 	type = {"corruption/vile-life", 1},
 	require = corrs_req1,
 	points = 5,
@@ -45,15 +46,16 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[Inflicting pain and death invogorates you.
-		Each time you deal a critical strike you gain %d life (this effect can only happen once per turn).
-		Each time you kill a creature you gain %d life (this effect can only happen once per turn).]]):
+		return ([[다른 자들의 고통과 죽음을 통해 활력을 얻게 됩니다.
+		치명타 피해를 입힐 때마다, %d 생명력을 회복하게 됩니다. (이 효과는 1 턴에 2 번 이상 발생하지 않습니다)
+		무언가를 죽일 때마다, %d 생명력을 회복하게 됩니다. (이 효과는 1 턴에 2 번 이상 발생하지 않습니다)]]):
 		format(t.heal(self, t), t.heal(self, t))
 	end,
 }
 
 newTalent{
 	name = "Elemental Discord",
+	kr_name = "원소의 불화",
 	type = {"corruption/vile-life", 2},
 	require = corrs_req2,
 	points = 5,
@@ -101,14 +103,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Use elemental damage deal to you to trigger terrible effects on the source:
-		- Fire: burn for %0.2f fire damage over 5 turns
-		- Cold: freeze for 3 turns with %d iceblock power
-		- Acid: blind for %d turns
-		- Lightning: daze for %d turns
-		- Nature: %d%% slow for 4 turns
-		This effect can only happen once every 10 turns per damage type.
-		The damage will increase with your Spellpower.]]):
+		return ([[원소 속성의 피해를 받을 경우, 그 제공자에게 끔찍한 효과를 일으킵니다.
+		- 화염 : 5 턴에 걸쳐 %0.2f 화염 피해
+		- 냉기 : 3 턴 동안 빙결 (얼음의 생명력 : %d)
+		- 산성 : %d 턴 동안 실명
+		- 전기 : %d 턴 동안 혼절
+		- 자연 : 4 턴 동안 %d%% 감속
+		이 효과는 한 번 발생하면 10 턴의 재사용 대기 시간을 갖습니다. (각 속성마다 재사용 대기 시간은 다르게 적용됩니다)
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(
 			damDesc(self, DamageType.FIRE, t.getFire(self, t)),
 			t.getCold(self, t),
@@ -121,6 +123,7 @@ newTalent{
 
 newTalent{
 	name = "Healing Inversion",
+	kr_name = "회복 반전",
 	type = {"corruption/vile-life", 3},
 	require = corrs_req3,
 	points = 5,
@@ -145,14 +148,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You manipulate the vim of your target to temporarily invert all healing done to it (but not regeneration).
-		For 5 turns all healing will instead damage them for %d%% of the healing done as blight.
-		The effect will increase with your Spellpower.]]):format(t.getPower(self,t))
+		return ([[대상의 원기를 조작하여, 일시적으로 모든 회복 효과를 반전시킵니다. (단, '재생' 효과는 반전되지 않습니다)
+		5 턴 동안 대상의 모든 회복 효과가 적용되지 않으며, 대신 회복량의 %d%% 만큼이 황폐 피해로 적용됩니다.
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):format(t.getPower(self,t))
 	end,
 }
 
 newTalent{
 	name = "Vile Transplant",
+	kr_name = "비열한 이식",
 	type = {"corruption/vile-life", 4},
 	require = corrs_req4,
 	points = 5,
@@ -194,7 +198,7 @@ newTalent{
 					self:removeEffect(eff_id)
 					local dead, val = self:takeHit(dam, self, {source_talent=t})
 					target:heal(val, self)
-					game:delayedLogMessage(self, target, "vile_transplant"..e.desc, ("#CRIMSON##Source# transfers an effect (%s) to #Target#!"):format(e.desc))
+					game:delayedLogMessage(self, target, "vile_transplant"..e.desc, ("#CRIMSON##Source1# '%s' 효과를 #Target#에게로 이식시켰습니다!"):format(e.kr_desc or e.desc))
 				end
 				nb = nb - 1
 			end
@@ -205,9 +209,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You transfer up to %d physical or magical detrimental effects currently affecting you to a nearby creature by touching it.
-		The transfer takes %0.1f%% of your remaining life for each effect transferred and heals the target for the same amount.
-		The chance to transfer each effect increases with your Spellpower.]]):
+		return ([[최대 %d 개의 해로운 물리적 / 마법적 효과들을 손이 닿을 거리에 있는 대상에게 이식시킵니다.
+		그 대가로, 이식 대상은 이식된 해로운 효과 1 개당 시전자의 현재 생명력을 %0.1f%% 만큼 흡수해갑니다.
+		해로운 효과를 이식시킬 확률은 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getNb(self, t), t.getDam(self, t))
 	end,
 }

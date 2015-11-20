@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ if layout == "DEFAULT" then
 -- Underground
 return {
 	name = "Rhaloren Camp",
+	kr_name = "랄로레 야영지",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,
@@ -93,6 +94,7 @@ elseif layout == "OVERGROUND" then
 -- Overground
 return {
 	name = "Rhaloren Camp",
+	kr_name = "랄로레 야영지",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -36,9 +36,10 @@ newEntity{ define_as = "THE_MASTER",
 	faction = "dreadfell",
 	type = "undead", subtype = "vampire", unique = true, image = "npc/the_master.png",
 	name = "The Master",
+	kr_name = "'주인'",
 	display = "V", color=colors.VIOLET,
-	desc = [[A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.]],
-	killer_message = "and raised as his tortured undead thrall",
+	desc = [[흐드러진 로브와 공포의 기운을 걸친, 강력하고 끔찍한 흡혈귀입니다. 그의 차갑고 건장한 육체는 세상의 모든 탐욕과 악의의 집합체와 같으며, 그 눈은 모든 나약한 필멸자들의 영혼을 굴복시킬 힘을 가지고 있습니다. 주위의 모든 존재들은 그의 의지에 완전히 굴종하여, 그가 초연히 서서 '부하들의 한심한 간섭 따위는 필요 없다' 고 말해도 그를 도와 적과 싸우려 합니다. 당신의 이목이 그의 손에 들린 어두운 지팡이에 쏠리기 시작했습니다. 주변의 대기에서 생명력을 빨아들이는 이 지팡이는 고대의, 위험하며, 끔찍한 물건입니다. 당신의 눈에 강렬한 욕망이 차오르기 시작합니다.]],
+	killer_message = "당신은 그의 언데드 노예로 부활하여 영원히 고통받게 되었습니다.",
 	level_range = {23, nil}, exp_worth = 2,
 	max_life = 350, life_rating = 19, fixed_rating = true,
 	max_mana = 165,
@@ -106,7 +107,7 @@ newEntity{ define_as = "THE_MASTER",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("PALE_DRAKE", 1, 40, "It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.")
+		game.state:activateBackupGuardian("PALE_DRAKE", 1, 40, "우리의 영웅이 두려움의 영역을 정화한지 몇 달이나 됐다고, 이런 소문이 돌더군. '악이 다시 돌아왔다!' 는 소문 말이야.")
 
 		world:gainAchievement("VAMPIRE_CRUSHER", game.player:resolveSource())
 		game.player:resolveSource():grantQuest("dreadfell")
@@ -129,9 +130,10 @@ newEntity{ define_as = "PALE_DRAKE",
 	faction = "dreadfell",
 	type = "undead", subtype = "skeleton", unique = true,
 	name = "Pale Drake",
+	kr_name = "창백한 드레이케",
 	display = "s", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_skeleton_pale_drake.png", display_h=2, display_y=-1}}},
-	desc = [[A malevolent skeleton archmage that has taken control of the Dreadfell since the Master's demise.]],
+	desc = [['주인' 의 소멸 이후, '두려움의 영역' 을 통제하고 있는 사악한 스켈레톤 마도사입니다.]],
 	level_range = {40, nil}, exp_worth = 3,
 	max_life = 450, life_rating = 21, fixed_rating = true,
 	rank = 4,
@@ -196,10 +198,11 @@ newEntity{ define_as = "BORFAST",
 	faction = "dreadfell",
 	type = "undead", subtype = "ghoul", unique = true,
 	name = "Borfast the Broken",
+	kr_name = "부서진 자, 보르파스트",
 	display = "g", color=colors.VIOLET,
-	desc = [[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
-What proud hero of renown was this before he was condemned to such a terrible fate?]],
-	killer_message = "and offered to his dark Master",
+	desc = [[두꺼운 피부가 이 키 작고 느릿느릿한 형상에 느슨하게 매달려 있으며, 턱에서 뻗어나온 수염다발은 한때 그것이 아름다운 드워프 수염이었다는 증거 정도로밖에 볼 수 없는 상태입니다. 얼굴 반 쪽은 산에 녹아 눌어붙었고, 살점은 뼈대로부터 녹아 떨어져 나갔으며, 눈알은 빠져나와 대롱대롱 매달려 있습니다. 그 눈에서는 지금껏 보지 못했던 슬픔이 보이며, 그 걸음걸이는 체념에 빠져있습니다.
+대체 누가 이 당당했던 영웅을 이렇게 끔찍한 운명에 빠뜨린 것일까요...]],
+	killer_message = "당신은 그의 '주인' 에게 공물로 바쳐졌습니다.",
 	level_range = {20, nil}, exp_worth = 2,
 	max_life = 350, life_rating = 19, fixed_rating = true,
 	max_stamina = 200,
@@ -266,10 +269,11 @@ newEntity{ define_as = "ALETTA",
 	faction = "dreadfell",
 	type = "undead", subtype = "ghost", unique = true,
 	name = "Aletta Soultorn", female=1,
+	kr_name = "알렛타의 부서진 영혼 조각",
 	display = "G", color=colors.VIOLET,
-	desc = [[What once must have been an enchantingly beautiful Higher woman now looks to be a ghost of utter despair. Her thin, elegant form ripples gently in the air, whilst her tattered robes seem oddly still. The ghost's face looks jittery and pained whilst her wild, glowing eyes move rapidly back and forth in their sockets.
-Now and then she seems to see something and her jaw pulls back, her whole face splitting apart as she shrieks an unholy cry of pain and torment.]],
-	killer_message = "and offered to her dark Master",
+	desc = [[한때 황홀하게 아름다웠던 하이어 여성을 이렇게 절망에 가득 찬 유령의 모습으로 만든 것은 누구일까요. 그녀의 날씬하고 우아했던 모습은 허공으로 사라져버리고, 그녀의 넝마같은 로브만이 남아있습니다. 유령의 얼굴에는 고통이 가득하며, 그 빛나는 눈은 뚫린 눈구멍을 중심으로 끊임없이 앞뒤로 움직이고 있습니다.
+가끔씩 그녀는 무엇인가를 보려고 하는 것 같습니다. 하지만 그때마다 그녀의 턱이 비정상적으로 당겨지고, 그로 인해 얼굴 전체가 갈라지면서 그녀는 고통과 부정이 가득 찬 울음 섞인 비명을 내지릅니다.]],
+	killer_message = "당신은 그녀의 '주인' 에게 공물로 바쳐졌습니다",
 	level_range = {20, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 10, fixed_rating = true,
 	hate_regen = 1,
@@ -341,10 +345,11 @@ newEntity{ define_as = "FILIO",
 	faction = "dreadfell",
 	type = "undead", subtype = "skeleton", unique = true,
 	name = "Filio Flightfond",
+	kr_name = "도주 전문 필리오",
 	display = "s", color=colors.VIOLET,
-	desc = [[A short, furtive-looking skeleton with padded feet. He moves quickly and silently, and seems to meld into the shadows with ease. In one hand he holds a sling, and the other a short dagger.
-There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]],
-	killer_message = "and offered to his dark Master",
+	desc = [[발 밑에 가죽이 붙어 있는, 작고 은밀한 모습의 스켈레톤입니다. 그는 빠르고 조용하게 움직이며, 손쉽게 그림자와 동화됩니다. 한 손에는 투석구를, 한 손에는 단검을 쥐고 있습니다.
+그 텅 빈 두개골은 교활함으로 가득 차있으며, 그 텅 빈 눈구멍 덕분에 그가 무슨 속임수와 전술을 계획하고 있는지 짐작조차 할 수 없습니다.]],
+	killer_message = "당신은 그의 '주인' 에게 공물로 바쳐졌습니다",
 	level_range = {20, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 15, fixed_rating = true,
 	max_stamina = 200,

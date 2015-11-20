@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Pacification Hex",
+	kr_name = "진정의 매혹술",
 	type = {"corruption/hexes", 1},
 	require = corrs_req1,
 	points = 5,
@@ -50,13 +51,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target, dazing it and everything in a 2 radius ball around it for 3 turns, and giving %d%% chance to daze affected targets again each turn for 20 turns.
-		The chance will increase with your Spellpower.]]):format(t.getchance(self,t))
+		return ([[대상을 매혹시켜 3 턴 동안 혼절시키고, 20 턴 동안 매 턴마다 %d%% 확률로 다시 혼절하게 만듭니다.
+		이 효과는 대상의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
+		혼절 확률은 주문력의 영향을 받아 증가합니다.]]):format(t.getchance(self,t))
 	end,
 }
 
 newTalent{
 	name = "Burning Hex",
+	kr_name = "화염의 매혹술",
 	type = {"corruption/hexes", 2},
 	require = corrs_req2,
 	points = 5,
@@ -86,15 +89,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target and everything within a radius 2 ball around it for 20 turns. Each time an affected target uses a resource (stamina, mana, vim, ...), it takes %0.2f fire damage.
-		In addition, the cooldown of any talent used while so hexed is increased by %d%% + 1 turn.
-		The damage will increase with your Spellpower.]]):
+		return ([[대상을 매혹시켜, 원천력 (체력, 마나, 원기 등) 을 사용할 때마다 %0.2f 화염 피해를 입히며, 기술의 재사용 대기시간을 %d%% + 1 턴 증가시킵니다.
+		이 효과는 목표의 주변 2 칸 반경에 있는 모든 적들에게 20 턴 동안 적용됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 4, 90)), t.getCDincrease(self, t)*100)
 	end,
 }
 
 newTalent{
 	name = "Empathic Hex",
+	kr_name = "공감의 매혹술",
 	type = {"corruption/hexes", 3},
 	require = corrs_req3,
 	points = 5,
@@ -124,13 +128,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target and everything within a radius 2 ball around it. Each time they do damage, they take %d%% of the same damage for 20 turns.
-		The damage will increase with your Spellpower.]]):format(t.recoil(self,t))
+		return ([[대상을 매혹시켜, 20 턴 동안 대상이 누군가를 공격할 때마다 대상도 피해를 입게 만듭니다.
+		피해량의 %d%% 만큼 대상도 피해를 입게 되며, 이 효과는 목표의 주변 2 칸 반경에 있는 모든 적들에게 적용됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(t.recoil(self,t))
 	end,
 }
 
 newTalent{
 	name = "Domination Hex",
+	kr_name = "지배의 매혹술",
 	type = {"corruption/hexes", 4},
 	require = corrs_req4,
 	points = 5,
@@ -161,7 +167,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Hexes your target, forcing it to be your thrall for %d turns.
-		If you damage the target, it will be freed from the hex.]]):format(t.getDuration(self, t))
+		return ([[대상을 매혹시켜, %d 턴 동안 노예로 부립니다.
+		시전자가 대상에게 피해를 주면, 매혹의 효과는 사라집니다.]]):format(t.getDuration(self, t))
 	end,
 }

@@ -20,6 +20,7 @@
 -- Synergizes with melee classes (escort), Weapon of Wrath, healing mod (avoid overheal > healing efficiency), and low spellpower
 newTalent{
 	name = "Chant of Fortitude",
+	kr_name = "인내의 찬가",
 	type = {"celestial/chants", 1},
 	mode = "sustained",
 	require = divi_req1,
@@ -59,10 +60,10 @@ newTalent{
 		local saves = t.getResists(self, t)
 		local life = t.getLifePct(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[You chant the glory of the Sun, granting you %d Physical Save and Spell Save and increasing your maximum life by %0.1f%% (Currently:  %d).
-		In addition, this talent surrounds you with a shield of light, dealing %0.1f light damage to anything that hits you in melee.
-		You may only have one Chant active at once.
-		The saves and light damage will increase with your Spellpower and the life with talent level.]]):
+		return ([[태양의 영광을 노래하여, 물리 내성과 주문 내성을 %d 상승시키고 최대 생명력을 %0.1f%% 증가시킵니다. (현재 상승량 : %d) 
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다. 
+ 		내성 상승량과 피해량은 주문력의 영향을 받아 증가하고, 생명력은 기술 레벨의 영향을 받아 증가합니다.]]): 
 		format(saves, life*100, life*self.max_life, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -72,6 +73,7 @@ newTalent{
 -- This can be swapped to reactively with a projectile already in the air
 newTalent{
 	name = "Chant of Fortress",
+	kr_name = "보루의 찬가",
 	type = {"celestial/chants", 2},
 	mode = "sustained",
 	require = divi_req2,
@@ -103,10 +105,10 @@ newTalent{
 	info = function(self, t)
 		local range = -t.getDamageChange(self, t)
 		local damageonmeleehit = t.getDamageOnMeleeHit(self, t)
-		return ([[You chant the glory of the Sun, reducing the damage enemies 3 or more spaces away deal by %d%%.
-		In addition, this talent surrounds you with a shield of light, dealing %0.1f light damage to anything that hits you in melee.
-		You may only have one Chant active at once.
-		The damage reduction will increase with talent level and light damage will increase with your Spellpower.]]):
+		return ([[태양의 영광을 노래하여, 3 칸 이상 떨어진 적에게서 받는 공격의 피해량을 %d%% 만큼 감소시킵니다. 
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다. 
+ 		피해 감소량은 기술 레벨의 영향을 받아 증가하고, 피해량은 주문력의 영향을 받아 증가합니다.]]):  
 		format(range, damDesc(self, DamageType.LIGHT, damageonmeleehit))
 	end,
 }
@@ -116,6 +118,7 @@ newTalent{
 -- People that don't want to micromanage/math out when the other chants are better will like this and it should still outperform Fortitude most of the time
 newTalent{
 	name = "Chant of Resistance",
+	kr_name = "저항의 찬가",
 	type = {"celestial/chants",3},
 	mode = "sustained",
 	require = divi_req3,
@@ -148,10 +151,10 @@ newTalent{
 	info = function(self, t)
 		local resists = t.getResists(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
-		return ([[You chant the glory of the Sun, granting you %d%% resistance to all damage.
-		In addition, this talent surrounds you with a shield of light, dealing %0.1f light damage to anything that hits you in melee.
-		You may only have one Chant active at once.
-		The effects will increase with your Spellpower.]]):
+		return ([[태양의 영광을 노래하여, 전체 저항력을 %d%% 상승시킵니다. 
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 빛 피해를 되돌려줍니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다. 
+ 		저항력과 피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(resists, damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
@@ -160,6 +163,7 @@ newTalent{
 -- A defensive chant is realistically always a better choice than an offensive one but we can mitigate this by giving abnormally high value at low talent investment
 newTalent{
 	name = "Chant of Light",
+	kr_name = "빛의 찬가",
 	type = {"celestial/chants", 4},
 	mode = "sustained",
 	require = divi_req4,
@@ -195,11 +199,11 @@ newTalent{
 		local damageinc = t.getLightDamageIncrease(self, t)
 		local damage = t.getDamageOnMeleeHit(self, t)
 		local lite = t.getLite(self, t)
-		return ([[You chant the glory of the Sun, empowering your light and fire elemental attacks so that they do %d%% additional damage.
-		In addition, this talent surrounds you with a shield of light, dealing %0.1f light damage to anything that hits you in melee.
-		Your lite radius is also increased by %d.
-		You may only have one Chant active at once and this Chant costs less power to sustain.
-		The effects will increase with your Spellpower.]]):
+		return ([[태양의 영광을 노래하여, 빛과 화염 속성으로 적을 공격할 때 %d%% 피해를 추가로 줍니다. 
+ 		그리고 주변을 빛으로 감싸, 근접공격을 받으면 적에게 %0.1f 의 빛 피해를 되돌려 줍니다. 
+ 		또한, 광원 반경이 %d 칸 증가됩니다. 이 찬가는 다른 찬가들에 비해 적은 원천력으로 유지할 수 있습니다. 
+ 		한번에 하나의 찬가만을 유지할 수 있습니다.  
+ 		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):  
 		format(damageinc, damDesc(self, DamageType.LIGHT, damage), lite)
 	end,
 }

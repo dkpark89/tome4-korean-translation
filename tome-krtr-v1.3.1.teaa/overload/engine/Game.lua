@@ -410,7 +410,7 @@ end
 function _M:getSaveDescription()
 	return {
 		name = "player",
-		description = [[Busy adventuring!]],
+		description = [[모험하느라 바쁨!]],
 	}
 end
 
@@ -676,7 +676,7 @@ function _M:saveScreenshot()
 		core.steam.screenshot(file, self.w, self.h, desc.description)
 		Dialog:simpleLongPopup("Screenshot taken!", "Screenshot should appear in your Steam client's #LIGHT_GREEN#Screenshots Library#LAST#.\nAlso available on disk: "..fs.getRealPath(file), 600)
 	else
-		Dialog:simplePopup("Screenshot taken!", "File: "..fs.getRealPath(file))
+		Dialog:simplePopup("스크린샷 저장!", "파일: "..fs.getRealPath(file))
 	end
 end
 

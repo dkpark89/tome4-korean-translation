@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ name = "gladiator",
+	kr_name = "검투사",
 	define_as = "GLADIATOR",
 	type = "humanoid", subtype = "human",
 	color=colors.GOLD, display = "p",
@@ -40,7 +41,7 @@ newEntity{ name = "gladiator",
 	ai = "tactical", ai_state = { ai_move = "move_complex", talent_in = 1 },
 
 	stats = { str=15, dex=15, mag=1, con=15 },
-	desc = [[A menacing man in heavy armor, wielding a mace. He looks battle-hardened.]],
+	desc = [[중갑을 걸치고 철퇴를 든, 위협적인 전사입니다. 전투에 능숙한 자인 것 같습니다.]],
 	level_range = {5, 19}, exp_worth = 2,
 	rarity = false,
 	max_life = resolvers.rngavg(100,125),
@@ -68,6 +69,7 @@ newEntity{ name = "gladiator",
 }
 
 newEntity{ name = "halfling slinger",
+	kr_name = "하플링 투석 전사",
 	define_as = "SLINGER",
 	type = "humanoid", subtype = "halfling",
 	color=colors.GOLD, display = "p",
@@ -87,7 +89,7 @@ newEntity{ name = "halfling slinger",
 	ai = "tactical", ai_state = { ai_move = "move_complex", talent_in = 1 },
 
 	stats = { str=10, dex=15, cun=15, con=8 },
-	desc = [[A Halfling slinger. He seems adept at combat.]],
+	desc = [[하플링 투석 전사입니다. 전투 경험이 상당한 것 같습니다.]],
 	level_range = {6, 20}, exp_worth = 1,
 	rarity = false,
 	max_life = resolvers.rngavg(100,110),
@@ -120,6 +122,7 @@ newEntity{ name = "halfling slinger",
 }
 
 newEntity{ name = "arcane blade",
+	kr_name = "마법 전사",
 	define_as = "ARCANEBLADE",
 	type = "humanoid", subtype = "human",
 	color=colors.GOLD, display = "p",
@@ -139,7 +142,7 @@ newEntity{ name = "arcane blade",
 	ai = "tactical", ai_state = { ai_move = "move_complex", talent_in = 1 },
 
 	stats = { str=20, dex=20, mag=8, con=16 },
-	desc = [[A Human Arcane Blade. His body shows multiple scars from battle.]],
+	desc = [[인간 마법 전사입니다. 전투로 인한 상처가 몸 곳곳에 보입니다.]],
 	level_range = {6, 21}, exp_worth = 2,
 	rarity = false,
 	max_life = resolvers.rngavg(100,130),

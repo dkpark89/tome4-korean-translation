@@ -1,5 +1,5 @@
 -- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,19 +17,19 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New game difficulty mode: #LIGHT_GREEN#Insane",
-[[You won the game on Nightmare mode.  You are a big tough player!
-You thought you had seen it all, done it all...
+return "새로운 게임 난이도 : #LIGHT_GREEN#정신나간 난이도",
+[[당신은 악몽 난이도에서 게임을 승리하셨습니다. 정말로 고난을 즐길 줄 아는 플레이어시군요!
+아마 당신은 이 게임의 모든 것을 다 보고, 즐겼다고 생각하실 겁니다...
 
-But no! If nightmare mode couldn't bring you down, Insane mode will!
+하지만 그렇지 않습니다! 악몽으로 당신을 쓰러뜨리지 못했다면, 정신나간 자들이 당신을 쓰러뜨릴 것입니다!
 
-Insane features:#YELLOW#
-- All zone levels increased by 50% + 3
-- All creature talent levels increased by 50%
-- Rare creatures are far more frequent and random bosses start to appear
-- Bosses will have randomly selected talents
-- All enemies have 20% more life
-- Player can earn Insane version of achievements if also playing in Roguelike permadeath mode.
+정신나간 난이도에서는 :#YELLOW#
+- 모든 지역의 레벨이 50% + 3 증가됩니다.
+- 모든 적들의 기술 레벨이 50% 증가됩니다.
+- '희귀한' 적들을 훨씬 더 자주 만나게 되며, 보스급 적들이 무작위로 나타나기 시작합니다.
+- 보스급 적들은 임의의 기술들을 추가로 가집니다.
+- 모든 적들은 20% 많은 생명력을 가집니다.
+- 정신나간 난이도에서 플레이하면, 정신나간 등급의 업적을 달성할 수 있습니다.
 
-#WHITE#May you suffer many fun and unfair deaths!
+#WHITE#당신에게 즐거움과 공정치 못한 죽음이 가득하기를!
 ]]

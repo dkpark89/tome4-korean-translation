@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Trap"
 require "engine.interface.ActorProject"
@@ -67,10 +68,10 @@ end
 
 -- Gets the full name of the trap
 function _M:getName()
-	local name = self.name or "trap"
+	local name = self.kr_name or self.name or "함정" --@ 한글 이름 추가
 	if not self:isIdentified() and self:getUnidentifiedName() then name = self:getUnidentifiedName() end
 	if self.summoner and self.summoner.name then
-		return self.summoner.name:capitalize().."'s "..name
+		return (self.summoner.kr_name or self.summoner.name):capitalize().."의 "..name
 	else
 		return name
 	end
@@ -87,20 +88,20 @@ end
 -- Returns a tooltip for the trap
 function _M:tooltip()
 	if self:knownBy(game.player) then
-		local res = tstring{{"uid", self.uid}, self:getName()}
-		if self.temporary then res:add(true, ("#LIGHT_GREEN#%d turns#WHITE#"):format(self.temporary)) end
-		if self.is_store then res:add(true, {"font","italic"}, "<Store>", {"font","normal"}) end
+		local res = tstring{{"uid", self.uid}, (self:getName().." ["..self.name.."]")} --@ 상점 이름 '한글이름[원문이름]'으로 수정
+		if self.temporary then res:add(true, ("#LIGHT_GREEN#%d 턴#WHITE#"):format(self.temporary)) end
+		if self.is_store then res:add(true, {"font","italic"}, "<상점>", {"font","normal"}) end
 
 		if self.store_faction then
-			local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "neutral", Faction:factionReaction(self.store_faction, game.player.faction)
-			if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "hostile"
-			elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "friendly"
+			local factcolor, factstate, factlevel = "#ANTIQUE_WHITE#", "중립", Faction:factionReaction(self.store_faction, game.player.faction)
+			if factlevel < 0 then factcolor, factstate = "#LIGHT_RED#", "적대"
+			elseif factlevel > 0 then factcolor, factstate = "#LIGHT_GREEN#", "우호"
 			end
-			if Faction.factions[self.store_faction] then res:add(true, "Faction: ") res:merge(factcolor:toTString()) res:add(("%s (%s, %d)"):format(Faction.factions[self.store_faction].name, factstate, factlevel), {"color", "WHITE"}, true) end
+			if Faction.factions[self.store_faction] then res:add(true, "소속: ") res:merge(factcolor:toTString()) res:add(("%s (%s, %d)"):format(Faction.factions[self.store_faction].name:krFaction(), factstate, factlevel), {"color", "WHITE"}, true) end --@ 소속이름 한글화
 		end		
 
 		if config.settings.cheat then
-			res:add(true, "UID: "..self.uid, true, "Detect: "..self.detect_power, true, "Disarm: "..self.disarm_power)
+			res:add(true, "UID: "..self.uid, true, "탐지 : "..self.detect_power, true, "해체 : "..self.disarm_power)
 		end
 		return res
 	end
@@ -140,14 +141,14 @@ function _M:canTrigger(x, y, who, no_random)
 	if self.beneficial_trap and self.faction and who.reactionToward and who:reactionToward(self) >= 0 then return true end
 	
 	if rng.percent(5) and not self.beneficial_trap then
-		if self:knownBy(who) then game.logPlayer(who, "You somehow avoid the trap (%s).", self:getName()) end
+		if self:knownBy(who) then game.logPlayer(who, "당신은 그럭저럭 함정(%s)을 피해갑니다.", self:getName()) end
 		return false
 	end
 	if who:attr("avoid_traps") then return false end
 	if self.pressure_trap and who:attr("avoid_pressure_traps") then return false end
 	if self.faction and who.reactionToward and who:reactionToward(self) >= 0 then return false end
 	if not no_random and who.trap_avoidance and rng.percent(who.trap_avoidance) then
-		if self:knownBy(who) then game.logPlayer(who, "You carefully avoid the trap (%s).", self:getName()) end
+		if self:knownBy(who) then game.logPlayer(who, "당신은 조심스럽게 함정(%s)을 피해갑니다.", self:getName()) end
 		return false
 	end
 	if who:attr("walk_sun_path") and game.level then
@@ -159,7 +160,7 @@ end
 --- Trigger the trap
 function _M:trigger(x, y, who)
 	engine.Trap.trigger(self, x, y, who)
-	if who.runStop then who:runStop("trap") end
+	if who.runStop then who:runStop("함정") end
 end
 
 --- Identify the trap

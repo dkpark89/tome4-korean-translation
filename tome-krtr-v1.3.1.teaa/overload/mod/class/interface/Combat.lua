@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local DamageType = require "engine.DamageType"
 local Map = require "engine.Map"
@@ -95,7 +96,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act * speed)
 			self.did_energy = true
 		end
-		game.logSeen(self, "%s is too afraid to attack.", self.name:capitalize())
+		game.logSeen(self, "%s 공격할 수 없을 만큼 공포를 느끼고 있습니다.", (self.kr_name or self.name):capitalize():addJosa("는"))
 		return false
 	end
 
@@ -104,7 +105,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 			self:useEnergy(game.energy_to_act)
 			self.did_energy = true
 		end
-		game.logSeen(self, "%s is too terrified to attack.", self.name:capitalize())
+		game.logSeen(self, "%s 공격할 수 없을만큼 겁에 질렸습니다.", (self.kr_name or self.name):capitalize():addJosa("는"))
 		return false
 	end
 
@@ -112,7 +113,7 @@ function _M:attackTarget(target, damtype, mult, noenergy, force_unharmed)
 	if self:isTalentActive(self.T_STEALTH) and target:canSee(self) then
 		self:useTalent(self.T_STEALTH)
 		self.changed = true
-		if self.player then self:logCombat(target, "#Target# notices you at the last moment!") end
+		if self.player then self:logCombat(target, "#Target2# 마지막 순간에 당신의 존재를 알아차렸습니다!") end
 	end
 
 	if target:isTalentActive(target.T_INTUITIVE_SHOTS) and rng.percent(target:callTalent(target.T_INTUITIVE_SHOTS, "getChance")) then
@@ -416,7 +417,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if target:knowTalent(target.T_SKIRMISHER_BUCKLER_EXPERTISE) then
 		local t = target:getTalentFromId(target.T_SKIRMISHER_BUCKLER_EXPERTISE)
 		if t.shouldEvade(target, t) then
-			game.logSeen(target, "#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#", target.name:capitalize(), string.his_her(target))
+			game.logSeen(target, "#ORCHID#%s 영리하게 공격을 %s의 방패로 빗막았습니다!#LAST#", (target.kr_name or target.name):capitalize():addJosa("가"), string.his_her(target):krHisHer())
 			t.onEvade(target, t, self)
 			repelled = true
 		end
@@ -438,16 +439,16 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	end
 
 	if repelled then
-		self:logCombat(target, "#Target# repels an attack from #Source#.")
+		self:logCombat(target, "#Target2# #Source#의 공격을 저지했습니다.")
 	elseif self:checkEvasion(target) then
 		evaded = true
-		self:logCombat(target, "#Target# evades #Source#.")
+		self:logCombat(target, "#Target1# #Source3# 피했습니다.")
 	elseif self.turn_procs.auto_melee_hit or (self:checkHit(atk, def) and (self:canSee(target) or self:attr("blind_fight") or target:attr("blind_fighted") or rng.chance(3))) then
 		local pres = util.bound(target:combatArmorHardiness() / 100, 0, 1)
 		if target.knowTalent and target:hasEffect(target.EFF_DUAL_WEAPON_DEFENSE) then
 			local deflect = math.min(dam, target:callTalent(target.T_DUAL_WEAPON_DEFENSE, "doDeflect"))
 			if deflect > 0 then
-				game:delayedLogDamage(self, target, 0, ("%s(%d parried#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflect), false)
+				game:delayedLogDamage(self, target, 0, ("%s(흘려내기 %d#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflect), false)
 				dam = math.max(dam - deflect,0)
 				print("[ATTACK] after DUAL_WEAPON_DEFENSE", dam)
 			end
@@ -455,7 +456,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 		if target.knowTalent and target:hasEffect(target.EFF_GESTURE_OF_GUARDING) and not target:attr("encased_in_ice") then
 			local deflected = math.min(dam, target:callTalent(target.T_GESTURE_OF_GUARDING, "doGuard")) or 0
 			if deflected > 0 then
-				game:delayedLogDamage(self, target, 0, ("%s(%d gestured#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflected), false)
+				game:delayedLogDamage(self, target, 0, ("%s(수호의 손짓으로 인해 %d 피해 감소#LAST#)"):format(DamageType:get(damtype).text_color or "#aaaaaa#", deflected), false) 
 				dam = dam - deflected
 			end
 			print("[ATTACK] after GESTURE_OF_GUARDING", dam)
@@ -504,7 +505,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 			print("[ATTACK] after inc by type", dam)
 		end
 
-		if crit then self:logCombat(target, "#{bold}##Source# performs a melee critical strike against #Target#!#{normal}#") end
+		if crit then self:logCombat(target, "#{bold}##Source2# #Target#에게 근접 치명타 공격을 성공시켰습니다!#{normal}#") end
 
 		-- Phasing, percent of weapon damage bypasses shields
 		-- It's done like this because onTakeHit has no knowledge of the weapon
@@ -560,7 +561,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 
 		if self:attr("vim_on_melee") and self ~= target then self:incVim(self:attr("vim_on_melee")) end
 	else
-		self:logCombat(target, "#Source# misses #Target#.")
+		self:logCombat(target, "#Source1# #Target3# 빗맞힙니다.")
 		target:fireTalentCheck("callbackOnMeleeMiss", self, dam)
 	end
 
@@ -677,7 +678,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	-- Shattering Impact
 	if hitted and self:attr("shattering_impact") and (not self.shattering_impact_last_turn or self.shattering_impact_last_turn < game.turn) then
 		local dam = dam * self.shattering_impact
-		game.logSeen(target, "The shattering blow creates a shockwave!")
+		game.logSeen(target, "공격의 충돌로 인한 충격파가 발생했습니다!")
 		self:project({type="ball", radius=1, selffire=false, act_exclude={[target.uid]=true}}, target.x, target.y, DamageType.PHYSICAL, dam)  -- don't hit target with the AOE
 		self:incStamina(-8)
 		self.shattering_impact_last_turn = game.turn
@@ -905,7 +906,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if not hitted and not target.dead and target:knowTalent(target.T_COUNTER_ATTACK) and not target:attr("stunned") and not target:attr("dazed") and not target:attr("stoned") and target:knowTalent(target.T_COUNTER_ATTACK) and self:isNear(target.x,target.y, 1) then --Adjacency check
 		local cadam = target:callTalent(target.T_COUNTER_ATTACK,"checkCounterAttack")
 		if cadam then
-			game.logSeen(self, "%s counters the attack!", target.name:capitalize())
+		game.logSeen(self, "%s 반격을 합니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			target:attackTarget(self, nil, cadam, true)
 		end
 	end
@@ -926,7 +927,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	local gwf = self:hasEffect(self.EFF_GREATER_WEAPON_FOCUS)
 	if hitted and not target.dead and weapon and gwf and not gwf.inside and rng.percent(gwf.chance) then
 		gwf.inside = true
-		game.logSeen(self, "%s focuses and gains an extra blow!", self.name:capitalize())
+		game.logSeen(self, "%s 집중하여 추가 타격을 합니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 		self:attackTargetWith(target, weapon, damtype, mult)
 		gwf.inside = nil
 	end
@@ -949,7 +950,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	-- Weakness hate bonus
 	if hitted and effGloomWeakness and effGloomWeakness.hateBonus or 0 > 0 then
 		self:incHate(effGloomWeakness.hateBonus)
-		game.logPlayer(self, "#F53CBE#You revel in attacking a weakened foe! (+%d hate)", effGloomWeakness.hateBonus)
+		game.logPlayer(self, "#F53CBE#당신은 약해진 적을 공격하는 것에 기뻐합니다! (증오심 +%d)", effGloomWeakness.hateBonus)
 		effGloomWeakness.hateBonus = nil
 	end
 
@@ -957,7 +958,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 	if hitted and crit then
 		local eff = self:hasEffect(self.EFF_RAMPAGE)
 		if eff and not eff.critHit and eff.actualDuration < eff.maxDuration and self:knowTalent(self.T_BRUTALITY) then
-			game.logPlayer(self, "#F53CBE#Your rampage is invigorated by your fierce attack! (+1 duration)")
+			game.logPlayer(self, "#F53CBE#맹렬한 공격으로 인해, 당신의 돌진이 탄력을 받습니다! (지속시간 +1)")
 			eff.critHit = true
 			eff.actualDuration = eff.actualDuration + 1
 			eff.dur = eff.dur + 1
@@ -972,7 +973,7 @@ function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)
 				if target:canBe("stun") then
 					target:setEffect(target.EFF_STUNNED, 3, {})
 				else
-					game.logSeen(target, "%s resists the stun!", target.name:capitalize())
+					game.logSeen(target, "%s 기절 효과에 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 
@@ -1842,7 +1843,7 @@ function _M:spellCrit(dam, add_chance, crit_power_add)
 		self.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		dam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		crit = true
-		game.logSeen(self, "#{bold}#%s's spell attains critical power!#{normal}#", self.name:capitalize())
+		game.logSeen(self, "#{bold}#%s의 주문이 치명타가 됐습니다!#{normal}#", (self.kr_name or self.name):capitalize())
 
 		if self:attr("mana_on_crit") then self:incMana(self:attr("mana_on_crit")) end
 		if self:attr("vim_on_crit") then self:incVim(self:attr("vim_on_crit")) end
@@ -1892,7 +1893,7 @@ function _M:mindCrit(dam, add_chance, crit_power_add)
 		self.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		dam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)
 		crit = true
-		game.logSeen(self, "#{bold}#%s's mind surges with critical power!#{normal}#", self.name:capitalize())
+		game.logSeen(self, "#{bold}#%s의 정신 공격이 치명타가 됐습니다!#{normal}#", (self.kr_name or self.name):capitalize())
 
 		if self:attr("hate_on_crit") then self:incHate(self:attr("hate_on_crit")) end
 		if self:attr("psi_on_crit") then self:incPsi(self:attr("psi_on_crit")) end
@@ -2435,7 +2436,7 @@ end
 function _M:grappleSizeCheck(target)
 	local size = target.size_category - self.size_category
 	if size > 1 then
-		self:logCombat(target, "#Source#'s grapple fails because #Target# is too big!")
+		self:logCombat(target, "#Target1# 너무 커서, #Source2# 잡기 기술을 실패했습니다!")
 		return true
 	else
 		return false
@@ -2477,7 +2478,7 @@ function _M:startGrapple(target)
 		self:setEffect(self.EFF_GRAPPLING, duration, grappleParam)
 		return true
 	else
-		game.logSeen(target, "%s resists the grapple!", target.name:capitalize())
+		game.logSeen(target, "%s 잡기 공격을 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("는"))
 		return false
 	end
 end

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@ newEntity{ base = "BASE_LORE",
 	define_as = "SPELLBLAZE_NOTE"..i,
 	subtype = "spellblaze", unique=true, no_unique_lore=true, not_in_stores=false,
 	name = l.name, lore="spellblaze-chronicles-"..i,
+	kr_name = l.kr_name,
 	rarity = false,
 	encumberance = 0,
 	cost = 70,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Temple of Creation",
+	kr_name = "창조의 사원",
 	level_range = {30, 40},
 	level_scheme = "player",
 	max_level = 3,
@@ -96,9 +97,9 @@ return {
 
 	on_enter = function(lev, old_lev, newzone)
 		if newzone then
-			game.logPlayer(game.player, "#AQUAMARINE#You arrive deep under water, at the sea floor, as you look upwards you only see a glimpse of light coming through.")
-			game.logPlayer(game.player, "#AQUAMARINE#You should be crushed by the pressure, but strangely you feel no discomfort.")
-			game.logPlayer(game.player, "#AQUAMARINE#All around you there is only water as far as you can see, except to your left, a giant coral structure. This is probably the temple of Creation.")
+			game.logPlayer(game.player, "#AQUAMARINE#당신은 깊은 바다 중에서도 가장 깊은 곳에 도착했습니다. 위쪽을 쳐다보자 희미하게 반짝이는 빛만 보입니다.")
+			game.logPlayer(game.player, "#AQUAMARINE#원래는 압력에 의해 찌그러져야 정상이지만, 기이하게도 그 어떤 불편함도 느껴지지 않습니다.")
+			game.logPlayer(game.player, "#AQUAMARINE#왼쪽에 보이는 대형 산호 건축물을 제외하면, 주변에는 온통 바닷물 뿐입니다. 저곳이 창조의 사원인 것 같습니다.")
 		end
 	end,
 }

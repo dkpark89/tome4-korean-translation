@@ -17,12 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-As you walk forward, you hear the increasingly loud cheers coming from outside.
-As you step into the arena, the scorching sun blinds your eyes temporarily.
-You look up, and meet your target eye to eye: The Master of the Arena, carefully examining
-the newcomer. He smirks, and starts looking at the other fighters with interest.
-Whoever defeats the Master of Arena will achieve utmost glory. 
-Determined to win, you draw your weapons and advance defiantly. 
-The public roars in anticipation....
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+발걸음을 내딛자, 바깥에서 들려오는 환호성이 점점 더 커져갑니다.
+경기장에 발을 들여놓자, 강렬한 햇빛에 눈이 멀 것만 같습니다.
+고개를 들어, 당신의 '목표' 와 눈을 마주쳤습니다. 신참을 신중하게 살펴보며 히죽히죽 웃던 '목표' 는, 이내 다른 투사들을 흥미롭게 바라보기 시작합니다.
+당신의 '목표' 인 '투기장의 정복자' 와 싸워 이기는 자는, 누구든지 최고의 영광을 누릴 수 있게 됩니다.
+승리를 쟁취하기 위해, 당신은 무기를 들고 자신만만하게 발걸음을 내딛었습니다.
+관중들이 기대에 가득 찬 함성을 내지릅니다...
 ]]

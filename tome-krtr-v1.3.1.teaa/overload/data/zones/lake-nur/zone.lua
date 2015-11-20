@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ local is_flooded = layout == "FLOODED"
 
 return {
 	name = "Lake of Nur",
+	kr_name = "누르 호수",
 	level_range = {15, 25},
 	level_scheme = "player",
 	max_level = 3,
@@ -130,13 +131,13 @@ return {
 	on_enter = function(lev, old_lev, newzone)
 		local Dialog = require("engine.ui.Dialog")
 		if lev == 2 and not game.level.shown_warning then
-			Dialog:simplePopup("Lake of Nur", "You descend into the submerged ruins. The walls look extremely ancient, yet you feel power within this place.")
+			Dialog:simplePopup("누르 호수", "당신은 물 속에 잠긴 폐허로 내려갔습니다. 벽은 매우 오래된 고대의 것으로 보이고, 이 장소에는 아직도 어떤 힘이 남아 있는 것 같습니다.")
 			game.level.shown_warning = true
 		elseif lev == 3 and not game.level.shown_warning and not game.level.data.is_flooded then
 			game.level.shown_warning = true
 			game.party:learnLore("lake-nur-not-flooded")
 		elseif lev == 3 and not game.level.shown_warning and game.level.data.is_flooded then
-			Dialog:simpleLongPopup("Lake of Nur", "As you descend to the next level you traverse a kind of magical barrier keeping the water away. The barrier seems to be failing however and the next level is flooded too.", 400)
+			Dialog:simpleLongPopup("누르 호수", "다음 층으로 내려가면서, 물이 침범하지 못하는 어떤 종류의 마법 장벽을 지나쳤습니다. 하지만 이 장벽에 문제가 있었는지, 다음 층 역시 물에 잠긴 상태입니다.", 400)
 			game.level.shown_warning = true
 		end
 	end,

@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Map = require "engine.Map"
 require "engine.Generator"
@@ -183,77 +184,77 @@ _M.mooks = {
 }
 
 _M.miniboss = {
-	{ name = "SKELERAT", wave = 4, entry = 2, display = "Skeletal rats", score = 100, power = 5, rank = 0.1 },
-	{ name = "GLADIATOR", wave = 2, entry = 1, display = "Gladiators", score = 150, power = 10, rank = 0.2 },
+	{ name = "SKELERAT", wave = 4, entry = 2, display = "Skeletal rats", kr_display="스켈레톤 쥐들", score = 100, power = 5, rank = 0.1 },
+	{ name = "GLADIATOR", wave = 2, entry = 1, display = "Gladiators", kr_display="검투사 무리", score = 150, power = 10, rank = 0.2 },
 	{ nil },
-	{ name = "GOLDCRYSTAL", wave = 4, entry = 3, display = "Golden crystals", score = 250, power = 15, rank = 0.1 },
-	{ name = "MASTERSLINGER", wave = 3, entry = 2, display = "Master slingers", score = 350, power = 20, rank = 0.2 },
+	{ name = "GOLDCRYSTAL", wave = 4, entry = 3, display = "Golden crystals", kr_display="황금 수정들", score = 250, power = 15, rank = 0.1 },
+	{ name = "MASTERSLINGER", wave = 3, entry = 2, display = "Master slingers", kr_display="상급 투석전사 무리", score = 350, power = 20, rank = 0.2 },
 	{ nil },
-	{ name = "MASTERALCHEMIST", wave = 1, entry = 1, display = "Master Alchemist", score = 400, power = 25, rank = 0.5 },
-	{ name = "MULTIHUEWYRMIC", wave = 1, entry = 1, display = "Multi-hued Wyrmic", score = 400, power = 30, rank = 0.5 },
+	{ name = "MASTERALCHEMIST", wave = 1, entry = 1, display = "Master Alchemist", kr_display="상급 연금술사", score = 400, power = 25, rank = 0.5 },
+	{ name = "MULTIHUEWYRMIC", wave = 1, entry = 1, display = "Multi-hued Wyrmic", kr_display="무지개빛 용인", score = 400, power = 30, rank = 0.5 },
 	{ nil },
-	{ name = "REAVER", wave = 2, entry = 2, display = "Reaver", score = 800, power = 40, rank = 0.3 },
-	{ name = "HEADLESSHORROR", wave = 1, entry = 1, display = "Headless horror", score = 1000, power = 50, rank = 1 },
+	{ name = "REAVER", wave = 2, entry = 2, display = "Reaver", kr_display="파괴자", score = 800, power = 40, rank = 0.3 },
+	{ name = "HEADLESSHORROR", wave = 1, entry = 1, display = "Headless horror", kr_display="머리 없는 공포", score = 1000, power = 50, rank = 1 },
 }
 
 _M.bosses = {
-	{ name = "ARENA_BOSS_RYAL", display = "Ryal the Towering", chat = "arena_boss_ryal",
+	{ name = "ARENA_BOSS_RYAL", display = "Ryal the Towering", kr_display="우뚝 선 리얄", chat = "arena_boss_ryal",
 	score = 1500, power = 35,
 	start = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_name="보스 전투!"}, game.player)
 		chat:invoke("ryal-entry")
 	end,
 	finish = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_name="승리!!"}, game.player)
 		game.player:incMoney(35)
 		chat:invoke("ryal-defeat")
 	end
 	},
-	{ name = "ARENA_BOSS_FRYJIA", display = "Fryjia the Hailstorm", chat= "arena_boss_fryjia",
+	{ name = "ARENA_BOSS_FRYJIA", display = "Fryjia the Hailstorm", kr_display="우박의 프리지아", chat= "arena_boss_fryjia",
 	score = 2500, power = 55,
 	start = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_name="보스 전투!"}, game.player)
 		chat:invoke("fryjia-entry")
 	end,
 	finish = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_name="승리!!"}, game.player)
 		game.player:incMoney(50)
 		chat:invoke("fryjia-defeat")
 	end
 	},
-	{ name = "ARENA_BOSS_RIALA", display = "Riala the Crimson", chat = "arena_boss_riala",
+	{ name = "ARENA_BOSS_RIALA", display = "Riala the Crimson", kr_display="'핏빛' 의 리알라", chat = "arena_boss_riala",
 	score = 3500, power = 85,
 	start = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_name="보스 전투!"}, game.player)
 		chat:invoke("riala-entry")
 	end,
 	finish = function ()
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_name="승리!!"}, game.player)
 		game.player:incMoney(70)
 		chat:invoke("riala-defeat")
 
 	end
 	},
-	{ name = "ARENA_BOSS_VALFREN", display = "Valfren the Rampage", chat = "arena_boss_valfren",
+	{ name = "ARENA_BOSS_VALFREN", display = "Valfren the Rampage", kr_display="격노의 발프렌", chat = "arena_boss_valfren",
 	score = 4500, power = 125,
 	start = function ()
 		game.level.map:setShown(0.3, 0.3, 0.3, 1)
 		game.level.map:setObscure(0.3*0.6, 0.3*0.6, 0.3*0.6, 1)
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Boss fight!"}, game.player)
+		local chat = Chat.new("arena", {name="Boss fight!", kr_name="보스 전투!"}, game.player)
 		chat:invoke("valfren-entry")
 	end,
 	finish = function ()
 		game.level.map:setShown(1, 1, 1, 1)
 		game.level.map:setObscure(1*0.6, 1*0.6, 1*0.6, 1)
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("arena", {name="Victory!!"}, game.player)
+		local chat = Chat.new("arena", {name="Victory!!", kr_name="승리!!"}, game.player)
 		game.player:incMoney(90)
 		chat:invoke("valfren-defeat")
 	end
@@ -307,11 +308,11 @@ function _M:summonMiniboss(val)
 	for i = 1, e.wave do
 		self:generateMiniboss(e)
 	end
-	game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), e.display}
+	game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), (e.kr_display or e.display)} --@ 한글화로 <명칭> <이름> 순으로 조정
 	local verb = ""
 	game:playSoundNear(game.player, "talents/teleport")
-	if e.wave > 1 then verb = " appear!!" else verb = " appears!!" end
-	game.log("#LIGHT_RED#"..e.display..verb)
+	--if e.wave > 1 then verb = " appear!!" else verb = " appears!!" end --@ 한글화에는 필요없어 주석처리 
+	game.log("#LIGHT_RED#"..(e.kr_display or e.display).." 출현")
 end
 
 function _M:getEntrance(val)
@@ -393,8 +394,8 @@ function _M:generateBoss(val)
 		e.start()
 		m.arenaDefeat = e.finish
 		self.zone:addEntity(self.level, m, "actor", 7, 1)
-		game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), e.display}
-		game.log("#LIGHT_RED#WARNING! "..e.display.." appears!!!")
+		game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), (e.kr_display or e.display)} --@ 한글화로 <명칭> <이름> 순으로 조정
+		game.log("#LIGHT_RED#주의하십시오! "..(e.kr_display or e.display):addJosa("가").." 등장하였습니다!!!")
 		else print("[ARENA] - Boss error #1! ("..e.display..")")
 	end
 end
@@ -422,7 +423,7 @@ function _M:generateMaster()
 			m:setTarget(game.player)
 			m.on_added = function (self)
 				local Chat = require "engine.Chat"
-				local chat = Chat.new("arena", {name="The final fight!"}, game.player)
+				local chat = Chat.new("arena", {name="The final fight!", kr_name="최종 전투!"}, game.player)
 				chat:invoke("master-entry")
 				game.level.arena.danger = game.level.arena.danger + 1000
 				game.level.map:particleEmitter(self.x, self.y, 3, "teleport")
@@ -437,14 +438,14 @@ function _M:generateMaster()
 				game.level.arena.clear()
 				self.on_die = nil
 				local Chat = require "engine.Chat"
-				local chat = Chat.new("arena", {name="Congratulations!"}, game.player)
+				local chat = Chat.new("arena", {name="Congratulations!", kr_name="축하합니다!"}, game.player)
 				chat:invoke("master-defeat")
 
 			end
 			self.zone:addEntity(self.level, m, "actor", 7, 1)
 			local rank = math.floor(game.level.arena.rank)
-			game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), "Rej the Master of Arena"}
-			game.log("#LIGHT_RED#WARNING! Rej Arkatis, the master of the arena, appears!!!")
+			game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), "투기장의 지배자, 레즈"} --@ 한글화로 <명칭> <이름> 순으로 조정
+			game.log("#LIGHT_RED#주의하십시오! 현 투기장의 지배자, 레즈 알카티스가 지금 등장하였습니다!!!")
 			else print("[ARENA] - Finale error #1! (Default master error)")
 		end
 	else
@@ -454,7 +455,7 @@ function _M:generateMaster()
 		m:setTarget(game.player)
 		m.on_added = function (self)
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("arena", {name="The final fight!"}, game.player)
+			local chat = Chat.new("arena", {name="The final fight!", kr_name="최종 전투!"}, game.player)
 			chat:invoke("master-entry")
 			if self.alchemy_golem then
 				self.alchemy_golem.dead = nil
@@ -474,14 +475,14 @@ function _M:generateMaster()
 			game.level.map:particleEmitter(self.x, self.y, 1, "ball_fire", {radius = 3})
 			game.level.arena.clear()
 			local Chat = require "engine.Chat"
-			local chat = Chat.new("arena", {name="Congratulations!"}, game.player)
+			local chat = Chat.new("arena", {name="Congratulations!", kr_name="축하합니다!"}, game.player)
 			self.on_die = nil
 			chat:invoke("master-defeat")
 
 		end
 		self.zone:addEntity(self.level, m, "actor", 7, 1)
-		game.level.arena.display = {game.player.name.." the "..game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks), m.name.." the Master of Arena"}
-		game.log("#LIGHT_RED#WARNING! "..m.name..", the master of the arena, appears!!!")
+		game.level.arena.display = {game.level.arena.printRank(game.level.arena.rank, game.level.arena.ranks).." "..(game.player.kr_name or game.player.name), "투기장의 지배자 "..(m.kr_name or m.name)} --@ 한글화로 <명칭> <이름> 순으로 조정
+		game.log("#LIGHT_RED#주의하십시오! 현 투기장의 지배자 "..(m.kr_name or m.name):addJosa("가").." 지금 등장하였습니다!!!")
 	end
 end
 
@@ -527,21 +528,21 @@ function _M:setArenaTriggers(e, entry)
 		if self.arenaLastHit >= self.max_life then
 			if self.arenaLastHit >= self.max_life * 2 then
 				local x, y = game.level.map:getTileToScreen(self.x, self.y)
-				game.flyers:add(x, y, 90, 0, -0.5, "OVERKILL", { 231, 0, 0 }, false)
-				game.log("#LIGHT_GREEN#Your powerful attack completely obliterates #WHITE#"..self.name.."#LIGHT_GREEN#!")
+				game.flyers:add(x, y, 90, 0, -0.5, "과잉 살육", { 231, 0, 0 }, false)
+				game.log("#LIGHT_GREEN#당신의 강력한 공격이 #WHITE#"..(self.kr_name or  self.name):addJosa("를").."#LIGHT_GREEN# 완전히 말소시켜 버렸습니다!")
 				local val = (self.level * 0.015)
-				if val > 0.5 then game.log("#LIGHT_GREEN#The audience cheers!") end
+				if val > 0.5 then game.log("#LIGHT_GREEN#관객들이 환호합니다!") end
 				game.level.arena.raiseRank(val)
 			else
-				game.log("#LIGHT_GREEN#You destroy #WHITE#"..self.name.."#LIGHT_GREEN# in a single blow!")
+				game.log("#LIGHT_GREEN#당신은 한 방의 일격으로 #WHITE#"..(self.kr_name or  self.name):addJosa("를").."#LIGHT_GREEN# 작살내버렸습니다!")
 				local val = (self.level * 0.01)
-				if val > 0.5 then game.log("#LIGHT_GREEN#The audience cheers!") end
+				if val > 0.5 then game.log("#LIGHT_GREEN#관객들이 환호합니다!") end
 				game.level.arena.raiseRank(val)
 			end
 		end
 		game.level.arena.danger = game.level.arena.danger - self.arenaPower
 		if game.level.arena.pinch == false then
-			game.log("#LIGHT_GREEN#Your score multiplier increases by #WHITE#"..self.arenaBonusMult.."#LIGHT_GREEN#!")
+			game.log("#LIGHT_GREEN#당신의 점수 배율이 #WHITE#"..self.arenaBonusMult.."#LIGHT_GREEN# 만큼 증가하였습니다!")
 			game.level.arena.bonusMultiplier = game.level.arena.bonusMultiplier + self.arenaBonusMult
 		else
 			game.level.arena.bonus = game.level.arena.bonus + self.arenaScore
@@ -549,13 +550,13 @@ function _M:setArenaTriggers(e, entry)
 		game.level.arena.kills = game.level.arena.kills + 1
 		if game.level.arena.kills > 5 then
 			game.level.arena.bonusMultiplier = game.level.arena.bonusMultiplier + 0.1
-			game.log("#LIGHT_GREEN#Your score multiplier increases by #WHITE#0.1#LIGHT_GREEN#!")
+			game.log("#LIGHT_GREEN#당신의 점수 배율이 #WHITE#0.1#LIGHT_GREEN# 만큼 증가하였습니다!")
 		end
 		if self.level > game.player.level + 3 then
-			game.log("#YELLOW#You defeat an experienced enemy!")
+			game.log("#YELLOW#당신은 강력한 적을 쓰러뜨렸습니다!")
 			local raise = (self.level - game.player.level) * 0.01
 			if raise > 0.5 then
-				game.log("#LIGHT_GREEN#The audience cheers!")
+				game.log("#LIGHT_GREEN#관객들이 환호합니다!")
 				raise = 0.5
 			end
 			game.level.arena.raiseRank(raise)

@@ -17,10 +17,10 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You are a Yeek Wayist of Irkkk.
-All Yeeks follow the Way, which is both a global psionic link that unifies the whole Yeek race, and a way of life.
-Your whole life is dedicated to serving the Yeek race. You feel compelled by the Way to protect your race at all costs - even your own life.
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 읽크크에 사는 이크이자, '한길' 의 일원입니다.
+모든 이크들은 이크 종족을 연합시키는 정신적 연결체이자 살아가는 길을 제시해주는, '한길' 을 따르고 있습니다.
+당신은 '한길' 에 의해, 평생을 이크 종족의 부흥을 위해 헌신하도록 되어 있습니다. 또한, 무슨 수를 써서라도 - 목숨을 바쳐서라도 - 자신의 종족을 보호하라는 임무를 맡고 있습니다.
 
-You have been tasked to vanquish Murgol, an abomination from the deeps, and to clear the ritch tunnels before their blight spreads to the whole island.
+당신은 심해의 혐오생물인 무르골을 죽이고, 릿치들이 섬 전체를 황폐화시키기 전에 릿치 터널을 소탕하라는 임무를 받았습니다.
 ]]

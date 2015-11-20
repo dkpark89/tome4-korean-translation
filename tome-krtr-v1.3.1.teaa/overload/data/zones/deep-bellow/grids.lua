@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -20,4 +20,4 @@
 load("/data/general/grids/basic.lua")
 load("/data/general/grids/underground.lua")
 
-newEntity{ base = "UP", define_as = "IRON_COUNCIL", name="The Iron Council (Dwarven empire main city)", change_zone="town-iron-council", change_level=1, change_zone_auto_stairs = true }
+newEntity{ base = "UP", define_as = "IRON_COUNCIL", name="The Iron Council (Dwarven empire main city)", kr_name="철의 평의회 (드워프 제국 수도)", change_zone="town-iron-council", change_level=1, change_zone_auto_stairs = true }

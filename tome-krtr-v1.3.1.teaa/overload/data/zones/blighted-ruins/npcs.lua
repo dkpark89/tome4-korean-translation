@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.DARK_GREY,
 	name = "Necromancer", color=colors.DARK_GREY,
-	desc = [[A Human dressed in black robes. He mumbles in a harsh tongue. He seems to think you are his slave.]],
+	kr_name = "사령술사",
+	desc = [[검은 로브를 입은 인간입니다. 거슬리는 목소리로 뭔가 중얼거리고 있으며, 그는 당신이 그의 노예라고 생각하는 것 같습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { dam=resolvers.rngavg(5,12), atk=2, apr=6, physspeed=2 },
@@ -71,8 +72,9 @@ newEntity{
 newEntity{ base = "BASE_NPC_BONE_GIANT", define_as = "HALF_BONE_GIANT",
 	allow_infinite_dungeon = true,
 	name = "Half-Finished Bone Giant", color=colors.VIOLET, unique=true,
-	desc = [[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.
-This specimen looks like it was hastily assembled and is not really complete yet.]],
+	kr_name = "미완성 해골 거인",
+	desc = [[수백 개의 시체에서 꺼낸 뼈로 만들어진, 해골 거인입니다. 부정한 기운이 느껴집니다.
+이 시험작은 급히 만들어져, 아직 완성되지 못한 것으로 보입니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_half_finished_bone_giant.png", display_h=2, display_y=-1}}},
 	level_range = {7, nil}, exp_worth = 1,
 	rank = 4,

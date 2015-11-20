@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,8 +27,9 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_GRUSHNAK", define_as = "GRUSHNAK",
 	allow_infinite_dungeon = true,
 	name = "Grushnak, Battlemaster of the Pride", color=colors.VIOLET, unique = true,
-	desc = [[An old orc, covered in battle scars, he looks fierce and very, very, dangerous.]],
-	killer_message = "and mounted on the barracks wall",
+	kr_name = "오크 긍지의 전장을 지배한 자, 그루쉬낙",
+	desc = [[온 몸에 전투의 상처가 가득한, 늙은 오크입니다. 정말, 아주, 매우 위험하며 사나운 존재입니다.]],
+	killer_message = "당신은 막사 외벽에 장식용으로 고정되었습니다.",
 	level_range = {45, nil}, exp_worth = 1,
 	rank = 5,
 	max_life = 700, life_rating = 25, fixed_rating = true,

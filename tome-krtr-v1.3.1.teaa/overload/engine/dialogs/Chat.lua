@@ -33,7 +33,7 @@ function _M:init(chat, id)
 	self.chat = chat
 	self.npc = chat.npc
 	self.player = chat.player
-	Dialog.init(self, self.npc.name, 500, 400)
+	Dialog.init(self, (self.npc.kr_name or self.npc.name), 500, 400) --@ 한글 이름 사용하도록 변경
 
 	local xoff = 0
 	if self.show_portraits then

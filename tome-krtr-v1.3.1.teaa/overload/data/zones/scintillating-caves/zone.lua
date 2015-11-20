@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ if layout == "TWISTED" then
 
 return {
 	name = "Scintillating Caves",
+	kr_name = "번뜩이는 동굴",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 5,
@@ -34,8 +35,7 @@ return {
 	all_lited = true,
 	persistent = "zone",
 	ambient_music = "Mystery.ogg",
-	min_material_level = function() return game.state:isAdvanced() and 3 or 1 end,
-	max_material_level = function() return game.state:isAdvanced() and 4 or 2 end,
+	max_material_level = 2,
 	generator =  {
 		map = {
 			class = "engine.generator.map.Roomer",
@@ -95,7 +95,7 @@ return {
 	on_enter = function(lev)
 		if lev == 1 and not game.level.data.warned then
 			game.level.data.warned = true
-			require("engine.ui.Dialog"):simplePopup("Caves...", "As you enter the caves you notice the magic here has distorted the land, making sharp angles and turns.")
+			require("engine.ui.Dialog"):simplePopup("동굴...", "동굴에 들어서자, 당신은 이곳의 마법이 대지를 왜곡시켜 모든 것을 날카롭게 되었다는 느낌을 받았습니다.")
 		end
 	end,
 }
@@ -104,6 +104,7 @@ else
 
 return {
 	name = "Scintillating Caves",
+	kr_name = "번뜩이는 동굴",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,
@@ -116,8 +117,7 @@ return {
 	all_lited = true,
 	persistent = "zone",
 	ambient_music = "Mystery.ogg",
-	min_material_level = function() return game.state:isAdvanced() and 3 or 1 end,
-	max_material_level = function() return game.state:isAdvanced() and 4 or 2 end,
+	max_material_level = 2,
 	generator =  {
 		map = {
 			class = "engine.generator.map.Cavern",

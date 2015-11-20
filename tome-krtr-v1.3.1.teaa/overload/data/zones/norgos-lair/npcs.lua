@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -49,11 +49,12 @@ else
 		allow_infinite_dungeon = true,
 		unique = true,
 		name = "Norgos, the Frozen",
+		kr_name = "얼어붙은 노르고스",
 		display = "q", color=colors.VIOLET,
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/animal_bear_norgos_the_frozen.png", display_h=2, display_y=-1}}},
-		desc = [[This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.
-It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen, it seems like a statue, animated by the elementals.]],
-		killer_message = "and was turned into icicles",
+		desc = [[이 고대의 곰은 숲의 서쪽 지역을 오랫동안 지켜왔었습니다. 하지만 그가 미쳐버린 이후, 이제는 탈로레까지도 공격하고 있습니다.
+게다가 이 곰은 이 지역을 침입한 쉬브고로스의 먹이가 된 것 같습니다. 얼어붙은 채 움직이는 이 시체는, 마치 정령에 의해 움직이는 석상인 것 같습니다.]],
+		killer_message = "당신은 얼어붙어 고드름이 되었습니다.",
 		level_range = {7, nil}, exp_worth = 2,
 		max_life = 200, life_rating = 17, fixed_rating = true, life_regen = 0,
 		max_stamina = 85,
@@ -94,10 +95,11 @@ newEntity{ base="BASE_NPC_BEAR", define_as = "NORGOS",
 	allow_infinite_dungeon = true,
 	unique = true,
 	name = "Norgos, the Guardian",
+	kr_name = "수호자, 노르고스",
 	display = "q", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/animal_bear_norgos_the_guardian.png", display_h=2, display_y=-1}}},
-	desc = [[This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.]],
-	killer_message = "and was feasted upon by wolves",
+	desc = [[이 고대의 곰은 숲의 서쪽 지역을 오랫동안 지켜왔었습니다. 하지만 그가 미쳐버린 이후, 이제는 탈로레까지도 공격하고 있습니다.]],
+	killer_message = "당신은 늑대들의 먹잇감이 되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 200, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,

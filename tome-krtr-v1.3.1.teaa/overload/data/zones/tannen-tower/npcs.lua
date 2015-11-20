@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -33,9 +33,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "TANNEN",
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Tannen",
+	kr_name = "탄넨",
 	display = "p", color=colors.VIOLET,
-	desc = [[The traitor has been revealed, and he does not intend to let you escape to tell the tale.]],
-	killer_message = "and was neither found nor heard from again",
+	desc = [[배신자가 드러났습니다. 그는 당신이 탈출하여 이 사실을 전하는 것을 막으려고 합니다.]],
+	killer_message = "당신은 영원히 발견되지 못한 채 잊혀졌습니다.",
 	level_range = {35, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 16, fixed_rating = true,
 	max_mana = 850, mana_regen = 40,
@@ -56,7 +57,6 @@ newEntity{ define_as = "TANNEN",
 	resolvers.drops{chance=100, nb=4, {tome_drops="boss"} },
 	resolvers.drops{chance=100, nb=1, {defined="ORB_MANY_WAYS2"} },
 	resolvers.drops{chance=100, nb=1, {defined="ATHAME_WEST2"} },
-	resolvers.drops{chance=100, nb=1, {defined="NOTE4"} },
 
 	resists = { [DamageType.ACID] = 100, },
 
@@ -95,10 +95,11 @@ newEntity{ define_as = "DROLEM",
 	type = "construct", subtype = "golem",
 	display = 'g', color=colors.GREEN,
 	name = "Drolem",
+	kr_name = "드롤렘",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/construct_golem_drolem.png", display_h=2, display_y=-1}}},
-	desc = [[This is Tannen's construct, a HUGE golem in the rough shape of a dragon.
-It is so huge that it blocks sight beyond it.]],
-	killer_message = "and was neither found nor heard from again",
+	desc = [[탄넨이 만든 이 거대한 골렘은, 용과 비슷한 모습을 하고 있습니다.
+이것은 너무나도 커서, 그 뒤쪽에 무엇이 있는지 볼 수 없습니다.]],
+	killer_message = "당신은 영원히 발견되지 못한 채 잊혀졌습니다.",
 	level_range = {35, nil}, exp_worth=2,
 	max_life = 6000, life_rating = 17, fixed_rating = true,
 

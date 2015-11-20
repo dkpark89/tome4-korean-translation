@@ -20,6 +20,15 @@
 local Map = require "engine.Map"
 
 local function getEffectName(self)
+	local name = self.kr_name or self.name or self.damtype and (engine.DamageType.dam_def[self.damtype].kr_name or engine.DamageType.dam_def[self.damtype].name).." 지역 효과" or "지역 효과"
+	if self.src then
+		return (self.src.kr_name or self.src.name).."의 "..name
+	else
+		return name
+	end
+end
+
+local function getOriEffectName(self) --@ 원문 이름 반환 함수 추가
 	local name = self.name or self.damtype and engine.DamageType.dam_def[self.damtype].name.." area effect" or "area effect"
 	if self.src then
 		return self.src.name.."'s "..name

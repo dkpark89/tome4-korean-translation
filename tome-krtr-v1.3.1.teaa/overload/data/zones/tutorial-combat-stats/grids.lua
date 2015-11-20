@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,24 +28,25 @@ load("/data/general/grids/fortress.lua")
 newEntity{
 	define_as = "PORTAL_BACK",
 	name = "Lobby Portal", image = "terrain/grass.png", add_displays = {class.new{image = "trap/trap_teleport_01.png"}},
+	kr_name = "로비로의 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[This portal will bring you back to the Tutorial Lobby.]],
+	desc = [[이 관문은 당신을 연습게임 로비로 보내줍니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("Tutorial Lobby Portal", "Enter the portal back to the lobby?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("연습게임 로비로의 관문", "관문으로 들어가 로비로 돌아갑니까?", function(ret)
 				if not ret then
 					--game:onLevelLoad("wilderness-1", function(zone, level)
 					--	local spot = level:pickSpot{type="farportal-end", subtype="demon-plane-arrival"}
 					--	who.wild_x, who.wild_y = spot.x, spot.y
 					--end)
 					game:changeLevel(1, "tutorial")
-					game.logPlayer(who, "#VIOLET#You enter the swirling portal and in the blink of an eye you are back in the lobby.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이 치는 관문으로 들어갔고, 눈 깜짝할 사이에 로비로 돌아온 것을 알아차렸습니다.")
 				end
-			end, "Stay", "Enter")
+			end, "머물기", "들어가기")
 		end
 	end,
 }
@@ -53,24 +54,25 @@ newEntity{
 newEntity{
 	define_as = "PORTAL_BACK_2",
 	name = "Lobby Portal", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image = "trap/trap_teleport_01.png"}},
+	kr_name = "로비로의 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[This portal will bring you back to the Tutorial Lobby.]],
+	desc = [[이 관문은 당신을 연습게임 로비로 보내줍니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("Tutorial Lobby Portal", "Enter the portal back to the lobby?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("연습게임 로비로의 관문", "관문으로 들어가 로비로 돌아갑니까?", function(ret)
 				if not ret then
 					--game:onLevelLoad("wilderness-1", function(zone, level)
 					--	local spot = level:pickSpot{type="farportal-end", subtype="demon-plane-arrival"}
 					--	who.wild_x, who.wild_y = spot.x, spot.y
 					--end)
 					game:changeLevel(1, "tutorial")
-					game.logPlayer(who, "#VIOLET#You enter the swirling portal and in the blink of an eye you are back in the lobby.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이 치는 관문으로 들어갔고, 눈 깜짝할 사이에 로비로 돌아온 것을 알아차렸습니다.")
 				end
-			end, "Stay", "Enter")
+			end, "머물기", "들어가기")
 		end
 	end,
 }
@@ -79,6 +81,7 @@ newEntity{
 	define_as = "SQUARE_GRASS",
 	type = "floor", subtype = "grass",
 	name = "grass", image = "terrain/grass.png",
+	kr_name = "풀밭",
 	display = '.', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	grow = "TREE",
 	--nice_tiler = { method="replace", base={"GRASS_PATCH", 70, 1, 12}},
@@ -96,7 +99,8 @@ newEntity{ base="WATER_BASE",
 newEntity{
 	define_as = "SIGN",
 	name = "Sign",
-	desc = [[Contains a snippet of ToME wisdom.]],
+	kr_name = "표지",
+	desc = [[단편적인 ToME 지식을 담고 있습니다.]],
 	image = "terrain/grass.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},
@@ -107,7 +111,8 @@ newEntity{
 newEntity{
 	define_as = "SIGN_FLOOR",
 	name = "Sign",
-	desc = [[Contains a snippet of ToME wisdom.]],
+	kr_name = "표지",
+	desc = [[단편적인 ToME 지식을 담고 있습니다.]],
 	image = "terrain/marble_floor.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},
@@ -117,7 +122,8 @@ newEntity{
 newEntity{
 	define_as = "SIGN_CAVE",
 	name = "Sign",
-	desc = [[Contains a snippet of ToME wisdom.]],
+	kr_name = "표지",
+	desc = [[단편적인 ToME 지식을 담고 있습니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},
@@ -127,7 +133,8 @@ newEntity{
 newEntity{
 	define_as = "SIGN_SOLID_FLOOR",
 	name = "Sign",
-	desc = [[Contains a snippet of ToME wisdom.]],
+	kr_name = "표지",
+	desc = [[단편적인 ToME 지식을 담고 있습니다.]],
 	image = "terrain/solidwall/solid_floor1.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},
@@ -137,7 +144,8 @@ newEntity{
 newEntity{
 	define_as = "UNLEARN_ALL",
 	name = "Rune of Enlightenment: Summer Vacation",
-	desc = [[Causes the player's brain to jettison all recently-acquired knowledge.]],
+	kr_name = "깨달음의 룬 : 여름 휴가",
+	desc = [[캐릭터의 두뇌에서 최근에 획득한 지식을 모두 없애 버립니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_lethargy_rune_01.png"}},
@@ -146,7 +154,7 @@ newEntity{
 		if not actor.player then return end
 		if forced then return end
 		game.level.map:particleEmitter(x, y, 1, "teleport")
-		game.logPlayer(actor, "#VIOLET#You feel unenlightened.")
+		game.logPlayer(actor, "#VIOLET#당신의 머리가 텅 비는 것을 느낍니다.")
 		if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 			actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 		end
@@ -172,7 +180,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_PHYS_KB",
 	name = "Rune of Enlightenment: Shove",
-	desc = [[Teaches the player 'Shove'.]],
+	kr_name = "깨달음의 룬 : 밀치기",
+	desc = [[캐릭터에게 '밀치기' 를 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_acid01.png"}},
@@ -184,7 +193,7 @@ newEntity{
 		if q and not actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 			actor:learnTalent(game.player.T_TUTORIAL_PHYS_KB, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Shove.")
+			game.logPlayer(actor, "#VIOLET#당신은 밀치기 기술을 배웠습니다.")
 			if actor:knowTalent(actor.T_TUTORIAL_SPELL_KB) then
 				actor:unlearnTalent(actor.T_TUTORIAL_SPELL_KB)
 			end
@@ -198,7 +207,7 @@ newEntity{
 				actor:unlearnTalent(actor.T_TUTORIAL_MIND_FEAR)
 			end
 			if q and not q:isCompleted("learn_phys_kb") then
-				game.logPlayer(actor, "#VIOLET#The sound of an ancient door grinding open echoes down the tunnel!")
+				game.logPlayer(actor, "#VIOLET#고대의 문이 열리는 메아리 소리가 아래쪽 터널에서 울립니다!")
 				local spot = game.level:pickSpot{type="door", subtype="sealed"}
 				local g = game.zone:makeEntityByName(game.level, "terrain", "DOOR_OPEN")
 				game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
@@ -211,7 +220,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_KB",
 	name = "Rune of Enlightenment: Mana Gale",
-	desc = [[Teaches the player 'Mana Gale'.]],
+	kr_name = "깨달음의 룬 : 마력 돌풍",
+	desc = [[캐릭터에게 '마력 돌풍' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_fire01.png"}},
@@ -223,7 +233,7 @@ newEntity{
 		if q and not actor:knowTalent(actor.T_TUTORIAL_SPELL_KB) then
 			actor:learnTalent(game.player.T_TUTORIAL_SPELL_KB, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Mana Gale.")
+			game.logPlayer(actor, "#VIOLET#당신은 마력 돌풍 기술을 배웠습니다.")
 			if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 				actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 			end
@@ -243,7 +253,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_KB3",
 	name = "Rune of Enlightenment: Mana Gale",
-	desc = [[Teaches the player 'Mana Gale'.]],
+	kr_name = "깨달음의 룬 : 마력 돌풍",
+	desc = [[캐릭터에게 '마력 돌풍' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_fire01.png"}},
@@ -255,7 +266,7 @@ newEntity{
 		if q and not actor:knowTalent(actor.T_TUTORIAL_SPELL_KB) then
 			actor:learnTalent(game.player.T_TUTORIAL_SPELL_KB, true, 3)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Mana Gale.")
+			game.logPlayer(actor, "#VIOLET#당신은 마력 돌풍 기술을 배웠습니다.")
 			if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 				actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 			end
@@ -275,7 +286,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_MIND_KB",
 	name = "Rune of Enlightenment: Telekinetic Punt",
-	desc = [[Teaches the player 'Telekinetic Punt'.]],
+	kr_name = "깨달음의 룬 : 염동력 주먹",
+	desc = [[캐릭터에게 '염동력 주먹' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_ice01.png"}},
@@ -287,7 +299,7 @@ newEntity{
 		if q and not actor:knowTalent(actor.T_TUTORIAL_MIND_KB) then
 			actor:learnTalent(game.player.T_TUTORIAL_MIND_KB, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Telekinetic Punt.")
+			game.logPlayer(actor, "#VIOLET#당신은 염동력 주먹 기술을 배웠습니다.")
 			if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 				actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 			end
@@ -308,7 +320,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_BLINK",
 	name = "Rune of Enlightenment: Blink",
-	desc = [[Teaches the player 'Blink'.]],
+	kr_name = "깨달음의 룬 : 단거리 순간이동",
+	desc = [[캐릭터에게 '단거리 순간이동' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/blast_lightning01.png"}},
@@ -320,7 +333,7 @@ newEntity{
 		if not actor:knowTalent(actor.T_TUTORIAL_SPELL_BLINK) then
 			actor:learnTalent(game.player.T_TUTORIAL_SPELL_BLINK, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Blink.")
+			game.logPlayer(actor, "#VIOLET#당신은 단거리 순간이동 기술을 배웠습니다.")
 			if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 				actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 			end
@@ -340,7 +353,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_MIND_FEAR",
 	name = "Rune of Enlightenment: Fear",
-	desc = [[Teaches the player 'Fear'.]],
+	kr_name = "깨달음의 룬 : 공포",
+	desc = [[캐릭터에게 '공포' 를 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_poison_burst_01.png"}},
@@ -352,7 +366,7 @@ newEntity{
 		if not actor:knowTalent(actor.T_TUTORIAL_MIND_FEAR) then
 			actor:learnTalent(game.player.T_TUTORIAL_MIND_FEAR, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Fear.")
+			game.logPlayer(actor, "#VIOLET#당신은 공포 기술을 배웠습니다.")
 			if actor:knowTalent(actor.T_TUTORIAL_PHYS_KB) then
 				actor:unlearnTalent(actor.T_TUTORIAL_PHYS_KB)
 			end
@@ -372,7 +386,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_SPELL_BLEED",
 	name = "Rune of Enlightenment: Bleed",
-	desc = [[Teaches the player 'Bleed'.]],
+	kr_name = "깨달음의 룬 : 출혈",
+	desc = [[캐릭터에게 '출혈' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_magical_disarm_01_64.png"}},
@@ -383,7 +398,7 @@ newEntity{
 		if not actor:knowTalent(actor.T_TUTORIAL_SPELL_BLEED) then
 			actor:learnTalent(game.player.T_TUTORIAL_SPELL_BLEED, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Bleed.")
+			game.logPlayer(actor, "#VIOLET#당신은 출혈 기술을 배웠습니다.")
 		end
 		if actor:knowTalent(actor.T_TUTORIAL_MIND_CONFUSION) then
 			actor:unlearnTalent(actor.T_TUTORIAL_MIND_CONFUSION)
@@ -394,7 +409,8 @@ newEntity{
 newEntity{
 	define_as = "LEARN_MIND_CONFUSION",
 	name = "Rune of Enlightenment: Confusion",
-	desc = [[Teaches the player 'Confusion'.]],
+	kr_name = "깨달음의 룬 : 혼란",
+	desc = [[캐릭터에게 '혼란' 을 가르쳐 줍니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '*', color=colors.VIOLET, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image = "trap/trap_teleport_01.png"}},
@@ -405,7 +421,7 @@ newEntity{
 		if not actor:knowTalent(actor.T_TUTORIAL_MIND_CONFUSION) then
 			actor:learnTalent(game.player.T_TUTORIAL_MIND_CONFUSION, true, 1)
 			game.level.map:particleEmitter(x, y, 1, "teleport")
-			game.logPlayer(actor, "#VIOLET#You have learned the talent Confusion.")
+			game.logPlayer(actor, "#VIOLET#당신은 혼란 기술을 배웠습니다.")
 		end
 		if actor:knowTalent(actor.T_TUTORIAL_SPELL_BLEED) then
 			actor:unlearnTalent(actor.T_TUTORIAL_SPELL_BLEED)
@@ -417,6 +433,7 @@ newEntity{
 	define_as = "MAGIC_DOOR",
 	type = "wall", subtype = "floor",
 	name = "glowing door", image = "terrain/granite_door1.png",
+	kr_name = "빛나는 문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	--nice_tiler = { method="door3d", north_south="DOOR_VERT", west_east="DOOR_HORIZ" },
 	notice = true,
@@ -434,7 +451,7 @@ newEntity{
 			game.zone:addEntity(game.level, f, "terrain", x, y)
 			game.nicer_tiles:updateAround(game.level, x, y)
 		else
-			game.logPlayer(game.player, "#VIOLET#You must achieve Enlightenment before you can pass. Seek ye to the west to discover the ancient art of Shoving Stuff.")
+			game.logPlayer(game.player, "#VIOLET#여기를 지나가기 전에, 필요한 깨달음을 얻어야 합니다. 서쪽으로 가서 밀치기 기술을 찾아 보세요.")
 		end
 	end,]=]
 	door_opened = function(self, x, y, actor, forced) 
@@ -444,7 +461,7 @@ newEntity{
 		if q and q:isCompleted("learn_phys_kb") then
 			return "DOOR_OPEN"
 		else
-			game.logPlayer(game.player, "#VIOLET#You must achieve Enlightenment before you can pass. Seek ye to the west to discover the ancient art of Shoving Stuff.")
+			game.logPlayer(game.player, "#VIOLET#여기를 지나가기 전에, 필요한 깨달음을 얻어야 합니다. 서쪽으로 가서 밀치기 기술을 배우세요.")
 		end
 	end,
 }
@@ -452,6 +469,7 @@ newEntity{
 newEntity{
 	define_as = "LOCK",
 	name = "sealed door", image = "terrain/granite_door1.png",
+	kr_name = "봉인된 문",
 	display = '+', color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -462,7 +480,8 @@ newEntity{
 newEntity{
 	define_as = "FINAL_LESSON",
 	name = "Sign",
-	desc = [[Contains a snippet of ToME wisdom.]],
+	kr_name = "표지",
+	desc = [[단편적인 ToME 지식을 담고 있습니다.]],
 	image = "terrain/cave/cave_floor_1_01.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},
@@ -480,7 +499,8 @@ newEntity{
 newEntity{
 	define_as = "COMBAT_STATS_DONE",
 	name = "Sign",
-	desc = [[Contains a snippet of ToME wisdom.]],
+	kr_name = "표지",
+	desc = [[단편적인 ToME 지식을 담고 있습니다.]],
 	image = "terrain/solidwall/solid_floor1.png",
 	display = '_', color=colors.UMBER, back_color=colors.DARK_GREEN,
 	add_displays = {class.new{image="terrain/signpost.png"}},

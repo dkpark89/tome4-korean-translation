@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,16 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Talent Category: #LIGHT_GREEN#Stone",
-[[Since the dawn of time mages have experimented with the elements.
-While most mages are content using the Earth school, a few of them took their research deeper and created Stone magic.
-At its core lies the Crystalline Focus, which can create attacks so sharp they can cut through physical immunity.
+return "새로운 기술 계열 : #LIGHT_GREEN#암석",
+[[이 세계에 첫 동이 튼 이래로, 마법사들은 원소를 이용해 다양한 실험을 하였습니다.
+대부분의 마법사들은 대지를 이용한 연구에 머물렀지만, 몇몇 마법사들은 그들의 연구를 더욱 심화시켜 암석 마법을 만들었습니다.
+그 중심에는 '맑은 집중' 마법이 있으며, 이는 너무나 날카롭기에 물리 속성에 피해를 입지 않는 적에게까지 피해를 줄 수 있는 마법입니다.
 
-You have mastered stone magic and can now create new Archmage and Arcane Blade characters that can learn the #LIGHT_GREEN#Stone talents#WHITE#.
+당신은 대지 마법을 완전히 수련하였기 때문에, 이제 마도사나 마법 전사 캐릭터를 만들 때 #LIGHT_GREEN#암석 마법 기술계열#WHITE#을 배울 수 있게 됩니다.
 
-Talents:
-- #YELLOW#Earthen Missiles: #WHITE#Fire multiple missiles of stone independently at targets
-- #YELLOW#Body of Stone: #WHITE#Turn into stone, reducing the cooldown of many stone/earth talents
-- #YELLOW#Earthquake: #WHITE#Create a localized earthquake, stunning all in the area
-- #YELLOW#Crystalline Focus: #WHITE#Master the Stone and pierce even through physical immunities
-]]
+기술 목록 :
+- #YELLOW#암석 화살 : #WHITE#여러 발의 암석 화살을 발사하여, 적들을 공격합니다.
+- #YELLOW#자발적 석화 : #WHITE#스스로 석화되어, 대지/암석 마법들의 재사용 대기시간을 감소시킵니다.
+- #YELLOW#지진 : #WHITE#해당 지역에 지진을 일으켜, 적들을 기절시킵니다.
+- #YELLOW#맑은 집중 : #WHITE#수정과도 같은 집중을 통해, 암석에 대해 통달하여 물리 속성에 피해를 입지 않는 적에게까지 피해를 줍니다.]]

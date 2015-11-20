@@ -53,6 +53,7 @@ end
 
 newTalent{
 	name = "Dream Smith's Hammer",
+	kr_name = "꿈 속 대장장이의 망치",
 	short_name = "DREAM_HAMMER",
 	type = {"psionic/dream-smith", 1},
 	points = 5,
@@ -106,23 +107,25 @@ newTalent{
 		local weapon_atk = useDreamHammer(self).atk
 		local weapon_apr = useDreamHammer(self).apr
 		local weapon_crit = useDreamHammer(self).physcrit
-		return ([[Smith a hammer from the dream forge and strike a nearby foe, inflicting %d%% weapon damage.  If the attack hits, it will bring one random Dream Smith talent off cooldown.
-		At talent level 5, you'll bring a second random talent off cooldown.
-		The base power, Accuracy, Armour penetration, and critical strike chance of the weapon will scale with your Mindpower.
-
-		Current Dream Hammer Stats
-		Base Power: %0.2f - %0.2f
-		Uses Stats: 120%% Wil
-		Damage Type: Physical
-		Accuracy is based on willpower for this weapon.
-		Accuracy Bonus: +%d
-		Armour Penetration: +%d
-		Physical Crit. Chance: +%d]]):format(damage * 100, weapon_damage, weapon_range, weapon_atk, weapon_apr, weapon_crit)
+		return ([[꿈의 대장간에서 망치를 만들어낸 뒤, 근처의 적에게 휘둘러 %d%% 무기 피해를 줍니다.
+		공격이 명중하면, 꿈의 망치 기술 중 하나의 재사용 대기시간이 초기화됩니다.
+		기술 레벨이 5 이상이면, 기술 두 개의 재사용 대기시간이 초기화됩니다.
+		꿈의 망치의 공격력, 정확도, 방어도 관통, 치명타율은 정신력의 영향을 받아 증가합니다.
+		
+		* 현재 꿈의 망치의 성능
+		기본 공격력 : %0.2f - %0.2f
+		적용 능력치 : 120%% 의지
+		공격 속성 : 물리
+		이 무기의 정확도는 의지 능력치를 기반으로 하여 계산됩니다.
+		정확도 추가 : +%d
+		방어도 관통 : +%d
+		물리공격 치명타율 : +%d]]):format(damage * 100, weapon_damage, weapon_range, weapon_atk, weapon_apr, weapon_crit)
 	end,
 }
 
 newTalent{
 	name = "Hammer Toss",
+	kr_name = "망치 던지기",
 	type = {"psionic/dream-smith", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -163,6 +166,7 @@ newTalent{
 				print("[Dream Hammer Return] Projection from", x, y, "to", self.x, self.y)
 				local tgr = tg
 				tgr.name = "Hammer Toss"
+				tgr.kr_name = "던져진 망치"
 				tgr.x, tgr.y = px, py
 				self:projectile(tgr, self.x, self.y, function(px, py, tgr, self)
 					local tmp_target = game.level.map(px, py, engine.Map.ACTOR)
@@ -180,13 +184,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local attack_bonus = t.getAttack(self, t)
-		return ([[Throw your Dream Hammer at a distant location, inflicting %d%% weapon damage on all targets between you and it.  After reaching its destination, the Dream Hammer will return, potentially hitting targets a second time.
-		Learning this talent increases the Accuracy of your Dream Hammer by %d.]]):format(damage * 100, attack_bonus)
+		return ([[꿈의 망치를 던져, 망치의 이동 경로에 있는 모든 적들에게 %d%% 무기 피해를 줍니다.
+		목표 지점까지 날아간 뒤에, 망치가 돌아오면서 적들을 한 번 더 공격할 수도 있습니다.
+		꿈의 망치의 정확도가 %d 상승합니다.]]):format(damage * 100, attack_bonus)
 	end,
 }
 
 newTalent{
 	name = "Dream Crusher",
+	kr_name = "꿈 분쇄기",
 	type = {"psionic/dream-smith", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -212,7 +218,7 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_STUNNED, t.getStun(self, t), {apply_power=self:combatMindpower()})
 			else
-				game.logSeen(target, "%s resists the stunning blow!", target.name:capitalize())
+				game.logSeen(target, "%s 기절하지 않았습니다!", target.name:capitalize())
 			end
 			if rng.percent(50) then
 				game.level.map:particleEmitter(target.x, target.y, 1, "generic_discharge", {rm=225, rM=255, gm=0, gM=0, bm=0, bM=0, am=35, aM=90})
@@ -228,14 +234,16 @@ newTalent{
 		local power = t.getMasteryDamage(self, t)
 		local percent = t.getPercentInc(self, t)
 		local stun = t.getStun(self, t)
-		return ([[Crush your enemy with your Dream Hammer, inflicting %d%% weapon damage.  If the attack hits, the target is stunned for %d turns.
-		Stun chance improves with your Mindpower.  Learning this talent increases your Physical Power for Dream Hammer damage calculations by %d and all damage with Dream Hammer attacks by %d%%.
-		]]):format(damage * 100, stun, power, percent * 100)
+		return ([[꿈의 망치를 휘둘러, 적을 부숴버립니다.
+		%d%% 무기 피해를 주고, %d 턴 동안 적을 기절시킵니다.
+		기절 확률은 정신력의 영향을 받아 증가합니다.
+		꿈의 망치의 물리력이 %d / 피해 상승량이 %d%% 증가합니다.]]):format(damage * 100, stun, power, percent * 100)
 	end,
 }
 
 newTalent{
 	name = "Forge Echoes",
+	kr_name = "대장간의 메아리",
 	type = {"psionic/dream-smith", 4},
 	points = 5,
 	require = psi_wil_req4,
@@ -279,8 +287,9 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
 		local project = t.getProject(self, t) /2
-		return ([[Strike the target with a mighty blow from the forge, inflicting %d%% weapon damage.  If the attack hits, the echo of the attack will lash out at all enemies in a %d radius.
-		Learning this talent adds %0.2f mind damage and %0.2f burning damage to your Dream Hammer strikes.
-		The mind and fire damage will scale with your Mindpower.]]):format(damage * 100, radius, damDesc(self, DamageType.MIND, project), damDesc(self, DamageType.FIRE, project))
+		return ([[대장간에서 적을 강타하여, %d%% 무기 피해를 줍니다.
+		공격이 성공할 경우, 공격을 통해 생긴 메아리가 주변 %d 칸 반경의 적들을 휩쓸어 똑같은 피해를 줍니다.
+		꿈의 망치 공격에 %0.2f 정신 피해, %0.2f 화염 피해가 추가됩니다.
+		정신 피해와 화염 피해 추가량은 정신력의 영향을 받아 증가합니다.]]):format(damage * 100, radius, damDesc(self, DamageType.MIND, project), damDesc(self, DamageType.FIRE, project))
 	end,
 }

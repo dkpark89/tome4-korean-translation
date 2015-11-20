@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ local is_volcano = layout == "VOLCANO"
 
 return {
 	name = "Daikara",
+	kr_name = "다이카라",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 4,
@@ -128,11 +129,11 @@ return {
 
 		game.state:makeWeather(level, 6, {max_nb=7, chance=1, dir=120, speed={0.1, 0.9}, alpha={0.2, 0.4}, particle_name="weather/grey_cloud_%02d"})
 	end,
-
+	
 	on_enter = function(lev)
 		if lev == 1 and not game.level.data.warned and game.zone.is_volcano then
 			game.level.data.warned = true
-			require("engine.ui.Dialog"):simpleLongPopup("BOOM!", "As you walk toward the Daikara you can not fail to notice the huge volcano that erupts in the center of it, right where the path is taking you.\nYou see pyroclasts ejected from the heart of the volcano, they look relatively harmless but very impressive.", 400)
+			require("engine.ui.Dialog"):simpleLongPopup("쾅!", "다이카라로 발을 내딛은 당신은, 산의 중앙에서 거대한 화산 폭발이 일어나는 것을 발견했습니다.\n용암이 당신이 가려는 길로 흘러내리고, 쇄설암이 화산에서 뿜어져 나왔습니다. 그다지 위험하지는 않지만, 굉장히 인상적인 광경입니다.", 400)
 		end
 	end,
 }

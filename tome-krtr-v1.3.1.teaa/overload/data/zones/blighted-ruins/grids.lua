@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "SUMMON_CIRCLE",
 	name = "unholy circle", image = "terrain/marble_floor.png", add_mos = {{image=resolvers.generic(function() return "object/candle_dark"..rng.range(1,3)..".png" end)}},
+	kr_name = "부정한 장치",
 	force_clone = true,
 	display = ';', color=colors.GOLD, back_color=colors.GREY,
 	always_remember = true,
@@ -31,6 +32,7 @@ newEntity{
 newEntity{
 	define_as = "SUMMON_CIRCLE_BROKEN",
 	name = "broken unholy circle", image = "terrain/marble_floor.png", add_mos = {{image="object/candle_dark4.png"}},
+	kr_name = "파괴된 부정한 장치",
 	display = '.', color=colors.GOLD, back_color=colors.GREY,
 	always_remember = true,
 }

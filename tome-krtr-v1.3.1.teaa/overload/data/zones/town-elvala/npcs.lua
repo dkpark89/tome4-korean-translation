@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "shalore",
 	display = "p", color=colors.WHITE,
 	faction = "shalore",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -51,7 +51,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "elvala guard", color=colors.LIGHT_UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_name = "엘발라 경비",
+	desc = [[엄격해 보이는 경비입니다. 이 경비는 당신이 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "shalore rune master", color=colors.RED,
-	desc = [[A tall Elf, his skin covered in runes.]],
+	kr_name = "샬로레 룬의 명인",
+	desc = [[온 몸이 룬으로 뒤덮힌, 키 큰 엘프입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),
@@ -75,12 +77,13 @@ newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 }
 
 
+
 newEntity{
 	define_as = "BASE_NPC_ELVALA_OGRE_TOWN",
 	type = "giant", subtype = "ogre",
 	display = "O", color=colors.WHITE,
 	faction = "shalore",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -105,7 +108,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ELVALA_OGRE_TOWN",
 	name = "ogre rune-spinner", color=colors.LIGHT_UMBER,
-	desc = [[A towering ogre guard, her skin covered in runes.]],
+	kr_name = "오우거 룬-방직자",
+	desc = [[거대한 오우거 경비입니다. 그녀의 피부는 룬으로 덮혀있습니다.]],
 	female = 1,
 	resolvers.nice_tile{tall=1},
 	level_range = {1, nil}, exp_worth = 1,

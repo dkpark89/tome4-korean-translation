@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,9 +30,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "FILLAREL",
 	type = "humanoid", subtype = "elf", unique = true,
 	name = "Fillarel Aldaren", faction = "neutral",
+	kr_name = "필라렐 알다렌",
 	display = "@", color=colors.GOLD,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_elf_fillarel_aldaren.png", display_h=2, display_y=-1}}},
-	desc = [[An Elven woman. She wears a tight robe decorated with symbols of the Sun and the Moon and wields a staff.]],
+	desc = [[여성 엘프입니다. 태양과 달의 상징이 장식된 꽉 끼는 로브를 입고, 마법지팡이를 쥐고 있습니다.]],
 	level_range = {25, nil}, exp_worth = 2,
 	female = 1,
 	max_life = 120, life_rating = 15, fixed_rating = true,
@@ -95,9 +96,10 @@ newEntity{ define_as = "FILLAREL",
 newEntity{ define_as = "CORRUPTOR",
 	type = "humanoid", subtype = "orc", unique = true,
 	name = "Krogar", faction = "neutral",
+	kr_name = "크로가르",
 	display = "@", color=colors.GREEN,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_krogar.png", display_h=2, display_y=-1}}},
-	desc = [[An orc clad in mail armour, he wields a staff and looks menacing.]],
+	desc = [[중갑을 입은 위협적인 오크입니다. 그는 마법지팡이를 쥐고 있습니다.]],
 	level_range = {25, nil}, exp_worth = 2,
 	max_life = 120, life_rating = 15, fixed_rating = true,
 	positive_regen = 10,

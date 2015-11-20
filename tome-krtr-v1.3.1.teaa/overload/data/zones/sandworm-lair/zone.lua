@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ if layout == "DEFAULT" then
 
 return {
 	name = "Sandworm lair",
+	kr_name = "지렁이 굴",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 4,
@@ -88,6 +89,7 @@ elseif layout == "BIGWORM" then
 
 return {
 	name = "Sandworm lair",
+	kr_name = "지렁이 굴",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 2,
@@ -200,7 +202,7 @@ return {
 		local m = game.zone:makeEntityByName(game.level, "actor", "SANDWORM_TUNNELER_HUGE")
 		if not m then return end
 		game.zone:addEntity(game.level, m, "actor", tx, ty)
-		game.log("#OLIVE_DRAB#You feel the ground shaking from the west.")
+		game.log("#OLIVE_DRAB#서쪽으로부터 땅이 흔들리는 것이 느껴집니다.")
 		game.level.data.last_worm_turn = game.turn
 	end,
 }

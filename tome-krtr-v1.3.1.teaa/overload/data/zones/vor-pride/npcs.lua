@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,8 +28,9 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_VOR", define_as = "VOR",
 	allow_infinite_dungeon = true,
 	name = "Vor, Grand Geomancer of the Pride", color=colors.VIOLET, unique = true,
-	desc = [[An old orc, wearing multi-colored robes. Ice shards fly around him, leaving a trail of fire and lightning bursts.]],
-	killer_message = "and used as target practice for initiate mages",
+	kr_name = "오크 긍지의 위대한 대지술사, 보르",
+	desc = [[늙은 오크로, 다양한 색이 섞인 로브를 입고 있습니다. 얼음 파편이 그의 주변을 날아다니고, 그 궤적으로 불이 타오르며 번개가 분출됩니다.]],
+	killer_message = "당신은 견습 마법사들의 표적이 되었습니다.",
 	level_range = {40, nil}, exp_worth = 1,
 	rank = 5,
 	max_life = 250, life_rating = 19, fixed_rating = true,
@@ -47,7 +48,7 @@ newEntity{ base="BASE_NPC_ORC_VOR", define_as = "VOR",
 	resolvers.inscriptions(1, {"manasurge rune"}),
 	resolvers.inscriptions(4, "rune"),
 	max_inscriptions = 5,
-	
+
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, HEAD=1 },
 
 	resolvers.equip{

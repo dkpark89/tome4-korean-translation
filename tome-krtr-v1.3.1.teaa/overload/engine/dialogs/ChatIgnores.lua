@@ -25,19 +25,19 @@ local Textzone = require "engine.ui.Textzone"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init()
-	Dialog.init(self, "Chat ignore list", 500, 400)
+	Dialog.init(self, "대화창에서 무시할 사항", 500, 400)
 
 	local list = {}
 	for l, _ in pairs(config.settings.chat.ignores) do if _ then list[#list+1] = {name=l} end end
 
 	local c_list = List.new{width=self.iw - 10, height=400, scrollbar=true, list=list, fct=function(item) 
-		Dialog:yesnoPopup("Stop ignoring", "Really stop ignoring: "..item.name, function(ret) if ret then
+		Dialog:yesnoPopup("무시하기 중단", "정말 다음 사항들을 무시하지 않습니까? : "..(item.kr_name or item.name), function(ret) if ret then
 			config.settings.chat.ignores[item.name] = nil
 			self:regen()
-		end end)
+		end end, "예", "아니오")
 	end}
 
-	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="Click a user to stop ignoring her/his messages."}
+	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="특정 상대의 메세지를 무시하려면 클릭하세요."}
 	local uis = { 
 		{left=0, top=0, ui=c_desc},
 		{left=0, top=c_desc.h+5, ui=c_list},

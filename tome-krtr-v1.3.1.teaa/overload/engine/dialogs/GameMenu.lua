@@ -26,7 +26,7 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(actions)
 	self:generateList(actions)
 
-	Dialog.init(self, "Game Menu", 300, 20)
+	Dialog.init(self, "게임 메뉴", 300, 20)
 
 	self.c_list = List.new{width=self.iw, nb_items=#self.list, list=self.list, fct=function(item) self:use(item) end}
 
@@ -47,57 +47,58 @@ end
 
 function _M:generateList(actions)
 	local default_actions = {
-		resume = { "Resume", function() game:unregisterDialog(self) end },
-		keybinds = { "Key Bindings", function()
+		resume = { "게임 계속하기", function() game:unregisterDialog(self) end },
+		keybinds = { "명령어 입력 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, nil, game.gestures)
 			game:registerDialog(menu)
 		end },
-		keybinds_all = { "Key Bindings", function()
+		keybinds_all = { "명령어 입력 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.KeyBinder").new(game.normal_key, true, game.gestures)
 			game:registerDialog(menu)
 		end },
-		video = { "Video Options", function()
+		video = { "화면 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.VideoOptions").new()
 			game:registerDialog(menu)
 		end },
-		resolution = { "Display Resolution", function()
+		resolution = { "화면 해상도 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.DisplayResolution").new()
 			game:registerDialog(menu)
 		end },
-		achievements = { "Show Achievements", function()
+		achievements = { "달성한 업적 보기", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.ShowAchievements").new(nil, game:getPlayer())
 			game:registerDialog(menu)
 		end },
-		sound = { "Audio Options", function()
+		sound = { "소리 설정", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.AudioOptions").new()
 			game:registerDialog(menu)
 		end },
-		highscores = { "View High Scores", function()
+		highscores = { "고득점 기록 보기", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.ViewHighScores").new()
 			game:registerDialog(menu)
 		end },
-		steam = { "Steam", function()
+		steam = { "스팀", function()
 			game:unregisterDialog(self)
 			local menu = require("engine.dialogs.SteamOptions").new()
 			game:registerDialog(menu)
 		end },
-		cheatmode = { "#GREY#Developer Mode", function()
+		cheatmode = { "#GREY#개발자 상태", function()
 			game:unregisterDialog(self)
 			if config.settings.cheat then
-				Dialog:yesnoPopup("Developer Mode", "Disable developer mode?", function(ret) if ret then
+				Dialog:yesnoPopup("개발자 상태", "개발자 상태를 비활성화 하겠습니까?", function(ret) if ret then
 					config.settings.cheat = false
 					game:saveSettings("cheat", "cheat = nil\n")
 					util.showMainMenu()
-				end end, nil, nil, true)
+				end end, "예", "아니오", true)
 			else
-				Dialog:yesnoLongPopup("Developer Mode", [[Enable developer mode?
+				Dialog:yesnoLongPopup("개발자 상태", [[개발자 상태를 활성화 하겠습니까?
+(개발자 관련 부분들은 한글화하지 않습니다.)
 Developer Mode is a special game mode used to debug and create addons.
 Using it will #CRIMSON#invalidate#LAST# any savefiles loaded.
 When activated you will have access to special commands:
@@ -108,13 +109,13 @@ When activated you will have access to special commands:
 					config.settings.cheat = true
 					game:saveSettings("cheat", "cheat = true\n")
 					util.showMainMenu()
-				end end, "No", "Yes", true)
+				end end, "아니오", "예", true)
 		
 			end
 		end },
-		save = { "Save Game", function() game:unregisterDialog(self) game:saveGame() end },
-		quit = { "Main Menu", function() game:unregisterDialog(self) game:onQuit() end },
-		exit = { "Exit Game", function() game:unregisterDialog(self) game:onExit() end },
+		save = { "저장하기", function() game:unregisterDialog(self) game:saveGame() end },
+		quit = { "메인 메뉴로 나가기", function() game:unregisterDialog(self) game:onQuit() end },
+		exit = { "게임 끝내기", function() game:unregisterDialog(self) game:onExit() end },
 	}
 
 	-- Makes up the list

@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-Sucker can dodge some.
+약한 주제에 공격 하나는 잘 피하네요.
 
-As you know by now, the game was comparing your #LIGHT_GREEN#Accuracy#WHITE# to the orc's #LIGHT_GREEN#Defense#WHITE# to determine whether your blows landed. Evidently, the comparison did not go well for you.
+벌써 까먹었을 리는 없지만, 이 게임은 방금 전의 전투에서 당신이 오크를 공격할 때마다 #LIGHT_GREEN#정확도#WHITE# 수치와 #LIGHT_GREEN#회피도#WHITE# 수치를 통해 공격이 성공할 확률을 계산하였습니다. 별로 마음에 드는 결과는 아니였지만요.
 
-What is your #LIGHT_GREEN#Accuracy#WHITE#, and what is his #LIGHT_GREEN#Defense#WHITE#?
+그렇다면 자신의 #LIGHT_GREEN#정확도#WHITE# 는 몇이였고, 오크의 #LIGHT_GREEN#회피도#WHITE# 는 몇이였을까요?
 ]]

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,9 +26,10 @@ newEntity{ define_as = "CORRUPTED_OOZEMANCER",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "troll", unique = true,
 	name = "Corrupted Oozemancer",
+	kr_name = "타락한 점액술사",
 	display = "T", color=colors.VIOLET,
-	desc = [[This blight-ridden troll was once a proud defender of Nature. His corruption is spreading, eating away at the forest around him.]],
-	killer_message = "and dissolved into acidic ooze",
+	desc = [[이 황폐에 지배당한 트롤은 한 때 자랑스러운 자연의 수호자였습니다. 그의 타락은 번져나가 그 주변의 숲을 먹어치우고 있습니다.]],
+	killer_message = "당신은 산성 점액으로 용해되었습니다",
 	level_range = {35, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 18, fixed_rating = true,
 	equilibrium_regen = -10,

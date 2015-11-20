@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,7 +24,8 @@ load("/data/general/objects/lore/orc-prides.lua")
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE_LORE",
 	name = "draft note", lore="rak-shor-pride-note",
-	desc = [[A note.]],
+	kr_name = "휘갈겨 쓴 쪽지", 
+	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,8 +25,9 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "BEN_CRUTHDAR_ABOMINATION",
 	type = "humanoid", subtype = "temporal", unique = true,
 	name = "Ben Cruthdar, the Abomination", image = "npc/humanoid_human_ben_cruthdar__the_cursed.png",
+	kr_name = "혐오생물, 벤 크루스달",
 	display = "p", color=colors.VIOLET,
-	desc = [[This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.]],
+	desc = [[완전히 미쳐버린 인간으로, 시간의 힘에 오염되고 왜곡되어 현실과 비현실 사이를 왔다갔다 하고 있습니다.]],
 	level_range = {15, nil}, exp_worth = 2,
 	max_life = 270, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,
@@ -53,9 +54,10 @@ newEntity{ define_as = "BEN_CRUTHDAR_ABOMINATION",
 		[Talents.T_SLASH]=3,
 		[Talents.T_RECKLESS_CHARGE]=1,
 
-		[Talents.T_REALITY_SMEARING]=3,
+		[Talents.T_DAMAGE_SMEARING]=5,
 		[Talents.T_WEAPON_FOLDING]=3,
-		[Talents.T_INVIGORATE]=3,
+		[Talents.T_DISPLACE_DAMAGE]=3,
+		[Talents.T_TEMPORAL_WAKE]=3,
 	},
 	resolvers.sustains_at_birth(),
 
@@ -73,9 +75,10 @@ newEntity{ define_as = "BEN_CRUTHDAR_ABOMINATION",
 newEntity{ define_as = "ABOMINATION_RANTHA",
 	type = "dragon", subtype = "temporal", unique = true,
 	name = "Rantha the Abomination",
+	kr_name = "혐오생물, 란싸",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_temporal_rantha_the_abomination.png", display_h=2, display_y=-1}}},
-	desc = [[Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.]],
+	desc = [[발톱과 이빨. 얼음과 죽음. 용은 멸종된 것이 아니었습니다... 그리고 이 존재는 시간의 균열에 의해 타락한 것 같습니다.]],
 	level_range = {15, nil}, exp_worth = 2,
 	max_life = 220, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,
@@ -106,9 +109,10 @@ newEntity{ define_as = "ABOMINATION_RANTHA",
 		[Talents.T_ICY_SKIN]=3,
 		[Talents.T_ICE_BREATH]=4,
 
-		[Talents.T_HASTE]=3,
-		[Talents.T_CELERITY]=3,
-		[Talents.T_TIME_DILATION]=3,
+		[Talents.T_CELERITY]=4,
+		[Talents.T_SLOW]=4,
+		[Talents.T_STOP]=4,
+		[Talents.T_HASTE]=4,
 	},
 	resolvers.sustains_at_birth(),
 
@@ -136,54 +140,10 @@ end
 
 newEntity{ base="BASE_NPC_HORROR_TEMPORAL", define_as = "CHRONOLITH_TWIN",
 	name = "Chronolith Twin", color=colors.VIOLET, unique = true,
+	kr_name = "시간의 쌍둥이",
 	subtype = "temporal",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_temporal_cronolith_twin.png", display_h=2, display_y=-1}}},
-	desc = [[A six-armed creature, dressed in robes, with black insectile eyes.]],
-	level_range = {20, nil}, exp_worth = 1,
-	max_life = 150, life_rating = 15, fixed_rating = true,
-	rank = 4,
-	size_category = 3,
-	stats = { str=10, dex=12, cun=14, mag=25, wil=25, con=16 },
-
-	instakill_immune = 1,
-	blind_immune = 0.5,
-	silence_immune = 0.5,
-
-	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
-	equipment = resolvers.equip{
-		{type="weapon", subtype="staff", force_drop=true, tome_drops="boss", forbid_power_source={antimagic=true}, autoreq=true},
-		{type="armor", subtype="cloth", force_drop=true, tome_drops="boss", forbid_power_source={antimagic=true}, autoreq=true},
-	},
-	resolvers.drops{chance=100, nb=2, {tome_drops="boss"} },
-	resolvers.drops{chance=100, nb=1, {unique=true} },
-
-	resists = { [DamageType.PHYSICAL] = 50, },
-
-	resolvers.talents{
-		[Talents.T_REPULSION_BLAST]=3,
-		[Talents.T_GRAVITY_SPIKE]=3,
-		[Talents.T_GRAVITY_WELL]=3,
-		[Talents.T_GRAVITY_LOCUS]=3,
-	},
-
-	autolevel = "warriormage",
-	ai = "tactical", ai_state = { talent_in=1, ai_move="move_astar", },
-	ai_tactic = resolvers.tactic "ranged",
-	resolvers.inscriptions(1, {"shielding rune"}),
-
-	onTakeHit = twin_take_hit,
-
-	on_die = function(self, who)
-		self.brother = nil
-		game.player:resolveSource():setQuestStatus("temporal-rift", engine.Quest.COMPLETED, "twin")
-	end,
-}
-
-newEntity{ base="BASE_NPC_HORROR_TEMPORAL", define_as = "CHRONOLITH_CLONE",
-	name = "Chronolith Clone", color=colors.VIOLET, unique = true,
-	subtype = "temporal",
-	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_temporal_cronolith_clone.png", display_h=2, display_y=-1}}},
-	desc = [[A six-armed creature, dressed in robes, with black insectile eyes.]],
+	desc = [[로브를 입었으며, 검은 곤충의 눈과 여섯 개의 팔을 가진 생물체입니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	rank = 4,
@@ -205,10 +165,64 @@ newEntity{ base="BASE_NPC_HORROR_TEMPORAL", define_as = "CHRONOLITH_CLONE",
 	resists = { [DamageType.TEMPORAL] = 50, },
 
 	resolvers.talents{
-		[Talents.T_TEMPORAL_BOLT]=3,
+		[Talents.T_DUST_TO_DUST]=3,
+		[Talents.T_REPULSION_BLAST]=3,
+		[Talents.T_DESTABILIZE]=3,
 		[Talents.T_ECHOES_FROM_THE_PAST]=3,
-		[Talents.T_ENTROPY]=3,
-		[Talents.T_ENERGY_ABSORPTION]=3,
+		[Talents.T_HASTE]=3,
+		[Talents.T_STATIC_HISTORY]=5,
+		[Talents.T_ENERGY_ABSORPTION]=5,
+		[Talents.T_REPULSION_FIELD]=5,
+	},
+
+	autolevel = "warriormage",
+	ai = "tactical", ai_state = { talent_in=1, ai_move="move_astar", },
+	ai_tactic = resolvers.tactic "ranged",
+	resolvers.inscriptions(1, {"shielding rune"}),
+
+	onTakeHit = twin_take_hit,
+
+	on_die = function(self, who)
+		self.brother = nil
+		game.player:resolveSource():setQuestStatus("temporal-rift", engine.Quest.COMPLETED, "twin")
+	end,
+}
+
+newEntity{ base="BASE_NPC_HORROR_TEMPORAL", define_as = "CHRONOLITH_CLONE",
+	name = "Chronolith Clone", color=colors.VIOLET, unique = true,
+	kr_name = "시간의 복제품",
+	subtype = "temporal",
+	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_temporal_cronolith_clone.png", display_h=2, display_y=-1}}},
+	desc = [[로브를 입었으며, 검은 곤충의 눈과 여섯 개의 팔을 가진 생물체입니다.]],
+	level_range = {20, nil}, exp_worth = 1,
+	max_life = 150, life_rating = 15, fixed_rating = true,
+	rank = 4,
+	size_category = 3,
+	stats = { str=10, dex=12, cun=14, mag=25, wil=25, con=16 },
+
+	instakill_immune = 1,
+	blind_immune = 0.5,
+	silence_immune = 0.5,
+
+	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
+	equipment = resolvers.equip{
+		{type="weapon", subtype="staff", force_drop=true, tome_drops="boss", forbid_power_source={antimagic=true}, autoreq=true},
+		{type="armor", subtype="cloth", force_drop=true, tome_drops="boss", forbid_power_source={antimagic=true}, autoreq=true},
+	},
+	resolvers.drops{chance=100, nb=2, {tome_drops="boss"} },
+	resolvers.drops{chance=100, nb=1, {unique=true} },
+
+	resists = { [DamageType.TEMPORAL] = 50, },
+
+	resolvers.talents{
+		[Talents.T_RETHREAD]=3,
+		[Talents.T_FADE_FROM_TIME]=3,
+		[Talents.T_TEMPORAL_FUGUE]=3,
+		[Talents.T_TURN_BACK_THE_CLOCK]=3,
+		[Talents.T_HASTE]=3,
+		[Talents.T_BANISH]=5,
+		[Talents.T_STATIC_HISTORY]=5,
+		[Talents.T_ENTROPIC_FIELD]=5,
 	},
 
 	autolevel = "warriormage",

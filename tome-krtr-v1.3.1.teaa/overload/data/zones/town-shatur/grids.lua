@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,6 +30,7 @@ end)
 
 newEntity{ base = "FLOOR", define_as = "COBBLESTONE",
 	name="cobblestone road",
+	kr_name = "조약돌 포장도로",
 	display='.', image="terrain/stone_road1.png",
 	special_minimap = colors.DARK_GREY,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,12 +16,12 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
-
 local layout = game.state:alternateZone(short_name, {"COLLAPSED", 2})
 if layout == "COLLAPSED" then
 
 return {
 	name = "The Maze",
+	kr_name = "미궁",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 4,
@@ -134,6 +134,7 @@ elseif layout == "DEFAULT" then
 
 return {
 	name = "The Maze",
+	kr_name = "미궁",
 	level_range = {7, 16},
 	level_scheme = "player",
 	max_level = 2,

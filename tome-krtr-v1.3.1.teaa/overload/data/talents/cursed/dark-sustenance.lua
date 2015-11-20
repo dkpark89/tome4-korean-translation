@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Feed",
+	kr_name = "먹잇감",
 	type = {"cursed/dark-sustenance", 1},
 	require = cursed_wil_req1,
 	points = 5,
@@ -40,7 +41,7 @@ newTalent{
 		if target == self then return nil end -- avoid targeting while frozen
 
 		if self:reactionToward(target) >= 0 or target.summoner == self then
-			game.logPlayer(self, "You can only gain sustenance from your foes!");
+			game.logPlayer(self, "증오 흡수는 적을 통해서만 할 수 있습니다!");
 			return nil
 		end
 
@@ -77,13 +78,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local hateGain = t.getHateGain(self, t)
-		return ([[Feed from the essence of your enemy. Draws %0.1f hate per turn from a targeted foe, as long as they remain in your line of sight.
-		Hate gain improves with your Mindpower.]]):format(hateGain)
+		return ([[대상을 먹잇감으로 삼아, 매 턴마다 %0.1f 증오심을 흡수합니다. 이 효과는 대상이 시야 내에 있는 한 지속됩니다.
+		증오심 획득량은 정신력 능력치의 효과를 받아 증가합니다.]]):format(hateGain)
 	end,
 }
 
 newTalent{
 	name = "Devour Life",
+	kr_name = "생명력 갈취",
 	type = {"cursed/dark-sustenance", 2},
 	require = cursed_wil_req2,
 	points = 5,
@@ -104,7 +106,7 @@ newTalent{
 				if not tFeed.action(self, tFeed) then return nil end
 				effect = self:hasEffect(self.EFF_FEED)
 			else
-				game.logPlayer(self, "You must begin feeding before you can Devour Life.");
+				game.logPlayer(self, "생명력 갈취를 하기 전에, 먼저 적을 먹잇감으로 삼아야 합니다.");
 				return nil
 			end
 		end
@@ -127,8 +129,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local lifeSteal = t.getLifeSteal(self, t)
-		return ([[Devours life from the target of your feeding. %d life from the victim will be added to your own. This healing cannot be reduced. At level 5, Devour Life can be used like the Feed talent to begin feeding.
-		Improves with your Mindpower.]]):format(lifeSteal)
+		return ([[먹잇감이 된 적의 생명력을 갈취하여, %d 생명력을 흡수합니다. 이 회복 효과는 증오심이 부족해도 감소되지 않습니다. 기술 레벨이 5 이상이면, 먹잇감 기술을 사용하지 않고 바로 이 기술을 사용해도 적이 먹잇감 상태가 됩니다.
+		이 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(lifeSteal)
 	end,
 }
 
@@ -162,6 +164,7 @@ newTalent{
 ]]
 newTalent{
 	name = "Feed Power",
+	kr_name = "공격력 갈취",
 	type = {"cursed/dark-sustenance", 3},
 	mode = "passive",
 	require = cursed_wil_req3,
@@ -171,13 +174,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damageGain = t.getDamageGain(self, t)
-		return ([[Enhances your feeding by reducing your targeted foe's damage by %d%%, and increasing yours by the same amount.
-		Improves with your Mindpower.]]):format(damageGain)
+		return ([[먹잇감으로 삼은 적의 피해량을 %d%% 흡수하여, 그만큼 자신의 피해량을 증가시킵니다.
+		이 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(damageGain)
 	end,
 }
 
 newTalent{
 	name = "Feed Strengths",
+	kr_name = "저항력 갈취",
 	type = {"cursed/dark-sustenance", 4},
 	mode = "passive",
 	require = cursed_wil_req4,
@@ -187,7 +191,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local resistGain = t.getResistGain(self, t)
-		return ([[Enhances your feeding by reducing your targeted foe's positive resistances by %d%%, and increasing yours by the same amount. Resistance to "all" is not affected.
-		Improves with your Mindpower.]]):format(resistGain)
+		return ([[먹잇감으로 삼은 적의 저항력을 %d%% 흡수하여, 그만큼 자신의 저항력을 증가시킵니다. '전체' 저항력과 음수인 저항력은 흡수하지 않습니다.
+		이 효과는 정신력 능력치의 영향을 받아 증가합니다.]]):format(resistGain)
 	end,
 }

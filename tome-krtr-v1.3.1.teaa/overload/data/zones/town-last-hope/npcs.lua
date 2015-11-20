@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.WHITE,
 	faction = "allied-kingdoms",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -51,7 +51,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 	name = "last hope guard", color=colors.LIGHT_UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_name = "마지막 희망 경비",
+	desc = [[엄격해 보이는 경비입니다. 이 경비는 당신이 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -65,8 +66,9 @@ newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 
 newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 	name = "halfling guard", color=colors.UMBER,
+	kr_name = "하플링 경비",
 	subtype = "halfling",
-	desc = [[A Halfling, with a sling. Beware.]],
+	desc = [[투석구를 쥔 하플링입니다. 조심하는 편이 좋을 것 같습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),
@@ -78,7 +80,8 @@ newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 
 newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 	name = "human citizen", color=colors.WHITE,
-	desc = [[A clean-looking Human resident of Last Hope.]],
+	kr_name = "인간 시민",
+	desc = [[마지막 희망에 사는, 깔끔한 인간입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(30,40),
@@ -87,8 +90,9 @@ newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 
 newEntity{ base = "BASE_NPC_LAST_HOPE_TOWN",
 	name = "halfling citizen", color=colors.WHITE,
+	kr_name = "하플링 시민",
 	subtype = "halfling",
-	desc = [[A clean-looking Halfling resident of Last Hope.]],
+	desc = [[마지막 희망에 사는, 깔끔한 하플링입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(30,40),

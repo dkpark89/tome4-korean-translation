@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@ newEntity{
 	define_as = "BOGTREE",
 	type = "wall", subtype = "water",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/poisoned_water_01.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color=colors.DARK_BLUE,
 	always_remember = true,
@@ -61,6 +62,7 @@ end
 newEntity{ base="WATER_BASE",
 	define_as = "BOGWATER",
 	name = "bog water",
+	kr_name = "습지",
 	image="terrain/poisoned_water_01.png",
 }
 
@@ -68,12 +70,13 @@ newEntity{ base="BOGWATER",
 	define_as = "BOGWATER_MISC",
 	nice_tiler = { method="replace", base={"BOGWATER_MISC", 100, 1, 7}},
 }
-for i = 1, 7 do newEntity{ base="BOGWATER_MISC", define_as = "BOGWATER_MISC"..i, add_displays={class.new{image="terrain/misc_bog"..i..".png"}}} end
+for i = 1, 7 do newEntity{ base="BOGWATER_MISC", define_as = "BOGWATER_MISC"..i, add_mos={{image="terrain/misc_bog"..i..".png"}}} end
 
 newEntity{ base="BOGWATER",
 	define_as = "PORTAL",
 	display = "&", color = colors.VIOLET,
 	name = "coral portal",
+	kr_name = "산호 관문",
 	add_displays = {class.new{z=18, image="terrain/naga_portal.png", display_h=2, display_y=-1, embed_particles = {
 		{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_whispery_bright"}},
 		{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_heavy_bright"}},
@@ -84,13 +87,13 @@ newEntity{ base="BOGWATER",
 	block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return true end
 		if self.broken then
-			game.log("#VIOLET#The portal is already broken!")
+			game.log("#VIOLET#이 관문은 이미 부서져 있습니다!")
 			return true
 		end
 
-		who:restInit(20, "destroying the portal", "destroyed the portal", function(cnt, max)
+		who:restInit(20, "관문 파괴", "관문 파괴", function(cnt, max)
 			if cnt > max then
-				game.log("#VIOLET#The portal starts to break down, run!")
+				game.log("#VIOLET#이 관문이 무너지기 시작했습니다, 물러나십시오!")
 				self.broken = true
 				who:setQuestStatus("start-sunwall", engine.Quest.COMPLETED, "slazish")
 				game:onTickEnd(function()

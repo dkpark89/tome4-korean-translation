@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,15 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Talent Category: #LIGHT_GREEN#Poisons",
-[[Extracted from plants, wildlife or more exotic locations, poisons have always existed.
-Many creatures use them, along with some shady people.
+return "새로운 기술 계열 : #LIGHT_GREEN#독",
+[[식물과 야생의 생명체, 혹은 독특한 지역에서 추출하는 등, 독은 언제나 이 세상에 존재해왔습니다.
+많은 생명체들은 독을 사용하여 자신을 보호합니다. 그늘 속에서 살아가는 사람들에게도 필수품이지요.
 
-You have made a deal with such a person and can now create new Rogue or Archer characters that can learn the #LIGHT_GREEN#Poisons talents#WHITE#.
+당신은 그런 사람과 거래를 하였으며, 이제 도적이나 궁수 캐릭터를 생성할 때 #LIGHT_GREEN#독 기술 계열#WHITE#을 배울 수 있게 되었습니다.
 
-Talents:
-- #YELLOW#Vile Poisons: #WHITE#Learn new dangerous and terrible poisons to coat your weapons or ammo with, infecting your foes
-- #YELLOW#Venomous Strike: #WHITE#A terrible strike that deals increased nature damage based on the number of poison effects
-- #YELLOW#Empower Poisons: #WHITE#Learn to make your poisons even more lethal and fast
-- #YELLOW#Toxic Death: #WHITE#Spread the toxic joy to your foe's friends!
+기술 목록 :
+- #YELLOW#독 바르기 : #WHITE#위험하고 끔찍한, 다양한 독을 무기나 탄환에 발라 적을 공격합니다.
+- #YELLOW#독의 일격 : #WHITE#적에게 걸린 독의 숫자에 따라, 증가된 자연 피해를 입히는 공격입니다.
+- #YELLOW#독성 강화 : #WHITE#독을 더 치명적이고, 더 빠르게 영향을 주도록 만듭니다.
+- #YELLOW#유독성 죽음 : #WHITE#적의 동료들에게 독을 전이시켜, 같은 독을 즐길 수 있게 만듭니다!
 ]]

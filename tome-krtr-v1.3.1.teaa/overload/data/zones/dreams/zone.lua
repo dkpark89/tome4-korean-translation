@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,11 +19,17 @@
 
 return {
 	name = "Dreams",
+	kr_name = "꿈",
 	display_name = function(x, y)
 		if game.level.level == 1 then return "Dream of vulnerability" end
 		if game.level.level == 2 then return "Dream of loss" end
 		return "Dream ???"
 	end,
+	kr_display_name = function(x, y)
+		if game.level.level == 1 then return "약화의 꿈" end
+		if game.level.level == 2 then return "상실의 꿈" end
+		return "꿈 ???"
+	end, 
 	variable_zone_name = true,
 	level_range = {1, 1},
 	level_scheme = "player",
@@ -197,6 +203,7 @@ return {
 		if lev == 1 then
 			game.level.data.enter_dreams{
 				name = "frail mouse", image = "npc/vermin_rodent_giant_white_mouse.png",
+				kr_name = "연약한 생쥐",
 				type = "vermin", subtype = "rodent",
 				display = "r", color=colors.WHITE,
 				infravision = 10,
@@ -227,15 +234,17 @@ return {
 					T_NIMBLE_MOVEMENTS = 3,
 					T_PIERCING_SIGHT = 30,
 				},
-				msg =  [[The noxious fumes have invaded all your body, you suddenty fall into a deep slumber...
-... you feel weak ...
-... you feel unimportant ...
-... you feel like ... food ...
-You feel like running away!]],
-				success_msg = [[As your mind-mouse enters the dream portal you suddenly wake up.
-You feel good!]],
+				
+			
+			msg = [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
+... 당신은 약해지고 ...
+... 하찮은 존재이며 ...
+... 먹잇감 ... 인 것 같습니다 ...
+여기서 빨리 도망가야 합니다!]], 
+			success_msg = [[정신으로 이루어진 생쥐가 꿈의 관문으로 들어서자, 당신은 갑작스레 잠에서 깨어났습니다.
+상쾌한 기분이 듭니다!]],
 				dream = "mice",
-			}
+				}
 		end
 
 		-- Dream of loss
@@ -251,13 +260,13 @@ You feel good!]],
 				max_life = 100, life_regen = 0,
 				resolvers.talents{
 				},
-				msg = [[The noxious fumes have invaded all your body, you suddenty fall into a deep slumber...
-... you feel you forgot something ...
-... you feel lost ...
-... you feel sad ...
-You forgot your wife! Find her!]],
-				success_msg = [[As you enter the dream portal you suddenly wake up.
-You feel good!]],
+				msg = [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
+... 뭔가를 잊어버린 것 같습니다 ...
+... 상실감이 느껴집니다  ...
+... 슬픔이 느껴집니다 ...
+당신은 아내를 잊어버렸습니다! 그녀를 찾아야 합니다!]],
+				success_msg = [[꿈의 관문으로 들어서자, 당신은 갑자기 깨어났습니다.
+상쾌한 기분이 듭니다.]],
 				dream = "lost",
 			}
 		end
@@ -279,7 +288,7 @@ You feel good!]],
 		f:resolve() f:resolve(nil, true)
 		f.unused_talents = 0 f.unused_generics = 0
 		if f.unused_stats > 0 then
-			game.log("%s has %d stat point(s) to spend. Press p to use them.", f.name:capitalize(), f.unused_stats)
+			game.log("%s %d 만큼의 능력치 점수를 가지고 있습니다. p를 눌러 사용하십시요.", f.name:capitalize(), f.unused_stats)
 		end
 		f.summoner = game:getPlayer(true)
 		f.x = game.player.x
@@ -295,7 +304,7 @@ You feel good!]],
 		f.energy.value = 1000
 		game.paused = true
 		game.player:updateMainShader()
-		require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", t.msg, 600)
+		require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", t.msg, 600)
 	end,
 	leave_dreams = function(self, msg, dream)
 		local danger = game.level.data.danger
@@ -315,10 +324,10 @@ You feel good!]],
 				game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
 				world:gainAchievement("ALL_DREAMS", self.summoner, dream)
 			elseif danger then
-				local msg = [[As you die in a dream you suddenly wake up.
-Posionous fumes take their toll on your body!]]
+				local msg = [[꿈에서 당신이 죽음과 동시에 잠에서 갑자기 깨어났습니다.
+				독가스가 당신의 몸을 침범합니다!]]
 				game.logPlayer(game.player)
-				require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", msg, 600)
+				require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", msg, 600)
 				local hit = math.max(0, game.player.life * 2 / 3)
 				game:onTickEnd(game.player:setEffect(game.player.EFF_DEATH_DREAM, 4, {power=hit/4}))
 			end

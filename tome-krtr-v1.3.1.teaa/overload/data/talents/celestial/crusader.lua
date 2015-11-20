@@ -24,6 +24,7 @@
 -- Part of 2H core defense to be compared with Shield of Light, Retribution, etc
 newTalent{
 	name = "Absorption Strike",
+	kr_name = "흡수 타격",
 	type = {"celestial/crusader", 1},
 	require = divi_req_high1,
 	points = 5,
@@ -56,15 +57,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[You strike your foe with your two handed weapon, dealing %d%% weapon damage.
-		If the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns.]]):
-		format(100 * damage, t.getWeakness(self, t), t.getNumb(self, t))
+		return ([[양손무기로 적을 공격하여 %d%% 의 무기 피해를 줍니다. 
+ 		공격이 명중할 경우, 5 턴 동안 주변 2 칸 반경에 있는 모든 적들의 빛 저항력이 %d%% / 피해량이 %d%% 감소합니다.]]): 
+ 		format(100 * damage, t.getWeakness(self, t), t.getNumb(self, t)) 
 	end,
 }
 
 -- Part of 2H core defense to be compared with Shield of Light, Retribution, etc
 newTalent{
 	name = "Mark of Light",
+	kr_name = "빛의 표식",
 	type = {"celestial/crusader", 2},
 	require = divi_req_high2,
 	points = 5,
@@ -86,14 +88,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You mark a target with light for 5 turns, causing all melee hits you deal to it to heal you for %d%% of the damage done.]]):
-		format(t.getPower(self, t))
+		return ([[대상에게 5 턴 동안 빛의 표식을 부여합니다. 표식이 부여된 적에게 근접 피해를 줄 경우, 자신의 생명력이 피해량의 %d%% 만큼 회복됩니다.]]): 
+ 		format(t.getPower(self, t)) 
 	end,
 }
 
 -- Sustain because dealing damage is not strictly beneficial (radiants) and because 2H needed some sustain cost
 newTalent{
 	name = "Righteous Strength",
+	kr_name = "올바른 힘",
 	type = {"celestial/crusader",3},
 	require = divi_req_high3,
 	points = 5,
@@ -120,9 +123,9 @@ newTalent{
 		self:setEffect(self.EFF_RIGHTEOUS_STRENGTH, 4, {power=t.getPower(self, t), max_power=t.getPower(self, t) * 3})
 	end,
 	info = function(self, t)
-		return ([[While wielding a two handed weapon, your critical strike chance is increased by %d%%, and your melee criticals instill you with righteous strength, increasing all physical and light damage you deal by %d%%, stacking up to 3 times.
-		In addition, your melee critical strikes leave a lasting lightburn on the target, dealing %0.2f light damage over 5 turns and reducing opponents armour by %d.
-		The damage increases with your Spellpower.]]):
+		return ([[양손 무기를 들고 있는 동안, 물리 치명타율이 %d%% 상승합니다. 또한 근접 치명타를 성공시킬 경우, 올바른 힘이 몸에 스며들어 물리 피해량과 빛 피해량이 %d%% 상승합니다. (최대 3회까지 중첩) 
+ 		추가적으로, 근접 치명타가 대상에게 빛에 의한 화상을 일으켜 5 턴 동안 %0.2f 빛 피해를 가하며 방어도를 %d 감소시키게 됩니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(t.getCrit(self, t), t.getPower(self, t), damDesc(self, DamageType.LIGHT, t.getDamage(self, t)), t.getArmor(self, t))
 	end,
 }
@@ -131,6 +134,7 @@ newTalent{
 -- Part of 2H core defense to be compared with Shield of Light, Retribution, etc
 newTalent{
 	name = "Flash of the Blade",
+	kr_name = "검의 섬광",
 	type = {"celestial/crusader", 4},
 	require = divi_req_high4,
 	random_ego = "attack",
@@ -173,10 +177,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Infuse your two handed weapon with light while spinning around.
-		All creatures in radius one take %d%% weapon damage.
-		In addition while spinning your weapon shines so much it deals %d%% light weapon damage to all foes in radius 2.
-		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]]):
+		return ([[양손 무기에 빛의 힘을 불어넣은 뒤, 몸을 팽이처럼 회전시켜 공격합니다. 
+ 		주변 1 칸 반경에 있는 모든 적들에게 %d%% 의 무기 피해를 줍니다. 
+ 		또한 무기에 주입된 빛의 힘이 너무나 밝아, 주변 2 칸 반경에 있는 모든 적들에게 %d%% 무기 피해를 빛 속성으로 가합니다. 
+ 		기술 레벨이 4 이상일 경우, 회전하는 검이 모든 피해를 막아주는 보호막을 1 턴 동안 생성합니다.]]): 
 		format(t.get1Damage(self, t) * 100, t.get2Damage(self, t) * 100)
 	end,
 }

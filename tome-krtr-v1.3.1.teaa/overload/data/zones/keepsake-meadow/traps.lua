@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,11 +24,13 @@ newEntity{
 	detect_power = 99999, disarm_power = 99999,
 	rarity = 3, level_range = {1, nil},
 	pressure_trap = false,
-	message = "A creeping darkness spreads through the air!",
+	kr_name = "기어오는 어둠", kr_unided_name = "함정",
+	message = "기어오는 어둠이 대기를 통해 퍼져 나갑니다!",
 	triggered = function(self, x, y, who)
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "creeping darkness trap",
+			kr_name = "기어오는 어둠 함정",
 			type = "trap", subtype = "psionic",
 			combatMindpower = function(self) return self.level end,
 			getTarget = function(self) return self.x, self.y end,
@@ -47,7 +49,8 @@ newEntity{
 	detect_power = 99999, disarm_power = 99999,
 	rarity = 3, level_range = {1, nil},
 	pressure_trap = false,
-	message = "A shadow traces across the floor.",
+	kr_name = "그림자 소환", kr_unided_name = "함정",
+	message = "그림자가 바닥의 자취를 쫒습니다.",
 	triggered = function(self, x, y, who)
 		if (game.level.remaining_summons or 5) <= 0 then return false end
 	

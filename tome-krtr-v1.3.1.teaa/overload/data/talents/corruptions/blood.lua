@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Blood Spray",
+	kr_name = "피 뿌리기",
 	type = {"corruption/blood", 1},
 	require = corrs_req1,
 	points = 5,
@@ -49,15 +50,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You extract corrupted blood from your own body, hitting everything in a frontal cone of radius %d for %0.2f blight damage.
-		Each creature hit has a %d%% chance of being infected by a random disease, doing %0.2f blight damage and weakening either Constitution, Strength or Dexterity for 6 turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[전방 %d 칸 범위에 자신의 오염된 피를 뿌려, %0.2f 황폐 속성 피해를 줍니다.
+		오염된 피에 닿은 적은 %d%% 확률로 질병에 걸려, 6 턴 동안 총 %0.2f 황폐 속성 피해를 나눠 받으며 힘, 체격, 민첩 능력치 중 하나가 감소됩니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 190)), t.getChance(self, t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 220)))
 	end,
 }
 
 newTalent{
 	name = "Blood Grasp",
+	kr_name = "피의 속박",
 	type = {"corruption/blood", 2},
 	require = corrs_req2,
 	points = 5,
@@ -79,13 +81,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Project a bolt of corrupted blood, doing %0.2f blight damage and healing you for half the damage done.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 290)))
+		return ([[오염된 피의 화살을 발사하여 %0.2f 황폐 속성 피해를 주고, 피해량의 절반에 해당하는 생명력을 회복합니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 10, 290)))
 	end,
 }
 
 newTalent{
 	name = "Blood Boil",
+	kr_name = "끓어오르는 피",
 	type = {"corruption/blood", 3},
 	require = corrs_req3,
 	points = 5,
@@ -106,13 +109,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Make the blood of all creatures around you in radius %d boil, doing %0.2f blight damage and slowing them by 20%%.
-		The damage will increase with your Spellpower.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 190)))
+		return ([[주변 %d 칸 반경에 있는 적들의 피를 끓어오르게 만들어, %0.2f 황폐 속성 피해를 주고 전체 속도를 20%% 감속시킵니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 190)))
 	end,
 }
 
 newTalent{
 	name = "Blood Fury",
+	kr_name = "피의 분노",
 	type = {"corruption/blood", 4},
 	mode = "sustained",
 	require = corrs_req4,
@@ -135,9 +139,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Concentrate on the corruption you bring, increasing your spell critical chance by %d%%.
-		Each time your spells go critical, you enter a blood rage for 5 turns, increasing your blight and acid damage by %d%%.
-		The critical chance and damage increase will improve with your Spellpower.]]):
+		return ([[자신의 오염과 타락에 집중하여, 주문 치명타율을 %d%% 올립니다.
+		주문 치명타가 발생할 때마다, 5 턴 동안 피의 분노 상태가 되어 황폐 속성 피해량과 산성 피해량이 %d%% 증가합니다.
+		치명타율 증가와 피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:combatTalentSpellDamage(t, 10, 14), self:combatTalentSpellDamage(t, 10, 30))
 	end,
 }

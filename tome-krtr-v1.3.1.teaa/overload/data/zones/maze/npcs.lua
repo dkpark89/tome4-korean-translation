@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -48,10 +48,11 @@ newEntity{ define_as = "HORNED_HORROR",
 	allow_infinite_dungeon = true,
 	type = "horror", subtype = "corrupted", unique = true,
 	name = "Horned Horror",
+	kr_name = "뿔 달린 공포",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_horner_horror.png", display_h=2, display_y=-1}}},
-	desc = [[Some horrible power has twisted this brutish minotaur into something altogether more terrifying. Huge tentacles undulate from its back as it clenches and unclenches its powerful fists.]],
-	killer_message = "and revived as a mindless horror",
+	desc = [[어떤 끔찍한 힘이 이 난폭한 미노타우르스를 보다 공포스러운 존재로 만들었습니다. 거대한 촉수가 이 존재의 뒤에서 파도치고 있으며, 그 강력한 주먹을 쥐었다 폈다 하고 있습니다.]],
+	killer_message = "당신은 이성이 없는 공포로 되살아났습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,
 	stats = { str=20, dex=20, cun=20, mag=10, wil=10, con=20 },
@@ -77,16 +78,17 @@ newEntity{ define_as = "HORNED_HORROR",
 		[Talents.T_DOUBLE_STRIKE]={base=2, every=6, max=5},
 		[Talents.T_SPINNING_BACKHAND]={base=1, every=6, max=5},
 		[Talents.T_FLURRY_OF_FISTS]={base=1, every=6, max=5},
+		[Talents.T_VITALITY]={base=2, every=6, max=5},
 		[Talents.T_TENTACLE_GRAB]={base=1, every=6, max=5},
 	},
 
 	autolevel = "warrior",
 	ai = "tactical", ai_state = { talent_in=1, ai_move="move_astar", },
 	ai_tactic = resolvers.tactic"melee",
-	resolvers.inscriptions(1, {"invisibility rune"}),
+	resolvers.inscriptions(2, {"invisibility rune", "lightning rune"}),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("NIMISIL", 2, 40, "Have you hard about the patrol that disappeared in the maze in the west?")
+		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식 들었나?")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze-horror")
@@ -98,10 +100,11 @@ newEntity{ define_as = "MINOTAUR_MAZE",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "minotaur", unique = true,
 	name = "Minotaur of the Labyrinth",
+	kr_name = "미궁의 미노타우르스",
 	display = "H", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_minotaur_minotaur_of_the_labyrinth.png", display_h=2, display_y=-1}}},
-	desc = [[A fearsome bull-headed monster, he swings a mighty axe as he curses all who defy him.]],
-	killer_message = "and hung on a wall-spike",
+	desc = [[소의 머리를 가진, 무시무시한 괴물입니다. 강력한 도끼를 휘두르며, 그와 마주치는 모두에게 저주를 퍼붓습니다.]],
+	killer_message = "당신은 벽에 달린 가시에 장식용으로 매달렸습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 17, fixed_rating = true,
 	max_stamina = 200,
@@ -135,7 +138,7 @@ newEntity{ define_as = "MINOTAUR_MAZE",
 	resolvers.inscriptions(2, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("NIMISIL", 2, 40, "Have you hard about the patrol that disappeared in the maze in the west?")
+		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식 들었나?")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "maze")
 	end,
@@ -145,7 +148,8 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "NIMISIL",
 	unique = true,
 	allow_infinite_dungeon = true,
 	name = "Nimisil", color=colors.VIOLET,
-	desc = [[Covered by eerie luminescent growths and protuberances, this spider now haunts the maze's silent passageways.]],
+	kr_name = "니미실",
+	desc = [[스스로 빛을 내는 털과 돌기로 덮힌 이 으스스한 거미는, 미궁의 조용한 통로에서 주로 출몰합니다.]],
 	level_range = {43, nil}, exp_worth = 3,
 	max_life = 520, life_rating = 21, fixed_rating = true,
 	rank = 4,

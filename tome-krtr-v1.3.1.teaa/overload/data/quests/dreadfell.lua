@@ -19,11 +19,12 @@
 
 -- Quest for the Dreadfell
 name = "The Island of Dread"
+kr_name = "두려움의 섬"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have heard that near the Charred Scar, to the south, lies a ruined tower known as the Dreadfell."
-	desc[#desc+1] = "There are disturbing rumors of greater undead, and nobody who reached it ever returned."
-	desc[#desc+1] = "Perhaps you should explore it and find the truth, and the treasures, for yourself!"
+	desc[#desc+1] = "당신은 검게 탄 상처 북쪽에 '두려움의 영역' 이라고 불리는, 폐허가 된 탑이 하나 있다는 말을 들었습니다."
+	desc[#desc+1] = "소문에 의하면 그곳에는 강력한 언데드가 있어, 그곳에 간 사람들은 어느 누구도 살아 돌아오지 못했다고 합니다."
+	desc[#desc+1] = "이제 당신이 그곳을 탐험해 진실을 파헤칠 시간입니다. 파헤치는 김에, 보물도 말이지요."
 	return table.concat(desc, "\n")
 end
 

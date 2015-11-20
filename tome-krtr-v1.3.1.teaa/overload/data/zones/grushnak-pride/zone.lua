@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,9 +19,15 @@
 
 return {
 	name = "Grushnak Pride",
+	kr_name = "그루쉬낙 긍지",
 	display_name = function()
 		if game.level.level % 2 == 0 then return "Grushnak Pride ("..(game.level.level/2)..")"
 		else return "Grushnak Pride (guarded barracks)"
+		end
+	end,
+	kr_display_name = function()
+		if game.level.level % 2 == 0 then return "그루쉬낙 긍지 ("..(game.level.level/2)..")"
+		else return "그루쉬낙 긍지 (경계 막사)"
 		end
 	end,
 	variable_zone_name = true,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Bind",
+	kr_name = "묶기",
 	type = {"psionic/grip", 1},
 	require = psi_cun_high1,
 	points = 5,
@@ -53,14 +54,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[Bind the target in crushing bands of telekinetic force, immobilizing it for %d turns. 
-		The duration will improve with your Mindpower.]]):
+		return ([[염력의 끈으로 대상을 묶어, %d 턴 동안 이동하지 못하게 만듭니다. 
+		지속시간은 정신력의 영향을 받아 증가합니다.]]):
 		format(dur)
 	end,
 }
 
 newTalent{
 	name = "Greater Telekinetic Grasp",
+	kr_name = "향상된 염동적 악력",
 	type = {"psionic/grip", 4},
 	require = psi_cun_high4,
 	hide = true,
@@ -75,11 +77,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local boost = 100 * t.stat_sub(self, t)
-		return ([[Use finely controlled forces to augment both your flesh-and-blood grip, and your telekinetic grip. This does the following:
-		Increases disarm immunity by %d%%.
-		Allows %d%% of Willpower and Cunning (instead of the usual 60%%) to be substituted for Strength and Dexterity for the purposes of determining damage done by telekinetically-wielded weapons.
-		At talent level 5, telekinetically wielded gems and mindstars will be treated as one material level higher than they actually are.
-		]]):
+		return ([[정신을 집중하여, 육체의 악력과 염동적 악력을 동시에 상승시킵니다. 이를 통해 다음과 같은 효과가 발생합니다.
+		- 무장해제 면역력이 %d%% 증가합니다.
+		- 염동력으로 쥐고 있는 무기의 피해량과 정확도를 결정하는, 의지력과 교활함 능력치의 적용 비율이 %d%% 가 됩니다. (원래는 각 능력치의 60%% 만큼 무기에 적용)
+		- 기술 레벨이 5 이상이면, 염동력으로 쥔 보석이나 마석을 한 단계 높은 수준의 보석이나 마석인 것처럼 사용할 수 있게 됩니다.]]):
 		format(t.getImmune(self, t)*100, boost)
 	end,
 }

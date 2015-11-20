@@ -16,7 +16,7 @@
 local sling_equipped = function(self, silent)
 	if not self:hasArcheryWeapon("sling") then
 		if not silent then
-			game.logPlayer(self, "You must wield a sling!")
+			game.logPlayer(self, "투석구를 장착해야 합니다!")
 		end
 		return false
 	end
@@ -27,6 +27,7 @@ end
 newTalent {
 	short_name = "SKIRMISHER_SLING_SUPREMACY",
 	name = "Sling Supremacy",
+	kr_name = "투석구 우월주의",
 	image = "talents/sling_mastery.png",
 	type = {"technique/skirmisher-slings", 1},
 	points = 5,
@@ -44,14 +45,15 @@ newTalent {
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
 		local reloads = t.ammo_mastery_reload(self, t)
-		return ([[Increases Physical Power by %d and increases weapon damage by %d%% when using slings.
-		Also, increases your reload rate by %d.]]):format(damage, inc * 100, reloads)
+		return ([[투석구를 사용할 때 물리력이 %d / 무기 피해량이 %d%% 상승합니다.
+		또한, 한번에 %d 발의 탄환을 추가로 재장전할 수 있게 됩니다.]]):format(damage, inc * 100, reloads)
 	end,
 }
 
 newTalent {
 	short_name = "SKIRMISHER_SWIFT_SHOT",
 	name = "Swift Shot",
+	kr_name = "속사",
 	type = {"technique/skirmisher-slings", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -99,7 +101,7 @@ newTalent {
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fire off a quick sling bullet for %d%% damage, at double your normal attack speed. Moving lowers the cooldown by 1.]])
+		return ([[투석구 탄환을 빠르게 발사하여, %d%% 피해를 가합니다. 이 공격은 기존 공격보다 2 배 빠르게 공격하며, 이동할 때마다 재사용 대기 시간이 추가로 1 턴 감소합니다.]])
 			:format(t.getDamage(self, t) * 100)
 	end,
 }
@@ -107,6 +109,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_HURRICANE_SHOT",
 	name = "Hurricane Shot",
+	kr_name = "폭풍 사격",
 	type = {"technique/skirmisher-slings", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -181,7 +184,7 @@ newTalent {
 		return fired
 	end,
 	info = function(self, t)
-		return ([[Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.]])
+		return ([[조준한 뒤, 최대 %d 발의 탄환을 원뿔 모양 공격 범위 내의 모든 적들에게 동시에 발사하여 %d%% 무기 피해를 가합니다. 각각의 적은 한 발의 탄환만 맞게 됩니다. (기술 레벨이 3 이상일 경우, 한 명의 적이 2 발까지 맞게 됩니다) 속사를 사용하면 기술의 재사용 대기 시간이 추가로 1 턴 줄어듭니다.]])
 			:format(t.limit_shots(self, t),
 							t.damage_multiplier(self, t) * 100)
 	end,
@@ -192,6 +195,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_BOMBARDMENT",
 	name = "Bombardment",
+	kr_name = "탄환 폭격",
 	type = {"technique/skirmisher-slings", 4},
 	require = techs_dex_req4,
 	points = 5,
@@ -214,7 +218,7 @@ newTalent {
 	activate = function(self, t) return {} end,
 	deactivate = function(self, t, p) return true end,
 	info = function(self, t)
-		return ([[While activated, your basic Shot talent now fires %d sling bullets, each dealing %d%% Ranged damage, at a cost of %d Stamina per attack.]])
+		return ([[기술이 유지되는 동안, 기본 사격 기술이 %d 발의 탄환을 발사하게 됩니다. 대신 각각의 탄환은 %d%% 무기 피해를 가하게 되며, 매 공격마다 %d 체력을 소모하게 됩니다.]])
 		:format(t.bullet_count(self, t), t.damage_multiplier(self, t) * 100, t.shot_stamina(self, t))
 	end,
 }

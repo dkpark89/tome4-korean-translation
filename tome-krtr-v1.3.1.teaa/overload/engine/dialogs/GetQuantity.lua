@@ -28,12 +28,12 @@ module(..., package.seeall, class.inherit(Dialog))
 function _M:init(title, prompt, default, max, action, min)
 	self.action = action
 
-	Dialog.init(self, title or "Quantity", 320, 110)
+	Dialog.init(self, title or "수량", 320, 110)
 
 	local c_box = Numberbox.new{title=prompt and (prompt..": ") or "", number=default or 0, max=max, min=min, chars=10, fct=function(text) self:okclick() end}
 	self.c_box = c_box
-	local ok = require("engine.ui.Button").new{text="Accept", fct=function() self:okclick() end}
-	local cancel = require("engine.ui.Button").new{text="Cancel", fct=function() self:cancelclick() end}
+	local ok = require("engine.ui.Button").new{text="수락", fct=function() self:okclick() end}
+	local cancel = require("engine.ui.Button").new{text="취소", fct=function() self:cancelclick() end}
 
 	self:loadUI{
 		{left=0, top=0, padding_h=10, ui=c_box},
@@ -54,7 +54,7 @@ function _M:okclick()
 		game:unregisterDialog(self)
 		self.action(self.qty)
 	else
-		Dialog:simplePopup("Error", "Enter a quantity.")
+		Dialog:simplePopup("오류", "수량을 입력하세요.")
 	end
 end
 

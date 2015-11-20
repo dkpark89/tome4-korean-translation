@@ -25,19 +25,19 @@ local Textzone = require "engine.ui.Textzone"
 module(..., package.seeall, class.inherit(Dialog))
 
 function _M:init(adds)
-	Dialog.init(self, "Chat filters", 500, 400)
+	Dialog.init(self, "보여줄 대화 메세지", 500, 400)
 
 	local list = {
-		{name = "Public chat", kind = "talk"},
-		{name = "Private whispers", kind = "whisper"},
-		{name = "Join/part messages", kind = "join"},
-		{name = "First time achievements (recommended to keep them on)", kind = "achievement_first"},
-		{name = "Important achievements (recommended to keep them on)", kind = "achievement_huge"},
-		{name = "Other achievements", kind = "achievement_other"},
+		{name = "공개적 대화", kind = "talk"},
+		{name = "개인적 귓속말", kind = "whisper"},
+		{name = "메세지 참가", kind = "join"},
+		{name = "최초로 획득한 도전과제 (항상 보는 것을 추천합니다)", kind = "achievement_first"}, 
+		{name = "중요한 도전과제 (항상 보는 것을 추천합니다)", kind = "achievement_huge"},
+		{name = "기타 도전과제", kind = "achievement_other"},
 	}
 	for i, l in ipairs(adds or {}) do list[#list+1] = l end
 
-	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="Select which types of chat events to see or not."}
+	local c_desc = Textzone.new{width=self.iw - 10, height=1, auto_height=true, text="보거나 보지 않을 메세지를 선택하세요."}
 	local uis = { {left=0, top=0, ui=c_desc} }
 	for i, l in ipairs(list) do
 		local l = l

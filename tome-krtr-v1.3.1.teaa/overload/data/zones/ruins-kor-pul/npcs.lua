@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -42,10 +42,11 @@ newEntity{ define_as = "SHADE",
 	allow_infinite_dungeon = true,
 	type = "undead", subtype = "skeleton", unique = true,
 	name = "The Shade",
+	kr_name = "'음영'",
 	display = "s", color=colors.VIOLET,
 	shader = "unique_glow",
-	desc = [[This skeleton looks nasty. There are red flames in its empty eye sockets. It wields a nasty sword and strides toward you, throwing spells.]],
-	killer_message = "and left to rot",
+	desc = [[위험해 보이는 스켈레톤입니다. 구멍 뚫린 눈 속에서는 붉은 불꽃이 타오르고 있으며, 역시나 위험해 보이는 장검을 들고 있습니다. 이 스켈레톤은 마법 공격을 난사하면서, 당신에게로 쇄도하고 있습니다.]],
+	killer_message = "당신은 완전히 부패할 때까지 방치되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 15, fixed_rating = true,
 	max_mana = 85,
@@ -58,7 +59,7 @@ newEntity{ define_as = "SHADE",
 	stats = { str=16, dex=12, cun=14, mag=25, con=16 },
 	instakill_immune = 1,
 	blind_immune = 1,
-	cut_immune = 1,
+	bleed_immune = 1,
 	move_others=true,
 
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
@@ -77,7 +78,7 @@ newEntity{ define_as = "SHADE",
 	ai = "tactical", ai_state = { talent_in=3, ai_move="move_astar", },
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("KOR_FURY", 3, 35, ".. yes I tell you! The old ruins of Kor'Pul are still haunted!")
+		game.state:activateBackupGuardian("KOR_FURY", 3, 35, "... 내가 말하는데! 저 코르'풀 폐허는 아직도 저주받았다고!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul")
 	end,
 }
@@ -85,9 +86,10 @@ newEntity{ define_as = "SHADE",
 newEntity{ base = "BASE_NPC_THIEF", define_as = "THE_POSSESSED",
 	allow_infinite_dungeon = true,
 	name = "The Possessed", color=colors.VIOLET,
+	kr_name = "잡아먹힌 자",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_the_possessed.png", display_h=2, display_y=-1}}},
-	desc = [[He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.]],
-	killer_message = "and used as a new host",
+	desc = [[그는 강도 무리의 지도자였지만, 코르'풀의 '음영' 에게 살해당하고 잡아먹힌 상태입니다. 그의 시체는 이제 살해자의 의지 하에 움직입니다.]],
+	killer_message = "당신의 몸은 새로운 '잡아먹힌 자' 로 사용되었습니다.",
 	level_range = {7, nil}, exp_worth = 2,
 	unique = true,
 	rank = 4,
@@ -117,18 +119,20 @@ newEntity{ base = "BASE_NPC_THIEF", define_as = "THE_POSSESSED",
 	ai = "tactical", ai_state = { talent_in=2, ai_move="move_astar", },
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("KOR_FURY", 3, 35, ".. yes I tell you! The old ruins of Kor'Pul are still haunted!")
+		game.state:activateBackupGuardian("KOR_FURY", 3, 35, "... 내가 말하는데! 저 코르'풀 폐허는 아직도 저주받았다고!")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul")
 		game.player:resolveSource():setQuestStatus("start-allied", engine.Quest.COMPLETED, "kor-pul-invaded")
 	end,
 }
+
 -- The boss of Amon Sul, no "rarity" field means it will not be randomly generated
 newEntity{ define_as = "KOR_FURY",
 	allow_infinite_dungeon = true,
 	type = "undead", subtype = "ghost", unique = true,
 	name = "Kor's Fury",
+	kr_name = "코르의 분노",
 	display = "G", color=colors.VIOLET,
-	desc = [[The Shade's colossal will keeps it anchored to this world, now as a vengeful, insane spirit.]],
+	desc = [[음영의 어마어마한 의지는 이 세계에 뿌리내려 유지되었으며, 복수심에 불타오르는 정신 나간 영혼이 되어 이곳에 다시 나타났습니다.]],
 	level_range = {38, nil}, exp_worth = 3,
 	max_life = 250, life_rating = 20, fixed_rating = true,
 	rank = 4,
@@ -141,7 +145,7 @@ newEntity{ define_as = "KOR_FURY",
 	stone_immune = 1,
 	confusion_immune = 1,
 	fear_immune = 1,
-	cut_immune = 1,
+	bleed_immune = 1,
 	teleport_immune = 0.5,
 	disease_immune = 1,
 	poison_immune = 1,

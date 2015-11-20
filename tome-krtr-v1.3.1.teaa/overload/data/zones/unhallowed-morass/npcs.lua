@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ newEntity{
 	define_as = "BASE_NPC_SPIDER",
 	type = "spiderkin", subtype = "spider",
 	display = "S", color=colors.WHITE,
-	desc = [[Arachnophobia...]],
+	desc = [[거미 공포증...]],
 	body = { INVEN = 10 },
 
 	max_stamina = 150,
@@ -38,9 +38,11 @@ newEntity{
 	combat_armor = 1, combat_def = 1,
 }
 
+
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "weaver hatchling", color=colors.LIGHT_STEEL_BLUE, image="npc/spiderkin_spider_weaver_young.png",
-	desc = [[A nearly translucent spider hatchling.]],
+	kr_name = "새끼 무당거미",
+	desc = [[거의 투명한 새끼 거미입니다]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,	size_category = 1,
 	max_life = resolvers.rngavg(10,20),
@@ -54,9 +56,11 @@ newEntity{ base = "BASE_NPC_SPIDER",
 	},
 }
 
+
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "orb spinner", color=colors.UMBER,
-	desc = [[A large brownish arachnid, its fangs drip with a strange fluid.]],
+	kr_name = "오브 방적거미",
+	desc = [[커다란 갈색 거미류입니다. 그 이빨에서는 이상한 액체가 흐르고 있습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(20,40),
@@ -72,7 +76,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "orb weaver", color=colors.DARK_UMBER,
-	desc = [[A large brownish arachnid spinning its web.  It doesn't look pleased that you've disturbed its work.]],
+	kr_name = "오브 무당거미",
+	desc = [[거미줄을 짜고 있는 커다란 갈색 거미류입니다. 당신이 그 일을 방해해서 기분이 나쁜 것 같습니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 10, -- rarely appears alone
 	max_life = resolvers.rngavg(40,60),
@@ -86,7 +91,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate spinner", color=colors.SLATE,
-	desc = [[Easily as big as a horse, this giant spider menaces at you with claws and fangs.]],
+	kr_name = "파멸의 방적거미",
+	desc = [[한 마리 말 만큼이나 커다란 이 거대 거미는, 그 이빨과 발톱으로 당신을 위협하고 있습니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 2, rank = 2,
 	size_category = 4,
@@ -101,13 +107,14 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate weaver", color=colors.WHITE,
-	desc = [[A large white spider.]],
+	kr_name = "파멸의 무당거미",
+	desc = [[커다란 흰색 거미입니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 3, rank = 2,
 	max_life = resolvers.rngavg(70,100),
 	combat_armor = 3, combat_def = 4,
 	combat = { dam=resolvers.levelup(8, 1, 0.9), atk=15, apr=3, damtype=DamageType.TEMPORAL, },
-	
+
 	resolvers.talents{
 		[Talents.T_SPIN_FATE]=1,
 		[Talents.T_WEBS_OF_FATE]=1,
@@ -118,8 +125,9 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 	name = "Weaver Queen", color=colors.WHITE, female=1,
+	kr_name = "무당거미 여왕",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_weaver_queen.png", display_h=2, display_y=-1}}},
-	desc = [[A large white spider.]],
+	desc = [[커다란 흰색 거미입니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	unique = true,
 	rarity = false,
@@ -138,16 +146,15 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 
 	inc_damage = {all=-20},
 	healing_factor = 0.5,
-	
 	summon = {{type = "spiderkin", subtype = "spider", name="weaver hatchling", number=1, hasxp=false}},
-	
+
 	resolvers.talents{
 		[Talents.T_SPIN_FATE]=2,
 		[Talents.T_WEBS_OF_FATE]=2,
 		[Talents.T_FATEWEAVER]=2,
 		[Talents.T_PHASE_PULSE]=2,
 		[Talents.T_SUMMON]=1,
-		[Talents.T_TEMPORAL_BOLT]=1,	
+		[Talents.T_TEMPORAL_BOLT]=1,
 	},
 	
 	on_move = function(self)
@@ -162,7 +169,7 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("start-point-zero", engine.Quest.COMPLETED, "morass")
-		require("engine.ui.Dialog"):simplePopup("Weaver Queen", "As you vanquish the queen you notice a temporal thread that seems to have been controlling her. It seems to go through a rift.")
+		require("engine.ui.Dialog"):simplePopup("무당거미 여왕", "여왕거미를 무찌르자, 그녀가 지배하던 것으로 보이는 시간의 흐름을 발견하였습니다. 이 흐름이 균열 사이로 지나가고 있습니다.")
 		local rift = game.zone:makeEntityByName(game.level, "terrain", "RIFT_HOME")
 		game.zone:addEntity(game.level, rift, "terrain", self.x, self.y)
 	end,

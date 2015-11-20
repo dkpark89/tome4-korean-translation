@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ if not currentZone.is_crystaline then
 		define_as = "GRASS",
 		type = "floor", subtype = "dark_grass",
 		name = "grass", image = "terrain/grass/dark_grass_main_01.png",
+		kr_name = "풀밭",
 		display = '.', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 		grow = "TREE",
 		nice_tiler = { method="replace", base={"GRASS_PATCH", 100, 1, 14}},
@@ -79,6 +80,7 @@ if not currentZone.is_crystaline then
 		define_as = "TREE",
 		type = "wall", subtype = "dark_grass",
 		name = "tree",
+		kr_name = "나무",
 		image = "terrain/tree.png",
 		display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 		always_remember = true,
@@ -93,6 +95,7 @@ if not currentZone.is_crystaline then
 		define_as = "HARDTREE",
 		type = "wall", subtype = "dark_grass",
 		name = "tall thick tree",
+		kr_name = "크고 굵은 나무",
 		image = "terrain/tree.png",
 		display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 		always_remember = true,
@@ -113,6 +116,7 @@ if not currentZone.is_crystaline then
 	newEntity{
 		define_as = "LAKE_NUR",
 		name = "way to the lake of Nur",
+		kr_name = "누르 호수로의 길",
 		display = '>', color_r=255, color_g=255, color_b=0, image = "terrain/grass/dark_grass_main_01.png", add_displays = {class.new{image = "terrain/way_next_2.png"}},
 		notice = true,
 		always_remember = true,
@@ -172,6 +176,7 @@ else -- Crystaline
 		define_as = "TREE",
 		type = "wall", subtype = "grass",
 		name = "tree",
+		kr_name = "나무",
 		image = "terrain/tree.png",
 		display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 		always_remember = true,
@@ -186,6 +191,7 @@ else -- Crystaline
 		define_as = "HARDTREE",
 		type = "wall", subtype = "grass",
 		name = "tall thick tree",
+		kr_name = "크고 굵은 나무",
 		image = "terrain/tree.png",
 		display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 		always_remember = true,
@@ -206,6 +212,7 @@ else -- Crystaline
 	newEntity{
 		define_as = "LAKE_NUR",
 		name = "way to the lake of Nur",
+		kr_name = "누르 호수로의 길",
 		display = '>', color_r=255, color_g=255, color_b=0, image = "terrain/grass.png", add_displays = {class.new{image = "terrain/way_next_2.png"}},
 		notice = true,
 		always_remember = true,

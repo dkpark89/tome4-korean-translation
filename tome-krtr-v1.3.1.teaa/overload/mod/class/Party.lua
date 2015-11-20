@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 require "engine.Entity"
 local Map = require "engine.Map"
@@ -49,6 +50,7 @@ function _M:addMember(actor, def)
 		return false
 	end
 	if type(def.control) == "nil" then def.control = "no" end
+	def.kr_title = def.kr_title or def.title or "동료"
 	def.title = def.title or "Party member"
 	self.members[actor] = def
 	self.m_list[#self.m_list+1] = actor
@@ -186,7 +188,7 @@ function _M:canControl(actor, vocal)
 		return false
 	end
 	if actor.dead or (game.level and not game.level:hasEntity(actor)) then
-		if vocal then game.logPlayer(game.player, "Can not switch control to this creature.") end
+		if vocal then game.logPlayer(game.player, "이 존재의 제어권을 가져올 수 없습니다.") end
 		print("[PARTY] error trying to set player, no entity or dead")
 		return false
 	end
@@ -208,8 +210,8 @@ function _M:setPlayer(actor, bypass)
 	if actor == game.player then return true end
 
 	-- Stop!!
-	if game.player and game.player.runStop then game.player:runStop("Switching control") end
-	if game.player and game.player.restStop then game.player:restStop("Switching control") end
+	if game.player and game.player.runStop then game.player:runStop("제어권 변경") end
+	if game.player and game.player.restStop then game.player:restStop("제어권 변경") end
 
 	local def = self.members[actor]
 	local oldp = self.player
@@ -263,7 +265,7 @@ function _M:setPlayer(actor, bypass)
 
 	if not actor.hotkeys_sorted then actor:sortHotkeys() end
 
-	game.logPlayer(actor, "#MOCCASIN#Character control switched to %s.", actor.name)
+	game.logPlayer(actor, "#MOCCASIN#%s의 조작을 시작합니다.", (actor.kr_name or actor.name))
 
 	if game.player.resetMainShader then game.player:resetMainShader() end
 
@@ -295,7 +297,7 @@ function _M:canOrder(actor, order, vocal)
 		return false
 	end
 	if actor.dead or (game.level and not game.level:hasEntity(actor)) then
-		if vocal then game.logPlayer(game.player, "Can not give orders to this creature.") end
+		if vocal then game.logPlayer(game.player, "이 존재에게는 명령을 내릴 수 없습니다.") end
 		return false
 	end
 	if actor.on_can_order and not actor:on_can_order(vocal) then
@@ -331,9 +333,9 @@ function _M:giveOrder(actor, order)
 	local def = self.members[actor]
 
 	if order == "leash" then
-		game:registerDialog(GetQuantity.new("Set action radius: "..actor.name, "Set the maximum distance this creature can go from the party master", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
+		game:registerDialog(GetQuantity.new("행동 반경 설정 : "..(actor.kr_name or actor.name), "기준 위치로부터 떨어질 수 있는 최대 거리를 설정합니다 ", actor.ai_state.tactic_leash, actor.ai_state.tactic_leash_max or 100, function(qty)
 			actor.ai_state.tactic_leash = util.bound(qty, 1, actor.ai_state.tactic_leash_max or 100)
-			game.logPlayer(game.player, "%s maximum action radius set to %d.", actor.name:capitalize(), actor.ai_state.tactic_leash)
+			game.logPlayer(game.player, "%s 이제 기준 위치로부터 %d 칸 반경 내에서만 행동할 수 있습니다.", (actor.kr_name or actor.name):capitalize():addJosa("는"), actor.ai_state.tactic_leash)
 		end), 1)
 	elseif order == "anchor" then
 		local co = coroutine.create(function()
@@ -343,10 +345,10 @@ function _M:giveOrder(actor, order)
 				if act then
 					anchor = act
 				else
-					anchor = {x=x, y=y, name="that location"}
+					anchor = {x=x, y=y, name="해당 지역"}
 				end
 				actor.ai_state.tactic_leash_anchor = anchor
-				game.logPlayer(game.player, "%s will stay near %s.", actor.name:capitalize(), anchor.name)
+				game.logPlayer(game.player, "%s %s의 주변에 머물기 시작합니다.", (actor.kr_name or actor.name):capitalize():addJosa("가"), (anchor.kr_name or anchor.name))
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -356,7 +358,7 @@ function _M:giveOrder(actor, order)
 			local x, y, act = game.player:getTarget({type="hit", range=10})
 			if act then
 				actor:setTarget(act)
-				game.player:logCombat(act, "%s targets #Target#.", actor.name:capitalize())
+				game.player:logCombat(act, "%s #Target3# 목표로 합니다.", (actor.kr_name or actor.name):capitalize():addJosa("가"))
 			end
 		end)
 		local ok, err = coroutine.resume(co)
@@ -371,18 +373,18 @@ function _M:giveOrder(actor, order)
 	-------------------------------------------
 	elseif order == "escort_rest" then
 		-- Rest for a few turns
-		if actor.ai_state.tactic_escort_rest then actor:doEmote("No, we must hurry!", 40) return true end
+		if actor.ai_state.tactic_escort_rest then actor:doEmote("그럴 순 없어요. 우린 좀 더 서두를 필요가 있어요!", 40) return true end
 		actor.ai_state.tactic_escort_rest = rng.range(6, 10)
-		actor:doEmote("Ok, but not for long.", 40)
+		actor:doEmote("알겠어요. 하지만 그렇게 오래 기다릴 수는 없어요.", 40)
 	elseif order == "escort_portal" then
 		local dist = core.fov.distance(actor.escort_target.x, actor.escort_target.y, actor.x, actor.y)
-		if dist < 8 then dist = "very close"
-		elseif dist < 16 then dist = "close"
-		else dist = "still far away"
+		if dist < 8 then dist = "아주 가까이에"
+		elseif dist < 16 then dist = "가까이에"
+		else dist = "아직 멀리"
 		end
 
 		local dir = game.level.map:compassDirection(actor.escort_target.x - actor.x, actor.escort_target.y - actor.y)
-		actor:doEmote(("The portal is %s, to the %s."):format(dist, dir or "???"), 45)
+		actor:doEmote(("관문은 %s 방향으로 %s 있어요."):format(dir or "알 수 없는", dist), 45) --@ 변수 순서 조정
 	end
 
 	return true

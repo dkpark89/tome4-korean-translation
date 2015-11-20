@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,17 +32,18 @@ newEntity { base = "GRASS", define_as = "OLD_FOREST" }
 newEntity{
 	define_as = "RIFT",
 	name = "Temporal Rift", image="terrain/demon_portal2.png",
+	kr_name = "시간의 균열",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[The rift leads... somewhere.]],
+	desc = [[이 균열은 어딘가와 연결되어 있습니다...]],
 	change_level = 1,
 	change_level_check = function()
 		if game.level.level > 1 then return end
 		local p = game.party:findMember{main=true}
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("temporal-rift-start", {name="Temporal Warden"}, p)
+		local chat = Chat.new("temporal-rift-start", {name="Temporal Warden", kr_name="시간의 감시자"}, p)
 		chat:invoke()
 		return true
 	end,

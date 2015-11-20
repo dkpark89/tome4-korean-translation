@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,12 +17,20 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 return {
 	name = "Unknown Sher'Tul Fortress",
+	kr_name = "미지의 쉐르'툴 요새",
 	display_name = function(x, y)
 		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
 		if zn then return "Unknown Sher'Tul Fortress ("..zn..")"
 		else return "Unknown the Sher'Tul Fortress" end
+	end,
+	kr_display_name = function(x, y)
+		local zn = game.level.map.attrs(x or game.player.x, y or game.player.y, "zonename")
+		if zn then return "미지의 쉐르'툴 요새 ("..zn:krZonename()..")"
+		else return "미지의 쉐르'툴 요새" end
 	end,
 	variable_zone_name = true,
 	actor_adjust_level = function(zone, level, e) return zone.base_level + e:getRankLevelAdjust() + level.level-1 + rng.range(-1,2) end,
@@ -71,7 +79,7 @@ return {
 	end,
 	on_enter = function(lev, old_lev, zone)
 		local Dialog = require("engine.ui.Dialog")
-		Dialog:simpleLongPopup("Unknown Sher'Tul Fortress", "With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", 500)
+		Dialog:simpleLongPopup("미지의 쉐르'툴 요새", "갑작스런 충격과 함께, 당신은 어쩐지 익숙한 곳에 있음을 발견했습니다... 이곳의 부드러운 벽과 온화한 빛이 당신의 요새를 떠올리게 만듭니다. 하지만 뭔가가 다른 것 같기도 합니다. 웅웅거리는 소리가 어디선가 들려오고, 신체가 거의 무게가 없는 것처럼 가벼워지는 것을 느끼며, 작은 움직임만으로도 허공에 나아갈 수 있게 되었습니다. 당신은 자신이 더이상 마즈'에이알에 있지 않다는 이상한 느낌이 듭니다... 갑자기 앞쪽에 끔찍하면서도 환상적인 존재가 있음이 느껴지고, 당신의 모든 신경들이 떨려옴을 느낍니다.", 500)
 	end,
 
 	background = function(level, x, y, nb_keyframes)

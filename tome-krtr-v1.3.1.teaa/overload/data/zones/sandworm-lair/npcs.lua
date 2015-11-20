@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,10 +32,11 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "SANDWORM_TUNNELER",
 	type = "vermin", subtype = "sandworm",
 	name = "sandworm burrower",
+	kr_name = "굴 파는 지렁이",
 	display = "w", color=colors.GREEN,
-	desc = [[This sandworm seems to not care about your presence at all and simply continues digging its way through the sand.
+	desc = [[이 지렁이는 당신을 전혀 신경쓰지 않고, 단순히 그 앞쪽으로 모래를 파서 굴을 만드는 일만 계속하고 있습니다.
 	
-Maybe following it is the only way to move around here...]],
+아마 이 지렁이를 따라다니는 것만이 이 지역을 돌아다니는 유일한 방법인 것 같습니다...]],
 	level_range = {12, 50}, exp_worth = 0,
 	max_life = 10000,
 	faction = "sandworm-burrowers",
@@ -57,11 +58,12 @@ Maybe following it is the only way to move around here...]],
 newEntity{ define_as = "SANDWORM_TUNNELER_HUGE",
 	type = "vermin", subtype = "sandworm",
 	name = "huge sandworm burrower",
+	kr_name = "거대한 굴 파는 지렁이",
 	display_w = 2, display_h = 2, display_x = -0.5, display_y = -0.5,
 	display = "w", color=colors.GREEN,
-	desc = [[This sandworm seems to not care about your presence at all and simply continues digging its way through the sand.
+	desc = [[이 지렁이는 당신을 전혀 신경쓰지 않고, 단순히 그 앞쪽으로 모래를 파서 굴을 만드는 일만 계속하고 있습니다.
 	
-Maybe following it is the only way to move around here...]],
+아마 이 지렁이를 따라다니는 것만이 이 지역을 돌아다니는 유일한 방법인 것 같습니다...]],
 	level_range = {12, 50}, exp_worth = 0,
 	max_life = 10000,
 	faction = "sandworm-burrowers",
@@ -85,10 +87,11 @@ newEntity{ define_as = "SANDWORM_QUEEN",
 	allow_infinite_dungeon = true,
 	type = "vermin", subtype = "sandworm", unique = true,
 	name = "Sandworm Queen",
+	kr_name = "지렁이 여왕",
 	display = "w", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/vermin_sandworm_sandworm_queen.png", display_h=2, display_y=-1}}},
-	desc = [[Before you stands the queen of the sandworms. Massive and bloated, she slithers toward you, calling for her offspring!]],
-	killer_message = "and swallowed whole",
+	desc = [[당신이 지렁이의 여왕 앞에 서기도 전에, 크고 부풀어 오른 덩치를 가진 그녀가 자식들을 불러모으면서 당신 쪽으로 미끄러져 오고 있습니다!]],
+	killer_message = "당신은 통째로 삼켜졌습니다.",
 	level_range = {15, nil}, exp_worth = 2,
 	female = 1,
 	max_life = 150, life_rating = 17, fixed_rating = true,
@@ -127,34 +130,9 @@ newEntity{ define_as = "SANDWORM_QUEEN",
 	ai = "tactical", ai_state = { talent_in=2, ai_move="move_astar", },
 	ai_tactic = resolvers.tactic"melee",
 	resolvers.inscriptions(2, "infusion"),
-	
-	-- Failsafe for if a player can't find the boss
-	awaken_sand_queen = 500,
-	on_act = function(self)
-		local target = self.ai_target.actor
-		
-		if target and self.awaken_sand_queen then
-			self.awaken_sand_queen = nil
-		end
-		
-		if self.awaken_sand_queen then 
-			if self.awaken_sand_queen > 0 then
-				self.awaken_sand_queen = self.awaken_sand_queen - 1
-			else
-				self:setTarget(game.player)
-				self.dont_pass_target = true
-				self.can_pass = {pass_wall=20}
-				self.move_project = {[engine.DamageType.DIG]=1}
-				
-				local Dialog = require("engine.ui.Dialog")
-				Dialog:simplePopup("Rumbling...", "The ground shakes.  Something very large is stirring in the distance.")				
-			end
-		end
-		
-	end,
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("CORRUPTED_SAND_WYRM", 1, 45, "Did you hear? Something seems to have devoured all the last sandworms!", function(gen)
+		game.state:activateBackupGuardian("CORRUPTED_SAND_WYRM", 1, 45, "그 말 들었어? 무언가가 지렁이 굴에 있던 지렁이들을 모두 먹어버렸다는데!", function(gen)
 			if gen then return end
 			for i = #game.level.e_array, 1, -1 do
 				local e = game.level.e_array[i]
@@ -171,9 +149,10 @@ newEntity{ define_as = "CORRUPTED_SAND_WYRM",
 	allow_infinite_dungeon = true,
 	type = "dragon", subtype = "sand", unique = true,
 	name = "Corrupted Sand Wyrm",
+	kr_name = "타락한 모래 용",
 	display = "D", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_sand_corrupted_sand_wyrm.png", display_h=2, display_y=-1}}},
-	desc = [[The sandworms are gone, devoured by this shrieking, warped horror.]],
+	desc = [[이 시끄러운 소리를 내는, 왜곡된 포식자에 의해 지렁이들이 모두 사라졌습니다.]],
 	level_range = {47, nil}, exp_worth = 3,
 	max_life = 850, life_rating = 24, fixed_rating = true,
 	infravision = 10,

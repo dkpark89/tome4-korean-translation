@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,9 +32,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_GORBAT", define_as = "GORBAT",
 	allow_infinite_dungeon = true,
 	name = "Gorbat, Supreme Wyrmic of the Pride", color=colors.VIOLET, unique = true,
+	kr_name = "오크 긍지 최고의 용인, 고르뱃",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_orc_gorbat__supreme_wyrmic_of_the_pride.png", display_h=2, display_y=-1}}},
-	desc = [[An orc with scaly skin, claws and a pair of small wings on his back.]],
-	killer_message = "and fed to the hatchlings",
+	desc = [[비늘 피부와 날카로운 손톱을 가졌으며, 등 뒤에 작은 날개가 달린 오크입니다.]],
+	killer_message = "당신은 해츨링들의 먹잇감이 되었습니다.",
 	level_range = {40, nil}, exp_worth = 1,
 	rank = 5,
 	max_life = 250, life_rating = 29, fixed_rating = true,

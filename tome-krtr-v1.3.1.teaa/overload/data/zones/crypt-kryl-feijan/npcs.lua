@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,16 +21,15 @@ load("/data/general/npcs/elven-caster.lua", rarity(0))
 load("/data/general/npcs/elven-warrior.lua", rarity(0))
 load("/data/general/npcs/minor-demon.lua", rarity(5))
 load("/data/general/npcs/major-demon.lua", function(e) e.rarity = nil end)
-load("/data/general/npcs/ogre.lua", function(e) e.faction = "rhalore" if e.rarity then e.rarity = e.rarity + 4 end end)
-
 local Talents = require("engine.interface.ActorTalents")
 
 newEntity{ base="BASE_NPC_MAJOR_DEMON", define_as = "KRYL_FEIJAN",
 	allow_infinite_dungeon = true,
 	name = "Kryl-Feijan", color=colors.VIOLET, unique = true,
+	kr_name = "크릴-페이얀",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_kryl_feijan.png", display_h=2, display_y=-1}}},
-	desc = [[This huge demon is covered in darkness. The ripped flesh of its "mother" still hangs from its sharp claws.]],
-	killer_message = "and devoured as a demonic breakfast",
+	desc = [[어둠에 덮힌 거대한 악마로. 그 "어미" 의 찢어진 살점이 아직도 그 날카로운 손톱에 걸려있습니다.]],
+	killer_message = "당신은 악마의 한 끼 식사가 되어 잡아먹혔습니다.",
 	level_range = {29, nil}, exp_worth = 2,
 	faction = "fearscape",
 	rank = 4,
@@ -81,11 +80,12 @@ newEntity{ base="BASE_NPC_MAJOR_DEMON", define_as = "KRYL_FEIJAN",
 
 newEntity{ define_as = "MELINDA",
 	name = "Melinda",
+	kr_name = "멜린다",
 	type = "humanoid", subtype = "human", female=true,
 	display = "@", color=colors.LIGHT_BLUE,
 	image = "terrain/woman_naked_altar.png",
 	resolvers.generic(function(e) if engine.Map.tiles.nicer_tiles then e.display_w = 2 end end),
-	desc = [[A female Human with twisted sigils scored into her naked flesh. Her wrists and ankles are sore and hurt by ropes and chains. You can discern great beauty beyond the stains of blood covering her skin.]],
+	desc = [[뒤틀린 문양이 나체의 몸 위에 새겨진, 인간 여성입니다. 손목과 발목은 밧줄과 쇠사슬에 묶인 상처로 가득하지만, 그녀의 몸에 가득한 핏자국 뒤에는 대단한 아름다움이 숨겨져 있다는 것을 알아차렸습니다.]],
 	autolevel = "tank",
 	ai = "summoned", ai_real = "move_complex", ai_state = { ai_target="target_player", talent_in=4, },
 	stats = { str=8, dex=7, mag=8, con=12 },
@@ -114,9 +114,10 @@ newEntity{ define_as = "MELINDA",
 
 newEntity{ define_as = "ACOLYTE",
 	name = "Acolyte of the Sect of Kryl-Feijan",
+	kr_name = "크릴-페이얀 종파의 사제",
 	type = "humanoid", subtype = "elf", image = "npc/humanoid_shalore_elven_corruptor.png",
 	display = "p", color=colors.LIGHT_RED,
-	desc = [[Black-robed Elves with a mad look in their eyes.]],
+	desc = [[검은 로브를 입은 엘프입니다. 눈에서 광기가 흐릅니다.]],
 	autolevel = "caster",
 	stats = { str=12, dex=17, mag=18, wil=22, con=12 },
 
@@ -165,7 +166,7 @@ newEntity{ define_as = "ACOLYTE",
 				melinda.image = "npc/woman_redhair_naked.png"
 				melinda:removeAllMOs()
 				game.level.map:updateMap(melinda.x, melinda.y)
-				require("engine.ui.Dialog"):simpleLongPopup("Melinda", "The woman seems to be freed from her bonds.\nShe stumbles on her feet, her naked body still dripping in blood. 'Please get me out of here!'", 400)
+				require("engine.ui.Dialog"):simpleLongPopup("멜린다", "제단에 묶여있던 여자가 속박에서 풀려났습니다.\n그녀는 비틀거리며 일어났으며, 벌거벗은 몸에서는 아직도 피가 흐르고 있습니다. '절 여기서 꺼내주세요!'", 400)
 			end
 		end
 	end,

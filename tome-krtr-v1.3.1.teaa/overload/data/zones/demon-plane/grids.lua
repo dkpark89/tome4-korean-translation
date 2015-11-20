@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,24 +23,25 @@ load("/data/general/grids/lava.lua", function(e) if e.define_as == "LAVA_FLOOR" 
 newEntity{
 	define_as = "PORTAL_BACK",
 	name = "Demonic Portal", image = "terrain/lava_floor.png", add_displays = {class.new{image="terrain/demon_portal.png"}},
+	kr_name = "악마의 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET,
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[This portal seems to be connected with Maj'Eyal; you could probably use it to go back.]],
+	desc = [[이 관문은 마즈'에이알과 연결되어 있는 것 같습니다. 돌아가기 위해서 이 것을 사용해야 할 것 같습니다.]],
 
 	on_move = function(self, x, y, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):yesnoPopup("Back and there again", "Enter the portal back to Maj'Eyal? (Warning loot Draebor first)", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("다시 또 그 곳에", "마즈'에이알로 돌아갑니까? (먼저 드래보르에게서 전리품을 챙기는 것이 좋습니다)", function(ret)
 				if not ret then
 					game:onLevelLoad("wilderness-1", function(zone, level)
 						local spot = level:pickSpot{type="farportal-end", subtype="demon-plane-arrival"}
 						who.wild_x, who.wild_y = spot.x, spot.y
 					end)
 					game:changeLevel(1, "wilderness")
-					game.logPlayer(who, "#VIOLET#You enter the swirling portal and in the blink of an eye you are back to Maj'Eyal, near the Daikara.")
+					game.logPlayer(who, "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰고, 눈 깜짝할 사이에 마즈'에이알의 다이카라 부근으로 돌아왔습니다.")
 				end
-			end, "Stay", "Enter")
+			end, "취소", "돌아가기")
 		end
 	end,
 }

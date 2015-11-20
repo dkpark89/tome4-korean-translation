@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,12 +23,13 @@ local Talents = require("engine.interface.ActorTalents")
 
 newEntity{
 	name = "Melinda", define_as = "MELINDA_BEACH",
+	kr_name = "멜린다",
 	type = "humanoid", subtype = "human", female=true,
 	display = "@", color=colors.LIGHT_BLUE,
 	image = "player/cornac_female_redhair.png",
 	moddable_tile = "human_female",
 	moddable_tile_base = "base_redhead_01.png",
-	desc = [[Enjoying a lovely day at the beach.]],
+	desc = [[해변에서의 사랑스러운 시간을 즐기고 있습니다.]],
 	autolevel = "tank",
 	ai = "move_complex", ai_state = { ai_target="target_player", talent_in=4, },
 	stats = { str=8, dex=7, mag=8, con=12 },
@@ -63,9 +64,9 @@ newEntity{
 			local DamageType = require "engine.DamageType"
 			DamageType:get(DamageType.BLIGHT).projector(self, e.x, e.y, DamageType.BLIGHT, 10000)
 		end
-		self:doEmote("What..! Please lets run!", 120)
+		self:doEmote("뭐..! 부탁이니 도망가!", 120)
 		game.player:setQuestStatus("love-melinda", engine.Quest.COMPLETED, "saved-beach")
-		game.bignews:say(120, "#DARK_GREEN#As Melinda is about to die a powerful wave of blight emanates from her!")
+		game.bignews:say(120, "#DARK_GREEN#그녀에게서 나오는 강력한 황폐의 파동 때문에, 멜린다가 곧 죽어버릴 것 같습니다!")
 	end,
 
 	on_die = function(self)

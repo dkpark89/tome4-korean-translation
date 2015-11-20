@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Shattering Shout",
+	kr_name = "고막을 찢는 외침",
 	type = {"technique/warcries", 1},
 	require = techs_req_high1,
 	points = 5,
@@ -45,22 +46,23 @@ newTalent{
 				proj:terminate(x, y)
 				game.level:removeEntity(proj, true)
 				proj.dead = true
-				self:logCombat(proj, "#Source# shatters '#Target#'.")
+				self:logCombat(proj, "#Source# 가 '#Target#' 을(를) 박살냈습니다.")
 			end)
 		end
 		game.level.map:particleEmitter(self.x, self.y, self:getTalentRadius(t), "directional_shout", {life=8, size=2, tx=x-self.x, ty=y-self.y, distorion_factor=0.1, radius=self:getTalentRadius(t), nb_circles=8, rm=0.8, rM=1, gm=0.8, gM=1, bm=0.1, bM=0.2, am=0.6, aM=0.8})
 		return true
 	end,
 	info = function(self, t)
-		return ([[Release a powerful shout, doing %0.2f physical damage in a radius %d cone in front of you.
-		At level 5 the shout is so strong it shatters all incomming projectiles caught inside.
-		The damage increases with your Strength.]])
+		return ([[강렬한 외침을 내질러, 전방의 적들에게 %0.2f 의 물리 피해를 줍니다. (전방 %d 칸 반경)
+		기술 레벨이 5 이상일 경우, 외침이 더욱 강력해져 공격 범위 내의 모든 투사체를 박살내버립니다.
+		피해량은 힘 능력치의 영향을 받아 증가합니다.]])
 		:format(damDesc(self, DamageType.PHYSICAL, t.getdamage(self,t)), t.radius(self,t))
 	end,
 }
 
 newTalent{
 	name = "Second Wind",
+	kr_name = "제 2 호흡",
 	type = {"technique/warcries", 2},
 	require = techs_req_high2,
 	points = 5,
@@ -73,13 +75,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Take a deep breath to recover %d%% of your stamina.]]):
+		return ([[심호흡을 통해, 체력을 %d%% 회복합니다.]]):
 		format(t.getRestore(self, t))
 	end,
 }
 
 newTalent{
 	name = "Battle Shout",
+	kr_name = "전장의 외침",
 	type = {"technique/warcries", 3},
 	require = techs_req_high3,
 	points = 5,
@@ -93,14 +96,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Boost your life and stamina by %0.1f%% for %d turns by bellowing your battle shout.
-		When the effect ends, the additional life and stamina will be lost.]]):
+		return ([[전장의 외침을 내질러, 생명력과 체력 최대치를 %0.1f%% 증가시킵니다.
+		증가량에 해당하는 만큼의 생명력과 체력은 회복됩니다 (지속시간 %d 턴).
+		효과가 끝나면, 증가된 생명력과 체력은 사라집니다.]]):
 		format(t.getPower(self, t), t.getdur(self, t))
 	end,
 }
 
 newTalent{
 	name = "Battle Cry",
+	kr_name = "전장의 포효",
 	type = {"technique/warcries", 4},
 	require = techs_req_high4,
 	points = 5,
@@ -126,9 +131,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.
-		All evasion and concealment bonuses are also disabled.
-		The chance to hit increases with your Physical Power.]]):
+		return ([[전장의 포효를 들은 적들은 두려움에 사로잡혀 몸이 굳어버립니다. 전방 %d 칸 범위에 있는 적의 회피도를 7턴 동안 %d 감소시킵니다.
+		모든 추가적인 회피 보너스와 은신으로 인한 보너스도 사라지게 됩니다.
+		회피도 감소 효과는 물리력의 영향을 받아 증가합니다.]]):
 		format(self:getTalentRadius(t), 7 * self:getTalentLevel(t))
 	end,
 }

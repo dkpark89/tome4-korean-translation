@@ -42,9 +42,9 @@ newAI("move_quest_limmir", function(self)
 	else
 		game.level.turn_counter = 370 * 10
 		game.level.max_turn_counter = 370 * 10
-		game.level.turn_counter_desc = "Protect Limmir from the demons coming from north-east. Hold them off!"
+		game.level.turn_counter_desc = "북동쪽에서 몰려오는 악마들로부터 리미르를 보호하십시오. 악마들을 죽이십시오!"
 		game.player.changed = true
 		self.ai = "none"
-		self:doEmote("This place is corrupted! I will cleanse it! Protect me while I do it!", 120)
+		self:doEmote("여기는 더렵혀졌습니다! 제가 이곳을 정화시키킬테니, 그동안 저를 보호해주십시오!", 120)
 	end
 end)

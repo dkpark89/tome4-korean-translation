@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,13 +17,16 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 load("/data/general/objects/objects-maj-eyal.lua")
 
 newEntity{ base = "BASE_LORE",
 	define_as = "BANDERS_NOTES",
 	name = "folded up piece of paper",
+	kr_name = "접힌 종이", 
 	lore="keepsake-banders-notes",
-	desc = [[A folded up piece of paper with a few notes written on it.]],
+	desc = [[몇가지 기록이 적혀있는 접힌 종이입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -31,6 +34,7 @@ newEntity{ base = "BASE_LORE",
 newEntity{
 	define_as = "IRON_ACORN_BASIC",
 	name = "Iron Acorn",
+	kr_name = "무쇠 도토리",
 	type = "misc", subtype="trinket",
 	display = "*", color=colors.SLATE, image = "object/iron_acorn.png",
 	quest=true,
@@ -42,7 +46,7 @@ newEntity{
 	material_level = 1,
 	encumber = 0,
 	not_in_stores = true,
-	desc = [[A small acorn, crafted crudely out of iron.]],
+	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다.]],
 	on_pickup = function(self, who)
 		if who.player then
 			who:hasQuest("keepsake"):on_pickup_acorn(who)
@@ -50,7 +54,7 @@ newEntity{
 	end,
 	on_drop = function(self, who)
 		if who.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -59,6 +63,7 @@ newEntity{
 newEntity{
 	define_as = "IRON_ACORN_GOOD",
 	name = "Iron Acorn",
+	kr_name = "무쇠 도토리",
 	type = "misc", subtype="trinket",
 	display = "*", color=colors.SLATE, image = "object/iron_acorn.png",
 	quest=true,
@@ -70,7 +75,7 @@ newEntity{
 	material_level = 1,
 	encumber = 0,
 	not_in_stores = true,
-	desc = [[A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. You find having the acorn helps to anchor your mind and prepare you for the trials ahead.]],
+	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다. 한 때 밴더의 것이었지만, 이제는 당신의 것입니다. 이 도토리는 당신의 정신을 안정시키고, 다가올 시련에 대한 준비를 도와주고 있습니다.]],
 	carrier = {
 		resists={[DamageType.MIND] = 30, [DamageType.PHYSICAL] = 8,},
 		combat_mindpower = 15,
@@ -78,7 +83,7 @@ newEntity{
 	},
 	on_drop = function(self, who)
 		if who.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -87,6 +92,7 @@ newEntity{
 newEntity{
 	define_as = "IRON_ACORN_EVIL",
 	name = "Cold Iron Acorn",
+	kr_name = "차가운 무쇠 도토리",
 	type = "misc", subtype="trinket",
 	display = "*", color=colors.SLATE, image = "object/iron_acorn.png",
 	quest=true,
@@ -98,7 +104,7 @@ newEntity{
 	material_level = 1,
 	encumber = 0,
 	not_in_stores = true,
-	desc = [[A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. The acorn serves as a reminder of who and what you are.]],
+	desc = [[무쇠로 조잡하게 만들어진 작은 도토리입니다. 한 때 밴더의 것이었지만, 이제는 당신의 것입니다. 이 도토리는 당신이 누구이며, 또한 '어떤 존재' 인지를 상기시켜주고 있습니다.]],
 	carrier = {
 		resists={[DamageType.MIND] = 30,},
 		inc_damage = { [DamageType.PHYSICAL] = 12 },
@@ -106,7 +112,7 @@ newEntity{
 	},
 	on_drop = function(self, who)
 		if who.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -116,7 +122,8 @@ for i = 1, 4 do
 	newEntity{ base = "BASE_LORE",
 		define_as = "KYLESS_JOURNAL_"..i,
 		name = "journal page", lore="keepsake-kyless-journal-"..i,
-		desc = [[A page containing an entry from Kyless' journal.]],
+		kr_name = "여행 일지",
+		desc = [[킬레스의 일지가 일부 적혀 있는 종이입니다.]],
 		rarity = false,
 		is_magic_device = false,
 		encumberance = 0,
@@ -126,6 +133,7 @@ end
 newEntity{
 	define_as = "KYLESS_BOOK",
 	name = "Kyless' Book",
+	kr_name = "킬레스의 책",
 	type = "misc", subtype="trinket",
 	display = "%", color=colors.SLATE, image = "object/spellbook.png",
 	quest=true,
@@ -137,7 +145,7 @@ newEntity{
 	material_level = 1,
 	encumber = 5,
 	not_in_stores = true,
-	desc = [[This was the book that gave power to Kyless and eventually led to his doom. The book is simple in appearance, bound in leather with no markings on the cover. All of the pages are blank.]],
+	desc = [[이것이 킬레스에게 힘을 주고, 마침내 그를 파멸로 이끈 책입니다. 아무런 표시도 없는 가죽 표지에, 그 내용은 모두 텅 비어 있습니다.]],
 }
 
 

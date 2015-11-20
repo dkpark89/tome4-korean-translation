@@ -36,7 +36,7 @@ newTalent{
 	end,
 	action = function(self, t)
 		if self:isTalentActive(self.T_DARKEST_LIGHT) then
-			game.logPlayer(self, "You can't use Twilight while Darkest Light is active.")
+			game.logPlayer(self, "'가장 어두운 빛' 이 활성화된 상태에서는 황혼 기술을 사용할 수 없습니다.")
 			return
 		end
 		self:incNegative(t.getNegativeGain(self, t))
@@ -44,15 +44,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You stand between the darkness and the light, allowing you to convert 15 positive energy into %d negative energy.
-		Learning this talent will change the default level of positive and negative energies to %d%% of their maximum. Each turn, the energies will slowly fall/rise to this value, instead of 0.
-		The negative energy gain will increase with your Cunning.]]):
+		return ([[어둠과 빛의 사이에 선 자의 권능으로, 15 의 양기를 %d 의 음기로 전환합니다. 
+ 		이 기술을 배우면 양기와 음기의 기본값이 최대치의 %d%% 에 해당하는 값으로 변경됩니다. 0 대신, 이 기본값을 향하여 매 턴마다 양기와 음기가 조금씩 변화합니다. 
+ 		획득하는 음기의 양은 교활함 능력치의 영향을 받아 증가합니다.]]): 
 		format(t.getNegativeGain(self, t), t.getRestValue(self, t))
 	end,
 }
 
 newTalent{
 	name = "Jumpgate: Teleport To", short_name = "JUMPGATE_TELEPORT",
+	kr_name = "도약문 : 이동",
 	type = {"celestial/other", 1},
 	points = 1,
 	cooldown = 7,
@@ -71,7 +72,7 @@ newTalent{
 	action = function(self, t)
 		local eff = self.sustain_talents[self.T_JUMPGATE]
 		if not eff then
-			game.logPlayer(self, "You must sustain the Jumpgate spell to be able to teleport.")
+			game.logPlayer(self, "순간이동을 하려면, 도약문 기술이 유지된 상태여야 합니다.")
 			return
 		end
 		game.level.map:particleEmitter(self.x, self.y, 1, "teleport")
@@ -81,12 +82,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Instantly travel to your jumpgate, as long as you are within %d tiles of it.]]):format(t.getRange(self, t))
+		return ([[%d 칸 내에 있는 도약문으로 즉시 이동합니다.]]):format(t.getRange(self, t))
  	end,
 }
 
 newTalent{
 	name = "Jumpgate",
+	kr_name = "도약문",
 	type = {"celestial/twilight", 2},
 	require = divi_req2,
 	mode = "sustained", no_sustain_autoreset = true,
@@ -155,15 +157,16 @@ newTalent{
 	info = function(self, t)
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
-		return ([[Create a shadow jumpgate at your current location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it.
-		Note that any stairs underneath the jumpgate will be unusable while the spell is sustained, and you may need to cancel this sustain in order to leave certain locations.
-		At talent level 4, you learn to create and sustain a second jumpgate.]]):format(range)
+		return ([[현재 위치에 그림자 도약문을 생성합니다. 이 기술이 유지되는 동안, '도약문 : 이동' 기술을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다. 
+ 		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 도약문 기술을 해제해야 합니다. 
+ 		기술 레벨이 4 이상이면, 두번째 도약문을 생성할 수 있습니다.]]):format(range) 
  	end,
  }
 
 
 newTalent{
 	name = "Mind Blast",
+	kr_name = "정신 붕괴",
 	type = {"celestial/twilight",3},
 	require = divi_req3,
 	points = 5,
@@ -190,14 +193,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getConfuseDuration(self, t)
-		return ([[Let out a mental cry that shatters the will of your targets within radius 3, confusing (%d%% to act randomly) them for %d turns.
-		The duration will improve with your Cunning.]]):
+		return ([[마음의 절규를 내질러, 주변 3 칸 반경에 있는 적들의 의지를 꺾습니다. 영향을 받은 적은 혼란 상태가 되어 %d%% 확률로 무작위한 행동을 하게 되며, 이는 %d 턴 동안 지속됩니다. 
+ 		지속시간은 교활함 능력치의 영향을 받아 증가합니다.]]): 
 		format(t.getConfuseEfficency(self,t),duration)
 	end,
 }
 
 newTalent{
 	name = "Shadow Simulacrum",
+	kr_name = "그림자 환영",
 	type = {"celestial/twilight", 4},
 	require = divi_req4,
 	random_ego = "attack",
@@ -221,12 +225,12 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 1, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 부족합니다!")
 			return
 		end
 
 		if target:attr("summon_time") then
-			game.logPlayer(self, "Wrong target!")
+			game.logPlayer(self, "잘못된 대상입니다!")
 			return
 		end
 
@@ -236,7 +240,7 @@ newTalent{
 			target:reactionToward(self) >= 0 or -- No friends
 			target.size_category > allowed
 			then
-			game.logSeen(target, "%s resists!", target.name:capitalize())
+			game.logSeen(target, "%s 저항했습니다!", target.name:capitalize())
 			return true
 		end
 
@@ -251,8 +255,8 @@ newTalent{
 			ai_target = {actor=target},
 			ai = "summoned", ai_real = target.ai,
 			resists = { all = modifier, [DamageType.DARKNESS] = 50, [DamageType.LIGHT] = - 50, },
-			desc = [[A dark, shadowy shape whose form resembles the humanoid creature it was taken from. It is not a perfect replica, though, and it makes you feel uneasy to look at it.]],
-		}
+			desc = [[어두운 그림자로, 본체의 모습을 닮아있습니다. 다만 완벽한 복제품은 아니며, 바라보고 있으면 불편한 감정이 생겨납니다.]],  
+ 		} 
 		m:removeAllMOs()
 		m.make_escort = nil
 		m.on_added_to_level = nil
@@ -280,18 +284,18 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local allowed = 2 + math.ceil(self:getTalentLevelRaw(t) / 2 )
-		local size = "gargantuan"
+		local size = "어마어마함"
 		if allowed < 4 then
-			size = "medium"
+			size = "중간"
 		elseif allowed < 5 then
-			size = "big"
+			size = "큼"
 		elseif allowed < 6 then
-			size = "huge"
+			size = "거대함"
 		end
-		return ([[Creates a shadowy copy of a hostile target of up to %s size. The copy will attack its progenitor immediately and lasts for %d turns.
-		The duplicate has %d%% of the target's life, %d%% all damage resistance, +50%% darkness resistance and -50%% light resistance.
-		The duration, life and all damage resistance scale with your Cunning and this ability will not work on bosses.]]):
-		format(size, duration, t.getPercent(self, t), t.getPercent(self, t))
+		return ([[크기가 '%s' 이하인 적의 그림자 분신을 만들어냅니다. 그림자 분신은 생성 즉시 자신의 본체를 공격하기 시작하며, %d 턴 동안 유지됩니다. 
+ 		그림자는 대상 생명력의 %d%% 만큼을 생명력으로 가집니다. 전체 저항력은 %d%% 이며, 여기에 어둠 저항력은 +50%%, 빛 저항력은 -50%% 만큼이 더해집니다. 
+ 		분신의 지속시간과 생명력 그리고 전체 저항력은 교활함 능력치의 영향을 받아 증가합니다. 보스에게는 이 능력을 사용해도 효과가 없습니다.]]): 
+ 		format(size, duration, t.getPercent(self, t), t.getPercent(self, t))  
 	end,
 }
 
@@ -299,6 +303,7 @@ newTalent{
 
 newTalent{
 	name = "Jumpgate Two",
+	kr_name = "두번째 도약문",
 	type = {"celestial/other", 1},
 	mode = "sustained", no_sustain_autoreset = true,
 	points = 1,
@@ -359,12 +364,14 @@ newTalent{
 	info = function(self, t)
 		local jumpgate_teleport = self:getTalentFromId(self.T_JUMPGATE_TELEPORT_TWO)
 		local range = jumpgate_teleport.getRange(self, jumpgate_teleport)
-		return ([[Create a second shadow jumpgate at your location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it.]]):format(range)
-	end,
+		return ([[현재 위치에 두번째 그림자 도약문을 생성합니다. 이 기술이 유지되는 동안, '두번째 도약문 : 이동' 기술을 사용하여 %d 칸 내에 있는 도약문으로 즉시 이동할 수 있습니다. 
+ 		도약문을 계단이 있는 곳에 만들었을 경우, 계단은 사용할 수 없게 됩니다. 계단을 이용하려면 두번째 도약문 기술을 해제해야 합니다.]]):format(range) 
+ 	end, 
 }
 
 newTalent{
 	name = "Jumpgate Two: Teleport To", short_name = "JUMPGATE_TELEPORT_TWO",
+	kr_name = "두번째 도약문 : 이동",
 	type = {"celestial/other", 1},
 	points = 1,
 	cooldown = 7,
@@ -383,7 +390,7 @@ newTalent{
 	action = function(self, t)
 		local eff = self.sustain_talents[self.T_JUMPGATE_TWO]
 		if not eff then
-			game.logPlayer(self, "You must sustain the Jumpgate Two spell to be able to teleport.")
+			game.logPlayer(self, "순간이동을 하려면, 두번째 도약문 기술이 유지된 상태여야 합니다.")
 			return
 		end
 		game.level.map:particleEmitter(self.x, self.y, 1, "teleport")
@@ -393,6 +400,6 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Instantly travel to your second jumpgate, as long as you are within %d tiles of it.]]):format(t.getRange(self, t))
+		return ([[%d 칸 내에 있는 두번째 도약문으로 즉시 이동합니다.]]):format(t.getRange(self, t))
 	end,
 }

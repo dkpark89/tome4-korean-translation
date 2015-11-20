@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Searing Light",
+	kr_name = "타오르는 빛",
 	type = {"celestial/sunlight", 1},
 	require = divi_req1,
 	random_ego = "attack",
@@ -55,14 +56,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
-		return ([[Calls the power of the Sun into a searing lance, doing %0.2f damage to the target and leaving a spot on the ground for 4 turns that does %0.2f light damage to anyone within it.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[태양의 힘을 타오르는 창의 형태로 구현하여, 대상에게 %0.2f 빛 피해를 줍니다. 던져진 창은 4 턴 동안 지면에 남아, 접근하는 모든 대상에게 %0.2f 빛 피해를 줍니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, damage), damageonspot)
 	end,
 }
 
 newTalent{
 	name = "Sun Flare",
+	kr_name = "햇빛 섬광",
 	type = {"celestial/sunlight", 2},
 	require = divi_req2,
 	points = 5,
@@ -98,15 +100,16 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Invokes the Sun to cause a flare within radius %d, blinding your foes for %d turns and lighting up your immediate area (radius %d).
-		At level 3 it will also do %0.2f light damage within radius %d.
-		The damage done will increase with your Spellpower.]]):
+		return ([[시전자 주변 %d 칸 반경에 강렬한 햇빛이 내리쬐어, 적들을 %d 턴 동안 실명시킵니다. 또한 주변 %d 칸 반경이 밝아집니다. 
+ 		기술 레벨이 3 이상일 경우, 주변 %d 칸 반경에 %0.2f 빛 피해를 가할 수 있게 됩니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, duration, radius * 2, damDesc(self, DamageType.LIGHT, damage), radius)
    end,
 }
 
 newTalent{
 	name = "Firebeam",
+	kr_name = "화염광선",
 	type = {"celestial/sunlight",3},
 	require = divi_req3,
 	points = 5,
@@ -134,14 +137,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Call forth the Sun to summon a fiery beam, burning all targets in a line for %0.2f fire damage.
-		The damage done will increase with your Spellpower.]]):
+		return ([[태양으로부터 불타는 광선을 불러내, 선상에 위치한 모든 적을  %0.2f 화염 피해로 불태웁니다. 
+			피해량은 주문력에 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, damage))
 	end,
 }
 
 newTalent{
 	name = "Sunburst",
+	kr_name = "햇빛 폭발",
 	type = {"celestial/sunlight", 4},
 	require = divi_req4,
 	points = 5,
@@ -168,7 +172,7 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures a furious burst of Sunlight, dealing %0.2f light damage to all around you in a radius of %d.
-		The damage done will increase with your Spellpower.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
+		return ([[햇빛을 폭발시켜, 시전자 주변 %d 칸 반경의 모든 대상들에게 %0.2f 빛 피해를 가합니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.LIGHT, damage), radius)
 	end,
 }

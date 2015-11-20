@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 
 newTalent{
 	name = "Disengage",
@@ -44,12 +45,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Jump away %d grids from your target.]]):format(t.getDist(self, t))
+		return ([[%d 칸 뒤로 도약하여, 대상에게서 멀어집니다.]]):format(t.getDist(self, t))
 	end,
 }
 
 newTalent{
 	name = "Track",
+	kr_name = "발자국 조사",
 	type = {"technique/field-control", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -68,13 +70,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[Sense foes around you in a radius of %d for %d turns.
-		The radius will increase with your Cunning.]]):format(rad, 3 + self:getTalentLevel(t))
+		return ([[%d 칸 반경 안에 있는 적들을, %d 턴 동안 탐지합니다.
+		탐지 반경은 교활함 능력치의 영향을 받아 증가합니다.]]):format(rad, 3 + self:getTalentLevel(t))
 	end,
 }
 
 newTalent{
 	name = "Heave",
+	kr_name = "걷어차기",
 	type = {"technique/field-control", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -96,7 +99,7 @@ newTalent{
 			if target:checkHit(math.max(self:combatAttack(), self:combatPhysicalpower()), target:combatPhysicalResist(), 0, 95) and target:canBe("knockback") then -- Deprecated Checkhit call
 				return true
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s 밀려나지 않았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 
@@ -108,15 +111,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[A mighty kick that pushes your target away %d grids.
-		If another creature is in the way, it will also be pushed away.
-		The Knockback chance increase with your Accuracy or your Physical Power, whichever is greater.]])
+		return ([[대상을 강력하게 걷어차, %d 칸 떨어진 곳까지 밀어냅니다.
+		날아가는 방향에 다른 대상이 있다면, 그 대상도 같이 밀려나게 됩니다.
+		밀어내기 확률은 정확도나 물리력 중 더 높은 능력치의 영향을 받아 증가합니다.]])
 		:format(t.getDist(self, t))
 	end,
 }
 
 newTalent{
 	name = "Slow Motion",
+	kr_name = "슬로우모션",
 	type = {"technique/field-control", 4},
 	require = techs_dex_req4,
 	mode = "sustained",
@@ -136,7 +140,7 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Your great dexterity allows you to see incoming projectiles (spells, arrows, ...), effectively slowing them down by %d%%.]]):
+		return ([[주문, 화살 등 날아오는 발사체를 기민한 반사신경으로 포착하여, 마치 %d%% 느리게 날아오는 것 같은 효과를 일으킵니다.]]):
 		format(math.min(90, 15 + self:getDex(10, true) * self:getTalentLevel(t)))
 	end,
 }

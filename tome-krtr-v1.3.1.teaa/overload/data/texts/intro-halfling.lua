@@ -17,15 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You are a Halfling of Derth. Most people take Halflings for peaceful crop-growers that never leave the borders of their gardens.
-Yet history has taught that Halflings are a force to be reckoned with. They still maintain a powerful army.
-You have chosen a rare path for yourself: the path of adventuring, whose loneliness does not usually fit your people.
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 데르스에서 사는 하플링입니다. 이곳의 사람들은 하플링을 '그들의 영역을 벗어나지 않는, 평화로운 농사꾼' 으로 대합니다.
+그러나 역사는 하플링이 결코 무시할 수 없는 세력이었다는 것을 알려주며, 하플링들은 여전히 강력한 군대를 유지하고 있습니다.
+당신은 자신만의 길을 걷기로 하였습니다. 그것은 모험의 길로, 일반적인 하플링들에게는 견디기 힘든 외로움을 동반하는 길입니다.
 
-Inspired by the stories of dragons, gold, and the treasures to be found in ancient ruins, you have decided to venture into the old and wild places of the world, looking for fame and glory.
+용, 황금, 고대의 폐허에서 발견되는 보물들의 이야기에 자극을 받아, 당신은 오래되고 험난한 곳들을 탐험하여 명예와 영광을 얻기로 결심하였습니다.
 
-You have come to a land called the Derthfields on the western border of the Thaloren forest, in search of the Trollmire. It is an old forest infested with trolls and all kinds of wild animals.
-To the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.
+'트롤 늪' 이라는 곳을 찾아, 당신은 탈로레 숲의 서쪽 경계에 위치한 데르스 지역에 도착했습니다. 그곳은 트롤과 온갖 종류의 야생동물이 들끓고 있는, 오래된 숲입니다.
+그리고 서쪽에는, 또다른 위험한 지역인 '코르'풀' 의 오래된 폐허가 있습니다. 듣기로는, 수많은 해충들과 언데드가 그곳에 있다고 합니다.
 
-After days of travel, you have found the forest and entered it. What will you find there...?
+며칠에 걸친 여행 끝에, 당신은 트롤 늪을 발견하였습니다. 이곳에서 당신이 찾게 될 것은 과연...?
 ]]

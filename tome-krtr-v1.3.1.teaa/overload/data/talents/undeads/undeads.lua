@@ -18,11 +18,11 @@
 -- darkgod@te4.org
 
 -- Undead talents
-newTalentType{ type="undead/base", name = "base", generic = true, description = "Undead's innate abilities." }
-newTalentType{ type="undead/ghoul", name = "ghoul", generic = true, description = "Ghoul's innate abilities." }
-newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "Skeleton's innate abilities." }
-newTalentType{ type="undead/vampire", name = "vampire", generic = true, description = "Vampire's innate abilities." }
-newTalentType{ type="undead/lich", name = "lich", generic = true, description = "Liches innate abilities." }
+newTalentType{ type="undead/base", name = "base", generic = true, description = "언데드의 선천적 능력." }
+newTalentType{ type="undead/ghoul", name = "ghoul", generic = true, description = "구울의 선천적 능력." }
+newTalentType{ type="undead/skeleton", name = "skeleton", generic = true, description = "스켈레톤의 선천적 능력." }
+newTalentType{ type="undead/vampire", name = "vampire", generic = true, description = "흡혈귀의 선천적 능력." }
+newTalentType{ type="undead/lich", name = "lich", generic = true, description = "리치의 선천적 능력." }
 
 -- Generic requires for undeads based on talent level
 undeads_req1 = {
@@ -49,12 +49,13 @@ load("/data/talents/undeads/skeleton.lua")
 newTalent{
 	short_name = "UNDEAD_ID",
 	name = "Knowledge of the Past",
+	kr_name = "과거로부터의 지식",
 	type = {"undead/base", 1},
 	no_npc_use = true,
 	mode = "passive",
 	no_unlearn_last = true,
 	on_learn = function(self, t) self.auto_id = 100 end,
 	info = function(self)
-		return ([[You concentrate for a moment to recall some of your memories as a living being and look for knowledge to identify rare objects.]])
+		return ([[집중하여 자신이 살아있던 시절의 기억을 되살립니다. 이 생전의 기억에서, 진귀한 물건을 감정하기 위한 지식을 찾아봅니다.]])
 	end,
 }

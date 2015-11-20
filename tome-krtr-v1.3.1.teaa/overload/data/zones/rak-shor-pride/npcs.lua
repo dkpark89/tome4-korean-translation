@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,8 +32,9 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "RAK_SHOR",
 	allow_infinite_dungeon = true,
 	name = "Rak'shor, Grand Necromancer of the Pride", color=colors.VIOLET, unique = true,
-	desc = [[An old orc, wearing black robes. He commands his undead armies to destroy you.]],
-	killer_message = "and raised as a malformed servant",
+	kr_name = "오크 긍지의 위대한 사령술사, 락'쇼르",
+	desc = [[검은 로브를 입은, 늙은 오크입니다. 당신을 파괴하기 위해 그의 언데드 군대에게 명령을 내리고 있습니다.]],
+	killer_message = "당신은 흉하게 일그러진 언데드 노예로 부활했습니다.",
 	level_range = {35, nil}, exp_worth = 1,
 	rank = 5,
 	max_life = 150, life_rating = 19, fixed_rating = true,
@@ -107,8 +108,9 @@ newEntity{ base="BASE_NPC_ORC_RAK_SHOR", define_as = "RAK_SHOR",
 newEntity{ base = "BASE_NPC_GHOUL", define_as = "ROTTING_TITAN",
 	allow_infinite_dungeon = true,
 	name = "Rotting Titan", color={128,64,0}, unique=true,
+	kr_name = "썩은 타이탄",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_ghoul_rotting_titan.png", display_h=2, display_y=-1}}},
-	desc = [[This gigantic mass of flesh and stone moves slowly, the ground rumbling with each step it takes. Its body seems to constantly pulsate and reform. Massive stones at the end of each limb form massive blunt weapons.]],
+	desc = [[이 거대한 살점과 암석이 섞인 덩어리는, 비록 그 움직임은 느리지만 걸음을 옮길 때마다 대지가 울려 퍼집니다. 그 몸은 끊임없이 떨리면서 개량되고 있으며, 손발의 끝 부분에 달린 대형 암석은 대형 둔기와 같은 효과를 낼 것 같습니다.]],
 	level_range = {45, nil}, exp_worth = 2,
 	rarity = 25,
 	max_life = resolvers.rngavg(150,200), life_rating = 40,
@@ -125,7 +127,7 @@ newEntity{ base = "BASE_NPC_GHOUL", define_as = "ROTTING_TITAN",
 	ai = "tactical",
 	ai_tactic = resolvers.tactic"melee",
 	autolevel="warriormage",
-	
+
 	on_added_to_level = function(self)
 		self.can_pass = {pass_wall=70} --Added after birth so it doesn't spawn inside a wall.
 	end,
@@ -148,7 +150,7 @@ newEntity{ base = "BASE_NPC_GHOUL", define_as = "ROTTING_TITAN",
 	-- But only AFTER we are finished moving, shall we ? :)
 	on_move = function(self) game:onTickEnd(function()
 		if rng.percent(35) then
-			game.logSeen(self, "The ground shakes as %s steps!", self.name:capitalize())
+			game.logSeen(self, "%s의 걸음으로 대지가 흔들립니다!", (self.kr_name or self.name):capitalize())
 			local tg = {type="ball", range=0, selffire=false, radius=4, no_restrict=true}
 			local DamageType = require "engine.DamageType"
 			--self:project(tg, self.x, self.y, DamageType.PHYSKNOCKBACK, {dam=24, dist=5})
@@ -183,8 +185,9 @@ newEntity{ base = "BASE_NPC_GHOUL", define_as = "ROTTING_TITAN",
 newEntity{ base = "BASE_NPC_GHOST", define_as = "GLACIAL_LEGION",
 	allow_infinite_dungeon = true,
 	name = "Glacial Legion", color=colors.BLUE, unique=true,
+	kr_name = "빙하의 군단",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_ghost_glacial_legion.png", display_h=2, display_y=-1}}},
-	desc = [[A massive, shifting, ethereal form floats in the air around an orb of frozen blood. Vapor pools on the floor beneath it.]],
+	desc = [[얼어붙은 피의 오브 주변에서 부유하고 있으며, 그 형체가 계속 변하고 있는 거대한 에테르 덩어리입니다. 그 아래에 있는 바닥의 물 웅덩이가 얼어붙고 있습니다.]],
 	level_range = {45, nil}, exp_worth = 2,
 	rarity = 25,
 	size_category=5,
@@ -218,7 +221,10 @@ newEntity{ base = "BASE_NPC_GHOST", define_as = "GLACIAL_LEGION",
 			radius,
 			5, nil,
 			engine.MapEffect.new{color_br=255, color_bg=255, color_bb=255, effect_shader="shader_images/ice_effect.png"},
-			nil,
+			function(e)
+				e.radius = e.radius 
+				return true
+			end,
 			false
 		)
 	end,
@@ -244,7 +250,8 @@ newEntity{ base = "BASE_NPC_GHOST", define_as = "GLACIAL_LEGION",
 newEntity{ base = "BASE_NPC_BONE_GIANT", define_as = "HEAVY_SENTINEL",
 	allow_infinite_dungeon = true,
 	name = "Heavy Sentinel", color=colors.ORANGE, unique=true,
-	desc = [[A towering creature, made from the bones of countless bodies. An aura of flame billows from within its chest.]],
+	kr_name = "육중한 파수꾼",
+	desc = [[셀 수 없을 많큼 많은 존재들의 뼈로 만들어진, 아주 거대한 언데드입니다. 흉부 안쪽에서부터 불꽃의 기운이 명렬히 피어오르고 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_heavy_sentinel.png", display_h=2, display_y=-1}}},
 	level_range = {45, nil}, exp_worth = 2,
 	rarity = 25,
@@ -290,8 +297,9 @@ newEntity{ base = "BASE_NPC_BONE_GIANT", define_as = "HEAVY_SENTINEL",
 newEntity{ base = "BASE_NPC_VAMPIRE", unique=true, define_as="ARCH_ZEPHYR",
 	allow_infinite_dungeon = true,
 	name = "Arch Zephyr", color=colors.BLUE,
+	kr_name = "우두머리 제피르",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_vampire_arch_zephyr.png", display_h=2, display_y=-1}}},
-	desc=[[The robes of this ancient vampire billow with intense winds. Bolts of lightning arc along its body. In its hand it holds a bow, electricity streaking across it.]],
+	desc=[[이 고대 흡혈귀의 로브 아래로는 강렬한 바람이 굽이치고 있으며, 번개의 화살이 그를 언제나 따라다닙니다. 손에는 전기가 흐르는 활을 쥐고 있습니다.]],
 	level_range = {45, nil}, exp_worth = 1,
 	rarity = 25,
 	autolevel="warriormage",
@@ -328,6 +336,7 @@ newEntity{ base = "BASE_NPC_VAMPIRE", unique=true, define_as="ARCH_ZEPHYR",
 		[Talents.T_HURRICANE]={base=2, every=7, max=4},
 
 		[Talents.T_SHOOT]=1, -- If possible, add talent that lets it temporarily fire lightning instead of arrows.
+		[Talents.T_RELOAD]=1,
 		[Talents.T_BOW_MASTERY]={base=4, every=10},
 		[Talents.T_DUAL_ARROWS]={base=3, every=6, max=8},
 		[Talents.T_PINNING_SHOT]={base=2, every=6, max=4},
@@ -341,8 +350,9 @@ newEntity{ base = "BASE_NPC_VAMPIRE", unique=true, define_as="ARCH_ZEPHYR",
 newEntity{ base = "BASE_NPC_WIGHT",
 	allow_infinite_dungeon = true,
 	name = "Void Spectre", color=colors.RED, unique=true,
+	kr_name = "공허의 유령",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_wight_void_spectre.png", display_h=2, display_y=-1}}},
-	desc=[[Intense Arcane energy whirls in the air around this ethereal form.]],
+	desc=[[이 에테르 형상 주변의 대기에서, 강렬한 마법 에너지가 소용돌이 칩니다.]],
 	level_range = {45, nil}, exp_worth = 2,
 	life_rating=16,
 	rarity = 25,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "WALL_SEE",
 	type = "wall", subtype = "floor",
 	name = "wall", image = "terrain/granite_wall1.png", z=3,
+	kr_name = "벽",
 	display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 	nice_tiler = { method="wall3d", inner={"WALL_SEE", 100, 1, 5}, north={"WALL_SEE_NORTH", 100, 1, 5}, south={"WALL_SEE_SOUTH", 10, 1, 17}, north_south="WALL_SEE_NORTH_SOUTH", small_pillar="WALL_SEE_SMALL_PILLAR", pillar_2="WALL_SEE_PILLAR_2", pillar_8={"WALL_SEE_PILLAR_8", 100, 1, 5}, pillar_4="WALL_SEE_PILLAR_4", pillar_6="WALL_SEE_PILLAR_6" },
 	always_remember = true,
@@ -49,6 +50,7 @@ newEntity{
 	define_as = "LOCK",
 	type = "wall", subtype = "floor",
 	name = "closed gate", image = "terrain/granite_door1.png",
+	kr_name = "닫힌 관문",
 	display = '+', color=colors.WHITE, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -65,6 +67,7 @@ newEntity{
 	define_as = "LOCK_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open gate", image="terrain/granite_door1_open.png",
+	kr_name = "열린 관문",
 	display = "'", color=colors.WHITE, back_color=colors.DARK_UMBER,
 	always_remember = true,
 	nice_tiler = { method="door3d", north_south="LOCK_VERT_OPEN", west_east="LOCK_HORIZ_OPEN" },

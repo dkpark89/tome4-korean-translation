@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.WHITE,
 	faction = "point-zero-guardians",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 	hates_antimagic = 1,
 	never_anger = 1,
 
@@ -50,11 +50,12 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "DEFENDER_OF_REALITY",
 	name = "guardian of reality", color=colors.YELLOW,
+	kr_name = "현실의 수호자",
 	image = resolvers.rngtable{"npc/humanoid_elf_star_crusader.png", "npc/humanoid_elf_anorithil.png"},
 	female = resolvers.rngtable{false, true},
 	subtype = resolvers.rngtable{"human", "shalore"},
 	shader = "moving_transparency", shader_args = {a_min=0.2, a_max=0.8},
-	desc = [[A stern-looking guardian, ever vigilant against the threats of the paradox.]],
+	desc = [[엄격해 보이는 수호자입니다. 시간축을 위협하는 괴리에 대처하기 위해, 조금도 방심하지 않고 있습니다.]],
 	level_range = {1, nil}, exp_worth = 0,
 	rarity = false,
 	max_life = 400,
@@ -79,7 +80,7 @@ newEntity{
 	type = "elemental", subtype = "void",
 	blood_color = colors.DARK_GREY,
 	display = "E", color=colors.DARK_GREY,
-	desc = [[Losgoroth are mighty void elementals, native to the void between the stars; they are rarely seen on the planet's surface.]],
+	desc = [[로스고로스는 강력한 공허의 원소이며, 별들의 사이에 존재하는 공허에서 온 존재입니다. 이것들은 지표면에서는 거의 볼 수 없는 존재입니다.]],
 
 	combat = { dam=resolvers.levelup(resolvers.mbonus(40, 15), 1, 1.2), atk=15, apr=15, dammod={mag=0.8}, damtype=DamageType.ARCANE },
 
@@ -113,6 +114,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_LOSGOROTH", define_as = "MONSTROUS_LOSGOROTH",
 	name = "monstrous losgoroth", color=colors.GREY, image = "npc/elemental_void_losgoroth.png",
+	kr_name = "기괴한 로스고로스",
 	level_range = {50, nil}, exp_worth = 0,
 	rarity = false,
 	max_life = 500,
@@ -129,9 +131,10 @@ newEntity{ base = "BASE_NPC_LOSGOROTH", define_as = "MONSTROUS_LOSGOROTH",
 
 newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "ZEMEKKYS",
 	name = "Zemekkys, Grand Keeper of Reality", color=colors.VIOLET,
+	kr_name = "위대한 현실 감시원, 제메키스",
 	image = "npc/humanoid_elf_high_chronomancer_zemekkys.png",
 	subtype = "shalore",
-	desc = [[A timeless elf stands before you. Even though his age is impossible to determine, you feel he has seen many things.]],
+	desc = [[시간에서 벗어난 엘프가 당신의 앞에 서 있습니다. 그의 나이는 짐작조차 가지않으며, 그가 엄청나게 많은 일을 겪었다는 것이 느껴집니다.]],
 	level_range = {50, nil}, exp_worth = 1,
 	rarity = false,
 	max_life = 2000, life_rating = 20,
@@ -168,7 +171,7 @@ newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "ZEMEKKYS",
 	},
 
 	talent_cd_reduction = {all=23},
-	resolvers.talents{
+resolvers.talents{
 		[Talents.T_TEMPORAL_FORM]=1,
 		[Talents.T_DRACONIC_BODY]=1,
 		[Talents.T_LUCKY_DAY]=1,
@@ -202,9 +205,10 @@ newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "ZEMEKKYS",
 newEntity{ define_as = "TEMPORAL_DEFILER",
 	type = "horror", subtype = "temporal", unique = true,
 	name = "Temporal Defiler",
+	kr_name = "시간의 모독자",
 	display = "h", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_temporal_temporal_defiler.png", display_h=2, display_y=-1}}},
-	desc = [[A huge, slender, metallic monstrosity with long claws in place of fingers, and razor-sharp teeth. It seems to seek something here.]],
+	desc = [[손가락마다 긴 손톱이 자라있으며, 날카로운 이빨을 가진 거대하고 호리호리한 금속질 괴물입니다. 그것은 여기에서 무엇인가를 찾고 있는 것 같습니다.]],
 	level_range = {50, nil}, exp_worth = 0.1,
 	max_life = 1500, life_rating = 35, fixed_rating = true,
 	stats = { str=20, dex=10, cun=8, mag=10, con=20 },
@@ -226,7 +230,7 @@ newEntity{ define_as = "TEMPORAL_DEFILER",
 
 	inc_damage = {all = -30},
 
-	resolvers.talents{
+resolvers.talents{
 		[Talents.T_FATEWEAVER]={base=3, every=7, max=5},
 		[Talents.T_SPIN_FATE]={base=3, every=7, max=5},
 		[Talents.T_STEALTH]={base=1, every=7, max=5},

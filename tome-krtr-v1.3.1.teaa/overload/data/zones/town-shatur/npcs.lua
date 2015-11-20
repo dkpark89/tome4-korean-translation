@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ newEntity{
 	type = "humanoid", subtype = "thalore",
 	display = "p", color=colors.WHITE,
 	faction = "thalore",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -49,7 +49,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "thalore hunter", color=colors.LIGHT_UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_name = "탈로레 사냥꾼",
+	desc = [[엄격해 보이는 경비입니다. 당신이 마을을 어지럽히는 것을 용납하지 않습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -70,8 +71,9 @@ newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 
 newEntity{ base = "BASE_NPC_ELVALA_TOWN",
 	name = "thalore wilder", color=colors.GREEN,
+	kr_name = "탈로레 자연의 추종자",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_thalore_thalore_wilder.png", display_h=2, display_y=-1}}},
-	desc = [[A tall elf, his skin covered in green moss.]],
+	desc = [[초록색 이끼가 온 몸에 자란, 키 큰 엘프입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),

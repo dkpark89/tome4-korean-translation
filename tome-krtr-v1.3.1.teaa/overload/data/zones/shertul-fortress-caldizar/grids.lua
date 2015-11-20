@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ load("/data/general/grids/void.lua")
 newEntity{
 	define_as = "COMMAND_ORB",
 	name = "Sher'Tul Control Orb", image = "terrain/solidwall/solid_floor1.png", add_displays = {class.new{image="terrain/shertul_control_orb_blue.png"}},
+	kr_name = "쉐르'툴 제어 오브",
 	display = '*', color=colors.PURPLE,
 	notice = true,
 	always_remember = true,
@@ -35,18 +36,19 @@ newEntity{
 newEntity{
 	define_as = "FARPORTAL",
 	name = "Exploratory Farportal",
+	kr_name = "탐험용 장거리 관문",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/solidwall/solid_floor1.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They were left behind by the powerful Sher'tul race.
-This farportal is not connected to any other portal. It is made for exploration; you cannot know where it will send you.
-It should automatically create a portal back, but it might not be near your arrival zone.]],
+	desc = [[놀라운 거리를 눈 깜짝할 사이에 이동할 수 있는 장거리 관문으로, 강력한 쉐르'툴 종족이 남긴 것입니다.
+이 장거리 관문은 다른 관문과 연결되어 있지 않습니다. 이 관문은 탐험을 위해 만들어진 것이며, 어디로 보내질 것인지 알 수 없습니다.
+자동적으로 돌아오는 관문이 만들어지지만, 그 위치는 도착 지점에서 가까운 곳이 아닐 수도 있습니다.]],
 
 	block_move = function(self, x, y, who, act, couldpass)
 		if not who or not who.player or not act then return true end
 		local Dialog = require "engine.ui.Dialog"
-		Dialog:simplePopup("Farportal", "The farportal seems to be inactive")
+		Dialog:simplePopup("장거리 관문", "이 장거리 관문은 비활성화 상태인 것 같습니다.")
 		return true
 	end,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ load("/data/general/objects/objects-maj-eyal.lua")
 newEntity{ base = "BASE_RUNE", define_as = "RUNE_RIFT",
 	power_source = {arcane=true},
 	name = "Rune of the Rift", unique = true, identified = true, image = "object/artifact/rune_of_the_rift.png",
+	kr_name = "균열의 룬",
 	rarity = false,
 	cost = 100,
 	material_level = 3,

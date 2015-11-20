@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Object = require "engine.Object"
 local DamageType = require "engine.DamageType"
 
@@ -121,7 +123,7 @@ newAI("sandworm_tunneler_huge", function(self)
 		if not s then
 			local ls = game.level.ordered_spots[#game.level.ordered_spots]
 			if self.x == ls.x and self.y == ls.y then
-				game.logSeen(self, "#OLIVE_DRAB#The %s burrows into the ground and disappears.", self.name)
+				game.logSeen(self, "#OLIVE_DRAB#%s 땅 속으로 파고들며 사라졌습니다.", (self.kr_name or self.name):capitalize():addJosa("가"))
 				self:disappear()
 				return
 			else -- Relentlessly try to get to the end

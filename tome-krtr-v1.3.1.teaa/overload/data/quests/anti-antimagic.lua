@@ -18,16 +18,17 @@
 -- darkgod@te4.org
 
 name = "The fall of Zigur"
+kr_name = "지구르의 몰락"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You decided to side with the Grand Corruptor and joined forces to assault the Ziguranth main base of power."
+	desc[#desc+1] = "당신은 위대한 타락자의 편에 서서, 지구르 추종자들이 모인 집결지를 공격하기로 했습니다."
 	if self:isStatus(self.FAILED) then
-		desc[#desc+1] = "The Grand Corruptor died during the attack before he had time to teach you his ways."
+		desc[#desc+1] = "위대한 타락자는 지구르를 공격하던 중에 죽음을 맞이하여, 당신에게 그의 길을 전수해주지 못했습니다."
 	elseif self:isStatus(self.DONE) then
-		desc[#desc+1] = "The defenders of Zigur were crushed, the Ziguranth scattered and weakened."
+		desc[#desc+1] = "지구르의 수호자들은 무릎을 꿇었으며, 지구르 추종자들은 흩어지고 약해졌습니다."
 	end
 	if self:isStatus(self.COMPLETED, "grand-corruptor-treason") then
-		desc[#desc+1] = "In the aftermath you turned against the Grand Corruptor and dispatched him."
+		desc[#desc+1] = "지구르를 파괴한 당신은, 위대한 타락자를 배신하여 그를 해치웠습니다."
 	end
 
 	return table.concat(desc, "\n")
@@ -91,7 +92,7 @@ on_status_change = function(self, who, status, sub)
 		who:setQuestStatus(self.id, engine.Quest.DONE)
 		world:gainAchievement("ANTI_ANTIMAGIC", game.player)
 
-		game.party:reward("Select the party member to receive the hexes generic talent tree:", function(player)
+		game.party:reward("일반 기술 계열인 매혹술을 익힐 동료를 고르시오 :", function(player)
 			if who:knowTalentType("corruption/hexes") then
 				who:setTalentTypeMastery("corruption/hexes", who:getTalentTypeMastery("corruption/hexes") + 0.2)
 			elseif who:knowTalentType("corruption/hexes") == false then
@@ -101,7 +102,7 @@ on_status_change = function(self, who, status, sub)
 			end
 		end)
 
-		require("engine.ui.Dialog"):simplePopup("Grand Corruptor", "#LIGHT_GREEN#The Grand Corruptor gazes upon you. You feel knowledge flowing in your mind. You can now train some corruption powers.")
+		require("engine.ui.Dialog"):simplePopup("위대한 타락자", "#LIGHT_GREEN#T위대한 타락자가 당신에게 시선을 집중했습니다. 당신의 마음 속에 지식이 흘러들어오는 것이 느껴졌습니다. 이제 당신은 타락한 힘을 수련할 수 있게 되었습니다.")
 		game:setAllowedBuild("corrupter")
 		game:setAllowedBuild("corrupter_corruptor", true)
 	end
@@ -125,7 +126,7 @@ myssil_dies = function(self)
 	end
 	if not corr then return end
 
-	corr:doEmote("Victory is mine!", 60)
+	corr:doEmote("승리는 나의 것이다!", 60)
 	corr.never_anger = nil
 	game.player:setQuestStatus(self.id, self.COMPLETED)
 end
@@ -134,8 +135,8 @@ function onWin(self, who)
 	if not self:isStatus(self.DONE) then return end
 	if self:isStatus(self.COMPLETED, "grand-corruptor-treason") then return end
 	return 10, {
-		"While you were in the Far East, the Grand Corruptor was busy in Maj'Eyal.",
-		"With the fall of Zigur he was able to attack and take control of Elvala, the Shaloren capital city.",
-		"His plans however do not stop there.",
+		"당신이 동대륙에 있는 동안, 위대한 타락자는 마즈'에이알 대륙에서 바쁜 일상을 보냈습니다.",
+		"지구르의 몰락과 함께 그는 샬로레들의 수도인 엘벨라를 공격하여, 그곳을 지배하게 되었습니다.",
+		"하지만 그의 계획은 거기서 끝나지 않을 것 같습니다.",
 	}
 end

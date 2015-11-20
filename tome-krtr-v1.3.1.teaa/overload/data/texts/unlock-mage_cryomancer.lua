@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,16 +17,16 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return "New Talent Category: #LIGHT_GREEN#Ice",
-[[Since the dawn of time mages have experimented with the elements.
-While most mages are content using the Water school, a few of them took their research deeper and created Ice magic.
-At its core lies the Uttercold, a cold so cold it can even damage creatures normally immune.
+return "새로운 기술 계열 : #LIGHT_GREEN#얼음",
+[[이 세계에 첫 동이 튼 이래로, 마법사들은 원소를 이용해 다양한 실험을 하였습니다.
+대부분의 마법사들은 물을 이용한 연구에 머물렀지만, 몇몇 마법사들은 그들의 연구를 더욱 심화시켜 얼음 마법을 만들었습니다.
+그 중심에는 '절대영도' 마법이 있으며, 이는 너무나 차갑기에 냉기 속성에 피해를 입지 않는 적에게까지 피해를 줄 수 있는 마법입니다.
 
-You have mastered ice magic and can now create new Archmage and Necromancer characters that can learn the #LIGHT_GREEN#Ice talents#WHITE#.
+당신은 냉기 마법을 완전히 수련하였기 때문에, 이제 마도사나 사령술사 캐릭터를 만들 때 #LIGHT_GREEN#얼음 마법 기술계열#WHITE#을 배울 수 있게 됩니다.
 
-Talents:
-- #YELLOW#Ice Shards: #WHITE#Fires slow-moving ice crystals at a target area; each hit has a chance to freeze
-- #YELLOW#Frozen Ground: #WHITE#Unleash a nova of ice on the ground, stopping the movements of anything caught inside
-- #YELLOW#Shatter: #WHITE#Shatters all frozen creatures in your sight, dealing increased damage or even killing them
-- #YELLOW#Uttercold: #WHITE#Master the Uttercold and pierce even through cold immunities
+기술 목록 :
+- #YELLOW#얼음 파편 : #WHITE#느리게 움직이는 얼음 파편들을 해당 지역에 날립니다. 얼음 파편들은 확률적으로 적을 빙결시킵니다.
+- #YELLOW#얼어붙은 대지 : #WHITE#대지에 얼음의 파동을 만들어, 파동의 영향을 받은 적들이 움직이지 못하게 만듭니다.
+- #YELLOW#파쇄 : #WHITE#빙결 상태인 적들을 파쇄시켜, 추가적인 피해를 주거나 적을 즉사시킵니다.
+- #YELLOW#절대영도 : #WHITE#절대영도에 완전히 통달하여, 냉기 속성에 피해를 입지 않는 적에게까지 피해를 줍니다.
 ]]

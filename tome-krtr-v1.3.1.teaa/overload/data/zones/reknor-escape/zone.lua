@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 return {
 	name = "Escape from Reknor",
+	kr_name = "레크놀로부터의 탈출",
 	level_range = {1, 5},
 	level_scheme = "player",
 	max_level = 3,
@@ -45,8 +46,7 @@ return {
 			force_down = true,
 		},
 		actor = {
-			class = "engine.generator.actor.Random",
-			--class = "mod.class.generator.actor.Random",
+			class = "mod.class.generator.actor.Random",
 			nb_npc = {50, 60},
 			filters = { {max_ood=2}, },
 			nb_spots = 2, on_spot_chance = 35,

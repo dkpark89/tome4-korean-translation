@@ -17,6 +17,7 @@
 newTalent {
 	short_name = "SKIRMISHER_BUCKLER_EXPERTISE",
 	name = "Buckler Expertise",
+	kr_name = "방패 전문가",
 	type = {"technique/buckler-training", 1},
 	require = techs_dex_req1,
 	points = 5,
@@ -48,9 +49,9 @@ newTalent {
 	info = function(self, t)
 		local block = t.chance(self, t)
 		local armor = t.getHardiness(self, t)
-		return ([[Allows shields to be equipped, using Cunning instead of strength as a requirement.
-			When you are attacked in melee, you have a %d%% chance to deflect the attack with your shield, completely evading it.
-			The chance to deflect increases with your Cunning.]])
+		return ([[방패 착용이 가능해지고, 힘 대신 교활함 능력치로 방패를 착용할 수 있게 됩니다.
+		또한 근접 공격을 당할 때마다, %d%% 확률로 방패를 들어 공격을 완전히 막아냅니다.
+		방어 확률은 교활함 능력치의 영향을 받아 증가합니다.]])
 			:format(block, armor)
 	end,
 }
@@ -58,6 +59,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_BASH_AND_SMASH",
 	name = "Bash and Smash",
+	kr_name = "후려치고 박살내기",
 	type = {"technique/buckler-training", 2},
 	require = techs_dex_req2,
 	points = 5,
@@ -71,7 +73,7 @@ newTalent {
 	is_special_melee = true,
 	on_pre_use = function(self, t, silent)
 		if not self:hasShield() or not self:hasArcheryWeapon() then
-			if not silent then game.logPlayer(self, "You require a ranged weapon and a shield to use this talent.") end
+			if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 장거리 무기와 방패가 필요합니다.") end
 			return false
 		end
 		return true
@@ -93,7 +95,7 @@ newTalent {
 		local shield = self:hasShield()
 		local sling = self:hasArcheryWeapon()
 		if not shield or not sling then
-			game.logPlayer(self, "You require a ranged weapon and a shield to use this talent.")
+			game.logPlayer(self, "이 기술을 사용하기 위해서는 장거리 무기와 방패가 필요합니다.")
 			return nil
 		end
 
@@ -137,7 +139,7 @@ newTalent {
 				local dist = t.getDist(self, t)
 				target:knockback(self.x, self.y, dist)
 			else
-				game.logSeen(target, "%s resists the knockback!", target.name:capitalize())
+				game.logSeen(target, "%s가 밀려나지 않았습니다!", target.name:capitalize())
 			end
 		end
 
@@ -154,7 +156,7 @@ newTalent {
 		local shieldMult = t.getShieldMult(self, t) * 100
 		local tiles = t.getDist(self, t)
 		local slingMult = t.getSlingMult(self, t) * 100
-		return ([[Bash an enemy in melee range with your shield (twice for talent level 5 or more), doing %d%% damage and knocking them back %d squares. You may then follow with a deadly short-range sling attack, dealing %d%% damage. The shield bash will use Dexterity instead of Strength for the shield's bonus damage.]])
+		return ([[근접한 곳에 있는 적을 방패로 공격하여, %d%% 피해를 주고 %d 칸 밀어냅니다. (기술 레벨이 5 이상일 경우, 방패로 2 번 공격합니다) 이후 투석구로 치명적인 근접 공격을 가해, %d%% 피해를 줍니다. 방패 공격은 힘 대신 민첩 능력치를 사용해 추가 피해량을 결정합니다.]])
 		:format(shieldMult, tiles, slingMult)
 	end,
 }
@@ -162,6 +164,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_BUCKLER_MASTERY",
 	name = "Buckler Mastery",
+	kr_name = "방패 숙련",
 	type = {"technique/buckler-training", 3},
 	require = techs_dex_req3,
 	points = 5,
@@ -179,12 +182,12 @@ newTalent {
 		local t2 = self:getTalentFromId(self.T_SKIRMISHER_BASH_AND_SMASH)
 		if t2 then
 			if self:getTalentLevelRaw(t2) >= 5 then
-				crit = " At talent level 5, your Bash and Smash shield hits are guaranteed criticals."
+				crit = "  레벨이 5 이상일 경우, 후려치고 박살내기 기술의 방패 공격들은 항상 치명타 공격으로 적용됩니다."
 			else
-				crit = " At talent level 5, your Bash and Smash shield hit is a guaranteed critical."
+				crit = "  레벨이 5 이상일 경우, 후려치고 박살내기 기술의 방패 공격이 항상 치명타 공격으로 적용됩니다."
 			end
 		end
-		return ([[When you are hit by a projectile, physical or otherwise, you have a %d%% chance to deflect it up to %d squares away.%s]])
+		return ([[투사체에 피격당하기 직전, %d%% 확률로 투사체를 주변 %d 칸 밖으로 튕겨냅니다.%s]])
 			:format(chance, range, crit)
 	end,
 }
@@ -194,6 +197,7 @@ newTalent {
 newTalent {
 	short_name = "SKIRMISHER_COUNTER_SHOT",
 	name = "Counter Shot",
+	kr_name = "반격 사격",
 	type = {"technique/buckler-training", 4},
 	mode = "sustained",
 	points = 5,
@@ -204,7 +208,7 @@ newTalent {
 	tactical = { BUFF = 2 },
 	on_pre_use = function(self, t, silent)
 		if not self:hasShield() or not self:hasArcheryWeapon() then
-			if not silent then game.logPlayer(self, "You require a ranged weapon and a shield to use this talent.") end
+			if not silent then game.logPlayer(self, "이 기술을 사용하기 위해서는 장거리 무기와 방패가 필요합니다.") end
 			return false
 		end
 		return true
@@ -231,7 +235,7 @@ newTalent {
 		self.turn_procs.counter_shot = 1 + (self.turn_procs.counter_shot or 0)
 		local targets = self:archeryAcquireTargets(nil, {one_shot=true, x=target.x, y=target.y, no_energy = true})
 		if targets then
-			self:logCombat(who, "#ORCHID##Source# follows up with a countershot.#LAST#")
+			self:logCombat(who, "#ORCHID##Source# 반격 사격을 가합니다.#LAST#")
 			--self:incStamina(-stamina)
 
 
@@ -243,8 +247,7 @@ newTalent {
 		local mult = t.getMult(self, t) * 100
 		local blocks = t.getBlocks(self, t)
 		--local stamina = t.getStaminaPerShot(self, t)
-		return ([[Any time you block an attack with Buckler Expertise or Buckler Mastery you instantly counterattack with your sling for %d%% damage  This can only occur up to %d time(s) per turn.
-			]])
+		return ([[방패 전문가나 방패 숙련 기술로 공격을 막을 때마다, 즉시 투석구로 반격해서 %d%% 피해를 가합니다. 이 반격은 1 턴에 최대 %d 번 까지 가능합니다.]])
 			:format(mult, blocks)
 	end,
 }

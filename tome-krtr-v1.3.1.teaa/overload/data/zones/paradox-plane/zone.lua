@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,7 +19,9 @@
 
 return {
 	name = "Paradox Plane",
+	kr_name = "모순된 괴리의 차원",
 	display_name = function(x, y) return "Paradox Plane" end,
+	kr_display_name = function(x, y) return "모순된 괴리의 차원" end,
 	variable_zone_name = true,
 	level_range = {7, 16},
 	level_scheme = "player",

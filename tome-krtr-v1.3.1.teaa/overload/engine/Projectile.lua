@@ -31,6 +31,7 @@ _M.display_on_unknown = false
 function _M:init(t, no_default)
 	t = t or {}
 	self.name = t.name or "projectile"
+	self.kr_name = t.kr_name or t.name or "발사체" --@ 한글 이름 추가
 	self.energy = t.energy or { value=game.energy_to_act, mod=2 }
 	self.energy.value = self.energy.value or game.energy_to_act
 	self.energy.mod = self.energy.mod or 10
@@ -170,7 +171,7 @@ function _M:useEnergy(val)
 end
 
 function _M:tooltip()
-	return ("Projectile: "..self.name):toTString()
+	return ("발사체: "..(self.kr_name or self.name)):toTString() --@ 한글 이름 사용
 end
 
 --- Move one step to the given target if possible
@@ -283,8 +284,10 @@ function _M:makeProject(src, display, def, do_move, do_act, do_stop)
 	display = display or {display='*'}
 	local speed = def.tg.speed
 	local name = def.tg.name
+	local kr_name = def.tg.kr_name or def.tg.name --@ 한글 이름 추가
 	if def.tg.talent then
 		speed = src:getTalentProjectileSpeed(def.tg.talent) or speed
+		kr_name = kr_name or name or def.tg.kr_name or def.tg.talent.name --@ 한글 이름 추가
 		name = name or def.tg.talent.name
 		def.tg.talent_id = def.tg.talent.id
 		def.tg.talent = nil
@@ -292,6 +295,7 @@ function _M:makeProject(src, display, def, do_move, do_act, do_stop)
 	speed = def.tg.speed or speed or 10
 	local p = self.new{
 		name = name,
+		kr_name = kr_name or name, --@ 한글 이름 추가
 		display = display.display or ' ', color = display.color or colors.WHITE, image = display.image or nil,
 		travel_particle = display.particle,
 		travel_particle_args = display.particle_args,
@@ -318,9 +322,11 @@ function _M:makeHoming(src, display, def, target, count, on_move, on_hit)
 	display = display or {display='*'}
 	local speed = def.speed
 	local name = def.name
+	local kr_name = def.kr_name or def.name --@ 한글 이름 추가
 	speed = speed or 10
 	local p =self.new{
 		name = name,
+		kr_name = kr_name or name, --@ 한글 이름 추가
 		display = display.display or ' ', color = display.color or colors.WHITE, image = display.image or nil,
 		travel_particle = display.particle,
 		travel_particle_args = display.particle_args,

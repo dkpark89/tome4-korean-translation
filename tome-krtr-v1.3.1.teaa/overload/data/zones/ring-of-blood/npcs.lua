@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,9 +24,10 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{ define_as = "RING_MASTER",
 	type = "humanoid", subtype = "yaech", unique = true,
 	name = "Blood Master",
+	kr_name = "피의 투기장 운영자",
 	display = "@", color=colors.VIOLET,
 	blood_color = colors.BLUE,
-	desc = [[This small humanoid is covered in silky white fur. Its bulging eyes stare deep into your mind.]],
+	desc = [[이 작은 영장류는 비단같은 흰 털로 온 몸이 덮혀있으며, 툭 튀어나온 눈은 당신의 정신 속까지 깊이 응시하고 있습니다.]],
 	level_range = {14, nil}, exp_worth = 2,
 	max_life = 150, life_rating = 12, fixed_rating = true,
 	rank = 3.5,
@@ -79,17 +80,18 @@ newEntity{ define_as = "RING_MASTER",
 newEntity{ define_as = "SPECTATOR",
 	type = "humanoid", subtype = resolvers.rngtable{"shalore","thalore","human","halfling","dwarf"},
 	name = "spectator", quest = true,
+	kr_name = "관중",
 	female = resolvers.rngtable{false, true},
 	image = resolvers.rngtable{"npc/humanoid_human_spectator.png","npc/humanoid_human_spectator02.png","npc/humanoid_human_spectator03.png",},
 	display = "p", resolvers.rngcolor{colors.BLUE, colors.LIGHT_BLUE, colors.RED, colors.LIGHT_RED, colors.ORANGE, colors.YELLOW, colors.GREEN, colors.LIGHT_GREEN, colors.PINK, },
-	desc = [[A spectator, who probably paid a lot to watch this bloody "game".]],
+	desc = [[이 피비린내나는 "경기" 를 보기 위해, 돈을 내고 입장한 관중입니다.]],
 	level_range = {1, nil}, exp_worth = 0,
 	max_life = 100, life_rating = 12,
 	faction = "neutral",
 	emote_random = resolvers.emote_random{
-		"Blood!", "Fight!", "To the death!",
-		"Oh this is great", "I love the smell of death...",
-		"Slavers forever!",
+		"피를 뿌려라!", "싸워!", "죽여라!",
+		"와, 이건 대단해!", "죽음의 냄새가 사랑스러워...",
+		"너는 영원히 노예일 뿐이다!",
 	},
 }
 
@@ -98,8 +100,9 @@ newEntity{ define_as = "SPECTATOR",
 newEntity{ define_as = "PLAYER_SLAVE",
 	type = "humanoid", subtype = "human",
 	name = "slave combatant",
+	kr_name = "노예 전투원",
 	display = "@", color=colors.UMBER,
-	desc = [[This humanoid has been enslaved by the yaech's mental powers.]],
+	desc = [[야크의 정신력에 의해, 노예가 된 사람입니다.]],
 	level_range = {9, 9}, exp_worth = 0,
 	max_life = 120, life_rating = 12, fixed_rating = true,
 	rank = 3,
@@ -148,7 +151,7 @@ newEntity{
 
 	combat = { dam=resolvers.rngavg(5,12), atk=2, apr=6, physspeed=2 },
 
-	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, QUIVER=1, HANDS = 1 },
+	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, QUIVER=1 },
 	resolvers.drops{chance=20, nb=1, {} },
 	resolvers.drops{chance=10, nb=1, {type="money"} },
 	infravision = 10,
@@ -170,8 +173,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SLAVER",
 	name = "slaver", color=colors.TEAL,
+	kr_name = "노예 주인",
 	subtype = "yaech",
-	desc = [[A slaver.]],
+	desc = [[노예들의 주인입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(80,90), life_rating = 11,
@@ -193,7 +197,7 @@ newEntity{ base = "BASE_NPC_SLAVER",
 				if self.master and self.master:attr("dead") then
 					self.faction = "neutral"
 					self:removeAllEffects()
-					self:doEmote(rng.table{"I am free!", "At last, freedom!", "Thanks for this!", "The mental hold is gone!"}, 60)
+					self:doEmote(rng.table{"난 자유인이다!", "마침내, 자유를!", "이렇게 해줘서 고맙네!", "정신 제압이 사라졌군!"}, 60)
 					self.on_act = nil
 					self.master = nil
 					world:gainAchievement("RING_BLOOD_FREED", game:getPlayer(true))
@@ -205,8 +209,9 @@ newEntity{ base = "BASE_NPC_SLAVER",
 
 newEntity{ base = "BASE_NPC_SLAVER",
 	name = "enthralled slave", color=colors.KHAKI,
+	kr_name = "매혹된 노예",
 	subtype = "human",
-	desc = [[A slave.]],
+	desc = [[노예입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 20,
 	max_life = resolvers.rngavg(80,90), life_rating = 13,

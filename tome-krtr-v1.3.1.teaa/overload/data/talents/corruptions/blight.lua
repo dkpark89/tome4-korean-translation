@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Dark Ritual",
+	kr_name = "어둠의 의식",
 	type = {"corruption/blight", 1},
 	mode = "sustained",
 	require = corrs_req1,
@@ -38,14 +39,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Increases your spell critical damage multiplier by %d%%.
-		The multiplier will increase with your Spellpower.]]):
+		return ([[주문 치명타의 피해량 배수를 %d%% 상승시켜, 더 강력한 치명타 공격을 할 수 있게 됩니다.
+		상승량은 주문력의 영향을 받아 증가합니다.]]):
 		format(self:combatTalentSpellDamage(t, 20, 60))
 	end,
 }
 
 newTalent{
 	name = "Corrupted Negation",
+	kr_name = "타락한 금제",
 	type = {"corruption/blight", 2},
 	require = corrs_req2,
 	points = 5,
@@ -108,14 +110,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Project a corrupted blast of power that deals %0.2f blight damage and removes up to %d magical or physical effect(s) from any creatures caught in the radius 3 ball.
-		For each effect, the creature has a chance to resist based on its spell save.
-		The damage will increase with your Spellpower.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 120)), t.getRemoveCount(self, t))
+		return ([[타락한 힘의 돌풍을 만들어내 전방 3 칸 반경에 %0.2f 황폐 속성 피해를 주고, 물리적 효과나 마법적 효과를 최대 %d 개 까지 없애버립니다.
+		대상은 주문 내성으로 각각의 효과에 대해 저항할 확률이 있습니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 28, 120)), t.getRemoveCount(self, t))
 	end,
 }
 
 newTalent{
 	name = "Corrosive Worm",
+	kr_name = "부식성 벌레",
 	type = {"corruption/blight", 3},
 	require = corrs_req3,
 	points = 5,
@@ -137,15 +140,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Infect your target with a corrosive worm that deals %0.2f acid damage per turn for 10 turns.
-		If the target dies while the worm is inside, it will explode, doing %0.2f acid damage in a radius of 4.
-		The damage will increase with your Spellpower, and can critical.]]):
+		return ([[대상에게 부식성 벌레를 감염시켜, 10 턴 동안 매 턴마다 %0.2f 산성 피해를 줍니다.
+		감염된 도중에 대상이 죽을 경우, 폭발하여 주변 4 칸 반경에 %0.2f 산성 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]):
 		format(damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 10, 60)), damDesc(self, DamageType.ACID, self:combatTalentSpellDamage(t, 10, 230)))
 	end,
 }
 
 newTalent{
 	name = "Poison Storm",
+	kr_name = "독성 폭풍",
 	type = {"corruption/blight", 4},
 	require = corrs_req4,
 	points = 5,
@@ -181,9 +185,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[A furious poison storm rages around the caster in a radius of %d for %d turns.  Each creature hit by the storm is poisoned for %0.2f nature damage over 6 turns.
-		Poisoning is cumulative; the longer they stay in the storm, the higher the poison damage they take.
-		The damage will increase with your Spellpower, and can critical.]]):
+		return ([[격렬한 독성 폭풍이 시전자 주변 반경 %d 칸 내에서 %d 턴 동안 일어납니다. 폭풍에 닿은 대상은 %0.2f 자연 피해를 6 턴에 걸쳐 받게 됩니다.
+		이 독은 중첩되며, 중첩될수록 독성이 더 강해지고 더 오랫동안 지속됩니다.
+		피해량은 주문력의 영향을 받아 증가하며, 치명타 효과가 발생할 수 있습니다.]]): 
 		format(self:getTalentRadius(t), t.getDuration(self, t), damDesc(self, DamageType.NATURE, self:combatTalentSpellDamage(t, 12, 130)))
 	end,
 }

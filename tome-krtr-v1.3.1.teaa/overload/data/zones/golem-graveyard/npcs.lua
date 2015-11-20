@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,9 +25,10 @@ newEntity{ define_as = "ATAMATHON", base = "BASE_NPC_CONSTRUCT",
 	allow_infinite_dungeon = true,
 	unique = true,
 	name = "Atamathon the Giant Golem", image = "npc/atamathon.png",
+	kr_name = "거대 골렘, 아타마쏜",
 	color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/construct_golem_athamathon_the_giant_golem.png", display_h=2, display_y=-1}}},
-	desc = [[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer. Someone foolish has tried to reconstruct it, but has lost control of it, and now it rampages in search of its original creators, who are long dead. Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. At over 40 feet tall, it towers above you, and its crimson orbs seem to glow with rage.]],
+	desc = [[이 거대 골렘은 장작더미의 시대에 하플링이 오크에 대항하기 위한 무기로 만들었지만, 포식자 가르쿨에 의해 파괴되었다고 알려져 있습니다. 어떤 어리석은 이가 골렘을 다시 작동시키는 것에 성공했지만, 골렘을 통제하는 것에는 실패하였습니다. 이제 골렘은 오래 전에 이미 죽어버린, 원제작자에게 자신의 분노를 쏟아내려 합니다. 대리석으로 만들어진 몸에 단단한 보라툰으로 관절부위가 연결되었으며, 가장 순수한 루비가 눈으로 사용되었습니다. 12미터가 넘는 키로 우뚝선 위쪽에서, 격노에 차 빛나는 핏빛 보석이 보입니다.]],
 	level_range = {70, nil}, exp_worth = 2,
 	max_life = 350, life_rating = 40, fixed_rating = true,
 	life_regen = 0,

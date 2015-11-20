@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Forge Shield",
+	kr_name = "방패 연마",
 	type = {"psionic/dream-forge", 1},
 	points = 5, 
 	require = psi_wil_high1,
@@ -48,7 +49,7 @@ newTalent{
 			self:setEffect(self.EFF_FORGE_SHIELD, dur, {power=t.getPower(self, t), number=1, d_types={[type]=true}})
 			amt = util.bound(dam - t.getPower(self, t), 0, dam)
 			blocked = t.getPower(self, t)
-			game.logSeen(self, "#ORANGE#%s forges a dream shield to block the attack!", self.name:capitalize())
+			game.logSeen(self, "#ORANGE#%s 꿈의 방패를 만들어 적의 공격에 대항합니다!", self.name:capitalize())
 		elseif eff and eff.d_types[type] then
 			amt = util.bound(dam - eff.power, 0, dam)
 			blocked = eff.power
@@ -57,7 +58,7 @@ newTalent{
 			eff.d_types[type] = true
 			amt = util.bound(dam - eff.power, 0, dam)
 			blocked = eff.power
-			game.logSeen(self, "#ORANGE#%s's dream shield has been strengthened by the attack!", self.name:capitalize())
+			game.logSeen(self, "#ORANGE#%s의 꿈의 방패가 공격에 의해 강화되었습니다!", self.name:capitalize())
 		end
 
 		if blocked then
@@ -89,16 +90,18 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[When an attack would deal 15%% or more of your effective total health, you forge the Dream Shield to protect yourself, reducing the damage of all attacks of that type by %0.2f for the next %d turn(s).
-		You may block multiple damage types at one time, but the base damage threshold increases by 15%% per damage type the shield is already blocking.
-		If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal melee or ranged attack will instead deal 200%% damage) for one turn.
-		At talent level 5, the block effect will last two turns.
-		This damage reduction scales with your Mindpower.]]):format(power, dur)
+		return ([[최대 생명력의 15%%에 해당하는 피해를 한 번에 받으면, 꿈의 방패를 만들어 스스로를 보호합니다.
+		다음 %d 턴 동안 해당 속성의 모든 공격 피해량을 %0.2f 만큼 덜 받게 됩니다.
+		한번에 여러 공격 속성을 막아낼 수 있지만, 속성이 하나 추가될 때마다 방패를 만들기 위해 받아야 하는 피해량이 15%% 증가하게 됩니다.
+		꿈의 방패로 공격을 완전히 막아내면, 1 턴 동안 공격자가 반격에 취약해지게 됩니다. (근접공격이나 활, 투석구를 사용한 원거리 공격 시 피해량 2 배)
+		기술 레벨이 5 이상이면, 방패가 2 턴 동안 지속됩니다.
+		피해 감소량는 정신력의 영향을 받아 증가합니다.]]):format(power, dur)
 	end,
 }
 
 newTalent{
 	name = "Forge Bellows",
+	kr_name = "연마의 굉음",
 	type = {"psionic/dream-forge", 2},
 	points = 5, 
 	require = psi_wil_high2,
@@ -133,13 +136,13 @@ newTalent{
 			local e = Object.new{
 				old_feat = oe,
 				type = oe.type, subtype = oe.subtype,
-				name = self.name:capitalize().."'s forge barrier",
+				name = self.name:capitalize().."의 연마된 방벽",
 				image = "terrain/lava/lava_mountain5.png",
 				display = '#', color=colors.RED, back_color=colors.DARK_GREY,
 				shader = "shadow_simulacrum",
 				shader_args = { color = {0.6, 0.0, 0.0}, base = 0.9, time_factor = 1500 },
 				always_remember = true,
-				desc = "a summoned wall of mental energy",
+				desc = "소환된 정신의 벽",
 				type = "wall",
 				can_pass = {pass_wall=1},
 				does_block_move = true,
@@ -187,15 +190,16 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local duration = t.getDuration(self, t)
 		local forge_damage = t.getForgeDamage(self, t)/2
-		return ([[Release the bellows of the forge upon your surroundings, inflicting %0.2f mind damage, %0.2f burning damage, and knocking back your enemies in a radius %d cone.
-		Empty terrain may be changed (50%% chance) for %d turns into forge walls, which block movement and inflict %0.2f mind and %0.2f fire damage on nearby enemies.
-		The damage and knockback chance will scale with your Mindpower.]]):
+		return ([[전방 %d 칸 반경에 원뿔형으로 연마의 굉음을 뿜어내 %0.2f 정신 피해, %0.2f 화염 피해를 주고 적들을 밀어냅니다.
+		적이 없는 곳에는 50%% 확률로 %d 턴 동안 벽이 생성되어 이동을 막고, 주변의 적들에게 %0.2f 정신 피해, %0.2f 화염 피해를 줍니다.
+		피해량과 밀어내기 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.MIND, blast_damage), damDesc(self, DamageType.FIRE, blast_damage), radius, duration, damDesc(self, DamageType.MIND, forge_damage), damDesc(self, DamageType.FIRE, forge_damage))
 	end,
 }
 
 newTalent{
 	name = "Forge Armor",
+	kr_name = "갑옷 연마",
 	type = {"psionic/dream-forge", 3},
 	points = 5,
 	require = psi_wil_high3,
@@ -207,13 +211,14 @@ newTalent{
 		local armor = t.getArmor(self, t)
 		local defense = t.getDefense(self, t)
 		local psi = t.getPsiRegen(self, t)
-		return([[Your Forge Shield talent now increases your Armour by %d, your Defense by %d, and gives you %0.2f psi when you're hit by a melee or ranged attack.
-		The bonuses will scale with your Mindpower.]]):format(armor, defense, psi)
+		return([[방패 연마 활성 시 방어도가 %d / 회피도가 %d 증가하며, 근접이나 원거리 공격을 받을 때마다 %0.2f 염력을 회복하게 됩니다.
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):format(armor, defense, psi)
 	end,
 }
 
 newTalent{
 	name = "Dreamforge",
+	kr_name = "꿈 속 대장간",
 	type = {"psionic/dream-forge", 4},
 	points = 5, 
 	require = psi_wil_high4,
@@ -248,10 +253,10 @@ newTalent{
 			if p.damage < max_damage then
 				p.radius = math.min(p.radius + 1, max_radius)
 				p.damage = math.min(max_damage/4 + p.damage, max_damage)
-				game.logSeen(self, "#GOLD#%s strikes the dreamforge!", self.name:capitalize())
+				game.logSeen(self, "#GOLD#%s 꿈의 연마를 시작합니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 			elseif p.power == 0 then
 				p.power = power
-				game.logSeen(self, "#GOLD#%s begins breaking dreams!", self.name:capitalize())
+				game.logSeen(self, "#GOLD#%s 꿈을 깨뜨렸습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 				game:playSoundNear(self, "talents/lightning_loud")
 			end
 			local tg = {type="ball", range=self:getTalentRange(t), friendlyfire=false, radius=p.radius, talent=t}
@@ -276,11 +281,12 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local chance = t.getChance(self, t)
 		local fail = t.getFailChance(self,t)
-		return ([[The pounding forge of thought in your mind is released upon your surroundings.  Each turn that you remain stationary, you'll strike the dreamforge, inflicting mind and burning damage on enemies around you.
-		The effect will build over five turns, until it reaches a maximum radius of %d, maximum mind damage of %0.2f, and maximum burning damage of %0.2f.
-		At this point you'll begin breaking the dreams of enemies who hear the forge, reducing their Mental Save by %d and giving them a %d%% chance of spell failure due to the tremendous echo in their minds for %d turns.
-		Broken Dreams has a %d%% chance to brainlock your enemies.
-		The damage and dream breaking effect will scale with your Mindpower.]]):
+		return ([[머리 속에 그리던 대장간의 풍경이 현실 세계에 영향을 미치게 됩니다.
+		시전자가 이동하지 않은 매 턴마다, 꿈의 연마를 통해 주변의 적들에게 정신 피해와 화염 피해를 줍니다.
+		이 효과는 5 턴에 걸쳐 완성되며, 주변 %d 칸 반경에 영향을 줄 때까지 지속되고 최대 %0.2f 정신 피해, %0.2f 화염 피해를 줍니다.
+		효과가 완성되면 스스로 꿈을 깨뜨려, %d 턴 동안 주변에 있는 적들의 정신 내성을 %d 낮추고 %d%% 확률로 주문 시전을 실패하게 만듭니다.
+		꿈을 깨뜨릴 때 %d%% 확률로 적들에게 정신잠금 효과를 줍니다.
+		피해량과 꿈을 깨뜨릴 때의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(radius, damDesc(self, DamageType.MIND, damage), damDesc(self, DamageType.FIRE, damage), power, fail, duration, chance)
 	end,
 }

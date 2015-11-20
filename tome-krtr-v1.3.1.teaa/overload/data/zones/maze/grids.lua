@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ load("/data/general/grids/basic.lua")
 newEntity{
 	define_as = "QUICK_EXIT",
 	name = "teleporting circle to the surface", image = "terrain/maze_floor.png", add_displays = {class.new{image="terrain/maze_teleport.png"}},
+	kr_name = "지표면으로의 순간이동 장치",
 	display = '>', color_r=255, color_g=0, color_b=255,
 	notice = true, show_tooltip = true,
 	change_level = 1, change_zone = "wilderness",
@@ -33,14 +34,15 @@ newEntity{
 	define_as = "CRACKS",
 	type = "wall", subtype = "cracks",
 	name = "huge crack in the floor", image = "terrain/cracks/ground_9_01.png",
+	kr_name = "바닥의 커다란 균열",
 	display = '.', color=colors.BLACK, back_color=colors.BLACK,
 	nice_editer = cracks_editer,
 	pass_projectile = true,
 	block_move = function(self, x, y, who, act)
 		if not who or not act or not who.player then return true end
-		require("engine.ui.Dialog"):yesnoLongPopup("Crack in the floor", "This area appears to have been hit by a huge tremor, breaking the floor in a huge crack.\nYou think you can jump to the level below.", 400, function(ret) if ret then
+		require("engine.ui.Dialog"):yesnoLongPopup("바닥의 커다란 균열", "이 커다란 균열을 살펴보면, 이 지역에는 큰 지진이 일어났던 것 같습니다.\n아마 이 밑으로 뛰어내릴 수 있을 것 같습니다.", 400, function(ret) if ret then
 			game:changeLevel(game.level.level + 1)
-		end end, "Jump", "Stay")
+		end end, "뛰어내린다", "이곳에 있는다")
 		return true
 	end,
 }

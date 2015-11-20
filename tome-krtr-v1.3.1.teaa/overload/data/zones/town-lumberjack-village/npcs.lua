@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,9 +23,10 @@ newEntity{ define_as = "BEN_CRUTHDAR",
 	allow_infinite_dungeon = true,
 	type = "humanoid", subtype = "human", unique = true,
 	name = "Ben Cruthdar, the Cursed",
+	kr_name = "저주받은 자, 벤 크루스달",
 	display = "p", color=colors.VIOLET,
-	desc = [[This madman looks extremely dangerous. He wields a big axe and means to use it.
-A gloomy aura emanates from him.]],
+	desc = [[매우 위험해 보이는 광인입니다. 그는 큰 도끼를 들고 있으며, 그것을 사용하려 합니다.
+음울한 기운이 그에게서 뿜어져 나옵니다.]],
 	level_range = {10, nil}, exp_worth = 2,
 	max_life = 250, life_rating = 15, fixed_rating = true,
 	max_stamina = 85,
@@ -66,8 +67,9 @@ A gloomy aura emanates from him.]],
 newEntity{ defined_as = "LUMBERJACK",
 	type = "humanoid", subtype = "human",
 	name = "lumberjack",
+	kr_name = "나무꾼",
 	display = "p", color=colors.UMBER, faction = "allied-kingdoms",
-	desc = [[A lumberjack. Cutting wood is his job, dream and passion.]],
+	desc = [[나무꾼입니다. 나무를 자르는 것이 그의 일이고, 꿈이며 열정입니다.]],
 	level_range = {1, 1}, exp_worth = 1,
 	rarity = 1,
 	max_life = 100, life_rating = 10,

@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Moonlight Ray",
+	kr_name = "달빛 광선",
 	type = {"celestial/star-fury", 1},
 	require = divi_req1,
 	points = 5,
@@ -46,14 +47,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Focuses the power of the Moon into a beam of shadows, doing %0.2f damage.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[달의 힘을 그림자 광선으로 집중해, %0.2f 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }
 
 newTalent{
 	name = "Shadow Blast",
+	kr_name = "그림자 폭풍",
 	type = {"celestial/star-fury", 2},
 	require = divi_req2,
 	points = 5,
@@ -96,8 +98,8 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local damageonspot = t.getDamageOnSpot(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Invokes a blast of shadows that deals %0.2f darkness damage, and leaves a radius 3 field that does %0.2f darkness damage per turn for %d turns.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[%0.2f의 어둠 피해를 주고, 3칸 반경 지역에 %d 턴마다 %0.2f 어둠피해를 입히는 그림자 폭풍을 일으킵니다.
+		피해량은 주문력에 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.DARKNESS, damage),damDesc(self, DamageType.DARKNESS, damageonspot),duration)
 	end,
 }
@@ -133,14 +135,15 @@ newTalent{
 		local lightdam = t.getLightDamage(self, t)
 		local darknessdam = t.getDarknessDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[A surge of twilight pulses from you, doing %0.2f light and %0.2f darkness damage to all others within radius %d.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[황혼의 물결이 퍼져나가, %0.2f 빛 피해와 %0.2f 어둠 피해를 주변 %d 칸 반경에 줍니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(damDesc(self, DamageType.LIGHT, lightdam),damDesc(self, DamageType.DARKNESS, darknessdam), radius)
 	end,
 }
 
 newTalent{
 	name = "Starfall",
+	kr_name = "별똥별",
 	type = {"celestial/star-fury", 4},
 	require = divi_req4,
 	points = 5,
@@ -175,8 +178,8 @@ newTalent{
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
-		return ([[A star falls on a radius %d area, doing %0.2f darkness damage on impact and stunning all within the area for 4 turns.
-		The damage dealt will increase with your Spellpower.]]):
+		return ([[별똥별을 떨어뜨려, 주변 %d 칸 반경의 적들을 4턴 동안 기절시키고 %0.2f  어둠 피해를 줍니다. 
+ 		피해량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(radius, damDesc(self, DamageType.DARKNESS, damage))
 	end,
 }

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,7 +23,8 @@ for i = 1, 5 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "research log", lore="scintillating-caves-note-"..i,
-	desc = [[A paper scrap, left by an adventurer.]],
+	kr_name = "연구 기록",
+	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -32,7 +33,8 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE6",
 	name = "exploration log", lore="scintillating-caves-note-6",
-	desc = [[A paper scrap, left by an adventurer.]],
+	kr_name = "탐험 기록",
+	desc = [[어떤 모험가가 남긴 종이 조각입니다.]],
 	rarity = false,
 	encumberance = 0,
 }

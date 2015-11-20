@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Kinetic Strike",
+	kr_name = "동역학적 강타",
 	type = {"psionic/augmented-striking", 1},
 	require = psi_wil_req1,
 	points = 5,
@@ -38,7 +39,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 들고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = self:getTalentTarget(t)
@@ -52,7 +53,7 @@ newTalent{
 			if target:canBe("pin") then
 				target:setEffect(target.EFF_PINNED, dur, {apply_power=self:combatMindpower()})
 			else
-				game.logSeen(target, "%s resists the pin!", target.name:capitalize())
+				game.logSeen(target, "%s 속박을 저항했습니다.", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 			if target:attr("frozen") then
 				DamageType:get(DamageType.PHYSICAL).projector(self, x, y, DamageType.PHYSICAL, dam)
@@ -73,7 +74,7 @@ newTalent{
 					if lt:canBe("pin") then
 						lt:setEffect(lt.EFF_PINNED, dur, {apply_power=self:combatMindpower()})
 					else
-						game.logSeen(lt, "%s resists the pin!", lt.name:capitalize())
+						game.logSeen(lt, "%s 속박을 저항했습니다.", (lt.kr_name or lt.name):capitalize():addJosa("가"))
 					end
 					if target:attr("frozen") then
 						DamageType:get(DamageType.PHYSICAL).projector(self, x, y, DamageType.PHYSICAL, dam)
@@ -87,7 +88,7 @@ newTalent{
 					if rt:canBe("pin") then
 						rt:setEffect(rt.EFF_PINNED, dur, {apply_power=self:combatMindpower()})
 					else
-						game.logSeen(rt, "%s resists the pin!", rt.name:capitalize())
+						game.logSeen(rt, "%s 속박을 저항했습니다.", (rt.kr_name or rt.name):capitalize():addJosa("가"))
 					end
 					if target:attr("frozen") then
 						DamageType:get(DamageType.PHYSICAL).projector(self, x, y, DamageType.PHYSICAL, dam)
@@ -98,10 +99,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus kinetic energy and strike an enemy for %d%% weapon damage as physical.
-		They will be pinned to the ground for %d turns by the force of this attack.
-		Any frozen creature hit by this attack will take an extra %0.2f physical damage.
-		The extra damage will scale with your Mindpower.]]):
+		return ([[동역학적 에너지를 집중시켜, 적에게 %d%% 무기 피해를 물리 속성으로 입힙니다.
+		이 공격이 성공하면, 대사은 %d 턴 동안 속박됩니다.
+		빙결되어있는 적에게 이 공격을 성공시키면, 추가로 %0.2f 물리 피해가 주어집니다.
+		추가 피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 2.0), t.getDur(self, t), damDesc(self, DamageType.PHYSICAL, t.getDam(self, t)))
 	end,
 }
@@ -109,6 +110,7 @@ newTalent{
 
 newTalent{
 	name = "Thermal Strike",
+	kr_name = "열역학적 강타",
 	type = {"psionic/augmented-striking", 1},
 	require = psi_wil_req2,
 	points = 5,
@@ -125,7 +127,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 들고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = self:getTalentTarget(t)
@@ -154,7 +156,8 @@ newTalent{
 							local e = Object.new{
 								old_feat = oe,
 								name = "ice wall", image = "npc/iceblock.png",
-								desc = "a summoned, transparent wall of ice",
+								kr_name = "얼음 벽",
+								desc = "소환된, 투명한 얼음 벽",
 								type = "wall",
 								display = '#', color=colors.LIGHT_BLUE, back_color=colors.BLUE,
 								always_remember = true,
@@ -196,16 +199,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus thermal energy and strike an enemy for %d%% weapon damage as cold.
-		A burst of cold will then engulf them, doing an extra %0.1f Cold damage and also freeze them for %d turns.
-		If the attack freezes a pinned creature a burst of ice is summoned, circling the caster and the creature with a wall of ice for 3 turns.
-		The cold burst damage will scale with your Mindpower.]]):
+		return ([[열역학적 에너지를 집중시켜, 적에게 %d%% 무기 피해를 냉기 속성으로 입힙니다.
+		또한 강렬한 냉기가 적을 덮쳐, %0.1f 냉기 피해를 추가로 입히고 %d 턴 동안 빙결시킵니다.
+		속박되어 있는 적이 이 공격으로 빙결되면 얼음 덩어리가 솟아나, 시전자와 대상의 주위를 둘러싸는 3 턴 동안 얼음 벽이 생성됩니다.
+		냉기 추가 피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 2.0), damDesc(self, DamageType.COLD, t.getDam(self, t)), t.getDur(self, t))
 	end,
 }
 
 newTalent{
 	name = "Charged Strike",
+	kr_name = "전하적 강타",
 	type = {"psionic/augmented-striking", 1},
 	require = psi_wil_req3,
 	points = 5,
@@ -222,7 +226,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 들고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = self:getTalentTarget(t)
@@ -311,17 +315,18 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus charged energy and strike an enemy for %d%% weapon damage as lightning.
-		Energy will then discharge from your weapon, doing an extra %0.2f lightning damage and halving their stun/daze/freeze/pin resistance for %d turns.
-		If Charged Shield is sustained and the target pinned it will increase the absorbed value by %0.2f.
-		If the target frozen the ice will melt in a flash of vapour, knocking back all creatures around it in radius 2.
-		The discharge damage will scale with your Mindpower.]]):
+		return ([[전하적 에너지를 집중시켜, 적에게 %d%% 무기 피해를 전기 속성으로 입힙니다.
+		또한 무기에서 전기가 방출되어, %0.2f 전기 피해를 추가로 입히고 %d 턴 동안 기절/혼절/빙결/속박 면역력을 절반으로 감소시킵니다.
+		시전자가 전하적 보호막을 사용하고 있고 상대가 이미 속박되어 있다면, 보호막의 피해 흡수량이 %0.2f 만큼 증가합니다.
+		상대가 이미 빙결되어 있다면, 피부를 태우는 열기로 얼음덩어리가 증발하면서 주변 2 칸 반경의 모든 존재를 밀어냅니다.
+		전기 추가 피해량은 정신력의 영향을 받아 증가합니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 0.5, 2.0), damDesc(self, DamageType.LIGHTNING, t.getDam(self, t)), t.getDur(self, t), 1.5 * damDesc(self, DamageType.LIGHTNING, t.getDam(self, t)))
 	end,
 }
 
 newTalent{
 	name = "Psi Tap",
+	kr_name = "염력 수집",
 	type = {"psionic/augmented-striking", 4},
 	mode = "passive",
 	points = 5,
@@ -332,6 +337,6 @@ newTalent{
 		self:talentTemporaryValue(p, "combat_apr", t.getPsiRecover(self, t)*3)
 	end,
 	info = function(self, t)
-		return ([[Wrap a psionic energy field around your weapons, increasing their armour penentration by %d and allowing you to siphon excess energy from each weapon hit you land, gaining %0.1f psi per hit.]]):format(t.getPsiRecover(self, t)*3, t.getPsiRecover(self, t))
+		return ([[무기를 염동적 힘으로 감싸, 방어도 관통력을 %d 만큼 증가시킵니다. 또 무기 타격에서 생기는 과잉 에너지를 이용하여, 매 타격마다 %0.1f 염력을 회복합니다.]]):format(t.getPsiRecover(self, t)*3, t.getPsiRecover(self, t))
 	end,
 }

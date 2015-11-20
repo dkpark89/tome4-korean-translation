@@ -18,8 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-There's another pesky orc plugging the tunnel to the west, and some new tools in the cave to the north.
+서쪽에는 또 다른 귀찮은 오크가 길을 막고 있습니다. 그리고 북쪽의 동굴에서는 새로운 기술을 배울 수 있죠.
 
-Find a means to push that orc out of the way!  
-
+어떤 기술을 사용해야 오크를 밀어낼 수 있을지 찾아보세요!
 ]]

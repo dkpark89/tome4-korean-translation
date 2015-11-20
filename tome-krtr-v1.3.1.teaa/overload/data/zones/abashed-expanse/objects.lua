@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@ newEntity{ base = "BASE_LITE", define_as = "VOID_STAR",
 	color = colors.GREY,
 	encumber = 1,
 	rarity = false,
-	desc = [[It looks like a very tiny star -- deep black -- and yet it somehow shines.]],
+	kr_name = "공허의 별", kr_unided_name = "작고 검은 별",
+	desc = [[아주 작고 칠흑같이 검은, 별처럼 생긴 물건입니다. 그 원리는 모르겠지만, 아직도 빛나고 있습니다.]],
 	cost = 120,
 	material_level = 2,
 

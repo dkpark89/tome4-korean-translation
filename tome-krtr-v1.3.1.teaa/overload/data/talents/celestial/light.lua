@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Healing Light",
+	kr_name = "치유의 빛",
 	type = {"celestial/light", 1},
 	require = spells_req1,
 	points = 5,
@@ -41,14 +42,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local heal = t.getHeal(self, t)
-		return ([[An invigorating ray of Sunlight shines upon you, healing your body for %d life.
-		The amount healed will increase with your Spellpower.]]):
+		return ([[자신을 향해 내리비치는 햇빛을 통해, %d 생명력을 회복합니다. 
+ 		회복량은 주문력의 영향을 받아 증가합니다.]]):
 		format(heal)
 	end,
 }
 
 newTalent{
 	name = "Bathe in Light",
+	kr_name = "빛의 세례",
 	type = {"celestial/light", 2},
 	require = spells_req2,
 	random_ego = "defensive",
@@ -82,17 +84,19 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local heal = t.getHeal(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[A magical zone of Sunlight appears around you, healing and shielding all within a radius of %d for %0.2f per turn and increasing healing effects on everyone within by %d%%. The effect lasts for %d turns.
-		Existing damage shields will be added to instead of overwritten and have their duration set to 2 if it isn't higher.
-		If the same shield is refreshed 20 times it will become unstable and explode, removing it.
-		It also lights up the affected zone.
-		The amount healed will increase with the Magic stat]]):
-		format(radius, heal, heal / 2, duration)
+		return ([[햇빛이 내리비치는 마력 지대를 만들어, 주변 %d 칸 반경에 있는 모든 존재에게 빛의 세례를 내립니다.  
+ 		- 매 턴마다 %0.2f 만큼의 생명력이 회복됩니다. 
+ 		- 매 턴마다 %0.2f 만큼의 피해 보호막이 생성되며, 보호막의 피해량 감소 수치는 재충전됩니다. 이미 다른 피해 보호막이 발동 중일 경우에도 피해량 감소 수치가 재충전되며, 보호막의 남은 지속시간이 2 턴 미만일 경우 2 턴으로 고정됩니다. 하나의 피해 보호막을 20 회 이상 재충전시킬 경우, 보호막이 불안정해져 사라지게 됩니다. 
+ 		- 치유 효과를 %d%% 증가시킵니다. 
+ 		- 이 효과는 %d 턴 동안 지속되며, 해당 지역에 빛이 밝혀집니다. 
+ 		회복량은 주문력의 영향을 받아 증가합니다.]]): 
+		format(radius, heal, heal, heal / 2, duration) --@ 변수 조정
 	end,
 }
 
 newTalent{
 	name = "Barrier",
+	kr_name = "방벽",
 	type = {"celestial/light", 3},
 	require = spells_req3,
 	points = 5,
@@ -108,14 +112,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local absorb = t.getAbsorb(self, t)
-		return ([[A protective shield forms around you that lasts for up to 10 turns and negates %d damage.
-		The total damage the barrier can absorb will increase with your Spellpower.]]):
+		return ([[10턴 동안 방벽을 생성하여, %d 피해를 흡수합니다. 
+ 		피해 흡수량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(absorb)
 	end,
 }
 
 newTalent{
 	name = "Providence",
+	kr_name = "빛의 섭리",
 	type = {"celestial/light", 4},
 	require = spells_req4,
 	points = 5,
@@ -133,8 +138,8 @@ newTalent{
 	info = function(self, t)
 		local regen = t.getRegeneration(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Places you under the protection of Light itself. For %d turns, the light heals %d life and removes a single negative effect from you.
-		The amount healed will increase with your Spellpower.]]):
+		return ([[빛의 보호를 받아, 매 턴마다 %d 의 생명력을 회복하고 한 개의 나쁜 상태이상 효과를 해제합니다. 빛의 보호는 %d 턴 동안 유지됩니다. 
+ 		치유량은 주문력의 영향을 받아 증가합니다.]]): 
 		format(duration, regen)
 	end,
 }

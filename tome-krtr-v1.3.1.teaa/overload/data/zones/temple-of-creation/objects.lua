@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@ newEntity{ base = "BASE_LITE",
 	unided_name = "bright pearl",
 	name = "Eldritch Pearl", unique=true, image = "object/artifact/eldritch_pearl.png",
 	display ='*', color = colors.AQUAMARINE,
-	desc = [[Thousands of years spent inside the temple of creation have infused this pearl with the fury of rushing water. It pulses light.]],
+	kr_name = "고대의 진주", kr_unided_name = "밝은 진주",
+	desc = [[창조의 사원에서 수천 년을 보내는 동안, 이 진주에는 격렬하게 몰아치는 파도의 힘이 주입되었습니다. 빛이 맥동하듯 뿜어져 나옵니다.]],
 
 	-- No cost, it's invaluable
 	wielder = {
@@ -57,7 +58,8 @@ for i = 1, 3 do
 newEntity{ base = "BASE_LORE",
 	define_as = "NOTE"..i,
 	name = "tract", lore="temple-creation-note-"..i,
-	desc = [[A tract revealing the history of the Nagas.]],
+	kr_name = "기록",
+	desc = [[나가의 역사를 밝히는 기록입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -66,7 +68,8 @@ end
 newEntity{ base = "BASE_LORE",
 	define_as = "SLASUL_NOTE",
 	name = "note", lore="temple-creation-note-4",
-	desc = [[A note.]],
+	kr_name = "쪽지",
+	desc = [[쪽지입니다.]],
 	rarity = false,
 	encumberance = 0,
 }
@@ -76,9 +79,10 @@ newEntity{ base = "BASE_TRIDENT",
 	define_as = "LEGACY_NALOREN",
 	unided_name = "ornate orichalcum trident",
 	name = "Legacy of the Naloren", unique=true, image = "object/artifact/trident_of_the_tides.png",
-	desc = [[This incredibly beautiful -- and powerful -- trident is made of the rare metal orichalcum. An amazing pearl is seated in head of the trident, as it spreads into three razor sharp prongs.
-It is imbued with the greatest strengths of all of the most powerful Naga warriors.
-Slasul gave it to you as a sign of his faith in you. It is a sign of hope for all of the Naloren race, that one outside of their tribe could be so trusted.]],
+	kr_name = "날로레의 유산", kr_unided_name = "화려하게 장식된 오리하르콘 삼지창",
+	desc = [[이 놀랍도록 아름답고 강력한 삼지창은, 희귀한 금속인 오리하르콘으로 만들어졌습니다. 굉장히 아름다운 진주가 이 삼지창의 끝에 박혀있으며, 세 줄기의 뾰족한 날이 뻗어나와 있습니다.
+이 삼지창에는 가장 강력한 나가 전사들의 위대한 힘이 주입되어 있습니다.
+슬라슐은 이것을 믿음의 증표로 당신에게 주었습니다. 이것은 모든 날로레 종족의 희망의 상징으로, 그들의 부족이 아닌 자에게 이것을 주는 것은 매우 큰 신뢰를 나타냅니다.]],
 	require = { stat = { str=35 }, },
 	level_range = {40, 50},
 	rarity = false,

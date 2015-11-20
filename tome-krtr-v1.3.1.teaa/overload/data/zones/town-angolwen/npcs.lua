@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,8 +24,9 @@ newEntity{ define_as = "SUPREME_ARCHMAGE_LINANIIL",
 	display = "p",
 	faction = "angolwen",
 	name = "Linaniil, Supreme Archmage of Angolwen", color=colors.VIOLET, unique = true,
+	kr_name = "앙골웬의 고위 마도사, 리나니일",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_linaniil_supreme_archmage.png", display_h=2, display_y=-1}}},
-	desc = [[A tall, pale woman dressed in a revealing silk robe. Her gaze is so intense it seems to burn.]],
+	desc = [[노출이 있는 비단 로브를 입은, 키 크고 창백한 여성입니다. 그녀의 시선은 대상을 태울듯이 강렬합니다.]],
 	level_range = {50, nil}, exp_worth = 2,
 	rank = 4,
 	size_category = 3,
@@ -39,7 +40,7 @@ newEntity{ define_as = "SUPREME_ARCHMAGE_LINANIIL",
 	teleport_immune = 1,
 	move_others=true,
 	combat_spellpower = 30,
-	anger_emote = "Remove @himher@!",
+	anger_emote = "@himher@ 없애라!",
 	hates_antimagic = 1,
 
 	open_door = true,
@@ -103,7 +104,7 @@ newEntity{ define_as = "SUPREME_ARCHMAGE_LINANIIL",
 
 	self_resurrect = 5,
 	on_resurrect = function(self)
-		game.bignews:saySimple(120, "#GOLD#Linaniil concentrates her formidable will to restore her body!")
+		game.bignews:saySimple(120, "#GOLD#리나니일이 그녀의 육체를 회복하기 위해 위협적인 의지력으로 집중하기 시작합니다!")
 		self.inc_damage.all = self.inc_damage.all + 35
 		self.max_life = self.max_life * 1.3
 		self.life = self.life * 1.3
@@ -118,8 +119,9 @@ newEntity{ define_as = "TARELION",
 	display = "p",
 	faction = "angolwen",
 	name = "Archmage Tarelion", color=colors.CRIMSON, unique = true,
+	kr_name = "마도사 타렐리온",
 	resolvers.nice_tile{tall=true},
-	desc = [[A tall Shalore in a flowing robe, he looks calm and at peace, but you can feel his tremendous power.]],
+	desc = [[펄럭거리는 로브를 입은, 키 큰 샬로레입니다. 그는 차분하고 친근해 보이지만, 그에게서 엄청난 힘이 느껴집니다.]],
 	level_range = {30, nil}, exp_worth = 2,
 	rank = 4,
 	size_category = 3,
@@ -132,7 +134,7 @@ newEntity{ define_as = "TARELION",
 	teleport_immune = 1,
 	move_others=true,
 	combat_spellpower = 30,
-	anger_emote = "Remove @himher@!",
+	anger_emote = "@himher@ 없애라!",
 	hates_antimagic = 1,
 
 	open_door = true,
@@ -176,7 +178,7 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.WHITE,
 	faction = "angolwen",
-	anger_emote = "Catch @himher@!",
+	anger_emote = "@himher@ 잡아라!",
 	hates_antimagic = 1,
 
 	resolvers.racial(),
@@ -201,7 +203,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 	name = "apprentice mage", color=colors.RED,
-	desc = [[An apprentice, learning the ways of the arcane arts.]],
+	kr_name = "견습 마법사",
+	desc = [[마법의 길을 걷기 시작한, 견습 마법사입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -215,8 +218,9 @@ newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 
 newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 	name = "pyromancer", color=colors.LIGHT_RED,
+	kr_name = "화염술사",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_pyromancer.png", display_h=2, display_y=-1}}},
-	desc = [[An archmage specializing in fire magic.]],
+	desc = [[화염 마법에 특화된 마도사입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -230,8 +234,9 @@ newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 
 newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 	name = "cryomancer", color=colors.LIGHT_BLUE,
+	kr_name = "냉기술사",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_cryomancer.png", display_h=2, display_y=-1}}},
-	desc = [[An archmage specializing in ice magic.]],
+	desc = [[냉기 마법에 특화된 마도사입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -245,8 +250,9 @@ newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 
 newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 	name = "geomancer", color=colors.UMBER,
+	kr_name = "대지술사",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_geomancer.png", display_h=2, display_y=-1}}},
-	desc = [[An archmage specializing in earth magic.]],
+	desc = [[땅의 마법에 특화된 마도사입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -260,8 +266,9 @@ newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 
 newEntity{ base = "BASE_NPC_ANGOLWEN_TOWN",
 	name = "tempest", color=colors.WHITE,
+	kr_name = "대기술사",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_human_tempest.png", display_h=2, display_y=-1}}},
-	desc = [[An archmage specializing in lightning magic.]],
+	desc = [[전격 마법에 특화된 마도사입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),

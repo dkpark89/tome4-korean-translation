@@ -17,17 +17,20 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newTalentType{ no_silence=true, is_spell=true, type="sher'tul/fortress", name = "fortress", description = "Yiilkgur abilities." }
 newTalentType{ no_silence=true, is_spell=true, type="spell/objects", name = "object spells", description = "Spell abilities of the various objects of the world." }
-newTalentType{ type="technique/objects", name = "object techniques", description = "Techniques of the various objects of the world." }
-newTalentType{ type="wild-gift/objects", name = "object techniques", description = "Wild gifts of the various objects of the world." }
-newTalentType{ type="misc/objects", name = "object techniques", description = "Powers of the various objects of the world." }
+newTalentType{ type="technique/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 물리적 기술입니다." }
+newTalentType{ type="wild-gift/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 자연의 권능입니다." }
+newTalentType{ type="misc/objects", name = "object techniques", description = "세상에 있는 여러가지 물건들에 부여되어 있는 힘입니다." }
 
 --local oldTalent = newTalent
 --local newTalent = function(t) if type(t.hide) == "nil" then t.hide = true end return oldTalent(t) end
 
 newTalent{
 	name = "charms", short_name = "GLOBAL_CD",
+	kr_name = "부적",
 	type = {"spell/objects",1},
 	points = 1,
 	cooldown = 1,
@@ -44,6 +47,7 @@ newTalent{
 
 newTalent{
 	name = "Arcane Supremacy",
+	kr_name = "지고의 마법",
 	type = {"spell/objects",1},
 	points = 1,
 	mana = 40,
@@ -100,13 +104,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local count = t.getRemoveCount(self, t)
-		return ([[Removes up to %d detrimental magical effects and empowers you with arcane energy for ten turns, increasing spellpower and spell save by 5 plus 5 per effect removed.]]):
+		return ([[%d 개의 나쁜 마법적 상태효과를 제거하고, 10 턴 동안 마력을 강화하여 주문력과 주문 내성을 5 올립니다.
+		제거한 상태효과 1 개 마다 주문력과 주문 내성이 5 만큼 추가로 상승합니다.]]):
 		format(count)
 	end,
 }
 
 newTalent{
 	name = "Command Staff",
+	kr_name = "지팡이 다루기",
 	type = {"spell/objects", 1},
 	cooldown = 5,
 	points = 5,
@@ -115,7 +121,7 @@ newTalent{
 	action = function(self, t)
 		local staff = self:hasStaffWeapon()
 		if not staff or not staff.wielder or not staff.wielder.learn_talent or not staff.wielder.learn_talent[self.T_COMMAND_STAFF] then
-			game.logPlayer(self, "You must be holding a staff.")
+			game.logPlayer(self, "지팡이를 들고 있어야 합니다.")
 			return
 		end
 		-- Terrible sanity check to make sure staff.element is defined
@@ -125,18 +131,19 @@ newTalent{
 
 		local state = {}
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("command-staff", {name="Command Staff"}, self, {version=staff, state=state, co=coroutine.running()})
+		local chat = Chat.new("command-staff", {name="Command Staff", kr_name="지팡이 다루기"}, self, {version=staff, state=state, co=coroutine.running()})
 		local d = chat:invoke()
 		if not coroutine.yield() then return nil end
 		return true
 	end,
 	info = function(self, t)
-		return ([[Alter the flow of energies through a staff.]])
+		return ([[지팡이에 흐르는 마력을 전환합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Ward",
+	kr_name = "보호구역",
 	type = {"misc/objects", 1},
 	cooldown = function(self, t)
 		return math.max(10, 28 - 3 * self:getTalentLevel(t))
@@ -147,7 +154,7 @@ newTalent{
 	action = function(self, t)
 		local state = {}
 		local Chat = require("engine.Chat")
-		local chat = Chat.new("ward", {name="Ward"}, self, {version=self, state=state})
+		local chat = Chat.new("ward", {name="Ward", kr_name="보호"}, self, {version=self, state=state})
 		local d = chat:invoke()
 		local co = coroutine.running()
 		--print("before d.unload, state.set_ward is ", state.set_ward)
@@ -160,16 +167,17 @@ newTalent{
 		local xs = ""
 		for w, nb in pairs(self.wards or {}) do
 			if nb > 0 then
-				xs = xs .. (xs ~= "" and ", " or "") .. engine.DamageType.dam_def[w].name:capitalize() .. "(" .. tostring(nb) .. ")"
+				xs = xs .. (xs ~= "" and ", " or "") .. (engine.DamageType.dam_def[w].kr_name or engine.DamageType.dam_def[w].name):capitalize() .. "(" .. tostring(nb) .. ")"
 			end
 		end
-		return ([[Bring a damage-type-specific ward into being. The ward will fully negate as many attacks of its element as it has charges.
-		You can activate the following wards: %s]]):format(#xs>0 and xs or "None")
+		return ([[시전자 주변에 특수한 속성 피해를 막아내는 보호구역을 만들어냅니다. 보호구역은 도구의 충전량만큼 해당 속성 공격을 무효화시킵니다.
+		다음 속성에 대한 보호구역을 만들어낼 수 있습니다 : %s]]):format(#xs>0 and xs or "보호 속성 없음") 
 	end,
 }
 
 newTalent{
 	name = "Teleport to the ground", short_name = "YIILKGUR_BEAM_DOWN",
+	kr_name = "지표면으로 순간이동",
 	type = {"sher'tul/fortress", 1},
 	points = 1,
 	no_npc_use = true,
@@ -177,12 +185,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Use Yiilkgur's teleporter to teleport to the ground.]])
+		return ([[이일크구르의 순간이동기를 사용하여, 지표면으로 이동합니다.]])
 	end,
 }
 
 newTalent{
 	name = "Block",
+	kr_name = "막기",
 	type = {"technique/objects", 1},
 	cooldown = function(self, t)
 		return 8 - util.bound(self:getTalentLevelRaw(t), 1, 5)
@@ -193,7 +202,7 @@ newTalent{
 	range = 1,
 	requires_target = true,
 	tactical = { ATTACK = 3, DEFEND = 3 },
-	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "You require a shield to use this talent.") end return false end return true end,
+	on_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, "방패가 없으면 이 기술을 사용할 수 없습니다.") end return false end return true end,
 	getProperties = function(self, t)
 		local shield = self:hasShield()
 		--if not shield then return nil end
@@ -247,10 +256,10 @@ newTalent{
 		if n < 1 then return bt, "(error 2)" end
 		local e_string = ""
 		if n == 1 then
-			e_string = DamageType.dam_def[next(bt)].name
+			e_string = DamageType.dam_def[next(bt)].kr_name or DamageType.dam_def[next(bt)].name
 		else
 			for i = 1, #list do if DamageType.dam_def[list[i]] then
-				list[i] = DamageType.dam_def[list[i]].name
+				list[i] = DamageType.dam_def[list[i]].kr_name or DamageType.dam_def[list[i]].name
 			end end
 			e_string = table.concatNice(list, ", ", " and ")
 		end
@@ -268,22 +277,27 @@ newTalent{
 		local ref_text = ""
 		local br_text = ""
 		if properties.sp then
-			sp_text = (" Increases your spell save by %d for that turn."):format(t.getBlockValue(self, t))
+			sp_text = ("그리고, 공격을 막아내는 동안 주문 내성이 %d 증가합니다."):format(t.getBlockValue(self, t))
 		end
 		if properties.ref then
-			ref_text = " Reflects all blocked damage back to the source."
+			ref_text = "그리고, 막아낸 모든 피해를 적에게 되돌려줍니다."
 		end
 		if properties.br then
-			br_text = " All blocked damage heals the wielder."
+			br_text = "그리고, 막아낸 피해만큼 생명력이 회복합니다."
 		end
 		local bt, bt_string = t.getBlockedTypes(self, t)
-		return ([[Raise your shield into blocking position for one turn, reducing the damage of all %s attacks by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn.%s%s%s]]):format(bt_string, t.getBlockValue(self, t), sp_text, ref_text, br_text)
+		return ([[방패를 들어, 공격을 1 턴 동안 막아냅니다. 모든 %s 공격을 %d 만큼 막아낼 수 있습니다.
+		공격을 완벽하게 막아냈을 경우, 적이 1 턴 동안 반격에 취약해집니다. (일반 공격의 피해량이 200%% 로 증가)
+		%s
+		%s
+		%s]]):format(bt_string, t.getBlockValue(self, t), sp_text, ref_text, br_text)
 	end,
 }
 
 newTalent{
 	short_name = "BLOOM_HEAL", image = "talents/regeneration.png",
 	name = "Bloom Heal",
+	kr_name = "꽃의 치료",
 	type = {"wild-gift/objects", 1},
 	points = 1,
 	no_energy = true,
@@ -295,14 +309,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the power of nature to regenerate your body for %d life every turn for 6 turns.
-		The life healed will increase with the Willpower stat.]]):format(7 + self:getWil() * 0.5)
+		return ([[자연의 힘을 불러내, 6 턴 동안 매 턴마다 %d 생명력을 회복합니다.
+		생명력 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):format(7 + self:getWil() * 0.5)
 	end,
 }
 
 newTalent{
 	image = "talents/mana_clash.png",
 	name = "Destroy Magic",
+	kr_name = "마법 파괴",
 	type = {"wild-gift/objects", 1},
 	points = 5,
 	no_energy = true,
@@ -356,19 +371,20 @@ newTalent{
 				if target.undead or target.construct then
 					self:project({type="hit"}, target.x, target.y, engine.DamageType.ARCANE, 40+self:combatMindpower())
 					if target:canBe("stun") then target:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatMindpower()}) end
-					game.logSeen(self, "%s's animating magic is disrupted!", target.name:capitalize())
+					game.logSeen(self, "%s 시전 중이던 마법이 방해받았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 				end
 			end
 		end, nil, {type="slime"})
 		return true
 	end,
 	info = function(self, t)
-		return ([[The target has a %d%% chance (stacking to a maximum of %d%%) to fail to cast any spell.  At level 2 magical effects may be disrupted, at level 3 magical sustains may be disrupted, and at level 5 magical constructs and undead may be stunned.]]):format(t.getpower(self, t),t.maxpower(self,t))
+		return ([[대상을 %d%% 확률로 주문 시전에 실패하게 만듭니다. (최대 %d%% 까지 중첩) 2 레벨에서는 마법적인 효과를 방해하며, 3 레벨에서는 유지 중인 마법 기술을 방해합니다. 5 레벨에서는 마법으로 만들어진 구조체와 언데드들이 기절하게 됩니다.]]):format(t.getpower(self, t),t.maxpower(self,t))
 	end,
 }
 
 newTalent{
 	name = "Battle Trance", image = "talents/clarity.png",
+	kr_name = "전투의 무아지경",
 	type = {"wild-gift/objects",1},
 	points = 1,
 	mode = "sustained",
@@ -393,19 +409,19 @@ newTalent{
 		if rng.percent((tt.trance_counter - 5) * 2) then
 			self:forceUseTalent(self.T_BATTLE_TRANCE, {ignore_energy=true})
 			self:setEffect(self.EFF_CONFUSED, 4, {power=40})
-			game.logPlayer(self, "You overdose on the honeyroot sap!")
+			game.logPlayer(self, "벌꿀나무 수액을 과음하여, 부작용이 나타납니다!")
 		end
 		
 		return
 	end,
 	info = function(self, t)
-		return ([[You enter into a fighting trance, gaining 15%% resist all, losing 15 mindpower, but gaining 20 mental save. However, each turn after the fifth that this talent is active, there is a chance that you will be overcome and become confused.
-This does not take a turn to use.]])
+		return ([[전투의 무아지경 상태에 빠져, 전체 저항력이 15%% 증가하고 정신 내성이 20 증가하는 대신 정신력이 15 감소하게 됩니다. 하지만, 이 효과를 5 턴 이상 지속시킬 경우 과음 효과가 나타나 혼란 상태가 될 확률이 점점 높아지게 됩니다.]])
 	end,
 }
 
 newTalent{
 	name = "Soul Purge", image = "talents/stoic.png",
+	kr_name = "영혼 제거",
 	type = {"misc/objects", 1},
 	cooldown = 3,
 	points = 1,
@@ -419,12 +435,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Remove any talent Morrigor has absorbed.]])
+		return ([[모리고르가 흡수했던 모든 능력을 제거합니다.
+이 기술은 사용시 턴을 소모하지 않습니다.]])
 	end,
 }
 
 newTalent{
 	name = "Dig", short_name = "DIG_OBJECT",
+	kr_name = "굴착",
 	type = {"misc/objects", 1},
 	findBest = function(self, t)
 		local best = nil
@@ -442,7 +460,7 @@ newTalent{
 	on_pre_use = function(self, t) return not self.resting end,
 	action = function(self, t)
 		local best = t.findBest(self, t)
-		if not best then game.logPlayer(self, "You require a digger to dig.") return end
+		if not best then game.logPlayer(self, "굴착을 하기 위해서는 곡괭이가 필요합니다.") return end
 
 		local tg = {type="bolt", range=1, nolock=true}
 		local x, y = self:getTarget(tg)
@@ -451,13 +469,13 @@ newTalent{
 		local wait = function()
 			local co = coroutine.running()
 			local ok = false
-			self:restInit(best.digspeed, "digging", "dug", function(cnt, max)
+			self:restInit(best.digspeed, "굴착", "굴착", function(cnt, max)
 				if cnt > max then ok = true end
 				coroutine.resume(co)
 			end)
 			coroutine.yield()
 			if not ok then
-				game.logPlayer(self, "You have been interrupted!")
+				game.logPlayer(self, "굴착을 방해받았습니다!")
 				return false
 			end
 			return true
@@ -470,13 +488,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local best = t.findBest(self, t) or {digspeed=100}
-		return ([[Dig/cut a tree/...
-		Digging takes %d turns (based on your currently best digger available).]]):format(best.digspeed)
+		return ([[벽을 허물고 나무를 베는 등, 굴착 가능한 벽을 제거합니다.
+		굴착에는 %d 턴이 소모됩니다. (현재 소지 중인 가장 좋은 굴착도구를 사용했을 때 기준)]]):format(best.digspeed)
 	end,
 }
 
 newTalent{
 	name = "Shivgoroth Form", short_name = "SHIV_LORD", image = "talents/shivgoroth_form.png",
+	kr_name = "쉬브고로스로 변신",
 	type = {"spell/objects",1},
 	points = 5,
 	random_ego = "attack",
@@ -489,7 +508,7 @@ newTalent{
 	requires_target = true,
 	getDuration = function(self, t) return 4 + math.ceil(self:getTalentLevel(t)) end,
 	getPower = function(self, t) return util.bound(50 + self:combatTalentSpellDamage(t, 50, 450), 0, 500) / 500 end,
-	on_pre_use = function(self, t, silent) if self:attr("is_shivgoroth") then if not silent then game.logPlayer(self, "You are already a Shivgoroth!") end return false end return true end,
+	on_pre_use = function(self, t, silent) if self:attr("is_shivgoroth") then if not silent then game.logPlayer(self, "당신은 이미 쉬브고로스입니다!") end return false end return true end,
 	action = function(self, t)
 		self:setEffect(self.EFF_SHIVGOROTH_FORM_LORD, t.getDuration(self, t), {power=t.getPower(self, t), lvl=self:getTalentLevelRaw(t)})
 		game:playSoundNear(self, "talents/tidalwave")
@@ -498,15 +517,16 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
-		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
-		The power will increase with your Spellpower.]]):
+		return ([[주변의 잠재된 냉기를 모두 흡수하여, %d 턴 동안 냉기의 정령인 쉬브고로스로 변신합니다.
+		변신 중에는 호흡이 필요없게 되며, %d 레벨의 얼음 폭풍 마법을 사용할 수 있게 됩니다. 또한 출혈과 기절 면역력이 %d%% / 냉기 저항력이 %d%% 증가합니다. 그리고 변신 중에 입는 냉기 피해의 %d%% 만큼 생명력이 회복됩니다.
+		주문의 위력은 주문력의 영향을 받아 상승합니다.]]):
 		format(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100)
 	end,
 }
 
 newTalent{
 	name = "Mental Refresh",
+	kr_name = "새로운 마음",
 	type = {"misc/objects", 1},
 	points = 5,
 	equilibrium = 20,
@@ -535,12 +555,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Reset up to 3 wild gift, psionic or cursed talents.]])
+		return ([[자연의 권능이나 초능력 혹은 저주 계열의 기술 3 개를 사용 가능한 상태로 만들어줍니다.]])
 	end,
 }
 
 newTalent{
 	name = "Dagger Block",
+	kr_name = "단검 방패",
 	image = "talents/block.png",
 	type = {"technique/objects", 1},
 	cooldown = function(self, t)
@@ -600,13 +621,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Raise your dagger into blocking position for one turn, reducing the damage of all physical melee attacks against you by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn and be left disarmed for 3 turns.
-		The blocking value will increase with your Dexterity and Cunning.]]):format(t.getPower(self, t))
+		return ([[1 턴 동안 단검으로 방패막기 자세를 취합니다. 모든 물리적 피해를 %d 만큼 막아내며, 적의 공격을 완전히 막아냈을 경우 1 턴 동안 치명적인 반격을 할 수 있게 됩니다 (일반 공격이 200%% 의 피해량을 입힘). 또한 적은 3 턴 동안 무장해제 상태가 됩니다.
+		피해 감소량은 민첩과 교활함 능력치의 영향을 받아 증가합니다.]]):format(t.getPower(self, t))
 	end,
 }
 
 newTalent{
 	name = "Shieldsmaiden Aura",
+	kr_name = "쉴드메이든의 기운",
 	type = {"misc/objects", 1},
 	points = 1,
 	mode = "passive",
@@ -615,14 +637,14 @@ newTalent{
 		if not self:isTalentCoolingDown(t) then
 			self:startTalentCooldown(t)
 			cb.value=0
-			game.logSeen(self, "#CRIMSON#%s's shield deflects the blow!", self.name)
+			game.logSeen(self, "#CRIMSON#%s의 방패가 공격을 튕겨냅니다!", (self.kr_name or self.name))
 			return true
 		else
 		return false
 		end
 	end,
 	info = function(self, t)
-		return ([[Can block up to 1 hit per 10 turns.]])
+		return ([[10 턴 마다 최대 1 번의 공격을 받아냅니다.]])
 	end,
 }
 

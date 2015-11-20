@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@ newEntity{
 	define_as = "FLOOR_ROAD_STONE",
 	type = "floor", subtype = "floor", road="oldstone",
 	name = "old road", image = "terrain/marble_floor.png",
+	kr_name = "오래된 길",
 	display = '=', color=colors.DARK_GREY,
 	always_remember = true,
 	nice_editer2 = { method="roads_def", def="oldstone" },
@@ -35,12 +36,13 @@ newEntity{
 newEntity{
 	define_as = "WEST_PORTAL",
 	name = "Farportal: Last Hope",
+	kr_name = "장거리 관문 : 마지막 희망",
 	display = '&', color_r=255, color_g=0, color_b=220, back_color=colors.VIOLET, image = "terrain/marble_floor.png",
 	notice = true,
 	always_remember = true,
 	show_tooltip = true,
-	desc = [[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
-This one seems to go near the town of Last Hope in Maj'Eyal.]],
+	desc = [[장거리 관문은 눈 깜짝할 사이에 놀랄만큼 먼 거리를 이동하는 수단입니다. 이것을 사용하기 위해서는 보통 어떤 물건이 필요하며, 이 관문이 쌍방향으로 사용이 가능한 것인지조차도 알 수 없습니다.
+이 관문의 목표지점은 마즈'에이알의 도시, 마지막 희망의 근방인 것 같습니다.]],
 
 	orb_portal = {
 		change_level = 1,
@@ -48,7 +50,7 @@ This one seems to go near the town of Last Hope in Maj'Eyal.]],
 		change_wilderness = {
 			spot = {type="farportal-end", subtype="last-hope"},
 		},
-		message = "#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...",
+		message = "#VIOLET#당신은 소용돌이 치는 관문으로 들어섰습니다. 눈 깜짝할 사이에 관문의 흔적은 없어지고, 자신이 마지막 희망의 변두리에 있다는 것을 알아차립니다...",
 		on_use = function(self, who)
 		end,
 	},
@@ -69,6 +71,7 @@ newEntity{
 	define_as = "GOLDEN_MOUNTAIN",
 	type = "rockwall", subtype = "grass",
 	name = "Sunwall mountain", image = "terrain/golden_mountain5_1.png",
+	kr_name = "태양의 장벽 산맥",
 	display = '#', color=colors.GOLD, back_color={r=44,g=95,b=43},
 	always_remember = true,
 	does_block_move = true,
@@ -83,6 +86,7 @@ for i = 1, 6 do newEntity{ base="GOLDEN_MOUNTAIN", define_as = "GOLDEN_MOUNTAIN_
 
 newEntity{ define_as = "FENS",
 	name = "Way into the Slazish fens",
+	kr_name = "슬라지쉬 늪지로의 길",
 	display = '>', color = colors.YELLOW,
 	image="terrain/marble_floor.png", add_displays = {class.new{image="terrain/golden_cave_entrance02.png", z=8}},
 	change_zone="slazish-fen", change_level = 1,

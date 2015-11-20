@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -44,10 +44,11 @@ newEntity{ define_as = "SHARDSKIN",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "crystal", unique = true,
 	name = "Shardskin",
+	kr_name = "수정의 외피",
 	display = "%", color=colors.VIOLET,
 	image = "npc/immovable_crystal_golden_crystal.png",
-	desc = [[This crystalline structure seems to be filled with a malevolent aura. Through the crystal surface you can still see the remains of what once was a huge tree.]],
-	killer_message = "and integrated into the crystaline structure",
+	desc = [[사악한 기운이 흐르고 있는 수정화된 구조체로, 수정으로 덮인 표면 안에서는 한때 거대한 나무였던 존재의 흔적을 발견할 수 있습니다.]],
+	killer_message = "당신은 수정화된 구조체와 융합되었습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 200, life_rating = 17, fixed_rating = true,
 	stats = { str=15, dex=10, cun=8, mag=20, wil=20, con=20 },
@@ -81,7 +82,7 @@ newEntity{ define_as = "SHARDSKIN",
 	resolvers.inscriptions(1, "rune"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "Have you heard, the old forest seems to have been claimed by a new evil!")
+		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 하는군!")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest-crystal")
@@ -93,13 +94,14 @@ newEntity{ define_as = "WRATHROOT",
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "treant", unique = true,
 	name = "Wrathroot",
+	kr_name = "분노의 뿌리",
 	display = "#", color=colors.VIOLET,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_treant_wrathroot.png", display_h=2, display_y=-1}}},
-	desc = [[The ancient grey willow tree, ruler of the Old Forest. He despises trespassers in his territory.]],
+	desc = [[오래된 숲의 지도자이며 고대의 회색 버드나무로, 그는 그의 영역을 불법으로 침입한 자들을 경멸합니다.]],
 	sound_moam = "creatures/treant/treeant_2",
 	sound_die = {"creatures/treant/treeant_death_%d", 1, 2},
 	sound_random = {"creatures/treant/treeant_%d", 1, 3},
-	killer_message = "and digested by treants",
+	killer_message = "당신은 나무의 양분이 되었습니다.",
 	level_range = {12, nil}, exp_worth = 2,
 	max_life = 200, life_rating = 17, fixed_rating = true,
 	max_stamina = 85,
@@ -133,7 +135,7 @@ newEntity{ define_as = "WRATHROOT",
 	resolvers.inscriptions(1, "infusion"),
 
 	on_die = function(self, who)
-		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "Have you heard, the old forest seems to have been claimed by a new evil!")
+		game.state:activateBackupGuardian("SNAPROOT", 3, 50, "오래된 숲에, 새로운 악이 나타났다고 하는군!")
 		game.player:resolveSource():grantQuest("starter-zones")
 		game.player:resolveSource():setQuestStatus("starter-zones", engine.Quest.COMPLETED, "old-forest")
 	end,
@@ -143,8 +145,9 @@ newEntity{ define_as = "WRATHROOT",
 newEntity{ base = "BASE_NPC_RODENT",
 	allow_infinite_dungeon = true,
 	name = "cute little bunny", color=colors.SALMON,
-	desc = [[It looks at you with cute little eyes before jumping at you with razor sharp teeth.]],
-	killer_message = "(how pathetic)",
+	kr_name = "작고 귀여운 토끼",
+	desc = [[이 토끼는 작고 귀여운 눈으로 당신을 쳐다보고서는, 날카로운 이빨을 벌리고 당신에게 뛰어오릅니다.]],
+	killer_message = "(이 얼마나 불쌍한지고!)",
 	level_range = {1, 15}, exp_worth = 3,
 	rarity = 200,
 	max_life = resolvers.rngavg(15,20),
@@ -156,12 +159,13 @@ newEntity{ define_as = "SNAPROOT", -- backup guardian
 	allow_infinite_dungeon = true,
 	type = "giant", subtype = "treant", unique = true,
 	name = "Snaproot",
+	kr_name = "부러진 뿌리",
 	display = "#", color=VIOLET,
 	sound_moam = "creatures/treants/treeant_2",
 	sound_die = {"creatures/treants/treeant_death_%d", 1, 2},
 	sound_random = {"creatures/treants/treeant_%d", 1, 3},
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_treant_snaproot.png", display_h=2, display_y=-1}}},
-	desc = [[This ancient Treant's bark is scorched almost black. It sees humanity as a scourge, to be purged.]],
+	desc = [[이 고대 나무 정령의 나무껍질은 거의 시커멓게 시들어 있습니다. 이것은 인간과 같이 이족보행하는 존재들을, 정화되어야 할 재앙으로 보고 있습니다.]],
 	level_range = {50, nil}, exp_worth = 3,
 
 	max_life = 1000, life_rating = 40, fixed_rating = true,

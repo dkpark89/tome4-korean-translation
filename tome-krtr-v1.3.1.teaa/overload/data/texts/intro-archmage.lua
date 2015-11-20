@@ -17,12 +17,12 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[Welcome #LIGHT_GREEN#@name@#WHITE#.
-You are an archmage in a world that still fears magic. The people of Angolwen have been trying to mend the world for well over two thousand years now, but they do so in secret.
+return [[환영합니다, #LIGHT_GREEN#@name@#WHITE#.
+당신은 여전히 마법을 두려워하는 세계의 마도사입니다. 마법사들의 비밀도시인 이곳 앙골웬의 사람들은, 2,000 년이 넘는 시간 동안 파괴된 이 세상을 비밀리에 복구시켜 왔습니다. 
 
-You have lived and trained most of your life in Angolwen, calling many people there your friends, but you have grown restless as of late.
-You want to see the world, maybe even help in what ways you can.
+당신은 삶의 대부분을 앙골웬에서 수련하면서 살아왔습니다. 이곳의 사람들은 대부분 당신의 친구와도 같았지만, 최근 당신은 삶이 지루하고 따분하게 느껴지기 시작했습니다.
+당신은 더 넓은 세상을 직접 체험하고, 자신의 능력으로 많은 사람들을 도와주고 싶다는 꿈을 가지게 되었습니다.
 
-But for now Angolwen still needs you. The Abashed Expanse, a part of Eyal that was torn apart and thrown into the void during the Spellblaze, is quickly becoming unstable.
-You have been tasked to investigate and fix the problem.
+하지만, 앙골웬은 여전히 당신이 필요합니다. 마법폭발에 의해 공허 속으로 뜯겨져 나간, 에이알 세계의 일부인 '너무나 광활한 공간' 이 빠르게 불안정해지기 시작한 것입니다.
+당신은 이 일을 조사하고, 문제를 해결하는 임무를 맡게 되었습니다. 
 ]]

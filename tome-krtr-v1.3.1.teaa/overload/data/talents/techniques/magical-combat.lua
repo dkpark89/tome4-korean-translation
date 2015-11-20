@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Arcane Combat",
+	kr_name = "마법 전투",
 	type = {"technique/magical-combat", 1},
 	mode = "sustained",
 	points = 5,
@@ -79,17 +80,18 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Allows you to use a melee weapon to focus your spells, granting a %d%% chance per melee attack to deliver a Flame, Lightning or Earthen Missiles spell as a free action on the target.
-		When using a shield the chance is reduced by one fourth.
-		When dual wielding or using a shield the chance is halved for each weapon.
-		Delivering the spell this way will not trigger a spell cooldown, but only works if the spell is not cooling down.
-		The chance increases with your Cunning.]]):
+		return ([[근접 무기를 통해 마법을 사용할 수 있게 됩니다. 근접공격을 할 때마다 %d%% 확률로 대상에게 '불꽃', '전격', '암석 화살' 마법 중 하나를 사용합니다.
+		방패를 사용할 경우, 이 확률은 1/4 만큼 줄어듭니다.
+		쌍수 무기를 사용할 경우, 이 확률은 각 무기에 절반씩 분배됩니다.
+		이렇게 사용된 마법은 지연시간을 발생시키지 않지만, 사용할 준비가 되지 않은 마법은 발사되지 않습니다.
+		마법이 사용될 확률은 교활함 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Arcane Cunning",
+	kr_name = "교활함의 마법",
 	type = {"technique/magical-combat", 2},
 	mode = "passive",
 	points = 5,
@@ -97,13 +99,14 @@ newTalent{
 	-- called by _M:combatSpellpower in mod\class\interface\Combat.lua
 	getSpellpower = function(self, t) return self:combatTalentScale(t, 20, 40, 0.75) end,
 	info = function(self, t)
-		return ([[The user gains a bonus to Spellpower equal to %d%% of their Cunning.]]):
+		return ([[교활함 능력치의 %d%% 에 해당하는 수치만큼 주문력이 상승합니다.]]):
 		format(t.getSpellpower(self,t))
 	end,
 }
 
 newTalent{
 	name = "Arcane Feed",
+	kr_name = "마력 주입",
 	type = {"technique/magical-combat", 3},
 	mode = "sustained",
 	points = 5,
@@ -130,12 +133,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Regenerates %0.2f mana per turn, and increases physical and spell critical chance by %d%% while active.]]):format(t.getManaRegen(self, t), t.getCritChance(self, t))
+		return ([[지속되는 동안 매 턴마다 마나를 %0.2f 회복하며, 물리 치명타율과 마법 치명타율이 %d%% 상승합니다.]]):format(t.getManaRegen(self, t), t.getCritChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Arcane Destruction",
+	kr_name = "파괴적인 마력",
 	type = {"technique/magical-combat", 4},
 	mode = "passive",
 	points = 5,
@@ -144,12 +148,12 @@ newTalent{
 	getDamMult = function(self, t) return self:combatTalentScale(t, 0.5, 1.1, 1) end,
 	getSPMult = function(self, t) return self:combatTalentScale(t, 1/7, 5/7) end,
 	info = function(self, t)
-		return ([[Raw magical damage channels through the caster's weapon, increasing Physical Power by %d.
-		Each time you crit with a melee blow, you will unleash a radius %d ball of either fire, lightning or arcane damage, doing %0.2f.
-		The bonus scales with your Spellpower and talent level.
-		If you are using a shield this will only occur 75%% of the time.
-		If you are dual wielding this will only occur 50%% of the time.
-		At level 5 the ball becomes radius 2.
+		return ([[순수한 마력을 무기에 흘려보내, 물리력을 %d 향상시킵니다.
+		또한 근접무기로 치명타를 발생시킬 때마다, 주위 2 칸 반경에 %0.2f 의 화염, 전기, 마법 피해 중 하나를 줍니다.
+		화염, 전기, 마법 피해량은 주문력의 영향을 받아 증가합니다.
+		방패를 사용 중일 경우, 발동 확률이 75%% 로 줄어듭니다.
+		쌍수 무기를 사용 중일 경우, 발동 확률이 50%%로 줄어듭니다.
+		기술레벨이 5가 되면 구체의 크기가 2로 증가합니다.
 		]]):
 		format(self:combatSpellpower() * t.getSPMult(self, t), self:getTalentRadius(t), self:combatSpellpower() * 2 * t.getDamMult(self, t))
 	end,
