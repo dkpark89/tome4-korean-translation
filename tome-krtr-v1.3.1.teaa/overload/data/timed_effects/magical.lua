@@ -3041,7 +3041,8 @@ newEffect{
 newEffect{
 	name = "PROBABILITY_TRAVEL", image = "talents/anomaly_probability_travel.png",
 	desc = "Probability Travel",
-	long_desc = function(self, eff) return ("Target is out of phase and may move through walls."):format() end,
+	kr_desc = "마법 확률 이동",
+	long_desc = function(self, eff) return ("대상은 위상에서 벗어나 있으며 벽을 통과 할 수 있습니다"):format() end,
 	type = "magical",
 	subtype = { teleport=true },
 	status = "beneficial",
@@ -3059,7 +3060,8 @@ newEffect{
 newEffect{
 	name = "BLINK", image = "talents/anomaly_blink.png",
 	desc = "Blink",
-	long_desc = function(self, eff) return ("Target is randomly teleporting every turn."):format() end,
+	kr_desc = "점멸",
+	long_desc = function(self, eff) return ("목표는 매턴 무작위로 순간이동 합니다"):format() end,
 	type = "magical",
 	subtype = { teleport=true },
 	status = "detrimental",
@@ -3075,7 +3077,8 @@ newEffect{
 newEffect{
 	name = "DIMENSIONAL_ANCHOR", image = "talents/dimensional_anchor.png",
 	desc = "Dimensional Anchor",
-	long_desc = function(self, eff) return ("The target is unable to teleport and takes %0.2f temporal and %0.2f physical damage if they try."):format(eff.damage, eff.damage) end,
+	kr_desc = "차원의 닻",
+	long_desc = function(self, eff) return ("목표는 순간이동 할 수 없고, 만약 시도한다면 %0.2f 시간 피해와, %0.2f 물리 피해를 입습니다."):format(eff.damage, eff.damage) end,
 	type = "magical",
 	subtype = { temporal=true, slow=true },
 	status = "detrimental",
@@ -3097,7 +3100,8 @@ newEffect{
 newEffect{
 	name = "BREACH", image = "talents/breach.png",
 	desc = "Breach",
-	long_desc = function(self, eff) return ("The target's defenses have been breached, reducing armor hardiness, stun, pin, blindness, and confusion immunity by 50%%."):format() end,
+	kr_desc = "관통",
+	long_desc = function(self, eff) return ("목표의 방어는 관통당하였습니다. 방어율, 기절, 속박, 실명, 혼란 저항이 50%% 만큼 떨어집니다."):format() end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -3128,20 +3132,21 @@ newEffect{
 newEffect{
 	name = "BRAIDED", image = "talents/braid_lifelines.png",
 	desc = "Braided",
-	long_desc = function(self, eff) return ("The target is taking %d%% of all damage dealt to other braided targets."):format(eff.power) end,
+	kr_desc = "엮임",
+	long_desc = function(self, eff) return ("목표는 엮여 있는 다른 목표에게 가해지는 피해의 %d%% 만큼 피해를 입습니다."):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
 	parameters = { power=0 },
-	on_gain = function(self, err) return "#Target#'s lifeline has been braided.", "+Braided" end,
-	on_lose = function(self, err) return "#Target#'s lifeline is no longer braided.", "-Braided" end,
+	on_gain = function(self, err) return "#Target#의 생명선이 엮입니다.", "+Braided" end,
+	on_lose = function(self, err) return "#Target#의 생명선은 더이상 엮여있지 않습니다.", "-Braided" end,
 	doBraid = function(self, eff, dam)
 		local braid_damage = dam * eff.power/ 100
 		for i = 1, #eff.targets do
 			local target = eff.targets[i]
 			if target ~= self and not target.dead then
-				game:delayedLogMessage(eff.src, target, "braided", "#CRIMSON##Source# damages #Target# through the Braid!")
-				game:delayedLogDamage(eff.src, target, braid_damage, ("#PINK#%d braided #LAST#"):format(braid_damage), false)
+				game:delayedLogMessage(eff.src, target, "braided", "#CRIMSON##Source# 의 피해를 #Target# 도 생명선을 통해 입습니다!")
+				game:delayedLogDamage(eff.src, target, braid_damage, ("#PINK#%d 엮여짐 #LAST#"):format(braid_damage), false)
 				target:takeHit(braid_damage, eff.src)
 			end
 		end
@@ -3164,7 +3169,8 @@ newEffect{
 newEffect{
 	name = "PRECOGNITION", image = "talents/precognition.png",
 	desc = "Precognition",
-	long_desc = function(self, eff) return ("Peer into the future, detecting enemies, increasing defense by %d, and granting a %d%% chance to ignore critical hits."):format(eff.defense, eff.crits) end,
+	kr_desc = "예지",
+	long_desc = function(self, eff) return ("미래를 엿보아,적들을 감지하고, 회피도를 %d 만큼 얻고, %d%% 만큼의 치명타 피해 무시를 얻습니다."):format(eff.defense, eff.crits) end,
 	type = "magical",
 	subtype = { sense=true },
 	status = "beneficial",
@@ -3186,7 +3192,8 @@ newEffect{
 newEffect{
 	name = "WEBS_OF_FATE", image = "talents/webs_of_fate.png",
 	desc = "Webs of Fate",
-	long_desc = function(self, eff) return ("Displacing %d%% of all damage on to a random enemy."):format(eff.power*100) end,
+	kr_desc = "운명의 거미줄",
+	long_desc = function(self, eff) return ("모든 피해의 %d%% 만큼을 주변의 적에게 옮깁니다."):format(eff.power*100) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "beneficial",
@@ -3242,13 +3249,14 @@ newEffect{
 newEffect{
 	name = "SEAL_FATE", image = "talents/seal_fate.png",
 	desc = "Seal Fate",
+	kr_desc = "운명 날인",
 	long_desc = function(self, eff)
 		local chance = eff.chance
 		local spin = self:hasEffect(self.EFF_SPIN_FATE)
 		if spin then
 			chance = chance * (1 + spin.spin/3)
 		end
-		return ("The target has a %d%% chance of increasing the duration of one detrimental status effects on targets it damages by one."):format(chance) 
+		return ("피해를 가할 때 마다 %d%% 의 확률로 목표의 해로운 효과 하나의 지속 시간을 1 턴 늘립니다"):format(chance) 
 	end,
 	type = "magical",
 	subtype = { focus=true },
@@ -3302,8 +3310,9 @@ newEffect{
 newEffect{
 	name = "UNRAVEL", image = "talents/temporal_vigour.png",
 	desc = "Unravel",
+	kr_desc = "언레이블",
 	long_desc = function(self, eff)
-		return ("The target is immune to further damage but is dealing %d%% less damage."):format(eff.power)
+		return ("목표는 모든 피해에 면역이지만, %d%% 만큼 낮은 피해를 입힙니다."):format(eff.power)
 	end,
 	on_gain = function(self, err) return "#Target# has started to unravel.", "+Unraveling" end,
 	type = "magical",
@@ -3334,9 +3343,10 @@ newEffect{
 newEffect{
 	name = "ENTROPY", image = "talents/entropy.png",
 	desc = "Entropy",
-	long_desc = function(self, eff) return "The target is losing one sustain per turn." end,
-	on_gain = function(self, err) return "#Target# is caught in an entropic field!", "+Entropy" end,
-	on_lose = function(self, err) return "#Target# is free from the entropy.", "-Entropy" end,
+	kr_desc = "엔트로피",
+	long_desc = function(self, eff) return "목표는 하나의 유지 기술을 매턴 잃습니다." end,
+	on_gain = function(self, err) return "#Target# 엔트로피장에 갇혔습니다!", "+Entropy" end,
+	on_lose = function(self, err) return "#Target# 는 엔트로피에서 풀려났습니다.", "-Entropy" end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -3358,9 +3368,10 @@ newEffect{
 newEffect{
 	name = "REGRESSION", image = "talents/turn_back_the_clock.png",
 	desc = "Regression",
-	long_desc = function(self, eff)	return ("Reduces your three highest stats by %d."):format(eff.power) end,
-	on_gain = function(self, err) return "#Target# has regressed.", "+Regression" end,
-	on_lose = function(self, err) return "#Target# has returned to its natural state.", "-Regression" end,
+	kr_desc = "퇴행",
+	long_desc = function(self, eff)	return ("당신의 가장 높은 세 능력치를 %d 만큼 깎습니다."):format(eff.power) end,
+	on_gain = function(self, err) return "#Target# 퇴행하였습니다", "+Regression" end,
+	on_lose = function(self, err) return "#Target# 원래 상태로 돌아 왔습니다", "-Regression" end,
 	type = "physical",
 	subtype = { temporal=true },
 	status = "detrimental",
@@ -3377,13 +3388,14 @@ newEffect{
 newEffect{
 	name = "ATTENUATE_DET", image = "talents/attenuate.png",
 	desc = "Attenuate",
-	long_desc = function(self, eff) return ("The target is being removed from the timeline and is taking %0.2f temporal damage per turn."):format(eff.power) end,
+	kr_desc = "희석",
+	long_desc = function(self, eff) return ("목표는 시간선에서 제거되어 매턴 %0.2f 만큼의 시간 피해를 입습니다."):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# is being being removed from the timeline!", "+Attenuate" end,
-	on_lose = function(self, err) return "#Target# survived the attenuation.", "-Attenuate" end,
+	on_gain = function(self, err) return "#Target# 시간선에서 제거 되고 있습니다!", "+Attenuate" end,
+	on_lose = function(self, err) return "#Target# 희석으로부터 살아남았습니다.", "-Attenuate" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- Merge the flames!
 		local olddam = old_eff.power * old_eff.dur
@@ -3398,7 +3410,7 @@ newEffect{
 		
 		-- Kill it!!
 		if not self.dead and not self:isTalentActive(self.T_REALITY_SMEARING) and self:canBe("instakill") and self.life > 0 and self.life < self.max_life * 0.2 then
-			game.logSeen(self, "%s has been removed from the timeline!", self.name:capitalize())
+			game.logSeen(self, "%s 시간선에서 제거되었습니다!", self.name:capitalize())
 			self:die(src)
 		end
 		
@@ -3416,13 +3428,14 @@ newEffect{
 newEffect{
 	name = "ATTENUATE_BEN", image = "talents/attenuate.png",
 	desc = "Attenuate",
-	long_desc = function(self, eff) return ("The target is being grounded in the timeline and is healing %0.2f life per turn."):format(eff.power) end,
+	kr_desc = "희석",
+	long_desc = function(self, eff) return ("목표는 시간선에 고정되고 있어 매턴 %0.2f 만큼 생명력이 회복됩니다."):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "beneficial",
 	parameters = { power=10 },
-	on_gain = function(self, err) return "#Target# is being being grounded in the timeline!", "+Attenuate" end,
-	on_lose = function(self, err) return "#Target# is no longer being grounded.", "-Attenuate" end,
+	on_gain = function(self, err) return "#Target# 는 시간선에 고정되고 있습니다!", "+Attenuate" end,
+	on_lose = function(self, err) return "#Target# 는 더이상 시간선에 고정되고 있지 않습니다.", "-Attenuate" end,
 	on_merge = function(self, old_eff, new_eff)
 		-- Merge the flames!
 		local olddam = old_eff.power * old_eff.dur
@@ -3440,13 +3453,14 @@ newEffect{
 newEffect{
 	name = "OGRIC_WRATH", image = "talents/ogre_wrath.png",
 	desc = "Ogric Wrath",
-	long_desc = function(self, eff) return ("Do not try to resist it!"):format() end,
+	kr_desc = "오우거의 분노",
+	long_desc = function(self, eff) return ("저항하려 하지 마라!"):format() end,
 	type = "magical",
 	subtype = { runic=true },
 	status = "beneficial",
 	parameters = { power=1 },
-	on_gain = function(self, err) return "#Target# enters an ogric frenzy.", "+Ogric Wrath" end,
-	on_lose = function(self, err) return "#Target# calms down.", "-Ogric Wrath" end,
+	on_gain = function(self, err) return "#Target# 오우거의 분노에 접어듭니다.", "+Ogric Wrath" end,
+	on_lose = function(self, err) return "#Target# 진정합니다.", "-Ogric Wrath" end,
 	callbackOnDealDamage = function(self, eff, val, target, dead, death_note)
 		if not death_note or not death_note.initial_dam then return end
 		if val >= death_note.initial_dam then return end
@@ -3483,7 +3497,8 @@ newEffect{
 newEffect{
 	name = "OGRE_FURY", image = "effects/ogre_fury.png",
 	desc = "Ogre Fury",
-	long_desc = function(self, eff) return ("Increases crit chance by %d%% and critical power by %d%%. %d charge(s)."):format(eff.stacks * 5, eff.stacks * 20, eff.stacks) end,
+	kr_desc = "오우거의 격노",
+	long_desc = function(self, eff) return ("치명타 확율을 %d%% 만큼 상승시키고, 치명타 피해량은 %d%% 만큼 상승합니다. 현재 %d 중첩."):format(eff.stacks * 5, eff.stacks * 20, eff.stacks) end,
 	type = "magical",
 	subtype = { runic=true },
 	status = "beneficial",
@@ -3530,7 +3545,8 @@ newEffect{
 newEffect{
 	name = "WRIT_LARGE", image = "talents/writ_large.png",
 	desc = "Writ Large",
-	long_desc = function(self, eff) return ("Inscriptions cooldown twice as fast."):format(eff.power) end,
+	kr_desc = "강화",
+	long_desc = function(self, eff) return ("각인의 재사용 대기시간이 두배로 빠르게 줄어듭니다."):format(eff.power) end,
 	type = "magical",
 	subtype = { runic=true },
 	status = "beneficial",
@@ -3558,13 +3574,14 @@ newEffect{
 newEffect{
 	name = "STATIC_HISTORY", image = "talents/static_history.png",
 	desc = "Static History",
-	long_desc = function(self, eff) return ("Chronomancy spells cast by the target will not produce minor anomalies."):format() end,
+	kr_desc = "고정된 역사",
+	long_desc = function(self, eff) return ("목표가 시전하는 시공계열의 주문이 비주요 이상현상을 일으키지 않습니다."):format() end,
 	type = "magical",
 	subtype = { time=true },
 	status = "beneficial",
 	parameters = { power=0.1 },
-	on_gain = function(self, err) return "Spacetime has stabilized around #Target#.", "+Static History" end,
-	on_lose = function(self, err) return "The fabric of spacetime around #Target# has returned to normal.", "-Static History" end,
+	on_gain = function(self, err) return "#Target# 주변의 시공간이 안정됩니다.", "+Static History" end,
+	on_lose = function(self, err) return "#Target# 주변의 시공간의 흐름이 정상으로 돌아옵니다.", "-Static History" end,
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "no_minor_anomalies", 1)
 	end,
@@ -3575,7 +3592,8 @@ newEffect{
 newEffect{
 	name = "ARROW_ECHOES", image = "talents/arrow_echoes.png",
 	desc = "Arrow Echoes",
-	long_desc = function(self, eff) return ("Each turn will fire an arrow at %s."):format(eff.target.name) end,
+	kr_desc = "화살의 메아리",
+	long_desc = function(self, eff) return ("매턴 %s 에게 화살을 쏩니다."):format(eff.target.name) end,
 	type = "magical",
 	subtype = { time=true },
 	status = "beneficial",
@@ -3599,8 +3617,9 @@ newEffect{
 newEffect{
 	name = "WARDEN_S_FOCUS", image = "talents/warden_s_focus.png",
 	desc = "Warden's Focus",
+	kr_desc = "감시자의 주목",
 	long_desc = function(self, eff) 
-		return ("Focused on %s, +%d%% critical damage and +%d%% critical hit chance against this target."):format(eff.target.name, eff.power, eff.power)
+		return ("%s 에게 집중하여, 이 목표에게 가하는 공격은 +%d%% 만큼 치명타 피해를 더 입히고, +%d%% 만큼 치명타 확율이 오릅니다."):format(eff.target.name, eff.power, eff.power)
 	end,
 	type = "magical",
 	subtype = { tactic=true },
@@ -3632,7 +3651,8 @@ newEffect{
 newEffect{
 	name = "FATEWEAVER", image = "talents/fateweaver.png",
 	desc = "Fateweaver",
-	long_desc = function(self, eff) return ("The target's accuracy and power have been increased by %d."):format(eff.power_bonus * eff.spin) end,
+	kr_desc = "운명의 방직자",
+	long_desc = function(self, eff) return ("목표의 정확도와 물리력, 정신력, 주문력이 %d 만큼 오릅니다."):format(eff.power_bonus * eff.spin) end,
 	display_desc = function(self, eff) return eff.spin.." Fateweaver" end,
 	charges = function(self, eff) return eff.spin end,
 	type = "magical",
@@ -3679,12 +3699,13 @@ newEffect{
 newEffect{
 	name = "FOLD_FATE", image = "talents/fold_fate.png",
 	desc = "Fold Fate",
-	long_desc = function(self, eff) return ("The target is nearing the end, its resistance to physical and temporal damage have been reduced by %d%%."):format(eff.power) end,
+	kr_desc = "운명 폴딩",
+	long_desc = function(self, eff) return ("목표는 끝에 다다르었습니다, 목표의 물리, 시간 저항이 %d%% 만큼 감소됩니다."):format(eff.power) end,
 	type = "magical",
 	subtype = { temporal=true },
 	status = "detrimental",
 	parameters = { power = 1 },
-	on_gain = function(self, err) return "#Target# is nearing the end.", "+Fold Fate" end,
+	on_gain = function(self, err) return "#Target# 끝에 다다르었습니다.", "+Fold Fate" end,
 	activate = function(self, eff)
 		eff.phys = self:addTemporaryValue("resists", { [DamageType.PHYSICAL] = -eff.power})
 		eff.temp = self:addTemporaryValue("resists", { [DamageType.TEMPORAL] = -eff.power})
@@ -3699,16 +3720,17 @@ newEffect{
 newEffect{
 	name = "BEN_TETHER", image = "talents/spatial_tether.png",
 	desc = "Spatial Tether",
+	kr_desc = "공간의 사슬",
 	long_desc = function(self, eff) 
 		local chance = eff.chance * core.fov.distance(self.x, self.y, eff.x, eff.y)
-		return ("The target has been tethered to the location and has a %d%% chance of being teleported back, creating an explosion for %0.2f physical and %0.2f temporal warp damage at both ends of the teleport."):format(chance, eff.dam/2, eff.dam/2)
+		return ("목표는 특정 장소에 묶였습니다. %d%% 확율로 묶인 장소로 되돌아오며, 시작점과 도착점에 폭발을 일으켜 %0.2f 의 물리 피해와 %0.2f 의 시간 왜곡 피해를 입힙니다."):format(chance, eff.dam/2, eff.dam/2)
 	end,
 	type = "magical",
 	subtype = { teleport=true, temporal=true },
 	status = "beneficial",
 	parameters = { chance = 1 },
-	on_gain = function(self, err) return "#Target# has been tethered!", "+Tether" end,
-	on_lose = function(self, err) return "#Target# is no longer tethered.", "-Tether" end,
+	on_gain = function(self, err) return "#Target# 사슬에 묶입니다!" "+Tether" end,
+	on_lose = function(self, err) return "#Target# 사슬에서 풀려납니다.", "-Tether" end,
 	activate = function(self, eff)
 	end,
 	deactivate = function(self, eff)
@@ -3718,9 +3740,10 @@ newEffect{
 newEffect{
 	name = "DET_TETHER", image = "talents/spatial_tether.png",
 	desc = "Spatial Tether",
+	kr_desc = "공간의 사슬",
 	long_desc = function(self, eff) 
 		local chance = eff.chance * core.fov.distance(self.x, self.y, eff.x, eff.y)
-		return ("The target has been tethered to the location and has a %d%% chance of being teleported back, creating an explosion for %0.2f physical and %0.2f temporal warp damage at both ends of the teleport."):format(chance, eff.dam/2, eff.dam/2)
+		return ("목표는 특정 장소에 묶였습니다. %d%% 확율로 묶인 장소로 되돌아오며, 시작점과 도착점에 폭발을 일으켜 %0.2f 의 물리 피해와 %0.2f 의 시간 왜곡 피해를 입힙니다."):format(chance, eff.dam/2, eff.dam/2)
 	end,
 	type = "magical",
 	subtype = { teleport=true, temporal=true },
