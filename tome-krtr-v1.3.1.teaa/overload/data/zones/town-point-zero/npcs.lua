@@ -28,6 +28,7 @@ newEntity{
 	faction = "point-zero-guardians",
 	anger_emote = "@himher@ 잡아라!",
 	hates_antimagic = 1,
+	never_anger = 1,
 
 	combat = { dam=resolvers.rngavg(1,2), atk=2, apr=0, dammod={str=0.4} },
 
@@ -55,7 +56,7 @@ newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "DEFENDER_OF_REALITY",
 	subtype = resolvers.rngtable{"human", "shalore"},
 	shader = "moving_transparency", shader_args = {a_min=0.2, a_max=0.8},
 	desc = [[엄격해 보이는 수호자입니다. 시간축을 위협하는 괴리에 대처하기 위해, 조금도 방심하지 않고 있습니다.]],
-	level_range = {1, nil}, exp_worth = 1,
+	level_range = {1, nil}, exp_worth = 0,
 	rarity = false,
 	max_life = 400,
 	life_regen = 200,
@@ -170,32 +171,33 @@ newEntity{ base = "BASE_NPC_POINT_ZERO_TOWN", define_as = "ZEMEKKYS",
 	},
 
 	talent_cd_reduction = {all=23},
-	resolvers.talents{
+resolvers.talents{
 		[Talents.T_TEMPORAL_FORM]=1,
 		[Talents.T_DRACONIC_BODY]=1,
 		[Talents.T_LUCKY_DAY]=1,
 		[Talents.T_ENDLESS_WOES]=1,
 		[Talents.T_EYE_OF_THE_TIGER]=1,
-		[Talents.T_GATHER_THE_THREADS]=5,
+		
 		[Talents.T_RETHREAD]=5,
-		[Talents.T_TEMPORAL_CLONE]=5,
+		[Talents.T_TEMPORAL_FUGUE]=5,
+
+		[Talents.T_SPACETIME_STABILITY]=5,
 		[Talents.T_STOP]=5,
-		[Talents.T_SLOW]=5,
+		[Talents.T_CHRONO_TIME_SHIELD]=5,
+		[Talents.T_STATIC_HISTORY]=5,
+		
+		[Talents.T_CELERITY]=5,
+		[Talents.T_TIME_DILATION]=5,
 		[Talents.T_HASTE]=5,
-		[Talents.T_BANISH]=5,
-		[Talents.T_PARADOX_MASTERY]=5,
-		[Talents.T_FADE_FROM_TIME]=5,
-		[Talents.T_DUST_TO_DUST]=5,
-		[Talents.T_QUANTUM_SPIKE]=5,
+		
 		[Talents.T_REPULSION_BLAST]=5,
 		[Talents.T_GRAVITY_SPIKE]=5,
-		[Talents.T_REPULSION_FIELD]=5,
+		[Talents.T_GRAVITY_LOCUS]=5,
 		[Talents.T_GRAVITY_WELL]=5,
-		[Talents.T_ENERGY_DECOMPOSITION]=5,
+		
+		[Talents.T_ENTROPY]=5,
 		[Talents.T_ENERGY_ABSORPTION]=5,
 		[Talents.T_REDUX]=5,
-		[Talents.T_TEMPORAL_FUGUE]=5,
-		[Talents.T_BODY_REVERSION]=5,
 	},
 	resolvers.sustains_at_birth(),
 }
@@ -228,12 +230,12 @@ newEntity{ define_as = "TEMPORAL_DEFILER",
 
 	inc_damage = {all = -30},
 
-	resolvers.talents{
-		[Talents.T_PERFECT_AIM]={base=3, every=7, max=5},
-		[Talents.T_SPIN_FATE]={base=5, every=7, max=8},
-		[Talents.T_STEALTH]={base=3, every=7, max=5},
-		[Talents.T_SHADOWSTRIKE]={base=3, every=7, max=5},
-		[Talents.T_UNSEEN_ACTIONS]={base=3, every=7, max=5},
+resolvers.talents{
+		[Talents.T_FATEWEAVER]={base=3, every=7, max=5},
+		[Talents.T_SPIN_FATE]={base=3, every=7, max=5},
+		[Talents.T_STEALTH]={base=1, every=7, max=5},
+		[Talents.T_SHADOWSTRIKE]={base=1, every=7, max=5},
+		[Talents.T_UNSEEN_ACTIONS]={base=1, every=7, max=5},
 	},
 
 	resolvers.inscriptions(1, "rune"),
