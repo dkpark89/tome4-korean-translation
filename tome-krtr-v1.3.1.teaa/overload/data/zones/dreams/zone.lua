@@ -201,12 +201,11 @@ return {
 	on_enter = function(lev, old_lev)
 		-- Dream of vulnerability
 		if lev == 1 then
-			local f = require("mod.class.Player").new{
+			game.level.data.enter_dreams{
 				name = "frail mouse", image = "npc/vermin_rodent_giant_white_mouse.png",
 				kr_name = "연약한 생쥐",
 				type = "vermin", subtype = "rodent",
 				display = "r", color=colors.WHITE,
-				body = { INVEN = 10 },
 				infravision = 10,
 				sound_moam = {"creatures/rats/rat_hurt_%d", 1, 2},
 				sound_die = {"creatures/rats/rat_die_%d", 1, 2},
@@ -216,12 +215,10 @@ return {
 				combat_armor = 1, combat_def = 1,
 				rank = 1,
 				movement_speed = 1.4,
-				no_inventory_access = true,
 				perfect_evasion = 1,
 				size_category = 1,
 				level_range = {1, 1}, exp_worth = 1,
 				max_life = 10,
-				__no_save_json = true,
 				mouse_turn = game.turn,
 				talent_cd_reduction={
 					T_EVASION=17,
@@ -237,113 +234,103 @@ return {
 					T_NIMBLE_MOVEMENTS = 3,
 					T_PIERCING_SIGHT = 30,
 				},
-				on_die = function(self)
-					local danger = game.level.data.real_death
-					game.level:addEntity(self.summoner)
-					game:onTickEnd(function()
-						local x, y, z = game.level.data.caldera_x, game.level.data.caldera_y, game.level.data.caldera_z
-						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
-						game.player:move(x, y, true)
-						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[정신으로 이루어진 생쥐가 꿈의 관문으로 들어서자, 당신은 갑작스레 잠에서 깨어났습니다.
-상쾌한 기분이 듭니다!]], 600)
-							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
-							world:gainAchievement("ALL_DREAMS", self.summoner, "mice")
-						else
-							if not danger then
-								game.player:takeHit(game.player.life * 2 / 3, game.player)
-							else
-								game.player:die(game.player)
-							end
-						end
-					end)
-				end,
-			}
-			f:resolve()
-			f:resolve(nil, true)
-			f.summoner = game.player
-
-			local oldp = game.player
-			game.party:addMember(f, {temporary_level=1, control="full"})
-			f.x = game.player.x
-			f.y = game.player.y
-			game.party:setPlayer(f, true)
-			game.level:addEntity(f)
-			game.level.map:remove(f.x, f.y, engine.Map.ACTOR)
-			game.level:removeEntity(oldp)
-			f:move(f.x, f.y, true)
-			f.energy.value = 1000
-			game.paused = true
-			game.player:updateMainShader()
-
-			require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
+				
+			
+			msg = [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
 ... 당신은 약해지고 ...
 ... 하찮은 존재이며 ...
 ... 먹잇감 ... 인 것 같습니다 ...
-여기서 빨리 도망가야 합니다!]], 600)
+여기서 빨리 도망가야 합니다!]], 
+			success_msg = [[정신으로 이루어진 생쥐가 꿈의 관문으로 들어서자, 당신은 갑작스레 잠에서 깨어났습니다.
+상쾌한 기분이 듭니다!]],
+				dream = "mice",
+				}
 		end
 
 		-- Dream of loss
 		if lev == 2 then
-			local f = require("mod.class.Player").new{
+			game.level.data.enter_dreams{
 				name = "lost man", image = "npc/humanoid_human_townsfolk_meanlooking_mercenary01_64.png",
 				type = "humanoid", subtype = "human",
 				display = "h", color=colors.VIOLET,
-				body = { INVEN = 10 },
 				infravision = 10,
 				stats = { str=12, dex=12, mag=3, con=10, cun=10, },
 				combat = {sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2}, dam=90, atk=15, apr=3 },
 				combat_armor = 5, combat_def = 5,
-				level_range = {1, 1}, exp_worth = 1,
 				max_life = 100, life_regen = 0,
-				no_inventory_access = true,
-				__no_save_json = true,
 				resolvers.talents{
 				},
-				on_die = function(self)
-					local danger = game.level.data.real_death
-					game.level:addEntity(self.summoner)
-					game:onTickEnd(function()
-						local x, y, z = game.level.data.caldera_x, game.level.data.caldera_y, game.level.data.caldera_z
-						game:changeLevel(z, "noxious-caldera", {direct_switch=true})
-						game.player:move(x, y, true)
-						if self.success then
-							require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[꿈의 관문으로 들어서자, 당신은 갑자기 깨어났습니다.
-상쾌한 기분이 듭니다.]], 600)
-							game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
-							world:gainAchievement("ALL_DREAMS", self.summoner, "lost")
-						else
-							if not danger then
-								game.player:takeHit(game.player.life * 2 / 3, game.player)
-							else
-								game.player:die(game.player)
-							end
-						end
-					end)
-				end,
-			}
-			f:resolve()
-			f:resolve(nil, true)
-			f.summoner = game.player
-
-			local oldp = game.player
-			game.party:addMember(f, {temporary_level=1, control="full"})
-			f.x = game.player.x
-			f.y = game.player.y
-			game.party:setPlayer(f, true)
-			game.level:addEntity(f)
-			game.level.map:remove(f.x, f.y, engine.Map.ACTOR)
-			game.level:removeEntity(oldp)
-			f:move(f.x, f.y, true)
-			f.energy.value = 1000
-			game.paused = true
-			game.player:updateMainShader()
-
-			require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
+				msg = [[유독성 연기가 신체에 침범하여, 갑자기 깊은 수면에 빠졌습니다...
 ... 뭔가를 잊어버린 것 같습니다 ...
 ... 상실감이 느껴집니다  ...
 ... 슬픔이 느껴집니다 ...
-당신은 아내를 잊어버렸습니다! 그녀를 찾아야 합니다!]], 600)
+당신은 아내를 잊어버렸습니다! 그녀를 찾아야 합니다!]],
+				success_msg = [[꿈의 관문으로 들어서자, 당신은 갑자기 깨어났습니다.
+상쾌한 기분이 듭니다.]],
+				dream = "lost",
+			}
 		end
+	end,
+	enter_dreams = function(t)
+		local Player = require "mod.class.Player"
+		table.update(t, {
+			__no_save_json = true,
+			body = {INVEN=10},
+			no_inventory_access = true,
+			level_range = {1, 1}, exp_worth = 1,
+			on_die = function(self)
+				local msg = self.success_msg
+				local dream = self.dream
+				game.level.data.leave_dreams(self, msg, dream)
+			end,
+		})
+		local f = Player.new(t)
+		f:resolve() f:resolve(nil, true)
+		f.unused_talents = 0 f.unused_generics = 0
+		if f.unused_stats > 0 then
+			game.log("%s %d 만큼의 능력치 점수를 가지고 있습니다. p를 눌러 사용하십시요.", f.name:capitalize(), f.unused_stats)
+		end
+		f.summoner = game:getPlayer(true)
+		f.x = game.player.x
+		f.y = game.player.y
+		for pmem, def in pairs(game.party.members) do
+			game.level.map:remove(pmem.x, pmem.y, engine.Map.ACTOR)
+			if game.level:hasEntity(pmem) then game.level:removeEntity(pmem) end
+		end
+		game.party:addMember(f, {temporary_level=1, control="full"})
+		game.party:setPlayer(f, true)
+		game.level:addEntity(f)
+		f:move(f.x, f.y, true)
+		f.energy.value = 1000
+		game.paused = true
+		game.player:updateMainShader()
+		require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", t.msg, 600)
+	end,
+	leave_dreams = function(self, msg, dream)
+		local danger = game.level.data.danger
+		game.level:addEntity(self.summoner)
+		game:onTickEnd(function()
+			game:changeLevel(game.level.data.caldera_lev, "noxious-caldera", {direct_switch=true})
+			for pmem, def in pairs(game.party.members) do
+				if pmem.caldera_x and pmem.caldera_y then
+					pmem:move(pmem.caldera_x, pmem.caldera_y, true)
+					if not game.level:hasEntity(pmem) then game.level:addEntity(pmem) end
+				end
+			end
+			game.party:setPlayer(game:getPlayer(true))
+			if self.success and danger then
+				require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", msg, 600)
+				game.logPlayer(game.player, msg:gsub("\n", " "))
+				game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
+				world:gainAchievement("ALL_DREAMS", self.summoner, dream)
+			elseif danger then
+				local msg = [[꿈에서 당신이 죽음과 동시에 잠에서 갑자기 깨어났습니다.
+				독가스가 당신의 몸을 침범합니다!]]
+				game.logPlayer(game.player)
+				require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", msg, 600)
+				local hit = math.max(0, game.player.life * 2 / 3)
+				game:onTickEnd(game.player:setEffect(game.player.EFF_DEATH_DREAM, 4, {power=hit/4}))
+			end
+		end)
 	end,
 }
