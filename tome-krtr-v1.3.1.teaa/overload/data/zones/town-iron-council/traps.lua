@@ -70,3 +70,10 @@ newEntity{ base = "BASE_STORE", define_as = "GEM_STORE",
 	display='9', color=colors.LIGHT_RED,
 	resolvers.store("GEMSTORE", "iron-throne", "store/shop_door.png", "store/shop_sign_jewelry.png"),
 }
+
+newEntity{ base = "BASE_STORE", define_as = "TOOLSHOP",
+	name="Delver's Delights",
+	kr_name = "델버의 기쁨",
+	display='8', color=colors.UMBER,
+	resolvers.store("LITEDIGSTORE", "iron-throne", "store/shop_door.png", "store/shop_sign_utility_store.png"),
+}

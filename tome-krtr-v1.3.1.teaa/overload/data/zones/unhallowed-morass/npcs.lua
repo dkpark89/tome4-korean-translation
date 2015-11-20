@@ -33,11 +33,29 @@ newEntity{
 
 	autolevel = "spider",
 	ai = "dumb_talented_simple", ai_state = { ai_move="move_complex", talent_in=2, },
-	global_speed_base = 1.2,
 	stats = { str=10, dex=17, mag=3, con=7 },
 	combat = { dammod={dex=0.8} },
 	combat_armor = 1, combat_def = 1,
 }
+
+
+newEntity{ base = "BASE_NPC_SPIDER",
+	name = "weaver hatchling", color=colors.LIGHT_STEEL_BLUE, image="npc/spiderkin_spider_weaver_young.png",
+	kr_name = "새끼 무당거미",
+	desc = [[거의 투명한 새끼 거미입니다]],
+	level_range = {1, nil}, exp_worth = 1,
+	rarity = 1,	size_category = 1,
+	max_life = resolvers.rngavg(10,20),
+	combat_armor = 1, combat_def = 3,
+	combat = { dam=resolvers.levelup(5, 1, 0.7), atk=5, apr=3, damtype=DamageType.WASTING, },
+	make_escort = {
+		{type = "spiderkin", subtype = "spider", name="weaver hatchling", number=2, no_subescort=true},
+	},
+	resolvers.talents{
+		[Talents.T_DIMENSIONAL_STEP]=1,
+	},
+}
+
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "orb spinner", color=colors.UMBER,
@@ -47,7 +65,13 @@ newEntity{ base = "BASE_NPC_SPIDER",
 	rarity = 1,
 	max_life = resolvers.rngavg(20,40),
 	combat_armor = 1, combat_def = 3,
-	combat = { dam=resolvers.levelup(5, 1, 0.7), atk=15, apr=3, damtype=DamageType.CLOCK, },
+	combat = { dam=resolvers.levelup(5, 1, 0.7), atk=5, apr=3, damtype=DamageType.TEMPORAL, },
+	resolvers.talents{
+		[Talents.T_TEMPORAL_BOLT]=1,
+	},
+	make_escort = {
+		{type = "spiderkin", subtype = "spider", name="orb weaver", number=1, no_subescort=true},
+	},
 }
 
 newEntity{ base = "BASE_NPC_SPIDER",
@@ -55,13 +79,13 @@ newEntity{ base = "BASE_NPC_SPIDER",
 	kr_name = "오브 무당거미",
 	desc = [[거미줄을 짜고 있는 커다란 갈색 거미류입니다. 당신이 그 일을 방해해서 기분이 나쁜 것 같습니다.]],
 	level_range = {3, nil}, exp_worth = 1,
-	rarity = 3,
+	rarity = 10, -- rarely appears alone
 	max_life = resolvers.rngavg(40,60),
 	combat_armor =2, combat_def = 4,
-	combat = { dam=resolvers.levelup(6, 1, 0.8), atk=15, apr=3, damtype=DamageType.TEMPORAL, },
+	combat = { dam=resolvers.levelup(6, 1, 0.8), atk=10, apr=3, damtype=DamageType.TEMPORAL, },
 	resolvers.talents{
 		[Talents.T_LAY_WEB]=1,
-		[Talents.T_DIMENSIONAL_STEP]=1,
+		[Talents.T_SPIDER_WEB]=1,
 	},
 }
 
@@ -69,17 +93,15 @@ newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate spinner", color=colors.SLATE,
 	kr_name = "파멸의 방적거미",
 	desc = [[한 마리 말 만큼이나 커다란 이 거대 거미는, 그 이빨과 발톱으로 당신을 위협하고 있습니다.]],
-	level_range = {4, nil}, exp_worth = 1,
-	rarity = 3,
+	level_range = {3, nil}, exp_worth = 1,
+	rarity = 2, rank = 2,
 	size_category = 4,
-	max_life = resolvers.rngavg(60,70),
+	max_life = resolvers.rngavg(70,100),
 	combat_armor = 3, combat_def = 5,
-	combat = { dam=resolvers.levelup(9, 1, 0.9), atk=15, apr=4, damtype=DamageType.CLOCK, },
+	combat = { dam=resolvers.levelup(9, 1, 0.9), atk=15, apr=4, damtype=DamageType.WASTING, },
 	resolvers.talents{
-		[Talents.T_LAY_WEB]=1,
-		[Talents.T_SPIDER_WEB]=1,
 		[Talents.T_DIMENSIONAL_STEP]=1,
-		[Talents.T_TURN_BACK_THE_CLOCK]=1,
+		[Talents.T_WARP_MINE_TOWARD]=1,
 	},
 }
 
@@ -87,24 +109,22 @@ newEntity{ base = "BASE_NPC_SPIDER",
 	name = "fate weaver", color=colors.WHITE,
 	kr_name = "파멸의 무당거미",
 	desc = [[커다란 흰색 거미입니다.]],
-	level_range = {4, nil}, exp_worth = 1,
-	rarity = 3,
+	level_range = {3, nil}, exp_worth = 1,
+	rarity = 3, rank = 2,
 	max_life = resolvers.rngavg(70,100),
 	combat_armor = 3, combat_def = 4,
-	combat = { dam=resolvers.levelup(8, 1, 0.9), atk=15, apr=3, damtype=DamageType.WASTING, },
-
-	talent_cd_reduction = {[Talents.T_RETHREAD]=-10},
+	combat = { dam=resolvers.levelup(8, 1, 0.9), atk=15, apr=3, damtype=DamageType.TEMPORAL, },
 
 	resolvers.talents{
-		[Talents.T_SPIN_FATE]=2,
-		[Talents.T_BANISH]=2,
-		[Talents.T_RETHREAD]=2,
-		[Talents.T_STATIC_HISTORY]=2,
+		[Talents.T_SPIN_FATE]=1,
+		[Talents.T_WEBS_OF_FATE]=1,
+		[Talents.T_FATEWEAVER]=1,
+		[Talents.T_RETHREAD]=1,
 	},
 }
 
 newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
-	name = "Weaver Queen", color=colors.WHITE,
+	name = "Weaver Queen", color=colors.WHITE, female=1,
 	kr_name = "무당거미 여왕",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_weaver_queen.png", display_h=2, display_y=-1}}},
 	desc = [[커다란 흰색 거미입니다.]],
@@ -126,15 +146,22 @@ newEntity{ base = "BASE_NPC_SPIDER", define_as = "WEAVER_QUEEN",
 
 	inc_damage = {all=-20},
 	healing_factor = 0.5,
-	talent_cd_reduction = {[Talents.T_RETHREAD]=-10},
+	summon = {{type = "spiderkin", subtype = "spider", name="weaver hatchling", number=1, hasxp=false}},
 
 	resolvers.talents{
 		[Talents.T_SPIN_FATE]=2,
-		[Talents.T_BANISH]=2,
-		[Talents.T_RETHREAD]=2,
-		[Talents.T_STATIC_HISTORY]=2,
-		[Talents.T_FADE_FROM_TIME]=3,
+		[Talents.T_WEBS_OF_FATE]=2,
+		[Talents.T_FATEWEAVER]=2,
+		[Talents.T_PHASE_PULSE]=2,
+		[Talents.T_SUMMON]=1,
+		[Talents.T_TEMPORAL_BOLT]=1,
 	},
+	
+	on_move = function(self)
+		if rng.percent(50) then
+			self:forceUseTalent(self.T_ANOMALY_WORMHOLE, {silent=true, ignore_energy=true})
+		end
+	end,
 
 	autolevel = "caster",
 	ai = "tactical", ai_state = { talent_in=1, ai_move="move_astar", },

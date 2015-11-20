@@ -68,6 +68,13 @@ newEntity{ base = "BASE_STORE", define_as = "JEWELRY",
 	resolvers.store("GEMSTORE", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_jewelry.png"),
 }
 
+newEntity{ base = "BASE_STORE", define_as = "TOOLSHOP",
+	name="Survival Supplies",
+	kr_name = "서바이벌 보급품",
+	display='8', color=colors.UMBER,
+	resolvers.store("LITEDIGSTORE", "allied-kingdoms", "store/shop_door.png", "store/shop_sign_utility_store.png"),
+}
+
 newEntity{ base = "BASE_STORE", define_as = "ALCHEMIST",
 	name="Home of Stire the Alchemist",
 	kr_name = "연금술사 스티르의 집",
