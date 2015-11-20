@@ -34,6 +34,7 @@ return {
 	zero_gravity = true,
 	no_autoexplore = true,
 	ambient_music = "Alchemist.ogg",
+	allow_respec = "limited",
 	generator =  {
 		map = {
 			class = "engine.generator.map.Empty",
