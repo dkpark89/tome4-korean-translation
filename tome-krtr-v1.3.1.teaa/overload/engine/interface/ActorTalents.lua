@@ -17,6 +17,7 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 
 --- Handles actors stats
@@ -132,7 +133,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 	local co, success, err
 	if ab.mode == "activated" and ab.action then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s is still on cooldown for %d turns.", ab.name:capitalize(), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기 시간이 %d 턴 만큼 남아있습니다.", (ab.kr_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		co = coroutine.create(function()
@@ -154,7 +155,7 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 		end)
 	elseif ab.mode == "sustained" and ab.activate and ab.deactivate then
 		if self:isTalentCoolingDown(ab) and not ignore_cd then
-			game.logPlayer(who, "%s is still on cooldown for %d turns.", ab.name:capitalize(), self.talents_cd[ab.id])
+			game.logPlayer(who, "%s 아직 대기 시간이 %d 턴 만큼 남아있습니다.", (ab.kr_name or ab.name):capitalize():addJosa("는"), self.talents_cd[ab.id])
 			return
 		end
 		co = coroutine.create(function()
@@ -251,14 +252,14 @@ function _M:useTalent(id, who, force_level, ignore_cd, force_target, silent, no_
 		end)
 		if not no_confirm and self:isTalentConfirmable(ab) then
 			local abname = game:getGenericTextTiles(ab)..ab.name
-			require "engine.ui.Dialog":yesnoPopup("Talent Use Confirmation", ("Use %s?"):format(abname),
+			require "engine.ui.Dialog":yesnoPopup("기술 사용 확인", ("%s 사용합니까?"):format(abname),
 			function(quit)
 				if quit ~= false then
 					cancel = true
 				end
 				success, err = coroutine.resume(co_wrapper)
 			end,
-			"Cancel","Continue")
+			"취소","계속")
 		else
 			-- cancel checked in coroutine
 			success, err = coroutine.resume(co_wrapper)
@@ -610,7 +611,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 	if t.type[2] and t.type[2] > 1 then
 		local known = self:numberKnownTalent(t.type[1], t.id, t.type[2])
 		local c = (known >= t.type[2] - 1) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-		str:add(c, ("- Lower talents of the same category: %d"):format(t.type[2] - 1), true)
+		str:add(c, ("- 같은 계열의 기술: %d"):format(t.type[2] - 1), true)
 	end
 
 	-- Obviously this requires the ActorStats interface
@@ -624,7 +625,7 @@ function _M:getTalentReqDesc(t_id, levmod)
 	if req.level then
 		local v = util.getval(req.level, tlev)
 		local c = (self.level >= v) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-		str:add(c, ("- Level %d"):format(v), true)
+		str:add(c, ("- 레벨 %d"):format(v), true)
 	end
 	if req.special then
 		local c = (req.special.fct(self, t, offset)) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
@@ -635,14 +636,14 @@ function _M:getTalentReqDesc(t_id, levmod)
 			if type(tid) == "table" then
 				if type(tid[2]) == "boolean" and tid[2] == false then
 					local c = (not self:knowTalent(tid[1])) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-					str:add(c, ("- Talent %s (not known)"):format(self:getTalentFromId(tid[1]).name), true)
+					str:add(c, ("- %s 기술 (모름)\n"):format(self:getTalentFromId(tid[1]).name), true)
 				else
 					local c = (self:getTalentLevelRaw(tid[1]) >= tid[2]) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-					str:add(c, ("- Talent %s (%d)"):format(self:getTalentFromId(tid[1]).name, tid[2]), true)
+					str:add(c, ("- %s 기술 (%d)\n"):format(self:getTalentFromId(tid[1]).name, tid[2]), true)
 				end
 			else
 				local c = self:knowTalent(tid) and {"color", 0x00,0xff,0x00} or {"color", 0xff,0x00,0x00}
-				str:add(c, ("- Talent %s"):format(self:getTalentFromId(tid).name), true)
+				str:add(c, ("- %s 기술\n"):format(self:getTalentFromId(tid).name), true)
 			end
 		end
 	end
