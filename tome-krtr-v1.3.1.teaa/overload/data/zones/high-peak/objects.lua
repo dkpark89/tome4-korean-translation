@@ -1,4 +1,4 @@
-﻿-- ToME - Tales of Maj'Eyal
+-- ToME - Tales of Maj'Eyal
 -- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,8 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
 
 load("/data/general/objects/objects-far-east.lua")
 load("/data/general/objects/lore/sunwall.lua")
@@ -83,9 +85,13 @@ newEntity{ define_as = "STAFF_ABSORPTION_AWAKENED", base="BASE_STAFF",
 	moddable_tile_particle = {"godslayer_swirl", {size=64, x=-16}},
 
 	max_power = 200, power_regen = 1,
-	use_power = { name = "absorb energies", kr_name = "에너지 흡수", power = 200,
+	use_power = {
+	name = function(self, who) return ("%d 범위 내에 있는 목표의 정수를 흡수하여, 생명력의 30%%를 흡수하고, 당신의 총 피해량을 30%% 만큼 %d 턴 동안 상승 시킵니다."):format(self.use_power.range, self.use_power.duration) end,
+	power = 200,
+	range = 8,
+	duration =7,
 		use = function(self, who)
-			local tg = {type="hit", range=8}
+			local tg = {type="hit", range=self.use_power.range}
 			local x, y = who:getTarget(tg)
 			if not x or not y then return nil end
 			local _ _, x, y = who:canProject(tg, x, y)
@@ -95,11 +101,11 @@ newEntity{ define_as = "STAFF_ABSORPTION_AWAKENED", base="BASE_STAFF",
 				game.logPlayer(who, "이 상대는 이미 흡수 당했습니다.")
 			end
 
+			_, x = target:takeHit(target.max_life * 0.3, who, {special_death_msg = "는 ".. self.name.."에 흡수 되어 죽었습니다."})
 			game.logPlayer(who, "당신은 지팡이를 휘둘러, 상대의 에너지를 흡수합니다.")
-			who:setEffect(who.EFF_POWER_OVERLOAD, 7, {power=30})
-			target:takeHit(target.life * 0.3, who)
-			return {id=true, used=true}
-		end
+			game:delayedLogDamage(who, target, x, ("#ORCHID# %d 정수 흡수 #LAST#"):format(x), false)
+			who:setEffect(who.EFF_POWER_OVERLOAD, self.use_power.duration, {power=30})
+			return {id=true, used=true}		end
 	},
 }
 
