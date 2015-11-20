@@ -31,6 +31,7 @@ newEntity{ define_as = "EIDOLON",
 	never_move = 1,
 	invulnerable = 1,
 	never_anger = 1,
+	no_difficulty_random_class = 1,
 
 	can_talk = "eidolon-plane",
 }
