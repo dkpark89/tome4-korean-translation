@@ -20,7 +20,7 @@
 require "engine.krtrUtils"
 newTalent{
 	name = "Shadow Combat",
-	kr_name = "±×¸²ÀÚ ÀüÅõ",
+	kr_name = "ê·¸ë¦¼ì ì „íˆ¬",
 	type = {"cunning/shadow-magic", 1},
 	mode = "sustained",
 	points = 5,
@@ -40,15 +40,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local manacost = t.getManaCost(self, t)
-		return ([[±ÙÁ¢ °ø°İ¿¡ ¸¶·ÂÀÇ ÈûÀ» ½Ç¾î, ¸Å °ø°İ¸¶´Ù %.2f ¸¶³ª¸¦ »ç¿ëÇÏ¿© %.2f ¾îµÒ ÇÇÇØ¸¦ ÁÙ ¼ö ÀÖ°Ô µË´Ï´Ù.
-		ÇÇÇØ·®Àº ÁÖ¹®·ÂÀÇ ¿µÇâÀ» ¹Ş¾Æ Áõ°¡ÇÕ´Ï´Ù.]]):
-		format(manacost, damDesc(self, DamageType.DARKNESS, damage)) --@ º¯¼ö ¼ø¼­ Á¶Á¤
+		return ([[ê·¼ì ‘ ê³µê²©ì— ë§ˆë ¥ì˜ í˜ì„ ì‹¤ì–´, ë§¤ ê³µê²©ë§ˆë‹¤ %.2f ë§ˆë‚˜ë¥¼ ì‚¬ìš©í•˜ì—¬ %.2f ì–´ë‘  í”¼í•´ë¥¼ ì¤„ ìˆ˜ ìˆê²Œ ë©ë‹ˆë‹¤.
+		í”¼í•´ëŸ‰ì€ ì£¼ë¬¸ë ¥ì˜ ì˜í–¥ì„ ë°›ì•„ ì¦ê°€í•©ë‹ˆë‹¤.]]):
+		format(manacost, damDesc(self, DamageType.DARKNESS, damage)) --@ ë³€ìˆ˜ ìˆœì„œ ì¡°ì •
 	end,
 }
 
 newTalent{
 	name = "Shadow Cunning",
-	kr_name = "±³È°ÇÑ ±×¸²ÀÚ",
+	kr_name = "êµí™œí•œ ê·¸ë¦¼ì",
 	type = {"cunning/shadow-magic", 2},
 	mode = "passive",
 	points = 5,
@@ -57,14 +57,14 @@ newTalent{
 	getSpellpower = function(self, t) return self:combatTalentScale(t, 20, 40, 0.75) end,
 	info = function(self, t)
 		local spellpower = t.getSpellpower(self, t)
-		return ([[ÁØºñ¸¦ ÅëÇØ, ¸¶¹ıÀû ´É·ÂÀ» ³ôÀÔ´Ï´Ù. ±³È°ÇÔ ¼öÄ¡ÀÇ %d%% ¸¸Å­ ÁÖ¹®·ÂÀÌ »ó½ÂÇÏ°Ô µË´Ï´Ù.]]):
+		return ([[ì¤€ë¹„ë¥¼ í†µí•´, ë§ˆë²•ì  ëŠ¥ë ¥ì„ ë†’ì…ë‹ˆë‹¤. êµí™œí•¨ ìˆ˜ì¹˜ì˜ %d%% ë§Œí¼ ì£¼ë¬¸ë ¥ì´ ìƒìŠ¹í•˜ê²Œ ë©ë‹ˆë‹¤.]]):
 		format(spellpower)
 	end,
 }
 
 newTalent{
 	name = "Shadow Feed",
-	kr_name = "±×¸²ÀÚ ¼ö±Ş",
+	kr_name = "ê·¸ë¦¼ì ìˆ˜ê¸‰",
 	type = {"cunning/shadow-magic", 3},
 	mode = "sustained",
 	points = 5,
@@ -91,15 +91,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local manaregen = t.getManaRegen(self, t)
-		return ([[±×¸²ÀÚÀÇ ½É¿¬¿¡¼­ ÈûÀ» ²ø¾î¿É´Ï´Ù.
-		±â¼úÀÌ À¯ÁöµÇ´Â µ¿¾È ¸Å ÅÏ¸¶´Ù ¸¶³ª°¡ %0.2f Àç»ıµÇ¸ç, °ø°İ¼Óµµ¿Í ½ÃÀü¼Óµµ°¡ %0.1f%% »ó½ÂÇÏ°Ô µË´Ï´Ù.]]):
+		return ([[ê·¸ë¦¼ìì˜ ì‹¬ì—°ì—ì„œ í˜ì„ ëŒì–´ì˜µë‹ˆë‹¤.
+		ê¸°ìˆ ì´ ìœ ì§€ë˜ëŠ” ë™ì•ˆ ë§¤ í„´ë§ˆë‹¤ ë§ˆë‚˜ê°€ %0.2f ì¬ìƒë˜ë©°, ê³µê²©ì†ë„ì™€ ì‹œì „ì†ë„ê°€ %0.1f%% ìƒìŠ¹í•˜ê²Œ ë©ë‹ˆë‹¤.]]):
 		format(manaregen, t.getAtkSpeed(self, t))
 	end,
 }
 
 newTalent{
 	name = "Shadowstep",
-	kr_name = "±×¸²ÀÚ °È±â",
+	kr_name = "ê·¸ë¦¼ì ê±·ê¸°",
 	type = {"cunning/shadow-magic", 4},
 	points = 5,
 	random_ego = "attack",
@@ -116,7 +116,7 @@ newTalent{
 	getDuration = function(self, t) return math.min(5, 2 + math.ceil(self:getTalentLevel(t) / 2)) end,
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.2, 2.5) end,
 	action = function(self, t)
-		if self:attr("never_move") then game.logPlayer(self, "Áö±İÀº ±× ±â¼úÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.") return end
+		if self:attr("never_move") then game.logPlayer(self, "ì§€ê¸ˆì€ ê·¸ ê¸°ìˆ ì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.") return end
 		
 		local tg = self:getTalentTarget(t)
 		local x, y, target = self:getTarget(tg)
@@ -135,16 +135,16 @@ newTalent{
 			if target:canBe("stun") then
 				target:setEffect(target.EFF_DAZED, t.getDuration(self, t), {})
 			else
-				game.logSeen(target, "%s È¥ÀıÇÏÁö ¾Ê¾Ò½À´Ï´Ù!", (target.kr_name or target.name):capitalize():addJosa("°¡"))
+				game.logSeen(target, "%s í˜¼ì ˆí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!", (target.kr_name or target.name):capitalize():addJosa("ê°€"))
 			end
 		end
 		return true
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[±×¸²ÀÚ¸¦ ÅëÇØ ´ë»ó¿¡°Ô ´Ù°¡°¡, %d ÅÏ µ¿¾È È¥Àı½ÃÅ°°í %d%% ¹«±â ÇÇÇØ¸¦ ¾îµÒ ¼Ó¼ºÀ¸·Î Áİ´Ï´Ù.
-		È¥ÀıµÈ ÀûÀº Å©°Ô ¾àÈ­µÇÁö¸¸, ÇÇÇØ¸¦ ¹ŞÀ¸¸é È¥Àı »óÅÂ°¡ ÇØÁ¦µË´Ï´Ù.
-		±×¸²ÀÚ °È±â¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â ¿ì¼± ´ë»óÀ» º¼ ¼ö ÀÖ¾î¾ß ÇÕ´Ï´Ù.]]): 
+		return ([[ê·¸ë¦¼ìë¥¼ í†µí•´ ëŒ€ìƒì—ê²Œ ë‹¤ê°€ê°€, %d í„´ ë™ì•ˆ í˜¼ì ˆì‹œí‚¤ê³  %d%% ë¬´ê¸° í”¼í•´ë¥¼ ì–´ë‘  ì†ì„±ìœ¼ë¡œ ì¤ë‹ˆë‹¤.
+		í˜¼ì ˆëœ ì ì€ í¬ê²Œ ì•½í™”ë˜ì§€ë§Œ, í”¼í•´ë¥¼ ë°›ìœ¼ë©´ í˜¼ì ˆ ìƒíƒœê°€ í•´ì œë©ë‹ˆë‹¤.
+		ê·¸ë¦¼ì ê±·ê¸°ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ìš°ì„  ëŒ€ìƒì„ ë³¼ ìˆ˜ ìˆì–´ì•¼ í•©ë‹ˆë‹¤.]]): 
 		format(duration, t.getDamage(self, t) * 100)
 	end,
 }
