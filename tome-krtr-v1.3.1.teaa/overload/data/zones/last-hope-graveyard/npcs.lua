@@ -1,5 +1,5 @@
 ﻿-- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2014 Nicolas Casalini
+-- Copyright (C) 2009 - 2015 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -43,8 +43,8 @@ newEntity{ define_as = "CELIA",
 	move_others = true,
 
 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, QUIVER=1 },
-	rank = 3.5,
-	exp_worth = 2,
+	rank = 4,
+	exp_worth = 1.5,
 	level_range = {20, nil},
 
 	equipment = resolvers.equip{
