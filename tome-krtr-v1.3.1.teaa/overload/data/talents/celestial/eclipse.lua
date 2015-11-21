@@ -64,7 +64,7 @@ newTalent{
 		local cooldownreduction = t.getCooldownReduction(self, t)
 		return ([[빛과 어둠 속성 저항 관통력을 %d 턴 동안 %d%% 증가시키고, 모든 천공 계열 기술의 재사용 대기시간을 %d 턴 감소시킵니다. 
  		저항 관통력은 교활함 능력치의 영향을 받아 증가합니다.]]): 
-		format(penetration, duration, cooldownreduction)
+		format(duration, penetration, cooldownreduction)
 	end,
 }
 
