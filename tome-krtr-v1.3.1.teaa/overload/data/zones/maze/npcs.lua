@@ -78,14 +78,13 @@ newEntity{ define_as = "HORNED_HORROR",
 		[Talents.T_DOUBLE_STRIKE]={base=2, every=6, max=5},
 		[Talents.T_SPINNING_BACKHAND]={base=1, every=6, max=5},
 		[Talents.T_FLURRY_OF_FISTS]={base=1, every=6, max=5},
-		[Talents.T_VITALITY]={base=2, every=6, max=5},
 		[Talents.T_TENTACLE_GRAB]={base=1, every=6, max=5},
 	},
 
 	autolevel = "warrior",
 	ai = "tactical", ai_state = { talent_in=1, ai_move="move_astar", },
 	ai_tactic = resolvers.tactic"melee",
-	resolvers.inscriptions(2, {"invisibility rune", "lightning rune"}),
+	resolvers.inscriptions(1, {"invisibility rune"}),
 
 	on_die = function(self, who)
 		game.state:activateBackupGuardian("NIMISIL", 2, 40, "자네, 서쪽의 미궁에서 정찰대들이 자꾸 사라진다는 소식 들었나?")
