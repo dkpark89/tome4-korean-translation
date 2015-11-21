@@ -325,7 +325,7 @@ return {
 				world:gainAchievement("ALL_DREAMS", self.summoner, dream)
 			elseif danger then
 				local msg = [[꿈에서 당신이 죽음과 동시에 잠에서 갑자기 깨어났습니다.
-				독가스가 당신의 몸을 침범합니다!]]
+				유독성 연기가 당신의 몸을 침범합니다!]]
 				game.logPlayer(game.player)
 				require("engine.ui.Dialog"):simpleLongPopup("깊은 수면...", msg, 600)
 				local hit = math.max(0, game.player.life * 2 / 3)

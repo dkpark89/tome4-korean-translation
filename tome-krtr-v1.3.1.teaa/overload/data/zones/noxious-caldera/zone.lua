@@ -148,19 +148,24 @@ return {
 		if game.level.turn_counter < 0 then
 			game.level.turn_counter = nil
 			game.level.max_turn_counter = nil
-			game.level.data.run_dream(false)
+			game.level.data.run_dream(true)
 		end
 	end,
 
 	max_dreams = 2,
 	run_dream = function(dangerous, dream)
-		if game.player.runStop then game.player:runStop("꿈") end
-		local x, y, lev = game.player.x, game.player.y, game.level.level
+		game.party:setPlayer(game:getPlayer(true))
+		if game.player.runStop then game.player:runStop("dream") end
+		local Map = require "engine.Map"
+		for pmem, def in pairs(game.party.members) do
+			if pmem.x and pmem.y and game.level.map(pmem.x, pmem.y, Map.ACTOR) == pmem then
+				pmem.caldera_x, pmem.caldera_y = pmem.x, pmem.y
+			end
+		end
+		local lev = game.level.level
 		local dream = dream or rng.range(1, game.zone.max_dreams)
 		game:changeLevel(dream, "dreams", {direct_switch=true})
-		game.level.data.real_death = dangerous
-		game.level.data.caldera_x = x
-		game.level.data.caldera_y = y
-		game.level.data.caldera_z = lev
+		game.level.data.danger = dangerous
+		game.level.data.caldera_lev = lev
 	end,
 }
