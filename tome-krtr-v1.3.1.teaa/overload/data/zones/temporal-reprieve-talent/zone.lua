@@ -19,6 +19,7 @@
 
 return {
 	name = "Temporal Reprieve",
+	kr_name = "시간의 유예",
 	level_range = {1, 100},
 	level_scheme = "player",
 	max_level = 1,
