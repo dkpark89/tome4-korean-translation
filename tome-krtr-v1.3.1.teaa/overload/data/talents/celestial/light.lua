@@ -140,7 +140,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[빛의 보호를 받아, 매 턴마다 %d 의 생명력을 회복하고 한 개의 나쁜 상태이상 효과를 해제합니다. 빛의 보호는 %d 턴 동안 유지됩니다. 
  		치유량은 주문력의 영향을 받아 증가합니다.]]): 
-		format(duration, regen)
+		format(regen, duration)
 	end,
 }
 
