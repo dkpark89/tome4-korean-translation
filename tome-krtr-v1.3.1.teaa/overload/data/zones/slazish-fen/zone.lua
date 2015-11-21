@@ -57,7 +57,8 @@ return {
 --			lite_room_chance = 100,
 		},
 		actor = {
-			class = "mod.class.generator.actor.Random",
+			class = "engine.generator.actor.Random",
+			--class = "mod.class.generator.actor.Random",
 			nb_npc = {7, 10},
 			filters = { {max_ood=2}, },
 			randelite = 0,
