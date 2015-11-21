@@ -17,13 +17,14 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
 require "engine.class"
 local Base = require "engine.ui.Base"
 local Focusable = require "engine.ui.Focusable"
 
 module(..., package.seeall, class.inherit(Base, Focusable))
 
-_M.font = core.display.newFont("/data/font/DroidSans.ttf", 10)
+_M.font = core.display.newFont(krFont or "/data/font/DroidSans.ttf", 10) --@ 한글 글꼴 추가
 _M.font_h = _M.font:lineSkip()
 
 function _M:init(t)
@@ -111,7 +112,7 @@ function _M:drawItemShortName(o, x, y)
 	if self.last_o == o then
 		t = self.last_t
 	else
-		local name = (o.getShortName or o.getName)(o, {do_color=true, no_image=true, no_add_name=true}):toString()
+		local name = (o.getKrShortName or o.getShortName or o.getName)(o, {do_color=true, no_image=true, no_add_name=true}):toString() --@ 한글 이름 추가 : getName은 존재시 한글로 반환함
 		t = self.font:draw(name, self.font:size(name), 255, 255, 255)[1]
 	end
 

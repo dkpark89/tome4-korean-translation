@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Stats = require "engine.interface.ActorStats"
 
 -- The staff of absorption, the reason the game exists!
@@ -35,8 +37,9 @@ newEntity{ define_as = "STAFF_ABSORPTION",
 	auto_pickup = 1,
 	moddable_tile = resolvers.moddable_tile("staff"),
 	plot = true, quest = true,
-	desc = [[Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.
-Light around it seems to dim and you can feel its tremendous power simply by touching it.]],
+	kr_name = "흡수의 지팡이", kr_unided_name = "어두운 룬이 새겨진 지팡이",
+	desc = [[강력한 힘이 깃든 룬이 새겨진 지팡이로, 아주 오래 전에 만들어진 것으로 보입니다. 하지만, 아직도 세월의 흔적 하나 찾아볼 수 없을 정도로 깨끗합니다.
+주변의 빛을 흡수하는 것 같으며, 살짝만 건드려봐도 이 지팡이 안에 엄청난 힘이 잠재된 것을 느낄 수 있습니다.]],
 
 	require = { stat = { mag=60 }, },
 	combat = {
@@ -53,9 +56,9 @@ Light around it seems to dim and you can feel its tremendous power simply by tou
 	},
 
 	max_power = 1000, power_regen = 1,
-	use_power = { name = "absorb energies", power = 1000,
+	use_power = { name = "absorb energies", kr_name = "에너지 흡수", power = 1000,
 		use = function(self, who)
-			game.logPlayer(who, "This power seems too much to wield; you fear it might absorb YOU.")
+			game.logPlayer(who, "이 힘은 너무나 강력하기 때문에, *당신*까지 흡수해버릴 것 같습니다. 발동을 취소합니다.")
 			return {used=true}
 		end
 	},
@@ -67,7 +70,7 @@ Light around it seems to dim and you can feel its tremendous power simply by tou
 	end,
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -84,13 +87,14 @@ newEntity{ define_as = "ORB_MANY_WAYS",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_many_ways.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[The orb projects images of distant places, some that seem to be not of this world, switching rapidly.
-If used near a portal it could probably activate it.]],
+	kr_name = "여러 장소로의 오브", kr_unided_name = "소용돌이 오브",
+	desc = [[이 오브는 멀리 떨어진 곳의 형상들을 보여주는 물건입니다. 어떤 장소는 이 세상과는 동떨어진 장소처럼 보이기도 하며, 빠르게 형상들이 바뀌고 있습니다.
+관문 근처에서 사용하면, 관문을 활성화시킬 수 있을 것 같습니다.]],
 
 	auto_hotkey = 1,
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "activate a portal", power = 10,
+	use_power = { name = "activate a portal", kr_name = "관문 활성화", power = 10,
 		use = function(self, who)
 			self:identify(true)
 			local g = game.level.map(who.x, who.y, game.level.map.TERRAIN)
@@ -98,7 +102,7 @@ If used near a portal it could probably activate it.]],
 				world:gainAchievement("SLIDERS", who:resolveSource())
 				who:useOrbPortal(g.orb_portal)
 			else
-				game.logPlayer(who, "There is no portal to activate here.")
+				game.logPlayer(who, "여기에는 활성화시킬 관문이 없습니다.")
 			end
 			return {id=true, used=true}
 		end
@@ -106,7 +110,7 @@ If used near a portal it could probably activate it.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -123,11 +127,12 @@ newEntity{ define_as = "ORB_MANY_WAYS_DEMON",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_many_ways.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[The orb projects images of distant places, some that seem to be not of this world, switching rapidly.
-If used near a portal it could probably activate it.]],
+	kr_name = "여러 장소로의 오브", kr_unided_name = "소용돌이 오브",
+	desc = [[이 오브는 멀리 떨어진 곳의 형상들을 보여주는 물건입니다. 어떤 장소는 이 세상과는 동떨어진 장소처럼 보이기도 하며, 빠르게 형상들이 바뀌고 있습니다.
+관문 근처에서 사용하면, 관문을 활성화시킬 수 있을 것 같습니다.]],
 
 	max_power = 30, power_regen = 1,
-	use_power = { name = "activate a portal", power = 10,
+	use_power = { name = "activate a portal", kr_name = "관문 활성화", power = 10,
 		use = function(self, who)
 			local g = game.level.map(who.x, who.y, game.level.map.TERRAIN)
 			if g and g.orb_portal and game.zone.short_name ~= "high-peak" then
@@ -135,16 +140,16 @@ If used near a portal it could probably activate it.]],
 				who:useOrbPortal{
 					change_level = 1,
 					change_zone = "demon-plane",
-					message = "#VIOLET#The world twists sickeningly around you and you find yourself someplace unexpected! It felt nothing like your previous uses of the Orb of Many Ways. Tannen must have switched the Orb out for a fake!",
+					message = "#VIOLET#주변 세상이 토할 정도로 빙빙 돌더니, 당신은 예상하지 못했던 곳에 도착했습니다! 저번에 여러 장소로의 오브를 사용했을 때와는 전혀 다릅니다. 탄넨이 오브를 가짜와 바꿔치기한 것이 틀림없습니다!",
 					on_use = function(self, who)
 						who:setQuestStatus("east-portal", engine.Quest.COMPLETED, "tricked-demon")
 						local orb = who:findInAllInventoriesBy("define_as", "ORB_MANY_WAYS_DEMON")
-						if orb then orb.name = "Demonic Orb of Many Ways" end
-						require("engine.ui.Dialog"):simplePopup("Demonic Orb of Many Ways", "It felt nothing like your previous uses of the Orb of Many Ways. Tannen must have switched the Orb out for a fake!")
+						if orb then orb.name = "Demonic Orb of Many Ways" orb.kr_name = "악마의 여러 장소로의 오브" end
+						require("engine.ui.Dialog"):simplePopup("악마의 여러 장소로의 오브", "저번에 여러 장소로의 오브를 사용했을 때와는 전혀 다릅니다. 탄넨이 오브를 가짜와 바꿔치기한 것이 틀림없습니다!")
 					end,
 				}
 			else
-				game.logPlayer(who, "There is no portal to activate here.")
+				game.logPlayer(who, "여기에는 활성화시킬 관문이 없습니다.")
 			end
 			return {id=true, used=true}
 		end
@@ -152,7 +157,7 @@ If used near a portal it could probably activate it.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -171,17 +176,18 @@ newEntity{ define_as = "ORB_UNDEATH",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_undeath.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[Dark visions fill your mind as you lift the orb. It is cold to the touch.]],
+	kr_name = "역생의 오브 (지배의 오브)", kr_unided_name = "지배의 오브",
+	desc = [[오브를 들자, 어두운 생각들이 당신의 마음을 채우기 시작합니다. 오브를 만져보면, 굉장히 차갑다는 것을 알 수 있습니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "use the orb", power = 1,
+	use_power = { name = "use the orb", kr_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -201,17 +207,18 @@ newEntity{ define_as = "ORB_DRAGON",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_dragon.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[This orb is warm to the touch.]],
+	kr_name = "용의 오브 (지배의 오브)", kr_unided_name = "지배의 오브",
+	desc = [[오브를 만져보면, 굉장히 따뜻하다는 것을 알 수 있습니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "use the orb", power = 1,
+	use_power = { name = "use the orb", kr_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -231,17 +238,18 @@ newEntity{ define_as = "ORB_ELEMENTS",
 	display = "*", color=colors.VIOLET, image = "object/artifact/elemental_orb.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[Flames swirl on the icy surface of this orb.]],
+	kr_name = "정령의 오브 (지배의 오브)", kr_unided_name = "지배의 오브",
+	desc = [[오브의 표면은 얼음에 덮여있으며, 그 주위에는 불꽃이 소용돌이 치고 있습니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "use the orb", power = 1,
+	use_power = { name = "use the orb", kr_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -261,17 +269,18 @@ newEntity{ define_as = "ORB_DESTRUCTION",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_destruction.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[Visions of death and destruction fill your mind as you lift this orb.]],
+	kr_name = "파괴의 오브 (지배의 오브)", kr_unided_name = "지배의 오브",
+	desc = [[오브를 들자, 죽음과 파괴에 대한 생각들이 당신의 마음을 채우기 시작합니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
 
 	max_power = 1, power_regen = 1,
-	use_power = { name = "use the orb", power = 1,
+	use_power = { name = "use the orb", kr_name = "오브 사용", power = 1,
 		use = function(self, who) who:useCommandOrb(self) return {id=true, used=true} end
 	},
 
@@ -290,11 +299,12 @@ newEntity{ define_as = "ORB_SCRYING",
 	display = "*", color=colors.VIOLET, image = "object/artifact/orb_scrying.png",
 	encumber = 1,
 	plot = true, quest = true,
-	desc = [[This orb will automatically identify items you find.]],
+	kr_name = "점술사의 오브", kr_unided_name = "점술사의 오브", 
+	desc = [[이것은 자동으로 발견한 물건들을 감정해 줍니다.]],
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -309,52 +319,53 @@ newEntity{ base = "BASE_ROD",
 	define_as = "ROD_OF_RECALL",
 	unided_name = "unstable rod", identified=true, force_lore_artifact=true,
 	name = "Rod of Recall", color=colors.LIGHT_BLUE, unique=true, image = "object/artifact/rod_of_recall.png",
-	desc = [[This rod is made entirely of voratun, infused with raw magical energies that can bend space itself.
-You have heard of such items before. They are very useful to adventurers, allowing faster travel.]],
+	kr_name = "되돌림의 장대", kr_unided_name = "불안정한 장대",
+	desc = [[이 장대는 고급 금속인 보라툰으로 만들어졌으며, 가공되지 않은 마법의 힘이 주입되어 주변의 공간을 구부릴 수 있게 만들어졌습니다.
+이런 마법 도구는 빠르게 먼 거리를 이동할 수 있게 해줘서, 모험가들에게 특히 유용하다는 말을 들어본 적이 있습니다.]],
 	cost = 0, quest=true,
 
 	auto_hotkey = 1,
 
 	max_power = 400, power_regen = 1,
-	use_power = { name = "recall the user to the worldmap after 40 turns", power = 202,
+	use_power = { name = "recall the user to the worldmap", kr_name = "사용자를 세계지도 상으로 되돌림", power = 202,
 		use = function(self, who)
 			if who:hasEffect(who.EFF_RECALL) then
 				who:removeEffect(who.EFF_RECALL)
-				game.logPlayer(who, "The rod emits a strange noise, glows briefly and returns to normal.")
+				game.logPlayer(who, "장대가 이상한 소음과 함께 빛을 내다가, 정상적으로 돌아왔습니다.")
 				return {id=true, used=true}
 			end
 			if not who:attr("never_move") then
 				if who:canBe("worldport") then
 					who:setEffect(who.EFF_RECALL, 40, { where = self.shertul_fortress and "shertul-fortress" or nil })
-					game.logPlayer(who, "Space around you starts to dissolve...")
+					game.logPlayer(who, "주변의 공간이 사라지기 시작합니다...")
 					return {id=true, used=true}
 				elseif game.zone.force_farportal_recall then
-					require("engine.ui.Dialog"):yesnoLongPopup("Force a recall", "The Fortress Shadow warned you that trying to force a recall without finding the portal back could break the exploratory farportal forever.", 500, function(ret)
+					require("engine.ui.Dialog"):yesnoLongPopup("소환의 힘", "돌아오는 관문을 찾지 않고 되돌림의 힘을 사용하면, 탐험용 장거리 관문이 영원히 부서질 수도 있다고 요새의 그림자가 경고합니다.", 500, function(ret)
 						if not ret then
 							who:setEffect(who.EFF_RECALL, 40, { where = self.shertul_fortress and "shertul-fortress" or nil, allow_override=true })
-							game.logPlayer(who, "Space around you starts to dissolve...")
+							game.logPlayer(who, "주변의 공간이 사라지기 시작합니다...")
 							if rng.percent(90) and who:hasQuest("shertul-fortress") then
 								who:hasQuest("shertul-fortress"):break_farportal()
 							end
 						end
-					end, "Cancel", "Recall")
+					end, "취소", "사용")
 				end
 			end
-			game.logPlayer(who, "The rod emits a strange noise, glows briefly and returns to normal.")
+			game.logPlayer(who, "장대가 이상한 소음과 함께 빛을 내다가, 정상적으로 돌아왔습니다.")
 			return {id=true, used=true}
 		end
 	},
 
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
 
 	on_pickup = function(self, who)
 		if who == game.player then
-			require("engine.ui.Dialog"):simplePopup("Rod of Recall", "You found a Rod of Recall. You can use it to quickly get out of your current zone and return to the worldmap.")
+			require("engine.ui.Dialog"):simplePopup("되돌림의 장대", "당신은 되돌림의 장대를 찾았습니다. 이것을 사용하면, 현재 지역을 빠르게 벗어나 세계지도 상으로 돌아갈 수 있습니다.")
 		end
 	end,
 }
@@ -366,12 +377,13 @@ newEntity{ base = "BASE_ROD",
 	add_name = false,
 	identified=true, force_lore_artifact=true,
 	name = "Transmogrification Chest", display = '~', color=colors.GOLD, unique=true, image = "object/chest4.png",
-	desc = [[This chest is an extension of old Sher'tul places of power. Any items dropped inside are transported to an other place, processed and destroyed to extract energy.
-The byproduct of this effect is the creation of gold, which is useless to process, so it is sent back to you.
+	kr_name = "변환 상자",
+	desc = [[이 상자는 오래된 쉐르'툴의 장소와 연결되어 있습니다. 이 상자 안에 있는 물건들은 그 곳으로 운반하여 파괴한 뒤, 에너지를 추출하기 위해 쓰입니다.
+이 작업의 부산물로 금화가 만들어지는데, 이것은 요새에서는 쓸모 없는 것이므로 금화는 당신에게 돌아옵니다.
 
-When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
-Simply go to your inventory to move them out of the chest if you wish to keep them.
-Items in the chest will not encumber you.]],
+이 상자를 가지고 있다면 바닥에서 자동으로 줍는 모든 물건들이 일단 상자 속으로 들어가며, 해당 층을 벗어날 때 변형 작업을 시작합니다.
+상자 속에 있는 물건 중 계속 가지고 있기를 원하는 것은, 상자 밖으로 꺼내놓아야 합니다.
+상자 속에 있는 물건들은 당신에게 무거움을 느끼게 하지 않습니다.]],
 	cost = 0, quest=true,
 
 	carrier = {
@@ -379,7 +391,7 @@ Items in the chest will not encumber you.]],
 	},
 
 	max_power = 1000, power_regen = 1,
-	use_power = { name = "transmogrify all the items in your chest at once (also done automatically when you change level)", power = 0,
+	use_power = { name = "transmogrify all the items in your chest at once(also done automatically when you change level)", kr_name = "상자 속에 있는 모든 물건들을 변화 (층이 바뀔 때 자동으로 수행됨)", power = 0,
 		use = function(self, who)
 			local inven = who:getInven("INVEN")
 			local nb = 0
@@ -390,9 +402,9 @@ Items in the chest will not encumber you.]],
 			if nb <= 0 then
 				local floor = game.level.map:getObjectTotal(who.x, who.y)
 				if floor == 0 then
-					require("engine.ui.Dialog"):simplePopup("Transmogrification Chest", "You do not have any items to transmogrify in your chest or on the floor.")
+					require("engine.ui.Dialog"):simplePopup("변환 상자", "상자 안이나 바닥에 변화시킬 물건이 없습니다.")
 				else
-					require("engine.ui.Dialog"):yesnoPopup("Transmogrification Chest", "Transmogrify all "..floor.." item(s) on the floor?", function(ret)
+					require("engine.ui.Dialog"):yesnoPopup("변환 상자", "바닥에 있는 "..floor.."개의 물건을 모두 변형시킵니까?", function(ret)
 						if not ret then return end
 						for i = floor, 1, -1 do
 							local o = game.level.map:getObject(who.x, who.y, i)
@@ -401,12 +413,12 @@ Items in the chest will not encumber you.]],
 								who:transmoInven(nil, nil, o)
 							end
 						end
-					end)
+					end, "예", "아니오")
 				end
 				return {id=true, used=true}
 			end
 
-			require("engine.ui.Dialog"):yesnoPopup("Transmogrification Chest", "Transmogrify all "..nb.." item(s) in your chest?", function(ret)
+			require("engine.ui.Dialog"):yesnoPopup("변환 상자", "상자 속에 있는 "..nb.."개의 물건을 모두 변형시킵니까?", function(ret)
 				if not ret then return end
 				for i = #inven, 1, -1 do
 					local o = inven[i]
@@ -414,23 +426,23 @@ Items in the chest will not encumber you.]],
 						who:transmoInven(inven, i, o)
 					end
 				end
-			end)
+			end, "예", "아니오")
 			return {id=true, used=true}
 		end
 	},
 
 	on_pickup = function(self, who)
-		require("engine.ui.Dialog"):simpleLongPopup("Transmogrification Chest", [[This chest is an extension of old Sher'Tul places of power. Any items dropped inside is transported to an other place, processed and destroyed to extract energy.
-The byproduct of this effect is the creation of gold, which is useless to process, so it is sent back to you.
+		require("engine.ui.Dialog"):simpleLongPopup("변환 상자", [[이 상자는 오래된 쉐르'툴의 동력과 연결되어 있습니다. 이 상자 안에 있는 물건들은 다른 장소로 운반하여 파괴한 뒤, 에너지를 추출하기 위해 쓰입니다.
+이 작업의 부산물로 금화가 만들어지는데, 이것은 에너지 변환 작업에는 쓸모 없는 것이므로 금화는 당신에게 돌아옵니다.
 
-When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
-To take an item out, simply go to your inventory to move them out of the chest.
-Items in the chest will not encumber you.]], 500)
+이 상자를 가지고 있다면 바닥에서 자동으로 줍는 모든 물건들이 일단 상자 속으로 들어가며, 해당 층을 벗어날 때 변형 작업을 시작합니다.
+상자 속에 있는 물건 중 계속 가지고 있기를 원하는 것은, 상자 밖으로 꺼내놓아야 합니다.
+상자 속에 있는 물건들은 당신에게 무거움을 느끼게 하지 않습니다.]], 500)
 		game:setAllowedBuild("birth_transmo_chest", true)
 	end,
 	on_drop = function(self, who)
 		if who == game.player then
-			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+			game.logPlayer(who, "당신은 %s 버릴 수 없습니다.", self:getName():addJosa("를"))
 			return true
 		end
 	end,
@@ -440,15 +452,16 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "FUN_BIKINI",
 	unique = true,
 	name = "Bikini", color = colors.RED, image = "object/artifact/bikini.png",
 	unided_name = "tiny piece of cloth",
-	desc = [[Revealing, pink, fun.
-#{bold}#If you never take it off and win you will gain a neat achievement and bragging rights!#{normal}#]],
+	kr_name = "비키니", kr_unided_name = "작은 천조각",
+	desc = [[노출이 심한, 핑크색의 재미난 옷입니다.
+#{bold}#이걸 입은 뒤에 한번도 벗지 않고 게임에서 이기면 멋진 업적을 얻고 자랑스러워 할 수 있습니다!#{normal}#]],
 	level_range = {1, 1},
 	rarity = false,
 	cost = 1,
 	material_level = 1,
 	moddable_tile = "special/bikini_01",
 	moddable_tile_big = true,
-	special_desc = function(self) return "You have never taken it off." end,
+	special_desc = function(self) return "한번도 벗은 적이 없습니다." end,
 	on_win = function(self)
 		world:gainAchievement("WIN_BIKINI", game.player)
 	end,
@@ -465,15 +478,16 @@ newEntity{ base = "BASE_CLOTH_ARMOR", define_as = "FUN_MANKINI",
 	unique = true,
 	name = "Mankini", color = colors.RED, image = "object/artifact/bikini.png",
 	unided_name = "tiny piece of cloth",
-	desc = [[Revealing, green, fun.
-#{bold}#If you never take it off and win you will gain a neat achievement and bragging rights!#{normal}#]],
+	kr_name = "맨키니", kr_unided_name = "작은 천조각",
+	desc = [[노출이 심한, 녹색의 재미난 옷입니다.
+#{bold}#이걸 입은 뒤에 한번도 벗지 않고 게임에서 이기면 멋진 업적을 얻고 자랑스러워 할 수 있습니다!#{normal}#]],
 	level_range = {1, 1},
 	rarity = false,
 	cost = 1,
 	material_level = 1,
 	moddable_tile = "special/mankini_01",
 	moddable_tile_big = true,
-	special_desc = function(self) return "You have never taken it off." end,
+	special_desc = function(self) return "한번도 벗은 적이 없습니다." end,
 	on_win = function(self)
 		world:gainAchievement("WIN_MANKINI", game.player)
 	end,
