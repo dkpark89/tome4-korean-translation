@@ -132,7 +132,7 @@ newTalent{
 		return ([[주문이 치명타로 적중할 때마다, 주변 %d 칸 반경에 있는 적 %d 명에게 빛이나 어둠의 화살을 발사하여 %0.2f 빛 피해나 %0.2f 어둠 피해를 줍니다. 
  		이 효과가 발동될 때마다 양기나 음기가 2 소모되며, 양기나 음기가 부족하다면 효과가 발동되지 않습니다. 
  		피해량은 주문력의 영향을 받아 증가합니다.]]): 
-		format(targetcount, self:getTalentRange(t), damDesc(self, DamageType.LIGHT, lightdamage), damDesc(self, DamageType.DARKNESS, darknessdamage))
+		format(self:getTalentRange(t), targetcount, damDesc(self, DamageType.LIGHT, lightdamage), damDesc(self, DamageType.DARKNESS, darknessdamage))
 	end,
 }
 
