@@ -75,5 +75,6 @@ newEntity{ define_as = "URKIS",
 
 	on_die = function(self, who)
 		game.player:resolveSource():setQuestStatus("lightning-overload", engine.Quest.COMPLETED)
+		game:unlockBackground("urkis", "Urkis, the High Tempest")
 	end,
 }
