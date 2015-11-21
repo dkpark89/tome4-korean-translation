@@ -221,10 +221,7 @@ newEntity{ base = "BASE_NPC_GHOST", define_as = "GLACIAL_LEGION",
 			radius,
 			5, nil,
 			engine.MapEffect.new{color_br=255, color_bg=255, color_bb=255, effect_shader="shader_images/ice_effect.png"},
-			function(e)
-				e.radius = e.radius 
-				return true
-			end,
+			nil,
 			false
 		)
 	end,
@@ -336,7 +333,6 @@ newEntity{ base = "BASE_NPC_VAMPIRE", unique=true, define_as="ARCH_ZEPHYR",
 		[Talents.T_HURRICANE]={base=2, every=7, max=4},
 
 		[Talents.T_SHOOT]=1, -- If possible, add talent that lets it temporarily fire lightning instead of arrows.
-		[Talents.T_RELOAD]=1,
 		[Talents.T_BOW_MASTERY]={base=4, every=10},
 		[Talents.T_DUAL_ARROWS]={base=3, every=6, max=8},
 		[Talents.T_PINNING_SHOT]={base=2, every=6, max=4},
