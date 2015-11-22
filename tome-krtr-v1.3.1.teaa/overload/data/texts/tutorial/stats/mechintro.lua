@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[
-ToME 4 is a large, complex game. Despite this, the most important mechanics-- the ones that directly influence the decisions you need to make as a player-- are governed by relatively simple rules. This mechanics guide will provide a brief introduction to these rules.
-]]
+return [[ToME4 는 '로그라이크' 장르에 익숙하지 않은 플레이어에게 있어 굉장히 복잡하게 느껴지는 게임입니다. 
+(사실 로그라이크 경험이 있더라도, 게임이 복잡하게 느껴지기는 마찬가지입니다!) 
+
+그래도, '한 게임의 플레이어로서 결정을 내릴 때 가장 중요한' 규칙들은 꽤 간단한 편입니다. 이번 연습용 게임을 끝내실 때 쯤에는, '간단한 규칙' 들에 대한 이해가 끝나...리라 믿습니다!]]
+

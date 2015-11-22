@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,8 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Let's take a closer look at these new timed effects. The easiest way to do that is to have them inflicted on you.
+새로운 지속 효과에 대해 더 자세히 알아봅시다. 백문이 불여일견이라고, 직접 이 효과들에 한번 걸려보도록 하죠.
 
-Ahead are a series of bored elves who will happily blast you with whatever spell they have handy. Examine the tooltip of each effect they inflict on you.
-
+앞에 있는 엘프들은 당신을 위해서 기꺼이 자신의 마법을 쏴갈겨줄 것입니다. 어떤 지속 효과에 걸리는지 직접 체험해보세요.
 ]]

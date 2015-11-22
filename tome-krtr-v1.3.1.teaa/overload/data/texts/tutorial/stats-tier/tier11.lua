@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-#GOLD#Congratulations!#WHITE# You have completed the combat stats tutorial. Hopefully it has been of some use to you.
+#GOLD#축하합니다!#WHITE# 당신은 #GOLD#모든 초보 모험가들을 위한 계몽의 지하미궁#WHITE# 을 정복하셨습니다!
 
+마즈' 에이알 세계를 탐험하실 때, 지금까지 배운 내용이 도움이 되기를 바라겠습니다.
 ]]

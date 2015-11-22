@@ -22,15 +22,16 @@ if not game.player.tutored_levels2 then
 	game.player.tutored_levels2 = true
 end
 
-return [[Ranged combat typically revolves around firing arrows, slinging stones, or casting spells.
-You have been given a bow, which you wield with both hands.
-Arrows are infinite but need reloading from time to time, by waiting, resting or walking around. You can add special arrows to your quiver for extra damage and/or effects.
-To fire an arrow, use the Shoot talent. The target interface will pop-up, just like for other talents.
+return [[원거리 공격은 화살을 쏘거나, 투석구로 돌을 던지거나, 마법으로 공격하는 것 등을 말합니다.
+지금은 활을 얻은 상태이며, 활은 양손으로 사용하는 무기입니다.
+화살뭉치만 있으면 화살의 개수에 제한은 없지만, 가끔 재장전 기술을 통해 재장전을 할 필요가 있습니다.
+화살을 발사하려면 발사 기술을 사용하면 됩니다.
 
-To equip your bow and arrows:
-* Open your inventory.
-* Click on the Off Set button to switch weapons.
-* Select your bow and arrows, wield them.
+활과 화살을 장비하기 위해서는...
 
-There are trolls to the west. Go use your bow and arrows to kill them!
+* 소지품 창을 엽니다.
+* 보조 장비 버튼을 클릭하여, 무장을 바꿉니다.
+* 소지 중인 활과 화살을 선택한 뒤, 장비합니다.
+
+서쪽에는 트롤들이 있습니다. 활과 화살을 사용해서 트롤을 퇴치하세요!
 ]]

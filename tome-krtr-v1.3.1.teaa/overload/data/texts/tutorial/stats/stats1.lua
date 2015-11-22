@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,12 +18,12 @@
 -- darkgod@te4.org
 
 return [[
-Basic character attributes such as strength and willpower are important, but their importance lies in how they affect your #GOLD#combat stats#WHITE#, the subject of this entire tutorial.
-The first two of these #GOLD#combat stats#WHITE# are:
+'힘' 이나 '의지' 같은 능력치는 당연히 중요하지만, 이런 능력치들이 진짜 중요한 이유는 이것들이 #GOLD#전투 능력치#WHITE# 에 직접적인 영향을 주기 때문입니다. 이번 연습용 게임에서 다루고자 하는 것 역시 바로 이 #GOLD#전투 능력치#WHITE# 입니다.
+첫번째로 다룰 두 가지 중요한 #GOLD#전투 능력치#WHITE# 는...
 
-#LIGHT_GREEN#Accuracy: #WHITE#Determines whether your physical attacks hit your target.  
-#LIGHT_GREEN#Defense: #WHITE#Your ability to avoid attacks.
+#LIGHT_GREEN#정확도 #WHITE#: 공격이 맞을 확률을 결정합니다.
+#LIGHT_GREEN#회피도 #WHITE#: 공격을 피할 확률을 결정합니다.
 
-When you try to stab somebody, your #LIGHT_GREEN#Accuracy#WHITE# score is measured against your target's #LIGHT_GREEN#Defense#WHITE# score, and a percentage chance of success is determined. We'll look at the exact calculation later.
-
+즉 적을 공격할 때마다, 자신의 #LIGHT_GREEN#정확도#WHITE# 수치와 적의 #LIGHT_GREEN#회피도#WHITE# 수치를 비교하여 공격의 성공이나 실패를 가린다는 의미죠.
+정확한 계산 방법은 잠시 후에 알 수 있을테니, 일단 지금은 #LIGHT_GREEN#정확도#WHITE# 와 #LIGHT_GREEN#회피도#WHITE# 개념에 대해서만 알아두시면 됩니다.
 ]]

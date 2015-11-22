@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-Can you explain the difference in the durations for that "Off-balance" timed effect you're inflicting?
+왜 적마다 '불균형' 효과의 지속시간이 다른걸까요?
 
-Why is one of the spiders unaffected?
+왜 거미 한 마리는 '불균형' 효과에 걸리지 않는걸까요?
 
-Go learn the Blink spell just to the south, then go back and try it on the spiders.
+남쪽으로 가서, 새로운 기술을 거미들에게 사용해보세요.
 ]]

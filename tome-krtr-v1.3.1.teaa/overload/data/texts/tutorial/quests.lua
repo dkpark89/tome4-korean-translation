@@ -17,13 +17,13 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[During your adventures you will find quests.
-A quest can come from performing an action, finding an item, speaking to somebody, and more.
+return [[모험을 하다보면 다양한 퀘스트를 받게 됩니다.
+퀘스트는 특정한 행동을 하거나, 특정한 물건을 찾거나, 누군가의 의뢰를 받는 등 다양한 방법으로 시작할 수 있습니다.
 
-You can view your current quests by pressing 'j' or right-clicking yourself.
+현재 퀘스트 목록은 'j' 키를 누르거나, 오른쪽 마우스 버튼으로 자신을 클릭하여 볼 수 있습니다.
 
-Once a quest is finished or failed it will disappear from the quest log. Most quests in ToME are optional, if you don't think you can survive one, don't do it.
+퀘스트가 끝나거나 실패하면, 퀘스트 목록에서 사라집니다. ToME 세계에서 대부분의 퀘스트는 부수적인 것이므로, 위험하다 생각되면 퀘스트를 굳이 할 필요는 없습니다.
 
-When this tutorial started you were tasked to kill the Lone Wolf, you are nearing its position.
-#GOLD#Beware and fight with honour!#WHITE#
+이 연습용 게임이 시작할 때, '외로운 한 마리 늑대' 를 퇴치해달라는 의뢰를 받았다고 했습니다. 바로 앞에 이 '외로운 한 마리 늑대' 가 있습니다.
+#GOLD#명예를 위해 싸우십시오! 그리고 조심하십시오!#WHITE#
 ]]

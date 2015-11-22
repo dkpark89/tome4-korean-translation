@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,19 +18,18 @@
 -- darkgod@te4.org
 
 return [[
-To summarize the information thus far:
+지금까지 나온 정보들을 요약하자면...
 
-Every being in ToME has eight important #GOLD#combat stats#WHITE# that determine combat success.
-Four of them are offensive...
-#LIGHT_GREEN#Accuracy#WHITE#
-#LIGHT_GREEN#Physical power#WHITE#
-#LIGHT_GREEN#Spellpower#WHITE#
-#LIGHT_GREEN#Mindpower#WHITE#
+ToME 세계에서는 전투가 일어날 때마다, 여덟 개의 중요한 #GOLD#전투 능력치#WHITE# 를 사용하여 전투의 승패를 결정합니다.
+그 중 네 개는 공격적 능력치고...
+#LIGHT_GREEN#정확도#WHITE#
+#LIGHT_GREEN#물리력#WHITE#
+#LIGHT_GREEN#주문력#WHITE#
+#LIGHT_GREEN#정신력#WHITE#
 
-...and four of them are defensive.
-#LIGHT_GREEN#Defense#WHITE#
-#LIGHT_GREEN#Physical save#WHITE#
-#LIGHT_GREEN#Spell save#WHITE#
-#LIGHT_GREEN#Mental save#WHITE#
-
+...나머지 네 개는 방어적 능력치입니다.
+#LIGHT_GREEN#회피도#WHITE#
+#LIGHT_GREEN#물리 내성#WHITE#
+#LIGHT_GREEN#주문 내성#WHITE#
+#LIGHT_GREEN#정신 내성#WHITE#
 ]]

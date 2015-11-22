@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Note that all three elves were casting using a #8d55ff#Tier 5#WHITE# #GOLD#combat stat#WHITE#, though they produced effects that varied in duration.
+세 엘프의 #GOLD#전투 능력치#WHITE# 가 모두 #8d55ff#5 단계#WHITE# 였기 때문에, 다양한 지속 효과를 각자 다른 지속시간으로 줄 수 있었습니다.
 
-If you hadn't already deduced the rules governing these new status effects, hopefully this helped.
+이제 어떻게 이 새로운 지속 효과가 생기는지 감이 오시나요?
 ]]

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 -- darkgod@te4.org
 
 return [[
-Try the new spell on each of the enemies in the next room. Note that it's a spell, so it uses your #LIGHT_GREEN#Spellpower#WHITE#, and it causes a physical effect (bleeding), so the target will defend with its #LIGHT_GREEN#Physical save#WHITE#.
+다음 방에 있는 적들에게 새로 배운 기술을 사용해보세요. 지금 배운 출혈 기술은 마법으로 일으키는 것이라서, 성공 확률을 계산할 때 자신의 #LIGHT_GREEN#주문력#WHITE# 을 사용합니다. 
+그리고 '출혈' 은 말 그대로 피를 흘리는 거니까 물리적 상태효과지요. 그래서 적들은 #LIGHT_GREEN#물리 내성#WHITE# 을 사용해서 출혈 상태를 저항하려고 할 것입니다.
 
-Note in particular the duration of the effect on each enemy. You can check their tooltip to see detrimental effects and their remaining duration.
-
+단순히 출혈 상태의 성공/실패 여부만 보지 말고, 출혈 상태의 지속시간을 잘 관찰해보세요. 적에게 마우스 커서를 올리면 나오는 상태창을 통해 출혈의 지속시간을 확인할 수 있습니다.
 ]]

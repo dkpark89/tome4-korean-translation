@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,7 +18,5 @@
 -- darkgod@te4.org
 
 return [[
-Until now, a certain game mechanic has been disabled. Go learn a new talent at the nearby Rune of Enlightenment and use it to blast each of the enemies in the next room. 
-
-Can you identify the new mechanic?
+이번에는 과연 어떤 것을 배우게 될까요? 밑에 있는 깨달음의 룬을 밟고, 새로 배운 기술로 적들을 공격해보세요.
 ]]

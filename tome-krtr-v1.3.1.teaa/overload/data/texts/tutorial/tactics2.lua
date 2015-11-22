@@ -17,10 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-return [[A skeleton mage just fired a spell at you.
-While the fireworks look nice, you don't want to get hit too much.
-When under the fire of archers or spell casters always try to break line of sight with them, they will be forced to come to you (unless they are smart).
-#GOLD#Take cover: Never let them get a clean shot!#WHITE#
+return [[스켈레톤 마법사가 당신을 마법으로 공격했습니다.
+마법의 불꽃놀이가 멋있긴 하지만, 그 불꽃에 얻어맞고 싶지는 않을 것입니다.
+궁수나 마법사의 공격을 받고 있다면, 엄폐물 등으로 시야를 차단해서 적들이 이쪽으로 다가올 수밖에 없게 만드세요. (똑똑한 적은 이 전략을 눈치챌 수도 있습니다)
 
-Now take cover and wait for the skeleton.
+#GOLD#지형을 이용하여, 궁수의 공격을 허용하지 마세요!#WHITE#
+
+이제 지형을 이용하여 숨은 다음, 스켈레톤을 기다리세요.
 ]]

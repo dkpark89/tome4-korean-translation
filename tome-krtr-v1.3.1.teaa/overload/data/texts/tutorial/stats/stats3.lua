@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,10 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-The final three important #GOLD#combat stats#WHITE# of your character are these:
+마지막으로 다룰 세 가지 중요한 #GOLD#전투 능력치#WHITE# 는...
 
-#LIGHT_GREEN#Physical power: #WHITE#Your ability to inflict damage and effects with weapons (including fists).
-#LIGHT_GREEN#Spellpower: #WHITE#Your ability to inflict damage and effects with spells.
-#LIGHT_GREEN#Mindpower: #WHITE#Your ability to inflict damage and effects with your mind.
-
+#LIGHT_GREEN#물리력#WHITE# : 무기나 주먹으로 피해를 주고, 상태효과를 일으키는 능력입니다.
+#LIGHT_GREEN#주문력#WHITE# : 마법으로 피해를 주고, 상태효과를 일으키는 능력입니다.
+#LIGHT_GREEN#정신력#WHITE# : 정신적으로 피해를 주고, 상태효과를 일으키는 능력입니다.
 ]]

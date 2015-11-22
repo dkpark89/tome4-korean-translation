@@ -23,24 +23,26 @@ if not game.player.tutored_levels then
 	game.player.tutored_levels = true
 end
 
-return [[You now possess the Shield Pummel and Shield Wall talents.
-Talents show up in the lower left part of the screen with their assigned hotkey.
-You can right-click on a talent to remove it from the list, or you can add talents by pressing 'M' to get the talents list and then pressing a hotkey.
-Hotkeys by default are the 1 to 0 keys, and can also be assigned to items.
+return [[이제 '방패 치기' 와 '방패의 벽' 기술을 사용할 수 있게 되었습니다.
+배운 기술들은 하단에 표시되며, 순서대로 단축키가 지정됩니다.
+마우스 오른쪽 버튼을 클릭하여 기술 목록에서 원하지 않는 기술을 제거할 수 있으며, 'm' 키를 누르면 나오는 기술 설정 창을 통해 기술 목록에 기술을 추가하고 단축키를 설정할 수 있습니다.
+단축키는 기본적으로 1 부터 9 까지 배치되며, 각종 도구 역시 단축키로 지정할 수 있습니다.
 
-You can use a talent by pressing its hotkey, selecting it from the talents list, clicking on it in the lower right corner, or right-clicking on the map.
+기술은 단축키를 누르거나, 기술 목록에서 원하는 기술을 선택하거나, 기술 설정 창에서 고르거나, 기술을 사용하고 싶은 곳에 마우스 오른쪽 버튼을 누르는 등의 방법으로 사용할 수 있습니다.
 
-Talents come in three types:
-* #GOLD#Active#WHITE#: A talent that is activated when you use it and has an instantaneous effect.
-* #GOLD#Sustained#WHITE#: A talent that must be turned on and lasts until it is turned off. Usually this will reduce your maximum resource available (stamina in this case).
-* #GOLD#Passive#WHITE#: A talent that provides an ever-present benefit.
+기술의 종류는 다음의 세 가지로 분류할 수 있습니다.
 
-Some talents require a target, when you use them the interface will change to let you select the target:
-* #GOLD#Using the keyboard#WHITE#: Pressing a direction key will shift between possible targets. Pressing shift+direction will move freely to any spot. Enter or space will confirm the target.
-* #GOLD#Using the mouse#WHITE#: Moving your mouse will move the target around. Left-click will confirm it.
+* #GOLD#사용형 (액티브)#WHITE#: 사용하면 그 즉시 특정한 효과를 일으키는 기술입니다.
+* #GOLD#지속형 (패시브)#WHITE#: 한번 배우면 영구적으로 효과가 나타나는 기술입니다.
+* #GOLD#유지형 (스위치)#WHITE#: 기술을 유지하는 동안 반영구적으로 효과가 지속됩니다.
+#LIGHT_GREEN#* 유지형 기술은 기술이 유지되는 동안 원천력 (지금은 체력) 최대치를 사용합니다!#WHITE#
 
-Now go forward and try using your talents:
-* #GOLD#Shield Pummel#WHITE#: This talent will attack the target trying to stun it, rendering much slower and less able to harm you for a few turns.
-* #GOLD#Shield Wall#WHITE#: This talent will increase your defense and armour but reduce your damage.
-* #GOLD#Block#WHITE#: This talent is given by your shield, letting you block the next blow and triggering a deadly counterstrike opportunity.
+몇몇 기술들은 사용할 때 대상이 필요합니다. 이런 기술들을 사용하면, 대상을 선택할 수 있는 상태가 됩니다.
+* #GOLD#키보드 사용#WHITE# : 화살표 키를 눌러 대상을 자동으로 선택합니다. Shift + 방향키를 눌러 한 칸씩 움직일 수 있습니다. Enter 나 Space 키를 눌러 선택합니다.
+* #GOLD#마우스 사용#WHITE# : 마우스로 대상을 정한 뒤, 왼쪽 마우스 버튼을 클릭하여 선택합니다.
+
+이제 각종 기술들을 직접 사용해보세요.
+* #GOLD#방패 치기#WHITE#: 대상을 방패로 공격해, 기절시키는 기술입니다. 기절한 적은 잠시 동안 속도와 공격력이 대폭 감소하게 됩니다.
+* #GOLD#방패의 벽#WHITE#: 기술을 유지하는 동안 회피도와 방어도가 올라가지만, 피해량이 줄어드는 기술입니다. 이 기술은  #GOLD#유지형 (스위치)#WHITE# 기술이기 때문에, 기술을 유지하는 동안 체력 최대치가 일정량 감소합니다. 기술 유지를 해제하면 체력 최대치도 복구됩니다.
+* #GOLD#막기#WHITE#: 방패로 공격을 막고, 공격을 완전히 막아낸 뒤에는 치명적인 반격을 날릴 수 있는 기술입니다.
 ]]

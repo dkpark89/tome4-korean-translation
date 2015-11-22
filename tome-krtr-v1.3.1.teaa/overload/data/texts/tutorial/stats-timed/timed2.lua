@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,8 +18,7 @@
 -- darkgod@te4.org
 
 return [[
-Under what circumstances do you appear to inflict the full-duration bleed effect?
+모든 적들이 10 턴의 출혈 상태효과에 걸리던가요?
 
-For those targets that didn't receive the full duration, how did their applicable #GOLD#combat stat#WHITE# compare to yours?
-
+출혈 지속시간이 10 턴 미만인 적들의 #GOLD#전투 능력치#WHITE# 를 잘 살펴보세요.
 ]]

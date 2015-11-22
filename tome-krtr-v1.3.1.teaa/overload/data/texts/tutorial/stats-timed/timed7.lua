@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@
 -- darkgod@te4.org
 
 return [[
-In general, greatly reducing the durations of timed effects requires rather high defensive #GOLD#combat stat#WHITE# scores. The all-important #GOLD#combat stat#WHITE# score difference of ten that we saw earlier usually results in a mere two-turn reduction of timed effect durations. 
+그럼 전투를 할 때마다 이렇게 머리아프게 확률 계산해가면서 싸워야할까요? 오, 부디 그러지는 마세요. 그냥 딱 두 가지만 확실히 기억하면 되니까요.
 
-If you want to negate timed effects completely, you're going to have to work hard at finding sources of #LIGHT_GREEN#Physical save#WHITE#, #LIGHT_GREEN#Spell save#WHITE#, and 
-#LIGHT_GREEN#Mental save#WHITE#.
+1) #GOLD#수치 차이가 20 이상 나면, 무조건 공격이나 상태효과가 성공/실패한다.#WHITE#
 
+2) #GOLD#내성이 높으면 상태효과에 걸릴 확률은 물론, 그 지속시간도 줄어든다.#WHITE#
 ]]
