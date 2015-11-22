@@ -62,4 +62,5 @@ newEntity{ base = "DEEP_WATER", define_as = "FOUNTAIN_MAIN",
 		image = "terrain/statues/angolwen_fountain.png",
 		display_w = 6, display_h = 5,
 		display_x = -2.5, display_y = -2,
+}}
 }
