@@ -36,7 +36,7 @@ newEntity{ base = "BASE_LORE",
 	desc = [[매우 희미해져 거의 읽는 것이 불가능한 기록입니다.]],
 	rarity = false,
 	encumberance = 0,
-
+}
 newEntity{ base = "BASE_CLOTH_ARMOR",
 	power_source = {psionic=true},
 	unique = true,
