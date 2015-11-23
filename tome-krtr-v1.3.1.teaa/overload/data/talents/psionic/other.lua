@@ -270,8 +270,6 @@ newTalent{
 		마석은 염동력으로 멀리 떨어진 적을 근접 공격이 가능한 거리로 끌어옵니다. (1 단계 마석의 경우 5% 확률로 2 칸 떨어진 곳에 있는 적을 끌어오며, 단계가 상승할 때마다 확률이 +5% / 사거리가 1 칸 추가됨)
 		물리 근접 무기는 거의 독립적으로 움직이며, 매 턴마다 근처의 적들을 자동으로 공격합니다. 또한 무기의 정확도와 피해량을 결정하는 힘과 민첩 능력치는 의지와 교활함 능력치로 대체됩니다.]] 
 
-		]]
-
 		local o = self:getInven("PSIONIC_FOCUS") and self:getInven("PSIONIC_FOCUS")[1]
 		if type(o) == "boolean" then o = nil end
 		if not o then return base end
