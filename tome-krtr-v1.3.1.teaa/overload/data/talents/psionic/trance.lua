@@ -30,6 +30,7 @@ end
 
 newTalent{
 	name = "Trance of Purity",
+	kr_name = "순수의 최면",
 	type = {"psionic/trance", 1},
 	points = 5,
 	require = psi_wil_req1,
@@ -82,15 +83,17 @@ newTalent{
 	info = function(self, t)
 		local purge = t.getPurgeChance(self, t)
 		local saves = t.getSavingThrows(self, t)
-		return ([[Activate to purge negative status effects (100%% chance for the first effect, -%d%% less chance for each subsequent effect).  While this talent is sustained all your saving throws are increased by %d.
-		The chance to purge and saving throw bonus will scale with your mindpower.
-		Only one trance may be active at a time.]]):format(purge, saves)
+		return ([[사용하면 나쁜 상태효과들이 제거됩니다. (100%% 확률로 첫번째 상태효과가 제거되며, 두번째 상태효과부터는 확률이 %d%% 씩 낮아집니다)
+		최면이 유지되는 동안, 모든 내성이 %d 증가합니다.
+		상태효과 제거 확률과 내성 증가량은 정신력의 영향을 받아 증가합니다.
+		한번에 하나의 최면 효과만을 유지할 수 있습니다.]]):format(purge, saves)
 	end,
 }
 
 newTalent{
 	short_name = "TRANCE_OF_WELL_BEING",
 	name = "Trance of Well-Being",
+	kr_name = "치유의 최면",
 	type = {"psionic/trance", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -133,14 +136,15 @@ newTalent{
 		local heal = t.getHeal(self, t)
 		local healing_modifier = t.getHealingModifier(self, t)
 		local regen = t.getLifeRegen(self, t)
-		return ([[Activate to heal yourself for %0.2f life.  While this talent is sustained your healing modifier will be increased by %d%% and your life regen by %0.2f.
-		The effects will scale with your mindpower.
-		Only one trance may be active at a time.]]):format(heal, healing_modifier, regen)
+		return ([[사용하면 생명력이 %0.2f 회복됩니다. 최면이 유지되는 동안, 치유 효율이 %d%% 증가하고 생명력 재생이 %0.2f 증가합니다.
+		최면의 효과는 정신력의 영향을 받아 증가합니다.
+		한번에 하나의 최면 효과만을 유지할 수 있습니다.]]):format(heal, healing_modifier, regen)
 	end,
 }
 
 newTalent{
 	name = "Trance of Focus",
+	kr_name = "집중의 최면",
 	type = {"psionic/trance", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -173,20 +177,20 @@ newTalent{
 	info = function(self, t)
 		local power = t.getCriticalPower(self, t)
 		local chance = t.getCriticalChance(self, t)
-		return ([[Activate to increase your critical strike damage by %d%% for 10 turns.  While this talent is sustained your critical strike chance is improved by +%d%%.
-		The effects will scale with your mindpower.
-		Only one trance may be active at a time.]]):format(power, chance)
+		return ([[사용하면 치명타 피해량이 10 턴 동안 %d%% 증가합니다. 그리고 최면이 유지되는 동안, 치명타율이 %d%% 증가합니다.
+		최면의 효과는 정신력의 영향을 받아 증가합니다.]])::format(power, chance)
 	end,
 }
 
 newTalent{
 	name = "Deep Trance",
+	kr_name = "깊은 최면",
 	type = {"psionic/trance", 4},
 	points = 5,
 	require = psi_wil_req4,
 	mode = "passive",
 	info = function(self, t)
-		return ([[When you wield or wear an item infused by psionic, nature, or arcane-disrupting forces you improve all values under its 'when wielded/worn' field %d%%.
-		Note this doesn't change the item itself, but rather the effects it has on your person (the item description will not reflect the improved values).]]):format(1)
+		return ([[염력, 자연, 반마법의 힘이 깃든 장비를 착용하면, 해당 장비의 '착용시 적용' 항목에 있는 모든 능력치가 %d%% 향상됩니다.
+		장비 자체의 능력을 바꾸지는 않으며, 사용자에게만 적용됩니다. (장비 설명에는 향상된 수치가 표시되지 않습니다)]]):format(1)
 	end,
 }
