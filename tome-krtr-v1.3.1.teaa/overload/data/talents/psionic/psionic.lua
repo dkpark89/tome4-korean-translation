@@ -18,42 +18,44 @@
 -- darkgod@te4.org
 
 -- Talent trees
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/absorption", name = "absorption", description = "Absorb damage and gain energy." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/projection", name = "projection", description = "Project energy to damage foes." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/psi-fighting", name = "psi-fighting", description = "Wield melee weapons with mentally-manipulated forces." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/focus", name = "focus", description = "Use gems to focus your energies." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/augmented-mobility", generic = true, name = "augmented mobility", description = "Use energy to move yourself and others." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/augmented-striking", name = "augmented striking", description = "Augment melee attacks with psionic enegies." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/voracity", name = "voracity", description = "Pull energy from your surroundings." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/finer-energy-manipulations", generic = true, name = "finer energy manipulations", description = "Subtle applications of the psionic arts." }
---newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/mental-discipline", generic = true, name = "mental discipline", description = "Increase mental capacity, endurance, and flexibility." }
-newTalentType{ is_mind=true, type="psionic/other", name = "other", description = "Various psionic talents." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/absorption", name = "absorption", description = "피해를 흡수하고, 그 피해를 염력으로 전환하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/projection", name = "projection", description = "오러를 발산하여 적에게 피해를 주는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/psi-fighting", name = "psi-fighting", description = "염력을 이용하여 근접무기를 다루는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/focus", name = "focus", description = "보석과 마석으로 염력을 집중시키는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/augmented-mobility", generic = true, name = "augmented mobility", description = "염력을 이용하여 빠르게 움직이고, 적을 끌어오는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/augmented-striking", name = "augmented striking", description = "염동력을 통해 강화된 근접 공격 기술입니다." } 
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/voracity", name = "voracity", description = "주변의 에너지를 흡수하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/finer-energy-manipulations", generic = true, name = "finer energy manipulations", description = "염동력을 이용한 미세 조작 기술입니다." }
+--newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/mental-discipline", generic = true, name = "mental discipline", description = "정신력과 끈기를 수련합니다." }
+newTalentType{ is_mind=true, type="psionic/other", name = "other", description = "여러 가지 염동적 기술입니다." }
 
 -- Advanced Talent Trees
---newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/grip", name = "grip", min_lev = 10, description = "Augment your telekinetic grip." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/kinetic-mastery", name = "kinetic mastery", min_lev = 10, description = "Mastery of telekinetic forces." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/thermal-mastery", name = "thermal mastery", min_lev = 10, description = "Mastery of pyrokinetic forces." }
-newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/charged-mastery", name = "charged mastery", min_lev = 10, description = "Mastery of electrokinetic forces." }
---newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/psi-archery", name = "psi-archery", min_lev = 10, description = "Use your telekinetic powers to wield bows with deadly effectiveness." }
---newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/greater-psi-fighting", name = "greater psi-fighting", description = "Elevate psi-fighting prowess to epic levels." }
---newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/brainstorm", name = "brainstorm", description = "Focus your telekinetic powers in ways undreamed of by most mindslayers." }
+--newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/grip", name = "grip", min_lev = 10, description = "염동적 악력을 높이는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/kinetic-mastery", name = "kinetic mastery", min_lev = 10, description = "동역학적 힘을 다루는 기술입니다." } 
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/thermal-mastery", name = "thermal mastery", min_lev = 10, description = "열역학적 힘을 다루는 기술입니다." } 
+newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/charged-mastery", name = "charged mastery", min_lev = 10, description = "전하적 힘을 다루는 기술입니다." } 
+--newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/psi-archery", name = "psi-archery", min_lev = 10, description = "염동력으로 활을 사용해, 강력한 능력을 발휘하는 기술입니다." }
+--newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/greater-psi-fighting", name = "greater psi-fighting", description = "염동전투 능력을 전설의 수준으로 끌어올리는 기술입니다." }
+--newTalentType{ allow_random=true, is_mind=true, autolearn_mindslayer=true, type="psionic/brainstorm", name = "brainstorm", description = "대부분의 정신 파괴자들이 꿈도 꾸지 못한 방법으로 염동력을 다루는 기술입니다." }
 
 -- Solipsist Talent Trees
-newTalentType{ allow_random=true, is_mind=true, type="psionic/discharge", name = "discharge", description = "Project feedback on the world around you." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/distortion", name = "distortion", description = "Distort reality with your mental energy." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/dream-forge", generic = true, name = "Dream Forge", description = "Master the dream forge to create powerful armor and effects." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/dream-smith", name = "Dream Smith", description = "Call the dream-forge hammer to smite your foes." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/nightmare", name = "nightmare", description = "Manifest your enemies nightmares." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/psychic-assault", name = "Psychic Assault", description = "Directly attack your opponents minds." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/slumber", name = "slumber", description = "Force enemies into a deep sleep." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/solipsism", name = "solipsism", description = "Nothing exists outside the minds ability to perceive it." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/thought-forms", name = "Thought-Forms", description = "Manifest your thoughts as psionic summons." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/discharge", name = "discharge", description = "주변에 반작용의 힘을 불러내는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/distortion", name = "distortion", description = "정신의 힘으로 주변을 왜곡시키는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/dream-forge", generic = true, name = "Dream Forge", description = "꿈 속 대장간을 통해, 강력한 갑옷과 다양한 효과를 만들어내는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/dream-smith", name = "Dream Smith", description = "꿈 속 대장간에서 망치를 만들어내, 적을 공격하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/nightmare", name = "nightmare", description = "적들을 악몽으로 이끄는 기술입니다.." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/psychic-assault", name = "Psychic Assault", description = "상대방의 정신을 직접 공격하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/slumber", name = "slumber", description = "적들을 깊은 잠에 빠뜨리는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/solipsism", name = "solipsism", description = "내가 인지했다. 고로 저것은 존재한다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/thought-forms", name = "Thought-Forms", description = "생각을 구현하여, 동료를 소환하는 기술입니다." }
 
 -- Generic Solipsist Trees
-newTalentType{ allow_random=true, is_mind=true, type="psionic/dreaming", generic = true, name = "dreaming", description = "Manipulate the sleep cycles of yourself and your enemies." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/mentalism", generic = true, name = "mentalism", description = "Various mind based effects." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/feedback", generic = true, name = "feedback", description = "Store feedback as you get damaged and use it to protect and heal your body." }
-newTalentType{ allow_random=true, is_mind=true, type="psionic/trance", generic = true, name = "trance", description = "Put your mind into a deep trance." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/dreaming", generic = true, name = "dreaming", description = "자신과 적들의 꿈을 다루는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/mentalism", generic = true, name = "mentalism", description = "정신력에 기초하여 다양한 효과를 일으키는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/feedback", generic = true, name = "feedback", description = "피해에 대한 반작용을 축적하여, 스스로의 보호와 치료에 사용하는 기술입니다." }
+newTalentType{ allow_random=true, is_mind=true, type="psionic/trance", generic = true, name = "trance", description = "최면 상태에 빠져, 잠재력을 끌어올리는 기술입니다." }
+
+newTalentType{ allow_random=true, is_mind=true, type="psionic/possession", name = "possession", description = "스스로의 육체를 벗어나, 다른 육체를 소유할 수 있는 기술입니다." }
 
 -- Level 0 wil tree requirements:
 psi_absorb = {
