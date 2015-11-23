@@ -21,6 +21,7 @@ local Object = require "mod.class.Object"
 
 newTalent{
 	name = "Chill of the Tomb",
+	kr_name = "묘지의 냉기",
 	type = {"spell/grave",1},
 	require = spells_req1,
 	points = 5,
@@ -51,14 +52,15 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[Conjures up a bolt of cold that moves toward the target and explodes into a chilly circle of death, doing %0.2f cold damage in a radius of %d.
-		The damage will increase with your Spellpower.]]):
-		format(damDesc(self, DamageType.COLD, damage), radius)
+		return ([[대상 지역에 죽음의 기운이 실린 냉기 덩어리를 발사합니다. 냉기 덩어리는 천천히 이동하며, 폭발하여 주변 %d 칸 반경에 %0.2f 냉기 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
+		format(radius, damDesc(self, DamageType.COLD, damage)) --@ 변수 순서 조정
 	end,
 }
 
 newTalent{
 	name = "Will o' the Wisp",
+	kr_name = "윌 오 위습",
 	type = {"spell/grave",2},
 	require = spells_req2,
 	mode = "sustained",
@@ -71,6 +73,7 @@ newTalent{
 		if not killer or not killer.faction or self:reactionToward(killer) >= 0 or self.dead then return end
 		local minion = require("mod.class.NPC").new{
 			name = "will o' the wisp",
+			kr_name = "윌 오 위습",
 			type = "undead", subtype = "ghost",
 			blood_color = colors.GREY,
 			display = "G", color=colors.WHITE,
@@ -122,9 +125,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance, dam = t.getParams(self, t)
-		return ([[Surround yourself with undead energies. When one of your minions is destroyed while inside your necrotic aura, it has a %d%% chance to create a will o' the wisp.
-		The will o' the wisp will take a random target in sight and home in on it. When it reaches the target, it will explode for %0.2f cold damage.
-		The damage will increase with your Spellpower.]]):
+		eturn ([[주변에 언데드의 기운을 흩뿌립니다. 언데드 추종자가 이 범위 내에서 파괴되었을 경우, %d%% 확률로 윌 오 위습이 만들어집니다.
+		윌 오 위습은 시야 내의 무작위한 적에게 접근하여 폭발하며, 적에게 %0.2f 냉기 피해를 줍니다.
+		피해량은 주문량 능력치의 영향을 받아 증가합니다.]]):
 		format(chance, damDesc(self, DamageType.COLD, dam))
 	end,
 }
@@ -132,6 +135,7 @@ newTalent{
 -- Kinda copied from Creeping Darkness
 newTalent{
 	name = "Cold Flames",
+	kr_name = "차가운 불꽃",
 	type = {"spell/grave",3},
 	require = spells_req3,
 	points = 5,
@@ -181,6 +185,7 @@ newTalent{
 	createDark = function(summoner, x, y, damage, duration, creep, creepChance, initialCreep)
 		local e = Object.new{
 			name = "cold flames",
+			kr_name = "차가운 불꽃",
 			canAct = false,
 			canCreep = true,
 			x = x, y = y,
@@ -316,13 +321,14 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local damage = t.getDamage(self, t)
 		local darkCount = t.getDarkCount(self, t)
-		return ([[Cold Flames slowly spread from %d spots in a radius of %d around the targeted location. The flames deal %0.2f cold damage, and have a chance of freezing.
-		Damage improves with your Spellpower.]]):format(darkCount, radius, damDesc(self, DamageType.COLD, damage))
+		return ([[대상 지역의 %d 칸 반경에, 차가운 불꽃이 서서히 일어나기 시작합니다. 차가운 불꽃은 턴 당 %d 개씩 생겨나면서 해당 지역에 %0.2f 냉기 피해를 주며, 적에게 빙결 상태효과를 가할 확률이 있습니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, darkCount, damDesc(self, DamageType.COLD, damage)) --@ 변수 순서 조정
 	end,
 }
 
 newTalent{
 	name = "Vampiric Gift",
+	kr_name = "흡혈 본능",
 	type = {"spell/grave",4},
 	require = spells_req4,
 	points = 5,
@@ -354,8 +360,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance, val = t.getParams(self, t)
-		return ([[Vampiric energies fill you; each time you deal damage, you have %d%% chance to heal for %d%% of the damage done.
-		The absorption percent will increase with your Spellpower.]]):
+		return ([[흡혈귀의 기운이 흘러, 적에게 피해를 줄 때마다 %d%% 확률로 피해량의 %d%% 만큼 생명력을 회복합니다.
+		회복 확률은 주문력의 영향을 받아 증가합니다.]]):
 		format(chance, val)
 	end,
 }
