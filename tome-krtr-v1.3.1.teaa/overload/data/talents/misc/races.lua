@@ -669,7 +669,7 @@ newTalent{
 
 newTalent{
 	name = "Hold the Ground",
-	kr_name = "버티기"
+	kr_name = "버티기",
 	type = {"race/orc", 2},
 	require = racial_req2,
 	points = 5,
