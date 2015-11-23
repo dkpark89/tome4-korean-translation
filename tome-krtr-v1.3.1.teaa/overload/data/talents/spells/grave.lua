@@ -125,7 +125,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance, dam = t.getParams(self, t)
-		eturn ([[주변에 언데드의 기운을 흩뿌립니다. 언데드 추종자가 이 범위 내에서 파괴되었을 경우, %d%% 확률로 윌 오 위습이 만들어집니다.
+		return ([[주변에 언데드의 기운을 흩뿌립니다. 언데드 추종자가 이 범위 내에서 파괴되었을 경우, %d%% 확률로 윌 오 위습이 만들어집니다.
 		윌 오 위습은 시야 내의 무작위한 적에게 접근하여 폭발하며, 적에게 %0.2f 냉기 피해를 줍니다.
 		피해량은 주문량 능력치의 영향을 받아 증가합니다.]]):
 		format(chance, damDesc(self, DamageType.COLD, dam))
