@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Telekinetic Grasp",
+	kr_name = "염동적 악력",
 	type = {"psionic/other", 1},
 	points = 1,
 	cooldown = 0,
@@ -29,7 +30,7 @@ newTalent{
 	filter = function(o) return (o.type == "weapon" or o.type == "gem") and o.subtype ~= "sling" end,
 	action = function(self, t)
 		local inven = self:getInven("INVEN")
-		local ret = self:talentDialog(self:showInventory("Telekinetically grasp which item?", inven, t.filter, function(o, item)
+		local ret = self:talentDialog(self:showInventory("염동력으로 무엇을 쥡니까??", inven, t.filter, function(o, item)
 			local pf = self:getInven("PSIONIC_FOCUS")
 			if not pf then return end
 			-- Put back the old one in inventory
@@ -67,7 +68,7 @@ newTalent{
 			o = self:removeObject(inven, item)
 			-- Force "wield"
 			self:addObject(pf, o)
-			game.logSeen(self, "%s wears: %s.", self.name:capitalize(), o:getName{do_color=true})
+			game.logSeen(self, "%s %s 장비했습니다.", self.name:capitalize(), o:getName{do_color=true})
 			
 			self:sortInven()
 			self:talentDialogReturn(true)
@@ -76,12 +77,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Encase a weapon or gem in mentally-controlled forces, holding it aloft and bringing it to bear with the power of your mind alone.]])
+	return ([[염력을 이용해서, 무기나 보석을 들어올립니다.]])
 	end,
 }
 
 newTalent{
 	name = "Beyond the Flesh",
+	kr_name = "육신의 힘을 넘어",
 	type = {"psionic/other", 1},
 	points = 1,
 	mode = "sustained",
@@ -198,7 +200,7 @@ newTalent{
 		local tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
 		if tx and ty and a:canBe("knockback") then
 			a:move(tx, ty, true)
-			game.logSeen(a, "%s telekinetically grabs %s!", self.name:capitalize(), a.name)
+			game.logSeen(a, "%s %s 염동적 악력으로 끌어옵니다!", self.name:capitalize(), a.name)
 		end
 	end,
 	callbackOnActBase = function(self, t)
@@ -263,10 +265,10 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		local base = [[Allows you to wield a physical melee weapon, a mindstar or a gem telekinetically, gaining a special effect for each.
-		A gem will provide +3 bonus to all primary stats per tier of the gem.
-		A mindstar will randomly try to telekinetically grab a far away foe (10% chance and range 2 for a tier 1 mindstar, +1 range and +5% chance for each tier above 1) and pull it into melee range.
-		A physical melee weapon will act as a semi independant entity, attacking foes nearby each turn while also replacing Strength and Dexterity with 60% of your Willpower and Cunning, for accuracy and damage calculations. This stat usage modification will also apply to conventionally wielded weapons.
+		local base = [[물리 근접 무기, 마석, 혹은 보석을 염동력으로 쥐어 특수한 효과를 얻습니다.
+		보석은 단계 당 모든 능력치를 +3 만큼 증가시킵니다.
+		마석은 염동력으로 멀리 떨어진 적을 근접 공격이 가능한 거리로 끌어옵니다. (1 단계 마석의 경우 5% 확률로 2 칸 떨어진 곳에 있는 적을 끌어오며, 단계가 상승할 때마다 확률이 +5% / 사거리가 1 칸 추가됨)
+		물리 근접 무기는 거의 독립적으로 움직이며, 매 턴마다 근처의 적들을 자동으로 공격합니다. 또한 무기의 정확도와 피해량을 결정하는 힘과 민첩 능력치는 의지와 교활함 능력치로 대체됩니다.]] 
 
 		]]
 
@@ -281,10 +283,10 @@ newTalent{
 		local speed = 1
 		if o.type == "gem" then
 			local ml = o.material_level or 1
-			base = base..([[The telekinetically-wielded gem grants you +%d stats.]]):format(ml * 3)
+			base = base..([[염동력으로 쥐고 있는 보석이 모든 능력치를 +%d 상승시킵니다.]]):format(ml * 3)
 		elseif o.subtype == "mindstar" then
 			local ml = o.material_level or 1
-			base = base..([[The telekinetically-wielded mindstar has a %d%% chance to grab a foe up to %d range away.]]):format((ml + 1) * 5, ml + 2)
+			base = base..([[염동력으로 쥐고 있는 마석이 %d%% 확률로 최대 %d 칸 떨어진 곳에 있는 적을 끌어옵니다.]]):format((ml + 1) * 5, ml + 2)
 		else
 			self:attr("use_psi_combat", 1)
 			atk = self:combatAttack(o.combat)
@@ -293,13 +295,13 @@ newTalent{
 			crit = self:combatCrit(o.combat)
 			speed = self:combatSpeed(o.combat)
 			self:attr("use_psi_combat", -1)
-			base = base..([[The telekinetically-wielded weapon uses Willpower in place of Strength, and Cunning in place of Dexterity, to determine Accuracy and damage.
-			Combat stats:
-			Accuracy: %d
-			Damage: %d
-			APR: %d
-			Crit: %0.2f
-			Speed: %0.2f]]):
+			base = base..([[무기의 피해량과 정확도는 힘과 민첩 능력치 대신 의지와 교활함 능력치로 결정됩니다.
+			현재 염동력으로 쥐고 있는 무기의 능력치는 다음과 같습니다.
+			- 정확도 : %d
+			- 피해량: %d
+			- 방어도 관통 : %d
+			- 치명타율 : %0.2f
+			- 공격 속도 : %0.2f]]):
 			format(atk, dam, apr, crit, speed)
 		end
 		return base
