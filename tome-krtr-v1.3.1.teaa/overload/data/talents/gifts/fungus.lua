@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Wild Growth",
+	kr_name = "미생물 배양",
 	type = {"wild-gift/fungus", 1},
 	require = gifts_req1,
 	points = 5,
@@ -46,14 +47,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local dur = t.getDur(self, t)
-		return ([[Surround yourself with a myriad of tiny, nearly invisible, healing fungi.
-		Any regeneration effect active on you will have its duration increased by +%d turns.]]):
+		return ([[주변에 수많은 미생물이 생겨나, 생명력 재생을 도와줍니다.
+		모든 생명력 재생 효과의 지속시간이 %d 턴 증가합니다.]]):
 		format(dur)
 	end,
 }
 
 newTalent{
 	name = "Fungal Growth",
+	kr_name = "미생물 성장",
 	type = {"wild-gift/fungus", 2},
 	require = gifts_req2,
 	points = 5,
@@ -61,15 +63,16 @@ newTalent{
 	getPower = function(self, t) return self:combatLimit(self:combatTalentMindDamage(t, 5, 500), 100, 20, 0, 56.8, 368.5) end, --limit <100%
 	info = function(self, t)
 		local p = t.getPower(self, t)
-		return ([[Improve your fungus to allow it to take a part of any healing you receive and improve it.
-		Each time you are healed, you get a regeneration effect for 6 turns that heals you for %d%% of the direct heal you received.
-		The effect will increase with your Mindpower.]]):
+		return ([[생명력을 회복할 때마다, 미생물의 도움으로 추가적인 생명력을 회복합니다.
+		생명력을 회복할 때마다, 6 턴 동안 회복량의 %d%% 만큼이 추가로 재생됩니다.
+		생명력 재생은 정신력의 영향을 받아 증가합니다.]]):
 		format(p)
 	end,
 }
 
 newTalent{
 	name = "Ancestral Life",
+	kr_name = "고대의 생명력",
 	type = {"wild-gift/fungus", 3},
 	require = gifts_req3,
 	points = 5,
@@ -79,16 +82,17 @@ newTalent{
 	info = function(self, t)
 		local eq = t.getEq(self, t)
 		local turn = t.getTurn(self, t)
-		return ([[Your fungus can reach into the primordial ages of the world, granting you ancient instincts.
-		Each time a regeneration effect is used on you, you gain %d%% of a turn.
-		Also, regeneration effects on you will decrease your equilibrium by %0.1f each turn.
-		The turn gain increases with your Mindpower.]]):
+		return ([[옛 시대에서부터 이어져 내려온 미생물을 통해, 고대의 능력을 얻게 됩니다.
+		생명력 재생 효과를 일으킬 때, 발동 시간이 %d%% 만큼 더 빨라지게 됩니다.
+		또한, 생명력이 재생되는 동안 매 턴마다 평정을 %0.1f 만큼 찾을 수 있게 됩니다.
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(turn, eq)
 	end,
 }
 
 newTalent{
 	name = "Sudden Growth",
+	kr_name = "급격한 성장",
 	type = {"wild-gift/fungus", 4},
 	require = gifts_req4,
 	points = 5,
@@ -106,7 +110,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local mult = t.getMult(self, t)
-		return ([[A wave of energy passes through your fungus, making it release immediate healing energies on you, healing you for %d%% of your current life regeneration rate.]]):
+		return ([[에너지의 파동이 미생물에 퍼져, 생명력을 즉시 회복시킵니다. 턴 당 재생되는 생명력 수치의 %d%% 만큼이 즉시 회복됩니다.]]):
 		format(mult * 100)
 	end,
 }
