@@ -384,7 +384,6 @@ newTalent{
 		return ([[수면 상태의 적을 공격할 때, 피해량과 저항 관통력이 %d%% 증가합니다.
 		수면 상태의 적을 죽일 때마다, 밤의 공포가 %d 턴 동안 소환됩니다.
 		밤의 공포의 능력치, 피해량, 저항 관통력 그리고 수면 상태의 적을 공격할때의 추가 피해량은 정신력의 영향을 받아 증가합니다.
-		Increases your damage and resistance penetration on sleeping targets by %d%%.  Additionally, every time you slay a sleeping target, a Night Terror will be summoned for %d turns.
-		The Night Terror's stats will scale with your Mindpower, as will the damage bonus to sleeping targets.]]):format(damage, summon)
+		]]):format(damage, summon)
 	end,
 }
