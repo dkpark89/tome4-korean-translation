@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Shadow Tunnel",
+	kr_name = "그림자 통로",
 	type = {"spell/shades",1},
 	require = spells_req_high1,
 	points = 5,
@@ -64,14 +65,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local chance = t.getChance(self, t)
-		return ([[Surround your minions in a veil of darkness. The darkness will teleport them to you, and grant them %d%% evasion for 5 turns.
-		The evasion chance will increase with your Spellpower.]]):
+	return ([[언데드 추종자들에게 어둠의 장막을 둘러, 시전자 곁으로 추종자들을 불러들입니다. 또한 언데드 추종자들이 5 턴 동안 %d%% 확률로 근접 공격을 회피할 수 있게 됩니다.
+		회피율은 주문력의 영향을 받아 증가합니다.]]):
 		format(chance)
 	end,
 }
 
 newTalent{
 	name = "Curse of the Meek",
+	kr_name = "연약함의 저주",
 	type = {"spell/shades",2},
 	require = spells_req_high2,
 	points = 5,
@@ -115,28 +117,33 @@ newTalent{
 				local race = 5 -- rng.range(1, 5)
 				if race == 1 then
 					m.name = "human farmer"
+					m.kr_name = "인간 농부"
 					m.subtype = "human"
 					m.image = "npc/humanoid_human_human_farmer.png"
-					m.desc = [[A weather-worn human farmer, looking at a loss as to what's going on.]]
+					m.desc = [[평범한 인간 농부로, 뭐가 어떻게 된 것인지 모르겠다는 표정을 하고 있습니다.]]
 				elseif race == 2 then
 					m.name = "halfling gardener"
+					m.kr_name = "하플링 정원사"
 					m.subtype = "halfling"
-					m.desc = [[A rugged halfling gardener, looking quite confused as to what he's doing here.]]
+					m.desc = [[무뚝뚝한 하플링 정원사로, 지금 여기서 무슨 일이 일어나는지 혼란스러운 것 같습니다.]]
 					m.image = "npc/humanoid_halfling_halfling_gardener.png"
 				elseif race == 3 then
 					m.name = "shalore scribe"
+					m.kr_name = "샬로레 필경사"
 					m.subtype = "shalore"
-					m.desc = [[A scrawny elven scribe, looking bewildered at his surroundings.]]
+					m.desc = [[비쩍 마른 엘프 필경사로,주변 환경에 당황한 것 같습니다.]]
 					m.image = "npc/humanoid_shalore_shalore_rune_master.png"
 				elseif race == 4 then
 					m.name = "dwarven lumberjack"
+					m.kr_name = "드워프 나무꾼"
 					m.subtype = "dwarf"
-					m.desc = [[A brawny dwarven lumberjack, looking a bit upset at his current situation.]]
+					m.desc = [[건장한 드워프 나무꾼으로, 갑작스러운 환경 변화에 살짝 화가 난 것 같습니다.]]
 					m.image = "npc/humanoid_dwarf_lumberjack.png"
 				elseif race == 5 then
 					m.name = "cute bunny"
+					m.kr_name = "귀여운 토끼"
 					m.type = "vermin" m.subtype = "rodent"
-					m.desc = [[It is so cute!]]
+					m.desc = [[귀여운 토끼입니다!]]
 					m.image = "npc/vermin_rodent_cute_little_bunny.png"
 				end
 				m.faction = self.faction
@@ -160,15 +167,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Reaches through the shadows into quieter places, summoning %d harmless creatures.
-		Those creatures are then cursed with a Curse of Hate, making all hostile foes try to kill them.
-		If the summoned creatures are killed by hostile foes, you have 70%% chance to gain a soul.]]):
+		return ([[그림자를 이용하여, 무해한 생명체를 %d 마리 소환하고 이 생명체들에게 '증오의 저주' 를 겁니다. 
+		'증오의 저주' 효과로 인해, 모든 적들이 이 생명체를 최우선적으로 죽이고 싶어하게 됩니다.
+		적들에 의해 소환된 생명체가 사망할 경우, 70%% 확률로 영혼을 획득합니다.]]):
 		format(math.ceil(self:getTalentLevel(t)))
 	end,
 }
 
 newTalent{
 	name = "Forgery of Haze",
+	kr_name = "아지랑이 환영",
 	type = {"spell/shades",3},
 	require = spells_req_high3,
 	points = 5,
@@ -184,7 +192,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(self.x, self.y, 1, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 부족합니다!")
 			return
 		end
 
@@ -196,8 +204,9 @@ newTalent{
 			summon_time = t.getDuration(self, t),
 			ai_target = {actor=nil},
 			ai = "summoned", ai_real = "tactical",
+			kr_name = "아지랑이 환영 ("..(self.kr_name or self.name)..")",
 			name = "Forgery of Haze ("..self.name..")",
-			desc = [[A dark shadowy shape whose form resembles yours.]],
+			desc = [[당신을 닮은, 아지랑이 환영입니다.]],
 		})
 		m:removeAllMOs()
 		m.make_escort = nil
@@ -230,7 +239,7 @@ newTalent{
 			game.party:addMember(m, {
 				control="no",
 				type="minion",
-				title="Forgery of Haze",
+				title="Forgery of Haze", kr_title="아지랑이 환영",
 				orders = {target=true},
 			})
 		end
@@ -239,14 +248,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Through the shadows, you forge a temporary copy of yourself, existing for %d turns.
-		The copy possesses your exact talents and stats, has %d%% life and deals %d%% damage.]]):
+		return ([[그림자를 이용하여, 시전자의 분신을 %d 턴 동안 만들어냅니다.
+		분신은 시전자의 능력치와 기술을 그대로 가지고 있으며, 생명력은 시전자의 %d%% 만큼 가지고 있고, 피해량은 시전자의 %d%% 만큼 줄 수 있습니다.]]):
 		format(t.getDuration(self, t), t.getHealth(self, t) * 100, t.getDam(self, t) * 100)
 	end,
 }
 
 newTalent{
 	name = "Frostdusk",
+	kr_name = "서리황혼",
 	type = {"spell/shades",4},
 	require = spells_req_high4,
 	points = 5,
@@ -286,8 +296,8 @@ newTalent{
 		local damageinc = t.getDarknessDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local affinity = t.getAffinity(self, t)
-		return ([[Surround yourself with Frostdusk, increasing all your darkness and cold damage by %d%%, and ignoring %d%% of the darkness resistance of your targets.
-		In addition, all darkness damage you take heals you for %d%% of the damage.]])
+	return ([[시전자 주변에 황혼이 지고, 서리가 낍니다. 모든 암흑 피해와 냉기 피해가 %d%% 상승하며, 적들의 암흑 저항력을 %d%% 무시할 수 있게 됩니다.
+		그리고, 암흑 피해를 받으면 피해량의 %d%% 만큼 생명력을 회복하게 됩니다.]])
 		:format(damageinc, ressistpen, affinity)
 	end,
 }
