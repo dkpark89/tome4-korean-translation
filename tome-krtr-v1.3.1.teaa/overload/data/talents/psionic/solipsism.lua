@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Solipsism",
+	kr_name = "유아론",
 	type = {"psionic/solipsism", 1},
 	points = 5, 
 	require = psi_wil_req1,
@@ -65,16 +66,19 @@ newTalent{
 		local conversion_ratio = t.getConversionRatio(self, t)
 		local psi_damage_resist, psi_damage_resist_base, psi_damage_resist_talent = t.getPsiDamageResist(self, t)
 		local threshold = math.min((self.solipsism_threshold or 0),self:callTalent(self.T_CLARITY, "getClarityThreshold") or 1)
-		return ([[You believe that your mind is the center of everything.  Permanently increases the amount of psi you gain per level by 5 and reduces your life rating (affects life at level up) by 50%% (one time only adjustment).
-		You also have learned to overcome damage with your mind alone, and convert %d%% of all damage you receive into Psi damage and %d%% of your healing and life regen now recovers Psi instead of life.
-		Converted Psi damage you take will be further reduced by %0.1f%% (%0.1f%% from character level with the remainder further reduced by %0.1f%% from talent level).
-		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
-		The first talent point also increases your solipsism threshold by 20%% (currently %d%%), reducing your global speed by 1%% for each percentage your current Psi falls below this threshold.]]):format(conversion_ratio * 100, conversion_ratio * 100, psi_damage_resist, psi_damage_resist_base * 100, psi_damage_resist_talent, (self.solipsism_threshold or 0) * 100)
+		return ([[실재하는 것은 자아 뿐이고, 다른 모든 것들은 현상에 불과한 것이라고 생각합니다. 
+		레벨이 오를 때마다 염력 최대량이 5 증가하지만, 그 대신 생명력 증가량이 50%% 줄어듭니다. (기술 레벨이 1 이 될 때, 한 번만 적용됩니다)
+		정신력으로 피해를 극복하는 법을 배워 적에게 받는 피해량의 %d%% 가 생명력 대신 염력을 소진시키고, 생명력 회복시 회복량의 %d%% 가 생명력 대신 염력을 회복시킵니다.
+		또한 생명력 대신 염력으로 피해를 받을 때, 염력 소진량이 %0.1f%% 감소합니다. (캐릭터 레벨을 통해 %0.1f%% 만큼, 기술 레벨을 통해 %0.1f%% 만큼 감소)
+		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
+		또한 독존 한계량이 기본적으로 20%% (현재 : %d%%) 가 되며, 현재 염력이 독존 한계량보다 부족할 경우 부족한 %% 만큼 전체 속도가 1%% 감소하게 됩니다.]]): 
+		format(conversion_ratio * 100, conversion_ratio * 100, psi_damage_resist, psi_damage_resist_base * 100, psi_damage_resist_talent, (self.solipsism_threshold or 0) * 100)
 	end,
 }
 
 newTalent{
 	name = "Balance",
+	kr_name = "균형",
 	type = {"psionic/solipsism", 2},
 	points = 5, 
 	require = psi_wil_req2,
@@ -105,14 +109,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local ratio = t.getBalanceRatio(self, t) * 100
-		return ([[You now substitute %d%% of your Mental Save for %d%% of your Physical and Spell Saves throws (so at 100%%, you would effectively use mental save for all saving throw rolls).
-		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
-		Learning this talent also increases your solipsism threshold by 10%% (currently %d%%).]]):format(ratio, ratio, math.min((self.solipsism_threshold or 0),self.clarity_threshold or 1) * 100)
+		return ([[물리 내성과 주문 내성의 %d%% 만큼을 버리고, 정신 내성의 %d%% 로 대체합니다. (즉 이 비율이 100%% 가 되면, 정신 내성이 물리 내성과 주문 내성을 완전히 대체하게 됩니다)
+		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
+		이 기술을 배우면 독존 한계량이 10%% 증가하게 됩니다. (현재 : %d%%)]]):format(ratio, ratio, math.min((self.solipsism_threshold or 0),self.clarity_threshold or 1) * 100)
 	end,
 }
 
 newTalent{
 	name = "Clarity",
+	kr_name = "깨달음",
 	type = {"psionic/solipsism", 3},
 	points = 5, 
 	require = psi_wil_req3,
@@ -145,17 +150,19 @@ newTalent{
 	info = function(self, t)
 		local threshold = t.getClarityThreshold(self, t)
 		local bonus = ""
-		if not self.max_level or self.max_level > 50 then
-			bonus = " Exceptional focus on this talent can suppress your solipsism threshold."
+	if not self.max_level or self.max_level > 50 then
+			bonus = " 이 기술에 대한 특별한 집중을 통해, 독존 한계량을 극복해냈습니다." 
 		end
-		return ([[For every percent that your Psi pool exceeds %d%%, you gain 1%% global speed (up to a maximum of %+d%%).
-		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25 and will increase your solipsism threshold by 10%% (currently %d%%).]]):
+		return ([[현재 염력이 최대 염력의 %d%% 이상일 경우, 넘치는 %% 만큼 전체 속도가 증가합니다. (최대 %+d%%)
+		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
+		이 기술을 배우면 독존 한계량이 10%% 증가하게 됩니다. (현재 : %d%%)]]):
 		format(threshold * 100, (1-threshold)*100, math.min(self.solipsism_threshold or 0,threshold) * 100)..bonus
 	end,
 }
 
 newTalent{
 	name = "Dismissal",
+	kr_name = "묵살",
 	type = {"psionic/solipsism", 4},
 	points = 5, 
 	require = psi_wil_req4,
@@ -190,8 +197,8 @@ newTalent{
 		print("[Dismissal] ", self.name:capitalize(), " attempting to ignore ", value, "damage from ", src.name:capitalize(), "using", saving_throw,  "mental save.")
 		if self:checkHit(saving_throw, value) then
 			local dismissed = value * (1 - (1 / self:mindCrit(2))) -- Diminishing returns on high crits
-			game:delayedLogMessage(self, nil, "Dismissal", "#TAN##Source# mentally dismisses some damage!")
-			game:delayedLogDamage(src, self, 0, ("#TAN#(%d dismissed)#LAST#"):format(dismissed))
+			game:delayedLogMessage(self, nil, "Dismissal", "#TAN##Source1# 정신적으로 피해를 저항해냈습니다!") 
+			game:delayedLogDamage(src, self, 0, ("#TAN#(%d 저항)#LAST#"):format(dismissed)) 
 			return value - dismissed
 		else
 			return value
@@ -199,8 +206,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local save_percentage = t.getSavePercentage(self, t)
-		return ([[Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.
-		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
-		The first talent point also increases your solipsism threshold by 10%% (currently %d%%).]]):format(save_percentage * 100, math.min(self.solipsism_threshold or 0,self.clarity_threshold or 1) * 100)		
+		return ([[피해를 받을 때마다, 정신 내성의 %d%% 를 이용해서 저항을 시도합니다. 저항이 성공할 경우, 받는 피해량이 50%% 이상 감소합니다.
+		기술 레벨이 1 이 될 때, 의지 능력치 1 당 최대 염력이 0.5 증가하게 되지만 그 대신 체격 능력치 1 당 최대 생명력이 0.25 감소하게 됩니다. 
+		이 기술을 배우면 독존 한계량이 10%% 증가하게 됩니다. (현재 : %d%%)]]):format(save_percentage * 100, math.min(self.solipsism_threshold or 0,self.clarity_threshold or 1) * 100)
 	end,
 }
