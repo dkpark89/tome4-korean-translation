@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Necrotic Aura", image = "talents/aura_mastery.png",
+	kr_name = "사령술의 기운",
 	type = {"spell/other", 1},
 	points = 1,
 	mode = "sustained",
@@ -30,31 +31,31 @@ newTalent{
 	die_speach = function(self, t)
 		if rng.percent(90) then return end
 		self:doEmote(rng.table{
-			"Noooooo!",
-			"Save me, Master, save meeee---",
-			"Aaaauuuggghhh!",
-			"Did I do good?",
-			"Bwuh? Nwaaah!",
-			"Why, Master, whyyyyy---?",
-			"I thought you loved me! I thought-",
-			"For Master's glory!",
-			"Bye... bye....",
-			"We love you, Master!",
-			"EeeeeeeaaaAAAAAUUUUUGGGGGHHHHH!!!!",
-			"The pain, the PAAAAAIN!",
-			"Please, no, nooo--",
-			"Unlife no more for this dead matter, the time comes for my flesh to splatter.",
-			"You gave back life, you gave back dreams, but now I'm bursting at the seams...",
-			"Remember meeeee!",
-			"My tummy hurts...",
-			"Whu..?",
-			"Ahahahahaha!",
-			"Me go boom, me go BOOM!",
-			"Grave circumstances, Master....",
-			"I see the light.. I see, oh.. just a wisp....",
-			"Master, wait... I thought I saw a....Master? ..",
-			"I'm not.. so sure my spine is supposed to bend this way....",
-			"I told you I could Dash 100 yards and back in time! You owe me 10 gol....",
+			"안돼----!",
+			"주인님, 제발 목숨만은... 주인ㄴ---",
+			"으아아아아아아!",
+			"저... 잘했나요?",
+			"으어? 우와아아아악!",
+			"주인님, 대체 왜? 대체 왜----?",
+			"나를 좋아한다고 생각했는데! 나를-",
+			"주인님의 영광을 위하여!",
+			"잘... 가....",
+			"당신을 사랑해요, 주인님!",
+			"으으으으으아아아아하아아아앜크으으으으흐으!!!!",
+			"아파요, 아파요오오오오오!",
+			"제발, 안돼요, 안돼--",
+			"이 몸뚱아리도 더이상 죽음을 거스르지는 못하는 모양이로군, 내 살점이 흩뿌려질 시간이야.",
+			"당신이 내 삶을 다시 줬고, 내 꿈을 다시 줬었죠, 하지만 이젠 꿰멘 곳이 터져나가는군요...",
+			"날 기억해줘어어어!",
+			"배가 아프네...",
+			"왜..?",
+			"아하하하하하!",
+			"난 터질거야, 빵! 하고 터져버린다고!",
+			"무덤행이로군요, 주인님....",
+			"빛이 보여요.. 보여, 아.. 한 줄기 빛이....",
+			"주인님, 기다려 주세요... 제가 뭔가를 본거 같....주인님? ..",
+			"아니야.. 내가 이렇게 사라져버린다니....",
+			"제가 100 미터를 단숨에 돌진했다가 돌아올 수 있다고 얘기드렸죠! 제게 금화 10 개를 빚졌....",
 		}, 40)
 	end,
 	getDecay = function(self, t) return math.max(3, 10 - self:getTalentLevelRaw(self.T_AURA_MASTERY)) end,
@@ -83,9 +84,9 @@ newTalent{
 	info = function(self, t)
 		local radius = t.getRadius(self, t)
 		local decay = t.getDecay(self, t)
-		return ([[Emits a necrotic aura, sustaining your undead minions in a radius of %d. Minions outside the radius will lose %d%% life per turn.
-		Any creature you or your minions kill within your aura will be absorbed as a soul that can be used to raise minions.
-		Retch from your ghouls will also heal you, even if you are not undead.]]):
+	return ([[사령술의 기운을 뿜어내, 주변 %d 칸 범위 내의 언데드 추종자들을 보호합니다. 범위 밖의 추종자들은 턴 당 최대 생명력의 %d%% 에 해당하는 생명력 피해를 입습니다.
+		자신이나 추종자가 이 범위 안에서 적을 죽일 경우, 그 영혼이 속박되어 언데드 추종자로 만들어낼 수 있습니다.
+		또한 구울이 뿜어내는 토사물을 통해서 생명력을 회복할 수 있게 되며, 이는 자신의 종족이 언데드가 아니더라도 적용됩니다.]]):
 		format(radius, decay)
 	end,
 }
@@ -95,6 +96,7 @@ local minions_list = {
 	d_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "degenerated skeleton warrior", color=colors.WHITE, image="npc/degenerated_skeleton_warrior.png",
+		kr_name = "부패한 스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -124,6 +126,7 @@ local minions_list = {
 	skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton warrior", color=colors.SLATE, image="npc/skeleton_warrior.png",
+		kr_name = "스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s", color=colors.SLATE,
 		combat = { dam=1, atk=1, apr=1 },
@@ -155,6 +158,7 @@ local minions_list = {
 	a_skel_warrior = {
 		type = "undead", subtype = "skeleton",
 		name = "armoured skeleton warrior", color=colors.STEEL_BLUE, image="npc/armored_skeleton_warrior.png",
+		kr_name = "중무장한 스켈레톤 전사",
 		blood_color = colors.GREY,
 		display = "s", color=colors.STEEL_BLUE,
 		combat = { dam=1, atk=1, apr=1 },
@@ -193,6 +197,7 @@ local minions_list = {
 	skel_archer = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton archer", color=colors.UMBER, image="npc/skeleton_archer.png",
+		kr_name = "스켈레톤 궁수",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -225,6 +230,7 @@ local minions_list = {
 	skel_m_archer = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton master archer", color=colors.LIGHT_UMBER, image="npc/master_skeleton_archer.png",
+		kr_name = "스켈레톤 명궁수",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -259,6 +265,7 @@ local minions_list = {
 	skel_mage = {
 		type = "undead", subtype = "skeleton",
 		name = "skeleton mage", color=colors.LIGHT_RED, image="npc/skeleton_mage.png",
+		kr_name = "스켈레톤 마법사",
 		blood_color = colors.GREY,
 		display = "s",
 		combat = { dam=1, atk=1, apr=1 },
@@ -309,6 +316,7 @@ local minions_list = {
 		see_invisible = 2,
 		undead = 1,
 		name = "ghoul", color=colors.TAN,
+		kr_name = "구울",
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 2, combat_def = 7,
 		resolvers.talents{
@@ -337,6 +345,7 @@ local minions_list = {
 		see_invisible = 2,
 		undead = 1,
 		name = "ghast", color=colors.UMBER,
+		kr_name = "가스트",
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 2, combat_def = 7,
 		resolvers.talents{
@@ -365,6 +374,7 @@ local minions_list = {
 		see_invisible = 2,
 		undead = 1,
 		name = "ghoulking", color={0,0,0},
+		kr_name = "구울 왕",
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 3, combat_def = 10,
 		ai_state = { talent_in=2, ai_pause=20 },
@@ -402,7 +412,8 @@ local minions_list = {
 		see_invisible = 5,
 		undead = 1,
 		name = "vampire", color=colors.SLATE, image = "npc/vampire.png",
-		desc=[[It is a humanoid with an aura of power. You notice a sharp set of front teeth.]],
+		kr_name = "흡혈귀",
+		desc=[[사악한 기운이 감도는 인간형 언데드입니다. 날카로운 송곳니가 보입니다.]],
 		max_life = resolvers.rngavg(70,80),
 		combat_armor = 9, combat_def = 6,
 		resolvers.talents{ T_STUN={base=1, every=7, max=5}, T_BLUR_SIGHT={base=1, every=7, max=5}, T_ROTTING_DISEASE={base=1, every=7, max=5}, },
@@ -429,8 +440,9 @@ local minions_list = {
 		see_invisible = 5,
 		undead = 1,
 		name = "master vampire", color=colors.GREEN, image = "npc/master_vampire.png",
+		kr_name = "상급 흡혈귀",
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/master_vampire.png", display_h=2, display_y=-1}}},
-		desc=[[It is a humanoid form dressed in robes. Power emanates from its chilling frame.]],
+		desc=[[로브를 걸친 인간형 언데드입니다. 몸에서 사악한 기운이 흐르고 있습니다.]],
 		max_life = resolvers.rngavg(80,90),
 		combat_armor = 10, combat_def = 8,
 		ai = "dumb_talented_simple", ai_state = { talent_in=1, },
@@ -456,7 +468,8 @@ local minions_list = {
 		see_invisible = 7,
 		undead = 1,
 		name = "grave wight", color=colors.SLATE, image="npc/grave_wight.png",
-		desc=[[It is a ghostly form with eyes that haunt you.]],
+		kr_name = "묘지 와이트",
+		desc=[[눈에 증오의 기운을 품은 유령입니다.]],
 		max_life = resolvers.rngavg(70,80),
 		combat_armor = 9, combat_def = 6,
 		resolvers.talents{ T_FLAMESHOCK={base=2, every=5, max=6}, T_LIGHTNING={base=2, every=5, max=6}, T_GLACIAL_VAPOUR={base=2, every=5, max=6},
@@ -483,8 +496,9 @@ local minions_list = {
 		see_invisible = 7,
 		undead = 1,
 		name = "barrow wight", color=colors.LIGHT_RED, image="npc/barrow_wight.png",
+		kr_name = "무덤 와이트",
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/barrow_wight.png", display_h=2, display_y=-1}}},
-		desc=[[It is a ghostly nightmare of an entity.]],
+		desc=[[악몽이 실체화되어 나타난, 끔찍한 언데드입니다.]],
 		max_life = resolvers.rngavg(80,90),
 		combat_armor = 10, combat_def = 8,
 		resolvers.talents{ T_FLAMESHOCK={base=3, every=5, max=7}, T_LIGHTNING={base=3, every=5, max=7}, T_GLACIAL_VAPOUR={base=3, every=5, max=7},
@@ -518,7 +532,8 @@ local minions_list = {
 		undead = 1,
 		resolvers.sustains_at_birth(),
 		name = "dread", color=colors.ORANGE, image="npc/dread.png",
-		desc = [[It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.]],
+		kr_name = "드레드",
+		desc = [[보는 것만으로도 비명이 나올 정도의 끔찍한 존재입니다. 죽음의 화신이자, 그 흉물스러운 검은색 육신은 마치 이 세계의 의지에 반하여 존재하는 것 같습니다.]],
 		level_range = {1, nil}, exp_worth = 0,
 		max_life = resolvers.rngavg(90,100),
 		combat_armor = 0, combat_def = resolvers.mbonus(10, 50),
@@ -568,7 +583,8 @@ local minions_list = {
 		combat_spellcrit = resolvers.mbonus(5, 5),
 		resolvers.sustains_at_birth(),
 		name = "lich", color=colors.DARK_BLUE,
-		desc=[[Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.]],
+		kr_name = "리치",
+		desc=[[영원한 삶의 방법을 발견하였지만, 그 대가로 삶의 즐거움을 잃어버린 존재입니다. 이제 이들이 찾아다니는 것은 무한한 파괴 뿐입니다.]],
 		resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_lich.png", display_h=2, display_y=-1}}},
 		level_range = {1, nil}, exp_worth = 0,
 		rarity = 20,
@@ -726,6 +742,7 @@ end
 
 newTalent{
 	name = "Create Minions",
+	kr_name = "추종자 생성",
 	type = {"spell/necrotic-minions",1},
 	require = spells_req1,
 	points = 5,
@@ -799,16 +816,19 @@ newTalent{
 	info = function(self, t)
 		local nb = t.getMax(self, t)
 		local lev = t.getLevel(self, t)
-		local mm = self:knowTalent(self.T_MINION_MASTERY) and " (Minion Mastery effects included)" or ""
-		return ([[Fires powerful undead energies through your necrotic aura. For each recent death that happened inside your aura, you will raise an undead minion (up to %d minions). These minions will be raised within a cone that extends to the edge of your necrotic aura.
-		The minions level is your level %+d.
-		Each minion has a chance to be%s:%s]]):
+		local mm = self:knowTalent(self.T_MINION_MASTERY) and " (언데드 추종 수련 기술의 효과 포함)" or ""
+		return ([[강렬한 언데드의 기운을 불어넣어, 사령술의 기운에 의해 붙잡힌 영혼을 언데드 추종자로 되살려냅니다. (최대 %d 마리 유지 가능)
+		언데드 추종자는 사령술의 기운이 깃든 범위 내에서만 일으킬 수 있습니다.
+		언데드 추종자의 레벨은 시전자의 %+d 입니다.
+		생성될 언데드 추종자의 확률은 다음과 같습니다 %s : 
+		%s]]):
 		format(nb, lev, mm, t.MinionChancesDesc(self, t))
 	end,
 }
 
 newTalent{
 	name = "Aura Mastery",
+	kr_name = "사령술의 기운 수련",
 	type = {"spell/necrotic-minions",2},
 	require = spells_req2,
 	points = 5,
@@ -823,13 +843,14 @@ newTalent{
 		self:forceUseTalent(self.T_NECROTIC_AURA, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true})
 	end,
 	info = function(self, t)
-		return ([[Your dark power radiates further as you grow stronger. Increases the radius of your necrotic aura by %d, and reduces the decay rate of your minions outside the aura by %d%%.]]):
+		return ([[사령술사가 더 사악해질수록, 사령술의 기운도 더 강력해집니다. 사령술의 기운이 %d 칸 더 넓은 곳까지 퍼지며, 언데드 추종자들이 사령술의 기운 범위 밖에서 턴 당 받는 생명력 피해가 %d%%p 감소합니다.]]):
 		format(math.floor(t.getbonusRadius(self, t)), math.min(7, self:getTalentLevelRaw(t)))
 	end,
 }
 
 newTalent{
 	name = "Surge of Undeath",
+	kr_name = "죽지 못하는 자들의 분노",
 	type = {"spell/necrotic-minions",3},
 	require = spells_req3,
 	points = 5,
@@ -858,23 +879,24 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[A surge of power radiates to all your minions, increasing their Physical Power, Spellpower and Accuracy by %d, their Armour penetration by %d and their critical hit chance by %d for 6 turns.
-		The effects will increase with your Spellpower.]]):
+	return ([[모든 추종자들을 강화시켜, 6 턴 동안 물리력, 주문력, 정확도를 %d / 방어도 관통력을 %d / 치명타율을 %d 상승시킵니다.
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getAPR(self, t), t.getCrit(self, t))
 	end,
 }
 
 newTalent{
 	name = "Dark Empathy",
+	kr_name = "어둠의 공감",
 	type = {"spell/necrotic-minions",4},
 	require = spells_req4,
 	points = 5,
 	mode = "passive",
 	getPerc = function(self, t) return self:combatTalentSpellDamage(t, 15, 80) end,
 	info = function(self, t)
-		return ([[You share your powers with your minions, granting them %d%% of your resistances and saves.
-		In addition all damage done by your minions to you is reduced by %d%%.
-		The effect will increase with your Spellpower.]]):
+		return ([[언데드 추종자에게 힘을 나눠줘서, 시전자가 지닌 모든 내성과 속성 저항력의 %d%% 만큼을 추종자들에게 부여합니다.
+		그리고 언데드 추종자의 공격에 의해 시전자가 피해를 받을 때, 그 피해량을 %d%% 만큼 감소시킵니다.
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(t.getPerc(self, t), self:getTalentLevelRaw(t) * 20)
 	end,
 }
