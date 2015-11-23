@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Telekinetic Smash",
+	kr_name = "염동력 강타",
 	type = {"psionic/psi-fighting", 1},
 	require = psi_cun_req1,
 	points = 5,
@@ -35,7 +36,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "무기를 들지 않으면 이 기술을 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = self:getTalentTarget(t)
@@ -57,16 +58,17 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Gather your will, and brutally smash the target with your mainhand weapon and then your telekinetically wielded weapon, doing %d%% weapon damage.
-		If your mainhand weapon hits, you will also stun the target for %d turns.
-		This attack uses 60%% of your Willpower and Cunning instead of Strength and Dexterity to determine weapon damage and accuracy, for both attacks.
-		Any active Aura damage bonusses will extend to the weapons used for this attack.]]):
+		return ([[염력을 실어담아, 들고 있는 주무기와 염동무기로 강타를 날려 %d%% 무기 피해를 줍니다.
+		주무기 공격이 명중하면, 대상을 %d 턴 동안 기절시킵니다.
+		이번 공격에 한해, 정확도와 피해량의 계산에 힘과 민첩 능력치 대신 의지와 교활함 능력치를 사용합니다.
+		또한, 활성화 중인 오러로 인한 피해 증가가 이번 공격에 적용됩니다.]]): 
 		format(100 * self:combatTalentWeaponDamage(t, 0.9, 1.5), t.duration(self,t))
 	end,
 }
 
 newTalent{
 	name = "Augmentation",
+	kr_name = "증대",
 	type = {"psionic/psi-fighting", 2},
 	require = psi_cun_req2,
 	points = 5,
@@ -94,15 +96,15 @@ newTalent{
 		local inc = t.getMult(self, t)
 		local str_power = math.ceil(inc*self:getWil())
 		local dex_power = math.ceil(inc*self:getCun())
-		return ([[While active, you give your flesh and blood body a boost in the form of precisely applied mental forces. Increases Strength and Dexterity by %d%% of your Willpower and Cunning, respectively.
-		Strength increased by %d
-		Dexterity increased by %d]]):
+		return ([[정신을 집중하여, 조금 더 강력하고 민첩해집니다. 의지와 교활함 능력치의 %d%% 만큼 힘과 민첩 능력치가 증가하게 됩니다.
+		그 결과, 힘 능력치가 %d / 민첩 능력치가 %d 증가합니다.]]):
 		format(inc*100, str_power, dex_power)
 	end,
 }
 
 newTalent{
 	name = "Warding Weapon",
+	kr_name = "방어적 무기술",
 	type = {"psionic/psi-fighting", 3},
 	require = psi_cun_req3,
 	points = 5,
@@ -117,17 +119,18 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Assume a defensive mental state.
-		For one turn, you will fully block the next melee attack used against you with your telekinetically-wielded weapon and then strike the attacker with it for %d%% weapon damage.
-		At raw talent level 3 you will also disarm the attacker for 3 turns.
-		At raw talent level 5 you will be able to reflexively block up to one attack per turn with a %d%% chance, based on your cunning. Each trigger requires and uses 10 Psi.
-		This requires a telekinetically-wielded weapon.]]):
+		return ([[정신 상태를 수비적으로 돌립니다.
+		1 턴 동안, 다음 물리 공격을 염동력으로 쥐고 있는 무기로 완전히 방어한 뒤 %d%% 주무기 피해로 반격합니다.
+		순수 기술 레벨이 3 이상일 경우, 공격과 함께 적의 무장을 3 턴 동안 해제시킵니다.
+		순수 기술 레벨이 5 이상일 경우, 이 기술을 사용하지 않아도 매 턴 마다 한번씩 %d%% 확률의 반사적인 막기를 사용 할 수 있습니다. 이 확률은 교활함 능력치에 따라 결정됩니다. 반사적으로 막을 때마다 염력이 15 씩 사용되고, 염력이 부족한 경우 반사적인 막기를 사용하지 않습니다.
+		기술을 사용하기 위해서는 염동력으로 쥐고 있는 무기가 필요합니다.]]):
 		format(100 * t.getWeaponDamage(self, t), t.getChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Impale",
+	kr_name = "꿰뚫기",
 	type = {"psionic/psi-fighting", 4},
 	require = psi_cun_req4,
 	points = 5,
@@ -146,7 +149,7 @@ newTalent{
 		local weapon = self:getInven(self.INVEN_PSIONIC_FOCUS) and self:getInven(self.INVEN_PSIONIC_FOCUS)[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or not weapon.combat or self:attr("disarmed") then
-			game.logPlayer(self, "You cannot do that without a weapon in your telekinetic slot.")
+			game.logPlayer(self, "염동력으로 무기를 쥐고 있지 않으면 사용할 수 없습니다!")
 			return nil
 		end
 		local tg = self:getTalentTarget(t)
@@ -173,7 +176,7 @@ newTalent{
 				local eff = rng.tableRemove(effs)
 
 				if eff[1] == "effect" then
-					game.logSeen(self, "#CRIMSON#%s shatters %s shield!", self.name:capitalize(), target.name)
+					game.logSeen(self, "#CRIMSON#%s %s의 보호막을 부숴버립니다!", self.name:capitalize(), target.name)
 					target:removeEffect(eff[2])
 				end
 			end
@@ -181,10 +184,11 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Focus your will into a powerful thrust of your telekinetically-wielded weapon to impale your target and then viciously rip it free.
-		This deals %d%% weapon damage and then causes the victim to bleed for %0.1f Physical damage over four turns.
-		At level 3 the thrust is so powerful that it has %d%% chance to shatter a temporary damage shield if one exists.
-		The bleeding damage increases with your Mindpower.]]):
+		return ([[의지를 집중하여, 염동력으로 쥐고 있는 무기로 대상을 꿰뚫고 베어버립니다.
+		이를 통해 %d%% 무기 피해를 주고, 4 턴에 걸쳐 출혈로 %0.1f 물리 피해를 가합니다.
+		기술 레벨이 3 이상일 경우, 공격이 더 강력해져 %d%% 확률로 대상의 일시적인 피해 보호막 하나를 부숴버립니다.
+		이번 공격에 한해, 정확도와 피해량의 계산에 힘과 민첩 능력치 대신 의지와 교활함 능력치를 사용합니다.
+		출혈 확률은 정신력 능력치의 영향을 받아 증가합니다.]]): 
 		format(100 * t.getWeaponDamage(self, t), damDesc(self, DamageType.PHYSICAL, t.getDamage(self,t)), t.getShatter(self, t))
 	end,
 }
