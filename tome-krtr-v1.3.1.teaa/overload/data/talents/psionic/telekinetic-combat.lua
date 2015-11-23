@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Telekinetic Assault",
+	kr_name = "염동력 맹공",
 	type = {"psionic/telekinetic-combat", 4},
 	require = psi_cun_high4,
 	points = 5,
@@ -35,7 +36,7 @@ newTalent{
 		local weapon = self:getInven("MAINHAND") and self:getInven("MAINHAND")[1]
 		if type(weapon) == "boolean" then weapon = nil end
 		if not weapon or self:attr("disarmed")then
-			game.logPlayer(self, "You cannot do that without a weapon in your hands.")
+			game.logPlayer(self, "손에 무기를 쥐고 있지 않으면 사용할 수 없습니다.")
 			return nil
 		end
 		local tg = self:getTalentTarget(t)
@@ -55,9 +56,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Assault your target with all weapons, dealing two strikes with your telekinetically-wielded weapon for %d%% damage followed by an attack with your physical weapon for %d%% damage.
-		This physical weapon attack uses your Willpower and Cunning instead of Strength and Dexterity to determine Accuracy and damage.
-		Any active Aura damage bonusses will extend to your main weapons for this attack.]]):
+		return ([[모든 무기로 적을 맹공하여, 염동력으로 쥔 무기로 %d%% 무기 피해를 두 번 가하고 이어서 주무기로 %d%% 무기 피해를 가합니다.
+		이번 공격에 한해, 정확도와 피해량의 계산에 힘과 민첩 능력치 대신 의지와 교활함 능력치를 사용합니다.
+		또한, 활성화 중인 오러로 인한 피해 증가가 이번 공격에 적용됩니다.]]):
 		format(100 * self:combatTalentWeaponDamage(t, 1.2, 1.9), 100 * self:combatTalentWeaponDamage(t, 1.5, 2.5))
 	end,
 }
