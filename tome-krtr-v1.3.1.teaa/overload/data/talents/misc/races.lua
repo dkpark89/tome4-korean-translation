@@ -34,10 +34,11 @@ racial_req4 = {
 ------------------------------------------------------------------
 -- Highers' powers
 ------------------------------------------------------------------
-newTalentType{ type="race/higher", name = "higher", generic = true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/higher", name = "higher", generic = true, description = "다양한 종족적 특성들입니다." }
 
 newTalent{
 	short_name = "HIGHER_HEAL",
+	kr_name = "고귀한 피의 재능",
 	name = "Gift of the Highborn",
 	type = {"race/higher", 1},
 	require = racial_req1,
@@ -51,13 +52,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the gift of the highborn to regenerate your body for %d life every turn for 10 turns.
-		The life healed will increase with your Willpower.]]):format(5 + self:getWil() * 0.5)
+		return ([[고귀한 피의 재능을 사용하여, 10 턴 동안 매 턴마다 %d 생명력을 회복합니다.
+		생명력 회복량은 의지 능력치의 영향을 받아 증가합니다.]]):format(5 + self:getWil() * 0.5)
 	end,
 }
 
 newTalent{
 	name = "Overseer of Nations",
+	kr_name = "자연의 감시자",
 	type = {"race/higher", 2},
 	require = racial_req2,
 	points = 5,
@@ -72,15 +74,16 @@ newTalent{
 		self:talentTemporaryValue(p, "heightened_senses", t.getESight(self, t))
 	end,
 	info = function(self, t)
-		return ([[While Highers are not meant to rule other humans - and show no particular will to do so - they are frequently called to higher duties.
-		Their nature grants them better senses than other humans.
-		Increase blindness immunity by %d%%, maximum sight range by %d, and increases existing infravision, and heightened senses range by %d.]]):
+		return ([[특별히 하고자 하는 사람이 없을 경우, 자연을 감시하는 하이어 종족의 의무는 주로 모험가 등 자신만의 길을 걷는 하이어들이 담당하게 됩니다.
+		자연은 이 감시자들을 위해, 다른 사람들보다 더 멀리 볼 수 있는 힘을 줍니다.
+		실명 면역력이 %d%% 증가하고, 최대 시야 거리가 %d 칸 늘어나며, 야간 시야 반경이나 감지력도 %d 만큼 증가합니다.]]):
 		format(t.getImmune(self, t) * 100, t.getSight(self, t), t.getESight(self, t))
 	end,
 }
 
 newTalent{
 	name = "Born into Magic",
+	kr_name = "마법과 함께 태어난 자",
 	type = {"race/higher", 3},
 	require = racial_req3,
 	points = 5,
@@ -98,15 +101,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local netpower = t.power(self, t)
-		return ([[Highers were originally created during the Age of Allure by the human Conclave. They are imbued with magic at the very core of their being.
-		Increase spell save by +%d and arcane resistance by %d%%.
-		Also when you cast a spell dealing damage, you gain a 15%% bonus to the damage type for 5 turns. (This effect has a cooldown.)]]):
+		return ([[하이어 종족은 미혹의 시대 때 생겨난 인종이기 때문에, 그 근본부터 마력의 영향을 받은 종족입니다.
+		그 영향으로 주문 내성이 %d / 마법 속성 저항력이 %d%% 상승합니다.
+		또한 마법을 사용하여 피해를 줄 때마다, 해당 속성의 피해량이 5 턴 동안 15%% 증가하게 됩니다. (이 효과에는 재사용 대기시간이 있습니다)]]):
 		format(t.getSave(self, t), netpower)
 	end,
 }
 
 newTalent{
 	name = "Highborn's Bloom",
+	kr_name = "잠재된 마력 발현",
 	type = {"race/higher", 4},
 	require = racial_req4,
 	points = 5,
@@ -120,19 +124,19 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Activate some of your inner magic, using it to power your abilities.  For the next %d turns, all active talents will be used without resource cost.
-		Your resources must still be high enough to initially power the talent, and failure rates (etc.) still apply.
-		]]):format(duration)
+		return ([[잠재된 마력을 활성화시켜, 기술의 원천력으로 사용합니다. %d 턴 동안, 모든 사용형 기술들을 원천력 소모 없이 사용할 수 있게 됩니다.
+		기술을 사용할 수 있을 만큼의 원천력은 지니고 있어야 사용할 수 있으며, 실패율 등은 똑같이 적용됩니다.]]):format(duration)
 	end,
 }
 
 ------------------------------------------------------------------
 -- Shaloren's powers
 ------------------------------------------------------------------
-newTalentType{ type="race/shalore", name = "shalore", generic = true, is_spell=true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/shalore", name = "shalore", generic = true, is_spell=true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "SHALOREN_SPEED",
 	name = "Grace of the Eternals",
+	kr_name = "불멸의 은총",
 	type = {"race/shalore", 1},
 	require = racial_req1,
 	points = 5,
@@ -145,14 +149,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the grace of the Eternals to increase your general speed by %d%% for 8 turns.
-		The speed bonus will increase with your Dexterity or Magic (whichever is higher).]]):
+		return ([[불멸의 은총을 받아, 8 턴 동안 전체 속도가 %d%% 증가합니다.
+		속도 증가량은 민첩 능력치와 마법 능력치 중 높은 쪽의 영향을 받아 증가합니다.]]):
 		format(t.getSpeed(self, t) * 100)
 	end,
 }
 
 newTalent{
 	name = "Magic of the Eternals",
+	kr_name = "불멸의 마법",
 	type = {"race/shalore", 2},
 	require = racial_req2,
 	points = 5,
@@ -166,14 +171,14 @@ newTalent{
 		self:talentTemporaryValue(p, "combat_critical_power", t.critPower(self, t))
 	end,
 	info = function(self, t)
-		return ([[Reality bends slightly in the presence of a Shaloren, due to their inherent magical nature.
-		Increases critical chance by %d%% and critical strike power by %d%%.]]):
+		return ([[샬로레 종족의 마법적 특성으로 인해, 현실이 약간 왜곡되어 모든 치명타율이 %d%% / 치명타 배수가 %d%% 상승합니다.]]):
 		format(t.critChance(self, t), t.critPower(self, t))
 	end,
 }
 
 newTalent{
 	name = "Secrets of the Eternals",
+	kr_name = "불멸의 비밀",
 	type = {"race/shalore", 3},
 	require = racial_req3,
 	points = 5,
@@ -199,14 +204,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[As the only immortal race of Eyal, Shaloren have learnt, over the long years, to use their innate inner magic to protect themselves.
-		%d%% chance to become invisible (power %d) for 5 turns, when hit by a blow doing at least 10%% of their total life.]]):
+		return ([['에이알'의 세계에서 유일한 불멸의 종족인 샬로레는, 그들의 타고난 마법적 능력으로 자신들을 보호하는 법을 익혀왔습니다.
+		최대 생명력의 10%% 이상이 한번에 감소될 경우, %d%% 확률로 5 턴 동안 투명화 상태가 됩니다. (투명 수치 +%d)]]):
 		format(t.getChance(self, t), t.getInvis(self, t))
 	end,
 }
 
 newTalent{
 	name = "Timeless",
+	kr_name = "셀 수 없는 시간",
 	type = {"race/shalore", 4},
 	require = racial_req4,
 	points = 5,
@@ -267,8 +273,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[The world grows old as you stand through the ages. To you, time is different.
-		Reduces the time remaining on detrimental effects by %d, most cooling down talents by %d, and increases the time remaining on beneficial effects by %d (up to 2 times the current duration).]]):
+		return ([[끝없는 세월을 이 세계와 함께한 자에게, '시간'의 개념은 필멸자들의 그것과는 다릅니다.
+		나쁜 상태효과의 지속시간은 %d 턴 줄어들고, 기술의 지연시간이 %d 턴 짧아지며, 좋은 상태효과의 지속시간은 %d 턴 늘어납니다 (최대치는 현재 남은 시간의 2배까지).]]):
 		format(t.getEffectBad(self, t), t.getEffectGood(self, t), t.getEffectGood(self, t))
 	end,
 }
@@ -276,10 +282,11 @@ newTalent{
 ------------------------------------------------------------------
 -- Thaloren's powers
 ------------------------------------------------------------------
-newTalentType{ type="race/thalore", name = "thalore", generic = true, is_nature=true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/thalore", name = "thalore", generic = true, is_nature=true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "THALOREN_WRATH",
 	name = "Wrath of the Woods",
+	kr_name = "나무의 분노",
 	type = {"race/thalore", 1},
 	require = racial_req1,
 	points = 5,
@@ -292,14 +299,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the power of the Eternals, increasing all damage by %d%% and reducing all damage taken by %d%% for 5 turns.
-		The bonus will increase with your Willpower.]]):
+		return ([[자연의 분노를 불러내, 5 턴 동안 적에게 주는 피해량은 %d%% 증가시키고 적에게 받는 피해량은 %d%% 감소시킵니다.
+		증가량 및 감소량은 의지 능력치의 영향을 받아 증가합니다.]]):
 		format(t.getPower(self, t), t.getPower(self, t))
 	end,
 }
 
 newTalent{
 	name = "Unshackled",
+	kr_name = "구속되지 않는 자",
 	type = {"race/thalore", 2},
 	require = racial_req2,
 	points = 5,
@@ -310,14 +318,15 @@ newTalent{
 		self:talentTemporaryValue(p, "combat_mentalresist", t.getSave(self, t))
 	end,
 	info = function(self, t)
-		return ([[Thaloren have always been a free people, living in their beloved forest and never caring much about the world outside.
-		Increase Physical and Mental Save by +%d.]]):
+	return ([[탈로레 족은 그들이 사랑하는 숲 속에서, 바깥 세계에 대한 걱정 없이 자유롭게 살아왔습니다.
+		물리 내성과 정신 내성이 %d 증가합니다.]]):
 		format(t.getSave(self, t))
 	end,
 }
 
 newTalent{
 	name = "Guardian of the Wood",
+	kr_name = "나무의 수호자",
 	type = {"race/thalore", 3},
 	require = racial_req3,
 	points = 5,
@@ -331,14 +340,15 @@ newTalent{
 		self:talentTemporaryValue(p, "resists",{all=t.getAllResist(self, t)})
 	end,
 	info = function(self, t)
-		return ([[You are part of the wood; it shields you from corruption.
-		Increase disease immunity by %d%%, blight resistance by %0.1f%%, and all resistances by %0.1f%%.]]):
+		return ([[이제는 나무의 일부나 마찬가지인 탈로레 족은, 각종 오염에 대한 저항력을 가지고 있습니다.
+		질병 면역력이 %d%% / 황폐화 저항력이 %0.1f%% / 전체 저항력이 %0.1f%% 상승합니다.]]):
 		format(t.getDiseaseImmune(self, t)*100, t.getBResist(self, t), t.getAllResist(self, t))
 	end,
 }
 
 newTalent{
 	name = "Nature's Pride",
+	kr_name = "자연의 긍지",
 	type = {"race/thalore", 4},
 	require = racial_req4,
 	points = 5,
@@ -358,7 +368,7 @@ newTalent{
 		for i = 1, 2 do
 			local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to summon!")
+				game.logPlayer(self, "소환할 자리가 없습니다!")
 				if i == 1 then return else break end
 			end
 
@@ -366,9 +376,10 @@ newTalent{
 			local m = NPC.new{
 				type = "immovable", subtype = "plants",
 				display = "#",
-				name = "treant", color=colors.GREEN,
+		 		name = "treant", color=colors.GREEN,
+				kr_name = "나무 정령",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/immovable_plants_treant.png", display_h=2, display_y=-1}}},
-				desc = "A very strong near-sentient tree.",
+				desc = "지각력이 있는, 매우 강력한 나무입니다.",
 
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -406,20 +417,21 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Nature is with you; you can always feel the call of the woods.
-		Summons two elite Treants to your side for 8 turns.
-		The treants have a global resistance equal to your blight resistance, and can stun, knockback and taunt your foes.
-		Their power increases with your Willpower.]]):format()
+		return ([[언제나 자연과 함께 하여, 어느 곳에서라도 나무들을 불러낼 수 있게 됩니다.
+		정예 등급의 아군 나무 정령 2 마리를 8 턴 동안 소환합니다.
+		나무 정령의 전체 저항력은 시전자의 황폐화 저항력과 같으며, 적들을 기절시키고 뒤로 밀어내며 도발합니다.
+		나무 정령의 위력은 의지 능력치의 영향을 받아 증가합니다.]]):format()
 	end,
 }
 
 ------------------------------------------------------------------
 -- Dwarves' powers
 ------------------------------------------------------------------
-newTalentType{ type="race/dwarf", name = "dwarf", generic = true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/dwarf", name = "dwarf", generic = true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "DWARF_RESILIENCE",
 	name = "Resilience of the Dwarves",
+	kr_name = "드워프의 체질",
 	type = {"race/dwarf", 1},
 	require = racial_req1,
 	points = 5,
@@ -439,14 +451,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local params = t.getParams(self, t)
-		return ([[Call upon the legendary resilience of the Dwarven race to increase your Armor (+%d), Spell (+%d) and Physical (+%d) saves for 8 turns.
-		The bonus will increase with your Constitution.]]):
+		return ([[드워프 특유의 체질적 특성을 끌어올려, 8 턴 동안 방어도가 %d / 주문 내성이 %d / 정신 내성이 %d 증가합니다.
+		증가량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(params.armor, params.physical, params.spell)
 	end,
 }
 
 newTalent{
 	name = "Stoneskin",
+	kr_name = "단단한 피부",
 	type = {"race/dwarf", 2},
 	require = racial_req2,
 	points = 5,
@@ -456,14 +469,15 @@ newTalent{
 		self:talentTemporaryValue(p, "auto_stoneskin", t.armor(self, t))
 	end,
 	info = function(self, t)
-		return ([[Dwarf skin is a complex structure, it can automatically react to physical blows to harden itself.
-		When you are hit in melee, you have a 15%% chance to increase your Armour total by %d for 5 turns.]]):
+		return ([[드워프의 피부 구조는 매우 복잡하여, 공격을 받으면 자동적으로 단단해집니다.
+		근접 공격을 받을 때마다, 15%% 확률로 5 턴 동안 방어도가 %d 상승합니다.]]):
 		format(t.armor(self, t))
 	end,
 }
 
 newTalent{
 	name = "Power is Money",
+	kr_name = "돈=힘",
 	type = {"race/dwarf", 3},
 	require = racial_req3,
 	points = 5,
@@ -475,15 +489,16 @@ newTalent{
 		return util.bound(self.money / t.getGold(self, t), 0, t.getMaxSaves(self, t))
 	end,
 	info = function(self, t)
-		return ([[Money is the heart of the Dwarven Empire; it rules over all other considerations.
-		Increases Physical, Mental and Spell Saves based on the amount of gold you possess.
-		+1 save every %d gold, up to +%d. (currently +%d)]]):
+		return ([[드워프에게 있어 돈은 그 어떤 것보다도 강력한 동기 요인이며, 왕국을 유지시키는 심장과도 같은 존재입니다.
+		가지고 있는 돈의 양에 따라, 모든 내성 수치가 증가합니다. 
+		금화 %d 개 당 모든 내성이 1 증가합니다. (내성 상승량 최대 : +%d, 현재 : +%d)]]):
 		format(t.getGold(self, t), t.getMaxSaves(self, t), t.getSaves(self, t))
 	end,
 }
 
 newTalent{
 	name = "Stone Walking",
+	kr_name = "드워프의 벽 통과법",
 	type = {"race/dwarf", 4},
 	require = racial_req4,
 	points = 5,
@@ -504,9 +519,9 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = t.getRange(self, t)
-		return ([[While the origins of the dwarves remain clouded in mysteries to the other races, it is obvious they share strong ties to the stone.
-		You can target any wall and immediately enter it and appear on the other side of the obstacle.
-		Works up to %d grids away (increases with Constitution and talent level).]]):
+		local range = t.getRange(self, t)
+		return ([[드워프의 기원이 무엇인지에 대해서는 다른 종족들 사이에서 그 의견이 분분하지만, 드워프들이 암석과 깊은 유대 관계를 형성하고 있다는 사실만은 분명합니다.
+		최대 %d 칸의 벽을 통과할 수 있게 됩니다. 최대 이동량은 체격 능력치와 기술 레벨의 영향을 받아 증가합니다.]]):
 		format(range)
 	end,
 }
@@ -514,10 +529,11 @@ newTalent{
 ------------------------------------------------------------------
 -- Halflings' powers
 ------------------------------------------------------------------
-newTalentType{ type="race/halfling", name = "halfling", generic = true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/halfling", name = "halfling", generic = true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "HALFLING_LUCK",
 	name = "Luck of the Little Folk",
+	kr_name = "작은 이의 행운",
 	type = {"race/halfling", 1},
 	require = racial_req1,
 	points = 5,
@@ -537,14 +553,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local params = t.getParams(self, t)
-		return ([[Call upon the luck and cunning of the Little Folk to increase your physical, mental, and spell critical strike chance by %d%% and your saves by %d for 5 turns.
-		The bonus will increase with your Cunning.]]):
+		return ([[하플링의 행운을 빌어 5 턴 동안 모든 치명타율이 %d%% , 모든 내성이 %d 상승합니다.
+		상승량은 교활함 수치의 영향을 받아 증가합니다.]]):
 		format(params.mind, params.mind)
 	end,
 }
 
 newTalent{
 	name = "Duck and Dodge",
+	kr_name = "구사일생",
 	type = {"race/halfling", 2},
 	require = racial_req2,
 	points = 5,
@@ -561,27 +578,29 @@ newTalent{
 		local threshold = t.getThreshold(self, t)
 		local evasion = t.getEvasionChance(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Your incredible luck kicks in at just the right moment to save your skin.
-		Whenever you take %d%% or more of your life from a single attack, you gain Evasion (%d%%) and %d additional defense (based on your luck and other defensive stats) for the next %d turns.]]):
+		return ([[뛰어난 운 덕분에, 위험한 상황이 닥쳐오면 공격을 덜 맞게 됩니다.
+		최대 생명력의 %d%% 이상이 한번에 감소될 경우, %d 턴 동안 회피 상태(현재 %d%%)가 되고 회피도가 %d 만큼 증가합니다 (행운 능력치와 다른 방어 관련 능력치의 영향을 받습니다).]]):
 		format(threshold * 100, evasion, t.getDefense(self), duration)
 	end,
 }
 
 newTalent{
 	name = "Militant Mind",
+	kr_name = "투쟁 정신",
 	type = {"race/halfling", 3},
 	require = racial_req3,
 	points = 5,
 	mode = "passive",
 	info = function(self, t)
-		return ([[Halflings have always been a very organised and methodical race; the more foes they face, the more organised they are.
-		If two or more foes are in sight your Physical Power, Physical Save, Spellpower, Spell Save, Mental Save, and Mindpower are increased by %0.1f per foe (up to 5 foes).]]):
+		return ([[하플링은 언제나 조직적이고 체계적으로 행동합니다. 더 많은 적을 조우할 때마다, 더 냉정하고 체계적으로 행동하게 됩니다.
+		시야에 2 마리 이상의 적이 보일 경우, 적 1 마리 당 물리력, 물리 내성, 주문력, 주문 내성, 정신력, 정신 내성이 %0.1f 상승합니다. (최대 5 회 중첩 가능)]]):
 		format(self:getTalentLevel(t) * 1.5)
 	end,
 }
 
 newTalent{
 	name = "Indomitable",
+	kr_name = "불굴",
 	type = {"race/halfling", 4},
 	require = racial_req4,
 	points = 5,
@@ -616,18 +635,19 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local count = t.getRemoveCount(self, t)
-		return ([[Halflings have one of the most powerful military forces in the known world and they have been at war with most other races for thousand of years.
-		Removes %d stun, daze, or pin effects, and makes you immune to stuns, dazes and pins for %d turns.
-		This talent takes no time to use.]]):format(duration, count)
+		return ([[하플링의 군대는 세계에서 가장 강력한 힘을 가진 집단 중 하나입니다. 지난 수천 년 동안, 가장 많은 전쟁을 치뤄온 종족이기도 합니다.
+		그 영향을 받아 자신에게 걸린 기절, 혼절, 속박 효과를 %d 개 없애고, 해당 효과에 %d 턴 동안 완전 면역 상태가 됩니다.
+		이 기술은 사용할 때 시간이 걸리지 않습니다.]]):format(duration, count)
 	end,
 }
 
 ------------------------------------------------------------------
 -- Orcs' powers
 ------------------------------------------------------------------
-newTalentType{ type="race/orc", name = "orc", generic = true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/orc", name = "orc", generic = true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "ORC_FURY",
+	kr_name = "오크의 분노",
 	name = "Orcish Fury",
 	type = {"race/orc", 1},
 	require = racial_req1,
@@ -641,14 +661,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Summons your lust for blood and destruction, increasing all damage you deal by %d%% for 5 turns.
-		The bonus will increase with your Willpower.]]):
+		return ([[피와 파괴에 대한 욕망을 끌어올려, 적에게 주는 모든 피해량이 5 턴 동안 %d%% 상승합니다.
+		피해 상승량은 의지 능력치의 영향을 받아 증가합니다..]]):
 		format(t.getPower(self, t))
 	end,
 }
 
 newTalent{
 	name = "Hold the Ground",
+	kr_name = "버티기"
 	type = {"race/orc", 2},
 	require = racial_req2,
 	points = 5,
@@ -659,14 +680,15 @@ newTalent{
 		self:talentTemporaryValue(p, "combat_mentalresist", t.getSaves(self, t))
 	end,
 	info = function(self, t)
-		return ([[Orcs have been the prey of the other races for thousands of years, with or without justification. They have learnt to withstand things that would break weaker races.
-		Increase physical and mental save by +%d.]]):
+		return ([[오크 종족에게는 지난 수천 년 동안 다른 종족들에게 이유없이 사냥당해온 과거가 있습니다. 이 과거를 통해, 오크들은 '약한 종족'으로서의 생존법을 익혔습니다.
+		물리 내성과 정신 내성이 %d 증가합니다.]]):
 		format(t.getSaves(self, t))
 	end,
 }
 
 newTalent{
 	name = "Skirmisher",
+	kr_name = "척후병",
 	type = {"race/orc", 3},
 	require = racial_req3,
 	points = 5,
@@ -676,14 +698,15 @@ newTalent{
 		self:talentTemporaryValue(p, "resists_pen", {all = t.getPen(self, t)})
 	end,
 	info = function(self, t)
-		return ([[Orcs have seen countless battles, and won many of them.
-		Increase all damage penetration by %d%%.]]):
+		return ([[오크 종족은 셀 수 없이 많은 전투를 보았고, 대부분 승리하였습니다.
+		모든 피해 관통력이 %d%% 증가합니다.]]):
 		format(t.getPen(self, t))
 	end,
 }
 
 newTalent{
 	name = "Pride of the Orcs",
+	kr_name = "오크의 긍지",
 	type = {"race/orc", 4},
 	require = racial_req4,
 	points = 5,
@@ -732,9 +755,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Call upon the will of all of the Orc Prides to survive this battle.
-		You heal for %d life, and remove up to %d detrimental effects.
-		The healing will increase with your Constitution.]]):
+		return ([[오크의 자부심과 의지를 통해, 전장에서 살아남습니다.
+		%d 생명력을 회복하고, 나쁜 상태효과를 %d 개 제거합니다.
+		생명력 회복량은 체격 능력치의 영향을 받아 증가합니다.]]):
 		format(t.heal(self, t), t.remcount(self,t))
 	end,
 }
@@ -742,10 +765,11 @@ newTalent{
 ------------------------------------------------------------------
 -- Yeeks' powers
 ------------------------------------------------------------------
-newTalentType{ type="race/yeek", name = "yeek", is_mind=true, generic = true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/yeek", name = "yeek", generic = true, is_mind=true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "YEEK_WILL",
 	name = "Dominant Will",
+	kr_name = "지배의 의지",
 	type = {"race/yeek", 1},
 	require = racial_req1,
 	points = 5,
@@ -765,7 +789,7 @@ newTalent{
 			local target = game.level.map(px, py, Map.ACTOR)
 			if not target or target.dead or target == self then return end
 			if not target:canBe("instakill") or target.rank > 3 or target:attr("undead") or game.party:hasMember(target) or not target:checkHit(self:getWil(20, true) + self.level * 1.5, target.level) then
-				game.logSeen(target, "%s resists the mental assault!", target.name:capitalize())
+				game.logSeen(target, "%s 정신 공격을 저항했습니다!", target.name:capitalize())
 				return
 			end
 			target:takeHit(1, self)
@@ -776,15 +800,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Shatters the mind of your victim, giving you full control over its actions for %s turns.
-		When the effect ends, you pull out your mind and the victim's body collapses, dead.
-		This effect does not work on rares, bosses, or undeads.
-		The duration will increase with your Willpower.]]):format(t.getduration(self))
+		return ([[대상의 정신을 지배하여, %s 턴 동안 대상을 조종합니다.
+		정신 지배 효과가 끝나면 대상은 사망하며, 희귀함 등급 이상이거나 보스 등급의 적 그리고 언데드에게는 사용할 수 없습니다.
+		지속시간은 의지 능력치의 영향을 받아 증가합니다.]]):format(t.getduration(self))
 	end,
 }
 
 newTalent{
 	name = "Unity",
+	kr_name = "통합",
 	type = {"race/yeek", 2},
 	require = racial_req2,
 	points = 5,
@@ -797,14 +821,15 @@ newTalent{
 		self:talentTemporaryValue(p, "combat_mentalresist", t.getSave(self, t))
 	end,
 	info = function(self, t)
-		return ([[Your mind becomes more attuned to the Way, and is shielded from outside effects.
-		Increase confusion and silence immunities by %d%%, and your Mental Save by +%d.]]):
+		return ([['한길' 과 동화되어, 외부의 효과로부터 정신을 보호합니다.
+		혼란과 침묵 면역력이 %d%% 증가하고, 정신 내성이 %d 증가합니다.]]):
 		format(100*t.getImmune(self, t), t.getSave(self, t))
 	end,
 }
 
 newTalent{
 	name = "Quickened",
+	kr_name = "빠름",
 	type = {"race/yeek", 3},
 	require = racial_req3,
 	points = 5,
@@ -815,13 +840,14 @@ newTalent{
 		self:recomputeGlobalSpeed()
 	end,
 	info = function(self, t)
-		return ([[Yeeks live fast, think fast, and sacrifice fast for the Way.
-		Increase global speed by %0.1f%%.]]):format(100*t.speedup(self, t))
+		return ([[이크 종족은 빠르게 행동하고, 빠르게 생각하고, '한길' 을 위한 제물을 빠르게 준비합니다.
+		전체 속도가 %0.1f%% 증가합니다.]]):format(100*t.speedup(self, t))
 	end,
 }
 
 newTalent{
 	name = "Wayist",
+	kr_name = "'한길'의 일원",
 	type = {"race/yeek", 4},
 	require = racial_req4,
 	points = 5,
@@ -841,7 +867,7 @@ newTalent{
 		for i = 1, 3 do
 			local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 			if not x then
-				game.logPlayer(self, "Not enough space to summon!")
+				game.logPlayer(self, "소환할 공간이 없습니다!")
 				return
 			end
 
@@ -850,8 +876,9 @@ newTalent{
 				type = "humanoid", subtype = "yeek",
 				display = "y",
 				name = "yeek mindslayer", color=colors.YELLOW,
+				kr_name = "이크 정신 파괴자",
 				resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/humanoid_yeek_yeek_mindslayer.png", display_h=2, display_y=-1}}},
-				desc = "A wayist that came to help.",
+				desc = "'한길'의 일원을 돕기 위해 도착한 정신 파괴자입니다.",
 
 				body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -898,8 +925,8 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Reach through the collective psionic gestalt of the yeeks, the Way, to call for immediate help.
-		Summons up to 3 yeek mindslayers to your side for 6 turns.]])
+	return ([[이크들의 정신 통합체 '한길' 에 도움을 요청합니다.
+		6 턴 동안 이크 정신 파괴자 3 명이 아군으로 소환됩니다.]])
 	end,
 }
 
@@ -907,24 +934,26 @@ newTalent{
 newTalent{
 	short_name = "YEEK_ID",
 	name = "Knowledge of the Way",
+	kr_name = "'한길'의 지식",
 	type = {"base/race", 1},
 	no_npc_use = true,
 	no_unlearn_last = true,
 	mode = "passive",
 	on_learn = function(self, t) self.auto_id = 100 end,
 	info = function(self, t)
-		return ([[You merge your mind with the rest of the Way for a brief moment; the sum of all yeek knowledge gathers in your mind,
-		and allows you to identify any item you could not recognize yourself.]])
+		return ([['한길' 과 잠시 동화되어, 이크 종족이 가진 모든 지식에 접근합니다.
+		이를 통해 알 수 없었던 도구나 장비를 감정해냅니다.]])
 	end,
 }
 
 ------------------------------------------------------------------
 -- Ogre' powers
 ------------------------------------------------------------------
-newTalentType{ type="race/ogre", name = "ogre", is_spell=true, generic = true, description = "The various racial bonuses a character can have." }
+newTalentType{ type="race/ogre", name = "ogre", is_spell=true, generic = true, description = "다양한 종족적 특성들입니다." }
 newTalent{
 	short_name = "OGRE_WRATH",
 	name = "Ogric Wrath",
+	kr_name = "오우거의 분노",
 	type = {"race/ogre", 1},
 	require = racial_req1,
 	points = 5,
@@ -941,16 +970,26 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You enter an ogric wrath for %d turns, increasing your stun and pinning resistances by 20%% and all damage done by 10%%.
-		In addition, whenever you miss a melee attack or any damage you deal is reduced by a damage shield or similar effect you gain a charge of Ogre Fury(up to 5 charges, each lasts 7 turns).
-		Each charge grants 20%% critical damage power and 5%% critical strike chance.
-		You lose a charge each time you deal a critical strike.
-		The duration will increase with your Strength.]]):format(t.getduration(self))
+		
+	--return ([[You enter an ogric wrath for %d turns, increasing your stun and pinning resistances by 20%% and all damage done by 10%%.
+	--	In addition, whenever you miss a melee attack or any damage you deal is reduced by a damage shield or similar effect you gain a charge of Ogre Fury(up to 5 charges, each lasts 7 turns).
+	--	Each charge grants 20%% critical damage power and 5%% critical strike chance.
+	--	You lose a charge each time you deal a critical strike.
+	--	The duration will increase with your Strength.]]):format(t.getduration(self))
+	
+	-- 없는것보다 낫다고 생각해서 부족한 실력이지만 바꿔둡니다. 추후 수정 요망.
+	
+	return ([[당신은 %d 턴동안 오우거의 분노에 들어가 기절과 혼란저항이 20%%만큼 상승하고 모든 데미지가 10%%만큼 증가합니다.
+		또한 당신의 근접공격이 빗나가거나 모든 종류의 공격이 방패방어 또는 유사한효과로 감소했을경우 당신은 오우거의 광폭화를 얻게 됩니다.(이 효과는 5번까지 중첩되며 7턴동안 유지됩니다.)
+		각각의 광폭화 중첩당 20%%의 치명타배율과 5%%의 치명타확률을 얻게되며, 당신이 치명타데미지를 입힐때마다 중첩이 사라집니다
+		이 효과의 지속시간은 당신의 힘에의해 증가합니다.]]):format(t.getduration(self))
+	
 	end,
 }
 
 newTalent{
 	name = "Grisly Constitution",
+	kr_name = "끔찍한 육신",
 	type = {"race/ogre", 2},
 	require = racial_req2,
 	points = 5,
@@ -969,16 +1008,26 @@ newTalent{
 		if self:getTalentLevelRaw(t) == 4 then self:attr("allow_mainhand_2h_in_1h", -1) end
 	end,
 	info = function(self, t)
-		return ([[An ogre's body is acclimated to spells and inscriptions.
-		Increases spell save by %d and improves the contribution of primary stats on infusions and runes by %d%%.
-		At level 5 your body is so strong you can use a two handed weapon in your main hand while still using an offhand item.
-		When using a two handed weapon this way you suffer a 20%% physical power, spellpower and mindpower penalty, decreasing by 5%% per size category above #{italic}#big#{normal}#; also all damage procs from your offhand are reduced by 50%%.]]):
+		--return ([[An ogre's body is acclimated to spells and inscriptions.
+		--Increases spell save by %d and improves the contribution of primary stats on infusions and runes by %d%%.
+		--At level 5 your body is so strong you can use a two handed weapon in your main hand while still using an offhand item.
+		--When using a two handed weapon this way you suffer a 20%% physical power, spellpower and mindpower penalty, decreasing by 5%% per size category above #{italic}#big#{normal}#; also all damage procs from your offhand are reduced by 50%%.]]):
+		
+		-- 없는것보다 낫다고 생각해서 부족한 실력이지만 바꿔둡니다. 추후 수정 요망.
+		
+		return ([[오우거의 신체는 주문과 각인에 순응되어있습니다.
+		주문저항이 %d 만큼 증가하고 주입물과 룬의 주요 능력치를 %d%% 만큼 향상시킵니다.
+		기술 레벨이 5일때 당신의 신체는 강해져 양손무기를 주장비로 착용하는 도중에도 보조장비를 착용할 수 있게 됩니다.
+		이런식으로 양손무기를 사용할때 물리력, 주문력 그리고 정신력에 20%% 의 불이익을 받게되며, 이 수치는 당신의 크기가 #{italic}#커질수록#{normal}#; 5%% 씩 감소합니다. 
+		이 과정에서 당신의 보조장비로 주는 모든 피해는 50%% 감소합니다.]]):
+		
 		format(t.getSave(self, t), t.getMult(self, t) * 100)
 	end,
 }
 
 newTalent{
 	name = "Scar-Scripted Flesh", short_name = "SCAR_SCRIPTED_FLESH",
+	kr_name = "흉터박이",
 	type = {"race/ogre", 3},
 	require = racial_req3,
 	points = 5,
@@ -1002,14 +1051,20 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
-		This effect can only happen once per turn.]]):
+		--return ([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
+		--This effect can only happen once per turn.]]):
+		
+		-- 없는것보다 낫다고 생각해서 부족한 실력이지만 바꿔둡니다. 추후 수정 요망.
+	
+		return ([[당신이 치명타에 성공했을때 %d%% 의 확률로 남아있는 각인의 포화효과중 하나의 대기시간을 1 줄입니다. 
+		이 효과는 한 턴에 한 번만 발생합니다.  ]]):
 		format(t.getChance(self, t))
 	end,
 }
 
 newTalent{
 	name = "Writ Large",
+	kr_name = "뚜렷한 존재",
 	type = {"race/ogre", 4},
 	require = racial_req4,
 	points = 5,
@@ -1035,9 +1090,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Instantly removes runic and infusion saturations.
-		For %d turns your inscriptions cooldown twice as fast.
-		At level 5 your command over inscriptions is so good that you can use one more.]]):
+		--return ([[Instantly removes runic and infusion saturations.
+		--For %d turns your inscriptions cooldown twice as fast.
+		--At level 5 your command over inscriptions is so good that you can use one more.]]):
+		
+		-- 없는것보다 낫다고 생각해서 부족한 실력이지만 바꿔둡니다. 추후 수정 요망.
+		
+		return ([[즉시 룬과 주입물의 포화효과를 제거합니다.
+		%d 턴동안 각인의 재사용 대기시간이 두 배 빨라집니다.
+		5레벨이 되었을때 당신은 각인을 더욱 잘다루게 되어 한 번 더 사용할 수 있습니다.]]):
 		format(t.getDuration(self, t))
 	end,
 }
