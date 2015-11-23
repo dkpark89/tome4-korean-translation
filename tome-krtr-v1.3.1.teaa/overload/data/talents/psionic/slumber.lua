@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Slumber",
+	kr_name = "숙면",
 	type = {"psionic/slumber", 1},
 	points = 5,
 	require = psi_wil_req1,
@@ -63,7 +64,7 @@ newTalent{
 			target:setEffect(target.EFF_SLUMBER, t.getDuration(self, t), {src=self, power=power, waking=is_waking, insomnia=t.getInsomniaPower(self, t), no_ct_effect=true, apply_power=self:combatMindpower()})
 			game.level.map:particleEmitter(target.x, target.y, 1, "generic_charge", {rm=180, rM=200, gm=100, gM=120, bm=30, bM=50, am=70, aM=180})
 		else
-			game.logSeen(self, "%s resists the sleep!", target.name:capitalize())
+			game.logSeen(self, "%s 잠들지 않았습니다!", target.name:capitalize())
 		end
 		game:playSoundNear(self, "talents/dispel")
 		return true
@@ -72,14 +73,15 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		local power = t.getSleepPower(self, t)
 		local insomnia = t.getInsomniaPower(self, t)
-		return([[Puts the target into a deep sleep for %d turns, rendering it unable to act.  Every %d points of damage the target suffers will reduce the effect duration by one turn.
-		When Slumber ends, the target will suffer from Insomnia for a number of turns equal to the amount of time it was asleep (up to ten turns max), granting it %d%% sleep immunity for each turn of the Insomnia effect.
-		The damage threshold will scale with your Mindpower.]]):format(duration, power, insomnia)
+		return([[대상을 %d 턴 동안 재웁니다. 수면 중에는 행동할 수 없게 되며, %d 피해를 받을 때마다 수면의 지속시간이 1 턴씩 줄어들게 됩니다.
+		수면이 끝나면, 대상은 불면증 상태가 되어 잠들었던 시간만큼 %d%% 수면 면역력을 얻게 됩니다. (최대 10 턴)
+		피해 한계량은 정신력의 영향을 받아 증가합니다.]]):format(duration, power, insomnia)
 	end,
 }
 
 newTalent{
 	name = "Restless Night",
+	kr_name = "쉴 수 없는 밤",
 	type = {"psionic/slumber", 2},
 	points = 5,
 	require = psi_wil_req2,
@@ -92,13 +94,14 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return([[Targets you have slept take %0.2f mind damage each turn for five turns upon waking.
-		The damage will scale with your Mindpower.]]):format(damDesc(self, DamageType.MIND, (damage)))
+		return([[잠에서 깨어난 대상이 5 턴 동안 매 턴마다 %0.2f 정신 피해를 받게 됩니다.
+		피해량은 정신력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.MIND, (damage)))
 	end,
 }
 
 newTalent{
 	name = "Sandman",
+	kr_name = "잠귀신",
 	type = {"psionic/slumber", 3},
 	points = 5,
 	require = psi_wil_req3,
@@ -108,14 +111,16 @@ newTalent{
 	info = function(self, t)
 		local power_bonus = t.getSleepPowerBonus(self, t) - 1
 		local insomnia = t.getInsomniaPower(self, t)
-		return([[Increases the amount of damage you can deal to sleeping targets before reducing the effect duration by %d%%, and reduces the sleep immunity of your Insomnia effects by %d%%.
-		These effects will be directly reflected in the appropriate talent descriptions.
-		The damage threshold bonus will scale with your Mindpower.]]):format(power_bonus * 100, insomnia)
+		return([[수면의 지속시간이 줄어드는 피해 한계량이 %d%% 증가하여, 더 많은 피해를 줘도 적의 수면 상태가 풀리지 않게 됩니다.
+		그리고, 적이 불면증 상태가 되었을 때 얻는 수면 면역력이 %d%% 감소합니다.
+		따로 계산할 필요 없이, 이 효과들이 모두 적용된 수치가 다른 기술들의 설명에 표시됩니다.
+		피해 한계량은 정신력의 영향을 받아 증가합니다.]]):format(power_bonus * 100, insomnia)
 	end,
 }
 
 newTalent{
 	name = "Dreamscape",
+	kr_name = "꿈 속 여행",
 	type = {"psionic/slumber", 4},
 	points = 5,
 	require = psi_wil_req4,
@@ -132,11 +137,11 @@ newTalent{
 	on_pre_use = function(self, t, silent) if self:attr("is_psychic_projection") then if not silent then game.logPlayer(self, "You feel it unwise to travel to the dreamscape in such a fragile form.") end return false end return true end,
 	action = function(self, t)
 		if game.zone.is_dream_scape then
-			game.logPlayer(self, "This talent cannot be used from within the Dreamscape.")
+			game.logPlayer(self, "이 기술은 꿈 속을 여행하는 동안에는 사용할 수 없습니다.")
 			return
 		end
 		if game.zone.no_planechange then
-			game.logPlayer(self, "This talent cannot be used here.")
+			game.logPlayer(self, "이 기술은 여기서 사용할 수 없습니다.")
 			return
 		end
 
@@ -152,16 +157,16 @@ newTalent{
 		if target:attr("negative_status_effect_immune") or target:attr("status_effect_immune") then return nil end
 
 		if not self:canBe("planechange") or target.summon_time or target.summon then
-			game.logPlayer(self, "The spell fizzles...")
+			game.logPlayer(self, "마법이 실패했습니다...")
 			return
 		end
 
 		if not (target and target:attr("sleep")) then
-			game.logPlayer(self, "Your target must be sleeping in order to enter its dreamscape.")
+			game.logPlayer(self, "꿈 속에 들어가기 위해서는, 우선 대상을 잠재워야 합니다.")
 			return nil
 		end
 		if self:reactionToward(target) >= 0 then
-			game.logPlayer(self, "You can't cast this on friendly targets.")
+			game.logPlayer(self, "아군에게는 사용할 수 없습니다.")
 			return nil
 		end
 
@@ -224,7 +229,7 @@ newTalent{
 				end)
 			end
 
-			game.logPlayer(game.player, "#LIGHT_BLUE#You are taken to the Dreamscape!")
+			game.logPlayer(game.player, "#LIGHT_BLUE#꿈 속에서 튕겨져 나왔습니다!")
 
 			if game.party:hasMember(target) then game.party:learnLore("dreamscape-entry") end
 		end)
@@ -237,10 +242,9 @@ newTalent{
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
 		local power = t.getPower(self, t)
-		return([[Enter a sleeping target's dreams for %d turns.  While in the Dreamscape, you'll encounter the target's invulnerable sleeping form as well as dream projections that it will spawn every other turn to defend its mind.
-		Projections inflict 50%% less damage than the original, unless the target has Lucid Dreamer active.
-		When the Dreamscape ends, for each projection destroyed, the target's life will be reduced by 10%% and it will be brainlocked for one turn.
-		In the Dreamscape, your damage will be improved by %d%%.
-		The damage bonus will improve with your Mindpower.]]):format(duration, power)
+		return([[%d 턴 동안 수면 중인 대상의 꿈 속으로 들어갑니다. 꿈 속에서는 무적 상태의 잠든 대상을 만날 수 있으며, 대상이 자신의 정신을 보호하기 위해 만든 투영체가 계속 생성됩니다.
+		대상이 자각몽 상태가 아닌 한, 투영체는 기본적으로 본체보다 50%% 더 적은 피해만을 입힐 수 있으며 반대로 자신은 투영체에게 %d%% 더 강력한 공격을 할 수 있습니다.
+		꿈 속 여행이 끝나면 파괴된 투영체 1 개마다 대상의 생명력이 최대 생명력의 10%% 만큼 감소하며, 1 턴 동안 정신 잠금에 걸립니다.
+		피해량 증가는 정신력의 영향을 받아 증가합니다.]]):format(duration, power)
 	end,
 }
