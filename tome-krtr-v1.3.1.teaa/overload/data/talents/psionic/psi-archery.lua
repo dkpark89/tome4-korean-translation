@@ -20,6 +20,7 @@
 
 newTalent{
 	name = "Guided Shot",
+	kr_name = "유도 사격",
 	type = {"psionic/psi-archery", 1},
 	require = psi_cun_high1,
 	no_energy = "fake",
@@ -48,12 +49,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Fire and guide an arrow to its target with precise telekinetic nudges. Does normal damage, but accuracy and crit chance are increased by %d.]]):format(t.shot_boost(self, t))
+		return ([[염력으로 화살을 조절하여, 더 정확하고 치명적인 공격을 합니다. 피해량은 변하지 않지만, 정확도와 치명타율이 %d 증가합니다.]]):format(t.shot_boost(self, t))
 	end,
 }
 
 newTalent{
 	name = "Augmented Shot",
+	kr_name = "염력 사격",
 	type = {"psionic/psi-archery", 2},
 	no_energy = "fake",
 	points = 5,
@@ -84,12 +86,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Use telekinetic forces to greatly augment the durability and tension of your bow in order to fire an arrow with velocity unmatched by even the mightiest mundane archers. Increases armor penetration by %d, and deals %d%% damage.]]):format(t.apr_boost(self, t), t.dam_mult(self, t) * 100)
+		return ([[활에 염력을 불어넣어, 그 어떤 궁수보다도 강력한 사격을 합니다.
+		관통율이 %d 증가하며, 피해량이 %d%% 증가합니다.]]):format(t.apr_boost(self, t), t.dam_mult(self, t) * 100)
 	end,
 }
 
 newTalent{
 	name = "Thought-quick Shot",
+	kr_name = "순간 사격",
 	type = {"psionic/psi-archery", 3},
 	require = psi_cun_high3,
 	no_energy = true,
@@ -120,12 +124,13 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Ready and release an arrow with a flitting thought. This attack does not use a turn, and increases in talent level reduce its cooldown.]])
+		return ([[스치는 생각처럼 빠르게 화살을 날립니다. 턴 소모 없이 화살을 날리며, 기술 레벨이 오르면 재사용 대기시간이 짧아집니다.]])
 	end,
 }
 
 newTalent{
 	name = "Masterful Telekinetic Archery",
+	kr_name = "염동력 궁술의 달인",
 	type = {"psionic/psi-archery", 4},
 	require = psi_cun_high4,
 	points = 5,
@@ -183,7 +188,7 @@ newTalent{
 			if self:getInven(self.INVEN_PSIONIC_FOCUS) then
 				for i, o in ipairs(self:getInven(self.INVEN_PSIONIC_FOCUS)) do
 					if o.combat and o.archery then
-						print("[PSI ATTACK] attacking with", o.name)
+						print("염력으로 활을 쥐고 있어야 할 수 있는 행동입니다.", o.name)
 						self:archeryShoot(targets, t, nil, {use_psi_archery = true})
 						--local s, h = self:attackTargetWith(a, o.combat, nil, 1)
 						--speed = math.max(speed or 0, s)
@@ -223,9 +228,9 @@ newTalent{
 		local o = inven and inven[1]
 		if type(o) == "boolean" then o = nil end
 		if not o then
-			return ([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack the nearest target each turn for %d turns.
-			The telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.
-			You are not telekinetically wielding anything right now.]]):format(duration)
+			return ([[염동력으로 활을 쥐어 사용합니다. %d 턴 동안 가장 근접한 적에게 자동으로 화살을 발사합니다.
+			힘과 민첩 능력치 대신, 의지와 교활함 능력치로 활의 피해량과 정확도가 계산됩니다.
+			현재 염동력으로 활을 들지 않은 상태입니다.]]):format(duration)
 		end
 		if o.type == "weapon" then
 			self:attr("use_psi_combat", 1)
@@ -236,14 +241,14 @@ newTalent{
 			speed = self:combatSpeed(o.combat)
 			self:attr("use_psi_combat ", -1)
 		end
-		return ([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack a target each turn for %d turns.
-			The telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.
-		Combat stats:
-		Accuracy: %d
-		Damage: %d
-		APR: %d
-		Crit: %0.2f
-		Speed: %0.2f]]):
+		return ([[염동력으로 활을 쥐어 사용합니다. %d 턴 동안 가장 근접한 적에게 자동으로 화살을 발사합니다.
+			힘과 민첩 능력치 대신, 의지와 교활함 능력치로 활의 피해량과 정확도가 계산됩니다.
+			활의 성능은 다음과 같습니다.
+			- 정확도 : %d
+			- 피해량 : %d
+			- 방어도 관통 : %d
+			- 치명타율 : %0.2f
+			- 공격 속도 : %0.2f]]):
 		format(duration, atk, dam, apr, crit, speed)
 	end,
 }
