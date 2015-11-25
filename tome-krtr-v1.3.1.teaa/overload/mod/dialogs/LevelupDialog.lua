@@ -114,7 +114,7 @@ function _M:init(actor, on_finish, on_birth)
 
 			if self.actor.unused_stats~=self.actor_dup.unused_stats or self.actor.unused_talents_types~=self.actor_dup.unused_talents_types or
 			self.actor.unused_talents~=self.actor_dup.unused_talents or self.actor.unused_generics~=self.actor_dup.unused_generics or self.actor.unused_prodigies~=self.actor_dup.unused_prodigies or changed then
-				self:yesnocancelPopup("완료","변경사항을 적용합니까?", function(yes, cancel)
+				self:yesnocancelLongPopup("완료","변경사항을 적용합니까?\n", 300, function(yes, cancel)
 				if cancel then
 					return nil
 				else
