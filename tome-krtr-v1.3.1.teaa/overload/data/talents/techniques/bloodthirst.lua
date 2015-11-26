@@ -73,7 +73,7 @@ newTalent{
 		local max_health = t.getHealth(self,t)
 		return ([[적들이 흘리는 피를 보고 희열을 느낍니다. 적에게 치명타를 가하면 %d 턴 동안 최대 생명력이 %d%% 상승하며, 턴 당 생명력 재생이 %0.2f / 턴 당 체력 재생이 %0.2f 증가합니다.
 		생명력과 체력 재생 증가 효과는 5 회까지 중첩 가능합니다. 즉, 턴 당 생명력 재생은 최대 %0.2f / 턴 당 체력 재생은 최대 %0.2f 까지 가능합니다.]]):
-		format(t.getHealth(self, t), regen, regen/5, t.getDuration(self, t),max_regen, max_regen/5)
+		format(t.getDuration(self, t),t.getHealth(self, t), regen, regen/5, max_regen/5, max_regen)
 	end,
 }
 
