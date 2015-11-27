@@ -27,6 +27,7 @@ local Astar = require "engine.Astar"
 
 newEffect{
 	name = "SILENCED", image = "effects/silenced.png",
+	desc = "Silenced",
 	kr_desc = "침묵",
 	long_desc = function(self, eff) return "침묵 : 모든 주문 시전 불가능 / 목소리를 사용하는 기술 사용 불가능" end,
 	type = "mental",
@@ -304,6 +305,7 @@ newEffect{
 
 newEffect{
 	name = "GLOOM_CONFUSED", image = "effects/gloom_confused.png",
+	desc = "Confused by the gloom",
 	kr_desc = "침울함의 혼란",
 	long_desc = function(self, eff) return ("침울함으로 인해 혼란 : %d%% 의 확률로 멋대로 행동 / 복잡한 행동 불가능"):format(eff.power) end,
 	type = "mental",
@@ -713,6 +715,7 @@ newEffect{
 
 newEffect{
 	name = "FED_UPON", image = "effects/fed_upon.png",
+	desc = "Fed Upon",
 	kr_desc = "먹잇감",
 	long_desc = function(self, eff) return ("%s %s의 먹잇감이 됩니다."):format((self.kr_name or self.name):capitalize():addJosa("는"), (eff.src.kr_name or eff.src.name)) end,
 	type = "mental",
@@ -1200,6 +1203,7 @@ newEffect{
 
 newEffect{
 	name = "TORMENTED", image = "effects/tormented.png",
+	desc = "Tormented",
 	kr_desc = "격통",
 	long_desc = function(self, eff) return ("격통 : %d 마리 환영이 나타남\n환영 : 사라지기 전까지 대상에게 정신 속성 공격 (%d 피해)"):format(eff.count, eff.damage) end,
 	type = "mental",
@@ -3069,6 +3073,7 @@ newEffect{
 	parameters = { },
 	on_gain = function(self, err) return "#Target1# 수정의 기운으로 반짝거리기 시작합니다.", "+수정의 울림" end,
 	on_lose = function(self, err) return "#Target1# 더이상 반짝거리지 않습니다.", "-수정의 울림" end,
+	activate = function(self, eff)
 		for a, b in pairs(eff.effects) do
 			self:effectTemporaryValue(eff, a, b)
 		end
@@ -3290,11 +3295,11 @@ newEffect{
 
 newEffect{
 	name = "UNSEEN_FORCE", desc = "Unseen Force",
-	kr_desc = "보이지 않는 힘,
+	kr_desc = "보이지 않는 힘",
 	image="talents/unseen_force.png",
 	long_desc = function(self, eff)
 		local hits = (eff.extrahit > 0 and "from "..eff.hits.." to "..(eff.hits + 1)) or ""..eff.hits
-		return ("보이지 않는 힘이 생성물의 5칸 이내 %s의 대상을 공격합니다...
+		return ("보이지 않는 힘이 생성물의 5칸 이내 %s의 대상을 공격합니다. "..
 		"매 턴, %d의 데미지를 주고 %d만큼 밀어냅니다.."):format(hits, eff.damage, eff.knockback) end,
 	type = "mental",
 	subtype = {psionic=true},
@@ -3336,7 +3341,7 @@ newEffect{
 
 newEffect{
 	name = "PSIONIC_MAELSTROM", image = "talents/psionic_maelstrom.png",
-	kr_desc = "정신적인 소용돌이,
+	kr_desc = "정신적인 소용돌이",
 	desc = "Psionic Maelstrom",
 	long_desc = function(self, eff) return ("이 생성물은 강력한 정신력으로 이루어진 폭풍의 눈 속에 있습니다.."
 		):format() end,
@@ -3389,7 +3394,7 @@ newEffect{
 newEffect{
 	name = "CAUGHT_LIGHTNING", image = "talents/transcendent_electrokinesis.png",
 	desc = "Caught Lightning",
-	kr_desc = "번개잡이,
+	kr_desc = "번개잡이",
 	long_desc = function(self, eff) return ("번개잡이는 에너지를 붙들어 당신에게 %d%%의 전기 데미지와 %d의 올스탯을 부여합니다."):format((eff.dur+1)*5, eff.dur+1) end,
 	type = "mental",
 	subtype = { lightning=true },
