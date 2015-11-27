@@ -41,7 +41,8 @@ end
 
 floorEffect{
 	desc = "Icy Floor", image = "talents/ice_storm.png",
-	long_desc = "The target is walking on an icy floor. Increasing movement speed by 20%, providing +20% cold damage piercing and -30% stun immunity.",
+	kr_desc = "얼어붙은 바닥",
+	long_desc = "얼어붙은 바닥 효과 : 이동 속도 +20% / 냉기 저항 관통 +20% / 기절 면역력 -30%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "resists_pen", {[DamageType.COLD] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", 0.2)
@@ -51,7 +52,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Font of Life", image = "talents/grand_arrival.png",
-	long_desc = function(self, eff) return ("The target is near a font of life, granting +%0.2f life regeneration, -%0.2f equilibrium regeneration, +%0.2f stamina regeneration and +%0.2f psi regeneration. Undeads are not affected."):format(eff.power, eff.power, eff.power, eff.power) end,
+	kr_desc = "생명의 샘",
+	long_desc = function(self, eff) return ("생명의 샘 효과 : 생명력 재생 +%0.2f / 평정 회복 -%0.2f / 체력 재생 +%0.2f / 염력 재생 +%0.2f \n(단, 언데드는 아무런 영향도 받지 않음)"):format(eff.power, eff.power, eff.power, eff.power) end,
 	activate = function(self, eff)
 		if self:attr("undead") then eff.power = 0 return end
 		eff.power = 3 + game.zone:level_adjust_level(game.level, game.zone, "object") / 2
@@ -64,7 +66,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Spellblaze Scar", image = "talents/blood_boil.png",
-	long_desc = "The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.",
+	kr_desc = "마법폭발의 상처",
+	long_desc = "마법폭발의 상처 효과 : 주문 치명타율 +25% / 화염 공격 피해량 +10% / 황폐 공격 피해량 +10% / 주문 치명타시 해당 원천력이 추가로 소모됨",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_spellcrit", 25)
 		self:effectTemporaryValue(eff, "inc_damage", {[DamageType.FIRE]=10,[DamageType.BLIGHT]=10})
@@ -78,7 +81,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Blighted Soil", image = "talents/blightzone.png",
-	long_desc = "The target is walking on blighted soil, reducing diseases resistance by 60% and giving all attacks a 40% chance to infect the target with a random disease (can only happen once per turn).",
+	kr_desc = "황폐한 토양",
+	long_desc = "황폐한 토양 효과 : 질병 면역력 -60% / 공격 성공시 40%의 확률로 (턴당 한번씩) 목표가 임의의 질병에 걸림",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "disease_immune", -0.6)
 		self:effectTemporaryValue(eff, "blighted_soil", 40)
@@ -87,14 +91,16 @@ floorEffect{
 
 floorEffect{
 	desc = "Glimmerstone", image = "effects/dazed.png", name = "DAZING_DAMAGE",
-	long_desc = "The target is affected by a glimmerstone, its next attack will try to daze.",
+	kr_desc = "깜박이는 암석",
+	long_desc = "깜박이는 암석 효과 : 다음 공격시 상대를 혼절시키려고 시도",
 	activate = function(self, eff)
 	end,
 }
 
 floorEffect{
 	desc = "Protective Aura", image = "talents/barrier.png",
-	long_desc = function(self, eff) return ("The target is near a protective aura, granting +%d armour and +%d physical save."):format(eff.power, eff.power * 3) end,
+	kr_desc = "보호의 기운",
+	long_desc = function(self, eff) return ("보호의 기운 효과 : 방어도 +%d / 물리내성 +%d"):format(eff.power, eff.power * 3) end,
 	activate = function(self, eff)
 		eff.power = 3 + game.zone:level_adjust_level(game.level, game.zone, "object") / 5
 		self:effectTemporaryValue(eff, "combat_armor", eff.power)
@@ -104,7 +110,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Antimagic Bush", image = "talents/fungal_growth.png",
-	long_desc = function(self, eff) return ("The target is near an antimagic bush, granting +20%% nature damage, +20%% nature resistance penetration and -%d spellpower."):format(eff.power) end,
+	kr_desc = "반마법 덤불",
+	long_desc = function(self, eff) return ("반마법 덤불 효과 : 자연 속성 공격 피해량 +20%% / 자연 속성 저항 관통 +20%% / 주문력 -%d"):format(eff.power) end,
 	activate = function(self, eff)
 		eff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, "object") / 1.5
 		self:effectTemporaryValue(eff, "combat_spellpower", -eff.power)
@@ -115,7 +122,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Necrotic Air", image = "talents/repression.png",
-	long_desc = "The target is in a zone of necrotic air, granting -40% healing mod. Undead creatures also get +15% to all resistances.",
+	kr_desc = "원혼의 대기",
+	long_desc = "원혼의 대기 효과 : 치유 효율 -40% / 언데드인 경우 전체 저항 +15%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "healing_factor", -0.4)
 		if self:attr("undead") then self:effectTemporaryValue(eff, "resists", {all=15}) end
@@ -124,7 +132,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Whistling Vortex", image = "talents/shadow_blast.png",
-	long_desc = function(self, eff) return ("The target is in a whistling vortex, granting +%d ranged defense, -%d ranged accuracy and incoming projectiles are 30%% slower."):format(eff.power, eff.power) end,
+	kr_desc = "휘몰아치는 소용돌이",
+	long_desc = function(self, eff) return ("휘몰아치는 소용돌이 효과 : 장거리 회피 +%d / 장거리 정확도 -%d / 날아오는 발사체 속도 -30%%"):format(eff.power, eff.power) end,
 	activate = function(self, eff)
 		eff.power = 10 + game.zone:level_adjust_level(game.level, game.zone, "object") / 2
 		self:effectTemporaryValue(eff, "combat_def_ranged", eff.power)
@@ -135,7 +144,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Fell Aura", image = "talents/shadow_mages.png",
-	long_desc = "The target is surrounded by a fell aura, granting 40% critical damage bonus but -20% to all resistances.",
+	kr_desc = "격렬한 기운",
+	long_desc = "격렬한 기운 효과 : 치명타 피해량 +40% 추가 / 전체 저항 -20%",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "combat_critical_power", 40)
 		self:effectTemporaryValue(eff, "resists", {all=-20})
@@ -144,7 +154,8 @@ floorEffect{
 
 floorEffect{
 	desc = "Slimey Pool", image = "talents/acidic_skin.png",
-	long_desc = "The target is walking on slime. Decreasing movement speed by 20% and dealing 20 slime damage to any creatures attacking it.",
+	kr_desc = "슬라임 웅덩이",
+	long_desc = "슬라임 웅덩이 효과 : 이동 속도 -20% / 근접 공격시 슬라임 속성 피해량 +20 추가",
 	activate = function(self, eff)
 		self:effectTemporaryValue(eff, "on_melee_hit", {[DamageType.SLIME] = 20})
 		self:effectTemporaryValue(eff, "movement_speed", -0.2)
