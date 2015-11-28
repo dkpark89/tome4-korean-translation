@@ -25,24 +25,25 @@ newLore{
 	id = "halfling-research-note-1",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_name = "하플링 마법사 홈팔란의 연구 기록",
 	lore = [[
-#{bold}#Hompalan's Log Entry1#{normal}#
-#{italic}#Age of Allure Year 4537#{normal}#
+#{bold}#홈팔란의 기록 1#{normal}#
+#{italic}#매혹의 시대 4537 년#{normal}#
 
-Excavation of Sher'Tul ruins almost complete. Markings seem to match previous ruins in the south.
-Current theory: Possibly a portal of some kind? We have only rumours and myths of the Sher'Tul, and all say they could travel Eyal in the blink of an eye. Mana readings of the place are beyond anything we can even begin to comprehend. Last diviner I sent down there is still in a coma. Must continue studies.
-
-
-#{bold}#Hompalan's Log Entry 2#{normal}#
-#{italic}#Age of Allure Year 4541#{normal}#
-
-Testing of live yeeks has not gone well. Thankfully I can leave the clean-up to my technicians... Four years and it feels like we have not even begun to understand these ruins. I'm worried our research grant will soon be cut. But I have hope that some of the items we've recently uncovered may provide some sort of key to the portals. Or perhaps they were just used for Sher'Tul sports? We shall see.
+쉐르'툴 폐허 발굴이 거의 끝났다. 이전의 남쪽 폐허에서 보았던 표식과 일치하는 것 같다. 
+현재 가설 : 아마도 어떤 종류의 관문인건가? 우리가 쉐르'툴에 대해서 아는 것은 오직 소문과 신화 뿐이고, 이것들은 모두 에이알 세계를 눈 깜짝할 새에 이동할 수 있다는 내용의 이야기를 하고 있다. 그리고 이 장소에서 읽은 마나의 흔적은 우리가 겨우 이해하기 시작한 수준을 뛰어넘는 것이었다. 밑으로 내려보냈던 마지막 탐색자는 아직도 혼수 상태이다. 연구를 계속 해야만 한다.
 
 
-#{bold}#Hompalan's Log Entry 3#{normal}#
-#{italic}#Age of Allure 4542#{normal}#
+#{bold}#홈팔란의 기록 2#{normal}#
+#{italic}#매혹의 시대 4541 년#{normal}#
 
-Third test confirms it - the orb allows transition between portal gates. This is the greatest discovery of my life. We are the first research team to ever unlock such powers from a Sher'Tul ruin! Just a shame about all the yeeks we sent through before. I'm really starting to suspect that pronged instrument was some sort of eating device... Oh well, plenty more dumb yeeks available.
+살아있는 이크를 실험했던 것은 잘 풀리지 않았다. 고맙게도 '청소' 는 내 기술자들에게 맡길 수 있었다... 4 년이 지났지만 아직도 이 폐허들에 대해 이해조차도 못했다는 느낌이 든다. 연구비가 머지않아 끊길까봐 걱정이다. 하지만 우리가 최근에 발굴해낸 몇 가지의 물건들이 관문을 여는 열쇠 역할을 해줄지도 모른다. 아니면 그냥 쉐르'툴 종족들이 운동 경기에 사용했던 물건일지도? 그건 두고봐야 알겠지.
+
+
+#{bold}#홈팔란의 기록 3#{normal}#
+#{italic}#매혹의 시대 4542 년#{normal}#
+
+세 번째 실험으로 확인할 수 있었다. 이 오브가 관문간 전송을 가능하게 해준다는 것을 말이다. 내 인생에서 가장 위대한 발견이다. 쉐르'툴 유적에서 이런 힘을 풀어낸 것은 우리 연구팀이 최초다! 단지 전에 내려보냈던 모든 이크들이 우리의 수치일 뿐. 나는 진정으로 이 갈라진 기구가 어떤 종류의 먹는 기계... 가 아닐까 의심하기 시작했다. 오 그렇지, 멍청한 이크들이 아직 많이 남아있어.
 ]]
 }
 
@@ -50,34 +51,35 @@ newLore{
 	id = "halfling-research-note-2",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_name = "하플링 마법사 홈팔란의 연구 기록",
 	lore = [[
-#{bold}#Hompalan's Log Entry 4#{normal}#
-#{italic}#Age of Allure 4544#{normal}#
+#{bold}#홈팔란의 기록 4#{normal}#
+#{italic}#매혹의 시대 4544 년#{normal}#
 
-Just when I was getting somewhere the military decide to barge in and take over. Don't they realise what a serious scientific project this is? All they care about is the little stripes on their helmets. Some tell rumours of humans threatening to attack the facility, but I really care not for such trivial politics. Besides, what threat could those stupid lanklegs really be? I suppose I shall have to persevere though, and try to work around these insane security restrictions.
-
-
-#{bold}#Hompalan's Log Entry 5#{normal}#
-#{italic}#Age of Allure 4545#{normal}#
-
-Well, I suppose this whole war thing wasn't just hot wind after all. Apparently there's lots of people dying outside. What a nuisance - I just want to get on with my work without my supplies being cut off. There is one upside though - human test subjects! We're going to get started on them in the coming months.
-I must say I'll be glad to get rid of these disgusting yeeks. They disturb me somehow with their oversized heads. Why we ever decided to use these useless creatures as servants is beyond me... At least the human subjects will be able to talk, lacking though they be in true mental capacity.
+내가 자리를 비웠을 때, 군인들이 들이닥쳐 이곳을 장악하기로 결정했다. 이게 얼마나 중대한 과학적 연구 과제인지 알고나 있는건가? 군인놈들이 신경쓰는거라곤 투구에 그려진 조그만 줄무늬밖에 없지. 몇몇은 인간들이 이 시설을 공격하는 위협이 될지도 모른다는 소문에 대해서 말했지만, 난 그런 사소한 정치놀음은 신경 쓰지 않는다. 그리고 그 꺽다리 놈들이 어떤 위협이 될 수 있다는거지? 아마도 이 정신나간 보안 제약 속에서 계속 일을 해야할 것 같다.
 
 
-#{bold}#Hompalan's Log Entry 6#{normal}#
-#{italic}#Age of Allure 4546#{normal}#
+#{bold}#홈팔란의 기록 5#{normal}#
+#{italic}#매혹의 시대 4545 년#{normal}#
 
-Test subject A-C: Imploded during transition.
-Test subject D: Exploded during transition.
-Test subject E: Half transitioned, half remained. Partial success?
-Test subject F: Imploded during transition.
-Test subject G: Turned to goo during transition.
-Test subject H-K: Imploded during transition.
-Test subject L: Frozen during transition.
-Test subject M: Survived first transition. Imploded 2 seconds after. Progress!
-Test subject N: Survived first transition, but in coma. Died after 4 days.
+아마 이 모든 전쟁이란 것들이 그저 단순한 열풍은 아니라고 추측된다. 듣자하니 밖에서는 많은 사람들이 죽어가고 있는 듯 하다. 이 얼마나 골칫거리인가 - 난 그저 나의 보급이 끊기는 일 없이 일에 몰두하고 싶다. 반면에 좋은 점들도 있다 - 인간형 실험체들 말이다! 몇 달 안에 인간을 가지고 실험을 시작할 것이다.
+그 역겨운 이크들을 없앨 수 있어서 기쁘단 사실은 꼭 말해야겠다. 비대한 머리는 어떻게든 나를 짜증나게 한다. 왜 우리가 쓸모없는 이크들을 하인으로 쓰길 결정했던 것인가... 최소한 인간 실험체들은 가지고 있는 지능은 부족할지라도 대화는 가능하다.
 
-We're really getting somewhere here... Just a shame humans are such messy creatures! Honestly, how much intestines do they need?! Will start on the next set of subjects early in the new year.
+
+#{bold}#홈팔란의 기록 6#{normal}#
+#{italic}#매혹의 시대 4546 년#{normal}#
+
+실험체 A-C : 전송 중 붕괴.
+실험체 D : 전송 중 폭파.
+실험체 E : 절반 전송, 절반 잔류. 절반의 성공인가?
+실험체 F : 전송 중 붕괴.
+실험체 G : 전송 중 녹아내림.
+실험체 H-K : 전송 중 붕괴.
+실험체 L : 전송 중 냉동.
+실험체 M : 전송에서 생존. 2초 후에 붕괴. 진척이 있다!
+실험체 N : 전송에서 생존했지만 혼수상태에 빠짐. 4일 후 사망.
+
+우린 조금이나마 진전을 보고 있다... 인간이 그렇게 엉망인 생물이라는 것이 안타깝다! 솔직하게 말해서 얼마나 더 관심을 쏟아줘야 하는거지?! 새해 초에 새로운 실험체들로 실험을 시작할 것이다.
 ]]
 }
 
@@ -85,30 +87,31 @@ newLore{
 	id = "halfling-research-note-3",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_name = "하플링 마법사 홈팔란의 연구 기록",
 	lore = [[
-#{bold}#Hompalan's Log Entry 7#{normal}#
-#{italic}#Age of Allure 4547#{normal}#
+#{bold}#홈팔란의 기록 7#{normal}#
+#{italic}#매혹의 시대 4547 년#{normal}#
 
-Test subject O: Imploded during transition.
-Test subject P: Survived first transition, but turned mad - had to be put down.
-Test subject Q: Survived first transition. Imploded on return transition.
-Test subject R: Died during first transition.
-Test subject S-T: Imploded on return transition.
-Test subject U: Survived return transition. Muttered something about hearing a voice before jumping back into portal - imploded. What a nuisance!
-Test subject V: Died on return transition.
+실험체 O : 전송 중 붕괴.
+실험체 P : 전송에서 생존했지만 미쳐버림 - 제압해야만 했음.
+실험체 Q : 첫 번째 전송에서 생존. 돌아오는 전송에서 붕괴.
+실험체 R : 첫 번째 전송에서 사망.
+실험체 S-T : 돌아오는 전송에서 사망.
+실험체 U : 돌아오는 전송에서 생존. 관문으로 뛰어들기 전에 소리가 들린다고 불평했었음 - 붕괴. 골칫거리같으니!
+실험체 V : 돌아오는 전송에서 사망.
 
-Running out of letters soon. Also out of subjects for now. Will have to wait for the soldiers to fetch me more.
+사용할 알파벳도 다 떨어져간다. 실험체도 마찬가지로 다 떨어졌다. 군인들이 실험체를 더 데려오길 기다려야 한다.
 
 
-#{bold}#Hompalan's Log Entry 8#{normal}#
-#{italic}#Age of Allure 4548#{normal}#
+#{bold}#홈팔란의 기록 8#{normal}#
+#{italic}#매혹의 시대 4548년#{normal}#
 
-Test subject W: Shrunk during first transition, before exploding. (error in calibration?)
-Test subject X: Returned from second transition missing head. How bizarre.
-Test subject Y: Disappeared during transition.
-Test subject Z: Survived both transitions. Remarkable!
+실험체 W : 폭파하기 전에 첫 번째 전송에서 쪼그라들었다. (측정과정에서의 오류인가?)
+실험체 X : 두 번째 전송에서 머리만 빼고 돌아왔다. 기괴하군.
+실험체 Y : 전송 중에 사라짐.
+실험체 Z : 두 번의 전송에서 모두 살아남음. 놀랍군!
 
-Subject Z currently raving, but I believe this is due to stressful conditions, not a direct corrosion of mental faculties from the portal use. Will have to study further.
+현재 실험체 Z가 미쳐 날뛰고 있지만, 나는 관문 사용으로 인한 직접적인 정신적 능력의 부패가 아닌 극심한 스트레스 때문이라고 믿는다. 더 연구해야만 한다.
 ]]
 }
 
@@ -116,26 +119,27 @@ newLore{
 	id = "halfling-research-note-4",
 	category = "age of allure",
 	name = "research log of halfling mage Hompalan",
+	kr_name = "하플링 마법사 홈팔란의 연구 기록",
 	bloodstains = 7,
 	lore = [[
-#{bold}#Hompalan's Log Entry 9#{normal}#
-#{italic}#Age of Allure 4549#{normal}#
+#{bold}#홈팔란의 기록 9#{normal}#
+#{italic}#매혹의 시대 4549 년#{normal}#
 
-Subject Z is still doing well. Have completed numerous further transitions with him. Is capable of intelligent dialogue at times, though his species is fairly limited in intellect. Seems to have little real clue as to what is going on, and is always asking what time it is. What a fool... I must conjecture that humans are far too tall to have blood pumped all the way to their brain. Still, I dare not risk sending any halflings through the portal yet, and what humans I have sent through since have all died.
-
-
-#{bold}#Hompalan's Log Entry 10#{normal}#
-#{italic}#Age of Allure 4550#{normal}#
-
-Beginning to suspect subject Z has latent magical powers. Have seen him move much faster than I thought his species capable, and mend broken objects without any obvious means of repair. These are small things, but I believe the portals may be somehow enhancing a basic ability. Will need to test more. He still seems quite dumb though. Said his last journey took three days, when clearly it took but seconds. He began to eat ravenously afterwards. I suspect he is just greedy. I saw him staring for a long time at the farportal earlier, but I had my assistants pull him away before he did any damage.
+실험체 Z는 여전히 잘 하고 있다. 그를 대상으로 한 추가적인 수많은 전송을 완수했다. 실험체 Z가 종족적으로 지능이 많이 제한됨에도 불구하고, 가끔은 지적인 대화가 가능하다. 무엇이 어떻게 되가고 있는지 실마리를 못 잡고 있는것 같다. 그리고 항상 몇 시인지 물어온다. 멍청이 같으니라고... 내가 추측하는 바로는, 인간은 지나치게 키가 커서 두뇌까지 피가 올라가지 못하는 것 같다. 아직까지는 어느 하플링이라도 이 관문을 통해서 전송하는 위험을 감수하진 않을 것이다. 여태껏 내가 전송한 모든 사람은 사망했으니 말이다.
 
 
-#{bold}#Hompalan's Log Entry 11#{normal}#
-#{italic}#Age of Allure 4551#{normal}#
+#{bold}#홈팔란의 기록 10#{normal}#
+#{italic}#매혹의 시대 4550 년#{normal}#
 
-Subject Z has vanished! This is terrible! It was not even during a portal transit. It looked like he simply stepped into his own shadow and disappeared. My research is ruined!! There will never be another subject like him!
+실험체 Z에게 잠재된 마법의 힘이 있지 않나 의심이 된다. 내가 생각하는 그 종족이 가능한 속도보다도 빠르게 움직이는걸 본 적이 있고, 아무런 수단도 없이 고장난 물건을 고치기도 한다. 사소한 것들이지만, 나는 관문이 근본적인 능력을 향상시킬 수 있다고 믿는다. 더 많은 실험이 필요하다. 실험체 Z는 여전히 멍청해 보인다. 분명히 몇 초밖에 걸리지 않았음에도, 그의 마지막 여행이 3 일이나 걸렸다고 말하니 말이다. 실험체 Z는 그 말을 한 직후 게걸스럽게 먹기 시작했다. 탐욕스러워진건 아닌가 의심스럽다. 일전에 실험체가 멀리 떨어진 관문을 오랫동안 응시하는걸 목격했지만, 실험체가 다치기 전에 조수를 시켜 멀리 떼어놓았다.
 
-The military are annoying me to no end. I told them to find me more test subjects immediately, but they gave some excuses about enemy patrols in the area. Do they think I care about such trivial things?! And now I hear them practising their fighting in the corridors. They are even grunting and screaming in fake battle noises like stupid children. Do they not realise what an important facility this is? Can they not understand how my genius is disturbed by---
+
+#{bold}#홈팔란의 기록 11#{normal}#
+#{italic}#매혹의 시대 4551 년#{normal}#
+
+실험체 Z가 사라졌다! 끔찍한 일이야! 심지어 관문 전송 중인 것도 아니였다. 마치 스스로의 그림자로 걸어들어가서 사라진 것처럼 보였다. 내 연구는 끝장이다!! 그만한 실험체는 다신 없을거다!
+
+군인들은 날 끝도 없이 괴롭힌다. 그들에게 즉시 더 많은 실험체를 찾아달라 말했지만, 이 지역의 적 순찰대들을 언급하면서 변명을 해댔다. 내가 그런 사소한 것까지 신경써야 하는건가?! 그리고, 지금 회랑에서 싸움질을 연습하고 있는 군인들의 소리가 들린다. 저놈들은 가짜싸움에서도 멍청한 아이들처럼 앓는 소리와 비명을 내지른다. 여기가 얼마나 중요한 시설인지 알고나 있는건가? 나의 천재성이 얼마나 방해받고 있는지 이해를 하고는 있는---
 ]]
 }
 
