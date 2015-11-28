@@ -207,7 +207,7 @@ newTalent{
 	info = function(self, t)
 		local disarm = t.getDisarm(self, t)
 		return ([[당신은 산의 숨결을 내뱉어 %d 범위의 원뿔 모양으로 발사합니다. 산의 숨결에 휩싸인 목표는 %0.2f 의 산성 피해를 받고, 무기가 녹아 %d%% 의 확율로 3 턴간 무장해제 상태에 빠집니다.
-		피해량은 당신의 힘 능력치에 비례하고, 치명타율은 정신 치명타율을 따릅니다. 혼절 확율은 정신력에 비례합니다.
+		피해량은 당신의 힘 능력치에 비례하고, 치명타율은 정신 치명타율을 따릅니다. 무장해제 확율은 정신력에 비례합니다.
 		이 카테고리의 기술들은 기술 레벨을 투자 할 때마다, 산성 저항력이 1%% 상승합니다.]]):format(self:getTalentRadius(t), damDesc(self, DamageType.ACID, self:combatTalentStatDamage(t, "str", 30, 520)), disarm)
 	end,
 }
