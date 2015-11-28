@@ -21,7 +21,7 @@
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/blade-threading", name = "Blade Threading", description = "시공마법과 쌍수 무기술의 조화." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/bow-threading", name = "Bow Threading", description = "시공마법과 장거리 무기술의 조화."}
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-combat", name = "Temporal Combat", description = "시공마법과 물리 전투 기술의 조화." }
-newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/guardian", name = "Temporal Guardian", description = "감시자의 전투 수련과 기술들." }
+newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/guardian", name = "Temporal Guardian", description = "수호자의 전투 수련과 기술들." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/threaded-combat", name = "Threaded Combat", min_lev = 10, description = "장거리 무기술과 쌍수 무기술의 조화." }
 newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="chronomancy/temporal-hounds", name = "Temporal Hounds", min_lev = 10, description = "시간의 사냥개를 불러 당신의 전투를 돕습니다." }
 
