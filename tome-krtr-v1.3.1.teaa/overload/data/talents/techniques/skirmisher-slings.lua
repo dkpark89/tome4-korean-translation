@@ -80,12 +80,8 @@ newTalent {
 			format(self:getSpeed('archery') * 50)
 	end,
 	action = function(self, t)
-		local old_speed = self.combat_physspeed
-		self.combat_physspeed = old_speed * 2
-
-		local targets = self:archeryAcquireTargets(nil, {one_shot=true})
+		local targets = self:archeryAcquireTargets(nil, {one_shot=true, add_speed=self.combat_physspeed})
 		if not targets then
-			self.combat_physspeed = old_speed
 			return
 		end
 
@@ -97,7 +93,6 @@ newTalent {
 			self.talents_cd["T_SKIRMISHER_HURRICANE_SHOT"] = math.max(0, hurricane_cd - 1)
 		end
 
-		self.combat_physspeed = old_speed
 		return true
 	end,
 	info = function(self, t)
