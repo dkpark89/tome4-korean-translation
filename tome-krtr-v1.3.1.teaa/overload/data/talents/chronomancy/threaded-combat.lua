@@ -241,13 +241,13 @@ newTalent{
 			-- Ranged attack
 			local targets = self:archeryAcquireTargets(tg, {one_shot=true, no_energy = true})
 			if not targets then return end
-			self:archeryShoot(targets, t, tg, {mult=dam})
+			self:archeryShoot(targets, t, tg, {mult=damage})
 		elseif mainhand then
 			-- Melee attack
 			self:project(tg, self.x, self.y, function(px, py, tg, self)
 				local target = game.level.map(px, py, Map.ACTOR)
 				if target and target ~= self then
-					self:attackTarget(target, nil, dam, true)
+					self:attackTarget(target, nil, damage, true)
 				end
 			end)
 			self:addParticles(Particles.new("meleestorm2", 1, {}))
@@ -273,23 +273,42 @@ newTalent{
 	mode = "passive",
 	points = 5,
 	remove_on_clone = true,
-	getDamagePenalty = function(self, t) return 100 - self:combatTalentLimit(t, 80, 10, 60) end,
+	getChance = function(self, t) return self:combatTalentLimit(t, 65, 30, 50) end,
+	--getDamagePenalty = function(self, t) return 100 - self:combatTalentLimit(t, 80, 10, 60) end,
+	getDamagePenalty = function(self, t) return 100 - self:combatTalentLimit(t, 95, 60, 80) end,
 	findTarget = function(self, t)
 		local tgts = {}
 		local grids = core.fov.circle_grids(self.x, self.y, 10, true)
-		for x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do
-			local target_type = Map.ACTOR
-			local a = game.level.map(x, y, Map.ACTOR)
-			if a and not a.dead and self:reactionToward(a) < 0 and self:hasLOS(a.x, a.y) then
-				tgts[#tgts+1] = a
-			end
-		end end
+		for x, yy in pairs(grids) do
+			for y, _ in pairs(grids[x]) do
+				local target_type = Map.ACTOR
+				local a = game.level.map(x, y, Map.ACTOR)
+				if a and not a.dead and self:reactionToward(a) < 0 and self:hasLOS(a.x, a.y) then
+					tgts[#tgts+1] = a
+				end
+			end 
+		end
 		
 		return tgts
+	end,
+	cleanupClone = function(self, t, clone)
+		if not self or not clone then return false end
+		if not clone.dead then clone:die() end
+		for _, ent in pairs(game.level.entities) do
+			-- Replace clone references in timed effects so they don't prevent GC
+			if ent.tmp then
+				for _, eff in pairs(ent.tmp) do
+					if eff.src and eff.src == clone then eff.src = self end
+				end
+			end
+		end
+		return true
 	end,
 	callbackOnArcheryAttack = function(self, t, target, hitted)
 		if hitted then
 			if self.turn_procs.wardens_call then
+				return
+			elseif not rng.percent(t.getChance(self, t)) then
 				return
 			else
 				self.turn_procs.wardens_call = true
@@ -313,6 +332,7 @@ newTalent{
 				local tx, ty = util.findFreeGrid(wf.x, wf.y, 1, true, {[Map.ACTOR]=true})
 				if tx and ty then
 					m.blended_target = wf
+					game.logSeen(self, "%s 시간의 감시자를 다른 시간선에서 불러들였습니다.", self.name:capitalize())
 					game.zone:addEntity(game.level, m, "actor", tx, ty)
 				end
 			end
@@ -323,8 +343,9 @@ newTalent{
 					local a, id = rng.tableRemove(tgts)
 					-- look for space
 					local tx, ty = util.findFreeGrid(a.x, a.y, 1, true, {[Map.ACTOR]=true})
-					if tx and ty then	
-						m.blended_target = a				
+					if tx and ty then
+						m.blended_target = a
+						game.logSeen(self, "%s 시간의 감시자를 다른 시간선에서 불러들였습니다.", self.name:capitalize())
 						game.zone:addEntity(game.level, m, "actor", tx, ty)
 						break
 					else
@@ -332,11 +353,14 @@ newTalent{
 					end
 				end
 			end
+		t.cleanupClone(self, t, m)
 		end
 	end,
 	callbackOnMeleeAttack = function(self, t, target, hitted)
 		if hitted then
 			if self.turn_procs.wardens_call then
+				return
+			elseif not rng.percent(t.getChance(self, t)) then
 				return
 			else
 				self.turn_procs.wardens_call = true
@@ -357,7 +381,7 @@ newTalent{
 				self:die()
 				game.level.map:particleEmitter(self.x, self.y, 1, "temporal_teleport")
 			end
-			
+
 			-- Find a good location for our shot
 			local function find_space(self, target, clone)
 				local poss = {}
@@ -385,6 +409,7 @@ newTalent{
 				local tx, ty = find_space(self, target, m)
 				if tx and ty then
 					m.blended_target = wf
+					game.logSeen(self, "%s 시간의 감시자를 다른 시간선에서 불러들였습니다.", self.name:capitalize())
 					game.zone:addEntity(game.level, m, "actor", tx, ty)
 				end
 			else
@@ -394,17 +419,20 @@ newTalent{
 					local tx, ty = find_space(self, target, m)
 					if tx and ty then
 						m.blended_target = a
+						game.logSeen(self, "%s 시간의 감시자를 다른 시간선에서 불러들였습니다.", self.name:capitalize())
 						game.zone:addEntity(game.level, m, "actor", tx, ty)
 					end
 				end
 			end
+		t.cleanupClone(self, t, m)
 		end
 	end,
 	info = function(self, t)
-		local damage_penalty = t.getDamagePenalty(self, t)
-		return ([[당신이 근접이나 화살로 공격을 맞추었을 때에, 적당한 공간이 있다면, 감시자가 다른 시간선으로 부터 나타날 수 있습니다. 나타난 감시자는 무작위의 적을 쏘거나 공격합니다.
+		return ([[당신이 근접이나 화살로 공격을 맞추었을 때에, %d%% 의 확률로 다른 시간선으로부터 시간의 감시자를 소환하여 무작위의 적을 공격하게 합니다.
+		소환된 감시자는 당신이 화살을 맞추었으면 근접공격을 시도하고, 근접공격을 맞추었으면 활로 공격을 시도합니다.
 		감시자들은 이 현실의 위상에서 벗어나 있기 때문에 %d%% 만큼 낮은 피해를 입히지만, 감시자의 화살은 아군을 통과해서 지나갈 것입니다.
-		이 효과는 오직 한 턴에 한 번만 일어나며, 감시자들은 공격한 후에 그들의 시간선으로 되돌아갑니다.]])
-		:format(damage_penalty)
+		이 소환은 오직 한 턴에 한 번만 일어나며, 감시자들은 공격한 후에 그들의 시간선으로 되돌아갑니다.]])
+		:format(t.getChance(self, t), t.getDamagePenalty(self, t))
+		
 	end
 }
