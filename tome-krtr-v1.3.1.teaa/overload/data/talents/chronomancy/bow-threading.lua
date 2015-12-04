@@ -33,6 +33,28 @@ newTalent{
 	speed = 'archery',
 	getDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.4, 1.0) end,
 	getDamagePenalty = function(self, t) return 50 end,
+	cleanupClones = function(self, t, clones)
+		if not self or not clones then return false end
+		for clone, _ in pairs(clones) do
+			if not clone.dead then clone:die() end
+		end
+		for _, ent in pairs(game.level.entities) do
+			-- Replace clone references in timed effects so they don't prevent GC
+			if ent.tmp then
+				for _, eff in pairs(ent.tmp) do
+					if eff.src then
+						for clone, _ in pairs(clones) do
+							if eff.src == clone then
+								eff.src = self
+								break
+							end
+						end
+					end
+				end
+			end
+		end
+		return true
+	end,
 	target = function(self, t)
 		return {type="bolt", range=self:getTalentRange(t), talent=t, friendlyfire=false, friendlyblock=false}
 	end,
@@ -55,8 +77,11 @@ newTalent{
 		
 		-- Summon our clones
 		if not self.arrow_stitching_done then
+			--local clones = setmetatable({}, {__mode="k"})
+			local clones = {}
 			for i = 1, 2 do
 				local m = makeParadoxClone(self, self, 0)
+				clones[m] = true
 				m.arrow_stitched_target = target
 				m.generic_damage_penalty = m.generic_damage_penalty or 0 + t.getDamagePenalty(self, t)
 				m:attr("archery_pass_friendly", 1)
@@ -86,6 +111,7 @@ newTalent{
 				x, y = pos[1], pos[2]
 				game.zone:addEntity(game.level, m, "actor", x, y)
 			end
+			t.cleanupClones(self, t, clones)
 		end
 
 		return true
