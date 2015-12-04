@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -20,10 +20,10 @@
 -- Find a random spot
 local x, y = game.state:findEventGrid(level)
 if not x then return false end
-
 local on_stand = function(self, x, y, who) who:setEffect(who.EFF_ANTIMAGIC_BUSH, 1, {}) end
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "antimagic bush"
+g.kr_name = "반마법 덤불"
 g.display='~' g.color_r=0 g.color_g=255 g.color_b=100 g.notice = true
 g.special_minimap = colors.OLIVE_DRAB
 g.on_stand = on_stand
@@ -52,5 +52,5 @@ for x, yy in pairs(grids) do for y, _ in pairs(yy) do
 	g.always_remember = true
 	game.zone:addEntity(game.level, g, "terrain", x, y)
 end end
-print("[EVENT] antimagic-bush centered at ", x, y)
+print("[EVENT] 반마법 덤불은 여기에 있습니다 : ", x, y)
 return true

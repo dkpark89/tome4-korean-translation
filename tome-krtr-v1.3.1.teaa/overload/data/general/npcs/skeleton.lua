@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -57,6 +57,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "degenerated skeleton warrior", color=colors.WHITE, image="npc/degenerated_skeleton_warrior.png",
+	kr_name = "부패한 스켈레톤 전사",
 	level_range = {1, 18}, exp_worth = 1,
 	rarity = 1,
 	resolvers.equip{ {type="weapon", subtype="greatsword", forbid_power_source={antimagic=true}, autoreq=true} },
@@ -66,6 +67,7 @@ newEntity{ base = "BASE_NPC_SKELETON",
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "skeleton warrior", color=colors.SLATE, image="npc/skeleton_warrior.png",
+	kr_name = "스켈레톤 전사",
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(90,100),
@@ -77,6 +79,7 @@ newEntity{ base = "BASE_NPC_SKELETON",
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "skeleton mage", color=colors.LIGHT_RED, image="npc/skeleton_mage.png",
+	kr_name = "스켈레톤 마법사",
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),
@@ -94,6 +97,7 @@ newEntity{ base = "BASE_NPC_SKELETON",
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "skeleton archer", color=colors.UMBER, image="npc/skeleton_archer.png",
+	kr_name = "스켈레톤 궁수",
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80),
@@ -107,6 +111,7 @@ newEntity{ base = "BASE_NPC_SKELETON",
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "skeleton master archer", color=colors.LIGHT_UMBER, image="npc/master_skeleton_archer.png",
+	kr_name = "스켈레톤 명궁수",
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 5,
 	max_life = resolvers.rngavg(70,80),
@@ -124,6 +129,7 @@ newEntity{ base = "BASE_NPC_SKELETON",
 
 newEntity{ base = "BASE_NPC_SKELETON",
 	name = "armoured skeleton warrior", color=colors.STEEL_BLUE, image="npc/armored_skeleton_warrior.png",
+	kr_name = "중무장한 스켈레톤 전사",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 5,
 	max_life = resolvers.rngavg(90,100),

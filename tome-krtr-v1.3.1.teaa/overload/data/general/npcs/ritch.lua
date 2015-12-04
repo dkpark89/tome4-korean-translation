@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,8 +24,8 @@ newEntity{
 	type = "insect", subtype = "ritch",
 	display = "I", color=colors.RED,
 	blood_color = colors.GREEN,
-	desc = [[Ritches are giant insects native to the arid wastes of the southern parts of the Far East.
-Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]],
+	desc = [[릿치는 동대륙의 남부에 있는 불모지에서 태어난 거대 곤충입니다.
+잔인한 포식자이며, 적들에게 타락성 질병을 주입하고, 날카로운 발톱은 대부분의 갑옷을 갈라놓을 수 있습니다.]],
 
 	combat = { dam=resolvers.levelup(resolvers.rngavg(30,35), 1, 1), atk=16, apr=70, damtype=DamageType.BLIGHT, dammod={dex=1.2} },
 
@@ -49,6 +49,7 @@ Vicious predators, they inject corrupting diseases into their foes, and their sh
 
 newEntity{ base = "BASE_NPC_RITCH",
 	name = "ritch larva", color=colors.DARK_RED,
+	kr_name = "릿치 유충",
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = 50,
@@ -65,6 +66,7 @@ newEntity{ base = "BASE_NPC_RITCH",
 
 newEntity{ base = "BASE_NPC_RITCH",
 	name = "ritch hunter", color=colors.RED,
+	kr_name = "사냥꾼 릿치",
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = 120,
@@ -84,6 +86,7 @@ newEntity{ base = "BASE_NPC_RITCH",
 
 newEntity{ base = "BASE_NPC_RITCH",
 	name = "ritch hive mother", color=colors.LIGHT_RED,
+	kr_name = "군집의 어미 릿치",
 	level_range = {32, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = 250,

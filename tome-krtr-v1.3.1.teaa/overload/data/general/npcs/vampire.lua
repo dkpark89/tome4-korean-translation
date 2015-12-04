@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ newEntity{
 	define_as = "BASE_NPC_VAMPIRE",
 	type = "undead", subtype = "vampire",
 	display = "V", color=colors.WHITE,
-	desc = [[These ancient cursed beings often take the form of a bat and attack their prey.]],
+	desc = [[이 고대의 저주받은 존재는, 가끔씩 사냥감을 공격하기 위해 박쥐로 변신합니다.]],
 
 	combat = { dam=resolvers.levelup(resolvers.mbonus(30, 10), 1, 0.8), atk=10, apr=9, damtype=DamageType.DRAINLIFE, dammod={str=1.9} },
 
@@ -61,7 +61,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_VAMPIRE",
 	name = "lesser vampire", color=colors.SLATE, image = "npc/lesser_vampire.png",
-	desc=[[This vampire has only just begun its new life. It has not yet fathomed its newfound power, yet it still has a thirst for blood.]],
+	kr_name = "하급 흡혈귀",
+	desc=[[이제 막 새로운 삶을 살기 시작한 흡혈귀입니다. 그 새로운 힘을 아직 잘 다루지 못하고 있으며, 피에 목말라 있습니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(40,50),
@@ -75,7 +76,8 @@ newEntity{ base = "BASE_NPC_VAMPIRE",
 
 newEntity{ base = "BASE_NPC_VAMPIRE",
 	name = "vampire", color=colors.SLATE, image = "npc/vampire.png",
-	desc=[[It is a humanoid with an aura of power. You notice a sharp set of front teeth.]],
+	kr_name = "흡혈귀",
+	desc=[[사악한 기운이 감도는 인간형 언데드입니다. 날카로운 송곳니가 보입니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80),
@@ -91,8 +93,9 @@ newEntity{ base = "BASE_NPC_VAMPIRE",
 
 newEntity{ base = "BASE_NPC_VAMPIRE",
 	name = "master vampire", color=colors.GREEN, image = "npc/master_vampire.png",
+	kr_name = "상급 흡혈귀",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/master_vampire.png", display_h=2, display_y=-1}}},
-	desc=[[It is a humanoid form dressed in robes. Power emanates from its chilling frame.]],
+	desc=[[로브를 걸친 인간형 언데드입니다. 그 차가운 뼈대에서 힘이 뿜어져 나옵니다.]],
 	level_range = {23, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(80,90),
@@ -109,8 +112,9 @@ newEntity{ base = "BASE_NPC_VAMPIRE",
 
 newEntity{ base = "BASE_NPC_VAMPIRE",
 	name = "elder vampire", color=colors.RED, image = "npc/elder_vampire.png",
-	desc=[[A terrible robed undead figure, this creature has existed in its unlife for many centuries by stealing the life of others.
-It can summon the very shades of its victims from beyond the grave to come enslaved to its aid.]],
+	kr_name = "흡혈귀 장로",
+	desc=[[로브를 입은 끔찍한 언데드로, 다른 생명체의 생명력을 빼앗아오며 수 세기를 살아온 언데드입니다.
+흡혈귀 장로는 희생자들의 다양한 그림자를 묘지에서 불러, 노예로 부릴 수 있습니다.]],
 	level_range = {26, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(90,100),
@@ -132,7 +136,8 @@ It can summon the very shades of its victims from beyond the grave to come ensla
 
 newEntity{ base = "BASE_NPC_VAMPIRE",
 	name = "vampire lord", color=colors.BLUE, image = "npc/vampire_lord.png",
-	desc=[[A foul wind chills your bones as this ghastly figure approaches.]],
+	kr_name = "흡혈귀 군주",
+	desc=[[무시무시한 존재로, 악취의 바람이 뼛속까지 시리게 만듭니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(100,120),

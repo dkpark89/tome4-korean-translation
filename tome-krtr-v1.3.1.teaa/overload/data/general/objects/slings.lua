@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,13 +32,14 @@ newEntity{
 	archery = "sling",
 	require = { talent = { Talents.T_SHOOT }, },
 	proj_image = resolvers.image_material("shot_s", "metal"),
-	desc = [[Slings are used to hurl stones or metal shots at your foes.]],
+	desc = [[투석구는 돌이나 금속을 적에게 세게 던지는데 사용합니다.]],
 	randart_able = "/data/general/objects/random-artifacts/ranged.lua",
 	egos = "/data/general/objects/egos/sling.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_SLING",
 	name = "rough leather sling", short_name = "rough",
+	kr_name = "거친가죽 투석구",
 	level_range = {1, 10},
 	require = { stat = { dex=11 }, },
 	cost = 5,
@@ -51,6 +52,7 @@ newEntity{ base = "BASE_SLING",
 
 newEntity{ base = "BASE_SLING",
 	name = "cured leather sling", short_name = "cured",
+	kr_name = "가공가죽 투석구",
 	level_range = {10, 20},
 	require = { stat = { dex=16 }, },
 	cost = 10,
@@ -63,6 +65,7 @@ newEntity{ base = "BASE_SLING",
 
 newEntity{ base = "BASE_SLING",
 	name = "hardened leather sling", short_name = "hardened",
+	kr_name = "경화가죽 투석구",
 	level_range = {20, 30},
 	require = { stat = { dex=24 }, },
 	cost = 15,
@@ -75,6 +78,7 @@ newEntity{ base = "BASE_SLING",
 
 newEntity{ base = "BASE_SLING",
 	name = "reinforced leather sling", short_name = "reinforced",
+	kr_name = "강화가죽 투석구",
 	level_range = {30, 40},
 	require = { stat = { dex=35 }, },
 	cost = 25,
@@ -87,6 +91,7 @@ newEntity{ base = "BASE_SLING",
 
 newEntity{ base = "BASE_SLING",
 	name = "drakeskin leather sling", short_name = "drakeskin",
+	kr_name = "용가죽 투석구",
 	level_range = {40, 50},
 	require = { stat = { dex=48 }, },
 	cost = 35,
@@ -111,7 +116,7 @@ newEntity{
 	combat = { talented = "sling", accuracy_effect = "mace", damrange = 1.2},
 	proj_image = resolvers.image_material("shot_s", "metal"),
 	archery_ammo = "sling",
-	desc = [[Shots are used with slings to pummel your foes to death.]],
+	desc = [[투석은 투석구에 재어 적을 죽이기위해 사용합니다.]],
 	randart_able = "/data/general/objects/random-artifacts/ammo.lua",
 	egos = "/data/general/objects/egos/ammo.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 	resolvers.shooter_capacity(),
@@ -119,6 +124,7 @@ newEntity{
 
 newEntity{ base = "BASE_SHOT",
 	name = "pouch of iron shots", short_name = "iron",
+	kr_name = "무쇠 투석뭉치",
 	level_range = {1, 10},
 	require = { stat = { dex=11 }, },
 	cost = 2,
@@ -134,6 +140,7 @@ newEntity{ base = "BASE_SHOT",
 
 newEntity{ base = "BASE_SHOT",
 	name = "pouch of steel shots", short_name = "steel",
+	kr_name = "강철 투석뭉치",
 	level_range = {10, 20},
 	require = { stat = { dex=16 }, },
 	cost = 5,
@@ -149,6 +156,7 @@ newEntity{ base = "BASE_SHOT",
 
 newEntity{ base = "BASE_SHOT",
 	name = "pouch of dwarven-steel shots", short_name = "d.steel",
+	kr_name = "드워프강철 투석뭉치",
 	level_range = {20, 30},
 	require = { stat = { dex=24 }, },
 	cost = 10,
@@ -164,6 +172,7 @@ newEntity{ base = "BASE_SHOT",
 
 newEntity{ base = "BASE_SHOT",
 	name = "pouch of stralite shots", short_name = "stralite",
+	kr_name = "스트라라이트 투석뭉치",
 	level_range = {30, 40},
 	require = { stat = { dex=35 }, },
 	cost = 15,
@@ -179,6 +188,7 @@ newEntity{ base = "BASE_SHOT",
 
 newEntity{ base = "BASE_SHOT",
 	name = "pouch of voratun shots", short_name = "voratun",
+	kr_name = "보라툰 투석뭉치",
 	level_range = {40, 50},
 	require = { stat = { dex=48 }, },
 	cost = 25,

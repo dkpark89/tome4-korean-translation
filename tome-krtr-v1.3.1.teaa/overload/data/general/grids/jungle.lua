@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS",
 	type = "floor", subtype = "grass",
 	name = "grass", image = "terrain/jungle/jungle_grass_floor_01.png",
+	kr_name = "풀밭",
 	display = '.', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	grow = "JUNGLE_TREE",
 	nice_tiler = { method="replace", base={"JUNGLE_GRASS_PATCH", 60, 1, 5+8+3+4+4}},
@@ -48,6 +49,7 @@ newEntity{
 	define_as = "JUNGLE_DIRT",
 	type = "floor", subtype = "mud",
 	name = "muddy floor", image = "terrain/jungle/jungle_dirt_floor_01.png",
+	kr_name = "진흙 바닥",
 	display = '.', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 }
 
@@ -55,6 +57,7 @@ newEntity{
 	define_as = "JUNGLE_TREE",
 	type = "wall", subtype = "grass",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -76,6 +79,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_UP_WILDERNESS",
 	type = "floor", subtype = "grass",
 	name = "exit to the worldmap", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/worldmap.png"}},
+	kr_name = "지역 밖으로 나가는 추구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -88,6 +92,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_UP8",
 	type = "floor", subtype = "grass",
 	name = "way to the previous level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_8.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -98,6 +103,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_UP2",
 	type = "floor", subtype = "grass",
 	name = "way to the previous level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_2.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -108,6 +114,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_UP4",
 	type = "floor", subtype = "grass",
 	name = "way to the previous level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_4.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -118,6 +125,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_UP6",
 	type = "floor", subtype = "grass",
 	name = "way to the previous level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_6.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -129,6 +137,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_DOWN8",
 	type = "floor", subtype = "grass",
 	name = "way to the next level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_8.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -139,6 +148,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_DOWN2",
 	type = "floor", subtype = "grass",
 	name = "way to the next level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_2.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -149,6 +159,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_DOWN4",
 	type = "floor", subtype = "grass",
 	name = "way to the next level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_4.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -159,6 +170,7 @@ newEntity{
 	define_as = "JUNGLE_GRASS_DOWN6",
 	type = "floor", subtype = "grass",
 	name = "way to the next level", image = "terrain/jungle/jungle_grass_floor_01.png", add_mos = {{image="terrain/way_next_6.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,

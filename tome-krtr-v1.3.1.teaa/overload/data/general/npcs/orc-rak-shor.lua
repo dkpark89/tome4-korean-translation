@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -50,7 +50,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ORC_RAK_SHOR",
 	name = "orc necromancer", color=colors.DARK_GREY,
-	desc = [[An orc dressed in black robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 사령술사",
+	desc = [[검은 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80), life_rating = 7,
@@ -82,7 +83,8 @@ newEntity{ base = "BASE_NPC_ORC_RAK_SHOR",
 
 newEntity{ base = "BASE_NPC_ORC_RAK_SHOR",
 	name = "orc blood mage", color=colors.CRIMSON,
-	desc = [[An orc dressed in blood-stained robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 피의 마법사",
+	desc = [[핏자국이 난 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(110,120), life_rating = 12,
@@ -105,7 +107,8 @@ newEntity{ base = "BASE_NPC_ORC_RAK_SHOR",
 
 newEntity{ base = "BASE_NPC_ORC_RAK_SHOR",
 	name = "orc corruptor", color=colors.GREY,
-	desc = [[An orc dressed in putrid robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 타락자",
+	desc = [[부패한 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,

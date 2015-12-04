@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,13 +24,14 @@ load("/data/general/objects/egos/charms.lua")
 
 newEntity{
 	name = "arcane ", prefix=true, second=true,
+	kr_name = "마법적인 ",
 	keywords = {arcane=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d mana"):format(self:getCharmPower(who, true) / 5) end, function(self, who)
+		{100, function(self, who) return ("마나 %d 재생"):format(self:getCharmPower(who, true) / 5) end, function(self, who)
 			who:incMana(self:getCharmPower(who, true) / 5)
 		end},
 	}
@@ -38,6 +39,7 @@ newEntity{
 
 newEntity{
 	name = "defiled ", prefix=true, second=true,
+	kr_name = "모독하는 ",
 	keywords = {defiled=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -50,13 +52,14 @@ newEntity{
 
 newEntity{
 	name = "bright ", prefix=true, second=true,
+	kr_name = "밝은 ",
 	keywords = {bright=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d positive energy"):format(self:getCharmPower(who, true) / 8) end, function(self, who)
+		{100, function(self, who) return ("양기 %d 재생"):format(self:getCharmPower(who, true) / 8) end, function(self, who)
 			who:incPositive(self:getCharmPower(who, true) / 8)
 		end},
 	}
@@ -64,13 +67,14 @@ newEntity{
 
 newEntity{
 	name = "shadowy ", prefix=true, second=true,
+	kr_name = "어두운 ",
 	keywords = {shadow=true},
 	level_range = {10, 50},
 	rarity = 12,
 	cost = 5,
 
 	charm_on_use = {
-		{100, function(self, who) return ("regenerate %d negative energy"):format(self:getCharmPower(who, true) / 8) end, function(self, who)
+		{100, function(self, who) return ("음기 %d 재생"):format(self:getCharmPower(who, true) / 8) end, function(self, who)
 			who:incNegative(self:getCharmPower(who, true) / 8)
 		end},
 	}
@@ -78,6 +82,7 @@ newEntity{
 
 newEntity{
 	name = "warded ", prefix=true, second=true,
+	kr_name = "보호받는 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -98,6 +103,7 @@ newEntity{
 
 newEntity{
 	name = "void ", prefix=true, second=true,
+	kr_name = "공허한 ",
 	keywords = {void=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -112,6 +118,7 @@ newEntity{
 
 newEntity{
 	name = "volcanic ", prefix=true, second=true,
+	kr_name = "화산 ",
 	keywords = {volcanic=true},
 	level_range = {30, 50},
 	rarity = 12,
@@ -125,6 +132,7 @@ newEntity{
 
 newEntity{
 	name = "striking ", prefix=true, second=true,
+	kr_name = "타격하는 ",
 	keywords = {striking=true},
 	level_range = {30, 50},
 	rarity = 12,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -52,7 +52,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 	name = "elven guard", color=colors.LIGHT_UMBER,
-	desc = [[An elven guard.]],
+	kr_name = "엘프 경비",
+	desc = [[엘프 경비입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(80,90), life_rating = 11,
@@ -66,7 +67,8 @@ newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 
 newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 	name = "mean looking elven guard", color=colors.UMBER,
-	desc = [[An elven guard, scarred and sullen.]],
+	kr_name = "음흉해 보이는 엘프 경비",
+	desc = [[흉터가 있고 무뚝뚝한 엘프 경비입니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,110), life_rating = 11,
@@ -80,7 +82,8 @@ newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 
 newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 	name = "elven warrior", color=colors.LIGHT_UMBER,
-	desc = [[An elven warrior, clad in heavy armour.]],
+	kr_name = "엘프 전사",
+	desc = [[중갑을 입은 엘프 전사입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,110),
@@ -96,7 +99,8 @@ newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 
 newEntity{ base = "BASE_NPC_ELVEN_WARRIOR",
 	name = "elven elite warrior", color=colors.UMBER,
-	desc = [[An elven warrior, clad in heavy armour.]],
+	kr_name = "정예 엘프 전사",
+	desc = [[중갑을 입은 엘프 전사입니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,

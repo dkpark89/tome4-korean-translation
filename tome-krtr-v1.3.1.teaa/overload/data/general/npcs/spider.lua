@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ newEntity{
 	define_as = "BASE_NPC_SPIDER",
 	type = "spiderkin", subtype = "spider",
 	display = "S", color=colors.WHITE,
-	desc = [[Arachnophobia...]],
+	desc = [[거미공포증...]],
 
 	combat = { dam=resolvers.levelup(resolvers.mbonus(40, 70), 1, 0.9), atk=16, apr=9, damtype=DamageType.NATURE, dammod={dex=1.2} },
 
@@ -48,7 +48,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "giant spider", color=colors.LIGHT_DARK,
-	desc = [[A huge arachnid, it produces even bigger webs.]],
+	kr_name = "거대 거미",
+	desc = [[거대한 거미로, 거미줄도 그에 맞게 커다랗습니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = 50,
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "spitting spider", color=colors.DARK_UMBER,
-	desc = [[A huge arachnid, it sprays venom at its prey.]],
+	kr_name = "독뱉기 거미",
+	desc = [[거대한 거미로, 사냥감을 향해 독을 내뿜습니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = 60,
@@ -83,7 +85,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "chitinous spider", color=colors.LIGHT_GREEN,
-	desc = [[A huge arachnid with a massive exoskeleton.]],
+	kr_name = "키틴질 거미",
+	desc = [[억센 외골격을 가진, 거대한 거미입니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = 70,
@@ -100,7 +103,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "gaeramarth", color=colors.LIGHT_DARK,  -- dreadful fate
-	desc = [[These cunning spiders terrorize those who enter the ever-growing borders of their lairs.  Those who encounter them rarely return.]],
+	kr_name = "개라마쓰",
+	desc = [[이 교활한 거미는 자신의 영역을 계속 키우면서, 그 안으로 들어오는 모든 것을 위협합니다. 이 거미를 만나고 살아돌아온 존재는 거의 없다고 합니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = 120,
@@ -125,7 +129,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "ninurlhing", color=colors.DARK_GREEN,  -- water burn spider (acidic)
-	desc = [[The air reeks with noxious fumes and the ground around it decays.]],
+	kr_name = "니누르링",
+	desc = [[대기에는 유독한 기운이 퍼지고, 주변의 땅은 썩어갑니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = 120,
@@ -150,7 +155,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "faerlhing", color=colors.PURPLE,  -- spirit spider (arcane)
-	desc = [[This spider seems to command the flow of mana, which pulses freely through its body.]],
+	kr_name = "패를링",
+	desc = [[마나의 흐름을 조작할 수 있는 거미입니다. 마나가 그 몸속으로 자유롭게 들락거립니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = 120,
@@ -181,7 +187,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 -- the brethren of Ungoliant :D  tough and deadly, probably too tough, but meh <evil laughter>
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "ungolmor", color={0,0,0},  -- spider night, don't change the color
-	desc = [[Largest of all the spiderkin, its folds of skin seem nearly impenetrable.]],
+	kr_name = "운골모르",
+	desc = [[거미류 중 가장 큰 녀석입니다. 여러 겹으로 접혀진 피부는 뚫는 것이 거의 불가능해 보입니다.]],
 	level_range = {38, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = 120,
@@ -209,7 +216,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "losselhing", color=colors.LIGHT_BLUE,  -- snow star spider
-	desc = [[The air seems to freeze solid around this frigid spider.]],
+	kr_name = "로셀링",
+	desc = [[얼음장 같은 거미로, 주변의 공기가 딱딱하게 얼고 있습니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = 120,
@@ -243,7 +251,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "weaver young", color=colors.LIGHT_STEEL_BLUE,
-	desc = [[A tiny arachnid that phases in and out of reality.]],
+	kr_name = "어린 무당거미",
+	desc = [[현실과 비현실을 오가는, 작은 거미류입니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 2, -- older weavers are much rarer, as they age they become less connected to the normal timeline
 	max_life = 60,
@@ -255,7 +264,7 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 	combat_armor = 5, combat_def = 10,
 	resists = { [DamageType.PHYSICAL] = 20, [DamageType.TEMPORAL] = 20, },
-	
+
 	resolvers.talents{
 		[Talents.T_SPIDER_WEB]={base=1, every=10, max=5},
 		[Talents.T_LAY_WEB]={base=1, every=10, max=5},
@@ -266,7 +275,8 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "weaver patriarch", color=colors.STEEL_BLUE,
-	desc = [[A large blue arachnid with white markings on its thorax.  It shifts and shimmers as though only partially connected to the timeline.]],
+	kr_name = "무당거미 가부장",
+	desc = [[흉부에 흰 반점이 있는, 크고 푸른 거미류입니다. 시간의 흐름에 부분적으로 연결되어 있어, 그 형체가 변화하고 어른거립니다.]],
 	level_range = {27, nil}, exp_worth = 1,
 	rarity = 12, -- the rarest of the weavers; they spend most of their time courting females in their home realm
 	max_life = 120,
@@ -292,8 +302,9 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "weaver matriarch", female =1, color=colors.DARK_BLUE,
+	kr_name = "무당거미 가모장",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_weaver_matriarch.png", display_h=2, display_y=-1}}},
-	desc = [[A large dark blue arachnid with a shifting yellow and white pattern on its thorax.  It shifts and shimmers as though only partially connected to the timeline.]],
+	desc = [[흉부에 흰 반점이 있는, 크고 푸른 거미류입니다. 시간의 흐름에 부분적으로 연결되어 있어, 그 형체가 변화하고 어른거립니다.]],
 	level_range = {38, nil}, exp_worth = 1,
 	rarity = 6, -- rarer then most spiderkin; only encountered in Maj'Eyal while laying eggs or caring for her young
 	size_category = 3,
@@ -326,10 +337,11 @@ newEntity{ base = "BASE_NPC_SPIDER",
 
 newEntity{ base = "BASE_NPC_SPIDER",
 	name = "Ninandra, the Great Weaver", female=1, unique = true,
+	kr_name = "위대한 무당거미, 니난드라",
 	color = colors.VIOLET,
 	rarity = 50,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/spiderkin_spider_ninandra_the_great_weaver.png", display_h=2, display_y=-1}}},
-	desc = [[A huge blue and white spiderkin whose form shifts and shimmers in and out of reality.  She spins the threads of fate and binds the destiny of all within her web.]],
+	desc = [[현실을 넘나드는 존재이자, 변화하고 어른거리는 형상을 한 거대하고 푸른 흰 거미류입니다. 그녀는 숙명의 거미줄을 자아내어, 모든 이들의 운명을 그녀의 거미줄에 고정시킵니다.]],
 	level_range = {45, nil}, exp_worth = 4,
 	max_life = 400, life_rating = 25, fixed_rating = true,
 	rank = 3.5,

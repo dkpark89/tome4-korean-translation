@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@ newEntity{
 	define_as = "ELVEN_TREE",
 	type = "wall", subtype = "grass",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -50,6 +51,7 @@ newEntity{
 	define_as = "HARDELVEN_TREE",
 	type = "wall", subtype = "grass",
 	name = "tall thick tree",
+	kr_name = "크고 두꺼운 나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -75,6 +77,7 @@ newEntity{
 	define_as = "SNOW_ELVEN_TREE",
 	type = "wall", subtype = "snowy_grass",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -99,6 +102,7 @@ newEntity{
 	define_as = "AUTUMN_ELVEN_TREE",
 	type = "wall", subtype = "autumn_grass",
 	name = "tree",
+	kr_name = "나무",
 	image = "terrain/tree.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	always_remember = true,

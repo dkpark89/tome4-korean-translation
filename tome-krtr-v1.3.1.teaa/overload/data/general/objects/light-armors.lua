@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,13 +26,14 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("light"),
 	encumber = 9,
 	rarity = 5,
-	desc = [[A suit of armour made of leather.]],
+	desc = [[가죽으로 만든 한 벌의 갑옷입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/light-armor.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "rough leather armour", short_name = "rough",
+	kr_name = "거친가죽 갑옷",
 	level_range = {1, 10},
 	require = { stat = { str=10 }, },
 	cost = 10,
@@ -46,6 +47,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 
 newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "cured leather armour", short_name = "cured",
+	kr_name = "가공가죽 갑옷",
 	level_range = {10, 20},
 	require = { stat = { str=14 }, },
 	cost = 12,
@@ -59,6 +61,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 
 newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "hardened leather armour", short_name = "hardened",
+	kr_name = "경화가죽 갑옷",
 	level_range = {20, 30},
 	require = { stat = { str=16 }, },
 	cost = 15,
@@ -72,6 +75,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 
 newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "reinforced leather armour", short_name = "reinforced",
+	kr_name = "강화가죽 갑옷",
 	level_range = {30, 40},
 	cost = 20,
 	require = { stat = { str=18 }, },
@@ -85,6 +89,7 @@ newEntity{ base = "BASE_LIGHT_ARMOR",
 
 newEntity{ base = "BASE_LIGHT_ARMOR",
 	name = "drakeskin leather armour", short_name = "drakeskin",
+	kr_name = "용가죽 갑옷",
 	level_range = {40, 50},
 	require = { stat = { str=20 }, },
 	cost = 25,

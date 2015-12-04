@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -46,7 +46,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "wolf", color=colors.UMBER, image="npc/canine_w.png",
-	desc = [[Lean, mean, and shaggy, it stares at you with hungry eyes.]],
+	kr_name = "늑대",
+	desc = [[말랐고, 교활하며, 털이 수북한 늑대입니다. 배고픈 듯한 눈빛으로 당신을 쳐다봅니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(40,70),
@@ -59,7 +60,8 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "great wolf", color=colors.UMBER, image="npc/canine_gw.png",
-	desc = [[Larger than a normal wolf, it prowls and snaps at you.]],
+	kr_name = "대형 늑대",
+	desc = [[보통의 늑대보다 더 커다랗습니다. 당신의 주변을 맴돌다가 달려듭니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(60,90),
@@ -73,7 +75,8 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "dire wolf", color=colors.DARK_UMBER, image="npc/canine_dw.png",
-	desc = [[Easily as big as a horse, this wolf menaces you with its claws and fangs.]],
+	kr_name = "이리",
+	desc = [[말 만큼이나 커다란 이 늑대는, 그 발톱과 이빨로 당신을 위협합니다.]],
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(80,110),
@@ -88,7 +91,8 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "white wolf", color=colors.WHITE, image="npc/canine_ww.png",
-	desc = [[A large and muscled wolf from the northern wastes. Its breath is cold and icy, and its fur coated in frost.]],
+	kr_name = "흰 늑대",
+	desc = [[북쪽 황무지에서 온, 근육질의 덩치 큰 늑대입니다. 냉기 섞인 차가운 숨을 쉬고 있으며, 털에는 서리가 맺혀 있습니다.]],
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,100),
@@ -106,7 +110,8 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "warg", color=colors.BLACK, image="npc/canine_warg.png",
-	desc = [[It is a large wolf with eyes full of cunning.]],
+	kr_name = "와르그",
+	desc = [[교활함으로 가득찬 눈을 가진, 대형 늑대입니다.]],
 	level_range = {6, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(60,100),
@@ -126,7 +131,8 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "fox", color=colors.RED, image="npc/canine_fox.png",
-	desc = [[The quick brown fox jumps over the lazy dog.]],
+	kr_name = "여우",
+	desc = [[여우와 다람쥐 헌 쳇바퀴에 타고파]],
 	sound_moam = {"creatures/foxes/bark_hurt_%d", 1, 1},
 	sound_die = {"creatures/wolves/death_%d", 1, 1},
 	sound_random = {"creatures/wolves/bark_%d", 1, 2},
@@ -143,7 +149,8 @@ newEntity{ base = "BASE_NPC_CANINE",
 
 newEntity{ base = "BASE_NPC_CANINE",
 	name = "Rungof the Warg Titan", color=colors.VIOLET, unique=true, image="npc/canine_rungof.png",
-	desc = [[It is a large wolf with eyes full of cunning, thrice the size of a normal warg.]],
+	kr_name = "타이탄 와르그, 룬고프",
+	desc = [[보통의 와르그보다 세 배나 큰, 교활함으로 가득찬 눈을 가진 대형 늑대입니다.]],
 	level_range = {20, nil}, exp_worth = 2,
 	rank = 3.5,
 	size_category = 4,

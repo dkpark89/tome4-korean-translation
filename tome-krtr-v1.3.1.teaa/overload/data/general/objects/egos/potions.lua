@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "acid-proof ", prefix=true,
+	kr_name = "내산성 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 0.5,
@@ -27,6 +28,7 @@ newEntity{
 
 newEntity{
 	name = "giant ", prefix=true,
+	kr_name = "거대한 ",
 	level_range = {1, 50},
 	rarity = 5,
 	cost = 0.5,

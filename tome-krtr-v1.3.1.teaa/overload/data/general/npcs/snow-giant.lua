@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -51,8 +51,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SNOW_GIANT",
 	name = "snow giant", color=colors.WHITE,
+	kr_name = "설원 거인",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_ice_snow_giant.png", display_h=2, display_y=-1}}},
-	desc = [[A towering creature, humanoid but huge. It wields a giant maul and does not look friendly.]],
+	desc = [[거대한 탑과 같은 위압감을 자랑하는 거인입니다. 거대한 망치를 쥐고, 다정하지 않은 눈빛으로 당신을 쳐다보고 있습니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,120),
@@ -64,8 +65,9 @@ newEntity{ base = "BASE_NPC_SNOW_GIANT",
 
 newEntity{ base = "BASE_NPC_SNOW_GIANT",
 	name = "snow giant thunderer", color=colors.LIGHT_BLUE,
+	kr_name = "천둥의 설원 거인",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_ice_snow_giant_thunderer.png", display_h=2, display_y=-1}}},
-	desc = [[A towering creature, humanoid but huge. It wields a giant maul and does not look friendly. Lightning crackles over its body.]],
+	desc = [[거대한 탑과 같은 위압감을 자랑하는 거인입니다. 거대한 망치를 쥐고, 다정하지 않은 눈빛으로 당신을 쳐다보고 있습니다. 몸에서 뇌전이 파직거리며 흐르고 있습니다.]],
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(100,120),
@@ -78,8 +80,9 @@ newEntity{ base = "BASE_NPC_SNOW_GIANT",
 
 newEntity{ base = "BASE_NPC_SNOW_GIANT",
 	name = "snow giant boulder thrower", color=colors.UMBER,
+	kr_name = "바위던지기 설원 거인",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_ice_snow_giant_boulder_thrower.png", display_h=2, display_y=-1}}},
-	desc = [[A towering creature, humanoid but huge. It wields a giant maul and does not look friendly.]],
+	desc = [[거대한 탑과 같은 위압감을 자랑하는 거인입니다. 거대한 망치를 쥐고, 다정하지 않은 눈빛으로 당신을 쳐다보고 있습니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(100,120),
@@ -91,8 +94,9 @@ newEntity{ base = "BASE_NPC_SNOW_GIANT",
 
 newEntity{ base = "BASE_NPC_SNOW_GIANT",
 	name = "snow giant chieftain", color=colors.AQUAMARINE,
+	kr_name = "설원 거인 족장",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_ice_snow_giant_chieftain.png", display_h=2, display_y=-1}}},
-	desc = [[A towering creature, humanoid but huge. It wields a giant maul and does not look friendly.]],
+	desc = [[거대한 탑과 같은 위압감을 자랑하는 거인입니다. 거대한 망치를 쥐고, 다정하지 않은 눈빛으로 당신을 쳐다보고 있습니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 7,
 	rank = 3,
@@ -114,8 +118,9 @@ newEntity{ base = "BASE_NPC_SNOW_GIANT",
 newEntity{ base = "BASE_NPC_SNOW_GIANT",
 	define_as = "BURB_SNOW_GIANT",
 	name = "Burb the snow giant champion", color=colors.VIOLET, unique=true,
+	kr_name = "최강의 설원 거인, 불브",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_ice_snow_giant_chieftain.png", display_h=2, display_y=-1}}},
-	desc = [[A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.]],
+	desc = [[동료들보다 더욱 크고 위압적이며, 미친 듯이 격분한 설원 거인입니다. 그가 아직 입에 거품을 물 정도로 난폭하지 않았던 시절, 그는 찾을 수 있는 모든 평평한 바위에 아이처럼 앉아서 다양한 이야기와 신비한 무늬를 새겼다고 합니다. 이제는 전설로만 남은 이야기지만요.]],
 	level_range = {25, nil}, exp_worth = 10,
 	autolevel = "warriormage",
 	rarity = 10,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -39,8 +39,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_CAT",
 	name = "snow cat", color=colors.GRAY,
+	kr_name = "설원 고양이",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/animal_feline_snow_cat.png", display_h=2, display_y=-1}}},
-	desc = [[A large cat with a grey fur matted with black.]],
+	desc = [[검은 피부에 회색 털이 난 큰 고양이입니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(40,80),
@@ -56,7 +57,8 @@ newEntity{ base = "BASE_NPC_CAT",
 
 newEntity{ base = "BASE_NPC_CAT",
 	name = "panther", color=colors.BLACK,
-	desc = [[A large black cat, slender and muscular.]],
+	kr_name = "검은 표범",
+	desc = [[검고 커다란 고양이과 짐승으로, 날씬한 근육질의 몸을 가지고 있습니다.]],
 	level_range = {8, nil}, exp_worth = 1,
 	rarity = 4,
 	size_category=3,
@@ -72,7 +74,8 @@ newEntity{ base = "BASE_NPC_CAT",
 
 newEntity{ base = "BASE_NPC_CAT",
 	name = "tiger", color=colors.YELLOW,
-	desc = [[A truly magnificent beast, with fur striped black and yellow.]],
+	kr_name = "호랑이",
+	desc = [[노란 바탕에 검은 줄무늬를 가진, 정말 웅장한 짐승입니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 4,
 	size_category=4,
@@ -89,7 +92,8 @@ newEntity{ base = "BASE_NPC_CAT",
 
 newEntity{ base = "BASE_NPC_CAT",
 	name = "sabertooth tiger", color=colors.YELLOW,
-	desc = [[This cat is simply enormous, and has fangs with the size and sharpness of short swords.]],
+	kr_name = "검치호",
+	desc = [[이 고양이과 짐승은 말 그대로 엄청난 존재입니다. 커다랗고 날카로운, 단검과도 같은 송곳니를 가지고 있습니다.]],
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 4,
 	size_category=4,

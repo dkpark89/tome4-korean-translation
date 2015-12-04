@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,13 +30,14 @@ newEntity{
 	encumber = 3,
 	rarity = 7,
 	metallic = true,
-	desc = [[A large helmet that can protect the entire head. Ventilation and bad vision can be a problem, however.]],
+	desc = [[머리 전체를 보호할 수 있는 큰 투구입니다. 뭐, 환기와 시야 방해 문제가 있지만 말이죠.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/helm.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_HELM",
 	name = "iron helm", short_name = "iron",
+	kr_name = "무쇠 투구",
 	level_range = {1, 20},
 	cost = 5,
 	material_level = 1,
@@ -48,6 +49,7 @@ newEntity{ base = "BASE_HELM",
 
 newEntity{ base = "BASE_HELM",
 	name = "dwarven-steel helm", short_name = "d.steel",
+	kr_name = "드워프강철 투구",
 	level_range = {20, 40},
 	cost = 7,
 	material_level = 3,
@@ -59,6 +61,7 @@ newEntity{ base = "BASE_HELM",
 
 newEntity{ base = "BASE_HELM",
 	name = "voratun helm", short_name = "voratun",
+	kr_name = "보라툰 투구",
 	level_range = {40, 50},
 	cost = 10,
 	material_level = 5,

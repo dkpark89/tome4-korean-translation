@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {nature=true},
 	name = " of fire (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "화염(#RESIST#)의 ",
 	keywords = {fire=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -42,6 +43,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of frost (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "냉기(#RESIST#)의 ",
 	keywords = {frost=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -56,6 +58,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of nature (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "자연(#RESIST#)의 ",
 	keywords = {nature=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -70,6 +73,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of lightning (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "전기(#RESIST#)의 ",
 	keywords = {lightning=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -84,6 +88,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of light (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "빛(#RESIST#)의 ",
 	keywords = {light=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -98,6 +103,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of darkness (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "어둠(#RESIST#)의 ",
 	keywords = {darkness=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -112,6 +118,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of corrosion (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "부식(#RESIST#)의 ",
 	keywords = {corrosion=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -127,6 +134,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of blight (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "황폐(#RESIST#)의 ",
 	keywords = {blight=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -141,6 +149,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the mountain (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "산맥(#RESIST#)의 ",
 	keywords = {mountain=true},
 	level_range = {1, 50},
 	rarity = 12,
@@ -155,6 +164,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of the mind (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "정신(#RESIST#)의 ",
 	keywords = {mind=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -169,6 +179,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of time (#RESIST#)", suffix=true, instant_resolve="last",
+	kr_name = "시간(#RESIST#)의 ",
 	keywords = {time=true},
 	level_range = {1, 50},
 	rarity = 12,
@@ -183,6 +194,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "shimmering ", prefix=true, instant_resolve=true,
+	kr_name = "희미하게 빛나는 ",
 	keywords = {shimmering=true},
 	level_range = {1, 50},
 	rarity = 12,
@@ -197,6 +209,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of protection", suffix=true, instant_resolve=true,
+	kr_name = "보호의 ",
 	keywords = {prot=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -210,6 +223,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "dreamer's ", prefix=true, instant_resolve=true,
+	kr_name = "몽상가 ",
 	keywords = {dreamer=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -230,6 +244,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "dispeller's ", prefix=true, instant_resolve=true,
+	kr_name = "떨쳐내는 ",
 	keywords = {dispeller=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -254,6 +269,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of alchemy", suffix=true, instant_resolve=true,
+	kr_name = "연금술의 ",
 	keywords = {alchemy=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -277,10 +293,10 @@ newEntity{
 		}
 	},	
 }
-
 newEntity{
 	power_source = {arcane=true},
 	name = "spellwoven ", prefix=true, instant_resolve=true,
+	kr_name = "주문 엮인 ",
 	keywords = {spellwoven=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -294,6 +310,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of Linaniil", suffix=true, instant_resolve=true,
+	kr_name = "리나니일의 ",
 	keywords = {Linaniil=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -310,6 +327,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of Angolwen", suffix=true, instant_resolve=true,
+	kr_name = "앙골웬의 ",
 	keywords = {Angolwen=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -328,6 +346,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "stargazer's ", prefix=true, instant_resolve=true,
+	kr_name = "점성가 ",
 	keywords = {stargazer=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -348,6 +367,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "ancient ", prefix=true, instant_resolve=true,
+	kr_name = "고대 ",
 	keywords = {ancient=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -371,6 +391,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of power", suffix=true, instant_resolve=true,
+	kr_name = "강력함의 ",
 	keywords = {power=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -386,6 +407,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "sunsealed ", prefix=true, instant_resolve=true,
+	kr_name = "태양력 ",
 	keywords = {sunseal=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -411,6 +433,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of life", suffix=true, instant_resolve=true,
+	kr_name = "생명의 ",
 	keywords = {life=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -429,6 +452,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "slimy ", prefix=true, instant_resolve=true,
+	kr_name = "끈적이는 ",
 	keywords = {slimy=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -443,6 +467,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "stormwoven ", prefix=true, instant_resolve=true,
+	kr_name = "폭풍이 엮인 ",
 	keywords = {storm=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -468,6 +493,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "verdant ", prefix=true, instant_resolve=true,
+	kr_name = "파릇파릇한 ",
 	keywords = {verdant=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -487,6 +513,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "mindwoven ", prefix=true, instant_resolve=true,
+	kr_name = "정신이 엮인 ",
 	keywords = {mindwoven=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -500,6 +527,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "tormentor's ", prefix=true, instant_resolve=true,
+	kr_name = "고문하는 ",
 	keywords = {tormentor=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -517,6 +545,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "focusing ", prefix=true, instant_resolve=true,
+	kr_name = "집중되는 ",
 	keywords = {focus=true},
 	level_range = {15, 50},
 	rarity = 10,
@@ -533,6 +562,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "fearwoven ", prefix=true, instant_resolve=true,
+	kr_name = "공포를 엮는 ",
 	keywords = {fearwoven=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -555,6 +585,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "psion's ", prefix=true, instant_resolve=true,
+	kr_name = "염동력자 ",
 	keywords = {psion=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -571,5 +602,5 @@ newEntity{
 		psi_regen = resolvers.mbonus_material(70, 30, function(e, v) v=v/100 return 0, v end),
 		combat_mindpower = resolvers.mbonus_material(5, 5),
 		combat_mindcrit = resolvers.mbonus_material(4, 1),
-	},	
+	},
 }

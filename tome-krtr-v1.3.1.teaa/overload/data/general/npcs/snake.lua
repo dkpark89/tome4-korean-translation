@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "large brown snake", color=colors.UMBER, image="npc/umber-snake.png",
-	desc = [[This large snake hisses at you, angry at being disturbed.]],
+	kr_name = "큰 갈색 뱀",
+	desc = [[당신을 향해 쉬익거리는 큰 뱀입니다. 방해를 받아 화가 난 듯 합니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(20,30),
@@ -55,7 +56,8 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "large white snake", color=colors.WHITE, image="npc/white-snake.png",
-	desc = [[This large snake hisses at you, angry at being disturbed.]],
+	kr_name = "큰 흰색 뱀",
+	desc = [[당신을 향해 쉬익거리는 큰 뱀입니다. 방해를 받아 화가 난 듯 합니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(20,30),
@@ -65,7 +67,8 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "copperhead snake", color=colors.SALMON, image="npc/salmon-snake.png",
-	desc = [[It has a copper head and sharp venomous fangs.]],
+	kr_name = "살무사",
+	desc = [[구릿빛 머리와 날카로운 독어금니를 가지고 있습니다.]],
 	level_range = {2, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(30,40),
@@ -77,7 +80,8 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "rattlesnake", color=colors.FIREBRICK, image="npc/firebrick-snake.png",
-	desc = [[As you approach, the snake coils up and rattles its tail threateningly.]],
+	kr_name = "방울뱀",
+	desc = [[다가서면 똬리를 튼 상태로 일어나는 뱀입니다. 꼬리에서 위협적인 방울 소리가 납니다.]],
 	level_range = {4, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(30,50),
@@ -89,7 +93,8 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "king cobra", color=colors.GREEN, image="npc/green-snake.png",
-	desc = [[It is a large snake with a hooded face.]],
+	kr_name = "킹 코브라",
+	desc = [[머리 부분에 두건을 쓴 듯한 큰 뱀입니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(40,70),
@@ -101,7 +106,8 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "black mamba", color=colors.DARK_GREY, image="npc/darkgrey-snake.png",
-	desc = [[It has glistening black skin, a sleek body, and highly venomous fangs.]],
+	kr_name = "검은 맘바",
+	desc = [[번쩍거리는 검은 피부와 매끈한 몸통, 그리고 치명적인 독어금니를 가진 존재입니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(50,80),
@@ -114,7 +120,8 @@ newEntity{ base = "BASE_NPC_SNAKE",
 
 newEntity{ base = "BASE_NPC_SNAKE",
 	name = "anaconda", color=colors.YELLOW_GREEN, image="npc/yellow-green-snake.png",
-	desc = [[You recoil in fear as you notice this gigantic snake.  It seeks to crush the life out of you.]],
+	kr_name = "아나콘다",
+	desc = [[이 거대한 뱀을 발견하는 순간, 당신은 공포로 움찔하였습니다. 이 뱀은 당신을 으스러뜨리려 합니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,

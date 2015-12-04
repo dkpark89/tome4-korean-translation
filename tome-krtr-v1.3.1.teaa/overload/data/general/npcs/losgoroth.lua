@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,8 +24,7 @@ newEntity{
 	type = "elemental", subtype = "void",
 	blood_color = colors.DARK_GREY,
 	display = "E", color=colors.DARK_GREY,
-	desc = [[Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.]],
-	faction = "cosmic-fauna",
+	desc = [[로스고로스는 강력한 공허의 원소이며, 별들의 사이에 존재하는 공허에서 온 존재입니다. 이것들은 지표면에서는 거의 볼 수 없는 존재입니다.]],
 
 	combat = { dam=resolvers.levelup(resolvers.mbonus(40, 15), 1, 1.2), atk=15, apr=15, dammod={mag=0.8}, damtype=DamageType.ARCANE },
 
@@ -58,6 +57,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_LOSGOROTH",
 	name = "losgoroth", color=colors.GREY,
+	kr_name = "로스고로스",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(40,60),
@@ -71,8 +71,9 @@ newEntity{ base = "BASE_NPC_LOSGOROTH",
 
 newEntity{ base = "BASE_NPC_LOSGOROTH",
 	name = "manaworm", color=colors.BLUE,
+	kr_name = "마나 벌레",
 	level_range = {2, nil}, exp_worth = 1,
-	desc = [[Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.]],
+	desc = [[마나 벌레는 마법 사용자의 마나를 먹고 사는 로스고로스입니다. 항상 주문을 사용하는 이에게 접근하며, 그 또는 그녀에게 딱 달라붙어 마나를 빨아먹습니다.]],
 	rarity = 3,
 	max_life = resolvers.rngavg(40,60),
 	movement_speed = 0.7,

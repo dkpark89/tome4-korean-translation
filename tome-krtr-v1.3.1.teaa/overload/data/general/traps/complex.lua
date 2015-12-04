@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 local DamageType = require "engine.DamageType"
 
 newEntity{ define_as = "TRAP_COMPLEX",
-	type = "complex", id_by_type=true, unided_name = "trap",
+	type = "complex", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function(self, x, y, who)
 		return true
@@ -30,11 +30,12 @@ newEntity{ define_as = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "boulder",
 	name = "giant boulder trap", image = "trap/trap_pressure_plate_01.png",
+	kr_name = "거대한 바위 함정",
 	detect_power = resolvers.clscale(40, 50, 8),
 	disarm_power = resolvers.clscale(50, 50, 8),
 	rarity = 3, level_range = {1, nil},
 	color = colors.UMBER,
-	message = "@Target@ walks on a trap, and there is a loud noise.",
+	message = "@Target1@ 함정을 밟자, 커다란 소리가 들려옵니다.",
 	pressure_trap = true,
 	on_added = function(self, level, x, y)
 		local walls = {}
@@ -63,7 +64,7 @@ newEntity{ base = "TRAP_COMPLEX",
 	dam = resolvers.clscale(200, 50, 50, 0.75, 0),
 	triggered = function(self, x, y, who)
 		if not self.spawn_x then return end
-		local tg = {name="huge boulder", type="bolt", range=core.fov.distance(x, y, self.spawn_x, self.spawn_y), x=self.spawn_x, y=self.spawn_y, speed=2, display={image="trap/trap_big_boulder_01.png"}, blur_move=4}
+		local tg = {name="huge boulder", kr_name = "거대한 바위", type="bolt", range=core.fov.distance(x, y, self.spawn_x, self.spawn_y), x=self.spawn_x, y=self.spawn_y, speed=2, display={image="trap/trap_big_boulder_01.png"}, blur_move=4}
 		self:projectile(tg, x, y, engine.DamageType.PHYSKNOCKBACK, {dam=self.dam, dist=3, x=self.spawn_x, y=self.spawn_y})
 		return true
 	end,
@@ -72,11 +73,12 @@ newEntity{ base = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "arcane",
 	name = "spinning beam", image = "trap/trap_glyph_explosion_01_64.png",
+	kr_name = "회전하는 빔 발사장치",
 	detect_power = resolvers.clscale(40, 50, 8),
 	disarm_power = resolvers.clscale(50, 50, 8),
 	rarity = 3, level_range = {1, nil},
 	color=colors.PURPLE,
-	message = "@Target@ walks on a trap, and the beam changes.",
+	message = "@Target1@ 함정을 밟자, 발사장치가 동작하기 시작합니다.",
 	on_added = function(self, level, x, y)
 		self.x, self.y = x, y
 		self.rad = rng.range(2, 8)
@@ -136,12 +138,13 @@ newEntity{ base = "TRAP_COMPLEX",
 
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "nature",
-	name = "poison spore", image = "trap/trap_acid_blast_01.png",
+	name = "poison cloud", image = "trap/trap_acid_blast_01.png",
+	kr_name = "독성 구름",
 	detect_power = resolvers.clscale(40, 50, 8),
 	disarm_power = resolvers.clscale(50, 50, 8),
 	rarity = 3, level_range = {1, nil},
 	color=colors.GREEN,
-	message = "@Target@ walks on a poison spore.",
+	message = "@Target1@ 독성 구름 속으로 걸어갑니다.",
 	on_added = function(self, level, x, y)
 		self.x, self.y = x, y
 		self.rad = rng.range(2, 8)
@@ -176,7 +179,7 @@ newEntity{ base = "TRAP_COMPLEX",
 	end,
 	act = function(self)
 		if game.level.map(self.x, self.y, engine.Map.TRAP) ~= self then game.level:removeEntity(self, true) return end
-		if self.nb <= 0 then game.level:removeEntity(self, true) game.logSeen(self, "The poison spore looks somewhat drained.") return end
+		if self.nb <= 0 then game.level:removeEntity(self, true) game.logSeen(self, "독성구름은 없어진듯 합니다.") return end
 
 		local ok = false
 		local tg = {type="ball", radius=self.rad, friendlyfire=false}
@@ -195,12 +198,13 @@ newEntity{ base = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "arcane",
 	name = "delayed explosion trap", image = "trap/trap_fire_rune_01.png",
+	kr_name = "지연식 폭발 함정",
 	detect_power = resolvers.clscale(40, 50, 8),
 	disarm_power = resolvers.clscale(50, 50, 8),
 	rarity = 3, level_range = {1, nil},
 	color=colors.RED,
 	pressure_trap = true,
-	message = "Flames start to appear arround @target@.",
+	message = "@Target@의 주변에 불길이 솟아오르기 시작합니다.",
 	dam = resolvers.clscale(200, 50, 50, 0.75, 0),
 	triggered = function(self, x, y, who)
 		if self:reactionToward(who) >= 0 then return end
@@ -241,17 +245,19 @@ newEntity{ base = "TRAP_COMPLEX",
 newEntity{ base = "TRAP_COMPLEX",
 	subtype = "arcane",
 	name = "cold flames trap", image = "trap/trap_frost_rune_01.png",
+	kr_name = "차가운 불꽃의 함정",
 	detect_power = resolvers.clscale(40, 50, 8),
 	disarm_power = resolvers.clscale(50, 50, 8),
 	rarity = 3, level_range = {1, nil},
 	color=colors.BLUE,
 	pressure_trap = true,
-	message = "Cold flames start to appear arround @target@.",
+	message = "@Target@의 주변에 차가운 불꽃이 솟아오르기 시작합니다.",
 	dam = resolvers.clscale(100, 50, 25, 0.75, 0),
 	triggered = function(self, x, y, who)
 		local NPC = require "mod.class.NPC"
 		local m = NPC.new{
 			name = "cold flames trap",
+			kr_name = "차가운 불꽃의 함정",
 			type = "trap", subtype = "arcane",
 			combatSpellpower = function(self) return self.dam end,
 			getTarget = function(self) return self.x, self.y end,

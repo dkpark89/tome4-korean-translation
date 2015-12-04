@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,13 +28,14 @@ newEntity{
 	rarity = 5,
 	metallic = true,
 	combat = { talented = "sword", damrange = 1.4, physspeed = 1, sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2}},
-	desc = [[Sharp, long, and deadly.]],
+	desc = [[날카롭고, 길고, 치명적입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/melee.lua",
 	egos = "/data/general/objects/egos/weapon.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_LONGSWORD",
 	name = "iron longsword", short_name = "iron",
+	kr_name = "무쇠 장검",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -49,6 +50,7 @@ newEntity{ base = "BASE_LONGSWORD",
 
 newEntity{ base = "BASE_LONGSWORD",
 	name = "steel longsword", short_name = "steel",
+	kr_name = "강철 장검",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -63,6 +65,7 @@ newEntity{ base = "BASE_LONGSWORD",
 
 newEntity{ base = "BASE_LONGSWORD",
 	name = "dwarven-steel longsword", short_name = "d.steel",
+	kr_name = "드워프강철 장검",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -77,6 +80,7 @@ newEntity{ base = "BASE_LONGSWORD",
 
 newEntity{ base = "BASE_LONGSWORD",
 	name = "stralite longsword", short_name = "stralite",
+	kr_name = "스트라라이트 장검",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -91,6 +95,7 @@ newEntity{ base = "BASE_LONGSWORD",
 
 newEntity{ base = "BASE_LONGSWORD",
 	name = "voratun longsword", short_name = "voratun",
+	kr_name = "보라툰 장검",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

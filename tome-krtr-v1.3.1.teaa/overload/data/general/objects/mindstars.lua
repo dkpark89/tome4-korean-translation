@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -38,13 +38,14 @@ newEntity{
 		sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2},
 		damtype = resolvers.rngtable{DamageType.NATURE, DamageType.MIND},
 	},
-	desc = [[Mindstars are natural products. Natural gems covered in living matter, they are used to focus the mental powers of all nature defenders and psionics.
-Using mindstars in the offhand does not incur the normal offhand damage penalty.]],
+	desc = [[마석은 자연으로 만들어지는 무기로, 자연의 보석이 살아있는 물질에 덮여 만들어집니다. 모든 자연의 보호자들과 초능력자들은 정신력을 집중하기 위해 마석을 손에 쥡니다.
+다른 무기들과는 달리, 쌍수무장을 위해 마석을 보조 무기로 잡아도 공격할 때 피해량의 불이익을 받지 않습니다.]],
 	egos = "/data/general/objects/egos/mindstars.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_MINDSTAR",
 	name = "mossy mindstar", short_name = "mossy",
+	kr_name = "이끼 마석",
 	level_range = {1, 10},
 	require = { stat = { wil=11 }, },
 	cost = 5,
@@ -63,6 +64,7 @@ newEntity{ base = "BASE_MINDSTAR",
 
 newEntity{ base = "BASE_MINDSTAR",
 	name = "vined mindstar", short_name = "vined",
+	kr_name = "덩굴 마석",
 	level_range = {10, 20},
 	require = { stat = { wil=16 }, },
 	cost = 10,
@@ -81,6 +83,7 @@ newEntity{ base = "BASE_MINDSTAR",
 
 newEntity{ base = "BASE_MINDSTAR",
 	name = "thorny mindstar", short_name = "thorny",
+	kr_name = "가시 마석",
 	level_range = {20, 30},
 	require = { stat = { wil=24 }, },
 	cost = 15,
@@ -99,6 +102,7 @@ newEntity{ base = "BASE_MINDSTAR",
 
 newEntity{ base = "BASE_MINDSTAR",
 	name = "pulsing mindstar", short_name = "pulsing",
+	kr_name = "활력의 마석",
 	level_range = {30, 40},
 	require = { stat = { wil=35 }, },
 	cost = 25,
@@ -117,6 +121,7 @@ newEntity{ base = "BASE_MINDSTAR",
 
 newEntity{ base = "BASE_MINDSTAR",
 	name = "living mindstar", short_name = "living",
+	kr_name = "생명의 마석",
 	level_range = {40, 50},
 	require = { stat = { wil=48 }, },
 	cost = 35,

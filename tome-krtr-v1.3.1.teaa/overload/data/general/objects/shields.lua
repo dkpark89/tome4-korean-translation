@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ newEntity{
 	rarity = 5,
 	encumber = 7,
 	metallic = true,
-	desc = [[Handheld deflection devices.]],
+	desc = [[손에 들어 공격을 막을 수 있는 장비입니다.]],
 	require = { talent = { {Talents.T_ARMOUR_TRAINING,2} }, },
 	randart_able = "/data/general/objects/random-artifacts/shields.lua",
 	special_combat = { talented="shield", accuracy_effect="staff", damrange = 1.2 },
@@ -41,6 +41,7 @@ newEntity{
 
 newEntity{ base = "BASE_SHIELD",
 	name = "iron shield", short_name = "iron",
+	kr_name = "무쇠 방패",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -62,6 +63,7 @@ newEntity{ base = "BASE_SHIELD",
 
 newEntity{ base = "BASE_SHIELD",
 	name = "steel shield", short_name = "steel",
+	kr_name = "강철 방패",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -83,6 +85,7 @@ newEntity{ base = "BASE_SHIELD",
 
 newEntity{ base = "BASE_SHIELD",
 	name = "dwarven-steel shield", short_name = "d.steel",
+	kr_name = "드워프강철 방패",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -104,6 +107,7 @@ newEntity{ base = "BASE_SHIELD",
 
 newEntity{ base = "BASE_SHIELD",
 	name = "stralite shield", short_name = "stralite",
+	kr_name = "스트라라이트 방패",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -125,6 +129,7 @@ newEntity{ base = "BASE_SHIELD",
 
 newEntity{ base = "BASE_SHIELD",
 	name = "voratun shield", short_name = "voratun",
+	kr_name = "보라툰 방패",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

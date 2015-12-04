@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -36,6 +36,7 @@ local changer = function(id)
 		type = "floor", subtype = "underwater",
 		display = "&", color = colors.BLUE,
 		name = "coral invasion portal",
+		kr_name = "침입용 산호 관문",
 		image = "terrain/underwater/subsea_floor_02.png",
 		add_displays = {mod.class.Grid.new{z=18, image="terrain/naga_portal.png", display_h=2, display_y=-1, embed_particles = {
 			{name="naga_portal_smoke", rad=2, args={smoke="particles_images/smoke_whispery_bright"}},
@@ -48,6 +49,7 @@ local changer = function(id)
 	}
 	local zone = mod.class.Zone.new(id, {
 		name = "water cavern",
+		kr_name = "수중 동굴",
 		level_range = {game.zone:level_adjust_level(game.level, game.zone, "actor"), game.zone:level_adjust_level(game.level, game.zone, "actor")},
 		level_scheme = "player",
 		max_level = 1,
@@ -99,6 +101,7 @@ end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "naga invasion coral portal"
+g.kr_name = "나가 침입용 산호 관문"
 g.display='&' g.color_r=0 g.color_g=0 g.color_b=255 g.notice = true
 g.change_level=1 g.change_zone=id g.glow=true
 g:removeAllMOs()
@@ -124,20 +127,21 @@ end
 g.on_move = function(self, x, y, who)
 	if not who or not who.player then return false end
 	if self.broken then
-		game.log("#VIOLET#The portal is already broken!")
+		game.log("#VIOLET#관문이 이미 부서져 있습니다!")
 		return false
 	end
 
-	require("engine.ui.Dialog"):yesnoPopup("Coral Portal", "Do you wish to enter the portal or just destroy it?", function(ret)
+	require("engine.ui.Dialog"):yesnoPopup("산호 관문", "관문을 부수겠습니까, 아니면 관문으로 들어가시겠습니까?", function(ret)
 		game.log("#VIOLET#The portal is broken!")
 		if not ret then
 			self:change_level_check()
 		end
 		self.broken = true
+		self.kr_name = "부서진 "..(self.kr_name or self.name)
 		self.name = "broken "..self.name
 		self.change_level = nil
 		self.autoexplore_ignore = true
-	end, "Destroy", "Enter")
+	end, "부수기", "들어가기")
 
 	return false
 end
@@ -162,7 +166,7 @@ local respawn = function(self)
 	m.faction = "vargh-republic"
 	m.on_die = function(self) self:naga_respawn() end
 	game.zone:addEntity(game.level, m, "actor", i, j)
-	game.logSeen(m, "#VIOLET#A naga steps out of the coral portal!")
+	game.logSeen(m, "#VIOLET#산호 관문을 통해 나가가 나타났습니다!")
 end
 
 -- Spawn two that will keep on being replenished

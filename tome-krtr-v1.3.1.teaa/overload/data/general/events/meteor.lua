@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -87,7 +87,7 @@ game.zone.on_turn = function()
 
 		world:gainAchievement("EVENT_METEOR", game:getPlayer(true))
 		game:getPlayer(true):attr("meteoric_crash", 1)
-		require("engine.ui.Dialog"):simplePopup("Meteor!", "As you walk you notice a huge rock falling from the sky. It crashes right near you!")
+		require("engine.ui.Dialog"):simplePopup("유성우!", "이 지역으로 들어서자, 커다란 바위가 하늘에서 떨어지고 있는 것이 보입니다. 바위가 바로 옆에 떨어집니다!")
 	end
 end
 

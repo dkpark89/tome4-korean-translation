@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_FLOOR",
 	type = "floor", subtype = "bamboo floor",
 	name = "bamboo hut floor", image = "terrain/bamboo/hut_dirt_floor_01.png",
+	kr_name = "대나무 오두막 바닥",
 	display = '.', color=colors.UMBER, back_color=colors.DARK_UMBER,
 	grow = "BAMBOO_HUT_WALL",
 }
@@ -35,6 +36,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_WALL",
 	type = "wall", subtype = "bamboo hut",
 	name = "bamboo wall", image = "terrain/bamboo/hut_dirt_floor_01.png",
+	kr_name = "대나무 벽",
 	display = '#', color=colors.LIGHT_UMBER, back_color=colors.DARK_UMBER,
 	always_remember = true,
 	does_block_move = true,
@@ -84,6 +86,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_DOOR",
 	type = "wall", subtype = "bamboo hut",
 	name = "door", image = "terrain/bamboo/hut_dirt_floor_01.png",
+	kr_name = "문",
 	display = '+', color=colors.LIGHT_UMBER, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="BAMBOO_HUT_DOOR_VERT", west_east="BAMBOO_HUT_DOOR_HORIZ" },
 	notice = true,
@@ -97,6 +100,7 @@ newEntity{
 	define_as = "BAMBOO_HUT_DOOR_OPEN",
 	type = "wall", subtype = "bamboo hut",
 	name = "open door", image = "terrain/bamboo/hut_dirt_floor_01.png",
+	kr_name = "열린 문",
 	display = "'", color=colors.LIGHT_UMBER, back_color=colors.DARK_UMBER,
 	always_remember = true,
 	is_door = true,

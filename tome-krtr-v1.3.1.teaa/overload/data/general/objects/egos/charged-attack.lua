@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "charged(#USE_TALENT#) ", prefix=true,
+	kr_name = "충전된(#USE_TALENT#) ",
 	level_range = {1, 50},
 	rarity = 15,
 	cost = 1,

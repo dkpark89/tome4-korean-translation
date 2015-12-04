@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ load("/data/general/objects/egos/armor.lua")
 newEntity{
 	power_source = {nature=true},
 	name = " of the dragon", suffix=true, instant_resolve=true,
+	kr_name = "용의 ",
 	keywords = {dragon=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -53,6 +54,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "impenetrable ", prefix=true, instant_resolve=true,
+	kr_name = "뚫리지 않는 ",
 	keywords = {impenetrable=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -65,6 +67,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "hardened ", prefix=true, instant_resolve=true,
+	kr_name = "단단한 ",
 	keywords = {hardened=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -85,6 +88,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "fearforged ", prefix=true, instant_resolve=true,
+	kr_name = "공포로 연마된 ",
 	keywords = {fearforged=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -109,6 +113,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of implacability", suffix=true, instant_resolve=true,
+	kr_name = "확고함의 ",
 	keywords = {['implac.']=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -124,6 +129,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "fortifying ", prefix=true, instant_resolve=true,
+	kr_name = "강화된 ",
 	keywords = {['fortif.']=true},
 	level_range = {30, 50},
 	greater_ego = 1,

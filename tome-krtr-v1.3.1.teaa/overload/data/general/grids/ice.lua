@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "ICY_FLOOR",
 	type = "floor", subtype = "ice",
 	name = "icy floor", image = "terrain/frozen_ground.png",
+	kr_name = "얼음 바닥",
 	display = '.', color=colors.LIGHT_BLUE, back_color=colors.WHITE,
 	nice_editer = ice_editer,
 	always_remember = true, special_minimap = {b=220, g=220, r=120},
@@ -34,6 +35,7 @@ newEntity{
 	define_as = "FROZEN_WATER",
 	type = "floor", subtype = "ice",
 	name = "frozen water", image = "terrain/water_grass_5_1.png",
+	kr_name = "얼어붙은 물",
 	display = ';', color=colors.LIGHT_BLUE, back_color=colors.WHITE,
 	nice_editer = ice_editer,
 	nice_tiler = { method="replace", base={"FROZEN_WATER", 100, 1, 4}},

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "insect", subtype = "swarms",
 	display = "I", color=colors.WHITE,
 	can_multiply = 2,
-	desc = "Buzzzzzzzzzzzzzzzzzzzzzzzzzzz.",
+	desc = "부우우우우우우우우우우우우우웅.",
 	body = { INVEN = 1 },
 	autolevel = "warrior",
 	sound_moam = {"creatures/swarm/mswarm_%d", 1, 4},
@@ -46,7 +46,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_INSECT",
 	name = "midge swarm", color=colors.UMBER, image="npc/midge_swarm.png",
-	desc = "A swarm of midges; they want blood.",
+	kr_name = "작은 곤충 무리",
+	desc = "피를 원하는 작은 곤충들의 무리입니다.",
 	level_range = {1, 25}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(1,2),
@@ -58,7 +59,8 @@ newEntity{ base = "BASE_NPC_INSECT",
 
 newEntity{ base = "BASE_NPC_INSECT",
 	name = "bee swarm", color=colors.GOLD, image="npc/bee_swarm.png",
-	desc = "They buzz at you threateningly, as you have gotten too close to their hive.",
+	kr_name = "벌떼",
+	desc = "당신이 벌집으로 가까이 다가가자, 위협적으로 윙윙거리기 시작합니다.",
 	level_range = {2, 25}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(1,3),
@@ -72,7 +74,8 @@ newEntity{ base = "BASE_NPC_INSECT",
 
 newEntity{ base = "BASE_NPC_INSECT",
 	name = "hornet swarm", color=colors.YELLOW, image="npc/hornet_swarm.png",
-	desc = "You have intruded on their ground, and they will defend it at all costs.",
+	kr_name = "말벌떼",
+	desc = "그들의 영역을 침범하면, 그들은 어떤 대가를 치르더라도 그 앞을 막아섭니다.",
 	sound_moam = {"creatures/bee/bee_%d", 1, 4},
 	sound_die = "creatures/bee/bee_die",
 	sound_random = {"creatures/bee/bee_%d", 1, 4},
@@ -89,7 +92,8 @@ newEntity{ base = "BASE_NPC_INSECT",
 
 newEntity{ base = "BASE_NPC_INSECT",
 	name = "hummerhorn", color=colors.YELLOW, image="npc/hummerhorn.png",
-	desc = "A giant buzzing wasp, its stinger dripping venom.",
+	kr_name = "허밍뿔",
+	desc = "윙윙거리며 날아다니는 뿔이라는 의미의 이름을 한 거대 말벌로, 침에서는 독액이 흐릅니다. ",
 	sound_moam = {"creatures/bee/bee_%d", 1, 4},
 	sound_die = "creatures/bee/bee_die",
 	sound_random = {"creatures/bee/bee_%d", 1, 4},

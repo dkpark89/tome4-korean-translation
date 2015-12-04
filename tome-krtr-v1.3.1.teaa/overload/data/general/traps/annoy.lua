@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,18 +18,19 @@
 -- darkgod@te4.org
 
 newEntity{ define_as = "TRAP_ANNOY",
-	type = "annoy", subtype="annoy", id_by_type=true, unided_name = "trap",
+	type = "annoy", subtype="annoy", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function() end,
 }
 
 newEntity{ base = "TRAP_ANNOY",
 	name = "lethargy trap", auto_id = true, image = "trap/trap_lethargy_rune_01.png",
+	kr_name = "무기력의 함정",
 	detect_power = resolvers.clscale(20,50,8),
 	disarm_power = resolvers.clscale(36,50,8),
 	rarity = 3, level_range = {1, 50},
 	color=colors.BLUE,
-	message = "@Target@ seems less active.",
+	message = "@Target1@ 무기력함을 느꼈습니다.",
 	triggered = function(self, x, y, who)
 		local tids = {}
 		for tid, lev in pairs(who.talents) do
@@ -48,11 +49,12 @@ newEntity{ base = "TRAP_ANNOY",
 
 newEntity{ base = "TRAP_ANNOY",
 	name = "burning curse trap", auto_id = true, image = "trap/trap_burning_curse_01.png",
+	kr_name = "화염의 저주 함정",
 	detect_power = resolvers.clscale(50,50,8),
 	disarm_power = resolvers.clscale(58,50,8),
 	rarity = 3, level_range = {30, 50},
 	color=colors.ORCHID,
-	message = "@Target@ triggers a burning curse!",
+	message = "@Target1@ 화염의 매혹술에 걸렸습니다!",
 	dam = resolvers.clscale(60, 50, 15, 0.75, 25),
 	pressure_trap = true,
 	triggered = function(self, x, y, who)

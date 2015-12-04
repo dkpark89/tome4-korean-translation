@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 	name = "multi-hued drake hatchling", color=colors.PURPLE, display="d",
-	desc = [[A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.]],
+	kr_name = "무지개빛 드레이크 해츨링",
+	desc = [[어린 드레이크입니다. 아직 그렇게 강력한 드레이크는 아니기 때문에, 자신의 형제들과 무리지어 다니는 경향이 있습니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 1, size_category = 2,
@@ -66,7 +67,8 @@ newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 
 newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 	name = "multi-hued drake", color=colors.PURPLE, display="D",
-	desc = [[A mature multi-hued drake, armed with many deadly breath weapons and nasty claws.]],
+	kr_name = "무지개빛 드레이크",
+	desc = [[성숙한 무지개빛 드레이크입니다. 험악하게 생긴 발톱을 가졌으며, 치명적인 브레스를 뿜어낼 수 있습니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(150,170),
@@ -97,8 +99,9 @@ newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 
 newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE", define_as = "GREATER_MULTI_HUED_WYRM",
 	name = "greater multi-hued wyrm", color=colors.PURPLE, display="D",
+	kr_name = "무지개빛 고위 용",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_multihued_greater_multi_hued_wyrm.png", display_h=2, display_y=-1}}},
-	desc = [[An old and powerful multi-hued drake, armed with many deadly breath weapons and nasty claws.]],
+	desc = [[오랜 세월을 살아온 강력한 무지개빛 드레이크입니다. 험악하게 생긴 발톱을 가졌으며, 치명적인 브레스를 뿜어낼 수 있습니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 8,
 	rank = 3,
@@ -139,8 +142,9 @@ newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE", define_as = "GREATER_MULTI_HUED_WY
 newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 	unique = true,
 	name = "Ureslak the Prismatic", color=colors.VIOLET, display="D",
+	kr_name = "7색의 우레슬락",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/drake_multi_ureslak.png", display_h=2, display_y=-1}}},
-	desc = [[A huge multi-hued drake. It seems to shift color rapidly.]],
+	desc = [[거대한 무지개빛 드레이크입니다. 몸의 색이 빠르게 변화하고 있습니다.]],
 	level_range = {35, nil}, exp_worth = 4,
 	rarity = 50,
 	rank = 3.5,
@@ -170,27 +174,27 @@ newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 	talent_cd_reduction={[Talents.T_MANATHRUST]=4},
 
 	colors = {
-		{"red", {
+		{"붉은색", {
 			resists = { all=50, [DamageType.FIRE] = 100, [DamageType.COLD] = -100 },
 			talents = { [Talents.T_DRACONIC_BODY] = 1, [Talents.T_EQUILIBRIUM_POOL]=1, [Talents.T_MANA_POOL]=1, [Talents.T_FIRE_BREATH]=15, [Talents.T_FLAME]=7 },
 		}},
-		{"white", {
+		{"흰색", {
 			resists = { all=50, [DamageType.COLD] = 100, [DamageType.FIRE] = -100 },
 			talents = { [Talents.T_DRACONIC_BODY] = 1, [Talents.T_EQUILIBRIUM_POOL]=1, [Talents.T_MANA_POOL]=1, [Talents.T_ICE_BREATH]=15, [Talents.T_ICE_SHARDS]=7 },
 		}},
-		{"blue", {
+		{"파란색", {
 			resists = { all=50, [DamageType.LIGHTNING] = 100, [DamageType.PHYSICAL] = -100 },
 			talents = { [Talents.T_DRACONIC_BODY] = 1, [Talents.T_EQUILIBRIUM_POOL]=1, [Talents.T_MANA_POOL]=1, [Talents.T_LIGHTNING_BREATH]=15, [Talents.T_SHOCK]=7 },
 		}},
-		{"green", {
+		{"녹색", {
 			resists = { all=50, [DamageType.NATURE] = 100, [DamageType.BLIGHT] = -100 },
 			talents = { [Talents.T_DRACONIC_BODY] = 1, [Talents.T_EQUILIBRIUM_POOL]=1, [Talents.T_MANA_POOL]=1, [Talents.T_POISON_BREATH]=15, [Talents.T_SPIT_POISON]=7 },
 		}},
-		{"dark", {
+		{"검은색", {
 			resists = { all=50, [DamageType.DARKNESS] = 100, [DamageType.LIGHT] = -100 },
 			talents = { [Talents.T_DRACONIC_BODY] = 1, [Talents.T_NEGATIVE_POOL]=1, [Talents.T_STARFALL]=7, [Talents.T_MOONLIGHT_RAY]=7 },
 		}},
-		{"violet", {
+		{"보라색", {
 			resists = { all=-50 },
 			talents = { [Talents.T_DRACONIC_BODY] = 1, [Talents.T_MANA_POOL]=1, [Talents.T_MANATHRUST]=12 },
 		}},
@@ -213,7 +217,7 @@ newEntity{ base = "BASE_NPC_MULTIHUED_DRAKE",
 			self.resists = t[2].resists
 			self.talents = t[2].talents
 			self.changed = true
-			game.logSeen(self, "#YELLOW#%s's skin turns %s!", self.name:capitalize(), t[1])
+			game.logSeen(self, "#YELLOW#%s의 피부가 %s으로 변했습니다!", (self.kr_name or self.name):capitalize(), t[1])
 		end
 	end,
 }

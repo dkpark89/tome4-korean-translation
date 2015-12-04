@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Talents = require("engine.interface.ActorTalents")
 local Stats = require "engine.interface.ActorStats"
 local DamageType = require "engine.DamageType"
@@ -26,6 +28,7 @@ load("/data/general/objects/egos/armor.lua")
 newEntity{
 	power_source = {nature=true},
 	name = "troll-hide ", prefix=true, instant_resolve=true,
+	kr_name = "트롤 가죽 ",
 	keywords = {troll=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -40,6 +43,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "nimble ", prefix=true, instant_resolve=true,
+	kr_name = "민첩한 ",
 	keywords = {nimble=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -52,10 +56,10 @@ newEntity{
 		inc_stats = { [Stats.STAT_DEX] = resolvers.mbonus_material(3, 2), },
 	},
 }
-
 newEntity{
 	power_source = {technique=true},
 	name = "marauder's ", prefix=true, instant_resolve=true,
+	kr_name = "약탈자 ",
 	keywords = {marauder=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -75,6 +79,7 @@ newEntity{
 newEntity{
    power_source = {nature=true},
    name = "tempestuous ", prefix=true, instant_resolve=true,
+   kr_name = "흉포한 ",
    keywords = {tempestuous=true},
    level_range = {20, 50},
    greater_ego = 1,
@@ -100,6 +105,7 @@ newEntity{
 newEntity{
    power_source = {nature=true},
    name = "volcanic ", prefix=true, instant_resolve=true,
+   kr_name = "화산 ",
    keywords = {volcanic=true},
    level_range = {20, 50},
    greater_ego = 1,
@@ -124,6 +130,7 @@ newEntity{
 newEntity{
    power_source = {nature=true},
    name = "miasmic ", prefix=true, instant_resolve=true,
+   kr_name = "유해성 ",
    keywords = {miasmic=true},
    level_range = {20, 50},
    greater_ego = 1,
@@ -148,6 +155,7 @@ newEntity{
 newEntity{
    power_source = {arcane=true},
    name = "aetheric ", prefix=true, instant_resolve=true,
+   kr_name = "에테르적인 ",
    keywords = {aetheric=true},
    level_range = {30, 50},
    greater_ego = 1,
@@ -170,6 +178,7 @@ newEntity{
 newEntity{
    power_source = {arcane=true},
    name = " of the void", suffix=true, instant_resolve=true,
+   kr_name = "공허의 ",
    keywords = {void=true},
    level_range = {30, 50},
    greater_ego = 1,
@@ -195,11 +204,11 @@ newEntity{
 
    charm_power = resolvers.mbonus_material(80, 20),
    charm_power_def = {add=5, max=10, floor=true},
-   resolvers.charm("blink to a nearby random location (rad %d)", 25, function(self, who)
+   resolvers.charm("주변의 임의의 장소로 단거리 순간이동", 25, function(self, who)
 			  game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 			  who:teleportRandom(who.x, who.y, self:getCharmPower(who))
 			  game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-			  game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+			  game.logSeen(who, "%s %s 사용했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 			  return {id=true, used=true}
    end),
 }
@@ -207,6 +216,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of Toknor", suffix=true, instant_resolve=true,
+	kr_name = "토크놀의 ",
 	keywords = {toknor=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -222,6 +232,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the wind", suffix=true, instant_resolve=true,
+	kr_name = "바람의 ",
 	keywords = {wind=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -240,6 +251,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "multi-hued ", prefix=true, instant_resolve=true,
+	kr_name = "무지개빛 ",
 	keywords = {multihued=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -264,6 +276,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "caller's ", prefix=true, instant_resolve=true,
+	kr_name = "선도자 ",
 	keywords = {callers=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -283,6 +296,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of alacrity", suffix=true, instant_resolve=true,
+	kr_name = "기민함의 ",
 	keywords = {alacrity=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -298,6 +312,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true, arcane=true, nature=true},
 	name = " of the hero ", suffix=true, instant_resolve=true,
+	kr_name = "영웅의 ",
 	keywords = {hero=true},
 	level_range = {25, 50},
 	greater_ego = 1,

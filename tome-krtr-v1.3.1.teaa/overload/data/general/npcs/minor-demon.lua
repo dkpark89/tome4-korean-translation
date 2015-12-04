@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -46,7 +46,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_DEMON",
 	name = "fire imp", color=colors.CRIMSON,
-	desc = "A small demon, lobbing spells at you.",
+	kr_name = "작은 불의 악마",
+	desc = "작은 불의 악마로, 당신에게 마법을 발사하고 있습니다.",
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 2,
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_DEMON",
 
 newEntity{ base = "BASE_NPC_DEMON",
 	name = "wretchling", color=colors.GREEN,
-	desc = "Acid oozes all over this small demon's skin.  Beware, they tend to hunt in packs.",
+	kr_name = "렛츨링",
+	desc = "이 작은 악마의 피부에는 산성 진흙이 잔뜩 덮혀 있습니다. 몰려다니면서 적을 사냥하는 경향이 있으니, 주의해야 합니다.",
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,
@@ -90,7 +92,8 @@ newEntity{ base = "BASE_NPC_DEMON",
 
 newEntity{ base = "BASE_NPC_DEMON",
 	name = "quasit", color=colors.LIGHT_GREY,
-	desc = "A small, heavily armoured demon, rushing toward you.",
+	kr_name = "콰짓",
+	desc = "당신을 향해 돌진하고 있는, 중무장한 작은 악마입니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,

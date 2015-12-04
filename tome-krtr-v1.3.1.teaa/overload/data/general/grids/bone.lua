@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ newEntity{
 	define_as = "BONEFLOOR",
 	type = "floor", subtype = "bone",
 	name = "sand", image = "terrain/sandfloor.png",
+	kr_name = "모래",
 	display = '.', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	nice_editer = sand_editer,
 	grow = "BONEWALL",
@@ -33,6 +34,7 @@ newEntity{
 	define_as = "BONEWALL",
 	type = "wall", subtype = "bone",
 	name = "bone walls", image = "terrain/bone/bonewall_5_1.png",
+	kr_name = "뼈의 벽",
 	display = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -49,6 +51,7 @@ newEntity{
 	define_as = "HARDBONEWALL",
 	type = "wall", subtype = "bone",
 	name = "bone walls", image = "terrain/bone/bonewall_5_1.png",
+	kr_name = "뼈의 벽",
 	display = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -70,6 +73,7 @@ newEntity{
 	define_as = "BONE_DOOR",
 	type = "wall", subtype = "bone",
 	name = "door", image="terrain/bone/bone_door1.png",
+	kr_name = "문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="BONE_DOOR_VERT", west_east="BONE_DOOR_HORIZ" },
 	notice = true,
@@ -83,6 +87,7 @@ newEntity{
 	define_as = "BONE_DOOR_OPEN",
 	type = "wall", subtype = "bone",
 	name = "open door", image="terrain/bone/bone_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	always_remember = true,
 	is_door = true,
@@ -100,6 +105,7 @@ newEntity{
 	define_as = "BONE_GENERIC_LEVER_DOOR",
 	type = "wall", subtype = "bone",
 	name = "sealed door", image="terrain/bone/bone_door1.png",
+	kr_name = "봉인된 문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="BONE_GENERIC_LEVER_DOOR_VERT", west_east="BONE_GENERIC_LEVER_DOOR_HORIZ" },
 	notice = true,
@@ -108,7 +114,7 @@ newEntity{
 	block_sense = true,
 	block_esp = true,
 	force_clone = true,
-	door_player_stop = "This door seems to have been sealed off. You need to find a way to open it.",
+	door_player_stop = "완전히 봉인된 문은 아니지만, 문이 열리지 않습니다. 문을 열 수 있는 다른 방법을 찾아봐야 할 것 같습니다.",
 	is_door = true,
 	door_opened = "BONE_GENERIC_LEVER_DOOR_OPEN",
 	on_lever_change = function(self, x, y, who, val, oldval)
@@ -116,7 +122,7 @@ newEntity{
 		local trigger = game.level.map.attrs(x, y, "lever_action")
 		if toggle or (val > oldval and val >= trigger) then
 			game.level.map(x, y, engine.Map.TERRAIN, game.zone.grid_list[self.door_opened])
-			game.log("#VIOLET#You hear a door opening.")
+			game.log("#VIOLET#문이 열리는 소리가 들립니다.")
 			return true
 		end
 	end,
@@ -128,18 +134,19 @@ newEntity{
 	define_as = "BONE_GENERIC_LEVER_DOOR_OPEN",
 	type = "wall", subtype = "bone",
 	name = "open door", image="terrain/bone/bone_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	nice_tiler = { method="door3d", north_south="BONE_GENERIC_LEVER_DOOR_OPEN_VERT", west_east="BONE_GENERIC_LEVER_DOOR_HORIZ_OPEN" },
 	always_remember = true,
 	is_door = true,
 	door_closed = "BONE_GENERIC_LEVER_DOOR",
-	door_player_stop = "This door seems to have been sealed off. You need to find a way to close it.",
+	door_player_stop = "완전히 봉인된 문은 아니지만, 문이 닫히지 않습니다. 문을 닫을 수 있는 다른 방법을 찾아봐야 할 것 같습니다.",
 	on_lever_change = function(self, x, y, who, val, oldval)
 		local toggle = game.level.map.attrs(x, y, "lever_toggle")
 		local trigger = game.level.map.attrs(x, y, "lever_action")
 		if toggle or (val < oldval and val < trigger) then
 			game.level.map(x, y, engine.Map.TERRAIN, game.zone.grid_list[self.door_closed])
-			game.log("#VIOLET#You hear a door closing.")
+			game.log("#VIOLET#문이 닫히는 소리가 들립니다.")
 			return true
 		end
 	end,
@@ -151,6 +158,7 @@ newEntity{
 	define_as = "BONE_GENERIC_LEVER",
 	type = "lever", subtype = "bone",
 	name = "huge lever", image = "terrain/sandfloor.png", add_mos = {{image="terrain/lever1_state1.png"}},
+	kr_name = "커다란 레버",
 	display = '&', color=colors.UMBER, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -174,7 +182,7 @@ newEntity{
 			self:removeAllMOs()
 			game.level.map:updateMap(x, y)
 			self.lever = not self.lever
-			game.log("#VIOLET#You hear a mechanism clicking.")
+			game.log("#VIOLET#기계가 작동하는 소리가 들립니다.")
 
 			local apply = function(i, j)
 				local akind = game.level.map.attrs(i, j, "lever_action_kind")
@@ -214,6 +222,7 @@ newEntity{
 	define_as = "BONE_UP_WILDERNESS",
 	type = "floor", subtype = "bone",
 	name = "exit to the worldmap", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/worldmap.png"}},
+	kr_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -226,6 +235,7 @@ newEntity{
 	define_as = "BONE_UP8",
 	type = "floor", subtype = "bone",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_8.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -236,6 +246,7 @@ newEntity{
 	define_as = "BONE_UP2",
 	type = "floor", subtype = "bone",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_2.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -246,6 +257,7 @@ newEntity{
 	define_as = "BONE_UP4",
 	type = "floor", subtype = "bone",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_4.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -256,6 +268,7 @@ newEntity{
 	define_as = "BONE_UP6",
 	type = "floor", subtype = "bone",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_6.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -267,6 +280,7 @@ newEntity{
 	define_as = "BONE_DOWN8",
 	type = "floor", subtype = "bone",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_8.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -277,6 +291,7 @@ newEntity{
 	define_as = "BONE_DOWN2",
 	type = "floor", subtype = "bone",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_2.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -287,6 +302,7 @@ newEntity{
 	define_as = "BONE_DOWN4",
 	type = "floor", subtype = "bone",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_4.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -297,6 +313,7 @@ newEntity{
 	define_as = "BONE_DOWN6",
 	type = "floor", subtype = "bone",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_6.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -308,6 +325,7 @@ newEntity{
 	define_as = "BONE_LADDER_DOWN",
 	type = "floor", subtype = "bone",
 	name = "ladder to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/bone/bone_stairs_down_1_01.png"}},
+	kr_name = "다음 층으로의 사다리",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -318,6 +336,7 @@ newEntity{
 	define_as = "BONE_LADDER_UP",
 	type = "floor", subtype = "bone",
 	name = "ladder to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/bone/bone_stairs_up_1_01.png"}},
+	kr_name = "이전 층으로의 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -328,6 +347,7 @@ newEntity{
 	define_as = "BONE_LADDER_UP_WILDERNESS",
 	type = "floor", subtype = "bone",
 	name = "ladder to worldmap", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/bone/bone_stairs_exit_1_01.png"}},
+	kr_name = "지역 밖으로 나가는 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	change_level = 1,

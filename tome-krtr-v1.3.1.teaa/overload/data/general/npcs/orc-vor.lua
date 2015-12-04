@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -52,7 +52,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ORC_VOR",
 	name = "orc pyromancer", color=colors.RED,
-	desc = [[An orc dressed in bright red robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 화염술사",
+	desc = [[붉은 빛으로 빛나는 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,110), life_rating = 7,
@@ -73,7 +74,8 @@ newEntity{ base = "BASE_NPC_ORC_VOR",
 
 newEntity{ base = "BASE_NPC_ORC_VOR",
 	name = "orc high pyromancer", color=colors.LIGHT_RED,
-	desc = [[An orc dressed in bright red robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 고위 화염술사",
+	desc = [[붉은 빛으로 빛나는 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {37, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(100,110), life_rating = 10,
@@ -101,7 +103,8 @@ newEntity{ base = "BASE_NPC_ORC_VOR",
 
 newEntity{ base = "BASE_NPC_ORC_VOR",
 	name = "orc cryomancer", color=colors.BLUE,
-	desc = [[An orc dressed in cold blue robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 냉기술사",
+	desc = [[냉기가 감도는 파란 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,110), life_rating = 10,
@@ -122,7 +125,8 @@ newEntity{ base = "BASE_NPC_ORC_VOR",
 
 newEntity{ base = "BASE_NPC_ORC_VOR",
 	name = "orc high cryomancer", color=colors.LIGHT_BLUE,
-	desc = [[An orc dressed in cold blue robes. He mumbles in a harsh tongue.]],
+	kr_name = "오크 고위 냉기술사",
+	desc = [[냉기가 감도는 파란 로브를 입은 오크입니다. 그 사악한 혀를 가지고 무언가를 중얼거립니다.]],
 	level_range = {37, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(100,110), life_rating = 10,

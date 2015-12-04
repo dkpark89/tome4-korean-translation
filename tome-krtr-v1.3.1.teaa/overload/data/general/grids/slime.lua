@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "SLIME_FLOOR",
 	type = "floor", subtype = "slime",
 	name = "slime floor", image = "terrain/slime/slime_floor_01.png",
+	kr_name = "슬라임 바닥",
 	display = '.', color=colors.LIGHT_GREEN, back_color=colors.GREEN,
 	grow = "SLIME_WALL",
 	nice_tiler = { method="replace", base={"SLIME_FLOOR", 100, 1, 5} },
@@ -33,6 +34,7 @@ newEntity{
 	define_as = "SLIME_WALL",
 	type = "wall", subtype = "slime",
 	name = "slime wall", image = "terrain/slime/slime_wall_V2_5_01.png",
+	kr_name = "슬라임 벽",
 	display = '#', color=colors.LIGHT_GREEN, back_color=colors.GREEN,
 	always_remember = true,
 	does_block_move = true,
@@ -53,6 +55,7 @@ newEntity{
 	define_as = "SLIME_UP", image = "terrain/slime/slime_floor_01.png", add_mos = {{image="terrain/slime/slime_stairs_up_left_01.png"}},
 	type = "floor", subtype = "slime",
 	name = "previous level",
+	kr_name = "이전 층",
 	display = '<', color=colors.LIGHT_GREEN, back_color=colors.GREEN,
 	notice = true,
 	always_remember = true,
@@ -63,6 +66,7 @@ newEntity{
 	define_as = "SLIME_DOWN", image = "tterrain/slime/slime_floor_01.png", add_mos = {{image="terrain/slime/slime_stair_down_01.png"}},
 	type = "floor", subtype = "slime",
 	name = "next level",
+	kr_name = "다음 층",
 	display = '>', color=colors.LIGHT_GREEN, back_color=colors.GREEN,
 	notice = true,
 	always_remember = true,
@@ -76,6 +80,7 @@ newEntity{
 	define_as = "SLIME_DOOR",
 	type = "wall", subtype = "slime",
 	name = "slime door",
+	kr_name = "슬라임 문",
 	display = '+', color=colors.LIGHT_GREEN, back_color=colors.GREEN,
 	nice_tiler = { method="door3d", north_south="SLIME_DOOR_VERT", west_east="SLIME_DOOR_HORIZ" },
 	notice = true,
@@ -90,6 +95,7 @@ newEntity{
 	define_as = "SLIME_DOOR_OPEN",
 	type = "wall", subtype = "slime",
 	name = "open slime door",
+	kr_name = "열린 슬라임 문",
 	display = "'", color=colors.LIGHT_GREEN, back_color=colors.GREEN,
 	always_remember = true,
 --	nice_editer = slime_wall_editer,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -51,7 +51,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 	name = "orc fighter", color=colors.KHAKI,
-	desc = [[An orc clad in massive armour, wielding a shield and a deadly axe.]],
+	kr_name = "오크 투사",
+	desc = [[판갑을 입고 방패와 치명적인 도끼를 든 오크입니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(110,120), life_rating = 14,
@@ -75,7 +76,8 @@ newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 
 newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 	name = "orc elite fighter", color=colors.MOCCASIN,
-	desc = [[An orc clad in massive armour, wielding a shield and a deadly axe.]],
+	kr_name = "오크 정예 투사",
+	desc = [[판갑을 입고 방패와 치명적인 도끼를 든 오크입니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 3,
@@ -106,7 +108,8 @@ newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 
 newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 	name = "orc berserker", color=colors.SALMON,
-	desc = [[An orc clad in massive armour, wielding a huge axe.]],
+	kr_name = "오크 광전사",
+	desc = [[판갑을 입고 거대한 도끼를 쥔 오크입니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(110,120), life_rating = 14,
@@ -128,7 +131,8 @@ newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 
 newEntity{ base = "BASE_NPC_ORC_GRUSHNAK",
 	name = "orc elite berserker", color=colors.YELLOW,
-	desc = [[An orc clad in massive armour, wielding a huge axe.]],
+	kr_name = "오크 정예 광전사",
+	desc = [[판갑을 입고 거대한 도끼를 쥔 오크입니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 3,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ newEntity{
 	define_as = "BASE_NPC_WIGHT",
 	type = "undead", subtype = "wight",
 	display = "W", color=colors.WHITE,
-	desc = [[These be white wights.]],
+	desc = [[흰색 와이트로 보입니다.]],
 
 	combat = { dam=resolvers.mbonus(30, 10), atk=10, apr=9, damtype=DamageType.DRAINEXP },
 
@@ -64,7 +64,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_WIGHT",
 	name = "forest wight", color=colors.GREEN, image="npc/forest_wight.png",
-	desc=[[It is a ghostly apparition with a humanoid form.]],
+	kr_name = "숲 와이트",
+	desc=[[인간의 모습을 한, 희미한 유령입니다.]],
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(40,50),
@@ -78,7 +79,8 @@ newEntity{ base = "BASE_NPC_WIGHT",
 
 newEntity{ base = "BASE_NPC_WIGHT",
 	name = "grave wight", color=colors.SLATE, image="npc/grave_wight.png",
-	desc=[[It is a ghostly form with eyes that haunt you.]],
+	kr_name = "묘지 와이트",
+	desc=[[눈에 증오의 기운을 품은 유령입니다.]],
 	level_range = {22, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80),
@@ -91,8 +93,9 @@ newEntity{ base = "BASE_NPC_WIGHT",
 
 newEntity{ base = "BASE_NPC_WIGHT",
 	name = "barrow wight", color=colors.LIGHT_RED, image="npc/barrow_wight.png",
+	kr_name = "무덤 와이트",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/barrow_wight.png", display_h=2, display_y=-1}}},
-	desc=[[It is a ghostly nightmare of an entity.]],
+	desc=[[악몽이 실체화되어 나타난, 끔찍한 언데드입니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(80,90),
@@ -105,8 +108,9 @@ newEntity{ base = "BASE_NPC_WIGHT",
 
 newEntity{ base = "BASE_NPC_WIGHT",
 	name = "emperor wight", color=colors.RED, image="npc/emperor_wight.png",
+	kr_name = "와이트 황제",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/emperor_wight.png", display_h=2, display_y=-1}}},
-	desc=[[Your life force is torn from your body as this powerful unearthly being approaches.]],
+	desc=[[이 강력하고도 초자연적인 존재 앞에 서는 모든 생명체는, 그 생명의 힘이 몸에서 찢겨져 나가게 됩니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,

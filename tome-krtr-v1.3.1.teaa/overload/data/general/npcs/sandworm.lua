@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
 
 local Talents = require("engine.interface.ActorTalents")
 
@@ -50,14 +52,16 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "sandworm",
-	desc = [[A huge worm coloured as the sand it inhabits. It seems quite unhappy about you being in its lair.]],
+	kr_name = "지렁이",
+	desc = [[모래 속에서 살고 있으며, 그 색깔을 닮은 거대한 벌레입니다. 당신이 이 굴 안에 있는 것을 별로 좋아하지 않는 것 같습니다.]],
 	rarity = 1,
 }
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "sandworm destroyer",
+	kr_name = "파괴자 지렁이",
 	color={r=169,g=168,b=52},
-	desc = [[A huge worm coloured as the sand it inhabits. This particular sandworm seems to have been bred for one purpose only: the eradication of everything that is non-sandworm, such as... you.]],
+	desc = [[모래 속에서 살고 있으며, 그 색깔을 닮은 거대한 벌레입니다. 이 특별한 지렁이는 한 가지 목적만을 위해 길러졌습니다. 그 목적은 지렁이가 아닌 모든 존재를 없애는 것입니다. 물론, 여기에는 당신도 포함됩니다.]],
 	rarity = 3,
 
 	resolvers.talents{
@@ -68,9 +72,10 @@ newEntity{ base = "BASE_NPC_SANDWORM",
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "sand-drake", display = 'D',
+	kr_name = "모래 드레이크",
 	type = "dragon", subtype = "sand",
 	color={r=204,g=255,b=95},
-	desc = [[This unholy creature looks like a wingless dragon in shape, but it is sand-colored, making it all the more dangerous for its prey.]],
+	desc = [[날개없는 용처럼 생긴 부정한 생물입니다. 하지만 이 것은 모랫빛을 띄고 있어, 사냥감에게 더욱 위험합니다.]],
 	rarity = 5,
 	rank = 3,
 	size_category = 5,
@@ -86,8 +91,9 @@ newEntity{ base = "BASE_NPC_SANDWORM",
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "gigantic sandworm tunneler", color=colors.LIGHT_UMBER,
+	kr_name = "거대 굴착 지렁이",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/vermin_sandworm_gigantic_sandworm_tunneler.png", display_h=2, display_y=-1}}},
-	desc = "The ground shakes as this huge worm burrows towards you, its gigantic mouth just as capable of devouring flesh as stone.",
+	desc = "땅이 흔들리면서, 이 거대한 벌레가 당신 쪽으로 굴을 파고 있습니다. 그 거대한 입은 돌과 살점을 가리지 않고 먹어치울 수 있습니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 2,
 	size_category = 4,
@@ -112,8 +118,9 @@ newEntity{ base = "BASE_NPC_SANDWORM",
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "gigantic gravity worm", color=colors.UMBER,
+	kr_name = "거대 중력 벌레",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/vermin_sandworm_gigantic_gravity_worm.png", display_h=2, display_y=-1}}},
-	desc = "Space and time seem to bend around this huge worm.",
+	desc = "거대한 벌레로, 벌레 주변의 시공간이 왜곡되고 있습니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 5,
 	size_category = 4,
@@ -133,8 +140,9 @@ newEntity{ base = "BASE_NPC_SANDWORM",
 
 newEntity{ base = "BASE_NPC_SANDWORM",
 	name = "gigantic corrosive tunneler", color=colors.GREEN,
+	kr_name = "부식성 거대 굴착 벌레",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/vermin_sandworm_gigantic_corrosive_tunneler.png", display_h=2, display_y=-1}}},
-	desc = "This huge worm burrows through the earth using its powerful corrosive saliva.",
+	desc = "이 거대한 벌레는 강력한 부식성 타액을 사용하여 땅 속에서 굴을 파고 있습니다.",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 3,
 	size_category = 4,
@@ -163,6 +171,6 @@ newEntity{ base = "BASE_NPC_SANDWORM",
 			5, nil,
 			engine.MapEffect.new{color_br=150, color_bg=150, color_bb=150, effect_shader="shader_images/poison_effect.png"}
 		)
-		game.logSeen(self, "%s explodes in an acidic cloud.", self.name:capitalize())
+		game.logSeen(self, "%s 산성 구름에 갇혀, 폭발합니다.", (self.kr_name or self.name):capitalize():addJosa("가"))
 	end,
 }

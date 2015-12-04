@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -57,7 +57,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_CONSTRUCT",
 	name = "broken golem", color=colors.LIGHT_UMBER,
-	desc = [[This golem is badly damaged.]],
+	kr_name = "부서진 골렘",
+	desc = [[심각한 피해를 입은 듯한 골렘입니다.]],
 	level_range = {6, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80),
@@ -74,7 +75,8 @@ newEntity{ base = "BASE_NPC_CONSTRUCT",
 
 newEntity{ base = "BASE_NPC_CONSTRUCT",
 	name = "golem", color=colors.BLUE,
-	desc = [[This golem's eyes glow with magical energies.]],
+	kr_name = "골렘",
+	desc = [[골렘의 눈이 마법의 힘으로 빛나고 있습니다.]],
 	level_range = {8, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(90,100),
@@ -92,7 +94,8 @@ newEntity{ base = "BASE_NPC_CONSTRUCT",
 
 newEntity{ base = "BASE_NPC_CONSTRUCT",
 	name = "alchemist golem", color=colors.YELLOW,
-	desc = [[This golem's eyes glow with magical energies.]],
+	kr_name = "연금술 골렘",
+	desc = [[골렘의 눈이 마법의 힘으로 빛나고 있습니다.]],
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,

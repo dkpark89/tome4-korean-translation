@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,13 +26,14 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("wizard_hat"),
 	encumber = 2,
 	rarity = 6,
-	desc = [[A pointy cloth hat, very wizardly...]],
+	desc = [[천으로 만든 뾰족한 모자입니다. 이걸 쓰면 마법사 기분을 낼 수 있을 것 같습니다...]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/wizard-hat.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_WIZARD_HAT",
 	name = "linen wizard hat", short_name = "linen",
+	kr_name = "리넨 마법모자",
 	level_range = {1, 20},
 	cost = 2,
 	material_level = 1,
@@ -43,6 +44,7 @@ newEntity{ base = "BASE_WIZARD_HAT",
 
 newEntity{ base = "BASE_WIZARD_HAT",
 	name = "cashmere wizard hat", short_name = "cashmere",
+	kr_name = "캐시미어 마법모자",
 	level_range = {20, 40},
 	cost = 4,
 	material_level = 3,
@@ -53,6 +55,7 @@ newEntity{ base = "BASE_WIZARD_HAT",
 
 newEntity{ base = "BASE_WIZARD_HAT",
 	name = "elven-silk wizard hat", short_name = "e.silk",
+	kr_name = "엘프비단 마법모자",
 	level_range = {40, 50},
 	cost = 7,
 	material_level = 5,

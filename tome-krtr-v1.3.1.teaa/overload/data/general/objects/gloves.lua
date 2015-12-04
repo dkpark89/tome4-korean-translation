@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,13 +30,14 @@ newEntity{
 	encumber = 1,
 	rarity = 9,
 	wielder={combat = {accuracy_effect = "axe", physspeed = 0},},
-	desc = [[Light gloves which do not seriously hinder finger movements, while still protecting the hands somewhat.]],
+	desc = [[손가락의 움직임을 방해하지 않으면서도 손을 어느정도 보호할 수 있는, 가벼운 장갑입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/gloves.lua",
 	egos = "/data/general/objects/egos/gloves.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_GLOVES",
 	name = "rough leather gloves", short_name = "rough",
+	kr_name = "거친가죽 장갑",
 	level_range = {1, 20},
 	cost = 5,
 	material_level = 1,
@@ -53,6 +54,7 @@ newEntity{ base = "BASE_GLOVES",
 
 newEntity{ base = "BASE_GLOVES",
 	name = "hardened leather gloves", short_name = "hardened",
+	kr_name = "경화가죽 장갑",
 	level_range = {20, 40},
 	cost = 7,
 	material_level = 3,
@@ -69,6 +71,7 @@ newEntity{ base = "BASE_GLOVES",
 
 newEntity{ base = "BASE_GLOVES",
 	name = "drakeskin leather gloves", short_name = "drakeskin",
+	kr_name = "용가죽 장갑",
 	level_range = {40, 50},
 	cost = 10,
 	material_level = 5,

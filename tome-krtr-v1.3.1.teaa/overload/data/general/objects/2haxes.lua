@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ newEntity{
 	rarity = 5,
 	metallic = true,
 	combat = { talented = "axe", damrange = 1.5, physspeed = 1, sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2} },
-	desc = [[Massive two-handed battleaxes.]],
+	desc = [[거대한 양손용 전투 도끼입니다.]],
 	twohanded = true,
 	ego_bonus_mult = 0.4,
 	randart_able = "/data/general/objects/random-artifacts/melee.lua",
@@ -38,6 +38,7 @@ newEntity{
 
 newEntity{ base = "BASE_BATTLEAXE",
 	name = "iron battleaxe", short_name = "iron",
+	kr_name = "무쇠 대형도끼",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -52,6 +53,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 
 newEntity{ base = "BASE_BATTLEAXE",
 	name = "steel battleaxe", short_name = "steel",
+	kr_name = "강철 대형도끼",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -66,6 +68,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 
 newEntity{ base = "BASE_BATTLEAXE",
 	name = "dwarven-steel battleaxe", short_name = "d.steel",
+	kr_name = "드워프강철 대형도끼",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -80,6 +83,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 
 newEntity{ base = "BASE_BATTLEAXE",
 	name = "stralite battleaxe", short_name = "stralite",
+	kr_name = "스트라라이트 대형도끼",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -94,6 +98,7 @@ newEntity{ base = "BASE_BATTLEAXE",
 
 newEntity{ base = "BASE_BATTLEAXE",
 	name = "voratun battleaxe", short_name = "voratun",
+	kr_name = "보라툰 대형도끼",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,10 +24,10 @@ newEntity{
 	encumber = 0,
 	rarity = 5,
 	identified = true,
-	desc = [[All that glitters is not gold; all that is gold does not glitter.]],
+	desc = [[번쩍인다고 해서 반드시 다 금은 아니며, 금이라고 해서 반드시 번쩍이는 것도 아니다.]],
 	on_prepickup = function(self, who, id)
 		who:incMoney(self.money_value / 10)
-		game.logPlayer(who, "You pickup %0.2f gold pieces.", self.money_value / 10)
+		game.logPlayer(who, "당신은 금화 %0.2f 개를 주웠습니다.", self.money_value / 10)
 		-- Remove from the map
 		game.level.map:removeObject(who.x, who.y, id)
 		return true
@@ -37,6 +37,7 @@ newEntity{
 
 newEntity{ base = "BASE_MONEY", define_as = "MONEY_SMALL",
 	name = "gold pieces", image = "object/money_small.png",
+	kr_name = "금화",
 	add_name = " (#MONEY#)",
 	level_range = {1, 50},
 	resolvers.generic(function(e)
@@ -46,6 +47,7 @@ newEntity{ base = "BASE_MONEY", define_as = "MONEY_SMALL",
 
 newEntity{ base = "BASE_MONEY", define_as = "MONEY_BIG",
 	name = "huge pile of gold pieces", image = "object/money_large.png",
+	kr_name = "금화 뭉치",
 	add_name = " (#MONEY#)",
 	level_range = {30, 50},
 	color=colors.GOLD,

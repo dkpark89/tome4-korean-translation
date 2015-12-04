@@ -1,4 +1,4 @@
--- This program is free software: you can redistribute it and/or modify
+﻿-- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
@@ -22,6 +22,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{
 	power_source = {nature=true},
 	name = "cinder ", prefix=true, instant_resolve=true,
+	kr_name = "타고 남은 ",
 	keywords = {cinder=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -39,6 +40,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "corrosive ", prefix=true, instant_resolve=true,
+	kr_name = "부식성 ",
 	keywords = {corrosive=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -56,6 +58,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "naturalist's ", prefix=true, instant_resolve=true,
+	kr_name = "자연주의자 ",
 	keywords = {natural=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -73,6 +76,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "polar ", prefix=true, instant_resolve=true,
+	kr_name = "극지방 ",
 	keywords = {polar=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -90,6 +94,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "psychic's ", prefix=true, instant_resolve=true,
+	kr_name = "초능력자 ",
 	keywords = {psychic=true},
 	level_range = {1, 50},
 	rarity = 18, -- much rarer, that proc has a high chance and can confuse
@@ -107,6 +112,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "sand ", prefix=true, instant_resolve=true,
+	kr_name = "모래 ",
 	keywords = {sand=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -125,6 +131,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "storm ", prefix=true, instant_resolve=true,
+	kr_name = "폭풍 ",
 	keywords = {storm=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -143,6 +150,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "blighted ", prefix=true, instant_resolve=true,
+	kr_name = "황폐한 ",
 	keywords = {blighted=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -160,6 +168,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "umbral ", prefix=true, instant_resolve=true,
+	kr_name = "어두운 ", 
 	keywords = {umbral=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -177,6 +186,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "radiant ", prefix=true, instant_resolve=true,
+	kr_name = "빛나는 ",
 	keywords = {radiant=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -194,6 +204,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "temporal ", prefix=true, instant_resolve=true,
+	kr_name = "시간적인 ",
 	keywords = {temporal=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -212,6 +223,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of dexterity (#STATBONUS#)", suffix=true, instant_resolve=true,
+	kr_name = "민첩(#STATBONUS#)의 ",
 	keywords = {dex=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -228,6 +240,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of magic (#STATBONUS#)", suffix=true, instant_resolve=true,
+	kr_name = "마법(#STATBONUS#)의 ",
 	keywords = {magic=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -244,6 +257,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of strength (#STATBONUS#)", suffix=true, instant_resolve=true,
+	kr_name = "힘(#STATBONUS#)의 ",
 	keywords = {strength=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -261,6 +275,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "restful ", prefix=true, instant_resolve=true,
+	kr_name = "편안한 ",
 	keywords = {restful=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -278,6 +293,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "steady ", prefix=true, instant_resolve=true,
+	kr_name = "정밀한 ",
 	keywords = {steady=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -297,6 +313,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of war-making", suffix=true, instant_resolve=true,
+	kr_name = "전투를 만드는 자의 ",
 	keywords = {war=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -318,6 +335,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the iron hand", suffix=true, instant_resolve=true,
+	kr_name = "강철 손의 ",
 	keywords = {iron=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -340,6 +358,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "alchemist's ", prefix=true, instant_resolve=true,
+	kr_name = "연금술사 ",
 	keywords = {alchemist=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -371,6 +390,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "brawler's ", prefix=true, instant_resolve=true,
+	kr_name = "격투가 ",
 	keywords = {brawler=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -395,6 +415,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of butchering", suffix=true, instant_resolve=true,
+	kr_name = "도살자의 ",
 	keywords = {butchering=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -421,6 +442,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of the verdant", suffix=true, instant_resolve=true,
+	kr_name = "신록의 ",
 	keywords = {verdant_avenger=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -447,6 +469,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "scouring ", prefix=true, instant_resolve=true,
+	kr_name = "세척된 ",
 	keywords = {scouring=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -470,6 +493,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of the nighthunter", suffix=true, instant_resolve=true,
+	kr_name = "밤사냥꾼의 ",
 	keywords = {nighthunter=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -499,6 +523,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "stone warden's ", prefix=true, instant_resolve=true,
+	kr_name = "돌의 감시자 ",
 	keywords = {stone=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -522,6 +547,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the starseeker", suffix=true, instant_resolve=true,
+	kr_name = "점성술사의 ",
 	keywords = {starseeker=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -551,6 +577,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of dispersion", suffix=true, instant_resolve=true,
+	kr_name = "분산의 ",
 	keywords = {dispersion=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -578,6 +605,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of regeneration", suffix=true, instant_resolve=true,
+	kr_name = "재생의 ",
 	keywords = {regen=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -596,12 +624,14 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of sorrow", suffix=true, instant_resolve=true,
+	kr_name = "슬픔의 ",
 	keywords = {sorrow=true},
 	level_range = {30, 50},
 	greater_ego = 1,
 	rarity = 30,
 	cost = 80,
 	resolvers.charmt(Talents.T_RUINED_EARTH, 3, 20),
+	use_no_energy = true,
 	wielder = {
 		combat_mentalresist = resolvers.mbonus_material(10, -15),
 		combat_mindpower = resolvers.mbonus_material(7, 3),
@@ -619,6 +649,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the juggernaut", suffix=true, instant_resolve=true,
+	kr_name = "저돌적 전투의 ",
 	keywords = {juggernaut=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -643,6 +674,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spellstreaming ", prefix=true, instant_resolve=true,
+	kr_name = "주문 흐름 ",
 	keywords = {spellstream=true},
 	level_range = {	30, 50},
 	greater_ego = 1,
@@ -662,6 +694,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "heroic ", prefix=true, instant_resolve=true,
+	kr_name = "용맹한 ",
 	keywords = {heroic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -682,6 +715,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of archery", suffix=true, instant_resolve=true,
+	kr_name = "궁수의 ",
 	keywords = {archer=true},
 	level_range = {30, 50},
 	greater_ego = 1,

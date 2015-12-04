@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "quick ", prefix=true,
+	kr_name = "빠른 ",
 	keywords = {quick=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -32,6 +33,7 @@ newEntity{
 
 newEntity{
 	name = "supercharged ", prefix=true,
+	kr_name = "과충전된 ",
 	keywords = {['super.c']=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -45,6 +47,7 @@ newEntity{
 
 newEntity{
 	name = "overpowered ", prefix=true,
+	kr_name = "압도적인 ",
 	keywords = {['overpower']=true},
 	level_range = {30, 50},
 	greater_ego = 1,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,8 +30,8 @@ newEntity{
 	metallic = true,
 	no_rust = true,
 	combat = { talented = "trident", accuracy_effect = "mace", damrange = 1.6, physspeed = 1, sound = {"actions/melee", pitch=0.6, vol=1.2}, sound_miss = {"actions/melee", pitch=0.6, vol=1.2} },
-	desc = [[A two-handed massive trident.
-Tridents require the exotic weapons mastery talent to use correctly.]],
+	desc = [[양손으로 사용하는 커다란 삼지창입니다.
+삼지창은 이형무기이므로, 제대로 사용하려면 이형 무기 수련을 익혀야 합니다.]],
 	twohanded = true,
 	ego_bonus_mult = 0.4,
 	randart_able = "/data/general/objects/random-artifacts/melee.lua",
@@ -40,6 +40,7 @@ Tridents require the exotic weapons mastery talent to use correctly.]],
 
 newEntity{ base = "BASE_TRIDENT",
 	name = "coral trident", short_name = "coral",
+	kr_name = "산호 삼지창",
 	level_range = {1, 10},
 	require = { stat = { str=11 }, },
 	cost = 5,
@@ -54,6 +55,7 @@ newEntity{ base = "BASE_TRIDENT",
 
 newEntity{ base = "BASE_TRIDENT",
 	name = "blue-steel trident", short_name = "b.steel",
+	kr_name = "푸른-강철 삼지창",
 	level_range = {10, 20},
 	require = { stat = { str=16 }, },
 	cost = 10,
@@ -68,6 +70,7 @@ newEntity{ base = "BASE_TRIDENT",
 
 newEntity{ base = "BASE_TRIDENT",
 	name = "deep-steel trident", short_name = "d.steel",
+	kr_name = "심해-강철 삼지창",
 	level_range = {20, 30},
 	require = { stat = { str=24 }, },
 	cost = 15,
@@ -82,6 +85,7 @@ newEntity{ base = "BASE_TRIDENT",
 
 newEntity{ base = "BASE_TRIDENT",
 	name = "orite trident", short_name = "orite",
+	kr_name = "오라이트 삼지창",
 	level_range = {30, 40},
 	require = { stat = { str=35 }, },
 	cost = 25,
@@ -96,6 +100,7 @@ newEntity{ base = "BASE_TRIDENT",
 
 newEntity{ base = "BASE_TRIDENT",
 	name = "orichalcum trident", short_name = "orichalcum",
+	kr_name = "오리하르콘 삼지창",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 35,

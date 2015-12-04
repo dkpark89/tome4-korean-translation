@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -51,7 +51,8 @@ local changer = function(id)
 		cost = 150,
 		encumber = 1,
 		material_level = 3,
-		desc = [[This ancient skull is all that remains of the Rat Lich. Some fragments of its power remain and a faint red light still glows within its eyes.]],
+		kr_name = "리치 쥐의 두개골", kr_unided_name = "먼지 낀 쥐의 두개골",
+		desc = [[이 고대의 해골은 리치 쥐가 남긴 전부입니다. 두개골의 일부에는 아직 그 힘이 남아있으며, 눈에서는 아직도 희미하게 붉은 빛이 납니다.]],
 
 		wielder = {
 			combat_spellpower = 10,
@@ -59,8 +60,8 @@ local changer = function(id)
 			on_melee_hit = {[engine.DamageType.DARKNESS]=12},
 		},
 		max_power = 70, power_regen = 1,
-		use_power = { name = "raise undead rats", power = 70, use = function(self, who)
-			if not who:canBe("summon") then game.logPlayer(who, "You cannot summon; you are suppressed!") return end
+		use_power = { name = "raise undead rats", kr_name = "언데드 생쥐 일으키기", power = 70, use = function(self, who)
+			if not who:canBe("summon") then game.logPlayer(who, "소환할 수 없습니다. 억제되었습니다!") return end
 
 			local NPC = require "mod.class.NPC"
 			local list = NPC:loadList("/data/general/npcs/undead-rat.lua")
@@ -94,6 +95,7 @@ local changer = function(id)
 
 	local zone = mod.class.Zone.new(id, {
 		name = "Forsaken Crypt",
+		kr_name = "버려진 지하실",
 		level_range = {game.zone:level_adjust_level(game.level, game.zone, "actor"), game.zone:level_adjust_level(game.level, game.zone, "actor")},
 		level_scheme = "player",
 		max_level = 1,
@@ -140,6 +142,7 @@ end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "forsaken crypt"
+g.kr_name = "버려진 지하실"
 g.display='>' g.color_r=0 g.color_g=0 g.color_b=255 g.notice = true
 g.change_level=1 g.change_zone=id g.glow=true
 g:removeAllMOs()
@@ -152,7 +155,7 @@ g:initGlow()
 g.real_change = changer
 g.change_level_check = function(self)
 	game:changeLevel(1, self.real_change(self.change_zone), {temporary_zone_shift=true, direct_switch=true})
-	require("engine.ui.Dialog"):simplePopup("Forsaken Crypt", "You hear squeaks and the sounds of clicking bone echo around you... Pure death awaits. Flee!")
+	require("engine.ui.Dialog"):simplePopup("버려진 지하실", "삐걱거리는 소리와 함께 뼈가 부딪히는 소리가 주변에 메아리쳐 들립니다... 순수한 죽음이 기다립니다. 도망치십시오!")
 	self.change_level_check = nil
 	self.real_change = nil
 	return true

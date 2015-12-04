@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "humanoid", subtype = "human",
 	display = "p", color=colors.UMBER,
 	faction = "zigur",
-	killer_message = "and burned on a pyre",
+	killer_message = "당신은 화형당했습니다.",
 
 	combat = { dam=resolvers.rngavg(5,12), atk=2, apr=6, physspeed=2 },
 
@@ -54,7 +54,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ZIGURANTH",
 	name = "ziguranth warrior", color=colors.CRIMSON,
-	desc = [[A Ziguranth warrior, clad in heavy armour.]],
+	kr_name = "지구르 추종 전사",
+	desc = [[지구르를 추종하고 있으며, 중갑을 입은 전사입니다.]],
 	subtype = "dwarf",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 1,
@@ -78,7 +79,8 @@ newEntity{ base = "BASE_NPC_ZIGURANTH",
 
 newEntity{ base = "BASE_NPC_ZIGURANTH",
 	name = "ziguranth summoner", color=colors.CRIMSON,
-	desc = [[A Ziguranth wilder, attuned to nature.]],
+	kr_name = "지구르 추종 소환술사",
+	desc = [[지구르를 추종하고 있으며, 자연에 적응한 소환술사입니다.]],
 	subtype = "thalore",
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 2,
@@ -109,7 +111,8 @@ newEntity{ base = "BASE_NPC_ZIGURANTH",
 
 newEntity{ base = "BASE_NPC_ZIGURANTH",
 	name = "ziguranth wyrmic", color=colors.CRIMSON,
-	desc = [[A Ziguranth wilder, attuned to nature.]],
+	kr_name = "지구르 추종 용인",
+	desc = [[지구르를 추종하고 있으며, 자연에 적응한 용인입니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 2,
 	rank = 3,

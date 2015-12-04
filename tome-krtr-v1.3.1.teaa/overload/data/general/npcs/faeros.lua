@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -55,7 +55,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_FAEROS",
 	name = "faeros", color=colors.ORANGE,
-	desc = [[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.]],
+	kr_name = "패로스",
+	desc = [[화산지역이 아닌 곳에서는 보기 힘들며, 높은 지능을 가진 불의 정령 패로스입니다. 이 세상의 자연적인 존재는 아닌 듯 합니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80),
@@ -69,7 +70,8 @@ newEntity{ base = "BASE_NPC_FAEROS",
 
 newEntity{ base = "BASE_NPC_FAEROS",
 	name = "greater faeros", color=colors.ORANGE,
-	desc = [[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.]],
+	kr_name = "고위 패로스",
+	desc = [[화산지역이 아닌 곳에서는 보기 힘들며, 높은 지능을 가진 불의 정령 패로스입니다. 이 세상의 자연적인 존재는 아닌 듯 합니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80), life_rating = 10,
@@ -85,7 +87,8 @@ newEntity{ base = "BASE_NPC_FAEROS",
 
 newEntity{ base = "BASE_NPC_FAEROS",
 	name = "ultimate faeros", color=colors.ORANGE,
-	desc = [[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.]],
+	kr_name = "궁극의 패로스",
+	desc = [[화산지역이 아닌 곳에서는 보기 힘들며, 높은 지능을 가진 불의 정령 패로스입니다. 이 세상의 자연적인 존재는 아닌 듯 합니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_fire_ultimate_faeros.png", display_h=2, display_y=-1}}},
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 5,

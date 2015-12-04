@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,13 +30,14 @@ newEntity{
 	encumber = 3,
 	rarity = 7,
 	metallic = true,
-	desc = [[Heavy boots, with metal strips at the toes, heels and other vulnerable parts, to better protect the wearer's feet from harm.]],
+	desc = [[발가락과 뒤꿈치, 그리고 다른 보호가 필요한 부분에 금속을 덧대어 착용자의 발을 위험으로부터 보호해주는 철제 신발입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/boots.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_HEAVY_BOOTS",
 	name = "pair of iron boots", short_name = "iron",
+	kr_name = "무쇠 신발",
 	level_range = {1, 20},
 	cost = 5,
 	material_level = 1,
@@ -48,6 +49,7 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 
 newEntity{ base = "BASE_HEAVY_BOOTS",
 	name = "pair of dwarven-steel boots", short_name = "d.steel",
+	kr_name = "드워프강철 신발",
 	level_range = {20, 40},
 	cost = 7,
 	material_level = 3,
@@ -59,6 +61,7 @@ newEntity{ base = "BASE_HEAVY_BOOTS",
 
 newEntity{ base = "BASE_HEAVY_BOOTS",
 	name = "pair of voratun boots", short_name = "voratun",
+	kr_name = "보라툰 신발",
 	level_range = {40, 50},
 	cost = 10,
 	material_level = 5,

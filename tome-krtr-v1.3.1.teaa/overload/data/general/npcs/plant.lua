@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ newEntity{
 	type = "immovable", subtype = "plants",
 	display = "#", color=colors.WHITE,
 	blood_color = colors.GREEN,
-	desc = "A not-so-strange growth on the dungeon floor.",
+	desc = "던전의 바닥에서 자라나는, 평범한 존재입니다.",
 	body = { INVEN = 10 },
 	autolevel = "warrior",
 	ai = "dumb_talented_simple", ai_state = { talent_in=3, },
@@ -43,7 +43,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_PLANT",
 	name = "giant venus flytrap", color=colors.GREEN,
-	desc = "This flesh-eating plant has grown to enormous proportions and seeks to quell its hunger.",
+	kr_name = "거대 끈끈이 주걱",
+	desc = "이 거대하게 자라난 육식 식물은 그 배고픔을 가라앉힐 존재를 찾습니다.",
 	level_range = {7, 17}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(5,9),
@@ -56,7 +57,8 @@ newEntity{ base = "BASE_NPC_PLANT",
 
 newEntity{ base = "BASE_NPC_PLANT",
 	name = "treant", color=colors.GREEN,
-	desc = "A very strong near-sentient tree, which has become hostile to other living things.",
+	kr_name = "나무 정령",
+	desc = "다른 살아있는 모든 존재에 대해 적대심을 불태우는, 매우 강력하며 이성이 있는 나무입니다.",
 	sound_moam = "creatures/treants/treeant_2",
 	sound_die = {"creatures/treants/treeant_death_%d", 1, 2},
 	sound_random = {"creatures/treants/treeant_%d", 1, 3},
@@ -73,7 +75,8 @@ newEntity{ base = "BASE_NPC_PLANT",
 
 newEntity{ base = "BASE_NPC_PLANT",
 	name = "poison ivy", color=colors.GREEN,
-	desc = "This harmless little plant makes you all itchy.",
+	kr_name = "덩굴 옻나무",
+	desc = "별다른 해를 끼치지 않는 작은 식물이지만, 당신을 매우 가렵게 만들 수는 있습니다.",
 	level_range = {3, 25}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(1,1),
@@ -91,7 +94,8 @@ newEntity{ base = "BASE_NPC_PLANT",
 
 newEntity{ base = "BASE_NPC_PLANT",
 	name = "honey tree", color=colors.UMBER,
-	desc = "As you approach it, you hear a high-pitched buzzing sound.",
+	kr_name = "벌꿀나무",
+	desc = "가까이 다가서자, 고주파의 윙윙거리는 소리를 들을 수 있습니다.",
 	sound_moam = "creatures/treanst/treeant_2",
 	sound_die = {"creatures/treants/treeant_death_%d", 1, 2},
 	sound_random = {"creatures/treants/treeant_%d", 1, 3},

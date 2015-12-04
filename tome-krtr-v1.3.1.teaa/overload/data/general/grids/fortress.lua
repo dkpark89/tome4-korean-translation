@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ newEntity{
 	define_as = "SOLID_FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/solidwall/solid_floor1.png",
+	kr_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 }
 
@@ -34,6 +35,7 @@ newEntity{
 	define_as = "SOLID_WALL",
 	type = "wall", subtype = "floor",
 	name = "wall", image = "terrain/solidwall/solid_wall_block1.png",
+	kr_name = "벽",
 	display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 	z = 3,
 	nice_tiler = { method="wall3d", inner={"SOLID_WALL", 100, 1, 1}, north={"SOLID_WALL_NORTH", 100, 1, 1}, south={"SOLID_WALL_SOUTH", 10, 1, 7}, north_south="SOLID_WALL_NORTH_SOUTH",  },
@@ -57,6 +59,7 @@ newEntity{
 	define_as = "SOLID_DOOR",
 	type = "wall", subtype = "floor",
 	name = "door", image = "terrain/solidwall/granite_door1.png",
+	kr_name = "문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="SOLID_DOOR_VERT", west_east="SOLID_DOOR_HORIZ" },
 	notice = true,
@@ -70,6 +73,7 @@ newEntity{
 	define_as = "SOLID_DOOR_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open door", image="terrain/solidwall/granite_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	always_remember = true,
 	door_closed = "SOLID_DOOR",
@@ -83,6 +87,7 @@ newEntity{
 	define_as = "SOLID_DOOR_SEALED",
 	type = "wall", subtype = "floor",
 	name = "sealed door", image = "terrain/solidwall/solid_wall_closed_doors1.png",
+	kr_name = "봉인된 문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="SOLID_DOOR_SEALED_VERT", west_east="SOLID_DOOR_SEALED_HORIZ" },
 	notice = true,
@@ -90,7 +95,7 @@ newEntity{
 	block_sight = true,
 	block_sense = true,
 	block_esp = true,
-	door_player_stop = "This door seems to be sealed.",
+	door_player_stop = "이 문은 봉인되어 있는 것 같습니다.",
 	is_door = true,
 	door_opened = "SOLID_DOOR_OPEN",
 }

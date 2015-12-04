@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_STORM_DRAKE",
 	name = "storm drake hatchling", color=colors.BLUE, display="d",
-	desc = [[A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.]],
+	kr_name = "폭풍 드레이크 해츨링",
+	desc = [[어린 드레이크입니다. 아직 그렇게 강력한 드레이크는 아니기 때문에, 자신의 형제들과 무리지어 다니는 경향이 있습니다.]],
 	level_range = {8, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 1, size_category = 2,
@@ -61,7 +62,8 @@ newEntity{ base = "BASE_NPC_STORM_DRAKE",
 
 newEntity{ base = "BASE_NPC_STORM_DRAKE",
 	name = "storm drake", color=colors.BLUE, display="D",
-	desc = [[A mature storm drake, armed with deadly breath and nasty claws.]],
+	kr_name = "폭풍 드레이크",
+	desc = [[성숙한 폭풍 드레이크입니다. 험악하게 생긴 발톱을 가졌으며, 치명적인 브레스를 뿜어낼 수 있습니다.]],
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(100,110),
@@ -83,7 +85,8 @@ newEntity{ base = "BASE_NPC_STORM_DRAKE",
 
 newEntity{ base = "BASE_NPC_STORM_DRAKE",
 	name = "storm wyrm", color=colors.LIGHT_BLUE, display="D",
-	desc = [[An old and powerful storm drake, armed with deadly breath and nasty claws.]],
+	kr_name = "폭풍 용",
+	desc = [[오랜 세월을 살아온 강력한 폭풍 드레이크입니다. 험악하게 생긴 발톱을 가졌으며, 치명적인 브레스를 뿜어낼 수 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_storm_storm_wyrm.png", display_h=2, display_y=-1}}},
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 5,

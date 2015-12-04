@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@ newEntity{
 	rarity = 12,
 	add_name = "#CHARM# #CHARGES#",
 	use_sound = "talents/spell_generic",
-	desc = [[Natural totems are made by powerful wilders to store nature power.]],
+	kr_unided_name = "토템",
+	desc = [[토템은 강력한 자연의 추종자가 자연의 힘을 불어넣어 만드는 물건입니다.]],
 	egos = "/data/general/objects/egos/totems.lua", egos_chance = { prefix=resolvers.mbonus(20, 5), suffix=resolvers.mbonus(20, 5) },
 	addons = "/data/general/objects/egos/totems-powers.lua",
 	power_source = {nature=true},
@@ -37,6 +38,7 @@ newEntity{
 
 newEntity{ base = "BASE_TOTEM",
 	name = "elm totem", short_name = "elm",
+	kr_name = "느릅나무 토템",
 	color = colors.UMBER,
 	level_range = {1, 10},
 	cost = 1,
@@ -46,6 +48,7 @@ newEntity{ base = "BASE_TOTEM",
 
 newEntity{ base = "BASE_TOTEM",
 	name = "ash totem", short_name = "ash",
+	kr_name = "물푸레나무 토템",
 	color = colors.UMBER,
 	level_range = {10, 20},
 	cost = 2,
@@ -55,6 +58,7 @@ newEntity{ base = "BASE_TOTEM",
 
 newEntity{ base = "BASE_TOTEM",
 	name = "yew totem", short_name = "yew",
+	kr_name = "주목 토템",
 	color = colors.UMBER,
 	level_range = {20, 30},
 	cost = 3,
@@ -64,6 +68,7 @@ newEntity{ base = "BASE_TOTEM",
 
 newEntity{ base = "BASE_TOTEM",
 	name = "elven-wood totem", short_name = "e.wood",
+	kr_name = "엘프나무 토템",
 	color = colors.UMBER,
 	level_range = {30, 40},
 	cost = 4,
@@ -73,6 +78,7 @@ newEntity{ base = "BASE_TOTEM",
 
 newEntity{ base = "BASE_TOTEM",
 	name = "dragonbone totem", short_name = "dragonbone",
+	kr_name = "용뼈 토템",
 	color = colors.UMBER,
 	level_range = {40, 50},
 	cost = 5,

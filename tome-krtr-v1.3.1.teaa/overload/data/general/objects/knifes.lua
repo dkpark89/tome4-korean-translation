@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ newEntity{
 	rarity = 5,
 	metallic = true,
 	combat = { talented = "knife", damrange = 1.3, physspeed = 1, sound = {"actions/melee", pitch=1.2, vol=1.2}, sound_miss = {"actions/melee", pitch=1.2, vol=1.2} },
-	desc = [[Sharp, short and deadly.]],
+	desc = [[날카롭고, 짧지만, 치명적입니다.]],
 	ego_bonus_mult = -0.2,
 	randart_able = "/data/general/objects/random-artifacts/melee.lua",
 	egos = "/data/general/objects/egos/weapon.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
@@ -36,6 +36,7 @@ newEntity{
 
 newEntity{ base = "BASE_KNIFE",
 	name = "iron dagger", short_name = "iron",
+	kr_name = "무쇠 단검",
 	level_range = {1, 10},
 	require = { stat = { dex=11 }, },
 	cost = 5,
@@ -50,6 +51,7 @@ newEntity{ base = "BASE_KNIFE",
 
 newEntity{ base = "BASE_KNIFE",
 	name = "steel dagger", short_name = "steel",
+	kr_name = "강철 단검",
 	level_range = {10, 20},
 	require = { stat = { dex=16 }, },
 	cost = 10,
@@ -64,6 +66,7 @@ newEntity{ base = "BASE_KNIFE",
 
 newEntity{ base = "BASE_KNIFE",
 	name = "dwarven-steel dagger", short_name = "d.steel",
+	kr_name = "드워프강철 단검",
 	level_range = {20, 30},
 	require = { stat = { dex=24 }, },
 	cost = 15,
@@ -78,6 +81,7 @@ newEntity{ base = "BASE_KNIFE",
 
 newEntity{ base = "BASE_KNIFE",
 	name = "stralite dagger", short_name = "stralite",
+	kr_name = "스트라라이트 단검",
 	level_range = {30, 40},
 	require = { stat = { dex=35 }, },
 	cost = 25,
@@ -92,6 +96,7 @@ newEntity{ base = "BASE_KNIFE",
 
 newEntity{ base = "BASE_KNIFE",
 	name = "voratun dagger", short_name = "voratun",
+	kr_name = "보라툰 단검",
 	level_range = {40, 50},
 	require = { stat = { dex=48 }, },
 	cost = 35,

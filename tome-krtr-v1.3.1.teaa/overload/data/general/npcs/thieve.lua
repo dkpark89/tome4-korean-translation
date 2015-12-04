@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -61,7 +61,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_THIEF",
 	name = "cutpurse", color_r=0, color_g=0, color_b=resolvers.rngrange(235, 255),
-	desc = [[The lowest of the thieves, this cutpurse is just learning the tricks of the trade.]],
+	kr_name = "소매치기",
+	desc = [[가장 낮은 수준의 도둑입니다. 소매치기 기술을 막 배운 상태입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	combat_armor = 1, combat_def = 5,
@@ -71,7 +72,8 @@ newEntity{ base = "BASE_NPC_THIEF",
 
 newEntity{ base = "BASE_NPC_THIEF",
 	name = "rogue", color_r=0, color_g=0, color_b=resolvers.rngrange(215, 235),
-	desc = [[Stronger than a cutpurse, this thief has been promoted.]],
+	kr_name = "도둑",
+	desc = [[소매치기보다는 강력한, 한 단계 진급한 도둑입니다.]],
 	level_range = {2, nil}, exp_worth = 1,
 	rarity = 1,
 	combat_armor = 2, combat_def = 5,
@@ -81,7 +83,8 @@ newEntity{ base = "BASE_NPC_THIEF",
 
 newEntity{ base = "BASE_NPC_THIEF",
 	name = "thief", color_r=0, color_g=0, color_b=resolvers.rngrange(195, 215),
-	desc = [[He eyes you and your belongings, then suddenly vanishes... strange, why is your pack lighter?]],
+	kr_name = "날도둑",
+	desc = [[그가 당신과 당신의 소지품을 동시에 보더니, 사라집니다... 흠, 왜 갑자기 짐이 가벼워진 것 같은 느낌이 날까요?]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 1,
 	combat_armor = 3, combat_def = 5,
@@ -96,7 +99,8 @@ newEntity{ base = "BASE_NPC_THIEF",
 
 newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_BANDIT",
 	name = "bandit", color_r=0, color_g=0, color_b=resolvers.rngrange(175, 195),
-	desc = [[These ruffians often employ brute force over thievery, but they are capable of stealing as well.]],
+	kr_name = "강도",
+	desc = [[도둑질을 넘어, 무식한 힘을 쓰기 시작한 악당입니다. 하지만 훔치는 것 역시 여전히 능숙합니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 2,
 	combat_armor = 4, combat_def = 6,
@@ -110,7 +114,8 @@ newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_BANDIT",
 
 newEntity{ base = "BASE_NPC_THIEF",
 	name = "bandit lord", color_r=resolvers.rngrange(75, 85), color_g=0, color_b=resolvers.rngrange(235, 255),
-	desc = [[He is the leader of a gang of bandits. Watch out for his underlings.]],
+	kr_name = "강도 두목",
+	desc = [[강도 무리의 두목입니다. 부하들을 지키기 위해 주변을 경계하고 있습니다.]],
 	level_range = {8, nil}, exp_worth = 1,
 	rarity = 5,
 	combat_armor = 5, combat_def = 7,
@@ -137,7 +142,8 @@ newEntity{ base = "BASE_NPC_THIEF",
 
 newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_ASSASSIN",
 	name = "assassin", color_r=resolvers.rngrange(0, 10), color_g=resolvers.rngrange(0, 10), color_b=resolvers.rngrange(0, 10),
-	desc = [[Before you looms a pair of eyes... a glint of steel... death.]],
+	kr_name = "암살자",
+	desc = [[어렴풋하게 눈이 보이더니... 강철이 번뜩거리고... 죽습니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 3,
 	combat_armor = 3, combat_def = 10,
@@ -160,7 +166,8 @@ newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_ASSASSIN",
 
 newEntity{ base = "BASE_NPC_THIEF", define_as = "THIEF_ASSASSIN",
 	name = "shadowblade", color_r=resolvers.rngrange(0, 10), color_g=resolvers.rngrange(0, 10), color_b=resolvers.rngrange(100, 120),
-	desc = [[Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your life!]],
+	kr_name = "그림자 칼잡이",
+	desc = [[속임수로 승리를 획득하려 하는 은밀한 투사입니다. 조심하지 않으면, 당신의 생명을 도둑맞을지도 모릅니다!]],
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 4,
 	combat_armor = 3, combat_def = 10,

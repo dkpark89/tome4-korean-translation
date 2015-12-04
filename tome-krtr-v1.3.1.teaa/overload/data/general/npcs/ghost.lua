@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -61,7 +61,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_GHOST",
 	name = "dread", color=colors.ORANGE, image="npc/dread.png",
-	desc = [[It is a form that screams its presence against the eye. Death incarnate, its hideous black body seems to struggle against reality as the universe itself strives to banish it.]],
+	kr_name = "드레드",
+	desc = [[보는 것만으로도 비명이 나올 정도의 끔찍한 존재입니다. 죽음의 화신이자, 그 흉물스러운 검은색 육신은 마치 이 세계의 의지에 반하여 존재하는 것 같습니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 10,
 	max_life = resolvers.rngavg(90,100),
@@ -79,7 +80,8 @@ newEntity{ base = "BASE_NPC_GHOST",
 
 newEntity{ base = "BASE_NPC_GHOST",
 	name = "dreadmaster", color=colors.YELLOW, image="npc/dreadmaster.png",
-	desc = [[It is an unlife of power almost unequaled. An affront to existence, its very touch abuses and disrupts the flow of life, and its unearthly limbs, of purest black, crumble rock and wither flesh with ease.]],
+	kr_name = "상급 드레드",
+	desc = [[불공평할 정도로 강력한 역생의 힘을 보여주는 존재입니다. 실제로 존재하는 모든 것들을 모욕하고, 생명의 흐름을 두절시키며, 다른 세상에서 온 것 같이 순수한 검은색 사지는 쉽게 바위를 부수고 신체를 부패시킵니다.]],
 	level_range = {32, nil}, exp_worth = 1,
 	rarity = 15,
 	rank = 3,
@@ -106,7 +108,8 @@ newEntity{ base = "BASE_NPC_GHOST",
 
 newEntity{ base = "BASE_NPC_GHOST",
 	name = "banshee", color=colors.BLUE, image="npc/banshee.png", female=1,
-	desc = [[It is a ghostly woman's form that wails mournfully.]],
+	kr_name = "밴시",
+	desc = [[슬픔에 잠겨 통곡하는 여성형 유령입니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 8,
 	max_life = resolvers.rngavg(40,50), life_rating = 6,
@@ -127,7 +130,8 @@ newEntity{ base = "BASE_NPC_GHOST",
 
 newEntity{ base = "BASE_NPC_GHOST",
 	name = "ruin banshee", color=colors.GREY,
-	desc = [[A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.]],
+	kr_name = "파멸의 밴시",
+	desc = [[울흐'록의 브레스에 의해 만들어져, 복수심에 불타는 비명을 지르는 영혼입니다. 공포의 영역에서 나오는 증기가 이 왜곡된 차원의 존재로부터 스며나와, 다른 것들을 시들고 부패하게 만듭니다.]],
 	level_range = {42, nil}, exp_worth = 1,
 	rarity = 15,
 	rank = 3,

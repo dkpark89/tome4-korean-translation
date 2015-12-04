@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@ load("/data/general/objects/egos/ranged.lua")
 newEntity{
 	power_source = {technique=true},
 	name = " of cunning (#STATBONUS#)", suffix=true, instant_resolve=true,
+	kr_name = "교활함(#STATBONUS#)의 ",
 	keywords = {cun=true},
 	level_range = {20, 50},
 	rarity = 7,
@@ -38,6 +39,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "halfling ", prefix=true, instant_resolve=true,
+	kr_name = "하플링 ",
 	keywords = {halfling=true},
 	level_range = {30, 50},
 	greater_ego = 1,

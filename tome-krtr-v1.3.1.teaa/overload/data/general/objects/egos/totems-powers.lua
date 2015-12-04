@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 --[[
 Totems
 *healing
@@ -25,9 +27,9 @@ Totems
 *thorny skin
 ]]
 
-
 newEntity{
 	name = " of cure ailments", addon=true, instant_resolve=true,
+	kr_name = "질환 치료의 ",
 	keywords = {ailments=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -35,7 +37,7 @@ newEntity{
 	charm_power_def = {add=1, max=5, floor=true,
 		range = function(self, who) return math.floor(who:combatStatScale("wil", 6, 10)) end},
 	resolvers.charm(
-		function(self, who) return ("remove up to %d poisons or diseases from a target within range %d (Willpower)"):format(self:getCharmPower(who), self.charm_power_def:range(who)) end,
+		function(self, who) return ("최대 %d개의 중독 및 질병을 %d 내(의지)의 대상으로부터 제거합니다. "):format(self:getCharmPower(who), self.charm_power_def:range(who)) end,
 		10,
 		function(self, who)
 		local tg = {default_target=who, type="hit", nowarning=true, range=self.charm_power_def:range(who), first_target="friend"}
@@ -65,28 +67,30 @@ newEntity{
 			end
 		end)
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }
 
 newEntity{
 	name = " of thorny skin", addon=true, instant_resolve=true,
+	kr_name = "가시돋은 피부의 ",
 	keywords = {thorny=true},
 	level_range = {1, 50},
 	rarity = 6,
 
 	charm_power_def = {add=5, max=100, floor=true},
-	resolvers.charm(function(self) return ("harden the skin for 7 turns increasing armour by %d and armour hardiness by %d%%%%"):format(self:getCharmPower(who), 20 + self.material_level * 10) end, 20, function(self, who)
+	resolvers.charm(function(self) return ("7 턴간 피부를 단단하게 만들어, 방어도 %d / 방어효율 %d%%%% 증가"):format(self:getCharmPower(who), 20 + self.material_level * 10) end, 20, function(self, who)
 		who:setEffect(who.EFF_THORNY_SKIN, 7, {ac=self:getCharmPower(who), hard=20 + self.material_level * 10})
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }
 
 newEntity{
 	name = " of healing", addon=true, instant_resolve=true,
+	kr_name = "치료의 ",
 	keywords = {heal=true},
 	level_range = {25, 50},
 	rarity = 20,
@@ -94,7 +98,7 @@ newEntity{
 	charm_power_def = {add=50, max=250, floor=true,
 		range = function(self, who) return math.floor(who:combatStatScale("wil", 6, 10)) end},
 	resolvers.charm(
-		function(self, who) return ("heal a target within range %d (Willpower) for %d"):format(self.charm_power_def:range(who), self:getCharmPower(who)) end,
+		function(self, who) return ("%d (의지) 범위 내의 대상을 %d 만큼 회복시킵니다."):format(self.charm_power_def:range(who), self:getCharmPower(who)) end,
 		20,
 		function(self, who)
 		local tg = {default_target=who, type="hit", nowarning=true, range=self.charm_power_def:range(who), first_target="friend"}
@@ -103,7 +107,7 @@ newEntity{
 		local dam = self:getCharmPower(who)
 		who:project(tg, x, y, engine.DamageType.HEAL, dam)
 		game:playSoundNear(who, "talents/heal")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }

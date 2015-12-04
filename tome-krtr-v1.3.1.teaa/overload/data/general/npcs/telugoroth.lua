@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
 
 local Talents = require("engine.interface.ActorTalents")
 
@@ -48,14 +50,14 @@ local function doTeluvortaSwap(self)
 				self.x, self.y, target.x, target.y = target.x, target.y, px, py
 				game.level.map:particleEmitter(target.x, target.y, 1, "temporal_teleport")
 				game.level.map:particleEmitter(self.x, self.y, 1, "temporal_teleport")
-				game.logSeen(self, "Reality has shifted.")
+				game.logSeen(self, "현실이 변화하였습니다.")
 			else
 				-- return the target without effect
 				game.level.map(target.x, target.y, Map.ACTOR, target)
-				game.logSeen(self, "The spell fizzles!")
+				game.logSeen(self, "주문이 헛나갔습니다!")
 			end
 		else
-			game.logSeen(target, "%s resists the swap!", target.name:capitalize())
+			game.logSeen(target, "%s 자리 교체를 저항했습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 		end
 		game:playSoundNear(self, "talents/teleport")
 	end
@@ -64,7 +66,7 @@ end
 newEntity{
 	define_as = "BASE_NPC_TELUGOROTH", -- telu goroth = time terror
 	type = "elemental", subtype = "temporal",
-	killer_message = "and lost outside time",
+	killer_message = "당신은 시간의 밖에서 길을 잃었습니다.",
 	blood_color = colors.PURPLE,
 	display = "E", color=colors.YELLOW,
 
@@ -85,7 +87,6 @@ newEntity{
 	stats = { str=8, dex=12, mag=12, wil=12, con=10 },
 
 	resists = { [DamageType.TEMPORAL] = 100, },
-
 	no_breath = 1,
 	poison_immune = 1,
 	cut_immune = 1,
@@ -100,7 +101,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_TELUGOROTH",
 	name = "telugoroth", color=colors.KHAKI,
-	desc = [[A temporal elemental, rarely encountered except by those who travel through time itself.  Its blurred form constantly shifts before your eyes.]],
+	kr_name = "텔루고로스",
+	desc = [[시간의 정령으로, 시간을 여행하는 자가 아니면 거의 보기 힘든 존재입니다. 끊임없이 모양이 변하는 희끄무레한 형상을 하고 있습니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(70,80),
@@ -114,7 +116,8 @@ newEntity{ base = "BASE_NPC_TELUGOROTH",
 
 newEntity{ base = "BASE_NPC_TELUGOROTH",
 	name = "greater telugoroth", color=colors.YELLOW,
-	desc = [[A temporal elemental, rarely encountered except by those who travel through time itself.  Its blurred form constantly shifts before your eyes.]],
+	kr_name = "고위 텔루고로스",
+	desc = [[시간의 정령으로, 시간을 여행하는 자가 아니면 거의 보기 힘든 존재입니다. 끊임없이 모양이 변하는 희끄무레한 형상을 하고 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_temporal_greater_telugoroth.png", display_h=2, display_y=-1}}},
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 4,
@@ -131,7 +134,8 @@ newEntity{ base = "BASE_NPC_TELUGOROTH",
 
 newEntity{ base = "BASE_NPC_TELUGOROTH",
 	name = "ultimate telugoroth", color=colors.GOLD,
-	desc = [[A temporal elemental, rarely encountered except by those who travel through time itself.  Its blurred form constantly shifts before your eyes.]],
+	kr_name = "궁극의 텔루고로스",
+	desc = [[시간의 정령으로, 시간을 여행하는 자가 아니면 거의 보기 힘든 존재입니다. 끊임없이 모양이 변하는 희끄무레한 형상을 하고 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_temporal_ultimate_telugoroth.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 6,
@@ -153,7 +157,8 @@ newEntity{ base = "BASE_NPC_TELUGOROTH",
 -- telu vorta = time storm
 newEntity{ base = "BASE_NPC_TELUGOROTH",
 	name = "teluvorta", color=colors.DARK_KHAKI,
-	desc = [[Time and space collapse in upon this erratically-moving time elemental.]],
+	kr_name = "텔루볼타",
+	desc = [[이 시간의 정령이 변덕스럽게 움직이면, 그 시공간은 무너지기 시작합니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(50,70),
@@ -179,7 +184,8 @@ newEntity{ base = "BASE_NPC_TELUGOROTH",
 
 newEntity{ base = "BASE_NPC_TELUGOROTH",
 	name = "greater teluvorta", color=colors.TAN,
-	desc = [[Time and space collapse in upon this erratically-moving time elemental.]],
+	kr_name = "고위 텔루볼타",
+	desc = [[이 시간의 정령이 변덕스럽게 움직이면, 그 시공간은 무너지기 시작합니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_temporal_greater_teluvorta.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 6,
@@ -206,7 +212,8 @@ newEntity{ base = "BASE_NPC_TELUGOROTH",
 
 newEntity{ base = "BASE_NPC_TELUGOROTH",
 	name = "ultimate teluvorta", color=colors.DARK_TAN,
-	desc = [[Time and space collapse in upon this erratically-moving time elemental.]],
+	kr_name = "궁극의 텔루볼타",
+	desc = [[이 시간의 정령이 변덕스럽게 움직이면, 그 시공간은 무너지기 시작합니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_temporal_ultimate_teluvorta.png", display_h=2, display_y=-1}}},
 	level_range = {18, nil}, exp_worth = 1,
 	rarity = 8,

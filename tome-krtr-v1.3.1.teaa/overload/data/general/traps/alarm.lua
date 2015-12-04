@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,19 +17,22 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 newEntity{ define_as = "TRAP_ALARM",
-	type = "annoy", subtype="alarm", id_by_type=true, unided_name = "trap",
+	type = "annoy", subtype="alarm", id_by_type=true, unided_name = "trap", kr_unided_name = "함정",
 	display = '^',
 	triggered = function() end,
 }
 
 newEntity{ base = "TRAP_ALARM",
 	name = "intruder alarm", auto_id = true, image = "trap/trap_intruder_alarm_01.png",
+	kr_name = "침입 감지 경보",
 	detect_power = resolvers.clscale(20,50,8),
 	disarm_power = resolvers.clscale(36,50,8),
 	rarity = 3, level_range = {1, 50},
 	color=colors.UMBER,
-	message = "@Target@ triggers an alarm!",
+	message = "@Target1@ 경보 장치를 밟았습니다!",
 	pressure_trap = true,
 	triggered = function(self, x, y, who)
 		for i = x - 20, x + 20 do for j = y - 20, y + 20 do if game.level.map:isBound(i, j) then
@@ -51,12 +54,13 @@ newEntity{ base = "TRAP_ALARM",
 
 newEntity{ base = "TRAP_ALARM",
 	name = "summoning alarm", auto_id = true, image = "trap/trap_summoning_alarm_01.png",
+	kr_name = "소환 경보",
 	detect_power = resolvers.clscale(8,50,8),
 	disarm_power = resolvers.clscale(2,50,8),
 	rarity = 3, level_range = {10, 50},
 	color=colors.DARK_UMBER,
 	nb_summon = resolvers.mbonus(3, 2),
-	message = "An alarm rings!",
+	message = "경보가 울립니다!",
 	triggered = function(self, sx, sy, who)
 		for i = 1, self.nb_summon do
 			-- Find space
@@ -69,7 +73,7 @@ newEntity{ base = "TRAP_ALARM",
 			local m = game.zone:makeEntity(game.level, "actor")
 			if m then
 				game.zone:addEntity(game.level, m, "actor", x, y)
-				game.logSeen(who, "%s appears out of the thin air!", m.name:capitalize())
+				game.logSeen(who, "%s 어디선가 갑자기 나타납니다!", (m.kr_name or m.name):capitalize():addJosa("가"))
 			end
 		end
 		return true, true

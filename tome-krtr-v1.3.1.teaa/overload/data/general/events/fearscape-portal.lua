@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@ local changer = function(id)
 		type = "floor", subtype = "floor",
 		display = "&", color = colors.BLUE,
 		name = "portal",
+		kr_name = "관문",
 		image = "terrain/red_floating_rocks05_01.png",
 		add_displays = { mod.class.Grid.new{image="terrain/demon_portal3.png"} },
 		change_level = 1, change_zone = "wilderness",
@@ -46,6 +47,7 @@ local changer = function(id)
 	}
 	local zone = mod.class.Zone.new(id, {
 		name = "orbital fearscape platform",
+		kr_name = "공포의 영역 궤도 승강장",
 		level_range = {game.zone:level_adjust_level(game.level, game.zone, "actor"), game.zone:level_adjust_level(game.level, game.zone, "actor")},
 		level_scheme = "player",
 		max_level = 1,
@@ -143,6 +145,7 @@ end
 
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "fearscape invasion portal"
+g.kr_name = "공포의 영역 침입 관문"
 g.display='&' g.color_r=0 g.color_g=0 g.color_b=255 g.notice = true
 g.change_level=1 g.change_zone=id g.glow=true
 g:removeAllMOs()
@@ -165,20 +168,21 @@ end
 g.on_move = function(self, x, y, who)
 	if not who or not who.player then return false end
 	if self.broken then
-		game.log("#VIOLET#The portal is already broken!")
+		game.log("#VIOLET#이 관문은 이미 부서져 있습니다!")
 		return false
 	end
 
-	require("engine.ui.Dialog"):yesnoPopup("Fearscape Portal", "Do you wish to enter the portal or just destroy it?", function(ret)
-		game.log("#VIOLET#The portal is broken!")
+	require("engine.ui.Dialog"):yesnoPopup("공포의 영역 관문", "관문으로 들어가기를 원합니까, 아니면 그냥 부수기를 원합니까?", function(ret)
+		game.log("#VIOLET#관문은 부서져 있습니다!")
 		if not ret then
 			self:change_level_check()
 		end
 		self.broken = true
+		self.kr_name = "부서진 "..(self.kr_name or self.name)
 		self.name = "broken "..self.name
 		self.change_level = nil
 		self.autoexplore_ignore = true
-	end, "Destroy", "Enter")
+	end, "부수기", "들어가기")
 
 	return false
 end
@@ -203,7 +207,7 @@ local respawn = function(self)
 	m.faction = "fearscape"
 	m.on_die = function(self) self:fearscape_respawn() end
 	game.zone:addEntity(game.level, m, "actor", i, j)
-	game.logSeen(m, "#VIOLET#A demon steps out of the portal!")
+	game.logSeen(m, "#VIOLET#관문을 통해서 악마가 나타났습니다!")
 end
 
 -- Spawn two that will keep on being replenished

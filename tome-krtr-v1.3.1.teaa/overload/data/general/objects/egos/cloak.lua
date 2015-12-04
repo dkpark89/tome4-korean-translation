@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,6 +16,9 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
+
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
 local DamageType = require "engine.DamageType"
@@ -25,6 +28,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = "thick ", prefix=true, instant_resolve=true,
+	kr_name = "두꺼운 ",
 	keywords = {thick=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -38,6 +42,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "shadow ", prefix=true, instant_resolve=true,
+	kr_name = "그림자 ",
 	keywords = {shadow=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -60,6 +65,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of Eldoral", suffix=true, instant_resolve=true,
+	kr_name = "엘도랄의 ",
 	keywords = {eldoral=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -75,6 +81,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the Shaloren", suffix=true, instant_resolve=true,
+	kr_name = "샬로레의 ",
 	keywords = {shaloren=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -90,6 +97,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of Iron Throne", suffix=true, instant_resolve=true,
+	kr_name = "철의 왕좌의 ",
 	keywords = {['iron.throne']=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -105,6 +113,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of fog", suffix=true, instant_resolve=true,
+	kr_name = "안개의 ",
 	keywords = {fog=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -123,6 +132,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of protection", suffix=true, instant_resolve=true,
+	kr_name = "보호력의 ",
 	keywords = {protection=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -136,6 +146,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of implacability", suffix=true, instant_resolve=true,
+	kr_name = "확고함의 ",
 	keywords = {implacable=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -151,6 +162,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "resilient ", prefix=true, instant_resolve=true,
+	kr_name = "활력 ",
 	keywords = {resilient=true},
 	level_range = {1, 50},
 	rarity = 7,
@@ -163,6 +175,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "enveloping ", prefix=true, instant_resolve=true,
+	kr_name = "감싸는 ",
 	keywords = {enveloping=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -176,6 +189,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "regal ", prefix=true, instant_resolve=true,
+	kr_name = "당당한 ",
 	keywords = {regal=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -191,6 +205,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "restorative ", prefix=true, instant_resolve=true,
+	kr_name = "회복하는 ",
 	keywords = {restorative=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -209,6 +224,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "wyrmwaxed ", prefix=true, instant_resolve=true,
+	kr_name = "용 밀랍을 입힌 ",
 	keywords = {wyrmwaxed=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -227,6 +243,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "battlemaster's ", prefix=true, instant_resolve=true,
+	kr_name = "전장 지배자 ",
 	keywords = {battlemaster=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -250,6 +267,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of sorcery", suffix=true, instant_resolve=true,
+	kr_name = "주술의 ",
 	keywords = {sorcery=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -267,6 +285,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of mindcraft", suffix=true, instant_resolve=true,
+	kr_name = "정신 기술의 ",
 	keywords = {mindcraft=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -284,6 +303,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spellcowled ", prefix=true, instant_resolve=true,
+	kr_name = "마법 두건 달린 ",
 	keywords = {spellcowled=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -302,6 +322,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "marshal's ", prefix=true, instant_resolve=true,
+	kr_name = "사령관 ",
 	keywords = {marshal=true},
 	level_range = {35, 50},
 	greater_ego = 1,
@@ -320,6 +341,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "murderer's ", prefix=true, instant_resolve=true,
+	kr_name = "살인자 ",
 	keywords = {murderer=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -338,6 +360,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the guardian", suffix=true, instant_resolve=true,
+	kr_name = "수호자의 ",
 	keywords = {guardian=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -355,6 +378,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of conjuring", suffix=true, instant_resolve=true,
+	kr_name = "요술의 ",
 	keywords = {conjuring=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -377,6 +401,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of battle", suffix=true, instant_resolve=true,
+	kr_name = "전투의 ",
 	keywords = {battle=true},
 	level_range = {1, 50},
 	rarity = 15,
@@ -391,6 +416,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the hunter", suffix=true, instant_resolve=true,
+	kr_name = "사냥꾼의 ",
 	keywords = {hunter=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -407,6 +433,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the voidstalker", suffix=true, instant_resolve=true,
+	kr_name = "공허추격자의 ",
 	keywords = {voidstriker=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -422,7 +449,7 @@ newEntity{
 		},
 	},
 	charm_power_def = {add=5, max=10, floor=true},
-	resolvers.charm("blink randomly (up to range 8) within 2 spaces of a target hostile creature", 10, function(self, who)
+	resolvers.charm("적 주변 2 칸 반경의 임의의 위치로 단거리 순간이동", 10, function(self, who)
 		local tg = {type="hit", range=8, friendlyfire = false}
 		local x, y = who:getTarget(tg)
 		if not x or not y then return nil end
@@ -433,7 +460,7 @@ newEntity{
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
 		who:teleportRandom(target.x, target.y, 2)
 		game.level.map:particleEmitter(who.x, who.y, 1, "teleport")
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		game.logSeen(who, "%s %s 사용했습니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("가"))
 		return {id=true, used=true}
 		end),
 }
@@ -442,6 +469,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of backstabbing", suffix=true, instant_resolve=true,
+	kr_name = "암습의 ",
 	keywords = {backstab=true},
 	level_range = {40, 50},
 	greater_ego = 1,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@ newEntity{
 	rarity = 12,
 	add_name = "#CHARM# #CHARGES#",
 	use_sound = "talents/spell_generic",
-	desc = [[Torques are made by powerful psionics to store psionic powers.]],
+	kr_unided_name = "주술고리",
+	desc = [[주술고리는 강력한 초능력자가 염동력을 불어넣어 만드는 물건입니다.]],
 	egos = "/data/general/objects/egos/torques.lua", egos_chance = { prefix=resolvers.mbonus(20, 5), suffix=resolvers.mbonus(20, 5) },
 	addons = "/data/general/objects/egos/torques-powers.lua",
 	power_source = {psionic=true},
@@ -37,6 +38,7 @@ newEntity{
 
 newEntity{ base = "BASE_TORQUE",
 	name = "iron torque", short_name = "iron",
+	kr_name = "무쇠 주술고리",
 	color = colors.UMBER,
 	level_range = {1, 10},
 	cost = 1,
@@ -46,6 +48,7 @@ newEntity{ base = "BASE_TORQUE",
 
 newEntity{ base = "BASE_TORQUE",
 	name = "steel torque", short_name = "steel",
+	kr_name = "강철 주술고리",
 	color = colors.UMBER,
 	level_range = {10, 20},
 	cost = 2,
@@ -55,6 +58,7 @@ newEntity{ base = "BASE_TORQUE",
 
 newEntity{ base = "BASE_TORQUE",
 	name = "dwarven-steel torque", short_name = "d.steel",
+	kr_name = "드워프강철 주술고리",
 	color = colors.UMBER,
 	level_range = {20, 30},
 	cost = 3,
@@ -64,6 +68,7 @@ newEntity{ base = "BASE_TORQUE",
 
 newEntity{ base = "BASE_TORQUE",
 	name = "stralite torque", short_name = "stralite",
+	kr_name = "스트라라이트 주술고리",
 	color = colors.UMBER,
 	level_range = {30, 40},
 	cost = 4,
@@ -73,6 +78,7 @@ newEntity{ base = "BASE_TORQUE",
 
 newEntity{ base = "BASE_TORQUE",
 	name = "voratun torque", short_name = "voratun",
+	kr_name = "보라툰 주술고리",
 	color = colors.UMBER,
 	level_range = {40, 50},
 	cost = 5,

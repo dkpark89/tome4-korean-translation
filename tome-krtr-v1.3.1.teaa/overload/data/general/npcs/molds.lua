@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ newEntity{
 	type = "immovable", subtype = "molds",
 	display = "m", color=colors.WHITE,
 	blood_color = colors.PURPLE,
-	desc = "A strange growth on the dungeon floor.",
+	desc = "던전의 바닥에서 자라난, 기묘한 존재입니다.",
 	body = { INVEN = 10 },
 	autolevel = "warrior",
 	ai = "dumb_talented_simple", ai_state = { talent_in=1, },
@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_MOLD",
 	name = "grey mold", color=colors.SLATE,
-	desc = "A strange grey growth on the dungeon floor.",
+	kr_name = "회색 곰팡이",
+	desc = "던전의 바닥에서 자라난, 기묘한 회색의 존재입니다.",
 	level_range = {1, 25}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(5,9),
@@ -58,7 +59,8 @@ newEntity{ base = "BASE_NPC_MOLD",
 
 newEntity{ base = "BASE_NPC_MOLD",
 	name = "brown mold", color=colors.UMBER,
-	desc = "A strange brown growth on the dungeon floor.",
+	kr_name = "갈색 곰팡이",
+	desc = "던전의 바닥에서 자라난, 기묘한 갈색의 존재입니다.",
 	level_range = {2, 25}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(10,18),
@@ -71,7 +73,8 @@ newEntity{ base = "BASE_NPC_MOLD",
 
 newEntity{ base = "BASE_NPC_MOLD",
 	name = "shining mold", color=colors.YELLOW,
-	desc = "A strange luminescent growth on the dungeon floor.",
+	kr_name = "빛나는 곰팡이",
+	desc = "던전의 바닥에서 자라난, 기묘하게 빛나는 존재입니다",
 	level_range = {3, 25}, exp_worth = 1,
 	rarity = 7,
 	max_life = resolvers.rngavg(5,9),
@@ -86,7 +89,8 @@ newEntity{ base = "BASE_NPC_MOLD",
 
 newEntity{ base = "BASE_NPC_MOLD",
 	name = "green mold", color=colors.GREEN,
-	desc = "A strange sickly green growth on the dungeon floor.",
+	kr_name = "녹색 곰팡이",
+	desc = "던전의 바닥에서 자라난, 기묘한 녹색의 존재입니다.",
 	level_range = {5, 25}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(10,18),
@@ -102,8 +106,9 @@ newEntity{ base = "BASE_NPC_MOLD",
 	unique = true,
 	type = "undead", subtype = "molds",
 	name = "Z'quikzshl the skeletal mold", image = "npc/immovable_molds_skeletal_mold.png",
+	kr_name = "해골 곰팡이, 즈'퀵즈쉴",
 	display = 'm', color=colors.PURPLE,
-	desc = [[Steeped in fungal malevolence, this mold refused to die.  How a mold becomes a skeleton, though, is beyond you.  Are those its own bones, or the bones of hapless adventurers?]],
+	desc = [[악의에 물든 이 곰팡이는, 놀랍게도 죽음을 거부하였습니다. 곰팡이가 어떻게 해골이 될 수 있었는지는 알 수 없지만, 이 곰팡이는 자신만의 뼈대를 가지고 있습니다. 어떤 불행한 모험가의 뼈를 사용한 것일지도?]],
 
 	level_range = {10, nil}, exp_worth = 5,
 	rarity = 50,
