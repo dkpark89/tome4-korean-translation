@@ -94,6 +94,7 @@ uberTalent{
 		return {type="ball", range=self:getTalentRange(t), selffire=false, radius=self:getTalentRadius(t)}
 	end,
 	is_melee = true,
+	requires_target = true,
 	action = function(self, t)
 		local tg = self:getTalentTarget(t)
 		self:project(tg, self.x, self.y, function(px, py, tg, self)
