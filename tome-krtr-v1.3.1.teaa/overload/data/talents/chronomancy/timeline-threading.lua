@@ -125,7 +125,7 @@ newTalent{
 	require = chrono_req_high2,
 	points = 5,
 	cooldown = 24,
-	paradox = function(self, t) return getParadoxCost(self, t, 48) end,
+	paradox = function(self, t) return getParadoxCost(self, t, 24) end,
 	tactical = { ATTACK = 2, DISABLE = 2 },
 	remove_on_clone = true,
 	getDuration = function(self, t) return getExtensionModifier(self, t, math.floor(self:combatTalentScale(t, 3, 8))) end,
