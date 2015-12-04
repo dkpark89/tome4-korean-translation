@@ -114,6 +114,7 @@ newTalent{
 			return radius
 		end,
 	do_hurricane = function(self, t, target)
+		if target.dead then return end
 		if not rng.percent(t.getChance(self, t)) then return end
 
 		target:setEffect(target.EFF_HURRICANE, 10, {src=self, dam=t.getDamage(self, t), radius=t.getRadius(self, t) })
