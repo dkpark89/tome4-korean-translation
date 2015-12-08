@@ -166,6 +166,12 @@ newTalent{
 			eff.twisted = twist
 			local anom = self:getTalentFromId(eff.talent)
 			
+			-- make it real obvious for the player
+			game.logPlayer(self, "#STEEL_BLUE#Casts %s.", anom.name)
+			if self == game.player then
+				game.bignews:saySimple(180, "#STEEL_BLUE#Targeting %s", anom.name)
+			end
+	
 			-- Call the anomoly action function directly
 			anom.action(self, anom)
 			self:incParadox(-eff.paradox)
@@ -176,7 +182,8 @@ newTalent{
 	setEffect = function(self, t, talent, paradox)
 		game.logPlayer(self, "#STEEL_BLUE#You take control of %s.", self:getTalentFromId(talent).name or nil)
 		self:setEffect(self.EFF_TWIST_FATE, t.getDuration(self, t), {talent=talent, paradox=paradox})
-		
+	
+		game:playSoundNear(self, "talents/echo")
 	end,
 	action = function(self, t)
 		t.doTwistFate(self, t, true)

@@ -916,7 +916,8 @@ newTalent{
 				faction = self.faction,
 				summoner = self, summoner_gain_exp=true,
 				summon_time = 6,
-				ai_target = {actor=target}
+				ai_target = {actor=target},
+				no_drops = 1,
 			}
 			setupSummon(self, m, x, y)
 		end
@@ -1019,7 +1020,7 @@ newTalent{
 		주문내성이 %d 만큼 증가하고 주입물과 룬의 적용되는 능력치를 %d%% 만큼 향상시킵니다.
 		기술 레벨이 5일때 당신의 신체는 강해져 양손무기를 주장비로 착용하는 도중에도 보조장비를 착용할 수 있게 됩니다.
 		이런식으로 양손무기를 사용할때 물리력, 주문력 그리고 정신력에 20%% 의 불이익을 받게되며, 이 수치는 당신의 크기가 #{italic}#커질수록#{normal}#; 5%% 씩 감소합니다. 
-		이 과정에서 당신의 보조장비로 주는 모든 추가 피해는 50%% 감소합니다.]]):
+		이 과정에서 당신의 무기를 통한 모든 추가 피해는 50%% 감소합니다.]]):
 		
 		format(t.getSave(self, t), t.getMult(self, t) * 100)
 	end,

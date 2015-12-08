@@ -79,8 +79,8 @@ newTalent{
 		if not weapon then return nil end
 
 		local tg = self:getTalentTarget(t)
-		local x, y = self:getTarget(tg)
-		if not self:canProject(tg, x, y) then return nil end
+		local hit, x, y = self:canProject(tg, self:getTarget(tg))
+		if not hit or not x or not y then return nil end
 		local dir = util.getDir(x, y, self.x, self.y) or 6
 		local moved = 0.5
 		if self:canMove(x, y) then

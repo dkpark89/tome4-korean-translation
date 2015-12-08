@@ -16,6 +16,22 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+if game.zone.from_farportal then
+
+newChat{ id="welcome",
+	text = [[#LIGHT_GREEN#*사람 형체를 하고 있지만 '아무 것도 아닌 것' 으로 이루어진 존재가, 당신을 쳐다보고 있습니다.*#WHITE#
+나는 에이돌론이고 당신은 여기에 와서는 안되네!
+이 차원에 어떻게 왔는지는 모르지만, #{bold}#다시는 오지말게!
+당장 꺼져!
+#{normal}#
+.]],
+	answers = {
+		{"...", action=function() game.level.data.eidolon_exit(false) end},
+	}
+}
+
+
+else
 
 newChat{ id="welcome",
 	text = [[#LIGHT_GREEN#*사람 형체를 하고 있지만 '아무 것도 아닌 것' 으로 이루어진 존재가, 당신을 쳐다보고 있습니다.*#WHITE#
@@ -63,5 +79,7 @@ newChat{ id="die",
 		{"역시, 살아가는 것이 가치가 있는 일이겠죠!"},
 	}
 }
+
+end
 
 return "welcome"

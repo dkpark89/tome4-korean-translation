@@ -318,11 +318,13 @@ return {
 				end
 			end
 			game.party:setPlayer(game:getPlayer(true))
+			if self.success then
+				world:gainAchievement("ALL_DREAMS", self.summoner, dream)
+			end
 			if self.success and danger then
 				require("engine.ui.Dialog"):simpleLongPopup("Deep slumber...", msg, 600)
 				game.logPlayer(game.player, msg:gsub("\n", " "))
 				game.player:setEffect(game.player.EFF_VICTORY_RUSH_ZIGUR, 4, {})
-				world:gainAchievement("ALL_DREAMS", self.summoner, dream)
 			elseif danger then
 				local msg = [[꿈에서 당신이 죽음과 동시에 잠에서 갑자기 깨어났습니다.
 				유독성 연기가 당신의 몸을 침범합니다!]]

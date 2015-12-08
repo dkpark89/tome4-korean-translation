@@ -94,7 +94,7 @@ local function shieldOnDamage(self, t, elementTest, transcendId, dam)
 	local absorbable_dam = getEfficiency(self, t) * total_dam
 	local strength = getShieldStrength(self, t)
 	if self:hasEffect(transcendId) then
-		absorbable = total_dam
+		absorbable_dam = total_dam
 		strength = strength * 2
 	end
 	local guaranteed_dam = total_dam - absorbable_dam

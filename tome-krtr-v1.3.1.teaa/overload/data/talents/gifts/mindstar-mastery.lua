@@ -64,7 +64,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Channel your mental power through your wielded mindstars, generating psionic blades sprouting from the mindstars.
+		return ([[Channel your mental power through your wielded mindstars, generating psionic blades.
 		Mindstar psiblades have their damage modifiers (how much damage they gain from stats) multiplied by %0.2f, their armour penetration by %0.2f and mindpower, willpower and cunning by %0.2f.
 		Also increases Physical Power by %d and increases weapon damage by %d%% when using mindstars.]]):
 		format(t.getStatmult(self, t), t.getAPRmult(self, t), t.getPowermult(self, t), damage, 100 * inc) --I5
@@ -170,7 +170,7 @@ newTalent{
 		while hit do -- breakable if
 			local tg = util.getval(t.second_target, self, t)
 			local x, y, target = self:getTarget(tg)
-			if not target or not self:canProject(tg, x, y) then return nil end
+			if not target then target = self end
 
 			target:attr("allow_on_heal", 1)
 			target:heal(dam, t)

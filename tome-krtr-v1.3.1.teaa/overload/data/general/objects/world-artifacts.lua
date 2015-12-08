@@ -7698,7 +7698,7 @@ newEntity{ base = "BASE_LEATHER_BELT",
 	unided_name = "coiled metal belt",
 	desc = [[A fine mesh of metal threads held together by a sturdy chain. Sparks dance across it.]],
 	special_desc = function(self) return [[Taking lightning damage or making critical hits builds 2 energy charges, which give you +5% lightning damage and +1 to all stats.
-The charges decay at a rate of 1 per turn.]] end,
+The charges decay at a rate of 1 per turn.  Max 10 charges.]] end,
 	color = colors.WHITE,
 	level_range = {40, 50},
 	rarity = 400,

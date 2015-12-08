@@ -131,6 +131,15 @@ newEntity{
 			game.state:seenSpecialFarportal("caldizar-space-fortress")
 			return true
 		end
+		-- Eidolon plane, for RL characters only
+		if rng.percent(10) and not game.state:hasSeenSpecialFarportal("eidolon") and not who.easy_mode_lifes and not who.infinite_lifes then
+			local zone = game.party:goToEidolon()
+			zone.from_farportal = true
+			q:exploratory_energy()
+			game.log("#VIOLET#당신은 소용돌이 치는 관문으로 들어섰고, 눈 깜짝할 사이에 이상한 빈 공간에 발을 들였습니다...")
+			game.state:seenSpecialFarportal("eidolon")
+			return true
+		end
 	end,
 
 	on_move = function(self, x, y, who)

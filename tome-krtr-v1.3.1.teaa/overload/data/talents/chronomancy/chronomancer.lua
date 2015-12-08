@@ -140,6 +140,8 @@ load("/data/talents/chronomancy/threaded-combat.lua")
 load("/data/talents/chronomancy/timeline-threading.lua")
 load("/data/talents/chronomancy/timetravel.lua")
 
+
+
 -- Loads many functions and misc. talents
 load("/data/talents/chronomancy/other.lua")
 
@@ -199,7 +201,7 @@ getExtensionModifier = function(self, t, value)
 	-- extension modifier rounds up
 	value = math.ceil(value * mod)
 	
-	return value
+	return math.max(1, value)
 end
 
 -- Tunes paradox
@@ -249,7 +251,7 @@ doWardenWeaponSwap = function(self, t, type, silent)
 	end
 	
 	if swap == true then
-		local old_inv_access = self.no_inventory_access				-- Make sure clones can swap
+		local old_inv_access = self.no_inventory_access -- Make sure clones can swap
 		self.no_inventory_access = nil
 		self:attr("no_sound", 1)
 		self:quickSwitchWeapons(true, "warden", silent)
@@ -271,48 +273,82 @@ checkWardenFocus = function(self)
 end
 
 -- Spell functions
-makeParadoxClone = function(self, target, duration)
 
-	-- Don't clone particles or inventory on short lived clones
-	local restore = false
-	local old_particles, old_inven
+--- Creates a temporal clone
+-- @param[type=table] self  Actor doing the cloning. Not currently used.
+-- @param[type=table] target  Actor to be cloned.
+-- @param[type=int] duration  How many turns the clone lasts. Zero is allowed.
+-- @param[type=table] alt_nodes  Optional, these nodes will use a specified key/value on the clone instead of copying from the target.
+-- @  Table keys should be the nodes to skip/replace (field name or object reference).
+-- @  Each key should be set to false (to skip assignment entirely) or a table with up to two nodes:
+-- @    k = a name/ref to substitute for instances of this field,
+-- @      or nil to use the default name/ref as keys on the clone
+-- @    v = the value to assign for instances of this node,
+-- @      or nil to use the default assignent value
+-- @return a reference to the clone on success, or nil on failure
+makeParadoxClone = function(self, target, duration, alt_nodes)
+	if not target or not duration then return nil end
+	if duration < 0 then duration = 0 end
+
+	-- Don't copy certain fields from the target
+	alt_nodes = alt_nodes or {}
+	if target:getInven("INVEN") then alt_nodes[target:getInven("INVEN")] = false end -- Skip main inventory; equipped items are still copied
+	alt_nodes.quests = false
+	alt_nodes.random_escort_levels = false
+	alt_nodes.achievements = false
+	alt_nodes.achievement_data = false
+	alt_nodes.last_learnt_talents = false
+	alt_nodes.died = false
+	alt_nodes.died_times = false
+	alt_nodes.killedBy = false
+	alt_nodes.all_kills = false
+	alt_nodes.all_kills_kind = false
+	alt_nodes.running_fov = false
+	alt_nodes.running_prev = false
+	alt_nodes._mo = false
+	alt_nodes._last_mo = false
+	alt_nodes.add_mos = false
+	alt_nodes.add_displays = false
+	alt_nodes.fov = false
+	alt_nodes.distance_map = false
+
+	-- Don't copy some additional fields for short-lived clones
 	if duration == 0 then
-		old_particles = target.__particles 
-		old_inventory = target.inven[target.INVEN_INVEN]
-		target.__particles = {}
-		target.inven[target.INVEN_INVEN] = nil
-		restore = true	
+		alt_nodes.__particles = {v = {} }
+		alt_nodes.hotkey = false
+		alt_nodes.talents_auto = {v = {} }
+		alt_nodes.talents_confirm_use = false
 	end
 
-	-- Clone them
-	local m = target:cloneFull{
-		no_drops = true,
-		keep_inven_on_death = false,
-		faction = target.faction,
-		summoner = target, summoner_gain_exp=true,
-		summon_time = duration,
-		ai_target = {actor=nil},
-		ai = "summoned", ai_real = "tactical",
-		name = ""..target.name.."'s temporal clone",
-		desc = [[A creature from another timeline.]],
-	}
+	-- Clone the target
+	local m = target:cloneCustom(alt_nodes)
 	
-	-- restore values if needed
-	if restore then
-		target.__particles = old_particles
-		target.inven[target.INVEN_INVEN] = old_inventory
-	end
+	-- Basic setup
+	m.no_drops = true
+	m.keep_inven_on_death = false
+	m.faction = target.faction
+	m.summoner = target
+	m.summoner_gain_exp = true
+	m.summon_time = duration
+	m.ai_target = {actor = nil}
+	m.ai = "summoned"
+	m.ai_real = "tactical"
+	m.name = "" .. target.name .. "'s temporal clone"
+	m.desc = [[A creature from another timeline.]]
 	
-	-- remove some values
-	m:removeAllMOs()
+	-- Remove some values
+	--m:removeAllMOs()
 	m.make_escort = nil
+	m.escort_quest = nil
 	m.on_added_to_level = nil
 	m.on_added = nil
+	m.game_ender = nil
 
 	mod.class.NPC.castAs(m)
+	engine.interface.ActorFOV.init(m)
 	engine.interface.ActorAI.init(m, m)
 
-	-- change some values
+	-- Change some values
 	m.exp_worth = 0
 	m.energy.value = 0
 	m.player = nil
@@ -329,9 +365,10 @@ makeParadoxClone = function(self, target, duration)
 	m.seen_by = nil
 	m.can_talk = nil
 	m.clone_on_hit = nil
-	m.escort_quest = nil
 	m.unused_talents = 0
 	m.unused_generics = 0
+	m.unused_talents_types = 0
+	m.unused_prodigies = 0
 	if m.talents.T_SUMMON then m.talents.T_SUMMON = nil end
 	if m.talents.T_MULTIPLY then m.talents.T_MULTIPLY = nil end
 	
@@ -350,10 +387,10 @@ makeParadoxClone = function(self, target, duration)
 		m:unlearnTalentFull(t.id)
 	end
 
-	-- remove timed effects
+	-- Remove timed effects
 	m:removeTimedEffectsOnClone()
 	
-	-- reset folds for our Warden clones
+	-- Reset folds for Temporal Warden clones
 	for tid, cd in pairs(m.talents_cd) do
 		local t = m:getTalentFromId(tid)
 		if t.type[1]:find("^chronomancy/manifold") and m:knowTalent(tid) then
@@ -361,9 +398,10 @@ makeParadoxClone = function(self, target, duration)
 		end
 	end
 	
-	-- And finally, a bit of sanity in case anyone decides they should blow up the world..
+	-- A bit of sanity in case anyone decides they should blow up the world..
 	if m.preferred_paradox and m.preferred_paradox > 600 then m.preferred_paradox = 600 end
 
+	-- Prevent respawning
 	m.self_resurrect = nil
 	
 	return m

@@ -3401,7 +3401,7 @@ newEffect{
 	status = "beneficial",
 	parameters = {  },
 	on_merge = function(self, old_eff, new_eff)
-		old_eff.dur = old_eff.dur + new_eff.dur
+		old_eff.dur = math.min(old_eff.dur + new_eff.dur, 10)
 		return old_eff
 	end,
 	activate = function(self, eff)

@@ -83,12 +83,21 @@ newChat{ id="testko",
 	}
 }
 
+local ogretext = ""
+if player.descriptor and player.descriptor.subrace == "Ogre" then
+	ogretext = "\n하지만 걱정하지말게, 오우거 - 우리는 당신의 더러운 룬들을 새로 발견된 주입물의 혼합으로 바꿀 수 있지. 당신의 룬 의존성도 물론 없애주지. 이 과정은 기분이... 나쁘고, 당신의 수명을 극적으로 줄이겠지만, 당신은 마법의 중독으로부터 마침내 벗어날 수 있게 되네! \n"
+	if player.descriptor.subclass == "Oozemancer" then
+		ogretext = ogretext.."우리는 당신이 직접 룬을 뜯어고쳐 만든 주입물들을 보강 해주지 - 새로운 약물은 옛날 약물보다 발전되어서, 옛날 약물이 당신에게서 빼앗은 5년이라는 수명을 돌려줄 수 있지.\n"
+	end
+end
+
+
 newChat{ id="testok",
-	text = [[잘 알겠네. 시작하기 전에, 그 어떤 마법도 자네를 도울 수 없도록 처리를 좀 해둬야겠네.
+	text = ([[잘 알겠네. 시작하기 전에, 그 어떤 마법도 자네를 도울 수 없도록 처리를 좀 해둬야겠네.
 - 당신은 이제부터 마법 또는 마법적인 도구들을 사용할 수 없습니다.
 - 마법의 힘이 주입된 장비들은 모두 장비해제가 됩니다.
 
-준비는 끝났는가? 아니면 준비할 시간이 조금 더 필요한가?]],
+준비는 끝났는가? 아니면 준비할 시간이 조금 더 필요한가?]]):format(ogretext),
 	answers = {
 		{"준비는 끝났습니다.", jump="test", action=remove_magic},
 		{"준비할 시간이 조금 더 필요합니다."},

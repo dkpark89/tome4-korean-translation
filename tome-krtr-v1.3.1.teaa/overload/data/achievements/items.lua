@@ -20,12 +20,15 @@
 newAchievement{
 	name = "Deus Ex Machina",
 	kr_name = "데우스 엑스 마키나",
-	desc = [[끊임없는 생명력의 물약과 생명의 피 발견.]],
+	desc = [[생명의 피와 4개의 특수한 각인(근원의 주입물, 야생의 주입물, 반사의 룬, 균열의 룬 발견.]],
 	mode = "player",
 	can_gain = function(self, who, obj)
 		if obj:getName{force_id=true} == "Blood of Life" then self.blood = true end
-		if obj:getName{force_id=true} == "Ever-Refilling Potion of Healing" then self.life = true end
-		return self.blood and self.life
+		if obj:getName{force_id=true}:toString():prefix("Primal Infusion") then self.primal = true end
+		if obj:getName{force_id=true}:toString():prefix("Infusion of Wild Growth") then self.wild = true end
+		if obj:getName{force_id=true}:toString():prefix("Rune of Reflection") then self.reflection = true end
+		if obj:getName{force_id=true}:toString():prefix("Rune of the Rift") then self.rift = true end
+		return self.blood and self.primal and self.wild and self.reflection and self.rift
 	end
 }
 
