@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ newEntity{
 	define_as = "UP_WILDERNESS",
 	type = "floor", subtype = "floor",
 	name = "exit to the worldmap", image = "terrain/marble_floor.png", add_mos = {{image="terrain/stair_up_wild.png"}},
+	kr_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -35,6 +36,7 @@ newEntity{
 	define_as = "UP", image = "terrain/marble_floor.png", add_mos = {{image="terrain/stair_up.png"}},
 	type = "floor", subtype = "floor",
 	name = "previous level",
+	kr_name = "이전 층",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -45,6 +47,7 @@ newEntity{
 	define_as = "DOWN", image = "terrain/marble_floor.png", add_mos = {{image="terrain/stair_down.png"}},
 	type = "floor", subtype = "floor",
 	name = "next level",
+	kr_name = "다음 층",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -58,6 +61,7 @@ newEntity{
 	define_as = "FLAT_UP_WILDERNESS",
 	type = "floor", subtype = "floor",
 	name = "exit to the worldmap", image = "terrain/marble_floor.png", add_mos = {{image="terrain/worldmap.png"}},
+	kr_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -69,6 +73,7 @@ newEntity{
 	define_as = "FLAT_UP8",
 	type = "floor", subtype = "floor",
 	name = "way to the previous level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_8.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -78,6 +83,7 @@ newEntity{
 	define_as = "FLAT_UP2",
 	type = "floor", subtype = "floor",
 	name = "way to the previous level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_2.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -87,6 +93,7 @@ newEntity{
 	define_as = "FLAT_UP4",
 	type = "floor", subtype = "floor",
 	name = "way to the previous level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_4.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -96,6 +103,7 @@ newEntity{
 	define_as = "FLAT_UP6",
 	type = "floor", subtype = "floor",
 	name = "way to the previous level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_6.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -106,6 +114,7 @@ newEntity{
 	define_as = "FLAT_DOWN8",
 	type = "floor", subtype = "floor",
 	name = "way to the next level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_8.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -115,6 +124,7 @@ newEntity{
 	define_as = "FLAT_DOWN2",
 	type = "floor", subtype = "floor",
 	name = "way to the next level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_2.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -124,6 +134,7 @@ newEntity{
 	define_as = "FLAT_DOWN4",
 	type = "floor", subtype = "floor",
 	name = "way to the next level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_4.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -133,6 +144,7 @@ newEntity{
 	define_as = "FLAT_DOWN6",
 	type = "floor", subtype = "floor",
 	name = "way to the next level", image = "terrain/marble_floor.png", add_mos = {{image="terrain/way_next_6.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -146,6 +158,7 @@ newEntity{
 	define_as = "FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/marble_floor.png",
+	kr_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 	grow = "WALL",
 }
@@ -157,6 +170,7 @@ newEntity{
 	define_as = "WALL",
 	type = "wall", subtype = "floor",
 	name = "wall", image = "terrain/granite_wall1.png",
+	kr_name = "벽",
 	display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 	z = 3,
 	nice_tiler = { method="wall3d", inner={"WALL", 100, 1, 5}, north={"WALL_NORTH", 100, 1, 5}, south={"WALL_SOUTH", 10, 1, 17}, north_south="WALL_NORTH_SOUTH", small_pillar="WALL_SMALL_PILLAR", pillar_2="WALL_PILLAR_2", pillar_8={"WALL_PILLAR_8", 100, 1, 5}, pillar_4="WALL_PILLAR_4", pillar_6="WALL_PILLAR_6" },
@@ -187,6 +201,7 @@ newEntity{
 	define_as = "HARDWALL",
 	type = "wall", subtype = "floor",
 	name = "wall", image = "terrain/granite_wall1.png",
+	kr_name = "벽",
 	display = '#', color_r=255, color_g=255, color_b=255, back_color=colors.GREY,
 	z = 3,
 	nice_tiler = { method="wall3d", inner={"HARDWALL", 100, 1, 5}, north={"HARDWALL_NORTH", 100, 1, 5}, south={"HARDWALL_SOUTH", 10, 1, 17}, north_south="HARDWALL_NORTH_SOUTH", small_pillar="HARDWALL_SMALL_PILLAR", pillar_2="HARDWALL_PILLAR_2", pillar_8={"HARDWALL_PILLAR_8", 100, 1, 5}, pillar_4="HARDWALL_PILLAR_4", pillar_6="HARDWALL_PILLAR_6" },
@@ -218,6 +233,7 @@ newEntity{
 	define_as = "DOOR",
 	type = "wall", subtype = "floor",
 	name = "door", image = "terrain/granite_door1.png",
+	kr_name = "문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="DOOR_VERT", west_east="DOOR_HORIZ" },
 	notice = true,
@@ -231,6 +247,7 @@ newEntity{
 	define_as = "DOOR_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open door", image="terrain/granite_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	always_remember = true,
 	is_door = true,
@@ -245,6 +262,7 @@ newEntity{
 	define_as = "DOOR_VAULT",
 	type = "wall", subtype = "floor",
 	name = "sealed door", image = "terrain/granite_door1.png",
+	kr_name = "봉인된 문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="DOOR_VAULT_VERT", west_east="DOOR_VAULT_HORIZ" },
 	notice = true,
@@ -253,7 +271,7 @@ newEntity{
 	block_sense = true,
 	block_esp = true,
 	is_door = true,
-	door_player_check = "This door seems to have been sealed off. You think you can open it.",
+	door_player_check = "봉인이 해제되어, 문을 열 수 있을 것 같습니다.",
 	door_opened = "DOOR_OPEN",
 }
 newEntity{ base = "DOOR_VAULT", define_as = "DOOR_VAULT_HORIZ", z=3, image = "terrain/granite_door1.png", add_displays = {class.new{image="terrain/granite_wall3.png", z=18, display_y=-1}}, door_opened = "DOOR_HORIZ_OPEN"}
@@ -266,6 +284,7 @@ newEntity{
 	define_as = "OLD_FLOOR",
 	type = "floor", subtype = "floor",
 	name = "floor", image = "terrain/oldstone_floor.png",
+	kr_name = "바닥",
 	display = '.', color_r=255, color_g=255, color_b=255, back_color=colors.DARK_GREY,
 --	nice_tiler = { method="replace", base={"OLD_FLOOR", 100, 1, 4}},
 }
@@ -275,6 +294,7 @@ newEntity{
 	define_as = "OLD_WALL",
 	type = "wall", subtype = "floor",
 	name = "wall", image = "terrain/granite_wall_lichen.png", back_color=colors.GREY,
+	kr_name = "벽",
 	display = '#', color_r=255, color_g=255, color_b=255,
 	nice_tiler = { method="wall3d", inner={"OLD_WALL", 100, 1, 5}, north={"OLD_WALL_NORTH", 100, 1, 5}, south={"OLD_WALL_SOUTH", 70, 1, 3}, north_south={"OLD_WALL_NORTH_SOUTH", 70, 1, 3}, small_pillar="OLD_WALL_SMALL_PILLAR", pillar_2="OLD_WALL_PILLAR_2", pillar_8={"OLD_WALL_PILLAR_8", 100, 1, 5}, pillar_4="OLD_WALL_PILLAR_4", pillar_6="OLD_WALL_PILLAR_6" },
 	always_remember = true,
@@ -303,6 +323,7 @@ newEntity{
 	define_as = "GLASSWALL",
 	type = "wall", subtype = "floor",
 	name = "glass wall", image = "terrain/glasswall.png",
+	kr_name = "유리벽",
 	display = '#', color=colors.AQUAMARINE, back_color=colors.GREY,
 	z = 3,
 	nice_tiler = { method="wall3d", inner="GLASSWALLF", north="GLASSWALL_NORTH", south="GLASSWALL_SOUTH", north_south="GLASSWALL_NORTH_SOUTH", small_pillar="GLASSWALL_SMALL_PILLAR", pillar_2="GLASSWALL_PILLAR_2", pillar_8="GLASSWALL_PILLAR_8", pillar_4="GLASSWALL_PILLAR_4" },
@@ -329,6 +350,7 @@ newEntity{
 	define_as = "GLASSDOOR",
 	type = "wall", subtype = "floor",
 	name = "glass door", image = "terrain/glassdoor.png",
+	kr_name = "유리문",
 	display = '+', color=colors.AQUAMARINE, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="GLASSDOOR_VERT", west_east="GLASSDOOR_HORIZ" },
 	notice = true,
@@ -341,6 +363,7 @@ newEntity{
 	define_as = "GLASSDOOR_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open glass door", image="terrain/glassdoor.png",
+	kr_name = "열린 유리문",
 	display = "'", color=colors.AQUAMARINE, back_color=colors.DARK_GREY,
 	always_remember = true,
 	is_door = true,
@@ -359,6 +382,7 @@ newEntity{
 	define_as = "GENERIC_LEVER_DOOR",
 	type = "wall", subtype = "floor",
 	name = "sealed door", image = "terrain/granite_door1.png",
+	kr_name = "봉인된 문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="GENERIC_LEVER_DOOR_VERT", west_east="GENERIC_LEVER_DOOR_HORIZ" },
 	notice = true,
@@ -367,7 +391,7 @@ newEntity{
 	block_sense = true,
 	block_esp = true,
 	force_clone = true,
-	door_player_stop = "This door seems to have been sealed off. You need to find a way to open it.",
+	door_player_stop = "완전히 봉인된 문은 아니지만, 문이 열리지 않습니다. 문을 열 수 있는 다른 방법을 찾아봐야 할 것 같습니다.",
 	is_door = true,
 	door_opened = "GENERIC_LEVER_DOOR_OPEN",
 	on_lever_change = function(self, x, y, who, val, oldval)
@@ -375,7 +399,7 @@ newEntity{
 		local trigger = game.level.map.attrs(x, y, "lever_action")
 		if toggle or (val > oldval and val >= trigger) then
 			game.level.map(x, y, engine.Map.TERRAIN, game.zone.grid_list[self.door_opened])
-			game.log("#VIOLET#You hear a door opening.")
+			game.log("#VIOLET#문이 열리는 소리가 들립니다.")
 			return true
 		end
 	end,
@@ -387,18 +411,19 @@ newEntity{
 	define_as = "GENERIC_LEVER_DOOR_OPEN",
 	type = "wall", subtype = "floor",
 	name = "open door", image="terrain/granite_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	nice_tiler = { method="door3d", north_south="GENERIC_LEVER_DOOR_OPEN_VERT", west_east="GENERIC_LEVER_DOOR_HORIZ_OPEN" },
 	always_remember = true,
 	is_door = true,
 	door_closed = "GENERIC_LEVER_DOOR",
-	door_player_stop = "This door seems to have been sealed off. You need to find a way to close it.",
+	door_player_stop = "완전히 봉인된 문은 아니지만, 문이 닫히지 않습니다. 문을 닫을 수 있는 다른 방법을 찾아봐야 할 것 같습니다.",
 	on_lever_change = function(self, x, y, who, val, oldval)
 		local toggle = game.level.map.attrs(x, y, "lever_toggle")
 		local trigger = game.level.map.attrs(x, y, "lever_action")
 		if toggle or (val < oldval and val < trigger) then
 			game.level.map(x, y, engine.Map.TERRAIN, game.zone.grid_list[self.door_closed])
-			game.log("#VIOLET#You hear a door closing.")
+			game.log("#VIOLET#문이 닫히는 소리가 들립니다.")
 			return true
 		end
 	end,
@@ -410,6 +435,7 @@ newEntity{
 	define_as = "GENERIC_LEVER",
 	type = "lever", subtype = "floor",
 	name = "huge lever", image = "terrain/marble_floor.png", add_mos = {{image="terrain/lever1_state1.png"}},
+	kr_name = "커다란 레버",
 	display = '&', color=colors.UMBER, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -433,7 +459,7 @@ newEntity{
 			self:removeAllMOs()
 			game.level.map:updateMap(x, y)
 			self.lever = not self.lever
-			game.log("#VIOLET#You hear a mechanism clicking.")
+			game.log("#VIOLET#기계가 작동하는 소리가 들립니다.")
 
 			local apply = function(i, j)
 				local akind = game.level.map.attrs(i, j, "lever_action_kind")

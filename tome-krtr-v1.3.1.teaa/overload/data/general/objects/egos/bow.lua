@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@ load("/data/general/objects/egos/ranged.lua")
 newEntity{
 	power_source = {technique=true},
 	name = " of dexterity (#STATBONUS#)", suffix=true, instant_resolve=true,
+	kr_name = "민첩(#STATBONUS#)의 ",
 	keywords = {dex=true},
 	level_range = {20, 50},
 	rarity = 7,
@@ -40,6 +41,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "thaloren ", prefix=true, instant_resolve=true,
+	kr_name = "탈로레 ",
 	keywords = {thaloren=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -58,6 +60,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "keeper's ", prefix=true, instant_resolve=true,
+	kr_name ="관리자의 ",
 	keywords = {keepers=true},
 	level_range = {30, 50},
 	greater_ego = 1,

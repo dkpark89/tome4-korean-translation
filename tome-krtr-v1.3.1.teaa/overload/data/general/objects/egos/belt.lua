@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
 local DamageType = require "engine.DamageType"
@@ -26,6 +28,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {arcane=true},
 	name = " of carrying", suffix=true, instant_resolve=true,
+	kr_name = "짐꾼의 ",
 	keywords = {carrying=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -39,6 +42,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "cleansing ", prefix=true, instant_resolve=true,
+	kr_name = "깨끗한 ",
 	keywords = {cleansing=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -54,6 +58,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "insulating ", prefix=true, instant_resolve=true,
+	kr_name = "단열 처리된 ",
 	keywords = {insulate=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -69,6 +74,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "grounding ", prefix=true, instant_resolve=true,
+	kr_name = "접지된 ",
 	keywords = {grounding=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -84,6 +90,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "nightruned ", prefix=true, instant_resolve=true,
+	kr_name = "밤의 룬을 새긴 ",
 	keywords = {nightruned=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -99,6 +106,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of dampening", suffix=true, instant_resolve=true,
+	kr_name = "마력 약화의 ",
 	keywords = {dampening=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -117,6 +125,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "blurring ", prefix=true, instant_resolve=true,
+	kr_name = "희미해지는 ",
 	keywords = {blurring=true},
 	level_range = {1, 50},
 	rarity = 9,
@@ -130,6 +139,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "reinforced ", prefix=true, instant_resolve=true,
+	kr_name = "보강된 ",
 	keywords = {reinforced=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -145,6 +155,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of transcendence", suffix=true, instant_resolve=true,
+	kr_name = "초월의 ",
 	keywords = {transcend=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -158,6 +169,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of the mystic", suffix=true, instant_resolve=true,
+	kr_name = "신비의 ",
 	keywords = {mystic=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -171,6 +183,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the giants", suffix=true, instant_resolve=true,
+	kr_name = "거인의 ",
 	keywords = {giant=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -185,6 +198,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "monstrous ", prefix=true, instant_resolve=true,
+	kr_name = "괴물같은 ",
 	keywords = {monstrous=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -204,6 +218,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "balancing ", prefix=true, instant_resolve=true,
+	kr_name = "균형적인 ",
 	keywords = {balancing=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -222,6 +237,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of recklessness", suffix=true, instant_resolve=true,
+	kr_name = "무모함의 ",
 	keywords = {reckless=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -237,6 +253,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of burglary", suffix=true, instant_resolve=true,
+	kr_name = "강도의 ",
 	keywords = {burglary=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -258,6 +275,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "ravager's ", prefix=true, instant_resolve=true,
+	kr_name = "파괴자 ",
 	keywords = {ravager=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -276,6 +294,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "skylord's ", prefix=true, instant_resolve=true,
+	kr_name = "천공 군주 ",
 	keywords = {skylord=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -297,6 +316,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "spiritwalker's ", prefix=true, instant_resolve=true,
+	kr_name = "영혼 인도자 ",
 	keywords = {spiritwalk=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -314,6 +334,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of magery", suffix=true, instant_resolve=true,
+	kr_name = "마법 사용자의 ",
 	keywords = {magery=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -331,6 +352,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of unlife", suffix=true, instant_resolve=true,
+	kr_name = "언데드의 ",
 	keywords = {unlife=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -348,6 +370,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of the vagrant", suffix=true, instant_resolve=true,
+	kr_name = "부랑자의 ",
 	keywords = {vagrant=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -365,6 +388,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of shielding", suffix=true, instant_resolve=true,
+	kr_name = "방어의 ",
 	keywords = {shielding=true},
 	level_range = {20, 50},
 	rarity = 10,
@@ -375,10 +399,10 @@ newEntity{
 	
 	charm_power = resolvers.mbonus_material(80, 30),
 	charm_power_def = {add=80, max=300, floor=true},
-	resolvers.charm("create a temporary shield that absorbs %d damage", 30, function(self, who)
+	resolvers.charm("피해를 %d 만큼 흡수하는 일시적인 보호막 생성", 30, function(self, who)
 		local power = self:getCharmPower(who)
 		who:setEffect(who.EFF_DAMAGE_SHIELD, 10, {power=power})
-		game.logSeen(who, "%s uses %s!", who.name:capitalize(), self:getName{no_count=true})
+		game.logSeen(who, "%s %s 사용합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName{no_count=true}:addJosa("를"))
 		return {id=true, used=true}
 	end),
 }
@@ -386,6 +410,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of life", suffix=true, instant_resolve=true,
+	kr_name = "생명의 ",
 	keywords = {life=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -399,6 +424,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resilience", suffix=true, instant_resolve=true,
+	kr_name = "활력의 ",
 	keywords = {resilience=true},
 	level_range = {10, 50},
 	rarity = 6,
@@ -411,6 +437,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of valiance", suffix=true, instant_resolve=true,
+	kr_name = "용기의 ",
 	keywords = {valiance=true},
 	level_range = {25, 50},
 	greater_ego = 1,
@@ -428,6 +455,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of containment", suffix=true, instant_resolve=true,
+	kr_name = "억제의 ",
 	keywords = {containment=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -450,6 +478,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "noble's ", prefix=true, instant_resolve=true,
+	kr_name = "귀족적 ",
 	keywords = {noble=true},
 	level_range = {10, 50},
 	greater_ego = 1,

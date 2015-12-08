@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -45,6 +45,6 @@ game.zone.on_turn = function()
 
 end
 
-require("engine.ui.Dialog"):simplePopup("Snowstorm", "As you walk into the area you notice a huge snowstorm over your head. Beware!")
+require("engine.ui.Dialog"):simplePopup("눈보라", "발걸음을 옮기자, 머리 위에 거대한 눈보라가 있는 것을 발견하였습니다. 조심하십시오!")
 
 return true

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -57,7 +57,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_BONE_GIANT",
 	name = "bone giant", color=colors.WHITE,
-	desc = [[A towering creature, made from the bones of dozens of dead bodies. It is covered by an unholy aura.]],
+	kr_name = "해골 거인",
+	desc = [[수십 개의 시체로 만들어진 언데드입니다. 부정한 기운이 흐르고 있습니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_bone_giant.png", display_h=2, display_y=-1}}},
 	rarity = 1,
@@ -70,7 +71,8 @@ newEntity{ base = "BASE_NPC_BONE_GIANT",
 
 newEntity{ base = "BASE_NPC_BONE_GIANT",
 	name = "eternal bone giant", color=colors.GREY,
-	desc = [[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.]],
+	kr_name = "영겁의 해골 거인",
+	desc = [[수백 개의 시체를 쌓아 만들어진 언데드입니다. 극도로 부정한 기운을 뿜어내고 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_eternal_bone_giant.png", display_h=2, display_y=-1}}},
 	level_range = {33, nil}, exp_worth = 1,
 	rarity = 3,
@@ -85,7 +87,8 @@ newEntity{ base = "BASE_NPC_BONE_GIANT",
 
 newEntity{ base = "BASE_NPC_BONE_GIANT",
 	name = "heavy bone giant", color=colors.LIGHT_UMBER,
-	desc = [[A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.]],
+	kr_name = "무거운 해골 거인",
+	desc = [[수백 개의 시체를 쌓아 만들어진 언데드입니다. 부정한 기운을 뿜어내고 있습니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_heavy_bone_giant.png", display_h=2, display_y=-1}}},
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 3,
@@ -98,7 +101,8 @@ newEntity{ base = "BASE_NPC_BONE_GIANT",
 
 newEntity{ base = "BASE_NPC_BONE_GIANT",
 	name = "runed bone giant", color=colors.RED,
-	desc = [[A towering creature, made from the bones of hundreds of dead bodies, rune-etched and infused with hateful sorceries.]],
+	kr_name = "룬 해골 거인",
+	desc = [[수백 개의 시체에 룬을 새겨넣고, 증오의 마력을 주입시켜 만든 아주 강력한 언데드입니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_giant_runed_bone_giant.png", display_h=2, display_y=-1}}},
 	level_range = {40, nil}, exp_worth = 1,
 	rarity = 5,

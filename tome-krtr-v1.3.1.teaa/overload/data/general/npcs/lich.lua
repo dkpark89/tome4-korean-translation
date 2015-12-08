@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ local Talents = require("engine.interface.ActorTalents")
 newEntity{
 	define_as = "BASE_NPC_LICH",
 	type = "undead", subtype = "lich",
-	desc = [[Only the most powerful spellcasters raised to unlife become liches. Doomed to haunt the world for an eternity, they have grown to hate all that breathes or trespasses on their domain. Unfortunately that includes you.]],
+	desc = [[가장 강력한 사령술사만이 역생의 과정을 통해 리치로 되살아날 수 있습니다. 이들은 영원히 세상을 떠돌 수밖에 없는 운명이며, 이들의 영역을 침범하는 모든 숨 쉬는 것들에 대해 혐오감을 가지고 있습니다. 불행하지만 당신도 여기에 속합니다.]],
 	display = "L", color=colors.WHITE,
 	rank = 3, size = 3,
 
@@ -71,8 +71,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_LICH",
 	name = "lich", color=colors.DARK_BLUE,
+	kr_name = "리치",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_lich.png", display_h=2, display_y=-1}}},
-	desc=[[Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.]],
+	desc=[[영원한 삶의 방법을 발견하였지만, 그 대가로 삶의 즐거움을 잃어버린 존재입니다. 이제 이들이 찾아다니는 것은 무한한 파괴 뿐입니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 20,
 	max_life = resolvers.rngavg(70,80),
@@ -105,8 +106,9 @@ newEntity{ base = "BASE_NPC_LICH",
 
 newEntity{ base = "BASE_NPC_LICH",
 	name = "ancient lich", color=colors.DARK_RED,
+	kr_name = "고대의 리치",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_ancient_lich.png", display_h=2, display_y=-1}}},
-	desc=[[An elder being from a now-forgotten age, filled and fueled by its hate and rage toward all things living, it seeks to deprive all others of a prize it cannot have... life.]],
+	desc=[[나이조차 잊어버린 고대 리치입니다. 살아있는 존재에 대한 증오심과 분노가 가득하며, 자신이 가지지 못한 보물... 생명을 다른 모든 것으로부터 빼앗으려 합니다.]],
 	level_range = {40, nil}, exp_worth = 1,
 	rarity = 25,
 	max_life = resolvers.rngavg(80,90),
@@ -139,8 +141,9 @@ newEntity{ base = "BASE_NPC_LICH",
 
 newEntity{ base = "BASE_NPC_LICH",
 	name = "archlich", color=colors.SLATE,
+	kr_name = "고위 리치",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_lich_archlich.png", display_h=2, display_y=-1}}},
-	desc=[[Blacker than the deepest night, this cold cruel form of darkness approaches.  Long ago it laid aside its mortality, but it has not forgotten its power; rather, its malice and hate have bent this undead entity on the destruction of all things living.]],
+	desc=[[깊은 어둠보다 검은, 어둠과 한몸이나 다름없는 차갑고 잔인한 존재입니다. 오래 전에 스스로의 필멸성을 벗어났지만, 그것을 가능하게 해준 힘을 잊지는 않았습니다. 그 힘은 이 언데드가 모든 살아있는 존재를 파괴하기 위해 사용하는 힘, 악의와 증오심입니다.]],
 	level_range = {45, nil}, exp_worth = 1,
 	rarity = 30,
 	max_life = resolvers.rngavg(100,150),
@@ -175,7 +178,8 @@ newEntity{ base = "BASE_NPC_LICH",
 
 newEntity{ base = "BASE_NPC_LICH",
 	name = "blood lich", color=colors.LIGHT_RED,
-	desc=[[The seething, pumping, disembodied blood of a horrendously powerful necromancer. To strike it is to bathe in the rivers of the Fearscape itself.]],
+	kr_name = "피의 리치",
+	desc=[[끔찍할 정도로 강력한 사령술사가 끓어오르고, 요동치며, 육체에서 벗어난 피로 만들어낸 리치입니다. 이 리치를 공격하는 것은, 공포의 영역에 있는 강에서 스스로 목욕하는 것이나 다름 없을 것입니다.]],
 	level_range = {45, nil}, exp_worth = 1,
 	rarity = 30,
 	max_life = resolvers.rngavg(100,150),

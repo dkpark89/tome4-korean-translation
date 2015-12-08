@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -43,14 +43,16 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "giant eel", color=colors.CADET_BLUE,
-	desc = "A snake-like being, moving toward you.",
+	kr_name = "거대 뱀장어",
+	desc = "뱀처럼 생긴 존재로, 당신쪽으로 다가오고 있습니다.",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 }
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "electric eel", color=colors.STEEL_BLUE,
-	desc = "A snake-like being, radiating electricity.",
+	kr_name = "전기 뱀장어",
+	desc = "뱀처럼 생긴 존재로, 전기를 내뿜고 있습니다.",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 4,
 	autolevel = "warriormage",
@@ -66,7 +68,8 @@ newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "dragon turtle", color=colors.DARK_SEA_GREEN,
-	desc = "A huge, elongated sea-green reptile.",
+	kr_name = "용거북이",
+	desc = "기다란 목을 가진, 바다의 거대한 녹색 파충류입니다.",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 2,
@@ -76,7 +79,8 @@ newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "ancient dragon turtle", color=colors.DARK_SEA_GREEN,
-	desc = "A huge, elongated sea-green reptile, it looks old and impenetrable.",
+	kr_name = "고대 용거북이",
+	desc = "기다란 목을 가진, 바다의 거대한 녹색 파충류입니다. 헤아릴 수 없을 정도로 오랜 세월동안 살아온 것 같습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/aquatic_critter_ancient_dragon_turtle.png", display_h=2, display_y=-1}}},
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 10,
@@ -90,7 +94,8 @@ newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "squid", color=colors.TEAL,
-	desc = "Darting its many tentacles toward you, it tries to lock you down.",
+	kr_name = "오징어",
+	desc = "많은 촉수를 뻗어, 당신을 붙잡으려 합니다.",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	resolvers.talents{ [Talents.T_GRAB]=3, },
@@ -99,7 +104,8 @@ newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 
 newEntity{ base = "BASE_NPC_AQUATIC_CRITTER",
 	name = "ink squid", color=colors.LIGHT_STEEL_BLUE,
-	desc = "Darting its many tentacles toward you, it tries to blind you with its murky ink.",
+	kr_name = "먹물 오징어",
+	desc = "많은 촉수를 당신 쪽으로 뻗고 있으며, 그 탁한 먹물로 시야를 가리려 합니다.",
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 2,
 	stats = { mag=30, },

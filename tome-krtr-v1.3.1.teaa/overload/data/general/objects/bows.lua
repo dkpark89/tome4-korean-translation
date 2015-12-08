@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -33,13 +33,14 @@ newEntity{
 	archery_kind = "bow",
 	archery = "bow",
 	proj_image = resolvers.image_material("arrow", "wood"),
-	desc = [[Longbows are used to shoot arrows at your foes.]],
+	desc = [[적에게 화살을 발사하기 위해 사용하는 활입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/ranged.lua",
 	egos = "/data/general/objects/egos/bow.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_LONGBOW",
 	name = "elm longbow", short_name = "elm",
+	kr_name = "느릅나무 활",
 	level_range = {1, 10},
 	require = { stat = { dex=11 }, },
 	cost = 5,
@@ -52,6 +53,7 @@ newEntity{ base = "BASE_LONGBOW",
 
 newEntity{ base = "BASE_LONGBOW",
 	name = "ash longbow", short_name = "ash",
+	kr_name = "물푸레나무 활",
 	level_range = {10, 20},
 	require = { stat = { dex=16 }, },
 	cost = 10,
@@ -64,6 +66,7 @@ newEntity{ base = "BASE_LONGBOW",
 
 newEntity{ base = "BASE_LONGBOW",
 	name = "yew longbow", short_name = "yew",
+	kr_name = "주목 활",
 	level_range = {20, 30},
 	require = { stat = { dex=24 }, },
 	cost = 15,
@@ -76,6 +79,7 @@ newEntity{ base = "BASE_LONGBOW",
 
 newEntity{ base = "BASE_LONGBOW",
 	name = "elven-wood longbow", short_name = "e.wood",
+	kr_name = "엘프나무 활",
 	level_range = {30, 40},
 	require = { stat = { dex=35 }, },
 	cost = 25,
@@ -88,6 +92,7 @@ newEntity{ base = "BASE_LONGBOW",
 
 newEntity{ base = "BASE_LONGBOW",
 	name = "dragonbone longbow", short_name = "dragonbone",
+	kr_name = "용뼈 활",
 	level_range = {40, 50},
 	require = { stat = { dex=48 }, },
 	cost = 35,
@@ -115,7 +120,7 @@ newEntity{
 	},
 	proj_image = resolvers.image_material("arrow", "wood"),
 	archery_ammo = "bow",
-	desc = [[Arrows are used with bows to pierce your foes to death.]],
+	desc = [[화살은 활에 재어 적을 죽이기 위해 사용합니다.]],
 	randart_able = "/data/general/objects/random-artifacts/ammo.lua",
 	egos = "/data/general/objects/egos/ammo.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 	resolvers.shooter_capacity(),
@@ -123,6 +128,7 @@ newEntity{
 
 newEntity{ base = "BASE_ARROW",
 	name = "quiver of elm arrows", short_name = "elm",
+	kr_name = "느릅나무 화살뭉치",
 	level_range = {1, 10},
 	require = { stat = { dex=11 }, },
 	cost = 2,
@@ -138,6 +144,7 @@ newEntity{ base = "BASE_ARROW",
 
 newEntity{ base = "BASE_ARROW",
 	name = "quiver of ash arrows", short_name = "ash",
+	kr_name = "물푸레나무 화살뭉치",
 	level_range = {10, 20},
 	require = { stat = { dex=16 }, },
 	cost = 5,
@@ -153,6 +160,7 @@ newEntity{ base = "BASE_ARROW",
 
 newEntity{ base = "BASE_ARROW",
 	name = "quiver of yew arrows", short_name = "yew",
+	kr_name = "주목 화살뭉치",
 	level_range = {20, 30},
 	require = { stat = { dex=24 }, },
 	cost = 10,
@@ -168,6 +176,7 @@ newEntity{ base = "BASE_ARROW",
 
 newEntity{ base = "BASE_ARROW",
 	name = "quiver of elven-wood arrows", short_name = "e.wood",
+	kr_name = "엘프나무 화살뭉치",
 	level_range = {30, 40},
 	require = { stat = { dex=35 }, },
 	cost = 15,
@@ -183,6 +192,7 @@ newEntity{ base = "BASE_ARROW",
 
 newEntity{ base = "BASE_ARROW",
 	name = "quiver of dragonbone arrows", short_name = "dragonbone",
+	kr_name = "용뼈 화살뭉치",
 	level_range = {40, 50},
 	require = { stat = { dex=48 }, },
 	cost = 25,

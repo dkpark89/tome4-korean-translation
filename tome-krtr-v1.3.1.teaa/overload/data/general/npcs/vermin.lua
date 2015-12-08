@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
 
 local Talents = require("engine.interface.ActorTalents")
 
@@ -45,6 +47,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_WORM",
 	name = "white worm mass", color=colors.WHITE,
+	kr_name = "흰 벌레 덩어리",
 	level_range = {1, 15}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(5,9),
@@ -55,6 +58,7 @@ newEntity{ base = "BASE_NPC_WORM",
 
 newEntity{ base = "BASE_NPC_WORM",
 	name = "green worm mass", color=colors.GREEN,
+	kr_name = "녹색 벌레 덩어리",
 	level_range = {2, 15}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(5,9),
@@ -66,6 +70,7 @@ newEntity{ base = "BASE_NPC_WORM",
 
 newEntity{ base = "BASE_NPC_WORM", define_as = "CARRION_WORM_MASS",
 	name = "carrion worm mass", color=colors.SANDY_BROWN,
+	kr_name = "썩은 고기를 먹는 벌레 덩어리",
 	can_multiply = 2,
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 4,
@@ -87,6 +92,6 @@ newEntity{ base = "BASE_NPC_WORM", define_as = "CARRION_WORM_MASS",
 			5, nil,
 			engine.MapEffect.new{color_br=150, color_bg=255, color_bb=150, effect_shader="shader_images/poison_effect.png"}
 		)
-		game.logSeen(self, "%s exudes a corrupted gas as it dies.", self.name:capitalize())
+		game.logSeen(self, "%s 죽자, 오염된 기체가 흘러나옵니다.", (self.kr_name or self.name):capitalize():addJosa("가"))
 	end,
 }

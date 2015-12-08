@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -54,7 +54,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_GWELGOROTH",
 	name = "gwelgoroth", color=colors.AQUAMARINE,
-	desc = [[Gwelgoroth are mighty air elementals, torn away from their home world by a powerful magic.]],
+	kr_name = "그웰고로스",
+	desc = [[그웰고로스는 강력한 마법에 의해 원래 세계에서 강제로 소환된, 강력한 대기 정령입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80),
@@ -68,8 +69,9 @@ newEntity{ base = "BASE_NPC_GWELGOROTH",
 
 newEntity{ base = "BASE_NPC_GWELGOROTH",
 	name = "greater gwelgoroth", color=colors.STEEL_BLUE,
+	kr_name = "고위 그웰고로스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_air_greater_gwelgoroth.png", display_h=2, display_y=-1}}},
-	desc = [[Gwelgoroth are mighty air elementals, torn away from their home world by a powerful magic.]],
+	desc = [[그웰고로스는 강력한 마법에 의해 원래 세계에서 강제로 소환된, 강력한 대기 정령입니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(70,80), life_rating = 10,
@@ -85,8 +87,9 @@ newEntity{ base = "BASE_NPC_GWELGOROTH",
 
 newEntity{ base = "BASE_NPC_GWELGOROTH",
 	name = "ultimate gwelgoroth", color=colors.ROYAL_BLUE,
+	kr_name = "궁극의 그웰고로스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_air_ultimate_gwelgoroth.png", display_h=2, display_y=-1}}},
-	desc = [[Gwelgoroth are mighty air elementals, torn away from their home world by a powerful magic.]],
+	desc = [[그웰고로스는 강력한 마법에 의해 원래 세계에서 강제로 소환된, 강력한 대기 정령입니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,

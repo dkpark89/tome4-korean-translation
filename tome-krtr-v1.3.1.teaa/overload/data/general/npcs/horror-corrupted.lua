@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -43,7 +43,8 @@ newEntity{
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "dremling", color=colors.SLATE,
-	desc = "A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.",
+	kr_name = "어린 드렘",
+	desc = "얼굴 없는 작은 존재로, 왠지 모르게 드워프를 닮은 것 같습니다. 낡고 녹슨 관리가 엉망인 전투도끼와 방패를 쥐고 있습니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=6, dammod={str=0.6} },
@@ -77,8 +78,9 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "drem", color=colors.DARK_SLATE_GRAY,
+	kr_name = "드렘",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_corrupted_drem.png", display_h=2, display_y=-1}}},
-	desc = "A giant black-skinned humanoid covered in spikey scabrous deposits.  Its face is featureless; its eyesockets, empty and hollow.",
+	desc = "가시돋고 거친 검은 피부를 가진, 거대한 존재입니다. 눈이 있을 자리가 텅 비어있는 것을 제외하면, 얼굴에는 아무런 특징이 없습니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat_armor = 4, combat_def = 0,
@@ -114,7 +116,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	dredge = 1,
 	name = "drem master", color=colors.LIGHT_GREY,
-	desc = "A disfigured humanoid with vaguely Dwarven features dressed in patched-together and rusted mail armor.  It seems to be in command of others, though its mouth is sewn shut.",
+	kr_name = "상급 드렘",
+	desc = "끼워맞춘 녹슨 중갑을 입고 있으며, 드워프를 닮은 것 같지만 상당히 훼손 상태가 심한 존재입니다. 그 입은 꿰매어져 서로 붙어있지만, 다른 드렘들을 지휘하고 있는 것으로 보입니다.",
 	level_range = {3, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={str=0.6} },
@@ -157,7 +160,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "brecklorn", color=colors.PINK,  -- gloom bat
-	desc = "A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.",
+	kr_name = "브렉클론",
+	desc = "비틀려진 드워프의 얼굴로 끊임없이 비명을 지르는, 털 없는 거대 박쥐입니다. 그 기형의 몸에는 질병의 흔적이 가득하며, 근처에 있는 것만으로도 공포심이 느껴집니다.",
 	level_range = {1, nil}, exp_worth = 1,
 
 	combat = { atk=10, dammod={dex=0.6} },
@@ -185,7 +189,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "grannor'vor", color=colors.GREEN,  -- acid slug
-	desc = "A large sluglike creature that moves slowly, leaving a trail of acid in its wake.  Its head has strangely humanoid features.",
+	kr_name = "그란놀'보르",
+	desc = "천천히 움직이는 커다란 달팽이과 생물입니다. 이 존재가 지나간 길에는 산성 액체가 남으며, 머리 부분은 이상하게 사람의 특징을 가지고 있습니다.",
 	level_range = {2, nil}, exp_worth = 1,
 
 	combat = { dam=resolvers.levelup(5, 1, 0.6), atk=15, apr=5, damtype=DamageType.ACID },
@@ -213,7 +218,8 @@ newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 
 newEntity{ base = "BASE_NPC_CORRUPTED_HORROR",
 	name = "grannor'vin", color=colors.BLACK,  -- shadow slug
-	desc = "A large sluglike creature with the face of a man.  Shadows seem to be drawn to its massive form, and your light dims as it approaches.",
+	kr_name = "그란놀'빈",
+	desc = "사람의 머리를 가진, 커다란 달팽이과 생물입니다. 그림자가 그 거대한 형상에 드리워져 있어, 근처의 모든 빛을 희미하게 만듭니다.",
 	level_range = {2, nil}, exp_worth = 1,
 
 	combat = { dam=5, atk=15, apr=5, damtype=DamageType.DARKNESS },

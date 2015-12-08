@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -58,8 +58,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_MINOTAUR",
 	name = "minotaur", color=colors.UMBER,
+	kr_name = "미노타우르스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_minotaur_minotaur.png", display_h=2, display_y=-1}}},
-	desc = [[It is a cross between a human and a bull.]],
+	desc = [[인간과 소를 섞어놓은 듯한 존재입니다.]],
 	resolvers.equip{ {type="weapon", subtype="battleaxe", autoreq=true}, },
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
@@ -74,8 +75,9 @@ newEntity{ base = "BASE_NPC_MINOTAUR",
 
 newEntity{ base = "BASE_NPC_MINOTAUR",
 	name = "maulotaur", color=colors.SLATE,
+	kr_name = "마울로타우르스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_minotaur_maulotaur.png", display_h=2, display_y=-1}}},
-	desc = [[A belligerent minotaur with a destructive magical arsenal, and armed with a hammer.]],
+	desc = [[파괴적인 마법과 망치로 무장한, 호전적인 미노타우르스입니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 4,
 	combat_armor = 15, combat_def = 7,

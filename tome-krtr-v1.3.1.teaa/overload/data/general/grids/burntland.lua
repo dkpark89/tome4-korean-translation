@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@ newEntity{
 	define_as = "BURNT_TREE",
 	type = "wall", subtype = "burnt",
 	name = "burnt tree",
+	kr_name = "불탄 나무",
 	image = "terrain/grass_burnt1.png",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=44,g=95,b=43},
 	always_remember = true,
@@ -56,6 +57,7 @@ end
 newEntity{ define_as = "BURNT_GROUND",
 	type = "floor", subtype = "burnt",
 	name='burnt ground',
+	kr_name = "불탄 대지",
 	display='.', color=colors.UMBER, back_color=colors.DARK_GREY, image="terrain/grass_burnt1.png",
 	nice_tiler = { method="replace", base={"BURNT_GROUND", 15, 1, 7}},
 }
@@ -65,6 +67,7 @@ newEntity{
 	define_as = "ALTAR",
 	type = "floor", subtype = "burnt",
 	name = "corrupted altar", image = "terrain/grass_burnt1.png", add_displays = {class.new{image = "terrain/floor_pentagram.png"}},
+	kr_name = "타락한 제단",
 	display = ';', color=colors.RED, back_color=colors.DARK_UMBER,
 	notice = true,
 	always_remember = true,
@@ -74,6 +77,7 @@ newEntity{
 	define_as = "BURNT_UP_WILDERNESS",
 	type = "floor", subtype = "burnt",
 	name = "exit to the worldmap", image = "terrain/grass_burnt1.png", add_displays = {class.new{image="terrain/worldmap.png"}},
+	kr_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -84,6 +88,7 @@ newEntity{
 	define_as = "BURNT_UP4",
 	type = "floor", subtype = "burnt",
 	name = "way to the previous level", image = "terrain/grass_burnt1.png", add_displays = {class.new{image="terrain/way_next_4.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -93,6 +98,7 @@ newEntity{
 	define_as = "BURNT_DOWN6",
 	type = "floor", subtype = "burnt",
 	name = "way to the next level", image = "terrain/grass_burnt1.png", add_displays = {class.new{image="terrain/way_next_6.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,

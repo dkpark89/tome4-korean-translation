@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -22,14 +22,15 @@ newEntity{
 	slot = "LITE",
 	type = "lite", subtype="lite", image = resolvers.image_material("lite", {"brass","","dwarven","","faenorian"}),
 	display = "~",
-	desc = [[Light up the dark places of the world!]],
+	desc = [[세상의 어두운 곳을 밝힙니다!]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/lite.lua", egos_chance = { prefix=resolvers.mbonus(15, 3), suffix=resolvers.mbonus(15, 3) },
 }
 
 newEntity{ base = "BASE_LITE",
 	name = "brass lantern", color=colors.UMBER, short_name = "brass",
-	desc = [[A brass container with a wick emerging from it, protected from draughts by a sheet of greased paper. It can be carried by a handle.]],
+	kr_name = "놋쇠 랜턴",
+	desc = [[놋쇠 용기에 심지가 튀어나와 있으며, 기름종이를 덮어 넘치는 것을 방지한 랜턴입니다. 휴대용으로 쓸 수 있습니다.]],
 	level_range = {1, 20},
 	rarity = 7,
 	encumber = 2,
@@ -43,7 +44,8 @@ newEntity{ base = "BASE_LITE",
 
 newEntity{ base = "BASE_LITE",
 	name = "alchemist's lamp", color=colors.LIGHT_UMBER, short_name = "alchemist",
-	desc = [[A normal brass lantern, enhanced by alchemy to make it brighter.]],
+	kr_name = "연금술사의 등불",
+	desc = [[평범한 놋쇠 랜턴이지만, 연금술을 이용하여 더 밝게 만든 것입니다.]],
 	level_range = {20, 35},
 	rarity = 10,
 	encumber = 1,
@@ -57,7 +59,8 @@ newEntity{ base = "BASE_LITE",
 
 newEntity{ base = "BASE_LITE",
 	name = "dwarven lantern", color=colors.GOLD, short_name = "dwarven",
-	desc = [[Made by the Dwarves, this lantern provides light in the darkest recesses of the earth.]],
+	kr_name = "드워프 랜턴",
+	desc = [[드워프가 만든, 대지의 가장 어두운 구석까지 빛을 보내는 랜턴입니다.]],
 	level_range = {35, 50},
 	rarity = 12,
 	encumber = 1,

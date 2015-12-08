@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@ newEntity{
 	define_as = "WATER_FLOOR",
 	type = "floor", subtype = "underwater",
 	name = "underwater", image = "terrain/underwater/subsea_floor_02.png",
+	kr_name = "물 속",
 	display = '.', color=colors.LIGHT_BLUE, back_color=colors.DARK_BLUE,
 	air_level = -5, air_condition="water",
 	nice_tiler = { method="replace", base={"WATER_FLOOR", 10, 1, 5}},
@@ -35,6 +36,7 @@ newEntity{
 	define_as = "WATER_WALL",
 	type = "wall", subtype = "underwater",
 	name = "coral wall", image = "terrain/underwater/subsea_granite_wall1.png",
+	kr_name = "산호 벽",
 	display = '#', color=colors.AQUAMARINE, back_color=colors.DARK_BLUE,
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -69,6 +71,7 @@ newEntity{
 	define_as = "WATER_DOOR",
 	type = "wall", subtype = "underwater",
 	name = "door", image = "terrain/underwater/subsea_stone_wall_door_closed.png",
+	kr_name = "문",
 	display = '+', color_r=238, color_g=154, color_b=77, back_color=colors.DARK_UMBER,
 	nice_tiler = { method="door3d", north_south="WATER_DOOR_VERT", west_east="WATER_DOOR_HORIZ" },
 	notice = true,
@@ -83,6 +86,7 @@ newEntity{
 	define_as = "WATER_DOOR_OPEN",
 	type = "wall", subtype = "underwater",
 	name = "open door", image="terrain/underwater/subsea_granite_door1_open.png",
+	kr_name = "열린 문",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	always_remember = true,
 	air_level = -5, air_condition="water",
@@ -99,7 +103,8 @@ newEntity{
 	define_as = "WATER_FLOOR_BUBBLE",
 	type = "floor", subtype = "water",
 	name = "underwater air bubble", image = "terrain/underwater/subsea_floor_bubbles.png",
-	desc = "#LIGHT_BLUE#Replenishes air level when standing inside.#LAST#", show_tooltip = true,
+	kr_name = "물 속 공기방울",
+	desc = "#LIGHT_BLUE#이 곳에 서 있으면 누구나 호흡을 할 수 있습니다.#LAST#", show_tooltip = true,
 	display = ':', color=colors.LIGHT_BLUE, back_color=colors.DARK_BLUE,
 	air_level = 15, nb_charges = resolvers.rngrange(4, 7),
 	force_clone = true,
@@ -107,7 +112,7 @@ newEntity{
 		if ((who.can_breath.water and who.can_breath.water <= 0) or not who.can_breath.water) and not who:attr("no_breath") then
 			self.nb_charges = self.nb_charges - 1
 			if self.nb_charges <= 0 then
-				game.logSeen(who, "#AQUAMARINE#The air bubbles are depleted!")
+				game.logSeen(who, "#AQUAMARINE#공기방울을 다 썼습니다!")
 				local g = game.zone:makeEntityByName(game.level, "terrain", "WATER_FLOOR")
 				game.zone:addEntity(game.level, g, "terrain", x, y)
 			end
@@ -123,6 +128,7 @@ newEntity{
 	define_as = "WATER_BASE",
 	type = "floor", subtype = "water",
 	name = "deep water", image = "terrain/water_floor.png",
+	kr_name = "깊은 물",
 	display = '~', color=colors.AQUAMARINE, back_color=colors.DARK_BLUE,
 	always_remember = true,
 	special_minimap = colors.BLUE,
@@ -157,6 +163,7 @@ newEntity{
 	define_as = "POISON_DEEP_WATER",
 	type = "floor", subtype = "water",
 	name = "poisoned deep water", image = "terrain/poisoned_water_01.png",
+	kr_name = "유독한 깊은 물",
 	display = '~', color=colors.YELLOW_GREEN, back_color=colors.DARK_GREEN,
 --	add_displays = class:makeWater(true, "poison_"),
 	always_remember = true,
@@ -170,7 +177,7 @@ newEntity{
 		local DT = engine.DamageType
 		local dam = DT:get(DT.POISON).projector(self, x, y, DT.POISON, rng.range(self.mindam, self.maxdam))
 		self.x, self.y = x, y
-		if dam > 0 and who.player then self:logCombat(who, "#Source# poisons #Target#!") end
+		if dam > 0 and who.player then self:logCombat(who, "#Source# #Target# 중독 시켰습니다!") end
 	end,
 	combatAttack = function(self) return rng.range(self.mindam, self.maxdam) end,
 	nice_tiler = { method="replace", base={"POISON_DEEP_WATER", 100, 1, 6}},
@@ -186,6 +193,7 @@ newEntity{
 	define_as = "WATER_UP_WILDERNESS",
 	type = "floor", subtype = "water",
 	name = "exit to the worldmap",
+	kr_name = "지역 밖으로 나가는 출구",
 	image = "terrain/underwater/subsea_floor_02.png", add_mos = {{image="terrain/underwater/subsea_stair_up_wild.png"}},
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
@@ -200,6 +208,7 @@ newEntity{
 	type = "floor", subtype = "water",
 	image = "terrain/underwater/subsea_floor_02.png", add_mos = {{image="terrain/underwater/subsea_stair_up.png"}},
 	name = "previous level",
+	kr_name = "이전 층",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -212,6 +221,7 @@ newEntity{
 	type = "floor", subtype = "water",
 	image = "terrain/underwater/subsea_floor_02.png", add_mos = {{image="terrain/underwater/subsea_stair_down_03_64.png"}},
 	name = "next level",
+	kr_name = "다음 층",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,

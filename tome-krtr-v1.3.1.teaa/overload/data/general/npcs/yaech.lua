@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -46,7 +46,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_YAECH",
 	name = "yaech diver", color=colors.BLUE,
-	desc = [[Yaeches are an aquatic subspecies of yeeks. They share the same psionic powers, but they refuse to take part in the Way.]],
+	kr_name = "야크 잠수부",
+	desc = [[야크는 이크의 수생 아종입니다. 두 종족 간에는 같은 초능력을 공유하지만, 이들은 '한길' 에 소속되는 것을 거부했습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(50,70),
@@ -61,7 +62,8 @@ newEntity{ base = "BASE_NPC_YAECH",
 
 newEntity{ base = "BASE_NPC_YAECH",
 	name = "yaech hunter", color=colors.UMBER,
-	desc = [[Yaeches are an aquatic subspecies of yeeks. They share the same psionic powers, but they refuse to take part in the Way.]],
+	kr_name = "사냥꾼 야크",
+	desc = [[야크는 이크의 수생 아종입니다. 두 종족 간에는 같은 초능력을 공유하지만, 이들은 '한길' 에 소속되는 것을 거부했습니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(90,110),
@@ -77,7 +79,8 @@ newEntity{ base = "BASE_NPC_YAECH",
 
 newEntity{ base = "BASE_NPC_YAECH",
 	name = "yaech mindslayer", color=colors.YELLOW,
-	desc = [[Yaeches are an aquatic subspecies of yeeks. They share the same psionic powers, but they refuse to take part in the Way.]],
+	kr_name = "야크 정신 파괴자",
+	desc = [[야크는 이크의 수생 아종입니다. 두 종족 간에는 같은 초능력을 공유하지만, 이들은 '한길' 에 소속되는 것을 거부했습니다.]],
 	level_range = {2, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(90,110),
@@ -94,7 +97,8 @@ newEntity{ base = "BASE_NPC_YAECH",
 
 newEntity{ base = "BASE_NPC_YAECH",
 	name = "yaech psion", color=colors.RED,
-	desc = [[Yaeches are an aquatic subspecies of yeeks. They share the same psionic powers, but they refuse to take part in the Way.]],
+	kr_name = "야크 염동력자",
+	desc = [[야크는 이크의 수생 아종입니다. 두 종족 간에는 같은 초능력을 공유하지만, 이들은 '한길' 에 소속되는 것을 거부했습니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(80,90),

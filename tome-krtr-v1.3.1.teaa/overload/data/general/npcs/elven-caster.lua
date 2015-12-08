@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -53,7 +53,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 	name = "elven mage", color=colors.TEAL,
-	desc = [[An elven mage, dressed in dark robes.]],
+	kr_name = "엘프 마법사",
+	desc = [[검은 로브를 입은 엘프 마법사입니다.]],
 	level_range = {2, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(70, 80), life_rating = 10,
@@ -69,7 +70,8 @@ newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 
 newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 	name = "elven tempest", color=colors.LIGHT_BLUE,
-	desc = [[An elven mage, dressed in crackling blue robes, and smelling of ozone.]],
+	kr_name = "엘프 대기술사",
+	desc = [[번개가 치고 난 뒤에 주로 남는 오존 냄새가 나며, 파직거리는 파란 로브를 입은 엘프 마법사입니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(70, 80), life_rating = 10,
@@ -88,7 +90,8 @@ newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 
 newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 	name = "elven cultist", color=colors.DARK_SEA_GREEN,
-	desc = [[An elven cultist, dressed in sickening green robes.]],
+	kr_name = "엘프 광신도",
+	desc = [[구역질나는 녹색 로브를 입은 엘프 광신도입니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 1,
 	ai = "tactical",
@@ -112,7 +115,8 @@ newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 
 newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 	name = "elven blood mage", color=colors.ORCHID,
-	desc = [[An elven blood mage, dressing in dark, bloodied robes.]],
+	kr_name = "엘프 피의 마법사",
+	desc = [[피로 얼룩진 어두운 로브를 입은 엘프 피의 마법사입니다.]],
 	level_range = {25, nil}, exp_worth = 1,
 	rarity = 1,
 	ai = "tactical",
@@ -135,7 +139,8 @@ newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 
 newEntity{ base = "BASE_NPC_ELVEN_CASTER",
 	name = "elven corruptor", color=colors.ORCHID,
-	desc = [[An elven corruptor, drawn to these blighted lands.]],
+	kr_name = "엘프 타락자",
+	desc = [[황폐화된 대지에 오염된 엘프 타락자입니다.]],
 	level_range = {26, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 3,

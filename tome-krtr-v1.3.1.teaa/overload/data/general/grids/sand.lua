@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ newEntity{
 	define_as = "SAND",
 	type = "floor", subtype = "sand",
 	name = "sand", image = "terrain/sandfloor.png",
+	kr_name = "모래",
 	display = '.', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	nice_editer = sand_editer,
 	grow = "SANDWALL_STABLE",
@@ -33,6 +34,7 @@ newEntity{
 	define_as = "UNDERGROUND_SAND",
 	type = "floor", subtype = "sand",
 	name = "sand", image = "terrain/sand.png",
+	kr_name = "모래",
 	display = '.', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	grow = "SANDWALL_STABLE",
 	nice_tiler = { method="replace", base={"UNDERGROUND_SAND", 10, 1, 11}},
@@ -43,6 +45,7 @@ newEntity{
 	define_as = "SANDWALL",
 	type = "wall", subtype = "sand",
 	name = "sandwall", image = "terrain/sand/sand_V3_5_01.png",
+	kr_name = "모래벽",
 	display = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -53,6 +56,7 @@ newEntity{
 	dig = function(src, x, y, old)
 		local sand = require("engine.Object").new{
 			name = "unstable sand tunnel", image = "terrain/sand.png",
+			kr_name = "불안정한 모래 통로",
 			display = '.', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 			canAct = false,
 			act = function(self)
@@ -61,13 +65,13 @@ newEntity{
 				if self.temporary <= 0 then
 					game.level.map(self.x, self.y, engine.Map.TERRAIN, self.old_feat)
 					game.level:removeEntity(self, true)
-					game.logSeen(self, "The unstable sand tunnel collapses!")
+					game.logSeen(self, "불안정한 모래 통로가 무너졌습니다!")
 					game.nicer_tiles:updateAround(game.level, self.x, self.y)
 
 					local a = game.level.map(self.x, self.y, engine.Map.ACTOR)
 					if a and not a:attr("sand_dweller") then
-						game.logPlayer(a, "You are crushed by the collapsing tunnel! You suffocate!")
-						a:suffocate(30, self, "was buried alive")
+						game.logPlayer(a, "통로가 무너져 그 밑에 깔렸습니다! 숨이 막힙니다!")
+						a:suffocate(30, self, "생매장 당해서 죽음")
 						engine.DamageType:get(engine.DamageType.PHYSICAL).projector(self, self.x, self.y, engine.DamageType.PHYSICAL, a.life / 2)
 					end
 				end
@@ -97,6 +101,7 @@ newEntity{
 	define_as = "SANDWALL_STABLE",
 	type = "wall", subtype = "sand",
 	name = "sandwall", image = "terrain/sand/sand_V3_5_01.png",
+	kr_name = "모래벽",
 	display = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -113,6 +118,7 @@ newEntity{
 	define_as = "PALMTREE",
 	type = "wall", subtype = "sand",
 	name = "tree", image = "terrain/palmtree.png",
+	kr_name = "나무",
 	display = '#', color=colors.LIGHT_GREEN, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_tree=1},
@@ -131,6 +137,7 @@ newEntity{
 	define_as = "SAND_UP_WILDERNESS",
 	type = "floor", subtype = "sand",
 	name = "exit to the worldmap", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/worldmap.png"}},
+	kr_name = "지역 밖으로 나가는 출구",
 	display = '<', color_r=255, color_g=0, color_b=255,
 	always_remember = true,
 	notice = true,
@@ -143,6 +150,7 @@ newEntity{
 	define_as = "SAND_UP8",
 	type = "floor", subtype = "sand",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_8.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -153,6 +161,7 @@ newEntity{
 	define_as = "SAND_UP2",
 	type = "floor", subtype = "sand",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_2.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -163,6 +172,7 @@ newEntity{
 	define_as = "SAND_UP4",
 	type = "floor", subtype = "sand",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_4.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -173,6 +183,7 @@ newEntity{
 	define_as = "SAND_UP6",
 	type = "floor", subtype = "sand",
 	name = "way to the previous level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_6.png"}},
+	kr_name = "이전 층으로의 길",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -184,6 +195,7 @@ newEntity{
 	define_as = "SAND_DOWN8",
 	type = "floor", subtype = "sand",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_8.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -194,6 +206,7 @@ newEntity{
 	define_as = "SAND_DOWN2",
 	type = "floor", subtype = "sand",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_2.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -204,6 +217,7 @@ newEntity{
 	define_as = "SAND_DOWN4",
 	type = "floor", subtype = "sand",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_4.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -214,6 +228,7 @@ newEntity{
 	define_as = "SAND_DOWN6",
 	type = "floor", subtype = "sand",
 	name = "way to the next level", image = "terrain/sandfloor.png", add_displays = {class.new{image="terrain/way_next_6.png"}},
+	kr_name = "다음 층으로의 길",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -225,6 +240,7 @@ newEntity{
 	define_as = "SAND_LADDER_DOWN",
 	type = "floor", subtype = "sand",
 	name = "ladder to the next level", image = "terrain/sand.png", add_displays = {class.new{image="terrain/ladder_down.png"}},
+	kr_name = "다음 층으로의 사다리",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -235,6 +251,7 @@ newEntity{
 	define_as = "SAND_LADDER_UP",
 	type = "floor", subtype = "sand",
 	name = "ladder to the previous level", image = "terrain/sand.png", add_displays = {class.new{image="terrain/ladder_up.png"}},
+	kr_name = "이전 층으로의 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -245,6 +262,7 @@ newEntity{
 	define_as = "SAND_LADDER_UP_WILDERNESS",
 	type = "floor", subtype = "sand",
 	name = "ladder to worldmap", image = "terrain/sand.png", add_displays = {class.new{image="terrain/ladder_up_wild.png"}},
+	kr_name = "지역 밖으로 나가는 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	change_level = 1,

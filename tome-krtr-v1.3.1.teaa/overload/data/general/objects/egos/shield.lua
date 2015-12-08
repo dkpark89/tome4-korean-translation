@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -31,6 +31,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = " of fire resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "화염저항(#RESIST#)의 ",
 	keywords = {fire=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -42,6 +43,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of cold resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "냉기저항(#RESIST#)의 ",
 	keywords = {cold=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -50,10 +52,10 @@ newEntity{
 		resists={[DamageType.COLD] = resolvers.mbonus_material(15, 15)},
 	},
 }
-
 newEntity{
 	power_source = {technique=true},
 	name = " of lightning resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "전기저항(#RESIST#)의 ",
 	keywords = {lightning=true},
 	level_range = {1, 50},
 	rarity = 5,
@@ -68,6 +70,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of acid resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "산성저항(#RESIST#)의 ",
 	keywords = {acid=true},
 	level_range = {1, 50},
 	rarity = 12,
@@ -80,6 +83,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = " of arcane resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "마법저항(#RESIST#)의 ",
 	keywords = {arcane=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -91,6 +95,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = " of mind resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "정신저항(#RESIST#)의 ",
 	keywords = {mind=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -102,6 +107,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of physical resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "물리저항(#RESIST#)의 ",
 	keywords = {physical=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -113,6 +119,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of purity", suffix=true, instant_resolve=true,
+	kr_name = "정화의 ",
 	keywords = {purity=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -127,6 +134,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of reflection", suffix=true, instant_resolve=true,
+	kr_name = "반사의 ",
 	keywords = {reflection=true},
 	level_range = {10, 50},
 	rarity = 12,
@@ -141,6 +149,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of temporal resistance (#RESIST#)", suffix=true, instant_resolve=true,
+	kr_name = "시간저항(#RESIST#)의 ",
 	keywords = {temporal=true},
 	level_range = {10, 50},
 	rarity = 18,
@@ -157,6 +166,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "flaming ", prefix=true, instant_resolve=true,
+	kr_name = "불꽃 ",
 	keywords = {flaming=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -168,13 +178,13 @@ newEntity{
 		on_melee_hit={[DamageType.FIRE] = resolvers.mbonus_material(10, 10)},
 		melee_project={
 			[DamageType.FIRE] = resolvers.mbonus_material(5, 5),
-	},
+		},
 	},
 }
-
 newEntity{
 	power_source = {nature=true},
 	name = "icy ", prefix=true, instant_resolve=true,
+	kr_name = "냉기 ",
 	keywords = {icy=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -186,12 +196,13 @@ newEntity{
 		on_melee_hit={[DamageType.ICE] = resolvers.mbonus_material(10, 10)},
 		melee_project={
 			[DamageType.COLD] = resolvers.mbonus_material(5, 5),
-	},
+		},
 	},
 }
 newEntity{
 	power_source = {nature=true},
 	name = "shocking ", prefix=true, instant_resolve=true,
+	kr_name = "전기충격 ",
 	keywords = {shocking=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -203,13 +214,13 @@ newEntity{
 		on_melee_hit={[DamageType.LIGHTNING] = resolvers.mbonus_material(20, 10)},
 		melee_project={
 			[DamageType.LIGHTNING] = resolvers.mbonus_material(5, 5),
-	},
+		},
 	},
 }
-
 newEntity{
 	power_source = {nature=true},
 	name = "acidic ", prefix=true, instant_resolve=true,
+	kr_name = "산성 ",
 	keywords = {acidic=true},
 	level_range = {10, 50},
 	rarity = 8,
@@ -221,7 +232,7 @@ newEntity{
 		on_melee_hit={[DamageType.ACID] = resolvers.mbonus_material(25, 10)},
 		melee_project={
 			[DamageType.ACID] = resolvers.mbonus_material(5, 5),
-	},
+		},
 	},
 }
 
@@ -233,6 +244,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "gloomy ", prefix=true, instant_resolve=true,
+	kr_name = "침울한 ",
 	keywords = {gloomy=true},
 	level_range = {30, 50},
 	rarity = 25,
@@ -241,7 +253,7 @@ newEntity{
 		on_melee_hit={[DamageType.ITEM_MIND_GLOOM] = resolvers.mbonus_material(25, 10)},
 		melee_project={
 			[DamageType.ITEM_MIND_GLOOM] = resolvers.mbonus_material(10, 5),
-	},
+		},
 	},
 }
 
@@ -249,6 +261,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "coruscating ", prefix=true, instant_resolve=true,
+	kr_name = "번쩍이는 ",
 	keywords = {coruscating=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -275,6 +288,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "crackling ", prefix=true, instant_resolve=true,
+	kr_name = "파직거리는 ",
 	keywords = {crackling=true},
 	level_range = {1, 50},
 	greater_ego = 1,
@@ -301,6 +315,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "corrosive ", prefix=true, instant_resolve=true,
+	kr_name = "부식성 ",
 	keywords = {corrosive=true},
 	level_range = {1, 50},
 	greater_ego = 1,
@@ -328,6 +343,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "wintry ", prefix=true, instant_resolve=true,
+	kr_name = "차가운 ",
 	keywords = {wintry=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -358,6 +374,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "reinforced ", prefix=true, instant_resolve=true,
+	kr_name = "보강된 ",
 	keywords = {reinforced=true},
 	level_range = {1, 50},
 	rarity = 8,
@@ -373,6 +390,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resilience", suffix=true, instant_resolve=true,
+	kr_name = "활력의 ",
 	keywords = {resilience=true},
 	level_range = {10, 50},
 	rarity = 10,
@@ -385,6 +403,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "deflecting ", prefix=true, instant_resolve=true,
+	kr_name = "편향시키는 ",
 	keywords = {deflection=true},
 	level_range = {10, 50},
 	rarity = 10,
@@ -401,6 +420,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "living ", prefix=true, instant_resolve=true,
+	kr_name = "살아있는 ",
 	keywords = {living=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -427,6 +447,7 @@ newEntity{
 newEntity{
 	power_source = {antimagic=true},
 	name = "scouring ", prefix=true, instant_resolve=true,
+	kr_name = "세척된 ",
 	keywords = {scouring=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -451,13 +472,14 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "warded ", prefix=true, instant_resolve=true,
+	kr_name = "보호받는 ",
 	keywords = {ward=true},
 	level_range = {30, 50},
 	rarity = 15,
 	greater_ego = 1,
 	cost = 5,
 	special_combat = {
-		special_on_hit = {desc="reduce the cooldown of your ward talent by 1", fct=function(combat, who, target)
+		special_on_hit = {desc="'보호구역'기술의 지연시간을 1 감소", fct=function(combat, who, target)
 		if who.talents_cd[who.T_WARD] then
 			who.talents_cd[who.T_WARD] = who.talents_cd[who.T_WARD] - 1
 		end
@@ -479,6 +501,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "cosmic ", prefix=true, instant_resolve=true,
+	kr_name = "우주 ",
 	keywords = {cosmic=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -496,7 +519,7 @@ newEntity{
 			[DamageType.DARKNESS] = resolvers.mbonus_material(10, 5),
 		},
 	},
-	on_block = {desc = "Unleash the fury of the cosmos, dealing light and darkness damage to your attackers", fct = function(self, who, target, type, dam, eff)
+	on_block = {desc = "우주의 분노를 발산하여, 공격자에게 빛과 어둠 속성의 피해를 줌", fct = function(self, who, target, type, dam, eff)
 			if not target or target:attr("dead") or not target.x or not target.y then return end
 			if who.turn_procs and who.turn_procs.shield_cosmic and who.turn_procs.shield_cosmic[target.uid] then return end
 
@@ -509,7 +532,7 @@ newEntity{
 
 			who:project(tg, target.x, target.y, engine.DamageType.DARKNESS, damage)
 			who:project(tg, target.x, target.y, engine.DamageType.LIGHT, damage)
-			who:logCombat(target, "#Source# unleashes cosmic retribution at #Target#!")
+			who:logCombat(target, "#Source1# #Target#에게 우주의 심판을 내립니다!")
 			
 
 	end,},
@@ -519,6 +542,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "impervious ", prefix=true, instant_resolve=true,
+	kr_name = "불침투성 ",
 	keywords = {impervious=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -542,6 +566,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of resistance", suffix=true, instant_resolve=true,
+	kr_name = "저항의 ",
 	keywords = {resistance=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -560,6 +585,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of patience", suffix=true, instant_resolve=true,
+	kr_name = "인내의 ",
 	keywords = {patience=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -584,6 +610,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of radiance", suffix=true, instant_resolve=true,
+	kr_name = "광휘의 ",
 	keywords = {radiance=true},
 	level_range = {10, 50},
 	rarity = 14,
@@ -608,10 +635,10 @@ newEntity{
 	},
 }
 
-
 newEntity{
 	power_source = {technique=true},
 	name = " of crushing", suffix=true, instant_resolve=true,
+	kr_name = "파쇄의 ",
 	keywords = {crushing=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -620,7 +647,7 @@ newEntity{
 	special_combat = {
 		dam = resolvers.mbonus_material(5, 5),
 		-- Just a retheme of Crippling, most of the weapon egos aren't getting copied though
-		special_on_crit = {desc="smash the target with your shield crippling them", fct=function(combat, who, target)
+		special_on_crit = {desc="방패로 상대를 가격하여 장애 유발", fct=function(combat, who, target)
 			target:setEffect(target.EFF_CRIPPLE, 4, {src=who, apply_power=who:combatAttack(combat)})
 		end},
 	},
@@ -635,13 +662,14 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of earthen fury", suffix=true, instant_resolve=true,
+	kr_name = "분노한 대지의 ",
 	keywords = {earth=true},
 	level_range = {30, 50},
 	greater_ego = 1,
 	rarity = 25,
 	cost = 40,
 	special_combat = {
-		special_on_hit = {desc="deal bonus physical damage equal to your armor", fct=function(combat, who, target)
+		special_on_hit = {desc="방어도 만큼의 물리 속성 피해 추가", fct=function(combat, who, target)
 			local tg = {type="hit", range=1}
 			local damage = who:combatArmor()
 			who:project(tg, target.x, target.y, engine.DamageType.PHYSICAL, damage)
@@ -654,4 +682,3 @@ newEntity{
 		resists={[DamageType.PHYSICAL] = resolvers.mbonus_material(10, 10)},
 	},
 }
-

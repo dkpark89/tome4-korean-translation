@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -51,7 +51,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_NAGA",
 	name = "naga myrmidon", color=colors.DARK_UMBER, image="npc/naga_myrmidon.png",
-	desc = [[Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.]],
+	kr_name = "나가 병사",
+	desc = [[이 기다란 존재의 앞에 서자, 당신은 그의 다리가 있어야 할 자리에 뱀의 꼬리가 붙어있다는 것을 발견했습니다. 갑옷을 걸친 그의 상체는 근육이 불끈 튀어나와 있으며, 커다란 손은 날카롭기 그지없는 삼지창을 쥐고 있습니다. 어둠 속에서도, 그는 당신을 사냥감에게 달려들기 직전의 늑대처럼 확실하게 노려보고 있습니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(120,150), life_rating = 16,
@@ -71,7 +72,8 @@ newEntity{ base = "BASE_NPC_NAGA",
 
 newEntity{ base = "BASE_NPC_NAGA",
 	name = "naga tide huntress", color=colors.RED, image="npc/naga_tide_huntress.png",
-	desc = [[Though the sharp point of an arrow pointed steadily at your head is of concern, more unnerving is the creature that wields it: a slim and lithe woman from the waist up, but a terrifying giant serpent beneath, her tail stretching for several feet behind her. Her eyes turn cold and ice seems to magically condense on the tip of her barbed arrow. Suddenly it is of concern again.]],
+	kr_name = "나가 조류 사냥꾼",
+	desc = [[계속 당신의 머리를 겨누고 있는 날카로운 화살이 걱정되지만, 더욱 당신을 무기력하게 만드는 것은 그 활을 들고 있는 존재입니다. 허리 위로는 날씬하고 유연한 여성이지만, 끔찍한 대형 뱀의 몸이 그 아래에 달려있습니다. 그 꼬리는 뒤쪽으로 수 미터나 뻗어있으며, 냉정하고 차가워 보이는 눈으로 당신을 노려보고 있습니다. 게다가, 날카로운 화살촉에는 마법이 응집되어 있습니다. 갑자기 다시 걱정이 밀려옵니다.]],
 	level_range = {34, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,
@@ -97,7 +99,8 @@ newEntity{ base = "BASE_NPC_NAGA",
 
 newEntity{ base = "BASE_NPC_NAGA",
 	name = "naga psyren", color=colors.YELLOW, image="npc/naga_psyren.png",
-	desc = [[Such a mix of enchanting beauty and revolting horror you have never before seen combined. Above, a beautiful, ethereal woman, of scant form and entrancing grace. Below, the thick, smooth scales of a snake, its stretched tail gently waving back and forth in the air behind her. The movement is eye-catching and hypnotic, and whilst you watch a mysterious smile plays across her seductive lips.]],
+	kr_name = "나가 사이렌",
+	desc = [[매혹적인 아름다움과 끔찍한 공포가 섞여 있는, 한번도 보지 못한 성질을 지닌 존재입니다. 그 상체는 아름다운 천상의 여인과도 같이 호리호리하며, 넋을 잃을 정도로 우아합니다. 하지만 그 하반신은 부드러운 비늘이 달린 두껍고 죽 뻗은 뱀꼬리로 이루어져 있으며, 그녀의 뒤쪽에서는 꼬리의 끝 부분이 앞뒤로 흔들리며 최면을 걸고 있습니다. 당신은 꼬리의 움직임에 취해 있는 동안, 그녀의 유혹적인 입술에 걸리는 신비한 미소를 본 것 같습니다.]],
 	level_range = {36, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,

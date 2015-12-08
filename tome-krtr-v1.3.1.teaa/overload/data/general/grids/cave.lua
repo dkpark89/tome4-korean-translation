@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "CAVEFLOOR",
 	type = "floor", subtype = "cave",
 	name = "cave floor", image = "terrain/cave/cave_floor_1_01.png",
+	kr_name = "동굴 바닥",
 	display = '.', color=colors.SANDY_BROWN, back_color=colors.DARK_UMBER,
 	grow = "CAVEWALL",
 	nice_tiler = { method="replace", base={"CAVEFLOOR", 20, 1, 18}},
@@ -38,6 +39,7 @@ newEntity{
 	define_as = "CAVEWALL",
 	type = "wall", subtype = "cave",
 	name = "cave walls", image = "terrain/cave/cavewall_5_1.png",
+	kr_name = "동굴 벽",
 	display = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -58,6 +60,7 @@ newEntity{
 	define_as = "CAVE_LADDER_DOWN",
 	type = "floor", subtype = "cave",
 	name = "ladder to the next level", image = "terrain/cave/cave_floor_1_01.png", add_displays = {class.new{image="terrain/cave/cave_stairs_down_3_01.png"}},
+	kr_name = "다음 층으로의 사다리",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -67,6 +70,7 @@ newEntity{
 	define_as = "CAVE_LADDER_UP",
 	type = "floor", subtype = "cave",
 	name = "ladder to the previous level", image = "terrain/cave/cave_floor_1_01.png", add_displays = {class.new{image="terrain/cave/cave_stairs_up_2_01.png"}},
+	kr_name = "이전 층으로의 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -76,6 +80,7 @@ newEntity{
 	define_as = "CAVE_LADDER_UP_WILDERNESS",
 	type = "floor", subtype = "cave",
 	name = "ladder to worldmap", image = "terrain/cave/cave_floor_1_01.png", add_displays = {class.new{image="terrain/cave/cave_stairs_up_2_01.png"}},
+	kr_name = "지역 밖으로 나가는 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	change_level = 1,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ if not x then return false end
 local on_stand = function(self, x, y, who) who:setEffect(who.EFF_FONT_OF_LIFE, 1, {}) end
 local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g.name = "font of life"
+g.kr_name = "생명의 샘"
 g.display='&' g.color_r=0 g.color_g=255 g.color_b=0 g.notice = true
 g.special_minimap = colors.OLIVE_DRAB
 g.on_stand = on_stand
@@ -53,5 +54,5 @@ for x, yy in pairs(grids) do for y, _ in pairs(yy) do
 	g.on_stand_safe = true
 	game.zone:addEntity(game.level, g, "terrain", x, y)
 end end
-print("[EVENT] font-life centered at ", x, y)
+print("[EVENT] 생명에 샘은 여기에 놓여있습니다 : ", x, y)
 return true

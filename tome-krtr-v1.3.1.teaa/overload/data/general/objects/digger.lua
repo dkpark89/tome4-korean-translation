@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ newEntity{
 	display = "\\", color=colors.LIGHT_BLUE, image = resolvers.image_material("pickaxe", "metal"),
 	encumber = 3,
 	rarity = 14,
-	desc = [[Allows you to dig a wall, remove a tree, create ways.]],
+	desc = [[벽을 파고, 나무를 없애고, 길을 만들 수 있도록 해 줍니다.]],
 	add_name = " (#DIGSPEED#)",
 
 	carrier = {
@@ -40,6 +40,7 @@ newEntity{
 
 newEntity{ base = "BASE_DIGGER",
 	name = "iron pickaxe", short_name = "iron",
+	kr_name = "무쇠 곡괭이",
 	level_range = {1, 20},
 	cost = 3,
 	material_level = 1,
@@ -51,6 +52,7 @@ newEntity{ base = "BASE_DIGGER",
 
 newEntity{ base = "BASE_DIGGER",
 	name = "dwarven-steel pickaxe", short_name = "d.steel",
+	kr_name = "드워프강철 곡괭이",
 	level_range = {20, 40},
 	cost = 3,
 	material_level = 3,
@@ -62,6 +64,7 @@ newEntity{ base = "BASE_DIGGER",
 
 newEntity{ base = "BASE_DIGGER",
 	name = "voratun pickaxe", short_name = "voratun",
+	kr_name = "보라툰 곡괭이",
 	level_range = {40, 50},
 	cost = 3,
 	material_level = 5,

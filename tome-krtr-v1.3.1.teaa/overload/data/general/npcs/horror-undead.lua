@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	name = "necrotic mass", color=colors.DARK_GREY,
-	desc ="This putrid mass of rotting flesh shifts and quivers, but shows no signs of intelligence or mobility.",
+	kr_name = "사령의 살덩어리",
+	desc ="썩은내를 풍기며 형체가 조금씩 바뀌고 있는 부패한 살덩어리로, 지성이나 이동성은 없는 것 같습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_horror_necrotic_mass.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 4,
@@ -60,7 +61,8 @@ newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 
 newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	name = "necrotic abomination", color=colors.DARK_GREEN,
-	desc ="This monstrous form of putrid, torn flesh and chipped bone drags its mass towards you, spurting blood and viscera along the way.",
+	kr_name = "사령의 혐오체",
+	desc ="썩은내를 풍기는 괴생명체입니다. 찢겨진 살점과 조각난 뼈를 질질 끌면서, 그리고 피와 내장을 흩뿌리면서 당신에게 다가오고 있습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_horror_necrotic_abomination.png", display_h=2, display_y=-1}}},
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 7,
@@ -94,7 +96,7 @@ newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	},
 	
 	on_die = function(self, who)
-		game.logSeen(self, "#VIOLET#As the necrotic abomination is destroyed you see the remaining bones and flesh reassembling in the form of new foes!")
+		game.logSeen(self, "#VIOLET#사령의 혐오체가 파괴되자, 남아있던 뼈와 살들이 합쳐져 새로운 적이 만들어집니다!")
 		self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true, force_level=1})
 	end,
 	
@@ -103,7 +105,8 @@ newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 
 newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	name = "bone horror", color=colors.WHITE,
-	desc ="The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.",
+	kr_name = "뼈의 공포",
+	desc ="거대한 흉곽의 형태를 한 존재로, 그 중앙에서는 무언가 부서지는 소리가 크게 들리고 있습니다. 다른 부분들이 안에서부터 부서지고 조각나는 동안, 뼈로 이루어진 수많은 손들은 앞으로 뻗은 채, 휘감긴 채, 융합된 채 긴 뼈로 이루어진 기관을 만들어 그 자신을 지탱하고 있습니다. 이 와중에도, 이 존재는 어떻게든 당신을 붙잡으려 하고 있습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_horror_bone_horror.png", display_h=2, display_y=-1}}},
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 7,
@@ -139,7 +142,7 @@ newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	},
 	
 	on_die = function(self, who)
-		game.logSeen(self, "#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new foes!")
+		game.logSeen(self, "#VIOLET#뼈의 공포가 파괴되자, 남아있던 뼛조각들이 합쳐져 새로운 적이 만들어집니다!")
 		self:forceUseTalent(self.T_SUMMON, {ignore_energy=true, ignore_cd=true, no_equilibrium_fail=true, no_paradox_fail=true, force_level=1})
 	end,
 	
@@ -148,7 +151,8 @@ newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 
 newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	name = "sanguine horror", color=colors.RED,
-	desc ="This pulsing, quivering form is a deep crimson, and appears to be composed entirely of thick, virulent blood. Waves rhythmically ripple across its surface, indicating a still beating heart somewhere in its body.",
+	kr_name = "피의 공포",
+	desc ="이 맥박하며 형체가 바뀌는 존재는 짙은 핏빛을 띄고 있으며, 그 몸은 맹독성의 진한 피로 이루어져 있는 것 같습니다. 그 표면에서는 불규칙적으로 파동이 일어나, 몸의 어딘가에서 여전히 심장이 뛰고 있음을 보여줍니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_horror_sanguine_horror.png", display_h=2, display_y=-1}}},
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 7,
@@ -191,7 +195,8 @@ newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 
 newEntity{ base = "BASE_NPC_HORROR_UNDEAD",
 	name = "animated blood", color=colors.RED, subtype = "blood",
-	desc ="This crimson shape drips ceaselessly, spattering the nearby ground. The droplets seem to continue moving of their own volition.",
+	kr_name = "움직이는 핏덩어리",
+	desc ="이 핏빛 형체는 쉴 새 없이 피를 흘리며, 주변의 땅에 피를 튀기고 있습니다. 스스로 의지를 가진 채 움직이는 것 같습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/undead_horror_animated_blood.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 20, -- Appear alone but rarely.

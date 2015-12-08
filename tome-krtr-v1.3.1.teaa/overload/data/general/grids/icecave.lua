@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "ICECAVEFLOOR",
 	type = "floor", subtype = "icecave",
 	name = "ice cave floor", image = "terrain/icecave/icecave_floor_1_01.png",
+	kr_name = "얼음 동굴 바닥",
 	display = '.', color=colors.SANDY_BROWN, back_color=colors.DARK_UMBER,
 	grow = "ICECAVEWALL",
 	nice_tiler = { method="replace", base={"ICECAVEFLOOR", 100, 1, 18}},
@@ -37,6 +38,7 @@ newEntity{
 	define_as = "ICECAVEWALL",
 	type = "wall", subtype = "icecave",
 	name = "ice cave walls", image = "terrain/icecave/icecavewall_5_1.png",
+	kr_name = "얼음 동굴 벽",
 	display = '#', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	always_remember = true,
 	can_pass = {pass_wall=1},
@@ -56,6 +58,7 @@ newEntity{
 	define_as = "ICECAVE_DOOR",
 	type = "wall", subtype = "icecave",
 	name = "breakable ice wall", image = "terrain/icecave/icecave_door1.png",
+	kr_name = "깰 수 있는 얼음 벽",
 	display = '+', color={r=203,g=189,b=72}, back_color={r=93,g=79,b=22},
 	nice_tiler = { method="door3d", north_south="ICECAVE_DOOR_VERT", west_east="ICECAVE_DOOR_HORIZ" },
 	door_sound = "ambient/door_creaks/icedoor-break",
@@ -70,6 +73,7 @@ newEntity{
 	define_as = "ICECAVE_DOOR_OPEN",
 	type = "wall", subtype = "icecave",
 	name = "broken ice wall", image="terrain/icecave/icecave_door1_open.png",
+	kr_name = "깨진 얼음 벽",
 	display = "'", color_r=238, color_g=154, color_b=77, back_color=colors.DARK_GREY,
 	always_remember = true,
 	is_door = true,
@@ -88,6 +92,7 @@ newEntity{
 	define_as = "ICECAVE_LADDER_DOWN",
 	type = "floor", subtype = "icecave",
 	name = "ladder to the next level", image = "terrain/icecave/icecave_floor_1_01.png", add_displays = {class.new{image="terrain/icecave/icecave_stairs_down_3_01.png"}},
+	kr_name = "다음 층으로의 사다리",
 	display = '>', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -97,6 +102,7 @@ newEntity{
 	define_as = "ICECAVE_LADDER_UP",
 	type = "floor", subtype = "icecave",
 	name = "ladder to the previous level", image = "terrain/icecave/icecave_floor_1_01.png", add_displays = {class.new{image="terrain/icecave/icecave_stairs_up_2_01.png"}},
+	kr_name = "이전 층으로의 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	always_remember = true,
@@ -106,6 +112,7 @@ newEntity{
 	define_as = "ICECAVE_LADDER_UP_WILDERNESS",
 	type = "floor", subtype = "icecave",
 	name = "ladder to worldmap", image = "terrain/icecave/icecave_floor_1_01.png", add_displays = {class.new{image="terrain/icecave/icecave_stairs_exit_1_01.png"}},
+	kr_name = "지역 밖으로 나가는 사다리",
 	display = '<', color_r=255, color_g=255, color_b=0,
 	notice = true,
 	change_level = 1,

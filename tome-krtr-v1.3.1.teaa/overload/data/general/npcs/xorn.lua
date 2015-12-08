@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 --
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
+
+require "engine.krtrUtils"
 
 local Talents = require("engine.interface.ActorTalents")
 
@@ -58,7 +60,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_XORN",
 	name = "umber hulk", color=colors.LIGHT_UMBER,
-	desc = [[This bizarre creature has glaring eyes and large mandibles capable of slicing through rock.]],
+	kr_name = "엄버 헐크",
+	desc = [[번쩍이는 눈과 바위도 씹어먹을 큰 턱을 가지고 있는, 기괴한 생명체입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(100,120),
@@ -69,7 +72,8 @@ newEntity{ base = "BASE_NPC_XORN",
 
 newEntity{ base = "BASE_NPC_XORN",
 	name = "xorn", color=colors.UMBER,
-	desc = [[A huge creature of the element Earth. Able to merge with its element, it has four huge arms protruding from its enormous torso.]],
+	kr_name = "쏜",
+	desc = [[거대한 대지의 정령입니다. 땅 그 자체와 융화할 수 있으며, 큼지막한 상체에서 튀어나온 네 개의 커다란 팔을 가지고 있습니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(130,140),
@@ -80,7 +84,8 @@ newEntity{ base = "BASE_NPC_XORN",
 
 newEntity{ base = "BASE_NPC_XORN",
 	name = "xaren", color=colors.SLATE,
-	desc = [[It is a tougher relative of the Xorn. Its hide glitters with metal ores.]],
+	kr_name = "싸렌",
+	desc = [[쏜보다 더 단단한 생명체로, 몸을 감싸고 있는 금속 광석들이 번쩍입니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(130,140),
@@ -91,8 +96,9 @@ newEntity{ base = "BASE_NPC_XORN",
 
 newEntity{ base = "BASE_NPC_XORN",
 	name = "The Fragmented Essence of Harkor'Zun", color=colors.VIOLET, unique=true,
+	kr_name = "하코르'준의 정수 파편",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_xorn_fragmented_harkor_zun.png", display_h=2, display_y=-1}}},
-	desc = [[Fragmented essence... maybe it'd be best if it stayed fragmented.]],
+	desc = [[조각난 정수입니다... 이대로 조각나 있는 상태가 제일 좋은 상태일 것 같습니다.]],
 	level_range = {17, nil}, exp_worth = 0,
 	rank = 3.5,
 	size_category = 4,
@@ -134,7 +140,7 @@ newEntity{ base = "BASE_NPC_XORN",
 		for _, m in ipairs(self.all_fragments) do
 			if not m.dead then
 				nb_alive = nb_alive + 1
-				game.logSeen(self, "#AQUAMARINE#%s absorbs the energy of the destroyed fragment!", self.name)
+				game.logSeen(self, "#AQUAMARINE#%s 부서진 파편의 힘을 흡수했습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 				m.max_life = m.max_life + m.add_max_life
 				m:heal(m.add_max_life)
 				m.inc_damage.all = (m.inc_damage.all or 0) + 20
@@ -150,7 +156,7 @@ newEntity{ base = "BASE_NPC_XORN",
 			if m then
 				game.zone:addEntity(game.level, m, "actor", x, y)
 				game.level.map:particleEmitter(x, y, 1, "teleport")
-				game.logSeen(self, "#AQUAMARINE#%s is infused with all the energies of the fragments. The real Harkor'Zun is reconstituted!", m.name)
+				game.logSeen(self, "#AQUAMARINE#%s에게 모든 파편의 힘이 흡수되었습니다. 진짜 하코르'준이 복원되었습니다!", (m.kr_name or m.name):capitalize())
 			end
 		end
 	end,
@@ -161,8 +167,9 @@ newEntity{ base = "BASE_NPC_XORN",
 -- Does not appear randomly, it is summoned by killing the fragments
 newEntity{ base = "BASE_NPC_XORN", define_as = "FULL_HARKOR_ZUN",
 	name = "Harkor'Zun", color=colors.VIOLET, unique=true,
+	kr_name = "하코르'준",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/elemental_xorn_harkor_zun.png", display_h=2, display_y=-1}}},
-	desc = [[A gigantic demon composed of elemental Earth, resembling a twisted Xaren but much, much larger.  It doesn't seem pleased with your presence.]],
+	desc = [[대지의 정령이 모여 이루어진 거대한 악마입니다. 뒤틀린 싸렌과 유사하게 생겼지만, 훨씬 더 큽니다. 당신이라는 존재가 마음에 들지 않는 것 같습니다.]],
 	level_range = {23, nil}, exp_worth = 2,
 	rank = 3.5,
 	size_category = 5,

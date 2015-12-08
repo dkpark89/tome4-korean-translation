@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -53,7 +53,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_TROLL",
 	name = "forest troll", color=colors.YELLOW_GREEN, image="npc/troll_f.png",
-	desc = [[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.]],
+	kr_name = "숲 트롤",
+	desc = [[녹색 피부를 가진 이 키 크고 못생긴 영장류가, 사마귀로 덮힌 녹색 주먹을 꽉 쥐고 당신을 노려봅니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(50,70),
@@ -63,7 +64,8 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL",
 	name = "stone troll", color=colors.DARK_SLATE_GRAY, image="npc/troll_s.png",
-	desc = [[A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.]],
+	kr_name = "암석 트롤",
+	desc = [[우둘투둘한 검은 피부를 가진 대형 트롤입니다. 공포스럽게도, 그는 드워프 두개골을 엮어 만든 허리띠를 차고 있습니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,90),
@@ -73,7 +75,8 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL",
 	name = "cave troll", color=colors.SLATE, image="npc/troll_c.png",
-	desc = [[This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.]],
+	kr_name = "동굴 트롤",
+	desc = [[이 거대한 트롤은 무거운 창을 쥐고 있으며, 그 돼지 같은 눈 속은 걱정될 만큼의 지혜로 반짝입니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(120,140),
@@ -83,7 +86,8 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL",
 	name = "mountain troll", color=colors.UMBER, image="npc/troll_m.png",
-	desc = [[A large and athletic troll with an extremely tough and warty hide.]],
+	kr_name = "산맥 트롤",
+	desc = [[대단히 단단한 사마귀 투성이의 피부를 가진, 크고 강건한 트롤입니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(120,140),
@@ -93,7 +97,8 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL",
 	name = "mountain troll thunderer", color=colors.AQUAMARINE, image="npc/troll_mt.png",
-	desc = [[A large and athletic troll with an extremely tough and warty hide.]],
+	kr_name = "천둥의 산맥 트롤",
+	desc = [[대단히 단단한 사마귀 투성이의 피부를 가진, 크고 강건한 트롤입니다.]],
 	level_range = {20, nil}, exp_worth = 1,
 	rarity = 5,
 	rank = 3,
@@ -113,7 +118,8 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL",
 	name = "patchwork troll", color=colors.PURPLE,
-	desc = [[A disgusting and mismatched construct of necromantically-enhanced troll bits and shattered weapons. Confused and furious, it rends and shatters its surroundings with impossible strength, moving with speed found nowhere in nature.]],
+	kr_name = "마구 뒤섞인 트롤",
+	desc = [[부서진 무기를 쥐고 있으며, 이것저것 대충 이어붙여서 만들어진 끔찍한 트롤입니다. 사령술로 강화된 듯 하며, 혼란스러워 하면서도 몹시 화가 나있습니다. 불가능할 정도의 힘으로 주변을 모조리 찢고 부수고 있으며, 부자연스러울 정도의 빠른 속도로 움직이고 있습니다.]],
 	resolvers.nice_tile{tall=1},
 	level_range = {38, nil}, exp_worth = 1,
 	rarity = 6,
@@ -144,8 +150,9 @@ newEntity{ base = "BASE_NPC_TROLL",
 
 newEntity{ base = "BASE_NPC_TROLL", unique=true,
 	name = "Forest Troll Hedge-Wizard", color=colors.YELLOW_GREEN, 
+	kr_name = "마법의 힘을 두른, 숲 트롤 마법사",
 	resolvers.nice_tile{tall=1},
-	desc = [[This old-looking troll glares at you with malice. His muscles appear atrophied, but a certain power surrounds him nonetheless.]],
+	desc = [[늙은 트롤로, 당신을 악의에 찬 눈빛으로 노려보고 있습니다. 근육은 늙어 쇠퇴하였지만, 알지 못할 어떤 힘이 그를 둘러싸고 있습니다.]],
 	level_range = {3, nil}, exp_worth = 2,
 	rank=3.5,
 	rarity = 40,

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@ newEntity{
 	define_as = "VOID",
 	type = "floor", subtype = "void",
 	name = "void",
+	kr_name = "공허",
 	display = ' ',
 	_noalpha = false,
 }
@@ -31,6 +32,7 @@ newEntity{
 	define_as = "OUTERSPACE",
 	type = "void", subtype = "void",
 	name = "void",
+	kr_name = "공허",
 	display = ' ',
 	_noalpha = false,
 	always_remember = true,
@@ -45,6 +47,7 @@ newEntity{
 	define_as = "SPACETIME_RIFT",
 	type = "wall", subtype = "rift",
 	name = "crack in spacetime",
+	kr_name = "시공간의 균열",
 	display = '#', color=colors.YELLOW, image="terrain/rift/rift_inner_05_01.png",
 	always_remember = true,
 	does_block_move = true,
@@ -60,6 +63,7 @@ newEntity{
 	define_as = "FLOATING_ROCKS",
 	type = "floor", subtype = "rocks",
 	name = "floating rocks", image = "terrain/floating_rocks05_01.png",
+	kr_name = "부유석",
 	display = '.', color_r=255, color_g=255, color_b=255,
 	_noalpha = false,
 	nice_tiler = { method="outerSpace",

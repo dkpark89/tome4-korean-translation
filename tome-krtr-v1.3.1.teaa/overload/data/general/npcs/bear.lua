@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -51,7 +51,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_BEAR",
 	name = "brown bear", color=colors.UMBER, image = "npc/brown_bear.png",
-	desc = [[The weakest of bears, covered in brown shaggy fur.]],
+	kr_name = "갈색 곰",
+	desc = [[가장 약한 곰으로, 거친 갈색 털로 뒤덮혀 있습니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(80,90),
@@ -61,7 +62,8 @@ newEntity{ base = "BASE_NPC_BEAR",
 
 newEntity{ base = "BASE_NPC_BEAR",
 	name = "black bear", color={50,50,50}, image = "npc/black_bear.png",
-	desc = [[Do you smell like honey? 'Cause this bear wants honey.]],
+	kr_name = "검은 곰",
+	desc = [[꿀 냄새가 나나요? 이 곰이 벌꿀을 좋아해서 그렇습니다.]],
 	level_range = {6, nil}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(90,100),
@@ -71,7 +73,8 @@ newEntity{ base = "BASE_NPC_BEAR",
 
 newEntity{ base = "BASE_NPC_BEAR",
 	name = "cave bear", color=colors.DARK_SLATE_GRAY, image = "npc/cave_bear.png",
-	desc = [[It has come down from its cave foraging for food. Unfortunately, it found you.]],
+	kr_name = "동굴 곰",
+	desc = [[먹이를 찾아 동굴에서 내려온 곰입니다. 불행하게도, 당신을 찾은 것 같습니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(100,110),
@@ -82,7 +85,8 @@ newEntity{ base = "BASE_NPC_BEAR",
 
 newEntity{ base = "BASE_NPC_BEAR",
 	name = "war bear", color=colors.DARK_UMBER, image = "npc/war_bear.png",
-	desc = [[Bears with tusks, trained to kill.]],
+	kr_name = "전투 곰",
+	desc = [[코끼리처럼 엄니가 있는 곰으로, 적을 죽이는 훈련이 되어있습니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(100,120),
@@ -93,8 +97,9 @@ newEntity{ base = "BASE_NPC_BEAR",
 
 newEntity{ base = "BASE_NPC_BEAR",
 	name = "grizzly bear", color=colors.LIGHT_UMBER, image = "npc/grizzly_bear.png",
+	kr_name = "회색 곰",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/grizzly_bear.png", display_h=2, display_y=-1}}},
-	desc = [[A huge, beastly bear, more savage than most of its kind.]],
+	desc = [[거대하고 흉포한 곰으로, 가장 야만적인 곰입니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(110,120),
@@ -105,7 +110,8 @@ newEntity{ base = "BASE_NPC_BEAR",
 
 newEntity{ base = "BASE_NPC_BEAR",
 	name = "polar bear", color=colors.WHITE, image = "npc/polar_bear.png",
-	desc = [[This huge white bear has wandered south in search of food.]],
+	kr_name = "북극 곰",
+	desc = [[먹이를 찾아 남쪽으로 여행을 온, 거대한 흰 곰입니다.]],
 	level_range = {12, nil}, exp_worth = 1,
 	rarity = 6,
 	max_life = resolvers.rngavg(110,120),

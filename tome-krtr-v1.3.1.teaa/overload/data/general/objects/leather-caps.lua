@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -26,13 +26,14 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("leather_cap"),
 	encumber = 2,
 	rarity = 6,
-	desc = [[A cap made of leather.]],
+	desc = [[가죽으로 만든 모자입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/helm.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_LEATHER_CAP",
 	name = "rough leather cap", short_name = "rough",
+	kr_name = "거친가죽 모자",
 	level_range = {1, 20},
 	cost = 2,
 	material_level = 1,
@@ -44,6 +45,7 @@ newEntity{ base = "BASE_LEATHER_CAP",
 
 newEntity{ base = "BASE_LEATHER_CAP",
 	name = "hardened leather cap", short_name = "hardened",
+	kr_name = "경화가죽 모자",
 	level_range = {20, 40},
 	cost = 4,
 	material_level = 3,
@@ -55,6 +57,7 @@ newEntity{ base = "BASE_LEATHER_CAP",
 
 newEntity{ base = "BASE_LEATHER_CAP",
 	name = "drakeskin leather cap", short_name = "drakeskin",
+	kr_name = "용가죽 모자",
 	level_range = {40, 50},
 	cost = 7,
 	material_level = 5,

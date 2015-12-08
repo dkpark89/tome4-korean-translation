@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -52,7 +52,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_ORC_GORBAT",
 	name = "orc summoner", color=colors.YELLOW,
-	desc = [[A fierce orc attuned to the wilds.]],
+	kr_name = "오크 소환술사",
+	desc = [[야생에 적응한 사나운 오크입니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,
@@ -79,7 +80,8 @@ newEntity{ base = "BASE_NPC_ORC_GORBAT",
 
 newEntity{ base = "BASE_NPC_ORC_GORBAT",
 	name = "orc grand summoner", color=colors.SALMON,
-	desc = [[A fierce orc attuned to the wilds.]],
+	kr_name = "오크 고위 소환술사",
+	desc = [[야생에 적응한 사나운 오크입니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,
@@ -111,7 +113,8 @@ newEntity{ base = "BASE_NPC_ORC_GORBAT",
 
 newEntity{ base = "BASE_NPC_ORC_GORBAT",
 	name = "orc master wyrmic", color=colors.LIGHT_STEEL_BLUE,
-	desc = [[A fierce soldier-orc highly trained in the discipline of dragons.]],
+	kr_name = "오크 상급 용인",
+	desc = [[용의 단련법으로 고도로 훈련된 사나운 오크 병사입니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,
@@ -144,7 +147,8 @@ newEntity{ base = "BASE_NPC_ORC_GORBAT",
 
 newEntity{ base = "BASE_NPC_ORC_GORBAT",
 	name = "orc mage-hunter", color=colors.HONEYDEW,
-	desc = [[An orc clad in massive armour. Magic seems to die down all around him.]],
+	kr_name = "오크 마법사냥꾼",
+	desc = [[판갑을 입은 오크입니다. 그 주변의 마법은 모두 사라져 버립니다.]],
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,

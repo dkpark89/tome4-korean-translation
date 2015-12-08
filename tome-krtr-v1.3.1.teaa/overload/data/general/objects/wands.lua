@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@ newEntity{
 	rarity = 12,
 	add_name = "#CHARM# #CHARGES#",
 	use_sound = "talents/spell_generic",
-	desc = [[Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.]],
+	kr_unided_name = "마법봉",
+	desc = [[마법봉은 강력한 연금술사나 마도사가 주문을 집어넣어 만드는 물건입니다. 들어있는 주문은 마법을 몰라도 사용할 수 있습니다.]],
 	egos = "/data/general/objects/egos/wands.lua", egos_chance = { prefix=resolvers.mbonus(20, 5), },
 	addons = "/data/general/objects/egos/wands-powers.lua",
 	power_source = {arcane=true},
@@ -37,6 +38,7 @@ newEntity{
 
 newEntity{ base = "BASE_WAND",
 	name = "elm wand", short_name = "elm",
+	kr_name = "느릅나무 마법봉",
 	color = colors.UMBER,
 	level_range = {1, 10},
 	cost = 1,
@@ -46,6 +48,7 @@ newEntity{ base = "BASE_WAND",
 
 newEntity{ base = "BASE_WAND",
 	name = "ash wand", short_name = "ash",
+	kr_name = "물푸레나무 마법봉",
 	color = colors.UMBER,
 	level_range = {10, 20},
 	cost = 2,
@@ -55,6 +58,7 @@ newEntity{ base = "BASE_WAND",
 
 newEntity{ base = "BASE_WAND",
 	name = "yew wand", short_name = "yew",
+	kr_name = "주목 마법봉",
 	color = colors.UMBER,
 	level_range = {20, 30},
 	cost = 3,
@@ -64,6 +68,7 @@ newEntity{ base = "BASE_WAND",
 
 newEntity{ base = "BASE_WAND",
 	name = "elven-wood wand", short_name = "e.wood",
+	kr_name = "엘프나무 마법봉",
 	color = colors.UMBER,
 	level_range = {30, 40},
 	cost = 4,
@@ -73,6 +78,7 @@ newEntity{ base = "BASE_WAND",
 
 newEntity{ base = "BASE_WAND",
 	name = "dragonbone wand", short_name = "dargonbone",
+	kr_name = "용뼈 마법봉",
 	color = colors.UMBER,
 	level_range = {40, 50},
 	cost = 5,

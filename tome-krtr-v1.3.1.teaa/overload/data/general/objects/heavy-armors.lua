@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,13 +30,14 @@ newEntity{
 	encumber = 14,
 	rarity = 5,
 	metallic = true,
-	desc = [[A suit of armour made of mail.]],
+	desc = [[쇠사슬로 만든, 한 벌의 무거운 갑옷입니다.]],
 	randart_able = "/data/general/objects/random-artifacts/generic.lua",
 	egos = "/data/general/objects/egos/heavy-armor.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 }
 
 newEntity{ base = "BASE_HEAVY_ARMOR",
 	name = "iron mail armour", short_name = "iron",
+	kr_name = "무쇠 중갑",
 	level_range = {1, 10},
 	require = { stat = { str=14 }, },
 	cost = 20,
@@ -50,6 +51,7 @@ newEntity{ base = "BASE_HEAVY_ARMOR",
 
 newEntity{ base = "BASE_HEAVY_ARMOR",
 	name = "steel mail armour", short_name = "steel",
+	kr_name = "강철 중갑",
 	level_range = {10, 20},
 	require = { stat = { str=20 }, },
 	cost = 25,
@@ -63,6 +65,7 @@ newEntity{ base = "BASE_HEAVY_ARMOR",
 
 newEntity{ base = "BASE_HEAVY_ARMOR",
 	name = "dwarven-steel mail armour", short_name = "d.steel",
+	kr_name = "드워프강철 중갑",
 	level_range = {20, 30},
 	require = { stat = { str=28 }, },
 	cost = 30,
@@ -76,6 +79,7 @@ newEntity{ base = "BASE_HEAVY_ARMOR",
 
 newEntity{ base = "BASE_HEAVY_ARMOR",
 	name = "stralite mail armour", short_name = "stralite",
+	kr_name = "스트라라이트 중갑",
 	level_range = {30, 40},
 	cost = 40,
 	material_level = 4,
@@ -89,6 +93,7 @@ newEntity{ base = "BASE_HEAVY_ARMOR",
 
 newEntity{ base = "BASE_HEAVY_ARMOR",
 	name = "voratun mail armour", short_name = "voratun",
+	kr_name = "보라툰 중갑",
 	level_range = {40, 50},
 	require = { stat = { str=48 }, },
 	cost = 50,

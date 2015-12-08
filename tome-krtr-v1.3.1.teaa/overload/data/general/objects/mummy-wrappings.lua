@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ newEntity{
 	moddable_tile = resolvers.moddable_tile("mummy_wrapping"),
 	encumber = 6,
 	rarity = 5,
-	desc = [[Decaying mummy wrappings.]],
+	desc = [[부패한 미이라의 붕대입니다.]],
 	egos = "/data/general/objects/egos/armor.lua", egos_chance = { prefix=resolvers.mbonus(40, 5), suffix=resolvers.mbonus(40, 5) },
 	wielder = {
 		resists={[DamageType.FIRE] = -25},
@@ -37,6 +37,7 @@ newEntity{
 
 newEntity{ base = "BASE_MUMMY_WRAPPING",
 	name = "mummy wrappings", short_name = "mummy",
+	kr_name = "미이라 붕대",
 	level_range = {10, 40},
 	require = { stat = { dex=15 }, },
 	cost = 1,

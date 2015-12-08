@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 local Stats = require "engine.interface.ActorStats"
 local Talents = require "engine.interface.ActorTalents"
 
@@ -33,7 +35,8 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 	level_range = {37, 50},
 	color=colors.VIOLET,
 	rarity = false,
-	desc = [[Telos was an extremely powerful mage during the Age of Dusk, hated by his peers and feared by the common folk; he was hunted for a long while. He finally fell from his place of power, Telmur, but his spirit still lingers.]],
+	kr_name = "텔로스의 힘의 정수", kr_unided_name = "맥동하는 마법지팡이",
+	desc = [[텔로스는 황혼의 시대에 살았던, 아주 강력한 마법사였습니다. 그를 동료들은 미워했고 일반 사람들은 무서워하여, 그는 아주 긴 시간 동안 은둔 생활을 할 수 밖에 없었습니다. 결국 자신의 힘이 모인 장소였던 텔무르에서 그는 사망하였지만, 그의 영혼만은 아직 그 장소에 머무르고 있습니다.]],
 	cost = 400,
 	material_level = 5,
 	plot = true,
@@ -65,9 +68,9 @@ newEntity{ base = "BASE_STAFF", define_as = "TELOS_SPIRE",
 		vim_on_crit = 6,
 	},
 	max_power = 15, power_regen = 1,
-	use_power = { name = "turn into a corrupted losgoroth (poison, disease, cut and confusion immune; converts half damage into life drain; does not require breath) for 10 turns", power = 15,
+	use_power = { name = "turn into a corrupted losgoroth (poison, disease, cut and confusion immune; converts half damage into life drain; does not require breath", kr_name = "타락한 로스고로스로 변신 (중독과 질병, 출혈, 혼란에 완전 면역 & 공격시 피해량의 절반만큼 생명력 흡수 & 숨 쉴 필요 없어짐)", power = 15,
 		use = function(self, who)
-			game.logSeen(who, "%s brandishes %s, turning into a corrupted losgoroth!", who.name:capitalize(), self:getName())
+			game.logSeen(who, "%s %s 휘둘러, 타락한 로스고로스로 변신합니다!", (who.kr_name or who.name):capitalize():addJosa("가"), self:getName():addJosa("를"))
 			who:setEffect(who.EFF_CORRUPT_LOSGOROTH_FORM, 10, {})
 			return {id=true, used=true}
 		end

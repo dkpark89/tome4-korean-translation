@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 -- Find a random spot
 local x, y = game.state:findEventGrid(level)
 if not x then return false end
@@ -25,7 +27,8 @@ local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 g = require("mod.class.Object").new(g)
 g.identified = true
 g.name = "glimmerstone"
-g.desc = "It shimmers and changes the light all around. This is dazling!"
+g.kr_name = "깜박이는 암석"
+g.desc = "깜빡이면서 주변에 빛을 내고 있는 암석입니다. 눈이 부십니다!" 
 g.display='&' g.color_r=255 g.color_g=255 g.color_b=255 g.notice = true
 g.always_remember = true
 g:removeAllMOs()
@@ -47,7 +50,7 @@ g.act = function(self)
 			local target = game.level.map(x, y, engine.Map.ACTOR)
 			if target then
 				target:setEffect(target.EFF_DAZING_DAMAGE, 1, {})
-				game.logSeen(target, "%s is affected by the glimmerstone!", target.name:capitalize())
+				game.logSeen(target, "%s 깜박이는 암석의 영향을 받았습니다!", (target.kr_name or target.name):capitalize():addJosa("가"))
 			end
 		end
 	end end

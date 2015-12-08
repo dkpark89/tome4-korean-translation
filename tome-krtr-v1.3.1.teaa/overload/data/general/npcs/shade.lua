@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -96,18 +96,18 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SHADE",
 	rarity = 1, level_range = {30, nil},
-	desc = [[Through some terrible process that remains mysterious, this creature's shadow has been torn from its body and given unlife.]],
+	desc = [[알려지지 않은 미지의 끔찍한 방법을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 언데드가 되었습니다.]],
 	shade_filter = {type="animal", special_rarity="shade_rarity"},
 }
 
 newEntity{ base = "BASE_NPC_SHADE",
 	rarity = 1, level_range = {30, nil},
-	desc = [[Through some terrible process that remains mysterious, this creature's shadow has been torn from its body and given unlife.]],
+	desc = [[알려지지 않은 미지의 끔찍한 방법을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 언데드가 되었습니다.]],
 	shade_filter = {type="humanoid", special_rarity="shade_rarity"},
 }
 
 newEntity{ base = "BASE_NPC_SHADE",
 	rarity = 1, level_range = {30, nil},
-	desc = [[Through some terrible process that remains mysterious, this creature's shadow has been torn from its body and given unlife.]],
+	desc = [[알려지지 않은 미지의 끔찍한 방법을 통해, 이 존재의 그림자는 육신으로부터 찢겨져 나와 언데드가 되었습니다.]],
 	shade_filter = {type="giant", special_rarity="shade_rarity"},
 }

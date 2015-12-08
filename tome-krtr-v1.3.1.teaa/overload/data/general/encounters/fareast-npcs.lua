@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@ class = require("mod.class.WorldNPC")
 
 newEntity{
 	name = "Sun Paladins patrol",
+	kr_name = "태양의 기사 순찰대",
 	type = "patrol", subtype = "sunwall",
 	display = 'p', color = colors.GOLD,
 	faction = "sunwall",
@@ -48,6 +49,7 @@ newEntity{
 
 newEntity{
 	name = "Anorithil patrol",
+	kr_name = "아노리실 순찰대",
 	type = "patrol", subtype = "sunwall",
 	display = 'p', color = colors.YELLOW,
 	faction = "sunwall",
@@ -75,6 +77,7 @@ newEntity{
 
 newEntity{
 	name = "Orcs patrol",
+	kr_name = "오크 순찰대",
 	type = "patrol", subtype = "orc pride",
 	display = 'o', color = colors.GREY,
 	faction = "orc-pride",

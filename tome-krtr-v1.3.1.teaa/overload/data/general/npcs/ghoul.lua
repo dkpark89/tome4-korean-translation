@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -48,7 +48,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_GHOUL",
 	name = "ghoul", color=colors.TAN, define_as = "GHOUL",
-	desc = [[Flesh is falling off in chunks from this decaying abomination.]],
+	kr_name = "구울",
+	desc = [[피부에서 살덩어리가 떨어져 나오고 있는, 부패한 혐오생물입니다.]],
 	level_range = {7, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(90,100),
@@ -65,7 +66,8 @@ newEntity{ base = "BASE_NPC_GHOUL",
 
 newEntity{ base = "BASE_NPC_GHOUL",
 	name = "ghast", color=colors.UMBER,
-	desc = [[This vile abomination is a relative of ghouls, and often leads packs of them. It smells foul, and its bite carries a rotting disease.]],
+	kr_name = "가스트",
+	desc = [[이 지독한 혐오생물은 구울과 비슷하게 생겼으며, 종종 구울 무리를 이끌고 다닙니다. 심한 악취가 나며, 이것에게 물리면 부패성 질병에 걸리게 됩니다.]],
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(90,100),
@@ -86,7 +88,8 @@ newEntity{ base = "BASE_NPC_GHOUL",
 
 newEntity{ base = "BASE_NPC_GHOUL",
 	name = "ghoulking", color={0,0,0},
-	desc = [[Stench rises from this rotting abomination. Its brow is adorned with gold, and it moves at you with hatred gleaming in its eyes.]],
+	kr_name = "구울 왕",
+	desc = [[악취를 내며 썩어가는 혐오생물입니다. 이마가 황금으로 장식되어 있으며, 증오 섞인 눈빛을 한 채 당신에게 다가오고 있습니다.]],
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 6,
 	max_life = resolvers.rngavg(90,100),
@@ -118,7 +121,8 @@ newEntity{ base = "BASE_NPC_GHOUL",
 newEntity{ base = "BASE_NPC_GHOUL", define_as = "RISEN_CORPSE",
 	display = "z", color=colors.GREY, image="npc/undead_ghoul_ghoul.png",
 	name = "risen corpse",
-	desc = [[A body raised through dark magic.]],
+	kr_name = "부활한 시체",
+	desc = [[어둠의 마법에 의해 부활한 시체입니다.]],
 	exp_worth = 1,
 	combat_armor = 5, combat_def = 3,
 	resolvers.equip{

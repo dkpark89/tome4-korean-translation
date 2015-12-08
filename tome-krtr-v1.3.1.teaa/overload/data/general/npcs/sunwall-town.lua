@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -44,7 +44,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 	name = "human guard", color=colors.LIGHT_UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_name = "인간 경비",
+	desc = [[엄격해 보이는 경비입니다. 이 경비는 당신이 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(70,80),
@@ -63,7 +64,8 @@ newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 
 newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 	name = "elven archer", subtype = "elf", color=colors.UMBER,
-	desc = [[A stern-looking guard, he will not let you disturb the town.]],
+	kr_name = "엘프 궁수",
+	desc = [[엄격해 보이는 경비입니다. 이 경비는 당신이 마을을 어지럽히는 것을 용납하지 않을 것입니다.]],
 	level_range = {1, nil}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(50,60),
@@ -79,7 +81,8 @@ newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 
 newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 	name = "human sun-paladin", color=colors.GOLD,
-	desc = [[A human in shiny plate armour.]],
+	kr_name = "인간 태양의 기사",
+	desc = [[빛나는 판갑을 입은 인간입니다.]],
 	level_range = {5, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 3,
@@ -103,7 +106,8 @@ newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 
 newEntity{ base = "BASE_NPC_SUNWALL_TOWN",
 	name = "elven sun-mage", subtype = "elf", color=colors.YELLOW,
-	desc = [[An elf dressed in glowing robes.]],
+	kr_name = "엘프 태양의 마법사",
+	desc = [[선명한 로브를 입은 엘프입니다.]],
 	level_range = {3, nil}, exp_worth = 1,
 	rarity = 3,
 	rank = 3,

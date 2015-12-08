@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -42,6 +42,7 @@ newEntity{ --rodent base
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant white mouse", color=colors.WHITE,
+	kr_name = "흰 거대 생쥐",
 	level_range = {1, 3}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(5,9),
@@ -55,6 +56,7 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant brown mouse", color=colors.UMBER,
+	kr_name = "갈색 거대 생쥐",
 	level_range = {1, 3}, exp_worth = 1,
 	rarity = 1,
 	max_life = resolvers.rngavg(5,9),
@@ -68,6 +70,7 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant white rat", color=colors.WHITE,
+	kr_name = "흰 거대 쥐",
 	level_range = {1, 4}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(15,20),
@@ -80,6 +83,7 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant brown rat", color=colors.UMBER,
+	kr_name = "갈색 거대 쥐",
 	level_range = {1, 4}, exp_worth = 1,
 	rarity = 2,
 	max_life = resolvers.rngavg(15,20),
@@ -92,7 +96,8 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant rabbit", color=colors.UMBER,
-	desc = [[Kill the wabbit, kill the wabbit, kill the wabbbbbiiiiiit.]],
+	kr_name = "거대 토끼",
+	desc = [[토끼를 죽이자, 토끼를 죽여, 토끼를 주우우우욱이자.]],
 	level_range = {1, 4}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(20,30),
@@ -105,7 +110,8 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant crystal rat", color=colors.PINK,
-	desc = [[Instead of fur, this rat has crystals growing on its back, which provide extra protection.]],
+	kr_name = "거대 수정 쥐",
+	desc = [[털 대신 수정이 자라나는 쥐로, 그로 인해 더 높은 방어력을 가집니다.]],
 	level_range = {1, 5}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(35,50),
@@ -119,6 +125,7 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant grey mouse", color=colors.SLATE,
+	kr_name = "회색 거대 생쥐",
 	level_range = {1, 3}, exp_worth = 1,
 	rarity = 3,
 	max_life = resolvers.rngavg(5,9),
@@ -130,6 +137,7 @@ newEntity{ base = "BASE_NPC_RODENT",
 
 newEntity{ base = "BASE_NPC_RODENT",
 	name = "giant grey rat", color=colors.SLATE,
+	kr_name = "회색 거대 쥐",
 	level_range = {1, 4}, exp_worth = 1,
 	rarity = 4,
 	max_life = resolvers.rngavg(15,20),

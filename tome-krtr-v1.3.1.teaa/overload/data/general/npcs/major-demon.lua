@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -49,8 +49,9 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "dolleg", color=colors.GREEN, -- Dark thorn
+	kr_name = "돌레그",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_dolleg.png", display_h=2, display_y=-1}}},
-	desc = "A monstrous demon, covered in acidic thorns.",
+	desc = "몸이 산성 가시로 가득한, 괴물같은 악마입니다.",
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,
@@ -72,8 +73,9 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "dúathedlen", color=colors.GREY, -- Darkness exiled
+	kr_name = "듀아세들렌",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_duathedlen.png", display_h=2, display_y=-1}}},
-	desc = "Under a shroud of darkness you discern an evil shape.",
+	desc = "어둠의 장막 아래에서, 그 사악한 모습을 발견할 수 있습니다.",
 	level_range = {30, nil}, exp_worth = 1,
 	rarity = 1,
 	rank = 2,
@@ -94,9 +96,10 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "uruivellas", color=colors.LIGHT_RED, -- Hot strength
+	kr_name = "우뤼벨라스",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_uruivellas.png", display_h=2, display_y=-1}}},
-	desc = [[This demon would look like a minotaur, if a minotaur had a fiery aura surrounding it and horns all over its body.
-Oh, and it is twice as big, too.]],
+	desc = [[이 악마는 주변을 뒤덮은 강렬한 기운과 온몸에 뿔이 나있다는 것을 제외하면, 미노타우르스와 비슷하게 생겼습니다.
+미노타우르스보다 두 배는 더 커다랗지만요.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,
@@ -127,8 +130,9 @@ Oh, and it is twice as big, too.]],
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "thaurhereg", color=colors.RED, -- Terrible blood
+	kr_name = "싸울헤렉",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_thaurhereg.png", display_h=2, display_y=-1}}},
-	desc = [[This terrible demon is covered in blood, which flows *on* its skin in ever-changing patterns that disturb you simply when looking at it.]],
+	desc = [[피부 위로 끊임없이 다른 무늬를 그려가며 피를 흘리는, 끔찍한 악마입니다. 쳐다보는 것만으로도 현기증이 납니다.]],
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 4,
 	rank = 3,
@@ -160,9 +164,10 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "daelach", color=colors.PURPLE, -- Shadow flame
+	kr_name = "대라치",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_daelach.png", display_h=2, display_y=-1}}},
-	desc = [[You can only guess at the real shape of this demon. Its body is surrounded by a cloud of fiery darkness.
-It moves swiftly toward you, casting terrible spells and swinging its weapons at you.]],
+	desc = [[진짜 모습은 겨우 짐작만 할 수 있는 이 악마는, 강렬한 어둠의 구름으로 자신의 본모습을 가리고 있습니다.
+끔찍한 주문을 외우고, 무기를 휘두르면서 당신에게 신속히 다가오고 있습니다.]],
 	level_range = {39, nil}, exp_worth = 1,
 	rarity = 6,
 	rank = 3,
@@ -200,7 +205,8 @@ It moves swiftly toward you, casting terrible spells and swinging its weapons at
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "champion of Urh'Rok", color=colors.GREY,
-	desc = [[One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.]],
+	kr_name = "울흐'록의 투사",
+	desc = [[울흐'록 밑에 있는 투사 중 하나입니다. 수천 번의 악몽을 통해 만들어진 존재이며, 그 거대하고 중무장한 인간형의 모습으로 당신 앞에서 위압감을 뿜어냅니다. 악마가 든 검에서는 비명이 흘러나옵니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_champion_of_urh_rok.png", display_h=2, display_y=-1}}},
 	level_range = {43, nil}, exp_worth = 1,
 	rarity = 7,
@@ -244,7 +250,8 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "forge-giant", color=colors.RED,
-	desc = [[A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.]],
+	kr_name = "대장장이 거인",
+	desc = [[지하 세계의 연마용 망치를 양손에 든, 불타는 거인입니다. 그 무기는 울흐'록의 힘을 사용하여 만들어졌으며, 힘이 주입되어 있습니다. 만약 당신이 모험을 원한다면, 그의 사거리 안쪽으로 들어가면 됩니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_forge_giant.png", display_h=2, display_y=-1}}},
 	level_range = {47, nil}, exp_worth = 1,
 	rarity = 8,
@@ -290,9 +297,10 @@ newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 
 newEntity{ base = "BASE_NPC_MAJOR_DEMON",
 	name = "Khulmanar, General of Urh'Rok",
+	kr_name = "울흐'록의 장군, 크훌마나르",
 	color=colors.DARK_RED, unique=true,
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/demon_major_general_of_urh_rok.png", display_h=2, display_y=-1}}},
-	desc = [[This massive form, sheathed in dark flames, stands tall above a legion of lesser demons. In his hands he holds a massive blackened battleaxe, flames dancing around the blades.]],
+	desc = [[몸에서 어둠의 불꽃이 타오르는 엄청난 존재로, 하급 악마들의 군단을 이끌고 있습니다. 이 악마가 들고 있는 거대한 검은 전투도끼에서는 불꽃이 춤을 추고 있습니다.]],
 	level_range = {40, nil}, exp_worth = 1,
 	rarity = 50,
 	rank = 3.5,

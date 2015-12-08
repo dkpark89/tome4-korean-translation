@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,7 +21,8 @@ for i = 1, 4 do
 newEntity{ base = "BASE_LORE_RANDOM",
 	define_as = "SUNWALL_LORE_NOTE"..i,
 	name = "Loremaster Verutir's note", lore="sunwall-note-"..i, unique="Loremaster Verutir's note "..i,
-	desc = [[A paper scrap containing some lore.]],
+	kr_name = "지식의 대가 베루티르의 쪽지",
+	desc = [[어떤 지식이 담긴 종이 조각입니다.]],
 	level_range = {1, 50},
 	rarity = 50,
 	encumber = 0,

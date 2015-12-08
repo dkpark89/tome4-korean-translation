@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 newEntity{
 	name = "Underwater Cave",
+	kr_name = "수중 동굴",
 	type = "harmless", subtype = "special", unique = true,
 	level_range = {30, 40},
 	rarity = 1,
@@ -32,6 +33,7 @@ newEntity{
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g:removeAllMOs()
 		g.name = "Entrance to an underwater cave"
+		g.kr_name = "수중 동굴로의 입구"
 		g.display='>' g.color_r=colors.AQUAMARINE.r g.color_g=colors.AQUAMARINE.g g.color_b=colors.AQUAMARINE.b g.notice = true
 		g.change_level=1 g.change_zone="flooded-cave" g.glow=true
 		g.add_displays = g.add_displays or {}
@@ -40,13 +42,14 @@ newEntity{
 		g:altered()
 		g:initGlow()
 		game.zone:addEntity(game.level, g, "terrain", x, y)
-		game.logPlayer(who, "#LIGHT_BLUE#You notice an entrance to an underwater cave.")
+		game.logPlayer(who, "#LIGHT_BLUE#당신은 수중동굴로 통하는 입구를 발견했습니다.")
 		return true
 	end,
 }
 
 newEntity{
 	name = "Shadow Crypt",
+	kr_name = "그림자 지하실",
 	type = "hostile", subtype = "special", unique = true,
 	immediate = {"world-encounter", "fareast"},
 	on_encounter = function(self, who)
@@ -55,6 +58,7 @@ newEntity{
 
 		local g = game.level.map(x, y, engine.Map.TERRAIN):cloneFull()
 		g.name = "Entrance to a dark crypt"
+		g.kr_name = "어두운 지하실로의 입구"
 		g.display='>' g.color_r=128 g.color_g=128 g.color_b=128 g.notice = true
 		g.change_level=1 g.change_zone="shadow-crypt" g.glow=true
 		g.add_displays = g.add_displays or {}
@@ -72,6 +76,7 @@ newEntity{
 -- It's gone now
 newEntity{
 	name = "Orc Breeding Pits",
+	kr_name = "오크 번식용 동굴",
 	type = "harmless", subtype = "special", unique = true,
 	level_range = {35, 50},
 	rarity = 20,

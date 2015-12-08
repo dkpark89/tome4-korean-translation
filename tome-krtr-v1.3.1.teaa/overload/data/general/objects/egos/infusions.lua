@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 newEntity{
 	name = " of the warrior", suffix=true,
+	kr_name = "전사의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -26,6 +27,7 @@ newEntity{
 }
 newEntity{
 	name = " of the duelist", suffix=true,
+	kr_name = "결투의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -33,6 +35,7 @@ newEntity{
 }
 newEntity{
 	name = " of the wizard", suffix=true,
+	kr_name = "마법사의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -40,6 +43,7 @@ newEntity{
 }
 newEntity{
 	name = " of the psychic", suffix=true,
+	kr_name = "초능력자의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -47,6 +51,7 @@ newEntity{
 }
 newEntity{
 	name = " of the sneak", suffix=true,
+	kr_name = "은밀함의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,
@@ -54,6 +59,7 @@ newEntity{
 }
 newEntity{
 	name = " of the titan", suffix=true,
+	kr_name = "타이탄의 ",
 	level_range = {1, 50},
 	rarity = 4,
 	cost = 10,

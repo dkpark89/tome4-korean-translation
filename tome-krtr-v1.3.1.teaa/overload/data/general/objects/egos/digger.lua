@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ local DamageType = require "engine.DamageType"
 newEntity{
 	power_source = {technique=true},
 	name = " of delving", suffix=true, instant_resolve=true,
+	kr_name = "탐구의 ",
 	keywords = {delving=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -41,6 +42,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of endurance", suffix=true, instant_resolve=true,
+	kr_name = "인내의 ",
 	keywords = {endurance=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -54,6 +56,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "miner's ", prefix=true, instant_resolve=true,
+	kr_name = "광부 ",
 	keywords = {miner=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -67,6 +70,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "woodsman's ", prefix=true, instant_resolve=true,
+	kr_name = "나무꾼 ",
 	keywords = {woodsman=true},
 	level_range = {1, 50},
 	rarity = 6,
@@ -82,6 +86,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of the Iron Throne", suffix=true, instant_resolve=true,
+	kr_name = "철의 왕좌의 ",
 	keywords = {['iron.throne']=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -97,6 +102,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of Reknor", suffix=true, instant_resolve=true,
+	kr_name = "레크놀의 ",
 	keywords = {reknor=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -114,6 +120,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "brutal ", prefix=true, instant_resolve=true,
+	kr_name = "잔혹한 ",
 	keywords = {brutal=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -130,6 +137,7 @@ newEntity{
 newEntity{
 	power_source = {psionic=true},
 	name = "dream-smith's ", prefix=true, instant_resolve=true,
+	kr_name = "꿈을 만드는 ",
 	keywords = {smiths=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -148,6 +156,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "soldier's ", prefix=true, instant_resolve=true,
+	kr_name = "병사 ",
 	keywords = {soldier=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -166,6 +175,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "bloodhexed ", prefix=true, instant_resolve=true,
+	kr_name = "핏빛 매혹 ",
 	keywords = {bloodhexed=true},
 	level_range = {40, 50},
 	greater_ego = 1,
@@ -185,6 +195,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = "crystalomancer's ", prefix=true, instant_resolve=true,
+	kr_name = "수정 마법사 ",
 	keywords = {crystal=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -202,6 +213,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "shattering ", prefix=true, instant_resolve=true,
+	kr_name = "분쇄하는 ",
 	keywords = {shattering=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -218,6 +230,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = "sapper's ", prefix=true, instant_resolve=true,
+	kr_name = "공병 ",
 	keywords = {sapper=true},
 	level_range = {10, 50},
 	greater_ego = 1,
@@ -236,6 +249,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = "dwarven ", prefix=true, instant_resolve=true,
+	kr_name = "드워프 ",
 	keywords = {dwarven=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -253,6 +267,7 @@ newEntity{
 newEntity{
 	power_source = {arcane=true},
 	name = " of quickening", suffix=true, instant_resolve=true,
+	kr_name = "빠른 속도의 ",
 	keywords = {quickening=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -267,6 +282,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of predation", suffix=true, instant_resolve=true,
+	kr_name = "포식의 ",
 	keywords = {predation=true},
 	level_range = {20, 50},
 	greater_ego = 1,
@@ -285,6 +301,7 @@ newEntity{
 newEntity{
 	power_source = {nature=true},
 	name = " of deeplife", suffix=true, instant_resolve=true,
+	kr_name = "어두운 삶의 ",
 	keywords = {deeplife=true},
 	level_range = {30, 50},
 	greater_ego = 1,
@@ -303,6 +320,7 @@ newEntity{
 newEntity{
 	power_source = {technique=true},
 	name = " of wreckage", suffix=true, instant_resolve=true,
+	kr_name = "잔해의 ",
 	keywords = {wreckage=true},
 	level_range = {20, 50},
 	greater_ego = 1,

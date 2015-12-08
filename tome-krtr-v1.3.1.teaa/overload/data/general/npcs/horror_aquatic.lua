@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,6 +18,8 @@
 -- darkgod@te4.org
 
 -- last updated:  10:46 AM 2/3/2010
+
+require "engine.krtrUtils"
 
 local Talents = require("engine.interface.ActorTalents")
 
@@ -54,13 +56,14 @@ newEntity{
 				end
 			end
 		end end
-		game.logSeen(self, "#LIGHT_BLUE#%s explodes into a huge bubble of air!", self.name:capitalize())
+		game.logSeen(self, "#LIGHT_BLUE#%s 거대한 공기 방울로 폭발하였습니다!", (self.kr_name or self.name):capitalize():addJosa("가"))
 	end,
 }
 
 newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 	name = "entrenched horror", color=colors.DARK_GREY,
-	desc ="This massive stony structure shifts and pulsates, its many long, thin tentacles probing the nearby water for food.",
+	kr_name = "견고한 공포",
+	desc ="돌로 이루어진 거대한 구조물로, 맥박하며 그 형체를 조금씩 바꾸고 있습니다. 길고 가는 수많은 촉수가 근처의 물가에서 먹이를 찾고 있습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_aquatic_entrenched_horror.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 3,
@@ -89,7 +92,8 @@ newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 
 newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 	name = "swarming horror", color=colors.GREY,
-	desc ="This tiny fish-like creature moves erratically, but is constantly surrounded by others of its kind.",
+	kr_name = "군집의 공포",
+	desc ="물고기를 닮은 작은 존재로, 변덕스럽게 움직이고 있습니다. 언제나 같은 종류들끼리 뭉쳐다닙니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_aquatic_swarming_horror.png", display_h=2, display_y=-1}}},
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 2,
@@ -112,7 +116,8 @@ newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 
 newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 	name = "ravenous horror", color=colors.GREY,
-	desc ="A vile looking liquid flows from the teeth of this agile monster. It glides through the water towards you, spined fins jutting outwards.",
+	kr_name = "굶주림의 공포",
+	desc ="위협적인 액체가 이빨에서 흘러내리는, 날렵한 괴물입니다. 물 위를 미끄러지듯 움직이며 당신에게 다가오고 있으며, 회전하는 지느러미가 물 밖에 돌출된 상태입니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_aquatic_ravenous_horror.png", display_h=2, display_y=-1}}},
 	level_range = {10, nil}, exp_worth = 1,
 	rarity = 2,
@@ -131,7 +136,8 @@ newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 
 newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 	name = "boiling horror", color=colors.BLUE,
-	desc ="This frothing ball of water rages with an intense heat.",
+	kr_name = "끓는 물의 공포",
+	desc ="강렬한 열에 의해, 그 주변에 물거품이 일어나고 있습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_aquatic_boiling_horror.png", display_h=2, display_y=-1}}},
 	level_range = {14, nil}, exp_worth = 1,
 	rarity = 4,
@@ -160,7 +166,8 @@ newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 
 newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 	name = "swarm hive", color=colors.BLACK,
-	desc ="This titanic mass of flesh pulsates and churns as tiny monsters burst from its orifices.",
+	kr_name = "군집체",
+	desc ="맥박하는 거대한 살덩어리로, 그 구멍에서는 작은 괴물들이 부글거리며 튀어나오고 있습니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_aquatic_swarm_hive.png", display_h=2, display_y=-1}}},
 	level_range = {15, nil}, exp_worth = 1,
 	rarity = 6,
@@ -190,7 +197,8 @@ newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 
 newEntity{ base = "BASE_NPC_HORROR_AQUATIC",
 	name = "abyssal horror", color=colors.BLACK,
-	desc = "This pitch black form is shrouded in darkness. All you can make out are a pair of deep red eyes, hidden behind a mass of tentacles.",
+	kr_name = "심해의 공포",
+	desc = "이 심연의 존재는 어둠에 의해 가려진 상태입니다. 당신이 볼 수 있는 것은 수많은 촉수 뒤에 숨겨진 붉은 눈 한 쌍 뿐입니다.",
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/horror_aquatic_abyssal_horror.png", display_h=2, display_y=-1}}},
 	level_range = {16, nil}, exp_worth = 1,
 	rarity = 12, --Scary but rare

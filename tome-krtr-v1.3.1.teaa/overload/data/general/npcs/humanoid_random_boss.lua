@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -37,6 +37,7 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 	name = "human", subtype = "human", color=colors.LIGHT_UMBER,
+	kr_name = "인간",
 	resolvers.generic(function(e)
 		if rng.percent(50) then
 			e.female = true
@@ -54,6 +55,7 @@ newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 
 newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 	name = "thalore", subtype = "thalore", color=colors.LIGHT_GREEN,
+	kr_name = "탈로레",
 	resolvers.generic(function(e)
 		if rng.percent(50) then
 			e.female = true
@@ -72,6 +74,7 @@ newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 
 newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 	name = "shalore", subtype = "shalore", color=colors.LIGHT_BLUE,
+	kr_name = "샬로레",
 	resolvers.generic(function(e)
 		if rng.percent(50) then
 			e.female = true
@@ -90,6 +93,7 @@ newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 
 newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 	name = "halfling", subtype = "halfling", color=colors.BLUE,
+	kr_name = "하플링",
 	resolvers.generic(function(e)
 		if rng.percent(50) then
 			e.female = true
@@ -106,6 +110,7 @@ newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 
 newEntity{ base = "BASE_NPC_HUMANOID_RANDOM_BOSS",
 	name = "dwarf", subtype = "dwarf", color=colors.UMBER,
+	kr_name = "드워프",
 	resolvers.generic(function(e)
 		if rng.percent(50) then
 			e.female = true

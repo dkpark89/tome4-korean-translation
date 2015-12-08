@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -45,7 +45,8 @@ newEntity{
 
 newEntity{ base = "BASE_NPC_WILD_DRAKE",
 	name = "spire dragon", color=colors.SLATE, display="D",
-	desc = [[A monstrous, coiled wyrm, patient and hateful. Its hide, studded with spikes and crests and blades, turns aside steel and sorcery with equal ease.]],
+	kr_name = "나선의 용",
+	desc = [[똬리를 틀고 있으며, 끈질기고 혐오스러운 용입니다. 그 가죽은 가시와 깃 그리고 칼날로 이루어져 있어, 검과 마법을 가리지 않고 빗나가게 만듭니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_wild_spire_dragon.png", display_h=2, display_y=-1}}},
 	level_range = {35, nil}, exp_worth = 1,
 	rarity = 6,
@@ -74,7 +75,8 @@ newEntity{ base = "BASE_NPC_WILD_DRAKE",
 
 newEntity{ base = "BASE_NPC_WILD_DRAKE",
 	name = "blinkwyrm", color=colors.YELLOW, display="D",
-	desc = [[A shifting, writhing, snake-like dragon, blinking in and out of existence, just waiting for you to turn your back.]],
+	kr_name = "순간이동 용",
+	desc = [[순간순간 모양이 변하고 있으며, 꼬불꼬불한 뱀처럼 생긴 용입니다. 현실을 넘나들며 순간이동을 하더니, 어느새 당신의 뒤쪽에 도착합니다.]],
 	resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/dragon_wild_blinkwyrm.png", display_h=2, display_y=-1}}},
 	level_range = {40, nil}, exp_worth = 1,
 	rarity = 7,
