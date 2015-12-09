@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,8 +19,9 @@
 
 -- Explore the far east
 name = "The wild wild east"
+kr_name = "거칠고도 거친 동쪽 대륙"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "There must be a way to go into the far east from the lair of Golbug. Find it and explore the unknown far east, looking for clues."
+	desc[#desc+1] = "골부그가 있던 곳에는 동대륙으로 통하는 길이 있을 것입니다. 알려지지 않은 대륙인 동대륙을 탐험하여, 지팡이를 추적해야 합니다."
 	return table.concat(desc, "\n")
 end

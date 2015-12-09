@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,23 +18,24 @@
 -- darkgod@te4.org
 
 name = "Melinda, lucky girl"
+kr_name = "운 좋은 소녀, 멜린다"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope."
+	desc[#desc+1] = "크릴-페이얀의 광신도로부터 멜린다를 구해준 뒤, 당신은 그녀를 마지막 희망에서 다시 만났습니다."
 	if self:isCompleted("saved-beach") then
-		desc[#desc+1] = "Melinda was saved from the brink of death at the beach, by a strange wave of blight."
+		desc[#desc+1] = "기묘한 황폐의 파동으로 멜린다는 죽기 일보 직전에 해변에서 구출되었습니다."
 	end
 	if self:isCompleted("death-beach") then
-		desc[#desc+1] = "Melinda died to a Yaech raiding party at the beach."
+		desc[#desc+1] = "해변의 야크 습격단에 의해 멜린다는 죽었습니다."
 	end
 	if self:isCompleted("can_come_fortress") then
-		desc[#desc+1] = "The Fortress Shadow said she could be cured."
+		desc[#desc+1] = "그녀는 치료될 수 있다고 요새의 그림자가 말합니다."
 	end
 	if self:isCompleted("moved-in") then
-		desc[#desc+1] = "Melinda decided to come live with you in your Fortress."
+		desc[#desc+1] = "멜린다는 당신의 요새에서 당신과 함께 살기로 결심하였습니다."
 	end
 	if self:isCompleted("portal-done") then
-		desc[#desc+1] = "The Fortress Shadow has established a portal for her so she can come and go freely."
+		desc[#desc+1] = "요새의 그림자가 그녀도 자유롭게 이용할 수 있도록 순간이동 장치를 조정했습니다."
 	end
 	return table.concat(desc, "\n")
 end
@@ -43,21 +44,22 @@ function onWin(self, who)
 	if who.dead then return end
 	if not self.inlove then return end
 	return 10, {
-		"After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.",
-		"You lived together and led a happy life. Melinda even learned a few adventurer's tricks and you both traveled Eyal, making new legends.",
+		"승리한 뒤, 당신은 마지막 희망으로 가서 멜린다와 다시 만났습니다. 그녀는 더 이상 악마 숭배로 인한 후유증을 겪지 않았습니다.",
+		"당신은 그녀와 함께 살면서 행복한 삶을 살았습니다. 멜린다는 모험가의 기술들을 몇 개 배워 당신과 함께 여행을 다니기도 하였으며, 그녀는 당신과 함께 새로운 전설을 만들었습니다.",
 	}
 end
 
 function spawnFortress(self, who) game:onTickEnd(function()
 	local melinda = require("mod.class.NPC").new{
 		name = "Melinda", define_as = "MELINDA_NPC",
+		kr_name = "멜린다",
 		type = "humanoid", subtype = "human", female=true,
 		display = "@", color=colors.LIGHT_BLUE,
 		image = "player/cornac_female_redhair.png",
 		moddable_tile = "human_female",
 		moddable_tile_base = "base_redhead_01.png",
 		moddable_tile_ornament = {female="braid_redhead_01"},
-		desc = [[You saved her from the depth of a cultists' lair and fell in love with her. She has moved into the Fortress to see you more often.]],
+		desc = [[당신은 그녀를 광신도들로부터 구해냈으며, 그녀와 사랑에 빠졌습니다. 그녀는 당신을 더 자주 보기 위해 요새에서 살기로 하였습니다.]],
 		autolevel = "tank",
 		ai = "none",
 		stats = { str=8, dex=7, mag=8, con=12 },
@@ -114,7 +116,7 @@ function melindaCompanion(self, who, c, sc)
 	melinda:forceLevelup(who.level)
 
 	game.party:addMember(melinda, {
-		control="full", type="companion", title="Melinda",
+		control="full", type="companion", title="Melinda", kr_title="멜린다",
 		orders = {target=true, leash=true, anchor=true, talents=true, behavior=true},
 	})
 end

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,15 +18,16 @@
 -- darkgod@te4.org
 
 name = "Important news"
+kr_name = "중요한 소식"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Orcs were spotted with the staff you seek in an arid waste in the southern desert."
-	desc[#desc+1] = "You should go investigate what is happening there."
+	desc[#desc+1] = "오크들이 지팡이를 가지고 남쪽 사막의 불모지로 가는 것이 포착되었습니다."
+	desc[#desc+1] = "당신은 그곳을 조사해서 무슨 일이 일어나고 있는지 알아내야 합니다."
 	return table.concat(desc, "\n")
 end
 
 on_grant = function(self, who)
-	local aeryn = {name="High Sun Paladin Aeryn"}
+	local aeryn = {name="High Sun Paladin Aeryn", kr_name = "고위 태양의 기사 아에린"}
 	local chat = engine.Chat.new("pre-charred-scar", aeryn, who)
 	chat:invoke()
 
@@ -36,5 +37,5 @@ on_grant = function(self, who)
 		local spot = level:pickSpot{type="zone-pop", subtype="eruan"}
 		game.zone:addEntity(level, g, "terrain", spot.x, spot.y)
 	end)
-	game.logPlayer(game.player, "Aeryn explained where the orcs were spotted.")
+	game.logPlayer(game.player, "아에린이 오크 긍지가 포착된 장소를 알려줬습니다.")
 end

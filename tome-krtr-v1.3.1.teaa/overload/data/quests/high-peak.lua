@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -108,7 +108,7 @@ function failed_charred_scar(self, level)
 		local wild = level.map(spot.x, spot.y, engine.Map.TERRAIN)
 		wild.name = "Ruins of the Gates of Morning"
 		wild.kr_name = "파괴된 아침의 문"
-		wild.desc = "The Sunwall was destroyed while you were trapped in the High Peak."
+		wild.desc = "당신이 최고봉에 갇혀 있는 동안, 태양의 장벽은 파괴되었습니다."
 		wild.change_level = nil
 		wild.change_zone = nil
 	end)
@@ -125,7 +125,7 @@ function win(self, how)
 	elseif how == "yeek-sacrifice" then world:gainAchievement("YEEK_SACRIFICE", game.player)
 	elseif how == "yeek-selfless" then world:gainAchievement("YEEK_SELFLESS", game.player)
 	end
-	
+
 	local p = game:getPlayer(true)
 	p:inventoryApplyAll(function(inven, item, o) o:check("on_win") end)
 
@@ -165,7 +165,6 @@ function win(self, how)
 		end
 		world.majeyal_campaign_last_winner = pwinner
 	end
-
 	game:saveGame()
 end
 

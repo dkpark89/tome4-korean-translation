@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,14 +18,15 @@
 -- darkgod@te4.org
 
 name = "The many Prides of the Orcs"
+kr_name = "수많은 오크의 긍지들"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Investigate the bastions of the Pride."
+	desc[#desc+1] = "오크 긍지들이 있는 곳을 조사해야 합니다."
 
 	if self:isCompleted("rak-shor") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have destroyed Rak'shor.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 락'쇼르를 처치했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* Rak'shor Pride, in the west of the southern desert.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 락'쇼르 긍지, 남쪽에 있는 사막의 서쪽 지역#WHITE#"
 	end
 --[[
 	if self:isCompleted("eastport") then
@@ -35,24 +36,24 @@ desc = function(self, who)
 	end
 ]]
 	if self:isCompleted("vor") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have destroyed Vor.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 보르를 처치했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* Vor Pride, in the north east.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 보르 긍지, 북동쪽.#WHITE#"
 	end
 	if self:isCompleted("grushnak") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have destroyed Grushnak.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 그루쉬낙을 처치했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* Grushnak Pride, near a small mountain range in the north west.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 그루쉬낙 긍지, 북서쪽에 있는 작은 산 너머#WHITE#"
 	end
 	if self:isCompleted("gorbat") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have destroyed Gorbat.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 고르뱃을 처치했습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* Gorbat Pride, in a mountain range in the southern desert.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 고르뱃 긍지, 남쪽에 있는 사막의 산 너머#WHITE#"
 	end
 
 	if self:isCompleted() then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "#LIGHT_GREEN#* All the bastions of the Pride lie in ruins, their masters destroyed. High Sun Paladin Aeryn would surely be glad of the news!#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 모든 오크 긍지들은 파괴되고, 그들의 지도자는 죽음을 맞이했습니다. 고위 태양의 기사 아에린이 이 소식을 들으면 굉장히 기뻐할 것입니다!#WHITE#"
 	end
 
 	return table.concat(desc, "\n")

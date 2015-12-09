@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,21 +18,22 @@
 -- darkgod@te4.org
 
 name = "Storming the city"
+kr_name = "도시에 몰아치는 폭풍"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "As you approached Derth you saw a huge dark cloud over the small town."
-	desc[#desc+1] = "When you entered you were greeted by an army of air elementals slaughtering the population."
+	desc[#desc+1] = "당신은 거대한 검은 구름이 데르스 마을 위에 있다는 것을 발견했습니다."
+	desc[#desc+1] = "마을에 들어서자, 수많은 대기 정령들이 마을 사람들을 학살하면서 당신을 반겼습니다."
 	if self:isCompleted("saved-derth") then
-		desc[#desc+1] = " * You have dispatched the elementals but the cloud lingers still. You must find a powerful ally to remove it. There are rumours of a secret town in the mountains, to the southwest. You could also check out the Ziguranth group that is supposed to fight magic."
+		desc[#desc+1] = " * 당신은 대기 정령들을 해치웠지만 구름은 사라지지 않았습니다. 당신은 이 구름을 없앨 수 있는 강력한 동료를 찾아야 합니다. 소문에 의하면, 데르스의 남서쪽 산 속에는 비밀의 도시가 있다고 합니다. 마법과 싸우기로 맹세한 지구르 추종자들을 찾아보는 것도 방법이 될 수 있을 것 같습니다."
 	end
 	if self:isCompleted("tempest-located") then
-		desc[#desc+1] = " * You have learned the real threat comes from a rogue Archmage, a Tempest named Urkis. The mages of Angolwen are ready to teleport you there."
+		desc[#desc+1] = " * 진정한 위협은 폭풍의 마도사, 우르키스라는 사실을 알았습니다. 앙골웬의 마법사들은 당신을 그가 있는 곳으로 순간이동시킬 준비가 되었습니다."
 	end
 	if self:isCompleted("tempest-entrance") then
-		desc[#desc+1] = " * You have learned the real threat comes from a rogue Archmage, a Tempest. You have been shown a secret entrance to his stronghold."
+		desc[#desc+1] = " * 진정한 위협은 폭풍의 마도사, 우르키스라는 사실을 알았습니다. 당신은 그가 있는 곳으로 가는 길을 알게 되었습니다."
 	end
 	if self:isCompleted() then
-		desc[#desc+1] = " * Urkis has been dealt with. Permanently."
+		desc[#desc+1] = " * 우르키스가 영구적으로 처리되었습니다."
 	end
 
 	return table.concat(desc, "\n")
@@ -75,7 +76,7 @@ kill_one = function(self)
 
 	if self.kill_count >= self.max_count then
 		local Chat = require "engine.Chat"
-		local chat = Chat.new("derth-attack-over", {name="Scared Halfling"}, game.player)
+		local chat = Chat.new("derth-attack-over", {name="Scared Halfling", kr_name="겁먹은 하플링"}, game.player)
 		chat:invoke()
 
 		if not game.zone.unclean_derth_savior then
@@ -90,8 +91,8 @@ end
 
 teleport_urkis = function(self)
 	game:changeLevel(1, "tempest-peak")
-	require("engine.ui.Dialog"):simpleLongPopup("Danger...", [[You step out on unfamiliar grounds. You are nearly on top of one of the highest peaks you can see.
-The storm is raging above your head.]], 400)
+	require("engine.ui.Dialog"):simpleLongPopup("위험...", [[당신은 친숙하지 않은 곳에 발을 내딛었습니다. 주변을 보니, 이곳이 가장 높은 산꼭대기인 것 같습니다.
+머리 바로 위에서 폭풍우가 휘몰아치고 있습니다.]], 400)
 end
 
 create_entrance = function(self)
@@ -143,7 +144,7 @@ enter_derth = function(self)
 	end
 	self.kill_count = 0
 
-	require("engine.ui.Dialog"):simpleLongPopup("Danger...", "As you arrive in Derth you notice a huge dark cloud hovering over the town.\nYou hear screams coming from the town square.", 400)
+	require("engine.ui.Dialog"):simpleLongPopup("위험...", "데르스에 도착하자, 거대한 검은 구름이 마을 위를 맴돌고 있다는 것을 발견했습니다.\n마을 광장에서 비명소리가 들리고 있습니다.", 400)
 end
 
 
@@ -155,9 +156,9 @@ reenter_derth = function(self)
 
 		game.player:setQuestStatus(self.id, engine.Quest.COMPLETED, "restored-derth")
 		if self:isCompleted("tempest-entrance") then
-			require("engine.ui.Dialog"):simpleLongPopup("Clear sky", "It seems the Ziguranth have kept their word.\nDerth is free of the storm cloud.", 400)
+			require("engine.ui.Dialog"):simpleLongPopup("맑은 하늘", "지구르 추종자들이 약속을 지킨 것 같습니다.\n데르스에 있던 폭풍우가 사라졌습니다.", 400)
 		else
-			require("engine.ui.Dialog"):simpleLongPopup("Clear sky", "It seems the mages have kept their word.\nDerth is free of the storm cloud.", 400)
+			require("engine.ui.Dialog"):simpleLongPopup("맑은 하늘", "마법사들이 약속을 지킨 것 같습니다.\n데르스에 있던 폭풍우가 사라졌습니다.", 400)
 		end
 	end
 end

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -102,7 +102,7 @@ on_status_change = function(self, who, status, sub)
 			end
 		end)
 
-		require("engine.ui.Dialog"):simplePopup("위대한 타락자", "#LIGHT_GREEN#T위대한 타락자가 당신에게 시선을 집중했습니다. 당신의 마음 속에 지식이 흘러들어오는 것이 느껴졌습니다. 이제 당신은 타락한 힘을 수련할 수 있게 되었습니다.")
+		require("engine.ui.Dialog"):simplePopup("위대한 타락자", "#LIGHT_GREEN#위대한 타락자가 당신에게 시선을 집중했습니다. 당신의 마음 속에 지식이 흘러들어오는 것이 느껴졌습니다. 이제 당신은 타락한 힘을 수련할 수 있게 되었습니다.")
 		game:setAllowedBuild("corrupter")
 		game:setAllowedBuild("corrupter_corruptor", true)
 	end

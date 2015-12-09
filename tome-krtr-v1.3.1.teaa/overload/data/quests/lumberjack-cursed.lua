@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -17,12 +17,15 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
+require "engine.krtrUtils"
+
 name = "The beast within"
+kr_name = "공포의 기억"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You met a half-mad lumberjack fleeing a small village, rambling about an untold horror lurking there, slaughtering people."
+	desc[#desc+1] = "당신은 작은 마을에서 도망쳐 나온, 반쯤 미친 나무꾼을 만났습니다. 그는 어떤 말 못할 공포스러운 존재가 마을에서 사람들을 학살하고 있다고 횡설수설 거렸습니다."
 	if self.lumberjacks_died > 0 then
-		desc[#desc+1] = self.lumberjacks_died.." lumberjacks have died."
+		desc[#desc+1] = self.lumberjacks_died.." 명의 나무꾼이 죽었습니다."
 	end
 
 	return table.concat(desc, "\n")
@@ -33,6 +36,7 @@ on_grant = function(self, who)
 	local g = mod.class.Grid.new{
 		show_tooltip=true, always_remember = true,
 		name="Small lumberjack village",
+		kr_name = "작은 나무꾼 마을",
 		display='*', color=colors.WHITE,
 		notice = true, image="terrain/grass.png", add_mos={{image="terrain/town1.png"}},
 		change_level=1, glow=true, change_zone="town-lumberjack-village",
@@ -42,7 +46,7 @@ on_grant = function(self, who)
 	local spot = level:pickSpot{type="zone-pop", subtype="lumberjack-town"}
 	game.zone:addEntity(level, g, "terrain", spot.x, spot.y)
 
-	game.logPlayer(game.player, "He points in the direction of the Riljek forest to the north.")
+	game.logPlayer(game.player, "그는 북쪽에 있는 릴젝 숲 방향을 가리켰습니다.")
 
 	self.lumberjacks_died = 0
 end
@@ -52,7 +56,7 @@ on_status_change = function(self, who, status, sub)
 		local money = math.max(0, (20 - self.lumberjacks_died) * 1.2)
 		if money > 0 then
 			who:incMoney(money)
-			require("engine.ui.Dialog"):simplePopup("Thanks", ("The remaining lumberjacks collect some gold to thanks you (%0.2f)."):format(money))
+			require("engine.ui.Dialog"):simplePopup("감사의 선물", ("생존한 나무꾼들이 금화 %0.2f 개를 모아 당신에게 주었습니다."):format(money))
 		end
 		if self.lumberjacks_died < 7 then
 			local o = game.zone:makeEntity(game.level, "object", {type="tool", subtype="digger", tome_drops="boss"}, nil, true)
@@ -60,7 +64,7 @@ on_status_change = function(self, who, status, sub)
 				game:addEntity(game.level, o, "object")
 				o:identify(true)
 				who:addObject(who.INVEN_INVEN, o)
-				require("engine.ui.Dialog"):simplePopup("Thanks", ("You saved %s of us, please take this has a reward. (They give you %s)"):format(self.lumberjacks_died == 0 and "all" or "most", o:getName{do_color=true}))
+				require("engine.ui.Dialog"):simplePopup("감사의 선물", ("당신은 저희 %s 살려주셨습니다. 부디 저희의 보답을 받아주십시오. (그들이 당신에게 %s 주었습니다)"):format(self.lumberjacks_died == 0 and "모두를" or "대부분을", o:getName{do_color=true}:addJosa("를")))
 			end
 		end
 		who:setQuestStatus(self.id, engine.Quest.DONE)
@@ -75,5 +79,5 @@ end
 
 lumberjack_dead = function(self)
 	self.lumberjacks_died = self.lumberjacks_died + 1
-	game.logSeen(game.player, "#LIGHT_RED#A lumberjack falls to the ground, dead.")
+	game.logSeen(game.player, "#LIGHT_RED#나무꾼이 땅에 쓰러졌습니다. 죽은 것 같습니다.")
 end

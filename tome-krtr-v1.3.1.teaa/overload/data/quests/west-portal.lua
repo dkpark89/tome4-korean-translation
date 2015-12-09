@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,24 +18,25 @@
 -- darkgod@te4.org
 
 name = "There and back again"
+kr_name = "그곳에 또 다시"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Zemekkys in the Gates of Morning can build a portal back to Maj'Eyal for you."
+	desc[#desc+1] = "아침의 문에 있는 제메키스는 당신을 위해 마즈'에이알로 돌아가는 관문을 만들 수 있습니다."
 
 	if self:isCompleted("athame") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have found a Blood-Runed Athame.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 피의 룬 제례단검을 찾았습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* Find a Blood-Runed Athame.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 피의 룬 제례단검을 찾아야 합니다.#WHITE#"
 	end
 	if self:isCompleted("gem") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have found the Resonating Diamond.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 공명하는 다이아몬드를 찾았습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* Find a Resonating Diamond.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 공명하는 다이아몬드를 찾아야 합니다.#WHITE#"
 	end
 
 	if self:isCompleted() then
 		desc[#desc+1] = ""
-		desc[#desc+1] = "#LIGHT_GREEN#* The portal to Maj'Eyal is now functional and can be used to go back, although, like all portals, it is one-way only.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 마즈'에이알로 돌아가는 관문이 작동하기 시작했습니다. 이제 마즈'에이알로 돌아갈 수는 있지만, 다른 장거리 관문들처럼, 이 관문 역시 단방향 관문입니다.#WHITE#"
 	end
 
 	return table.concat(desc, "\n")
@@ -51,7 +52,7 @@ on_grant = function(self, who)
 		game.state:locationRevealAround(spot.x, spot.y)
 	end)
 
-	game.logPlayer(game.player, "Zemekkys points to the location of Vor Armoury on your map.")
+	game.logPlayer(game.player, "제메키스가 당신의 지도에 보르 무기고의 위치를 표시해줬습니다.")
 end
 
 wyrm_lair = function(self, who)
@@ -63,7 +64,7 @@ wyrm_lair = function(self, who)
 		game.nicer_tiles:updateAround(game.level, spot.x, spot.y)
 	end)
 
-	game.logPlayer(game.player, "Zemekkys points to the location of Briagh's lair on your map.")
+	game.logPlayer(game.player, "제메키스가 당신의 지도에 브리아그흐의 동굴이 있는 곳을 표시해줬습니다.")
 end
 
 create_portal = function(self, npc, player)
@@ -71,9 +72,9 @@ create_portal = function(self, npc, player)
 	local g1 = game.zone:makeEntityByName(game.level, "terrain", "WEST_PORTAL")
 	local g2 = game.zone:makeEntityByName(game.level, "terrain", "CWEST_PORTAL")
 
-	game.logPlayer(game.player, "#VIOLET#Zemekkys starts to draw runes on the floor using the athame and gem dust.")
-	game.logPlayer(game.player, "#VIOLET#The whole area starts to shake!")
-	game.logPlayer(game.player, "#VIOLET#Zemekkys says: 'The portal is done!'")
+	game.logPlayer(game.player, "#VIOLET#제메키스가 보석과 제례단검을 이용해 바닥에 룬 문자를 그리기 시작했습니다.")
+	game.logPlayer(game.player, "#VIOLET#땅이 흔들리기 시작합니다!")
+	game.logPlayer(game.player, "#VIOLET#제메키스가 말했습니다. '관문이 완성되었네!'")
 
 	-- Zemekkys is not in his home anymore
 	npc.block_move = true
@@ -83,6 +84,7 @@ create_portal = function(self, npc, player)
 		type = "humanoid", subtype = "elf",
 		display = "p", color=colors.AQUAMARINE,
 		name = "High Chronomancer Zemekkys",
+		kr_name = "고위 시공 제어사 제메키스",
 		size_category = 3, rank = 3,
 		ai = "none",
 		faction = "sunwall",
