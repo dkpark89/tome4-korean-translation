@@ -30,6 +30,7 @@ level.map(x, y, engine.Map.TERRAIN, g)
 game.nicer_tiles:updateAround(level, x, y)
 g = level.map(x, y, engine.Map.TERRAIN)
 g.name = "slimey pool"
+g.kr_name = "슬라임 웅덩이"
 g.on_stand = on_stand
 g.always_remember = true g.special_minimap = colors.OLIVE_DRAB
 g:altered()
