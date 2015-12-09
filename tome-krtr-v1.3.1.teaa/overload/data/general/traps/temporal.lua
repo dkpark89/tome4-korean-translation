@@ -27,11 +27,12 @@ newEntity{ define_as = "TRAP_TEMPORAL",
 
 newEntity{ base = "TRAP_TEMPORAL",
 	name = "disturbed pocket of time", auto_id = true, image = "trap/.png",
+	kr_name = "불안정한 시간주머니",
 	detect_power = resolvers.clscale(8,50,8),
 	disarm_power = resolvers.clscale(2,50,8),
 	rarity = 3, level_range = {1, 50},
 	color=colors.VIOLET,
-	message = "@Target@ is caught in a distorted pocket of time!",
+	message = "@Target@ 는 왜곡된 시간에 잡히었습니다!",
 	triggered = function(self, x, y, who)
 		who:paradoxDoAnomaly(100, 0, {anomaly_type="no-major"})
 		return true
@@ -40,11 +41,12 @@ newEntity{ base = "TRAP_TEMPORAL",
 
 newEntity{ base = "TRAP_TEMPORAL",
 	name = "extremely disturbed pocket of time", auto_id = true, image = "trap/.png",
+	kr_name = "매우 불안정한 시간주머니",
 	detect_power = resolvers.clscale(8,50,8),
 	disarm_power = resolvers.clscale(2,50,8),
 	rarity = 6, level_range = {1, 50},
 	color=colors.PURPLE,
-	message = "@Target@ is caught in an extremely distorted pocket of time!",
+	message = "@Target@ 는 매우 왜곡된 시간에 잡히었습니다!",
 	triggered = function(self, x, y, who)
 		who:paradoxDoAnomaly(100, 0, {anomaly_type="major"})
 		return true
