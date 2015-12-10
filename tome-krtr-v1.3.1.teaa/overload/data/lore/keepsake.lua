@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,13 +21,14 @@ newLore{
 	id = "keepsake-meadow",
 	category = "keepsake",
 	name = "A Tranquil Meadow",
-	lore = [[You've entered a tranquil meadow. Something about this place seems familiar but you're not quite sure.
-The only thing that you are sure of is that it has offered you a moment of rest from the long suffering of your cursed life.
-You feel the hate inside you melt away. You feel as if the curse has subsided for a moment.
+	kr_name = "고요한 목초지",
+	lore = [[당신은 고요한 목초지에 진입했습니다. 왠지 모르게 이곳이 익숙해보이지만, 당신은 그 이상의 기억이 떠오르지 않습니다.
+오직 한가지 확신할 수 있는 것은, 이 장소가 당신의 길고 긴 저주받은 인생에서 한 순간의 휴식을 제공한다는 것입니다.
+당신의 내면에 있는 증오가 눈 녹듯 사라짐을 느끼고, 한순간 저주가 가라앉은 느낌이 듭니다.
 
-This place makes you wonder if there is a way to end the curse.
-And if you can't overcome it you might be able to master it and take back a part of your life.
-Either way, you feel the time has come to do something more about this curse.
+이 장소는 당신에게 저주를 끝낼 방법이 있진 않나 생각하게 만듭니다.
+만약 저주를 극복해낼 수 없다면, 차라리 저주에 몸을 맡기고 저주를 삶의 일부로 받아들일 수도 있을 것입니다.
+어느 방법을 선택하건 간에, 이제 저주에 대해 결단을 내릴 시간이 왔음을 느낍니다.
 ]],
 }
 
@@ -35,11 +36,12 @@ newLore{
 	id = "keepsake-dream",
 	category = "keepsake",
 	name = "A Haunting Dream",
-	lore = [[As you wander the meadow you grow more relaxed. You lie down for a moment and close your eyes...
+	kr_name = "끔찍한 꿈",
+	lore = [[목초지를 여행하면 할 수록, 더욱 긴장이 풀려가는 것을 느낍니다. 당신은 잠깐 바닥에 누워 눈을 감았습니다...
 
-You wake up (if you can call it that) in a vivid dream. A small trail winds through the dense forest.
-The branches of the trees seem to close in around you. The tranquil feeling of the meadow is gone.
-Instead you feel the rising fear and hatred that rule your waking life. Further down the trail you hear voices.
+...당신은 생생한 꿈 속에서 일어났습니다. 울창한 숲 사이로 작은 바람이 길을 내고 있습니다.
+당신을 둘러싼 나뭇가지가 점점 다가옵니다. 목초지의 고요함은 온데 간데 없어졌습니다.
+대신에 꿈 밖에서의 삶을 지배했던 공포와 증오가 깨어납니다. 그리고, 저 멀리에서 목소리가 들려옵니다.
 ]],
 }
 
@@ -47,19 +49,20 @@ newLore{
 	id = "keepsake-banders-notes",
 	category = "keepsake",
 	name = "Bander's Notes",
-	lore = [[#{italic}#You find a folded up piece of paper with some notes on it...#{normal}#
+	kr_name = "밴더의 쪽지",
+	lore = [[#{italic}#당신은 무엇인가 적혀있는 접힌 쪽지를 발견했습니다...#{normal}#
 
-* Mom apparently died like the others but they refuse to say much more about it. I think all of the bodies were burned.
+* 듣자 하니 엄마도 다른 사람들처럼 죽은 것 같지만, 사람들은 그에 대해 말하기를 꺼려한다. 모든 시체는 불에 태워진 듯 하다.
 
-* Terrik mentioned the caravan was having a good year. Profits were great and the usual bandits and thieves were absent. Something scaring them off?
+* 테릭이 상단의 좋았던 날들에 대해 언급했다. 이득은 끝내줬고, 평범한 강도나 도둑들마저도 없었다고 했다. 무엇이 그들을 공포에 질리도록 만든걸까?
 
-* Some of the dead had 'normal' wounds but some were just 'lifeless' or 'pale'. Jak was found the same way. That was 2 months earlier.
+* 몇몇 죽은 자들은 '평범한' 상처를 가지고 있었지만, 몇몇은 단지 '생기가 없거나 창백할' 뿐이었다. 자크는 후자의 상태로 발견되었다. 그게 2 달 전의 일이다.
 
-* All of the attackers were spirits or wisps of darkess. As far as I can tell no one was spared attack, though a few survived. I'll need to check their stories.
+* 공격자들은 모두 영혼이나 어둠의 위습들이었다. 내가 말할 수 있는건, 소수의 생존자를 제외하곤 살아남은 사람이 없었다는 것이다. 이제 그 생존자들의 이야기를 들어봐야겠다.
 
-* People keep mentioning the 3 new hires when I ask about this. Why do they come to mind? I hear Berethh is some kind of hero around these parts. Alva thought Kyless was a rotten person. She's not the only one.
+* 내가 물어보자, 생존자들은 3 명의 새로 고용된 자들에 대해 언급했다. 왜 그들을 신경쓰는거지? '베레쓰' 가 이 사건과 관련해서는 영웅이라는 말을 들었다. 그리고 알바는 '킬레스' 가 타락한 사람이었다고 생각했다. 그녀 하나만이 그렇게 생각하는게 아니었다.
 
-* Someone said "Bander, you ask too many questions." I'll have to give them some time. Even after all these years.
+* 누군가가 "밴더, 질문이 너무 많아." 라고 말했다. 그들에게는 시간이 조금 필요한 것 같다. 아직도 말이다.
 ]],
 }
 
@@ -67,11 +70,13 @@ newLore{
 	id = "keepsake-acorn",
 	category = "keepsake",
 	name = "The Acorn",
-	lore = [[Along the trail you see something at your feet. It's a small acorn, made of iron. You stare at the acorn for a while and pick it up.
-It belonged to Bander's mom, and before that, his dad. You remember she never went anywhere without it.
-Bander was just a kid then. You wonder how he's turned out. Not well you imagine. Thanks to Berethh, Kyless and you.
-You keep turning the acorn in your hand and squeezing it until the cold iron bites into your skin.
-That gives you comfort somehow. Unable to part with it, you put it in your pack.
+	kr_name = "도토리",
+	lore = [[길을 따라 걸어가다가, 발치에 있는 무언가를 발견했습니다. 철로 만들어진 작은 도토리입니다. 당신은 잠시 도토리를 응시하다가, 그것을 집어들었습니다.
+도토리는 밴더의 어머니가 가지고 있던 물건입니다. 그 이전에는 그의 아버지가 가지고 있었습니다. 당신은 밴더의 어머니가 도토리를 한시도 떼어놓지 않았었다는 것을 떠올렸습니다.
+그때 당시 밴더는 어린아이였습니다. 밴더가 어떻게 되었을지 궁금함을 느꼈지만, 이제는 상상이 잘 가지 않습니다.
+베레쓰, 킬레스, 그리고 당신 덕분에 말이죠.
+손에서 도토리를 계속 굴리다가, 차가운 쇠의 냉기가 피부를 찌를 때까지 꽉 움켜쥐었습니다.
+왜인지는 모르겠지만, 당신은 그 행동을 통해 편안함을 느꼈습니다. 도토리를 남에게 줄 수는 없기에, 도토리를 가방에 넣었습니다.
 ]],
 }
 
@@ -79,12 +84,13 @@ newLore{
 	id = "keepsake-caravan",
 	category = "keepsake",
 	name = "The Merchant Caravan",
-	lore = [[The trail leads out to a clearing where a group of people sit around talking.	
-This is the merchant caravan you once belonged to. You haven't thought of them for a long time, but now they haunt your dreams.
+	kr_name = "상인의 대상 행렬",
+	lore = [[흔적을 따라가다보니, 한 무리의 사람들이 모여 이야기를 나누는 공터에 도달했습니다.
+	한때 당신이 몸담았던 대상 행렬입니다. 오랜 시간 동안 상단에 대해 생각하지 못했었지만, 지금 그들이 당신의 꿈에 나타났습니다.
 
-You suddenly realize how much you despise them now. Is it this hate that fuels your curse?
-They wanted to kill you, but left you to die instead. They could feel what you had become.
-And they can feel it now. Each in turn grabs a weapon and begins to head your way...
+	갑자기 당신은, 당신이 얼마나 그 상인들을 증오하는지 깨달았습니다. 저주의 원동력이 이 분노인걸까요?
+	그들은 당신을 죽이고 싶어했지만, 직접 손을 쓰는 대신 알아서 죽도록 내버려두었습니다. 그들은 당신이 어떤 존재가 되어가는지 느낄 수 있었습니다.
+	그리고 *지금*, 그들은 느끼고 있습니다. 그들은 무기를 손에 쥐고, 당신을 향해 다가옵니다...
 ]],
 }
 
@@ -92,15 +98,16 @@ newLore{
 	id = "keepsake-dreams-end",
 	category = "keepsake",
 	name = "The Dream's End",
-	lore = [[You wake up in the tranquil meadow, feeling refreshed. The dream seemed to release you from a burden you've been carrying.
-As you lie there you notice yourself turning something around in your hand. It is the small acorn from the dream.
-You open your hand and see that it has been stained with someone else's blood. You grip the acorn tighter until you can feel the pain of the biting iron.
+	kr_name = "꿈의 끝",
+	lore = [[고요한 목초지에서 재충전된 느낌으로 깨어났습니다. 당신이 짊어지고 있던 짐들을 꿈이 덜어준 것 같습니다.
+	목초지에 누워있으면서, 손에 무언가 쥐어지는 것을 깨달았습니다. 바로 꿈에서 본 작은 도토리였습니다.
+	손을 펴자 도토리가 누군가의 피로 얼룩져있는 것이 보입니다. 당신은 손아귀에 고통이 전해질 때까지 있는 힘껏 도토리를 쥐었습니다.
 
-Your hate is burning inside you again. If it has to be released then there is only one person who deserves it more than anyone.
-He had a sanctuary: a cave where he would store his 'profits'. Perhaps you could find him there.
+당신의 증오가 다시 한번 속에서 타오릅니다. 만약에 이 증오를 쏟아내야 할 사람이 있다면, 그 누구보다도 먼저 받아야할 한명이 있습니다.
+그는 자신의 '이득' 을 보관해둔 동굴을 피난처로 삼고 있습니다. 아마도 그곳에서 그를 찾을 수 있을 것 같습니다.
 
-As you look around the meadow you realize what this place is and perhaps what drew you here.
-Kyless had taken you this way once. On the north side of the meadow was a secret path that led to his cave.
+목초지를 살펴보자, 당신은 이 장소가 어떤 장소인지 또 무엇이 자신을 이곳에 이끌어온 것인지 깨닫습니다.
+킬레스가 한때 자신을 이 길로 이끌었습니다. 목초지의 북쪽에 그의 동굴로 향하는 비밀통로가 있습니다.
 ]],
 }
 
@@ -108,13 +115,15 @@ newLore{
 	id = "keepsake-cave-marker",
 	category = "keepsake",
 	name = "The Stone Marker",
+	kr_name = "표석",
 	always_pop = true,
-	lore = [[#{italic}#You find a stone marker at the entrance to a sealed off cave...#{normal}#
-#{bold}#Do Not Enter#{normal}#
+	lore = [[#{italic}#동굴의 입구를 봉인하고 있는 표석을 발견했습니다...#{normal}#
+	
+#{bold}#들어가지 마시오#{normal}#
 
-This cave holds a danger that should never be released upon this world again. Break the seal and you will suffer.
+이 동굴에는 세상에 다시는 나가선 안될 위험이 봉인되어 있음. 봉인을 푼다면 위험에 처할 것.
 
-* Under the protection of Berethh
+* 베레쓰의 보호 하에 있음.
 ]],
 }
 
@@ -122,11 +131,13 @@ newLore{
 	id = "keepsake-cave-entrance",
 	category = "keepsake",
 	name = "The Sealed Cave",
+	kr_name = "봉인된 동굴",
 	always_pop = true,
-	lore = [[The entrance to the cave appears to be sealed. There are many strange markings and glyphs carved into the rock.
-You suspect the cave is protected by some kind of natural magic.
+	lore = [[동굴 입구는 봉인되어 있는 듯 합니다. 돌에는 이상한 표식과 문양들이 많이 새겨져 있습니다.
+	이 동굴은 어떤 종류의 자연적인 마법으로 보호되고 있는 것으로 보입니다.
 
-It looks as if the protections were meant to keep someone in. You don't think it would be difficult to force the door from the outside.
+	이 봉인은 누군가를 안에 가두기 위한 목적으로 만들어졌기에, 강제로 봉인을 뚫고 들어가는 것은 그리 어렵지 않을 것 같다는 생각이 듭니다.
+
 ]],
 }
 
@@ -134,13 +145,14 @@ newLore{
 	id = "keepsake-cave-description",
 	category = "keepsake",
 	name = "The Battle of the Cave",
+	kr_name = "동굴에서의 전투",
 	always_pop = true,
-	lore = [[You step into the cave and give your eyes a moment to adjust to the darkness.
-There are signs of an old battle here. Two skeletons lie on the floor dressed in hand-crafted armor, their simple but well-made weapons still in hand.
-The bodies don't look old enough to have decomposed but seem rather gnawed on. The remains of several large dogs also lie nearby.
-Suddenly you catch movement in the corner. One of the dogs appears to be alive. It's lean and dirty and has an unnatural way of moving.
-That's when you notice shadows move across the floor towards the dog. The animal lifts its head as if listening to something.
-Together the dog and the shadows rise up to face you.
+	lore = [[당신은 동굴로 들어가 어둠에 눈을 적응하기 위해 잠시 시간을 보냈습니다.
+동굴에는 오래된 전투의 흔적이 있습니다. 수제 갑옷을 입고 잘 만들어진 무기를 아직도 쥐고 있는 해골 두 구가 바닥에 쓰러져있습니다.
+시체는 시간이 흘러 살점이 부패된 것이 아닌, 무언가에 의해 살점이 뜯어먹힌 듯 보입니다. 시체 옆에는 커다란 개의 시체 몇 구도 보입니다.
+갑자기 당신은 모퉁이에서 무언가 움직임을 포착했습니다. 개들 중에 한 마리가 살아있었던 것 같습니다. 그 개는 말랐고 더러우며, 부자연스럽게 움직이고 있습니다.
+그때 당신은 개에게 접근하는 바닥의 그림자를 눈치챘습니다. 동물은 고개를 들고 마치 누구의 말을 듣는 것처럼 행동하고 있습니다.
+개와 그림자는 한데 모여, 당신을 상대하기 시작했습니다.
 ]],
 }
 
@@ -148,16 +160,17 @@ newLore{
 	id = "keepsake-kyless-journal-1",
 	category = "keepsake",
 	name = "Kyless' Journal: First Entry",
+	kr_name = "킬레스의 일지: 첫번째 부분",
 	always_pop = true,
-	lore = [[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
+	lore = [[#{italic}#킬레스의 일지로 추정되는 한 부분입니다.#{normal}#
 
-I finally made it out. I don't think I could stay another year on that farm.
-Dad had no ambition. Every time I went with him to sell our crop he took whatever the merchants offered him.
-When the job with the caravan came up, how could I not take it? I'm sure I'll be back to see the parents soon.
-So far the work at the caravan is pretty dull. I've been paying attention to the merchants though.
-They let me follow them on their trips into the towns. I'm learning a lot. In time I may become one of them.
-The caravan hired a couple of other porters too. They won't say but I think the last ones were killed in some kind of raid.
-I'll have to learn to defend myself or let others do it for me. Still, this is better than being a farmer.
+드디어 해냈다. 나는 그 농장에서 조금도 더 버틸 수 없다.
+아버지에게 야망이란 없다. 매번 내가 아버지와 함께 곡식을 팔기 위해 상인에게 갈 때면, 아버지는 항상 상인이 제시한 가격만을 받아들인다.
+상단으로부터 일거리가 들어왔는데 어떻게 그걸 거절할 수 있겠어? 금방 부모님을 보기 위해 다시 돌아올 수 있을 것이다.
+여태까지는 상단 일이 상당히 지루했기에, 나는 상인을 주의깊게 관찰했다.
+그들은 내가 그들을 따라서 마을 안까지 동행하는 것을 허락해주었다. 나는 많은 것을 배웠고, 머지 않아 그들처럼 될지도 모른다.
+상단은 몇 명의 다른 짐꾼들을 더 고용했다. 그들은 특별히 말은 하지 않았지만, 마지막 한명은 무슨 습격에 의해 죽은 것 같다.
+난 스스로를 보호할 방법을 익히거나, 남이 나를 보호하게 해야한다. 그래도 아직까진 농부가 되는 것보단 지금이 더 좋다.
 ]],
 }
 
@@ -165,18 +178,19 @@ newLore{
 	id = "keepsake-kyless-journal-2",
 	category = "keepsake",
 	name = "Kyless' Journal: Second Entry",
+	kr_name = "킬레스의 일지: 두번째 부분",
 	always_pop = true,
-	lore = [[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
+	lore = [[#{italic}#킬레스의 일지로 추정되는 한 부분입니다.#{normal}#
 
-Berethh found something in the woods...a dead man and a few dead trolls.
-At first we thought they killed each other but there weren't any wounds we could see. It was something awful though; you could see it in their faces.
-Berethh just wanted to leave. He didn't like the way it felt. But I just couldn't pass up a free opportunity like that.
-They had some money on them and some other things which we divided up. The man also had a book, which I took.
-I've been studying it. It seems like some kind of magic, but nothing like any of the magic I've heard in stories.
-It's more like a language. A way of thinking or calling out with your mind. I'm learning it now.
-I hear what sound like whispers in my head. And I've found I can whisper back.
-My mind can reach out. Control things. Control people. But there's more. Something is out there. I have to reach out.
-Once I've mastered this I may be able to use it to advance in the caravan. I'm tired of just being a porter.
+베레쓰가 숲 속에서 뭔가를 찾았는데... 죽은 남자와 죽은 몇 마리의 트롤들이었다.
+처음에는 서로 싸우다 죽었다고 생각했는데, 그들에게 아무런 상처가 없다는걸 눈치챘다. 그래도 뭔가 끔찍한 일이 벌어졌다는 것은 분명했다. 누구라도 그 얼굴들을 본다면 알 수 있겠지.
+베레쓰는 빨리 떠나고 싶어했다. 베레쓰는 그것들에게서 느껴지는 기분을 탐탁지 않게 여겼다. 하지만 나는 그런 기회를 놓칠 수 없었다.
+그들에게는 돈과 물건들이 좀 있어서, 우리가 나눠가졌다. 남자가 가지고 있던 책은 내가 가져갔다.
+난 그 책을 공부했다. 무슨 종류의 마법인 것 같은데, 여태까지 들어본 어떤 마법과도 비슷하지 않은 마법이었다.
+그건 언어에 가까웠다. 생각하는 방법이나 내면을 불러내는 그런 방법 말이다. 지금 그걸 익히는 중이다.
+내 머리 속에서 누군가 속삭이는 듯한 소리를 들었다. 그리고 나는 거기에 응답할 수 있다는 사실도 깨달았다.
+내 마음은 소통이 가능하다. 물건을 조종할 수있다. 사람을 조종할 수있다. 하지만 그 이상의 것이 남아있다. 그걸 뛰어넘는 무언가가 있다. 그 경지에 도달해야만 한다.
+내가 이것을 모두 습득한다면 상단에서 앞서갈 수 있을 것이다. 이제 짐꾼으로 지내는건 피곤하다.
 ]],
 }
 
@@ -184,16 +198,17 @@ newLore{
 	id = "keepsake-kyless-journal-3",
 	category = "keepsake",
 	name = "Kyless' Journal: Third Entry",
+	kr_name = "킬레스의 일지: 세번째 부분",
 	always_pop = true,
-	lore = [[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
+	lore = [[#{italic}#킬레스의 일지로 추정되는 한 부분입니다.#{normal}#
 
-I've come so far in the last year. The other merchants listen to me now. They think I have a real gift for trade.
-The weak-minded peasants we trade with are so easy to control though. They practically give me their money.
-But the real money and power rests with the bandits. Those two that ambushed me got what they deserved. So did the rest of their camp.
-The fear on their faces when I struck was priceless. They must have had more gold than the caravan makes in a year!
-I got some help carrying it off to a nearby cave. A few more encounters like that and I'll be rich.
-Until then, I'll stay with the caravan. The only prolem is Jak. He doesn't trust me.
-I guess I threaten his authority. Not sure what I'll have to do about that...
+작년에 나는 상당히 많이 발전했다. 다른 상인들은 내 말을 듣는다. 그들은 내가 거래에 재능이 있다고 믿는다.
+우리가 거래하는 약한 마음의 일반인들은 조종하기 너무 쉽다. 그들은 거의 내게 돈을 퍼주는 꼴이다.
+하지만 진짜 돈과 힘은 강도들에게 있다. 우리를 습격한 두 명의 강도들은 그 대가를 치뤘다. 그들의 야영지에 있던 나머지도 마찬가지다.
+내가 그들을 습격했을 때 그들이 짓던 표정은 정말 돈으로 환산할 수 없다. 강도들은 상단이 1 년간 버는 돈보다 더 많은 돈을 가지고 있었다!
+나는 그 돈들을 근처 동굴로 옮기는데 도움을 받았다. 그런 만남이 계속된다면 나는 부자가 되겠지.
+그때까지는 상단과 함께 다녀야겠다. 단 한가지 문제가 있다면 그건 자크다. 그는 나를 믿지 않는다.
+내가 그의 권한을 위협하는 모양이다. 어떻게 해야할지 잘 모르겠다...
 ]],
 }
 
@@ -201,16 +216,17 @@ newLore{
 	id = "keepsake-kyless-journal-4",
 	category = "keepsake",
 	name = "Kyless' Journal: Fourth Entry",
+	kr_name = "킬레스의 일지: 네번째 부분",
 	always_pop = true,
-	lore = [[#{italic}#This is a page from what you assume is Kyless' journal.#{normal}#
+	lore = [[#{italic}#킬레스의 일지로 추정되는 한 부분입니다.#{normal}#
 
-Berethh! He must have followed me back to the cave. How could he know I was behind the attacks?
-And now he's betrayed me. We were friends once! It seems he's made some new friends in these parts.
-I thought I could retreat back into the cave. Take them in the darkness like I always do.
-But they didn't follow. He must have known I was too strong.
-The entrance has been sealed now. I can't seem to break it. Nothing I've tried works.
-It's as though the seal were alive, growing stronger with every attack. Berethh must have planned this carefully.
-I'm sure I can overcome his wards though. I just need some time to grow my power.
+베레쓰! 그가 나를 동굴까지 따라온게 틀림없다. 어떻게 내가 배후라는걸 알아챘지?
+그리고 이제 베레쓰가 나를 배신했다. 우리는 한때 친구였는데도 말이다! 아마 배신하면서 새 친구를 많이 만들었나보다.
+동굴로 후퇴해야 될 것 같다. 항상 하던 것처럼 그들을 어둠속에 묻어버려야지.
+하지만 그들이 나를 쫓아오지 않았다. 베레쓰는 내가 너무 강력하다는 것을 알고있는게 틀림없다.
+입구는 이제 봉인되었다. 이걸 깰 수는 없을 것 같다. 내가 시도한 것들은 전부 소용없었다.
+봉인은 마치 살아있는 것 같아서, 내가 공격할 때마다 점점 강해지는 것 같다. 아마도 베레쓰가 주의 깊게 계획했겠지.
+이 봉인을 언젠간 깰 수 있을 것이라고 장담한다. 내 힘을 키울 시간이 필요하다.
 ]],
 }
 
@@ -218,16 +234,17 @@ newLore{
 	id = "keepsake-vault-entrance",
 	category = "keepsake",
 	name = "The Vault",
+	kr_name = "금고",
 	always_pop = true,
-	lore = [[You find yourself at the entrance to a small room.
-It's one of the vaults that Kyless used to store the valuable things he recovered on his excursions.
-For a cut you had helped him carry stuff down here. You made some pretty good money off him.
-Funny how it seemed like such a fortune then. The loot of petty bandits.
-You should have turned your back on him. Things got pretty bad toward the end.
-You knew he was greedy and ambitious but you didn't realize how cold-hearted he was.
-You never thought he would go after the caravan. How could you have known?
-You've tried to forget that day for a long time. You've tried to forget what he did to those people.
-And those things of his almost killed you too. But maybe you were cursed long before that day ever happened.
+	lore = [[당신은 작은 방으로 통하는 입구를 발견했습니다.
+	이곳은 킬레스가 여행 중에 모은 값어치 있는 것들을 보관하는 금고 중 하나입니다.
+	이곳으로 물건들을 옮겨주는걸 도와주는 대가로, 당신은 돈을 받았었습니다.
+	그때에는 참 횡재라고 생각했으니 참으로 웃긴 일입니다. 획득물들은 강도로부터 얻은 것들입니다.
+	당신은 그때 그에게서 등을 돌려야 했습니다. 상황은 점점 나빠져만 갔습니다.
+	당신은 그가 탐욕스럽고 야망에 차있다는걸 알았지만, 얼마나 냉혈한인지는 알지 못했습니다.
+	당신은 그가 상단을 먹어치울 생각이라고는 차마 생각하지 못했습니다. 어떻게 알 수 있었겠습니까?
+	오랫동안 그 날을 잊으려고 노력했습니다. 그가 사람들에게 한 짓을 잊으려고 노력했습니다.
+	그리고 그가 당신을 거의 죽이려고 했던 것도 말입니다. 아마도 그날의 일이 일어나기 오래 전부터, 당신은 저주받았을지도 모릅니다.
 ]],
 }
 
@@ -235,12 +252,13 @@ newLore{
 	id = "keepsake-kyless-encounter",
 	category = "keepsake",
 	name = "Kyless",
+	kr_name = "킬레스",
 	always_pop = true,
-	lore = [[A figure squats in the darkness with his face turned your way. At first you're not sure if Kyless recognizes you.
-His face seems twisted by hunger and madness. But soon it softens and he begins to look more like the Kyless of old.
-He speaks your name in recognition but doesn't move. Slowly, almost imperceptibly, the air in the room begins to change.
-A charge seems to fill the space around you. Small gusts of wind pick up and scatter dust across the floor.
-You feel as if the room itself is coming to bear upon you. Kyless smiles and then attacks.
+	lore = [[어둠 속에서 한 형체가 당신을 바라보며 쭈그려있습니다. 처음에는 킬레스가 당신을 알아볼지 확신하지 못했습니다.
+	그의 얼굴은 허기와 광기로 일그러져 있었습니다. 그러나 금새 얼굴은 부드러워졌고, 그러자 예전의 킬레스처럼 보이기 시작했습니다.
+	그는 당신을 알아보고 당신의 이름을 불렀지만, 움직이진 않았습니다. 천천히, 거의 알아챌 수 없게, 방 안의 공기가 변하기 시작합니다.
+	당신 주위의 공간에 힘이 충전되는 듯 합니다. 작은 돌풍이 바닥의 먼지를 쥐고 흩뿌립니다.
+	방이 스스로 움직여 당신을 가두는 것만 같습니다. 이제 킬레스는 미소 짓고 공격하기 시작합니다.
 ]],
 }
 
@@ -248,14 +266,15 @@ newLore{
 	id = "keepsake-berethh-death-good",
 	category = "keepsake",
 	name = "Keepsake",
+	kr_name = "고통의 자취",
 	always_pop = true,
-	lore = [[Berethh lies dead. Kyless has been destroyed. The merchant caravan wiped out. Nothing of your past remains.
-You thought you might find answers in this place but you have been left with only one certainty. You are cursed.
-As you try to push these thoughts out of your mind, you find yourself turning the iron acorn in your hand.
-The cold iron hardens your resolve. Whether the curse consumes you or not, you will press on.
-As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
-Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
-You rise and prepare to kill again.
+	lore = [[베레쓰는 죽어 쓰러졌고, 킬레스는 파괴되었습니다. 상인의 상단은 엉망이 되었습니다. 이제 당신의 과거는 아무 것도 남지 않았습니다.
+	당신은 이 장소에서 해답을 찾아야만 한다고 생각했지만, 이제 한가지 사실만이 확실해졌습니다. 당신이 저주받았다는 것이죠.
+	이런 생각들을 마음 속에서 몰아내려고 하자, 어느새 손 안에서 도토리를 돌리고 있는 자신을 발견했습니다.
+	차가운 쇠의 감촉이 당신의 결심을 굳건하게 합니다. 저주가 당신을 집어삼킬 수도 있고 그렇지 않을 수도 있겠지만, 당신은 저주를 버텨낼 것입니다.
+	도토리가 살갗을 찢을 때 쯤, 저 멀리 목초지 방향으로부터 조금씩 소리가 들려옴을 깨달았습니다.
+	개가 짖는 소리, 그리고 뒤를 이어 사람의 목소리가 들려옵니다. 그들은 분명 베레쓰의 동료들일 것입니다. 너무 늦었지만요.
+	당신은 자리에서 일어나, 다시 한번 죽일 준비를 합니다.
 ]],
 }
 
@@ -263,13 +282,14 @@ newLore{
 	id = "keepsake-berethh-death-evil",
 	category = "keepsake",
 	name = "Keepsake",
+	kr_name = "고통의 자취",
 	always_pop = true,
-	lore = [[Berethh lies dead. Kyless has been destroyed. The merchant caravan wiped out. Nothing of your past remains.
-You thought you might find answers in this place but you have been left with only one certainty. You are cursed.
-As you try to push these thoughts out of your mind, you find yourself turning the iron acorn in your hand.
-The acorn now serves as a focus for your anger. Though the curse may consume you, there are many who deserve your wrath. And they will feel it.
-As the iron cuts your flesh, you slowly become aware of a sound coming from the direction of the meadow.
-Dogs barking. Following that come the voices of men. These must be Berethh's companions. Arriving too late.
-You rise and prepare to kill again.
+	lore = [[베레쓰는 죽어 쓰러졌고, 킬레스는 파괴되었습니다. 상인의 상단은 엉망이 되었습니다. 이제 당신의 과거는 아무 것도 남지 않았습니다.
+	당신은 이 장소에서 해답을 찾아야만 한다고 생각했지만, 이제 한가지 사실만이 확실해졌습니다. 당신이 저주받았다는 것이죠.
+	이런 생각들을 마음 속에서 몰아내려고 하자, 어느새 손 안에서 도토리를 돌리고 있는 자신을 발견했습니다.
+	이제 도토리의 감촉은 당신의 분노를 집중할 수 있게 만듭니다. 저주가 당신을 집어삼키는 한이 있더라도, 당신의 분노를 받아내야 할 자들이 많이 있습니다. 그들은 곧 느끼게 될 것입니다.
+	도토리가 살갗을 찢을 때 쯤, 저 멀리 목초지 방향으로부터 조금씩 소리가 들려옴을 깨달았습니다.
+	개가 짖는 소리, 그리고 뒤를 이어 사람의 목소리가 들려옵니다. 그들은 분명 베레쓰의 동료들일 것입니다. 너무 늦었지만요.
+	당신은 자리에서 일어나, 다시 한번 죽일 준비를 합니다.
 ]],
 }

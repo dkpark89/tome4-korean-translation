@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,69 +21,71 @@ newLore{
 	id = "troll-poem",
 	category = "misc",
 	name = "trollish poem",
-	lore = [[#{bold}#"Me Likes to Club"
+	kr_name = "트롤의 시",
+	lore = [[#{bold}#"나는 좋다 몽둥이"
 
-#{italic}#Club club club,
-Grab some grub!
-When hunger hits,
-Me likes to club!
+#{italic}#몽둥이 몽둥이 몽둥이,
+잡고 때리면 음식이!
+배가 고프면 때리고,
+나는 좋다 몽둥이!
 
-Little halfling,
-Furry feet,
-Smash his brains,
-Tasty meat!
+쪼그만 하플링.
+북실한 발바닥,
+머리를 쪼개고,
+맛있는 고기다!
 
-Skinny elf,
-Eyes so blue,
-Crush his bones,
-Make elf stew!
+홀쭉한 엘프,
+파란색 눈깔,
+뼈를 부수고,
+엘프 스튜다!
 
-Hairy dwarf,
-Smells like dirt,
-Cook him long,
-Or stomach hurt!
+털많은 드워프,
+흙냄새 진동해,
+한참 삶어,
+아니면 배아퍼!
 
-Stupid human,
-Has no fear,
-Looks surprised,
-When me eats his ear!
+멍청한 인간,
+쫄지도 않아,
+귀를 먹으니,
+놀란것 같군!
 
-Club club club,
-Grab some grub!
-When hunger hits,
-Me likes to club!#{normal}#]],
+몽둥이 몽둥이 몽둥이,
+잡고 때리면 음식이!
+배가 고프면 때리고,
+나는 좋다 몽둥이!#{normal}#]],
 }
 
 newLore{
 	id = "necromancer-poem",
 	category = "misc",
 	name = "necromancer poem",
-	lore = [[#{bold}#"The Necromancer's Canticle"
+	kr_name = "사령술사의 시",
+	lore = [[#{bold}#"사령술사 찬가"
 
-#{italic}#Saved from coffin, casket, urn
-Darkness falls, but life returns!
-Flesh may fall and bone may burn
-But soul remains, for which we yearn
+#{italic}#관에서, 함에서, 항아리 속에서 남아
+어둠은 내려 앉으나, 돌아온 생명은 남아!
+떨어지는 살덩이와 불에 탄 뼈만 남아
+우리가 그토록 갈망한 영혼만 여기에 남아
 
-Those we return to life's esteem
-We see their hearts, their eyes do gleam
-They rave! They kill! They gnash! They scream!
-So full of joy! Their greatest dream!
+우리가 되돌린 그들이 가진 생명의 존엄성에
+우리는 심장을 쥐고, 그들의 눈은 번뜩이네
+그들은 발악해! 그들은 죽이고! 이를 갈고! 비명을 지르네!
+즐거움 만이 남았네! 그들의 위대한 꿈이네!
 
-Returning those that we amend
-They hurry home, a distant friend
-But do they cheer? Do they commend?
-They yell! Does rotting flesh offend?
+우리의 중재로 되살아난 자들이
+머나먼 친구, 고향으로 달리지
+그러나 환호를 하나? 인정이라도 받나?
+비명을 지르지! 썩은 살이 싫은지?
 
-We bring life to lifeless bone
-But do they smile? Do they condone?
-They sit upon their golden thrones
-They shun us, spurn us, make unknown
+해골에 생명을 넣은건 우리
+그러나 그들은 용납도 못하지?
+그들은 황금의 왕좌에 앉지
+우리를 피하고, 내쫓고, 지우지
 
-Fools! Sit high in golden tower
-From your lofty perch you glower
-Time will come when you will cower
-We rule death, we wield the power
+멍청이는 높은 황금탑에 앉으려
+거만의 끝에서 우리를 노려?
+이제는 너희가 머리를 조아려
+죽음은 나의 손안에 휘둘려
 #{normal}#]],
 }
 
@@ -91,200 +93,208 @@ newLore{
 	id = "necromancer-primer-1",
 	category = "misc",
 	name = "how to be a necromancer, part 1",
-	lore = [[#{bold}#THE GLORIOUS ART#{normal}#
+	kr_name = "사령술사가 되는 방법, 1 부",
+	lore = [[#{bold}#1. 영광된 기술#{normal}#
 
-Have you cast away the feeble pretensions of your society? Does your soul thirst for the taste of real power? Do you wish to have the strength to deny that most prevalent force, death itself? The glorious art of necromancy shall fulfil your wishes in ways you couldn't possibly imagine.
+당신이 속한 곳에서의 같잖은 허세는 다 쫓아내셨나요? 당신의 영혼이 진정한 힘을 갈구하고 있나요? 가장 위력적인 죽음을 스스로 거스를 수 있는, 힘을 갖기를 원하신가요? 사령술의 영광된 기술이 당신이 상상도 못할 방법으로 소원을 이루어 드립니다.
 
-#{italic}#1. Your First Steps#{normal}#
+#{italic}#1. 첫 번째 순서#{normal}#
 
-Be aware, necromancy isn't all weaving mighty spells of undeath, wearing flowing black robes and crushing entire nations beneath the feet of your mighty undead horde; you'll have to put in some elbow grease as well. Your first few bodies will have to be stolen away personally as few people will aid a necromancer willingly, and those that do are rarely competent. The cemeteries of small towns and villages are good sites for your first acquisitions, but if time demands it don't be afraid to "make" some specimens of your own with the aid of a sharp knife or heavy bludgeon. Once you have your first minions out performing your bidding you needn't worry about resources any longer; opportunities to practice your art will, quite literally, pile up.
+알아두세요. 사령술은 단지 흘러내리는 로브를 입고서, 자기만의 강력한 언데드 군단으로 온 나라를 발 밑에 두기도 하며, 죽음을 거스르기도 하는 위력적인 주문이 다가 아닙니다. 먼저 힘든 노동이 필요합니다. 자진해서 시체를 제공하고자 하는 사람들은 극히 소수이고, 그 소수도 결코 만족스럽지 않기 때문에 자신의 첫 시체들은 스스로 훔쳐내야만 합니다. 작은 도시나 마을의 공동묘지는 첫 번째 획득을 위한 좋은 장소입니다만, 속성으로 하고 싶다면 날카로운 칼이나 둔기를 사용한 나만의 표본 "만들기" 를 두려워 하지 마세요. 일단 당신의 명령을 수행하는 첫 번째 하인을 만들면, 더 이상 재료는 걱정하지 않아도 됩니다. 당신의 기술을 향상시킬 기회는, 말 그대로, '쌓이게' 될테니까요.
 
-Also important is the upkeep of the bodies themselves. True, this is not strictly necessary as sufficient enchantment can bestow mobility upon even the most ruined and incomplete remains, but making sure that the joints and cruses of your prospective minions move freely and with ease much reduces the will required to grant them reanimation. It also makes for a sturdy and reliable base in case you desire to undertake larger, more audacious projects (see 46. Bone Giants & You).
+또한 시체들이 스스로 유지되게 하는 것도 중요합니다. 사실, 가장 훼손되고 불완전한 시체라 할지라도 유동적인 주술만 충분히 부여된다면 보존이 절대적으로 필요한건 아닙니다. 하지만 당신의 훌륭한 부하의 관절과 하체가 자유롭고 쉽게 움직이는지 확인하여, 되살아났을 때의 움직임을 보장해주세요. 또한 당신이 더욱 대담하고 거대한 계획 (46 페이지. '해골 거인과 당신' 을 참고하세요) 을 세울 생각이라면, 보다 견고하고 안정적인 토대를 다져야 합니다.
 
-Still not sure what to do? Then suffer and perish. Necromancy does not abide the inept.]]
+아직도 뭘 해야 할지 확신을 못하시겠나요? 그러면 나가 죽으세요. 사령술은 너 같은 놈은 필요 없으니까.]]
 }
 
 newLore{
 	id = "necromancer-primer-2",
 	category = "misc",
 	name = "how to be a necromancer, part 2",
-	lore = [[#{italic}#2. Domination Of The Deceased#{normal}#
+	kr_name = "사령술사가 되는 방법, 2 부",
+	lore = [[#{italic}#2. 죽음을 지배하라#{normal}#
 
-A contentious issue arises when it comes time to breathe life into your gathered specimens - do you raise them as lifeless drones, or do you bind the souls of the deceased within their vessels once more? There is much disagreement on this between the various movements of necromancers. The Beinagrind method of necromancy extols the torturous imprisonment of the soul as fundamental; the anguish generated by the captive spirit makes for a much more effective undead thrall, they claim. The recently founded Trenë method however disagrees, claiming that allowing souls freedom not only results in more obedient slaves less prone to rising up and slaughtering their masters, but also causes your work to become marginally more acceptable to the unwashed masses. Sure, they'll still thrash you, drag you through town and burn you at the stake if they get the chance, but they'll feel ambivalent about it, by thunder!
+수집한 표본들에다가 생명을 불어넣을 때, 많은 논란거리가 생기곤 합니다. 표본들을 생명이 없는 꼭두각시로 만들 것인가요, 아니면 사망한 자의 영혼을 다시 한번 그릇에 묶어둘 생각인가요? 사령술사들의 다양한 활동만큼이나 의견 충돌이 많습니다. 사령술의 해부학파는 언데드 노예의 영혼을 감금시켜 놓고, 감금된 영혼을 고문하는 것을 본바탕으로 깔며 최고로 여깁니다. 그들은 붙잡힌 영혼이 만들어내는 분노가 언데드 노예를 더욱 더 효과적으로 만든다고 주장합니다. 그렇지만 최근에 설립된 정신학파는 이와 같은 주장에 반대합니다. 붙잡힌 영혼을 자유롭게 해주는 것은 자신의 주인을 죽이고자 하는 의지가 덜한, 잘 복종하는 노예를 만드는 효과를 가져다 준다고 주장합니다. 그 뿐만 아니라, 작업 방식이 조금 더러워지더라도 용납할 수 있게 됩니다. 물론 기회만 된다면 하인들은 주인을 공격하고 마을로 질질 끌고 가 불태워 버릴테지만, 그 때가 되면 그들도 주인에 대한 애증을 느끼게 될겁니다... 제기랄!
 
-Remember, when utilising a runic circle to bend your new minions to your will, make sure beforehand that every rune in the circle is enchanted properly and in no danger of fizzling out. If the unthinkable happens and one of your thralls is freed from your control, offer them goods or equipment in exchange for your life. Few undead will kill their creators after receiving such an act of generosity.]]
+기억하세요. 부하의 의지를 조종하기 위해 룬의 회로를 사용할 때, 사전에 마법진의 모든 룬이 제대로 부여되었는지, 룬이 흐려질 위험이 있지는 않은지 확인해야 합니다. 만약에 예상치 못한 일이 생겨 자유를 되찾은 언데드 노예가 생겨나면, 당신의 목숨 값으로 물건들이나 장비를 제공하는게 좋습니다. 그런 자비로운 행동 후에도 주인을 죽이는 언데드는 소수입니다.]]
 }
 
 newLore{
 	id = "necromancer-primer-3",
 	category = "misc",
 	name = "how to be a necromancer, part 3",
-	lore = [[#{italic}#3. Unwanted Attention#{normal}#
+	kr_name = "사령술사가 되는 방법, 3 부",
+	lore = [[#{italic}#3. 원하지 않은 관심#{normal}#
 
-Sadly, it is not only the peasantry and our "virtuous" archmage cousins that disapprove of our work. Though not entirely understood, necromancy is known to create "ripples" of a sort across the many dimensions, ripples that attract extra-planar attention. As a necromancer's power grows, so do said ripples, until eventually said necromancer finds all manner of demonic force and entity beating down their door, both mentally and physically.
+슬프게도 우리의 작업을 탐탁찮아 하는 이들은 소작농이랑 우리의 "고결하신" 사촌 마도사들 뿐만이 아닙니다. 사령술에 대한 무지로, 사령술은 많은 차원을 뛰어넘는 종류의 "파문" 을 만든다고 알려져 있습니다. 다른 차원의 관심을 끄는 종류의 파문을 말입니다. 사령술사의 힘이 강해져, 마침내 사령술사가 악마적인 힘을 사용하는 모든 방법을 깨닫고 육체적, 정신적 한계를 뛰어넘게 된다면 진정한 파문이 뭔지 알게 될 것입니다.
 
-Once again, opinions differ on this demonic interference. Necromancy is such a beautiful, divergent art, is it not? The Tren� method sees the necromancer's corruption by outside forces as a negative thing, and practitioners of said method often take measures to divert supernatural attention from themselves, creating talismans to act as spiritual "conductors" or living close to the communities that despise them, the life essences of the masses masking the necromancer's dark emanations. On the other hand, the Beinagrind method welcomes the cursed whisperings that come from the demonic realms, believing it to be the completion of their psyches. Only once their spirits have been "corrupted" (a term Beinagrind practitioners scoff at) do people realize their true ambitions, they claim. Why these "true ambitions" always seem to be the utter and complete destruction of all life in this world and the summoning of unthinkable atrocities from the outer dimensions is unexplored.
+다시 한번 말하지만, 악마의 간섭에 대한 의견은 갈립니다. 사령술은 아름답고 우아한 예술입니다 그렇지 않습니까? 정신학파는 외부의 영향에 의한 사령술사의 타락을 부정적으로 바라봅니다. 그리고 이 학파의 전문가들은 초자연적인 관심을 피하기 위한 수단으로 영적인 "안내자" 역할을 하는 부적을 만들거나, 사령술사가 내뿜는 어두운 기운을 숨기기 위한 목적으로 많은 생명력이 살아 숨쉬는 공동체 근처에서 생활합니다. 반면에 해부학파들은 악마의 영역에서 속삭여오는 저주의 목소리를 기꺼이 받아들이고 그 속삭임을 정신의 완성이라고 믿습니다. 일단 영혼이 한번 "오염" (해부학파 전문가들이 비웃는 용어입니다) 되면, 사람들은 자신의 진정한 야망을 깨달을 수 있다고 주장합니다. 왜 항상 "진정한 야망" 이 세상에 모든 살아 숨쉬는 생명체들의 완전한 파괴와, 생각할 수 없이 잔혹한 것들을 외부 차원에서 소환하는 것인지에 대한 설명은 되어 있지 않지만 말이죠.
 
-You may have noticed that no instruction has been given on how to deal with the attention of common folk. That is because a true necromancer requires none. They are vermin, fit only to be crushed.]]
+일반인들의 관심을 처리하는 방법이 없다는 것을 이쯤에서 눈치채셨겠지요. 왜냐하면 사령술사는 그런 게 필요 없으니까요. 그들은 파괴될 일만 남은 가축들입니다.]]
 }
 
 newLore{
 	id = "necromancer-primer-4",
 	category = "misc",
 	name = "how to be a necromancer, part 4",
-	lore = [[#{italic}#4. Necromancers Of Maj'Eyal#{normal}#
+	kr_name = "사령술사가 되는 방법, 4 부",
+	lore = [[#{italic}#4. 마즈'에이알의 사령술사들#{normal}#
 
-The greatest enemy of the necromancer is other necromancers. Well, apart from the Ziguranth, the Allied Kingdoms, the Shaloren, the Thaloren, the Iron Throne, common townsfolk, undead hunters, adventurers, rogue undead and Linaniil. But apart from them, the greatest enemy of the necromancer is other necromancers. Below is listed the location of many notable necromancers, areas possessing above-average undead activity, and other regions considered unfitting for our designs. Budding practitioners of our art are encouraged to perform their work away from these areas, lest they be recognized as threats or nuisances and are subsequently eradicated.
+사령술사의 가장 위험한 적은 바로 다른 사령술사들입니다. 물론, 지구르 추종자들, 왕국연합, 샬로레, 탈로레, 철의 왕좌, 마을의 민간인들, 언데드 사냥꾼들, 모험가, 언데드 강도, 리나니일을 제외하면 말이죠. 그들을 다 제외하면 가장 큰 적은 바로 다른 사령술사들 입니다. 아래 적혀있는 곳들이 바로 평균 이상의 언데드 활동을 보이고 있는, 주의할 만한 사령술사들의 위치와 우리에게 부적합한 위치입니다. 우리 분야의 신예들은 이 지역에서 멀리 떨어진 곳에서 작업하길 강하게 권장합니다. 그래야만 이곳의 사령술사들이 당신을 덜 위협적으로 인지하고, 나중에 크게 될 수 있으니까요.
 
-#{italic}#The Ruins Of Kor'Pul#{normal}#: While this necromancer of old may have perished, and his shade has long since lost any trace of sanity, his lair remains a nexus of dark energies, and his minions remain legion.
+#{italic}#코르'풀 폐허#{normal}# : 오래된 사령술사 코르'풀은 사라졌지만, 그의 그림자가 남긴 흔적은 오래도록 남아 정상적인 부분은 흔적조차 찾을 수 없습니다. 그의 보금자리는 어두운 힘의 원천이 되었고, 그의 부하들은 군단으로 남아있습니다.
 
-#{italic}#Blighted Ruins#{normal}#: An ambitious amateur has made his lair within these ruins, thought to be chasing dreams of raising an unstoppable army of the dead. His methods are known to be crude and prone to failure, and I fully expect to hear of him perishing at the hands of his own works within the year.
+#{italic}#황폐화된 폐허#{normal}# : 야망에 가득찬 초보 사령술사가 막을 수 없는 죽음의 군대를 만들기 위해 꿈을 쫓아 이 폐허에 자리를 잡았습니다. 하지만 그의 방식은 거칠고 실패에 가까워서, 저는 몇 년 안에 이 사령술사가 자신이 만든 작업물의 손에 의해 사라졌다는 소식을 듣길 기대하고 있습니다.
 
-#{italic}#Dreadfell#{normal}#: Undead have been massing at this abandoned tower in unprecedented numbers. Obviously, a powerful figure has recently made it his home. Regardless, no clue has been given to the identity of this tower's supposed master.
+#{italic}#두려움의 영역#{normal}# : 언데드들이 버려진 탑에 셀 수 없이 많이 모여있습니다. 어떤 강력한 존재가 거주지로 삼은 것이 분명합니다. 그렇지만 이 탑의 주인이 누구인지는 전혀 알 길이 없습니다.
 
-#{italic}#Derth#{normal}#: While there is no formal necromancer presence in this sleepy countryside village, no practitioner of our art has been able to work within its vicinity. Rumours on why this is so are wild and varied, ranging from stories of almost all of its inhabitants being undead minions wearing cloaks of deception, to it being the secret base of the founder of the Tren� method of necromancy. Whatever reason there is, beware.
+#{italic}#데르스#{normal}#: 여기 지루한 시골 마을에 제대로 된 사령술사의 존재는 없음에도 불구하고, 이 지역에서는 우리 분야의 전문가들이 일을 하기가 불가능했습니다. 왜 그런지에 대한 소문에 의하면, 이곳이 정신학파의 숨은 본거지라는 이야기부터 모든 주민들이 이미 기만의 망토를 두르고 있는 언데드라는 이야기까지 나오고 있습니다. 이유야 어쨌든간에, 조심하세요.
 
-#{italic}#Zigur#{normal}#: The enemy of our enemy is not our friend in this case. What passes for "normal" magic is enough to send the cult residing here into a frothing, psychotic frenzy - the presence of a necromancer would be enough to instigate a second Age of Pyre!
+#{italic}#지구르#{normal}#: 적의 적은 아군이라는 말은 이 상황에서는 통하지 않습니다. "평범한" 마법의 존재가 지구르에 살고 있는 정신 나간 추종자를 보낼 이유가 된다면 - 사령술사의 존재는 제 2 의 장작더미의 시대를 불러일으키기에 충분하니까요!
 
-No further aid awaits you, for we do not tolerate the dependent. All that remains is for you to prove yourself worthy of practising this glorious art...]]
+이제 더 이상의 강의는 없습니다. 우리는 독립성을 침해하지 않습니다. 이제 남은 것들은 영광스러운 기술을 사용해서 스스로가 가치있음을 증명하는 것 밖에 없습니다...]]
 }
 
 newLore{
 	id = "halfling-feet",
 	category = "misc",
 	name = "of halfling feet",
-	lore = [[Some men have said that the feet of halflings can nay be harmed, not by fire, blade nor magic. And they do say that this is a truly astounding thing. And some men consider the foot of a halfling to be an item of great luck and protection, and many have one hung above their door or mantle. Though these days 'tis frowned upon to go hunt for one, so 'tis considered a prized heirloom to be passed from father to son.
+	kr_name = "하플링의 발",
+	lore = [[몇몇 남자들은 하플링의 발이 불이나 칼날, 심지어는 마법으로도 손상되지 않는다고 말합니다. 그리곤 그게 정말 믿기 힘든 일이라고 말합니다. 때문에 몇몇 남자들은 이 발을 엄청난 행운과 보호의 상징으로 생각하며, 많은 사람들이 문 위나 망토에 이것을 매달고 다닙니다. 하지만 오늘날에 하플링 사냥을 간다는 것은 눈살 찌푸려지는 일이기 때문에, 하플링 발은 가보로 여겨져 아버지로부터 아들에게 물려집니다.
 
-But women do look upon men and declare them fools. "For how," say they, "Can the foot of a halfling be a lucky thing, when with their large uncomely feet they are not able to wear shoes and footwear of elegant crafts and beauteous materials? And especially 'tis a great misfortune unto them, as with their short stature they could really do with a decent pair of heels..."
+그러나 여자들은 이런 남자들을 보고 멍청하다고 합니다 "어떻게," 그녀들이 말합니다. "하플링의 발로는 신발이나 멋진 공예품을 신을 수가 없는데, 어째서 행운의 상징이 된다는 거죠? 그리고 특히 하플링들에게는 큰 불행이잖아요. 하플링들은 키가 그렇게 작아서 굽 있는 것들을 신어야 하니 말이에요..."
 
-And lo, 'tis little mystery why halflings do look upon humans and say "The Big Folk really are very dumb."]]
+그리고, 하하, 어째서 하플링들이 인간들을 보면 "덩치 큰 놈들은 죄다 멍청이야" 라고 말하는지는 작은 의문점으로 남아있습니다.]]
 }
 
 newLore{
 	id = "rogue-poem",
 	category = "misc",
 	name = "Rogues do it from behind",
-	lore = [[An archer from the northern lands
-Claimed of his great renown
-With peerless skill and countless trials
-His name known town to town
+	kr_name = "도적은 숨어 있다네",
+	lore = [[북쪽 땅에서 온 한 궁수가
+자신의 위대한 명성을 뽐내네
+비할데 없는 기술과 수많은 도전
+그의 이름은 마을마을 퍼져가네
 
-He spoke of facing vampire lords
-Who promised years of pain
-The archer gave a stern retort
-An arrow through the brain
+수년동안 고통을 내려 주겠노라
+선언한 흡혈귀 군주에 맞서네
+궁수는 정중하게 응대를 했다네
+군주 머리에 박힌 화살로 말하네
 
-A fighter from the southern lands
-Claimed armies fled his might
-With dragons slain 'most every day
-And demons crushed by night
+남쪽 땅에서 온 한 전사가
+제 앞에선 군대도 도망친다 말하네
+낮에는 하루종일 용을 학살하고
+밤에는 악마를 깨부순다 말하네
 
-He spoke of ancient sprawling ruins
-Home to a ghastly shade
-Its years of madness, hate and rage
-Were ended on his blade
+무서운 그림자의 고향으로 알려진
+고대 폐허의 이야기를 하네
+광기와, 증오, 분노로 가득한
+수년의 세월이 칼 앞에서 끝났네
 
-An archmage from the western lands
-Claimed kingdoms feared his name
-With countless legends, songs and myths
-Attesting to his fame
+서쪽에서 온 한명의 마도사가
+왕국도 자신에게 벌벌 떤다하네
+셀 수 없는 전설, 노래, 신화가
+그의 명성을 증명해 주네
 
-He spoke of fire, storm and hail
-To match the fiercest wyrm
-To see one man hold so much power
-Can make an empire squirm
+불과 폭풍과 해일로 나아가
+험악한 용과 맞서 싸운다네
+한 명이 가진 위대한 힘은
+왕국을 초조하게 만들어 버린다네
 
-A rogue who came from unknown lands
-Not known for anything
-A leap, a flash, a concealed blade
-Three heroes felt its sting
+어디서 왔는지 알 수 없는 도적은
+아무런 이야기도 알려지지 않았네
+도약, 섬광, 숨겨진 칼날로
+세 명의 영웅은 위기에 빠지네
 
-The archer dropped, his bow unplucked
-The fighter died as well
-The archmage found its poison
-Far too potent to dispel
+활을 뽑지도 못한채 쓰러진 궁수와
+전사는 언제 죽은지도 모르겠네
+중독된 자신을 발견한 마도사
+해독을 하기엔 너무나도 늦었네
 
-The rogue is unknown to this day
-Though rumours persist still
-Rogues aren't known by name or deed
-But by the names they kill]]
+오늘날까지도 소문만 무성한
+도적에 대해선 알려지지 않았네
+도적의 이름도 행동도 모른채
+죽은 자들의 이름만이 알려지네]]
 }
 
 newLore{
 	id = "dust-to-dust",
 	category = "misc",
 	name = "Dust to Dust",
-	lore = [[#{italic}#An undead hunter's guide, by Aslabor Borys#{normal}#
+	kr_name = "먼지에서 먼지로",
+	lore = [[#{italic}#언데드 사냥꾼의 안내서, 저자 아슬라보르 보리스#{normal}#
 
-So, apparently I'm a legend now. Hah, knock a vampire's head off with a greatmaul and suddenly you're up there with Toknor and Mirvenia apparently. More and more often these days I get novice adventurers coming up to me, asking me for advice when it comes to battling the undead. My first instinct was to tell them to get back home and become bakers or gardeners or something. If they need crib notes for combat they obviously aren't cut out for it.
+자, 듣자하니 내가 '전설' 이라는구만. 하! 내가 대형망치로 흡혈귀의 머리를 날려버리고 있을 때, 네 녀석이 토크놀과 미르베니아라는 녀석들과 함께 갑자기 나타났어. 요즘들어 나한테 언데드랑 싸우는 법을 물어보려고 찾아오는 초보 모험가들이 점점 많아진단 말이지. 내 첫 번째 반응은 그들에게 집으로 돌아가서 빵이나 굽거나 정원사가 되던가 하라는 그런 거였어. 적과 싸울 때 교과서가 필요한 놈이라면 분명히 싸움에서 살아남지 못할거라 생각했거든.
 
-But then I was thinking, these are good kids. Heck, I'd buy every man and woman in the world who's bumped off a ghoul a free drink if I could. If they want help when it comes to putting down necromancer slime and their chilling creations, I would be more than happy to oblige. Not much of a writer, but let's see. First...
+그렇지만 내가 곰곰히 생각해보니 이놈들은 착한 놈들이란 말이지. 제기랄, 한번이라도 구울 엉덩짝을 걷어차본 사람이 있다면 술이라도 한 잔 사고 싶구만. 사람들이 사령술사의 슬라임이나 오싹한 괴물들을 처리해야 할 때가 오면, 기꺼이 내 도움을 주겠어. 내가 글을 잘 쓰는 사람은 아니지만, 시작해볼께. 일단 처음은...
 
-#{bold}#1. Ghouls#{normal}#
+#{bold}#1. 구울#{normal}#
 
-Every once in a while, people come to me and say "Are all necromancers truly evil?" "Surely necromancy could be used for good!" "Isn't it wrong to discriminate against others simply because of the magicks they practice?" To these people, the first thing I usually say - shortly after giving them a black eye - is to take a look at a ghoul. Take a good, long look. Take in the diseased, putrescent flesh. Take in the oozing, exposed organs. Take in its features, slowly rotting to mulch. It used to be a person. It used to have a family, people who loved it. Now it's a walking corpse, its only desire being death and the mad, all-encompassing consumption of living flesh. Are all necromancers truly evil? A thousand times, yes.
+꼭 이런 사람이 있는데, 나한테 와서 "정말 사령술사가 나쁜가요?" "사령술사라도 도움이 될 수 있죠!" "그 사람들이 배우는 마법을 가지고 다른 사람들과 차별하는 것은 잘못된거 아닌가요?" 이렇게 말한다 말이지. 이런 사람들한테는 내가 보통 - 눈가에 멍자국을 하나 찐하게 남겨주고 나서 - 가장 먼저 하는 얘기가 구울을 보라는 거야. 주의깊게 자세하게 봐봐. 병에 걸려서 살은 썩어들어가지, 노출된 장기는 흘러내리지. 천천히, 결국엔 썩어들어가면서 비료가 될 뿐이야. 사람이였다고. 사랑해주는 가족이 있던 사람이란 말이다. 그런데 지금은 오로지 죽음만을 갈망하고 살아있는 고기를 먹고자 하는, 광기로 가득찬 걸어다니는 시체가 되었다고. 정말 모든 사령술사가 나쁘냐고? 백이면 백 나빠. 그래.
 
-Even this most basic of undead minions can strike terror into the unprepared. The multitude of diseases that a normal ghoul carries are contagious in a manner many adventurers do not truly appreciate until they see the sores and necrosis visibly spreading up their arm from where a ghoul bit them. Such maladies must be dealt with promptly: if bitten by a ghoul, immediately plunge the afflicted area in scalding hot water, then wrap it quickly in clean cloth lined with mugwort and quartz powder. The wound must remain dressed for three weeks, with new dressings applied every four days, and make sure to burn the old ones! Failing the above, a wild infusion also works splendidly.
-
-    * * *
-
-
-#{bold}#2. Skeletons#{normal}#
-
-What guide to the undead would be complete without mentioning the humble skeleton? Despite these clattering and chittering bones of the deceased often looking so fragile that a stiff breeze could break them apart, in many ways they are more dangerous than their ghoul cousins.
-
-With no masses of rotted and ruined flesh to reanimate, necromancers can commit themselves fully to bestowing some level of fighting skill on a reanimated skeleton, and since a fighter's weapons will often last as long as his bones will, skeletons are usually armed and sometimes even armoured. The potential skill of a skeleton doesn't stop at melee weapons either - fallen archers take up their bows once again, and although difficult by comparison, some necromancers can even grant dead mages their magic powers once again.
-
-Some adventurers find themselves baffled when it comes to fighting skeletons. How do you destroy a foe who, by all rights, should be destroyed already? To these adventurers, I say take heart. The more broken and incomplete a body is, the more effort it takes to keep it reanimated. As most necromancers see skeletons as the lowest of low peons, you can expect a few good blows to easily dissipate the minimal effort their masters put into creating them.
+구울 같은 가장 기초적인 언데드라도 준비가 안 된 사람들에게는 충격적일 수 있어. 평범한 구울이 옮기는 수많은 질병은 전염성인데다가, 수많은 모험가들이 구울에게 물린 팔에서 고통을 느끼거나 괴사가 퍼져가는걸 보기 전까지는 제대로 인식하지 못하지. 그런 질병은 지체 없이 처리해야 한다고 : 만약에 구울에게 물렸다면 즉시 감염 부위를 델 정도로 뜨거운 물에 담궈. 그리고 쑥과 석영가루로 덧댄 깨끗한 옷가지로 상처 부위를 감싸야 해. 상처부위는 네 시간 마다 새롭게 갈아줘야 하고, 그걸 삼 주 동안 해야 해. 그리고 사용한 것들은 불태우는걸 잊지 말라고! 만약 앞에 쓴 방법이 실패한다면, 자연 주입물도 끝내주는 해결법이지.
 
     * * *
 
 
-#{bold}#3. Wights#{normal}#
+#{bold}#2. 스켈레톤#{normal}#
 
-Wights are an odd duck amongst the undead, often not created by necromancers specifically, but instead rising of their own volition when the conditions are right. Wights are by no means individual souls, but often part of a gestalt; when a particular land has seen enough bloodshed - battlefields, forest, crypts and graveyards - wights can be seen to rise en masse, a near-physical representation of the battles and turmoil the land has faced. Sadly, it is for this reason that necromancers often facilitate the creation of wights regardless, for no other study or profession causes so much blood or death.
+변변찮은 스켈레톤을 언급 안하고 어떻게 안내서를 완성할 수 있겠어? 덜그럭 덜그럭 거리는 죽은 자의 뼈가 비록 보기에는 스치는 바람에도 부서질 것처럼 약해보이지만, 스켈레톤은 많은 이유에서 구울보다 훨씬 더 위험하다구.
 
-Those who have had encounters with wights often describe them as indistinct skeletal figures, wrapped in flowing cloaks that become faded and incorporeal at their edges, while strange lights dance where their eyes should remain. Survivors tell of a peculiar sense of exhaustion when in close proximity to them, as though merely being close to these figments of death causes one's life force to sputter and fade. Regardless of this and their ghostly appearance however, it has been recorded that steel and strength of arms is yet enough to destroy them, or at least to erase them for the time being. It's just a shame that such battles are likely to simply create more of them in the long run...
+썩고 부패한 살덩어리가 없기에, 사령술사들은 되살아난 스켈레톤의 전투기술을 유지하는데 몰두할 수 있어. 그리고 전사의 뼈가 남아있다면 그때까지 무기도 남아있다는 거거든.  스켈레톤은 보통 무장하고 있고, 심지어는 갑옷을 입고 있는 녀석들도 있지. 스켈레톤의 잠재된 기술은 근접전에 머물지 않아 - 타락한 궁수가 다시 한번 자기 활을 들기도 하지. 비교하기는 어렵지만 몇몇 사령술사들은 죽은 마법사의 힘을 다시 돌려 놓을 수 있다고도 해.
 
-    * * *
-
-
-#{bold}#4. Vampires#{normal}#
-
-Vampires are so far removed from other varieties of undead it seems almost unreal. What grants them their longevity? How do they retain such great intelligence? Beyond their sallow complexion and drawn features, why do they not decay and decompose as their ghoulish siblings do? The study of vampiric nature is one long list of unanswered questions, each new study adding yet more to the ever-growing pile.
-
-As said before, a vampire's greatest strength is its resemblance to a living man, both in mind and body. Thanks to this, vampires are known for residing comparatively close to normal towns and villages far more than other undead. Some have even been known to keep their lairs within these communities themselves! Despite their resemblance however, there are many telltale signs of vampirism: Unnaturally pale skin, long and distinctive fangs, an aversion to sunlight, and much more besides. In an effort to avoid close inspection, some vampires are known to masquerade as men of wealth, often cloistering themselves in remote locations to discourage prying eyes.
-
-But perhaps the most astonishing thing regarding vampires is their propensity for alliance and familial relationships. No other undead being even approaches matching the incomprehensible tangle of clans, broods, families and bloodkin that vampires create for themselves. It is for this reason that vampires often end up becoming rulers of lesser undead themselves, commanding them as a normal necromancer would. So, in turn, treat them as you would a necromancer - with cold steel.
+몇몇 모험가들은 스켈레톤이랑 싸울 때 당황하고 있는 스스로를 발견할 수 있겠지. 어떻게 해야 이미 파괴된 적을 처리할 수 있을까? 그런 모험가들에게는 심장을 취하라고 말하고 싶군. 더 많이 파괴되고 불안정한 시체일수록, 다시 살아 움직이는데 더 많은 노력이 필요해. 대부분의 사령술사가 스켈레톤을 최하급의 일꾼 정도로 생각하고 있기 때문에, 효과적인 공격 몇 번이면 주인이 스켈레톤을 만드는데 사용한 노력을 헛짓거리로 만들 수 있을거야.
 
     * * *
 
 
-#{bold}#5. Spirits#{normal}#
+#{bold}#3. 와이트#{normal}#
 
-During my travels, I have noticed that some communities in the wild no longer bury their deceased as is the norm in larger settlements. Some folk burn the corpses of their fallen, committing their ashes to the earth instead. When asked why they perform this peculiar practice, I always receive the same answer: Necromancers. Fearful of their dead rising up to slay them at the whims of delusional, murderous filth, they believe that with the burning of the dead, their spirits are forever beyond the reach of a necromancer's bony fingers.
+와이트는 언데드들 중에서도 독특한 놈이지. 종종 사령술사가 의도해서 만든 것도 아니지만, 상황만 맞아떨어진다면 스스로의 의지로 일어나거든. 와이트는 결코 독립적인 영혼이 아닌 게슈탈트 - 즉, 형태의 일부이기도 하지. 전장이나, 숲 속, 공동묘지같은 피에 충분히 적셔진 땅에서 거의 물리적인 형태로 전쟁을 묘사하거나 이 땅에 있던 슬픔을 표현하며 집단으로 생겨나지. 슬프게도, 이런 이유로 사령술사들이 특별한 연구나 피 보는 일 없이도 개의치 않고 와이트를 만들어낼 수 있게 되는거야.
 
-Alas, this is not true. While fire may burn away a man's physical being, no flame can touch his spirit. Unfortunately, necromancers can. Bereft of both body and freedom, many souls are driven mad in the employ of necromancers, ceaselessly drifting through windswept crypts, harrying any unfortunate wanderers they encounter with a multitude of curses and hexes. Worst of all are those spirits who embrace their newfound purpose, causing them to grow in power at a frightening rate. No other being in Maj'Eyal is so obviously abhorrent to existence itself as these "dreads"; it is almost as though creation itself wants these beings gone from her world. It is my hope that you, and many others, oblige her wish.
-
-    * * *
-
-
-#{bold}#6. Bone Giants#{normal}#
-
-One of the most horrific, vomit-inducing expressions of the necromancer's so-called "art" is the bone giant. Not content with merely profaning the bodies of singular souls, some ambitious necromancers work to bind the bodies of countless skeletons together, creating hideous engines of destruction that can stand many times higher than the height of a normal man.
-
-It is a deadly mistake to liken these abominations to the golems alchemists and archmages employ. Wilful and fey as they are, normal mages often only craft golems for utility and their own protection, while necromancers create bone giants for the sole purpose of dealing death, and the only limit to their destructive capability is the necromancer's twisted imagination. Ever fought a snow giant? Imagine one with six arms and fingers like blades, wrought of sharpened ribs. Imagine one with countless skulls lining every inch of its wretched body, all screaming for your blood to be spilt as it thrashes spinal columns like whips from its disfigured hands! After facing one of these grotesque amalgamations, you'll be begging to go back to the Daikara to pick on simple, frost-rimed sub-men.
+와이트와 마주친 사람들은 흐릿한 망토를 두른 형체가 흐려지면서 모퉁이에서 사라진다고 하며, 눈이 있어야 할 자리에는 이상한 불빛이 흔들린다고 묘사하곤 해. 생존자들은 와이트들과 가까이 있을 때 와이트로부터 생명력이 빨려나가는 것만 같은 이상한 느낌을 받았다고도 했고. 와이트들의 생김새가 어떻든 간에, 쇠붙이와 힘으로는 그들을 파괴하거나 시간에서 지울 수 없다고 되어있어. 장기적으로 봤을 때, 전쟁에서 이런한 존재들이 많이 생겨난다는 사실이 참으로 부끄러울 뿐이야...
 
     * * *
 
 
-#{bold}#7. Liches#{normal}#
+#{bold}#4. 흡혈귀#{normal}#
 
-Hate made flesh. Evil made pure. Death incarnate. The culmination of a necromancer's work. Whatever you know liches as, I can tell you that they do not match the countless myths and legends that surround their terrible figures. They surpass them.
+흡혈귀들은 언데드들과는 많이 동떨어진 존재들이지, 거의 허상에 가까워. 어떻게 그렇게 오래 사는걸까? 어떻게 그렇게 많은 지식을 쌓은걸까? 흡혈귀들의 복잡함이나 특징은 제쳐두고서라도, 왜 그놈들은 사촌뻘인 구울처럼 썩지 않는걸까? 흡혈귀 생태에 대한 연구는 마치 대답할 수 없는 질문들의 목록과 같아. 추가적인 연구는 이미 쌓여있는 목록에 질문을 더 쌓아올리는 꼴이라니깐.
 
-Once a powerful necromancer finally crosses the border between life and death, the abyssal power that they could only initially grasp in dribs and drabs becomes theirs to control totally. It is often said that unexpected quakes, crops failing, and the leaves simultaneously falling from the trees heralds the birth of a lich. Lords of the undead, liches can annihilate ghouls and skeletons, banish dreads with a glance, and reduce bone giants to powder within moments.
+전에도 말했다시피 흡혈귀의 가장 큰 힘은 바로 내적으로나 외적으로나 사람과 닮았다는거야. 이런 특징 덕에 다른 언데드들과 비교해서 평범한 마을이나 도시에 더 가깝게 살아간다고 알려져 있지. 몇몇 놈들은 공동체 속에 자기들만의 보금자리를 만든다고도 하니깐! 닮은건 그렇다치고, 많은 이야기 속에서 흡혈귀에 대한 징후로 꼽는게 있어. 비정상적으로 창백한 피부, 길고 독특한 송곳니, 햇볕을 싫어하고, 그 외에도 참 많아. 사람들이 근접하는걸 피하길 위해, 몇몇 흡혈귀들은 가장무도회를 좋아하는 부유한 남자로 위장하기도 하고 혹은 뒤를 캐는 사람들을 피하기 위해 멀리 떨어진 곳에서 수도원 생활을 하기도 하지.
 
-As to how to actually destroy one? Well, tell you what. If you manage to defeat one of these abominations, be a dear and write a guide for me, for I have absolutely, positively, no idea.
+그렇지만 흡혈귀에 대해 가장 놀라운 점은 바로 동족에 대한 성향과 가족관계야. 어떤 언데드라도 흡혈귀들이 이룬 것처럼 씨족을 맺거나, 생산활동을 하거나, 혈연관계로 맺어져 있지 않아. 그게 바로 흡혈귀가 결국에는 사령술사처럼 다른 언데드들의 지배자가 되는 이유이기도 하고 말이야. 자 그러니깐 흡혈귀를 대할때는 사령술사에게 해주는 것처럼 똑같이 하라구 - 차가운 쇠붙이 말이야.
+
+    * * *
+
+
+#{bold}#5. 영혼#{normal}#
+
+내가 여행을 하던 도중에, 일반적인 대도시처럼 더 이상 매장을 하지 않는 야생의 공동체들을 만난 적이 있어. 그곳의 사람들은 시체를 불태우고 대신 그 재를 대지에 뿌리지. 왜 그런 특별한 의식을 하느냐고 물었을 때, 항상 같은 대답을 들었어. 사령술사 때문이라는거지. 자기네들의 죽은 사람이 다시 일어나 자기들을 변덕적인 마음으로, 살인자의 더러움으로 죽이지는 않을까 두려운거야. 그래서 시체를 불태워 그들의 영혼이 영원히 사령술사의 손아귀에 들어가지 않도록 하는거지.
+
+아아! 그렇지 않아. 화염이 육체적인 것을 불태울 수는 있겠지만, 영혼까지 불태울 수 있는 화염은 없거든. 불행하게도 사령술사들은 영혼마저 유린할 수 있어. 몸도 자유도 상실한 많은 영혼들이 사령술사에 의해 사용되어 미쳐가고 있어. 묘지를 떠돌아 다니면서 다양한 저주와 주술로 그들과 마주친 불행한 방랑자들을 괴롭히지. 그중에서도 최악은 바로 새로운 목표를 찾은 영혼들이야. 그렇게 되면 겁주는 단계에서 힘을 키우는 단계로 넘어가는 거거든. 마즈'에이알에서 "드레드" 로 존재한다는 것은 너무나도 혐오스러운 일이기 때문에, 영혼의 세계에서 사라지고자 하는 욕망을 스스로 만들어내게 되는거지. 이건 당신과 많은 다른 사람들이 영혼의 소망을 이뤄주도록 돕길 바라는 나의 희망이야.
+
+    * * *
+
+
+#{bold}#6. 해골 거인#{normal}#
+
+
+소위 말하는 사령술사의 "예술" 이라고 하는 표현 중에서도 가장 끔찍하고 토나오는게 바로 해골 거인이야. 내용물도 없이 하나의 영혼으로 신성모독에 가깝게 시체들을 써먹으려는 몇몇 야망에 찬 사령술사들이 셀 수도 없이 많은 스켈레톤들을 한데 묶고, 보통 사람 키의 몇 배는 더 큰 덩치를 유지할수 있는 끔찍한 파괴의 동력을 만들었지.
+
+이 합성괴물을 연금술사나 마도사가 써먹는 골렘이랑 비교하는건 치명적인 실수야. 지멋대로에다가 독특한 보통 마법사들은 골렘을 도구 용도나 자기보호를 위해 연성하지만, 반면에 사령술사들은 죽이는 목적 단 하나만을 위해 해골 거인을 만들지.  그리고 해골 거인이 가진 파괴력을 제어하는건 오직 사령술사의 삐뚤어진 상상 뿐이야. 설원 거인이랑 싸워본 적 있나? 설원 거인이 팔이 여섯개고 손가락이 칼날과 같고 갈비뼈가 날카롭게 성형되었다고 상상해봐. 그 불쌍한 몸에 셀 수 없는 두개골이 촘촘히 박혀있고, 손에 들린 척추를 무기처럼 휘두르면서 두개골 하나하나가 너의 피를 원하며 비명을 지르는걸 상상해봐! 일단 한번 그 끔찍한 융합체를 마주치고 나면, 다이카라로 돌아가서 서리덮힌 거인이랑 싸우게 해달라고 빌게 될걸?
+
+    * * *
+
+
+#{bold}#7. 리치#{normal}#
+
+증오로 만들어진 육체. 순수한 악. 죽음을 만드는 자. 사령술의 정점. 니가 리치에 대해서 아는게 뭐던 간에, 리치를 둘러싼 셀 수 없이 많은 신화와 전설과는 하나도 맞지 않다고 장담할 수 있어. 리치는 그보다 더한 놈들이거든.
+
+강력한 사령술사가 마침내 생과 사의 기로를 넘어선다면, 전에는 한 방울 겨우 쥐어짜 사용했던 심연의 힘을 완전히 제어해서 사용하게 돼. 얘기치 않은 지진, 농작물의 죽음, 나무에서 한번에 떨어지는 낙엽들이 리치의 탄생을 예언한다고 종종 말하기도 하지. 언데드 군주인 리치는 구울과 스켈레톤을 전멸시킬 수 있고, 처다보는 것 만으로도 드레드를 추방할 수 있으며, 해골 거인을 한순간에 뼛가루로 만들어 버릴 수 있어.
+
+어떻게 하면 리치를 실제로 파괴할 수 있을까? 음, 뭐라 말해줄까. 만약에 리치랑 맞짱뜰 상황이 생긴다면, 날 위한 안내서를 써주겠어? 진짜로, 정말로, 어떻게 해야 할지 모르겠어.
 
     * * *]]
 }

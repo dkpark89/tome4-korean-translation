@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -24,151 +24,169 @@ newLore{
 	id = "dreadfell-note-1",
 	category = "dreadfell",
 	name = "note from the Master",
-	lore = [[MINIONS: Perhaps you feel your Master has been lax or absent? Well, I shall amend that. I have been studying an object of great import. It is of much greater interest than your foolish unlives. But do not think that I will let you get away with things because of this.
+	kr_name = "'주인' 의 공지사항",
+	lore = [[제군들에게 : 아마 제군들은 이 ‘주인’ 님이 요즘 자주 부재 중인 것을 눈치챘을 것이다. 음, 틀린 말은 아니다. 나는 요즘 엄청난 물건을 구했기 때문에, 그것의 연구에 바쁘다. 이 물건은 너희 멍청한 언데드 제군들보다 훨씬 더 흥미로운 물건이기 때문이다. 하지만 그렇다고 내가 너희들을 자유롭게 해줄 것이라는 생각은 버리는 것이 좋을 것이다.
 
-Skeletons, you have been getting noticeably behind in your adventurer slaughtering quotas. The next skeleton archer I see drinking coffee and chatting with the wights shall be rent limb from limb and fed to the orcs. Also, as a punishment for your general laxness, 1,000 skeletons shall be remanded down to Kor'Pul as punishment. A further 250 shall be slaughtered. These orders to be carried out by myself tomorrow at 3am.]],
+그리고 스켈레톤들아, 너희들은 최근 모험가 살해 할당량에 훨씬 못 미치고 있다. 커피를 마시면서 와이트와 담소를 나누는 스켈레톤 궁수가 다시 눈에 띈다면, 모조리 산산조각을 내어 오크 무리에 던져버릴 것이다. 또한 너희의 게으름에 대한 벌로, 1,000 마리의 스켈레톤을 코르'풀에 감금할 것이다. 너희 할당량을 채우기 위해 더 죽여야 할 모험가는 250 명이다. 이 명령은 내일 새벽 3 시 전까지 완료해야 한다. 이상.]],
 }
 
 newLore{
 	id = "dreadfell-note-2",
 	category = "dreadfell",
 	name = "note from the Master",
-	lore = [[MINIONS: Be aware, I your great Master have found an item. It is of extreme power, but not yet complete, at least for my purposes.
+	kr_name = "'주인' 의 공지사항",
+	lore = [[제군들에게 : 경배하라, 이 위대한 ‘주인’ 님께서 어떤 물건을 찾으셨도다. 그것은 엄청난 힘을 가졌지만, 아직 내 목적을 위해서는 약간 부족하다.
 
-All hail your brilliant Master. Would you like to walk in the sun? Would you like to be free to roam green meadows and crush innocent children? Such are my wishes also. The reward to anyone who brings me any item that will help me bend this sta... item to my will shall be stupendous.
+이 ‘주인’ 님에게 경배를! 태양이 내리쬐는 땅 위에서 걷고 싶은가? 푸른 목장을 거침없이 돌아다니면서 순수한 아이들을 짓밟고 싶은가? 이몸의 소원 또한 그러하다. 이몸에게 필요한 물건을 가져오는 자에게는 막대한 보상이 따를 것이리라.
 
-Also, any new minions who have magical research skills are wanted. Recruit them and you shall be rewarded. Though if they steal my secrets, your blood will be my wine and your heart my appetizer.]],
+또한, 제군들 중에 마법적인 조사 능력을 지닌 자가 있다면 나에게 오라. 자신의 능력에 맞는 보상을 얻을 수 있을 것이다. 하지만 만약 나의 비밀을 훔치려 한다면, 그놈의 피는 나의 와인이요 그놈의 심장은 나의 식사가 될 것이리라.]],
 }
+
 
 newLore{
 	id = "dreadfell-note-3",
 	category = "dreadfell",
 	name = "note from the Master",
-	lore = [[MINIONS: Perhaps you are minor dens of foulness because you have nothing to aspire to? Perhaps you could be greater if you had a worse example before you? Consider Me! I began my long unlife as a foolish pipsqueak such as yourself. Why, there was a time before I had conquered even a pit let alone a level or a dungeon. Now, behold all that is Mine.
+	kr_name = "'주인' 의 공지사항",
+	lore = [[제군들에게 : 제군들은 이 썩어빠진 소굴에서 아무 열망도 없이 썩어가는 삶에 만족하는가? 제군들이 제군들 전에 만들었던 실패작들과 같다고 생각하는가? 나를 봐라! 나의 긴 사후 생활의 시작 역시, 너희와 같은 볼품없는 멍청이로 시작하였다. 그 때는 이곳 전체는 고사하고, 이곳의 층계 하나마저도 내 것이 아니었다. 하지만 이제, 이 모든 것은 바로 나의 것이다.
 
-You must have aspirations. I am not content with just the rule of Dreadfell. No, soon I shall have more. Much more. My boots shall tread the surface of the earth! I shall explore and destroy the most beautiful mountains. All shall be mine once I can walk in the sun once more. Where will you be? Do you wish to be more than the wight I stepped on yesterday? I shall need great leaders to guide my armies across the land.]],
+제군들은 갈망해야 한다. 나는 단지 두려움의 영역을 지배하는 것만으로는 만족할 수 없다. 나는 더욱 더 많은, 훨씬 많은 것들을 지배하게 될 것이다. 나의 신발은 언젠가 지면을 밟게 될 것이다! 나는 가장 아름다운 산들을 찾아 파괴할 것이다. 내가 다시 한번 태양 밑을 거니는 순간, 모든 것들은 나의 것이 될 것이다. 제군들은 어떻게 할 것인가? 내가 어제 일으킨 와이트보다 더 강한 존재가 되고 싶은가? 나는 지상을 정복할 때 언데드 군대를 통솔할 수 있는 자가 필요하다. 지원할 자 있는가?
+]],
 }
 
 newLore{
 	id = "dreadfell-note-4",
 	category = "dreadfell",
 	name = "note from the Master",
-	lore = [[MINIONS: You are foolish sods. Have you heard of the great Kor'Pul? Perhaps not, because you know very little and he died long before you were so stupid as to be born. However, he was great and had the chance to be greater still. He let himself be cooped into a small hellhole and was destroyed when the right hero invaded it and destroyed his plaything. Now he is but a mere shade of his former glory.
+	kr_name = "'주인' 의 공지사항",
+	lore = [[제군들에게 : 제군들은 너무나도 멍청하다. 위대했던 코르'풀에 대해 들어본 적이 있나? 아마 없을 것이다. 왜냐하면 제군들은 아는 게 거의 없고, 그는 제군들이 너무나도 멍청한 상태로 태어나기 훨씬 전에 죽었기 때문이다. 그러나 그는 위대했고, 더욱 위대해질 기회 역시 가지고 있었다. 하지만 그는 작은 동굴에 틀어박혔고, 결국 영웅이 그곳을 침략해서 그의 노리개들과 함께 그를 파괴하였다. 이제 그의 이름은 단순히 그가 지녔던 영광의 그림자에 불과하다. 
 
-I shall not make this mistake. Be ready, for soon we shall march out upon the lands. Soon we shall conquer as even he could not. Pity the fool who thinks he can keep me stuck in even the grandest of pits, Dreadfell.]],
+나는 이러한 실수를 저지르지 않을 것이다. 준비하라, 우리들은 곧 지상으로 나가게 될 것이다. 그리고 우리들은 그조차 정복하지 못했던 것들을 정복할 것이다. 나를 가장 거대한 수렁인 두려움의 영역에 가둘 수 있다고 생각했던 멍청이들을 동정하라.]],
 }
 
 newLore{
 	id = "dreadfell-note-5",
 	category = "dreadfell",
 	name = "note from the Master",
-	lore = [[MINIONS: To my newest vampire: burn, foolish adventurer, burn! I bet you are sorry for that flame spell now, aren't you? Suffer as I revisit it upon you.
+	kr_name = "'주인' 의 공지사항",
+	lore = [[제군들에게 : 특히 방금 전에 만든 흡혈귀에게 - 멍청한 모험가여, 불타올라라! 마법의 불꽃에 노릇노릇 구워지는 심정은 어떤가, 모험가여? 내가 다시 오기 전까지 그 고통을 충분히 즐기도록.
 
-To the rest of you, there will be punishment. An adventurer got down to my bedroom and surprised me. I, Myself, was hurt and almost had to use My special power. All is well now and I am as dangerous as ever, but you shall suffer for letting him get so low. The next minion I see shall be toasted with my marshmallows. Where then were the special pits of doom I organized? Where were the poisons of my wights or the diseases of my ghouls? Indeed, I should slaughter all of you, and I would, but those who were most foully remiss were already slaughtered by the adventurer. The rest of you? Beware My wrath.]],
+그리고 나머지 놈들에게는 징벌이 있을 것이다. 한 모험가가 나의 침실까지 내려와, 나를 놀라게 하였다. 나는 부상을 입었고, 나의 특별한 힘을 거의 쓰려고까지 하였다. 사건은 일단락되었고 나는 이전보다도 더욱 강력하고 위협적인 자가 되었지만, 제군들은 그를 내 침실까지 들어오게 한 것에 대한 대가를 치뤄야 할 것이다. 만약 내 눈에 띄는 자가 있다면 마쉬멜로우처럼 구워버릴 것이다. 내가 만든 특별한 파멸의 구덩이는 어디로 갔는가? 내 와이트의 독과 내 구울의 질병은 어디로 갔는가? 진실로, 나는 너희들 모두를 죽여버릴 것이다. 가장 더럽고 태만한 것들은 이미 모험가에게 죽었지만, 나머지 제군들이여. 나의 징벌을 두려워하라.]],
 }
 
 newLore{
 	id = "dreadfell-poem-level-2",
 	category = "dreadfell",
 	name = "A smudged poem chalked on a dark piece of slate",
-	lore = [[Master of life, Master of death,
-All fall to a word
-From his dreaded breath!
+	kr_name = "검은색 바닥 위에 분필같은 것으로 쓴, 얼룩덜룩한 시",
+	lore = [[
+삶의 주인이시자, 죽음의 주인이신 분. 
+무시무시한 입에서 나온
+단 한 마디 말에 모두 무릎꿇네!
+ 
+지팡이의 신이시자, 강철의 신이신 분. 
+그의 경이로운 열정에 
+비견할 자 누구 하나 없다네!
+ 
+마법의 달인이시자, 불의 달인이신 분. 
+가엾고 어리석은 자로구나 
+감히 그 분의 노여움을 사다니!
 
-Master of staff, Master of steel,
-None can withstand
-His ruthless zeal!
-
-Master of magic, Master of fire,
-Pity the fool
-That stirs his great ire!
-
-Master of strength, Master of will,
-Dare not oppose him
-Or your blood will spill!
-
-Master of shadows beyond mortal thought,
-Against undying death all are as naught.]],
+힘의 초월자이시자, 의지의 초월자이신 분.
+감히 거역하지 말지어다 
+아니면 너의 피를 보게 될지니!
+ 
+필멸자의 한계를 뛰어넘은 그림자의 주인이신 분. 
+불멸의 죽음 앞에서는 그 누구도 대적할 수 없으리라.
+]],
 }
 
 newLore{
 	id = "dreadfell-poem-level-5",
 	category = "dreadfell",
 	name = "A poem written in scribbled, child-like writing",
-	lore = [[Me like Master,
-He's a real laster,
-He is faster
-than a caster,
-Can bring disaster,
-Need more'n a plaster
-After his attackaster...
+	kr_name = "꼭 어린애가 쓴 것 같이 유치한, 휘갈긴 글씨체의 시",
+	lore = [[
+내가 좋아하는 주인님
+그는 진정으로 남을님
+그  움직임은 빠른님
+주문 보다도 빠른님
+그가 불러오는건 재앙임
+그가 공격한 다음인
+지금 필요한 고약임...
 
-Alabaster... raster... pastor? Grr, need more brains...]],
+석고임... 점묘임... 목사임? 으으, 뇌가 더 필요해...]],
 }
 
 newLore{
 	id = "dreadfell-poem-level-7",
 	category = "dreadfell",
 	name = "A poem written in an elegant Gothic script",
-	lore = [[No staff will save thee
-Against the blindness of pride
-Death will catch thee up]],
+	kr_name = "고풍스러운 글씨체로 쓰여진 시",
+	lore = [[그 어떤 지팡이도 우리를 구해주지 못하리라
+우리의 맹목적인 자신감과 자만에 응답하듯
+사신이 우리의 목을 낚아채리라]],
 }
 
 newLore{
 	id = "dreadfell-poem-master",
 	category = "dreadfell",
 	name = "a note about undead poetry from the Master",
-	lore = [[As an aside, I notice one of my skeletons has amused himself by writing a poem about me. Whilst my first reaction was to have his bones crunched into dust and what remained of his undead soul sent to the darkest depths of the abyss, I do now realise that there is some merit to this. Every great leader needs tales penned of his brilliant conquest. Therefore I now command you all to write more poetry in my honour, praising my amazing powers, unrivalled leadership, unconquerable strength, etc etc. Any that fail to produce works of sufficient standard shall be annihilated.]],
+	kr_name = "언데드의 시에 대한 '주인' 의 쪽지",
+	lore = [[놀랍게도, 나의 스켈레톤 부하 중 하나가 나에 대한 시를 지어놓고 스스로 기뻐하는 것을 발견하였다. 내가 이것을 발견하고 처음 한 행동은, 그의 뼈를 박살내 가루로 만든 다음 그의 혼을 지옥의 가장 깊은 구석에 박아 넣은 것이다. 하지만 잘 생각해보니, 이런 것도 상당히 괜찮을 것 같았다. 무릇 뛰어난 지도자라면 그의 찬란한 정복에 대한 이야기와 모험담이 필요한 법이다. 그래서 나는 부하들에게 나의 명예와, 나의 강력한 힘과, 대적할 자 없는 통솔력, 기타 등등 나의 위대함에 대한 시를 쓰도록 지시했다. 물론, 수준 미달의 시를 쓴 자는 소멸될 것이다.]],
 }
 
 newLore{
 	id = "master-slain",
 	category = "dreadfell",
 	name = "slain master", always_pop = true,
+	kr_name = "사망한 '주인'",
 	image = "the_master_slain.png",
-	lore = [[A powerful staff is grabbed from the Master's dead hands.]],
+	lore = [['주인' 은 죽을 때까지 자신의 마법지팡이를 손에서 놓지 않았다.]],
 }
 
 newLore{
 	id = "dreadfell-borfast-letter",
 	category = "dreadfell",
 	name = "a letter to Borfast from the Master",
-	lore = [[Ah, my dear Borfast, welcome to your glorious undeath! Your armour a cage, your hopes despair, your axe enslaved to my will, your soul mine to feast upon. How does it feel? Rather lovely I like to imagine! You were a valiant opponent, and though you were little threat to me I do like to honour you with this special treatment. And you do like honour, don't you? I know you wished to honour your people by defeating me and destroying my tower, but I'm sure you realise now that it was a rather vain endeavour.
+	kr_name = "보르파스트에게 보내는 '주인' 의 편지",
+	lore = [[아아, 친애하는 보르파스트여, 영광스러운 언데드가 된 것을 환영하네! 이제 네 갑옷은 너 자신을 가두는 우리가 되었고, 네 희망은 절망으로 바뀌고, 네 도끼는 나의 의지에 따라 움직이며, 네 영혼은 나의 한 끼 식사가 되었다네. 기분이 어떤가? 내가 상상한 것만큼 기뻐하고 있기를 바라네! 너는 용맹한 적수였고, 비록 나에게 별 위협은 되지 못했지만 너의 명예를 추구하는 자세가 마음에 들어 이렇게 특별취급을 해주게 되었네. 너도 명예를 좋아하지 않는가? 나는 네가 있던 곳의 사람들이 나를 죽이고 나의 성을 파괴하여 너의 명예를 드높이길 기대했겠지만, 그것은 헛된 노력이었다는 것을 이제 깨달았으면 하네.
 
-I apologise for what happened to that lovely suit of plate. I know it got a little... worn... during the treatment. But I'm afraid I really did need to find out the locations of your companion, and certain pressures had to be applied. You weren't very talkative, now were you? But I soon made you sing, oh yes. Of course, I could have just used a little divination magic to find out what I wanted, but I do so enjoy a good torture... And my, how joyous your screams were whenever the acid splashed against your beard! Hoh, we did chortle, did we not? But no matter, I've had my best skeletal smiths work on fixing your armour, fit to be worn by my new champion.
+네가 사랑하던 그 갑옷에 일어난 일에는 심심한 사과를 표하네. 너를 언데드로 되살리는 도중에 그 갑옷이 조금... 못쓰게 돼서 말이지. 하지만 나는 곧 네 울부짖음을 다시 들을 수 있을걸세. 오, 정말이라네. 나는 네 동료가 있는 위치를 찾기 위해 정말 노력했고, 어떤 협박을 할지도 고민하였다네. 너는 꽤 과묵한 사람이었지 않은가? 예견 마법을 살짝 써서 내가 원하는 것을 찾을 수도 있었지만, 나는 남을 괴롭히고 고문하는 것을 즐겨서 말일세... 세상에, 네 턱수염에 산이 튈 때마다 지르는 너의 비명은 얼마나 듣기 즐거웠던지! 우리 서로 그걸 보고 깔깔거리며 웃지 않았던가? 하지만 뭐, 내 스켈레톤 부하들 중에 가장 뛰어난 대장장이를 불러다가 네 갑옷을 수리하도록 시켰으니 그 새로운 갑옷, 아니 '철제 우리' 는 꽤 마음에 들걸세.
 
-I hope you enjoy your new work. Approach it with gusto, that sort of thing. I know in life you always dreamed of being a mighty hero of legend. But, well, what can be more glorious than this? You will live forever as my servant, destined to defend my throne for all time! You will be the envy of all the lesser ghouls that shamble about my halls. Well, until you get slain by some dumb intruding adventurer, of course... But that's the beauty of you heroes - one comes in, makes a mess, and then I get a new plaything to toy with. I wonder who shall replace you, eh?
+네게 부여된 새로운 일에 열정이나, 아니면 열정 비슷한 것이라도 가지고 임해주길 바라네. 너는 아마 항상 전설 속의 위대한 영웅이 되길 꿈꿔왔을걸세. 하지만, 이것보다 더 영광스러운 일이 어디에 있겠는가? 너는 내 시종으로 평생을 살게 될 것이며, 언제나 나의 왕좌를 지키기 위해 싸울 수 있다네! 너는 내 발 밑을 어기적거리는 모든 하급 구울들의 우상이 될 수 있다는 뜻이지. 물론, 어떤 어리석은 또 다른 침입자에게 패배하지만 않는다면 말일세. 하지만 이것도 너희들 영웅들의 아름다움 아니겠는가 – 영웅 하나가 들어오고, 난장판을 치면, 나는 새로운 장난감을 손에 넣는 걸세. 너를 대체할 모험가는 누가 될지 궁금해지는군, 그렇지 않은가?
 
-Until then, do enjoy the work, try to keep the place clean, and remember - I own you forever.
+그때까지는, 네게 부여된 일을 즐겨주길 바라네. 이곳에 쥐새끼 하나 얼씬거리지 못하게 하는 것 말일세. 그리고 기억하게나. 너는 영원히 나의 노예가 되었다는 사실을.
 
-- The Master]],
+- '주인']],
 }
 
 newLore{
 	id = "dreadfell-aletta-letter",
 	category = "dreadfell",
 	name = "a letter to Aletta from the Master",
-	lore = [[Ah, sweet Aletta! How rich your blood tasted on my lips! I know it's not quite what you were expecting from the next step in our relationship, but aren't surprises the true joy of any romance?
+	kr_name = "알렛타에게 보내는 '주인' 의 편지",
+	lore = [[아아, 알렛타여! 내 입술에 느껴지는 너의 피는 어찌 이리도 달콤한지! 우리 관계에 있어서의 다음 단계로는 예상하지 못했던 것이겠지만, 가끔은 이런 깜짝 로맨스도 좋지 않은가?
 
-I don't blame you for falling for me, you know, even to the point of betraying all your companions just for me. Women have always had a weakness for my brooding personality and sparkling wit. Even in life I was quite the charmer, and death only improves things, I assure you. I really do have the reputation as a heartbreaker, in more ways than one... Your heart shall now sit in a special place, next to the rest of the offal in my pits.
+나에게 빠진 것을 탓하진 않겠다네. 네가 더 잘 알겠지만, 나를 위해 네 동료들을 배신한 것 말일세. 여자들은 언제나 나의 음울한 성격과 반짝이는 재치에 빠지고는 한다네. 살아있을 때도 나는 꽤 매력적인 사람이었지만, 죽음은 나의 매력을 더욱 강화시켜줄 뿐이었다네. 나는 생전에, 여자들의 마음을 뺏는 것으로 명성이 자자했다네. 그리고 지금, 네 마음 – 네 심장은 특별한 장소에 있다네. 바로 내가 죽기 전의 육체와 내장들이 있는 곳, 그곳의 바로 옆 말일세.
 
-Thank you for telling me of Borfast's weaknesses - it shall make overcoming the dwarven grunt all the simpler. Your rogue friend remains more elusive, but he will be found and destroyed. You see I have a sort of persistent bloody-mindedness about this sort of thing. There is not a cockroach in this tower that does not obey my every whim and will, and I shall see to it that it remains that way.
+보르파스트의 약점에 대해 말해줘서 고맙네. 덕분에 저 돼지 같은 드워프 놈을 훨씬 더 간단하게 처리할 수 있었다네. 네 도둑 친구는 아직 찾지 못했지만, 곧 그를 찾아내서 박살낼 수 있을걸세. 나는 이런 일에는 꽤 끈질기고 잔혹한 사람이거든. 나의 성 안에서 나의 기분과 의지를 거스르는 바퀴벌레들은 있어선 안되며, 나는 그것들이 계속 그럴 수 있는지 지켜볼걸세.
 
-You must feel a little betrayed of course. I promised you power beyond your imaginings, and instead I drained your blood, fed your flesh to my servants, and enthralled your soul to my bidding. Well, we all struggle to manage expectations sometimes, eh? At least be glad I let your tortured essence roam the cold fastness of my fortress, haunting anyone foolish enough to invade. And some power I will impart to you, and it is indeed beyond your imaginings, for your mind could never reach the dark places I can. But open your eyes now, for such dark places shall be with you till the end of time... Welcome, indeed, to the dark place of my heart.
+지금쯤 너는 약간의 배신감을 느끼고 있을걸세. 그 대신, 나는 네가 상상할 수 있는 것 이상으로 너를 강하게 만들어줄 것이라네. 나는 너의 피를 빠는 대신, 너의 육신을 내 노예들에게 먹이고 네 영혼을 노예로 삼을 생각일세. 글쎄, 가끔은 예상 밖의 일도 있는 것 아니겠는가? 그래도 최소한 네 고문받은 영혼은 나의 성을 떠돌며, 모든 어리석은 침입자들을 홀릴 수 있을 것일세. 그리고 내가 너에게 줄 상상도 하지 못할 힘은, 네 정신을 결코 나만큼의 ‘어두운 곳’ 에 가지 못하게 할걸세. 하지만 눈을 크게 뜨면, 영원히 너와 함께 할 ‘어두운 곳’ 을 찾을 수 있을 것일세. 어서오시게나, 내 마음 속 가장 ‘어두운 곳’ 에.
 
-- The Master]],
+- '주인']],
 }
 
 newLore{
 	id = "dreadfell-filio-letter",
 	category = "dreadfell",
 	name = "a letter to Filio from the Master",
-	lore = [[Oh Filio, what a fun game we have had of cat and mouse! Well, perhaps to you it was a life and death struggle, but for me this past three weeks of patiently hunting you through my halls has been the most entertaining of past-times. I have enjoyed extending the game so, letting you escape my clutches when I felt it most prudent, watching as you got ever more desperate. Alas, you have now degraded too much, and it was simply too embarrassing watching you eat your own faeces to survive. I had to put an end to it - I'm sure you understand.
+	kr_name = "필리오에게 보내는 '주인' 의 편지",
+	lore = [[오, 필리오여. 이 얼마나 재미있는 고양이와 쥐 놀이였는가! 비록 너에게는 생사가 달린 문제였겠지만, 나에게 지난 3 주간 벌어진 사냥 놀이는 과거의 그 어떤 것보다도 즐거웠다네. 나는 이 게임을 금방 끝내고 싶지 않았고, 철저한 계산 하에 너를 위기를 벗어나게 해 네가 보다 필사적인 모습이 되는 것을 관찰하였다네. 하지만 너는 이제 너무나 많이 타락하였고, 나는 살아남기 위해 너 자신의 대변을 먹는 것을 보고 흥미를 잃었다네. 이 놀이의 끝을 내야 할 시기였다네. 내 말을 이해했으리라 믿네.
 
-But ah, it's not truly an end, for you get to experience the wonder of undead enslavement! Is it not most exciting? Do your bones not quiver with delight? It is just your bones now, since I have a certain fondness for skeletal servants, but I have been nice enough to pad your heels with leather so you can still sneak about quietly. How you did love to sneak! Now you may spend an eternity doing so, ensuring any future trespassers get quite the surprise wandering through my great keep.
+하지만 아아, 걱정 말게. 이것은 진정한 끝이 아니라네. 어떤가, 언데드가 되어 영원히 지배당하는 기분은? 기쁘지 않은가? 네 몸을 이루고 있는 뼈 하나하나가 기쁨에 겨워 떨리지는 않는가? 이제 그 뼈가 네 몸뚱아리고, 너는 이제 내가 아끼는 스켈레톤 부하 중의 하나가 되었다네. 하지만 나는 부하를 아낄 줄 아는 사람이기 때문에, 발바닥 부분에 가죽을 덧대 조용히 걸어 다닐 수 있게 해주었다네. 네가 숨는 것을 얼마나 좋아하는지 잘 아니까 말일세! 이제 너는 영원히 숨어 다니면서, 나의 위대한 구역에 침입한 다른 침입자들을 조용히 처리하면 되는 것일세.
 
-I have let you keep your little sling, since I know you like to play with it. Such a quaint weapon... But this staff I found in your possession - my, what a treasure you have brought me! I do not know whence you stole this artifact, but you clearly were completely unaware of its value or power. It has a history beyond your very comprehension, and in my hands it shall change the future! Thank you kindly, my servant; already you have served your Master well. I'm sure we shall enjoy a great friendship over the many years to come. Well, not friendship exactly - it more involves eternal agony on your part, and a rise to ultimate power and majesty for me. Such is the fate of the weak and the strong, a lesson you have already learned well. What a great teacher I make...
+네 작은 투석구 또한 뺏지 않았다네. 네가 투석구를 가지고 노는 것을 좋아한다는 것을 알기 때문일세. 이 얼마나 웃기는 무기인가... 하지만 네 소지품에서 발견한 이 마법지팡이... 세상에, 이 얼마나 멋진 보물 배달부인지! 대체 언제 어디서 이 유물을 훔쳤는지는 모르겠지만, 너는 분명 이것의 진정한 힘과 가치에 대해 몰랐을 것일세. 이 물건은 네 이해력을 뛰어넘는 수준의 역사가 담긴 물건이고, 덕분에 이제 내 손으로 미래를 바꿀 힘을 얻었다네! 정말 고맙네, 나의 노예여. 노예가 되자마자 이 ‘주인’ 님을 위해 하는 노력이 가상하다네. 우리는 오랜 세월 동안 굉장한 우정을 나눌 수 있을 것일세. 아니, 정확히 말하면 우정은 아니로군. 너에게는 영원한 고통이, 그리고 나에게는 무한한 힘과 권력이 따르는 관계이겠지. 너무 슬퍼하지 말게. 약육강식의 세계에서 이는 당연한 일이고, 이미 나에게 충분히 배우지 않았는가. 아아, 나는 대체 얼마나 멋진 선생님인가!
 
-- The Master]],
+- ‘주인’]],
 }

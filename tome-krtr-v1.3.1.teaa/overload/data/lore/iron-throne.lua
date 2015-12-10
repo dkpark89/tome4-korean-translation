@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,91 +25,96 @@ newLore{
 	id = "iron-throne-profits-1",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Allure",
-	lore = [[#{bold}#3800: #{normal}#Gold accepted as standard unit of currency amongst all races after heavy lobbying. This is greatly to our favour, as our vein resources are high and the material otherwise has no practical usage. Must continue to stockpile more.
-#{bold}#4200: #{normal}#New smelting techniques developed allow more stralite to be recovered from existing veins. Techniques must be kept hidden from other races.
-#{bold}#4362: #{normal}#Grand Smith Dakhtun has discovered new methods of infusing magical effects in weapons and armour. Potential for profit growth in this area very high.
-#{bold}#4550: #{normal}#First special meeting of Iron Throne Profits Committee. War with humans and halflings worrying, as it is reducing potential market size. Threat of complete market elimination forces us to drastic action - all weapons trade must cease. Increase stockpiles of construction materials in hope of eventual reconciliation.
-#{bold}#5967: #{normal}#Shaloren involvement in war is becoming too grave a risk - legends of Sher'Tul destruction are a pertinent reminder of the dangers of high magic. Increasing investment in new Ziguranth order in hopes of opposing this problem.
-#{bold}#6550: #{normal}#War ended. Opportunity presents itself - now reopening trade, with high prices on all construction items. Profits forecast is very high.
-#{bold}#6827: #{normal}#Killed Kroltar the Crimson Wyrm and recovered his hoard. Value of hoard: 20 million gold. Resources lost in recovery effort: 7 million gold (estimation based on standard assessment of 350 gold per capita lost). Net profit: 13 million gold. Profit margin is 186%!
-#{bold}#6980: #{normal}#Resources based on dragon hoards are dwindling. Must reduce cull targets to allow recovery of numbers.
-#{bold}#7420: #{normal}#Major orc attacks are ruining trade arrangements. Cutting off all contracts until markets settle.
-#{bold}#7494: #{normal}#Disastrous use of magic by Shaloren elves has had an unprecedented impact on profitability of our operations. Increasing protectionist measures to prevent economic ruin.]],
+	kr_name = "철의 왕좌의 손익 역사 : 매혹의 시대",
+	lore = [[#{bold}#3800 : #{normal}#엄청난 로비 활동 끝에, 금을 기반으로 한 화폐 제도가 다른 종족들의 인정을 받았다. 우리의 광산에는 금 광맥이 많지만, 특별히 쓸 일이 없었기 때문이다. 이제 금을 더 비축해둘 필요가 있다.
+#{bold}#4200 : #{normal}#새로운 제련 기술을 발견하여, 같은 광석에서 더 많은 스트라라이트를 추출해낼 수 있게 됐다. 이 기술은 다른 종족들에게 절대 알려져서는 안된다.
+#{bold}#4362 : #{normal}#위대한 대장장이인 다크툰이, 장비에 마법적인 힘을 주입할 수 있는 새로운 방법을 발견하였다. 이를 통해 막대한 수익을 올릴 수 있을 것이다.
+#{bold}#4550 : #{normal}#철의 왕좌 손익 위원회의 특별 모임을 처음으로 가졌다. 인간과 하플링 사이의 전쟁으로 인해, 시장 규모가 작아지는 것이 우려된다. 시장 규모가 일정 수준 이상으로 줄어들 경우, 우리들도 과감한 행동을 취할 필요가 있다 - 모든 무기 거래는 중단될 것이며, 그들 사이에 화해가 이루어질 때를 대비하여 건축 자재를 모아둘 필요가 있다.
+#{bold}#5967 : #{normal}#샬로레들이 전쟁에 참여하는 것은 너무나 큰 위험성을 내포하고 있다 - 쉐르'툴 종족이 멸망한 이유가 지나친 마법 사용에 있음을 잊지 말아야 할 것이다. 이 문제를 해결하기 위해, 지구르 추종자들과의 거래에 더 투자액을 늘릴 필요가 있다.
+#{bold}#6550 : #{normal}#전쟁이 끝났다. 이제 행운이 모습을 드러낼 차례다 - 거래를 재개하고, 모든 건축 자재에 높은 가격을 붙였다. 매우 높은 수준의 이윤이 예상된다.
+#{bold}#6827 : #{normal}#핏빛 용 크롤타르를 죽이고, 그가 모은 - 총 금화 2000 만 개의 가치에 해당하는 - 귀중품들을 회수하였다. 이를 위해 손실된 자원은 금화 700 만 개 정도이다. (희생된 1 인 당 금화 350 개로 환산) 즉 최종 수입은 금화 1300 만 개로, 186% 의 이윤을 보았다!
+#{bold}#6980 : #{normal}#용에게서 회수한 자원들이 줄어들고 있다. 희생된 자들에 대한 지원을 줄여야만 한다.
+#{bold}#7420 : #{normal}#대규모 오크 공습으로 인해 거래 질서가 붕괴되었다. 시장이 안정을 찾을 때까지, 모든 거래를 중지한다.
+#{bold}#7494 : #{normal}#샬로레 엘프들이 마법으로 일으킨 참사 때문에, 우리의 상업과 이윤 구조에 엄청난 변화가 일어났다. 경제 구조가 파괴되지 않도록, 보호무역의 비중을 크게 증가시켜야 한다.]],
 }
 
 newLore{
 	id = "iron-throne-profits-2",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Dusk",
-	lore = [[#{bold}#412: #{normal}#Diseases and food shortages force increased trade with other races. For the first time in our great history we are in the red. Morale amongst the people is at an all-time low, and is badly affecting productivity.
-#{bold}#1430: #{normal}#Several mages visited and used their arts to cure many of the plagues we have suffered for centuries. When offered payment they refused. How very odd...
-#{bold}#1490: #{normal}#Production now nearing pre-Spellblaze levels. Profits high, and commerce with other races increasing.
-#{bold}#1567: #{normal}#Gigantic earthquakes have completely destroyed many of our major production facilities. Loss of personnel resources is also very tragic, especially key production experts. This is having a very negative effect on our forecasts.]],
+	kr_name = "철의 왕좌의 손익 역사 : 황혼의 시대",
+	lore = [[#{bold}#412 : #{normal}#질병과 식량 부족으로 인해, 다른 종족들과의 거래가 줄어들었다. 우리의 위대한 역사에 있어 처음으로 적신호가 들어왔다. 사람들 사이의 도덕은 언제나 최악의 상태이며, 이는 생산성에 악영향을 끼쳤다.
+#{bold}#1430 : #{normal}#몇몇 마법사들이 이곳에 들러, 우리가 수 세기 동안 고통받던 질병들을 치료해주었다. 우리는 그들에게 보수를 지급했지만, 그들은 거절하였다. 정말 이상한 사람들이다...
+#{bold}#1490 : #{normal}#생산성이 마법폭발 이전 수준으로 거의 회복되었다. 많은 이윤을 보았으며, 다른 종족들과의 거래량도 늘어났다.
+#{bold}#1567 : #{normal}#엄청난 지진이 일어나, 우리의 주요 생산시설들을 완전히 파괴하였다. 개인적인 손실도 비극이지만, 특히 중요 수출품들의 생산이 불가능하게 되었다. 미래의 이윤에 굉장히 부정적인 영향을 끼칠 것으로 보인다.]],
 }
 
 newLore{
 	id = "iron-throne-profits-3",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Pyre",
-	lore = [[#{bold}#240: #{normal}#Market forecasts recovering better than expected. Increasing expansion in external trade areas.
-#{bold}#490: #{normal}#Orcish attacks have become much worse - seem to be using higher magic and some demonic forces. Potential threat to resources.
-#{bold}#581: #{normal}#Several key cities overwhelmed from underground by attacks from orcs and strange horrors. Have collapsed lower caverns to prevent further penetration. Working on continued resource protection measures.
-#{bold}#711: #{normal}#Developed key strategic agreements with outside races to help contain orcish threat to resources and infrastructure. Relations with Toknor of the humans are seen to be especially important - have sent him some of our best armour and weapons to ensure a good return on our investments. In hindsight we should have charged more for these.
-#{bold}#713: #{normal}#Orcish threat eliminated. Profits beginning to soar due to increased external trade relations.
-]],
+	kr_name = "철의 왕좌의 손익 역사 : 장작더미의 시대",
+	lore = [[#{bold}#240 : #{normal}#시장이 생각했던 것보다 빠르게 회복되고 있다. 수출 경로가 확장되고 있다.
+#{bold}#490 : #{normal}#오크들의 공격이 갈수록 심해지고 있다 - 그들은 고급 마법과 악마의 힘을 사용하는 것으로 보인다. 우리의 자원에 위협이 될 가능성이 있다.
+#{bold}#581 : #{normal}#몇몇 중요 도시들이, 지하에서 올라온 오크들과 기이한 공포들에 의해 점령당했다. 지하 동굴을 무너뜨려 추가적인 침입을 저지하였다. 이를 앞으로의 자원 보호 방법으로 사용할 수 있을 것 같다.
+#{bold}#711 : #{normal}#다른 종족들과 힘을 합쳐, 저 오크들의 자원과 공공 시설에 대한 위협을 저지하기 위한 계획에 동의하였다. 특히 인간 토크놀과의 관계가 중요할 것 같다 - 그에게 우리의 최고급 갑옷과 검을 보내, 미래에 대한 투자를 하였다. 이 상황이 끝나면, 우리는 그에게 원래 가격 이상을 부과할 것이다.
+#{bold}#713 : #{normal}#오크들의 위협이 격퇴되었다. 외부와의 거래가 활성화되어, 이윤이 크게 늘어나기 시작했다.]],
 }
 
 newLore{
 	id = "iron-throne-profits-4",
 	category = "iron throne",
 	name = "Iron Throne Profits History: Age of Ascendancy",
-	lore = [[#{bold}#28: #{normal}#Mutual defence treaty signed with newly formed Allied Kingdom, and further trade routes opened. Highest ever recorded profit in final quarter of this year.
-#{bold}#115: #{normal}#Noted a return of an orcish presence in the collapsed caverns beneath the Iron Throne. Also increased reports of horrors and demons affecting mining operations. Key strategic decision taken: these must be kept hidden from the other races. Uncertainty will only destabilise the markets. Increase stockpiles of weapons and armour, especially voratun and stralite materials, in case of new war trade.
-#{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]],
+	kr_name = "철의 왕좌의 손익 역사 : 주도의 시대",
+	lore = [[#{bold}#28 : #{normal}#새롭게 만들어진 왕국 연합과 상호 방위 조약이 체결되었다. 그리고 추가적인 상업 경로가 열렸다. 올해 4 분기에, 역사상 최고 수익률을 기록하였다.
+#{bold}#115 : #{normal}#철의 왕좌 지하에 있는 무너진 동굴에서, 오크의 존재가 다시 감지되었다. 채굴 작업 중에 공포와 악마들을 발견했다는 보고가 늘어나고 있다. 이에 대처하기 위한 전략적 결정은 다음과 같다 : 다른 종족들에게 이 사실이 알려져서는 안된다. 확실하지 않은 정보는 시장을 불안정하게 만들 뿐이다. 무기와 갑옷의 비축량을 늘리고, 특히 새로운 전쟁을 대비하여 보라툰과 스트라라이트 재질을 많이 사용하라.
+#{bold}#120 : #{normal}#오크 무리가 우리를 침략하여, 비축해놓은 무기들을 많이 가져갔다. 스트라라이트 채굴 작업에 대한 압박도 갈수록 높아지고 있다. 저 위협이 우리의 발 밑에 있는 동안, 우리는 자원 보호 수단을 강구할 필요성이 있다. 이윤은 안정적이지만, 우리는 심각한 위협에 처해 있다.]],
 }
 
 newLore{
 	id = "iron-throne-reknor-edict",
 	category = "iron throne",
 	name = "Iron Throne Edict",
-	lore = [[#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#
+	kr_name = "철의 왕좌 칙령",
+	lore = [[#{bold}#철의 왕좌에 사는 시민들을 위한 칙령. 우리의 제국은 영원히 유지되리라.#{normal}#
 
-The rumours you have heard are true. It is with a heavy heart that I confirm one of our mines, Reknor, has been overtaken and inhabited by a large and organised orcish force. How there could be such a decisive and total failure on our part to stop this threat remains a mystery - the source of the orcish invasion remains unknown. A battalion of soldiers will form a defensive perimeter around Reknor until a force to retake the mine and exterminate the orcs can be mustered. All civilians residing within the surrounding halls are to be evacuated.
+그대가 들었을 소문은 사실이다. 우리의 광산 중 하나인 레크놀을 크고 조직적인 오크 무리에게 빼앗겨, 그들의 거주지로 내주고 말았다는 사실을 인정하게 되어 비통한 심정이다. 어떻게 우리들이 그 완전한 실패작들의 공습을 멈추지 못했는지는 의문으로 남아 있다 - 오크들의 침공이 어디에서 이루어졌는지도 아직 밝혀지지 않았다. 우리의 병사들은 레크놀을 탈환하고 오크들을 멸종시킬 수 있을 정도의 힘이 모이기 전까지, 레크놀 주변에 수비진을 형성할 것이다. 그 주변에 거주 중인 시민들에게는 대피령이 떨어지게 될 것이다.
 
-This is a grave and unprecedented issue, so I decree an oath of silence to be laid upon all citizens of the Iron Throne, regardless of class and station: NO NEWS OF THIS INVASION MUST REACH FOREIGN EARS. We must maintain an image of stability and strength with the Allied Kingdom, as any signs of weakness or internal strife would be catastrophic to our alliance and future trade agreements. Any citizen found divulging this information to any outside party will be punished with exile. Rest assured, I will personally send messages to those outside the Throne who can be trusted with this information, and I trust this orcish intrusion shall be dealt with swiftly and decisively. So speaks the ruler of the Iron Throne, long may our empire endure.]]
+이는 심각하고 전례 없는 일이다. 그래서 나는 철의 왕좌에 있는 직업과 신분을 막론한 모든 시민들에게, 이 침묵의 맹세를 의무적으로 할 것을 명한다 - 이 침공이 다른 종족들의 귀에 들어가지 않도록 하라. 우리는 왕국 연합에게 우리의 굳건하고 강력한 모습만을 보여주어야 한다. 우리가 조금이라도 약한 모습을 보이게 된다면, 그 즉시 왕국 연합 내에서 우리에 대한 소문이 퍼져 미래의 거래에 엄청난 악영향을 끼치게 될 것이다. 이 소식을 외부에 발설한 시민이 발견된다면, 그 자에게 추방령을 내리겠다. 믿어도 좋다, 나는 개인적으로 믿을 만한 외부의 자들에게 이 소식에 대해 알렸다. 이 오크들의 침략은 빠르고 단호하게 해결될 것이다. 그러므로 철의 왕좌의 지배자가 말하건데, 우리의 제국은 영원히 유지되리라.]]
 }
 
 newLore{
 	id = "iron-throne-trade-ledger",
 	category = "iron throne",
 	name = "Iron Throne trade ledger",
-	lore = [[#{bold}#IRON THRONE TRADE LEDGER - Allied Kingdom#{normal}#
-#{italic}#Age of Ascendancy, 121#{normal}#
+	kr_name = "철의 왕좌 거래 대장",
+	lore = [[#{bold}#철의 왕좌 거래 대장 - 왕국 연합#{normal}#
+#{italic}#주도의 시대, 121 년#{normal}#
 
-#{bold}#Last Hope - Exports#{normal}#
-      Steel Plate Armour (Human) - 500pcs.
-      Steel Plate Armour (Halfling) - 460pcs.
-      Steel Armaments -
-      * Longswords - 170pcs.
-      * Spears - 200pcs.
-      * Maces - 150pcs.
-      Crafts, Sundries - 2,200pcs.
+#{bold}#마지막 희망 - 수출품#{normal}#
+      철제 판갑 (인간용) - 500 개
+      철제 판갑 (하플링용) - 460 개
+      철제 무기 -
+      * 장검 - 170 개
+      * 창 - 200 개
+      * 철퇴 - 150 개
+      공예품 및 기타 잡화 - 2,200 개
 
-#{bold}#Derth - Exports#{normal}#
-      Iron Hatchets - 50pcs.
-      Tools, Sundries - 65pcs.
+#{bold}#데르스 - 수출품#{normal}#
+      철제 손도끼 - 50 개
+      도구 및 기타 잡화 - 65 개
 
-#{bold}#Last Hope - Imports#{normal}#
-      Gold - 500,000pcs.
-      Grains, Etc. - 1,000tons
+#{bold}#마지막 희망 - 수입품#{normal}#
+      금화 - 500,000 개
+      곡물 및 기타 - 1,000 톤
 
-#{bold}#CONFIDENTIAL: Angolwen - Exports#{normal}#
-      Garnets - 50pcs.
-      Rubies - 40pcs.
-      Diamonds - 20pcs.
+#{bold}#비밀 거래 : 앙골웬 - 수출품#{normal}#
+      석류석 - 50 개
+      루비 - 40 개
+      다이아몬드 - 20 개
 
-low diamond yield this year - +50% charge? ziguranth raided our last ang. caravan - more guards? - D.
-yes to diamonds. arm our merchants in the caravan, no extra guards. profits are thin enough as it is! - S.]]
+올해는 다이아몬드 생산량이 줄어들었다 - 가격을 50% 인상해야 할까? 그리고 지구르 추종자들이 앙골웬으로 가는 마지막 대상들을 공격하였다 - 수비 병력이 더 필요할까? - D.
+다이아몬드 건은 그렇게 하게. 그리고 우리 대상들에게 무장을 시키게. 수비 병력은 붙이지 말고. 수비 병력을 붙였다가는 이윤이 크게 줄어들걸세! - S.]]
 }
 
 
@@ -117,7 +122,8 @@ newLore{
 	id = "iron-throne-last-words",
 	category = "iron throne",
 	name = "Iron Throne Reknor expedition, last words",
-	lore = [[...We are lost. The orcish forces are too great. No matter how many our squad slays, yet more surge from the depths. Where are the cursed creatures coming from?! We have spied their leader, but have had no hope in killing him; he is a beast, a destroyer, burning with fire infernal and ice cruel and chilling. The power these orcs wield now fills me with dread... perhaps they have found new, mighty allies? This news must reach our ruler. My comrades... I am sorry. I will flee once the opportunity arises, but know that your sacrifices will not be in vain. Long may our empire endure.]]
+	kr_name = "철의 왕좌의 레크놀 탐험대가 남긴, 마지막 한 마디",
+	lore = [[...우리는 패배하였다. 오크들의 힘은 너무나 막강하였다. 우리 부대가 아무리 오크들을 처치해도, 지하 깊은 곳에서 그 이상의 숫자가 몰려왔다. 대체 이 저주 받을 생명체들은 어디에서 나오는거지? 우리는 그들의 지도자를 쫓았으나, 그를 죽일 수 있을 것 같지는 않다. 그는 짐승과도 같으며, 파괴자이며, 지옥의 화염과 무덤의 냉기를 다룬다. 오크들이 쥐고 있는 힘은 겁에 질릴 정도이다... 그들이 새로운, 강력한 동료들을 찾은 것일까? 이 소식은 반드시 우리의 지도자에게 알려져야 한다. 전우여... 미안하다. 나는 기회가 닿으면 이곳에서 도망칠 것이다. 하지만 그대의 희생을 헛되이 하지 않겠다. 우리의 제국은 영원히 유지되리라.]]
 }
 
 --------------------------------------------------------------------------
@@ -128,39 +134,42 @@ newLore{
 	id = "deep-bellow-1",
 	category = "iron throne",
 	name = "Deep Bellow excavation report 1",
-	lore = [[10 days into initial site survey, hmm! Recent tremors have opened deep new chasms, but we must work cautiously to ensure they're stable before conducting major operations, oh yes! Proceeding well at start, with supports being put in place and no flammable gases detected, hmm hmm.
+	kr_name = "깊은 울림 발굴 보고서 1",
+	lore = [[최초의 조사가 시작된지 10 일이 지났군, 흠! 최근 일어난 지진 때문에 지면에 이 깊은 틈새가 생겨났지. 하지만 우리는 조심스럽게 일해서, 주요 작업을 안정된 상황에서 마쳐야만 해, 오 그래! 시작은 순조롭게 흘러가고 있어. 장비들은 제 위치에 있고, 화재를 일으킬만한 물질들도 보이지 않지. 흠 흠.
 
-Some Sher'Tul relics have been found. Perhaps great profit to be had here! High margins on Shaloren market, yes yes.
+쉐르'툴 유물이 발견되었다는군. 큰 이익을 낼 수 있겠어! 샬로레들에게 팔면 엄청 짭잘하겠군, 좋아 좋아.
 
-Some miners saying they feel ill, hrm hrm. The drem fools have likely been gorging on too much mead. Will deduct it from their pay, yes yes!
+광부들 중 몇몇이 아픔을 호소하는군, 흠 흠. 이 멍청한 놈들이 술을 너무 많이 마신 것이 분명해. 임금을 깎아버려야겠군, 좋아 좋아!
 
--- Foreman Tamoth]]
+-- 현장 감독 타모스]]
 }
 
 newLore{
 	id = "deep-bellow-2",
 	category = "iron throne",
 	name = "Deep Bellow excavation report 2",
+	kr_name = "깊은 울림 발굴 보고서 2",
 	bloodstains = 3,
-	lore = [[Chasms go deep, yes yes. More relics found, oh yes. Will be mighty profitable! But ah, my secret treasure is even better, indeed! Gold! Beautiful lovely gold, buried deep, so deep... Have kept it hidden, sealed, yes. Looks like the remains of a giant throne. I touched it, yes, I even put my lips to it - ahhh, the taste!
+	lore = [[생각보다도 깊은 틈새로군, 그래 그래. 유물이 추가로 발견됐다는군, 오 좋아. 엄청난 이익을 낼 수 있겠군! 하지만 아, 당연히 내가 숨겨놓은 보물이 더 가치있지! 아름답고 사랑스러운 금덩어리, 저 깊이, 깊은 곳에 묻힌... 아무도 모르게, 잘 봉인된 금 말이지, 좋아. 이건 거대한 왕좌였던 것 같군. 한번 만져볼까, 좋아. 입술을 한번 대볼까 - 아아아아, 이 맛은!
 
-But must stay focussed, much work to be done. Miners are rowdy, hrm! One of the drem fools went mad and killed himself with a pickaxe - messy business. Must restore order, yes yes! More Sher'Tul artifacts found, possibly even remains of weapons. Imagine the profit! Will keep them hidden yes, the dreams say yes, in the darkness, secret, waiting waiting, for the right time...
+하지만 침착함을 유지해야지, 아직 할 일이 많이 남았으니 말이야. 그나저나 광부들은 정말 시끄럽군, 흠! 광부들 중 하나가 정신이 나가, 곡괭이로 자살을 했다고 - 귀찮게 됐군. 광부들에게 다시 명령을 해야겠어, 좋아 좋아! 쉐르'툴 유물들이 더 발견됐군. 이건 어떤 무기인가? 얼마나 큰 이득을 얻게 될지 상상도 되지 않는군 그래! 잘 숨겨둬야 겠어 그래, 저 멍청이들이 모르게, 저 어둠 속에, 비밀리에, 적당한 때가 올 때까지, 기다리고 기다리는거지...
 
-Hmm, that fellow's blood was so red, spilling on the cavernous floor. I wonder where they buried him? My mouth... it wants to taste, yes yes...
+흠, 그나저나 이 녀석의 피는 정말 빨갛군 그래. 동굴 바닥에 뚝뚝 흐르고 있어. 광부들이 그를 어디다가 묻었지? 나의 입이... 그 맛을 보고 싶어하는군 그래, 좋아 좋아...
 
--- Foreman Tamoth]]
+-- 현장 감독 타모스]]
 }
 
 newLore{
 	id = "deep-bellow-3",
 	category = "iron throne",
 	name = "Deep Bellow excavation report 3",
+	kr_name = "깊은 울림 발굴 보고서 3",
 	bloodstains = 12,
-	lore = [[Hah, my mouth, it tastes, it feels, hmm hmm. It grows, yes yes! The others are changing, flying, screaming, squelching, warping. Bad for profit, hmm hmm. My teeth, they grow, they hunger, yes. They want to escape!
+	lore = [[하, 나의 입이, 맛을 보고, 느끼고 흠 흠, 자라나고 있어, 좋아 좋아! 다른 것들은 뒤바뀌고, 날아다니고, 비명지르고, 질퍽거리고, 왜곡되고 있군. 이윤에 악영향을 끼치겠어, 흠 흠. 나의 이빨, 계속 자라나는군, 배가 고프군, 그래. 탈출하고 싶어지는군!
 
-I can feel in my dreams, the dark depths. Bound, buried, forgotten. My mouth wants to open, to scream, to destroy! Hmm hmm, deep below, yes... Want to get out!
+내 꿈을 느낄 수 있어, 저 어둡고 깊은 꿈 말야. 묶이고, 묻히고, 잊혀지지. 나의 입은 열리고 싶고, 비명지르고 싶고, 파괴하고 싶어! 흠 흠, 깊은 울림, 그래... 빠져나가고 싶어!
 
-Must stay down here to be close to the dreams, yes yes. Must plant my mouth in the soil and watch it grow! It will devour me, and grow and grow, hmm hmm. It will call from the dark place, and bring back Him from the deepest below, oh yes.
+이 꿈과 가까운 곳에 머무를 필요가 있어, 그래 그래. 내 입을 땅에 파묻고, 자라나는 것을 지켜봐야겠군! 그 입이 나를 삼키고, 계속 자라나겠지, 흠 흠. 이 어두운 곳에서 그를 불러, 그를 이 가장 깊은 곳으로 끌어오겠지, 오 좋아.
 
--- Ta...moth... The mouth... yes yes!]]
+-- 타... 모스... 더 마우스 (The mouth)... '그 입' ... 좋아 좋아!]]
 }
