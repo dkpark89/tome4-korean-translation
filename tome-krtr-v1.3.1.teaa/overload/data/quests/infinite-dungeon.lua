@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,9 +18,10 @@
 -- darkgod@te4.org
 
 name = "The Infinite Dungeon"
+kr_name = "무한의 던전"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have entered the Infinite Dungeon. There is no going back now."
-	desc[#desc+1] = "Go deep, fight, win or die in a blaze of glory!"
+	desc[#desc+1] = "당신은 무한의 던전에 들어왔습니다. 이곳에 돌아가는 길은 없습니다."
+	desc[#desc+1] = "더 깊은 곳을 향해, 싸우고, 승리하거나, 영광을 불태우며 죽으십시오!"
 	return table.concat(desc, "\n")
 end

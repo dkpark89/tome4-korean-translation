@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,69 +25,71 @@ newLore{
 	id = "rhaloren-note-1",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
-	lore = [[We must be on guard. The Council of Elders is desperate to find us, to hunt us down and suppress us. But we will not be suppressed. We have our rights! Their scouts try to track us down, and their spies try to infiltrate our numbers. They cannot accept any others having power, or any voice but their own being heard.
+	kr_name = "랄로레 야영지에서 발견한 편지",
+	lore = [[우리는 더욱 더 경계를 강화해야만 한다. 장로회는 우리를 찾기 위해 혈안이 된 상태이며, 우리를 제압하고 사냥하기 위해 그들의 모든 노력을 다하고 있다. 하지만 우리는 결코 제압당하지 않을 것이다. 우리에게는 우리의 권리가 있다! 그들의 정찰병이 우리를 추적하려 하고, 그들의 첩자가 우리 사이로 잠입하려 한다. 그들은 다른 자들이 힘을 가지는 것을 용납하지 못하며, 그들이 듣고 싶지 않은 말을 참지 못한다.
+	
+우리는 우리의 민족으로부터 떨어져 나와, 우리의 길을 걷기로 한 자들이다. 우리는 쫓겨난 자들이다. 그들은 우리를 변절자, 무정부주의자라고 부른다. 그들은 우리를 짓밟아야 할 벌레로 생각한다. 그러나 우리는 그들의 잔혹한 제압에 굴하지 않을 것이다. 우리의 목소리는 전 세계에 퍼져, 새로운 종족의 출현을 알리게 될 것이다 - 위대한 "랄로레" 종족의 탄생을!
 
-We have split away from our people, and we follow our own path now. We are outcasts. They call us renegades, anarchists; they think of us as nothing but vermin to be crushed underfoot. But we will not endure their cruel suppression. Our voice will be heard across the world and they shall recognise a new race of power - the mighty Rhaloren!
-
--- The Inquisitor
-]],
+-- 심문관]],
 }
 
 newLore{
 	id = "rhaloren-note-2",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
-	lore = [[The Scintillating Caverns must be protected. Our great leader has ordered it so, and his word is more binding than any law. Our numbers are few, and we must move in secrecy, but a quiet watch will be made on the caverns. Any who are seen to interfere in them must be lured here to our place of strength, and brought before me for inquisition.
+	kr_name = "랄로레 야영지에서 발견한 편지",
+	lore = [[번뜩이는 동굴은 반드시 보호되어야만 한다. 이는 우리의 위대한 지도자가 내린 명령이며, 그의 말은 어떤 법보다 더 위에 있기 때문이다. 우리의 숫자는 적기 때문에, 반드시 비밀리에 움직여야 한다. 그리고 그 동굴 역시 조용히 감시해야 하며, 동굴에 침입하려는 자들은 우리의 힘이 집결된 이곳으로 꾀어내 나의 심문을 받도록 해야 한다.
 
-More have joined our cause. Their eyes have been opened to the injustice our people have suffered, blamed by the other races for the Spellblaze and its effects. They are sick of the cowardice of the Council, who sit in silence as we are scorned and hated across the world. But most of all they are inspired by our great leader, and the powers he has gained from studying the Spellblaze. He alone realizes our full potential, he alone can see in our hearts what we are truly capable of. He has blessed me, rescued me from a tortured life and touched me with his power. Only he can lead our people! With his mastery the world will see our strength and recognise us as a true force to be reckoned with.
+더 많은 자들이 우리의 조직에 가입하였다. 그들의 눈은 우리들이 당해온 고통, 그리고 마법폭발과 그 여파로 인해 다른 종족들에게 받아야만 했던 비난들이 부당한 것임을 아는 듯한 눈이었다. 그들은 우리가 다른 종족들에게 경멸받고 증오받는 동안 가만히 앉아서 침묵을 지킨, 의회의 소극적인 태도에 신물을 느꼈다. 그러나 무엇보다도, 그들은 우리의 위대한 지도자와 그가 마법폭발을 연구하면서 얻은 힘에 깊은 감명을 받았다. 오직 그만이 우리의 완전한 잠재성에 대해 깨달았으며, 오직 그만이 우리가 진정으로 다다를 수 있는 경지를 보았다. 그는 나를 축복하였으며, 그의 힘을 사용하여 나를 고통스러운 삶으로부터 구원해주었다. 오직 그만이 우리를 이끌 수 있으리라! 그가 숙달한 능력을 통해 세계는 우리의 힘을 보게 될 것이며, 우리의 진정한 힘에 대해 깨닫게 될 것이다.
 
-Trust in his power, for he shall bring us all to glory.
+그의 힘을 믿으라, 그가 우리 모두에게 가져올 영광을 위하여.
 
--- The Inquisitor]],
+-- 심문관]],
 }
 
 newLore{
 	id = "rhaloren-note-3",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
-	lore = [[For too long we have been taught that the Spellblaze was a tragedy, that we are responsible for the deaths of millions and for suffering across the world. These are lies! Lies spread to defame us, to prevent our people from using magic to its rightful degree. The lesser races are jealous of our powers, of our amazing potential, and so they think to keep us underfoot, to stop us from ascending to our rightful place in the world. They fear us.
+	kr_name = "랄로레 야영지에서 발견한 편지",
+	lore = [[너무나 오랫동안 우리는 마법폭발이 하나의 비극이라고 생각하였다. 우리는 수백만 명의 죽음과 세계가 받은 고통에 대해 책임을 져야한다고 생각하였다. 하지만 이 말들은 모두 거짓말이다! 이 말들은 우리를 헐뜯기 위해, 그리고 우리의 민족이 정당하게 마법을 사용하지 못하게 만들기 위해  퍼진 거짓말이다. 우리를 그들의 발아래 두기 위해, 우리가 있어야 할 자리로 올라가는 것을 막기 위해 퍼진 거짓말이다. 저 하등한 종족들은 우리의 힘을 질투하며, 우리의 놀라운 잠재력을 질투한다. 그들은 우리를 두려워한다.
 
-The truth is that the Spellblaze was an experiment that went wrong. Many of our greatest mages died from the resulting energies, and some lands nearby were set ablaze. But there was no loss of life amongst the other races - it is their own wars that caused that, and their own squalid societies that brought about the plagues that followed. Many centuries later a great natural earthquake occurred that tore the lands apart, and the other races had the audacity to blame that on us.
+진실을 알려주겠다. 마법폭발은 어떤 실험이 잘못 진행되어 일어난 것이다. 우리의 수많은 위대한 마법사들이 마법폭발로 일어난 힘에 의해 죽었으며, 약간의 대지가 불타올랐다. 하지만 다른 종족들은 단 한 명도 죽지 않았다. 그들은 그들 스스로가 벌인 전쟁으로 인해 죽어나간 것이다. 그들의 추잡하고 더러운 마을과 도시가 그들에게 질병을 불러일으킨 것이다. 수 세기가 지난 후, 엄청난 자연적인 지진이 일어나 대지를 찢어발겼다. 그리고 다른 종족들이 뻔뻔하게도 우리를 비난하기 시작하였다. 이 모든 일들이 마법폭발로 인해 생긴 일이라고 주장하기 시작한 것이다.
 
-For this reason they persecuted us during the Spellhunt. Many of our mages were killed
-mercilessly, and even those with no affinity to magic were brutally slaughtered in the terrible crusade. Even today we suffer discrimination and persecution, and tales still spread of innocent Shaloren burned at the stake or chopped to pieces. And what does the Council do? It sits in silence and hopes people will just forget.
+이러한 이유로 인해, 그들은 마법사냥의 기간 동안 우리를 핍박하였다. 우리의 수많은 마법사들이 무자비하게 살해당했다. 심지어는 마법과 상관이 없던 동포들도 이 잔혹한 사냥에 의해 학살당했다. 오늘날에조차 우리는 차별받고 있으며, 핍박받고 있다. 아무 것도 모르는 샬로레들이 화형대에 묶여 불타오르거나 조각조각 잘려나갔다는 이야기들이 아직도 들리고 있다. 하지만 저 의회는 무엇을 하였나? 저들은 조용히 앉아 사람들이 그저 잊어버리기를 바랄 뿐이다.
 
-But no more! The time will come when the truth shall be known, and retribution will fall on any that deny us our rights.
+더 이상은 참을 수 없다! 곧 진실이 밝혀힐 시간이 올 것이며, 우리의 권리를 부정한 자들을 응징할 것이다.
 
--- The Inquisitor]],
+-- 심문관]],
 }
 
 newLore{
 	id = "rhaloren-note-4",
 	category = "rhaloren",
 	name = "letter (rhaloren camp)",
-	lore = [[I have great news! Our glorious leader has written to me, telling me of his travels. He is on a great pilgrimage, a holy quest to discover more about the Spellblaze and its powers, so that we may show the truth about it to the world. It is a quest fraught with peril, for we have many enemies in the world. But by his powers he cannot fail. He cannot! He cannot...
+	kr_name = "랄로레 야영지에서 발견한 편지",
+	lore = [[정말 좋은 소식이 도착했다! 우리의 영광스러운 지도자가 나에게 그의 여행에 대한 편지를 보냈다. 그는 지금 마법폭발과 그것의 힘을 알아내기 위한 성스러운 임무, 위대한 순례를 하는 중이다. 이 순례가 끝나면 이 세계에 진실을 보여줄 수 있겠지만, 이 임무는 위험 투성이의 임무이기도 하다. 이 세계에는 우리의 적이 너무나 많이 있기 때문이다. 하지만 그의 힘 덕분에, 그는 결코 실패하지 않을 것이다. 결코 실패하지 않을 것이다! 결코 실패하지 않을 것이다...
 
-One day soon he will return to us, and bring us to our proper glory. Look forward to that great time, when he is amongst us once more. Be ready for that moment when he stands tall before us and looks at us with his deep eyes... Work hard now and be attentive in your duties, so that we may make him proud. We fight for him, we struggle for him, and if needs be we will die for him. He is our hope and our glory, and the only joy we have in this dispassionate world.
+그가 우리들에게 돌아올 날이 있을 것이다. 우리에게 영광을 가져다 줄 날이 올 것이다. 그 위대한 순간을 고대하라, 그가 우리들의 중심에 다시 서는 날을 고대하라. 그가 우리 앞에 굳건히 서서, 그 깊은 눈으로 우리를 바라볼 순간을 준비하라... 그가 우리를 자랑스러워 할 수 있도록, 더 열심히 일하고 자신의 임무에 충실해지라. 우리는 그를 위해 싸운다. 우리는 그를 위해 저항한다. 그리고 필요하다면 우리는 그를 위해 목숨을 바칠 것이다. 그는 우리의 희망이자 영광이며, 이 냉정한 세계에서 찾을 수 있는 유일한 기쁨이다.
 
--- The Inquisitor
-]],
+-- 심문관]],
 }
 
 newLore{
 	id = "rhaloren-note-5",
 	category = "rhaloren",
 	name = "carefully preserved letter (rhaloren camp)",
-	lore = [[My dearest,
+	kr_name = "랄로레 야영지에서 발견한, 소중하게 보관된 편지",
+	lore = [[친애하는 나의 동료에게,
 
-I hope this letter finds you well. I worry for you, so close to the city, so vulnerable should they find our base... But I trust in your strength, and I know you will be safe. Yet should anything happen...
+이 편지가 너에게 닿았으면 하는 바람이 있다. 나는 네가 걱정된다. 네가 있는 곳은 도시와 너무나도 가까워, 그들이 우리의 기지를 찾을 위험성이 너무나 크기 때문이다... 하지만 나는 네 힘을 믿는다. 아무 일도 일어나지 않는 한... 네가 안전할 것이라고 굳게 믿고 있기 때문이다. 
 
-I wish you were here with me, able to share in the wonders I have seen. Yet this journey has far more perils. The Ziguranth have been on to us, tracking us relentlessly, spoiling many of my plans. They are truly a force to be reckoned with. But luck is with me - I have managed to capture one and find out the location of their base. Soon we shall prepare an attack that shall put an end to their threat forever.
+네가 여기에 나와 함께 있어, 내가 발견한 이 경이를 공유할 수 있었다면 정말 좋았을텐데. 하지만 이 여행은 아직도 위험이 가득하다. 지구르 추종자들이 우리를 쫓고 있다. 그들은 끈질기게 우리를 추적하며, 나의 계획들을 수없이 많이 망쳐놓았다. 그들은 정말로 강력하다. 하지만 행운은 나와 함께 하고 있다. 나는 그들 중 하나를 붙잡아, 그들의 집결지가 있는 장소를 알아내었다. 곧 우리는 그곳을 공격할 준비를 마치고, 그들의 위협을 영원히 끝낼 것이다.
 
-Ah, but there is something more exciting even than that! Near the Charred Scar I have uncovered a truly amazing thing - a mark of the Spellblaze. Oh, how I long for you to be here with me to see its wonders! You of all people know my passions so well, and what delight you would find in what I have discovered here. Here is where our future lies. Here is where we shall gain the power to truly strike out on our own!
+아, 하지만 여기에는 그보다 더 흥분되는 것이 있다! 검게 탄 상처 근처에서, 나는 진실로 굉장한 것을 발견하였다 - 마법폭발의 흔적을 발견한 것이다. 오, 이 경이를 보기 위해 얼마나 오랜 시간이 걸렸는가! 너와 모든 사람들이 네가 겪은 고난을 잘 알고 있기에, 내가 이곳을 발견했다는 사실을 알게 된다면 네가 얼마나 기뻐할 것인지 잘 안다. 이곳에는 우리의 미래가 잠들어있다. 이곳에는 진정 우리가 스스로 독립하기 위해 필요한 힘이 잠들어 있다!
 
-Look after our people well, and keep strong our base for when I return. It shall be soon, I hope, and it shall be in glory.
+우리의 사람들을 잘 돌보아라. 그리고 우리의 기지를 내가 돌아올 때까지 강하게 지켜라. 곧 그곳으로 돌아갈 수 있을 것이다. 그 순간이 오면, 우리는 영광을 되찾게 될 것이다.
 
-With passion abound,
-Your dearest love]],
+열정을 담아,
+너의 가장 친애하는 동료가.]],
 }

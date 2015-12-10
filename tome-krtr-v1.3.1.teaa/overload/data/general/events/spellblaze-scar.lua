@@ -30,6 +30,7 @@ g = level.map(x, y, engine.Map.TERRAIN)
 g.on_stand = on_stand
 g.always_remember = true g.special_minimap = colors.DARK_RED
 g.name = "spellblaze scar"
+g.kr_name = "마법폭발의 상처"
 g:altered()
 
 if core.shader.active(4) then

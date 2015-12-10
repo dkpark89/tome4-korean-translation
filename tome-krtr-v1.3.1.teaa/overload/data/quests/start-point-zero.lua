@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,18 +18,19 @@
 -- darkgod@te4.org
 
 name = "Future Echoes"
+kr_name = "미래의 메아리"
 stables = 0
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "The unhallowed morass is the name of the 'zone' surrounding Point Zero."
-	desc[#desc+1] = "The temporal spiders that inhabit it are growing restless and started attacking at random. You need to investigate what is going on."
+	desc[#desc+1] = "부정한 저습지는 영점 주변에 있는 '지역' 의 이름입니다."
+	desc[#desc+1] = "그곳에 사는 시간의 거미들은 쉴 새 없이 자라면서, 아무나 닥치는대로 공격하기 시작했습니다. 당신은 그곳에서 무슨 일이 일어나고 있는지 조사해야 합니다."
 	if self:isCompleted("morass") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have explored the morass and destroyed the weaver queen, finding strange traces on it.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 저습지를 탐험하여, 무당거미 여왕을 처치했습니다. 이 거미에게서 이상한 흔적을 찾아내었습니다.#WHITE#"
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the morass.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '부정한 저습지' 를 탐험해야 합니다.#WHITE#"
 	end
 	if self:isCompleted("saved") then
-		desc[#desc+1] = "#LIGHT_GREEN#* You have helped defend Point Zero.#WHITE#"
+		desc[#desc+1] = "#LIGHT_GREEN#* 당신은 영점을 지켜냈습니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

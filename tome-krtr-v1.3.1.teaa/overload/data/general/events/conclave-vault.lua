@@ -26,8 +26,9 @@ local Talents = require("engine.interface.ActorTalents")
 local skeletons = mod.class.NPC:loadList("/data/general/npcs/skeleton.lua")
 local m = mod.class.NPC:fromBase{ base = skeletons.BASE_NPC_SKELETON,
 	name = "Director Hompalan", color=colors.PURPLE,
-	desc = [[Only crumbling bones are left of what once was the proud Director Hompalan, chief of this facility.
-Now those remains look at you with empty eyes but you can not mistake their intent.]],
+	kr_name = "책임자 홈팔란",
+	desc = [[이 기관의 수장이자 책임자 홈팔란이었던 것은 오직 덜그럭 거리는 뼈다귀로만 남았습니다.
+	지금 그 뼈다귀는 당신을 텅 빈 눈동자로 쳐다보고 있습니다만, 그럼에도 불구하고 선명한 적의가 보입니다.]],
 	level_range = {10, nil}, exp_worth = 2,
 	rank = 3.5,
 	autolevel = "warriormage",

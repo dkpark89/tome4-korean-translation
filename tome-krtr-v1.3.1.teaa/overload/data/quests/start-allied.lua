@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -19,26 +19,27 @@
 
 -- Quest for Trollmire & Amon Sul
 name = "Of trolls and damp caves"
+kr_name = "트롤과 눅눅한 동굴"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "Explore the caves below the ruins of Kor'Pul and the Trollmire in search of treasure and glory!\n"
+	desc[#desc+1] = "보물과 명예를 찾아, 코르'풀 유적 아래에 있는 동굴과 트롤 늪을 탐험하라!\n"
 	if self:isCompleted("trollmire") then
 		if self:isCompleted("trollmire-flooded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 트롤 늪을 탐험하여, 트롤 샥스를 물리쳤습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 트롤 늪을 탐험하여, 트롤 프록스를 물리쳤습니다.#WHITE#"
 		end
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '트롤 늪' 을 탐험해, 그곳에 무슨 위험이 도사리는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
 	end
 	if self:isCompleted("kor-pul") then
 		if self:isCompleted("kor-pul-invaded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 코르'풀 유적을 탐험하여, 잡아먹힌 자를 물리쳤습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Shade.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 코르'풀 유적을 탐험하여, 음영을 물리쳤습니다.#WHITE#"
 		end
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the ruins of Kor'Pul and find out what lurks there and what treasures are to be gained!#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '코르'풀' 유적을 탐험해, 그곳에 무슨 위험이 도사리는지 밝혀내고 보물을 찾아내야 합니다!#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

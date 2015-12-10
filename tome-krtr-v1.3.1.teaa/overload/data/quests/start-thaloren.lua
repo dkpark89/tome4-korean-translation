@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,27 +18,28 @@
 -- darkgod@te4.org
 
 name = "Madness of the Ages"
+kr_name = "시대의 광기"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "The Thaloren forest is disrupted. Corruption is spreading. Norgos the guardian bear is said to have gone mad.\n"
-	desc[#desc+1] = "On the western border of the forest a gloomy aura has been set up. Things inside are... twisted.\n"
+	desc[#desc+1] = "탈로레의 숲은 타락했습니다. 오염이 번지고 있습니다. 수호자였던 곰 노르고스는 미쳐버렸다고 합니다.\n"
+	desc[#desc+1] = "숲의 서쪽 경계에는 음울한 기운이 생겨나고 있습니다. 그곳에 있는 것들은... 뒤틀렸습니다.\n"
 	if self:isCompleted("norgos") then
 		if self:isCompleted("norgos-invaded") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored Norgos' Lair and stopped the shivgoroth invasion.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 노르고스 동굴을 탐험하여, 쉬브고로스의 침략을 막았습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored Norgos' Lair and put it to rest.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 노르고스 동굴을 탐험하여, 그에게 안식을 안겨줬습니다.#WHITE#"
 		end
 	else
-		desc[#desc+1] = "#SLATE#* You must explore Norgos' Lair.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '노르고스 동굴' 을 탐험해야 합니다.#WHITE#"
 	end
 	if self:isCompleted("heart-gloom") then
 		if self:isCompleted("heart-gloom-purified") then
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Heart of the Gloom and slain the Dreaming One.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장을 탐험하여, 꿈꾸는 자를 죽였습니다.#WHITE#"
 		else
-			desc[#desc+1] = "#LIGHT_GREEN#* You have explored the Heart of the Gloom and slain the Withering Thing.#WHITE#"
+			desc[#desc+1] = "#LIGHT_GREEN#* 당신은 어둠의 심장을 탐험하여, 시듦의 원천을 죽였습니다.#WHITE#"
 		end
 	else
-		desc[#desc+1] = "#SLATE#* You must explore the Heart of the Gloom.#WHITE#"
+		desc[#desc+1] = "#SLATE#* 당신은 '어둠의 심장' 을 탐험해야 합니다.#WHITE#"
 	end
 	return table.concat(desc, "\n")
 end

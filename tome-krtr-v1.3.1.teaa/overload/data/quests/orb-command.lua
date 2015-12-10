@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,10 +18,11 @@
 -- darkgod@te4.org
 
 name = "The Orbs of Command"
+kr_name = "지배의 오브"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have found an orb of command that seems to be used to open the shield protecting the High Peak."
-	desc[#desc+1] = "There seems to be a total of four of them. The more you have the weaker the shield will be."
+	desc[#desc+1] = "당신은 최고봉의 보호막을 해제할 수 있는 지배의 오브를 찾았습니다."
+	desc[#desc+1] = "지배의 오브는 총 4 개가 있습니다. 오브를 더 많이 모을수록, 보호막도 더 약해질 것입니다."
 	return table.concat(desc, "\n")
 end
 
@@ -46,5 +47,5 @@ open_high_peak = function(self, who)
 	for j = 11, 18 do
 		game.level.map(249, j, engine.Map.TERRAIN, g)
 	end
-	game.logPlayer(who, "#LIGHT_BLUE#There is a loud crack. The way is open.")
+	game.logPlayer(who, "#LIGHT_BLUE#큰 소리가 들렸습니다. 길이 열린 것 같습니다.")
 end

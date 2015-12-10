@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,18 +25,20 @@ newLore{
 	id = "fearscape-entry",
 	category = "fearscape",
 	name = "a fearsome sight",
-	lore = [[You stand in a field of fire, the flames dancing back and forth like blaze-spawned corn waving in the wind. It licks your feet, your skin, your face, and writhes around in tiny shapes which tear across your flesh and crawl down your throat. It burns and blazes through your body, and crazed thoughts fill your mind. This is Goedalath they tell you, the Fearscape, and you have no rightful place here.
+	kr_name = "끔찍한 광경",
+	lore = [[화염으로 가득한 땅에 들어서자, 화염들이 앞뒤로 춤을 추며 마치 지옥에서 만들어진 것 같은 바람이 몰아치기 시작했다. 바람은 당신의 발과, 피부와, 얼굴을 햝고 지나가며 작은 형태로 바스라져, 살갗을 베고 목구멍을 기어들어오기 시작했다. 화염이 당신의 몸을 태우고 불사르며, 지독한 고통을 선사했다. 고통에 몸부림치며, 당신의 정신은 끔찍한 생각들로 채워지기 시작했다. 이곳은 공포의 영역 '괴달라스'. 이곳에 안전한 장소 따위는 없다.
 
-In the distance you see looming, demonic shapes of absolute darkness, towering above the blazing land like wardens of doom. The sky is black, but above your head hangs a round world that you recognise as Eyal. Across the burning plains gather armies of fiendish figures, and glowing eyes turn up with hateful glowers to your home world. Suddenly both you and it and seem small and frail. As the flames fill your body with pain your only thought is of escape.]],
+멀리서 당신은 악마의 형상을 한 절대적인 어둠과, 파멸의 수호자인 것 마냥 우뚝 솟은 화염의 땅을 어렴풋이 보았다. 하늘은 온통 새카맣지만, 당신의 머리 위에는 에이알 세계가 어렴풋이 보인다. 타오르는 땅 위에는 사악한 형체들의 군대가 모이고 있으며, 빛나는 눈이 당신의 세계에 대한 증오의 눈길을 보낸다. 당신은 갑자기 자신과 에이알 세계가 작고 보잘것 없는 것처럼 느껴지기 시작했다. 불꽃이 당신의 몸을 고통으로 채우기 시작하자, 당신은 오직 이곳에서 빠져나가는 것만을 생각하기 시작했다.]],
 }
 
 newLore{
 	id = "kryl-feijan-altar",
 	category = "fearscape",
 	name = "sacrificial altar", always_pop = true,
+	kr_name = "희생의 제단",
 	image = "kryl_feijan_sacrificial_altar.png",
-	lore = [[You see a female human lying unconscious on a black altar, twisted sigils scored into her naked flesh.
-Around her are several figures in dark robes.
+	lore = [[한 인간 여성이 의식을 잃은 채 검은색 제단에 누워있는 것을 발견하였다. 나체인 여성의 몸에는 각종 알 수 없는 문양들이 빼곡하게 그려져 있다.
+그녀의 주변에는 검은 로브를 걸친 자들이 몇 명 있다.
 
-As they notice you one calls out 'Intruder! Protect the seed of Kryl-Feijan!']],
+그들이 당신의 존재를 알아채자, 한 명이 외쳤다. "침입자다!  크릴-페이얀의 씨앗을 수호하라!"]],
 }

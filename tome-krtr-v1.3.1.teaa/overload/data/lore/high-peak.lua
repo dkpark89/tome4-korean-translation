@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@ newLore{
 	id = "closing-farportal",
 	category = "high peak",
 	name = "closing the void farportal", always_pop = true,
+	kr_name = "공허의 관문 닫기",
 	image = "closing_farportal.png",
-	lore = [[The void farportal is closed, preventing untold horrors from assaulting Eyal.]],
+	lore = [[공허의 관문을 닫아, 말할 수 없는 공포가 에이알 세계를 침략하지 못하게 막았습니다.]],
 }

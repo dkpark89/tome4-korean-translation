@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,45 +18,45 @@
 -- darkgod@te4.org
 
 -- Keepsake
-
 name = "Keepsake"
+kr_name = "고통의 자취"
 id = "keepsake"
 
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have begun to look for a way to overcome the curse that afflicts you."
+	desc[#desc+1] = "당신은 자신에게 걸린 저주를 극복할 수 있는 방법을 찾고 있습니다."
 	if self:isCompleted("berethh-killed-good") then
-		desc[#desc+1] = "You have found a small iron acorn which you keep as a reminder of your past."
-		desc[#desc+1] = "You have destroyed the merchant caravan that you once considered family."
-		desc[#desc+1] = "Kyless, the one who brought the curse, is dead by your hand."
-		desc[#desc+1] = "Berethh is dead, may he rest in peace."
-		desc[#desc+1] = "Your curse has changed the iron acorn which now serves as a cruel reminder of your past and present."
+		desc[#desc+1] = "당신은 과거의 기억과 연관된 것으로 보이는, 작은 무쇠 도토리를 찾았습니다."
+		desc[#desc+1] = "당신은 한때 가족으로 여기던, 대상 행렬 상인들을 도륙했습니다."
+		desc[#desc+1] = "저주를 불러온 자인 킬레스는 당신의 손에 의해 죽음을 맞이했습니다."
+		desc[#desc+1] = "베레쓰는 죽었습니다. 그는 평화롭게 잠들 수 있을 것입니다."
+		desc[#desc+1] = "당신의 저주는 작은 무쇠 도토리를 변화시켰으며, 이제 이 도토리는 당신의 고통스러운 과거와 현재를 상기시키고 있습니다."
 	elseif self:isCompleted("berethh-killed-evil") then
-		desc[#desc+1] = "You have found a small iron acorn which you keep as a reminder of your past"
-		desc[#desc+1] = "You have destroyed the merchant caravan that you once considered family."
-		desc[#desc+1] = "Kyless, the one who brought the curse, is dead by your hand."
-		desc[#desc+1] = "Berethh is dead, may he rest in peace."
-		desc[#desc+1] = "Your curse has defiled the iron acorn which now serves as a reminder of your vile nature."
+		desc[#desc+1] = "당신은 과거의 기억과 연관된 것으로 보이는, 작은 무쇠 도토리를 찾았습니다."
+		desc[#desc+1] = "당신은 한때 가족으로 여기던, 대상 행렬 상인들을 도륙했습니다."
+		desc[#desc+1] = "저주를 불러온 자인 킬레스는 당신의 손에 의해 죽음을 맞이했습니다."
+		desc[#desc+1] = "베레쓰는 죽었습니다. 그는 평화롭게 잠들 수 있을 것입니다."
+		desc[#desc+1] = "당신의 저주는 작은 무쇠 도토리를 변화시켰으며, 이제 이 도토리는 당신의 흉폭한 본성을 상기시키고 있습니다."
 	elseif self:isCompleted("kyless-killed") then
-		desc[#desc+1] = "You have found a small iron acorn which you keep as a reminder of your past."
-		desc[#desc+1] = "You have destroyed the merchant caravan that you once considered family."
-		desc[#desc+1] = "Kyless, the one who brought the curse, is dead by your hand."
-		desc[#desc+1] = "#LIGHT_GREEN#You need to find Berethh, the last person who may be able to help you."
+		desc[#desc+1] = "당신은 과거의 기억과 연관된 것으로 보이는, 작은 무쇠 도토리를 찾았습니다."
+		desc[#desc+1] = "당신은 한때 가족으로 여기던, 대상 행렬 상인들을 도륙했습니다."
+		desc[#desc+1] = "저주를 불러온 자인 킬레스는 당신의 손에 의해 죽음을 맞이했습니다."
+		desc[#desc+1] = "#LIGHT_GREEN#당신은 당신을 도와줄 수 있는 마지막 사람인, 베레쓰를 찾아야 합니다."
 	elseif self:isCompleted("caravan-destroyed") then
-		desc[#desc+1] = "You have found a small iron acorn which you keep as a reminder of your past."
-		desc[#desc+1] = "You have destroyed the merchant caravan that you once considered family."
-		desc[#desc+1] = "#LIGHT_GREEN#Seek out Kyless' cave in the northern part of the meadow and end him. Perhaps the curse will end with him."
+		desc[#desc+1] = "당신은 과거의 기억과 연관된 것으로 보이는, 작은 무쇠 도토리를 찾았습니다."
+		desc[#desc+1] = "당신은 한때 가족으로 여기던, 대상 행렬 상인들을 도륙했습니다."
+		desc[#desc+1] = "#LIGHT_GREEN#목초지의 북쪽에 있는, 킬레스가 있는 동굴을 찾아 그를 죽여야 합니다. 아마 저주가 그와 함께 끝나게 될 것입니다."
 	elseif self:isCompleted("acorn-found") then
-		desc[#desc+1] = "You have found a small iron acorn which you keep as a reminder of your past."
-		desc[#desc+1] = "#LIGHT_GREEN#Discover the meaning of the acorn and the dream."
+		desc[#desc+1] = "당신은 과거의 기억과 연관된 것으로 보이는, 작은 무쇠 도토리를 찾았습니다."
+		desc[#desc+1] = "#LIGHT_GREEN#이 도토리와 꿈에 담긴 의미를 찾아야 합니다."
 	else
-		desc[#desc+1] = "#LIGHT_GREEN#You may have to revist your past to unlock some secret buried there."
+		desc[#desc+1] = "#LIGHT_GREEN#당신은 과거의 장소를 다시 들러, 그곳에 묻힌 비밀을 찾아내야 합니다."
 	end
 	return table.concat(desc, "\n")
 end
 
 on_grant = function(self, who)
-	game.logPlayer(who, "#VIOLET#The time has come to learn the true nature of your curse.")
+	game.logPlayer(who, "#VIOLET#당신의 저주에 담긴 진정한 본성을 깨달을 시간이 왔습니다.")
 	game.player:incHate(-100)
 	
 	if who:knowTalent(who.T_DEFILING_TOUCH) then
@@ -82,7 +82,7 @@ end
 
 on_start_dream = function(self, who)
 	game.party:learnLore("keepsake-dream")
-	game.logPlayer(who, "#VIOLET#You find yourself in a dream.")
+	game.logPlayer(who, "#VIOLET#당신은 꿈 속에서 자기 자신을 찾았습니다.")
 	
 	-- make sure waking up returns to the same spot
 	game.level.default_down.x = who.x
@@ -103,20 +103,20 @@ on_start_dream = function(self, who)
 		self:incHate(25)
 		
 		self.dead = false
-		game.logPlayer(who, "#VIOLET#Your hate surges. You refuse to succumb to death!")
+		game.logPlayer(who, "#VIOLET#당신의 증오심이 불타오르기 시작했습니다. 당신은 죽음을 거부했습니다!")
 	end
 end
 
 on_pickup_acorn = function(self, who)
 	game.party:learnLore("keepsake-acorn")
-	game.logPlayer(who, "#VIOLET#You have discovered a small iron acorn, a link to your past.")
+	game.logPlayer(who, "#VIOLET#당신은 당신의 과거와 연결된 물건인, 작은 무쇠 도토리를 찾았습니다.")
 	
 	who:setQuestStatus("keepsake", engine.Quest.COMPLETED, "acorn-found")
 end
 
 on_find_caravan = function(self, who)
 	game.party:learnLore("keepsake-caravan")
-	game.logPlayer(who, "#VIOLET#The merchant caravan from the past has appeared in your dream.")
+	game.logPlayer(who, "#VIOLET#과거에서 온 대상 행렬 상인들이 꿈 속에서 나타났습니다.")
 	
 	-- turn the caravaneers hostile
 	engine.Faction:setFactionReaction(who.faction, "merchant-caravan", -100, true)
@@ -124,7 +124,7 @@ end
 
 on_caravan_destroyed = function(self, who)
 	local Chat = require "engine.Chat"
-	local chat = Chat.new("keepsake-caravan-destroyed", {name="Last of the Caravan"}, game.player)
+	local chat = Chat.new("keepsake-caravan-destroyed", {name="Last of the Caravan", kr_name="대상 행렬의 마지막 남은 상인"}, game.player)
 	chat:invoke()
 end
 
@@ -137,6 +137,7 @@ on_caravan_destroyed_chat_over = function(self, who)
 		show_tooltip=true, always_remember = true,
 		type="floor", subtype="grass",
 		name="secret path to the cave",
+		kr_name="동굴로 가는 숨겨진 길",
 		image = "terrain/grass.png", add_mos = {{image="terrain/way_next_8.png"}},
 		display = '>', color_r=255, color_g=255, color_b=0,
 		notice = true, always_remember = true,
@@ -156,17 +157,17 @@ on_caravan_destroyed_chat_over = function(self, who)
 	who.old_die = nil
 	
 	game.party:learnLore("keepsake-dreams-end")
-	game.logPlayer(who, "#VIOLET#You have begun your hunt for Kyless!")
+	game.logPlayer(who, "#VIOLET#당신은 킬레스를 사냥하기 시작했습니다!")
 end
 
 on_cave_marker = function(self, who)
 	game.party:learnLore("keepsake-cave-marker")
-	game.logPlayer(who, "#VIOLET#You have a marker to the entrance of Kyless' cave!")
+	game.logPlayer(who, "#VIOLET#당신은 킬레스의 동굴 입구로 가는 표식을 발견했습니다!")
 end
 
 on_cave_entrance = function(self, who)
 	game.party:learnLore("keepsake-cave-entrance")
-	game.logPlayer(who, "#VIOLET#You have found the entrance to Kyless' cave!")
+	game.logPlayer(who, "#VIOLET#당신은 킬레스의 동굴 입구를 발견했습니다!")
 end
 
 on_cave_description = function(self, who)
@@ -188,10 +189,11 @@ end
 
 on_vault_entrance = function(self, who)
 	game.party:learnLore("keepsake-vault-entrance")
-	game.logPlayer(who, "#VIOLET#You have found the entrance to a vault!")
+	game.logPlayer(who, "#VIOLET#당신은 금고 입구를 발견하였습니다!")
 end
 
 on_vault_trigger = function(self, who)
+
 	local spot, x, y, m
 	for i = 1, 7 do
 		spot = game.level:pickSpot{type="vault1", subtype="encounter"}
@@ -199,25 +201,25 @@ on_vault_trigger = function(self, who)
 		m = game.zone:makeEntity(game.level, "actor", {special_rarity="vault_rarity"}, nil, true)
 		if m and x and y then game.zone:addEntity(game.level, m, "actor", x, y) end
 	end
-	game.logPlayer(who, "#VIOLET#The shadows have noticed you!")
+	game.logPlayer(who, "#VIOLET#그림자가 당신의 존재를 인지했습니다!")
 end
 
 on_dog_vault = function(self, who)
-	require("engine.ui.Dialog"):simplePopup("A Second Vault", "You recoginize this door as the entrance to a second vault. There are some scuffling noises and heavy breathing coming from the other side of the door.")
+	require("engine.ui.Dialog"):simplePopup("두 번째 창고", "당신은 이 문이 두 번째 창고로 통하는 문이라는 것을 깨달았습니다. 문을 통해 휙휙거리는 소리와 큰 숨소리가 들려옵니다.")
 end
 
 on_kyless_encounter = function(self, who)
 	game.party:learnLore("keepsake-kyless-encounter")
-	game.logPlayer(who, "#VIOLET#You have found Kyless. You must destroy him.")
+	game.logPlayer(who, "#VIOLET#당신은 킬레스를 발견했습니다. 그를 반드시 죽여야 합니다.")
 end
 
 on_kyless_death = function(self, who, kyless)
 	local Chat = require "engine.Chat"
-	local chat = Chat.new("keepsake-kyless-death", {name="Death of Kyless"}, game.player)
+	local chat = Chat.new("keepsake-kyless-death", {name="Death of Kyless", kr_name="킬레스의 죽음"}, game.player)
 	chat:invoke()
 
 	who:setQuestStatus("keepsake", engine.Quest.COMPLETED, "kyless-killed")
-	game.logPlayer(who, "#VIOLET#Kyless is dead.")
+	game.logPlayer(who, "#VIOLET#킬레스가 죽었습니다.")
 	self.spawn_berethh = true
 end
 
@@ -244,12 +246,12 @@ end
 
 on_berethh_encounter = function(self, who, berethh)
 	local Chat = require "engine.Chat"
-	local chat = Chat.new("keepsake-berethh-encounter", {name="Berethh"}, game.player)
+	local chat = Chat.new("keepsake-berethh-encounter", {name="Berethh", kr_name="베레쓰"}, game.player)
 	chat:invoke()
 end
 
 on_berethh_death = function(self, who, berethh)
-	game.logPlayer(who, "#VIOLET#Berethh lies dead.")
+	game.logPlayer(who, "#VIOLET#베레쓰는 죽음을 맞이했습니다.")
 	
 	if self.balance > 0 then
 		who:setQuestStatus("keepsake", engine.Quest.COMPLETED, "berethh-killed-good")

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,12 +18,13 @@
 -- darkgod@te4.org
 
 name = "The rotting stench of the dead"
+kr_name = "망자의 썩은내"
 desc = function(self, who)
 	local desc = {}
-	desc[#desc+1] = "You have been resurrected as an undead by some dark powers."
-	desc[#desc+1] = "However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world."
+	desc[#desc+1] = "당신은 어떤 암흑의 힘에 의해 언데드로 소환되었습니다."
+	desc[#desc+1] = "하지만 의식은 알 수 없는 이유로 실패하였고, 당신은 자아를 잃지 않았습니다. 당신은 이 어두운 지역에서 벗어나 세상에 자신의 입지를 다져야 합니다."
 	if self:isCompleted("black-cloak") then
-		desc[#desc+1] = "You have found a very special cloak that will help you walk among the living without trouble."
+		desc[#desc+1] = "당신은 살아있는 것들 사이를 문제 없이 돌아다닐 수 있게 해주는, 아주 특별한 망토를 찾아냈습니다."
 	end
 	return table.concat(desc, "\n")
 end

@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,34 +25,38 @@ newLore{
 	id = "trollmire-note-1",
 	category = "trollmire",
 	name = "tattered paper scrap (trollmire)",
-	lore = [[You find a tattered page scrap. Perhaps this is part of a diary entry.
-"...is a gorgeous glade, but I could swear that looked like a part of a human femur.
+	kr_name = "트롤 늪에서 발견한 낡은 종이 조각",
+	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
+"...굉장히 멋진 숲 속의 공터다. 하지만 맹세컨데, 방금 전에 본 그건 분명 사람의 뼛조각이 분명하다.
 
 ...
 
-Saw an absolutely gigantic troll, but fortunately I threw him off my scent."]],
+엄청나게 거대한 트롤을 발견했다. 다행스럽게도, 트롤이 접근하기 전에 내가 여기 있다는 자취를 지우는데 성공했다."]],
 }
 
 newLore{
 	id = "trollmire-note-2",
 	category = "trollmire",
 	name = "tattered paper scrap (trollmire)",
-	lore = [[You find a tattered page scrap. Perhaps this is part of a diary entry.
-"...ack again, but he's just a stupid old troll. It'll be easy to not let him get wind of me.
+	kr_name = "트롤 늪에서 발견한 낡은 종이 조각",
+	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
+"...아왔다. 아무리 그래도 트롤은 트롤일 뿐이다. 내 발자취를 숨기는 것은 그리 어렵지 않을 것이다.
 
 ...
 
-...initely found his treasure stash further on, but had to turn back. If you get this, HELP!"]],
+...롤이 쌓아놓은 보물을 발견하였지만, 이제는 여기서 빠져나가야 한다. 아무나 제발, 도와줘!"]],
 }
 
 newLore{
 	id = "trollmire-note-3",
 	category = "trollmire",
 	name = "tattered paper scrap (trollmire)",
-	lore = [[You find a tattered page scrap. Perhaps this is part of a diary entry.
-"...writing this in a tree and he's at the bottom of it. Waiting. His club is the size of a tall dwarf. Don't think I'm going to make it..."
+	kr_name = "트롤 늪에서 발견한 낡은 종이 조각",
+	lore = [[부스러지기 직전인, 낡은 종이 조각을 발견하였다. 아마 누군가의 일기장에서 뜯어진 조각인 것 같다.
 
-Alongside the note is a part of a plan of the region.]],
+"...나무 위에서 이것을 쓴다. 그는 나무 아래에서 나를 기다리고 있다. 그의 몽둥이는 큰 드워프 만큼이나 크다. 여기서 빠져나갈 방법이 생각나지 않는다..."
+
+주변에 마구 흩어진 피묻은 종이 조각들이, 마치 이 늪의 일부인 것만 같다...]],
 	bloodstains = 3,
 	on_learn = function(who)
 		local p = game:getPlayer(true)

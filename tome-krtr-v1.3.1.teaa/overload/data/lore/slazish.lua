@@ -1,5 +1,5 @@
--- ToME - Tales of Maj'Eyal
--- Copyright (C) 2009 - 2015 Nicolas Casalini
+﻿-- ToME - Tales of Maj'Eyal
+-- Copyright (C) 2009 - 2014 Nicolas Casalini
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -25,47 +25,49 @@ newLore{
 	id = "slazish-note-1",
 	category = "slazish fens",
 	name = "conch (1)",
-	lore = [[#{italic}#Touching the conch makes it emit a sound. As you put it to your ear you hear a lyrical voice emanating from within:#{normal}#
+	kr_name = "소라고둥 (1)",
+	lore = [[#{italic}#소라고둥을 만지자, 고둥에서 소리가 뿜어져 나왔다. 고둥을 귀에 대보니, 안에서 울려퍼지는 아름다운 목소리가 들리기 시작한다.#{normal}#
 
-"Report from Tidewarden Isimon to Tidebringer Zoisla. Alucia and I have, um, begun scouting the outer perimeter. The, uh, the terrain is proving difficult to navigate, but I'm sure we'll make, uh, quick progress. We shall, uh, we'll continue now... in the name of the Saviour!
+"파도를 감시하는 자 이시몬이 파도를 불러오는 자 조이슬라에게 보고합니다. 알루시아랑 저는, 음, 외곽 지역을 순찰하기 시작했습니다. 길을 찾기 힘든 지형으로 보였지만, 저희는, 음, 빠른 진척을 보일 수 있다고 확신합니다. 저희는, 저희는 구원자의 이름 아래... 임무를 계속하도록 하겠습니다!
 
-"...Um, you think that was okay?"
+...음, 방금 그거 괜찮았어?"
 
-#{italic}#A second, lighter voice joins in.#{normal}# "Yeah, that was fine, Isimon. We'll make a Myrmidon of you yet!"
+#{italic}#한층 가벼운, 두 번째 목소리가 끼어들었습니다.#{normal}# "그래, 괜찮았어, 이시몬. 곧 있으면 네 사병도 생길거야!"
 
-"Heh, I wouldn't be so sure of that... Guess I'll turn this off and we'll get going."
+"헤, 그렇게 확신하진 못하겠는데... 아, 이제 이걸 끄고 나가볼 시간일 것 같아."
 
-"Hey, what's the rush? This is the first time we've been alone from the others all week. Maybe we could..."
+"잠깐, 왜 그렇게 서두르는거야? 다른 사람들 없이 우리끼리만 있는건 몇 주 만에 처음이라고. 우리 한번..."
 
-"What? Surely you don't mean-? What if someone comes along?"
+"뭐? 설마 그걸 말하는건 아니겠지-? 다른 사람들이 오면 어떡하려고?"
 
-"Oh, who would catch us out here? Come on!"
+"오, 누가 여기서 우릴 따라잡겠어? 이리 와봐!"
 
-"I, uh, well, I suppose... I should stop this recording."]],
+"어, 그게, 아마... 이 녹음기는 슬슬 꺼야할 것 같은데."]],
 }
 
 newLore{
 	id = "slazish-note-2",
 	category = "slazish fens",
 	name = "conch (2)",
-	lore = [[#{italic}#Touching the conch makes it emit a sound. As you put it to your ear you hear a deep voice emanating from within:#{normal}#
+	kr_name = "소라고둥 (2)",
+	lore = [[#{italic}#소라고둥을 만지자, 고둥에서 소리가 뿜어져 나왔다. 고둥을 귀에 대보니, 안에서 울려퍼지는 깊은 음색의 목소리가 들리기 시작한다.#{normal}#
 
-"Waverider Tiamel reporting. Immediate perimeter is secure, though I have sent some members to scout the surrounding areas. I will feel better when we have mapped the land and are ready to sustain a larger team. Still, we should be perfectly safe as long as the landdwellers do not know of our presence. And even if they dare come here the magics of Zoisla will put their puny star worship to shame.
+"파도를 타는 자 티아멜이 보고합니다. 인접한 구역은 일단 안전이 확인됐지만, 만약을 대비하여 주변 지역을 정찰할 몇몇 인원들을 보냈습니다. 저희가 이 근방의 지도를 완성하고 더 많은 인원을 유지할 준비가 된다면 더 좋을 것 같습니다. 아직까지는 원주민들이 저희의 존재를 알아채지 못했기 때문에, 완벽히 안전합니다. 그리고 원주민들이 감히 이곳에 온다고 하더라도, 조이슬라의 마법을 통해 빈약한 별을 숭배한다는 사실 자체를 부끄럽게 만들어버릴 수 있을 것입니다.
 
-"I fear that some of the team are not taking our mission seriously. Do they not know the responsibility the Saviour has laid on us? We are his arms and tails in this far land, and it is our duty to protect the farportal which will help bring us to greater strengths. We are his first line of attack against the blood relatives of those who doomed our race so long ago. And with our efforts we shall push forward our race to new boundaries, laying the path for the bright future our great Saviour has planned for us. Long live Slasul! Long live the legend of the Devourer!"]],
+팀원 몇 명이 우리의 임무를 진지하게 받아들이지 않는다는 점이 두렵습니다. 구원자께서 저희에게 내려주신 책임감을 알기나 하는걸까요? 저희는 이 먼 땅에서 그분의 손이자 꼬리가 되어 활동하고 있습니다. 그리고 우리에게 막강한 힘을 가져다줄 장거리 관문을 지키는 것이 우리의 임무입니다. 우리는 오래 전 우리를 멸망에 이르게 했던 자들의 혈육들과 맞서 싸울 첫 번째 전선입니다. 그리고 우리의 노력 끝에, 우리 종족은 구원자께서 우리를 위해 계획하신 밝은 미래를 향한 길을 통해 새로운 지평으로 뻗어나갈 수 있을 것입니다. 슬라슐 만세! 포식자의 전설 만세!"]],
 }
 
 newLore{
 	id = "slazish-note-3",
 	category = "slazish fens",
 	name = "conch (3)",
-	lore = [[#{italic}#Touching the conch makes it emit a sound. As you put it to your ear you hear a charismatic and commanding voice emanating from within:#{normal}#
+	kr_name = "소라고둥 (3)",
+	lore = [[#{italic}#소라고둥을 만지자, 고둥에서 소리가 뿜어져 나왔다. 고둥을 귀에 대보니, 안에서 울려퍼지며 지도력 있는 명령조의 목소리가 들리기 시작한다.#{normal}#
 
-"My fellow nagas! I do not envy you on your journey so far from our great Temple. But you have been chosen for a glorious mission, to establish a new outpost for invasion against the landwalkers. These are the cousins and descendants of those who abandoned us and left our race for dead. Whilst we have hidden beneath the waves for centuries, they prance about worshipping the sun! Well, their nightfall comes soon, and the dawn will rise with us as rulers of land and sea.
+"친애하는 나가 동료들이여! 나는 우리의 위대한 신전에서 멀리 떠나온 너희들을 질투하지 않는다. 너희들은 육지를 걸어다니는 놈들을 물리치고 침략하기 위한 전초기지를 세우는 영광스러운 임무를 위해 선택된 자들이다. 그놈들은 우리를 버리고 우리 종족을 죽음에 이르게 한 자들의 친척이자 후손들이다. 우리가 수 세기에 걸쳐 파도 밑에 숨어사는 동안, 저들은 의기양양하게 태양을 숭배하고 있다! 하지만 그들에게는 곧 황혼이 드리울 것이고, 육지와 바다의 지배자로서 우리의 여명이 떠오를 것이다.
 
-"Do not despair that we are attacking this outpost instead of the orcs. My stratagem is carefully planned, and the Sunwall is too great a threat to my designs to be allowed to stand any longer. The orcs... will have their uses in the short term. But be assured, when our time comes there shall be none who can stand as equals against us. Our greatness cannot be quelled or submerged! Our long history of suffering will finally bring forth redemption!
+오크 대신에 우리가 이 전초기지를 공격한다고 실망하지 말라. 나의 책략은 신중하게 계획되었고, 태양의 장벽에게 있어 나의 계획은 더 이상 그들의 방어선을 유지할 수 없을 정도로 큰 위협이 될 것이다. 오크들은... 잠시 동안 사용 가치가 있을 것이다. 그러나 믿음을 가지라. 우리의 때가 오는 그 날, 우리와 동등하게 서있을 수 있는 자는 없을테니까. 우리의 위대함은 막을 수 없으며 가라앉지도 않을 것이다! 우리의 오랜 고통의 역사가 마침내 구원받게 될 것이다!
 
-"Your immediate mission is clear, my friends. Ensure the farportal is correctly set up and secured, but take care, as the Sher'Tul magics used are still experimental. Then scout out the area and begin to fortify the surroundings, but do so in secret. When your job is done well I, your humble leader Slasul, shall be honoured to join you on the front line. Until then, swim safely my brothers and sisters, and do not forget our glory."
-
+현재 우리들에게 있어 즉각적인 임무는 명백하다, 친구들이여. 장거리 관문이 제대로 설치되었고 안전한지 확인하라. 하지만 조심하도록. 쉐르'툴 종족의 마법을 사용하는 것은 아직 실험 단계이니 말이다. 또한 지역을 정찰하고 주변을 요새화하되, 비밀리에 하도록 하라. 임무가 잘 끝난다면 나, 그대들의 변변찮은 지도자인 슬라슐이 전선 최전방에 그대들을 보냈다는 것을 영광스럽게 여기리라. 그때까지는 조심해서 헤엄치도록 하라, 나의 형제 자매들이여. 그리고 우리의 영광을 잊지 말도록."
 ]],
 }
