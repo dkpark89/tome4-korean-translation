@@ -18,7 +18,7 @@
 -- darkgod@te4.org
 
 name = "There and back again"
-kr_name = "그곳에 또 다시"
+kr_name = "또 다시 그곳에"
 desc = function(self, who)
 	local desc = {}
 	desc[#desc+1] = "아침의 문에 있는 제메키스는 당신을 위해 마즈'에이알로 돌아가는 관문을 만들 수 있습니다."
