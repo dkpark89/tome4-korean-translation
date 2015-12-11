@@ -93,6 +93,15 @@ function _M:getName(t)
 	else return qty.." "..name
 	end
 end
+function _M:getNameOri(t)
+	t = t or {}
+	local qty = self:getNumber()
+	local name = self.name
+
+	if qty == 1 or t.no_count then return name
+	else return qty.." "..name
+	end
+end
 
 --- Gets the full desc of the object
 function _M:getDesc()

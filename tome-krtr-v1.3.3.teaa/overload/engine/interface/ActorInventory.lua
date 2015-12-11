@@ -617,6 +617,7 @@ function _M:findInInventory(inven, name, getname)
 	getname = getname or {no_count=true, force_id=true}
 	for item, o in ipairs(inven) do
 		if o:getName(getname) == name then return o, item end
+		if o:getNameOri(getname) == name then return o, item end
 	end
 end
 
