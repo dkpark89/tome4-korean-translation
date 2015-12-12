@@ -178,7 +178,7 @@ function _M:tooltip(x, y)
 			tstr:add(true)
 		end
 	else
-		tstr = tstring{{"uid", self.uid}, self.name}
+		tstr = tstring{{"uid", self.uid}, sn}
 		if dist then tstr:merge(dist) end
 		tstr:add(true)
 	end
