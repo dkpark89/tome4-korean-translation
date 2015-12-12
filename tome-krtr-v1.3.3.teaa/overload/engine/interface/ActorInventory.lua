@@ -227,10 +227,10 @@ function _M:pickupFloor(i, vocal, no_sort)
 				slot = self:itemPosition(self.INVEN_INVEN, newo, true) or 1
 				local letter = ShowPickupFloor:makeKeyChar(slot)
 
-				if vocal then game.logSeen(self, "%s picks up (%s.): %s%s.", self.name:capitalize(), letter, num>1 and ("%d "):format(num) or "", o:getName{do_color=true, no_count = true}) end
+				if vocal then game.logSeen(self, "%s (%s) %s 줍습니다.", (self.kr_name or self.name):capitalize():addJosa("가"), letter, o:getName{do_color=true}:addJosa("를")) end
 				return inven[slot], num
 			else
-				if vocal then game.logSeen(self, "%s has no room for: %s.", self.name:capitalize(), o:getName{do_color=true}) end
+				if vocal then game.logSeen(self, "공간이 부족하여, %s %s 줍지 못했습니다.", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 				return
 			end
 		elseif prepickup == "skip" then
@@ -468,14 +468,14 @@ function _M:wearObject(o, replace, vocal, force_inven, force_item)
 		return false
 	end
 	if not inven then
-		if vocal then game.logSeen(self, "%s %s를 착용할 수 없습니다.", (self.kr_name or self.name):addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
+		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다.", (self.kr_name or self.name):addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 		return false
 	end
 
 
 	local ok, err = self:canWearObject(o, inven.name)
 	if not ok then
-		if vocal then game.logSeen(self, "%s can not wear (%s): %s (%s).", self.name:capitalize(), self.inven_def[inven.name].name:lower(), o_name, err) end
+		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다: (%s).", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를"), err) end
 		return false
 	end
 	if o:check("on_canwear", self, inven) then return false end
@@ -495,18 +495,18 @@ function _M:wearObject(o, replace, vocal, force_inven, force_item)
 		-- Check if we still can wear it, to prevent the replace-abuse
 		local ok, err = self:canWearObject(o, inven.name)
 		if not ok then
-			if vocal then game.logSeen(self, "%s can not wear (%s): %s (%s).", self.name:capitalize(), self.inven_def[inven.name].name:lower(), o_name, err) end
+			if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다: (%s).", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를"), err) end
 			if ro then self:addObject(inven_id, ro, true, force_item) end
 			return false
 		end
 		added, slot, stack = self:addObject(inven_id, o, nil, force_item)
-		if vocal then game.logSeen(self, "%s wears (replacing %s): %s.", self.name:capitalize(), ro:getName{do_color=true}, o_name) end
+		if vocal then game.logSeen(self, "%s %s 착용합니다 (교체)", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 		if stack and ro:stack(stack) then -- stack remaining stack with old if possible (ignores stack limits)
 			stack = nil
 		end
 		return ro, stack -- caller handles the replaced object and remaining stack if any
 	else
-		if vocal then game.logSeen(self, "%s can not wear: %s.", self.name:capitalize(), o:getName{do_color=true}) end
+		if vocal then game.logSeen(self, "%s %s 착용할 수 없습니다.", (self.kr_name or self.name):capitalize():addJosa("는"), o:getName{do_color=true}:addJosa("를")) end
 		return false
 	end
 end
