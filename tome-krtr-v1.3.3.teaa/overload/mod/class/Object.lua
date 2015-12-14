@@ -834,7 +834,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 			if compare_with then return ("%+.0f%%"):format(orig - 100 / compare_with)
 			else return ("%2.0f%%"):format(orig) end
 		end
-		compare_fields(combat, compare_with, field, "physspeed", physspeed_compare, "Attack speed: ", 1, false, true, add_table)
+		compare_fields(combat, compare_with, field, "physspeed", physspeed_compare, "공격속도: ", 1, false, true, add_table)
 
 		compare_fields(combat, compare_with, field, "block", "%+d", "막을 수 있는 피해량 : ", 1, false, false, add_table)
 
@@ -1470,7 +1470,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "mana_regen", "%+.2f", "마나 재생 : ")
 		compare_fields(w, compare_with, field, "hate_regen", "%+.2f", "증오심 재생 : ")
 		compare_fields(w, compare_with, field, "psi_regen", "%+.2f", "염력 재생 : ")
-		compare_fields(w, compare_with, field, "vim_regen", "%+.2f", "Vim each turn: ")
+		compare_fields(w, compare_with, field, "vim_regen", "%+.2f", "Vim 재생 : ")
 		compare_fields(w, compare_with, field, "positive_regen_ref_mod", "%+.2f", "양기 재생 : ")
 		compare_fields(w, compare_with, field, "negative_regen_ref_mod", "%+.2f", "음기 재생 : ")
 
@@ -1479,9 +1479,9 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "equilibrium_regen_when_hit", "%+.2f", "공격 성공시 평정 회복 : ")
 		compare_fields(w, compare_with, field, "psi_regen_when_hit", "%+.2f", "공격 성공시 염력 회복 : ")
 		compare_fields(w, compare_with, field, "hate_regen_when_hit", "%+.2f", "공격 성공시 증오심 회복 : ")
-		compare_fields(w, compare_with, field, "vim_regen_when_hit", "%+.2f", "Vim when hit: ")
+		compare_fields(w, compare_with, field, "vim_regen_when_hit", "%+.2f", "공격 성공시 Vim 회복 : ")
 
-		compare_fields(w, compare_with, field, "vim_on_melee", "%+.2f", "Vim when hitting in melee: ")
+		compare_fields(w, compare_with, field, "vim_on_melee", "%+.2f", "물리 공격시 Vim 회복 : ")
 
 		compare_fields(w, compare_with, field, "mana_on_crit", "%+.2f", "주문 치명타 발생시 마나 회복 : ")
 		compare_fields(w, compare_with, field, "vim_on_crit", "%+.2f", "주문 치명타 발생시 원기 회복 : ")
@@ -1493,7 +1493,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 
 		compare_fields(w, compare_with, field, "hate_per_kill", "+%0.2f", "적 살해시 증오심 회복 : ")
 		compare_fields(w, compare_with, field, "psi_per_kill", "+%0.2f", "적 살해시 염력 회복 : ")
-		compare_fields(w, compare_with, field, "vim_on_death", "%+.2f", "Vim per kill: ")
+		compare_fields(w, compare_with, field, "vim_on_death", "%+.2f", "적 살해시 Vim 회복 : ")
 
 		compare_fields(w, compare_with, field, "die_at", "%+.2f 생명력", "죽지 않고 견딜 수 있는 생명력 수치 : ", 1, true, true)
 		compare_fields(w, compare_with, field, "max_life", "%+.2f", "최대 생명력 : ")
@@ -1517,7 +1517,7 @@ function _M:getTextualDesc(compare_with, use_actor)
 		compare_fields(w, compare_with, field, "lite", "%+d", "광원 반경    : ")
 		compare_fields(w, compare_with, field, "infravision", "%+d", "야간 투시 반경 : ")
 		compare_fields(w, compare_with, field, "heightened_senses", "%+d", "야간 투시 반경 : ")
-		compare_fields(w, compare_with, field, "sight", "%+d", "Sight radius: ")
+		compare_fields(w, compare_with, field, "sight", "%+d", "시야 반경 : ")
 
 		compare_fields(w, compare_with, field, "see_stealth", "%+d", "은신 감지    : ")
 
@@ -1855,25 +1855,23 @@ function _M:getUseDesc(use_actor)
 	local reduce = 100 - util.bound(use_actor:attr("use_object_cooldown_reduce") or 0, 0, 100)
 	local usepower = function(power) return math.ceil(power * reduce / 100) end
 	if self.use_power and not self.use_power.hidden then
-		local desc = util.getval(self.use_power.name, self, use_actor)
 		if self.show_charges then
-			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (현재 충전량/최대 충전량 :  %d/%d)."):format(desc, math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}} --I5
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (현재 충전량/최대 충전량 : %d/%d)."):format(util.getval((self.use_power.kr_name or self.use_power.name), self), math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
 		elseif self.talent_cooldown then
-			local t_name = self.talent_cooldown == "T_GLOBAL_CD" and "all charms" or "Talent "..use_actor:getTalentDisplayName(use_actor:getTalentFromId(self.talent_cooldown))
-			ret = tstring{{"color","YELLOW"}, ("It can be used to %s, putting %s on cooldown for %d turns."):format(desc:format(self:getCharmPower(use_actor)), t_name, usepower(self.use_power.power)), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s, 사용시 다른 발동형 기술들의 지연시간이 %d턴 늘어납니다."):format(util.getval((self.use_power.kr_name or self.use_power.name), self):format(self:getCharmPower(game.player)), usepower(self.use_power.power)), {"color","LAST"}}
 		else
-			ret = tstring{{"color","YELLOW"}, ("It can be used to %s, costing %d power out of %d/%d."):format(desc, usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (소모량 %d, 현재 충전량/최대 충전량 : %d/%d)."):format(util.getval((self.use_power.kr_name or self.use_power.name), self), usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
-		ret = tstring{{"color","YELLOW"}, ("It can be used to %s."):format(util.getval(self.use_simple.name, self, use_actor)), {"color","LAST"}}
+		ret = tstring{{"color","YELLOW"}, ("사용처 : %s."):format(self.use_simple.kr_name or self.use_simple.name), {"color","LAST"}}
 	elseif self.use_talent then
 		local t = use_actor:getTalentFromId(self.use_talent.id)
 		if t then
-			local desc = use_actor:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "Power cost: ", {"color",0x7f,0xff,0xd4},("%d out of %d/%d."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
+			local desc = use_actor:getTalentFullDescription(t, nil, {force_level=self.use_talent.level, ignore_cd=true, ignore_ressources=true, ignore_use_time=true, ignore_mode=true, custom=self.use_talent.power and tstring{{"color",0x6f,0xff,0x83}, "소모량 : ", {"color",0x7f,0xff,0xd4},("%d (보유량 : %d/%d)."):format(usepower(self.use_talent.power), self.power, self.max_power)}})
 			if self.talent_cooldown then
-				ret = tstring{{"color","YELLOW"}, "It can be used to activate talent ", t.name,", placing all other charms into a ", tostring(math.floor(usepower(self.use_talent.power))) ," cooldown :", {"color","LAST"}, true}
+				ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_name or t.name)," 기술 발동, 다른 발동형 기술들의 지연시간을 ", tostring(math.floor(usepower(self.use_talent.power))) ,"턴 늘림 : ", {"color","LAST"}, true}
 			else
-				ret = tstring{{"color","YELLOW"}, "It can be used to activate talent ", t.name," (costing ", tostring(math.floor(usepower(self.use_talent.power))), " power out of ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
+				ret = tstring{{"color","YELLOW"}, "사용시 ", (t.kr_name or t.name)," 기술 발동 (소모량 ", tostring(math.floor(usepower(self.use_talent.power))), " 보유량 ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
 			end
 			ret:merge(desc)
 		end
