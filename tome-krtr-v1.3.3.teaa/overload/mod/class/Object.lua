@@ -1855,7 +1855,7 @@ function _M:getUseDesc(use_actor)
 	local reduce = 100 - util.bound(use_actor:attr("use_object_cooldown_reduce") or 0, 0, 100)
 	local usepower = function(power) return math.ceil(power * reduce / 100) end
 	if self.use_power and not self.use_power.hidden then
-		local desc = util.getval((self.use_power.kr_name or self.use_power.name), self)
+		local desc = util.getval((self.use_power.kr_name or self.use_power.name), self, use_actor)
 		if self.show_charges then
 			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (현재 충전량/최대 충전량 : %d/%d)."):format(desc, math.floor(self.power / usepower(self.use_power.power)), math.floor(self.max_power / usepower(self.use_power.power))), {"color","LAST"}}
 		elseif self.talent_cooldown then
