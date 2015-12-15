@@ -1863,8 +1863,8 @@ function _M:getUseDesc(use_actor)
 			--ret = tstring{{"color","YELLOW"}, ("It can be used to %s, putting %s on cooldown for %d turns."):format(desc:format(self:getCharmPower(use_actor)), t_name, usepower(self.use_power.power)), {"color","LAST"}}
 			ret = tstring{{"color","YELLOW"}, ("사용처 : %s, 사용시 다른 발동형 기술들의 지연시간이 %d턴 늘어납니다."):format(desc:format(self:getCharmPower(use_actor)), usepower(self.use_power.power)), {"color","LAST"}}
 		else
-			ret = tstring{{"color","YELLOW"}, "It can be used to activate talent ", t.name," (costing ", tostring(math.floor(usepower(self.use_talent.power))), " power out of ", tostring(math.floor(self.power)), "/", tostring(math.floor(self.max_power)), ") :", {"color","LAST"}, true}
-			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (소모량 %d, 현재 충전량/최대 충전량 : %d/%d)."):format((t.kr_name or t.name), tostring(math.floor(usepower(self.use_talent.power))), tostring(math.floor(self.power)), tostring(math.floor(self.max_power))), {"color","LAST"}, true}
+			--ret = tstring{{"color","YELLOW"}, ("It can be used to %s, costing %d power out of %d/%d."):format(desc, usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
+			ret = tstring{{"color","YELLOW"}, ("사용처 : %s (소모량 %d, 현재 충전량/최대 충전량 : %d/%d)."):format(desc, usepower(self.use_power.power), self.power, self.max_power), {"color","LAST"}}
 		end
 	elseif self.use_simple then
 		ret = tstring{{"color","YELLOW"}, ("사용처 : %s."):format(self.use_simple.kr_name or self.use_simple.name), {"color","LAST"}}
