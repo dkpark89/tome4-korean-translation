@@ -191,7 +191,7 @@ newTalent{
 	info = function(self, t)
 		local power = t.getPower(self, t)
 		local dur = t.getDuration(self, t)
-		return ([[[주변의 잠재된 냉기를 모두 흡수하여, %d 턴 동안 냉기의 정령인 쉬브고로스로 변신합니다.
+		return ([[주변의 잠재된 냉기를 모두 흡수하여, %d 턴 동안 냉기의 정령인 쉬브고로스로 변신합니다.
 		변신 중에는 호흡이 필요없게 되며, %d 레벨의 얼음 폭풍 마법을 사용할 수 있게 됩니다. 또한 출혈과 기절 면역력이 %d%% / 냉기 저항력이 %d%% 증가합니다. 그리고 변신 중에 입는 냉기 피해의 %d%% 만큼 생명력이 회복됩니다.
 		주문의 위력은 주문력의 영향을 받아 상승합니다.]]):
 		format(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100)
@@ -237,7 +237,7 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local duration = t.getDuration(self, t)
-		return ([시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 빙결시킵니다. (지속시간 : %d 턴)
+		return ([[시전자 주변에 휘몰아치는 얼음 폭풍이 생겨나, 주변 3 칸 반경에 매 턴마다 %0.2f 피해를 주고, 25%% 확률로 적을 빙결시킵니다. (지속시간 : %d 턴)
 		대상이 젖은 상태라면 피해량이 30%% 증가하며, 빙결 확률이 50%% 로 상승합니다. 
 		피해량과 폭풍의 지속시간은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), duration)
 	end,
