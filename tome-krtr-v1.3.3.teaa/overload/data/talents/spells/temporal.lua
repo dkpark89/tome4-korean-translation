@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Congeal Time",
+	kr_name = "얼어붙은 시간",
 	type = {"spell/temporal",1},
 	require = spells_req1,
 	points = 5,
@@ -47,13 +48,14 @@ newTalent{
 	info = function(self, t)
 		local slow = t.getSlow(self, t)
 		local proj = t.getProj(self, t)
-		return ([[Project a bolt of time distortion, decreasing the target's global speed by %d%% and all projectiles it fires by %d%% for 7 turns.]]):
+		return ([[시간을 왜곡시키는 마법 화살을 발사하여, 7 턴 동안 대상의 전체 속도를 %d%% 감소시키고 대상이 발사하는 모든 발사체의 속도를 %d%% 느리게 만듭니다.]]):
 		format(100 * slow, proj)
 	end,
 }
 
 newTalent{
 	name = "Time Shield",
+	kr_name = "시간의 보호막",
 	type = {"spell/temporal", 2},
 	require = spells_req2,
 	points = 5,
@@ -74,17 +76,18 @@ newTalent{
 		local maxabsorb = t.getMaxAbsorb(self, t)
 		local duration = t.getDuration(self, t)
 		local time_reduc = t.getTimeReduction(self,t)
-		return ([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.
-		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
-		Each turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage).
-		While under the effect of Time Shield, all newly applied magical, physical and mental effects will have their durations reduced by %d%%.
-		The shield's max absorption will increase with your Spellpower.]]):
+		return ([[시전자 주변에 시간의 보호막을 즉시 만들어내는, 복잡한 마법입니다. 
+		시간의 보호막은 모든 피해를 흡수하여 미래로 보내버리며, 보호막이 총 %d 이상의 피해량을 흡수하거나 %d 턴이 지나 지속시간이 끝나면 보호막이 사라집니다. 
+		이 보호막은 사라지면서 5 턴 동안 시간 회복막을 만들어내, 매 턴마다 보호막에 누적됐던 피해량의 10%% 만큼 생명력을 회복시켜줍니다. (이 비율은 수호 기술을 통해 증가시킬 수 있습니다)
+		시간의 보호막이 시전되는 동안 가해진 모든 상태효과는, 보호막의 효과로 인해 지속시간이 %d%% 감소하게 됩니다.
+		보호막의 최대 흡수량은 주문력의 영향을 받아 증가합니다.]]):
 		format(maxabsorb, duration, time_reduc)
 	end,
 }
 
 newTalent{
 	name = "Time Prison",
+	kr_name = "시간의 감옥",
 	type = {"spell/temporal", 3},
 	require = spells_req3,
 	points = 5,
@@ -107,15 +110,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.
-		Time does not pass at all for the target, no talents will cooldown, no resources will regen, and so forth.
-		The duration will increase with your Spellpower.]]):
+		return ([[대상을 %d 턴 동안 시간의 흐름에서 벗어나게 만듭니다. 그동안 대상은 행동할 수 없지만, 피해를 받지도 않게 됩니다.
+		대상의 시간이 흐르지 않기 때문에 기술의 지연시간도 감소하지 않고, 각종 원천력의 재생도 일어나지 않는 등의 효과가 발생합니다.
+		마법의 지속시간은 주문력의 영향을 받아 증가합니다.]]):
 		format(duration)
 	end,
 }
 
 newTalent{
 	name = "Essence of Speed",
+	kr_name = "속도의 본질",
 	type = {"spell/temporal",4},
 	require = spells_req4,
 	points = 5,
@@ -137,7 +141,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		local haste = t.getHaste(self, t)
-		return ([[Increases the caster's global speed by %d%%.]]):
+		return ([[시전자의 전체 속도가 %d%% 상승합니다.]]):
 		format(100 * haste)
 	end,
 }
