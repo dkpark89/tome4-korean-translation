@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Nova",
+	kr_name = "전격 파동",
 	type = {"spell/storm",1},
 	require = spells_req_high1,
 	points = 5,
@@ -60,13 +61,14 @@ newTalent{
 	info = function(self, t)
 		local dam = damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t))
 		local radius = self:getTalentRadius(t)
-		return ([[Lightning emanates from you in a circular wave with radius %d, doing %0.2f to %0.2f lightning damage and possibly dazing anyone affected (75%% chance).
-		The damage will increase with your Spellpower.]]):format(radius, dam / 3, dam)
+		return ([[시전자를 중심으로 번개가 뿜어져나와, 주변 %d 칸 반경에 %0.2f - %0.2f 전기 피해를 주고 75%% 확률로 적들을 혼절시킵니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, dam / 3, dam)
 	end,
 }
 
 newTalent{
 	name = "Shock",
+	kr_name = "전기 충격",
 	type = {"spell/storm",2},
 	require = spells_req_high2,
 	points = 5,
@@ -88,15 +90,16 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[Conjures up a bolt of lightning, doing %0.2f to %0.2f lightning damage and dazing the target for 3 turns.
-		If the target resists the daze effect it is instead shocked, which halves stun/daze/pin resistance, for 5 turns.
-		The damage will increase with your Spellpower.]]):
+		return ([[전격의 기운이 실린 화살을 발사하여, %0.2f - %0.2f 전기 피해를 주고 대상을 3 턴 동안 혼절시킵니다.
+		적이 혼절 상태효과를 저항할 경우, 대신 쇼크를 일으켜 기절/혼절/속박 면역력을 5 턴 동안 절반으로 깎습니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, damage/3), damDesc(self, DamageType.LIGHTNING, damage))
 	end,
 }
 
 newTalent{
 	name = "Hurricane",
+	kr_name = "허리케인",
 	type = {"spell/storm",3},
 	require = spells_req_high3,
 	points = 5,
@@ -130,14 +133,15 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local chance = t.getChance(self, t)
 		local radius = t.getRadius(self, t)
-		return ([[Each time one of your lightning spells dazes a target, it has a %d%% chance to creates a chain reaction that summons a mighty Hurricane that lasts for 10 turns around the target with a radius of %d.
-		Each turn, the afflicted creature and all creatures around it will take %0.2f to %0.2f lightning damage.
-		The damage will increase with your Spellpower.]]):format(chance, radius, damage / 3, damage)
+		return ([전기 속성 마법을 사용하여 적을 혼절시킬 때마다, %d%% 확률로 강력한 허리케인을 만들어냅니다. 
+		허리케인은 대상 주변 %d 칸 반경에 10 턴 동안 일어나며, 매 턴마다 %0.2f - %0.2f 전기 피해를 줍니다.
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(chance, radius, damage / 3, damage)
 	end,
 }
 
 newTalent{
 	name = "Tempest",
+	kr_name = "폭풍우",
 	type = {"spell/storm",4},
 	require = spells_req_high4,
 	points = 5,
@@ -174,8 +178,8 @@ newTalent{
 		local damageinc = t.getLightningDamageIncrease(self, t)
 		local ressistpen = t.getResistPenalty(self, t)
 		local daze = t.getDaze(self, t)
-		return ([[Surround yourself with a Tempest, increasing all your lightning damage by %d%% and ignoring %d%% lightning resistance of your targets.
-		Your Lightning and Chain Lightning spells also gain a %d%% chance to daze, and your Thunderstorm spell gains a %d%% chance to daze.]])
+		return ([[시전자 주변에 폭풍우가 몰아쳐, 모든 전기 속성 피해가 %d%% 증가하며 적들의 전기 저항력을 %d%% 무시합니다.
+		또한 전격과 전격 연계 마법이 %d%% 확률로 적들을 혼절시키게 되며, 뇌우 마법은 %d%% 확률로 적들을 혼절시키게 됩니다.]])
 		:format(damageinc, ressistpen, daze, daze / 2)
 	end,
 }
