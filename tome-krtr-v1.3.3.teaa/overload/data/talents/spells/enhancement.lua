@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Fiery Hands",
+	kr_name = "타오르는 손",
 	type = {"spell/enhancement",1},
 	require = spells_req1,
 	points = 5,
@@ -54,15 +55,16 @@ newTalent{
 	info = function(self, t)
 		local firedamage = t.getFireDamage(self, t)
 		local firedamageinc = t.getFireDamageIncrease(self, t)
-		return ([[Engulfs your hands (and weapons) in a sheath of fire, dealing %0.2f fire damage per melee attack and increasing all fire damage dealt by %d%%.
-		Each hit will also regenerate %0.2f stamina.
-		The effects will increase with your Spellpower.]]):
+		return ([[손과 무기가 마법의 불꽃으로 불타올라, 근접 공격에 %0.2f 화염 피해가 추가되고 모든 화염 피해량이 %d%% 증가하게 됩니다.
+		또한, 근접공격을 할 때마다 %0.2f 만큼 체력이 회복되는 효과도 있습니다.
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.FIRE, firedamage), firedamageinc, self:getTalentLevel(t) / 3)
 	end,
 }
 
 newTalent{
 	name = "Earthen Barrier",
+	kr_name = "대지의 보호",
 	type = {"spell/enhancement", 2},
 	points = 5,
 	random_ego = "utility",
@@ -79,14 +81,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local reduction = t.getPhysicalReduction(self, t)
-		return ([[Hardens your skin with the power of earth, reducing physical damage taken by %d%% for 10 turns.
-		Damage reduction will increase with your Spellpower.]]):
+		return ([[대지의 힘으로 피부를 단단하게 만들어, 10 턴 동안 받는 물리 피해량을 %d%% 감소시킵니다.
+		피해 감소량은 주문력의 영향을 받아 상승합니다.]]):
 		format(reduction)
 	end,
 }
 
 newTalent{
 	name = "Shock Hands",
+	kr_name = "전격의 손",
 	type = {"spell/enhancement", 3},
 	require = spells_req3,
 	points = 5,
@@ -121,15 +124,16 @@ newTalent{
 	info = function(self, t)
 		local icedamage = t.getIceDamage(self, t)
 		local icedamageinc = t.getIceDamageIncrease(self, t)
-		return ([[Engulfs your hands (and weapons) in a sheath of lightning, dealing %d lightning damage with a chance to daze (25%%) per melee attack and increasing all lightning damage dealt by %d%%.
-		Each hit will also regenerate %0.2f mana.
-		The effects will increase with your Spellpower.]]):
+		return ([[손과 무기가 마법의 전류가 흘러, 근접 공격에 %0.2f 전기 피해가 추가되고 모든 전기 피해량이 %d%% 증가하게 됩니다.
+		또한 매 타격마다 %0.2f 만큼 마나가 회복되며, 25%% 확률로 적이 혼절 상태효과에 걸리는 효과도 있습니다.
+		마법의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(damDesc(self, DamageType.LIGHTNING, icedamage), icedamageinc, self:getTalentLevel(t) / 3)
 	end,
 }
 
 newTalent{
 	name = "Inner Power",
+	kr_name = "내재된 힘",
 	type = {"spell/enhancement", 4},
 	require = spells_req4,
 	points = 5,
@@ -158,8 +162,8 @@ newTalent{
 	end,
 	info = function(self, t)
 		local statinc = t.getStatIncrease(self, t)
-		return ([[You concentrate on your inner self, increasing all your stats by %d.
-		The stat increase will improve with your Spellpower.]]):
+		return ([[잠재된 힘에 집중하여, 모든 능력치를 %d 만큼 추가로 끌어올립니다.
+		능력치 상승량은 주문력의 영향을 받아 상승합니다.]]):
 		format(statinc)
 	end,
 }
