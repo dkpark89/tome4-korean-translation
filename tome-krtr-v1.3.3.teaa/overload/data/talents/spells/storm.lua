@@ -133,7 +133,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		local chance = t.getChance(self, t)
 		local radius = t.getRadius(self, t)
-		return ([전기 속성 마법을 사용하여 적을 혼절시킬 때마다, %d%% 확률로 강력한 허리케인을 만들어냅니다. 
+		return ([[전기 속성 마법을 사용하여 적을 혼절시킬 때마다, %d%% 확률로 강력한 허리케인을 만들어냅니다. 
 		허리케인은 대상 주변 %d 칸 반경에 10 턴 동안 일어나며, 매 턴마다 %0.2f - %0.2f 전기 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):format(chance, radius, damage / 3, damage)
 	end,

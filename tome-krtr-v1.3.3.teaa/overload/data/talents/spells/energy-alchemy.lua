@@ -72,7 +72,7 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([전기 주입이 활성화 중인 동안, 연금술 폭탄이 골렘의 활력을 북돋습니다.
+		return ([[전기 주입이 활성화 중인 동안, 연금술 폭탄이 골렘의 활력을 북돋습니다.
 		골렘의 각 기술들이 %d%% 확률로 재사용 대기 시간이 %d 줄어듭니다.]]):
 		format(t.getChance(self, t), t.getNb(self, t))
 	end,
