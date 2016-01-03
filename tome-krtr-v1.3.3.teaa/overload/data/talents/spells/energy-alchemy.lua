@@ -20,6 +20,7 @@ local Object = require "engine.Object"
 
 newTalent{
 	name = "Lightning Infusion",
+	kr_name = "전기 주입",
 	type = {"spell/energy-alchemy", 1},
 	mode = "sustained",
 	require = spells_req_high1,
@@ -40,14 +41,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local daminc = t.getIncrease(self, t)
-		return ([[When you throw your alchemist bombs, you infuse them with lightning damage that can daze your foes.
-		In addition all lightning damage you do is increased by %d%%.]]):
+		return ([[연금술 폭탄을 던질 때, 적을 혼절시킬 수 있는 전기를 주입해 던집니다.
+		또한, 모든 전기 피해량이 %d%% 증가합니다.]]):
 		format(daminc)
 	end,
 }
 
 newTalent{
 	name = "Dynamic Recharge",
+	kr_name = "역동적 재충전",
 	type = {"spell/energy-alchemy", 2},
 	require = spells_req_high2,
 	mode = "passive",
@@ -70,14 +72,15 @@ newTalent{
 		end
 	end,
 	info = function(self, t)
-		return ([[While Lightning Infusion is active, your bombs energize your golem.
-		All talents on cooldown on your golem have %d%% chance to be reduced by %d.]]):
+		return ([전기 주입이 활성화 중인 동안, 연금술 폭탄이 골렘의 활력을 북돋습니다.
+		골렘의 각 기술들이 %d%% 확률로 재사용 대기 시간이 %d 줄어듭니다.]]):
 		format(t.getChance(self, t), t.getNb(self, t))
 	end,
 }
 
 newTalent{
 	name = "Thunderclap",
+	kr_name = "천둥",
 	type = {"spell/energy-alchemy",3},
 	require = spells_req_high3,
 	points = 5,
@@ -129,14 +132,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local radius = self:getTalentRadius(t)
-		return ([[By crushing an alchemist gem you generate a thunderclap in a cone of radius %d dealing %0.2f physical damage and %0.2f lightning damage.
-		All creatures caught inside are knocked back and disarmed for %d turns.
-		The duration and damage will increase with your Spellpower.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)), damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), t.getDuration(self, t))
+		return ([[연금술 보석을 부숴, %d 칸 반경의 원뿔형으로 %0.2f 물리 피해 / %0.2f 전기 피해를 입힙니다.
+		피해를 입은 모든 대상은 밀려나며, %d 턴 동안 무장해제됩니다.
+		지속시간과 피해량은 주문력의 영향을 받아 증가합니다.]]):format(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)), damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), t.getDuration(self, t))
 	end,
 }
 
 newTalent{
 	name = "Living Lightning",
+	kr_name = "살아있는 번개",
 	type = {"spell/energy-alchemy",4},
 	require = spells_req_high4,
 	mode = "sustained",
@@ -203,11 +207,10 @@ newTalent{
 		local dam = t.getDamage(self, t)
 		local turn = t.getTurn(self, t)
 		local range = self:getTalentRange(t)
-		return ([[Infuse your body with lightning energy, bolstering your movement speed by +%d%%.
-		Each turn, a foe within range %d will be struck by lightning and be dealt %0.1f Lightning damage.
-		In addition, damage to your health will energize you.
-		At the start of each turn in which you have lost at least %d life (20%% of your maximum life) since your last turn, you will gain %d%% of a turn.
-		The effects increase with your Spellpower.]]):
+		return ([[몸에 전기의 힘을 주입시켜, 이동 속도를 +%d%% 상승시킵니다. 그리고 매 턴마다 %d 칸 이내의 적 하나에게 전기 공격을 해서 %0.1f 전기 피해를 입힙니다.
+		또한, 생명력에 피해가 갔을 경우 추가적인 힘이 주입됩니다.
+		턴이 시작할 때마다, 지난 턴에 %d 생명력 이상 (최대 생명력의 20%%) 을 잃었다면 1 턴의 %d%% 에 해당하는 시간을 이번 턴에 얻습니다.
+		기술의 효과는 주문력의 영향을 받아 증가합니다.]]):
 		format(speed, range, damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), self.max_life * 0.2, turn)
 	end,
 }
