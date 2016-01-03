@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Illuminate",
+	kr_name = "광원",
 	type = {"spell/phantasm",1},
 	require = spells_req1,
 	random_ego = "utility",
@@ -62,15 +63,16 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		local turn = t.getBlindPower(self, t)
 		local dam = t.getDamage(self, t)
-		return ([[Creates a globe of pure light within a radius of %d that illuminates the area.
-		At level 3, it also blinds all who see it (except the caster) for %d turns.
-		At level 4, it also deals %0.2f light damage.]]):
+		return ([[순수한 빛의 구를 만들어내, 주변 %d 칸 반경을 밝게 비춥니다.
+		기술 레벨이 3 이상이면, %d 턴 동안 적들을 실명시킬 수 있습니다.
+		기술 레벨이 4 이상이면, 적들에게 추가로 %0.2f 빛 피해를 줍니다.]]):
 		format(radius, turn, damDesc(self, DamageType.LIGHT, dam))
 	end,
 }
 
 newTalent{
 	name = "Blur Sight",
+	kr_name = "신기루",
 	type = {"spell/phantasm", 2},
 	mode = "sustained",
 	require = spells_req2,
@@ -93,14 +95,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local defence = t.getDefense(self, t)
-		return ([[The caster's image blurs, granting a %d bonus to Defense.
-		The bonus will increase with your Spellpower.]]):
+		return ([[시전자의 형상이 희미해져, 회피도가 %d 상승합니다.
+		회피도 상승량은 주문력의 영향을 받아 상승합니다.]]):
 		format(defence)
 	end,
 }
 
 newTalent{
 	name = "Phantasmal Shield",
+	kr_name = "환영의 보호막",
 	type = {"spell/phantasm", 3},
 	mode = "sustained",
 	require = spells_req3,
@@ -123,14 +126,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
-		return ([[The caster is surrounded by a phantasmal shield. If hit in melee, the shield will deal %d light damage to the attacker.
-		The damage will increase with your Spellpower.]]):
+		return ([[시전자 주변에 환영의 보호막이 만들어집니다. 근접 공격을 받을 때마다, 환영의 보호막은 적에게 %d 빛 피해를 되돌려줍니다.
+		피해량은 주문력의 영향을 받아 상승합니다.]]):
 		format(damDesc(self, DamageType.LIGHT, damage))
 	end,
 }
 
 newTalent{
 	name = "Invisibility",
+	kr_name = "투명화",
 	type = {"spell/phantasm", 4},
 	mode = "sustained",
 	require = spells_req4,
@@ -169,11 +173,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local invisi = t.getInvisibilityPower(self, t)
-		return ([[The caster fades from sight, granting %d bonus to invisibility.
-		Beware -- you should take off your light, or you will still be easily spotted.
-		As you become invisible, you fade out of phase with reality. All your damage is reduced by 70%%.
-		This powerful spell constantly drains your mana (2 per turn) while active.
-		The invisibility bonus will increase with your Spellpower.]]):
+		return ([[시전자가 적들의 시야에서 사라져, 투명 수치가 %d 상승합니다.
+		투명화 중에는 현실 세계에서의 존재감이 옅어져, 적을 공격해도 원래 피해의 70%% 밖에 주지 못하게 됩니다.
+		투명화 중에는 매 턴마다 마나가 2 씩 소진되며, 투명화 중에 등불 따위를 들고 있으면 투명화를 한 의미가 사실상 없어지게 됩니다.
+		투명 수치는 주문력의 영향을 받아 상승합니다.]]):
 		format(invisi)
 	end,
 }
