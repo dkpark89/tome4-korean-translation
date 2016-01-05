@@ -123,7 +123,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[전방 %d 칸 반경에 불길을 내뿜습니다. 이 불길 속에 갇힌 대상들은 '화염 충격' 을 받게 되어, %d 턴 동안 기절하고 추가로 %0.2f 화염 피해를 받습니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(radius, damDesc(self, DamageType.FIRE, damage), stunduration)
+		format(radius, stunduration, damDesc(self, DamageType.FIRE, damage)) --@ 변수 순서 조정
 	end,
 }
 
@@ -171,7 +171,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[화염구를 만들어내 대상에게 날립니다. 화염구는 천천히 날아가며, 주변 %d 칸 반경에 %0.2f 화염 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.FIRE, damage), radius)
+		format(radius, damDesc(self, DamageType.FIRE, damage)) --@ 변수 순서 조정
 	end,
 }
 
@@ -218,7 +218,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[모든 것을 불태우는 불길을 만들어내, 피아를 가리지 않고 %d 턴 동안 주변 %d 칸 반경에 %0.2f 화염 피해를 줍니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.FIRE, damage), radius, duration)
+		format(duration, radius, damDesc(self, DamageType.FIRE, damage)) --@ 변수 순서 조정
 	end,
 }
 
