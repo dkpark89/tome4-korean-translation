@@ -173,7 +173,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[주변 %d 칸 반경에 지진을 일으켜, 매 턴마다 %0.2f 물리 피해를 줍니다. 피해를 받은 적은 기절할 확률이 있습니다. (지속시간 : %d 턴)
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.PHYSICAL, damage), radius, duration)
+		format(radius, damDesc(self, DamageType.PHYSICAL, damage), duration) --@ 변수 순서 조정
 	end,
 }
 
