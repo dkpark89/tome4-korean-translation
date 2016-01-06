@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Create Alchemist Gems",
+	kr_name = "연금술용 보석 생성",
 	type = {"spell/stone-alchemy-base", 1},
 	require = spells_req1,
 	points = 1,
@@ -40,13 +41,13 @@ newTalent{
 		return gem
 	end,
 	action = function(self, t)
-		local ret = self:talentDialog(self:showEquipInven("Use which gem?", function(o) return not o.unique and o.type == "gem" and not o.__tagged end, function(o, inven, item)
+		local ret = self:talentDialog(self:showEquipInven("어느 보석을 사용합니까?", function(o) return not o.unique and o.type == "gem" and not o.__tagged end, function(o, inven, item)
 			if not o then return end
 			local gem = t.make_gem(self, t, o.define_as)
 			if not gem then return end
 			self:addObject(self.INVEN_INVEN, gem)
 			self:removeObject(inven, item)
-			game.logPlayer(self, "You create: %s", gem:getName{do_color=true, do_count=true})
+			game.logPlayer(self, "%s 만들었습니다.", gem:getName{do_color=true, do_count=true})
 			self:sortInven()
 			self:talentDialogReturn(true)
 			return true
@@ -57,13 +58,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Carve 40 to 80 alchemist gems out of a natural gemstone.
-		Alchemists gems are used for many other spells, and each gem type creates a different effect.]]):format()
+		return ([[보석 하나를 세공하여, 40 에서 80 개의 연금술용 보석을 만들어냅니다.
+		연금술용 보석은 다양한 마법에 사용되며, 보석의 종류에 따라 다양한 효과를 낼 수 있습니다.]]):format()
 	end,
 }
 
 newTalent{
 	name = "Extract Gems",
+	kr_name = "보석 추출",
 	type = {"spell/stone-alchemy", 1},
 	require = spells_req1,
 	points = 5,
@@ -91,14 +93,14 @@ newTalent{
 		local gem = t.getGem(self, t, o)
 		if gem then
 			self:addObject(self.INVEN_INVEN, gem)
-			game.logPlayer(self, "You extract %s from %s", gem:getName{do_color=true, do_count=true}, o:getName{do_color=true, do_count=true})
+			game.logPlayer(self, "%s에서 %s 추출했습니다.", gem:getName{do_color=true, do_count=true}, o:getName{do_color=true, do_count=true})
 			self:sortInven()
 			self:talentDialogReturn(true)
 		end
 		return true
 	end,
 	action = function(self, t)
-		if not self:talentDialog(self:showEquipInven("Try to extract gems from which metallic item?", function(o) return t.filterGem(self, t, o) end, function(o, inven, item) return t.extractGem(self, t, o, inven, item, d) end)) then return nil end
+		if not self:talentDialog(self:showEquipInven("어느 금속제 장비에서 보석을 추출합니까?", function(o) return t.filterGem(self, t, o) end, function(o, inven, item) return t.extractGem(self, t, o, inven, item, d) end)) then return nil end
 		return true
 	end,
 	info = function(self, t)
@@ -108,13 +110,14 @@ newTalent{
 		if self:getTalentLevelRaw(t) >=3 then material=material.."	-Dwarven-steel\n" end
 		if self:getTalentLevelRaw(t) >=4 then material=material.."	-Stralite\n" end
 		if self:getTalentLevelRaw(t) >=5 then material=material.."	-Voratun" end
-		return ([[Extract magical gems from metal weapons and armours. At this skill level you can work with:
+		return ([[금속제 무기나 갑옷에서 보석을 추출해냅니다. 현재 기술 레벨에서 다룰 수 있는 재질은 다음과 같습니다 :
 		%s]]):format(material)
 	end,
 }
 
 newTalent{
 	name = "Imbue Item",
+	kr_name = "장비 강화",
 	type = {"spell/stone-alchemy", 2},
 	require = spells_req2,
 	points = 5,
@@ -123,8 +126,8 @@ newTalent{
 	no_npc_use = true,
 	no_unlearn_last = true,
 	action = function(self, t)
-		local ret = self:talentDialog(self:showInventory("Use which gem?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.imbue_powers and gem.material_level and gem.material_level <= self:getTalentLevelRaw(t) end, function(gem, gem_item)
-			local nd = self:showInventory("Imbue which armour?", self:getInven("INVEN"), function(o) return o.type == "armor" and (o.slot == "BODY" or (self:knowTalent(self.T_CRAFTY_HANDS) and (o.slot == "HEAD" or o.slot == "BELT"))) and not o.been_imbued end, function(o, item)
+		local ret = self:talentDialog(self:showInventory("어느 보석을 사용합니까?", self:getInven("INVEN"), function(gem) return gem.type == "gem" and gem.imbue_powers and gem.material_level and gem.material_level <= self:getTalentLevelRaw(t) end, function(gem, gem_item)
+			local nd = self:showInventory("어느 방어구를 강화합니까?", self:getInven("INVEN"), function(o) return o.type == "armor" and (o.slot == "BODY" or (self:knowTalent(self.T_CRAFTY_HANDS) and (o.slot == "HEAD" or o.slot == "BELT"))) and not o.been_imbued end, function(o, item)
 				self:removeObject(self:getInven("INVEN"), gem_item)
 				-- create an ego
 				local Entity = require("engine.Entity")
@@ -138,7 +141,7 @@ newTalent{
 				}
 				local name = o:getName{do_colour=true, no_count=true}
 				game.zone:applyEgo(o, ego, "object")
-				game.logPlayer(self, "You imbue your %s with %s.", name, gem:getName{do_colour=true, no_count=true})
+				game.logPlayer(self, "%s %s 강화하였습니다.", name, gem:getName{do_colour=true, no_count=true})
 				self:talentDialogReturn(true)
 				game:unregisterDialog(self:talentDialogGet())
 			end)
@@ -149,12 +152,14 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Imbue %s with a gem (up to tier %d), granting it additional powers.
-		You can only imbue items once, and it is permanent.]]):format(self:knowTalent(self.T_CRAFTY_HANDS) and "body armour, a belt, or a head piece" or "a body armour", self:getTalentLevelRaw(t))
+		return ([[보석의 힘을 주입하여 더 강력한 장비를 만듭니다. 강화는 단 한 번만 가능하며, 영구적으로 지속됩니다.
+		가능 장비 : %s 
+		가능한 보석의 수준 : %d 단계]]):format(self:knowTalent(self.T_CRAFTY_HANDS) and "옷 (갑옷 포함), 모자 (투구 포함), 허리띠" or "옷 (갑옷 포함)", self:getTalentLevelRaw(t))
 	end,
 }
 newTalent{
 	name = "Gem Portal",
+	kr_name = "보석 관문",
 	type = {"spell/stone-alchemy",3},
 	require = spells_req3,
 	cooldown = function(self, t) return math.max(5, 20 - (self:getTalentLevelRaw(t) * 2)) end,
@@ -166,7 +171,7 @@ newTalent{
 	action = function(self, t)
 		local ammo = self:hasAlchemistWeapon()
 		if not ammo or ammo:getNumber() < 5 then
-			game.logPlayer(self, "You need to ready 5 alchemist gems in your quiver.")
+			game.logPlayer(self, "이 기술을 사용하려면 5 개의 연금술용 보석을 손에 들고있어야 합니다.")
 			return
 		end
 
@@ -190,13 +195,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local range = t.getRange(self, t)
-		return ([[Crush 5 alchemists gems into dust to mark impassable terrain next to you. You immediately enter it and appear on the other side of the obstacle, up to %d grids away.]]):
+		return ([[5 개의 연금술용 보석을 부숴, 그 가루로 통과할 수 없는 벽이나 지형에 특수한 표식을 새깁니다. 
+		그 힘을 이용하여, 벽이나 지형을 %d 칸 까지 통과할 수 있습니다.]]):
 		format(range)
 	end,
 }
 
 newTalent{
 	name = "Stone Touch",
+	kr_name = "석화의 손길",
 	type = {"spell/stone-alchemy",4},
 	require = spells_req4,
 	points = 5,
@@ -232,12 +239,11 @@ newTalent{
 	end,
 	info = function(self, t)
 		local duration = t.getDuration(self, t)
-		return ([[Touch your foe and turn it to stone for %d turns.
-		Stoned creatures are unable to act or regen life, and are very brittle.
-		If a stoned creature is hit by an attack that deals more than 30%% of its life, it will shatter and be destroyed.
-		Stoned creatures are highly resistant to fire and lightning, and somewhat resistant to physical attacks.
-		At level 3 the touch will become a beam.
-		This spell may fail against creatures resistant to being stunned, that are specifically immune to stoning, or certain bosses.]]):
+		return ([[대상에게 석화의 손길을 내밀어, %d 턴 동안 석화 상태로 만듭니다.
+		석화된 대상은 행동이나 생명력 재생이 불가능해지며, 매우 불안정한 상태가 되어 최대 생명력의 30%% 이상에 해당하는 피해를 한 번에 입으면 산산조각나서 즉사합니다.
+		그 대신 석화되었기 때문에 화염이나 전기 저항력이 매우 높아지며, 물리적 공격에도 상당한 저항력을 가집니다.
+		기술 레벨이 3 이상이면 빔 형태로 석화의 기운을 발사할 수 있습니다.
+		이 마법은 기절했거나 석화에 완전 면역을 가지고 있는 적에게는 통하지 않으며, 몇몇 보스에게도 통하지 않습니다.]]):
 		format(duration)
 	end,
 }
