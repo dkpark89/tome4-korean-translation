@@ -106,7 +106,7 @@ newTalent{
 		local damage = t.getDamage(self, t)
 		return ([[대상 주변의 수분을 응결시켜, %0.2f 피해를 주고 %d 턴 동안 빙결시킵니다.
 		아군에게 사용되었을 경우, 재사용 대기 시간이 절반으로 감소합니다.
-		피해량은 주문력의 영향을 받아 증가합니다.]]):format(t.getDuration(self, t), damDesc(self, DamageType.COLD, damage))
+		피해량은 주문력의 영향을 받아 증가합니다.]]):format(damDesc(self, DamageType.COLD, damage), t.getDuration(self, t)) --@ 변수 순서 조정 
 	end,
 }
 
