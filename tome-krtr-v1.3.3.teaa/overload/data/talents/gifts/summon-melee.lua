@@ -19,11 +19,12 @@
 
 newTalent{
 	name = "War Hound",
+	kr_name = "전투견 소환",
 	type = {"wild-gift/summon-melee", 1},
 	require = gifts_req1,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a War Hound!",
+	message = "@Source1@ 전투견을 소환했습니다!",
 	equilibrium = 3,
 	cooldown = 15,
 	range = 5,
@@ -31,7 +32,7 @@ newTalent{
 	is_summon = true,
 	tactical = { ATTACK = { PHYSICAL = 2 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -64,7 +65,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -72,7 +73,7 @@ newTalent{
 		local m = NPC.new{
 			type = "animal", subtype = "canine",
 			display = "C", color=colors.LIGHT_DARK, image = "npc/summoner_wardog.png",
-			name = "war hound", faction = self.faction,
+			name = "전투견", faction = self.faction,
 			desc = [[]],
 			autolevel = "none",
 			ai = "summoned", ai_real = "dumb_talented_simple", ai_state = { talent_in=5, },
@@ -95,6 +96,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_name = (m.kr_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_TOTAL_THUGGERY]=self:getTalentLevelRaw(t) }
 		end
@@ -104,21 +106,22 @@ newTalent{
 	end,
 	info = function(self, t)
 		local incStats = t.incStats(self, t, true)
-		return ([[Summon a War Hound for %d turns to attack your foes. War hounds are good basic melee attackers.
-		It will get %d Strength, %d Dexterity and %d Constitution.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Strength and Dexterity will increase with your Mindpower.]])
+		return ([[%d 턴 동안 전투견을 소환하여 적과 싸우게 합니다. 전투견은 기초적이지만 강력한 근접 공격수입니다.
+		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 민첩, %d 체격
+		소환수의 피해 증가량, 기절/속박/혼란/실명 면역력, 방어도 관통력은 시전자와 동일합니다.
+		소환수의 힘과 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(t.summonTime(self, t), incStats.str, incStats.dex, incStats.con)
 	end,
 }
 
 newTalent{
 	name = "Jelly",
+	kr_name = "젤리 소환",
 	type = {"wild-gift/summon-melee", 2},
 	require = gifts_req2,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a Jelly!",
+	message = "@Source1@ 젤리를 소환합니다!",
 	equilibrium = 2,
 	cooldown = 10,
 	range = 5,
@@ -126,7 +129,7 @@ newTalent{
 	is_summon = true,
 	tactical = { ATTACK = { NATURE = 1 }, EQUILIBRIUM = 1, },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -157,7 +160,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -165,8 +168,9 @@ newTalent{
 		local m = NPC.new{
 			type = "immovable", subtype = "jelly", image = "npc/jelly-darkgrey.png",
 			display = "j", color=colors.BLACK,
-			desc = "A strange blob on the dungeon floor.",
+			desc = "던전 바닥에서 주로 볼 수 있는, 점액질 덩어리입니다.",
 			name = "black jelly",
+			kr_name = "검은 젤리",
 			autolevel = "none", faction=self.faction,
 			stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
 			inc_stats = t.incStats(self, t),
@@ -193,12 +197,13 @@ newTalent{
 				local p = value * 0.10
 				if self.summoner and not self.summoner.dead then
 					self.summoner:incEquilibrium(-p)
-					self:logCombat(self.summoner, "#GREEN##Source# absorbs part of the blow. #Target# is closer to nature.")
+					self:logCombat(self.summoner, "#GREEN##Source1# 충격의 일부를 흡수했습니다. #Target2# 자연과 조금 더 가까워 졌습니다.")
 				end
 				return value - p
 			end,
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_name = (m.kr_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_SWALLOW]=self:getTalentLevelRaw(t) }
 		end
@@ -208,21 +213,22 @@ newTalent{
 	end,
 	info = function(self, t)
 		local incStats = t.incStats(self, t, true)
-		return ([[Summon a Jelly for %d turns to attack your foes. Jellies do not move, but your equilibrium will be reduced by 10%% of all damage received by the jelly.
-		It will get %d Constitution and %d Strength.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Constitution stat will increase with your Mindpower.]])
+		return ([[%d 턴 동안 젤리를 소환하여 적과 싸우게 합니다. 젤리는 움직이지 않지만, 젤리가 받는 피해량의 10%% 만큼 평정을 찾을 수 있게 됩니다.
+		소환수의 능력치는 다음과 같습니다 : %d 체격, %d 힘
+		소환수의 피해 증가량, 기절/속박/혼란/실명 면역력, 방어도 관통력은 시전자와 동일합니다.
+		소환수의 건강 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(t.summonTime(self, t), incStats.con, incStats.str)
        end,
 }
 
 newTalent{
 	name = "Minotaur",
+	kr_name = "미노타우르스 소환",
 	type = {"wild-gift/summon-melee", 3},
 	require = gifts_req3,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons a Minotaur!",
+	message = "@Source1@ 미노타우르스를 소환합니다!",
 	equilibrium = 10,
 	cooldown = 15,
 	range = 5,
@@ -230,7 +236,7 @@ newTalent{
 	requires_target = true,
 	tactical = { ATTACK = { PHYSICAL = 2 }, DISABLE = { confusion = 1, stun = 1 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -263,7 +269,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -272,6 +278,7 @@ newTalent{
 			type = "giant", subtype = "minotaur",
 			display = "H",
 			name = "minotaur", color=colors.UMBER, resolvers.nice_tile{image="invis.png", add_mos = {{image="npc/giant_minotaur_minotaur.png", display_h=2, display_y=-1}}},
+				kr_name = "미노타우르스",
 
 			body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -285,7 +292,7 @@ newTalent{
 			global_speed_base=1.2,
 			stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
 			inc_stats = t.incStats(self, t),
-			desc = [[It is a cross between a human and a bull.]],
+			desc = [[인간과 소의 혼혈입니다.]],
 			resolvers.equip{ {type="weapon", subtype="battleaxe", auto_req=true}, },
 			level_range = {self.level, self.level}, exp_worth = 0,
 
@@ -300,6 +307,7 @@ newTalent{
 			ai_target = {actor=target}
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_name = (m.kr_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_RUSH]=self:getTalentLevelRaw(t) }
 		end
@@ -309,28 +317,29 @@ newTalent{
 	end,
 	info = function(self, t)
 		local incStats = t.incStats(self, t, true)
-		return ([[Summon a Minotaur for %d turns to attack your foes. Minotaurs cannot stay summoned for long, but they deal a lot of damage.
-		It will get %d Strength, %d Constitution and %d Dexterity.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Strength and Dexterity will increase with your Mindpower.]])
+		return ([[%d 턴 동안 미노타우르스를 소환하여 적과 싸우게 합니다. 미노타우르스는 소환 지속시간이 짧지만, 적에게 큰 피해를 줍니다.
+		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 체격, %d 민첩
+		소환수의 피해 증가량, 기절/속박/혼란/실명 면역력, 방어도 관통력은 시전자와 동일합니다.
+		소환수의 힘과 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(t.summonTime(self,t), incStats.str, incStats.con, incStats.dex)
 	end,
 }
 
 newTalent{
 	name = "Stone Golem",
+	kr_name = "암석 골렘 소환",
 	type = {"wild-gift/summon-melee", 4},
 	require = gifts_req4,
 	points = 5,
 	random_ego = "attack",
-	message = "@Source@ summons an Stone Golem!",
+	message = "@Source1@ 암석 골렘을 소환합니다!",
 	equilibrium = 15,
 	cooldown = 20,
 	range = 5,
 	is_summon = true,
 	tactical = { ATTACK = { PHYSICAL = 3 }, DISABLE = { knockback = 1 } },
 	on_pre_use = function(self, t, silent)
-		if not self:canBe("summon") and not silent then game.logPlayer(self, "You cannot summon; you are suppressed!") return end
+		if not self:canBe("summon") and not silent then game.logPlayer(self, "제압된 상태이기 때문에, 소환을 사용할 수 없습니다!") return end
 		return not checkMaxSummon(self, silent)
 	end,
 	on_detonate = function(self, t, m)
@@ -363,7 +372,7 @@ newTalent{
 		-- Find space
 		local x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})
 		if not x then
-			game.logPlayer(self, "Not enough space to summon!")
+			game.logPlayer(self, "소환할 공간이 없습니다!")
 			return
 		end
 
@@ -372,6 +381,7 @@ newTalent{
 			type = "golem", subtype = "stone",
 			display = "g",
 			name = "stone golem", color=colors.WHITE, image = "npc/summoner_golem.png",
+			kr_name = "암석 골렘",
 
 			body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1 },
 
@@ -384,7 +394,7 @@ newTalent{
 			ai = "summoned", ai_real = "dumb_talented_simple", ai_state = { talent_in=2, },
 			stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
 			inc_stats = t.incStats(self, t),
-			desc = [[It is a massive animated statue.]],
+			desc = [[살아 움직이는 거대한 석상입니다.]],
 			level_range = {self.level, self.level}, exp_worth = 0,
 
 			combat_armor = 25, combat_def = -20,
@@ -402,6 +412,7 @@ newTalent{
 			resolvers.sustains_at_birth(),
 		}
 		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.kr_name = (m.kr_name or m.name).." (야생의 소환수)"
 			m.name = m.name.." (wild summon)"
 			m[#m+1] = resolvers.talents{ [self.T_SHATTERING_IMPACT]=self:getTalentLevelRaw(t) }
 		end
@@ -411,10 +422,10 @@ newTalent{
 	end,
 	info = function(self, t)
 		local incStats = t.incStats(self, t,true)
-		return ([[Summon a Stone Golem for %d turns to attack your foes. Stone golems are formidable foes that can become unstoppable.
-		It will get %d Strength, %d Constitution and %d Dexterity.
-		Your summons inherit some of your stats: increased damage%%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Strength and Dexterity will increase with your Mindpower.]])
+		return ([[%d 턴 동안 암석 골렘을 소환하여 적과 싸우게 합니다. 암석 골렘은 폭주 상태가 될 수 있는 강력한 소환수입니다.
+		소환수의 능력치는 다음과 같습니다 : %d 힘, %d 체격, %d 민첩
+		소환수의 피해 증가량, 기절/속박/혼란/실명 면역력, 방어도 관통력은 시전자와 동일합니다.
+		소환수의 힘과 민첩 능력치는 정신력의 영향을 받아 증가합니다.]])
 		:format(t.summonTime(self, t), incStats.str, incStats.con, incStats.dex)
 	end,
 }
