@@ -570,7 +570,7 @@ newTalent{
 				display = "d", color=colors.RED, image = "npc/dragon_fire_fire_drake_hatchling.png",
 				name = "fire drake hatchling", faction = self.faction,
 				kr_name = "화염 드레이크 해츨링",
-				desc = [강력한 화염 드레이크입니다.]],
+				desc = [[강력한 화염 드레이크입니다.]],
 				autolevel = "none",
 				ai = "summoned", ai_real = "tactical", ai_state = { talent_in=1, ally_compassion=10},
 				stats = {str=0, dex=0, con=0, cun=0, wil=0, mag=0},
