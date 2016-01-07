@@ -301,8 +301,8 @@ newTalent{
 			summon_time = t.summonTime(self, t),
 			ai_target = {actor=target}
 		}
-		if self:attr("wild_summon") and rng.percent(self:attr("야생의 소환수")) then
-			m.name = m.name.." (wild summon)"
+		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.name = m.name.." (야생의 소환수)"
 			m[#m+1] = resolvers.talents{ [self.T_FLAME_FURY]=self:getTalentLevelRaw(t) }
 		end
 		setupSummon(self, m, x, y)
@@ -409,8 +409,8 @@ newTalent{
 			summon_time = t.summonTime(self, t),
 			ai_target = {actor=target}
 		}
-		if self:attr("wild_summon") and rng.percent(self:attr("야생의 소환수")) then
-			m.name = m.name.." (wild summon)"
+		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.name = m.name.." (야생의 소환수)"
 			m[#m+1] = resolvers.talents{ [self.T_DISENGAGE]=self:getTalentLevelRaw(t) }
 		end
 		setupSummon(self, m, x, y)
@@ -512,8 +512,8 @@ newTalent{
 			summon_time = t.summonTime(self, t),
 			ai_target = {actor=target}
 		}
-		if self:attr("wild_summon") and rng.percent(self:attr("야생의 소환수")) then
-			m.name = m.name.." (wild summon)"
+		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.name = m.name.." (야생의 소환수)"
 			m[#m+1] = resolvers.talents{ [self.T_RESOLVE]=self:getTalentLevelRaw(t) }
 		end
 		setupSummon(self, m, x, y)
@@ -657,8 +657,8 @@ newTalent{
 			summon_time = t.summonTime(self, t),
 			ai_target = {actor=target}
 		}
-		if self:attr("wild_summon") and rng.percent(self:attr("야생의 소환수")) then
-			m.name = m.name.." (wild summon)"
+		if self:attr("wild_summon") and rng.percent(self:attr("wild_summon")) then
+			m.name = m.name.." (야생의 소환수)"
 			m[#m+1] = resolvers.talents{ [self.T_AURA_OF_SILENCE]=self:getTalentLevelRaw(t) }
 		end
 		setupSummon(self, m, x, y)
