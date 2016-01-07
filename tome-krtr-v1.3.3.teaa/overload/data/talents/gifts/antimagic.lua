@@ -19,6 +19,7 @@
 
 newTalent{
 	name = "Resolve",
+	kr_name = "결의",
 	type = {"wild-gift/antimagic", 1},
 	require = gifts_req1,
 	mode = "passive",
@@ -38,16 +39,17 @@ newTalent{
 	info = function(self, t)
 		local resist = t.getResist(self, t)
 		local regen = t.getRegen(self, t)
-		return ([[You stand in the way of magical damage. That which does not kill you will make you stronger.
-		Each time you are hit by non-physical, non-mind damage, you get a %d%% resistance to that element for 7 turns.
-		If Antimagic Shield is not active, you also absorb part of the impact and use it to fuel your own powers, decreasing your equilibrium and increasing your stamina by %0.2f each hit.
-		The effects will increase with your Mindpower.]]):
+		return ([[마법 피해를 버텨내고, 자신을 더 강하게 만듭니다.
+		마법 피해를 받을 때마다, 해당 속성에 대한 저항력이 7 턴 동안 %d%% 증가하게 됩니다.
+		반마법 보호막이 비활성화 상태라면, 충격의 일부를 흡수하여 %0.2f 만큼 체력을 회복하고 평정을 되찾게 됩니다.
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(	resist, regen )
 	end,
 }
 
 newTalent{
 	name = "Aura of Silence",
+	kr_name = "침묵의 기운",
 	type = {"wild-gift/antimagic", 2},
 	require = gifts_req2,
 	points = 5,
@@ -68,14 +70,15 @@ newTalent{
 	end,
 	info = function(self, t)
 		local rad = self:getTalentRadius(t)
-		return ([[Let out a burst of sound that silences for %d turns all those affected in a radius of %d, including the user.
-		The silence chance will increase with your Mindpower.]]):
+		return ([[주변의 소리를 없애, %d 턴 동안 주변 %d 칸 반경의 적들을 침묵시킵니다. (시전자 포함)
+		침묵 확률은 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getduration(self,t), rad)
 	end,
 }
 
 newTalent{
 	name = "Antimagic Shield",
+	kr_name = "반마법 보호막",
 	type = {"wild-gift/antimagic", 3},
 	require = gifts_req3,
 	mode = "sustained",
@@ -119,15 +122,16 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[Surround yourself with a shield that will absorb at most %d non-physical, non-mind element damage per attack.
-		Each time damage is absorbed by the shield, your equilibrium increases by 1 for every 30 points of damage and a check is made. If the check fails, the shield will crumble and Antimagic Shield will go on cooldown.
-		The damage the shield can absorb will increase with your Mindpower.]]):
+		return ([[마법 공격에 피해를 받을 때마다 %d 만큼 피해량을 경감시켜주는, 반마법 보호막을 만들어냅니다.
+		피해량을 30 흡수할 때마다 평정 수치가 1 올라가며, 평정에 따른 실패율을 계산합니다. 계산 결과 평정이 깨지면, 반마법 보호막도 깨지며 재사용 대기시간이 활성화됩니다.
+		피해 흡수량은 정신력의 영향을 받아 증가합니다.]]):
 		format(t.getMax(self, t))
 	end,
 }
 
 newTalent{
 	name = "Mana Clash",
+	kr_name = "마나 충돌",
 	type = {"wild-gift/antimagic", 4},
 	require = gifts_req4,
 	points = 5,
@@ -161,9 +165,9 @@ newTalent{
 		local positive = base / 4
 		local negative = base / 4
 
-		return ([[Drain %d mana, %d vim, %d positive and negative energies from your target, triggering a chain reaction that explodes in a burst of arcane damage.
-		The damage done is equal to 100%% of the mana drained, 200%% of the vim drained, or 400%% of the positive or negative energy drained, whichever is higher.
-		The effect will increase with your Mindpower.]]):
+		return ([[대상의 마나를 %d / 원기를 %d / 양기와 음기를 %d 만큼 빼앗아 폭발시킵니다.
+		폭발의 피해는 흡수된 마나 수치의 100%% / 흡수된 원기 수치의 200%% / 흡수된 양기나 음기 수치의 400%% 와 같습니다. (세 수치 중 높은 쪽을 따릅니다)
+		기술의 효과는 정신력의 영향을 받아 증가합니다.]]):
 		format(mana, vim, positive, negative)
 	end,
 }
