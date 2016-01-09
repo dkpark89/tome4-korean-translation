@@ -119,7 +119,7 @@ newTalent{
 		return ([[지정한 곳으로부터 주변 %d 칸 반경에 산성 늪지대가 만들어집니다.
 		늪지대에 발을 내딛은 모든 적은 %d 턴 동안 매 턴마다 %0.1f 피해를 받으며, %d%% 감속됩니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(radius, damDesc(self, DamageType.ACID, damage), duration, slow)
+		format(radius, duration, damDesc(self, DamageType.ACID, damage), slow)
 	end,
 }
 

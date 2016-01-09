@@ -100,7 +100,7 @@ newTalent{
 		local duration = t.getDuration(self, t)
 		return ([[%0.2f의 어둠 피해를 주고, 3칸 반경 지역에 %d 턴마다 %0.2f 어둠피해를 입히는 그림자 폭풍을 일으킵니다.
 		피해량은 주문력에 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.DARKNESS, damage),damDesc(self, DamageType.DARKNESS, damageonspot),duration)
+		format(damDesc(self, DamageType.DARKNESS, damage),duration,damDesc(self, DamageType.DARKNESS, damageonspot))
 	end,
 }
 

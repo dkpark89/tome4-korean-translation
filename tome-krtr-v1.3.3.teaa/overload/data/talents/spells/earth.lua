@@ -125,7 +125,7 @@ newTalent{
 		local radius = self:getTalentRadius(t)
 		return ([[소규모 산사태를 만들어내, 전방의 주변 %d 칸 반경에 %0.2f 물리 피해를 줍니다. 산사태에 휩쓸린 적들은 밀려납니다.
 		피해량은 주문력의 영향을 받아 증가합니다.]]):
-		format(damDesc(self, DamageType.PHYSICAL, damage), self:getTalentRadius(t))
+		format(self:getTalentRadius(t), damDesc(self, DamageType.PHYSICAL, damage))
 	end,
 }
 

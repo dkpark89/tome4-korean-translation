@@ -139,7 +139,7 @@ newTalent{
 	end,
 	info = function(self, t)
 		return ([[고도의 집중력을 발휘하여, %d 턴 동안 근접, 원거리 물리 공격의 정확도를 %d 증가시킵니다. 
-		또한 지속시간 동안, 보이지 않는 적을 공격할 때 생기는 불리함을 무시할 수 있게 됩니다.]]):format(t.getAtk(self, t), t.getDuration(self, t))
+		또한 지속시간 동안, 보이지 않는 적을 공격할 때 생기는 불리함을 무시할 수 있게 됩니다.]]):format(t.getDuration(self, t), t.getAtk(self, t))
 	end,
 }
 
