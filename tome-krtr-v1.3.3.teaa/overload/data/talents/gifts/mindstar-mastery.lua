@@ -27,6 +27,7 @@ end
 
 newTalent{
 	name = "Psiblades",
+	kr_name = "염동 칼날",
 	type = {"wild-gift/mindstar-mastery", 1},
 	require = gifts_req1,
 	points = 5,
@@ -64,15 +65,19 @@ newTalent{
 	info = function(self, t)
 		local damage = t.getDamage(self, t)
 		local inc = t.getPercentInc(self, t)
-		return ([[Channel your mental power through your wielded mindstars, generating psionic blades.
-		Mindstar psiblades have their damage modifiers (how much damage they gain from stats) multiplied by %0.2f, their armour penetration by %0.2f and mindpower, willpower and cunning by %0.2f.
-		Also increases Physical Power by %d and increases weapon damage by %d%% when using mindstars.]]):
+		return ([[마석에 정신력을 집중해, 염동 칼날을 만들어냅니다.
+		염동 칼날을 생성할 경우, 일반적으로 마석을 들었을 때에 비해 다양한 강화가 이루어집니다. 
+		- 무기의 적용 능력치 배율이 %0.2f 만큼 더 곱해집니다. 
+		- 무기의 방어도 관통력이 %0.2f 배가 됩니다. 
+		- 무기가 올려주는 의지, 교활함, 정신력 수치가 %0.2f 배가 됩니다.
+		- 무기의 물리력이 %d 만큼, 무기의 피해량이 %d%% 만큼 상승합니다.]]):
 		format(t.getStatmult(self, t), t.getAPRmult(self, t), t.getPowermult(self, t), damage, 100 * inc) --I5
 	end,
 }
 
 newTalent{
 	name = "Thorn Grab",
+	kr_name = "가시덩굴 붙잡기",
 	type = {"wild-gift/mindstar-mastery", 2},
 	require = gifts_req2,
 	points = 5,
@@ -93,15 +98,15 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You touch the target with your psiblade, bringing the forces of nature to bear on your foe.
-		Thorny vines will grab the target, slowing it by %d%% and dealing %0.2f nature damage each turn for 10 turns.
-		Damage will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]]):
+		return ([[염동 칼날을 대상과 접촉시켜, 자연의 힘을 흘려보냅니다. 이를 통해 만들어진 가시덩굴은 대상을 휘감아, 대상을 10 턴 동안 %d%% 만큼 감속시키고 매 턴마다 %0.2f 자연 피해를 줍니다.
+		피해량은 정신력와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은 %2.f 입니다.]]):
 		format(100*t.speedPenalty(self,t), damDesc(self, DamageType.NATURE, self:combatTalentMindDamage(t, 15, 250) / 10 * get_mindstar_power_mult(self)), get_mindstar_power_mult(self))
 	end,
 }
 
 newTalent{
 	name = "Leaves Tide",
+	kr_name = "잎사귀 물결",
 	type = {"wild-gift/mindstar-mastery", 3},
 	require = gifts_req3,
 	points = 5,
@@ -132,16 +137,17 @@ newTalent{
 	info = function(self, t)
 		local dam = t.getDamage(self, t)
 		local c = t.getChance(self, t)
-		return ([[Smash your psiblades into the ground, creating a tide of crystallized leaves circling you in a radius of 3 for 7 turns.
-		All foes hit by the leaves will start bleeding for %0.2f per turn (cumulative).
-		All allies hit will be covered in leaves, granting them %d%% chance to completely avoid any damaging attack.
-		Damage and avoidance will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]]):
+		return ([[염동 칼날로 지면을 후려쳐, 결정화된 잎사귀들을 만들어냅니다. 이 잎사귀들은 7 턴 동안 주변 3 칸 반경을 부유합니다.
+		잎사귀에 스친 적들은 매 턴마다 %0.2f 출혈 피해를 입으며, 이 피해는 중첩됩니다.
+		동료들에게는 잎사귀가 보호막 역할을 해, %d%% 확률로 피해를 무시할 수 있게 됩니다.
+		피해량과 회피율은 정신력 수치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은 %2.f 입니다.]]):
 		format(dam, c, get_mindstar_power_mult(self))
 	end,
 }
 
 newTalent{
 	name = "Nature's Equilibrium",
+	kr_name = "자연의 평정",
 	type = {"wild-gift/mindstar-mastery", 4},
 	require = gifts_req4,
 	points = 5,
@@ -187,9 +193,9 @@ newTalent{
 		return true
 	end,
 	info = function(self, t)
-		return ([[You hit a foe with your mainhand psiblade doing %d%% weapon damage, channeling all the damage done through your offhand psiblade with which you touch a friendly creature to heal it.
-		The maximum heal possible is %d. Equilibrium of the healed target will also decrease by 10%% of the heal power.
-		Max heal will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]]):
+		return ([[주무기인 염동 칼날로 적을 공격해 %d%% 무기 피해를 주고, 그 피해를 보조무기를 통해 동료에게 전달하여 생명력을 회복합니다.
+		최대 생명력 회복량은 %d 이며, 생명력이 회복된 대상은 회복량의 10%% 만큼 평정을 찾게 됩니다.
+		최대 생명력 회복량은 정신력 수치와 마석의 위력에 따라 증가합니다. (양손에 마석을 들고 있어야 하며, 배율은 %2.f 입니다)]]):
 		format(self:combatTalentWeaponDamage(t, 2.5, 4) * 100, t.getMaxDamage(self, t), get_mindstar_power_mult(self))
 	end,
 }
