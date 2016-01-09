@@ -21,6 +21,7 @@
 
 newTalent{
 	name = "Twilight",
+	kr_name = "황혼",
 	type = {"celestial/twilight", 1},
 	require = divi_req1,
 	points = 5,
