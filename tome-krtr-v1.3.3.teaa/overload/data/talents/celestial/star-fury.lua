@@ -106,6 +106,7 @@ newTalent{
 
 newTalent{
 	name = "Twilight Surge",
+	kr_name = "밀려드는 황혼",
 	type = {"celestial/star-fury",3},
 	require = divi_req3,
 	points = 5,
